@@ -5,7 +5,7 @@
 #define _MAX_HASH_BYTE_LENGTH	((_MAX_HASH_BIT_LENGTH - 1) / 8 + 1)
 
 
-#define _SIG_ATT_TEST_MODE
+//#define _SIG_ATT_TEST_MODE
 // wenn dieses #define einkommentiert ist, wird eine Testreihe mit dem Floyd-Algorithmus durchlaufen
 
 #ifndef _SIG_ATT_TEST_MODE

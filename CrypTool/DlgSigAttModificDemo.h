@@ -14,6 +14,7 @@ class CDlgSigAttModificDemo : public CDialog
 {
 // Konstruktion
 public:
+	void SetData(char *Path, const CString &Title);
 	CDlgSigAttModificDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -25,11 +26,11 @@ public:
 	CButton	m_control_double;
 	CButton	m_control_eol;
 	CEdit	m_control_hashvalue;
-	CString	m_file;
 	CString	m_hashvalue;
 	int		m_sigbit;
 	int		m_method;
 	int		m_printable;
+	int		m_parity;
 	//}}AFX_DATA
 
 
@@ -45,15 +46,18 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgSigAttModificDemo)
-	afx_msg void OnSerach();
 	afx_msg void OnModify();
 	afx_msg void OnAttachment();
 	afx_msg void OnMethod();
 	afx_msg void OnPrintable();
 	afx_msg void OnUnprintable();
+	afx_msg void OnUpdateHashvalue();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+
+	CString m_Path;
+	CString m_Title;
 };
 
 //{{AFX_INSERT_LOCATION}}

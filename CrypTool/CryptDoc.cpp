@@ -27,6 +27,8 @@
 #include "ASN1Decoder.h"
 #include "DlgDiffieHellmanVisualization.h"
 #include "DlgASN1PSEPINPrompt.h"
+#include "DlgSigAttModificDemo.h"
+#include "DlgSignatureAttack.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -165,6 +167,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridentschlsselung)
 	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
+	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -193,6 +196,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
+	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1673,4 +1677,19 @@ void CCryptDoc::OnEinzelverfahrenAsn1decodieren()
 			return;
 		}
 	}
+}
+
+void CCryptDoc::OnSigattmodificdemo() 
+{
+	UpdateContent();
+
+	CDlgSigAttModificDemo SAMD;
+	SAMD.SetData(ContentName, GetTitle());
+	SAMD.DoModal();
+}
+
+void CCryptDoc::OnSignaturAttack() 
+{
+	CDlgSignatureAttack S_A;
+	S_A.DoModal();
 }

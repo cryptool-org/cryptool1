@@ -81,7 +81,12 @@ void ModifiedDocument_Attachments::SetData(const char *OriginalDocument, const i
 	m_LastAttachableBytes = (1 + m_LastBits) / 2;
 	m_OriginalDocumentLength = m_OriginalDocument->GetDocumentLength();
 
+#ifdef _SIG_ATT_SPEED_INCREMENT
+
 	ModifyOriginalDocument(0);
+
+#endif
+
 	memcpy(m_DocumentData, m_OriginalDocument->GetDocumentData(), OriginalDocumentLength);
 
 	m_Errorcode = _SIG_ATT_OK;

@@ -641,6 +641,7 @@
 #define IDC_HASHVALUE                   1479
 #define IDC_SIGBIT                      1480
 #define IDC_METHOD                      1481
+#define IDC_PARITY                      1482
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -1523,7 +1524,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        635
 #define _APS_NEXT_COMMAND_VALUE         33263
-#define _APS_NEXT_CONTROL_VALUE         1482
+#define _APS_NEXT_CONTROL_VALUE         1483
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
