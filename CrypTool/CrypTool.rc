@@ -490,7 +490,8 @@ BEGIN
     EDITTEXT        IDC_EDIT25,220,107,14,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Ergebnis der automatischen Analyse wieder herstellen",
                     IDC_BUTTON2,13,128,198,20
-    PUSHBUTTON      "&Zurück",IDC_UNDO,271,128,63,20,WS_DISABLED
+    CONTROL         "UNDO_",IDC_UNDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
+                    WS_TABSTOP,269,128,23,20
     EDITTEXT        IDC_EDIT4,13,167,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     DEFPUSHBUTTON   "Aktuellen &Zustand ausgeben",IDOK,13,291,121,21
@@ -527,6 +528,8 @@ BEGIN
     LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Sie können anhand der aktuellen Entschlüsselung weitere Substitutionen versuchen zu bestimmen.",
                     IDC_STATIC,13,23,321,17
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,149,291,80,21
+    CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
+                    WS_TABSTOP,312,128,22,20
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
@@ -561,7 +564,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -2072,23 +2075,23 @@ BEGIN
     LTEXT           "Iterationen",IDC_STATIC,82,24,34,8
     LTEXT           "Brent",IDC_STATIC,14,41,60,8
     EDITTEXT        IDC_EDIT1,82,38,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | ES_READONLY
+                    ES_READONLY | ES_NUMBER
     PUSHBUTTON      "Abbrechen",IDCANCEL2,156,38,50,14,WS_DISABLED
     LTEXT           "Pollard",IDC_STATIC,14,63,60,8
     EDITTEXT        IDC_EDIT2,82,60,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | ES_READONLY
+                    ES_READONLY | ES_NUMBER
     PUSHBUTTON      "Abbrechen",IDCANCEL3,156,60,50,14,WS_DISABLED
     LTEXT           "Williams",IDC_STATIC,14,85,60,8
     EDITTEXT        IDC_EDIT3,82,82,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | ES_READONLY
+                    ES_READONLY | ES_NUMBER
     PUSHBUTTON      "Abbrechen",IDCANCEL4,156,82,50,14,WS_DISABLED
     LTEXT           "Lenstra",IDC_STATIC,14,107,60,8
     EDITTEXT        IDC_EDIT4,82,104,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | ES_READONLY
+                    ES_READONLY | ES_NUMBER
     PUSHBUTTON      "Abbrechen",IDCANCEL5,156,104,50,14,WS_DISABLED
     LTEXT           "Quadratisches Sieb",IDC_STATIC,14,129,65,8
     EDITTEXT        IDC_EDIT5,82,126,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | ES_READONLY
+                    ES_READONLY | ES_NUMBER
     PUSHBUTTON      "Abbrechen",IDCANCEL6,156,126,50,14,WS_DISABLED
     LTEXT           "Zu faktorisierende Zahl",IDC_STATIC,15,7,82,12
     EDITTEXT        IDC_EDIT6,109,6,97,14,ES_AUTOHSCROLL | ES_READONLY
@@ -3374,6 +3377,10 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
+UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
+UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
+REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
+REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6024,7 +6031,8 @@ BEGIN
     EDITTEXT        IDC_EDIT25,220,106,14,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Reset entries to the result of the automatic analysis",
                     IDC_BUTTON2,13,127,198,20
-    PUSHBUTTON      "&Back",IDC_UNDO,271,127,63,20,WS_DISABLED
+    CONTROL         "UNDO_",IDC_UNDO_,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,266,127,22,20
     EDITTEXT        IDC_EDIT4,13,168,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     DEFPUSHBUTTON   "Output current &status",IDOK,13,291,120,21
@@ -6061,6 +6069,8 @@ BEGIN
     LTEXT           "Each change of the substitution list below will result into a change of the intermediate status of decryption below. Using the actual state of decryption you may try out other substitutions. ",
                     IDC_STATIC,13,23,321,17
     PUSHBUTTON      "&Copy key",IDC_BUTTON1,149,291,80,21
+    CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,312,127,22,20
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
@@ -6094,7 +6104,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Show &public parameters...",IDC_BUTTON1,127,238,120,14
     PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,259,238,120,14

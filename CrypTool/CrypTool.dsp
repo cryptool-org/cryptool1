@@ -448,6 +448,14 @@ SOURCE=.\res\backgroundHybr.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=".\res\backward-grey.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\backward.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmap1.bmp
 # End Source File
 # Begin Source File
@@ -2213,6 +2221,14 @@ SOURCE=.\FLASH.CPP
 # Begin Source File
 
 SOURCE=.\FLASH.H
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\foreward-grey.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\foreward.bmp
 # End Source File
 # Begin Source File
 

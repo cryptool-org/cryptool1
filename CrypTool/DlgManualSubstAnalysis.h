@@ -18,13 +18,17 @@ class CDlgManualSubstAnalysis : public CDialog
 {
 // Konstruktion
 public:
-	CDlgManualSubstAnalysis(CWnd* pParent = NULL);   // Standardkonstruktor
+
+	CBitmapButton m_bmpUndo;
+	CBitmapButton m_bmpRedo;
+
+	 CDlgManualSubstAnalysis(CWnd* pParent = NULL);   // Standardkonstruktor
+	~CDlgManualSubstAnalysis();
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgManualSubstAnalysis)
 	enum { IDD = IDD_MANUAL_SUBST_ANALYSIS };
 	CButton	m_ButtonCopyKey;
-	CButton	m_ButtonUndo;
 	CString	m_edit2;
 	CString	m_edit3;
 	CString	m_edit27;
@@ -105,6 +109,7 @@ protected:
 	afx_msg void OnUndo();
 	virtual void OnOK();
 	afx_msg void OnCopyKey();
+	afx_msg void OnRedo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -114,8 +119,10 @@ private:
 		KeyList* next;
 		int	 key[26];
 	} *m_ptrKeyList;
+	KeyList *m_ptrKeyAct;
 
 	BOOL GetPrevKey(int* Eingabe);
+	BOOL GetNextKey(int* Eingabe);
 	BOOL UpdateKeyList();
 };
 

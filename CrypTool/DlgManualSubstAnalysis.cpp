@@ -62,8 +62,19 @@ CDlgManualSubstAnalysis::CDlgManualSubstAnalysis(CWnd* pParent /*=NULL*/)
 	m_edit1 = _T("");
 	//}}AFX_DATA_INIT
 
-	m_ptrKeyList = 0;
+	m_ptrKeyList = m_ptrKeyAct = 0;
 }
+
+CDlgManualSubstAnalysis::~CDlgManualSubstAnalysis()
+{
+	while ( m_ptrKeyList != 0 ) 
+	{
+		KeyList* toDel = m_ptrKeyList;
+		m_ptrKeyList   = m_ptrKeyList->next;
+		delete toDel;
+	}
+}
+
 
 
 void CDlgManualSubstAnalysis::DoDataExchange(CDataExchange* pDX)
@@ -71,7 +82,6 @@ void CDlgManualSubstAnalysis::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgManualSubstAnalysis)
 	DDX_Control(pDX, IDC_BUTTON1, m_ButtonCopyKey);
-	DDX_Control(pDX, IDC_UNDO, m_ButtonUndo);
 	DDX_Text(pDX, IDC_EDIT2, m_edit2);
 	DDV_MaxChars(pDX, m_edit2, 1);
 	DDX_Text(pDX, IDC_EDIT3, m_edit3);
@@ -159,8 +169,9 @@ BEGIN_MESSAGE_MAP(CDlgManualSubstAnalysis, CDialog)
 	ON_EN_CHANGE(IDC_EDIT25, OnChangeEdit25)
 	ON_EN_CHANGE(IDC_EDIT26, OnChangeEdit26)
 	ON_EN_CHANGE(IDC_EDIT27, OnChangeEdit27)
-	ON_BN_CLICKED(IDC_UNDO, OnUndo)
+	ON_BN_CLICKED(IDC_UNDO_, OnUndo)
 	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
+	ON_BN_CLICKED(IDC_REDO_, OnRedo)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -212,7 +223,19 @@ void CDlgManualSubstAnalysis::OnButton1()
    Substitution wieder in die Felder des Nachbearbeitungsfensters	*/
 void CDlgManualSubstAnalysis::OnButton2() 
 {
-	OnInitDialog();
+	m_ptrKeyAct = 0;
+
+	for (int i=0; i<26; i++){
+		if (*MaxPermu[i]==-1){
+			*MaxPermu[i]=42;}
+		Eingabe[i]=*MaxPermu[i];
+		LetzteGueltig[i]=Eingabe[i];}
+	schreibeDaten();
+	UpdateKeyList();
+	UpdateData(FALSE);
+	
+	// Text mit dieser Substitution entschlüsseln und anzeigen
+	OnButton1();
 }
 
 
@@ -225,18 +248,10 @@ BOOL CDlgManualSubstAnalysis::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	m_bmpRedo.AutoLoad(IDC_REDO_, this);
+	m_bmpUndo.AutoLoad(IDC_UNDO_, this);
+	OnButton2();
 	// Ermittelte Substitution in Eingabemaske übernehmen
-	for (int i=0; i<26; i++){
-		if (*MaxPermu[i]==-1){
-			*MaxPermu[i]=42;}
-		Eingabe[i]=*MaxPermu[i];
-		LetzteGueltig[i]=Eingabe[i];}
-	schreibeDaten();
-	UpdateKeyList();
-	UpdateData(FALSE);
-	
-	// Text mit dieser Substitution entschlüsseln und anzeigen
-	OnButton1();
 	
 	return TRUE;  
 }
@@ -584,66 +599,6 @@ void CDlgManualSubstAnalysis::OnChange(int Feldnummer){
 	OnButton1();
 }
 
-void CDlgManualSubstAnalysis::OnUndo() 
-{
-	if(GetPrevKey(Eingabe)) 
-	{
-		schreibeDaten();
-		OnButton1();
-	}
-	if(!m_ptrKeyList || !(m_ptrKeyList->next)) m_ButtonUndo.EnableWindow(FALSE);
-}
-
-BOOL CDlgManualSubstAnalysis::GetPrevKey(int* Eingabe)
-{
-	KeyList* last = m_ptrKeyList;
-	KeyList* prev = 0;
-	while(last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
-	if(prev)
-	{
-		delete	last;
-		prev->next = 0;
-		for(int i=0; i<26; i++) Eingabe[i] = prev->key[i];
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
-}
-
-BOOL CDlgManualSubstAnalysis::UpdateKeyList()
-{
-	KeyList* last = m_ptrKeyList;
-	KeyList* prev = last;
-	while(last)
-	{
-		prev = last;
-		last = last->next;
-	}
-	if(prev)
-	{
-		prev->next = new KeyList;
-		if(!prev->next) return FALSE;
-		for(int i=0; i<26; i++) prev->next->key[i] = Eingabe[i];
-		prev->next->next = 0;
-		m_ButtonUndo.EnableWindow(TRUE);
-		return TRUE;
-	}
-	else
-	{
-		m_ptrKeyList = new KeyList;
-		if(!m_ptrKeyList) return FALSE;
-		for(int i=0; i<26; i++) m_ptrKeyList->key[i] = Eingabe[i];
-		m_ptrKeyList->next = 0;
-		return TRUE;
-	}
-}
-
 void CDlgManualSubstAnalysis::OnCopyKey() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
@@ -683,4 +638,134 @@ void CDlgManualSubstAnalysis::OnCopyKey()
 
 	LoadString (AfxGetInstanceHandle(), IDS_CRYPT_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, CString(KeyToStore)); 
+}
+
+
+
+BOOL CDlgManualSubstAnalysis::UpdateKeyList()
+{
+	KeyList *last;
+
+// === Remove Forewards
+	m_bmpRedo.EnableWindow(FALSE);
+	if ( !m_ptrKeyAct ) 
+	{
+		last = m_ptrKeyList;
+		m_ptrKeyList = m_ptrKeyAct = 0;
+	}
+	else
+	{
+		last = m_ptrKeyAct->next;
+	}
+
+	while ( last ) 
+	{
+		KeyList *toDel = last;
+		last = last->next;
+		delete toDel;
+	}
+
+	last = new KeyList;
+	if(!last) return FALSE;
+	for (int i=0; i<26; i++) last->key[i] = Eingabe[i];
+	last->next = 0;
+	
+	if ( !m_ptrKeyAct ) 
+	{
+		m_ptrKeyAct = m_ptrKeyList = last;
+	}
+	else                
+	{
+		m_ptrKeyAct->next = last;
+		m_ptrKeyAct       = last;
+	}
+
+	if ( m_ptrKeyAct != m_ptrKeyList )
+		m_bmpUndo.EnableWindow(TRUE);
+	else
+		m_bmpUndo.EnableWindow(FALSE);
+	m_bmpRedo.EnableWindow(FALSE);
+
+	return TRUE;
+}
+
+
+
+BOOL CDlgManualSubstAnalysis::GetPrevKey(int* Eingabe)
+{
+	if (!m_ptrKeyAct) return FALSE;
+	
+	KeyList* last = m_ptrKeyList;
+	KeyList* prev = 0;
+	while(last != m_ptrKeyAct)
+	{
+		prev = last;
+		last = last->next;
+	}
+
+	if(prev != 0)
+	{
+		for (int i=0; i<26; i++) 
+		{
+			Eingabe[i] = prev->key[i];		
+		}
+		m_ptrKeyAct = prev;
+	}
+	else
+	{
+		m_ptrKeyAct = m_ptrKeyList;
+	}
+
+	if (m_ptrKeyAct->next) 
+		m_bmpRedo.EnableWindow(TRUE);
+	if (m_ptrKeyAct == m_ptrKeyList) 
+		m_bmpUndo.EnableWindow(FALSE);
+
+	return TRUE;
+}
+
+void CDlgManualSubstAnalysis::OnUndo() 
+{
+	if(GetPrevKey(Eingabe)) 
+	{
+		schreibeDaten();
+		OnButton1();
+	}
+}
+
+
+BOOL CDlgManualSubstAnalysis::GetNextKey(int* Eingabe)
+{
+	if ( !m_ptrKeyAct )
+	{
+		return FALSE;
+	}
+	if ( m_ptrKeyAct->next )
+	{
+		m_ptrKeyAct = m_ptrKeyAct->next;
+		for (int i=0; i<26; i++) 
+		{
+			Eingabe[i] = m_ptrKeyAct->key[i];		
+		}
+		if ( !m_ptrKeyAct->next )
+			m_bmpRedo.EnableWindow(FALSE);
+		m_bmpUndo.EnableWindow(TRUE);
+		return TRUE;
+	}
+	else
+	{
+		m_bmpRedo.EnableWindow(FALSE);
+		return FALSE;
+	}
+}
+
+
+void CDlgManualSubstAnalysis::OnRedo() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	if(GetNextKey(Eingabe)) 
+	{
+		schreibeDaten();
+		OnButton1();
+	}
 }

@@ -119,6 +119,10 @@
 #define IDB_HYBRID_RIGHT_DOWN_RIGHT     526
 #define IDB_HYBRID_BACKGROUND           527
 #define IDD_ENTROPY_INFO                528
+#define IDB_BACKWARD                    530
+#define IDB_BACKWARD_GREY               531
+#define IDB_FOREWARD                    532
+#define IDB_FOREWARD_GREY               533
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -455,7 +459,6 @@
 #define IDC_EDIT_PIN1                   1304
 #define IDC_EDIT_PIN2                   1305
 #define IDC_EDIT_ANZAHL_ZEICHEN         1307
-#define IDC_UNDO                        1308
 #define IDC_STATIC_RSA0                 1309
 #define IDC_SCROLLBAR1                  1310
 #define IDC_SELECT_DOCUMENT             1310
@@ -544,6 +547,9 @@
 #define IDC_ABOUTBOX_CRYPTOOL           1412
 #define IDC_ALPHABET_INFO               1413
 #define IDC_ENTROPY_INFO                1414
+#define IDC_FOREWARD                    1416
+#define IDC_UNDO_                       1418
+#define IDC_REDO_                       1419
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1302,9 +1308,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        530
+#define _APS_NEXT_RESOURCE_VALUE        534
 #define _APS_NEXT_COMMAND_VALUE         33170
-#define _APS_NEXT_CONTROL_VALUE         1415
+#define _APS_NEXT_CONTROL_VALUE         1420
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
