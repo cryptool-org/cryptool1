@@ -25,6 +25,7 @@ public:
 	int m_state; // -1: initially, 1: after first Step, 0: after last Step
 	int m_len;
 	int m_text_len;
+	CString m_alg;
 	int Display(char *titel,int keylenmin,int keylenmax, int keylenstep);
 	int GetLen();
 	int GetBinlen();

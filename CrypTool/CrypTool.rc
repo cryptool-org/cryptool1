@@ -4890,7 +4890,7 @@ BEGIN
                             "Das in [Optionen->Textoptionen] einzustellende Alphabet muss mindestens %d Zeichen enthalten."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
-    IDS_STRING_ANALYSE_ON   "Analyse von %s"
+    IDS_STRING_ANALYSE_ON   "Brute-Force Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "Vollständige %d Bit Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE 
@@ -11262,7 +11262,7 @@ BEGIN
                             "The alphabet defined in [Options->Text Options] must contain at least %d characters."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "The Secude library could not be loaded.\nSome of the functions are therefore not available."
-    IDS_STRING_ANALYSE_ON   "Analysis of %s"
+    IDS_STRING_ANALYSE_ON   "Brute-Force Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "%d bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"

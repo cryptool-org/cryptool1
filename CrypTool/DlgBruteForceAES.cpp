@@ -103,6 +103,7 @@ int CDlgBruteForceAES::GetSearchBitLen()
 int CDlgBruteForceAES::Display(char *titel,int keylenmin,int keylenmax, int keylenstep)
 {
 	int res;
+	m_alg = titel;
 	m_keylenmin = keylenmin;
 	m_keylenmax = keylenmax;
 	m_keylenstep = keylenstep;
@@ -168,6 +169,9 @@ int CDlgBruteForceAES::Step()
 BOOL CDlgBruteForceAES::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	CString titel;
+	titel.Format(IDS_STRING_ANALYSE_ON,m_alg);
+	SetWindowText(titel);
 	m_font.CreatePointFont(100,"Courier New");
 	m_text_ctl.SetFont(&m_font);
 	m_keylen_ctl.ResetContent();
