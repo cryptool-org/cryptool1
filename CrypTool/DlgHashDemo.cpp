@@ -243,9 +243,9 @@ void CDlgHashDemo::OnRadioSha1()
 }
 
 void CDlgHashDemo::hashTextWithSha1()
-{	
+{
 	CString title;
-	title.LoadString(IDS_HASH_DEMO_TITLE_MD2);
+	title.LoadString(IDS_HASH_DEMO_TITLE_SHA1);
 	SetWindowText(title);
 
 	if(m_rb_DarstHW==0)

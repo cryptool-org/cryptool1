@@ -615,7 +615,6 @@ void CDlgFactorisationDemo::expandFactorisation(CString &composite, CString &f1,
 
 void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 {
-
 	CHARFORMAT cf; 
 	// Reset the old coloring
 	cf.cbSize = sizeof (CHARFORMAT);
@@ -626,15 +625,23 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 	
 	NumFactor *ndx = factorList;
 	if ( !ndx ) return;
-	int anfang = 0, ende = 0, expLen; 
+	int anfang = 0, ende = 0, expLen;
+
 	while ( ndx )
 	{
 		if ( ndx->exponent > 1 ) 
 		{
-			expLen = (long)ceil( log(double(ndx->exponent))/log(10.0))+1;
+			// Beginn Bugfix Jan Blumenstein (JB)
+
+			expLen = floor(log(double(ndx->exponent))/log(10.0))+2;
+			//expLen = ceil(log(double(ndx->exponent))/log(10.0))+1;	// falsch, wenn ndx->exponent = 10, 100, 1000, ...
+
+			// Ende Bugfix JB
 		}
 		else
+		{
 			expLen = 0;
+		}
 		ende = anfang + strlen(ndx->factorStr.GetBuffer(128));
 		// Markiere Text ....
 		if ( !ndx->isPrime )

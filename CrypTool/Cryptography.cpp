@@ -949,7 +949,7 @@ UINT Autocorr(PVOID p)
 	CryptPar *par;
 	CFile f;
 	FILE *fo;
-
+//__asm int 3
 	r=0;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -972,16 +972,19 @@ UINT Autocorr(PVOID p)
    	SCorrelation *tx;
 	if(par->result) {
 		tx = (SCorrelation *) par->result;
-		n = tx->GetSize();
+		n = fsize = tx->GetSize();
 	}
 	else {
 		text.Read(par->infile);
-		n = min(text.GetSize()/2,200);
+		fsize = text.GetSize();
+		n =	min(fsize/2,200);
+
 		tx = new SCorrelation(text,n);	// Auto-Korrelation 1..200 betrachten,
 	}
 
-	fsize=text.GetSize();
-	if(text.GetSize() < 8) { // Mindestlänge 8 Zeichen
+		// GetSize() liefert 0 zurück, text vermutlich nicht richtig initialisiert?
+
+	if(fsize < 8) { // Mindestlänge 8 Zeichen
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 8);
 		r=1;
 		goto cancel;

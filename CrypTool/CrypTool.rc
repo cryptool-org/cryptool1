@@ -2323,19 +2323,19 @@ CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,20,10,95,62
-    CONTROL         "MD2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,33,25,31,10
-    CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
-                    10
-    CONTROL         "SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,57,
+    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
                     31,10
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,209,9,94,63
-    CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
+                    57,31,10
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,209,10,94,61
+    CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,224,41,39,10
-    CONTROL         "hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    224,26,55,10
-    CONTROL         "binär",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,58,
-                    31,10
+    CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
+                    224,25,55,10
+    CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,
+                    57,31,10
     LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
                     IDC_STATIC,20,85,216,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
@@ -2351,7 +2351,7 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
                     294,294,53
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,359,59,14
+    PUSHBUTTON      "Dialog &beenden",IDCANCEL,247,359,59,14
     LTEXT           "",IDC_STATIC_TITEL,109,219,209,9
 END
 
@@ -3044,7 +3044,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (selbstextrahierend)...",   ID_AES_SELFEXTRACT
+            MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetrisch"
         BEGIN
@@ -4596,7 +4596,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "Die signierte Nachricht liegt in Datei:         "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "Die Eingabe muss mindestens %d Zeichen (nicht unbedingt\nverschiedene) Zeichen des Eingestellten Alphabets enthalten."
+                            "Die Eingabe muss mindestens %d (nicht unbedingt verschiedene)\nZeichen des eingestellten Alphabets enthalten."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
     IDS_STRING_ERR_NO_ZIP_FILE "Keine ZIP-Datei (""Magic-Number""-Fehler)."
@@ -7932,18 +7932,18 @@ CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
-    CONTROL         "MD2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,33,25,31,10
-    CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
-                    10
-    CONTROL         "SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,57,
-                    34,10
+    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
+                    31,10
+    CONTROL         "SHA-&1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
+                    57,34,10
     GROUPBOX        "Base of hash values",IDC_STATIC,217,9,93,63
-    CONTROL         "decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,232,41,40,10
-    CONTROL         "hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
                     232,26,55,10
-    CONTROL         "binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
+    CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
     LTEXT           "Actual file (this copy of the original file can be modified here)",
                     IDC_STATIC,16,85,294,8,NOT WS_GROUP
@@ -8348,7 +8348,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (self extracting)...",      ID_AES_SELFEXTRACT
+            MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN
@@ -8632,7 +8632,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (self extracting)...",      ID_AES_SELFEXTRACT
+            MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN

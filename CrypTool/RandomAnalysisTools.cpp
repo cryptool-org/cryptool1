@@ -42,7 +42,9 @@ bool CRandomAnalysisTools::AnalyzeIt(void)
 	min=min*min;
 
 	if (isValid==V_MEAN||isValid==V_VARI||isValid==V_RESULT)
+	{
 		return true;
+	}
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_END_ANALYZE_VITANY,pc_str,STR_LAENGE_STRING_TABLE);
 	theApp.fs.Set(0,pc_str);
@@ -56,7 +58,8 @@ bool CRandomAnalysisTools::AnalyzeIt(void)
 	{
 		if (p<=0)
 		{
-			if(theApp.fs.m_canceled) {
+			if(theApp.fs.m_canceled)
+			{
 				theApp.fs.cancel();
 				return false;
 			}
@@ -64,7 +67,10 @@ bool CRandomAnalysisTools::AnalyzeIt(void)
 			p=step;
 		}
 		else
+		{
 			p--;
+		}
+
 		for (j=2;j<i;j+=2)
 		{
 			for (k=0;k<j;k+=2)
@@ -72,9 +78,13 @@ bool CRandomAnalysisTools::AnalyzeIt(void)
 				double t;
 				t=CalcTriangle(ld[i],ld[i+1],ld[j],ld[j+1],ld[k],ld[k+1]);
 				if (t < min)
+				{
 					min=t;
+				}
 				if (min < 0.0001 )
+				{
 					ldl=i;
+				}
 			}
 		}
 		result[l]=min*i*i*i/(unsigned long)0xffffffff/(unsigned long)0xffffffff*0.5;
@@ -92,12 +102,18 @@ double CRandomAnalysisTools::GetMean()
 	double m;
 
 	if (isValid==V_MEAN||isValid==V_VARI)
+	{
 		return mean;
+	}
 	else
+	{
 		AnalyzeIt();
+	}
 
 	for (i=resultlen/10,m=0.;i<resultlen;i++)
+	{
 		m+=result[i];
+	}
 	
 	isValid=V_MEAN;
 
@@ -110,9 +126,13 @@ double CRandomAnalysisTools::GetVariation()
 	double v,t;
 
 	if (isValid==V_VARI)
+	{
 		return vari;
+	}
 	else
+	{
 		GetMean();
+	}
 
 	v=0;
 	for (i=resultlen/10,v=0.;i<resultlen;i++)
@@ -135,14 +155,18 @@ void CRandomAnalysisTools::WriteAnalyse(char *name,const char *titel)
 	CFile f;
 
 	if(!AnalyzeIt())
+	{
 		return;
+	}
 	mea=GetMean();
 	var=GetVariation();
 	GetTmpName(name,"cry",".plt");
 	fo = fopen(name,"wt");
 	
-	for(i=resultlen/10;i<resultlen;i++)
+	for(i=resultlen/10; i<resultlen; i++)
+	{
 		fprintf(fo,"%lf\n",(result[i]/mea));
+	}
 	fclose(fo);
 
 	strcpy(name2, name);
@@ -180,8 +204,10 @@ void CRandomAnalysisTools::SetData(int len)
 	len=(len>8192) ? 8192 : len;
 	datalen=(len-1)&(~7);
 	resultlen=(datalen/4)-2;
-    if ( resultlen < 1 ) 
+    if ( resultlen < 1 )
+	{
 		resultlen = 1;
+	}
 	result=(double *)malloc(resultlen*sizeof(double));
 	isValid=VALUE_NONE;
 }
@@ -217,7 +243,6 @@ CRandomAnalysisTools::~CRandomAnalysisTools()
 	free(result);
 }
 
-
 int CRandomAnalysisTools::FindPeriod()
 // jetzt die Version von Peer Wichmann (Algorithmus) und Thomas Gauweiler (Algorithmus, Implementierung)
 // Idee:
@@ -235,9 +260,11 @@ int CRandomAnalysisTools::FindPeriod()
 	int p=0;
 	int search, follow=origlen-1;
 
-	for (search=origlen-2; search>=0; search--){
+	for (search=origlen-2; search>=0; search--)
+	{
 		// Fortschrittsanzeige... - aber nur wenn's auch etwas mehr zu tun gibt.
 		if ((origlen > 1000))
+		{
 			if(p<(origlen-search)/(origlen/100))
 			{
 				if(theApp.fs.m_canceled)
@@ -248,39 +275,67 @@ int CRandomAnalysisTools::FindPeriod()
 				p=(origlen-search)/(origlen/100);
 				theApp.fs.Set(p);
 			}
+		}
 
-		if (data[follow] == data[search]) { // wohl innerhalb einer Periode
+		if (data[follow] == data[search])
+		{ // wohl innerhalb einer Periode
 			follow--;
-		} else if (follow < origlen-1) { // zumindest im Periodenverdacht
-			if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
+		}
+		else if (follow < origlen-1)	// wenn follow nicht am Ende ist...
+		{ // zumindest im Periodenverdacht
+			if (origlen-1 - follow >= follow-search)
+			{ // mindestens eine volle Periode
 				if (PA_MAXFOUND <= cnt_periodResults)
+				{
 					return cnt_periodResults;
+				}
 				periodResults[cnt_periodResults].offset  = search+1;
 				periodResults[cnt_periodResults].length  = follow-search;
 				periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
 				int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
 				for (int j=0; j<l; j++)
+				{
 					periodResults[cnt_periodResults].str[j] = data[search+1+j];
+				}
 				periodResults[cnt_periodResults].str[l] = '\0';
 				cnt_periodResults++;
 			}
+
+			// Jan Blumenstein (JB) Bugfix Beginn
+			// war notwendig, da in "zezrzrzzezrzrz" die Periode "zezrzrz" nicht erkannt wurde
+			
+			else	// hier kommt man hin, wenn bei search zwar eine gleiche Zeichenfolge wie am Ende
+					// gefunden wurde, diese aber nicht bis search durchgehend auftritt und damit ausscheidet
+			{
+				search++;	// auf diese Weise geht das Zeichen, bei dem sich search gerade befindet,
+							// nicht "verloren", es könnte schliesslich der Anfang einer langen Periode sein
+			}
+			// JB Bugfix Ende
+
 			follow = origlen-1;
 		}
 	}
 	// falls nur Perioden vorliegen (z.B. "ababab"), dann gibt es noch die übergeordnete einzutragen
-	if (follow < origlen-1)  // zumindest im Periodenverdacht
-		if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
+	if (follow < origlen-1)
+	{// zumindest im Periodenverdacht
+		if (origlen-1 - follow >= follow-search)
+		{ // mindestens eine volle Periode
 			if (PA_MAXFOUND <= cnt_periodResults)
+			{
 				return cnt_periodResults;
+			}
 			periodResults[cnt_periodResults].offset  = search+1;
 			periodResults[cnt_periodResults].length  = follow-search;
 			periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
             int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
             for (int j=0; j<l; j++)
+			{
 				periodResults[cnt_periodResults].str[j] = data[search+1+j];
+			}
 			periodResults[cnt_periodResults].str[l] = '\0';
 			cnt_periodResults++;
 		}
+	}
 
 	return cnt_periodResults;
 }
@@ -290,8 +345,9 @@ int CRandomAnalysisTools::FindPeriod(int &i_periodenOffset)
 {
 	int ret=FindPeriod();
 	if (ret<=0)
+	{
 		return (ret);
+	}
 	i_periodenOffset = periodResults[cnt_periodResults-1].offset;
 	return (periodResults[cnt_periodResults-1].length);
 }
-

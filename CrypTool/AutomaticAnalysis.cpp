@@ -212,6 +212,7 @@ UINT VigenereAuto(PVOID p)
 	if(c.GetSize()<2)
 		para.flags&=!CRYPT_DISPLAY_BG;
 	// == execute and plot the autocorrelation
+
     r = Autocorr(&para);	
 	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
@@ -485,7 +486,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 			
 			int hill_rc;
 			int hill_rc_dims[HILL_MAX_DIM_GROSS];
-			
+
 			hill_rc = hillklasse.angriff(EingabeDialog.von, EingabeDialog.bis, &mat, hill_rc_dims);
 			
 			// Rueckgabewerte siehe hill.h

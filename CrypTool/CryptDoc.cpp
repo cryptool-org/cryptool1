@@ -1361,7 +1361,7 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONEXCLAMATION);
 	}
 	else
 	{
@@ -1391,7 +1391,7 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONEXCLAMATION);
 	}
 	else
 	{
@@ -1419,7 +1419,7 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONEXCLAMATION);
 	}
 	else
 	{

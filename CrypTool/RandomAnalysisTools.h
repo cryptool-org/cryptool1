@@ -40,7 +40,8 @@ public:
 
 	double mean,vari;
 
-	struct s_periodResult {
+	struct s_periodResult
+	{
 		int offset, length, repeated;
 		char str [PA_MAXPRINTLENGTH];
 	};
