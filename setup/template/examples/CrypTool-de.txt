@@ -1,0 +1,20 @@
+CrypTool ist ein Programm, mit dessen Hilfe Sie kryptografische Verfahren anwenden und 
+analysieren können. So können Sie neue Dokumente erstellen und bestehende Dokumente 
+öffnen und weiter bearbeiten. 
+Ein Dokument kann mittels verschiedener Verschlüsselungsverfahren ver- und entschlüsselt 
+werden. Es stehen sowohl klassische (zum Beispiel das Caesar-Verschlüsselungsverfahren) 
+als auch moderne Verschlüsselungsverfahren (beispielsweise das RSA- und das DES-Verfahren 
+sowie auf elliptischen Kurven basierende Verfahren) zur Verfügung. Eine Übersicht über alle 
+Verschlüsselungsverfahren in CrypTool findet man auf der Hilfeseite zum Menü 
+Ver-/Entschlüsseln.
+
+Außerdem kann CrypTool von einem Dokument Hashwerte berechnen (siehe Menü Hashwerte). 
+Für die klassischen Verschlüsselungsverfahren stehen automatische Analysen zur Verfügung, 
+die Sie in die Lage versetzen, mit Kenntnis des verschlüsselten Dokuments und eventuell 
+weiterer Informationen (unverschlüsseltes Dokument oder Sprache des Dokuments) den 
+Schlüssel zu ermitteln. Für weitere Informationen zur automatischen Analyse gehen Sie zur 
+Hilfe für das Menü Analyse und wählen dort das zu analysierende Verschlüsselungsverfahren.
+
+Zur Unterstützung der eigenen Analyse von Dokumenten kann CrypTool von einem Dokument 
+das Histogramm anzeigen und die Entropie und Autokorrelation berechnen.
+Ferner gibt es in CrypTool die Möglichkeit, Dateien zu packen oder entpacken (ZIP).
