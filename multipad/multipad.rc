@@ -595,23 +595,24 @@ BEGIN
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,25,167,8
     CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,52,166,10
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
-    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,99,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,187,166,9
-    CTEXT           "Review:",IDC_STATIC,1,204,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
+    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,50,166,10
+    CTEXT           "Peer Wichmann",IDC_STATIC,6,60,154,8
+    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,70,167,10
+    CTEXT           "Henrik Koy",IDC_STATIC,7,80,153,10,NOT WS_GROUP
+    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,94,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,103,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,113,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,123,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,133,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,143,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,152,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,162,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,180,154,8
+    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,190,166,9
+    CTEXT           "Review:",IDC_STATIC,1,207,166,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,217,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,226,154,8
+    CTEXT           "Mark Santiago",IDC_STATIC,1,171,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -3788,7 +3789,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 7"
+    IDR_MAINFRAME           "CrypTool 1.3.00"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5403,25 +5404,26 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,58,241,50,14
     CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,25,167,8
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Design, Support:",IDC_STATIC,1,52,166,10
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
-    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,99,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,187,166,9
-    CTEXT           "Review:",IDC_STATIC,1,204,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
+    CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,24,167,8
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,34,154,8
+    CTEXT           "Design, Support:",IDC_STATIC,1,49,166,10
+    CTEXT           "Peer Wichmann",IDC_STATIC,6,59,154,8
+    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,69,167,10
+    CTEXT           "Henrik Koy",IDC_STATIC,7,77,153,10,NOT WS_GROUP
+    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,93,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,102,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,112,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,122,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,132,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,142,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,152,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,161,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,180,154,8
+    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,190,166,9
+    CTEXT           "Review:",IDC_STATIC,1,205,166,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,215,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,224,154,8
+    CTEXT           "Mark Santiago",IDC_STATIC,1,171,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -8073,7 +8075,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 7"
+    IDR_MAINFRAME           "CrypTool 1.3.00"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -9068,12 +9070,12 @@ BEGIN
     IDS_STRING_CERT_DECODING_ERROR "The certificate could not be decoded."
     IDS_RAND_PROGRESS       "Random data generated by %d  %%"
     IDS_RAND_GEN_PARAM      "%s random generator"
-    IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
+    IDS_STRING_BIG_NUMBER   "The demostration does support only positive integers of bitlength smaller than 1024. These are decimal numbers with at most 308 digits."
     IDS_STRING_BIG_RSA_MODUL 
-                            "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
-    IDS_STRING_INPUT_FALSE  "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnet läßt."
+                            "The demonstartion dos support only positve integers of bitlength smaller than 1024.\nThe Bitlength of the actually generated RSA modul exceeds 1024.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^1024."
+    IDS_STRING_INPUT_FALSE  "Your input is no valid expression to compute a positive integer."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
-                            "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
+                            "Please enter a positive integer greater than 1."
 END
 
 STRINGTABLE DISCARDABLE 
