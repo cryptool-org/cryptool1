@@ -59,6 +59,8 @@ CDlg_SubstResult::CDlg_SubstResult(CWnd* pParent /*=NULL*/)
 	m_edit26 = _T("");
 	m_edit1 = _T("");
 	//}}AFX_DATA_INIT
+
+	m_ptrKeyList = 0;
 }
 
 
@@ -66,6 +68,7 @@ void CDlg_SubstResult::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlg_SubstResult)
+	DDX_Control(pDX, IDC_UNDO, m_ButtonUndo);
 	DDX_Text(pDX, IDC_EDIT2, m_edit2);
 	DDV_MaxChars(pDX, m_edit2, 1);
 	DDX_Text(pDX, IDC_EDIT3, m_edit3);
@@ -153,6 +156,7 @@ BEGIN_MESSAGE_MAP(CDlg_SubstResult, CDialog)
 	ON_EN_CHANGE(IDC_EDIT25, OnChangeEdit25)
 	ON_EN_CHANGE(IDC_EDIT26, OnChangeEdit26)
 	ON_EN_CHANGE(IDC_EDIT27, OnChangeEdit27)
+	ON_BN_CLICKED(IDC_UNDO, OnUndo)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -224,6 +228,7 @@ BOOL CDlg_SubstResult::OnInitDialog()
 		Eingabe[i]=*MaxPermu[i];
 		LetzteGueltig[i]=Eingabe[i];}
 	schreibeDaten();
+	UpdateKeyList();
 	UpdateData(FALSE);
 	
 	// Text mit dieser Substitution entschlüsseln und anzeigen
@@ -557,6 +562,7 @@ void CDlg_SubstResult::OnChange(int Feldnummer){
 						LetzteGueltig[i]='*';
 						LetzteGueltig[Feldnummer]=Eingabe[Feldnummer];
 						schreibeDaten();
+						UpdateKeyList();
 						OnButton1();
 						return;
 					}
@@ -571,5 +577,62 @@ void CDlg_SubstResult::OnChange(int Feldnummer){
 	}
 	// Zuweisung ist gültig
 	LetzteGueltig[i]=Eingabe[i];
+	UpdateKeyList();
 	OnButton1();
+}
+
+void CDlg_SubstResult::OnUndo() 
+{
+	if(GetPrevKey(Eingabe)) schreibeDaten();
+	if(!m_ptrKeyList || !(m_ptrKeyList->next)) m_ButtonUndo.EnableWindow(FALSE);
+}
+
+BOOL CDlg_SubstResult::GetPrevKey(int* Eingabe)
+{
+	KeyList* last = m_ptrKeyList;
+	KeyList* prev = 0;
+	while(last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	if(prev)
+	{
+		delete	last;
+		prev->next = 0;
+		for(int i=0; i<26; i++) Eingabe[i] = prev->key[i];
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+
+BOOL CDlg_SubstResult::UpdateKeyList()
+{
+	KeyList* last = m_ptrKeyList;
+	KeyList* prev = last;
+	while(last)
+	{
+		prev = last;
+		last = last->next;
+	}
+	if(prev)
+	{
+		prev->next = new KeyList;
+		if(!prev->next) return FALSE;
+		for(int i=0; i<26; i++) prev->next->key[i] = Eingabe[i];
+		prev->next->next = 0;
+		m_ButtonUndo.EnableWindow(TRUE);
+		return TRUE;
+	}
+	else
+	{
+		m_ptrKeyList = new KeyList;
+		if(!m_ptrKeyList) return FALSE;
+		for(int i=0; i<26; i++) m_ptrKeyList->key[i] = Eingabe[i];
+		m_ptrKeyList->next = 0;
+		return TRUE;
+	}
 }

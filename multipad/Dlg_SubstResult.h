@@ -23,6 +23,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlg_SubstResult)
 	enum { IDD = IDD_DIALOG_ERSETZEN };
+	CButton	m_ButtonUndo;
 	CString	m_edit2;
 	CString	m_edit3;
 	CString	m_edit27;
@@ -73,7 +74,6 @@ protected:
 	//{{AFX_MSG(CDlg_SubstResult)
 	afx_msg void OnButton2();
 	virtual BOOL OnInitDialog();
-	virtual void OnOK();
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnChangeEdit2();
 	afx_msg void OnChangeEdit3();
@@ -101,8 +101,20 @@ protected:
 	afx_msg void OnChangeEdit25();
 	afx_msg void OnChangeEdit26();
 	afx_msg void OnChangeEdit27();
+	afx_msg void OnUndo();
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+	struct KeyList
+	{
+		KeyList* next;
+		int	 key[26];
+	} *m_ptrKeyList;
+
+	BOOL GetPrevKey(int* Eingabe);
+	BOOL UpdateKeyList();
 };
 
 //{{AFX_INSERT_LOCATION}}
