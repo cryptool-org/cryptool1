@@ -130,6 +130,7 @@ protected:
 	afx_msg void OnEinzelverfahrenHashwerteHashdemo();
 	afx_msg void OnEinzelverfahrenHybridverfahrenHybridverschlsselung();
 	afx_msg void OnEinzelverfahrenSignDoc();
+	afx_msg void OnEinzelverfahrenHybridverfahrenHybridentschlsselung();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

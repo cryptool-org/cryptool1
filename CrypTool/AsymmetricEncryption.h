@@ -35,6 +35,9 @@ void RsaEnc(char* infile, const char *OldTitle);
 void RsaDec(char* infile, const char *OldTitle);
 void Sign(char* infile, const char *OldTitle);
 void Verify(char* infile, const char *OldTitle);
+void DecHyb(char* infile, const char *OldTitle);
+int GetEncHybridData(char* infile,CString& UserKeyId, CString& EncSessionKey, CString& SymAlg,\
+				CString& AsymAlg, OctetString *message);
 
 int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zugross, bool ecSign,\
 				  char *hash_id, char *Verfahren, char *Verfahren2,\

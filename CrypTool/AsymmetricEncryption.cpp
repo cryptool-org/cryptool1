@@ -30,6 +30,7 @@
 #include "DlgKeyAsymGeneration.h"
 #include "DlgECSignatureStepByStep.h"
 #include "DlgVerifyECSignatureStepByStep.h"
+#include "DlgHybridDecryptionDemo.h"
 
 #include "s_ecFp.h" // elliptic curve stuff
 #include "s_prng.h" // big random integers
@@ -100,6 +101,8 @@ BOOL find( OctetString *in, int ID, int &start, int &end )
 {
 	LoadString(AfxGetInstanceHandle(),ID,pc_str,STR_LAENGE_STRING_TABLE);
 	int strLen = strlen(pc_str);
+	if ( in->noctets < strLen )
+		return FALSE;
 	if ( start < 0 )
 		return FALSE;
 	for (unsigned int k=start; k<in->noctets - strLen; k++)
@@ -437,7 +440,8 @@ void RsaDec(char* infile, const char *OldTitle)
 		delete string2;
 	}
 }
-
+				
+				
 /*
 Die folgende Funktion erstellt eine Signatur der Daten im aktuellen Fenster
 */
@@ -1728,6 +1732,81 @@ int EcDomParamAcToString(EcDomParamAcAsString *ecParamString, EcDomParam_ac_ptr 
 	free(rStr);
 	
 	return error; // if error > 0 then something is wrong
+}
+
+
+void DecHyb(char* infile, const char *OldTitle)
+{
+	CString UserKeyId_Datei;
+	CString SymAlg_Datei;
+	CString AsymAlg_Datei;
+	CString EncSessionKey_Datei;
+		
+	OctetString *help=theApp.SecudeLib.aux_file2OctetString(infile);
+	if (help == NULL) return; // Fehlerhafte Speicherallokation
+	
+	int start=0, end, pos;
+	CString res;
+
+	if ( !find( help, IDS_STRING_HYBRID_RECIEVER, start, end) )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+		return;
+	}
+	pos = end;
+	if ( !extract( help, UserKeyId_Datei, IDS_STRING_HYBRID_ENC_KEY, pos ) )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+		return;
+	}
+	if ( !extract( help, EncSessionKey_Datei, IDS_STRING_HYBRID_SYM_METHOD, pos ) )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+		return;
+	}
+	if ( !extract( help, SymAlg_Datei, IDS_STRING_HYBRID_ASYM_METHOD, pos ) )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+		return;
+	}
+	if ( !extract( help, AsymAlg_Datei, IDS_STRING_HYBRID_CIPHERTEXT, pos ) )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+		return;
+	}
+
+	CDlgHybridDecryptionDemo DecHyb;
+
+	DecHyb.m_strPathnameTxt = infile;
+	DecHyb.EncSessionKey_Datei=EncSessionKey_Datei;
+	LPTSTR string_tmp1 = new TCHAR[EncSessionKey_Datei.GetLength()+1];
+	_tcscpy(string_tmp1, EncSessionKey_Datei);
+	char *EncSessionKey_tmp=string_tmp1;
+	DecHyb.OctetEncSessionKey.noctets=strlen(EncSessionKey_tmp);
+	DecHyb.OctetEncSessionKey.octets=EncSessionKey_tmp;
+	
+	DecHyb.SymAlg_Datei=SymAlg_Datei;
+	DecHyb.AsymAlg_Datei=SymAlg_Datei;
+	DecHyb.UserKeyId_Datei=UserKeyId_Datei;
+
+	// extract the message
+	DecHyb.message.noctets=(help->noctets-pos);
+	DecHyb.message.octets= (char*) malloc ((DecHyb.message.noctets+1)*sizeof(char));
+	if (DecHyb.message.octets==NULL)
+	{
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		return; // Fehlerhafte Speicherallokation
+	}
+	memcpy( DecHyb.message.octets, help->octets + pos, DecHyb.message.noctets );
+	DecHyb.m_strTitle1 = OldTitle;
+	DecHyb.m_bAuswahlDat = false;
+	theApp.SecudeLib.aux_free_OctetString(&help);
+	DecHyb.DoModal();
 }
 
 // EOF

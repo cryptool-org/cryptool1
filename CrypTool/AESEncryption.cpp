@@ -127,7 +127,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 	3 steht für Rijndael
 	4 steht für Serpent
 	5 steht für Twofish */
-void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName, char* NewFileKey )
+void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
 {
 	
     char outfile[128], line[256], keybuffhex[65],AlgTitel[128];
@@ -180,7 +180,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_CANDIDATE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,AlgTitel);
 	}
-	
+	int tag=0;
     CDlgKeyHex KeyDialog(32);
 	KeyDialog.SetAlternativeWindowText(line);
 	if( NewFileName == NULL )
@@ -190,7 +190,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 			return;
 		}
 	
-	
+			
 		key = (unsigned char *) KeyDialog.GetData();
 		if ( 0 == (keylen = KeyDialog.GetLen()) ) return;
 
@@ -208,8 +208,10 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 	}
 	else
 	{
+		tag=1;
 		keylen=16;
 		strcpy(keybuffhex,NewFileKey);
+
 	}
 	borg = (unsigned char *) malloc(datalen+32);
 	bcip = (unsigned char *) malloc(datalen+64);
@@ -218,14 +220,35 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 	fread(borg,1,datalen,fi);
 	fclose(fi);
 	
-    if(KeyDialog.m_Decrypt)	{	   // Entschlüsselung ausgewählt
-		mode = DIR_DECRYPT;        // padden der Eingabe
-		for(; datalen %16; datalen++) borg[datalen]=0;
+	if (tag==0)
+	{
+		if(KeyDialog.m_Decrypt)	{	   // Entschlüsselung ausgewählt
+			mode = DIR_DECRYPT;        // padden der Eingabe
+			for(; datalen %16; datalen++) borg[datalen]=0;
+		}
+		else {
+			mode = DIR_ENCRYPT;        // padden der Eingabe
+			borg[datalen++]=1;
+			for(; datalen %16; datalen++) borg[datalen]=0;
+		}
 	}
-	else {
-		mode = DIR_ENCRYPT;        // padden der Eingabe
-		borg[datalen++]=1;
-		for(; datalen %16; datalen++) borg[datalen]=0;
+	else
+	{
+		if (Enc_Or_Dec)
+		{
+			// Verschlüsselung ausgewählt
+			mode = DIR_ENCRYPT;        // padden der Eingabe
+			borg[datalen++]=1;
+			for(; datalen %16; datalen++) borg[datalen]=0;
+			
+		}
+		else
+		{
+			// Entschlüsselung ausgewählt
+			mode = DIR_DECRYPT;        // padden der Eingabe
+			for(; datalen %16; datalen++) borg[datalen]=0;
+
+		}
 	}
 	datalen <<= 3;                 // Länge in Bits
 
@@ -243,12 +266,16 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 	free(borg);
 	datalen >>= 3;                 // Länge wieder in Byte
 	
-    if(KeyDialog.m_Decrypt)
+    if( tag==0 && KeyDialog.m_Decrypt)
 	{	                           // Entschlüsselung ausgewählt
 		// Padding entfernen
 		for(datalen--; 0 == bcip[datalen]; datalen--);
 	}
-	
+	if( tag==1 && !Enc_Or_Dec)
+	{	                           // Entschlüsselung ausgewählt
+		// Padding entfernen
+		for(datalen--; 0 == bcip[datalen]; datalen--);
+	}
 	fi = fopen(outfile,"wb");
 	fwrite(bcip, 1, datalen, fi);
         free (bcip);
@@ -258,6 +285,16 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 	{
 		OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );
 	}
+	else if (tag==1 && !Enc_Or_Dec)//Entschlüsselung + Hybrid
+	{
+		OpenNewDoc( outfile, (CString) keybuffhex, OldTitle, titleID, 1 );
+	}
+	/*
+	else if (tag==1 && Enc_Or_Dec)
+	{
+
+	}
+	*/
 }
 
 

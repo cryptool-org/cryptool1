@@ -27,6 +27,8 @@ public:
 	CString Firstname;
 	CString CreatTime;
 
+	CString UserKeyId; //roger???
+
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSAEncryption)
 	enum { IDD = IDD_RSA_ENCRYPTION };
@@ -54,7 +56,7 @@ protected:
 	CString KeyType;
 	CString KeyInfo;
 
-	CString UserKeyId;
+//	CString UserKeyId; //Roger???
 
 	void InitAsymKeyListBox(unsigned nLocalKeylistType);
 	void UpdateRowSel(int row);

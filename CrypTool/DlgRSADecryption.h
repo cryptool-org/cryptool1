@@ -19,6 +19,7 @@ class CDlgRSADecryption : public CDialog
 {
 // Konstruktion
 public:
+	bool disableButtons;
 	CDlgRSADecryption(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	CString UserKeyId;
@@ -56,6 +57,7 @@ public:
 // Implementierung
 protected:
 
+	int FindRow( CString pattern);
 	int m_lastSelectedRow;
 	int sortBy;
 	unsigned nKeylistType;

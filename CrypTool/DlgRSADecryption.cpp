@@ -18,7 +18,7 @@
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
-
+extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus CrypTool.cpp
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgRSADecryption 
 
@@ -33,6 +33,7 @@ CDlgRSADecryption::CDlgRSADecryption(CWnd* pParent /*=NULL*/)
 	KeyInfo = "";
 	CreatTime = "";
 	m_bHideDuration = FALSE;
+	disableButtons = false;
 
 	m_lastSelectedRow = -1; //  Änderung in Member-Funktion CDlgRSAEncryption::OnClickList1()
 
@@ -112,6 +113,25 @@ BOOL CDlgRSADecryption::OnInitDialog()
 	// Initialisiere die Schlüsselliste mit allen verfügbaren RSA Schlüsseln
 	nKeylistType = RSA_KEY;
 	InitAsymKeyListBox(nKeylistType);
+
+	//disableButtons wird in CDlgHybridDecryptionDemo auf true gesetzt.
+	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
+	//Hybridverschlüsselung
+
+	//disableButtons=false;
+
+	if(disableButtons)
+	{
+		SetWindowText("RSA Schlüssel für die Hybridentschlüsselung");
+		m_OKCtrl.SetWindowText("OK");
+		m_ShowDurationCtrl.ShowWindow(false);
+		int keyrow = FindRow(UserKeyId);// Suche nach der Zeile mit dem Eintrag UserKeyId
+
+		UpdateRowSel( keyrow ); // Zeile die UserKeyId enthält unterlegen (falls vorhanden)
+	//	disableButtons = false;
+	}
+
+
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -262,6 +282,52 @@ void CDlgRSADecryption::OnOK()
 		return;
 	}
 	
+	if (disableButtons)
+	{
+		// Überprüfe, ob der PIN-Code für den Zugriff auf die PSE richtig ist, indem
+		// die entsprechende PSE Datei geöffnet und wieder geschlossen wird. 
+
+		// Konvertieren der Pin-Nummer von CString nach char *
+		LPTSTR string1 = new TCHAR[m_PinCode.GetLength()+1];
+		_tcscpy(string1, m_PinCode);
+		char *PIN=string1;
+
+		// Pfad der PSE des Absenders (Signaturerstellers) in char * konvertieren
+		CString help2=(CString)PseVerzeichnis+((CString)"/")+UserKeyId+PSE_FILE_SUFFIX;
+		LPTSTR string2 = new TCHAR[help2.GetLength()+1];
+		_tcscpy(string2, help2);
+		char *PfadNeu=string2;
+
+		// Öffnen der PSE des Absenders (Siganturerstellers) - nur um Gültigkeit der PIN zu überprüfen
+		PSE PseHandle;
+		PseHandle = theApp.SecudeLib.af_open(PfadNeu, NULL, PIN, NULL);
+		if (PseHandle==NULL)
+		{
+			
+			if (theApp.SecudeLib.LASTERROR==EPIN)
+			{
+				// falsche PIN-Nummer benutzt
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
+
+				// Freigeben von dynamisch angelegtem Speicher
+				delete string1;
+				delete string2;
+				return;
+			}
+			// sonstige Fehler beim öffnen der PSE
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+
+			// Freigeben von dynamisch angelegtem Speicher
+			delete string1;
+			delete string2;
+			return;
+		}
+		delete string1;
+		delete string2;
+		theApp.SecudeLib.af_close (PseHandle);
+	}
+	
+	
 	CDialog::OnOK();
 }
 
@@ -375,4 +441,67 @@ void CDlgRSADecryption::OnKeydownListKeys(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 
 	*pResult = 0;
+}
+int CDlgRSADecryption::FindRow( CString pattern)
+{
+	int i;
+	bool match;
+
+	char *utcStr = NULL;
+	char *creatime = NULL;
+	char *name = NULL;
+	char *firstname = NULL;
+	char *keyType = NULL;
+	char *keyInfo = NULL;
+
+	CString Text;
+
+	// Zerlege CString pattern in seine Komponenten
+	CKeyFile KeyfileName;
+	int ret = KeyfileName.ExtractData(pattern, &utcStr, &creatime, &name, &firstname, &keyType, &keyInfo);
+	if (ret != 0) return -1;
+
+	for (i=0; i <= m_listview.GetItemCount(); i++)
+	{
+		// i durchläuft die Zeilen/Rows/Items
+		match = true;
+
+		Text = m_listview.GetItemText( i, 0 ); // erste Spalte: vergleiche Namen
+		if ( Text != (CString) name ) match = false;
+
+		Text = m_listview.GetItemText( i, 1 ); // 2.te Spalte: vergleiche Vornamen
+		if ( Text != (CString) firstname ) match = false;
+
+		Text = m_listview.GetItemText( i, 2 ); // 3.te Spalte: vergleiche Schlüsseltyp
+		if ( Text != (CString) keyType ) match = false;
+
+		Text = m_listview.GetItemText( i, 3 ); // 4.te Spalte: vergleiche Schlüsselkennung
+		if ( Text != (CString) keyInfo ) match = false;
+
+		Text = m_listview.GetItemText( i, 4 ); // 5.te Spalte: vergleiche Erstellungsdatum
+		if ( Text != (CString) creatime ) match = false;
+
+		Text = m_listview.GetItemText( i, 5 ); // 6.te Spalte: vergleiche "UTC-Zeit String"
+		if ( Text != (CString) utcStr ) match = false;
+
+		if (match)
+		{
+			if (utcStr != NULL){ delete utcStr; utcStr = NULL; }
+			if (creatime != NULL){ delete creatime;creatime = NULL; }
+			if (name != NULL){ delete name;name = NULL; }
+			if (firstname != NULL){ delete firstname;firstname = NULL; }
+			if (keyType != NULL){ delete keyType;keyType = NULL; }
+			if (keyInfo != NULL){ delete keyInfo;keyInfo = NULL; }
+
+			return i; // keyId is in row i
+		}
+	}
+	if (utcStr != NULL){ delete utcStr; utcStr = NULL; }
+	if (creatime != NULL){ delete creatime;creatime = NULL; }
+	if (name != NULL){ delete name;name = NULL; }
+	if (firstname != NULL){ delete firstname;firstname = NULL; }
+	if (keyType != NULL){ delete keyType;keyType = NULL; }
+	if (keyInfo != NULL){ delete keyInfo;keyInfo = NULL; }
+
+	return -1; // No match found
 }

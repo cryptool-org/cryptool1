@@ -10,7 +10,6 @@
 //#if _MSC_VER > 1000
 //#pragma once
 //#endif // _MSC_VER > 1000
-
 #include "IntegerArithmetic.h"
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
