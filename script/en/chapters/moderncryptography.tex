@@ -545,7 +545,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 
 \index{Key agreement (key exchange)!Diffie-Hellman} \index{Diffie Whitfield} The mechanisms and 
 algorithms of classical cryptography only take effect when the subscribers have 
-already exchanged the secret key. In classical cryptography, you cannot avoid 
+already exchanged the secret key. In classical cryptography you cannot avoid 
 exchanging secrets without encrypting them. Transmission safety here must be 
 achieved using non-cryptographic methods. We say that we need a secret channel 
 for exchanging secrets. This channel can be realised either physically or 
@@ -553,14 +553,14 @@ organisationally. \\
 What is revolutionary about modern cryptography is, amongst other things, that 
 you no longer need secret channels: You can agree secret keys using non-secret, 
 i.e. public channels. \\
-One protocol that solves this problems is that of Diffie and Hellman \\
+One protocol that solves this problem is that of Diffie and Hellman \\
 
 \begin{center}
 \fbox{\parbox{12cm}{        
 Two subscribers $ A $ and $ B $ want to agree on a joint secret key. \par
 Let $ p $ be a prime number and $ g $ a natural number. These two numbers do not 
 need to be secret. \\
-The two subscribers then select a secret number $ a $ and $ b. $ from which they 
+The two subscribers then select a secret number $ a $ and $ b$ from which they 
 calculate the values $ \alpha = g^{a}\mod p $ and $ \beta = g^b \mod p. $ They 
 then exchange the numbers $ \alpha $ and $ \beta $. To end with, the two 
 subscribers calculate the received value to the power of their secret value to 
@@ -572,7 +572,7 @@ Thus
 \end{center}
 
 \vskip +10 pt
-{\bf Diffie Hellman key agreement.}
+{\bf Diffie-Hellman key agreement.}
 \vskip +20 pt
 
 
@@ -588,7 +588,7 @@ observation was made by Taher ElGamal.
 \begin{center}
 \fbox{\parbox{12cm}{        
 Let $ p $ be a prime number such that the discrete logarithm in $ \Z_p $ is 
-difficult. Let $ \alpha \in \Z_p^\ast $ be a primitive element. Let $ a $ and $ 
+difficult to compute. Let $ \alpha \in \Z_p^\ast $ be a primitive element. Let $a \in \N$ and $ 
 \beta = \alpha^{a}  \mod p. $\\
 \underline{Public key:}
 \[ p,\alpha,\beta. \]
@@ -624,7 +624,7 @@ make the discrete logarithm problem difficult. \\
 \paragraph{Calculating the discrete exponential function}
 Let $ G $ be a group with the operation $ \circ $ and $ g \in G. $ The 
 (discrete) exponential function  base $ g $ is defined as
-\[ e_g : {\rm ~N} \ni k \longrightarrow g^k, \quad {\rm for~all~} k \in {\rm N}. \]
+\[ e_g : k \longmapsto g^k, \quad {\rm for~all~} k \in {\rm N}. \]
 where
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k {\rm ~times}}.\]
 The exponential function is easy to calculate:

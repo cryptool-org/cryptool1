@@ -90,12 +90,12 @@ Additionally I added some qualified statements about the security of the RSA alg
 \vskip +40 pt
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss} (30.4.1777 - 23.2.1855):}\\
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss} (30.4.1777$-$23.2.1855):}\\
 Mathematics is the queen of sciences and number theory is the queen of mathematics.}}
 \end{center}
 
 %\begin{quote}
-%{\em Carl Friedrich Gauss (30.4.1777 - 23.2.1855):}\\
+%{\em Carl Friedrich Gauss (30.4.1777$-$23.2.1855):}\\
 %Mathematics is the queen of sciences and number theory is the queen of mathematics.
 %\end{quote}
 
@@ -104,8 +104,10 @@ Mathematics is the queen of sciences and number theory is the queen of mathemati
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
 \index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
-used by human civilisation. According to Kronecker, they are a creation of God. 
-In Dedekind's opinion, they are a creation of the human intellect. Dependent upon one's ideology,
+used by human civilisation. According to Kronecker\footnote{Leopold
+  Kronecker, German mathematician, 1823$-$1891.}\index{Kronecker Leopold}, they are a creation of God. 
+In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
+  German mathematician, 06.10.1831$-$12.02.1916.}\index{Dedekind Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
 this is an unsolvable contradiction or one and the same thing.
 
 In ancient times, no distinction was made between number theory and numerology, which attributed a mystical 
@@ -259,8 +261,10 @@ If you allow numbers other than primes as factors, there are several ways of fac
 uniqueness} is lost:
 $$60 = 1*60 = 2*30 = 4*15 = 5*12 = 6*10 = 2*3*10 = 2*5*6 = 3*4*5 = \cdots$$
 The 1st fundamental theorem only appears to be obvious. We can construct numerous other sets of 
-numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on page 
-\pageref{remFundTheoOfArithm} at the end of chapter \ref{primesinmath}} for which numbers in the set {\em cannot} be expressed 
+numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on 
+page~\pageref{thm-pz-euklid} % should be \pageref{remFundTheoOfArithm}, but
+% hyperref seems to be buggy
+at the end of chapter \ref{primesinmath}} for which numbers in the set {\em cannot} be expressed 
 uniquely as a product of the prime numbers of the set.
 
 In order to make a mathematical statement, therefore, it is important to state not only the operation for which it is 
@@ -397,7 +401,7 @@ the remainder when this number is divided by $m$. The result is that all results
 
 From algebra theorems it follows that essential parts of the conventional calculation rules are kept when we 
 proceed to modular calculations over a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
-The same goes for multiplication modulo $m$. The result of a division\footnote{\label{ftn-zth-divmodn}When dividing modulo $m$  we cannot use every number because some numbers have the same 
+The same goes for multiplication modulo $m$. The result of a division\footnote{\label{ftn-zth-divmodn}When dividing modulo $m$\index{Division modulo $n$}  we cannot use every number because some numbers have the same 
 property as zero. See footnote \ref{ftn-zth-closed}.} is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
@@ -486,7 +490,7 @@ The following shows
 $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
 It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C}). }
 ${\rm ~(mod~ } 5)$ and
-\item the multiplication tables\footnote{Comment on division modulo $6$: 
+\item the multiplication tables\footnote{Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
 for all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no inverse regarding the
 multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote \ref{ftn-zth-divmodn}.}
@@ -782,7 +786,7 @@ $$
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
 RSA encryption and decryption\footnote{See \hyperlink{Kapitel_3_10}{chapter 3.10 Proof of the RSA procedure with Euler-Fermat} \index{RSA}
-and \hyperlink{Kapitel_3_12}{chapter 3.12 The RSA procedure with actual numbers}.} entails calculating high powers modulo $m$. 
+and \hyperlink{Kapitel_3_12}{chapter 3.13 The RSA procedure with actual numbers}.} entails calculating high powers modulo $m$. 
 For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit long integer\index{Long integer} number range provided we calculate $a^n$ 
 by actually multiplying a with itself $n$ times in line with the definition. In the case of extremely large numbers, even 
 a fast computer chip would take longer than the age of the universe to calculate a single exponential. Luckily, there is 
@@ -1126,8 +1130,9 @@ $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
 $$ x^2 + (J(n)-n-1)x +n= 0.
 $$} (please compare requisition 3 in section 3.10.1).
 
+\pagebreak
 \subsection{Multiplicative order and primitive roots}
-\hypertarget{Kap_3_9}{} \ref{MultOrdPrimitveRoot}
+\hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot}
 
 Mathematicians often ask, under which conditions the repeated application of an operation results in the neutral
 element (compare patterns and structures before)\index{Structure}.
@@ -1284,7 +1289,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \hline
 6 & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & -- \\
 \hline
-7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & 1  & 7 & 22 \\
+7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & \textbf{1}  & 7 & 22 \\
 \hline
 8 & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & --  \\
 \hline
@@ -1346,7 +1351,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 \subsection{Proof of the RSA procedure with Euler-Fermat}\hypertarget{Kapitel_3_10}{}\index{RSA}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
-RSA\footnote{The RSA procedure is the most common asymmetric 
+RSA\footnote{The RSA procedure\index{RSA procedure} is the most common asymmetric 
 cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leonard Adleman, it can be used both for
 signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
 please note that the abbreviation may be used in other fields to mean
@@ -1530,16 +1535,18 @@ M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Considerations regarding the security of the RSA algorithm}\label{SecurityRSA}
-
-Major parts of this chapter follow the article ``Vorz\"uge und Grenzen des
-RSA-Verfahrens'' written by F.~Bourseau / D.~Fox / C.~Thiel, and published
-in \emph{Datenschutz und Datensicherheit} (DuD) 26/2002, pp. 84$-$89.
+\subsection[Considerations regarding the security of the RSA algorithm]
+{Considerations regarding the security of the RSA algorithm\footnote{Major
+    parts of chapters \ref{complexity} and \ref{chptSecurityParam} follow
+    the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
+    F.~Bourseau / D.~Fox / C.~Thiel, and published in \emph{Datenschutz und
+      Datensicherheit} (DuD) 26/2002, pp.  84$-$89.}}\label{SecurityRSA}
 
 There have always been discussions about the suitability of the RSA
-algorithm for digital signatures and encryption, e.~g.\ after publications of
-breakthroughs in factorization. Nevertheless the RSA algorithm has become a
-de-facto standard since it was published more than 20 years ago.
+algorithm for digital signatures and encryption, e.~g.\ after publications
+of breakthroughs in factorization. Nevertheless the RSA algorithm has
+become a de-facto standard since it was published more than 20 years ago
+(compare~\ref{ECAlternative}).
 
 The security of the RSA algorithm rests --- as with all cryptographic
 methods --- on the following 4 central pillars:
@@ -1557,7 +1564,7 @@ long integer arithmetic is very easy.
 The following sections examine the RSA algorithm with respect to the first
 two points. 
 
-\subsubsection{Complexity}
+\subsubsection{Complexity}\label{complexity}\index{Complexity}
 
 Successful decryption or forgery of a signature --- without knowing the
 private key --- requires calculating the $e$-th root mod $n$.  The private
@@ -1587,12 +1594,12 @@ Please refer to:
 This formula shows, that the factorization problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
-but stricly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
+but strictly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
 all that is currently known; it does not preclude the possiblity that the
-factorization problem can be solved in polynomial time (s.~\ref{RSABernstein}).
+factorization problem can be solved in polynomial time (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
-$l$ of the number $n$ to be factored.  For the best currently known
+$l$ of the number $n$ to be factorized.  For the best currently known
 factorization algorithm the constant $c = (64/9)^/173) = 1,923$.
 
 The inverse proposition, that the RSA algorithm can be broken only by
@@ -1667,8 +1674,7 @@ knowledge only in German):\\
 }
 prognosticates an almost linear progression with the factorization, if all
 factors are included: Each year the module length feasible for
-factorization increases by 20 bit on average.  Please refer: DuD, 26/2002,
-pp. 84-89, F.~Bourseau / D.~Fox / C.~Thiel
+factorization increases by 20 bit on average.
 
 
 \vskip +20 pt
@@ -1776,8 +1782,7 @@ compromised (s.\
 
 \begin{minipage}{\textwidth}
 Links:
-
-\vskip -10 pt
+\vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
                {\texttt{http://cr.yp.to/djb.html}} \\
@@ -1821,7 +1826,7 @@ they wanted to find the last prime factors of the integer $2^{953} - 1$
 (see ``Wanted List'' of the Cunningham Project\index{Cunningham project}
 \href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}).
 
-The 5 smaller prime factors, already found before have been:
+The 6 smaller prime factors, already found before have been:
 $$
 \begin{array}{c}
 3, 1907, 425796183929, \\
@@ -1831,13 +1836,13 @@ $$
 \end{array}
 $$
 The first 3 factors can be easily computed (e.g. using CrypTool via menu {\bf Indiv. Procedures / RSA Demonstration / Factorise}).
-The remaining three factors were fond by P. Zimmerman
+The next three prime factors were found by P.~Zimmerman
 (\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/~zimmerma/ecmnet}), 
-T. Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
-and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation Method.
+T.~Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
+and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
 
 The last remaining factor, called ``C158'', was known to be composite by
-then, but its factors where not known:
+then, but its factors where not known (the following 3 lines contain one number):
 $$
 \begin{array}{c}
 39505874583265144526419767800614481996020776460304936 \\
@@ -1845,11 +1850,10 @@ $$
 4305870490251995655335710209799226484977949442955603
 \end{array}
 $$
-The factorisation resulted in the following two prime factors:
+The factorisation of C158 resulted in the following two prime factors:
 $$
 \begin{array}{c}
-3388495837466721394368393204672181522 \\
-815830368604993048084925840555281177
+3388495837466721394368393204672181522815830368604993048084925840555281177
 \end{array}
 $$
 and
@@ -1859,7 +1863,7 @@ $$
 2258146392600439520994131344334162924536139.
 \end{array}
 $$
-
+So now all 8 prime factors of $2^{953} - 1$ have been found.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \vskip +40 pt
@@ -2538,7 +2542,7 @@ This needs to be stressed because the type of padding is extremely important dur
       the web site of Mr.~Wagner, who is responsible for the development of
       the curriculum of computer science in a German federal state. Here
       you can get (but only in German) a collection of texts and
-      (Java-)\discretionary{}{}{}programms:\\
+      (Java-)\discretionary{}{}{}programs:\\
       \href{http://www.hom.saar.de/~awa/kryptolo.htm}
               {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
     \item GISA,\index{GISA} \\
@@ -2692,7 +2696,7 @@ software Pari-GP.
 % In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
 % Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP berrechnet werden k"onnen.
 
-\subsubsection*{Multiplikation table modulus $m$} \hypertarget{AppArith1}{}
+\subsubsection*{Multiplication table modulus $m$} \hypertarget{AppArith1}{}
 
 The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page \pageref{SrcArith1a} 
 can be computed in Mathematica with the following commands: 
@@ -2716,7 +2720,7 @@ Pari-GP computes the tables via:
 \vskip +12pt
 
 Note: Pari-GP generates when using the {\tt Mod} function compound {\tt
-  Mod} objecs, which are displayed as shown below: \vspace{-2ex}
+  Mod} objects, which are displayed as shown below: \vspace{-2ex}
 \begin{verbatim}
 matrix(1,iWidth, x,y, Mod(iFactor1*y, m))
 [Mod(5, 17) Mod(10, 17) Mod(15, 17) Mod(3, 17) Mod(8, 17) Mod(13, 17) Mod(1, 17)
@@ -2725,7 +2729,7 @@ matrix(1,iWidth, x,y, Mod(iFactor1*y, m))
 \end{verbatim}
 
 From a {\tt Mod} object you can get back the components with
-\texttt{component}-function:  
+the \texttt{component} or \texttt{lift}function:  
 
 \texttt{%
   component(Mod(5, 17),1) $\rightarrow$ 17 \\
@@ -2907,7 +2911,7 @@ Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
 Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
 Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
 Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
-Definition \ref{def-zth-phiofn} & Euler-function $J(n)$ & \pageref{def-zth-phiofn} \\
+Definition \ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
 Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
 Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
 Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
@@ -2915,7 +2919,7 @@ Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm
 Theorem \ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
 Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
 Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
-Definition \ref{def-zth-primitiveroot} & primitive root von $m$ &  \pageref{def-zth-primitiveroot}\\
+Definition \ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
 Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
 \end{tabular}
 \end{center}

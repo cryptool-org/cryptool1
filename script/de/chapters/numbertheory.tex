@@ -101,7 +101,7 @@ Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahre
 \vskip +40 pt
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss \index{Gauss}(30.4.1777 - 23.2.1855):}\\
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss \index{Gauss}(30.4.1777$-$23.2.1855):}\\
 Die Mathematik ist die K"onigin der Wissenschaften, die Zahlentheorie aber
 ist die K"onigin der Mathematik.}}
 \end{center}
@@ -112,7 +112,12 @@ ist die K"onigin der Mathematik.}}
 \index{Zahlentheorie!Einf""uhrung} Die Zahlentheorie entstand aus Interesse an den positiven ganzen Zahlen $1,
 2, 3, 4, \cdots ,$ die auch als die Menge der \index{Zahlen!nat""urliche} {\em nat"urlichen Zahlen} $\mathbb{N}$ bezeichnet
 werden. Sie sind die ersten mathematischen Konstrukte der menschlichen
-Zivilisation. Nach Kronecker hat sie der liebe Gott geschaffen, nach Dedekind der menschliche Geist.
+Zivilisation. Nach Kronecker\footnote{Leopold Kronecker, deutscher
+  Mathematiker, 1823$-$1891.}\index{Kronecker Leopold} hat sie der liebe
+Gott 
+geschaffen, nach Dedekind\footnote{Julius Wilhelm Richard Dedekind,
+  deutscher Mathematiker, 06.10.1831$-$12.02.1916.}\index{Dedekind Julius}
+der menschliche Geist.
 Das ist je nach Weltanschauung ein unl"osbarer Widerspruch oder ein und dasselbe.
 
 Im Altertum gab es keinen Unterschied zwischen Zahlentheorie und
@@ -285,7 +290,9 @@ Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich. Man kann viele andere
 Zahlenmengen\footnote{%
 Diese Mengen werden speziell aus der Menge der nat"urlichen Zahlen gebildet.
 Ein Beispiel findet sich in diesem \hyperlink{uniqueness}{Skript}
-auf Seite~\pageref{remFundTheoOfArithm} am Ende von Kapitel~\ref{primesinmath}
+auf Seite~\pageref{thm-pz-euklid} %eigentlich \pageref{remFundTheoOfArithm},
+%aber hyperref ist buggy
+am Ende von Kapitel~\ref{primesinmath}
 } konstruieren, bei denen eine multiplikative Zerlegung in die Primfaktoren
 dieser Mengen {\em nicht} eindeutig ist.
 
@@ -361,7 +368,7 @@ Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ m"oglich sind, rechnet die mo
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
 
 \begin{definition}\label{def-zth-congruence} \index{Kongruenz}
-Zwei Zahlen $a, b \in \mathbb{N}$  hei"sen \index{restgleich} \index{Kongruent}
+Zwei Zahlen $a, b \in \mathbb{N}$  hei"sen \index{restgleich} \index{kongruent}
 {\bf restgleich oder kongruent bez"uglich $m \in \mathbb{N}$}  genau dann, 
 wenn beim Teilen durch $m$ der gleiche Rest bleibt.
 \end{definition}
@@ -438,7 +445,7 @@ Aus S"atzen der Algebra folgt, dass wesentliche Teile der "ublichen
 Rechenregeln beim "Ubergang zum modularen Rechnen "uber der Grundmenge $\mathbb{Z}$
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt f"ur die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
-\label{ftn-res-divmodn}Die Division modulo $m$ ist nur f"ur Zahlen, die teilerfremd zu $m$ sind, definiert. 
+\label{ftn-res-divmodn}Die Division modulo $m$\index{Division modulo $n$} ist nur f"ur Zahlen, die teilerfremd zu $m$ sind, definiert. 
 Vergleiche Kapitel \ref{multmodn}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
@@ -531,14 +538,14 @@ Bemerkung zur Subtraktion modulo 5: \\
       Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{Anhang C}). 
       } f"ur ${\rm mod~ } 5$ und
 \item die Multiplikationstabellen\footnote{%
-Bemerkung zur Division modulo 6 :
+Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
-      Bei der Division darf nicht durch die Null geteilt werden, dies liegt an der
-      besonderen Rolle der $0$ als Identit"at bei der Addition:\\
-      f"ur alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist offensischtlich, dass $0$ keine Inverse
-      bzgl. der Multiplikation besitzt, denn sonst m"u"ste gelten $0 = 0 * 0^{-1} = 1.$ Vergleiche 
-      Fu"snote \ref{ftn-res-divmodn}.
-      } f"ur mod $5$ und f"ur mod $6$
+\noindent Bei der Division darf nicht durch die Null geteilt werden, dies liegt an
+der besonderen Rolle der $0$ als Identit"at bei der Addition:\\
+f"ur alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
+offensischtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
+denn sonst m"u"ste gelten $0 = 0 * 0^{-1} = 1.$ Vergleiche Fu"snote
+\ref{ftn-res-divmodn}.  } f"ur mod $5$ und f"ur mod $6$
 \end{itemize}
 aufgestellt.
 
@@ -1451,7 +1458,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \hline
 6 & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & -- \\
 \hline
-7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & 1  & 7 & 22 \\
+7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & \textbf{1}  & 7 & 22 \\
 \hline
 8 & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & --  \\
 \hline
@@ -1754,17 +1761,17 @@ $$
 
 
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Zur Sicherheit des RSA-Verfahrens}
+\subsection[Zur Sicherheit des RSA-Verfahrens]{Zur Sicherheit des RSA-Verfahrens\footnote{%
+Gro"se Teile der Kapitel \ref{complexity} und \ref{chptSecurityParam}
+    sind angelehnt an den Artikel \glqq Vorz"uge und Grenzen des
+    RSA-Verfahrens\grqq von F. Bourseau / D. Fox / C. Thiel, {\em in
+      Datenschutz und Datensicherheit} (DuD) 26/2002, S.  84-89.}}
 \label{SecurityRSA}
-
-Gro"se Teile dieses Absatzes sind angelehnt an den Artikel \glqq Vorz"uge
-und Grenzen des RSA-Verfahrens\grqq von F. Bourseau / D. Fox
-/ C. Thiel, {\em in Datenschutz und Datensicherheit} (DuD) 26/2002, S.
-84-89.
 
 Die Eignung des RSA-Verfahrens f"ur digitale Signaturen und Verschl"usselung ger"at immer wieder in die Diskussion, 
 z.B. im Zusammenhang mit der Ver"offentlichung aktueller Faktorisierungserfolge. Ungeachtet dessen ist das RSA-Verfahren 
-seit seiner Ver"offentlichung vor mehr als 20 Jahren unangefochtener De-facto-Standard.
+seit seiner Ver"offentlichung vor mehr als 20 Jahren unangefochtener
+De-facto-Standard (vgl.~\ref{ECAlternative}).
 
 Die Sicherheit des RSA-Verfahrens basiert - wie die aller kryptographischen Verfahren - auf den folgenden 4 zentralen
 S"aulen:
@@ -1781,7 +1788,7 @@ Die Implementierung ist auf Basis einer Langzahlarithmetik sehr einfach.
 %Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden Punkte.
 In den folgenden Abnschnitten werden die ersten beiden Punkte n"aher untersucht.
 
-\subsubsection{Komplexit"at}
+\subsubsection{Komplexit"at}\label{complexity}\index{Komplexit""at}
 
 \begin{sloppypar}
   Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne
@@ -1855,7 +1862,7 @@ Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $n$ bestimmt
       \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
               {\em Factoring integers with the number field sieve.} 
               In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
-              in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50-94
+              in Mathematics, Vol.~1554, Springer, Heidelberg 1993, S. 50-94
       \end{list}\vskip +12 pt
 \end{itemize}
 Damit wurde klar, dass eine Modull"ange von $512$ Bit keinen Schutz mehr vor Angreifern darstellt.
@@ -1994,8 +2001,7 @@ seines Forschungsprojektes ist.
 \begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
-
-\vskip -10 pt
+\vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
                {\texttt{http://cr.yp.to/djb.html}} \\
@@ -2033,25 +2039,28 @@ Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, son
 Primfaktoren der Zahl $2^{953}+1$ zu finden (siehe~ ``Wanted List'' des
 Cunningham-Projekts \index{Cunningham-Projekt}\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). 
 
-Die 5 kleineren, schon vorher gefundenen Primfaktoren dieser Zahl waren:
+Die 6 kleineren, schon vorher gefundenen Primfaktoren dieser Zahl waren:
 $$
 \begin{array}{c}
-	3, 1907, 425796183929, \\ 
-	1624700279478894385598779655842584377, \\
-	3802306738549441324432139091271828121 \quad{\rm und} \\ 
-	128064886830166671444802576129115872060027.
+        3, 1907, 425796183929, \\ 
+        1624700279478894385598779655842584377, \\
+        3802306738549441324432139091271828121 \quad{\rm und} \\ 
+        128064886830166671444802576129115872060027.
 \end{array}
 $$
-Wobei die drei kleinsten Faktoren leicht (z.B. mit CrypTool unter Menü {\bf Einzelverfahren / RSA-Demonstration / Faktorisieren}) bestimmt werden.
-Die Restlichen drei Faktoren wurden von P. Zimmerman
+\begin{sloppypar}
+Wobei die drei kleinsten Faktoren leicht (z.B. mit CrypTool unter Men"u {\bf Einzelverfahren / RSA-Demonstration / Faktorisieren}) bestimmt werden.
+Die n"achsten drei Primfaktoren wurden von P.~Zimmerman
 (\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/~zimmerma/ecmnet}), 
-T. Grandlund \linebreak[4]
+T.~Grandlund
 (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
 und R. Harley in den Jahren 1999 und 2000 mit der Methode der elliptischen
 Kurven gefunden.
+\end{sloppypar}
 
 Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
-von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
+von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte
+seine Primfaktoren nicht (die folgenden drei Zeilen sind eine einzige Zahl):
 $$
 \begin{array}{c}
 39505874583265144526419767800614481996020776460304936 \\
@@ -2059,11 +2068,10 @@ $$
 4305870490251995655335710209799226484977949442955603
 \end{array}
 $$
-Die Faktorisierung ergab die beiden Primfaktoren:
+Die Faktorisierung von C158 ergab die beiden Primfaktoren:
 $$
 \begin{array}{c}
-3388495837466721394368393204672181522 \\
-815830368604993048084925840555281177
+3388495837466721394368393204672181522815830368604993048084925840555281177
 \end{array}
 $$
 und
@@ -2073,6 +2081,7 @@ $$
 2258146392600439520994131344334162924536139.
 \end{array}
 $$
+Damit wurde die Zahl $2^{953}+1$ vollst"andig in ihre 8 Primfaktoren zerlegt.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
