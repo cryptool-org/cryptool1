@@ -9,11 +9,11 @@
 
 namespace __SSL
 {
-#include "md2.h"
-#include "md4.h"
-#include "md5.h"
-#include "ripemd.h"
-#include "sha.h"
+#include "OpenSSL//md2.h"
+#include "OpenSSL//md4.h"
+#include "OpenSSL//md5.h"
+#include "OpenSSL//ripemd.h"
+#include "OpenSSL//sha.h"
 }
 
 // namespace MD2

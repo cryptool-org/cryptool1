@@ -16,7 +16,9 @@ DiffieHellmanParty::DiffieHellmanParty(std::string g, std::string p)throw(DHErro
 	if(p.length() > MAX_KEY_LENGTH_IN_BYTE || p.empty()) this->ErrorCode |= E_PRIME_INVALID;
 	// Initialisierung der öffentlichen Parameter
 	Generator = (char*)g.c_str();
+	strGenerator = g;
 	Prime = (char*)p.c_str();
+	strPrime = p;
 	// Primzahl testen
 	if(!prime(Prime)) this->ErrorCode |= E_PRIME_INVALID;
 	// Generator testen

@@ -9,6 +9,7 @@
 
 #include "DiffieHellmanParty.h"
 #include "ButtonControl.h"
+#include "DiffieHellmanLogFile.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanVisualization 
@@ -34,7 +35,6 @@ public:
 	CString	m_SharedKeyBob;
 	CString	m_SessionKeyAlice;
 	CString	m_SessionKeyBob;
-	CString	m_SessionKey;
 	BOOL	m_bShowInfoDialogues;
 	//}}AFX_DATA
 
@@ -51,6 +51,9 @@ private:
 	BitmapButtonControl *pButtonControl;
 	DiffieHellmanParty *Alice;
 	DiffieHellmanParty *Bob;
+	// Zeiger auf eine Logdatei; ihr werden am Ende des Verfahrens die ermittelten
+	// Parameter übergeben.
+	DiffieHellmanLogFile *pDiffieHellmanLogFile;
 
 protected:
 
@@ -69,6 +72,7 @@ protected:
 	afx_msg void OnButtonalice3();
 	afx_msg void OnButtonbob3();
 	afx_msg void OnCheckDisablehelp();
+	afx_msg void OnKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

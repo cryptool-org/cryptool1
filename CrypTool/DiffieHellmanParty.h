@@ -28,6 +28,8 @@ private:
 	long ErrorCode;
 
 	// Hilfsvariablen (keine Big-Objekte sondern std::string)
+	std::string strGenerator;
+	std::string strPrime;
 	std::string strPublicKey;
 	std::string strSessionKey;
 	std::string strSecret;
@@ -39,11 +41,17 @@ public:
 	// Get-Methoden
 	std::string GetPublicKey()throw(DHError);
 	std::string GetSessionKey(std::string)throw(DHError);
+	std::string GetStrGenerator() { return strGenerator; };
+	std::string GetStrPrime() { return strPrime; };
 	Big& GetGenerator() { return Generator; };
 	Big& GetPrime() { return Prime; };
 	// Set-Methoden
 	void SetSecret()throw(DHError);
 	void SetSecret(std::string)throw(DHError);
+
+	// Diese Methode GIBT DAS GEHEIMNIS PREIS
+	// "quick-n-dirty"-Implementierung der Klasse DiffieHellmanLogFile
+	std::string GetStrSecret() { return strSecret; };
 };
 
 // Klasse zur Ausnahmebehandlung/Fehlerbehandlung

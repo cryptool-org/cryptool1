@@ -151,6 +151,7 @@
 #define IDD_SIGNATURE_ATTACK            564
 #define IDD_OPTIONS_SIGNATURE_ATTACK    565
 #define IDD_STATISTICS_SIGNATURE_ATTACK 566
+#define IDD_DIFFIEHELLMAN_KEY           571
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -625,6 +626,12 @@
 #define IDC_HASH_OPERATIONS_PERFORMED   1467
 #define IDC_LIST_OF_RUNS                1468
 #define IDC_STATIC_SIG_ATT_BITLENGTH_RANGE 1469
+#define IDC_RESULT                      1470
+#define IDC_KEY_ALICE                   1471
+#define IDC_KEY_BOB                     1472
+#define IDC_BITLENGTHALICE              1473
+#define IDC_BITLENGTHBOB                1474
+#define IDC_SHOWLOGTEXT                 1475
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -1488,14 +1495,22 @@
 #define IDS_STRING_DAYS                 37907
 #define IDS_STRING_YEARS                37908
 #define IDS_PERMUTATION_DECRYPT_INV     37909
+#define IDS_DH_LOG_1                    61889
+#define IDS_DH_LOG_2                    61890
+#define IDS_DH_LOG_3                    61891
+#define IDS_DH_LOG_4                    61892
+#define IDS_DH_LOG_5                    61893
+#define IDS_DH_LOG_6                    61894
+#define IDS_DH_KEY_VERIFICATION_YES     61895
+#define IDS_DH_KEY_VERIFICATION_NO      61896
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        567
+#define _APS_NEXT_RESOURCE_VALUE        632
 #define _APS_NEXT_COMMAND_VALUE         33261
-#define _APS_NEXT_CONTROL_VALUE         1470
+#define _APS_NEXT_CONTROL_VALUE         1476
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

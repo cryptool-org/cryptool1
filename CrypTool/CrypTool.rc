@@ -2527,7 +2527,7 @@ END
 IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
-"Diffie-Hellman-Demo - Visualisierung des Schlüsselaustauschverfahrens nach Diffie-Hellman"
+"Diffie-Hellman Demonstration - Visualization of the Diffie-Hellman Key Exchange Protocol"
 
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -2553,7 +2553,7 @@ BEGIN
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,230,50,14
     CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,410,230,50,14
-    PUSHBUTTON      "&Beenden",IDOK,16,323,50,14
+    PUSHBUTTON      "&Close",IDOK,16,323,50,14
     EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
@@ -2567,15 +2567,12 @@ BEGIN
     EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    EDITTEXT        IDC_SESSIONKEY,152,302,361,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,406,327,107,10
+    CONTROL         "Show &information dialogues",IDC_CHECK_DISABLEHELP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,102,10
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
-    LTEXT           "Session Key:",IDC_STATIC,152,291,42,8
     GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
     GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
     EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -2583,10 +2580,11 @@ BEGIN
     EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
-    LTEXT           "Primzahlmodul p:",IDC_STATIC,175,53,70,14,
-                    SS_CENTERIMAGE
-    GROUPBOX        "Öffentliche Parameter",IDC_STATIC,160,23,345,50
+    LTEXT           "Prime module p:",IDC_STATIC,175,53,70,14,SS_CENTERIMAGE
+    GROUPBOX        "Public parameters:",IDC_STATIC,160,23,345,50
     CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
+    CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,152,280,50,14
 END
 
 IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
@@ -2601,14 +2599,14 @@ BEGIN
                     14
     DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als Eins und gleichzeitig aber kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
+    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als Eins und gleichzeitig kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
                     IDC_STATIC,15,84,363,16
-    LTEXT           "Generator (g)",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
+    LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahl-Modul (p) - dürfen öffentlich bekannt sein.",
                     IDC_STATIC,15,7,363,8
-    LTEXT           "Der Primzahl-Modul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+    LTEXT           "Der Primzahlmodul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
                     IDC_STATIC,15,28,363,16
-    LTEXT           "Primzahl (p)",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+    LTEXT           "Primzahlmodul:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
 END
 
 IDD_DIFFIEHELLMAN_SETSECRETS DIALOG DISCARDABLE  0, 0, 200, 101
@@ -2678,7 +2676,7 @@ END
 
 IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Einleitung"
+CAPTION "Einleitung Diffie-Hellman-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,112,189,50,14
@@ -2686,15 +2684,15 @@ BEGIN
                     IDC_STATIC,7,7,262,8
     LTEXT           "Zwei Kommunikationspartner - in diesem Fall Alice und Bob - wollen einen geheimen Schlüssel über einen unsicheren Kanal aushandeln.",
                     IDC_STATIC,7,43,262,16
-    LTEXT           "Zusätzlich soll kein Angreifer die Möglichkeit haben, den Schlüssel zu erlangen, auch wenn er den Kanal komplett abhören kann.",
+    LTEXT           "Dabei soll jedoch kein Angreifer die Möglichkeit haben, den ausgehandelten Schlüssel zu erlangen, auch wenn er den Kanal komplett abhören kann.",
                     IDC_STATIC,7,59,262,16
-    LTEXT           "Das Verfahren behandelt folgende Problemstellung:",
+    LTEXT           "Das Verfahren behandelt die folgende Problemstellung:",
                     IDC_STATIC,7,25,262,8
-    LTEXT           "Zur Lösung des Problems benutzen wir das bereits angesprochene Schlüsselaustauschverfahren nach Diffie-Hellman.",
+    LTEXT           "Dieses Problem wird mit dem Schlüsselaustauschverfahren nach Diffie-Hellman gelöst.",
                     IDC_STATIC,7,85,262,16
-    LTEXT           "Da es sich um eine interaktive Visualisierung handelt, sind im Laufe der Visualisierung Benutzereingaben Ihrerseits erforderlich.",
+    LTEXT           "Die folgende interaktive Visualisierung des Verfahrens erfordert Benutzereingaben von Ihnen.",
                     IDC_STATIC,7,111,262,16
-    LTEXT           "Für eine kontextbezogene Hilfe drücken Sie deshalb bitte die Taste F1, sobald Unklarheiten aufkommen.",
+    LTEXT           "Bei Fragen erhalten Sie mit der F1-Taste kontextbezogene Hilfe.",
                     IDC_STATIC,7,137,262,16
     CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen!",
                     IDC_CHECK_NOSHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
@@ -2817,6 +2815,35 @@ BEGIN
     EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,148,94,14,
                     ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,274,91,17
+END
+
+IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Schlüssel-Details - Geheimer und gemeinsamer Schlüssel von Alice und Bob"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,175,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,367,175,50,14
+    LTEXT           "Unabhängig voneinander haben Alice und Bob jeweils für sich den Session Key berechnet:",
+                    IDC_STATIC,7,17,287,8
+    LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
+                    SS_CENTERIMAGE
+    LTEXT           "Bob's Session Key:",IDC_STATIC,20,90,75,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Verifikation",IDC_STATIC,7,135,410,30
+    LTEXT           "ERGEBNISTEXT",IDC_RESULT,20,149,391,8
+    EDITTEXT        IDC_KEY_ALICE,99,35,312,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BITLENGTHALICE,180,55,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_KEY_BOB,99,90,312,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BITLENGTHBOB,180,110,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,55,70,14,
+                    SS_CENTERIMAGE
+    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,110,70,14,
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,175,72,14
 END
 
 
@@ -3379,9 +3406,9 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Angriff auf die digitale Signatur...", ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Angriff auf die digitale Signatur...", ID_SIGNATUR_ATTACK
     END
     POPUP "&Optionen"
     BEGIN
@@ -3899,9 +3926,6 @@ IDB_DH_BUTTON5_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R
 IDB_DH_BUTTON5_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_F.bmp"
 IDB_DH_BUTTON5_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_U.bmp"
 IDB_DH_BUTTON5_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_X.bmp"
-IDB_DH_CANCEL_F         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_F.bmp"
-IDB_DH_CANCEL_U         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_U.bmp"
-IDB_DH_CANCEL_D         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_D.bmp"
 IDB_DH_SECRET_R_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_R_X.bmp"
 IDB_DH_SECRET_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_F.bmp"
 IDB_DH_SECRET_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_U.bmp"
@@ -3926,6 +3950,10 @@ IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_4.bm
 IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_1.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\GapFiller.bmp"
 IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_KEY_X            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_X.bmp"
+IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp"
+IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
+IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4715,6 +4743,17 @@ BEGIN
         HORZGUIDE, 207
         HORZGUIDE, 223
         HORZGUIDE, 259
+    END
+
+    IDD_DIFFIEHELLMAN_KEY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 417
+        VERTGUIDE, 20
+        VERTGUIDE, 99
+        VERTGUIDE, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5810,6 +5849,16 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
+    IDS_DH_LOG_1            "Zunächst einigten sich Alice und Bob auf die öffentlichen Parameter des Schlüsselaustauschs. Hierzu wählten sie eine Primzahl p und einen Generator g:"
+    IDS_DH_LOG_2            "Nun wählten sowohl Alice als auch Bob jeweils für sich ihre Geheimzahlen. Alice und Bob legten ihre Geheimnisse a und b wie folgt fest:"
+    IDS_DH_LOG_3            "Anhand ihrer zuvor gewählten Geheimnisse erzeugte Alice ihren öffentlichen Teilschlüssel A. Bob erzeugte parallel dazu seinen öffentlichen Teilschlüssel B:"
+    IDS_DH_LOG_4            "Als nächstes tauschten Alice und Bob ihre öffentlichen Teilschlüssel aus, d.h. Alice sendete ihren Schlüssel A an Bob und Bob sendete seinen Schlüssel B an Alice."
+    IDS_DH_LOG_5            "Nun konnten Alice und Bob jeweils den geheimen und gemeinsamen Session Key erzeugen. Alice berechnete ihren Schlüssel SA, Bob berechnete den Schlüssel SB:"
+    IDS_DH_LOG_6            "Theoretisch wäre es Alice und Bob nun möglich, mit Hilfe des jeweils berechneten Session Keys SA und SB untereinander auszutauschende Dokumente zum Schutz vor Dritten zu verschlüsseln bzw. zu entschlüsseln."
+    IDS_DH_KEY_VERIFICATION_YES 
+                            "Verifikation erfolgreich! - Die Schlüssel von Alice und Bob sind identisch."
+    IDS_DH_KEY_VERIFICATION_NO 
+                            "Verifikation fehlgeschlagen! - Die Schlüssel von Alice und Bob sind nicht identisch!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5832,8 +5881,8 @@ BEGIN
                             "Es wurde versucht, auf eine nicht existente Datei zuzugreifen."
     IDS_DH_GENERATOR_INVALID 
                             "Dem Generator konnte kein gültiger Wert zugewiesen werden, bitte überprüfen Sie Ihre Eingaben (1 < g < p)."
-    IDS_DH_PRIME_INVALID    "Der Primzahl konnte kein gültiger Wert zugewiesen werden, bitte überprüfen Sie Ihre Eingaben und wählen Sie ggf. einen kleineren Wert!"
-    IDS_DH_SECRET_INVALID   "Das Geheimnis konnte nicht festgelegt werden, bitte überprüfen Sie Ihre Eingaben!"
+    IDS_DH_PRIME_INVALID    "Der Primzahl konnte kein gültiger Wert zugewiesen werden, bitte wählen Sie ggf. einen kleineren Wert!"
+    IDS_DH_SECRET_INVALID   "Das Geheimnis konnte nicht festgelegt werden, wählen Sie ggf. einen kleineren Wert!"
     IDS_DH_PK_INVALID       "Ein interner Fehler ist aufgetreten!"
     IDS_DH_OPK_INVALID      "Ein interner Fehler ist aufgetreten!"
     IDS_DH_SESSION_KEY_INVALID "Ein interner Fehler ist aufgetreten!"
@@ -6330,6 +6379,9 @@ BEGIN
     ID_HILFE_STARTSEITE     "Zeigt die Startseite der Online-Hilfe zu CrypTool an"
     ID_HILFE_INDEX          "Zeigt den Index der Schlüsselworte in der Online-Hilfe zu CrypTool an"
     ID_HILFE_SZENARIEN      "Zeigt die Übersichtsseite der Online-Hilfe für alle Szenarien in CrypTool"
+    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodiert eine ASN.1-Datei"
+    ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
+                            "Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6345,23 +6397,23 @@ BEGIN
                             "Bitte wählen Sie einen Generator (g), der die Bedingung 1 < g < p erfüllt,\nd.h. er muß größer als Eins und kleiner als der Primzahl-Modul (p) sein."
     IDS_DH_DATA_INCONSISTENCY "Ein interner Fehler ist aufgetreten!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
-                            "Bitte geben Sie nur Werte in dezimaler Form ein, d.h. keine Buchstaben und/oder sonstige Sonderzeichen."
+                            "Bitte geben Sie nur natürliche Zahlen in dezimaler Form ein (keine Buchstaben und/oder sonstige Sonderzeichen)."
     IDS_DH_CALCULATE_PUBLIC_KEY_ALICE 
                             "Alice hat ihren öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_CALCULATE_PUBLIC_KEY_BOB 
                             "Bob hat seinen öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_SESSION_KEY_CALCULATED_BY_ALICE 
-                            "Alice hat ihrerseits den gemeinsamen Schlüssel berechnet. Er wird nun im Textfeld unter dem Button angezeigt."
+                            "Alice hat ihrerseits den gemeinsamen Schlüssel berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
-                            "Bob hat seinerseits den gemeinsamen Schlüssel berechnet. Er wird nun im Textfeld unter dem Button angezeigt."
+                            "Bob hat seinerseits den gemeinsamen Schlüssel berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
                             "Alice hat ihr Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
                             "Bob hat sein Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
-    IDS_DH_SECRET_PARTYNAME "Bitte Legen Sie nun das Geheimnis für %s fest."
+    IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
-                            "Bitte achten Sie darauf, dass das gewählte Geheimnis kleiner als der Primzahlmodul p ist, dennoch aber größer als Eins (1 < g < p)."
+                            "Bitte achten Sie darauf, dass das gewählte Geheimnis (s) kleiner als der Primzahlmodul p ist, dennoch aber größer als Eins (1 < g < p)."
     IDS_DH_RESULT_MESSAGE   "Das gemeinsam ausgehandelte Geheimnis, das jede Partei (Alice und Bob) für sich selbst berechnet hat, erscheint nun im Textfeld 'Session Key'."
 END
 
@@ -8883,68 +8935,6 @@ BEGIN
     CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
-IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Diffie-Hellman Demonstration"
-FONT 8, "MS Sans Serif"
-BEGIN
-    CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,30,108,31
-    CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,7,80,108,31
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE1,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,80,50,14
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB1,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,410,80,50,14
-    CONTROL         "IDB_DH_BUTTON3_R_",IDC_CREATESHAREDKEY,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,130,108,31
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE2,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,130,50,14
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB2,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,410,130,50,14
-    CONTROL         "IDB_DH_BUTTON4_R_",IDC_EXCHANGESHAREDKEYS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,180,108,31
-    CONTROL         "IDB_DH_BUTTON5_R_",IDC_GENERATEFINALKEY,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,230,108,31
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE3,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,230,50,14
-    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,410,230,50,14
-    PUSHBUTTON      "&Close",IDOK,16,323,50,14
-    EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SHAREDALICE,160,157,110,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SHAREDBOB,395,157,110,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_FINALALICE,160,257,110,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    EDITTEXT        IDC_SESSIONKEY,152,302,361,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "Show &information dialogues",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,102,10
-    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
-    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
-    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
-    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
-    LTEXT           "Session Key:",IDC_STATIC,152,291,42,8
-    GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
-    GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
-    EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
-    LTEXT           "Prime module p:",IDC_STATIC,175,53,70,14,SS_CENTERIMAGE
-    GROUPBOX        "Public parameters",IDC_STATIC,160,23,345,50
-    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
-END
-
 IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Introduction"
@@ -8989,7 +8979,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
     CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
-    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel berechnen.",
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und den gemeinsamen Schlüssel berechnen.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
 END
 
@@ -9025,7 +9015,7 @@ BEGIN
     DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
-    LTEXT           "Achten Sie dabei jedoch darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
+    LTEXT           "Achten Sie dabei darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
                     IDC_STATIC,15,22,358,16
     LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, die kleiner als der Primzahl-Modul (p) ist.",
                     IDC_STATIC,15,46,358,16
@@ -9039,9 +9029,103 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice bzw. Bob festlegen, die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
+    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice bzw. Bob festlegen. Die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Diffie-Hellman-Demo - Visualisierung des Schlüsselaustauschverfahrens nach Diffie-Hellman"
+
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,30,108,31
+    CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,80,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE1,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,80,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB1,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,80,50,14
+    CONTROL         "IDB_DH_BUTTON3_R_",IDC_CREATESHAREDKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,130,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE2,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,130,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB2,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,130,50,14
+    CONTROL         "IDB_DH_BUTTON4_R_",IDC_EXCHANGESHAREDKEYS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,180,108,31
+    CONTROL         "IDB_DH_BUTTON5_R_",IDC_GENERATEFINALKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,230,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE3,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,230,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,230,50,14
+    PUSHBUTTON      "&Beenden",IDOK,16,323,50,14
+    EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDALICE,160,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDBOB,395,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALALICE,160,257,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
+    CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,406,327,107,10
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
+    GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
+    GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
+    EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
+    LTEXT           "Primzahlmodul p:",IDC_STATIC,175,53,70,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Von beiden benutzte öffentliche Parameter",IDC_STATIC,
+                    160,23,345,50
+    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
+    CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,152,280,50,14
+END
+
+IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Schlüssel-Details - Geheimer und gemeinsamer Schlüssel von Alice und Bob"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,175,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,367,175,50,14
+    LTEXT           "Unabhängig voneinander haben Alice und Bob jeweils für sich den Session Key berechnet:",
+                    IDC_STATIC,7,17,287,8
+    LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
+                    SS_CENTERIMAGE
+    LTEXT           "Bob's Session Key:",IDC_STATIC,20,90,75,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Verifikation",IDC_STATIC,7,135,410,30
+    LTEXT           "ERGEBNISTEXT",IDC_RESULT,20,149,391,8
+    EDITTEXT        IDC_KEY_ALICE,99,35,312,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BITLENGTHALICE,180,55,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_KEY_BOB,99,90,312,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BITLENGTHBOB,180,110,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,55,70,14,
+                    SS_CENTERIMAGE
+    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,110,70,14,
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,175,72,14
 END
 
 
@@ -10095,6 +10179,66 @@ IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_5
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\dh_arrow.bmp"
 IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\dh_gapfi.bmp"
+IDB_DH_BUTTON1_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_D.bmp"
+IDB_DH_BUTTON1_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_R_X.bmp"
+IDB_DH_BUTTON1_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_U.bmp"
+IDB_DH_BUTTON1_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_X.bmp"
+IDB_DH_BUTTON1_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_R_D.bmp"
+IDB_DH_BUTTON1_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_R_F.bmp"
+IDB_DH_BUTTON1_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_R_U.bmp"
+IDB_DH_BUTTON1_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_F.bmp"
+IDB_DH_BUTTON2_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_R_X.bmp"
+IDB_DH_BUTTON2_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_G_F.bmp"
+IDB_DH_BUTTON2_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_G_U.bmp"
+IDB_DH_BUTTON2_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_G_X.bmp"
+IDB_DH_BUTTON2_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_R_D.bmp"
+IDB_DH_BUTTON2_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_R_F.bmp"
+IDB_DH_BUTTON2_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_R_U.bmp"
+IDB_DH_BUTTON2_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button2_G_D.bmp"
+IDB_DH_BUTTON3_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_R_X.bmp"
+IDB_DH_BUTTON3_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_G_F.bmp"
+IDB_DH_BUTTON3_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_G_U.bmp"
+IDB_DH_BUTTON3_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_G_X.bmp"
+IDB_DH_BUTTON3_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_R_D.bmp"
+IDB_DH_BUTTON3_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_R_F.bmp"
+IDB_DH_BUTTON3_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_R_U.bmp"
+IDB_DH_BUTTON3_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button3_G_D.bmp"
+IDB_DH_BUTTON4_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_R_X.bmp"
+IDB_DH_BUTTON4_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_G_F.bmp"
+IDB_DH_BUTTON4_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_G_U.bmp"
+IDB_DH_BUTTON4_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_G_X.bmp"
+IDB_DH_BUTTON4_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_R_D.bmp"
+IDB_DH_BUTTON4_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_R_F.bmp"
+IDB_DH_BUTTON4_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_R_U.bmp"
+IDB_DH_BUTTON4_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button4_G_D.bmp"
+IDB_DH_BUTTON5_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_R_X.bmp"
+IDB_DH_BUTTON5_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_G_F.bmp"
+IDB_DH_BUTTON5_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_G_U.bmp"
+IDB_DH_BUTTON5_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_G_X.bmp"
+IDB_DH_BUTTON5_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_R_D.bmp"
+IDB_DH_BUTTON5_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_R_F.bmp"
+IDB_DH_BUTTON5_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_R_U.bmp"
+IDB_DH_BUTTON5_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button5_G_D.bmp"
+IDB_DH_CALCULATE_R_X    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_R_X.bmp"
+IDB_DH_CALCULATE_G_F    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_G_F.bmp"
+IDB_DH_CALCULATE_G_U    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_G_U.bmp"
+IDB_DH_CALCULATE_G_X    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_G_X.bmp"
+IDB_DH_CALCULATE_R_D    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_R_D.bmp"
+IDB_DH_CALCULATE_R_F    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_R_F.bmp"
+IDB_DH_CALCULATE_R_U    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_R_U.bmp"
+IDB_DH_CALCULATE_G_D    BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Calculate_G_D.bmp"
+IDB_DH_KEY_X            BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Key_X.bmp"
+IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Key_F.bmp"
+IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Key_U.bmp"
+IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Key_D.bmp"
+IDB_DH_SECRET_R_X       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_X.bmp"
+IDB_DH_SECRET_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_F.bmp"
+IDB_DH_SECRET_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_U.bmp"
+IDB_DH_SECRET_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_X.bmp"
+IDB_DH_SECRET_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_D.bmp"
+IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_F.bmp"
+IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
+IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10614,6 +10758,17 @@ BEGIN
         RIGHTMARGIN, 300
         TOPMARGIN, 10
         BOTTOMMARGIN, 98
+    END
+
+    IDD_DIFFIEHELLMAN_KEY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 417
+        VERTGUIDE, 20
+        VERTGUIDE, 99
+        VERTGUIDE, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11676,6 +11831,16 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+    IDS_DH_LOG_1            "At first, Alice and Bob agreed on the public parameters. So they chose a prime p and a generator g:"
+    IDS_DH_LOG_2            "Alice chose her secret number 'a' while Bob chose his secret number 'b':"
+    IDS_DH_LOG_3            "On the basis of the previously chosen secret numbers, Alice and Bob created their respective shared keys. Alice computed her shared key A, while Bob computed his shared key B:"
+    IDS_DH_LOG_4            "In order to calculate their secret and common Session Key, Alice and Bob exchanged their shared keys: Alice sent her shared key A to Bob and Bob sent his shared key B to Alice."
+    IDS_DH_LOG_5            "Alice and Bob were able to calculate the secret and common Session Key now. Alice computed the Session Key SA, Bob computed the Session Key SB:"
+    IDS_DH_LOG_6            "Theoretically it is now possible for Alice and Bob to use their Session Keys to encrypt documents they would like to exchange covertly."
+    IDS_DH_KEY_VERIFICATION_YES 
+                            "Verification successful! - The keys of Alice and Bob are identical!"
+    IDS_DH_KEY_VERIFICATION_NO 
+                            "Verification failed! The keys of Alice and Bob are NOT identical!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11695,6 +11860,12 @@ BEGIN
     IDS_ASN1_VALID_ASN1_FILE 
                             "The chosen file is a valid ASN.1 encoded file.\n\nA new window containing the ASN.1 dump will be opened."
     IDS_ASN1_FILE_NOT_EXISTING "The file you tried to access does not exist."
+    IDS_DH_GENERATOR_INVALID "Generator value incorrect! (1 < g < p)"
+    IDS_DH_PRIME_INVALID    "An invalid value was assigned to the prime. Please correct your input or let CrypTool generate an appropriate prime by clicking the 'Generate Prime' button."
+    IDS_DH_SECRET_INVALID   "The secret could not be initialized! Please verify your input!"
+    IDS_DH_PK_INVALID       "An internal error has occured!"
+    IDS_DH_OPK_INVALID      "An internal error has occured!"
+    IDS_DH_SESSION_KEY_INVALID "An internal error has occured!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12146,6 +12317,33 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_KEYHEX_INPUT_LENGTH_TXT 
                             "Enter the key using hex characters (0..9, A..F).\nKey length exactly  %d hex characters (= %d bytes)."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_PP_PRIME_INVALID "The number you chose is NOT a prime! Please correct your input or generate a prime by clicking the appropriate button."
+    IDS_DH_PP_GENERATOR_INVALID 
+                            "Please choose a Generator which is bigger than one but smaller than the previously defined prime module (1 < g < p)."
+    IDS_DH_DATA_INCONSISTENCY "An internal error has occured!"
+    IDS_DH_PP_NON_DECIMAL_VALUE 
+                            "Please use natural numbers in decimal format only (no special characters)!"
+    IDS_DH_CALCULATE_PUBLIC_KEY_ALICE 
+                            "Alice has computed her shared key. It will be displayed in the respective text field."
+    IDS_DH_CALCULATE_PUBLIC_KEY_BOB 
+                            "Bob has computed his shared key. It will be displayed in the respective text field."
+    IDS_DH_SESSION_KEY_CALCULATED_BY_ALICE 
+                            "Alice has computed the Session Key on her part. - It will be displayed in the text field below the 'Calculate' button."
+    IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
+                            "Bob has computed the Session Key on his part. - It will be displayed in the text field below the 'Calculate' button."
+    IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
+                            "Alice has chosen her secret! - Only wildcards are displayed in the text field to underline that the secret is solely known to Alice."
+    IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
+                            "Bob has chosen his secret! - Only wildcards are displayed in the text field to underline that the secret is solely known to Bob."
+    IDS_DH_SECRET_PARTYNAME "Please choose the secret for %s now."
+    IDS_DH_SECRET_DIALOGUEHEADER "Choose %s's secret"
+    IDS_DH_PP_SECRET_INVALID 
+                            "Please choose a secret number (s) which is bigger than one but smaller than the prime module p (1 < s < p)."
+    IDS_DH_RESULT_MESSAGE   "Alice and Bob finally agreed on a secret and common key.\n\nPush the key icon on the lower left to view more details concerning the key."
 END
 
 #endif    // Englisch (GB) resources

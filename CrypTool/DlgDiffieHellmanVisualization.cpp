@@ -1,12 +1,8 @@
-// DlgDiffieHellmanVisualization.cpp: Implementierungsdatei
-//
+// DlgDiffieHellmanVisualization.cpp
 
 #include "stdafx.h"
 #include "CryptoolApp.h"
 #include "DlgDiffieHellmanVisualization.h"
-
-
-
 
 #include "DlgDiffieHellmanPublicParameters.h"
 #include "DlgDiffieHellmanSetSecrets.h"
@@ -20,8 +16,9 @@
 
 #include "DlgDiffieHellmanSetPublicParameters.h"
 
-#include "ButtonControl.h"
+#include "DlgDiffieHellmanKeyInformation.h"
 
+#include "DiffieHellmanButtonControl.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,20 +42,22 @@ CDlgDiffieHellmanVisualization::CDlgDiffieHellmanVisualization(CWnd* pParent /*=
 	m_SharedKeyBob = _T("");
 	m_SessionKeyAlice = _T("");
 	m_SessionKeyBob = _T("");
-	m_SessionKey = _T("");
 	m_bShowInfoDialogues = FALSE;
 	//}}AFX_DATA_INIT
 
 	// Initialisierungen
 	this->Alice = NULL;
 	this->Bob = NULL;
+	this->pDiffieHellmanLogFile = NULL;
 }
 
 CDlgDiffieHellmanVisualization::~CDlgDiffieHellmanVisualization()
 {
+	// Freigabe von dynamisch allokiertem Speicher
 	delete this->Alice;
 	delete this->Bob;
 	delete this->pButtonControl;
+	delete this->pDiffieHellmanLogFile;
 }
 
 void CDlgDiffieHellmanVisualization::DoDataExchange(CDataExchange* pDX)
@@ -73,7 +72,6 @@ void CDlgDiffieHellmanVisualization::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SHAREDBOB, m_SharedKeyBob);
 	DDX_Text(pDX, IDC_FINALALICE, m_SessionKeyAlice);
 	DDX_Text(pDX, IDC_FINALBOB, m_SessionKeyBob);
-	DDX_Text(pDX, IDC_SESSIONKEY, m_SessionKey);
 	DDX_Check(pDX, IDC_CHECK_DISABLEHELP, m_bShowInfoDialogues);
 	//}}AFX_DATA_MAP
 }
@@ -93,6 +91,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanVisualization, CDialog)
 	ON_BN_CLICKED(IDC_BUTTONALICE3, OnButtonalice3)
 	ON_BN_CLICKED(IDC_BUTTONBOB3, OnButtonbob3)
 	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
+	ON_BN_CLICKED(IDC_KEY, OnKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -107,10 +106,11 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 		
+	// Eingabe-Dialog für die öffentlichen Parameter anzeigen
 	CDlgDiffieHellmanPublicParameters dlg2;
 	if(dlg2.DoModal() == IDCANCEL) return;
 
-	// Werte für g und p aus Eingabe-Dialog übernehmen
+	// Benutzerangaben für g und p aus Eingabe-Dialog übernehmen
 	std::string g = (char*)(LPCTSTR)dlg2.m_Generator;
 	std::string p = (char*)(LPCTSTR)dlg2.m_Prime;
 
@@ -130,7 +130,7 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 		UpdateData(false);
 				
 	}
-	// Exceptions auffangen
+	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(DHError& e) { CreateErrorMessage(e); return; }
 
 	// Button mit Index 0 gedrückt
@@ -206,6 +206,10 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 {
 	if(!this->CheckInternalStatus()) return;
 	
+	// Da die Verifikation des Geheimnisses vom zuvor gewählten Primzahlmodul p
+	// abhängt, muss dem Konstruktor an dieser Stelle der Primzahlmodul per 
+	// Parameter übergeben werden. Anhand des ersten Parameters wird der Titel
+	// des erscheinenden Dialogs generiert.
 	CDlgDiffieHellmanSecretInput dlg("Alice",this->Alice->GetPrime());
 	if(dlg.DoModal() == IDCANCEL) return;
 
@@ -229,8 +233,12 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 // Diese Funktion wird aufgerufen, wenn der Benutzer das Geheimnis für Bob wählen möchte.
 void CDlgDiffieHellmanVisualization::OnButtonbob1() 
 {
-	if(!this->CheckInternalStatus()) return;	
+	if(!this->CheckInternalStatus()) return;
 	
+	// Da die Verifikation des Geheimnisses vom zuvor gewählten Primzahlmodul p
+	// abhängt, muss dem Konstruktor an dieser Stelle der Primzahlmodul per 
+	// Parameter übergeben werden. Anhand des ersten Parameters wird der Titel
+	// des erscheinenden Dialogs generiert.
 	CDlgDiffieHellmanSecretInput dlg("Bob", this->Bob->GetPrime());
 	if(dlg.DoModal() == IDCANCEL) return;
 
@@ -349,10 +357,10 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 		this->m_bShowInfoDialogues = true;
 	}
 
-	this->pButtonControl = new MyBitmapButtonControl(this);
+	this->pButtonControl = new DiffieHellmanBitmapButtonControl(this);
 
 	UpdateData(false);
-
+	
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -430,7 +438,6 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 		this->m_SharedKeyBob = "";
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==1)
 	{
@@ -440,7 +447,6 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 		this->m_SharedKeyBob = "";
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==2)
 	{
@@ -448,45 +454,38 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 		this->m_SharedKeyBob = "";
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==3)
 	{
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==4)
 	{
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==5)
 	{
 		this->m_SharedKeyAlice = "";
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==6)
 	{
 		this->m_SharedKeyBob = "";
 		this->m_SessionKeyBob = "";
 		this->m_SessionKeyAlice = "";
-		this->m_SessionKey = "";
 	}
 	if(b==7)
 	{
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==8)
 	{
 		this->m_SessionKeyAlice = "";
 		this->m_SessionKeyBob = "";
-		this->m_SessionKey = "";
 	}
 	if(b==9)
 	{
@@ -506,8 +505,18 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 			LoadString(AfxGetInstanceHandle(), IDS_DH_RESULT_MESSAGE, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		}
+
+		// Log-Datei erzeugen
+		this->pDiffieHellmanLogFile = new DiffieHellmanLogFile(
+			this->Alice->GetStrPrime(),
+			this->Bob->GetStrGenerator(),
+			this->Alice->GetStrSecret(),
+			this->Bob->GetStrSecret(),
+			this->Alice->GetPublicKey(),
+			this->Bob->GetPublicKey(),
+			this->Alice->GetSessionKey(this->Bob->GetPublicKey()),
+			this->Bob->GetSessionKey(this->Alice->GetPublicKey()));
 		
-		this->m_SessionKey = this->m_SessionKeyAlice;
 	}
 
 	UpdateData(false);
@@ -522,4 +531,14 @@ void CDlgDiffieHellmanVisualization::OnCheckDisablehelp()
 	UpdateData(true);
 
 	this->m_bShowInfoDialogues ? theApp.WriteProfileInt("Settings", "DH_InfoDialogues", 1) : theApp.WriteProfileInt("Settings", "DH_InfoDialogues", 0);
+}
+
+// Der User verlangt nach weiteren Informationen zum Session Key. Also wird der entsprechende
+// Dialog aufgerufen. Als Parameter übergibt man dem Dialog die errechneten Session Keys von 
+// Alice und Bob sowie einen Zeiger auf die in der Dialogklasse CDlgDiffieHellmanVisualization 
+// bereits erzeugte Diffie-Hellman-Log-Datei.
+void CDlgDiffieHellmanVisualization::OnKey() 
+{
+	CDlgDiffieHellmanKeyInformation dlg((char*)(LPCTSTR)this->m_SessionKeyAlice, (char*)(LPCTSTR)this->m_SessionKeyBob, this->pDiffieHellmanLogFile);
+	dlg.DoModal();
 }

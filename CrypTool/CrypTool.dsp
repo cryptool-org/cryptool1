@@ -373,7 +373,15 @@ SOURCE=.\res\arrdown.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\arrow.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\ARROW_BEND.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange.bmp
 # End Source File
 # Begin Source File
 
@@ -675,11 +683,223 @@ SOURCE=.\BruteForceAnalysis.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button1_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button2_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\ButtonControl.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\ButtonControl.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Calculate_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -1015,6 +1235,22 @@ SOURCE=.\DialogLaengeBin.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DiffieHellmanButtonControl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffieHellmanButtonControl.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffieHellmanLogFile.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffieHellmanLogFile.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DiffieHellmanParty.cpp
 # End Source File
 # Begin Source File
@@ -1173,6 +1409,14 @@ SOURCE=.\DlgDiffieHellmanIntro.cpp
 # Begin Source File
 
 SOURCE=.\DlgDiffieHellmanIntro.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanKeyInformation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanKeyInformation.h
 # End Source File
 # Begin Source File
 
@@ -2411,6 +2655,10 @@ SOURCE=.\FPOLY.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\GapFiller.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\GB_CANCEL_Y_D.bmp
 # End Source File
 # Begin Source File
@@ -2868,6 +3116,30 @@ SOURCE=.\IntegerArithmetic.cpp
 # Begin Source File
 
 SOURCE=.\IntegerArithmetic.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Key_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Key_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Key_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Key_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Key_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Key_X.bmp
 # End Source File
 # Begin Source File
 
@@ -4101,6 +4373,38 @@ SOURCE=.\res\Bitmaps_en\Sechseck3_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\SecudeCryptography.cpp
 # End Source File
 # Begin Source File
@@ -4221,6 +4525,10 @@ SOURCE=.\stdafx.cpp
 # Begin Source File
 
 SOURCE=.\stdafx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Step_2.bmp
 # End Source File
 # Begin Source File
 

@@ -3,7 +3,6 @@
 #include "ButtonControl.h"
 
 // Klasse BitmapButton
-// ===========================================================================================================
 BitmapButton::BitmapButton()
 {
 	this->bIsActionPerformed = false;
@@ -43,12 +42,8 @@ void BitmapButton::ShowBitmaps()
 	this->Button.ShowWindow(SW_HIDE);
 	this->Button.ShowWindow(SW_SHOW);
 }
-// ===========================================================================================================
-
-
 
 // Klasse BitmapButtonControl
-// ===========================================================================================================
 BitmapButtonControl::BitmapButtonControl()
 {
 
@@ -58,36 +53,3 @@ BitmapButtonControl::~BitmapButtonControl()
 {
 
 }
-// ===========================================================================================================
-
-// Klasse MyBitmapButtonControl
-// ===========================================================================================================
-MyBitmapButtonControl::MyBitmapButtonControl()
-{
-	
-}
-
-MyBitmapButtonControl::MyBitmapButtonControl(CWnd *parent)
-{
-	// Anzahl der Buttons bestimmen
-	NumberOfButtons = 0;
-	while ( BitmapResources[NumberOfButtons++].BitmapName[0][0] );
-	
-	NumberOfButtons--;
-	
-	AllButtons = new BitmapButton[NumberOfButtons];
-	// Einzelen Buttons laden
-	for ( int i=0; i<NumberOfButtons; i++ )
-	{
-		AllButtons[i].Init( BitmapResources[i], parent );
-	}
-
-	this->Update();
-}
-
-MyBitmapButtonControl::~MyBitmapButtonControl()
-{
-	delete[] AllButtons;
-}
-
-// ===========================================================================================================
