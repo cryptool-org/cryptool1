@@ -64,10 +64,15 @@
 #define IDD_DIALOG_PRIMES_GENERATOR     223
 #define IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN 226
 #define IDD_DIALOG_HOMOPHONE            227
-#define IDD_DIALOG_ANALYSE_NGRAM        228
+#define IDD_DIALOG_GEN_EC_KURVE         228
+#define IDD_DIALOG_Faktorisieren        231
+#define IDD_DIALOG_Schluessel_gen       232
+#define IDD_DIALOG_RSA_KLEIN            235
+
+#define IDD_DIALOG_ANALYSE_NGRAM        237
 #define IDD_DIALOG_GEN_RANDOMDATA       229
 #define IDD_RANDOM_PARAMETER_SECUDE     230
-#define IDD_RANDOM_PARAMETER_X2_MOD_N   231
+#define IDD_RANDOM_PARAMETER_X2_MOD_N   238
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -293,6 +298,7 @@
 #define IDC_BUTTON4                     1161
 #define IDC_EDIT_5_5                    1161
 #define IDC_EDIT_6_6                    1162
+#define IDC_BUTTON_Uebernehmen          1162
 #define IDC_EDIT_6_1                    1163
 #define IDC_EDIT_6_2                    1164
 #define IDC_EDIT_6_3                    1165
@@ -328,7 +334,16 @@
 #define IDC_EDIT_OEFF_SCHLUESSEL_e      1200
 #define IDC_EDIT_GEHEIMER_SCHLUESSEL_d  1201
 #define IDC_ERZEUGEN                    1202
-#define IDC_ROW                         1213
+#define IDC_COMBOBOXEX1                 1211
+#define IDC_BUTTON_GEN                  1213
+#define IDC_BUTTON_Faktorisieren        1214
+#define IDC_BUTTON_Generieren           1215
+#define IDC_BUTTON_OK                   1215
+#define IDC_BUTTON_cancel               1216
+#define IDC_BUTTON6                     1216
+#define IDC_BUTTON_Primzahlen_generieren 1217
+#define IDC_BUTTON_Schluessel_generieren 1218
+#define IDC_ROW                         1219
 #define ID_CAESAR_ASC                   32769
 #define ID_VIGENERE_ASC                 32770
 #define ID_ADD_BIN                      32771
@@ -458,9 +473,14 @@
 #define ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 32935
 #define ID_HOMOPHONE                    32936
 #define ID_HOMOPHONE_ASC                32937
-#define ID_ANALYSE_NGRAM                32938
-#define ID_ANALYSE_NGRAM_BIN            32943
-#define ID_ZUFALL_GENERATOREN           32944
+#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN 32938
+#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 32940
+#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS 32941
+#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP 32942
+#define ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 32943
+#define ID_ANALYSE_NGRAM                32950
+#define ID_ANALYSE_NGRAM_BIN            32951
+#define ID_ZUFALL_GENERATOREN           32952
 #define ID_ANALYSE_PERIOD               36908
 #define IDS_STRING36909                 36909
 #define IDS_STRING36910                 36910
@@ -468,6 +488,24 @@
 #define IDS_STRING37001                 37001
 #define IDS_STRING37002                 37002
 #define IDS_STRING37003                 37003
+#define IDS_STRING37100                 37100
+#define IDS_STRING37101                 37101
+#define IDS_STRING37102                 37102
+#define IDS_STRING37103                 37103
+#define IDS_STRING37104                 37104
+#define IDS_STRING37105                 37105
+#define IDS_STRING37106                 37106
+#define IDS_STRING37107                 37107
+#define IDS_STRING37108                 37108
+#define IDS_STRING37109                 37109
+#define IDS_STRING37110                 37110
+#define IDS_STRING37111                 37111
+#define IDS_STRING37112                 37112
+#define IDS_STRING37113                 37113
+#define IDS_STRING37114                 37114
+#define IDS_STRING37115                 37115
+#define IDS_STRING37116                 37116
+=======
 #define IDS_STRING37004                 37004
 #define IDS_STRING37005                 37005
 #define IDS_STRING37006                 37006
@@ -475,6 +513,7 @@
 #define IDS_STRING_NGRAM_LIST2          37008
 #define IDS_STRING_NGRAM_LIST3          37009
 #define IDS_STRING_RAND_SECUDE          37010
+>>>>>>> 1.10
 #define IDS_STRING41405                 41405
 #define IDS_STRING41406                 41406
 #define IDS_STRING41407                 41407
@@ -750,9 +789,10 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        232
-#define _APS_NEXT_COMMAND_VALUE         32945
-#define _APS_NEXT_CONTROL_VALUE         1214
+#define _APS_NEXT_RESOURCE_VALUE        239
+#define _APS_NEXT_COMMAND_VALUE         32944
+#define _APS_NEXT_CONTROL_VALUE         1220
+
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
