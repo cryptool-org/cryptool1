@@ -62,6 +62,7 @@ int CPinCodeDialog::DoModal()
 } 
 
 BOOL CPinCodeDialog::OnInitDialog() 
+//InitInstance
 {
 	CDialog::OnInitDialog();
 	
