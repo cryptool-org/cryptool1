@@ -2158,6 +2158,143 @@ BEGIN
     LTEXT           "Eingabe",IDC_STATIC,6,297,85,10
 END
 
+IDD_SIGN_TUTORIAL DIALOG DISCARDABLE  0, 0, 423, 310
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schrittweise Signaturerzeugung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "OPNDOC_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,13,17,50,28
+    PUSHBUTTON      "SELHSH",IDC_SELECT_HASHALG,121,17,50,28,BS_MULTILINE
+    PUSHBUTTON      "SELKEY",IDC_SELECT_KEY,229,17,50,28,BS_MULTILINE
+    PUSHBUTTON      "SELCRT",IDC_SELECT_CERT,339,17,50,28,BS_MULTILINE
+    CONTROL         "INFDOC_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,13,56,50,14
+    PUSHBUTTON      "INFALG",IDC_INFO_ALG,121,56,50,14
+    PUSHBUTTON      "INFKEY",IDC_INFO_KEY,229,56,50,14
+    PUSHBUTTON      "INFCRT",IDC_INFO_CERT,339,56,50,14
+    PUSHBUTTON      "COMPUTE",IDC_COMPUTE,121,91,50,28,BS_MULTILINE
+    PUSHBUTTON      "ENCRYPT",IDC_ENCRYPT,229,91,50,28,BS_MULTILINE
+    PUSHBUTTON      "COMBINE",IDC_COMBINE,339,91,50,28,BS_MULTILINE
+    PUSHBUTTON      "INFHSH",IDC_INFO_HASH,121,141,50,14
+    PUSHBUTTON      "INFENC",IDC_INFO_HASH_ENC,229,141,50,14
+    PUSHBUTTON      "INFRSL",IDC_INFO_RESULT,339,141,50,14
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,165,409,10,SS_SUNKEN | 
+                    NOT WS_GROUP
+    EDITTEXT        IDC_DISPLAY_INFO,7,175,409,106,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "Abbrechen",IDCANCEL,280,288,50,14
+    DEFPUSHBUTTON   "OK",IDOK,339,288,50,14
+END
+
+IDD_KEY_TUTORIAL DIALOG DISCARDABLE  0, 0, 351, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
+                    IDC_STATIC_TEXT,10,7,296,24
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,10,36,334,48
+    LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,32,8
+    EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
+    LTEXT           "Primzahl q",IDC_STATIC_PRIME2,19,67,32,8
+    EDITTEXT        IDC_EDIT_PRIME_Q,100,65,128,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_GENERATE_PRIME,238,45,98,
+                    18
+    GROUPBOX        "RSA Schlüssel Parameter für Empfänger",IDC_STATIC_RSA,
+                    10,87,334,105
+    LTEXT           "RSA-Modul N",IDC_STATIC_RSA1,19,118,52,8
+    EDITTEXT        IDC_EDIT_RSA_MODUL_N,100,117,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "(öffentlich)",IDC_STATIC_RSA5,238,119,34,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC_RSA2,19,135,55,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_PHI_N,100,134,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "(geheim)",IDC_STATIC_RSA6,238,136,30,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,155,75,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,153,128,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC_RSA4,19,173,73,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,171,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Persönliche Daten für das Zertifikat",IDC_STATIC,10,194,
+                    334,96
+    LTEXT           "Name:",IDC_STATIC,19,209,50,8
+    EDITTEXT        IDC_EDIT_CERT_NAME,100,207,128,12,ES_AUTOHSCROLL
+    LTEXT           "Vorname:",IDC_STATIC,19,230,50,8
+    EDITTEXT        IDC_EDIT_CERT_FIRSTNAME,100,228,128,12,ES_AUTOHSCROLL
+    LTEXT           "PIN-Code:",IDC_STATIC,19,252,50,8
+    EDITTEXT        IDC_EDIT_CERT_PIN,100,250,128,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "PIN-Verifikation:",IDC_STATIC,19,273,50,8
+    EDITTEXT        IDC_EDIT_CERT_PIN_VERIFY,100,271,128,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Abbrechen",IDCANCEL,231,298,50,14
+    DEFPUSHBUTTON   "OK",IDOK,294,298,50,14,WS_DISABLED
+    LTEXT           "Static",IDC_CHECK_PRIME,238,68,98,8
+    LTEXT           "Static",IDC_CHECK_PUBLIC,238,156,98,8
+    LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,102,78,12,NOT WS_GROUP
+    LTEXT           "Static",IDC_EDIT_RSA_BITLENGTH,102,103,126,12,NOT 
+                    WS_GROUP
+END
+
+IDD_CERT_TUTORIAL DIALOG DISCARDABLE  0, 0, 354, 233
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,297,212,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,232,212,50,14
+    GROUPBOX        "Öffentliche Parameter / Persönliche Daten",
+                    IDC_STATIC_RSA,7,7,340,100
+    LTEXT           "RSA-Modul N",IDC_STATIC_RSA1,15,21,84,8
+    EDITTEXT        IDC_EDIT_RSA_MODUL_N,104,20,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC_RSA3,15,43,84,8
+    EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,104,41,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Name",IDC_STATIC,15,65,84,8
+    EDITTEXT        IDC_EDIT_CERT_NAME,104,63,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Vorname",IDC_STATIC,15,86,84,8
+    EDITTEXT        IDC_EDIT_CERT_FIRSTNAME,104,84,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Hashwert",IDC_STATIC,14,148,84,8
+    EDITTEXT        IDC_EDIT_CERT_HASH,104,146,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Verschlüsselter Hashwert",IDC_STATIC,14,172,84,8
+    EDITTEXT        IDC_EDIT_CERT_HASH_ENC,104,170,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    GROUPBOX        "CA",IDC_STATIC,7,108,340,94
+    PUSHBUTTON      "Hashwert Berechnen",IDC_Hash,104,119,86,18
+    PUSHBUTTON      "Hashwert Verschlüsseln",IDC_ENCRYPT,251,119,86,18,
+                    WS_DISABLED
+END
+
+IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 148, 130
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hashverfahren auswählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,52,109,46,14,WS_GROUP
+    CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_CENTER | 
+                    WS_GROUP | WS_TABSTOP,45,7,61,10
+    CONTROL         "MD4",IDC_MD4,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
+                    22,61,10
+    CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
+                    37,61,10
+    CONTROL         "SHA",IDC_SHA,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
+                    52,61,10
+    CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER,45,67,61,10
+    CONTROL         "RIPEMD160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER,45,82,61,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3633,6 +3770,38 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 323
         HORZGUIDE, 233
+    END
+
+    IDD_SIGN_TUTORIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 416
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 303
+    END
+
+    IDD_KEY_TUTORIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 344
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_CERT_TUTORIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_SEL_HASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 141
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
     END
 END
 #endif    // APSTUDIO_INVOKED
