@@ -35,8 +35,8 @@ using menu {\bf Indiv. Procedures \textbackslash{} RSA Demonstration
 
 In detail, a \index{Signature procedure} {\em Signature procedure} looks like
 this: \\ Senders use their message and secret key to calculate the digital
-signature for the message. Compared to hand-written signatures, therefore,
-digital signatures have the advantage that they also depend on the document to
+signature for the message. Compared to hand-written signatures, digital
+signatures therfore have the advantage that they also depend on the document to
 be signed. Signatures from one and the same participant are different unless the
 signed documents are completely identical. Even inserting a blank in the text
 would lead to a different signature. The recipient of the message would
@@ -88,7 +88,7 @@ because we have assumed that knowledge of the public key does not enable you to
 derive the secret key. However, you would need this secret key to sign messages
 in another name.
 
-Some digtal signature schemes are based on asymmetric \emph{encryption}
+Some digital signature schemes are based on asymmetric \emph{encryption}
 procedures, the most prominent example beeing the RSA system, which can be
 used for signing by performing the private key operation on the hash value
 of the document to be signed.
@@ -120,16 +120,16 @@ In order to verify, the corresponding public key operation is performed on
 the signature $S$ and the result is compared with message $M$:
 $$ S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
 If the result matches the message $M$, then the signature is accepted by the
-verifyer, otherwise the message has been tampered with, or was never signed
+verifier, otherwise the message has been tampered with, or was never signed
 by the holder of $d$.
 
 As explained above, signatures are not performed on the message itself, but
-on a cryptographic hash value of the message. To preclude certain attacks
-on the signature procdedure (alone or in combination with encryption) it is
+on a cryptographic hash value of the message. To prevent certain attacks
+on the signature procedure (alone or in combination with encryption) it is
 necessary to format the hash value before doing the exponentiation, as
 described in the PKCS\#1 (Public Key Cryptography Standard \#1
 \cite{PKCS1}). The fact that this standard had to be revised recently, after
-being in use for several years, can serve as an example how difficult it is
+being in use for several years, can serve as an example of how difficult it is
 to get the details of cryptography right.
 
 \subsection{DSA signatures}
@@ -137,9 +137,9 @@ to get the details of cryptography right.
 \index{DSA signatures}
 
 In August of 1991, the U.S. National Institute of Standards and Technology
-(NIST\index{NIST}) proposed a digital signature algorithm (DSA), which was adopted as
-a U.S. Federal Information Processing Standard (FIPS 186 \cite{FIPS186})
-subsequently. 
+(NIST\index{NIST}) proposed a digital signature algorithm (DSA), which was
+subsequently adopted as a U.S. Federal Information Processing Standard (FIPS 186
+\cite{FIPS186}). 
 
 The algorithm is a variant of the ElGamal scheme. Its security is based on
 the Discrete Logarithm Problem\index{Logarithm problem!discrete}. The DSA public and private key and its
@@ -187,7 +187,7 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
 \emph{Remark:} If $v = r$, then the signature is verified.
 
-While DSA was specifically designed, such that it can be exported from
+While DSA was specifically designed, so that it can be exported from
 countries regulating export of encryption soft and hardware (like the U.S.\ 
 at the time when it was specified), it has been noted
 \cite[p.~490]{Schneier1996ds}, that the operations involved in DSA can be
@@ -223,9 +223,9 @@ that the signature is correct. He then decrypts the message using his secret
 key.
 \end{itemize}
 
-Charlie can thus listen in on communication between Alice and Bob and change the
-exchanged messages without them noticing. The attack also works if Charlie only
-has one pair of keys.
+In this way Charlie can listen in on communication between Alice and Bob and
+change the exchanged messages without them noticing. The attack will also work
+if Charlie only has one pair of keys.
 
 Another name for this type of attack is \index{Man-in-the-middle attack} ``man-­in-­the-­middle attack''. Users are promised
 protection against this type of attack by public­key

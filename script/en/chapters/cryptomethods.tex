@@ -21,24 +21,26 @@ This chapter introduces the topic in a more descriptive way without using too mu
 
 The purpose of encryption \index{Encryption} is to change data in such a way
 that only an authorised recipient is able to reconstruct the plaintext. This
-has the advantage of being able to transmit encrypted data openly and 
-nevertheless need not fear a perpetrator reading the data without 
-authorisation. Authorised recipients possess a piece of secret 
-information -- called the key -- which allows them to decrypt the data
-while it remains hidden from everyone else.\par \vskip + 3pt
+allows us to transmit data without worrying about it getting into unauthorised
+hands. Authorised recipients possess a piece of secret information -- called the
+key -- which allows them to decrypt the data while it remains hidden from
+everyone else.\par \vskip + 3pt
 
-One encryption procedure has been proved to be secure -- the {\em One
-Time Pad}\index{One ­Time ­Pad}. However, this procedure has several practical
-disadvantages (the key used must be selected randomly and must be at least as long
-as the message being protected), which means that it is hardly used except in
-closed environments such as for the hot wire between Moscow and Washington.\par \vskip + 3pt
+One encryption procedure has been mathematically proved to be secure, the {\em
+One Time Pad}\index{One ­Time ­Pad}. However, this procedure has several
+practical disadvantages (the key used must be randomly selected and must be at
+least as long as the message being protected), which means that it is hardly
+used except in closed environments such as for the hot wire between Moscow and
+Washington.\par \vskip + 3pt
 
 For all other procedures there is a (theoretical) possibility of breaking them.
 If the procedures are good, however, the time taken to break them is so long
 that it is practically impossible to do so, and these procedures can therefore be
 considered (practically) secure.\par \vskip + 3pt
 
-The book of Bruce Schneier \cite{Schneier1996cm} offers a very good overview about the different algorithms. We basically distinguish between symmetric and asymmetric encryption procedures.
+The book of Bruce Schneier \cite{Schneier1996cm} offers a very good overview of
+the different algorithms. We basically distinguish between symmetric and
+asymmetric encryption procedures.
 
 % --------------------------------------------------------------------------
 \subsection[Symmetric encryption]
@@ -111,10 +113,38 @@ AES with a minimum key length of 128 bit is still in the long run sufficiently s
 
 Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable only just for organizations, for example a security agency.
 
-In their 2001-paper Ferguson, Schroeppel and Whiting \cite{Ferguson2001} presented a new method of symmetric codes cryptanalysis: They described AES with a closed formula (in the form of a continued fraction) which was possible because of the "relatively" clear structure of AES. This formula consists of around 1000 trillion terms of a sum - so it does not help concrete practical cryptanalysis. Nevertheless -curiosity in the academic community awakened. It was already known, that the 128-bit AES could be described as an over-determined system of about 8000 quadratic equations (over an algebraic number field) with about 1600 variables (some of them are the bits of the wanted key) -- equation systems of that size are in practice not solvable. This special equation system is relatively sparse, so only very few of the quadratic terms (there are about 1,280,000 are possible quadratic terms in total) appear in the equation system.
+In their 2001-paper Ferguson, Schroeppel and Whiting \cite{Ferguson2001}
+presented a new method of symmetric codes cryptanalysis: They described AES with
+a closed formula (in the form of a continued fraction) which was possible
+because of the "relatively" clear structure of AES. This formula consists of
+around 1000 trillion terms of a sum - so it does not help concrete practical
+cryptanalysis. Nevertheless -curiosity in the academic community was awakened.
+It was already known, that the 128-bit AES could be described as an
+over-determined system of about 8000 quadratic equations (over an algebraic
+number field) with about 1600 variables (some of them are the bits of the wanted
+key) -- equation systems of that size are in practice not solvable. This special
+equation system is relatively sparse, so only very few of the quadratic terms
+(there are about 1,280,000 are possible quadratic terms in total) appear in the
+equation system.
 
-The mathematicians Courois and Pieprzyk \cite{Courtois2002} published a paper in 2002, which got a great deal of attention amongst the crypto community: The pair had further developed the XL-method (eXtended Linearization), introduced at Eurocrypt 2000 by Shamir et al., to create the so called XSL-method (eXtended Sparse Linearization). The XL-method is a heuristic technique, which in some cases manages to solve big non-linear equation systems and which was till then used to analyze an asymmetric algorithm (HFE).  The innovation of Courois and Pieprzyk was, to apply the XL-method on symmetric codes: the XSL-method can be applied to very specific equation systems. A 256-bit AES could be attacked in roughly $2^{230}$ steps. This is still a purely academic attack, but also a direction pointer for a complete class of block ciphers. The major problem with this attack is that until now nobody has worked out, under what conditions it is successful: the authors specify in their paper necessary conditions, but it is not known, which conditions are sufficient.
-There are two very new aspects of this attack: firstly this attack is not based on statistics but on algebra. So attacks seem to be possible, where only very small amounts of cipher text are available. Secondly the security of a product-algorithm does not exponentially increase with the number of rounds.
+The mathematicians Courtois and Pieprzyk \cite{Courtois2002} published a paper
+in 2002, which got a great deal of attention amongst the crypto community: The
+pair had further developed the XL-method (eXtended Linearization), introduced at
+Eurocrypt 2000 by Shamir et al., to create the so called XSL-method (eXtended
+Sparse Linearization). The XL-method is a heuristic technique, which in some
+cases manages to solve big non-linear equation systems and which was till then
+used to analyze an asymmetric algorithm (HFE).  The innovation of Courois and
+Pieprzyk was, to apply the XL-method on symmetric codes: the XSL-method can be
+applied to very specific equation systems. A 256-bit AES could be attacked in
+roughly $2^{230}$ steps. This is still a purely academic attack, but also a
+direction pointer for a complete class of block ciphers. The major problem with
+this attack is that until now nobody has worked out, under what conditions it is
+successful: the authors specify in their paper necessary conditions, but it is
+not known, which conditions are sufficient.  There are two very new aspects of
+this attack: firstly this attack is not based on statistics but on algebra. So
+attacks seem to be possible, where only very small amounts of cipher text are
+available. Secondly the security of a product-algorithm does not exponentially
+increase with the number of rounds.
 
 Currently there is a large amount of research in this area: for example Murphy and Robshaw presented a paper at Crypto 2002 \cite{Robshaw2002a}, which could dramatically improve cryptanalysis: the burden for a 128-bit key was estimated at about $2^{100}$ steps by describing AES as a special case of an algorithm called BES (Big Encryption System), which has an especially "round" structure. But even $2^{100}$ steps are beyond what is achievable in the foreseeable future. Using a 256 bit key the authors estimate that a XSL-attack will require $2^{200}$ operations.
 
@@ -129,7 +159,10 @@ More details can be found at:
 
 So for 256-AES the attack is much more effective than brute-force but still far more away from any computing power which could be accessible in the short-to-long term. 
 
-The discussion is very controversial at the moment: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
+The discussion is very controversial at the moment: Don Coppersmith (one of the
+inventors of DES) for example queries the practicability of the attack because
+XLS would provide no solution for AES \cite{Coppersmith2002}. This implies that
+then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
 
 
 % --------------------------------------------------------------------------
@@ -142,7 +175,7 @@ The current status of brute-force attacks on symmetric encryption algorithms can
 
 Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the cipher text is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
 \footnote{%
-    With CrypTool\index{CrypTool} v1.3 you also can try brute-force attacks
+    With CrypTool\index{CrypTool} v1.3 you can also try brute-force attacks
     of modern symmetric algorithms 
     (using the menu {\bf Analysis \textbackslash{} Ciphertext-Only}): 
     to achieve a result in an appropriate time with a single PC you should 
@@ -151,7 +184,7 @@ Brute-force (exhaustive search, trial-and-error) means to completely examine all
 
 Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. They offer prizes for those who manage to decipher cipher texts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
 
-It is well-known, that the "old" standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
+It is well-known, that the ``old'' standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
 The current record for strong symmetric algorithms unveiled a key 64 bit long. The algorithm used was RC5, a block cipher with variable key size. 
 
@@ -296,7 +329,7 @@ symmetric and asymmetric encryption methods.
         {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
         John Wiley \& Sons Ltd., Chichester 2003. \\
         A considerable, up-to-date, easy to read book, which also 
-        considers practical problems like standardisation or
+        considers practical problems such as standardisation or
         real existing software.
 
 \bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 

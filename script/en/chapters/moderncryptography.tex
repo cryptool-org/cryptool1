@@ -160,14 +160,14 @@ The most important complexity classes are the classes \textbf{P} and
     \item The class \textbf{P}: This class contains those problems that can be 
 solved in a polynomial amount of time.
     
-    \item The class \textbf{NP}: The definition of this class looks not at the 
-time required to solve a problem, but rather at the time required to verify a 
-given solution. The class \textbf{NP} consists of those problems for which a 
-given solution can be verified in a polynomial amount of time. Hereby, the term 
-\textbf{NP} ``non-deterministic'' means polynomial and is based on a 
-calculation model, i.e. on a computer that only exists in theory and can 
-``guess'' correct solutions non-deterministically then verify them in 
-polynomial time.
+		\item The class \textbf{NP}: The definition of this class doesn't look at
+		the time required to solve a problem, but rather at the time required to
+		verify a given solution. The class \textbf{NP} consists of those problems
+		for which a given solution can be verified in a polynomial amount of time.
+		Hereby, the term \textbf{NP} ``non-deterministic'' means polynomial and is
+		based on a calculation model, i.e. on a computer that only exists in theory
+		and can ``guess'' correct solutions non-deterministically then verify them
+		in polynomial time.
 
 \end{itemize}
 
@@ -230,7 +230,7 @@ find $ x_1, \dots, x_n \in \{ 0,1\} $  where $ g = \sum_{i=1}^{n}x_i a_i $
 
 Two 0-1 knapsack problems  $ K(a_1, \dots, a_n;g) $   and  $ K(a'_1, \dots, 
 a'_n;g') $  are called congruent if two \index{Co-prime} co-prime numbers $ w $ 
-and $ m $ exist such that
+and $ m $ exist in such a way that
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
 
@@ -242,8 +242,8 @@ and $ m $ exist such that
  
 {\bf Comment:}
 Congruent 0-1 knapsack problems have the same solutions.
-No quick algorithm is known for clarifying the question whether two 0-1 knapsack 
-problems are congruent.
+No quick algorithm is known for clarifying the question as to whether two 0-1
+knapsack problems are congruent.
 
 A 0-1 knapsack problem can be solved by testing the $ 2^n $   possibilities for 
 $ x_1, \dots, x_n $. The best method requires $ O(2^{n/2}) $  operations, which 
@@ -343,7 +343,7 @@ specified an algorithm for breaking multiply iterated Merkle-Hellman knapsack
 encryption procedures in polynomial time. This made this procedure unsuitable as 
 an encryption procedure. It therefore delivers a one way function whose trapdoor 
 information (defamiliarisation of the 0-1 knapsack problem) could be discovered 
-by a perpetrator.
+by an evesdropper.
 
 
 

@@ -393,7 +393,7 @@ $69,993 = 70,000 – 7$. Therefore, the difference is also divisible by $7$.
 Although these considerations and definitions may seem to be rather theoretical, we are so familiar with them in 
 everyday life that we no longer think about the formal procedure. For example, the 24 hours on a clock are 
 represented by the numbers $1, 2, \cdots, 12$. We obtain the hours after 12 noon as the remainder of a division by 12 
-and know immediately that 2 o’clock in the afternoon is the same as 14.00.
+and know immediately that 2 o'clock in the afternoon is the same as 14.00.
 
 This ``modular'' arithmetic (based on division remainders) forms the basis of asymmetric encryption procedures. 
 Cryptographic calculations are therefore not based on real numbers, as the calculations you performed at school, 
@@ -494,7 +494,7 @@ Another example is: $2000 \equiv 0 {\rm ~(mod~} 4) $ because $4$ divides $2000$ 
 Modular arithmetic only contains a limited quantity of non-negative numbers. The number of these is specified 
 by a modulus $m$. If the modulo is $m = 5$, then only the $5$ numbers in the set $\{ 0, 1, 2, 3, 4\}$ are used.
 
-A calculation result larger than 4 is then transformed ``modulo $5$''. In other words, it is the remainder when the 
+A calculation result larger than 4 is then reduced ``modulo $5$''. In other words, it is the remainder when the 
 result is divided by $5$. For example, $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$ because $3$ is the remainder 
 when we divide $8$ by $5$.
 
@@ -651,8 +651,8 @@ to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algori
 multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix 
 A}). Alternatively, we can also use the primitive roots. }.
 
-Cryptographically not only the uniqueness of the inverse is important, but also that the
-set of possible values is exhausted.
+Cryptographically not only the unique nature of the inverse is important, but
+also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then takes the product $a*i {\rm ~mod ~} m $ for a 
 certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
@@ -770,7 +770,7 @@ time required increases
 in a quadratic square manner , because we need to multiply $3*3$ numbers. The 
 numbers become considerably smaller if we reduce the interim result.} the 
 calculation by reducing the {\bf interim results} modulo $5$ but we need 
-to take care because not everything then works in the same way as in 
+to take care because not everything will then work in the same way as in 
 standard arithmetic.
 \begin{eqnarray*}
 (4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
@@ -878,7 +878,7 @@ Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
 If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
 of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
 other. For a typical $m$ of the order of magnitude of $10^{180}$ for $600$-digit binary numbers, this is a 
-hopeless undertaking. More precisely, for suitably large numbers $m$, the time required according to current 
+hopeless task. More precisely, for suitably large numbers $m$, the time required according to current 
 knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ with a constant $C > 1$.
 \item[\bf b)] {\bf Calculating the root (determining $b$):}  
 
@@ -902,7 +902,7 @@ is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$
 calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
 calculate $a^x$ with $a$ fixed) are therefore typical one way functions 
 (See Overview of the one way functions in this \hyperlink{OneWayFunktion1}{Script} and
-\hyperlink{OneWayFunktion2}{artikel}). \index{One way function}
+\hyperlink{OneWayFunktion2}{article}). \index{One way function}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -946,7 +946,8 @@ of a group are valid for all elements in $\mathbb{Z}_n$:
 \item   each element $a \in \mathbb{Z}_n$ has an inverse for this operation, namely $n-a$  \\
         (because $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
-Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, this structure \index{Structure} is even a ``commutative group''.
+Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~}
+a)$, this structure \index{Structure} is actually a ``commutative group''.
 
 
 % --------------------------------------------------------------------------
@@ -1212,7 +1213,7 @@ $$} (please compare requisition 3 in section 3.10.1).
 \subsection{Multiplicative order and primitive roots}
 \hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot}
 
-Mathematicians often ask, under which conditions the repeated application of an operation results in the neutral
+Mathematicians often ask, in which conditions the repeated application of an operation results in the neutral
 element (compare patterns and structures before)\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
@@ -1441,7 +1442,7 @@ cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leona
 signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
 please note that the abbreviation may be used in other fields to mean
 something completely different.}$^,$\footnote{%
-Within literature and movies not only classical methods are used (like the
+In literature and movies not only classical methods are used (like the
 secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
 Men'' by Arthur Conan  Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
 Examples are
@@ -1487,8 +1488,9 @@ also the reason why we cannot simply save them all.} and because this can be ens
 It is this last requirement that makes the procedure actually usable. This is because it is possible to calculate the powers 
 in a linear amount of time (because there is a restriction on the length of the numbers).
 
-Although Whitfield Diffie and Martin Hellman formulated the general method as early as 1976, an actual procedure that 
-met all four requirements was only found later by Rivest, Shamir and Adleman.
+Although Whitfield Diffie and Martin Hellman formulated the general method as
+early as 1976, the actual procedure that met all four requirements was only
+discovered later by Rivest, Shamir and Adleman.
 
 
 % --------------------------------------------------------------------------
@@ -1609,7 +1611,7 @@ If $p$ is a factor of $M$, then $p$ is also a factor of $M^{e * d}$. Therefore:
 $$M^{e * d} \equiv 0 {\rm ~(mod~}p).$$
 Since $p$ is a factor of both $M$ and $Me * d$, it is also a factor of their difference:
 $$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
-And thus our conjecture is also true in this special case.
+And therefore our conjecture is also true in this special case.
 
 {\bf Step 2}:
 
@@ -1628,7 +1630,7 @@ $$
 $$
 
 {\bf 1st comment:} \\
-We can also condense the three steps if we use theorem \ref{thm-zth-fermateuler} (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
+We can also condense the three steps if we use the theorem \ref{thm-zth-fermateuler} (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
 which corresponds to Fermat's Little Theorem:
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
@@ -1763,7 +1765,7 @@ The complexity is basically determined by the length $l$ of the module $n$.
       \vskip +12pt
 \end{itemize}
 
-This made evident, that a module length of 512 bit no longer prevents from
+This made evident that a module length of 512 bit no longer prevents from
 attackers.
 
 Within the last 20 years a lot of progress has been made. Estimations about
@@ -1801,8 +1803,8 @@ factorization increases by 20 bit on average.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Further actual research in factorisation and number theory}
-Prime numbers are part of many very topical research areas in number theory and computer science. 
+\subsubsection{Further current research in factorisation and number theory}
+Prime numbers are part of very many topical research areas in number theory and computer science. 
 Progress made with factorisation is bigger than estimated 5 years ago -- this
 is not only founded on faster computers but also in new knowledge.
 
@@ -1815,14 +1817,14 @@ the private key cannot be calculated.
 
 Thus, any progress in efficiency of factorizing large integers will effect
 the security of the RSA. As a consequence, the underlying primes $p$, $q$
-and, thus, the module n (1024 bit as off today) have to be increased. In
+and, thus, the module n (1024 bit as of today) have to be increased. In
 the worst case of a breakthrough in factorization, the RSA algorithm might
 be compromised.
 
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{Bernstein's paper and it's implication on the
+\paragraph{Bernstein's paper and its implication on the
   security of the RSA algorithm}
 \label{RSABernstein} \index{Factorisation problem}\mbox{}
 
@@ -1844,19 +1846,19 @@ sorting can be optimized by massive parallel computing.  At the end of
 section 3 Bernstein explains this effect: The costs of $m^2$ parallel
 computers with a constant amount of memory is a constant times $m^2$.  The
 costs of a computer with a single processor and memory of size $m^2$ is
-also of the order of $m^2$, but with a diffrent constant factor.  With
+also of the order of $m^2$, but with a different constant factor.  With
 $m^2$ processors in parallel, sorting of $m^2$ numbers (with Schimmler's
 scheme) can be achieved in time $m$, while a $m^2$-memory computer needs
 time of the order of $m^2$. Decreasing memory and increasing the number of
-processors, one can reduce the computing time by a factor $1/m$ without
+processors, the computing time can be reduced by a factor $1/m$ without
 additional effort in terms of total costs.  In section 5 it is said that
 massive parallel computing can also increase efficiency of factorizing
 using Lenstra's elliptic-curve-method (a search algorithm has costs that
 increase quadratically instead of cubically).
 
 We note that all results achieved so far are asymptotic results. This means
-that they only hold in the limit n to infinity. Unfortunately, there are no
-upper bounds for the residual error (i.e. the difference between the real
+that they only hold in the limit n to infinity. Unfortunately, there is no
+upper limit for the residual error (i.e. the difference between the real
 and the asymptotic value) for finite n --- a problem which has already been
 addressed by the author. As a consequence, one cannot conclude whether the
 costs (in the sense of Bernstein) for factorizing 1024$-$2048-bit RSA modules
@@ -1910,7 +1912,7 @@ This is still an ongoing discussion.
 
 When this section was written (June 2002) nothing was publicly known,
 how far there exist implementations of his theoretical onsets and how
-far financing of his research project was.
+much financing there was for his research project.
 
 \vskip +12pt
 \begin{minipage}{\textwidth}
@@ -1933,7 +1935,21 @@ Links:
 
 In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{Shamir2003}. 
 
-Their abstract summarizes their results very well: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
+Their abstract summarizes their results very well: ``The security of the RSA
+cryptosystem depends on the difficulty of factoring large integers. The best
+current factoring algorithm is the Number Field Sieve (NFS), and its most
+difficult part is the sieving step. In 1999 a large distributed computation
+involving thousands of workstations working for many months managed to factor a
+512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20
+years. In this paper we describe a new hardware implementation of the NFS
+sieving step ... which is 3-4 orders of magnitude more cost effective than the
+best previously published designs ... . Based on a detailed analysis of all the
+critical components (but without an actual implementation), we believe that the
+NFS sieving step for 1024-bit RSA keys can be completed in less than a year with
+a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be
+completed in less than ten minutes with a \$10K device. Coupled with recent
+results about the difficulty of the NFS matrix step ... this raises some
+concerns about the security of these key sizes.''
 
 So recommendations like the ones from the GISA (German Information Security Agency) to use higher key lengths are very valid.
 
@@ -2615,7 +2631,8 @@ the explanation of the cryptanalysis\index{Cryptanalysis}\footnote{The method of
 the online help to CrypTool\index{CrypTool} and in the CrypTool presentation. If anyone sends us a well prepared exact 
 method of solving the problem, we would be pleased to include it in the documentation.}.
 
-There are three tasks with completely different degrees of difficulty here. In each case we know the ciphe rtext 
+There are three tasks with completely different degrees of difficulty here. In
+each case we know the cipher text 
 and the public key $(e,n)$:
 \begin{itemize}
 \item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
@@ -2716,7 +2733,7 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Eckert2003]{Eckert2003} \index{Eckert 2003}
     Claudia Eckert, \\
     {\em IT-Sicherheit: Konzepte-Verfahren-Protokolle}, 
-    Oldenbourg 2001, 2nd edition 2003.
+    Oldenburg 2001, 2nd edition 2003.
 
 \bibitem[Ertel2001]{Ertel2001} \index{Ertel 2001} 
     Wolfgang Ertel, \\
@@ -2879,7 +2896,7 @@ This needs to be stressed because the type of padding is extremely important dur
               {\texttt{http://www.parigp-home.com}}
               
    \item \index{Munchenbach@M\"unchenbach}
-         Only after I had completed this article, I did come across the
+         Only after I had completed this article, did I come across the
          website of Mr.\ M\"unchenbach, which interactively and didactically
          uses elementary number theory to provide a sophisticated
          description of the fundamental mathematical thought processes. 
@@ -2888,11 +2905,11 @@ This needs to be stressed because the type of padding is extremely important dur
          \href{http://www.hydrargyrum.de/kryptographie}
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
                       
-    \item Also only after I had completed this article, I did come across
+    \item Once again only after finishing this I happened upon
           the web site of Mr.~Wagner, who is responsible for the development of
-          the curriculum of computer science in a German federal state. Here
-          you can get (but only in German) a collection of texts and
-          (Java-)\discretionary{}{}{}programs:\\
+          the curriculum of computer science in one of the German federal 
+          states (L\"ander). Here you can get hold of (but only in German) a collection of texts 
+          and (Java-)\discretionary{}{}{}programs:\\
           \href{http://www.hom.saar.de/~awa/kryptolo.htm}
           {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
           
@@ -2924,11 +2941,11 @@ This needs to be stressed because the type of padding is extremely important dur
 
 I would like to take this opportunity to thank 
 \begin{itemize}
-  \item {Mr. Henrik Koy for making many very useful suggestions, 
-         for very constructive proof-reading this article and
+  \item {Mr.\ Henrik Koy for making many very useful suggestions, 
+         for the very constructive proof-reading this article and
          for helping with TeX. \\
-	 Mr. Koy developed the functions and the complex dialog box of the
-	 RSA cryptosystem, which allows you to execute the RSA samples
+	 Mr.\ Koy developed the functions and the complex dialog box of the
+	 RSA cryptosystem, which enable you to execute the RSA samples
 	 of this article.}
   \item {J\"org-Cornelius Schneider for his TeX support und for the many 
          cases where he helped when facing programming or design problems.}
@@ -3182,7 +3199,7 @@ to $m$, which can be checked with {\tt gcd(x,m)}.
 Performance can be improved by using \index{Performance} {\tt
   Mod(x,m)${}^\wedge$y} instead of {\tt (x${}^\wedge$y)\%m}.
 
-Loops are also supported by Pari-GP. Dispensing with the table formatting
+Loops are also supported by Pari-GP. When you remove the table formatting
 the result looks like this:
 \begin{verbatim}
 for( x=1,12, 
