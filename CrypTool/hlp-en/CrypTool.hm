@@ -1,6 +1,7 @@
 // Von MAKEHELP.BAT erzeugte Hilfe-Zuordnungsdatei. Wird verwendet von CrypTool.HPJ. 
  
 // Befehle (ID_* and IDM_*) 
+HID_PSE_IMPORT                          0x10003
 HID_IMPORT_KEY                          0x1052B
 HID_CAESAR_ASC                          0x180E8
 HID_VIGENERE_ASC                        0x180E9
