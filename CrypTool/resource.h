@@ -128,6 +128,7 @@
 #define IDB_BITMAP9                     536
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
+#define IDD_KEY_PERMUTATION_INFO        545
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -693,7 +694,6 @@
 #define ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 33145
 #define ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 33149
 #define ID_AES_SELFEXTRACT              33152
-#define ID_P12IMPORT                    33153
 #define ID_HASH_OFAFILE                 33154
 #define ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 33155
 #define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 33156
@@ -1338,12 +1338,18 @@
 #define IDS_HASH_DEMO_TITLE_SHA1        37898
 #define IDS_ENTROPY_TITLE               37899
 #define IDS_HASH_DEMO_SEQUENCE          37900
+#define IDS_PERMUTATION_ENCRYPT         37901
+#define IDS_PERMUTATION_DECRYPT         37902
+#define IDS_PERMUTATION_ENCRYPT_INV     37903
+#define IDS_PERMUTATION_DECRYPT_INV     37904
+#define IDS_PERMUTATION_CLEAR           37905
+#define IDS_PERMUTATION_CIPHER          37906
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        545
+#define _APS_NEXT_RESOURCE_VALUE        546
 #define _APS_NEXT_COMMAND_VALUE         33170
 #define _APS_NEXT_CONTROL_VALUE         1424
 #define _APS_NEXT_SYMED_VALUE           101
