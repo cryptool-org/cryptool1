@@ -1975,14 +1975,14 @@ BEGIN
     LTEXT           "Runlänge:",IDC_STATIC,14,91,34,8
     EDITTEXT        IDC_EDIT5,53,89,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT6,76,143,63,14,ES_AUTOHSCROLL
-    LTEXT           "",IDC_LONGRUN_ERGEBNIS,89,244,93,12
+    LTEXT           "",IDC_LONGRUN_ERGEBNIS,89,244,101,12
     CONTROL         251,IDC_ERFOLGNICHT_LONGRUN,"Static",SS_BITMAP,194,240,
                     18,16
     CONTROL         250,IDC_ERFOLG_LONGRUN,"Static",SS_BITMAP,194,240,18,16
     GROUPBOX        "Teststatus",IDC_STATIC,7,168,220,96
     PUSHBUTTON      "Tests durchführen",IDC_TESTBUTTON,14,209,67,18
     LTEXT           "\nBitte auf die ""Tests durchführen""\ntaste drücken !!!",
-                    IDC_RUN_ERGEBNIS,89,203,93,12
+                    IDC_RUN_ERGEBNIS,89,203,101,12
     CONTROL         251,IDC_ERFOLGNICHT_RUN,"Static",SS_BITMAP,194,199,18,16
     CONTROL         250,IDC_ERFOLG_RUN,"Static",SS_BITMAP,194,199,18,16
     LTEXT           "Static",IDC_INFO_STATIC_LONGRUN,89,220,128,16
@@ -3440,7 +3440,7 @@ BEGIN
         VERTGUIDE, 81
         VERTGUIDE, 89
         VERTGUIDE, 107
-        VERTGUIDE, 182
+        VERTGUIDE, 190
         VERTGUIDE, 217
         TOPMARGIN, 7
         BOTTOMMARGIN, 288
@@ -4555,6 +4555,12 @@ BEGIN
     IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nicht bestanden !"
     IDS_STRING_TESTS_BATTERIE_BESTANDEN "Testbatterie bestanden !"
     IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Testbatterie nicht bestanden !"
+    IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG "Falsche Offset/Testlänge !"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Falsche Longrun Länge !"
 END
 
 #endif    // Deutsch (Deutschland) resources

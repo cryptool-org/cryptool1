@@ -167,9 +167,11 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 		m_Bitmap_Ctrl2.ShowWindow(FALSE);
 		m_Bitmap_Ctrl.ShowWindow(TRUE);
 		m_Info_Static = _T("");
-		m_Ergebnis = "Falsche Offset/Testlänge \neingabe !";
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
+		m_Ergebnis = pc_str;
 		UpdateData(FALSE);
-		AfxMessageBox(" Offset + Testlänge muss <= Dateilänge sein !");
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
 	}
 	else
 	{
@@ -417,7 +419,8 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		m_Longrun_Hak_Ctrl.ShowWindow(FALSE);
 		m_Longrun_Kre_Ctrl.ShowWindow(TRUE);
 		m_InfoStatic_LongRun = _T("");
-		m_Longrun_Ergebnis = "Falsche Longrun Länge eingabe !";
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
+		m_Longrun_Ergebnis = pc_str;
 		UpdateData(FALSE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE, pc_str, STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str);
@@ -425,8 +428,6 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 	else
 	{
 		file.Close();
-
-		//char tmpStrInfo[128] = "Maximaler Testwert: %d\nLongest Run: %d\n";
 
 		LR_test.Set_infile(infile);
 		LR_test.Set_oldtitle(oldTitle);
@@ -481,7 +482,8 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		m_Run_Hak_Ctrl.ShowWindow(FALSE);
 		m_Run_Kre_Ctrl.ShowWindow(TRUE);
 		m_InfoStatic_Run = _T("");
-		m_Run_Ergebnis = "Falsche Offset/Testlänge \neingabe !";
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
+		m_Run_Ergebnis = pc_str;
 		UpdateData(FALSE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET, pc_str, STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str);
