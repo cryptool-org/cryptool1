@@ -39,6 +39,8 @@
 #include "DlgTipsAndTricks.h"
 #include "DlgHybridEncryptionDemo.h"
 #include "DlgOptionsStartoptions.h"
+#include "DlgSignatureAttack.h"
+
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
@@ -96,6 +98,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_HILFE_INDEX, OnHilfeIndex)
 	ON_COMMAND(ID_HILFE_STARTSEITE, OnHilfeStartseite)
 	ON_COMMAND(ID_HILFE_SZENARIEN, OnHilfeSzenarien)
+	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -729,4 +732,10 @@ void CCrypToolApp::OnHilfeSzenarien()
 {
 	// Hilfe zu den Szenarien aufrufen
 	CWinApp::WinHelp(ID_HILFE_SZENARIEN+0x10000);
+}
+
+void CCrypToolApp::OnSignaturAttack() 
+{
+	CDlgSignatureAttack DlgSA;
+	DlgSA.DoModal();
 }

@@ -72,8 +72,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
-# SUBTRACT CPP /YX
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\OpenSSL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
@@ -83,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libcd"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -111,7 +110,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
@@ -386,6 +385,10 @@ SOURCE=.\AscEdit.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\ASN1Decoder.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\AsymmetricEncryption.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
@@ -501,6 +504,14 @@ SOURCE=.\res\bitmap9.bmp
 # Begin Source File
 
 SOURCE=.\res\bitmapLetsStart.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BitParity.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BitParity.h
 # End Source File
 # Begin Source File
 
@@ -661,6 +672,14 @@ SOURCE=.\res\bmp00037.bmp
 # Begin Source File
 
 SOURCE=.\BruteForceAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ButtonControl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ButtonControl.h
 # End Source File
 # Begin Source File
 
@@ -949,6 +968,10 @@ SOURCE=.\CrypToolTools.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DefinesForSignatureAttack.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DerEinstiegInCrypTool.bmp
 # End Source File
 # Begin Source File
@@ -992,6 +1015,14 @@ SOURCE=.\DialogLaengeBin.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DiffieHellmanParty.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffieHellmanParty.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgAbout.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
@@ -1016,6 +1047,14 @@ SOURCE=.\DlgAbout.cpp
 # Begin Source File
 
 SOURCE=.\DlgAbout.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgASN1PSEPINPrompt.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgASN1PSEPINPrompt.h
 # End Source File
 # Begin Source File
 
@@ -1102,6 +1141,78 @@ SOURCE=.\DlgDemoRSAKeyGeneration.cpp
 # Begin Source File
 
 SOURCE=.\DlgDemoRSAKeyGeneration.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanCreateSharedKey.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanCreateSharedKey.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanExchangeSharedKeys.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanExchangeSharedKeys.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanGenerateFinalKey.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanGenerateFinalKey.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanIntro.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanIntro.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanPublicParameters.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanPublicParameters.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSecretInput.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSecretInput.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSetPublicParameters.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSetPublicParameters.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSetSecrets.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanSetSecrets.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanVisualization.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanVisualization.h
 # End Source File
 # Begin Source File
 
@@ -1374,14 +1485,6 @@ SOURCE=.\DlgKeyHexAnalysis.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyHexFixedLen.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHexFixedLen.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\DlgKeyHill10x10.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
@@ -1624,6 +1727,14 @@ SOURCE=.\DlgOptionsRSADemo.cpp
 # Begin Source File
 
 SOURCE=.\DlgOptionsRSADemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsSignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsSignatureAttack.h
 # End Source File
 # Begin Source File
 
@@ -2047,11 +2158,27 @@ SOURCE=.\DlgSignature.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgSignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSignatureAttack.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgSignatureDemo.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\DlgSignatureDemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgStatisticsSignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgStatisticsSignatureAttack.h
 # End Source File
 # Begin Source File
 
@@ -2160,6 +2287,10 @@ SOURCE=.\DlgX2ModNRandomParamater.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DocumentForHashing.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\LibEc\sources\Ecssa.c
 # End Source File
 # Begin Source File
@@ -2233,6 +2364,10 @@ SOURCE=.\res\ENCRYPT_R_U.bmp
 # Begin Source File
 
 SOURCE=.\res\ENCRYPT_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ErrorcodesForSignatureAttack.h
 # End Source File
 # Begin Source File
 
@@ -2513,6 +2648,14 @@ SOURCE=.\res\GENKEY_R_F.bmp
 # Begin Source File
 
 SOURCE=.\res\GENKEY_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HashingOperations.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HashingOperations.h
 # End Source File
 # Begin Source File
 
@@ -2851,7 +2994,43 @@ SOURCE=..\AES\Mars\mars.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\OpenSSL\md2.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenSSL\md4.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenSSL\md5.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\minifwnd.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocument_Attachments.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocument_Attachments.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocument_Blanks.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocument_Blanks.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocumentForHashing.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifiedDocumentForHashing.h
 # End Source File
 # Begin Source File
 
@@ -2919,6 +3098,10 @@ SOURCE=.\res\OPENDOC_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\OpenSSL\opensslconf.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\OPNDOC_F_D.bmp
 # End Source File
 # Begin Source File
@@ -2940,6 +3123,14 @@ SOURCE=.\res\OPNDOC_T_F.bmp
 # Begin Source File
 
 SOURCE=.\res\OPNDOC_T_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OptionsForSignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OptionsForSignatureAttack.h
 # End Source File
 # Begin Source File
 
@@ -3642,6 +3833,14 @@ SOURCE=.\resource.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\ResultsOfSignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResultsOfSignatureAttack.h
+# End Source File
+# Begin Source File
+
 SOURCE="..\AES\Rijndael\rijndael-alg-fst.c"
 # End Source File
 # Begin Source File
@@ -3655,6 +3854,10 @@ SOURCE="..\AES\Rijndael\rijndael-api-fst.c"
 # Begin Source File
 
 SOURCE="..\AES\Rijndael\rijndael-api-fst.h"
+# End Source File
+# Begin Source File
+
+SOURCE=..\OpenSSL\ripemd.h
 # End Source File
 # Begin Source File
 
@@ -3969,6 +4172,26 @@ SOURCE=..\AES\Serpent\SERPENT.H
 # End Source File
 # Begin Source File
 
+SOURCE=..\OpenSSL\sha.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SignatureAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SignatureAttack.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SignatureAttackMFC.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SignatureAttackMFC.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\splith.cur
 # End Source File
 # Begin Source File
@@ -3994,6 +4217,14 @@ SOURCE=.\stdafx.h
 # Begin Source File
 
 SOURCE=.\res\TEST_F_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TimeCalculation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TimeCalculation.h
 # End Source File
 # Begin Source File
 

@@ -87,6 +87,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnHilfeIndex();
 	afx_msg void OnHilfeStartseite();
 	afx_msg void OnHilfeSzenarien();
+	afx_msg void OnSignaturAttack();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

@@ -2509,6 +2509,317 @@ BEGIN
     LTEXT           "Bit",IDC_STATIC,96,28,9,8
 END
 
+IDD_ASN1_PSE_PIN_PROMPT DIALOG DISCARDABLE  0, 0, 229, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PIN-Eingabe"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,94,35,66,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,60,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,172,60,50,14
+    LTEXT           "Die von Ihnen gewählte Datei ist eine PIN-geschützte PSE-Datei.",
+                    IDC_STATIC,7,7,206,8
+    LTEXT           "Bitte geben Sie jetzt die entsprechende PIN ein.",
+                    IDC_STATIC,7,20,152,8
+    LTEXT           "PIN:",IDC_STATIC,69,35,15,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Diffie-Hellman-Demo - Visualisierung des Schlüsselaustauschverfahrens nach Diffie-Hellman"
+
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,30,108,31
+    CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,80,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE1,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,80,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB1,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,80,50,14
+    CONTROL         "IDB_DH_BUTTON3_R_",IDC_CREATESHAREDKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,130,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE2,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,130,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB2,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,130,50,14
+    CONTROL         "IDB_DH_BUTTON4_R_",IDC_EXCHANGESHAREDKEYS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,180,108,31
+    CONTROL         "IDB_DH_BUTTON5_R_",IDC_GENERATEFINALKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,230,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE3,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,230,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,230,50,14
+    PUSHBUTTON      "&Beenden",IDOK,16,323,50,14
+    EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDALICE,160,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDBOB,395,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALALICE,160,257,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
+    EDITTEXT        IDC_SESSIONKEY,152,302,361,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,406,327,107,10
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
+    LTEXT           "Session Key:",IDC_STATIC,152,291,42,8
+    GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
+    GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
+    EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
+    LTEXT           "Primzahlmodul p:",IDC_STATIC,175,53,70,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Öffentliche Parameter",IDC_STATIC,160,23,345,50
+    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
+END
+
+IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Parameter setzen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
+    EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,109,100,
+                    14
+    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
+    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als Eins und gleichzeitig aber kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
+                    IDC_STATIC,15,84,363,16
+    LTEXT           "Generator (g)",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
+    LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahl-Modul (p) - dürfen öffentlich bekannt sein.",
+                    IDC_STATIC,15,7,363,8
+    LTEXT           "Der Primzahl-Modul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+                    IDC_STATIC,15,28,363,16
+    LTEXT           "Primzahl (p)",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMAN_SETSECRETS DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimnisse wählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
+    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice bzw. Bob festlegen, die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Teilschlüssel erzeugen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
+    LTEXT           "Nun können Sie die öffentlichen Teilschlüssel der jeweiligen Partei (Alice oder Bob) erzeugen, sofern Sie im vorigen Schritt schon ein Geheimnis festgelegt haben.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Teilschlüssel austauschen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
+    LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel berechnen können, müssen zunächst ihre öffentlichen Schlüssel ausgetauscht werden.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimen Schlüssel generieren"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel berechnen.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG DISCARDABLE  0, 0, 388, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimnis wählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
+    DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
+    LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
+    LTEXT           "Achten Sie dabei jedoch darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
+                    IDC_STATIC,15,22,358,16
+    LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, die kleiner als der Primzahl-Modul (p) ist.",
+                    IDC_STATIC,15,46,358,16
+    LTEXT           "Geheimnis",IDC_STATIC,15,79,34,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Einleitung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,112,189,50,14
+    LTEXT           "Willkommen zur Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens!",
+                    IDC_STATIC,7,7,262,8
+    LTEXT           "Zwei Kommunikationspartner - in diesem Fall Alice und Bob - wollen einen geheimen Schlüssel über einen unsicheren Kanal aushandeln.",
+                    IDC_STATIC,7,43,262,16
+    LTEXT           "Zusätzlich soll kein Angreifer die Möglichkeit haben, den Schlüssel zu erlangen, auch wenn er den Kanal komplett abhören kann.",
+                    IDC_STATIC,7,59,262,16
+    LTEXT           "Das Verfahren behandelt folgende Problemstellung:",
+                    IDC_STATIC,7,25,262,8
+    LTEXT           "Zur Lösung des Problems benutzen wir das bereits angesprochene Schlüsselaustauschverfahren nach Diffie-Hellman.",
+                    IDC_STATIC,7,85,262,16
+    LTEXT           "Da es sich um eine interaktive Visualisierung handelt, sind im Laufe der Visualisierung Benutzereingaben Ihrerseits erforderlich.",
+                    IDC_STATIC,7,111,262,16
+    LTEXT           "Für eine kontextbezogene Hilfe drücken Sie deshalb bitte die Taste F1, sobald Unklarheiten aufkommen.",
+                    IDC_STATIC,7,137,262,16
+    CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen!",
+                    IDC_CHECK_NOSHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    57,168,161,10
+END
+
+IDD_DIFFIEHELLMAN_SETPUBLIC DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Parameter setzen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
+    LTEXT           "Nach einem Klick auf OK werden Sie aufgefordert, die öffentlichen Parameter des Schlüsselaustauschs einzugeben.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Angriff auf die digitale Signatur basierend auf dem Geburtstagsparadoxon"
+MENU IDR_MAINFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Dokumentenpaar suchen",IDC_COMPUTE,28,280,108,17
+    PUSHBUTTON      "&Dialog &beenden",IDCANCEL,221,280,78,17
+    GROUPBOX        """Harmlose"" Datei auswählen",IDC_STATIC,18,40,291,63
+    GROUPBOX        """Gefährliche"" Datei auswählen",IDC_STATIC,18,116,291,
+                    63
+    EDITTEXT        IDC_FILE_HARMLESS,27,80,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Suchen ...",IDC_BROWSE_HARMLESS,248,78,50,17
+    EDITTEXT        IDC_FILE_DANGEROUS,27,156,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Suchen ...",IDC_BROWSE_DANGEROUS,248,154,50,17
+    PUSHBUTTON      "&Optionen ...",IDC_OPTIONS,150,280,56,17
+    LTEXT           "Der hier implementierte Angriff auf die digitale Signatur beruht auf dem Versuch, zwei\nverschiedene Dokumente mit gleichem Hashwert zu finden.",
+                    IDC_STATIC,19,13,270,20
+    LTEXT           "Die ""harmlose"" Datei ist ein Dokument, von dem der Angreifer vermutet, dass der\nUnterzeichner es digital signieren wird.",
+                    IDC_STATIC,28,55,272,22
+    LTEXT           "Die ""gefährliche"" Datei ist ein Dokument, von dem der Angreifer nach erfolgreichem\nAngriff behaupten wird: ""Dieses Dokument wurde vom Unterzeichner digital signiert.""",
+                    IDC_STATIC,27,131,271,17
+    LTEXT           "Mit ""Dokumentenpaar suchen"" starten Sie den Versuch, zu den oben eingestellten\nDokumenten zwei Modifikationen zu finden, die denselben Hashwert haben.",
+                    IDC_STATIC,28,207,270,17
+    GROUPBOX        "Suche starten / Optionen festlegen",IDC_STATIC,18,192,
+                    291,113
+    LTEXT           "Unter ""Optionen"" können Sie das Hashverfahren, die Anzahl der für den Vergleich\nder Hashwerte herangezogenen Bits sowie verschiedene Modifikationsverfahren\nauswählen.",
+                    IDC_STATIC,28,248,270,27
+    LTEXT           "Der Sinn (Semantik) der Dokumente ändert sich während der Suche nicht, da zum\nModifizieren nicht darstellbare bzw. Formatierungszeichen verwendet werden.",
+                    IDC_STATIC,28,226,270,19
+END
+
+IDD_OPTIONS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 269, 274
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen für den Angrifff auf die digitale Signatur"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,11,242,61,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,203,242,55,17
+    CONTROL         "&vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,161,63,10
+    GROUPBOX        "Optionen für die Dokumentenmodifikation",IDC_STATIC,11,
+                    122,247,109
+    CONTROL         "&Leerzeichenverdoppelung",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,115,177,94,10
+    CONTROL         "&MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    21,53,31,10
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,86,53,31,10
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,151,53,31,
+                    10
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,21,71,31,10
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,86,71,37,
+                    10
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,151,
+                    71,58,10
+    GROUPBOX        "Hashfunktion",IDC_STATIC,11,7,247,105
+    LTEXT           "Signifikante Bitlänge",IDC_STATIC,21,93,65,8
+    EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Standard wiederherstellen",IDC_BUTTON1,82,242,104,17
+    LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
+    LTEXT           "Entscheiden Sie, nach welchem Verfahren die Dokumente modifiziert werden sollen.",
+                    IDC_STATIC,21,137,211,17
+    LTEXT           "Wählen Sie eines der sechs Hashverfahren sowie die Anzahl der\nBits, die für den Vergleich der Hashwerte herangezogen werden\nsollen.",
+                    IDC_STATIC,21,22,211,25
+    CONTROL         "Leerzeichen &einfügen",IDC_RADIO7,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,21,161,84,10
+    CONTROL         "&Zeichen anhängen",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,21,197,77,10
+    CONTROL         "&Druckbare Zeichen (zur Demonstration)",IDC_RADIO9,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,115,197,139,10
+    CONTROL         "&Nicht druckbare Zeichen",IDC_RADIO10,"Button",
+                    BS_AUTORADIOBUTTON,115,213,103,10
+END
+
+IDD_STATISTICS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 338, 298
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Statistische Auswertung des Angriffs"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Dialog beenden",IDCANCEL,225,274,91,17
+    GROUPBOX        "Abschätzung des Aufwands zum Finden eines Dokumentenpaares",
+                    IDC_STATIC,11,11,318,66
+    GROUPBOX        "Tatsächlich geleisteter Aufwand",IDC_STATIC,11,89,318,
+                    174
+    LTEXT           "Rechenzeit",IDC_STATIC,24,28,37,8
+    LTEXT           "Benötigte Schritte",IDC_STATIC,24,52,57,8
+    EDITTEXT        IDC_EXPECTED_TIME,92,26,224,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EXPECTED_STEPS,92,50,94,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Rechenzeit",IDC_STATIC,24,106,37,8
+    EDITTEXT        IDC_EFFECTIVE_TIME,92,104,224,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Benötigte Schritte",IDC_STATIC,24,128,57,12
+    EDITTEXT        IDC_TOTAL_STEPS,92,126,94,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CONTROL         "List2",IDC_LIST_OF_RUNS,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,24,192,292,69
+    LTEXT           "Aufschlüsselung der Einzelschritte",IDC_STATIC,24,174,
+                    200,8
+    LTEXT           "Ausgeführte\nHash-Operationen",IDC_STATIC,25,147,61,19
+    EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,148,94,14,
+                    ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,274,91,17
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2560,6 +2871,8 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Optionen"
     BEGIN
@@ -2717,6 +3030,8 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2909,6 +3224,11 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM "ASN.1-decodieren einer Datei...", 
+                                                ID_EINZELVERFAHREN_ASN1DECODIEREN
+
+        MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3060,6 +3380,9 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
+        MENUITEM "&Angriff auf die digitale Signatur...", ID_SIGNATUR_ATTACK
     END
     POPUP "&Optionen"
     BEGIN
@@ -3213,6 +3536,11 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM "ASN.1-decodieren einer Datei...", 
+                                                ID_EINZELVERFAHREN_ASN1DECODIEREN
+
+        MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3532,6 +3860,73 @@ REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
 IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
 IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
+IDB_DH_BUTTON1_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_R_X.bmp"
+IDB_DH_BUTTON1_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_F.bmp"
+IDB_DH_BUTTON1_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_U.bmp"
+IDB_DH_BUTTON1_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_X.bmp"
+IDB_DH_BUTTON1_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_R_D.bmp"
+IDB_DH_BUTTON1_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_R_F.bmp"
+IDB_DH_BUTTON1_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_R_U.bmp"
+IDB_DH_BUTTON1_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_D.bmp"
+IDB_DH_BUTTON2_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_R_X.bmp"
+IDB_DH_BUTTON2_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_G_F.bmp"
+IDB_DH_BUTTON2_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_G_U.bmp"
+IDB_DH_BUTTON2_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_G_X.bmp"
+IDB_DH_BUTTON2_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_R_D.bmp"
+IDB_DH_BUTTON2_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_R_F.bmp"
+IDB_DH_BUTTON2_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_R_U.bmp"
+IDB_DH_BUTTON2_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button2_G_D.bmp"
+IDB_DH_BUTTON3_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_R_X.bmp"
+IDB_DH_BUTTON3_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_G_F.bmp"
+IDB_DH_BUTTON3_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_G_U.bmp"
+IDB_DH_BUTTON3_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_G_X.bmp"
+IDB_DH_BUTTON3_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_R_D.bmp"
+IDB_DH_BUTTON3_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_R_F.bmp"
+IDB_DH_BUTTON3_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_R_U.bmp"
+IDB_DH_BUTTON3_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button3_G_D.bmp"
+IDB_DH_BUTTON4_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_R_F.bmp"
+IDB_DH_BUTTON4_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_G_F.bmp"
+IDB_DH_BUTTON4_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_G_U.bmp"
+IDB_DH_BUTTON4_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_G_X.bmp"
+IDB_DH_BUTTON4_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_R_D.bmp"
+IDB_DH_BUTTON4_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_G_D.bmp"
+IDB_DH_BUTTON4_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_R_U.bmp"
+IDB_DH_BUTTON4_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button4_R_X.bmp"
+IDB_DH_BUTTON5_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_G_D.bmp"
+IDB_DH_BUTTON5_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_G_F.bmp"
+IDB_DH_BUTTON5_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_G_U.bmp"
+IDB_DH_BUTTON5_G_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_G_X.bmp"
+IDB_DH_BUTTON5_R_D      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_D.bmp"
+IDB_DH_BUTTON5_R_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_F.bmp"
+IDB_DH_BUTTON5_R_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_U.bmp"
+IDB_DH_BUTTON5_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button5_R_X.bmp"
+IDB_DH_CANCEL_F         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_F.bmp"
+IDB_DH_CANCEL_U         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_U.bmp"
+IDB_DH_CANCEL_D         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Cancel_D.bmp"
+IDB_DH_SECRET_R_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_R_X.bmp"
+IDB_DH_SECRET_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_F.bmp"
+IDB_DH_SECRET_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_U.bmp"
+IDB_DH_SECRET_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_X.bmp"
+IDB_DH_SECRET_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_R_D.bmp"
+IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_R_F.bmp"
+IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_R_U.bmp"
+IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Secret_G_D.bmp"
+IDB_DH_CALCULATE_G_U    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_G_U.bmp"
+IDB_DH_CALCULATE_G_F    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_G_F.bmp"
+IDB_DH_CALCULATE_G_D    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_G_D.bmp"
+IDB_DH_CALCULATE_G_X    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_G_X.bmp"
+IDB_DH_CALCULATE_R_D    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_D.bmp"
+IDB_DH_CALCULATE_R_F    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_F.bmp"
+IDB_DH_CALCULATE_R_U    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_U.bmp"
+IDB_DH_CALCULATE_R_X    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_X.bmp"
+IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\arrow.bmp"
+IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_5.bmp"
+IDB_DH_STEP_2           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_2.bmp"
+IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_3.bmp"
+IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_4.bmp"
+IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_1.bmp"
+IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\GapFiller.bmp"
+IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4309,6 +4704,18 @@ BEGIN
         RIGHTMARGIN, 297
         TOPMARGIN, 10
         BOTTOMMARGIN, 101
+    END
+
+    IDD_OPTIONS_SIGNATURE_ATTACK, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        VERTGUIDE, 21
+        VERTGUIDE, 115
+        VERTGUIDE, 258
+        HORZGUIDE, 171
+        HORZGUIDE, 207
+        HORZGUIDE, 223
+        HORZGUIDE, 259
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5404,8 +5811,33 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
-    IDS_STRING_SAMPLE_FILE  "/examples/startbeispiel-de.txt"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_DLG_KEY_ASYM_TITLE  "Öffentlicher Parameter von: "
+    IDS_STRING_SAMPLE_FILE  "/examples/startbeispiel-de.txt"
+    IDS_ASN1_NO_VALID_ASN1_FILE 
+                            "Die von Ihnen gewählte Datei ist keine gültige ASN.1-Datei!"
+    IDS_ASN1_NO_VALID_PIN   "Die von Ihnen eingegebene PIN ist nicht korrekt!"
+    IDS_ASN1_NOT_PROPERLY_RECOGNIZED 
+                            "Das Format der von Ihnen gewählten ASN.1-Datei wurde von CrypTool nicht erkannt!\n\nWahrscheinlich wird das gewählte ASN.1-Format von Ihrer CrypTool-Version noch nicht unterstützt."
+    IDS_ASN1_READY_TO_PRINT_CERTIFICATE 
+                            "Das in der Datei enthaltene Zertifikat wird nun angezeigt!"
+    IDS_ASN1_INVALID_FILENAME 
+                            "Die Datei konnte nicht geöffnet werden. Bitte überprüfen Sie Ihre Eingaben."
+    IDS_ASN1_INTERNAL_ERROR "Beim Zugriff auf den ASN.1-Decoder ist ein interner Fehler aufgetreten!"
+    IDS_ASN1_VALID_ASN1_FILE 
+                            "Die von Ihnen gewählte Datei ist eine gültige ASN.1-Datei.\n\nSie wird nun als ASN.1-dump in einem neuen Fenster angezeigt."
+    IDS_ASN1_FILE_NOT_EXISTING 
+                            "Es wurde versucht, auf eine nicht existente Datei zuzugreifen."
+    IDS_DH_GENERATOR_INVALID 
+                            "Dem Generator konnte kein gültiger Wert zugewiesen werden, bitte überprüfen Sie Ihre Eingaben (1 < g < p)."
+    IDS_DH_PRIME_INVALID    "Der Primzahl konnte kein gültiger Wert zugewiesen werden, bitte überprüfen Sie Ihre Eingaben und wählen Sie ggf. einen kleineren Wert!"
+    IDS_DH_SECRET_INVALID   "Das Geheimnis konnte nicht festgelegt werden, bitte überprüfen Sie Ihre Eingaben!"
+    IDS_DH_PK_INVALID       "Ein interner Fehler ist aufgetreten!"
+    IDS_DH_OPK_INVALID      "Ein interner Fehler ist aufgetreten!"
+    IDS_DH_SESSION_KEY_INVALID "Ein interner Fehler ist aufgetreten!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5694,6 +6126,33 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
+                            "Die ""harmlose"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
+    IDS_STRING_SIG_ATT_TIME_ELAPSED "Sekunden"
+    IDS_STRING_SIG_ATT_NO_CHECK 
+                            "Sie müssen mindestens eine Checkbox ankreuzen."
+    IDS_STRING_SIG_ATT_BAD_BITLENGTH 
+                            "Für den eingestellten Hash-Algorithmus muss die signifikante Bitlänge zwischen 1 und %d liegen."
+    IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
+                            "Der Angriff war erfolgreich: ein Dokumentenpaar\nmit gleichem Hashwert wurde gefunden."
+    IDS_STRING_SIG_ATT_CLOCK "Es wurden %5.2f sec benötigt."
+    IDS_STRING_SIG_ATT_RUN_NUMBER "Run Nr."
+    IDS_STRING_SIG_ATT_STEPS "Benötigte Schritte"
+    IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
+                            "Der Angriff schlug fehl: Es konnte kein Dokumentenpaar gefunden werden."
+    IDS_STRING_SIG_ATT_CRYPTOOL "CrypTool"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
+                            "Es läuft Run Nr. %d.\nDie Suche nach einem Zyklus in diesem Run ist zu %d %%%% abgeschlossen."
+    IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
+                            "Die ""gefährliche"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_STRING_FILEOPENERROR "Die Datei konnte nicht geöffnet werden!"
     IDS_STRING_FILEEXISTS   "Eine Datei mit diesem Namen existiert bereits."
     IDS_STRING_PSECREATIONERROR "Die PSE konnte nicht erstellt werden."
@@ -5861,6 +6320,57 @@ BEGIN
     IDS_KEYHEX_INPUT_LENGTH_TXT 
                             "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge genau %d Hexadezimalzeichen (= %d Bytes)."
 END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_PP_PRIME_INVALID "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte korrigieren Sie Ihre Eingabe oder klicken Sie den Button 'Primzahl erzeugen'."
+    IDS_DH_PP_GENERATOR_INVALID 
+                            "Bitte wählen Sie einen Generator (g), der die Bedingung 1 < g < p erfüllt,\nd.h. er muß größer als Eins und kleiner als der Primzahl-Modul (p) sein."
+    IDS_DH_DATA_INCONSISTENCY "Ein interner Fehler ist aufgetreten!"
+    IDS_DH_PP_NON_DECIMAL_VALUE 
+                            "Bitte geben Sie nur Werte in dezimaler Form ein, d.h. keine Buchstaben und/oder sonstige Sonderzeichen."
+    IDS_DH_CALCULATE_PUBLIC_KEY_ALICE 
+                            "Alice hat ihren öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+    IDS_DH_CALCULATE_PUBLIC_KEY_BOB 
+                            "Bob hat seinen öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+    IDS_DH_SESSION_KEY_CALCULATED_BY_ALICE 
+                            "Alice hat ihrerseits den gemeinsamen Schlüssel berechnet. Er wird nun im Textfeld unter dem Button angezeigt."
+    IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
+                            "Bob hat seinerseits den gemeinsamen Schlüssel berechnet. Er wird nun im Textfeld unter dem Button angezeigt."
+    IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
+                            "Alice hat ihr Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+    IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
+                            "Bob hat sein Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+    IDS_DH_SECRET_PARTYNAME "Bitte Legen Sie nun das Geheimnis für %s fest."
+    IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
+    IDS_DH_PP_SECRET_INVALID 
+                            "Bitte achten Sie darauf, dass das gewählte Geheimnis kleiner als der Primzahlmodul p ist, dennoch aber größer als Eins (1 < g < p)."
+    IDS_DH_RESULT_MESSAGE   "Das gemeinsam ausgehandelte Geheimnis, das jede Partei (Alice und Bob) für sich selbst berechnet hat, erscheint nun im Textfeld 'Session Key'."
+END
+
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_UNKNOWN_ERROR 
+                            "Ein unbekannter Fehler ist aufgetreten !"
+    IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
+                            "Es trat ein Fehler beim Anwenden der Hash-Funktion auf !"
+    IDS_STRING_SIG_ATT_BAD_MODIFIABILITY 
+                            "Mindestens ein Dokument enthält weniger modifizierbare Stellen, als signifikante bits in den Optionen eingestellt wurden."
+    IDS_STRING_SIG_ATT_FLOYD_CANCELED 
+                            "Die Dokumentenpaarsuche wurde abgebrochen."
+    IDS_STRING_SIG_ATT_FLOYD_RUNNING "Ein Dokumentenpaar wird gesucht ..."
+    IDS_STRING_SIG_ATT_TOO_LITTLE_MODIFICATIONS 
+                            "Die signifikante Bitlänge darf nicht größer sein als die maximale Anzahl der Modifikationen."
+    IDS_STRING_SIG_ATT_TOO_MANY_MODIFICATIONS 
+                            "Die maximale Anzahl der Modifikationen ist größer als die eingestellte Bitlänge.\nAlle überschüssigen Modifikationsstellen werden im weiteren Verlauf ignoriert."
+    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Wertebereich: 1 - %d)"
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliches Dokument: "
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmloses Dokument: "
+    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
+                            "Es läuft Run Nr. %d.\nDie Suche nach dem Beginn des in diesem Run gefundenen Zyklus ist zu %d %%%% abgeschlossen."
+END
+
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -8341,6 +8851,206 @@ BEGIN
     LTEXT           "bit",IDC_STATIC,83,28,8,8
 END
 
+IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Teilschlüssel austauschen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel berechnen können, müssen zunächst ihre öffentlichen Schlüssel ausgetauscht werden.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_ASN1_PSE_PIN_PROMPT DIALOG DISCARDABLE  0, 0, 229, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PIN request"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,94,35,66,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,60,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,172,60,50,14
+    LTEXT           "The file you chose is a PSE file which is PIN protected.",
+                    IDC_STATIC,7,7,174,8
+    LTEXT           "Please enter a valid PIN now to gain access to further information.",
+                    IDC_STATIC,7,20,208,8
+    LTEXT           "PIN:",IDC_STATIC,69,35,15,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMAN_SETPUBLIC DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Parameter setzen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    LTEXT           "Nach einem Klick auf OK werden Sie aufgefordert, die öffentlichen Parameter des Schlüsselaustauschs einzugeben.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Diffie-Hellman Demonstration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,30,108,31
+    CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,80,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE1,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,80,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB1,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,80,50,14
+    CONTROL         "IDB_DH_BUTTON3_R_",IDC_CREATESHAREDKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,130,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE2,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,130,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB2,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,130,50,14
+    CONTROL         "IDB_DH_BUTTON4_R_",IDC_EXCHANGESHAREDKEYS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,180,108,31
+    CONTROL         "IDB_DH_BUTTON5_R_",IDC_GENERATEFINALKEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,230,108,31
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE3,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,175,230,50,14
+    CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,410,230,50,14
+    PUSHBUTTON      "&Close",IDOK,16,323,50,14
+    EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDALICE,160,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_SHAREDBOB,395,157,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALALICE,160,257,110,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
+    EDITTEXT        IDC_SESSIONKEY,152,302,361,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "Show &information dialogues",IDC_CHECK_DISABLEHELP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,102,10
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
+    LTEXT           "Session Key:",IDC_STATIC,152,291,42,8
+    GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
+    GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
+    EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
+    LTEXT           "Prime module p:",IDC_STATIC,175,53,70,14,SS_CENTERIMAGE
+    GROUPBOX        "Public parameters",IDC_STATIC,160,23,345,50
+    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
+END
+
+IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Introduction"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,112,189,50,14
+    LTEXT           "Welcome to the visualization of the Diffie-Hellman key exchange protocol.",
+                    IDC_STATIC,7,7,262,8
+    LTEXT           "Two communication partners - Alice and Bob for instance - want to negotiate on a secret key over an insecure line.",
+                    IDC_STATIC,7,43,262,16
+    LTEXT           "Furthermore nobody should be able to acquire the key although listening into the line constantly.",
+                    IDC_STATIC,7,59,262,16
+    LTEXT           "The method deals with the following problem:",
+                    IDC_STATIC,7,25,262,8
+    LTEXT           "We will use the already mentioned key exchange protocol by Diffie-Hellman to solve this problem.",
+                    IDC_STATIC,7,85,262,16
+    LTEXT           "Since this demonstration is an interactive visualization, you will be prompted for certain inputs a couple of times.",
+                    IDC_STATIC,7,111,262,16
+    LTEXT           "Please feel free to use the context-sensitive help by pressing F1 whenever any obscurities occur.",
+                    IDC_STATIC,7,137,262,16
+    CONTROL         "&Do not show this message box again!",IDC_CHECK_NOSHOW,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,168,133,10
+END
+
+IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Teilschlüssel erzeugen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    LTEXT           "Nun können Sie die öffentlichen Teilschlüssel der jeweiligen Partei (Alice oder Bob) erzeugen, sofern Sie im vorigen Schritt schon ein Geheimnis festgelegt haben.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimen Schlüssel generieren"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel berechnen.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+END
+
+IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Öffentliche Parameter setzen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
+    EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,109,100,
+                    14
+    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
+    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als eins und gleichzeitig aber kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
+                    IDC_STATIC,15,84,363,16
+    LTEXT           "Generator (g)",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
+    LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahl-Modul (p) - dürfen öffentlich bekannt sein.",
+                    IDC_STATIC,15,7,363,8
+    LTEXT           "Der Primzahl-Modul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+                    IDC_STATIC,15,28,363,16
+    LTEXT           "Primzahl (p)",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG DISCARDABLE  0, 0, 388, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimnis wählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
+    DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
+    LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
+    LTEXT           "Achten Sie dabei jedoch darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
+                    IDC_STATIC,15,22,358,16
+    LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, die kleiner als der Primzahl-Modul (p) ist.",
+                    IDC_STATIC,15,46,358,16
+    LTEXT           "Geheimnis",IDC_STATIC,15,79,34,14,SS_CENTERIMAGE
+END
+
+IDD_DIFFIEHELLMAN_SETSECRETS DIALOG DISCARDABLE  0, 0, 200, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geheimnisse wählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice bzw. Bob festlegen, die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
+                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8392,6 +9102,9 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman Demonstration...", 
+                                                ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Options"
     BEGIN
@@ -8548,6 +9261,9 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman Demonstration...", 
+                                                ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Analysis"
     BEGIN
@@ -8740,6 +9456,12 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "ASN.1 decryption of a file...", 
+                                                ID_EINZELVERFAHREN_ASN1DECODIEREN
+
+        MENUITEM "&Diffie-Hellman Demonstration...", 
+                                                ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Analysis"
     BEGIN
@@ -8891,6 +9613,9 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Diffie-Hellman Demonstration...", 
+                                                ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Options"
     BEGIN
@@ -9044,6 +9769,12 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "ASN.1 decryption of a file...", 
+                                                ID_EINZELVERFAHREN_ASN1DECODIEREN
+
+        MENUITEM "&Diffie-Hellman Demonstration...", 
+                                                ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
     END
     POPUP "&Analysis"
     BEGIN
@@ -9363,6 +10094,14 @@ REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
 IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
 IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
+IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_1.bmp"
+IDB_DH_STEP_2           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_2.bmp"
+IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_3.bmp"
+IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_4.bmp"
+IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_5.bmp"
+IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\dh_arrow.bmp"
+IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\dh_gapfi.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10944,8 +11683,25 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
-    IDS_STRING_SAMPLE_FILE  "/examples/startingexample-en.txt"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_DLG_KEY_ASYM_TITLE  "Public parameters of: "
+    IDS_STRING_SAMPLE_FILE  "/examples/startingexample-en.txt"
+    IDS_ASN1_NO_VALID_ASN1_FILE 
+                            "The file you chose is not a valid ASN.1 encoded file!"
+    IDS_ASN1_NO_VALID_PIN   "The PIN you entered is incorrect!"
+    IDS_ASN1_NOT_PROPERLY_RECOGNIZED 
+                            "The ASN.1 file format was not recognized properly!\n\nMaybe your current release of CrypTool does not support this file format yet."
+    IDS_ASN1_READY_TO_PRINT_CERTIFICATE 
+                            "The certificate contained in the ASN.1 file will be printed out immediately."
+    IDS_ASN1_INVALID_FILENAME 
+                            "The file could not be opened, please verify your input."
+    IDS_ASN1_INTERNAL_ERROR "An internal error occured in the ASN.1 decoder."
+    IDS_ASN1_VALID_ASN1_FILE 
+                            "The chosen file is a valid ASN.1 encoded file.\n\nA new window containing the ASN.1 dump will be opened."
+    IDS_ASN1_FILE_NOT_EXISTING "The file you tried to access does not exist."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11388,6 +12144,9 @@ BEGIN
     ID_HILFE_STARTSEITE     "Shows the online help's starting page"
     ID_HILFE_INDEX          "Shows the help index"
     ID_HILFE_SZENARIEN      "Show the overview page of the online help containing all scenarios within CrypTool"
+    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodes an ASN1 encoded file"
+    ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
+                            "Visualization of the Diffie-Hellman procedure"
 END
 
 STRINGTABLE DISCARDABLE 
