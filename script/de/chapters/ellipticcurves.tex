@@ -194,7 +194,9 @@ kurz eingef"uhrt werden:
          Verkn"upfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verkn"upfung $ab=a\cdot  b$ ein Element aus $G$.
    \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
    \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $\cdot$ neutral verh"alt´, d.h., f"ur alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
-   \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element} $a^{-1}$(in $G$), so dass gilt: $aa^{-1} = a^{-1}a = e$.
+   \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element}
+\footnote{Das inverse Element ist eindeutig bestimmt, denn sind $x,y\inG$ zwei Inverse zu $a$, d.h. gilt $ax=xa=e$ und $ay=ya=e$, so folgt $x=xe=x(ay)=(xa)y=ey=y$.}
+$a^{-1}$(in $G$), so dass gilt: $aa^{-1} = a^{-1}a = e$.
 \end{itemize}
 Gilt zus"atzlich noch f"ur alle $a, b$ aus $G$, dass $ab = ba$ (Kommutativgesetz), so nennt man die Gruppe $G$ eine {\em abelsche} Gruppe.
 
@@ -259,7 +261,7 @@ wobei $0$ das neutrale Element der Addition ist.
 Gibt es keine solche nat"urliche Zahl, d.h. ergibt $1 + 1 + \cdots + 1$ unabh"angig von der Zahl der Summanden nie das neutrale Element der Addition $0$, so sagt man, der K"orper habe Charakteristik $0$.
 
 K"orper mit Charakteristik $0$ haben daher stets die (paarweise verschiedenen) Elemente $1, 1+1, 1+1+1, \dots$ und sind folglich stets unendlich; andererseits k"onnen K"orper mit endlicher Charakteristik durchaus endlich oder auch unendlich sein.
-Ist die Charakteristik $n$ endlich, so muss sie eine Primzahl sein, denn w"are sie zusammengesetzt, d.h. $n=pq$, so sind $p,q<n$ und aufgrund der Minimalit"at der Charakteristik ist keines der K"orperelemente $\bar p=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$p$ mal}}$, $\bar q=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$q$ mal}}$ gleich $0$. Folglich existieren Inverse $\bar p^{-1},\bar q^{-1}$ bez"uglich der Multiplikation. Dann ist aber $(\bar p\bar q)( \bar p^{-1}\bar q^{-1})=1$, andererseits ist nach Definition der Charakteristik $\bar p\bar q=n=0$ und somit $\underbrace{(\bar p\bar q)}_{=0}( \bar p^{-1}\bar q^{-1})=0$, was zu einem Widerspruch f"uhrt.
+Ist die Charakteristik $n$ endlich, so muss sie eine Primzahl sein, denn w"are sie zusammengesetzt, d.h. $n=pq$, so sind $p,q<n$ und aufgrund der Minimalit"at der Charakteristik ist keines der K"orperelemente $\bar p=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$p$ mal}}$, $\bar q=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$q$ mal}}$ gleich $0$. Folglich existieren Inverse $\bar p^{-1},\bar q^{-1}$ bez"uglich der Multiplikation. Dann ist aber $(\bar p\bar q)( \bar p^{-1}\bar q^{-1})=1$, andererseits ist nach Definition der Charakteristik $\bar p\bar q=\bar n=\underbrace{1+1+\dots+1}_{\hbox{$n$ times}}=0$ und somit $\underbrace{(\bar p\bar q)}_{=0}( \bar p^{-1}\bar q^{-1})=0$, was zu einem Widerspruch f"uhrt.
 
 Beispiel: Der K"orper ${\mathbb Z}_p$, $p$ prim, hat die Charakteristik $p$. Ist $p$ nicht prim, so ist ${\mathbb Z}_p$ gar kein K"orper.
 
@@ -311,8 +313,10 @@ Eine besondere Rolle spielen die K"orper $GF(p)$, deren Ordnung eine Primzahl is
 \subsection{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
 In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung. Es hat sich bei Untersuchungen gezeigt, dass die durch eine Kurve vom Grad drei\footnote{D.h. die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.} der Form
-$$ F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
-$$
+\begin{equation}
+ F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
+\label{eccbasisgleichung}
+\end{equation}
 wobei die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"or"-pers $K$ sind, der eine f"ur die Kryptographie interessante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
 Damit sich eine sinnvolle Kurve ergibt, m"ussen die Parameter so gew"ahlt sein, dass die folgenden Nebenbedingungen gelten
 $$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0, \quad
@@ -429,11 +433,10 @@ Ebene dargestellt werden.
 % -----------------------------------------------------------------------------
 \subsection{Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
 
-Besonders interessant sind aus kryptographischer Sicht Vielfache eines gegebenen Punktes $P\in E$. So bezeichnet man f"ur eine nat"urliche Zahl $m$
-$$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}} .
+Wie bereits in Abschnitt \ref{ECC-Crypto} erw"ahnt, betrachten wir in der Kryptographie Elliptische Kurven "uber diskreten K"orpern $GF(2^n)$ oder $GF(p)$ (f"ur gro"se Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden K"orper stammen. Ist nun $E$ eine Elliptische Kurve "uber einem solchen K"orper und $P$ ein Punkt auf der Kurve $E$, so kann man f"ur jede nat"urliche Zahl $m$
+$$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
 $$
-Um $mP$ zu berechnen, muss man im allgemeinen $\log m$ Additionen durchf"uhren --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ bin"ar und addiert schlie"slich entsprechend der Bin"ardarstellung von $m$ auf.
-Andererseits erscheint es extrem schwierig zu sein, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Nat"urlich kann man $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu ben"otigt man jedoch $m$ Additionen.
+bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchf"uhren muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ bin"ar und addiert schlie"slich entsprechend der Bin"ardarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Nat"urlich kann man $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu ben"otigt man jedoch $m$ Additionen.
 
 Bisher ist noch kein Algorithmus bekannt, der effizient $m$ aus $P$ und $Q$ berechnet. Die bisher besten Verfahren liegen z.B. im Fall $GF(p)$ in der Gr"o"senordnung $\sqrt{q}$, wobei $q$ ein (gro"ser) Primfaktor von $p-1$ ist; $m$ selbst sollte in diesem Fall zwischen $1$ und $q$ liegen, so dass man f"ur die Muliplikation $mP$ maximal $\log q$ Schritte ben"otigt. Der Quotient ${\sqrt{q}\over\log q}$ strebt jedoch (schnell) gegen $+\infty$.
 
@@ -446,7 +449,7 @@ Dies wird als das \glqq Diskrete Logarithmus Problem "uber Elliptischen Kurven\g
 
 \vskip +5 pt
 
-Es ist zu beachten, dass nicht alle Elliptischen Kurven gleich sicher sind. Das bedeutet, dass man bei der
+Formal betrachten wir in der Elliptischen-Kurven-Kryptographie die Punkte der Kurve als Elemente einer Gruppe mit der Addition als Verkn"upfung. Allerdings sind nur solche Elliptischen Kurven f"ur kryptographische Anwendungen geeignet, bei der die Anzahl der Kurvenpunkte hinreichend gro"s ist. Ferner k"onnen in Spezialf"allen Elliptische Kurven auch aus anderen Gr"unden ungeeignet sein. Das bedeutet, dass man bei der
 Definition einer Kurve auf die Wahl der Parameter achten muss. Denn f"ur bestimmte Klassen von
 Elliptischen Kurven ist es m"oglich, das ECDLP leichter zu l"osen als im allgemeinen Fall. Kryptographisch
 ungeeignete Elliptische Kurven sind die sogenannten {\em anormalen} Kurven (das sind Kurven "uber ${\mathbb Z}_p$,
@@ -496,9 +499,9 @@ Signaturverfahren eingesetzt  wurde.
 \smallskip
 {\bf Verschl"usselung:}
 
-Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{Diffie-Hellman Protokoll}{DH-KeyExch} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. 
+Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{Diffie-Hellman Protokoll}{DH-KeyExch} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt.
 
-In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und ein Element $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt $r_Ar_B G$ erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet.
+In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und ein Element $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt $r_Ar_B G$ erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
 \\ F"ur einen Dritten ist es nach heutigen Kenntnisstand nicht m"oglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP l"ost.
 
 Um einen ``Man-in-the-middle"{}~Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die "ubertragenen Werte $G,q,R_A,R_B$ digital signieren.
@@ -635,4 +638,5 @@ Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Di
 % Local Variables:
 % TeX-master: "../script-de.tex"
 % End:
+
 
