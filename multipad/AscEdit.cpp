@@ -42,7 +42,7 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	busy = 1;
 	if(0==LineLength())
 		m_mode = 0;
-	if(VK_BACK == nChar) // Backspace
+	if((VK_BACK == nChar) || (3 == nChar) || (22 == nChar)) // Backspace
 		CEdit::OnChar(nChar, nRepCnt, nFlags);
 	else if(m_mode == 0) { // start mode 
 		if(isalpha(nChar)) {

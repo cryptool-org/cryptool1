@@ -94,14 +94,18 @@ BOOL CDlgRuntime::OnInitDialog()
 
 	Lock.Lock();
 	CDialog::OnInitDialog();
-	for(i=0;i<5;i++) m_AButton[i]->EnableWindow(FALSE);
+	for(i=0;i<5;i++)  {
+		m_AButton[i]->EnableWindow(FALSE);
+		*m_iterVals[i] = 0;
+	}
+	UpdateData(FALSE);
 	zaehler = 0;
 	m_displayed=1;
 	if ( m_Caption != _T("") )
 		SetWindowText( m_Caption );
 	Lock.Unlock();
 	while(m_totalThreads > m_registeredThreads) Sleep(2);
-	SetTimer(45,1000,NULL);
+	mTimerDisplay =  SetTimer(45,1000,NULL);
 	if(m_totalThreads == 0) {
 		EndDialog(m_retcode);
 		return TRUE;
@@ -115,13 +119,9 @@ void CDlgRuntime::OnCancel()
 	int i;
 
 	Lock.Lock();
-	KillTimer(45);
 	for(i=0;i<5;i++)
 		if(m_Factorisations[i]->status & THREAD_RUNNING)
 			m_Factorisations[i]->status |= THREAD_REQUEST_ABORT;
-//	CDialog::OnCancel();
-//	DestroyWindow();
-//	m_displayed=0;
 	Lock.Unlock();
 }
 
@@ -141,6 +141,7 @@ void CDlgRuntime::OnTimer(UINT nIDEvent)
 					*m_iterVals[i] = m_Factorisations[i]->m_iterations;
 				}
 				else {
+					*m_iterVals[i] = m_Factorisations[i]->m_iterations;
 					m_AButton[i]->EnableWindow(FALSE);
 				}
 			}
@@ -153,6 +154,7 @@ void CDlgRuntime::OnTimer(UINT nIDEvent)
 		if(m_displayed==0) return;
 		{
 			int t = m_retcode;
+			KillTimer(mTimerCancel);
 			m_curThread = 0;
 			m_numThreads = 0;
 			m_displayed = 0;
@@ -160,20 +162,12 @@ void CDlgRuntime::OnTimer(UINT nIDEvent)
 			m_registeredThreads = 0;
 			m_retcode = IDCANCEL;
 			m_displayed = 0;
-//			for(i=0;i<5;i++) {
-//				if(m_mip[i]) {
-//					set_mip(m_mip[i]);
-//					mirexit();
-//					m_mip[i]=NULL;
-//				}
-//			}
-//			set_mip(oldmip);
 			EndDialog(t);
 		}
 		return;
 	}
 	if(nIDEvent == 49) { // Die Zeitscheibe des aktuellenThreads ist abgelaufen --> flag setzen
-		m_timeout = 1;
+		m_timeout++;
 	}
 	CDialog::OnTimer(nIDEvent);
 }
@@ -188,19 +182,20 @@ void CDlgRuntime::SetCaption( const char * Caption)
 int CDlgRuntime::EnterSchedule(int index)
 {
 	m_Factorisations[index]->m_iterations = 0;
+	m_Factorisations[index]->status = THREAD_RUNNING;
 	while(!m_displayed) Sleep(2);
 	Lock.Lock();
 
 	m_registeredThreads++;
 	m_numThreads++;
 	if(m_numThreads > 1){
-		m_Factorisations[index]->status |= THREAD_SUSPENDED | THREAD_RUNNING;
+		m_Factorisations[index]->status |= THREAD_SUSPENDED;
 	}
 	else { // first thread
 //		oldmip = get_mip();
-		m_Factorisations[index]->status |= THREAD_RUNNING;
 		m_curThread = index;
-		SetTimer(49, -100, NULL); // next schedule
+		mTimerSchedule = SetTimer(49, 10, NULL); // next schedule
+		ASSERT(mTimerSchedule!=0);
 	}
 	Lock.Unlock();
 	while(m_Factorisations[index]->status & THREAD_SUSPENDED) Sleep(1);
@@ -220,10 +215,9 @@ int CDlgRuntime::Schedule(int index)
 {
 	ASSERT(index == m_curThread);
 	if (m_Factorisations[index]->status & THREAD_REQUEST_ABORT) return 1;
-	if(m_timeout == 0) return 0;
+	if(m_timeout < 10) return 0;
 	m_timeout = 0;
 	Lock.Lock();
-	SetTimer(49, -100, NULL); // next schedule
 	if(m_numThreads > 1) {
 		m_Factorisations[index]->status |= THREAD_SUSPENDED;
 		m_OldThread = index;
@@ -266,7 +260,10 @@ int CDlgRuntime::ExitSchedule(int index)
 	Lock.Lock();
 	m_numThreads--;
 	if((m_numThreads == 0) && (m_registeredThreads == m_totalThreads)) { // all threads exited, shutdown window
-		SetTimer(47, -1, NULL); // terminate
+		KillTimer(mTimerSchedule);
+		KillTimer(mTimerDisplay);
+		mTimerCancel = SetTimer(47, 1, NULL); // terminate
+		ASSERT(mTimerCancel!=0);
 	}
 	if(m_numThreads > 0) { // select new thread
 		do {

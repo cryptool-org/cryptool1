@@ -1845,7 +1845,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,23,68,204,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,92
-    LTEXT           "Eingabe (Buchstaben oder durch Kommata getrennte Zahlen)",
+    LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,30,204,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,23,59,204,8
@@ -1868,6 +1868,7 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     151,220,22,20
 END
+
 
 IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU

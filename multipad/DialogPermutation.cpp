@@ -147,6 +147,7 @@ void CDialogPermutation::OnChangeEdit1()
 			m_P1out = buffer;
 		}
 		else {
+			makeASCII(m_Perm1);
 			m_P1out = "";
 			m_P1len = -1;
 		}
@@ -175,6 +176,7 @@ void CDialogPermutation::OnChangeEdit2()
 			m_P2out = buffer;
 		}
 		else {
+			makeASCII(m_Perm2);
 			m_P2out = "";
 			m_P2len = -1;
 		}
@@ -313,7 +315,11 @@ int CDialogPermutation::MakePermInt(CString *Pin, int p[], int pinv[])
 
 	i = plen = m = 0;
 	do {
-		j = Pin->Find(',',i+1);
+		do {
+			j = Pin->Find(',',i+1);
+			if(j!=i-1) break;
+			i++;
+		} while(1);
 		if(j==-1)
 			e = Pin->GetLength() - i;
 		else

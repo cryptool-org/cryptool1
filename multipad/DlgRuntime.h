@@ -82,6 +82,10 @@ protected:
 	afx_msg void OnCancel6();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	int mTimerCancel;
+	int mTimerSchedule;
+	int mTimerDisplay;
 };
 
 //{{AFX_INSERT_LOCATION}}
