@@ -19,7 +19,7 @@
 class CDlg_PlayfairKey : public CDialog
 {
 	CBitmapButton m_Paste;
-// Konstruktion
+	// Konstruktion
 public:
 	~CDlg_PlayfairKey();
 	CDlg_PlayfairKey(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
@@ -47,6 +47,7 @@ public:
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlg_PlayfairKey)
 	protected:
+	virtual BOOL OnInitDialog();
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
 
@@ -60,7 +61,6 @@ protected:
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
-//	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

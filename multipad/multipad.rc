@@ -1199,7 +1199,6 @@ BEGIN
     PUSHBUTTON      "&Dialog beenden",IDOK,7,305,78,19
 END
 
-
 IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 342, 343
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfairanalyse"
@@ -1242,18 +1241,18 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_4,78,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_EDIT_6_5,98,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_EDIT_6_6,118,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT |
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER |
+    CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,147,43,185,151
     DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,271,311,61,18
-    EDITTEXT        IDC_LIST,6,218,326,53,ES_MULTILINE | ES_UPPERCASE |
+    EDITTEXT        IDC_LIST,6,218,326,53,ES_MULTILINE | ES_UPPERCASE | 
                     ES_READONLY | ES_WANTRETURN | WS_HSCROLL
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON |
+    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,276,7,50,8
     CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,276,
                     18,50,8
-    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON |
+    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,202,7,64,10
     CONTROL         "&Entschlüsseln",IDC_RADV,"Button",BS_AUTORADIOBUTTON,
                     202,18,64,8
@@ -1270,7 +1269,6 @@ BEGIN
     LTEXT           "Die folgenden Zeilen enthalten",IDC_STATIC,6,198,253,8
 END
 
-
 IDD_DIALOG_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Playfair"
@@ -1278,7 +1276,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,10,236,66,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,176,236,52,20
-    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON |
+    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,169,106,48,10
     CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
                     118,48,10
@@ -1318,7 +1316,7 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_KEYENTER,24,75,188,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KEYENTER,24,75,171,12,ES_AUTOHSCROLL
     LTEXT           "Kurzform des Playfair-Schlüssels:",IDC_STATIC,24,64,114,
                     11
     CONTROL         "&Doppelte ignorieren",IDC_CHECK1,"Button",
@@ -1329,8 +1327,9 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,17,78,8
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,24,98,137,120
     PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,93,236,66,20
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    200,73,22,20
 END
-
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
@@ -4359,9 +4358,6 @@ BEGIN
     IDS_STRING_CAPTATION_SERIAL_TEST "Serial Test (overlaping) von %s"
 END
 
-
-
-
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OPENFILE        "Öffnen"
@@ -4653,7 +4649,7 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "Die Anzahl der Zeichen im Alphabet (hier %i) muß kleiner als der RSA-Modul N= %s sein.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
+                            "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muß kleiner als der RSA-Modul (hier N= %s) sein.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Bitte ändern Sie das Alphabet, so daß die Anzahl der Zeichen im Alphabet (hier %i) höchstens so groß wie der RSA-Modul N = %s ist."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
@@ -4663,17 +4659,17 @@ BEGIN
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.5f Sekunden"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_PLAYFAIR_ERRMSG001
+    IDS_STRING_PLAYFAIR_ERRMSG001 
                             "Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSGALLG
+    IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG100
+    IDS_STRING_PLAYFAIR_ERRMSG100 
                             "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG200
+    IDS_STRING_PLAYFAIR_ERRMSG200 
                             "Annahme falsch!\nEine der Nachbarn war schon sicher.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG110
+    IDS_STRING_PLAYFAIR_ERRMSG110 
                             "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
 END
@@ -8833,7 +8829,7 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "The number of characters in the alphabet (here %i) must be smaller than the RSA-Modul N= %s.\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The number of characters in the alphabet (here %i letters) must be smaller than the RSA-Modul (here N= %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul N =%s."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
@@ -8843,21 +8839,20 @@ BEGIN
     IDS_STRING_ANZAHL_ZEICHEN2 "Time required:   %.5f second"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_PLAYFAIR_ERRMSG001
+    IDS_STRING_PLAYFAIR_ERRMSG001 
                             "Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSGALLG
+    IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG100
+    IDS_STRING_PLAYFAIR_ERRMSG100 
                             "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG200
+    IDS_STRING_PLAYFAIR_ERRMSG200 
                             "Annahme falsch!\nEine der Nachbarn war schon sicher.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG110
+    IDS_STRING_PLAYFAIR_ERRMSG110 
                             "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
 END
-
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////

@@ -379,10 +379,10 @@ void playfair_letter::setNeighbour(playfair_neighbour pos, playfair_letter* s)
 void playfair_letter::getNeighboursString(char *s, int slen)
 {
 	assert (s);
-	s[0] = (my_left) ?my_left ->getValue():'*';
-	s[1] = (my_right)?my_right->getValue():'*';
-	s[2] = (my_above)?my_above->getValue():'*';
-	s[3] = (my_below)?my_below->getValue():'*';
+	s[0] = (my_left) ?my_left ->getValue():NULLELEMENT;
+	s[1] = (my_right)?my_right->getValue():NULLELEMENT;
+	s[2] = (my_above)?my_above->getValue():NULLELEMENT;
+	s[3] = (my_below)?my_below->getValue():NULLELEMENT;
 	s[4] = '\0';
 }
 
@@ -409,7 +409,8 @@ void playfair_letter::getUndefinedNeighboursString(char *s, int slen)
 			s[i++] = my_rightorbelow[1]->getValue();
 		}
 	}
-	s[i++] = '\0';
+	assert (i<slen);
+	s[i] = '\0';
 }
 
 void playfair_letter::getRowString(char *s, int slen)
@@ -442,14 +443,18 @@ void playfair_letter::getRowString(char *s, int slen)
 			s[i++] = ',';
 		}
 	}
-	s[i-1]='\0';
+	assert (i<slen);
+	if (i>0)
+		s[i-1]='\0';
 }
 
 void playfair_letter::getColString(char *s, int slen)
 {
 	int i,j;
 	assert (s);
-	memset(s,0,slen);
+	//memset(s,0,slen);
+	for (i=0; i<slen; i++)
+		s[i]='\0';
 
 	i=0;
 	j=0;
@@ -457,7 +462,9 @@ void playfair_letter::getColString(char *s, int slen)
 		s[i++] = my_col_sure[j++]->getValue();
 		s[i++] = '!'; s[i++] = ',';
 	}
-	s[i-1]='\0';
+	assert (i<slen);
+	if (i>0)
+		s[i-1]='\0';
 }
 
 void playfair_letter::getRoworcolString(char *s, int slen)
@@ -474,7 +481,9 @@ void playfair_letter::getRoworcolString(char *s, int slen)
 		s[i++] = my_roworcol[j++]->getValue();
 		s[i++] = ',';
 	}
-	s[i-1]='\0';
+	assert (i<slen);
+	if (i>0)
+		s[i-1]='\0';
 }
 
 void playfair_letter::printdata(char *buffer)
@@ -508,7 +517,7 @@ playfair_alphabet::playfair_alphabet (int size)
 	my_validletters = new bool[(my_max_count+1)];
 	my_letters = new letter[1];  //dummy
 // jetzt als Feld	my_pfletters = new playfair_letter[my_max_count+1];
-	my_pfletters[0] = playfair_letter('*');
+	my_pfletters[0] = playfair_letter(NULLELEMENT);
 	my_validletters[0] = false;
 	my_nullElement = &my_pfletters[0];
 	int i; char c;
@@ -562,7 +571,7 @@ playfair_letter* playfair_alphabet::getLetter(char let)
 		let = 'U'; break;
 	}
 	for (i=0; i<=my_max_count; i++)
-		if ((my_validletters[i]) && (my_letters[i].getValue()==let))
+		if ((my_validletters[i]) && (my_pfletters[i].getValue()==let))
 			return &my_pfletters[i];
 	return &my_pfletters[0];
 } // getLetter
@@ -943,31 +952,43 @@ void Playfair::PassUse(int use)
 void Playfair::SetSize(int sechs)
 // 5x5 oder 6x6 Matrix verwenden
 {
-//	if (!my_matrix) delete my_matrix;
-//	my_matrix = new keymatrix((sechs)?6:5);
-
-	if(sechs)
+	mysize=(sechs)?6:5;
+/*	if(sechs)
 	{
-		mysize=6;
-//		strncpy(pc_str,alph,36);
-//		pc_str[36]=0;
+		strncpy(pc_str,alph,36);
+		pc_str[36]=0;
 	}
 	else
 	{
-		mysize=5;
-//		strncpy(pc_str,alphs,25);
-//		pc_str[25]=0;
+		strncpy(pc_str,alphs,25);
+		pc_str[25]=0;
 	}
-//	AppConv.SetAlphabet(pc_str,ConvertCase);
-//	theApp.TextOptions.m_alphabet=pc_str;
+	AppConv.SetAlphabet(pc_str,ConvertCase);
+	theApp.TextOptions.m_alphabet=pc_str;
 	// TG[25.10.01]: Überschreiben des Alphabets ist nicht mehr gewünscht.
+*/
 
-	delete (myLetterlist); myLetterlist = NULL;
-	delete (myAlphabet); myAlphabet = NULL;
-	myAlphabet = new playfair_alphabet((sechs)?6:5);
-	myLetterlist = new playfair_letterlist(myAlphabet);
+	if (my_digrams)		{ delete[] (my_digrams);	my_digrams = NULL; }
+	if (my_matrix)		{ delete (my_matrix);		my_matrix = NULL; }
+	if (myLetterlist)	{ delete (myLetterlist);	myLetterlist = NULL; }
+	if (myAlphabet)		{ delete (myAlphabet);		myAlphabet = NULL; }
+	myAlphabet		= new playfair_alphabet((sechs)?6:5);
+	myLetterlist	= new playfair_letterlist(myAlphabet);
+	my_matrix		= new keymatrix(mysize, myAlphabet->getNullElement());
 
 	CreateMatrixFromPass();
+
+	my_cntdigrams=0;
+	my_digrams = new playfair_digramm [MAXDIGRAMMS];//(&myAlphabet);
+	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
+	assert (my_digrams);
+	for (int i=0; i<MAXDIGRAMMS; i++){
+		my_digrams[i].setAlphabet(myAlphabet);
+		my_digrams[i].setCount(0);
+		my_digrams[i].setLetters(myAlphabet->getNullElement(),myAlphabet->getNullElement());
+		my_digrams[i].setChiffres(myAlphabet->getNullElement(),myAlphabet->getNullElement());
+	}
+
 }
 
 char *Playfair::CreatePassfromMatrix()
@@ -1054,9 +1075,12 @@ Playfair::Playfair(char *p,int sechs,const char *in,const char *out,int r,int c,
 	strcpy(infile,in);
 	strcpy(outfile,out);
 	
-	myAlphabet = new playfair_alphabet((sechs)?6:5);
-	myLetterlist = new playfair_letterlist(myAlphabet);
-	my_matrix = new keymatrix(6, myAlphabet->getNullElement());
+	myAlphabet = NULL;	myLetterlist = NULL;
+	my_matrix = NULL;	my_digrams = NULL;
+	passphrase[0]='\0';
+//	myAlphabet = new playfair_alphabet((sechs)?6:5);
+//	myLetterlist = new playfair_letterlist(myAlphabet);
+//	my_matrix = new keymatrix(6, myAlphabet->getNullElement());
 	mysize=(sechs)?6:5;
 	SetSize(sechs);
 	SetPass(p);
@@ -1077,17 +1101,7 @@ Playfair::Playfair(char *p,int sechs,const char *in,const char *out,int r,int c,
 		fread(inbuf, 1, inbuflen, infp);
 		fclose(infp);
 	}
-	my_cntdigrams=0;
-	my_digrams = new playfair_digramm [MAXDIGRAMMS];//(&myAlphabet);
-	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
-	assert (my_digrams);
-	for (int i=0; i<MAXDIGRAMMS; i++){
-		my_digrams[i].setAlphabet(myAlphabet);
-		my_digrams[i].setCount(0);
-		my_digrams[i].setLetters(myAlphabet->getNullElement(),myAlphabet->getNullElement());
-		my_digrams[i].setChiffres(myAlphabet->getNullElement(),myAlphabet->getNullElement());
-	}
-	GetDiGrams();
+	//GetDiGrams();
 }
 
 void Playfair::DeleteLetterGraph() {
@@ -1278,13 +1292,16 @@ void Playfair::CreateMatrixFromPass()
 		}
 	}
 	
-	tmp[36]=0;
+	tmp[MAXDIM*MAXDIM]=0;
+//	for(i=0;i<100;i++)
+//		assert (tmp[i] > 0);
+	assert (tmp[0] >= 0);
 	
-	char ordered_alph[36+1];
-	char marked[36]; /* '1' if letter in pass; '0' else */
+	char ordered_alph[MAXDIM*MAXDIM+1];
+	char marked[MAXDIM*MAXDIM]; /* '1' if letter in pass; '0' else */
 	
 	/*    initialisiere marked .........................................*/
-	for ( i=0; i<36; i++ )
+	for ( i=0; i<MAXDIM*MAXDIM; i++ )
 		marked[i] = '0';  /* default; this letter is not in pass .........*/
 	
 	/*    markiere die Buchstaben aus pucAlph_s, die in pass enthalten sind, mit 1 */
@@ -1296,10 +1313,11 @@ void Playfair::CreateMatrixFromPass()
 	
 	/*    fill ordered_alph for matrix (the letters from pass are       */
 	/*    written at the beginning)  ...................................*/
-	for ( i=0; i<36; i++ )
-		ordered_alph[i] = 0;
+	for ( i=0; i<MAXDIM*MAXDIM+1; i++ )
+		ordered_alph[i] = NULLELEMENT;
 
-	strcpy((char *)ordered_alph, tmp);
+	if (iLenP)
+		strcpy((char *)ordered_alph, tmp);
 	for ( i=0, j=iLenP; i<iLenA; i++ )
 	{
 		if ( '0'== marked[i] )
@@ -1602,6 +1620,10 @@ void Playfair::AnalyseDigramme(playfair_digrammlist* dl)
 		dl->getDigramm(i)->setVisited(false);
 	for (i=0; i < dl->getLen(); i++) {
 		dig = dl->getDigramm(i);
+		assert (dig);
+		assert (dig->getLetter1()->getValue()<='Z'); assert (dig->getLetter1()->getValue()>=NULLELEMENT);
+		assert (dig->getLetter2()->getValue()<='Z'); assert (dig->getLetter2()->getValue()>=NULLELEMENT);
+
 		if (dig->getVisited() || (dig->getLetter1() == myAlphabet->getNullElement()) || (dig->getLetter2() == myAlphabet->getNullElement()))
 			continue;
 		// Jetzt folgt der trivialste Teil der Erstellung der Graphen:
@@ -1805,17 +1827,17 @@ int playfair_arrinfo::set(char ch, int x1, int y1)
         if(!c[ch].p[x1][y1])
                 throw playfair_backthrow(); // Widerspruch!
         if(m[x1][y1] == ch) return 0;
-        for(x=0;x<ALEN;x++)
-                for(y=0;y<ALEN;y++) {
-                        if((x != x1) || (y!=y1))
-                                disable( ch, x, y );
-                }
         c[ch].set = x1 + (y1 << 4);
         m[x1][y1] = ch;
         missing--;
         for(i=0;i<ASIZE;i++)
                 if(i!=ch)
                         disable( i, x1,y1 );
+        for(x=0;x<ALEN;x++)
+                for(y=0;y<ALEN;y++) {
+                        if((x != x1) || (y!=y1))
+                                disable( ch, x, y );
+                }
         c[ch].dirty = 1;
         dirty = 1;
 
@@ -2486,6 +2508,7 @@ bool Playfair::AnaLg_RekLetter (int theIndex, char *stipulation, int len)
 	bool isLsgFound = false;
 	bool isInserted = false;
 	int x=0, y=0;
+	int *xp=&x;
 	char debugstr[6*40];
 
 	if ((theIndex < myLetterlist->getLen()) && myLetterlist->getLetter(theIndex)->getWeight()) {
@@ -2584,16 +2607,16 @@ bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 	int x=0,y=0;
 	bool isok = false;
 	char debugstr[6*40];
-
+/*
 	debugfile = fopen( "debugplayfair.txt", "w" );
-
+*/
 	myLetterlist->sortViaWeight();
 	my_matrix->clear(myAlphabet->getNullElement());
 	myLetterlist->reset_visited();
-
+/*
 	myLetterlist->print(debugstr);
 	fprintf (debugfile, debugstr);
-
+*/
 	AnaLg_RekLetter (0, stipulation, len);
 
 /*	for (j=0; j < myLetterlist-> getLen(); j++) {

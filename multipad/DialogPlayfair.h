@@ -102,8 +102,8 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDialogPlayfair)
 	virtual BOOL OnInitDialog();
-	void OnAnalyse();
-	void OnManAnalyse();
+	afx_msg void OnAnalyse();
+	afx_msg void OnManAnalyse();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

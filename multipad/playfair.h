@@ -29,6 +29,7 @@
 #include "fileutil.h"
 #include "resource.h"
 #include "letter.h"
+#include "assert.h"
 
 /* used for uiUseOfDoublesInPass_s; default: doubles are eliminated ..*/
 #define ELIMINATE_DOUBLES                   0  /* default */
@@ -495,6 +496,7 @@ private:
 public:
 	void setElMatrix (char c, int x, int y)
 	{
+		assert (c<='Z'); assert (c>=NULLELEMENT);
 		my_matrix->setElement (myAlphabet->getLetter(c), x, y);
 	}
 	void setElMatrix (playfair_letter* c, int x, int y)
@@ -503,6 +505,7 @@ public:
 	}
 	char getCharOfMatrix (int x, int y)
 	{
+		letter *let = my_matrix->getElement (x, y);
 		return (my_matrix->getElement (x, y))->getValue();
 	}
 	playfair_letter* getLetterOfMatrix (int x, int y)

@@ -5,6 +5,8 @@
 //////////////////////////////////////////////////////////////////
 // letter.h: Definitionsdatei (Header)
 //
+#include "assert.h"
+#define NULLELEMENT '*'
 
 class letter
 {
@@ -31,6 +33,8 @@ public:
 
 	int getValue() const
 	{
+		assert (my_value<='Z'); assert (my_value>=NULLELEMENT);
+
 		return my_value;
 	}
 
@@ -158,6 +162,11 @@ public:
 	void rotate(int row, int col);
 
 	void print (char *s); // String muﬂ mind. 37 Zeichen lang sein.
+
+	void setNullElement(letter* the_NullElement)
+	{
+		my_NullElement = the_NullElement;
+	}
 
 protected:
 

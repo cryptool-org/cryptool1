@@ -197,10 +197,16 @@ void keymatrix::setSize(int the_size)
 
 letter* keymatrix::getElement(int row, int col)
 {
+//	if (!((col>=0)&&(col<my_size)))
+//		int i=0;
 	assert (my_elements!=NULL);
-	assert ((col>=0)&&(col<my_size));
+	assert ((col>=0)&&(col<(my_size==6?my_size:my_size+1)));
+	assert ((row>=0)&&(row<(my_size==6?my_size:my_size+1)));
 
-	return (my_elements [row*my_size+col]);
+	if ((row>=0)&&(col>=0)&&(row<my_size)&&(col<my_size))
+		return (my_elements [row*my_size+col]);
+	else
+		return (my_NullElement);
 }
 
 void keymatrix::setElement(letter* newLetter, int row, int col)
@@ -262,6 +268,7 @@ void keymatrix::setCol(letter **newCol, int colNo)
 {
 	assert (my_elements!=NULL);
 	assert (newCol!=NULL);
+	assert (*newCol!=NULL);
 	assert ((colNo>=0)&&(colNo<my_size));
 
 	for (int i=0; i<my_size; i++)
@@ -272,6 +279,7 @@ void keymatrix::getCol(letter **buf, int colNo)
 {
 	assert (my_elements!=NULL);
 	assert (buf!=NULL);
+	assert (*buf!=NULL);
 	assert ((colNo>=0)&&(colNo<my_size));
 
 	for (int i=0; i<my_size; i++)

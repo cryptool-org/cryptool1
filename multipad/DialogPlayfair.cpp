@@ -11,6 +11,7 @@
 #include "multipad.h"
 #include "DialogPlayfair.h"
 #include "playfair.h"
+#include "assert.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -21,8 +22,8 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 {
 	int i,j;
 
-	m_Alg = new Playfair("",01,infile,outfile,r,c,1);
-	m_Alg->SetSize(false);
+	m_Alg = new Playfair("",0,infile,outfile,r,c,1);
+//	m_Alg->SetSize(false);
 //	m_Alg->GetDiGrams();
 
 	for (i=0;i<6;i++)
@@ -226,8 +227,10 @@ void CDialogPlayfair::OnManAnalyse()
 	diglist->getPlainString(digbuf, n); // lege Ausgabe des Klartextes fest (2.Zeile)
 
 	try {
-		m_Alg->DeleteLetterGraph();
-		m_Alg->AnalyseDigramme(diglist);  //untersuchen der Digramme und erstellen des Lettergraphen
+		if (i%2==0) {
+			m_Alg->DeleteLetterGraph();
+			m_Alg->AnalyseDigramme(diglist);  //untersuchen der Digramme und erstellen des Lettergraphen
+		}
 	}
 	catch (playfair_error e) {
 		switch (e.getCode()) {
@@ -316,7 +319,7 @@ void CDialogPlayfair::OnAnalyse()
 	{
 		char d[2],e[2];
 
-		d[0]=d[1]='*';
+		d[0]=d[1]=NULLELEMENT;
 		strncpy(e,buf+(i*2),2); 
 		for(j=0;j<n;j++)
 		{
@@ -409,7 +412,7 @@ void CDialogPlayfair::OnSechs()
 	}
 	UpdateData(FALSE);
 	InitListBox();	
-}
+} // void CDialogPlayfair::OnSechs()
 
 BOOL CDialogPlayfair::OnInitDialog() 
 {
@@ -455,16 +458,22 @@ void CDialogPlayfair::UpdateListBox()
 //		if (m_Alg->getAlphabet()->getValidOfLetter(i)) {
 //			let = &(m_Alg->getAlphabet()->getLetters()[i]);
 			let = (m_Alg->getLetterlist()->getLetter(i));
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			s[0] = let->getValue();	s[1] = '\0';
 			j = m_listview.InsertItem(i,s);
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			let->getNeighboursString (s, 10);			// Neighbours
 			m_listview.SetItemText( j, 1, s);
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			let->getUndefinedNeighboursString (s, 10);	// poss. Neighbours
 			m_listview.SetItemText( j, 2, s);
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			let->getRowString (s, 20);					// Rows
 			m_listview.SetItemText( j, 3, s);
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			let->getColString (s, 20);					// Col
 			m_listview.SetItemText( j, 4, s);
+			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
 			let->getRoworcolString (s, 25);				// RoworCol
 			m_listview.SetItemText( j, 5, s);
 			sprintf(s,"%d", let->getWeight());			// Metrik
@@ -492,7 +501,7 @@ void CDialogPlayfair::UpdateListBox()
 //	*/
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",buf,digbuf,m_Alg->outbuf);
 	UpdateData(FALSE);
-}
+} // void CDialogPlayfair::UpdateListBox()
 
 void CDialogPlayfair::UpdatePassword()
 {
@@ -516,7 +525,7 @@ void CDialogPlayfair::UpdatePassword()
 	UpdateData(TRUE);
 	m_password=m_Alg->CreatePassfromMatrix();
 	UpdateData(FALSE);
-}
+} // void CDialogPlayfair::UpdatePassword()
 
 
 void CDialogPlayfair::InitListBox()
@@ -546,7 +555,7 @@ void CDialogPlayfair::InitListBox()
 	strcpy(digbuf,"");
 	UpdateListBox();
 
-} 
+} // void CDialogPlayfair::InitListBox()
 
 
 
@@ -608,7 +617,7 @@ void CDialogPlayfair::OnUpdate()
 	UpdateData(FALSE);
 	UpdateListBox();
 	m_pwfeld.SetSel(sels,sele);
-} 
+} // void CDialogPlayfair::OnUpdate()
 
 
 CChEdit::CChEdit()
@@ -705,7 +714,7 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	} else  // invalid character
 		MessageBeep(MB_OK);
 
-}
+} // void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CChEdit::OnLButtonUp(UINT nFlags, CPoint point )
 {
@@ -739,7 +748,7 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char b2[2];
 	int i,j,k;
 
-	if(!m_Alg->myisalpha2(nChar))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+	if((!m_Alg->myisalpha2(nChar)) && (nChar>32))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(nChar);
 	if (m_Alg->myisalpha2(nChar))
 	{
@@ -756,8 +765,8 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		GetSel(i,j);
 		if(i==j&&i==0)
 			return;
-		b2[0]='*';
-		b2[1]=0;
+		b2[0] = NULLELEMENT;
+		b2[1] = 0;
 		for(k=(i==0?0:i-1);k<j;k++)
 		{
 			SetSel(k,k+1);
@@ -769,12 +778,12 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	else
 	{
-		b2[1]=0;
-		b2[0]='*';
+		b2[0] = NULLELEMENT;
+		b2[1] = '\0';
 		GetSel(i,j);
 		if(i==j)
 			SetSel(i,j=i+1);
 		ReplaceSel(b2);
 		SetSel(j,j);
 	}
-}
+} // void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
