@@ -8810,7 +8810,7 @@ END
 
 IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Attack on the hash value of the digital signature"
+CAPTION "Attack on the Hash Value of the Digital Signature"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Start search",IDC_COMPUTE,28,280,108,17
