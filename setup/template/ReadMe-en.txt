@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.02, June 2002
+         CrypTool, Version 1.3.03, July 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
          (c) University of Siegen and Karlsruhe
          $Id$
@@ -21,15 +21,15 @@
  3. .... Installation
  4. .... List of files
  4.1. .... Checking the integrity of downloaded files
- 5. .... What's new in CrypTool 1.3.00 and 1.3.02
+ 5. .... What's new in CrypTool till 1.3.03
  5.1. .... Classical methods
  5.2. .... Symmetric methods
  5.3. .... Asymmetric methods
  5.4. .... Formatting / display / navigation
  5.5. .... Help / PDF script
  5.6. .... Miscellaneous
- 5.7. .... Enhancements from version 1.3.00 to 1.3.02
- 5.8. .... Planned enhancements after version 1.3.02
+ 5.7. .... Enhancements from version 1.3.00 to 1.3.03
+ 5.8. .... Planned enhancements after version 1.3.03
  6. .... Possible areas for further development
  6.1. .... Meaningful tasks to make the new maintainer familiar with
  7. .... Brief history of the released main versions of CrypTool
@@ -477,13 +477,13 @@ your computer is untouched.
 
 
 
-5. What's new in CrypTool 1.3.00 and 1.3.02
-   ----------------------------------------
-The following enhancements and bug fixes have been added for
-version 1.3.00 since CrypTool version 1.202 (Dec 2000).
+5. What's new in CrypTool till 1.3.03
+   ----------------------------------
+The following enhancements and bug fixes (listed till 5.6) have been
+added for version 1.3.00 since CrypTool version 1.202 (Dec 2000).
 - CrypTool is now fully available in both German and English
   language versions.
-- All dialogue has been reviewed for consistency and clarity.
+- All dialogues has been reviewed for consistency and clarity.
 - The restrictions (maximum data volume 64 Kb) which previously
   applied to Windows versions Win95 and Win98 are no longer
   applicable.
@@ -561,7 +561,7 @@ version 1.3.00 since CrypTool version 1.202 (Dec 2000).
   - Additional information: presentation in German and English.
 
 
-5.7. Enhancements from version 1.3.00 to 1.3.02
+5.7. Enhancements from version 1.3.00 to 1.3.03
      ------------------------------------------
 The following topics have been improved:
 Source code:
@@ -585,9 +585,9 @@ Documentation:
   - new chapters 5.1 and 5.2 about special signatures.
   - new in chapter 6: information about the motivation and
     interoperability of elliptic curves.
-+ Single CrypTool presentation for version 1.3.02
++ Single CrypTool presentation for version 1.3.0x
   (no separation in features of 1.2.xx and new within 1.3.0x).
-+ The Online Help got further improvement and enhancements (e.g.
++ The Online help got further improvement and enhancements (e.g.
   for the new functions and addition of a time table about
   cryptography).
 Functionality:
@@ -602,9 +602,12 @@ Functionality:
   - inter active usage of factorization if only the public
     parameters are known
   - it's now possible to use hex values as input too.
-+ Improvements at the AES-Tool:
-  AES-Tool now offers complete functionality also when called
-  from the commandline.
++ Improvements at the AES-Tool  
+  (the version of the AES-Tool delivered with 1.3.03 was partly
+  rewritten and is no more comatible with its predecessors):
+  - AES-Tool now offers complete functionality also when called
+    from the commandline.
+  - There is a customization suggesting the file type (exe or aes).
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (choosen with Options/Textoptions)
@@ -618,17 +621,24 @@ Functionality:
 + Enclose the complete "Dialogue of the Sisters" in German and
   English (within this story a special case of the RSA encryption
   is described which is implemented within the RSA demo).
++ More details shown when calculating the entropy.
++ When showing the content of the certificate, the public key is
+  shown too.
 + Show/Visualize the single steps / dependencies of
     -> the creation of an electronic signature,
     -> the hybrid encryption and decryption,
     -> how changes to a document change the hash value
        (sensitivity of hash algorithms).
++ The flow charts used for visualization show you, which steps
+  can be taken in which order. If you click a step, where the
+  prerequisites are not there, then a popup explains this in
+  detail.
 + Step-by-step verification of an RSA-signature is now possible
   too (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
 
 
-5.8. Planned enhancements after version 1.3.02
+5.8. Planned enhancements after version 1.3.03
      -----------------------------------------
 Functionality:
 + Show/Visualize the birthday paradoxon and attack hash methods
@@ -737,6 +747,7 @@ Version   Date
 1.2.02    Dec. 2000
 1.3.00    Jan. 2002
 1.3.02    June 2002 (many new functions compared to 1.3.00)
+1.3.03    July 2002 (minor bug fixes compared to 1.3.02)
 
 
 

@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.02, Juni 2002
+         CrypTool, Version 1.3.03, Juli 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
          (c) Universität Siegen und Karlsruhe
          $Id$
@@ -21,15 +21,15 @@
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Neuerungen in CrypTool 1.3.00 und 1.3.02
+ 5. .... Neuerungen in CrypTool bis 1.3.03
  5.1. .... Klassische Verfahren
  5.2. .... Symmetrische Verfahren
  5.3. .... Asymmetrische Verfahren
  5.4. .... Formatierung / Anzeige / Navigation
  5.5. .... Hilfe / PDF-Skript
  5.6. .... Sonstiges
- 5.7. .... Änderungen von Version 1.3.00 zu Version 1.3.02
- 5.8. .... Geplante Änderungen nach Version 1.3.02
+ 5.7. .... Änderungen von Version 1.3.00 zu Version 1.3.03
+ 5.8. .... Geplante Änderungen nach Version 1.3.03
  6. .... Mögliche Punkte für eine Weiterentwicklung
  6.1. .... Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
  7. .... Kurze Historie der freigegebenen Hauptversionen
@@ -357,7 +357,7 @@ CrypTool.exe...... Das ausführbare Programm.
 aestool.exe....... Ein Programm, das Dateien in sich selbst
                    entpackende Programme verschlüsselt. Zur
                    Entschlüsselung müssen Sie das korrekte
-                   Paßwort eingeben.
+                   Passwort eingeben.
 CrypTool-de.hlp... Hilfesystem zu CrypTool mit Beispielszenarien.
 CrypTool-en.hlp .. Die englische Fassung von CrypTool-de.hlp
 EC-Param.ini...... Initialisierungsdatei für auf Elliptischen
@@ -488,10 +488,10 @@ sind, dass Ihr Rechner unberührt ist.
 
 
 
-5. Neuerungen in CrypTool 1.3.00 und 1.3.02
-   ----------------------------------------
+5. Neuerungen in CrypTool bis 1.3.03
+   ---------------------------------
 Seit CrypTool 1.202 (Dez. 2000) wurden folgende Erweiterungen und
-Bugfixes in Version 1.3.00 hinzugefügt:
+Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
 - CrypTool ist nun komplett in gleicher Weise in deutsch und
   englisch.
 - Alle Dialoge wurden im Hinblick auf Konsistenz und
@@ -526,10 +526,10 @@ Bugfixes in Version 1.3.00 hinzugefügt:
      ----------------------
 + das eigenständige Programm AES-Tool kann selbstentpackende
   Programme erzeugen.
-  Damit kann man eine beliebige Datei Paßwort-geschützt mit AES
+  Damit kann man eine beliebige Datei Passwort-geschützt mit AES
   verschlüsseln (durch Eingabe eines Hexadezimal-Schlüssels).
-+ Veranschaulichen, wie ein Schlüssel aus einem Paßwort nach
-  PKCS#5 generiert wird [aus der Texteingabe (Paßwort) wird ein
++ Veranschaulichen, wie ein Schlüssel aus einem Passwort nach
+  PKCS#5 generiert wird [aus der Texteingabe (Passwort) wird ein
   Hexadezimal-Schlüssel erzeugt, der gegen Wörterbuchangriffe
   resistent ist. Parameter: Ausgabe-Schlüssellänge, Saat für den
   Zufallsgenerator, Anzahl der "Hash"-Iterationen,
@@ -571,7 +571,7 @@ Bugfixes in Version 1.3.00 hinzugefügt:
   - zusätzliche Infos: Präsentation auf deutsch und englisch.
 
 
-5.7. Änderungen von Version 1.3.00 zu Version 1.3.02
+5.7. Änderungen von Version 1.3.00 zu Version 1.3.03
      -----------------------------------------------
 Zu folgenden Themen gab es Verbesserungen:
 Sourcecode:
@@ -595,7 +595,7 @@ Dokumentation:
   - neu sind Kapitel 5.1 und 5.2 zu speziellen Signaturen.
   - neu in Kapitel 6 sind Informationen zur Motivation und
     Interoperabilität von Elliptischen Kurven.
-+ Einheitliche CrypTool-Präsentation zu 1.3.02 (keine Trennung
++ Einheitliche CrypTool-Präsentation zu 1.3.0x (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
   neuen Funktionen und Einbau einer Zeittafel der Kryptographie).
@@ -610,11 +610,16 @@ Funktionalität:
     gegebene Zahl mehr Speicher braucht als verfügbar ist.
 + Erweiterung der Funktionalität im RSA-Kryptosystem:
   - interaktive Nutzung der Faktorisierung, wenn nur die
-    öffentlichen Parameter bekannt sind,
+    öffentlichen Parameter bekannt sind (ohne händisch Ergebnisse
+    aus einem extra-Faktorisierungsschritt zu übertragen),
   - Eingabe von Hexwerten möglich.
-+ Verbesserungen beim AES-Tool:
-  Das AES-Tool bietet nun den vollen Funktionsumfang auch bei
-  einem Aufruf von der Kommandozeile.
++ Verbesserungen im AES-Tool 
+  (die mit 1.3.03 ausgelieferte Version des AES-Tools wurde stark
+  überarbeitet und ist nicht mehr kompatibel zu den Vorgänger-
+  versionen):
+  - Das AES-Tool bietet nun den vollen Funktionsumfang auch bei
+    einem Aufruf von der Kommandozeile.
+  - Der Dateityp (Exe oder Aes) stellt sich weitgehend selbst ein.
 + Bei der Hillverschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
@@ -629,17 +634,24 @@ Funktionalität:
 + Langfassung des "Dialoges der Schwestern" in Deutsch und
   Englisch beigelegt (darin wird ein in der RSA-Demo
   behandelter Sonderfall des RSA-Verfahrens beschrieben).
++ Die Ausgabe bei der Entropie-Berechnung ist ausführlicher.
++ Bei der Anzeige des Zertifikatsinhalts wird nun auch der 
+  Public Key mit ausgegeben.
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei der
     -> Erzeugung einer elektronischen Signatur,
     -> Hybridverschlüsselung und -Entschlüsselung,
     -> Wirkung von Textänderungen auf den Hashwert
        (Sensitivität von Hashverfahren).
++ In den Datenflussdiagrammen zur Visualisierung sehen Sie,
+  welche Schritte in welcher Reihenfolge gemacht werden können.
+  Wenn Sie einen Schritt anklicken, dessen Voraussetzungen noch
+  nicht erfüllt sind, wird dies in einer Hilfebox erläutert.
 + Die schrittweise Verifikation einer RSA-Signatur ist nun auch
   möglich (dabei werden wie bei der Visualisierung der Hybrid-
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 
 
-5.8. Geplante Änderungen nach Version 1.3.02
+5.8. Geplante Änderungen nach Version 1.3.03
      ---------------------------------------
 Funktionalität:
 + Visualisierung des Geburtstagsparadoxons und darauf basierende
@@ -756,6 +768,7 @@ Version   Datum
 1.2.02    Dez. 2000
 1.3.00    Jan. 2002
 1.3.02    Juni 2002 (sehr viele neue Funktionen gegenüber 1.3.00)
+1.3.03    Juli 2002 (kleine Bugfixes gegenüber 1.3.02)
 
 
 
