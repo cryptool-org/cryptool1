@@ -2644,7 +2644,7 @@ BEGIN
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
-        POPUP "&manuelle Analyse"
+        POPUP "&Manuelle Analyse"
         BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
@@ -3115,7 +3115,7 @@ BEGIN
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
-        POPUP "&manuelle Analyse"
+        POPUP "&Manuelle Analyse"
         BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
@@ -5470,7 +5470,7 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
     IDS_STRING_BIG_RSA_MODUL 
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, dass der RSA-Modul N=p*q kleiner ist als 2^1024."
-    IDS_STRING_INPUT_FALSE  "In diesem Feld wird eine Zahl oder ein Ausdruck, aus dem\nsich ein Zahlenwert berchenen lässt erwartet.\nBitte geben Sie einen gültigen ausdruck ein!\n\nBeispiele:    123, 2^15+1, (2^17-5)^2."
+    IDS_STRING_INPUT_FALSE  "In diesem Feld wird eine Zahl oder ein Ausdruck erwartet,\naus dem sich ein Zahlenwert berechnen lässt.\nBitte geben Sie einen gültigen Ausdruck ein!\n\nBeispiele:    123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
@@ -8219,7 +8219,7 @@ BEGIN
         POPUP "&General"
         BEGIN
             MENUITEM "&Entropy",                    ID_ENTROPY
-            MENUITEM "&Floating Entropy",           ID_FLOATING
+            MENUITEM "&Floating Frequency",         ID_FLOATING
             MENUITEM "&Histogram",                  ID_HISTOGRAM
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
@@ -8403,7 +8403,7 @@ BEGIN
         POPUP "&General"
         BEGIN
             MENUITEM "&Entropy",                    ID_ENTROPY
-            MENUITEM "&Floating Entropy",           ID_FLOATING
+            MENUITEM "&Floating Frequency",         ID_FLOATING
             MENUITEM "&Histogram",                  ID_HISTOGRAM
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM_BIN
             MENUITEM "&Autocorrelation",            ID_AUTO
@@ -8690,7 +8690,7 @@ BEGIN
         POPUP "&General"
         BEGIN
             MENUITEM "&Entropy",                    ID_ENTROPY
-            MENUITEM "&Floating Entropy",           ID_FLOATING
+            MENUITEM "&Floating Frequency",         ID_FLOATING
             MENUITEM "&Histogram",                  ID_HISTOGRAM
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
@@ -9659,7 +9659,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_FLOATING_FREQ "Floating frequency"
     IDS_STRING_FLOATING_FREQ_FINISHED "Floating frequency completed: %d%%."
-    ID_FLOATING             "Calculate floating entropy of the document"
+    ID_FLOATING             "Calculate floating frequency of the document"
     ID_SHOW_KEY             "Shows the key\nShow Key"
     ID_GOTO_VATER           "Takes you to the parent window\nParent Window"
     IDS_STRING_ASSURE_DEL_ASYM_KEY 
