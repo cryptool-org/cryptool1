@@ -169,11 +169,22 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	if (next_factor!="lolo")
 	{
 		int Out_SetN;
-		{
+//		{
 //			TutorialFactorisation f;
 			Out_SetN=f.SetN(next_factor);
+//		}
+		if (Out_SetN==2 || Out_SetN==3)
+		{
+			//Sie müssen eine ganze Zahl eingeben, die von 0 und 1 verschieden ist.
+			m_CompositeNoCtrl.SetSel(0,-1);
+			m_CompositeNoCtrl.SetFocus();
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			return;
+
 		}
-		if (Out_SetN==2)
+		if (Out_SetN==4)
 		{
 			BOOL factorized = FALSE;
 			CString f1, f2;

@@ -518,12 +518,12 @@ BOOL evaluate::eval( Big& value, const char * Str )
 	try {
 		if ( eval() ) {
 			value = temp;
-			return TRUE;
+			return true;
 		}
 		else
 		{
 			value = 0;
-			return FALSE;
+			return false;
 		}
 	}
 	catch ( ... )
@@ -531,7 +531,7 @@ BOOL evaluate::eval( Big& value, const char * Str )
 		value = 0;
 		// throw;
 	}
-	return FALSE;
+	return false;
 }
 
 void evaluate::eval_power(Big &oldn, Big &n, char op)
@@ -620,7 +620,8 @@ LOOP:
 		if (!i)         /* No digits found */
 		{
 //			Error - invalid number
-			return(false);
+			throw eval_err( EVAL_ERR_NUMBER_INVALID );
+			//return(false);
 		}
 		op=s[i];
 		s[i]=0;
@@ -676,7 +677,8 @@ LOOP:
 				else    /* Error - invalid operator */
 				{
 //					Error - invalid operator
-					return(false);
+					throw eval_err( EVAL_ERR_OPERATOR_INVALID );
+					//return(false);
 				}
 			}
 		}
@@ -2407,8 +2409,10 @@ int TutorialFactorisation::SetN(CString &NStr)
 	set_mip(mip);
 	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
 	if (output==false)  return 0; // Zahl mit Bitlänge >= 1024, oder sonstige Miracl-Fehler
-	else if ( N<0 ) return 1; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
-	else return 2; 
+	else if ( N < 0 ) return 1; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
+	else if ( N == 0 ) return 2;
+	else if ( N == 1 ) return 3;
+	else return 4; 
 }
 
 
