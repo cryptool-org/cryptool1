@@ -157,7 +157,7 @@ void CPlotDocument::Load_AxisInfo(){
 	for(int j=0;j<27;j++) if ((m_xmax+1)/deltas[j]<12) break;
 
 	x_0 = m_xmin;
-	t = (int) ((x_0 + ((deltas[j]+1)/2)) / deltas[j])+1;
+	t = (int) ceil((x_0 + ((deltas[j]+1)/2)) / deltas[j]);
 	x_1 = t*deltas[j];
 	x_inc = deltas[j];
 	x_n = ((int)(m_xmax - x_1)) / deltas[j] + 1;
@@ -170,6 +170,8 @@ void CPlotDocument::Load_AxisInfo(){
 	l = (int) (m_ymax/(s*deltas[j])+1);
 
 	y_inc = s * deltas[j];
+	if ( y_inc < 1.0 ) y_inc = 1.0;  // ACHTUNG !!! y-Skalierung kleiner 1 unterdrücken
+
 	if ((int)(m_ymin*10/y_inc)!=0)
 		t = (int)(m_ymin/y_inc + 1);
 	else
@@ -242,6 +244,12 @@ void CPlotDocument::Convert_Values(){
 	if((m_xmin==1) && (m_xmax==256)) {
 		m_xmin=0;
 		m_xmax=255;
+	}
+	if (m_ymin >= m_ymax)
+	{
+		m_ymax = m_ymin +1.0;
+		if ( m_ymin >= 1.0 ) m_ymin -= 1.0;
+		else if ( m_ymin > 0 ) m_ymin = 0.0;
 	}
 
 //II) compute some factors
