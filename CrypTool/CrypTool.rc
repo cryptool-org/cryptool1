@@ -5276,10 +5276,10 @@ BEGIN
                             "Bei der Playfairverschlüsselung mit Vorforamtierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren"
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "Das Zeichen gehört nicht zum Alphabet der Playfairverschlüsselung.\nBitte korrigieren."
-    IDS_STRING_FMT_HRS      " %02.2i:%02.2i:%02.2i Stunden."
-    IDS_STRING_FMT_MIN      " %02.2i:%02.2i Minuten."
+    IDS_STRING_FMT_HRS      " %2i:%02.2i:%02.2i Stunden."
+    IDS_STRING_FMT_MIN      " %2i:%02.2i Minuten."
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
-    IDS_STRING_FMT_SEC      " %02.2i,%s Sekunden."
+    IDS_STRING_FMT_SEC      " %2i,%03.3i Sekunden."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
                             "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
 END
@@ -10075,10 +10075,10 @@ BEGIN
                             "In case of preformat, duplicate letters are seperated by the letter 'X'.\nPlease correct."
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "The character is not an element of the Playfair alphabet.\nPlease correct."
-    IDS_STRING_FMT_HRS      " %02.2i:%02.2i:%02.2i hours."
-    IDS_STRING_FMT_MIN      " %02.2i:%02.2i minutes."
+    IDS_STRING_FMT_HRS      " %2i:%02.2i:%02.2i hours."
+    IDS_STRING_FMT_MIN      " %2i:%02.2i minutes."
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
-    IDS_STRING_FMT_SEC      " %02.2i,%s second."
+    IDS_STRING_FMT_SEC      " %2i,%03.3i seconds."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
                             "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
 END

@@ -363,8 +363,6 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			zeit_condtruct2.sec= (int) (temp - zeit_condtruct2.day*86400- zeit_condtruct2.hour*3600-zeit_condtruct2.min*60);
 			zeit_condtruct2.msec= (int) floor((duration2-temp)*1000);
 			
-			char msec1[3], msec2[3];
-			
 			char line1[256], line2[256], timeStr1[64],timeStr2[64];
 			
 			if ( zeit_condtruct1.day >= 1)
@@ -384,11 +382,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			}
 			else
 			{	
-				if (zeit_condtruct1.msec<10) sprintf(msec1, "00%i",zeit_condtruct1.msec);
-				else if (zeit_condtruct1.msec<100) sprintf(msec1, "0%i",zeit_condtruct1.msec);
-				else sprintf(msec1, "%i",zeit_condtruct1.msec);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr1,pc_str, zeit_condtruct1.sec, msec1);
+				sprintf(timeStr1,pc_str, zeit_condtruct1.sec, zeit_condtruct1.msec);
 			}
 			
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
@@ -412,11 +407,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			}
 			else
 			{	
-				if (zeit_condtruct2.msec<10) sprintf(msec2, "00%i",zeit_condtruct2.msec);
-				else if (zeit_condtruct2.msec<100) sprintf(msec2, "0%i",zeit_condtruct2.msec);
-				else sprintf(msec2, "%i",zeit_condtruct2.msec);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr2,pc_str, zeit_condtruct2.sec, msec2);
+				sprintf(timeStr2,pc_str, zeit_condtruct2.sec, zeit_condtruct2.msec);
 			}
 			
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
