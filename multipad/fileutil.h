@@ -82,3 +82,12 @@ int HexVal(const unsigned char c);
 
 // ermitteln der Läne der Datei name. Falls die Datei nicht geöffnet weden kann wird "0" zurückgegeben
 int filesize( const char *name );
+
+// Konstanten für die Formatierung von Hexdumps
+// nach MAX_ADR_LEN-Zeichen kommt das erste Hexdigit
+#define MAX_ADR_LEN	7
+// Nach einem Hexzeichen sind HEX_SEP blanks
+#define HEX_SEP	1
+// Nach den Hexdaten sind ASC_SEP blanks vorgesehen
+#define ASC_SEP	2
+// eine Zeile ist demnach MAX_ADR_LEN + 4*<hexzeichen> + ASC_SEP  Zeichen lang (ohne abschließende CR LF)

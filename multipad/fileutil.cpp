@@ -77,15 +77,15 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 
 	p = Dest;
     for(i=0;i<SrcSize;i+=len) {
-        sprintf(p,"%5.05X  ",i+start);
+        sprintf(p,"%5.05X  ",i+start); // = MAX_ADR_LEN Zeichen
 		p += 7;
         for(j=i;j<i+len;j++) {
             if(j<SrcSize) sprintf(p,"%02.2X",Src[j]);
             else p[0] = p[1] = ' ';
-			p[2] = ' ';
+			p[2] = ' '; // = HEX_SEP Zeichen
 			p += 3;
 		}
-		p[0] = p[1] = ' ';
+		p[0] = p[1] = ' '; // = ASC_SEP Zeichen
 		p += 2;
         for(j=i;j<i+len;j++)
             if(j<SrcSize) {
@@ -95,7 +95,7 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 					*p = '.';
 				p++;
             }
-		if(j<=SrcSize) {
+			if(j<=SrcSize) { // 2 Zeichen Zeilenende
 			p[0] = '\r';
 			p[1] = '\n';
 			p += 2;

@@ -490,7 +490,7 @@ void CTextOptions::OnButtonTextoptionenSucheReferenzdatei()
 	UpdateData(FALSE);
 	m_CtrlRefFile.SetFocus();
 	m_CtrlRefFile.SetSel(0,-1);
-	
+	GotoDlgCtrl( GetDlgItem(IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI));
 }
 
 void CTextOptions::OnUpdateEditTextoptionenReferenzdatei() 

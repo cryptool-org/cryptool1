@@ -116,6 +116,7 @@ int CHexView::AdjustCursor(int direction)
 	if(m_lineoffset < 7) {
 		m_lineoffset=7;
 	}
+	// ****** todo wrap around *******
 	if(m_lineoffset < 3*m_hexwidth+9) {
 		if(direction == 0) {
 			for(;m_lineoffset < 3*m_hexwidth+9; m_lineoffset++)
@@ -154,7 +155,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			return;
 		}
 		if(IsHex(nChar)) { // hex character --> do the editing
-			n = (m_lineoffset-7)/3; // number of char to edit
+			n = (m_lineoffset-MAX_ADR_LEN)/3; // number of char to edit
 			if(('a'<=nChar) && (nChar <= 'f')) nChar = nChar+'A'-'a';
 			m_line[m_lineoffset] = nChar;
 			new_c = 16*HexVal(m_line[7+3*n]) + HexVal(m_line[8+3*n]);
@@ -214,9 +215,9 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		buff[1]=0;
 		GetRichEditCtrl().ReplaceSel( buff, FALSE );
 		// check to wrap to next line
-		if(m_lineoffset == m_curlen-1) {
+		if(m_lineoffset >= m_curlen-3) {
 			if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
-				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+9;
+				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+MAX_ADR_LEN+ASC_SEP;
 				GetRichEditCtrl().SetSel(n,n);
 			}
 			else
@@ -414,6 +415,10 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 		GetRichEditCtrl().SetSel(pos, pos);
 		GetRichEditCtrl().ReplaceSel(buffer3);
 		pos += l3;
+		GetRichEditCtrl().SetSel(pos-2, pos);
+		GetRichEditCtrl().GetSelText(buffer3);
+		if(buffer3[0] == 13)
+			GetRichEditCtrl().ReplaceSel("");
 		free(buffer1);
 		free(buffer2);
 		free(buffer3);
@@ -465,7 +470,8 @@ void CHexView::SerializeRaw(CArchive & ar)
 		ASSERT(pFile->GetPosition() == 0);
 		DWORD nFileSize = pFile->GetLength();
 
-		width = m_hexwidth-1;
+		m_hexwidth --;
+		width = m_hexwidth;
 		l1 = bufflen / width; //maximale Zeilenanzahl im Puffer;
 		buff2len = l1 * (4 * width + 11);
 		buffer2 = (char *)malloc(buff2len + 1); // Zielpuffergröße
