@@ -60,6 +60,7 @@ ENGLISH	Crypt	# &Crypt
 ENGLISH	Crypt_Asymmetric	# &Crypt|&Asymmetric
 ENGLISH	Crypt_Classical	# &Crypt|&Classical
 ENGLISH	Crypt_Symmetric	# &Crypt|&Symmetric
+ENGLISH Crypt_HybridDemonstration # &Crypt|&Hybrid Demonstration
 ENGLISH	DigitalSignatures	# Digital &Signatures
 ENGLISH	Edit	# &Edit
 ENGLISH	File	# &File
