@@ -34,6 +34,7 @@ CDlgRSAEncryption::CDlgRSAEncryption(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgRSAEncryption)
 	m_ShowDuration = FALSE;
+	m_strHeadlineSelect = _T("");
 	//}}AFX_DATA_INIT
 
 	UserKeyId = "";
@@ -57,6 +58,7 @@ void CDlgRSAEncryption::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDOK, m_ctrlOK);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
 	DDX_Check(pDX, IDC_CHECK1, m_ShowDuration);
+	DDX_Text(pDX, IDC_HEADLINE_SELECT, m_strHeadlineSelect);
 	//}}AFX_DATA_MAP
 }
 
@@ -116,6 +118,10 @@ BOOL CDlgRSAEncryption::OnInitDialog()
 		m_ctrlOK.SetWindowText("OK");
 		m_ctrlTime.ShowWindow(false);
 		disableButtons = false;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_HEADLINE_ENC_DLG,pc_str,STR_LAENGE_STRING_TABLE);
+		UpdateData();
+		m_strHeadlineSelect = pc_str;
+		UpdateData(FALSE);
 	}
 
 	

@@ -260,6 +260,7 @@ BEGIN
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,159,400,8
     EDITTEXT        IDC_EDIT_LV,363,272,39,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_VISIBLE | NOT WS_BORDER
+    LTEXT           "Name:",IDC_STATIC,240,50,46,8
 END
 
 IDD_RSA_ENCRYPTION DIALOG DISCARDABLE  0, 0, 392, 271
@@ -274,7 +275,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,244,75,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,324,244,60,20
-    LTEXT           "Wählen Sie den Empfänger:",IDC_STATIC,9,5,105,8
+    LTEXT           "Wählen Sie den Empfänger:",IDC_HEADLINE_SELECT,9,5,105,
+                    8
     LTEXT           "Bemerkung: Es werden nur Namen angezeigt, die einen RSA-Schlüssel haben.",
                     IDC_STATIC,7,217,365,8
 END
@@ -2579,9 +2581,9 @@ BEGIN
         END
         POPUP "&Hybrid-Demo"
         BEGIN
-            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid&verschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid&entschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -2766,9 +2768,9 @@ BEGIN
         END
         POPUP "&Hybrid-Demo"
         BEGIN
-            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid&verschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid&entschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -2926,9 +2928,9 @@ BEGIN
     BEGIN
         POPUP "&Hybrid-Demo"
         BEGIN
-            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid&verschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid&entschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -3050,9 +3052,9 @@ BEGIN
         END
         POPUP "&Hybrid-Demo"
         BEGIN
-            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid&verschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid&entschlüsselung...",   ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -3195,8 +3197,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,2
- PRODUCTVERSION 1,3,0,2
+ FILEVERSION 1,3,0,3
+ PRODUCTVERSION 1,3,0,3
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -3214,14 +3216,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.02\0"
+            VALUE "FileVersion", "1.3.03\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.02\0"
+            VALUE "ProductVersion", "1.3.03\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -4196,7 +4198,7 @@ BEGIN
     IDS_STRING_AVERAGE_VARIATION "Durchschnitt: %lf Variation: %lf"
     IDS_STRING_VARIANCE     "Abweichung"
     IDS_STRING_VERTICES     "Eckpunkte"
-    IDS_STRING_MSG_PERM_NUM_2_BIG "Der maximal zulässige Wert ist 32!"
+    IDS_STRING_MSG_PERM_NUM_2_BIG "Der maximal zulässige Wert ist %i!"
     IDS_STRING_MSG_PERM_DUPLICATE 
                             "Der Wert %d ist doppelt. Bitte korrigieren!"
     IDS_STRING_MSG_PERM_MISSING 
@@ -4310,7 +4312,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.02"
+    IDR_MAINFRAME           "CrypTool 1.3.03"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4886,6 +4888,8 @@ BEGIN
                             "Ausgeführt: Schritt %d von maximal %d Schritten."
     IDS_STRING_HYB_SHOW_DATA 
                             "Dieser Button ist im Moment inaktiv! Sie müssen vorher das Dokument symmetrisch verschlüsseln\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
+                            "Wähle den Empfängerschlüssel von der Liste."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5887,7 +5891,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
     DEFPUSHBUTTON   "&Encrypt",IDOK,7,244,75,20
     PUSHBUTTON      "&Cancel",IDCANCEL,324,244,60,20
-    LTEXT           "Choose a destination",IDC_STATIC,9,5,105,8
+    LTEXT           "Choose a destination",IDC_HEADLINE_SELECT,9,5,105,8
     LTEXT           "Note: Only PSEs containing an RSA key are shown.",
                     IDC_STATIC,7,217,365,8
 END
@@ -6696,7 +6700,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,319,242,56,19
     LTEXT           "Select your secret key from the list.",IDC_STATIC,9,6,
                     366,10
-    LTEXT           "Note: only PSEs containing an RSA key are shown.",
+    LTEXT           "Note: Only PSEs containing an RSA key are shown.",
                     IDC_STATIC,8,214,255,8
     RTEXT           "PIN code:",IDC_STATIC,273,217,39,8
 END
@@ -8015,9 +8019,9 @@ BEGIN
     CONTROL         "OVAL2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,308,287,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
-                    273,52,36
+                    273,52,39
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
-                    273,52,36
+                    273,52,39
 END
 
 IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 211, 90
@@ -8175,9 +8179,9 @@ BEGIN
         END
         POPUP "&Hybrid Demonstration"
         BEGIN
-            MENUITEM "Hybrid &Encryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid &Encryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid &Decryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid &Decryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -8362,9 +8366,9 @@ BEGIN
         END
         POPUP "&Hybrid Demonstration"
         BEGIN
-            MENUITEM "Hybrid &Encryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid &Encryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid &Decryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid &Decryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -8522,9 +8526,9 @@ BEGIN
     BEGIN
         POPUP "&Hybrid Demonstration"
         BEGIN
-            MENUITEM "Hybrid &Encrypt",             ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid &Encryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid &Decrypt",             ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid &Decryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -8646,9 +8650,9 @@ BEGIN
         END
         POPUP "&Hybrid Demonstration"
         BEGIN
-            MENUITEM "Hybrid &Encryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid &Encryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
-            MENUITEM "Hybrid &Decryption",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "Hybrid &Decryption...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
         END
     END
@@ -8791,8 +8795,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,2
- PRODUCTVERSION 1,3,0,2
+ FILEVERSION 1,3,0,3
+ PRODUCTVERSION 1,3,0,3
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -8810,14 +8814,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.02\0"
+            VALUE "FileVersion", "1.3.03\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.02\0"
+            VALUE "ProductVersion", "1.3.03\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -9501,7 +9505,7 @@ BEGIN
     IDS_STRING_AVERAGE_VARIATION "Mean: %lf, Variation: %lf"
     IDS_STRING_VARIANCE     "Deviation"
     IDS_STRING_VERTICES     "Vertices"
-    IDS_STRING_MSG_PERM_NUM_2_BIG "The maximal value is bounded by 32!"
+    IDS_STRING_MSG_PERM_NUM_2_BIG "The maximal value is bounded by %i!"
     IDS_STRING_MSG_PERM_DUPLICATE 
                             "The value %d is a doublette. Please correct!"
     IDS_STRING_MSG_PERM_MISSING 
@@ -9614,7 +9618,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.02"
+    IDR_MAINFRAME           "CrypTool 1.3.03"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -10157,7 +10161,7 @@ BEGIN
     IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
                             "Session key encrypted asymmetrically with recipient's public key:"
     IDS_STRING_HYBRID_DEC_MSG9 
-                            "Your Input is not a valid hybrid encrypted file!\r\nIt could not be decrypted.\r\n"
+                            "Your input is not a valid hybrid encrypted file!\r\nIt could not be decrypted.\r\n"
     IDS_STRING_HYBRID_DEC_MSG10 "You have selected the wrong Certificate!"
     IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Public key of:"
     IDS_STRING_ZERT_DATEN2  "Your Certificate Data:"
@@ -10169,10 +10173,12 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG12 "Click Continue > ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
                             "After you entered your PIN, you are able to decrypt the session key\r\nwith your secret key.\r\nThe next step will show your secret RSA key.\r\n"
-    IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid decryption"
+    IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid encryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
     IDS_STRING_HYB_SHOW_DATA 
                             "This button is currently inactive! Before saving, the document must be encrypted symmetrically \nand the session key must be encrypted asymmetrically.\n\nThe F1 key will give you further information on which sequence you can control the activities on the flowchart."
+    IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
+                            "Select the receiver key from the list."
 END
 
 STRINGTABLE DISCARDABLE 

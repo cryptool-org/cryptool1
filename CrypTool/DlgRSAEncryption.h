@@ -37,6 +37,7 @@ public:
 	CButton	m_ctrlOK;
 	CListCtrl	m_listview;
 	BOOL	m_ShowDuration;
+	CString	m_strHeadlineSelect;
 	//}}AFX_DATA
 
 // Überschreibungen

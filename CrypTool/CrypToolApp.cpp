@@ -516,6 +516,8 @@ void CCrypToolApp::OnUpdateNeedSecudeTicket(CCmdUI* pCmdUI)
 {
     if(theApp.SecudeStatus == 2) pCmdUI->Enable(TRUE);
 	else pCmdUI->Enable(FALSE);	
+	if (pCmdUI->m_nID == ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG )
+		pCmdUI->Enable(FALSE);
 }
 
 void CCrypToolApp::OnShowKeys() 
@@ -679,3 +681,4 @@ void CCrypToolApp::OnVerentschlsselnHybridverfahrenHybridverschlsselung()
 	hyb.DoModal();
 	
 }
+

@@ -59,7 +59,7 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 	}
 	else if(m_mode == 1) { // Alpha Mode
-		if ( MAX_PERM_LENGTH < LineLength() )
+		if ( MAX_PERM_LENGTH <= LineLength() )
 		{
 			LimitText(MAX_PERM_LENGTH);
 			if(isalpha(nChar))
