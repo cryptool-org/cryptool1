@@ -33,6 +33,7 @@ public:
 	CString SymAlg_Datei;
 	CString AsymAlg_Datei;
 	CString EncSessionKey_Datei;
+	CString m_CertificateData;
 	void RsaDec();
 	char SymKey[KEY_LEN];
 	bool m_iIsGenAsymKey;
@@ -58,6 +59,7 @@ public:
 	CString	m_TextSignSteps;
 	CString	m_Step;
 	CString	m_DisplayData;
+	CButton m_ShowCertificate;
 	//}}AFX_DATA
 
 
@@ -80,6 +82,7 @@ protected:
 	//{{AFX_MSG(CDlgHybridDecryptionDemo)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonContinue();
+	afx_msg void OnButtonShowCertificate();
 	virtual void OnOK();
 	virtual void OnCancel();
 	//}}AFX_MSG

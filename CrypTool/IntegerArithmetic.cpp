@@ -1653,15 +1653,19 @@ BOOL CTutorialFactorisation::Brent()
 	do
 	{
 		x=y;
-		for (i=1L;i<=r;i++) y=(y*y+3);
+		THREAD_CHECK;
+		for (i=1L;i<=r;i++)
+		{
+			y=(y*y+3);
+			if ( !(i  % 1000) ) THREAD_CHECK;
+		}
 		k=0;
 		do
 		{
-			m_iterations++;
-			THREAD_CHECK;
+			m_iterations++;			
 			ys=y;
 			for (i=1L;i<=min(m,r-k);i++)
-			{   
+			{   				 
 				y=(y*y+3);
 				q=((y-x)*q);
 			}

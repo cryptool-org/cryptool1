@@ -20,6 +20,7 @@
 #include "DlgHybridDecryptionDemo.h"
 #include "DlgKeyAsymGeneration.h"
 #include "SecudeTools.h"
+#include "DlgShowCertificate.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -58,6 +59,7 @@ void CDlgHybridDecryptionDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT3, m_TextSignStepsCtrl);
 	DDX_Control(pDX, IDOK, m_FlushDecDataCtrl);
 	DDX_Control(pDX, IDC_BUTTON_CONTINUE, m_ContinueButtonCtrl);
+	DDX_Control(pDX, IDC_SHOW_CERTIFICATE, m_ShowCertificate);
 	DDX_Text(pDX, IDC_EDIT3, m_TextSignSteps);
 	DDX_Text(pDX, IDC_EDIT4, m_Step);
 	DDX_Text(pDX, IDC_EDIT_SHOW_STEPS, m_DisplayData);
@@ -68,6 +70,7 @@ void CDlgHybridDecryptionDemo::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgHybridDecryptionDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgHybridDecryptionDemo)
 	ON_BN_CLICKED(IDC_BUTTON_CONTINUE, OnButtonContinue)
+	ON_BN_CLICKED(IDC_SHOW_CERTIFICATE, OnButtonShowCertificate)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -79,6 +82,7 @@ BOOL CDlgHybridDecryptionDemo::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	m_FlushDecDataCtrl.EnableWindow(FALSE);
+	m_ShowCertificate.EnableWindow(FALSE);
 
 	LOGFONT LogFont;
 	char DefaultFontName[32];
@@ -222,9 +226,10 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			OctetString *SNummer;
 			SNummer=Zert->element->serial;
 			Zert2=theApp.SecudeLib.af_cadb_get_Certificate(PseHandle, SNummer);
-			CString Zertifikat=sprint_Certificate_with_key(PseHandle,NULL,Zert2);
- //			m_DisplayData += (Zertifikat +nl +nl);
-			
+			m_CertificateData = CString(sprint_Certificate_with_key(PseHandle,NULL,Zert2));
+			m_ShowCertificate.EnableWindow(TRUE);
+
+ 			
 			theApp.SecudeLib.af_close(PseHandle);
 
 			// Freigeben von dynamisch angelegtem Speicher
@@ -464,3 +469,11 @@ void CDlgHybridDecryptionDemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, 
 	else	    sprintf( line, pc_str );
 	mHeader = line;
 }
+
+void CDlgHybridDecryptionDemo::OnButtonShowCertificate()
+{
+	CDlgShowCertificate DCert(m_CertificateData, NULL);
+	DCert.DoModal();
+}
+
+
