@@ -108,7 +108,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 			CString s1 = line;
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_SHIFT,pc_str,STR_LAENGE_STRING_TABLE);
 			CString s2 = pc_str;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_SHIFT,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
 			CString s3 = pc_str;
 			
 			// headline <<  x_label << y_label

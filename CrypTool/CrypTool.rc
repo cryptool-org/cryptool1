@@ -350,7 +350,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
@@ -369,14 +369,16 @@ BEGIN
     EDITTEXT        IDC_EDIT1,0,215,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
-    CTEXT           "Kontakt:",IDC_STATIC,0,234,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,228,241,10
     CTEXT           "Copyright (C) 1998-2003 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,289,242,17
+                    IDC_STATIC,0,294,242,17
     LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,63,243,152,42
+                    IDC_STATIC,63,237,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,18,222,116
     CTEXT           "Gemeinsam mit den Sponsoren",IDC_STATIC,1,8,241,8
+    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,279,175,
+                    8
 END
 
 IDD_SHOW_PROGRESS DIALOG DISCARDABLE  0, 0, 187, 106
@@ -3279,7 +3281,7 @@ BEGIN
     BEGIN
         POPUP "&Klassisch"
         BEGIN
-            MENUITEM "A&ddition...",                ID_ADD_BIN
+            MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_HEX
@@ -3599,7 +3601,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "A&ddition...",                ID_ADD_BIN
+            MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
@@ -4289,6 +4291,11 @@ BEGIN
         VERTGUIDE, 147
         VERTGUIDE, 287
         VERTGUIDE, 294
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        VERTGUIDE, 63
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -6437,9 +6444,9 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,76,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
                     IDC_STATIC,0,152,242,17
     CTEXT           "It is based on the security library",IDC_STATIC,1,200,
@@ -6447,11 +6454,11 @@ BEGIN
     EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
-    CTEXT           "Contact:",IDC_STATIC,0,230,241,10
+    CTEXT           "Contact:",IDC_STATIC,0,225,241,10
     LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,239,145,40
+                    IDC_STATIC,67,234,145,40
     CTEXT           "Copyright (C) 1998-2003 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,288,242,17
+                    IDC_STATIC,0,291,242,17
     CTEXT           "has been developed in a joint effort of the sponsors",
                     IDC_STATIC,1,21,241,8
     CTEXT           "CrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
@@ -6465,6 +6472,8 @@ BEGIN
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,32,222,116
+    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,275,
+                    175,8
 END
 
 IDD_SHOW_PROGRESS DIALOG DISCARDABLE  0, 0, 187, 105
@@ -9038,8 +9047,8 @@ BEGIN
     END
     POPUP "&Options"
     BEGIN
-        MENUITEM "&Bar chart...",               ID_PLOTBAR
-        MENUITEM "&Graphic options...",         ID_BARWIDTH
+        MENUITEM "&Bar Chart...",               ID_PLOTBAR
+        MENUITEM "&Graphic Options...",         ID_BARWIDTH
     END
     POPUP "&Window"
     BEGIN
@@ -9052,7 +9061,7 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
-        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -9173,7 +9182,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
+            MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
@@ -9203,7 +9212,7 @@ BEGIN
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
+        MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
     END
     POPUP "&Analysis"
@@ -9247,7 +9256,7 @@ BEGIN
         MENUITEM "&Plot Options...",            ID_OPTIONS_PLOT
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
-        MENUITEM "&Starting options...",        ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
@@ -9261,7 +9270,7 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
-        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -9280,7 +9289,7 @@ BEGIN
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
         MENUITEM "&Close\tCtrl+F4",             ID_FILE_CLOSE
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
@@ -9311,13 +9320,13 @@ BEGIN
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
-        MENUITEM "Show &As Text",               ID_TOTXT
+        MENUITEM "Show &as Text",               ID_TOTXT
     END
     POPUP "&Crypt"
     BEGIN
         POPUP "&Classical"
         BEGIN
-            MENUITEM "A&ddition...",                ID_ADD_BIN
+            MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_HEX
@@ -9543,7 +9552,7 @@ BEGIN
     END
     POPUP "&Indiv. Procedures"
     BEGIN
-        MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
+        MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
         MENUITEM "&Key Generation from Password...", 
                                                 ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -9563,7 +9572,7 @@ BEGIN
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
+        MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
     END
     POPUP "&Options"
@@ -9639,7 +9648,7 @@ BEGIN
             MENUITEM "&Hill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&Addition...",                ID_ADD_BIN
+            MENUITEM "Byte &Addition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
@@ -9701,7 +9710,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
+            MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
@@ -9728,13 +9737,13 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.&1 decoding of a file...", 
+        MENUITEM "ASN.&1 Decoding of a File...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
+        MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
     END
     POPUP "&Analysis"
@@ -10371,6 +10380,8 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        VERTGUIDE, 67
+        VERTGUIDE, 76
         BOTTOMMARGIN, 343
     END
 
@@ -10908,7 +10919,7 @@ BEGIN
     ID_CAESAR_ASC           "Caesar encryption"
     ID_VIGENERE_ASC         "Vigenère encryption"
     ID_HILL                 "Hill encryption"
-    ID_ADD_BIN              "Byte-by-byte addition"
+    ID_ADD_BIN              "Byte addition modulo 256"
     ID_XOR_BIN              "Byte-by-byte XOR operation"
     ID_ENTROPY              "Calculates the document entropy"
     ID_HISTOGRAM            "Calculates the character frequency in the document"
