@@ -211,7 +211,7 @@ void CDlgManualSubstAnalysis::OnButton1()
 			}
 		}
 		else {
-			Ausgabe+=" ";}
+			Ausgabe+="  ";}
 	}
 	m_edit27=Ausgabe;
 	UpdateData(FALSE);
