@@ -111,7 +111,7 @@ BOOL CDlgRSADecryption::OnInitDialog()
 	// Initialisiere die Schlüsselliste mit allen verfügbaren RSA Schlüsseln
 	nKeylistType = RSA_KEY;
 	InitAsymKeyListBox(nKeylistType);
-
+	// select the first item if possible
 	//disableButtons wird in CDlgHybridDecryptionDemo auf true gesetzt.
 	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
 	//Hybridverschlüsselung
@@ -123,11 +123,11 @@ BOOL CDlgRSADecryption::OnInitDialog()
 		m_OKCtrl.SetWindowText("OK");
 		m_ShowDurationCtrl.ShowWindow(false);
 		int keyrow = FindRow(UserKeyId);// Suche nach der Zeile mit dem Eintrag UserKeyId
-
+		if (keyrow == -1)
+			keyrow = 0;
 		UpdateRowSel( keyrow ); // Zeile die UserKeyId enthält unterlegen (falls vorhanden)
-	}
-
-
+	} else
+		UpdateRowSel(0);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -344,8 +344,10 @@ void CDlgRSADecryption::OnClickListKeys(NMHDR* pNMHDR, LRESULT* pResult)
 		m_show_cert_button.EnableWindow(TRUE); // Button einblenden
 		*/
 	
+#if 0
 		UserKeyId = "";
 		UpdateRowSel(-1); // letzte Selektion rückgängig machen
+#endif
 		return;
 	}
 
@@ -367,13 +369,6 @@ void CDlgRSADecryption::OnItemclickListKeys(NMHDR* pNMHDR, LRESULT* pResult)
 void CDlgRSADecryption::OnColumnclickListKeys(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-
-	// Diese Funktion wird aufgerufen, falls ein Linksklick auf einen der Spaltenheader erfolgt
-	// Zur Zeit ist hier nichts implementiert
-	// Vielleicht kommt später eine Sortierfunktion für die Zeilen hinzu.
-
-	// pNMListView->iSubItem; // zeigt an welche Spalte angeclickt wurde
 
 	if (pNMListView->iSubItem == 0) sortBy = BY_NAME;
 	else if (pNMListView->iSubItem == 1) sortBy = BY_FIRSTNAME;
@@ -395,8 +390,10 @@ void CDlgRSADecryption::OnColumnclickListKeys(NMHDR* pNMHDR, LRESULT* pResult)
 		BY_PERS_KEYID 
 	*/
 	
+#if 0
 	UserKeyId = "";
 	UpdateRowSel(-1); // letzte selektion rückgängig machen
+#endif
 
 	*pResult = 0;
 }
@@ -432,8 +429,10 @@ void CDlgRSADecryption::OnKeydownListKeys(NMHDR* pNMHDR, LRESULT* pResult)
 	else
 	{
 		// andere Taste gedrückt
+#if 0
 		UserKeyId = "";
 		UpdateRowSel(-1); // letzte selektion rückgängig machen
+#endif
 	}
 
 	*pResult = 0;
