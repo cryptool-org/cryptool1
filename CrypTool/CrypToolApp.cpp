@@ -297,9 +297,10 @@ BOOL CCrypToolApp::InitInstance()
 	if(TRUE == GetProfileInt("Settings", "SampleTextFile", FALSE))
 	{
 		FILE *f;
-		CString filename;
-		
-		filename.LoadString(IDS_STRING_SAMPLE_FILE);
+		CString filename = Pfad, help;
+
+		help.LoadString(IDS_STRING_SAMPLE_FILE);
+		filename = filename + help;
 		if(f = fopen(filename, "r"))	// öffnet die Beispiel-Datei, sofern sie gefunden wurde
 		{
 			fclose(f);

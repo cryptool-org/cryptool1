@@ -13,7 +13,7 @@
 #define V_MEAN 2
 #define V_VARI 3
 #define DEFAULTNAME "Analyse"
-#define PA_MAXFOUND 10
+#define PA_MAXFOUND 100
 #define PA_MAXPRINTLENGTH 20
 
 class CRandomAnalysisTools {
@@ -43,7 +43,7 @@ public:
 	struct s_periodResult
 	{
 		int offset, length, repeated;
-		char str [PA_MAXPRINTLENGTH];
+		char str [PA_MAXPRINTLENGTH+1];
 	};
 	s_periodResult periodResults[PA_MAXFOUND];
 	int cnt_periodResults;

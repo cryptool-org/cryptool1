@@ -84,7 +84,8 @@ BOOL CDlgPeriodicityAnalysis::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEX,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth+300 , 5); // Perioden Inhalt Hexdump
 
-	for (int i=zahlenanalyse->cnt_periodResults-1; i>=0; i--) { 
+	for (int i=zahlenanalyse->cnt_periodResults-1; i>=0; i--)
+	{ 
 		sprintf(pc_str1,"%d", zahlenanalyse->cnt_periodResults-i);
 		int j = m_listview.InsertItem (zahlenanalyse->cnt_periodResults-i-1, pc_str1);
 		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].offset+1);
@@ -97,7 +98,8 @@ BOOL CDlgPeriodicityAnalysis::OnInitDialog()
 		pc_str1[0]='\0';
 		char s [PA_MAXPRINTLENGTH*4+10]; s[0]='\0';
 		int len = (zahlenanalyse->periodResults[i].length)<PA_MAXPRINTLENGTH ? zahlenanalyse->periodResults[i].length : PA_MAXPRINTLENGTH;
-		for (int k=0; k<len; k++) {
+		for (int k=0; k<len; k++)
+		{
 			s[k] = IsText(zahlenanalyse->periodResults[i].str[k]) ? zahlenanalyse->periodResults[i].str[k] : '.';
 			sprintf(pc_str1,"%s %02.2X", pc_str1, (unsigned char)zahlenanalyse->periodResults[i].str[k]);
 		}
@@ -106,6 +108,31 @@ BOOL CDlgPeriodicityAnalysis::OnInitDialog()
 		m_listview.SetItemText (j, 4, s);
 		m_listview.SetItemText (j, 5, pc_str1);
 	}
+/*
+	for (int i = 0; i < zahlenanalyse->cnt_periodResults; i ++)
+	{ 
+		sprintf(pc_str1,"%d", zahlenanalyse->cnt_periodResults-i);
+		int j = m_listview.InsertItem (zahlenanalyse->cnt_periodResults-i-1, pc_str1);
+		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].offset+1);
+		m_listview.SetItemText (j, 1, pc_str1);
+		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].length);
+		m_listview.SetItemText (j, 2, pc_str1);
+		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].repeated+1);
+		m_listview.SetItemText (j, 3, pc_str1);
+
+		pc_str1[0]='\0';
+		char s [PA_MAXPRINTLENGTH*4+10]; s[0]='\0';
+		int len = (zahlenanalyse->periodResults[i].length)<PA_MAXPRINTLENGTH ? zahlenanalyse->periodResults[i].length : PA_MAXPRINTLENGTH;
+		for (int k=0; k<len; k++)
+		{
+			s[k] = IsText(zahlenanalyse->periodResults[i].str[k]) ? zahlenanalyse->periodResults[i].str[k] : '.';
+			sprintf(pc_str1,"%s %02.2X", pc_str1, (unsigned char)zahlenanalyse->periodResults[i].str[k]);
+		}
+		s[len]='\0';
+
+		m_listview.SetItemText (j, 4, s);
+		m_listview.SetItemText (j, 5, pc_str1);
+	}*/
 
 
 	// m_listview.SortItems(

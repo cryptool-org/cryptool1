@@ -338,12 +338,12 @@ int CRandomAnalysisTools::FindPeriod()
 		follow = origlen - 1;
 		search = follow - gap;
 
-		while(data[follow] == data[search])
+		while(search >= 0 && data[follow] == data[search])
 		{
 			follow --;
 			search --;
 		}
-
+		
 		if(origlen - follow > gap)
 		{
 			if (PA_MAXFOUND <= cnt_periodResults)
@@ -362,6 +362,19 @@ int CRandomAnalysisTools::FindPeriod()
 			periodResults[cnt_periodResults].str[l] = '\0';
 			gap = periodResults[cnt_periodResults].length*(periodResults[cnt_periodResults].repeated+1)+1;
 			cnt_periodResults ++;
+			if (cnt_periodResults > PA_MAXFOUND)
+			{
+				break; /*** TO DO ***/
+				/* NOTE
+				   Die Perioodenresultate werden in das Strukturarray periodResults[] 
+				   geschrieben. Dieses Array ist statisch allokiert (PA_MAXCOUNT Einträge).
+				   Für den Fall, dass mehr als PA_MAXCOUNT (define siehe Header Datei) Perioden
+				   gefunden werden, sollte hier eine Fehlermeldung erscheinen oder PA_MAXCOUNT entsprechend
+				   dem möglichen worst-case Fall erhöht werden.
+
+				   Eine bessere Lösung wäre die Perioden dynamisch zu verwalten.
+				*/
+			}
 		}
 
 		else
