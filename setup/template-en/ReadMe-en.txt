@@ -1,10 +1,11 @@
 ==================================================================
-         CrypTool, Version 1.3.04, December 2002
+         CrypTool, Version 1.3.04, March 2003
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
-         (c) University of Siegen and Karlsruhe
+         (c) University of Siegen and Karlsruhe  xxxxxxxxxx
          $Id$
 ==================================================================
 
+xxxxxxxxx evtl. Verweis auf frz. Fassung
 
                        Contents
 
@@ -121,8 +122,8 @@ The CrypTool package includes the following four main parts:
 ------------------------
 Main part of the CrypTool package is the program CrypTool itself.
 CrypTool is not intended as an application to be used to encrypt
-or otherwise protect real-world data. It is simply a
-demonstration primarily used for training purposes.
+or otherwise protect real-world data. It is a demonstration 
+primarily used for training purposes:
 
 - To this end, CrypTool contains an extensive collection of
   cryptographic algorithms which are very well-documented.
@@ -138,8 +139,9 @@ demonstration primarily used for training purposes.
   implementation.
 
 - The cryptanalysis of most of the classical algorithms
-  implemented is automated. The analysis of modern techniques
-  is limited so that CrypTool cannot be used as a hacker's tool.
+  implemented is automated. 
+  The analysis of modern techniques is limited so that CrypTool
+  cannot be used as a hacker's tool.
 
 (2) Documentation
 -----------------
@@ -185,41 +187,41 @@ We are extremely grateful to them.
 Dr. Carsten Elsner allowed us to include his story "The Dialogue
 of the Sisters" (translated from the German by Klaus Esslinger).
 The German version of this story was published in the computer
-magazine c't, 25/1999. While c't published a slidely shortened
+magazine c't, 25/1999. While c't published a slightly shortened
 version you here get the original version.
 The author owns all rights at this story. The maintainer of
 CrypTool is allowed by the author only to distribute this story
 together with the CrypTool package.
 
+The companies Secude Ltd. and Shamus Software Ltd. (see above)
+allowed us gratefully to use their cryptographic libraries.
+These libraries distributed with CrypTool are not allowed to be
+used in another context than CrypTool without contacting the
+mentioned companies and asking for their current terms of licence.
+
+
 
 1.4. New maintainer in the future - Road Map
      ---------------------------------------
-CrypTool will get an academic home as planned. There the further
+CrypTool got an academic home as planned. There the further
 development as open source is co-ordinated.
 
 The current sponsors of CrypTool have been Deutsche Bank AG,
 Secude Ltd. and FZI Karlsruhe. 1.3.04 is probably the last version,
 released by Deutsche Bank as maintainer.
 
-From October 2002 the new maintainer is the chair "Security
-in Information Technology", faculty computer science from
-Mrs. Prof. Dr. Claudia Eckert at the technical university of
+From October 2002 the rights on CrypTool moved to the chair 
+"Security in Information Technology", faculty computer science
+from Mrs. Prof. Dr. Claudia Eckert at the technical university of
 Darmstadt, Germany.
+They make the source code of CrypTool freely available to the 
+Internet community as open source.
 
 Homepage of CrypTool remains www.cryptool.com.
 
-When the new version 1.4 of CrypTool will come is up to the new
-maintainer.
-
-Then it is planned to make the source code of CrypTool
-freely available as open source to the Internet community.
-
-If you are interested to help developing CrypTool before it is
-available as open source please do not hesitate to contact one
-of the email addresses listed below.
-
-We would be glad, if not only the old developers but many new
+We would be very glad, if not only the old developers but many new
 ones help to enhance the functionality and usability of CrypTool.
+Ideas for further development can be found in chapter 5.3 and 6.
 
 
 
@@ -346,8 +348,8 @@ CrypTool.
 The package is distributed as compressed, self extracting archive
 in two language versions:
 
-SetupCrypTool_1-3-03_en.exe   English language support only.
-SetupCrypTool_1-3-03_de.exe   German language support only.
+SetupCrypTool_1-3-04_en.exe   English language support only.
+SetupCrypTool_1-3-04_de.exe   German language support only.
 
 The archives contain the following files:
 
@@ -366,6 +368,7 @@ EC-Param.ini...... Initialization file for public key procedures
 secude.dll........ Library of cryptographic functions provided by
                    Secude GmbH.
 ticket............ License for the Secude library.
+libeay32.dll...... Library from OpenSSL 0.96.  xxxxxxxxxxx
 irunin.*.......... These files are necessary for installation and
                    deinstallation.
 
@@ -373,8 +376,8 @@ script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
                    certain algorithms.
 script-de.pdf..... The German version of script-en.pdf.
-CrypToolPresentation_1_3_03_en.pdf.. Slides presentation
-CrypToolPresentation_1_3_03_de.pdf.. German version of presentation.
+CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
+CrypToolPresentation_1_3_04_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf... German version of DialogueSisters.pdf.
@@ -497,7 +500,7 @@ your computer is untouched.
 
 5.1. Enhancements from version 1.2.02 to 1.3.00
      ------------------------------------------
-The following enhancements and bug fixes (listed till 5.6) have
+The following enhancements and bug fixes (listed till 5.1.6) have
 been added for version 1.3.00 since CrypTool version 1.202:
 - CrypTool is now fully available in both English and German
   language versions.
@@ -505,6 +508,11 @@ been added for version 1.3.00 since CrypTool version 1.202:
 - The restrictions (maximum data volume 64 KB) which previously
   applied to Windows versions Win95 and Win98 are no longer
   applicable.
+  xxxxxxxxxxxxxxxxx 
+  Because of performance reasons CrypTool is customized in a way, that
+  - from text files only 4 MB and
+  - from binary files only 1 MB can be loaded.
+  Using the AES tool files of any size can be encrypted.  
 - The most recent configuration relating to an algorithm (such
   as the key or alphabet chosen) is stored internally within the
   program.
@@ -625,7 +633,12 @@ Functionality:
   rewritten and is no more compatible with its predecessors):
   - AES-Tool now offers complete functionality also when called
     from the command line.
+    AES-Tool can be called by itself or within CrypTool via the menu
+    item Crypt \ Symmetric \ AES (self extracting).
   - There is a customization suggesting the file type (exe or aes).
+  - Please note, that the output of the AES-Tool (even with file type
+    "Aes") is not completely identical with the output you get via the
+    menu item Crypt \ Symmetric \ Rijndael. xxxxxxxxxxxx
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (choosen with Options / Text Options)
@@ -662,23 +675,25 @@ Functionality:
   file name is suggested:  Cry-<Method>-<Sourcefilename>.*
   For intentionally saved documents the window title contains
   the filename (instead of the description).
-+ The CrypTool menu within the Startup submenu now also contains
-  a hint to the readme file.
 + Brute-force attacks at symmetric algorithms now allow to use
   more than 5 joker characters (20 bits)and the expected time 
   is presented.  Additionally the length of the here used entropy
   window can now be customized via analysis options.
-+ New in 1.3.04 is a high performance pattern search to find either
-  multiple patterns of any length within one file or to find any
-  patterns in one file which also appear in another given file.
+Completely new in 1.3.04 are:
++ The CrypTool menu within the Startup submenu now also contains
+  a hint to the readme file.
++ A high performance pattern search to find either multiple patterns of
+  any length within one file or to find any patterns in one file which
+  also appear in another given file.
++ Implementation of a high-performance attack on hash or signature methods
+  to show/visualize the birthday paradoxon applied to hash collisions.
++ Show/Visualize the Diffie-Hellman key exchange method.
+
 
 
 5.3. Planned enhancements after version 1.3.04
      -----------------------------------------
 Functionality:
-+ Implement high-performance attack on hash or signature methods
-  to show/visualize the birthday paradoxon based on this.
-+ Show/Visualize the Diffie-Hellman key exchange method.
 + A pure command line version of AES-Tool to be also available for
   the operating systems OS/2 and Linux (aestool-os2; aestool-linux).
 + Visualize of challenge response methods.
@@ -701,9 +716,9 @@ Functionality:
   format for the internal key storage.
 + Use dictionary for all attacks, not just for substitution.
 + Implementation of an enhanced pattern search (with pre-given
-  standardized and regular patterns, mass comparison with known
-  patterns from another file, search for unknown but repeated
-  patterns in a document, ...).
+  standardized and regular patterns and unknown but repeated
+  patterns in a document, ...) by enhancing the dialogue used for
+  mass comparison with known patterns from another file.
 + Analysis newly to implement for
   - homophone encryption.
 + Analysis improvement (not sophisticated enough yet) of
@@ -714,6 +729,11 @@ Functionality:
 + Summary of all display modules in a logical class tree.
 + Rearrange the source to facilitate a separation of cryptographic
   functions and user interface (make ports and debugging easier).
++ Offer a customizing feature to user, so that he can choose that
+  all new windows appear within the main windows (as right now) or
+  as "free" windows outside the main window.
++ Make customizable by user how big the text and binary files can
+  be loaded by CrypTool.
 + New magnification function in the display for graphics and/or
   display of co-ordinates of the current mouse pointer position.
 + Facilities for correcting individual characters in the analysis
@@ -758,6 +778,9 @@ Functionality:
 + Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the Online
   help (main task here is user interface and documentation).
++ Similiar as CrypTool generates good keys from passwords (via PKCS#5)
+  there should be a DOCUMENTED way on different methods how to
+  generate good passwords.
 + Enhance CrypTool as a front-end for number theoretic functions
   and values.
 
@@ -790,22 +813,22 @@ Functionality:
 7. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-			Windows-Setup in MB
-Version   Date		English		German
-1.0.01    Oct. 1999	-		1.3
-1.1.01    May  2000	-		2.3
-1.2.00    Aug. 2000	-		2.8
-1.2.02    Dec. 2000	-		3.2
-1.3.00    Jan. 2002	4.7		4.9
-1.3.02    June 2002	6.4		6.9
-1.3.03    Sep. 2002	6.5		6.9
-1.3.04    Dec. 2002	xxx		xxx
+Version   Date		Size of Windows-Setup	Released by
+			English	    German
+1.0.01    Oct. 1999	-	    1.3 MB	DB
+1.1.01    May  2000	-	    2.3 MB	DB
+1.2.00    Aug. 2000	-	    2.8 MB	DB
+1.2.02    Dec. 2000	-	    3.2 MB	DB
+1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
+1.3.02    June 2002	6.4 MB	    6.9 MB	DB
+1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
+1.3.04    Mar. 2003	xxx MB	    xxx MB	DB
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
 1.3.03    many minor bug fixes and documentation improvements.
-1.3.04    minor bug fixes (crash in analysis of Playfair and N-gram),
-          little new functionality and documentation improvements.
+1.3.04    minor bug fixes (crash in analysis of Playfair, N-gram, RSA),
+          some new functionality and documentation improvements.
 
 
 
@@ -814,7 +837,8 @@ Remark about the current versions:
 If you have any problems or find any errors, please send a
 description of the problem by e-mail to
 - joerg-cornelius.schneider@db.com  or
-- bernhard.esslinger@db.com / besslinger@web.de
+- bernhard.esslinger@db.com / besslinger@web.de or
+- the mailing list: cryptool-list@sec.informatik.tu-darmstadt.de
 
 We would be very grateful for suggestions of any kind regarding
 CrypTool and we'll be helpful whenever out time allows.
@@ -830,7 +854,8 @@ CrypTool.
 - bernhard.esslinger@db.com
 - besslinger@web.de
 - henrik.koy@db.com
-- peer.wichmann@fzi.de
+- cryptool-list@sec.informatik.tu-darmstadt.de
+- peer.wichmann@fzi.de xxxxxxxx rausnehmen ?
 
 
 
@@ -868,39 +893,54 @@ and how one can securely use the Internet.
 CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
+The content of this CD is the basic for the GISA security portal
+"for unexperienced Internet users" (http://www.bsi-fuer-buerger.de).
+
 
 10.5. Freeware projects Crank, Griffon, CAP, CryptAid, etc
       ----------------------------------------------------
-http://freshmeat.net/projects/crank/
-Crank was initiated in January 2001 by Matthew Russell and is
-released under the GNU general public license, the GPL.
-In the Crank project the idea is that a program with a graphical
-user interface will be created under Linux which will enable
-classical crypto algorithms to be broken almost entirely
-automatically.
-Initially the focus is on the analysis of monoalphabetic
-substitution ciphers and the development of generic and flexible
-analysis tools.
-The current version 0.2.1 was released in August 2001.
-On the project web page there are also some very interesting links
-on classical cryptanalysis.
+Available with source code are:
+- http://freshmeat.net/projects/crank/
+  Crank was initiated in January 2001 by Matthew Russell and is
+  released under the GNU general public license, the GPL.
+  In the Crank project the idea is that a program with a graphical
+  user interface will be created under Linux which will enable
+  classical crypto algorithms to be broken almost entirely
+  automatically.
+  Initially the focus is on the analysis of monoalphabetic
+  substitution ciphers and the development of generic and flexible
+  analysis tools.
+  The current version 0.2.1 was released in August 2001.
+  On the project web page there are also some very interesting links
+  on classical cryptanalysis.
 
-http://freshmeat.net/projects/griffon/
-Griffon was started in 2000 by Adrian Mulvaney and is
-released under the GNU general public license, the GPL.
-Griffon is a GTK+ GUI cryptanalysis package for pre-digital ciphers.
-Monoalphabetic transposition and substitution ciphers and Playfair
-are covered. The program includes a customizable frequency count.
-The current version 1.0 was released in November 2000.
+- http://freshmeat.net/projects/griffon/
+  Griffon was started in 2000 by Adrian Mulvaney and is
+  released under the GNU general public license, the GPL.
+  Griffon is a GTK+ GUI cryptanalysis package for pre-digital ciphers.
+  Monoalphabetic transposition and substitution ciphers and Playfair
+  are covered. The program includes a customizable frequency count.
+  The current version 1.0 was released in November 2000.
 
 The only other "useful" programs known to us, which combine
-cryptography and cryptanalysis (under a graphical user interface) are:
+cryptography and cryptanalysis (under a graphical user interface) but
+where the source code is probably not public, are:
 - CAP from Dr. Richard Spillman
-  (the source code probably is not public)
+  The current version 4 was released in November(?) 2002.
   http://www.cs.plu.edu/courses/privacy/index.htm
 - CryptAid from David Lovelock
-  (probably development stopped 1997)
+  (development probably stopped already in 1997)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
+- the Visual Basic program "Cryptological Mathematics" from Prof. R.E. Lewand
+  (vivid presentation of some number theoretic functions, functions for
+  encryption and ecryption; no functions for crytanalysis; software to 
+  accompany his book)
+  http://faculty.goucher.edu/blewand/cryptomath/companion_software.htm
+- John Trafton's student cryptography project in Java:
+  (single statistical functions and classical encryption methods;
+  available since December 2002)
+  http://phoenix.goucher.edu/~jtrafton/Crypto.
+
 
 If we are missing something here or are incorrect anyhow, please feel
 free to inform us, so that we can complete or correct the list.
