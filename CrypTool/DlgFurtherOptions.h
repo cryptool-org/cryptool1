@@ -64,6 +64,7 @@ public:
 	//{{AFX_DATA(CDlgFurtherOptions)
 	enum { IDD = IDD_OPTIONS_FURTHEROPTIONS };
 	BOOL	m_ShowIntroDialogue;
+	CString	m_SCAKeyword;
 	//}}AFX_DATA
 
 

@@ -729,6 +729,7 @@
 #define IDC_ATTACKCONTROL               1543
 #define IDC_CR_SCENARIO_CHOOSE          1544
 #define IDC_CR_ACTIONS_ATTACKER         1545
+#define IDC_EDIT_SCAKEYWORD             1546
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1781,7 +1782,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        805
 #define _APS_NEXT_COMMAND_VALUE         33268
-#define _APS_NEXT_CONTROL_VALUE         1546
+#define _APS_NEXT_CONTROL_VALUE         1547
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -230,9 +230,14 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	// ACHTUNG,		das unten angegebene Verfahren zur Erkennung eines korrekt
 	//				entschlüsselten Dokuments ist nur ein workaround. Korrekte
 	//				Entschlüsselung von Entropie des Dokuments abhängig machen
-	
 
-	// Diese Funktion sucht nach dem Muster IDS_SCA_KEYWORD innerhalb des übergebenen OctetStrings
+	// Florian Marchal, 25.11.2004
+	// ACHTUNG,		Erkennung mittels Entropie IMMER NOCH NICHT implementiert.
+	//				Stattdessen gibt es zumindest ein Optionsmenü (unter weitere
+	//				Optionen), mit dem man das Schlüsselwort einstellen kann,
+	//				nach dem in den entsprechenden Nachrichten gesucht wird.
+	
+	// Diese Funktion sucht nach dem Schlüsselwort innerhalb des übergebenen OctetStrings
 	// und gibt basierend auf dem Erfolg der Suche TRUE oder FALSE zurück (Ampel GRÜN/ROT)
 	char *temp = new char[decryptedCipherText->noctets+1];
 	if(!temp) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
@@ -240,7 +245,10 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	memcpy(temp + decryptedCipherText->noctets, "\0", 1);
 	std::string strTemp = temp;
 	char keyword[STR_LAENGE_STRING_TABLE+1];
-	LoadString(AfxGetInstanceHandle(), IDS_SCA_KEYWORD, keyword, STR_LAENGE_STRING_TABLE);
+	CString kw = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
+	memcpy(keyword, (char*)(LPCTSTR)(kw), kw.GetLength());
+	memcpy(keyword + kw.GetLength(), "\0", 1);
+
 	if(strTemp.find(keyword) != -1)
 		return true;
 	return false;

@@ -64,6 +64,7 @@ CDlgFurtherOptions::CDlgFurtherOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgFurtherOptions)
 	m_ShowIntroDialogue = FALSE;
+	m_SCAKeyword = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -73,6 +74,7 @@ void CDlgFurtherOptions::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgFurtherOptions)
 	DDX_Check(pDX, IDC_CHECK1, m_ShowIntroDialogue);
+	DDX_Text(pDX, IDC_EDIT_SCAKEYWORD, m_SCAKeyword);
 	//}}AFX_DATA_MAP
 }
 
@@ -94,6 +96,8 @@ BOOL CDlgFurtherOptions::OnInitDialog()
 	// Soll Intro-Screen angezeigt werden?
 	if(theApp.GetProfileInt("Settings", "DH_IntroDialogue", 1))
 		this->m_ShowIntroDialogue = true;
+	// Wie lautet das Schlüsselwort für den Seitenkanalangriff? (Default: Alice)
+	this->m_SCAKeyword = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
 	
 	UpdateData(false);
 	
@@ -110,6 +114,9 @@ void CDlgFurtherOptions::OnOK()
 
 	// Diffie-Hellman-Intro-Dialog
 	this->m_ShowIntroDialogue ? theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 1) : theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 0);
+	// SCA-Keyword (nur schreiben, wenn nicht leer! Ansonsten Default: Alice)
+	if(this->m_SCAKeyword != "") theApp.WriteProfileString("Settings", "SCA_Keyword", this->m_SCAKeyword);
+	else theApp.WriteProfileString("Settings", "SCA_Keyword", "Alice");
 	
 	CDialog::OnOK();
 }
