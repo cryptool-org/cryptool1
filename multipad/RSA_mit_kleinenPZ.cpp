@@ -468,11 +468,10 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 	Big eingabe_p=RSAB.konvertiere_CString_Big(m_eingabe_p);
 	Big eingabe_q=RSAB.konvertiere_CString_Big(m_eingabe_q);
 	Big geheime_parameter=(eingabe_p-1)*(eingabe_q -1);
-	m_geheime_parameter.GetBuffer(500)<<geheime_parameter;
-	Big geheime_schluessel_d;
-	Big oeffentliche_schluessel_e;
 	Big oeffentliche_parameter_pq=eingabe_p * eingabe_q;
-	
+
+
+
 	if (1==m_eingabe_p.IsEmpty() || 1==m_eingabe_q.IsEmpty() || m_eingabe_p==_T("0") || m_eingabe_q==_T("0"))
 	{
 		// Fehler Meldung : "Unvollständige Eingaben! Primzahlen p und q eingeben / generieren"
@@ -494,8 +493,7 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 			goto end;
 		}
 
-	 //zuerst das PARN umschreiben----Roger
-	/* if (0==prime(eingabe_p))
+	if (0==prime(eingabe_p))
 	{
 		// "Eingegebene Zahl p ist keine Primzahl!"
 		m_eingabe_p= _T("");
@@ -504,7 +502,7 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 		m_geheime_schluessel_d= _T("");
 		goto end;
 	}
-	if (prime(eingabe_q))
+	if (0==prime(eingabe_q))
 	{
 		// "Eingegebene Zahl q ist keine Primzahl!"
 		m_eingabe_q= _T("");
@@ -514,15 +512,10 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 		goto end;
 	}
 
-	*/
+	m_geheime_parameter=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1));
 
-	/*
-	//oeffentliche Parameter ausrechnen
-	ltoa(atol(m_eingabe_p)*atol(m_eingabe_q),m_oeffentliche_parameter_pq.GetBuffer(20),10);
-	
-	//geheime Parameter ausrechnen
-	ltoa((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),m_geheime_parameter.GetBuffer(20),10);
-*/
+	m_oeffentliche_parameter_pq=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p))*(RSAB.konvertiere_CString_Big(m_eingabe_q)));
+		
 	end:
 	UpdateData(false);
 
@@ -532,103 +525,88 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 void RSA_mit_kleinenPZ::OnButtonSchluesselGenerieren() 
 {
 	UpdateData(true);
-/*	
-	//was ist wenn Primzahl noch nicht angegeben sind-->Fehlermeldung:Primzahleingeben oder generieren!
+	UpdateData(true);
+
+	Big eingabe_p=RSAB.konvertiere_CString_Big(m_eingabe_p);
+	Big eingabe_q=RSAB.konvertiere_CString_Big(m_eingabe_q);
+	Big geheime_parameter=(eingabe_p-1)*(eingabe_q -1);
+	//m_geheime_parameter.GetBuffer(500)<<geheime_parameter;
+	Big geheime_schluessel_d;
+	Big oeffentliche_schluessel_e;
+	Big oeffentliche_parameter_pq=eingabe_p * eingabe_q;
+
+	m_geheime_parameter=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1));
+
+	m_oeffentliche_parameter_pq=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p))*(RSAB.konvertiere_CString_Big(m_eingabe_q)));
+
 	if (1==m_eingabe_p.IsEmpty() || 1==m_eingabe_q.IsEmpty() || m_eingabe_p==_T("0") || m_eingabe_q==_T("0"))
 	{
-		// Fehler Meldung : Geben/Generieren Sie die Primzahlen!
+		// Fehler Meldung : "Unvollständige Eingaben! Primzahlen p und q eingeben / generieren"
 		m_eingabe_p= _T("");
 		m_eingabe_q= _T("");
 		m_oeffentliche_parameter_pq= _T("");
 		m_geheime_parameter= _T("");
-		//m_oeffentliche_schluessel_e= _T("");
 		m_geheime_schluessel_d= _T("");
-		goto fin;
+		goto end;
 	}
-	
 	if (m_eingabe_p == _T("1") || m_eingabe_q==_T("1"))
-	{// 1 ist keine Primzahl! Geben Sie eine andere Primzahl ein!
-		
-		m_eingabe_p=_T("");
-		m_eingabe_q= _T("");
-		m_oeffentliche_parameter_pq= _T("");
-		m_geheime_parameter= _T("");
-		//m_oeffentliche_schluessel_e= _T("");
-		m_geheime_schluessel_d= _T("");
-		goto fin;
-	}
-	if (false==PARN.Prime_test_Miller_Rabin(atol(m_eingabe_p),100))
+		{// 1 ist keine Primzahl! Geben Sie eine andere Primzahl ein!
+			m_eingabe_p=_T("");
+			m_eingabe_q= _T("");
+			m_oeffentliche_parameter_pq= _T("");
+			m_geheime_parameter= _T("");
+			//m_oeffentliche_schluessel_e= _T("");
+			m_geheime_schluessel_d= _T("");
+			goto end;
+		}
+
+
+	 //zuerst das PARN umschreiben----Roger
+	if (0==prime(eingabe_p))
 	{
-		// Eingegebene Zahl p ist keine Primzahl!
+		// "Eingegebene Zahl p ist keine Primzahl!"
 		m_eingabe_p= _T("");
 		m_oeffentliche_parameter_pq= _T("");
 		m_geheime_parameter= _T("");
-		//m_oeffentliche_schluessel_e= _T("");
 		m_geheime_schluessel_d= _T("");
-		goto fin;
+		goto end;
 	}
-	if (false==PARN.Prime_test_Miller_Rabin(atol(m_eingabe_q),100))
+	if (0==prime(eingabe_q))
 	{
-		// Eingegebene Zahl q ist keine Primzahl!
+		// "Eingegebene Zahl q ist keine Primzahl!"
 		m_eingabe_q= _T("");
 		m_oeffentliche_parameter_pq= _T("");
 		m_geheime_parameter= _T("");
-		//m_oeffentliche_schluessel_e= _T("");
 		m_geheime_schluessel_d= _T("");
-		goto fin;
+		goto end;
 	}
-	
-	//oeffentliche Parameter ausrechnen
-	ltoa(atol(m_eingabe_p)*atol(m_eingabe_q),m_oeffentliche_parameter_pq.GetBuffer(20),10);
-	
-	//geheime Parameter ausrechnen
-	ltoa((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),m_geheime_parameter.GetBuffer(20),10);
 
 	
-	if (0==m_oeffentliche_parameter_pq.IsEmpty())
+
+	if ((-1)!=RSAB.extended_euclidian_algorithm((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1),RSAB.konvertiere_CString_Big(m_oeffentliche_schluessel_e)))
 		{
-		//oeffentliche Parameter ausrechnen
-		
-		ltoa(atol(m_eingabe_p)*atol(m_eingabe_q),m_oeffentliche_parameter_pq.GetBuffer(20),10);
-		
-		//geheime Parameter ausrechnen
-		ltoa((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),m_geheime_parameter.GetBuffer(20),10);
+			oeffentliche_schluessel_e=RSAB.konvertiere_CString_Big(m_oeffentliche_schluessel_e);
+			geheime_schluessel_d=RSAB.extended_euclidian_algorithm((eingabe_p -1) * (eingabe_q -1), oeffentliche_schluessel_e);
+			m_geheime_schluessel_d.GetBuffer(500)<<geheime_schluessel_d;
 		}
-	
-
-	if ((m_eingabe_p==_T("2") && m_eingabe_q==_T("3")) || (m_eingabe_p==_T("3") && m_eingabe_q==_T("2")))
+		else
 		{
+			//Fehler Meldung
+			// "Der angegebene öffentliche Parameter ist nicht geeignet. Es wird ein zufälliger öffentlicher Parameter erzeugt."
+			
+			//oeffentliche Schluessel ausrechnen 
 
-			goto fin;
+			oeffentliche_schluessel_e=RSAB.erzeuge_oeffentliche_Schluessel_e(geheime_parameter);
+			m_oeffentliche_schluessel_e.GetBuffer(500)<<oeffentliche_schluessel_e;
+			
+			//geheime Schuessel ausrechnen
+			
+			geheime_schluessel_d=RSAB.extended_euclidian_algorithm((eingabe_p -1) * (eingabe_q -1), oeffentliche_schluessel_e);
+			m_geheime_schluessel_d.GetBuffer(500)<<geheime_schluessel_d;
 		}
-	if ((-1)!=RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)))
-	{
-		ltoa(RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)),m_geheime_schluessel_d.GetBuffer(20),10);
-	}
-	else
-	{
-		//Fehler Meldung
-		// Der angegene öffentliche Parameter ist nicht geeignet. Es wird ein zufälliger öffentlicher Parameter erzeugt.
-		
-		//oeffentliche Schluessel ausrechnen
-		if ((m_eingabe_p==_T("2") && m_eingabe_q==_T("3")) || (m_eingabe_p==_T("3") && m_eingabe_q==_T("2")))
-			{
 
-				
-				goto fin;
-			}
-		
-		ltoa(RSAB.erzeuge_oeffentliche_Schluessel_e(atol(m_geheime_parameter)),m_oeffentliche_schluessel_e.GetBuffer(20),10);
-		
-		//geheime Schuessel ausrechnen
-		ltoa(RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)),m_geheime_schluessel_d.GetBuffer(20),10);
-
-	}
-
-	// Hier wird die Blockgröße, die beim RSA benutzt wird, ausgerechnet.
-	//itoa(RSAB.RSA_BlockLaengeBerechnung(atol(m_eingabe_p)*atol(m_eingabe_q),129),m_edit9.GetBuffer(20),10);
-fin:
-*/
+	end:
+	UpdateData(false);
 	UpdateData(false);
 
 	
