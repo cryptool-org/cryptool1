@@ -145,6 +145,9 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	CWnd* pStatic=GetDlgItem(IDC_EDIT_TXT);
 	pStatic->SetFont(&m_font,false);
 	
+	if (!m_strPathSelDoc.IsEmpty()) 
+		DateiOeffnen(m_strPathSelDoc);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -246,8 +249,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	UpdateData(true);
 
 	int AlgId=3;
-	const char* path=m_strPathSelDoc.GetBuffer(0);
-
+	
 	// Henrik Koy, 19. April 2002,
 	// Programm unter Windows XP-abgestürzt: 20 Zeichen Speicher sind zu wenig
 	char strPathEncDocument[1024];
@@ -256,11 +258,11 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	//der Verschluesselte Text geschrieben werden soll
 	//der Name wird in die Variable strPathEncDocument geschrieben
 	char key[100];
-	strcpy(key,m_strSymKey.GetBuffer(0));
+	strcpy(key,(LPCTSTR)m_strSymKey);
 
 	SHOW_HOUR_GLASS
 
-	AESCrypt((char*)path, "", AlgId,true,strPathEncDocument,key);
+	AESCrypt((char*)(LPCTSTR)m_strPathSelDoc, "", AlgId,true,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
 
 	if ( CipherText )

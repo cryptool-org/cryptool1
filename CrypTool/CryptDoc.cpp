@@ -1506,8 +1506,8 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 {
 	CDlgHybridEncryptionDemo hyb;
 	UpdateContent();
-	hyb.m_strBuffTitle=GetTitle();
-	hyb.DateiOeffnen(ContentName);
+	hyb.m_strBuffTitle = GetTitle();
+	hyb.m_strPathSelDoc = ContentName;
 	hyb.DoModal();
 }
 

@@ -36,7 +36,7 @@ public:
 	int m_iDocSizeForEnc;
 	CFont m_font;
 	CString m_strSymKey;
-	CString m_strPathSelDoc;
+	CString m_strPathSelDoc; // if not empty on DoModal, this file is opened
 	CString	m_strBuffTitle;
 	CString UserKeyId;
 
