@@ -3135,7 +3135,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Key_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Key_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Key_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Key_X.bmp
 # End Source File
 # Begin Source File
 
@@ -4528,7 +4536,23 @@ SOURCE=.\stdafx.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Step_1.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Step_2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Step_3.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Step_4.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Step_5.bmp
 # End Source File
 # Begin Source File
 

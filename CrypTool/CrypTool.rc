@@ -8898,12 +8898,12 @@ END
 
 IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG DISCARDABLE  0, 0, 200, 101
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche Teilschlüssel austauschen"
+CAPTION "Exchange Shared Keys"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel berechnen können, müssen zunächst ihre öffentlichen Schlüssel ausgetauscht werden.",
+    LTEXT           "Before Alice and Bob can compute their Session Key, their previously calculated shared keys need to be exchanged. Please exchange the keys by clicking the 'OK' button.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
@@ -8925,19 +8925,19 @@ END
 
 IDD_DIFFIEHELLMAN_SETPUBLIC DIALOG DISCARDABLE  0, 0, 200, 101
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche Parameter setzen"
+CAPTION "Set Public Parameters"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "Nach einem Klick auf OK werden Sie aufgefordert, die öffentlichen Parameter des Schlüsselaustauschs einzugeben.",
+    LTEXT           "After clicking the 'OK' button you will be promted for the public parameters of the Diffie-Hellman key exchange protocol.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
 IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Introduction"
+CAPTION "Introduction Diffie-Hellman Demonstration"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,112,189,50,14
@@ -8945,9 +8945,9 @@ BEGIN
                     IDC_STATIC,7,7,262,8
     LTEXT           "Two communication partners - Alice and Bob for instance - want to negotiate on a secret key over an insecure line.",
                     IDC_STATIC,7,43,262,16
-    LTEXT           "Furthermore nobody should be able to acquire the key although listening into the line constantly.",
+    LTEXT           "However, nobody should be able to acquire the key although listening into the line constantly.",
                     IDC_STATIC,7,59,262,16
-    LTEXT           "The method deals with the following problem:",
+    LTEXT           "The protocol deals with the following problem:",
                     IDC_STATIC,7,25,262,8
     LTEXT           "We will use the already mentioned key exchange protocol by Diffie-Hellman to solve this problem.",
                     IDC_STATIC,7,85,262,16
@@ -8961,75 +8961,75 @@ END
 
 IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 101
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche Teilschlüssel erzeugen"
+CAPTION "Create Shared Keys"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "Nun können Sie die öffentlichen Teilschlüssel der jeweiligen Partei (Alice oder Bob) erzeugen, sofern Sie im vorigen Schritt schon ein Geheimnis festgelegt haben.",
+    LTEXT           "If you already chose a secret number for Alice or Bob, you can create their according shared keys now.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
 IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 101
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Geheimen Schlüssel generieren"
+CAPTION "Generate Common Session Key"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
     CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
-    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und den gemeinsamen Schlüssel berechnen.",
+    LTEXT           "All preconditions to generate a common and secret Session Key for Alice and Bob are fulfilled. You can generate Alice's and Bob's Session Key after a click on the 'OK' button.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
 END
 
 IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche Parameter setzen"
+CAPTION "Set Public Parameters"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
+    PUSHBUTTON      "&Generate Prime",IDC_GENERATE_PRIME,277,53,100,14
     EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,109,100,
+    PUSHBUTTON      "Create Ge&nerator",IDC_GENERATE_GENERATOR,278,109,100,
                     14
-    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als eins und gleichzeitig aber kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
+    DEFPUSHBUTTON   "&Accept parameters",IDOK,15,137,100,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,278,137,100,20
+    LTEXT           "The generator (g) is a natural number which is bigger than one but smaller than the prime module (1 < g < p). Push the button 'Create Generator' to make CrypTool create a valid natural number.",
                     IDC_STATIC,15,84,363,16
-    LTEXT           "Generator (g)",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
-    LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahl-Modul (p) - dürfen öffentlich bekannt sein.",
+    LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
+    LTEXT           "Both parameters, the generator (g) and the prime module (p) may be known publicly.",
                     IDC_STATIC,15,7,363,8
-    LTEXT           "Der Primzahl-Modul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+    LTEXT           "The prime module (p) needs to be a prime; if you don't know any large primes, just click the button 'Generate Prime'. A valid prime module will be created instantly.",
                     IDC_STATIC,15,28,363,16
-    LTEXT           "Primzahl (p)",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+    LTEXT           "Prime module:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
 END
 
 IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG DISCARDABLE  0, 0, 388, 146
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Geheimnis wählen"
+CAPTION "TEXT WIRD DYNAMISCH ERSTELLT"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
-    DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
+    PUSHBUTTON      "&Generate Secret",IDC_GENERATE_SECRET,273,79,100,14
+    DEFPUSHBUTTON   "&Accept secret",IDOK,15,111,100,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,273,111,100,20
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
-    LTEXT           "Achten Sie dabei darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
+    LTEXT           "The secret is a random natural number which needs to be smaller than the prime module (p) you defined in an earlier dialogue.",
                     IDC_STATIC,15,22,358,16
-    LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, die kleiner als der Primzahl-Modul (p) ist.",
+    LTEXT           "In case you do not want to make up any large number, click the button 'Generate Secret' to let CrypTool generate an appropriate number within a valid range of values.",
                     IDC_STATIC,15,46,358,16
-    LTEXT           "Geheimnis",IDC_STATIC,15,79,34,14,SS_CENTERIMAGE
+    LTEXT           "Secret:",IDC_STATIC,15,79,34,14,SS_CENTERIMAGE
 END
 
 IDD_DIFFIEHELLMAN_SETSECRETS DIALOG DISCARDABLE  0, 0, 200, 101
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Geheimnisse wählen"
+CAPTION "Choose Secrets"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice bzw. Bob festlegen. Die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
+    LTEXT           "Now you can separately choose secret numbers for Alice and Bob. The necessary buttons will be activated as soon as you click the 'OK' button.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
@@ -9101,19 +9101,18 @@ END
 
 IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 196
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION 
-"Schlüssel-Details - Geheimer und gemeinsamer Schlüssel von Alice und Bob"
+CAPTION "Key Details - Secret and common key of Alice and Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,175,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,367,175,50,14
-    LTEXT           "Unabhängig voneinander haben Alice und Bob jeweils für sich den Session Key berechnet:",
-                    IDC_STATIC,7,17,287,8
+    PUSHBUTTON      "&Cancel",IDCANCEL,367,175,50,14
+    LTEXT           "Independent from each other Alice and Bob computed their Session Key:",
+                    IDC_STATIC,7,17,230,8
     LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
                     SS_CENTERIMAGE
     LTEXT           "Bob's Session Key:",IDC_STATIC,20,90,75,14,
                     SS_CENTERIMAGE
-    GROUPBOX        "Verifikation",IDC_STATIC,7,135,410,30
+    GROUPBOX        "Verification",IDC_STATIC,7,135,410,30
     LTEXT           "ERGEBNISTEXT",IDC_RESULT,20,149,391,8
     EDITTEXT        IDC_KEY_ALICE,99,35,312,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_BITLENGTHALICE,180,55,40,14,ES_AUTOHSCROLL | 
@@ -9121,11 +9120,11 @@ BEGIN
     EDITTEXT        IDC_KEY_BOB,99,90,312,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_BITLENGTHBOB,180,110,40,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,55,70,14,
+    LTEXT           "Key length [bit]:",IDC_STATIC,99,55,70,14,
                     SS_CENTERIMAGE
-    LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,110,70,14,
+    LTEXT           "Key length [bit]:",IDC_STATIC,99,110,70,14,
                     SS_CENTERIMAGE
-    PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,175,72,14
+    PUSHBUTTON      "Show &log text",IDC_SHOWLOGTEXT,180,175,72,14
 END
 
 
