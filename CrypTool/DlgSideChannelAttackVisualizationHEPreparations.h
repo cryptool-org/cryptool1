@@ -71,6 +71,7 @@ public:
 	SCACertificateInformation getCertInfo();
 	CString getFinalHybEncFile();
 	void setInitFile(CString);
+	void setInitFileTitle(CString);
 	void setInitMode(int);
 	CDlgSideChannelAttackVisualizationHEPreparations(CWnd* pParent = NULL);   // Standardkonstruktor
 
@@ -102,6 +103,7 @@ private:
 	SCACertificateInformation scaCertInfo;
 	CString finalHybEncFile;
 	CString initFile;
+	CString initFileTitle;
 	int initMode;
 };
 

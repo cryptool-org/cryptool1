@@ -127,6 +127,7 @@ BEGIN_MESSAGE_MAP(CDlgSideChannelAttackVisualizationHE, CDialog)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_BUTTON_NEXTSINGLESTEP, OnButtonNextsinglestep)
 	ON_BN_CLICKED(IDC_BUTTON_ALLREMAININGSTEPS, OnButtonAllremainingsteps)
+	ON_BN_CLICKED(IDC_MESSAGERECEPTION, OnMessagereception)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -218,7 +219,12 @@ void CDlgSideChannelAttackVisualizationHE::setEncryptedFile(const char *file)
 	try
 	{
 		this->initFile = file;
-		this->isFileDeclared = true;
+		// Nur dann eine Datei als deklariert angeben, wenn sie NICHT LEER ist
+		OctetString *text = theApp.SecudeLib.aux_file2OctetString(file);
+		if (!text->noctets)
+			this->isFileDeclared = false;
+		else
+			this->isFileDeclared = true;
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -234,6 +240,14 @@ void CDlgSideChannelAttackVisualizationHE::setHybridEncryptedFileInfo(HybridEncr
 	catch(SCA_Error &e) { CreateErrorMessage(e); return; };
 }
 
+void CDlgSideChannelAttackVisualizationHE::setInitFileTitle(const char *title)
+{
+	try
+	{
+		this->initFileTitle = title;
+	}
+	catch(SCA_Error &e) { CreateErrorMessage(e); return; };	
+}
 
 // Diese Funktion überprüft, ob die übergebene Datei (Pfad wird übergeben) 
 // hybridverschlüsselt wurde. (nötig für Seitenkanalangriffs-Dialog)
@@ -332,6 +346,7 @@ void CDlgSideChannelAttackVisualizationHE::OnPreparations()
 		CDlgSideChannelAttackVisualizationHEPreparations dlg;
 		dlg.setInitMode(initMode);
 		dlg.setInitFile(initFile);
+		dlg.setInitFileTitle(initFileTitle);
 		if(dlg.DoModal() == IDOK)
 		{
 			// Steuerelemente für Angriff "ausblenden"
@@ -421,82 +436,10 @@ void CDlgSideChannelAttackVisualizationHE::OnMessagetransmission()
 		{
 			// Steuerelemente für Angriff "ausblenden"
 			cancelAttackCycle();
-			
-			CString pin;
-			CString serverPrivateKey;
 
-			// PSE-PIN-Abfrage (für Zugang zu privatem Schlüssel)
-			while(1)
-			{
-				// PIN-Eingabedialog erstellen
-				CDlgSideChannelAttackVisualizationHEPSEPINPrompt prompt;
-
-				// Falls der Benutzer ABBRECHEN gedrückt hat, keine weiteren Aktionen durchführen, d.h.
-				// die SCHLEIFE VERLASSEN und dem Benutzer eine entsprechende Nachricht zukommen lassen, dass
-				// ohne die eingegebene PIN eine Angriffsvisualisierung unmöglich ist
-				if(prompt.DoModal() == IDCANCEL)
-				{
-					LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_IS_NEEDED, pc_str, STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str, "CrypTool", MB_OK);
-					return;
-				}
-
-				// Falls der Benutzer OK gedrückt hat, mit den weiteren Vorbereitungen fortfahren...
-				pin = prompt.m_pin;
-
-				// PSE öffnen		
-				PSE PseHandle;
-				PseHandle = theApp.SecudeLib.af_open((char*)(LPCTSTR)certFilename, NULL, (char*)(LPCTSTR)pin, NULL);
-				if(PseHandle==NULL && theApp.SecudeLib.LASTERROR==EPIN)
-				{
-					// ERROR: falsche PIN, in Endlosschleife weitermachen
-					LoadString(AfxGetInstanceHandle(),IDS_SCA_PSE_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str, "CrypTool", MB_OK);
-				}
-				else if(PseHandle==NULL && theApp.SecudeLib.LASTERROR!=EPIN)
-				{
-					// ERROR: anderer Fehler [NICHT EPIN], in Endlosschleife weitermachen
-					LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_OTHER_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str, "CrypTool", MB_OK);
-				}
-				else
-				{
-					// ALLES OK: PIN korrekt, Endlosschleife verlassen und somit mit Vorbereitungen fortfahren
-					break;
-				}
-			}
-
-			// RESET
-			scaClient->cancelTransmission();
-			scaServer->cancelReceptions();
-			scaAttacker->cancelInterception();
-			scaAttacker->cancelAttack();
-			m_ControlAttackProgress.SetPos(0);
-
-			// Private Key aus dem Zertifikat des Servers holen
-			CPSEDemo demo;
-			if(!demo.AccessPSE((char*)(LPCTSTR)pin, certFilename))
-			{
-				// ERROR
-				LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_PIN_EXTRACTION_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str, "CrypTool", MB_OK);
-				return;
-			}
-			else
-			{
-				// öffentlichen und privaten Schlüssel "holen"
-				demo.getRSAPrivateKey(serverPrivateKey);
-			}
-
-			// *** BOB ***
-			scaServer->setPrivateKey((char*)(LPCTSTR)serverPrivateKey);
-			scaServer->setPSEData((char*)(LPCTSTR)certFilename, (char*)(LPCTSTR)pin);
-			
 			// Pfeil zwischen Alice und Bob (AB) auf "Nachricht übertragen" stellen
 			setABArrow(SCA_ABARROW_TRANSMISSION);
-			// Nachricht ÜBERTRAGEN/EMPFANGEN
-			scaServer->receiveHybridEncryptedFile(scaClient->transmitHybEncFile());
-
+			
 			// Timer für Animationsabläufe setzen (siehe Funktion OnTimer)
 			if(!SetTimer(SCA_TIMEREVENT_AB_TRANSMISSION, 50, 0))
 				throw SCA_Error(E_SCA_TIMER_NOT_AVAILABLE);
@@ -509,7 +452,93 @@ void CDlgSideChannelAttackVisualizationHE::OnMessagetransmission()
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
 }
 
+// ------------------
+// **** NEW STEP ****
+// ------------------
+void CDlgSideChannelAttackVisualizationHE::OnMessagereception() 
+{
+	try
+	{
+	
+		CString pin;
+		CString serverPrivateKey;
 
+		// PSE-PIN-Abfrage (für Zugang zu privatem Schlüssel)
+		while(1)
+		{
+			// PIN-Eingabedialog erstellen
+			CDlgSideChannelAttackVisualizationHEPSEPINPrompt prompt;
+
+			// Falls der Benutzer ABBRECHEN gedrückt hat, keine weiteren Aktionen durchführen, d.h.
+			// die SCHLEIFE VERLASSEN und dem Benutzer eine entsprechende Nachricht zukommen lassen, dass
+			// ohne die eingegebene PIN eine Angriffsvisualisierung unmöglich ist
+			if(prompt.DoModal() == IDCANCEL)
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_IS_NEEDED, pc_str, STR_LAENGE_STRING_TABLE);
+				MessageBox(pc_str, "CrypTool", MB_OK);
+				return;
+			}
+
+			// Falls der Benutzer OK gedrückt hat, mit den weiteren Vorbereitungen fortfahren...
+			pin = prompt.m_pin;
+
+			// PSE öffnen		
+			PSE PseHandle;
+			PseHandle = theApp.SecudeLib.af_open((char*)(LPCTSTR)certFilename, NULL, (char*)(LPCTSTR)pin, NULL);
+			if(PseHandle==NULL && theApp.SecudeLib.LASTERROR==EPIN)
+			{
+				// ERROR: falsche PIN, in Endlosschleife weitermachen
+				LoadString(AfxGetInstanceHandle(),IDS_SCA_PSE_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
+				MessageBox(pc_str, "CrypTool", MB_OK);
+			}
+			else if(PseHandle==NULL && theApp.SecudeLib.LASTERROR!=EPIN)
+			{
+				// ERROR: anderer Fehler [NICHT EPIN], in Endlosschleife weitermachen
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_OTHER_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
+				MessageBox(pc_str, "CrypTool", MB_OK);
+			}
+			else
+			{
+				// ALLES OK: PIN korrekt, Endlosschleife verlassen und somit mit Vorbereitungen fortfahren
+				break;
+			}
+		}
+
+		// RESET
+		scaClient->cancelTransmission();
+		scaServer->cancelReceptions();
+		scaAttacker->cancelInterception();
+		scaAttacker->cancelAttack();
+		m_ControlAttackProgress.SetPos(0);
+
+		// Private Key aus dem Zertifikat des Servers holen
+		CPSEDemo demo;
+		if(!demo.AccessPSE((char*)(LPCTSTR)pin, certFilename))
+		{
+			// ERROR
+			LoadString(AfxGetInstanceHandle(), IDS_SCA_PSE_PIN_EXTRACTION_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_OK);
+			return;
+		}
+		else
+		{
+			// öffentlichen und privaten Schlüssel "holen"
+			demo.getRSAPrivateKey(serverPrivateKey);
+		}
+
+		// *** BOB ***
+		scaServer->setPrivateKey((char*)(LPCTSTR)serverPrivateKey);
+		scaServer->setPSEData((char*)(LPCTSTR)certFilename, (char*)(LPCTSTR)pin);
+
+		// Nachricht ÜBERTRAGEN/EMPFANGEN
+		scaServer->receiveHybridEncryptedFile(scaClient->transmitHybEncFile());
+
+		// Anzeige aktualisieren (nur bei Druck auf Ok)
+		updateGUI(9);
+	}
+	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
+	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
+}
 
 // ------------------
 // ***** STEP 4 *****

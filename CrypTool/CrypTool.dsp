@@ -813,6 +813,70 @@ SOURCE=.\BruteForceAnalysis.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button10_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button10_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button10_R_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button1_G_D.bmp
 # End Source File
 # Begin Source File
@@ -5247,7 +5311,15 @@ SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_failure.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_failure.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_interception.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_interception.gif
 # End Source File
 # Begin Source File
 
@@ -5255,7 +5327,15 @@ SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_static.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_static.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_success.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_success.gif
 # End Source File
 # Begin Source File
 
@@ -5263,7 +5343,15 @@ SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_transmission.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_transmission.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_transmission_trudybob.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\gifs\sca_ab_arrow_transmission_trudybob.gif
 # End Source File
 # Begin Source File
 
@@ -5307,11 +5395,23 @@ SOURCE=.\res\SCABitmaps\gifs\sca_lights.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\gifs\sca_lights.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\gifs\sca_lights_green.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\gifs\sca_lights_green.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\gifs\sca_lights_red.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\gifs\sca_lights_red.gif
 # End Source File
 # Begin Source File
 

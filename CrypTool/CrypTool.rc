@@ -2960,15 +2960,15 @@ BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
     CONTROL         "IDB_SCA_BUTTON2_R_",IDC_PREPARATIONS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,70,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,65,100,30
     CONTROL         "IDB_SCA_BUTTON3_R_",IDC_MESSAGETRANSMISSION,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,120,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,110,100,30
     CONTROL         "IDB_SCA_BUTTON4_R_",IDC_MESSAGEINTERCEPTION,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,205,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,200,100,30
     CONTROL         "IDB_SCA_BUTTON5_R_",IDC_ATTACKCYCLE,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,255,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,245,100,30
     CONTROL         "IDB_SCA_BUTTON6_R_",IDC_REPORT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,10,305,100,30
+                    BS_BITMAP | WS_TABSTOP,10,290,100,30
     CONTROL         "IDB_SCA_BUTTON7_R_",IDC_ALICE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,164,16,30,30
     CONTROL         "IDB_SCA_BUTTON8_R_",IDC_BOB,"Button",BS_OWNERDRAW | 
@@ -2984,19 +2984,6 @@ BEGIN
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
                     PBS_SMOOTH | WS_BORDER,339,341,130,12
     LTEXT           "Fortschritt des Angriffs:",IDC_STATIC,339,330,72,8
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,66,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,116,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,201,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,251,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,301,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,196,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,192,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,187,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,177,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,182,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,168,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,172,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,166,8,5
     PUSHBUTTON      "&Beenden",IDCLOSE,593,343,50,14
     PUSHBUTTON      "&Nächster Einzelschritt",IDC_BUTTON_NEXTSINGLESTEP,225,
                     296,100,25
@@ -3004,6 +2991,8 @@ BEGIN
                     225,325,100,26
     GROUPBOX        "Steuerung des Angriffs:",IDC_ATTACKCONTROL,220,282,111,
                     75
+    CONTROL         "IDB_SCA_BUTTON10_R_",IDC_MESSAGERECEPTION,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,155,100,30
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION DIALOG DISCARDABLE  0, 0, 250, 198
@@ -3086,33 +3075,33 @@ BEGIN
                     IDC_STATIC,7,39,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 86
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 70
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Nachricht übertragen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,65,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,49,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,49,50,14
     LTEXT           "Alice hat die an Bob adressierte Nachricht hybridverschlüsselt.",
                     IDC_STATIC,7,7,226,8
     LTEXT           "Mit einem Klick auf OK können Sie die hybridverschlüsselte Nachricht von Alice an Bob versenden.",
-                    IDC_STATIC,7,39,226,16
-    LTEXT           "Zum Entschlüsseln der Nachricht muss Bob seine PIN angeben.",
-                    IDC_STATIC,7,23,226,8
+                    IDC_STATIC,7,23,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 108
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 124
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PIN-Eingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_PIN,87,58,50,14,ES_PASSWORD | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&OK",IDOK,7,87,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,169,87,50,14
+    EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,103,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,169,103,50,14
     LTEXT           "Bitte geben Sie nun die PIN für Bobs privaten Schlüsseln ein:",
-                    IDC_STATIC,7,39,193,8
+                    IDC_STATIC,7,55,193,8
     LTEXT           "Bob braucht zum Entschlüsseln seinen privaten Schlüssel. Der private Schlüssel ist PIN-geschützt, um unbefugten Zugriff zu verhindern.",
-                    IDC_STATIC,7,7,212,24
+                    IDC_STATIC,7,23,212,24
+    LTEXT           "Bob hat die hybridverschlüsselte Nachricht von Alice empfangen.",
+                    IDC_STATIC,7,7,206,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG DISCARDABLE  0, 0, 375, 250
@@ -3184,10 +3173,10 @@ CAPTION "Seitenkanalangriff erfolgreich ausgeführt!"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,84,77,50,14
-    CTEXT           "Sie haben erfolgreich einen Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll durchgeführt.",
+    CTEXT           "Sie haben einen kompletten Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll durchgeführt.",
                     IDC_STATIC,7,23,201,16
     LTEXT           "Herzlichen Glückwunsch!",IDC_STATIC,57,7,84,8
-    CTEXT           "Klicken Sie bitte auf das Symbol von Trudy, um zu überprüfen, ob der erfolgreiche Seitenkanalangriff von Trudy die korrekte Entschlüsselung der Nachricht ermöglicht hat.",
+    CTEXT           "Klicken Sie bitte auf das Symbol von Trudy, um zu überprüfen, ob der Seitenkanalangriff von Trudy die korrekte Entschlüsselung der Nachricht ermöglicht hat.",
                     IDC_STATIC,7,47,201,24
 END
 
@@ -4468,6 +4457,14 @@ IDB_SCA_ALICE_SMALL     BITMAP  MOVEABLE PURE   "res\\SCABitmaps\\bmps\\sca_alic
 IDB_SCA_BOB_SMALL       BITMAP  MOVEABLE PURE   "res\\SCABitmaps\\bmps\\sca_bob_small.bmp"
 IDB_SCA_GAPFILLER       BITMAP  MOVEABLE PURE   "res\\SCABitmaps\\bmps\\sca_gapfiller.bmp"
 IDB_CR_BACKGROUND_BITMAP BITMAP  MOVEABLE PURE   "res\\white.bmp"
+IDB_SCA_BUTTON10_G_D    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_G_D.bmp"
+IDB_SCA_BUTTON10_G_F    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_G_F.bmp"
+IDB_SCA_BUTTON10_G_U    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_G_U.bmp"
+IDB_SCA_BUTTON10_G_X    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_G_X.bmp"
+IDB_SCA_BUTTON10_R_D    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_R_D.bmp"
+IDB_SCA_BUTTON10_R_F    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_R_F.bmp"
+IDB_SCA_BUTTON10_R_U    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_R_U.bmp"
+IDB_SCA_BUTTON10_R_X    BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button10_R_X.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4813,7 +4810,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 79
+        BOTTOMMARGIN, 63
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT, DIALOG
@@ -4821,7 +4818,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 219
         TOPMARGIN, 7
-        BOTTOMMARGIN, 101
+        BOTTOMMARGIN, 117
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE, DIALOG
@@ -6612,10 +6609,10 @@ BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "Der Protokollverlauf mit Ihren Zahlen wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
-                            "Es ist bereits eine hybridverschlüsselte Datei geöffnet.\nMöchten Sie diese Datei als Basis für den Angriff verwenden?"
+                            "Das geöffnete Dokument %s ist schon für Bob hybridverschlüsselt.\nMöchten Sie dieses Dokument als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "Es sind keine gespeicherten Schlüsselpaare auffindbar.\nSie werden nun aufgefordert, ein neues Schlüsselpaar zu erzeugen."
-    IDS_SCA_TEXTFILE_OPENED "Es ist bereits eine Datei geöffnet. Wollen Sie diese Datei\nhybridverschlüsseln und als Basis für den Angriff verwenden?"
+    IDS_SCA_TEXTFILE_OPENED "Das geöffnete Dokument %s ist noch nicht hybridverschlüsselt.\nMöchten Sie dieses Dokument hybridverschlüsseln und als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
     IDS_SCA_PSE_WRONG_PIN   "Die von Ihnen eingegebene PIN ist falsch!"
     IDS_SCA_PSE_PIN_EXTRACTION_ERROR 
                             "Bei der Verifikation der PIN ist ein Fehler aufgetreten!"
@@ -6717,7 +6714,7 @@ BEGIN
     IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE 
                             "Trudy fängt die hybridverschlüsselte Datei ab und isoliert den darin enthaltenen, verschlüsselten Sessionkey S:\n"
     IDS_SCA_REPORT_TRUDYMODIFIEDSESSIONKEYS 
-                            "Trudy modifiziert den ursprünglichen, verschlüsselten Sessionkey S und erhält S'. Sie schickt ein exaktes Abbild der ursprünglichen Nachricht an Bob-- sie tauscht lediglich den Sessionkey aus, d.h. S wird durch S' ersetzt.\n"
+                            "Sie schickt eine exaktes Abbild der ursprünglichen, verschlüsselten Nachricht an Bob und ergänzt dieses mit dem (mit dem Public-Key von Bob verschlüsselten) Sessionkey S'. Im Vergleich zur Nachricht, die Alice sandte, tauscht sie also lediglich den verschlüsselten Sessionkey aus [ENC(S, PubKeyBob) wird durch ENC(S', PubKeyBob) ersetzt]."
     IDS_SCA_REPORT_HEADINGPREPARATIONS "I. TREFFEN NÖTIGER VORBEREITUNGEN\n\n"
 END
 
@@ -9808,15 +9805,15 @@ BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
     CONTROL         "IDB_SCA_BUTTON2_R_",IDC_PREPARATIONS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,70,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,65,100,30
     CONTROL         "IDB_SCA_BUTTON3_R_",IDC_MESSAGETRANSMISSION,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,120,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,110,100,30
     CONTROL         "IDB_SCA_BUTTON4_R_",IDC_MESSAGEINTERCEPTION,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,205,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,200,100,30
     CONTROL         "IDB_SCA_BUTTON5_R_",IDC_ATTACKCYCLE,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,255,100,30
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,245,100,30
     CONTROL         "IDB_SCA_BUTTON6_R_",IDC_REPORT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,10,305,100,30
+                    BS_BITMAP | WS_TABSTOP,10,290,100,30
     CONTROL         "IDB_SCA_BUTTON7_R_",IDC_ALICE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,164,16,30,30
     CONTROL         "IDB_SCA_BUTTON8_R_",IDC_BOB,"Button",BS_OWNERDRAW | 
@@ -9832,24 +9829,13 @@ BEGIN
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
                     PBS_SMOOTH | WS_BORDER,339,341,130,12
     LTEXT           "Attack progress:",IDC_STATIC,339,330,52,8
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,66,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,116,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,201,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,251,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,301,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,196,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,192,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,187,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,177,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,182,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,168,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,172,8,5
-    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,166,8,5
     PUSHBUTTON      "&Quit",IDCLOSE,593,343,50,14
     PUSHBUTTON      "&Next step",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,
                     325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
+    CONTROL         "IDB_SCA_BUTTON10_R_",IDC_MESSAGERECEPTION,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,155,100,30
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG DISCARDABLE  0, 0, 375, 250
@@ -9893,10 +9879,10 @@ CAPTION "Side-Channel Attack Successful"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,84,77,50,14
-    CTEXT           "You have successfully executed a side-channel attack\nagainst the hybrid encryption protocol.",
+    CTEXT           "You have executed a complete side-channel attack\nagainst the hybrid encryption protocol.",
                     IDC_STATIC,7,23,201,16
     LTEXT           "Congratulations!",IDC_STATIC,81,7,53,8
-    CTEXT           "Please click on Trudy's info button to make sure whether the\nsuccessful protocol attack really helped Trudy to decrypt the hybrid encrypted message.",
+    CTEXT           "Please click on Trudy's info button to make sure whether the\nprotocol attack really helped Trudy to decrypt the hybrid encrypted message.",
                     IDC_STATIC,7,47,201,24
 END
 
@@ -9939,19 +9925,17 @@ BEGIN
                     IDC_STATIC,7,111,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 86
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 70
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Message Transmission"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,183,65,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,49,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,183,49,50,14
     LTEXT           "Alice has hybrid encrypted the message addressed to Bob.",
                     IDC_STATIC,7,7,226,8
-    LTEXT           "Bob will have to enter his PIN to decrypt the hybrid encrypted message.",
-                    IDC_STATIC,7,23,226,8
     LTEXT           "By clicking the OK button you can transmit the hybrid encrypted Message from Alice to Bob.",
-                    IDC_STATIC,7,39,226,16
+                    IDC_STATIC,7,23,226,16
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG DISCARDABLE  0, 0, 275, 118
@@ -9969,18 +9953,20 @@ BEGIN
                     IDC_STATIC,7,39,261,24
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 108
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 124
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PIN Prompt for Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_PIN,87,58,50,14,ES_PASSWORD | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&OK",IDOK,7,87,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,169,87,50,14
+    EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,103,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,169,103,50,14
     LTEXT           "Please enter the PIN for Bob's private key:",IDC_STATIC,
-                    7,39,134,8
+                    7,55,134,8
     LTEXT           "Bob needs his private key to decrypt the received message. The private key is protected with a PIN to prevent misuse by a third party.",
-                    IDC_STATIC,7,7,212,24
+                    IDC_STATIC,7,23,212,24
+    LTEXT           "Bob received the hybrid encrypted message from Alice.",
+                    IDC_STATIC,7,7,174,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_REPORT DIALOG DISCARDABLE  0, 0, 240, 90
@@ -11249,6 +11235,14 @@ IDB_SCA_ALICE_SMALL     BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\sca_a
 IDB_SCA_BOB_SMALL       BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\sca_bob_small.bmp"
 IDB_SCA_GAPFILLER       BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\sca_gapfiller.bmp"
 IDB_CR_BACKGROUND_BITMAP BITMAP  MOVEABLE PURE   "res\\cr_backg.bmp"
+IDB_SCA_BUTTON10_R_X    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_R_X.bmp"
+IDB_SCA_BUTTON10_G_F    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_G_F.bmp"
+IDB_SCA_BUTTON10_G_U    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_G_U.bmp"
+IDB_SCA_BUTTON10_G_X    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_G_X.bmp"
+IDB_SCA_BUTTON10_R_D    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_R_D.bmp"
+IDB_SCA_BUTTON10_R_F    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_R_F.bmp"
+IDB_SCA_BUTTON10_R_U    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_R_U.bmp"
+IDB_SCA_BUTTON10_G_D    BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button10_G_D.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -11943,7 +11937,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 79
+        BOTTOMMARGIN, 63
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
@@ -11961,7 +11955,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 219
         TOPMARGIN, 7
-        BOTTOMMARGIN, 101
+        BOTTOMMARGIN, 117
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_REPORT, DIALOG
@@ -13669,10 +13663,10 @@ BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "The log text of the procedure was successfully written into a main window of the CrypTool application."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
-                            "A hybrid encrypted file is already opened!\nDo you want to use this file to execute the side-channel attack?"
+                            "The opened document %s is already hybrid encrypted for Bob.\nDo you want to use this document to execute the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "No saved key pairs detectable!\nYou will be asked to create a new key pair."
-    IDS_SCA_TEXTFILE_OPENED "A file is already opened. Do you want to hybrid encrypt this file and use it for the side-channel attack?"
+    IDS_SCA_TEXTFILE_OPENED "The opened document %s is not hybrid encrypted yet. Do you want to hybrid encrypt this document and use it for the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_PSE_WRONG_PIN   "The PIN you entered is not correct!"
     IDS_SCA_PSE_PIN_EXTRACTION_ERROR "Error verifying the PIN!"
     IDS_SCA_PSE_IS_NEEDED   "You cannot continue the visualization without the PIN!"
@@ -13826,7 +13820,7 @@ BEGIN
     IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE 
                             "Trudy intercepts the hybrid encrypted file and isolates the encrypted session key S:\n"
     IDS_SCA_REPORT_TRUDYMODIFIEDSESSIONKEYS 
-                            "Trudy modifies the original, encrypted session key S to S'. She sends an exact copy of the original message to Bob except the session key-- she simply exchanges S with S'.\n"
+                            "She sends an exact copy of the original, encrypted message to Bob and extends it with the session key S' (encrypted with Bob's public key). Compared to the message sent by Alice, Trudy simply replaces the encrypted session key [ENC(S, PubKeyBob) is replaced by ENC(S', PubKeyBob)]."
     IDS_SCA_REPORT_HEADINGPREPARATIONS "I. PREPARATIONS\n\n"
 END
 

@@ -705,6 +705,7 @@
 #define IDC_CHOOSEPUBLICKEY             1510
 #define IDC_TRUDY                       1510
 #define IDC_HYBRIDENCRYPTMESSAGE        1511
+#define IDC_MESSAGERECEPTION            1511
 #define IDC_PIN                         1512
 #define IDC_MESSAGECOMPOSED             1514
 #define IDC_MESSAGEENCRYPTED            1515
@@ -1778,7 +1779,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        796
+#define _APS_NEXT_RESOURCE_VALUE        805
 #define _APS_NEXT_COMMAND_VALUE         33268
 #define _APS_NEXT_CONTROL_VALUE         1546
 #define _APS_NEXT_SYMED_VALUE           101

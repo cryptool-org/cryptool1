@@ -112,6 +112,8 @@ class CDlgSideChannelAttackVisualizationHE : public CDialog
 	// Pfad zur Input-Datei, d.h. Pfad zu der Datei, die beim Öffnen des
 	// Dialogs aktiv war (ContentName)
 	CString initFile;
+	//
+	CString initFileTitle;
 	// Pfad zur Output-Datei, d.h. Pfad zu der HYBRIDVERSCHLÜSSELTEN DATEI, die
 	// beim Ausführen des Dialogs erzeugt worden ist. Für spätere Verwendung nötig.
 	CString targetFile;
@@ -138,6 +140,7 @@ public:
 
 	bool isDocumentHybridEncrypted(const char*);
 	void setEncryptedFile(const char*);
+	void setInitFileTitle(const char*);
 
 	// SCA
 	SCA_Server *getSCAServer() { return scaServer; };
@@ -191,6 +194,7 @@ protected:
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnButtonNextsinglestep();
 	afx_msg void OnButtonAllremainingsteps();
+	afx_msg void OnMessagereception();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

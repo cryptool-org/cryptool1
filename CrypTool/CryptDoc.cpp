@@ -1748,5 +1748,7 @@ void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 
 	CDlgSideChannelAttackVisualizationHE dlg;
 	dlg.setEncryptedFile(ContentName);
+	dlg.setInitFileTitle(GetTitle());
+		
 	dlg.DoModal();
 }

@@ -61,6 +61,7 @@ const ButtonResourceStruct SCA_BitmapResources[] =
 	{	IDC_ALICE,						"IDB_SCA_BUTTON7_R_U",	"IDB_SCA_BUTTON7_R_D",	"IDB_SCA_BUTTON7_R_F",	"IDB_SCA_BUTTON7_R_X",	"IDB_SCA_BUTTON7_G_U",	"IDB_SCA_BUTTON7_G_D",	"IDB_SCA_BUTTON7_G_F",	"IDB_SCA_BUTTON7_G_X" },
 	{	IDC_BOB,						"IDB_SCA_BUTTON8_R_U",	"IDB_SCA_BUTTON8_R_D",	"IDB_SCA_BUTTON8_R_F",	"IDB_SCA_BUTTON8_R_X",	"IDB_SCA_BUTTON8_G_U",	"IDB_SCA_BUTTON8_G_D",	"IDB_SCA_BUTTON8_G_F",	"IDB_SCA_BUTTON8_G_X" },
 	{	IDC_TRUDY,						"IDB_SCA_BUTTON9_R_U",	"IDB_SCA_BUTTON9_R_D",	"IDB_SCA_BUTTON9_R_F",	"IDB_SCA_BUTTON9_R_X",	"IDB_SCA_BUTTON9_G_U",	"IDB_SCA_BUTTON9_G_D",	"IDB_SCA_BUTTON9_G_F",	"IDB_SCA_BUTTON9_G_X" },
+	{	IDC_MESSAGERECEPTION,			"IDB_SCA_BUTTON10_R_U",	"IDB_SCA_BUTTON10_R_D",	"IDB_SCA_BUTTON10_R_F",	"IDB_SCA_BUTTON10_R_X",	"IDB_SCA_BUTTON10_G_U",	"IDB_SCA_BUTTON10_G_D",	"IDB_SCA_BUTTON10_G_F",	"IDB_SCA_BUTTON10_G_X"},
 	
 	// KENNZEICHNUNG DES STRUKTUR-ENDES, _NICHT_ MODIFIZIEREN!!!!
 	{0, "", "", "", "", "", "", "", "" }
@@ -84,12 +85,13 @@ private:
 		AllButtons[0].SetActive( true );
 		AllButtons[1].SetActive( AllButtons[0].IsActionPerformed() );
 		AllButtons[2].SetActive( AllButtons[1].IsActionPerformed() );
-		AllButtons[3].SetActive( AllButtons[2].IsActionPerformed() );
+		AllButtons[3].SetActive( AllButtons[9].IsActionPerformed() );
 		AllButtons[4].SetActive( AllButtons[3].IsActionPerformed() );
 		AllButtons[5].SetActive( AllButtons[4].IsActionPerformed() );
 		AllButtons[6].SetActive( AllButtons[0].IsActionPerformed() );
 		AllButtons[7].SetActive( AllButtons[0].IsActionPerformed() );
 		AllButtons[8].SetActive( AllButtons[0].IsActionPerformed() );
+		AllButtons[9].SetActive( AllButtons[2].IsActionPerformed() );
 		
 		//Die entsprechenden Bitmaps laden
 		for(int i=0; i<NumberOfButtons;i++)
@@ -125,6 +127,7 @@ public:
 			AllButtons[3].CancelAction();
 			AllButtons[4].CancelAction();
 			AllButtons[5].CancelAction();
+			AllButtons[9].CancelAction();
 		}
 		if(b == 1)
 		{
@@ -132,12 +135,14 @@ public:
 			AllButtons[3].CancelAction();
 			AllButtons[4].CancelAction();
 			AllButtons[5].CancelAction();
+			AllButtons[9].CancelAction();
 		}
 		if(b == 2)
 		{
 			AllButtons[3].CancelAction();
 			AllButtons[4].CancelAction();
 			AllButtons[5].CancelAction();
+			AllButtons[9].CancelAction();
 		}
 		if(b == 3)
 		{
@@ -163,6 +168,12 @@ public:
 		if(b == 8)
 		{
 
+		}
+		if(b == 9)
+		{
+			AllButtons[3].CancelAction();
+			AllButtons[4].CancelAction();
+			AllButtons[5].CancelAction();
 		}
 		
 		this->Update();

@@ -77,6 +77,7 @@ CDlgSideChannelAttackVisualizationHEPreparations::CDlgSideChannelAttackVisualiza
 
 	this->initMode = 0;
 	this->initFile = "";
+	this->initFileTitle = "";
 	this->finalHybEncFile = "";
 	this->useExistingHybEncFile = false;
 }
@@ -126,7 +127,9 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 	}
 	else if(initMode & SCA_MODE_INVALID_FILE)
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_SCA_TEXTFILE_OPENED, pc_str, STR_LAENGE_STRING_TABLE);
+		char buffer[STR_LAENGE_STRING_TABLE];
+		LoadString(AfxGetInstanceHandle(), IDS_SCA_TEXTFILE_OPENED, buffer, STR_LAENGE_STRING_TABLE);
+		sprintf(pc_str, buffer, (LPCTSTR)initFileTitle);
 		result = AfxMessageBox(pc_str, MB_YESNO);
 
 		if(result == IDYES)
@@ -135,6 +138,7 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 			// Basis für den Angriff verwenden
 			CDlgHybridEncryptionDemo dlg;
 			dlg.activateSCABehaviour();
+			dlg.m_strBuffTitle = initFileTitle;
 			dlg.m_strPathSelDoc = initFile;
 			if(dlg.DoModal() == IDOK)
 			{
@@ -170,7 +174,9 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 	}
 	else if(initMode & SCA_MODE_VALID_FILE)
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBENCFILE_ALREADY_OPENED, pc_str, STR_LAENGE_STRING_TABLE);
+		char buffer[STR_LAENGE_STRING_TABLE];
+		LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBENCFILE_ALREADY_OPENED, buffer, STR_LAENGE_STRING_TABLE);
+		sprintf(pc_str, buffer, (LPCTSTR)initFileTitle);
 		result = AfxMessageBox(pc_str, MB_YESNO);
 
 		if(result == IDYES)
@@ -229,6 +235,11 @@ void CDlgSideChannelAttackVisualizationHEPreparations::setInitMode(int i)
 void CDlgSideChannelAttackVisualizationHEPreparations::setInitFile(CString i)
 {
 	initFile = i;
+}
+
+void CDlgSideChannelAttackVisualizationHEPreparations::setInitFileTitle(CString t)
+{
+	initFileTitle = t;
 }
 
 CString CDlgSideChannelAttackVisualizationHEPreparations::getFinalHybEncFile()
