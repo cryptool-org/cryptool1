@@ -1495,6 +1495,14 @@ SOURCE=.\res\paddoc.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\PinAndNewPinDialog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PinAndNewPinDialog.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\PinCodeDialog.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -1710,6 +1718,14 @@ SOURCE=.\SecudeLib.cpp
 # Begin Source File
 
 SOURCE=.\SecudeLib.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SecudeTools.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SecudeTools.h
 # End Source File
 # Begin Source File
 
