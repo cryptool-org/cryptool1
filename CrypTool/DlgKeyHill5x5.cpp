@@ -752,7 +752,7 @@ void CDlgKeyHill5x5::OnPasteKey()
 				OnDimension2();
 				break;
 			}
-			AnzeigeDimensionSetzen(i);
+			AnzeigeDimensionSetzen(dim);
 			// Cursor in Feld links oben setzen
  			m_pFelder[0][0]->SetFocus();
  			m_pFelder[0][0]->SetSel(0,-1);

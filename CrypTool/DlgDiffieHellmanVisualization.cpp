@@ -165,7 +165,7 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 	catch(DHError& e) { CreateErrorMessage(e); return; }
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	// Button mit Index 0 gedrückt
 	this->UpdateGUI(0);
@@ -183,7 +183,7 @@ void CDlgDiffieHellmanVisualization::OnSetsecrets()
 	}
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	// Button mit Index 1 gedrückt
 	this->UpdateGUI(1);
@@ -202,7 +202,7 @@ void CDlgDiffieHellmanVisualization::OnCreatesharedkey()
 	}
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	// Button mit Index 2 gedrückt
 	this->UpdateGUI(2);
@@ -241,7 +241,7 @@ void CDlgDiffieHellmanVisualization::OnGeneratefinalkey()
 	}
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF2);
 
 	// Button mit Index 4 gedrückt
 	this->UpdateGUI(4);
@@ -287,7 +287,7 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 	this->m_SecretAlice = dlg->m_Secret;
 	
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 	
 	UpdateData(false);
 
@@ -333,7 +333,7 @@ void CDlgDiffieHellmanVisualization::OnButtonbob1()
 	this->m_SecretBob = dlg->m_Secret;
 	
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 	
 	UpdateData(false);
 
@@ -359,7 +359,7 @@ void CDlgDiffieHellmanVisualization::OnButtonalice2()
 	}
 		
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	UpdateData(false);
 
@@ -382,7 +382,7 @@ void CDlgDiffieHellmanVisualization::OnButtonbob2()
 	}
 	
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	UpdateData(false);
 
@@ -406,7 +406,7 @@ void CDlgDiffieHellmanVisualization::OnButtonalice3()
 	}
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF2);
 
 	UpdateData(false);
 
@@ -430,7 +430,7 @@ void CDlgDiffieHellmanVisualization::OnButtonbob3()
 	}
 
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF2);
 	
 	UpdateData(false);
 
@@ -464,7 +464,7 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	this->m_blackbrush.CreateSolidBrush(m_blackcolor);
 	
 	// Statische GIF-Anim einblenden
-	this->ShowStaticGIF();
+	this->ShowStaticGIF(IDR_GIF3);
 
 	UpdateData(false);
 
@@ -756,15 +756,23 @@ void CDlgDiffieHellmanVisualization::ShowAnimatedGIF()
 }
 
 // siehe oben (letzter Kommentar)
-void CDlgDiffieHellmanVisualization::ShowStaticGIF()
+void CDlgDiffieHellmanVisualization::ShowStaticGIF(unsigned long gifIDR)
 {
 	if(!this->m_bStaticGIFLoaded)
 	{
 		if(this->m_bAnimatedGIFLoaded) m_AnimGif.UnLoad();
-		m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF2), _T("GIF"));
+		m_AnimGif.Load(MAKEINTRESOURCE(gifIDR), _T("GIF"));
 		this->m_bAnimatedGIFLoaded = false;
 		this->m_bStaticGIFLoaded = true;
 	}
+	else
+	{
+		m_AnimGif.UnLoad();
+		m_AnimGif.Load(MAKEINTRESOURCE(gifIDR), _T("GIF"));
+		this->m_bAnimatedGIFLoaded = false;
+		this->m_bStaticGIFLoaded = true;
+	}
+
 	
 	m_AnimGif.Stop();
 	m_AnimGif.Draw();

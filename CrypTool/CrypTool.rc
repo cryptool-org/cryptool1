@@ -4366,6 +4366,7 @@ END
 
 IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
 IDR_GIF2                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis.gif"
+IDR_GIF3                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis0.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5105,7 +5106,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
-                            "Session Key, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers::"
+                            "Session Key, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers:"
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Die Eingabe ist keine hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
     IDS_STRING_HYBRID_DEC_MSG10 "Sie haben das falsche Zertifikat gewählt!"
@@ -5170,6 +5171,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_VARIABLE     "Variable"
+    IDS_SIGDEMO_FILE_EMPTY  "Datei ist leer!\nBitte wählen Sie eine nicht leere Datei aus."
     IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll nicht verfügbar"
     IDS_STRING_PLAYFAIR_PREFORMAT "Playfair-Vorformatierung von <%s>"
     IDS_STRING_NO_VALID_KEYS_FOUND 
@@ -9066,7 +9068,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -9275,7 +9277,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -9511,7 +9513,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -9592,7 +9594,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -9805,7 +9807,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -10750,6 +10752,7 @@ END
 
 IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
 IDR_GIF2                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis.gif"
+IDR_GIF3                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis0.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -11535,6 +11538,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_VARIABLE     "Variable"
+    IDS_SIGDEMO_FILE_EMPTY  "File is empty!\nPlease select a non empty file."
     IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll not available"
     IDS_STRING_PLAYFAIR_PREFORMAT "Playfair pre-formatting of <%s>"
     IDS_STRING_NO_VALID_KEYS_FOUND 

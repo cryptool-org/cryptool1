@@ -1283,7 +1283,7 @@ void CDlgKeyHill10x10::OnPasteKey()
 				i++;
 				j = -1;
 				// ... sofern es noch eine weitere gibt.
-				if (i == HILL_MAX_DIM)
+				if (i == HILL_MAX_DIM_GROSS)
 				{
  					// Es gibt keine weitere Zeile
  					l = laenge;
@@ -1293,7 +1293,7 @@ void CDlgKeyHill10x10::OnPasteKey()
  			l++;
  		}
 
-		ASSERT ((0 <= keyDim) && (keyDim <= HILL_MAX_DIM));
+		ASSERT ((0 <= keyDim) && (keyDim <= HILL_MAX_DIM_GROSS));
 		dim = keyDim;
 		iHillSchluesselDim = dim;
 
@@ -1343,10 +1343,10 @@ void CDlgKeyHill10x10::OnPasteKey()
 			// Default Dimension = 2
 			dim = 2;
 			iHillSchluesselDim = dim;
-			CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO2);
 			break;
 		}
-		AnzeigeDimensionSetzen(i);
+		AnzeigeDimensionSetzen(dim);
 		// Cursor in Feld links oben setzen
  		m_pFelder[0][0]->SetFocus();
  		m_pFelder[0][0]->SetSel(0,-1);

@@ -161,6 +161,7 @@
 #define IDD_DIFFIEHELLMAN_FINALINFO     645
 #define IDR_GIF2                        646
 #define IDD_GENERATEPRIME               647
+#define IDR_GIF3                        648
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -1228,6 +1229,7 @@
 #define IDS_STRING_EXPONENT             37102
 #define IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER 37103
 #define IDS_STRING_VARIABLE             37104
+#define IDS_SIGDEMO_FILE_EMPTY          37105
 #define IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE 37106
 #define IDS_STRING_PLAYFAIR_PREFORMAT   37107
 #define IDS_STRING_NO_VALID_KEYS_FOUND  37108
@@ -1577,7 +1579,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        648
+#define _APS_NEXT_RESOURCE_VALUE        649
 #define _APS_NEXT_COMMAND_VALUE         33265
 #define _APS_NEXT_CONTROL_VALUE         1502
 #define _APS_NEXT_SYMED_VALUE           101

@@ -66,7 +66,7 @@ public:
 
 	// Für die GIF-Animation(en) im Dialog
 	void ShowAnimatedGIF();
-	void ShowStaticGIF();
+	void ShowStaticGIF(unsigned long gifIDR);
 
 
 protected:

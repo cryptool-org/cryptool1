@@ -163,6 +163,11 @@ void CDlgSignatureDemo::OnSelectDocument()
 		{   // Dateiinhalt in die Variable m_Message einlesen
 			theApp.SecudeLib.aux_free_OctetString(&m_Message);
 			m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName);
+			if ( !m_Message || !m_Message->noctets )
+			{
+				Message( IDS_SIGDEMO_FILE_EMPTY, MB_ICONEXCLAMATION );
+				return;
+			}
 			button1 = -1;
 			EnableButtons();
 			//OnInfoDocument();
@@ -178,8 +183,14 @@ BOOL CDlgSignatureDemo::InitDocument(const char *infile, const char* OldTitle)
 {
 	m_sFileName = OldTitle;
 	m_sPathName = infile;
-	if(m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName)) return TRUE;
-
+	if(m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName)) 
+	{
+		if ( !m_Message || m_Message->noctets )
+		{
+			return FALSE;
+		}
+		return TRUE;
+	}
 	return FALSE;	
 }
 
@@ -347,18 +358,21 @@ void CDlgSignatureDemo::EnableButtons()
 	
 	
 	// Info Dokument
+	if( !m_sPathName.IsEmpty() )
+		m_ButtonInfoDoc.EnableWindow(TRUE);
+	else
+		m_ButtonInfoDoc.EnableWindow(FALSE);
+
 	if ( button1 == -1 ) 
 	{
 		if( !m_sPathName.IsEmpty() )
 		{
-			m_ButtonInfoDoc.EnableWindow(TRUE);
 			m_ButtonSelectDoc.LoadBitmaps("OPENDOC_G_U", "OPENDOC_G_D", "OPENDOC_G_F", NULL);
 			m_ButtonSelectDoc.ShowWindow(SW_HIDE);
 			m_ButtonSelectDoc.ShowWindow(SW_SHOW);
 		}
 		else
 		{
-			m_ButtonInfoDoc.EnableWindow(FALSE);
 			m_ButtonSelectDoc.LoadBitmaps("OPENDOC_R_U", "OPENDOC_R_D", "OPENDOC_R_F", NULL);
 			m_ButtonSelectDoc.ShowWindow(SW_HIDE);
 			m_ButtonSelectDoc.ShowWindow(SW_SHOW);
@@ -366,19 +380,21 @@ void CDlgSignatureDemo::EnableButtons()
 		button1 = 1;
 	}
 	// Info Hash Algorithmus
+	if( !m_Cert->GetHashAlg().IsEmpty() )
+		m_ButtonInfoHashAlg.EnableWindow(TRUE);
+	else
+		m_ButtonInfoHashAlg.EnableWindow(FALSE);
 
 	if ( button2 = -1 )
 	{
 		if( !m_Cert->GetHashAlg().IsEmpty() )
 		{
-			m_ButtonInfoHashAlg.EnableWindow(TRUE);
 			m_ButtonSelectHashAlg.LoadBitmaps("SELECTALG_G_U", "SELECTALG_G_D", "SELECTALG_G_F", NULL);
 			m_ButtonSelectHashAlg.ShowWindow(SW_HIDE);
 			m_ButtonSelectHashAlg.ShowWindow(SW_SHOW);	
 		}
 		else
 		{
-			m_ButtonInfoHashAlg.EnableWindow(FALSE);
 			m_ButtonSelectHashAlg.LoadBitmaps("SELECTALG_R_U", "SELECTALG_R_D", "SELECTALG_R_F", NULL);
 			m_ButtonSelectHashAlg.ShowWindow(SW_HIDE);
 			m_ButtonSelectHashAlg.ShowWindow(SW_SHOW);
@@ -387,43 +403,49 @@ void CDlgSignatureDemo::EnableButtons()
 	}
 
 	// Info Schlüssel
+	if( m_Cert->IsInitialized() )
+		m_ButtonInfoKey.EnableWindow(TRUE);
+	else
+		m_ButtonInfoKey.EnableWindow(FALSE);
 	if ( button3 == -1 )
 	{
 		if( m_Cert->IsInitialized() )
 		{
-			m_ButtonInfoKey.EnableWindow(TRUE);
 			m_ButtonSelectKey.LoadBitmaps("GENKEY_G_U", "GENKEY_G_D", "GENKEY_G_F", NULL);
 			m_ButtonSelectKey.ShowWindow(SW_HIDE);
 			m_ButtonSelectKey.ShowWindow(SW_SHOW);
 		}
 		else
 		{
-			m_ButtonInfoKey.EnableWindow(FALSE);
 			m_ButtonSelectKey.LoadBitmaps("GENKEY_R_U", "GENKEY_R_D", "GENKEY_R_F", NULL);
 			m_ButtonSelectKey.ShowWindow(SW_HIDE);
 			m_ButtonSelectKey.ShowWindow(SW_SHOW);
 		}
 		button3 = 1;
 	}
+
 	// Info Zertifikat
+	if( m_Cert->PSEIsInitialized() && !m_bUpdateCrt )
+		m_ButtonInfoCert.EnableWindow(TRUE);
+	else
+		m_ButtonInfoCert.EnableWindow(FALSE);
 	if ( button4 == -1 )
 	{
 		if( m_Cert->PSEIsInitialized() && !m_bUpdateCrt )
 		{
-			m_ButtonInfoCert.EnableWindow(TRUE);
 			m_ButtonSelectCert.LoadBitmaps("GENCERT_G_U", "GENCERT_G_D", "GENCERT_G_F", NULL);
 			m_ButtonSelectCert.ShowWindow(SW_HIDE);
 			m_ButtonSelectCert.ShowWindow(SW_SHOW);	
 		}
 		else
 		{
-			m_ButtonInfoCert.EnableWindow(FALSE);
 			m_ButtonSelectCert.LoadBitmaps("GENCERT_R_U", "GENCERT_R_D", "GENCERT_R_F", NULL);
 			m_ButtonSelectCert.ShowWindow(SW_HIDE);
 			m_ButtonSelectCert.ShowWindow(SW_SHOW);
 		}
 		button4 = 1;
 	}
+
 	UpdateData(FALSE);
 
 	m_hFocus->SetFocus();

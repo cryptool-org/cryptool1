@@ -389,6 +389,10 @@ SOURCE=.\res\DHBitmaps\bmps\ArrowsAnimationBasis.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\ArrowsAnimationBasis0.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange.bmp
 # End Source File
 # Begin Source File
