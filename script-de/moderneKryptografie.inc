@@ -133,16 +133,16 @@ Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein ber"uhmtes of
 Viele kryptographische Protokolle sind so gemacht, da"s die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} l"osen m"ussen, w"ahrend sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
 Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man kann aber zeigen, da"s Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.\\
-Es gab immer wieder Aussage, da"s jemand die "Aquivalenz bewiesen hatte, z.B.
+Es gab immer wieder die Aussage, jemand habe die "Aquivalenz bewiesen, z.B.
 
-{\href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
+{\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
 Es wurden eine Reihe von Algorithmen f"ur Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zun"achst vielversprechend erschienen, als polynomial l"osbar. Der ber"uhmteste durchgefallene Bewerber ist der Knapsack mit Fallt"ur, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
 
 %--------------------------------------------------------------------
-       \subsection{Knapsackproblem als Basis f"ur Public-Key-Verfahren}
+       \subsection{Knapsackproblem als Basis f"ur Public-Key-Verfahren} \index{Kryptographie!Public-Key}
 %--------------------------------------------------------------------
 \index{Knapsack}
 %--------------------------------------------------------------------
@@ -171,7 +171,7 @@ Kongruente 0-1-Knapsackprobleme haben dieselben L"osungen.
 Ein schneller Algorithmus zur Kl"arung der Frage, ob zwei 0-1-Knapsackprobleme kongruent sind, ist nicht bekannt.
 
 Das L"osen eines 0-1-Knapsackproblems kann durch Probieren der $ 2^n $   M"oglichkeiten f"ur $ x_1, \dots, x_n $   erfolgen. Die beste Methode erfordert $ O(2^{n/2}) $  Operationen, was f"ur $ n=100 $  mit $ 2^{100} \approx 1,27 \cdot 10^{30} $  und  $ 2^{n/2} \approx 1,13 \cdot 10^{15} $ f"ur Computer eine un"uberwindbare H"urde darstellt.
-Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{ Eine Permutation $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
+Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
 diese Zahlen aufgez"ahlt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ 
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zus"atzlich $ \pi $ die Identit"at, d.h. $ \pi(i)=i $ f"ur $ i=1,2,\dots,n, $ so hei"st die Folge $ a_1, \dots , a_n $ superwachsend.
@@ -222,7 +222,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 }}
 \end{center}
 \vskip +10 pt
-{\bf Merkle-Hellmann Verfahren} (auf Knapsackproblemen basierend).
+{\bf Merkle-Hellman Verfahren} (auf Knapsackproblemen basierend).
 \vskip +20 pt
 
 
@@ -246,13 +246,14 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 \index{RSA} \hypertarget{RSAVerfahren}{} Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
-
+\index{Faktorisierungsproblem}
+\index{Eulersche Phi-Funktion}
 \begin{center}
 \fbox{\parbox{12cm}{        
-\underline{Schl"usselgenerierung:} \vskip + 5pt
+\underline{Schl"usselgenerierung:} \vskip + 5pt$ e $ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahlen!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so da"s gilt
+
 
 Seien $ p $ und $ q $ zwei verschiedene Primzahlen und $ N = pq$. Sei 
-$ e $ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahlen!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidischen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so da"s gilt
 \[ ed \equiv 1 \mod \phi (N). \]
 Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}. 
 
@@ -272,22 +273,26 @@ Der Ausgangstext wird in Bl"ocke zerlegt und verschl"usselt, wobei jeder Block e
 \vskip +10 pt
 {\bf RSA-Verfahren} (auf dem Faktorisierungsproblem basierend).
 \vskip +20 pt
-\index{Faktorisierungsproblem}
-\index{Eulersche Phi-Funktion}
+
 {\bf Bemerkung:} 
 Die Eulersche Phi-Funktion ist definiert duch: $ \phi (N)$ ist die  Anzahl der zu $ N $ \index{teilerfremd} {} teilerfremden nat"urlichen Zahlen 
 $ x \leq N. $ Zwei nat"urliche Zahlen $ a $ und $ b $ \index{teilerfremd} sind teilerfremd, falls $ \ggt (a,b)=1. $ 
 
-F"ur die Eulersche Phi-Funktion gilt: $ \phi (1)=1, \phi(2)=1,
-\phi(3)=2, \phi (4)=2, \phi(6)=2, \phi (10)= 4, \phi (15)=8. $  Zum Beispiel ist $ \phi (24)=8, $ weil 
+F"ur die Eulersche Phi-Funktion gilt: $ \phi (1)=1,~\phi(2)=1,
+~\phi(3)=2, ~\phi (4)=2, ~\phi(6)=2, ~\phi (10)= 4, ~\phi (15)=8. $
+
+Zum Beispiel ist $ \phi (24)=8, $ weil 
 $|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
 
 Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
 
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $.
+\cdots \, (1-\frac{1}{p_k})\footnote{
+Weitere Formel finden sich in den Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrnung in die elementare Zahlentheorie
+mit Beipielen\grqq, Kap. 3.8}
+.} $.
 
-Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1). $
+Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
 \\ \vskip +5 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
@@ -338,7 +343,7 @@ Bewiesen ist bis heute nicht, da"s das Problem, RSA zu brechen, "aquivalent zum 
     \subsubsection{Rabin-Public-Key-Verfahren (1979)}
 %--------------------------------------------------------------------
 
-F"ur \index{Rabin} \index{Rabin!Public-Key} dieses Verfahren konnte gezeigt werden, da"s es "aquivalent zum Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anf"allig gegen chosen-ciphertext-Angriff.
+F"ur \index{Rabin} \index{Rabin!Public-Key} dieses Verfahren konnte gezeigt werden, da"s es "aquivalent zum Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anf"allig gegen chosen-ciphertext-Angriffe.
 \index{Angriff!chosen-ciphertex}
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -429,7 +434,7 @@ Damit gilt
 \vskip +20 pt
 
 
-Die Sicherheit des {\bf Diffie-Hellman Protokolls} h"angt eng mit der Berechnung der diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, da"s diese Probleme "aquivalent sind.
+Die Sicherheit des {\bf Diffie-Hellman-Protokolls} h"angt eng mit der Berechnung der diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, da"s diese Probleme "aquivalent sind.
 
 
 %--------------------------------------------------------------------
@@ -519,9 +524,9 @@ Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gel"ost. F
 Man kann sich mit Hilfe des Baby-Step-Giant-Step-Algorithmus klar machen, da"s die Berechnung des diskreten Logaithmus' sehr viel schwieriger ist als die Berechnung der diskreten Exponentialfunktion. Wenn die auftretenden Zahlen etwa 1000 Bit L"ange haben, so ben"otigt man zur Berechnung von $ g^k $ nur etwa 2000 Multiplikationen, zur Berechnung des diskreten Logarithmus' mit dem Baby-Step-Giant-Step-Algorithmus aber etwa $ 2^{500} \approx 10^{150} $ Operationen. \\
 Neben dem Baby-Step-Giant-Step-Algorithmus gibt es noch zahlreiche andere Verfahren zur Berechnung des diskreten Logarithmus' \cite{Stinson1995}.
 
-\paragraph{Der Satz von Silver-Pohlig-Hellmann}
+\paragraph{Der Satz von Silver-Pohlig-Hellman}
 In endlichen abelschen Gruppen l"a"st sich das  diskrete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
-\begin{satz}[Silver-Pohlig-Hellmann]
+\begin{satz}[Silver-Pohlig-Hellman]
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann l"a"st sich das diskrete Logarithmusproblem in $ G $ auf das L"osen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zur"uckf"uhren.
 \end{satz}
 
@@ -560,14 +565,13 @@ und
 \hyperlink{ellcurve}{Elliptische Kurven} {} liefern n"utzliche Gruppen f"ur Public-Key-Verschl"usselungsverfahren.
 
 \newpage
-%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99}
- \addcontentsline{toc}{subsection}{Literaturverzeichnis}          
-           \bibitem[Adleman1982]{Adleman1982} Adleman L.: 
+           
+           \bibitem[Adleman1982]{Adleman1982} Adleman L.: \index{Adleman Leonard}
            \emph{On breaking the iterated Merkle-Hellman public key Cryptosystem.} \\ 
            Advances in Cryptologie, Proceedings of Crypto 82, Plenum Press 1983, 303-308.
 
- \bibitem[Balcazar1988]{Balcazar1988} Balcazar J.L., Daaz J., Gabarr\'{} J.: 
+ \bibitem[Balcazar1988]{Balcazar1988} Balcazar J.L., Daaz J., Gabarr\'{} J.: \index{Balcazar 1988}
            \emph{Structural Complexity I.} \\ 
            Springer Verlag, pp 63.
            
@@ -584,7 +588,7 @@ und
            \emph{Hiding information and signatures in trapdoor knapsacks.}  \\
            IEEE Trans. Information Theory, IT-24, 1978.
 
-       \bibitem[RSA1978]{RSA1978} Rivest R.L., Shamir A. and Adleman L.:
+       \bibitem[RSA1978]{RSA1978} Rivest R.L., Shamir A. and Adleman L.:\index{RSA}\index{Shamir Adi}
            \emph{A Method for Obtaining Digital Signatures and Public Key Cryptosystems.} \\
            Commun. ACM, vol 21, April 1978, pp. 120-126.
 
@@ -596,7 +600,7 @@ und
            \emph{Cryptography.}  \index{Stinson 1995} \\
            CRC Press, Boca Raton, London, Tokyo, 1995.
 \end{thebibliography}
-\section*{URLs} \addcontentsline{toc}{subsection}{URLs}
+\section*{URLs}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}

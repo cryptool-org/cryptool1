@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[german]{babel}
 \usepackage{hyperref}
+\usepackage[dvips]{graphics}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -23,11 +24,11 @@
 (D:20000920201000) }
 
 
-\title{ CrypTool Version 1.3 \\ Skript }
+\title{ CrypTool Skript \\ Mathematik und Kryptographie }
 
 
 \author{
-(c) Deutsche Bank AG 1998-2001 \\
+(c) Die Autoren, 1998-2001 \\
 Frankfurt am Main \\*[8pt]
 }
 
@@ -41,7 +42,7 @@ Frankfurt am Main \\*[8pt]
 In diesem Skript zu dem Programm CrypTool finden Sie eher mathematisch
 orientierte Informationen zum Einsatz von
 Verschl"usselungsverfahren. Die Hauptkapitel sind von
-verschiedenen Autoren verfa"st und daher in sich abgeschlossen. Am
+{\em verschiedenen Autoren} verfa"st und daher in sich abgeschlossen. Am
 Ende der meisten Kapitel finden Sie jeweils Literaturangaben und
 URL's.
 
@@ -62,9 +63,10 @@ Implementierung auf Chipkarten sehr gut geeignet.
 
 W"ahrend das Programm CrypTool eher den praktischen Umgang vermittelt, dient das
 Skript dazu, dem an Kryptographie Interessierten ein tieferes Verst"andnis
-f"ur die implementierten mathematischen Algorithmen zu vermitteln.
+f"ur die implementierten mathematischen Algorithmen zu vermitteln -- und das didaktisch
+m"oglichst gut nachvollziehbar.
 
-Die Autoren Bernhard Esslinger, Bartol Filipovic, Henrik Koy und
+Die {\em Autoren} Bernhard Esslinger, Bartol Filipovic, Henrik Koy und
 Roger Oyono m"ochten sich an dieser Stelle bedanken bei den Kollegen in der
 Firma und an den Universit"aten Frankfurt, Gie"sen und Karlsruhe, insbesondere
 bei Dr. Peer Wichmann vom Forschungszentrum Informatik (FZI) Karlsruhe f"ur
@@ -87,8 +89,8 @@ und Verbesserungen. Wir freuen uns "uber Ihre R"uckmeldung.
 
 \vskip +7 pt \noindent
 Die aktuelle Version von CrypTool finden Sie unter \newline
-  \href{http://www.CrypTool.de}{\tt http://www.CrypTool.de},
-  \href{http://www.cryptool.com}{\tt http://www.CrypTool.com} oder
+  \href{http://www.CrypTool.de}{\tt http://www.CrypTool.de},~~
+  \href{http://www.cryptool.com}{\tt http://www.CrypTool.com}~~ oder ~~
   \href{http://www.cryptool.org}{\tt http://www.CrypTool.org}.
 \vskip + 7 pt \noindent
 Im Readme zu CrypTool sind die Ansprechpartner f"ur dieses kostenlose Tool genannt.
@@ -113,7 +115,7 @@ Dieses Skript wird zusammen mit CrypTool ausgeliefert.
 CrypTool ist ein Programm mit sehr umfangreicher Online-Hilfe, mit dessen Hilfe Sie kryptographische Verfahren
 anwenden und analysieren k"onnen.\par \vskip + 3pt
 
-F"ur die klassischen Verschl"usselungsverfahren stehen automatische Analysen zur Ver\-f"ugung, die Sie in
+F"ur die klassischen Verschl"usselungsverfahren stehen in CrypTool automatische Analysen zur Ver\-f"ugung, die Sie in
 die Lage versetzen, mit Kenntnis des verschl"usselten Dokuments und eventuell weiterer Informationen
 (unverschl"usseltes Dokument oder Sprache des Dokuments) den Schl"ussel zu ermitteln.\par \vskip + 3pt
 
@@ -126,6 +128,14 @@ kryptographischen Verfahren. So ist es mit CrypTool als verl"a"slicher Referenzi
 der verschiedenen Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten \index{SECUDE GmbH} SECUDE-Bibliothek)
 auch m"og\-lich, die in anderen Programmen eingesetzte
 Verschl"usselung zu testen.\par \vskip + 3pt
+
+Da die Artikel dieses Skripts weitgehend in sich abgeschlossen sind, kann dieses Skript auch unabh"angig
+von CrypTool gelesen werden.\par \vskip + 3pt
+
+Die {\em Autoren} haben sich bem"uht, Kryptographie f"ur eine m"oglichst breite Leserschaft darzustellen
+-- ohne mathematisch unkorrekt zu werden. Dieser didaktische Anspruch ist am besten geeignet, die Awareness
+f"ur die IT-Sicherheit und die Bereitschaft f"ur den Einsatz standardisierter, moderner
+Kryptographie zu f"ordern.
 
 
 % .........................................................................................
@@ -248,15 +258,16 @@ verschl"usselt und zusammen mit der Nachricht an den Empf"anger
 seines geheimen Schl"ussels bestimmen und mit diesem dann die
 Nachricht entschl"usseln. Auf diese Weise nutzt man das bequeme
 Schl"usselmanagement \index{Schl""usselmanagement} asymmetrischer
-Verfahren und gro"sen Datenmengen werden schnell und effektiv mit
-symmetrischen Verfahren verschl"usselt.
+Verfahren und kann trotzdem gro"se Datenmengen schnell und effektiv mit
+symmetrischen Verfahren verschl"usseln.
 
 % ....................................................................................
 %                             P R I M Z A H L E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \newpage
 \section{Primzahlen}
-(Bernhard Esslinger, Mai 1999, Update Nov. 2000)
+(Bernhard Esslinger, besslinger@web.de, Mai 1999, Update Nov. 2000, Dezember 2001)
+\hypertarget{Kapitel_2}{}
 
 \paragraph{Was sind Primzahlen ?}
 \index{Primzahlen} \index{Zahlen!Primzahl} Primzahlen sind ganze,
@@ -265,8 +276,8 @@ sich selbst teilen kann. Alle anderen nat"urlichen Zahlen gr"o"ser
 gleich $2$ lassen sich durch Multiplikation von Primzahlen
 bilden.
 
-Somit bestehen die {\em nat"urlichen} \index{Zahlen} Zahlen $1, 2,
-3, 4,$ ... aus
+Somit bestehen die {\em nat"urlichen} \index{Zahlen} Zahlen $ \mathbb{N} = \{1, 2,
+3, 4,\cdots \} $ aus
 \begin{itemize}
    \item der Zahl $1$ (dem Einheitswert)
    \item den Primzahlen (primes) und
@@ -336,7 +347,7 @@ $p$ ist kleiner oder gleich der Quadratwurzel aus $m$.
 
 Aus den Primzahlen lassen sich alle ganzen Zahlen gr"o"ser als $1$ zusammensetzen --- und das sogar in
 einer eindeutigen Weise. Dies besagt der 1. Hauptsatz der Zahlentheorie (= Hauptsatz der elementaren Zahlentheorie =
-fundamental theorem of arithmetic = fundamental building block of all positive integers).
+fundamental theorem of arithmetic = fundamental building block of all positive integers).\index{Zahlentheorie!Hauptsatz}
 
 \begin{satz}
 Jedes Element $n$ gr"o"ser als $1$ der nat"urlichen Zahlen l"a"st sich als Produkt
@@ -360,12 +371,12 @@ $$ 60 = 1 \cdot 60 = 2 \cdot 30 = 4 \cdot 15 = 5 \cdot 12 =6 \cdot 10 = 2 \cdot 
         2 \cdot 5 \cdot 6 = 3 \cdot 4 \cdot 5 = ... $$
 
 Der folgende Absatz wendet sich eher an die mit der mathematischen Logik vertrauteren Menschen:
-Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich\label{remFundTheoOfArithm}. Man kann viele andere Zahlenmengen (also
-ungleich der positiven ganzen Zahlen gr"o"ser als 1) konstruieren, bei denen selbst eine Zerlegung in
+Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich\label{remFundTheoOfArithm}. Man kann viele andere Zahlenmengen 
+(ungleich der positiven ganzen Zahlen gr"o"ser als 1) konstruieren, bei denen selbst eine Zerlegung in
 die Primfaktoren dieser Mengen nicht eindeutig ist:
 In der Menge $M = \{1, 5, 10, 15, 20, ...\}$ gibt es unter der Multiplikation kein Analogon zum Hauptsatz.
 Die ersten f"unf Primzahlen dieser Folge sind $5, 10, 15, 20, 30$ (beachte: $10$ ist prim, da innerhalb
-dieser Menge $5$ kein Teiler von $10$ ist --- das Ergebnis ist kein Element der gegebenen Grundmenge
+dieser Menge $5$ kein Teiler von $10$ ist --- das Ergebnis $2$ ist kein Element der gegebenen Grundmenge
 $M$). Da in $M$ gilt:
 $$ 100 = 5 \cdot 20 = 10 \cdot 10 $$
 und sowohl $5, 10, 20$ Primzahlen dieser Menge sind, ist hier die Zerlegung in Primfaktoren nicht
@@ -378,7 +389,10 @@ F"ur die nat"urlichen Zahlen sind die Primzahlen vergleichbar mit den Elementen 
 den Elementarteilchen in der Physik (vgl. \cite[S. 22]{Blum1999}).
 
 W"ahrend es nur $92$ nat"urliche chemische Elemente gibt, ist die Anzahl der Primzahlen unbegrenzt.
-Das wu"ste schon der Grieche \index{Euklid} Euklid im dritten vorchristlichen Jahrhundert. Sein Beweis, da"s es
+Das wu"ste schon der Grieche \index{Euklid} Euklid\footnote{
+Euklid, griechischer Mathematiker des 4./3. Jahrhunderts vor Christus.
+Werkte an der Akademie in Alexandria und verfa"ste mit den \glqq Elementen\grqq~ das bekannteste systematische Lehrbuch
+der griechischen Mathematik.} im dritten vorchristlichen Jahrhundert. Sein Beweis, da"s es
 unendlich viele Primzahlen gibt, gilt bis heute als ein Glanzst"uck mathematischer "Uberlegung und
 Schlu"sfolgerung (Widerspruchsbeweis). Er nahm an, es gebe nur endlich viele Primzahlen und damit
 eine gr"o"ste Primzahl. Daraus zog er solange logische Schl"usse, bis er auf einen offensichtlichen
@@ -386,8 +400,8 @@ Widerspruch stie"s. Damit mu"ste etwas falsch sein. Da sich in die Schlu"skette 
 eingeschlichen hatte, konnte es nur die Annahme sein. Demnach mu"ste es unendlich viele
 Primzahlen geben!
 
-\hypertarget{euclid}{}
-\paragraph{Euklid's Widerspruchsbeweis}
+\hypertarget{euklid}{}
+\paragraph{Euklid's Widerspruchsbeweis}\index{Euklid's Widerspruchsbeweis}
 f"uhrt die Argumentation wie folgt:
 
 {\bf Annahme:} \quad Es gibt {\em endlich} viele Primzahlen.
@@ -489,10 +503,12 @@ $$
 \begin{array}{c}
 2, {} 3, {} 5, {} 7, {} 13, {} 17, {} 19, {} 31, {} 61, {} 89, {} 107, {} 127, {} 521, {} 607, {} 1.279, {} 2.203, {} 2.281, {} 3.217, {} 4.253, {} 4.423, \\
 9.689, {} 9.941, {} 11.213, {} 19.937, {} 21.701, {} 23.207, {} 44.497, {} 86.243, {} 110.503, {} 132.049, {} 216.091,\\
- 756.839, {} 859.433, {} 1.257.787, {} 1.398.269, {} 2.976.221, {} 3.021.377, {} 6.972.593.
+ 756.839, {} 859.433, {} 1.257.787, {} 1.398.269, {} 2.976.221, {} 3.021.377, {} 6.972.593, ~13.466.917.
 \end{array}
 $$
-Damit sind heute $38$ Mersenne-Primzahlen bekannt. Die $19$. Zahl
+Damit sind heute $39$ Mersenne-Primzahlen bekannt.
+
+Die $19$. Zahl
 mit dem Exponenten $4.253$ war die erste mit mindestens $1.000$
 Stellen im Zehnersystem (der Mathematiker Samual \index{Yates
 Samual} Yates pr"agte daf"ur den Ausdruck {\em titanische}
@@ -501,7 +517,9 @@ gefunden); die $27$. Zahl mit dem Exponenten $44.497$ war die
 erste mit mindestens $10.000$ Stellen im Zehnersystem (Yates
 pr"agte daf"ur den Ausdruck \index{Primzahlen!gigantisch}  {\em
 gigantische} Primzahl. Diese Bezeichnungen sind heute l"angst
-veraltet). Die 37. Zahl wurde im Januar 1998 gefunden und hat
+veraltet).
+
+Die 37. Zahl wurde im Januar 1998 gefunden und hat
 909.526 Stellen im Zehnersystem, was 33 Seiten in der FAZ
 entspricht!
 
@@ -519,16 +537,23 @@ auch als Benchmarks f"ur seine Maschinen.)
 \begin{quote}
 (An der Universit"at von Tennessee findet man umfangreiche Forschungsergebnisse "uber Primzahlen.)
 \end{quote}
-Die zur Zeit (November 2000) gr"o"ste bekannte Primzahl ist die
-Mersennezahl
-$$ 2^{6.972.593} - 1. $$
-Sie wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
-Zehnersystem (das entspricht rund 77 Seiten in der FAZ). Diese
-Zahl wurde ebenso wie die drei oben davor aufgelisteten
-Mersennezahlen innerhalb des GIMPS-Projektes (Great Internet
-Mersenne Prime Search) gefunden. Hier arbeiten seit 1995 Dutzende
-von Experten und Tausende von Amateuren zusammen, um mit
-verteilten Computerprogrammen solche Zahlen zu finden.
+
+\subsubsection{M-38 -- Juni 1999} \index{Mersenne Marine!M-38}
+Die 38. Mersenne Primzahl$$ 2^{6.972.593} - 1 $$
+wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
+Zehnersystem (das entspricht rund 77 Seiten in der FAZ).
+\subsubsection{M-39 -- 6. Dezember 2001}\index{Mersenne Marine!M-39}
+Die 39. Mersenne Primzahl, genannt M-39, ($=2^{13.466.917}-1$),  wurde am 6.12.2001 gefunden -- genau
+genommen war am 6.12.2001 die Verifikation der am 14.11.2001 von dem kanadischen Studenten Michael Cameron gefundenen Primzahl abgeschlossen.
+Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). Allein zu ihrer Darstellung
+(924947738006701322247758 ... 1130073855470256259071) br"auchte man in der FAZ knapp 200 Seiten.
+\subsubsection{GIMPS}\index{GIMPS}
+Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mersenne Prime Search) bereits 
+zum 5. Mal die gr"o"ste Mersenne-Zahl entdeckt, die erwiesenerma"sen prim ist.
+
+Am GIMPS-Projekt beteiligen sich z.Zt. rund 130.000 freiwillige Amateure und Experten, die ihre Rechner in das 
+von der Firma entropia organisierte \glqq primenet\grqq~ einbinden, um mit verteilten Computerprogrammen solche Zahlen zu finden.
+\subsubsection{EFF}\index{EFF}
 
 Angefacht wird diese Suche noch zus"atzlich durch einen Wettbewerb, den die Non\-profit-Organisation
 EFF (Electronic Frontier Foundation) mit den Mitteln eines unbekannten Spenders gestartet hat. Den
@@ -536,8 +561,11 @@ Teilnehmern winken Gewinne im Gesamtwert von 500.000 USD, wenn sie die l"angste 
 finden. Dabei sucht der unbekannte Spender nicht nach dem schnellsten Rechner, sondern er will auf
 die M"oglichkeiten des {\em cooperative networking} aufmerksam machen
 
-{\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}},
+{\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}.
 
+Der Entdecker von M-38 erhielt f"ur die Entdeckung der ersten Primzahl mit "uber 1 Million Dezimalstellen von der EFF eine 
+Pr"amie von 50.000 USD. Die n"achste Pr"amie von 100.000 USD gibt es von der EFF f"ur eine Primzahl mit mehr als 10 Millionen
+Dezimalstellen.
 % {\href{http://www.octocad.demon.co.uk/mersenne/prime.htm}{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
 
 Edouard Lucas (1842-1891) hielt "uber 70 Jahre den Rekord der gr"o"sten bekannten Primzahl, indem
@@ -547,7 +575,7 @@ er nachwies, da"s $2^{127}-1$ prim ist. Solange wird wohl kein neuer Rekord mehr
 \subsubsection{Primzahltests}
 \index{Primzahltest}
 F"ur die Anwendung sicherer Verschl"usselungsverfahren braucht man sehr gro"se Primzahlen (im
-Bereich von $2^{2.048}$, das sind Zahlen im Zehnersystem mit $600$ Stellen!).
+Bereich von $2^{2.048}$, das sind Zahlen im Zehnersystem mit "uber $600$ Stellen!).
 
 Bisher haben wir immer nach den Primfaktoren gesucht, um zu entscheiden, ob eine Zahl prim ist.
 Wenn aber auch der kleinste Primfaktor riesig ist, dauert die Suche zu lange. Die Zerlegung in
@@ -570,8 +598,8 @@ F(7) & = & 34.279.974.696.877.740.253.374.607.431.768.211.457 \\
 \end{eqnarray*}
 Der Ausgangspunkt vieler schneller Primzahltests ist der (kleine)
 Fermatsche Satz, den Fermat im Jahr 1640 aufstellte.
-\index{Fermat!kleine Fermat}
-\begin{satz}[\glqq kleine\grqq\ Fermat]
+\index{Fermat!kleiner Fermat}
+\begin{satz}[\glqq kleiner\grqq\ Fermat]
 Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt f"ur alle $a$
 $$a^p \equiv a \; {\rm mod} \; p$$
 Eine alternative Formulierung lautet: \\
@@ -580,8 +608,9 @@ Vielfaches von $p$ ist (also $a \not\equiv 0 \; {\rm mod} \; p$),
 dann gilt $a^{p-1} \equiv 1 \; {\rm mod} \; p$.
 \end{satz}
 
-Wer mit dem Rechnen mit Resten (Modulo) nicht so vertraut ist, m"oge den Satz einfach so
-hinnehmen. Wichtig ist, da"s aus diesem Satz folgt, da"s wenn diese Gleichheit f"ur irgendein ganzes $a$
+Wer mit dem Rechnen mit Resten (Modulo-Rechnung) nicht so vertraut ist, m"oge den Satz einfach so
+hinnehmen oder \hyperlink{Kapitel_3}{Kapitel 3 \glqq Einf"uhrung in die
+elementare Zahlentheorie mit Beispielen\grqq} lesen. Wichtig ist, da"s aus diesem Satz folgt, da"s wenn diese Gleichheit f"ur irgendein ganzes $a$
 nicht erf"ullt ist, dann ist $p$ keine Primzahl! Die Tests lassen sich (zum Beispiel f"ur die erste
 Formulierung) leicht mit der {\em Testbasis} $a = 2$ durchf"uhren.
 
@@ -982,23 +1011,24 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
   \item Gibt es einen Polynomialzeit-Algorithmus zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
     \cite[S. 167]{Klee1997})?
     Diese Frage kann man auf die beiden folgenden Fragestellungen aufsplitten:
-  \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob eine Zahl prim ist?
-  \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
-    nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"a"st?
+  \begin{itemize}
+		\item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob eine Zahl prim ist?
+		\item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
+    	nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"a"st?
+		\end{itemize}
 \end{itemize}
-
 \paragraph{Weitere interessante Themen rund um Primzahlen}
 Nicht betrachtet wurden in diesem Kapitel folgende eher
 zahlentheoretische Themen wie Teilbarkeitsregeln, Modulo-Rechnung,
 modulare Inverse, modulare Potenzen und Wurzeln, chinesischer
-Restsatz, Eulerfunktion PHI, perfekte Zahlen.
+Restesatz, Eulersche Phi-Funktion, perfekte Zahlen.
 
 \newpage
 \subsubsection{Anzahl von Primzahlen in verschiedenen Intervallen}
 \hypertarget{primhfk}{}
 
 \begin{tabular}{|l|l||l|l||l|l|}\hline
-\multicolumn{2}{|l||}{Zehnerintervall} & \multicolumn{2}{l||}{Hundererintervall} & \multicolumn{2}{l|}{Tausenderintervall} \\ \hline
+\multicolumn{2}{|l||}{Zehnerintervall} & \multicolumn{2}{l||}{Hunderterintervall} & \multicolumn{2}{l|}{Tausenderintervall} \\ \hline
 Intervall  &     Anzahl &    Intervall  &  Anzahl &  Intervall  &    Anzahl\\ \hline \hline
 1-10     &       4     &     1-100   &     25  &     1-1000     &    168 \\
 11-20    &       4     &     101-200 &     21  &     1001-2000  &    135 \\
@@ -1043,7 +1073,7 @@ Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 10      &   29            &     29 & \\
 100     &   541           &     541 & \\
 1000    &   7917          &     7917 & \\
-664.559  &  9.999.991     &     9,99999E+06 &   Alle Primzahlen bis zu \\
+664.559  &  9.999.991     &     9,99999E+06 &   Alle Primzahlen bis zu ~~~~~~~~~~~~~~~~~~\\
         &                &                  &   1E+07 waren am Beginn \\
         &                 &                 &  des 20. Jahrhunderts \\
         &                 &                  &  bekannt. \\
@@ -1060,7 +1090,8 @@ entdeckt.  \\
 \vskip +10pt Quell-URLs:
 
 {\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}}
-\vskip +7 pt Ausgabe der n-ten Primzahl
+
+\vskip +12 pt Ausgabe der $n$-ten Primzahl
 
 Vergleiche {\href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt http://www.utm.edu/research/primes/notes/by\_year.html}}
 \vskip +7 pt
@@ -1082,7 +1113,7 @@ werden:~~ \= abcdefhijk \= \kill
 Wahrscheinlichkeit, da"s Sie  auf ihrem n"achsten Flug entf"uhrt werden \> $ 5,5 \cdot 10^{-6} $\> \\
 Wahrscheinlichkeit f"ur 6 Richtige im Lotto \> $ 7,1 \cdot 10^{-8} $\> \\
 J"ahrliche Wahrscheinlichkeit, von einem Blitz getroffen zu werden \> $ 10^{-7} $\> \\
-Risiko von einem Meteoriten erschlagen zu werden \> $ 1,6 \cdot 10^{-12} $ \> \\
+Risiko, von einem Meteoriten erschlagen zu werden \> $ 1,6 \cdot 10^{-12} $ \> \\
 ------------------------------------------------------------------------------------------------------------------\\
 %Zeit bis zur n"achsten Eiszeit (in Jahren)~~ \= \kill
 Zeit bis zur n"achsten Eiszeit (in Jahren) \> $14000 $ \> $ (2^{14})$ \\
@@ -1100,7 +1131,7 @@ Volumen des Universums (in $cm^3$)     \> $10^{84}$ \> $(2^{280})$
 \subsubsection{Spezielle Werte des Zweier- und Zehnersystems}
 \begin{tabbing}
 DualSystem~~~ \= \kill
-Dualsysten \> Zehnersystem \\*[4pt]
+Dualsystem \> Zehnersystem \\*[4pt]
 $2^{10}$ \> $1024$ \\
 $2^{40}$ \> $1,09951\cdot 10^{12}$ \\
 $2^{56}$ \> $7,20576\cdot 10^{16}$ \\
@@ -1312,7 +1343,7 @@ Nachrichten zu ver"andern, ohne da"s dies von den beteiligten Personen bemerkt w
 auch, wenn Charlie nur ein Schl"usselpaar hat.
 
 Ein anderer Name f"ur diese Art von Angriffenangriffe ist \index{man-in-the-middle-attack} \glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
-von Angriffen verspricht die Public­Key­Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
+von Angriffen verspricht die Public-­Key­-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
 garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
 
 % --------------------------------------------------------------------------------------------------------------------
@@ -1321,7 +1352,7 @@ garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.
 Jeder Teilnehmer, der sich bei \index{X.509}  X.509 die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner
 realen Person best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification Authority (CA)} Certification Authority (CA). Dieser
 beweist er seine Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt die CA ihm ein
-elektronisches Dokumentdokument (Zertifikat) aus, in dem im wesentlichen die Namen des Zertifikatnehmers und
+elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen die Namen des Zertifikatnehmers und
 der CA, der "offentliche Schl"ussel des Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt
 sind. Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen Schl"ussel.
 
@@ -1334,7 +1365,7 @@ sichergestellt ist. Aus diesem Grund l"a"st jede CA ihren "offentlichen Schl"uss
 zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten Hierarchieebene gibt es in der Regel
 nur eine CA, die dann nat"urlich keine M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
 zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel auf andere Art und Weise gesichert
-zu "ubermitteln. Bei vielen Software-­Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Web­Browsern
+zu "ubermitteln. Bei vielen Software-­Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
 von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-­CAs schon von Anfang an fest in das Programm
 eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch die
 "offentliche Bekanntgabe k"onnen ("offentliche) CA-­Schl"ussel, insbesondere die der Wurzelinstanz,
@@ -1348,6 +1379,7 @@ gesichert werden.
 \section{Elliptische Kurven}
 \index{elliptische Kurven}
 \hypertarget{ellcurve}{}
+(Bartol Filipovics / B. Esslinger, April 2000)
 \subsection{Elliptische Kurven --- Historisches}
 
 Auf dem Gebiet der Elliptischen Kurven wird seit "uber 100 Jahren geforscht. Im Laufe der Zeit hat man
@@ -1357,12 +1389,12 @@ und ver"offentlicht. Ein Mathematiker w"urde sagen, da"s die Elliptischen Kurven
 Mathematik, das hei"st Elliptische Kurven wurden zum Beispiel in den mathematischen Teilgebieten
 Zahlentheorie und algebraische Geometrie untersucht, die allgemein sehr abstrakt sind. Auch in der
 nahen Vergangenheit spielten Elliptische Kurven eine bedeutende Rolle in der reinen Mathematik. In den
-Jahren 1993 und 1994 ver"offentlichte Andrew Wiles mathematische Arbeiten, die weit "uber das Fachpublikum
+Jahren 1993 und 1994 ver"offentlichte Andrew Wiles\index{Wiles} mathematische Arbeiten, die weit "uber das Fachpublikum
 hinaus auf gro"se Begeisterung gesto"sen sind. In diesen Arbeiten bewies er die Richtigkeit einer --- in
 den sechziger Jahren dieses Jahrhunderts von zwei Japanern aufgestellten --- Vermutung. Dabei geht es
 kurz und grob gesagt um den Zusammenhang zwischen Elliptischen Kurven und sogenannten Modulformen.
 Das f"ur die meisten eigentlich Interessante daran ist, da"s Wiles mit seinen Arbeiten auch den ber"uhmten
-zweiten Satz von Fermat bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
+zweiten Satz von Fermat\index{Fermat!letzer Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
 (Fermat lebte von 1601 bis 1665) einem strengen Beweis durch die Mathematik entzogen. Dementsprechend
 gro"s war die Resonanz auf den Beweis durch Wiles. In der Formulierung von Fermat lautet der nach ihm
 benannte Satz so (Fermat hat folgende Worte an den Rand eines Buches geschrieben):
@@ -1390,7 +1422,7 @@ im klaren sein, da"s die Elliptischen Kurven im allgemeinen sehr tiefgreifende M
 Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik. Im Jahr 1985 haben Neal Koblitz
 und Victor Miller unabh"angig voneinander vorgeschlagen, Elliptische Kurven in der Kryptographie
 einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
-Eine weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktorisierung von ganzen Zahlen
+Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktorisierung von ganzen Zahlen
 (auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
 zum Beispiel das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
 auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. Es gibt auch
@@ -1399,7 +1431,7 @@ Primzahltests, die auf Elliptischen Kurven basieren.
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Verschl"usselungsverfahren auf Basis von Elliptischen Kurven beruhen auf der
 Schwierigkeit eines als Elliptische Kurven Diskreter Logrithmus bekannten Problems.
-Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, da"s man f"ur eine nat"urliche
+Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, da"s man f"ur eine nat"urliche, 
 aus mehreren Primzahlen zusammengesetzte Zahl $n$ sehr viele verschiedene Elliptische
 Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n$ keine
 Gruppen. \hyperlink{faktell}{N"aheres dazu findet sich unter Faktorisieren mit Elliptischen Kurven.}
@@ -1420,7 +1452,7 @@ kurz eingef"uhrt werden:
          Verkn"upfung $+$ abgeschlossen. Egal welche beiden Elemente $a, b$ aus $G$ miteinander verkn"upft
           werden, so ist das Resultat der Verkn"upfung ein Element aus $G$ (also $a+b=c$, und $c$ liegt in $G$).
    \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(a+b)+c = a+(b+c)$.
-   \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $+$ neutral verh"alt. Es gilt also f"ur alle a aus der Menge G: a+e = e+a = a.
+   \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $+$ neutral verh"alt. Es gilt also f"ur alle $a$ aus der Menge $G:$ $~a+e = e+a = a.$
    \item Zu jedem Element $a$ aus $G$ gibt es ein sogenanntes inverses Element $-a$
          ($-a$ liegt auch in $G$), so da"s gilt: $a+(-a) = (-a)+a = e$.
 \end{itemize}
@@ -1437,13 +1469,13 @@ ${\mathbb Z}$ ist $0$. Das Inverse Element von $3$ ist $-3$, denn $3+(-3) = 0$.
 Es gibt auch {\em endliche} Gruppen. Das hei"st es gibt eine Menge $\mathcal{M}$ mit einer festen Anzahl von
 Elementen und eine Verkn"upfung $+$, so da"s obige Bedingungen erf"ullt sind. Ein Beispiel hierf"ur ist
 jede Menge ${\mathbb Z}_n$ mit ${\mathbb Z}_n = \{0, 1, 2, 3, ..., n-1\}, n$ eine positive ganze Zahl, und
-der Addition modulo $n$ als Verkn"upfung $-a$ und $b$ aus ${\mathbb Z}_n$ werden  also durch $a+b \;{\rm mod~} n$
+der Addition modulo $n$ als Verkn"upfung. $a$ und $b$ aus ${\mathbb Z}_n$ werden  also durch $a+b \;{\rm mod~} n$
 verkn"upft.
 
-\paragraph{Zyklische Gruppen}
+\paragraph{Zyklische Gruppen}\index{Gruppen!zyklische}
 Als zyklische Gruppen bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
 mittels der Gruppen-Verkn"upfung alle anderen Elemente der Gruppe erzeugen kann. Es gibt also f"ur jedes
-Element $a$ aus $G'$ es eine positive, ganze Zahl $i$, so da"s die $i$-fache Verkn"upfung von $g$ mit sich
+Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so da"s die $i$-fache Verkn"upfung von $g$ mit sich
 selbst (also \glqq$g \cdot i$\grqq) $g+g+...+g = a$ ist (additive Gruppe) bzw.\ $g^i = g\cdot g \cdots g = a$
 (multiplikative Gruppe). Das Element $g$ ist der {\em Generator} der zyklischen Gruppe --- jedes Element
 in $G´$ l"a"st sich mittels $g$ und der Verkn"upfung erzeugen.
@@ -1474,8 +1506,8 @@ ${\mathbb Z}_p = \{0, 1, 2, 3, ..., p-1\}$ , wobei $p$ eine Primzahl ist.
 ${\mathbb Z}_p$ ist mit der Addition modulo $p$ und der Multiplikation modulo $p$ ein endlicher K"orper.
 \index{K""orper!Charakteristik}
 \paragraph{Charakteristik eines K"orpers}
-Sei $K$ ein K"orper, und $1$ sei das neutrale Element von $K$ bez"uglich der multiplikativen Verkn"upfung
-\glqq$\cdot$\grqq. F"ur positive nat"urliche Zahlen $n$ werde $n_1$ als $n_1 = 1 + 1 + ... + 1$ ($n$ Summanten
+Sei $K$ ein K"orper, und $1$ das neutrale Element von $K$ bez"uglich der multiplikativen Verkn"upfung
+\glqq$\cdot$\grqq. F"ur positive nat"urliche Zahlen $n$ werde $n_1$ als $n_1 = 1 + 1 + ... + 1$ ($n$ Summanden
 und $n_1$ ist ein Element aus $K$)  verstanden. Gilt dann $n_1$ ungleich $0$ f"ur alle $n>0$, so nennt man $K$ einen
 K"orper der Charakteristik Null. Im anderen Fall ist die Charakteristik von $K$ definiert als die
 kleinste positive nat"urliche Zahl $p$ f"ur die $p_1 = 0$ gilt (Anmerkung: dann ist $p$ eine Primzahl).
@@ -1494,7 +1526,11 @@ Charakteristik $2$ sind aus praktischer Sicht sehr interessant, da man in Comput
 aus diesen K"orpern als Bitstrings darstellen kann. Dies f"uhrt zu einer effizienten Realisierung der
 Arithmetik in solchen K"orpern: Das hei"st ein Computer kann die Verkn"upfungsoperationen des K"orpers
 besonders schnell durchf"uhren.
-
+\begin{figure}
+\begin{center}
+\includegraphics{ELL1_50.eps}
+\end{center}
+\end{figure}
 Eine Elliptische Kurve "uber ${\mathbb Z}_p$ wird durch eine Gleichung der folgenden Form definiert:
 $$ y^2 \; ({\rm mod} \; p) = x^3 + ax + b ({\rm mod} \; p) $$
 (also: Gleichheit im K"orper ${\mathbb Z}_p$),
@@ -1502,42 +1538,44 @@ wobei $a, b$ aus ${\mathbb Z}_p$ sind und $4a^3 + 27b^2$ modulo $p$ ungleich Nul
 Diese Gleichung hat f"ur fest gew"ahlte Zahlen $a$ und $b$ aus ${\mathbb Z}_p$ die L"osungspaare
 $$ {\bf E} = \left\{(x,y) \left| \begin{array}{c} x {\rm ~und~} y {\rm ~sind~aus~} {\mathbb Z}_p {\rm ~und~} \\
                             y^2  \equiv x^3 + ax + b \; ({\rm mod~} p) {\rm ~und~} \\
-                            4a^3 + 27b^2 \not\equiv 0 \; ({\rm mod} p)\end{array} \right.
+                            4a^3 + 27b^2 \not\equiv 0 \; ({\rm mod~} p)\end{array} \right.
    \right\}, $$
 das hei"st die Menge ${\bf E}$ besteht aus allen Paaren $x$ und $y$, die eine L"osung (in ${\mathbb Z}_p$) der
 obigen Gleichung sind. Zu bemerken ist, da"s durch die Zahlen $a, b$ und $p$ festgelegt wird, welche Paare
 $(x,y)$ in der Menge ${\bf E}$ liegen. Das hei"st $a, b$ und $p$ spezifizieren diese Menge. Die Elemente $(x,y)$
 aus ${\bf E}$ nennt man Punkte auf der Elliptischen Kurve. Zus"atzlich hat ${\bf E}$ noch ein Element $O$
-(der sogenannte Punkt im unendlichen). Es ist allgemein "ublich, die Menge ${\bf E}$ als Elliptische Kurve
+(der sogenannte Punkt im Unendlichen). Es ist allgemein "ublich, die Menge ${\bf E}$ als Elliptische Kurve
 zu bezeichnen. Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist aber nicht die
 normale/"ubliche Addition in den reellen Zahlen) zweier Elemente aus ${\bf E}$ definieren, so da"s diese
-Verkn"upfung ein Element ergibt, das selber in ${\bf E}$ liegt. Die Menge ${\bf E}$ ist also unter der
+Verkn"upfung ein Element ergibt, das wieder in ${\bf E}$ liegt. Die Menge ${\bf E}$ ist also unter der
 Verkn"upfung $+$ abgeschlossen. Man kann zeigen, da"s ${\bf E}$ eine Gruppe ist. Das neutrale Element der
-Gruppe ${\bf E}$ ist der Punkt im unendlichen $O$. Somit gibt es zu je zwei Punkten $(x_1,y_1)$ und $(x_2,y_2)$
+Gruppe ${\bf E}$ ist der Punkt im Unendlichen $O$. Somit gibt es zu je zwei Punkten $(x_1,y_1)$ und $(x_2,y_2)$
 auf der Elliptischen Kurve ${\bf E}$ einen Punkt $(x_3,y_3)$ auf ${\bf E}$, so da"s mit der Verkn"upfung
 $+$ gilt: $(x_1,y_1) + (x_2,y_2) = (x_3,y_3)$. Dabei k"onnen unter Umst"anden diese Punkte auch gleich
 dem Punkt im Unendlichen sein. Wenn also von einem Punkt $P$ auf einer Elliptischen Kurve ${\bf E}$ die Rede
 ist, so ist damit gemeint, da"s $P = (x,y)$ ist und $(x,y)$ in der Menge ${\bf E}$ liegt. Je zwei
 Punkte auf einer durch $a, b$ und $p$ spezifizierten Elliptischen Kurve k"onnen also addiert werden und das
-Resultat ist ein Punkt der ebenfalls auf derselben Elliptischen Kurve liegt. Zu beachten ist, da"s man ${\bf E}$
+Resultat ist ein Punkt, der ebenfalls auf derselben Elliptischen Kurve liegt. Zu beachten ist, da"s man ${\bf E}$
 folgende Bedeutungen zuordnen kann:
 \begin{itemize}
-   \item die Menge ${\bf E}$ der L"osungspaare $(x,y)$ einer Gleichung inklusive dem Punkt $O$ \\[-20 pt]
-   \item die Gruppe ${\bf E}$ (mit der Verkn"upfung \glqq Addition von $(x_1,y_1)$ und $(x_2,y_2)$\grqq) \\[-20 pt]
-   \item die Elliptische Kurve ${\bf E}$ (die eigentlich dasselbe wie die Gruppe ${\bf E}$ ist) \\[-20pt]
+   \item die Menge ${\bf E}$ der L"osungspaare $(x,y)$ einer Gleichung inklusive dem Punkt $O$ %\\[-20 pt]
+   \item die Gruppe ${\bf E}$ (mit der Verkn"upfung \glqq Addition von $(x_1,y_1)$ und $(x_2,y_2)$\grqq) %\\[-20 pt]
+   \item die Elliptische Kurve ${\bf E}$ (die eigentlich dasselbe wie die Gruppe ${\bf E}$ ist) %\\[-20pt]
  \end{itemize}
 
-Da diese Punkte eigentlich alle dasselbe meinen, ist eine Unterscheidung "uber die genaue Bedeutung nur
+Da diese Bezeichnungen eigentlich alle dasselbe meinen, ist eine Unterscheidung "uber die genaue Bedeutung nur
 selten n"otig.
 
 F"ur die Kryptographie ist die Tatsache von Bedeutung, da"s es f"ur sehr gro"se Zahlen extrem schwierig zu
 sein scheint, aus einem gegebenem Punkt $Q$ auf einer Elliptischen Kurve festzustellen, welche beiden
-Punkte addiert werden m"ussen, um $Q$ zu erhalten. F"ur gro"se Zahlen $a, b$ und $p$ ($p$ ist zum Beispiel
+Punkte addiert werden m"ussen, um $Q$ zu erhalten.
+
+F"ur gro"se Zahlen $a, b$ und $p$ ($p$ ist zum Beispiel
 mehr als $160$ Bit lang) ist der Computer ohne weiteres in der Lage, sehr schnell (in wenigen
 Bruchteilen einer Sekunden) den Punkt $P$  $m$ mal hintereinander zu addieren, also den Punkt
 $P + P + ... + P = Q$ ($m$ Summanden $P$) zu bestimmen. Statt $P + P + ... + P = Q$ ($m$ Summanden $P$)
 schreibt man auch $mP = Q$. Hat man einen Punkt $P$ und einen Punkt $Q$, die beide auf der gleichen
-Elliptischen Kurve liegen, ist allerdings kein Verfahren bekannt, da"s es erm"oglicht --- in
+Elliptischen Kurve liegen, ist allerdings kein Verfahren bekannt, das es erm"oglicht --- in
 akzeptabler Zeit --- diejenige Zahl $m$ zu bestimmen (falls es diese "uberhaupt gibt), mit der $mP = Q$ gilt.
 Dies wird als das \glqq Diskrete Logarithmus Problem "uber Elliptischen Kurven\grqq\ bezeichnet
 (auch ECDLP - Elliptic Curve Discrete Logarithm Problem - abgek"urzt).
@@ -1545,20 +1583,22 @@ Dies wird als das \glqq Diskrete Logarithmus Problem "uber Elliptischen Kurven\g
 Es ist zu beachten, da"s nicht alle Elliptischen Kurven gleich sicher sind. Das bedeutet, da"s man bei der
 Definition einer Kurve auf die Wahl der Parameter $a$ und $b$ achten mu"s. Denn f"ur bestimmte Klassen von
 Elliptischen Kurven ist es m"oglich, das ECDLP leichter zu l"osen als im allgemeinen Fall. Kryptographisch
-ungeeignete Elliptische Kurven sind die sogenannten anormalen Kurven (das sind Kurven "uber ${\mathbb Z}_p$,
-f"ur die die Menge ${\bf E}$ genau $p$ Elemente hat) und die supersingul"aren Kurven (das sind Kurven f"ur die man das
-Berechnen des ECDLP auf das Berechnen des \glqq normale\grqq\ Diskreten Logarithmus in anderen endlichen K"orper
+ungeeignete Elliptische Kurven sind die sogenannten {\em anormalen} Kurven (das sind Kurven "uber ${\mathbb Z}_p$,
+f"ur die die Menge ${\bf E}$ genau $p$ Elemente hat) und die {\em supersingul"aren} Kurven (das sind Kurven, f"ur die man das
+Berechnen des ECDLP auf das Berechnen des \glqq normalen\grqq\ Diskreten Logarithmus in anderen endlichen K"orper
 reduzieren, d.h. vereinfachen, kann). Daher gibt es kryptographisch gute und schlechte Kurven. Allerdings
 kann man f"ur gegebene Parameter $a$ und $b$ mit etwas Aufwand feststellen, ob die resultierende Elliptische
 Kurve kryptographisch brauchbar ist oder nicht. Die in der Kryptographie eingesetzten Kurven werden meist
 von Fachleuten zur Verf"ugung gestellt. Sie gew"ahrleisten, da"s die von ihnen als sicher eingestuften
-Elliptischen Kurven den aktuellen Sicherheitsanforderungen gen"ugen. Bei sicheren Kurven wird haupts"achlich
+Elliptischen Kurven den aktuellen Sicherheitsanforderungen gen"ugen.
+
+Bei sicheren Kurven wird haupts"achlich
 durch den Parameter $p$ bestimmt, wie lange es dauert, das ECLDP auf dieser Kurve zu l"osen. Je gr"o"ser der
 Parameter $p$ ist, desto l"anger nimmt das L"osen des Problems in Anspruch. Von Fachleuten wird eine Bitl"ange
 von "uber $200$ Bit f"ur den Parameter $p$ empfohlen. Hier wird deutlich, warum die Elliptischen Kurven so
 interessant f"ur die Kryptographie sind. Denn der Parameter $p$ bestimmt auch den
-Signatur-/Verschl"usselungsaufwand der aufgewendet werden mu"s, wenn mit Elliptischen Kurven
-Kryptographie betrieben wird. Die Dauer einer Schl"usselpaars-Erzeugung ist ebenfalls von
+Signatur-/Verschl"usselungsaufwand, der aufgewendet werden mu"s, wenn mit Elliptischen Kurven
+Kryptographie betrieben wird. Die Dauer einer Schl"usselpaar-Erzeugung ist ebenfalls von
 $p$ abh"angig. Daher sind kleine Werte (wenige Bits) w"unschenswert (m"oglichst schnelle Laufzeiten der Verfahren);
 allerdings mu"s die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
 f"ur $p$ ist eine {\em gute} Elliptische Kurve genau so sicher wie ein \index{RSA!Modul} RSA-Modul von "uber $1024$ Bit L"ange
@@ -1575,9 +1615,9 @@ die Parameter von Kryptoverfahren, die auf dem ECDL-Problem basieren.
 Das {\em Elliptische Kurven Diskreter Logarithmus Problem} (ECLDP) ist die Grundlage f"ur die
 Elliptische--Kurven--Kryptographie. Ausgehend von dieser Grundlage gibt es verschiedene Signaturverfahren.
 Sie haben gemeinsam, wie sie die folgenden "offentlichen Parameter benutzen und wie damit der geheime und
-"offentliche Schl"ussel erzeugt werden:
+der "offentliche Schl"ussel erzeugt werden:
 \begin{itemize}
-    \item Die Parameter der Elliptischen Kurve E, das hei"st eine Primzahl $p$, die festlegt,
+    \item Die Parameter der Elliptischen Kurve {\bf E}, das hei"st eine Primzahl $p$, die festlegt,
           "uber welchem K"orper ${\mathbb Z}_p$ die Elliptische Kurve ${\bf E}$ definiert ist, sowie die beiden
           Zahlen $a$ und $b$ aus ${\mathbb Z}_p$.
     \item Ein Punkt $G=(x,y)$, der auf der Elliptischen Kurve ${\bf E}$ liegt.
@@ -1587,7 +1627,7 @@ Sie haben gemeinsam, wie sie die folgenden "offentlichen Parameter benutzen und 
           zyklischen Untergruppe von ${\bf E}$ mit der Ordnung $r$.
     \item Die Zahl $k = \#{\bf E}/r$ ($k$ ist der sogenannte {\em Kofaktor}).
 \end{itemize}
-Die eben genannten Parameter $a, b, p, G, r$ und $k$ bezeichnet man als Domain-Para\-meter. Durch sie wird
+Die eben genannten Parameter $a, b, p, G, r$ und $k$ bezeichnet man als \index{Domain Parameter} {\em Domain}-Para\-meter. Durch sie wird
 festgelegt, auf welcher Elliptischen Kurve ${\bf E}$ und in welcher zyklischen Untergruppe von ${\bf E}$ ein
 Signaturverfahren \glqq eingesetzt\grqq\ wurde.
 
@@ -1602,9 +1642,9 @@ offensichtlich von dem ECDLP Gebrauch gemacht: Kennt jemand $W$ und $G$
 
 Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bekannt sein:
 \begin{enumerate}
-   \item Das eingesetzte Signaturverfahren,
+   \item das eingesetzte Signaturverfahren,
    \item die eingesetzte Hashfunktion,
-   \item zum Signieren benutzte Domain-Parameter und
+   \item die zum Signieren benutzten Domain-Parameter und
    \item der "offentliche Schl"ussel $W$ des Signaturerstellers.
 \end{enumerate}
 
@@ -1623,9 +1663,9 @@ prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb
 Punkten (auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen Teiler
 von $n$ gefunden hat. Der Grund daf"ur ist, da"s das Verfahren zum Addieren von Punkten auf Elliptischen
 Kurven Elemente in ${\mathbb Z}_n$ ermittelt und zu diesen Elementen die inversen Elemente (bez"uglich der
-Multiplikation modulo $n$) in ${\mathbb Z}_n$ berechnet. Dazu wird der erweiterte \index{Euklidische Algorithmus} Euklidische Algorithmus benutzt.
+Multiplikation modulo $n$) in ${\mathbb Z}_n$ berechnet. Dazu wird der erweiterte \index{Euklidscher Algorithmus} Euklidsche Algorithmus benutzt.
 Ergibt sich nun bei der Addition zweier Punkte (die auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ liegen) ein
-Element aus ${\mathbb Z}_n$, das kein inverses Element in ${\mathbb Z}_n$ hat, so gibt der erweiterte Euklidische Algorithmus
+Element aus ${\mathbb Z}_n$, das kein inverses Element in ${\mathbb Z}_n$ hat, so gibt der erweiterte Euklidsche Algorithmus\index{Euklidscher Algorithmus!erweiterter}
 einen echten Teiler von $n$ aus.
 
 Das Faktorisieren mit Elliptischen Kurven funktioniert somit prinzipiell so: Man w"ahlt zuf"allige Kurven
@@ -1639,16 +1679,16 @@ Daher eigenen sich diese Verfahren auch sehr gut f"ur Parallelisierung.
 % ---------------------------------------------------------------------------------------------------------------------
 \subsection{Implementierung Elliptische Kurven}
 
-CrypTool benutzt Elliptische Kurven bei der Digitale Signaturen Funktion.
+CrypTool benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
 
 Implementiert sind die Basisalgorithmen f"ur Gruppenoperationen, f"ur das Erzeugen von Elliptischen
-Kurven, f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "uber endlichen
+Kurven und f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "uber endlichen
 K"orpern mit $p$ ($p$ prim) Elementen. Die Implementierung erfolgte in ANSI C und richtete sich
 nach dem Entwurf Nr.8 der Arbeitsgruppe IEEE P1363 {\em Standard Specifications for Public-Key Cryptography}
 
 {\href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}}.
 
-Implementiert sind die kryptographischen Primitiven zur Signaturerzeugung und Signaturverifikation f"ur
+Implementiert sind die kryptographischen Primitive zur Signaturerzeugung und Signaturverifikation f"ur
 die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen
 (nach Entwurf Nr.8 der Arbeitsgruppe IEEE P1363). Dies erfolgte in Zusammenarbeit mit der SECUDE
 GmbH --- und unter Benutzung der obigen Bibliothek und des SECUDE SDK.

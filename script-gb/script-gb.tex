@@ -29,11 +29,11 @@
 %}
 
 
-\title{ CrypTool Version 1.3 \\ Tutorial }
+\title{ CrypTool Script \\ Mathematics and Cryptography }
 
 
 \author{
-(c) Deutsche Bank AG 1998-2001 \\
+(c) The authors, 1998-2001 \\
 Frankfurt am Main
 }
 
@@ -51,8 +51,8 @@ most chapters you will wind literature and URLs.
 
 You will receive information about the principles of symmetrical and
 asymmetrical encryption. A large section of the tutorial is dedicated to the
-fascinating topic of prime numbers. XXX You will also obtain an overview of the
-mathematical ideas behind modern cryptography.XXX
+fascinating topic of prime numbers. You will also obtain an overview of the
+mathematical ideas behind modern cryptography.
 
 A further chapter is devoted to digital signatures, which are an essential
 component of e-business applications. The last chapter --- elliptic curves ---
@@ -66,7 +66,7 @@ the mathematical algorithms used.
 
 The authors Bernhard Esslinger, Bartol Filipovic, Henrik Koy and Roger Oyono
 would like to take this opportunity to thank their colleagues in the company and
-at the universities of Frankfurt, Gießen und Karlsruhe. They particularly thank
+at the universities of Frankfurt, Gie\"sen und Karlsruhe. They particularly thank
 Dr. Peer Wichmann from the Karlsruhe computer science research centre
 (Forschungszentrum Informatik, FZI) for his down-to-earth support.
 
@@ -112,9 +112,9 @@ increase employee awareness of IT security and provide them with a deeper
 understanding of the term security.\par \vskip + 3pt
 
 A further aim was to enable users to understand the cryptographic procedures
-implemented in the Deutsche Bank. XXX In this way, using CrypTool as a reliable
+implemented in the Deutsche Bank. In this way, using CrypTool as a reliable
 reference implementation of the various encryption procedures, you can test the
-encryption implemented in other programs. XXX \par \vskip + 3pt
+encryption implemented in other programs. \par \vskip + 3pt
 
 
 \newpage
@@ -236,8 +236,8 @@ management} of asymmetric procedures and encrypt large quantities of data
 quickly and efficiently using symmetric procedures.
 
 \newpage
-\section{Prime numbers}
-(Bernhard Esslinger, May 1999, Update Nov. 2000)
+\section{Prime numbers}\hypertarget{Kapitel_2}{}
+(Bernhard Esslinger, besslinger@web.de, May 1999, Update Nov. 2000, December 2001)
 
 \paragraph{What are prime numbers?}
 \index{Prime numbers} \index{Numbers!prime number}
@@ -457,23 +457,25 @@ considerably. The currently known Mersenne prime numbers have the exponents $$
 9.689, {} 9.941, {} 11.213, {} 19.937, {} 21.701, {} 23.207, {} 44.497, {}
 86.243, {} 110.503, {} 132.049, {} 216.091,\\
  756.839, {} 859.433, {} 1.257.787, {} 1.398.269, {} 2.976.221, {} 3.021.377, {}
-6.972.593.
+6.972.593, ~13.466.917.
 \end{array}
 $$
-Thus $38$ Mersenne prime numbers are currently known. The $19$th number with the
-exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
+Thus $39$ Mersenne prime numbers are currently known.
+
+The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates Samual} Yates coined the expression {\em
 titanic} \index{Prime numbers!titanic} prime for this; it was discovered by
 Hurwitz in 1961); the $27$th number with the exponent $44,497$ was the first
 with at least $10,000$ digits in the decimal system (Yates coined the expression
 \index{Prime numbers!gigantic}  {\em gigantic} prime for this. These names are
-now long outdated). The 37th number was found in January 1998 and has 909,526
+now long outdated).
+
+The 37th number was found in January 1998 and has 909,526
 digits in the decimal system, which corresponds to 33 pages in the newspaper!
 
 These numbers can be found at the following URLs:
 
 {\href{http://reality.sgi.com/chongo/prime/prime_press.html}{\tt http://reality.sgi.com/chongo/prime/prime\_press.html}}
-
 \begin{quote}
 (The supercomputer manufacturer SGI Cray Research not only employed brilliant
 mathematicians but also used the prime number tests as benchmarks for their
@@ -484,14 +486,29 @@ machines.)
 (At the university of Tennessee you will find extensive research results about
 prime numbers.)
 \end{quote}
-The largest prime number currently known (November 2000) is the Mersenne number
+\subsubsection{M-38 -- June 1999}\index{Mersenne Marine!M-38}
+The 38th Mersenne prime 
 $$ 2^{6,972,593} - 1. $$
-It was discovered in June 1999 and has $2,098,960$ digits in the decimal system
-(that corresponds to around 77 pages in the newspaper). Like the three Mersenne
-numbers listed above, this number was also discovered in the GIMPS project
-(Great Internet Mersenne Prime Search). Since 1995, dozens of experts and
-thousands of amateurs have been working on this project to find such numbers
-using distributed computer programs.
+was discovered in June 1999 and has $2,098,960$ digits in the decimal system
+(that corresponds to around 77 pages in the newspaper).
+
+\subsubsection{M-39 -- December 6, 2001} \index{Mersenne Marine!M-39}
+
+The 39th Mersenne prime, called M-39, ($=2^{13.466.917}-1$), was found at December 6, 2001 – more exactly,
+he verification of this number, found at November 14, 2001 by the Canadian student Michael Cameron,
+was successfully finished. This number has about 4 million decimal digits (exactly 4,053,946 digits).
+Trying only to print this number (924947738006701322247758 ... 1130073855470256259071) in the Financial Times
+would need around 200 pages.
+
+\subsubsection{GIMPS}\index{GIMP}
+
+Discovering the 39th Mersenne prime the GIMPS project (Great Internet Mersenne Prime Search) founded in 1996
+already discovered for the 5th time the greatest Mersenne number to be proven being prime.
+Now more than 130,000 volunteers, amateurs and experts, are working for the GIMPS project. They connect their
+computers into the so called „primenet“, organized by the company entropia, to find such numbers using distributed
+computer programs.
+
+\subsubsection{EFF}\index{EFF}
 
 This search is also spurred on by a competition started by the non-profit
 organisation EFF (Electronic Frontier Foundation) using the means of an unknown
@@ -500,8 +517,10 @@ the longest prime number. In promoting this project, the unknown donator is not
 looking for the quickest computer, but rather wants to draw people's attention
 to the possibilities offered by {\em cooperative networking}
 
-{\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}},
+{\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}.
 
+The discoverer of M-38 got for discovering the first prime with more than 1 million decimal digits 50.000 USD 
+from the EFF. The next price from EFF with 100.000 USD is for a proven prime with more than 10 million decimal digits.
 %{\href{http://www.octocad.demon.co.uk/mersenne/prime.htm }{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
 
 Edouard Lucas (1842-1891) held the record for the longest prime number for over
@@ -825,7 +844,7 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 
 
 This is the \index{Prime number theorem} \textbf{prime number theorem}. It was
-put forward by Legendre (1752-1833) and Gauß (1777-1855) but not proved until
+put forward by Legendre (1752-1833) and Gau\"s (1777-1855) but not proved until
 over 100 years later.
 
 \hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
@@ -927,7 +946,7 @@ http://www.cerias.purdue.edu/homes/ssw/cun}}
   \item For each number $n$ in ${\bf N}$ there are $n$ consecutive natural
 numbers that are not primes.
     A proof of this can be found in \cite[p. 79]{Padberg1996}.
-  \item The Hungarian mathematician Paul Erdös (1913-1996) proved:
+  \item The Hungarian mathematician Paul Erd\"os (1913-1996) proved:
     Between each random number not equal to $1$ and its double, there is at
 least one prime. (He was not the first to prove this theorem, but proved it in a
 simpler manner than those before him).
@@ -1121,7 +1140,7 @@ Calculation using GMP, for example:
 \newpage\begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
 \bibitem[Bartholome1996]{Bartholome1996}  \index{Bartholome 1996}     A.
-Bartholomé, J. Rung, H. Kern, \\     Zahlentheorie für Einsteiger, Vieweg 1995,
+Bartholomé, J. Rung, H. Kern, \\     Zahlentheorie f\"ur Einsteiger, Vieweg 1995,
 2. Auflage 1996.
 
 \bibitem[Blum1999]{Blum1999} \index{Blum 1999}     W. Blum, \\     Die Grammatik
@@ -1131,8 +1150,8 @@ der Logik, dtv, 1999.
 Knuth, O. Patashnik, \\     Concrete Mathematics, Addison-Wesley, 1989.
 
 \bibitem[Klee1997]{Klee1997} \index{Klee 1997}     V. Klee, S. Wagon, \\
-Ungelöste Probleme in der Zahlentheorie und der     Geometrie der Ebene,
-Birkhäuser Verlag, 1997.
+Ungel\"oste Probleme in der Zahlentheorie und der     Geometrie der Ebene,
+Birkh\"auser Verlag, 1997.
 
 \bibitem[Knuth1981]{Knuth1981} \index{Knuth 1981}     Donald E. Knuth, \\ The
 Art of Computer Programming, vol 2: Seminumerical     Algorithms, Addison-
@@ -1152,10 +1171,10 @@ Zahlen aus Primzahlen, Verlag Harri Deutsch, 1974, 3. Auflage 1983.
 
 \bibitem[Schwenk1996]{Schwenk1996} \index{Schwenk 1996}     J. Schwenk \\
 Conditional Access. In: taschenbuch der telekom praxis 1996, Hrgb. B. Seiler,
-Verlag Schiele und Schön, Berlin.
+Verlag Schiele und Sch\"on, Berlin.
 
 \bibitem[Tietze1973]{Tietze1973} \index{Tietze 1973}     H. Tietze, \\
-Gelöste und ungelöste mathematische Probleme, Verlag C.H. Beck,     1959, 6.
+Gel\"oste und ungel\"oste mathematische Probleme, Verlag C.H. Beck,     1959, 6.
 Auflage 1973.
 
 \end{thebibliography}
@@ -1342,6 +1361,8 @@ the root entity, can also be secured by means of making them available publicly.
 \section{Elliptic Curves}
 \index{Elliptic curves}
 \hypertarget{ellcurve}{}
+(B. Filipovics / B. Esslinger, April 2000)
+
 \subsection{Elliptic curves --- history}
 
 Mathematicians have been researching elliptic curves for over 100 years. In the
@@ -1417,9 +1438,9 @@ are taken, performing the operation on them gives an element in $G$ (i.e.
 $a+b=c$, and $c$ lies in $G$).
    \item For all elements $a, b$ and $c$ in $G$: $(a+b)+c = a+(b+c)$.
    \item There exists an element $e$ in $G$ that behaves neutrally with respect
-to the operation $+$. That means that for all a in the set G: $a+e = e+a = a.$
-   \item For each element $a$ in $G$ there exists a so-called inverse element $-
-a$ ($-a$ also lies in $G$) such that: $a+(-a) = (-a)+a = e$.
+to the operation $+$. That means that for all a in the set $G: ~a+e = e+a = a.$
+   \item For each element $a$ in $G$ there exists a so-called inverse element $-a$ 
+($-a$ also lies in $G$) such that: $a+(-a) = (-a)+a = e$.
 \end{itemize}
 If also $a+b = b+a$ for all $a, b$ in $G$ then we call the group an {\em
 Abelian} group. An operation denoted as $+$ indicates an {\em additive} group;
@@ -1510,7 +1531,7 @@ Z}_p$ and $4a^3 + 27b^2$ mod $p$ is not equal to zero. For fixed chosen numbers
 $a$ and $b$ in ${\mathbb Z}_p$, this equation has the pair of solutions $$ {\bf
 E} = \left\{(x,y) \left| \begin{array}{c} x {\rm ~and~} y {\rm ~are~in~}
 {\mathbb Z}_p {\rm ~and~} \\ y^2  \equiv x^3 + ax + b \; ({\rm mod~} p) {\rm
-~and~} \\ 4a^3 + 27b^2 \not\equiv 0 \; ({\rm mod} p)\end{array} \right.
+~and~} \\ 4a^3 + 27b^2 \not\equiv 0 \; ({\rm mod~} p)\end{array} \right.
 \right\}, $$ i.e. the set ${\bf E}$ consists of all pairs $x$ and $y$ that are a
 solution (in ${\mathbb Z}_p$) of the above equation. It must be noted that the
 numbers $a, b$ and $p$ determine which pairs $(x,y)$ lie in the set ${\bf E}$.
@@ -1543,7 +1564,9 @@ distinguish between exact meanings.
 For cryptography, the important fact is that, for very large
 numbers, it appears to be extremely difficult to use a given point
 $Q$ on an elliptic curve to determine which two points have to be
-added to obtain $Q$. For large numbers $a, b$ and $p$ ($p$, for
+added to obtain $Q$.
+
+For large numbers $a, b$ and $p$ ($p$, for
 example, has a length of more than $160$ bits), the computer can
 easily add the point $P$  $m$ times after another, i.e. to
 determine the point $P + P + \cdots + P = Q$ in an incredibly
@@ -1560,9 +1583,9 @@ We must note that not all elliptic curves are equally secure. This
 means that we must choose the parameters $a$ and $b$ carefully
 when defining a curve. For certain classes of elliptic curves, it
 is possible to solve the ECDLP easier than in the general case.
-Cryptographically unsuitable elliptic curves are called abnormal
+Cryptographically unsuitable elliptic curves are called {\em abnormal}
 curves (these are curves over ${\mathbb Z}_p$ for which the set
-${\bf E}$ has precisely $p$ elements) and the supersingular curves
+${\bf E}$ has precisely $p$ elements) and the {\em supersingular} curves
 (the curves for which we can reduce the calculation of the ECDLP
 to calculating the ''standard'' discrete logarithm in other finite
 fields, i.e. simplify the calculation). There are therefore
@@ -1572,6 +1595,7 @@ whether or not the resulting elliptic curve is useful for
 cryptographic purposes. The curves used in cryptography are
 usually provided by experts. They ensure that the elliptic curves
 they classify as secure satisfy the current security requirements.
+
 For secure curves, the parameter $p$ determines how long it takes
 to solve the ECLDP on this curve. The larger the parameter $p$,
 the longer it takes to solve the problem. Experts recommend a bit
@@ -1615,7 +1639,7 @@ of ${\bf E}$ with the order $r$.
     \item The number $k = \#{\bf E}/r$ ($k$ is called the {\em cofactor}).
 \end{itemize}
 The parameters $a, b, p, G, r$ and $k$ listed above are called
-domain parameters. They determine on which elliptic curve ${\bf
+{\em domain parameters}.\index{Domain parameters} They determine on which elliptic curve ${\bf
 E}$ and in which cyclic subgroup of ${\bf E}$ a signature
 procedure has been ''used''.
 

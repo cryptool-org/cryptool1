@@ -42,7 +42,7 @@
 \newcommand{\kgv}{\text{kgV}}
 \newcommand{\Id}{\text{Id}}
 \newcommand{\nqcarre}{{\ncarre}_{q^2}}
-\newcommand{\mod}{{\rm mod~}}
+%\newcommand{\mod}{{\rm mod~}}
 %\normalsize
 %\parindent = 0pt
 %\setlength{\textwidth}{140mm}
@@ -90,7 +90,7 @@
 \section{The Mathematical Ideas Behind Modern Cryptography}
  (Oyono R./ Esslinger B., September 2000, Update Nov. 2000)
 \subsection{One-way functions with trapdoor and complexity classes}
-\index{Cryptography!modern} \index{One-way function} \hypertarget{Einwegfunktionen1}{}
+\index{Cryptography!modern} \index{One-way function} \hypertarget{OneWayFunktion1}{}
 A {\bf one-way function} is a (one-to-one) function that can be calculated 
 efficiently, but whose inverse is extremely complicated and practically 
 impossible to calculate.\par
@@ -317,7 +317,7 @@ superincreasing sequence $ a_1, \dots,a_n $.
 }}
 \end{center}
 \vskip +10 pt
-{\bf Merkle-Hellmann procedure} (based on knapsack problems).
+{\bf Merkle-Hellman procedure} (based on knapsack problems).
 \vskip +20 pt
 
 
@@ -686,10 +686,10 @@ discrete logarithm using the Baby-Step-Giant-Step algorithm. \\
 In addition to the Baby-Step-Giant-Step algorithm, there are also numerous other 
 procedures for calculating the discrete logarithm \cite{Stinson1995}.
 
-\paragraph{The theorem from Silver-Pohlig-Hellmann}
+\paragraph{The theorem from Silver-Pohlig-Hellman}
 In finite abelian groups, the discrete logarithm problem can be reduced to 
 groups of a lower order.
-\begin{theorem}[Silver-Pohlig-Hellmann]
+\begin{theorem}[Silver-Pohlig-Hellman]
 Let $ G $ be a finite abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots 
 \cdot p_s^{a_s}. $ The discrete logarithm in $ G $ can then be reduced to 
 solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
