@@ -1628,9 +1628,12 @@ void Verify(char* infile, const char *OldTitle)
 			ki=theApp.SecudeLib.d_KeyBits(&(keyinfo.key->subjectkey));
 			CDlgRSADemo RSASigDemo;
 			encode( ki->part1.octets, RSASigDemo.m_edit_N, ki->part1.noctets, 10, FALSE, NULL );
+			BaseRepr( RSASigDemo.m_edit_N, 10, 10); 
 			encode( ki->part2.octets, RSASigDemo.m_edit_e, ki->part2.noctets, 10, FALSE, NULL );
+			BaseRepr( RSASigDemo.m_edit_e, 10, 10); 
 			dataToHexDump( Signatur.signature.bits, (Signatur.signature.nbits+7)/8, RSASigDemo.m_edit_RSA_input); 
 			RSASigDemo.CheckRSASignature = true;
+			RSASigDemo.message = &message;
 			RSASigDemo.DoModal();
 			// return;
 		}

@@ -68,7 +68,10 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	DlgFactorisation	= new CDlgFactorisationDemo;
 	DlgFactorisation->m_inputReadOnly = TRUE; // Don't edit the input for factorisation
 	m_RSAKeyStatus = 0;
+
+// == RSA-Signatur, Schritt Für Schritt verifizieren
     CheckRSASignature = false;
+	message = NULL;
 }
 
 CDlgRSADemo::~CDlgRSADemo()
@@ -89,6 +92,7 @@ void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRSADemo)
+	DDX_Control(pDX, IDC_RADIO3, m_control_RSA_with_own_parameter);
 	DDX_Control(pDX, IDC_RSA_MODE_FACTORISATION, m_RSA_mode_factorisation);
 	DDX_Control(pDX, IDC_RSA_CAPTION_PRIME_Q, m_RSA_caption_prime_q);
 	DDX_Control(pDX, IDC_RSA_CAPTION_PRIME_P, m_RSA_caption_prime_p);
@@ -684,7 +688,9 @@ BOOL CDlgRSADemo::OnInitDialog()
 		UpdateData(FALSE);
 		OnRadioRSAPublicKey();
 		OnButtonUpdateRSAParameter();
-		// m_ButtonEncrypt.EnableWindow();
+		LoadString(AfxGetInstanceHandle(),IDS_RSADEMO_VERIFY,pc_str,STR_LAENGE_STRING_TABLE);
+		m_control_RSA_with_own_parameter.EnableWindow(FALSE);
+		m_ButtonEncrypt.SetWindowText(pc_str);
 	}
 	else if ( PasteKey( pc_str, RSAParam ) )
 	{
@@ -1303,6 +1309,9 @@ bool CDlgRSADemo::CheckIfSignature()
 	int size = decode(m_edit_RSA_step_1, buffer, 0, GetBase(), 0, NULL);
 	int i, flag = 0;
 
+	OctetString hash;
+	hash.noctets=0;
+
 	if ( 0 > m_edit_RSA_step_1.Find('#') && size > 30 ) 
 	{
         for ( i=0; i<=size - 20; i++ ) 
@@ -1313,6 +1322,10 @@ bool CDlgRSADemo::CheckIfSignature()
 				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("MD2"));
 			   i += (DER_MD2_SIZE);
 			   flag = 1;
+			   if ( message ) 
+			   {
+				   theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.md2_aid,NULL);
+			   }	
 			   break;
 		   }
 		   else if ( !memcmp(buffer+i, DER_MD5, DER_MD5_SIZE) )
@@ -1322,6 +1335,10 @@ bool CDlgRSADemo::CheckIfSignature()
 				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("MD5"));
 			   i += (DER_MD5_SIZE);
 			   flag = 1;
+			   if ( message )
+			   {			   
+				   theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.md5_aid,NULL);
+			   }
 			   break;
 		   }
 		   else if ( !memcmp(buffer+i, DER_SHA, DER_SHA_SIZE) )
@@ -1331,6 +1348,10 @@ bool CDlgRSADemo::CheckIfSignature()
 				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("SHA"));
 			   i += (DER_SHA_SIZE);
 			   flag = 1;
+			   if ( message )
+			   {			   
+				   theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.sha_aid,NULL);
+			   }
 			   break;
 		   }
 		   else if ( !memcmp(buffer+i, DER_SHA1, DER_SHA1_SIZE) )
@@ -1340,6 +1361,10 @@ bool CDlgRSADemo::CheckIfSignature()
 				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("SHA-1"));
 			   i += (DER_SHA1_SIZE);
 			   flag = 1;
+			   if ( message )
+			   {			   
+				   theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.sha1_aid,NULL);
+			   }
 			   break;
 		   }
 		   else if ( !memcmp(buffer+i, DER_RIPEMD160, DER_RIPEMD160_SIZE) )
@@ -1349,14 +1374,23 @@ bool CDlgRSADemo::CheckIfSignature()
 				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("RIPEMD160"));
 			   i += (DER_RIPEMD160_SIZE);
 			   flag = 1;
+			   if ( message )
+			   {			   
+				   theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.ripemd160_aid,NULL);
+			   }
 			   break;
 		   }
 		}
 	}
 	if ( flag ) 
 	{
-		dataToHexDump( buffer+i, size-i, m_edit_RSA_step_2);
-		m_Header_RSA_step_3 = _T(""); 
+		dataToHexDump( buffer+i, size-i, m_edit_RSA_step_2); 
+		if ( message && message->noctets )
+		{		   
+			SetHeadLine( m_Header_RSA_step_3, IDS_RSADEMO_COMPARE_HASHVALUES);
+			dataToHexDump( hash.octets, hash.noctets, m_edit_RSA_step_3);
+			theApp.SecudeLib.aux_free(hash.octets);
+		}
 		return true;
 	}
 	else        

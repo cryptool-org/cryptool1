@@ -104,10 +104,12 @@ public:
 	CDlgRSADemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgRSADemo();
 
-	bool CheckRSASignature;
+	bool     CheckRSASignature;
+	OctetString *message;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSADemo)
 	enum { IDD = IDD_RSA_DEMO };
+	CButton	m_control_RSA_with_own_parameter;
 	CStatic	m_RSA_mode_factorisation;
 	CStatic	m_RSA_caption_prime_q;
 	CStatic	m_RSA_caption_prime_p;
