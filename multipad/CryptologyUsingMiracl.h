@@ -111,8 +111,10 @@ private:
 	static void eval_power(Big& oldn, Big& n, char op);
 };
 
+#define GP_ERROR_EVAL 0
 #define GP_ERROR_LIMIT 1
 #define GP_ERROR_NOPRIME 2
+
 
 class GeneratePrimes  
 {
@@ -131,7 +133,7 @@ public:
 	GeneratePrimes();
 	virtual ~GeneratePrimes();
 	int Bitlength() { return bits(p); }
-	BOOL SetLimits( CString &LowerLimitStr, CString &UpperLimitStr );
+	int SetLimits( CString &LowerLimitStr, CString &UpperLimitStr );
 
 	BOOL SetLimits( const Big &LowerLimit, const Big&UpperLimit ); 
 	BOOL GetPrime( Big& prime );
@@ -272,7 +274,7 @@ public:
 	void GetFactor2Str( CString &Factor2 );
 	void GetFactor1Str( CString &Factor1 );
 	//void SetN( CString &NStr );
-	bool SetN( CString &NStr );
+	int SetN( CString &NStr );
 	BOOL BruteForce();
 	BOOL QuadraticSieve();
 	BOOL Lenstra();

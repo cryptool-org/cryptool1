@@ -30,6 +30,26 @@ if ( Precheck() ) { dlg.ExitSchedule(m_Ordinal); return true;}
 	ExitFactorisationCode = 1; return false; }
 #endif
 
+
+double approxLog2(Big &N)
+{
+	int b = bits(N);
+	Big num = N;
+	Big dom = 1;
+	if (b > 16)
+	{	
+		num >>= b-16;
+		dom <<= 16;
+	}
+	else
+		dom <<= b;
+	double d_num = (double)(num % INT_MAX);
+	double d_dom = (double)(dom % INT_MAX);
+
+	double ret_val = log(d_num/d_dom)/log(2) + double(b);
+	return ret_val;
+}
+
 /////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -517,8 +537,11 @@ BOOL evaluate::eval( Big& value, const char * Str )
 void evaluate::eval_power(Big &oldn, Big &n, char op)
 {
 	if (op) {
+		if ( n    == 0 ) { n = 1; return; }
+		if ( oldn == 0 ) { n = 0; return; }
 		int i_n = toint(n);
-		if ( bits(oldn)*n > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_POW );
+		double d = approxLog2(oldn);
+		if ( (int)floor(d*i_n) > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_POW );
 		n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
 	}
 }
@@ -699,13 +722,26 @@ BOOL GeneratePrimes::SetLimits(const Big &LowerLimit, const Big &UpperLimit )
 	return ( 0 == (Error &= GP_ERROR_LIMIT) );
 }
 
-BOOL GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
+int GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
 {
 	Big UpperLimit, LowerLimit;
-	evaluate::eval( LowerLimit, LowerLimitStr.GetBuffer( 256 ) );
-	evaluate::eval( UpperLimit, UpperLimitStr.GetBuffer( 256 ) );
-
-	return SetLimits( LowerLimit, UpperLimit );
+	if ( evaluate::eval( LowerLimit, LowerLimitStr.GetBuffer( 256 ) ) == false )
+	{
+		//LowerLimit hat mehr als 1024 bit
+		return 3;
+	}
+	if ( evaluate::eval( UpperLimit, UpperLimitStr.GetBuffer( 256 ) ) == false )
+	{
+		//UpperLimit hat mehr als 1024 bit
+		return 2;
+	}
+	bool Out_Set_Lim;
+	Out_Set_Lim = SetLimits( LowerLimit, UpperLimit );
+		
+	//Eingabe sind OK
+	if (Out_Set_Lim==true) return 1;
+	//UpperLimit>LowerLimit
+	else return 0;
 }
 
 BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
@@ -717,6 +753,12 @@ BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 	}
 	else
 	{
+		if ( 0 == p % 2 || 0 == p % 3 ||
+			 0 == p % 5 || 0 == p % 7 ||
+			 0 == p % 11 || 0 == p % 13 ||
+			 0 == p % 17 || 0 == p % 19 ||
+			 0 == p % 23 || 0 == p % 29 ||
+			 0 == p % 31 || 0 == p % 37 ) return FALSE;
 		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		Big a, r, r1, _s;
 
@@ -755,6 +797,12 @@ BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 	}
 	else
 	{
+		if ( 0 == p % 2 || 0 == p % 3 ||
+			 0 == p % 5 || 0 == p % 7 ||
+			 0 == p % 11 || 0 == p % 13 ||
+			 0 == p % 17 || 0 == p % 19 ||
+			 0 == p % 23 || 0 == p % 29 ||
+			 0 == p % 31 || 0 == p % 37 ) return FALSE;
 		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		long i, v = 0;
 		Big a, b, w = p-1;
@@ -803,6 +851,12 @@ BOOL GeneratePrimes::FermatTest(unsigned long probabilityThreshold)
 	}
 	else
 	{
+		if ( 0 == p % 2 || 0 == p % 3 ||
+			 0 == p % 5 || 0 == p % 7 ||
+			 0 == p % 11 || 0 == p % 13 ||
+			 0 == p % 17 || 0 == p % 19 ||
+			 0 == p % 23 || 0 == p % 29 ||
+			 0 == p % 31 || 0 == p % 37 ) return FALSE;
 		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		Big a, r;
 		for(unsigned long i=1;i<=probabilityThreshold;i++)
@@ -899,6 +953,14 @@ int TutorialRSA::InitParameter( Big &p, Big &q )
 	if ( !prime( p ) ) return ERR_P_NOT_PRIME;
 	if ( !prime( q ) ) return ERR_Q_NOT_PRIME;
 	if (p==q) return ERR_P_EQUALS_Q;
+	int l1,l2;
+	l1=bits(p);
+	l2=bits(q);
+	if (l1+l2-1 > MAX_BIT_LENGTH) 
+	{
+	//	IsInitialised_N=false
+		return 1;
+	}
 	N = p*q;
 	phiOfN = (p-1)*(q-1);
 	isInitialized_N = true;
@@ -929,6 +991,7 @@ BOOL TutorialRSA::SetPublicKey ( Big &E )
 BOOL TutorialRSA::SetPublicKey ( CString &eStr, int base )
 {
 	Big E;
+	// Noch ...
 	CStringFormulaToBig( eStr, E );
 	return SetPublicKey( E );
 }
@@ -964,21 +1027,7 @@ int  TutorialRSA::GetBlockLength()
 
 double TutorialRSA::GetLog2RSAModul()
 {
-	int b = bits(N);
-	Big num = N;
-	Big dom = 1;
-	if (b > 16)
-	{	
-		num >>= b-16;
-		dom <<= 16;
-	}
-	else
-		dom <<= b;
-	double d_num = (double)(num % INT_MAX);
-	double d_dom = (double)(dom % INT_MAX);
-
-	double ret_val = log(d_num/d_dom)/log(2) + double(b);
-	return ret_val;
+	return approxLog2(N);
 }
 
 BOOL TutorialRSA::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
@@ -2352,13 +2401,14 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
 
 //void TutorialFactorisation::SetN(CString &NStr)
-bool TutorialFactorisation::SetN(CString &NStr)
+int TutorialFactorisation::SetN(CString &NStr)
 {
 	bool output;
 	set_mip(mip);
 	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
-	if (N<0) return false; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
-	return output;
+	if (output==false)  return 0; // Zahl mit Bitlänge >= 1024, oder sonstige Miracl-Fehler
+	else if ( N<0 ) return 1; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
+	else return 2; 
 }
 
 

@@ -148,26 +148,32 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 	UpdateData(TRUE);
 	
-	if ( m_CompositeNoStr.GetLength() )
+	char line [256];
+
+	int laenge_eingabe;
+	laenge_eingabe = m_CompositeNoStr.GetLength();
+	
+	if ( laenge_eingabe )
 	{
 		m_weiter.EnableWindow(true);
 		m_vollstaendig.EnableWindow(true);	
 	}
-
+	
+	
 	CString next_factor;
-	char line [256];
+	
 
 	next_factor=Search_First_Composite_Factor();
 	
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
 	{
-		bool ja_nein;
+		int Out_SetN;
 		{
 //			TutorialFactorisation f;
-			ja_nein=f.SetN(next_factor);
+			Out_SetN=f.SetN(next_factor);
 		}
-		if (ja_nein==true)
+		if (Out_SetN==2)
 		{
 			BOOL factorized = FALSE;
 			CString f1, f2;
@@ -294,10 +300,22 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
 		}
+		else if (Out_SetN==1)
+		{
+			// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
+			m_CompositeNoCtrl.SetSel(0,-1);
+			m_CompositeNoCtrl.SetFocus();
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+		}
 		else
 		{
-			// Falsche Eingabe
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
+			// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
+			m_CompositeNoCtrl.SetSel(0,-1);
+			m_CompositeNoCtrl.SetFocus();
+		
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str);
 			AfxMessageBox(line);
 		}
@@ -531,9 +549,9 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 
 			//fact.SetN(next_factor);
 			
-			bool ja_nein;
-			ja_nein=fact.SetN(next_factor);
-			if (ja_nein==true)
+			int Out_SetN;
+			Out_SetN=fact.SetN(next_factor);
+			if (Out_SetN==2)
 			{
 
 			
@@ -603,10 +621,19 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 				UpdateData(FALSE);
 				Set_NonPrime_Factor_Red();
 			}
+
+			else if (Out_SetN==1)
+			{
+				// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
 			else
 			{
-				// Falsche Eingabe
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
+				// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
 				return;
@@ -733,7 +760,7 @@ void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
 			if(((ch>='0')&&(ch<='9'))
 				||((ch=='^'||ch=='+'||ch=='-' ||ch=='*') && (ch2!='^' && ch2!='+' && ch2!='-'  && ch2!='*') && i>=1 )
 				//||((ch=='^'||ch=='+'||ch=='-' ||ch=='/') && i==0)
-				||ch=='('||ch==')'||ch=='['||ch==']'||ch=='{'||ch=='}')
+				||ch=='('||ch==')')
 			{
 				
 			}

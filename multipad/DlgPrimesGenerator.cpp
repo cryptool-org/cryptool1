@@ -9,7 +9,6 @@
 #include "DlgPrimesGenerator.h"
 #include "crypt.h"
 
-
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -155,21 +154,57 @@ void DlgPrimesGenerator::OnButtonGenerate()
 
 	GeneratePrimes P;
 	GeneratePrimes Q;
+	int PSet,QSet;
+
 
 	if(0==m_radio4)
 	{
 		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
 		   (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty()) )
 		{
-			if ( P.SetLimits( m_edit1, m_edit2 ) && Q.SetLimits( m_edit3, m_edit4 ) )
+			PSet=P.SetLimits( m_edit1, m_edit2 );
+			QSet=Q.SetLimits( m_edit3, m_edit4 );
+			if ( (PSet == 1) && (QSet ==1))
 			{
 				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
 				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
 				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			}
-			else
+			else if ( PSet == 3)
 			{
+				m_control_edit1.SetFocus();
+				m_control_edit1.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if ( PSet == 2)
+			{
+				m_control_edit2.SetFocus();
+				m_control_edit2.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  QSet ==3)
+			{
+				m_control_edit3.SetFocus();
+				m_control_edit3.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  QSet ==2)
+			{
+				m_control_edit4.SetFocus();
+				m_control_edit4.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  PSet ==1 )
+			{
+				m_control_edit3.SetFocus();
+				m_control_edit3.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+			}
+			else 
+			{
+				m_control_edit1.SetFocus();
+				m_control_edit1.SetSel(0,-1);
 				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
 			}
 		}
@@ -182,15 +217,50 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	{
 		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
 		{
-			if ( P.SetLimits( m_edit1, m_edit2 ) && Q.SetLimits( m_edit1, m_edit2 ) )
+			PSet=P.SetLimits( m_edit1, m_edit2 );
+			QSet=Q.SetLimits( m_edit1, m_edit2 );
+
+			if ( PSet==1 && QSet==1 )
 			{
 				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
 				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
 				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			}
-			else
+			else if ( PSet == 3)
 			{
+				m_control_edit1.SetFocus();
+				m_control_edit1.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if ( PSet == 2)
+			{
+				m_control_edit2.SetFocus();
+				m_control_edit2.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  QSet ==3)
+			{
+				m_control_edit3.SetFocus();
+				m_control_edit3.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  QSet ==2)
+			{
+				m_control_edit4.SetFocus();
+				m_control_edit4.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_BIG_NUMBER );
+			}
+			else if (  PSet ==1 )
+			{
+				m_control_edit3.SetFocus();
+				m_control_edit3.SetSel(0,-1);
+				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+			}
+			else 
+			{
+				m_control_edit1.SetFocus();
+				m_control_edit1.SetSel(0,-1);
 				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
 			}
 		}
@@ -198,6 +268,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		{
 			ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
 		}
+
 	}
 
 	if(("0"!=m_edit5)&&("0"!=m_edit6))
@@ -219,7 +290,7 @@ void DlgPrimesGenerator::OnButtonAccept()
 	if ( m_edit5 != "0" && m_edit6 != "0" )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PRIMES,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Primes = m_edit5 + ";" + m_edit6;
+		CString Primes = m_edit5 + CString( ";" ) + m_edit6;
 		CopyKey ( pc_str, Primes );
 		CDialog::OnOK();
 	}

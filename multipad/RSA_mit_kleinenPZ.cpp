@@ -158,33 +158,49 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 	
 	if ( IDOK == DlgRSAPrimes->DoModal() )
 	{
+		bool Parameter_N_zu_gross;
 		m_eingabe_p = DlgRSAPrimes->m_edit5;
 		m_eingabe_q = DlgRSAPrimes->m_edit6;
-		RSA->InitParameter( m_eingabe_p, m_eingabe_q );
-		if (RSA->SetPublicKey( m_oeffentliche_schluessel_e ) )
+		Parameter_N_zu_gross = RSA->InitParameter( m_eingabe_p, m_eingabe_q );
+		if (Parameter_N_zu_gross==0)
 		{
-			RSA->SetPrivateKey();
-			RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, 
-						       m_oeffentliche_schluessel_e, m_geheime_schluessel_d );
+			if (RSA->SetPublicKey( m_oeffentliche_schluessel_e ) )
+			{
+				RSA->SetPrivateKey();
+				RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, 
+								   m_oeffentliche_schluessel_e, m_geheime_schluessel_d );
+			}
+			else
+			{
+				CString t1, t2;
+				RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, t1, t2 );
+				m_geheime_schluessel_d = "";
+			}
+			if ( RSA->IsInitialized() )
+			{
+				EnableEncryption();
+				m_ButtonOptionen.EnableWindow(true);
+				SetDlgOptions();
+				RequestForInput();
+			}
+			else
+			{
+				EnableEncryption(false);
+				m_ButtonOptionen.EnableWindow(false);
+			}
 		}
 		else
 		{
-			CString t1, t2;
-			RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, t1, t2 );
-			m_geheime_schluessel_d = "";
-		}
-		if ( RSA->IsInitialized() )
-		{
-			EnableEncryption();
-			m_ButtonOptionen.EnableWindow(true);
-			SetDlgOptions();
-			RequestForInput();
-		}
-		else
-		{
+			Message(IDS_STRING_BIG_RSA_MODUL);
 			EnableEncryption(false);
 			m_ButtonOptionen.EnableWindow(false);
-		}		
+			m_eingabe_p = _T("");
+			m_eingabe_q = _T("");
+			m_geheime_parameter = _T("");
+			m_oeffentliche_parameter_pq = _T("");
+			m_geheime_schluessel_d = _T("");
+			m_control_p.SetFocus();
+		}
 	}
 	UpdateData(false);
 }
