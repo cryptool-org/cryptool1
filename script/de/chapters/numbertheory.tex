@@ -1898,9 +1898,34 @@ Solange noch keine (kosteng"unstige) Hardware oder verteilte Ans"atze (distribut
 dem Bernsteinschen Prinzip basieren, besteht noch keine akute Gef"ahrdung des RSA. Es bleibt zu kl"aren, ab welchen 
 Gr"o"senordnungen von n die Asymptotik greift. 
 
-Zum Zeitpunkt der Erstellung dieses Kapitels (Mai 2002) war mir nichts dar"uber bekannt,
-inwieweit die im Bernstein-Papier vorgeschlagenen theoretischen Ansatzes realisiert wurden oder
-wieweit die Finanzierung seines Forschungsprojektes ist.
+Arjen Lenstra, Adi Shamir et. al. haben das Bernstein-Paper analysiert (siehe
+\href{http://www.cryptosavvy.com/mesh.pdf}{\tt http://www.cryptosavvy.com/mesh.pdf}).
+Als Ergebnis kommen Sie zu einer Bitl"angen-Verbesserung der Faktorisierung um den Faktor 1.17 
+(anstatt Faktor 3 wie von Bernstein erwartet).
+
+Die Zusammenfassung ihres Papers ``Analysis of Bernstein's Factorization Circuit'' lautet:
+
+``In [1], Bernstein proposed a circuit-based implementation of
+the matrix step of the number field sieve factorization algorithm. We
+show that under the non-standard cost function used in [1], these circuits
+indeed offer an asymptotic improvement over other methods but
+to a lesser degree than previously claimed: for a given cost, the new
+method can factor integers that are 1.17 times larger (rather than 3.01).
+We also propose an improved circuit design based on a new mesh routing
+algorithm, and show that for factorization of 1024-bit integers the
+matrix step can, under an optimistic assumption about the matrix size,
+be completed within a day by a device that costs a few thousand dollars.
+We conclude that from a practical standpoint, the security of RSA relies
+exclusively on the hardness of the relation collection step of the number
+field sieve.''
+
+Auch \href{http://www.rsasecurity.com}{RSA Security} kommt in ihrer Analyse der Bernstein Arbeit, mit dem Titel
+{\em Has the RSA algorithm been compromised as a result of Bernstein's Paper?} (vom 8. April 2002), 
+zu dem Ergebnis, das RSA weiterhin als ungebrochen betrachtet werden kann (siehe
+\href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com}).
+
+
+
 
 Verweise:
 \begin{itemize}
