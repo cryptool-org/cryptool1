@@ -1296,6 +1296,26 @@ SOURCE="..\AES\Rijndael\rijndael-api-fst.h"
 # End Source File
 # Begin Source File
 
+SOURCE=.\RSA_Berechnungen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_Berechnungen.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinen_PZ.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinenPZ.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinenPZ.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\RsaDec.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
