@@ -75,6 +75,12 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 	}
 	
 	
+	// Falls eine Formel erkannt wird, den Wert berechnen und den Formelausdruck
+	// durch den entsprechenden Zahlenwert ersetzen
+	CString formula = m_Secret;
+	int err_ndx;
+	if(EvalFormula( formula, err_ndx, true )) m_Secret = formula; 
+	
 	// Fehlermeldung ausgeben, wenn Geheimnis keine Dezimalzahl ist
 	if(!IsDecimalNumber(m_Secret))
 	{
@@ -106,6 +112,8 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 			return;
 		}
 	}
+
+	UpdateData(false);
 
 	CDialog::OnOK();
 }

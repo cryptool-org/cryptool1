@@ -29,7 +29,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // fixme
-bool GifLoaded = false;
+bool firstPaint = false;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanVisualization 
@@ -54,6 +54,10 @@ CDlgDiffieHellmanVisualization::CDlgDiffieHellmanVisualization(CWnd* pParent /*=
 	this->Alice = NULL;
 	this->Bob = NULL;
 	this->pDiffieHellmanLogFile = NULL;
+
+	// Zu Beginn keine GIFs geladen
+	this->m_bAnimatedGIFLoaded = false;
+	this->m_bStaticGIFLoaded = false;
 }
 
 CDlgDiffieHellmanVisualization::~CDlgDiffieHellmanVisualization()
@@ -63,8 +67,13 @@ CDlgDiffieHellmanVisualization::~CDlgDiffieHellmanVisualization()
 	delete this->Bob;
 	delete this->pButtonControl;
 	delete this->pDiffieHellmanLogFile;
-
-	m_AnimGif.UnLoad();
+	
+	if( this->m_bAnimatedGIFLoaded || this->m_bStaticGIFLoaded )
+	{
+		m_AnimGif.UnLoad();
+		this->m_bAnimatedGIFLoaded = false;
+		this->m_bStaticGIFLoaded = false;
+	}
 }
 
 void CDlgDiffieHellmanVisualization::DoDataExchange(CDataExchange* pDX)
@@ -157,8 +166,8 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(DHError& e) { CreateErrorMessage(e); return; }
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	// Button mit Index 0 gedrückt
 	this->UpdateGUI(0);
@@ -175,8 +184,8 @@ void CDlgDiffieHellmanVisualization::OnSetsecrets()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	// Button mit Index 1 gedrückt
 	this->UpdateGUI(1);
@@ -194,8 +203,8 @@ void CDlgDiffieHellmanVisualization::OnCreatesharedkey()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	// Button mit Index 2 gedrückt
 	this->UpdateGUI(2);
@@ -215,12 +224,7 @@ void CDlgDiffieHellmanVisualization::OnExchangesharedkeys()
 	}
 
 	// GIF Animation starten
-	if (!GifLoaded)
-	{ // fixme
-		m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
-		GifLoaded = true;
-	}
-	m_AnimGif.Draw();
+	this->ShowAnimatedGIF();
 
 	// Button mit Index 3 gedrückt
 	this->UpdateGUI(3);
@@ -238,8 +242,8 @@ void CDlgDiffieHellmanVisualization::OnGeneratefinalkey()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	// Button mit Index 4 gedrückt
 	this->UpdateGUI(4);
@@ -277,8 +281,8 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 	
 	this->m_SecretAlice = dlg->m_Secret;
 	
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 	
 	UpdateData(false);
 
@@ -316,8 +320,8 @@ void CDlgDiffieHellmanVisualization::OnButtonbob1()
 	
 	this->m_SecretBob = dlg->m_Secret;
 	
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 	
 	UpdateData(false);
 
@@ -342,8 +346,8 @@ void CDlgDiffieHellmanVisualization::OnButtonalice2()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 		
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	UpdateData(false);
 
@@ -365,8 +369,8 @@ void CDlgDiffieHellmanVisualization::OnButtonbob2()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 	
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	UpdateData(false);
 
@@ -389,8 +393,8 @@ void CDlgDiffieHellmanVisualization::OnButtonalice3()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
 	UpdateData(false);
 
@@ -413,8 +417,8 @@ void CDlgDiffieHellmanVisualization::OnButtonbob3()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 
-	// GIF Animation stoppen
-	m_AnimGif.Stop();
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 	
 	UpdateData(false);
 
@@ -447,10 +451,11 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	this->m_blackcolor=RGB(0,0,0); // Schwarz
 	this->m_blackbrush.CreateSolidBrush(m_blackcolor);
 	
+	// Statische GIF-Anim einblenden
+	this->ShowStaticGIF();
 
-	// GIF Bild "vor"laden
-	// m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
 	UpdateData(false);
+
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -607,6 +612,9 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 		
 	}
 
+
+
+
 	UpdateData(false);
 }
 
@@ -638,8 +646,10 @@ void CDlgDiffieHellmanVisualization::OnKey()
 // sorgt.
 void CDlgDiffieHellmanVisualization::OnPaint() 
 {
+
 	CPaintDC dc(this); // device context for painting
-	
+	if (!firstPaint)
+	{
 	     CBitmap bmp, *poldbmp;
          CDC memdc;
          // Load the bitmap resource
@@ -652,6 +662,8 @@ void CDlgDiffieHellmanVisualization::OnPaint()
          dc.BitBlt( 0, 0, 795, 575, &memdc, 0, 0, SRCCOPY );
          memdc.SelectObject( poldbmp );
          // Do not call CDialog::OnPaint() for painting messages
+		 firstPaint = true;
+	}
 }
 
 
@@ -713,4 +725,37 @@ HBRUSH CDlgDiffieHellmanVisualization::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCt
 	
 	// TODO: Anderen Pinsel zurückgeben, falls Standard nicht verwendet werden soll
 	return hbr;
+}
+
+
+
+// Die beiden folgenden Funktionen laden das animierte bzw. statische
+// GIF, welches den Schlüsselaustausch zwischen Alice und Bob darstellen
+// soll. Die entsprechenden Ressourcen werden dabei geladen und wieder entladen--
+// es genügt zum Anzeigen des jeweiligen GIFs der simple Aufruf einer der Funktionen.
+void CDlgDiffieHellmanVisualization::ShowAnimatedGIF()
+{
+	if(!this->m_bAnimatedGIFLoaded)
+	{
+		if(this->m_bStaticGIFLoaded) m_AnimGif.UnLoad();
+		m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
+		this->m_bAnimatedGIFLoaded = true;
+		this->m_bStaticGIFLoaded = false;
+	}
+
+	m_AnimGif.Draw();
+}
+
+// siehe oben (letzter Kommentar)
+void CDlgDiffieHellmanVisualization::ShowStaticGIF()
+{
+	if(!this->m_bStaticGIFLoaded)
+	{
+		if(this->m_bAnimatedGIFLoaded) m_AnimGif.UnLoad();
+		m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF2), _T("GIF"));
+		this->m_bAnimatedGIFLoaded = false;
+		this->m_bStaticGIFLoaded = true;
+	}
+	
+	m_AnimGif.Draw();
 }

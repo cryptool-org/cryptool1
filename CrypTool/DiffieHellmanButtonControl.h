@@ -14,9 +14,13 @@ private:
 	//
 	// Um dabei die Abhängigkeit von anderen Buttons zu implementieren, wird ein boolscher
 	// Wert übergeben, der den Zustand des jeweils anderen Buttons widerspiegelt.
+//bool forUpdate[12];
 	void Update()
 	{
 		// Die Button-Abhängigkeiten
+//for (int i=0; i<NumberOfButtons; i++ )
+//	forUpdate[i] = AllButtons[i].IsActive();
+		
 		AllButtons[0].SetActive(true);
 		AllButtons[1].SetActive( AllButtons[0].IsActionPerformed() );
 		AllButtons[2].SetActive( AllButtons[5].IsActionPerformed() || AllButtons[6].IsActionPerformed() );
@@ -30,16 +34,23 @@ private:
 		AllButtons[10].SetActive(AllButtons[4].IsActionPerformed() );
 		AllButtons[11].SetActive(AllButtons[9].IsActionPerformed() && AllButtons[10].IsActionPerformed() );
 			
-		// Alle Buttons parsen und entsprechend aktivieren oder deaktivieren
-		for(int i=0; i<NumberOfButtons; i++)
-		{
-			if(!AllButtons[i].IsActive()) AllButtons[i].Button.EnableWindow(false);
-			else AllButtons[i].Button.EnableWindow(true);
-		}
+// Alle Buttons parsen und entsprechend aktivieren oder deaktivieren
+//for(i=0; i<NumberOfButtons; i++)
+//{
+//	if ( forUpdate[i] != AllButtons[i].IsActive() )
+//	{
+//		if(!AllButtons[i].IsActive()) AllButtons[i].Button.EnableWindow(false);
+//		else AllButtons[i].Button.EnableWindow(true);
+//		AllButtons[i].ShowBitmaps();
+//	}
+//}
 
-		// Die entsprechenden Bitmaps laden
-		for(i=0; i<NumberOfButtons;i++)
+		//Die entsprechenden Bitmaps laden
+		for(int i=0; i<NumberOfButtons;i++)
 		{
+			if( AllButtons[i].IsActive() ) AllButtons[i].Button.EnableWindow( true );
+			else AllButtons[i].Button.EnableWindow( false );
+
 			AllButtons[i].ShowBitmaps();
 		}
     };

@@ -2589,10 +2589,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Geheimnis wählen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
+    DEFPUSHBUTTON   "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
     PUSHBUTTON      "&Geheimnis übernehmen",IDOK,15,111,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
+    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
     LTEXT           "Bitte achten Sie darauf, dass Sie sich für eine natürliche Zahl entscheiden, die möglichst größer als Eins und kleiner als der zuvor gewählte Primzahlmodul (p) ist.",
                     IDC_STATIC,15,22,358,16
@@ -2671,8 +2671,7 @@ END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 269, 274
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Optionen für den Angrifff auf den Hashwert der digitalen Signatur"
-
+CAPTION "Optionen für den Angriff auf den Hashwert der digitalen Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,11,242,61,17
@@ -2776,7 +2775,7 @@ BEGIN
     PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,274,72,14
     LTEXT           "Jede Partei (Alice und Bob) berechnete für sich aus den eigenen geheimen Informationen und aus den übertragenen Informationen das gemeinsame Geheimnis.",
                     IDC_STATIC,20,198,384,16
-    LTEXT           "Dieses Geheimnis bzw. den Session Key kann ein ""Lauscher"" nicht in Erfahrung bringen, wenn die gewählten Parameter groß genug sind. - Der Session Key kann nun z.B. für eine symmetrische Verschlüsselung zwischen Alice und Bob verwendet werden.",
+    LTEXT           "Dieses Geheimnis bzw. den Session Key kann ein ""Lauscher"" nicht in Erfahrung bringen, wenn die gewählten Parameter groß genug sind. Der Session Key kann nun z.B. für eine symmetrische Verschlüsselung zwischen Alice und Bob verwendet werden.",
                     IDC_STATIC,20,222,384,24
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
@@ -4312,6 +4311,7 @@ END
 //
 
 IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
+IDR_GIF2                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5965,9 +5965,9 @@ BEGIN
     IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
                             "Bob hat anhand des öffentlichen Schlüssels von Alice (A) und seines Geheimnisses (b) den gemeinsamen Schlüssel S = A^b = (g^a)^b berechnet.\nDieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
-                            "Alice hat ihr Geheimnis a gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+                            "Alice hat ihr Geheimnis a gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Sternchen angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
-                            "Bob hat sein Geheimnis b gewählt. Da dies niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+                            "Bob hat sein Geheimnis b gewählt. Da dies niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Sternchen angezeigt."
     IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
@@ -8673,10 +8673,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "TEXT WIRD DYNAMISCH ERSTELLT"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Generate Secret",IDC_GENERATE_SECRET,273,79,100,14
+    DEFPUSHBUTTON   "&Generate Secret",IDC_GENERATE_SECRET,273,79,100,14
     DEFPUSHBUTTON   "&Accept secret",IDOK,15,111,100,20
     PUSHBUTTON      "&Cancel",IDCANCEL,273,111,100,20
+    EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
     LTEXT           "Please make sure to choose a natural number, preferably bigger than one but smaller than the previously defined prime module (p).",
                     IDC_STATIC,15,22,358,16
@@ -8726,7 +8726,7 @@ BEGIN
     GROUPBOX        "Thus, the target is reached",IDC_STATIC,7,184,410,68
     LTEXT           "Using the secret information on the one hand and the public information on the other hand, each party (Alice and Bob) computed the common and secret Session Key on its own.",
                     IDC_STATIC,20,198,384,16
-    LTEXT           "An eavesdropper cannot gain knowledge of the secret if the used parameters are big enough. - The Session Key can now be used for a symmetric encryption.",
+    LTEXT           "An eavesdropper cannot gain knowledge of the secret if the used parameters are big enough. The Session Key can now be used for a symmetric encryption.",
                     IDC_STATIC,20,222,384,24
 END
 
@@ -10632,6 +10632,7 @@ END
 //
 
 IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
+IDR_GIF2                GIF     DISCARDABLE     "res\\gif3.bin"
 
 /////////////////////////////////////////////////////////////////////////////
 //

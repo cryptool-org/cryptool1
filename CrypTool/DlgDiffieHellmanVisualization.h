@@ -29,7 +29,6 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanVisualization)
 	enum { IDD = IDD_DIFFIEHELLMANVISUALIZATION };
-	CPictureEx	m_AnimGif;
 	CString	m_Generator;
 	CString	m_Prime;
 	CString	m_SecretAlice;
@@ -57,6 +56,18 @@ private:
 	// Zeiger auf eine Logdatei; ihr werden am Ende des Verfahrens die ermittelten
 	// Parameter übergeben.
 	DiffieHellmanLogFile *pDiffieHellmanLogFile;
+
+	// Für die GIF-Animation(en) im Dialog:
+	CPictureEx m_AnimGif;
+	bool m_bAnimatedGIFLoaded;
+	bool m_bStaticGIFLoaded;
+
+public:
+
+	// Für die GIF-Animation(en) im Dialog
+	void ShowAnimatedGIF();
+	void ShowStaticGIF();
+
 
 protected:
 

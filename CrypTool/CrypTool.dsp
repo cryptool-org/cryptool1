@@ -385,6 +385,10 @@ SOURCE=.\res\DHBitmaps\bmps\ArrowsAnimation.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\ArrowsAnimationBasis.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange.bmp
 # End Source File
 # Begin Source File
@@ -3152,6 +3156,10 @@ SOURCE=.\res\GENKEY_R_U.bmp
 # Begin Source File
 
 SOURCE=.\res\gif2.bin
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\gif3.bin
 # End Source File
 # Begin Source File
 

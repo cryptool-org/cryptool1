@@ -159,6 +159,7 @@
 #define IDB_HYBRID_BACK                 640
 #define IDR_GIF1                        644
 #define IDD_DIFFIEHELLMAN_FINALINFO     645
+#define IDR_GIF2                        646
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -1570,7 +1571,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        646
+#define _APS_NEXT_RESOURCE_VALUE        647
 #define _APS_NEXT_COMMAND_VALUE         33264
 #define _APS_NEXT_CONTROL_VALUE         1502
 #define _APS_NEXT_SYMED_VALUE           101
