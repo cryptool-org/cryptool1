@@ -1510,7 +1510,7 @@ END
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
@@ -1550,7 +1550,7 @@ BEGIN
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
                     IDC_STATIC,14,52,192,8
-    LTEXT           "Editieren der Homophonen-Liste für einzelne Zeichen:",
+    LTEXT           "Anzeige der Homophonen-Liste für einzelne Zeichen:",
                     IDC_STATIC,14,270,172,9
     LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
     LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
@@ -7098,7 +7098,7 @@ END
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,14,358,84,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,358,79,18
@@ -7132,7 +7132,7 @@ BEGIN
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Key table for homophone substitution",IDC_STATIC,14,52,
                     192,8
-    LTEXT           "Edit the list of homophones for individual characters:",
+    LTEXT           "Show the list of homophones for individual characters:",
                     IDC_STATIC,14,270,172,9
     LTEXT           "Characters",IDC_STATIC,14,283,36,8
     LTEXT           "Number",IDC_STATIC,54,283,30,8
