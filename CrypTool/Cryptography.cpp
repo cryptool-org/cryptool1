@@ -61,7 +61,12 @@ statement from your version.
 #include "secure.h"
 #include "DlgOptionsSubstitutionAnalysis.h"
 #include "DlgManualSubstAnalysis.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include <stdio.h>
 #include "ChrTools.h"
 #include "AppDocument.h"
@@ -85,7 +90,7 @@ statement from your version.
 #include "MakeNewName.h"
 #include "CrypToolTools.h"
 
-#include <fstream.h>
+#include <fstream>
 
 #define MAX_LAENGE_STRTEXT 16000
 
@@ -2811,7 +2816,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 	}
 
 	ifstream in(infile, ios::binary | ios::in );	
-	in.read(inbuffer,buffsize);
+	in.read((char *)inbuffer,buffsize);
 
 	CAppDocument *NewDoc;
 
@@ -2851,7 +2856,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 				}
 			}
 			out.write(outbuffer,outbuffsize);
-			in.read(inbuffer,buffsize);
+			in.read((char *)inbuffer,buffsize);
 		}
 	}
 	else								// Entschlüsselung
@@ -2878,7 +2883,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 				residuum = value >> bitLength;
 			}
 			out.write(outbuffer,outbuffsize);
-			in.read(inbuffer,buffsize);
+			in.read((char *)inbuffer,buffsize);
 		}
 	}
 	in.close();

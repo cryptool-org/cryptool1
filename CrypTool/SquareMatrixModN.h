@@ -58,7 +58,12 @@ statement from your version.
 #ifndef SQUARE_MATRIX_INCLUDED
 #define SQUARE_MATRIX_INCLUDED
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include <stdlib.h> // fuer srand, rand
 #include <time.h> // fuer time
 

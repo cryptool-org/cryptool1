@@ -85,12 +85,13 @@
 
 /////////////////////////////////////////////////////////////////////
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
 #include <fstream.h>
-#if (!defined(_MSC_VER))
-#include <strstream.h>
 #else
-#include <strstrea.h>
+#include <iostream>
+#include <fstream>
+using namespace std;
 #endif
 
 #ifndef _String_h

@@ -199,5 +199,5 @@ HIDR_MAINFRAME = main_index
 HIDR_MDI_HITYPE = HIDR_DOC1TYPE
 
 [MAP]
-#include .\CrypTool.hm
-#include ..\..\..\..\..\Programme\Microsoft Visual Studio\VC98\mfc\include\Afxhelp.hm
+#include afxhelp.hm
+#include CrypTool.hm

@@ -50,8 +50,14 @@ statement from your version.
 #include "DlgDiffieHellmanKeyInformation.h"
 #include "FileTools.h"
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
+#include <fstream.h>
+#else
 #include <iostream>
 #include <fstream>
+using namespace std;
+#endif
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -136,7 +142,7 @@ void CDlgDiffieHellmanKeyInformation::OnShowlogtext()
 	char *filename = new char[CRYPTOOL_PATH_LENGTH];
 	GetTmpName(filename, "cry", ".txt");
 
-	std::ofstream Outfile;
+	ofstream Outfile;
 	Outfile.open(filename, std::ios::out | std::ios::trunc);
 	Outfile << this->pLogFile->GetLogText().c_str();
 	Outfile.close();

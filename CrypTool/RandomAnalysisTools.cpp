@@ -54,7 +54,12 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "FileTools.h"
 #include "Cryptography.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

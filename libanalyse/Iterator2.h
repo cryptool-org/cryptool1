@@ -21,6 +21,9 @@
 #include "Iterator.h"
 #endif
 
+//#include "la_ostream.h"
+// using namespace std;
+
 /////////////////////////////////////////////////////////////////////
 // NTuple<TYPE> functions ('extern' declarations)
 
@@ -193,14 +196,14 @@ void NTuple<TYPE>::Show(OStream& out, int rows, int columns) const
 	if (out[OStream::Description]) {
 		// print the title line
 		if (rows>1 && columns>1) {
-			out << setw(twidth) << " ";
+			(ostream&)out << setw(twidth) << " ";
 			out << "  ";
 			for (int i=0; i<columns; i++) {
-				out << setw(width) << i;
+				(ostream&)out << setw(width) << i;
 				if (i<columns-1) out << sep;
 			}
 			out << endl;
-			out << setw(twidth) << " ";
+			(ostream&)out << setw(twidth) << " ";
 			out << "  ";
 			int l=columns*width+(columns-1)*strlen(out[OStream::Sep]);
 			for (int j=0; j<l; j++)
@@ -213,10 +216,10 @@ void NTuple<TYPE>::Show(OStream& out, int rows, int columns) const
 		if (out[OStream::Description]) {
 			//if (m_Converter)  m_converter->WriteSymbol(out,j);
 			//else
-			out << setw(twidth) << j << ": ";
+			(ostream&)out << setw(twidth) << j << ": ";
 		}
 		for (int i=j*columns, l=min(GetSize(),(j+1)*columns);i<l;i++) {
-			out << setw(width) << (*this)[i];
+			(ostream&)out << setw(width) << (*this)[i];
 			if (i<l-1)out << sep;
 		}
 		out << endl;

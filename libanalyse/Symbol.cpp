@@ -9,7 +9,9 @@
 //
 /////////////////////////////////////////////////////////////////
 
-#include "iostream.h"
+#include <iomanip>
+#include <fstream>
+
 #include "Symbol.h"
 
 

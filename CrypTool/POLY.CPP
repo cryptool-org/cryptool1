@@ -745,7 +745,7 @@ ostream& operator<<(ostream& s,const Poly& p)
            cout << a; 
         else 
         {
-            if (a!=(ZZn)1)  s << a << "*x"; 
+            if ((ZZn) a!=(ZZn)1)  s << a << "*x"; 
             else            s << "x";
             if (ptr->n!=1)  s << "^" << ptr->n;
         }

@@ -65,8 +65,14 @@ statement from your version.
 #include "poly.h"
 
 #include <monty.h>
+#if !defined(MSC_VER) || MSC_VER <= 1200
 #include <iostream.h>
 #include <iomanip.h>
+#else
+#include <iostream>
+#include <iomanip>
+using namespace std;
+#endif
 
 #define LIMIT1 10000     /* must be int, and > MULT/2 */
 #define LIMIT2 1000000L  /* may be long */

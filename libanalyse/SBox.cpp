@@ -79,7 +79,11 @@ int SBoxTable::invert()
 		else r=0;
 	}
 
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 	swap(m_SourceRange,m_DestRange);
+#else
+    std::swap(m_SourceRange,m_DestRange);
+#endif
 	m_SBoxTable.Copy(tmp);
 
 	return r;

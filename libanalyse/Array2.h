@@ -101,7 +101,8 @@ void Array<TYPE, ARGTYPE>::SetSize(int Size)
 		}
 		m_Size = Size;
 	} else { // neuer Speicher benoetigt
-		int NewSize = max(8,min(m_Size/2,8192));
+		int NewSize;
+		NewSize=max(8,min(m_Size/2,8192));
 		NewSize=max(Size,m_AllocSize+NewSize);
 		Allocate(NewSize);
 		// construct remaining elements

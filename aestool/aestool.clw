@@ -27,9 +27,9 @@ Resource9=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
 Resource10=IDD_ABOUTBOX (Deutsch (Deutschland))
 Resource11=IDD_SPLASH (Deutsch (Deutschland))
 Resource12=AFX_IDD_NEWTYPEDLG (Englisch (GB))
-Resource13=IDD_ABOUTBOX
+Resource13=IDD_ABOUTBOX (Englisch (GB))
 Resource14=IDD_HELP (Englisch (GB))
-Resource15=IDD_ABOUTBOX (Englisch (GB))
+Resource15=IDD_ABOUTBOX
 
 [CLS:CAestoolApp]
 Type=0

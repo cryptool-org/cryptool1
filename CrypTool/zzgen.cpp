@@ -196,7 +196,7 @@ bool zzgen::isprime(unsigned int p,FILE* fp=0,unsigned int *last=NULL)
 	{
 		if (p<2)
 			return false;
-		sqi=(int)sqrt(p)+1;
+		sqi=(int)sqrt((double)p)+1;
 	}
 	else
 		sqi=p;

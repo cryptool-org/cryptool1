@@ -47,7 +47,12 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
-#include "iostream.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include "FileTools.h"
 #include "s_prng.h"
 #include "DlgRandomGenerator.h"

@@ -251,7 +251,7 @@ void CDlgManualSubstAnalysis::OnButton1()
 				Ausgabe+=(char)(Eingabe[text[i]]);
 			}
 			else {
-				Ausgabe+=(char)text[i]+97;
+				(CString) Ausgabe+=(char)((char)text[i]+97);
 			}
 		}
 		else {
@@ -557,32 +557,32 @@ void CDlgManualSubstAnalysis::holeDaten(){
    Feld Eingabe[0] bis Eingabe[25] nach m_edit1 bis m_edit26			*/
 void CDlgManualSubstAnalysis::schreibeDaten(){
 	UpdateData(TRUE);
-	m_edit1=Eingabe[0];
-	m_edit2=Eingabe[1];
-	m_edit3=Eingabe[2];
-	m_edit4=Eingabe[3];
-	m_edit5=Eingabe[4];
-	m_edit6=Eingabe[5];
-	m_edit7=Eingabe[6];
-	m_edit8=Eingabe[7];
-	m_edit9=Eingabe[8];
-	m_edit10=Eingabe[9];
-	m_edit11=Eingabe[10];
-	m_edit12=Eingabe[11];
-	m_edit13=Eingabe[12];
-	m_edit14=Eingabe[13];
-	m_edit15=Eingabe[14];
-	m_edit16=Eingabe[15];
-	m_edit17=Eingabe[16];
-	m_edit18=Eingabe[17];
-	m_edit19=Eingabe[18];
-	m_edit20=Eingabe[19];
-	m_edit21=Eingabe[20];
-	m_edit22=Eingabe[21];
-	m_edit23=Eingabe[22];
-	m_edit24=Eingabe[23];
-	m_edit25=Eingabe[24];
-	m_edit26=Eingabe[25];
+	m_edit1=(char)Eingabe[0];
+	m_edit2=(char)Eingabe[1];
+	m_edit3=(char)Eingabe[2];
+	m_edit4=(char)Eingabe[3];
+	m_edit5=(char)Eingabe[4];
+	m_edit6=(char)Eingabe[5];
+	m_edit7=(char)Eingabe[6];
+	m_edit8=(char)Eingabe[7];
+	m_edit9=(char)Eingabe[8];
+	m_edit10=(char)Eingabe[9];
+	m_edit11=(char)Eingabe[10];
+	m_edit12=(char)Eingabe[11];
+	m_edit13=(char)Eingabe[12];
+	m_edit14=(char)Eingabe[13];
+	m_edit15=(char)Eingabe[14];
+	m_edit16=(char)Eingabe[15];
+	m_edit17=(char)Eingabe[16];
+	m_edit18=(char)Eingabe[17];
+	m_edit19=(char)Eingabe[18];
+	m_edit20=(char)Eingabe[19];
+	m_edit21=(char)Eingabe[20];
+	m_edit22=(char)Eingabe[21];
+	m_edit23=(char)Eingabe[22];
+	m_edit24=(char)Eingabe[23];
+	m_edit25=(char)Eingabe[24];
+	m_edit26=(char)Eingabe[25];
 	UpdateData(FALSE);
 	return;
 }
@@ -614,9 +614,9 @@ void CDlgManualSubstAnalysis::OnChange(int Feldnummer){
 			if (Eingabe[i]==Eingabe[Feldnummer]){
 				if (Eingabe[i]!='*'){
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ASYMKEY_MSG_YOURINPUT, pc_str, STR_LAENGE_STRING_TABLE);
-					CString Ausgabe=(CString)pc_str+(CString)(Feldnummer+65)+(CString)" -> "+(CString)(Eingabe[Feldnummer]);
+					CString Ausgabe=(CString)pc_str+(char)(Feldnummer+65)+(CString)" -> "+(char)(Eingabe[Feldnummer]);
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
-					Ausgabe+=(CString)pc_str+(CString)(i+65)+(CString)" -> "+(CString)(Eingabe[i]);
+					Ausgabe+=(CString)pc_str+(char)(i+65)+(CString)" -> "+(char)(Eingabe[i]);
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_REQ_ON_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
 					Ausgabe+=pc_str;
 					if (AfxMessageBox (Ausgabe,MB_YESNO)==IDYES){

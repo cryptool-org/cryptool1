@@ -398,10 +398,10 @@ int CDlgOptionsRSADemo::GetBlockLength()
 	{
 		int AlphabetSize = ( !m_TextOptions ) ? 256 : m_alphabet.GetLength();
 		if ( !m_codingMethod )
-			blockLength = (int)floor(m_log2N / (log(AlphabetSize)/log(2)));
+			blockLength = (int)floor(m_log2N / (log((double) AlphabetSize)/ log((double) 2)));
 		else
 		{
-			double bl1 = log(AlphabetSize)/log(2);
+			double bl1 =  log((double)AlphabetSize)/ log((double)2);
 			int b1, b2;
 			double b3;
 			switch ( m_numberBasis ) {
@@ -413,8 +413,8 @@ int CDlgOptionsRSADemo::GetBlockLength()
 					break;
 				case 3: b1=16;
 			}
-			b2 = (int)ceil(log(AlphabetSize)/log(b1));
-			b3 = double(b2)*log(b1)/log(2);
+			b2 = (int)ceil(log((double)AlphabetSize)/log((double)b1));
+			b3 = double(b2)*log((double)b1)/log((double)2);
 			blockLength = (int)(floor)(m_Bitlength / b3);
 			if ( blockLength*b3 + bl1 <= m_log2N ) blockLength++;
 		}

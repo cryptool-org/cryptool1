@@ -53,6 +53,9 @@ statement from your version.
 // 2001 Martin Bartosch <m.bartosch@cynops.de>; Cynops GmbH
 //
 // $Log$
+// Revision 1.3  2004/04/30 12:09:35  clausius
+// Compiles with VS.NET C++
+//
 // Revision 1.2  2003/12/17 17:49:14  clausius
 // GPL Header hinzugefuegt
 //

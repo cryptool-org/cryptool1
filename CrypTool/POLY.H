@@ -57,7 +57,12 @@ statement from your version.
 #ifndef POLY_H
 #define POLY_H
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include "monty.h"
 
 #define FFT_BREAK_EVEN 16

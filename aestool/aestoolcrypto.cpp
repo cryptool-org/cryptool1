@@ -120,7 +120,7 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		long datadistance2end = // not including the IV befor data
 			TAILLEN + AESIVLEN + srcinfo.getDataLength() + srcinfo.getInfoBlockLength();
 		SrcFile.Seek(-datadistance2end, CFile::end);
-		SrcFile.ReadHuge(buffer1, DataLen);
+		SrcFile.Read(buffer1, DataLen);
 		SrcFile.Close();
 
 		// decrypt
@@ -145,7 +145,7 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 		
 		if(DataLen > 0)
-			OutFile.WriteHuge(buffer2, DataLen);
+			OutFile.Write(buffer2, DataLen);
 
 	} catch (CFileException *e) {
 		AesGetErrorMessage(*e,errormsg);
@@ -202,12 +202,12 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		if(exename) { // copy EXE-File first
-			while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
-				OutFile.WriteHuge(buffer,i);
+			while((i = EXEFile.Read(buffer, bufflen)) > 0)
+				OutFile.Write(buffer,i);
 			EXEFile.Close();
 		}
 		// load Sourcedata
-		SrcFile.ReadHuge(buffer, DataLen);
+		SrcFile.Read(buffer, DataLen);
 		SrcFile.Close();
 
 		// generate random IV
@@ -226,7 +226,7 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		aescbc(key,keylen,iv,DIR_ENCRYPT,buffer,DataLen,buffer);
 
 		// store data
-		OutFile.WriteHuge(buffer, DataLen);
+		OutFile.Write(buffer, DataLen);
 		free (buffer); buffer = 0;
 
 		// output IV

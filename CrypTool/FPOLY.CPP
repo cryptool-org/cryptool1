@@ -53,7 +53,12 @@ statement from your version.
  * See Knuth The Art of Computer Programming Vol.2, Chapter 4.6 
  */
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include "fpoly.h"
 
 

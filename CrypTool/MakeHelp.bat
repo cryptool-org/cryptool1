@@ -4,7 +4,7 @@ if x%LANG%==x set LANG=de
 
 if x%OUTDIR%==x set OUTDIR=.\Debug
 
-rem if MSVCdir is not set call vcvars32 to fix
+	rem if MSVCdir is not set call vcvars32 to fix
 if x%MSVCdir%==x call vcvars32
 
 set HLP=hlp-%LANG%
@@ -36,9 +36,16 @@ REM deactivate compression for Debug builds
 type "%HLP%\CrypTool.hpj" >"%HLP%\CrypTool.tm1"
 if x%OUTDIR%==x.\Debug find /V "COMPRESS=" <"%HLP%\CrypTool.hpj" >"%HLP%\CrypTool.tm1"
 REM replace relative path with absolute one
-find /V "mfc\include\Afxhelp.hm" <"%HLP%\CrypTool.tm1" >"%HLP%\CrypTool.tmp"
+find /V /I "\include\Afxhelp.hm" <"%HLP%\CrypTool.tm1" >"%HLP%\CrypTool.tmp"
 del "%HLP%\CrypTool.tm1" >nul:
-echo #include %MSVCDir%\mfc\include\Afxhelp.hm >>"%HLP%\CrypTool.tmp"
+
+if "%FrameworkSDKDir%"=="" goto VS6
+REM VS.NET
+echo #include %MSVCDir%\atlmfc\include\afxhelp.hm >>"%HLP%\CrypTool.tmp"
+goto tmpdone
+:VS6
+echo #include %MSVCDir%\mfc\include\afxhelp.hm >>"%HLP%\CrypTool.tmp"
+:tmpdone
 
 echo Creating Win32 Help File...  (Create empty "makehelp.no" or "%HLP%\makehelp.no" to skip)
 

@@ -311,8 +311,8 @@ void CBlockView::OnSize(UINT nType, int cx, int cy)
 void CBlockView::OnEditPaste() 
 {
 	long start1, end1, len1, len2, start2, end2;
-	CHARFORMAT cformat;
-	PARAFORMAT pformat;
+	CHARFORMAT2 cformat;
+	PARAFORMAT2 pformat;
 
 	GetRichEditCtrl().GetSel(start1,end1);
 	len1 = GetTextLength();

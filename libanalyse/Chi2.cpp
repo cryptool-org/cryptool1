@@ -12,7 +12,12 @@
 #include "Chi2.h"
 
 #include "mymath.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 
 const int Chi2::alphacount=14;
 const int Chi2::lines=30;

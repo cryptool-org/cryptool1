@@ -47,6 +47,9 @@ statement from your version.
  * $Id$
  *
  * $Log$
+ * Revision 1.3  2004/04/30 12:09:41  clausius
+ * Compiles with VS.NET C++
+ *
  * Revision 1.2  2003/12/17 17:49:15  clausius
  * GPL Header hinzugefuegt
  *

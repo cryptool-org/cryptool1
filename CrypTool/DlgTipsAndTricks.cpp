@@ -48,7 +48,12 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgTipsAndTricks.h"
-#include "iostream.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -53,7 +53,14 @@ statement from your version.
 #include "DlgOptionsSignatureAttack.h"
 #include "DlgStatisticsSignatureAttack.h"
 #include "FileTools.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
 #include <fstream.h>
+#else
+#include <iostream>
+#include <fstream>
+using namespace std;
+#endif
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>

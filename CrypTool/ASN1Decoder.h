@@ -49,8 +49,14 @@ statement from your version.
 #define _ASN1DECODER_
 
 #include <string>
-#include <fstream>
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
+#include <fstream.h>
+#else
 #include <iostream>
+#include <fstream>
+using namespace std;
+#endif
 
 class ASN1Error;
 

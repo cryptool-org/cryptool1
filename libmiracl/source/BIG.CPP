@@ -9,7 +9,13 @@
  *   Copyright (c) 1988-1997 Shamus Software Ltd.
  */
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
+
 #include <big.h>
 
 big Big::getbig() const         

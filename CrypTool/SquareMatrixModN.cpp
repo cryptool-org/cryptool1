@@ -59,8 +59,15 @@ statement from your version.
 
 #include "SquareMatrixModN.h"
 
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
 #include <iomanip.h>
+#else
+#include <iostream>
+#include <iomanip>
+using namespace std;
+#endif
+
 #include <stdlib.h>
 
 CSquareMatrixModN::CSquareMatrixModN(int dimension, int alphabetgroesse)

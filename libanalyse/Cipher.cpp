@@ -30,7 +30,11 @@ void FeistelCipher::operator()(NTupleRW<symbol>& Vec, int mode /*=Encrypt*/) con
 			Vec[1]=Vec[1]^Vec[0];
 			Vec[0]=t;
 		}
-		swap(Vec[0],Vec[1]);
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
+	swap(Vec[0],Vec[1]);
+#else
+	std::swap(Vec[0],Vec[1]);
+#endif
 	} else {
 		int len=m_f.GetSize();
 		//SubArray L(Vec,0,len); // benutze Vec stattdessen, ist schneller
@@ -46,7 +50,11 @@ void FeistelCipher::operator()(NTupleRW<symbol>& Vec, int mode /*=Encrypt*/) con
 			//Vec[0]=t;
 			Copy(L,t,len); //for (int j=0;j<len;j++) L[j]=t[j];
 		}
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 		for (int j=0;j<len;j++) swap(Vec[j],Vec[j+len]);
+#else
+		for (int j=0;j<len;j++) std::swap(Vec[j],Vec[j+len]);
+#endif
 	}
 	m_End(Vec);
 }

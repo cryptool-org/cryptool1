@@ -95,7 +95,7 @@ void ResultsOfSignatureAttack::SetData(const int &HashAlgorithmID, const int &Bi
 	m_EffectiveTime = 0.0;
 	m_HashOperationsPerformed = 0;
 
-	m_ExpectedSteps = (pow(2, ((double) BitLength / 2)) * 1.25 * 2);	// stimmt 1.25 ?
+	m_ExpectedSteps = (double)(pow((double)2, ((double) BitLength / 2)) * 1.25 * 2);	// stimmt 1.25 ?
 
 	HashingOperations HO(HashAlgorithmID);
 	m_ExpectedTime = (double) m_ExpectedSteps * 5 / HO.GetHashOpsPerSecond();	// rechnerabhängig!

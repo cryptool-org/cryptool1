@@ -47,7 +47,7 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
-#include <fstream.h>
+#include <fstream>
 #include "FileTools.h"
 #include <sys\stat.h>
 #include "Cryptography.h"

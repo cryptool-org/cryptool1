@@ -2,8 +2,13 @@
  * $Id$
  * 
  * $Log$
- * Revision 1.1  2001/01/29 13:58:26  koy
- * Initial revision
+ * Revision 1.2  2004/04/30 12:09:44  clausius
+ * Compiles with VS.NET C++
+ *
+ * Revision 1.1.1.1  2001/01/29 13:58:26  koy
+ * CrypTool Weiterentwicklung zu Version 1.3
+ *
+ * Verzeichnisse umstrukturiert
  *
  * Revision 1.1.1.1  2000/10/31 09:37:15  koy
  * Neuer CVS Baum ab CrypTool Version 1.2.02

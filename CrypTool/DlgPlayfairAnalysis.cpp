@@ -59,6 +59,7 @@ statement from your version.
 #include "DialogeMessage.h"
 
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialogfeld CDlgPlayfairAnalysis 
@@ -704,7 +705,7 @@ void CDlgPlayfairAnalysis::OnSynchronise()
 	int iMin, iPos;
 	m_txtfeld.GetSel(iMin, iPos);
 	CPoint cur = m_txtfeld.GetCaretPos();
-	iPos = max(0, iPos-(cur.x+1)/9);	
+	iPos = max((int) 0, (int) (iPos-(cur.x+1)/9));	
 	m_ctrlScroll.ShowWindow(SW_HIDE);
 	m_ctrlScroll.SetScrollPos(0);
 	m_ctrlScroll.SetScrollPos(iPos);

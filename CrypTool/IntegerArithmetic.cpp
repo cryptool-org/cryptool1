@@ -95,7 +95,7 @@ double approxLog2(Big &N)
 	double d_num = (double)(num % INT_MAX);
 	double d_dom = (double)(dom % INT_MAX);
 
-	double ret_val = log(d_num/d_dom)/log(2) + double(b);
+	double ret_val = log((double) d_num/d_dom)/log((double) 2) + double(b);
 	return ret_val;
 }
 
@@ -523,7 +523,7 @@ int decode( const char *StrNumber, char *data, int blockLength, int numberBase, 
 	char tmp[MAX_8BIT_LENGTH];
 	int i, modul, digits, alphabetLength;
 	alphabetLength = ( CPlayfairAlphabet == NULL ) ? 256 : strlen(CPlayfairAlphabet);
-    digits = (int)ceil(log(alphabetLength)/log(numberBase));
+    digits = (int)ceil(log((double)alphabetLength)/log((double)numberBase));
     if ( basisSystem )
 	{
         modul  = numberBase;
@@ -601,7 +601,7 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase,
 
 	int i,j, modul, digits, alphabetLength;
 	alphabetLength = ( CPlayfairAlphabet == NULL ) ? 256 : strlen(CPlayfairAlphabet);
-   	digits = (int)ceil(log(alphabetLength)/log(numberBase));
+   	digits = (int)ceil(log((double)alphabetLength)/log((double)numberBase));
    	if ( basisSystem )
 	{
     	modul = numberBase;
@@ -610,7 +610,7 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase,
 	} 
    	else    
 	{
-		outLength = (int)ceil((log(alphabetLength)/log(numberBase))*blockLength);
+		outLength = (int)ceil((log((double)alphabetLength)/log((double)numberBase))*blockLength);
 		modul = alphabetLength;
 	}
    	for ( i=0; i<blockLength; i++ )
@@ -1354,7 +1354,7 @@ int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	int OutLength = (int)ceil(GetBlockLength() / (log((double)base)/log((double)2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -1421,7 +1421,7 @@ BOOL CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL 
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	int OutLength = (int)ceil(GetBlockLength() / (log((double)base)/log((double)2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -1472,7 +1472,7 @@ BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	int OutLength = (int)ceil(GetBlockLength() / (log((double)base)/log((double)2)));
 
 	int i1, i2; 
 	i1 = 0;

@@ -27,7 +27,12 @@
 
 #include <memory.h>
 #include <new.h>
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 
 /////////////////////////////////////////////////////////////////////////////
 // special (faster) version for long, unsigned long

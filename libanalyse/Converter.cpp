@@ -17,10 +17,15 @@
 #include "SymbolArray.h"
 #endif
 
-#if (!defined(_MSC_VER))
-#include <strstream.h>
-#else
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#include <iostream.h>
+#include <fstream.h>
 #include <strstrea.h>
+#else
+#include <iostream>
+#include <fstream>
+#include <strstream>
+using namespace std;
 #endif
 
 /////////////////////////////////////////////////////////////////////

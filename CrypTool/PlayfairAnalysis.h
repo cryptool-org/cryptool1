@@ -68,7 +68,12 @@ statement from your version.
 
 #include "stdafx.h"
 #include "commdlg.h"
+#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
 #include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
 #include <stdio.h>
 #include "FileTools.h"
 #include "resource.h"
@@ -93,8 +98,8 @@ enum playfair_neighbour
 		undefined_pfnb,
         above,
         below,
-        left,
-        right
+        Left,
+        Right
 };
 enum playfair_set
 {

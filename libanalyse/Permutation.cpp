@@ -222,11 +222,19 @@ int PermTable::next() //next in lexicographical order
 	int j=m_Length-1;
 	while (m_PermTable[j]<=m_PermTable[i]) j--;
 
+	#if !defined(_MSC_VER) || _MSC_VER <= 1200
 	swap(m_PermTable[i],m_PermTable[j]);
+    #else
+	std::swap(m_PermTable[i],m_PermTable[j]);
+    #endif
 	
 	j=m_Length;
 	while ((++i)<(--j)) {
-		swap(m_PermTable[i],m_PermTable[j]);
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
+	swap(m_PermTable[i],m_PermTable[j]);
+#else
+    std::swap(m_PermTable[i],m_PermTable[j]);
+#endif
 	}
 	return 1;
 }

@@ -117,10 +117,10 @@ public:
 
     friend BOOL operator==(const ZZn& b1,const ZZn& b2)
     { if (b1.fn==b2.fn) return TRUE; else return FALSE;}
-/* Roger Löschung
+/* Roger Löschung */
     friend BOOL operator!=(const ZZn& b1,const ZZn& b2)
     { if (b1.fn!=b2.fn) return TRUE; else return FALSE;}
-*/
+/**/
     friend ZZn  pow( const ZZn&, const Big&);
     friend ZZn  pow( const ZZn&,int);
     friend ZZn  pow( const ZZn&, const Big&, const ZZn&, const Big&);

@@ -61,6 +61,7 @@ statement from your version.
 #include "PlayfairAnalysis.h"
 #include "CrypToolApp.h"
 #include <stdio.h>
+using namespace std;
 
 //#include <Wxdebug.h>
 
@@ -271,13 +272,13 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s, int pos)
 				if (isinset(col_sure, s)) {
 					setNeighbour (below, s, pos);
 					if (my_cnt_rightorbelow > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist rechts
-						setNeighbour(right, my_rightorbelow[0], pos);
+						setNeighbour(Right, my_rightorbelow[0], pos);
 					}
 					if (isinset(roworabove, s)) throw playfair_error(113, pos, this);
 				} else
 				//rechts | drunter und Reihe | drüber -> rechts
 				if (isinset(roworabove, s)) {
-					setNeighbour (right, s, pos);
+					setNeighbour (Right, s, pos);
 					if (my_cnt_rightorbelow > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist drunter
 						setNeighbour(below, my_rightorbelow[0], pos);
 					}
@@ -300,12 +301,12 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s, int pos)
 				if (isinset(col_sure, s)) { //links | drüber und Reihe sicher in der Spalte -> drüber
 					setNeighbour (above, s, pos);
 					if (my_cnt_leftorabove > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist rechts
-						setNeighbour(left, my_leftorabove[0], pos);
+						setNeighbour(Left, my_leftorabove[0], pos);
 					}
 					if (isinset(roworbelow, s)) throw playfair_error(114, pos, this);
 				} else
 				if (isinset(roworbelow, s)) { //links | drüber und Reihe | drunter -> links
-					setNeighbour (left, s, pos);
+					setNeighbour (Left, s, pos);
 					if (my_cnt_leftorabove > 1) { // gibt's schon einen links oder drüber Kandidaten? -> dieser ist drüber
 						setNeighbour(above, my_leftorabove[0], pos);
 					}
@@ -326,7 +327,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s, int pos)
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
 					setNeighbour (above, s, pos);
 				if (isinset(rightorbelow, s)) { //rechts | drunter und Reihe | drüber -> rechts
-					setNeighbour (right, s, pos);
+					setNeighbour (Right, s, pos);
 				}
 				if (isinset(roworbelow, s)) { //Reihe | drüber und Reihe | drunter -> sicher in Reihe
 					insert2set (row_sure, s);
@@ -352,7 +353,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s, int pos)
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
 					setNeighbour (below, s, pos);
 				if (isinset(leftorabove, s)) { //links | drüber und Reihe | drunter -> links
-					setNeighbour (left, s, pos);
+					setNeighbour (Left, s, pos);
 				}
 				if (isinset(roworabove, s)) { //Reihe | drüber und Reihe | drunter -> sicher in Reihe
 					insert2set (row_sure, s);
@@ -403,22 +404,22 @@ void playfair_letter::setNeighbour(playfair_neighbour pos, playfair_letter* s, i
 				insert2set (col_sure, s);
 			}
 			break;
-        case left:
+        case Left:
 			if ((my_left) && (*my_left != *s)) throw playfair_error(203, lpos, this);
 			if ((my_left) && (*my_left == *s)) return;
 			else {
                 my_left = s;
-                s->setNeighbour (right, this, pos);
+                s->setNeighbour (Right, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (row_sure, s);
 			}
 			break;
-        case right:
+        case Right:
 			if ((my_right) && (*my_right != *s)) throw playfair_error(204, lpos, this);
 			if ((my_right) && (*my_right == *s)) return;
 			else {
                 my_right = s;
-                s->setNeighbour (left, this, pos);
+                s->setNeighbour (Left, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (row_sure, s);
 			}

@@ -104,7 +104,7 @@ public:
 	double			GetFrequency( const int i )
 					{	return data.frequency[i]; }
 	int				LogKeySize( int base )
-					{	return (int)ceil( log( data.SizeHomophoneKey )/log(base) ); }
+					{	return (int)ceil( log( (double) data.SizeHomophoneKey )/log((double) base) ); }
 	void			Resize( const int Size )
 					{	data.Resize( Size ); }
 	void			Make_enc_table();

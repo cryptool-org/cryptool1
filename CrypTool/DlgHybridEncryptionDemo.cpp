@@ -50,7 +50,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgHybridEncryptionDemo.h"
 #include "DialogeMessage.h"
-#include <fstream.h>
+#include <fstream>
 #include "FileTools.h"
 #include <sys\stat.h>
 #include "DlgRSAEncryption.h"

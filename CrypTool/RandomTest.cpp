@@ -225,7 +225,7 @@ void Freq_Test::test() //Frequency-Test Verfahren
 			while(n < bis) // Zaehlen von Einzen und Nullen
 			{
 				//read >> ch;
-				read.get(ch);
+				read.get((char&) ch);
 				n++;
 				for(i=0;i<8;i++)
 				{
@@ -372,7 +372,7 @@ void Serial_Test::test()
 			while(n < bis) //Zahlen von Einzen und Nullen von 0 bis "bis"
 			{
 				//read >> ch;
-				read.get(ch);
+				read.get((char&) ch);
 				n++;
 				flag = 1;
 				for(i=1; i<=8 ;i++)
@@ -720,7 +720,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 			if ( flag == 1 ) 
 			{
 				//File >> ch;
-				File.get(ch);
+				File.get((char&)ch);
 				Temp_Char = ch;
 				flag = 0;
 			}
@@ -739,7 +739,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							return zahl;
 						}
 						//File >> ch;
-						File.get(ch);
+						File.get((char&)ch);
 						bit = 0;
 						Temp_Char = ch;
 						if ( bitt (ch, bit) ) continue;
@@ -756,7 +756,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						return zahl;
 					}
 					//File >> ch;
-					File.get(ch);
+					File.get((char&)ch);
 					bit = 0;
 					Temp_Char = ch;
 					continue;
@@ -783,7 +783,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							return zahl;
 						}
 						//File >> ch;
-						File.get(ch);
+						File.get((char&)ch);
 						bit = 0;
 						Temp_Char = ch;
 						continue;
@@ -807,7 +807,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							return zahl;
 						}
 						//File >> ch;
-						File.get(ch);
+						File.get((char&)ch);
 						bit = 0;
 						Temp_Char = ch;
 
@@ -832,7 +832,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						return zahl;
 					}
 					//File >> ch;
-					File.get(ch);
+					File.get((char&)ch);
 					bit = 0;
 					Temp_Char = ch;
 					continue;
@@ -851,7 +851,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							return zahl;
 						}
 						//File >> ch;
-						File.get(ch);
+						File.get((char&)ch);
 						bit = 0;
 						Temp_Char = ch;
 
@@ -968,7 +968,7 @@ void Poker_Test::test()
 		if (read.seekg(anf) && read)
 		{
 			//read >> ch;
-			read.get(ch);
+			read.get((char&)ch);
 			bit = 0;
 
 			while(n < bis) //Zahlen von Einzen und Nullen
@@ -987,7 +987,7 @@ void Poker_Test::test()
 					if (bit == 8)
 					{
 						//read >> ch;
-						read.get(ch);
+						read.get((char&)ch);
 						n++;
 						if (n==bis) break;
 						bit = 0;
