@@ -56,7 +56,7 @@ For example, the ratio of
 %laevorotary and dextrorotary 
 rotating counterclockwise and rotating clockwise 
 spirals in a sunflower is equal to two consecutive 
-Fibonacci\index{Fibonacci} numbers \footnote{%
+Fibonacci\index{Fibonacci} numbers\footnote{%
 The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined 
 by the ``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ 
 we define $a_{n+2} := a_{n+1}+a_n$.  
@@ -1523,27 +1523,27 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 \item[{\bf 2.}] Select a random $e \in \{2, \cdots, n-1\}$ such that:\\
                 $e$ is relatively prime to $J(n) = (p-1)*(q-1)$.
                 For example, we can select $e$ such that:  
-		$\max(p,q)  <  e <  J(n) - 1$
-		\footnote{The procedure also allows us to select $d$ freely and then 
+                $\max(p,q)  <  e <  J(n) - 1$
+                \footnote{The procedure also allows us to select $d$ freely and then 
                 calculate $e$. However, this has practical disadvantages.
                 We usually want to be able to encrypt messages ``quickly'', which 
-		is why we choose a public exponent $e$ such that it has a short 
-		bit length compared to the modulus $n$ and as few binary ones as 
-		possible. 
+                is why we choose a public exponent $e$ such that it has a short 
+                bit length compared to the modulus $n$ and as few binary ones as 
+                possible. 
                 A number often used is $65537 = 2^{16}+1$, or in binary: 
-		$10\cdots 0\cdots 01$.
+                $10\cdots 0\cdots 01$.
                 We want to select the publicly known $e$ to be an advantageous 
-		value that allows the exponential calculation to be performed 
-		quickly during encryption. The prime numbers $3, 17$ and $65537$ 
-		have proved to be particularly practical for this purpose.}.
+                value that allows the exponential calculation to be performed 
+                quickly during encryption. The prime numbers $3, 17$ and $65537$ 
+                have proved to be particularly practical for this purpose.}.
                 We can then ``throw away'' $p$ and $q$.
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  
                 $e*d \equiv 1  {\rm ~(mod~} J(n))$,
                 i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$
-		\footnote{For reasons of security, $d$ should not 
+                \footnote{For reasons of security, $d$ should not 
                 be too small.}$^,$
-		\footnote{We start by determining either $d$ or $e$ depending 
-		on the implementation.}. We can then ``throw away'' $J(n)$.
+                \footnote{We start by determining either $d$ or $e$ depending 
+                on the implementation.}. We can then ``throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
         \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
@@ -1694,17 +1694,18 @@ asymptotically
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
-Please refer to: \\
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-  \item[] A. Lenstra, H. Lenstra:  
+Please refer to: 
+\vspace{-10pt}
+\begin{itemize}{}
+  \item A. Lenstra, H. Lenstra:  
           {\em The development of the Number Field Sieve} 
           \cite{Lenstra1993}.
-  \item[] Robert D. Silverman:  
+  \item   Robert D. Silverman:  
           {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
-	  Key Lengths} 
-	  \cite{Silverman2000}.
-\end{list}
-\vskip +12pt
+          Key Lengths} 
+          \cite{Silverman2000}.
+\end{itemize}
+
 
 This formula shows, that the factorization problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
@@ -1947,7 +1948,8 @@ The importance of this discovery is that it provides number theorists with new i
 
 But even its authors note that other known algorithms may be faster (for example ECPP). The new algorithm works on any integer. For example the GIMPS project uses the Lucas-Lehmer primality test which takes advantage of the special properties of Mersenne numbers. This makes the Lucas-Lehmer test much faster, allowing to test numbers with millions of digits while general purpose algorithms are limited to numbers with a few thousand digits.
 
-Current research results on this topic can be found at:\\
+Current research results on this topic can be found at:
+\vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.mersenne.org/}
                {\texttt{http://www.mersenne.org/}} \\
@@ -1969,7 +1971,6 @@ Current research results on this topic can be found at:\\
 \addtocounter{footnote}{0}\footnotetext{%
   German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
 % --------------------------------------------------------------------------
-\vspace{4ex}
 \subsubsection{Status regarding factorisation of concrete large numbers}
 \label{NoteFactorisation}
 
@@ -2043,9 +2044,9 @@ So now all 8 prime factors of $2^{953} - 1$ have been found.
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]	  \href{http://www.loria.fr/~zimmerma/records/gnfs158}{\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
+\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}{\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
           \href{http://www.crypto-world.com/FactorRecords.html}{\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
-	  \href{http://www.crypto-world.com/announcements/c158.txt}{\texttt{http://www.crypto-world.com/announcements/c158.txt}}
+          \href{http://www.crypto-world.com/announcements/c158.txt}{\texttt{http://www.crypto-world.com/announcements/c158.txt}}
 \end{itemize}
 \end{minipage}
 
@@ -2683,12 +2684,12 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
-    {\em Vorz"uge und Grenzen des RSA-Verfahrens},\\
+    {\em Vorz\"uge und Grenzen des RSA-Verfahrens},\\
     in Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89.
 
 \bibitem[Brands2002]{Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
-    {\em Verschl"usselungsalgorithmen -- Angewandte Zahlentheorie 
+    {\em Verschl\"usselungsalgorithmen -- Angewandte Zahlentheorie 
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
 \bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
@@ -2728,7 +2729,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
     Rudolph Kippenhahn, \\
-    {\em Verschl"usselte Botschaften -- Geheimschrift, Enigma und Chipkarte}, 
+    {\em Verschl\"usselte Botschaften -- Geheimschrift, Enigma und Chipkarte}, 
     Rowohlt, 1997.
 
 \bibitem[Kippenhahn1999]{Kippenhahn1999} \index{Kippenhahn 1999}
@@ -2749,7 +2750,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
     Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
-    {\em Analysis of Bernstein’s Factorization Circuit},\\
+    {\em Analysis of Bernstein's Factorization Circuit},\\
     \href{http://www.cryptosavvy.com/mesh.pdf}
     {\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 
@@ -2837,64 +2838,64 @@ This needs to be stressed because the type of padding is extremely important dur
           Ron Knott's Fibonacci \index{Fibonacci} page, \\
           Here, everything revolves around Fibonacci numbers.\\
           \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
-	  {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
-	  
+          {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
+          
    \item CrypTool (Version 1.3.04, 2003), \index{CrypTool} \\
           Freeware to illustrate cryptography \\
           \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},\\
           \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
           \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
-	  
+          
    \item Mathematica, \index{Mathematica} \\
           Commercial mathematics package \\
           \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
-	  
+          
    \item  LiDIA, \index{LiDIA} \\
           Extensive library containing number-theory functions and the LC interpreter \\
           \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
-	  {\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
-	  
+          {\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
+          
    \item BC, \index{BC} \\
           Interpreter with number-theory functions \\
           \href{http://www.maths.uq.edu.au/~krm/gnubc.html}
-	  {\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
-	  
+          {\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
+          
    \item Pari-GP, \index{Pari-GP} \\
          Excellent, fast, free interpreter with number theoretical functions\\
          \href{http://www.parigp-home.de}
               {\texttt{http://www.parigp-home.de}} and 
          \href{http://www.parigp-home.com}
               {\texttt{http://www.parigp-home.com}}
-	      
+              
    \item \index{Munchenbach@M\"unchenbach}
          Only after I had completed this article, I did come across the
          website of Mr.\ M\"unchenbach, which interactively and didactically
-	 uses elementary number theory to provide a sophisticated
-	 description of the fundamental mathematical thought processes. 
-	 It was created for a teaching project in the 11th grade 
+         uses elementary number theory to provide a sophisticated
+         description of the fundamental mathematical thought processes. 
+         It was created for a teaching project in the 11th grade 
          of the technical grammar school (unfortunately only available in German): \\
          \href{http://www.hydrargyrum.de/kryptographie}
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
-	 	      
+                      
     \item Also only after I had completed this article, I did come across
           the web site of Mr.~Wagner, who is responsible for the development of
-	  the curriculum of computer science in a German federal state. Here
-	  you can get (but only in German) a collection of texts and
-	  (Java-)\discretionary{}{}{}programs:\\
-	  \href{http://www.hom.saar.de/~awa/kryptolo.htm}
+          the curriculum of computer science in a German federal state. Here
+          you can get (but only in German) a collection of texts and
+          (Java-)\discretionary{}{}{}programs:\\
+          \href{http://www.hom.saar.de/~awa/kryptolo.htm}
           {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
-	  
+          
     \item GISA, \index{GISA} \\
           German Information Security Agency \\
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
-	 
+         
    \item Factorisation records \index{Factorisation records}\\
          \href{http://www.crypto-world.com/}
-	 {\texttt{http://www.crypto-world.com/}} \\
-	 \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
-	 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
+         {\texttt{http://www.crypto-world.com/}} \\
+         \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
+         {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
 
-	 
+         
    \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
          {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
@@ -2911,7 +2912,7 @@ I would like to take this opportunity to thank
 \begin{itemize}
   \item {Mr. Henrik Koy for making many very useful suggestions, 
          for very constructively proof-reading this article and
-	 for helping with TeX.}
+         for helping with TeX.}
   \item {J\"org-Cornelius Schneider for his TeX support.}
   \item {Dr. Illies for pointing me to Pari-GP \index{Pari-GP}.}
 \end{itemize}
