@@ -163,14 +163,12 @@ void DlgGenRandomData::OnSelGenParam()
 
 void DlgGenRandomData::OnGenRandomData() 
 {
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(1);
 	UpdateData(TRUE);
-
 	GenRandomData();
-
 	UpdateData(FALSE);
-	CDialog::OnOK();
 	theApp.DoWaitCursor(-1);
+	CDialog::OnOK();
 }
 
 const char * DlgGenRandomData::GetRandInfo()

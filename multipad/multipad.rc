@@ -1738,7 +1738,7 @@ BEGIN
     GROUPBOX        "Eingabe",IDC_STATIC,166,6,187,107
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,187,340,84
-    DEFPUSHBUTTON   "&weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
+    DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
     PUSHBUTTON      "Dialog &beenden",IDC_BUTTON_cancel,259,278,94,18
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,34,165,8
@@ -1761,7 +1761,7 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "vollständig &faktorisieren",
+    PUSHBUTTON      "Vollständig &faktorisieren",
                     IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
     LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollständig faktorisiert.",
                     IDC_STATIC,24,132,318,17
@@ -4239,7 +4239,7 @@ BEGIN
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
                             "Der Eingabetext wird in Blöcke aufgeteilt (das Symbol '#' dient als Trennzeichen)."
     IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
-                            "Der Ausgebetext aus der Verschlüsselung in Blöcken (das Symbol '#' dient als Trennzeichen)."
+                            "Der Ausgabetext aus der Verschlüsselung in Blöcken (das Symbol '#' dient als Trennzeichen)."
 END
 
 STRINGTABLE DISCARDABLE 

@@ -183,7 +183,7 @@ void AnalyseNGram::OnEvalNGram()
 		SetupListBox( m_NrNGram );
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 void AnalyseNGram::OnSaveNGramList() 
@@ -261,7 +261,7 @@ void AnalyseNGram::OnSaveNGramList()
 	}
 
 	txt_NGram.close();
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	CDialog::OnOK();
 }

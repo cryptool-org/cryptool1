@@ -69,10 +69,10 @@ const int CryptMethods[] =  {
 		IDS_CRYPT_IDEA,           
 		IDS_CRYPT_RC2,            
 		IDS_CRYPT_RC4,            
+		IDS_CRYPT_TRIPLE_DES_ECB, // ACHTUNG "Triple DES (ECB)" steht vor "DES (ECB)" --> Teilstringproblem!
+		IDS_CRYPT_TRIPLE_DES_CBC, 
 		IDS_CRYPT_DES_ECB,        
 		IDS_CRYPT_DES_CBC,        
-		IDS_CRYPT_TRIPLE_DES_ECB, 
-		IDS_CRYPT_TRIPLE_DES_CBC, 
 		IDS_CRYPT_MARS,    
 		IDS_CRYPT_RC6,     
 		IDS_CRYPT_RIJNDAEL,
@@ -383,7 +383,7 @@ void AddBin(const char *infile, const char *OldTitle)
 // == Open the new document
 	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_ADD, KeyDialog.m_Decrypt );
 
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 void VernamBin(const char *infile, const char *OldTitle)
@@ -434,7 +434,7 @@ void VernamBin(const char *infile, const char *OldTitle)
         MakeNewName(title,sizeof(title),line,OldTitle);
         NewDoc->SetTitle(title);
     }
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 
@@ -2997,7 +2997,7 @@ void NGramAsc(const char *infile, const char *OldTitle)
 		}
 	}
 
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 void NGramBin(const char *infile, const char *OldTitle)

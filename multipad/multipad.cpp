@@ -265,7 +265,11 @@ BOOL CMultiPadApp::InitInstance()
 
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
-	Tipps.DoModal();
+	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
+	if(FALSE == Tipps.m_DoNotShowThisAgain) {
+		Tipps.DoModal();
+		WriteProfileInt("Settings","NoTipps", Tipps.m_DoNotShowThisAgain);
+	}
 	return TRUE;
 }
 
@@ -534,7 +538,7 @@ void CMultiPadApp::OnGenRandomData()
 	DlgGenRandomData DGR;
 	if ( IDOK == DGR.DoModal() )
 	{
-		theApp.DoWaitCursor(0);
+		theApp.DoWaitCursor(1);
 		CMyDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
 		remove(DGR.outfile);

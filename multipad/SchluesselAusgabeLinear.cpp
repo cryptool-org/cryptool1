@@ -52,6 +52,7 @@ void CSchluesselAusgabeLinear::OnCopyKey()
 	CopyKey(strTitle, m_Key); 
 	m_CtrlKey.SetSel(0,-1); 
 	m_CtrlKey.Copy();
+	CDialog::OnOK();
 }
 
 BOOL CSchluesselAusgabeLinear::OnInitDialog() 

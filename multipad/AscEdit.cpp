@@ -36,6 +36,9 @@ END_MESSAGE_MAP()
 
 void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
+	int s,e;
+	char line[256];
+
 	busy = 1;
 	if(0==LineLength())
 		m_mode = 0;
@@ -56,8 +59,14 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			CEdit::OnChar(nChar, nRepCnt, nFlags);
 	}
 	else { // Numeric Mode
-		if(isdigit(nChar) || (nChar == ','))
+		if(isdigit(nChar))
 			CEdit::OnChar(nChar, nRepCnt, nFlags);
+		else if(nChar == ',') {
+			GetSel(s, e);
+			GetLine(0, line, 255);
+			if((s==0) || (line[s-1]!=','))
+				CEdit::OnChar(nChar, nRepCnt, nFlags);
+		}
 	}
 	busy = 0;
 }

@@ -776,7 +776,7 @@ void CCryptDoc::OnCryptExtract()
 
 	theApp.DoWaitCursor(1);
 	CDlgSignExtract dlgSigExt(ContentName, GetTitle());
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 	dlgSigExt.DoModal();
 }
 
@@ -1275,6 +1275,7 @@ void CCryptDoc::OnPermutationAsc()
 void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
 {
 	CStdioFile file;
+	theApp.DoWaitCursor(1);
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
 	{
@@ -1304,11 +1305,13 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 		if ( FREQT.LoadAlphaList() )
 			FREQT.DoModal();
 	}
+	theApp.DoWaitCursor(-1);
 }
 
 void CCryptDoc::OnAnalyseZufallstestsSerialtest() 
 {
 	CStdioFile file;
+	theApp.DoWaitCursor(1);
 	file.Open(ContentName, CFile::modeRead);
 
 	if(file.GetLength() < 16) 
@@ -1335,12 +1338,12 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		if ( SERT.LoadAlphaList() )
 			SERT.DoModal();
 	}
-
+	theApp.DoWaitCursor(-1);
 }
 
 void CCryptDoc::OnAnalyseZufallstestsRuns() 
 {
-	theApp.DoWaitCursor(-1);
+	theApp.DoWaitCursor(1);
 	CStdioFile file;
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
@@ -1364,12 +1367,13 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 		if ( LRT.LoadAlphaList() )
 			LRT.DoModal();
 	}
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 void CCryptDoc::OnAnalyseZufallstestsPokertest() 
 {
 	CStdioFile file;
+	theApp.DoWaitCursor(1);
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
 	{
@@ -1396,6 +1400,7 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 		if ( POKT.LoadAlphaList() )
 			POKT.DoModal();
 	}
+	theApp.DoWaitCursor(-1);
 }
 
 
