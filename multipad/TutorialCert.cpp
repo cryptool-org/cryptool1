@@ -184,7 +184,6 @@ BOOL CTutorialCert::InitSecude()
 	
 
 	/*
-	
 	// Öffentlichen Schlüssel ersetzen
 	theApp.SecudeLib.aux_free_KeyInfo(&(m_Key.key));
 	m_Key.key = &kiPublic;
