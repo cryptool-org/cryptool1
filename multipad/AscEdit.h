@@ -37,6 +37,7 @@ protected:
 	//{{AFX_MSG(CAscEdit)
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	//}}AFX_MSG
+	int m_mode;
 
 	DECLARE_MESSAGE_MAP()
 };

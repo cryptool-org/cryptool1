@@ -63,8 +63,15 @@ void CDialogPermutation::OnDecrypt()
 {
 	UpdateData(TRUE);
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
+	if(m_P1len <= 0) {
+		m_CPerm1.SetFocus();
+		return;
+	}
 	m_P2len = MakePerm(&m_Perm2, m_P2, m_P2inv);
-	UpdateData(FALSE);
+	if(m_P2len < 0) {
+		m_CPerm2.SetFocus();
+		return;
+	}
 	m_Dec = 1;
 	OnOK();
 }
@@ -73,8 +80,15 @@ void CDialogPermutation::OnEncrypt()
 {
 	UpdateData(TRUE);
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
+	if(m_P1len <= 0) {
+		m_CPerm1.SetFocus();
+		return;
+	}
 	m_P2len = MakePerm(&m_Perm2, m_P2, m_P2inv);
-	UpdateData(FALSE);
+	if(m_P2len < 0) {
+		m_CPerm2.SetFocus();
+		return;
+	}
 	m_Dec = 0;
 	OnOK();
 }
@@ -85,6 +99,8 @@ int CDialogPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 {
 	int i, j, k, id[26], plen;
 
+	if(Pin->GetLength() == 0) return 0;
+	if(isdigit((*Pin)[0])) return MakePermInt( Pin, p, pinv);
 	Pin->MakeUpper();
 	for(i=0;i<Pin->GetLength();) {
 		if(strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ", Pin->GetAt(i)))
@@ -116,10 +132,16 @@ void CDialogPermutation::OnChangeEdit1()
 	if(l>1) {
 		m_Decrypt.EnableWindow(TRUE);
 		m_Encrypt.EnableWindow(TRUE);
-		MakePerm(&m_Perm1, m_P1, m_P1inv);
-		m_P1len = l;
-		PrintPerm(buffer, m_P1, m_P1len);
-		m_P1out = buffer;
+		if(isalpha(m_Perm1[0])) {
+			MakePerm(&m_Perm1, m_P1, m_P1inv);
+			m_P1len = l;
+			PrintPerm(buffer, m_P1, m_P1len);
+			m_P1out = buffer;
+		}
+		else {
+			m_P1out = "";
+			m_P1len = -1;
+		}
 	}
 	else {
 		m_Decrypt.EnableWindow(FALSE);
@@ -138,10 +160,16 @@ void CDialogPermutation::OnChangeEdit2()
 	m_CPerm2.EmptyUndoBuffer();
 	l= m_Perm2.GetLength();
 	if(l>1) {
-		MakePerm(&m_Perm2, m_P2, m_P2inv);
-		m_P2len = l;
-		PrintPerm(buffer, m_P2, m_P2len);
-		m_P2out = buffer;
+		if(isalpha(m_Perm2[0])) {
+			MakePerm(&m_Perm2, m_P2, m_P2inv);
+			m_P2len = l;
+			PrintPerm(buffer, m_P2, m_P2len);
+			m_P2out = buffer;
+		}
+		else {
+			m_P2out = "";
+			m_P2len = -1;
+		}
 	}
 	else {
 		m_P2out = "( 1 )";
@@ -212,12 +240,75 @@ CString CDialogPermutation::makeASCII(CString &line)
 	int p, l;
 
 	l = line.GetLength();
-	for(p = 0; p<l; p++) {
-		if(!strchr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", line[p])) {
-			line.Delete(p);
-			p--;
-			l--;
+	if(l==0) return line;
+	if(isalpha(line[0])) { // Alpha mode
+		for(p = 0; p<l; p++) {
+			if(!strchr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", line[p])) {
+				line.Delete(p);
+				p--;
+				l--;
+			}
+		}
+	}
+	else { // numerischer Modus
+		for(p = 0; p<l; p++) {
+			if(!strchr("0123456789,", line[p])) {
+				line.Delete(p);
+				p--;
+				l--;
+			}
 		}
 	}
 	return line;
+}
+
+int CDialogPermutation::MakePermInt(CString *Pin, int p[], int pinv[])
+{
+	int i, j, k, plen, m, r, e;
+	char buffer[1024];
+
+	i = plen = m = 0;
+	do {
+		j = Pin->Find(',',i+1);
+		if(j==-1)
+			e = Pin->GetLength() - i;
+		else
+			e = j-i;
+		k = atoi(Pin->Mid(i,e))-1;
+		i = j+1;
+		if(k>=32) { // Fehler: zu groﬂer Wert
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM ,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM_NUM_2_BIG,pc_str1,STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str1,pc_str,MB_ICONWARNING|MB_OK);
+			return -1;
+		}
+		m = max(m,k);
+		for(r=0;r<plen;r++) {
+			if(k == p[r]) { // Fehler doppelter Wert
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM ,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM_DUPLICATE,pc_str1,STR_LAENGE_STRING_TABLE);
+				sprintf(buffer, pc_str1, k+1);
+				MessageBox(buffer,pc_str,MB_ICONWARNING|MB_OK);
+				return -1;
+			}
+		}
+		p[plen] = k;
+		pinv[k] = plen;
+		plen++;
+	} while (j>=0);
+
+	for(i=0;i<plen;i++) {
+		for(j=0;j<plen;j++) {
+			if(p[j] == i) break;
+		}
+		if(j>=plen) {
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM ,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM_MISSING,pc_str1,STR_LAENGE_STRING_TABLE);
+			sprintf(buffer, pc_str1, i+1);
+			MessageBox(buffer,pc_str,MB_ICONWARNING|MB_OK);
+			return -1;
+		}
+	}
+
+	return plen;
 }

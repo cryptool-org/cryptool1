@@ -15,6 +15,7 @@ class CDialogPermutation : public CDialog
 {
 // Konstruktion
 public:
+	int MakePermInt(CString *Pin, int p[], int pinv[]);
 	CString makeASCII( CString &line);
 	int PrintPerm(char *dest, int *perm, int len);
 	int m_Dec;

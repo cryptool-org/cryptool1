@@ -17,6 +17,7 @@ static char THIS_FILE[] = __FILE__;
 CAscEdit::CAscEdit()
 {
 	busy = 0;
+	m_mode = 0;
 }
 
 CAscEdit::~CAscEdit()
@@ -36,8 +37,28 @@ END_MESSAGE_MAP()
 void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	busy = 1;
-	if((VK_BACK == nChar) || strchr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", nChar))
+	if(0==LineLength())
+		m_mode = 0;
+	if(VK_BACK == nChar) // Backspace
 		CEdit::OnChar(nChar, nRepCnt, nFlags);
+	else if(m_mode == 0) { // start mode 
+		if(isalpha(nChar)) {
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+			m_mode = 1;
+		}
+		else if(isdigit(nChar)) {
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+			m_mode = 2;
+		}
+	}
+	else if(m_mode == 1) { // Alpha Mode
+		if(isalpha(nChar))
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+	}
+	else { // Numeric Mode
+		if(isdigit(nChar) || (nChar == ','))
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+	}
 	busy = 0;
 }
 
