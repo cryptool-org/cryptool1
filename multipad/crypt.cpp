@@ -3072,7 +3072,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 
     char      * buffer;	
 	CFile f( infile, CFile::modeRead );
-	unsigned long fLen = (f.GetLength() < 65536) ? f.GetLength() : 65536;  // 2^16 bytes restriction
+	unsigned long fLen = (f.GetLength() < 262144) ? f.GetLength() : 262144;  // 2^18 bytes restriction
 	buffer = new char[fLen+1];
 	f.Read( (void *)buffer, fLen );
 

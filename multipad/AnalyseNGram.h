@@ -86,8 +86,9 @@ class CNGram
 	unsigned short AlphabetSize;
 	char          *NGramHashTable;
 	unsigned long  individuals;
-
 	unsigned long  iterator;
+	int  preSort( int tSize, int cnt );
+
 public:
 	CNGram( const unsigned long  fileSize, 
 		    const unsigned short _N, 

@@ -212,9 +212,9 @@ void Dlg_homophone::LoadListBox()
 		{
 			for (k=0; k<=6; k++) string[k] =' '; 
 			string[k] = 0;
-			if ( char(i) == '\n' )      { string[0] = 'N'; string[1] = 'L'; }
-			else if ( char(i) == '\t' ) { string[0] = 'T'; string[1] = 'A'; string[2] = 'B'; }
-			else if ( char(i) == '\r' ) { string[0] = 'C'; string[1] = 'R'; }
+			if ( char(i) == '\n' )      strncpy(string, "<LF>", 4); // { string[0] = 'N'; string[1] = 'L'; }
+			else if ( char(i) == '\t' ) strncpy(string, "<TAB>", 5);// { string[0] = 'T'; string[1] = 'A'; string[2] = 'B'; }
+			else if ( char(i) == '\r' ) strncpy(string, "<CR>", 4); // { string[0] = 'C'; string[1] = 'R'; }
 			else string[0]=i;
 
 			j=m_listview.InsertItem(i,string);

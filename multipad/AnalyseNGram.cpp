@@ -23,10 +23,11 @@ AnalyseNGram::AnalyseNGram(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(AnalyseNGram)
 		m_N_NGram      = 0;
 	    m_ShowCntNGram = 20;
-		m_NrNGram      = 3;
+		m_NrNGram      = 4;
 	//}}AFX_DATA_INIT
 	b_SaveNGramList = false;
 	NGramPtr = NULL;
+
 	NGramActualized = FALSE;
 }
 
@@ -43,7 +44,7 @@ void AnalyseNGram::DoDataExchange(CDataExchange* pDX)
 		DDX_Control(pDX, IDC_LIST1,  m_ListView);
 	    DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
 	    DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
-	    DDV_MinMaxLong(pDX, m_ShowCntNGram, 0, 2147483647);
+	DDV_MinMaxLong(pDX, m_ShowCntNGram, 1, 240000);
 		DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
 	DDV_MinMaxLong(pDX, m_NrNGram, 3, 16);
 	//}}AFX_DATA_MAP
@@ -490,9 +491,45 @@ int compare( const void *arg1, const void *arg2 )
 	return 0;
 }
 
+
+int  CNGram::preSort( int tSize, int cnt )
+{
+	int j1, j2;
+	hashEntry* hPtr1;
+	hashEntry* hPtr2;
+	char* tmp;
+	tmp = new char[4+N];
+	j1 = tSize-1;
+	while ( 1 ) {
+		hPtr1 = (hashEntry*)(NGramHashTable+j1*(4+N));
+		if ( j1 && hPtr1->count == cnt ) j1--;
+		else                           break;
+	}
+	j2 = j1;
+	while ( j1 >= 0 ) 
+	{
+		hPtr1 = (hashEntry*)(NGramHashTable+j1*(4+N));
+		if ( hPtr1->count == cnt ) {
+			memcpy( tmp, (void*)hPtr1, 4+N );
+			hPtr2 = (hashEntry*)(NGramHashTable+j2*(4+N));
+			memcpy( (void*)hPtr1, (void*)hPtr2, 4+N );
+			memcpy( (void*)hPtr2, tmp, 4+N );
+			j2--;
+		}
+		j1--;
+	}
+	delete []tmp;
+	return j2+1;
+}
+
 void CNGram::sort()
 {
-	qsort((void*)NGramHashTable, (size_t)HashTableSize, 4+N, compare );
+	int tSize = HashTableSize;
+	tSize = preSort( tSize, 0 );
+	tSize = preSort( tSize, 1 );
+	tSize = preSort( tSize, 2 );
+	tSize = preSort( tSize, 3 );
+	qsort((void*)NGramHashTable, (size_t)tSize, 4+N, compare );
 }
 
 void CNGram::get( char *SubStr, unsigned long &cnt, double &rel )

@@ -975,7 +975,8 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 
 	UpdateData(FALSE);
 
-	m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
+	m_DataDisplayCtrl.LineScroll( step ? m_DataDisplayCtrl.GetLineCount() : 0 /* nFirstVisibleLine */ );
+
 	UpdateData(TRUE);
 
 	return 0;
