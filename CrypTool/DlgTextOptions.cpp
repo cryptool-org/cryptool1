@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "ChrTools.h"
+#include "DialogeMessage.h"
 #include "DlgTextOptions.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -444,7 +445,7 @@ void CDlgTextOptions::OnCheck8() // Groﬂ-Keinschreibubg konvertieren
 	UpdateData(TRUE);  // Werte aus Eingabemaske lesen	
 
 	if (m_ConvertCase && m_Case) { // unzul‰ssig
-		MessageBeep(MB_ICONHAND);
+		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONSTOP);
 		m_ConvertCase = FALSE;
 		UpdateData(FALSE);
 	}

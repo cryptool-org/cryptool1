@@ -26,7 +26,7 @@ public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgTextOptions)
-	enum { IDD = IDD_RSADEMO_OPTIONS };
+	enum { IDD = IDD_TEXT_OPTIONS };
 	CEdit	m_CtrlRefFile;
 	CButton	m_CaseControl;
 	CEdit	m_alphacontrol;
