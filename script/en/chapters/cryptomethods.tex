@@ -1,6 +1,14 @@
+% ..............................................................................
+%                V E R S C H L U E S S E L U N G S V E R F A H R E N
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 \newpage
 \section{Encryption procedures}
+\hypertarget{Kapitel_1}{}
+(Bernhard Esslinger, besslinger@web.de, May 1999, Updates Dec. 2001, Feb. 2003)
 
+
+% --------------------------------------------------------------------------
 \subsection{Encryption}
 
 The purpose of encryption \index{Encryption} is to change data in such a way
@@ -24,7 +32,17 @@ considered (practically) secure.\par \vskip + 3pt
 
 We basically distinguish between symmetric and asymmetric encryption procedures.
 
-\subsubsection{Symmetric encryption}
+% --------------------------------------------------------------------------
+\subsubsection[Symmetric encryption]
+{Symmetric encryption\footnotemark}
+\footnotetext{%
+With CrypTool\index{CrypTool} v1.3 you can execute the following modern
+symmetric encryption algorithms 
+(using the menu ``Crypt \textbackslash Symmetric''): \\
+IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
+MARS (AES candidate), RC6 (AES candidate), Serpent (AES candidate), 
+Twofish (AES candidate), Rijndael (official AES algorithm).
+}
 
 For {\em symmetric} encryption \index{Encryption!symmetric} the sender and
 recipient must possess a common (secret) key which they have exchanged before
@@ -57,6 +75,33 @@ Up-to-the-minute procedures are the symmetric AES procedures. The associated
 Rijndael procedure was declared winner the AES award on 2 October 2000 and thus
 succeeds the DES procedure.
 
+More details about the AES algorithms can be found within the Online help of CrypTool\index{CrypTool} (in the index see head-word {\em AES} and then the help pages {\em AES candidates}, {\em The AES Winner Rijndael} and {\em The Rijndael encryption algorithm}).
+
+
+% --------------------------------------------------------------------------
+\subsubsection{New results about cryptanalysis of AES}
+
+Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded. The following information is based on the original papers and the articles \cite{Wobst-iX2002} and \cite{Lucks-DuD2002}.
+
+AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks - as long as the quantum computers weren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
+
+Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable for organizations, for example a security agency.
+
+In their 2001-paper Ferguson, Schroeppel and Whiting \cite{Ferguson2001} presented a new method of symmetric codes cryptanalysis: They described AES with a closed formula (in the form of a continued fraction) which was possible because of the "relatively" clear structure of AES. This formula consists of around 1000 trillion terms of a sum - so it does not help concrete practical cryptanalysis. Nevertheless -curiosity in the academic community awakened. It was already known, that the 128-bit AES could be described as an over-determined system of about 8000 quadratic equations (over an algebraic number field) with about 1600 variables (some of them are the bits of the wanted key) -- equation systems of that size are in practice not solvable. This special equation system is relatively sparse, so only very few of the quadratic terms (there are about 1,280,000 are possible quadratic terms in total) appear in the equation system.
+
+The mathematicians Courois and Pieprzyk \cite{Courtois2002} published a paper in 2002, which got a great deal of attention amongst the crypto community: The pair had further developed the XL-method (eXtended Linearization), introduced at Eurocrypt 2000 by Shamir et al., to create the so called XSL-method (eXtended Sparse Linearization). The XL-method is a heuristic technique, which in some cases manages to solve big non-linear equation systems and which was till then used to analyze an asymmetric algorithm (HFE).  The innovation of Courois and Pieprzyk was, to apply the XL-method on symmetric codes: the XSL-method can be applied to very specific equation systems. A 256-bit AES could be attacked in roughly $2^{230}$ steps. This is still a purely academic attack, but also a direction pointer for a complete class of block ciphers. The major problem with this attack is that until now nobody has worked out, under what conditions it is successful: the authors specify in their paper necessary conditions, but it is not known, which conditions are sufficient.
+There are two very new aspects of this attack: firstly this attack is not based on statistics but on algebra. So attacks seem to be possible, where only very small amounts of cipher text are available. Secondly the security of a product-algorithm does not exponentially increase with the number of rounds.
+
+Currently there is a large amount of research in this area: for example Murphy and Robshaw presented a paper at Crypto 2002 \cite{Robshaw2002a}, which could dramatically improve cryptanalysis: the burden for a 128-bit key was estimated at about $2^{100}$ steps by describing AES as a special case of an algorithm called BES (Big Encryption System), which has an especially "round" structure. But even $2^{100}$ steps are beyond what is achievable in the foreseeable future. Using a 256 bit key the authors estimate that a XSL-attack will require $2^{200}$ operations.
+
+More details can be found at: \\
+\href{http://www.cryptosystem.net/aes}{\texttt{http://www.cryptosystem.net/aes}} and \\ 
+\href{http://www.minrank.org/aes/}{\texttt{http://www.minrank.org/aes/}}
+
+So for 256-AES the attack is much more effective than brute-force but still far away from any computing power which could be accessible in the short-to-long term. The discussion is very controversial: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
+
+
+% --------------------------------------------------------------------------
 \subsubsection{Asymmetric encryption}
 
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
@@ -65,10 +110,11 @@ subscriber has a personal pair of keys consisting of a {\em secret}
 key, as its name implies, is made public, e.g. in a key directory on the
 Internet.\par \vskip + 3pt
 
-If Alice wants to communicate with Bob, then she finds Bob's public key in the
-directory and uses it to encrypt her message to him. She then sends this
-ciphertext to Bob, who is then able to decrypt it again using his secret key. As
-only Bob knows his secret key, only he can decrypt messages addressed to him.
+If Alice wants to communicate with Bob, then she finds Bob's public key 
+in the directory and uses it to encrypt her message to him. She then sends
+this cipher text to Bob, who is then able to decrypt it again using his 
+secret key. As only Bob knows his secret key, only he can decrypt 
+messages addressed to him.
 Even Alice who sends the message cannot restore plaintext from the (encrypted)
 message she has sent. Of course, you must first ensure that the public key
 cannot be used to derive the private key.\par \vskip + 3pt
@@ -101,11 +147,21 @@ procedures also play a decisive role, particularly the \index{Schnorr} Schnorr
 variant in the \index{DSA} DSA (Digital \index{Signatures!digital}Signature
 Algorithm).
 
+
+% --------------------------------------------------------------------------
 \newpage
-\subsubsection{Hybrid procedures}
-\index{Hybrid procedures}
+\subsubsection[Hybrid procedures]
+{Hybrid procedures\footnotemark}
+\footnotetext{%
+Within CrypTool\index{CrypTool} v1.3 you can get a visualization of this
+technique using the menu ``Crypt \textbackslash Hybrid Demonstration'': 
+this dialogue shows the single steps and its dependencies with concrete
+numbers.
+}\index{Hybrid procedures}
+
 In order to benefit from the advantages of symmetric and asymmetric techniques
-together, hybrid procedures are usually used (for encryption) in practice.\par \vskip + 3pt
+together, hybrid procedures are usually used (for encryption) in practice.
+\par \vskip + 3pt
 
 In this case the data is encrypted using symmetric procedures: the key is a
 session key\index{Session key} generated by the sender randomly that is only used for this message.
@@ -116,20 +172,78 @@ the message. In this way, we can benefit from the easy key management
 \index{Key management} of asymmetric procedures and encrypt large quantities of data
 quickly and efficiently using symmetric procedures.
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Further details}
 
-Beside information you can find in many books and on a lot of websites the online help
-of CrypTool also offers very many details about the symmetric and asymmetric encryption methods.
+Beside information you can find in many books and on a lot of websites the 
+online help of CrypTool\index{CrypTool} also offers very many details about
+the symmetric and asymmetric encryption methods.
 
+
+% --------------------------------------------------------------------------
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
-\bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
+
+\bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
         Klaus Schmeh, \\
-        Kryptografie und Public-Key Infrastrukturen im Internet, dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
-        A considerable, up-to-date, good reading book, which considers practical problems, like standardisation or
-        real existing software. This book is right now only available in German, but in autumn 2002 it will be 
-	available in English too from the publisher John Wiley, probably with the title {\em Cryptography}.
+        {\em Cryptography and Public Key Infrastructures on the Internet}, 
+	John Wiley \& Sons Ltd., Chichester 2003. \\
+        A considerable, up-to-date, good reading book, which also 
+	considers practical problems, like standardisation or
+        real existing software.
+
+
+\bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
+        Don Coppersmith, \\
+        {\em Re: Impact of Courtois and Pieprzyk results}, 
+	2002-09-19, AES Discussion Groups at \\
+        \href{http://aes.nist.gov/aes/}
+        {\texttt{http://aes.nist.gov/aes/}}
+
+\bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
+        Nicolas Courtois, Josef Pieprzyk, \\
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, 
+	received 10 Apr 2002, last revised 9 Nov 2002,
+	A different version, so called compact version of the first XSL attack,
+	was published in Asiacrypt Dec 2002, \\
+        \href{http://eprint.iacr.org/2002/044}
+        {\texttt{http://eprint.iacr.org/2002/044}}
+
+\bibitem[Ferguson2001]{Ferguson2001}  \index{Ferguson 2001}
+        Niels Ferguson, Richard Schroeppel, Doug Whiting, \\
+        {\em A simple algebraic representation of Rijndael}, 
+	Draft 2001/05/1, \\
+        \href{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
+        {\texttt{http://www.xs4all.nl/\~{}vorpal/pubs/rdalgeq.html}}
+
+\bibitem[Lucks-DuD2002]{Lucks-DuD2002}  \index{Lucks 2002}
+        Stefan Lucks, R"udiger Weis, \\
+        {\em Neue Ergebnisse zur Sicherheit des Verschlüsselungsstandards AES}, 
+	in DuD Dec. 2002.
+
+\bibitem[Robshaw2002a]{Robshaw2002a}  \index{Robshaw 2002}
+        S.P. Murphy, M.J.B. Robshaw, \\
+        {\em Essential Algebraic Structure within the AES}, 
+	June 5, 2002, Crypto 2002,  \\
+        \href{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
+        {\texttt{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Robshaw2002b]{Robshaw2002b}  \index{Robshaw 2002}
+        S.P. Murphy, M.J.B. Robshaw, \\
+        {\em Comments on the Security of the AES and the XSL Technique}, 
+	September 26, 2002, \\
+        \href{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
+        {\texttt{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Wobst-iX2002]{Wobst-iX2002}  \index{Wobst 2002}
+        Reinhard Wobst, \\
+        {\em Angekratzt - Kryptoanalyse von AES schreitet voran}, 
+	in iX Dec. 2002, \\
+	plus the reader's remark by Johannes Merkle in iX Feb. 2003.
+
 \end{thebibliography}
+
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

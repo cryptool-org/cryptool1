@@ -1,6 +1,6 @@
-% .......................................................................................................
-%                                 E L L I P T I S C H E  K U R V E N
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ...........................................................................
+%                  E L L I P T I S C H E  K U R V E N
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
 \section{Elliptische Kurven}
@@ -91,7 +91,7 @@ dass ein einziges Byte ausreicht, um die verwendete Kurve zu spezifizieren. Zur 
 absehbar, ob es der ASC gelingen wird, einen de-facto-Standard durchzusetzen.
 
 Obwohl aktuell kein Handlungsbedarf besteht, laufende RSA-Anwendungen umzustellen, sollte man bei der
-Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptschen Kurven basieren.
+Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor handelt, die noch
 nach 2005 operativ sein sollen.
 
@@ -140,14 +140,14 @@ Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik. Im Jahr 1985 
 und Victor Miller unabh"angig voneinander vorgeschlagen, Elliptische Kurven in der Kryptographie
 einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktorisierung von ganzen Zahlen
-(auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
+(auf der \index{Komplexit"at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
 zum Beispiel das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
 auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. Es gibt auch
 Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren.
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Verschl"usselungsverfahren auf Basis von Elliptischen Kurven beruhen auf der
-Schwierigkeit eines als Elliptische Kurven Diskreter Logrithmus bekannten Problems.
+Schwierigkeit eines als Elliptische Kurven Diskreter Logarithmus bekannten Problems.
 Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, dass man f"ur eine nat"urliche,
 aus mehreren Primzahlen zusammengesetzte Zahl $n$ sehr viele verschiedene Elliptische
 Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n$ keine
@@ -195,7 +195,7 @@ mittels der Gruppen-Verkn"upfung alle anderen Elemente der Gruppe erzeugen kann.
 Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so dass die $i$-fache Verkn"upfung von $g$ mit sich
 selbst (also \glqq$g \cdot i$\grqq) $g+g+\cdots+g = a$ ist (additive Gruppe) bzw.\ $g^i = g\cdot g \cdots g = a$
 (multiplikative Gruppe). Das Element $g$ ist der {\em Generator} der zyklischen Gruppe --- jedes Element
-in $G´$ l"a"st sich mittels $g$ und der Verkn"upfung erzeugen.
+in $G´$ l"asst sich mittels $g$ und der Verkn"upfung erzeugen.
 
 Nun zur Ordnung eines Elements der Gruppe: Sei $a$ aus $G$. Die kleinste positive ganze Zahl $r$ f"ur
 die gilt, dass $r$ mal $a$ mit sich selbst verkn"upft das neutrale Element der Gruppe $G´$ ist
@@ -213,7 +213,7 @@ Unter einem K"orper versteht man in der Mathematik eine Menge $K$ mit zwei Verkn
          Gruppe. Dabei sei $0$ das neutrale Element der Verkn"upfung $+$.
    \item Die Menge $K$ (ohne das Element 0) ist zusammen mit der Verkn"upfung $\cdot$ (Multiplikation)
          ebenfalls eine abelsche Gruppe.
-   \item F"ur alle Elemente $a, b$ und $n$ aus $K$ mu"s gelten, dass $n\cdot (a+b) = n \cdot a + n \cdot b$ und
+   \item F"ur alle Elemente $a, b$ und $n$ aus $K$ muss gelten, dass $n\cdot (a+b) = n \cdot a + n \cdot b$ und
          $(a+b) \cdot n = a \cdot n + b \cdot n$.
 \end{itemize}
 
@@ -326,7 +326,7 @@ Dies wird als das \glqq Diskrete Logarithmus Problem "uber Elliptischen Kurven\g
 \vskip +5 pt
 
 Es ist zu beachten, dass nicht alle Elliptischen Kurven gleich sicher sind. Das bedeutet, dass man bei der
-Definition einer Kurve auf die Wahl der Parameter $a$ und $b$ achten mu"s. Denn f"ur bestimmte Klassen von
+Definition einer Kurve auf die Wahl der Parameter $a$ und $b$ achten muss. Denn f"ur bestimmte Klassen von
 Elliptischen Kurven ist es m"oglich, das ECDLP leichter zu l"osen als im allgemeinen Fall. Kryptographisch
 ungeeignete Elliptische Kurven sind die sogenannten {\em anormalen} Kurven (das sind Kurven "uber ${\mathbb Z}_p$,
 f"ur die die Menge ${\bf E}$ genau $p$ Elemente hat) und die {\em supersingul"aren} Kurven (das sind Kurven, f"ur die man das
@@ -343,10 +343,10 @@ durch den Parameter $p$ bestimmt, wie lange es dauert, das ECDLP auf dieser Kurv
 Parameter $p$ ist, desto l"anger nimmt das L"osen des Problems in Anspruch. Von Fachleuten wird eine Bitl"ange
 von "uber $200$ Bit f"ur den Parameter $p$ empfohlen. Hier wird deutlich, warum die Elliptischen Kurven so
 interessant f"ur die Kryptographie sind. Denn der Parameter $p$ bestimmt auch den
-Signatur-/Verschl"usselungsaufwand, der aufgewendet werden mu"s, wenn mit Elliptischen Kurven
+Signatur-/Verschl"usselungsaufwand, der aufgewendet werden muss, wenn mit Elliptischen Kurven
 Kryptographie betrieben wird. Die Dauer einer Schl"usselpaar-Erzeugung ist ebenfalls von
 $p$ abh"angig. Daher sind kleine Werte (wenige Bits) w"unschenswert (m"oglichst schnelle Laufzeiten der Verfahren);
-allerdings mu"s die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
+allerdings muss die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
 f"ur $p$ ist eine {\em gute} Elliptische Kurve genau so sicher wie ein \index{RSA!Modul} RSA-Modul von "uber $1024$ Bit L"ange
 (zumindest nach dem heutigen Forschungstand). Der Grund daf"ur ist, dass die schnellsten Algorithmen zum
 L"osen des {\em Elliptische Kurven Diskreter Logarithmus} Problems eine exponentielle Laufzeit haben --- im
@@ -390,7 +390,7 @@ offensichtlich von dem ECDLP Gebrauch gemacht: Kennt jemand $W$ und $G$
 (sowie die anderen benutzten Domain-Para\-meter), so ist es schwierig, daraus $s$ zu berechnen
 (f"ur richtig gew"ahlte Parameter scheint dies zur Zeit praktisch unm"oglich zu sein).
 
-Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bekannt sein:
+Um eine Signatur zu verifizieren, muss dem Empf"anger der Signatur folgendes bekannt sein:
 \begin{enumerate}
    \item das eingesetzte Signaturverfahren,
    \item die eingesetzte Hashfunktion,
@@ -410,7 +410,7 @@ einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert
 ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}. 
 Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
 Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
-Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, dass es -- falls $n$ 
+Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben muss. Dies h"angt damit zusammen, dass es -- falls $n$ 
 eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
 modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
@@ -433,7 +433,7 @@ Daher eigenen sich diese Verfahren auch sehr gut f"ur Parallelisierung.
 % ---------------------------------------------------------------------------------------------------------------------
 \subsection{Implementierung Elliptische Kurven}
 
-CrypTool benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
+CrypTool\index{CrypTool} benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
 
 Implementiert sind die Basisalgorithmen f"ur Gruppenoperationen, f"ur das Erzeugen von Elliptischen
 Kurven und f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "uber endlichen
@@ -452,23 +452,29 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
         \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
-                Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
+                Factoring integers with elliptic curves, 
+		Annals of Mathematics 126, pp. 649-673, 1987.
 \end{thebibliography}
+
 
 \section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
 
 \begin{enumerate}
-   \item Online-Tutorial "uber Elliptische Kurven der Firma Certicom\index{Certicom}\\
-                \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
-        \item Arbeitsgruppe IEEE P1363
+   \item Online-Tutorial "uber Elliptische Kurven der Firma Certicom
+         \index{Certicom}\\
+         \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}         {\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
 
-                \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
-        \item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit Elliptischen Kurven
+   \item Arbeitsgruppe IEEE P1363
+         \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
+        
+   \item \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren 
+         mit Elliptischen Kurven
 
-        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
+        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
+	{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
 
-        Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen Kurven sowie Links
-zu anderen Seiten.
+        Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen
+	Kurven sowie Links zu anderen Seiten.
 
 \end{enumerate}
 

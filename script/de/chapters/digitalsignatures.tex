@@ -1,6 +1,7 @@
-% ....................................................................................
-%                    D I G I T A L E  S I G N A T U R E N
-% ....................................................................................
+% ...........................................................................
+%                  D I G I T A L E  S I G N A T U R E N
+% ...........................................................................
+
 \newpage
 \section{Digitale Signaturen}
 \index{Signatur!digitale}
@@ -9,10 +10,10 @@
 \vspace{12pt}
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
 \begin{itemize}
- \item Benutzerauthentizit"at: \\
-      \index{Authentizit""at!Benutzer-} Es kann "uberpr"uft werden, ob eine Nachricht tats"achlich von einer bestimmten Person stammt.
- \item Nachrichtenintegrit"at: \\
-      \index{Nachrichtenintegrit""at} Es kann "uberpr"uft werden, ob die Nachricht (unterwegs) ver"andert wurde.
+ \item Benutzerauthentizit"at:\index{Authentizit""at!Benutzer-}  \\
+      Es kann "uberpr"uft werden, ob eine Nachricht tats"achlich von einer bestimmten Person stammt.
+ \item Nachrichtenintegrit"at:\index{Nachrichtenintegrit""at}  \\
+      Es kann "uberpr"uft werden, ob die Nachricht (unterwegs) ver"andert wurde.
 \end{itemize}
 
 
@@ -21,7 +22,14 @@ Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, muss
 Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel, um Signaturen zu erzeugen,
 und der Empf"anger benutzt den "offentlichen Schl"ussel des Absenders, um die Richtigkeit der Signatur
 zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen Schl"ussel
-abzuleiten.
+abzuleiten
+\footnote{%
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen erzeugen und pr"ufen: \\
+in den Untermen"us des Hauptmen"upunktes \glqq Digitale Signaturen'' oder \\
+per \glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash Signaturdemo'' .
+}
+.
+
 
 Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} folgenderma"sen aus: \\
 Der Absender berechnet aus seiner Nachricht und seinem geheimen Schl"ussel die digitale
@@ -37,7 +45,21 @@ Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hi
 Schl"ussels des Absenders, des Dokuments und der Signatur feststellen, ob die Signatur korrekt ist.
 In der Praxis hat das gerade beschriebene Verfahren jedoch einen entscheidenden Nachteil. Die Signatur ist ungef"ahr
 genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus 
-Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion.
+Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion
+\footnote{%
+%xxxxxxxxxx Menüeinträgsbezeichnungen ok?
+Hashfunktionen sind in CrypTool\index{CrypTool} v1.3.04 an mehreren Stellen implementiert: \\
+in dem Men"u \glqq Einzelverfahren \textbackslash Hashwerte'' haben Sie die M"oglichkeit
+\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
+\item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
+\item f"ur eine Datei den Hashwert zu berechnen, \\
+\item in der Hash-Demo die Auswirkung von Text"anderungen auf den Hashwert zu testen und \\
+\item aufgrund von gezielt gesuchten Hashwertkollisionen einen Angriff 
+      auf digitale Signaturen zu simulieren.
+\end{itemize}
+}
+.
+
 
 Eine kryptographische \index{Hashfunktion} {\em Hashfunktion} bildet eine Nachricht beliebiger L"ange auf eine Zeichenfolge mit
 konstanter Gr"o"se (meistens 128 oder 160 Bits), den \index{Hashwert} Hashwert, ab. Es sollte praktisch unm"oglich
@@ -65,7 +87,7 @@ Entschl"usseln, nur wird sie auf den Hash-Wert des zu unterschreibenden
 Dokuments angewendet.
 
 Andere Systeme der digitalen Signatur wurden, wie DSA (Digital Signature
-Algorithm), ausschliesslich zu diesem Zweck entwickelt, und stehen in
+Algorithm), ausschlie"slich zu diesem Zweck entwickelt, und stehen in
 keiner direkten Verbindung zu einem entsprechenden
 Verschl"usselungsverfahren.
 
@@ -98,7 +120,7 @@ $$
 S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
 Wenn das Ergebnis
 $S^e$ mit der Nachricht $M$ "ubereinstimmt, dann akzeptiert der Pr"ufer die
-Sig"-natur, andernfalls ist die Nachrricht entweder ver"andert worden, oder
+Sig"-natur, andernfalls ist die Nachricht entweder ver"andert worden, oder
 sie wurde nicht vom Inhaber von $d$ unterschrieben.
 
 Wie weiter oben erkl"art, werden Signaturen in der Praxis nie direkt auf der
@@ -263,7 +285,7 @@ gesichert "ubermittelt werden.
     PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
 
 \bibitem[FIPS186]{FIPS186} U.S. Departement of
-    Commerce/N.I.S.T.\\\index{FIPS186}
+    Commerce/N.I.S.T. \index{FIPS186} //
     Entity authentication using public key cryptography. February 18, 1997.
 \end{thebibliography}
                                                           

@@ -225,7 +225,7 @@ find $ x_1, \dots, x_n \in \{ 0,1\} $  where $ g = \sum_{i=1}^{n}x_i a_i $
 {\bf 0-1 knapsack problem} and is identified with $ K(a_1, \dots, a_n;g) $.\\
 
 Two 0-1 knapsack problems  $ K(a_1, \dots, a_n;g) $   and  $ K(a'_1, \dots, 
-a'_n;g') $  are called congruent if two \index{Coprime} coprime numbers $ w $ 
+a'_n;g') $  are called congruent if two \index{Co-prime} co-prime numbers $ w $ 
 and $ m $ exist such that
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
@@ -256,8 +256,8 @@ and $\pi(3) = 2$.}
 $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1} 
 a_{\pi(i)} $. If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
 i=1,2,\dots,n, $ then the sequence $ a_1, \dots , a_n $ is said to be 
-superincreasing.
-The following algorithm solves the knapsack problem with a superincreasing 
+super-increasing.
+The following algorithm solves the knapsack problem with a super-increasing 
 sequence in the timeframe of $ O(n). $
 \begin{center}
 
@@ -278,7 +278,7 @@ sequence in the timeframe of $ O(n). $
 }}
 \end{center}
 \vskip +10 pt
-{\bf Algorithm 1.} Solving knapsack problems with superincreasing weights
+{\bf Algorithm 1.} Solving knapsack problems with super-increasing weights
 \vskip +20 pt
 
 
@@ -286,19 +286,19 @@ sequence in the timeframe of $ O(n). $
 \index{Hellman Martin} \index{Merkle} In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
 encryption procedure that is based on ``defamiliarising'' the easy 0-1 
-knapsack problem with a superincreasing sequence into a congruent one with a 
-superincreasing sequence. It is a block ciphering that ciphers an $n$-bit 
+knapsack problem with a super-increasing sequence into a congruent one with a 
+super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
 plaintext each time it runs.
 \index{Knapsack!Merkle-Hellman}
 More precisely:
 
 \begin{center}
 \fbox{\parbox{12cm}{        
-Let $ (a_1, \dots, a_n) $ be superincreasing. Let $ m $ and $ w $ be two coprime 
+Let $ (a_1, \dots, a_n) $ be super-increasing. Let $ m $ and $ w $ be two co-prime 
 numbers with $ m > \sum_{i=1}^{n} a_i $ and $ 1\leq w \leq m-1. $ Select 
 $\bar{w} $ with $ w \bar{w} \equiv 1 \mod m $ the modular inverse of $ w $ and 
 set $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ for $ i=1, \dots ,n, $ and verify 
-whether the sequence $ b_1, \dots b_n $ is not superincreasing. A permutation $ 
+whether the sequence $ b_1, \dots b_n $ is not super-increasing. A permutation $ 
 b_{\pi (1)}, \dots , b_{\pi(n)} $ of  $ b_1, \dots , b_n $ is then published and 
 the inverse permutation $ \mu $ to $ \pi $ is defined secretly. A sender writes 
 his/her message in blocks $ (x_1^{(j)}, \dots, x_n^{(j)}) $ of binary numbers $ 
@@ -316,7 +316,7 @@ G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w}
 (i)}^{(j)} a_i \mod m, 
 \end{eqnarray*}
 by solving the easier 0-1 knapsack problems $ K(a_1,\dots,a_n;G^{(j)}) $ with 
-superincreasing sequence $ a_1, \dots,a_n $.
+super-increasing sequence $ a_1, \dots,a_n $.
 }}
 \end{center}
 \vskip +10 pt
@@ -343,11 +343,16 @@ by a perpetrator.
 procedures}
 
 
-
-
-
-\subsubsection{The RSA procedure}
-\index{RSA} \hypertarget{RSAVerfahren}{} As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
+%--------------------------------------------------------------------
+\subsubsection[The RSA procedure]
+{The RSA procedure\footnotemark}
+\footnotetext{
+Using CrypTool\index{CrypTool} v1.3 you gain practical experience
+with the RSA procedure via the menu ``Indiv.Procedures \textbackslash 
+RSA Demonstration \textbackslash RSA Cryptosystem''.
+}
+\index{RSA} \hypertarget{RSAVerfahren}{} 
+As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
 
@@ -384,8 +389,8 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \index{Euler!(phi) function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
-numbers that do not have a common factor with $ N $ \index{Coprime} {}
-$ x \leq N. $ Two natural numbers $ a $ and $ b $ are coprime if 
+numbers that do not have a common factor with $ N $ \index{Co-prime} {}
+$ x \leq N. $ Two natural numbers $ a $ and $ b $ are co-prime if 
 $ \ggt (a,b)=1. $ 
 
 For the Euler phi function: $ \phi (1)=1, \phi(2)=1,
@@ -405,7 +410,7 @@ In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
 \\ \vskip +5 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & The natural numbers that are coprime to $ n $ and less than 
+$n$ & $\phi (n) $ & The natural numbers that are co-prime to $ n $ and less than 
 $ n. $ \\ \hline
 1 & 1 & 1  \\
 2 & 1 & 1 \\
@@ -464,8 +469,8 @@ procedure will no longer be safe if the factorisation problem is ``solved''.
 
 In this case it has been shown that the procedure \index{Rabin} 
 \index{Rabin!public key} is equivalent to breaking the factorisation problem. 
-Unfortunately, this procedure is susceptible to chosen-ciphertext attacks.
-\index{Attack!chosen-ciphertext}
+Unfortunately, this procedure is susceptible to chosen-cipher text attacks.
+\index{Attack!chosen-cipher text}
 \begin{center}
 \fbox{\parbox{12cm}{        
 Let $ p $ and $ q $ be two different prime numbers with $ p,q\equiv 3 \mod 4 $ 
@@ -540,10 +545,18 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 
 
 
+%--------------------------------------------------------------------
+\subsubsection[Diffie-Hellman key agreement]
+{Diffie-Hellman key agreement\footnotemark}
+\footnotetext{%
+With CrypTool\index{CrypTool} v1.3.04 you can execute the single steps of this 
+exchange protocol with concrete numbers: \\
+using menu {\bf Indiv. Procedures \textbackslash Diffie-Hellman Demonstration}.
+}
+\index{Key agreement (key exchange)!Diffie-Hellman} 
+\index{Diffie Whitfield} 
 
-    \subsubsection{Diffie-Hellman key agreement}
-
-\index{Key agreement (key exchange)!Diffie-Hellman} \index{Diffie Whitfield} The mechanisms and 
+The mechanisms and 
 algorithms of classical cryptography only take effect when the subscribers have 
 already exchanged the secret key. In classical cryptography you cannot avoid 
 exchanging secrets without encrypting them. Transmission safety here must be 
@@ -692,10 +705,10 @@ In addition to the Baby-Step-Giant-Step algorithm, there are also numerous other
 procedures for calculating the discrete logarithm \cite{4Stinson1995}\index{Stinson 1995}.
 
 \paragraph{The theorem from Silver-Pohlig-Hellman}
-In finite abelian groups, the discrete logarithm problem can be reduced to 
+In finite Abelian groups, the discrete logarithm problem can be reduced to 
 groups of a lower order.
 \begin{theorem}\label{thm-cry-pohe}[Silver-Pohlig-Hellman]
-Let $ G $ be a finite abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots 
+Let $ G $ be a finite Abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots 
 \cdot p_s^{a_s}. $ The discrete logarithm in $ G $ can then be reduced to 
 solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
 \end{theorem}
@@ -757,13 +770,13 @@ Cryptosystem.} \\
        \bibitem[Brickell1985]{Brickell1985} Brickell E.F.:
            \emph{Breaking Iterated Knapsacks.}  \\
        Advances in Cryptology: Proc. CRYPTO\'84, Lecture Notes in Computer 
-Scince, vol. 196, 
+Science, vol. 196, 
            Springer-Verlag, New York, 1985, pp. 342-358.
 
            \bibitem[Lagarias1983]{Lagarias1983} Lagarias J.C.:
            \emph{Knapsack public key Cryptosystems and diophantine 
 Approximation.} \\
-           Advances in Cryptologie, Proseedings of Crypto 83, Plenum Press.
+           Advances in Cryptology, Proseedings of Crypto 83, Plenum Press.
 
            \bibitem[Merkle1978]{Merkle1978} Merkle R. and Hellman M.:
            \emph{Hiding information and signatures in trapdoor knapsacks.}  \\

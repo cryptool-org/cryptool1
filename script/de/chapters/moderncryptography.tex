@@ -76,7 +76,7 @@ Der Begriff \glqq praktisch unm"oglich\grqq {} ist etwas schwammiger. Allgemein 
 
 Die Entwicklung eines praktisch einsetzbaren Public Key-Verfahrens h"angt daher von der Entdeckung einer geeigneten Einwegfunktion mit Fallt"ur ab.\par
 
-Um Ordnung in die verwirrende Vielfalt von m"oglichen Problemen und ihre Komplexit"aten zu bringen, fa"st man Probleme mit "ahnlicher Komplexit"at zu Klassen zusammen.
+Um Ordnung in die verwirrende Vielfalt von m"oglichen Problemen und ihre Komplexit"aten zu bringen, fasst man Probleme mit "ahnlicher Komplexit"at zu Klassen zusammen.
 
 Die wichtigsten Komplexit"atsklassen  sind die Klassen \textbf{P} und \textbf{NP}: 
 
@@ -166,7 +166,9 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 %--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman Knapsack-Verschl"usselung}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
+\index{Hellman Martin} \index{Merkle} 
+
+1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
 \newpage
@@ -213,9 +215,15 @@ Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des
 
 
 %--------------------------------------------------------------------
-\subsubsection{Das RSA-Verfahren}
-%--------------------------------------------------------------------
-\index{RSA} \hypertarget{RSAVerfahren}{} Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
+\subsubsection[Das RSA-Verfahren]
+{Das RSA-Verfahren\footnotemark}
+\footnotetext{%
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie praktische Erfahrungen
+mit dem RSA-Verfahren sammeln: per Men"u \glqq Einzelverfahren 
+\textbackslash RSA-Demo \textbackslash RSA-Kryptosystem''.
+}.
+\index{RSA} \hypertarget{RSAVerfahren}{} 
+Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
 \index{Faktorisierungsproblem}
@@ -369,11 +377,19 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \vskip +5 pt
 \index{Silver} \index{Pohlig} \index{Hellman Martin}
 
-%--------------------------------------------------------------------
-    \subsubsection{Diffie-Hellman-Schl"usselvereinbarung}
-%--------------------------------------------------------------------
 
-\index{Schl""usselaustausch!Diffie-Hellman} \index{Diffie Whitfield} Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann, wenn die Teilnehmer bereits den geheimen Schl"ussel ausgetauscht haben. Im Rahmen der klassischen Kryptographie  f"uhrt kein Weg daran vorbei, dass Geheimnisse kryptographisch ungesichert ausgetauscht werden m"ussen. Die Sicherheit der "Ubertragung muss hier durch nicht-kryptographische Methoden erreicht werden. Man sagt dazu, dass man zum Austausch der Geheimnisse einen geheimen Kanal braucht; dieser kann physikalisch oder organisatorisch realisiert sein. \\
+%--------------------------------------------------------------------
+\subsubsection[Diffie-Hellman-Schl"usselvereinbarung]
+{Diffie-Hellman-Schl"usselvereinbarung\footnotemark}
+\footnotetext{%
+Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie die einzelnen Schritte
+dieses Austauschprotokolls mit konkreten Zahlen nachvollziehen: \\
+per \glqq Einzelverfahren \textbackslash Diffie-Hellman-Demo''.
+}
+\index{Schl""usselaustausch!Diffie-Hellman} 
+\index{Diffie Whitfield} 
+
+Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann, wenn die Teilnehmer bereits den geheimen Schl"ussel ausgetauscht haben. Im Rahmen der klassischen Kryptographie  f"uhrt kein Weg daran vorbei, dass Geheimnisse kryptographisch ungesichert ausgetauscht werden m"ussen. Die Sicherheit der "Ubertragung muss hier durch nicht-kryptographische Methoden erreicht werden. Man sagt dazu, dass man zum Austausch der Geheimnisse einen geheimen Kanal braucht; dieser kann physikalisch oder organisatorisch realisiert sein. \\
 Das Revolution"are der modernen Kryptographie ist unter anderem, dass man keine geheimen Kan"ale mehr braucht: Man kann geheime Schl"ussel "uber nicht-geheime, also "offentliche Kan"ale vereinbaren. \\
 Ein Protokoll, das dieses Problem l"ost, ist das von Diffie und Hellman.\\ %\enlargethispage{+20pt}
 
@@ -382,7 +398,7 @@ Ein Protokoll, das dieses Problem l"ost, ist das von Diffie und Hellman.\\ %\enl
 \fbox{\parbox{12cm}{   
 Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schl"ussel vereinbaren. \par    
 Sei $ p $ eine Primzahl und $ g $ eine nat"urliche Zahl. Diese beide Zahlen m"ussen nicht geheim sein. \\
-Zun"achst w"ahlen sich die beiden Teilnehmer je eine geheime Zahl $ a $ bzw. $ b. $ Daraus bilden sie die Werte $ \alpha = g^{a}\mod p $ und $ \beta = g^b \mod p. $ Dann werden die Zahlen $ \alpha $ und $ \beta $ ausgetauscht. Schliesslich potenziert jeder den erhaltenen Wert mit seiner geheimen Zahl und erh"alt $ \beta^{a} \mod p $ bzw. $ \alpha^b \mod p. $\\
+Zun"achst w"ahlen sich die beiden Teilnehmer je eine geheime Zahl $ a $ bzw. $ b. $ Daraus bilden sie die Werte $ \alpha = g^{a}\mod p $ und $ \beta = g^b \mod p. $ Dann werden die Zahlen $ \alpha $ und $ \beta $ ausgetauscht. Schlie"slich potenziert jeder den erhaltenen Wert mit seiner geheimen Zahl und erh"alt $ \beta^{a} \mod p $ bzw. $ \alpha^b \mod p. $\\
 Damit gilt
 \[ \beta^{a} \equiv (g^b)^{a} \equiv g^{ba} \equiv g^{ab} \equiv (g^{a})^b \equiv \alpha^b \mod p \]
 }}
@@ -451,7 +467,7 @@ Die Exponentialfunktion ist leicht zu berechnen:
 \begin{Beweis}{}
 Sei $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ die Bin"ardarstellung von $k. $ Dann ist $ n \leq \log_2 (k), $  denn $ 2^n \leq k < 2^{n+1}. $ $ k $ kann in der Form $ k=2k' + k_0 $ mit $ k'= 2^{n-1} + k_{n-1} 2^{n-2} + \cdots + k_1 $ geschrieben werden. Es folgt 
 \[ g^k = g^{2k'+k_0}= (g^{k'})^2 g^{k_0} .\]
-Man erh"alt also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuel mit $ g $ multipliziert. Damit folgt die Behauptung durch Induktion nach $ n. $
+Man erh"alt also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell mit $ g $ multipliziert. Damit folgt die Behauptung durch Induktion nach $ n. $
 \end{Beweis}
 
 \vskip +10 pt
@@ -461,7 +477,7 @@ Man erh"alt also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuel 
 \fbox{\parbox{12cm}{ 
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $ \\
 Gesucht ist der eindeutige $ a \in \N $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $ \\       
-Wir bezeichen $ a $ mit $ \log_\alpha (\beta). $
+Wir bezeichnen $ a $ mit $ \log_\alpha (\beta). $
 }}
 \end{center}
 
@@ -477,16 +493,16 @@ Zur Berechnung dieser Listen braucht man $ 2n $ Gruppenoperationen.
   Zuerst bilde man die zwei Listen \\
 Giant-Step-Liste: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
 Baby-Step-Liste: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
-Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gel"ost. Falls die Listen disjunkt sind, so ist $ h $ nicht als $ g^{i + jn}, i, j\leq n,$ darstellbar. Da dadurch alle Potenzen von $ g $ erfa"st werden, hat das Logarithmusproblem keine L"osung.
+Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gel"ost. Falls die Listen disjunkt sind, so ist $ h $ nicht als $ g^{i + jn}, i, j\leq n,$ darstellbar. Da dadurch alle Potenzen von $ g $ erfasst werden, hat das Logarithmusproblem keine L"osung.
 \end{Beweis}
 
-Man kann sich mit Hilfe des Baby-Step-Giant-Step-Algorithmus klar machen, dass die Berechnung des diskreten Logaithmus' sehr viel schwieriger ist als die Berechnung der diskreten Exponentialfunktion. Wenn die auftretenden Zahlen etwa 1000 Bit L"ange haben, so ben"otigt man zur Berechnung von $ g^k $ nur etwa 2000 Multiplikationen, zur Berechnung des diskreten Logarithmus' mit dem Baby-Step-Giant-Step-Algorithmus aber etwa $ 2^{500} \approx 10^{150} $ Operationen. \\
+Man kann sich mit Hilfe des Baby-Step-Giant-Step-Algorithmus klar machen, dass die Berechnung des diskreten Logarithmus' sehr viel schwieriger ist als die Berechnung der diskreten Exponentialfunktion. Wenn die auftretenden Zahlen etwa 1000 Bit L"ange haben, so ben"otigt man zur Berechnung von $ g^k $ nur etwa 2000 Multiplikationen, zur Berechnung des diskreten Logarithmus' mit dem Baby-Step-Giant-Step-Algorithmus aber etwa $ 2^{500} \approx 10^{150} $ Operationen. \\
 Neben dem Baby-Step-Giant-Step-Algorithmus gibt es noch zahlreiche andere Verfahren zur Berechnung des diskreten Logarithmus' \cite{Stinson1995}.
 
 \paragraph{Der Satz von Silver-Pohlig-Hellman}
-In endlichen abelschen Gruppen l"a"st sich das  diskrete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
+In endlichen abelschen Gruppen l"asst sich das  diskrete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
 \begin{satz}[Silver-Pohlig-Hellman]\label{thm-cry-pohe}
-Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann l"a"st sich das diskrete Logarithmusproblem in $ G $ auf das L"osen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zur"uckf"uhren.
+Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann l"asst sich das diskrete Logarithmusproblem in $ G $ auf das L"osen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zur"uckf"uhren.
 \end{satz}
 
 Enth"alt $ |G| $ eine \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexit"at \index{Komplexit""at} des Logarithmenproblem ungef"ahr

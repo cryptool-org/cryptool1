@@ -1,3 +1,6 @@
+% ...........................................................................
+%                  D I G I T A L E  S I G N A T U R E N
+% ...........................................................................
 
 \newpage
 \section{Digital signatures}
@@ -7,11 +10,11 @@
 \vspace{12pt}
 The aim of digital signatures is to guarantee the following two points:
 \begin{itemize}
- \item User authenticity: \\
-      \index{Authenticity!user} It can be checked whether a message really does
+ \item User authenticity: \index{Authenticity!user} \\
+      It can be checked whether a message really does
 come from a particular person.
- \item Message integrity: \\
-      \index{Message integrity} It can be checked whether the message has been
+ \item Message integrity:  \index{Message integrity} \\
+      It can be checked whether the message has been
 changed (on route).
 \end{itemize}
 
@@ -20,7 +23,14 @@ An asymmetric technique is used again (see encryption procedures). Participants
 who wish to generate a digital signature for a document must possess a pair of
 keys. They use their secret key to generate signatures and the recipient uses
 the sender's public key to verify whether the signature is correct. As before,
-it must be impossible to use the public key to derive the secret key.
+it must be impossible to use the public key to derive the secret key\footnote{%
+With CrypTool\index{CrypTool} v1.3 you can also generate and check 
+digital signatures: \\
+using the submenus of the main menu ``Digital Signatures'' or \\
+using menu {\bf Indiv. Procedures \textbackslash RSA Demonstration 
+\textbackslash Signature Demonstration}.
+}.
+
 
 In detail, a \index{Signature procedure} {\em Signature procedure} looks like
 this: \\ Senders use their message and secret key to calculate the digital
@@ -38,8 +48,21 @@ can then use the sender's public key, the document and the signature to
 establish whether or not the signature is correct. In practice, however, the
 procedure we have just described has a decisive disadvantage. The signature is
 approximately as long as the document itself. To prevent an unnecessary increase
-in data traffic, and also for reasons of performance\index{Performance}, we use a cryptographic
-hash function.
+in data traffic, and also for reasons of performance\index{Performance}, we use 
+a cryptographic hash function\footnote{%
+%xxxxxxxxxx Menüeinträgsbezeichnungen ok?
+Hash functions are implemented within CrypTool\index{CrypTool} v1.3.04 at
+several places: \\
+using menu  ``Indiv. Procedures \textbackslash Hash'' you have the possibility
+\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip} % um den Abstand zu verringern bebe
+\item to apply one of 6 hash functions to the content of the current window, \\
+\item to calculate the hash value of a file, \\
+\item to test, how changes to a text change the according hah value and \\
+\item to perform a simulation, how digital signatures could be attacked 
+      by a targeted search for hash value collisions.
+\end{itemize}
+}
+.
 
 A cryptographic \index{Hash function} {\em hash function} maps a message of any
 length to a string of characters with a constant size (usually 128 or 160 bits),
@@ -244,7 +267,7 @@ the root entity, can also be secured by means of making them available publicly.
         \bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
           PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
 
-        \bibitem[FIPS186]{FIPS186} U.S. Departement of
+        \bibitem[FIPS186]{FIPS186} U.S. Department of
           Commerce/N.I.S.T.\\\index{FIPS186}
           Entity authentication using public key cryptography. February 18, 1997.
 \end{thebibliography}

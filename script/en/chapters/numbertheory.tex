@@ -2,34 +2,24 @@
 \setcounter{theorem}{0}
 \setcounter{definition}{0}
 
+% ..........................................................................
+% --------------------------------------------------------------------------
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002)
-
-\begin{center}
-\fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne}}\newline
-Mathematical game theory postulates players who respond rationally.
-Transactional game theory, on the other hand, deals with games that are not rational, perhaps even {\bf irrational 
-and thereby closer to reality}.}}
-\end{center}
-
-\addtocounter{footnote}{0}\footnotetext{Eric Berne, ``Games People Play'', rororo, (c) 1964, page 235.}
-
-%\begin{quote} 
-%{\em Eric Berne\footnote{Eric Berne, ``Games People Play'', rororo, (c) 1964, page 235.}:}\newline
-%Mathematical game theory postulates players who respond rationally.
-%Transactional game theory, on the other hand, deals with games that are not rational, perhaps even {\bf irrational 
-%and thereby closer to reality}.
-%\end{quote}
+(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, Feb. 2003)
 
 This ``introduction'' is for people mathematically interested. There is no more pre-knowledge necessary than
 what you learn in the secondary school.\par
 
 We by will had ``beginners'' in mind; we did not take the approach of mathematical textbooks, called 
 ``introduction'', which can not be understood at the first go further than page 5 and
-which have the real purpose to deliver all information that special monographics can be read.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+which have the real purpose to deliver all information that special monographs can be read.
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Mathematics and cryptography}
 A large proportion of modern, asymmetric cryptography\index{Encryption!asymmetric} is based on mathematical knowledge -- on the properties 
 (``laws'') of whole numbers, which are investigated in elementary \index{Number theory!elementary} number 
@@ -58,14 +48,20 @@ in the ivory tower. It delved into ``the mysterious laws of the realm of numbers
 considerations as to whether it described elements that exist everywhere in nature or whether it artificially 
 constructed elements (numbers, operators and properties).
 
-We now know that patterns from number theory can be found everywhere in nature. For example, the 
-ratio of laevorotary and dextrorotary spirals in a sunflower is equal to two consecutive 
-Fibonacci\index{Fibonacci} numbers\footnote{The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined by the 
-``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ we define $a_{n+2} := a_{n+1}+a_n$.  
-This historical sequence can be found in many interesting forms in nature (for example, see \cite[p. 290 
-ff]{Graham1994}\index{Graham 1994} or the website of \hyperlink{knott}{Ron
-  Knott}\index{Knott, Ron}, which is devoted to Fibonacci\index{Fibonacci} numbers). A 
-lot is known about the Fibonacci sequence and it is used today as an important tool in mathematics.}, for 
+We now know that patterns from number theory can be found everywhere in nature. 
+For example, the ratio of 
+%laevorotary and dextrorotary 
+rotating counterclockwise and rotating clockwise 
+spirals in a sunflower is equal to two consecutive 
+Fibonacci\index{Fibonacci} numbers
+\footnote{The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined 
+by the ``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ 
+we define $a_{n+2} := a_{n+1}+a_n$.  
+This historical sequence can be found in many interesting forms in nature 
+(for example, see \cite[p. 290 ff]{Graham1994}\index{Graham 1994} or the 
+website of \hyperlink{knott}{Ron Knott}\index{Knott, Ron}, which is devoted 
+to Fibonacci\index{Fibonacci} numbers). A lot is known about the Fibonacci 
+sequence and it is used today as an important tool in mathematics.}, for 
 example $21 : 34$.
 
 Also, at the latest when number theory was applied in modern cryptography, it became clear that a discipline that 
@@ -73,13 +69,13 @@ had been regarded as purely theoretical for centuries actually had a practical u
 in great demand on the job market.
 
 Applications in (computer) security now use cryptography because this mathematical discipline is simply better 
-and easier to prove than all other „creative“ substitution procedures that have been developed over the course of 
+and easier to prove than all other ''creative'' substitution procedures that have been developed over the course of 
 time and better than all sophisticated physical methods such as those used to print bank notes \cite[p. 4]{Beutelspacher1996}.
 
 This article explains the basics of elementary number theory in a way that you can easily understand. It provides 
 numerous examples and very rarely goes into any proofs (these can be found in mathematical textbooks).
 
-The goal ist not to exhaustively explain the number theory findings, but to show the essential
+The goal is not to exhaustively explain the number theory findings, but to show the essential
 procedures. The volume of the content is oriented that the reader can understand and apply the RSA method.
 
 For this purpose we will use both theory and examples to explain how to perform calculations in finite sets and 
@@ -99,7 +95,8 @@ Mathematics is the queen of sciences and number theory is the queen of mathemati
 %Mathematics is the queen of sciences and number theory is the queen of mathematics.
 %\end{quote}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Introduction to number theory} \index{Number theory!introduction} 
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
@@ -147,7 +144,8 @@ whole numbers plus zero). However, they each have different methods of dealing w
 
 This article only deals with the area of elementary number theory.
 
-% ...................................................................................................
+
+% --------------------------------------------------------------------------
 \newpage
 \subsubsection{Convention}
 Unless stated otherwise: 
@@ -178,7 +176,7 @@ lot of the greatest wizards haven't got an ounce of logic.}}
 %\end{quote}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Prime numbers and the first fundamental theorem of elementary number theory}
 \index{Number theory!elementary} Many of the problems in elementary number theory are concerned with prime 
 numbers.
@@ -274,7 +272,8 @@ For more details on prime numbers (e.g. how ``Fermat’s Little Theorem'' can be u
 numbers to determine whether they are prime), please refer to the article on \hyperlink{Kapitel_2}{prime numbers} in this script.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Divisibility, modulus and remainder classes} \index{Modulus} \index{Divisibility} 
 
 If whole numbers are added, subtracted or multiplied, the result is always another whole number.
@@ -297,7 +296,8 @@ does not divide the number $n$.
 
 In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
 
-% ........................................................................................................
+
+% --------------------------------------------------------------------------
 \subsubsection{The modulo operation -- working with congruence} \index{Congruence}
 
 When we investigate divisibility, it is only the remainder of the division that is important. When dividing a 
@@ -394,9 +394,12 @@ a certain value. This is one of the reasons why we choose a large number $m$ and
 That is, we ignore whole-number multiples of $m$ and, rather than working with a number, we only work with 
 the remainder when this number is divided by $m$. The result is that all results are in the range $0$ to $m-1$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Calculations with finite sets}
 
+% --------------------------------------------------------------------------
 \subsubsection{Laws of modular calculations}
 
 From algebra theorems it follows that essential parts of the conventional calculation rules are kept when we 
@@ -434,7 +437,7 @@ The order in which order the modulo operation is performed is irrelevant.
 such that: \\
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
 \index{Inverse!multiplicative}
-\item[\bf 7.] \index{Closedness} {\bf Closedness}\footnote{\label{ftn-zth-closed}The property of closedness is always defined in relation to an operation in a set. See 
+\item[\bf 7.] \index{Closedness} {\bf Closedness}\footnote{\label{ftn-zth-closed}The property of closeness is always defined in relation to an operation in a set. See 
 \hyperlink{Appendix_B}{Appendix B}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
@@ -443,6 +446,9 @@ such that: \\
 $ [ a \equiv b {\rm ~mod~ } m, ~b \equiv c {\rm ~mod~ } m] \Longrightarrow [ a \equiv c {\rm ~mod~ } m].
 $
 \end{itemize}
+
+
+% --------------------------------------------------------------------------
 \subsubsection{Patterns and Structures}
 \hypertarget{kap_3_5_2}
 In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
@@ -451,19 +457,23 @@ which values $x$ can take for given values of $a, ~b, ~m.$
 Especially the case is investigated, where the result $b$ of this operation is the neutral element. Then
 $x$ is the inverse of $a$ regarding this operation.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\pagebreak
-\subsection{Examples of modular calculations}
 
+
+
+\newpage
 \begin{center}
 \fbox{\parbox{15cm}{
     \emph{Seneca\footnotemark:}\\
     The way of theory is long, it is short and effective by examples.
 }}
 \end{center}
-\addtocounter{footnote}{0}\footnotetext{%
-  Lucius Annaeus Seneca, philosophical writer and poet, 4 B.\:C. $-$ 65 A.\:D.
-}
+\addtocounter{footnote}{0}
+\footnotetext{%
+     Lucius Annaeus Seneca, philosophical writer and poet, 4 B.\:C. $-$ 65 A.\:D.}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% \pagebreak
+\subsection{Examples of modular calculations}
 
 As we have already seen:
 
@@ -480,7 +490,8 @@ A calculation result larger than 4 is then transformed ``modulo $5$''. In other 
 result is divided by $5$. For example, $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$ because $3$ is the remainder 
 when we divide $8$ by $5$.
 
-% .............................................................................................................
+
+% --------------------------------------------------------------------------
 \subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}
 
 The following shows
@@ -496,6 +507,8 @@ for all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no i
 multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote \ref{ftn-zth-divmodn}.}
 for mod $5$ and mod $6$.
 \end{itemize}
+
+% --------------------------------------------------------------------------
 \subsubsection*{Example of an addition table}
 The result when we add $3$ and $4 {\rm ~(mod~ } 5)$ is calculated as follows: Calculate $3 + 4 = 7$ and keep 
 subtracting $5$ from the result until the result is less than the modulo:  $7 - 5 = 2$. 
@@ -514,7 +527,8 @@ Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
 \end{tabular} 
 \end{center} 
 \end{table}
-% ..............................................................................................
+
+% --------------------------------------------------------------------------
 \subsubsection*{Example of an multiplication table:}
 The result of the multiplication $4 * 4 {\rm ~(mod~ } 5)$ is calculated as follows: $4 * 4 = 
 16$ and subtract $5$ until the result is less than the modulus.
@@ -535,7 +549,8 @@ Multiplication table modulo 5: \quad * & 1& 2 & 3 & 4  \\
 \end{center} 
 \end{table}
 
-% ..........................................................................................
+
+% --------------------------------------------------------------------------
 \subsubsection{Additive and multiplicative inverses}
 
 You can use the tables to read the inverses for each number in relation to addition and multiplication.
@@ -571,17 +586,17 @@ This is not the case, however, for
 modular multiplication.
 \begin{theorem}\label{thm-zth-multinv}
 A natural number $a$ from the set $\{1, \cdots, m-1\}$ has one inverse if and only if it 
-and the modulo $m$ are coprime\footnote{Two whole numbers $a$ and $b$ are coprime if and only if ${\rm gcd}(a, b) = 1$.\\
-If $p$ is prime and $a$ is a random whole number that is not a multiple of $p$, then $p$ and a are coprime.\\
-Further name to the topic coprime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
+and the modulo $m$ are co-prime\footnote{Two whole numbers $a$ and $b$ are co-prime if and only if ${\rm gcd}(a, b) = 1$.\\
+If $p$ is prime and $a$ is a random whole number that is not a multiple of $p$, then $p$ and a are co-prime.\\
+Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
 \item $a_1,a_2, \cdots, a_n$ are {\em relatively prime} \index{Relatively prime}, if $ {\rm~gcd}(a_1, \cdots , a_n) =1.$
 \item An even stronger request for more than two numbers is :\\
-                $a_1, \cdots , a_n$ are {\em pairwise relatively prime}, if for all $i=1, \cdots, n$ and 
+                $a_1, \cdots , a_n$ are {\em in pairs relatively prime}, if for all $i=1, \cdots, n$ and 
 $j=1, \cdots , n$ with $ i \neq j $: $ {\rm~gcd} (a_i, a_j) =1. $
 \end{enumerate}
 Example: $2,3,6 $ are relatively prime, because $ {\rm~gcd} (2,3,6)=1.$ 
-They are not pairwise relatively prime, because $ {\rm~gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
+They are not in pairs relatively prime, because $ {\rm~gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
 no common prime factors.
 \end{theorem}
 Since $m=5$ is prime, the numbers $1$ to $4$ are relatively prime to $5$ and {\bf each} of these numbers has a 
@@ -715,13 +730,13 @@ remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6 
 \end{center} 
 We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
-because $6$ and the modulus $m=12$ are not coprime.
+because $6$ and the modulus $m=12$ are not co-prime.
 
 {\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
 
 
 
-% .......................................................................................................
+% --------------------------------------------------------------------------
 \subsubsection{Raising to the power} \index{Raising to the power} 
 
 In modular arithmetic, raising to the power is defined as repeated multiplication -- as usual except that 
@@ -739,11 +754,15 @@ Even consecutive powers work in the same way:
 {\bf Example 1:}
 $$ (4^3)^2 \equiv 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
 \begin{quote}
-(1) We can speed up\footnote{The time required to calculate the multiplication of two numbers normally 
-depends on the length of the numbers.  We can observe this if we use the school method to calculate, for instance, 
-$474*228$.  The time required increases quadratically, because we need to multiply $3*3$ numbers. The 
-numbers become considerably smaller if we reduce the interim result.} the calculation by reducing the {\bf 
-interim results} modulo $5$ but we need to take care because not everything then works in the same way as in 
+(1) We can speed up\footnote{The time required to calculate the multiplication 
+of two numbers normally depends on the length of the numbers.  We can observe
+this if we use the school method to calculate, for instance, $474*228$.  The 
+time required increases 
+%quadratically
+in a quadratic square manner , because we need to multiply $3*3$ numbers. The 
+numbers become considerably smaller if we reduce the interim result.} the 
+calculation by reducing the {\bf interim results} modulo $5$ but we need 
+to take care because not everything then works in the same way as in 
 standard arithmetic.
 \begin{eqnarray*}
 (4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
@@ -780,8 +799,10 @@ $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 $$
 3^{28} \equiv 3^{4*7} \equiv 3^{4*7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
-\vskip +5pt
 
+
+% --------------------------------------------------------------------------
+\vskip +10pt
 \subsubsection{Fast calculation of high powers} \hypertarget{hohpot}{} \label{hohpot}\index{Power}
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
@@ -828,11 +849,13 @@ we have\footnote{%
 
 The powers $(a^2)^k$ can be determined easily by means of repeated squaring. As long as $a$ does not change, a computer 
 can calculate them beforehand and -- if enough memory is available -- save them. In order to then find $a^n$ in each 
-individual case, it now only needs to multiply those $(a^{2})^k$ for which there is a one in the kth position of the binary 
+individual case, it now only needs to multiply those $(a^{2})^k$ for which there is a one in the k-th position of the binary 
 representation of $n$. The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
 This frequently used algorithm is called ``Square and Multiply''\index{Square and multiply}.
 
-% ..............................................................................................................
+
+
+% --------------------------------------------------------------------------
 \subsubsection{Roots and logarithms} \index{Root} \index{Logarithm}
 
 The inverses of the powers are also defined. The roots and logarithms are again whole numbers. Yet in contrast 
@@ -866,13 +889,15 @@ theory\index{Number theory!fundamental theorem} and theorem \ref{thm-zth-phinum}
 the $c$-th root. This forms the basis for the security assumption used by the RSA encryption system (see 
 Sub-section 4.3.1: \hyperlink{RSAVerfahren}{the RSA procedure} and \hyperlink{RSABeweis}{Sub-section 3.10 Proof of the RSA procedure}).
 \end{itemize}
-The time required for inverting addition and multiplication, on the other hand, is simply proportional to $\log m$ 
-or $(\log m)^2$. Powers (for a number $x$ calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
-calculate $a^x$ with $a$ fixed) are therefore typical one way functions (See Overview of the
-One way funnctions in this \hyperlink{OneWayFunktion1}{Script} and
+The time required for inverting addition and multiplication, on the other hand, 
+is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$ 
+calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
+calculate $a^x$ with $a$ fixed) are therefore typical one way functions 
+(See Overview of the one way functions in this \hyperlink{OneWayFunktion1}{Script} and
 \hyperlink{OneWayFunktion2}{artikel}). \index{One way function}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Groups and modular arithmetic in $\mathbb{Z}_n$ and $ \mathbb{Z}_n^*$}
 \index{Group}
 Mathematical ``{\em groups}'' play a decisive role in number theory and cryptography. We only talk of groups if, for a 
@@ -899,7 +924,7 @@ $0, 1, 2, \cdots, 2^{32}-1$.
 This value range is equivalent to the set $\mathbb{Z}_{2^{32}}$.
 
 
-% ..............................................................................................
+% --------------------------------------------------------------------------
 \subsubsection{Addition in a group}\index{Addition} 
 
 If we define the operation mod+ on such a set where
@@ -914,7 +939,9 @@ of a group are valid for all elements in $\mathbb{Z}_n$:
         (because $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
 Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, this structure \index{Structure} is even a ``commutative group''.
-% ..............................................................................................
+
+
+% --------------------------------------------------------------------------
 \subsubsection{Multiplication in a group}\index{Multiplication}
 
 If we define the operation mod* on the set $\mathbb{Z}_n$ where
@@ -974,8 +1001,36 @@ Example for $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
 
 The unique inverse is an essential condition for cryptography (see Section 3.10: \hyperlink{RSABeweis}{Proof of the RSA procedure with Euler-Fermat}).
 
+
+
+
+
+
+
+%\newpage
+\pagebreak
+
+\begin{center}
+\fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne}}\newline
+Mathematical game theory postulates players who respond rationally.
+Transactional game theory, on the other hand, deals with games that are 
+not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{Eric Berne, ``Games People Play'', 
+     rororo, (c) 1964, page 235.}
+\vskip +4pt
+
+%\begin{quote} 
+%{\em Eric Berne\footnote{Eric Berne, ``Games People Play'', rororo, (c) 1964, page 235.}:}\newline
+%Mathematical game theory postulates players who respond rationally.
+%Transactional game theory, on the other hand, deals with games that are not rational, perhaps even {\bf irrational 
+%and thereby closer to reality}.
+%\end{quote}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Euler function, Fermat's Little Theorem and Euler-Fermat}
 
+% --------------------------------------------------------------------------
 \subsubsection{Patterns and Structures}
 \hypertarget{Kap_3_8}{}
 
@@ -984,6 +1039,9 @@ the structure $ x^{a} \equiv b$ mod $m.$
 
 Again here they are interested in the case, if $ b=1$ (value of the multiplicative inverse) and
 if $ b=x$ (the function has a fixpoint\index{Fixpoint}).
+
+
+% --------------------------------------------------------------------------
 \subsubsection{The Euler function\index{Euler!(phi) function}}
 Given $n$, the number of numbers from the set $\{1, \cdots, n-1\}$ that are relatively prime to $n$ is equal to the value of 
 the Euler\footnote{Leonhard Euler, Swiss mathematician, 15.4.1707 -- 18.9.1783\index{Euler}}
@@ -1001,7 +1059,7 @@ For a prime number, the following is true: $J(p) = p - 1.$
 \end{theorem}
 
 \begin{theorem}\label{thm-zth-phipq} \label{J_of_pq}
-If $m$ is the product of two distincts primes, then:
+If $m$ is the product of two distinct primes, then:
 $$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
 \end{theorem}
 This case is important for the RSA procedure.
@@ -1032,6 +1090,8 @@ $$
 $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 \end{itemize}
 
+
+% --------------------------------------------------------------------------
 \subsubsection{The theorem of Euler-Fermat}\index{Euler}\index{RSA}
 In order to prove the RSA procedure, we need Fermat's theorem and its generalisation (Euler-Fermat theorem).
 
@@ -1044,7 +1104,7 @@ Let $p$ be a prime number and $a$ be a random whole number that is relatively pr
 $$      a^{p-1} \equiv 1 {\rm ~(mod~} p).$$ 
 
 \begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem (generalisation of Fermat's Little Theorem)}
-For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$ are natural numbers that are coprime):
+For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$ are natural numbers that are co-prime):
 $$a^{J(n)} \equiv 1 {\rm ~(mod~} n). $$
 \end{theorem}
 
@@ -1066,6 +1126,8 @@ of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}
        $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~} 851)$.
 \end{itemize}
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Calculation of the multiplicative Inverse}
 
 Another interesting application is a special case of determining the multiplicative inverses using the Euler-Fermat 
@@ -1090,6 +1152,8 @@ By cleverly breaking down the exponent, we can calculate this power relatively e
 \item[] $1579^{-1} \equiv 4716 {\rm ~(mod~} 7351).$
 \end{itemize}
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Fixpoints\index{Fixpoint} modulo 26}
 
 According to theorem \ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
@@ -1130,6 +1194,9 @@ $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
 $$ x^2 + (J(n)-n-1)x +n= 0.
 $$} (please compare requisition 3 in section 3.10.1).
 
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \pagebreak
 \subsection{Multiplicative order and primitive roots}
 \hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot}
@@ -1144,7 +1211,7 @@ the product $a^{i}=1,$ is called the multiplicative order of $a$. \index{Order!m
 The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
 
 \begin{definition}\label{def-zth-ordn}
-The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$) (where $a$ and $m$ are coprime) is the 
+The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$) (where $a$ and $m$ are co-prime) is the 
 smallest whole number $e$ for which $a^{e} \equiv 1 ~(mod~m)$.  
 \end{definition}
 
@@ -1197,7 +1264,7 @@ $a=10$         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 
 The table shows, for example, that the order of $3$ modulo $11$ has the value $5$.
 
 \begin{definition}\label{def-zth-primitiveroot}
-If $a$ and $m$ are coprime and if $ord_m(a) = J(m)$ (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
+If $a$ and $m$ are co-prime and if $ord_m(a) = J(m)$ (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
 \end{definition}
 A number $a$ is not a primitive root for every modulo $m$. In the above table, only $a = 2, 6, 7$ and $8$ 
 is a primitive root with respect to mod $11$ ($J(11) = 10$).
@@ -1266,6 +1333,8 @@ See \hyperlink{AppArith3c}{Appendix D} for the source code to generate the table
 or Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
+
+
 %\newpage
 \pagebreak
 
@@ -1347,8 +1416,11 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
   group $Z_n^*$ if and only if $ord_n(a) = J(n)$.
 \end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Proof of the RSA procedure with Euler-Fermat}\hypertarget{Kapitel_3_10}{}\index{RSA}
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\subsection{Proof of the RSA procedure with Euler-Fermat}
+\hypertarget{Kapitel_3_10}{}\index{RSA}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA procedure} is the most common asymmetric 
@@ -1356,19 +1428,23 @@ cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leona
 signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
 please note that the abbreviation may be used in other fields to mean
 something completely different.}$^,$\footnote{%
-Within literature and movies not only cassical methods are used (like the
+Within literature and movies not only classical methods are used (like the
 secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
-Men'' by Arthur Conan  Doyle), but also modern schemes. Examples are
+Men'' by Arthur Conan  Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
+Examples are
 \begin{itemize}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
-\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner, 1999
-  (included in the CrypTool package as PDF file), where the sisters
+\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner
+  \index{Elsner 1999}, 1999
+  (included in the CrypTool package\index{CrypTool} as PDF file), where the sisters
   communicate confidentially using a variant of RSA.
 \end{itemize}
 } 
 procedure in the group $\mathbb{Z}_n^*$.
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Basic idea of public key cryptography}
 
 The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
@@ -1377,7 +1453,7 @@ would look up someone's phone number in the phone book. Furthermore, each recipi
 to decrypt the message and that is not known to anyone else. If the sender wishes to send a message $M$, he encrypts it using 
 the public key $P$ of the recipient before sending it:
 
-The ciphertext $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
+The cipher text $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
 The recipient uses his private key $S$ to decrypt the message with the decryption rule $D: M = D (S; C)$.
 
 In order to ensure that this system works for every message $M$, the following four requirements must be met:
@@ -1403,42 +1479,63 @@ Although Whitfield Diffie and Martin Hellman formulated the general method as ea
 met all four requirements was only found later by Rivest, Shamir and Adleman.
 
 
+% --------------------------------------------------------------------------
 \subsubsection{How the RSA procedure works}\hypertarget{RSA}{}\label{RSA}
 
-The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2001}\index{Eckert 2001} and 
-\cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
+The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2003}\index{Eckert 2003} and 
+\cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). 
+Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
 6 and 7 are the decryption:
 \begin{itemize}
-\item[{\bf 1.}] Select two distincts random prime numbers\footnote{Compaq introduced the so-called Multiprime method with high marketing effort in 2000.
-$n$ was the product of two big and one relativ small prime: $n=o*p*q.$ With theorem \ref{J_of_p1..pk} we get:
+\item[{\bf 1.}] Select two distinct random prime numbers
+\footnote{Compaq introduced the so-called multi-prime method with high marketing 
+effort in 2000.
+$n$ was the product of two big and one relative small prime: $n=o*p*q.$ 
+With theorem \ref{J_of_p1..pk} we get:
 $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
-One reason probably is, that Compaq claimed a patent \index{Patent} on it. Generally there is less understanding in Europe
-and with the Open Source Initiative, that one can claim patents on algorithms. But there is really no understanding outside
-the U.S., that one can get a patent for a special case (3 factors) of an algorithm (RSA), although the patent for the general case is
+One reason probably is, that Compaq claimed a patent \index{Patent} on it. 
+Generally there is less understanding in Europe and with the Open Source Initiative
+\index{Open Source}, that one can claim patents on algorithms. But there is really
+no understanding outside the U.S., that one can get a patent for a special case 
+(3 factors) of an algorithm (RSA), although the patent for the general case is
 almost expired.}$^,$\footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
-$ e*d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
-~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ But it is $ (5^3)^7\equiv 0 $ mod $ 25$.
-} $p$ and $q$ and calculate 
-$n = p*q$\footnote{The GISA\index{GISA} (German Information Security Agency) recommends, to choose the prime factors $p$ and $q$ almost the same,
- but not too close:
+$ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
+Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it 
+is $J(n)=5*4=20, ~ e=3, ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ 
+But it is $ (5^3)^7\equiv 0 $ mod $ 25$. } $p$ and $q$ and calculate 
+$n = p*q$\footnote{The GISA\index{GISA} (German Information Security Agency) 
+recommends, to choose the prime factors $p$ and $q$ almost the same,
+but not too close:
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$
-They recommend to generate the primes independantly and check that the restriction is fulfilled (see
+They recommend to generate the primes independently and check that the 
+restriction is fulfilled (see
 \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}{\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).}.
-The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is denoted with a capital ``$N$'' .}.
+The value $n$ is called the RSA modulus\footnote{
+In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 \item[{\bf 2.}] Select a random $e \in \{2, \cdots, n-1\}$ such that:\\
                 $e$ is relatively prime to $J(n) = (p-1)*(q-1)$.
-                For example, we can select $e$ such that:  $\max(p,q)  <  e 
-<  J(n) - 1$\footnote{The procedure also allows us to select $d$ freely and then calculate $e$. However, this has practical disadvantages.
-                We usually want to be able to encrypt messages ``quickly'', which is why we choose a public exponent $e$ such that 
-                it has a short bitlength compared to the modulus $n$ and as few binary ones as possible. 
-                A number often used is $65537 = 2^{16}+1$, or in binary: $10\cdots 0\cdots 01$.
-                We want to select the publicly known $e$ to be an advantageous value that allows 
-                the exponential calculation to be performed quickly during encryption. The prime numbers $3, 17$ and $65537$ have 
-                proved to be particularly practical for this purpose.}.
+                For example, we can select $e$ such that:  
+		$\max(p,q)  <  e <  J(n) - 1$
+		\footnote{The procedure also allows us to select $d$ freely and then 
+                calculate $e$. However, this has practical disadvantages.
+                We usually want to be able to encrypt messages ``quickly'', which 
+		is why we choose a public exponent $e$ such that it has a short 
+		bit length compared to the modulus $n$ and as few binary ones as 
+		possible. 
+                A number often used is $65537 = 2^{16}+1$, or in binary: 
+		$10\cdots 0\cdots 01$.
+                We want to select the publicly known $e$ to be an advantageous 
+		value that allows the exponential calculation to be performed 
+		quickly during encryption. The prime numbers $3, 17$ and $65537$ 
+		have proved to be particularly practical for this purpose.}.
                 We can then ``throw away'' $p$ and $q$.
-\item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  $e*d \equiv 1  {\rm ~(mod~} J(n))$,
-                i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$\footnote{For reasons of security, $d$ should not 
-                be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ``throw away'' $J(n)$.
+\item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  
+                $e*d \equiv 1  {\rm ~(mod~} J(n))$,
+                i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$
+		\footnote{For reasons of security, $d$ should not 
+                be too small.}$^,$
+		\footnote{We start by determining either $d$ or $e$ depending 
+		on the implementation.}. We can then ``throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
         \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
@@ -1447,9 +1544,9 @@ The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is d
                 the number is less than $n$.
 \item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
                 $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
-\item[{\bf 6.}] For decryption, the ciphertext represented as a binary number is divided into parts such that each part 
+\item[{\bf 6.}] For decryption, the cipher text represented as a binary number is divided into parts such that each part 
                 of the number is less than $n$.
-\item[{\bf 7.}] Decryption of the ciphertext (or the parts of it) $C \in \{1, \cdots, n-1\}$:
+\item[{\bf 7.}] Decryption of the cipher text (or the parts of it) $C \in \{1, \cdots, n-1\}$:
                 $$M = D ( (n, d); C ) := C^d {\rm ~(mod~} n).$$
 \end{itemize}
 The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and $e$ $300$ bits, $n$ $600$ bits).
@@ -1467,6 +1564,8 @@ Concrete for the RSA method does this mean:
 \end{enumerate}
 \vskip +1em
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Proof of requirement 1 (invertibility)}\hypertarget{RSAproof}{}\label{RSAproof}
 
 For pairs of keys $(n, e)$ and $(n, d)$ that possess fixed properties in steps 1 to 3 of the RSA procedure, 
@@ -1534,13 +1633,17 @@ $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection[Considerations regarding the security of the RSA algorithm]
-{Considerations regarding the security of the RSA algorithm\footnote{Major
+{Considerations regarding the security of the RSA algorithm\footnotemark}
+    \footnotetext{Major
     parts of chapters \ref{complexity} and \ref{chptSecurityParam} follow
     the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
-    F.~Bourseau / D.~Fox / C.~Thiel, and published in \emph{Datenschutz und
-      Datensicherheit} (DuD) 26/2002, pp.  84$-$89.}}\label{SecurityRSA}
+    F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}
+             }
+    \label{SecurityRSA}
 
 There have always been discussions about the suitability of the RSA
 algorithm for digital signatures and encryption, e.~g.\ after publications
@@ -1564,6 +1667,8 @@ long integer arithmetic is very easy.
 The following sections examine the RSA algorithm with respect to the first
 two points. 
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Complexity}\label{complexity}\index{Complexity}
 
 Successful decryption or forgery of a signature --- without knowing the
@@ -1581,21 +1686,23 @@ asymptotically
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
-Please refer to:
+Please refer to: \\
 \begin{list}{}{\setlength{\topsep}{-7 pt}}
-\item[] A. Lenstra / H. Lenstra: \\ {\em The development of the Number
-    Field Sieve.}  Lecture Notes in Mathematics 1554, Springer, New York
-  1993
-\item[] Robert D. Silverman: \\ {\em A Cost-Based Security Analysis of
-    Symmetric and Asymmetric Key Lengths.}  In: RSA Laboratories Bulletin,
-  No. 13, April 2000, S. 1-22
-\end{list} \vskip +12 pt
+  \item[] A. Lenstra, H. Lenstra:  
+          {\em The development of the Number Field Sieve} 
+          \cite{Lenstra1993}
+  \item[] Robert D. Silverman:  
+          {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
+	  Key Lengths} 
+	  \cite{Silverman2000}
+\end{list}
+\vskip +12 pt
 
 This formula shows, that the factorization problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
 but strictly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
-all that is currently known; it does not preclude the possiblity that the
+all that is currently known; it does not preclude the possibility that the
 factorization problem can be solved in polynomial time (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
@@ -1607,12 +1714,12 @@ factorization of $n$, is still not proven.  Most number theorists consider
 the ``RSA problem'' and the factorization problem equivalent in terms of
 time complexity.
 
-Please refer to:
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-   \item[] A.J. Menezes / van Oorschot / P.C. Vanstone: \\
-           {\em Handbook of Applied Cryptography}, CRC Press, 1996
-\end{list}\vskip +12 pt
+Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}
 
+
+
+% --------------------------------------------------------------------------
+\vskip +40pt
 \subsubsection{Security Parameters because of progress in factorisation} \label{chptSecurityParam}
 
 The complexity is basically determined by the length $l$ of the module $n$.
@@ -1624,9 +1731,11 @@ The complexity is basically determined by the length $l$ of the module $n$.
 
       Please refer to:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
-      \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
-              In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
-      \end{list}\vskip +12 pt
+        \item[] C. Pomerance:  
+                {\em The quadratic sieve factoring algorithm} 
+                \cite{Pomerance1984}
+      \end{list}
+      \vskip +12pt
 
 \item In 1999 a 155-digit module (512 bit) was factored with an implementation
       of the General Number Field Sieve algorithm (GNFS), developed by Buhler,
@@ -1635,11 +1744,11 @@ The complexity is basically determined by the length $l$ of the module $n$.
 
       Please refer to:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
-      \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
-              {\em Factoring integers with the number field sieve.} 
-              In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
-              in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50$-$94
+        \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
+                {\em Factoring integers with the number field sieve} 
+                \cite{Buhler1993}
       \end{list}
+      \vskip +12 pt
 \end{itemize}
 
 This made evident, that a module length of 512 bit no longer prevents from
@@ -1662,13 +1771,12 @@ time, i.\:e.\ also sub-exponentially. Because RAM availability increased
 exponentially in the recent decades, it seems that this should not be the
 limiting factor.
 
-Within the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' Dirk Fox\footnote{%
-The company Secorvo GmbH made a statement on the recommendation for key
+Within the above mentioned article \cite{Bourseau2002} Dirk Fox\footnote{%
+His company Secorvo Ltd made a statement on the recommendation for key
 length selection published by the GISA\index{GISA} (German Information
 Security Agency). Chapter 2.3.1 of their statement contains a very
 competent and understandable discussion of RSA security (this document
-exists to my
-knowledge only in German):\\
+exists -- to my knowledge -- only in German):\\
 \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
 {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
 }
@@ -1677,11 +1785,13 @@ factors are included: Each year the module length feasible for
 factorization increases by 20 bit on average.
 
 
-\vskip +20 pt
 
-\subsubsection{D.~J.\ Bernstein's paper and it's implication on the
-  security of the RSA algorithm}
-\label{RSABernstein} \index{Factorisation problem}
+% --------------------------------------------------------------------------
+\vskip +40pt
+\subsubsection{Further actual Research in Factorisation and Number Theory}
+Prime numbers are part of many very topical research areas in number theory and computer science. 
+Progress made with factorisation is bigger than estimated 5 years ago -- this
+is not only founded on faster computers but also in new knowledge.
 
 The security of the RSA algorithm is based on the empirical observation
 that factoring large numbers is a hard problem. A Module $n$ (typically,
@@ -1696,9 +1806,17 @@ and, thus, the module n (1024 bit as off today) have to be increased. In
 the worst case of a breakthrough in factorization, the RSA algorithm might
 be compromised.
 
-In his paper ``Circuits for integer factorization: a proposal'' (s.
-\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
-published November 2001, D.~J.\ Bernstein addresses the problem of
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{Bernstein's paper and it's implication on the
+  security of the RSA algorithm}
+\label{RSABernstein} \index{Factorisation problem}\mbox{}
+% \\
+In his paper ``Circuits for integer factorization: a proposal'' 
+(\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
+published November 2001, D.~J.\ Bernstein \cite{Bernstein2001} 
+addresses the problem of
 factorizing large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
 implementation of the General Number Field Sieve algorithm (GNFS) can be
@@ -1758,7 +1876,7 @@ how much longer the bit length of the keys could be with a factor of 1.17
 The abstract of their paper ``Analysis of Bernstein's Factorization
 Circuit'' says:
 
-``In [1], Bernstein proposed a circuit-based implementation of the matrix
+``... Bernstein proposed a circuit-based implementation of the matrix
 step of the number field sieve factorization algorithm. We show that under
 the non-standard cost function used in [1], these circuits indeed offer an
 asymptotic improvement over other methods but to a lesser degree than
@@ -1771,15 +1889,17 @@ that costs a few thousand dollars.  We conclude that from a practical
 standpoint, the security of RSA relies exclusively on the hardness of the
 relation collection step of the number field sieve.''
 
+\href{http://www.rsasecurity.com/}{RSA Security's} analysis of the Bernstein
+paper \cite{RSA Security 2002} from April, 8 2002 also -- as expected --
+concludes, that RSA is still not compromised.
+
 This is still an ongoing discussion.
 
-\href{http://www.rsasecurity.com/}{RSA Security's} analysis of the Bernstein
-paper (title {\em Has the RSA algorithm been compromised as a result of
-  Bernstein's Paper?}, April, 8 2002) also concludes, that RSA is still not
-compromised (s.\ 
-\href{http://www.rsasecurity.com/}{\texttt{http://www.rsasecurity.com/}}).
-\vskip +12 pt
+When this section was written (June 2002) nothing was publicly known,
+how far there exist implementations of his theoretical onsets and how
+far financing of his research project was.
 
+\vskip +12pt
 \begin{minipage}{\textwidth}
 Links:
 \vspace{-10pt}
@@ -1793,10 +1913,39 @@ Links:
 \end{itemize}
 \end{minipage}
 
-\vspace{4ex}
-\subsubsection{Status regarding factorisation of large numbers}
-\label{NoteFactorisation}
 
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{The TWIRL Device} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
+% \\
+In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{Shamir2003}. 
+
+Their abstract summarizes their results very well: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
+
+So recommendations like the ones from the GISA (German Information Security Agency) to use higher key lengths are very valid.
+
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{``Primes in P'': Primality testing is polynomial} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
+% \\
+In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm 
+\cite{Agrawal2002}. 
+They discovered a polynomial time deterministic algorithm for determining if a number is prime or not.
+
+The importance of this discovery is that it provides number theorists with new insights and opportunities for further research. Lots of people over centuries have been looking for a polynomial time test for primality, and this result is a major theoretic breakthrough. It shows that new results can be generated from already known facts.
+
+But even its authors note that other known algorithms may be faster (for example ECPP). The new algorithm works on any integer. For example the GIMPS project uses the Lucas-Lehmer primality test which takes advantage of the special properties of Mersenne numbers. This makes the Lucas-Lehmer test much faster, allowing to test numbers with millions of digits while general purpose algorithms are limited to numbers with a few thousand digits.
+
+Current research results on this topic can be found at:\\
+\href{http://www.mersenne.org/}{\texttt{http://www.mersenne.org/}}  and \\
+\href{http://fatphil.org/maths/AKS/}{\texttt{http://fatphil.org/maths/AKS/}} .
+\\
+
+
+
+
+\vspace{4ex}
 \begin{center}
 \fbox{\parbox{15cm}{
     \emph{Hermann Hesse\footnotemark:}\\
@@ -1804,8 +1953,12 @@ Links:
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.
-}
+  German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
+
+% --------------------------------------------------------------------------
+\vspace{4ex}
+\subsubsection{Status regarding factorisation of concrete large numbers}
+\label{NoteFactorisation}
 
 The web page
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
@@ -1816,7 +1969,7 @@ obtained using the GNFS method (General Number Field Sieve) factorized a
 decimal digits).
 
 This record, established on January 18, 2002 by researchers of the German
-university of Bonn (see the press statement (in german language): \\
+university of Bonn (see the press statement (in German language): \\
 \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}), got much less attention within the press than the
 solution of the RSA challenge, established on August 22, 1999, when
@@ -1824,7 +1977,7 @@ researchers from the Netherlands factorized the 155-digit number into its
 both 78-digit primes (see Chapter \ref{chptSecurityParam}). 
 One reason is that 512 bit RSA-155 was a kind of {\em magic} border.
 
-The task of the reserachers from Bonn was not initiated by a challenge, but
+The task of the researchers from Bonn was not initiated by a challenge, but
 they wanted to find the last prime factors of the integer $2^{953} - 1$
 (see ``Wanted List'' of the Cunningham Project\index{Cunningham project}
 \href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}).
@@ -1838,7 +1991,9 @@ $$
 128064886830166671444802576129115872060027.
 \end{array}
 $$
-The first 3 factors can be easily computed (e.g. using CrypTool via menu {\bf Indiv. Procedures / RSA Demonstration / Factorise}).
+The first 3 factors can be easily computed (e.g. using CrypTool\index{CrypTool} 
+via menu {\bf Indiv. Procedures \textbackslash RSA Demonstration \textbackslash 
+Factorisation of a Number}).
 The next three prime factors were found by P.~Zimmerman
 (\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}), 
 T.~Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
@@ -1880,9 +2035,8 @@ Links:
 \end{minipage}
 
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\vskip +40 pt
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% \vskip +40 pt
 \newpage
 
 \begin{center}
@@ -1899,6 +2053,7 @@ last chapter ``Dobby's reward'', p.~245, by Dumbledore.}
 %It is our choices, that show what we truly are, far more than our abilities.
 %\end{quote}
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Further applications of number theory in cryptography}
 
 The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
@@ -1909,22 +2064,26 @@ Authority RSA modulus.} numbers.
 Enciphering a text entails applying a function (mathematical operation) to a character string (number) to generate a 
 different number. Deciphering entails reversing this function, in other words using the distorted image that the function 
 has created from the plaintext in order to restore the original image. For example, the sender could take the plaintext 
-$M$ of a confidential message and add a secret number, the key $S$, to obtain the ciphertext $C$:
+$M$ of a confidential message and add a secret number, the key $S$, to obtain the cipher text $C$:
 $$C = M + S.$$
 The recipient can reconstruct the plaintext by reversing this operation, in other words by subtracting $S$:
 $$M = C - S.$$
 Adding $S$ reliably makes the plaintext impossible to read. However, this encryption is rather weak, because all an 
-interceptor needs to do to calculate the key is obtain a plaintext and the associated ciphertext
+interceptor needs to do to calculate the key is obtain a plaintext and the associated cipher text
 $$S = C - M,$$
-and can then read any subsequent messages encrypted using $S$.
+and can then read any subsequent messages encrypted using $S$. \\
+The essential reason for this is that subtraction is just as simple an operation as addition. 
 
 
+% --------------------------------------------------------------------------
 \subsubsection{One way functions}\index{One way function}
-
-\hypertarget{OneWayFunktion2}{} The essential reason for this is that subtraction is just as simple an operation as addition. If the key is to be 
-impossible to determine even with knowledge of both the plaintext and the ciphertext, we need a function that is, 
-on the one hand, relatively easy to calculate - we don't want to have problems encrypting messages. On the other hand, 
-the inverse function should exist (otherwise information would be lost during encryption), but should be de facto incalculable.
+\hypertarget{OneWayFunktion2}{} 
+If the key is to be impossible to determine even with knowledge of both the 
+plaintext and the cipher text, we need a function that is, on the one hand, 
+relatively easy to calculate -- we don't want to have problems encrypting 
+messages. On the other hand, the inverse function should exist (otherwise 
+information would be lost during encryption), but should be de facto 
+incalculable.
 
 What are possible candidates for such a {\bf one way function}? We could take multiplication rather than addition, 
 but even primary school children know that the inverse function, division, is only slightly more difficult than multiplication 
@@ -1938,10 +2097,18 @@ another or calculating exponentials totally mixes up all the numbers. Knowing a 
 us much about the function as a whole (in contrast to addition and multiplication).
 
 
+% --------------------------------------------------------------------------
 \subsubsection{The Diffie-Hellman key exchange protocol}
 \index{Key agreement (key exchange)!Diffie-Hellman}
 
-Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key exchange protocol in Stanford in 1976.
+Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key 
+exchange protocol in Stanford in 1976
+\footnote{%
+With CrypTool\index{CrypTool} v1.3.04 you can execute the single steps of this 
+exchange protocol with concrete numbers: \\
+using menu {\bf Indiv. Procedures \textbackslash Diffie-Hellman Demonstration}.
+}
+.
 
 Alice and Bob\footnote{Bob and Alice are the standard names used for the two authorised participants in a protocol 
 (see \cite[p. 23]{Schneier1996}).
@@ -2057,15 +2224,21 @@ For Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, that means $\log_{11}(49) {\rm ~
 For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(mod~}347)$.
 
 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{The RSA procedure with actual numbers}\hypertarget{Kapitel_3_12}{}
 \index{RSA}
 
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
 
 
+% --------------------------------------------------------------------------
 \subsubsection{RSA with small prime numbers and with a number as message}
 
-Before applying the RSA procedure to a text, we will first demonstrate it directly using a number\footnote{Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.}.
+Before applying the RSA procedure to a text, we will first demonstrate it directly
+using a number
+\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with
+the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.}.
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
@@ -2077,7 +2250,7 @@ Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
     \end{itemize}
 \item[{\bf 4.}] Let the message be the number $M = 2$ (so no division into blocks is required).
 \item[{\bf 5.}] Encryption: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
-\item[{\bf 6.}] The ciphertext is simply the number $C = 18$ (we therefore do not need to divide it into blocks).
+\item[{\bf 6.}] The cipher text is simply the number $C = 18$ (we therefore do not need to divide it into blocks).
 \item[{\bf 7.}] Decryption: 
         $M \equiv 18^{23} \equiv 18^{(1+2+4+16)} \equiv 18*49*36*26 \equiv 2 {\rm ~(mod~}55).$
 \end{itemize}
@@ -2085,10 +2258,12 @@ Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
 
 We will now apply the RSA procedure to a text, first using the upper case alphabet ($26$ characters), then using the entire ASCII character set as the basis for the messages.
 
-\subsubsection{RSA with slightly larger prime numbers and a text of upper case letters}
+
+% --------------------------------------------------------------------------
+\subsubsection{RSA with slightly larger primes and a text of upper case letters}
 
 We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
-CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.
+CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.
 This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
 
 \hypertarget{Grossbuchstaben-Alphabet}{}    
@@ -2138,27 +2313,28 @@ This $28$-digit number is divided into $4$-digit parts
 All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{%
 See \hyperlink{AppArith4a}{Appendix D} for source code to do RSA
   encryption using Mathematica or Pari-GP.  You can also encrypt
-  the message with CrypTool v1.3 ``Indiv. Procedures/RSA Demonstration/Factorise (IFP)''.}: \\
+  the message with CrypTool\index{CrypTool} v1.3 ``Indiv. Procedures \textbackslash RSA Demonstration \textbackslash Factorisation of a Number''.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 {\bf 5. Decryption}: \\
-Ciphertext: {\tt 1404 2932 3536 0001 3284 2280 2235 }\\
+Cipher text: {\tt 1404 2932 3536 0001 3284 2280 2235 }\\
 This $28$-digit number is divided into $4$-digit parts.\\
 All 7 parts are decrypted using:  $M \equiv C^{97}{\rm ~(mod~}3,713)$: \\
 {\tt 0120 2001 0311 0001 2000 0401 2314} \\
 The 2-digit numbers are transformed into capital letters and blanks.
 
-Using the selected values it is easy for a cryptoanalyst to derive the secret values from the public 
+Using the selected values it is easy for a cryptanalyst to derive the secret values from the public 
 parameters $n=3,713$ and $e=37$ by revealing that $3,713 = 47 * 79$.\\  
 If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
 
 
-\subsubsection{ RSA with slightly larger prime numbers still and a text made up of ASCII characters}
+% --------------------------------------------------------------------------
+\subsubsection{ RSA with slightly more larger primes and a text made up of ASCII characters}
 
 In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
 
-The idea for this task\footnote{Using CrypTool v1.3 you can solve this with the 
-``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.} is taken from the example in \cite[p. 215]{Eckert2001}\index{Eckert 2001}.
+The idea for this task\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with the 
+``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.} is taken from the example in \cite[p. 215]{Eckert2003}\index{Eckert 2003}.
 
 Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 {\tt
@@ -2173,7 +2349,7 @@ We will work through the example in 2 variants. The steps 1 to 3 are common for 
 {\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
 See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise the number $J(n)$ using Mathematica
 or Pari-GP.
-Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/Factorise (IFP)''.}. \\
+Using CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash Factorisation of a Number''.}. \\
 {\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
 therefore, be $2, 127$ or $251$ ($65537 = 2^{16}+1$).\\
 In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
@@ -2182,6 +2358,7 @@ is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
 {\rm ~(mod~}67,000)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
 
 
+% --------------------------------------------------------------------------
 \subsubsection*{Variant 1: All ASCII characters are encrypted and decrypted separately (no blocks\index{Block length} are formed).}
 
 {\bf 4. Encryption}:\\
@@ -2202,7 +2379,7 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA exponentation using Mathematica
+See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA exponentiation using Mathematica
 or Pari-GP.
 }: \\
 {\tt
@@ -2212,7 +2389,7 @@ or Pari-GP.
 \end{tabular} }
 
 {\bf 5. Decryption}:\\
-Ciphertext: 
+Cipher text: 
 
 {\tt
 \begin{tabular}{lllll}
@@ -2224,6 +2401,7 @@ Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
 {\tt 82 83 65 32 119 111 114 107 115 33}
 
 
+% --------------------------------------------------------------------------
 \subsubsection*{Variant 2: The ASCII characters are encrypted and decrypted two at a time as blocks.}
 
 In variant 2 the block formation is done in two different sub-variants: (4./5. and 4'./5'.).
@@ -2249,18 +2427,18 @@ Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{lll}
 01110011, 115 & 01110011 00100001 & =29473 \\
 00100001, 33: 
 \end{tabular}} (each ASCII character is encoded into a 8 digit binary number below):\\
-{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA
-Demonstration/RSA Cryptosystem'' 
+{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA
+Demonstration \textbackslash RSA Cryptosystem'' 
 with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
 
 \label{SrcArith4d}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA exponentation using Mathematica or Pari-GP.
+See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA exponentiation using Mathematica or Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
 {\bf 5. Decryption:} \\
-Ciphertext:\\
+Cipher text:\\
 {\tt 158721 137346 37358 240130 112898}
 
 Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
@@ -2279,18 +2457,19 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA exponentation using Mathematica or Pari-GP.
+See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA exponentiation using Mathematica or Pari-GP.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
 
 {\bf 5'. Decryption:} \\
-Ciphertext:\\
+Cipher text:\\
  {\tt 198967 051405 254571 115318 014251}
 
 Each block is decrypted using: $M \equiv C^{2,473}{\rm ~(mod~}67,519)$: \\
 {\tt 82083 65032 119111 114107 115033}
 
 
+% --------------------------------------------------------------------------
 \subsubsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
 
 The task is taken from \cite[Exercise 4.6]{Stinson1995}\index{Stinson 1995}:
@@ -2301,18 +2480,18 @@ The pure solution has been published by Prof. Stinson at
 
 However, it is not the 
 result that is important here but rather the individual steps of the solution, that is, the explanation of the 
-cryptoanalysis\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool 
+cryptanalysis\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool\index{CrypTool} 
 and in the presentation on the website. If anyone sends us a well prepared exact method of solving the problem, we 
 would be pleased to include it in the documentation.}.
 
-Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task is to decrypt them.
+Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. Your task is to decrypt them.
 The public parameters of the system are 
 
 $n = 18,923$ and $e = 1,261$ (for Table 4.1) and \\
 $n = 31,313$ and $e = 4,913$ (for Table 4.2). 
 
 This can be accomplished as follows. First, factor $n$ (which is easy because it is so small). Then compute the 
-exponent $d$ from $J(n)$, and, finally, decrypt the ciphertext. Use the square-and-multiply\index{Square and multiply} algorithm to exponentiate 
+exponent $d$ from $J(n)$, and, finally, decrypt the cipher text. Use the square-and-multiply\index{Square and multiply} algorithm to exponentiate 
 modulo $n$. 
 
 In order to translate the plaintext back into ordinary English text, you need to know how alphabetic characters are 
@@ -2331,7 +2510,7 @@ The first plaintext was taken from ``The Diary of Samuel Marchbanks'', by Robert
 taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 
 \newpage
-TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Paste.}: RSA ciphertext
+TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Paste.}: RSA cipher text
 
 {\tt 
 \begin{tabular}{llllllll}
@@ -2367,7 +2546,7 @@ TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Pas
 \end{tabular} } % tt
 
 \newpage
-TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of Cryptool.}: RSA ciphertext
+TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}: RSA cipher text
 
 {\tt 
 \begin{tabular}{llllllll}
@@ -2391,27 +2570,29 @@ TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example il
 25973  & 4477 & 30989                               
 \end{tabular} } % tt
 
+
+% --------------------------------------------------------------------------
 \subsubsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
 
 The following task is a corrected version from the excellent book written by Prof. Yan 
 \cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the individual steps of the solution, that is, 
-the explanation of the cryptoanalysis\footnote{The method of solving the problem is outlined in the scenario of 
-the online help to CrypTool and in the presentation on the website. If anyone sends us a well prepared exact 
+the explanation of the cryptanalysis\footnote{The method of solving the problem is outlined in the scenario of 
+the online help to CrypTool\index{CrypTool} and in the presentation on the website. If anyone sends us a well prepared exact 
 method of solving the problem, we would be pleased to include it in the documentation.}.
 
-There are three tasks with completely different degrees of difficulty here. In each case we know the ciphertext 
+There are three tasks with completely different degrees of difficulty here. In each case we know the ciphe rtext 
 and the public key $(e,n)$:
 \begin{itemize}
 \item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
-\item[{\bf (b)}] Ciphertext only: \index{Attack!ciphertext only} find $d$ and the plaintext.
+\item[{\bf (b)}] Cipher text only: \index{Attack!cipher text only} find $d$ and the plaintext.
 \item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation problem}
 \end{itemize}
 
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
-{\bf Message\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of Cryptool.}:}
+{\bf Message\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}:}
 
 {\tt
 \begin{tabular}{l}
@@ -2441,140 +2622,264 @@ When you decrypt the message you must fill the calculated numbers with leading z
 
 This needs to be stressed because the type of padding is extremely important during implementation and standardisation for interoperable algorithms.
 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
-\bibitem[Bartholome1996]{3Bartholome1996}  
+
+\bibitem[Agrawal2002]{Agrawal2002}  \index{Agrawal 2002} 
+    M. Agrawal, N. Kayal, N. Saxena, \\
+    {\em PRIMES in P}, August 2002 \\
+    \href{http://www.cse.iitk.ac.in/news/primality.html}
+    {\texttt{http://www.cse.iitk.ac.in/news/primality.html}}. 
+
+\bibitem[Bartholome1996]{3Bartholome1996}  \index{Bartholome 1996} 
     A. Bartholome, J. Rung, H. Kern, \\
-    Zahlentheorie f\"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
+    {\em Zahlentheorie f\"ur Einsteiger}, Vieweg 1995, 2nd edition 1996.
 
 \bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
     Friedrich L. Bauer, \\
-    Entzifferte Geheimnisse, Springer, 1995.
+    {\em Entzifferte Geheimnisse}, Springer, 1995.
 
 \bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
     Friedrich L. Bauer, \\
-    Decrypted Secrets, Springer, 2nd edition 2000.
+    {\em Decrypted Secrets}, Springer 1997, 2nd edition 2000.
+
+\bibitem[Bernstein2001]{Bernstein2001} \index{Bernstein 2001}
+    D.~J. Bernstein, \\
+    {\em Circuits for integer factorization: a proposal}, 
+    \href{http://cr.yp.to/papers/nfscircuit.ps}
+    {\texttt{http://cr.yp.to/papers/nfscircuit.ps}} \\
+    \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}.
 
 \bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
-    Kryptologie, Vieweg, 5. Auflage 1996.
+    {\em Kryptologie}, Vieweg 1987, 5th edition 1996.
 
-\bibitem[Bourseau2002]{Bourseau2002}
-    F. Bourseau / D. Fox / C. Thiel, \\
-    {\em Vorz\"uge und Grenzen des RSA-Verfahrens}, in Datenschutz und
-    Datensicherheit (DuD) 26/2002, pp.~84-89.
+\bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
+    F. Bourseau, D. Fox, C. Thiel, \\
+    {\em Vorz"uge und Grenzen des RSA-Verfahrens},\\
+    in Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89.
+
+\bibitem[Brands2002]{Brands2002} \index{Brands 2002}
+    Gilbert Brands, \\
+    {\em Verschl"usselungsalgorithmen -- Angewandte Zahlentheorie 
+    rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
 \bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
     Johannes Buchmann, \\
-    Einf\"uhrung in die Kryptographie, Springer, 1999.
+    {\em Einf\"uhrung in die Kryptographie}, Springer, 1999.
 
-\bibitem[Eckert2001]{Eckert2001} \index{Eckert 2001}
+\bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
+    J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
+    {\em Factoring integers with the number field sieve}, 
+    In: A.K. Lenstra, H.W. Lenstra (Hrsg.): The Development of the 
+    Number Field Sieve, Lecture Notes in Mathematics, Vol.~1554, 
+    Springer, Heidelberg 1993, pp~50$-$94.
+
+\bibitem[Eckert2003]{Eckert2003} \index{Eckert 2003}
     Claudia Eckert, \\
-    IT-Sicherheit: Konzepte-Verfahren-Protokolle, Oldenbourg, 2001.
+    {\em IT-Sicherheit: Konzepte-Verfahren-Protokolle}, 
+    Oldenbourg 2001, 2nd edition 2003.
+
+\bibitem[Ertel2001]{Ertel2001} \index{Ertel 2001} 
+    Wolfgang Ertel, \\
+    {\em Angewandte Kryptographie}, 
+    Fachbuchverlag Leipzig FV 2001.
+
+\bibitem[GISA2001xxx?]{GISA2001xxx?} \index{GISA}
+    GISA (German Information Security Agency) \\
+    {\em Recommendation for key length selection},\\
+    \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}
+    {\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf} \\
+    A statement on these recommendations: \\
+    \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
+    {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
-     Graham, Knuth, Patashnik, \\
-      Concrete Mathemathics, a Foundation of Computer Science, 2nd edition, Addison Wesley, 1994.
+    Graham, Knuth, Patashnik, \\
+    {\em Concrete Mathemathics, a Foundation of Computer Science}, 
+    Addison Wesley 1989, 6th printing 1990.
+
+\bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
+    Rudolph Kippenhahn, \\
+    {\em Verschl"usselte Botschaften -- Geheimschrift, Enigma und Chipkarte}, 
+    Rowohlt, 1997.
+
+\bibitem[Kippenhahn1999]{Kippenhahn1999} \index{Kippenhahn 1999}
+    Rudolph Kippenhahn, \\
+    {\em Code Breaking -- A History and Exploration}, 
+    Constable, 1999.
 
 \bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
-    The Art of Computer Programming, vol 2: 
-    Seminumerical Algorithms, Addison-Wesley, 2nd edition, 1998.
+    {\em The Art of Computer Programming, vol 2: 
+    Seminumerical Algorithms}, Addison-Wesley, 2nd edition 1998.
+    % wann war erste Edition ?
+
+\bibitem[Lenstra1993]{Lenstra1993} \index{Lenstra 1993}
+     A. Lenstra, H. Lenstra: \\ 
+     {\em The development of the Number Field Sieve.},
+     Lecture Notes in Mathematics 1554, Springer, New York 1993
 
 \bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
     Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
     {\em Analysis of Bernstein’s Factorization Circuit},\\
-    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
+    \href{http://www.cryptosavvy.com/mesh.pdf}
+    {\texttt{http://www.cryptosavvy.com/mesh.pdf}}
+
+\bibitem[Menezes2001]{Menezes2001} \index{Menezes 2001}
+    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
+    {\em Handbook of Applied Cryptography}, 
+    CRC Press 1997, 5th printing 2001.
 
 \bibitem[Pfleeger1997]{Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\
-    Security in Computing, Prentice-Hall, 2nd edition, 1997.
+    {\em Security in Computing}, Prentice-Hall, 2nd edition 1997.
+    % im Buch stand nicht, wann die 1. Edition rauskam.
 
+\bibitem[Pomerance1984]{Pomerance1984} \index{Pomerance 1984} 
+    C. Pomerance, \\
+    {\em The quadratic sieve factoring algorithm}, 
+    In: G.R. Blakley, D. Chaum (Hrsg.): Proceedings of Crypto '84, 
+    LNCS 196, Springer Berlin 1995, pp~169-182.
+
+\bibitem[RSA Security 2002]{RSA Security 2002} \index{RSA Security 2002} 
+    RSA Security, \\
+    {\em Has the RSA algorithm been compromised as a result 
+    of Bernstein's Paper?}, 
+    April 8th, 2002, \\
+    \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}.
+    
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    Applied Cryptography, Protocols, Algorithms,
-    and Source Code in C, Wiley, 2nd edition, 1996.
+    {\em Applied Cryptography}, Protocols, Algorithms,
+    and Source Code in C, Wiley, 2nd edition 1996.
+
+\bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
+    J\"org Schwenk, \\
+    {\em Sicherheit und Kryptographie im Internet}, 
+    Vieweg 2002.
 
 \bibitem[Sedgewick1990]{Sedgewick1990} \index{Sedgewick 1990}
     Robert Sedgewick,\\
-    Algorithms in C, Addison-Wesley, 1990.
+    {\em Algorithms in C}, Addison-Wesley, 1990.
+
+\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} 
+    Adi Shamir, Eran Tromer, \\
+    {\em Factoring Large Numbers with the TWIRL Device}, 
+    Januar 2003, \\
+    \href{http://www.wisdom.weizmann.ac.il/~tromer/}
+    {\texttt{http://www.wisdom.weizmann.ac.il/\~{}tromer/}}.
+  
+\bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
+     Robert D. Silverman: \\ 
+     {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
+          Key Lengths.} 
+     In: RSA Laboratories Bulletin, No. 13, April 2000, p. 1-22
 
 \bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
-    Cryptography - Theory and Practice, CRC Press, 1995.
+    {\em Cryptography - Theory and Practice}, CRC Press, 1995.
 
-\bibitem[Wiles1994]{Wiles1994}\index{Wiles}
+\bibitem[Welschenbach2001]{Welschenbach2001} \index{Welschenbach 2001}
+    Welschenbach, Michael, \\
+    {\em Kryptographie in C und C++}, Springer 2001.
+    
+\bibitem[Wiles1994]{Wiles1994} \index{Wiles}
     Wiles, Andrew, \\
-    Modular elliptic curves and Fermat's Last Theorem\index{Fermat!last theorem}, in Annals of
-    Mathematics 141 (1995).
+    {\em Modular elliptic curves and Fermat's Last Theorem}
+    \index{Fermat!last theorem}, in Annals of Mathematics 141 (1995).
 
-\bibitem[Wolfenstetter1998]{Wolfenstetter1998}\index{Wolfenstetter 1998}
+\bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
-    Moderne Verfahren in der Kryptographie, Vieweg, 2. Auflage, 1998.
+    {\em Moderne Verfahren in der Kryptographie}, 
+    Vieweg 1995, 2nd edition 1998.
 
 \bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
-    Number Theory for Computing, Springer, 2000.
+    {\em Number Theory for Computing}, Springer, 2000.
 \end{thebibliography}
 
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \subsection*{Web links}\addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
-   \item \hypertarget{knott}{} 
-          Ron Knott's Fibonacci\index{Fibonacci} page, \\
-      Here, everything revolves around Fibonacci numbers. \index{Knott, Ron}\\
-          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
-   \item CrypTool Version 1.3, 2002, \\
-     Freeware to illustrate cryptography \\
+   \item \hypertarget{knott}{}  \index{Knott, Ron}
+          Ron Knott's Fibonacci \index{Fibonacci} page, \\
+          Here, everything revolves around Fibonacci numbers.\\
+          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
+	  {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
+	  
+   \item CrypTool (Version 1.3.04, 2003), \index{CrypTool} \\
+          Freeware to illustrate cryptography \\
           \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},\\
           \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
           \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
-   \item Mathematica, \\
-    Commercial mathematics package \\
+	  
+   \item Mathematica, \index{Mathematica} \\
+          Commercial mathematics package \\
           \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
-   \item  LiDIA,\index{LiDIA} \\
-      Extensive library containing number-theory functions and the LC interpreter \\
-          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
-   \item BC, \\
-     Interpreter with number-theory functions \\
-          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
-   \item Pari-GP, \index{Pari-GP}\\
+	  
+   \item  LiDIA, \index{LiDIA} \\
+          Extensive library containing number-theory functions and the LC interpreter \\
+          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
+	  {\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
+	  
+   \item BC, \index{BC} \\
+          Interpreter with number-theory functions \\
+          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}
+	  {\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
+	  
+   \item Pari-GP, \index{Pari-GP} \\
          Excellent, fast, free interpreter with number theoretical functions\\
          \href{http://www.parigp-home.de}
-              {\texttt{http://www.parigp-home.de}} and
+              {\texttt{http://www.parigp-home.de}} and 
          \href{http://www.parigp-home.com}
               {\texttt{http://www.parigp-home.com}}
-   \item Only after I had completed this article, I did come across the
-     website of Mr.\ M\"unchenbach, which interactively and 
-     didactically uses elementary number theory to provide an extremely sophisticated description of the
-     fundamental mathematical thought processes. It was created for a teaching project in the 11th grade 
-     of the technical grammar school (unfortunately only available in German):\index{Munchenbach@M\"unchenbach} \\
+	      
+   \item \index{Munchenbach@M\"unchenbach}
+         Only after I had completed this article, I did come across the
+         website of Mr.\ M\"unchenbach, which interactively and didactically
+	 uses elementary number theory to provide a sophisticated
+	 description of the fundamental mathematical thought processes. 
+	 It was created for a teaching project in the 11th grade 
+         of the technical grammar school (unfortunately only available in German): \\
          \href{http://www.hydrargyrum.de/kryptographie}
-              {\texttt{http://www.hydrargyrum.de/kryptographie}}\index{Munchenbach@M\"unchenbach}
+         {\texttt{http://www.hydrargyrum.de/kryptographie}}
+	 	      
     \item Also only after I had completed this article, I did come across
-      the web site of Mr.~Wagner, who is responsible for the development of
-      the curriculum of computer science in a German federal state. Here
-      you can get (but only in German) a collection of texts and
-      (Java-)\discretionary{}{}{}programs:\\
-      \href{http://www.hom.saar.de/~awa/kryptolo.htm}
-              {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
-    \item GISA,\index{GISA} \\
+          the web site of Mr.~Wagner, who is responsible for the development of
+	  the curriculum of computer science in a German federal state. Here
+	  you can get (but only in German) a collection of texts and
+	  (Java-)\discretionary{}{}{}programs:\\
+	  \href{http://www.hom.saar.de/~awa/kryptolo.htm}
+          {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
+	  
+    \item GISA, \index{GISA} \\
           German Information Security Agency \\
-          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}} 
-   \item Bernstein's RSA paper\\
-         \href{http://cr.yp.to/papers/nfscircuit.ps}{\texttt{http://cr.yp.to/papers/nfscircuit.ps}}
-   \item Factorisation records\index{Factorisation records}\\
-         \href{http://www.crypto-world.com/}{\texttt{http://www.crypto-world.com/}}
+          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
+	 
+   \item Factorisation records \index{Factorisation records}\\
+         \href{http://www.crypto-world.com/}
+	 {\texttt{http://www.crypto-world.com/}}
+	 
 \end{enumerate}
 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\vskip +20 pt
 \subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
 
-I would like to take this opportunity to thank Mr. Henrik Koy for making
-many suggestions and for very constructively proof-reading this article.
+I would like to take this opportunity to thank \\
+- Mr. Henrik Koy for making many very useful suggestions and for very constructively proof-reading this article, and\\
+- Dr. Illies for pointing me to Pari-GP.
 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
 Algorithms of Euclid} \hypertarget{Appendix_A}{}
@@ -2585,7 +2890,7 @@ Algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 \item The greatest common divisor of two natural numbers $a$ and $b$ is an important value that can be calculated 
 very quickly. Here we make use of the fact that if a number $c$ divides the numbers $a$ and $b$ 
 (i.e. there exists an $a'$ and a $b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides 
-the remainder $r$ of $a/b$. In short notion we can write: If $c$ divedes $a$ and $b$ it follows that 
+the remainder $r$ of $a/b$. In short notion we can write: If $c$ divides $a$ and $b$ it follows that 
 $c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $
 of a real number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
 }.
@@ -2671,11 +2976,14 @@ Thus
                  and therefore the number $97$ is the multiplicative inverse to $37$ modulo $3588$.
 \end{enumerate}
 \end{enumerate}
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \subsection*{Appendix B: Forming closed sets} \hypertarget{Appendix_B}{}
 \addcontentsline{toc}{subsection}{Appendix B: Forming closed sets}
 
-The property of closedness \index{Closedness} is always defined in relation to an operation in a set.
+The property of closeness \index{Closedness} is always defined in relation to an operation in a set.
 The following shows how to construct the ``closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
 \begin{eqnarray*}
 G_0 & = & \{ 2, 3 \} {\rm ~addition~of~the~numbers~in~} G_0 {\rm ~determines~further~numbers:} \nonumber \\
@@ -2690,8 +2998,10 @@ G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~addition~of~the~numbers~in~} G_2 {
 G_3 & = & G_2 {\rm ~~we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
 \end{eqnarray*}
 End of forming a closed set.
-\vskip +12pt
 
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\vskip +40pt
 \subsection*{Appendix C: Comments on modulo subtraction} \hypertarget{Appendix_C}{}
 \addcontentsline{toc}{subsection}{Appendix C: Comments on modulo subtraction}
 
@@ -2759,11 +3069,11 @@ The other multiplication table examples modulo $13$ and modulo $12$ on page
 \pageref{SrcArith1b} can computed by replacing {\tt m=17} with {\tt m=13}
 and {\tt m=12} respectively.
 
-\subsubsection*{Fast exponentation} \hypertarget{AppArith2}{}
+\subsubsection*{Fast exponentiation} \hypertarget{AppArith2}{}
 
-The fast exponentation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
+The fast exponentiation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
 Using those programs you can comprehend the idea of the square and multiply method. With Mathematica
-you can compute the exponentations of the example on page \pageref{SrcArith2}
+you can compute the exponentiations of the example on page \pageref{SrcArith2}
 as follows:
 \begin{verbatim}
 Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.
@@ -2773,7 +3083,7 @@ and in Pari-GP the syntax is:
 Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 \end{verbatim}
 
-\subsubsection*{Multiplicative order and primitve roots}
+\subsubsection*{Multiplicative order and primitive roots}
 
 \hypertarget{AppArith3a}{} The order $ord_m(a)$ of a number $a$ in the
 multiplicative group $Z_m^*$ is the smallest number $i \ge 1$, for with
@@ -2906,7 +3216,9 @@ RSA encryption with Pari-GP: \\
 
 
 
-\vskip +12pt
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% \vskip +12pt
+\newpage
 \subsection*{Appendix E: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
 \addcontentsline{toc}{subsection}{Appendix E: List of the formulated definitions and theorems}
 \vskip +8 pt

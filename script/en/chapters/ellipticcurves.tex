@@ -1,3 +1,7 @@
+% ...........................................................................
+%                  E L L I P T I S C H E  K U R V E N
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 \newpage
 \section{Elliptic Curves}
 \index{Elliptic curves}
@@ -339,7 +343,7 @@ module of over $1024$ bits in length (at least according to the
 current state of research). The reason for this is that the
 quickest algorithms for solving the {\em elliptic curve discrete
 logarithm} problem have an exponential run time --- unlike the
-subexponential run times that the best factorisation algorithms
+sub-exponential run times that the best factorisation algorithms
 currently have (number sieve, quadratic sieve or factorisation
 with elliptic curves). Therefore, the parameters for cryptographic
 procedures based on the problem of {\em factorising whole numbers}
@@ -393,15 +397,19 @@ following:
 
 \hypertarget{faktell}{}
 
-There are factorisation algorithms based on elliptic curves\footnote{In 1987 H.W. Lenstra published
+There are factorisation algorithms based on elliptic curves
+\footnote{In 1987 H.W. Lenstra published
 a factorisation algorithm, based on elliptic curves (see \cite{Lenstra1987}).
-The biggest compound number curently factorised with elliptic curves is the number $ 628^{59}-1, $ which has 55 decimal digits. It was
-found Oct. 6th, 2001 by M. Izumi (See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
-}. More precisely,
-these procedures exploit the fact that elliptic curves can be defined over
-${\mathbb Z}_n$ ($n$ composite number). Elliptic curves over ${\mathbb Z}_n$ do
-not form a group, because not every point on such an elliptic curve has an
-inverse point. This is connected with the fact that - if $n$ is a composite
+The biggest compound number currently factorised with elliptic curves is 
+the number $ 628^{59}-1, $ which has 55 decimal digits. It was
+found Oct. 6th, 2001 by M. Izumi 
+(See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
+}. 
+More precisely, these procedures exploit the fact that elliptic curves can
+be defined over ${\mathbb Z}_n$ ($n$ composite number). Elliptic curves 
+over ${\mathbb Z}_n$ do not form a group, because not every point on such 
+an elliptic curve has an inverse point. This is connected with the fact 
+that - if $n$ is a composite
 number - there exist elements in ${\mathbb Z}_n$ that do not have an inverse
 with respect to multiplication mod $n$. In order to add two points on an
 elliptic curve over ${\mathbb Z}_n$, we can calculate in the same way as on
@@ -427,7 +435,7 @@ are therefore highly suitable for parallelisation.
 
 \subsection{Implementing elliptic curves}
 
-CrypTool uses elliptic curves for the digital signature function.
+CrypTool\index{CrypTool} uses elliptic curves for the digital signature function.
 
 It implements the basic algorithms for group operations, for generating elliptic
 curves, for importing and exporting parameters for elliptic curves over finite
@@ -457,7 +465,7 @@ Secude GmbH --- using the above library and the Secude SDK.
 \section*{Web links}\addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
-   \item Certicom – Online Tutorial, \index{Certicom}\\
+   \item Certicom Online Tutorial, \index{Certicom}\\
                 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
         \item IEEE P1363
 

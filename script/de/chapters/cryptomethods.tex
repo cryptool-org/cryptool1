@@ -1,9 +1,13 @@
-% .........................................................................................
-%                V E R S C H L U E S S E L U N G S V E R F A H R E N
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\newpage
-\section{Verschl"usselungsverfahren}
+% ............................................................................
+%             V E R S C H L U E S S E L U N G S V E R F A H R E N
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\section{Verschl"usselungsverfahren}
+\hypertarget{Kapitel_1}{}
+(Bernhard Esslinger, besslinger@web.de, Mai 1999, Updates: Dez. 2001, Feb. 2003)
+
+
+% --------------------------------------------------------------------------
 \subsection{Verschl"usselung}
 
 Sinn der Verschl"usselung  \index{Verschl""usselung} ist es, Daten so zu ver"andern, dass nur ein autorisierter Empf"an\-ger
@@ -14,7 +18,7 @@ autorisierte Empf"anger ist im Besitz einer geheimen Information, des sogenannte
 es ihm erlaubt, die Daten zu entschl"usseln, w"ahrend sie jedem anderen verborgen bleiben.\par \vskip + 3pt
 
 Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, das \index{One-­Time-­Pad} {\em One-Time-Pad}. Dieses weist allerdings einige
-praktische Nachteile auf (der verwendete Schl"ussel mu"s zuf"allig gew"ahlt werden und genauso lang wie die zu
+praktische Nachteile auf (der verwendete Schl"ussel muss zuf"allig gew"ahlt werden und genauso lang wie die zu
 sch"utzende Nachricht sein), so dass es au"ser in geschlossenen Umgebungen, zum Beispiel beim hei"sen Draht
 zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
 
@@ -24,7 +28,17 @@ sicher angesehen werden k"onnen.\par \vskip + 3pt
 
 Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfahren zur Verschl"usselung.
 
-\subsubsection{Symmetrische Verschl"usselung}
+% --------------------------------------------------------------------------
+\subsubsection[Symmetrische Verschl"usselung]
+{Symmetrische Verschl"usselung\footnotemark}
+	\footnotetext{
+	Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
+	{\bf Ver-/Entschl"usseln \textbackslash Symmetrisch} folgende 
+	modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
+	IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
+	MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
+	Twofish (AES-Kandidat), Rijndael (offizielles AES-Verfahren).
+	}
 
 Bei der {\em symmetrischen} Verschl"usselung \index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger "uber einen
 gemeinsamen (geheimen)
@@ -40,7 +54,7 @@ sicheren Kanal einen Schl"ussel ausgetauscht haben. Spontane
 Kommunikation zwischen Personen, die sich vorher noch nie begegnet
 sind, scheint so nahezu unm"oglich. Soll in einem Netz mit $ n $
 Teilnehmern jeder mit jedem zu jeder Zeit spontan kommunizieren
-k"onnen, so mu"s jeder Teilnehmer vorher mit jedem anderen der
+k"onnen, so muss jeder Teilnehmer vorher mit jedem anderen der
 $n-­ 1$ Teilnehmer einen Schl"ussel ausgetauscht haben. Insgesamt
 m"ussen also $n(n - 1)/2$ Schl"ussel ausgetauscht werden.\par \vskip + 3pt
 
@@ -59,6 +73,39 @@ dazu geh"orende Rijndael Verfahren wurde am 2. Oktober 2000 zum
 Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
 des DES-Verfahrens.
 
+N"aheres zu den AES-Algorithmen finden Sie in der CrypTool-Online-Hilfe\index{CrypTool} unter den Stichw"ortern {\em AES} und auf den  {\em AES-Kandidaten} und {\em AES-Algorithmus Rijndael}.
+
+
+
+% --------------------------------------------------------------------------
+\subsubsection{Neue Ergebnisse zur Kryptoanalyse von AES}
+
+Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch) unbegr"undet. Die folgenden Informationen beruhen auf den unten angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und \cite{Lucks-DuD2002}.
+
+Der AES bietet mit einer Mindestschl"ussell"ange von 128 Bit gegen Brute-Force-Angriffe auch auf l"angere Sicht gen"ugend Sicherheit -- es sei denn, es st"unden entsprechend leistungsf"ahige Quantencomputer zur Verf"ugung. Der AES war immun gegen alle bis dahin bekannten Verfahren, die vor allem auf statistischen "Uberlegungen beruhen und auf DES angewandt wurden: man konstruiert aus Geheim- und Klartextpaaren Ausdr"ucke, die sich nicht rein zuf"allig verhalten, sondern R"uckschl"usse auf den verwendeten Schl"ussel zulassen. Dazu waren aber unrealistische Mengen an abgeh"orten Daten n"otig.
+
+Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als ''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie theoretisch schneller sind als das Durchprobieren aller Schl"ussel, das beim Brute-Force-Angriff verwendet wird. Im Fall des AES mit maximaler Schl"ussell"ange (256 bit) braucht die ersch"opfende Schl"usselsuche im Durchschnitt $2^{255}$ Verschl"usselungsoperationen. Ein kryptoanalytischer Angriff muss diesen Wert unterbieten. Als aktuell gerade noch praktikabel (z.B. f"ur einen Geheimdienst) gelten $2^{75}$ bis $2^{90}$ Verschl"usselungsoperationen.
+
+Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar, was aufgrund seiner ''relativ'' "ubersichtlichen Struktur gelang. Da diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zun"achst nicht f"ur die Kryptoanalyse. Dennoch war die wissenschaftliche Neugier geweckt. Bereits bekannt war, dass sich der 128-bit-AES als ein "uberbestimmtes System von rund 8000 quadratischen Gleichungen ("uber algebraischen Zahlk"orpern) mit rund 1600 Variablen (einige Unbekannte sind die Schl"usselbits) darstellen l"asst -- solch gro"se Gleichungssysteme sind praktisch nicht l"osbar. Dieses Gleichungssystem ist relativ d"unn besetzt (''sparse''), d.h. von den insgesamt etwa 1.280.000 m"oglichen quadratischen Termen tauchen nur relativ wenige "uberhaupt im Gleichungssystem auf.
+
+Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} ver"offentlichten 2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie entwickelten das auf der Eurocrypt 2000 von Shamir et al. vorgestellte XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren (eXtended Sparse Linearization). Das XL-Verfahren ist eine heuristische Technik, mit der es manchmal gelingt, gro"se nicht-lineare Gleichungssysteme zu l"osen und die bei der Analyse eines asymmetrischen Algorithmus (HFE) angewandt wurde.  Die Innovation Courois und Pieprzyk war, das XL-Verfahren auf symmetrische Verfahren anzuwenden: das XSL-Verfahren kann auf spezielle Gleichungssysteme angewandt werden. Damit k"onnte ein 256-Bit-AES-Verfahren in rund $2^{230}$ Schritten geknackt werden. Dies ist zwar immer noch ein rein akademischer Angriff, aber er ist richtungsweisend f"ur eine ganze Klasse von Blockchiffren. Das generelle Problem mit diesem Angriff besteht darin, dass man bisher nicht angeben kann, unter welchen Umst"anden er zum Erfolg f"uhrt: die Autoren geben in ihrer Arbeit notwendige Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
+Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik, sondern auf Algebra beruhte. Dadurch erscheinen Angriffe m"oglich, die nur geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit eines Produktalgorithmus nicht mehr exponentiell mit der Rundenzahl.
+
+Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a}, das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur 128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als Spezialfall eines Algorithmus BES (Big Encryption System) darstellten, der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit realisierbar ist. Bei 256 bit Schl"ussell"ange sch"atzen die Autoren den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
+
+Weitere Details dazu stehen unter:\\
+\href{http://www.cryptosystem.net/aes}{\texttt{http://www.cryptosystem.net/aes}} und \\ 
+\href{http://www.minrank.org/aes/}{\texttt{http://www.minrank.org/aes/}}
+
+F"ur AES mit 256 w"are der Angriff ebenfalls viel besser als Brute-Force, 
+aber noch weiter au"serhalb der Reichweite realisierbarer Rechenpower. 
+Die Diskussion ist aber kontrovers: Don Coppersmith (einer der DES-Erfinder) 
+z.B. bezweifelt die generelle Durchf"uhrbarkeit des Angriffs: XLS liefere f"ur 
+AES gar keine L"osung \cite{Coppersmith2002}. Dann w"urde auch die Optimierung von 
+Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
+
+
+% --------------------------------------------------------------------------
 \subsubsection{Asymmetrische Verschl"usselung}
 
 Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl""usselung!asymmetrisch} hat jeder Teilnehmer ein
@@ -71,12 +118,12 @@ ihn, um ihre Nachricht an ihn zu verschl"usseln. Diesen verschl"usselten Text sc
 Hilfe seines geheimen Schl"ussels den Text wieder entschl"usseln kann. Da einzig Bob Kenntnis von seinem
 geheimen Schl"ussel hat, ist auch nur er in der Lage, an ihn adressierte Nachrichten zu entschl"usseln.
 Selbst Alice als Absenderin der Nachricht kann aus der von ihr versandten (verschl"usselten) Nachricht den
-Klartext nicht wieder herstellen. Nat"urlich mu"s sichergestellt sein, dass man aus dem "offentlichen
+Klartext nicht wieder herstellen. Nat"urlich muss sichergestellt sein, dass man aus dem "offentlichen
 Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen kann.\par \vskip + 3pt
 
 Veranschaulichen kann man sich ein solches Verfahren mit einer
 Reihe von einbruchssicheren Briefk"asten. Wenn ich eine Nachricht
-verfa"st habe, so suche ich den Briefkasten mit dem Namensschild
+verfasst habe, so suche ich den Briefkasten mit dem Namensschild
 des Empf"angers und werfe den Brief dort ein. Danach kann ich die
 Nachricht selbst nicht mehr lesen oder ver"andern, da nur der
 legitime Empf"anger im Besitz des Schl"ussels f"ur den Briefkasten
@@ -86,7 +133,7 @@ Vorteil von asymmetrischen Verfahren ist das einfache
 \index{Schl""usselmanagement} Schl"usselmanagement. Betrachten wir
 wieder ein Netz mit $n$ Teilnehmern. Um sicherzustellen, dass
 jeder Teilnehmer jederzeit eine verschl"usselte Verbindung zu
-jedem anderen Teilnehmer aufbauen kann, mu"s jeder Teilnehmer ein
+jedem anderen Teilnehmer aufbauen kann, muss jeder Teilnehmer ein
 Schl"usselpaar besitzen. Man braucht also $2n$ Schl"ussel oder $n$
 Schl"usselpaare. Ferner ist im Vorfeld einer "Ubertragung kein
 sicherer Kanal notwendig, da alle Informationen, die zur Aufnahme
@@ -105,10 +152,21 @@ ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die
 \index{Schnorr} Schnorr-Varianten im \index{DSA} DSA (Digital
 \index{Signatur!digitale}\index{DSA-Signatur}\index{Signatur!DSA} Signature Algorithm).
 
-\subsubsection{Hybridverfahren}
-\index{Hybridverfahren}
-Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam nutzen zu k"onnen, werden
-(zur Verschl"usselung) in der Praxis meist Hybridverfahren verwendet.\par \vskip + 3pt
+
+% --------------------------------------------------------------------------
+\subsubsection[Hybridverfahren]
+{Hybridverfahren\footnotemark} 
+\footnotetext{%
+In CrypTool\index{CrypTool} v1.3 erhalten Sie "uber das Men"u
+\glqq Ver-/Entschl"usseln \textbackslash Hybrid-Demo'' eine Visualisierung
+dieses Verfahrens: darin werden die einzelnen Schritte und ihre Abhängigkeiten
+mit konkreten Zahlen gezeigt.
+}\index{Hybridverfahren}
+
+
+Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
+nutzen zu k"onnen, werden (zur Verschl"usselung) in der Praxis meist 
+Hybridverfahren verwendet.\par \vskip + 3pt
 
 Hier werden die Daten mittels symmetrischer Verfahren
 verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig
@@ -123,20 +181,81 @@ Schl"usselmanagement \index{Schl""usselmanagement} asymmetrischer
 Verfahren und kann trotzdem gro"se Datenmengen schnell und effektiv mit
 symmetrischen Verfahren verschl"usseln.
 
+
+% --------------------------------------------------------------------------
 \subsubsection{Weitere Details}
 
-Neben Informationen in der umfangreichen Fachliteratur und im Internet enth"alt auch die 
-Online-Hilfe von CrypTool sehr viele details zu den einzelnen symmetrischen und asymmetrischen 
-Verschl"usselungsverfahren.
+Neben Informationen in der umfangreichen Fachliteratur und im Internet 
+enth"alt auch die Online-Hilfe von CrypTool\index{CrypTool} sehr viele Details zu den 
+einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
+
+% --------------------------------------------------------------------------
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
+
 \bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
         Klaus Schmeh, \\
-        Kryptografie und Public-Key Infrastrukturen im Internet, dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
-        Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber Kryptographie. Geht auch auf die praktischen
-        Probleme, wie Standardisierung oder real existierende Software, ein.
-        Bisher nur in deutsch erschienen.
+        {\em Kryptografie und Public-Key Infrastrukturen im Internet}, 
+	dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
+        Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber Kryptographie. 
+	Geht auch auf die praktischen Probleme, wie Standardisierung oder 
+	real existierende Software, ein.
+
+%xxxxxxxxxxx
+%\bibitem[x]{x}  \index{x}
+%        x, \\
+%        {\em x}, 
+%	x x.
+%xxxxxxxxxxx
+
+\bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
+        Don Coppersmith, \\
+        {\em Re: Impact of Courtois and Pieprzyk results}, 
+	19.09.2002, in den "AES Discussion Groups" unter \\
+        \href{http://aes.nist.gov/aes/}
+        {\texttt{http://aes.nist.gov/aes/}}
+
+\bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
+        Nicolas Courtois, Josef Pieprzyk, \\
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, 
+	received 10 Apr 2002, last revised 9 Nov 2002,
+	Eine davon verschiedene "compact version" des ersten XSL-Angriffs wurde 
+	auf der Asiacrypt im Dezember 2002 ver"offentlicht, \\
+        \href{http://eprint.iacr.org/2002/044}
+        {\texttt{http://eprint.iacr.org/2002/044}}
+
+\bibitem[Ferguson2001]{Ferguson2001}  \index{Ferguson 2001}
+        Niels Ferguson, Richard Schroeppel, Doug Whiting, \\
+        {\em A simple algebraic representation of Rijndael}, 
+	Draft 1. Mai 2001, \\
+        \href{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
+        {\texttt{http://www.xs4all.nl/\~{}vorpal/pubs/rdalgeq.html}}
+
+\bibitem[Lucks-DuD2002]{Lucks-DuD2002}  \index{Lucks 2002}
+        Stefan Lucks, R"udiger Weis, \\
+        {\em Neue Ergebnisse zur Sicherheit des Verschl"usselungsstandards AES}, 
+	in DuD 12/2002.
+
+\bibitem[Robshaw2002a]{Robshaw2002a}  \index{Robshaw 2002}
+        S.P. Murphy, M.J.B. Robshaw, \\
+        {\em Essential Algebraic Structure within the AES}, 
+	5. Juni 2002, auf der Crypto 2002,  \\
+        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
+        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Robshaw2002b]{Robshaw2002b}  \index{Robshaw 2002}
+        S.P. Murphy, M.J.B. Robshaw, \\
+        {\em Comments on the Security of the AES and the XSL Technique}, 
+	26. September 2002, \\
+        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
+        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Wobst-iX2002]{Wobst-iX2002}  \index{Wobst 2002}
+        Reinhard Wobst, \\
+        {\em Angekratzt - Kryptoanalyse von AES schreitet voran}, 
+	in iX 12/2002, \\
+	und der Leserbrief dazu von Johannes Merkle in der iX 2/2003.
 
 \end{thebibliography}
 
