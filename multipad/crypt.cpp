@@ -26,6 +26,7 @@
 #include "DialogPlayfair.h"
 #include "zzahlanalyse.h"
 #include "Dlg_homophone.h"
+#include "AnalyseNGram.h"
 
 #include <fstream.h>
 
@@ -919,6 +920,7 @@ void EntropyASCII(const char *infile, const char *OldTitle)
     theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
 }
 
+
 void EntropyBin(const char *infile, const char *OldTitle)
 {
     char line[256];
@@ -1436,6 +1438,8 @@ void HistogramASCII(const char *infile, const char *OldTitle)
 
 }
 
+
+
 void HistogramBin(const char *infile, const char *OldTitle)
 {
     char line[256],name[128], name2[128], numbuff[20];
@@ -1489,6 +1493,10 @@ void HistogramBin(const char *infile, const char *OldTitle)
 	theApp.DoWaitCursor(0);
 
 }
+
+
+
+
 
 /* Funktion zur monoalphabetischen Ver- und Entschlüsselung			*/
 void Mono(const char *infile, const char *OldTitle){
@@ -2790,11 +2798,23 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 	}
 }
 
+
+// =====================================================================================
+// Homophone encryption:
+// 
+// Jan Blumenstein & Henrik Koy (March 2001)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Description:
+//
+// -------------------------------------------------------------------------------------
+
 void HomophoneAsc(const char *infile, const char *OldTitle)
 {
 	char line[100];
 	CWaitCursor WCursor;
 
+// first precondition:
+// the alphabet for encryption must NOT be empty
 	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
@@ -2803,6 +2823,8 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
 	}
 
+// second precondition:
+// the text for encryption must NOT be empty
 	SymbolArray text(AppConv);
 	text.Read(infile);
 	if(0==text.GetSize())
@@ -2813,6 +2835,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
 	}
 	
+
 	WCursor.Restore();	
 	char inbuffer[buffsize];
 
@@ -2890,4 +2913,67 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	}
 
 	theApp.DoWaitCursor(0);
+} // end Hompohone Asc
+
+
+// =====================================================================================
+// NGram Analyse:
+// 
+// Henrik Koy (March 2001)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Description:
+//
+// -------------------------------------------------------------------------------------
+
+void NGramAsc(const char *infile, const char *OldTitle)
+{
+    char line[256];
+	CFile f;
+	int len;
+
+	theApp.DoWaitCursor(1);
+
+    SymbolArray text(AppConv);
+
+    text.Read(infile);
+	len = text.GetSize();
+	if(len < 1) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox (line);
+		return;
+	}
+
+	AnalyseNGram DiaNGram;
+	DiaNGram.LoadText(text, 0);
+    DiaNGram.DoModal();
+
+	theApp.DoWaitCursor(0);
 }
+
+void NGramBin(const char *infile, const char *OldTitle)
+{
+    char line[256];
+	CFile f;
+	int len;
+
+	theApp.DoWaitCursor(1);
+
+    SymbolArray text(IdConv);
+
+    text.Read(infile);
+	len = text.GetSize();
+	if(len < 1) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox (line);
+		return;
+	}
+
+	AnalyseNGram DiaNGram;
+	DiaNGram.LoadText(text, 1);
+    DiaNGram.DoModal();
+
+	theApp.DoWaitCursor(0);
+}
+

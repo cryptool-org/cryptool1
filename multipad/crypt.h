@@ -46,3 +46,5 @@ void Mono(const char *infile, const char *OldTitle);
 UINT  AnaSubst(PVOID p);	
 void AESCrypt (char* infile, const char *OldTitle, int AlgId);
 void HomophoneAsc(const char *infile, const char *OldTitle);	
+void NGramAsc(const char *infile, const char *OldTitle);
+void NGramBin(const char *infile, const char *OldTitle);

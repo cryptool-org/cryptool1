@@ -412,6 +412,14 @@ SOURCE=.\AESSuche.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\AnalyseNGram.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AnalyseNGram.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\asymmetric.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"

@@ -64,6 +64,7 @@
 #define IDD_DIALOG_PRIMES_GENERATOR     223
 #define IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN 226
 #define IDD_DIALOG_HOMOPHONE            227
+#define IDD_DIALOG_ANALYSE_NGRAM        228
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -454,6 +455,8 @@
 #define ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 32935
 #define ID_HOMOPHONE                    32936
 #define ID_HOMOPHONE_ASC                32937
+#define ID_ANALYSE_NGRAM                32938
+#define ID_ANALYSE_NGRAM_BIN            32943
 #define ID_ANALYSE_PERIOD               36908
 #define IDS_STRING36909                 36909
 #define IDS_STRING36910                 36910
@@ -464,6 +467,9 @@
 #define IDS_STRING37004                 37004
 #define IDS_STRING37005                 37005
 #define IDS_STRING37006                 37006
+#define IDS_STRING_NGRAM_LIST1          37007
+#define IDS_STRING_NGRAM_LIST2          37008
+#define IDS_STRING_NGRAM_LIST3          37009
 #define IDS_STRING41405                 41405
 #define IDS_STRING41406                 41406
 #define IDS_STRING41407                 41407
@@ -739,8 +745,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        228
-#define _APS_NEXT_COMMAND_VALUE         32938
+#define _APS_NEXT_RESOURCE_VALUE        229
+#define _APS_NEXT_COMMAND_VALUE         32944
 #define _APS_NEXT_CONTROL_VALUE         1214
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

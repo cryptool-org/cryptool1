@@ -31,13 +31,13 @@ TextAnalyse::~TextAnalyse()
 
 void TextAnalyse::Analyse()
 
-// erstellt für "c:/deutsch.txt" das Histogramm
+// erstellt für "deutsch.txt" das Histogramm
 
 {
 	char buffer[buffsize];
 	int i,value;
 
-	ifstream f("c:/deutsch.txt");
+	ifstream f("C:\\CrypTool-Entwicklung\\CrypTool\\source\\multipad\\Debug\\deutsch.txt");
 	f.read(buffer,buffsize);
 
 	while(f.gcount())

@@ -228,7 +228,7 @@ BEGIN
                     WS_TABSTOP
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
-    GROUPBOX        "Zahlensystem der Parameter Darstellung",IDC_STATIC,10,
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
                     271,231,32
     CONTROL         "Oktal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,26,283,61,12
@@ -236,7 +236,7 @@ BEGIN
                     61,12
     CONTROL         "Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,
                     283,61,12
-    CONTROL         "Anzeigen des erzeugten Schlüsselpaars",IDC_CHECK1,
+    CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,
                     144,10
     DEFPUSHBUTTON   "OK",IDOK,120,314,50,14
@@ -329,31 +329,32 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    CTEXT           "CrypTool     (Version 1.2.02)",IDC_STATIC,0,51,242,8
-    CTEXT           "Copyright (C) 1998-2000 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,245,242,21
+    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
+    CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
+                    IDC_STATIC,0,253,242,19
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
     CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
-                    IDC_STATIC,0,82,242,8
-    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,102,241,
+                    IDC_STATIC,0,81,242,8
+    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,104,241,
                     8
-    LTEXT           " bernhard.esslinger@db.com",IDC_STATIC,69,194,145,8
-    LTEXT           " joerg-cornelius.schneider@db.com",IDC_STATIC,69,204,
-                    128,10
-    LTEXT           " wichmann@fzi.de",IDC_STATIC,69,214,123,9
-    LTEXT           " support@secude.com",IDC_STATIC,69,224,134,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,180,241,10
-    EDITTEXT        IDC_EDIT1,0,160,240,10,ES_CENTER | ES_AUTOHSCROLL | 
+    LTEXT           "bernhard.esslinger@db.com /",IDC_STATIC,69,188,145,8
+    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,69,208,128,
+                    10
+    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
+    LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
+    CTEXT           "Kontakt:",IDC_STATIC,0,178,241,10
+    EDITTEXT        IDC_EDIT1,0,159,240,10,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
     CONTROL         218,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
     CONTROL         217,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
                     121,185,33,WS_EX_TRANSPARENT
+    LTEXT           "b.esslinger@endoramail.com",IDC_STATIC,70,196,91,8
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -581,26 +582,30 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 214
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,189,50,14
-    CTEXT           "Details zu CrypTool",IDC_STATIC,6,7,154,11,WS_BORDER
-    CTEXT           "Autoren und Koordination:",IDC_STATIC,6,27,154,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,56,154,8
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,67,154,8
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,78,154,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,100,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,144,154,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,155,154,8
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,166,154,8
-    CTEXT           "Henrik Koy",IDC_STATIC,7,111,153,10,NOT WS_GROUP
-    CTEXT           "Peter Gruber",IDC_STATIC,6,89,154,9
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,7,133,153,10
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,45,166,8,SS_CENTERIMAGE
-    CTEXT           "Roger Oyono",IDC_STATIC,7,122,153,8
+    DEFPUSHBUTTON   "OK",IDOK,58,228,50,14
+    CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,WS_BORDER
+    CTEXT           "Idee, Sponsoring, Challanges:",IDC_STATIC,0,25,167,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,195,154,8
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,138,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,205,154,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,157,154,8
+    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
+    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
+    CTEXT           "Peter Gruber",IDC_STATIC,6,128,154,9
+    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
+    CTEXT           "Roger Oyono",IDC_STATIC,7,147,153,8
+    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,52,166,10
+    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,99,166,9
+    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,167,166,9
+    CTEXT           "Review:",IDC_STATIC,1,185,166,8
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 392, 281
@@ -1263,63 +1268,69 @@ BEGIN
     LTEXT           "Die folgenden Zeilen enthalten",IDC_STATIC,10,199,253,8
 END
 
-IDD_DIALOG_KEY_FAIRPLAY DIALOG DISCARDABLE  0, 0, 212, 181
+IDD_DIALOG_KEY_FAIRPLAY DIALOG DISCARDABLE  0, 0, 242, 274
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_KEYENTER,40,32,85,14,ES_AUTOHSCROLL
-    CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,23,7,59,10
-    CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    23,19,59,10
-    LTEXT           "Schlüssel:",IDC_STATIC,5,35,33,8
-    DEFPUSHBUTTON   "&OK",IDOK,50,160,45,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,119,160,45,14
+    DEFPUSHBUTTON   "&OK",IDOK,116,253,45,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,188,253,45,14
     CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,99,7,48,10
-    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,99,
-                    19,48,10
-    EDITTEXT        IDC_EDIT11,50,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,70,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT13,90,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT14,110,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT15,130,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT16,150,65,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT21,50,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT22,70,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT23,90,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT24,110,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT25,130,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT26,150,80,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT31,50,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT32,70,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT33,90,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT34,110,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT35,130,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT36,150,95,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT41,50,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT42,70,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT43,90,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT44,110,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT45,130,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT46,150,111,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT51,50,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT52,70,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT53,90,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT54,110,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT55,131,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT56,150,125,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT61,50,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT62,70,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT63,90,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT64,110,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT65,130,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT66,150,140,14,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "&Text vorformatieren ",IDC_PREFORM,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,25,53,75,8
-    CONTROL         "Doppelte &ignorieren",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,130,35,80,8
+                    WS_GROUP,25,17,48,10
+    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,
+                    29,48,10
+    EDITTEXT        IDC_EDIT11,36,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,56,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT13,76,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT14,96,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT15,116,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT16,136,108,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT21,36,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT22,56,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT23,76,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT24,96,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT25,116,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT26,136,123,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT31,36,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT32,56,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT33,76,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT34,96,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT35,116,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT36,136,153,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT41,36,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT42,56,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT43,76,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT44,96,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT45,116,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT46,136,168,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT51,36,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT52,56,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT53,76,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT54,96,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT55,116,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT56,136,138,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT61,36,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT62,56,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT63,76,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT64,96,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT65,116,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT66,136,183,14,12,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "1. Größe der Playfair Schlüssel Matrix",IDC_STATIC,16,7,
+                    217,36
+    EDITTEXT        IDC_KEYENTER,25,72,125,14,ES_AUTOHSCROLL
+    CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,161,61,65,10
+    CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    161,76,65,10
+    LTEXT           "Kurzform des Playfair Schlüssels:",IDC_STATIC,25,61,114,
+                    11
+    CONTROL         "&Doppelte ignorieren",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,25,233,91,8
+    GROUPBOX        "2. Playfair Schlüsselmatrix",IDC_STATIC,16,46,217,160
+    GROUPBOX        "Optionen",IDC_STATIC,16,210,217,39
+    CONTROL         "&Text vorformatieren",IDC_PREFORM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,25,221,144,8
+    LTEXT           "Schlüsselmatrix",IDC_STATIC,25,96,49,8
 END
 
 IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 232, 98
@@ -1327,14 +1338,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsselsuche (brute-force-angriff)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,7,50,218,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&OK",IDOK,36,77,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,147,77,50,14
-    LTEXT           "Geben Sie den Suchraum ein (* für unbekannte Stellen)",
-                    IDC_STATIC,25,7,180,10
+    EDITTEXT        IDC_EDIT1,24,50,185,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,105,77,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,175,77,50,14
+    CTEXT           "Geben Sie den Suchraum ein (* für unbekannte Stellen)",
+                    IDC_STATIC,7,7,218,10
     CTEXT           "Beispiel: Mit der Eingabe ""A**B""  suchen Sie nach den 256",
-                    IDC_STATIC,7,19,218,8
-    CTEXT           "Schlüsseln:  A00B,  A01B,  A02B,  . . .,  AFBB,  AFFB.",
+                    IDC_STATIC,7,22,218,8
+    CTEXT           "möglichen Schlüsseln:  A00B,  A01B,  A02B,  . . .,  AFBB,  AFFB.",
                     IDC_STATIC,7,31,218,8
 END
 
@@ -1474,6 +1485,31 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,54,294,157
     EDITTEXT        IDC_ROW,30,237,277,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_ANALYSE_NGRAM DIALOG DISCARDABLE  0, 0, 317, 238
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Analyse N-Gramme"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ende",IDOK,7,207,99,24
+    GROUPBOX        "Auswahl",IDC_STATIC,7,7,99,118
+    CONTROL         "Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,20,17,53,10
+    CONTROL         "Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,31,
+                    56,10
+    CONTROL         "Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,44,
+                    45,10
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
+                    WS_TABSTOP,115,7,195,224
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,59,8,8
+    PUSHBUTTON      "Ergebnis Speichern",IDC_BUTTON1,7,167,99,24
+    LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
+    EDITTEXT        IDC_EDIT1,60,86,32,12,ES_AUTOHSCROLL
+    LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
+    PUSHBUTTON      "NGramme bestimmen",IDC_BUTTON2,7,134,99,23
+    EDITTEXT        IDC_EDIT2,31,57,13,11,ES_AUTOHSCROLL
+    LTEXT           "-Gramm",IDC_STATIC,45,59,25,8
 END
 
 
@@ -1875,15 +1911,33 @@ BEGIN
     IDD_DIALOG_KEY_FAIRPLAY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 203
+        RIGHTMARGIN, 233
+        VERTGUIDE, 16
+        VERTGUIDE, 25
+        VERTGUIDE, 50
+        VERTGUIDE, 70
+        VERTGUIDE, 90
+        VERTGUIDE, 110
+        VERTGUIDE, 130
+        VERTGUIDE, 150
+        VERTGUIDE, 161
         TOPMARGIN, 7
-        BOTTOMMARGIN, 174
+        BOTTOMMARGIN, 267
+        HORZGUIDE, 120
+        HORZGUIDE, 135
+        HORZGUIDE, 150
+        HORZGUIDE, 165
+        HORZGUIDE, 180
+        HORZGUIDE, 195
     END
 
     IDD_DIALOG1, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 225
+        VERTGUIDE, 24
+        VERTGUIDE, 208
+        VERTGUIDE, 209
         TOPMARGIN, 7
         BOTTOMMARGIN, 91
     END
@@ -1920,6 +1974,17 @@ BEGIN
         VERTGUIDE, 312
         TOPMARGIN, 7
         BOTTOMMARGIN, 298
+    END
+
+    IDD_DIALOG_ANALYSE_NGRAM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        VERTGUIDE, 20
+        VERTGUIDE, 73
+        VERTGUIDE, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 231
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -2025,6 +2090,7 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "H&ill...",                    ID_HILL
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
         END
@@ -2040,7 +2106,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...",                ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael...\tAlt+R",         ID_CRYPT_AES_RIJNDAEL
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
         END
@@ -2056,21 +2122,31 @@ BEGIN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
-    POPUP "Hash&werte"
+    POPUP "&Einzelverfahren"
     BEGIN
-        MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-        MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-        MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-        MENUITEM SEPARATOR
-        MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-        MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-        MENUITEM SEPARATOR
-        MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
-    END
-    POPUP "&Komprimieren"
-    BEGIN
-        MENUITEM "&Zip",                        ID_ZIP
-        MENUITEM "&UnZip",                      ID_UNZIP
+        POPUP "&Hashwerte"
+        BEGIN
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            MENUITEM SEPARATOR
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM SEPARATOR
+            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+        END
+        POPUP "&Komprimieren"
+        BEGIN
+            MENUITEM "&Zip",                        ID_ZIP
+            MENUITEM "&UnZip",                      ID_UNZIP
+        END
+        POPUP "&Tutorial für kleine Zahlen"
+        BEGIN
+            MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+
+            MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2079,6 +2155,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
+            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
@@ -2209,7 +2286,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...",                ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael...\tAlt+R",         ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
         END
@@ -2258,6 +2335,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
+            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM_BIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
@@ -2416,7 +2494,7 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "H&ill...",                    ID_HILL
-            MENUITEM "H&omophone",                  ID_HOMOPHONE_ASC
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
@@ -2484,6 +2562,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
+            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
@@ -3337,6 +3416,7 @@ BEGIN
     IDS_STRING37004         "%s Entschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING37005         "Homophone"
     IDS_STRING37006         "Verschlüsselung"
+    IDS_STRING_NGRAM_LIST1  "Nr."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -3344,6 +3424,13 @@ BEGIN
     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 
                             "Generiert zwei Primzahlen"
     ID_HOMOPHONE_ASC        "Homophone Verschlüsselung"
+    ID_ANALYSE_NGRAM        "Berechnet N-Gramm Analyse"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_NGRAM_LIST2  "Zeichenfolge"
+    IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
 END
 
 #endif    // Deutsch (Deutschland) resources

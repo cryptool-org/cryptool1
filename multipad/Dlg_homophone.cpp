@@ -1,4 +1,5 @@
-// Dlg_homophone.cpp: Implementierungsdatei
+// ==========================================================================
+// Dlg_homophone.cpp: Implementation of homophone encrytion
 //
 
 #include "stdafx.h"
@@ -96,7 +97,6 @@ BOOL Dlg_homophone::OnInitDialog()
 }
 
 void Dlg_homophone::Init_ListBox()
-
 // füllt die Liste auf mit
 
 //	1.	den im Alphabet (Textoptionen) eingestellten Zeichen

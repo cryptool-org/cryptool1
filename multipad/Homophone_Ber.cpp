@@ -149,7 +149,7 @@ void Homophone_Ber::Generate_key()
 
 	for(i=0;i<range;i++)
 	{
-		key[i/*Get_free_position()*/]=i;
+		key[Get_free_position()]=i;
 	}
 	assert(true==Check_key());
 }

@@ -24,5 +24,3 @@ protected:
 };
 
 extern const AppConverter AppConv;
-extern const AppConverter AppConv;
-extern const AppConverter AppConv;
