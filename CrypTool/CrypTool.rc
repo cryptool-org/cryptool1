@@ -4801,15 +4801,15 @@ BEGIN
     IDS_STRING_ZERT_DATEN   "Hier werden Ihre Zertifikatsdaten angezeigt."
     IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybridentschlüsselung:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n\r\n"
+                            "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n"
     IDS_STRING_HYBRID_DEC_MSG4 
                             "Ihr privater RSA-Schlüssel d ist die Zahl: \r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
                             "Im 3. Schritt wird der Session Key entschlüsselt und angezeigt.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\n\r\nDer Session Key ist die folgende 128 Bit lange Zahl:\r\nSession Key: "
+                            "\r\n\r\nDer Session Key ist die folgende 128 Bit lange Zeichenkette:\r\nSession Key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\ndieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
+                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\n- dieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4823,12 +4823,12 @@ BEGIN
     IDS_STRING_HYBRID_DEC_TITLE "Hybridentschlüsselung von <%s>"
     IDS_STRING_HYBRID_ENC_TITLE "Hybridverschlüsselung von <%s>"
     IDS_STRING_RSA_DLG_TITLE "RSA Schlüssel für die Hybridentschlüsselung"
-    IDS_STRING_HYBRID_DEC_MSG12 "Klicken Sie auf Weiter > ...\r\n"
+    IDS_STRING_HYBRID_DEC_MSG12 "Klicken Sie auf Weiter ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
-                            "Im 2. Schritt erhalten Sie Informationen zum privaten RSA-Schlüssel.\r\nDieser wird gebraucht, um den Session Key zu entschlüsseln.\r\n"
+                            "Im 2. Schritt erhalten Sie Informationen zum privaten RSA-Schlüssel.\r\nDieser wird gebraucht, um den Session Key zu entschlüsseln."
     IDS_STRING_HYBRID_ENC_DLG "RSA Schlüssel für die Hybridverschlüsselung"
     IDS_STRING_HYBRID_STEP_BY_STEP 
-                            "Ausgeführt: Schritt %d von maximal %d Schritten."
+                            "Ausgeführt: Schritt %d von %d Schritten."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9829,15 +9829,15 @@ BEGIN
     IDS_STRING_ZERT_DATEN   "Your certificate data will be shown below."
     IDS_STRING_HYBRID_DEC_STEP "Step-by-step hybrid decryption:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "Please select for encrytion your certificate from the PSE.\r\n\r\n"
+                            "By step 1. you choose your certificate and enter your PIN, in order\r\nto read the private RSA key out of the PSE.\r\n"
     IDS_STRING_HYBRID_DEC_MSG4 
-                            "Your private RSA key d is the integer number \r\n\r\nd = "
+                            "Your private RSA key d is the integer number:\r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
-                            "The next step will decrypt and display the session key.\r\n\r\n"
+                            "By step 3. the session key will be decrypted and displayed.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\n\r\nThe session key is the following 128 bit message\r\n\r\nSession key: "
+                            "\r\nThe session key is the following 128 bit string:\r\nSession key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "With the session key you are now able to decrypt the message.\r\n\r\nClick Decrypt."
+                            "If you click on Decrypt,\r\n- the message will be decrypted by the session key,\r\n- the decrypted message will be shown as a file and\r\n- this dialogue will be closed.\r\n\r\nClick Decrypt."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9851,11 +9851,11 @@ BEGIN
     IDS_STRING_HYBRID_DEC_TITLE "Hybrid decryption of <%s>"
     IDS_STRING_HYBRID_ENC_TITLE "Hybrid encryption of <%s>"
     IDS_STRING_RSA_DLG_TITLE "RSA key for Hybrid decryption"
-    IDS_STRING_HYBRID_DEC_MSG12 "Click Continue > ...\r\n"
+    IDS_STRING_HYBRID_DEC_MSG12 "Click Continue ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
-                            "After you entered your PIN, you are able to decrypt the session key\r\nwith your secret key.\r\nThe next step will show your secret RSA key.\r\n"
+                            "By step 2. you obtain informations about your private RSA key.\r\nThis key is used for the decryption of the session key."
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid decryption"
-    IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
+    IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a of %d steps."
 END
 
 STRINGTABLE DISCARDABLE 
