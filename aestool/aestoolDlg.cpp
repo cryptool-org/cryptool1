@@ -8,6 +8,7 @@
 #include "rijndael-api-fst.h"
 #include "splash.h"
 #include "help.h"
+#include "direct.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -116,9 +117,9 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_EN_CHANGE(IDC_EDIT2, OnChangeEdit2)
 	ON_EN_KILLFOCUS(IDC_EDIT3, OnKillfocusEdit3)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
 	ON_BN_CLICKED(IDC_RADIO3, OnRadio3)
 	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -401,6 +402,7 @@ void CAestoolDlg::SetDestName()
 		m_NameDst += ext1;
 	}
 	m_SucheDst.EnableWindow(TRUE);
+	m_CNameDst.EnableWindow(TRUE);
 }
 
 void CAestoolDlg::DoEncrypt()
@@ -486,6 +488,8 @@ int CAestoolDlg::DoDecrypt()
 	bufflen = DataLen;
 	buffer1 = (char *) malloc(bufflen);
 	buffer2 = (char *) malloc(bufflen);
+	memset(buffer2, '\0', bufflen); 
+	memset(buffer1, '\0', bufflen);
 
 	// Load Sourcedata
 	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) { // Datei konnte nicht geöffnet werden
@@ -569,6 +573,7 @@ int CAestoolDlg::TestEncryptedFile(CString Filename)
 		m_NameSrc = Filename;
 		m_NameDst = OrgName;
 		m_SucheDst.EnableWindow(TRUE);
+		m_CNameDst.EnableWindow(TRUE);
 		m_Radio1Ctl.EnableWindow(FALSE);
 		m_Radio2Ctl.EnableWindow(FALSE);
 		if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
@@ -589,7 +594,7 @@ int CAestoolDlg::ChangeDestName()
 	if(m_Radio == 0) ext = ".exe";
 	else ext = ".aes";
 	p1 = m_NameDst.ReverseFind('.');
-	m_NameDst = m_NameDst.Left(p1);
+	if(p1>0) m_NameDst = m_NameDst.Left(p1);
 	m_NameDst += ext;
 	if(!m_NameDst.CompareNoCase(m_NameSrc)) {
 		m_NameDst = m_NameDst.Left(p1);
@@ -597,12 +602,14 @@ int CAestoolDlg::ChangeDestName()
 		m_NameDst += ext;
 	}
 	m_SucheDst.EnableWindow(TRUE);
+	m_CNameDst.EnableWindow(TRUE);
 	return 0;
 }
 
 void CAestoolDlg::OnRadio() 
 {
 	UpdateData();
+	if(m_NameDst.IsEmpty()) return;
 	ChangeDestName();
 	UpdateData(FALSE);
 	m_CNameSrc.SetSel(0,-1);
@@ -616,7 +623,7 @@ void CAestoolDlg::OnHelp()
 	dia.DoModal();
 }
 
-void CAestoolDlg::OnChangeEdit1() 
+void CAestoolDlg::OnChangeEdit1() // Hexeingabe! 
 {
 	UpdateData(TRUE);
 	if(!m_HexString.IsEmpty() && !m_NameDst.IsEmpty() && !m_NameSrc.IsEmpty()) {
@@ -677,10 +684,12 @@ int CAestoolDlg::EnableDest(int b, int mode)
 		m_Radio1Ctl.EnableWindow(FALSE);
 		m_Radio2Ctl.EnableWindow(FALSE);
 		m_SucheDst.EnableWindow(FALSE);
+		m_CNameDst.EnableWindow(FALSE);
 		m_OK.EnableWindow(FALSE);
 	}
 	else {
 		m_SucheDst.EnableWindow(TRUE);
+		m_CNameDst.EnableWindow(TRUE);
 		if(mode == DIR_ENCRYPT) {
 			m_Radio1Ctl.EnableWindow(TRUE);
 			m_Radio2Ctl.EnableWindow(TRUE);
@@ -713,9 +722,71 @@ void CAestoolDlg::OnChangeEdit2()	// wird aufgerufen, wenn der Benutzer die Quel
 	UpdateData(FALSE);
 }
 
-void CAestoolDlg::OnKillfocusEdit3() // wir daufgerufen, wenn der Benutzer versucht das
+void CAestoolDlg::OnKillfocusEdit3() // wird aufgerufen, wenn der Benutzer versucht das
 									//Selektionsfeld für die Ausgabedatei zu verlassen
 {
+	CFile ft;
+	char cwd[1024];
+	int i,s,e,l1,l2;
+	UpdateData(TRUE); // Variablen aktualisieren
+	l1 = m_NameDst.GetLength();
+	if(l1==0) {
+		m_OK.EnableWindow(FALSE);
+		return;
+	}
+	m_CNameDst.GetSel(s,e);
+	_getcwd(cwd, 1023); // get current directory
+	i = strlen(cwd);
+	if(cwd[i-1] != '\\') { // take care that current directory is terminated with '\\'
+		cwd[i]='\\';
+		i++;
+		cwd[i]=0;
+	}
+	if((m_NameDst.GetLength() < 3) || (m_NameDst.GetAt(1) != ':')) { // no drive specified!
+		if(m_NameDst.GetAt(0) != '\\') { // No Driev and no abs Path
+			m_NameDst.Insert(0,cwd);
+		}
+		else { // No Drive but abs path
+			m_NameDst.Insert(0,':'); // Add drive specification
+			m_NameDst.Insert(0,cwd[0]);
+		}
+	}
+	else { // drive specified
+		if(m_NameDst.GetAt(2) != '\\') { // Drive but no abs path
+			m_NameDst.Insert(2,cwd+2);
+		}
+	}
+	l2 = m_NameDst.GetLength();
+
+	UpdateData(FALSE); // Fenster aktualisieren
+	m_CNameDst.SetSel(s+l2-l1,e+l2-l1);
+
+	if(ft.Open(m_NameDst, CFile::modeRead | CFile::shareDenyNone)) { // file exists!
+		if(!m_HexString.IsEmpty() && !m_NameSrc.IsEmpty())
+			m_OK.EnableWindow(TRUE);
+		else
+			m_OK.EnableWindow(FALSE);
+		ft.Close();
+	}
+	else if(ft.Open(m_NameDst, CFile::modeCreate | CFile::shareDenyNone)) { // file succesfully created
+		if(!m_HexString.IsEmpty() && !m_NameSrc.IsEmpty())
+			m_OK.EnableWindow(TRUE);
+		else
+			m_OK.EnableWindow(FALSE);
+		ft.Close();
+		ft.Remove(m_NameDst);
+	}
+	else { // file cannot be crated: directory not existant!
+		if(IDRETRY == AfxMessageBox(IDS_STRING_DIRECTORY_MISSING, MB_RETRYCANCEL )) {
+			m_OK.EnableWindow(FALSE);
+			m_CNameDst.SetFocus();
+		}
+		else {
+			m_OK.EnableWindow(FALSE);
+			m_NameDst.Empty();
+			UpdateData(FALSE);
+		}
+	}
 
 }
 
@@ -730,3 +801,4 @@ void CAestoolDlg::OnRadio4()
 	m_HexIn.SetPasswordChar('*');
 	m_HexIn.Invalidate();
 }
+

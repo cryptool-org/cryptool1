@@ -14,6 +14,7 @@
 #define IDS_STRING_VERSCHLUESSELN       107
 #define IDS_STRING_ENTSCHLUESSELN       108
 #define IDS_STRING_FILEERROR            109
+#define IDS_STRING_DIRECTORY_MISSING    110
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130
