@@ -2790,49 +2790,38 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 	}
 }
 
-
 void HomophoneAsc(const char *infile, const char *OldTitle)
 {
-    CMyDocument *NewDoc;
-
-    dia1 KeyDialog(2);
-	Dlg_homophone DH;
-
-	SymbolArray text(AppConv);
-
+	char line[100];
 	CWaitCursor WCursor;
 
-	SymbolArray reference(AppConv);
-	reference.Read("c:/deutsch.txt");
-	NGram R(reference);
-	
-	char line[128];
-	int size=R.GetSize();		// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
-	if(0==size)
+	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str);
-		AfxMessageBox(line);
-		return;
+		AfxMessageBox(line);		
+		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
 	}
 
-
-// Routine zur Homophone Verschlüsselung vor dem Schlüsseldialog 
-	char inbuffer[4096];
-	long buffsize=4096; 
-
-	ifstream in(infile);	
-	in.read(inbuffer,buffsize);
-	if(0>=in.gcount())
+	SymbolArray text(AppConv);
+	text.Read(infile);
+	if(0==text.GetSize())
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
-		AfxMessageBox(line);
-		return;
+		AfxMessageBox(line);		
+		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
 	}
 	
-	WCursor.Restore();		
-	DH.Set_texts(text,reference);
+	WCursor.Restore();	
+	char inbuffer[buffsize];
+
+	ifstream in(infile);	
+	in.read(inbuffer,buffsize);
+
+	Dlg_homophone DH;
+	CMyDocument *NewDoc;
+
 	if(IDOK!=DH.DoModal()) 
 	{
 		in.close();
@@ -2842,33 +2831,43 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	char outbuffer[4096];
 	long outbuffsize;
 	char outfile[128],title[128];
-	GetTmpName(outfile,"cry",".bin");
+	int value;
+	GetTmpName(outfile,"cry",".hex");
 	ofstream out(outfile);
 
-	// Verschlüsselung
-	if(true==DH.Get_crypt())
+	if(true==DH.Get_crypt())			// Verschlüsselung
 	{
 		while(in.gcount())
 		{
 			outbuffsize=0;
 			for(int i=0;i<in.gcount();i++)
 			{
-				int value=DH.Is_in_alpha(inbuffer[i]);
-				if(-1<value)
+				value=DH.HB.Encrypt(inbuffer[i]);
+				if(value>=0)
 				{
-					outbuffer[outbuffsize]=DH.Crypt(value,true);
-					outbuffsize++;
+					outbuffer[outbuffsize]=value;
+					outbuffsize++;				
 				}
-				// Verschlüsseln nur, wenn Zeichen im Alphabet, dann aber auch outBuffsize incrementieren
 			}
 			out.write(outbuffer,outbuffsize);
 			in.read(inbuffer,buffsize);
 		}
 	}
-	// Entschlüsselung
-	else
+	
+	else								// Entschlüsselung
 	{
-
+		DH.HB.Make_dec_table();
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				outbuffer[outbuffsize]=DH.HB.dec_data[inbuffer[i]];
+				outbuffsize++;
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
 	}
 	in.close();
  	out.close();
@@ -2886,7 +2885,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING37004,pc_str1,STR_LAENGE_STRING_TABLE);
 		}
 		LoadString(AfxGetInstanceHandle(),IDS_STRING37005,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,"");
 		NewDoc->SetTitle(title);
 	}
 

@@ -54,48 +54,21 @@ void Dlg_homophone::OnErzeugen()
 	UpdateData(false);
 }
 
-bool Dlg_homophone::Is_key()
-{
-	//return(!(m_key.IsEmpty()));
-	return(true);
-}
-
 int Dlg_homophone::Display()
 {
 	return(DoModal());
 }
 
 bool Dlg_homophone::Get_crypt()
+
+// liefert true zurück, wenn Verschlüsseln und false, wenn Entschlüsseln eingestellt ist
+
 {
 	if(0==m_crypt)
 	{
 		return(true);
 	}
 	return(false);
-}
-
-CString Dlg_homophone::Get_key()
-{
-	CString key,help;
-	int value;
-	key.Empty();
-	for(int i=0;i<=255;i++)
-	{
-		value=HB.Get_key(i);
-		if(value<10)
-		{
-			key+="00";
-		}
-		else if(value<100)
-		{
-			key+="0";
-		}
-		itoa(value,help.GetBuffer(10),10);
-		key.Insert(key.GetLength(),help);
-		key.Insert(key.GetLength()," ");
-		help.Empty();
-	}
-	return(key);
 }
 
 BOOL Dlg_homophone::OnInitDialog() 
@@ -123,79 +96,48 @@ BOOL Dlg_homophone::OnInitDialog()
 }
 
 void Dlg_homophone::Init_ListBox()
+
+// füllt die Liste auf mit
+
+//	1.	den im Alphabet (Textoptionen) eingestellten Zeichen
+//	2.	der Anzahl der ciphers, mit denen jedes Zeichen verschlüsselt werden kann
+//	3.	den ciphers selbst
+
 {
 	theApp.DoWaitCursor(0);
 	char string[1300];
-	int i,j,k,m,chars,number;
-	NGram R(reference);
+	int i,j,k,m,number;
 	
 	m_listview.DeleteAllItems(); 
-	chars=R.GetSize();
-	for(i=0;i<chars;i++)
+	TA.Analyse();
+	for(i=0;i<range;i++)
 	{
-		HB.Set_freq(i,R.GetFrequency(i));
+		HB.freq[i]=TA.freq[i];
 	}
-	HB.Calculate_ciphers(chars);
+	HB.Make_enc_table();
 	HB.Generate_key();
-	for(i=m=0;i<chars;i++)
+	for(i=m=0;i<range;i++)
 	{
-		string[0]=alphabet[i];
-		string[1]=0;
-		j=m_listview.InsertItem(i,string);
-		number=HB.Get_cipher(i);
-		assert(number>0);
-		sprintf(string,"%2i",number);
-		m_listview.SetItemText(j,1,string);
-		for(k=0;k<HB.Get_cipher(i);k++)
+		if(HB.enc_data[i][1]>0)
 		{
-			sprintf(string+k*5,"%3i",HB.Get_key(m));
-			if(k<HB.Get_cipher(i)-1)
+			string[0]=i;
+			string[1]=0;
+			j=m_listview.InsertItem(i,string);
+			number=HB.enc_data[i][1];
+			assert(number>0);
+			sprintf(string,"%2i",number);
+			m_listview.SetItemText(j,1,string);
+			for(k=0;k<HB.enc_data[i][1];k++)
 			{
-				sprintf(string+k*5+3,", ",HB.Get_key(m));
+				sprintf(string+k*5,"%3i",HB.key[m]);
+				if(k<HB.enc_data[i][1]-1)
+				{
+					sprintf(string+k*5+3,", ",HB.key[m]);
+				}
+				m++;
 			}
-			m++;
+			m_listview.SetItemText(j,2,string);
 		}
-		m_listview.SetItemText(j,2,string);
 	}
 	theApp.DoWaitCursor(-1);
-}
-
-void Dlg_homophone::Set_texts(SymbolArray t,SymbolArray r)
-{
-	alphabet=theApp.TextOptions.m_alphabet;
-	text=t;	
-	reference=r;
-}
-
-int Dlg_homophone::Crypt(int index,bool encrypt)
-{
-	if(true==encrypt)
-	{
-		return(HB.Get_random_number(index));		
-	}
-	else
-	{
-
-	}
-	return(-1);
-}
-
-SymbolArray Dlg_homophone::Get_text()
-{
-	return(text);
-}
-
-int Dlg_homophone::Is_in_alpha(char c)
-{
-	int i;
-
-	for(i=0;i<alphabet.GetLength();i++)
-	{
-		if(c==alphabet[i])
-		{
-			return(i);
-		}
-	}
-
-	return(-1);
 }

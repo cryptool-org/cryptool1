@@ -1444,6 +1444,14 @@ SOURCE=.\stdafx.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\TextAnalyse.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TextAnalyse.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\TextEingabeHillAngriff.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"

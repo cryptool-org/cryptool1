@@ -107,8 +107,9 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 
 void DlgPrimesGenerator::OnButtonGenerate() 
 
-		// erzeugt zwei Zufalls-Primzahlen innerhalb der angegebenen Grenzen
-		// Fehler werden mit entsprechenden Messages behandelt
+// erzeugt zwei Zufalls-Primzahlen innerhalb der angegebenen Grenzen
+// Fehler werden mit entsprechenden Messages behandelt
+
 {
 	UpdateData(true);
 
@@ -244,7 +245,8 @@ void DlgPrimesGenerator::OnUpdateEdit1()
 
 double DlgPrimesGenerator::Get_Value(CString m_edit)
 
-		// liefert den double-Wert eines CString unter Berücksichtigung des '^'-Zeichens zurück
+// liefert den double-Wert eines CString unter Berücksichtigung des '^'-Zeichens zurück
+
 {
 	int exp_pos=m_edit.Find('^');
 	if((exp_pos<0)||('^'==m_edit[m_edit.GetLength()-1]))
@@ -256,9 +258,10 @@ double DlgPrimesGenerator::Get_Value(CString m_edit)
 
 void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sele)
 
-		// sorgt dafür, daß keine syntaktisch falsche Eingabe in die Ober- und Untergrenze-Eingabefelder
-		// möglich ist, führende Nullen werden entfernt, die Variablen sels und sele dienen der
-		// Formatierung
+// sorgt dafür, daß keine syntaktisch falsche Eingabe in die Ober- und Untergrenze-Eingabefelder
+// möglich ist, führende Nullen werden entfernt, die Variablen sels und sele dienen der
+// Formatierung
+
 {
 	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
 	{
@@ -357,8 +360,9 @@ void DlgPrimesGenerator::OnUpdateEdit4()
 
 long DlgPrimesGenerator::Get_Prime1()
 
-		// diese und die nächste Funktion können aus anderen Klassen aufgerufen werden, um sich dorthin
-		// zwei Primzahlen zu holen
+// diese und die nächste Funktion können aus anderen Klassen aufgerufen werden, um sich dorthin
+// zwei Primzahlen zu holen
+
 {
 	return(atol(m_edit5));
 }
@@ -370,7 +374,8 @@ long DlgPrimesGenerator::Get_Prime2()
 
 void DlgPrimesGenerator::OnCancel() 
 
-		// wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
+// wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
+
 {
 	UpdateData(true);
 	m_edit5=m_edit6="0";	
@@ -380,8 +385,9 @@ void DlgPrimesGenerator::OnCancel()
 
 void DlgPrimesGenerator::OnButtonAccept() 
 
-		// wenn der Button "Übernehmen" gewählt wird, kann der Dialog nur verlassen werden,
-		// wenn das Produkt der beiden Primzahlen kleiner als c_MaxPrime_high ist
+// wenn der Button "Übernehmen" gewählt wird, kann der Dialog nur verlassen werden,
+// wenn das Produkt der beiden Primzahlen kleiner als c_MaxPrime_high ist
+
 {
 	UpdateData(true);
 	double product=(Get_Value(m_edit5)*Get_Value(m_edit6));
@@ -400,8 +406,9 @@ void DlgPrimesGenerator::OnButtonAccept()
 
 long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_limit)
 
-		// ruft den Algorithmus zur Erzeugung einer Zufallszahl und danach den Test-Algorithmus auf, den
-		// der Anwender benutzen möchte
+// ruft den Algorithmus zur Erzeugung einer Zufallszahl und danach den Test-Algorithmus auf, den
+// der Anwender benutzen möchte
+
 {
 	long lower=long(Get_Value(lower_limit)),upper=long(Get_Value(upper_limit));
 	long range=upper-lower,rand_val;

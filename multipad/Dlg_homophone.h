@@ -2,9 +2,14 @@
 #define AFX_DLG_HOMOPHONE_H__C0728083_FD9D_11D4_80F2_000629C93170__INCLUDED_
 
 #include "Homophone_Ber.h"	// Hinzugefügt von der Klassenansicht
+#include "TextAnalyse.h"	// Hinzugefügt von der Klassenansicht
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
+
+#define range		256
+
+
 // Dlg_homophone.h : Header-Datei
 //
 
@@ -15,15 +20,11 @@ class Dlg_homophone : public CDialog
 {
 // Konstruktion
 public:
-	int Is_in_alpha(char);
-	SymbolArray Get_text();
-	CString Get_key();
 	bool Get_crypt();
 	int Display();
-	bool Is_key();
 	Dlg_homophone(CWnd* pParent = NULL);   // Standardkonstruktor
-	int Crypt(int,bool);
-	void Set_texts(SymbolArray,SymbolArray);
+	Homophone_Ber HB;
+	TextAnalyse TA;
 
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
@@ -31,7 +32,6 @@ public:
 	CListCtrl	m_listview;
 	int		    m_crypt;
 	CEdit       m_dummyCtrl;
-	// CString		m_row;
 	//}}AFX_DATA
 
 
@@ -52,10 +52,6 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	CString alphabet;
-	SymbolArray reference;
-	Homophone_Ber HB;
-	SymbolArray text;
 	void Init_ListBox();
 };
 

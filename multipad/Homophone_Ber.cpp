@@ -8,6 +8,7 @@
 #include "time.h"
 #include <stdlib.h>
 #include "assert.h"
+#include "multipad.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -29,176 +30,166 @@ Homophone_Ber::~Homophone_Ber()
 
 }
 
-int Homophone_Ber::Get_cipher(int index)
-{
-	return(ciphers[index]);
-}
+void Homophone_Ber::Make_enc_table()	
 
-void Homophone_Ber::Calculate_ciphers(int chars)
-{
-	int i;
+	// ordnet jedem plaintext-Zeichen "seine" Anzahl an ciphertext-Zeichen zu und füllt enc_data,
+	// so daß verschlüsselt werden kann
 
-	for(i=0;i<chars;i++)
+{
+	int i,j,last=0;
+
+	for(i=0;i<range;i++)
 	{
-		Set_cipher(i,int(floor(Get_freq(i))));
-		if(0==Get_cipher(i))
+		if(freq[i]>0.0)
 		{
-			Set_cipher(i,1);
-			Set_do_not_round_me(i,true);
+			enc_data[i][1]=int(floor(range*freq[i]));
+			if(0==enc_data[i][1])
+			{
+				enc_data[i][1]=1;
+				do_not_round_me[i]=true;
+			}
 		}
 	}
 
-	while(range!=checksum(chars))
+	while(range!=Checksum())
 	{
-		if(checksum(chars)<range)
+		if(Checksum()<range)
 		{
-			increase_ciphers(chars);
+			Increase_ciphers();
 		}
 		else
 		{
-			decrease_ciphers(chars);
+			Decrease_ciphers();
 		}
 	}
-	assert(range==checksum(chars));
-}
+	assert(range==Checksum());
 
-void Homophone_Ber::Set_freq(int index,double value)
-{
-	freq[index]=value*range;
-}
-
-void Homophone_Ber::Set_cipher(int index,int value)
-{
-	ciphers[index]=value;
-}
-
-double Homophone_Ber::Get_freq(int index)
-{
-	return(freq[index]);
-}
-
-int Homophone_Ber::round(double value)
-{
-	if(value-floor(value)<0.5)
+	for(i=0;i<range;i++)
 	{
-		return(int(floor(value)));
+		if(enc_data[i][1]>0)
+		{
+			enc_data[i][0]=last;
+			last+=enc_data[i][1];
+		}
 	}
-	return(int(ceil(value)));
+	if(FALSE==theApp.TextOptions.m_Case)
+	{
+		for(i=65;i<=90;i++)
+		{
+			for(j=0;j<=1;j++)
+			{
+				enc_data[i+32][j]=enc_data[i][j];
+				freq[i+32]=-1;
+			}
+		}
+	}
 }
 
-int Homophone_Ber::checksum(int chars)
+int Homophone_Ber::Checksum()
+
+// prüft, ob die Summe der ciphertext-Zeichen gleich range ist
+
 {
 	int i,sum=0;
 
-	for(i=0;i<chars;i++)
+	for(i=0;i<range;i++)
 	{
-		sum+=Get_cipher(i);
+		if(enc_data[i][1]>=0)
+		{
+			sum+=enc_data[i][1];
+		}
 	}
 	return(sum);
 }
 
-void Homophone_Ber::increase_ciphers(int chars)
+void Homophone_Ber::Increase_ciphers()
+
+// erhöht die Anzahl der ciphertext-Zeichen, wenn deren Summe kleiner als range ist
+
 {
 	int i,index=0;
 	double value=0.01;
 
-	for(i=0;i<chars;i++)
+	for(i=0;i<range;i++)
 	{
-		if(false==Get_do_not_round_me(i)&&Get_freq(i)/Get_cipher(i)>value)
+		if(freq[i]>0.0&&false==do_not_round_me[i]&&freq[i]*range/enc_data[i][1]>value)
 		{
-			value=Get_freq(i)/Get_cipher(i);
+			value=freq[i]*range/enc_data[i][1];
 			index=i;
 		}
 	}
-	Set_cipher(index,Get_cipher(index)+1);
+	enc_data[index][1]++;
 }
 
-void Homophone_Ber::decrease_ciphers(int chars)
+void Homophone_Ber::Decrease_ciphers()
+
+// verringert die Anzahl der ciphertext-Zeichen, wenn deren Summe größer als range ist
+
 {
 	int i,index=0;
 	double value=100;
 
-	for(i=0;i<chars;i++)
+	for(i=0;i<range;i++)
 	{
-		if(false==Get_do_not_round_me(i)&&Get_freq(i)/Get_cipher(i)<value)
+		if(freq[i]>0.0&&false==do_not_round_me[i]&&freq[i]*range/enc_data[i][1]<value)
 		{
-			value=Get_freq(i)/Get_cipher(i);
+			value=freq[i]*range/enc_data[i][1];
 			index=i;
 		}
 	}
-	Set_cipher(index,Get_cipher(index)-1);
-}
-
-void Homophone_Ber::Set_do_not_round_me(int index,bool value)
-{
-	do_not_round_me[index]=value;
-}
-
-bool Homophone_Ber::Get_do_not_round_me(int index)
-{
-	return(do_not_round_me[index]);
-}
-
-int Homophone_Ber::Get_key(int index)
-{
-	return(key[index]);
-}
-
-void Homophone_Ber::Set_key(int index,int value)
-{
-	key[index]=value;
+	enc_data[index][1]--;   
 }
 
 void Homophone_Ber::Generate_key()
+
+// füllt key mit den Zahlen von 0 bis range in zufälliger Reihenfolge auf
+
 {
 	int i;
 
 	for(i=0;i<range;i++)
 	{
-		Set_key(i,-1);
-	}
-
-	for(i=0;i<range;i++)
-	{
-		Set_key(i/*Get_free_position()*/,i);
+		key[i/*Get_free_position()*/]=i;
 	}
 	assert(true==Check_key());
 }
 
 int Homophone_Ber::Get_free_position()
+
+// wird von Generate_key() aufgerufen und sucht für die Zahlen von 0 bis range einen freien Platz in key
+
 {
 	int index,value=0;
 
 	while(-1!=value)
 	{
 		index=zz.zzgen4()%range;
-		value=Get_key(index);
+		value=key[index];
 	}
 	return(index);
 }
 
-int Homophone_Ber::Get_random_number(int index)
-{
-	int i,sum=0,value;
+int Homophone_Ber::Get_random_number(int number)
 
-	for(i=0;i<index;i++)
-	{
-		sum+=Get_cipher(i);
-	}
-	value=Get_key(sum+(zz.zzgen4()%Get_cipher(index)));
-	assert(0<=value&&value<range);
-	return(value);
+// gibt eine Zufallszahl zwischen 0 und (number-1) zurück
+
+{
+	return(zz.zzgen4()%number);
 }
 
-bool Homophone_Ber::Check_key()		// prüft, ob jede Zahl zwischen 0 und range 
-{									// genau einmal in key[] vorhanden ist
+bool Homophone_Ber::Check_key()		
+
+// prüft, ob jede Zahl zwischen 0 und range genau einmal in key[] vorhanden ist
+
+{									
 	int i,j,sum;
+
 	for(i=0;i<range;i++)
 	{
 		sum=0;
 		for(j=0;j<range;j++)
 		{
-			if(Get_key(j)==i)
+			if(key[j]==i)
 			{
 				sum++;
 			}
@@ -212,14 +203,70 @@ bool Homophone_Ber::Check_key()		// prüft, ob jede Zahl zwischen 0 und range
 }
 
 void Homophone_Ber::Init_Data()
+
+// setzt die Daten der Klasse auf vernünftige Eingangswerte
+
+{
+	int i,j;
+
+	for(i=0;i<range;i++)
+	{
+		dec_data[i]=32;
+		do_not_round_me[i]=false;
+		freq[i]=0.0;
+		key[i]=-1;
+		for(j=0;j<=1;j++)
+		{
+			enc_data[i][j]=-1;
+		}
+	}
+}
+
+int Homophone_Ber::Encrypt(int value)
+
+// liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
+
+{
+	if(enc_data[value][1]>0)
+	{
+		return(key[enc_data[value][0]+Get_random_number(enc_data[value][1])]);
+	}
+	return(-1);
+}
+
+void Homophone_Ber::Make_dec_table()
+
+// füllt dec_data, so daß entschlüsselt werden kann
+
 {
 	int i;
 
 	for(i=0;i<range;i++)
 	{
-		Set_cipher(i,-1);
-		Set_do_not_round_me(i,false);
-		Set_freq(i,0.0);
-		Set_key(i,-1);
+		dec_data[i]=Get_index(i);
 	}
+}
+
+int Homophone_Ber::Get_index(int value)
+
+// liefert zu dem ASCII-Wert eines ciphertext-Zeichens dessen Position in key zurück
+
+{
+	int i,index;
+
+	for(i=0;i<range;i++)
+	{
+		if(value==key[i])
+		{
+			index=i;
+		}
+	}
+	for(i=range-1;i>=0;i--)
+	{
+		if(enc_data[i][1]>0&&enc_data[i][0]<=index)
+		{
+			return(i);
+		}
+	}
+	return(0);
 }
