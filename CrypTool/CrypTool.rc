@@ -1573,11 +1573,11 @@ END
 
 IDD_KEY_FROM_PASSWORD DIALOG DISCARDABLE  0, 0, 310, 266
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüssel aus Paßwort generieren"
+CAPTION "Schlüssel aus Passwort generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,51,26,233,13,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,151,47,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,150,47,20,12,ES_AUTOHSCROLL
     LTEXT           "Verfahren",IDC_STATIC,32,93,32,8
     CONTROL         "MD&2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     32,110,29,10
@@ -1598,16 +1598,17 @@ BEGIN
     LTEXT           "Paßwort:",IDC_STATIC,19,28,31,8
     LTEXT           "Länge des Ausgabeschlüssels (in Bytes):",IDC_STATIC,19,
                     48,129,8
-    LTEXT           "(1 - 20 bytes)",IDC_STATIC,177,48,42,8
+    LTEXT           "(darf nicht länger als die Ausgabelänge der gewählten Hashfunktion sein).",
+                    IDC_STATIC,174,48,127,20
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,19,75,125,88
     LTEXT           "Ausgabenlänge",IDC_STATIC,85,93,50,8
-    LTEXT           "128 Bit",IDC_STATIC,86,111,23,9
-    LTEXT           "128 Bit",IDC_STATIC,86,128,23,9
-    LTEXT           "160 Bit",IDC_STATIC,86,145,23,9
+    LTEXT           "16 Bytes",IDC_STATIC,86,111,48,9
+    LTEXT           "16 Bytes",IDC_STATIC,86,128,52,9
+    LTEXT           "20 Bytes",IDC_STATIC,86,145,51,9
     GROUPBOX        "Optionale Parameter",IDC_STATIC,157,75,137,58
     LTEXT           "Salz:",IDC_STATIC,163,93,16,8
     LTEXT           "Anzahl der Iterationen",IDC_STATIC,163,112,70,8
-    GROUPBOX        "Aus dem Paßwort und den weiteren Parametern generierter Schlüssel",
+    GROUPBOX        "Aus dem Passwort und den weiteren Parametern generierter Schlüssel",
                     IDC_STATIC,8,185,295,70
 END
 
@@ -2299,23 +2300,23 @@ BEGIN
     DEFPUSHBUTTON   "Zertifkat und PSE Erzeugen",IDOK,244,248,103,14
 END
 
-IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
+IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 123, 119
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hashverfahren auswählen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,7,108,82
     CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
-                    WS_GROUP | WS_TABSTOP,25,15,61,10
+                    WS_GROUP | WS_TABSTOP,25,22,61,10
     CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
-                    31,61,10
+                    34,61,10
     CONTROL         "SHA",IDC_SHA,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
-                    45,61,10
+                    46,61,10
     CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT,
-                    25,61,61,10
+                    25,58,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
-                    BS_LEFT,25,76,61,10
-    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
+                    BS_LEFT,25,70,61,10
+    DEFPUSHBUTTON   "OK",IDOK,35,96,52,17,WS_GROUP
 END
 
 IDD_FACTORISATION_LIST DIALOG DISCARDABLE  0, 0, 383, 348
@@ -2323,8 +2324,9 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Details zur Faktorisierung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "S&chließen",IDOK,326,321,50,20
-    PUSHBUTTON      "&Speichere Liste",IDCANCEL,225,321,63,20
+    DEFPUSHBUTTON   "S&chließen",IDOK,318,321,58,20
+    PUSHBUTTON      "&Liste im Hauptfenster anzeigen",IDCANCEL,178,321,112,
+                    20
     LTEXT           "Eingabe-Zahl:",IDC_STATIC,7,7,57,10
     GROUPBOX        "Informationen zur gewählten Faktorisierung",IDC_STATIC,
                     7,202,369,112
@@ -2343,23 +2345,25 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_SELECT_HASHFUNCTION DIALOG DISCARDABLE  0, 0, 131, 118
+IDD_SELECT_HASHFUNCTION DIALOG DISCARDABLE  0, 0, 131, 127
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hashfunktion wählen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,74,97,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,104,50,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,74,104,50,18
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    25,15,82,10
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,27,64,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,25,38,64,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,52,64,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,25,62,64,
+                    25,16,82,8
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,29,64,8
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,42,64,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,55,64,8
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,25,68,64,
                     8
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,25,
-                    76,64,8
-    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+                    81,64,8
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,93
 END
 
 IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 350
@@ -3823,7 +3827,6 @@ BEGIN
         VERTGUIDE, 32
         VERTGUIDE, 86
         VERTGUIDE, 284
-        VERTGUIDE, 294
         BOTTOMMARGIN, 263
         HORZGUIDE, 163
         HORZGUIDE, 246
@@ -4027,21 +4030,6 @@ BEGIN
         VERTGUIDE, 97
         TOPMARGIN, 7
         BOTTOMMARGIN, 262
-    END
-
-    IDD_SEL_HASH, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        TOPMARGIN, 7
-    END
-
-    IDD_SELECT_HASHFUNCTION, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 124
-        VERTGUIDE, 25
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 111
     END
 
     IDD_HYBRID_ENCRYPTION_DEMO, DIALOG
@@ -5160,9 +5148,9 @@ BEGIN
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "Die Anzahl der Hash-Iterationen muß größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
-                            "Die eingegebene Bytelänge der Ausgabe is kleiner als 1 !\nBitte geben Sie eine Zahl zwischen 1 und %i ein."
+                            "Bitte geben Sie die Länge des Ausgabelüssels an!"
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
-                            "Die eingegebene Bytelänge der Ausgabe is größer als %i !\nBitte geben Sie eine Zahl zwischen 1 und %i ein."
+                            "Schlüssellänge zu groß!\nDer aus dem Passwort generierte Schlüssel ist mindestens 1 Byte lang und ist höchstens\nso lange wie die Ausgabelänge der gewählten Hashfunktion (hier %i Bytes).\n\nBitte geben Sie die korrekte Länge des Ausgabeschlüssels ein."
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertikal"
     IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
@@ -5389,9 +5377,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DETFACTORISATION_FACTORPRIME "Bitlänge = %i,  Primzahl."
+    IDS_DETFACTORISATION_FACTORPRIME "Bitlänge = %i, Primzahl."
     IDS_DETFACTORISATION_FACTORCOMPOSITE 
-                            "Bitlänge = %i,  zusammengesetzte Zahl ."
+                            "Bitlänge = %i, zusammengesetzte Zahl."
     IDS_DETFACTORISATION_HL_INPUT 
                             "Details zur Faktorisierung der\nEingabezahl  "
     IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Faktorisierte Zahl = "

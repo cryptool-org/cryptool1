@@ -16,10 +16,15 @@ class CDlgSelectHashFunction : public CDialog
 public:
 	CDlgSelectHashFunction(CWnd* pParent = NULL);   // Standardkonstruktor
 
+	bool    m_deactivateMD4;
+	int		m_selectedHashFunction;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSelectHashFunction)
 	enum { IDD = IDD_SELECT_HASHFUNCTION };
-	int		m_selectedHashFunction;
+	CButton	m_selectedHashFunctionMD4Ctrl;
+	int		m_selectedHashFunctionMD2;
+	int		m_selectedHashFunctionMD4;
+	int		m_selectedHashFunctionMD5;
 	//}}AFX_DATA
 
 
@@ -35,7 +40,13 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgSelectHashFunction)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	afx_msg void OnSelectedMD2();
+	afx_msg void OnSelectedMD4();
+	afx_msg void OnSelectedMD5();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnSelectSHA();
+	afx_msg void OnSelectedSHA_1();
+	afx_msg void OnSelectedRIPEMD_160();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

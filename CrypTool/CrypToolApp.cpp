@@ -539,6 +539,7 @@ void CCrypToolApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren()
 	CDlgFactorisationDemo FAKT;
 	AfxInitRichEdit();
     FAKT.DoModal();
+/*
 	if ( FAKT.DetailsFactorisation.b_SaveFactorList )
 	{
 		CAppDocument *NewDoc;
@@ -559,6 +560,7 @@ void CCrypToolApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren()
 		}
 		NewDoc->SetTitle(line);
 	}
+*/
 }
 
 void CCrypToolApp::OnEinzelverfahrenSchluesselgenerieren() 
