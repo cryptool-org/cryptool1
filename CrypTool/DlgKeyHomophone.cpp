@@ -84,6 +84,12 @@ void CDlgKeyHomophone::OnErzeugen()
 	SHOW_HOUR_GLASS
 	HB.Init_Data();
 	Init_ListBox();
+
+// === Reset selected homophonic list
+	m_EditNoOfHomophones = 0;
+	m_RowHomophonesList = _T("");
+	m_HomophonesList = _T("");
+
 	HIDE_HOUR_GLASS
 	UpdateData(false);
 }
@@ -298,6 +304,12 @@ void CDlgKeyHomophone::OnLoadKey()
 		theApp.TextOptions.m_alphabet = newAlphabet;
 	}
 
+
+// === Reset selected homophonic list
+	m_EditNoOfHomophones = 0;
+	m_RowHomophonesList = _T("");
+	m_HomophonesList = _T("");
+
 	UpdateData(FALSE);
 
 	HIDE_HOUR_GLASS
@@ -409,6 +421,12 @@ void CDlgKeyHomophone::OnActualizeNoOfHomophones()
 		m_Bitlength = HB.LogKeySize( 2 );
 		HB.Init_Data();
 		Init_ListBox();
+
+	// === Reset selected homophonic list
+		m_EditNoOfHomophones = 0;
+		m_RowHomophonesList = _T("");
+		m_HomophonesList = _T("");
+
 		HIDE_HOUR_GLASS
 	}
 	UpdateData(FALSE);
