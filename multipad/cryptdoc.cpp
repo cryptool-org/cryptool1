@@ -249,8 +249,11 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 
 BOOL CCryptDoc::OnSaveDocument(LPCTSTR lpszPathName) 
 {
+	POSITION pos = GetFirstViewPosition();
+
     if(IsModified()) CPadDoc::OnSaveDocument(ContentName);
     CPadDoc::OnSaveDocument(lpszPathName);
+	GetNextView(pos)->UpdateWindow();
     return TRUE;
 }
 
