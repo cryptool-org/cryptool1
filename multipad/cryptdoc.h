@@ -112,6 +112,7 @@ protected:
 	afx_msg void OnZZGen();
 	afx_msg void OnNotAvail();
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
+	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
