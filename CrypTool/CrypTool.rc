@@ -5742,7 +5742,7 @@ BEGIN
     IDS_RSADEMO_NOT         "nicht "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
-                            "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-exponentation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
+                            "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-Exponentiation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
 END
 
 STRINGTABLE DISCARDABLE 
