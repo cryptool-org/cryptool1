@@ -2015,6 +2015,17 @@ BEGIN
     LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,204,11
 END
 
+IDD_DIALOG_TIPPS_AND_TRICKS DIALOG DISCARDABLE  0, 0, 296, 239
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Wie Sie Starten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ende",IDOK,238,218,50,14
+    CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,219,
+                    192,13
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3425,6 +3436,15 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 281
         HORZGUIDE, 263
+    END
+
+    IDD_DIALOG_TIPPS_AND_TRICKS, DIALOG
+    BEGIN
+        VERTGUIDE, 8
+        VERTGUIDE, 288
+        HORZGUIDE, 8
+        HORZGUIDE, 211
+        HORZGUIDE, 232
     END
 END
 #endif    // APSTUDIO_INVOKED

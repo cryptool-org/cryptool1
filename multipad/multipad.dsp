@@ -504,6 +504,10 @@ SOURCE=.\res\bitmap2.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmapLetsStart.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bmp00001.bmp
 # End Source File
 # Begin Source File
@@ -1058,6 +1062,14 @@ SOURCE=.\DlgSubstAna.cpp
 # Begin Source File
 
 SOURCE=.\DlgSubstAna.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTipsAndTricks.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTipsAndTricks.h
 # End Source File
 # Begin Source File
 

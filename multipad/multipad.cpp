@@ -36,6 +36,7 @@
 #include "DlgTutorialFactorisation.h"
 #include "Dlg_Schluessel_gen.h"
 #include "DlgGenRandomData.h"
+#include "DlgTipsAndTricks.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in multipad.h
@@ -230,7 +231,7 @@ BOOL CMultiPadApp::InitInstance()
 
 	// Am Anfang ist noch kein Fenster geöffnet, die Hilfe soll mit "Wie Sie starten geöffnet werden"
 	//::WinHelp(0, AfxGetApp()->m_pszHelpFilePath, HELP_COMMAND, (DWORD)"JumpId(starten)");
-	WinHelp(ID_WIE_SIE_STARTEN+0x10000);
+	// WinHelp(ID_WIE_SIE_STARTEN+0x10000);
 
 	// initialize the application dependent Converter
 	AppConv.SetAlphabet(TextOptions.m_alphabet.GetBuffer(257), TextOptions.m_IgnoreCase);
@@ -249,6 +250,8 @@ BOOL CMultiPadApp::InitInstance()
 #undef DoOneFn
 #undef DoOneData
 
+	CDlgTipsAndTricks Tipps;
+	int ret = Tipps.DoModal();
 	return TRUE;
 }
 
