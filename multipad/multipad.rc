@@ -3063,7 +3063,7 @@ PASTED                  BITMAP  DISCARDABLE     "res\\EditPastebmp.bmp"
 PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
 PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
 PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
-IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool_deutsch.bmp"
+IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool_de.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
