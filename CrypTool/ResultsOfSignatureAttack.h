@@ -22,12 +22,12 @@ public:
 	virtual ~ResultsOfSignatureAttack ();
 
 	int GetRuns () const										{ return m_Runs; }
-	__int64 GetTotalSteps () const								{ return m_TotalSteps; }
-	__int64 GetExpectedSteps () const							{ return m_ExpectedSteps; }
-	__int64 GetCollisionStepsOfRun (const int index) const		{ return m_StepsPerRun[index].StepsUntilCollision; }
-	__int64 GetConfirmationStepsOfRun (const int index) const	{ return m_StepsPerRun[index].StepsUntilConfirmation; }
-	__int64 GetTotalStepsOfRun (const int index) const			{ return m_StepsPerRun[index].TotalSteps; }
-	__int64 GetHashOperationsPerformed () const					{ return m_HashOperationsPerformed; }
+	double GetTotalSteps () const								{ return m_TotalSteps; }
+	double GetExpectedSteps () const							{ return m_ExpectedSteps; }
+	double GetCollisionStepsOfRun (const int index) const		{ return m_StepsPerRun[index].StepsUntilCollision; }
+	double GetConfirmationStepsOfRun (const int index) const	{ return m_StepsPerRun[index].StepsUntilConfirmation; }
+	double GetTotalStepsOfRun (const int index) const			{ return m_StepsPerRun[index].TotalSteps; }
+	double GetHashOperationsPerformed () const					{ return m_HashOperationsPerformed; }
 	double GetExpectedTime () const								{ return m_ExpectedTime; }
 	double GetEffectiveTime () const							{ return m_EffectiveTime; }
 	int GetFloydResult () const									{ return m_FloydResult; }
@@ -57,16 +57,16 @@ private:
 	int m_Runs;
 	struct Steps
 	{
-		__int64 StepsUntilCollision;
-		__int64 StepsUntilConfirmation;
-		__int64 TotalSteps;
+		double StepsUntilCollision;
+		double StepsUntilConfirmation;
+		double TotalSteps;
 	} m_StepsPerRun[_MAX_RUNS_SIG_ATT];
 
-	__int64 m_TotalSteps;
+	double m_TotalSteps;
 	double m_ExpectedTime;
 	double m_EffectiveTime;
-	__int64 m_ExpectedSteps;
-	__int64 m_HashOperationsPerformed;
+	double m_ExpectedSteps;
+	double m_HashOperationsPerformed;
 	int m_FloydResult;
 	char *m_MatchingHashBytes;
 };

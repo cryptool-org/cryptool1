@@ -195,12 +195,30 @@ CString CDlgShowProgress::duration(double progress) const
 			d.Format("%02d:%02d",s/3600, (s / 60) % 60);
 		else 
 			d.Format("%02d h",s/3600);
+
 	} else if (rest < 3600.0*24.0*365.0) {
 		//double logerror = log10((double)CLOCKS_PER_SEC*progress*(3600.0*24.0));
 		d.Format("%.1f %s",rest/(3600.0*24.0),m_days);
 	} else {
+		if( rest < INT_MAX ){
 		//double logerror = log10((double)CLOCKS_PER_SEC*progress*(3600.0*24.0*365.0));
-		d.Format("%.2g %s",rest/(3600.0*24.0*365.0),m_years);
+			d.Format("%.2g %s",rest/(3600.0*24.0*365.0),m_years);
+		}
+		else
+		{
+			double restJahre = rest/(365*3600*24);
+			char str[128];
+			if ( restJahre > 1e9 )
+			{
+				sprintf(str, "%.4G %s", restJahre,m_years);
+			}
+			else
+			{
+				sprintf(str, "%.0f %s", restJahre,m_years);
+			}
+			d = str;
+			// d.Format("%.0E %s", rest/(365*3600*24),m_years);
+		}
 	}
 #ifdef debugprogress
 	return raw + d;

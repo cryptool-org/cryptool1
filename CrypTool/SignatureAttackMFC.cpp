@@ -64,6 +64,7 @@ double SignatureAttackMFC::getProgress()
 		res =  m_ResSigAtt->GetConfirmationStepsOfRun(run);
 		res /= m_ResSigAtt->GetCollisionStepsOfRun(run);
 	}
+	if ( res < 1e-100 ) res = 1e-100;
 	CString f;
 	f.Format(m_ProgressText,run+1, m_OptSigAtt->GetSignificantBitLength());
 	theApp.fs.setFormat(f);
