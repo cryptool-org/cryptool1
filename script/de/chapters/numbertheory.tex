@@ -3751,9 +3751,7 @@ Pari-GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der
 Square-and-Multiply-Methode nachvollziehen. In Mathematica bestimmen Sie die Einzelexponentiation des Beispiels auf 
 Seite \pageref{SrcArith2} mit
 \begin{verbatim}
-Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.Die L"ange der Hexadezimalschreibweise bestimmt man anhand von $z$ durch die Berechnung
-$$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
-
+Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}
 \end{verbatim}
 und in Pari-GP lautet die Syntax:
 \begin{verbatim}
