@@ -84,6 +84,46 @@ void KeyGen(){
 	// geschieht in der Klasse CDlgAsymKeyCreat
 }
 
+BOOL find( OctetString *in, int ID, int &start, int &end )
+{
+	LoadString(AfxGetInstanceHandle(),ID,pc_str,STR_LAENGE_STRING_TABLE);
+	int strLen = strlen(pc_str);
+	if ( start < 0 )
+		return FALSE;
+	for (int k=start; k<in->noctets - strLen; k++)
+	{
+		if ( !strncmp(in->octets + k, pc_str, strLen) )
+		{
+			start = k;
+			end   = k+strLen;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+BOOL extract( OctetString *in, CString &Result, int ID, int &pos )
+{
+	int start, end;
+	start = pos;
+	if ( find( in , ID, start, end ) )
+	{
+		char *tmp;
+		tmp = new char[start-pos+1];
+		strncpy( tmp, in->octets+pos, start-pos );
+		tmp[start-pos] = '\0';
+		Result = tmp;
+		Result.TrimLeft();
+		Result.TrimRight();
+		pos = end;
+		delete []tmp;
+		return TRUE;
+	}
+	else
+		return FALSE;
+}
+
+
 /*
 Funktion zur Verschlüsselung der Daten im aktuellen Fenster mittels RSA
 */
@@ -909,6 +949,11 @@ int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zug
 	return 0;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Show Signature Data 
+//
+
 int GetSignData(char* infile, bool& zugross, CString& filename, OctetString *message, CString& SigAlg,\
 				CString& HashAlg, CString& UserKeyId, int *SignLength, Signature *Signatur,\
 				L_NUMBER *c, L_NUMBER *d)
@@ -945,247 +990,129 @@ Dies Daten müssen folgende Struktur haben:
 	OctetString *help=theApp.SecudeLib.aux_file2OctetString(infile);
 	if (help == NULL) return 1; // Fehlerhafte Speicherallokation
 	
-	// help.octets* enthält die Daten des aktiven Dokuments;
-	
-	int lang=help->noctets; // Die Länge der Ausgabe in Octets
-	
-	// Bei der Umwandlung des OctetString help in einen CString können Informationen verlorengehen!!!
-	// CString ist nämlich nullterminiert, Variablen vom Typ OctetString können aber Nullbytes enthalten
-	// Aus diesem Grund muß von Hand geparst werden.
-	
-	// Suche den Substring "Signaturlänge:"
-	// lade String IDS_STRING_HEADING_SIGNATURELENGTH aus der Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int IndVonV
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HEADING_SIGNATURELENGTH,pc_str,1000);
-	int IndVonSigLen=-1;
-	for (k=16; k<lang; k++)
-	{
-		if (help->octets[k]==pc_str[16])
-		{
-			if ((help->octets[k+1]==pc_str[17])&&(help->octets[k+2]==pc_str[18])&&(help->octets[k+3]==pc_str[19])&&(help->octets[k+4]==pc_str[20])&&
-				(help->octets[k+5]==pc_str[21])&&(help->octets[k+6]==pc_str[22])&&(help->octets[k+7]==pc_str[23])&&(help->octets[k+8]==pc_str[24])&&
-				(help->octets[k+9]==pc_str[25]))
-			{
-				IndVonSigLen=k;
-				break;
-			}
-		}
-	}
-	if (IndVonSigLen==-1)
+	int start=0, end, pos;
+	CString res;
+
+	if ( !find( help, IDS_STRING_HEADING_SIGNATURELENGTH, start, end) )
 	{
 		// Substring "Signaturlänge:" konnte nicht gefunden werden 
 		// Freigeben von dynamisch angelegtem Speicher
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		return -1;
 	}
-	
-	// Suche den Substring "Nachricht:"
-	// lade String IDS_STRING_ASYMKEY_MESSAGE aus Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int IndVonN	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MESSAGE,pc_str,1000);
-	int IndVonN=-1;
-	for (k=IndVonSigLen; k<lang; k++){
-		if (help->octets[k]==pc_str[16]){
-			if ((help->octets[k+1]==pc_str[17])&&(help->octets[k+2]==pc_str[18])&&(help->octets[k+3]==pc_str[19])&&(help->octets[k+4]==pc_str[20])&&
-				(help->octets[k+5]==pc_str[21])&&(help->octets[k+6]==pc_str[22])&&(help->octets[k+7]==pc_str[23])&&(help->octets[k+8]==pc_str[24])&&
-				(help->octets[k+9]==pc_str[25])){
-				IndVonN=k;
-				break;
-			}
-		}
-	}
-	if (IndVonN==-1)
+	pos = end;
+	if ( !extract( help, res, IDS_STRING_ASYMKEY_METHOD, pos ) )
 	{
-		// Substring "Nachricht:" konnte nicht gefunden werden 
+		// der gesuchte String wurde nicht gefunden
 		// Freigeben von dynamisch angelegtem Speicher
 		theApp.SecudeLib.aux_free_OctetString(&help);
-		return -2;
+		return -3;
 	}
-	IndVonN = IndVonN + 16; // Eigentliche Nachricht beginnt bei IndVonN
+	// get the signature Length...
+	{
+		LPTSTR siglgth = new TCHAR[res.GetLength()+1];
+		_tcscpy(siglgth, res);
+		*SignLength = atoi(siglgth); // ascii to int Konvertierung, *SignLength ist die Bitlänge der Sign.
+		delete siglgth;
+		if ( *SignLength <= 0 ) return -3;
+	}
 	
-	// Initialisieren von OctetString message
-	// message enthält die signierte Nachricht oder den Hinweis in welche Temporäre
-	// Datei die signierte Nachricht zwischengespeichert wurde
-	message->noctets=(help->noctets-IndVonN);
-	// message->octets=&help->octets[IndVonN]; // alternative zum Kopieren der Daten
-	// Kopiere die eigentliche Nachricht nach message
+	if ( !extract( help, SigAlg, IDS_STRING_ASYMKEY_SELECT_HASH_METHOD, pos ) )
+	{
+		// der gesuchte String wurde nicht gefunden
+		// Freigeben von dynamisch angelegtem Speicher
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		return -4;
+	}
+
+	if ( !extract( help, HashAlg, IDS_STRING_KEY, pos ) )
+	{
+		// der gesuchte String wurde nicht gefunden
+		// Freigeben von dynamisch angelegtem Speicher
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		return -5;
+	}
+
+	if ( !extract( help, UserKeyId, IDS_STRING_ASYMKEY_MESSAGE, pos ) )
+	{
+		// der gesuchte String wurde nicht gefunden
+		// Freigeben von dynamisch angelegtem Speicher
+		theApp.SecudeLib.aux_free_OctetString(&help);
+		return -6;
+	}
+
+	// extract the message
+	message->noctets=(help->noctets-pos);
 	message->octets= (char*) malloc ((message->noctets+1)*sizeof(char));
 	if (message->octets==NULL)
 	{
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		return 2; // Fehlerhafte Speicherallokation
 	}
-	for (k=0; k<((int)message->noctets); k++)
-	{
-		message->octets[k]=help->octets[k+IndVonN];
-	}
-	
-	// Überprüfe, ob die eigentlich signierte Nachricht nicht zu gross war,
-	// und in eine Datei geschrieben werden musste - anstatt im CrypTool Editor angezeigt zu werden
-	
-	zugross=false;
-	OctetString *fileocts;
-	
-	// IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE : "Die signierte Nachricht liegt in Datei:"
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE,pc_str,100);
-	size_t strl = strlen(pc_str);
-	if ( message->noctets > strl ) 
-	{
-		CString help7(message->octets, strl);
-		if (help7==(CString)pc_str)
+	memcpy( message->octets, help->octets + pos, message->noctets );
+
+	{  // 
+		zugross=false;
+		OctetString *fileocts;
+		
+		// IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE : "Die signierte Nachricht liegt in Datei:"
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE,pc_str,100);
+		size_t strl = strlen(pc_str);
+		if ( message->noctets > strl ) 
 		{
-			// Die signierte Nachricht ist in eine Datei umgeleitet worden.
-			
-			// Daten müssen aus Datei eingelesen werden
-			// AfxMessageBox ("Daten aus Datei einlesen");
-			
-			// Ermittele den Pfad und Namen der Datei
-			int restmesglgth = (message->noctets-strl);
-			CString filename(&message->octets[strl], restmesglgth);
-			
-			LPTSTR temp_ptr = new TCHAR[filename.GetLength()+1];
-			_tcscpy(temp_ptr, filename);
-			char *msgfile = temp_ptr; // msgfile: Dateiname der Datei die signierte Nachricht enthält
-			
-			fileocts=theApp.SecudeLib.aux_file2OctetString(msgfile);
-			if (fileocts==NULL)
+			CString help7(message->octets, strl);
+			if (help7==(CString)pc_str)
 			{
-				// Fehler bei Speicherallokation
-				// Freigeben von dynamisch angelegtem Speicher
-				theApp.SecudeLib.aux_free_OctetString(&help);
+				// Die signierte Nachricht ist in eine Datei umgeleitet worden.
+				
+				// Daten müssen aus Datei eingelesen werden
+				// AfxMessageBox ("Daten aus Datei einlesen");
+				
+				// Ermittele den Pfad und Namen der Datei
+				int restmesglgth = (message->noctets-strl);
+				CString filename(&message->octets[strl], restmesglgth);
+				
+				LPTSTR temp_ptr = new TCHAR[filename.GetLength()+1];
+				_tcscpy(temp_ptr, filename);
+				char *msgfile = temp_ptr; // msgfile: Dateiname der Datei die signierte Nachricht enthält
+				
+				fileocts=theApp.SecudeLib.aux_file2OctetString(msgfile);
+				if (fileocts==NULL)
+				{
+					// Fehler bei Speicherallokation
+					// Freigeben von dynamisch angelegtem Speicher
+					theApp.SecudeLib.aux_free_OctetString(&help);
+					delete temp_ptr;
+					return 4; // Fehlerhafte Speicherallokation
+				}
+				filename = temp_ptr;
 				delete temp_ptr;
-				return 4; // Fehlerhafte Speicherallokation
+				
+				zugross=true; // zugross == true: Nachricht wurde aus Datei gelesen
+				
+				// message->octets mit Octets der eigentlich Signierten Nachricht belegen
+				free (message->octets); // bisherigen Speicher freigeben
+				message->noctets=fileocts->noctets;
+				// Kopiere die eigentliche Nachricht nach message
+				message->octets= (char*) malloc ((message->noctets+1)*sizeof(char));
+				if (message->octets==NULL)
+				{
+					theApp.SecudeLib.aux_free_OctetString(&help);
+					return 5; // Fehlerhafte Speicherallokation
+				}
+				for (k=0; k<((int)message->noctets); k++)
+				{
+					message->octets[k]=fileocts->octets[k];
+				}
+				theApp.SecudeLib.aux_free_OctetString(&fileocts);// fileocts wird nicht mehr benötigt
 			}
-			filename = temp_ptr;
-			delete temp_ptr;
-			
-			zugross=true; // zugross == true: Nachricht wurde aus Datei gelesen
-			
-			// message->octets mit Octets der eigentlich Signierten Nachricht belegen
-			free (message->octets); // bisherigen Speicher freigeben
-			message->noctets=fileocts->noctets;
-			// Kopiere die eigentliche Nachricht nach message
-			message->octets= (char*) malloc ((message->noctets+1)*sizeof(char));
-			if (message->octets==NULL)
-			{
-				theApp.SecudeLib.aux_free_OctetString(&help);
-				return 5; // Fehlerhafte Speicherallokation
-			}
-			for (k=0; k<((int)message->noctets); k++)
-			{
-				message->octets[k]=fileocts->octets[k];
-			}
-			theApp.SecudeLib.aux_free_OctetString(&fileocts);// fileocts wird nicht mehr benötigt
 		}
 	}
-	
-	// help->octets* enthält die Daten des aktiven Dokuments; 
-	// nun wird der Inhalt des aktiven Dokuments ab dem ersten Vorkomen von 'Verfahren'
-	// in den CString data_string abgelegt
-	// (ab help->octets[IndVonSigLen] gibt es keine echten OctetStrings in help*, so dass man
-	// die Daten ab help->octets[IndVonSigLen] gefahrlos in einen CString schreiben kann).
-	//
-	// Obige Bemerkung ist nicht richtig, falls man die Ausgabe einer RSA/DSA-Signatur signiert!
-	// Dann treten NACH dem ersten Vorkommen vom String "Nachricht" weitere echte OctetStrings in help* auf.
-	// Im folgenden soll in CString data_string folgendes gespeichert werden:
-	
-	/*	Signaturlänge:
-	<Daten>
-	
-	  Verfahren:
-	  <Daten>
-	  
-		Hashfunktion:
-		<Daten>
-		
-		  Schlüssel:
-		  <Daten>
-		  
-			Nachricht:					
-	*/
-	// Bem.: In den entsprechenden <Daten> sind keine Sonderzeichen enthalten. so dass CString
-	// gefahrlos benutzt werden kann.
-	CString data_string(&help->octets[IndVonSigLen], IndVonN-IndVonSigLen);
-	
-	// Suche den Substring "Verfahren:"
-	// lade String IDS_STRING_ASYMKEY_METHOD aus der Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int indVerf
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_METHOD,pc_str,1000);
-	int indVerf = data_string.Find(pc_str);
-	if (indVerf==-1)
-	{ 
-		// der gesuchte String wurde nicht gefunden
-		// Freigeben von dynamisch angelegtem Speicher
-		theApp.SecudeLib.aux_free_OctetString(&help);
-		return -3;
-	}
-	
-	// Suche den Substring "Hashfunktion:"
-	// lade String IDS_STRING_ASYMKEY_SELECT_HASH_METHOD aus der Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int indHash
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_SELECT_HASH_METHOD,pc_str,1000);
-	int indHash = data_string.Find(pc_str);
-	if (indHash==-1)
-	{ 
-		// der gesuchte String wurde nicht gefunden
-		// Freigeben von dynamisch angelegtem Speicher
-		theApp.SecudeLib.aux_free_OctetString(&help);
-		return -4;
-	}
-	
-	// Suche den Substring "Schlüssel:"
-	// lade String IDS_STRING_KEY aus der Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int indSchlBezigLen
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY,pc_str,1000);
-	int indSchlBez = data_string.Find(pc_str);
-	if (indSchlBez==-1)
-	{ 
-		// der gesuchte String wurde nicht gefunden
-		// Freigeben von dynamisch angelegtem Speicher
-		theApp.SecudeLib.aux_free_OctetString(&help);
-		return -5;
-	}
-	
-	// Suche den Substring "Nachricht:"
-	// lade String IDS_STRING_ASYMKEY_MESSAGE aus der Stringtabelle nach pc_str
-	// und merke den Index des Begins dieses Strings in int indN;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MESSAGE,pc_str,1000);
-	int indN = data_string.Find(pc_str);
-	if (indN==-1)
-	{ 
-		// der gesuchte String wurde nicht gefunden
-		// Freigeben von dynamisch angelegtem Speicher
-		theApp.SecudeLib.aux_free_OctetString(&help);
-		return -6;
-	}
-	
-	// Ermittele das benutzte (Signatur-)Verfahren und die benutzte Hashfunktion
-	SigAlg  = data_string.Mid(indVerf+32, indHash-(indVerf+32));
-	SigAlg.TrimLeft();
-	SigAlg.TrimRight();
-	
-	HashAlg = data_string.Mid(indHash+32, indSchlBez-(indHash+32));
-	HashAlg.TrimLeft();
-	HashAlg.TrimRight();
-	
-	// Ermittele den benutzten Schlüsselbezeichner
-	UserKeyId = data_string.Mid(indSchlBez+32, indN-(indSchlBez+32));
-	UserKeyId.TrimLeft();
-	UserKeyId.TrimRight();
-	
-	// Ermittele die Länge der Signatur in bits
-	CString signlenStr = data_string.Mid(16, indVerf-16);
-	signlenStr.TrimLeft();
-	signlenStr.TrimRight();
-	LPTSTR siglgth = new TCHAR[signlenStr.GetLength()+1];
-	_tcscpy(siglgth, signlenStr);
-	*SignLength = atoi(siglgth); // ascii to int Konvertierung, *SignLength ist die Bitlänge der Sign.
-	delete siglgth;
-	
+
+	// extract the signature
 	if ( (SigAlg == "ECSP-DSA") || (SigAlg == "ECSP-NR") )
 	{
 		// EC-Signatur wurde zum signieren benutzt
-		
 		SignType = EC_SIGN;
 		
 		Signatur->signature.bits = NULL; // Signatur->signature.bits wird nur bei DSA/RSA Sign. benutzt
@@ -1194,7 +1121,7 @@ Dies Daten müssen folgende Struktur haben:
 		// Diese Zahlen werden nun aus dem Signaturausgabefenster ermittelt
 		// und in den Variablen c_str und d_str abgespeichert
 		
-		CString sign_string(&help->octets[0], IndVonSigLen);
+		CString sign_string(&help->octets[0], start);
 		
 		int cpos = sign_string.Find("[c=]");
 		int dpos = sign_string.Find("[d=]");
@@ -1208,7 +1135,7 @@ Dies Daten müssen folgende Struktur haben:
 		}
 		
 		// extrahiere die beiden (Dezimal-)Zahlen c_str und d_str
-		CString c_str = sign_string.Mid(cpos+4, dpos-20);
+		CString c_str = sign_string.Mid(cpos+4, dpos-cpos-4);
 		CString d_str = sign_string.Mid(dpos+4);
 		
 		c_str.TrimLeft(); // linke Leerzeichen löschen
@@ -1220,31 +1147,6 @@ Dies Daten müssen folgende Struktur haben:
 		string_to_ln (c_str, c);
 		string_to_ln (d_str, d);
 		
-		/******** Umwandeln von c_str und d_str nach LN_NUMBERs *******
-		/******** Möglichkeit 2 (umständlich):
-		// CString c_str nach OctetString cOctStr umwandeln
-		OctetString cOctStr;
-		cOctStr.noctets=(c_str.GetLength());
-		cOctStr.octets= (char*) malloc ((c_str.GetLength()+1)*sizeof(char));
-		if (cOctStr.octets==NULL) return; // error. keine Speicherallokation
-		for (k=0; k<(c_str.GetLength()); k++){
-		cOctStr.octets[k]=c_str[k];
-		}
-		// CString d_str nach OctetString dOctStr umwandeln
-		OctetString dOctStr;
-		dOctStr.noctets=(d_str.GetLength());
-		dOctStr.octets= (char*) malloc ((d_str.GetLength()+1)*sizeof(char));
-		if (dOctStr.octets==NULL) return; // error. keine Speicherallokation
-		for (k=0; k<(d_str.GetLength()); k++){
-		dOctStr.octets[k]=d_str[k];
-		}
-		
-		  theApp.SecudeLib.aux_OctetString2LN2(c, &cOctStr); // OctetString cOctStr nach L_NUMBER c wandeln
-		  theApp.SecudeLib.aux_OctetString2LN2(d, &dOctStr); // OctetString dOctStr nach L_NUMBER d wandeln
-		  
-			free (cOctStr.octets); // dynamischen Speicher freigeben
-			free (dOctStr.octets); // dynamischen Speicher freigeben
-		*/
 	}
 	else if ( (SigAlg == "DSA") || (SigAlg == "RSA") )
 	{
@@ -1270,10 +1172,8 @@ Dies Daten müssen folgende Struktur haben:
 			return 3;
 		}
 		help2.noctets = SigLengthInOcts; 
-		for (k=0; k<SigLengthInOcts; k++)
-		{
-			help2.octets[k] = help->octets[k+16]; // Signaturdaten beginnen bei help->octets[16]
-		}
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE,pc_str,1000);
+		memcpy(help2.octets, help->octets+strlen(pc_str), SigLengthInOcts); 
 		
 		// "Kopieren" der Signaturdaten nach Signatur
 		Signatur->signature.nbits=(*SignLength);
@@ -1291,6 +1191,13 @@ Dies Daten müssen folgende Struktur haben:
 	return SignType;
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+//
 /* 
 Funktion zum Verifizieren von digitalen Signaturen.
 Dabei wird vorausgesetzt, daß die Signatur, das verwendete Verfahren und die

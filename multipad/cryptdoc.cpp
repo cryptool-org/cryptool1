@@ -218,6 +218,14 @@ void CCryptDoc::OnCloseDocument()
 BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName) 
 {
     GetTmpName(ContentName,"cry",".org");
+	if ( -1 == _access( lpszPathName, 0 ) )
+	{
+        remove(ContentName);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_FILEOPENERROR ,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERROR,pc_str1,STR_LAENGE_STRING_TABLE);
+		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
+		return FALSE;
+	}
     if(!FileCpy(ContentName,lpszPathName,-1)) {
         remove(ContentName);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);

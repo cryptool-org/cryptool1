@@ -536,41 +536,41 @@ void evaluate::eval_product(Big &oldn, Big &n, char op)
 BOOL evaluate::eval()
 {
 	Big oldn[3];
-    	Big n;
-    	int i;
-    	char oldop[3];
-    	char op;
-    	char minus;
-    	for (i=0;i<3;i++)
-    	{
-        	oldop[i]=0;
-    	}
+  	Big n;
+  	int i;
+   	char oldop[3];
+   	char op;
+   	char minus;
+    for (i=0;i<3;i++)
+    {
+        oldop[i]=0;
+    }
 LOOP:
-    	while (*s==' ')
-		s++;
-    	if (*s=='-')    /* Unary minus */
+    while (*s==' ')
+	s++;
+    if (*s=='-')    /* Unary minus */
 	{
 		s++;
 		minus=1;
 	}
-    	else
-	    minus=0;
-    	while (*s==' ')
-		s++;
-    	if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
+    else
+	minus=0;
+    while (*s==' ')
+	s++;
+    if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
 	{
 		s++;
 		eval ();
 		n=temp;
 	}
-    	else            /* Number is decimal value */
-    	{
-    		for (i=0;s[i]>='0' && s[i]<='9';i++)
-           	;
+    else            /* Number is decimal value */
+    {
+    	for (i=0;s[i]>='0' && s[i]<='9';i++)
+        ;
 		if (!i)         /* No digits found */
 		{
-//			Error - invalid number
-			return(false);
+	//			Error - invalid number
+				return(false);
 		}
 		op=s[i];
 		s[i]=0;
@@ -579,20 +579,20 @@ LOOP:
 		s+=i;
 		*s=op;
 	}
-    	if (minus) n=-n;
-    	do
-		op=*s++;
-		while (op==' ');
-    		if (op==0 || op==')' || op==']' || op=='}')
-		{
-			eval_power (oldn[2],n,oldop[2]);
-			eval_product (oldn[1],n,oldop[1]);
-			eval_sum (oldn[0],n,oldop[0]);
-			temp=n;
-			return(true);
-		}
-    	else
-    	{
+    if (minus) n=-n;
+    do
+	op=*s++;
+	while (op==' ');
+    	if (op==0 || op==')' || op==']' || op=='}')
+	{
+		eval_power (oldn[2],n,oldop[2]);
+		eval_product (oldn[1],n,oldop[1]);
+		eval_sum (oldn[0],n,oldop[0]);
+		temp=n;
+		return(true);
+	}
+    else
+    {
 		if (op==RAISE)
 		{
 			eval_power (oldn[2],n,oldop[2]);
