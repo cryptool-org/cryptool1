@@ -7,9 +7,8 @@
 #include "FileTools.h"
 #include "DlgSignature.h"
 #include "DlgDemoRSAKeyGeneration.h"
-#include "DlgSelHash.h"
 #include "DlgCertificateGeneration.h"
-//#include "AsymmetricEncryption"
+#include "DlgSelHash.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -23,12 +22,9 @@ static char THIS_FILE[] = __FILE__;
 
 CDlgSignatureDemo::CDlgSignatureDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSignatureDemo::IDD, pParent),
-  m_nIDHash(0), 
   m_nCols(16),
   m_Message(0),
-  m_Signature(0),
   m_NewDoc(0),  
-  m_SignText(0),
   m_bUpdateHsh(TRUE),
   m_bUpdateEnc(TRUE),
   m_bUpdateSgn(TRUE),
@@ -41,19 +37,18 @@ CDlgSignatureDemo::CDlgSignatureDemo(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 
 	m_Cert = new CPSEDemo;
-	m_osHash=0;
-	m_osHashEnc = 0;
+	
+	memset(&m_osHash, 0, sizeof(OctetString));
+	memset(&m_osHashDER, 0, sizeof(OctetString));
+	memset(&m_osHashEnc, 0, sizeof(OctetString));
+	memset(&m_SignText, 0, sizeof(OctetString));
 }
 
 CDlgSignatureDemo::~CDlgSignatureDemo()
 {
 	delete m_Cert;
-
-	//if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
 	theApp.SecudeLib.aux_free_OctetString(&m_Message);
-	if(m_SignText) delete[] m_SignText->octets;
-	delete   m_SignText;
-	m_SignText = 0;
+	delete[] m_SignText.octets;	
 }
 
 
@@ -101,9 +96,8 @@ BOOL CDlgSignatureDemo::OnInitDialog()
 	m_DisplayInfoCtrl.SetFont(&m_Font1);
 	
 	// BitmapButtons laden:
-	VERIFY(m_ButtonSelectDoc.AutoLoad(IDC_SELECT_DOCUMENT, this));
-	
-	VERIFY(m_ButtonInfoDoc.AutoLoad(IDC_INFO_DOCUMENT,this));
+	m_ButtonSelectDoc.AutoLoad(IDC_SELECT_DOCUMENT, this);	
+	m_ButtonInfoDoc.AutoLoad(IDC_INFO_DOCUMENT,this);
 
 	EnableButtons(); // Bitmap-Butttons ein/ausblenden
 
@@ -139,7 +133,7 @@ void CDlgSignatureDemo::OnSelectDocument()
 		if( !doc->GetFileName().IsEmpty() )
 		{   // Dateiinhalt in die Variable m_Message einlesen
 			theApp.SecudeLib.aux_free_OctetString(&m_Message);
-			m_Message=theApp.SecudeLib.aux_file2OctetString(m_sPathName);
+			m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName);
 		}
 		EnableButtons(); // Bitmap-Butttons ein/ausblenden
 	}	
@@ -150,7 +144,7 @@ BOOL CDlgSignatureDemo::InitDocument(const char *infile, const char* OldTitle)
 {
 	m_sFileName = OldTitle;
 	m_sPathName = infile;
-	if(m_Message=theApp.SecudeLib.aux_file2OctetString(m_sPathName)) return TRUE;
+	if(m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName)) return TRUE;
 
 	return FALSE;	
 }
@@ -164,10 +158,7 @@ void CDlgSignatureDemo::OnInfoDocument()
 
 	char *msgdata = new char[destSize+1];
 
-	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_Message->octets), srcSize, m_nCols))
-	{
-		//FEHLER xxxxxxxxxxxxx MARKSSSS
-	}
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_Message->octets), srcSize, m_nCols)) return;
 	
 	UpdateData(TRUE);
 	m_DisplayContent.LoadString(IDS_CONTENT_DOCUMENT);
@@ -176,7 +167,6 @@ void CDlgSignatureDemo::OnInfoDocument()
 	UpdateData(FALSE);	
 	
 	delete[] msgdata;
-
 }
 
 
@@ -245,26 +235,24 @@ void CDlgSignatureDemo::EnableButtons()
 	{
 		m_ButtonInfoDoc.EnableWindow(TRUE);
 		m_ButtonSelectDoc.LoadBitmaps("OPNDOC_T_U", "OPNDOC_T_D", "OPNDOC_T_F", "OPNDOC_D");
-		CWnd* hFocus = m_ButtonSelectDoc.GetFocus();
+		m_hFocus = m_ButtonSelectDoc.GetFocus();
 		m_ButtonSelectDoc.ShowWindow(SW_HIDE);
 		m_ButtonSelectDoc.ShowWindow(SW_SHOW);
-		if(hFocus->GetSafeHwnd() == m_ButtonSelectDoc.GetSafeHwnd())  m_ButtonSelectDoc.SetFocus();
-		
-	
+		if(m_hFocus->GetSafeHwnd() == m_ButtonSelectDoc.GetSafeHwnd())  m_ButtonSelectDoc.SetFocus();	
 	}
 	else
 	{
 		m_ButtonInfoDoc.EnableWindow(FALSE);
 		m_ButtonSelectDoc.LoadBitmaps("OPNDOC_F_U", "OPNDOC_F_D", "OPNDOC_F_F", "OPNDOC_D");
-		CWnd* hFocus = m_ButtonSelectDoc.GetFocus();
+		m_hFocus = m_ButtonSelectDoc.GetFocus();
 		m_ButtonSelectDoc.ShowWindow(SW_HIDE);
 		m_ButtonSelectDoc.ShowWindow(SW_SHOW);
 		m_ButtonSelectDoc.SetFocus();
-		if(hFocus->GetSafeHwnd() == m_ButtonSelectDoc.GetSafeHwnd())  m_ButtonSelectDoc.SetFocus();
+		if(m_hFocus->GetSafeHwnd() == m_ButtonSelectDoc.GetSafeHwnd())  m_ButtonSelectDoc.SetFocus();
 	}
 
 	// Info Hash Algorithmus
-	if( m_nIDHash )
+	if( !m_Cert->GetHashAlg().IsEmpty() )
 	{}
 	else
 	{}
@@ -276,13 +264,13 @@ void CDlgSignatureDemo::EnableButtons()
 	{}
 
 	// Info Hashwert
-	if( m_osHash && !m_bUpdateHsh )
+	if( m_osHash.noctets && !m_bUpdateHsh )
 	{}
 	else
 	{}
 
 	// Info  verschlüsselter Hashwert
-	if( m_osHashEnc && !m_bUpdateEnc )
+	if( m_osHashEnc.noctets && !m_bUpdateEnc )
 	{}
 	else
 	{}
@@ -296,13 +284,13 @@ void CDlgSignatureDemo::EnableButtons()
 	*/
 
 	// Hashwert berechnen
-	if( m_Message && m_nIDHash )
+	if( m_Message && !m_Cert->GetHashAlg().IsEmpty() )
 	{}
 	else
 	{}
 
 	// Hashwert verschlüsseln
-	if( m_Cert->IsInitialized() && m_osHash && !m_bUpdateHsh )
+	if( m_Cert->IsInitialized() && m_osHash.noctets && !m_bUpdateHsh )
 	{}
 	else
 	{}
@@ -318,27 +306,18 @@ void CDlgSignatureDemo::EnableButtons()
 }
 
 void CDlgSignatureDemo::OnSelectHashAlg() 
-{		
+{	
 	CDlgSelHash* HashDialog;
 	HashDialog = new CDlgSelHash(this);
 
-	HashDialog->InitHashID(m_nIDHash);
+	HashDialog->m_sHashAlg = m_Cert->GetHashAlg();
 	HashDialog->DoModal();
-	if(m_nIDHash != HashDialog->GetHashID())
+	if(m_Cert->GetHashAlg() != HashDialog->m_sHashAlg)
 	{
 		m_bUpdateHsh = TRUE;
 		m_bUpdateEnc = TRUE;
 		m_bUpdateSgn = TRUE;
-		m_nIDHash = HashDialog->GetHashID();
-		switch( m_nIDHash ) 
-		{
-			case IDC_MD2:		m_Cert->SetHashAlg(static_cast<CString>("MD2"));		break;
-			case IDC_MD5:		m_Cert->SetHashAlg(static_cast<CString>("MD5"));		break;
-			case IDC_SHA:		m_Cert->SetHashAlg(static_cast<CString>("SHA"));		break;
-			case IDC_SHA_1:		m_Cert->SetHashAlg(static_cast<CString>("SHA-1"));		break;
-			case IDC_RIPEMD160: m_Cert->SetHashAlg(static_cast<CString>("RIPEMD-160"));	break;
-			default:			m_Cert->SetHashAlg(static_cast<CString>(""));
-		}
+		m_Cert->SetHashAlg(HashDialog->m_sHashAlg);
 		EnableButtons();
 	}	
 	delete HashDialog;	
@@ -348,149 +327,112 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 
 void CDlgSignatureDemo::OnCompute() 
 {
-	if(m_sPathName.IsEmpty()) return;
+	if(!m_Message) return;
 
-	if(!(m_osHash = new OctetString)) return;
-	
-   
-	switch (m_nIDHash)
-	{
-		case IDC_MD2:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash, theApp.SecudeLib.md2_aid, NULL);
-			break;
-		case IDC_MD4:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.md4_aid,NULL);
-			break;
-		case IDC_MD5:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.md5_aid,NULL);
-			break;
-		case IDC_SHA:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.sha_aid,NULL);
-			break;
-		case IDC_SHA_1:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.sha1_aid,NULL);
-			break;
-		case IDC_RIPEMD160:
-			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.ripemd160_aid,NULL);
-			break;
-	}
+	//free (m_osHash.octets);
+	m_Cert->HashAll(*m_Message, m_osHash);
+	if(!m_osHash.noctets) return;
+
 	m_bUpdateHsh = FALSE;		
 	EnableButtons();
 }
 
 void CDlgSignatureDemo::OnInfoHash() 
 {
-	if (!m_osHash || m_bUpdateHsh) return;
-	
-	int srcSize = m_osHash->noctets;
-	//OctetString msgdata;
-
-	/*if (!HexDumpOct(msgdata, m_osHash, m_nCols))
-	{
-		//FEHLER
-		return;
-	}*/
-
-	
+	if (!m_osHash.noctets || m_bUpdateHsh) return;	
+		
 	UpdateData(TRUE);
-	dataToHexDump(m_osHash->octets, m_osHash->noctets, m_DisplayInfo); /*FIXME*/
-	//m_DisplayInfo = static_cast<CString>(msgdata);
+	int srcSize = m_osHash.noctets;
+	dataToHexDump(m_osHash.octets, m_osHash.noctets, m_DisplayInfo); /*FIXME*/
 	m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
 	UpdateData(FALSE);
-
-	//delete[] msgdata.octets;
-	
 }
 
 void CDlgSignatureDemo::OnEncrypt() 
 {
-	if(!m_osHash) return;
+	if(!m_osHash.noctets) return;
 
-	OctetString* osHashDER = new OctetString;
-
-	if(!osHashDER) return;
-	memset(osHashDER, 0, sizeof(OctetString));
-
-	if(!m_Cert->Encode(*m_osHash, *osHashDER)) return;
-
-	/**********************************************/
-
-	int srcSize = osHashDER->noctets;
-	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
-	char *msgdata = new char[destSize+1];
-	HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(osHashDER->octets), srcSize, m_nCols);
-	UpdateData(TRUE);
-	m_DisplayInfo = static_cast<CString>(msgdata);
-	UpdateData(FALSE);
-
-
-	/**********************************************/
-
+	memset(&m_osHashDER, 0, sizeof(OctetString));
+	if(!m_Cert->Encode(m_osHash, m_osHashDER)) return;
 	Big C, N, p, D, e;
 	if(!m_Cert->GetParameter(N, p, e, D)) return;		
-	Big Hash = from_binary(osHashDER->noctets, osHashDER->octets);
-
-	/*
-	OctetString* osHashAlg;
-	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2_aid);
-	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRSASignature_aid);
-	//osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRsa_aid);
-	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRsaEncryption_aid);	
-	*/
-
+	Big Hash = from_binary(m_osHashDER.noctets, m_osHashDER.octets);
+	//free (osHashDER.octets);
 	Hash %= N;
 	C = pow(Hash, D, N);
-	if(m_osHashEnc)
+
+	delete[] m_osHashEnc.octets;
+	memset(&m_osHashEnc, 0, sizeof(OctetString));	
+	OctetString osC;
+	osC.noctets = (bits(C)+7)/8;	
+	osC.octets = new char[osC.noctets];
+	to_binary(C, osC.noctets, osC.octets);
+	m_osHashEnc.noctets = (bits(N)+7)/8 - osC.noctets;
+	if(m_osHashEnc.noctets) 
 	{
-		if (m_osHashEnc->octets) delete[] m_osHashEnc->octets;
+		m_osHashEnc.octets = new char[m_osHashEnc.noctets];
+		memset(m_osHashEnc.octets, 0, m_osHashEnc.noctets);
 	}
-	delete m_osHashEnc;
-	m_osHashEnc = new OctetString;
-	memset(m_osHashEnc, 0, sizeof(OctetString));
-	OctetString* osC = new OctetString;
-
-	osC->noctets = (bits(C)+7)/8;	
-	osC->octets = new char[osC->noctets];
-	to_binary(C, osC->noctets, osC->octets);
-
-
-	m_osHashEnc->noctets = (bits(N)+7)/8 - osC->noctets;
-	if(m_osHashEnc->noctets) 
-	{
-		m_osHashEnc->octets = new char[m_osHashEnc->noctets];
-		memset(m_osHashEnc->octets, 0, m_osHashEnc->noctets);
-	}
-	Add2OString(m_osHashEnc, osC->octets, osC->noctets);
-	delete[] osC->octets;
-	delete osC;
+	Add2OString(&m_osHashEnc, osC.octets, osC.noctets);
+	delete[] osC.octets;
 	
 	m_bUpdateEnc = FALSE; 
-	//EnableButtons();
+	EnableButtons();
 }
 
 void CDlgSignatureDemo::OnInfoHashEnc() 
 {
-	if (!m_osHashEnc || m_bUpdateEnc) return;
+	if (!m_osHashEnc.noctets || m_bUpdateEnc) return;
+
+	CString Text;
+	CString Encoding;
+	CString Padding;
+	CString Hash;
+	CString HashDER;
+	CString HashEnc;
+	OctetString DER_Encoding;
+	memset(&DER_Encoding, 0, sizeof(OctetString));
+	m_Cert->GetDER_Encoding(DER_Encoding);
+	dataToHexDump(DER_Encoding.octets, DER_Encoding.noctets, Encoding);
+	dataToHexDump(m_osHashDER.octets, strlen(m_osHashDER.octets)+1, Padding);
+	dataToHexDump(m_osHash.octets, m_osHash.noctets, Hash);
+	dataToHexDump(m_osHashDER.octets, m_osHashDER.noctets, HashDER);
+	dataToHexDump(m_osHashEnc.octets, m_osHashEnc.noctets, HashEnc);
 	
-	int srcSize = m_osHashEnc->noctets;
+
+	UpdateData(TRUE);
+	m_DisplayInfo.Empty();
+	m_DisplayContent.LoadString(IDS_CONTENT_ALG);
+	Text.Format(IDS_PADDING, Padding);
+	m_DisplayInfo += Text;
+	Text.Format(IDS_DERCODE, Encoding);
+	m_DisplayInfo += Text;
+	Text.Format(IDS_HASHVALUE, Hash);
+	m_DisplayInfo += Text+"\r\n";
+	Text.Format(IDS_HASHDER, HashDER);
+	m_DisplayInfo += Text;
+	Text.Format(IDS_BITLENGTH, m_osHashDER.noctets*8);
+	m_DisplayInfo += Text+"\r\n";
+	Text.Format(IDS_HASHENC, HashEnc);
+	m_DisplayInfo += Text;
+	Text.Format(IDS_BITLENGTH, m_osHashEnc.noctets*8);
+	m_DisplayInfo += Text+"\r\n";
+	UpdateData(FALSE);
+	delete[] DER_Encoding.octets;
+
+	/*
+	int srcSize = m_osHashEnc.noctets;
 	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
-
-
 	char *msgdata = new char[destSize+1];
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc.octets), srcSize, m_nCols)) return;
 
-	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc->octets), srcSize, m_nCols))
-	{
-		//FEHLER
-		return;
-	}
-	
 	UpdateData(TRUE);
 	m_DisplayInfo = static_cast<CString>(msgdata);
 	m_DisplayContent.Format(IDS_STRING_ENC_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
 	UpdateData(FALSE);	
 	
 	delete[] msgdata;
-	
+	*/
 }
 
 void CDlgSignatureDemo::OnSelectCert() 
@@ -511,55 +453,59 @@ void CDlgSignatureDemo::OnSelectCert()
 		EnableButtons();
 	}
 
-	delete CertDialog;
-
-	
+	delete CertDialog;	
 }
 
 void CDlgSignatureDemo::OnInfoAlg() 
 {
 	if(m_Cert->GetHashAlg().IsEmpty()) return;
 
+	CString Text;
+	CString Encoding;
+	OctetString DER_Encoding;
+	memset(&DER_Encoding, 0, sizeof(OctetString));
+	m_Cert->GetDER_Encoding(DER_Encoding);
+	dataToHexDump(DER_Encoding.octets, DER_Encoding.noctets, Encoding);
+	
+
 	UpdateData(TRUE);
+	m_DisplayInfo.Empty();
 	m_DisplayContent.LoadString(IDS_CONTENT_ALG);
-	m_DisplayInfo = m_Cert->GetHashAlg();
+	Text.Format(IDS_NAME2, m_Cert->GetHashAlg(), "");
+	m_DisplayInfo += Text;
+	Text.Format(IDS_BITLENGTH, m_Cert->GetHashLength());
+	m_DisplayInfo += Text;
+	Text.Format(IDS_DERCODE, Encoding);
+	m_DisplayInfo += Text;
 	UpdateData(FALSE);
+	delete[] DER_Encoding.octets;
 }
 
 void CDlgSignatureDemo::OnCombine() 
 {
-	if(!m_Message->noctets) return;
-	if(m_SignText) delete[] m_SignText->octets;
-	delete   m_SignText;
-	m_SignText = new OctetString;
-	memset(m_SignText, 0, sizeof(OctetString));
-		
+	if(!m_Message || !m_Message->noctets) return;
+	delete[] m_SignText.octets;
+	memset(&m_SignText, 0, sizeof(OctetString));
 	CString UserKeyId, Buffer;
 	m_Cert->GetKeyId(UserKeyId, Buffer);
-	PrintSignature(*m_SignText, *m_osHashEnc, "RSA", m_Cert->GetHashAlg(),UserKeyId);
+	PrintSignature(m_SignText, m_osHashEnc, "RSA", m_Cert->GetHashAlg(),UserKeyId);
 }
 
 void CDlgSignatureDemo::OnOK() 
 {
-	if(m_Message && m_Message->noctets)
+	if(m_Message && m_SignText.noctets)
 	{
 		char outfile[128];
 		CAppDocument* NewDoc;		
 
-		if(m_SignText)
-		{
-			GetTmpName(outfile,"cry",".hex");
-			
-
-			Add2OString(m_SignText, m_Message->octets, m_Message->noctets);
-			theApp.SecudeLib.aux_OctetString2file(m_SignText,outfile,2);
-			NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-			remove(outfile);
-			m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
-			NewDoc->SetTitle(m_sFileNameNew);
-		}
-	}
-	
+		GetTmpName(outfile,"cry",".hex");
+		Add2OString(&m_SignText, m_Message->octets, m_Message->noctets);
+		theApp.SecudeLib.aux_OctetString2file(&m_SignText, outfile,2);
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+		remove(outfile);
+		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
+		NewDoc->SetTitle(m_sFileNameNew);
+	}	
 	CDialog::OnOK();
 }
 
@@ -586,18 +532,10 @@ void CDlgSignatureDemo::OnInfoCert()
 void CDlgSignatureDemo::OnInfoSign() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	int srcSize = m_SignText->noctets;
+	int srcSize = m_SignText.noctets;
 	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
-
-
 	char *msgdata = new char[destSize+1];
-
-	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_SignText->octets), srcSize, m_nCols))
-	{
-		//FEHLER
-		return;
-	}
-
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_SignText.octets), srcSize, m_nCols)) return;
 
 	UpdateData(TRUE);
 	m_DisplayContent.Format(IDS_CONTENT_SIGN, m_Cert->GetHashAlg(), m_sFileName);

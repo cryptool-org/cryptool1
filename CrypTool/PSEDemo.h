@@ -1,4 +1,4 @@
-// TutorialCert.h: Schnittstelle für die Klasse CTutorialCert.
+// TutorialCert.h: Schnittstelle für die Klasse CRSADemo.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -40,6 +40,14 @@ public:
 	BOOL NameIsInitialized(){return m_NameIsInitialized;}
 	BOOL PSEIsInitialized(){return m_PSEIsInitialized;}
 	BOOL Encode(const OctetString& hash, OctetString& sign);
+	void HashAll(const OctetString& osMessage, OctetString& osHash);
+	void GetDER_Encoding(OctetString& DER_Encoding){GetDER_Encoding(DER_Encoding, m_sHashAlg);}
+	void GetDER_Encoding(OctetString& DER_Encoding, const CString& sHashAlg);
+	int  GetHashLength(){return GetHashLength(m_sHashAlg);}
+	int  GetHashLength(const CString& sHashAlg);
+	BOOL AccessPSE(){ return AccessPSE(m_sPIN, m_sPseName); }
+	BOOL AccessPSE(const CString& sPIN, const CString& sPseName);
+	BOOL AccessPSE_DLG();
 
 
 protected:

@@ -1,4 +1,4 @@
-// TutorialCert.cpp: Implementierung der Klasse CTutorialCert.
+// TutorialCert.cpp: Implementierung der Klasse CPSEDemo.
 //
 //////////////////////////////////////////////////////////////////////
 #include <time.h>
@@ -10,10 +10,11 @@
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "CrypToolApp.h"
-#include "DialogeMessage.h"
+#include "Cryptography.h"
 #include "secudetools.h"
+#include "DlgRSADecryption.h"
 
-extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus CrypTool.cpp
+extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -215,7 +216,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (!Cert)
 	{
 		// Fehler bei der Zertifikatserzeugung
-		Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1, MB_ICONSTOP);
+		//Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 
 		// Freigeben von dynamisch angelegtem Speicher
@@ -245,7 +246,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (hPSE_CA==NULL)
 	{
 		// Fehler beim Öffnen der CA-PSE
-		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP);
+		//Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove("");
 		// Freigeben von dynamisch angelegtem Speicher
@@ -261,7 +262,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (Cert_CA==NULL)
 	{
 		// Fehler bei der Zertifizierung
-		Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2, MB_ICONSTOP);
+		//Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -275,7 +276,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (theApp.SecudeLib.af_cadb_add_Certificate (hPSE_CA, SIGNATURE, Cert_CA))
 	{
 		// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
+		//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -297,7 +298,7 @@ BOOL CPSEDemo::CreatePSE()
 		if (theApp.SecudeLib.af_pse_update_PKRoot(m_hPSE, pkroot))
 		{
 			// Error writing certificate to the user PSE
-			Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
+			//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 			// Lösche die neu angelegte PSE
 			//remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -318,7 +319,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (theApp.SecudeLib.af_pse_update(m_hPSE, "Cert", Cert_CA, *theApp.SecudeLib.Cert_OID))
 	{
 		// Error writing certificate to the user PSE
-		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
+		//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -436,7 +437,7 @@ CString CPSEDemo::GetCert()
 	if (hPSE_CA==NULL)
 	{
 		// Fehler beim öffnen der CA-Datenbank
-		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+		//Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT); /*FIXME*/
 		// Freigeben von dynamisch angelegtem Speicher
 
 		return m_sCert;
@@ -542,7 +543,11 @@ BOOL CPSEDemo::EMSA_PKCS1_v1_5_ENCODE(OctetString& EM, const OctetString& H)
 	delete[] m_DER_Encoding.octets;
 	memset(&m_DER_Encoding, 0, sizeof(OctetString));
 	unsigned i;
+	
+	GetDER_Encoding(m_DER_Encoding);
+	if(!m_DER_Encoding.noctets) return FALSE;
 
+	/*
 	if(m_sHashAlg=="MD2")
 	{
 		m_DER_Encoding.noctets = DER_MD2_SIZE;
@@ -574,6 +579,7 @@ BOOL CPSEDemo::EMSA_PKCS1_v1_5_ENCODE(OctetString& EM, const OctetString& H)
 		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_RIPEMD160[i];
 	}
 	else return FALSE;
+	*/
 
 	if(EM.noctets < m_DER_Encoding.noctets+10) return FALSE;
 
@@ -588,5 +594,84 @@ BOOL CPSEDemo::EMSA_PKCS1_v1_5_ENCODE(OctetString& EM, const OctetString& H)
 	for(i=0; i < H.noctets; i++, EMptr++) *EMptr = H.octets[i];
 	#pragma warning ( default : 4305 4309 ) 
 
+	return TRUE;
+}
+
+
+void CPSEDemo::HashAll(const OctetString& osMessage, OctetString& osHash)
+{
+	if(m_sHashAlg == "MD2") theApp.SecudeLib.sec_hash_all(const_cast<OctetString*>(&osMessage), &osHash, theApp.SecudeLib.md2_aid, NULL);
+	else if(m_sHashAlg == "MD5") theApp.SecudeLib.sec_hash_all(const_cast<OctetString*>(&osMessage), &osHash, theApp.SecudeLib.md5_aid, NULL);
+	else if(m_sHashAlg == "SHA") theApp.SecudeLib.sec_hash_all(const_cast<OctetString*>(&osMessage), &osHash, theApp.SecudeLib.sha_aid, NULL);
+	else if(m_sHashAlg == "SHA-1") theApp.SecudeLib.sec_hash_all(const_cast<OctetString*>(&osMessage), &osHash, theApp.SecudeLib.sha1_aid, NULL);
+	else if(m_sHashAlg == "RIPEMD-160") theApp.SecudeLib.sec_hash_all(const_cast<OctetString*>(&osMessage), &osHash, theApp.SecudeLib.ripemd160_aid, NULL);
+	else memset(&osHash, 0, sizeof(OctetString));
+}
+
+
+
+void CPSEDemo::GetDER_Encoding(OctetString& DER_Encoding, const CString& sHashAlg)
+{
+	unsigned int i;
+	if(sHashAlg=="MD2")
+	{
+		DER_Encoding.noctets = DER_MD2_SIZE;
+		DER_Encoding.octets = new char[DER_Encoding.noctets];
+		for(i=0; i<DER_Encoding.noctets; i++) DER_Encoding.octets[i] = DER_MD2[i];
+	} 
+	else if(sHashAlg=="MD5")
+	{
+		DER_Encoding.noctets = DER_MD5_SIZE;
+		DER_Encoding.octets = new char[DER_Encoding.noctets];
+		for(i=0; i<DER_Encoding.noctets; i++) DER_Encoding.octets[i] = DER_MD5[i];
+	} 
+	else if(sHashAlg=="SHA")
+	{
+			DER_Encoding.noctets = DER_SHA_SIZE;
+		DER_Encoding.octets = new char[DER_Encoding.noctets];
+		for(i=0; i<DER_Encoding.noctets; i++) DER_Encoding.octets[i] = DER_SHA[i];
+	}
+	else if(sHashAlg=="SHA-1")
+	{
+		DER_Encoding.noctets = DER_SHA1_SIZE;
+		DER_Encoding.octets = new char[DER_Encoding.noctets];
+		for(i=0; i<DER_Encoding.noctets; i++) DER_Encoding.octets[i] = DER_SHA1[i];
+	} 
+	else if(sHashAlg=="RIPEMD-160")
+	{
+		DER_Encoding.noctets = DER_RIPEMD160_SIZE;
+		DER_Encoding.octets = new char[DER_Encoding.noctets];
+		for(i=0; i<DER_Encoding.noctets; i++) DER_Encoding.octets[i] = DER_RIPEMD160[i];
+	}
+	else memset(&DER_Encoding, 0, sizeof(OctetString));
+}
+
+int CPSEDemo::GetHashLength(const CString& sHashAlg)
+{
+	if(sHashAlg=="MD2") return 128;
+	if(sHashAlg=="MD5") return 128;
+	if(sHashAlg=="SHA")  return 160;
+	if(sHashAlg=="SHA-1")  return 160;
+	if(sHashAlg=="RIPEMD-160")  return 160;
+	return 0;
+}
+
+BOOL CPSEDemo::AccessPSE(const CString& sPIN, const CString& sPseName)
+{
+	return TRUE;
+}
+
+BOOL CPSEDemo::AccessPSE_DLG()
+{
+	CDlgRSADecryption DlgPSE;
+
+	DlgPSE.m_sDialogText = "FIXME";
+	DlgPSE.m_sCancelText = "FIXME";
+	DlgPSE.m_sOKText = "FIXME";
+	DlgPSE.m_bHideDuration = TRUE;
+	if(DlgPSE.DoModal()==IDOK)
+	{
+		
+	}
 	return TRUE;
 }

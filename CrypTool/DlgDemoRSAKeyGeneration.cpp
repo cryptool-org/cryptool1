@@ -7,6 +7,8 @@
 #include "DlgPrimesGeneratorDemo.h"
 #include "KeyRepository.h"
 #include "IntegerArithmetic.h"
+#include "DialogeMessage.h"
+#include "DlgKeyAsymGeneration.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -145,10 +147,10 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 	{
 		m_CheckPrimeCtrl.ShowWindow( SW_HIDE );
 		m_CheckPublicCtrl.ShowWindow( SW_HIDE );
-		m_KeyPublicCtrl.EnableWindow(FALSE); // Eingabe für Public Key verhindern...
-		m_sKeyPrivate.Empty();	// Private Key = ""
-		m_sPhiN.Empty();		// Phi (N) = ""
-		m_sModN.Empty();		// RSA-Modul N = ""
+		m_KeyPublicCtrl.EnableWindow(FALSE); 
+		m_sKeyPrivate.Empty();	
+		m_sPhiN.Empty();	
+		m_sModN.Empty();	
 	}
 	else
 	{
@@ -156,10 +158,10 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 		if( ePrime )
 		{
 			m_CheckPublicCtrl.ShowWindow( SW_HIDE );
-			m_KeyPublicCtrl.EnableWindow( FALSE ); // Eingabe für Public Key verhindern...
-			m_sKeyPrivate.Empty();	// Private Key = ""
-			m_sPhiN.Empty();		// Phi (N) = ""
-			m_sModN.Empty();		// RSA-Modul N = ""
+			m_KeyPublicCtrl.EnableWindow( FALSE ); 
+			m_sKeyPrivate.Empty();	
+			m_sPhiN.Empty();		
+			m_sModN.Empty();		
 			if ( ePrime & ERR_P_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_P );
 			else if ( ePrime & ERR_Q_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_Q );
 			else if ( (ePrime & ERR_PQ_NOT_PRIME) == ERR_PQ_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_PQ );
@@ -208,6 +210,15 @@ void CDlgDemoRSAKeyGeneration::OnOK()
 {
 	UpdateData(TRUE);
 	UpdateData(FALSE);
+
+	if((m_Cert->GetBitLength()<MIN_RSA_MODULSIZE) || (m_Cert->GetBitLength()>MAX_RSA_MODULSIZE))
+	{
+		CString sMsg, sCpt;
+		sMsg.Format(IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH, MIN_RSA_MODULSIZE-1, MAX_RSA_MODULSIZE+1);	
+		sCpt.LoadString(IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT);
+		MessageBox( sMsg, sCpt, MB_ICONWARNING|MB_OK);		
+		return;
+	}
 
 	CDialog::OnOK();
 }

@@ -59,6 +59,7 @@ BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_CERT_NAME, OnChangeEdit)
 	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
 	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
+	ON_BN_CLICKED(ID_PSE_IMPORT, OnPseImport)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -142,4 +143,10 @@ void CDlgCertificateGeneration::OnOK()
 	
 	
 	CDialog::OnOK();
+}
+
+void CDlgCertificateGeneration::OnPseImport() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_Cert->AccessPSE_DLG();
 }

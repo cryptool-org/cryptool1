@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 CDlgSelHash::CDlgSelHash(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgSelHash::IDD, pParent), m_nIDFirst(IDC_MD2), m_nIDLast(IDC_RIPEMD160), m_nIDHash(0)
+	: CDialog(CDlgSelHash::IDD, pParent), m_nIDHash(0)
 {
 	//{{AFX_DATA_INIT(CDlgSelHash)
 		// HINWEIS: Der Klassen-Assistent fügt hier Elementinitialisierung ein
@@ -46,8 +46,13 @@ BOOL CDlgSelHash::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	//if(!m_nIDHash) m_nIDHash = IDC_MD2;
-	CheckRadioButton(m_nIDFirst, m_nIDLast, m_nIDHash);
+	if(m_sHashAlg=="MD2")	m_nIDHash = IDC_MD2;
+	else if(m_sHashAlg=="MD5") m_nIDHash = IDC_MD5;
+	else if(m_sHashAlg=="SHA") m_nIDHash = IDC_SHA;
+	else if(m_sHashAlg=="SHA-1") m_nIDHash = IDC_SHA_1;
+	else if(m_sHashAlg=="RIPEMD-160") m_nIDHash = IDC_RIPEMD160;
+	else m_nIDHash = 0;
+	CheckRadioButton(IDC_MD2, IDC_RIPEMD160, m_nIDHash);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -55,23 +60,16 @@ BOOL CDlgSelHash::OnInitDialog()
 
 void CDlgSelHash::OnOK() 
 {
-	m_nIDHash = GetCheckedRadioButton( m_nIDFirst, m_nIDLast );
+	m_nIDHash = GetCheckedRadioButton( IDC_MD2, IDC_RIPEMD160 );
+	switch(m_nIDHash)
+	{
+		case IDC_MD2: m_sHashAlg = "MD2"; break;
+		case IDC_MD5: m_sHashAlg = "MD5"; break;
+		case IDC_SHA: m_sHashAlg = "SHA"; break;
+		case IDC_SHA_1: m_sHashAlg = "SHA-1"; break;
+		case IDC_RIPEMD160: m_sHashAlg = "RIPEMD-160"; break;
+		default: m_sHashAlg.Empty();
+	}
 
 	CDialog::OnOK();
 }
-
-BOOL CDlgSelHash::InitHashID(int nIDHash)
-{
-	if((nIDHash >= m_nIDFirst) && (nIDHash <= m_nIDLast))
-	{
-		m_nIDHash = nIDHash;
-		return TRUE;
-	}
-	return FALSE;
-}
-
-int CDlgSelHash::GetHashID()
-{
-	return m_nIDHash;	
-}
-

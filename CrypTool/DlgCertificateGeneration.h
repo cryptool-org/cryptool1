@@ -55,6 +55,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnChangeEdit();
 	virtual void OnOK();
+	afx_msg void OnPseImport();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

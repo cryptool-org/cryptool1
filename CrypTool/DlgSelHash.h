@@ -16,8 +16,7 @@ class CDlgSelHash : public CDialog
 public:
 	CDlgSelHash(CWnd* pParent = NULL);   // Standardkonstruktor
 
-	BOOL InitHashID( int nIDHash );
-	int  GetHashID();
+	CString m_sHashAlg;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSelHash)
@@ -35,8 +34,6 @@ public:
 
 // Implementierung
 protected:
-	int m_nIDFirst;
-	int m_nIDLast;
 	int m_nIDHash;
 
 	// Generierte Nachrichtenzuordnungsfunktionen

@@ -6,7 +6,6 @@
 #endif // _MSC_VER > 1000
 // DlgSignTutorial.h : Header-Datei
 //
-
 #include "PSEDemo.h"
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgSignatureDemo 
@@ -26,22 +25,22 @@ protected:
 	CString			m_sPathName;	// Pfadname des Dokuments
 	CString			m_sFileName;	// Titel des Dokuments
 	CString			m_sFileNameNew; // Titel des signierten Dokuments
-	int				m_nIDHash;
 	int				m_nCols;		// Spaltenzahl des Displays
 	CFont			m_Font1;	
 	BOOL			m_bUpdateHsh;
 	BOOL			m_bUpdateEnc;
 	BOOL			m_bUpdateSgn;
 	BOOL			m_bUpdateCrt;
+	OctetString 	m_osHash;
+	OctetString		m_osHashDER;
+	OctetString		m_osHashEnc;
+	OctetString		m_SignText;
 
-	// Zeiger
-	OctetString*	m_osHash;
-	OctetString*	m_osHashEnc;
+	// Zeiger	
 	OctetString*    m_Message;
-	OctetString*	m_Signature;
-	OctetString*	m_SignText;
-	CPSEDemo*	m_Cert;
+	CPSEDemo*		m_Cert;
 	CAppDocument*	m_NewDoc;
+	CWnd*			m_hFocus;
 
 	// Buttons
 	CBitmapButton m_ButtonSelectDoc;
