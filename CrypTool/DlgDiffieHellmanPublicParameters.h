@@ -14,7 +14,8 @@ class CDlgDiffieHellmanPublicParameters : public CDialog
 {
 // Konstruktion
 public:
-	CDlgDiffieHellmanPublicParameters(CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgDiffieHellmanPublicParameters(CWnd* pParent = NULL);				// Standardkonstruktor
+	CDlgDiffieHellmanPublicParameters(std::string,std::string,CWnd* pParent = NULL);	// Zusatzkonstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanPublicParameters)

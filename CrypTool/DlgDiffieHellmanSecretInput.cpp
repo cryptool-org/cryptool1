@@ -64,6 +64,16 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 {
 	UpdateData(true);
 
+	// Keine "leeren" Eingabefelder zulassen
+	if(this->m_Secret.IsEmpty())
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NO_USER_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
+		m_SecretControl.SetFocus();
+		return;
+	}
+	
+	
 	// Fehlermeldung ausgeben, wenn Geheimnis keine Dezimalzahl ist
 	if(!IsDecimalNumber(m_Secret))
 	{
@@ -75,8 +85,8 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 
 	Big S = (char*)(LPCTSTR)this->m_Secret;
 	
-	// Fehlermeldung ausgeben, wenn das Geheimnis kleiner oder gleich Eins ist.
-	if(/*S >= this->m_Prime ||*/ S <= 1)
+	// Fehlermeldung ausgeben, wenn das Geheimnis kleiner Null ist.
+	if(/*S >= this->m_Prime ||*/ S < 0)
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
@@ -89,7 +99,11 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 	if( S == (m_Prime-1) || S == 0 )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_DANGEROUS, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str,"CrypTool",MB_ICONWARNING);
+		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
+		{
+			this->m_SecretControl.SetFocus();
+			return;
+		}
 	}
 
 	CDialog::OnOK();

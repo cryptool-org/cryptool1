@@ -1507,6 +1507,7 @@
 #define IDS_DH_KEY_VERIFICATION_YES     61895
 #define IDS_DH_KEY_VERIFICATION_NO      61896
 #define IDS_DH_PP_SECRET_DANGEROUS      61897
+#define IDS_DH_PP_NO_USER_INPUT         61898
 
 // Next default values for new objects
 // 

@@ -22,7 +22,7 @@ DiffieHellmanParty::DiffieHellmanParty(std::string g, std::string p)throw(DHErro
 	// Primzahl testen
 	if(!prime(Prime) && B_VALID_PRIMES_ONLY) this->ErrorCode |= E_PRIME_INVALID;
 	// Generator testen
-	if(Generator <= 1) this->ErrorCode |= E_GENERATOR_INVALID;
+	if(Generator < 0) this->ErrorCode |= E_GENERATOR_INVALID;
 	// Fehler auswerfen, falls nötig
 	if(this->ErrorCode) throw DHError(this->ErrorCode);
 }
@@ -93,7 +93,7 @@ void DiffieHellmanParty::SetSecret(std::string s)throw(DHError)
 	Secret = (char*)s.c_str();
 	strSecret = s.c_str();
 	// Fehlerflag setzen, falls nötig
-	if((Secret>=Prime && B_SMALL_SECRETS_ONLY) || Secret<=1) this->ErrorCode |= E_SECRET_INVALID;
+	if((Secret>=Prime && B_SMALL_SECRETS_ONLY) || Secret<0) this->ErrorCode |= E_SECRET_INVALID;
 	if(this->ErrorCode) throw DHError(this->ErrorCode);
 	this->bHasSecret = true;
 }

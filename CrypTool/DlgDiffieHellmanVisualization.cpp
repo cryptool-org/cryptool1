@@ -107,12 +107,26 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 	}
 		
 	// Eingabe-Dialog für die öffentlichen Parameter anzeigen
-	CDlgDiffieHellmanPublicParameters dlg2;
-	if(dlg2.DoModal() == IDCANCEL) return;
+	CDlgDiffieHellmanPublicParameters *dlg2;
+	// Falls zuvor bereits Werte für g und p gesetzt wurden, wird der Dialog damit initialisiert
+	if(Alice != NULL && Bob != NULL) 
+		dlg2 = new CDlgDiffieHellmanPublicParameters(Alice->GetStrPrime(), Alice->GetStrGenerator());
+	else
+		dlg2 = new CDlgDiffieHellmanPublicParameters();
+
+	if(dlg2->DoModal() == IDCANCEL)
+	{
+		// Speicher freigeben
+		delete dlg2;
+		return;
+	}
 
 	// Benutzerangaben für g und p aus Eingabe-Dialog übernehmen
-	std::string g = (char*)(LPCTSTR)dlg2.m_Generator;
-	std::string p = (char*)(LPCTSTR)dlg2.m_Prime;
+	std::string g = (char*)(LPCTSTR)dlg2->m_Generator;
+	std::string p = (char*)(LPCTSTR)dlg2->m_Prime;
+
+	// Speicher freigeben
+	delete dlg2;
 
 	try
 	{

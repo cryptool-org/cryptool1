@@ -26,6 +26,14 @@ CDlgDiffieHellmanPublicParameters::CDlgDiffieHellmanPublicParameters(CWnd* pPare
 	//}}AFX_DATA_INIT
 }
 
+CDlgDiffieHellmanPublicParameters::CDlgDiffieHellmanPublicParameters(std::string p,std::string g,CWnd* pParent /*=NULL*/)
+	: CDialog(CDlgDiffieHellmanPublicParameters::IDD, pParent)
+{
+	//{{AFX_DATA_INIT(CDlgDiffieHellmanPublicParameters)
+	m_Generator = g.c_str();
+	m_Prime = p.c_str();
+	//}}AFX_DATA_INIT
+}
 
 void CDlgDiffieHellmanPublicParameters::DoDataExchange(CDataExchange* pDX)
 {
@@ -53,6 +61,15 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 {
 	UpdateData(true);
 	
+	// Keine "leeren" Eingabefelder zulassen
+	if( this->m_Prime.IsEmpty() || this->m_Generator.IsEmpty())
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NO_USER_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
+		m_PrimeControl.SetFocus();
+		return;
+	}
+	
 	// Überprüfungen für Primzahl (p)
 	if( !IsDecimalNumber(m_Prime))
 	{
@@ -75,23 +92,26 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	Big p = (char*)(LPCTSTR)m_Prime;
 
 	// Überprüfungen für Primzahl (p)
-	if( m_Prime.IsEmpty() || !prime(p) )
+	if( !prime(p) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		/*MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_PrimeControl.SetFocus();*/
-		MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION);
-		/*return;*/
+		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
+		{
+			m_PrimeControl.SetFocus();
+			return;
+		}
 	}
 
 	// Überprüfung für Generator (g)
-	if( m_Generator.IsEmpty() || g <= 1 ||  (g%p)==0)
+	if( g < 0 ||  (g%p)==0 || g==(p-1))
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_GENERATOR_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		/*MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_GeneratorControl.SetFocus();*/
-		MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION);
-		/*return;*/
+		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
+		{
+			m_GeneratorControl.SetFocus();
+			return;
+		}
+		
 	}
 
 	UpdateData(false);
