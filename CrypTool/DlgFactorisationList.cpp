@@ -30,6 +30,7 @@ CDlgFactorisationList::CDlgFactorisationList(CWnd* pParent)
 	m_factor1 = _T("");
 	//}}AFX_DATA_INIT
 	List = NULL;
+	b_SaveFactorList = false;
 }
 
 
