@@ -11,27 +11,27 @@
 2 The Analyse Menu=menu_analyze
 2 Obtaining information about the actual file=menu_analyze
 2 CrypTool Help Index=main_index
-2 Zeittafel=menu_zeittafel
-1 Dokument bearbeiten
-2 Neues Dokument erstellen.=HID_FILE_NEW
-2 Bestehendes Dokument öffnen.=HID_FILE_OPEN
-2 Dokument bearbeiten.=HIDR_TEXTTYPE
-2 Dokument speichern.=HID_FILE_SAVE
-2 Dokument unter anderem Namen speichern.=HID_FILE_SAVE_AS
-2 Dokument schließen.=HID_FILE_CLOSE
-1 Einstellungen von CrypTool ändern
-2 Voreinstellungen von CrypTool einstellen.=menu_options
-2 Symbol- oder Statusleiste ein- oder ausschalten.=menu_view
-1 Menüs von CrypTool
-2 Menü Datei=menu_file
-2 Menü Bearbeiten=menu_edit
-2 Menü Ansicht=menu_view
-2 Menü Schlüsselverwaltung=menu_key
-2 Menü Digitale Signaturen=menu_sign
-2 Menü Ver-/Entschlüsseln=menu_crypt
-2 Menü Hashwerte=menu_hash
-2 Menü Komprimieren=menu_compress
-2 Menü Analyse=menu_analyze
-2 Menü Optionen=menu_options
-2 Menü Fenster=menu_window
-2 Menü Hilfe=menu_help
+2 Time table=menu_zeittafel
+1 Work on a document
+2 New document=HID_FILE_NEW
+2 Open an existing document=HID_FILE_OPEN
+2 Edit document=HIDR_TEXTTYPE
+2 Save document=HID_FILE_SAVE
+2 Save document as=HID_FILE_SAVE_AS
+2 Close document=HID_FILE_CLOSE
+1 Change Cryptool options
+2 Select default options=menu_options
+2 Switch on/off symbol or status bar=menu_view
+1 CrypTool Menus
+2 Menu File=menu_file
+2 Menu Edit=menu_edit
+2 Menu View=menu_view
+2 Menu Key Management=menu_key
+2 Menu Digital Signatures=menu_sign
+2 Menu En-/decrypt=menu_crypt
+2 Submenu Hash=menu_hash
+2 Sub Menu Compress=menu_compress
+2 Menu Analysis=menu_analyze
+2 Menu Options=menu_options
+2 Menu Window=menu_window
+2 Menu Help=menu_help

@@ -4819,6 +4819,7 @@ BEGIN
                             "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder Verschlüsseln sie die Eingabe als Text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "Die Eingabe enthält buchstaben, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen Verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
+    IDS_STRING_HELPNAME     "cryptool-de.hlp"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9109,7 +9110,7 @@ BEGIN
                             "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "The input does contain characters which are not in the alphabet set!\nIf you click OK, only characters of the alphabet will be encrypted (the other characters will be erased from the input)."
-    IDS_STRING_HELPNAME     "cryptool.hlp"
+    IDS_STRING_HELPNAME     "cryptool-gb.hlp"
 END
 
 STRINGTABLE DISCARDABLE 

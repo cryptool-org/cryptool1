@@ -175,6 +175,7 @@ HIDD_DIALOG_TIPPS_AND_TRICKS            0x20101
 HIDD_TEST                               0x20104
 HIDD_SHOW_HASH                          0x2010C
 HIDD_DIALOG_PIN_VERIFICATION            0x2010E
+HIDD_PLAYFAIR_TEST                      0x2010F
 HIDD_ABOUTBOX                           0x20200
 HIDD_DIALOG_KEY_CREAT_ASYM              0x20203
 HIDD_DIALOG_KEY_CAESAR                  0x20204
