@@ -243,6 +243,8 @@ CRandomAnalysisTools::~CRandomAnalysisTools()
 	free(result);
 }
 
+
+/*
 int CRandomAnalysisTools::FindPeriod()
 // jetzt die Version von Peer Wichmann (Algorithmus) und Thomas Gauweiler (Algorithmus, Implementierung)
 // Idee:
@@ -256,20 +258,13 @@ int CRandomAnalysisTools::FindPeriod()
 // gesucht. Sobald zwischen beiden Zeigern wieder ungleiche Werte entstehen, ist der Periodenanfang
 // gefunden. Der Status wechselt wieder zu 'keine Periode', der folgende Zeiger springt wieder ans
 // Ende und es wird eine übergeordnete Periode gesucht.
-
-// Jan Blumenstein: diverse Änderungen, da teilweise Perioden nicht erkannt und/oder falsch
-// im Dialog ausgegeben wurden
-
 {
 	int p=0;
 	int search, follow=origlen-1;
 
-
-	for (search=origlen-2; search>=0; search--)
-	{
+	for (search=origlen-2; search>=0; search--){
 		// Fortschrittsanzeige... - aber nur wenn's auch etwas mehr zu tun gibt.
 		if ((origlen > 1000))
-		{
 			if(p<(origlen-search)/(origlen/100))
 			{
 				if(theApp.fs.m_canceled)
@@ -280,68 +275,98 @@ int CRandomAnalysisTools::FindPeriod()
 				p=(origlen-search)/(origlen/100);
 				theApp.fs.Set(p);
 			}
-		}
 
-		if (data[follow] == data[search])
-		{ // wohl innerhalb einer Periode
+		if (data[follow] == data[search]) { // wohl innerhalb einer Periode
 			follow--;
-		}
-		else if (follow < origlen-1)	// wenn follow nicht am Ende ist...
-		{ // zumindest im Periodenverdacht
-			if (origlen-1 - follow >= follow-search)
-			{ // mindestens eine volle Periode
+		} else if (follow < origlen-1) { // zumindest im Periodenverdacht
+			if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
 				if (PA_MAXFOUND <= cnt_periodResults)
-				{
 					return cnt_periodResults;
-				}
-
-				periodResults[cnt_periodResults].length   = follow - search;
-				periodResults[cnt_periodResults].repeated = (origlen - 1 - follow) / (follow - search);
-				periodResults[cnt_periodResults].offset   = origlen - periodResults[cnt_periodResults].length * (periodResults[cnt_periodResults].repeated + 1);
-				int l=(PA_MAXPRINTLENGTH < (follow - search)) ? PA_MAXPRINTLENGTH : (follow - search);
+				periodResults[cnt_periodResults].offset  = search+1;
+				periodResults[cnt_periodResults].length  = follow-search;
+				periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+				int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
 				for (int j=0; j<l; j++)
-				{
-					periodResults[cnt_periodResults].str[j] = data[origlen - follow + search + j];
-				}
+					periodResults[cnt_periodResults].str[j] = data[search+1+j];
 				periodResults[cnt_periodResults].str[l] = '\0';
 				cnt_periodResults++;
-				
-				search = follow;
-
-			}				
-			
-			else	// hier kommt man hin, wenn bei search zwar eine gleiche Zeichenfolge wie am Ende
-					// gefunden wurde, diese aber nicht bis search durchgehend auftritt und damit ausscheidet
-			{
-				search += (origlen - 1 - follow);
-							
-				// auf diese Weise gehen die letzten (origlen-1-follow) Zeichen, rechts von der aktuellen
-				// search-Position, nicht "verloren" - sie könnten schließlich der Anfang einer langen
-				// Periode sein
 			}
-
 			follow = origlen-1;
 		}
 	}
 	// falls nur Perioden vorliegen (z.B. "ababab"), dann gibt es noch die übergeordnete einzutragen
-	if (follow < origlen-1)
-	{// zumindest im Periodenverdacht
-		if (origlen-1 - follow >= follow-search)
-		{ // mindestens eine volle Periode
+	if (follow < origlen-1)  // zumindest im Periodenverdacht
+		if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
+			if (PA_MAXFOUND <= cnt_periodResults)
+				return cnt_periodResults;
+			periodResults[cnt_periodResults].offset  = search+1;
+			periodResults[cnt_periodResults].length  = follow-search;
+			periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+            int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
+            for (int j=0; j<l; j++)
+				periodResults[cnt_periodResults].str[j] = data[search+1+j];
+			periodResults[cnt_periodResults].str[l] = '\0';
+			cnt_periodResults++;
+		}
+
+	return cnt_periodResults;
+}
+*/
+
+int CRandomAnalysisTools::FindPeriod()
+// letztendlich die Version von Henrik Koy (14-08-2002), nachdem bestimmte Perioden nicht gefunden oder falsch ausgegeben
+// wurden
+{
+	int follow, gap = 1, p, search = origlen - 2;
+	
+	while(gap <= origlen / 2)
+	{
+		if ((origlen > 1000))
+		{
+			if(p < (origlen - search) / (origlen / 100))
+			{
+				if(theApp.fs.m_canceled)
+				{
+					theApp.fs.cancel();
+					break;
+				}
+				p = (origlen - search) / (origlen / 100);
+				theApp.fs.Set(p);
+			}
+		}
+
+		follow = origlen - 1;
+		search = follow - gap;
+
+		while(data[follow] == data[search])
+		{
+			follow --;
+			search --;
+		}
+
+		if(origlen - follow > gap)
+		{
 			if (PA_MAXFOUND <= cnt_periodResults)
 			{
 				return cnt_periodResults;
 			}
+
 			periodResults[cnt_periodResults].length   = follow - search;
 			periodResults[cnt_periodResults].repeated = (origlen - 1 - follow) / (follow - search);
 			periodResults[cnt_periodResults].offset   = origlen - periodResults[cnt_periodResults].length * (periodResults[cnt_periodResults].repeated + 1);
-            int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
-            for (int j=0; j<l; j++)
+			int l=(PA_MAXPRINTLENGTH < (follow - search)) ? PA_MAXPRINTLENGTH : (follow - search);
+			for (int j = 0; j < l; j ++)
 			{
 				periodResults[cnt_periodResults].str[j] = data[origlen - follow + search + j];
 			}
 			periodResults[cnt_periodResults].str[l] = '\0';
-			cnt_periodResults++;
+			gap = periodResults[cnt_periodResults].length*(periodResults[cnt_periodResults].repeated+1)+1;
+			cnt_periodResults ++;
+		}
+
+		else
+		{
+			gap ++;
 		}
 	}
 
