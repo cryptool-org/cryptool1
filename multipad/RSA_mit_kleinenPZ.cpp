@@ -64,12 +64,6 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 	m_EncryptTextOrNumbers = m_control_edit10.EncryptTextOrNumbers = 0;
 	//}}AFX_DATA_INIT
 
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-	m_Header2 = _T("");
-	m_Header3 = _T("");
-
-	
-
 	DlgOptions   = new CDlgRSAwithSmallPrimesOptions();
 	DlgRSAPrimes = new DlgPrimesGenerator();
 	RSA          = new TutorialRSA;
@@ -598,7 +592,7 @@ void RSA_mit_kleinenPZ::OnEndDialog()
 BOOL RSA_mit_kleinenPZ::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
+
 	m_control_p.SetFocus();
 	EnableEncryption(false);
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
@@ -619,6 +613,8 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 		m_ButtonOptionen.EnableWindow(false);
 	}
 	m_control_edit10.mode = DlgOptions->m_TextOptions;
+
+	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
 	return FALSE;  // return TRUE unless you set the focus to a control
  	               // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

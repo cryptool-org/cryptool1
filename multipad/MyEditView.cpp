@@ -101,7 +101,6 @@ void CMyEditView::OnShowKey()
 
 	CString Key = ((CMyDocument*)m_pDocument)->csSchluessel;
 	
-	int i;
 	CString Title;
 	Title=((CMyDocument*)m_pDocument)->GetTitle();
 

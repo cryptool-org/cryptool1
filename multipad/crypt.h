@@ -33,7 +33,7 @@ typedef struct {
 
 
 // ================================================================
-#define KEYDATA_TABLE_SIZE 37
+#define KEYDATA_TABLE_SIZE 113
 #define KEYDATA_HASHSTRING_LENGTH 30
 
 class KeyData {

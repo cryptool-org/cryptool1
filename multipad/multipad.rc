@@ -1839,13 +1839,13 @@ BEGIN
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,52,370,169
-    LTEXT           "Jede Zeile der Ausgabe ist eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
+    LTEXT           "Jede Zeile der Ausgabe ist hier eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
                     -1,7,7,368,10
     LTEXT           "- die erste Position in der Datei, wo die Periodizität startet (Offset)",
-                    -1,7,19,310,10
-    LTEXT           "- die Länge der Periode",-1,7,29,310,10
-    LTEXT           "- die maximal ersten 20 Bytes (ausgegeben im HEX-Format), mit der die Periode beginnt.",
-                    -1,7,39,310,10
+                    -1,7,17,310,8
+    LTEXT           "- die Länge der Periode",-1,7,27,310,8
+    LTEXT           "- die ersten maximal 20 Bytes, mit der die Periode beginnt (ausgegeben im ASCII- und Hexformat).",
+                    -1,7,37,310,8
 END
 
 IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 253, 286
@@ -6624,7 +6624,7 @@ BEGIN
     LTEXT           "- The first position in the file where the periodicity starts (offset)",
                     -1,7,19,310,10
     LTEXT           "- The cycle length",-1,7,29,310,10
-    LTEXT           "- The maximum first 20 bytes (output in hex format) which occur at the start of the cycle.",
+    LTEXT           "- The maximum first 20 bytes (output in ascii and hex format) which occur at the start of the cycle.",
                     -1,7,39,310,10
 END
 
