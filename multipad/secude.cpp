@@ -60,7 +60,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 	lenght = ftell(fi);
 	fclose(fi);
 	if(lenght < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
 		return;
@@ -96,22 +96,22 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		break;
 	case 2://DES-ECB
 		info.subjectAI=theApp.SecudeLib.desECB_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41527,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		AlgTitel = pc_str;
 		break;
 	case 3://DES-CBC (Padding)
 		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41528,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		AlgTitel = pc_str;
 		break;
 	case 4://Triple-DES (CBC mode)
 		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41529,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		AlgTitel = pc_str;
 		break;
 	case 5://Triple-DES (ECB mode)
 		info.subjectAI=theApp.SecudeLib.desEDE_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41530,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		AlgTitel = pc_str;
 		break;
 	case 6://RC4
@@ -153,7 +153,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 
 		// Entschlüsselung des Ciphertextes mit dem vom Benutzer eingegebenen Schlüssel.
 		if(theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41438,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR_2,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			theApp.SecudeLib.aux_free_OctetString(&help);
 			free(out.octets);
@@ -166,7 +166,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
 		remove(outfile);
 		if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
 			NewDoc->SetTitle(title);
 		}
@@ -188,7 +188,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		if (theApp.SecudeLib.sec_encrypt_all (in, &out, &keyinfo)==-1){
 			theApp.SecudeLib.aux_free_OctetString(&in);
 			free(out.bits);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41436,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			return;}
 		theApp.SecudeLib.aux_free_OctetString(&in);
@@ -202,7 +202,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
 		remove(outfile);
 		if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
 			NewDoc->SetTitle(title);
 		}
@@ -267,7 +267,7 @@ void hash (char* infile, const char *OldTitle, int AlgId)
     NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 	remove(outfile);
     if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41533,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
 			NewDoc->SetTitle(title);
 		}

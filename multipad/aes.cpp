@@ -145,7 +145,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	datalen = ftell(fi);
 	fclose(fi);
 	if(datalen < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
 		return;
@@ -235,9 +235,9 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	if(NewDoc)
 	{
 		if(KeyDialog.m_Decrypt)	   // Entschlüsselung ausgewählt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 		MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
 		NewDoc->SetTitle(title);
 	}
@@ -274,7 +274,7 @@ UINT AESBrute(PVOID p)
 	
 	if(datalen < 1) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -327,10 +327,10 @@ UINT AESBrute(PVOID p)
 	
 	if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41571,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ON,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,AlgTitel);
 		theApp.fs.Display(line);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41572,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SEARCHING_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
 	}
 	
@@ -458,7 +458,7 @@ UINT AESBrute(PVOID p)
 	fwrite(bcip, 1, datalen, fi);
 	fclose(fi);
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41575,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 	MakeNewName3(line,sizeof(line),pc_str, AlgTitel, par->OldTitle, dia.m_einstr.GetBuffer(1));
     theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dia.m_einstr.GetBuffer(1));
 	

@@ -221,8 +221,8 @@ BOOL CMultiPadApp::InitInstance()
 
 	SecudeStatus = SecudeLib.OpenSecudeLib(); // secude und Ticket verfuegbar ?
 	if(SecudeStatus!=2) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41570,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_SECUDE_DLL,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(NULL,pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 	}
 

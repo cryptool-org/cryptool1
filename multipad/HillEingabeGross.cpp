@@ -759,8 +759,8 @@ void CHillEingabeGross::OnOK()
 	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
 	if ( ! mat->invert(&mat1))
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41405,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41406,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
 		m_pFelder[0][0]->SetFocus();
 		m_pFelder[0][0]->SetSel(0,-1);
@@ -1109,8 +1109,8 @@ int CHillEingabeGross::AlleFelderKorrekt(int dim)
 			// deshalb muss dies hier nicht mehr abgefragt werden.
 			if ( (cs.GetLength() == 0) || (! hillklasse->ist_erlaubtes_zeichen(cs[0])) )
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41407,pc_str,STR_LAENGE_STRING_TABLE);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_NONVALID_CHAR,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 				MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
 				m_pFelder[i][j]->SetFocus();
 				m_pFelder[i][j]->SetSel(0,-1);
@@ -1306,7 +1306,7 @@ void CHillEingabeGross::OnZufaelligerSchluessel()
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41568,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_WRONG_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, NULL, MB_ICONERROR|MB_OK);
 
 	}

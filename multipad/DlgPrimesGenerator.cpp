@@ -129,7 +129,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING42004,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
@@ -141,7 +141,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING42005,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
@@ -149,21 +149,21 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				}
 				else
 				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING42003,pc_str,STR_LAENGE_STRING_TABLE);
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND_LOWERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 					sprintf(line,pc_str,c_MaxPrime_low);
 					AfxMessageBox(line);
 				}
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING42001,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND_UPPERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
 			}
 		}
 		else
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING42000,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTER_UPPER_LOWER_BOUND,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str);
 			AfxMessageBox(line);
 		}
@@ -185,7 +185,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING42004,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
@@ -197,7 +197,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING42005,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
@@ -205,21 +205,21 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				}
 				else
 				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING42002,pc_str,STR_LAENGE_STRING_TABLE);
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 					sprintf(line,pc_str,long(sqrt(c_MaxPrime_low)));
 					AfxMessageBox(line);
 				}
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING42001,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND_UPPERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
 			}
 		}
 		else
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING42000,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTER_UPPER_LOWER_BOUND,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str);
 			AfxMessageBox(line);
 		}
@@ -397,7 +397,7 @@ void DlgPrimesGenerator::OnButtonAccept()
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING42006,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_RSA_MODUL_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,c_MaxPrime_high);
 		AfxMessageBox(line);
 	}

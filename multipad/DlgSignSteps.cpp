@@ -123,15 +123,15 @@ BOOL CDlgSignSteps::OnInitDialog()
 	{
 		// Die signierte Nachricht ist zu gross und passt nicht komplett
 		// in ein CEdit Feld. Es wird lediglich ein erster Teil der Nachricht dargestellt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41587,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNED_MESSAGE_FIRST_PART,pc_str,STR_LAENGE_STRING_TABLE);
 		m_TextMsg = (CString) pc_str;
 	}
 	*/
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41588,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_MESSAGE_TO_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextMessage = (CString) pc_str; // Zu signierende Nachricht M:
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41589,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_STEP_BY_STEP,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextSignSteps = (CString) pc_str; // Schrittweise Signatur Erzeugung:
 	UpdateData(FALSE);
 
@@ -277,19 +277,19 @@ int CDlgSignSteps::UpdateDataDisplay()
 
 	int err;
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41594,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CONTINUE,pc_str,STR_LAENGE_STRING_TABLE);
 	CString cont = (CString) pc_str; // cont == "weiter ..."
 
 	int maxsteps = 6;
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41626,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, step, maxsteps);
 	m_Step = (CString) pc_str1;
 
 	if (step == 0)
 	{
 		// benutzter Schlüsselbezeichner:
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41590,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_CREATOR,pc_str,STR_LAENGE_STRING_TABLE);
 		m_DataDisplay = (CString)pc_str+sp2+Firstname+sp1+Name+nl+nl;
 
 		// Domain Parameter des Signaturerzeugers ausgeben
@@ -298,11 +298,11 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (err > 0)
 		{
 			// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 			return -1;
 		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41591,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DOMAIN_PARAMETER_TO_USE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, curveID);
 		m_DataDisplay += (CString) pc_str1 + nl + nl;
 		m_DataDisplay += ( sp2 + ((CString)"a  = ") + DomParamAcString.a + nl );
@@ -313,17 +313,17 @@ int CDlgSignSteps::UpdateDataDisplay()
 		m_DataDisplay += ( sp2 + ((CString)"r  = ") + DomParamAcString.r + nl + nl );
 
 		// geheimer Schlüssel
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41592,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_SECRET_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		m_DataDisplay += ( ((CString)pc_str) + nl + nl); // geheimer Schlüssel
 		m_DataDisplay += ( sp2 + ((CString)"s  = ") + DomParamAcString.privKey + nl + nl );
 
 		// Signaturverfahren und Hashfunktion
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41593,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SEL_SIGNATURE_HASH_FUNCTION,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, SigAlg, HashAlg);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 
 		// Länge der zu signierenden Nachricht in Byte
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41595,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_MESSAGE_SIZE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, messageOcts->noctets);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 
@@ -335,14 +335,14 @@ int CDlgSignSteps::UpdateDataDisplay()
 	{
 		char *fstr;
 		// message Representative f
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41596,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_HASHING,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, HashAlg);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 		err = ln_to_string (MsgRepData.f, &fstr, base);
 		if (err > 0)
 		{
 			// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41597,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 			m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
 			return -1;
@@ -360,7 +360,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41597,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 				return -1;
 			}
@@ -369,7 +369,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 2)
 		{
 			// one-time key pair
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41598,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_CREATE_RANDOM_ASYMKEY,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, curveID);
 			m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"u  = ") + DsaSignDataStrings.u + nl);
@@ -381,7 +381,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 3)
 		{
 			// umwandeln von Vx nach integer i
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41599,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CONVERSION,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"i  = ") + DsaSignDataStrings.i + nl + nl);
 
@@ -390,7 +390,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 4)
 		{
 			// Berechne c = i mod r, wobei c != 0
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41600,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DIV_REMAINDER,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"c  = ") + DsaSignDataStrings.c + nl + nl);
 
@@ -399,7 +399,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 5)
 		{
 			// Berechne d = u^(-1)(f+s*c) mod r, wobei d != 0
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41601,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"d  = ") + DsaSignDataStrings.d + nl + nl);
 
@@ -408,7 +408,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 6)
 		{
 			// Signaturerzeugung beendet
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41602,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl);
 			m_ContinueButtonCtrl.EnableWindow(FALSE);
 			m_FlushSignDataCtrl.EnableWindow(TRUE);
@@ -423,7 +423,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41597,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 				return -1;
 			}
@@ -432,7 +432,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 2)
 		{
 			// one-time key pair
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41598,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_CREATE_RANDOM_ASYMKEY,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, curveID);
 			m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 
@@ -445,7 +445,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 3)
 		{
 			// umwandeln von Vx nach integer i
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41599,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CONVERSION,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 
 			m_DataDisplay += ( sp2 + ((CString)"i  = ") + NrSignDataStrings.i + nl + nl);
@@ -455,7 +455,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 4)
 		{
 			// Berechne c = i+f mod r, wobei c != 0
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41603,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DIV_REMAINDER_2,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 
 			m_DataDisplay += ( sp2 + ((CString)"c  = ") + NrSignDataStrings.c + nl + nl);
@@ -465,7 +465,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 5)
 		{
 			// Berechne d = u-s*c mod r, wobei d != 0
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41604,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY_2,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 
 			m_DataDisplay += ( sp2 + ((CString)"d  = ") + NrSignDataStrings.d + nl + nl);
@@ -475,7 +475,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (step == 6)
 		{
 			// Signaturerzeugung beendet
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41602,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl);
 			m_ContinueButtonCtrl.EnableWindow(FALSE);
 			m_FlushSignDataCtrl.EnableWindow(TRUE);
@@ -704,7 +704,7 @@ void CDlgSignSteps::OnButtonContinue()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	
-	//LoadString(AfxGetInstanceHandle(),IDS_STRING41588,pc_str1,STR_LAENGE_STRING_TABLE);
+	//LoadString(AfxGetInstanceHandle(),IDS_STRING_MESSAGE_TO_SIGN,pc_str1,STR_LAENGE_STRING_TABLE);
 	//sprintf(pc_str, pc_str1,((CString)keyType)+kInfo,((CString)creattime));
 	//m_KeyInfo = (CString) pc_str; // Benutzter Schlüssel:
 

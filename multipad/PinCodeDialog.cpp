@@ -81,10 +81,10 @@ BOOL CPinCodeDialog::OnInitDialog()
 	{
 		// Eintrag "UserKeyId"-Dateien löschen
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61410,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_REMOVE_ITEM,pc_str,STR_LAENGE_STRING_TABLE);
 		m_ModusInfoBox = (CString) pc_str;
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32898,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_REQ_DEL_KEYDATA,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, UserKeyId);
 		m_InfoBox = (CString) pc_str1;
 	}
@@ -92,10 +92,10 @@ BOOL CPinCodeDialog::OnInitDialog()
 	{
 		// Geheime Parameter die zu Eintrag "UserKeyId" gehören einsehen
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61409,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SHOW_ALL_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		m_ModusInfoBox = (CString) pc_str;
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61408,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_REQUEST_FOR_PIN,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, UserKeyId);
 		m_InfoBox = (CString) pc_str1;
 	}

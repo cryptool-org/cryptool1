@@ -302,11 +302,11 @@ void CPlotDoc::Serialize(CArchive& ar)
 		name[strlen(name)-4]=0x0;
 		if( !f.Open( name, CFile::modeRead ) )
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41424,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HISTOGRAM_XLABEL,pc_str,STR_LAENGE_STRING_TABLE);
 			m_xlabel = pc_str;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41425,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HISTOGRAM_YLABEL,pc_str,STR_LAENGE_STRING_TABLE);
 			m_ylabel = pc_str;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41426,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HISTOGRAM_HEADING,pc_str,STR_LAENGE_STRING_TABLE);
 			m_headline = pc_str;
 			m_continuous = 0;
 			m_ychar = 0x30;
@@ -449,13 +449,13 @@ void plot_opt_dlg::OnChangeEdit2()
 	UpdateData(TRUE);
 	if(m_curve>10)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61430,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_UPPERBOUND_GRAPHWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
 		m_curve=10;
 	}
 	else if (m_curve<1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61431,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_LOWERBOUND_GRAPHWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
 		m_curve=1;
 	}
@@ -467,13 +467,13 @@ void plot_opt_dlg::OnChangeEdit1()
 	UpdateData(TRUE);
 	if(m_bar_width>10)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61428,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_UPPER_BOUND_LINEWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
 		m_bar_width=10;
 	}
 	else if (m_bar_width<1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61429,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_LOWER_BOUND_LINEWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
 		m_bar_width=1;
 	}

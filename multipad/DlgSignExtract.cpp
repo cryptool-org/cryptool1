@@ -130,15 +130,15 @@ BOOL CDlgSignExtract::OnInitDialog()
 	m_SignatureCtrl.SetFont(&Font2);
 	//strncpy(LogFont.lfFaceName, DefaultFontStyle, 32);
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41585,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextSig = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41586,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNED_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextMsg = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41577,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_ORIGINATOR,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextSigner = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41583,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_USED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextKey = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41584,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_METHOD,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextAlg = (CString) pc_str;
 	UpdateData(FALSE);
 
@@ -165,7 +165,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 		(SignatureType != RSA_OR_DSA_SIGN) && (SignatureType != UNKNOWN_SIGN) )
 	{
 		// Fehler beim auslesen der Daten (Nicht genügend Speicher vorhanden)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32914,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (pc_str, MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
@@ -176,7 +176,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 		(SignatureType != UNKNOWN_SIGN))
 	{
 		// Fehler beim auslesen der Daten (Formatierung der Daten nicht korrekt)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41458,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (pc_str,MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
@@ -188,7 +188,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 	{
 		// Die signierte Nachricht ist zu gross und passt nicht komplett
 		// in ein CEdit Feld. Es wird lediglich ein erster Teil der Nachricht dargestellt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41587,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNED_MESSAGE_FIRST_PART,pc_str,STR_LAENGE_STRING_TABLE);
 		m_TextMsg = (CString) pc_str;
 	}
 
@@ -217,14 +217,14 @@ BOOL CDlgSignExtract::OnInitDialog()
 		m_InfoAboutSigner = (CString) ((CString)firstname)+((CString)" ")+((CString)name); // Signatur erzeugt von:
 
 		// Infos über Schlüssel
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41578,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_DATE,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1,((CString)keyType)+kInfo,((CString)creattime));
 		m_KeyInfo = (CString) pc_str; // Benutzter Schlüssel:
 	}
 	else
 	{
 		// Schlüsselbezeichner "UserKeyId" existiert nicht
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41580,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_UNKNOWN_KEY_IDENTIFIER,pc_str1,STR_LAENGE_STRING_TABLE);
 		// pc_str1 = "Übermittelter Schlüsselbezeichner existiert nicht!"
 		m_InfoAboutSigner = ((CString)pc_str1);
 		// Signaturerzeuger unbekannt
@@ -234,7 +234,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 	if ( (SigAlg!="RSA") && (SigAlg!="DSA") && (SigAlg!="ECSP-NR") && (SigAlg!="ECSP-DSA") )
 	{
 		// unbekannter Signaturalgorithmus angegeben
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32886,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_UNKNOWN,pc_str,STR_LAENGE_STRING_TABLE);
 		// pc_str = "unbekannt !"
 		SigAlg = SigAlg+((CString)" (")+((CString)pc_str)+((CString)")");
 	}
@@ -242,13 +242,13 @@ BOOL CDlgSignExtract::OnInitDialog()
 		(HashAlg!="RIPEMD-160") )
 	{
 		// unbekannter Hashalgorithmus angegeben
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32886,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_UNKNOWN,pc_str,STR_LAENGE_STRING_TABLE);
 		// pc_str = "unbekannt !"
 		HashAlg = HashAlg+((CString)" (")+((CString)pc_str)+((CString)")");
 	}
 
 	// Benutzter Signaturalgorithmus
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41579,pc_str1,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_HASH_FUNCTION,pc_str1,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str, pc_str1, SigAlg, HashAlg);
 	m_SigHashAlg = (CString) pc_str;
 
@@ -281,7 +281,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 	// Länge der signierten Nachricht
 	char buffer[30];
 	_itoa( message.noctets, buffer, 10 );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41581,pc_str1,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_MESSAGE_LENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str, pc_str1,((CString)buffer));
 	m_MessageLength = (CString) pc_str;
 	UpdateData(FALSE);
@@ -296,7 +296,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 
 		char buffer[30];
 		_itoa( signlength, buffer, 10 );
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41582,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_LENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1,((CString)buffer));
 		m_SignatureLength = (CString) pc_str;
 		UpdateData(FALSE);
@@ -327,7 +327,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 		
 		char buffer[30];
 		_itoa( Signatur.signature.nbits, buffer, 10 );
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41582,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_LENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1,((CString)buffer));
 		m_SignatureLength = (CString) pc_str;
 		UpdateData(FALSE);
@@ -492,7 +492,7 @@ int CDlgSignExtract::UpdateSigEditBox()
 			
 			char buffer[30];
 			_itoa( Signatur.signature.nbits, buffer, 10 );
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41582,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_LENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str, pc_str1,((CString)buffer));
 			m_SignatureLength = (CString) pc_str;
 			UpdateData(FALSE);

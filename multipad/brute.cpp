@@ -79,7 +79,7 @@ UINT Brute(PVOID p)
 	lenght = ftell(fi);
 	fclose(fi);
 	if(lenght < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -101,22 +101,22 @@ UINT Brute(PVOID p)
 		break;
 	case 2://DES-ECB
 		info.subjectAI=theApp.SecudeLib.desECB_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41527,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
 		break;
 	case 3://DES-CBC (Padding)
 		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41528,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
 		break;
 	case 4://Triple-DES (CBC mode)
 		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41529,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
 		break;
 	case 5://Triple-DES (ECB mode)
 		info.subjectAI=theApp.SecudeLib.desEDE_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41530,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
 		break;
 	case 6://RC4
@@ -144,10 +144,10 @@ UINT Brute(PVOID p)
 	
     if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41571,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ON,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,AlgTitel);
 		theApp.fs.Display(line);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41572,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SEARCHING_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
 	}
 	
@@ -274,7 +274,7 @@ UINT Brute(PVOID p)
 	
 	if (emax == 0.0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61427,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_VALID_KEYS_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (pc_str);
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
@@ -307,7 +307,7 @@ UINT Brute(PVOID p)
 	if (theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		free(out.octets);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41436,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
@@ -319,7 +319,7 @@ UINT Brute(PVOID p)
 	theApp.SecudeLib.aux_OctetString2file(&out,outfile,2);
 	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41575,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 	MakeNewName3(line,sizeof(line),pc_str, AlgTitel, par->OldTitle, dia.m_einstr.GetBuffer(1));
     theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dia.m_einstr.GetBuffer(1));
 	theApp.SecudeLib.aux_free_OctetString(&help);

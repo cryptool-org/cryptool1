@@ -67,7 +67,7 @@ BOOL AnalyseNGram::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST1,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HOMOPHONE_NR,pc_str,STR_LAENGE_STRING_TABLE);
 	m_ListView.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST2,pc_str,STR_LAENGE_STRING_TABLE);
 	m_ListView.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl

@@ -44,7 +44,7 @@ bool zzahlanalyse::AnalyzeIt(void)
 	if (isValid==V_MEAN||isValid==V_VARI||isValid==V_RESULT)
 		return true;
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61407,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_END_ANALYZE_VITANY,pc_str,STR_LAENGE_STRING_TABLE);
 	theApp.fs.Set(0,pc_str);
 
 	p=0;
@@ -150,13 +150,13 @@ void zzahlanalyse::WriteAnalyse(char *name,const char *titel)
 	
 	if( f.Open( name2, CFile::modeCreate | CFile::modeWrite ) )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61416,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_AVERAGE_VARIATION,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,mea,var/mea);
 		CArchive ar( &f, CArchive::store);
 		CString s1 = line;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61418,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_VERTICES,pc_str,STR_LAENGE_STRING_TABLE);
 		CString s2 = pc_str;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61417,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_VARIANCE,pc_str,STR_LAENGE_STRING_TABLE);
 		CString s3 = pc_str;
 		
 		ar << s1 << s2 << s3;
@@ -168,7 +168,7 @@ void zzahlanalyse::WriteAnalyse(char *name,const char *titel)
 		
 	}
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61405,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_DIAGRAM_VITANY,pc_str,STR_LAENGE_STRING_TABLE);
 	MakeNewName(line,sizeof(line),pc_str,titel);
 
 	theApp.ThreadOpenDocumentFileNoMRU(name,line);
@@ -294,7 +294,7 @@ int zzahlanalyse::FindPeriod()
 
 	if (origlen<4)
 		return -1; // return;
-	// LoadString(AfxGetInstanceHandle(),IDS_STRING61434,pc_str,STR_LAENGE_STRING_TABLE);
+	// LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
 	// theApp.fs.Set(0,pc_str);
 	p=0;
 	for (s=0;s<origlen;s++)
@@ -317,7 +317,7 @@ int zzahlanalyse::FindPeriod()
 			if (i+j==len&&j>=i)
 			{
 				theApp.fs.cancel();
-				// LoadString(AfxGetInstanceHandle(),IDS_STRING61432,pc_str1,STR_LAENGE_STRING_TABLE);
+				// LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_FOUND,pc_str1,STR_LAENGE_STRING_TABLE);
 				// sprintf(pc_str,pc_str1,i,s);
 				// AfxMessageBox(pc_str);
 				// return;
@@ -326,7 +326,7 @@ int zzahlanalyse::FindPeriod()
 		}
 		len--;
 	}
-	// LoadString(AfxGetInstanceHandle(),IDS_STRING61433,pc_str,STR_LAENGE_STRING_TABLE);
+	// LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_PERIOD_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 	// AfxMessageBox(pc_str);
 	return 0;
 }

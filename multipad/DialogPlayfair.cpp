@@ -405,11 +405,11 @@ BOOL CDialogPlayfair::OnInitDialog()
 
 	int colWidth = 55;  // Spaltenbreite in Pixel
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61413,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_BEFORE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth , 0); // Name
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61414,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AFTER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth , 1); // Vorname
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61415,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_RIGHT, colWidth , 2); // Vorname
 
 	//InitListBox();

@@ -78,22 +78,22 @@ BOOL CRsaDec::OnInitDialog()
 
 	int colWidth = 100;  // Spaltenbreite in Pixel
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32879,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_NAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth-15 , 0); // Name
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32880,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PRENAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth-25 , 1); // Vorname
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32881,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYTYPE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth-15 , 2); // Schlüsseltyp
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32882,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_IDENTIFIER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth , 3); // Schlüsselkennung
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32883,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CREATION_DATW,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 4, pc_str, LVCFMT_LEFT, colWidth+15 , 4); // Erstellungsdatum
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32884,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_ID,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth-20 , 5); // Interne ID-Nr.
 
 
@@ -230,15 +230,15 @@ void CRsaDec::OnOK()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41550,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
 	else if (UserKeyId.GetLength() < 1)
 	{
 		// noch keinen Schlüssel ausgewählt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41427,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SELECT_PSE2,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_listview.SetFocus();
 		return;
@@ -246,8 +246,8 @@ void CRsaDec::OnOK()
 
 	if (m_PinCode=="")
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41410,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_PIN,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_PinCodeEditctrl.SetFocus();
 		return;

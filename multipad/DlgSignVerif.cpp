@@ -237,7 +237,7 @@ BOOL CDlgSignVerif::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32886,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_UNKNOWN,pc_str,STR_LAENGE_STRING_TABLE);
 	// pc_str = "unbekannt";
 	
 	// Überprüfe welcher Signaturalgorithmus angeblich benutzt wurde
@@ -308,22 +308,22 @@ BOOL CDlgSignVerif::OnInitDialog()
 
 	int colWidth = 100;  // Spaltenbreite in Pixel
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32879,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_NAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth-15 , 0); // Name
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32880,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PRENAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth-25 , 1); // Vorname
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32881,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYTYPE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth-15 , 2); // Schlüsseltyp
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32882,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_IDENTIFIER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth , 3); // Schlüsselkennung
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32883,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CREATION_DATW,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 4, pc_str, LVCFMT_LEFT, colWidth+15 , 4); // Erstellungsdatum
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32884,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_ID,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth-20 , 5); // Interne ID-Nr.
 
 
@@ -349,7 +349,7 @@ gesuchten Schlüsselbezeichner nicht gibt. Siehe CDlgSignVerif::OnButtonSearchKey
 	if (keyrow == -1)
 	{
 		// Info: Schlüsselbezeichner nicht in Liste vorhanden
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32885,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, signKey);
 		AfxMessageBox(pc_str1,MB_ICONEXCLAMATION | MB_OK );
 	}
@@ -797,16 +797,16 @@ void CDlgSignVerif::OnOK()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32869,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// Noch kein Schlüsselbezeichner gewählt, obwohl in m_listview welche zur Auswahl stehen
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41413,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_listview.SetFocus();
 		return;
@@ -819,8 +819,8 @@ void CDlgSignVerif::OnOK()
 		if (m_SigVerfahren == -1)
 		{
 			// noch kein Signaturverfahren gewählt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32895,pc_str,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_UNKNOWN_EC_SIGNATURE_ALGORITHM,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 			m_ecdsaRadioButton.SetFocus();
 			return;
@@ -828,8 +828,8 @@ void CDlgSignVerif::OnOK()
 		if (m_HashFunktion == -1)
 		{
 			// noch keine Hashfunktion gewählt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32896,pc_str,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_UNKNOWN_HASHFUNCTION,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 			m_sha1RadioButton.SetFocus();
 			return;
@@ -846,7 +846,7 @@ void CDlgSignVerif::OnOK()
 			_tcscpy(string3, PubDataFile);		
 			char *key_file = string3;
 
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32864,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_ERROR_LOADING_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, key_file);
 			AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
 			// free memory
@@ -865,7 +865,7 @@ void CDlgSignVerif::OnOK()
 		{
 			// Benutzer will Zwischenschritte in projektiven Koordinaten sehen
 			// Zwischenschritte werden aber nur in affinen Koordinaten angezeigt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41607,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
 		}
 	}
@@ -924,9 +924,9 @@ void CDlgSignVerif::OnButtonSearchKey()
 	{
 		// Info: Schlüsselbezeichner signKey nicht in Liste vorhanden,
 		// obwohl alle Schlüsseltypen durchsucht wurden
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32885,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1, signKey);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32897,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_UNKNOWN_SIGNATURE,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		return; // no selection
 	}
@@ -947,9 +947,9 @@ void CDlgSignVerif::OnButtonSearchKey()
 		{
 			// Info: Schlüsselbezeichner nicht in Liste vorhanden, obwohl alle Schlüsseltypen
 			// durchsucht wurden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32885,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND,pc_str1,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str, pc_str1, signKey);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32897,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_UNKNOWN_SIGNATURE,pc_str1,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 			return; // no selection
 		}

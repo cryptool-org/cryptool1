@@ -413,11 +413,11 @@ BOOL CDlgSignVerifSteps::OnInitDialog()
 	m_SignHexDumpCtrl.SetFont(&m_Font2);
 	m_DataDisplayCtrl.SetFont(&m_Font2);
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41586,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNED_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextMessage = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41585,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextSign = (CString) pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41606,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_STEP_BY_STEP,pc_str,STR_LAENGE_STRING_TABLE);
 	m_TextVerifSteps = (CString) pc_str;
 
 	UpdateData(FALSE);
@@ -427,7 +427,7 @@ BOOL CDlgSignVerifSteps::OnInitDialog()
 	{
 		// Die signierte Nachricht ist zu gross und passt nicht komplett
 		// in ein CEdit Feld. Es wird lediglich ein erster Teil der Nachricht dargestellt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41587,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNED_MESSAGE_FIRST_PART,pc_str,STR_LAENGE_STRING_TABLE);
 		m_TextMsg = (CString) pc_str;
 	}
 	*/
@@ -679,13 +679,13 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 
 	int err;
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41594,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CONTINUE,pc_str,STR_LAENGE_STRING_TABLE);
 	CString cont = (CString) pc_str; // cont == "weiter ..."
 
 	if (step == 0)
 	{
 		// benutzter Schlüsselbezeichner:
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41590,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_CREATOR,pc_str,STR_LAENGE_STRING_TABLE);
 		m_DataDisplay = (CString)pc_str+sp2+Firstname+sp1+Name+nl+nl;
 
 		// Domain Parameter des Signaturerzeugers ausgeben
@@ -694,11 +694,11 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (err > 0)
 		{
 			// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 			return -1;
 		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41591,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DOMAIN_PARAMETER_TO_USE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, curveID);
 		m_DataDisplay += (CString) pc_str1 + nl + nl;
 		m_DataDisplay += ( sp2 + ((CString)"a  = ") + DomParamAcString.a + nl );
@@ -709,23 +709,23 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		m_DataDisplay += ( sp2 + ((CString)"r  = ") + DomParamAcString.r + nl + nl );
 
 		// öffentlicher Schlüssel
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41608,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PUBLIC_EC_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		m_DataDisplay += ( ((CString)pc_str) + nl + nl); // öffentlicher Schlüssel
 		m_DataDisplay += ( sp2 + ((CString)"Wx  = ") + DomParamAcString.pubKey_xcoord + nl );
 		m_DataDisplay += ( sp2 + ((CString)"Wy  = ") + DomParamAcString.pubKey_ycoord + nl + nl );
 
 		// Signaturverfahren und Hashfunktion
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41593,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SEL_SIGNATURE_HASH_FUNCTION,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, SigAlg, HashAlg);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 
 		// Länge der signierenten Nachricht in Byte
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41609,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_MESSAGE_SIZE_2,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, messageOcts->noctets);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 
 		// Länge der Signatur in Bit
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41610,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_BITLENGTH_CD,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, SignLength);
 		m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 		m_DataDisplay += ( cont + nl + nl);
@@ -741,7 +741,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41597,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 				UpdateData(FALSE);
 				return -1;
@@ -749,14 +749,14 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			maxsteps = 10;
 		}
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41626,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, step, maxsteps);
 		m_Step = (CString) pc_str1;
 	
 		if (step == 1)
 		{
 			// message Representative f
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41596,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGNATURE_HASHING,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, HashAlg);
 			m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"f  = ") + DsaVerifDataStrings.f + nl + nl );
@@ -766,19 +766,19 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 2)
 		{
 			// Überprüfe ob c und d aus [1, r-1] sind
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41611,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SIGNATURE_VALIDITY_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl );
 
 			if (DsaVerifData.rangecheckfailed == 1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41619,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_C_D_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 				m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 				UpdateData(FALSE);
 				m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
 				SignatureInvalid();
 				return 1;
 			}
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41620,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_C_D_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( sp2 + ((CString)pc_str) + nl + nl );
 
 			m_DataDisplay += ( cont + nl + nl);
@@ -786,7 +786,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 3)
 		{
 			// h = d^(-1) mod r
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41612,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_INVERT_D,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"h  = ") + DsaVerifDataStrings.h + nl + nl );
 
@@ -795,7 +795,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 4)
 		{
 			// h1 = f*h mod r
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41613,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_H1,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"h1 = ") + DsaVerifDataStrings.h1 + nl + nl );
 
@@ -804,7 +804,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 5)
 		{
 			// h2 = c*h mod r
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41614,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_H2,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"h2 = ") + DsaVerifDataStrings.h2 + nl + nl );
 
@@ -813,14 +813,14 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 6)
 		{
 			//  P = h1 G + h2 W
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41615,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CHECK_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"Px = ") + DsaVerifDataStrings.Px + nl );
 			m_DataDisplay += ( sp2 + ((CString)"Py = ") + DsaVerifDataStrings.Py + nl + nl );
 
 			if (DsaVerifData.P.infinity != 0)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41621,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SIGNATURE_INCORRECT,pc_str,STR_LAENGE_STRING_TABLE);
 				m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 				UpdateData(FALSE);
 				m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
@@ -833,7 +833,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 7)
 		{
 			// Px to i
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41616,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MULT_CONVERT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"i  = ") + DsaVerifDataStrings.i + nl + nl );
 
@@ -842,7 +842,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 8)
 		{
 			// c' = i mod r
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41617,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DIV_REMAINDER,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"c' = ") + DsaVerifDataStrings.c1 + nl + nl );
 
@@ -851,12 +851,12 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 9)
 		{
 			// c' = c  ?
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41618,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_COMPARE,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 		}
 		if (step == 10)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41627,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MSG_COMPARE_C_CPRIME,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 			UpdateData(FALSE);
 			m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
@@ -873,7 +873,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41597,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 				UpdateData(FALSE);
 				return -1;
@@ -881,26 +881,26 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			maxsteps = 7;
 		}
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41626,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, step, maxsteps);
 		m_Step = (CString) pc_str1;
 
 		if (step == 1)
 		{
 			// Überprüfe ob c und d aus [1, r-1] sind
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41611,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SIGNATURE_VALIDITY_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl );
 
 			if (NrVerifData.rangecheckfailed == 1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41619,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_C_D_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 				m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 				UpdateData(FALSE);
 				m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
 				SignatureInvalid();
 				return 1;
 			}
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41620,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_C_D_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( sp2 + ((CString)pc_str) + nl + nl );
 
 			m_DataDisplay += ( cont + nl + nl);
@@ -908,14 +908,14 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 2)
 		{
 			//  P = h1 G + h2 W
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41622,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CALC_P,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"Px = ") + NrVerifDataStrings.Px + nl );
 			m_DataDisplay += ( sp2 + ((CString)"Py = ") + NrVerifDataStrings.Py + nl + nl );
 
 			if (NrVerifData.P.infinity != 0)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41621,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SIGNATURE_INCORRECT,pc_str,STR_LAENGE_STRING_TABLE);
 				m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 				UpdateData(FALSE);
 				m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
@@ -928,7 +928,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 3)
 		{
 			// Px to i
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41616,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MULT_CONVERT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"i  = ") + NrVerifDataStrings.i + nl + nl );
 
@@ -937,7 +937,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 4)
 		{
 			// f = c - i mod r
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41623,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CALC_MESSAGE_REPRESENTATIVE,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"f  = ") + NrVerifDataStrings.f + nl + nl );
 
@@ -946,7 +946,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 5)
 		{
 			// g
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41624,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_CALC_HASHFUNCTION,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, HashAlg);
 			m_DataDisplay += ( ((CString)pc_str1) + nl + nl);
 			m_DataDisplay += ( sp2 + ((CString)"g  = ") + NrVerifDataStrings.g + nl + nl );
@@ -957,13 +957,13 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (step == 6)
 		{
 			// f = g ?
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41625,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_COMPARE_F_G,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( ((CString)pc_str) + nl + nl);
 
 		}
 		if (step == 7)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41628,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MSG_COMPARE_F_G,pc_str,STR_LAENGE_STRING_TABLE);
 			m_DataDisplay += ( sp2 + ((CString)pc_str) + nl );
 			UpdateData(FALSE);
 			m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
@@ -992,15 +992,15 @@ void CDlgSignVerifSteps::SignatureInvalid()
 	if (showDuration==TRUE)
 	{
 		char temp[200];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32908,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32909,temp,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_BAD_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, duration);
 		sprintf(pc_str, temp, pc_str1);
 		AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41456,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
 	}
 	
@@ -1019,15 +1019,15 @@ void CDlgSignVerifSteps::SignatureValid()
 	if (showDuration==TRUE)
 	{
 		char temp[200];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32908,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32910,temp,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRECT_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, duration);
 		sprintf(pc_str, temp, pc_str1);
 		AfxMessageBox (pc_str, MB_ICONINFORMATION);
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41457,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (pc_str, MB_ICONINFORMATION);
 	}
 

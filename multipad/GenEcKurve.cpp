@@ -94,13 +94,13 @@ BOOL GenEcKurve::OnInitDialog()
 	int colWidth = 100;  // Spaltenbreite in Pixel
 	// m_listview aufbauen
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32887,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_RIGHT, 65 , 0); // Parameter
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32888,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 455 , 1); // Wert des Parameters
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32894,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, 50 , 2); // Bitlänge
 
 	return TRUE;  // return TRUE unless you set the focus to a control

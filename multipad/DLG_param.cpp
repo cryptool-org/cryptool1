@@ -95,9 +95,9 @@ BOOL DLG_param::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	m_listctrl.DeleteAllItems();
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61423,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_VARIABLE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listctrl.InsertColumn(0,pc_str,LVCFMT_RIGHT,50,0);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING61424,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listctrl.InsertColumn(1,pc_str,LVCFMT_LEFT,375,1);
 
 	for (i=0;i<m_entries;i++)

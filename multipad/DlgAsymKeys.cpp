@@ -99,22 +99,22 @@ BOOL CDlgAsymKeys::OnInitDialog()
 
 	int colWidth = 100;  // Spaltenbreite in Pixel
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32879,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_NAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth-15 , 0); // Name
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32880,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PRENAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth-25 , 1); // Vorname
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32881,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYTYPE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth-15 , 2); // Schlüsseltyp
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32882,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_IDENTIFIER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth , 3); // Schlüsselkennung
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32883,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CREATION_DATW,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 4, pc_str, LVCFMT_LEFT, colWidth+15 , 4); // Erstellungsdatum
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32884,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_ID,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth-20 , 5); // Interne ID-Nr.
 
 
@@ -136,14 +136,14 @@ void CDlgAsymKeys::OnShowPubParamButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32869,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
 	else if (UserKeyId.GetLength() < 1)
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32868,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
@@ -174,7 +174,7 @@ void CDlgAsymKeys::OnShowPubParamButton()
 		_tcscpy(string3, PubDataFile);		
 		char *toc_file = string3;
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32864,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_ERROR_LOADING_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, toc_file);
 		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
 		delete string3;
@@ -210,14 +210,14 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32869,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32868,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
@@ -251,7 +251,7 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	if ( ret == -1)
 	{
 		// falsche PIN-Nummer zum öffnen der PSE benutzt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32876,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
 		// Speicher freigeben
 		free (curveParameter->pubKey);
@@ -263,7 +263,7 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	else if ( ret == -2)
 	{
 		// sonstiger Fehler beim öffnen der PSE
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41432,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 		// Speicher freigeben
 		free (curveParameter->pubKey);
@@ -301,14 +301,14 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32869,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32868,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
@@ -317,7 +317,7 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 
 	// Nachfragen, ob das Schlüsselpaar wirklich gelöscht werden soll
 	CString InfoString;
-	AfxFormatString1( InfoString, IDS_STRING32875, UserKeyId ); 
+	AfxFormatString1( InfoString, IDS_STRING_ASSURE_DEL_ASYM_KEY, UserKeyId ); 
 	if (AfxMessageBox(InfoString,MB_ICONQUESTION | MB_OKCANCEL, 0 ) == IDCANCEL)
 	{
 		return; // es wird nichts gelöscht
@@ -341,11 +341,11 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		if ( ret == -1 )
 		{
 			// falsche PIN-Nummer benutzt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32876,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
 			return;
 			//
-			//LoadString(AfxGetInstanceHandle(),IDS_STRING41558,pc_str,STR_LAENGE_STRING_TABLE);
+			//LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATA_NOT_CHANGED,pc_str,STR_LAENGE_STRING_TABLE);
 			//AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 			//return; // error: couldn't open inputfile
 			//
@@ -354,7 +354,7 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		else if ( ret != 0)
 		{
 			// sonstiger Fehler beim öffnen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41432,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			return;
 		}
@@ -368,7 +368,7 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		if ( ret == -1 )
 		{
 			// falsche PIN-Nummer benutzt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32876,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
 			return;
 
@@ -376,7 +376,7 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		else if ( ret != 0)
 		{
 			// sonstiger Fehler beim öffnen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41432,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			return;
 		}
@@ -393,14 +393,14 @@ void CDlgAsymKeys::OnButtonShowCert()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32869,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING32868,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
 		return; // no selection
 	}
@@ -421,7 +421,7 @@ void CDlgAsymKeys::OnButtonShowCert()
 		// Fehler beim öffnen der CA-Datenbank
 		char *Fehler=theApp.SecudeLib.LASTTEXT;
 		CString Fehler2=Fehler;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41411,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 		CString Fehler3=(CString)pc_str+(CString)Fehler2;
 		AfxMessageBox (Fehler3,MB_ICONSTOP);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -437,7 +437,7 @@ void CDlgAsymKeys::OnButtonShowCert()
 		// Fehler beim lesen des Zertifikats
 		char *Fehler=theApp.SecudeLib.LASTTEXT;
 		CString Fehler2=Fehler;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41429,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_GET_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 		CString Fehler3=(CString)pc_str+(CString)Fehler2;
 		AfxMessageBox (Fehler3,MB_ICONSTOP);
 		// Freigeben von dynamisch angelegtem Speicher

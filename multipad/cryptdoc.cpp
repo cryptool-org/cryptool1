@@ -49,8 +49,8 @@ BOOL CCryptDoc::OnNewDocument()
 // Überprüfen ob neues Dokument angelegt werden kann
 	if (!f)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41445,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 		return FALSE;
 	}
@@ -59,8 +59,8 @@ BOOL CCryptDoc::OnNewDocument()
 	f = fopen(PresentationName,"wb");
 	if (!f)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41445,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 		return FALSE;
 	}
@@ -220,8 +220,8 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
     GetTmpName(ContentName,"cry",".org");
     if(!FileCpy(ContentName,lpszPathName,-1)) {
         remove(ContentName);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41445,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 		return FALSE;
     }
@@ -254,8 +254,8 @@ BOOL CCryptDoc::present(const char *in, char *out)
     r = FileCpy(out, in, 0x0FFFFF);
 	if(r==0) return FALSE;
 	if(r==2) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41444,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 	}
 	return TRUE;
@@ -377,8 +377,8 @@ BOOL CAscDoc::present(const char *in, char *out)
     r = FileCpy(out, in, 0x0FFFFF);
 	if(r==0) return FALSE;
 	if(r==2) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41444,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 	}
 	return TRUE;
@@ -798,7 +798,7 @@ void CCryptDoc::OnAnalyzeSubst()
 	datei.Close();
 	if (! laenge_groesser_0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	    char line[256];
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
@@ -1206,7 +1206,7 @@ void CCryptDoc::OnPeriod()
 
 void CCryptDoc::OnNotAvail() 
 {
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41629,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL,pc_str,STR_LAENGE_STRING_TABLE);
 	AfxMessageBox (pc_str);
 }
 

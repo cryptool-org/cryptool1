@@ -32,7 +32,7 @@ CAbout::CAbout(CWnd* pParent /*=NULL*/)
 		pc_str[i]=0;
 	}
 	else                               // sonst "lib nicht verfügbar"
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61425,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_secude=pc_str;
 	//}}AFX_DATA_INIT
 }

@@ -276,7 +276,7 @@ void CDlg_SubstResult::OnChangeEdit3()
 void CDlg_SubstResult::OnChangeEdit4() 
 {
 	// Überprüfen, ob der eingegebene Buchstabe nicht schon wo anders existiert
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41414,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_DONOTCHANGE,pc_str,STR_LAENGE_STRING_TABLE);
 	AfxMessageBox (pc_str);
 	UpdateData(FALSE);
 }
@@ -546,11 +546,11 @@ void CDlg_SubstResult::OnChange(int Feldnummer){
 		if (i!=Feldnummer){
 			if (Eingabe[i]==Eingabe[Feldnummer]){
 				if (Eingabe[i]!='*'){
-					LoadString (AfxGetInstanceHandle(), IDS_STRING41415, pc_str, STR_LAENGE_STRING_TABLE);
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_ASYMKEY_MSG_YOURINPUT, pc_str, STR_LAENGE_STRING_TABLE);
 					CString Ausgabe=(CString)pc_str+(CString)(Feldnummer+65)+(CString)" -> "+(CString)(Eingabe[Feldnummer]);
-					LoadString (AfxGetInstanceHandle(), IDS_STRING41423, pc_str, STR_LAENGE_STRING_TABLE);
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
 					Ausgabe+=(CString)pc_str+(CString)(i+65)+(CString)" -> "+(CString)(Eingabe[i]);
-					LoadString (AfxGetInstanceHandle(), IDS_STRING41485, pc_str, STR_LAENGE_STRING_TABLE);
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_REQ_ON_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
 					Ausgabe+=pc_str;
 					if (AfxMessageBox (Ausgabe,MB_YESNO)==IDYES){
 						Eingabe[i]='*';

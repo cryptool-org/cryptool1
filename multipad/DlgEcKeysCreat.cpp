@@ -77,34 +77,34 @@ BOOL CDlgEcKeysCreat::OnInitDialog()
 
 	// m_dom_param_listview aufbauen
 	UpdateData(TRUE);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32889,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DOMAIN_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_ec_dom_par_editbox = (CString) pc_str1;
 	UpdateData(FALSE);
 
 	// m_dom_param_listview aufbauen
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32887,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 0, pc_str, LVCFMT_RIGHT, 65 , 0); // Parameter
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32888,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 455 , 1); // Wert des Parameters
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32894,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, 50 , 2); // Bitlänge
 
 	// m_pubKey_listview aufbauen
 	m_pubKey_listview.DeleteAllItems(); // Delete all data in the listview
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32892,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_PUBLIC_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_pubKey_listview.InsertColumn( 0, pc_str, LVCFMT_RIGHT, 520 , 0);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32894,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	m_pubKey_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 50 , 1); // Bitlänge
 
 
 	// m_privKey_listview aufbauen
 	m_privKey_listview.DeleteAllItems(); // Delete all data in the listview
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32893,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_PRIVATE_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_privKey_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, 520 , 0);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32894,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	m_privKey_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 50 , 1); // Bitlänge
 
 
@@ -113,7 +113,7 @@ BOOL CDlgEcKeysCreat::OnInitDialog()
 	theApp.DoWaitCursor(0);
 	if (error)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41541,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		EndDialog(IDCANCEL);
 		return FALSE;
@@ -126,7 +126,7 @@ BOOL CDlgEcKeysCreat::OnInitDialog()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		EndDialog(IDCANCEL);
 		return FALSE;
@@ -161,14 +161,14 @@ void CDlgEcKeysCreat::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomPar
 	bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->p);
 	_itoa(bitlength+1, pc_str, 10);
 	m_dom_param_listview.SetItemText( 3, 2, pc_str ); // Bitlänge von p
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32890,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_X_COORD,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_dom_param_listview.InsertItem( 4, (CString) pc_str1 ); // "x coord of G"
 	m_dom_param_listview.SetItemText( 4, 1, ecParamString->G_xcoord );
 	bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->x);
 	_itoa(bitlength+1, pc_str, 10);
 	m_dom_param_listview.SetItemText( 4, 2, pc_str ); // Bitlänge von x coord of G
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32891,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_Y_COORD,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_dom_param_listview.InsertItem( 5, (CString) pc_str1 ); // "y coord of G"
 	m_dom_param_listview.SetItemText( 5, 1, ecParamString->G_ycoord );
@@ -216,7 +216,7 @@ void CDlgEcKeysCreat::OnNewKeyPair()
 	theApp.DoWaitCursor(0);
 	if (error)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41541,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		return;
 	}
@@ -225,7 +225,7 @@ void CDlgEcKeysCreat::OnNewKeyPair()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		//EndDialog(IDCANCEL);
 		//return FALSE;
@@ -242,7 +242,7 @@ void CDlgEcKeysCreat::OnOctalRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		//EndDialog(IDCANCEL);
 		//return FALSE;
@@ -258,7 +258,7 @@ void CDlgEcKeysCreat::OnDecimalRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		//EndDialog(IDCANCEL);
 		//return FALSE;
@@ -274,7 +274,7 @@ void CDlgEcKeysCreat::OnHexRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		//EndDialog(IDCANCEL);
 		//return FALSE;
@@ -290,7 +290,7 @@ void CDlgEcKeysCreat::OnOK()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		EndDialog(IDCANCEL);
 		//return FALSE;

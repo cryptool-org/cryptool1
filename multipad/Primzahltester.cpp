@@ -57,7 +57,7 @@ void Primzahltester::OnButtonTesten()
 		zzgen z;
 		if(z.is_prime_turbo(atoi((LPCTSTR) m_eingabe))==1)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING61437,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str,atoi((LPCTSTR)m_eingabe));
 			AfxMessageBox(line);				// MessageBox, wenn i Primzahl ist
 		}

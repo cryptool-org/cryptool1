@@ -45,7 +45,7 @@ CDialogKeyHex::CDialogKeyHex(CWnd* pParent /*=NULL*/)
 	m_einstr = _T(INIT_STRING);
 	m_static_text = _T("");
 	//}}AFX_DATA_INIT
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41526,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line,pc_str,len/3);
 	m_static_text = line;
 }

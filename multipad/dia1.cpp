@@ -29,7 +29,7 @@ dia1::dia1(int maxlen, CWnd* pParent /*=NULL*/)
 	m_static_text = _T("");
 	m_Decrypt = 0;
 	//}}AFX_DATA_INIT
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41521,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line,pc_str,len);
 	m_static_text = line;
 }

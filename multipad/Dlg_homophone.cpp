@@ -85,11 +85,11 @@ BOOL Dlg_homophone::OnInitDialog()
 	m_Font.CreateFontIndirect(&LogFont);					// Font initialisieren
 	m_listview.SetFont(&m_Font);
 	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING37001,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
-	LoadString(AfxGetInstanceHandle(),IDS_STRING37002,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
-	LoadString(AfxGetInstanceHandle(),IDS_STRING37006,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_LIST_OF_HOMOPHONES,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth+2000,3);							// Verschlüsselung
 	Init_ListBox();
 

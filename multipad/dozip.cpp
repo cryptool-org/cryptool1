@@ -44,7 +44,7 @@ void dozip(const char *infile, const char *OldTitle)
 	LaengeNachher = ftell(fo);
 	if (LaengeVorher > 0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41566,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KOMPRESSION_FACTOR,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1,pc_str,(LaengeVorher-LaengeNachher)*100/LaengeVorher);
 		AfxMessageBox(pc_str1, MB_ICONINFORMATION);
 	}
@@ -53,7 +53,7 @@ void dozip(const char *infile, const char *OldTitle)
 
 	if(res) {
 		remove(outfile);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41522,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ZIP,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(err_txt,pc_str,MB_OK);
 		return;
 	}
@@ -61,7 +61,7 @@ void dozip(const char *infile, const char *OldTitle)
     NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
     remove(outfile);
     if(NewDoc) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41523,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ZIP_COMPRESSION_OF,pc_str,STR_LAENGE_STRING_TABLE);
         MakeNewName(title,sizeof(title),pc_str,OldTitle);
         NewDoc->SetTitle(title);
     }
@@ -84,8 +84,8 @@ void dounzip(const char *infile, const char *OldTitle)
 		if ( numread < 3 || strncmp( _MNumber, MagicZipNumber, 3) )
 		{
 			remove(outfile);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41546,pc_str,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41524,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_NO_ZIP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ZIP_FILE,pc_str1,STR_LAENGE_STRING_TABLE);
 			theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONEXCLAMATION);
 			fclose(fi);
 			return;
@@ -106,8 +106,8 @@ void dounzip(const char *infile, const char *OldTitle)
 
 	if(res) {
 		remove(outfile);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41524,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41522,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ZIP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ZIP,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK);
 		return;
 	}
@@ -115,7 +115,7 @@ void dounzip(const char *infile, const char *OldTitle)
     NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
     remove(outfile);
     if(NewDoc) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41525,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ZIP_DECOMPRESSION_OF,pc_str,STR_LAENGE_STRING_TABLE);
         MakeNewName(title,sizeof(title),pc_str,OldTitle);
         NewDoc->SetTitle(title);
     }

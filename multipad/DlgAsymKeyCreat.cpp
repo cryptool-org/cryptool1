@@ -139,8 +139,8 @@ void CDlgAsymKeyCreat::OnOK()
 	// Check if Name, Last Name, PIN-Code, and PIN-Verification were entered
 	if (m_edit1==""){
 		// Name fehlt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41416,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_SURNAME,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_ctrl1.SetFocus();
 		return;
@@ -148,8 +148,8 @@ void CDlgAsymKeyCreat::OnOK()
 
 	if (m_edit2==""){
 		// Vorname fehlt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41417,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_PRENAME,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_ctrl2.SetFocus();
 		return;
@@ -157,8 +157,8 @@ void CDlgAsymKeyCreat::OnOK()
 
 	if (m_edit3==""){
 		// PIN-Code fehlt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41418,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_PIN2,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_ctrl3.SetFocus();
 		return;
@@ -166,8 +166,8 @@ void CDlgAsymKeyCreat::OnOK()
 
 	if (m_edit4==""){
 		// PIN-Code-Verifikation fehlt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41419,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_PINVERIFICATION,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_ctrl4.SetFocus();
 		return;
@@ -175,8 +175,8 @@ void CDlgAsymKeyCreat::OnOK()
 
 	if (m_edit3!=m_edit4){
 		// PIN-Code und PIN-Code-Verifikation stimmen nicht überein
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41420,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41408,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		// Die Eingabefelder von PIN und PIN-Verifikation löschen
 		m_edit3="";
@@ -197,9 +197,9 @@ void CDlgAsymKeyCreat::OnOK()
 		// PSE_FILE_SUFFIX dient als Dateiendung für die Datei in der geheimer Schlüssel
 		// gespeichert wird (PSE) und sollte/darf nicht in den Benutzereingaben auftauchen.
 		char tmp_str[200];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41559,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FORMAT_SUBSTR,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(tmp_str, pc_str, PSE_FILE_SUFFIX);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41560,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ILLEGAL_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(tmp_str,pc_str1,MB_ICONWARNING|MB_OK);
 
 		/* Eingaben nicht löschen, damit Benutzer noch sieht was er eingegeben hatte.
@@ -228,8 +228,8 @@ void CDlgAsymKeyCreat::OnOK()
 		(m_edit2.FindOneOf("\\/:*?\"<>|~$%&,;[]") > (-1)) ||
 		(m_user_keyinfo.FindOneOf("\\/:*?\"<>|~$%&,;[]") > (-1)) ){
 		// AfxMessageBox("Sonderzeichen enthalten");
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41549,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41560,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_INPUT_FORMAT,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ILLEGAL_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
 		return;
 	}
@@ -250,9 +250,9 @@ void CDlgAsymKeyCreat::OnOK()
 	if ((m_rsa_combo.IsWindowEnabled()) && 
 		((rsa_modul<MIN_RSA_MODULSIZE) || (rsa_modul>MAX_RSA_MODULSIZE)))
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41421,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1, MIN_RSA_MODULSIZE-1, MAX_RSA_MODULSIZE+1);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41422,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_rsa_combo.SetFocus();
 		return;
@@ -260,9 +260,9 @@ void CDlgAsymKeyCreat::OnOK()
 
 	if (m_dsa_combo.IsWindowEnabled() && dsa_prime>MAX_RSA_MODULSIZE)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING61419,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_RANGE_DSA_BITLENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str, pc_str1, MAX_RSA_MODULSIZE+1);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41422,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_dsa_combo.SetFocus();
 		return;
@@ -288,13 +288,13 @@ BOOL CDlgAsymKeyCreat::OnInitDialog()
 
 	// m_dom_param_listview aufbauen
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32887,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 0, pc_str, LVCFMT_RIGHT, 65 , 0); // Parameter
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32888,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 455 , 1); // Wert des Parameters
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32894,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, 50 , 2); // Bitlänge
 
 	// Daten Initialisieren
@@ -356,7 +356,7 @@ BOOL CDlgAsymKeyCreat::OnInitDialog()
 		if (error)
 		{
 			// error while converting curveParameter to Strings
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 			return TRUE;
 		}
@@ -374,7 +374,7 @@ void CDlgAsymKeyCreat::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomPa
 	unsigned int bitlength;
 
 	UpdateData(TRUE);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32889,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DOMAIN_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_ec_dom_par_editbox = (CString) pc_str1;
 	UpdateData(FALSE);
@@ -400,7 +400,7 @@ void CDlgAsymKeyCreat::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomPa
 	_itoa(bitlength+1, pc_str, 10);
 	m_dom_param_listview.SetItemText( 3, 2, pc_str ); // Bitlänge von p
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32890,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_X_COORD,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_dom_param_listview.InsertItem( 4, (CString) pc_str1 ); // "x coord of G"
 	m_dom_param_listview.SetItemText( 4, 1, ecParamString->G_xcoord );
@@ -408,7 +408,7 @@ void CDlgAsymKeyCreat::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomPa
 	_itoa(bitlength+1, pc_str, 10);
 	m_dom_param_listview.SetItemText( 4, 2, pc_str ); // Bitlänge von x coord of G
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32891,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_Y_COORD,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, curveID);
 	m_dom_param_listview.InsertItem( 5, (CString) pc_str1 ); // "y coord of G"
 	m_dom_param_listview.SetItemText( 5, 1, ecParamString->G_ycoord );
@@ -448,7 +448,7 @@ void CDlgAsymKeyCreat::OnSelchangeEcCombo()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		return;
 	}
@@ -500,7 +500,7 @@ void CDlgAsymKeyCreat::OnDecimalRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		return;
 	}
@@ -514,7 +514,7 @@ void CDlgAsymKeyCreat::OnOctalRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		return;
 	}
@@ -528,7 +528,7 @@ void CDlgAsymKeyCreat::OnHexRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 		return;
 	}
@@ -638,7 +638,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			if (error)
 			{
 				// error while creating key pair
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41541,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 				return;
 			}
@@ -646,7 +646,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			if (error)
 			{
 				// error while converting curveParameter to Strings
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41545,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
 				return;
 			}
@@ -670,14 +670,14 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (error == -1)
 		{
 			// irgendein Fehler beim erzeugen der PSE ist aufgetreten
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41430,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			return;
 		}
 		else if (error == -2)
 		{
 			// irgendein Fehler beim öffnen der PSE ist aufgetreten
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41432,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			return;
 		}
@@ -685,7 +685,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		{
 			// Fehler: die Dateien für die öffentlichen bzw. geheimen Parameter konnten nicht
 			// im Verzeichnis "Pfad" (siehe multipad.cpp) erzeugt werden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING32877,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, Pfad);
 			AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
 			return;
@@ -737,7 +737,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		PseHandle=theApp.SecudeLib.af_create (string3  , NULL, string5, NULL, TRUE);
 		if (PseHandle==NULL)
 		{	// Fehler bei der PSE-Erzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41430,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string2;
@@ -760,7 +760,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (error == -1)
 		{
 			// Fehler bei der Schlüsselerzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41542,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_KEY_GENERATION,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
@@ -788,7 +788,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 				for (i=0;i<mlen;i++)
 					sprintf(pc_str+2+(2*i),"%02X",buf[i]);
 				string_to_ln(pc_str,temp);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING61420,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
 				showparam.addentry(pc_str,temp);
 				elen=ki->part2.noctets;
 				buf=(unsigned char *)ki->part2.octets;
@@ -796,9 +796,9 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 				for (i=0;i<elen;i++)
 					sprintf(pc_str+2+(2*i),"%02X",buf[i]);
 				string_to_ln(pc_str,temp);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING61421,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
 				showparam.addentry(pc_str,temp);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING61422,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(pc_str1,pc_str,UserKeyId);
 				showparam.settitel(pc_str1);
 				if (showparam.DoModal()!=IDOK)
@@ -849,7 +849,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (Zert==NULL)
 		{
 			// Fehler bei der Zertifikatserzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41433,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
@@ -867,7 +867,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (PseHandle2==NULL)
 		{
 			// Fehler beim Öffnen der CA-PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41411,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
@@ -885,7 +885,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (Zert2==NULL)
 		{
 			// Fehler bei der Zertifizierung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41434,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
@@ -901,7 +901,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (fehler==-1)
 		{
 			// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41435,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
@@ -927,9 +927,9 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 	Sleep(1000); // wait a second
 
 	// user-information: key pair succesfully created.
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41440,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, UserKeyId);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING32911,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_GENERATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 	char temp[100];
 	sprintf(temp, pc_str, duration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);

@@ -33,7 +33,7 @@ int CReadIniFile::GetEcIDList(CStringList& ecIDlist)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41536,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
 		return -1; // error: couldn't open inputfile
@@ -63,7 +63,7 @@ int CReadIniFile::GetPreSelEcID(CString& curveID)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41536,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
 		return -1; // error: couldn't open inputfile
@@ -103,7 +103,7 @@ int CReadIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41536,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
 		return -1; // error: couldn't open inputfile
@@ -171,7 +171,7 @@ int CReadIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	if (error > 0){
 		// error: curve E could not been initialized with parameters str_a, str_b, str_p
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41540,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_READING,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, curveID, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONERROR, 0 );
 		return -1; // error

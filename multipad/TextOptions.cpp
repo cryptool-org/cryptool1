@@ -203,9 +203,9 @@ void CTextOptions::OnUpdateEdit1()
 
 				m_ConvertCase = FALSE;
 
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41567,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SWITCH_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
 
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41500,pc_str1,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 
 				theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONINFORMATION);
 

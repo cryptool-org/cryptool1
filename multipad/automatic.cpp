@@ -45,20 +45,20 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	i = ftell(fi);
 	fclose(fi);
 	if(i < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
 		return;
 	}
 
 	if (theApp.Options.m_CHist) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41471,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41472,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_GERMAN,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(line,"%s%s",Pfad,pc_str);
 		HistogramASCII(line,pc_str1);
 		HistogramASCII(infile, OldTitle);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41473,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41474,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CMP_CIPHER_GERMAN,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
@@ -72,7 +72,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	// für die Analyse zur Verfügung stehen
 	if (text.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,2);
 		AfxMessageBox (line);
 		return;	
@@ -80,7 +80,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	
 	SymbolArray deutsch(AppConv);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41471,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line,"%s%s",Pfad,pc_str);
 	deutsch.Read(line);
 	deutsch+=1;
@@ -94,7 +94,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 		GetTmpName(name,"cry",".plt");
 		
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41475,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
 		MakeNewName(line,sizeof(line),pc_str,OldTitle);
 		
 		c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
@@ -106,9 +106,9 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		if( f.Open( name2, CFile::modeCreate | CFile::modeWrite ) ) {
 			CArchive ar( &f, CArchive::store);
 			CString s1 = line;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41476,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_SHIFT,pc_str,STR_LAENGE_STRING_TABLE);
 			CString s2 = pc_str;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41476,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_SHIFT,pc_str,STR_LAENGE_STRING_TABLE);
 			CString s3 = pc_str;
 			
 			// headline <<  x_label << y_label
@@ -127,8 +127,8 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		if(NewDoc) {
 			NewDoc->SetTitle(line);
 		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41478,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41474,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_SUPERIMPOSITIONS,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
@@ -151,9 +151,9 @@ void CaesarAuto(const char *infile, const char *OldTitle)
     NewDoc = theApp.OpenDocumentFileNoMRU(name, csKey);
     remove(name);
 	if(NewDoc) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41480,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(key,pc_str,theApp.TextOptions.m_alphabet[shift]);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41481,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 		MakeNewName2(line,sizeof(line),pc_str,key,OldTitle);
 		NewDoc->SetTitle(line);
     }
@@ -175,7 +175,7 @@ UINT VigenereAuto(PVOID p)
 		theApp.DoWaitCursor(1);
 	
 	if(par->flags | CRYPT_DO_PROGRESS) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41482,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOCORRELATION_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
 	}
 	
@@ -192,7 +192,7 @@ UINT VigenereAuto(PVOID p)
 	// für die Analyse zur Verfügung stehen
 	if (text.GetSize() <= 3)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,4);
 		AfxMessageBox (line);
 		return 0;	
@@ -216,8 +216,8 @@ UINT VigenereAuto(PVOID p)
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41483,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41484,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
@@ -245,15 +245,15 @@ UINT VigenereAuto(PVOID p)
 	
 		switch ( dia.m_Sprache ) {
 		case(0):  // german
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41471,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,"%s%s",Pfad,pc_str);
 			break;
 		case(1):  // english
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41479,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ENGLISH,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,"%s%s",Pfad,pc_str);
 			break;
 		default: // is german
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41471,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,"%s%s",Pfad,pc_str);
 		}
 	}
@@ -265,8 +265,8 @@ UINT VigenereAuto(PVOID p)
 // ================ DAS WARS ====================================================
 
 	if (Opt.m_VBase) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41471,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41472,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_GERMAN,pc_str1,STR_LAENGE_STRING_TABLE);
 		sprintf(line,"%s%s",Pfad,pc_str);	
 		HistogramASCII(line, pc_str1);
 	}
@@ -275,7 +275,7 @@ UINT VigenereAuto(PVOID p)
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41486,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
 			GetTmpName(name,"cry",".tmp");
@@ -298,7 +298,7 @@ UINT VigenereAuto(PVOID p)
 		if (Opt.m_VBase) {
 			// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 			GetTmpName(name,"cry",".plt");
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41487,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CORRELATION_CAESAR_GERMAN,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str,i+1);
 			
 			c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
@@ -310,9 +310,9 @@ UINT VigenereAuto(PVOID p)
 			if( f.Open( name2, CFile::modeCreate | CFile::modeWrite ) ) {
 				CArchive ar( &f, CArchive::store);
 				CString s1 = line;
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41476,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_SHIFT,pc_str,STR_LAENGE_STRING_TABLE);
 				CString s2 = pc_str;
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41477,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
 				CString s3 = pc_str;
 				
 				// headline <<  x_label << y_label
@@ -328,9 +328,9 @@ UINT VigenereAuto(PVOID p)
 			
 			theApp.ThreadOpenDocumentFileNoMRU(name,line);
 			
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41488,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY_CHARACTER,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str,i+1,theApp.TextOptions.m_alphabet[shift]);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41484,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
 			if(IDCANCEL==theApp.m_MainWnd->MessageBox(line,pc_str,MB_OKCANCEL)) Opt.m_VBase = FALSE;
 		}
 		
@@ -344,9 +344,9 @@ UINT VigenereAuto(PVOID p)
 		if(IDCANCEL == dia.DoModal()) return 0;
 		strcpy(key,dia.m_Str);
 		
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41535,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		//		sprintf(line,pc_str,key);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41484,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
 		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	periode = strlen(key); // check for iterated key
@@ -354,9 +354,9 @@ UINT VigenereAuto(PVOID p)
 		if(periode%i == 0) {
 			if(!memcmp(key,key+i,periode-i)) { // iterated key found
 				key[i]=0;
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41548,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CONVERT_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str,key);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41484,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
 				theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 			}
 		}
@@ -367,7 +367,7 @@ UINT VigenereAuto(PVOID p)
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
 	ForceReformat(par->infile,name, FALSE);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41489,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_VIGENERE_ANALYSE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 	MakeNewName2(line,sizeof(line),pc_str,key,par->OldTitle);
     theApp.ThreadOpenDocumentFileNoMRU(name,line,key);
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -401,7 +401,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 	
 	if (! infile_zeichen_anz)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		char line[256];
 		sprintf(line,pc_str,1);
 		AfxMessageBox (line);
@@ -445,7 +445,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 		// Hat auch die andere Datei mindestens ein zu verschlüsselndes Zeichen ?
 		if (! laenge_str)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 			char line[256];
 			sprintf(line,pc_str,1);
 			AfxMessageBox (line);
@@ -524,7 +524,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 					// War einer der Texte kuerzer ?
 					if (hill_rc == HILL_OK_LAENGE_UNTERSCHIEDLICH)
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING41563,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATALENGTH_MISMATCH,pc_str,STR_LAENGE_STRING_TABLE);
 						AfxMessageBox(pc_str,MB_ICONINFORMATION);
 					}
 					
@@ -546,7 +546,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 					// War einer der Texte kuerzer ?
 					if (hill_rc == HILL_OK_LAENGE_UNTERSCHIEDLICH)
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING41563,pc_str,STR_LAENGE_STRING_TABLE);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATALENGTH_MISMATCH,pc_str,STR_LAENGE_STRING_TABLE);
 						AfxMessageBox(pc_str,MB_ICONINFORMATION);
 					}
 					
@@ -565,12 +565,12 @@ void HillPlain(const char *infile, const char *OldTitle)
 			}
 			else if (hill_rc == HILL_NICHT_OK_NICHT_GEFUNDEN)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41561,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_SHORT_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox(pc_str, MB_ICONSTOP);
 			}
 			else if (hill_rc == HILL_NICHT_OK_WIDERSPRUCH)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41562,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT,pc_str,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox(pc_str, MB_ICONSTOP);
 			}
 			else if (hill_rc == HILL_UNDEF)
@@ -605,12 +605,12 @@ void HillPlain(const char *infile, const char *OldTitle)
 					}
 				}
 				
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41565,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT_2,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(pc_str1,pc_str,widerspruch.GetBuffer(0));
 				cstr += pc_str1;
 				cstr += "\n";
 				
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41564,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_2,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(pc_str1,pc_str,nicht_gefunden.GetBuffer(0));
 				cstr += pc_str1;
 				
@@ -618,7 +618,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 			}
 			else // Das darf nicht passieren, wir geben aus: Der Schluessel wurde nicht gefunden
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41490,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 				AfxMessageBox(pc_str, MB_ICONSTOP);
 			}
 		}
@@ -657,7 +657,7 @@ UINT XorAuto(PVOID p)
 	// für die Analyse zur Verfügung stehen
 	if (c.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,2);
 		AfxMessageBox (line);
 		return 0;	
@@ -678,8 +678,8 @@ UINT XorAuto(PVOID p)
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41483,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41491,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
@@ -707,15 +707,15 @@ UINT XorAuto(PVOID p)
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41492,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_XOR_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
 			GetTmpName(name,"cry",".asc");
 			text.Write(name);
 			HistogramBin(name,line);
 			remove(name);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41483,pc_str,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41491,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str1,STR_LAENGE_STRING_TABLE);
 			if(IDCANCEL==theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OKCANCEL)) Opt.m_VBase = FALSE;
 		}
 		NGram ng(s);
@@ -743,9 +743,9 @@ UINT XorAuto(PVOID p)
 		
 		periode = dia.GetLen();
 		memcpy(key,dia.GetData(),periode);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41493,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		//		sprintf(line,pc_str,line2+1);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41491,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str,STR_LAENGE_STRING_TABLE);
 		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	for(i=1;i<periode;i++) { // check for repeated keys
@@ -753,9 +753,9 @@ UINT XorAuto(PVOID p)
 			if(!memcmp(key,key+i,periode-i)) { // iterated key found
 				periode = i;
 				for(i=0;i<periode;i++) sprintf(line2+(i*3)," %02.2X", key[i]);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41548,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CONVERT_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str,line2+1);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41491,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str,STR_LAENGE_STRING_TABLE);
 				theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 			}
 		}
@@ -768,7 +768,7 @@ UINT XorAuto(PVOID p)
 	
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41494,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_XOR_ANALYSE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 	// line2+1: die +1 wegen des ersten zusätzlichen Leereichens, das in den String
 	// line2 am Anfang eingefügt worden ist, aber nicht mit ausgegeben werden soll 
 	MakeNewName2(line,sizeof(line),pc_str,line2+1,par->OldTitle);
@@ -810,7 +810,7 @@ UINT AddAuto(PVOID p)
 	// für die Analyse zur Verfügung stehen
 	if (c.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,2);
 		AfxMessageBox (line);
 		return 0;	
@@ -831,8 +831,8 @@ UINT AddAuto(PVOID p)
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41483,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41495,pc_str1,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
@@ -863,15 +863,15 @@ UINT AddAuto(PVOID p)
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41496,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADD_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
 			GetTmpName(name,"cry",".asc");
 			text.Write(name);
 			HistogramBin(name,line);
 			remove(name);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41483,pc_str,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41495,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str1,STR_LAENGE_STRING_TABLE);
 			if(IDCANCEL==theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OKCANCEL)) Opt.m_VBase = FALSE;
 		}
 		NGram ng(s);
@@ -903,9 +903,9 @@ UINT AddAuto(PVOID p)
 		periode = dia.GetLen();
 		memcpy(key,dia.GetData(),periode);
 		
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41493,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		//		sprintf(line,pc_str,line2+1);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING41495,pc_str,STR_LAENGE_STRING_TABLE);
+		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str,STR_LAENGE_STRING_TABLE);
 		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	for(i=1;i<periode;i++) { // check for repeated keys
@@ -913,9 +913,9 @@ UINT AddAuto(PVOID p)
 			if(!memcmp(key,key+i,periode-i)) { // iterated key found
 				periode = i;
 				for(i=0;i<periode;i++) sprintf(line2+(i*3)," %02.2X", key[i]);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41548,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CONVERT_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str,line2+1);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING41495,pc_str,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str,STR_LAENGE_STRING_TABLE);
 				theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 			}
 		}
@@ -929,7 +929,7 @@ UINT AddAuto(PVOID p)
 	
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING41497,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ADD_ANALYSE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 	// line2+1: die +1 wegen des ersten zusätzlichen Leereichens, das in den String
 	// line2 am Anfang eingefügt worden ist, aber nicht mit ausgegeben werden soll 
 	MakeNewName2(line,sizeof(line),pc_str,line2+1,par->OldTitle);
