@@ -76,9 +76,10 @@ BOOL CDialogPeriodeOutput::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEX,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth+300 , 5); // Perioden Inhalt Hexdump
 
-	for (int i=0; i<zahlenanalyse->cnt_periodResults; i++) { 
-		sprintf(pc_str1,"%d", i+1);
-		int j = m_listview.InsertItem (i, pc_str1);				// <- dafür muß es eine Alternative geben!
+//	for (int i=0; i<zahlenanalyse->cnt_periodResults; i++) { 
+	for (int i=zahlenanalyse->cnt_periodResults-1; i>=0; i--) { 
+		sprintf(pc_str1,"%d", zahlenanalyse->cnt_periodResults-i);
+		int j = m_listview.InsertItem (zahlenanalyse->cnt_periodResults-i-1, pc_str1);
 		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].offset+1);
 		m_listview.SetItemText (j, 1, pc_str1);
 		sprintf(pc_str1,"%d", zahlenanalyse->periodResults[i].length);

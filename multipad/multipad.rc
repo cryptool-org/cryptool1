@@ -1840,7 +1840,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,90,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
-    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andu?",
+    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im and",
                     IDC_STATIC,24,150,318,32
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
                     IDC_STATIC,24,182,318,17

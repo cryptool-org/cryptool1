@@ -868,7 +868,7 @@ UINT Periode(PVOID p)
 		// Ausgabe der Periodenlänge
 		CDialogPeriodeOutput POutp;
 		OPENFILENAME ofn;
-		char fname[257], line[256], ftitle[128];
+		char fname[257], line[256], ftitle[128], fboxtitle[128];
 
 		// prepare the fileselectorbox dialog
 		memset(&ofn,0,sizeof(ofn));
@@ -876,13 +876,14 @@ UINT Periode(PVOID p)
 		ofn.hwndOwner = AfxGetMainWnd()->m_hWnd;
 		ofn.hInstance = AfxGetInstanceHandle();
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,pc_str,STR_LAENGE_STRING_TABLE);
-		ofn.lpstrTitle = pc_str;
+		ofn.lpstrTitle = fboxtitle;	fboxtitle[0] = '\0';
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,fboxtitle,128);
 		ofn.Flags = OFN_HIDEREADONLY;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
 		ofn.lpstrFile = fname;	strcpy(fname, pc_str);
 		ofn.nMaxFile = sizeof(fname)-1;
 		ofn.lpstrFileTitle = ftitle;	ftitle[0] = '\0';
-		ofn.nMaxFileTitle = sizeof(ftitle)-1;
+		ofn.nMaxFileTitle = sizeof(ftitle);
 
 		POutp.zahlenanalyse = &analyse;
 		if ((isPeriode > 0) && (POutp.DoModal()==IDOK) && (GetSaveFileName(&ofn)) && (fname[0]!='\0'))
