@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.03, September 2002
+         CrypTool, Version 1.3.04, December 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
          (c) University of Siegen and Karlsruhe
          $Id$
@@ -8,7 +8,7 @@
 
                        Contents
 
- 1. .... Brief description
+ 1. .... Brief description of the CrypTool package
  1.1. .... How to start - An Introduction to CrypTool
  1.2. .... What do you get in the CrypTool package?
  1.3. .... Acknowledgements
@@ -21,15 +21,16 @@
  3. .... Installation
  4. .... List of files
  4.1. .... Checking the integrity of downloaded files
- 5. .... What's new in CrypTool till 1.3.03
- 5.1. .... Classical methods
- 5.2. .... Symmetric methods
- 5.3. .... Asymmetric methods
- 5.4. .... Formatting / display / navigation
- 5.5. .... Help / PDF script
- 5.6. .... Miscellaneous
- 5.7. .... Enhancements from version 1.3.00 to 1.3.03
- 5.8. .... Planned enhancements after version 1.3.03
+ 5. .... What's new in CrypTool till 1.3.04
+ 5.1. .... Enhancements from version 1.2.02 to 1.3.00
+ 5.1.1. .... Classical methods
+ 5.1.2. .... Symmetric methods
+ 5.1.3. .... Asymmetric methods
+ 5.1.4. .... Formatting / display / navigation
+ 5.1.5. .... Help / PDF script
+ 5.1.6. .... Miscellaneous
+ 5.2. .... Enhancements from version 1.3.00 to 1.3.04
+ 5.3. .... Planned enhancements after version 1.3.04
  6. .... Possible areas for further development
  6.1. .... Meaningful tasks to make the new maintainer familiar with
  7. .... Brief history of the released main versions of CrypTool
@@ -40,14 +41,14 @@
 10.2. .... c't 14/2001, pp 204-208
 10.3. .... DuD October 2002
 10.4. .... GISA citizen CD "Into the Internet - with Security"
-10.5. .... Freeware project Crank, CAP, CryptAid, etc
+10.5. .... Freeware projects Crank, CAP, CryptAid, etc
 11. .... Appendix
 11.1. .... Hints for using CrypTool on Linux with Wine
 
 
 
-1. Brief description
-   -----------------
+1. Brief description of the CrypTool package
+   -----------------------------------------
 This README file is part of the free distribution of CrypTool,
 a program by means of which cryptographic functions can be easily
 demonstrated and known and unknown algorithms analyzed.
@@ -67,7 +68,7 @@ The current version of CrypTool can be found at these addresses:
                 http://www.CrypTool.de
 
 Since beginning of 2002 the average download number of the CrypTool
-package is about 600 pieces per month -- with a growing trend.
+package is about 800 pieces per month -- with a growing trend.
 
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
@@ -197,10 +198,10 @@ CrypTool will get an academic home as planned. There the further
 development as open source is co-ordinated.
 
 The current sponsors of CrypTool have been Deutsche Bank AG,
-Secude Ltd. and FZI Karlsruhe. 1.3.03 is the last version,
+Secude Ltd. and FZI Karlsruhe. 1.3.04 is probably the last version,
 released by Deutsche Bank as maintainer.
 
-From September 2002 the new maintainer is the chair "Security
+From October 2002 the new maintainer is the chair "Security
 in Information Technology", faculty computer science from
 Mrs. Prof. Dr. Claudia Eckert at the technical university of
 Darmstadt, Germany.
@@ -437,9 +438,9 @@ cry*.*............ CrypTool writes temporary files to the Temp
                    directory which has a name beginning cry*.*
                    (extensions: asc, hex, org, plt, tmp, txt).
 CrypTool.ini...... This file is located in the Windows
-                   directory and contains the setting for 
+                   directory and contains the setting for
                    showing/not showing the welcome screen and
-                   the file names of the most recently opened 
+                   the file names of the most recently opened
                    files.
 
 
@@ -491,8 +492,11 @@ your computer is untouched.
 
 
 
-5. What's new in CrypTool till 1.3.03
+5. What's new in CrypTool till 1.3.04
    ----------------------------------
+
+5.1. Enhancements from version 1.2.02 to 1.3.00
+     ------------------------------------------
 The following enhancements and bug fixes (listed till 5.6) have
 been added for version 1.3.00 since CrypTool version 1.202:
 - CrypTool is now fully available in both English and German
@@ -505,8 +509,8 @@ been added for version 1.3.00 since CrypTool version 1.202:
   as the key or alphabet chosen) is stored internally within the
   program.
 
-5.1. Classical methods
-     -----------------
+5.1.1. Classical methods
+       -----------------
 + Homophone encryption is new
 + Permutation encryption new
 + Generation of random numbers
@@ -526,8 +530,8 @@ been added for version 1.3.00 since CrypTool version 1.202:
   (any text files)
 + Improved Playfair analysis.
 
-5.2. Symmetric methods
-     -----------------
+5.1.2. Symmetric methods
+       -----------------
 + The separate program AES-Tool generates self-extracting
   programs.
   This means that any file can be encrypted password-protected
@@ -539,19 +543,19 @@ been added for version 1.3.00 since CrypTool version 1.202:
   number generator, number of hash iterations, hash procedure
   (MD2, MD5, SHA-1)].
 
-5.3. Asymmetric methods
-     ------------------
+5.1.3. Asymmetric methods
+       ------------------
 + Demo on number theory and RSA method:
   - prime number generation
   - factorization of numbers (in stages) and using several
     different methods
   - transparent use of the RSA cryptosystem (including for
     self-selected prime numbers).
-    This means that you can e.g. duplicate "The Dialogue of 
+    This means that you can e.g. duplicate "The Dialogue of
     the Sisters".
 
-5.4. Formatting / display / navigation
-     ---------------------------------
+5.1.4. Formatting / display / navigation
+       ---------------------------------
 + Internally the keys and characteristics of all the methods are
   stored separately. Storage and recall of the keys entered are
   achieved via two buttons. Classical methods such as Playfair
@@ -562,20 +566,20 @@ been added for version 1.3.00 since CrypTool version 1.202:
 + When the display changes, the parent window is retained.
 + Hot keys added for moving around within the PDF script
 
-5.5. Help / PDF script
-     -----------------
+5.1.5. Help / PDF script
+       -----------------
 + Script extended to include an introduction to elementary number
   theory with a lot of examples
 
-5.6. Miscellaneous
-     -------------
+5.1.6. Miscellaneous
+       -------------
 + PKCS#12 export and import of RSA- and DSA-PSEs including the
   keys stored within these PSEs.
 + New web site
   - Additional information: presentation in German and English.
 
 
-5.7. Enhancements from version 1.3.00 to 1.3.03
+5.2. Enhancements from version 1.3.00 to 1.3.04
      ------------------------------------------
 The following topics have been improved:
 Source code:
@@ -616,11 +620,11 @@ Functionality:
   - inter active usage of factorization if only the public
     parameters are known
   - it's now possible to use hex values as input too.
-+ Improvements at the AES-Tool  
++ Improvements at the AES-Tool
   (the version of the AES-Tool delivered with 1.3.03 was partly
   rewritten and is no more compatible with its predecessors):
   - AES-Tool now offers complete functionality also when called
-    from the commandline.
+    from the command line.
   - There is a customization suggesting the file type (exe or aes).
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
@@ -643,7 +647,7 @@ Functionality:
 + Show/Visualize the single steps / dependencies of
     -> the creation of an electronic signature,
     -> the hybrid encryption and decryption,
-    -> how changes to a document change the hash value (hash 
+    -> how changes to a document change the hash value (hash
        demonstration) (sensitivity of hash algorithms).
 + The flow charts used for visualization show you, which steps
   can be taken in which order. If you click a step, where the
@@ -657,16 +661,28 @@ Functionality:
 + When the user saves the window content to a file now a fitting
   file name is suggested:  Cry-<Method>-<Sourcefilename>.*
   For intentionally saved documents the window title contains
-  the filename (instead of the description). 
+  the filename (instead of the description).
++ The CrypTool menu within the Startup submenu now also contains
+  a hint to the readme file.
++ Brute-force attacks at symmetric algorithms now allow to use
+  more than 5 joker characters (20 bits)and the expected time 
+  is presented.  Additionally the length of the here used entropy
+  window can now be customized via analysis options.
++ New in 1.3.04 is a high performance pattern search to find either
+  multiple patterns of any length within one file or to find any
+  patterns in one file which also appear in another given file.
 
 
-5.8. Planned enhancements after version 1.3.03
+5.3. Planned enhancements after version 1.3.04
      -----------------------------------------
 Functionality:
-+ Show/Visualize the birthday paradoxon and attack hash methods
-  based on this.
-+ A pure commandline version of AES-Tool to be also available for
++ Implement high-performance attack on hash or signature methods
+  to show/visualize the birthday paradoxon based on this.
++ Show/Visualize the Diffie-Hellman key exchange method.
++ A pure command line version of AES-Tool to be also available for
   the operating systems OS/2 and Linux (aestool-os2; aestool-linux).
++ Visualize of challenge response methods.
++ Visualize of man-in-the-middle attacks.
 
 
 
@@ -684,9 +700,9 @@ Functionality:
   Then these additional customizations must become part of the
   format for the internal key storage.
 + Use dictionary for all attacks, not just for substitution.
-+ Implementation of an enhanced pattern search (with pre-given 
-  standardized and regular patterns, mass comparison with known 
-  patterns from another file, search for unknown but repeated 
++ Implementation of an enhanced pattern search (with pre-given
+  standardized and regular patterns, mass comparison with known
+  patterns from another file, search for unknown but repeated
   patterns in a document, ...).
 + Analysis newly to implement for
   - homophone encryption.
@@ -704,11 +720,11 @@ Functionality:
   of XOR, ADD, Vigenere.
 + Display of second-, third-, etc. -best hit in XOR/ADD analysis
   (this could lead to a shorter key length).
-+ Create single dialogue windows in an a-modal way (e.g. N-gram 
++ Create single dialogue windows in an a-modal way (e.g. N-gram
   analysis, manual analysis, hybrid encryption demonstration).
   This allows that one can switch between the main window and
   the dialogue window without closing the dialogue window first
-  (the burdon is a more complex control mechanism, handling of
+  (the burden is a more complex control mechanism, handling of
   multiple calls to the same dialogue, update after change of
   window focus or after changing the underlying original data
   within the main window, ...).
@@ -735,10 +751,10 @@ Functionality:
   Journal of Cryptology, 6 (1993), pp 209-224.
 + Because cryptographic structures and formats are often ASN.1
   encoded: integration of an ASN.1 decoding tool.
-+ Visualization of Diffie-Hellman key exchange.
 + In general visualization of dependencies and workflows in
   protocols (not only "simple" algorithms).
-+ Add the German standards for validation of random numbers.
++ Add the German requirements for standards for validation of
+  random numbers.
 + Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the Online
   help (main task here is user interface and documentation).
@@ -761,7 +777,7 @@ Functionality:
      different dialog boxes.
      Maybe build a script language to control all dialogues or
      use automated test tools off-the-shelf.
-  c) create commandline interface (best after within the source
+  c) create command line interface (best after within the source
      pure crypto functionality is separated from user-interaction)
      so test cases can be read from a file without using
      dialog boxes (without user interface), solved and the result
@@ -782,11 +798,14 @@ Version   Date		English		German
 1.2.02    Dec. 2000	-		3.2
 1.3.00    Jan. 2002	4.7		4.9
 1.3.02    June 2002	6.4		6.9
-1.3.03    Aug. 2002	6.5		6.9
+1.3.03    Sep. 2002	6.5		6.9
+1.3.04    Dec. 2002	xxx		xxx
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
-1.3.03    many minor bug fixes and documentation improvements 
+1.3.03    many minor bug fixes and documentation improvements.
+1.3.04    minor bug fixes (crash in analysis of Playfair and N-gram),
+          little new functionality and documentation improvements.
 
 
 
@@ -820,7 +839,7 @@ CrypTool.
 10.1. Wirtschaftswoche special issue
       ------------------------
 In the special issue "Cryptography" of the magazine Wirtschaftswoche
-(Sept. 2000) there was a competition entitled "Crack the text!". 
+(Sept. 2000) there was a competition entitled "Crack the text!".
 Please see http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
 cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
 If you followed the tips provided, you could be able to crack the
@@ -833,12 +852,12 @@ renowned and widely circulated German computer magazine.
 
 10.3. DuD October 2002
       ----------------
-A 4-page article on CrypTool will be published under the title
-"CrypTool - spielerischer Einstieg in klassische und moderne 
-Kryptographie...Neue Version - fundierte Awareness in Deutsch
+A 4-page article on CrypTool was published under the title
+"CrypTool - spielerischer Einstieg in klassische und moderne
+Kryptographie. Neue Version - fundierte Awareness in Deutsch
 und Englisch" in the German technical journal "DuD Datenschutz
-und Datensicherheit" (Privacy and Data Protection), in the 
-issue 10/2002.
+und Datensicherheit" (Privacy and Data Protection) in the
+issue 10/2002. We plan to publish a English version too.
 
 10.4. GISA citizen CD "Into the Internet - with Security"
       ---------------------------------------------------
@@ -850,8 +869,8 @@ CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
 
-10.5. Freeware project Crank, Griffon, CAP, CryptAid, etc
-      ---------------------------------------------------
+10.5. Freeware projects Crank, Griffon, CAP, CryptAid, etc
+      ----------------------------------------------------
 http://freshmeat.net/projects/crank/
 Crank was initiated in January 2001 by Matthew Russell and is
 released under the GNU general public license, the GPL.
@@ -862,19 +881,19 @@ automatically.
 Initially the focus is on the analysis of monoalphabetic
 substitution ciphers and the development of generic and flexible
 analysis tools.
-The current version 0.2.1 was released in August 2001. 
+The current version 0.2.1 was released in August 2001.
 On the project web page there are also some very interesting links
 on classical cryptanalysis.
 
 http://freshmeat.net/projects/griffon/
-Griffon was started in 2000 by Adrian Mulvaney begonnen and is
+Griffon was started in 2000 by Adrian Mulvaney and is
 released under the GNU general public license, the GPL.
 Griffon is a GTK+ GUI cryptanalysis package for pre-digital ciphers.
-Monoalphabetic transposistion and substitution ciphers and Playfair
+Monoalphabetic transposition and substitution ciphers and Playfair
 are covered. The program includes a customizable frequency count.
 The current version 1.0 was released in November 2000.
 
-The only other "useful" programs known to us, which combine 
+The only other "useful" programs known to us, which combine
 cryptography and cryptanalysis (under a graphical user interface) are:
 - CAP from Dr. Richard Spillman
   (the source code probably is not public)
@@ -886,9 +905,9 @@ cryptography and cryptanalysis (under a graphical user interface) are:
 If we are missing something here or are incorrect anyhow, please feel
 free to inform us, so that we can complete or correct the list.
 
-We explicitly want to state, that we would welcome if all the
+We explicitly want to state, that we would welcome very much if the
 efforts made for these single programs could be combined into one
-new program. We are very kean about any co-operation!!
+merged new program. We are very kean about any co-operation!!
 
 
 

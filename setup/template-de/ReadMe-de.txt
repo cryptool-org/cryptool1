@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.03, September 2002
+         CrypTool, Version 1.3.04, Dezember 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
          (c) Universität Siegen und Karlsruhe
          $Id$
@@ -8,7 +8,7 @@
 
                        Inhalt
 
- 1. .... Kurzbeschreibung
+ 1. .... Kurzbeschreibung des CrypTool-Paketes
  1.1. .... Wie Sie am besten starten - Der Einstieg in CrypTool
  1.2. .... Was beinhaltet die Distribution?
  1.3. .... Danke
@@ -21,15 +21,16 @@
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Neuerungen in CrypTool bis 1.3.03
- 5.1. .... Klassische Verfahren
- 5.2. .... Symmetrische Verfahren
- 5.3. .... Asymmetrische Verfahren
- 5.4. .... Formatierung / Anzeige / Navigation
- 5.5. .... Hilfe / PDF-Skript
- 5.6. .... Sonstiges
- 5.7. .... Änderungen von Version 1.3.00 zu Version 1.3.03
- 5.8. .... Geplante Änderungen nach Version 1.3.03
+ 5. .... Neuerungen in CrypTool bis 1.3.04
+ 5.1. .... Änderungen von Version 1.2.02 zu Version 1.3.00
+ 5.1.1. .... Klassische Verfahren
+ 5.1.2. .... Symmetrische Verfahren
+ 5.1.3. .... Asymmetrische Verfahren
+ 5.1.4. .... Formatierung / Anzeige / Navigation
+ 5.1.5. .... Hilfe / PDF-Skript
+ 5.1.6. .... Sonstiges
+ 5.2. .... Änderungen von Version 1.3.00 zu Version 1.3.04
+ 5.3. .... Geplante Änderungen nach Version 1.3.04
  6. .... Mögliche Punkte für eine Weiterentwicklung
  6.1. .... Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
  7. .... Kurze Historie der freigegebenen Hauptversionen
@@ -40,14 +41,14 @@
 10.2. .... c't 14/2001, S. 204-208
 10.3. .... DuD Oktober 2002
 10.4. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
-10.5. .... Freeware-Projekt Crank, CAP, CryptAid,  etc.
+10.5. .... Freeware-Projekte Crank, CAP, CryptAid, etc.
 11. .... Anhang
 11.1. .... CrypTool unter Linux mit Wine
 
 
 
-1. Kurzbeschreibung
-   ----------------
+1. Kurzbeschreibung des CrypTool-Paketes
+   -------------------------------------
 Dieses Readme gehört zur kostenlosen Distribution von CrypTool,
 einem Programm, mit dem man kryptographische Funktionen leicht
 demonstrieren, aber auch bekannte und unbekannte Verfahren
@@ -66,8 +67,8 @@ Internet-Adressen:  http://www.CrypTool.de
                     http://www.CrypTool.com
                     http://www.CrypTool.org
 
-Seit Anfang 2002 bewegt sich die Downloadrate ziemlich konstant 
-bei 600 CrypTool-Paketen pro Monat -- mit wachsender Tendenz.
+Seit Anfang 2002 bewegt sich die Downloadrate ziemlich konstant
+bei 800 CrypTool-Paketen pro Monat -- mit wachsender Tendenz.
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Mechanismen
@@ -184,8 +185,8 @@ zu sehen, die man erhält, wenn man in der Dialogbox "Über CrypTool"
 einen Doppelklick ausführt). Herzlichen Dank.
 
 Dr. Carsten Elsner erlaubte uns, seine Geschichte "Der Dialog der
-Schwestern" als PDF-Datei beizulegen. 
-Diese Geschichte wurde in dem Computermagazin c't 25/1999 
+Schwestern" als PDF-Datei beizulegen.
+Diese Geschichte wurde in dem Computermagazin c't 25/1999
 veröffentlicht. Während in der c't 25/99 eine etwas gekürzte Fassung
 veröffentlicht wurde, liegt hier die Originalfassung bei.
 Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk,
@@ -200,10 +201,10 @@ Wie geplant wird CrypTool ein akademisches Zuhause erhalten, wo
 es in Zukunft als Open Source weitergepflegt wird.
 
 Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank AG,
-Secude GmbH und FZI Karlsruhe. 1.3.03 ist die letzte Version,
-die die Deutsche Bank als Maintainer herausbringt.
+Secude GmbH und FZI Karlsruhe. 1.3.04 ist voraussichtlich die letzte
+Version, die die Deutsche Bank als Maintainer herausbringt.
 
-Ab September 2002 ist der Lehrstuhl Sicherheit in der Informations-
+Ab Oktober 2002 ist der Lehrstuhl Sicherheit in der Informations-
 technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia
 Eckert an der TU Darmstadt der neue Maintainer.
 
@@ -450,8 +451,8 @@ cry*.*............ CrypTool schreibt temporäre Dateien mit dem
 CrypTool.ini...... Diese Datei befindet sich im Windows-
                    Verzeichnis und enthält neben der Einstellung,
                    ob der Begrüßungsdialog angezeigt werden soll,
-                   die Dateinamen der zuletzt bearbeiteten 
-                   Dateien. 
+                   die Dateinamen der zuletzt bearbeiteten
+                   Dateien.
 
 
 4.1. Überprüfen der Integrität der heruntergeladenen Dateien
@@ -501,8 +502,11 @@ sind, dass Ihr Rechner unberührt ist.
 
 
 
-5. Neuerungen in CrypTool bis 1.3.03
+5. Neuerungen in CrypTool bis 1.3.04
    ---------------------------------
+ 
+5.1. Änderungen von Version 1.2.02 zu Version 1.3.00
+     -----------------------------------------------
 Seit CrypTool 1.202 (Dez. 2000) wurden folgende Erweiterungen und
 Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
 - CrypTool ist nun komplett in gleicher Weise in deutsch und
@@ -514,8 +518,8 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
 - die letzte Einstellung zu einem Verfahren (wie gewählter
   Schlüssel oder Alphabet) wird Programm-intern aufbewahrt.
 
-5.1. Klassische Verfahren
-     --------------------
+5.1.1. Klassische Verfahren
+       --------------------
 + Homophone Verschlüsselung neu
 + Permutationsverschlüsselung neu
 + Zufallsdaten erzeugen neu
@@ -535,8 +539,8 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
 + Fehler bei Vigenere und Caesar behoben (beliebige Textdateien)
 + Playfairanalyse verbessert.
 
-5.2. Symmetrische Verfahren
-     ----------------------
+5.1.2. Symmetrische Verfahren
+       ----------------------
 + das eigenständige Programm AES-Tool kann selbstentpackende
   Programme erzeugen.
   Damit kann man eine beliebige Datei Passwort-geschützt mit AES
@@ -548,19 +552,19 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
   Zufallsgenerator, Anzahl der "Hash"-Iterationen,
   Hashverfahren (MD2, MD5, SHA-1)].
 
-5.3. Asymmetrische Verfahren
-     -----------------------
+5.1.3. Asymmetrische Verfahren
+       -----------------------
 + Demo zur Zahlentheorie und zum RSA-Verfahren neu
   - Primzahlen generieren
   - Zahlen (schrittweise) und mit verschiedenen Verfahren
     faktorisieren
   - das RSA-Kryptosystem transparent durchführen (auch für
     selbst-gewählte Primzahlen).
-    Damit kann z.B. auch der "Dialog der Schwestern" 
+    Damit kann z.B. auch der "Dialog der Schwestern"
     nachvollzogen werden.
 
-5.4. Formatierung / Anzeige / Navigation
-     -----------------------------------
+5.1.4. Formatierung / Anzeige / Navigation
+       -----------------------------------
 + intern werden die Schlüssel und Eigenschaften aller Verfahren
   getrennt gespeichert. Speicherung und Abruf der dabei
   eingegebenen Schlüssel erfolgt über 2 Buttons. Dadurch
@@ -572,20 +576,20 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
 + Beim Anzeigewechsel wird das "Vater"-Fenster beibehalten.
 + Hotkeys zur Verzweigung in das PDF-Skript eingefügt.
 
-5.5. Hilfe / PDF-Skript
-     --------------------
+5.1.5. Hilfe / PDF-Skript
+       --------------------
 + Ergänzung des Skripts um eine Einführung in die elementare
   Zahlentheorie mit vielen Beispielen.
 
-5.6. Sonstiges
-     ---------
+5.1.6. Sonstiges
+       ---------
 + PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit
   von den darin gespeicherten Schlüsseln.
 + Neue Webseite
   - zusätzliche Infos: Präsentation auf deutsch und englisch.
 
 
-5.7. Änderungen von Version 1.3.00 zu Version 1.3.03
+5.2. Änderungen von Version 1.3.00 zu Version 1.3.04
      -----------------------------------------------
 Zu folgenden Themen gab es Verbesserungen:
 Sourcecode:
@@ -627,7 +631,7 @@ Funktionalität:
     öffentlichen Parameter bekannt sind (ohne händisch Ergebnisse
     aus einem extra-Faktorisierungsschritt zu übertragen),
   - Eingabe von Hexwerten möglich.
-+ Verbesserungen im AES-Tool 
++ Verbesserungen im AES-Tool
   (die mit 1.3.03 ausgelieferte Version des AES-Tools wurde stark
   überarbeitet und ist nicht mehr kompatibel zu den Vorgänger-
   versionen):
@@ -651,7 +655,7 @@ Funktionalität:
   Englisch beigelegt (darin wird ein in der RSA-Demo
   behandelter Sonderfall des RSA-Verfahrens beschrieben).
 + Die Ausgabe bei der Entropie-Berechnung ist ausführlicher.
-+ Bei der Anzeige des Zertifikatsinhalts wird nun auch der 
++ Bei der Anzeige des Zertifikatsinhalts wird nun auch der
   Public Key mit ausgegeben.
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei der
     -> Erzeugung einer elektronischen Signatur,
@@ -667,20 +671,34 @@ Funktionalität:
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 + Einführung des Menüpunktes Startoptionen.
 + Klarere Aufstellung des Analyse-Menüs.
-+ Speichert der Benutzer einen Fensterinhalt ab, wird nicht mehr 
++ Speichert der Benutzer einen Fensterinhalt ab, wird nicht mehr
   ein temporärer Dateiname vorgeschlagen, sondern ein inhaltlich
   passender Name: Cry-<Verfahren>-<Quelldateiname>.*
-  Bei bewusst abgespeicherten Dokumenten wird dann der Dateiname 
+  Bei bewusst abgespeicherten Dokumenten wird dann der Dateiname
   im Fenstertitel angezeigt (anstatt der Beschreibung).
++ Das Menü zu CrypTool im Startup-Untermenü enthält nun auch einen
+  Verweis auf die Readme-Datei.
++ Bei der Brute-Force-Attacke auf symmetrische Algorithmen werden
+  nun mehr als 5 Jokerzeichen (bisher 20 Bit) zugelassen und die
+  erwartete Zeit wird ausgegeben. Ausserdem kann man die Breite für
+  das hierbei genutzte Entropiefenster per Analyseoptionen einstellen.
++ Neu in 1.3.04 ist eine hochperformante Mustersuche, um entweder
+  mehrfach vorkommende Muster beliebiger Länge in einer Datei zu
+  finden oder um alle Patterns in einer Datei zu finden, die auch
+  in einer anderen (vorzugebenden) Datei vorkommen.
 
 
-5.8. Geplante Änderungen nach Version 1.3.03
+
+5.3. Geplante Änderungen nach Version 1.3.04
      ---------------------------------------
 Funktionalität:
-+ Visualisierung des Geburtstagsparadoxons und darauf basierende
-  Angriffe auf Hash-Verfahren.
++ Implementieren eines hochperformanten Angriffs auf Hash- bzw.
+  Signatur-Verfahren und damit Visualisierung des Geburtstagsparadoxons.
++ Visualisierung des Diffie-Hellman Schlüsselaustausch-Verfahrens.
 + Eine pure Kommandozeilenversion des AES-Tools auch für die
   Betriebssysteme OS/2 und Linux (aestool-os2; aestool-linux).
++ Visualisierung von Challenge-Response-Verfahren.
++ Visualisierung von Man-in-the-Middle-Attacks.
 
 
 6. Mögliche Punkte für eine Weiterentwicklung
@@ -706,7 +724,7 @@ Funktionalität:
 + Analyse neu implementieren für
   - homophone Verschlüsselung.
 + Analyse verbessern (nicht performant und stark genug bisher) für
-  - monoalphabetische Substitution 
+  - monoalphabetische Substitution
     (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
     und von Doppelzeichen wie "mm"),
   - Playfair-Verschlüsselung,
@@ -728,7 +746,7 @@ Funktionalität:
   Hybriddemo) als amodale Fenster erzeugen, so dass man beliebig
   zwischen Hauptfenster und Auswertungsfenster springen kann
   (aufwendigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
-  rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw. 
+  rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw.
   nach Änderung der Originaldaten im Hauptfenster, ...).
 + Autokorrelation: vor der Überlagerung noch Operationen auf den
   Blöcken ausführen (XOR, ADD, ...); macht das Sinn?
@@ -753,11 +771,10 @@ Funktionalität:
          Journal of Cryptology, 6 (1993), Seiten 209-224.
 + Weil kryptographische Strukturen und Formate häufig ASN.1-
   kodiert sind: Integration eines ASN.1 Dekodier-Tools.
-+ Diffie-Hellman-Schlüsselaustausch visualisieren.
 + Generell Visualisierung der Abhängigkeiten und Abläufe bei
   Protokollen (nicht nur bei "einfachen" Algorithmen).
-+ Erweiterung um die deutschen Standards zur Validierung von
-  Zufallszahlen.
++ Erweiterung um die deutschen Standardanforderungen zur Validierung
+  von Zufallszahlen.
 + Weitere Standards implementieren und direkt über die Menüs
   bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
   Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit
@@ -803,12 +820,15 @@ Version   Datum		Deutsch		Englisch
 1.2.02    Dez. 2000	3,2		-
 1.3.00    Jan. 2002	4,9		4,7
 1.3.02    Juni 2002	6,9		6,4
-1.3.03    Aug. 2002	6,9		6,5
+1.3.03    Sep. 2002	6,9		6,5
+1.3.04    Dez. 2002	xxx		xxx
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00
-1.3.03    viele kleine Bugfixes und Verbesserungen der 
-          Dokumentation
+1.3.03    viele kleine Bugfixes und Verbesserungen der
+          Dokumentation.
+1.3.04    kleine Bugfixes (Absturz bei Playfair- und N-Gramm-Analyse)
+          wenig neue Funktionalität und Verbesserung der Dokumentation.
 
 
 
@@ -841,9 +861,9 @@ CrypTool einsetzen.
     --------
 10.1. Wirtschaftswoche Spezial
       ------------------------
-Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche 
-(Rubrik Netzwelt Sept. 2000) enthielt ein Preisausschreiben: 
-"Knacken Sie den Text!" unter der URL 
+Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche
+(Rubrik Netzwelt Sept. 2000) enthielt ein Preisausschreiben:
+"Knacken Sie den Text!" unter der URL
 http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
 cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
 Wenn man sich an die Tipps der Aufgabenstellung hielt, konnte man
@@ -857,9 +877,9 @@ CrypTool veröffentlicht.
 
 10.3. DuD Oktober 2002
       ----------------
-In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und 
-Datensicherheit", Ausgabe 10/2002 erscheint unter dem Titel 
-"CrypTool - spielerischer Einstieg in klassische und moderne 
+In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und
+Datensicherheit", Ausgabe 10/2002 erschien unter dem Titel
+"CrypTool - spielerischer Einstieg in klassische und moderne
 Kryptographie. Neue Version - fundierte Awareness in Deutsch
 und Englisch" ein 4-seitiger Artikel über CrypTool.
 
@@ -875,8 +895,8 @@ kryptographischen Sicherheitsfunktionen zu verbessern.
 Von dieser CD sind mehr als 600.000 Stück produziert und
 zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 
-10.5. Freeware-Projekt Crank, Griffon, CAP, CryptAid,  etc.
-      -----------------------------------------------------
+10.5. Freeware-Projekte Crank, Griffon, CAP, CryptAid, etc.
+      ------------------------------------------------------
 http://freshmeat.net/projects/crank/
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
 der GNU General Public Licence (GPL) freigegeben.
@@ -885,12 +905,12 @@ Oberfläche erstellt werden, das das möglichst automatisierte
 Brechen von klassischen Kryptoalgorithmen ermöglicht.
 Initial liegt der Fokus auf der Analyse monoalphabetischer
 Substitutions-Chiffren und der Entwicklung generischer und
-flexibler Analysetools. 
+flexibler Analysetools.
 Das Tool liegt nur in englischer Sprache vor.
-Die aktuelle Version 0.2.1 wurde im August 2001 freigegeben. 
+Die aktuelle Version 0.2.1 wurde im August 2001 freigegeben.
 Auf der Projekt-Webseite gibt es auch einige sehr interessante Links
 zu klassischer Kryptoanalyse.
- 
+
 http://freshmeat.net/projects/griffon/
 Griffon wurde im Jahre 2000 von Adrian Mulvaney begonnen und unter
 der GNU General Public Licence (GPL) freigegeben.
