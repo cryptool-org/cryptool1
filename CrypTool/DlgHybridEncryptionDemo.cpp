@@ -299,24 +299,27 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 //***********************************************************
 	ifstream crypt(strPathEncDocument,ios::in|ios::binary);
 	crypt.read(cryDocument,m_iDocSizeForEnc+KEY_LEN);
-	
 	int srcSize = crypt.gcount();
+	crypt.close();
 	
-	CipherText.noctets= srcSize;
-	CipherText.octets = new char[srcSize];
+	CipherText.noctets = srcSize;
+	CipherText.octets  = new char[srcSize];
 	memcpy( CipherText.octets, cryDocument, (size_t)srcSize );
 
-	int destSize; 
+
+	int destSize; 	
 	{
 		int linelen;
 		int lines, rest;
 
 		linelen = 11 + INFO_TEXT_COLUMNS * 4;
-		lines = (srcSize+INFO_TEXT_COLUMNS) / INFO_TEXT_COLUMNS;
-		rest = (srcSize+1) % INFO_TEXT_COLUMNS;
-		destSize = lines * linelen - INFO_TEXT_COLUMNS + rest;
+		lines = (m_iDocSize+INFO_TEXT_COLUMNS-1) / INFO_TEXT_COLUMNS;
+		rest  = (m_iDocSize) % INFO_TEXT_COLUMNS;
+		destSize = lines * linelen; // - INFO_TEXT_COLUMNS + rest;
 	}
+	char *dest = new char [destSize+1];
 	char *strCryHex = new char [destSize+1];
+
 	int err = HexDumpMem(strCryHex,destSize,cryDocument,srcSize, INFO_TEXT_COLUMNS);
 	UpdateData();
 	m_strBuffEditEncDoc = "";
@@ -917,18 +920,27 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 
 	m_strPathSelDoc = loc_filename;
 	ifstream test(loc_filename.GetBuffer(0),ios::in|ios::binary);
-	char* in=new char[DatGroesse];
-	test.read(in,DatGroesse);
-	//Datei wird gelesen
-	//und in der Variablen "in" gespeichert
 
-	m_iDocSize=test.gcount();
-	//tatsächliche Groesse der ausgelesenen Datei
-	test.close();
+	{ // neu Henrik Koy: 29. Mai 2002
+		char* in=new char[DatGroesse+1];  /* +1  ist neu */
+		test.read(in,DatGroesse);
+		//Datei wird gelesen
+		//und in der Variablen "in" gespeichert
 
-	in[m_iDocSize]='\0';
-	m_strBuffEditDoc=new char[m_iDocSize+1];
-	memcpy(m_strBuffEditDoc,in,m_iDocSize);
+		m_iDocSize=test.gcount();
+		//tatsächliche Groesse der ausgelesenen Datei
+		test.close();
+		in[m_iDocSize]='\0';
+
+   
+		if ( m_strBuffEditDoc ) 
+		{
+			delete []m_strBuffEditDoc;
+		}
+		m_strBuffEditDoc=new char[m_iDocSize+1];
+		memcpy(m_strBuffEditDoc,in,m_iDocSize);
+		delete []in; // delete []in ist neu;
+	}
 	//"in" wird in "m_strBuffEditDoc" geschrieben
 	HIDE_HOUR_GLASS
 	m_barrSetCondition[0] = true;
