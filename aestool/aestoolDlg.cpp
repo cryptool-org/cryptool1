@@ -161,6 +161,10 @@ BOOL CAestoolDlg::OnInitDialog()
 	m_OK.EnableWindow(FALSE);
 	ScanCMDLine(theApp.m_lpCmdLine);
 
+	m_HexString = m_CMD_inKey;
+	UpdateData(FALSE);
+	m_HexIn.OnUpdate();
+	m_HexIn.SetSel(128,128);
 	// EXEFile bestimmen
 //	EXEName = m_CMD_inName;
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
@@ -488,8 +492,9 @@ int CAestoolDlg::DoDecrypt()
 	bufflen = DataLen;
 	buffer1 = (char *) malloc(bufflen);
 	buffer2 = (char *) malloc(bufflen);
-	memset(buffer2, '\0', bufflen); 
 	memset(buffer1, '\0', bufflen);
+	memset(buffer2, '\0', bufflen);
+
 
 	// Load Sourcedata
 	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) { // Datei konnte nicht geöffnet werden
@@ -560,8 +565,7 @@ int CAestoolDlg::TestEncryptedFile(CString Filename)
 	m_SrcFile.Read(& DataLen, sizeof(long));
 	m_SrcFile.Read(& NameLen, sizeof(long));
 	m_SrcFile.Read(& Magic, sizeof(long));
-	if(l < DataLen + NameLen + 12) return 0;
-	if( Magic == FILE_MAGIC ) { // restore encrypted data
+	if((l > DataLen + NameLen + 12) && ( Magic == FILE_MAGIC )) { // restore encrypted data
 		m_direction = DIR_DECRYPT;
 		tmp.LoadString(IDS_STRING_ENTSCHLUESSELN);
 		m_OK.SetWindowText(tmp);
@@ -640,6 +644,8 @@ int CAestoolDlg::KeySet(int set)
 
 int CAestoolDlg::SetSource(CString src)
 {
+	CString tmp;
+
 	if(src.IsEmpty() || _access(src,2)) { // Datei existiert nicht oder ist nicht lesbar
 		EnableDest(FALSE, 0);
 		SetDest("");
@@ -656,10 +662,15 @@ int CAestoolDlg::SetSource(CString src)
 		theApp.m_pszAppName = strdup(tmp);
 	}
 
-	if(TestEncryptedFile(src)) // verschlüsselte Datei --> entschlüsseln
+	if(TestEncryptedFile(src)) {// verschlüsselte Datei --> entschlüsseln
 		m_direction = DIR_DECRYPT;
+		tmp.LoadString(IDS_STRING_ENTSCHLUESSELN);
+		m_OK.SetWindowText(tmp);
+	}
 	else { // neue Datei verschlüsseln
 		m_direction = DIR_ENCRYPT;
+		tmp.LoadString(IDS_STRING_VERSCHLUESSELN);
+		m_OK.SetWindowText(tmp);
 		SetDestName();
 	}
 	EnableDest(TRUE, m_direction);

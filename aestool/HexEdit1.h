@@ -34,12 +34,13 @@ public:
 	int BinLen;
 	virtual ~CHexEdit();
 
+	afx_msg void OnUpdate();
+
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
 	//{{AFX_MSG(CHexEdit)
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnUpdate();
 	//}}AFX_MSG
 
 	DECLARE_MESSAGE_MAP()
