@@ -157,17 +157,22 @@ stehenden Ver"offentlichungen von Wiles ergeben schon ein eigenes Buch). Man sol
 im klaren sein, dass die Elliptischen Kurven im allgemeinen sehr tiefgreifende Mathematik ber"uhren.
 
 Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik.
-Im Jahr 1985 haben Neal Koblitz\index{Koblitz Neal} und 
-Victor Miller \index{Miller Victor} unabh"angig voneinander vorgeschlagen, Elliptische Kurven in der Kryptographie
-einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
+Im Jahr 1985 haben Neal Koblitz\index{Koblitz Neal} und Victor Miller
+\index{Miller Victor} unabh"angig voneinander vorgeschlagen, 
+Elliptische Kurven in der Kryptographie einzusetzen. Damit haben die 
+Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die
 Faktorisierung von ganzen Zahlen \index{Faktorisierung}
 (auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren
-einer sehr gro"sen Zahl zu finden, beruht das RSA-Kryptosystem). In diesem
-Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra) auf Elliptischen
-Kurven basierende Verfahren untersucht und zum Teil eingesetzt. 
-% Es gibt auch Primzahltests\index{Primzahltest}, die auf Elliptischen 
-% Kurven basieren. (s. Anmerkung U. Kuehn)
+einer sehr gro"sen Zahl zu finden, beruht das RSA-Kryptosystem: 
+vergleiche Kapitel \ref{SecurityRSA}
+). 
+In diesem Bereich werden seit 1987 Verfahren untersucht und eingesetzt,
+die auf Elliptischen Kurven basieren
+(vergleiche Kapitel \ref{ECC-Factorisation}). \\
+Es gibt auch Primzahltests\index{Primzahltest}, die auf Elliptischen 
+Kurven basieren.
+% (s. Anmerkung U. Kuehn)
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich
 eingesetzt.
@@ -352,7 +357,7 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.60]{figures/elliptic-curve}
-\caption{Beispiel einer elliptischen Kurve "uber dem K"orper der reellen Zahlen.\vspace{1ex}} 
+\caption{Beispiel einer Elliptischen Kurve "uber dem K"orper der reellen Zahlen.\vspace{1ex}} 
 \label{ExampleEllipticCurve}
 \end{center}
 \vskip -10 pt
@@ -555,22 +560,43 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 \subsection{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
 \hypertarget{faktell}{}
 
-Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven \index{Faktorisierung!Faktorisierungsalgorithmen}
+Es gibt Faktorisierungsalgorithmen%
+\footnote{Insbesondere John M. Pollard \index{Pollard John M.} war an der 
+Entwicklung vieler verschiedener Faktorisierungsalgorithmen beteiligt; auch
+beim Faktorisieren mit ECC war er einer der f"uhrenden K"opfe. Als Mitarbeiter
+von British Telekom hat er leider nie viel selbst publiziert. Auf der RSA
+Konferenz 1999 wurde er f"ur seine \glqq outstanding contibutions in 
+mathematics\grqq ausgezeichnet: 
+\href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
+{\texttt{http://www.eff.org/Privacy/Crypto\_misc/DESCracker/HTML/19990118\_rsa\_awards.html}}.
+}, die auf Elliptischen Kurven \index{Faktorisierung!Faktorisierungsalgorithmen}
 basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
 einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
-(siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven faktorisierte Zahl\index{Faktorisierung!Faktorisierungsrekorde} ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}.
-Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
-Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
-Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben muss. Dies h"angt damit zusammen, dass es -- falls $n$ 
-eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
-modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
-prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
-Punkten (auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen Teiler
-von $n$ gefunden hat. Der Grund daf"ur ist, dass das Verfahren zum Addieren von Punkten auf Elliptischen
-Kurven Elemente in ${\mathbb Z}_n$ ermittelt und zu diesen Elementen die inversen Elemente (bez"uglich der
-Multiplikation modulo $n$) in ${\mathbb Z}_n$ berechnet. Dazu wird der erweiterte \index{Euklidscher Algorithmus} Euklidsche Algorithmus benutzt.
-Ergibt sich nun bei der Addition zweier Punkte (die auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ liegen) ein
-Element aus ${\mathbb Z}_n$, das kein inverses Element in ${\mathbb Z}_n$ hat, so gibt der erweiterte Euklidsche Algorithmus\index{Euklidscher Algorithmus!erweiterter}
+(siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven 
+faktorisierte Zahl\index{Faktorisierung!Faktorisierungsrekorde} ist die 
+55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 
+von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
+}.
+Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch 
+"uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl) Elliptische Kurven
+definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine
+Gruppe, da es nicht zu jedem Punkt auf solchen Elliptischen Kurven einen
+inversen Punkt geben muss. Dies h"angt damit zusammen, dass es -- falls $n$ 
+eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die 
+kein Inverses bez"uglich der Multiplikation modulo $n$ haben. Um zwei 
+Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
+prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber
+${\mathbb Z}_p$. Eine Addition von zwei Punkten (auf einer Elliptischen
+Kurve "uber ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen 
+Teiler von $n$ gefunden hat. Der Grund daf"ur ist, dass das Verfahren zum
+Addieren von Punkten auf Elliptischen Kurven Elemente in ${\mathbb Z}_n$ 
+ermittelt und zu diesen Elementen die inversen Elemente (bez"uglich der
+Multiplikation modulo $n$) in ${\mathbb Z}_n$ berechnet. Dazu wird der
+erweiterte \index{Euklidscher Algorithmus} Euklidsche Algorithmus benutzt.
+Ergibt sich nun bei der Addition zweier Punkte (die auf einer Elliptischen
+Kurve "uber ${\mathbb Z}_n$ liegen) ein Element aus ${\mathbb Z}_n$, das
+kein inverses Element in ${\mathbb Z}_n$ hat, so gibt der erweiterte
+Euklidsche Algorithmus\index{Euklidscher Algorithmus!erweiterter}
 einen echten Teiler von $n$ aus.
 
 Das Faktorisieren mit Elliptischen Kurven funktioniert somit prinzipiell so: Man w"ahlt zuf"allige Kurven
@@ -623,7 +649,7 @@ Bereits heute werden Elliptische Kurven in der Praxis eingesetzt. Als prominente
 
 Nach Auskunft des Projektleiters e-Government in "Osterreich, Prof.\ Posch, ist in K"urze auch mit einer Massenanwendung in "Osterreich auf Basis von ECC zu rechnen: Die Bankkarte mit Signaturanwendung, die ab 2004 herausgegeben werden soll, setzt auf Elliptische Kurven.
 
-Beide Beispiele zeigen gut die typischen Einsatzgebiete elliptischer Kurven: Als Hochsicherheitsl"osungen und bei Implementierungen auf Smartcards, bei denen der Schl"ussell"ange (Speicherplatz) eine entscheidende Bedeutung zukommt.
+Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als Hochsicherheitsl"osungen und bei Implementierungen auf Smartcards, bei denen der Schl"ussell"ange (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
 
 \newpage

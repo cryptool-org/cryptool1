@@ -137,15 +137,19 @@ publications connected with the proof made up a book in themselves). This should
 therefore make it obvious that elliptic curves are generally based on highly
 complex mathematics.
 
-Anyway that's enough about the role of elliptic curves in pure mathematics. In 1985 Neal
-Koblitz and Victor Miller independently suggested using elliptic curves in
-cryptography. Elliptic curves have thus also found a concrete practical
-application. Another interesting field of application for elliptic curves is for
-factorising whole numbers. (For example the RSA cryptography system is based on
-the \index{Complexity} difficulty/complexity of finding prime factors of an
-extremely large number.) In this area, procedures based on elliptic curves have
-been investigated and partially used since 1987 (a study by H.W. Lenstra). There
-are also prime number tests\index{Prime number!test} based on elliptic curves.
+Anyway that's enough about the role of elliptic curves in pure mathematics. 
+In 1985 Neal Koblitz\index{Koblitz Neal} and Victor Miller\index{Miller Victor}
+independently suggested using elliptic curves in cryptography. Elliptic 
+curves have thus also found a concrete practical application. 
+Another interesting field of application for elliptic curves is for
+factorising whole numbers \index{Factorisation} (the RSA cryptographic system
+is based on the \index{Complexity} difficulty/complexity of finding prime
+factors of an extremely large number;  compare section \ref{SecurityRSA}.).
+In this area, procedures based on elliptic curves have been investigated and
+used since 1987 (compare section \ref{ECC-Factorisation}). \\
+There are also prime number tests\index{Prime number!test} based on elliptic
+curves.
+% (s. Anmerkung U. Kuehn)
 
 Elliptic curves are used differently in the various areas. Encryption
 procedures based on elliptic curves are based on the difficulty of a problem
@@ -153,7 +157,7 @@ known as elliptic curve discrete logarithm\index{Logarithm problem!discrete}.
 The factorisation of whole numbers uses the fact that a large number of
 elliptic curves can be generated for a natural composite number $n$ with
 several prime factors; however, these curves are not then groups for composite
-$n$. More information about this can be found under the chapter \ref{faktell}.
+$n$. More information about this can be found under the chapter \ref{ECC-Factorisation}.
 
 \subsection{Elliptic curves -- mathematical basics}
 
@@ -454,7 +458,7 @@ The parameters mentioned are often called \index{Domain-Parameter} {\em Domain}-
 %{\bf Encryption:}
 \subsubsection{Encryption}
 
-Using elliptic curves one can construct a key exchange protocol based on the \hyperlink{DH-KeyExch}{Diffie-Hellman Protokoll} \index{Diffie-Hellman} (see chapter \ref{DH-KeyExch}). The key exchanged can be used for a subsequent symmetric encryption. We note that in contrast to RSA there is no pair of private and public key that can be used for encryption and decryption!
+Using elliptic curves one can construct a key exchange protocol based on the Diffie-Hellman protokoll \index{Diffie-Hellman} (see chapter \ref{DH-KeyExch}). The key exchanged can be used for a subsequent symmetric encryption. We note that in contrast to RSA there is no pair of private and public key that can be used for encryption and decryption!
 
 In the notation of elliptic curves, the Diffie-Hellman protocol reads as follows: First both partners (A und B) agree on a group $G$ and an integer $q$. Then they choose $r_A,r_B\in\{1,2,\dots,q-1\}$ at random, derive the points $R_A=r_AG$, $R_B=r_BG$ on the elliptic curve and exchange them (using an insecure channel). After that A easily obtains $R=r_AR_B$; B gets the same point ($R=r_Ar_B G$) by calculating $r_BR_A=r_Br_AG=r_Ar_BG=R$. We note that $R_A,R_B$ are easy to derive as long as $r_A$ respectively $r_B$ are known $G$. However, the inverse operation, to get $R_A$ respectively $R_B$ from $r_A$ respectively $r_B$ is hard.
 \\ Using the best algorithms known so far, it is impossible for any attacker to obtain $R$ without knowing either $r_A$ or $r_B$ --- otherwise he would have to solve the ECDLP.
@@ -489,14 +493,23 @@ Since $R=rG$, we obtain $\bar v_1=\bar r_1$, i.e. $R$ and $V$ coincide modulo th
 
 
 % -----------------------------------------------------------------------------
-\subsection{Factorization using elliptic curves}
+\subsection{Factorisation using elliptic curves} \label{ECC-Factorisation} 
+\hypertarget{faktell}{}
 
-\label{faktell}
-
-There are factorization algorithms based on elliptic curves%
+There are factorisation%
+\footnote{Especially John M. Pollard \index{Pollard John M.} was involved
+in the development of many different factorisation algorithms; also at
+factorisation with ECC he was one of the leading heads. As an employee
+of British Telekom he never published much. At the RSA data Security Conference
+in 1999 he was awarded for his ``outstanding contibutions in mathematics'':
+\href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
+{\texttt{http://www.eff.org/Privacy/Crypto\_misc/DESCracker/HTML/19990118\_rsa\_awards.html}}.
+}
+algorithms based on elliptic curves%
 \footnote{In 1987 H.W. Lenstra published
 a factorization algorithm, based on elliptic curves (see \cite{Lenstra1987}).
-The biggest compound number currently factorised\index{Factorization!factoring records} with elliptic curves is 
+The biggest compound number currently 
+factorised\index{Factorisation!factoring records} with elliptic curves is 
 the number $ 628^{59}-1, $ which has 55 decimal digits. It was
 found Oct. 6th, 2001 by M. Izumi 
 (See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
@@ -520,11 +533,11 @@ gives an element in ${\mathbb Z}_n$ that does not have an inverse element in
 ${\mathbb Z}_n$, then the extended Euclidean algorithm delivers a genuine factor
 of $n$.
 
-Factorization using elliptic curves thus principally works as follows: 
+Factorisation using elliptic curves thus principally works as follows: 
 Random curves over ${\mathbb Z}_n$ are selected, as well as random points
 (that lie on this curve) and add them; you thus obtain points that also
 lie on the curve or find a factor of $n$. 
-Factorization algorithms based on elliptic curves
+Factorisation algorithms based on elliptic curves
 therefore work probabilistically. The opportunity of defining large number of
 elliptic curves over ${\mathbb Z}_n$ allows you to increase the probability of
 finding two points which you can add to obtain a factor of $n$. These procedures
