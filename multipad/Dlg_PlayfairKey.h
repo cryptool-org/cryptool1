@@ -60,7 +60,7 @@ protected:
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
-	virtual BOOL OnInitDialog();
+//	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

@@ -526,6 +526,7 @@ void CMultiPadApp::OnEinzelverfahrenTutorialRsaalgorithmus()
 void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
 {
 	DlgTutorialFactorisation FAKT;
+	AfxInitRichEdit();
     FAKT.DoModal();
 }
 

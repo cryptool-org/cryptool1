@@ -81,6 +81,8 @@ public:
 	void InitListBox();
 	void UpdateListBox();
 
+	char getMatrixElement (int i, int j) { return m_mat[i][j][0]; }
+
 	// Dialogfelddaten
 	//{{AFX_DATA(CDialogPlayfair)
 	enum { IDD = IDD_DIALOG_PLAYFAIR };
@@ -100,7 +102,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDialogPlayfair)
 	virtual BOOL OnInitDialog();
-	void OnAnalyse();	// Schalter Häufigkeitsanalyse [abgeschaltet TG]
+	void OnAnalyse();
 	void OnManAnalyse();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
@@ -119,6 +121,8 @@ private:
 
 	int m_sechs,m_Dec;
 	CFont m_Font;
+
+
 };
 
 //{{AFX_INSERT_LOCATION}}

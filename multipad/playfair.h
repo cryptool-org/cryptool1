@@ -44,6 +44,7 @@
 
 enum playfair_neighbour
 {
+		undefined_pfnb,
         above,
         below,
         left,
@@ -51,8 +52,11 @@ enum playfair_neighbour
 };
 enum playfair_set
 {
+		undefined_pfset,
         row_sure,
         col_sure,
+        rightorbelow,
+        leftorabove,
         roworbelow,
         roworabove,
         roworcol
@@ -65,57 +69,80 @@ public:
         ~playfair_letter();
         bool operator==(const playfair_letter &other);
         bool operator!=(const playfair_letter &other);
+		void clear_letter();
         playfair_letter* getAbove() const
         {
                  return my_above;
         }
-        void setAbove(playfair_letter* the_above)
+/*        void setAbove(playfair_letter* the_above)
         {
                  my_above = the_above;
         }
+*/
         playfair_letter* getBelow() const
         {
                  return my_below;
         }
-        void setBelow(playfair_letter* the_below)
+/*        void setBelow(playfair_letter* the_below)
         {
                  my_below = the_below;
         }
+*/
         playfair_letter* getRight() const
         {
                  return my_right;
         }
-        void setRight(playfair_letter* the_right)
+/*        void setRight(playfair_letter* the_right)
         {
                  my_right = the_right;
         }
+*/
         playfair_letter* getLeft() const
         {
                  return my_left;
         }
-        void setLeft(playfair_letter* the_left)
+/*        void setLeft(playfair_letter* the_left)
         {
                  my_left = the_left;
         }
-        bool isinset(playfair_set set, int setlen, playfair_letter *s);
+*/
+        bool isinset(playfair_set set, playfair_letter *s);
         //bool forall_row(<nicht spezifiziert> callroutine);
-        void insert2set(playfair_set set, int setlen, playfair_letter *s);
+        void insert2set(playfair_set set, playfair_letter *s);
         void setNeighbour(playfair_neighbour pos, playfair_letter *s);
         void printdata(char *buffer);
 		void getNeighboursString(char *s, int slen);
 		void getRowString(char *s, int slen);
 		void getColString(char *s, int slen);
+		void getRoworcolString(char *s, int slen);
+		void getUndefinedNeighboursString(char *s, int slen);
+		void setSetSize(int size) { my_maxsetsize = size; }
+		int getSetSize() { return my_maxsetsize; }
+		void setWeight (int w) { my_weight = w; }
+		void incWeight (int w=1) { my_weight += w; }
+		int getWeight () { return my_weight; }
 protected:
 private:
         playfair_letter* my_left;
         playfair_letter* my_right;
         playfair_letter* my_above;
         playfair_letter* my_below;
-        playfair_letter* my_row_sure[MAXDIM]; // array von Zeigern auf Symbol
+        playfair_letter* my_rightorbelow[MAXDIM]; // array von Zeigern auf Symbol
+        playfair_letter* my_leftorabove[MAXDIM];
+        playfair_letter* my_row_sure[MAXDIM];
         playfair_letter* my_col_sure[MAXDIM];
         playfair_letter* my_roworbelow[MAXDIM];
         playfair_letter* my_roworabove[MAXDIM];
-        playfair_letter* my_roworcol[MAXDIM];
+        playfair_letter* my_roworcol[2*MAXDIM];
+        int my_cnt_rightorbelow; // array von Zeigern auf Symbol
+        int my_cnt_leftorabove;
+        int my_cnt_row_sure;
+        int my_cnt_col_sure;
+        int my_cnt_roworbelow;
+        int my_cnt_roworabove;
+        int my_cnt_roworcol;
+		static int my_maxsetsize;
+		int my_weight;
 }; // class playfair_letter
 
 class playfair_alphabet        : public alphabet
@@ -124,8 +151,12 @@ public:
         //playfair_alphabet();
         ~playfair_alphabet();
         playfair_alphabet(int size=5);
+		void clear_letters();
         playfair_letter* addLetter(char let);
         playfair_letter* getLetter(char let);
+        playfair_letter* getLetter(int letindex){
+                 return &my_pfletters[letindex];
+		}
         playfair_letter *getLetters() //const
         {
                  return my_pfletters;
@@ -144,19 +175,27 @@ private:
 class playfair_letterlist
 {
 public:
-		playfair_letterlist(playfair_alphabet* the_alphabet, char *input, int len, int the_maxLen=0);
-		playfair_letterlist(playfair_alphabet* the_alphabet, int the_maxLen);
+		playfair_letterlist(playfair_alphabet* the_alphabet, char *input, int len, int the_maxLen=(MAXDIM*MAXDIM));
+		playfair_letterlist(playfair_alphabet* the_alphabet, bool isCopyAllValid=true, int the_maxLen=(MAXDIM*MAXDIM));
 		~playfair_letterlist();
 		playfair_letter* getLetter(int i);
 		void getString (char *buf, int len=0);
 		void addLetter (playfair_letter* let);
 		int getLen() {return my_len;}
 		int getMaxLen() {return my_maxLen;}
+		void sortViaWeight ();
+		void copy (playfair_letterlist* dst, playfair_letterlist* src);
+		void setVisited (int i, bool flag=true) { my_visited[i] = flag; }
+		bool getVisited (int i) { return my_visited[i]; }
+		void reset_visited(bool flag=false); // reset all flags
+		void print (char *s, bool withWeight=false);
+		// use a length for *s at least 6 times of list length
 protected:
 private:
 		int my_len, my_maxLen;
 		playfair_letter** my_pfletters;
 		playfair_alphabet* my_alphabet;
+		bool *my_visited; // for matrix generation
 }; // class playfair_letterlist
 
 
@@ -192,6 +231,10 @@ public:
         {
                  my_count = the_count;
         }
+        void incCount(int amount=1)
+        {
+                 my_count += amount;
+        }
         playfair_alphabet* getAlphabet() const
         {
                  return my_alphabet;
@@ -207,6 +250,8 @@ public:
         int getIndex();
         int getIndex(char chiffre1, char chiffre2);
         int getIndex(playfair_letter* c1, playfair_letter* c2);
+		bool getVisited () { return my_visited; }
+		void setVisited (bool flag) { my_visited = flag; }
 protected:
 private:
         playfair_letter* my_letter1;
@@ -215,6 +260,7 @@ private:
         playfair_letter* my_chiffre2;
         int my_count; // Statistik
 		playfair_alphabet* my_alphabet;
+		bool my_visited; //nur um doppelte Analysen zu vermeiden
 }; // class playfair_digramm
 
 class playfair_digrammlist
@@ -237,7 +283,82 @@ private:
 }; // class playfair_digrammlist
 
 
-/* */
+/////////////////////
+// Klassen für Analyse nach Peer Wichmann
+
+class playfair_data
+{
+public:
+        char a1,a2,c1,c2;
+        int is_in(char c);
+};
+
+class playfair_liste
+{
+public:
+        int n;
+        playfair_data *d;
+        playfair_liste( void );
+        init( int msize );
+        playfair_liste(int msize, int l );
+        ~playfair_liste( void );
+        void read(char *pname, char*cname);
+        void memread(char *pstr, char*cstr, int plen, int clen);
+private:
+		int my_matrixsize;
+
+};
+
+class playfair_charinfo {
+public:
+        char required, set, possible, freq, dirty;
+        char p[MAXDIM][MAXDIM];
+        playfair_charinfo( void );
+        playfair_charinfo_init(int msize);
+        ~playfair_charinfo();
+private:
+		int my_matrixsize;
+};
+
+class playfair_arrinfo {
+public:
+        int missing;
+        int test_rule(playfair_data d);
+        playfair_charinfo c[MAXDIM*MAXDIM];
+        char possible[MAXDIM][MAXDIM];
+        char m[MAXDIM][MAXDIM];
+        char dirty;
+        playfair_arrinfo( void );
+        playfair_arrinfo_init( int msize );
+        ~playfair_arrinfo( void );
+        int force_col_or_row( char ch, int x1, int y2);
+        int force_row_or_pos( char ch, int y1, int x2, int y2);
+        int force_col_or_pos( char ch, int x1, int x2, int y2);
+        int force_col( char ch, int x1 );
+        int set( char ch, int x, int y );
+        int disable(char ch, int x, int y);
+private:
+		int my_matrixsize;
+};
+
+class playfair_backtrace {
+public:
+        void read(char *pname, char *cname);
+        void memread(char *pstr, char*cstr, int plen, int clen);
+        void analyse( void );
+        bool analyse( keymatrix *km, playfair_alphabet *pfalpha );
+        int level;
+        playfair_arrinfo a[MAXDIM*MAXDIM];
+        playfair_liste l;
+        playfair_backtrace(int msize);
+        ~playfair_backtrace();
+        test(char ch, int x1, int y1, int level);
+private:
+		int my_matrixsize;
+};
+
+
+/*
 struct digram
 {
 	char di[3];   // aus szText_s bestimmtes Cleartext-Digramm
@@ -282,39 +403,44 @@ typedef struct anadigramme
 } anadigramme;
 
 int compdigram(struct digram *,struct digram *);
+*/
 class Playfair
 {
 public:
 	void ApplyPlayfairToInput( int ); //used in crypt.cpp
 	void ApplyPlayfairPreformat( int,char *,char *); //used in crypt.cpp
-private:
+/*private:
 	int genliste(anadigramme *);
 	int genliste2(anadigramme *);
+*/
 public:
 	void CreateMatrixFromPass(); //used in DialogPlayfair.cpp
-	void DoCipher( int, int); //used in DialogPlayfair.cpp
-	BOOL myisalpha( char );  //used in DialogPlayfair.cpp
+	bool DoCipher( int Dec, int len, char *stipulation=NULL, int stiplen=0); //used in DialogPlayfair.cpp
+//	BOOL myisalpha( char );  //used in DialogPlayfair.cpp
+	BOOL myisalpha2( char );  //used in DialogPlayfair.cpp
 private:
-	void movechar(int,char *);
+//	void movechar(int,char *);
 	void PlayfairCipher (int , int , int ,int , int , char *,int );
 	void PrintMatrix(char *);
 public:
 	void UpdateDigrams(int);  //used in DialogPlayfair.cpp
-	void AnalyseDigramme(int *,struct digram *);  //used in DialogPlayfair.cpp
-private:
+//	void AnalyseDigramme(int *,struct digram *);  //used in DialogPlayfair.cpp
+/*private:
 	int findcol(char,char [6][6]);
 	int findrow(char,char [6][6]);
 	void switchrows(int,int,char [6][6]);
 	void switchcols(int,int,char [6][6]);
-public:
+*/
+  public:
 	void SetSize(int); //used in DialogPlayfair.cpp
-private:
+/*private:
 	void ana_addtri(tripel *,int,char [6][6],bool flag=0);
 	void ana_addqua(quads *,int,char [6][6],bool flag=0);
 	void ana_sortrowtri(tripel *,int,char [6][6]);
 	void addchar(char *,char);
 	void addmat(char [6][6],int,char);
 	int matlen(char [6][6],int);
+*/
 public:
 	void SetPass(char * );  //used in DialogPlayfair.cpp
 
@@ -328,8 +454,7 @@ private:
  	int maxkeyval(char *,int);
  	int keyval(char);
  	char valkey(int);
-	int navmatrix(int,int,int);
-
+//	int navmatrix(int,int,int);
 public:
 	Playfair(char *,int,const char *,const char *,int,int,int);  //used in DialogPlayfair.cpp
 private:
@@ -347,7 +472,10 @@ private:
 private:
 	char passphrase[50];  // used passphrase ........
 public:
-	int size,ReFormat,ConvertCase;  //all used in DialogPlayfair.cpp
+	int ReFormat,ConvertCase;  //all used in DialogPlayfair.cpp
+	int getSize () { return (mysize); }
+private:
+	int mysize;
 	
 private:
 	FILE *infp,*outfp;  // file to read input text from .......................
@@ -360,6 +488,7 @@ private:
 	unsigned int UseOfDoublesInPass;
 /*--------------------------------------------------------------------*/
 	playfair_alphabet *myAlphabet;
+	playfair_letterlist *myLetterlist;
 	//alphabet myAlphabet;
 	keymatrix *my_matrix;
 
@@ -376,21 +505,40 @@ public:
 	{
 		return (my_matrix->getElement (x, y))->getValue();
 	}
-/*	playfair_letter* getLetterOfMatrix (int x, int y)
+	playfair_letter* getLetterOfMatrix (int x, int y)
 	{
-		return (my_matrix->getElement (x, y));
+		return ((playfair_letter*) my_matrix->getElement (x, y));
 	}
-*/
 	playfair_alphabet *getAlphabet ()
 	{
 		return myAlphabet;
 	}
+	playfair_letterlist *getLetterlist ()
+	{
+		return myLetterlist;
+	}
 
-playfair_digramm* getDigrams() const
-{
-	return my_digrams;
-}
+	playfair_digramm* getDigrams() const
+	{
+		return my_digrams;
+	}
 
+	void DeleteLetterGraph();
+	void AnalyseDigramme(playfair_digrammlist* dl);
+
+	bool CreateMatrixStandalone (char *stipulation=NULL, int len=0); // Analyse nach Peer Wichmann
+	bool CreateMatrixfromLettergraph(char *stipulation=NULL, int len=0); // Analyse nach Thomas Gauweiler
+
+private:
+	enum  AnaLg_Look {AnaLg_matrix, AnaLg_row, AnaLg_col};
+	bool AnaLg_LookPlaceFirst(AnaLg_Look thetype, int& x, int& y, int no=0);
+	bool AnaLg_LookPlaceNext(AnaLg_Look thetype, int& x, int& y, int no=0);
+	bool AnaLg_InsertLetter (playfair_letter *theLetter, int theIndex, int x, int y);
+	bool AnaLg_RemoveLetter (playfair_letter *theLetter, int theIndex, int x, int y);
+	bool AnaLg_RekLetter (int theIndex, char *stipulation, int len);
+	FILE *debugfile;
+
+public:
 /*void setDigrams(const playfair_digramm* &the_digrams)
 {
 	my_digrams = the_digrams;
@@ -401,7 +549,18 @@ private:
 	int my_cntdigrams;
 	void insertChiffre2Digrams(char c1, char c2);
 	void insertChiffre2Digrams(playfair_letter* c1, playfair_letter* c2);
+}; //class Playfair
+
+class playfair_error
+{
+public:
+	playfair_error(int i, playfair_letter* thisletter=NULL) : my_code(i), my_letter(thisletter) {}
+	int getCode () { return my_code; }
+	playfair_letter* getLetter () { return my_letter; }
+private:
+	int my_code;
+	playfair_letter* my_letter;
+};
+
 
 #endif
-
-}; //class Playfair

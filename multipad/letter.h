@@ -71,6 +71,12 @@ public:
         {
                  my_count = the_count;
         }
+
+        short getMaxCount() const
+        {
+                 return my_max_count;
+        }
+
 /*
         char* getIsoCharset() const
         {
@@ -87,14 +93,14 @@ public:
         void delLetter(letter let);
         letter getLetter(char let, int isDigitsOk=1, int isPlayfairTypical=0);
 		char replaceInvalidLetter(char let, int isDigitsOk=1, int isPlayfairTypical=0);
-		int getValidOfLetter(int no){
+		bool getValidOfLetter(int no){
 			return my_validletters[no];
 		}
 protected:
         letter* my_letters;
         short my_count;
         short my_max_count;
-		short* my_validletters;
+		bool* my_validletters;
 //        char* my_isoCharset;
 private:
 }; // class alphabet
@@ -107,6 +113,8 @@ public:
 	keymatrix(int the_size, letter* the_NullElement = NULL);
 	~keymatrix();
 	bool operator==(const keymatrix &other);
+
+	void clear(letter* the_NullElement = NULL);
 
 	int getSize() const
 	{
@@ -148,6 +156,9 @@ public:
 	}
 
 	void rotate(int row, int col);
+
+	void print (char *s); // String muﬂ mind. 37 Zeichen lang sein.
+
 protected:
 
 	void setElements(const letter* &the_elements)

@@ -204,9 +204,8 @@ char *CDialogPlayfair::GetData()
 
 void CDialogPlayfair::OnManAnalyse()
 {
-	char buf[302];
-	//struct digram *dig;
-	int i,n;
+	char buf[302], line[256];
+	int i,n, k;
 	int maxchars=300;
 	playfair_digrammlist* diglist;
 
@@ -216,6 +215,7 @@ void CDialogPlayfair::OnManAnalyse()
 	while ((i<maxchars)&&(i<m_mytxt.GetLength())) {
 		buf[i] = m_mytxt[i]; i++;
 	}
+	buf[i]='\0';
 	diglist = new playfair_digrammlist(m_Alg->getAlphabet(), m_Alg->getDigrams(), buf, m_Alg->inbuf, min (maxchars, m_Alg->inbuflen));
 	// in der Initialisierung läuft die eigentliche Arbeit ab:
 	// für jedes Pärchen des Klartextes, wird das passende Digramm gesucht, das durch das Chiffrat festgelegt ist.
@@ -225,11 +225,57 @@ void CDialogPlayfair::OnManAnalyse()
 	//diglist->getChiffreString(buf, n); // belege Ausgabevariable buf (1.Zeile)mit Chiffrat
 	diglist->getPlainString(digbuf, n); // lege Ausgabe des Klartextes fest (2.Zeile)
 
-//	m_Alg->AnalyseDigramme(&n,dig);  //ursprünglicher Entschlüsselungsversuch
+	try {
+		m_Alg->DeleteLetterGraph();
+		m_Alg->AnalyseDigramme(diglist);  //untersuchen der Digramme und erstellen des Lettergraphen
+	}
+	catch (playfair_error e) {
+		switch (e.getCode()) {
+		case 1:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_ERRMSG001,pc_str,STR_LAENGE_STRING_TABLE);
+			break;
+		case 101: case 102: case 103: case 104: case 105: case 106: case 107:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_ERRMSG100,pc_str,STR_LAENGE_STRING_TABLE);
+			break;
+		case 113: case 114:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_ERRMSG110,pc_str,STR_LAENGE_STRING_TABLE);
+			break;
+		case 201: case 202: case 203: case 204:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_ERRMSG200,pc_str,STR_LAENGE_STRING_TABLE);
+			break;
+		default:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_ERRMSGALLG,pc_str,STR_LAENGE_STRING_TABLE);
+			break;
+		}
+		sprintf(line,pc_str,e.getCode(),(e.getLetter())?e.getLetter()->getValue():m_Alg->getAlphabet()->getNullElement()->getValue());
+		AfxMessageBox (line);
+	}
 
+	if ((true) && (i%2==0)) {
+		//automatische Generierung der Matrix aktiv
 
-//	m_password=m_Alg->CreatePassfromMatrix();
+//		if (!m_Alg->CreateMatrixfromLettergraph (buf, i)) { // Analyse Thomas Gauweiler
+		if (!m_Alg->CreateMatrixStandalone (buf, i)) { // Analyse Peer Wichmann
+			// keine gültige Matrix gefunden
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_NOMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox (line);
+		}
+
+		m_password = m_Alg->CreatePassfromMatrix();
+	}
+
 	delete (diglist);
+
+	// Matrix neu schreiben
+	for (i=0;i<m_Alg->getSize();i++)
+	{
+		for (k=0;k<m_Alg->getSize();k++)
+		{
+			m_mat[i][k]=m_Alg->getCharOfMatrix(i,k);
+		}
+	}
+
 
 	UpdateData(FALSE);
 	UpdateListBox();	
@@ -354,9 +400,9 @@ void CDialogPlayfair::OnSechs()
 	m_Alg->SetPass("");
 //	m_Alg->GetDiGrams();
 	m_Alg->UpdateDigrams(m_Dec);
-	for (i=0;i<m_Alg->size;i++)
+	for (i=0;i<m_Alg->getSize();i++)
 	{
-		for (j=0;j<m_Alg->size;j++)
+		for (j=0;j<m_Alg->getSize();j++)
 		{
 			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
@@ -380,11 +426,14 @@ BOOL CDialogPlayfair::OnInitDialog()
 	m_listview.InsertColumn( 0, " ", LVCFMT_LEFT, colWidth-30 , 0); // Buchstabe
 //	Wie schaltet man Wingdins ein?
 //	m_listview.InsertColumn( 1, "ïðñò", LVCFMT_LEFT, colWidth-20 , 3); // 
-	m_listview.InsertColumn( 1, "LROU", LVCFMT_LEFT, colWidth-20 , 3); // 
+	m_listview.InsertColumn( 1, "LROU", LVCFMT_LEFT, colWidth , 3); // 
+	m_listview.InsertColumn( 2, "Nb?", LVCFMT_LEFT, colWidth , 3); // 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HORIZ,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth+30 , 1); // 
+	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth+30 , 1); // 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_VERT,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth+30 , 2); // 
+	m_listview.InsertColumn( 4, pc_str, LVCFMT_LEFT, colWidth+30 , 2); // 
+	m_listview.InsertColumn( 5, "row or col?", LVCFMT_LEFT, colWidth+60 , 3); // 
+	m_listview.InsertColumn( 6, "Metrik", LVCFMT_LEFT, colWidth , 3); // 
 
 	InitListBox();
 	
@@ -402,17 +451,24 @@ void CDialogPlayfair::UpdateListBox()
 
 //TG	for (i=0;i<m_Alg->numdigrams;i++)
 //		m_listview.SetItemText( i, 1, m_Alg->digrams[i].ciphdi);
-	for (j=i=0; i <= m_Alg->getAlphabet()->getCount(); i++)
-		if (m_Alg->getAlphabet()->getValidOfLetter(i)) {
-			let = &(m_Alg->getAlphabet()->getLetters()[i]);
+	for (j=i=0; i <= m_Alg->getLetterlist()->getLen(); i++) {
+//		if (m_Alg->getAlphabet()->getValidOfLetter(i)) {
+//			let = &(m_Alg->getAlphabet()->getLetters()[i]);
+			let = (m_Alg->getLetterlist()->getLetter(i));
 			s[0] = let->getValue();	s[1] = '\0';
 			j = m_listview.InsertItem(i,s);
-			let->getNeighboursString (s, 100);
+			let->getNeighboursString (s, 10);			// Neighbours
 			m_listview.SetItemText( j, 1, s);
-			let->getRowString (s, 100);
+			let->getUndefinedNeighboursString (s, 10);	// poss. Neighbours
 			m_listview.SetItemText( j, 2, s);
-			let->getColString (s, 100);
+			let->getRowString (s, 20);					// Rows
 			m_listview.SetItemText( j, 3, s);
+			let->getColString (s, 20);					// Col
+			m_listview.SetItemText( j, 4, s);
+			let->getRoworcolString (s, 25);				// RoworCol
+			m_listview.SetItemText( j, 5, s);
+			sprintf(s,"%d", let->getWeight());			// Metrik
+			m_listview.SetItemText( j, 6, s);
 		}
 
 //	m_ciphfeld.SetSel(0,m_ciphfeld.LineLength());
@@ -421,14 +477,19 @@ void CDialogPlayfair::UpdateListBox()
 
 	m_Alg->DoCipher(m_Dec,300);
 	UpdateData(TRUE);
+
+//	/* wird veralteten
 	i=j=0;
 	while(i<300&&j<m_Alg->inbuflen)
 	{
 		c=m_Alg->inbuf[j++];
-		if(m_Alg->myisalpha(c))
+		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(c);
+		if(m_Alg->myisalpha2(c))
 			buf[i++]=toupper(c);
 	}
 	buf[i]=0;
+//	*/
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",buf,digbuf,m_Alg->outbuf);
 	UpdateData(FALSE);
 }
@@ -516,7 +577,9 @@ void CDialogPlayfair::OnUpdate()
     //abprüfen, ob ein ungültiges Zeichen in der Paßwortzeile eingegeben wurde
 	for(k=i=0;i<m_password.GetLength();i++) {
 		c = m_password[i];
-		if(m_Alg->myisalpha(c)) { // valid character
+		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(c);
+		if(m_Alg->myisalpha2(c)) { // valid character
 			res += c;
 			k++;
 		}
@@ -529,17 +592,19 @@ void CDialogPlayfair::OnUpdate()
 
 	m_password = res;
 	m_Alg->SetPass(m_password.GetBuffer(25));
-/*	//m_Alg->CreateMatrixFromPass();
+	//m_Alg->CreateMatrixFromPass();
 	//m_Alg->GetDiGrams();
 	//m_Alg->UpdateDigrams(m_Dec);
-	for (i=0;i<m_Alg->size;i++)
+
+	// Matrix neu schreiben
+	for (i=0;i<m_Alg->getSize();i++)
 	{
-		for (k=0;k<m_Alg->size;k++)
+		for (k=0;k<m_Alg->getSize();k++)
 		{
 			m_mat[i][k]=m_Alg->getCharOfMatrix(i,k);
 		}
 	}
-*/
+
 	UpdateData(FALSE);
 	UpdateListBox();
 	m_pwfeld.SetSel(sels,sele);
@@ -571,47 +636,75 @@ END_MESSAGE_MAP()
 
 void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
-	char b1[1],b2[2];
+	char b1[2],b2[2];
 
-	if (m_Alg->myisalpha(nChar))
+	if(!m_Alg->myisalpha2(nChar))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+		nChar = m_Alg->getAlphabet()->replaceInvalidLetter(toupper(nChar));
+	if (m_Alg->myisalpha2(nChar))
 	{
 		int i,j,s,a,b,c,d;
 
+		a=-1; c =-1;
 		b2[1]=0;
 		b2[0]=toupper(nChar);
 		SetSel(0, 1);
 		GetLine(0,b1,2);
 		ReplaceSel(b2);
 		SetSel(0, 1);
-		if (b1[0]==b2[0]||!m_Alg->myisalpha(b1[0]))
+		if(!m_Alg->myisalpha2(b1[0])){  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			b1[0] = m_Alg->getAlphabet()->replaceInvalidLetter(b1[0]);
+			if (b1[0] == '\0')
+				b1[0] = m_Alg->getAlphabet()->getNullElement()->getValue();
+		}
+		if (b1[0]==b2[0]||!m_Alg->myisalpha2(b2[0]))
 			return;
-		s=m_Alg->size;
+		s=m_Alg->getSize();
 		for (i=0;i<s;i++)
 		{
 			for (j=0;j<s;j++)
 			{
-				m_Alg->setElMatrix (b1[0], i,j);
-				if (b1[0])
-				{
+				if (b1[0] == m_Alg->getCharOfMatrix (i,j))
+				{ // hole Indices vom alten Buchstaben
 					a=i;
 					b=j;
 				}
-				m_Alg->setElMatrix (b2[0], i,j);
-				if (b2[0])
-				{
+				if (b2[0] == m_Alg->getCharOfMatrix (i,j))
+				{ // hole Indices vom eingetippten Buchstaben
 					c=i;
 					d=j;
 				}
 			}
 		}
-		m_Dia->getEinfeld(c,d)->SetWindowText(b1);
+		if (a>=0) { // zu ersetzender Buchstabe gefunden
+			i=i;
+		} else { // wie erfahre ich meine Koordinaten?
+			for (i=0;(i<s)&&(a<0);i++)
+				for (j=0;(j<s)&&(a<0);j++) {
+					CString tmpstr;
+					m_Dia->getEinfeld(i,j)->GetWindowText(tmpstr);
+//					char jkl = [0];
+//					char jkl = m_Dia->getEinfeld(i,j)->GetWindowText()[0];
+//					if (b2[0] == m_Dia->getMatrixElement(i,j)) {
+					if (b2[0] == tmpstr[0]) {
+						a=i; b=j;
+					}
+				}
+			i=i;
+		}
 		m_Alg->setElMatrix (b2[0], a, b);
-		m_Alg->setElMatrix (b1[0], c, d);
+		if (c>=0) { // eingetippter Buchstabe war schon vorhanden
+			m_Dia->getEinfeld(c,d)->SetWindowText(b1);
+			m_Alg->setElMatrix (b1[0], c, d);
+		} else {
+			i=i;
+		}
 		m_Alg->UpdateDigrams(m_Dia->getDec());
 		m_Alg->DoCipher(m_Dia->getDec(),300);
 		m_Dia->UpdateListBox();
 		m_Dia->UpdatePassword();
-	}
+	} else  // invalid character
+		MessageBeep(MB_OK);
+
 }
 
 void CChEdit::OnLButtonUp(UINT nFlags, CPoint point )
@@ -646,7 +739,9 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char b2[2];
 	int i,j,k;
 
-	if (m_Alg->myisalpha(nChar))
+	if(!m_Alg->myisalpha2(nChar))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(nChar);
+	if (m_Alg->myisalpha2(nChar))
 	{
 		b2[1]=0;
 		b2[0]=toupper(nChar);

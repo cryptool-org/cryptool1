@@ -12,7 +12,6 @@
 #include "multipad.h"
 #include "Dlg_PlayfairKey.h"
 #include "playfair.h"
-#include "crypt.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -28,9 +27,9 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 	m_sechs = 0;
 	m_preformat=1;
 	m_use=1;
-	for (i=0;i<m_Alg->size;i++)
+	for (i=0;i<m_Alg->getSize();i++)
 	{
-		for (j=0;j<m_Alg->size;j++)
+		for (j=0;j<m_Alg->getSize();j++)
 		{
 			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
@@ -119,7 +118,6 @@ BEGIN_MESSAGE_MAP(CDlg_PlayfairKey, CDialog)
 	ON_BN_CLICKED(IDC_RADIO4, OnSechs)
 	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
-	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -171,9 +169,9 @@ void CDlg_PlayfairKey::OnChange()
 	UpdateData(TRUE);
 	strcpy(tmp,m_text);
 	m_Alg->SetPass( tmp );
-	for (i=0;i<m_Alg->size;i++)
+	for (i=0;i<m_Alg->getSize();i++)
 	{
-		for (j=0;j<m_Alg->size;j++)
+		for (j=0;j<m_Alg->getSize();j++)
 		{
 			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
@@ -207,11 +205,13 @@ void CDlg_PlayfairKey::OnUpdateEdit1()
 
 	for(k=i=0;i<m_text.GetLength();i++) {
 		c = m_text[i];
-		if(m_Alg->myisalpha(c)) { // valid character
+		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(c);
+		if(m_Alg->myisalpha2(c)) { // valid character
 			res += c;
 			k++;
 		}
-		else { // invalid character
+		else { // invalid character (e.g. white spaces)
 			MessageBeep(MB_OK);
 			if(k<sels) sels--;
 			if(k<sele) sele--;
@@ -236,34 +236,4 @@ void CDlg_PlayfairKey::OnEncrypt()
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	m_Dec = 0;
 	OnOK();
-}
-
-BOOL CDlg_PlayfairKey::OnInitDialog() 
-{
-	CDialog::OnInitDialog();
-
-	CString Title;
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-	Title = pc_str;
-	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
-	if ( IsKeyEmpty( Title ))
-	{
-		m_Paste.EnableWindow(TRUE);
-	}
-	else
-	{
-		m_Paste.EnableWindow(FALSE);
-	}
-	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
-}
-
-void CDlg_PlayfairKey::OnPasteKey() 
-{
-	UpdateData(TRUE);
-	CString Title;
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-	PasteKey(pc_str,m_text);
-	UpdateData(FALSE);	
-	OnChange();
 }

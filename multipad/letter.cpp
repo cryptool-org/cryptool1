@@ -21,9 +21,9 @@
 
 alphabet::~alphabet()
 {
-	assert (my_letters);
-	assert (my_validletters);
-	delete[] my_letters;
+//	assert (my_letters);
+//	assert (my_validletters);
+	if (my_letters) delete[] my_letters;
 //testweise	delete[] my_validletters;
 }
 
@@ -31,7 +31,7 @@ alphabet::alphabet(char lower_letter/* = A*/, char upper_letter/* = Z*/, int the
 {
 	my_max_count = the_max_count;
 	my_letters = new letter[my_max_count];
-	my_validletters = new short[my_max_count];
+	my_validletters = new bool[my_max_count];
 
 	for (int i=0; i<my_max_count; i++)
 		my_validletters[i] = false;
@@ -153,8 +153,17 @@ keymatrix::keymatrix(int the_size, letter* the_NullElement)
 	my_NullElement = the_NullElement;
 //	my_elements = new letter [my_size];
 	my_elements = (letter **) malloc (my_size*my_size*sizeof(letter*));
-	for (int i=0; i< my_size*my_size; i++)
-		my_elements[i] = my_NullElement;
+	clear();
+}
+
+void keymatrix::clear(letter* the_NullElement)
+{
+	if (the_NullElement == NULL)
+		for (int i=0; i< my_size*my_size; i++)
+			my_elements[i] = my_NullElement;
+	else
+		for (int i=0; i< my_size*my_size; i++)
+			my_elements[i] = the_NullElement;
 }
 
 keymatrix::~keymatrix()
@@ -214,6 +223,18 @@ void keymatrix::findElement(letter* looksymbol, int &row, int &col)
 				row = i; col = j;
 				return;
 			}
+	return;
+}
+
+void keymatrix::print(char *s)
+{
+	assert (s);
+	int i;
+
+	for (i=0; i<my_size*my_size; i++)
+		s[i] = my_elements [i]->getValue();
+	s[i++] = '\n';
+	s[i] = '\0';
 	return;
 }
 
