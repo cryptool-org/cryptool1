@@ -1466,6 +1466,10 @@ SOURCE=.\MyEditView.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\MyPlayFairEdit1.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\nodrop.cur
 # End Source File
 # Begin Source File
