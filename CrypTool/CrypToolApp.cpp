@@ -279,7 +279,7 @@ BOOL CCrypToolApp::InitInstance()
 
 	//Ende der Initialiserung der globalen Variablen
 
-	Enable3dControls();
+	// Enable3dControls(); // deprecated, no longer necessary
 	/* Einstellen der Länge der MRU-Liste */
 	LoadStdProfileSettings(10);
     MRU_Flag = TRUE;

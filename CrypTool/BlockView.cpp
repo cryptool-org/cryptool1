@@ -141,7 +141,8 @@ void CBlockView::SerializeRaw(CArchive & ar)
 	{
 		CFile* pFile = ar.GetFile();
 		ASSERT(pFile->GetPosition() == 0);
-		DWORD nFileSize = pFile->GetLength();
+		ASSERT(pFile->GetLength() < ULONG_MAX);
+		ULONG nFileSize = (ULONG)(pFile->GetLength());
 
 		l2 = 5 * m_AscBlocks; // Zeichen je Zeile
 		l1 = bufflen / l2; //maximale Zeilenanzahl im Puffer;

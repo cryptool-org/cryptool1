@@ -81,8 +81,8 @@ public:
 	CStatic	m_Bitmap_Ctrl2;
 	CStatic	m_Bitmap_Ctrl;
 	CString	m_Ergebnis;
-	UINT	m_Offset;
-	UINT	m_Lang;
+	ULONG	m_Offset;
+	ULONG	m_Lang;
 	BOOL	m_Default;
 	BOOL	m_Default_2;
 	CString	m_Info_Static;

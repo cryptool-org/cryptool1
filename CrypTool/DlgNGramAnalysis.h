@@ -96,8 +96,8 @@ public:
 	CEdit	  m_NrNGramCtrl;
 	CListCtrl m_ListView;
 	int       m_N_NGram;
-	long  	  m_ShowCntNGram;
-	long  	  m_NrNGram;
+	unsigned long  	  m_ShowCntNGram;
+	unsigned long  	  m_NrNGram;
 	//}}AFX_DATA
 
 

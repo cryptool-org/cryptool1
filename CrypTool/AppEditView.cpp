@@ -230,7 +230,8 @@ void CAppEditView::SerializeRaw(CArchive & ar)
 	{
 		CFile* pFile = ar.GetFile();
 		ASSERT(pFile->GetPosition() == 0);
-		long nFileSize = pFile->GetLength();
+		ASSERT(pFile->GetLength() < LONG_MAX);
+		long nFileSize = (long)pFile->GetLength();
 		// ReadFromArchive takes the number of characters as argument
 
 		for(pos = 0; pos < nFileSize; ) {

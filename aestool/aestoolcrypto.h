@@ -103,12 +103,12 @@ class SrcInfo {
 protected:
 	CString m_name;
 	bool m_exists; // other fields are valid only if this is set true
-	long m_len; // length of the file
+	unsigned long m_len; // length of the file
 	bool m_encrypted; // fields below are valid if this is set to true
 	long m_magic; // magic value indicating file format
 	unsigned char m_iv[16]; // initialisation vector
-	long m_datalen; // length of the encrypted data
-	long m_infoblocklen;
+	unsigned long m_datalen; // length of the encrypted data
+	unsigned long m_infoblocklen;
 	unsigned char *m_infoblockdata;
 public:
 	SrcInfo() : m_exists(0), m_infoblockdata(0) { }

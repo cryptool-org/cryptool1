@@ -1802,7 +1802,7 @@ playfair_charinfo::playfair_charinfo( )
 //	assert (0);
 }
 
-playfair_charinfo::playfair_charinfo_init(int msize)
+ void playfair_charinfo::playfair_charinfo_init(int msize)
 {
         int i,j;
 
@@ -1824,7 +1824,7 @@ playfair_arrinfo::playfair_arrinfo( )
 //	assert (0);
 }
 
-playfair_arrinfo::playfair_arrinfo_init(int msize)
+void playfair_arrinfo::playfair_arrinfo_init(int msize)
 {
         int i, j;
 
@@ -2027,7 +2027,7 @@ playfair_backtrace::~playfair_backtrace()
 {
 }
 
-playfair_backtrace::test(char ch, int x1, int y1, int level)
+int playfair_backtrace::test(char ch, int x1, int y1, int level)
 {
         char c1;
         int i, minn, maxf, x, y;
@@ -2419,7 +2419,7 @@ playfair_liste::playfair_liste( )
         d= NULL;
 }
 
-playfair_liste::init( int msize )
+void playfair_liste::init( int msize )
 {
 	my_matrixsize = msize;
         n=0;

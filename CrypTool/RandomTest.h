@@ -178,7 +178,7 @@ public:
 	//Definition von der virtuellen Funktion test()
 
 	void test();
-	BOOL longrun ( CString infile, int runs_groesse);
+	BOOL longrun ( CString infile, unsigned runs_groesse);
 	
 };
 

@@ -180,7 +180,8 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
 		CFile SrcFile(srcinfo.getName(), mode);
 
-		long DataLen = SrcFile.GetLength();
+		ASSERT(SrcFile.GetLength() < ULONG_MAX);
+		unsigned long DataLen = (unsigned long)SrcFile.GetLength();
 		bufflen = max(DataLen+16, 4096);
 		buffer = (char *) malloc(bufflen);
 		if (!buffer) {
@@ -272,7 +273,8 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 	m_exists = true;
 
 	m_encrypted = false;
-	m_len = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	m_len = (unsigned long)file.GetLength();
 	if (m_len < TAILLEN) 
 		return OK;
 	file.Seek(-TAILLEN, CFile::end);
@@ -285,7 +287,8 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 		return VERSION; 
 	}
 
-	long minlen = 2*AESIVLEN + m_datalen + m_infoblocklen + TAILLEN;
+	ASSERT(2*AESIVLEN + m_infoblocklen + TAILLEN < ULONG_MAX - m_datalen);
+	unsigned long minlen = 2*AESIVLEN + m_datalen + m_infoblocklen + TAILLEN;
 	if (m_magic != FILE_MAGIC)
 		return OK;
 	if (minlen < 0 || m_len < minlen) {
@@ -298,7 +301,7 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 		m_exists = false;
 		return NOMEM;
 	}
-	file.Seek(-(AESIVLEN + m_infoblocklen + TAILLEN), CFile::end);
+	file.Seek(-(long)(AESIVLEN + m_infoblocklen + TAILLEN), CFile::end);
 	file.Read(m_iv,AESIVLEN);
 	file.Read(m_infoblockdata,m_infoblocklen);
 	return OK;

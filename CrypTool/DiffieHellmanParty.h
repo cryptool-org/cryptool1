@@ -47,6 +47,9 @@ statement from your version.
 #ifndef _DIFFIEHELLMANPARTY_
 #define _DIFFIEHELLMANPARTY_
 
+#pragma warning( push )
+#pragma warning( disable: 4290 )
+
 /*****************************************************************/
 // Sollen NUR ECHTE PRIMZAHLEN als Primzahlmodul zugelassen werden?
 #define B_VALID_PRIMES_ONLY			false
@@ -128,5 +131,5 @@ public:
 //*** Sonstige #define-Anweisungen
 #define MAX_KEY_LENGTH_IN_BYTE								310 // 1024 Bit in etwa 308,xx Dezimalstellen
 
-
+#pragma warning ( pop )
 #endif

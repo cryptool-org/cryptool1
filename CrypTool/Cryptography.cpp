@@ -1912,7 +1912,7 @@ UINT AnaSubst(PVOID p) {
 	char *PatSet [100][50];
 	// Felder Cipher und PatSet initialieren
 	for (i=0;i< 100; i++){
-		for (int j=0;j<100;j++){
+		for (j=0;j<100;j++){
 			Cipher[i][j]=NULL;}
 		for (j=0; j<50; j++){
 			PatSet[i][j]=NULL;}
@@ -2427,7 +2427,7 @@ UINT AnaSubst(PVOID p) {
 		free(current);
 		// Den allokierten Platz für die Felder Cipher und PatSet wieder freigeben
 		for (i=0; i<100; i++){
-			for (int j=0; j<100; j++){
+			for (j=0; j<100; j++){
 				if (Cipher [i][j]!=NULL)   free (Cipher[i][j]);
 			}
 			for (j=0; j<50; j++){
@@ -2505,7 +2505,7 @@ UINT AnaSubst(PVOID p) {
 	free(current);
 	// Den allokierten Platz für die Felder Cipher und PatSet wieder freigeben
 	for (i=0; i<100; i++){
-		for (int j=0; j<100; j++){
+		for (j=0; j<100; j++){
 			if (Cipher [i][j]!=NULL)   free (Cipher[i][j]);
 		}
 		for (j=0; j<50; j++){
@@ -2925,7 +2925,7 @@ void NGramAsc(const char *infile, const char *OldTitle)
 
     char      * buffer;
 	CFile f( infile, CFile::modeRead );
-	unsigned long fLen = (f.GetLength() < 1048576) ? f.GetLength() : 1048576;  //  2^20 bytes restriction restriction
+	unsigned long fLen = (unsigned long)((f.GetLength() < 1048576) ? f.GetLength() : 1048576);  //  2^20 bytes restriction restriction
 	buffer = new char[fLen+1];
 	f.Read( (void *)buffer, fLen );	
 	CDlgNGramAnaylsis DiaNGram;
@@ -2969,7 +2969,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 
     char      * buffer;	
 	CFile f( infile, CFile::modeRead );
-	unsigned long fLen = (f.GetLength() < 1048576) ? f.GetLength() : 1048576;  // 2^18 bytes restriction
+	unsigned long fLen = (unsigned long)((f.GetLength() < 1048576) ? f.GetLength() : 1048576);  // 2^18 bytes restriction
 	buffer = new char[fLen+1];
 	f.Read( (void *)buffer, fLen );
 
@@ -3114,9 +3114,10 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	bool laenge_groesser_0 = FALSE;
 	char c;
 	char *b1=NULL, *b2=NULL, *b3, *CPlayfairAlphabet;
-	int l1, l2, i, ignoreCase;;
+	unsigned long l1, l2, i, ignoreCase;;
 
-	l1 = datei.GetLength();
+	ASSERT(datei.GetLength() < ULONG_MAX);
+	l1 = (unsigned long)datei.GetLength();
 	b1 = (char *) malloc(l1+1);
 	l1 = datei.Read(b1, l1);
 	datei.Close();

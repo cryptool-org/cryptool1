@@ -113,7 +113,7 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 
     int i,j,k, linelen;
 	int lines, rest;
-
+	ASSERT(DestSize >= 0 && SrcSize >= 0 && len >= 0 && start >= 0);
 	linelen = 11 + len * 4;
 	lines = (SrcSize+len-1) / len;
 	rest = SrcSize % len;
@@ -167,12 +167,14 @@ int HexUndumpMem(const char *inbuff, const int inlen, char *outbuff, int *state)
 		   state = 2 scan High nibble
 		   state = X3 scan low nibble (Highnibble is is X)
 		   state = 4 discard ASCII display to end of line
+		   state = 5 discard eol
 		   return number of hex digits scanned, -1 on error */
 	int i,j;
 	char c;
 
 	for(i=j=0;i<inlen;i++) {
 		c = inbuff[i];
+		process:
 		switch (*state) {
 		case (0): // adress and values are separated by 2 blanks 
 			if(c==' ') *state = 1;
@@ -192,7 +194,14 @@ int HexUndumpMem(const char *inbuff, const int inlen, char *outbuff, int *state)
 			*state = (HexVal(c)<<4)+3;
 			break;
 		case (4): // discard rest of line
-			if(c=='\n') *state = 0;
+			//if(c=='\r') *state = 0;
+			if(c=='\n' || c=='\r') *state = 5;
+			break;
+		case (5): // discard eol
+			if (c!='\n' && c!='\r') {
+				*state = 0; 
+				goto process;
+			}
 			break;
 		default: // low nibble
 			if(!IsHex(c)) 

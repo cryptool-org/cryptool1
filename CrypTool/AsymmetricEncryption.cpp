@@ -145,12 +145,12 @@ void KeyGen(){
 BOOL find( OctetString *in, int ID, int &start, int &end )
 {
 	LoadString(AfxGetInstanceHandle(),ID,pc_str,STR_LAENGE_STRING_TABLE);
-	int strLen = strlen(pc_str);
+	unsigned long strLen = strlen(pc_str);
 	if ( in->noctets < strLen )
 		return FALSE;
 	if ( start < 0 )
 		return FALSE;
-	for (unsigned int k=start; k<in->noctets - strLen; k++)
+	for (unsigned long k=start; k<in->noctets - strLen; k++)
 	{
 		if ( !strncmp(in->octets + k, pc_str, strLen) )
 		{

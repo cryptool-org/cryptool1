@@ -46,6 +46,8 @@ statement from your version.
 
 #include "stdafx.h"
 #include "DiffieHellmanParty.h"
+// ignore throw warnings
+#pragma warning ( disable: 4290 )
 
 // Konstruktor
 // Parameter:		1) Generator, 2) Primzahl (die öffentlichen Parameter)

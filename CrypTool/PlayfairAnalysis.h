@@ -353,7 +353,7 @@ public:
         int n;
         playfair_data *d;
         playfair_liste( void );
-        init( int msize );
+        void init( int msize );
         playfair_liste(int msize, int l );
         ~playfair_liste( void );
         void read(char *pname, char*cname);
@@ -368,7 +368,7 @@ public:
         char required, set, possible, freq, dirty;
         char p[MAXDIM][MAXDIM];
         playfair_charinfo( void );
-        playfair_charinfo_init(int msize);
+        void playfair_charinfo_init(int msize);
         ~playfair_charinfo();
 private:
 		int my_matrixsize;
@@ -383,7 +383,7 @@ public:
         char m[MAXDIM][MAXDIM];
         char dirty;
         playfair_arrinfo( void );
-        playfair_arrinfo_init( int msize );
+        void playfair_arrinfo_init( int msize );
         ~playfair_arrinfo( void );
         int force_col_or_row( char ch, int x1, int y2);
         int force_row_or_pos( char ch, int y1, int x2, int y2);
@@ -406,7 +406,7 @@ public:
         playfair_liste l;
         playfair_backtrace(int msize);
         ~playfair_backtrace();
-        test(char ch, int x1, int y1, int level);
+        int test(char ch, int x1, int y1, int level);
 private:
 		int my_matrixsize;
 };

@@ -677,7 +677,7 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 		{
 			// Beginn Bugfix Jan Blumenstein (JB)
 
-			expLen = floor(log(double(ndx->exponent))/log(10.0))+2;
+			expLen = (int)floor(log(double(ndx->exponent))/log(10.0))+2;
 			//expLen = ceil(log(double(ndx->exponent))/log(10.0))+1;	// falsch, wenn ndx->exponent = 10, 100, 1000, ...
 
 			// Ende Bugfix JB

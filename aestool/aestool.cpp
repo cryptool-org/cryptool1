@@ -133,7 +133,7 @@ BOOL CAestoolApp::InitInstance()
 #ifdef _AFXDLL
 	Enable3dControls();			// Diese Funktion bei Verwendung von MFC in gemeinsam genutzten DLLs aufrufen
 #else
-	Enable3dControlsStatic();	// Diese Funktion bei statischen MFC-Anbindungen aufrufen
+	// Enable3dControlsStatic();	// deprecated
 #endif
 
 	m_pszAppName = strdup("AES-Tool");

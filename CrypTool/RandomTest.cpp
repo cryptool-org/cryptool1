@@ -165,7 +165,8 @@ void Freq_Test::test() //Frequency-Test Verfahren
 
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	long ByteLengthOfInput = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	unsigned long ByteLengthOfInput = (unsigned long)file.GetLength();
 	file.Close();
 
 	if ((def == TRUE) && (fips == FALSE))
@@ -181,7 +182,7 @@ void Freq_Test::test() //Frequency-Test Verfahren
 	}
 
 	unsigned char ch;
-	int i,n=0, lang_test;
+	unsigned i,n=0, lang_test;
 	unsigned long anf, bis; // Neue Variabeln für RandomTest Sequenz???
 
 	// Initialisirung von dem Zuffalsgenerator
@@ -248,12 +249,14 @@ void Freq_Test::test() //Frequency-Test Verfahren
 														//n	  - die Anzahl der Bits der Datei
 		vergleiche_test_ergeb();
 
-		einsen = eins;
+		ASSERT(eins < LONG_MAX);
+		einsen = (long)eins;
 
 		if (TRUE != (SuccessFlag &= GetResult())) break;
 		else 
 		{
-			nullen = null;
+			ASSERT(null < LONG_MAX);
+			nullen = (long)null;
 			testlaenge = n;
 			continue;
 		}
@@ -287,7 +290,7 @@ Serial_Test::~Serial_Test()
 
 void Serial_Test::test()
 {
-	long ByteLengthOfInput = 0; // Variabel die Länge der untersuchte Datei speichert
+	unsigned long ByteLengthOfInput = 0; // Variabel die Länge der untersuchte Datei speichert
 	UINT alle = 0; // Variabel die alle bestandene Testversuche zählt
 
 	BOOL SuccessFlag = TRUE;
@@ -295,7 +298,8 @@ void Serial_Test::test()
 	//Laden von der Dateilänge
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	ByteLengthOfInput = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	ByteLengthOfInput = (unsigned long)file.GetLength();
 	file.Close();
 
 	//Sollen Defaultwerte eingesetzt werden?
@@ -314,7 +318,7 @@ void Serial_Test::test()
 	}
 
 	unsigned char ch; //Variabel für lesen der Datei
-	long i, lang_test;	//i - zählt der Byteposition in der Datei
+	unsigned long i, lang_test;	//i - zählt der Byteposition in der Datei
 						//lang_test - Zahl der bestimmt wieviel Mal der Test durchgeführt werden soll
 	unsigned long anf, bis; // Neue Variabeln für RandomTest Sequenz (anf-anfang; bis-ende)
 
@@ -328,7 +332,7 @@ void Serial_Test::test()
 	if (def2 == TRUE) lang_test=10; //Wird der Test einmal oder 10x durchgeführt werden
 	else if (def2 == FALSE) lang_test=1;
 
-	for (int TestDurchlaeufe=0; TestDurchlaeufe<lang_test ;TestDurchlaeufe++) //Test wird mehrmals (einmal) durchgeführt
+	for (unsigned int TestDurchlaeufe=0; TestDurchlaeufe<lang_test ;TestDurchlaeufe++) //Test wird mehrmals (einmal) durchgeführt
 	{
 		if ( def2 == TRUE ) //Benutzen wir Random Offset und Testlänge ?
 		{
@@ -364,7 +368,7 @@ void Serial_Test::test()
 		double n_0 = 0, n_1 = 0, n_00 = 0, n_01 = 0, n_10 = 0, n_11 = 0;
 									//Lokalen Variablen wo man die Zahlen der Paaren oder Einsen und Nullen
 									//zählen
-		long n=0;
+		unsigned long n=0;
 		if (read.seekg(anf) && read) //Main-Schleife
 		{
 			int temp = 2, flag = 0; //temp - eine Flag das wir wissen was zuletzt eine Nummer (0 oder 1)war
@@ -497,11 +501,11 @@ Long_Run_Test::~Long_Run_Test()
 
 }
 
-BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
+BOOL Long_Run_Test::longrun(CString infile, unsigned run_groesse)
 {
 	//Man untersucht die ganze Datei nach einem Longrun, wenn gefunden dan TRUE, wenn nicht dan FALSE
 	char ch = '\0';
-	long run = 0, bit = 0, longest_run = 0, i = 0, ByteLengthOfInput = 0;
+	unsigned long run = 0, bit = 0, longest_run = 0, i = 0, ByteLengthOfInput = 0;
 		//run - Lokalzähler der Run
 		//longest_run - Dir gröste Run
 		//i - Dateipositionzähler
@@ -509,7 +513,8 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 
 	CStdioFile file_;
 	file_.Open(infile, CFile::modeRead);
-	if (fips_flag == FALSE)	ByteLengthOfInput = file_.GetLength();
+	ASSERT(file_.GetLength() < ULONG_MAX);
+	if (fips_flag == FALSE)	ByteLengthOfInput = (unsigned long)file_.GetLength();
 	else ByteLengthOfInput = 2500;
 	file_.Close();
 
@@ -626,7 +631,8 @@ void Runs_Test::test()
 	Set_degr((2 * runlang) - 2);
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	long ByteLengthOfInput = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	unsigned long ByteLengthOfInput = (unsigned long)file.GetLength();
 	file.Close();
 
 	unsigned long anf = 0, bis = 0; // Neue Variabeln für RandomTest Sequenz???
@@ -710,7 +716,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 
 	if (File && File.seekg(offset))
 	{
-		int i = 0;
+		unsigned i = 0;
 
 		UINT flag = 1;
 		UINT bit = 0; //An welchen BIT in der Datei sind wir gerade?
@@ -905,7 +911,8 @@ void Poker_Test::test()
 
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	long ByteLengthOfInput = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	unsigned long ByteLengthOfInput = (unsigned long)file.GetLength();
 	file.Close();
 
 	if ((def == TRUE) && (fips == FALSE))
@@ -921,7 +928,7 @@ void Poker_Test::test()
 	}
 
 	unsigned char ch;
-	int n=0, lang_test, feld_platz=0;
+	unsigned n=0, lang_test, feld_platz=0;
 	unsigned long anf, bis; // Neue Variabeln für RandomTest Sequenz???
 
 	// Initialisirung von dem Zuffalsgenerator
@@ -960,7 +967,8 @@ void Poker_Test::test()
 		//null=0; eins = 0;
 		int bit;
 		double tupel_block = 0; //Zahl der untersuchten nicht überlappenden Blöcke
-		double potenz = 1; //Potenz der Nummer 2
+		ASSERT(tupel < 32);
+		unsigned potenz = 1; //Potenz der Nummer 2
 
 		long z[POKER_MUSTER] = { 0 }; //hier speichert man die Anzahl der Poker-Muster
 //		z = new int[tuper-1] = 0;
@@ -976,11 +984,11 @@ void Poker_Test::test()
 	
 				feld_platz=0;
 
-				for(int i=0;i<tupel;i++) //Da untersucht man einzel Tupel_blocks nach einem "Poker-Muster"
+				for(unsigned i=0;i<tupel;i++) //Da untersucht man einzel Tupel_blocks nach einem "Poker-Muster"
 										 //Wenn ein Muster gufunden ist ist der Anzahl der bestimmten Musterzahl um 1 erhöht
 				{
 					potenz = 1;
-					for (int pot = 0; pot < i; pot++) potenz *= 2;
+					for (unsigned pot = 0; pot < i; pot++) potenz *= 2;
 					feld_platz += ( ( bitt( ch, bit ) ) * (potenz)); //Hier rechnet man Pokermuster Platz
 					//ch /= 2;
 					bit++;
@@ -1007,10 +1015,10 @@ void Poker_Test::test()
 
 
 		potenz = 1;
-		for (int pot = 0; pot < tupel; pot++) potenz *= 2;
+		for (unsigned pot = 0; pot < tupel; pot++) potenz *= 2;
 
 		double summe = 0;
-		for (int i = 0; i < potenz; i++) summe += (z[i] * z[i]);
+		for (unsigned i = 0; i < potenz; i++) summe += (z[i] * z[i]);
 
 		Set_test_ergeb( ((potenz/tupel_block) * summe) - tupel_block );	//Nach den Formel (2^tupellänge/n-ipple * (summe[i=von 0 bis tupellänge-1](sqrt(n-ipple_i)) - n-ipple)
 																		//n-ipple - die Anzahl der nicht überlappenden Dipple, Tripple, usw.

@@ -214,7 +214,7 @@ CString CDlgShowProgress::duration(double progress) const
 	if (m_hres_cps) {
 		LONGLONG now;
 		QueryPerformanceCounter((LARGE_INTEGER *)&now);
-		sofar = (now - m_hres_clock0);
+		sofar = (double)(now - m_hres_clock0);
 		sofar /= m_hres_cps;
 	} else
 		sofar = (GetTickCount() - m_clock0) / 1000.0;
@@ -232,7 +232,7 @@ CString CDlgShowProgress::duration(double progress) const
 #endif
 	if (rest < 3600.0*24.0) {
 		double error = 0.01 / progress; // assuming 10ms time resolution
-		int s = rest + 0.5;
+		int s = (int)(rest + 0.5);
 		if (error < 1.0)
 			d.Format("%02d:%02d:%02d",s/3600, (s / 60) % 60, s % 60);
 		else if (error < 60.0)
@@ -263,7 +263,7 @@ void CDlgShowProgress::OnTimer(UINT nIDEvent)
 	if (m_model) { // new MV interface
 		CString text;
 		double progress = m_model->getProgress();
-		int percent = 100.0*progress+0.5;
+		int percent = (int)(100.0*progress+0.5);
 		text.Format(m_format,percent,duration(progress));
 		m_text_ctl.SetWindowText(text);
 		m_Progress.SetPos(percent);

@@ -56,7 +56,8 @@ statement from your version.
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 #define VC_EXTRALEAN
-
+// 0x500 = Win2k
+#define WINVER 0x400
 #include <afx.h>
 
 #include <htmlhelp.h> 

@@ -165,7 +165,8 @@ void CDlgFreqTest::init (const char *Infile_, const char *OldTitle_)
 	oldTitle = OldTitle_;
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	m_Lang = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	m_Lang = (ULONG)file.GetLength();
 	file.Close();
 }
 
@@ -289,7 +290,8 @@ void CDlgFreqTest::OnCheck1()
 		file.Open(infile, CFile::modeRead);
 		UpdateData(TRUE);
 		m_Offset = 0;
-		m_Lang = file.GetLength();
+		ASSERT(file.GetLength() < ULONG_MAX);
+		m_Lang = (ULONG)file.GetLength();
 		UpdateData(FALSE);
 		file.Close();
 		m_Offset_Ctrl.EnableWindow(FALSE);
@@ -451,7 +453,8 @@ void CDlgRunsTest::OnTestbutton()
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
 
-	unsigned int l_filelength = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	unsigned long l_filelength = (unsigned long)file.GetLength();
 	if (((m_Longrunlang > l_filelength) && (m_Default_Longrun == FALSE)) || ((m_Longrunlang <= 0) && (m_Default_Longrun == FALSE)))
 	{
 		file.Close();
@@ -570,7 +573,8 @@ void CDlgRunsTest::init(const char *Infile_, const char *OldTitle_)
 	oldTitle = OldTitle_;
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	m_Testlang = file.GetLength();
+	ASSERT(file.GetLength() < ULONG_MAX);
+	m_Testlang = (unsigned long)file.GetLength();
 	file.Close();
 }
 
@@ -597,7 +601,8 @@ void CDlgRunsTest::OnCheck2() // 1
 		UpdateData(TRUE);
 		m_Offset = 0;
 		m_Runlang = 3;
-		m_Testlang = file.GetLength();
+		ASSERT(file.GetLength() < ULONG_MAX);
+		m_Testlang = (unsigned long)file.GetLength();
 		UpdateData(FALSE);
 		file.Close();
 		m_Offset_Ctrl.EnableWindow(FALSE);

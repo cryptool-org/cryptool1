@@ -486,7 +486,7 @@ void CHexView::OnEditPaste()
 
 void CHexView::OnSize(UINT nType, int cx, int cy) 
 {
-	int WinLen, NewHexWidth, state, l, OldHexWidth, OldLineLength, buffsize = 20000;
+	int WinLen, NewHexWidth, state, l, OldHexWidth, OldLineLength, buffsize = 1000;
 	int maxl, llen;
 	char *buffer1, *buffer3;
 	unsigned char *buffer2;
@@ -523,17 +523,25 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 				ASSERT(l1<=buffsize);
 				if(l1 == 0) break;
 				l = HexUndumpMem(buffer1, l1, (char *)(buffer2 + l2), &state);
+				ASSERT(l >= 0);
+				ASSERT(l2 >= 0);
 				ASSERT(l2+l < buffsize/4 + m_hexwidth);
 				l2 += l;
 				l = l2 / m_hexwidth;
 				l = l * m_hexwidth; // Anzahl kompletter Zeilen
+				ASSERT(l2 >= 0);
 				l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l, m_hexwidth, adr);
 				buffer3[l3]=0;
 				adr += l;
+				ASSERT(l2 >= 0);
 				memcpy(buffer2, buffer2+l, l2-l);
 				l2 -= l;
 				GetRichEditCtrl().ReplaceSel(buffer3);
-				pos += l3;
+				//pos += l3; // does not work mit VC++7 because CRNL -> CR (?)
+				//workaround: get cursor pos
+				long junk;
+				GetRichEditCtrl().GetSel(pos,junk);
+				ASSERT(pos == junk);
 			} while(1);
 			l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l2, m_hexwidth, adr);
 			GetRichEditCtrl().SetSel(pos, pos);
@@ -577,7 +585,10 @@ void CHexView::SerializeRaw(CArchive & ar)
 		for(pos = 0; pos < textlen; ) {
 			GetRichEditCtrl().SetSel(pos, pos+bufflen);
 			len = GetRichEditCtrl().GetSelText(buffer);
+			if (len == 0)
+				break; // HACK: VS7: textlen seems to be 1 byte too long for every line ending...
 			l = HexUndumpMem(buffer, len, buffer, &state);
+			ASSERT(l >= 0);
 			TRY
 			{
 				ar.Write(buffer, l);
@@ -595,7 +606,8 @@ void CHexView::SerializeRaw(CArchive & ar)
 	{
 		CFile* pFile = ar.GetFile();
 		ASSERT(pFile->GetPosition() == 0);
-		DWORD nFileSize = pFile->GetLength();
+		ASSERT(pFile->GetLength() < ULONG_MAX);
+		unsigned long nFileSize = (unsigned long)pFile->GetLength();
 
 
 redo:	

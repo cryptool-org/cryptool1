@@ -557,7 +557,8 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	const char example[] = "CIPHERTEXT";
 	int  i_act_example[256];
 	char c_act_example[256];  
-	for (i=0; i<strlen(example); i++)
+	ASSERT(strlen(example) < INT_MAX);
+	for (i=0; i<(int)strlen(example); i++)
 	{
 		i_act_example[i] = (example[i] - 'A') % modul;
 		c_act_example[i] = (char)my_int_to_char(i_act_example[i]);

@@ -48,6 +48,10 @@ statement from your version.
 #include "ASN1Decoder.h"
 #include "CrypToolApp.h"
 
+#pragma warning ( push )
+// nothrow ignored
+#pragma warning ( disable: 4290 )
+
 extern char *CaPseVerzeichnis;
 
 // Konstruktor
@@ -146,3 +150,4 @@ bool ASN1Decoder::IsCertProtected() const
 {
 	return bCertIsProtected;
 }
+#pragma warning ( pop )

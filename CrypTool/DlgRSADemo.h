@@ -231,7 +231,7 @@ private:
 	long					 m_RSAKeyStatus;
 	int                      errorRSA;
 
-	PreCheckNumExpression( CEdit &editCtrl, CString &editStr, const char *expr );
+	BOOL PreCheckNumExpression( CEdit &editCtrl, CString &editStr, const char *expr );
 	void ButtonManagement();
 	void InitPublicRSAParameter();
 	void InitPrivateRSAParameter();

@@ -28,10 +28,12 @@ void NGram::Init(int d, int n)
 {
 	ASSERT(d>0 && n>0);
 	m_Rows=d;
-	m_Columns=pow(m_Rows,n-1);
+	ASSERT(pow(m_Rows,n-1) < INT_MAX);
+	m_Columns=(int)pow(m_Rows,n-1);
 
 	m_dim=d; m_N=n; 
-	m_hcount.SetSize(pow(d,n));
+	ASSERT(pow(d,n) < INT_MAX);
+	m_hcount.SetSize((int)pow(d,n));
 	//m_totalcount=0;
 	m_Converter=NULL;
 }

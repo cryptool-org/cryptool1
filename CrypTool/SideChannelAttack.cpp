@@ -727,7 +727,7 @@ void convertOctetStringToBigNumber(const OctetString *binaryIn, Big &bigOut)
 {
 	bigOut = "0";
 	
-	for(int i=0;i<binaryIn->noctets;i++)
+	for(unsigned i=0;i<binaryIn->noctets;i++)
 		bigOut = bigOut*256 + (unsigned char)binaryIn->octets[i];
 }
 
@@ -815,7 +815,8 @@ void convertBigNumberToOctetString(Big bigIn, OctetString *binaryOut, int outnoc
 	binaryOut->noctets = 0;
 
 	// Octet-String UMDREHEN (invertieren)
-	for(int i=0; i<copy->noctets;i++)
+	ASSERT(copy->noctets > 0);
+	for(unsigned i=0; i<copy->noctets;i++)
 	{
 		int reverseIndex = copy->noctets - i - 1;
 		// Octet-String aktualisieren
@@ -854,7 +855,7 @@ void convertOctetStringToHexString(const OctetString *binaryIn, char *hexOut)
 {
 	int j=0;
 
-	for(int i=0; i<binaryIn->noctets; i++)
+	for(unsigned i=0; i<binaryIn->noctets; i++)
 	{
 		hexOut[j++] = ToHex(((unsigned char)binaryIn->octets[i]) / 16);
 		hexOut[j++] = ToHex(((unsigned char)binaryIn->octets[i]) % 16);
@@ -1317,7 +1318,7 @@ void generateSCAReport(SCA_Client *_alice, SCA_Server *_bob, SCA_Attacker *_trud
 bool isNullKey(const OctetString *key)
 {
 	int zeroOctetCounter = 0;
-	for(int ii=0;ii<key->noctets;ii++)
+	for(unsigned ii=0;ii<key->noctets;ii++)
 	{
 		if(key->octets[ii] == (unsigned char)0)
 			zeroOctetCounter++;

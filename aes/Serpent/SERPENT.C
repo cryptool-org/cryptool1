@@ -587,7 +587,7 @@ char *serpent_convert_to_string(int len, unsigned long val[8], char *str)
 
   str[0] = 0;
   i=len/32;
-  if(len&31>0)
+  if((len&31)>0)
     {
       char tmp[10];
       sprintf(tmp, "%08lx", val[i]&(((len&31)<<1)-1));

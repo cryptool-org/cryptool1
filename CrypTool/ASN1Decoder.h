@@ -48,6 +48,10 @@ statement from your version.
 #ifndef _ASN1DECODER_
 #define _ASN1DECODER_
 
+#pragma warning ( push )
+// nothrow ignored
+#pragma warning ( disable: 4290 )
+
 #include <string>
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
@@ -101,4 +105,5 @@ public:
 #define E_CERT_WRONG_PIN								8
 #define E_FILE_NOT_EXISTING								16
 
+#pragma warning ( pop )
 #endif
