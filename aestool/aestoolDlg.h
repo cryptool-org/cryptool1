@@ -44,7 +44,6 @@ public:
 	CEdit	m_CEditSrc;
 	CHexEdit	m_CHEditKey;
 	CButton	m_CButtonSrc;
-	CString	m_Key;
 	int		m_RadioFormat;
 	int		m_PWShowHide;
 	//}}AFX_DATA

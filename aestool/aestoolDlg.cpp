@@ -156,18 +156,17 @@ BOOL CAestoolDlg::OnInitDialog()
 	// EXEFile bestimmen
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
 	EXEName.ReleaseBuffer();
-	if (EXEName.Right(strlen(PROGNAME)).CompareNoCase(PROGNAME) != 0) 
-		m_CMD_inName = EXEName;
-	
-	m_CEditSrc.SetWindowText(m_CMD_inName);
-	OnChangeSrc();
 
-	if (m_SrcInfo.isEncrypted() && m_SrcInfo.isEXE()) { // verschlüsseltes selbstextrahierendes Archiv
+	m_SrcInfo.setName(EXEName);
+	if (m_SrcInfo.isEncrypted()) {
+		m_CMD_inName = EXEName;
 		UpdateData(FALSE);
 		CSplash dia;
 		if(IDCANCEL == dia.DoModal()) EndDialog( IDCANCEL );
-		EnDisableOK(); //enable OK if all data present
 	}
+	m_CEditSrc.SetWindowText(m_CMD_inName);
+	OnChangeSrc();
+
 	UpdateData(FALSE);
 	m_CEditSrc.SetSel(0,-1);
 
@@ -237,6 +236,10 @@ void CAestoolDlg::OnSucheSrc()
 		"All Files (*.*)|*.*|EXE Files (*.exe)|*.exe|AES Files (*.aes)|*.aes||", this);
 	if(IDCANCEL == Dlg.DoModal()) return;
 	m_CEditSrc.SetWindowText(Dlg.GetPathName());
+	if (m_CHEditKey.BinLen == 0)
+		m_CHEditKey.SetFocus();
+	else 
+		m_CButtonOK.SetFocus();
 	//OnChangeSrc() does the real work
 }
 
@@ -317,8 +320,14 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 									//ändert
 {
 	// update source file information
+	CString text;
 	CString name;
 	m_CEditSrc.GetWindowText(name);
+
+	// change app title
+	text.Format(name.IsEmpty() ? IDS_STRING_AESTOOL : IDS_STRING_AESTOOL_FILE,name);
+	free((void*)theApp.m_pszAppName);
+	theApp.m_pszAppName = strdup(text);
 
 	switch (m_SrcInfo.setName(name)) {
 	case SrcInfo::VERSION:
@@ -335,16 +344,11 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	// enable/disable ok button
 	EnDisableOK();
 	// update descriptive text at the top of the dialog box
-	CString text;
 	text.Format(encrypted ? IDS_STRING_DECRYPT : IDS_STRING_ENCRYPT);
 	m_CStaticTitle.SetWindowText(text);
 	// change text of ok button
 	text.Format(encrypted ? IDS_STRING_ENTSCHLUESSELN : IDS_STRING_VERSCHLUESSELN);
 	m_CButtonOK.SetWindowText(text);
-	// change app title
-	text.Format(name.IsEmpty() ? IDS_STRING_AESTOOL : IDS_STRING_AESTOOL_FILE,name);
-	free((void*)theApp.m_pszAppName);
-	theApp.m_pszAppName = strdup(text);
 	// enable/disable direction radio buttons
 	m_CRadioExe.EnableWindow(!encrypted);
 	m_CRadioAes.EnableWindow(!encrypted);

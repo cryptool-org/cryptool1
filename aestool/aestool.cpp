@@ -130,7 +130,6 @@ BOOL CAestoolApp::InitInstance()
 			fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
 			exit(1);
 		}
-		// FIXME key, keylen
 		if (srcinfo.isEncrypted()) {
 			if (!AesToolDecrypt(key,keylen,srcinfo,m_CMD_outName,errormsg)) {
 				msg.Format(IDS_STRING_DECERROR,errormsg);
@@ -143,7 +142,7 @@ BOOL CAestoolApp::InitInstance()
 			bool exe = m_CMD_outName.Right(4).CompareNoCase(".exe") == 0;
 			if (!AesToolEncrypt(key,keylen,srcinfo,m_CMD_outName,
 					(exe ? EXEName : 0),errormsg)) {
-				msg.Format(IDS_STRING_DECERROR,errormsg);
+				msg.Format(IDS_STRING_ENCERROR,errormsg);
 				fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
 				exit(1);
 			}
@@ -162,6 +161,7 @@ BOOL CAestoolApp::InitInstance()
 	return FALSE;
 }
 
+#pragma warning( disable : 4100 )
 void CAestoolApp::WinHelp(DWORD dwData, UINT nCmd) 
 {
 	CHelp hlp;

@@ -171,8 +171,8 @@ BEGIN
                     IDC_STATIC,79,126,274,8
     LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, dann ist keine weitere Interaktion nötig. Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
                     IDC_STATIC,24,165,434,17
-    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK, 1: Datei(en) nicht OK, 2: Entschlüsselung nicht erfolgreich.",
-                    IDC_STATIC,24,218,421,8
+    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK, 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",
+                    IDC_STATIC,24,218,407,8
 END
 
 
@@ -311,7 +311,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlüsseln: %s"
-    IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsslen."
+    IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsseln."
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
     IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
@@ -331,6 +331,8 @@ END
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
+
+#include "afxres.rc" // manually added, otherwise empty windows error texts in english version (sharing violation etc.)
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -430,8 +432,8 @@ BEGIN
                     IDC_STATIC,24,180,434,16
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
                     IDC_STATIC,24,146,426,8
-    LTEXT           "The exit code reflects the program's success: 0: everything OK, 1: file related problem, 2: decryption failed.",
-                    IDC_STATIC,24,197,334,8
+    LTEXT           "The exit code reflects the program's success: 0: everything OK, 1: an error occurred; an error message is displayed on stderr.",
+                    IDC_STATIC,24,197,391,8
 END
 
 IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
@@ -445,6 +447,52 @@ BEGIN
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MFC-Anwendung aestool\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "aestool\0"
+            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "aestool.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Anwendung aestool\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+#endif    // !_MAC
 
 
 /////////////////////////////////////////////////////////////////////////////

@@ -54,66 +54,65 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 					LPCSTR dstname,CString &errormsg)
 // return value: 1: OK, 0: Error
 {
-	CFile SrcFile;
-	CFile OutFile;
-	CFileException e;
-	char *buffer1, *buffer2;
-	long bufflen, i;
+	char *buffer1 = 0, *buffer2 = 0;
+	bool dstfilecreated = false;
+	try {
+		long i;
 
-	long DataLen = srcinfo.getDataLength();
+		long DataLen = srcinfo.getDataLength();
+		buffer1 = (char *) malloc(DataLen);
+		buffer2 = (char *) malloc(DataLen);
+		if (buffer1 == 0 || buffer2 == 0) {
+			if (buffer1) free(buffer1);
+			if (buffer2) free(buffer2);
+			errormsg.LoadString(IDS_STRING_NOMEMORY);
+			return 0;
+		}
 
-	// Load Sourcedata
-	unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
-	if(!SrcFile.Open(srcinfo.getName(), mode, &e)) { // Datei konnte nicht geöffnet werden
-		// IDS_STRING_FILEERROR
-		AesGetErrorMessage(e,errormsg);
+		// Load Sourcedata
+		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
+		CFile SrcFile(srcinfo.getName(), mode);
+		
+		long datadistance2end = // not including the IV befor data
+			TAILLEN + AESIVLEN + srcinfo.getDataLength() + srcinfo.getInfoBlockLength();
+		SrcFile.Seek(-datadistance2end, CFile::end);
+		SrcFile.ReadHuge(buffer1, DataLen);
+		SrcFile.Close();
+
+		// decrypt
+
+		aescbc(key,keylen,srcinfo.getIV(),DIR_DECRYPT,buffer1,DataLen,buffer2);
+
+		// remove padding
+		// remove trailing 0's
+		for(i=DataLen-1;i>0 && buffer2[i]==0;i--);
+		// check trailing 1
+		if(buffer2[i]!=1) { // display error
+			errormsg.LoadString(IDS_STRING_KEYERROR);
+			if (buffer1) free(buffer1);
+			if (buffer2) free(buffer2);
+			return 0;
+		}
+		DataLen = i;
+
+		// store data
+		mode = CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite;
+		CFile OutFile(dstname, mode);
+		dstfilecreated = true;
+		
+		if(DataLen > 0)
+			OutFile.WriteHuge(buffer2, DataLen);
+
+	} catch (CFileException *e) {
+		AesGetErrorMessage(*e,errormsg);
+		if (dstfilecreated) DeleteFile(dstname);
+		if (buffer1) free (buffer1);
+		if (buffer2) free (buffer2);
+		e->Delete();
 		return 0;
 	}
-	bufflen = DataLen;
-	buffer1 = (char *) malloc(bufflen);
-	buffer2 = (char *) malloc(bufflen);
-	if (buffer1 == 0 || buffer2 == 0) {
-		if (buffer1) free(buffer1);
-		if (buffer2) free(buffer2);
-		errormsg.LoadString(IDS_STRING_NOMEMORY);
-		return 0;
-	}
-	long datadistance2end = // not including the IV befor data
-		TAILLEN + AESIVLEN + srcinfo.getDataLength() + srcinfo.getInfoBlockLength();
-	SrcFile.Seek(-datadistance2end, CFile::end);
-	SrcFile.ReadHuge(buffer1, DataLen);
-	SrcFile.Close();
-
-	// decrypt
-
-	aescbc(key,keylen,srcinfo.getIV(),DIR_DECRYPT,buffer1,DataLen,buffer2);
-
-	// remove padding
-	// remove trailing 0's
-	for(i=DataLen-1;i>0 && buffer2[i]==0;i--);
-	// check trailing 1
-	if(buffer2[i]!=1) { // display error
-		errormsg.LoadString(IDS_STRING_KEYERROR);
-		if (buffer1) free(buffer1);
-		if (buffer2) free(buffer2);
-		return 0;
-	}
-	DataLen = i;
-
-	// store data
-	mode = CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite;
-	if(!OutFile.Open(dstname, mode, &e)) {
-		AesGetErrorMessage(e,errormsg);
-		return 0;
-	}
-	if(DataLen > 0)
-		OutFile.WriteHuge(buffer2, DataLen);
-
-	free (buffer1);
-	free (buffer2);
-
-	OutFile.Close();
-
+	if (buffer1) free (buffer1);
+	if (buffer2) free (buffer2);
 	return 1;
 }
 
@@ -126,90 +125,93 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 {
 	unsigned char iv[AESIVLEN];
 	CString Message;
-	CFile OutFile;
 	CFile EXEFile;
 	CFileException e;
-	char *buffer;
+	char *buffer = 0;
 	int bufflen;
 	int i;
-	CFile SrcFile;
+	bool dstfilecreated = false;
+	
+	try {
+		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
+		CFile SrcFile(srcinfo.getName(), mode);
 
-	unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
-	if(!SrcFile.Open(srcinfo.getName(), mode, &e)) {
-		AesGetErrorMessage(e,errormsg);
-		return 0;
-	}
-	long DataLen = SrcFile.GetLength();
-	bufflen = max(DataLen+16, 4096);
-	buffer = (char *) malloc(bufflen);
-	if (!buffer) {
-		errormsg.Format(IDS_STRING_NOMEMORY);
-		return 0;
-	}
-
-	if(exename) { 
-		mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
-		if (!EXEFile.Open(exename, mode, &e)) {
-			AesGetErrorMessage(e,errormsg);
-			free(buffer);
+		long DataLen = SrcFile.GetLength();
+		bufflen = max(DataLen+16, 4096);
+		buffer = (char *) malloc(bufflen);
+		if (!buffer) {
+			errormsg.Format(IDS_STRING_NOMEMORY);
 			return 0;
 		}
-	}
-	mode = CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite;
-	if (!OutFile.Open(dstname, mode, &e)) {
-		AesGetErrorMessage(e,errormsg);
-		free(buffer);
-		return 0;
-	}
-	if(exename) { // copy EXE-File first
-		while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
-			OutFile.WriteHuge(buffer,i);
-		EXEFile.Close();
-	}
-	// load Sourcedata
-	SrcFile.ReadHuge(buffer, DataLen);
-	SrcFile.Close();
 
-	// generate random IV
-	srand((unsigned)time(0));
-	for (i = 0; i < sizeof(iv); i++) 
-		iv[i] = (unsigned char)(rand() & 0xFF);
-	// output IV
-	OutFile.Write(iv,sizeof(iv));
+		if(exename) { 
+			mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
+			if (!EXEFile.Open(exename, mode, &e)) {
+				AesGetErrorMessage(e,errormsg);
+				free(buffer);
+				return 0;
+			}
+		}
 
-	// insert padding
-	buffer[DataLen]=1;
-	for(i=DataLen+1;i<bufflen;i++) buffer[i]=0;
-	DataLen = (DataLen+16) & ~15;
+		mode = CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite;
+		CFile OutFile(dstname, mode);
+		dstfilecreated = true;
 
-	// encrypt data
-	aescbc(key,keylen,iv,DIR_ENCRYPT,buffer,DataLen,buffer);
+		if(exename) { // copy EXE-File first
+			while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
+				OutFile.WriteHuge(buffer,i);
+			EXEFile.Close();
+		}
+		// load Sourcedata
+		SrcFile.ReadHuge(buffer, DataLen);
+		SrcFile.Close();
 
-	// store data
-	OutFile.WriteHuge(buffer, DataLen);
-	free (buffer);
+		// generate random IV
+		srand((unsigned)time(0));
+		for (i = 0; i < sizeof(iv); i++) 
+			iv[i] = (unsigned char)(rand() & 0xFF);
+		// output IV
+		OutFile.Write(iv,sizeof(iv));
 
-	// output IV
-	OutFile.Write(iv,sizeof(iv));
+		// insert padding
+		buffer[DataLen]=1;
+		for(i=DataLen+1;i<bufflen;i++) buffer[i]=0;
+		DataLen = (DataLen+16) & ~15;
 
-	// store info block
-	InfoBlock info(srcinfo.getName());
-	if (info.encryptwrite(OutFile,key,keylen,iv) == InfoBlock::NOMEM) {
-		errormsg.Format(IDS_STRING_NOMEMORY);
+		// encrypt data
+		aescbc(key,keylen,iv,DIR_ENCRYPT,buffer,DataLen,buffer);
+
+		// store data
+		OutFile.WriteHuge(buffer, DataLen);
+		free (buffer); buffer = 0;
+
+		// output IV
+		OutFile.Write(iv,sizeof(iv));
+
+		// store info block
+		InfoBlock info(srcinfo.getName());
+		if (info.encryptwrite(OutFile,key,keylen,iv) == InfoBlock::NOMEM) {
+			errormsg.Format(IDS_STRING_NOMEMORY);
+			OutFile.Close();
+			DeleteFile(dstname);
+			return 0;
+		}
+
+		// store lengthes, magic
+		long Magic = FILE_MAGIC;
+		OutFile.Write(&DataLen, sizeof(long));
+		long infolen = info.getLength();
+		OutFile.Write(&infolen, sizeof(long));
+		OutFile.Write(&Magic, sizeof(long));
+
 		OutFile.Close();
-		CFile::Remove(dstname);
-		return 0;
+	} catch (CFileException *e) {
+		AesGetErrorMessage(*e,errormsg);
+		if (dstfilecreated) DeleteFile(dstname);
+		if (buffer)	free(buffer);
+		e->Delete();
+ 		return 0;
 	}
-
-	// store lengthes, magic
-	long Magic = FILE_MAGIC;
-	OutFile.Write(&DataLen, sizeof(long));
-	long infolen = info.getLength();
-	OutFile.Write(&infolen, sizeof(long));
-	OutFile.Write(&Magic, sizeof(long));
-
-	OutFile.Close();
-
 	return 1;
 }
 

@@ -121,10 +121,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
-# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release_de/aestool.exe"
+# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../Release_de/aestool.exe"
 # SUBTRACT LINK32 /incremental:yes
 # Begin Special Build Tool
-TargetPath=\data\src\CrypTool\source\CrypTool\Release_de\aestool.exe
+TargetPath=\data\src\CrypTool\source\Release_de\aestool.exe
 SOURCE="$(InputPath)"
 PostBuild_Desc=change windows subsystem to console
 PostBuild_Cmds=editbin /subsystem:console $(TargetPath)
@@ -155,10 +155,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
-# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release_en/aestool.exe"
+# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../Release_en/aestool.exe"
 # SUBTRACT LINK32 /incremental:yes
 # Begin Special Build Tool
-TargetPath=\data\src\CrypTool\source\CrypTool\Release_en\aestool.exe
+TargetPath=\data\src\CrypTool\source\Release_en\aestool.exe
 SOURCE="$(InputPath)"
 PostBuild_Desc=change windows subsystem to console
 PostBuild_Cmds=editbin /subsystem:console $(TargetPath)
