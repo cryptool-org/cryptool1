@@ -20,8 +20,8 @@ CHillEingabe::CHillEingabe(hill *hillkl, CWnd* pParent /*=NULL*/)
 	: CDialog(CHillEingabe::IDD, pParent)
 {
 	hillklasse = hillkl;
-	//{{AFX_DATA_INIT(CHillEingabe)
 	m_decrypt = 0;
+	//{{AFX_DATA_INIT(CHillEingabe)
 	//}}AFX_DATA_INIT
 }
 
@@ -63,7 +63,6 @@ void CHillEingabe::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT53, m_Feld53);
 	DDX_Control(pDX, IDC_EDIT54, m_Feld54);
 	DDX_Control(pDX, IDC_EDIT55, m_Feld55);
-	DDX_Radio(pDX, IDC_RADIO15, m_decrypt);
 	//}}AFX_DATA_MAP
 }
 
@@ -104,6 +103,7 @@ BEGIN_MESSAGE_MAP(CHillEingabe, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, OnEinfuegen)
 	ON_BN_CLICKED(IDC_BUTTON3, OnZufaelligerSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON4, OnGroessereSchluessel)
+	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -296,9 +296,6 @@ int CHillEingabe::Display(hill *hillklasse)
 
 void CHillEingabe::OnOK() 
 {
-	// TODO: Zusätzliche Prüfung hier einfügen
-	
-	// Das Fenster nur schliessen (mit OK), falls die eingegebene Matrix invertierbar ist.
 
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	square_matrix mat1(dim,hillklasse->get_modul());
@@ -330,10 +327,48 @@ void CHillEingabe::OnOK()
 	}
 	else
 	{
+		m_decrypt = 0;
 		CDialog::OnOK();
 	}
 }
 
+void CHillEingabe::OnDecrypt()
+{
+
+	// Matrizen anlegen und Daten aus Eingabefenster auslesen
+	square_matrix mat1(dim,hillklasse->get_modul());
+
+	// mat muss wieder freigegeben werden, wenn nicht mehr benoetigt !
+	// Dies geschieht im Destruktor
+	mat = new square_matrix(dim,hillklasse->get_modul());
+
+	// Ueberpruefen, ob alle Felder der Matrix gefuellt sind
+	// Falls ein Fehler ausgetreten ist (mindestens eine Eingabe fehlt),
+	// zu der ersten fehlenden Eingabe springen (und Funktion verlasssen).
+	if (! AlleFelderKorrekt(dim))
+	{
+		return;
+	}
+
+	// Matrix mit den Werten aus der Eingabemaske fuellen
+	MatrixEinlesen(*mat, dim);
+	
+	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
+	if ( ! mat->invert(&mat1))
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+		return;
+	}
+	else
+	{
+		m_decrypt = 1;
+		CDialog::OnOK();
+	}
+}
 
 BOOL CHillEingabe::OnInitDialog() 
 {

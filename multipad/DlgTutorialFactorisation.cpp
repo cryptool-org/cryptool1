@@ -177,6 +177,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 				return;
 			}
+// == call factorisation algorithms serial
 			if ( !factorized && m_bruteForce )
 			{
 				TutorialFactorisation fact;
@@ -187,6 +188,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor2Str( f2 );
 				}
 			}
+
 			if ( !factorized && m_Brent )
 			{
 				ExitFactorisationCode = 0;
@@ -196,8 +198,11 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				dlg.SetCaption("Brent");
 				if ( IDOK != dlg.DoModal() )
 				{
-					ExitFactorisationCode = -1;
-					Sleep( 200 );
+					if ( 0 == ExitFactorisationCode )
+					{
+						ExitFactorisationCode = 2;
+						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+					}
 				}
 				factorized = fact.isItFactorized();
 				if ( TRUE == factorized )
@@ -206,27 +211,21 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor2Str( f2 );
 				}
 			}
+
 			if ( !factorized && m_Pollard )
 			{
-/*
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				if ( TRUE == (factorized = fact.Pollard()) )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
-*/
 				ExitFactorisationCode = 0;
 				TutorialFactorisation fact;
 				fact.SetN(next_factor);
 				AfxBeginThread( singleThreadPollard, PVOID(&fact) );
-				Sleep(200);
 				dlg.SetCaption("Pollard");
 				if ( IDOK != dlg.DoModal() )
 				{
-					ExitFactorisationCode = -1;
-					Sleep( 200 );
+					if ( 0 == ExitFactorisationCode )
+					{
+						ExitFactorisationCode = 2;
+						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+					}
 				}
 				factorized = fact.isItFactorized();
 				if ( TRUE == factorized )
@@ -239,25 +238,18 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 			if ( !factorized && m_Williams )
 			{
-/*
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				if ( TRUE == (factorized = fact.Williams()) )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
-*/
 				TutorialFactorisation fact;
 				fact.SetN(next_factor);
 				ExitFactorisationCode = 0;
 				AfxBeginThread( singleThreadWilliams, PVOID(&fact) );
-				Sleep(200);
 				dlg.SetCaption("Williams");
 				if ( IDOK != dlg.DoModal() )
 				{
-					ExitFactorisationCode = -1;
-					Sleep( 200 );
+					if ( 0 == ExitFactorisationCode )
+					{
+						ExitFactorisationCode = 2;
+						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+					}
 				}
 				factorized = fact.isItFactorized();
 				if ( TRUE == factorized )
@@ -269,25 +261,18 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 			if ( !factorized && m_Lenstra )
 			{
-/*
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				if ( TRUE == (factorized = fact.Lenstra()) )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
-*/
 				TutorialFactorisation fact;
 				fact.SetN(next_factor);
 				ExitFactorisationCode = 0;
 				AfxBeginThread( singleThreadLenstra, PVOID(&fact) );
-				Sleep(200);
 				dlg.SetCaption("Lenstra");
 				if ( IDOK != dlg.DoModal() )
 				{
-					ExitFactorisationCode = -1;
-					Sleep( 200 );
+					if ( 0 == ExitFactorisationCode )
+					{
+						ExitFactorisationCode = 2;
+						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+					}
 				}
 				factorized = fact.isItFactorized();
 				if ( TRUE == factorized )
@@ -304,12 +289,14 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				fact.SetN(next_factor);
 				ExitFactorisationCode = 0;
 				AfxBeginThread( singleThreadQuadraticSieve, PVOID(&fact) );
-				Sleep(200);
 				dlg.SetCaption("Quadratic Sieve");
 				if ( IDOK != dlg.DoModal() )
 				{
-					ExitFactorisationCode = -1;
-					Sleep( 2000 );
+					if ( 0 == ExitFactorisationCode )
+					{
+						ExitFactorisationCode = 2;
+						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+					}
 				}
 				factorized = fact.isItFactorized();
 				if ( TRUE == factorized )
@@ -318,7 +305,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor2Str( f2 );
 				}
 			}		
-			Sleep( 200 );
 			if ( factorized )
 			{
 				expandFactorisation( next_factor, f1, f2 );

@@ -29,6 +29,7 @@ class CHillEingabe : public CDialog
 {
 // Konstruktion
 public:
+	int		m_decrypt;
 	square_matrix * mat;
 	void UpdateFeld (CEdit*feld);
 	void MatrixEinlesen(square_matrix& mat, int dim);
@@ -71,7 +72,6 @@ public:
 	class CHiEdit	m_Feld53;
 	class CHiEdit	m_Feld54;
 	class CHiEdit	m_Feld55;
-	int		m_decrypt;
 	//}}AFX_DATA
 
 
@@ -91,6 +91,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CHillEingabe)
 	virtual void OnOK();
+	virtual void OnDecrypt();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();

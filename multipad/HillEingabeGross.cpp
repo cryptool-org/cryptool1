@@ -27,8 +27,8 @@ CHillEingabeGross::CHillEingabeGross(hill *hillkl, CWnd* pParent /*=NULL*/)
 	: CDialog(CHillEingabeGross::IDD, pParent)
 {
 	hillklasse = hillkl;
-	//{{AFX_DATA_INIT(CHillEingabeGross)
 	m_decrypt = 0;
+	//{{AFX_DATA_INIT(CHillEingabeGross)
 	//}}AFX_DATA_INIT
 }
 
@@ -146,7 +146,6 @@ void CHillEingabeGross::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT108, m_Feld108);
 	DDX_Control(pDX, IDC_EDIT109, m_Feld109);
 	DDX_Control(pDX, IDC_EDIT1010, m_Feld1010);
-	DDX_Radio(pDX, IDC_RADIO15, m_decrypt);
 	//}}AFX_DATA_MAP
 }
 
@@ -267,6 +266,7 @@ BEGIN_MESSAGE_MAP(CHillEingabeGross, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, OnEinfuegen)
 	ON_BN_CLICKED(IDC_BUTTON3, OnZufaelligerSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON4, OnKleinereSchluessel)
+	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -734,10 +734,6 @@ int CHillEingabeGross::Display(hill *hillklasse)
 
 void CHillEingabeGross::OnOK() 
 {
-	// TODO: Zusätzliche Prüfung hier einfügen
-	
-	// Das Fenster nur schliessen (mit OK), falls die eingegebene Matrix invertierbar ist.
-
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	square_matrix mat1(dim,hillklasse->get_modul());
 
@@ -768,10 +764,48 @@ void CHillEingabeGross::OnOK()
 	}
 	else
 	{
+		m_decrypt = 0;
 		CDialog::OnOK();
 	}
 }
 
+void CHillEingabeGross::OnDecrypt()
+{
+	// Matrizen anlegen und Daten aus Eingabefenster auslesen
+	square_matrix mat1(dim,hillklasse->get_modul());
+
+	// mat muss wieder freigegeben werden, wenn nicht mehr benoetigt !
+	// Dies geschieht im Destruktor
+	mat = new square_matrix(dim,hillklasse->get_modul());
+
+	// Ueberpruefen, ob alle Felder der Matrix gefuellt sind
+	// Falls ein Fehler ausgetreten ist (mindestens eine Eingabe fehlt),
+	// zu der ersten fehlenden Eingabe springen (und Funktion verlasssen).
+	if (! AlleFelderKorrekt(dim))
+	{
+		return;
+	}
+
+	// Matrix mit den Werten aus der Eingabemaske fuellen
+	MatrixEinlesen(*mat, dim);
+	
+	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
+	if ( ! mat->invert(&mat1))
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+		return;
+	}
+	else
+	{
+		m_decrypt = 1;
+		CDialog::OnOK();
+	}
+
+}
 
 BOOL CHillEingabeGross::OnInitDialog() 
 {

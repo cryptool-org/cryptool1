@@ -790,7 +790,7 @@ void Hill(const char *infile, const char *OldTitle)
     // und danach die temporaere Datei wieder loeschen
 	Reformat(infile, outfile, FALSE);
 
-	OpenNewDoc( outfile, schluessel, OldTitle, IDS_PLAYFAIR, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
+	OpenNewDoc( outfile, schluessel, OldTitle, IDS_STRING_HILL, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 
 	delete matrix;
 

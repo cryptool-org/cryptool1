@@ -115,6 +115,15 @@ class TutorialFactorisation
 	Big factor1;
 	Big factor2;
 	bool isFactorized;
+	BOOL SUCCESS() { 
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
+	BOOL ABORT() {
+		ExitFactorisationCode = 1;
+        return false;
+	}
 public:
 	bool isItFactorized() { return isFactorized; }
 	bool gotcha(Big& NN, Big& P);

@@ -18,6 +18,7 @@ class CHillEingabeGross : public CDialog
 {
 // Konstruktion
 public:
+	int		m_decrypt;
 	square_matrix * mat;
 	void UpdateFeld (CEdit*feld);
 	void MatrixEinlesen(square_matrix& mat, int dim);
@@ -135,7 +136,6 @@ public:
 	class CHiEdit	m_Feld108;
 	class CHiEdit	m_Feld109;
 	class CHiEdit	m_Feld1010;
-	int		m_decrypt;
 	//}}AFX_DATA
 
 
@@ -155,6 +155,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CHillEingabeGross)
 	virtual void OnOK();
+	virtual void OnDecrypt();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();
