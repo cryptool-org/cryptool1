@@ -43,7 +43,7 @@ END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Grafikoptionen"
+CAPTION "Grafikparameter"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,14,91,69,18
@@ -1147,29 +1147,28 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 345
+IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Extrahierte Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Schließen",IDOK,159,318,70,17
+    DEFPUSHBUTTON   "&Schließen",IDOK,159,296,70,17
+    CONTROL         "&Oktal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,171,168,
+                    33,10
+    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,214,
+                    168,41,10
+    CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
+                    265,168,56,10
+    CONTROL         "O&ctets",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,331,168,37,10
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Hex-Dump (hexadezimal und Ascii):",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,238,179,121,
-                    8
-    CONTROL         "&Oktal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,80,179,
-                    33,8
-    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,117,
-                    179,41,8
-    CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
-                    161,179,56,8
-    EDITTEXT        IDC_EDIT6,10,216,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
+    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    GROUPBOX        "Optionen der Darstellung der Signatur:",IDC_STATIC,10,
-                    167,368,26,BS_LEFT
+    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,159,218,22,
+                    BS_CENTER
     EDITTEXT        IDC_EDIT10,10,3,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT3,110,3,272,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1186,11 +1185,10 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT5,10,152,128,15,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT9,10,200,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT9,10,178,150,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT7,10,306,125,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT7,10,284,125,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "Zahlendarstellung:",IDC_STATIC,17,179,58,8
 END
 
 IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG DISCARDABLE  0, 0, 392, 330
@@ -1411,10 +1409,10 @@ BEGIN
     DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,202,101,
                     20
     PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,135,202,95,20
-    EDITTEXT        IDC_EDIT1,63,126,87,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,87,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,223,126,84,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,223,145,84,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
@@ -1422,28 +1420,28 @@ BEGIN
     CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
     CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,181,54,95,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
     CONTROL         "beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON,181,76,121,10
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,256,202,59,20
-    GROUPBOX        "",IDC_STATIC,11,0,304,32
+                    BS_AUTORADIOBUTTON,184,76,121,10
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,202,59,20
+    GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
                     IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,147,61
-    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,168,39,
-                    147,61
-    GROUPBOX        "Primzahl p",IDC_STATIC,11,106,147,80
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
+    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
+                    142,61
+    GROUPBOX        "Primzahl p",IDC_STATIC,11,106,142,80
     LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
     LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
     LTEXT           "Ergebnis",IDC_STATIC,18,168,37,10
     LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
     LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
-    LTEXT           "Ergebnis",IDC_STATIC,178,168,35,10
+    LTEXT           "Ergebnis",IDC_STATIC,179,168,35,10
     LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
-    EDITTEXT        IDC_EDIT5,63,166,87,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "Primzahl q",IDC_STATIC,168,106,147,80
-    EDITTEXT        IDC_EDIT6,223,166,84,12,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Primzahl q",IDC_STATIC,172,106,142,80
+    EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
 END
 
@@ -1643,30 +1641,29 @@ END
 
 IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "N-Gramm-Liste"
+CAPTION "N-Gramm Liste"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Liste berechnen",IDC_BUTTON2,7,134,99,23
+    DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
     PUSHBUTTON      "&Schließen",IDCANCEL,7,207,99,24
     CONTROL         "&Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,22,53,10
-    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,
+                    WS_GROUP,20,22,53,10
+    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,
                     56,10
-    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,49,
+    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,
                     45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
-    EDITTEXT        IDC_EDIT2,29,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
+    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,59,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    EDITTEXT        IDC_EDIT1,61,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
                     WS_TABSTOP,115,8,228,223
-    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,120
-    LTEXT           "Anzeige der",IDC_STATIC,18,88,39,8
-    LTEXT           "häufigsten N-Gramme (erlaubte Werte: 1-5000).",
-                    IDC_STATIC,18,101,84,17
-    LTEXT           "-Gramm",IDC_STATIC,43,64,25,8
+    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,118
+    LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
+    LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
+    LTEXT           "-Gramm",IDC_STATIC,45,64,25,8
 END
 
 IDD_RANDOM_GENERATOR DIALOG DISCARDABLE  0, 0, 301, 255
@@ -2376,38 +2373,38 @@ BEGIN
     CONTROL         525,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
                     119,135,69
     CONTROL         526,IDC_STATIC,"Static",SS_BITMAP,302,89,87,98
-    CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
+    CONTROL         "Sechseck1_R_",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,34,12,89,14
-    CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,209,12,93,14
-    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
+    CONTROL         "Sechseck2_R_",IDC_BUTTON_GEN_SYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,209,12,93,14
+    CONTROL         "Sechseck3_R_",IDC_BUTTON_GET_ASYM_KEY,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,12,92,14
-    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
+    CONTROL         "Raute1_X_",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,34,76,89,14
-    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,205,76,93,14
-    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,76,93,14
-    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,208,160,102,14
-    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,159,110,15
-    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,202,225,92,14
-    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,402,225,115,14
-    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+    CONTROL         "Raute2_X_",IDC_BUTTON_SHOW_SYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,205,76,93,14
+    CONTROL         "Raute3_X_",IDC_BUTTON_SHOW_ASYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,405,76,93,14
+    CONTROL         "Rechteck1_X_",IDC_BUTTON_ENC_TXT_SYM,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,208,160,102,14
+    CONTROL         "Rechteck2_X_",IDC_BUTTON_ENC_KEY_ASYM,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,405,159,110,15
+    CONTROL         "Raute4_X_",IDC_BUTTON2,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,202,225,92,14
+    CONTROL         "Raute5_X_",IDC_BUTTON3,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,402,225,115,14
+    CONTROL         "Oval1_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,279,94,14
     EDITTEXT        IDC_EDIT_TITLE,26,325,503,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,26,338,503,94,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Oval2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
+    CONTROL         "Oval2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,306,279,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
-                    268,52,36
+                    268,52,39
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
-                    268,52,36
+                    268,52,39
 END
 
 IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 254
@@ -3343,46 +3340,61 @@ CANCEL_G_U              BITMAP  DISCARDABLE     "res\\CANCEL_G_U.bmp"
 OK_G_D                  BITMAP  DISCARDABLE     "res\\OK_G_D.bmp"
 OK_G_F                  BITMAP  DISCARDABLE     "res\\OK_G_F.bmp"
 CANCEL_G_D              BITMAP  DISCARDABLE     "res\\CANCEL_G_D.bmp"
-RAUTE1D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_D.bmp"
-RAUTE1F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_F.bmp"
-RAUTE1X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_X.bmp"
-RAUTE1U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_U.bmp"
-RAUTE2X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_X.bmp"
-RAUTE2F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_F.bmp"
-RAUTE2U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_U.bmp"
-RAUTE2D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_D.bmp"
-RAUTE3X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_X.bmp"
-RAUTE3F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_F.bmp"
-RAUTE3U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_U.bmp"
-RAUTE3D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_D.bmp"
-RAUTE4D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_D.bmp"
-RAUTE4F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_F.bmp"
-RAUTE4U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_U.bmp"
-RAUTE4X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_X.bmp"
-RAUTE5X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_X.bmp"
-RAUTE5F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_F.bmp"
-RAUTE5U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_U.bmp"
-RAUTE5D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_D.bmp"
-SECHSECK1U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_U.bmp"
-SECHSECK1F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_F.bmp"
-SECHSECK1D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_D.bmp"
-SECHSECK3D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_D.bmp"
-SECHSECK3F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_F.bmp"
-SECHSECK3U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_U.bmp"
-SECHSECK2D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_D.bmp"
-SECHSECK2F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_F.bmp"
-SECHSECK2U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_U.bmp"
-VIERECK1D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_D.bmp"
-VIERECK1F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_F.bmp"
-VIERECK1U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_U.bmp"
-VIERECK1X               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_X.bmp"
-VIERECK2X               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_X.bmp"
-VIERECK2F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_F.bmp"
-VIERECK2U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_U.bmp"
-VIERECK2D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_D.bmp"
-OVAL1U                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_U.bmp"
-OVAL1F                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_F.bmp"
-OVAL1D                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_D.bmp"
+RAUTE1_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_B_D.bmp"
+RAUTE1_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_B_F.bmp"
+RAUTE1_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_X_U.bmp"
+RAUTE1_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_B_U.bmp"
+RAUTE2_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_X_U.bmp"
+RAUTE2_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_B_F.bmp"
+RAUTE2_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_B_U.bmp"
+RAUTE2_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_B_D.bmp"
+RAUTE3_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_X_U.bmp"
+RAUTE3_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_B_F.bmp"
+RAUTE3_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_B_U.bmp"
+RAUTE3_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_B_D.bmp"
+RAUTE4_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_B_D.bmp"
+RAUTE4_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_B_F.bmp"
+RAUTE4_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_B_U.bmp"
+RAUTE4_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_X_U.bmp"
+RAUTE5_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_X_U.bmp"
+RAUTE5_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_B_F.bmp"
+RAUTE5_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_B_U.bmp"
+RAUTE5_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_B_D.bmp"
+SECHSECK1_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_G_U.bmp"
+SECHSECK1_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_G_F.bmp"
+SECHSECK1_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_G_D.bmp"
+SECHSECK1_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_R_U.bmp"
+SECHSECK1_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_R_F.bmp"
+SECHSECK1_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_R_D.bmp"
+SECHSECK3_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_G_D.bmp"
+SECHSECK3_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_G_F.bmp"
+SECHSECK3_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_G_U.bmp"
+SECHSECK3_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_R_D.bmp"
+SECHSECK3_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_R_F.bmp"
+SECHSECK3_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_R_U.bmp"
+SECHSECK2_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_G_D.bmp"
+SECHSECK2_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_G_F.bmp"
+SECHSECK2_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_G_U.bmp"
+SECHSECK2_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_R_D.bmp"
+SECHSECK2_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_R_F.bmp"
+SECHSECK2_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_R_U.bmp"
+RECHTECK1_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_R_D.bmp"
+RECHTECK1_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_R_F.bmp"
+RECHTECK1_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_R_U.bmp"
+RECHTECK1_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_G_D.bmp"
+RECHTECK1_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_G_F.bmp"
+RECHTECK1_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_G_U.bmp"
+RECHTECK1_X_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck1_X_U.bmp"
+RECHTECK2_X_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_X_U.bmp"
+RECHTECK2_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_R_F.bmp"
+RECHTECK2_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_R_U.bmp"
+RECHTECK2_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_R_D.bmp"
+RECHTECK2_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_G_F.bmp"
+RECHTECK2_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_G_U.bmp"
+RECHTECK2_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps\\Rechteck2_G_D.bmp"
+OVAL1_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_G_U.bmp"
+OVAL1_G_F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_G_F.bmp"
+OVAL1_G_D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_G_D.bmp"
 CANCEL_Y_U              BITMAP  DISCARDABLE     "res\\CANCEL_Y_U.bmp"
 CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\CANCEL_Y_F.bmp"
 CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\CANCEL_Y_D.bmp"
@@ -3394,10 +3406,10 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
-OVAL2U                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_U.bmp"
-OVAL2F                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_F.bmp"
-OVAL2D                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_D.bmp"
-OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X.bmp"
+OVAL2_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_U.bmp"
+OVAL2_G_F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_F.bmp"
+OVAL2_G_D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_D.bmp"
+OVAL2_X_U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X_U.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
@@ -3803,9 +3815,6 @@ BEGIN
 
     IDD_EXTRACT_SIGNATURE, DIALOG
     BEGIN
-        VERTGUIDE, 10
-        VERTGUIDE, 378
-        HORZGUIDE, 187
         HORZGUIDE, 296
         HORZGUIDE, 313
     END
@@ -3862,14 +3871,9 @@ BEGIN
     BEGIN
         VERTGUIDE, 11
         VERTGUIDE, 23
-        VERTGUIDE, 63
-        VERTGUIDE, 150
-        VERTGUIDE, 158
-        VERTGUIDE, 168
-        VERTGUIDE, 181
-        VERTGUIDE, 223
-        VERTGUIDE, 307
-        VERTGUIDE, 315
+        VERTGUIDE, 152
+        VERTGUIDE, 184
+        VERTGUIDE, 305
         HORZGUIDE, 108
         HORZGUIDE, 154
         HORZGUIDE, 180
@@ -4666,7 +4670,7 @@ BEGIN
                             "Automatische %s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
-    IDS_STRING_SIGNATURE_ORIGINATOR "Signaturerzeuger:"
+    IDS_STRING_SIGNATURE_ORIGINATOR "Signatur Erzeuger:"
     IDS_STRING_SIGNATURE_DATE "%s; erzeugt am %s"
     IDS_STRING_SIGNATURE_HASH_FUNCTION "%s mit Hashfunktion %s"
 END
@@ -4882,7 +4886,7 @@ BEGIN
     IDS_STRING_HYBRID_STEP_BY_STEP 
                             "Ausgeführt: Schritt %d von maximal %d Schritten."
     IDS_STRING_HYB_SHOW_DATA 
-                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch verschlüsseln\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Wähle den Empfängerschlüssel von der Liste."
 END
@@ -5387,12 +5391,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_NGRAM_ANALYSIS_OF "%sAnalyse von <%s>. Dateigröße: %i Bytes."
+    IDS_STRING_NGRAM_ANALYSIS_OF "%sAnalyse von %s"
     IDS_STRING_NGRAM_HISTOGRAM "Histogramm-"
     IDS_STRING_NGRAM_DIGRAM "Digramm-"
     IDS_STRING_NGRAM_TRIGRAM "Trigramm-"
     IDS_STRING_NGRAM_NGRAM  "%i-Gramm-"
-    IDS_STRING_NGRAM_DESCRIPTION "Absteigend sortiert nach der Häufigkeit."
+    IDS_STRING_NGRAM_DESCRIPTION "absteigend sortiert nach der Häufigkeit"
     IDS_STRING_NGRAM_NO     "Nr."
     IDS_STRING_NGRAM_RELFREQUENCY "Häufigkeit (in %)"
 END
@@ -5614,7 +5618,6 @@ BEGIN
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_ENC_KEY_ASYM 
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
-    IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6730,24 +6733,23 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 335
+IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Extracted Signature"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Close",IDOK,159,313,70,17
+    DEFPUSHBUTTON   "&Close",IDOK,159,296,70,17
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Hex dump (hexadecimal and ascii):",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,
-                    11
-    CONTROL         "&Octal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,
-                    33,8
-    CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,91,177,
-                    41,8
+    CONTROL         "&Octal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,171,168,
+                    33,10
+    CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,214,
+                    168,41,10
     CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
-                    136,177,56,8
+                    265,168,56,10
+    CONTROL         "O&ctets",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,331,168,37,10
     EDITTEXT        IDC_EDIT10,10,3,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT11,10,18,100,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -6764,16 +6766,15 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT5,10,152,128,15,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT9,10,198,150,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT9,10,178,150,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    GROUPBOX        "Options for presentation of signature",IDC_STATIC,10,
-                    166,368,25,BS_LEFT
-    EDITTEXT        IDC_EDIT7,10,304,125,12,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Base for presentation of signature",IDC_STATIC,160,159,
+                    218,22,BS_CENTER
+    EDITTEXT        IDC_EDIT7,10,284,125,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,10,214,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
+    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    LTEXT           "Numbers:",IDC_STATIC,16,177,36,8
 END
 
 IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG DISCARDABLE  0, 0, 392, 330
@@ -6994,10 +6995,10 @@ BEGIN
     DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,11,202,101,
                     20
     PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,135,202,83,20
-    EDITTEXT        IDC_EDIT1,58,126,91,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,58,145,91,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,219,126,87,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,219,145,87,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",
@@ -7005,29 +7006,29 @@ BEGIN
     CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
     CONTROL         "&To be entered independently",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,181,54,122,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
     CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON,181,76,118,10
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,243,202,72,20
-    EDITTEXT        IDC_EDIT5,58,166,91,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    BS_AUTORADIOBUTTON,184,76,118,10
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,241,202,72,20
+    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT6,219,166,87,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,11,0,304,32
+    GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
                     IDC_STATIC,19,9,289,17
     GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,
-                    39,147,61
-    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,168,39,
-                    147,61
+                    39,142,61
+    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,172,39,
+                    142,61
     LTEXT           "Lower limit",IDC_STATIC,17,128,40,9
-    LTEXT           "Upper limit",IDC_STATIC,18,147,34,8
+    LTEXT           "Upper limit",IDC_STATIC,18,147,44,8
     LTEXT           "Result",IDC_STATIC,18,168,37,10
-    LTEXT           "of each other",IDC_STATIC,193,64,53,8
-    GROUPBOX        "Prime number p",IDC_STATIC,11,106,147,80
-    GROUPBOX        "Prime number q",IDC_STATIC,168,106,147,80
+    LTEXT           "of each other",IDC_STATIC,196,64,53,8
+    GROUPBOX        "Prime number p",IDC_STATIC,11,106,142,80
+    GROUPBOX        "Prime number q",IDC_STATIC,172,106,142,80
     LTEXT           "Lower limit",IDC_STATIC,178,128,40,9
-    LTEXT           "Upper limit",IDC_STATIC,178,147,35,8
+    LTEXT           "Upper limit",IDC_STATIC,178,147,44,8
     LTEXT           "Result",IDC_STATIC,179,168,35,10
 END
 
@@ -7246,8 +7247,7 @@ BEGIN
                     WS_TABSTOP,115,7,228,224
     GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
     LTEXT           "Display of the",IDC_STATIC,20,88,44,8
-    LTEXT           "most common N-Grams (allowed values: 1-5000)",
-                    IDC_STATIC,20,101,80,20
+    LTEXT           "most common N-Grams",IDC_STATIC,20,101,80,8
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
 END
 
@@ -7997,33 +7997,33 @@ BEGIN
                     107,20,58
     CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
     CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
-    CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
+    CONTROL         "Sechseck1_R_",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
-    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
+    CONTROL         "Raute1_X_",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,31,81,89,14
-    CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,209,17,93,14
-    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,205,81,93,14
-    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,208,165,102,14
-    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,202,230,92,14
-    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
+    CONTROL         "Sechseck2_R_",IDC_BUTTON_GEN_SYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,209,17,93,14
+    CONTROL         "Raute2_X_",IDC_BUTTON_SHOW_SYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,205,81,93,14
+    CONTROL         "Rechteck1_X_",IDC_BUTTON_ENC_TXT_SYM,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,208,165,102,14
+    CONTROL         "Raute4_X_",IDC_BUTTON2,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,202,230,92,14
+    CONTROL         "Sechseck3_R_",IDC_BUTTON_GET_ASYM_KEY,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,17,92,14
-    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,81,93,14
-    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,164,110,15
-    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,402,230,115,14
+    CONTROL         "Raute3_X_",IDC_BUTTON_SHOW_ASYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,405,81,93,14
+    CONTROL         "Rechteck2_X_",IDC_BUTTON_ENC_KEY_ASYM,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,405,164,110,15
+    CONTROL         "Raute5_X_",IDC_BUTTON3,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,402,230,115,14
     EDITTEXT        IDC_EDIT_TITLE,17,329,523,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,17,343,523,74,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+    CONTROL         "Oval1_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
-    CONTROL         "OVAL2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
+    CONTROL         "OVAL2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,308,287,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
                     273,52,39
@@ -8944,46 +8944,65 @@ IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\bmp00034.bmp"
 IDB_EMPTY2              BITMAP  DISCARDABLE     "res\\bmp00035.bmp"
 IDB_EMPTY2B             BITMAP  DISCARDABLE     "res\\bmp00036.bmp"
 IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\bmp00037.bmp"
-RAUTE1D                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_D.bmp"
-RAUTE1F                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_F.bmp"
-OVAL1D                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_D.bmp"
-OVAL1F                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_F.bmp"
-OVAL1U                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_U.bmp"
-RAUTE1U                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_U.bmp"
-RAUTE1X                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_X.bmp"
-RAUTE2D                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_D.bmp"
-RAUTE2F                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_F.bmp"
-RAUTE2U                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_U.bmp"
-RAUTE2X                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_X.bmp"
-RAUTE3D                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_D.bmp"
-RAUTE3F                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_F.bmp"
-RAUTE3U                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_U.bmp"
-RAUTE3X                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_X.bmp"
-RAUTE4D                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_D.bmp"
-RAUTE4F                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_F.bmp"
-RAUTE4U                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_U.bmp"
-RAUTE4X                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_X.bmp"
-RAUTE5D                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_D.bmp"
-RAUTE5F                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_F.bmp"
-RAUTE5U                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_U.bmp"
-RAUTE5X                 BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_X.bmp"
-SECHSECK1D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_D.bmp"
-SECHSECK1F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_F.bmp"
-SECHSECK1U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_U.bmp"
-SECHSECK2D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_D.bmp"
-SECHSECK2F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_F.bmp"
-SECHSECK2U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_U.bmp"
-SECHSECK3D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_D.bmp"
-SECHSECK3F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_F.bmp"
-SECHSECK3U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_U.bmp"
-VIERECK1D               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck1_D.bmp"
-VIERECK1F               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck1_F.bmp"
-VIERECK1U               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck1_U.bmp"
-VIERECK1X               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck1_X.bmp"
-VIERECK2D               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck2_D.bmp"
-VIERECK2F               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck2_F.bmp"
-VIERECK2U               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck2_U.bmp"
-VIERECK2X               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Viereck2_X.bmp"
+RAUTE1_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_B_D.bmp"
+RAUTE1_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_B_F.bmp"
+RAUTE1_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_B_U.bmp"
+RAUTE1_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute1_X_U.bmp"
+RAUTE2_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_B_D.bmp"
+RAUTE2_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_B_F.bmp"
+RAUTE2_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_B_U.bmp"
+RAUTE2_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute2_X_U.bmp"
+RAUTE3_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_B_D.bmp"
+RAUTE3_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_B_F.bmp"
+RAUTE3_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_B_U.bmp"
+RAUTE3_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute3_X_U.bmp"
+RAUTE4_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_B_D.bmp"
+RAUTE4_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_B_F.bmp"
+RAUTE4_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_B_U.bmp"
+RAUTE4_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute4_X_U.bmp"
+RAUTE5_B_D              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_B_D.bmp"
+RAUTE5_B_F              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_B_F.bmp"
+RAUTE5_B_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_B_U.bmp"
+RAUTE5_X_U              BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Raute5_X_U.bmp"
+SECHSECK1_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_G_D.bmp"
+SECHSECK1_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_G_F.bmp"
+SECHSECK1_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_G_U.bmp"
+SECHSECK1_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_R_D.bmp"
+SECHSECK1_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_R_F.bmp"
+SECHSECK1_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck1_R_U.bmp"
+SECHSECK2_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_G_D.bmp"
+SECHSECK2_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_G_F.bmp"
+SECHSECK2_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_G_U.bmp"
+SECHSECK2_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_R_D.bmp"
+SECHSECK2_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_R_F.bmp"
+SECHSECK2_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck2_R_U.bmp"
+SECHSECK3_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_G_D.bmp"
+SECHSECK3_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_G_F.bmp"
+SECHSECK3_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_G_U.bmp"
+SECHSECK3_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_R_D.bmp"
+SECHSECK3_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_R_F.bmp"
+SECHSECK3_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Sechseck3_R_U.bmp"
+RECHTECK1_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_G_D.bmp"
+RECHTECK1_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_G_F.bmp"
+RECHTECK1_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_G_U.bmp"
+RECHTECK1_X_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_X_U.bmp"
+RECHTECK1_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_R_D.bmp"
+RECHTECK1_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_R_F.bmp"
+RECHTECK1_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck1_R_U.bmp"
+RECHTECK2_G_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_G_D.bmp"
+RECHTECK2_G_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_G_F.bmp"
+RECHTECK2_G_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_G_U.bmp"
+RECHTECK2_X_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_X_U.bmp"
+RECHTECK2_R_D           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_R_D.bmp"
+RECHTECK2_R_F           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_R_F.bmp"
+RECHTECK2_R_U           BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Rechteck2_R_U.bmp"
+OVAL1_G_D               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_G_D.bmp"
+OVAL1_G_F               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_G_F.bmp"
+OVAL1_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval1_G_U.bmp"
+OVAL2_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_G_U.bmp"
+OVAL2_G_F               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_G_F.bmp"
+OVAL2_G_D               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_G_D.bmp"
+OVAL2_X_U               BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_X_U.bmp"
 SELECTALG_R_F           BITMAP  DISCARDABLE     "res\\bmp00031.bmp"
 SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
 SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
@@ -8995,10 +9014,6 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
-OVAL2U                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_U.bmp"
-OVAL2F                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_F.bmp"
-OVAL2D                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_D.bmp"
-OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_X.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
@@ -9240,32 +9255,11 @@ BEGIN
         HORZGUIDE, 296
     END
 
-    IDD_EXTRACT_SIGNATURE, DIALOG
-    BEGIN
-        VERTGUIDE, 10
-        VERTGUIDE, 378
-        HORZGUIDE, 185
-    END
-
     IDD_PLAYFAIR_ANALYSIS, DIALOG
     BEGIN
         HORZGUIDE, 34
         HORZGUIDE, 231
         HORZGUIDE, 348
-    END
-
-    IDD_PRIMES_GENERATOR_DEMO, DIALOG
-    BEGIN
-        VERTGUIDE, 11
-        VERTGUIDE, 58
-        VERTGUIDE, 149
-        VERTGUIDE, 158
-        VERTGUIDE, 168
-        VERTGUIDE, 185
-        VERTGUIDE, 219
-        VERTGUIDE, 306
-        VERTGUIDE, 315
-        HORZGUIDE, 222
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -10684,12 +10678,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analysis of <%s>. File size %i bytes."
+    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analysis of %s"
     IDS_STRING_NGRAM_HISTOGRAM "Histogram"
     IDS_STRING_NGRAM_DIGRAM "Digram"
     IDS_STRING_NGRAM_TRIGRAM "Trigram"
     IDS_STRING_NGRAM_NGRAM  "%i Gram"
-    IDS_STRING_NGRAM_DESCRIPTION "Descending sorted on frequency."
+    IDS_STRING_NGRAM_DESCRIPTION "descending sorted on frequency"
     IDS_STRING_NGRAM_NO     "No."
     IDS_STRING_NGRAM_RELFREQUENCY "Frequency (in %)"
 END
@@ -10908,7 +10902,6 @@ BEGIN
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_KEY_ASYM 
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
-    IDS_NGRAM_TITLE         "N Gram List of %s"
 END
 
 STRINGTABLE DISCARDABLE 

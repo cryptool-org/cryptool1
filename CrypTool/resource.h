@@ -125,6 +125,7 @@
 #define IDB_FOREWARD_GREY               533
 #define IDB_HYBRID_SPEICHERN_LINKS      534
 #define IDB_HYBRID_SPEICHERN_RECHTS     535
+#define IDB_BITMAP9                     536
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -1235,7 +1236,6 @@
 #define IDS_STRING_HYB_SHOW_ENC_DOC     37750
 #define IDS_STRING_HYB_SHOW_ASYM_KEY    37751
 #define IDS_STRING_HYB_ENC_KEY_ASYM     37752
-#define IDS_NGRAM_TITLE                 37753
 #define IDS_STRING_NGRAM_ANALYSIS_OF    37800
 #define IDS_STRING_NGRAM_HISTOGRAM      37801
 #define IDS_STRING_NGRAM_DIGRAM         37802
@@ -1335,7 +1335,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        536
+#define _APS_NEXT_RESOURCE_VALUE        545
 #define _APS_NEXT_COMMAND_VALUE         33170
 #define _APS_NEXT_CONTROL_VALUE         1424
 #define _APS_NEXT_SYMED_VALUE           101
