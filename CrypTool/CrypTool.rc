@@ -2721,7 +2721,7 @@ BEGIN
         MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
         MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Optionen...",           ID_OPTTEXT
-        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -2935,7 +2935,7 @@ BEGIN
         MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
-        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -3194,7 +3194,7 @@ BEGIN
         MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
-        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -5270,7 +5270,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
-    IDS_STRING_SAMPLE_FILE  "c:/stdin.txt"
+    IDS_STRING_SAMPLE_FILE  "/examples/startbeispiel-de.txt"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10648,7 +10648,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
-    IDS_STRING_SAMPLE_FILE  "c:/stdin.txt"
+    IDS_STRING_SAMPLE_FILE  "/examples/startingexample-en.txt"
 END
 
 STRINGTABLE DISCARDABLE 
