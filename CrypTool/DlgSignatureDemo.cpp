@@ -439,7 +439,7 @@ void CDlgSignatureDemo::OnInfoHash()
 		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
-	Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
+	//Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 	
 	UpdateData(TRUE);
 	int srcSize = m_osHash.noctets;
