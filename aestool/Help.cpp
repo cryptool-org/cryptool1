@@ -39,9 +39,11 @@ BEGIN_MESSAGE_MAP(CHelp, CDialog)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-
+#pragma warning( push )
+#pragma warning( disable : 4100)
 BOOL CHelp::OnHelpInfo(HELPINFO* pHelpInfo) 
 {
 	// do nothing - no help on help	
 	return true;
 }
+#pragma warning( pop ) 

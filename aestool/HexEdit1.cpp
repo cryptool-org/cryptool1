@@ -47,7 +47,7 @@ void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	preproc(&b,&s1, &e1);
 
 	if(('a' <= nChar) && (nChar <= 'f')) nChar = nChar - 'a' + 'A';
-	if((-1 != HexVal(nChar)) || (nChar == 8) ||
+	if((-1 != HexVal((char)nChar)) || (nChar == 8) ||
 		(nChar == 3) || (nChar == 16) || (nChar == 18) || (nChar == 22)) {
 		CEdit::OnChar(nChar, nRepCnt, nFlags);
 	}
@@ -157,7 +157,7 @@ void CHexEdit::postproc( char *oldstring, int start, int end )
 	if(strcmp(b1,b2) || (start != extend(s2,l)) || (end != extend(e2,l))) {
 		Invalidate(TRUE);
 		for(i=0;i<j;i+=3) {
-			BinData[i/3] = HexVal(b2[i])*16 + HexVal(b2[i+1]);
+			BinData[i/3] = (char)(HexVal(b2[i])*16 + HexVal(b2[i+1]));
 		}
 		BinLen = (j+2)/3;
 	}
@@ -220,7 +220,7 @@ void CHexEdit::OnUpdate()
 	SetRedraw(TRUE);
 	Invalidate(TRUE);
 	for(i=0;i<p;i+=3) {
-		BinData[i/3] = HexVal(b2[i])*16 + HexVal(b2[i+1]);
+		BinData[i/3] = (char)(HexVal(b2[i])*16 + HexVal(b2[i+1]));
 	}
 	BinLen = (p+2)/3;
 	active = 0;

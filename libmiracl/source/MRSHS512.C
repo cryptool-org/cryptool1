@@ -10,6 +10,8 @@
  * NOTE: This requires a 64-bit integer type to be defined
  */
 
+#pragma warning( disable : 4005 4244)
+
 #include <stdio.h>
 #include <miracl.h>
 

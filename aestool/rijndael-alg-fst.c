@@ -4,6 +4,8 @@
  *          v2.0: Vincent Rijmen
  */
 
+#pragma warning( disable : 4100 4244)
+
 #include <stdio.h>
 #include <stdlib.h>
 
