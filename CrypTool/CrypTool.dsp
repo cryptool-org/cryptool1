@@ -2528,6 +2528,14 @@ SOURCE=".\res\hybrid-background.bmp"
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\hybrid_speichern_links.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\hybrid_speichern_rechts.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\ico00001.ico
 # End Source File
 # Begin Source File
