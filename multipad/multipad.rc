@@ -335,8 +335,7 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00 - beta 10)",IDC_STATIC,0,
-                    51,242,8
+    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
     CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
@@ -599,28 +598,19 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,58,263,50,14
     CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,25,167,8
+    CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,24,167,8
     CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,50,166,10
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,60,154,8
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,70,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,94,153,10,NOT WS_GROUP
-    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,108,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,117,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,127,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,137,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,147,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,157,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,166,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,176,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,194,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,204,166,9
-    CTEXT           "Review:",IDC_STATIC,1,219,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,229,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,0,239,167,8
-    CTEXT           "Mark Santiago",IDC_STATIC,1,185,166,9
-    CTEXT           "Kümmerer Version 1.3:",IDC_STATIC,1,85,166,8
-    CTEXT           "Wolfgang Patzewitz",IDC_STATIC,1,249,166,9
+    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,53,166,8
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
+                    64,167,17
+    CTEXT           "Henrik Koy",IDC_STATIC,0,99,167,10,NOT WS_GROUP
+    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,116,166,9
+    CTEXT           "Ariane Büger\nWolfgang Scondo\nWolfgang Patzewitz",
+                    IDC_STATIC,0,227,167,27
+    CTEXT           "Kümmerer Version 1.3:",IDC_STATIC,1,88,166,8
+    CTEXT           "Jan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
+                    IDC_STATIC,1,127,166,82
+    CTEXT           "Review",IDC_STATIC,0,216,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -3991,7 +3981,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 10"
+    IDR_MAINFRAME           "CrypTool 1.3.00"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5408,8 +5398,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00 - beta 10)",IDC_STATIC,0,
-                    51,242,8
+    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
                     242,8
     CTEXT           "for creating employee awareness on the subject of cryptography.",
@@ -5659,37 +5648,28 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 287
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 278
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,266,50,14
+    DEFPUSHBUTTON   "OK",IDOK,58,256,50,14
     CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,24,167,8
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,34,154,8
-    CTEXT           "Design, Support:",IDC_STATIC,1,49,166,10
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,59,154,8
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,69,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,94,153,10,NOT WS_GROUP
-    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,110,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,119,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,129,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,139,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,149,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,159,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,169,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,178,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,197,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,207,166,9
-    CTEXT           "Review:",IDC_STATIC,1,222,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,232,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,0,241,167,8
-    CTEXT           "Mark Santiago",IDC_STATIC,1,188,166,9
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
+    CTEXT           "Design, Support:",IDC_STATIC,1,50,166,10
+    CTEXT           "Henrik Koy",IDC_STATIC,7,95,153,10,NOT WS_GROUP
+    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,111,166,9
+    CTEXT           "Review:",IDC_STATIC,1,211,166,8
     CTEXT           "Main person taking overall care for version 1.3:",
-                    IDC_STATIC,1,85,166,10
-    CTEXT           "Wolfgang Patzewitz",IDC_STATIC,1,251,166,9
+                    IDC_STATIC,1,84,166,10
+    CTEXT           "Jan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
+                    IDC_STATIC,0,122,166,82
+    CTEXT           "Ariane Büger\nWolfgang Scondo\nWolfgang Patzewitz",
+                    IDC_STATIC,0,221,167,27
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
+                    60,167,17
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -8141,7 +8121,7 @@ BEGIN
 
     IDD_AUTOREN, DIALOG
     BEGIN
-        HORZGUIDE, 280
+        HORZGUIDE, 270
     END
 
     IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG
@@ -8418,7 +8398,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 10"
+    IDR_MAINFRAME           "CrypTool 1.3.00"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"

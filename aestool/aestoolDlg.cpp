@@ -283,7 +283,7 @@ void CAestoolDlg::OnOK()
 		if(IDRETRY == DoDecrypt()) return;
 	}
 
-	CDialog::OnOK();
+//	CDialog::OnOK();
 }
 
 void CAestoolDlg::ScanCMDLine(char * cmd)
@@ -512,7 +512,8 @@ int CAestoolDlg::DoDecrypt()
 
 	// store data
 	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary, &e);
-	OutFile.WriteHuge(buffer2, DataLen);
+	if(DataLen > 0)
+		OutFile.WriteHuge(buffer2, DataLen);
 
 	free (buffer1);
 	free (buffer2);
@@ -525,14 +526,22 @@ int CAestoolDlg::DoDecrypt()
 
 int CAestoolDlg::TestEncryptedFile(CString Filename)
 {
+	CString tmp;
+	int l;
+
 	if(!m_SrcFile.Open(Filename, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL))
 		return -1;
+	l = m_SrcFile.GetLength();
+	if(l<12) return 0;
 	m_SrcFile.Seek(-12, CFile::end);
 	m_SrcFile.Read(& DataLen, sizeof(long));
 	m_SrcFile.Read(& NameLen, sizeof(long));
 	m_SrcFile.Read(& Magic, sizeof(long));
+	if(l < DataLen + NameLen + 12) return 0;
 	if( Magic == FILE_MAGIC ) { // restore encrypted data
 		m_direction = DIR_DECRYPT;
+		tmp.LoadString(IDS_STRING_ENTSCHLUESSELN);
+		m_OK.SetWindowText(tmp);
 		AfxFormatString1(m_title, IDS_STRING_DECRYPT, "");
 		m_SrcFile.Seek(-12-NameLen, CFile::end);
 		m_SrcFile.Read(OrgName.GetBuffer(NameLen+2), NameLen);
@@ -548,6 +557,8 @@ int CAestoolDlg::TestEncryptedFile(CString Filename)
 	}
 	m_direction = DIR_ENCRYPT;
 	AfxFormatString1(m_title, IDS_STRING_ENCRYPT, "");
+	tmp.LoadString(IDS_STRING_VERSCHLUESSELN);
+	m_OK.SetWindowText(tmp);
 	return 0;
 }
 
@@ -589,9 +600,11 @@ void CAestoolDlg::OnHelp()
 void CAestoolDlg::OnChangeEdit1() 
 {
 	UpdateData(TRUE);
-	if(!m_HexString.IsEmpty()) {
+	if(!m_HexString.IsEmpty() && !m_NameDst.IsEmpty() && !m_NameSrc.IsEmpty()) {
 		m_OK.EnableWindow(TRUE);
 	}
+	else
+		m_OK.EnableWindow(FALSE);
 }
 
 int CAestoolDlg::KeySet(int set)
@@ -605,10 +618,18 @@ int CAestoolDlg::SetSource(CString src)
 		EnableDest(FALSE, 0);
 		SetDest("");
 		m_NameSrc = "";
+//		free(void theApp.m_pszAppName);
+		theApp.m_pszAppName = "AES-Tool";
 		return 1;
 	}
 
 	m_NameSrc = src;
+	{
+		CString tmp;
+		tmp.Format("AES-Tool: [%s]", src);
+		theApp.m_pszAppName = strdup(tmp);
+	}
+
 	if(TestEncryptedFile(src)) // verschlüsselte Datei --> entschlüsseln
 		m_direction = DIR_DECRYPT;
 	else { // neue Datei verschlüsseln

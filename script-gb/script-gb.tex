@@ -1,12 +1,17 @@
 \documentclass[a4paper,11pt]{article}
 % Da man keine Unterst"utzung der deutschen Sprache in diesem Fall braucht!!
 % \usepackage[german]{babel}
+
+\setlength{\fboxrule}{.5mm}
+\setlength{\fboxsep}{1.75mm}
+\setlength{\footnotesep}{6pt}
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{makeidx}
-\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
+% \usepackage{graphicx}
 \makeindex
 \hypersetup{colorlinks=true}
 \usepackage[flushmargin]{footmisc}
@@ -40,9 +45,11 @@ Frankfurt am Main
 }
 
 \begin{document}
+\pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
+\addtolength{\footskip}{8pt}
 %\setlength{\footskip}{4cm}
 %\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
 %Formatierung der Fu"snoten
@@ -270,6 +277,17 @@ the message. In this way, we can benefit from the easy key management \index{Key
 management} of asymmetric procedures and encrypt large quantities of data
 quickly and efficiently using symmetric procedures.
 
+\subsubsection{Further details}
+
+Beside information you can find in many books and on a lot of websites the online help
+of CrypTool also offers very many details about the symmetric and asymmetric encryption methods.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% C H A P T E R   T W O
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 \section{Prime numbers}\hypertarget{Kapitel_2}{}
 (Bernhard Esslinger, besslinger@web.de, May 1999, Updates Nov. 2000, December 2001)
@@ -277,7 +295,7 @@ quickly and efficiently using symmetric procedures.
 %\paragraph{What are prime numbers?}
 \subsection*{What are prime numbers?}
 \addcontentsline{toc}{subsection}{~~~~~~What are prime numbers?}
-\index{Prime numbers} \index{Numbers!prime number}
+\index{Prime number} \index{Numbers!prime number}
 Prime numbers are whole, positive numbers greater than or equal to $2$ that can
 only be divided by 1 and themselves. All other natural numbers greater than or
 equal to $2$ can be formed by multiplying prime numbers.
@@ -324,7 +342,7 @@ area of numbers. Such numbers are called prime numbers.
 
 In mathematics, a slightly different (but equivalent) definition is used.
 
-\begin{definition}
+\begin{definition}\label{def-pz-prime}
 A whole number $p \in {\bf N}$ is called prime \index{Numbers!prime number} if
 $p > 1$ and $p$ only possesses the trivial factors $\pm 1$ and $\pm p$.
 \end{definition}
@@ -345,7 +363,7 @@ All numbers that have $2$ or more factors are called \index{Numbers!composite}
 as numbers that {\em look like primes}, but are in fact composite:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
-\begin{theorem}
+\begin{theorem}\label{thm-pz-sqr}
 Each whole number $m$ greater than $1$ possesses a lowest factor greater than
 $1$. This is a prime number $p$. Unless $m$ is a prime number itself, then: $p$
 is less than or equal to the square root of $m$.
@@ -356,7 +374,7 @@ numbers --- in a unique way. This is the claim of the 1st fundamental theorem of
 number theory (= fundamental theorem of arithmetic = fundamental building block
 of all positive integers).
 
-\begin{theorem}
+\begin{theorem}\label{thm-pz-prod}
 Each element $n$ of the natural numbers greater than $1$ can be written as the
 product $n = p_1 \cdot p_2 \dots p_m$ of prime numbers. If two such
 factorisations $$n =  p_1 \cdot p_2 \cdots p_m = p'_1 \cdot p'_2 \cdots
@@ -398,7 +416,7 @@ a Greek mathematician of 4th and 3rd century before Christ. He worked at the
 egyptian academy of Alexandria and wrote ''The Elements'', the most well known systematical textbook
 of the Greek mathematics.} knew this in the
 third century before Christ.
-\begin{theorem}[Euclid]\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
+\begin{theorem}[Euclid]\label{thm-pz-euklid}\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
 the true inventor is merely not as prominent. The theorem has already been distinguished
 and proven in Euclid’s Elements (Book IX, s. 20). The phraseology is remarkable due to 
 the fact that the word infinite is not used. The text reads as following
@@ -480,12 +498,12 @@ $$
 $$
 
 \index{Numbers!Mersenne numbers}\index{Mersenne Marin!Mersenne numbers}
-\index{Mersenne Marin!theroem} Even Mersenne knew that not all Mersenne numbers
+\index{Mersenne Marin!theorem} Even Mersenne knew that not all Mersenne numbers
 are prime (see exponent $p = 11$). However, he is to be thanked for the
 interesting conclusion that a number of the form $2^n-1$ is not a prime number
 if $n$ is a composite number:
 
-\begin{theorem}[Mersenne] If $2^n - 1$ is a prime number, then $n$ is also a
+\begin{theorem}[Mersenne]\label{thm-pz-mersenne} If $2^n - 1$ is a prime number, then $n$ is also a
 prime number.
 \end{theorem}
 
@@ -534,10 +552,10 @@ Thus $39$ Mersenne prime numbers are currently known.
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates Samual} Yates coined the expression {\em
-titanic} \index{Prime numbers!titanic} prime for this; it was discovered by
+titanic} \index{Prime number!titanic} prime for this; it was discovered by
 Hurwitz in 1961); the $27$th number with the exponent $44,497$ was the first
 with at least $10,000$ digits in the decimal system (Yates coined the expression
-\index{Prime numbers!gigantic}  {\em gigantic} prime for this. These names are
+\index{Prime number!gigantic}  {\em gigantic} prime for this. These names are
 now long outdated).
 
 The 37th number was found in January 1998 and has 909,526
@@ -559,13 +577,13 @@ machines.)
 (At the university of Tennessee you will find extensive research results about
 prime numbers.)
 \end{quote}
-\subsubsection{M-38 -- June 1999}\index{Mersenne Marine!M-38}
+\subsubsection{M-38 -- June 1999}\index{Mersenne Marin!M-38}
 The 38th Mersenne prime, called M-38,
 $$ 2^{6,972,593} - 1. $$
 was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 (that corresponds to around 77 pages in the newspaper).
 
-\subsubsection{M-39 -- December 2001} \index{Mersenne Marine!M-39}
+\subsubsection{M-39 -- December 2001} \index{Mersenne Marin!M-39}
 
 The 39th Mersenne prime, called M-39, $$2^{13,466,917}-1,$$ was found at December 6, 2001 –- more exactly,
 the verification of this number, found at November 14, 2001 by the Canadian student Michael Cameron,
@@ -602,7 +620,7 @@ Edouard Lucas (1842-1891) held the record for the longest prime number for over
 that long.
 
 \subsubsection{Prime number tests}
-\index{Prime number test}
+\index{Prime number!test}
 In order to implement secure encryption procedures we need extremely large prime
 numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
 decimal system!).
@@ -631,7 +649,7 @@ F(7) & = & 34,279,974,696,877,740,253,374,607,431,768,211,457 \\
 Many rapid prime number tests are based on the (small) Fermat theorem put
 forward by Fermat in 1640 .
 \index{Fermat!small Fermat}
-\begin{theorem}[''small'' Fermat]
+\begin{theorem}[''small'' Fermat]\label{thm-pz-fermat1}
 Let $p$ be a prime number and $a$ be any whole number, then for all $a$ $$a^p
 \equiv a \; {\rm mod} \; p.$$
 This could also be formulated as follows: \\ Let $p$ be a prime number and $a$
@@ -651,7 +669,7 @@ proof that a number $a$ is prime. Unfortunately Fermat's theorem does not apply
 put it in other words, we would have a simple prime number criterion).
 
 Comment: Numbers that have the property $$ 2^n \equiv 2 \;{\rm mod}\; n $$ but
-are not prime are called \index{pseudoprime numbers}\index{Numbers!pseudoprime
+are not prime are called \index{Pseudoprime number}\index{Numbers!pseudoprime
 number} {\em pseudoprime numbers}. The first pseudoprime number (i.e. not a
 prime) is $$ 341 = 11 \cdot 31. $$
 There are numbers that pass the Fermat test with all bases and yet are not
@@ -682,7 +700,7 @@ http://www.utm.edu/research/primes/prove/index.html}}.
 
 
 \subsection{The search for a formula for prime numbers}
-\index{Prime numbers!formula}
+\index{Prime number!formula}
 There are currently no useful, open (i.e. not recursive) formulae known that
 only deliver prime numbers (recursive means that in order to calculate the
 function the same function is used with a smaller variable). Mathematicians
@@ -793,7 +811,7 @@ $$
 $e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
 particularly useful. Comment: However, what is special about all these numbers
 is that any pair of them does not have a common factor other than $1$. They are
-therefore \index{Prime numbers!relatively} {\em relatively prime }.
+therefore \index{Prime number!relative} {\em relatively prime }.
   \item $f(n) = n^2 + n + 41$:\\
   This sequence starts off very {\em promisingly},   but is far from being a
 proof.
@@ -875,7 +893,7 @@ a_0$  ($a_i$ in ${\mathbb Z}$, $n \geq 1$):
 delivers prime values.
     For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where you
 will also find further details about prime number formulae.
-  \item \index{Catalan} \index{Catalan numbers} Catalan, after whom the so-called
+  \item  \index{Catalan numbers} Catalan, after whom the so-called
 {\em Catalan numbers} $A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ are named,
 conjectured that $C_4$ is a prime:
 $$
@@ -912,7 +930,7 @@ In any case, it has not been proved that this formula delivers only primes.
 \subsection{Density and distribution of the primes}
 
 As Euclid discovered, there is an infinite number of primes. However, some
-infinite sets are {\em denser} \index{Prime numbers!density} than others. Within
+infinite sets are {\em denser} \index{Prime number!density} than others. Within
 the set of natural numbers, there is an infinite number of even, uneven and
 square numbers.
 
@@ -931,7 +949,7 @@ for large $x$ the value $x/2$ is much greater than the square root of $2$, we
 can again say that there are more even numbers.
 \end{itemize}
 \vskip +3 pt
-\begin{theorem}
+\begin{theorem}\label{thm-pz-density}
 For large n: The value of the $n$th prime $P(n)$ is asymptotic to $n \cdot
 ln(n)$, i.e. the limit of the relation  $P(n)/(n\cdot \ln n)$ is equal to $1$ if
 $n$ tends to infinity.
@@ -941,12 +959,12 @@ $n$ tends to infinity.
 The definition is similar for the number of prime numbers $PI(x)$
 that do not exceed the maximum value $x$:
 
-\begin{theorem}
+\begin{theorem}\label{thm-pz-pi-x}
 $PI(x)$  is asymptotic to  $x / ln(x)$.
 \end{theorem}
 
 
-This is the \index{Prime number theorem} \textbf{prime number theorem}. It was
+This is the \index{Prime number!theorem} \textbf{prime number theorem}. It was
 put forward by Legendre (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
 over 100 years later.
 
@@ -1688,16 +1706,22 @@ may also be equal to the point in infinity. Thus, when we speak of a point $P$ o
 we mean that $P = (x,y)$ and $(x,y)$ lies in the set ${\bf E}$. Any two points on an elliptic curve specified by $a, b$ and $p$
 can therefore be added and the result is a point that also lies on the same elliptic curve.
 
-\newpage
+% \newpage
 \begin{figure}[htbp]
+\subsubsection*{Adding of two points on an elliptic curve}
+The following two figures shows an elliptic curve in the affine plane and
+shows how points on an elliptic curve are added. Note that the point in infinity $O$ cannot be represented in
+the affine plane.
 \begin{center}
-\includegraphics[scale=0.5]{ELL1_50.eps}
+\includegraphics{ell1.png}
 \caption{Doubling the point P} \vspace{\floatsep}
-\includegraphics[scale=0.5]{ELL2_50.eps}
-\caption{ Adding distinct points P and Q\footnotemark}
+\includegraphics{ell2.png}
+\caption{ Adding distinct points P and Q} % \footnotemark}
 \end{center}
 \end{figure}
-\addtocounter{footnote}{0}\footnotetext{The point $O$ cannot be represented in the affine plane.}
+% \addtocounter{footnote}{0}\footnotetext{The point $O$ cannot be represented in the affine plane.}
+\enlargethispage{+20pt}
+
 \newpage
 We must note that ${\bf E}$ can have the following meanings:
 \begin{itemize}
@@ -1881,7 +1905,8 @@ There, one finds literature to the topic factorisation with elliptic curves as w
 
 \end{enumerate}
 
-\addcontentsline{toc}{section}{Index} \printindex
+\addcontentsline{toc}{section}{Index} 
+\printindex
 %
 % ......................................................................................................................
 %

@@ -153,7 +153,7 @@ Es wurden eine Reihe von Algorithmen f"ur Public-Key-Verfahren vorgeschlagen. Ei
 %--------------------------------------------------------------------
 
 Gegeben $ n $ Gegenst"ande $ G_1, \dots, G_n $ mit den Gewichten $ g_1, \dots g_n $ und den Werten $w_1, \cdots, w_n. $ Man soll wertm"a"sig so viel wie m"oglich unter Beachtung einer oberen Gewichtsschranke $ g $ davontragen. Gesucht ist also eine Teilmenge von $ \{ G_1, \cdots,G_n\}, $ etwa $ \{G_{i_1}, \dots ,G_{i_k} \}, $ so da"s  $ w_{i_1}+ \cdots +w_{i_k} $ maximal wird unter der Bedingung $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{Laufzeit!nicht polynomisch NP} deterministisch polynomial), die aufwendig zu berechnen sind.\index{Knapsack}
+Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial), die aufwendig zu berechnen sind.\index{Knapsack}
 
 Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die nat"urlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
@@ -289,9 +289,9 @@ $|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
 Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
 
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k})\footnote{Weitere Formeln finden sich in den
+\cdots \, (1-\frac{1}{p_k}) $\footnote{Weitere Formeln finden sich in den
 Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrung in die elementare Zahlentheorie
-mit Beispielen\grqq, Kap. 3.8}.} $.
+mit Beispielen\grqq, Kap. 3.8}.}.
 
 Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
 \\ \vskip +5 pt
@@ -510,7 +510,7 @@ Wir bezeichen $ a $ mit $ \log_\alpha (\beta). $
 
 \paragraph{Berechung des diskreten Logarithmus'}
 Ein einfaches Verfahren zur Berechnung des diskreten Logarithmus' eines Gruppenelements, das wesentlich effizienter ist als das blo"se Durchprobieren aller m"oglichen Werte f"ur $ k, $ ist der \index{Baby-Step-Giant-Step} Baby-Step-Giant-Step-Algorithmus.
-\begin{satz}[Baby-Step-Giant-Step-Algorithmus]
+\begin{satz}[Baby-Step-Giant-Step-Algorithmus]\label{thm-cry-bsgs}
 Sei $ G $ eine Gruppe  und $ g \in G. $ Sei $ n $ die kleinste nat"urliche Zahl mit $ |G|\leq n^2. $ Dann kann der diskrete Logarithmus eines Elements $ h 
 \in G $ zur Basis $ g $ berechnet werden, indem man zwei Listen mit jeweils $ n $ Elementen erzeugt und diese Listen vergleicht.\\
 Zur Berechnung dieser Listen braucht man $ 2n $ Gruppenoperationen.
@@ -528,7 +528,7 @@ Neben dem Baby-Step-Giant-Step-Algorithmus gibt es noch zahlreiche andere Verfah
 
 \paragraph{Der Satz von Silver-Pohlig-Hellman}
 In endlichen abelschen Gruppen l"a"st sich das  diskrete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
-\begin{satz}[Silver-Pohlig-Hellman]
+\begin{satz}[Silver-Pohlig-Hellman]\label{thm-cry-pohe}
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann l"a"st sich das diskrete Logarithmusproblem in $ G $ auf das L"osen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zur"uckf"uhren.
 \end{satz}
 

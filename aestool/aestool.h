@@ -29,6 +29,7 @@ public:
 	//{{AFX_VIRTUAL(CAestoolApp)
 	public:
 	virtual BOOL InitInstance();
+	virtual void WinHelp(DWORD dwData, UINT nCmd = HELP_CONTEXT);
 	//}}AFX_VIRTUAL
 
 // Implementierung

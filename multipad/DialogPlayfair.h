@@ -104,7 +104,6 @@ public:
 	CDialogPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
 	int Display();		// zeigt Dialog an
 	void OnSechs();		// auf 5x5 oder 6x6 Matrix einstellen
-	void OnDec();		// Ver- oder Entschlüsseln
 	void OnCheck();		// Doppelte ignorieren oder nicht
 	void OnUpdate();	// sobald ein neues Zeichen eingegeben wurde (Passwort, Matrix, oder Klartextvorgabe)
 	void UpdatePassword();
@@ -114,6 +113,9 @@ public:
 	class CChEdit *getEinfeld(int i, int j) { return &m_einfeld[i][j]; }
 
 	void InitListBox();
+
+	void SetupListBox();
+	int  SetupAnalysisWindow();
 	void UpdateListBox();
 
 	char getMatrixElement (int i, int j) { return m_mat[i][j][0]; }
@@ -153,7 +155,6 @@ protected:
 	afx_msg void OnManAnalyse();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar *pScrollBar);
 	afx_msg void OnChangeEditPlaintext();
-	afx_msg void OnChangeHScrollEditPlaintext();
 	afx_msg void OnCheckTextWasPreformatted();
 	afx_msg void OnSynchronise();
 	//}}AFX_MSG

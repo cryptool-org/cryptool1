@@ -204,14 +204,11 @@ BEGIN_MESSAGE_MAP(CDialogPlayfair, CDialog)
 	ON_BN_CLICKED(IDC_CHECK2, OnCheckTextWasPreformatted)
 	ON_BN_CLICKED(IDC_RAD5, OnSechs)
 	ON_BN_CLICKED(IDC_RAD6, OnSechs)
-	ON_BN_CLICKED(IDC_RADE, OnDec)
-	ON_BN_CLICKED(IDC_RADV, OnDec)
 	ON_BN_CLICKED(IDC_BUTTON5, OnAnalyse)
 	ON_BN_CLICKED(IDC_BUTTON6, OnSynchronise)
 	ON_EN_UPDATE(IDC_MYTXT, OnManAnalyse)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
 	ON_WM_HSCROLL()
-	ON_EN_HSCROLL(IDC_MYTXT, OnChangeHScrollEditPlaintext) 
 	ON_EN_CHANGE(IDC_MYTXT, OnChangeEditPlaintext)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -450,12 +447,6 @@ void CDialogPlayfair::OnCheckTextWasPreformatted()
 	UpdateData(FALSE);
 }
 
-void CDialogPlayfair::OnDec() 
-// Ver- oder Entschlüsseln
-{
-}
-
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // 
@@ -507,6 +498,59 @@ void CDialogPlayfair::OnSechs()
 } 
 
 
+/////////////////////////////////////////////////////////////////////////////
+//
+// 
+//
+
+void CDialogPlayfair::InitListBox()
+{
+	is6x6possible = false;
+	isinvalidoccured = false;
+	int i;
+	char c, s[245];
+
+	m_Alg->DoCipher(false, true,MAXSHOWLETTER);
+
+	UpdateData(TRUE);
+	m_cipher=m_Alg->outbuf;
+	UpdateData(FALSE);
+
+	// Gauweiler 30.1.01, statt eine einzelne Zeile, sollten gleich alle drei Zeilen angezeigt werden.
+	// da die Update-Fkt das richtig macht, soll sie gleich mal zum ersten Mal ihre Arbeit machen.
+	strcpy(digbuf,"");
+
+    // ist vielleicht mit 6x6 Matrix verschlüsselt worden?
+	i=0;
+	while(i<MAXSHOWLETTER&&i<m_Alg->inbuflen)
+	{
+		c=m_Alg->inbuf[i++];
+		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			if (('J'==toupper(c)) || (('0'<=c) && (c<='9')))
+				is6x6possible = true;
+			else
+				isinvalidoccured = true;
+	}
+	if (is6x6possible || isinvalidoccured) {
+			if (is6x6possible)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
+			if (isinvalidoccured)
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG002,pc_str,STR_LAENGE_STRING_TABLE);
+				UpdateData();
+				m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted = 0;
+				UpdateData(FALSE);
+			}
+			sprintf(s,pc_str);
+			AfxMessageBox (s);
+			UpdateData(TRUE);
+				m_sechs = (is6x6possible && !isinvalidoccured)?1:0;
+			UpdateData(FALSE);
+			OnSechs();
+	}
+} 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 // ON INIT DIALOG
@@ -541,7 +585,8 @@ BOOL CDialogPlayfair::OnInitDialog()
 /****************************************/
 
 	InitListBox();
-
+	SetupListBox();
+	SetupAnalysisWindow();
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -633,37 +678,6 @@ void CDialogPlayfair::OnChangeEditPlaintext()
 // 
 //
 
-void CDialogPlayfair::OnChangeHScrollEditPlaintext() 
-{
-/*
-	int iMin, iMax, iPos;
-	m_ctrlScroll.GetScrollRange(&iMin, &iMax);
-	iPos = m_ctrlScroll.GetScrollPos();
-	
-	if(!m_bHScroll)
-	{
-		int iMax, iMin, iPos;
-		m_txtfeld.GetScrollRange(SB_HORZ, &iMin, &iMax);	
-		m_txtfeld.GetSel(iMin, iPos);
-		iPos = min(max(0, (iPos-iEditSize)/2), iMax);
-		
-		m_bHScroll = TRUE;
-		
-		int iPrev = m_ctrlScroll.SetScrollPos(iPos);
-		m_ciphfeld.LineScroll(0, iPos-iPrev);
-
-		m_txtfeld.ShowWindow(SW_HIDE);
-		m_txtfeld.LineScroll(0, -iMax);
-		m_txtfeld.LineScroll(0, iPos);	
-		m_txtfeld.ShowWindow(SW_SHOW);
-		m_txtfeld.SetFocus();
-		m_txtfeld.SetSel(iMin, iMin);
-
-		m_bHScroll = FALSE;
-	}
-*/
-}
-
 void CDialogPlayfair::OnSynchronise()
 {
 	int iMin, iPos;
@@ -681,50 +695,52 @@ void CDialogPlayfair::OnSynchronise()
 }
 
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // 
 //
 
-void CDialogPlayfair::UpdateListBox()
+void CDialogPlayfair::SetupListBox()
+{
+	int i,j;
+	playfair_letter *let;
+	char s[MAXSHOWLETTER+2];
+
+	m_listview.DeleteAllItems();
+	for (j=i=0; i < m_Alg->getLetterlist()->getLen(); i++) 
+	{
+		let = (m_Alg->getLetterlist()->getLetter(i));
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		s[0] = let->getValue();	s[1] = '\0';
+		j = m_listview.InsertItem(i,s);
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		let->getNeighboursString (s, 10);			// Neighbours
+		m_listview.SetItemText( j, 1, s);
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		let->getUndefinedNeighboursString (s, 10);	// poss. Neighbours
+		m_listview.SetItemText( j, 2, s);
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		let->getRowString (s, 20);					// Rows
+		m_listview.SetItemText( j, 3, s);
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		let->getColString (s, 20);					// Col
+		m_listview.SetItemText( j, 4, s);
+		assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
+		let->getRoworcolString (s, 25);				// RoworCol
+		m_listview.SetItemText( j, 5, s);
+		sprintf(s,"%d", let->getWeight());			// Metrik
+		m_listview.SetItemText( j, 6, s);
+	}
+}
+
+int CDialogPlayfair::SetupAnalysisWindow()
 {
 	int i,j,k;
-	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
-	playfair_letter *let;
+	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c;
 
-	m_listview.ShowWindow(SW_HIDE);
-	m_listview.DeleteAllItems();
-
-	for (j=i=0; i < m_Alg->getLetterlist()->getLen(); i++) {
-			let = (m_Alg->getLetterlist()->getLetter(i));
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			s[0] = let->getValue();	s[1] = '\0';
-			j = m_listview.InsertItem(i,s);
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			let->getNeighboursString (s, 10);			// Neighbours
-			m_listview.SetItemText( j, 1, s);
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			let->getUndefinedNeighboursString (s, 10);	// poss. Neighbours
-			m_listview.SetItemText( j, 2, s);
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			let->getRowString (s, 20);					// Rows
-			m_listview.SetItemText( j, 3, s);
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			let->getColString (s, 20);					// Col
-			m_listview.SetItemText( j, 4, s);
-			assert (let); assert (let->getValue()<='Z'); assert (let->getValue()>=NULLELEMENT);
-			let->getRoworcolString (s, 25);				// RoworCol
-			m_listview.SetItemText( j, 5, s);
-			sprintf(s,"%d", let->getWeight());			// Metrik
-			m_listview.SetItemText( j, 6, s);
-		}
-	m_listview.ShowWindow(SW_SHOW);
 	m_Alg->DoCipher(false, true, MAXSHOWLETTER);
-	UpdateData(TRUE);
 
+	UpdateData(TRUE);
 	i=j=k=0;
 	while(i<MAXSHOWLETTER&&j<m_Alg->inbuflen)
 	{
@@ -745,9 +761,18 @@ void CDialogPlayfair::UpdateListBox()
 	}
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
-	ScrollRange( i );
-	// OnChangeHScrollEditPlaintext();
 	UpdateData(FALSE);
+	return i;
+}
+
+
+void CDialogPlayfair::UpdateListBox()
+{
+	m_listview.ShowWindow(SW_HIDE);
+	SetupListBox();
+	m_listview.ShowWindow(SW_SHOW);
+	int i = SetupAnalysisWindow();
+	ScrollRange( i );
 } 
 
 
@@ -779,62 +804,6 @@ void CDialogPlayfair::UpdatePassword()
 	m_password=m_Alg->CreatePassfromMatrix();
 	UpdateData(FALSE);
 } 
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// 
-//
-
-void CDialogPlayfair::InitListBox()
-{
-	is6x6possible = false;
-	isinvalidoccured = false;
-	int i;
-	char c, s[245];
-
-	m_Alg->DoCipher(false, true,MAXSHOWLETTER);
-
-	UpdateData(TRUE);
-	m_cipher=m_Alg->outbuf;
-	UpdateData(FALSE);
-
-	// Gauweiler 30.1.01, statt eine einzelne Zeile, sollten gleich alle drei Zeilen angezeigt werden.
-	// da die Update-Fkt das richtig macht, soll sie gleich mal zum ersten Mal ihre Arbeit machen.
-	strcpy(digbuf,"");
-
-    // ist vielleicht mit 6x6 Matrix verschlüsselt worden?
-	i=0;
-	while(i<MAXSHOWLETTER&&i<m_Alg->inbuflen)
-	{
-		c=m_Alg->inbuf[i++];
-		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			if (('J'==toupper(c)) || (('0'<=c) && (c<='9')))
-				is6x6possible = true;
-			else
-				isinvalidoccured = true;
-	}
-	if (is6x6possible || isinvalidoccured) {
-			if (is6x6possible)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
-			if (isinvalidoccured)
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG002,pc_str,STR_LAENGE_STRING_TABLE);
-				UpdateData();
-				m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted = 0;
-				UpdateData(FALSE);
-			}
-			sprintf(s,pc_str);
-			AfxMessageBox (s);
-			UpdateData(TRUE);
-				m_sechs = (is6x6possible && !isinvalidoccured)?1:0;
-			UpdateData(FALSE);
-			OnSechs();
-	}
-
-	UpdateListBox();
-
-} // void CDialogPlayfair::InitListBox()
 
 
 /////////////////////////////////////////////////////////////////////////////

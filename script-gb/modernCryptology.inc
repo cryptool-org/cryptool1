@@ -89,7 +89,7 @@
 \newpage
 %**************************************************************************************************************************
 \section{The Mathematical Ideas Behind Modern Cryptography}
- (Oyono R./ Esslinger B., September 2000, Update Nov. 2000)
+ (Oyono R. / Esslinger B., September 2000, Update Nov. 2000)
 \subsection{One-way functions with trapdoor and complexity classes}
 \index{Cryptography!modern} \index{One-way function} \hypertarget{OneWayFunktion1}{}
 A {\bf one-way function} is a (one-to-one) function that can be calculated 
@@ -359,7 +359,7 @@ the most important asymmetric cryptography procedure to date.  \par
 
 Let $ p $ and $ q $ be two different prime numbers and $ N = pq$. Let 
 $ e $ be any prime number relative to $ \phi (N) $ \index{Prime 
-numbers!relative}, i.e. $ \ggt (e,\phi (N))=1. $ Using the Euclidean algorithm, 
+number!relative}, i.e. $ \ggt (e,\phi (N))=1. $ Using the Euclidean algorithm, 
 we calculate the natural number  $ d < \phi (N), $ such that
 \[ ed \equiv 1 \mod \phi (N). \]
 whereby $ \phi $ is the {\bf Euler phi Function}. 
@@ -383,7 +383,7 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 {\bf RSA procedure} (based on the factorisation problem).
 \vskip +20 pt
 \index{Factorisation problem}
-\index{Euler phi function}
+\index{Euler!(Phi) function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
 numbers that do not have a common factor with $ N $ \index{Coprime} {}
@@ -666,7 +666,7 @@ We define $ a $ as $ \log_\alpha (\beta). $
 A simple procedure for calculating the discrete logarithm of a group element, 
 that is considerably more efficient than simply trying all possible values for $ 
 k, $ is the \index{Baby-Step-Giant-Step} Baby-Step-Giant-Step algorithm.
-\begin{theorem}[Baby-Step-Giant-Step algorithm]
+\begin{theorem}\label{thm-cry-bsgs}[Baby-Step-Giant-Step algorithm]
 Let $ G $ be a group and $ g \in G. $ Let $ n $ be the smallest natural number 
 with $ |G|\leq n^2. $ Then the discrete logarithm of an element $ h 
 \in G $ can be calculated base $ g $ by generating two lists each containing $ n 
@@ -696,14 +696,14 @@ procedures for calculating the discrete logarithm \cite{Stinson1995}.
 \paragraph{The theorem from Silver-Pohlig-Hellman}
 In finite abelian groups, the discrete logarithm problem can be reduced to 
 groups of a lower order.
-\begin{theorem}[Silver-Pohlig-Hellman]
+\begin{theorem}\label{thm-cry-pohe}[Silver-Pohlig-Hellman]
 Let $ G $ be a finite abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots 
 \cdot p_s^{a_s}. $ The discrete logarithm in $ G $ can then be reduced to 
 solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
 \end{theorem}
 
 If $ |G| $ contains a ''dominant'' prime factor $ p ,$ then the 
-complexity \index{ complexity} of the logarithm problem is approximately
+complexity \index{Complexity} of the logarithm problem is approximately
 \[ O(\sqrt{p}). \]
 Therefore, if the logarithm problem is to be made difficult, the order of the 
 group used $ G $ should have a large prime factor. In particular, if the 

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "aestool.h"
 #include "aestoolDlg.h"
+#include "help.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -54,6 +55,8 @@ BOOL CAestoolApp::InitInstance()
 	Enable3dControlsStatic();	// Diese Funktion bei statischen MFC-Anbindungen aufrufen
 #endif
 
+	m_pszAppName = "AES-Tool";
+
 	CAestoolDlg dlg;
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
@@ -71,4 +74,11 @@ BOOL CAestoolApp::InitInstance()
 	// Da das Dialogfeld geschlossen wurde, FALSE zurückliefern, so dass wir die
 	//  Anwendung verlassen, anstatt das Nachrichtensystem der Anwendung zu starten.
 	return FALSE;
+}
+
+void CAestoolApp::WinHelp(DWORD dwData, UINT nCmd) 
+{
+	CHelp hlp;
+
+	hlp.DoModal();
 }

@@ -1,303 +1,644 @@
-%PDF-1.3
-7 0 obj
-[5 0 R /XYZ null 714.112 null]
+%PDF-1.2
+6 0 obj
+<< /S /GoTo /D (section*.1) >>
 endobj
 8 0 obj
-[5 0 R /XYZ null 689.205 null]
+(Inhaltsverzeichnis)
 endobj
-9 0 obj
-<<
-/Type /Encoding
-/BaseEncoding /WinAnsiEncoding
-/Differences [0 /Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon /Phi /Psi /Omega
-/ff /fi /fl /ffi /ffl /dotlessi /dotlessj /grave /acute /caron /breve /macron /ring
-/cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash /suppress 34 /quotedblright
-39 /quoteright 60 /exclamdown 62 /questiondown 92 /quotedblleft 94 /circumflex /dotaccent
-/quoteleft 123 /endash /emdash /hungarumlaut /tilde /dieresis /Gamma /Delta /Theta
-/Lambda /Xi /Pi /Sigma /Upsilon /Phi /Psi /Omega /ff /fi /fl /ffi /ffl /dotlessi
-/dotlessj /grave /acute /caron /breve /macron /ring /cedilla /germandbls /ae /oe
-/oslash /AE /OE /Oslash 161 /Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon
-/Phi /Psi /.notdef /.notdef /Omega /ff /fi /fl /ffi /ffl /dotlessi /dotlessj /grave
-/acute /caron /breve /macron /ring /cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash
-/suppress /dieresis /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /dieresis]
->>
-endobj
-11 0 obj
-<<
-/Type /FontDescriptor
-/CapHeight 683.19
-/Ascent 749.1
-/Descent -249.16
-/FontBBox [-95 -349 1050 849]
-/FontName /XVIELK+CMR17
-/ItalicAngle 0
-/XHeight 430.5
-/StemV 80
-/FontFile 10 0 R
-/Flags 4
->>
+10 0 obj
+<< /S /GoTo /D (section*.2) >>
 endobj
 12 0 obj
-<<
-/Encoding 9 0 R
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/FontDescriptor 11 0 R
-/BaseFont /XVIELK+CMR17
-/FirstChar 33
-/LastChar 255
-/Widths [249.64 458.62 772.08 458.62 772.08 719.84 249.64 354.13 354.13 458.62 719.84
-249.64 301.89 249.64 458.62 458.62 458.62 458.62 458.62 458.62 458.62 458.62 458.62
-458.62 458.62 249.64 249.64 249.64 719.84 432.5 432.5 719.84 693.31 654.33 667.59
-706.58 628.21 602.09 726.27 693.31 327.61 471.48 719.44 575.97 850.05 693.31 719.84
-628.21 719.84 680.45 510.86 667.59 693.31 693.31 954.53 693.31 693.31 563.11 249.64
-458.62 249.64 458.62 249.64 249.64 458.62 510.86 406.37 510.86 406.37 275.77 458.62
-510.86 249.64 275.77 484.74 249.64 772.08 510.86 458.62 510.86 484.74 354.13 359.36
-354.13 510.86 484.74 667.59 484.74 484.74 406.37 458.62 917.24 458.62 458.62 0 575.97
-772.08 719.84 641.07 615.35 693.31 667.59 719.84 667.59 719.84 667.59 525.41 499.29
-499.29 748.93 748.93 249.64 275.77 458.62 458.62 458.62 458.62 458.62 693.31 406.37
-458.62 667.59 719.84 458.62 837.18 941.67 719.84 249.64 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 458.62]
->>
+(Einf\374hrung)
 endobj
 14 0 obj
-<<
-/Type /FontDescriptor
-/CapHeight 683.33
-/Ascent 750
-/Descent -250
-/FontBBox [-101 -350 1107 850]
-/FontName /HTFEWU+CMR12
-/ItalicAngle 0
-/XHeight 430.6
-/StemV 80
-/FontFile 13 0 R
-/Flags 4
->>
+<< /S /GoTo /D (section.1) >>
 endobj
-15 0 obj
-<<
-/Encoding 9 0 R
-/Type /Font
-/Subtype /Type1
-/Name /F2
-/FontDescriptor 14 0 R
-/BaseFont /HTFEWU+CMR12
-/FirstChar 33
-/LastChar 255
-/Widths [271.99 489.58 815.96 489.58 815.96 761.57 271.99 380.78 380.78 489.58 761.57
-271.99 326.39 271.99 489.58 489.58 489.58 489.58 489.58 489.58 489.58 489.58 489.58
-489.58 489.58 271.99 271.99 271.99 761.57 462.38 462.38 761.57 734.02 693.4 707.17
-747.79 666.2 639 768.28 734.02 353.24 503.01 761.22 611.8 897.21 734.02 761.57 666.2
-761.57 720.6 543.98 707.17 734.02 734.02 1006.01 734.02 734.02 598.37 271.99 489.58
-271.99 489.58 271.99 271.99 489.58 543.98 435.18 543.98 435.18 299.19 489.58 543.98
-271.99 299.19 516.78 271.99 815.96 543.98 489.58 543.98 516.78 380.78 386.22 380.78
-543.98 516.78 707.17 516.78 516.78 435.18 489.58 979.16 489.58 489.58 0 611.8 815.96
-761.57 679.62 652.77 734.02 707.17 761.57 707.17 761.57 707.17 571.17 543.98 543.98
-815.96 815.96 271.99 299.19 489.58 489.58 489.58 489.58 489.58 734.02 435.18 489.58
-707.17 761.57 489.58 883.79 992.58 761.57 271.99 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 489.58]
->>
-endobj
-17 0 obj
-<<
-/Type /FontDescriptor
-/CapHeight 683.33
-/Ascent 750
-/Descent -250
-/FontBBox [-103 -350 1131 850]
-/FontName /XHTEBB+CMR10
-/ItalicAngle 0
-/XHeight 430.6
-/StemV 80
-/FontFile 16 0 R
-/Flags 4
->>
+16 0 obj
+(Verschl\374sselungsverfahren)
 endobj
 18 0 obj
-<<
-/Encoding 9 0 R
-/Type /Font
-/Subtype /Type1
-/Name /F3
-/FontDescriptor 17 0 R
-/BaseFont /XHTEBB+CMR10
-/FirstChar 33
-/LastChar 255
-/Widths [277.78 500 833.34 500 833.34 777.78 277.78 388.89 388.89 500 777.78 277.78
-333.33 277.78 500 500 500 500 500 500 500 500 500 500 500 277.78 277.78 277.78 777.78
-472.22 472.22 777.78 750 708.34 722.22 763.89 680.56 652.78 784.72 750 361.11 513.89
-777.78 625 916.67 750 777.78 680.56 777.78 736.11 555.56 722.22 750 750 1027.78 750
-750 611.11 277.78 500 277.78 500 277.78 277.78 500 555.56 444.45 555.56 444.45 305.56
-500 555.56 277.78 305.56 527.78 277.78 833.34 555.56 500 555.56 527.78 391.67 394.45
-388.89 555.56 527.78 722.22 527.78 527.78 444.45 500 1000 500 500 0 625 833.34 777.78
-694.45 666.67 750 722.22 777.78 722.22 777.78 722.22 583.34 555.56 555.56 833.34
-833.34 277.78 305.56 500 500 500 500 500 750 444.45 500 722.22 777.78 500 902.78
-1013.89 777.78 277.78 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 500]
->>
+<< /S /GoTo /D (subsection.1.1) >>
 endobj
-19 0 obj
-<<
-/Type /Encoding
-/BaseEncoding /WinAnsiEncoding
-/Differences [/Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon /Phi /Psi /Omega
-/ff /fi /fl /ffi /ffl /dotlessi /dotlessj /grave /acute /caron /breve /macron /ring
-/cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash /suppress 34 /quotedblright
-36 /sterling 39 /quoteright 60 /exclamdown 62 /questiondown 92 /quotedblleft 94 /circumflex
-/dotaccent /quoteleft 123 /endash /emdash /hungarumlaut /tilde /dieresis /Gamma /Delta
-/Theta /Lambda /Xi /Pi /Sigma /Upsilon /Phi /Psi /Omega /ff /fi /fl /ffi /ffl /dotlessi
-/dotlessj /grave /acute /caron /breve /macron /ring /cedilla /germandbls /ae /oe
-/oslash /AE /OE /Oslash 161 /Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon
-/Phi /Psi /.notdef /.notdef /Omega /ff /fi /fl /ffi /ffl /dotlessi /dotlessj /grave
-/acute /caron /breve /macron /ring /cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash
-/suppress /dieresis /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /dieresis]
->>
-endobj
-21 0 obj
-<<
-/Type /FontDescriptor
-/CapHeight 683.33
-/Ascent 750
-/Descent -250
-/FontBBox [-102 -350 1124 850]
-/FontName /FCWSJD+CMTI10
-/ItalicAngle -14
-/XHeight 430.6
-/StemV 80
-/FontFile 20 0 R
-/Flags 68
->>
+20 0 obj
+(Verschl\374sselung)
 endobj
 22 0 obj
-<<
-/Encoding 19 0 R
-/Type /Font
-/Subtype /Type1
-/Name /F4
-/FontDescriptor 21 0 R
-/BaseFont /FCWSJD+CMTI10
-/FirstChar 33
-/LastChar 255
-/Widths [306.67 514.44 817.77 769.09 817.77 766.66 306.67 408.89 408.89 511.11 766.66
-306.67 357.78 306.67 511.11 511.11 511.11 511.11 511.11 511.11 511.11 511.11 511.11
-511.11 511.11 306.67 306.67 306.67 766.66 511.11 511.11 766.66 743.33 703.89 715.55
-755 678.33 652.77 773.61 743.33 385.55 525 768.88 627.22 896.66 743.33 766.66 678.33
-766.66 729.44 562.22 715.55 743.33 743.33 998.88 743.33 743.33 613.33 306.67 514.44
-306.67 511.11 306.67 306.67 511.11 460 460 511.11 460 306.67 460 511.11 306.67 306.67
-460 255.55 817.77 562.22 511.11 511.11 460 421.66 408.89 332.22 536.66 460 664.44
-463.89 485.55 408.89 511.11 1022.22 511.11 511.11 0 627.22 817.77 766.66 692.22 664.44
-743.33 715.55 766.66 715.55 766.66 715.55 613.33 562.22 587.77 881.66 894.44 306.67
-332.22 511.11 511.11 511.11 511.11 511.11 831.29 460 536.66 715.55 715.55 511.11
-882.77 984.99 766.66 255.55 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 511.11]
->>
+<< /S /GoTo /D (subsubsection.1.1.1) >>
 endobj
-23 0 obj
-<<
-/Type /Action
-/S /URI
-/URI (http://www.CrypTool.de\000)
->>
-endobj
-25 0 obj
-<<
-/Type /FontDescriptor
-/CapHeight 611.11
-/Ascent 694.44
-/Descent -222.22
-/FontBBox [-52 -314 577 786]
-/FontName /TLPVTM+CMTT10
-/ItalicAngle 0
-/XHeight 430.6
-/StemV 80
-/FontFile 24 0 R
-/Flags 5
->>
+24 0 obj
+(Symmetrische Verschl\374sselung)
 endobj
 26 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F5
-/FontDescriptor 25 0 R
-/BaseFont /TLPVTM+CMTT10
-/FirstChar 33
-/LastChar 255
-/Widths [525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525
-525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525
-525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525
-525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525
-525 525 525 525 525 525 525 525 525 525 525 525 525 0 525 525 525 525 525 525 525
-525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525
-525 525 525 525 525 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 525]
->>
-endobj
-27 0 obj
-<<
-/Rect [66.43 80.66 194.43 92.66]
-/Type /Annot
-/Subtype /Link
-/C [0 1 1]
-/A 23 0 R
->>
+<< /S /GoTo /D (subsubsection.1.1.2) >>
 endobj
 28 0 obj
-<<
-/Type /Action
-/S /URI
-/URI (http://www.cryptool.com\000)
->>
-endobj
-29 0 obj
-<<
-/Rect [206.37 80.66 340.09 92.66]
-/Type /Annot
-/Subtype /Link
-/C [0 1 1]
-/A 28 0 R
->>
+(Asymmetrische Verschl\374sselung)
 endobj
 30 0 obj
-<<
-/Type /Action
-/S /URI
-/URI (http://www.cryptool.org\000)
->>
+<< /S /GoTo /D (subsubsection.1.1.3) >>
 endobj
-31 0 obj
-<<
-/Rect [384.49 80.66 518.21 92.66]
-/Type /Annot
-/Subtype /Link
-/C [0 1 1]
-/A 30 0 R
->>
+32 0 obj
+(Hybridverfahren)
 endobj
-33 0 obj
-<<
-/Filter [/FlateDecode]
-/Length 2337
+34 0 obj
+<< /S /GoTo /D (subsubsection.1.1.4) >>
+endobj
+36 0 obj
+(Weitere Details)
+endobj
+38 0 obj
+<< /S /GoTo /D (section.2) >>
+endobj
+40 0 obj
+(Primzahlen)
+endobj
+42 0 obj
+<< /S /GoTo /D (section*.3) >>
+endobj
+44 0 obj
+( \040 \040 \040Was sind Primzahlen?)
+endobj
+46 0 obj
+<< /S /GoTo /D (subsection.2.1) >>
+endobj
+48 0 obj
+(Primzahlen in der Mathematik)
+endobj
+50 0 obj
+<< /S /GoTo /D (subsection.2.2) >>
+endobj
+52 0 obj
+(Wie viele Primzahlen gibt es?)
+endobj
+54 0 obj
+<< /S /GoTo /D (subsection.2.3) >>
+endobj
+56 0 obj
+(Die Suche nach sehr gro\337en Primzahlen)
+endobj
+58 0 obj
+<< /S /GoTo /D (subsubsection.2.3.1) >>
+endobj
+60 0 obj
+(M-38 -- Juni 1999)
+endobj
+62 0 obj
+<< /S /GoTo /D (subsubsection.2.3.2) >>
+endobj
+64 0 obj
+(M-39 -- Dezember 2001)
+endobj
+66 0 obj
+<< /S /GoTo /D (subsubsection.2.3.3) >>
+endobj
+68 0 obj
+(GIMPS)
+endobj
+70 0 obj
+<< /S /GoTo /D (subsubsection.2.3.4) >>
+endobj
+72 0 obj
+(EFF)
+endobj
+74 0 obj
+<< /S /GoTo /D (subsubsection.2.3.5) >>
+endobj
+76 0 obj
+(Primzahltests)
+endobj
+78 0 obj
+<< /S /GoTo /D (subsection.2.4) >>
+endobj
+80 0 obj
+(Die Suche nach einer Formel f\374r Primzahlen)
+endobj
+82 0 obj
+<< /S /GoTo /D (subsection.2.5) >>
+endobj
+84 0 obj
+(Dichte und Verteilung der Primzahlen)
+endobj
+86 0 obj
+<< /S /GoTo /D (subsection.2.6) >>
+endobj
+88 0 obj
+(Anmerkungen)
+endobj
+90 0 obj
+<< /S /GoTo /D (subsubsection.2.6.1) >>
+endobj
+92 0 obj
+(Anzahl von Primzahlen in verschiedenen Intervallen)
+endobj
+94 0 obj
+<< /S /GoTo /D (subsubsection.2.6.2) >>
+endobj
+96 0 obj
+(Indizierung von Primzahlen \(n-te Primzahl\))
+endobj
+98 0 obj
+<< /S /GoTo /D (subsubsection.2.6.3) >>
+endobj
+100 0 obj
+(Gr\366\337enordnungen / Dimensionen in der Realit\344t)
+endobj
+102 0 obj
+<< /S /GoTo /D (subsubsection.2.6.4) >>
+endobj
+104 0 obj
+(Spezielle Werte des Zweier- und Zehnersystems)
+endobj
+106 0 obj
+<< /S /GoTo /D (section*.7) >>
+endobj
+108 0 obj
+(Literaturverzeichnis)
+endobj
+110 0 obj
+<< /S /GoTo /D (section*.8) >>
+endobj
+112 0 obj
+(URLs)
+endobj
+114 0 obj
+<< /S /GoTo /D (section*.9) >>
+endobj
+116 0 obj
+(Dank)
+endobj
+118 0 obj
+<< /S /GoTo /D (section.3) >>
+endobj
+120 0 obj
+(Einf\374hrung in die elementare Zahlentheorie mit Beispielen)
+endobj
+122 0 obj
+<< /S /GoTo /D (subsection.3.1) >>
+endobj
+124 0 obj
+(Mathematik und Kryptographie)
+endobj
+126 0 obj
+<< /S /GoTo /D (subsection.3.2) >>
+endobj
+128 0 obj
+(Einf\374hrung in die Zahlentheorie)
+endobj
+130 0 obj
+<< /S /GoTo /D (subsubsection.3.2.1) >>
+endobj
+132 0 obj
+(Konvention)
+endobj
+134 0 obj
+<< /S /GoTo /D (subsection.3.3) >>
+endobj
+136 0 obj
+(Primzahlen und der erste Hauptsatz der elementaren Zahlentheorie)
+endobj
+138 0 obj
+<< /S /GoTo /D (subsection.3.4) >>
+endobj
+140 0 obj
+(Teilbarkeit, Modulus und Restklassen)
+endobj
+142 0 obj
+<< /S /GoTo /D (subsubsection.3.4.1) >>
+endobj
+144 0 obj
+(Die Modulo-Operation -- Rechnen mit Kongruenzen)
+endobj
+146 0 obj
+<< /S /GoTo /D (subsection.3.5) >>
+endobj
+148 0 obj
+(Rechnen in endlichen Mengen)
+endobj
+150 0 obj
+<< /S /GoTo /D (subsubsection.3.5.1) >>
+endobj
+152 0 obj
+(Gesetze beim modularen Rechnen)
+endobj
+154 0 obj
+<< /S /GoTo /D (subsubsection.3.5.2) >>
+endobj
+156 0 obj
+(Muster und Strukturen)
+endobj
+158 0 obj
+<< /S /GoTo /D (subsection.3.6) >>
+endobj
+160 0 obj
+(Beispiele f\374r modulares Rechnen)
+endobj
+162 0 obj
+<< /S /GoTo /D (subsubsection.3.6.1) >>
+endobj
+164 0 obj
+(Addition und Multiplikation)
+endobj
+166 0 obj
+<< /S /GoTo /D (subsubsection.3.6.2) >>
+endobj
+168 0 obj
+(Additive und multiplikative Inversen)
+endobj
+170 0 obj
+<< /S /GoTo /D (subsubsection.3.6.3) >>
+endobj
+172 0 obj
+(Potenzieren)
+endobj
+174 0 obj
+<< /S /GoTo /D (section*.15) >>
+endobj
+176 0 obj
+( \040 \040 \040 \040 \0403.6.3.1 \040Schnelles Berechnen hoher Potenzen)
+endobj
+178 0 obj
+<< /S /GoTo /D (subsubsection.3.6.4) >>
+endobj
+180 0 obj
+(Wurzeln und Logarithmen)
+endobj
+182 0 obj
+<< /S /GoTo /D (subsection.3.7) >>
+endobj
+184 0 obj
+(Gruppen und modulare Arithmetik \374ber Zn \040und Z*n )
+endobj
+186 0 obj
+<< /S /GoTo /D (subsubsection.3.7.1) >>
+endobj
+188 0 obj
+(Addition in einer Gruppe)
+endobj
+190 0 obj
+<< /S /GoTo /D (subsubsection.3.7.2) >>
+endobj
+192 0 obj
+(Multiplikation in einer Gruppe)
+endobj
+194 0 obj
+<< /S /GoTo /D (subsection.3.8) >>
+endobj
+196 0 obj
+(Euler-Funktion, kleiner Satz von Fermat und Satz von Euler - Fermat)
+endobj
+198 0 obj
+<< /S /GoTo /D (subsubsection.3.8.1) >>
+endobj
+200 0 obj
+(Muster und Strukturen)
+endobj
+202 0 obj
+<< /S /GoTo /D (subsubsection.3.8.2) >>
+endobj
+204 0 obj
+(Die Euler-Funktion)
+endobj
+206 0 obj
+<< /S /GoTo /D (subsubsection.3.8.3) >>
+endobj
+208 0 obj
+(Der Satz von Euler-Fermat)
+endobj
+210 0 obj
+<< /S /GoTo /D (subsubsection.3.8.4) >>
+endobj
+212 0 obj
+(Bestimmung der multiplikativen Inversen)
+endobj
+214 0 obj
+<< /S /GoTo /D (subsubsection.3.8.5) >>
+endobj
+216 0 obj
+(Fixpunkte modulo 26)
+endobj
+218 0 obj
+<< /S /GoTo /D (subsection.3.9) >>
+endobj
+220 0 obj
+(Multiplikative Ordnung und Primitivwurzel)
+endobj
+222 0 obj
+<< /S /GoTo /D (subsection.3.10) >>
+endobj
+224 0 obj
+(Beweis des RSA-Verfahrens mit Euler-Fermat)
+endobj
+226 0 obj
+<< /S /GoTo /D (subsubsection.3.10.1) >>
+endobj
+228 0 obj
+(Grundidee der Public Key-Kryptographie)
+endobj
+230 0 obj
+<< /S /GoTo /D (subsubsection.3.10.2) >>
+endobj
+232 0 obj
+(Funktionsweise des RSA-Verfahrens)
+endobj
+234 0 obj
+<< /S /GoTo /D (subsubsection.3.10.3) >>
+endobj
+236 0 obj
+(Beweis der Forderung 1 \(Umkehrbarkeit\))
+endobj
+238 0 obj
+<< /S /GoTo /D (subsection.3.11) >>
+endobj
+240 0 obj
+(Weitere zahlentheoretische Anwendungen in der Kryptographie)
+endobj
+242 0 obj
+<< /S /GoTo /D (subsubsection.3.11.1) >>
+endobj
+244 0 obj
+(Einwegfunktionen)
+endobj
+246 0 obj
+<< /S /GoTo /D (subsubsection.3.11.2) >>
+endobj
+248 0 obj
+(Das Diffie-Hellman Schl\374sselaustausch-Protokoll \(Key Exchange-Protokoll\))
+endobj
+250 0 obj
+<< /S /GoTo /D (subsection.3.12) >>
+endobj
+252 0 obj
+(Das RSA-Verfahren mit konkreten Zahlen)
+endobj
+254 0 obj
+<< /S /GoTo /D (subsubsection.3.12.1) >>
+endobj
+256 0 obj
+(RSA mit kleinen Primzahlen und mit einer Zahl als Nachricht)
+endobj
+258 0 obj
+<< /S /GoTo /D (subsubsection.3.12.2) >>
+endobj
+260 0 obj
+(RSA mit etwas gr\366\337eren Primzahlen und einem Text aus Gro\337buchstaben)
+endobj
+262 0 obj
+<< /S /GoTo /D (subsubsection.3.12.3) >>
+endobj
+264 0 obj
+(RSA mit noch etwas gr\366\337eren Primzahlen und mit einem Text aus ASCII-Zeichen)
+endobj
+266 0 obj
+<< /S /GoTo /D (subsubsection.3.12.4) >>
+endobj
+268 0 obj
+(Eine kleine RSA-Cipher-Challenge \(1\))
+endobj
+270 0 obj
+<< /S /GoTo /D (subsubsection.3.12.5) >>
+endobj
+272 0 obj
+(Eine kleine RSA-Cipher-Challenge \(2\))
+endobj
+274 0 obj
+<< /S /GoTo /D (section*.21) >>
+endobj
+276 0 obj
+(Literaturverzeichnis)
+endobj
+278 0 obj
+<< /S /GoTo /D (section*.22) >>
+endobj
+280 0 obj
+(URLs)
+endobj
+282 0 obj
+<< /S /GoTo /D (section*.23) >>
+endobj
+284 0 obj
+(Dank)
+endobj
+286 0 obj
+<< /S /GoTo /D (section*.24) >>
+endobj
+288 0 obj
+(Anhang A: Der gr\366\337te gemeinsame Teiler \(ggT\) von ganzen Zahlen \040und die beiden Algorithmen von Euklid)
+endobj
+290 0 obj
+<< /S /GoTo /D (section*.25) >>
+endobj
+292 0 obj
+(Anhang B: Abschlu\337bildung)
+endobj
+294 0 obj
+<< /S /GoTo /D (section*.26) >>
+endobj
+296 0 obj
+(Anhang C: Bemerkungen zur modulo Subtraktion)
+endobj
+298 0 obj
+<< /S /GoTo /D (section*.27) >>
+endobj
+300 0 obj
+(Anhang D: Liste der hier formulierten Definitionen und S\344tze)
+endobj
+302 0 obj
+<< /S /GoTo /D (section.4) >>
+endobj
+304 0 obj
+(Die mathematischen Ideen hinter der modernen Kryptographie)
+endobj
+306 0 obj
+<< /S /GoTo /D (subsection.4.1) >>
+endobj
+308 0 obj
+(Einwegfunktionen mit Fallt\374r und Komplexit\344tsklassen)
+endobj
+310 0 obj
+<< /S /GoTo /D (subsection.4.2) >>
+endobj
+312 0 obj
+(Knapsackproblem als Basis f\374r Public-Key-Verfahren)
+endobj
+314 0 obj
+<< /S /GoTo /D (subsubsection.4.2.1) >>
+endobj
+316 0 obj
+(Knapsackproblem)
+endobj
+318 0 obj
+<< /S /GoTo /D (subsubsection.4.2.2) >>
+endobj
+320 0 obj
+(Merkle-Hellman Knapsack Verschl\374sselung)
+endobj
+322 0 obj
+<< /S /GoTo /D (subsection.4.3) >>
+endobj
+324 0 obj
+(Primfaktorzerlegung als Basis f\374r Public-Key-Verfahren)
+endobj
+326 0 obj
+<< /S /GoTo /D (subsubsection.4.3.1) >>
+endobj
+328 0 obj
+(Das RSA--Verfahren)
+endobj
+330 0 obj
+<< /S /GoTo /D (subsubsection.4.3.2) >>
+endobj
+332 0 obj
+(Rabin-Public-Key-Verfahren \(1979\))
+endobj
+334 0 obj
+<< /S /GoTo /D (subsection.4.4) >>
+endobj
+336 0 obj
+(Der diskrete Logarithmus als Basis f\374r Public-Key-Verfahren)
+endobj
+338 0 obj
+<< /S /GoTo /D (subsubsection.4.4.1) >>
+endobj
+340 0 obj
+(Der diskrete Logarithmus in \040Zp* )
+endobj
+342 0 obj
+<< /S /GoTo /D (subsubsection.4.4.2) >>
+endobj
+344 0 obj
+(Diffie-Hellman-Schl\374sselvereinbarung)
+endobj
+346 0 obj
+<< /S /GoTo /D (subsubsection.4.4.3) >>
+endobj
+348 0 obj
+(ElGamal-Public-Key-Verschl\374sselungsverfahren in \040Zp)
+endobj
+350 0 obj
+<< /S /GoTo /D (subsubsection.4.4.4) >>
+endobj
+352 0 obj
+(Verallgemeinertes ElGamal-Public-Key-Verschl\374sselungsverfahren )
+endobj
+354 0 obj
+<< /S /GoTo /D (satz.2) >>
+endobj
+356 0 obj
+(Literaturverzeichnis)
+endobj
+358 0 obj
+<< /S /GoTo /D (section*.31) >>
+endobj
+360 0 obj
+(URLs)
+endobj
+362 0 obj
+<< /S /GoTo /D (section.5) >>
+endobj
+364 0 obj
+(Digitale Signaturen)
+endobj
+366 0 obj
+<< /S /GoTo /D (subsection.5.1) >>
+endobj
+368 0 obj
+(Public--Key--Zertifizierung)
+endobj
+370 0 obj
+<< /S /GoTo /D (subsubsection.5.1.1) >>
+endobj
+372 0 obj
+(Die Impersonalisierungsattacke)
+endobj
+374 0 obj
+<< /S /GoTo /D (subsubsection.5.1.2) >>
+endobj
+376 0 obj
+(X.509)
+endobj
+378 0 obj
+<< /S /GoTo /D (section.6) >>
+endobj
+380 0 obj
+(Elliptische Kurven)
+endobj
+382 0 obj
+<< /S /GoTo /D (subsection.6.1) >>
+endobj
+384 0 obj
+(Elliptische Kurven --- Historisches)
+endobj
+386 0 obj
+<< /S /GoTo /D (subsection.6.2) >>
+endobj
+388 0 obj
+(Elliptische Kurven --- Mathematische Grundlagen)
+endobj
+390 0 obj
+<< /S /GoTo /D (subsubsection.6.2.1) >>
+endobj
+392 0 obj
+(Gruppen)
+endobj
+394 0 obj
+<< /S /GoTo /D (subsubsection.6.2.2) >>
+endobj
+396 0 obj
+(K\366rper)
+endobj
+398 0 obj
+<< /S /GoTo /D (subsection.6.3) >>
+endobj
+400 0 obj
+(Elliptische Kurven in der Kryptographie)
+endobj
+402 0 obj
+<< /S /GoTo /D (subsubsection.6.3.1) >>
+endobj
+404 0 obj
+(Digitale-Signaturen mit Elliptischen Kurven)
+endobj
+406 0 obj
+<< /S /GoTo /D (subsubsection.6.3.2) >>
+endobj
+408 0 obj
+(Faktorisieren mit Elliptischen Kurven)
+endobj
+410 0 obj
+<< /S /GoTo /D (subsection.6.4) >>
+endobj
+412 0 obj
+(Implementierung Elliptische Kurven)
+endobj
+414 0 obj
+<< /S /GoTo /D (section*.36) >>
+endobj
+416 0 obj
+(Literaturverzeichnis)
+endobj
+418 0 obj
+<< /S /GoTo /D (section*.37) >>
+endobj
+420 0 obj
+(URLs)
+endobj
+422 0 obj
+<< /S /GoTo /D (Item.50) >>
+endobj
+424 0 obj
+(Index)
+endobj
+426 0 obj
+<< /S /GoTo /D [425 0 R  /Fit ] >>
+endobj
+430 0 obj <<
+/Length 431 0 R
+/Filter /FlateDecode
 >>
 stream
-x⁄ÕXKs€»æÁW∞ Ñ1É˜Ê$≠$ØVªïç%«UÂ ô#rB<X¿*3˘ÒÈ◊ê†LYN’r!ÁŸ””˝ı◊=òEaÕV3˙{«áÖ?õì£7≥Ÿˇ√÷Ûª∑Wj¶ÚPÎŸ›„LeE•≥Öä 0)gwˇ~t_∂wÛº∫˘BßAWœq§É€ç≥€a˛œªügã4	u<[hñöˆ¸Z
-k”TÉ›‡båÌíw›Ä∞°[πjª∂7øΩ“3˚2<=À,cs|∫ü√Fù∞ú
+x⁄≠X[o€8~Ô?ËõﬂVjU§®€Ïì3mf2ô¡vìt
+ÃŒ>®1mq≠ãAI
+Í`˛˙ûi[πlRÏ"@LRááÁÚù)f¸âYöÖJÊ≥,.¬¢(f∑Õ+1„øÌÃè.aç©Uíá@=G∑êÖÖÄAVÑi$û¶öG™$·£Œn^Ω=˘Ld°…ÏfM$7´ﬂ€ØªõyV›|!ì†´Áã8í¡ı÷ö›0ˇÁÕO≥E¢Bß í‡Åª~)áJ7Â`∂H.Ç±]ÒæK`7t[Ó*£q;[ÃÏLËX%¬(/f@∆†Ú˙=J¢[¯'ÄÉLÉw∞èÀqË¨nﬂLEæêQ$I&	€•ú-DäE:üÁ2∞eª]èv‡=e√øøî¶•myòe9.C)⁄%U»4?ïÌ\Ê¡XZû˚£@˛d&¢∞à
+î!2¶
+‹Ç*I‚q—Œ—]¡ Ë^78>ÿo!Û"ÿèÓªˇ¯¡¢Ö
