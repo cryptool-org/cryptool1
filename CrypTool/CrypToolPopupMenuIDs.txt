@@ -79,7 +79,7 @@ GERMAN	Analyse_Allgemein	# A&nalyse|&Allgemein
 GERMAN	Analyse_Zufallstests	# A&nalyse|&Zufallstests
 GERMAN	Analyse_Ciphertextonly	# A&nalyse|&Ciphertext only
 GERMAN	Analyse_Knownplaintext	# A&nalyse|&Known plaintext
-GERMAN	Analyse_manuelleAnalyse	# A&nalyse|&manuelle Analyse
+GERMAN	Analyse_ManuelleAnalyse	# A&nalyse|&Manuelle Analyse
 GERMAN	Ansicht	# &Ansicht
 GERMAN	Bearbeiten	# &Bearbeiten
 GERMAN	Datei	# &Datei

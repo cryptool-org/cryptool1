@@ -65,7 +65,7 @@ public:
 	int		m_zahlensystem;
 	BOOL	m_ShowKeypair;
 	CString	m_user_keyinfo;
-	CString	m_ec_dom_par_editbox;
+	CString	m_ec_dom_par_description;
 	//}}AFX_DATA
 
 	EcDomParamAcAsString ecParamString;
@@ -102,6 +102,9 @@ protected:
 	afx_msg void OnOctalRadio();
 	afx_msg void OnHexRadio();
 	afx_msg void OnButtonP12import();
+	afx_msg void OnClickList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnVScrollList( UINT nSBCode, UINT nPos, CScrollBar* pScrollBar );
+	afx_msg void OnKillfocusEditLv();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -110,6 +113,7 @@ protected:
 	void UpdateEcListBox(EcDomParam_ac_ptr curveParameterPtr, EcDomParamAcAsString *ecParamString, 
 	                     CString curveID, BOOL WindowActive = TRUE);
 	void CreateAsymKeys(); // Create asymmetric keypair
+	CString GetItemText(HWND hWnd, int nItem, int nSubItem) const;
 
 };
 

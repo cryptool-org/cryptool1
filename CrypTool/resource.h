@@ -553,6 +553,8 @@
 #define IDC_UNDO_                       1418
 #define IDC_REDO_                       1419
 #define IDC_SHOW_CERTIFICATE            1420
+#define IDC_STATIC_PARAM_DESCRIPTION    1421
+#define IDC_EDIT_LV                     1422
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1326,7 +1328,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        536
 #define _APS_NEXT_COMMAND_VALUE         33170
-#define _APS_NEXT_CONTROL_VALUE         1421
+#define _APS_NEXT_CONTROL_VALUE         1423
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

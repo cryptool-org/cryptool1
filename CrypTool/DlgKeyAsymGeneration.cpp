@@ -58,7 +58,7 @@ CDlgKeyAsymGeneration::CDlgKeyAsymGeneration(CWnd* pParent /*=NULL*/)
 	m_zahlensystem = -1;
 	m_ShowKeypair = FALSE;
 	m_user_keyinfo = _T("");
-	m_ec_dom_par_editbox = _T("");
+	m_ec_dom_par_description = _T("");
 	//}}AFX_DATA_INIT
 
 	curveParameter = (EcDomParam_ac_ptr) malloc(sizeof(__DomParamAc_struct)); // Allocate memory. !! DELETE with destruktor!!
@@ -113,7 +113,7 @@ void CDlgKeyAsymGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO4, m_zahlensystem);
 	DDX_Check(pDX, IDC_CHECK1, m_ShowKeypair);
 	DDX_Text(pDX, IDC_EDIT5, m_user_keyinfo);
-	DDX_Text(pDX, IDC_EDIT6, m_ec_dom_par_editbox);
+	DDX_Text(pDX, IDC_STATIC_PARAM_DESCRIPTION, m_ec_dom_par_description);
 	//}}AFX_DATA_MAP
 }
 
@@ -129,6 +129,9 @@ BEGIN_MESSAGE_MAP(CDlgKeyAsymGeneration, CDialog)
 	ON_BN_CLICKED(IDC_RADIO4, OnOctalRadio)
 	ON_BN_CLICKED(IDC_RADIO6, OnHexRadio)
 	ON_BN_CLICKED(IDC_BUTTON_P12IMPORT, OnButtonP12import)
+	ON_NOTIFY(NM_CLICK, IDC_LIST1, OnClickList)
+	ON_WM_VSCROLL(IDC_LIST1, OnVScrollList)
+	ON_EN_KILLFOCUS(IDC_EDIT_LV, OnKillfocusEditLv)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -299,6 +302,7 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 
 	// m_dom_param_listview aufbauen
 
+	m_dom_param_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.InsertColumn( 0, pc_str, LVCFMT_RIGHT, 65 , 0); // Parameter
 
@@ -392,7 +396,7 @@ void CDlgKeyAsymGeneration::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, Ec
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DOMAIN_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, curveID);
-		m_ec_dom_par_editbox = (CString) pc_str1;
+		m_ec_dom_par_description = (CString) pc_str1;
 		UpdateData(FALSE);
 		
 	// == EC curve parameter a, b, p
@@ -465,7 +469,7 @@ void CDlgKeyAsymGeneration::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, Ec
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(),IDS_HEADING_EMPTY_ECDOMAINPARAMETER,
 			       pc_str,STR_LAENGE_STRING_TABLE);
-		m_ec_dom_par_editbox = (CString) pc_str;
+		m_ec_dom_par_description = (CString) pc_str;
 		UpdateData(FALSE);
 	}
 }
@@ -1307,4 +1311,81 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 	theApp.SecudeLib.aux_free_Certificate(&cert);
 	theApp.SecudeLib.aux_free_OctetString(&input);
 	theApp.SecudeLib.af_close(capse);
+}
+
+
+void CDlgKeyAsymGeneration::OnClickList(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	//Invalidate();
+	HWND hWnd1 =  ::GetDlgItem (m_hWnd,IDC_LIST1);
+	LPNMITEMACTIVATE temp = (LPNMITEMACTIVATE) pNMHDR;
+	//get the row number
+	int nItem = temp->iItem;
+	//get the column number
+	int nSubItem = temp->iSubItem;
+	if(nSubItem == 0 || nSubItem == -1 || nItem == -1)
+		return ;
+	//Retrieve the text of the selected subItem from the list
+	CString str = GetItemText(hWnd1,nItem ,nSubItem);
+	//WndProc: hwnd=0x3E0A98, msg = WM_NOTIFY (0x0418, 0x0012E240)
+	RECT rect;  // subitem
+	RECT rect0; // item 0
+	RECT rect1; // list
+	RECT rect2; // dialog
+	// this macro is used to retrieve the Rectanle of the selected SubItem
+	ListView_GetSubItemRect(hWnd1,temp->iItem,temp->iSubItem,LVIR_BOUNDS,&rect);
+	ListView_GetSubItemRect(hWnd1,ListView_GetTopIndex(hWnd1),0,LVIR_BOUNDS,&rect0);
+	rect.left -= rect0.left;
+	rect.top  -= rect0.top;
+	//Get the Rectange of the listControl
+	::GetWindowRect(temp->hdr.hwndFrom,&rect1);
+	//::GetWindowRect(hWnd1,&rect1);
+	//Get the Rectange of the Dialog
+	::GetWindowRect(m_hWnd,&rect2);
+
+	int x=rect1.left-rect2.left; // list x relative to dialog
+	int y=rect1.top-rect2.top;   // list y relative to dialog
+	
+	HWND edit = ::GetDlgItem(m_hWnd,IDC_EDIT_LV);
+	//if(nItem != -1)	
+	//::SetWindowPos(edit,HWND_TOP,rect.left+x,rect.top+y+4,rect.right-rect.left - 3,rect.bottom-rect.top -1,NULL);
+	::SetWindowPos(edit,HWND_TOP,x+rect.left + 5, y+rect.top -1, rect.right-rect.left, rect0.bottom-rect0.top,NULL);
+	::ShowWindow(edit,SW_SHOW);
+	::SetFocus(edit);
+	//Draw a Rectangle around the SubItem
+	//::Rectangle(::GetDC(temp->hdr.hwndFrom),rect.left,rect.top-1,rect.right,rect.bottom);
+	//Set the listItem text in the EditBox
+	::SetWindowText(edit,str);
+	*pResult = 0;
+}
+
+void CDlgKeyAsymGeneration::OnVScrollList( UINT nSBCode, UINT nPos, CScrollBar* pScrollBar )
+{
+	nPos++;
+}
+
+//this function will returns the item text depending on the item and SubItem Index
+CString CDlgKeyAsymGeneration::GetItemText(HWND hWnd, int nItem, int nSubItem) const
+{
+	LVITEM lvi;
+	memset(&lvi, 0, sizeof(LVITEM));
+	lvi.iSubItem = nSubItem;
+	CString str;
+	int nLen = 128;
+	int nRes;
+	do
+	{
+		nLen *= 2;
+		lvi.cchTextMax = nLen;
+		lvi.pszText = str.GetBufferSetLength(nLen);
+		nRes  = (int)::SendMessage(hWnd, LVM_GETITEMTEXT, (WPARAM)nItem,
+			(LPARAM)&lvi);
+	} while (nRes == nLen-1);
+	str.ReleaseBuffer();
+	return str;
+}
+
+void CDlgKeyAsymGeneration::OnKillfocusEditLv() 
+{
+	::ShowWindow(::GetDlgItem(m_hWnd,IDC_EDIT_LV),SW_HIDE);
 }

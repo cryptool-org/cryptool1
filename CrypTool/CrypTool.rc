@@ -235,7 +235,8 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,169,400,100
+                    LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,
+                    10,169,400,100
     DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,312,128,19
     PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,312,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
@@ -249,16 +250,16 @@ BEGIN
                     33,110,87,17,NOT WS_GROUP
     LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
                     IDC_STATIC,237,17,152,26
-    LTEXT           "Name:",IDC_STATIC,240,48,50,8
     LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
     LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,89,64,20
     LTEXT           "PIN-Code:",IDC_STATIC,240,110,50,8
     LTEXT           "PIN-Verifikation:",IDC_STATIC,240,129,50,8
-    EDITTEXT        IDC_EDIT6,10,153,400,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
                     273,231,32
     GROUPBOX        "Benutzerdaten",IDC_STATIC,225,6,185,143
+    LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,159,400,8
+    EDITTEXT        IDC_EDIT_LV,363,272,39,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_VISIBLE | NOT WS_BORDER
 END
 
 IDD_RSA_ENCRYPTION DIALOG DISCARDABLE  0, 0, 392, 271
@@ -5835,7 +5836,8 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,399,100
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,10,166,399,100
     CONTROL         "&Octal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,26,283,61,12
     CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,
@@ -5858,11 +5860,12 @@ BEGIN
     LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,89,64,20
     LTEXT           "PIN code:",IDC_STATIC,240,110,50,8
     LTEXT           "PIN confirmation:",IDC_STATIC,240,129,50,8
-    EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,
                     32
     GROUPBOX        "User data",IDC_STATIC,224,4,185,145
+    LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
+    EDITTEXT        IDC_EDIT_LV,363,268,39,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
 END
 
 IDD_RSA_ENCRYPTION DIALOG DISCARDABLE  0, 0, 392, 271
@@ -6010,18 +6013,18 @@ BEGIN
     LTEXT           "Derived key length:",IDC_STATIC,15,18,81,8
 END
 
-IDD_BIN_KEYLENGTH DIALOG DISCARDABLE  0, 0, 186, 95
+IDD_BIN_KEYLENGTH DIALOG DISCARDABLE  0, 0, 192, 95
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "C&ontinue",IDOK,13,65,60,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,114,65,56,18
-    EDITTEXT        IDC_EDIT1,119,16,50,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,138,37,31,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Cancel",IDCANCEL,122,65,56,18
+    EDITTEXT        IDC_EDIT1,127,16,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,146,37,31,12,ES_UPPERCASE | ES_AUTOHSCROLL
     LTEXT           "Derived key length:",IDC_STATIC,14,18,81,8
     LTEXT           "Expected most common character (hex):",IDC_STATIC,14,40,
-                    117,8
+                    128,8
 END
 
 IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 186, 82
@@ -10609,9 +10612,9 @@ BEGIN
                             "This document contains %i different characters compared to the %i characters of the selected alphabet."
     IDS_ENTROPY_INFO        "The entropy of the document is %2.2f\n(maximum possible entropy %2.2f)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
-                            "This document contains %i different bytes (there are %i different bytes)."
+                            "This document contains %i different byte values (there are %i different byte values)."
     IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
-                            "This document contains all %i bytes."
+                            "This document contains all %i possible byte values."
     IDS_ENTROPY_ALPHABET_MAX_INFO 
                             "This document contains all %i different characters of the selected alphabet."
 END
