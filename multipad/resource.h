@@ -1003,7 +1003,10 @@
 #define IDS_STRING_CERT_DECODING_ERROR  37828
 #define IDS_RAND_PROGRESS               37829
 #define IDS_RAND_GEN_PARAM              37830
-
+#define IDS_STRING_BIG_NUMBER           37831
+#define IDS_STRING_BIG_RSA_MODUL        37832                     
+#define IDS_STRING_FAKTORISATION_OPERATOR 37833
+                            
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

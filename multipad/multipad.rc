@@ -4736,6 +4736,11 @@ BEGIN
                             "Das Zertifikat konnte nicht korrekt dekodiert werden."
     IDS_RAND_PROGRESS       "Zufallsdaten zu %d %% erzeugt."
     IDS_RAND_GEN_PARAM      "%s Zufallsgenerator"
+    IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
+    IDS_STRING_BIG_RSA_MODUL 
+                            "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
+    IDS_STRING_FAKTORISATION_OPERATOR 
+                            "Die Eingabe ist unvollständig: das letzte Zeichen der Eingabe ist ein Operator."
 END
 
 STRINGTABLE DISCARDABLE 
