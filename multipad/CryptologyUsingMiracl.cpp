@@ -115,7 +115,7 @@ char DigitToNum( char ch )
 // return true if the INPUT is a stream of Numbers + formats the INPUT
 //
 
-int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList )
+int IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList )
 {
 	Big modul;
 	Big myModul;
@@ -129,6 +129,7 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList 
 		if ( flagList & SPLIT_NUMBERS_VSFLOOR )
 		{
 			myModul = 1;
+			int k = bits(modul);
 			myModul <<= (bits(modul) - (bits(modul)%8));
 		}
 	}
@@ -183,7 +184,8 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList 
 			}
 			else // just consider the numbers (mod modul)
 			{ 
-				num = num % myModul;
+				if ( FORMAT_MODULO )
+					num = num % myModul;
 				BigToCString( num, tmp, newNumberBase );
 				fmt = fmt + tmp;
 			}
@@ -336,25 +338,25 @@ int decode( const char *StrNumber, char *data, int blockLength, int numberBase, 
 	char tmp[MAX_8BIT_LENGTH];
 	int i, modul, digits, alphabetLength;
 	alphabetLength = ( alphabet == NULL ) ? 256 : strlen(alphabet);
-    	digits = (int)ceil(log(alphabetLength)/log(numberBase));
-    	if ( basisSystem )
+    digits = (int)ceil(log(alphabetLength)/log(numberBase));
+    if ( basisSystem )
 	{
         modul  = numberBase;
         for (i=1; i<digits; i++) modul *= numberBase;
 	}
-        else   modul = alphabetLength;
+    else   modul = alphabetLength;
 
 	for ( i=0; i < blockLength || t != 0; i++ )
 	{
- 	    	char ch = (alphabet == NULL) ? t % alphabetLength : alphabet[t % alphabetLength];
-	    	t = t / modul;
-        	tmp[MAX_8BIT_LENGTH-(i+1)] = ch;
+ 	   	char ch = (alphabet == NULL) ? (t % modul) % alphabetLength : alphabet[(t % modul) % alphabetLength];
+	   	t = t / modul;
+       	tmp[MAX_8BIT_LENGTH-(i+1)] = ch;
 	}
 	for (int j=MAX_8BIT_LENGTH-i; j<MAX_8BIT_LENGTH; j++ )
 	{
 	    data[j-(MAX_8BIT_LENGTH-i)] = tmp[j];
 	}
-    	data[j-(MAX_8BIT_LENGTH-i)] = '\0';
+    data[j-(MAX_8BIT_LENGTH-i)] = '\0';
 	return i;
 }
 
@@ -397,6 +399,7 @@ void BigToCString(const Big &t, CString &NumCStr, int base, int OutLength )
 void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet )
 {
 	Big tmp = 0;
+	int outLength = 0;
 
 	int i,j, modul, digits, alphabetLength;
 	alphabetLength = ( alphabet == NULL ) ? 256 : strlen(alphabet);
@@ -405,9 +408,13 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
 	{
     	modul = numberBase;
        	for (i=1; i<digits; i++) modul *= numberBase;
+		outLength = digits * blockLength;
 	} 
    	else    
-	modul = alphabetLength;
+	{
+		outLength = (int)ceil((log(alphabetLength)/log(numberBase))*blockLength);
+		modul = alphabetLength;
+	}
    	for ( i=0; i<blockLength; i++ )
 	{
     	if ( alphabet ) for ( j=0; j < modul && data[i] != alphabet[j]; ) j++;
@@ -415,7 +422,7 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
     	tmp *=modul;
        	tmp += j;
    	}
-	BigToString( tmp, numStr, numberBase );
+	BigToString( tmp, numStr, numberBase, outLength );
 }
 
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet )
@@ -427,11 +434,38 @@ void encode( const char *data, CString &numCStr, int blockLength, int numberBase
     delete []tmp;
 }
 
-void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval )
+void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval, int ofs )
 {
 	Big t;
 	CStringToBig( StrNum, t, numberBase );
-	t = t + ((rand() % randInterval)*Modul);
+	t = t + ofs + ((rand() % randInterval)*Modul);
+	BigToCString( t, StrNum, numberBase );
+}
+
+
+void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval, int ofs )
+{
+	Big t, Modul;
+	CStringToBig( StrNum, t, numberBase );
+	CStringToBig( StrModul, Modul, numberBase );
+	t = t + ofs + ((rand() % randInterval)*Modul);
+	BigToCString( t, StrNum, numberBase );
+}
+
+void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs )
+{
+	Big t, Modul;
+	CStringToBig( StrNum, t, numberBase );
+	CStringToBig( StrModul, Modul, numberBase );
+	t = (t % Modul) + ofs;
+	BigToCString( t, StrNum, numberBase );
+}
+
+void ModRepr ( CString &StrNum, int Modul, int numberBase, int ofs )
+{
+	Big t;
+	CStringToBig( StrNum, t, numberBase );
+	t =  (t % Modul) + ofs;
 	BigToCString( t, StrNum, numberBase );
 }
 
@@ -946,7 +980,7 @@ BOOL TutorialRSA::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 	}
 }
 
-void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
+void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL DlgOfSisters )
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
@@ -969,6 +1003,8 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 		plainStr = Plaintext.Mid(i1, i2-i1);
 		CStringToBig( plainStr, plain, base );
 		Encrypt( plain, cipher );
+		// Besonderheit: Dialog der Schwestern
+		if ( DlgOfSisters ) cipher = cipher + (rand() % 20 )*N;
 		BigToCString( cipher, cipherStr, base, OutLength );
 		while ((i2 < Plaintext.GetLength()) && (Plaintext[i2] == ' ' || Plaintext[i2] == '#')) i2++;
 		i1 = i2;
@@ -978,74 +1014,7 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 	}
 }
 
-void TutorialRSA::EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
-{
-	Big plain, cipher;
-	CString plainStr, cipherStr;
-
-	int i1, i2; 
-	i1 = 0;
-	Ciphertext = "";
-
-	while (i1 < Plaintext.GetLength() && (Plaintext[i1] == ' ' || Plaintext[i1] == '#') ) i1++;
-		
-	while ( i1 < Plaintext.GetLength() )
-	{
-		i2 = Plaintext.Find(" ", i1);
-		if (i2 < 0) 
-		{
-			if ( i1 < Plaintext.GetLength() ) i2 = Plaintext.GetLength();
-			else break;
-		}
-		plainStr = Plaintext.Mid(i1, i2-i1);
-		CStringToBig( plainStr, plain, base );
-		plain = (plain-1) % Alphabet.GetLength()+1;
-		Encrypt( plain, cipher );
-		cipher = cipher + (rand() % 20)*N;
-		BigToCString( cipher, cipherStr, base );
-		while ((i2 < Plaintext.GetLength()) && (Plaintext[i2] == ' ' || Plaintext[i2] == '#')) i2++;
-		i1 = i2;
-		Ciphertext += cipherStr.GetBuffer(cipherStr.GetLength()+1);
-		if ( i1 < Plaintext.GetLength() )
-			Ciphertext += " # ";
-	}
-}
-
-void TutorialRSA::DecryptDialogueOfSisters( CString &Ciphertext, CString &Plaintext, CString &Alphabet, int base)
-{
-	Big plain, cipher;
-	CString plainStr, cipherStr;
-
-	int i1, i2; 
-	i1 = 0;
-	Plaintext = "";
-
-	while (i1 < Ciphertext.GetLength() && (Ciphertext[i1] == ' ' || Ciphertext[i1] == '#') ) i1++;
-		
-	while ( i1 < Ciphertext.GetLength() )
-	{
-		i2 = Ciphertext.Find(" ", i1);
-		if (i2 < 0) 
-		{
-			if ( i1 < Ciphertext.GetLength() ) i2 = Ciphertext.GetLength();
-			else break;
-		}
-		cipherStr = Ciphertext.Mid(i1, i2-i1);
-		CStringToBig( cipherStr, cipher, base );
-		cipher = (cipher-1) % Alphabet.GetLength()+1;
-		Decrypt( cipher, plain );
-		plain = plain + (rand() % 20)*N;
-		BigToCString( plain, plainStr, base );
-		while ((i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#')) i2++;
-		i1 = i2;
-		Plaintext += plainStr.GetBuffer(plainStr.GetLength()+1);
-		if ( i1 < Ciphertext.GetLength() )
-			Plaintext += " # ";
-	}
-}
-
-
-void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
+void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL DlgOfSisters)
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
@@ -1068,6 +1037,8 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 		cipherStr = Ciphertext.Mid(i1, i2-i1);
 		CStringToBig( cipherStr, cipher, base );
 		Decrypt( cipher, plain );
+		// Besonderheit: Dialog der Schwestern
+		if ( DlgOfSisters ) plain = plain + (rand() % 20 )*N;
 		BigToCString( plain, plainStr, base, OutLength );
 		while ( (i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#') ) i2++;
 		i1 = i2;

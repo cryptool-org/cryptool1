@@ -360,34 +360,43 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 	}
-	else if ( !IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSFLOOR ) )
+	else 	
 	{
+		int NumberStreamFlag;
 		if ( !DlgOptions->m_RSAVariant )
+			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
+		else
+			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
+		if ( !NumberStreamFlag )
 		{
-			HeadingEncryption( ENCRYPT_TEXT );
-			if ( !DlgOptions->m_TextOptions )
+
+			if ( !DlgOptions->m_RSAVariant )
 			{
-				Segmentation( MODE_ASCII );
+				HeadingEncryption( ENCRYPT_TEXT );
+				if ( !DlgOptions->m_TextOptions )
+				{
+					Segmentation( MODE_ASCII );
+				}
+				else
+				{
+					SkipWS();
+					Segmentation( MODE_ALPHABET );
+				}
+				RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 			}
 			else
 			{
 				SkipWS();
-				Segmentation( MODE_ALPHABET );
+				HeadingEncryption( ENCRYPT_TEXT );		
+				Segmentation( MODE_DLG_OF_SISTERS );
+				RSA->Encrypt( m_edit11, m_edit12, GetBase(), TRUE );
 			}
-			RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 		}
 		else
 		{
-			SkipWS();
-			HeadingEncryption( ENCRYPT_TEXT );		
-			Segmentation( MODE_DLG_OF_SISTERS );
-			RSA->EncryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, GetBase() );
+			HeadingEncryption( ENCRYPT_NUMBERS );
+			EncryptNumbers();
 		}
-	}
-	else
-	{
-		HeadingEncryption( ENCRYPT_NUMBERS );
-		EncryptNumbers();
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -408,34 +417,43 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 	}
-	else if ( !IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSFLOOR ) )
+	else 
 	{
+		int NumberStreamFlag;
 		if ( !DlgOptions->m_RSAVariant )
+			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
+		else
+			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
+
+		if ( !NumberStreamFlag )
 		{
-			HeadingDecryption( DECRYPT_TEXT );
-			if ( !DlgOptions->m_TextOptions )
+			if ( !DlgOptions->m_RSAVariant )
 			{
-				Segmentation( MODE_ASCII );
+				HeadingDecryption( DECRYPT_TEXT );
+				if ( !DlgOptions->m_TextOptions )
+				{
+					Segmentation( MODE_ASCII );
+				}
+				else
+				{
+					SkipWS();
+					Segmentation( MODE_ALPHABET );
+				}
+				RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 			}
 			else
 			{
+				HeadingDecryption( DECRYPT_TEXT );		
 				SkipWS();
-				Segmentation( MODE_ALPHABET );
+				Segmentation( MODE_DLG_OF_SISTERS );
+				RSA->Decrypt( m_edit11, m_edit12, GetBase(), TRUE );
 			}
-			RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 		}
 		else
 		{
-			HeadingDecryption( DECRYPT_TEXT );		
-			SkipWS();
-			Segmentation( MODE_DLG_OF_SISTERS );
-			RSA->DecryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, GetBase() );
+			HeadingDecryption( DECRYPT_NUMBERS );
+			DecryptNumbers();
 		}
-	}
-	else
-	{
-		HeadingDecryption( DECRYPT_NUMBERS );
-		DecryptNumbers();
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -791,20 +809,20 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 					data = new char[blockSize];
 					if ( blockSize == HexDumpToData( tmpStr, data ) )
 					{
-						encode( data, NumStr, blockSize, baseNumbers, FALSE, NULL );
+						encode( data, NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL );
 					}
 					delete []data;
 				}
 				break;
 			case MODE_ASCII: 
-				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, FALSE, NULL );
+				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL );
 				break;
 			case MODE_ALPHABET:
 				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
 				break;
 			case MODE_DLG_OF_SISTERS:
 				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
-				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers );
+				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers, 1, 1 );				
 				break;
 		}
 		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
@@ -824,10 +842,12 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 
 	m_edit11 = "";
 	m_edit12 = "";
-	BOOL flag = TRUE;
+	BOOL flag = TRUE, hexDumpFlag = FALSE;
 	int i1, i2;
 	i1 = i2 = 0;
 	CString tmp1;
+	CString hexDump1 = "";
+    CString hexDump2 = "";
 	// *************  Hier noch richtige groesse finden ....
 	char _tmp2[512]; 
 
@@ -843,20 +863,34 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 		tmp1 = m_edit13.Mid(i1, i2-i1);
 		switch ( mode ) {
 			case MODE_ASCII: 
-				if ( blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, NULL ) )
-				{
-				}
-				else
-				{
-					// ************ internal error !
-				}
+				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL )) )
+					flag = FALSE;
 				break;
 			case MODE_ALPHABET:
+				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, 
+					                         (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet )) )
+					flag = FALSE;
 				break;
 			case MODE_DLG_OF_SISTERS:
+				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength(), baseNumbers, -1 ); 
+				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
+					flag = FALSE;
 				break;
 		}
-		if ( !flag )
+		if ( flag )
+		{
+			if ( mode == MODE_ASCII )
+			{
+				for ( int i=0; i<blockSize; i++ ) if ( !IsPrint(_tmp2[i]) )
+					hexDumpFlag = TRUE;
+				dataToHexDump( _tmp2, blockSize, tmp1 );
+				hexDump1 += tmp1; 
+				hexDump2 += tmp1;
+			}
+			m_edit11 += _tmp2;
+			m_edit12 += _tmp2;
+		}
+		else
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_edit11  = pc_str; 
@@ -865,12 +899,18 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 			m_Header3 = "";
 			break;
 		}
-		int outStrLength = 0;
-		m_edit11 += _tmp2;
-		m_edit12 += _tmp2;
+		
 		while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
 		i1 = i2;
-		if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
+		if ( i1 < m_edit13.GetLength() ) {
+			if ( mode == MODE_ASCII ) hexDump1 += " # ";
+			m_edit11 += " # ";
+		}
+	}
+	if ( mode == MODE_ASCII && hexDumpFlag )
+	{
+		m_edit11 = hexDump1;
+		m_edit12 = hexDump2;
 	}
 	return flag;
 }

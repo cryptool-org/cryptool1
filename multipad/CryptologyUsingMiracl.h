@@ -37,8 +37,9 @@ extern volatile long ExitFactorisationCode;
 #define SSIZE 1000000     /* Maximum sieve size            */
 
 #define INCREASE_THE_BASE     1
-#define SPLIT_NUMBERS_VSMODUL 24
+#define SPLIT_NUMBERS_VSMODUL 2
 #define SPLIT_NUMBERS_VSFLOOR 4
+#define FORMAT_MODULO         8
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nur temporär  definiert
@@ -63,7 +64,7 @@ BOOL Whitespace( char ch );
 BOOL IsNumber( char ch, int base );
 int  NeededBase( char ch );
 char DigitToNum( char ch );
-int  IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList );
+int  IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList = 0 );
 BOOL IsHexDump( CString &CStr );
 char ToHex( const char ch );
 void dataToHexDump( const char* data, int len, char* hexDump );
@@ -80,8 +81,11 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet );
 void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, int OutLength = 0);
 void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, int OutLength = 0);
-void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval = 20 ); 
- 
+void RandRepr( CString &StrNum,         int Modul, int numberBase, int randInterval = 20, int ofs = 0 ); 
+void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval = 20, int ofs = 0 );
+void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs = 0 ); 
+void ModRepr ( CString &StrNum, int        Modul, int numberBase, int ofs = 0 ); 
+
 class evaluate  
 {
 public:
@@ -148,10 +152,8 @@ public:
 
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }
-	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10);
-	void EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
-	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10);
-	void DecryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
+	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10, BOOL DlgOfSisters = FALSE);
+	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10, BOOL DlgOfSisters = FALSE);
 
 private:
 	BOOL SetPublicKey ( Big &e );

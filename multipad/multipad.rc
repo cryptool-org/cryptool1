@@ -47,13 +47,13 @@ CAPTION "Grafikparameter"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,14,91,69,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,99,91,50,18
     EDITTEXT        IDC_EDIT1,106,11,13,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT2,106,29,14,12,ES_CENTER | ES_NUMBER
     CONTROL         "&Nulllinie anzeigen",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,49,105,10
     CONTROL         "&relative Anzeige bei Autokorrelation",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,99,91,50,18
     LTEXT           "Balkenstärke  (1, ..., 10) :",IDC_STATIC,21,14,84,10
     LTEXT           "Kurvenstärke  (1, ..., 10) :",IDC_STATIC,21,31,84,10
 END
@@ -132,10 +132,10 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,142,80,91,10
     CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,142,105,61,10
-    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
     CONTROL         "Basischiffre anzeigen",IDC_CHECK4,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,142,130,80,10
+    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
 END
 
 IDD_DIALOG_TEXTEINGABE_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 301, 221
@@ -145,20 +145,20 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Weiter",IDOK,7,197,71,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,222,197,62,17
-    LTEXT           "Klartext oder verschlüsselter Text",IDC_STATIC,7,19,133,
-                    10
+    EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    COMBOBOX        IDC_DIM_VON,98,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_DIM_BIS,156,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
     CONTROL         "&Klartext im Eingabefeld",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,165,6,87,10
     CONTROL         "&Verschlüsselter Text im Eingabefeld",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,165,19,127,10
-    EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Klartext oder verschlüsselter Text",IDC_STATIC,7,19,133,
+                    10
     LTEXT           "Dimension: Analyse von",IDC_STATIC,7,179,83,8
-    COMBOBOX        IDC_DIM_VON,98,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
     CTEXT           "bis",IDC_STATIC,126,179,30,8
-    COMBOBOX        IDC_DIM_BIS,156,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
 END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 188
@@ -208,53 +208,53 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
-    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
-    PUSHBUTTON      "&Schließen",IDCANCEL,318,310,72,19
-    GROUPBOX        "Verfahren",IDC_STATIC,10,10,205,135
+    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,89,75,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,112,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,131,75,12,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     20,28,81,10
-    LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
-    COMBOBOX        IDC_COMBO1,141,38,63,60,CBS_DROPDOWN | WS_VSCROLL | 
-                    WS_TABSTOP
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,
                     10
-    LTEXT           "Bitlänge der DSA-Primzahl:",IDC_STATIC,33,74,103,8
-    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
     CONTROL         "&Elliptische Kurven",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,20,98,103,10
-    LTEXT           "Bezeichner: (Bitlänge und Kurvenparameter):",IDC_STATIC,
-                    33,110,87,17,NOT WS_GROUP
-    COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
-                    IDC_STATIC,237,15,152,26
-    LTEXT           "Name:",IDC_STATIC,240,48,50,8
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,90,64,20
-    EDITTEXT        IDC_EDIT5,306,89,75,12,ES_AUTOHSCROLL
-    LTEXT           "PIN-Code:",IDC_STATIC,240,112,50,8
-    EDITTEXT        IDC_EDIT3,306,112,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,131,50,8
-    EDITTEXT        IDC_EDIT4,306,131,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
-                    271,231,32
     CONTROL         "&Oktal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,26,283,61,12
     CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,
                     61,12
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     170,283,61,12
+    COMBOBOX        IDC_COMBO1,141,38,63,60,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
+    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
+    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,
                     144,10
+    PUSHBUTTON      "&Schließen",IDCANCEL,318,310,72,19
+    GROUPBOX        "Verfahren",IDC_STATIC,10,10,205,135
+    LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
+    LTEXT           "Bitlänge der DSA-Primzahl:",IDC_STATIC,33,74,103,8
+    LTEXT           "Bezeichner: (Bitlänge und Kurvenparameter):",IDC_STATIC,
+                    33,110,87,17,NOT WS_GROUP
+    LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
+                    IDC_STATIC,237,15,152,26
+    LTEXT           "Name:",IDC_STATIC,240,48,50,8
+    LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
+    LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,90,64,20
+    LTEXT           "PIN-Code:",IDC_STATIC,240,112,50,8
+    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,131,50,8
+    EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
+                    271,231,32
 END
 
 IDD_DIALOG_RSAENC DIALOG DISCARDABLE  0, 0, 392, 271
@@ -325,32 +325,32 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
-    CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,253,242,19
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
+    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
+                    16,205,23,WS_EX_TRANSPARENT
+    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
     CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
                     IDC_STATIC,0,81,242,8
     CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,104,241,
                     8
+    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
+                    121,185,33,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    CTEXT           "Kontakt:",IDC_STATIC,0,178,241,10
     LTEXT           "bernhard.esslinger@db.com /",IDC_STATIC,69,188,145,8
+    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
     LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,69,208,128,
                     10
     LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
     LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,178,241,10
-    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
-                    16,205,23,WS_EX_TRANSPARENT
-    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
-                    121,185,33,WS_EX_TRANSPARENT
-    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
+    CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
+                    IDC_STATIC,0,253,242,19
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -371,15 +371,12 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,254,65,17
     PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON1,86,254,99,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,202,254,63,17
-    GROUPBOX        "Formatierungsoptionen",IDC_STATIC,8,5,257,45
     CONTROL         "Nicht im Alphabet enthaltene Zeichen unverändert beibehalten",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,20,
                     213,10
     CONTROL         "Groß-/Kleinschreibung erhalten (wenn möglich)",
                     IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,35,
                     163,10
-    GROUPBOX        "Alphabetoptionen",IDC_STATIC,8,55,257,107
     CONTROL         "Groß/Kleinschreibung beachten",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,70,118,10
     CONTROL         "Großbuchstaben",IDC_CHECK3,"Button",BS_AUTO3STATE | 
@@ -392,21 +389,24 @@ BEGIN
                     WS_TABSTOP,105,85,55,10
     CONTROL         "Kleinbuchstaben",IDC_CHECK4,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,105,100,69,10
-    LTEXT           "Zu verwendendes Alphabet:",IDC_STATIC,20,130,90,8
     EDITTEXT        IDC_EDIT1,20,140,237,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Suchen ...",
+                    IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,202,184,55,
+                    14
+    CONTROL         "Doppelbuchstaben trennen",IDC_CHECK9,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,229,100,10
+    EDITTEXT        IDC_EDIT2,202,226,15,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,202,254,63,17
+    GROUPBOX        "Formatierungsoptionen",IDC_STATIC,8,5,257,45
+    GROUPBOX        "Alphabetoptionen",IDC_STATIC,8,55,257,107
+    LTEXT           "Zu verwendendes Alphabet:",IDC_STATIC,20,130,90,8
     GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,
                     8,168,257,39
     EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,184,165,14,
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    PUSHBUTTON      "&Suchen ...",
-                    IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,202,184,55,
-                    14
     GROUPBOX        "Playfair",IDC_STATIC,8,214,257,30
-    CONTROL         "Doppelbuchstaben trennen",IDC_CHECK9,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,229,100,10
     LTEXT           "Trennzeichen",IDC_STATIC,154,229,45,10
-    EDITTEXT        IDC_EDIT2,202,226,15,12,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_SCHLUESSELLAENGE DIALOG DISCARDABLE  0, 0, 186, 68
@@ -439,10 +439,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,20,54,64,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,116,54,50,18
     CTEXT           "Ermittelter Schlüssel:",IDC_STATIC,20,11,146,8
-    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_ERSETZEN DIALOG DISCARDABLE  0, 0, 347, 295
@@ -520,23 +520,23 @@ BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,284,66,19
     PUSHBUTTON      "&Neues Schlüsselpaar erzeugen",IDC_BUTTON1,135,284,125,
                     19
-    PUSHBUTTON      "&Schließen",IDCANCEL,321,284,68,19
-    EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,380,102
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,380,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,380,50
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,239,
-                    232,32
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
                     61,12
     CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     169,250,61,12
+    PUSHBUTTON      "&Schließen",IDCANCEL,321,284,68,19
+    EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,239,
+                    232,32
     LTEXT           "Wenn Sie das angezeigte Schlüsselpaar verwenden möchten, klicken Sie auf ""Übernehmen"".   Möchten Sie ein anderes Schlüsselpaar, klicken Sie auf die Schaltfläche ""Neues Schlüsselpaar erzeugen"".",
                     IDC_STATIC,249,236,140,41
 END
@@ -554,20 +554,20 @@ BEGIN
                     120,14
     PUSHBUTTON      "&Eintrag löschen...",IDC_BUTTON3,127,276,120,14
     DEFPUSHBUTTON   "&Schließen",IDOK,260,276,120,14
-    LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
-                    IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
-    LTEXT           "Klicken Sie mit der linken Maustaste auf den entsprechenden Namen, um eine Auswahl vorzunehmen.",
-                    IDC_STATIC,8,14,375,8
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
-    GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
     CONTROL         "DSA Schlüssel",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,260,76,8
     CONTROL         "EC Schlüssel",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,274,76,8
+    LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
+                    IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
+    LTEXT           "Klicken Sie mit der linken Maustaste auf den entsprechenden Namen, um eine Auswahl vorzunehmen.",
+                    IDC_STATIC,8,14,375,8
+    GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
 END
 
 IDD_DIALOG_PINCODE DIALOG DISCARDABLE  0, 0, 192, 159
@@ -594,24 +594,24 @@ BEGIN
     CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,25,167,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
     CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
-    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
-    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
-    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
     CTEXT           "Planung und Betreuung:",IDC_STATIC,1,52,166,10
+    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
+    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
+    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
     CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,99,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
     CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,187,166,9
     CTEXT           "Review:",IDC_STATIC,1,204,166,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -620,8 +620,6 @@ CAPTION "Öffentlicher Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Zurück",IDOK,321,260,73,19
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,51,
-                    250,231,29
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,67,260,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,
@@ -632,6 +630,8 @@ BEGIN
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,66,388,128
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,192,388,53
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,51,
+                    250,231,29
     EDITTEXT        IDC_EDIT3,6,4,104,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     EDITTEXT        IDC_EDIT2,112,4,273,14,ES_MULTILINE | ES_READONLY | 
@@ -654,8 +654,6 @@ CAPTION "Öffentliche und Private Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Zurück",IDOK,316,295,79,18
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,52,
-                    281,231,32
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,68,292,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,
@@ -668,6 +666,8 @@ BEGIN
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,186,390,51
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,235,390,39
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,52,
+                    281,231,32
     EDITTEXT        IDC_EDIT3,5,4,105,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     EDITTEXT        IDC_EDIT2,115,4,271,14,ES_MULTILINE | ES_READONLY | 
@@ -691,8 +691,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,13,47,58,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,111,47,53,17
-    LTEXT           "Ermittelter Caesar-Schlüssel:",IDC_STATIC,32,19,90,8
     EDITTEXT        IDC_EDIT1,124,17,16,12,ES_UPPERCASE
+    LTEXT           "Ermittelter Caesar-Schlüssel:",IDC_STATIC,32,19,90,8
 END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF_GROSS DIALOG DISCARDABLE  0, 0, 252, 298
@@ -956,8 +956,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,7,54,80,18
     DEFPUSHBUTTON   "&Schließen",IDOK,117,54,62,18
-    LTEXT           "Schlüssel:",IDC_STATIC,7,12,48,8
     EDITTEXT        IDC_EDIT1,7,25,172,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Schlüssel:",IDC_STATIC,7,12,48,8
 END
 
 IDD_DIALOG_SIGN DIALOG DISCARDABLE  0, 0, 388, 377
@@ -965,6 +965,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Signatur einer Nachricht Erstellen"
 FONT 8, "MS Sans Serif"
 BEGIN
+    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,11,161,367,99
+    EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,295,347,83,20
     GROUPBOX        "Hashfunktion wählen:",IDC_STATIC,11,6,137,129
@@ -1007,9 +1011,6 @@ BEGIN
                     BS_AUTORADIOBUTTON,258,114,92,10
     LTEXT           "Wählen Sie zum Signieren  Ihren privaten Schlüssel:",
                     IDC_STATIC,11,147,364,8
-    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,11,161,367,99
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,11,270,106,68
     CONTROL         "RSA Schlüssel",IDC_CHECK_RSA_KEYS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,28,286,66,10
@@ -1020,7 +1021,6 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,130,270,248,32
     CTEXT           "PIN-Code für den Zugriff auf die gewählte PSE:",
                     IDC_STATIC,136,285,159,9
-    EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
     GROUPBOX        "",IDC_STATIC,130,302,248,36
     CONTROL         "Zum Signieren benötigte Zeit anzeigen",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,311,165,8
@@ -1033,13 +1033,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verifizieren einer Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Signatur &Verifizieren",IDOK,11,340,90,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,309,340,71,19
-    LTEXT           "Wählen Sie aus der folgenden Liste den Signaturersteller:",
-                    IDC_STATIC,7,3,363,12
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,17,373,173
+    DEFPUSHBUTTON   "Signatur &Verifizieren",IDOK,11,340,90,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,309,340,71,19
+    PUSHBUTTON      "&Suche Schlüssel",IDC_BUTTON1,308,235,72,18
+    LTEXT           "Wählen Sie aus der folgenden Liste den Signaturersteller:",
+                    IDC_STATIC,7,3,363,12
     GROUPBOX        "Angegebene Daten",IDC_STATIC,8,199,372,26,BS_CENTER
     RTEXT           "Signatur-Verfahren:",IDC_STATIC,14,209,70,12
     EDITTEXT        IDC_EDIT2,88,209,100,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1059,7 +1060,6 @@ BEGIN
                     WS_GROUP,144,244,63,10
     CONTROL         "ECSP-&NR",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,218,
                     244,63,10
-    PUSHBUTTON      "&Suche Schlüssel",IDC_BUTTON1,308,235,72,18
     GROUPBOX        "Verifikation mit Hashfunktion:",IDC_STATIC,132,267,161,
                     27
     CONTROL         "SH&A-1",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
@@ -1107,16 +1107,16 @@ BEGIN
     DEFPUSHBUTTON   "&Signaturdaten ausgeben",IDOK,9,290,93,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,166,290,91,18
     PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,313,290,61,18
-    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
     EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
@@ -1127,8 +1127,6 @@ CAPTION "Extrahierte Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Schließen",IDOK,159,296,70,17
-    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,159,218,22,
-                    BS_CENTER
     CONTROL         "&Oktal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,171,168,
                     33,10
     CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,214,
@@ -1137,6 +1135,14 @@ BEGIN
                     265,168,56,10
     CONTROL         "O&ctets",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,331,168,37,10
+    EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
+    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,159,218,22,
+                    BS_CENTER
     EDITTEXT        IDC_EDIT10,10,3,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT3,110,3,272,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1151,16 +1157,10 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT8,10,49,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
     EDITTEXT        IDC_EDIT5,10,152,128,15,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT9,10,178,150,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
     EDITTEXT        IDC_EDIT7,10,284,125,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
@@ -1173,18 +1173,15 @@ BEGIN
     PUSHBUTTON      "&Dialog beenden",IDOK,7,305,78,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,207,305,68,19
     PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,332,305,53,19
-    EDITTEXT        IDC_EDIT1,7,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT2,7,18,380,62,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT3,7,86,110,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT4,7,98,380,53,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,156,225,20,
-                    BS_CENTER
+    EDITTEXT        IDC_EDIT6,7,185,380,102,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,171,164,33,10
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,217,
@@ -1193,11 +1190,14 @@ BEGIN
                     271,164,56,10
     CONTROL         "O&ctets",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,340,164,
                     37,10
+    EDITTEXT        IDC_EDIT1,7,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,7,86,110,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,156,225,20,
+                    BS_CENTER
     EDITTEXT        IDC_EDIT5,7,173,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,7,185,380,102,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
     EDITTEXT        IDC_EDIT7,7,292,200,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
@@ -1207,6 +1207,18 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfairanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_MYTXT,6,285,326,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,202,7,64,10
+    CONTROL         "&Entschlüsseln",IDC_RADV,"Button",BS_AUTORADIOBUTTON,
+                    202,18,64,8
+    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,276,7,50,8
+    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,276,
+                    18,50,8
+    EDITTEXT        IDC_PASSWORD,45,9,150,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
+    PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,55,174,72,18
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,50,134,118
     EDITTEXT        IDC_EDIT_1_1,18,63,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_2,38,63,15,12,ES_AUTOHSCROLL
@@ -1247,25 +1259,13 @@ BEGIN
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,147,43,185,151
-    DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,271,311,61,18
     EDITTEXT        IDC_LIST,6,218,326,53,ES_MULTILINE | ES_UPPERCASE | 
                     ES_READONLY | ES_WANTRETURN | WS_HSCROLL
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,276,7,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,276,
-                    18,50,8
-    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,202,7,64,10
-    CONTROL         "&Entschlüsseln",IDC_RADV,"Button",BS_AUTORADIOBUTTON,
-                    202,18,64,8
-    EDITTEXT        IDC_PASSWORD,45,9,150,12,ES_AUTOHSCROLL
     LTEXT           "Passwort",IDC_STATIC,6,9,32,10
     RTEXT           "Buchstabeninformationen",IDC_STATIC,154,29,81,8
     CONTROL         "Doppelte &ignorieren",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,45,28,80,8
-    EDITTEXT        IDC_MYTXT,6,285,326,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,55,174,72,18
     LTEXT           "Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",
                     IDC_STATIC,6,208,254,10
     LTEXT           "Eingabe",IDC_STATIC,6,275,85,10
@@ -1277,20 +1277,24 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Playfair"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_KEYENTER,24,75,171,12,ES_AUTOHSCROLL
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    200,73,22,20
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,10,236,66,20
     PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,93,236,66,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,176,236,52,20
-    GROUPBOX        "Optionen",IDC_STATIC,10,7,218,36
     CONTROL         "&Text vorformatieren",IDC_PREFORM,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,17,78,8
     CONTROL         "&Doppelte ignorieren",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,30,78,8
+    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,169,106,48,10
+    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
+                    118,48,10
+    GROUPBOX        "Optionen",IDC_STATIC,10,7,218,36
     GROUPBOX        "Playfair-Schlüssel",IDC_STATIC,10,49,218,178
     LTEXT           "Kurzform des Playfair-Schlüssels:",IDC_STATIC,24,64,114,
                     11
-    EDITTEXT        IDC_KEYENTER,24,75,171,12,ES_AUTOHSCROLL
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    200,73,22,20
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,24,98,137,120
     EDITTEXT        IDC_EDIT11,35,112,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,112,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -1328,10 +1332,6 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,169,106,48,10
-    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
-                    118,48,10
 END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
@@ -1364,10 +1364,10 @@ BEGIN
                     40,12
     CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     121,99,61,12
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,12,89,
-                    175,26
     CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | 
                     LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,12,26,293,57
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,12,89,
+                    175,26
     EDITTEXT        IDC_TITEL,15,3,285,19,ES_MULTILINE | ES_READONLY | 
                     ES_WANTRETURN | NOT WS_BORDER
 END
@@ -1377,8 +1377,13 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen Generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
+                    19
     PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
@@ -1389,10 +1394,7 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
     CONTROL         "Beide Wertebereiche sind gleich",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
                     IDC_STATIC,19,9,289,17
@@ -1406,8 +1408,6 @@ BEGIN
     LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
     LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
     LTEXT           "Ergebnis",IDC_STATIC,179,168,35,10
-    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
-                    19
     LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
     EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
@@ -1430,9 +1430,20 @@ BEGIN
     PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
                     IDC_OPTIONEN,176,187,156,16
     EDITTEXT        IDC_EDIT10,20,219,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,20,311,313,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
     PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
+    EDITTEXT        IDC_HEADER1,20,207,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_HEADER4,20,238,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_HEADER2,20,268,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_HEADER3,20,300,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
     LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
                     IDC_STATIC,10,7,332,24
     GROUPBOX        "Primzahleneingabe",IDC_STATIC,10,39,332,48
@@ -1453,17 +1464,6 @@ BEGIN
     LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
     GROUPBOX        "RSA-Verschlüsselung / Entschlüsselung",IDC_STATIC,10,
                     177,332,155
-    EDITTEXT        IDC_HEADER1,20,207,313,11,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER4,20,238,313,11,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER2,20,268,313,11,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER3,20,300,313,11,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT12,20,311,313,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -1473,47 +1473,47 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
-    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,332,109,
-                    17
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    147,332,149,17
-    GROUPBOX        "Gesamtzahl und Bitlänge der Homophonen",IDC_STATIC,14,4,
-                    162,42
-    LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Aktualisieren",IDC_BUTTON3,109,15,53,12
-    LTEXT           "Bitlänge:",IDC_STATIC,27,32,30,8
-    EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_READONLY
-    LTEXT           "Bit",IDC_STATIC,98,33,18,9
-    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,95,42
     CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,192,19,56,8
     CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
                     63,9
-    GROUPBOX        "Formatierungen",IDC_STATIC,285,4,97,42
     CONTROL         "Formatierungen mit",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,15,82,8
-    LTEXT           "verschlüsseln",IDC_STATIC,308,23,44,8
     CONTROL         "Umlaute kodieren",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,32,71,10
-    EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
-                    WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
-    LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
-                    IDC_STATIC,14,52,192,8
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
-    LTEXT           "Editieren der Homophonen Liste für einzelne Zeichen:",
-                    IDC_STATIC,14,270,172,9
-    LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
-    LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
-    LTEXT           "Liste der Homophonen",IDC_STATIC,92,283,72,8
+    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,332,109,
+                    17
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    147,332,149,17
     EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
+    GROUPBOX        "Gesamtzahl und Bitlänge der Homophonen",IDC_STATIC,14,4,
+                    162,42
+    LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
+    LTEXT           "Bitlänge:",IDC_STATIC,27,32,30,8
+    EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Bit",IDC_STATIC,98,33,18,9
+    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,95,42
+    GROUPBOX        "Formatierungen",IDC_STATIC,285,4,97,42
+    LTEXT           "verschlüsseln",IDC_STATIC,308,23,44,8
+    EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
+    LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
+                    IDC_STATIC,14,52,192,8
+    LTEXT           "Editieren der Homophonen Liste für einzelne Zeichen:",
+                    IDC_STATIC,14,270,172,9
+    LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
+    LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
+    LTEXT           "Liste der Homophonen",IDC_STATIC,92,283,72,8
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
@@ -1521,6 +1521,21 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Elliptische Kurven Erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,29,97,347,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Elliptische Kurve erzeugen",IDC_BUTTON_GEN,29,126,101,
+                    20
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
+    PUSHBUTTON      "Elliptische Kurve &speichern",IDC_BUTTON_ACCEPT,29,320,
+                    101,20
+    CONTROL         "&Oktal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,40,287,33,8
+    CONTROL         "&Dezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,81,287,
+                    41,8
+    CONTROL         "&Hexadezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,
+                    129,287,56,8
+    PUSHBUTTON      "&Schließen",IDCANCEL,298,322,78,18
     GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
     CONTROL         "Komplexe Multiplikation",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,26,22,96,8
@@ -1531,30 +1546,15 @@ BEGIN
     LTEXT           "Die Berechnung der Elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall die ""Saat"" setzen.",
                     IDC_STATIC,155,16,221,16
     LTEXT           "Saat",IDC_STATIC,155,38,16,8
-    EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
     GROUPBOX        "Primzahl",IDC_STATIC,14,65,378,51
     LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst größere Primzahl ersetzt.",
                     IDC_STATIC,29,77,347,18
-    EDITTEXT        IDC_EDIT1,29,97,347,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Elliptische Kurve erzeugen",IDC_BUTTON_GEN,29,126,101,
-                    20
     GROUPBOX        "Parameter der Elliptischen Kurve",IDC_STATIC,14,156,378,
                     154
     LTEXT           "Domain-Parameter der erzeugten Elliptischen Kurve",
                     IDC_STATIC,29,169,172,8
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,
                     272,160,28
-    CONTROL         "&Oktal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,40,287,33,8
-    CONTROL         "&Dezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,81,287,
-                    41,8
-    CONTROL         "&Hexadezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,
-                    129,287,56,8
-    PUSHBUTTON      "Elliptische Kurve &speichern",IDC_BUTTON_ACCEPT,29,320,
-                    101,20
-    PUSHBUTTON      "&Schließen",IDCANCEL,298,322,78,18
 END
 
 IDD_DIALOG_SCHLUESSEL_GEN DIALOG DISCARDABLE  0, 0, 310, 266
@@ -1600,7 +1600,7 @@ END
 IDD_DIALOG_ANALYSE_NGRAM DIALOGEX 0, 0, 317, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gramm Liste"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
@@ -1629,12 +1629,6 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallsdaten Erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,229,127,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,229,68,19
-    GROUPBOX        "",IDC_STATIC,9,0,283,36
-    LTEXT           "Zufallsdaten werden mit Hilfe der sogenannten ""Pseudo Zufallsgeneratoren"" erzeugt. Dies ist eine Auswahl sowohl von ""kryptographisch starken"" als auch unsicheren Pseudo-Zufallsgeneratoren.",
-                    IDC_STATIC,18,8,256,24
-    GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,9,42,283,79
     CONTROL         "Zufallsgenerator der &SECUDE Bibliothek",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&x^2 (mod N)  Zufallsgenerator",IDC_RADIO2,"Button",
@@ -1643,14 +1637,20 @@ BEGIN
                     BS_AUTORADIOBUTTON,18,89,129,8
     CONTROL         "&Inverser Kongruenz Generator (ICG)",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON,18,104,127,8
-    GROUPBOX        "Parameter ",IDC_STATIC,9,126,283,58
-    LTEXT           "Saat:",IDC_STATIC,18,141,18,9
     EDITTEXT        IDC_EDIT1,40,140,207,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Generatorspezifische &Parameter wählen ...",IDC_BUTTON1,
                     18,158,155,18
+    EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,229,127,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,229,68,19
+    GROUPBOX        "",IDC_STATIC,9,0,283,36
+    LTEXT           "Zufallsdaten werden mit Hilfe der sogenannten ""Pseudo Zufallsgeneratoren"" erzeugt. Dies ist eine Auswahl sowohl von ""kryptographisch starken"" als auch unsicheren Pseudo-Zufallsgeneratoren.",
+                    IDC_STATIC,18,8,256,24
+    GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,9,42,283,79
+    GROUPBOX        "Parameter ",IDC_STATIC,9,126,283,58
+    LTEXT           "Saat:",IDC_STATIC,18,141,18,9
     GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,31
     LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,18,202,92,8
-    EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
 END
 
 IDD_RANDOM_PARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
@@ -1669,11 +1669,11 @@ CAPTION "x^2 (mod N) Zufallsgenerator"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,9,60,69,18
+    EDITTEXT        IDC_EDIT1,44,37,186,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Abbrechen",IDCANCEL,156,60,73,18
     LTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
                     IDC_STATIC,7,12,224,21
     LTEXT           "Modul N = ",IDC_STATIC,8,39,33,8
-    EDITTEXT        IDC_EDIT1,44,37,186,12,ES_AUTOHSCROLL
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -1721,15 +1721,15 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,11,96,69,21
     PUSHBUTTON      "&Abbrechen",IDCANCEL,176,96,67,21
+    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
     LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
                     IDC_STATIC,11,9,232,25
     LTEXT           "Geraden-Parameter:",IDC_STATIC,11,37,64,10
     LTEXT           "a =",IDC_STATIC,82,37,11,8
-    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
     LTEXT           "b =",IDC_STATIC,81,54,10,8
-    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
     LTEXT           "Modul  N =",IDC_STATIC,57,72,35,8
-    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
@@ -1781,33 +1781,20 @@ CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,233,50,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,214,233,50,18
-    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,257,65
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,22,19,65,10
     CONTROL         "Alphabet vorgeben:",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,22,32,77,8
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
     EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
-    GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,257,31
     CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,23,89,51,8
     CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,100,89,87,8
-    GROUPBOX        "Verfahren und Blocklänge bei der Kodierung der Nachricht in Zahlen ",
-                    IDC_STATIC,7,113,257,53
-    LTEXT           "Methode:",IDC_STATIC,23,128,51,8
     CONTROL         "b-adisch",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,100,128,43,8
     CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
                     148,128,69,8
-    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,23,147,74,8
     EDITTEXT        IDC_EDIT2,100,145,19,13,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,127,147,116,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,172,257,53
-    LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
-                    IDC_STATIC,19,185,233,18
     CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,208,39,10
     CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,208,
@@ -1816,6 +1803,19 @@ BEGIN
                     33,10
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     200,208,56,10
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,214,233,50,18
+    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,257,65
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
+    GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,257,31
+    GROUPBOX        "Verfahren und Blocklänge bei der Kodierung der Nachricht in Zahlen ",
+                    IDC_STATIC,7,113,257,53
+    LTEXT           "Methode:",IDC_STATIC,23,128,51,8
+    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,23,147,74,8
+    EDITTEXT        IDC_EDIT3,127,147,116,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,172,257,53
+    LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
+                    IDC_STATIC,19,185,233,18
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -1825,6 +1825,9 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Periodenausgabe &speichern",IDOK,7,236,159,22
     PUSHBUTTON      "&Schließen",IDCANCEL,307,236,68,22
+    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,52,370,169
     LTEXT           "Jede Zeile der Ausgabe ist eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
                     -1,7,7,368,10
     LTEXT           "- die erste Position in der Datei, wo die Periodizität startet (Offset)",
@@ -1832,9 +1835,6 @@ BEGIN
     LTEXT           "- die Länge der Periode",-1,7,29,310,10
     LTEXT           "- die maximal ersten 20 Bytes (ausgegeben im HEX-Format), mit der die Periode beginnt.",
                     -1,7,39,310,10
-    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,7,52,370,169
 END
 
 IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 253, 286
@@ -1888,20 +1888,20 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,10,123,73,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,207,123,78,19
-    LTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\n Weitere Informationen erhalten Sie mit der Taste ""F1""",
-                    IDC_STATIC,10,9,275,34
-    LTEXT           "&a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT1,59,61,126,12,ES_AUTOHSCROLL
-    LTEXT           "&c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
-    LTEXT           "Primzahl &P = ",IDC_STATIC_GPP,15,95,42,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
-    GROUPBOX        "Parameter Eintrag:",IDC_STATIC,10,48,275,65
-    LTEXT           "Bit&länge der Primzahl P:",IDC_STATIC_GPL,198,58,75,8,
-                    SS_NOTIFY
     EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Primzahl &erzeugen",IDC_PRIMBUTTON,198,89,79,20,
                     BS_MULTILINE
+    LTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\n Weitere Informationen erhalten Sie mit der Taste ""F1""",
+                    IDC_STATIC,10,9,275,34
+    LTEXT           "&a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
+    LTEXT           "&c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
+    LTEXT           "Primzahl &P = ",IDC_STATIC_GPP,15,95,42,10,SS_NOTIFY
+    GROUPBOX        "Parameter Eintrag:",IDC_STATIC,10,48,275,65
+    LTEXT           "Bit&länge der Primzahl P:",IDC_STATIC_GPL,198,58,75,8,
+                    SS_NOTIFY
 END
 
 IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 250, 178
@@ -1909,23 +1909,23 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,15,111,79,18
-    DEFPUSHBUTTON   "&Schließen",IDOK,164,152,79,19
-    GROUPBOX        "Parameterwahl",IDC_STATIC,7,7,236,82
-    LTEXT           "Signifikanzniveau 'alpha':",IDC_STATIC,15,20,80,8
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Tupelgrösse:",IDC_TUPEL_STATIC,159,20,42,8
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     CONTROL         "Default Offset und Testlänge",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
     CONTROL         "Zufällige Blöcke aus der Datei verwenden",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
-    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
     EDITTEXT        IDC_EDIT1,41,68,60,12,ES_AUTOHSCROLL
-    LTEXT           "Testlänge:",IDC_STATIC,136,69,34,8
     EDITTEXT        IDC_EDIT2,175,67,59,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,15,111,79,18
+    DEFPUSHBUTTON   "&Schließen",IDOK,164,152,79,19
+    GROUPBOX        "Parameterwahl",IDC_STATIC,7,7,236,82
+    LTEXT           "Signifikanzniveau 'alpha':",IDC_STATIC,15,20,80,8
+    LTEXT           "Tupelgrösse:",IDC_TUPEL_STATIC,159,20,42,8
+    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
+    LTEXT           "Testlänge:",IDC_STATIC,136,69,34,8
     GROUPBOX        "Teststatus",IDC_STATIC,7,91,236,53
     LTEXT           "Def_Parameter ...",IDC_INFO_STATIC,102,102,132,16
     LTEXT           "Test bestanden ...",IDC_STATIC_ERGEBNIS,102,125,107,10
@@ -1941,26 +1941,26 @@ CAPTION "Runs Test"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Tests durchführen",IDC_TESTBUTTON,14,209,67,18
-    DEFPUSHBUTTON   "&Schließen",IDOK,144,270,83,18
-    GROUPBOX        "Runs Parameter",IDC_STATIC,7,7,220,104
-    LTEXT           "Signifikanzniveau 'alpha': ",IDC_STATIC,14,21,82,8
     COMBOBOX        IDC_COMBO1,107,19,52,46,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     CONTROL         "Default Run Test  Parameter",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,39,104,10
     CONTROL         "Zufällige Blöcke aus der Datei verwenden",IDC_CHECK3,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,51,170,13
-    LTEXT           "Offset:",IDC_STATIC,14,72,22,8
     EDITTEXT        IDC_EDIT2,53,70,54,12,ES_AUTOHSCROLL
-    LTEXT           "Testlänge:",IDC_STATIC,120,72,34,8
-    EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
-    LTEXT           "Runlänge:",IDC_STATIC,14,91,34,8
     EDITTEXT        IDC_EDIT5,53,89,54,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,76,143,63,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Schließen",IDOK,144,270,83,18
+    GROUPBOX        "Runs Parameter",IDC_STATIC,7,7,220,104
+    LTEXT           "Signifikanzniveau 'alpha': ",IDC_STATIC,14,21,82,8
+    LTEXT           "Offset:",IDC_STATIC,14,72,22,8
+    LTEXT           "Testlänge:",IDC_STATIC,120,72,34,8
+    LTEXT           "Runlänge:",IDC_STATIC,14,91,34,8
     GROUPBOX        "Long Runs Parameter",IDC_STATIC,7,115,220,50
     CONTROL         "Default Long Run Parameter",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,127,110,10
     LTEXT           "Long Run Länge:",IDC_STATIC,14,145,56,8
-    EDITTEXT        IDC_EDIT6,76,143,63,14,ES_AUTOHSCROLL
     GROUPBOX        "Teststatus",IDC_STATIC,7,168,220,96
     LTEXT           "Static",IDC_INFO_STATIC_RUN,89,179,128,17
     LTEXT           "\nBitte auf die ""Tests durchführen""\ntaste drücken !!!",
@@ -1979,35 +1979,35 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "FIPS-PUB-140-1 Test-Batterie"
 FONT 8, "MS Sans Serif"
 BEGIN
+    PUSHBUTTON      "&Testbatterie starten",IDC_BATTERIETEST,7,212,84,19
     DEFPUSHBUTTON   "&Schließen",IDOK,114,212,76,19
+    GROUPBOX        "Entropiestatus",IDC_STATIC,7,7,183,33
     GROUPBOX        "Ergebnise der einzelnen FIPS-PUB-140-1 Tests",
                     IDC_STATIC,7,46,183,111
-    GROUPBOX        "Entropiestatus",IDC_STATIC,7,7,183,33
-    GROUPBOX        "Testbatterie Status",IDC_STATIC,7,163,183,42
-    PUSHBUTTON      "&Testbatterie starten",IDC_BATTERIETEST,7,212,84,19
-    CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
-    CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
-    CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
-    CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,163,134,18,16
-    CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,163,59,18,16
-    CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,163,84,18,16
-    CONTROL         250,IDC_BMP_POKER_HAK,"Static",SS_BITMAP,163,109,18,16
-    CONTROL         250,IDC_BMP_RUN_HAK,"Static",SS_BITMAP,163,134,18,16
+    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,139,11
     LTEXT           "Longrun Test Ergebnis:",IDC_TEXT_LONG,17,62,123,13
     LTEXT           "Mono-Bit Test Ergebnis:",IDC_TEXT_MONO,17,87,123,13
     LTEXT           "Poker Test Ergebnis:",IDC_TEXT_POKER,17,112,123,13
     LTEXT           "Runs Test Ergebnis:",IDC_TEXT_RUN,17,137,123,13
+    GROUPBOX        "Testbatterie Status",IDC_STATIC,7,163,183,42
     LTEXT           "FIPS-PUB-140-1 Testbatterie Status:",IDC_TEXT_BATTERIE,
                     17,182,123,11
+    CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
+    CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
+    CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
+    CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,163,134,18,16
     CONTROL         251,IDC_BMP_FIPS_KRE,"Static",SS_BITMAP,163,177,18,16
+    CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,163,59,18,16
+    CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,163,84,18,16
+    CONTROL         250,IDC_BMP_POKER_HAK,"Static",SS_BITMAP,163,109,18,16
+    CONTROL         250,IDC_BMP_RUN_HAK,"Static",SS_BITMAP,163,134,18,16
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
-    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,139,11
 END
 
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wie Sie Starten"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Schließen",IDOK,195,189,50,14
     CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen",
@@ -3276,6 +3276,7 @@ BEGIN
 
     IDD_DIALOG_PLAYFAIR, DIALOG
     BEGIN
+        VERTGUIDE, 261
         VERTGUIDE, 280
         HORZGUIDE, 311
         HORZGUIDE, 329
@@ -4768,13 +4769,13 @@ CAPTION "Drawing Parameters"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,14,91,69,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,99,91,50,18
     EDITTEXT        IDC_EDIT1,106,11,13,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT2,106,29,14,12,ES_CENTER | ES_NUMBER
     CONTROL         "Show zero",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,20,49,105,10
     CONTROL         "Autocorrelation in relative",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
+    PUSHBUTTON      "&Cancel",IDCANCEL,99,91,50,18
     LTEXT           "Bar width     (1-10):",IDC_STATIC,21,14,84,10
     LTEXT           "Curve width   (1-10) :",IDC_STATIC,21,31,84,10
 END
@@ -4853,10 +4854,10 @@ BEGIN
                     WS_TABSTOP,142,80,91,10
     CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,142,105,61,10
-    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
     CONTROL         "Show base ciphers",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,142,130,80,10
+    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
 END
 
 IDD_DIALOG_TEXTEINGABE_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 301, 221
@@ -5042,31 +5043,31 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
-    CTEXT           "Copyright (c) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,253,242,19
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
+    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
+                    16,205,23,WS_EX_TRANSPARENT
+    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
                     242,8
     CTEXT           "for creating employee awareness on the subject of cryptography.",
                     IDC_STATIC,0,81,242,8
     CTEXT           "With the security library of",IDC_STATIC,1,104,241,8
+    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
+                    121,185,33,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    CTEXT           "Contact:",IDC_STATIC,0,178,241,10
     LTEXT           "bernhard.esslinger@db.com /",IDC_STATIC,69,188,145,8
+    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
     LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,69,208,128,
                     10
     LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
     LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
-    CTEXT           "Contact:",IDC_STATIC,0,178,241,10
-    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
-                    16,205,23,WS_EX_TRANSPARENT
-    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
-                    121,185,33,WS_EX_TRANSPARENT
-    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
+    CTEXT           "Copyright (c) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
+                    IDC_STATIC,0,253,242,19
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -5087,40 +5088,40 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,20,254,50,17
     PUSHBUTTON      "&Restore standard",IDC_BUTTON1,86,254,99,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,202,254,55,17
-    GROUPBOX        "Formatting options",IDC_STATIC,5,5,260,45
     CONTROL         "Keep characters not present in the alphabet unchanged",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,20,
                     213,10
     CONTROL         "Keep uppercase/lowercase (if possible)",IDC_CHECK8,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,35,163,10
-    GROUPBOX        "Alphabet options",IDC_STATIC,5,55,260,107
     CONTROL         "Distinguish between uppercase and lowercase",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,70,175,10
     CONTROL         "Uppercase letters",IDC_CHECK3,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,20,85,69,10
     CONTROL         "Space",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     20,100,55,10
-    CONTROL         "Numerals",IDC_CHECK7,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,20,115,36,10
     CONTROL         "Punctuation",IDC_CHECK6,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,105,85,55,10
     CONTROL         "Lowercase letters",IDC_CHECK4,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,105,100,69,10
-    LTEXT           "Alphabet to use:",IDC_STATIC,20,130,90,8
     EDITTEXT        IDC_EDIT1,20,140,237,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Find...",IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,
+                    202,184,55,14
+    CONTROL         "Separate pairs of identical letters",IDC_CHECK9,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,229,126,10
+    EDITTEXT        IDC_EDIT2,202,226,15,12,ES_AUTOHSCROLL
+    CONTROL         "Numerals",IDC_CHECK7,"Button",BS_AUTO3STATE | 
+                    WS_TABSTOP,20,115,49,10
+    PUSHBUTTON      "&Cancel",IDCANCEL,202,254,55,17
+    GROUPBOX        "Formatting options",IDC_STATIC,5,5,260,45
+    GROUPBOX        "Alphabet options",IDC_STATIC,5,55,260,107
+    LTEXT           "Alphabet to use:",IDC_STATIC,20,130,90,8
     GROUPBOX        "Reference file for statistical applications",IDC_STATIC,
                     5,168,260,39
     EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,184,165,14,
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    PUSHBUTTON      "&Find...",IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,
-                    202,184,55,14
     GROUPBOX        "Playfair",IDC_STATIC,5,214,260,30
-    CONTROL         "Separate pairs of identical letters",IDC_CHECK9,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,229,126,10
     LTEXT           "Separators:",IDC_STATIC,159,229,38,10
-    EDITTEXT        IDC_EDIT2,202,226,15,12,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_SCHLUESSELLAENGE DIALOG DISCARDABLE  0, 0, 186, 68
@@ -5153,10 +5154,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Decrypt",IDOK,20,54,64,18
     PUSHBUTTON      "&Cancel",IDCANCEL,116,54,50,18
     CTEXT           "Derived key:",IDC_STATIC,20,11,146,8
-    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_ERSETZEN DIALOG DISCARDABLE  0, 0, 347, 295
@@ -5233,23 +5234,23 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,8,284,66,19
     PUSHBUTTON      "Generate &new key pair",IDC_BUTTON1,135,284,125,19
-    PUSHBUTTON      "&Close",IDCANCEL,321,284,68,19
-    EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,380,102
-    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,380,61
-    CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,380,50
-    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,8,239,232,
-                    32
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
                     61,12
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     169,250,61,12
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,380,102
+    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,380,61
+    CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,380,50
+    PUSHBUTTON      "&Close",IDCANCEL,321,284,68,19
+    EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,8,239,232,
+                    32
     LTEXT           "If you wish to use the displayed key pair, click on ""Apply"".   If you wish to use a different key pair, click on the ""Generate new key pair"" pushbutton.",
                     IDC_STATIC,249,236,140,41
 END
@@ -5266,20 +5267,20 @@ BEGIN
                     14
     PUSHBUTTON      "&Delete...",IDC_BUTTON3,127,276,120,14
     DEFPUSHBUTTON   "C&lose",IDOK,259,276,120,14
-    LTEXT           "The list below shows the asymmetric key pairs that are available.",
-                    IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
-    LTEXT           "Select the desired name by clicking on it with the left mouse button.",
-                    IDC_STATIC,8,14,375,8
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
-    GROUPBOX        "Listed key types:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA keys",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
     CONTROL         "DSA keys",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,260,76,8
     CONTROL         "EC keys",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,274,76,8
+    LTEXT           "The list below shows the asymmetric key pairs that are available.",
+                    IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
+    LTEXT           "Select the desired name by clicking on it with the left mouse button.",
+                    IDC_STATIC,8,14,375,8
+    GROUPBOX        "Listed key types:",IDC_STATIC,8,232,105,58
 END
 
 IDD_DIALOG_PINCODE DIALOG DISCARDABLE  0, 0, 192, 159
@@ -5306,24 +5307,24 @@ BEGIN
     CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,25,167,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
     CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
-    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
-    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
-    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
-    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
-    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
     CTEXT           "Design, Support:",IDC_STATIC,1,52,166,10
+    CTEXT           "Peer Wichmann",IDC_STATIC,6,62,154,8
+    CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,72,167,10
+    CTEXT           "Henrik Koy",IDC_STATIC,7,82,153,10,NOT WS_GROUP
     CTEXT           "Implementation, Documentation:",IDC_STATIC,1,99,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,108,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,118,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,138,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,158,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,167,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,177,154,8
     CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,187,166,9
     CTEXT           "Review:",IDC_STATIC,1,204,166,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,214,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,223,154,8
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -5332,8 +5333,6 @@ CAPTION "Public Key (Asymmetric)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Back",IDOK,321,260,73,19
-    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,51,250,231,
-                    29
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,67,260,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,
@@ -5344,6 +5343,8 @@ BEGIN
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,66,388,128
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,192,388,53
+    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,51,250,231,
+                    29
     EDITTEXT        IDC_EDIT3,6,4,104,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     EDITTEXT        IDC_EDIT2,112,4,273,14,ES_MULTILINE | ES_READONLY | 
@@ -5365,9 +5366,6 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Public and Private Keys (Asymmetric)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Back",IDOK,316,295,79,18
-    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,52,281,231,
-                    32
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,68,292,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,
@@ -5380,6 +5378,9 @@ BEGIN
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,186,390,51
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,235,390,39
+    DEFPUSHBUTTON   "&Back",IDOK,316,295,79,18
+    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,52,281,231,
+                    32
     EDITTEXT        IDC_EDIT3,5,4,105,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     EDITTEXT        IDC_EDIT2,115,4,271,14,ES_MULTILINE | ES_READONLY | 
@@ -5405,8 +5406,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Decrypt",IDOK,13,47,58,17
     PUSHBUTTON      "&Cancel",IDCANCEL,111,47,53,17
-    LTEXT           "Derived Caesar key:",IDC_STATIC,32,19,72,8
     EDITTEXT        IDC_EDIT1,124,17,16,12,ES_UPPERCASE
+    LTEXT           "Derived Caesar key:",IDC_STATIC,32,19,72,8
 END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF_GROSS DIALOG DISCARDABLE  0, 0, 252, 298
@@ -5670,8 +5671,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Copy &key",IDC_BUTTON1,7,54,80,18
     DEFPUSHBUTTON   "&Close",IDOK,117,54,62,18
-    LTEXT           "Key:",IDC_STATIC,7,12,48,8
     EDITTEXT        IDC_EDIT1,7,25,172,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Key:",IDC_STATIC,7,12,48,8
 END
 
 IDD_DIALOG_SIGN DIALOG DISCARDABLE  0, 0, 388, 377
@@ -5679,6 +5680,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Sign a Message"
 FONT 8, "MS Sans Serif"
 BEGIN
+    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,11,161,367,99
+    EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Sign",IDOK,11,347,93,20
     PUSHBUTTON      "&Cancel",IDCANCEL,295,347,83,20
     GROUPBOX        "Choose hash function",IDC_STATIC,11,6,137,129
@@ -5721,9 +5726,6 @@ BEGIN
                     BS_AUTORADIOBUTTON,258,114,92,10
     LTEXT           "Choose a key/PSE to be used when signing",IDC_STATIC,11,
                     147,364,8
-    CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,11,161,367,99
     GROUPBOX        "Listed key types:",IDC_STATIC,11,270,106,68
     CONTROL         "RSA keys",IDC_CHECK_RSA_KEYS,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,28,286,66,10
@@ -5733,7 +5735,6 @@ BEGIN
                     WS_TABSTOP,28,316,71,10
     GROUPBOX        "",IDC_STATIC,130,270,248,32
     CTEXT           "PIN code for chosen PSE:",IDC_STATIC,136,285,159,9
-    EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
     GROUPBOX        "",IDC_STATIC,130,302,248,36
     CONTROL         "Display signature time",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,141,311,165,8
@@ -5746,13 +5747,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Signature Verification"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Verify signature",IDOK,11,340,90,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,309,340,71,19
-    LTEXT           "Choose the signature originator from the following list:",
-                    IDC_STATIC,7,3,363,12
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,17,373,173
+    DEFPUSHBUTTON   "&Verify signature",IDOK,11,340,90,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,309,340,71,19
+    PUSHBUTTON      "&Look up key",IDC_BUTTON1,308,235,72,18
+    LTEXT           "Choose the signature originator from the following list:",
+                    IDC_STATIC,7,3,363,12
     GROUPBOX        "Specified data",IDC_STATIC,8,199,372,26,BS_CENTER
     RTEXT           "Signature algorithm",IDC_STATIC,14,209,70,12
     EDITTEXT        IDC_EDIT2,88,209,100,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -5772,7 +5774,6 @@ BEGIN
                     WS_GROUP,144,244,63,10
     CONTROL         "ECSP-&NR",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,218,
                     244,63,10
-    PUSHBUTTON      "&Look up key",IDC_BUTTON1,308,235,72,18
     GROUPBOX        "Verification hash function:",IDC_STATIC,132,267,161,27
     CONTROL         "SH&A-1",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,143,279,63,12
@@ -5818,16 +5819,16 @@ BEGIN
     DEFPUSHBUTTON   "&Output signature data",IDOK,9,290,93,18
     PUSHBUTTON      "&Cancel",IDCANCEL,166,290,91,18
     PUSHBUTTON      "C&ontinue >",IDC_BUTTON_CONTINUE,313,290,61,18
-    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
     EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
@@ -5884,18 +5885,15 @@ BEGIN
     PUSHBUTTON      "End &dialog",IDOK,7,305,78,19
     PUSHBUTTON      "&Cancel",IDCANCEL,207,305,68,19
     PUSHBUTTON      "C&ontinue >",IDC_BUTTON_CONTINUE,332,305,53,19
-    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT2,5,18,380,62,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT3,5,86,110,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
     EDITTEXT        IDC_EDIT4,5,98,380,53,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    GROUPBOX        "Base for presentation of signature",IDC_STATIC,160,156,
-                    225,20,BS_CENTER
+    EDITTEXT        IDC_EDIT6,5,185,380,102,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oct&al",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,171,164,33,10
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,217,
@@ -5904,21 +5902,37 @@ BEGIN
                     271,164,56,10
     CONTROL         "Oc&tets",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,340,164,
                     37,10
+    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,5,86,110,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    GROUPBOX        "Base for presentation of signature",IDC_STATIC,160,156,
+                    225,20,BS_CENTER
     EDITTEXT        IDC_EDIT5,5,173,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,5,185,380,102,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
     EDITTEXT        IDC_EDIT7,5,292,200,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
 
-IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 292, 343
+IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 342, 343
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Key matrix",IDC_STATIC,10,50,134,118
+    EDITTEXT        IDC_MYTXT,10,285,322,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    CONTROL         "&Encrypt",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,213,4,42,10
+    CONTROL         "&Decrypt",IDC_RADV,"Button",BS_AUTORADIOBUTTON,213,15,
+                    40,8
+    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,273,5,50,8
+    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,273,
+                    16,50,8
+    CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,47,29,71,8
+    EDITTEXT        IDC_PASSWORD,46,9,150,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Output results of analysis",IDOK,10,311,119,18
+    GROUPBOX        "Key matrix",IDC_STATIC,10,50,131,118
     EDITTEXT        IDC_EDIT_1_1,18,63,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_2,38,63,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_3,58,63,15,12,ES_AUTOHSCROLL
@@ -5957,28 +5971,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_6,118,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,148,43,132,151
-    DEFPUSHBUTTON   "&Output results of analysis",IDOK,10,311,119,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,217,311,61,18
-    EDITTEXT        IDC_LIST,10,218,270,53,ES_MULTILINE | ES_UPPERCASE | 
+                    WS_TABSTOP,147,43,185,151
+    PUSHBUTTON      "&Cancel",IDCANCEL,271,311,61,18
+    EDITTEXT        IDC_LIST,10,218,322,53,ES_MULTILINE | ES_UPPERCASE | 
                     ES_READONLY | ES_WANTRETURN | WS_HSCROLL
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,91,27,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,91,38,
-                    50,8
-    CONTROL         "&Encrypt",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,17,27,64,10
-    CONTROL         "&Decrypt",IDC_RADV,"Button",BS_AUTORADIOBUTTON,17,38,64,
-                    8
-    EDITTEXT        IDC_PASSWORD,46,9,150,12,ES_AUTOHSCROLL
     LTEXT           "Password:",IDC_STATIC,10,10,32,10
     RTEXT           "Digrams",IDC_STATIC,245,27,31,8
     EDITTEXT        IDC_NUMD,220,27,20,12,ES_READONLY | ES_NUMBER | NOT 
                     WS_BORDER
-    CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,209,11,71,8
-    EDITTEXT        IDC_MYTXT,10,285,270,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    PUSHBUTTON      "&Frequency analysis",IDC_BUTTON5,71,175,72,18
+    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,57,175,72,18
     LTEXT           "ciphertext, input or result of the frequency analysis, found plaintext",
                     IDC_STATIC,10,208,270,10
     LTEXT           "Input",IDC_STATIC,10,275,85,10
@@ -5990,20 +5991,24 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Playfair"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_KEYENTER,24,75,165,12,ES_AUTOHSCROLL
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    200,73,22,20
     DEFPUSHBUTTON   "&Encrypt",IDOK,10,236,66,20
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,93,236,66,20
     PUSHBUTTON      "&Cancel",IDCANCEL,176,236,52,20
-    GROUPBOX        "Optionen",IDC_STATIC,10,7,218,36
     CONTROL         "&Preformat text",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,17,78,8
     CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,30,78,8
+    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,169,106,48,10
+    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
+                    118,48,10
+    GROUPBOX        "Optionen",IDC_STATIC,10,7,218,36
     GROUPBOX        "Playfair key",IDC_STATIC,10,49,218,178
     LTEXT           "Short version of the Playfair key:",IDC_STATIC,24,64,
                     114,11
-    EDITTEXT        IDC_KEYENTER,24,75,165,12,ES_AUTOHSCROLL
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    200,73,22,20
     GROUPBOX        "Key matrix",IDC_STATIC,24,98,137,120
     EDITTEXT        IDC_EDIT11,35,112,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,112,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -6041,10 +6046,6 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,169,106,48,10
-    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
-                    118,48,10
 END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
@@ -6077,10 +6078,10 @@ BEGIN
                     40,12
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     121,99,61,12
-    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,12,89,175,
-                    26
     CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | 
                     LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,12,26,293,57
+    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,12,89,175,
+                    26
     EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
 END
@@ -6090,9 +6091,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif"
 BEGIN
+    PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
+                    19
     PUSHBUTTON      "C&opy primes to clipboard",IDC_BUTTON_ACCEPT,11,224,110,
                     20
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",
@@ -6103,12 +6109,9 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
     CONTROL         "&Both value ranges are equal",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
     EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     GROUPBOX        "",IDC_STATIC,11,0,303,32
@@ -6121,8 +6124,6 @@ BEGIN
     LTEXT           "Lower limit",IDC_STATIC,17,128,40,9
     LTEXT           "Upper limit",IDC_STATIC,18,147,44,8
     LTEXT           "Result",IDC_STATIC,18,168,37,10
-    PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
-                    19
     LTEXT           "of each other",IDC_STATIC,196,64,53,8
     GROUPBOX        "Prime number p",IDC_STATIC,11,106,142,80
     GROUPBOX        "Prime number q",IDC_STATIC,172,106,142,80
@@ -6145,6 +6146,9 @@ BEGIN
     PUSHBUTTON      "&Options for alphabet and number system...",
                     IDC_OPTIONEN,176,187,156,16
     EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,19,314,313,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,341,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,341,73,18
     PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,341,90,18
@@ -6171,13 +6175,10 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_HEADER4,19,240,313,11,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_HEADER2,19,270,313,11,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_HEADER3,19,302,313,11,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT12,19,314,313,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -6187,42 +6188,42 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,14,358,84,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,358,79,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
+    EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Update",IDC_BUTTON3,109,15,53,12
+    CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,192,19,56,8
+    CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
+                    63,9
+    CONTROL         "Include formatting",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,296,17,72,8
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
     PUSHBUTTON      "&Generate random key",IDC_ERZEUGEN,14,332,109,17
     PUSHBUTTON      "Load keys from the &clipboard",IDC_BUTTON2,147,332,149,
                     17
+    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
     GROUPBOX        "Total count and bit length of the homophones",
                     IDC_STATIC,14,4,162,42
     LTEXT           "Total number:",IDC_STATIC,27,17,40,8
-    EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Update",IDC_BUTTON3,109,15,53,12
     LTEXT           "Bit length:",IDC_STATIC,27,32,30,8
     EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "bits",IDC_STATIC,98,33,18,9
     GROUPBOX        "Display of homophones",IDC_STATIC,183,4,95,42
-    CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,192,19,56,8
-    CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
-                    63,9
     GROUPBOX        "Formatting",IDC_STATIC,285,4,97,42
-    CONTROL         "Include formatting",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,296,17,72,8
     LTEXT           "with encryption",IDC_STATIC,308,27,54,8
     EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Key table for homophone substitution",IDC_STATIC,14,52,
                     192,8
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
     LTEXT           "Edit the list of homophones for individual characters:",
                     IDC_STATIC,14,270,172,9
     LTEXT           "Characters",IDC_STATIC,14,283,36,8
     LTEXT           "Number",IDC_STATIC,54,283,30,8
     LTEXT           "List of homophones",IDC_STATIC,92,283,72,8
-    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_STATICEDGE
 END
@@ -6232,39 +6233,39 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Elliptische Kurven erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
+    EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
     CONTROL         "Komplexe Multiplikation",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,26,22,96,8
     CONTROL         "Mit der Hilfe von ' Zufall '",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,26,36,93,8
-    GROUPBOX        "Zufallsgenerator initialisieren ",IDC_STATIC,141,3,251,
-                    53
-    LTEXT           "Die Berechnung der Elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall die ""Saat"" setzen.",
-                    IDC_STATIC,155,16,221,16
-    LTEXT           "Saat",IDC_STATIC,155,38,16,8
-    EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
-    GROUPBOX        "Primzahl",IDC_STATIC,14,65,378,51
-    LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst größere Primzahl ersetzt.",
-                    IDC_STATIC,29,77,347,18
     EDITTEXT        IDC_EDIT1,29,97,347,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Elliptische Kurve erzeugen",IDC_BUTTON_GEN,29,126,101,
                     20
-    GROUPBOX        "Parameter der Elliptischen Kurve",IDC_STATIC,14,156,378,
-                    154
-    LTEXT           "Domain-Parameter der erzeugten Elliptischen Kurve",
-                    IDC_STATIC,29,169,172,8
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,
-                    272,160,28
+    PUSHBUTTON      "Elliptische Kurve &speichern",IDC_BUTTON_ACCEPT,29,320,
+                    101,20
     CONTROL         "&Oktal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,40,287,33,8
     CONTROL         "&Dezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,81,287,
                     41,8
     CONTROL         "&Hexadezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,
                     129,287,56,8
-    PUSHBUTTON      "Elliptische Kurve &speichern",IDC_BUTTON_ACCEPT,29,320,
-                    101,20
+    GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
+    GROUPBOX        "Zufallsgenerator initialisieren ",IDC_STATIC,141,3,251,
+                    53
+    LTEXT           "Die Berechnung der Elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall die ""Saat"" setzen.",
+                    IDC_STATIC,155,16,221,16
+    LTEXT           "Saat",IDC_STATIC,155,38,16,8
+    GROUPBOX        "Primzahl",IDC_STATIC,14,65,378,51
+    LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst größere Primzahl ersetzt.",
+                    IDC_STATIC,29,77,347,18
+    GROUPBOX        "Parameter der Elliptischen Kurve",IDC_STATIC,14,156,378,
+                    154
+    LTEXT           "Domain-Parameter der erzeugten Elliptischen Kurve",
+                    IDC_STATIC,29,169,172,8
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,
+                    272,160,28
     PUSHBUTTON      "&Close",IDCANCEL,298,322,78,18
 END
 
@@ -6310,7 +6311,7 @@ END
 IDD_DIALOG_ANALYSE_NGRAM DIALOGEX 0, 0, 317, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Determine list",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "&Save list",IDOK,7,163,99,24
@@ -6339,12 +6340,6 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Random Numbers"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Generate output",IDOK,9,229,127,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,214,229,68,19
-    GROUPBOX        "",IDC_STATIC,9,0,273,36
-    LTEXT           "Random data is generated with the aid of so-called ""pseudorandom number generators"". This is a selection of both ""cryptographically strong"" and also insecure pseudorandom number generators.",
-                    IDC_STATIC,18,8,256,24
-    GROUPBOX        "Algorithm selection ",IDC_STATIC,9,42,273,79
     CONTROL         "&SECUDE Library random number generator",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&x^2 (mod N)  random number generator",IDC_RADIO2,
@@ -6353,14 +6348,20 @@ BEGIN
                     BS_AUTORADIOBUTTON,18,89,129,8
     CONTROL         "&Inverse Congruence Generator (ICG)",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON,18,104,127,8
-    GROUPBOX        "Parameters ",IDC_STATIC,9,126,273,58
-    LTEXT           "Seed:",IDC_STATIC,18,141,18,9
     EDITTEXT        IDC_EDIT1,40,140,207,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Choose generator-specific &parameters ...",IDC_BUTTON1,
                     18,158,155,18
+    EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Generate output",IDOK,9,229,127,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,214,229,68,19
+    GROUPBOX        "",IDC_STATIC,9,0,273,36
+    LTEXT           "Random data is generated with the aid of so-called ""pseudorandom number generators"". This is a selection of both ""cryptographically strong"" and also insecure pseudorandom number generators.",
+                    IDC_STATIC,18,8,256,24
+    GROUPBOX        "Algorithm selection ",IDC_STATIC,9,42,273,79
+    GROUPBOX        "Parameters ",IDC_STATIC,9,126,273,58
+    LTEXT           "Seed:",IDC_STATIC,18,141,18,9
     GROUPBOX        "Output options ",IDC_STATIC,9,189,273,31
     LTEXT           "Length of output in bytes:",IDC_STATIC,18,202,92,8
-    EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
 END
 
 IDD_RANDOM_PARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
@@ -6373,17 +6374,17 @@ BEGIN
                     WS_BORDER | NOT WS_TABSTOP
 END
 
-IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 238, 86
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 238, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Random Number Generator"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,8,60,72,17
+    EDITTEXT        IDC_EDIT1,52,39,176,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Cancel",IDCANCEL,160,60,67,17
     LTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter. Additional information can be obtained from the on-line help (""F1"" key).",
                     IDC_STATIC,7,7,219,28
     LTEXT           "Modulus N = ",IDC_STATIC,8,41,42,8
-    EDITTEXT        IDC_EDIT1,52,39,176,13,ES_AUTOHSCROLL,WS_EX_STATICEDGE
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -6431,15 +6432,15 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,11,96,69,21
     PUSHBUTTON      "&Cancel",IDCANCEL,176,96,67,21
+    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
     LTEXT           "The linear congruence generator uses a and b from line ax + b and modulus N as parameters. Additional information can be obtained from the on-line help (""F1"" key).",
                     IDC_STATIC,11,9,232,25
     LTEXT           "Straight line parameters:",IDC_STATIC,11,38,64,10
     LTEXT           "a =",IDC_STATIC,82,37,11,8
-    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
     LTEXT           "b =",IDC_STATIC,81,54,10,8
-    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
     LTEXT           "Modulus  N =",IDC_STATIC,49,72,44,8
-    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 268
@@ -6448,33 +6449,20 @@ CAPTION "Options for RSA Encryption"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,238,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,214,238,50,17
-    GROUPBOX        "Text options ",IDC_STATIC,7,5,257,65
     CONTROL         "All 256 &ASCII characters",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,22,19,120,10
     CONTROL         "S&pecify alphabet",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,22,32,77,8
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
     EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
-    GROUPBOX        "RSA variant ",IDC_STATIC,7,77,257,34
     CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,22,93,89,8
     CONTROL         "Dialouge of &sisters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,111,93,87,8
-    GROUPBOX        "Method and block length for the coding of text into numbers ",
-                    IDC_STATIC,7,117,257,51
-    LTEXT           "Method:",IDC_STATIC,24,134,27,10
     CONTROL         "b ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,110,134,43,8
     CONTROL         "N&umber system",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
                     159,134,69,8
-    LTEXT           "Block length in characters:",IDC_STATIC,24,150,86,8
     EDITTEXT        IDC_EDIT2,111,148,17,13,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,135,150,121,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    GROUPBOX        "Number system ",IDC_STATIC,7,175,257,53
-    LTEXT           "The numbers for RSA encryption and decryption will be represented in the following number system",
-                    IDC_STATIC,16,188,237,18
     CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,211,39,10
     CONTROL         "&Binary",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,211,
@@ -6483,6 +6471,19 @@ BEGIN
                     33,10
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     200,211,56,10
+    PUSHBUTTON      "&Cancel",IDCANCEL,214,238,50,17
+    GROUPBOX        "Text options ",IDC_STATIC,7,5,257,65
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
+    GROUPBOX        "RSA variant ",IDC_STATIC,7,77,257,34
+    GROUPBOX        "Method and block length for the coding of text into numbers ",
+                    IDC_STATIC,7,117,257,51
+    LTEXT           "Method:",IDC_STATIC,24,134,27,10
+    LTEXT           "Block length in characters:",IDC_STATIC,24,150,86,8
+    EDITTEXT        IDC_EDIT3,135,150,121,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    GROUPBOX        "Number system ",IDC_STATIC,7,175,257,53
+    LTEXT           "The numbers for RSA encryption and decryption will be represented in the following number system",
+                    IDC_STATIC,16,188,237,18
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -6492,6 +6493,9 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Save periodicity analysis",IDOK,7,236,159,22
     PUSHBUTTON      "&Close",IDCANCEL,307,236,68,22
+    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,52,370,169
     LTEXT           "Every line output is a cycle calculated, for which the following information is output:",
                     -1,7,7,368,10
     LTEXT           "- The first position in the file where the periodicity starts (offset)",
@@ -6499,9 +6503,6 @@ BEGIN
     LTEXT           "- The cycle length",-1,7,29,310,10
     LTEXT           "- The maximum first 20 bytes (output in hex format) which occur at the start of the cycle.",
                     -1,7,39,310,10
-    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,7,52,370,169
 END
 
 IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 253, 286
@@ -6578,23 +6579,23 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Execute test",IDC_BUTTON_FREQTEST,15,111,79,18
-    DEFPUSHBUTTON   "&Close",IDOK,164,152,79,19
-    GROUPBOX        "Parameter options",IDC_STATIC,7,7,236,82
-    LTEXT           "Signifikance level 'alpha':",IDC_STATIC,15,20,80,8
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Tupel size",IDC_TUPEL_STATIC,159,20,33,8
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     CONTROL         "Default offset and Test length",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
     CONTROL         "Select randomized sections from file",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
-    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
     EDITTEXT        IDC_EDIT1,41,68,60,12,ES_AUTOHSCROLL
-    LTEXT           "Test length",IDC_STATIC,136,69,36,8
     EDITTEXT        IDC_EDIT2,175,67,59,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Execute test",IDC_BUTTON_FREQTEST,15,111,79,18
+    DEFPUSHBUTTON   "&Close",IDOK,164,152,79,19
+    GROUPBOX        "Parameter options",IDC_STATIC,7,7,236,82
+    LTEXT           "Signifikance level 'alpha':",IDC_STATIC,15,20,80,8
+    LTEXT           "Tupel size",IDC_TUPEL_STATIC,159,20,33,8
+    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
+    LTEXT           "Test length",IDC_STATIC,136,69,36,8
     GROUPBOX        "Test results",IDC_STATIC,7,91,236,53
     LTEXT           "Def_Parameter ...",IDC_INFO_STATIC,102,102,132,16
     LTEXT           "Test bestanden ...",IDC_STATIC_ERGEBNIS,102,125,107,10
@@ -6610,26 +6611,26 @@ CAPTION "Runs Test"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Execute tests",IDC_TESTBUTTON,14,209,67,18
-    DEFPUSHBUTTON   "&Close",IDOK,144,270,83,18
-    GROUPBOX        "Runs parameter",IDC_STATIC,7,7,220,104
-    LTEXT           "Significance level 'alpha': ",IDC_STATIC,14,21,82,8
     COMBOBOX        IDC_COMBO1,106,19,52,46,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     CONTROL         "Default run test  parameter",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,39,104,10
     CONTROL         "Select randomized sections from file",IDC_CHECK3,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,51,170,13
-    LTEXT           "Offset:",IDC_STATIC,14,72,22,8
     EDITTEXT        IDC_EDIT2,52,70,54,12,ES_AUTOHSCROLL
-    LTEXT           "Length:",IDC_STATIC,129,72,25,8
-    EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
-    LTEXT           "Run length",IDC_STATIC,14,91,36,8
     EDITTEXT        IDC_EDIT5,52,89,54,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,75,143,63,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Close",IDOK,144,270,83,18
+    GROUPBOX        "Runs parameter",IDC_STATIC,7,7,220,104
+    LTEXT           "Significance level 'alpha': ",IDC_STATIC,14,21,82,8
+    LTEXT           "Offset:",IDC_STATIC,14,72,22,8
+    LTEXT           "Length:",IDC_STATIC,129,72,25,8
+    LTEXT           "Run length",IDC_STATIC,14,91,36,8
     GROUPBOX        "Long runs parameter",IDC_STATIC,7,115,220,50
     CONTROL         "Default long run parameter",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,127,110,10
     LTEXT           "Maximal run length",IDC_STATIC,14,145,60,8
-    EDITTEXT        IDC_EDIT6,75,143,63,14,ES_AUTOHSCROLL
     GROUPBOX        "Test status",IDC_STATIC,7,168,220,96
     LTEXT           "Static",IDC_INFO_STATIC_RUN,89,179,128,17
     LTEXT           "\nPlease select ""Execute tests""",IDC_RUN_ERGEBNIS,89,
@@ -6648,29 +6649,29 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "FIPS-PUB-140-1 Test battery"
 FONT 8, "MS Sans Serif"
 BEGIN
+    PUSHBUTTON      "&Start testbattery",IDC_BATTERIETEST,7,212,84,19
     DEFPUSHBUTTON   "&Close",IDOK,114,212,76,19
+    GROUPBOX        "Entropy state",IDC_STATIC,7,7,183,33
     GROUPBOX        "Result of the individual FIPS-PUB-140-1 tests",
                     IDC_STATIC,7,46,183,111
-    GROUPBOX        "Entropy state",IDC_STATIC,7,7,183,33
     GROUPBOX        "Testbattery status",IDC_STATIC,7,163,183,42
-    PUSHBUTTON      "&Start testbattery",IDC_BATTERIETEST,7,212,84,19
-    CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
-    CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
-    CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
-    CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,163,134,18,16
-    CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,163,59,18,16
-    CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,163,84,18,16
-    CONTROL         250,IDC_BMP_POKER_HAK,"Static",SS_BITMAP,163,109,18,16
-    CONTROL         250,IDC_BMP_RUN_HAK,"Static",SS_BITMAP,163,134,18,16
+    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,139,11
     LTEXT           "Longrun test result:",IDC_TEXT_LONG,17,62,123,13
     LTEXT           "Mono bit test result:",IDC_TEXT_MONO,17,87,123,13
     LTEXT           "Poker test result:",IDC_TEXT_POKER,17,112,123,13
     LTEXT           "Runs test result:",IDC_TEXT_RUN,17,137,123,13
+    CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
+    CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
+    CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
+    CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,163,134,18,16
     LTEXT           "FIPS-PUB-140-1 Testbattery result:",IDC_TEXT_BATTERIE,
                     17,182,123,11
     CONTROL         251,IDC_BMP_FIPS_KRE,"Static",SS_BITMAP,163,177,18,16
+    CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,163,59,18,16
+    CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,163,84,18,16
+    CONTROL         250,IDC_BMP_POKER_HAK,"Static",SS_BITMAP,163,109,18,16
+    CONTROL         250,IDC_BMP_RUN_HAK,"Static",SS_BITMAP,163,134,18,16
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
-    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,139,11
 END
 
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
@@ -7738,6 +7739,12 @@ BEGIN
         VERTGUIDE, 23
         HORZGUIDE, 242
         HORZGUIDE, 278
+    END
+
+    IDD_DIALOG_PLAYFAIR, DIALOG
+    BEGIN
+        VERTGUIDE, 332
+        HORZGUIDE, 329
     END
 
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
