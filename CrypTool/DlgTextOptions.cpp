@@ -171,6 +171,7 @@ void CDlgTextOptions::OnButton1()
 	m_Case = FALSE;
 	m_ConvertCase = TRUE;
 	m_Format = TRUE;
+	m_trenn = "X";
 	UpdateTags();
 	UpdateHeaderAlphabet();
 }
