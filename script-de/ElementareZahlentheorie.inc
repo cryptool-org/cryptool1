@@ -2341,28 +2341,28 @@ G_3 & = & G_2 {\rm ~~man~sagt:~} G_2 {\rm~ist~abgeschlossen~bez"uglich~der~Addit
 \end{eqnarray}
 Ende der Abschlu"sbildung.
 \vskip +10pt
-{\scriptsize\setlength{\unitlength}{1cm}
-\begin{center}
-\begin{picture}(15,10) %\fboxsep3mm
+%{\scriptsize\setlength{\unitlength}{1cm}
+%\begin{center}
+%\begin{picture}(15,10) %\fboxsep3mm
 %\put(0,0) {\framebox(15,10){}}
-\put(0,0) {\dashbox{0.2}(5.5,10){}}
-\put(9.5,0) {\dashbox{0.2}(5.5,10){}}
-\put(0.2,1) {\framebox(2.6,3.8){}}
-\put(0.2,5) {\framebox(2.6,3.5){}}
-\put(3,1) {\framebox(9,7.5){}}
-\put(12.2,1) {\framebox(2.6,3.8){}}
-\put(12.2,5) {\framebox(2.6,3.5){}}
+%\put(0,0) {\dashbox{0.2}(5.5,10){}}
+%\put(9.5,0) {\dashbox{0.2}(5.5,10){}}
+%\put(0.2,1) {\framebox(2.6,3.8){}}
+%\put(0.2,5) {\framebox(2.6,3.5){}}
+%\put(3,1) {\framebox(9,7.5){}}
+%\put(12.2,1) {\framebox(2.6,3.8){}}
+%\put(12.2,5) {\framebox(2.6,3.5){}}
 %\put(6.5,8){"offentlich}
-\put(6,7.5){Die Zahl $g$ ist "offentlich}
-\put(3.2,7.5){Berechne $A=g^{a}$}
-\put(3.2,5){Sende $A$ an Bob}
-\put(0.4,4){Berechne $S=B^{a}$}
-\put(0.4,7.5){Erzeuge $a$}
+%\put(6,7.5){Die Zahl $g$ ist "offentlich}
+%\put(3.2,7.5){Berechne $A=g^{a}$}
+%\put(3.2,5){Sende $A$ an Bob}
+%\put(0.4,4){Berechne $S=B^{a}$}
+%\put(0.4,7.5){Erzeuge $a$}
 
 
-\end{picture}
-\end{center}
-}
+%\end{picture}
+%\end{center}
+%}
 \subsection*{Anhang C: Bemerkungen zur modulo Subtraktion} \hypertarget{Appendix_C}{}
 Beispielweise gilt f"ur die Subtraktion modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
 Es gilt modulo $5$ also nicht, da"s $-2 = 2$ ! Dies gleichzusetzen ist ein h"aufig
