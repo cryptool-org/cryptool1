@@ -3069,12 +3069,16 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		outf.Write(b3,l2);
 		outf.Close();
 		Reformat(infile,outfile, FALSE);
+
+		char *Invert=new char[];
+		(Perm.m_Invert) ? Invert="INV, \0" : Invert="\0";
+
 		if(Perm.m_P2len)
-			sprintf(key,"%s;%s PARAMETER: %i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, 
+			sprintf(key,"%s;%s PARAMETER: %s%i, %i, %i, %i, %i, %i",Perm.m_Perm1, Perm.m_Perm2, Invert,
 			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		else
-			sprintf(key,"%s PARAMETER: %i,%i,%i,%i,%i,%i", Perm.m_Perm1, 
+			sprintf(key,"%s PARAMETER: %s%i, %i, %i, %i, %i, %i", Perm.m_Perm1, Invert,
 			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		CAppDocument *NewDoc;

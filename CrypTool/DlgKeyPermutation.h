@@ -49,6 +49,7 @@ public:
 	int		m_P2OutSeq;
 	int		m_P1Perm;
 	int		m_P2Perm;
+	BOOL	m_Invert;
 	//}}AFX_DATA
 
 

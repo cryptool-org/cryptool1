@@ -33,6 +33,7 @@ CDlgKeyPermutation::CDlgKeyPermutation(CWnd* pParent /*=NULL*/)
 	m_P2OutSeq = 1;
 	m_P1Perm = -1;
 	m_P2Perm = -1;
+	m_Invert = FALSE;
 	//}}AFX_DATA_INIT
 }
 
@@ -55,6 +56,7 @@ void CDlgKeyPermutation::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO7, m_P2OutSeq);
 	DDX_Radio(pDX, IDC_RADIO10, m_P1Perm);
 	DDX_Radio(pDX, IDC_RADIO12, m_P2Perm);
+	DDX_Check(pDX, IDC_CHECK1, m_Invert);
 	//}}AFX_DATA_MAP
 }
 
@@ -88,8 +90,9 @@ void CDlgKeyPermutation::OnDecrypt()
 	m_Dec = 1;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') +
-	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
+	CString Primes = CString("PARAMETER: ")
+		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
+		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
 
 	OnOK();
@@ -111,8 +114,9 @@ void CDlgKeyPermutation::OnEncrypt()
 	m_Dec = 0;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') +
-	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
+	CString Primes = CString("PARAMETER: ")
+		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
+		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
 
 	OnOK();

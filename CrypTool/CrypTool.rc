@@ -1882,16 +1882,16 @@ BEGIN
                     -1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 287
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Doppelwürfel Verschlüsselung: Permutationseingabe "
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,254,57,19,WS_DISABLED
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,213,254,55,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,304,58,19,WS_DISABLED
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,304,57,19,WS_DISABLED
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,213,304,55,19
     CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,76,88,48,8
     CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,104,
@@ -1909,20 +1909,20 @@ BEGIN
     CONTROL         "auslesen",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,
                     227,47,8
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    165,254,22,20
+                    165,304,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,256,108
+    GROUPBOX        "1. Permutation",IDC_STATIC,12,12,256,108
     LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,29,205,8
-    LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
+    LTEXT           "Permutationsdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,23,58,205,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "2. Permutation",IDC_STATIC,12,132,256,111
     LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,151,205,8
-    LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
+    LTEXT           "Permutationsdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,23,180,205,8
     CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,124,88,56,8
@@ -1936,6 +1936,10 @@ BEGIN
                     124,227,56,8
     RTEXT           "Zeilenweise",IDC_STATIC,23,211,47,8
     RTEXT           "Spaltenweise",IDC_STATIC,23,227,47,8
+    GROUPBOX        "Optionen",IDC_STATIC,12,254,256,33
+    CONTROL         "Für jede Permutation den inversen Schlüssel anwenden",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,
+                    191,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -3453,8 +3457,6 @@ BEGIN
 0x3135, 0x0032, 
     IDC_COMBO1, 0x403, 4, 0
 0x3637, 0x0038, 
-    IDC_COMBO1, 0x403, 5, 0
-0x3031, 0x3432, "\000" 
     IDC_COMBO2, 0x403, 4, 0
 0x3135, 0x0032, 
     IDC_COMBO2, 0x403, 4, 0
@@ -3465,14 +3467,6 @@ BEGIN
 0x3037, 0x0034, 
     IDC_COMBO2, 0x403, 4, 0
 0x3637, 0x0038, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3338, 0x0032, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3938, 0x0036, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3639, 0x0030, 
-    IDC_COMBO2, 0x403, 5, 0
-0x3031, 0x3432, "\000" 
     0
 END
 
@@ -7433,16 +7427,16 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 287
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 324
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Double Column Transposition: Permutation Key Input"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,254,57,19,WS_DISABLED
-    PUSHBUTTON      "&Cancel",IDCANCEL,213,254,55,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,11,295,58,19,WS_DISABLED
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,295,57,19,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,213,295,55,19
     CONTROL         "Read in",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,94,210,43,10
     CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,94,226,
@@ -7452,7 +7446,7 @@ BEGIN
     CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,
                     47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    162,254,22,20
+                    162,295,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "1. Permutation",IDC_STATIC,12,13,256,108
@@ -7487,6 +7481,9 @@ BEGIN
     RTEXT           "column by column:",IDC_STATIC,26,226,59,8
     RTEXT           "line by line:",IDC_STATIC,26,87,59,8
     RTEXT           "column by column:",IDC_STATIC,26,103,59,8
+    GROUPBOX        "Options",IDC_STATIC,12,254,256,33
+    CONTROL         "Use for each permutation the inverse key",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,268,145,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
