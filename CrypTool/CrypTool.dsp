@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /out:"release\CrypTool.exe"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
@@ -81,7 +81,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libcd" /out:"Debug/cryptool.exe"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libcd"
 
 !ENDIF 
 
@@ -102,15 +102,11 @@ SOURCE=".\hlp-de\AfxPrint.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=".\hlp-de\CrypTool.rtf"
-# End Source File
-# Begin Source File
-
 SOURCE=".\hlp-de\CrypTool.hpj"
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
-USERDEP__MULTI="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Release
 ProjDir=.
@@ -124,11 +120,11 @@ InputPath=".\hlp-de\CrypTool.hpj"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
-USERDEP__MULTI="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Debug
 ProjDir=.
-TargetName=cryptool
+TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
@@ -141,15 +137,11 @@ InputPath=".\hlp-de\CrypTool.hpj"
 # End Source File
 # Begin Source File
 
-SOURCE=".\hlp-de\Primzahlen.rtf"
+SOURCE=".\hlp-de\CrypTool.rtf"
 # End Source File
 # Begin Source File
 
 SOURCE=".\hlp-de\szenarien.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\tutorial.rtf"
 # End Source File
 # End Group
 # Begin Group "hlp-en"
@@ -165,15 +157,11 @@ SOURCE=".\hlp-en\AfxPrint.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=".\hlp-en\CrypTool.rtf"
-# End Source File
-# Begin Source File
-
 SOURCE=".\hlp-en\CrypTool.hpj"
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
-USERDEP__MULTI="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
 # Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Release
 ProjDir=.
@@ -187,11 +175,11 @@ InputPath=".\hlp-en\CrypTool.hpj"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
-USERDEP__MULTI="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
 # Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Debug
 ProjDir=.
-TargetName=cryptool
+TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
@@ -204,15 +192,11 @@ InputPath=".\hlp-en\CrypTool.hpj"
 # End Source File
 # Begin Source File
 
-SOURCE=".\hlp-en\Primzahlen.rtf"
+SOURCE=".\hlp-en\CrypTool.rtf"
 # End Source File
 # Begin Source File
 
 SOURCE=".\hlp-en\szenarien.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-en\tutorial.rtf"
 # End Source File
 # End Group
 # Begin Source File
@@ -222,23 +206,6 @@ SOURCE=.\res\3dcheck.bmp
 # Begin Source File
 
 SOURCE=.\res\95check.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgAbout.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgAbout.h
 # End Source File
 # Begin Source File
 
@@ -255,19 +222,19 @@ SOURCE=.\AESEncryption.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgBruteForceAES.cpp
+SOURCE=.\AppDocument.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgBruteForceAES.h
+SOURCE=.\AppDocument.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgNGramAnalysis.cpp
+SOURCE=.\AppEditView.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgNGramAnalysis.h
+SOURCE=.\AppEditView.h
 # End Source File
 # Begin Source File
 
@@ -313,23 +280,6 @@ SOURCE=.\AutomaticAnalysis.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgAuthors.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgAuthors.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\background2.bmp
 # End Source File
 # Begin Source File
@@ -367,6 +317,14 @@ SOURCE=.\res\bitmap8.bmp
 # Begin Source File
 
 SOURCE=.\res\bitmapLetsStart.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BlockView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BlockView.h
 # End Source File
 # Begin Source File
 
@@ -410,22 +368,7 @@ SOURCE=.\COMFLASH.H
 # End Source File
 # Begin Source File
 
-SOURCE=.\Cryptography.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-# ADD CPP /W3
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\Cryptography.h
+SOURCE=.\CPlotDocument.h
 # End Source File
 # Begin Source File
 
@@ -463,11 +406,43 @@ SOURCE=.\CryptDocTemplate.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\IntegerArithmetic.cpp
+SOURCE=.\Cryptography.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+# ADD CPP /W3
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
-SOURCE=.\IntegerArithmetic.h
+SOURCE=.\Cryptography.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypTool.rc
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolApp.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolApp.h
 # End Source File
 # Begin Source File
 
@@ -487,71 +462,11 @@ SOURCE=.\res\DerEinstiegInCrypTool_de.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKey.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
+SOURCE=.\DialogeMessage.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKey.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowCertificate.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowCertificate.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHexAnalysis.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHexAnalysis.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyLength.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyLength.h
+SOURCE=.\DialogeMessage.h
 # End Source File
 # Begin Source File
 
@@ -572,39 +487,7 @@ SOURCE=.\DialogLaengeBin.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DialogeMessage.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DialogeMessage.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPeriodicityAnalysis.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPeriodicityAnalysis.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyPermutation.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyPermutation.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPlayfairAnalysis.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPlayfairAnalysis.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyVigenere.cpp
+SOURCE=.\DlgAbout.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -617,7 +500,32 @@ SOURCE=.\DlgKeyVigenere.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyVigenere.h
+SOURCE=.\DlgAbout.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAuthors.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAuthors.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgBruteForceAES.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgBruteForceAES.h
 # End Source File
 # Begin Source File
 
@@ -638,39 +546,39 @@ SOURCE=.\DlgCaesarAnalysis.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyHomophone.cpp
+SOURCE=.\DlgCertificateGeneration.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyHomophone.h
+SOURCE=.\DlgCertificateGeneration.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgShowKeyParameter.cpp
+SOURCE=.\DlgChangePIN.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgShowKeyParameter.h
+SOURCE=.\DlgChangePIN.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyPlayfair.cpp
+SOURCE=.\DlgDemoRSAKeyGeneration.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyPlayfair.h
+SOURCE=.\DlgDemoRSAKeyGeneration.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyFromPassword.cpp
+SOURCE=.\DlgECGeneration.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyFromPassword.h
+SOURCE=.\DlgECGeneration.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgManualSubstAnalysis.cpp
+SOURCE=.\DlgECSignatureStepByStep.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -683,19 +591,11 @@ SOURCE=.\DlgManualSubstAnalysis.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgManualSubstAnalysis.h
+SOURCE=.\DlgECSignatureStepByStep.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgStatRandTests.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgStatRandTests.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyAsymGeneration.cpp
+SOURCE=.\DlgExtractSignature.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -708,7 +608,81 @@ SOURCE=.\DlgKeyAsymGeneration.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyAsymGeneration.h
+SOURCE=.\DlgExtractSignature.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFactorisationDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFactorisationDemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFactorisationList.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFactorisationList.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHashDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHashDemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHillAnalysis.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHillAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHybridEncryptionDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHybridEncryptionDemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgICGRandomParamater.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgICGRandomParamater.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKey.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKey.h
 # End Source File
 # Begin Source File
 
@@ -729,23 +703,7 @@ SOURCE=.\DlgKeyAsym.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgCertificateGeneration.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgCertificateGeneration.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgFactorisationList.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgFactorisationList.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowParameterKeyEC.cpp
+SOURCE=.\DlgKeyAsymGeneration.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -758,31 +716,115 @@ SOURCE=.\DlgShowParameterKeyEC.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgShowParameterKeyEC.h
+SOURCE=.\DlgKeyAsymGeneration.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgShowProgress.cpp
+SOURCE=.\DlgKeyFromPassword.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgShowProgress.h
+SOURCE=.\DlgKeyFromPassword.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgRandomGenerator.cpp
+SOURCE=.\DlgKeyHex.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgRandomGenerator.h
+SOURCE=.\DlgKeyHex.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgDemoRSAKeyGeneration.cpp
+SOURCE=.\DlgKeyHexAnalysis.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgDemoRSAKeyGeneration.h
+SOURCE=.\DlgKeyHexAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHill10x10.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHill10x10.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHill5x5.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHill5x5.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHomophone.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHomophone.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyLength.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyLength.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyPermutation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyPermutation.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyPlayfair.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyPlayfair.h
 # End Source File
 # Begin Source File
 
@@ -803,19 +845,20 @@ SOURCE=.\DlgKeySubstitution.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgRandomParameterSECUDE.cpp
+SOURCE=.\DlgKeyVigenere.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgRandomParameterSECUDE.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPrimesGeneratorDemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPrimesGeneratorDemo.h
+SOURCE=.\DlgKeyVigenere.h
 # End Source File
 # Begin Source File
 
@@ -827,19 +870,45 @@ SOURCE=.\DlgLCGRandomParameter.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgX2ModNRandomParamater.cpp
+SOURCE=.\DlgManualSubstAnalysis.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgX2ModNRandomParamater.h
+SOURCE=.\DlgManualSubstAnalysis.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgICGRandomParamater.cpp
+SOURCE=.\DlgNGramAnalysis.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgICGRandomParamater.h
+SOURCE=.\DlgNGramAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsAnalysis.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsAnalysis.h
 # End Source File
 # Begin Source File
 
@@ -851,11 +920,135 @@ SOURCE=.\DlgOptionsRSADemo.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgOptionsSubstitutionAnalysis.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsSubstitutionAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPeriodicityAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPeriodicityAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPINAccess.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPINAccess.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPlayfairAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPlayfairAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPrimesGeneratorDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgPrimesGeneratorDemo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgProgressFactorisation.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\DlgProgressFactorisation.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandomGenerator.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandomGenerator.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandomParameterSECUDE.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandomParameterSECUDE.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSADecryption.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSADecryption.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSADemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSADemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSAEncryption.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRSAEncryption.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSelectHashFunction.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSelectHashFunction.h
 # End Source File
 # Begin Source File
 
@@ -867,11 +1060,104 @@ SOURCE=.\DlgSelHash.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgShowCertificate.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowCertificate.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgShowHash.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\DlgShowHash.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKey.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKey.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyHill10x10.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyHill10x10.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyHill5x5.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyHill5x5.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyParameter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowKeyParameter.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowParameterKeyEC.cpp
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowParameterKeyEC.h
 # End Source File
 # Begin Source File
 
@@ -889,6 +1175,14 @@ SOURCE=.\DlgShowPrivateKeyEC.cpp
 # Begin Source File
 
 SOURCE=.\DlgShowPrivateKeyEC.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowProgress.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgShowProgress.h
 # End Source File
 # Begin Source File
 
@@ -926,40 +1220,6 @@ SOURCE=.\DlgSignature.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgExtractSignature.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgExtractSignature.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgECSignatureStepByStep.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgECSignatureStepByStep.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\DlgSignatureDemo.cpp
 # End Source File
 # Begin Source File
@@ -968,7 +1228,15 @@ SOURCE=.\DlgSignatureDemo.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgVerifySignature.cpp
+SOURCE=.\DlgStatRandTests.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgStatRandTests.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTextOptions.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -981,7 +1249,15 @@ SOURCE=.\DlgVerifySignature.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgVerifySignature.h
+SOURCE=.\DlgTextOptions.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTipsAndTricks.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTipsAndTricks.h
 # End Source File
 # Begin Source File
 
@@ -1002,7 +1278,7 @@ SOURCE=.\DlgVerifyECSignatureStepByStep.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgOptionsSubstitutionAnalysis.cpp
+SOURCE=.\DlgVerifySignature.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -1015,31 +1291,15 @@ SOURCE=.\DlgOptionsSubstitutionAnalysis.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgOptionsSubstitutionAnalysis.h
+SOURCE=.\DlgVerifySignature.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgTipsAndTricks.cpp
+SOURCE=.\DlgX2ModNRandomParamater.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgTipsAndTricks.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgFactorisationDemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgFactorisationDemo.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\MakeZip.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\MakeZip.h
+SOURCE=.\DlgX2ModNRandomParamater.h
 # End Source File
 # Begin Source File
 
@@ -1083,14 +1343,6 @@ SOURCE=.\FileTools.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\BlockView.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\BlockView.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\FLASH.CPP
 # End Source File
 # Begin Source File
@@ -1107,31 +1359,7 @@ SOURCE=.\FPOLY.H
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgECGeneration.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgECGeneration.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHashDemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHashDemo.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\help.cur
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHex.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHex.h
 # End Source File
 # Begin Source File
 
@@ -1159,87 +1387,11 @@ SOURCE=.\HillEncryption.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgKeyHill5x5.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHill5x5.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHill10x10.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgKeyHill10x10.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKeyHill5x5.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKeyHill5x5.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKeyHill10x10.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKeyHill10x10.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\HomophoneEncryption.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\HomophoneEncryption.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHybridEncryptionDemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHybridEncryptionDemo.h
 # End Source File
 # Begin Source File
 
@@ -1275,6 +1427,14 @@ SOURCE=.\res\INFDOC_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\IntegerArithmetic.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\IntegerArithmetic.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\KeyEdit.cpp
 # End Source File
 # Begin Source File
@@ -1300,19 +1460,27 @@ SOURCE=.\KeyFileHandling.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\KeyFromPasswordPKCS5.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyFromPasswordPKCS5.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyParameterHomophone.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyParameterHomophone.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\KeyRepository.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\KeyRepository.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\PlayfairStructures.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\PlayfairStructures.h
 # End Source File
 # Begin Source File
 
@@ -1333,6 +1501,14 @@ SOURCE=.\MakeNewName.cpp
 # Begin Source File
 
 SOURCE=.\MakeNewName.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeZip.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeZip.h
 # End Source File
 # Begin Source File
 
@@ -1357,47 +1533,6 @@ SOURCE=.\MONTY.H
 # Begin Source File
 
 SOURCE=.\res\move4way.cur
-# End Source File
-# Begin Source File
-
-SOURCE=.\CrypToolApp.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\CrypToolApp.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\CrypTool.rc
-# End Source File
-# Begin Source File
-
-SOURCE=.\AppDocument.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\AppDocument.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\AppEditView.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\AppEditView.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\PlayfairEdit.cpp
 # End Source File
 # Begin Source File
 
@@ -1433,40 +1568,11 @@ SOURCE=.\res\OPNDOC_T_U.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgOptionsAnalysis.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgOptionsAnalysis.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\paddoc.ico
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\PfeilUnten.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgChangePIN.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgChangePIN.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgPINAccess.cpp
+SOURCE=.\ParseIniFile.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
@@ -1479,7 +1585,19 @@ SOURCE=.\DlgPINAccess.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgPINAccess.h
+SOURCE=.\ParseIniFile.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ParseIniFile2.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ParseIniFile2.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\PfeilUnten.bmp
 # End Source File
 # Begin Source File
 
@@ -1491,11 +1609,19 @@ SOURCE=.\PlayfairAnalysis.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\PlotDocument.cpp
+SOURCE=.\PlayfairEdit.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\CPlotDocument.h
+SOURCE=.\PlayfairStructures.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PlayfairStructures.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PlotDocument.cpp
 # End Source File
 # Begin Source File
 
@@ -1524,6 +1650,30 @@ SOURCE=.\POLYMOD.CPP
 # Begin Source File
 
 SOURCE=.\POLYMOD.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\PSEDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PSEDemo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RandomAnalysisTools.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RandomAnalysisTools.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RandomTest.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RandomTest.h
 # End Source File
 # Begin Source File
 
@@ -1575,31 +1725,6 @@ SOURCE=..\AES\RC6\rc6.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\ParseIniFile.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\ParseIniFile.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ParseIniFile2.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\ParseIniFile2.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\resource.h
 # End Source File
 # Begin Source File
@@ -1620,48 +1745,6 @@ SOURCE="..\AES\Rijndael\rijndael-api-fst.h"
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgRSADemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgRSADemo.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgRSADecryption.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgRSADecryption.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgRSAEncryption.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgRSAEncryption.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\LibEc\sources\s_prng.c
 # End Source File
 # Begin Source File
@@ -1671,31 +1754,6 @@ SOURCE=..\LibEc\include\s_prng.h
 # Begin Source File
 
 SOURCE=.\res\sarrows.cur
-# End Source File
-# Begin Source File
-
-SOURCE=.\KeyFromPasswordPKCS5.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\KeyFromPasswordPKCS5.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKey.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgShowKey.h
 # End Source File
 # Begin Source File
 
@@ -1756,14 +1814,6 @@ SOURCE=.\SecudeTools.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgSelectHashFunction.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgSelectHashFunction.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\AES\Serpent\SERPENT.C
 # End Source File
 # Begin Source File
@@ -1796,48 +1846,6 @@ SOURCE=.\stdafx.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\KeyParameterHomophone.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\KeyParameterHomophone.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHillAnalysis.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgHillAnalysis.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgTextOptions.cpp
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-# ADD CPP /O1
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgTextOptions.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\toolbar.bmp
 # End Source File
 # Begin Source File
@@ -1859,14 +1867,6 @@ SOURCE=.\res\trcknwse.cur
 # Begin Source File
 
 SOURCE=.\res\trckwe.cur
-# End Source File
-# Begin Source File
-
-SOURCE=.\PSEDemo.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\PSEDemo.h
 # End Source File
 # Begin Source File
 
@@ -1943,23 +1943,7 @@ SOURCE=.\zip\ztrees.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\RandomTest.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\RandomTest.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\zip\zunzip.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\RandomAnalysisTools.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\RandomAnalysisTools.h
 # End Source File
 # Begin Source File
 
