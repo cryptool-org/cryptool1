@@ -152,6 +152,9 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(DHError& e) { CreateErrorMessage(e); return; }
 
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+
 	// Button mit Index 0 gedrückt
 	this->UpdateGUI(0);
 }
@@ -166,6 +169,9 @@ void CDlgDiffieHellmanVisualization::OnSetsecrets()
 		CDlgDiffieHellmanSetSecrets dlg;
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
+
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
 
 	// Button mit Index 1 gedrückt
 	this->UpdateGUI(1);
@@ -182,6 +188,9 @@ void CDlgDiffieHellmanVisualization::OnCreatesharedkey()
 		CDlgDiffieHellmanCreateSharedKey dlg;
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
+
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
 
 	// Button mit Index 2 gedrückt
 	this->UpdateGUI(2);
@@ -200,7 +209,7 @@ void CDlgDiffieHellmanVisualization::OnExchangesharedkeys()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 
-	// GIF Animation fortführen
+	// GIF Animation starten
 	m_AnimGif.Draw();
 
 	// Button mit Index 3 gedrückt
@@ -257,6 +266,10 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 	}
 	
 	this->m_SecretAlice = dlg->m_Secret;
+	
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+	
 	UpdateData(false);
 
 	// Speicher freigeben
@@ -292,6 +305,10 @@ void CDlgDiffieHellmanVisualization::OnButtonbob1()
 	}
 	
 	this->m_SecretBob = dlg->m_Secret;
+	
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+	
 	UpdateData(false);
 
 	// Speicher freigeben
@@ -315,6 +332,9 @@ void CDlgDiffieHellmanVisualization::OnButtonalice2()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 		
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+
 	UpdateData(false);
 
 	// Button mit Index 7 gedrückt
@@ -335,6 +355,9 @@ void CDlgDiffieHellmanVisualization::OnButtonbob2()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 	
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+
 	UpdateData(false);
 
 	// Button mit Index 8 gedrückt
@@ -356,6 +379,9 @@ void CDlgDiffieHellmanVisualization::OnButtonalice3()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
+
 	UpdateData(false);
 
 	// Button mit Index 9 gedrückt
@@ -376,6 +402,9 @@ void CDlgDiffieHellmanVisualization::OnButtonbob3()
 		LoadString(AfxGetInstanceHandle(), IDS_DH_SESSION_KEY_CALCULATED_BY_BOB, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
+
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
 	
 	UpdateData(false);
 
@@ -408,15 +437,12 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	this->m_blackcolor=RGB(0,0,0); // Schwarz
 	this->m_blackbrush.CreateSolidBrush(m_blackcolor);
 	
-	// GIF Image
-	if (m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF")))
-	{
-		m_AnimGif.Draw();
-		m_AnimGif.Stop();
-	}
 
-	UpdateData(false);
+	// GIF Bild "vor"laden
+	m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
 	
+	UpdateData(false);
+
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
