@@ -1416,6 +1416,49 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
+IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 226, 283
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RSA mit kleinen Primzahlen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,13,18,
+                    71,14
+    EDITTEXT        IDC_EINGABE_PZ_p,142,27,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EINGABE_PZ_q,142,43,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OEFF_SCHLUESSEL_e,85,138,40,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST_TEXTEINGABE,7,194,203,16,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,169,128,50,14
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,169,145,50,14
+    DEFPUSHBUTTON   "OK",IDOK,169,164,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,169,162,50,14
+    LTEXT           "Primzahl p",IDC_STATIC,101,32,32,8
+    LTEXT           "Primzahl q",IDC_STATIC,101,45,32,8
+    EDITTEXT        IDC_EDIT_OEFFENTLICHE_PARAM,51,80,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "RSA-Modul",IDC_STATIC,14,83,36,8
+    LTEXT           "(p-1)(q-1)",IDC_STATIC,20,99,28,8
+    EDITTEXT        IDC_EDIT_GEHEIME_PARAM,51,96,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC,94,14,99,47
+    GROUPBOX        "",IDC_STATIC,7,7,200,59
+    LTEXT           "(öffentliche Parameter)",IDC_STATIC,96,83,68,8
+    LTEXT           "(geheime Parameter)",IDC_STATIC,95,98,65,8
+    GROUPBOX        "Schlüssel",IDC_STATIC,7,125,127,52
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,12,141,69,8
+    LTEXT           "geheimer Schlüssel d",IDC_STATIC,16,157,66,8
+    EDITTEXT        IDC_EDIT_GEHEIMER_SCHLUESSEL_d,85,154,40,14,
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,69,161,48
+    LTEXT           "Texteingabe",IDC_STATIC,7,184,39,8
+    LISTBOX         IDC_LIST_LOCHERUNG,7,225,203,16,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_DISABLED | WS_VSCROLL
+    LTEXT           "Locherung",IDC_STATIC,7,215,33,8
+    LISTBOX         IDC_LIST_VERSCHLUESSELTER_TEXT,7,257,203,16,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_DISABLED | WS_VSCROLL
+    LTEXT           "Verschlüsselter Text",IDC_STATIC,7,247,62,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1851,6 +1894,15 @@ BEGIN
         VERTGUIDE, 172
         TOPMARGIN, 9
         BOTTOMMARGIN, 296
+    END
+
+    IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        VERTGUIDE, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 273
     END
 END
 #endif    // APSTUDIO_INVOKED
