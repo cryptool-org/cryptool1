@@ -2,7 +2,6 @@
 
 [OPTIONS]
 ;compression is deactivated for Debug builds. see MakeHelp.bat for details
-COMPRESS=12 Hall Zeck
 ERRORLOG=CrypTool.log
 LCID=0x407 0x0 0x0 ; Deutsch (Deutschland)
 REPORT=Yes
