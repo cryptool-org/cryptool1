@@ -1,0 +1,83 @@
+\documentclass[a4paper,11pt]{article}
+\setlength{\fboxrule}{.5mm}
+\setlength{\fboxsep}{1.75mm}
+\setlength{\footnotesep}{6pt}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{makeidx}
+\usepackage[pdftex]{graphicx}
+\makeindex
+\hypersetup{colorlinks=true}
+\usepackage[flushmargin]{footmisc}
+
+\setlength{\textwidth}{460 pt}
+\hoffset-0.7in
+\newtheorem{definition}{Definition}
+%\newcommand{\href}[2]{#2}
+\newcommand{\hypertag}[2]{#1}
+%\newcommand{\hyperlink}[2]{#2}
+%\newcommand{\hypertarget}[2]{#2}
+\newtheorem{theorem}{Theorem}
+\newenvironment{Proof}[1]
+  {\textbf{Proof #1} \\}
+  {\hfill$\Box$ \\}
+
+\title{ CrypTool Script \\ Mathematics and Cryptography }
+
+
+\author{
+(c) The authors, 1998-2002 \\
+Frankfurt am Main
+}
+
+\begin{document}
+\pagestyle{plain}
+\setlength{\fboxrule}{.5mm}
+\setlength{\fboxsep}{1.75mm}
+\setlength{\footnotesep}{6pt}
+\addtolength{\footskip}{8pt}
+%\setlength{\footskip}{4cm}
+%\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
+%Formatierung der Fu"snoten
+
+%space between text and footnote 
+\renewcommand\footnoterule{%
+  \vspace{2em}%   <-- one line space between text and footnoterule
+%\kern-3\p@
+  \hrule width .4\columnwidth
+ \vspace{4pt}
+%kern 2.6\p@
+}
+
+%\long\def\@makefntext#1{%
+%    \parindent 1em%
+ %   \noindent
+%    \hbox to 1.8em{\hss\@makefnmark}#1}
+
+\maketitle
+
+\input{chapters/aboutcryptool.tex}
+\newpage
+\tableofcontents
+\addcontentsline{toc}{section}{Contents}
+\newpage
+\normalsize
+\parindent0cm
+\parskip4pt
+
+\input{chapters/introduction.tex}
+\input{chapters/cryptomethods.tex}
+\input{chapters/primes.tex}
+\input{chapters/numbertheory.tex}
+\input{chapters/moderncryptography.tex}
+\input{chapters/digitalsignatures.tex}
+\input{chapters/ellipticcurves.tex}
+
+%\addcontentsline{toc}{section}{Index} %moved to style.ist
+\printindex
+
+\end{document}
+
+

@@ -1,0 +1,2343 @@
+% \def\QM {{,\kern -0.9 pt ,}}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+
+\newpage
+%\hypertarget{Kap_3}
+\section{Introduction to Elementary Number Theory with Examples}
+(Bernhard Esslinger, besslinger@web.de, July 2001, Update Dec. 2001)
+
+\begin{center}
+\fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne}}\newline
+Mathematical game theory postulates players who respond rationally.
+Transactional game theory, on the other hand, deals with games that are not rational, perhaps even {\bf irrational 
+and thereby closer to reality}.}}
+\end{center}
+
+\addtocounter{footnote}{0}\footnotetext{Eric Berne, ``Games People Play'', rororo, (c) 1964, page 235.}
+
+%\begin{quote} 
+%{\em Eric Berne\footnote{Eric Berne, ``Games People Play'', rororo, (c) 1964, page 235.}:}\newline
+%Mathematical game theory postulates players who respond rationally.
+%Transactional game theory, on the other hand, deals with games that are not rational, perhaps even {\bf irrational 
+%and thereby closer to reality}.
+%\end{quote}
+
+This ``introduction'' is for people mathematically interested. There is no more pre-knowledge necessary than
+what you learn in the secondary school.\par
+
+We by will had ``beginners'' in mind; we did not take the approach of mathematical textbooks, called 
+``introduction'', which can not be understood at the first go further than page 5 and
+which have the real purpose to deliver all information that special monographics can be read.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mathematics and cryptography}
+A large proportion of modern, asymmetric cryptography\index{Encryption!asymmetric} is based on mathematical knowledge -- on the properties 
+(``laws'') of whole numbers, which are investigated in elementary \index{Number theory!elementary} number 
+theory. Here, the word ``elementary'' means that questions raised in number theory are essentially rooted in the set 
+of natural and whole numbers.
+
+Further mathematical disciplines currently used in cryptography include
+(see \cite[p. 2]{Bauer1995}, \cite[p. 3]{Bauer2000}) :
+\begin{itemize}
+    \item Group theory\index{Group}
+    \item Combination theory
+    \item Complexity theory
+    \item Ergodic theory
+    \item Information theory.
+\end{itemize}
+
+Number theory or arithmetic (the emphasis here is more on the aspect of performing calculations with numbers) 
+was established by Carl Friedrich Gauss as a special mathematical discipline. Its elementary features 
+include the greatest common divisor\footnote{This article deals with the gcd (greatest common 
+divisor)\index{Gcd} in \hyperlink{Appendix_A}{Appendix A}.} (gcd), congruence (remainder classes), 
+factorisation, the Euler-Fermat theorem and primitive roots. However, the most important 
+aspect is prime numbers and their multiplicative operation.
+
+For a long time, number theory was considered to be the epitome of pure research, the ideal example of research 
+in the ivory tower. It delved into ``the mysterious laws of the realm of numbers'', giving rise to philosophical 
+considerations as to whether it described elements that exist everywhere in nature or whether it artificially 
+constructed elements (numbers, operators and properties).
+
+We now know that patterns from number theory can be found everywhere in nature. For example, the 
+ratio of laevorotary and dextrorotary spirals in a sunflower is equal to two consecutive 
+Fibonacci\index{Fibonacci} numbers\footnote{The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined by the 
+``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ we define $a_{n+2} := a_{n+1}+a_n$.  
+This historical sequence can be found in many interesting forms in nature (for example, see \cite[p. 290 
+ff]{Graham1994}\index{Graham 1994} or the website of \hyperlink{knott}{Ron Knott}\index{Knott!Ron}, which is devoted to Fibonacci\index{Fibonacci} numbers). A 
+lot is known about the Fibonacci sequence and it is used today as an important tool in mathematics.}, for 
+example $21 : 34$.
+
+Also, at the latest when number theory was applied in modern cryptography, it became clear that a discipline that 
+had been regarded as purely theoretical for centuries actually had a practical use. Today, experts in this field are 
+in great demand on the job market.
+
+Applications in (computer) security now use cryptography because this mathematical discipline is simply better 
+and easier to prove than all other „creative“ substitution procedures that have been developed over the course of 
+time and better than all sophisticated physical methods such as those used to print bank notes \cite[p. 4]{Beutelspacher1996}.
+
+This article explains the basics of elementary number theory in a way that you can easily understand. It provides 
+numerous examples and very rarely goes into any proofs (these can be found in mathematical textbooks).
+
+The goal ist not to exhaustively explain the number theory findings, but to show the essential
+procedures. The volume of the content is oriented that the reader can understand and apply the RSA method.
+
+For this purpose we will use both theory and examples to explain how to perform calculations in finite sets and 
+describe how these techniques are applied in cryptography. Particular attention will be paid to the traditional 
+Diffie-Hellman (DH) and RSA public key procedures.\index{RSA}
+
+\vskip +40 pt
+
+\begin{center}
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss} (30.4.1777 - 23.2.1855):}\\
+Mathematics is the queen of sciences and number theory is the queen of mathematics.}}
+\end{center}
+
+%\begin{quote}
+%{\em Carl Friedrich Gauss (30.4.1777 - 23.2.1855):}\\
+%Mathematics is the queen of sciences and number theory is the queen of mathematics.
+%\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Introduction to number theory} \index{Number theory!introduction} 
+
+Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
+\index{Numbers!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
+used by human civilisation. According to Kronecker, they are a creation of God. 
+In Dedekind's opinion, they are a creation of the human intellect. Dependent upon one's ideology,
+this is an unsolvable contradiction or one and the same thing.
+
+In ancient times, no distinction was made between number theory and numerology, which attributed a mystical 
+significance to specific numbers. In the same way as astronomy and chemistry gradually detached themselves 
+from astrology and alchemy during the Renaissance (from the 14th century), number theory also separated itself 
+from numerology.
+
+Number theory has always been a source of fascination -- for both amateurs and professional mathematicians. In 
+contrast to other areas of mathematics, many of the problems and theorems in number theory can be understood 
+by non-experts. On the other hand, mathematicians often take a long time to find solutions to the problems or 
+prove the theorems. It is therefore easy to pose good questions but quite another matter to find the answer. One 
+example of this is what is known as Fermat’s Last (or large) theorem\footnote{One of the things you learn in mathematics at school is Pythagoras theorem, which states the following for a right-angle 
+triangle: $a^2 + b^2 = c^2$, where $a$ and $b$ are the lengths of the sides containing the right angle and $c$ is the 
+length of the hypotenuse. Fermat famously proposed that $a^n + b^n \not= c^n$ for whole-number exponents $n 
+> 2$. Unfortunately, the letter in which Fermat made the claim did not have enough space for him to prove it. 
+The theorem was not proved until over 300 years later \cite[p. 433-551]{Wiles1994}\index{Wiles}. }.
+
+Up until the mid 20th century, number theory was considered to be the purest area of mathematics, an area that 
+had no practical use in the real world. This changed with the development of computers and digital 
+communication, as number theory was able to provide several unexpected solutions to real-life tasks. At the same 
+time, advances in information technology allowed specialists in number theory to make huge progress in 
+factorising large numbers, finding new prime numbers, testing (old) conjectures and solving numerical problems 
+that were previously impossible to solve. Modern number theory \index{Number theory!modern} is made up of 
+areas such as:
+\begin{itemize}
+    \item Elementary number theory
+    \item Algebraic number theory
+    \item Analytic number theory
+    \item Geometric number theory
+    \item Combinatorial number theory
+    \item Numeric number theory
+    \item Probability theory.
+\end{itemize}
+
+All of the different areas are concerned with questions regarding whole numbers (both positive and negative 
+whole numbers plus zero). However, they each have different methods of dealing with them.
+
+This article only deals with the area of elementary number theory.
+
+% ...................................................................................................
+\newpage
+\subsubsection{Convention}
+Unless stated otherwise: 
+\begin{itemize}
+\item The letter $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
+\item The letter $i$ and $j$ represent natural numbers. 
+\item The letter $p$ always represents a prime number.
+\item Te sets $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ and $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
+are the {\em natral} and {\em whole} numbers respectively.
+\end{itemize}
+
+% \vskip +40 pt
+\newpage
+
+\begin{center}
+\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark\:}\newline This isn't magic -- it's logic -- a puzzle. A 
+lot of the greatest wizards haven't got an ounce of logic.}}
+\end{center}
+
+\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling,~``Harry Potter and the Philosopher's Stone'', Bloomsbury, (c) 
+1997, chapter ``Through the trapdoor'', p. 307, by Hermine.}
+
+
+%\begin{quote}
+%{\em Joanne K. Rowling\footnote{Joanne K. Rowling,~``Harry Potter and the Philosopher’s Stone'', Carlsen, (c) 
+%1997, chapter ``Through the trapdoor'', p. 310.}:}\newline This isn't magic – it's logic – a puzzle. A 
+%lot of the greatest wizards haven't got an ounce of logic.
+%\end{quote}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Prime numbers and the first fundamental theorem of elementary number theory}
+\index{Number theory!elementary} Many of the problems in elementary number theory are concerned with prime 
+numbers.
+
+Every whole number has divisors or factors. The number 1 has just one – itself, whereas the number 12 has the 
+six factors 1, 2, 3, 4, 6 and 12\footnote{Due to the fact that 12 has so many factors, this number -- and multiples 
+of this number -- is often found in everyday life: the 12-hour scale on clocks, the 60 minutes in an hour, the 
+360-degree scale for measuring angles, etc. If we divide these scales into segments, the segments often turn out to be whole numbers. 
+These are easier to use in mental arithmetic than fractions.}. Many numbers are only divisible by themselves and 
+by 1. When it comes to multiplication, these can be regarded as the ``atoms'' in the realm of numbers.
+
+\begin{definition}\label{def-zth-prime} \index{Prime number}
+{\bf Prime numbers} are natural numbers greater than 1 that can only be divided by 1 and themselves.
+\end{definition}
+
+By definition, $1$ is not a prime number.
+
+If we write down the prime numbers in ascending order (prime number sequence), then we get:
+$$2,~ 3,~ 5,~ 7,~11,~ 13,~ 17,~ 19,~ 23,~ 29,~ 31,~ 37,~ 41,~ 43,~ 47,~ 53,~ 59,~ 61,~ 67,~ 71,
+~73,~ 79,~ 83,~ 89,~ 97, \cdots.$$
+
+The first $100$ numbers include precisely $25$ prime numbers. After this, the percentage of primes decreases, 
+but never reaches zero.
+
+We come across whole numbers that are prime fairly often. In the last decade only, three years were prime: 
+$1993, 1997$ and $1999$. If they were rare, cryptography would not be able to work with them to the extent it 
+does.
+
+Prime numbers can be factorised in a unique (``{\em trivial}'') way:
+\begin{eqnarray}
+5 & = & 1 * 5 \nonumber \\
+17 & =  & 1 * 17 \nonumber \\
+1,013 &  = & 1 * 1,013 \nonumber \\
+1,296,409 & = & 1 * 1,296,409. \nonumber
+\end{eqnarray}
+
+\begin{definition}\label{def-zth-composite} \index{Numbers!composite}
+Natural numbers greater than $1$ that are not prime are called {\bf composite numbers}. These have at least two 
+factors other than $1$.
+\end{definition}
+
+
+Examples of the decomposition of such numbers into prime factors:
+\begin{eqnarray}
+4 & = & 2*2  \nonumber \\
+6 & = & 2*3  \nonumber \\
+91 & = & 7*13  \nonumber \\
+161 & = & 7*23  \nonumber \\
+767 & = & 13*59  \nonumber \\
+1,029 & = & 3 * 7^3  \nonumber \\
+5,324 & = & 22 * 11^3.  \nonumber 
+\end{eqnarray}
+
+\begin{theorem}\label{thm-zth-cnum}
+Each composite number $a$ has a lowest factor greater than $1$. This factor is a prime number $p$ and is less 
+than or equal to the square root of $a$.
+\end{theorem}
+
+All whole numbers greater than $1$ can be expressed as a product of prime numbers --- in a {\em unique} way.
+
+This is the claim of the 1st {\em fundamental theorem of number theory} 
+(= fundamental theorem of arithmetic = fundamental building block of all positive integers). This was 
+formulated precisely for the first time by Carl Friedrich Gauss in his Disquisitiones Arithmeticae (1801).  
+\index{Number theory!fundamental theorem}  \index{Gauss}
+
+\begin{theorem}\label{thm-zth-mthm}{\bf Gauss 1801}
+Every even natural number greater than $1$ can be written as the product of prime numbers. Given two such 
+decompositions $a =  p_1*p_2*\cdots*p_n  =  q_1*q_2*\cdots*q_m,$ these can be resorted such that $n = m$  and, for all 
+$i,  p_i = q_i$.
+\end{theorem}
+
+In other words: Each natural number other than $1$ can be written as a product of prime numbers in precisely 
+one way, if we ignore the order of the factors. The factors are therefore unique (the ``expression as a product 
+of factors'' is unique)!
+
+For example, $60 = 2*2*3*5 = 2^2*3*5$. And this --- other than changing the order of the factors --- is the only 
+way in which the number $60$ can be factorised.
+
+If you allow numbers other than primes as factors, there are several ways of factorising integers and the {\em 
+uniqueness} is lost:
+$$60 = 1*60 = 2*30 = 4*15 = 5*12 = 6*10 = 2*3*10 = 2*5*6 = 3*4*5 = \cdots$$
+The 1st fundamental theorem only appears to be obvious. We can construct numerous other sets of 
+numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on page 
+\pageref{remFundTheoOfArithm} at the end of chapter 2.1.} for which numbers in the set {\em cannot} be expressed 
+uniquely as a product of the prime numbers of the set.
+
+In order to make a mathematical statement, therefore, it is important to state not only the operation for which it is 
+defined but also the basic set on which the operation is defined.
+
+For more details on prime numbers (e.g. how ``Fermat’s Little Theorem'' can be used to test extremely large 
+numbers to determine whether they are prime), please refer to the article on \hyperlink{Kapitel_2}{prime numbers} in this script.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Divisibility, modulus and remainder classes} \index{Modulus} \index{Divisibility} 
+
+If whole numbers are added, subtracted or multiplied, the result is always another whole number.
+
+The division of two whole numbers does not always result in a whole number. For example, if we divide $158$ by $10$ 
+the result is the decimal number $15.8$, which is not a whole number!
+
+If, however, we divide $158$ by $2$ the result $79$ is a whole number. In number theory we express this by 
+saying that $158$ is {\em divisible} by $2$ but not by $10$. In general, we say:
+
+\begin{definition}\label{def-zth-divisibility} \index{Divisibility} \index{Divisible}
+A whole number $n$ is {\bf divisible} by a whole number $d$ if the quotient $n/d$ is a whole number $c$ such that $n 
+= c * d$.
+\end{definition}
+
+$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor} {\em divisor} or \index{Factor} {\em factor} of $n$.
+
+The mathematical notation for this is $d | n$  (read ``$d$ divides $n$''). The notation $d \!\!\not| n$ means that $d$ 
+does not divide the number $n$.
+
+In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
+
+% ........................................................................................................
+\subsubsection{The modulo operation -- working with congruence} \index{Congruence}
+
+When we investigate divisibility, it is only the remainder of the division that is important. When dividing a 
+number $n$ by $m$, we often use the following notation:
+$$\frac{n}{m} = c + \frac{r}{m} ,$$
+where $c$ is a whole number and $r$ is a number with the values $0,1,\cdots, m-1$. This notation is called division 
+with remainder, whereby $c$ is called the whole-number ``quotient'' and $r$ is the ``remainder'' of the division.
+
+{\bf Example:} \\
+$$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, ~c = 2, ~r = 5)$$
+
+What do the numbers $5, 12, 19, 26, \cdots$ have in common for division by $7$? The remainder is always $r = 5$.
+For division by $7$, only the following remainders are possible:
+$$r = 0, 1, 2, \cdots, 6.$$
+
+The numbers that result in the same remainder $r$ when divided by $7$ are combined to form the ``remainder 
+class $r$ modulo $7$''. Two numbers $a$ and $b$ belonging to the same remainder class modulo $7$ are said to 
+be ``congruent modulo 7''. Or in general:
+
+\begin{definition}\label{def-zth-remainder} \index{Remainder class}
+The {\bf remainder class r modulo m} is the set of all whole numbers a that have the same remainder $r$ when 
+divided by $m$.
+\end{definition}
+
+\newpage
+{\bf Examples:}
+\begin{itemize}
+\item[] Remainder class $0$ modulo 
+        4 = \\ 
+        \strut\quad $\{ x | x = 4 * n; \; n \in \mathbb{N} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
+\item[] Remainder class $3$ modulo 
+        4 = \\ 
+        \strut\quad $\{ x | x = 4 * n + 3;\; n \in \mathbb{N} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
+\end{itemize}
+As only the remainders $0, 1, 2, \cdots, m-1$ are possible for division modulo $m$, modular arithmetic works with finite sets. 
+For each modulo $m$ there are precisely $m$ remainder classes.
+
+\begin{definition}\label{def-zth-congruence} \index{Congruence}
+Two numbers $a, b \in \mathbb{N}$  are said to be \index{Congruent}congruent modulo $m \in 
+\mathbb{N}$ if and only if they have the same remainder when divided by $m$.
+\end{definition}
+
+We write: $a \equiv b {\rm ~(mod~} m)$ (read $a$ is congruent $b$ modulo $m$), which 
+means that $a$ and $b$ belong to the same remainder class. The modulo is therefore the 
+divisor. This notation was introduced by Gauss. Although the divisor is usually positive, $a$ and $b$ can also be any 
+whole numbers.
+
+{\bf Examples:}
+\begin{itemize}
+   \item[] $19 \equiv 12 {\rm ~(mod~} 7)$,         
+           because the remainders are equal:  $19 / 7 = 2$ remainder $5$  and  $12 / 7 = 1$ remainder $5$.
+   \item[] $23103 \equiv 0 {\rm ~(mod~} 453)$, because $23103 / 453 = 51$ remainder $0$  and  $0 / 453 = 0$ remainder $0$.
+\end{itemize}
+
+\begin{theorem}\label{thm-zth-div}
+$a \equiv b$ (mod $m$) if and only if, the difference $(a - b)$ is divisible by $m$, i.e. if $q\in 
+\mathbb{Z}$ exists with $ (a-b)=q*m.$
+\end{theorem}
+These two statements are therefore equivalent.
+
+Therefore: If $m$ divides the difference, there exists a whole number $q$ such that: $a = b + q*m$.
+As an alternative to the congruence notation, we can also use the divisibility notation: $m | (a - b)$.
+
+{\bf Example of equivalent statements:} \\
+$35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
+where $35 - 11 = 24$ is divisible by $3$ without remainder while $35:3$ and $11:3$ leave the remainder $2$.
+
+{\bf Comment:}\\
+The above equivalence does not apply to the sum $(a + b)$!
+
+{\bf Example: }\\
+$11 \equiv 2$ (mod $3$), therefore $11 - 2 \equiv 9 \equiv 0$ (mod $3$); but $11 + 2 = 13$ is not divisible by $3$.
+The statement in theorem \ref{thm-zth-div} does not even apply to sums in one direction. It is correct for sums only if the 
+remainder is 0 and only in the following direction:  if a divisor divides both summands with no remainder, it also 
+divides the sum with no remainder.
+
+We can apply the above equivalence in theorem \ref{thm-zth-div} if we need a quick and easy method of determining whether 
+large numbers are divisible by a certain number.
+
+{\bf Example:} \\
+Is $69,993$ divisible by $7$? \\
+The number can be written in the form of a difference in which it is clear that each operand is divisible by $7$: 
+$69,993 = 70,000 – 7$. Therefore, the difference is also divisible by $7$.
+
+Although these considerations and definitions may seem to be rather theoretical, we are so familiar with them in 
+everyday life that we no longer think about the formal procedure. For example, the 24 hours on a clock are 
+represented by the numbers $1, 2, \cdots, 12$. We obtain the hours after 12 noon as the remainder of a division by 12 
+and know immediately that 2 o’clock in the afternoon is the same as 14.00.
+
+This ``modular'' arithmetic (based on division remainders) forms the basis of asymmetric encryption procedures. 
+Cryptographic calculations are therefore not based on real numbers, as the calculations you performed at school, 
+but rather on character strings with a limited length, in other words on positive whole numbers that cannot exceed 
+a certain value. This is one of the reasons why we choose a large number $m$ and ``calculate modulo $m$''. 
+That is, we ignore whole-number multiples of $m$ and, rather than working with a number, we only work with 
+the remainder when this number is divided by $m$. The result is that all results are in the range $0$ to $m-1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Calculations with finite sets}
+
+\subsubsection{Laws of modular calculations}
+
+From algebra theorems it follows that essential parts of the conventional calculation rules are kept when we 
+proceed to modular calculations over a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
+The same goes for multiplication modulo $m$. The result of a division\footnote{\label{ftn-zth-divmodn}When dividing modulo $m$  we cannot use every number because some numbers have the same 
+property as zero. See footnote \ref{ftn-zth-closed}.} is not a fraction but rather a whole number between $0$ and $m-1$.
+
+The known laws apply:
+\begin{itemize}
+\item[\bf 1.] {\bf Associative law:}\index{Associative law} \\ 
+    $((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m).$ \\
+    $((a*b) * c) {\rm ~(mod~ } m) \equiv  (a * (b*c)) {\rm ~(mod~ } m).$
+\item[\bf 2.] {\bf Commutative law:} \index{Commutative law}\\
+    $(a+b) {\rm ~(mod~ } m) \equiv  (b+a) {\rm ~(mod~ } m).$ \\
+     $(a*b) {\rm ~(mod~ } m) \equiv  (b*a) {\rm ~(mod~ } m).$
+\end{itemize}
+The associative law and commutative law apply to both addition and multiplication.
+\begin{itemize}
+\item[\bf 3.] {\bf Distributive law:} \index{Distributive law}\\
+    $ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m).$ 
+\item[\bf 4.] {\bf Reducibility:} \index{Reducibility} \\
+    $(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\  
+    $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$
+\end{itemize}
+The order in which order the modulo operation is performed is irrelevant.
+\begin{itemize}
+\item[\bf 5.] {\bf Existence of an identity (neutral element):} \index{Identity}\\
+    $(a + 0) {\rm ~(mod~ } m) \equiv  (0 + a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$  \\
+    $(a * 1) {\rm ~(mod~ } m) \equiv  (1 * a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$
+\item[\bf 6.] {\bf Existence of an inverse element:} \\
+    For all whole numbers $a$ and $m$ there exists a whole number $-a$ such that: \\
+    $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive inverse).
+\index{Inverse!additive}\\
+    For each $a$ ($a \not\equiv 0 {\rm ~(mod~ } p$) ) where $p$ is prime there exists a whole number $a^{-1}$, 
+such that: \\
+    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
+\index{Inverse!multiplicative}
+\item[\bf 7.] \index{Closedness} {\bf Closedness}\footnote{\label{ftn-zth-closed}The property of closedness is always defined in relation to an operation in a set. See 
+\hyperlink{Appendix_B}{Appendix B}.}:   \\
+     $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
+    $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
+\item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
+
+$ [ a \equiv b {\rm ~mod~ } m, ~b \equiv c {\rm ~mod~ } m] \Longrightarrow [ a \equiv c {\rm ~mod~ } m].
+$
+\end{itemize}
+\subsubsection{Patterns and Structures}
+\hypertarget{kap_3_5_2}
+In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
+which values $x$ can take for given values of $a, ~b, ~m.$
+
+Especially the case is investigated, where the result $b$ of this operation is the neutral element. Then
+$x$ is the inverse of $a$ regarding this operation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Examples of modular calculations}
+
+As we have already seen:
+
+For two natural numbers $a$ and $m$, $a$ mod $m$ denotes the remainder obtained when we divide $a$ by 
+$m$. This means that $a {\rm ~(mod~ } m)$ is always a number between $0$ and $m-1$.
+
+For example, $1 \equiv  6  \equiv  41 \equiv  1 {\rm ~(mod~ } 5)$ because the remainder is always $1$.
+Another example is: $2000 \equiv 0 {\rm ~(mod~} 4) $ because $4$ divides $2000$ with no remainder.
+
+Modular arithmetic only contains a limited quantity of non-negative numbers. The number of these is specified 
+by a modulus $m$. If the modulo is $m = 5$, then only the $5$ numbers in the set $\{ 0, 1, 2, 3, 4\}$ are used.
+
+A calculation result larger than 4 is then transformed ``modulo $5$''. In other words, it is the remainder when the 
+result is divided by $5$. For example, $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$ because $3$ is the remainder 
+when we divide $8$ by $5$.
+
+% .............................................................................................................
+\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}
+
+The following shows
+
+\begin{itemize}
+\item the addition table\footnote{Comment on subtraction modulo 5: \\
+$2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
+It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C}). }
+${\rm ~(mod~ } 5)$ and
+\item the multiplication tables\footnote{Comment on division modulo $6$: 
+Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
+for all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no inverse regarding the
+multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote \ref{ftn-zth-divmodn}.}
+for mod $5$ and mod $6$.
+\end{itemize}
+\subsubsection*{Example of an addition table}
+The result when we add $3$ and $4 {\rm ~(mod~ } 5)$ is calculated as follows: Calculate $3 + 4 = 7$ and keep 
+subtracting $5$ from the result until the result is less than the modulo:  $7 - 5 = 2$. 
+Therefore:  $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$.
+%
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r|ccccc}
+Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
+\hline
+0 &  0 & 1 & 2 & 3 & 4 \\  
+1 & 1 &  2 & 3 & 4 & 0 \\
+2 & 2 & 3 & 4 & 0 & 1 \\
+3 & 3 & 4 & 0 & 1 & 2 \\
+4 & 4 & 0 & 1 & 2 & 3 \\[-5ex] % remove some extra space 
+\end{tabular} 
+\end{center} 
+\end{table}
+% ..............................................................................................
+\subsubsection*{Example of an multiplication table:}
+The result of the multiplication $4 * 4 {\rm ~(mod~ } 5)$ is calculated as follows: $4 * 4 = 
+16$ and subtract $5$ until the result is less than the modulus.
+$$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
+The table directly shows that $4 * 4 \equiv 1 {\rm ~(mod~} 5)$ because $16 : 5 = 3$ remainder $1$. 
+Multiplication is defined on the set $\mathbb{Z}$  excluding $0$.
+%
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r|cccc}
+Multiplication table modulo 5: \quad * & 1& 2 & 3 & 4  \\
+\hline 
+1 & 1 &    2    &    3    & 4 \\
+2 & 2 & {\bf 4} & {\bf 1} & 3 \\ 
+3 & 3 & {\bf 1} & {\bf 4} & 2  \\
+4 & 4 &    3    &    2    & 1 
+\end{tabular}
+\end{center} 
+\end{table}
+
+% ..........................................................................................
+\subsubsection{Additive and multiplicative inverses}
+
+You can use the tables to read the inverses for each number in relation to addition and multiplication.
+
+The inverse of a number is the number that gives the result $0$ when the two numbers are added and $1$ when 
+they are multiplied. Thus, the inverse of $4$ for addition mod $5$ is $1$ and the inverse of $4$ for 
+multiplication mod $5$ is $4$ itself, because
+\begin{alignat}{2}
+4 + 1 &  =  & 5 & \equiv 0 {\rm ~(mod~ } 5); \nonumber \\
+4 * 4 &  = & ~16 & \equiv 1 {\rm ~(mod~ } 5). \nonumber
+\end{alignat}
+The inverse of $1$ for multiplication mod $5$ is $1$, while the inverse modulo $5$ of $2$ is $3$ and, since 
+multiplication is commutative, the inverse of $3$ is again $2$.
+
+If we take a random number and add or multiply another number (here $4$) and then add\footnote{In general
+$x + y + (-y) \equiv x{\rm ~(mod~}m)$  [$(-y)$ = additive inverse of $y{\rm ~(mod~}m)$].} or multiply the 
+corresponding inverse ($1$ or $4$) to the interim result ($1$ or $3$), then the end result is the same as the initial 
+value.
+
+{\bf Example:}
+\begin{eqnarray}
+2 + 4 \equiv 6 \equiv 1 {\rm ~(mod~ } 5) ; \quad 1 + 1 \equiv 2 \equiv 2 {\rm ~(mod~ } 5),  \nonumber \\
+2 * 4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5) ; \quad 3 * 4 \equiv 12 \equiv 2 {\rm ~(mod~ } 5). \nonumber
+\end{eqnarray}
+
+In the set $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$ for the addition
+and in the set $\mathbb{Z}_5^*$ for the multiplication, all numbers have a {\bf unique} 
+inverse modulo $5$.
+
+In the case of modular addition, this is true for every modulo (not just for $5$).
+
+This is not the case, however, for 
+modular multiplication.
+\begin{theorem}\label{thm-zth-multinv}
+A natural number $a$ from the set $\{1, \cdots, m-1\}$ has one inverse if and only if it 
+and the modulo $m$ are coprime\footnote{Two whole numbers $a$ and $b$ are coprime if and only if ${\rm gcd}(a, b) = 1$.\\
+If $p$ is prime and $a$ is a random whole number that is not a multiple of $p$, then $p$ and a are coprime.\\
+Further name to the topic coprime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
+\begin{enumerate}
+\item $a_1,a_2, \cdots, a_n$ are {\em relatively prime} \index{Relatively prime}, if $ {\rm~gcd}(a_1, \cdots , a_n) =1.$
+\item An even stronger request for more than two numbers is :\\
+                $a_1, \cdots , a_n$ are {\em pairwise relatively prime}, if for all $i=1, \cdots, n$ and 
+$j=1, \cdots , n$ with $ i \neq j $: $ {\rm~gcd} (a_i, a_j) =1. $
+\end{enumerate}
+Example: $2,3,6 $ are relatively prime, because $ {\rm~gcd} (2,3,6)=1.$ 
+They are not pairwise relatively prime, because $ {\rm~gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
+no common prime factors.
+\end{theorem}
+Since $m=5$ is prime, the numbers $1$ to $4$ are relatively prime to $5$ and {\bf each} of these numbers has a 
+multiplicative inverse in mod $5$.
+
+A counterexample shows the multiplication table for mod $6$ (since the modulus $m=6$ is not prime, not all elements from 
+$\mathbb{Z}_6\setminus \{0\}$ are relatively prime to $6$):
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r|ccccc}
+Multiplication table modulo $6$: \quad* &  1 & 2 & 3 & 4 & 5  \\
+\hline 
+1 &  1 & 2 & 3 & 4 & 5 \\  
+2 &  2 & {\bf 4} & {\bf 0} & {\bf 2} & 4 \\
+3 &  3 & {\bf 0} & {\bf 3} & {\bf 0} & 3 \\
+4 &  4 & {\bf 2} & {\bf 0} & {\bf 4} & 2 \\
+5 &  5 & 4 & 3 & 2 & 1 \\
+\end{tabular}  
+\end{center} 
+\end{table}
+
+
+In addition to $0$, the numbers $2$, $3$ and $4$ also have no unique inverse (we can also say they have {\bf 
+no} inverse, because the elementary property of an inverse is uniqueness).
+
+The numbers $2$, $3$ and $4$ have the factor $2$ or $3$ in common with the modulus $6$. Only the numbers 
+$1$ and $5$, which are relatively prime to $6$, have multiplicative inverses, namely themselves.
+
+The number of numbers that are relatively prime to the modulus $m$ is the same as the number of numbers that 
+have a multiplicative inverse (see the \hyperlink{EulerFunction}{Euler function} $J(m)$ \index{Euler!(phi) function} below).
+
+For the two moduli $5$ and $6$ used in the multiplication tables, this means: the modulus $5$ is a prime number 
+itself. In mod $5$, therefore, there are exactly $J(5) = 5 - 1 = 4$ numbers that are relatively prime to the modulus, 
+that is all numbers from $1$ to $4$.
+
+Since $6$ is not a prime number, we write it as a product of its factors: $6 = 2 * 3$. In mod $6$, therefore, there 
+are exactly $J(6) = (2-1)*(3-1) = 1 * 2 = 2$ numbers that have a multiplicative inverse, that is $1$ and $5$.
+
+Although it may seem difficult to calculate the table of multiplicative inverses for large moduli (this only applies 
+to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
+to create a simple algorithm for this \cite[p. 80]{Pfleger1997}. Quicker algorithms are described, for instance, in 
+\cite{Knuth1998}\footnote{Using Euclid’s extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
+multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix 
+A}). Alternatively, we can also use the primitive roots. }.
+
+Cryptographically not only the uniqueness of the inverse is important, but also that the
+set of possible values is exhausted.
+\begin{theorem}\label{thm-zth-exhperm}
+For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then takes the product $a*i {\rm ~mod ~} m $ for a 
+certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the Length $m-1$)\footnote{See
+also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicative order and primitive roots}.}.
+\end{theorem}
+\vskip +10 pt
+The following three examples\footnote{Mathematica can be used to calculated the tables for these examples as follows: \\
+{\tt m = 17; iWidth = 18; iFactor1 = 5; iFactor2 = 6; \\
+Print[ ``i'', Table[ i, \{i, 1, iWidth \} ] ]; \\
+Print[ iFactor1, ``*i'', Table[ iFactor1*i, \{i, 1, iWidth \} ] ]; \\
+Print[ ``remainder'', Table[ Mod[iFactor1*i, m], \{i, 1, iWidth \} ] ]; \\
+Print[ iFactor2, ``*i'', Table[ iFactor2*i, \{i, 1, iWidth \} ] ];  \\
+Print[ ``remainder'', Table[ Mod[iFactor2*i, m], \{i, 1, iWidth \} ] ]; 
+} } illustrate the properties of multiplicative inverses.
+
+In the multiplication table mod $17$, the following was calculated for $i = 1, 2, \cdots, 18$:
+\begin{itemize}
+   \item[] $(5*i)/17 = a$ remainder $r$ and high-lighted $5*i \equiv 1$ (mod $17$),
+   \item[] $(6*i)/17 = a$ remainder $r$ and high-lighted $6*i \equiv 1$ (mod $17$).
+\end{itemize}
+We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
+with $a=5$ or $a=6$ has the value $1$. 
+
+{
+\begin{table}[h]
+\subsubsection*{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}
+\begin{center}
+\begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
+\hline 
+i                   & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17 & 18 \\
+\hline
+\hline  
+$5*i$                & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85 & 90   \\
+remainder                & 5 & 10 & 15  & 3  & 8 & 13  & {\bf 1}  & 6 & 11 & 16  & 4  & 9 & 14  & 2  & 7 & 12 & 0  & 5   \\
+\hline
+$6*i$                 & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108   \\
+remainder                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15  & 4 & 10 & 16  & 5 & 11 & 0  & 6   \\
+\hline
+\end{tabular}
+\end{center} 
+\end{table}
+}
+Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and $6$ are 
+also relatively prime\index{Relatively prime} to the modulus $m=17$.
+\enlargethispage{0.5cm}
+
+{
+{\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
+
+\vskip +20 pt
+
+\begin{table}[h]
+\subsubsection*{Multiplication table modulo $13$ (for $a=5$ and $a=6$)}
+\begin{center}                                                                          
+\begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
+\hline 
+i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+\hline 
+\hline 
+$5*i$                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80 & 85  & 90 \\
+remainder                 & 5 & 10  & 2  & 7  & 12  & 4 & 9  & {\bf 1}  & 6  & 11 & 3  & 8  & 0 & 5  & 10  & 2   & 7   & 12 \\
+\hline 
+$6*i$                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+remainder                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  & {\bf 1}  & 7  & 0  & 6  & 12  & 5   & 11   & 4 \\
+\hline 
+\end{tabular}
+\end{center} 
+\end{table}
+}   
+
+Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and 
+$6$ are relatively prime to the modulus $m=13$.
+
+{
+{\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
+
+\vskip +20 pt
+
+The following table contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
+
+\begin{table}[h]
+\subsubsection*{Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
+\begin{center}                                                                          
+\begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
+\hline 
+i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17 & 18 \\
+\hline 
+\hline 
+$5*i$                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80 & 85  & 90 \\
+remainder                 & 5 & 10  & 3  & 8  & {\bf 1}  & 6 & 11  & 4  & 9  & 2  & 7  & 0  & 5 & 10  & 3 & 8   & 1   & 6 \\
+\hline 
+$6*i$                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0   & 6   & 0 \\
+\hline 
+\end{tabular}
+\end{center} 
+\end{table}
+}
+We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
+Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
+because $6$ and the modulus $m=12$ are not coprime.
+
+{\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
+
+
+
+% .......................................................................................................
+\subsubsection{Raising to the power} \index{Raising to the power} 
+
+In modular arithmetic, raising to the power is defined as repeated multiplication -- as usual except that 
+multiplication is now slightly different.  We can even apply the usual rules, such as:
+\begin{eqnarray}
+a^{b+c} & = & a^b * a^c,  \nonumber \\
+(a^b)^c & = & a^{b*c} = a^{c*b} = (a^c)^b. \nonumber
+\end{eqnarray}
+
+
+Modular powers work in the same way as modular addition and modular multiplication:
+$$ 3^2 \equiv 9 \equiv 4 {\rm ~(mod~} 5). $$
+Even consecutive powers work in the same way: 
+
+{\bf Example 1:}
+$$ (4^3)^2 \equiv 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
+\begin{quote}
+(1) We can speed up\footnote{The time required to calculate the multiplication of two numbers normally 
+depends on the length of the numbers.  We can observe this if we use the school method to calculate, for instance, 
+$474*228$.  The time required increases quadratically, because we need to multiply $3*3$ numbers. The 
+numbers become considerably smaller if we reduce the interim result.} the calculation by reducing the {\bf 
+interim results} modulo $5$ but we need to take care because not everything then works in the same way as in 
+standard arithmetic.
+\begin{eqnarray}
+(4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
+            & \equiv & (64{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
+            & \equiv & 4^2{\rm ~(mod~}5) \nonumber \\
+            & \equiv & 16 \equiv 1 {\rm ~(mod~}5). \nonumber
+\end{eqnarray}
+
+(2) In standard arithmetic, consecutive powers can be reduced to a single power by multiplying the exponents:
+$$ (4^3)^2 = 4^{3*2} = 4^6 = 4096. $$
+This is not quite as simple in modular arithmetic because this would give:
+$$
+ (4^3)^2 \equiv 4^{3*2{\rm ~(mod~}5)} \equiv 4^{6{\rm ~(mod~}5)} \equiv 4^1 \equiv 4{\rm ~(mod~}5). 
+$$
+But as we saw above, the correct result is $1$!!
+
+(3) Therefore, the rule is slightly different for consecutive powers in modular arithmetic: we do not multiply the 
+exponents in (mod $m$) but rather in (mod $J(m)$).
+
+Using $J(5) = 4$ gives:
+$$
+(4^3)^2 \equiv 4^{3*2{\rm ~(mod~}J(5))} \equiv 4^{6{\rm ~mod~}4} \equiv 4^2 \equiv 16 \equiv 1 {\rm 
+~(mod~}5).
+$$
+This delivers the correct result.
+\vskip + 5pt
+\end{quote}
+
+\begin{theorem}\label{thm-zth-pot}
+$(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
+\end{theorem}
+
+{\bf Example 2:}
+$$
+3^{28} \equiv 3^{4*7} \equiv 3^{4*7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
+$$
+\vskip +5pt
+
+\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Powers}
+\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
+RSA encryption and decryption\footnote{See \hyperlink{Kapitel_3_10}{chapter 3.10 Proof of the RSA procedure with Euler-Fermat} \index{RSA}
+and \hyperlink{Kapitel_3_12}{chapter 3.12 The RSA procedure with actual numbers}.} entails calculating high powers modulo $m$. 
+For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit long integer\index{Long integer} number range provided we calculate $a^n$ 
+by actually multiplying a with itself $n$ times in line with the definition. In the case of extremely large numbers, even 
+a fast computer chip would take longer than the age of the universe to calculate a single exponential. Luckily, there is 
+an extremely effective shortcut for calculating exponentials (but not for calculating logarithms).
+
+If the expression is divided differently using the rules of modular arithmetic, then the calculation does not even exceed the 
+16-bit short integer number range:\index{Short integer}
+$$
+(a^5) \equiv (((a^2{\rm ~(mod~}m))^2 {\rm ~(mod~}m)) * a){\rm ~(mod~}m).
+$$
+
+We can generalise this by representing the exponent as a binary number.
+For example, the naive method would require $36$ multiplications in order to calculate $a^n$ for $n = 37$. 
+However, if we write $n$ in the binary representation as $100101 = 1*2^5 + 1*2^2 + 1*2^0$, then we can rewrite 
+the expression as: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$
+
+{\bf Example 3:} $87^{43}{\rm ~(mod~}103)$. 
+
+Since $43 = 32+8+2+1$ , $103$ is prime, $43<J(103)$
+
+and the squares (mod $103$) can be calculated beforehand
+\begin{eqnarray*}
+87^2 & \equiv & 50 {\rm ~(mod~}103),\\
+87^4 & \equiv & 50^2 \equiv 28 {\rm ~(mod~}103), \\
+87^8 & \equiv & 28^2 \equiv 63 {\rm ~(mod~}103), \\
+87^{16} & \equiv & 63^2 \equiv 55 {\rm ~(mod~}103),\\
+87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
+\end{eqnarray*}
+we have\footnote{Using Mathematica this is calculated in less than 
+a second on a Pentium 3: \\
+{\tt Mod[{${\rm 87}^\wedge$43, ${\rm 87}^\wedge$2, ${\rm 87}^\wedge$4, ${\rm 87}^\wedge$8, ${\rm 87}^\wedge$16, ${\rm 87}^\wedge$32}, 103]
+ = \{85, 50, 28, 63, 55, 38\}.
+} % \tt
+}:
+\begin{eqnarray}
+87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
+        & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
+    & \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
+\end{eqnarray}
+
+The powers $(a^2)^k$ can be determined easily by means of repeated squaring. As long as $a$ does not change, a computer 
+can calculate them beforehand and -- if enough memory is available -- save them. In order to then find $a^n$ in each 
+individual case, it now only needs to multiply those $(a^{2})^k$ for which there is a one in the kth position of the binary 
+representation of $n$. The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
+This frequently used algorithm is called ``Square and Multiply''\index{Square and multiply}.
+
+% ..............................................................................................................
+\subsubsection{Roots and logarithms} \index{Roots} \index{Logarithm}
+
+The inverses of the powers are also defined. The roots and logarithms are again whole numbers. Yet in contrast 
+to the usual situation, they are not only difficult to calculate but, in the case of large numbers, cannot be 
+calculated at all within a reasonable space of time.
+
+Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
+
+\begin{itemize}
+\item [\bf a)] {\bf Taking the logarithm (determining $c$) -- Discrete logarithm problem \index{Logarithm problem!discrete}:}
+
+If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
+of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
+other. For a typical $m$ of the order of magnitude of $10^{180}$ for $600$-digit binary numbers, this is a 
+hopeless undertaking. More precisely, for suitably large numbers $m$, the time required according to current 
+knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ with a constant $C > 1$.
+\item[\bf b)] {\bf Calculating the root (determining $b$):}  
+
+The situation is similar if 
+$b$ is the unknown variable and we know the values of $a$ and $c$: \\
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A}:
+the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
+use theorem \ref{thm-zth-pot} to obtain:
+$$
+        a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
+$$
+the {\em $c$-th root} $b$ of $a$. \par
+
+If $J(m)$ cannot be determined\footnote{According to the first fundamental theorem of number 
+theory\index{Number theory!fundamental theorem} and theorem \ref{thm-zth-phinum}, we determine $J(m)$ by reducing $m$ to prime factors.}, it is difficult to calculate 
+the $c$-th root. This forms the basis for the security assumption used by the RSA encryption system (see 
+Sub-section 4.3.1: \hyperlink{RSA procedure}{the RSA procedure} and \hyperlink{RSABeweis}{Sub-section 3.10 Proof of the RSA procedure}).
+\end{itemize}
+The time required for inverting addition and multiplication, on the other hand, is simply proportional to $\log m$ 
+or $(\log m)^2$. Powers (for a number $x$ calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
+calculate $a^x$ with $a$ fixed) are therefore typical one way functions (See Overview of the
+One way funnctions in this \hyperlink{OneWayFunktion1}{Script} and
+\hyperlink{OneWayFunktion2}{artikel}). \index{One way function}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Groups and modular arithmetic in $\mathbb{Z}_n$ and $ \mathbb{Z}_n^*$}
+\index{Group}
+Mathematical ``{\em groups}'' play a decisive role in number theory and cryptography. We only talk of groups if, for a 
+defined set and a defined relation (an operation such as addition or multiplication), the following properties are fulfilled:
+
+\begin{itemize}
+\item The set is closed \index{Closedness}
+\item A neutral element exists
+\item An inverse element exists
+\item The associative law applies.
+\end{itemize}
+
+The abbreviated mathematical notation is $(G, +)$ or $(G,*)$.  
+\begin{definition}\label{def-zth-zn}\index{Z@$\mathbb{Z}_n$}
+$\mathbb{Z}_n$:
+$$\mathbb{Z}_n \text{~comprises all numbers from~} 0 \text{~to~} n-1: ~\mathbb{Z}_n = \{0, 1, 2,\cdots, n-2, n-1\}.$$
+\end{definition}
+
+$\mathbb{Z}_n$ is an often used finite group of the natural numbers. It is sometimes also called the {\em remainder set} $R$ modulo $n$.
+
+For example, 32-bit computers (standard PCs) only directly work with whole numbers in a finite set, that is the value range 
+$0, 1, 2, \cdots, 2^{32}-1$.
+
+This value range is equivalent to the set $\mathbb{Z}_{2^{32}}$.
+
+
+% ..............................................................................................
+\subsubsection{Addition in a group}\index{Addition} 
+
+If we define the operation mod+ on such a set where
+$$ a {\rm ~mod+~} b := (a + b){\rm ~(mod~}n) , $$
+then the set $\mathbb{Z}_n$ together with the relation mod+ is a group because the following properties 
+of a group are valid for all elements in $\mathbb{Z}_n$:
+\begin{itemize}
+\item   $ a {\rm ~mod+~} b$ is an element of $\mathbb{Z}_n$  (the set is closed),
+\item   $(a {\rm ~mod+~} b) {\rm ~mod+~} c \equiv a {\rm ~mod+~} (b {\rm ~mod+~} c)$~~~  (mod+ is associative),
+\item   the neutral element is $0$.
+\item   each element $a \in \mathbb{Z}_n$ has an inverse for this operation, namely $n-a$  \\
+        (because $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
+\end{itemize}
+Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, this structure \index{Structure} is even a ``commutative group''.
+% ..............................................................................................
+\subsubsection{Multiplication in a group}\index{Multiplication}
+
+If we define the operation mod* on the set $\mathbb{Z}_n$ where
+$$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
+then  $\mathbb{Z}_n$ together with this operation is {\bf usually not a group} because not all properties are fulfilled for each $n$.
+
+{\bf Examples:}
+\begin{itemize}
+\item[a)] In $\mathbb{Z}_{15}$, for example, the element $5$ does not have an inverse.
+          That is to say, there is no $a$ with \\ $5 * a \equiv 1 {\rm ~(mod~}15).$
+          Each modulo product with $5$ on this set gives $5, 10$ or $0$.
+\item[b)] In $\mathbb{Z}_{55} \setminus \{0\}$, for example, the elements $5$ and $11$ do not have multiplicative inverses.
+          That is to say, there is no $a \in \mathbb{Z}_{55}$ such that $5 * a\equiv 1~(~mod~55~) $ and no $a$ such that $11*a \equiv 1~(~mod~55~)$. 
+          This is because $5$ and $11$ are not relatively prime to $55$.
+          Each modulo product with $5$ on this set gives $5, 10, 15, \dots, 50$ or $0$.
+          Each modulo product with $11$ on this set gives $11, 22, 33, 44$ or $0$.
+\end{itemize}
+On the other hand, there are subsets of $\mathbb{Z}_n$ that form a group with the operation mod*.
+If we choose all elements in $\mathbb{Z}_n$ that are relatively prime to $n$, then this set forms a group with the operation mod*.
+We call this set $\mathbb{Z}_n^*$.
+
+\begin{definition}\label{def-zth-znmult}\index{Z@$\mathbb{Z}_n^*$} $\mathbb{Z}_n^*:$
+$$\mathbb{Z}_n^* = \{ a \in \mathbb{Z}_n  | {\rm gcd}(a,n) = 1 \}.$$
+\end{definition} 
+$\mathbb{Z}_n^*$ is sometimes also called the reduced remainder set $R'$ modulo $n$.
+
+{\bf Example:}
+For $n=10=2*5$ the following applies: 
+\begin{itemize}
+  \item[] \index{Remainder set!full} full remainder set $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$
+  \item[] \index{Remainder set!reduced} reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
+\end{itemize}
+
+{\bf Comment:}
+$R'$ or $\mathbb{Z}_n^*$ is always a genuine subset of $R$ or $\mathbb{Z}_n$ because $0$ is always an element of $R$ but never 
+an element of $R'$. Since $1$ and $n-1$ are always relatively prime to $n$, they are always elements of both sets.
+
+If we select a random element in $\mathbb{Z}_n^*$ and multiply it by every other element in $\mathbb{Z}_n^*$, then the
+products\footnote{This is due to the fact that $\mathbb{Z}_n^*$ is closed with respect to the multiplication and due to the gcd property: \\
+$[a, b \in \mathbb{Z}_n^* ] \Rightarrow [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$, exactly:\\
+$[a, b \in \mathbb{Z}_n^* ] \Rightarrow  [{\rm gcd}(a, n) = 1, {\rm gcd}(b, n) = 1] 
+\Rightarrow  [{\rm gcd}(a*b, n) = 1] \Rightarrow  [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$.}
+are all in $\mathbb{Z}_n^*$,  and the results are also a unique permutation of the elements in $\mathbb{Z}_n^*$. Since $1$ 
+is always an element of $\mathbb{Z}_n^*$, there is a unique ``partner'' in this set such that the product is $1$.  In other words:
+
+\begin{theorem}\label{thm-zth-znmult}
+Each element in $\mathbb{Z}_n^*$ has a multiplicative inverse.
+\end{theorem}
+
+Example for $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
+\begin{eqnarray}
+3 & \equiv & 3 * 1{\rm ~(mod~}10), \nonumber \\
+9 & \equiv & 3 * 3{\rm ~(mod~}10), \nonumber \\
+1 & \equiv & 3 * 7{\rm ~(mod~}10), \nonumber \\
+7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
+\end{eqnarray}
+
+The unique inverse is an essential condition for cryptography (see Section 3.10: \hyperlink{RSABeweis}{Proof of the RSA procedure with Euler-Fermat}).
+
+\subsection{Euler function, Fermat's Little Theorem and Euler--Fermat}
+
+\subsubsection{Patterns and Structures}
+\hypertarget{Kap_3_8}{}
+
+As mathematicians investigate the structure \index{Structure} $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
+the structure $ x^{a} \equiv b$ mod $m.$
+
+Again here they are interested in the case, if $ b=1$ (value of the multiplicative inverse) and
+if $ b=x$ (the function has a fixpoint\index{Fixpoint}).
+\subsubsection{The Euler function\index{Euler!(phi) function}}
+Given $n$, the number of numbers from the set $\{1, \cdots, n-1\}$ that are relatively prime to $n$ is equal to the value of 
+the Euler\footnote{Leonhard Euler, Swiss mathematician, 15.4.1707 -- 18.9.1783\index{Euler}}
+ function $J(n)$.
+
+\begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{} 
+The Euler function\footnote{Is often described as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
+elements in $\mathbb{Z}_n^*$.
+\end{definition}
+$J(n)$ also specifies how many whole numbers have multiplicative inverses in mod $n$.
+$J(n)$ can be calculated if we know the prime factors of $n$.
+
+\begin{theorem}\label{thm-zth-phiprime}
+For a prime number, the following is true: $J(p) = p - 1.$
+\end{theorem}
+
+\begin{theorem}\label{thm-zth-phipq} \label{J_of_pq}
+If $m$ is the product of two distincts primes, then:
+$$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
+\end{theorem}
+This case is important for the RSA procedure.
+
+\begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
+If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers (i.e. no factor occurs more than once), 
+then the following is true (as a generalisation of theorem \ref{thm-zth-phipq}):
+$$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
+\end{theorem}
+
+\begin{theorem}\label{thm-zth-phinum}\label{J_of_n}
+In general, the following is true for every prime number $p$ and every $n$ in $\mathbb{N}$:
+\begin{enumerate}
+\item $J(p^n) = p^{n-1} * (p-1).$
+\item If $n = p_1^{e_1} * p_2^{e_2} * \cdots * p_k^{e_k}$, 
+where $p_1$ to $p_k$ are distinct prime numbers, then:
+$$
+J(n) =  [(p_1^{e_1-1}) * (p_1 - 1)]  *  \cdots  *  [(p_k^{e_k-1}) * (p_k - 1)] = n* ( [(p_1 - 1) / p_1]  *  \cdots  *  [(p_k - 1) / p_k] ).
+$$
+\end{enumerate}
+\end{theorem}
+
+{\bf Examples:} 
+\begin{itemize}
+\item  $n=70=2*5*7 \Longrightarrow $ using theorem \ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$
+\item  $n=9=3^2 \Longrightarrow$ using theorem \ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ because  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
+\item $n = 2,701,125 = 3^2 * 5^3 * 7^4 \Longrightarrow $ using theorem \ref{J_of_n}: 
+$$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
+\end{itemize}
+
+\subsubsection{The theorem of Euler-Fermat}\index{Euler}\index{RSA}
+In order to prove the RSA procedure, we need Fermat's theorem and its generalisation (Euler-Fermat theorem).
+
+\begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, 17.8.1601 -- 12.1.1665.\index{Fermat}}
+Let $p$ be a prime number and $a$ be a random whole number, then:
+$$  a^p \equiv a {\rm ~(mod~} p).$$ 
+\end{theorem}
+An alternative formulation of Fermat's Little Theorem is as follows:
+Let $p$ be a prime number and $a$ be a random whole number that is relatively prime to $p$, then:
+$$      a^{p-1} \equiv 1 {\rm ~(mod~} p).$$ 
+
+\begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem (generalisation of Fermat's Little Theorem)}
+For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$ are natural numbers that are coprime):
+$$a^{J(n)} \equiv 1 {\rm ~(mod~} n). $$
+\end{theorem}
+
+This theorem states that if we raise a group element (here $a$) to the power of the order of the group (here $J(n)$), 
+we always obtain the neutral element for multiplication (the number $1$).
+
+The 2nd formulation of Fermat's Little Theorem is derived directly from Euler's theorem if $n$ is a prime number.
+
+If $n$ is the product of two prime numbers, we can - in certain cases - use Euler's theorem to calculate the result 
+of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~} pq)$.
+
+\vskip +5pt
+{\bf Examples for calculating a modular power:}
+\begin{itemize}
+\item  With $2 = 1 * 2$  and  $6 = 2*3$ where $2$ and $3$ are both prime; $J(6) = 2$ because only $1$ and $5$ are 
+       relatively prime to $6$, we obtain the equation $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~} 6)$,
+       without having to calculate the power.
+\item  With $792 = 22 * 36$  and  $23*37 = 851$ where $23$ and $37$ are both prime, it follows that
+       $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~} 851)$.
+\end{itemize}
+
+\subsubsection{Calculation of the multiplicative Inverse}
+
+Another interesting application is a special case of determining the multiplicative inverses using the Euler-Fermat 
+theorem (multiplicative inverses are otherwise determined using the extended Euclidean algorithm\index{Euclidean algorithm!extended}).
+
+{\bf Example:}\par
+Find the multiplicative inverse of $1579$ modulo $7351$.\\
+According to Euler-Fermat:  $a^{J(n)} = 1 {\rm ~(mod~} n)$ for all $a$ in $\mathbb{Z}_n^*$.
+If we divide both sides by $a$, we get: $a^{J(n) - 1} \equiv a^{-1} {\rm ~(mod~} n)$.
+For the special case that the modulo is prime, we have $J(n) = p - 1$.
+Therefore, the modular inverse is 
+$$a^{-1} = a^{J(n) - 1} \equiv a^{(p-1)-1} \equiv a^{p-2} {\rm ~(mod~} p).$$
+For our example, this means:
+\begin{itemize}
+\item[] Since the modulus $7351$ is prime, $p-2 = 7349$. \\
+    $1579^{-1} \equiv 1579^{7349} {\rm ~(mod~} p).$
+\end{itemize}
+By cleverly breaking down the exponent, we can calculate this power relatively easily (see Section 3.6.3.1
+\hyperlink{hohpot}{Fast calculation of high powers)}:
+\begin{itemize}
+\item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$
+\item[] $1579^{-1} \equiv 4716 {\rm ~(mod~} 7351).$
+\end{itemize}
+
+\subsubsection{Fixpoints\index{Fixpoint} modulo 26}
+
+According to theorem \ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
+rather than modulo $n$\footnote{For the following example, we will adopt the usual practice for the RSA procedure 
+of using ``$n$'' rather than ``$m$'' to denote the modulus.}.
+
+In $a^{e*d} \equiv a^1 {\rm ~(mod~} n)$, if we wish to determine the 
+inverses for the factor $e$ in the exponent, we need to calculate modulo $J(n)$.
+
+{\bf Example (with reference to the RSA algorithm):}\index{RSA}\\
+If we calculate modulo $26$, which set can $e$ and $d$ come from?
+
+Solution: we have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
+\begin{itemize}
+\item[] The reduced remainder set $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ are
+the elements in $\mathbb{Z}_{26},$ which have a multiplicative inverse, that is which are relatively prime\index{Relatively prime} to $26$.
+\item[] The reduced remainder set $R''$ contains only the elements of $R'$ that are relatively prime to 
+        $J(n) = 12:  R'' = \{ 1, 5, 7, 11 \}$.
+\item[] For every $e$ in $R''$ there exists a $d$ in $R''$ such that $a \equiv (a^e)^d {\rm ~(mod~} n)$.
+\end{itemize}
+For every $e$ in $R''$, there exists therefore precisely one element (not necessarily different from $e$) 
+such that $e*d \equiv 1 {\rm ~(mod~} J(26))$.
+
+For all $e$ that are relatively prime to $J(n)$ we could calculate $d$ as follows using the Euler-Fermat theorem:
+For $a^{J(n)} \equiv 1 {\rm ~(mod~} n)$ is the same as saying $ a^{J(n)-1} \equiv a^{-1} {\rm ~(mod~} n)$. Therefore
+$$ d \equiv  e^{-1}   {\rm ~(mod~} J(n)) 
+    \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
+$$
+
+The problems of \index{Factorising} factorising $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
+and if we find a solution for one of the two problems, we also have a solution for the
+other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
+solutions of the quadratic equation
+$ x^2 - (p+q) x + pq=0.
+$
+If only $n$ and $J(n)$ are known, then it is:
+$pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
+$$ x^2 + (J(n)-n-1)x +n= 0.
+$$} (please compare requisition 3 in section 3.10.1).
+
+\subsection{Multiplicative order and primitive roots}
+\hypertarget{Kap_3_9}{}
+
+Mathematicians often ask, under which conditions the repeated application of an operation results in the neutral
+element (compare patterns and structures before)\index{Structure}.
+
+For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
+of the multiplication (1) if and only if $a$ and $m$ are relatively prime. The value of $i$, for which  
+the product $a^{i}=1,$ is called the multiplicative order of $a$. \index{Order!multiplicative}
+
+The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
+
+\begin{definition}\label{def-zth-ordn}
+The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$) (where $a$ and $m$ are coprime) is the 
+smallest whole number $e$ for which $a^{e} \equiv 1 ~(mod~m)$.  
+\end{definition}
+
+The following table shows that in a multiplicative group 
+(here $\mathbb{Z}_{11}^*$) not all numbers necessarily have the same order. The orders in this case are $1, 2, 5$ and 
+$10$ and we notice that:
+\begin{enumerate}
+\item The orders are all factors of $10$.
+\item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these numbers have the 
+      {\bf maximum order} \index{Order!maximum} in $\mathbb{Z}_{11}^*$.
+\end{enumerate}
+
+{\bf Example 1:} \\
+The following table\footnote{Mathematica can be used to calculate this as follows: \\
+{\tt m=11;  Table[ Mod[${\rm a}^\wedge$i, m], \{a, 1, m-1\}, {i, 1, m-1} ].} } shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
+$a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
+
+{
+\begin{table}[h]
+\subsubsection*{Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}
+\begin{center}                                                                          
+\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+              & i=1 & i=2 & i=3 & i=4 & i=5 & i=6 & i=7 & i=8 & i=9 & i=10  & $ord_{11}(a)$\\
+\hline
+\hline
+$a=1$           & 1  & 1    & 1  & 1    & 1    & 1    & 1  & 1    & 1  & 1     & 1   \\
+\hline
+$a=2$           & 2  & 4    & 8  & 5   & 10    & 9    & 7  & 3    & 6  & 1    & 10  \\
+\hline
+$a=3$           & 3  & 9    & 5  & 4 & {\bf 1} & 3    & 9  & 5    & 4  & 1     & 5   \\
+\hline
+$a=4$           & 4  & 5    & 9  & 3 & {\bf 1} & 4    & 5  & 9    & 3  & 1    & 5 \\
+\hline
+$a=5$           & 5  & 3    & 4  & 9 & {\bf 1} & 5    & 3  & 4    & 9  & 1    & 5   \\
+\hline
+$a=6$           & 6  & 3    & 7  & 9   & 10    & 5    & 8  & 4    & 2  & 1    & 10  \\
+\hline
+$a=7$           & 7  & 5    & 2  & 3   & 10    & 4    & 6  & 9    & 8  & 1    & 10  \\
+\hline
+$a=8$           & 8  & 9    & 6  & 4   & 10    & 3    & 2  & 5    & 7  & 1    & 10  \\
+\hline
+$a=9$           & 9  & 4    & 3  & 5 & {\bf 1} & 9    & 4  & 3    & 5  & 1    & 5   \\
+\hline
+$a=10$         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 2   \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+}
+
+The table shows, for example, that the order of $3$ modulo $11$ has the value $5$.
+
+\begin{definition}\label{def-zth-primitiveroot}
+If $a$ and $m$ are coprime and if $ord_m(a) = J(m)$ (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
+\end{definition}
+A number $a$ is not a primitive root for every modulo $m$. In the above table, only $a = 2, 6, 7$ and $8$ 
+is a primitive root with respect to mod $11$ ($J(11) = 10$).
+
+Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
+
+The following two tables show the multiplicative orders and primitive roots modulo $45$ and modulo $46$.
+
+{\bf Example 2:} \\
+The following table\footnote{Mathematica can be used to calculate this as follows (no Do loop can be used in Print and each
+Print command outputs a new line at the end):\\
+{\tt 
+m = 45; \\
+Do[ Print[ Table[ Mod[${\rm a}^\wedge$i, m], \{i, 1, 12\} ], \\
+'', '', MultiplicativeOrder[a, m, 1], \\
+'', '', EulerPhi[m] ], \\
+\{a, 1, 12\} \\
+]; } % \tt 
+} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
+$a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
+
+{ % \small
+\begin{table}[h]
+\subsubsection*{Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
+\begin{center}                                                                          
+\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+ $a\setminus i$ & 1            & 2            & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12     & $ord_{45}(a)$       & $J(45)$ \\
+\hline
+\hline                                                       
+1             & 1              & 1   & 1   & 1   & 1   & 1   & 1   & 1   & 1    & 1    & 1    & 1 & 1              & 24  \\
+\hline
+2             & 2              & 4   & 8  & 16  & 32  & 19  & 38  & 31  & 17   & 34   & 23    & 1 & 12             & 24 \\
+\hline
+3             & 3              & 9  & 27  & 36  & 18   & 9  & 27  & 36  & 18    & 9   & 27   & 36  & ---            & 24 \\
+\hline
+4             & 4             & 16  & 19  & 31  & 34   & 1   & 4  & 16  & 19   & 31   & 34    & 1  & 6              & 24 \\
+\hline
+5             & 5             & 25  & 35  & 40  & 20  & 10   & 5  & 25  & 35   & 40   & 20   & 10  & ---            & 24 \\
+\hline
+6             & 6             & 36  & 36  & 36  & 36  & 36  & 36  & 36  & 36   & 36   & 36   & 36  & ---            & 24 \\
+\hline
+7             & 7              & 4  & 28  & 16  & 22  & 19  & 43  & 31  & 37   & 34   & 13    & 1  & 12             & 24 \\
+\hline
+8             & 8             & 19  & 17   & 1   & 8  & 19  & 17   & 1   & 8   & 19   & 17    & 1  & 4              & 24 \\
+\hline
+9             & 9             & 36   & 9  & 36   & 9  & 36   & 9  & 36   & 9   & 36    & 9   & 36  & ---            & 24 \\
+\hline
+10           & 10             & 10  & 10  & 10  & 10  & 10  & 10  & 10  & 10   & 10   & 10   & 10  & ---            & 24 \\
+\hline
+11           & 11             & 31  & 26  & 16  & 41   & 1  & 11  & 31  & 26   & 16   & 41    & 1  & 6              & 24 \\
+\hline
+12           & 12              & 9  & 18  & 36  & 27   & 9  & 18  & 36  & 27    & 9   & 18   & 36  & ---            & 24 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+} % \small
+
+\vskip +10 pt
+
+
+$J(45)$ is calculated using theorem \ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^1*2 * 4 = 24$.
+
+Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (e.g. for the numbers that are not 
+relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
+
+{\bf Example 3:} \\
+Is $7$ a primitive root modulo $45$?\\
+The requirement/condition $gcd(7,45)=1$ is fulfilled.
+The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
+
+{\bf Example 4:} \\
+The following table\footnote{Mathematica can be used to calculate this as follows: \\
+{\tt
+m = 46; Do[ Print[ Table[ Mod[${\rm a}^\wedge$i, m], \{i, 1, 23\} ], \\
+'', '', MultiplicativeOrder[a, m, 1], \\
+'', '', EulerPhi[m] ], \\
+\{a, 1, 23\} ];
+} % \tt
+} answers the question as to whether the number $7$ is a primitive root of $46$.
+The requirement/condition $gcd(7,46)=1$ is fulfilled.
+%\newpage
+
+\subsubsection*{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+{ \textmd \small
+%\begin{tabular}{|p{16 pt}||p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|c|}
+\begin{center}
+\begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
+\hline
+$a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
+\hline
+\hline
+1    & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1 & 1    \\
+\hline
+2 & 2  & 4  & 8 & 16 & 32 & 18 & 36 & 26  & 6 & 12 & 24  & 2  & 4  & 8 & 16 & 32 & 18 & 36 & 26  & 6 & 12 & 24  & 2 & --    \\
+\hline
+3 & 3  & 9 & 27 & 35 & 13 & 39 & 25 & 29 & 41 & 31  & 1  & 3  & 9 & 27 & 35 & 13 & 39 & 25 & 29 & 41 & 31  & 1  & 3 & 11   \\
+\hline
+4  & 4 & 16 & 18 & 26 & 12  & 2  & 8 & 32 & 36  & 6 & 24  & 4 & 16 & 18 & 26 & 12  & 2  & 8 & 32 & 36  & 6 & 24  & 4 & --  \\
+\hline
+5 & 5 & 25 & 33 & 27 & 43 & 31 & 17 & 39 & 11  & 9 & 45 & 41 & 21 & 13 & 19  & 3 & 15 & 29  & 7 & 35 & 37  & 1  & 5 & 22  \\
+\hline
+6 & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & -- \\
+\hline
+7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & 1  & 7 & 22 \\
+\hline
+8 & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & --  \\
+\hline
+9 & 9 & 35 & 39 & 29 & 31  & 3 & 27 & 13 & 25 & 41  & 1  & 9 & 35 & 39 & 29 & 31  & 3 & 27 & 13 & 25 & 41  & 1  & 9 & 11  \\
+\hline
+10 & 10  & 8 & 34 & 18 & 42  & 6 & 14  & 2 & 20 & 16 & 22 & 36 & 38 & 12 & 28  & 4 & 40 & 32 & 44 & 26 & 30 & 24 & 10 & --  \\
+\hline 
+11 & 11 & 29 & 43 & 13  & 5  & 9  & 7 & 31 & 19 & 25 & 45 & 35 & 17  & 3 & 33 & 41 & 37 & 39 & 15 & 27 & 21  & 1 & 11 & 22 \\
+\hline
+12 & 12  & 6 & 26 & 36 & 18 & 32 & 16  & 8  & 4  & 2 & 24 & 12  & 6 & 26 & 36 & 18 & 32 & 16  & 8  & 4  & 2 & 24 & 12 & -- \\
+\hline
+13 & 13 & 31 & 35 & 41 & 27 & 29  & 9 & 25  & 3 & 39  & 1 & 13 & 31 & 35 & 41 & 27 & 29  & 9 & 25  & 3 & 39  & 1 & 13 & 11  \\
+\hline
+14 & 14 & 12 & 30  & 6 & 38 & 26 & 42 & 36 & 44 & 18 & 22 & 32 & 34 & 16 & 40  & 8 & 20  & 4 & 10  & 2 & 28 & 24 & 14 & -- \\
+\hline
+15 & 15 & 41 & 17 & 25  & 7 & 13 & 11 & 27 & 37  & 3 & 45 & 31  & 5 & 29 & 21 & 39 & 33 & 35 & 19  & 9 & 43  & 1 & 15 & 22 \\
+\hline
+16 & 16 & 26  & 2 & 32  & 6  & 4 & 18 & 12  & 8 & 36 & 24 & 16 & 26  & 2 & 32  & 6  & 4 & 18 & 12  & 8 & 36 & 24 & 16 & -- \\
+\hline
+17 & 17 & 13 & 37 & 31 & 21 & 35 & 43 & 41  & 7 & 27 & 45 & 29 & 33  & 9 & 15 & 25 & 11  & 3  & 5 & 39 & 19  & 1 & 17 & 22 \\
+\hline
+18 & 18  & 2 & 36  & 4 & 26  & 8  & 6 & 16 & 12 & 32 & 24 & 18  & 2 & 36  & 4 & 26  & 8  & 6 & 16 & 12 & 32 & 24 & 18 & -- \\
+\hline
+19  & 19 & 39  & 5  & 3 & 11 & 25 & 15  & 9 & 33 & 29 & 45 & 27  & 7 & 41 & 43 & 35 & 21 & 31 & 37 & 13 & 17  & 1 & 19 & 22 \\
+\hline
+20  & 20 & 32 & 42 & 12 & 10 & 16 & 44  & 6 & 28  & 8 & 22 & 26 & 14  & 4 & 34 & 36 & 30  & 2 & 40 & 18 & 38 & 24 & 20 & --  \\
+\hline
+21 & 21 & 27 & 15 & 39 & 37 & 41 & 33  & 3 & 17 & 35 & 45 & 25 & 19 & 31  & 7  & 9  & 5 & 13 & 43 & 29 & 11  & 1 & 21 & 22  \\
+\hline
+22 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & -- \\
+\hline
+23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & -- \\
+\hline 
+\end{tabular}
+\end{center}
+}
+
+
+$J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
+The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
+
+\begin{theorem}\label{thm-zth-ordp}\footnote{Compare the above table with the values for $a^i$ mod 11, with $ 1 \le a,
+i < 11$.}$^,$\footnote{Exhausting all possible values of the set is an important cryptographic proposition (compare theorem \ref{thm-zth-exhperm}).}
+For a modulus $p$ and $a < p$:
+$a^i, i = 1, \cdots, p-1$ assumes all $J(p)$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Proof of the RSA procedure with Euler-Fermat}\hypertarget{Kapitel_3_10}{}\index{RSA}
+
+\hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
+RSA\footnote{The RSA procedure is the most common asymmetric 
+cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leonard Adleman, it can be used both for
+signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
+please note that the abbreviation may be used in other fields to mean something completely different.} 
+procedure in the group $\mathbb{Z}_n^*$.
+
+\subsubsection{Basic idea of public key cryptography}
+
+The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
+public keys for all recipients are published. You can retrieve the public key $P$ for a recipient from a directory just as you 
+would look up someone's phone number in the phone book. Furthermore, each recipient has a secret key $S$ that is needed in order 
+to decrypt the message and that is not known to anyone else. If the sender wishes to send a message $M$, he encrypts it using 
+the public key $P$ of the recipient before sending it:
+
+The ciphertext $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
+The recipient uses his private key $S$ to decrypt the message with the decryption rule $D: M = D (S; C)$.
+
+In order to ensure that this system works for every message $M$, the following four requirements must be met:
+\begin{itemize}
+\item[{\bf 1.}] $D ( S;  E (P; M) ) = M$  for every $M$  (invertibility) and $M$ takes ``very many'' of its possible values.
+\item[{\bf 2.}] All $(S, P)$ pairs are different for all participants (i.e. lots of them are needed).
+\item[{\bf 3.}] The time required to derive $S$ from $P$ is at least as high as the time required to decrypt $M$ with no knowledge of $S$.
+\item[{\bf 4.}] Both $C$ and $M$ can be calculated relatively easily.
+\end{itemize}
+The 1st requirement is a general condition for all cryptographic encryption algorithms.
+
+The 2nd requirement can easily be met because there is a ``very'' large number of prime
+numbers\footnote{According to the prime number theorem of Legendre and Gauss there are approximately $n/\ln(n)$ 
+prime numbers\index{Prime number!number of} up to the number $n$. This means, for example, 
+that there are $6.5*10^{74}$ prime numbers under $n=2^{256}$ ($=1.1*10^{77}$) and $3.2*10^{74}$ prime numbers under $n=2^{255}$. 
+Between $2^{255}$ and $2^{256}$ there are therefore $3.3*10^{74}$ prime numbers with precisely $256$ bits. This large number is 
+also the reason why we cannot simply save them all.} and because this can be ensured by a central office that issues certificates.
+
+It is this last requirement that makes the procedure actually usable. This is because it is possible to calculate the powers 
+in a linear amount of time (because there is a restriction on the length of the numbers).
+
+Although Whitfield Diffie and Martin Hellman formulated the general method as early as 1976, an actual procedure that 
+met all four requirements was only found later by Rivest, Shamir and Adleman.
+
+
+\subsubsection{How the RSA procedure works}\hypertarget{RSA}{}\label{RSA}
+
+The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2001}\index{Eckert 2001} and 
+\cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
+6 and 7 are the decryption:
+\begin{itemize}
+\item[{\bf 1.}] Select two distincts random prime numbers\footnote{Compaq introduced the so-called Multiprime method with high marketing effort in 2000.
+$n$ was the product of two big and one relativ small prime: $n=o*p*q.$ With theorem \ref{J_of_p1..pk} we get:
+$J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
+One reason probably is, that Compaq claimed a patent \index{Patent} on it. Generally there is less understanding in Europe
+and with the Open Source Initiative, that one can claim patents on algorithms. But there is really no understanding outside
+the U.S., that one can get a patent for a special case (3 factors) of an algorithm (RSA), although the patent for the general case is
+almost expired.} \footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
+$ e*d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
+~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ But it is $ (5^3)^7\equiv 0 $ mod $ 25$.
+} $p$ and $q$ and calculate 
+$n = p*q$\footnote{The GISA\index{GISA} (German Information Security Agency) recommends, to choose the prime factors $p$ and $q$ almost the same,
+ but not too close:
+$$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$
+They recommend to generate the primes independantly and check that the restriction is fulfilled (see
+\href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}{\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).}.
+The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is denoted with a capital ``$N$'' .}.
+\item[{\bf 2.}] Select a random $e \in \{2, \cdots, n-1\}$ such that:\\
+                $e$ is relatively prime to $J(n) = (p-1)*(q-1)$.
+                For example, we can select $e$ such that:  $\max(p,q)  <  e 
+<  J(n) - 1$\footnote{The procedure also allows us to select $d$ freely and then calculate $e$. However, this has practical disadvantages.
+                We usually want to be able to encrypt messages ``quickly'', which is why we choose a public exponent $e$ such that 
+                it has a short bitlength compared to the modulus $n$ and as few binary ones as possible. 
+                A number often used is $65537 = 2^{16}+1$, or in binary: $10\cdots 0\cdots 01$.
+                We want to select the publicly known $e$ to be an advantageous value that allows 
+                the exponential calculation to be performed quickly during encryption. The prime numbers $3, 17$ and $65537$ have 
+                proved to be particularly practical for this purpose.}.
+                We can then ``throw away'' $p$ and $q$.
+\item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  $e*d \equiv 1  {\rm ~(mod~} J(n))$,
+                i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$\footnote{For reasons of security, $d$ should not 
+                be too small.} \footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ``throw away'' $J(n)$.
+\begin{itemize}
+    \item[] $\rightarrow (n, e)$ is the public key $P$.
+        \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
+\end{itemize}
+\item[{\bf 4.}] For encryption, the message represented as a (binary) number is divided into parts such that each part of 
+                the number is less than $n$.
+\item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
+                $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
+\item[{\bf 6.}] For decryption, the ciphertext represented as a binary number is divided into parts such that each part 
+                of the number is less than $n$.
+\item[{\bf 7.}] Decryption of the ciphertext (or the parts of it) $C \in \{1, \cdots, n-1\}$:
+                $$M = D ( (n, d); C ) := C^d {\rm ~(mod~} n).$$
+\end{itemize}
+The numbers $d, e$ and $n$ are usually extremely large (e.g. $d$ and $e$ $300$ bits, $n$ $600$ bits).
+
+{\bf Comment:}\par
+
+The security of the RSA algorithm depends as with all public key methods on the difficulty to calculate the private
+key $d$ from the public key $(n,e)$.
+
+Concrete for the RSA method does this mean:
+\vskip - 1em
+\begin{enumerate}
+\item it is hard to calculate $J(n)$ for big compounds $n$ and
+\item it is hard to calculate the prime factors of big compounds $n$ (factorisation problem).
+\end{enumerate}
+\vskip +1em
+
+\subsubsection{Proof of requirement 1 (invertibility)}\hypertarget{RSAproof}{}\label{RSAproof}
+
+For pairs of keys $(n, e)$ and $(n, d)$ that possess fixed properties in steps 1 to 3 of the RSA procedure, 
+the following must be true for all $M < n$:
+$$M  \equiv  (M^e)^d  {\rm ~(mod~} n) \quad {\rm with} \quad  (M^e)^d  =  M^{e * d}.$$
+This means that the deciphering algorithm above works correctly.
+
+We therefore need to show that:   $$M^{e * d} \equiv M  {\rm ~(mod~} n).$$
+
+We will show this in 3 steps (see \cite[p. 131ff]{Beutelspacher1996}).
+
+{\bf Step 1}:
+
+In the first step we show that: $M^{e * d} \equiv M{\rm ~(mod~}p)$.
+This results from the requirements and from Euler-Fermat (theorem \ref{thm-zth-fermateuler}).
+Since $n=p*q$ and $J(p*q)=(p-1)*(q-1)$ and since $e$ and $d$ are selected in such a way that $e*d \equiv 1 {\rm ~(mod~}J(n))$, 
+there is a whole number $k$ such that: $e*d = 1 + k*(p-1)*(q-1)$.
+\begin{eqnarray}
+M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber \\
+           & \equiv & M * (M^{p-1})^{k*(q-1)}{\rm ~(mod~}p) \quad {\rm ~based~on~small-Fermat:~} 
+                  M^{p-1} \equiv 1 {\rm~(mod~}p) \nonumber \\ 
+           & \equiv & M * (1)^{k*(q-1)} {\rm~(mod~}p) \nonumber \\
+       & \equiv & M {\rm ~(mod~}p) \nonumber
+\end{eqnarray}
+The requirement for using the simplified Euler-Fermat theorem (theorem \ref{thm-zth-fermat1}) was that $M$ and $p$ are relatively prime.
+
+Since this is not true in general, we need to consider the case when $M$ and $p$ are not relatively prime. Since $p$ is a 
+prime number, this implies that $p$ is a factor of $M$. But this means:
+$$  M \equiv 0 {\rm ~(mod~}p). $$
+If $p$ is a factor of $M$, then $p$ is also a factor of $M^{e * d}$. Therefore:
+$$M^{e * d} \equiv 0 {\rm ~(mod~}p).$$
+Since $p$ is a factor of both $M$ and $Me * d$, it is also a factor of their difference:
+$$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
+And thus our conjecture is also true in this special case.
+
+{\bf Step 2}:
+
+In exactly the same way we prove that: $M^{e * d} \equiv M{\rm ~(mod~}q)$.
+
+{\bf Step 3}:
+
+We now combine the conjectures from (a) and (b) for $n=p*q$ to show that:
+$$ M^{e * d} \equiv M{\rm ~(mod~}n) {\rm ~for~all~} M < n. $$
+From (a) and (b) we have $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ and  $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$.
+Therefore, $p$ and $q$ are both factors of the same number $z = (M^{e * d} - M)$.
+Since $p$ and $q$ are {\bf distinct} prime numbers, their product must also be a factor of this number $z$. Thus:
+$$
+(M^{e * d} - M) \equiv 0 {\rm ~(mod~}p*q) {\rm ~~or~~ } M^{e * d} \equiv M {\rm ~(mod~}p*q) {\rm ~~or~~} 
+ M^{e * d} \equiv M {\rm ~(mod~}n).
+$$
+
+{\bf 1st comment:} \\
+We can also condense the three steps if we use theorem \ref{thm-zth-fermateuler} (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
+which corresponds to Fermat's Little Theorem:
+$$
+(M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
+        (\underbrace{M^{(p-1)(q-1)}}_{\equiv M^{J(n)} \equiv 1 {\rm ~(mod~}n)})^k * M
+    \equiv 1^k * M \equiv M {\rm ~(mod~}n).
+$$
+
+{\bf 2nd comment:} \\
+When it comes to signing messages, we perform the same operations but first use the secret key $d$, followed by the 
+public key $e$. The RSA procedure can also be used to create digital signatures\index{Signatures!digital}, because: 
+$$
+M \equiv (M^d)^e{\rm ~(mod~}n).
+$$
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\vskip +40 pt
+\newpage
+
+\begin{center}
+\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark\:}\\
+It is our choices, that show what we truly are, far more than our abilities.}}
+\end{center}
+
+\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, ~``Harry Potter and the Chamber of Secrets'', Bloomsbury, 1998, 
+last chapter ``Dobby's reward'', p.~245, by Dumbledore.}
+
+%\begin{quote}
+%{\em Joanne K. Rowling}\footnote{Joanne K. Rowling, ~``Harry Potter and the Chamber of Secrets'', Carlsen, 1998, 
+%last chapter ``Dobby's reward'', p.~343.}:\\
+%It is our choices, that show what we truly are, far more than our abilities.
+%\end{quote}
+
+\subsection{Further applications of number theory in cryptography}
+
+The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
+cryptography using small\footnote{In the RSA procedure, we call numbers ``small'' if the bit lengths are much less than $1024$ 
+bits (i.e. $308$ decimal points). In practice, $1024$ bits is currently the minimum length for a secure Certification 
+Authority RSA modulus.} numbers.
+
+Enciphering a text entails applying a function (mathematical operation) to a character string (number) to generate a 
+different number. Deciphering entails reversing this function, in other words using the distorted image that the function 
+has created from the plaintext in order to restore the original image. For example, the sender could take the plaintext 
+$M$ of a confidential message and add a secret number, the key $S$, to obtain the ciphertext $C$:
+$$C = M + S.$$
+The recipient can reconstruct the plaintext by reversing this operation, in other words by subtracting $S$:
+$$M = C - S.$$
+Adding $S$ reliably makes the plaintext impossible to read. However, this encryption is rather weak, because all an 
+interceptor needs to do to calculate the key is obtain a plaintext and the associated ciphertext
+$$S = C - M,$$
+and can then read any subsequent messages encrypted using $S$.
+
+
+\subsubsection{One way functions}\index{One way function}
+
+\hypertarget{OneWayFunktion2}{} The essential reason for this is that subtraction is just as simple an operation as addition. If the key is to be 
+impossible to determine even with knowledge of both the plaintext and the ciphertext, we need a function that is, 
+on the one hand, relatively easy to calculate - we don't want to have problems encrypting messages. On the other hand, 
+the inverse function should exist (otherwise information would be lost during encryption), but should be de facto incalculable.
+
+What are possible candidates for such a {\bf one way function}? We could take multiplication rather than addition, 
+but even primary school children know that the inverse function, division, is only slightly more difficult than multiplication 
+itself. We need to go one step higher in the hierarchy of calculation methods. It is still relatively simple to calculate the 
+power of a number, but the corresponding two reverse functions -- {\em taking roots} (find $b$ in the equation $a = b^c$  when $a$ 
+and $c$ are known) and {\em calculating logarithms} (find $c$ in the above equation when $a$ and $b$ are known) are so complicated 
+that pupils normally do not learn them at school.
+
+Although a certain structure can still be recognised for addition and multiplication, raising numbers to the power of 
+another or calculating exponentials totally mixes up all the numbers. Knowing a few values of the function doesn't tell 
+us much about the function as a whole (in contrast to addition and multiplication).
+
+
+\subsubsection{The Diffie-Hellman key exchange protocol} \index{Diffie-Hellman key exchange}
+
+Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key exchange protocol in Stanford in 1976.
+
+Alice and Bob\footnote{Bob and Alice are the standard names used for the two authorised participants in a protocol 
+(see \cite[p. 23]{Schneier1996}).
+} use a one way function to obtain a key $S$, the session key, for subsequent correspondence. This is then a secret 
+that is only known to the two of them. Alice selects a random number $a$ and keeps it secret. She applies a one way 
+function to $a$ to calculate the number $A = g^a$ and sends it to Bob. He does the same, by selecting a secret random 
+number $b$, calculating $B = g^b$ and sending it to Alice. The number $g$ is random and can be publicly known. 
+Alice applies the one way function together with her secret number $a$ to $B$, while Bob does the same with his 
+secret number $b$ and the received number $A$.
+
+The result $S$ is the same in each case because the one way function is commutative: $(g^a)^b = (g^b)^a$. But even Bob 
+cannot reconstruct Alice's secret number $a$ from the data available to him, while Alice cannot determine Bob's secret 
+number $b$. And a perpetrator who knows $g$ and has intercepted both $A$ and $B$ cannot use this knowledge to 
+determine $a, b$ or $S$.
+
+\vskip +10 pt
+\input{figures/DH-en.latex}
+\vskip +10 pt
+
+
+{\bf Procedure:}
+
+Alice and Bob want to negotiate a secret session key $S$ via a channel that may be intercepted. 
+\begin{itemize}
+\item[{\bf 1.}] They select a prime number $p$ and a random number $g$ and exchange this information openly.
+\item[{\bf 2.}] Alice now selects $a$, a random number less than $p$ and keeps it secret.
+
+                Similarly, Bob selects $b,$ a random number less than $p$ and keeps it secret.
+\item[{\bf 3.}] Alice now calculates $A \equiv g^a {\rm ~(mod~} p)$.\\
+                Bob calculates $B \equiv g^b {\rm ~(mod~} p)$.
+\item[{\bf 4.}] Alice sends the result $A$ to Bob.\\
+                Bob sends the result $B$ to Alice.
+\item[{\bf 5.}] In order to now determine the session key to be used by both, they both separately raise the 
+                respective results they have received to the power of their secret random number modulo $p$. 
+                This means: 
+\begin{itemize}
+    \item[-] Alice calculates $S \equiv B^a {\rm ~(mod~} p)$ and
+    \item[-] Bob calculates $S \equiv A^b {\rm ~(mod~} p)$.
+\end{itemize}
+\end{itemize}
+Even if a spy intercepts $g, p$, and the interim results $A$ and $B$, he cannot use these to determine the session key 
+used due to the difficulty of calculating the discrete logarithm\index{Discrete logarithm}\index{Logarithm problem!discrete}.
+
+\vskip + 5pt
+We will now use an example with (unrealistically) small numbers to illustrate this.
+\vskip +1em
+
+{\bf Example using numbers:} 
+\begin{itemize}
+\item[{\bf 1.}] Alice and Bob select $g = 11, p = 347$.
+\item[{\bf 2.}] Alice selects $a = 240$, Bob selects $b = 39$ and they keep $a$ and $b$ secret.
+\item[{\bf 3.}] Alice calculates $A \equiv g^a \equiv 11^{240}  \equiv 49 {\rm ~(mod~} 347).$\\
+                Bob calculates $B \equiv g^b \equiv 11^{39} \equiv 285 {\rm ~(mod~} 347).$
+\item[{\bf 4.}] Alice sends Bob:   $A \equiv 49$,\\
+                Bob sends Alice: $B \equiv 285$.
+\item[{\bf 5.}] Alice calculates $B^a \equiv 285^{240} \equiv 268 {\rm ~(mod~} 347),$\\
+                Bob calculates $A^b \equiv   49^{39} \equiv 268 {\rm ~(mod~} 347).$
+\end{itemize}
+Alice and Bob can now communicate securely using their shared session key. Even if spies were to intercept everything 
+transferred via the connection:
+$g = 11, p = 347, A = 49$ and $B = 285$, they would not be able to calculate the secret key.
+
+{\bf Comment:} \\
+In this example using such small numbers, it would be possible, but with large numbers the discrete logarithm\index{Discrete logarithm}
+problem\footnote{If you try to determine the discrete logarithm $x$ that solves the equation $11^x \equiv 49 {\rm ~(mod~} 347) $ with 
+Mathematica by means of Solve, you obtain the {em tdep message} ``The equations appear to involve the variables to be solved for 
+in an essentially non-algebraic way''. Mathematica therefore claims not to know a direct algebraic procedure for solving the equation.
+Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice):
+{\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
+Such number-theory tasks can also be solved using other tools such as the LiDIA\index{LiDIA} or BC package (see URLs in appendix).
+The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.}
+\footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
+The discrete logarithm is the smallest natural exponent that solves the equation $11^x\equiv49 {\rm ~(mod~} 347)$. Both $x=67$ 
+and $x=240$ (the number selected in the example) satisfy the equation and can therefore be used to calculate the session key: 
+$285^{240} \equiv 285^{67}\equiv 268 {\rm ~(mod~} 347)$.
+If Alice and Bob had selected a primitive root modulo $p$ as base $g$, then for every remainder from the set 
+$\{1, 2, \cdots, p-1\}$ there is exactly one exponent from the set $\{0, 1, \cdots, p-2\}$.\\
+For info: there are 
+$172$ different primitive roots for modulo $347$, $32$ of which are prime (not necessary).
+Since the number $11$ selected for $g$ in the example is not a primitive root of $347$, the remainders do not take all 
+values from the set $\{1, 2, \cdots, 346\}$. Thus, for a particular remainder there may be more than one exponent or 
+even no exponent at all in the set $\{0, 1, \cdots, 345\}$ that satisfies the equation.\\
+{\tt 
+PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1; MultiplicativeOrder[11, 347] = 173}
+\vskip +10 pt
+\begin{tabular}{|c|c|l|}
+\hline
+i  & $11^i{\rm ~mod~}347$ & \\
+\hline
+      0  &          1   &  \\
+      1  &         11   &  \\                                     
+      2  &        121   &  \\                                     
+      3  &        290   &  \\                                     
+     67  &         49   & searched exponent \\                    
+    172  &        284   &  \\                                                  
+    173  &          1   &= multiplicative order of $11 {\rm  ~(mod~} 347)$ \\ 
+    174  &         11   &  \\                                                     
+    175  &        121   &  \\                                     
+    176  &        290   &  \\                                     
+    240  &         49   & searched exponent \\
+\hline
+\end{tabular}
+\vskip +6 pt
+} is extremely difficult to solve. 
+
+Here, we need to calculate:\\
+For Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, that means $\log_{11}(49) {\rm ~(mod~}347).$\\
+For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(mod~}347)$.
+
+
+\subsection{The RSA procedure with actual numbers}\hypertarget{Kapitel_3_12}{}
+\index{RSA}
+
+Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
+
+
+\subsubsection{RSA with small prime numbers and with a number as message}
+
+Before applying the RSA procedure to a text, we will first demonstrate it directly using a number\footnote{Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.}.
+\begin{itemize}
+\item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
+Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
+\item[{\bf 2.}] $e = 7$ (should lie between $11$ and $40$ and must be relatively prime to $40$).
+\item[{\bf 3.}] $d = 23$ (since $23*7 \equiv 161 \equiv 1 {\rm ~(mod~} 40)$),
+    \begin{itemize}
+    \item[] $\rightarrow$ Public key of the recipient:  $(55, 7),$
+    \item[] $\rightarrow$ Private key of the recipient: $(55, 23).$
+    \end{itemize}
+\item[{\bf 4.}] Let the message be the number $M = 2$ (so no division into blocks is required).
+\item[{\bf 5.}] Encryption: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
+\item[{\bf 6.}] The ciphertext is simply the number $C = 18$ (we therefore do not need to divide it into blocks).
+\item[{\bf 7.}] Decryption: 
+        $M \equiv 18^{23} \equiv 18^{(1+2+4+16)} \equiv 18*49*36*26 \equiv 2 {\rm ~(mod~}55).$
+\end{itemize}
+
+
+We will now apply the RSA procedure to a text, first using the upper case alphabet ($26$ characters), then using the entire ASCII character set as the basis for the messages.
+
+\subsubsection{RSA with slightly larger prime numbers and a text of upper case letters}
+
+We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
+CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.
+This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
+
+\begin{tabular}{|c|l||c|l|}
+\hline
+Character & Numerical value & Character & Numerical value \\
+\hline
+\hline
+Blank    & 0   & M  & 13 \\
+A        & 1   & N    & 14 \\ 
+B        & 2   & O    & 15 \\ 
+C        & 3   & P    & 16 \\  
+D        & 4   & Q    & 17 \\ 
+E        & 5   & R    & 18 \\ 
+F        & 6   & S    & 19 \\  
+G        & 7   & T    & 20 \\  
+H        & 8   & U    & 21 \\ 
+I        & 9   & V    & 22 \\   
+J       & 10   & W    & 23 \\  
+K       & 11   & X    & 24 \\ 
+L       & 12   & Y    & 25 \\
+&              & Z    & 26 \\
+\hline
+\end{tabular}
+\hypertarget{Grossbuchstaben-Alphabet}{}    
+
+{\bf Table: capital letters alphabet\index{Capital letters alphabet}}
+
+\vskip +20 pt
+
+{\bf Key generation (steps 1 to 3)}:\\
+{\bf 1.} $p=47, q=79$ $( n= 3,713; ~J(n) = (p-1)*(q-1)=3,588).$ \\
+{\bf 2.} $e = 37$ (should lie between $79$ and $3,588$ and must be relatively prime to $3,588$). \\
+{\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3,589 \equiv 1{\rm ~(mod~}3,588) \;$)\footnote{How
+to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A}}. \\
+{\bf 4. Encryption}:\\
+{\tt
+\begin{tabular}{rcccccccccccccccccccc}
+{\rm Text:} & A & T & T & A & C & K & & A & T &  & D & A & W & N \\
+{\rm Number:} & 01 & 20 & 20 & 01 & 03 & 11 & 00 & 01 & 20 & 00 & 04 & 01 & 23 & 14
+\end{tabular}
+}
+
+This $28$-digit number is divided into $4$-digit parts
+(because $2,626$ is still smaller than $n=3,713$):\\
+{\tt 0120 2001 0311 0001 2000 0401 2314}
+
+All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{Using Mathematica, for example,
+this can be calculated usung {\tt PowerMod[120, 37, 3713]}.\\
+Using CrypTool v1.3 you can solve this with the 
+``Indiv. Procedures/RSA Demonstration/Factorise (IFP)''.}: \\
+{\tt 1404 2932 3536 0001 3284 2280 2235}
+
+{\bf 5. Decryption}: \\
+Ciphertext: {\tt 1404 2932 3536 0001 3284 2280 2235 }\\
+This $28$-digit number is divided into $4$-digit parts.\\
+All 7 parts are decrypted using:  $M \equiv C^{97}{\rm ~(mod~}3,713)$: \\
+{\tt 0120 2001 0311 0001 2000 0401 2314} \\
+The 2-digit numbers are transformed into capital letters and blanks.
+
+Using the selected values it is easy for a cryptoanalyst to derive the secret values from the public 
+parameters $n=3,713$ and $e=37$ by revealing that $3,713 = 47 * 79$.\\  
+If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
+
+
+\subsubsection{ RSA with slightly larger prime numbers still and a text made up of ASCII characters}
+
+In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
+
+The idea for this task\footnote{Using CrypTool v1.3 you can solve this with the 
+``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.} is taken from the example in \cite[p. 215]{Eckert2001}\index{Eckert 2001}.
+
+Coded in decimal notation, the text ``RSA works!'' is as follows: \\
+{\tt
+\begin{tabular}{rcccccccccccccccccccc}
+{\rm Text:} & R & S & A &   & w & o & r & k & s & ! \\
+{\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
+\end{tabular} } % \tt
+
+
+We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
+{\bf Key generation (steps 1 to 3)}:\\
+{\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{Mathematica delivers 
+this result, for example, with {\tt FactorInteger[255016]=\{\{2,3\}, \{127,1\}, \{251,1\}\}}.\\
+Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/Factorise (IFP)''.}. \\
+{\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
+therefore, be $2, 127$ or $251$. In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
+is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
+{\bf 3.} $d=231,953$ \\\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
+{\rm ~(mod~}67,000)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
+
+
+\subsubsection*{Variant 1: All ASCII characters are encrypted and decrypted separately (no blocks\index{Block length} are formed).}
+
+{\bf 4. Encryption}:\\
+{\tt
+\begin{tabular}{rcccccccccccccccccccc}
+{\rm Text:} & R & S & A &   & w & o & r & k & s & ! \\
+{\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
+\end{tabular} } % \tt
+
+The letters are not combined\footnote{For secure procedures we need large numbers that assume -- as far as possible -- all 
+values up to $n-1$. If the possible value set for the numbers in the message is too small, even large prime numbers 
+cannot make the procedure secure.  An ASCII character is represented by $8$ bits. If we want larger values we must 
+combine several numbers. Two characters need $16$ bits, whereby the maximum value that can be represented is $65536$. 
+The modulus $n$ must then be greater than $2^{16} = 65536$. This is applied in variant 2.
+When the numbers are combined, the leading zeros are kept in binary notation (just as if we were to write all numbers with $3$ 
+digits in decimal notation above and were then to obtain the sequence 
+{\tt 082 083,  065 032, 119 111,  114 107,  115 033)}.}!
+
+Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{Using Mathematica this can be 
+calculated using {\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027].}
+}: \\
+{\tt
+\begin{tabular}{lllll}
+212984 & 025546 & 104529 & 031692 & 248407 \\
+100412 & 054196 & 100184 & 058179 & 227433\\
+\end{tabular} }
+
+{\bf 5. Decryption}:\\
+Ciphertext: 
+
+{\tt
+\begin{tabular}{lllll}
+212984 & 025546 & 104529 & 031692 & 248407 \\
+100412 & 054196 & 100184 & 058179 & 227433\\
+\end{tabular} } 
+
+Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
+{\tt 82 83 65 32 119 111 114 107 115 33}
+
+
+\subsubsection*{Variant 2: The ASCII characters are encrypted and decrypted two at a time as blocks.}
+
+In variant 2 the block formation is done in two different sub-variants: (4./5. and 4'./5'.).
+
+{\tt
+\begin{tabular}{rcccccccccccccccccccc}
+{\rm Text:} & R & S & A &   & w & o & r & k & s & ! \\
+{\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
+\end{tabular} } % \tt
+
+{\bf 4. Encryption}:
+
+Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{lll}
+& binary representation  & decimal representation\\
+01010010, 82 & 01010010 01010011 & =21075 \\
+01010011, 83 & \\
+01000001, 65 & 01000001 00100000 & =16672  \\
+00100000, 32  \\
+01110111, 119 & 01110111 01101111 & =30575 \\
+01101111, 111 \\ 
+01110010, 114 & 01110010 01101011 & =29291 \\
+01101011, 107 \\
+01110011, 115 & 01110011 00100001 & =29473 \\
+00100001, 33: 
+\end{tabular}} (each ASCII character is encoded into a 8 digit binary number below):\\
+{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA
+Demonstration/RSA Cryptosystem'' 
+with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
+
+Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{Using Mathematica this can
+be calculated using {\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\},
+65537, 256027]. }
+}: \\
+{\tt 158721 137346 37358 240130 112898}
+
+{\bf 5. Decryption:} \\
+Ciphertext:\\
+{\tt 158721 137346 37358 240130 112898}
+
+Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
+{\tt 21075 16672 30575 29291 29473}
+
+
+% Conversion:
+%   Divide each block into $2$ numbers using binary.
+%   Then convert each number to ASCII characters.
+
+{\bf 4'. Encryption:} \\
+Blocks are formed: (each ASCII character is encoded into a 3 digit decimal number below):\\
+ {\tt 82083 65032 119111 114107 115033}\footnote{The RSA encryption works correctly with the
+modulus $n=256.027$ because each ASCII block of two characters will be encoded into a number that is smaller or equal than
+the number $255,255$.  } \\
+Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{Using Mathematica this can be calculated using 
+{\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256,027].}
+}: \\ 
+{\tt 198967 051405 254571 115318 014251}
+
+{\bf 5'. Decryption:} \\
+Ciphertext:\\
+ {\tt 198967 051405 254571 115318 014251}
+
+Each block is decrypted using: $M \equiv C^{2,473}{\rm ~(mod~}67,519)$: \\
+{\tt 82083 65032 119111 114107 115033}
+
+
+\subsubsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
+
+The task is taken from \cite[Exercise 4.6]{Stinson1995}\index{Stinson 1995}:
+The pure solution has been published by Prof. Stinson at 
+\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{\texttt{http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}}.\footnote{or
+\href{http://bibd.unl/~stinson/solns.html}{\texttt{http://bibd.unl/\~{}stinson/solns.html}}.}
+
+
+However, it is not the 
+result that is important here but rather the individual steps of the solution, that is, the explanation of the 
+cryptoanalysis\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool 
+and in the presentation on the website. If anyone sends us a well prepared exact method of solving the problem, we 
+would be pleased to include it in the documentation.}.
+
+Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task is to decrypt them.
+The public parameters of the system are 
+
+$n = 18,923$ and $e = 1,261$ (for Table 4.1) and \\
+$n = 31,313$ and $e = 4,913$ (for Table 4.2). 
+
+This can be accomplished as follows. First, factor $n$ (which is easy because it is so small). Then compute the 
+exponent $d$ from $J(n)$, and, finally, decrypt the ciphertext. Use the square-and-multiply\index{Square and multiply} algorithm to exponentiate 
+modulo $n$. 
+
+In order to translate the plaintext back into ordinary English text, you need to know how alphabetic characters are 
+``encoded'' as elements in $\mathbb{Z}_n$. Each element of $\mathbb{Z}_n$ represents three alphabetic characters as in the 
+following examples:
+
+{\tt \begin{tabular}{lll}
+DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2,398$ \\
+CAT & $\mapsto$ & $2 * 26^2 + 0 * 26 + 19 = 1,371$ \\
+ZZZ & $\mapsto$ & $25 * 26^2 + 25 * 26 + 25 = 17,575$. 
+\end{tabular} }
+
+You will have to invert this process as the final step in your program.
+
+The first plaintext was taken from ``The Diary of Samuel Marchbanks'', by Robertson Davies, 1947, and the second was 
+taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
+
+\newpage
+TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Paste.}: RSA ciphertext
+
+{\tt 
+\begin{tabular}{llllllll}
+12423 & 11524  & 7243  & 7459 & 14303  & 6127 & 10964 & 16399 \\
+ 9792 & 13629 & 14407 & 18817 & 18830 & 13556  & 3159 & 16647 \\
+ 5300 & 13951    & 81  & 8986  & 8007 & 13167 & 10022 & 17213 \\
+ 2264   & 961 & 17459  & 4101  & 2999 & 14569 & 17183 & 15827 \\
+12693  & 9553 & 18194  & 3830  & 2664 & 13998 & 12501 & 18873 \\
+12161 & 13071 & 16900  & 7233  & 8270 & 17086  & 9792 & 14266 \\
+13236  & 5300 & 13951  & 8850 & 12129  & 6091 & 18110  & 3332 \\
+15061 & 12347  & 7817  & 7946 & 11675 & 13924 & 13892 & 18031 \\
+ 2620  & 6276  & 8500   & 201  & 8850 & 11178 & 16477 & 10161 \\
+ 3533 & 13842  & 7537 & 12259 & 18110    & 44  & 2364 & 15570 \\
+ 3460  & 9886  & 8687  & 4481 & 11231  & 7547 & 11383 & 17910 \\
+12867 & 13203  & 5102  & 4742  & 5053 & 15407  & 2976  & 9330 \\
+12192    & 56  & 2471 & 15334   & 841 & 13995 & 17592 & 13297 \\
+ 2430  & 9741 & 11675   & 424  & 6686   & 738 & 13874  & 8168 \\
+ 7913  & 6246 & 14301  & 1144  & 9056 & 15967  & 7328 & 13203 \\
+  796   & 195  & 9872 & 16979 & 15404 & 14130  & 9105  & 2001 \\
+ 9792 & 14251  & 1498 & 11296  & 1105  & 4502 & 16979  & 1105 \\
+   56  & 4118 & 11302  & 5988  & 3363 & 15827  & 6928  & 4191 \\
+ 4277 & 10617   & 874 & 13211 & 11821  & 3090 & 18110    & 44 \\
+ 2364 & 15570  & 3460  & 9886  & 9988  & 3798  & 1158  & 9872 \\
+16979 & 15404  & 6127  & 9872  & 3652 & 14838  & 7437  & 2540 \\
+ 1367  & 2512 & 14407  & 5053  & 1521   & 297 & 10935 & 17137 \\
+ 2186  & 9433 & 13293  & 7555 & 13618 & 13000  & 6490  & 5310 \\
+18676  & 4782 & 11374   & 446  & 4165 & 11634  & 3846 & 14611 \\
+ 2364  & 6789 & 11634  & 4493  & 4063  & 4576 & 17955  & 7965 \\
+11748 & 14616 & 11453 & 17666   & 925    & 56  & 4118 & 18031 \\
+ 9522 & 14838  & 7437  & 3880 & 11476  & 8305  & 5102  & 2999 \\
+18628 & 14326  & 9175  & 9061   & 650 & 18110  & 8720 & 15404 \\
+ 2951   & 722 & 15334   & 841 & 15610  & 2443 & 11056  & 2186 
+\end{tabular} } % tt
+
+\newpage
+TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of Cryptool.}: RSA ciphertext
+
+{\tt 
+\begin{tabular}{llllllll}
+ 6340  & 8309 & 14010  & 8936 & 27358 & 25023 & 16481 & 25809 \\
+23614  & 7135 & 24996 & 30590 & 27570 & 26486 & 30388  & 9395 \\
+27584 & 14999  & 4517 & 12146 & 29421 & 26439  & 1606 & 17881 \\
+25774  & 7647 & 23901  & 7372 & 25774 & 18436 & 12056 & 13547 \\
+ 7908  & 8635  & 2149  & 1908 & 22076  & 7372  & 8686  & 1304 \\
+ 4082 & 11803  & 5314   & 107  & 7359 & 22470  & 7372 & 22827 \\
+15698 & 30317  & 4685 & 14696 & 30388  & 8671 & 29956 & 15705 \\
+ 1417 & 26905 & 25809 & 28347 & 26277  & 7897 & 20240 & 21519 \\
+12437  & 1108 & 27106 & 18743 & 24144 & 10685 & 25234 & 30155 \\
+23005  & 8267  & 9917  & 7994  & 9694  & 2149 & 10042 & 27705 \\
+15930 & 29748  & 8635 & 23645 & 11738 & 24591 & 20240 & 27212 \\
+27486  & 9741  & 2149 & 29329  & 2149  & 5501 & 14015 & 30155 \\
+18154 & 22319 & 27705 & 20321 & 23254 & 13624  & 3249  & 5443 \\
+ 2149 & 16975 & 16087 & 14600 & 27705 & 19386  & 7325 & 26277 \\
+19554 & 23614  & 7553  & 4734  & 8091 & 23973 & 14015   & 107 \\
+ 3183 & 17347 & 25234  & 4595 & 21498  & 6360 & 19837  & 8463 \\
+ 6000 & 31280 & 29413  & 2066   & 369 & 23204  & 8425  & 7792 \\
+25973  & 4477 & 30989                               
+\end{tabular} } % tt
+
+\subsubsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
+
+The following task is a corrected version from the excellent book written by Prof. Yan 
+\cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
+However, it is not the result that is important here but rather the individual steps of the solution, that is, 
+the explanation of the cryptoanalysis\footnote{The method of solving the problem is outlined in the scenario of 
+the online help to CrypTool and in the presentation on the website. If anyone sends us a well prepared exact 
+method of solving the problem, we would be pleased to include it in the documentation.}.
+
+There are three tasks with completely different degrees of difficulty here. In each case we know the ciphertext 
+and the public key $(e,n)$:
+\begin{itemize}
+\item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
+\item[{\bf (b)}] Ciphertext only: \index{Attack!ciphertext only} find $d$ and the plaintext.
+\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation problem}
+\end{itemize}
+
+\newpage
+$n = 63978486879527143858831415041, ~e = 17579$
+
+{\bf Message\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of Cryptool.}:}
+
+{\tt
+\begin{tabular}{l}
+1401202118011200, \\
+1421130205181900, \\
+0118050013010405, \\
+0002250007150400 
+\end{tabular} } % tt
+
+{\bf Cipher:} \\
+{\tt
+\begin{tabular}{l}
+45411667895024938209259253423, \\
+16597091621432020076311552201, \\
+46468979279750354732637631044, \\
+32870167545903741339819671379
+\end{tabular} } % tt
+
+
+{\bf Comments:} \\
+The original message consisted of a sentence containing $31$ characters (coded with the \hyperlink{Grossbuchstaben-Alphabet}{capital letters alphabet}
+\index{Capital letters alphabet} from section 3.12.2). 
+Each group of $16$ decimal numbers is then combined to form one number (the last number is filled with zeros). These 
+numbers are raised to the power of $e$.
+
+When you decrypt the message you must fill the calculated numbers with leading zeros in order to obtain plaintext.
+
+This needs to be stressed because the type of padding is extremely important during implementation and standardisation for interoperable algorithms.
+
+\newpage
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Bibliography}
+\bibitem[Bartholome1996]{3Bartholome1996}  
+    A. Bartholome, J. Rung, H. Kern, \\
+    Zahlentheorie f\"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
+
+\bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
+    Friedrich L. Bauer, \\
+    Entzifferte Geheimnisse, Springer, 1995.
+
+\bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
+    Friedrich L. Bauer, \\
+    Decrypted Secrets, Springer, 2nd edition 2000.
+
+\bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
+    Albrecht Beutelspacher, \\
+    Kryptologie, Vieweg, 5. Auflage 1996.
+
+\bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
+    Johannes Buchmann, \\
+    Einf\"uhrung in die Kryptographie, Springer, 1999.
+
+\bibitem[Eckert2001]{Eckert2001} \index{Eckert 2001}
+    Claudia Eckert, \\
+    IT-Sicherheit: Konzepte-Verfahren-Protokolle, Oldenbourg, 2001.
+
+\bibitem[Graham1994]{Graham1994} \index{Graham 1994}
+     Graham, Knuth, Patashnik, \\
+      Concrete Mathemathics, a Foundation of Computer Science, 2nd edition, Addison Wesley, 1994.
+
+\bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
+    Donald E. Knuth, \\
+    The Art of Computer Programming, vol 2: 
+    Seminumerical Algorithms, Addison-Wesley, 2nd edition, 1998.
+
+\bibitem[Pfleger1997]{Pfleger1997} \index{Pfleger 1997}
+    Charles P. Pfleger, \\
+    Security in Computing, Prentice-Hall, 2nd edition, 1997.
+
+\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    Applied Cryptography, Protocols, Algorithms,
+    and Source Code in C, Wiley, 2nd edition, 1996.
+
+\bibitem[Sedgewick1990]{Sedgewick1990} \index{Sedgewick 1990}
+    Robert Sedgewick,\\
+    Algorithms in C, Addison-Wesley, 1990.
+
+\bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
+    Douglas R. Stinson,\\
+    Cryptography - Theory and Practice, CRC Press, 1995.
+
+\bibitem[Wiles1994]{Wiles1994}\index{Wiles}
+    Wiles, Andrew, \\
+    Modular elliptic curves and Fermat's Last Theorem\index{Fermat!last theorem}, in Annals of
+    Mathematics 141 (1995).
+
+\bibitem[Wolffenstetter1998]{Wolfenstetter1998}\index{Wolfenstetter 1998}
+    Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
+    Moderne Verfahren in der Kryptographie, Vieweg, 2. Auflage, 1998.
+
+\bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
+    Song Y. Yan, \\
+    Number Theory for Computing, Springer, 2000.
+\end{thebibliography}
+
+
+\newpage
+\subsection*{URLs / links (selection)}\addcontentsline{toc}{subsection}{URLs}
+
+\begin{enumerate}
+   \item \hypertarget{knott}{} 
+          Ron Knott's Fibonacci\index{Fibonacci} page, \\
+      Here, everything revolves around Fibonacci numbers. \index{Knott!Ron}\\
+          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
+   \item CrypTool Version 1.3, 2002, \\
+     Freeware to illustrate cryptography \\
+          \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},
+
+          \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}}, 
+
+          \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
+   \item Mathematica, \\
+    Commercial mathematics package \\
+          \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
+   \item  LiDIA,\index{LiDIA} \\
+      Extensive library containing number-theory functions and the LC interpreter \\
+          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
+   \item BC, \\
+     Interpreter with number-theory functions \\
+          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
+   \item Only after I had completed this article I did come across a website which interactively and 
+     didactically uses elementary number theory to provide an extremely sophisticated description of the
+     fundamental mathematical thought processes. It was created for a teaching project in the 11th grade 
+     of the technical grammar school (unfortunately only available in German):\index{Muenchenbach} \\
+         \href{http://www.djh-freeweb.de/~muenchenbach}{\texttt{http://www.djh-freeweb.de/\~{}muenchenbach}}
+    \item GISA,\index{GISA} \\
+          German Information Security Agency \\
+          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}} 
+\end{enumerate}
+
+
+
+
+\subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
+
+I would like to take this opportunity to thank Mr. Henrik Koy for making suggestions and very constructively proof-reading this article.
+
+\newpage
+\subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
+Algorithms of Euclid} \hypertarget{Appendix_A}{}
+\addcontentsline{toc}{subsection}{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
+Algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
+
+\begin{enumerate}
+\item The greatest common divisor of two natural numbers $a$ and $b$ is an important value that can be calculated 
+very quickly. Here we make use of the fact that if a number $c$ divides the numbers $a$ and $b$ 
+(i.e. there exists an $a'$ and a $b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides 
+the remainder $r$ of $a/b$. In short notion we can write: If $c$ divedes $a$ and $b$ it follows that 
+$c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $
+of a real number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
+}.
+As the latter statement is valid for each common divisor $c$ of $a$ and $b$ it follows that:
+$$gcd(a,b) = gcd(a - \lfloor a/b \rfloor * b, b).$$
+Using this information, the algorithm for calculating the gcd of two numbers can be written as follows (in pseudo code):
+
+\begin{verbatim}
+INPUT: a,b != 0
+1. if ( a < b ) then  x = a; a = b; b = x; // Swap a and b (a > b)
+2. a = a - int(a/b) * b                    // a is smaller than b, the 
+                                           // gcd(a, b) is unchanged 
+3. if ( a != 0 ) then goto 1.              // a falls after each step and 
+                                           // the algorithm ends when a==0.
+OUTPUT "gcd(a,b) = " b    // b is the gcd of the original a and b
+\end{verbatim}
+
+\item However, to other relationships can be derived from the gcd:
+For this, we need the set of equations for $a$ and $b$:
+\begin{eqnarray}
+ a & = & 1*a + 0*b \nonumber \\
+ b & = & 0*a + 1*b, \nonumber
+\end{eqnarray}
+or, in matrix notation:
+$$ \left(\begin{array}{c}a \\ b\end{array}\right) = 
+   \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
+   \left(\begin{array}{c} a \\ b \end{array} \right).$$
+We summarise this information in the extended matrix:
+$$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
+If we apply the above gcd algorithm to this matrix, we obtain the extended gcd algorithm: 
+
+\newpage
+{\tt INPUT:} $a,b \not= 0$
+\begin{itemize}
+  \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
+  \item[\tt 1.] $ \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right) := 
+                   \left(\begin{array}{cc} 0 & 1  \\ 1 & - \lfloor a/b \rfloor * b \end{array} \right)*
+           \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
+  \item[\tt 2.] {\tt if (b != 0) then goto 1.}
+\end{itemize}
+{\tt OUTPUT:} ``gcd$(a,b) = a*x +b*y$: '', ``gcd$(a,b) =$ '' $b$, ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
+
+Since this algorithm only performs linear transformations, the same equations always apply
+\begin{eqnarray}
+ a & = & x_{1,1}*a + x_{1,2}*b \nonumber \\
+ b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
+\end{eqnarray}
+and we have the extended gcd equation at the end of the algorithm\footnote{By termination of the gcd algorithm,
+the program variables $a$ and $b$ contain the values $a= 0$ and $b=gcd(a,b)$. Please keep in mind, that the program
+variables are different to the numbers $a$ and $b$ and that they are only relevant for the scope of the algorithm.}:
+$$gcd(a,b) = a*x_{2,1} + b*x_{2,2}.$$
+
+{\bf Example:} \\
+Using the extended gcd we can determine for $e = 37$ the multiplicative inverse number $d$ to modulo $3588$ (i.e.
+$37*d \equiv 1 {\rm ~(mod~} 3588$)): 
+
+{\tt 0.}
+ $ \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right)$ 
+ 
+{\tt 1.}
+ $ \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 3588/36 \rfloor = 96) * 37 \end{array} \right)*
+   \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right).$
+   
+{\tt 2.}
+ $ \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 37/36 \rfloor = 1) * 36 \end{array} \right)*
+   \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right).$
+   
+{\tt 3.}
+ $ \left(\begin{array}{cccc} {\bf 1} & | & {\bf -1} & {\bf 97} \\ 0 & | & 37 & -3588 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 36/1 \rfloor = 36) * 1 \end{array} \right)*
+   \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right).$
+
+{\tt OUTPUT:} \\
+gcd($37,3588) = a*x + b*y$: gcd($37,3588$) = 1, $x = -1$, $y=97$.
+
+Thus 
+\begin{enumerate}
+
+\item $37$ and $3588$ are relatively prime ($37$ has an inverse modulo $3588$).
+\item $37*97 = (1 * 3588) + 1$ in other words $37*97 \equiv 1 {\rm ~(mod~} 3588).$ 
+                 and therefore the number $97$ is the multiplicative inverse to $37$ modulo $3588$.
+\end{enumerate}
+\end{enumerate}
+\newpage
+\subsection*{Appendix B: Forming closed sets} \hypertarget{Appendix_B}{}
+\addcontentsline{toc}{subsection}{Appendix B: Forming closed sets}
+
+The property of closedness \index{Closedness} is always defined in relation to an operation in a set.
+The following shows how to construct the ``closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
+\begin{eqnarray}
+G_0 & = & \{ 2, 3 \} {\rm ~addition~of~the~numbers~in~} G_0 {\rm ~determines~further~numbers:} \nonumber \\
+    & &    2 + 3 \equiv 5{\rm ~(mod~}8) = 5 \nonumber \\
+    & &    2 + 2 \equiv 4{\rm ~(mod~}8) = 4 \nonumber \\
+    & &    3 + 3 \equiv 6{\rm ~(mod~}8) = 6 \nonumber \\ 
+G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm ~addition~of~the~numbers~in~} G_1 {\rm ~determines:}\nonumber \\
+    & &    3 + 4 \equiv 7{\rm ~(mod~}8) = 7 \nonumber \\
+    & &    3 + 5 \equiv 8{\rm ~(mod~}8) = 0 \nonumber \\
+    & &    3 + 6 \equiv 9{\rm ~(mod~}8) = 1 \nonumber \\ 
+G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~addition~of~the~numbers~in~} G_2 {~does~not~extend~the~set!} \nonumber \\
+G_3 & = & G_2 {\rm ~~we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
+\end{eqnarray}
+End of forming a closed set.
+
+\subsection*{Appendix C: Comments on modulo subtraction} \hypertarget{Appendix_C}{}
+\addcontentsline{toc}{subsection}{Appendix C: Comments on modulo subtraction}
+
+Comment on subtraction modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
+It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistake of equating this. You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$ in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of numbers in $\mathbb{Z}$.
+
+\vskip +10 pt
+\input{figures/line-en.latex}
+
+\subsection*{Appendix D: List of the formulated definitions and theorems} \hypertarget{Appendix_D}{}
+\addcontentsline{toc}{subsection}{Appendix D: List of the formulated definitions and theorems}
+\vskip +8 pt
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+ & Short description ~~ & Page \\ \hline
+Definition \ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
+Definition \ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
+Theorem \ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
+Theorem \ref{thm-zth-mthm} &  1. fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
+Definition \ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
+Definition \ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
+Definition \ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
+Theorem \ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
+Theorem \ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
+Theorem \ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
+Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
+Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
+Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
+Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
+Definition \ref{def-zth-phiofn} & Euler-function $J(n)$ & \pageref{def-zth-phiofn} \\
+Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
+Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
+Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
+Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
+Theorem \ref{thm-zth-fermat1} & small Fermat  &  \pageref{thm-zth-fermat1}\\
+Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
+Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
+Definition \ref{def-zth-primitiveroot} & primitive root von $m$ &  \pageref{def-zth-primitiveroot}\\
+Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
+\end{tabular}
+\end{center}
+\vskip +6 pt

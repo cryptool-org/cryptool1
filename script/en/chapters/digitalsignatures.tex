@@ -1,0 +1,250 @@
+
+\newpage
+\section{Digital signatures}
+\index{Signatures!digital}
+The aim of digital signatures is to guarantee the following two points:
+\begin{itemize}
+ \item User authenticity: \\
+      \index{Authenticity!user} It can be checked whether a message really does
+come from a particular person.
+ \item Message integrity: \\
+      \index{Message integrity} It can be checked whether the message has been
+changed (on route).
+\end{itemize}
+
+
+An asymmetric technique is used again (see encryption procedures). Participants
+who wish to generate a digital signature for a document must possess a pair of
+keys. They use their secret key to generate signatures and the recipient uses
+the sender's public key to verify whether the signature is correct. As before,
+it must be impossible to use the public key to derive the secret key.
+
+In detail, a \index{Signature procedure} {\em Signature procedure} looks like
+this: \\ Senders use their message and secret key to calculate the digital
+signature for the message. Compared to hand-written signatures, therefore,
+digital signatures have the advantage that they also depend on the document to
+be signed. Signatures from one and the same participant are different unless the
+signed documents are completely identical. Even inserting a blank in the text
+would lead to a different signature. The recipient of the message would
+therefore detect any injury to the message integrity as this would mean that the
+signature no longer matches the document and is shown to be incorrect when
+verified.
+
+The document is sent to the recipient together with the signature. The recipient
+can then use the sender's public key, the document and the signature to
+establish whether or not the signature is correct. In practice, however, the
+procedure we have just described has a decisive disadvantage. The signature is
+approximately as long as the document itself. To prevent an unnecessary increase
+in data traffic, and also for reasons of performance, we use a cryptographic
+hash function.
+
+A cryptographic \index{Hash function} {\em hash function} maps a message of any
+length to a string of characters with a constant size (usually 128 or 160 bits),
+the \index{Hash value} hash value. It should be practically impossible, for a
+given number, to find a message that has precisely this number as hash value.
+Furthermore, it should be practically impossible to find two messages with the
+same hash value. In both cases the final signature procedure would display weak
+points.
+
+So far, no formal proof has been found that perfectly secure cryptographic hash
+functions exist. However, there are several good candidates that have not yet
+shown any weak points in practice (e.g. \index{SHA--1} SHA--1 or \index{RIPEMD--160} RIPEMD-­160).
+
+The hash function procedure is as follows:\\ Rather than signing the actual
+document, the sender now first calculates the hash value of the message and
+signs this. The recipient also calculates the hash value of the message (the
+algorithm used must be known), then verifies whether the signature sent with the
+message is a correct signature of the hash value. If this is the case, the
+signature is verified to be correct. This means that the message is authentic,
+because we have assumed that knowledge of the public key does not enable you to
+derive the secret key. However, you would need this secret key to sign messages
+in another name.
+
+Some digtal signature schemes are based on asymmetric \emph{encryption}
+procedures, the most prominent example beeing the RSA system, which can be
+used for signing by performing the private key operation on the hash value
+of the document to be signed.
+
+Other digital signature schemes where developed exclusively for this
+purpose, as the DSA (Digtal Signature Algorithm), and are not directly
+connected with a corresponding encryption scheme.
+
+Both, RSA and DSA signature are discussed in more detail in the following
+two sections. After that we go one step further and show how digital
+signatures can be used to create the digital equivalent of ID cards. This
+is called Public Key Certification.
+
+\subsection{RSA Signatures}
+\index{Signatures!digital}
+\index{RSA signatures}
+
+\def\Mod#1{\ (\mbox{mod }#1)}
+As mentioned in the comment at the end of \hyperlink{RSAproof}{section
+  \ref{RSAproof}} it is possible to perform the RSA private and public key
+operation in reverse order, i.~e.\ raising $M$ to the power of $d$ and then
+to the power of $e \Mod{N}$ yields $M$ again. Based on this simple fact, RSA
+can be used as a signature scheme.
+
+The RSA signature $S$ for a message $M$ is created by performing the private
+key operation:
+$$ S \equiv M^d \Mod{N} $$
+In order to verify, the corresponding public key operation is performed on
+the signature $S$ and the result is compared with message $M$:
+$$ S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
+If the result matches the message $M$, then the signature is accepted by the
+verifyer, otherwise the message has been tampered with, or was never signed
+by the holder of $d$.
+
+As explained above, signatures are not performed on the message itself, but
+on a cryptographic hash value of the message. To preclude certain attacks
+on the signature procdedure (alone or in combination with encryption) it is
+necessary to format the hash value before doing the exponentiation, as
+described in the PKCS\#1 (Public Key Cryptography Standard \#1
+\cite{PKCS1}). The fact that this standard had to be revised recently, after
+being in use for several years, can serve as an example how difficult it is
+to get the details of cryptography right.
+
+\subsection{DSA Signatures}
+\index{Signatures!digital}
+\index{DSA signatures}
+
+In August of 1991, the U.S. National Institute of Standards and Technology
+(NIST) proposed a digital signature algorithms (DSA), which was adopted as
+a U.S. Federal Information Processing Standard (FIPS 186 \cite{FIPS186})
+subsequently. 
+
+The algorithm is a variant of the ElGamal scheme. Its security is based on
+the Discrete Logarithm Problem\index{Logarithm problem!discrete}. The DSA public and private key and its
+procedures for signature and verification are summarised below.
+
+\paragraph{Public Key}\strut\\
+\begin{tabular}{l@{ }l}
+$p$ & prime \\
+$q$ & 160-bit prime factor of $p - 1$ \\
+$g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, where $h < p - 1$ and
+$h^{(p-1)/q} > 1  \Mod{p}$ \\
+$y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
+\end{tabular}
+
+\emph{Remark:} Parameters $p,q$ and $g$ can be shared among a group of users.
+
+\paragraph{Private Key}\strut\\
+\begin{tabular}{l@{ }l}
+$x < q$ (a 160-bit number) 
+\end{tabular}
+
+\paragraph{Signing}\strut\\
+\begin{tabular}{l@{ }l}
+$m$ & the message to be signed\\
+$k$ & choose at random, less than $q$\\
+$r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
+$s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
+\end{tabular}
+
+\emph{Remark:}
+\begin{itemize}
+\item $(s,r)$ is the signature.
+\item The security of the signature depends not only on the mathematical
+  properties, but also on using a good random source  for $k$.
+\item SHA--1 \index{SHA--1} is a 160-bit hash function specified in FIPS186.
+\end{itemize}
+\paragraph{Verifying}\strut\\
+\begin{tabular}{l@{ }l}
+$w$ & $= s^{-1}  \mbox{ mod } q$\\
+$u_1$ & $= (\mbox{SHA--1}(m)w) \mbox{ mod } q$\\
+$u_2$ & $= (rw)  \mbox{ mod } q$\\
+$v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
+
+\end{tabular}
+
+\emph{Remark:} If $v = r$, then the signature is verified.
+
+While DSA was specifically designed, such that it can be exported from
+countries regulating export of encryption soft and hardware (like the U.S.\ 
+at the time when it was specified), it has been noted
+\cite[p.~490]{5Schneier1996}, that the operations involved in DSA can be
+used to emulate RSA and ElGamal encryption.
+
+\subsection{Public key certification}
+\index{Certification!public key}
+The aim of public key certification is to guarantee the connection between a
+public key and a user and to make it traceable for external parties. In cases in
+which it is impossible to ensure that a public key really belongs to a
+particular person, many protocols are no longer secure, even if the individual
+cryptographic modules cannot be broken.
+
+\subsubsection{Impersonation attacks}
+\index{Impersonation attack}
+Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
+the secret key and PK the public key. Further assume that he manages to palm off
+PK1 on Alice as Bob's public key and PK2 on Bob as Alice's public key (by
+falsifying a public key directory).
+
+Then he can attack as follows:
+\begin{itemize}
+    \item Alice wants to send a message to Bob. She encrypts it using PK1
+because she thinks that this is Bob's public key. She then signs the message
+using her secret key and sends it.
+    \item Charlie intercepts the message, removes the signature and decrypts the
+message using SK1. If he wants to, he can then change the message in any way he
+likes. He then encrypts the message again, but this time using Bob's genuine
+public key, which he has taken from a public key directory, signs the message
+using SK2 and forwards it to Bob.
+    \item Bob verifies the signature using PK2 and will reach the conclusion
+that the signature is correct. He then decrypts the message using his secret
+key.
+\end{itemize}
+
+Charlie can thus listen in on communication between Alice and Bob and change the
+exchanged messages without them noticing. The attack also works if Charlie only
+has one pair of keys.
+
+Another name for this type of attack is \index{Man-in-the-middle
+attack} ``man-­in-­the-­middle attack''. Users are promised
+protection against this type of attack by public­key
+certification, which is intended to guarantee the
+\index{Authenticity} authenticity of public keys. The most common
+certification method is the X.509 standard.
+
+\subsubsection{X.509}
+
+All participants who want to \index{X.509}  have X.509 verify that their public
+key belongs to a real person consult what is known as a \index{Certification
+authority (CA)} certification authority (CA). They prove their identity to this
+CA (for example by showing their ID). The CA then issues them an electronic
+document (certificate) which essentially contains the names of the certificate-holder
+and the CA, the certificate-holder's public key and the validity period
+of the certificate. The CA then signs the certificate using its secret key.
+
+
+Anyone can now use the CA's public key to verify whether a certificate is
+falsified. The CA therefore guarantees that a public key belongs to a particular
+user.
+
+This procedure is only secure as long as it can be guaranteed that the CA's
+public key is correct. For this reason, each CA has its public key certified by
+another CA that is superior in the hierarchy. In the upper hierarchy level there
+is usually only one CA, which can of course then have its key certified by
+another CA. It must therefore transfer its key securely in another way. In the
+case of many software products that work with certificates (such as the
+Microsoft and Netscape Web browsers), the certificates of these root CAs are
+permanently embedded in the program right from the start and cannot be changed
+by users at a later stage. However, (public) CA keys, in particularly those of
+the root entity, can also be secured by means of making them available publicly.
+
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Bibliography}
+\bibitem[Schneier1996]{5Schneier1996} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    Applied Cryptography, Protocols, Algorithms,
+    and Source Code in C, Wiley, 2nd edition, 1996.
+
+        \bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
+          PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
+
+        \bibitem[FIPS186]{FIPS186} U.S. Departement of
+          Commerce/N.I.S.T.\\\index{FIPS186}
+          Entity authentication using public key cryptography. February 18 1997.
+\end{thebibliography}
+
+

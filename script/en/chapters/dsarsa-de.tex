@@ -1,0 +1,120 @@
+Einige digitale Signaturverfahren basieren auf asymmetrischer
+Verschlüsselung, das bekannteste Beispiel dieser Gattung ist RSA. Für die
+RSA-Signatur verwendet man die gleiche mathematische Operation wie zum
+Entschlüsseln, nur wird sie auf den Hash-Wert des zu unterschreibenden
+Dokuments angewendet.
+
+Andere Systeme der digitalen Signatur wurden, wie DSA (Digital Signature
+Algorithm), ausschliesslich zu diesem Zweck entwickelt, und stehen in
+keiner direkten Verbindung zu einem entsprechenden
+Verschlüsselungsverfahren.
+
+Beide Signaturverfahren, RSA und DSA, werden in den folgenden beiden
+Abschnitten näher beleuchtet. Anschliessend gehen wir einen Schritt weiter
+und zeigen, wie basierend auf der elektronischen Unterschrift das digitael
+Pendent zum Personalausweis entwickelt wurde. Dies Verfahren nennt man
+Public Key Zertifizierung.
+
+\subsection{RSA Signatur}
+\index{Signatur!digital}
+\index{RSA Signatur}
+
+\def\Mod#1{\ (\mbox{mod }#1)}
+
+Wie im Kommentar am Ende von \hyperlink{RSAproof}{Abschnitt
+  \ref{RSAproof}} bemerkt, ist es möglich, die RSA Operationen mit dem
+privaten und öffentlichen Schlüssel in umgekehrter Reihenfolge auszuführen,
+d.~h.\ $M$ hoch $d$ hoch $e \Mod{N}$ ergibt wieder $M$. Wegen dieser
+simplen Tatsache ist es möglich, RSA als Signaturverferfahren zu
+verwenden. 
+
+Eine RSA Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
+mit dem privaten Schlüssel erzeugt:
+$$ S \equiv M^d \Mod{N} $$
+Zur Verifikation wird die korrespondierende Public-Key-Operation auf der
+Signatur $S$ ausgeführt und das Ergebnis mit der Nachricht $M$ verglichen:
+$$
+S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
+Wenn das Ergebnis
+$S^e$ mit der Nachricht $M$ übereinstimmt, dann akzeptiert der Prüfer die
+Signatur, andernfalls ist die Nachrricht entweder verändert worden, oder
+sie wurde nie vom Inhaber von $d$ unterschrieben.
+
+Wie weiter oben erklärt, werden Signaturen in der Praxis nie direkt auf der
+Nachricht ausführt, sondern auf einem kryptograhischen Hashwert davon. Um
+verschiedene Attacken auf das Signaturverfahren (und seine Kombination mit
+Verschlüsselung) auszuschliessen, ist es nötig, den Hashwert vor der
+Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
+Key Cryptography Standard \#1 \cite{PKCS1}) beschrieben. Der Tatsache, dass
+dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
+als Beispiel dafür dienen, wie schwer es ist, kryptographische Details
+richtig hinzubekommen.
+
+\subsection{DSA Signatur}
+\index{Signatures!digital}
+\index{DSA Signatur}
+
+Im August 1991 hat das U.S. National Institute of Standards and Technology
+(NIST) einen digitalen Signaturalgorithmus (DSA, Digital Signature
+Algorithm) vorgestellt, der später zum U.S. Federal Information Processing
+Standard (FIPS 186 \cite{FIPS186}) wurde.
+
+Der Algorithmus ist eine Variante des ElGamal Verfahrens. Seine Sicherheit
+beruhrt auf dem Diskreten Logarithmus Problem\index{Logarithm
+  Problem!diskret}. Die Bestandteile des privaten und öffentlichen DSA
+Schlüssels, sowie die Verfahren zur Signatur und Verifikation, sind im
+Folgenden zusammengefasst.
+
+
+\paragraph{Öffentlicher Schlüssel}\strut\\
+\begin{tabular}{l@{ }l}
+$p$ & prim \\
+$q$ & 160bit Primfaktor von $p - 1$ \\
+$g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, wobei $h < p - 1$ und
+$h^{(p-1)/q} > 1  \Mod{p}$ \\
+$y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
+\end{tabular}
+
+\emph{Bemerkung:} Die Parameter $p,q$ und $g$ können von einer Gruppe von
+Benutzern gemeinsam genutzt werden.
+
+\paragraph{Privater Schlüssel}\strut\\
+\begin{tabular}{l@{ }l}
+$x < q$ (160bit Zahl) 
+\end{tabular}
+
+\paragraph{Signatur}\strut\\
+\begin{tabular}{l@{ }l}
+$m$ & zu signierende Nachricht\\
+$k$ & zufällig gewählte Primzahl, kleiner als $q$\\
+$r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
+$s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
+\end{tabular}
+
+\emph{Bemerkung:}
+\begin{itemize}
+\item $(s,r)$ ist die Signtur.
+\item Die Sicherheit der Signatur hängt nicht nur von der Mathematik ab,
+  sondern auch von der Verfügbarkeit einer guten Zufallsquelle für $k$.
+\item SHA--1 \index{SHA--1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
+
+\end{itemize}
+\paragraph{Verifikation}\strut\\
+\begin{tabular}{l@{ }l}
+$w$ & $= s^{-1}  \mbox{ mod } q$\\
+$u_1$ & $= (\mbox{SHA--1}(m)w) \mbox{ mod } q$\\
+$u_2$ & $= (rw)  \mbox{ mod } q$\\
+$v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
+
+\end{tabular}
+
+\emph{Bemerkung:} Wenn $v = r$, dann ist die Signatur gültig.
+
+Obwohl DSA unabhängig von einem Verschlüsselungsverfahren so spezifiziert
+wurde, dass es aus Länder exportiert werden kann, die den Export von
+kryptographischer Hard- und Software einschränken, wie die USA zum
+Zeitpunkt der Spezifikation, wurde festgestellt
+\cite[p.~490]{5Schneier1996}, dass die Operationen des DSA dazu geeignet
+sind, nach RSA bzw. ElGamal zu verschlüsseln.
+
+
