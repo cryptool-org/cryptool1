@@ -1163,7 +1163,7 @@ UINT FloatingEntropy(PVOID p)
 		CString s1 = line;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_FLOATING_ENTROPY_SEQUENCE_POSITION,pc_str,STR_LAENGE_STRING_TABLE);
 		CString s2 = pc_str;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_ENTROPY,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_FLOATING_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
 		CString s3 = pc_str;
 
 		ar << s1 << s2 << s3;

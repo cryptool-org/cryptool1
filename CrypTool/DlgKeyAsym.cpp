@@ -106,6 +106,9 @@ BOOL CDlgKeyAsym::OnInitDialog()
 
 	int colWidth = 100;  // Spaltenbreite in Pixel
 
+	// Other Functions are now obsolete (see marker XXXX OBSOLETE XXXX)
+	m_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
+
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth-15 , 0); // Name
 
@@ -723,6 +726,7 @@ void CDlgKeyAsym::InitAsymKeyListBox(unsigned nLocalKeylistType)
 } 
 
 
+// XXXX OBSOLETE XXXX
 void CDlgKeyAsym::UpdateRowSel(int row) 
 {
 	int i;
