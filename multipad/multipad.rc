@@ -5557,11 +5557,11 @@ BEGIN
     CONTROL         "&Projective coordinates",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,258,114,92,10
     GROUPBOX        "Presentation format",IDC_STATIC,250,90,105,40,BS_CENTER
-    CONTROL         "Display signature time",IDC_CHECK1,"",WS_TABSTOP | 0x3,
-                    141,311,165,8
     CONTROL         "Display intermediate results",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,141,324,170,8
     GROUPBOX        "",IDC_STATIC,130,302,248,36
+    CONTROL         "Display signature time",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,141,311,165,8
 END
 
 IDD_DIALOG_SIGN_VERIF DIALOG DISCARDABLE  0, 0, 387, 366
@@ -6296,8 +6296,8 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisation (stepwise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "Complete &factorisation into primes",IDC_BUTTON1,224,
-                    156,118,16
+    PUSHBUTTON      "Complete &factorisation into primes",
+                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16
     LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.\nWith the second button, the factorisation of the input will be completed.",
                     IDC_STATIC,24,132,318,17
 END

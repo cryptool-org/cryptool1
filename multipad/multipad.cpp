@@ -270,6 +270,9 @@ BOOL CMultiPadApp::InitInstance()
 		Tipps.DoModal();
 		WriteProfileInt("Settings","NoTipps", Tipps.m_DoNotShowThisAgain);
 	}
+	
+	// Enable RichEdit Windows...
+	AfxEnableControlContainer();
 	return TRUE;
 }
 
