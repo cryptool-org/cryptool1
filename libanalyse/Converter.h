@@ -177,11 +177,14 @@ public:
 	CLONE(AppConverter);
 // Implementation
 	void SetAlphabet(char *NewAlphabet, int CaseMode);
+
+// Die beiden folgenden Funktionen public gemacht (H. Koy)
+	int Filter(char c) const;
+	char Conv(symbol_arg s) const;
+
 protected:
 	signed int Alphabet[256];
 	char InvAlphabet[256];
-	int Filter(char c) const;
-	char Conv(symbol_arg s) const;
 };
 
 /////////////////////////////////////////////////////////////////////
