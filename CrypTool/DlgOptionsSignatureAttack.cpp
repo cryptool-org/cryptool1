@@ -226,7 +226,7 @@ void CDlgOptionsSignatureAttack::OnResetToDefault()
 	m_mod_method = 0;
 	m_control_check1.SetCheck(1);
 	m_control_check1.EnableWindow(TRUE);
-	m_control_check3.SetCheck(0);
+	m_control_check3.SetCheck(1);
 	m_control_check3.EnableWindow(TRUE);
 	m_control_att_print.EnableWindow(FALSE);
 	m_control_att_unprint.EnableWindow(FALSE);

@@ -31,7 +31,8 @@ SignatureAttack::SignatureAttack()
 SignatureAttack::SignatureAttack(OptionsForSignatureAttack *OptForSigAtt)
 {
 	m_OptSigAtt = OptForSigAtt;
-	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetSignificantBitLength());
+	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetHashOp()->GetHashAlgorithmID(),
+		m_OptSigAtt->GetSignificantBitLength());
 }
 
 SignatureAttack::SignatureAttack(OptionsForSignatureAttack *OptForSigAtt, FILE *SigAttTest, int TotalAttemptsCounter)
@@ -39,7 +40,8 @@ SignatureAttack::SignatureAttack(OptionsForSignatureAttack *OptForSigAtt, FILE *
 	m_TotalAttemptsCounter = TotalAttemptsCounter;
 	m_TestFile = SigAttTest;
 	m_OptSigAtt = OptForSigAtt;
-	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetSignificantBitLength());
+	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetHashOp()->GetHashAlgorithmID(),
+		m_OptSigAtt->GetSignificantBitLength());
 
 	irand((unsigned)time(NULL));
 }
@@ -50,7 +52,7 @@ SignatureAttack::~SignatureAttack()
 }
 
 void SignatureAttack::InternalStep(int &HashValueParity, char *HashValue)
-// Beschreibung:	berechnet den Hashwert des übergebenen Dokuments und speichert ihn
+// Beschreibung:	berechnet den Hashwert der übergebenen Nachricht und speichert ihn
 // Parameter:		Parität des zuletzt berechneten Hashwertes (HashValueParity [Referenz auf int]),
 //					zuletzt berechneter Hashwert (HashValue [Zeiger auf char])
 // Rückgabewert:	keiner
@@ -100,32 +102,31 @@ bool SignatureAttack::CollisionConfirmation(char *HashValue_single_step, char *H
 // Parameter:		erster Hashwert (HashValue_1 [in]), zweiter Hashwert (HashValue_2 [in]);
 // Rückgabewert:	true, wenn die signifikanten bits übereinstimmen - andernfalls false [out];
 {
-	int HashValueParity_single_step, HashValueParity_confirm_step, RunID;
+	char *HashValue_pre_success1, *HashValue_pre_success2;
+	int HashAlgorithmByteLength, HashValueParity_single_step, HashValueParity_confirm_step, RunID;
 
 	if (true == HashEqual(HashValue_single_step, HashValue_confirm_step))
 	{
 		return false;	// schlechte Kollision, da Startpunkt der Folgen gleich dem Kollisionspunkt
 	}
 
-#ifdef _SIG_ATT_TEST_MODE
-
-	int HashAlgorithmByteLength = 1 + (m_OptSigAtt->GetHashOp()->GetHashAlgorithmBitLength() - 1) / 8;
-	char *HashValue_pre_success1 = new char[HashAlgorithmByteLength];
-	char *HashValue_pre_success2 = new char[HashAlgorithmByteLength];
-	
-#endif
+	if (m_OptSigAtt->GetTestMode())
+	{
+		HashAlgorithmByteLength = 1 + (m_OptSigAtt->GetHashOp()->GetHashAlgorithmBitLength() - 1) / 8;
+		HashValue_pre_success1 = new char[HashAlgorithmByteLength];
+		HashValue_pre_success2 = new char[HashAlgorithmByteLength];
+	}
 
 	RunID = m_ResSigAtt->GetRuns() - 1;
 
 	while (1)
 	{
 
-#ifdef _SIG_ATT_TEST_MODE
-
-		memcpy(HashValue_pre_success1, HashValue_single_step, HashAlgorithmByteLength);
-		memcpy(HashValue_pre_success2, HashValue_confirm_step, HashAlgorithmByteLength);
-
-#endif
+		if (m_OptSigAtt->GetTestMode())
+		{
+			memcpy(HashValue_pre_success1, HashValue_single_step, HashAlgorithmByteLength);
+			memcpy(HashValue_pre_success2, HashValue_confirm_step, HashAlgorithmByteLength);
+		}
 
 		UpdateShowProgress();
 		m_ResSigAtt->IncreaseConfirmationStepsOfRun(RunID);
@@ -137,71 +138,68 @@ bool SignatureAttack::CollisionConfirmation(char *HashValue_single_step, char *H
 			if (HashValueParity_single_step != HashValueParity_confirm_step)
 			{
 
-#ifdef _SIG_ATT_TEST_MODE
-	
-				char *HashStore = new char[HashAlgorithmByteLength * 2 + 1];
-				int ii, jj;
+				if (m_OptSigAtt->GetTestMode())
+				{	
+					char *HashStore = new char[HashAlgorithmByteLength * 2 + 1];
+					int ii, jj;
 
-				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
-				{
-					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_confirm_step[ii]);
+					for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+					{
+						jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_confirm_step[ii]);
+					}
+					HashStore[jj] = 0;
+					fprintf(m_TestFile,	"\nHashSuccess1=%s", HashStore);
+
+					for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+					{
+						jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_single_step[ii]);
+					}
+					HashStore[jj] = 0;
+					fprintf(m_TestFile,	"\nHashSuccess2=%s", HashStore);
+
+					for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+					{
+						jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success1[ii]);
+					}
+					HashStore[jj] = 0;
+					fprintf(m_TestFile,	"\nHashPreSuccess1=%s", HashStore);
+
+					for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+					{
+						jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success2[ii]);
+					}
+					HashStore[jj] = 0;
+					fprintf(m_TestFile,	"\nHashPreSuccess2=%s", HashStore);
+
+					delete []HashStore;
+					delete []HashValue_pre_success1;
+					delete []HashValue_pre_success2;
 				}
-				HashStore[jj] = 0;
-				fprintf(m_TestFile,	"\nHashSuccess1=%s", HashStore);
-
-				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
-				{
-					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_single_step[ii]);
-				}
-				HashStore[jj] = 0;
-				fprintf(m_TestFile,	"\nHashSuccess2=%s", HashStore);
-
-				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
-				{
-					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success1[ii]);
-				}
-				HashStore[jj] = 0;
-				fprintf(m_TestFile,	"\nHashPreSuccess1=%s", HashStore);
-
-				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
-				{
-					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success2[ii]);
-				}
-				HashStore[jj] = 0;
-				fprintf(m_TestFile,	"\nHashPreSuccess2=%s", HashStore);
-
-				delete []HashStore;
-				delete []HashValue_pre_success1;
-				delete []HashValue_pre_success2;
-
-#endif
 
 				return true;	// gute Kollision gefunden -> Suche abbrechen
 			}
 
-#ifdef _SIG_ATT_TEST_MODE
-			
-			delete []HashValue_pre_success1;
-			delete []HashValue_pre_success2;
+			if (m_OptSigAtt->GetTestMode())
+			{
+				delete []HashValue_pre_success1;
+				delete []HashValue_pre_success2;
+			}
 
-#endif
-
-			return false;		// schlechte Kollision (gleicher Dokumenttyp) -> nächster Run
+			return false;		// schlechte Kollision (gleicher Nachrichtentyp) -> nächster Run
 		}
 	}
 
-#ifdef _SIG_ATT_TEST_MODE
-			
-	delete []HashValue_pre_success1;
-	delete []HashValue_pre_success2;
+	if (m_OptSigAtt->GetTestMode())
+	{			
+		delete []HashValue_pre_success1;
+		delete []HashValue_pre_success2;
+	}
 
-#endif
-
-	return false;	// Kollision nicht bestätigt, (noch) kein Dokumentenpaar gefunden -> nächster Run
+	return false;	// Kollision nicht bestätigt, (noch) kein Nachrichtenpaar gefunden -> nächster Run
 }
 
 UINT SignatureAttack::Do_Floyd()
-// Beschreibung:	führt den Floyd-Algorithmus aus, der zu zwei gegebenen Dokumenten Modifikationen findet, deren
+// Beschreibung:	führt den Floyd-Algorithmus aus, der zu zwei gegebenen Nachrichten Modifikationen findet, deren
 //					Hashwerte gleich sind
 // Parameter:		keine;
 // Rückgabewert:	Fehlercode;
@@ -222,22 +220,20 @@ UINT SignatureAttack::Do_Floyd()
 	HashValue_confirm_step = new char[HashAlgorithmByteLength];
 	// für die 4 Hashwerte werden jeweils - in Abhängigkeit vom Hash-Algorithmus - 16 oder 20 Bytes Speicher reserviert
 
-	HashValueParity_single_step = HashValueParity_double_step = 0;	// -> Floyd-Algorithmus beginnt mit harmlosem Dokument
+	HashValueParity_single_step = HashValueParity_double_step = 0;	// Floyd-Algorithmus beginnt mit harmloser Nachricht
 	MAX_StepsPerRun = (m_ResSigAtt->GetExpectedSteps() * m_OptSigAtt->GetSignificantBitLength());
 	
-#ifdef _SIG_ATT_TEST_MODE
-	
-	fprintf(m_TestFile,
-		"\n***\nTry_No=%d\nAlg_ID=%d\nSigBit=%d",
-		m_TotalAttemptsCounter, m_OptSigAtt->GetHashOp()->GetHashAlgorithmID(), m_OptSigAtt->GetSignificantBitLength());
-
-#endif
+	if (m_OptSigAtt->GetTestMode())
+	{
+		fprintf(m_TestFile,	"\n***\nTry_No=%d\nAlg_ID=%d\nSigBit=%d",
+			m_TotalAttemptsCounter, m_OptSigAtt->GetHashOp()->GetHashAlgorithmID(), m_OptSigAtt->GetSignificantBitLength());
+	}
 	
 	_ftime(&time_start);	// Zeitmessung beginnt
 
 #ifdef _SIG_ATT_HASH_ONLY
 
-#define _SA_HOPS 5000000
+#define _SA_HOPS 10000000
 	char *buf = m_OptSigAtt->GetHarmlessDocument()->GetOriginalDocument()->GetDocumentData();
 	int len = m_OptSigAtt->GetHarmlessDocument()->GetOriginalDocument()->GetDocumentLength();
 	HashingOperations *hop = m_OptSigAtt->GetHashOp();
@@ -313,24 +309,23 @@ UINT SignatureAttack::Do_Floyd()
 			}
 		}
 
-#ifdef _SIG_ATT_TEST_MODE
-
-		__int64 jj;
-	
-		char *HashStore = new char[HashAlgorithmByteLength * 2 + 1];
-		for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+		if (m_OptSigAtt->GetTestMode())
 		{
-			jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_init[ii]);
+			__int64 jj;
+		
+			char *HashStore = new char[HashAlgorithmByteLength * 2 + 1];
+			for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
+			{
+				jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_init[ii]);
+			}
+			HashStore[jj] = 0;
+
+			fprintf(m_TestFile,	"\nRun_No=%2.2d\nHashInit=%s\nCollSteps=%I64i\nConfSteps=%I64i",
+				m_ResSigAtt->GetRuns(), HashStore, m_ResSigAtt->GetCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1),
+				m_ResSigAtt->GetConfirmationStepsOfRun(m_ResSigAtt->GetRuns() - 1));
+
+			delete []HashStore;
 		}
-		HashStore[jj] = 0;
-
-		fprintf(m_TestFile,	"\nRun_No=%2.2d\nHashInit=%s\nCollSteps=%I64i\nConfSteps=%I64i",
-			m_ResSigAtt->GetRuns(), HashStore, m_ResSigAtt->GetCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1),
-			m_ResSigAtt->GetConfirmationStepsOfRun(m_ResSigAtt->GetRuns() - 1));
-
-		delete []HashStore;
-
-#endif
 
 		if (_MAX_RUNS_SIG_ATT == m_ResSigAtt->GetRuns())
 		{
@@ -339,37 +334,28 @@ UINT SignatureAttack::Do_Floyd()
 				_ftime(&time_finish);	// Zeitmessung endet
 			}
 
-			break;	// es wurden 10 Runs durchlaufen und kein Dokumentenpaar gefunden -> Suche beenden
+			break;	// es wurden 10 Runs durchlaufen und kein Nachrichtenpaar gefunden -> Suche beenden
 		}
 	}
 
-	long Seconds = time_finish.time - time_start.time, Milliseconds = time_finish.millitm - time_start.millitm;
-	// Dauer der Floyd-Suche wird aus der Differenz der Start- und Endzeit ermittelt
-
-	if (Milliseconds < 0)
-	{
-		Seconds -= 1;			// bei z.B. time_start=13.9 und time_finish=14.2 müssten diese Rechnungen
-		Milliseconds += 1000;	// durchgeführt werden!
-	}
 	m_ResSigAtt->SetEffectiveTime(CalculateTimeSpan(time_start, time_finish));
 
 	if (true == DocumentsFound)
 	{
-		m_ResSigAtt->SetFloydResult(_SIG_ATT_DOCUMENTS_FOUND);		// Dokumentenpaar gefunden !
-		m_ResSigAtt->SetAccordingHashBytes(HashValue_single_step, m_OptSigAtt->GetSignificantBitLength() / 8);
+		m_ResSigAtt->SetFloydResult(_SIG_ATT_DOCUMENTS_FOUND);		// Nachrichtenpaar gefunden !
+		m_ResSigAtt->SetMatchingHashBytes(HashValue_single_step, m_OptSigAtt->GetSignificantBitLength() / 8);
 	}
 	else
 	{
-		m_ResSigAtt->SetFloydResult(_SIG_ATT_NO_DOCUMENTS_FOUND);		// kein Dokumentenpaar gefunden
+		m_ResSigAtt->SetFloydResult(_SIG_ATT_NO_DOCUMENTS_FOUND);	// kein Nachrichtenpaar gefunden
 	}
 
-#ifdef _SIG_ATT_TEST_MODE
-
-	fprintf(m_TestFile,	"\nResult=%d\nTotalSteps=%I64i\nExpectedSteps=%I64i\nHashOps=%I64i\nElapsedTime=%.3f",
-		m_ResSigAtt->GetFloydResult(), m_ResSigAtt->GetTotalSteps(), m_ResSigAtt->GetExpectedSteps(),
-		m_ResSigAtt->GetHashOperationsPerformed(), m_ResSigAtt->GetEffectiveTime());
-
-#endif
+	if (m_OptSigAtt->GetTestMode())
+	{
+		fprintf(m_TestFile,	"\nResult=%d\nTotalSteps=%I64i\nExpectedSteps=%I64i\nHashOps=%I64i\nElapsedTime=%.3f",
+			m_ResSigAtt->GetFloydResult(), m_ResSigAtt->GetTotalSteps(), m_ResSigAtt->GetExpectedSteps(),
+			m_ResSigAtt->GetHashOperationsPerformed(), m_ResSigAtt->GetEffectiveTime());
+	}
 
 #ifdef _SIG_ATT_HASH_ONLY
 

@@ -42,6 +42,7 @@ struct HashAlgorithmsFP
 	int ContextSize;
 	int BitLength;
 	char *Name;
+	int HashOpsPerSecond;	// ausgehend von einem Rechner mit ???-Prozessor und ??? MHz Taktfrequenz
 }
 HAFP[] =
 {/*
@@ -79,7 +80,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::MD2_CTX),
 		128,
-		"MD2"
+		"MD2",
+		50831
 	},
 	{
 		(fp_Init_t) __SSL::MD4_Init,
@@ -88,7 +90,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::MD4_CTX),
 		128,
-		"MD4"
+		"MD4",
+		887430
 	},
 	{
 		(fp_Init_t) __SSL::MD5_Init,
@@ -97,7 +100,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::MD5_CTX),
 		128,
-		"MD5"
+		"MD5",
+		767548
 	},
 	{
 		(fp_Init_t) __SSL::SHA_Init,
@@ -106,7 +110,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::SHA_CTX),
 		160,
-		"SHA"
+		"SHA",
+		425155
 	},
 	{
 		(fp_Init_t) __SSL::SHA1_Init,
@@ -115,7 +120,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::SHA_CTX),
 		160,
-		"SHA-1"
+		"SHA-1",
+		475445
 	},
 	{
 		(fp_Init_t) __SSL::RIPEMD160_Init,
@@ -124,7 +130,8 @@ HAFP[] =
 		NULL,
 		sizeof(__SSL::RIPEMD160_CTX),
 		160,
-		"RIPEMD-160"
+		"RIPEMD-160",
+		382310
 	}
 };
 
@@ -199,4 +206,9 @@ int HashingOperations::GetHashAlgorithmBitLength() const
 char *HashingOperations::GetHashAlgorithmName() const
 {
 	return HAFP[m_HashAlgorithmID].Name;
+}
+
+int HashingOperations::GetHashOpsPerSecond() const
+{
+	return HAFP[m_HashAlgorithmID].HashOpsPerSecond;
 }

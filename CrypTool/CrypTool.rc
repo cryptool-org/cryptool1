@@ -387,7 +387,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,68,82,50,14
     CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
                     7,29,173,18
-    CTEXT           "Static\nTage",IDC_TEXT,18,53,147,25
+    CTEXT           "Static\nTage",IDC_TEXT,6,53,177,25
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 301
@@ -2681,7 +2681,8 @@ END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 269, 274
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Optionen für den Angrifff auf die digitale Signatur"
+CAPTION "Optionen für den Angrifff auf den Hashwert der digitalen Signatur"
+
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,11,242,61,17
@@ -2727,7 +2728,7 @@ CAPTION "Statistische Auswertung des Angriffs"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Dialog beenden",IDCANCEL,225,304,91,17
-    GROUPBOX        "Abschätzung des Aufwands zum Finden eines Dokumentenpaares",
+    GROUPBOX        "Abschätzung des Aufwands zum Finden eines Nachrichtenpaares",
                     IDC_STATIC,11,4,318,66
     GROUPBOX        "Tatsächlich geleisteter Aufwand",IDC_STATIC,11,74,318,
                     177
@@ -2747,7 +2748,7 @@ BEGIN
                     WS_BORDER | WS_TABSTOP,24,173,292,69
     LTEXT           "Aufschlüsselung der Einzelschritte",IDC_STATIC,24,162,
                     200,8
-    LTEXT           "Ausgeführte\nHash-Operationen",IDC_STATIC,25,132,61,19
+    LTEXT           "Ausgeführte\nHash-Operationen",IDC_STATIC,24,132,61,19
     EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,133,94,14,
                     ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,304,91,17
@@ -3318,7 +3319,7 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "&Angriff auf die digitale Signatur ...", 
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "ASN.1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -3477,7 +3478,8 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "&Angriff auf die digitale Signatur...", ID_SIGNATUR_ATTACK
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
+                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
         MENUITEM "&Nachrichtenmodifikation",    ID_SIGATTMODIFICDEMO
@@ -3638,7 +3640,7 @@ BEGIN
         MENUITEM "ASN.1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
-        MENUITEM "&Angriff auf die digitale Signatur ...", 
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
@@ -5377,12 +5379,12 @@ BEGIN
                             "Das von Ihnen eingegebene Geheimnis S ist entweder gleich Null oder gleich einem weiteren, kritischen Wert.\nBeachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist!"
     IDS_DH_PP_NO_USER_INPUT "Bitte lassen Sie die Eingabefelder nicht leer!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
-                            "Die harmlose Nachricht wurde um %d Bytes modifiziert."
+                            "Der harmlosen Nachricht wurden %d Bytes hinzugefügt."
     IDS_STRING_SIG_ATT_STA_DANGEROUS 
-                            "Die gefährliche Nachricht wurde um %d Bytes modifiziert."
+                            "Der gefährlichen Nachricht wurden %d Bytes hinzugefügt."
     IDS_STRING_SIG_ATT_STA_TIME 
                             "%I64i Jahr(e), %i Tag(e), %i Stunde(n), %i Minute(n) und %.2f Sekunde(n)"
-    IDS_STRING_SIG_ATT_STA_CYCLE "Schritte bis Kollision"
+    IDS_STRING_SIG_ATT_STA_CYCLE "Schritte bis zur Kollision"
     IDS_STRING_SIG_ATT_STA_ENTRY "Überprüfung der Kollision"
 END
 
@@ -5701,16 +5703,13 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
                             "Die ""harmlose"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
-    IDS_STRING_SIG_ATT_TIME_ELAPSED "Sekunden"
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "Sie müssen mindestens eine Checkbox ankreuzen."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "Für den eingestellten Hash-Algorithmus muss die signifikante Bitlänge zwischen 1 und %d liegen."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
                             "Der Angriff war erfolgreich: ein Nachrichtenpaar\nmit gleichem Hashwert wurde gefunden."
-    IDS_STRING_SIG_ATT_CLOCK "Es wurden %5.2f sec benötigt."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run Nr."
-    IDS_STRING_SIG_ATT_STEPS "Benötigte Schritte"
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "Der Angriff schlug fehl: Es konnte kein Nachrichtenpaar gefunden werden."
     IDS_STRING_SIG_ATT_CRYPTOOL "CrypTool"
@@ -5731,10 +5730,6 @@ BEGIN
     IDS_STRING_SIG_ATT_FLOYD_CANCELED 
                             "Die Nachrichtenpaarsuche wurde abgebrochen."
     IDS_STRING_SIG_ATT_FLOYD_RUNNING "Ein Nachrichtenpaar wird gesucht ..."
-    IDS_STRING_SIG_ATT_TOO_LITTLE_MODIFICATIONS 
-                            "Die signifikante Bitlänge darf nicht größer sein als die maximale Anzahl der Modifikationen."
-    IDS_STRING_SIG_ATT_TOO_MANY_MODIFICATIONS 
-                            "Die maximale Anzahl der Modifikationen ist größer als die eingestellte Bitlänge.\nAlle überschüssigen Modifikationsstellen werden im weiteren Verlauf ignoriert."
     IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Wertebereich: 1 - %d)"
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliche Nachricht: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmlose Nachricht: "
@@ -5952,8 +5947,10 @@ BEGIN
     IDS_STRING_SIG_ATT_STA_PERFORMED "Ausgeführte Hash-Operationen"
     IDS_STRING_SIG_ATT_STA_TITLE 
                             "RunNr.     Schritte bis Kollision     Überprüfung der Kollision     Gesamtschritte\n\n"
-    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "Hinzugefügte Bytes:"
+    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "HINZUGEFÜGTE BYTES"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistik des Angriffs"
+    IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 
+                            "Die Versuchsreihe wurde abgebrochen."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6361,7 +6358,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,68,77,50,14
     CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
                     7,29,173,18
-    CTEXT           "Static\nDays",IDC_TEXT,18,53,147,18
+    CTEXT           "Static\nDays",IDC_TEXT,6,53,174,18
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 300
@@ -8694,6 +8691,111 @@ BEGIN
                     7,277,40
 END
 
+IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Attack on the hash value of the digital signature"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Start search",IDC_COMPUTE,28,280,108,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,221,280,78,17
+    GROUPBOX        "Choose ""harmless"" file",IDC_STATIC,18,40,291,63
+    GROUPBOX        "Choose ""dangerous"" file",IDC_STATIC,18,116,291,63
+    EDITTEXT        IDC_FILE_HARMLESS,27,80,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse ...",IDC_BROWSE_HARMLESS,248,78,50,17
+    EDITTEXT        IDC_FILE_DANGEROUS,27,156,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse ...",IDC_BROWSE_DANGEROUS,248,154,50,17
+    PUSHBUTTON      "&Options ...",IDC_OPTIONS,150,280,56,17
+    LTEXT           "In the implemented attack at hand the attacker tries to find two different messages which translate to the same hash value.",
+                    IDC_STATIC,19,13,270,20
+    LTEXT           "The attacker supposes that his victim will digitally sign the ""harmless"" message due to its nonviscous content.",
+                    IDC_STATIC,28,55,272,22
+    LTEXT           "In case of a successful attack the attacker can argue that his victim has digitally signed the ""dangerous"" instead of the ""harmless"" message.",
+                    IDC_STATIC,27,131,271,17
+    LTEXT           "By clicking ""Start search"" you initiate the attack which searches for two modifications of the messages above which translate to the same hash value.",
+                    IDC_STATIC,28,207,270,17
+    GROUPBOX        "Start search / Set options",IDC_STATIC,18,192,291,113
+    LTEXT           "In the ""Options"" you can set the hash algorithm, the number of bits of the hash values that have to match and the method of modifying the messages.",
+                    IDC_STATIC,28,248,270,27
+    LTEXT           "The semantics of the messages does not vary throughout the attack as only unprintable or formatting characters are used for modifying them.",
+                    IDC_STATIC,28,226,270,19
+END
+
+IDD_OPTIONS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 269, 274
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options for the attack on the hash value of the digital signature"
+
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Apply",IDOK,11,242,61,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,203,242,55,17
+    CONTROL         "In front of &end of line",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,115,161,81,10
+    GROUPBOX        "Options for the modification of messages",IDC_STATIC,11,
+                    122,247,109
+    CONTROL         "&Double blanks",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,177,94,10
+    CONTROL         "&MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    21,53,31,10
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,86,53,31,10
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,151,53,31,
+                    10
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,21,71,31,10
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,86,71,37,
+                    10
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,151,
+                    71,58,10
+    GROUPBOX        "Hash algorithm",IDC_STATIC,11,7,247,105
+    LTEXT           "Significant bit length",IDC_STATIC,21,93,64,8
+    EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Reset to standard",IDC_BUTTON1,82,242,104,17
+    LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
+    LTEXT           "Determine the way messages are modified throughout the attack.",
+                    IDC_STATIC,21,137,211,17
+    LTEXT           "Choose one of the six hash algorithms and set the number of bits that have to match between two hash values so that the attack is considered successful.",
+                    IDC_STATIC,21,22,211,25
+    CONTROL         "&Include blanks",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,21,161,62,10
+    CONTROL         "A&ttach characters",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,21,197,77,10
+    CONTROL         "&Printable characters (demonstration)",IDC_RADIO9,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,115,197,139,10
+    CONTROL         "&Unprintable characters",IDC_RADIO10,"Button",
+                    BS_AUTORADIOBUTTON,115,213,103,10
+END
+
+IDD_STATISTICS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 338, 329
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Statistics of the attack"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Cancel",IDCANCEL,225,304,91,17
+    GROUPBOX        "Assumed efforts",IDC_STATIC,11,4,318,66
+    GROUPBOX        "Efforts made to find a pair of messages",IDC_STATIC,11,
+                    74,318,177
+    LTEXT           "Calculation time",IDC_STATIC,24,21,50,8
+    LTEXT           "Steps required",IDC_STATIC,24,45,46,8
+    EDITTEXT        IDC_EXPECTED_TIME,92,19,224,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EXPECTED_STEPS,92,43,94,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Calculation time",IDC_STATIC,24,91,50,8
+    EDITTEXT        IDC_EFFECTIVE_TIME,92,89,224,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Steps required",IDC_STATIC,24,113,57,12
+    EDITTEXT        IDC_TOTAL_STEPS,92,111,94,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CONTROL         "List2",IDC_LIST_OF_RUNS,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,24,173,292,69
+    LTEXT           "Steps required sorted by run",IDC_STATIC,24,162,200,8
+    LTEXT           "Hash operations\nperformed",IDC_STATIC,24,132,61,19
+    EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,133,94,14,
+                    ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "&Print statistics",IDOK,24,304,91,17
+    GROUPBOX        "Additional bytes",IDC_STATIC,11,255,318,40
+    LTEXT           "Static",IDC_STATIC_HARMLESS,24,267,297,8
+    LTEXT           "Static",IDC_STATIC_DANGEROUS,24,281,297,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8904,6 +9006,8 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
@@ -9103,6 +9207,8 @@ BEGIN
         MENUITEM "ASN.1 decryption of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
@@ -9258,6 +9364,8 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
@@ -9418,6 +9526,8 @@ BEGIN
         MENUITEM "ASN.1 decryption of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
@@ -10353,6 +10463,12 @@ BEGIN
         VERTGUIDE, 20
         TOPMARGIN, 7
         BOTTOMMARGIN, 72
+    END
+
+    IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        VERTGUIDE, 329
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11428,6 +11544,14 @@ BEGIN
     IDS_DH_PP_SECRET_DANGEROUS 
                             "The secret number you chose is either zero or otherwise considered critical!\nThus, the proceeding might not be safe!"
     IDS_DH_PP_NO_USER_INPUT "Please fill all entry fields!"
+    IDS_STRING_SIG_ATT_STA_HARMLESS 
+                            "%d bytes were added to the harmless message."
+    IDS_STRING_SIG_ATT_STA_DANGEROUS 
+                            "%d bytes were added to the dangerous message."
+    IDS_STRING_SIG_ATT_STA_TIME 
+                            "%I64i year(s), %i day(s), %i hour(s), %i minute(s) und %.2f second(s)"
+    IDS_STRING_SIG_ATT_STA_CYCLE "Steps until collision"
+    IDS_STRING_SIG_ATT_STA_ENTRY "Check of the collision"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11931,6 +12055,58 @@ BEGIN
     IDS_DH_PP_SECRET_INVALID 
                             "Please choose a secret number (s) which is bigger than one but smaller than the prime module p (1 < s < p)."
     IDS_DH_RESULT_MESSAGE   "Alice and Bob finally agreed on a secret and common key.\n\nPush the key icon on the lower left to view more details concerning the key."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_STA_SUM "Total steps"
+    IDS_STRING_SIG_ATT_STA_EXPENSE "ASSUMED EFFORTS"
+    IDS_STRING_SIG_ATT_STA_STEPS "Steps required"
+    IDS_STRING_SIG_ATT_STA_CALCTIME "Calculating time"
+    IDS_STRING_SIG_ATT_STA_EFFEXPENSE "COMPUTING EFFORTS"
+    IDS_STRING_SIG_ATT_STA_PERFORMED "Hash operations performed"
+    IDS_STRING_SIG_ATT_STA_TITLE 
+                            "RunNo.     Steps until collision     Check of the collision     Total steps\n\n"
+    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "ADDED BYTES"
+    IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistics of the attack"
+    IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED "The test series was aborted."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
+                            "The ""harmless"" file could not be openend or is of size 0 !"
+    IDS_STRING_SIG_ATT_NO_CHECK 
+                            "You have to mark at least one of the ckeck boxes."
+    IDS_STRING_SIG_ATT_BAD_BITLENGTH 
+                            "The chosen hash algorithm requires a significant bit length between the borders 1 and %d."
+    IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
+                            "The attack was successful: two different messages were found which translate to the same hash value."
+    IDS_STRING_SIG_ATT_RUN_NUMBER "Run No."
+    IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
+                            "The attack failed: no pair of messages could be found."
+    IDS_STRING_SIG_ATT_CRYPTOOL "CrypTool"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
+                            "Performing run no. %d.The search for a cycle in this run is completed by %d%%%%."
+    IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
+                            "The ""dangerous"" file could not be openend or is of size 0 !"
+    IDS_STRING_SIG_ATT_UNKNOWN_ERROR "An unknown error has occured !"
+    IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
+                            "An error occured while the hash operation was performed !"
+    IDS_STRING_SIG_ATT_BAD_MODIFIABILITY 
+                            "At least one of the messages contains less modifiable positions than the number of significant bits set in the options."
+    IDS_STRING_SIG_ATT_FLOYD_CANCELED 
+                            "The search for a pair of messages was aborted."
+    IDS_STRING_SIG_ATT_FLOYD_RUNNING "Searching for a pair of messages ..."
+    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Co-domain: 1 - %d)"
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Dangerous message: "
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
+    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
+                            "Performing run no. %d. The search for the start of the cycle found in this run is completed by %d%%%%."
 END
 
 #endif    // Englisch (GB) resources

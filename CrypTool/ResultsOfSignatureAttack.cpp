@@ -6,6 +6,7 @@
 #include "stdafx.h"
 #include "ResultsOfSignatureAttack.h"
 #include "ErrorcodesForSignatureAttack.h"
+#include "HashingOperations.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -22,17 +23,17 @@ ResultsOfSignatureAttack::ResultsOfSignatureAttack()
 
 }
 
-ResultsOfSignatureAttack::ResultsOfSignatureAttack(const int BitLength)
+ResultsOfSignatureAttack::ResultsOfSignatureAttack(const int HashAlgorithmID, const int BitLength)
 {
-	SetData(BitLength);	
+	SetData(HashAlgorithmID, BitLength);	
 }
 
 ResultsOfSignatureAttack::~ResultsOfSignatureAttack()
 {
-	delete []m_AccordingHashBytes;
+	delete []m_MatchingHashBytes;
 }
 
-void ResultsOfSignatureAttack::SetData(const int &BitLength)
+void ResultsOfSignatureAttack::SetData(const int &HashAlgorithmID, const int &BitLength)
 {
 	int ii;
 
@@ -50,18 +51,20 @@ void ResultsOfSignatureAttack::SetData(const int &BitLength)
 	m_EffectiveTime = 0.0;
 	m_HashOperationsPerformed = 0;
 
-	m_ExpectedSteps = (__int64) (pow(2, ((double) BitLength / 2)) * 1.25);	// stimmt 1.25 ?
-	m_ExpectedTime = (double) m_ExpectedSteps / 5900;						// rechnerabhängig!
+	m_ExpectedSteps = (__int64) (pow(2, ((double) BitLength / 2)) * 1.25 * 2);	// stimmt 1.25 ?
 
-	m_AccordingHashBytes = new char[BitLength / 8];
+	HashingOperations HO(HashAlgorithmID);
+	m_ExpectedTime = (double) m_ExpectedSteps * 5 / HO.GetHashOpsPerSecond();	// rechnerabhängig!
+
+	m_MatchingHashBytes = new char[BitLength / 8];
 }
 
-void ResultsOfSignatureAttack::SetAccordingHashBytes(const char *AccordingHashBytes, const int CompleteByteLength)
+void ResultsOfSignatureAttack::SetMatchingHashBytes(const char *MatchingHashBytes, const int CompleteByteLength)
 {
 	int ii;
 	
 	for (ii = 0; ii < CompleteByteLength; ii ++)
 	{
-		m_AccordingHashBytes[ii] = AccordingHashBytes[ii];
+		m_MatchingHashBytes[ii] = MatchingHashBytes[ii];
 	}
 }

@@ -33,14 +33,14 @@ protected:
 	BitParity m_BitPar;
 	OptionsForSignatureAttack *m_OptSigAtt;
 	ResultsOfSignatureAttack *m_ResSigAtt;
+	FILE *m_TestFile;
+	int m_TotalAttemptsCounter;
 
 private:
 	double CalculateTimeSpan(const struct _timeb Start, const struct _timeb Finish) const;
 	bool CollisionConfirmation(char *HashValue_single_step, char *HashValue_init);
 	bool HashEqual(const char *HashValue_single_step, const char *HashValue_double_step) const;
 	void InternalStep(int &HashValueParity, char *HashValue);
-	FILE *m_TestFile;
-	int m_TotalAttemptsCounter;
 		
 };
 

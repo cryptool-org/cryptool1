@@ -16,7 +16,8 @@ class SignatureAttackMFC : public SignatureAttack
 {
 public:
 	SignatureAttackMFC();
-	SignatureAttackMFC(OptionsForSignatureAttack *OptForSigAtt, HWND hWnd, UINT messageID);
+	SignatureAttackMFC(OptionsForSignatureAttack *OptForSigAtt, FILE *SigAttTest,
+									   int TotalAttemptsCounter, HWND hWnd, UINT messageID);
 	virtual ~SignatureAttackMFC();
 	static UINT StaticThreadFunction(void * param)
 	{

@@ -22,11 +22,12 @@ public:
 		m_HarmlessDocument = m_DangerousDocument = NULL;
 		m_HashOp = NULL;
 	}
-	OptionsForSignatureAttack(const char *HarmlessFile, const char *DangerousFile)
+	OptionsForSignatureAttack(const char *HarmlessFile, const char *DangerousFile, const int TestMode)
 	{
 		m_HarmlessDocument = m_DangerousDocument = NULL;
 		m_HashOp = NULL;
 		SetData(HarmlessFile, DangerousFile);
+		m_TestMode = TestMode;
 	}
 
 	virtual ~OptionsForSignatureAttack()
@@ -77,6 +78,11 @@ public:
 		return m_SignificantBitLength;
 	}
 
+	int GetTestMode() const
+	{
+		return m_TestMode;
+	}
+
 private:
 	bool m_IsDataFreed;
 	ModifiedDocumentForHashing *m_HarmlessDocument;
@@ -85,6 +91,7 @@ private:
 	int m_Errorcode;
 	int m_HashAlgorithmBitLength;
 	int m_SignificantBitLength;
+	int m_TestMode;
 
 	void SetData(const char *HarmlessFile, const char *DangerousFile);
 	void FreeData()

@@ -7,7 +7,7 @@
 // DlgOptionsSignatureAttack.h : Header-Datei
 //
 
-#define _OPT_SIG_ATT_STANDARD_BITLENGTH	"8"
+#define _OPT_SIG_ATT_STANDARD_BITLENGTH	"16"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgOptionsSignatureAttack 

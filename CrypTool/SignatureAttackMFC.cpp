@@ -22,14 +22,18 @@ SignatureAttackMFC::SignatureAttackMFC()
 
 }
 
-SignatureAttackMFC::SignatureAttackMFC(OptionsForSignatureAttack *OptForSigAtt, HWND hWnd, UINT messageID)
+SignatureAttackMFC::SignatureAttackMFC(OptionsForSignatureAttack *OptForSigAtt, FILE *SigAttTest,
+									   int TotalAttemptsCounter, HWND hWnd, UINT messageID)
 {
+	m_TestFile = SigAttTest;
+	m_TotalAttemptsCounter = TotalAttemptsCounter;
 	m_Text[0] = 0;
 	m_OptSigAtt = OptForSigAtt;
 	m_hwnd = hWnd;
 	m_messageID = messageID;
 	m_ProgressText.LoadString(IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH);
-	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetSignificantBitLength());
+	m_ResSigAtt = new ResultsOfSignatureAttack(m_OptSigAtt->GetHashOp()->GetHashAlgorithmID(),
+		m_OptSigAtt->GetSignificantBitLength());
 }
 
 SignatureAttackMFC::~SignatureAttackMFC()
@@ -51,7 +55,7 @@ void SignatureAttackMFC::UpdateShowProgress()
 {
 	if (0 != m_ResSigAtt->GetTotalSteps() % 5000)
 	{
-		return;		// nur alle 5000 Schritte Fortschrittsanzeige updaten
+		return;		// nur alle 5000 Schritte Fortschrittsanzeige aktualisieren
 	}
 
 	if (IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH == m_SearchMode)

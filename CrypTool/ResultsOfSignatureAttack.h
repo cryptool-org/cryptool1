@@ -18,7 +18,7 @@ class ResultsOfSignatureAttack
 {
 public:
 	ResultsOfSignatureAttack ();
-	ResultsOfSignatureAttack (const int BitLength);
+	ResultsOfSignatureAttack (const int HashAlgorithmID, const int BitLength);
 	virtual ~ResultsOfSignatureAttack ();
 
 	int GetRuns () const										{ return m_Runs; }
@@ -31,7 +31,7 @@ public:
 	double GetExpectedTime () const								{ return m_ExpectedTime; }
 	double GetEffectiveTime () const							{ return m_EffectiveTime; }
 	int GetFloydResult () const									{ return m_FloydResult; }
-	char *GetAccordingHashBytes() const							{ return m_AccordingHashBytes; }
+	char *GetMatchingHashBytes() const							{ return m_MatchingHashBytes; }
 
 	void IncreaseRuns ()										{ m_Runs ++; }
 	void IncreaseHashOperationsPerformed ()						{ m_HashOperationsPerformed ++; }
@@ -50,10 +50,10 @@ public:
 	void SetExpectedTime (const double ExpectedTime)			{ m_ExpectedTime = ExpectedTime; }
 	void SetEffectiveTime (const double EffectiveTime)			{ m_EffectiveTime = EffectiveTime; }
 	void SetFloydResult (const int Errorcode)					{ m_FloydResult = Errorcode; }
-	void SetAccordingHashBytes (const char *AccordingHashBytes, const int CompleteByteLength);
+	void SetMatchingHashBytes (const char *MatchingHashBytes, const int CompleteByteLength);
 
 private:
-	void SetData (const int &BitLength);
+	void SetData (const int &HashAlgorithmID, const int &BitLength);
 	int m_Runs;
 	struct Steps
 	{
@@ -68,7 +68,7 @@ private:
 	__int64 m_ExpectedSteps;
 	__int64 m_HashOperationsPerformed;
 	int m_FloydResult;
-	char *m_AccordingHashBytes;
+	char *m_MatchingHashBytes;
 };
 
 #endif // !defined(AFX_RESULTSOFSIGNATUREATTACK_H__DBD92911_D1DB_11D6_9DEE_000629718A52__INCLUDED_)

@@ -17,6 +17,7 @@ class HashingOperations
 public:
 	int GetHashAlgorithmBitLength() const;
 	char *GetHashAlgorithmName() const;
+	int GetHashOpsPerSecond() const;
 
 	int GetErrorcode() const
 // Beschreibung:	liefert den Fehlercode zurück, der in SetData() bestimmt wurde und sollte nach Anlegen eines

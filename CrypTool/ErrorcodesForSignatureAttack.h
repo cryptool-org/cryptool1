@@ -5,14 +5,6 @@
 #define _MAX_HASH_BYTE_LENGTH	((_MAX_HASH_BIT_LENGTH - 1) / 8 + 1)
 
 
-//#define _SIG_ATT_TEST_MODE
-// wenn dieses #define einkommentiert ist, wird eine Testreihe mit dem Floyd-Algorithmus durchlaufen
-
-#ifndef _SIG_ATT_TEST_MODE
-//#define _SIG_ATT_NO_MULTITHREAD
-// wenn dieses #define einkommentiert ist, erscheint während der Dokumentenpaarsuche keine Fortschrittsanzeige
-#endif
-
 #define _SIG_ATT_SPEED_INCREMENT
 // wenn dieses #define einkommentiert ist, erhöht sich die Geschwindigkeit des Floyd-Algorithmus
 // u.a. Prämodifizierung
@@ -36,13 +28,11 @@ enum _SIG_ATT_ERR { _SIG_ATT_OK,
 					_SIG_ATT_DOCUMENTS_FOUND,
 					_SIG_ATT_NO_DOCUMENTS_FOUND,
 					_SIG_ATT_UNMODIFIABLE_DOC,
-					_SIG_ATT_SIG_ATT_FLOYD_CANCELED,
 					_SIG_ATT_FLOYD_NOT_CANCELED,				
 					_SIG_ATT_FLOYD_CANCELED,
-					_SIG_ATT_BAD_MODIFIABILITY
+					_SIG_ATT_BAD_MODIFIABILITY,
+					_SIG_ATT_TEST_SERIES_STOPPED
 };
-
-#ifdef _SIG_ATT_TEST_MODE
 
 #define _SIG_ATT_LOG		"_Log.txt"
 #define _SIG_ATT_HEADER		"_Header.txt"
@@ -52,8 +42,6 @@ enum _SIG_ATT_ERR { _SIG_ATT_OK,
 //#define _SIG_ATT_PRE_RPE_MODIFY
 // wenn dieses #define einkommentiert ist, werden die Dokumente in einer Versuchsreihe nicht nur vor jedem Run, sonden
 // auch vor jedem Try modifiziert - auf diese Weise durchläuft man immer wieder ein anderes Random Mapping
-
-#endif
 
 #endif
 

@@ -236,7 +236,7 @@ void CDlgShowProgress::OnTimer(UINT nIDEvent)
 		SHOW_HOUR_GLASS
 		sprintf(line, m_format, m_pos);
 		m_text_ctl.SetWindowText(line);
-		HIDE_HOUR_GLASS
+		//HIDE_HOUR_GLASS
 		Lock.Unlock();
 	}
 }

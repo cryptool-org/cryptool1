@@ -100,11 +100,10 @@ void OptionsForSignatureAttack::SetData(const char *HarmlessFile, const char *Da
 		AttMethod = 1;
 	}
 
-#ifdef _SIG_ATT_TEST_MODE
-
-	ModifyingMethod = 1;
-
-#endif
+	if (m_TestMode)
+	{
+		ModifyingMethod = 1;
+	}
 
 	if (0 == ModifyingMethod)
 	{
