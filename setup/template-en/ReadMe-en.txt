@@ -20,7 +20,9 @@
  2.4. .... Interactive Online Help under Windows XP
  2.5. .... Support for different languages
  2.6. .... Restrictions in libraries used
- 3. .... Installation
+ 3. .... Installation / deinstallation / operating
+ 3.1. .... Installation under multi-user operating systems
+ 3.2. .... Operating under multi-user operating systems
  4. .... List of files
  4.1. .... Checking the integrity of downloaded files
  5. .... What's new in CrypTool till 1.3.04
@@ -41,7 +43,8 @@
  6.5. .... Adding number theoretic functions
  6.6. .... Porting to Linux
  6.7. .... Meaningful tasks to make the new maintainer familiar with
- 7. .... Brief history of the released main versions of CrypTool 8. .... Feedback on errors
+ 7. .... Brief history of the released main versions of CrypTool
+ 8. .... Feedback on errors
  9. .... Contact addresses
 10. .... References / hints
 10.1. .... Articles
@@ -189,6 +192,7 @@ securely communicate.
 
 All the single files included in the package are listed within
 chapter 4 (see below in this README file).
+
 
 
 1.3. Acknowledgements
@@ -351,18 +355,19 @@ length up to 1024.
 
 
 
-3. Installation
-   ------------
+3. Installation / deinstallation / operating
+   -----------------------------------------
 To install CrypTool on your PC, copy the CrypTool setup executable
 to a suitable place in your file system and double-click on it.
-The default installation directory is C:\Program Files\CrypTool.
+The default installation directory is "C:\Program Files\CrypTool".
 The target directory can be altered in the installation routine.
+
 If you already possess an earlier version of CrypTool, it is
 recommended uninstalling the old version of CrypTool before
 installing the new one, as otherwise it is possible that some
 of the old files will not be overwritten. Please note:
 - During de-installation not all of the directories and files in
-  the program directories (normally C:\Program Files\CrypTool)
+  the program directories (normally "C:\Program Files\CrypTool")
   may be deleted. Delete these manually.
 - De installation will delete all user generated asymmetric keys.
   If you intend to use those keys a newly installed version of
@@ -381,6 +386,46 @@ sub-trees "pse\" and "pse\pseca\" to full access for each user.
 The "pse\" sub-tree should not be manually altered as, if the
 structure becomes inconsistent, it may be necessary to reinstall
 CrypTool.
+
+
+3.1. Installation under multi-user operating systems
+     -----------------------------------------------
+In multi-user systems like Windows XP the administrator has full
+access to the whole file system; the other users are normally
+restricted.
+If a normal user installs CrypTool he needs writing access for the 
+directory in which CrypTool should be installed (e.g. for "C:\Program Files"),
+if the sub-directory "CrypTool" does not already exist; or for the
+directory "C:\Program Files\CrypTool", if this already exists. 
+If he does not have these rights, the installation program stops.
+
+
+3.2. Operating under multi-user operating systems
+     --------------------------------------------
+If the user wants to create (or change) files from within CrypTool in
+multi-user systems like Windows XP, then he needs writing access for
+the appropriate target directory (or for the appropriate files). 
+If this does not work, the user normally gets a warning.
+Writing access is explicitely necessary for:
+- the default Windows directory for temporary files (for the *.cry files),
+- the sub-directory "CrypTool\pse", where the created asymmetric keys
+  and certificates are stored in, and
+- the file CrypTool.ini, where the CrypTool program stores settings or
+  adjustments, surviving the actual program session (persistence).
+  CrypTool.ini is normally created within the Windows directory
+  (e.g. C:\Windows) when the program CrypTool is started the first time.
+  Please consider that, 
+   - the adjustments can only be stored persistently, if the user
+     has writing access for this file. 
+   - even in multi-user systems like Windows XP only one (!) 
+     CrypTool.ini file exists yet. 
+  To achieve a higher flexibility with persistent adjustments a future
+  version of CrypTool could
+   - user-specifically write the persistent adjustments under Windows into 
+     the registry instead of using an ini file.
+   - offer another option for the user, whether the adjustment should be
+     made for the current program session only or whether it should be
+     persistent.
 
 
 
@@ -416,7 +461,8 @@ irunin.*.......... These files are necessary for installation and
 script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
                    certain algorithms.
-script-de.pdf..... The German version of script-en.pdf.CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
+script-de.pdf..... The German version of script-en.pdf.
+CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
 CrypToolPresentation_1_3_04_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
@@ -573,7 +619,8 @@ been added for version 1.3.00 since CrypTool version 1.202:
   The N-gram analysis is restricted for binary files to 64 kB and
   for text files to 256 kB (longer inputs are truncated to the
   maximum input length).
-+ Errors in Vigenere and Caesar algorithms have been eliminated  (any text files)
++ Errors in Vigenere and Caesar algorithms have been eliminated
+  (any text files)
 + Improved Playfair analysis.
 
 5.1.2. Symmetric methods
@@ -804,7 +851,10 @@ Functionality:
   are currently shown in capital letters: additionally display
   them in red to enhance readability.
 + Offer a view for any text files to show them in any given
-  fixed block length: e.g. xxx xxx xxx or xxxxx xxxxx xxxxx ...
+  fixed block length: e.g. xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
++ Attacking RSA encryption if the exponent is too small.
+  RSA attack: Pure C++ sources and a diploma thesis in number
+              theory (German) are available.
 
 
 6.2. Algorithms / methods
@@ -894,7 +944,7 @@ Functionality:
   see RFC2040).
   Then these additional customisations must become part of the
   format for the internal key storage.
-+ Use dictionary for all attacks, not just for substitution.
++ Use a dictionary for all attacks, not just for substitution.
 + Libraries:
    - Support further libraries (Gnu, LiDIA, FLINT/C, ...)
    - Update the Miracl library to a newer version than 4.4.3., 
@@ -902,6 +952,9 @@ Functionality:
    - Update the Secude library to a newer version than 5.4.15C,
      if this improves the performance or if further methods are
      needed.
++  Write user-specific persistent information in the Windows registry
+   instead of CrypTool.ini (see chapter 3.2. above).
+
 
 
 6.4. User interfaces / visualizations

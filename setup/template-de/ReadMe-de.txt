@@ -20,7 +20,9 @@
  2.4. .... Interaktive Online-Hilfe unter Windows XP
  2.5. .... Unterstützung verschiedener Sprachen
  2.6. .... Einschränkungen in den verwendeten Bibliotheken
- 3. .... Installation
+ 3. .... Installation / Deinstallation / Betrieb
+ 3.1. .... Installation in Mehrbenutzersystemen
+ 3.2. .... Betrieb in Mehrbenutzersystemen
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
  5. .... Neuerungen in CrypTool bis 1.3.04
@@ -360,8 +362,8 @@ in der CrypTool-Anwendung auf 1024 beschränkt.
 
 
 
-3. Installation
-   ------------
+3. Installation / Deinstallation / Betrieb
+   ---------------------------------------
 Durch Aufruf des CrypTool-Setups an einer geeigneten Stelle im
 Dateibaum auf Ihrem PC wird CrypTool installiert.
 Als Standardwert ist das Verzeichnis "C:\Programme\CrypTool"
@@ -373,7 +375,7 @@ empfiehlt es sich, vor der erneuten Installation das alte CrypTool
 zu deinstallieren, da unter Umständen nicht alle alten
 Dateien überschrieben werden. Bitte beachten Sie:
 - Wenn bei der Deinstallation nicht alle Verzeichnisse/Dateien im
-  Programmverzeichnis (meist C:\Programme\CrypTool) gelöscht
+  Programmverzeichnis (meist "C:\Programme\CrypTool") gelöscht
   werden, löschen Sie diese manuell.
 - Bei der Deinstallation von CrypTool werden alle bisher erzeugten
   asymmetrischen Schlüssel gelöscht. Wenn Sie diese Schlüssel auch
@@ -395,6 +397,49 @@ Dateien für alle Benutzer auf Vollzugriff gesetzt werden.
 Der Teilbaum "pse\" sollte nicht manuell bearbeitet werden, da
 bei einer inkonsistenten Struktur nur eine Neuinstallation von
 CrypTool bleibt.
+
+
+3.1. Installation in Mehrbenutzersystemen
+     ------------------------------------
+In Mehrbenutzersystemen wie Windows XP hat der Administrator vollen
+Zugriff auf das ganze Dateisystem, die restlichen User können/sollten
+eingeschränkt sein.
+
+Zur Installation braucht der Benutzer braucht Schreibrechte für das 
+Verzeichnis, in das CrypTool installiert werden soll (z.B. für das 
+Verzeichnis "C:\Programme", falls das Unterverzeichnis "CrypTool" noch
+nicht angelegt ist,  oder für das Verzeichnis "C:\Programme\CrypTool",
+falls dieses schon angelegt ist). Hat er diese Rechte nicht, bricht 
+die Installation ab.
+
+
+3.2. Betrieb in Mehrbenutzersystemen
+     -------------------------------
+Will der Benutzer in Mehrbenutzersystemen wie Windows XP aus CrypTool
+heraus Dateien anlegen (bzw. ändern), braucht er Schreibrechte auf das
+entsprechende Zielverzeichnis (bzw. auf die entsprechende Datei). 
+Geht das nicht, kommt eine Warnung.
+Explizit nötig sind Schreibrechte auf:
+- das Standard-Windows-Verzeichnis für temporäre Dateien 
+  (für die *.cry-Dateien),
+- das Unterverzeichnis "CrypTool\pse", da darin die erzeugten 
+  asymmetrischen Zertifikate und Schlüssel abgelegt werden, und
+- die Datei CrypTool.ini, in der das CrypTool-Programm Einstellungen
+  speichert, die über die jeweilige Programm-Session hinausgehen
+  (Persistenz).
+  CrypTool.ini wird normalerweise beim ersten Aufruf von CrypTool im
+  Windowsverzeichnis (z.B. C:\Windows) angelegt. Bitte beachten Sie, 
+  dass - die Einstellungen nur dann persistent gespeichert werden, 
+         wenn der Nutzer Schreibrechte auf diese Datei hat.
+       - auch bei Mehrbenutzerbetrieb immer nur eine (!) CrypTool.ini-
+         Datei existiert. 
+  Um eine höhere Flexibilität bei den persistenten Einstellungen zu
+  erhalten, könnte eine spätere Version 
+   - unter Windows die persistenten Einstellungen Benutzer-spezifisch 
+     in die Registry statt in eine Ini-Datei schreiben.
+   - für den Benutzer eine zusätzliche  Optionen anbieten, ob man eine
+     Einstellung nur für die entsprechende Programm-Session oder 
+     persistent ändern möchte.
 
 
 
@@ -832,7 +877,7 @@ Funktionalität:
 + Substitutionsanalyse: ersetzte Buchstaben in der Dialogbox nicht nur
   groß, sondern auch in roter Schrift anzeigen.
 + Beliebige Textdateien in Blöcken einstellbarer Breite darstellen:
-  xxx xxx xxx oder xxxxx xxxxx xxxxx ...
+  xxx xxx xxx  oder  xxxxx xxxxx xxxxx ...
 
 
 6.2. Algorithmen / Verfahren
@@ -905,6 +950,9 @@ Funktionalität:
     nutzt diesen, um mit den in CrypTool implementierten Verfahren 
     PGP-Files zu entschlüsseln oder zu signieren. 
     Damit klar, dass PGP nur mit Standard-Algorithmen arbeitet.
++ Angriff gegen die RSA-Verschlüsselung, wenn der Exponent zu klein ist.
+  RSA-Angriff: Pure C++-Sourcen und eine zahlentheoretische Diplomarbeit
+               in Deutsch sind verfügbar.
 
 
 6.3. Interne Schnittstellen
@@ -938,6 +986,8 @@ Funktionalität:
    - Update der Secude-Lib auf eine neuere Version als 5.4.15C,
      sofern dies eine Performance-Verbesserung bringt oder
      weitere Verfahren benötigt werden.
++  Benutzer-spezifische persistente Informationen in die Windows-Registry
+   schreiben statt in CrypTool.ini (vgl. Kapitel 3.2. oben).
 
 
 6.4. User-Interface / Visualisierungen
