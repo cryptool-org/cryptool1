@@ -15,17 +15,23 @@ class Dlg_homophone : public CDialog
 {
 // Konstruktion
 public:
+	int Is_in_alpha(char);
+	SymbolArray Get_text();
 	CString Get_key();
-	int Get_crypt();
+	bool Get_crypt();
 	int Display();
 	bool Is_key();
 	Dlg_homophone(CWnd* pParent = NULL);   // Standardkonstruktor
+	int Crypt(int,bool);
+	void Set_texts(SymbolArray,SymbolArray);
 
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
 	enum { IDD = IDD_DIALOG_HOMOPHONE };
 	CListCtrl	m_listview;
-	int		m_crypt;
+	int		    m_crypt;
+	CEdit       m_dummyCtrl;
+	// CString		m_row;
 	//}}AFX_DATA
 
 
@@ -38,7 +44,7 @@ public:
 
 // Implementierung
 protected:
-
+	CFont m_Font;
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(Dlg_homophone)
 	afx_msg void OnErzeugen();
@@ -46,8 +52,11 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	void Init_ListBox();
+	CString alphabet;
+	SymbolArray reference;
 	Homophone_Ber HB;
+	SymbolArray text;
+	void Init_ListBox();
 };
 
 //{{AFX_INSERT_LOCATION}}

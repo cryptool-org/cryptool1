@@ -27,6 +27,8 @@
 #include "zzahlanalyse.h"
 #include "Dlg_homophone.h"
 
+#include <fstream.h>
+
 char *Eingabedatei;
 int *MaxPermu[26];
 float Fortschritt=20.0;
@@ -2788,87 +2790,105 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 	}
 }
 
+
 void HomophoneAsc(const char *infile, const char *OldTitle)
 {
-    char outfile[128], title[128], line[256];
     CMyDocument *NewDoc;
 
     dia1 KeyDialog(2);
 	Dlg_homophone DH;
 
 	SymbolArray text(AppConv);
+
+	CWaitCursor WCursor;
+
+	SymbolArray reference(AppConv);
+	reference.Read("c:/deutsch.txt");
+	NGram R(reference);
+	
+	char line[128];
+	int size=R.GetSize();		// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
+	if(0==size)
 	{
-		CWaitCursor WCursor;
-
-		SymbolArray Reference(AppConv);
-		Reference.Read("c:/deutsch.txt");
-		NGram R(Reference);
-
-		int size=R.GetSize();		// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
-		if(0==size)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox (line);
-			return;
-		}
-
-		text.Read(infile);
-		if(text.GetSize()<1)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,1);
-			AfxMessageBox (line);
-			return;
-		}
-		WCursor.Restore();
-
-		if(1!=DH.Display())
-		{
-			return;
-		}
-		WCursor.Restore();
-	    if(false==DH.Is_key())
-		{
-			return;
-		}
-
-		SymbolArray Key(AppConv);
-		
-	    Key.ReadString(/*KeyDialog.GetData()*/DH.Get_key());
-		//Key += 1;
-   
-		GetTmpName(outfile,"cry",".tmp");
-		
-	    if(0==DH.Get_crypt())
-		{
-		    text.Homophone(Key,true,0);
-		}
-	    else
-		{
-		    text.Homophone(Key,false,0);
-		}
-	    text.Write(outfile);
-
-		Reformat(infile, outfile, FALSE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox(line);
+		return;
 	}
 
-    NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
-    remove(outfile);
-    if(NewDoc) 
+
+// Routine zur Homophone Verschlüsselung vor dem Schlüsseldialog 
+	char inbuffer[4096];
+	long buffsize=4096; 
+
+	ifstream in(infile);	
+	in.read(inbuffer,buffsize);
+	if(0>=in.gcount())
 	{
-	    if(0!=DH.Get_crypt())
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox(line);
+		return;
+	}
+	
+	WCursor.Restore();		
+	DH.Set_texts(text,reference);
+	if(IDOK!=DH.DoModal()) 
+	{
+		in.close();
+		return;
+	}
+// Routine zur Homophonen Verschlüsselung
+	char outbuffer[4096];
+	long outbuffsize;
+	char outfile[128],title[128];
+	GetTmpName(outfile,"cry",".bin");
+	ofstream out(outfile);
+
+	// Verschlüsselung
+	if(true==DH.Get_crypt())
+	{
+		while(in.gcount())
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				int value=DH.Is_in_alpha(inbuffer[i]);
+				if(-1<value)
+				{
+					outbuffer[outbuffsize]=DH.Crypt(value,true);
+					outbuffsize++;
+				}
+				// Verschlüsseln nur, wenn Zeichen im Alphabet, dann aber auch outBuffsize incrementieren
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+	// Entschlüsselung
+	else
+	{
+
+	}
+	in.close();
+ 	out.close();
+
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,"Key");
+	remove(outfile);
+	if(NewDoc) 
+	{
+		if(true==DH.Get_crypt())
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING37003,pc_str1,STR_LAENGE_STRING_TABLE);
 		}
 		else
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING37004,pc_str1,STR_LAENGE_STRING_TABLE);
 		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-        NewDoc->SetTitle(title);
-    }
+		LoadString(AfxGetInstanceHandle(),IDS_STRING37005,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+		NewDoc->SetTitle(title);
+	}
 
 	theApp.DoWaitCursor(0);
 }

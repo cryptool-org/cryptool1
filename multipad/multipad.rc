@@ -402,7 +402,6 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,180,100,10
     LTEXT           "Trennzeichen",IDC_STATIC,140,180,50,10
     EDITTEXT        IDC_EDIT2,189,178,15,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Button2",IDC_BUTTON2,173,68,45,16
 END
 
 IDD_DIALOG_SCHLUESSELLAENGE DIALOG DISCARDABLE  0, 0, 186, 95
@@ -1460,21 +1459,21 @@ BEGIN
     LTEXT           "Verschlüsselter Text",IDC_STATIC,7,247,62,8
 END
 
-IDD_DIALOG_HOMOPHONE DIALOG DISCARDABLE  0, 0, 337, 252
+IDD_DIALOG_HOMOPHONE DIALOG DISCARDABLE  0, 0, 337, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Homophone Verschlüsselung"
+CAPTION "Homophoner Algorithmus"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Schlüssel speichern",IDOK,167,215,77,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,272,218,50,14
-    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,47,209,80,14
+    DEFPUSHBUTTON   "&OK",IDOK,170,318,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,259,318,50,14
+    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,17,316,80,14
     CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,5,6,59,10
     CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
                     6,27,59,10
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SORTASCENDING | WS_BORDER | 
-                    WS_TABSTOP,121,20,195,157
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,54,294,157
+    EDITTEXT        IDC_ROW,30,237,277,14,ES_AUTOHSCROLL
 END
 
 
@@ -2226,21 +2225,31 @@ BEGIN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
-    POPUP "Hash&werte"
+    POPUP "&Einzelverfahren"
     BEGIN
-        MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-        MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-        MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-        MENUITEM SEPARATOR
-        MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-        MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-        MENUITEM SEPARATOR
-        MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
-    END
-    POPUP "&Komprimieren"
-    BEGIN
-        MENUITEM "&Zip",                        ID_ZIP
-        MENUITEM "&UnZip",                      ID_UNZIP
+        POPUP "&Hashwerte"
+        BEGIN
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            MENUITEM SEPARATOR
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM SEPARATOR
+            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+        END
+        POPUP "&Komprimieren"
+        BEGIN
+            MENUITEM "&Zip",                        ID_ZIP
+            MENUITEM "&UnZip",                      ID_UNZIP
+        END
+        POPUP "&Tutorial für kleine Zahlen"
+        BEGIN
+            MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+
+            MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3324,7 +3333,10 @@ BEGIN
     IDS_STRING37000         "Das in ""Optionen""->""Textoptionen einzustellende Alphabet muß mindestens 1 Zeichen enthalten!"
     IDS_STRING37001         "Zeichen"
     IDS_STRING37002         "Anzahl"
-    IDS_STRING37003         "Verschlüsselung"
+    IDS_STRING37003         "%s Verschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING37004         "%s Entschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING37005         "Homophone"
+    IDS_STRING37006         "Verschlüsselung"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -405,8 +405,9 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 {
 	long lower=long(Get_Value(lower_limit)),upper=long(Get_Value(upper_limit));
 	long range=upper-lower,rand_val;
-	int loop_counter;
-	for(int i=1;i<=500;i++)			
+	int i,loop_counter;
+
+	for(i=1;i<=500;i++)			
 	{
 		loop_counter=0;
 		do 
@@ -441,6 +442,6 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 		}
 	}
 
-	return(0);			// wenn keine Promzahl innerhalb der Grenzen gefunden wurde, erfolgt eine
+	return(0);			// wenn keine Primzahl innerhalb der Grenzen gefunden wurde, erfolgt eine
 						// entsprechende Fehlermeldung
 }

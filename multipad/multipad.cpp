@@ -26,7 +26,6 @@
 #include "ECsecude.h"
 #include <locale.h>
 #include "About.h"
-#include "DlgPrimesGenerator.h"
 
 #include "asymmetric.h" // für KeyGen() in OnCRYPTKeyGen()
 #include "DlgAsymKeys.h" // für OnShowKeys()
