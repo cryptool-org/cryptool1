@@ -2584,6 +2584,8 @@ BEGIN
     BEGIN
         MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
         MENUITEM "S&tatusleiste",               ID_VIEW_STATUS_BAR
+        MENUITEM "&Als Text anzeigen",          ID_TOTXT
+        MENUITEM "&Als HexDump ",               ID_TOHEX
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -8270,6 +8272,8 @@ BEGIN
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Show &As Text",               ID_TOTXT
+        MENUITEM "&As HexDump ",                ID_TOHEX
     END
     POPUP "&Crypt"
     BEGIN
