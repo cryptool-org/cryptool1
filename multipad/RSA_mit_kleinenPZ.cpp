@@ -133,6 +133,7 @@ BEGIN_MESSAGE_MAP(RSA_mit_kleinenPZ, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_VER_ENT_SCHLUESSELN, OnButtonEnDeCrypt)
 	ON_BN_CLICKED(IDC_VERSCHLUESSELN, OnSelectVerschluesseln)
 	ON_BN_CLICKED(IDC_ENTSCHLUESSELN, OnSelectEntschluesseln)
+	ON_BN_CLICKED(IDC_DIALOG_LITTLE_SISTERS, OnClickDialogLittleSisters)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -211,7 +212,15 @@ void RSA_mit_kleinenPZ::Verschluesseln()
 		long anzahl_buchstaben;
 		
 		// Option: Dies sollte auch als option eingestellt werden.
-		anzahl_buchstaben=256; 
+		if (m_TextOptions==1)
+		{
+			//m_edit10="";
+			anzahl_buchstaben=26; 
+		}
+		else
+		{	
+			anzahl_buchstaben=256;
+		}
 
 		// Blocklänge - Berechnung
 
@@ -295,9 +304,23 @@ arret:
 		{
 			// konvertiere Ascii-Zeichen in Big-Werte.
 			char ptr[1];
-			ptr[0]=text_char[i];
+			
 			Big z;
-			z=from_binary(1,ptr);
+
+			if (anzahl_buchstaben==256)
+			{
+				ptr[0]=text_char[i];
+				z=from_binary(1,ptr);
+			}
+			else // Für Dialog der kleinen Schwestern
+			{
+//				if (text_char[i]>='A' && text_char[i] <='Z')
+//				{
+//					text_char[i]=text_char[i]-'B';
+//				}
+				ptr[0]=text_char[i];
+				z=from_binary(1,ptr)-96;
+			}
 			text[i]=z;
 						
 			long l_test;
@@ -430,7 +453,6 @@ arret3:;
 		return;		
 	}
 	UpdateData(false);	
-	
 }
 
 
@@ -624,7 +646,7 @@ void RSA_mit_kleinenPZ::OnButtonSchluesselGenerieren()
 
 void RSA_mit_kleinenPZ::Entschluesseln() 
 {
-	UpdateData(true);
+		UpdateData(true);
 
 	m_edit11=m_edit10;
 
@@ -686,7 +708,16 @@ void RSA_mit_kleinenPZ::Entschluesseln()
 		long anzahl_buchstaben;
 		
 		// Option: Dies sollte auch als option eingestellt werden.
-		anzahl_buchstaben=256; 
+
+		if (m_TextOptions==1)
+		{
+			anzahl_buchstaben=26; 
+			//m_edit10="";
+		}
+		else
+		{
+			anzahl_buchstaben=256;
+		}
 
 		// Blocklänge - Berechnung
 
@@ -696,7 +727,7 @@ void RSA_mit_kleinenPZ::Entschluesseln()
 		block_laenge=1;
 //		block_laenge=RSAB.RSA_BlockLaengeBerechnung(eingabe_p * eingabe_q,anzahl_buchstaben); // Hier verwenden wir alle 256 ASCII-Zeichen
 		
-		m_edit12=m_edit10; 
+//		m_edit12=m_edit10; 
 		
 		/*
 		Bei der Entschlüsselung muss man darauf achten, daß Eingabe-text (m_edit10) nur aus Zahlen gefolgt von Leerzeichen
@@ -798,14 +829,14 @@ void RSA_mit_kleinenPZ::Entschluesseln()
 			i++;
 		}
 		
-		m_edit11.GetBufferSetLength(m_edit10.GetLength());
-		for (i=0;i<m_edit11.GetLength();i++)
-		{
-			
-			char trans;
-			trans=text_char2[i];
-			m_edit11.SetAt(i,trans);
-		}
+//		m_edit11.GetBufferSetLength(m_edit10.GetLength());
+//		for (i=0;i<m_edit11.GetLength();i++)
+//		{
+//			
+//			char trans;
+//			trans=text_char2[i];
+//			m_edit11.SetAt(i,trans);
+//		}
 
 
 		long faktor=0;
@@ -865,25 +896,33 @@ void RSA_mit_kleinenPZ::Entschluesseln()
 				Big z;
 				z=text[i];
 				long l_test;
-				l_test = z.get(1);
+				
+				if (anzahl_buchstaben==256)
+				{
+					l_test = z.get(1);
+				}
+				else
+				{
+					l_test = z.get(1) +96;
+				}
 				text_char[i]=l_test;
 			}
 			
-			m_edit12.GetBufferSetLength(leer_zeichen+1);
-			for (i=0;i<m_edit12.GetLength();i++)
+			m_edit11.GetBufferSetLength(leer_zeichen+1);
+			for (i=0;i<m_edit11.GetLength();i++)
 			{
 				
 				char trans;
 				trans=text_char[i];
-				m_edit12.SetAt(i,trans);
+				m_edit11.SetAt(i,trans);
 			}
-			for (i=0;i<m_edit12.GetLength();i++)
-			{
-				
-				char trans;
-				trans=text_char[i];
-				m_edit12.SetAt(i,trans);
-			}
+			//for (i=0;i<m_edit12.GetLength();i++)
+			//{
+			//	
+			//	char trans;
+			//	trans=text_char[i];
+			//	m_edit12.SetAt(i,trans);
+			//}
 		
 //		}
 		//else
@@ -954,7 +993,19 @@ void RSA_mit_kleinenPZ::OnUpdateEdit10()
 	UpdateData(true);
 	int sels,sele;
 	m_control_edit10.GetSel(sels,sele);
-	//CheckEdit_Input(m_edit10,sels,sele);
+
+	if (m_TextOptions==1 && m_CryptMode==0)
+	{
+		//m_edit10="";
+		//Bei der Verschlüsselung mit 26 Buchstaben, nur die 26 Buchstaben erkennen
+		CheckEdit_Input2(m_edit10,sels,sele);
+	}
+	if (m_CryptMode==1)
+	{
+		//m_edit10="";
+		//bei der Entschlüsselung, nur Zahlen getrennt mit Buchstaben akzeptieren
+		CheckEdit_Input3(m_edit10,sels,sele);
+	}
 	UpdateData(false);
 	m_control_edit10.SetSel(sels,sele);
 	
@@ -995,6 +1046,8 @@ void RSA_mit_kleinenPZ::OnSelectVerschluesseln()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(true);
+	m_edit10="";
+	m_edit11="";
 	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 	m_HeaderPlainCipherText = pc_str;
 	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_CODING_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1008,6 +1061,8 @@ void RSA_mit_kleinenPZ::OnSelectEntschluesseln()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(true);
+	m_edit10="";
+	m_edit11="";
 	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_CIPHERTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 	m_HeaderPlainCipherText = pc_str;
 	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_ENCIPHERED_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1016,4 +1071,76 @@ void RSA_mit_kleinenPZ::OnSelectEntschluesseln()
 	m_Encryption = "";
 	m_edit12 = "";
 	UpdateData(false);	
+}
+
+void RSA_mit_kleinenPZ::CheckEdit_Input2(CString &m_edit, int &sels, int &sele)
+{
+	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
+	{
+		m_edit=m_edit.Right(m_edit.GetLength()-1);
+		sels=sele=0;								
+	}
+
+	int exp_counter=0;
+	for(int i=0;i<m_edit.GetLength();i++)
+	{
+		char ch=m_edit.GetAt(i);
+		if((ch>='a')&&(ch<='z'))
+		{
+			
+		}
+		else
+		{
+			m_edit=m_edit.Left(i)+m_edit.Right(m_edit.GetLength()-i-1);	
+			
+			if(i<=sele)
+			{
+				sele--;
+				sels--;
+			}
+			i--;
+		}
+	}
+}
+
+void RSA_mit_kleinenPZ::CheckEdit_Input3(CString & m_edit, int &sels, int &sele)
+{
+
+	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
+	{
+		m_edit=m_edit.Right(m_edit.GetLength()-1);
+		sels=sele=0;								
+	}
+
+	int exp_counter=0;
+	for(int i=0;i<m_edit.GetLength();i++)
+	{
+		char ch=m_edit.GetAt(i);
+		if(((ch>='0')&&(ch<='9')) || ch==' ')
+		{
+			
+		}
+		else
+		{
+			m_edit=m_edit.Left(i)+m_edit.Right(m_edit.GetLength()-i-1);	
+			
+			if(i<=sele)
+			{
+				sele--;
+				sels--;
+			}
+			i--;
+		}
+	}
+}
+
+void RSA_mit_kleinenPZ::OnClickDialogLittleSisters() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	UpdateData(true);
+	m_edit10="";
+	m_edit11="";
+	m_edit12="";
+	UpdateData(false);
 }

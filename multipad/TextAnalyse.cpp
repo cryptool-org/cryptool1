@@ -37,7 +37,7 @@ void TextAnalyse::Analyse()
 	char buffer[buffsize];
 	int i,value;
 
-	ifstream f("C:\\CrypTool-Entwicklung\\CrypTool\\source\\multipad\\Debug\\deutsch.txt");
+	ifstream f("C:\\Temp\\CrypTool\\source\\multipad\\Debug\\deutsch.txt");
 	f.read(buffer,buffsize);
 
 	while(f.gcount())

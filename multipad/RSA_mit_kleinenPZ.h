@@ -31,6 +31,8 @@ class RSA_mit_kleinenPZ : public CDialog
 	
 // Konstruktion
 public:
+	void CheckEdit_Input3(CString &, int &, int &);
+	void CheckEdit_Input2 (CString &, int &, int &);
 	void Entschluesseln();
 	void Verschluesseln();
 	
@@ -85,6 +87,7 @@ protected:
 	afx_msg void OnButtonEnDeCrypt();
 	afx_msg void OnSelectVerschluesseln();
 	afx_msg void OnSelectEntschluesseln();
+	afx_msg void OnClickDialogLittleSisters();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

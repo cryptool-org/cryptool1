@@ -1479,12 +1479,12 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,15,220,59,10
     CONTROL         "Entschlüsseln",IDC_ENTSCHLUESSELN,"Button",
                     BS_AUTORADIOBUTTON,15,230,59,14
+    CONTROL         "Standard Alphabet",IDC_STANDARD_ALPHABET,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,198,220,75,10
     CONTROL         "Dialog der Kleinen Schwestern",
                     IDC_DIALOG_LITTLE_SISTERS,"Button",BS_AUTORADIOBUTTON,
                     198,230,113,14
-    CONTROL         "Standard Alphabet",IDC_STANDARD_ALPHABET,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,198,220,75,10
-    GROUPBOX        "Text Optionen",IDC_STATIC,191,208,121,40
+	GROUPBOX        "Text Optionen",IDC_STATIC,191,208,121,40
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 383
