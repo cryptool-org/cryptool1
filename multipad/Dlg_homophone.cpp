@@ -105,14 +105,34 @@ bool Dlg_homophone::Get_crypt()
 void Dlg_homophone::OnDecrypt() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	OnActualizeNoOfHomophones(); 
 	m_crypt = 1;
+
+	{ // Copy Homophone Parameter
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
+		char tmpStr[6];
+		sprintf(tmpStr, "%i", m_NoOfHomophones );
+		CString Primes = CString("PARAMETER: ") + char(m_BaseHomophones + '0') + ' ' + char(m_EncryptFormatCharacters + '0') +
+											' ' + char(m_KodiereUmlaute + '0') + ' ' + CString( tmpStr );
+		CopyKey ( pc_str, Primes );
+	}
 	OnOK();
 }
 
 void Dlg_homophone::OnEncrypt() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	OnActualizeNoOfHomophones();
 	m_crypt = 0;
+
+	{ // Copy Homophone Parameter
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
+		char tmpStr[6];
+		sprintf(tmpStr, "%i", m_NoOfHomophones );
+		CString Primes = CString("PARAMETER: ") + char(m_BaseHomophones + '0') + ' ' + char(m_EncryptFormatCharacters + '0') +
+											' ' + char(m_KodiereUmlaute + '0') + ' ' + CString( tmpStr );
+		CopyKey ( pc_str, Primes );
+	}
 	OnOK();
 }
 
@@ -121,6 +141,55 @@ BOOL Dlg_homophone::OnInitDialog()
 	int colWidth = 100;										// Spaltenbreite in Pixel
 
 	CDialog::OnInitDialog();
+
+	m_AlphabetBackup = theApp.TextOptions.m_alphabet;
+
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
+	CString HParam;
+	if ( PasteKey( pc_str, HParam ) )
+	{
+		UpdateData(true);
+		int d = strlen("PARAMETER: ");
+		m_BaseHomophones          = (int)(HParam[d] - '0');
+		m_EncryptFormatCharacters = (int)(HParam[d+2] - '0');
+		m_KodiereUmlaute          = (int)(HParam[d+4] - '0');
+		m_NoOfHomophones          = (int)atoi( HParam.GetBuffer(0) +(d+6) );
+		UpdateData(false);
+
+		int ReInitFlag = 0;
+		if ( m_EncryptFormatCharacters )
+		{	
+			if ( 0 > theApp.TextOptions.m_alphabet.Find("\n", 0) ) 
+				theApp.TextOptions.m_alphabet.Insert(0, "\n"); 
+			if ( 0 > theApp.TextOptions.m_alphabet.Find("\t", 0) ) 
+				theApp.TextOptions.m_alphabet.Insert(0, "\t");
+			if ( 0 > theApp.TextOptions.m_alphabet.Find("\r", 0) ) 
+				theApp.TextOptions.m_alphabet.Insert(0, "\r");			
+			ReInitFlag = 1;
+		}	
+		else
+		{
+			int ndx;
+			if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\n", 0)) ) 
+				theApp.TextOptions.m_alphabet.Delete(ndx);
+			if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\t", 0)) ) 
+				theApp.TextOptions.m_alphabet.Delete(ndx);
+			if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\r", 0)) ) 
+				theApp.TextOptions.m_alphabet.Delete(ndx);
+		}
+	
+		if ( m_NoOfHomophones != HB.GetKeySize() )
+		{
+			HB.Resize( m_NoOfHomophones );
+			UpdateData();
+			m_Bitlength = HB.LogKeySize( 2 );
+			UpdateData(FALSE);
+			ReInitFlag = 1;
+		}
+		if ( ReInitFlag )
+			HB.Init_Data();
+	}
+
 
 	m_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
@@ -153,7 +222,6 @@ BOOL Dlg_homophone::OnInitDialog()
 	{
 		m_Paste.EnableWindow(FALSE);
 	}
-	m_AlphabetBackup = theApp.TextOptions.m_alphabet;
 	return(TRUE);
 }
 
@@ -196,6 +264,15 @@ void Dlg_homophone::OnLoadKey()
 	m_Bitlength = HB.LogKeySize( 2 );
 	m_listview.DeleteAllItems(); 
 	LoadListBox();	
+	int Flag = 0;
+	for(int i=0;i<range;i++)
+	{
+		if(HB.GetEncryptionData1(i)>0 && ( char(i) == '\n' || char(i) == '\t' || char(i) == '\r' ) )
+		{
+			Flag = 1;
+		}
+	}
+	if ( Flag ) m_EncryptFormatCharacters = 1;
 	UpdateData(FALSE);
 
 	theApp.DoWaitCursor(-1);
@@ -217,6 +294,7 @@ void Dlg_homophone::LoadListBox()
 			else if ( char(i) == '\t' ) strncpy(string, "<TAB>", 5);
 			else if ( char(i) == '\r' ) strncpy(string, "<CR>", 4); 
 			else string[0]=i;
+
 			j=m_listview.InsertItem(i,string);
 	// Insert frequency
 			number=HB.GetEncryptionData1(i);
@@ -294,7 +372,7 @@ void Dlg_homophone::OnActualizeNoOfHomophones()
 
 	if ( m_NoOfHomophones > upper_range )
 	{
-		Message(IDS_STRING_MSG_HOMOPHONE_LOWERBND, MB_ICONEXCLAMATION, upper_range);
+		Message(IDS_STRING_MSG_HOMOPHONE_UPPERBND, MB_ICONEXCLAMATION, upper_range);
 		m_NoOfHomophones = upper_range;
 	}
 

@@ -129,6 +129,9 @@ const int CryptMethods[] =  {
 		IDS_CRYPT_TWOFISH,
 		IDS_CRYPT_PRIMES,
 		IDS_CRYPT_RSADEMO_PARAMETER,
+		IDS_PARAM_PERMUTATION,
+		IDS_PARAM_HOMOPHONE,
+		IDS_PARAM_PLAYFAIR,
 		0
 };
 
@@ -3331,9 +3334,11 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		outf.Close();
 		Reformat(infile,outfile, FALSE);
 		if(Perm.m_P2len)
-			sprintf(key,"%s;%s",Perm.m_Perm1, Perm.m_Perm2);
+			sprintf(key,"%s;%s PARAMETER: %i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, 
+			        Perm.m_P1InSeq, Perm.m_P1OutSeq, Perm.m_P2InSeq, Perm.m_P2OutSeq);
 		else
-			sprintf(key,"%s",Perm.m_Perm1);
+			sprintf(key,"%s PARAMETER: %i,%i,%i,%i", Perm.m_Perm1, 
+			        Perm.m_P1InSeq, Perm.m_P1OutSeq, Perm.m_P2InSeq, Perm.m_P2OutSeq);
 		CMyDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,key);
 		remove(outfile);	

@@ -81,6 +81,12 @@ void CDialogPermutation::OnDecrypt()
 		return;
 	}
 	m_Dec = 1;
+
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1OutSeq + '0') +
+	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2OutSeq + '0');
+	CopyKey ( pc_str, Primes );
+
 	OnOK();
 }
 
@@ -98,6 +104,12 @@ void CDialogPermutation::OnEncrypt()
 		return;
 	}
 	m_Dec = 0;
+
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1OutSeq + '0') +
+	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2OutSeq + '0');
+	CopyKey ( pc_str, Primes );
+
 	OnOK();
 }
 
@@ -190,7 +202,31 @@ void CDialogPermutation::OnChangeEdit2()
 BOOL CDialogPermutation::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes;
+	if ( PasteKey( pc_str, Primes ) )
+	{
+		UpdateData(true);
+		int d = strlen("PARAMETER: ");
+		m_P1InSeq  = (int)(Primes[d]   - '0');
+		m_P1OutSeq = (int)(Primes[d+2] - '0');
+		m_P2InSeq  = (int)(Primes[d+4] - '0');
+		m_P2OutSeq = (int)(Primes[d+6] - '0');
+		UpdateData(false);
+	}
+	else
+	{
+		UpdateData(true);
+		int d = Primes.Find("PARAMETER: ", 0);
+		m_P1InSeq  = 0;
+		m_P1OutSeq = 1;
+		m_P2InSeq  = 0;
+		m_P2OutSeq = 1;
+		UpdateData(false);
+	}
 	
+
 	m_Decrypt.EnableWindow(FALSE);
 	m_Encrypt.EnableWindow(FALSE);
 	m_P1out = m_P2out = "( 1 )";
@@ -268,12 +304,39 @@ void CDialogPermutation::OnPasteKey()
 		UpdateData(TRUE);
 		int k = buffer.Find(';');
 		if(k==-1) {
-			m_Perm1 = makeASCII(buffer);
+			int k = buffer.Find("PARAMETER: ", 0);
+			if ( k > 0 )
+			{
+				m_Perm1 = makeASCII(buffer.Left(k));
+				k += strlen("PARAMETER: ");
+				m_P1InSeq  = (int)(buffer[k]   - '0');
+				m_P1OutSeq = (int)(buffer[k+2] - '0');
+				m_P2InSeq  = (int)(buffer[k+4] - '0');
+				m_P2OutSeq = (int)(buffer[k+6] - '0');
+			}
+			else
+			{
+				m_Perm1 = makeASCII(buffer);
+			}
 			m_Perm2.Empty();
+
 		}
 		else {
 			m_Perm1 = makeASCII(buffer.Left(k));
-			m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
+			int d = buffer.Find("PARAMETER: ", 0);
+			if ( d > 0 )
+			{
+				m_Perm2 = makeASCII(buffer.Mid(k+1,(d-k)-1));
+				d += strlen("PARAMETER: ");
+				m_P1InSeq  = (int)(buffer[d]   - '0');
+				m_P1OutSeq = (int)(buffer[d+2] - '0');
+				m_P2InSeq  = (int)(buffer[d+4] - '0');
+				m_P2OutSeq = (int)(buffer[d+6] - '0');
+			}
+			else
+			{
+				m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
+			}
 		}
 		UpdateData(FALSE);
 		OnChangeEdit1();

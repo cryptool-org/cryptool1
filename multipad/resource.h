@@ -955,6 +955,9 @@
 #define IDS_STRING_KF_ORD_DESCRIPTION   37174
 #define IDS_STRING_EC_SEPERATOR         37175
 #define IDS_STRING_PERMUTATION          37176
+#define IDS_PARAM_PERMUTATION           37177
+#define IDS_PARAM_PLAYFAIR              37178
+#define IDS_PARAM_HOMOPHONE             37179
 #define IDS_STRING_PA_LENGTH            37612
 #define IDS_RAND_OUTPUT                 37613
 #define IDS_RANDOM_GENERATOR            37614

@@ -4845,6 +4845,9 @@ BEGIN
                             "G hat die prime Ordnung r und den Kofaktor k (r*k sind die Anzahl der Punkte auf E):"
     IDS_STRING_EC_SEPERATOR " "
     IDS_STRING_PERMUTATION  "Permutation"
+    IDS_PARAM_PERMUTATION   "Paramater PERMUTATION"
+    IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
+    IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4952,9 +4955,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Teilstring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "Die Anzahl der Homophone wird auf %i gesetzt !"
+                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i heraufgesetzt !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
-                            "Die Anzahl der Homophone wird auf %i herabgesetzt !"
+                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i herabgesetzt !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
@@ -9213,6 +9216,9 @@ BEGIN
                             "G has the prime order r and the cofactor k (r*k is the number of points on E):"
     IDS_STRING_EC_SEPERATOR " "
     IDS_STRING_PERMUTATION  "Permutation"
+    IDS_PARAM_PERMUTATION   "Paramater PERMUTATION"
+    IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
+    IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9319,9 +9325,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Substring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "The number of homophones will be increased to %i !"
+                            "The absolut number of homophones is restricted within the interval [256 ... 4096].\nFor that, number of homophones will be increased to %i !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
-                            "The number of homophones will be decreased to %i !"
+                            "The absolut number of homophones is restricted within the interval [256 ... 4096].\nFor that, the number of homophones will be decreased to %i !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
