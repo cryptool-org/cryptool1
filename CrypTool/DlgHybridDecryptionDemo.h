@@ -21,7 +21,6 @@ class CDlgHybridDecryptionDemo : public CDialog
 // Konstruktion
 public:
 	bool zugross;
-	//CString& filename;
 	CString sModN, sPhiN, sKeyPublic, sKeyPrivate, sOutput;
 	OctetString message;
 	CString EncSessionKey;
@@ -36,15 +35,12 @@ public:
 	CString EncSessionKey_Datei;
 	void RsaDec();
 	char SymKey[KEY_LEN];
-//	OctetString* EncSymKey;
-//	OctetString* DecSymKey;
 	bool m_iIsGenAsymKey;
 	CString PinCode;
 	CDlgRSADecryption RsaDialog1;
 	int UpdateDataDisplay();
 	CFont m_font;
 	int m_gc;
-//	OctetString *messageOcts;
 	bool m_bAuswahlDat;
 	CString	m_strTitle1;
 	char* m_strEdit1;

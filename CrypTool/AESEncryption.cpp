@@ -22,6 +22,7 @@
 #include "DialogeMessage.h"
 #include "CrypToolTools.h"
 #include "Cryptography.h"
+#include "MakeNewName.h"
 
 
 void FreePar(CryptPar *par);
@@ -130,7 +131,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
 {
 	
-    char outfile[128], line[256], keybuffhex[65],AlgTitel[128];
+    char outfile[128], line[256], keybuffhex[65],AlgTitel[128], title[128];
 	unsigned char keybuffbin[33];
 	unsigned char *borg, *bcip, *key;
 	char mode;
@@ -287,14 +288,23 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	}
 	else if (tag==1 && !Enc_Or_Dec)//Entschlüsselung + Hybrid
 	{
-		OpenNewDoc( outfile, (CString) keybuffhex, OldTitle, titleID, 1 );
-	}
-	/*
-	else if (tag==1 && Enc_Or_Dec)
-	{
+		//titleID = IDS_STRING_HYBRID_TITLE;
+		//OpenNewDoc( outfile, (CString) keybuffhex, OldTitle, titleID, 1 );
+		CAppDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+		remove(outfile);
+		
+		theApp.DoWaitCursor(0);
+		
+		if(NewDoc)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName(title,sizeof(title),pc_str,OldTitle);
+			NewDoc->SetTitle(title);
+		}
 
+		
 	}
-	*/
 }
 
 

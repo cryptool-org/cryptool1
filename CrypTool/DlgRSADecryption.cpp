@@ -118,17 +118,15 @@ BOOL CDlgRSADecryption::OnInitDialog()
 	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
 	//Hybridverschlüsselung
 
-	//disableButtons=false;
-
 	if(disableButtons)
 	{
-		SetWindowText("RSA Schlüssel für die Hybridentschlüsselung");
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_RSA_DLG_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+		SetWindowText(pc_str);
 		m_OKCtrl.SetWindowText("OK");
 		m_ShowDurationCtrl.ShowWindow(false);
 		int keyrow = FindRow(UserKeyId);// Suche nach der Zeile mit dem Eintrag UserKeyId
 
 		UpdateRowSel( keyrow ); // Zeile die UserKeyId enthält unterlegen (falls vorhanden)
-	//	disableButtons = false;
 	}
 
 

@@ -1741,12 +1741,16 @@ void DecHyb(char* infile, const char *OldTitle)
 	CString SymAlg_Datei;
 	CString AsymAlg_Datei;
 	CString EncSessionKey_Datei;
-		
+	CString res;
+	int Keylgth_Oct;
+	int paste;
+	paste=0;
+	
 	OctetString *help=theApp.SecudeLib.aux_file2OctetString(infile);
 	if (help == NULL) return; // Fehlerhafte Speicherallokation
 	
 	int start=0, end, pos;
-	CString res;
+	CString resultat;
 
 	if ( !find( help, IDS_STRING_HYBRID_RECIEVER, start, end) )
 	{
@@ -1755,18 +1759,39 @@ void DecHyb(char* infile, const char *OldTitle)
 		return;
 	}
 	pos = end;
-	if ( !extract( help, UserKeyId_Datei, IDS_STRING_HYBRID_ENC_KEY, pos ) )
+	if ( !extract( help, UserKeyId_Datei, IDS_STRING_HYBRID_LENGTH_ENC_KEY, pos ) )
 	{
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
 		return;
 	}
-	if ( !extract( help, EncSessionKey_Datei, IDS_STRING_HYBRID_SYM_METHOD, pos ) )
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_RECIEVER,pc_str,100);
+	paste+=strlen(pc_str)+UserKeyId_Datei.GetLength();
+	if ( !extract( help, res, IDS_STRING_HYBRID_ENC_KEY, pos ) )
 	{
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
 		return;
 	}
+	//char *tmp;
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_LENGTH_ENC_KEY,pc_str,100);
+	paste+=strlen(pc_str)+res.GetLength();
+	// get Length of session key ...
+	{
+		LPTSTR Keylgth = new TCHAR[res.GetLength()+1];
+		_tcscpy(Keylgth, res);
+		Keylgth_Oct = ((atoi(Keylgth)+7)/8); // ascii to int Konvertierung, Keylngth ist die Bitlänge des verschl. session key.
+		delete Keylgth;
+		if ( Keylgth_Oct <= 0 ) 
+		{
+			theApp.SecudeLib.aux_free_OctetString(&help);
+			Message(IDS_STRING_HYBRID_DEC_MSG9, MB_ICONSTOP);
+			return;
+		}
+
+	}
+
 	if ( !extract( help, SymAlg_Datei, IDS_STRING_HYBRID_ASYM_METHOD, pos ) )
 	{
 		theApp.SecudeLib.aux_free_OctetString(&help);
@@ -1782,14 +1807,11 @@ void DecHyb(char* infile, const char *OldTitle)
 
 	CDlgHybridDecryptionDemo DecHyb;
 
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ENC_KEY,pc_str,100);
+	DecHyb.OctetEncSessionKey.noctets=Keylgth_Oct;
+	DecHyb.OctetEncSessionKey.octets = new char[Keylgth_Oct];
+	memcpy(DecHyb.OctetEncSessionKey.octets, help->octets+(paste+strlen(pc_str)), Keylgth_Oct); 
 	DecHyb.m_strPathnameTxt = infile;
-	DecHyb.EncSessionKey_Datei=EncSessionKey_Datei;
-	LPTSTR string_tmp1 = new TCHAR[EncSessionKey_Datei.GetLength()+1];
-	_tcscpy(string_tmp1, EncSessionKey_Datei);
-	char *EncSessionKey_tmp=string_tmp1;
-	DecHyb.OctetEncSessionKey.noctets=strlen(EncSessionKey_tmp);
-	DecHyb.OctetEncSessionKey.octets=EncSessionKey_tmp;
-	
 	DecHyb.SymAlg_Datei=SymAlg_Datei;
 	DecHyb.AsymAlg_Datei=SymAlg_Datei;
 	DecHyb.UserKeyId_Datei=UserKeyId_Datei;

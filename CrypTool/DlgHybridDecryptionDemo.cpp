@@ -128,17 +128,7 @@ void CDlgHybridDecryptionDemo::OnButtonContinue()
 
 CDlgHybridDecryptionDemo::~CDlgHybridDecryptionDemo()
 {
-	/*
-	if(m_strEdit1)
-	//wenn für m_strEdit1 Speicher allokiert wurde, dann wird hier der Speicher wieder freigegeben
-	{
-		delete []m_strEdit1;
-	}
-	if (message.octets)
-	{
-		delete []message.octets;
-	}
-	*/
+
 }
 
 int CDlgHybridDecryptionDemo::UpdateDataDisplay()
@@ -161,7 +151,9 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG2,pc_str,STR_LAENGE_STRING_TABLE);
 			cont1 = (CString) pc_str; 
-			m_DisplayData += ( cont1 + nl );
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG12,pc_str,STR_LAENGE_STRING_TABLE);
+			cont2 = (CString) pc_str; 
+			m_DisplayData += ( cont1 + nl + cont2 + nl +nl);
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, step, maxsteps);
 			m_Step = (CString) pc_str1;
@@ -259,7 +251,9 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			// Hier werden die Certifikate-Daten ausgegeben
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG3,pc_str,STR_LAENGE_STRING_TABLE);
 			cont1 = (CString) pc_str; 
-			m_DisplayData += ( cont1 +nl + nl );	
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG13,pc_str,STR_LAENGE_STRING_TABLE);
+			cont2 = (CString) pc_str; 
+			m_DisplayData += ( cont2 +nl + nl + cont1 + nl +nl);	
 			SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN2 );
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, step, maxsteps);
@@ -285,9 +279,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG5,pc_str,STR_LAENGE_STRING_TABLE);
 		cont2 = (CString) pc_str; 
 		m_DisplayData += ( cont1 + sKeyPrivate  + nl + nl + cont2 + nl );
-		// DecSessionKey
-		// Suche aus dem geöffneten Datei den entschl. Symm. Key
-		// Hier wird der verschl. session key ausgegeben + privater Schlüssel
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, step, maxsteps);
 		m_Step = (CString) pc_str1;
@@ -327,13 +318,12 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		UpdateData(true);
 		return 0;
 	}
-	// Hybrid-Entschlüsselung beendet  + Ausgabe der Entschlüsselung 
 	return 0;
 }
 
 void CDlgHybridDecryptionDemo::RsaDec()
 {
-	char outfile[128], title[128];
+	char outfile[128];
     unsigned int i, blocklen;
 	
 	// Anzeigen der Dialogbox zur Auswahl des zu benutzenden (geheimen) Schlüssels
@@ -414,10 +404,11 @@ void CDlgHybridDecryptionDemo::RsaDec()
 	}
 		
 	// Abschneiden abschließender Nullen
-	blocklen = out.noctets / (in.nbits / 8 - out.noctets);
-	for(i=out.noctets-1;i>out.noctets-blocklen;i--)
+		blocklen = out.noctets / (in.nbits / 8 - out.noctets);
+		for(i=out.noctets-1;i>out.noctets-blocklen;i--)
 		if(out.octets[i]) break;
-	if(i>out.noctets-blocklen) out.noctets = i+1;
+		if(i>out.noctets-blocklen) out.noctets = i+1;
+
 	
 	//Ausgabe der verschluesselten Daten
 
@@ -442,7 +433,8 @@ void CDlgHybridDecryptionDemo::RsaDec()
 
 void CDlgHybridDecryptionDemo::OnOK() 
 {
-	char outfile[128], title[128];
+	// Hybrid-Entschlüsselung + Ausgabe der Entschlüsselung 
+	char outfile[128];
 	char key[100];
 	strcpy(key,DecSessionKey.GetBuffer(0));
 
@@ -458,7 +450,7 @@ void CDlgHybridDecryptionDemo::OnOK()
 		
 	theApp.DoWaitCursor(1);
 
-	AESCrypt(outfile, "", AlgId, false, outfile,key); // "true" steht für eine Verschlüsselung
+	AESCrypt(outfile, m_strTitle1, AlgId, false, outfile,key); // "true" steht für eine Verschlüsselung
 
 	remove(outfile);
 

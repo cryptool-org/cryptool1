@@ -1206,6 +1206,14 @@ SOURCE=.\DlgHillAnalysis.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgHybridDecryptionDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHybridDecryptionDemo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgHybridEncryptionDemo.cpp
 # End Source File
 # Begin Source File

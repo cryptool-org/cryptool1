@@ -117,7 +117,8 @@ BOOL CDlgRSAEncryption::OnInitDialog()
 	//Hybridverschlüsselung
 	if(disableButtons)
 	{
-		SetWindowText("RSA Schlüssel für die Hybridverschlüsselung");
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ENC_DLG,pc_str,STR_LAENGE_STRING_TABLE);
+		SetWindowText(pc_str);
 		m_ctrlOK.SetWindowText("OK");
 		m_ctrlTime.ShowWindow(false);
 		disableButtons = false;

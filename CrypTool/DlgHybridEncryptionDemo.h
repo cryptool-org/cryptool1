@@ -36,13 +36,15 @@ public:
 	CString m_strSymKey;
 	CString m_strPathSelDoc;
 	CString	m_strBuffTitle;
-
+	CString UserKeyId;
+	OctetString CipherText;
+	
 	CDlgHybridEncryptionDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgHybridEncryptionDemo();
 	void ShowButtons();
 	void EnDisButtons();
 	void RSAEncrypt();
-
+	
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHybridEncryptionDemo)
