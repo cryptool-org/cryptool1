@@ -37,7 +37,7 @@ void LoadText( const char *infile, SymbolArray &text )
 }
 
 
-void GetNewDocTitle(const char *outfile, const char* keyStr, const char* OldTitle, 
+void GetNewDocTitle(const char* keyStr, const char* OldTitle, 
 					int IDS_STRING_ID, char* title, long titleLength, BOOL Decrypt, int KeyType )
 {
 	if(Decrypt)
@@ -57,7 +57,7 @@ void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, 
     remove(outfile);
     if(NewDoc) 
 	{
-		GetNewDocTitle(outfile, keyStr, OldTitle, IDS_STRING_ID, title, 128, Decrypt, KeyType);
+		GetNewDocTitle(keyStr, OldTitle, IDS_STRING_ID, title, 128, Decrypt, KeyType);
 	    NewDoc->SetTitle(title);
 	}
 }
