@@ -123,7 +123,6 @@ public:
 	enum { IDD = IDD_DIALOG_PLAYFAIR };
 	CScrollBar          m_ctrlScroll;
 	int                 m_iScroll;
-	CString             m_mytxt;
 	CMyPlayFairEdit		m_txtfeld;
 	CString             m_cipher;
 	CString             m_password;

@@ -13,16 +13,16 @@ Class2=CAestoolDlg
 Class3=CAboutDlg
 
 ResourceCount=9
-Resource1=IDD_SPLASH (Englisch (GB))
+Resource1=IDD_SPLASH
 Resource2=IDR_MAINFRAME
-Resource3=IDD_HELP (Englisch (GB))
-Resource4=IDD_HELP
+Resource3=IDD_SPLASH (Englisch (GB))
+Resource4=IDD_AESTOOL_DIALOG
 Class4=CSplash
-Resource5=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource5=IDD_HELP
 Class5=CHelp
-Resource6=IDD_ABOUTBOX
-Resource7=IDD_AESTOOL_DIALOG
-Resource8=IDD_SPLASH
+Resource6=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource7=IDD_HELP (Englisch (GB))
+Resource8=IDD_ABOUTBOX
 Resource9=IDD_ABOUTBOX (Englisch (GB))
 
 [CLS:CAestoolApp]

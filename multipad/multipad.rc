@@ -330,7 +330,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -354,7 +354,7 @@ BEGIN
                     10
     LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
     LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
-    CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
+    CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,253,242,19
 END
 
@@ -519,7 +519,7 @@ END
 
 IDD_DIALOG_KEY_CREATED_EC DIALOG DISCARDABLE  0, 0, 397, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Asymmetrischen Schlüssel Erzeugen (Elliptische Kurven)"
+CAPTION "Asymmetrischen Schlüssel erzeugen (Elliptische Kurven)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,284,66,19
@@ -548,8 +548,8 @@ END
 
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Verfügbare Asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "Verfügbare asymmetrische Schlüsselpaare"
+FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -590,12 +590,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 263
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 285
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,241,50,14
+    DEFPUSHBUTTON   "OK",IDOK,58,263,50,14
     CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,25,167,8
@@ -603,21 +603,23 @@ BEGIN
     CTEXT           "Planung und Betreuung:",IDC_STATIC,1,50,166,10
     CTEXT           "Peer Wichmann",IDC_STATIC,6,60,154,8
     CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,70,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,80,153,10,NOT WS_GROUP
-    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,94,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,103,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,113,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,123,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,133,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,143,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,152,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,162,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,180,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,190,166,9
-    CTEXT           "Review:",IDC_STATIC,1,207,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,217,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,226,154,8
-    CTEXT           "Mark Santiago",IDC_STATIC,1,171,166,9
+    CTEXT           "Henrik Koy",IDC_STATIC,7,94,153,10,NOT WS_GROUP
+    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,108,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,117,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,127,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,137,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,147,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,157,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,166,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,176,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,194,154,8
+    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,204,166,9
+    CTEXT           "Review:",IDC_STATIC,1,219,166,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,229,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,0,239,167,8
+    CTEXT           "Mark Santiago",IDC_STATIC,1,185,166,9
+    CTEXT           "Kümmerer Version 1.3:",IDC_STATIC,1,85,166,8
+    CTEXT           "Wolfgang Patzewitz",IDC_STATIC,1,249,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -656,7 +658,7 @@ END
 
 IDD_DIALOG_EC_PRIV_PARAM DIALOG DISCARDABLE  0, 0, 401, 322
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche und Private Schlüssel (asymmetrisch)"
+CAPTION "Öffentliche und private Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Zurück",IDOK,316,295,79,18
@@ -703,7 +705,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF_GROSS DIALOG DISCARDABLE  0, 0, 252, 298
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill Schlüsselmatrix"
+CAPTION "Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,268,108,20
@@ -968,7 +970,7 @@ END
 
 IDD_DIALOG_SIGN DIALOG DISCARDABLE  0, 0, 388, 377
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Signatur einer Nachricht Erstellen"
+CAPTION "Signatur einer Nachricht erstellen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
@@ -1055,11 +1057,11 @@ BEGIN
     EDITTEXT        IDC_EDIT1,264,209,111,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,231,110,64
-    CONTROL         "RSA Schlüssel",IDC_CHECK_RSA_KEYS,"Button",
+    CONTROL         "RSA-Schlüssel",IDC_CHECK_RSA_KEYS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,246,66,10
-    CONTROL         "DSA Schlüssel",IDC_CHECK_DSA_KEYS,"Button",
+    CONTROL         "DSA-Schlüssel",IDC_CHECK_DSA_KEYS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,263,66,10
-    CONTROL         "EC Schlüssel",IDC_CHECK_EC_KEYS,"Button",
+    CONTROL         "EC-Schlüssel",IDC_CHECK_EC_KEYS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,279,71,10
     GROUPBOX        "Verifikation mit Verfahren:",IDC_STATIC,132,231,161,27
     CONTROL         "ECSP-&DSA",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
@@ -1529,7 +1531,7 @@ END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Elliptische Kurven Erzeugen"
+CAPTION "Elliptische Kurven erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
@@ -1570,7 +1572,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_GEN DIALOG DISCARDABLE  0, 0, 310, 266
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüssel aus Passwort generieren"
+CAPTION "Schlüssel aus Paßwort generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,51,26,233,13,ES_AUTOHSCROLL
@@ -1592,7 +1594,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Eingabe (Passwort und Parameter)",IDC_STATIC,8,4,295,
                     169
-    LTEXT           "Passwort:",IDC_STATIC,19,28,31,8
+    LTEXT           "Paßwort:",IDC_STATIC,19,28,31,8
     LTEXT           "Länge des Ausgabeschlüssels (in Bytes):",IDC_STATIC,19,
                     48,129,8
     LTEXT           "(1 - 20 bytes)",IDC_STATIC,177,48,42,8
@@ -1604,7 +1606,7 @@ BEGIN
     GROUPBOX        "Optionale Parameter",IDC_STATIC,157,75,137,58
     LTEXT           "Salz:",IDC_STATIC,163,93,16,8
     LTEXT           "Anzahl der Iterationen",IDC_STATIC,163,112,70,8
-    GROUPBOX        "Aus dem Passwort und den weiteren Parametern generierter Schlüssel",
+    GROUPBOX        "Aus dem Paßwort und den weiteren Parametern generierter Schlüssel",
                     IDC_STATIC,8,185,295,70
 END
 
@@ -3402,7 +3404,7 @@ BEGIN
     IDD_AUTOREN, DIALOG
     BEGIN
         VERTGUIDE, 94
-        HORZGUIDE, 255
+        HORZGUIDE, 277
     END
 
     IDD_DIALOG_EC_PUB_PARAM, DIALOG
@@ -3456,6 +3458,7 @@ BEGIN
 
     IDD_DIALOG_SIGN_VERIF, DIALOG
     BEGIN
+        VERTGUIDE, 132
         VERTGUIDE, 218
         VERTGUIDE, 292
         VERTGUIDE, 308
@@ -5390,7 +5393,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -5413,7 +5416,7 @@ BEGIN
                     10
     LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
     LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
-    CTEXT           "Copyright (c) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
+    CTEXT           "Copyright (c) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,253,242,19
 END
 
@@ -5645,12 +5648,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 263
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,241,50,14
+    DEFPUSHBUTTON   "OK",IDOK,58,266,50,14
     CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,24,167,8
@@ -5658,21 +5661,24 @@ BEGIN
     CTEXT           "Design, Support:",IDC_STATIC,1,49,166,10
     CTEXT           "Peer Wichmann",IDC_STATIC,6,59,154,8
     CTEXT           "Joerg Cornelius Schneider",IDC_STATIC,0,69,167,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,77,153,10,NOT WS_GROUP
-    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,93,166,9
-    CTEXT           "Jan Blumenstein",IDC_STATIC,1,102,166,8,SS_CENTERIMAGE
-    CTEXT           "Bartol Filipovic",IDC_STATIC,6,112,154,8
-    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,122,166,8
-    CTEXT           "Peter Gruber",IDC_STATIC,6,132,154,9
-    CTEXT           "Matej Matejicek",IDC_STATIC,0,142,167,8
-    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,152,154,8
-    CTEXT           "Roger Oyono",IDC_STATIC,7,161,153,8
-    CTEXT           "Christian Tobias",IDC_STATIC,6,180,154,8
-    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,190,166,9
-    CTEXT           "Review:",IDC_STATIC,1,205,166,8
-    CTEXT           "Ariane Büger",IDC_STATIC,6,215,154,8
-    CTEXT           "Wolfgang Scondo",IDC_STATIC,6,224,154,8
-    CTEXT           "Mark Santiago",IDC_STATIC,1,171,166,9
+    CTEXT           "Henrik Koy",IDC_STATIC,7,94,153,10,NOT WS_GROUP
+    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,110,166,9
+    CTEXT           "Jan Blumenstein",IDC_STATIC,1,119,166,8,SS_CENTERIMAGE
+    CTEXT           "Bartol Filipovic",IDC_STATIC,6,129,154,8
+    CTEXT           "Thomas Gauweiler",IDC_STATIC,1,139,166,8
+    CTEXT           "Peter Gruber",IDC_STATIC,6,149,154,9
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,159,167,8
+    CTEXT           "Jens Liebehenschel",IDC_STATIC,6,169,154,8
+    CTEXT           "Roger Oyono",IDC_STATIC,7,178,153,8
+    CTEXT           "Christian Tobias",IDC_STATIC,6,197,154,8
+    CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,207,166,9
+    CTEXT           "Review:",IDC_STATIC,1,222,166,8
+    CTEXT           "Ariane Büger",IDC_STATIC,6,232,154,8
+    CTEXT           "Wolfgang Scondo",IDC_STATIC,0,241,167,8
+    CTEXT           "Mark Santiago",IDC_STATIC,1,188,166,9
+    CTEXT           "Main person taking overall care for version 1.3:",
+                    IDC_STATIC,1,85,166,10
+    CTEXT           "Wolfgang Patzewitz",IDC_STATIC,1,251,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -8116,6 +8122,11 @@ BEGIN
     BEGIN
         VERTGUIDE, 10
         HORZGUIDE, 180
+    END
+
+    IDD_AUTOREN, DIALOG
+    BEGIN
+        HORZGUIDE, 280
     END
 
     IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG

@@ -47,7 +47,6 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 	m_use                 = 1;
 	m_Dec                 = 1;
 	m_sechs               = 0;
-	m_mytxt               =_T("");
 	m_iScroll             = 0;
 	m_TextWasPreformatted = 1;
 	m_txtfeld.SetAlg(m_Alg);
@@ -176,7 +175,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PLAYFAIR_LIST, m_listview);
 	DDX_Control(pDX, IDC_PASSWORD, m_pwfeld);
 	DDX_Control(pDX, IDC_MYTXT, m_txtfeld);
-	DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER);
+	// DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER); m_mytxt ersetzt durch lokale Variable
 	DDX_Text(pDX, IDC_PASSWORD, m_password);
 	DDV_MaxChars(pDX, m_password, 36);
 	DDX_Control(pDX, IDC_LIST, m_ciphfeld);
@@ -184,7 +183,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_cipher, MAXSHOWLETTER*10);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
 	DDX_Check(pDX, IDC_CHECK2, m_TextWasPreformatted);
-	DDX_Text(pDX, IDC_MYTXT, m_mytxt);
+	// DDX_Text(pDX, IDC_MYTXT, m_mytxt);
 	DDX_Control(pDX, IDC_SCROLLBAR1, m_ctrlScroll);
 	DDX_Scroll(pDX, IDC_SCROLLBAR1, m_iScroll);
 	//}}AFX_DATA_MAP
@@ -233,13 +232,15 @@ void CDialogPlayfair::OnManAnalyse()
 	int i,j, n, k;
 	int maxchars=MAXSHOWLETTER;
 	playfair_digrammlist* diglist;
-
-	UpdateData(TRUE);
+	
+	UpdateData();
 	
 	i=0; j=0;
-	while ((i<maxchars)&&(j<m_mytxt.GetLength())) 
+	CString m_plaintext;
+	m_txtfeld.GetWindowText(m_plaintext);
+	while ((i<maxchars)&&(j<m_plaintext.GetLength())) 
 	{
-		char nChar = m_mytxt[j];
+		char nChar = m_plaintext[j];
 		if ( m_TextWasPreformatted )
 		{
 			if (NULLELEMENT != nChar && !m_Alg->myisalpha2(nChar))  
@@ -283,6 +284,7 @@ void CDialogPlayfair::OnManAnalyse()
 		}
 		j++;
 	}
+
 	buf[i]='\0';
 	digbuf[0]='\0';
 	m_Alg->initDigrams();
@@ -346,7 +348,6 @@ void CDialogPlayfair::OnManAnalyse()
 		}
 	}
 
-
 	UpdateData(FALSE);
 	UpdateListBox();
 }
@@ -366,9 +367,11 @@ void CDialogPlayfair::OnAnalyse()
 
 	UpdateData(TRUE);
 
+	CString m_plaintext;
+	m_txtfeld.GetWindowText(m_plaintext);
 	i=0;
-	while ((i<maxchars)&&(i<m_mytxt.GetLength())) {
-		buf[i] = m_mytxt[i]; i++;
+	while ((i<maxchars)&&(i<m_plaintext.GetLength())) {
+		buf[i] = m_plaintext[i]; i++;
 	}
 	buf[i]='\0';
 		if (!m_Alg->CreateMatrixStandalone (buf, i)) { // Analyse Peer Wichmann
@@ -712,7 +715,7 @@ void CDialogPlayfair::UpdateListBox()
 	}
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
-	ScrollRange( i );
+	// ScrollRange( i );
 	// OnChangeHScrollEditPlaintext();
 	UpdateData(FALSE);
 } 
