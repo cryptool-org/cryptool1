@@ -9,6 +9,7 @@
 #include "DlgDemoRSAKeyGeneration.h"
 #include "DlgCertificateGeneration.h"
 #include "DlgSelectHashFunction.h"
+#include "DialogeMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -33,7 +34,6 @@ CDlgSignatureDemo::CDlgSignatureDemo(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CDlgSignatureDemo)
 	m_DisplayInfo = _T("");
 	m_DisplayContent = _T("");
-		// HINWEIS: Der Klassen-Assistent fügt hier Elementinitialisierung ein
 	//}}AFX_DATA_INIT
 
 	m_Cert = new CPSEDemo;
@@ -56,7 +56,6 @@ void CDlgSignatureDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgSignatureDemo)
-	DDX_Control(pDX, IDC_INFO_HASH, m_info_hash_c);
 	DDX_Control(pDX, IDC_DISPLAY_CONTENT, m_DisplayContentCtrl);
 	DDX_Control(pDX, IDC_DISPLAY_INFO, m_DisplayInfoCtrl);
 	DDX_Text(pDX, IDC_DISPLAY_INFO, m_DisplayInfo);
@@ -435,14 +434,13 @@ void CDlgSignatureDemo::OnCompute()
 
 void CDlgSignatureDemo::OnInfoHash() 
 {
-	if (!m_osHash.noctets || m_bUpdateHsh) return;
-
-	if(!m_info_hash_c.GetState())
+	if (!m_osHash.noctets || m_bUpdateHsh) 
 	{
-		exit(0);//Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
-		
+	Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
+	
 	UpdateData(TRUE);
 	int srcSize = m_osHash.noctets;
 	dataToHexDump(m_osHash.octets, m_osHash.noctets, m_DisplayInfo); /*FIXME*/
