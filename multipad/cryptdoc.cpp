@@ -136,7 +136,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
 	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
 	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
-	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -160,6 +159,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -1120,13 +1120,18 @@ void CCryptDoc::OnToHex()
 {
 	CMyDocument *NewDoc;
 	char outfile[128];
+	BOOL Modified;
 
 	GetTmpName(outfile,"cry",".hex");
-	
+
+	Modified = IsModified();
 	OnSaveDocument(outfile);
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
 	remove(outfile);
 	NewDoc->SetTitle(GetTitle());
+	NewDoc->CWndVaterFenster = CWndVaterFenster;
+	NewDoc->hWndVaterFenster = hWndVaterFenster;
+	NewDoc->SetModifiedFlag(Modified);
 	OnCloseDocument();
 }
 
@@ -1134,13 +1139,18 @@ void CCryptDoc::OnToTxt()
 {
 	CMyDocument *NewDoc;
 	char outfile[128];
+	BOOL Modified;
 
 	GetTmpName(outfile,"cry",".txt");
 	
+	Modified = IsModified();
 	OnSaveDocument(outfile);
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
 	remove(outfile);
 	NewDoc->SetTitle(GetTitle());
+	NewDoc->CWndVaterFenster = CWndVaterFenster;
+	NewDoc->hWndVaterFenster = hWndVaterFenster;
+	NewDoc->SetModifiedFlag(Modified);
 	OnCloseDocument();
 }
 
@@ -1173,6 +1183,7 @@ void CCryptDoc::OnVitanyAnalyse()
 void CCryptDoc::OnPeriod()
 {
     CryptPar *para;
+
 	para = (CryptPar *) malloc(sizeof(CryptPar));
     UpdateContent();
 	memset(para,0,sizeof(CryptPar));
@@ -1181,7 +1192,13 @@ void CCryptDoc::OnPeriod()
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM | CRYPT_ASCII;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Periode, ((void *) para) );
-}
+
+/*
+	UpdateContent();
+	class zzahlanalyse ana(ContentName);
+	ana.FindPeriod();
+*/
+  }
 
 void CCryptDoc::OnNotAvail() 
 {
@@ -1230,8 +1247,6 @@ void CCryptDoc::OnPermutationAsc()
     UpdateContent();
     PermutationAsc(ContentName, GetTitle());
 }
-
-
 
 void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
 {
