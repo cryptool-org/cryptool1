@@ -1,8 +1,8 @@
 :Base CrypTool-en.hlp
-:Title CrypTool 1.3.04 - alpha
+:Title CrypTool 1.3.04 - beta 2
 1 Start with CrypTool
 2 An Introduction to CrypTool=HID_WIE_SIE_STARTEN
-2 How to work through the examples=szenarien
+2 How to work through the examples=HID_HILFE_SZENARIEN
 2 How to use CrypTool Help=hilfeueberhilfe
 1 Funktionality of CrypTool
 2 File encryption=menu_crypt
