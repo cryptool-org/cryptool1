@@ -13678,7 +13678,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_SCRIPT               "Opens the CrypTool script (Acrobat Reader required)"
     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
-                            "Visualisierung eines Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll..."
+                            "Visualization of a side-channel attack against the hybrid encryption protocol..."
     ID_CHALLENGE_RESPONSE   "Demonstration of several authentication methods"
 END
 
