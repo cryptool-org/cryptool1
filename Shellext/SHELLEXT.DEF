@@ -1,8 +1,0 @@
-;shellext.def : Declares the module parameters for the DLL.
-
-LIBRARY      SHELLEXT
-DESCRIPTION  'Shell Extension Sample'
-
-EXPORTS
-    DllCanUnloadNow private
-    DllGetClassObject private
