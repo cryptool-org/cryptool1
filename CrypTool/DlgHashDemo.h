@@ -13,6 +13,8 @@
 class CDlgHashDemo : public CDialog
 {
 // Konstruktion
+	CString	m_strHashDiffRE;
+
 public:
 	void SetRed();
 	void SetHashDiff(OctetString &hash1,OctetString &hash2);
@@ -51,7 +53,6 @@ public:
 	CString	m_strTitel;
 	CString	m_strTitel2;
 	CString	m_strDiffHash;
-	CString	m_strHashDiffRE;
 	//}}AFX_DATA
 	
 

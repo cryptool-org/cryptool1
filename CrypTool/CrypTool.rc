@@ -377,7 +377,7 @@ END
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Textoptionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,276,65,17
     PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON1,86,276,99,17
@@ -2308,7 +2308,7 @@ BEGIN
     GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,93
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 350
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 339, 382
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hashdemo"
 FONT 8, "MS Sans Serif"
@@ -2328,19 +2328,20 @@ BEGIN
     CONTROL         "binär",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,58,
                     31,10
     LTEXT           "aktuelle Datei  ",IDC_STATIC,20,85,48,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,19,97,287,113,ES_MULTILINE | ES_WANTRETURN | 
+    EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Hash der Originaldatei",IDC_STATIC,20,219,70,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,20,229,286,14,ES_AUTOHSCROLL | 
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC,20,219,84,8
+    EDITTEXT        IDC_EDIT_ORIGHASH,20,229,300,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Hash der aktuellen Datei",IDC_STATIC,20,252,79,8
-    EDITTEXT        IDC_EDIT_AKTHASH,20,262,286,14,ES_AUTOHSCROLL | 
+    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,20,252,92,8
+    EDITTEXT        IDC_EDIT_AKTHASH,20,262,300,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Unterschied zwischen dem Hash der Orignal- und dem Hash der aktuellen Datei",
-                    IDC_STATIC,20,284,252,8
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_AUTOHSCROLL | 
-                    ES_READONLY | WS_BORDER | WS_TABSTOP,20,294,286,14
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,320,59,14
+    LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
+                    IDC_STATIC,20,284,278,8
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
+                    ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
+                    294,294,49
+    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,353,59,14
     LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
 END
@@ -2390,7 +2391,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_TXT,26,338,503,94,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oval2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,287,279,50,14
+                    BS_BITMAP | WS_TABSTOP,306,279,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
                     268,52,36
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
@@ -2785,9 +2786,6 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
-            MENUITEM SEPARATOR
-            MENUITEM "Hash &Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
-
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -3384,9 +3382,9 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
-OVAL2U                  BITMAP  DISCARDABLE     "res\\Oval2_U.bmp"
-OVAL2F                  BITMAP  DISCARDABLE     "res\\Oval2_F.bmp"
-OVAL2D                  BITMAP  DISCARDABLE     "res\\Oval2_D.bmp"
+OVAL2U                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_U.bmp"
+OVAL2F                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_F.bmp"
+OVAL2D                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_D.bmp"
 OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
@@ -7905,41 +7903,42 @@ BEGIN
     PUSHBUTTON      "&Show certificate",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 350
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 378
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Selection of hash function",IDC_STATIC,20,10,95,62
+    GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
     CONTROL         "MD2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,33,25,31,10
     CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
                     10
     CONTROL         "SHA",IDC_RADIO_SHA,"Button",BS_AUTORADIOBUTTON,33,57,31,
                     10
-    GROUPBOX        "Base of numbers",IDC_STATIC,209,9,94,63
+    GROUPBOX        "Base of numbers",IDC_STATIC,217,9,93,63
     CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,224,41,39,10
+                    WS_GROUP,232,41,39,10
     CONTROL         "hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    224,26,55,10
-    CONTROL         "binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,
+                    232,26,55,10
+    CONTROL         "binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
-    LTEXT           "Actual file",IDC_STATIC,20,85,48,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,19,97,287,113,ES_MULTILINE | ES_WANTRETURN | 
+    LTEXT           "Actual file",IDC_STATIC,16,85,48,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Original hash value",IDC_STATIC,20,219,70,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,20,229,286,14,ES_AUTOHSCROLL | 
+    LTEXT           "Original hash value",IDC_STATIC,16,219,70,8
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Actual hash value",IDC_STATIC,20,252,79,8
-    EDITTEXT        IDC_EDIT_AKTHASH,20,262,286,14,ES_AUTOHSCROLL | 
+    LTEXT           "Actual hash value",IDC_STATIC,16,252,79,8
+    EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Difference between original / actual file",IDC_STATIC,
-                    20,284,252,8
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_AUTOHSCROLL | 
-                    ES_READONLY | WS_BORDER | WS_TABSTOP,20,294,286,14
-    PUSHBUTTON      "E&xit",IDCANCEL,247,320,59,14
+                    16,284,252,8
+    PUSHBUTTON      "E&xit",IDCANCEL,251,353,59,14
     LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
+                    ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
+                    296,294,49
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
@@ -7979,13 +7978,18 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,405,164,110,15
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,402,230,115,14
-    EDITTEXT        IDC_EDIT_TITLE,31,284,497,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TITLE,31,330,497,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_TXT,31,302,497,98,ES_MULTILINE | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TXT,31,343,497,57,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
-    PUSHBUTTON      "Data &output",IDC_BUTTON_DATENAUSGABE,450,407,78,14
+    CONTROL         "OVAL2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,304,278,50,14
+    CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
+                    267,52,36
+    CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
+                    267,52,36
 END
 
 IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 211, 90
@@ -8356,9 +8360,6 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
-            MENUITEM SEPARATOR
-            MENUITEM "Hash &demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
-
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -8955,10 +8956,10 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
-OVAL2U                  BITMAP  DISCARDABLE     "res\\Oval2_U.bmp"
-OVAL2F                  BITMAP  DISCARDABLE     "res\\Oval2_F.bmp"
-OVAL2D                  BITMAP  DISCARDABLE     "res\\Oval2_D.bmp"
-OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X.bmp"
+OVAL2U                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_U.bmp"
+OVAL2F                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_F.bmp"
+OVAL2D                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_D.bmp"
+OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Bitmaps_en\\Oval2_X.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
@@ -9392,6 +9393,12 @@ BEGIN
         VERTGUIDE, 385
         HORZGUIDE, 227
         HORZGUIDE, 245
+    END
+
+    IDD_HASH_DEMO, DIALOG
+    BEGIN
+        VERTGUIDE, 16
+        VERTGUIDE, 310
     END
 
     IDD_ENTROPY_INFO, DIALOG

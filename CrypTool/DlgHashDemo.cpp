@@ -45,7 +45,6 @@ void CDlgHashDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_AKTHASH, m_strNewHash);
 	DDX_Text(pDX, IDC_STATIC_TITEL, m_strTitel);
 	DDX_Text(pDX, IDC_STATIC_TITEL2, m_strTitel2);
-	DDX_Text(pDX, IDC_RICHEDIT_HASHDIFF, m_strHashDiffRE);
 	//}}AFX_DATA_MAP
 }
 
@@ -98,7 +97,8 @@ BOOL CDlgHashDemo::OnInitDialog()
 	//GetWindowText(leisteText);
 	//gibt den Titel des Editfenstern zurück, leiste Text würd per Referenzübergabe übergeben
 		
-	SetRed();
+	OnChangeEditText();
+	// SetRed();
 	//farbige Darstellung der Differenz 
 
 
@@ -125,10 +125,6 @@ void CDlgHashDemo::SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString
 
 	SetHashDiff(m_hashMD2,m_newHashMD2);
 	//die Differenz der beiden Hashwerte wird gesetzt
-
-	
-	
-
 }
 
 void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA)
@@ -171,8 +167,6 @@ void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetStr
 		   }
 			
 	}
-
-	//Abfrage, welche Radiobuttons sind gesetzt
 }
 
 
@@ -268,14 +262,11 @@ void CDlgHashDemo::hashTextWithSha()
 		OnRadioBin();
 	}
 
-
 	showDiffOrigHashBin(m_hashSHA);
 	showDiffNewHashBin(m_hashSHA);
 
 	SetHashDiff(m_hashSHA,m_newHashSHA);
-
 	SetWindowText(title);
-
 }
 
 void CDlgHashDemo::OnRadioHex() 
@@ -447,7 +438,6 @@ void CDlgHashDemo::OnChangeEditText()
 		MessageBox("Textlänge zu groß!");
 	}
 
-
 	m_sndHashMD2.noctets=0;
 	m_sndHashMD5.noctets=0;
 	m_sndHashSHA.noctets=0;
@@ -457,7 +447,6 @@ void CDlgHashDemo::OnChangeEditText()
 	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashSHA,theApp.SecudeLib.sha_aid,NULL);
 
 	SetNewHash(m_sndHashMD2,m_sndHashMD5,m_sndHashSHA);
-	
 	
 	if(m_Auswahl_HW==0)
 	{
@@ -472,11 +461,10 @@ void CDlgHashDemo::OnChangeEditText()
 		SetHashDiff(m_hashSHA,m_newHashSHA);
 	}
 
-
 	delete m_Messg;
 	delete m_LPTText;
 	UpdateData(false);	
-		SetRed();
+	SetRed();
 
 }
 
@@ -553,8 +541,6 @@ void CDlgHashDemo::showNewHashBin(OctetString &hash)
 			m_strNewHash += txt;
 			//if (i < hash.noctets+1) m_strNewHash += ' ';
 		}
-		
-
 }
 
 
@@ -687,9 +673,6 @@ void CDlgHashDemo::SetHashDiff(OctetString &hash1, OctetString &hash2)
 			m_strHashDiffRE+="1";
 		}
 	}
-	
-
-	
 }
 
 
@@ -726,6 +709,10 @@ void CDlgHashDemo::SetRed()
     rtfPostfix = "\n\\par }";
 
 
+	m_ctrlHashDiff.ShowWindow(SW_HIDE);
+	m_ctrlHashDiff.SetSel(0,-1);
+	m_ctrlHashDiff.ReplaceSel("");
+
 	static int c=0;
 
 	int laenge=144; 
@@ -749,6 +736,8 @@ void CDlgHashDemo::SetRed()
 		
 		}
 	}
+
+	m_ctrlHashDiff.ShowWindow(SW_SHOW);
 
 
     // The rtfString contains the word Bold in bold font.
