@@ -65,11 +65,7 @@ void CDlgX2ModNRandomParamater::OnOK()
 		NumberIsOK = EvalFormula(m_EditModul_N, ndx);
 	}
 	UpdateData(FALSE);
-	if ( NumberIsOK )
-	{
-		CDialog::OnOK();
-	}
-	else
+	if ( !NumberIsOK )
 	{
 		// ********* Fehlermeldung
 		if (ndx == -1)
@@ -84,5 +80,17 @@ void CDlgX2ModNRandomParamater::OnOK()
 			m_Control_Edit_Modul_N.SetSel(ndx-1,-1);
 			m_Control_Edit_Modul_N.SetFocus();
 		}
+		return;
 	}
+	Big tmp; 
+	CStringFormulaToBig( m_EditModul_N, tmp );
+	if (tmp < 2) {
+		Message(IDS_STRING_GE_2, MB_ICONINFORMATION);
+		//m_Control_Edit_Modul_N.SetSel(0,-1);
+		m_Control_Edit_Modul_N.SetFocus();
+		return;
+	}
+	CDialog::OnOK();
 }
+
+
