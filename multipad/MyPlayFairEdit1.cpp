@@ -44,6 +44,10 @@ void CMyPlayFairEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		OnEditPaste();
 		return;
 	}
+	int cStart, cEnd;
+	GetSel(cStart, cEnd);
+	if (cStart == cEnd)
+		SetSel( cStart, cStart+1 );
 	CEdit::OnChar(nChar, nRepCnt, nFlags);
 }
 
