@@ -12,7 +12,7 @@
 #ifndef _OSTREAM_H
 #define _OSTREAM_H 1
 
-#include "String.h"
+#include "la_string.h"
 
 #ifndef _ITERATOR_H
 #include "Iterator.h"

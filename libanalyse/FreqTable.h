@@ -22,7 +22,7 @@
 #include "Default.h"
 #endif
 #ifndef _String_h
-#include "String.h"
+#include "la_string.h"
 #endif
 #ifndef _ARRAY_H
 #include "Array.h"

@@ -26,7 +26,7 @@
 #include "Default.h"
 #endif
 #ifndef _String_h
-#include "String.h"
+#include "la_string.h"
 #endif
 #ifndef _CIPHER_H
 #include "Cipher.h"

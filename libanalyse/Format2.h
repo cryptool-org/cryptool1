@@ -19,7 +19,7 @@
 #include "Array.h"
 #endif
 
-#include "String.h"
+#include "la_string.h"
 extern String NULLSTRING;
 
 

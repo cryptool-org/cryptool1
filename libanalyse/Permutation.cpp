@@ -18,10 +18,10 @@
 #include "Iterator2.h"
 #endif
 #ifndef _OSTREAM_H
-#include "OStream.h"
+#include "la_ostream.h"
 #endif
 
-#include "String.h"
+#include "la_string.h"
 #include "mymath.h"
 
 ////////////////////////////////////////////////////////////////////

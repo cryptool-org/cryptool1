@@ -118,7 +118,7 @@ AppConverter AppConv;
 // Global OStream objects
 
 #ifndef _OSTREAM_H
-#include "OStream.h"
+#include "la_ostream.h"
 #endif
 
 OStream DefaultOStream;

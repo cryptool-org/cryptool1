@@ -42,7 +42,7 @@ template <class TYPE> static void CalcMittelwertVarianz(const NTuple<TYPE>& Vec,
 #include "Correlation.h"
 
 #ifndef _OSTREAM_H
-#include "OStream.h"
+#include "la_ostream.h"
 #endif
 
 #include "mymath.h"

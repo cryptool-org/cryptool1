@@ -25,5 +25,5 @@
 
 #undef min
 #undef max
-#include "libanalyse\string.h"
+#include "libanalyse\la_string.h"
 #include "libanalyse\analyse.h"

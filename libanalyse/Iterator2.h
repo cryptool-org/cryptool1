@@ -124,7 +124,7 @@ inline TYPE NTuple<TYPE>::GetAverage(int start /*=0*/, int len /*=0*/) const
 // die folgende Include-Datei kann erst hier eingebunden werden, da dort
 // Array.h benoetigt wird - und dazu NTuple!
 #ifndef _OSTREAM_H
-#include "OStream.h"
+#include "la_ostream.h"
 #endif
 
 template <class TYPE>

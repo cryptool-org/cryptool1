@@ -9,7 +9,7 @@
 //
 /////////////////////////////////////////////////////////////////
 
-#include "OStream.h"
+#include "la_ostream.h"
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -12,7 +12,7 @@
 #include "FreqTable.h"
 
 #ifndef _OSTREAM_H
-#include "OStream.h"
+#include "la_ostream.h"
 #endif
 #ifndef _ITERATOR2_H
 #include "Iterator2.h"

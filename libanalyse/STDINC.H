@@ -15,7 +15,7 @@
 // simply include this file
 
 #ifndef _String_h
-#include "String.h"
+#include "la_string.h"
 #endif
 
 #ifndef _DEFAULT_H

@@ -98,7 +98,7 @@ SOURCE=.\Array3.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\String\Builtin.h
+SOURCE=.\Builtin.h
 # End Source File
 # Begin Source File
 
@@ -174,6 +174,14 @@ SOURCE=.\Iterator2.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\la_ostream.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\la_string.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\LFSR.CPP
 # End Source File
 # Begin Source File
@@ -190,11 +198,11 @@ SOURCE=.\MYMATH.H
 # End Source File
 # Begin Source File
 
-SOURCE=.\mytemplates.h
+SOURCE=.\mytemplates.alt.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\String\New.h
+SOURCE=.\mytemplates.h
 # End Source File
 # Begin Source File
 
@@ -210,10 +218,6 @@ SOURCE=.\OStream.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\OStream.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\Permutation.cpp
 # End Source File
 # Begin Source File
@@ -222,7 +226,7 @@ SOURCE=.\Permutation.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\String\REGEX.H
+SOURCE=.\REGEX.H
 # End Source File
 # Begin Source File
 
@@ -254,15 +258,7 @@ SOURCE=.\STDINC.H
 # End Source File
 # Begin Source File
 
-SOURCE=..\String\String.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\String.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\String\String.h
+SOURCE=.\String.cpp
 # End Source File
 # Begin Source File
 

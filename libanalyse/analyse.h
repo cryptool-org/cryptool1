@@ -94,7 +94,7 @@
 #endif
 
 #ifndef _String_h
-#include "String.h"
+#include "la_string.h"
 #endif
 
 #endif /*_STDINC_H */
