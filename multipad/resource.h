@@ -82,6 +82,9 @@
 #define IDD_DIALOG_FREQTEST             244
 #define IDB_BITMAP3                     250
 #define IDB_BITMAP4                     251
+#define IDD_DIALOG_HINTS                253
+#define IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS 254
+#define IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_FIPS_PUB 256
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -379,7 +382,33 @@
 #define IDC_BUTTON_FREQTEST             1247
 #define IDC_BITMAP_1                    1248
 #define IDC_BITMAP_2                    1249
-#define IDC_RICHEDIT2                   1249
+#define IDC_RICHEDIT2                   1261
+#define IDC_TESTBUTTON                  1262
+#define IDC_RUN_ERGEBNIS                1263
+#define IDC_LONGRUN_ERGEBNIS            1264
+#define IDC_ERFOLGNICHT_RUN             1265
+#define IDC_ERFOLGNICHT_LONGRUN         1266
+#define IDC_ERFOLG_LONGRUN              1267
+#define IDC_ERFOLG_RUN                  1268
+#define IDC_TUPELCOMBO                  1270
+#define IDC_TUPEL_STATIC                1271
+#define IDC_BMP_MONO_KRE                1272
+#define IDC_BMP_LONG_KRE                1273
+#define IDC_BMP_POKER_KRE               1274
+#define IDC_BMP_RUN_KRE                 1275
+#define IDC_BMP_LONG_HAK                1276
+#define IDC_BMP_MONO_HAK                1277
+#define IDC_BMP_POKER_HAK               1278
+#define IDC_BMP_RUN_HAK                 1279
+#define IDC_TEXT_LONG                   1280
+#define IDC_TEXT_MONO                   1281
+#define IDC_TEXT_POKER                  1282
+#define IDC_TEXT_RUN                    1283
+#define IDC_TEXT_BATTERIE               1284
+#define IDC_BMP_FIPS_KRE                1285
+#define IDC_BMP_FIPS_HAK                1286
+#define IDC_BATTERIETEST                1287
+#define IDC_ENTROPIE_STATIC             1288
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -519,16 +548,14 @@
 #define ID_ZUFALL_GENERATOREN           33136
 #define ID_HOMOPHONE_HEX                33137
 #define ID_PERMUTATION_ASC              33138
-#define ID_CLASSIC                      33140
 #define ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION 33141
 #define ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 33142
 #define ID_ANALYSE_ZUFALLSTESTS_POKERTEST 33143
 #define ID_ANALYSE_ZUFALLSTESTS_RUNS    33144
 #define ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 33145
-#define ID_EMPTY                        33147
-#define ID_ANALYSE_ZUFALLSTESTS_TESTBATTERIEN 33148
 #define ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 33149
-#define ID_COPY_KEY                     33150
+#define ID_ANALYSE_ZUFALLSTESTS_LONGRUNTEST 33150
+#define ID_COPY_KEY                     33151
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -873,15 +900,31 @@
 #define IDS_STRING_PA_LENGTH            37612
 #define IDS_RAND_OUTPUT                 37613
 #define IDS_RANDOM_GENERATOR            37614
+#define IDS_STRING_CAPTATION_SERIAL_TEST 37615
+#define IDS_STRING_CAPTATION_FREQUENCY_TEST 37616
+#define IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST 37617
+#define IDS_STRING_TEST_KLEINE_DATEI    37618
+#define IDS_STRING_CAPTATION_RUNS_TESTS 37619
+#define IDS_STRING_CAPTATION_POKER_TEST 37620
+#define IDS_STRING_CAPTATION_FIPS_PUB   37621
+#define IDS_STRING_TESTS_FIPS_ENTROPIE  37622
+#define IDS_STRING_TEST_FIPS_KLEINE_DATEI 37623
+#define IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 37624
+#define IDS_STRING_TESTS_FALSCHE_OFFSET 37625
+#define IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 37626
+#define IDS_STRING_TESTS_ERGEBNIS_BESTANDEN 37627
+#define IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN 37628
+#define IDS_STRING_TESTS_BATTERIE_BESTANDEN 37629
+#define IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN 37630
 #define IDS_STRING_REFERENCE_FILE       43660
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        252
-#define _APS_NEXT_COMMAND_VALUE         33151
-#define _APS_NEXT_CONTROL_VALUE         1250
+#define _APS_NEXT_RESOURCE_VALUE        257
+#define _APS_NEXT_COMMAND_VALUE         33152
+#define _APS_NEXT_CONTROL_VALUE         1289
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
