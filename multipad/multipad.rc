@@ -5321,7 +5321,7 @@ BEGIN
     LTEXT           "First name:",IDC_STATIC,240,66,50,8
     LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,90,64,20
     LTEXT           "PIN code:",IDC_STATIC,240,112,50,8
-    LTEXT           "PIN confirmation:",IDC_STATIC,240,131,50,8
+    LTEXT           "PIN confirmation:",IDC_STATIC,240,131,54,8
     EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,
