@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, June 2003
+    CrypTool, Version 1.3.04, July 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
     (c) University of Siegen and Darmstadt
     Bernhard Esslinger
@@ -20,7 +20,7 @@
  2.4. .... Interactive Online Help under Windows XP
  2.5. .... Support for different languages
  2.6. .... Restrictions in libraries used
- 3. .... Installation / deinstallation / operating
+ 3. .... Installation / de-installation / operating
  3.1. .... Installation under multi-user operating systems
  3.2. .... Operating under multi-user operating systems
  4. .... List of files
@@ -235,7 +235,7 @@ Darmstadt, Germany.
 They make the source code of CrypTool freely available to the 
 Internet community as open source.
 
-Homepage of CrypTool remains www.cryptool.com.
+Homepage of CrypTool remains www.cryptool.com (www.cryptool.org).
 
 We would be very glad, if not only the old developers but many new
 ones help to enhance the functionality and usability of CrypTool.
@@ -355,7 +355,7 @@ length up to 1024.
 
 
 
-3. Installation / deinstallation / operating
+3. Installation / de-installation / operating
    -----------------------------------------
 To install CrypTool on your PC, copy the CrypTool setup executable
 to a suitable place in your file system and double-click on it.
@@ -406,7 +406,7 @@ If the user wants to create (or change) files from within CrypTool in
 multi-user systems like Windows XP, then he needs writing access for
 the appropriate target directory (or for the appropriate files). 
 If this does not work, the user normally gets a warning.
-Writing access is explicitely necessary for:
+Writing access is explicitly necessary for:
 - the default Windows directory for temporary files (for the *.cry files),
 - the sub-directory "CrypTool\pse", where the created asymmetric keys
   and certificates are stored in, and
@@ -554,7 +554,7 @@ Using the wide-spread tools MD5SUM and SHA1SUM you can check
 the integrity of these files.
 
 b) Additionally you can check the files WITHIN the
-downloaded setup-package.
+downloaded setup package.
 In order to do this check for these files, you can find the
 hash values of them here within the README file:
 
@@ -1024,7 +1024,7 @@ Functionality:
   - Attacks on weak RSA keys are described in CrypTool's 
     online help at Help \ Szenarios \ RSA cryptosystem (demonstration), 
     under  "3.) Attack on the RSA algorithm":  saying
-    factorisation of the moduls can break the method.
+    factorisation of the modules can break the method.
     This is implemented, but not visualized.
   - Attacks on other asymmetric methods are not implemented in
     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
@@ -1085,7 +1085,7 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    June 2003	8.0 MB	    8,4 MB	DB
+1.3.04    July 2003	8.0 MB	    8,4 MB	DB
 
 Remark about the current versions:
 1.3.02    Many new functions compared to 1.3.00

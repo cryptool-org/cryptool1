@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, Juni 2003
+    CrypTool, Version 1.3.04, Juli 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
     Bernhard Esslinger
@@ -630,14 +630,14 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
   - Linearer Kongruenz-Generator
   - Inverser Linearer Kongruenz-Generator
 + Statistische Analysen für Zufallsdaten (z.B. FIPS-140-1) neu
-+ Periodenanalyse verbessert
++ Perioden-Analyse verbessert
 + N-Gramm-Analyse ergänzt (mit der Möglichkeit, die Ergebnisse
   abzuspeichern)
   Die N-Gramm-Analyse ist für Binärdateien auf 64 kBytes und für
   Textdateien auf 256 kBytes beschränkt (längere Eingaben werden
   auf die maximale Eingabelänge gekürzt).
 + Fehler bei Vigenere und Caesar behoben (beliebige Textdateien)
-+ Playfairanalyse verbessert.
++ Playfair-Analyse verbessert.
 
 5.1.2. Symmetrische Verfahren
        ----------------------
@@ -870,7 +870,7 @@ Funktionalität:
   - mit der Analyseoption "Basischiffre anzeigen" werden z.Zt. pro
     Spaltencaesar (d.h. bei einer ermittelten Schlüssellänge von
     n wird das Caesarverfahren für jeden Wert von i jeweils auf die
-    Zeichenmenge m[i+k*n] mit 1<=i<=n und k>=0 angwandt) die
+    Zeichenmenge m[i+k*n] mit 1<=i<=n und k>=0 angewandt) die
     Grafiken Korrelation und ASCII-Histogramm ermittelt.
     Zusätzlich könnte man noch den Text des jeweiligen Spalten-
     Caesars ausgeben.
@@ -910,7 +910,7 @@ Funktionalität:
   und Vanstone nehmen, das 1993 von diesen Autoren vorgeschlagen
   wurde: A. Menezes and S. Vanstone,
          "Elliptic curve cryptosystems and their implementation",
-         Journal of Cryptology, 6 (1993), Seiten 209-224.
+         Journal of Cryptology, 6 (1993), Seite 209-224.
 + Weil kryptographische Strukturen und Formate häufig ASN.1-
   kodiert sind: Integration eines ASN.1 Dekodier-Tools.
 + Zufallszahlen:
@@ -1121,7 +1121,7 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Juni 2003	8,4 MB		8,0 MB		DB
+1.3.04    Juli 2003	8,4 MB		8,0 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00
