@@ -1874,25 +1874,25 @@ FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,22,39,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,21,161,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,23,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,83,254,57,19,WS_DISABLED
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,254,58,19,WS_DISABLED
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,70,254,57,19,WS_DISABLED
     PUSHBUTTON      "&Abbrechen",IDCANCEL,183,254,55,19
     CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,71,86,49,10
-    CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,71,103,
-                    49,10
+                    WS_GROUP,76,88,48,8
+    CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,104,
+                    48,8
     CONTROL         "auslesen",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,180,86,47,10
+                    WS_GROUP,180,88,47,8
     CONTROL         "auslesen",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,180,
-                    103,47,10
+                    104,47,8
     CONTROL         "einlesen",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,71,211,49,10
-    CONTROL         "einlesen",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,71,226,
-                    49,10
+                    WS_GROUP,76,211,48,8
+    CONTROL         "einlesen",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,76,227,
+                    48,8
     CONTROL         "auslesen",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,180,211,47,10
+                    WS_GROUP,180,211,47,8
     CONTROL         "auslesen",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,
-                    226,47,10
+                    227,47,8
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     151,254,22,20
     EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
@@ -1910,17 +1910,17 @@ BEGIN
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,21,180,205,8
     CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,120,87,60,10
+                    WS_GROUP,124,88,56,8
     CONTROL         "permutieren",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,
-                    120,103,60,10
-    LTEXT           "Zeilenweise",IDC_STATIC,23,88,48,8
-    LTEXT           "Spaltenweise",IDC_STATIC,23,104,48,8
+                    124,104,56,8
+    RTEXT           "Zeilenweise",IDC_STATIC,23,88,47,8
+    RTEXT           "Spaltenweise",IDC_STATIC,23,104,47,8
     CONTROL         "permutieren",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,120,211,60,10
+                    WS_GROUP,124,211,56,8
     CONTROL         "permutieren",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,
-                    120,226,60,10
-    LTEXT           "Zeilenweise",IDC_STATIC,23,212,48,8
-    LTEXT           "Spaltenweise",IDC_STATIC,23,227,48,8
+                    124,227,56,8
+    RTEXT           "Zeilenweise",IDC_STATIC,23,211,47,8
+    RTEXT           "Spaltenweise",IDC_STATIC,23,227,47,8
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -3989,14 +3989,21 @@ BEGIN
     BEGIN
         VERTGUIDE, 12
         VERTGUIDE, 23
+        VERTGUIDE, 70
+        VERTGUIDE, 76
+        VERTGUIDE, 124
+        VERTGUIDE, 180
         VERTGUIDE, 227
         VERTGUIDE, 238
         HORZGUIDE, 20
         HORZGUIDE, 23
         HORZGUIDE, 52
-        HORZGUIDE, 92
-        HORZGUIDE, 122
-        HORZGUIDE, 220
+        HORZGUIDE, 96
+        HORZGUIDE, 112
+        HORZGUIDE, 219
+        HORZGUIDE, 235
+        HORZGUIDE, 254
+        HORZGUIDE, 273
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -7683,7 +7690,7 @@ CAPTION "Details for the current Factorisation"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,326,319,50,20
-    PUSHBUTTON      "&Save list",IDCANCEL,238,319,50,20
+    PUSHBUTTON      "&Save list into main window",IDCANCEL,190,319,98,20
     LTEXT           "Input number:",IDC_STATIC,7,7,47,10
     EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
