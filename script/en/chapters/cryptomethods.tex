@@ -13,8 +13,11 @@
 (Bernhard Esslinger, besslinger@web.de, May 1999, Updates Dec. 2001, Feb. 2003)
 
 
+This chapter introduces the topic in a more descriptive way without using too much mathematics.
+
+
 % --------------------------------------------------------------------------
-\subsection{Encryption}
+% \subsection{Encryption}
 
 The purpose of encryption \index{Encryption} is to change data in such a way
 that only an authorised recipient is able to reconstruct the plaintext. This
@@ -26,8 +29,8 @@ while it remains hidden from everyone else.\par \vskip + 3pt
 
 One encryption procedure has been proved to be secure -- the {\em One
 Time Pad}\index{One ­Time ­Pad}. However, this procedure has several practical
-disadvantages (the key used must be selected randomly and must be just as long
-as the message to be protected), which means that it is hardly used except in
+disadvantages (the key used must be selected randomly and must be at least as long
+as the message being protected), which means that it is hardly used except in
 closed environments such as for the hot wire between Moscow and Washington.\par \vskip + 3pt
 
 For all other procedures there is a (theoretical) possibility of breaking them.
@@ -35,10 +38,10 @@ If the procedures are good, however, the time taken to break them is so long
 that it is practically impossible to do and these procedures can therefore be
 considered (practically) secure.\par \vskip + 3pt
 
-We basically distinguish between symmetric and asymmetric encryption procedures.
+The book of Bruce Schneier \cite{Schneier1996} offers a very good overview about the different algorithms. We basically distinguish between symmetric and asymmetric encryption procedures.
 
 % --------------------------------------------------------------------------
-\subsubsection[Symmetric encryption]
+\subsection[Symmetric encryption]
 {Symmetric encryption\footnotemark}
   \footnotetext{%
     With CrypTool\index{CrypTool} v1.3 you can execute the following modern
@@ -55,6 +58,10 @@ exchanged before actually starting to communicate. The sender uses this
 key to encrypt the message and the recipient uses it to decrypt it.
 \par \vskip + 3pt
 
+All classical methods are of this type. Examples can be found within 
+CrypTool or in \cite{Nichols1996}. Now we want to consider more modern 
+mechanisms.
+
 The advantages of symmetric algorithms are the high speed with which data can be
 encrypted and decrypted. One disadvantage is the need for key management. In
 order to communicate with one another confidentially, sender and recipient must
@@ -69,7 +76,7 @@ The most well-known symmetric encryption procedure is the \index{DES} DES-algori
 National Security Agency \index{NSA} (NSA), and was published as a standard in
 1975. Despite the fact that the procedure is relatively old, no effective attack
 on it has yet been detected. The most effective way of attacking consists of
-testing all possible keys until the right one is found ({\em brute-force-attack}).
+testing (almost) all possible keys until the right one is found ({\em brute-force-attack}).
 \index{Attack!brute-force} Due to the relatively short key length of
 effectively 56 bits (64 bits, which however include 8 parity bits), numerous
 messages encrypted using DES have in the past been broken. Therefore, the
@@ -79,17 +86,16 @@ algorithms.\par \vskip + 3pt
 
 Up-to-the-minute procedure is the symmetric AES standard. The associated
 Rijndael algorithm was declared winner of the AES award on 2 October 2000
-and thus succeeds the DES procedure.
+and thus succeedes the DES procedure.
 
 More details about the AES algorithms can be found within the 
 online help of CrypTool\index{CrypTool}%
 \footnote{%
-      CrypTool Online help\index{CrypTool}: the index head-word {\bf AES}
+      CrypTool online help\index{CrypTool}: the index head-word {\bf AES}
       leads to the 3 help pages: {\bf AES candidates}, 
       {\bf The AES winner Rijndael} and 
       {\bf The Rijndael encryption algorithm}.
-  }
-.
+  }.
 
 
 % --------------------------------------------------------------------------
@@ -103,7 +109,7 @@ The following information is based on the original papers and the articles \cite
 
 AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
-Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable for organizations, for example a security agency.
+Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable only just for organizations, for example a security agency.
 
 In their 2001-paper Ferguson, Schroeppel and Whiting \cite{Ferguson2001} presented a new method of symmetric codes cryptanalysis: They described AES with a closed formula (in the form of a continued fraction) which was possible because of the "relatively" clear structure of AES. This formula consists of around 1000 trillion terms of a sum - so it does not help concrete practical cryptanalysis. Nevertheless -curiosity in the academic community awakened. It was already known, that the 128-bit AES could be described as an over-determined system of about 8000 quadratic equations (over an algebraic number field) with about 1600 variables (some of them are the bits of the wanted key) -- equation systems of that size are in practice not solvable. This special equation system is relatively sparse, so only very few of the quadratic terms (there are about 1,280,000 are possible quadratic terms in total) appear in the equation system.
 
@@ -123,11 +129,43 @@ More details can be found at:
 
 So for 256-AES the attack is much more effective than brute-force but still far more away from any computing power which could be accessible in the short-to-long term. 
 
-The discussion is very controversial: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
+The discussion is very controversial at the moment: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
 
 
 % --------------------------------------------------------------------------
-\subsubsection[Asymmetric encryption]
+\subsubsection{Current status of brute-force attacks on 
+symmetric algorithms (RC5)}
+\index{brute-force attack}
+\index{RC5}
+
+The current status on brute-force attacks on symmetric encryption algorithms can be explained with the block cipher RC5.
+
+Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the cipher text is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most 2^64 = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
+\footnote{%
+    With CrypTool\index{CrypTool} v1.3 you also can try brute-force attacks
+    of modern symmetric algorithms 
+    (using the menu {\bf Analysis \textbackslash{} Ciphertext-Only}): 
+    to achieve a result in a appropriate time with a single PC you should 
+    mark not more than 20 bit of the key as unknown.
+}.
+
+Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5 (\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}). They offer prizes for those who manage to decipher cipher texts, encrypted with different algorithms and different key lengths and unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
+
+It is well-known, that the "old" standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day (\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}).
+
+The current record for strong symmetric algorithms unveiled a key 64 bit long. The algorithm used was RC5, a block cipher with variable key size. 
+
+The RC5-64 challenge has been solved by the distributed.net team after 5 years (\href{http://distributed.net/pressroom/news-20020926.html}{\tt http://distributed.net/pressroom/news-20020926.html}).  At all, 331,252 individuals co-operated over the internet to find the key. More than 15 trillion (GB) / 15 quintillion (US)  keys were checked, until they found the right key.
+
+This makes clear, that symmetric algorithms (even if they have no cryptographical weakness) using keys of size 64 bit are no more appropriate to keep sensible data private.
+
+Similar cipher challenges are there for asymmetric algorithms (please see chapter 3.11.4).
+
+
+
+
+% --------------------------------------------------------------------------
+\subsection[Asymmetric encryption]
 {Asymmetric encryption\footnotemark}
   \footnotetext{%
     With CrypTool\index{CrypTool} v1.3 you can execute RSA encryption
@@ -140,7 +178,15 @@ subscriber has a personal pair of keys consisting of a {\em secret}
 key, as its name implies, is made public, e.g. in a key directory on the
 Internet.\par \vskip + 3pt
 
-If Alice wants to communicate with Bob, then she finds Bob's public key 
+If Alice\index{Alice}%
+\footnote{%
+      In order to describe cryptographic protocols the participants
+      are often named Alice, Bob, \cdots (see \cite[S. 23]{Schneier1996}). 
+      Alice and Bob perform all 
+      2-person-protocols. Alice will initiate all protocols and 
+      Bob answers. The attackers are named Eve (eavesdropper) and
+      Mallory (malicious active attacker).
+  } wants to communicate with Bob, then she finds Bob's public key 
 in the directory and uses it to encrypt her message to him. She then sends
 this cipher text to Bob, who is then able to decrypt it again using his 
 secret key. As only Bob knows his secret key, only he can decrypt 
@@ -167,7 +213,18 @@ this case, you simply have to pay attention to the accuracy
 key. Disadvantage: Pure asymmetric procedures take a lot longer to
 perform than symmetric ones.\par \vskip + 3pt
 
-The most well-known asymmetric procedure is the \index{RSA} RSA algorithm,
+The most well-known asymmetric procedure is the \index{RSA} 
+RSA algorithm\index{CrypTool}%
+\footnote{%
+The RSA algorithm is extensively described in chapter 3.10 and later
+within this script. 
+The RSA cryptosystem can be executed in many variations with 
+CrypTool\index{CrypTool} v1.3 (using the menu 
+{\bf Individual Procedures \textbackslash{} RSA Demonstration \textbackslash{}
+RSA Cryptosystem}). 
+The topical research results concerning RSA are described in chapter 3.11.
+}%
+,
 named after its developers Ronald \index{Rivest Ronald} Rivest, Adi
 \index{Shamir Adi} Shamir and Leonard \index{Adleman Leonard} Adleman. The RSA algorithm
 was published in 1978. The concept of asymmetric encryption was first
@@ -180,7 +237,7 @@ Algorithm).
 
 % --------------------------------------------------------------------------
 % \newpage
-\subsubsection[Hybrid procedures]
+\subsection[Hybrid procedures]
 {Hybrid procedures\footnotemark}
 \footnotetext{%
 Within CrypTool\index{CrypTool} v1.3 you can get a visualization of this
@@ -203,7 +260,7 @@ different random number generators using the menu {\bf Indiv. Procedures
 Using the menu{\bf Analysis \textbackslash{} Random Tests} you can apply
 different test methods for random data to binary documents. \\
 Up to now CrypTool has concentrated on cryptographically strong 
-pseudo number generators. Only the integrated Secude generator 
+pseudo random number generators. Only the integrated Secude generator 
 involves a "pure" random source. 
 }\index{Random}
 that is only used for this message.
@@ -216,17 +273,23 @@ quickly and efficiently using symmetric procedures.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Further details}
+\subsection{Further details}
 
-Beside the information you can find in many books and on a good number 
-of websites the online help of CrypTool\index{CrypTool} also offers very
-many details about the symmetric and asymmetric encryption methods.
+Beside the information you can find in the following chapters, many other
+books and on a good number of websites the online help of 
+CrypTool\index{CrypTool} also offers very many details about the 
+symmetric and asymmetric encryption methods.
 
 
 % --------------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
+
+\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
+    Randall K. Nichols, \\
+    {\em Classical Cryptography Course, Volume 1 and 2}, \\
+    Aegean Park Press 1996.
 
 \bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
         Klaus Schmeh, \\
@@ -235,6 +298,11 @@ many details about the symmetric and asymmetric encryption methods.
         A considerable, up-to-date, good reading book, which also 
         considers practical problems like standardisation or
         real existing software.
+
+\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley 1994, 2nd edition 1996.
 
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
@@ -293,11 +361,34 @@ many details about the symmetric and asymmetric encryption methods.
 \section*{Web links}\addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
-  \item[] \href{http://www.cryptosystem.net/aes}
-               {\texttt{http://www.cryptosystem.net/aes}}
-  \item[] \href{http://www.minrank.org/aes/}
-               {\texttt{http://www.minrank.org/aes/}}
+
+\item AES or Rijndael Cryptosystem \\
+        \href{http://www.cryptosystem.net/aes}
+         {\tt http://www.cryptosystem.net/aes} \\
+	\href{http://www.minrank.org/aes/}
+         {\tt http://www.minrank.org/aes/}
+
+  \item AES Discussion Groups at NIST \\
+	\href{http://aes.nist.gov/aes}{\tt http://aes.nist.gov/aes}
+
+  \item distributed.net:~\glqq RC5-64 has been solved'' \\
+        \href{http://distributed.net/pressroom/news-20020926.html}
+         {\tt http://distributed.net/pressroom/news-20020926.html}
+
+  \item RSA: ~\glqq The RSA Secret Key Challenge'' \\
+       \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+        {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+
+  \item RSA: ~\glqq DES Challenge'' \\
+        \href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+         {\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+
+  \item Further Links can be found at the CrypTool Homepage \\
+        \href{http://www.cryptool.org}
+         {\tt http://www.cryptool.org}
+	       
 \end{enumerate}
+
 
 
 % Local Variables:

@@ -86,8 +86,9 @@ the percentage of primes constantly decreases. Prime numbers can be
 factorised in a uniquely {\em trivial} way: 
 $$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1,013 = 1 \cdot 1,013,  \quad
 1,296,409 = 1 \cdot 1,296,409.$$
-All numbers that have $2$ or more factors are called \index{Number!composite}
-{\em composite}. These include $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$ as well
+All numbers that have $2$ or more factors not equal 1 are called 
+\index{Number!composite} {\em composite} numbers. 
+These include $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$ as well
 as numbers that {\em look like primes}, but are in fact composite:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
@@ -105,9 +106,11 @@ of all positive integers).\index{Number theory!fundamental theorem}
 \begin{theorem}\label{thm-pz-prod}
 Each element $n$ of the natural numbers greater than $1$ can be written as the
 product $n = p_1 \cdot p_2 \dots p_m$ of prime numbers. If two such
-factorisations $$n =  p_1 \cdot p_2 \cdots p_m = p'_1 \cdot p'_2 \cdots
+factorisations $$n =  p_1 \cdot p_2 \cdot \cdots \cdot p_m = p'_1 \cdot p'_2 \cdots
 p'_{m'}$$ are given, then they can be reordered such that $\;m = m'\;$ and for
-all $i$:  $\;p_i = p'_i$.
+all $i$:  $\;p_i = p'_i$. \\
+($n = p_1 \cdot p_2 \cdot \dots \cdot p_m$ are called the prime factors of n)
+
 \end{theorem}
 
 In other words: each natural number other than $1$ can be written as a product
@@ -145,7 +148,7 @@ numbers is unlimited. Even the Greek, \index{Euclid} Euclid%
 a Greek mathematician of 4th and 3rd century B.C. He worked at the
 Egyptian academy of Alexandria and wrote ``The Elements'', the most well 
 known systematically textbook of the Greek mathematics.} 
-knew this in the third century before Christ.
+knew this in the third century B.C.
 \begin{theorem}[Euclid\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
 the true inventor is merely not as prominent. The theorem has already been distinguished
 and proven in Euclid’s Elements (Book IX, s. 20). The phraseology is remarkable due to 
@@ -255,8 +258,8 @@ if $n$ is a composite number:
 
 \begin{Proof}{}
 The theorem of Mersenne can be proved by contradiction. We therefore assume that
-there exists a composite natural number $ n $ (with real factorisation)  $ n=n_1
-n_2 $, with the property that $ 2^n -1 $ is a prime number.
+there exists a composite natural number $ n $ (with real factorisation)  
+$ n=n_1 \cdot n_2 $, with the property that $ 2^n -1 $ is a prime number.
 
 From \begin{eqnarray*} (x^r-1)((x^r)^{s-1} + (x^r)^{s-2} + \cdots + x^r +1) & =
 &  ((x^r)^s + (x^r)^{s-1} + (x^r)^{s-2} + \cdots + x^r) \\ &  & -((x^r)^{s-1} +
@@ -281,10 +284,11 @@ Mersenne claimed that $2^{67}-1$ is a prime number. There is also a mathematical
 history behind this claim: it first took over 200 years before \index{Lucas
   Edouard} Edouard Lucas (1842-1891) proved that this number is composite.
 However, he argued indirectly and did not name any of the factors. Then Frank
-Nelson showed in 1903 which factors make up this composite number: $$ 2^{67} -1
-=147, 573, 952, 588, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
+Nelson showed in 1903 which factors make up this composite number: 
+$$ 2^{67} -1
+=147, 573, 952, 589, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
 He admitted to having worked 20 years on the factorisation 
-\index{factorisation} (expression as a product of factors) 
+\index{factorisation} (expression as a product of prime factors) 
 \footnote{%
 Using CrypTool\index{CrypTool} v1.3 you can factorize numbers in the 
 following way: menu {\bf Indiv. Procedures \textbackslash{} RSA Demonstration 
@@ -311,7 +315,7 @@ Thus $39$ Mersenne prime numbers are currently known
 \index{Prime number!Mersenne}\index{Mersenne!prime number}. 
 For the first 38 Mersenne prime numbers we know that this list is complete.
 The exponents until the 39th Mersenne prime number have not yet been checked
-completely.
+completely (see chapter 2.5 prime number tests\index{Prime number!test}).
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates Samual} Yates coined the expression {\em
@@ -395,13 +399,13 @@ to the opportunities offered by {\em cooperative networking} \\
 
 The discoverer of M-38 received 50,000 USD from the EFF for discovering 
 the first prime with more than 1 million decimal digits. 
-The next prize from EFF for 100,000 USD is for a proven prime with more
+The next prize of 100,000 USD offered by EFF is for a proven prime with more
 than 10 million decimal digits.
 %{\href{http://www.octocad.demon.co.uk/mersenne/prime.htm }{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
 
-Edouard Lucas (1842-1891) held the record for the longest prime number for over
-70 years by proving that $2^{127}-1$ is prime. No new record is likely to last
-that long.
+Edouard Lucas\index{Lucas Edouard} (1842-1891) held the record for the
+longest prime number for over 70 years by proving that $2^{127}-1$ is prime.
+No new record is likely to last that long.
 
 
 % --------------------------------------------------------------------------
@@ -411,15 +415,20 @@ In order to implement secure encryption procedures we need extremely large prime
 numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
 decimal system!).
 
-Up to now we have always looked for the prime factors in order to decide whether
+Up to now we have looked for the prime factors in order to decide whether
 a number is prime. However, even if the smallest prime factor is enormous, the
 search takes too long. Factorising numbers using systematic computational
-division or using the sieve of Eratosthenes (see below) is only feasible using
-current computers for numbers with up to around $20$ digits in the decimal
-system.
+division or using the \hyperlink{SieveEratosthenes01}{sieve of Eratosthenes} 
+\index{Eratosthenes!sieve} is only feasible using current computers for
+numbers with up to around $20$ digits in the decimal system.
+The biggest number factorized into its 2 almost equal prime factors 
+has 158 digits (see \hyperlink{C158-chap3}{chapter 3.11.4}).
+
 
 However, if we know something about the {\em construction} of the number in
 question, there are extremely highly developed procedures that are much quicker.
+These procedures can determine the primality attribute of a number, but they
+cannot determine the prime factors of the numbers, if they are compound.
 
 \hypertarget{FermatNumbers01}{}
 In the 17th century, Fermat wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
@@ -435,8 +444,14 @@ F(7) & = & 34,279,974,696,877,740,253,374,607,431,768,211,457 \\
 & = & 59, 649, 589, 127, 497, 217 \cdot  574, 689, 200, 685,
 129,054, 721.
 \end{eqnarray*}
-Many rapid prime number tests are based on the (little) Fermat theorem put
-forward by Fermat in 1640 .
+
+\\
+Despite Fermat was wrong with this supposition, he is the originator of
+an important theorem in this area: Many rapid prime number tests are 
+based on the (little) Fermat theorem put forward by Fermat in 1640
+(\hyperlink{KleinerSatzFermat-chap3}{see chapter 3.8.3}).
+
+\hypertarget{KleinerSatzFermat-chap2}{}
 \index{Fermat!little theorem}
 \begin{theorem}[``little'' Fermat]\label{thm-pz-fermat1}
 Let $p$ be a prime number and $a$ be any whole number, then for all $a$ $$a^p
@@ -457,13 +472,14 @@ proof that a number $a$ is prime. Unfortunately Fermat's theorem does not apply
 --- otherwise we would have a simple proof of the prime number property (or to
 put it in other words, we would have a simple prime number criterion).
 
-Comment: Numbers that have the property $$ 2^n \equiv 2 \;{\rm mod}\; n $$ but
-are not prime are called \index{Pseudo prime number}\index{Number!pseudo prime} {\em pseudo prime numbers}. The first pseudo prime number (i.e. not a
+Comment: Numbers n that have the property $$ 2^n \equiv 2 \;{\rm mod}\; n $$ but
+are not prime are called \index{Prime number!pseudo prime}\index{Number!pseudo prime} {\em pseudo prime numbers}. The first pseudo prime number (i.e. not a
 prime) is $$ 341 = 11 \cdot 31. $$
 There are numbers that pass the Fermat test with all bases and yet are not
 prime: these numbers are called \index{Number!Carmichael} {\em
 Carmichael numbers}. The first of these is $$ 561 = 3 \cdot 11 \cdot 17. $$
-A stronger test is provided by \index{Miller} \index{Rabin} Miller/Rabin: it is
+
+A stronger test is provided by\index{Miller}\index{Rabin} Miller/Rabin: it is
 only passed by so-called {\em strong pseudo prime numbers}. Again, there are
 strong pseudo prime numbers that are not primes, but this is much less often the
 case than for (simple) pseudo prime numbers. The smallest strong pseudo prime
@@ -522,17 +538,19 @@ The following enumeration contains the most common ideas for
     to deliver relatively large prime numbers but - as for $n=11$ 
     [$f(n)=2,047$] - it is repeatedly the case that the result even with
     prime exponents is \hyperlink{Mer-nums-not-always-prim}{not} prime.\\
-    Today, all the Mersenne primes having less than 2,000,000 digits are 
-    known (M-38) \\
+    Today, all the Mersenne primes having less than around 2,000,000 digits are 
+    known (M-38\index{M-38}) \\
     ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
            {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
 
 
 \item $F(k,n) = k \cdot 2^n \pm 1$  for $ n $ prime and $ k $ small primes:\\
-   For this generalisation of the Mersenne numbers there are (for small $k$)
+   For this generalisation of the Mersenne 
+   numbers\index{Mersenne!number!generalized}
+   there are (for small $k$)
    also extremely quick prime number tests (see \cite{Knuth1981}). This can
-   be performed in practice using software such as the PROTHS software from
-   Yves Gallot \\
+   be performed in practice using software such as the Proths software from
+   Yves Gallot\index{Gallot Yves} \\
    ({\href{http://www.prothsearch.net/index.html}
     {\tt http://www.prothsearch.net/index.html}}).
 
@@ -540,8 +558,7 @@ The following enumeration contains the most common ideas for
 
 \vskip +15 pt
 \hypertarget{FermatNumbers02}{}
-\item {\em Fermat numbers}
-\footnote{The Fermat prime numbers play a role in circle division.
+\item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in circle division.
 As proven by Gauss\index{Gauss}, a regular $p$-edge
 can only be constructed with the use of a pair of compasses and a ruler, when $p$ is a Fermat prime number.}
 \index{Number!Fermat}\index{Fermat!number}  $F(n) = 2^{2^n} + 1$:\\
@@ -579,14 +596,15 @@ $$
     $$ F[2,145,351] = 2^{(2^{2,145,351})} + 1 $$ 
     is divisible by the prime
     $$ p = 3*2^{2,145,353} + 1 $$ \\
-    This prime p is the largest known prime generalized Mersenne number. 
+    This prime p is the largest known prime generalized Mersenne 
+    number\index{Mersenne!number!generalized}. 
     It was discovered only a few days after Michael Angel discovered the 
     largest generalized Fermat number (\hyperlink{generalizedFermatprimes}
     {see below}).  This moved GIMPS' \index{GIMPS} first prime discovery,
     M-35 = M1398269, into 7th place.
 
     This work was done using NewPGen from Paul Jobling's, PRP from 
-    George Woltman's, Proth from Yves Gallot's programs and also the
+    George Woltman's, Proth from Yves Gallot's programs\index{Gallot Yves} and also the
     Proth-Gallot group at St. Patrick's College, Dublin.
 
     More details are in
@@ -607,7 +625,7 @@ $$
 \hypertarget{generalizedFermatprimes}{}
 \item {\em Generalized Fermat numbers}\footnote{%
 The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
-\index{Fermat!Fermat number!Generalized}  \\
+\index{Fermat!number!generalized}  \\
     Generalized Fermat numbers are more numerous than Mersenne numbers at
     equal size and many of them are waiting to be discovered to fill the
     big gaps between the Mersenne primes already found or still undiscovered.
@@ -615,7 +633,7 @@ The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
     representation is not limited to the base 2, can be tested at almost
     the same speed than a Mersenne number.
     
-    Yves Gallot wrote the program Proth.exe to investigate generalized
+    Yves Gallot\index{Gallot Yves} wrote the program Proth.exe to investigate generalized
     Fermat numbers.
     
     Using this program at February 16, 2003 Michael Angel discovered the
@@ -699,7 +717,7 @@ $$
 $e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
 particularly useful. Comment: However, what is special about these numbers
 is that any pair of them does not have a common factor other than $1$. They are
-therefore \index{Prime number!relative}\index{Relatively prim} {\em relatively prime}.
+therefore\index{Prime number!relative}\index{Relatively prim} {\em relatively prime}.
 
 
   \item $f(n) = n^2 + n + 41$:\\
@@ -737,7 +755,7 @@ Unfortunately $f(80) = 1,681 = 11 \cdot 151$ is not a prime number. To this
 date, no function has been found that delivers more prime numbers in a row. On
 the other hand, each prime occurs twice (first in the decreasing then in the
 increasing sequence), which means that the algorithm delivers a total of 40
-difference prime values (the same ones as the function from point 10).
+difference prime values (the same ones as the function from point 11).
 $$
 \begin{array}{|ll||ll|}
 \hline
@@ -917,7 +935,6 @@ Using the following Web site:
   \item[] \href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
                {\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}
 \end{itemize}
-
 you can easily determine $PI(x)$.
 
 
@@ -936,8 +953,10 @@ For details, please see:
 
 This is precisely part of what motivates mathematicians to discover its secrets.
 
+%----------------------------------------
 \index{Eratosthenes!sieve}
 \paragraph{Sieve of Eratosthenes}\mbox{}
+\hypertarget{SieveEratosthenes01}{}
 
 An easy way of calculating all $PI(x)$ primes less than or equal to $x$ is to
 use the sieve of Eratosthenes. In the 3rd century B.C., he found an
@@ -1004,7 +1023,7 @@ institute at the University of Giessen, studied even numbers up to
 \index{Richstein 1999}
 Nevertheless, this does not provide us with general proof.\\
 The fact is that despite all efforts, Goldbach's conjecture has to date
-not been proven leads one to believe that since the pioneer work of
+not been proven. This leads one to believe that since the pioneer work of
 the Austrian mathematician Kurt G\"odel \index{G\""odel Kurt} is 
 well-known, not every true mathematical theorem is provable (see
 \href{http://www.mathematik.ch/mathematiker/goedel.html}
@@ -1017,7 +1036,7 @@ The English publisher {\em Faber} and the American publisher {\em Bloomsbury}
 issued in 2000 the 1992 published book ``Uncle Petros and Goldbach's 
 Conjecture'' by Apostolos Doxiadis.
 It's the story of an old maths professor who fails to prove a more than
-250 year old puzzle. To boost the sales figues the English and American
+250 year old puzzle. To boost the sales figures the English and American
 publishers have offered a prize of 1 million USD, if someone can prove
 the conjecture -- which should be published by 2004 in a well-known
 mathematical journal.\\
@@ -1032,8 +1051,8 @@ the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World scientific
 Series in Pure Maths, Vol. 4.\\
 Especially this conjecture makes it clear, that even today we do not
 have a complete understanding of the deeper connections between addition and
-multiplication of natural numbers.}
-      .
+multiplication of natural numbers.}.
+
   \item The German \index{Riemann Bernhard} mathematician Bernhard Riemann
       (1826-1866) put forward a formula for the distribution of primes
       that would further improve the estimate. However, this has neither
@@ -1235,7 +1254,7 @@ Calculation using GMP, for example:
     Scott Aaronson, \\
     {\em The Prime Facts: From Euclid to AKS}, \\
     \href{http://www.cs.berkeley.edu/~aaronson/prime.ps}
-         {\texttt{http://www.cs.berkeley.edu/~aaronson/prime.ps}}. \\
+         {\texttt{http://www.cs.berkeley.edu/\~{}aaronson/prime.ps}}. \\
     Only after I had completed this article, I did come across the 
     extremely well-written paper by Scott Aaronson, which also offers
     a didactically well done intoduction to this topic. It is 
@@ -1296,7 +1315,8 @@ Calculation using GMP, for example:
 %already defined in elementaryNumberTheory.inc -> 2 davor
 \item[Schneier1996]{2Schneier1996} \index{Schneier 1996}     
     Bruce Schneier, \\
-    {\em Applied Cryptography}, Wiley and Sons, 2nd edition 1996.
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C},\\
+    Wiley and Sons, 2nd edition 1996.
 
 \bibitem[Schroeder1999]{Schroeder1999} \index{Schroeder 1999}
     M.R. Schroeder, \\
@@ -1342,7 +1362,7 @@ Calculation using GMP, for example:
       \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
 
 \item The best overview about prime numbers is offered from my point of view 
-      by "The Prime Pages" from Chris Caldwell.
+      by ~``The Prime Pages'' from Chris Caldwell.
       \index{Chris Caldwell} \\
       \href{http://www.utm.edu/research/primes}
        {\tt http://www.utm.edu/research/primes }

@@ -66,7 +66,7 @@ Vorschrift $a_1 := a_2 := 1$ und f"ur alle Zahlen  $n=1,2,3,\cdots$ definiert ma
 $a_{n+2} := a_{n+1}+a_n$.  Zu dieser historischen Folge gibt es viele interessante 
 Anwendungen in der Natur (siehe z.B. \cite[S. 290 ff]{Graham1994}\index{Graham 1994} oder die Web-Seite 
 von \hyperlink{knott}{Ron Knott:} \index{Knott Ron} hier dreht sich alles um Fibonacci-Zahlen). 
-Die Fibonacci-Folge ist gut verstanden und wird heute als wichtiges Werkzeug in der 
+Die Fibonacci-Folge\index{Fibonacci} ist gut verstanden und wird heute als wichtiges Werkzeug in der 
 Mathematik benutzt.
 }, also z.B.  wie  $21 : 34$.
 
@@ -93,7 +93,7 @@ orientiert sich daran, das RSA-Verfahren verstehen und anwenden zu k"onnen.
 Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
 Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
-\index{Diffie-Hellman} (DH) und RSA eingegangen.
+\index{Diffie-Hellman} (DH) und RSA\index{RSA} eingegangen.
 
 Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahrens zu machen.
 
@@ -189,11 +189,11 @@ sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
 \newpage
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Joanne K. Rowling\index{Rowling}\footnotemark\:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
+\fbox{\parbox{15cm}{{\em Joanne K. Rowling\index{Rowling}\footnotemark:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
 Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.}}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling,~\glqq Harry Potter und der Stein der Weisen'', Carlsen, (c)
-1997, Kapitel ~ \glqq Durch die Fallt"ur'', S. 310, Hermine.}
+1997, Kapitel ~\glqq Durch die Fallt"ur'', S. 310, Hermine.}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -246,7 +246,8 @@ Faktoren.
 \end{definition}
 
 
-Beispiele f"ur die Primfaktorzerlegung solcher Zahlen:
+Beispiele f"ur die Primfaktorzerlegung\index{Primfaktor!Zerlegung} solcher
+Zahlen:
 \begin{eqnarray*}
 4 & = & 2*2  \nonumber \\
 6 & = & 2*3  \nonumber \\
@@ -284,7 +285,7 @@ Faktoren'' ist eindeutig)!
 
 Zum Beispiel ist $60 = 2*2*3*5 = 2^2*3*5$. Und das ist --- bis auf eine
 ver"anderte Reihenfolge der Faktoren --- die einzige M"oglichkeit, die Zahl $60$
-in Primfaktoren zu zerlegen.
+in Primfaktoren\index{Primfaktor} zu zerlegen.
 
 Wenn man nicht nur Primzahlen als Faktoren zul"asst, gibt es mehrere
 M"oglichkeiten der Zerlegung in Faktoren und die {\em Eindeutigkeit} (uniqueness)
@@ -1001,7 +1002,7 @@ die {\em $c$-te Wurzel} $b$ von $a$. \par
 F"ur den Fall, dass $J(m)$ in der Praxis nicht bestimmt werden 
 kann\footnote{%
 Nach dem ersten Hauptsatz der Zahlentheorie und Satz \ref{thm-zth-phinum} kann man $J(m)$ mit Hilfe 
-der Primfaktorzerlegung von $m$ bestimmen.
+der Primfaktorzerlegung\index{Primfaktor!Zerlegung} von $m$ bestimmen.
 }, ist die Berechnung der $c$-ten Wurzel schwierig. Hierauf beruhen die Sicherheitsannahmen f"ur das 
 RSA-Kryptosystem (Siehe Kapitel 4.3.1: \hyperlink{RSAVerfahren}{Das RSA-Verfahren} oder
 Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
@@ -1138,7 +1139,7 @@ Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahre
 \pagebreak
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em \index{Berne} Eric Berne\footnotemark\ :}\newline
+\fbox{\parbox{15cm}{{\em \index{Berne} Eric Berne\footnotemark:}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
 Die transaktionale Spielanalyse dagegen befasst sich mit Spielen, die
 unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
@@ -1148,7 +1149,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
 \vskip +4pt
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Euler-Funktion, kleiner Satz von Fermat und Satz von Euler - Fermat}
+\subsection{Euler-Funktion, kleiner Satz von Fermat und Satz von Euler-Fermat}
 \hypertarget{Kapitel_3_8}{} \index{Fermat!kleiner Satz}
 
 % --------------------------------------------------------------------------
@@ -1174,7 +1175,7 @@ Wird oft auch als Eulersche Phi-Funktion $\Phi(n)$ geschrieben.
 \end{definition}
 
 $J(n)$ gibt auch an, wieviele ganze Zahlen in mod $n$ multiplikative Inverse
-haben. $J(n)$ l"asst sich berechnen, wenn man die Primfaktorzerlegung von $n$ kennt.
+haben. $J(n)$ l"asst sich berechnen, wenn man die Primfaktorzerlegung\index{Primfaktor!Zerlegung} von $n$ kennt.
 
 \begin{satz}\label{thm-zth-phiprime}
 F"ur eine Primzahl gilt: $J(p) = p - 1.$
@@ -1213,8 +1214,12 @@ $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Der Satz von Euler-Fermat}
-F"ur den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und dessen Verallgemeinerung (Satz von Euler-Fermat).
+\subsubsection{Der Satz von Euler-Fermat}\index{Euler}\index{RSA}
+F"ur den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und 
+dessen Verallgemeinerung (Satz von Euler-Fermat) -- 
+\hyperlink{KleinerSatzFermat-chap2}{vergleiche Kapitel 2.5}.
+
+\hypertarget{KleinerSatzFermat-chap3}{}
 \index{Fermat!kleiner Satz}
 \begin{satz}\label{thm-zth-fermat1}{\bf Kleiner Satz von Fermat}\footnote{%
 Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665
@@ -1565,7 +1570,7 @@ Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
     Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische
     Eigenschaft (vergleiche Satz \ref{thm-zth-exhperm}). Hiermit wird eine
     Permutation\index{Permutation} $\pi(p-1)$ festgelegt.
-}${}^,$ \footnote{%
+}${}^,$\footnote{%
 Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
 maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,21$
 die Ordnung 22.
@@ -1627,7 +1632,7 @@ mit der Entschl"usselungsvorschrift $D$ (decryption) zu entschl"usseln:
 $M = D(S; C)$.
 
 Damit dieses System mit jeder Nachricht $M$ funktioniert, m"ussen folgende 4
-Forderungen erf"ullt sein:
+{\bf Forderungen} erf"ullt sein:
 \begin{itemize}
     \item[\bf 1.] $D ( S; E (P; M) ) = M$ f"ur jedes $M$ (Umkehrbarkeit) und $M$ nimmt
 \glqq sehr viele\grqq~ verschiedene Werte an.
@@ -2178,15 +2183,23 @@ Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
 \subsubsection{Status der Faktorisierung von konkreten gro"sen Zahlen}
 \label{NoteFactorisation}
 
-Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
+Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren
+zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
 mit unterschiedlichen Methoden findet sich auf der Webseite 
-\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}. Der aktuelle Rekord
-(Stand Juni 2002) mit der GNFS-Methode (General Number Field Sieve) \index{General Number Field Sieve (GNFS)}
-liegt in der Zerlegung einer $158$-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86 Dezimalstellen).
+\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}. 
+\hypertarget{C158-chap3}{}
+Der aktuelle Rekord (Stand Juni 2002) mit der GNFS-Methode (General Number
+Field Sieve) \index{General Number Field Sieve (GNFS)} liegt in der Zerlegung
+einer $158$-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86
+Dezimalstellen).
 
-Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn \linebreak[4]
+
+Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der 
+Universit"at Bonn 
+%\linebreak[4] 
+(siehe 
 \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
-{\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}, fand deutlich 
+{\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}), fand deutlich 
 weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
 Forscher eine $155$-stellige Zahl in ihre beiden $78$-stellige Primfaktoren zerlegten (vergleiche Kapitel \ref{chptSecurityParam}).
 Das liegt unter anderem daran, dass die $512$ bit Zahl RSA-155 eine {\em magische} Grenze war. 
@@ -2256,11 +2269,16 @@ Verweise:
 \end{itemize}
 \end{minipage}
 
+Wie man sieht, sind die gr"ö"sten (aus 2 Primfaktoren) zusammengesetzten Zahlen,
+die man faktorisieren kann, deutlich kleiner als die Zahlen mit einer 
+speziellen Struktur, für die Primzahltests\index{Primzahltest} in der Lage
+sind, Aussagen "uber ihre Primalit"at zu treffen (siehe Kapitel 2.4 und 2.5).
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \begin{center}
-\fbox{\parbox{15cm}{{\em Joanne K.\index{Rowling} Rowling\footnotemark\:}\newline
+\fbox{\parbox{15cm}{{\em Joanne K.\index{Rowling} Rowling\footnotemark:}\newline
 Viel mehr als unsere F"ahigkeiten sind es 
 unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.}}
 \end{center}
@@ -2341,8 +2359,7 @@ Diffie, Martin E. Hellman und Ralph Merkle erdacht\footnote{%
 In CrypTool\index{CrypTool} v1.3.04 ist dieses Austauschprotokoll visualisiert:
 Sie k"onnen die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
 per  {\bf Einzelverfahren \textbackslash{} Diffie-Hellman-Demo}.
-}
-. 
+}. 
 
 Eine Einwegfunktion dient Alice und Bob\footnote{%
 Alice und Bob werden standardm"a"sig als die beiden berechtigten Teilnehmer
@@ -2429,7 +2446,7 @@ Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang 
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
 Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
 ebenfalls den Wert $67$.
-}${}^,$ \footnote{%
+}${}^,$\footnote{%
 Warum haben die Funktionen bei dem DL-Problem f"ur Alice den Wert $67$ und nicht den Wert 240 geliefert?
 Der diskrete Logarithmus ist der kleinste nat"urliche Exponent, der die
 Gleichung $11^x \equiv 49{\rm ~(mod~}347)$ l"ost. Sowohl $x=67$ als auch $x=240$ (die im Beispiel
@@ -2487,8 +2504,7 @@ Schritte hier mit konkreten, aber kleinen Zahlen durchgef"uhrt werden.
 % --------------------------------------------------------------------------
 \subsubsection{RSA mit kleinen Primzahlen und mit einer Zahl als Nachricht}
 Bevor wir RSA auf einen Text anwenden, wollen wir es erst direkt mit einer
-Zahl zeigen
-\footnote{%
+Zahl zeigen\footnote{%
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per  {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen.
 }.
 \begin{itemize}
@@ -2745,7 +2761,7 @@ da die ASCII-Bl"ocke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 } 
 
 \label{SrcArith4e}
-Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$ \footnote{%
+Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
 In \hyperlink{AppArith4e}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
@@ -3076,7 +3092,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley 1994, 2nd edition 1996.
+    Wiley and Sons 1994, 2nd edition 1996.
 
 \bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
     J\"org Schwenk, \\
@@ -3111,7 +3127,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \bibitem[Wiles1994]{Wiles1994} \index{Wiles}
     Wiles, Andrew, \\
     {\em Modular elliptic curves and Fermat's Last Theorem}%
-    \index{Fermat!last theorem}, \\
+    \index{Fermat!letzter Satz}, \\
     in Annals of Mathematics 141 (1995).
 
 \bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
@@ -3194,11 +3210,15 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
 
-   \item Faktorisierungsrekorde \index{Faktorisierungsrekorde},\\
+   \item Faktorisierungsrekorde und Challenges \index{Faktorisierungsrekorde},\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
-         {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
+         {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}} \\
+         \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
+         {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}} \\
+         \href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
+         {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}
          
    \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
@@ -3217,8 +3237,13 @@ herzlich zu danken:
   \item {Hr. Henrik Koy f"ur das anregende und sehr konstruktive 
          Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
          und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
-         dieser Form erschienen w"are.}
-  \item {J"org-Cornelius Schneider f"ur die Unterst"utzung bei TeX.}
+         dieser Form erschienen w"are. \\
+	 Au"serdem hat Hr. Koy die komplexe Dialogbox samt Verarbeitung
+	 zum RSA-Kryptosystem erstellt, mit der die RSA-Beispiele dieses
+	 Artikels nachvollzogen werden k"onnen.}
+  \item {J"org-Cornelius Schneider f"ur die Unterst"utzung bei TeX und
+         die mannigfaltigen Hilfen bei allen Arten von Programmier- und
+	 Design-Problemen.}
   \item {Dr. Illies f"ur den Hinweis auf Pari-GP \index{Pari-GP}.}
 \end{itemize}
 

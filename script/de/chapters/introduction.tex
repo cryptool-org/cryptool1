@@ -6,42 +6,46 @@
 % --------------------------------------------------------------------------
 \section*{Vorwort zur 6. Ausgabe des CrypTool-Skripts}  \addcontentsline{toc}{section}{Vorwort zur 6. Ausgabe des CrypTool-Skripts}
 
-Seit dem Jahr 2000 wurde mit CrypTool\index{CrypTool} auch ein Skript 
+Ab dem Jahr 2000 wurde mit dem CrypTool-Paket\index{CrypTool} auch ein Skript 
 ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
 m"oglichst verst"andlich erl"autern sollte.
 
 Um auch hier die M"oglichkeit zu schaffen, dass getrennte Entwickler/Autoren
 mitarbeiten k"onnen, wurden die Themen sinnvoll unterteilt und daf"ur jeweils
 eigenst"andig lesbare Kapitel geschrieben. In der anschlie"senden 
-redaktionellen Arbeit wurden in TeX Querverweise eingef"ugt und Fussnoten
-hinzugef"ugt, wo man die entsprechenden Funktionen in CrypTool\index{CrypTool}
-aufrufen kann. Nat"urlich g"abe es viel mehr Themen in Mathematik und 
-Kryptographie, die man vertiefen k"onnte -- deshalb ist diese Auswahl auch 
-nur eine von vielen m"oglichen.
+redaktionellen Arbeit wurden in TeX Querverweise erg"anzt und Fu"snoten 
+hinzugef"ugt (an welchen Stellen kann man die entsprechenden Funktionen in 
+CrypTool\index{CrypTool} aufrufen). Nat"urlich g"abe es viel mehr Themen in
+Mathematik und Kryptographie, die man vertiefen k"onnte -- deshalb ist 
+diese Auswahl auch nur eine von vielen m"oglichen.
 
 Die rasante Verbreitung des Internets hat auch zu einer verst"arkten 
 Forschung der damit verbundenen Technologien gef"uhrt. Gerade im Bereich 
 der Kryptographie gibt es viele neue Erkenntnisse.
 
-Auf den aktuellen Stand gebracht wurden in dieser Ausgabe des Skripts die
-Zusammenfassungen zu den Forschungsergebnissen "uber:                   
+Auf den aktuellen Stand gebracht wurden in dieser Ausgabe 
+des Skripts u.a. die Zusammenfassungen zu den Forschungsergebnissen "uber:                   
 \vspace{-7pt}
 \begin{itemize}
   \item die Suche nach den gr"o"sten Primzahlen (verallgemeinerte
-        Mersenne- und Fermatzahlen),
-  \item Fortschritte in der Zahlentheorie (\glqq Primes in P\grqq),
-  \item die Faktorisierung gro"ser Zahlen (TWIRL) und
-  \item die Fortschritte bei der Kryptoanalyse des AES-Standard.
-% \item den Einsatz Elliptischer Kurven [nicht nur GP(p)].
+        Mersenne- und Fermatzahlen) \\ (Kap. 2.6),
+  \item Fortschritte in der Zahlentheorie (\glqq Primes in P\grqq) (Kap. 3.11.3),
+  \item die Faktorisierung gro"ser Zahlen (TWIRL) (Kap. 3.11.3),
+  \item Fortschritte bei der Kryptoanalyse des AES-Standard (Kap. 1.1) und
+  \item Fortschritte bei Brute-Force-Angriffen gegen symmetrische Verfahren (Kap. 1.1).
 \end{itemize}
 
+Erweitert wurde im Skript auch das Kapitel 6: hier wird nun genauer erklärt, 
+wie Elliptische Kurven "uber verschiedenen Zahlk"orpern definiert werden.
+
+ 
 Seit das Skript dem CrypTool-Paket in Version 1.2.01 das 1. Mal beigelegt 
 wurde, ist es mit jeder neuen Version von CrypTool (1.2.02, 1.3.00, 
 1.3.02, 1.3.03 und nun 1.3.04) ebenfalls erweitert und aktualisiert worden.
 
 Ich w"urde mich sehr freuen, wenn sich dies auch innerhalb der ab nun 
 folgenden Open Source-Versionen von CrypTool\index{CrypTool} so weiter
-fortsetzt.
+fortsetzt (diese werden von der Universität Darmstadt betreut).
 
 Herzlichen Dank nochmal an alle, die mit Ihrem gro"sem Einsatz zum 
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben. 
@@ -64,7 +68,7 @@ Frankfurt, M"arz 2003
 
 \textbf{Das Skript}
 
-Dieses Skript wird zusammen mit CrypTool\index{CrypTool} ausgeliefert. \par \vskip + 3pt
+Dieses Skript wird zusammen mit dem Programm CrypTool\index{CrypTool} ausgeliefert. \par \vskip + 3pt
 
 Da die Artikel dieses Skripts weitgehend in sich abgeschlossen sind, kann
 es auch unabh"angig von CrypTool\index{CrypTool} gelesen werden.

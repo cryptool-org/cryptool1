@@ -226,7 +226,8 @@ factors other than $1$.
 \end{definition}
 
 
-Examples of the decomposition of such numbers into prime factors:
+Examples of the decomposition of such numbers into prime 
+factors\index{Prime factor!decomposition}:
 \begin{eqnarray*}
 4 & = & 2*2  \nonumber \\
 6 & = & 2*3  \nonumber \\
@@ -260,7 +261,7 @@ one way, if we ignore the order of the factors. The factors are therefore unique
 of factors'' is unique)!
 
 For example, $60 = 2*2*3*5 = 2^2*3*5$. And this --- other than changing the order of the factors --- is the only 
-way in which the number $60$ can be factorised.
+way in which the number $60$ can be factorised\index{Prime factor}.
 
 If you allow numbers other than primes as factors, there are several ways of factorising integers and the {\em 
 uniqueness} is lost:
@@ -892,7 +893,7 @@ $$
 the {\em $c$-th root} $b$ of $a$. \par
 
 If $J(m)$ cannot be determined\footnote{According to the first fundamental theorem of number 
-theory\index{Number theory!fundamental theorem} and theorem \ref{thm-zth-phinum}, we determine $J(m)$ by reducing $m$ to prime factors.}, it is difficult to calculate 
+theory\index{Number theory!fundamental theorem} and theorem \ref{thm-zth-phinum}, we determine $J(m)$ by reducing $m$ to prime factors\index{Prime factor!decomposition}.}, it is difficult to calculate 
 the $c$-th root. This forms the basis for the security assumption used by the RSA encryption system (see 
 Sub-section 4.3.1: \hyperlink{RSAVerfahren}{the RSA procedure} and \hyperlink{RSABeweis}{Sub-section 3.10 Proof of the RSA procedure}).
 \end{itemize}
@@ -1059,7 +1060,7 @@ The Euler function\footnote{Is often described as the Euler phi function\index{E
 elements in $\mathbb{Z}_n^*$.
 \end{definition}
 $J(n)$ also specifies how many whole numbers have multiplicative inverses in mod $n$.
-$J(n)$ can be calculated if we know the prime factors of $n$.
+$J(n)$ can be calculated if we know the prime factors of $n$\index{Prime factor!decomposition}.
 
 \begin{theorem}\label{thm-zth-phiprime}
 For a prime number, the following is true: $J(p) = p - 1.$
@@ -1100,8 +1101,11 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 
 % --------------------------------------------------------------------------
 \subsubsection{The theorem of Euler-Fermat}\index{Euler}\index{RSA}
-In order to prove the RSA procedure, we need Fermat's theorem and its generalisation (Euler-Fermat theorem).
+In order to prove the RSA procedure, we need Fermat's theorem and its 
+generalisation (Euler-Fermat theorem) -- 
+\hyperlink{KleinerSatzFermat-chap2}{please also see chapter 2.5}.
 
+\hypertarget{KleinerSatzFermat-chap3}{}
 \begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, 17.8.1601 -- 12.1.1665.\index{Fermat}}
 Let $p$ be a prime number and $a$ be a random whole number, then:
 $$  a^p \equiv a {\rm ~(mod~} p).$$ 
@@ -1445,8 +1449,7 @@ Examples are
 \begin{list}{\textbullet}{\leftmargin10pt}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
-\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner
-  \index{Elsner 1999}, 1999
+\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner\index{Elsner 1999}, 1999
   (included in the CrypTool package\index{CrypTool} as PDF file), where the sisters
   communicate confidentially using a variant of RSA.
 \end{list}\vspace{-\baselineskip}\vspace{-\parskip}}
@@ -1465,7 +1468,7 @@ the public key $P$ of the recipient before sending it:
 The cipher text $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
 The recipient uses his private key $S$ to decrypt the message with the decryption rule $D: M = D (S; C)$.
 
-In order to ensure that this system works for every message $M$, the following four requirements must be met:
+In order to ensure that this system works for every message $M$, the following four {\bf requirements} must be met:
 \begin{itemize}
 \item[{\bf 1.}] $D ( S;  E (P; M) ) = M$  for every $M$  (invertibility) and $M$ takes ``very many'' of its possible values.
 \item[{\bf 2.}] All $(S, P)$ pairs are different for all participants (i.e. lots of them are needed).
@@ -1517,9 +1520,7 @@ recommends, to choose the prime factors $p$ and $q$ almost the same,
 but not too close:
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$
 They recommend to generate the primes independently and check that the 
-restriction is fulfilled (see
-\href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
-{\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}).
+restriction is fulfilled (see \cite{GISA2002}).
 }.
 The value $n$ is called the RSA modulus\footnote{
 In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
@@ -1939,7 +1940,7 @@ So recommendations like the ones from the GISA (German Information Security Agen
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{``Primes in P'': Primality testing is polynomial} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
+\paragraph{``Primes in P'': Primality testing is polynomial} \label{PrimesinP} \index{Primality testing}\mbox{}
 
 In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm 
 \cite{Agrawal2002}. 
@@ -1977,16 +1978,18 @@ Current research results on this topic can be found at:
 
 The web page
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
-contains an excellent overview about the factoring records of composed
-integers using different methods.  The current record (as of June 2002)
-obtained using the GNFS method (General Number Field Sieve) factorized a
-158-digit into its both prime factors (these are build with 73 and 86
-decimal digits).
+contains an excellent overview about the factoring 
+records\index{factoring records} of composed
+integers using different methods.
+\hypertarget{C158-chap3}{}
+The current record (as of June 2002) obtained using the GNFS method
+(General Number Field Sieve) factorized a 158-digit into its both prime
+factors (these are build with 73 and 86 decimal digits).
 
 This record, established on January 18, 2002 by researchers of the German
-university of Bonn (see the press statement (in German language): \\
-\href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
-{\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}), got much less attention within the press than the
+university of Bonn (see: \\
+\href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
+{\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}), got much less attention within the press than the
 solution of the RSA challenge, established on August 22, 1999, when
 researchers from the Netherlands factorized the 155-digit number into its
 both 78-digit primes (see Chapter \ref{chptSecurityParam}). 
@@ -2006,11 +2009,11 @@ $$
 128064886830166671444802576129115872060027.
 \end{array}
 $$
-The first 3 factors can be easily computed \footnote{%
+The first 3 factors can be easily computed\footnote{%
 e.g. using CrypTool\index{CrypTool} via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Demonstration \textbackslash{} 
 Factorisation of a Number}.
-}
+}.
 The next three prime factors were found by P.~Zimmerman
 (\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}), 
 T.~Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
@@ -2051,13 +2054,18 @@ Links:
 \end{itemize}
 \end{minipage}
 
+As you notice the factorized compound numbers built of 2 prime factors are
+much smaller than the especially structured numbers, for which primality 
+tests\index{Primality testing}} are able to decide whether they are prime 
+or not (see chapter 2.4 and 2.5).
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \vskip +40 pt
 \newpage
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark\:}\\
+\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark:}\\
 It is our choices, that show what we truly are, far more than our abilities.}}
 \end{center}
 
@@ -2126,8 +2134,7 @@ exchange protocol in Stanford in 1976\footnote{%
 With CrypTool\index{CrypTool} v1.3.04  this exchange protocol has been
 visualized: you can execute the single steps with concrete numbers using 
 menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
-}
-.
+}.
 
 Alice and Bob\footnote{Bob and Alice are the default names used for the two authorised participants in a protocol 
 (see \cite[p. 23]{Schneier1996}).
@@ -2200,8 +2207,8 @@ Yet Mathematica is able to calculate this with the general function for the mult
 The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
 Such number-theory tasks can also be solved using other tools such as the
 LiDIA\index{LiDIA} or BC package (see web links in appendix).
-The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.}
-\footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
+The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.
+}${}^,$\footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
 The discrete logarithm is the smallest natural exponent that solves the equation $11^x\equiv49 {\rm ~(mod~} 347)$. Both $x=67$ 
 and $x=240$ (the number selected in the example) satisfy the equation and can therefore be used to calculate the session key: 
 $285^{240} \equiv 285^{67}\equiv 268 {\rm ~(mod~} 347)$.
@@ -2255,8 +2262,7 @@ Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now
 \subsubsection{RSA with small prime numbers and with a number as message}
 
 Before applying the RSA procedure to a text, we will first demonstrate it
-directly using a single number as message
-\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with
+directly using a single number as message\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with
 the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} RSA Cryptosystem}.}.
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
@@ -2718,8 +2724,8 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[GISA2002]{GISA2002} \index{GISA 2002}
     GISA (German Information Security Agency) \\
     {\em Recommendation for key length selection}, Bonn, Sep. 2002, \\
-    \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}
-    {\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf} \\
+    \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
+    {\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
     A statement on these recommendations: \\
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
@@ -2782,7 +2788,7 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley, 2nd edition 1996.
+    Wiley and Sons, 2nd edition 1996.
 
 \bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
     J\"org Schwenk, \\
@@ -2891,12 +2897,15 @@ This needs to be stressed because the type of padding is extremely important dur
           German Information Security Agency \\
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
          
-   \item Factorisation records \index{Factorisation records}\\
+   \item Factorisation records and challenges \index{Factorisation records}\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
-         {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
-
+         {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}} \\
+         \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
+         {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}} \\
+         \href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
+         {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}
          
    \item The Cunningham Project, \index{Cunningham project}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
@@ -2914,8 +2923,12 @@ I would like to take this opportunity to thank
 \begin{itemize}
   \item {Mr. Henrik Koy for making many very useful suggestions, 
          for very constructive proof-reading this article and
-         for helping with TeX.}
-  \item {J\"org-Cornelius Schneider for his TeX support.}
+         for helping with TeX. \\
+	 Mr. Koy developed the functions and the complex dialog box of the
+	 RSA cryptosystem, which allows you to execute the RSA samples
+	 of this article.}
+  \item {J\"org-Cornelius Schneider for his TeX support und for the many 
+         cases where he helped when facing programming or design problems.}
   \item {Dr. Illies for pointing me to Pari-GP \index{Pari-GP}.}
 \end{itemize}
 

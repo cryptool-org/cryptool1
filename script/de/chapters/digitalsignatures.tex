@@ -23,13 +23,11 @@ Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, muss
 Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel, um Signaturen zu erzeugen,
 und der Empf"anger benutzt den "offentlichen Schl"ussel des Absenders, um die Richtigkeit der Signatur
 zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen Schl"ussel
-abzuleiten
-\footnote{%
+abzuleiten\footnote{%
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen erzeugen und pr"ufen: \\
 in den Untermen"us des Hauptmen"upunktes {\bf Digitale Signaturen} oder \\
 per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Signaturdemo}.
-}
-.
+}.
 
 
 Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} folgenderma"sen aus: \\
@@ -46,8 +44,7 @@ Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hi
 Schl"ussels des Absenders, des Dokuments und der Signatur feststellen, ob die Signatur korrekt ist.
 In der Praxis hat das gerade beschriebene Verfahren jedoch einen entscheidenden Nachteil. Die Signatur ist ungef"ahr
 genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus 
-Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion
-\footnote{%
+Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion\footnote{%
 %xxxxxxxxxx Menüeinträgsbezeichnungen ok?
 Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool} v1.3.04 an mehreren Stellen implementiert. \\
 In dem Men"u {\bf Einzelverfahren \textbackslash{} Hashwerte} haben Sie die M"oglichkeit
