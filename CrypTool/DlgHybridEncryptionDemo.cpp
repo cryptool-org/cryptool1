@@ -31,7 +31,8 @@ extern char* CaPseVerzeichnis;
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHybridEncryptionDemo 
 
-
+#define NO_BUTTONS 11
+int g_Status[NO_BUTTONS];
 
 CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHybridEncryptionDemo::IDD, pParent)
@@ -52,6 +53,9 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_ButtonStatus[3] = active_not_pressed;
 
 	//Array mit den Voraussetzungen
+
+	for (i=0; i<NO_BUTTONS; i++) 
+		g_Status[i] = m_ButtonStatus[i];
 
 	for(i=0;i<11;i++)
 	{
@@ -811,175 +815,179 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey()
 
 void CDlgHybridEncryptionDemo::ShowButtons()
 {
-	m_hFocus = GetFocus();
 
+	m_hFocus = GetFocus();
 	for(int i=0;i<11;i++)
 	{
-		switch(i)
+		if ( g_Status[i] != m_ButtonStatus[i] )
 		{
-		case 0:if(active_not_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_R_U", "SECHSECK1_R_D", "SECHSECK1_R_F", NULL);
-					m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
-			   }
-				else if(active_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_G_U", "SECHSECK1_G_D", "SECHSECK1_G_F", NULL);
-					m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
-			   };break;
+			switch(i)
+			{
+			case 0:if(active_not_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_R_U", "SECHSECK1_R_D", "SECHSECK1_R_F", NULL);
+						m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
+				   }
+					else if(active_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_G_U", "SECHSECK1_G_D", "SECHSECK1_G_F", NULL);
+						m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
+				   };break;
 
-		case 1:if(active_not_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_R_U", "SECHSECK2_R_D", "SECHSECK2_R_F", NULL);
-					m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
-			   }
-				else if(active_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_G_U", "SECHSECK2_G_D", "SECHSECK2_G_F", NULL);
-					m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
-			   };break;
+			case 1:if(active_not_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_R_U", "SECHSECK2_R_D", "SECHSECK2_R_F", NULL);
+						m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
+				   }
+					else if(active_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_G_U", "SECHSECK2_G_D", "SECHSECK2_G_F", NULL);
+						m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
+				   };break;
 
-		case 2:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_B_U", "RAUTE2_B_D", "RAUTE2_B_F", NULL);
-					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 2:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_B_U", "RAUTE2_B_D", "RAUTE2_B_F", NULL);
+						m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 3:if(active_not_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_R_U", "SECHSECK3_R_D", "SECHSECK3_R_F", NULL);
-					m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
-			   }
-				else if(active_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_G_U", "SECHSECK3_G_D", "SECHSECK3_G_F", NULL);
-					m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
-					m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
-			   };break;
+			case 3:if(active_not_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_R_U", "SECHSECK3_R_D", "SECHSECK3_R_F", NULL);
+						m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
+				   }
+					else if(active_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_G_U", "SECHSECK3_G_D", "SECHSECK3_G_F", NULL);
+						m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
+						m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
+				   };break;
 
-		case 4:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_B_U", "RAUTE3_B_D", "RAUTE3_B_F", NULL);
-					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 4:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_B_U", "RAUTE3_B_D", "RAUTE3_B_F", NULL);
+						m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 5:if(active_not_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_R_U", "RECHTECK1_R_D", "RECHTECK1_R_F", NULL);
-					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
-			   }
-				else if(active_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_G_U", "RECHTECK1_G_D", "RECHTECK1_G_F", NULL);
-					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 5:if(active_not_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_R_U", "RECHTECK1_R_D", "RECHTECK1_R_F", NULL);
+						m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
+				   }
+					else if(active_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_G_U", "RECHTECK1_G_D", "RECHTECK1_G_F", NULL);
+						m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 6:if(active_not_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_R_U", "RECHTECK2_R_D", "RECHTECK2_R_F", NULL);
-					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
-			   }
-				else if(active_pressed==m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_G_U", "RECHTECK2_G_D", "RECHTECK2_G_F", NULL);
-					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 6:if(active_not_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_R_U", "RECHTECK2_R_D", "RECHTECK2_R_F", NULL);
+						m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
+				   }
+					else if(active_pressed==m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_G_U", "RECHTECK2_G_D", "RECHTECK2_G_F", NULL);
+						m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+						m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 7:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_B_U", "RAUTE1_B_D", "RAUTE1_B_F", NULL);
-					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 7:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_B_U", "RAUTE1_B_D", "RAUTE1_B_F", NULL);
+						m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 8:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_B_U", "RAUTE4_B_D", "RAUTE4_B_F", NULL);
-					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 8:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_B_U", "RAUTE4_B_D", "RAUTE4_B_F", NULL);
+						m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-		case 9:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_B_U", "RAUTE5_B_D", "RAUTE5_B_F", NULL);
-					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_X_U", NULL, NULL, NULL);
-					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
-					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
-			   
-			   };break;
+			case 9:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_B_U", "RAUTE5_B_D", "RAUTE5_B_F", NULL);
+						m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_X_U", NULL, NULL, NULL);
+						m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
+						m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
+				   
+				   };break;
 
-   	   case 10:if(m_ButtonStatus[i])
-			   {
-					m_ctrlBmpOval2.LoadBitmaps("OVAL2_G_U", "OVAL2_G_D", "OVAL2_G_F", NULL);
-					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
-					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
-			   }
-			   else
-			   {
-					m_ctrlBmpOval2.LoadBitmaps("OVAL2_X_U", NULL, NULL, NULL);
-					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
-					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
-			   
-			   };break;
+   		   case 10:if(m_ButtonStatus[i])
+				   {
+						m_ctrlBmpOval2.LoadBitmaps("OVAL2_G_U", "OVAL2_G_D", "OVAL2_G_F", NULL);
+						m_ctrlBmpOval2.ShowWindow(SW_HIDE);
+						m_ctrlBmpOval2.ShowWindow(SW_SHOW);
+				   }
+				   else
+				   {
+						m_ctrlBmpOval2.LoadBitmaps("OVAL2_X_U", NULL, NULL, NULL);
+						m_ctrlBmpOval2.ShowWindow(SW_HIDE);
+						m_ctrlBmpOval2.ShowWindow(SW_SHOW);
+				   
+				   };break;
+			}
 		}
+		g_Status[i] = m_ButtonStatus[i];
 	}
 
 	m_hFocus->SetFocus();
@@ -1125,23 +1133,23 @@ void CDlgHybridEncryptionDemo::OnPaint()
 	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
 	// Kein Aufruf von CDialog::OnPaint() für Zeichnungsnachrichten
 
-    CBitmap bmp, *poldbmp;
-    CDC memdc;
 
-    // Load the bitmap resource
-    bmp.LoadBitmap( IDB_HYBRID_BACK );
+	CBitmap bmp, *poldbmp;
+	CDC memdc;
 
-    // Create a compatible memory DC
-    memdc.CreateCompatibleDC( &dc );
+	// Load the bitmap resource
+	bmp.LoadBitmap( IDB_HYBRID_BACK );
 
-    // Select the bitmap into the DC
-    poldbmp = memdc.SelectObject( &bmp );
+	// Create a compatible memory DC
+	memdc.CreateCompatibleDC( &dc );
 
-    // Copy (BitBlt) bitmap from memory DC to screen DC
-    dc.BitBlt( 0, 0, 838, 730, &memdc, 0, 0, SRCCOPY );
+	// Select the bitmap into the DC
+	poldbmp = memdc.SelectObject( &bmp );
 
-    memdc.SelectObject( poldbmp );
+	// Copy (BitBlt) bitmap from memory DC to screen DC
+	dc.BitBlt( 0, 0, 838, 730, &memdc, 0, 0, SRCCOPY );
 
-         // Do not call CDialog::OnPaint() for painting messages
+	memdc.SelectObject( poldbmp );
 
+			 // Do not call CDialog::OnPaint() for painting messages
 }

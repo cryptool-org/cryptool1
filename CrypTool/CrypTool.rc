@@ -4535,7 +4535,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 beta - 8"
+    IDR_MAINFRAME           "CrypTool 1.3.04"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5827,7 +5827,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
-                            "Run %d\nZyklussuche\nFortschritt: %%d%%%%  Restzeit: %%s"
+                            "Run %d\nZyklussuche (%d Bit)\nFortschritt: %%d%%%%  Restzeit: %%s"
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
                             "Die ""gefährliche"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
     IDS_STRING_SIG_ATT_UNKNOWN_ERROR 
@@ -5843,7 +5843,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliche Nachricht: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmlose Nachricht: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Run %d\nKollisionssuche\nFortschritt: %%d%%%%  Restzeit: %%s"
+                            "Run %d\nKollisionssuche (%d Bit)\nFortschritt: %%d%%%%  Restzeit: %%s"
     ID_LOAD_README          "Öffnet die CrypTool Readme-Datei"
 END
 
@@ -5863,7 +5863,7 @@ BEGIN
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, dass der RSA-Modul N=p*q kleiner ist als 2^1024."
     IDS_STRING_INPUT_FALSE  "In diesem Feld wird eine Zahl oder ein Ausdruck erwartet,\naus dem sich ein Zahlenwert berechnen lässt.\nBitte geben Sie einen gültigen Ausdruck ein!\n\nBeispiele:    123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
-                            "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
+                            "Bitte geben Sie eine positive ganze Zahl größer 1 ein."
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
@@ -8949,7 +8949,7 @@ END
 
 IDD_DIFFIEHELLMAN_FINALINFO DIALOG DISCARDABLE  0, 0, 260, 145
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Diffie-Hellman Key Exchange Succesful"
+CAPTION "Diffie-Hellman Key Exchange Successful"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,105,113,50,14
@@ -10743,6 +10743,14 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// GIF
+//
+
+IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
+IDR_GIF2                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
@@ -10908,7 +10916,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 beta - 8"
+    IDR_MAINFRAME           "CrypTool 1.3.04"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -12377,7 +12385,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
-                            "Run %d\nCycle search\nProgress: %%d%%%%  remaining time: %%s"
+                            "Run %d\nCycle search (%d bit)\nProgress: %%d%%%%  remaining time: %%s"
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
                             "The ""dangerous"" file could not be openend or is of size 0 !"
     IDS_STRING_SIG_ATT_UNKNOWN_ERROR "An unknown error has occured !"
@@ -12392,14 +12400,14 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Dangerous message: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Run %d\nCollision search\nProgress: %%d%%%%  remaining time: %%s"
+                            "Run %d\nCollision search (%d bit)\nProgress: %%d%%%%  remaining time: %%s"
     ID_LOAD_README          "Opens the CrypTool readme file"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
-                            "The log text of the procedure was succesfully written into a main window of the CrypTool application."
+                            "The log text of the procedure was successfully written into a main window of the CrypTool application."
 END
 
 STRINGTABLE DISCARDABLE 

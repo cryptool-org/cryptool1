@@ -50,6 +50,7 @@ private:
 	bool bIsActionPerformed;
 	bool bIsActive;
 
+	bool bStatusChanged;
 
 public:
 	// Der "eigentliche" Button
@@ -62,13 +63,19 @@ public:
 	void Init(const ButtonResourceStruct, CWnd*);
 
 	bool IsActionPerformed() { return bIsActionPerformed; };
-	void PerformAction() { bIsActionPerformed = true; };
-	void CancelAction() { bIsActionPerformed = false; };
+	void PerformAction() { bStatusChanged = bStatusChanged | !bIsActionPerformed; 
+	                       bIsActionPerformed = true; };
+	void CancelAction()  { bStatusChanged = bStatusChanged |  bIsActionPerformed; 
+	                       bIsActionPerformed = false; };
 
 	bool IsActive() { return bIsActive; };
-	void SetActive(bool a) { bIsActive = a; };
+	void SetActive(bool a) { bStatusChanged = bStatusChanged | ( a != bIsActive ); 
+	                         bIsActive = a; };
 
 	void ShowBitmaps();
+
+	bool StatusChanged() { return bStatusChanged; }
+	void ResetStatusChanged() { bStatusChanged = false; }
 };
 
 class BitmapButtonControl

@@ -28,8 +28,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// fixme
-bool firstPaint = false;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanVisualization 
@@ -648,22 +646,18 @@ void CDlgDiffieHellmanVisualization::OnPaint()
 {
 
 	CPaintDC dc(this); // device context for painting
-	if (!firstPaint)
-	{
-	     CBitmap bmp, *poldbmp;
-         CDC memdc;
-         // Load the bitmap resource
-         bmp.LoadBitmap( IDB_DH_MAINBACKGROUND );
-         // Create a compatible memory DC
-         memdc.CreateCompatibleDC( &dc );
-         // Select the bitmap into the DC
-         poldbmp = memdc.SelectObject( &bmp );
-         // Copy (BitBlt) bitmap from memory DC to screen DC
-         dc.BitBlt( 0, 0, 795, 575, &memdc, 0, 0, SRCCOPY );
-         memdc.SelectObject( poldbmp );
+	 CBitmap bmp, *poldbmp;
+     CDC memdc;
+     // Load the bitmap resource
+     bmp.LoadBitmap( IDB_DH_MAINBACKGROUND );
+     // Create a compatible memory DC
+     memdc.CreateCompatibleDC( &dc );
+     // Select the bitmap into the DC
+     poldbmp = memdc.SelectObject( &bmp );
+     // Copy (BitBlt) bitmap from memory DC to screen DC
+     dc.BitBlt( 0, 0, 795, 575, &memdc, 0, 0, SRCCOPY );
+     memdc.SelectObject( poldbmp );
          // Do not call CDialog::OnPaint() for painting messages
-		 firstPaint = true;
-	}
 }
 
 

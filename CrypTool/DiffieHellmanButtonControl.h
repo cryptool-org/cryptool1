@@ -47,12 +47,14 @@ private:
 
 		//Die entsprechenden Bitmaps laden
 		for(int i=0; i<NumberOfButtons;i++)
-		{
-			if( AllButtons[i].IsActive() ) AllButtons[i].Button.EnableWindow( true );
-			else AllButtons[i].Button.EnableWindow( false );
+			if ( AllButtons[i].StatusChanged() )
+			{
+				if( AllButtons[i].IsActive() ) AllButtons[i].Button.EnableWindow( true );
+				else AllButtons[i].Button.EnableWindow( false );
 
-			AllButtons[i].ShowBitmaps();
-		}
+				AllButtons[i].ShowBitmaps();
+				AllButtons[i].ResetStatusChanged();
+			}
     };
 	/*****************************************************************************************************/
 

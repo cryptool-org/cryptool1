@@ -7,6 +7,7 @@ BitmapButton::BitmapButton()
 {
 	this->bIsActionPerformed = false;
 	this->bIsActive = false;
+	this->bStatusChanged = true;
 }
 
 BitmapButton::~BitmapButton()
