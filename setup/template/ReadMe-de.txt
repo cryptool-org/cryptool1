@@ -2,7 +2,7 @@
          CrypTool, Version 1.3.02, Juni 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
          (c) Universität Siegen und Karlsruhe
-[XXX 2002-06-12]
+         $Id$
 ==================================================================
 
 
@@ -21,7 +21,7 @@
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Neuerungen in CrypTool 1.3.0x
+ 5. .... Neuerungen in CrypTool 1.3.00 und 1.3.02
  5.1. .... Klassische Verfahren
  5.2. .... Symmetrische Verfahren
  5.3. .... Asymmetrische Verfahren
@@ -31,7 +31,7 @@
  5.7. .... Änderungen von Version 1.3.00 zu Version 1.3.02
  5.8. .... Geplante Änderungen nach Version 1.3.02
  6. .... Mögliche Punkte für eine Weiterentwicklung
- 7. .... Kurze Historie der Hauptversionen
+ 7. .... Kurze Historie der freigegebenen Hauptversionen
  8. .... Roadmap
  9. .... Feedback bei Fehlern
 10. .... Kontaktadressen
@@ -91,7 +91,7 @@ Wenn Sie hier die F1-Taste drücken, erscheint die Startseite der
 Online-Hilfe. 
 Diese ist ein guter Ausgangspunkt, um alle wesentlichen Inhalte
 von CrypTool kennenzulernen (z.B. mit Hilfe der Links auf dieser
-Seite).
+Startseite).
 
 Lesen Sie die Hinweise und Tipps der Hilfe-Einstiegsseite und
 öffnen Sie dann auf der CrypTool-Arbeitsfläche eine
@@ -110,13 +110,10 @@ CrypTool.
 
 1.2. Was beinhaltet die Distribution?
      --------------------------------
-Neben dem Programm selbst gibt es eine umfangreiche Dokumentation,
-die aus 4 Teilen besteht:
-a) dieser Readme-Datei
-b) Online-Hilfe (Programm-bezogen, mit Beispiel-Szenarien)
-c) Skript (zum Thema Kryptographie, beigelegt als PDF-Datei)
-d) Demos (Programmteile, die Einzelthemen/Grundlagen erläutern).
+Das CrypTool-Paket beinhaltet die folgenden 4 Hauptinhalte:
 
+(1) Das Programm CrypTool
+Hauptteil des CrypTool-Paketes ist das Programm CrypTool selbst.
 CrypTool ist keine Applikation, mittels derer im Wirkbetrieb Daten
 verschlüsselt oder anderweitig gesichert werden sollten. Es ist
 eine reine Demonstration, die vor allem für Ausbildungszwecke
@@ -140,17 +137,41 @@ eingesetzt wird.
   ist eingeschränkt, so daß CrypTool nicht als Hackertool
   eingesetzt werden kann.
 
-- Zum Erstellen selbstentpackender Executables ist in CrypTool
-  ein Programm integriert, das auch eigenständig benutzt werden
-  kann.
-  Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
-  ein beliebiger Dateiinhalt AES-verschlüsselt wird.
+(2) Dokumentation
+Zum Programm gehört eine umfangreiche Dokumentation, die aus vier
+Teilen besteht:
+a) Readme-Datei (diese Datei),
+b) Online-Hilfe 
+   - kontext-bezogen zur Bedienung des Programms und mit 
+     weiterreichenden Erläuterungen,
+   - Demos bzw. Beispiel-Szenarien (hier werden Einzelverfahren
+     Schritt für Schritt erläutert)
+c) Skript (zum Thema Kryptographie, beigelegt als PDF-Datei),
+d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
+   kurz aufzeigt (beigelegt als PDF-Datei).
+
+(3) Das Programm AES-Tool
+Zum Erstellen selbstentpackender Executables ist in CrypTool ein
+Programm integriert, das auch eigenständig benutzt werden kann.
+Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
+ein beliebiger Dateiinhalt AES-verschlüsselt wird.
+
+(4) Die Geschichte "Der Dialog der Schwestern" als PDF-Datei.
+Hierin wird eine Variante des RSA-Verfahren von den Schwestern
+benutzt, um verschlüsselt zu kommunizieren.
+
+In Kapitel 4 unten sind die Einzeldateien, die bei der 
+Installation des CrypTool-Packetes auf Ihre Platte kopiert werden,
+aufgeführt.
+
 
 
 1.3. Danke
      -----
-Zu CrypTool haben viele verschiedene Personen - insbesondere auch
-in ihrer Freizeit - beigetragen. Herzlichen Dank.
+Zu CrypTool haben viele verschiedene Personen beigetragen - 
+insbesondere auch in ihrer Freizeit (einige sind in der Dialogbox
+zu sehen, die man erhält wenn man in der Dialogbox "Über CrypTool"
+einen Doppelklick ausführt). Herzlichen Dank.
 
 Dr. Carsten Elsner erlaubte uns, seine Geschichte "Der Dialog der
 Schwestern" als PDF-Datei beizulegen.
@@ -289,16 +310,16 @@ Dateien überschrieben werden. Bitte beachten Sie:
   Nachdem die neue Version von CrypTool installiert wurde,
   kopieren Sie das gesicherte pse\-Verzeichnis in das neue
   Programmverzeichnis.
-  Ab Version 1.3.00 können Sie RSA- und DSA-PSEs als PKCS#12-
-  Struktur exportieren bzw. importieren.
+  Ab Version 1.3.00 können Sie alternativ RSA- und DSA-PSEs 
+  als PKCS#12-Struktur exportieren bzw. importieren.
 
 Für den Fall, dass mehrere Benutzer dieselbe CrypTool-
 Installation verwenden wollen, müssen die Zugriffsrechte auf den
 Verzeichnissen pse\ und pse\pseca\ und den darin enthaltenen
 Dateien für alle Benutzer auf Vollzugriff gesetzt werden.
 
-Der Teilbaum "pse\" sollte nicht manuell bearbeitet werden, da bei
-einer inkonsistenten Struktur nur eine Neuinstallation von
+Der Teilbaum "pse\" sollte nicht manuell bearbeitet werden, da
+bei einer inkonsistenten Struktur nur eine Neuinstallation von
 CrypTool bleibt.
 
 
@@ -308,8 +329,8 @@ CrypTool bleibt.
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
 zwei Sprachversionen verteilt:
 
-SetupCrypTool_1_3_en.exe Sprachversion nur englisch.
-SetupCrypTool_1_3_de.exe Sprachversion nur deutsch.
+SetupCrypTool_1-3-02_en.exe Sprachversion nur englisch.
+SetupCrypTool_1-3-02_de.exe Sprachversion nur deutsch.
 
 Diese Archive enthalten die folgenden Dateien:
 
@@ -336,42 +357,43 @@ script-de.pdf..... Ein Skript (deutsch) über Kryptographie,
                    Primzahlen, Zahlentheorie und die Mathematik
                    hinter einigen Algorithmen.
 script-en.pdf..... Die englische Fassung von script-de.pdf
+CrypToolPresentation_1_3_02_de.pdf.... Folien-Präsentation
 DialogSchwestern.pdf.... Fantasy-Geschichte von Dr. Elsner, in der
                          eine Variante des RSA-Kryptosystems
                          beschrieben wird.
 
-reference\........ Dieses Verzeichnis enthält Textdateien in den
+references\....... Dieses Verzeichnis enthält Textdateien in den
                    Sprachen Deutsch, Englisch, Französisch,
                    Spanisch und Latein. Diese Dateien werden
                    standardmäßig als Referenz für die Analyse von
                    Chiffretexten herangezogen.
                    Diese Dateien sind schreibgeschützt.
 
-reference\deutsch.txt // Auszug aus dem Umsatzsteuergesetz
-         \english.txt // Auszug aus der Agenda 21[UN-Dokument]
-         \genesis-de.txt  // Buch Genesis in den Sprachen
-         \genesis-en.txt  // deutsch, englisch, französisch,
-         \genesis-es.txt  // spanisch und lateinisch.
-         \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
-         \genesis-la.txt  // den ISO 639 Language Codes.
+references\deutsch.txt // Auszug aus dem dt. Umsatzsteuergesetz
+          \english.txt // Auszug aus der Agenda 21[UN-Dokument]
+          \genesis-de.txt  // Buch Genesis in den Sprachen
+          \genesis-en.txt  // deutsch, englisch, französisch,
+          \genesis-es.txt  // spanisch und lateinisch.
+          \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
+          \genesis-la.txt  // den ISO 639 Language Codes.
 
-examples\......... Dieses Verzeichnis enthält unterschiedliche
-                   Beispieldateien, die in den Szenarien verwendet
-                   werden. Dateien mit der Endung ".txt" sind
-                   Textdateien. Alle anderen Dateien sind binär.
-                   Dateien mit dem Format "XX-enc-YY.*" sind
-                   verschlüsselte Dateien. Bitte verändern Sie
-                   diese Dateien nicht, da sie in den
-                   verschiedenen Szenarien der Hilfe verwendet
-                   werden.
+examples\.. Dieses Verzeichnis enthält unterschiedliche
+            Beispieldateien, die in den Szenarien verwendet
+            werden. Dateien mit der Endung ".txt" sind
+            Textdateien. Alle anderen Dateien sind binär.
+            Dateien mit dem Format "XX-enc-YY.*" sind
+            verschlüsselte Dateien. Bitte verändern Sie
+            diese Dateien nicht, da sie in den
+            verschiedenen Szenarien der Hilfe verwendet
+            werden.
 
-examples\CrypTool.bmp
-        \CrypTool-en.txt
-        \CrypTool-de.txt
-        \Playfair-enc-de.txt
-        \probetext-de.txt
-        \psion-enc.hex
-        \vernam.txt
+Beispieldateien\CrypTool.bmp
+               \CrypTool-de.txt
+               \CrypTool-en.txt
+               \Playfair-enc-de.txt
+               \probetext-de.txt
+               \psion-enc.hex
+               \vernam.txt
 
 pse\.............. In diesem Verzeichnis und seinem
                    Unterverzeichnis pseca\ werden erzeugte
@@ -426,10 +448,11 @@ Setup-Paketes können überprüft werden.
 Dazu stehen deren Hashwerte hier im Readme:
 
 MD5-Hashwert                      Name
-XXX
+XXXmd5sumXXX
 
 SHA1-Hashwert                            Name
-XXX
+XXXsha1sumXXX
+
 
 Zur Überprüfung können Sie die oben genannten Tools verwenden
 oder das Programm CrypTool selbst.
@@ -446,10 +469,10 @@ sind, dass Ihr Rechner unberührt ist.
 
 
 
-5. Neuerungen in CrypTool 1.3.00
-   -----------------------------
-Seit CrypTool 1.202 (Dez. 2000) kamen folgende Erweiterungen und
-Bugfixes hinzu:
+5. Neuerungen in CrypTool 1.3.00 und 1.3.02
+   ----------------------------------------
+Seit CrypTool 1.202 (Dez. 2000) wurden folgende Erweiterungen und
+Bugfixes in Version 1.3.00 hinzugefügt:
 - CrypTool ist nun komplett in gleicher Weise in deutsch und
   englisch.
 - Alle Dialoge wurden im Hinblick auf Konsistenz und
@@ -531,9 +554,6 @@ Bugfixes hinzu:
 
 5.7. Änderungen von Version 1.3.00 zu Version 1.3.02
      -----------------------------------------------
-Die Version 1.3.01 wurde nicht offiziell verteilt, da sie als
-Zwischen- und Testversion nur in Deutsch vorlag.
-
 Zu folgenden Themen gab es Verbesserungen:
 Sourcecode:
 + Überarbeitung des Quelltextes für die Übergabe an den neuen
@@ -574,19 +594,25 @@ Funktionalität:
     öffentlichen Parameter bekannt sind,
   - Eingabe von Hexwerten möglich.
 + Verbesserungen beim AES-Tool.
+  Das AES-Tool bietet nun den vollen Funktionsumfang auch bei 
+  einem Aufruf von der Kommandozeile.
 + Bei der Hillverschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
   - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und
   - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail.
++ Bei der manuellen Analyse der Substitutionsverschlüsselung kann
+  man sich nun per Button zwischen seinen letzten Änderungen hin-
+  und her bewegen.
 + Langfassung des "Dialoges der Schwestern" in Deutsch und
   Englisch beigelegt (darin wird ein in der RSA-Demo
   behandelter Sonderfall des RSA-Verfahrens beschrieben)
-  - vielen Dank an den Autor, Herrn Dr. Carsten Elsner.
 + Visualisierung
-  - der einzelnen Schritte / Abhängigkeiten bei der
-    -> Erzeugung einer elektronischen Signatur,
-    -> Hybridverschlüsselung und -Entschlüsselung.
+  - der einzelnen Schritte / Abhängigkeiten bei
+    -> der Erzeugung einer elektronischen Signatur,
+    -> der Hybridverschlüsselung und -Entschlüsselung.
+    -> der Wirkung von Textänderungen auf den Hashwert
+       (Sensitivität von Hashverfahren),
 + Die schrittweise Verifikation einer RSA-Signatur ist nun auch
   möglich (dabei werden wie bei der Visualisierung der Hybrid-
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
@@ -595,14 +621,9 @@ Funktionalität:
 5.8. Geplante Änderungen nach Version 1.3.02
      ---------------------------------------
 Funktionalität:
-+ Visualisierung
-  - der Wirkung von Textänderungen auf den Hashwert
-    (Sensitivität von Hashverfahren),
-  - des Geburtstagsparadoxons.
-+ XXXX AES-Tool bietet den vollen Funktionsumfang auch bei einem
-  Aufruf von der Kommandozeile
-+ XXXX Eine pure Kommandozeilenversion des AES-Tools liegt auch unter
-     OS/2 und Linux vor (aestool-os2; aestool-linux).
++ Visualisierung des Geburtstagsparadoxons.
++ Eine pure Kommandozeilenversion des AES-Tools auch für die
+  Betriebssysteme OS/2 und Linux (aestool-os2; aestool-linux).
 
 
 6. Mögliche Punkte für eine Weiterentwicklung
@@ -672,7 +693,7 @@ Funktionalität:
 + Weitere Standards implementieren und direkt über die Menüs
   bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
   Standardverfahren verwendet werden (Hauptarbeit dabei sind
-  nur User Interface und Doku).
+  nur User Interface und Dokumentation).
 + CrypTool als Frontend für zahlentheoretische Funktionen und
   Werte erweitern.
 
@@ -702,8 +723,8 @@ Funktionalität:
 
 
 
-7. Kurze Historie der Hauptversionen
-   ---------------------------------
+7. Kurze Historie der freigegebenen Hauptversionen
+   -----------------------------------------------
 
 Version    Datum
 1.0.01     Okt. 1999
@@ -723,7 +744,7 @@ Maintainer.
 Dann ist auch geplant ist, die Sourcen von CrypTool als Open
 Source für die Internet-Gemeinschaft freizugeben.
 
-Wer früher schon an den Sourcen mitentwickeln möchte, kann sich
+Wer früher schon an den Sourcen mit entwickeln möchte, kann sich
 an die unten angegebenen email-Adressen wenden.
 
 
@@ -816,7 +837,7 @@ klassische Kryptoanalyse.
 12.1. CrypTool unter Linux mit Wine
       -----------------------------
 
-Diese Hinweise basieren auf Tests mit Wine 2001-11-29. (XXXX)
+Diese Hinweise basieren auf Tests mit Wine 2001-11-29.
 
 12.1.1. CrypTool installieren
         ---------------------
@@ -836,9 +857,9 @@ existierende Windows-Partition benutzen kann.
 Wenn Sie Wine ohne Windows benutzen, können Sie das Problem mit
 folgenden Schritten lösen:
  - installieren sie CrypTool unter Wine.
- - besorgen Sie sich riched32.dll (z.B. Version 5.0.1458.47).
+ - besorgen Sie sich riched32.dll (z.B. Version 5.0.1458.47)
    und kopieren Sie die Datei in das Installationsverzeichnis
-   von CrypTool. Evtl. müssen sie analog mit weiteren DLLs,
+   von CrypTool. Evtl. müssen sie analog mit weiteren DLLs
    verfahren, die von riched32.dll benutzt werden. Beachten Sie
    bitte die Fehlerausgaben von Wine.
  - Konfigurieren Sie Wine so, dass es diese Datei nutzt. In der

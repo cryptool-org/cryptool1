@@ -2,7 +2,7 @@
          CrypTool, Version 1.3.02, June 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
          (c) University of Siegen and Karlsruhe
-[XXX 2002-06-12]
+         $Id$
 ==================================================================
 
 
@@ -10,7 +10,7 @@
 
  1. .... Brief description
  1.1. .... How to start - An Introduction to CrypTool
- 1.2. .... What else comes with the program?
+ 1.2. .... What do you get in the CrypTool package?
  1.3. .... Acknowledgements
  1.4. .... New maintainer in the future
  2. .... Limitations and requirements
@@ -21,7 +21,7 @@
  3. .... Installation
  4. .... List of files
  4.1. .... Checking the integrity of downloaded files
- 5. .... What's new in CrypTool 1.3.0x
+ 5. .... What's new in CrypTool 1.3.00 and 1.3.02
  5.1. .... Classical methods
  5.2. .... Symmetric methods
  5.3. .... Asymmetric methods
@@ -31,7 +31,7 @@
  5.7. .... Enhancements from version 1.3.00 to 1.3.02
  5.8. .... Planned enhancements after version 1.3.02
  6. .... Possible areas for further development
- 7. .... Brief history of the main versions of CrypTool
+ 7. .... Brief history of the released main versions of CrypTool
  8. .... Road map
  9. .... Feedback on errors
 10. .... Contact addresses
@@ -90,8 +90,8 @@ along with a small welcome screen which appears in the
 foreground. If you press F1 here, the starting page of the Online
 help comes up.
 This a good starting point, to become aquainted with all
-essential features of CrypTool (maybe using the links on this
-page).
+essential features of CrypTool (using the links on this
+starting page).
 
 Read the information and tips on the introductory help page
 and then, in the CrypTool work area, open an unencrypted file
@@ -107,50 +107,67 @@ We hope you enjoy trying out all the functionality within
 CrypTool.
 
 
-1.2. What else comes with the program?
-     ---------------------------------
-As well as the program itself, comprehensive documentation is
-provided. This consists of four parts:
-a) this README file
-b) Online Help (program-specific,
-                with examples/scenarios for you to work through)
-c) script (on the subject of cryptography, attached as a PDF file)
-d) demos (software modules which explain individual topics and
-          principles).
+1.2. What do you get in the CrypTool package?
+     ----------------------------------------
+The CrypTool package includes the following four main parts:
 
+(1) The program CrypTool
+Main part of the CrypTool package is the program CrypTool itself.
 CrypTool is not intended as an application to be used to encrypt
 or otherwise protect real-world data. It is simply a
 demonstration primarily used for training purposes.
 
 - To this end, CrypTool contains an extensive collection of
-  cryptographic algorithms which are extremely well-documented.
+  cryptographic algorithms which are very well-documented.
   In this way, CrypTool is very well suited for training and
   teaching employees awareness of the importance of IT security.
 
-- Most of the cryptographic basic algorithms used are from:
+- Most of the cryptographic basic algorithms used are taken from:
   - the industry-proven Secude library (version 5.4.15)
     (www.secude.com) and from
   - the Miracl library (version 4.4.3)
     (http://indigo.ie/~mscott/).
-  In this way, CrypTool is an outstanding reference
-  implementation.
+  In this way, CrypTool is an outstanding reference implementation.
 
-- The cryptoanalysis of most of the classical algorithms
+- The cryptanalysis of most of the classical algorithms
   implemented is automated. The analysis of modern techniques
   is limited so that CrypTool cannot be used as a hacker's tool.
 
-- CrypTool contains a special program for the creation of
-  self-extracting executable files which can also be used
-  independently. In this program a session key is generated
-  from a password, and with this key any file contents are
-  AES-encrypted.
+(2) Documentation
+A comprehensive documentation is provided. This consists of four
+parts:
+a) README file (this file)
+b) Online Help 
+   - context-specific help in order to use the program and further
+     information about individual topics and principles,
+   - demos and sample scenarios (here you learn to know single
+     procedures step-by-step).
+c) script (on the subject of cryptography, attached as a PDF file)
+d) presentation, which shows at some slides the possibilities of
+   CrypTool (also attached as PDF file).
+
+(3) The program AES-Tool
+CrypTool contains a special program for the creation of
+self-extracting executable files which can also be used
+independently. In this program a session key is generated
+from a password, and with this key any file contents are
+AES-encrypted.
+
+(4) The story "The Dialogue of the Sisters" as PDF file.
+The sisters use a variant of the RSA algoritm, to securely
+communicate.
+
+Within chapter 4 the single files included in the package are
+listed.
+
 
 
 1.3. Acknowledgements
      ----------------
 A number of individuals have contributed to CrypTool, many of
-them in their free time as well. We are extremely grateful to
-them.
+them in their free time as well (some are listed in the dialog
+box you get after double clicking the "About" dialog box). 
+We are extremely grateful to them.
 
 Dr. Carsten Elsner allowed us to include his story "The Dialogue
 of the Sisters" (translated from the German by Klaus Esslinger).
@@ -203,7 +220,7 @@ not with Windows 95.
 A number of application programs are supplied with a (not always 
 recent enough) version of "msvcrt.dll" - copy this file into your 
 Windows directory or into the directory that contains CrypTool.
-Alternativly you can download a self extracting executable that 
+Alternatively you can download a self extracting executable that 
 contains "msvcrt.dll" from:
     ftp://ftp.microsoft.com/softlib/mslfiles/msvcrt.exe
 Save the file in a temporary directory and double click on it to
@@ -221,7 +238,7 @@ is displayed. In this case pressing F1 has no effect.
 Usually you can also get help in CrypTool for menu items which
 itself have sub menus, if they are selected.
 Under Windows XP you only get the Online help, if the submenu
-is not poped up.
+is not popped up.
 With other versions of Windows this doesn't matter - there it is
 only important, that the menu has the focus.
 
@@ -282,8 +299,8 @@ of the old files will not be overwritten. Please note:
   entire pse\ directory in order to protect these keys. De install
   CrypTool and install the new version. Finally copy the saved
   pse\ directory to the installation folder.
-  Starting with version 1.3.00 you can alternatively export/import
-  RSA and DSA PSEs using PKCS#12 format.
+  Starting with version 1.3.00 you alternatively can export/import
+  RSA and DSA PSEs using the PKCS#12 format.
 
 Please note that it might be necessary to adjust the access
 permissions if multiple users want to share one CrypTool
@@ -301,8 +318,8 @@ CrypTool.
 The package is distributed as compressed, self extracting archive
 in two language versions:
 
-SetupCrypTool_1_3_en.exe English language support only.
-SetupCrypTool_1_3_de.exe German language support only.
+SetupCrypTool_1-3-02_en.exe English language support only.
+SetupCrypTool_1-3-02_de.exe German language support only.
 
 The archives contain the following files:
 
@@ -316,7 +333,7 @@ aestool.exe....... A program which encrypts files into
                    the correct password must be entered.
 CrypTool-en.hlp... CrypTool help system with example scenarios.
 CrypTool-de.hlp... The German version of CrypTool-en.hlp
-EC-Param.ini...... Initialisation file for public key procedures
+EC-Param.ini...... Initialization file for public key procedures
                    based on elliptic curves.
 secude.dll........ Library of cryptographic functions provided by
                    Secude GmbH.
@@ -328,22 +345,23 @@ script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
                    certain algorithms.
 script-de.pdf..... The German version of script-en.pdf
+CrypToolPresentation_1_3_02_en.pdf.... Slides presentation
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 
-reference\........ This directory contains text files in the
+references\....... This directory contains text files in the
                    languages German, English, French, Spanish and
                    Latin. These files are routinely used as
                    references for the analysis of encrypted
                    texts. These files are write-protected.
 
-reference\deutsch.txt // Extract from the Value-Added Tax Law
-         \english.txt // Extract from Agenda 21 [UN document]
-         \genesis-de.txt  // book of Genesis in the
-         \genesis-en.txt  // languages German, English
-         \genesis-es.txt  // French, Spanish and Latin
-         \genesis-fr.txt  // The 2-letter codes are according
-         \genesis-la.txt  // to the ISO 639 Language Codes.
+references\deutsch.txt    // Extract from the Value-Added Tax law
+          \english.txt    // Extract from Agenda 21 [UN document]
+          \genesis-de.txt  // book of Genesis in the
+          \genesis-en.txt  // languages German, English
+          \genesis-es.txt  // French, Spanish and Latin
+          \genesis-fr.txt  // The 2-letter codes are according
+          \genesis-la.txt  // to the ISO 639 language codes.
 
 examples\......... This directory contains various sample files
                    which are used in the examples provided in the
@@ -415,12 +433,11 @@ downloaded setup-package.
 In order to do this check for these files, you can find the
 hash values of them here within the readme:
 
-MD5 hash value                    name
-XXX
+MD5 hash value                    Name
+XXXmd5sumXXX
 
-SHA1 hash value                          name
-XXX
-
+SHA1 hash value                          Name
+XXXsha1sumXXX
 
 In order to do the check you can use the tools mentioned
 in part (a) or you can use the program CrypTool itself.
@@ -438,10 +455,10 @@ your computer is untouched.
 
 
 
-5. What's new in CrypTool 1.3.00
-   -----------------------------
-The following enhancements and bug fixes have been added since
-CrypTool version 1.202 (Dec 2000).
+5. What's new in CrypTool 1.3.00 and 1.3.02
+   ----------------------------------------
+The following enhancements and bug fixes have been added for 
+version 1.3.00 since CrypTool version 1.202 (Dec 2000).
 - CrypTool is now fully available in both German and English
   language versions.
 - All dialogue has been reviewed for consistency and clarity.
@@ -523,9 +540,6 @@ CrypTool version 1.202 (Dec 2000).
 
 5.7. Enhancements from version 1.3.00 to 1.3.02
      ------------------------------------------
-Version 1.3.01 was not distributed officially, because it was only
-an intermediary and test release, available only in German.
-
 The following topics have been improved:
 Source code:
 + Revision of the source code for the transmission to the new
@@ -566,34 +580,36 @@ Functionality:
     parameters are known
   - it's now possible to use hex values as input too.
 + Improvements at the AES-Tool.
+  AES-Tool now offers complete functionality also when called
+  from the commandline.
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (choosen with Options/Textoptions)
   - the Hill key matrix, also coded in numbers
   - a sample encryption/decryption calculated in detail.
++ With the manual analysis of the substitution encryption it is
+  now possible to move backward and forward between the last
+  changes via button click.
 + Enclose the complete "Dialogue of the Sisters" in German and
   English (within this story a special case of the RSA encryption
-  is described which is implemented within the RSA demo) --
-  many thanks to the author Dr. Carsten Elsner.
+  is described which is implemented within the RSA demo)
 + Show/Visualize
   - the single steps / dependencies of
     -> the creation of an electronic signature,
     -> the hybrid encryption and decryption.
+    -> how changes to a document change the hash value
+       (sensitivity of hash algorithms),
 + Step-by-step verification of a RSA-signature is now possible too
-  (here the already existing masks are reused - similiar as at
+  (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
 
 
 5.8. Planned enhancements after version 1.3.02
      -----------------------------------------
 Functionality:
-+ Show/Visualize
-  - how changes to a document change the hash value
-    (sensitivity of hash algorithms),
-  - the birthday paradoxon.
-+ XXXX AES-Tool offers complete functionality also from the commandline
-+ XXXX A pure commandoline version of AES-Tool is also available
-  for OS/2 and Linux (aestool-os2; aestool-linux).
++ Show/Visualize the birthday paradoxon.
++ A pure commandline version of AES-Tool to be also available for
+  the operating systems OS/2 and Linux (aestool-os2; aestool-linux).
 
 
 
@@ -664,7 +680,7 @@ Functionality:
      ---------------------------------------------------
 + Integrate the RC5 algorithms as described above, in order to
   see all places where to enhance the sources.
-+ offer all kind of transpositions and superpositions for the 
++ offer all kind of transpositions and superpositions for the
   content of text windows in an easy-to-use dialogue window.
 + Create test suite with examples and solutions, in order to
   automate testing and to make sure, that program changes do not
@@ -684,8 +700,8 @@ Functionality:
 
 
 
-7. Brief history of the main versions of CrypTool
-   ----------------------------------------------
+7. Brief history of the released main versions of CrypTool
+   -------------------------------------------------------
 
 Version    Date
 1.0.01     Oct. 1999
@@ -778,7 +794,7 @@ Initially the focus is on the analysis of monoalphabetic
 substitution ciphers and the development of generic and flexible
 analysis tools.
 On this page there are also some very interesting links on
-classical cryptoanalysis.
+classical cryptanalysis.
 
 
 
@@ -795,32 +811,32 @@ classical cryptoanalysis.
 12.1. Hints for using CrypTool on Linux with Wine
       -------------------------------------------
 
-This file is based on tests with wine 2001-11-29. (XXXX)
+This file is based on tests with wine 2001-11-29.
 
 12.1.1. Installing CrypTool
         -------------------
 In the last step of the installation wizard the user has the
-option to start CrypTool. This does not work under wine. Please
+option to start CrypTool. This does not work under Wine. Please
 start CrypTool as described below.
 
 
 12.1.2. Wine configuration
         ------------------
 CrypTool does not work with the version of riched32.dll built into
-wine. Try to open a file. It will show up empty if the wrong
+Wine. Try to open a file. It will show up empty if the wrong
 version of riched32.dll is used. The problem will probably not
-occur if wine is configured to use an existing Windows partition.
-If you use wine without Windows perform the following steps to fix
+occur if Wine is configured to use an existing Windows partition.
+If you use Wine without Windows perform the following steps to fix
 the problem:
  - install CrypTool.
  - get hold of riched32.dll (we are using version 5.0.1458.47)
    and copy it in the CrypTool installation directory.
-   Possibly you have perform the same procedure with other DLLs
+   Possibly you have to perform the same procedure with other DLLs
    used by riched32.dll.
    Their names are listed in Wine's error output.
- - configure wine to use it. In the standard configuration it
-   does. If it does not put the following line in the
-   [DllOverrides] section of the wine configuration file:
+ - configure Wine to use it. In the standard configuration this
+   works. If it does not put the following line in the
+   [DllOverrides] section of the Wine configuration file:
    "riched32" = "native,builtin"
 
 
@@ -844,3 +860,4 @@ not find some important files.
   Use the following line to display the Online help:
 
   $ wine winhlp32 CrypTool.hlp
+
