@@ -1,4 +1,5 @@
-
+\setcounter{satz}{0}
+\setcounter{definition}{0}
 
 \newcommand{\NT}{\vspace*{0.2\baselineskip}\\}
 %\newcommand{\VT2}{\vspace*{0.1\baselineskip}\\}
