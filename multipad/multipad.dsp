@@ -36,18 +36,18 @@ RSC=rc.exe
 # PROP BASE Output_Dir "Release"
 # PROP BASE Intermediate_Dir "Release"
 # PROP BASE Target_Dir ""
-# PROP Use_MFC 1
+# PROP Use_MFC 2
 # PROP Use_Debug_Libraries 0
 # PROP Output_Dir "Release"
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "C:\CrypTool-Entwicklung\CrypTool\source\LibMiracl\include\\" /I "..\LibMiracl\include\\" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "C:\CrypTool-Entwicklung\CrypTool\source\LibMiracl\include\\" /I "..\LibMiracl\include\\" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG"
-# ADD RSC /l 0x809 /d "NDEBUG"
+# ADD RSC /l 0x809 /d "NDEBUG" /d "_AFXDLL"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
@@ -63,19 +63,19 @@ LINK32=link.exe
 # PROP BASE Output_Dir "Debug"
 # PROP BASE Intermediate_Dir "Debug"
 # PROP BASE Target_Dir ""
-# PROP Use_MFC 1
+# PROP Use_MFC 2
 # PROP Use_Debug_Libraries 1
 # PROP Output_Dir "Debug"
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\LibMiracl\include" /I "..\libmiracl\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\LibMiracl\include" /I "..\libmiracl\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /FR /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
-# ADD RSC /l 0x407 /d "_DEBUG"
+# ADD RSC /l 0x407 /d "_DEBUG" /d "_AFXDLL"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
@@ -706,6 +706,14 @@ SOURCE=.\DlgCertTutorial.cpp
 # Begin Source File
 
 SOURCE=.\DlgCertTutorial.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDetailsFactorisation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDetailsFactorisation.h
 # End Source File
 # Begin Source File
 

@@ -8,6 +8,7 @@
 #include "DlgRuntime.h"
 #include "crypt.h"
 
+
 #include <time.h>
 
 #ifdef _DEBUG
@@ -32,10 +33,12 @@ DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
 	m_QSieve = TRUE;
 	m_Factorisation = _T("");
 	m_Name = _T("");
-	m_benoetigte_zeit = _T("");
+	m_benoetigte_zeit_global = _T("");
+	m_benoetigte_zeit_pro_factorisation = _T("");
 	//}}AFX_DATA_INIT
 	factorList = 0;
-	duration = 0;
+	duration1 = 0;
+	duration2 = 0;
 }
 
 DlgTutorialFactorisation::~DlgTutorialFactorisation()
@@ -53,6 +56,7 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgTutorialFactorisation)
+	DDX_Control(pDX, IDC_BUTTON1, m_DialogeDetails);
 	DDX_Control(pDX, IDC_CHECK1, m_bruteForceCtrl);
 	DDX_Control(pDX, IDC_EDIT1, m_CompositeNoCtrl);
 	DDX_Control(pDX, IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, m_vollstaendig);
@@ -67,7 +71,7 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK6, m_QSieve);
 	DDX_Text(pDX, IDC_RICHEDIT2, m_Factorisation);
 	DDX_Text(pDX, IDC_EDIT2, m_Name);
-	DDX_Text(pDX, IDS_STRING_BENOETIGTE_ZEIT_FAKT, m_benoetigte_zeit);
+	DDX_Text(pDX, IDS_STRING_BENOETIGTE_ZEIT_FAKT, m_benoetigte_zeit_global);
 	//}}AFX_DATA_MAP
 }
 
@@ -78,6 +82,7 @@ BEGIN_MESSAGE_MAP(DlgTutorialFactorisation, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_Faktorisieren, OnButtonFactorisation)
 	ON_BN_CLICKED(IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, OnButtonVollstaendigFaktorisation)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEditEingabe)
+	ON_BN_CLICKED(IDC_BUTTON1, OnShowFactorisationDetails)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -317,50 +322,94 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			}
 			
 			FactFinish = clock();
-			duration =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration;
+			duration1 =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration1; //gesamte Laufzeit
+			duration2 =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) ; //einzelne Laufzeit
 			
 			double temp;
-			modf(duration,&temp);
-			zeit_condtruct.day= (int) floor(temp/86400);
-			zeit_condtruct.hour= (int) floor((temp - zeit_condtruct.day*86400)/3600);
-			zeit_condtruct.min= (int) floor((temp - zeit_condtruct.day*86400- zeit_condtruct.hour*3600)/60);
-			zeit_condtruct.sec= (int) (temp - zeit_condtruct.day*86400- zeit_condtruct.hour*3600-zeit_condtruct.min*60);
-			zeit_condtruct.msec= (int) floor((duration-temp)*1000);
-			char msec[3];
+			modf(duration1,&temp);
+			zeit_condtruct1.day= (int) floor(temp/86400);
+			zeit_condtruct1.hour= (int) floor((temp - zeit_condtruct1.day*86400)/3600);
+			zeit_condtruct1.min= (int) floor((temp - zeit_condtruct1.day*86400- zeit_condtruct1.hour*3600)/60);
+			zeit_condtruct1.sec= (int) (temp - zeit_condtruct1.day*86400- zeit_condtruct1.hour*3600-zeit_condtruct1.min*60);
+			zeit_condtruct1.msec= (int) floor((duration1-temp)*1000);
 			
-			char line[256], timeStr[64];
+			modf(duration2,&temp);
+			zeit_condtruct2.day= (int) floor(temp/86400);
+			zeit_condtruct2.hour= (int) floor((temp - zeit_condtruct2.day*86400)/3600);
+			zeit_condtruct2.min= (int) floor((temp - zeit_condtruct2.day*86400- zeit_condtruct2.hour*3600)/60);
+			zeit_condtruct2.sec= (int) (temp - zeit_condtruct2.day*86400- zeit_condtruct2.hour*3600-zeit_condtruct2.min*60);
+			zeit_condtruct2.msec= (int) floor((duration2-temp)*1000);
 			
-			if ( zeit_condtruct.day >= 1)
+			char msec1[3], msec2[3];
+			
+			char line1[256], line2[256], timeStr1[64],timeStr2[64];
+			
+			if ( zeit_condtruct1.day >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr,pc_str, zeit_condtruct.day,zeit_condtruct.hour, zeit_condtruct.min,zeit_condtruct.sec);
+				sprintf(timeStr1,pc_str, zeit_condtruct1.day,zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
 			}
-			else if (zeit_condtruct.hour >= 1)
+			else if (zeit_condtruct1.hour >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_HRS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr,pc_str, zeit_condtruct.hour, zeit_condtruct.min,zeit_condtruct.sec);
+				sprintf(timeStr1,pc_str, zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
 			}
-			else if (zeit_condtruct.min >= 1)
+			else if (zeit_condtruct1.min >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_MIN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr,pc_str, zeit_condtruct.min,zeit_condtruct.sec);
+				sprintf(timeStr1,pc_str, zeit_condtruct1.min,zeit_condtruct1.sec);
 			}
 			else
 			{	
-				if (zeit_condtruct.msec<10) sprintf(msec, "00%i",zeit_condtruct.msec);
-				else if (zeit_condtruct.msec<100) sprintf(msec, "0%i",zeit_condtruct.msec);
-				else sprintf(msec, "%i",zeit_condtruct.msec);
+				if (zeit_condtruct1.msec<10) sprintf(msec1, "00%i",zeit_condtruct1.msec);
+				else if (zeit_condtruct1.msec<100) sprintf(msec1, "0%i",zeit_condtruct1.msec);
+				else sprintf(msec1, "%i",zeit_condtruct1.msec);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr,pc_str, zeit_condtruct.sec, msec);
+				sprintf(timeStr1,pc_str, zeit_condtruct1.sec, msec1);
 			}
 			
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
-			sprintf( line, pc_str, timeStr );
-			m_benoetigte_zeit = line;	
+			sprintf( line1, pc_str, timeStr1 );
+			m_benoetigte_zeit_global = line1;	
+
+			if ( zeit_condtruct2.day >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr2,pc_str1, zeit_condtruct2.day,zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
+			}
+			else if (zeit_condtruct2.hour >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_HRS,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr2,pc_str1, zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
+			}
+			else if (zeit_condtruct2.min >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_MIN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr2,pc_str1, zeit_condtruct2.min,zeit_condtruct2.sec);
+			}
+			else
+			{	
+				if (zeit_condtruct2.msec<10) sprintf(msec2, "00%i",zeit_condtruct2.msec);
+				else if (zeit_condtruct2.msec<100) sprintf(msec2, "0%i",zeit_condtruct2.msec);
+				else sprintf(msec2, "%i",zeit_condtruct2.msec);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str1,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr2,pc_str1, zeit_condtruct2.sec, msec2);
+			}
 			
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str1,STR_LAENGE_STRING_TABLE);		
+			sprintf( line2, pc_str1, timeStr2 );
+			m_benoetigte_zeit_pro_factorisation=timeStr2;
+						
 			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
+			if ( factorized )
+			{
+				DetailsFactorisation.InsertFactDetail(next_factor, f1, f2, 
+					                                  m_Name, m_benoetigte_zeit_pro_factorisation, 
+													  (int)f.IsPrime( f1 ) + ((int)f.IsPrime(f2))*2);
+				m_DialogeDetails.EnableWindow();
+			}
 		}
 		else if (Out_SetN==1)
 		{
@@ -706,6 +755,7 @@ BOOL DlgTutorialFactorisation::OnInitDialog()
 	m_vollstaendig.EnableWindow(false);
 		// Initialisiere die Schlüsselliste mit allen verfügbaren asymmetrischen Schlüsseln
 	m_bruteForceCtrl.SetCheck(1);
+	m_DialogeDetails.EnableWindow(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -753,8 +803,10 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 		m_vollstaendig.EnableWindow(false);	
 	}
 	m_Factorisation = "";
-	m_benoetigte_zeit="";
-	duration=0;
+	m_benoetigte_zeit_global="";
+	m_benoetigte_zeit_pro_factorisation="";
+	duration1=0;
+	duration2=0;
 	while ( factorList != 0 )
 	{
 		NumFactor *tmp = factorList;
@@ -762,7 +814,9 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 		delete tmp;
 	}
 	factorList = 0;
-
+	DetailsFactorisation.ClearFactDetail();	
+	m_DialogeDetails.EnableWindow(FALSE);
+	m_Name = ""; 
 	UpdateData(FALSE);
 	m_CompositeNoCtrl.SetSel(sels,sele);
 
@@ -818,5 +872,16 @@ void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
 			}
 		}
 		
+	}
+}
+
+void DlgTutorialFactorisation::OnShowFactorisationDetails() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	DetailsFactorisation.m_orignNumber = m_CompositeNoStr;
+	if ( DetailsFactorisation.DoModal() == IDCANCEL )
+	{
+		// ToDo: Flag Setzen für das Speichern der Datei
 	}
 }

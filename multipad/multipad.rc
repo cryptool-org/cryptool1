@@ -16,10 +16,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // Deutsch (Deutschland) resources
 
-#define __NULLOVERT
-#define __NULLONIX
-#ifdef __NULLOVERT
-
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
@@ -334,7 +330,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -1783,7 +1779,7 @@ BEGIN
                     262,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,274,318,16
-    PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16,NOT WS_VISIBLE
+    PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 292, 300
@@ -2300,6 +2296,31 @@ BEGIN
                     BS_CENTER,45,82,61,10
 END
 
+IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 322
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Details zur Faktorisierung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "S&chließen",IDOK,326,295,50,20
+    PUSHBUTTON      "&Speichere Liste",IDCANCEL,225,295,63,20
+    LTEXT           "Faktorisierte Zahl:",IDC_STATIC,7,7,57,10
+    EDITTEXT        IDC_EDIT1,75,7,301,12,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,38,368,166
+    GROUPBOX        "Informationen zur gewählten Faktorisierung",IDC_STATIC,
+                    7,209,369,75
+    LTEXT           "Faktorisierte Zahl:",IDC_STATIC,16,224,57,9
+    EDITTEXT        IDC_EDIT2,78,223,283,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Erster Faktor:",IDC_STATIC,16,245,57,9
+    EDITTEXT        IDC_EDIT6,78,243,210,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Zweiter Faktor:",IDC_STATIC,16,261,57,9
+    EDITTEXT        IDC_EDIT4,78,260,210,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,296,246,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT5,296,263,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2461,7 +2482,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2634,7 +2655,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2895,7 +2916,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -3820,6 +3841,17 @@ BEGIN
         RIGHTMARGIN, 141
         TOPMARGIN, 7
         BOTTOMMARGIN, 123
+    END
+
+    IDD_DIALOG_FACTORISATION_DETAILS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 376
+        VERTGUIDE, 16
+        VERTGUIDE, 288
+        VERTGUIDE, 361
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 315
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -4962,6 +4994,10 @@ BEGIN
                             "Die verschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden !"
     IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
                             "Die entschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden ! "
+    IDS_DETFACTORISATION_HLNUMBER "Faktorisierte Zahl"
+    IDS_DETFACTORISATION_HLFACTOR "Faktor %i"
+    IDS_DETFACTORISATION_HLMETHOD "Methode"
+    IDS_DETFACTORISATION_HLTIME "Zeit"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5114,15 +5150,18 @@ BEGIN
     IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
 END
 
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DETFACTORISATION_FACTORPRIME "Primzahl"
+    IDS_DETFACTORISATION_FACTORCOMPOSITE "Zusammengesetzt"
+END
+
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
-#endif
 
 /////////////////////////////////////////////////////////////////////////////
 // Englisch (GB) resources
-
-#ifdef __NULLONIX
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -5410,7 +5449,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -7139,7 +7178,7 @@ BEGIN
     LTEXT           "Factorisation result:",-1,24,265,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,277,318,16
-    PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16,NOT WS_VISIBLE
+    PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16
 END
 
 IDD_DIALOG_PIN_VERIFICATION DIALOG DISCARDABLE  0, 0, 173, 209
@@ -7186,6 +7225,31 @@ BEGIN
                     IDC_STATIC,10,79,198,18
     LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",
                     IDC_STATIC,10,120,198,16
+END
+
+IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 322
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Details for the current Factorisation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Close",IDOK,326,295,50,20
+    PUSHBUTTON      "&Save List",IDCANCEL,238,295,50,20
+    LTEXT           "Factorised number:",IDC_STATIC,7,7,64,10
+    EDITTEXT        IDC_EDIT1,75,7,301,12,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,38,368,166
+    GROUPBOX        "Information to the selected factorisation",IDC_STATIC,7,
+                    209,369,75
+    LTEXT           "Factorised number:",IDC_STATIC,16,224,64,9
+    EDITTEXT        IDC_EDIT2,80,223,281,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "First factor",IDC_STATIC,16,245,57,9
+    EDITTEXT        IDC_EDIT132,80,243,208,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Second factor",IDC_STATIC,16,261,57,9
+    EDITTEXT        IDC_EDIT4,80,260,208,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,296,246,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT5,296,263,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
 END
 
 
@@ -7348,7 +7412,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7521,7 +7585,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7782,7 +7846,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -8251,6 +8315,18 @@ BEGIN
     BEGIN
         VERTGUIDE, 30
         HORZGUIDE, 180
+    END
+
+    IDD_DIALOG_FACTORISATION_DETAILS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 376
+        VERTGUIDE, 16
+        VERTGUIDE, 80
+        VERTGUIDE, 288
+        VERTGUIDE, 361
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 315
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -9361,6 +9437,10 @@ BEGIN
                             "The encrypted message could not be decoded into a textmessage !"
     IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
                             "The decrypted message could not be decoded into a textmessage !"
+    IDS_DETFACTORISATION_HLNUMBER "Factorised number"
+    IDS_DETFACTORISATION_HLFACTOR "Factor %i"
+    IDS_DETFACTORISATION_HLMETHOD "Method"
+    IDS_DETFACTORISATION_HLTIME "Time"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9469,10 +9549,16 @@ BEGIN
     ID_P12IMPORT            "Import certificates and private keys from PKCS#12 files"
 END
 
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DETFACTORISATION_FACTORPRIME "Prime number"
+    IDS_DETFACTORISATION_FACTORCOMPOSITE "Composite number"
+END
+
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
-#endif
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -8,6 +8,8 @@
 // DlgTutorialFactorisation.h : Header-Datei
 //
 
+#include "DlgDetailsFactorisation.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgTutorialFactorisation 
 
@@ -33,8 +35,8 @@ class DlgTutorialFactorisation : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
-	zeit zeit_condtruct;
-	double duration;
+	zeit zeit_condtruct1, zeit_condtruct2;
+	double duration1, duration2;
 	clock_t FactFinish;
 	clock_t FactStart;
 	void CheckEdit(CString &m_edit, int & sels, int & sele);
@@ -46,6 +48,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgTutorialFactorisation)
 	enum { IDD = IDD_DIALOG_ZAHL_FAKTORISIEREN };
+	CButton	m_DialogeDetails;
 	CButton	m_bruteForceCtrl;
 	CEdit	m_CompositeNoCtrl;
 	CButton	m_vollstaendig;
@@ -60,7 +63,8 @@ public:
 	BOOL	m_QSieve;
 	CString	m_Factorisation;
 	CString	m_Name;
-	CString	m_benoetigte_zeit;
+	CString	m_benoetigte_zeit_global;
+	CString m_benoetigte_zeit_pro_factorisation;
 	//}}AFX_DATA
 
 
@@ -81,10 +85,12 @@ protected:
 	afx_msg void OnButtonVollstaendigFaktorisation();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnUpdateEditEingabe();
+	afx_msg void OnShowFactorisationDetails();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 	TutorialFactorisation f;
+	CDlgDetailsFactorisation DetailsFactorisation;
 };
 
 //{{AFX_INSERT_LOCATION}}
