@@ -2824,7 +2824,7 @@ void NGramAsc(const char *infile, const char *OldTitle)
 
     char      * buffer;
 	CFile f( infile, CFile::modeRead );
-	unsigned long fLen = (f.GetLength() < 262144) ? f.GetLength() : 262144;  //  2^18 bytes restriction restriction
+	unsigned long fLen = (f.GetLength() < 1048576) ? f.GetLength() : 1048576;  //  2^20 bytes restriction restriction
 	buffer = new char[fLen+1];
 	f.Read( (void *)buffer, fLen );	
 	CDlgNGramAnaylsis DiaNGram;
@@ -2868,7 +2868,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 
     char      * buffer;	
 	CFile f( infile, CFile::modeRead );
-	unsigned long fLen = (f.GetLength() < 262144) ? f.GetLength() : 262144;  // 2^18 bytes restriction
+	unsigned long fLen = (f.GetLength() < 1048576) ? f.GetLength() : 1048576;  // 2^18 bytes restriction
 	buffer = new char[fLen+1];
 	f.Read( (void *)buffer, fLen );
 
