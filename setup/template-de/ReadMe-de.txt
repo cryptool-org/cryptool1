@@ -2,6 +2,7 @@
     CrypTool, Version 1.3.04, Mai 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
+    Bernhard Esslinger
     $Id$
 ==================================================================
 
@@ -13,10 +14,12 @@
  1.3. .... Danke
  1.4. .... Neuer Maintainer in Zukunft - Roadmap
  2. .... Beschränkungen und Voraussetzungen
- 2.1. .... Installation unter Windows 95
- 2.2. .... Interaktive Online-Hilfe unter Windows XP
- 2.3. .... Unterstützung verschiedener Sprachen
- 2.4. .... Einschränkungen in den verwendeten Bibliotheken
+ 2.1. .... Lern-, Trainings- und Awareness-Software
+ 2.2. .... Win32-Umgebung
+ 2.3. .... Installation unter Windows 95
+ 2.4. .... Interaktive Online-Hilfe unter Windows XP
+ 2.5. .... Unterstützung verschiedener Sprachen
+ 2.6. .... Einschränkungen in den verwendeten Bibliotheken
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
@@ -36,11 +39,15 @@
  8. .... Feedback bei Fehlern
  9. .... Kontaktadressen
 10. .... Verweise
-10.1. .... Wirtschaftswoche Spezial
-10.2. .... c't 14/2001, S. 204-208
-10.3. .... DuD Oktober 2002
-10.4. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
-10.5. .... Freeware-Projekte Crank, CAP, CryptAid, etc.
+10.1. .... Artikel
+10.1.1. .... c't 14/2001, S. 204-208
+10.1.2. .... DuD Oktober 2002
+10.1.3. .... KES 2/2003 (Mai 2003)
+10.1.4. .... 8. Deutscher IT-Sicherheitskongress des BSI (Mai 2003)
+10.2. .... Sonstiges
+10.2.1. .... Wirtschaftswoche Spezial
+10.2.2. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
+10.2.3. .... Freeware-Projekte Crank, CAP, CryptAid, etc.
 11. .... Anhang
 11.1. .... CrypTool unter Linux mit Wine
 
@@ -66,7 +73,7 @@ Internet-Adressen:  http://www.CrypTool.de
                     http://www.CrypTool.com
                     http://www.CrypTool.org
 
-Seit Anfang 2002 bewegt sich die Downloadrate bei rund 800
+Seit Anfang 2003 bewegt sich die Downloadrate bei rund 1000
 CrypTool-Paketen pro Monat -- mit wachsender Tendenz.
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
@@ -97,7 +104,7 @@ Diese Startseite ist ein guter Ausgangspunkt, um alle wesentlichen
 Inhalte von CrypTool kennen zu lernen (z.B. mit Hilfe der Links auf
 dieser Startseite).
 
-Lesen Sie die Hinweise und Tipps der Hilfe-Startseite und
+Lesen Sie bitte die Hinweise und Tipps der Hilfe-Startseite und
 öffnen Sie dann auf der CrypTool-Arbeitsfläche eine
 unverschlüsselte Datei aus dem Unterverzeichnis "examples".
 Sie können jetzt viele der Funktionen von CrypTool an dieser Datei
@@ -120,6 +127,7 @@ Das CrypTool-Paket enthält die folgenden vier Hauptbestandteile:
 -------------------------
 Hauptteil des CrypTool-Paketes ist das Programm CrypTool selbst.
 Entwicklungsziel von CrypTool war nicht, dass damit im Wirkbetrieb
+eine CA (Certification Authority) betrieben wird oder dass damit 
 Daten verschlüsselt oder anderweitig gesichert werden sollten. 
 Es ist eine Demonstration, die vor allem für Ausbildungszwecke
 eingesetzt wird:
@@ -226,7 +234,37 @@ CrypTool beteiligen. Ideen dazu finden Sie in Kapitel 5.3 und 6.
 
 2. Beschränkungen und Voraussetzungen
    ----------------------------------
-CrypTool erfordert eine Win32 Umgebung, wie sie unter Windows 95,
+
+2.1. Lern-, Trainings- und Awareness-Software
+     ----------------------------------------
+Wie oben gesagt, war das Entwicklungsziel von CrypTool nicht, dass
+damit produktiv eine CA (Certification Authority) betrieben wird.
+CrypTool dient vor allem Ausbildungs- und Awareness-Zwecken, die
+man ohne vorherige Konfiguration sofort benutzen können soll.
+
+Deshalb steht - im Unterschied zu produktiven CA-Applikationen -
+das CA-Schlüsselpaar fest in der Software (Source und Binary) und es
+ist derselbe in allen bisherigen CT-Versionen, geschützt mit einer 
+ebenfalls bewusst sehr einfachen PIN für die CA-PSE (Personal
+Security Environment).
+Daher hat die in CT eingebaute CA auch keine für produktive Zwecke 
+adäquate Schlüssellänge (wie z.B. RSA 1024 oder 1536 Bit), sondern 
+nur 512 Bit.
+Die Gültigkeit des eingebauten CA-Schlüssels ist definiert bis 2010.
+
+Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
+Programm eine Root-CA mit demselben Schlüsselpaar beinhaltet, mit der
+die im Programm erzeugten User-Zertifikate signiert werden. 
+D.h. jeder (!), der CrypTool einsetzt, kann User-Zertifikate mit dieser
+eingebauten CA signieren.
+
+Die Verfahren selbst sind entsprechend den internationalen Standards
+implementiert und genauso "gut" wie in produktiven Anwendungen.
+
+
+2.2. Win32-Umgebung
+     --------------
+CrypTool erfordert eine Win32-Umgebung, wie sie unter Windows 95,
 Windows 98, Windows Me, Windows NT (ab 4.0), Windows 2000 und
 Windows XP gegeben ist.
 
@@ -234,8 +272,10 @@ CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
 Wine (mit Abstrichen an Funktionalität und Stabilität).
 Siehe Anhang 11.1.
 
+Eine Portierung auf Linux ist eines der weiteren Ziele (siehe Kap. 6).
 
-2.1. Installation unter Windows 95
+
+2.3. Installation unter Windows 95
      -----------------------------
 Bei älteren Windows 95 Systemen erhalten Sie beim Aufruf von
 CrypTool die Meldung "Kann 'secude.dll' nicht finden". In diesem
@@ -258,7 +298,7 @@ extrahieren Sie die Dateien durch Doppelklick. Weitere
 Anweisungen stehen in der dort mitgelieferten Readme-Datei.
 
 
-2.2. Interaktive Online-Hilfe unter Windows XP
+2.4. Interaktive Online-Hilfe unter Windows XP
      -----------------------------------------
 Unter Windows XP ist der Aufruf der interaktiven Online-Hilfe über
 die F1-Taste in einem Spezialfall nicht möglich: betroffen sind
@@ -281,7 +321,7 @@ unter Windows XP - das Untermenü von "RSA-Demo" erst mit Escape
 das Aufrufen der Online-Hilfe mit F1 auch unter Windows XP.
 
 
-2.3. Unterstützung verschiedener Sprachen
+2.5. Unterstützung verschiedener Sprachen
      ------------------------------------
 Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
 gelegt (zur Zeit englisch und deutsch).
@@ -293,7 +333,7 @@ beim Anwender (anhand seiner Systemeinstellungen) nur unter
 Windows 4.0, nicht aber unter Win9x, korrekt funktionierte).
 
 
-2.4. Einschränkungen in den verwendeten Bibliotheken
+2.6. Einschränkungen in den verwendeten Bibliotheken
      -----------------------------------------------
 Die beigelegte Secude-Lib ist durch das Ticketfile bei den
 asymmetrischen Verfahren auf eine Schlüssellänge von 768 Bits
@@ -771,6 +811,11 @@ Funktionalität:
   und der generierte Schlüssel wird in die HEX-Schlüsseleingabe übernommen. 
   Damit dies auch für AES-256 funktioniert, müsste noch die SHA-256-
   Hashfunktion eingebaut werden.
+  Analog könnte man das AES-Tool so erweitern, dass der PKCS#5-Dialog
+  eingebunden wird. Dadurch wäre die allgemeine Nutzung bequemer.
+  Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem Aufruf,
+  der nur eine ASCII-Passwort eingibt, voreinstellen, und den User
+  auffordern, sich den Hexwert zu merken und/oder sicher aufzubewahren.
 + In den Dialogen in CrypTool können Zahlen nicht immer in allen
   Darstellungsarten eingegeben werden (z.B. kann im Dialog RSA-Kryptosystem
   die zu verschlüsselnde Nachricht als Text mit frei einzustellendem 
@@ -938,7 +983,7 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Mai  2003	xxx MB		xxx MB		DB
+1.3.04    Mai  2003	7,5 MB		7,6 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00
@@ -979,8 +1024,43 @@ CrypTool einsetzen.
 
 10. Verweise
     --------
-10.1. Wirtschaftswoche Spezial
-      ------------------------
+
+10.1. Artikel
+      -------
+10.1.1. c't 14/2001, S. 204-208
+        -----------------------
+In diesem renommierten und auflagenstarken deutsch-sprachigen
+Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
+CrypTool veröffentlicht.
+
+10.1.2. DuD Oktober 2002
+        ----------------
+In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und
+Datensicherheit", Ausgabe 10/2002 erschien unter dem Titel
+"CrypTool - spielerischer Einstieg in klassische und moderne
+Kryptographie. Neue Version - fundierte Awareness in Deutsch
+und Englisch" ein 4-seitiger Artikel über CrypTool.
+
+10.1.3. KES 2/2003 (Mai 2003)
+        ---------------------
+In der deutsch-sprachigen Fachzeitschrift "KES - Zeitschrift für
+Informations-Sicherheit", Ausgabe 2/2003 erschien unter dem Titel
+"(Ver)Schlüsselerlebnisse - CrypTool unterstützt Verständnis für
+die Grundlagen der Internetsicherheit" ein 6-seitiger Artikel
+über CrypTool.
+
+10.1.4. Tagungsband 8. Deutscher IT-Sicherheitskongress des BSI (Mai 2003)
+        ------------------------------------------------------------------
+Auf dem BSI-Kongress 2003 in Bonn wurde von Hr. Koy der Vortrag
+"Awareness in der Informationsgesellschaft: CrypTool - Kryptographie
+spielerisch verstehen" gehalten. Die Textfassung dazu steht im 
+Tagungsband, "IT-Sicherheit im verteilten Chaos", auf S. 485 - 500.
+
+
+10.2. Sonstiges
+      ---------
+10.2.1. Wirtschaftswoche Spezial
+        ------------------------
 Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche
 (Rubrik Netzwelt Sept. 2000) enthielt ein Preisausschreiben:
 "Knacken Sie den Text!" unter der URL
@@ -989,22 +1069,8 @@ cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
 Wenn man sich an die Tipps der Aufgabenstellung hielt, konnte man
 mit CrypTool die Aufgabe mit wenigen Mausklicks lösen.
 
-10.2. c't 14/2001, S. 204-208
-      -----------------------
-In diesem renommierten und auflagenstarken deutsch-sprachigen
-Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
-CrypTool veröffentlicht.
-
-10.3. DuD Oktober 2002
-      ----------------
-In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und
-Datensicherheit", Ausgabe 10/2002 erschien unter dem Titel
-"CrypTool - spielerischer Einstieg in klassische und moderne
-Kryptographie. Neue Version - fundierte Awareness in Deutsch
-und Englisch" ein 4-seitiger Artikel über CrypTool.
-
-10.4. BSI Bürger-CD "Ins Internet - mit Sicherheit"
-      ---------------------------------------------
+10.2.2. BSI Bürger-CD "Ins Internet - mit Sicherheit"
+        ---------------------------------------------
 Das Bundesamt für Sicherheit in der Informationstechnik (BSI) hat
 zusammen mit dem Deutschen Bundesinnenministerium zur CeBIT 2002
 eine CD veröffentlicht, die die Bürger aufklärt, wie man mit
@@ -1017,8 +1083,8 @@ zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 Der Inhalt dieser CD floss ein in das BSI Sicherheits-Portal
 "für unerfahrene Internet-Nutzer" (http://www.bsi-fuer-buerger.de).
 
-10.5. Freeware-Projekte Crank, Griffon, CAP, CryptAid, etc.
-      ------------------------------------------------------
+10.2.3. Freeware-Projekte Crank, Griffon, CAP, CryptAid, etc.
+        -----------------------------------------------------
 Available with source code are:
 - http://freshmeat.net/projects/crank/
   Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
