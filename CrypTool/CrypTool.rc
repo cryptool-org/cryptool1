@@ -296,32 +296,34 @@ BEGIN
                     IDC_STATIC,13,11,219,8
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 199
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 228
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Starten",IDOK,10,175,50,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,158,175,50,17
+    DEFPUSHBUTTON   "&Starten",IDOK,10,199,50,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,158,199,50,17
     CONTROL         "Der erwartete Klartext ist Deutsch.",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,30,45,123,10
     CONTROL         "Der erwartete Klartext ist Englisch.",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,30,48,123,10
+                    BS_AUTORADIOBUTTON,30,57,123,10
     CONTROL         "Manuelle Analyse.",IDC_RADIO3,"Button",
-                    BS_AUTORADIOBUTTON,30,60,71,9
+                    BS_AUTORADIOBUTTON,30,86,71,9
     CONTROL         "Manuelle Analyse mit dem gespeicherten Schlüssel.",
-                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,73,
-                    183,8
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,99,
+                    175,8
     CONTROL         "'e' als häufigstes Zeichen annehmen.",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,113,168,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,142,168,8
     CONTROL         "erweiterte Analyse (deutscher Klartext).",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,155,136,8
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,180,136,8
     LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",
                     IDC_STATIC,10,5,198,26
     LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",
-                    IDC_STATIC,10,91,198,18
+                    IDC_STATIC,10,120,198,18
     LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",
-                    IDC_STATIC,10,132,198,16
+                    IDC_STATIC,10,157,198,16
+    GROUPBOX        "Automatische Analyse",IDC_STATIC,10,34,198,38
+    GROUPBOX        "Manuelle Analyse",IDC_STATIC,10,75,198,36
 END
 
 IDD_SHOW_CERTIFICATE DIALOG DISCARDABLE  0, 0, 382, 213
@@ -3693,7 +3695,10 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
-        HORZGUIDE, 180
+        VERTGUIDE, 10
+        VERTGUIDE, 30
+        VERTGUIDE, 208
+        HORZGUIDE, 216
     END
 
     IDD_SHOW_CERTIFICATE, DIALOG
@@ -7826,31 +7831,33 @@ BEGIN
     RTEXT           "Verification:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 199
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitution Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Start",IDOK,10,174,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,158,174,50,17
+    DEFPUSHBUTTON   "&Start",IDOK,10,215,50,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,158,215,50,17
     CONTROL         "The expected plaintext is German.",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,30,49,123,10
     CONTROL         "The expected plaintext is English.",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,30,48,121,10
+                    BS_AUTORADIOBUTTON,30,61,121,10
     CONTROL         "Manual analysis.",IDC_RADIO3,"Button",
-                    BS_AUTORADIOBUTTON,30,60,71,9
+                    BS_AUTORADIOBUTTON,30,94,71,9
     CONTROL         "Manual Analysis using the stored key.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,73,150,8
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,107,150,8
     CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,111,168,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,151,168,8
     CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,154,136,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,192,136,8
     LTEXT           "The automatic substitution analysis is implemented for German and for English plaintexts only. For all other languages the manual analysis is recommended.",
                     IDC_STATIC,10,5,198,26
     LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",
-                    IDC_STATIC,10,90,198,18
+                    IDC_STATIC,10,130,198,18
     LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",
-                    IDC_STATIC,10,131,198,16
+                    IDC_STATIC,10,169,198,16
+    GROUPBOX        "Automatic analysis",IDC_STATIC,10,36,198,39
+    GROUPBOX        "Manual analysis",IDC_STATIC,10,80,198,41
 END
 
 IDD_SELECT_HASHFUNCTION DIALOG DISCARDABLE  0, 0, 131, 118
@@ -9529,8 +9536,10 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
+        VERTGUIDE, 10
         VERTGUIDE, 30
-        HORZGUIDE, 180
+        VERTGUIDE, 208
+        HORZGUIDE, 232
     END
 
     IDD_SELECT_HASHFUNCTION, DIALOG
