@@ -162,8 +162,9 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, OnAnalyseZufallstestsFipspub1401)
 	ON_COMMAND(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnEinzelverfahrenHashwerteHashdemo)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
-	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridentschlsselung)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
+	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridentschlsselung)
+	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -192,8 +193,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
-	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1675,11 +1674,3 @@ void CCryptDoc::OnEinzelverfahrenAsn1decodieren()
 		}
 	}
 }
-
-// Der Benutzer möchte die Visualisierung des Diffie-Hellman-Schlüsselaustausch-Verfahrens sehen
-void CCryptDoc::OnEinzelverfahrenDiffiehellmandemo() 
-{
-	CDlgDiffieHellmanVisualization dlg;
-	dlg.DoModal();
-}
-

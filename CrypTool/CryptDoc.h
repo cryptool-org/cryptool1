@@ -133,7 +133,6 @@ protected:
 	afx_msg void OnEinzelverfahrenSignDoc();
 	afx_msg void OnEinzelverfahrenHybridverfahrenHybridentschlsselung();
 	afx_msg void OnEinzelverfahrenAsn1decodieren();
-	afx_msg void OnEinzelverfahrenDiffiehellmandemo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
