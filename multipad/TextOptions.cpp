@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(CTextOptions::IDD, pParent)
 {
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(/*AfxGetInstanceHandle()*/ NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 
 	//{{AFX_DATA_INIT(CTextOptions)
 	m_Format = TRUE;

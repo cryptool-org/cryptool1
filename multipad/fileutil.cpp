@@ -95,7 +95,7 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 					*p = '.';
 				p++;
             }
-		if(j<SrcSize) {
+		if(j<=SrcSize) {
 			p[0] = '\r';
 			p[1] = '\n';
 			p += 2;

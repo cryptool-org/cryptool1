@@ -95,11 +95,11 @@ void CMyEditView::OnShowKey()
 {
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 
-	CString Key = ((CMyDocument*)GetDocument())->csSchluessel;
+	CString Key = ((CMyDocument*)m_pDocument)->csSchluessel;
 
 	if ( Key.GetLength() > 0 )
 	{
-		if ( ((CMyDocument*)GetDocument())->iSchluesselTyp == SCHLUESSEL_LINEAR )
+		if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_LINEAR )
 		{
 			CSchluesselAusgabeLinear AusgabeFenster;
 			
@@ -108,7 +108,7 @@ void CMyEditView::OnShowKey()
 			// Fenster anzeigen
 			AusgabeFenster.DoModal();
 		}
-		else if ( ((CMyDocument*)GetDocument())->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
+		else if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
 		{
 			// Hill Verfahren: 
 			// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt

@@ -235,6 +235,8 @@ void CHexView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	switch(nChar) {
 		case(VK_DELETE):
 			break;
+		case(8):
+			break; 
 		default:
 			CMyEditView::OnKeyDown(nChar, nRepCnt, nFlags);
 	}
