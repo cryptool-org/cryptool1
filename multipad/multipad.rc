@@ -286,7 +286,7 @@ BEGIN
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,94,48,63,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,177,48,55,20
     LTEXT           "Schlüssel eingeben (max.26 verschiedene Zeichen):",
-                    IDC_STATIC,13,11,160,8
+                    IDC_STATIC,13,11,219,8
 END
 
 IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 218, 191
@@ -1570,7 +1570,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_GEN DIALOG DISCARDABLE  0, 0, 310, 266
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüssel aus Paßwort Generieren"
+CAPTION "Schlüssel aus Passwort generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,51,26,233,13,ES_AUTOHSCROLL
@@ -1592,7 +1592,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Eingabe (Passwort und Parameter)",IDC_STATIC,8,4,295,
                     169
-    LTEXT           "Paßwort:",IDC_STATIC,19,28,31,8
+    LTEXT           "Passwort:",IDC_STATIC,19,28,31,8
     LTEXT           "Länge des Ausgabeschlüssels (in Bytes):",IDC_STATIC,19,
                     48,129,8
     LTEXT           "(1 - 20 bytes)",IDC_STATIC,177,48,42,8
@@ -1604,14 +1604,14 @@ BEGIN
     GROUPBOX        "Optionale Parameter",IDC_STATIC,157,75,137,58
     LTEXT           "Salz:",IDC_STATIC,163,93,16,8
     LTEXT           "Anzahl der Iterationen",IDC_STATIC,163,112,70,8
-    GROUPBOX        "Aus dem Paßwort und den weiteren Parametern generierte Schlüssel",
+    GROUPBOX        "Aus dem Passwort und den weiteren Parametern generierter Schlüssel",
                     IDC_STATIC,8,185,295,70
 END
 
 IDD_DIALOG_ANALYSE_NGRAM DIALOGEX 0, 0, 317, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gramm Liste"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
@@ -1625,11 +1625,11 @@ BEGIN
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
     EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,60,86,32,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    EDITTEXT        IDC_EDIT1,61,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
-                    WS_TABSTOP,115,7,195,224
-    GROUPBOX        "Auswahl",IDC_STATIC,7,7,99,118
+                    WS_TABSTOP,115,8,195,223
+    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,118
     LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
     LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
     LTEXT           "-Gramm",IDC_STATIC,45,64,25,8
@@ -1637,7 +1637,7 @@ END
 
 IDD_DIALOG_GEN_RANDOMDATA DIALOG DISCARDABLE  0, 0, 301, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Zufallsdaten Erzeugen"
+CAPTION "Zufallsdaten erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "Zufallsgenerator der &SECUDE Bibliothek",IDC_RADIO1,
@@ -1674,17 +1674,17 @@ BEGIN
                     WS_BORDER | NOT WS_TABSTOP
 END
 
-IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 238, 85
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 238, 94
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Zufallsgenerator"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,9,60,69,18
-    EDITTEXT        IDC_EDIT1,44,37,186,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,60,73,18
-    LTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
-                    IDC_STATIC,7,12,224,21
-    LTEXT           "Modul N = ",IDC_STATIC,8,39,33,8
+    DEFPUSHBUTTON   "&OK",IDOK,9,67,69,19
+    EDITTEXT        IDC_EDIT1,44,42,186,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,67,73,19
+    LTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N.\nWeitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
+                    IDC_STATIC,7,9,224,28
+    LTEXT           "Modul N = ",IDC_STATIC,8,44,33,8
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -1730,17 +1730,17 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Kongruenzgenerator (LCG)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,11,96,69,21
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,176,96,67,21
-    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
-    LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
+    DEFPUSHBUTTON   "&OK",IDOK,11,97,69,21
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,176,97,67,21
+    EDITTEXT        IDC_EDIT1,95,38,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,95,55,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,95,73,148,12,ES_AUTOHSCROLL
+    LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N.\nWeitere Informationen erhalten Sie mit der Taste ""F1"".",
                     IDC_STATIC,11,9,232,25
-    LTEXT           "Geraden-Parameter:",IDC_STATIC,11,37,64,10
-    LTEXT           "a =",IDC_STATIC,82,37,11,8
-    LTEXT           "b =",IDC_STATIC,81,54,10,8
-    LTEXT           "Modul  N =",IDC_STATIC,57,72,35,8
+    LTEXT           "Geraden-Parameter:",IDC_STATIC,11,39,64,10
+    LTEXT           "a =",IDC_STATIC,82,39,11,8
+    LTEXT           "b =",IDC_STATIC,81,56,10,8
+    LTEXT           "Modul  N =",IDC_STATIC,57,74,35,8
 END
 
 IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
@@ -1905,7 +1905,7 @@ BEGIN
     EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Primzahl &erzeugen",IDC_PRIMBUTTON,198,89,79,20,
                     BS_MULTILINE
-    LTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\n Weitere Informationen erhalten Sie mit der Taste ""F1""",
+    LTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\nWeitere Informationen erhalten Sie mit der Taste ""F1"".",
                     IDC_STATIC,10,9,275,34
     LTEXT           "&a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
     LTEXT           "&c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
@@ -2015,17 +2015,17 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
+IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 249, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wie Sie Starten"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Schließen",IDOK,195,189,50,14
     CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,
                     160,13
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
-                    8,239,173,WS_EX_TRANSPARENT
+                    8,239,174,WS_EX_TRANSPARENT
 END
 
 IDD_TEST DIALOG DISCARDABLE  0, 0, 222, 178
@@ -2887,7 +2887,7 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.00\0"
+            VALUE "FileVersion", "1.3.00 beta 9\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2001\0"
             VALUE "LegalTrademarks", "\0"
@@ -2921,12 +2921,12 @@ IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
 IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
 IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
 IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
-IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool.bmp"
 PASTEU                  BITMAP  DISCARDABLE     "res\\EditPaste.bmp"
 PASTED                  BITMAP  DISCARDABLE     "res\\EditPastebmp.bmp"
 PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
 PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
 PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool_deutsch.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3487,7 +3487,8 @@ BEGIN
 
     IDD_RANDOM_PARAMETER_X2_MOD_N, DIALOG
     BEGIN
-        HORZGUIDE, 78
+        HORZGUIDE, 67
+        HORZGUIDE, 86
     END
 
     IDD_RANDOM_PARAMETER_LCG, DIALOG
@@ -3804,7 +3805,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00"
+    IDR_MAINFRAME           "CrypTool 1.3.00 beta 9"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4782,7 +4783,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Teilstring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "Die Anzahl der Homophone wird auf %i heraufgesetzt !"
+                            "Die Anzahl der Homophone wird auf %i gesetzt !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
                             "Die Anzahl der Homophone wird auf %i herabgesetzt !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
@@ -5138,7 +5139,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,13,49,61,20
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,49,63,20
     PUSHBUTTON      "&Cancel",IDCANCEL,177,49,55,20
-    LTEXT           "Enter key (max. 26 characters)",IDC_STATIC,13,11,160,8
+    LTEXT           "Enter key (max. 26 characters)",IDC_STATIC,13,11,214,8
 END
 
 IDD_DIALOG_CERT DIALOG DISCARDABLE  0, 0, 382, 213
@@ -6431,7 +6432,7 @@ END
 IDD_DIALOG_ANALYSE_NGRAM DIALOGEX 0, 0, 317, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Determine list",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "&Save list",IDOK,7,163,99,24
@@ -6449,7 +6450,7 @@ BEGIN
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
                     WS_TABSTOP,115,7,195,224
-    GROUPBOX        "Selection",IDC_STATIC,7,7,99,118
+    GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
     LTEXT           "Display of the",IDC_STATIC,20,88,44,8
     LTEXT           "most common N-Grams",IDC_STATIC,20,101,80,8
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
@@ -6494,17 +6495,17 @@ BEGIN
                     WS_BORDER | NOT WS_TABSTOP
 END
 
-IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 238, 86
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 256, 94
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Random Number Generator"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,8,60,72,17
-    EDITTEXT        IDC_EDIT1,52,39,176,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Cancel",IDCANCEL,160,60,67,17
-    LTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter. Additional information can be obtained from the on-line help (""F1"" key).",
-                    IDC_STATIC,7,7,219,28
-    LTEXT           "Modulus N = ",IDC_STATIC,8,41,42,8
+    DEFPUSHBUTTON   "&OK",IDOK,10,64,72,19
+    EDITTEXT        IDC_EDIT1,52,39,193,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Cancel",IDCANCEL,178,64,67,19
+    LTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter.\nAdditional information can be obtained from the on-line help (""F1"" key).",
+                    IDC_STATIC,10,7,235,28
+    LTEXT           "Modulus N = ",IDC_STATIC,10,41,42,8
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -6555,7 +6556,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
-    LTEXT           "The linear congruence generator uses a and b from line ax + b and modulus N as parameters. Additional information can be obtained from the on-line help (""F1"" key).",
+    LTEXT           "The linear congruence generator uses a and b from line ax + b and modulus N as parameters.\nAdditional information can be obtained from the on-line help (""F1"" key).",
                     IDC_STATIC,11,9,232,25
     LTEXT           "Straight line parameters:",IDC_STATIC,11,38,64,10
     LTEXT           "a =",IDC_STATIC,82,37,11,8
@@ -6794,16 +6795,16 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
+IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "How to Start"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
     CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
-                    8,239,173,WS_EX_TRANSPARENT
+                    8,239,174,WS_EX_TRANSPARENT
 END
 
 IDD_TEST DIALOG DISCARDABLE  0, 0, 220, 178
@@ -7661,7 +7662,7 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.00\0"
+            VALUE "FileVersion", "1.3.00 beta 9\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2001\0"
             VALUE "LegalTrademarks", "\0"
@@ -7914,6 +7915,14 @@ BEGIN
         HORZGUIDE, 376
     END
 
+    IDD_RANDOM_PARAMETER_X2_MOD_N, DIALOG
+    BEGIN
+        VERTGUIDE, 10
+        VERTGUIDE, 245
+        HORZGUIDE, 64
+        HORZGUIDE, 83
+    END
+
     IDD_RANDOM_PARAMETER_LCG, DIALOG
     BEGIN
         VERTGUIDE, 11
@@ -8147,7 +8156,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00"
+    IDR_MAINFRAME           "CrypTool 1.3.00 beta 9"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -9145,7 +9154,7 @@ BEGIN
                             "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "The input does contain characters which are not in the alphabet set!\nIf you click OK, only characters of the alphabet will be encrypted (the other characters will be erased from the input)."
-    IDS_STRING_HELPNAME     "cryptool-gb.hlp"
+    IDS_STRING_HELPNAME     "cryptool-en.hlp"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "In case of preformat, duplicate letters are seperated by the letter 'X'.\nPlease correct."
     IDS_STRING_PLAYFAIR_ERRMSG122 

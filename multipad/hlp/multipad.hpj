@@ -2,18 +2,18 @@
 
 [OPTIONS]
 COMPRESS=12 Hall Zeck
-ERRORLOG=CrypTool.log
+ERRORLOG=CrypTool-de.log
 LCID=0x407 0x0 0x0 ; Deutsch (Deutschland)
 REPORT=Yes
 CONTENTS=main_index
 TITLE=CrypTool-Anwendungshilfe
-CNT=CrypTool_ger.cnt
+CNT=cryptool-de.cnt
 COPYRIGHT=Copyright (C) 1998-2001 Deutsche Bank AG, Frankfurt
 BMROOT=..
 BMROOT=.
 ROOT=..
 ROOT=.
-HLP=CrypTool_ger.HLP
+HLP=cryptool-de.hlp
 
 [FILES]
 afxcore.rtf

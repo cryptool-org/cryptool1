@@ -242,7 +242,7 @@ void CDialogPlayfair::OnManAnalyse()
 		char nChar = m_mytxt[j];
 		if ( m_TextWasPreformatted )
 		{
-			if (!m_Alg->myisalpha2(nChar))  
+			if (NULLELEMENT != nChar && !m_Alg->myisalpha2(nChar))  
 				nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, toupper(nChar));
 			if ((NULLELEMENT==nChar) || (m_Alg->myisalpha2(nChar))) 
 			{

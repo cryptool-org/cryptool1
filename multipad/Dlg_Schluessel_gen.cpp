@@ -91,7 +91,7 @@ BOOL Dlg_Schluessel_gen::OnInitDialog()
 void Dlg_Schluessel_gen::OnBUTTONGenerieren() 
 {
 	UpdateData(true);
-	theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
+	theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
 	if (0==SG.password_based_key_deriv_funct(m_passwort, m_salt,m_dkLen,m_radio1,m_zaehler))
 	{
 		int ndx = 0, md = 0;
@@ -105,7 +105,7 @@ void Dlg_Schluessel_gen::OnBUTTONGenerieren()
 		}
 		// m_schluessel= ((CString) SG.str);
 	}
-	theApp.DoWaitCursor(1);				// deaktiviert die Sanduhr (statt des Mauszeigers)
+	theApp.DoWaitCursor(-1);				// deaktiviert die Sanduhr (statt des Mauszeigers)
 	UpdateData(false);
 }
 
