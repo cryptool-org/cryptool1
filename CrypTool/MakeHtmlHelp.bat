@@ -34,7 +34,7 @@ makehm IDW_,HIDW_,0x50000 resource.h >>%HM%
 REM -- Hilfe erstellen fuer Projekt CrypTool
 
 
-echo Converting CrypTool.hm to CrypTool_helpIDs.h with hh_generator.pl 
+echo Converting CrypTool.hm to CrypTool_helpIDs.h by means of hh_generator.pl 
 
 perl -e 1
 if errorlevel 1 goto noperl

@@ -622,33 +622,37 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 303
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 284, 268
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,65,278,50,14
-    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,166,
+    DEFPUSHBUTTON   "OK",IDOK,112,245,50,14
+    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
                     11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,152,8
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,263,8
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,152,16
-    CTEXT           "Henrik Koy",IDC_STATIC,14,93,152,9,NOT WS_GROUP
-    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
+                    59,263,16
+    CTEXT           "Henrik Koy",IDC_STATIC,14,93,263,9,NOT WS_GROUP
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,270,
                     22,BS_CENTER
-    GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,166,30,
+    GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,270,30,
                     BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,166,22,
+    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,270,22,
                     BS_CENTER
     GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
-                    109,166,86,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,198,166,71,BS_CENTER
-    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
-                    IDC_STATIC,18,122,150,40
-    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,18,162,150,27
-    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...und viele andere.",
-                    IDC_STATIC,14,208,152,57
+                    109,270,86,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,198,270,42,BS_CENTER
+    LTEXT           "Martin Bartosch,\nKlaus Esslinger,\nPeter Gruber,\nMatej Matejicek,\nDaniel Saffran,\nChristian Tobias,",
+                    IDC_STATIC,18,122,84,67
+    LTEXT           "Jan Blumenstein,\nBartol Filipovic,\nJens Liebehenschel,\nChristian Mletzko,\nMark Santiago,\nMyriam Zeuner-Guerrier.",
+                    IDC_STATIC,102,122,84,67
+    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,209,84,26
+    LTEXT           "Richard Christensen,\nThomas Gauweiler,\nFlorian Marchal,\nRoger Oyono,\nThomas Thiele,",
+                    IDC_STATIC,186,122,85,63
+    LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
+                    IDC_STATIC,102,209,84,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,209,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -4643,7 +4647,15 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        HORZGUIDE, 292
+        VERTGUIDE, 7
+        VERTGUIDE, 18
+        VERTGUIDE, 102
+        VERTGUIDE, 186
+        VERTGUIDE, 277
+        BOTTOMMARGIN, 259
+        HORZGUIDE, 122
+        HORZGUIDE, 209
+        HORZGUIDE, 235
     END
 
     IDD_STARTOPTIONS, DIALOG
@@ -7306,32 +7318,36 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 301
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 291, 273
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,65,276,50,15
-    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,166,11,
+    DEFPUSHBUTTON   "OK",IDOK,119,244,50,19
+    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,152,8
-    CTEXT           "Henrik Koy",IDC_STATIC,14,94,152,8,NOT WS_GROUP
-    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...and many more.",
-                    IDC_STATIC,14,205,152,57
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
+    CTEXT           "Henrik Koy",IDC_STATIC,14,94,270,8,NOT WS_GROUP
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,152,17
-    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
+                    59,270,17
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,277,
                     23,BS_CENTER
-    GROUPBOX        " Design, Support ",IDC_STATIC,7,49,166,31,BS_CENTER
+    GROUPBOX        " Design, Support ",IDC_STATIC,7,49,277,31,BS_CENTER
     GROUPBOX        " Main person taking overall care for version 1.3 ",
-                    IDC_STATIC,7,83,166,24,BS_CENTER
+                    IDC_STATIC,7,83,277,24,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",
-                    IDC_STATIC,7,110,166,82,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,195,166,70,BS_CENTER
-    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
-                    IDC_STATIC,17,122,150,40
-    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,17,162,150,27
+                    IDC_STATIC,7,110,277,81,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,195,277,43,BS_CENTER
+    LTEXT           "Martin Bartosch,\nKlaus Esslinger,\nPeter Gruber,\nMatej Matejicek,\nDaniel Saffran,\nChristian Tobias,",
+                    IDC_STATIC,18,122,84,67
+    LTEXT           "Jan Blumenstein,\nBartol Filipovic,\nJens Liebehenschel,\nChristian Mletzko,\nMark Santiago,\nMyriam Zeuner-Guerrier.",
+                    IDC_STATIC,102,122,84,67
+    LTEXT           "Richard Christensen,\nThomas Gauweiler,\nFlorian Marchal,\nRoger Oyono,\nThomas Thiele,",
+                    IDC_STATIC,186,122,85,63
+    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,209,84,26
+    LTEXT           "Matthias Büger\nWolfgang Scondo\n...and many others.",
+                    IDC_STATIC,102,209,84,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,209,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -11081,8 +11097,13 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 291
-        HORZGUIDE, 277
+        VERTGUIDE, 7
+        VERTGUIDE, 18
+        VERTGUIDE, 102
+        VERTGUIDE, 186
+        VERTGUIDE, 284
+        BOTTOMMARGIN, 263
+        HORZGUIDE, 244
     END
 
     IDD_KEY_HILL_10X10, DIALOG
