@@ -3128,58 +3128,39 @@ void HashOfAFile()
 
 void Hashdemo(const char *infile,const char *OldTitle)
 {
-	CDlgHashDemo HashDlg;
-	// Objekt (HashDlg) der Klasse CDlgHashDemo wird erzeugt
-
-	ifstream test(infile,ios::in|ios::binary);
-	// Objekt (test) der Klasse ifstream wird erzeugt und der Pfad + Dateiname der
-	// temporären Datei zugewiesen. Die Datei wird geöffnet (nicht gelesen)
-	//test wird nur erzeugt wenn die Datei geöffnet werden kann bzw existiert
-
-	if (!test)
-	// wenn test die Datei nicht öffnen konnte,
-	// wird eine Fehlermeldung ausgegeben
+	long FileSize;
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);		
-		return;
+		struct stat *obj;
+		obj = new (struct stat);
+		int result = stat((const char*)infile,obj);
+		FileSize = obj->st_size;
+		delete obj;
+		if ( result != 0 )
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
+			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+			return;
+		}
 	}
-
-	CString str1=" ' ";
-	CString zsp=str1 + OldTitle + str1;
-	
-	HashDlg.m_strTitel= zsp;
-	//Setzen des Titelnamens der Datei in ein Textfeld (in Hashdemo)
-
-	char *t;
-	// ein Zeiger auf ein char-Array, in dem die temporäre Datei eingelesen werden soll) wird initialisiert
-
-	t = new char[MAX_LAENGE_STRTEXT+20];
-
-
-	test.read( t, MAX_LAENGE_STRTEXT);
-	//in test werden nur MAX_LAENGE_STRTEXT Zeichen der temporären
-	//Datei in eingelesen und in t gespeichert, die restlichen Zeichen werden ignoriert
-
-	int cnt = test.gcount();
-	//die Anzahl der Zeichen in der gekürzten Datei werden gezählt und in cnt gespeichert
-
-	t[cnt] = 0;
-
-	if(  !test.eof() )
+	if ( FileSize > 16000 )
 	{
 		CString msg;
 		msg.Format(IDS_STRING_Hashdemo_DateilaengeZuLang,MAX_LAENGE_STRTEXT);
 		AfxMessageBox((LPCTSTR)msg,MB_ICONEXCLAMATION,IDD_HASH_DEMO + 0x20000UL - 0x30000);	
+		FileSize = 16000;
 	}
-	// das Objekt test liest maximum 16000 Zeichen in das Array t ein
-	
-	test.close();
-	// Die temporäre Datei wird wieder geschlossen
 
-	HashDlg.m_strText = t;
-	
-	if ( strlen(t)  == 0 )
+	OctetString *TextFile;
+	TextFile = new OctetString;
+	TextFile->noctets = FileSize;
+	TextFile->octets  = new char [FileSize+1];
+
+	CFile f( infile, CFile::modeRead );
+	f.Read( (void *)TextFile->octets, FileSize );
+	f.Close();
+	TextFile->octets[FileSize] = '\0';
+
+	if ( strlen(TextFile->octets)  == 0 )
 	// Wenn die Länge des String 0 ist, dann wird eine Fehlermeldung ausgegeben
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_KeineWerteGefunden,pc_str,100);
@@ -3188,33 +3169,32 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	}
 
 
-	OctetString *message,hashMD2, hashMD5, hashSHA1;
+	CDlgHashDemo HashDlg;
+	// Objekt (HashDlg) der Klasse CDlgHashDemo wird erzeugt
+	HashDlg.m_strTitel=CString(" ' ") + OldTitle + CString(" ' ");
+	//Setzen des Titelnamens der Datei in ein Textfeld (in Hashdemo)
+	HashDlg.m_strText = CString((char*)TextFile->octets);
+	
+
+
+	OctetString hashMD2, hashMD5, hashSHA1;
 	//OctetString ist eine Struktur mit 2 Variablen, 1 Zeiger auf char (octets=der auf den zu hashenden
 	//text zeigt, bzw auf den Hashwert) und 1 Unsigned long das die Anzahl der chars angibt (noctets)
 	//message ist die Eingabe für die Hashfunktionen
 	//hashxxx sind die erzeugten Hashwerte der Eingabe und deren Länge
-
-	message = new OctetString;
-	message->octets=t;
-	//Zeiger auf den Text t (mit '\n')
-	//kein Adressoperator da t schon die Adresse angibt
-	//octets zeigt nun auf die Speicheradresse von t
-
-	message->noctets=cnt;
-	//Länge des Textes t
 
 	hashMD2.noctets=0;
 	hashMD5.noctets=0;
 	hashSHA1.noctets=0;
 	//Länge des noch nicht berechneten Hashs =0
 	
-	theApp.SecudeLib.sec_hash_all(message,&hashMD2,theApp.SecudeLib.md2_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(TextFile,&hashMD2,theApp.SecudeLib.md2_aid,NULL);
 	//der Inhalt von message wird mit dem Hashalgorithmus MD2 gehasht
 	//Ihm wird die Struktur message übergeben, die den zu hashenden Text beinhaltet, und dessen Länge
 	//und die Adresse auf die Strukur hashMD2, in die der Hashwert und dessen Länge geschrieben wird.
 
-	theApp.SecudeLib.sec_hash_all(message,&hashMD5,theApp.SecudeLib.md5_aid,NULL);
-	theApp.SecudeLib.sec_hash_all(message,&hashSHA1,theApp.SecudeLib.sha1_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(TextFile,&hashMD5,theApp.SecudeLib.md5_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(TextFile,&hashSHA1,theApp.SecudeLib.sha1_aid,NULL);
 	//es werden die drei benötigten Hashwerte der Originaldatei gebildet und im Speicher gehalten
 	
 	HashDlg.SetHash(hashMD2,hashMD5,hashSHA1);
@@ -3224,8 +3204,8 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	HashDlg.DoModal();
 	// Die Instanz der Klasse (Der Dialog) wird modal aufgerufen
 
-	delete message;
-	delete []t;
+	delete []TextFile->octets;
+	delete TextFile;
 	//Speicher auf dem Heap freigeben
 }
 
