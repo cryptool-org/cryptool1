@@ -444,6 +444,7 @@ void VernamBin(const char *infile, const char *OldTitle)
 	
 // == load KEY
 	{
+		/*
 		OPENFILENAME ofn;
 		memset(&ofn,0,sizeof(ofn));
 		ofn.lStructSize = sizeof(ofn);
@@ -458,6 +459,30 @@ void VernamBin(const char *infile, const char *OldTitle)
 		ofn.nMaxFileTitle = sizeof(ftitle)-1;
 		if(!GetOpenFileName(&ofn)) return;
 		if(fname[0]==0) return;
+		*/	
+		
+		// Initialisierung des File-Dialogs:
+		CString sFileFilter;
+		CString sDefName("*.txt");
+		CString sTitle;
+		DWORD   dwFlags(OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
+		sFileFilter.LoadString(IDS_OPEN_DOCUMENT_FILTER);
+		sTitle.LoadString(IDS_STRING_VERNAM_KEYFILE);
+		CFileDialog* doc;
+		doc = new CFileDialog(TRUE, NULL, sDefName, dwFlags, sFileFilter);
+		doc->m_ofn.lpstrTitle = sTitle;
+
+		if(doc->DoModal()==IDOK)// Aufruf des File-Dialogs
+		{			
+			strcpy(ftitle, LPCTSTR (doc->GetFileName()));
+			strcpy(fname, LPCTSTR (doc->GetPathName()));
+			delete doc;
+		}
+		else
+		{
+			delete doc;
+			return;
+		}
 	}
 
 // == Encryption / Decryption

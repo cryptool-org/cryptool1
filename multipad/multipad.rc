@@ -4859,6 +4859,8 @@ BEGIN
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
+    IDS_OPEN_DOCUMENT_FILTER 
+                            "Text-Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
 END
 
 STRINGTABLE DISCARDABLE 
