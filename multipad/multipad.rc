@@ -2322,6 +2322,25 @@ BEGIN
                     NOT WS_BORDER
 END
 
+IDD_DIALOG_SELECT_HASHFUNCTION DIALOG DISCARDABLE  0, 0, 131, 118
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hashfunktion wählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,74,97,50,14
+    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,15,82,10
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,27,64,8
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,25,38,64,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,52,64,8
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,25,62,64,
+                    8
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,25,
+                    76,64,8
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3849,6 +3868,15 @@ BEGIN
         RIGHTMARGIN, 141
         TOPMARGIN, 7
         BOTTOMMARGIN, 123
+    END
+
+    IDD_DIALOG_SELECT_HASHFUNCTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        VERTGUIDE, 25
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -7088,7 +7116,7 @@ END
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "How to Start"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
     CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",

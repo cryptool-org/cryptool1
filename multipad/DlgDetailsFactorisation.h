@@ -18,6 +18,8 @@ struct DFItem {
 	CString Method;
 	CString Time;
 	int     PrimeMask;
+	int		BitlengthF1;
+	int		BitlengthF2;
 	struct  DFItem *next;
 };
 
@@ -32,7 +34,8 @@ class DlgDetailsFactorisation : public CDialog
 public:
 	void ClearFactDetail();
 	void InsertFactDetail( CString & Num, CString &Factor1, 
-		                   CString &Factor2, CString &Method, CString &Time, int PrimeMask);
+		                   CString &Factor2, CString &Method, CString &Time, int PrimeMask,
+						   int BitlengthF1, int BitlengthF2);
 	void Init_ListBox();
 	DlgDetailsFactorisation(CWnd* pParent = NULL);   // Standardkonstruktor
 

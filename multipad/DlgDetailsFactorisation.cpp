@@ -15,8 +15,10 @@ static char THIS_FILE[] = __FILE__;
 // Dialogfeld DlgDetailsFactorisation 
 
 
-DlgDetailsFactorisation::DlgDetailsFactorisation(CWnd* pParent /*=NULL*/)
-	: CDialog(DlgDetailsFactorisation::IDD, pParent)
+
+
+DlgDetailsFactorisation::DlgDetailsFactorisation(CWnd* pParent)
+ : CDialog(DlgDetailsFactorisation::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(DlgDetailsFactorisation)
 	m_orignNumber = _T("");
@@ -102,7 +104,7 @@ void DlgDetailsFactorisation::Init_ListBox()
 
 void DlgDetailsFactorisation::InsertFactDetail(CString &Num, CString &Factor1, 
 		                                        CString &Factor2, CString &Method , CString &Time,
-												int PrimeMask)
+												int PrimeMask, int BitlengthF1, int BitlengthF2)
 {
 	struct DFItem *Last = new (struct DFItem);
 	Last->Num     = Num;
@@ -111,6 +113,8 @@ void DlgDetailsFactorisation::InsertFactDetail(CString &Num, CString &Factor1,
 	Last->Method  = Method;
 	Last->Time    = Time;
 	Last->PrimeMask = PrimeMask;
+	Last->BitlengthF1 = BitlengthF1;
+	Last->BitlengthF2 = BitlengthF2;
 	Last->next    = NULL;
 
 	
@@ -165,30 +169,34 @@ void DlgDetailsFactorisation::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 		j++;
 	}
 	if ( Seek == NULL ) return;
-	UpdateData();
-	m_factorisedNumber = Seek->Num;
-	m_factor1 = Seek->Factor1;
-	m_factor2 = Seek->Factor2;
 
-	if ( Seek->PrimeMask & 1 )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+		char line[128];
+		UpdateData();
+		m_factorisedNumber = Seek->Num;
+		m_factor1 = Seek->Factor1;
+		m_factor2 = Seek->Factor2;
+		if ( Seek->PrimeMask & 1 )
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+		}
+		sprintf(line, pc_str, Seek->BitlengthF1);
+		m_Factor1isPrime = line;
+		if ( Seek->PrimeMask & 2 )
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+		}
+		sprintf(line, pc_str, Seek->BitlengthF2);
+		m_Factor2isPrime = line;
+		UpdateData(FALSE);
 	}
-	else
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
-	}
-	m_Factor1isPrime = pc_str;
-	if ( Seek->PrimeMask & 2 )
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
-	}
-	else
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
-	}
-	m_Factor2isPrime = pc_str;
-	UpdateData(FALSE);
-	
 	*pResult = 0;
 }
