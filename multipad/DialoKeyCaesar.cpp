@@ -7,7 +7,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DialoKeyCaesar.h"
-#include "DlgPrimesGenerator.h"
+// #include "DlgPrimesGenerator.h" // ## Weg 
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

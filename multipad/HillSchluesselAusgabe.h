@@ -17,6 +17,7 @@
 class CHillSchluesselAusgabe : public CDialog
 {
 // Konstruktion
+	int keyDimension;
 public:
 	void SchluesselAnzeigen (CString Key);
 	void MatrixAnzeigen(square_matrix& mat, int dim, hill& hillklasse);

@@ -29,6 +29,7 @@ private:
 class CHillEingabe : public CDialog
 {
 	CBitmapButton m_Paste;
+
 // Konstruktion
 public:
 	int		m_decrypt;

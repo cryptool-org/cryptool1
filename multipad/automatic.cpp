@@ -6,7 +6,7 @@
 #include "multipad.h"
 #include "fileutil.h"
 #include "CryptDoc.h"
-// #include "crypt.h"
+#include "crypt.h"
 #include "automatic.h"
 #include "TextEingabeHillAngriff.h"
 #include "HillSchluesselAusgabe.h"

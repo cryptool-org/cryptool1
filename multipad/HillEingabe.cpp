@@ -653,6 +653,7 @@ bool CHillEingabe::NaechsterEintrag(int &i, int &j)
 void CHillEingabe::OnPasteKey() 
 {
 	CString cs, hilf;
+
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	if ( PasteKey(pc_str,cs) )
 	{
@@ -661,13 +662,13 @@ void CHillEingabe::OnPasteKey()
  			j=-1,         // Spalte des naechsten Eintrages in die Schluesselmatrix 
  			l=0,          // Laufvariable fuer den Text aus der Zwischenablage
  			laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
-			
+		int keyDim = 0;
 		while (l<laenge) {
 			hilf = cs[l++];
 			if (hillklasse->ist_erlaubtes_zeichen(hilf[0])) i++;
 		}
 		
-		if ( i < HILL_MAX_DIM*HILL_MAX_DIM )
+		if ( i <= HILL_MAX_DIM*HILL_MAX_DIM )
 		{	
 			i = l = 0;
  			while (l < laenge)
@@ -694,6 +695,11 @@ void CHillEingabe::OnPasteKey()
  				{
  					// Wir starten in der naechsten Zeile wieder vorne,
  					// sofern wir nicht schon am Anfang einer Zeile stehen...
+					if (keyDim == 0) keyDim = j+1;
+					else if ( j+1 != keyDim ) {
+						/* ToDo: Fehler Meldung */
+						return; 
+					}
  					i++;
  					j = -1;
  					// ... sofern es noch eine weitere gibt.
@@ -707,9 +713,9 @@ void CHillEingabe::OnPasteKey()
  				l++;
  			}
 
-			if ( j < 0 ) i--;
-			ASSERT ((0 <= i) && (i <= HILL_MAX_DIM));
-			dim = i;
+			// if ( j < 0 ) i--;
+			ASSERT ((0 <= keyDim) && (keyDim <= HILL_MAX_DIM));
+			dim = keyDim;
 			iHillSchluesselDim = dim;
 
 			switch (i)

@@ -1245,7 +1245,8 @@ void CHillEingabeGross::OnPasteKey()
  			j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
  			l=0, // Laufvariable fuer den Text aus der Zwischenablage
  			laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
- 		
+		int keyDim = 0;
+		
  		while (l < laenge)
  		{
  			hilf = cs[l];
@@ -1271,6 +1272,12 @@ void CHillEingabeGross::OnPasteKey()
  				// Wir starten in der naechsten Zeile wieder vorne,
  				// sofern wir nicht schon am Anfang einer Zeile stehen...
  				i++;
+				if (keyDim == 0) keyDim = j+1;
+				else if ( j+1 != keyDim ) {
+					/* ToDo: Fehler Meldung */
+					return; 
+				}
+
  				j = -1;
  				// ... sofern es noch eine weitere gibt.
  				if (i == HILL_MAX_DIM_GROSS)
@@ -1284,9 +1291,8 @@ void CHillEingabeGross::OnPasteKey()
  			l++;
  		}
 
-		if ( j < 0 ) i--;
-		ASSERT ((0 <= i) && (i <= HILL_MAX_DIM_GROSS));
-		dim = i;
+		ASSERT ((0 <= keyDim) && (keyDim <= HILL_MAX_DIM));
+		dim = keyDim;
 		iHillSchluesselDim = dim;
 
 		switch (iHillSchluesselDim)
