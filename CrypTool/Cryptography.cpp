@@ -3006,7 +3006,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 			else b3 = b2;
 		}
 
-		GetTmpName(outfile,"cry",".tmp");
+		GetTmpName(outfile,"cry",".txt");
 		
 		CFile outf(outfile,CFile::modeWrite | CFile::modeCreate);
 		outf.Write(b3,l2);
