@@ -278,22 +278,43 @@ void PlayfairBin(const char *infile, const char *OldTitle)
  	char outfile[128],preform[128],title[128];
     CAppDocument *NewDoc;
 
-	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
-	CFile datei(infile, CFile::modeRead);
-
+	// Überprüfen, ob die Eingabedatei mindestens zwei gültige Zeichen enthält,
+	// d.h. Zeichen, die im entsprechenden Alphabet vorkommen.
+	FILE *stream;
 	long infile_zeichen_anz = 0;
+	int ch;
 	char c;
-	while(datei.Read(&c,1))
-	{
-		
-		if( ( (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')  ) )
-		{
-			infile_zeichen_anz++;
-			if ( infile_zeichen_anz >= 2 ) break;
-		}
-	}
-	datei.Close();
 
+	// Das Lesen der Datei wurde wegen Geschwindigkeitsvorteilen nachträglich nicht
+	// mehr durch MFC implementiert. Um durch die Codeänderung keinen Absturz zu verursachen,
+	// wird die Prüfung _NUR_ bei erfolgreicher Dateiöffnung durchgeführt.
+	if( (stream = fopen(infile, "rb" )) )
+	{
+		ch = fgetc(stream);	
+		
+		// Bis zum Erreichen des Dateiendes (EOF) wird die gesamte Datei durchsucht
+		// und jedes Zeichen einzeln auf Gültigkeit überprüft.
+		for( int i=0; feof( stream ) == 0; i++ )
+		{
+			c = (char)ch;
+
+			if( ( (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')  ) )
+			{
+				infile_zeichen_anz++;
+				
+				// An dieser Stelle ist das Gültigkeitskriterium erreicht,
+				// die for-Schleife wird demnach abgebrochen.
+				if ( infile_zeichen_anz >= 2 ) break;
+			}
+
+			ch = fgetc( stream );
+		
+		}
+	
+		fclose( stream );
+	
+	}
+	
 	if (infile_zeichen_anz < 2)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
