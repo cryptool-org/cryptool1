@@ -43,8 +43,6 @@ protected:
 	void vergleiche_test_ergeb(); //Die Vergleichung von def_param und test_ergeb
 	void Set_test_ergeb( double n ) { test_ergeb = n; }
 	void Set_result( BOOL n ) { bestanden = n; }
-	double Get_test_ergeb() { return test_ergeb; }
-	double Get_DefParam() { return def_param; }
 	const char *infile;    //für die test() Funktion
 	const char *oldtitle;  //für die test() Funktion
 
@@ -56,6 +54,8 @@ public:
 	void Set_infile( const char *n ) { infile = n; }
 	void Set_oldtitle( const char *n ) { oldtitle = n; }
 	void Set_DefParam( double n );
+	double Get_test_ergeb() { return test_ergeb; }
+	double Get_DefParam() { return def_param; }
 	virtual void test() = 0;
 	BOOL GetResult() { return bestanden; }
 	BOOL SetOffset( UINT n );
@@ -70,10 +70,10 @@ public:
 	long nullen;
 	long testlaenge;
 ////////////////////////
-	long GetEinsen() { return einsen; }
+/*	long GetEinsen() { return einsen; }
 	long GetNullen() { return nullen; }
 	long GetTestLaenge() { return testlaenge; }
-	double GetDefaultStaticParam() { return def_param; }
+	double GetDefaultStaticParam() { return def_param; }*/
 	double def_param;		//parameter mit dem man das Ergebnis vergleicht
 ////////////////////////////////////
 
@@ -113,6 +113,7 @@ public:
 class Long_Run_Test : public Zufallsgenerator_Tests  
 {
 public:
+	int longest_run_final;
 	BOOL fips_flag;
 	UINT longrun_lang;
 	void test();

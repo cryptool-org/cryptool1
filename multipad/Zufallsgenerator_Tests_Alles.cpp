@@ -154,20 +154,13 @@ void Freq_Test::test() //Frequency-Test Verfahren
 		if ( def2 == TRUE ) //Benutzen wir Random Offset und Testlänge ???
 		{
 			anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
-			if(def == FALSE)
+			bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+
+			while(((anf + bis) >= ByteLengthOfInput) || (bis <= 12))
 			{
-				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
-			}
-			else
-			{
-				bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % ByteLengthOfInput;
-			}
-	
-			while((anf + bis) > ByteLengthOfInput)
-			{
+				bis = 0, anf = 0;
 				anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
-				if ( def == FALSE ) bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
-				else bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % ByteLengthOfInput;
+				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			}
 		}
 
@@ -177,8 +170,12 @@ void Freq_Test::test() //Frequency-Test Verfahren
 			bis = testlen;
 		}
 
+		//if (anf < 0) anf = 0;
+
 		n = 0;
 		null=0; eins=0;
+
+		
 
 		if (read && read.seekg(anf))
 		{
@@ -193,18 +190,32 @@ void Freq_Test::test() //Frequency-Test Verfahren
 				}
 			}
 		}
-		Set_test_ergeb( ((null - eins) * (null - eins)) / (n*8) );	//Nach den Formel [(n_0-n_1)^2]/n
+		else //Wenn Positionierung in Datei nicht erfolgt, dann Schleife fortsetzen
+		{
+			anf = 0;
+			SuccessFlag = TRUE;
+			continue;
+		}
+
+		double x=(((null - eins) * (null - eins)) / (n*8));
+		Set_test_ergeb( x );	//Nach den Formel [(n_0-n_1)^2]/n
 														//n_0 - die Anzahl der Nullen in der Datei
 														//n_1 - die Anzahl der Einsen in der Datei
 														//n	  - die Anzahl der Bits der Datei
 		vergleiche_test_ergeb();
+
 		einsen = eins;
-// Nicht vergessen: spaeter wieder raus
-		nullen = null;
-		testlaenge = n;
-///////////////////////////////////////
+
 		if (TRUE != (SuccessFlag &= GetResult())) break;
-		else continue;
+		else 
+		{
+			nullen = null;
+			testlaenge = n;
+			continue;
+		}
+
+// Nicht vergessen: spaeter wieder raus
+///////////////////////////////////////
 	}
 
 	read.close();
@@ -234,6 +245,8 @@ void Serial_Test::test()
 {
 	long ByteLengthOfInput = 0; // Variabel die Länge der untersuchte Datei speichert
 	UINT alle = 0; // Variabel die alle bestandene Testversuche zählt
+
+	BOOL SuccessFlag = TRUE;
 
 	//Laden von der Dateilänge
 	CStdioFile file;
@@ -271,7 +284,7 @@ void Serial_Test::test()
 	if (def2 == TRUE) lang_test=10; //Wird der Test einmal oder 10x durchgeführt werden
 	else if (def2 == FALSE) lang_test=1;
 
-	for (int j=0; j<lang_test ;j++) //Test wird mehrmals (einmal) durchgeführt
+	for (int TestDurchlaeufe=0; TestDurchlaeufe<lang_test ;TestDurchlaeufe++) //Test wird mehrmals (einmal) durchgeführt
 	{
 		if ( def2 == TRUE ) //Benutzen wir Random Offset und Testlänge ?
 		{
@@ -321,13 +334,13 @@ void Serial_Test::test()
 				{
 					if (temp == 2)
 					{
-						// if (i > 2) ch /= 2;
-						if ( ch % 2 )
+						if (i > 2) ch /= 2;
+						if ( ch % 2 )//bitt( ch, i ) )
 						{
 							n_1++;
 							ch /= 2;
 							i++;
-							if (ch % 2) 
+							if ( ch % 2 )//bitt( ch, i ) )
 							{
 								n_1++;
 								n_11++;
@@ -347,7 +360,7 @@ void Serial_Test::test()
 							n_0++;
 							ch /= 2;
 							i++;
-							if (ch % 2)
+							if ( ch % 2 )//bitt( ch, i ) )
 							{
 								n_1++;
 								n_01++;
@@ -365,7 +378,7 @@ void Serial_Test::test()
 					{
 						if (flag == 0) ch /= 2;
 						flag = 0;
-						if ( ch % 2 )
+						if ( ch % 2 )//bitt( ch, i ) )
 						{
 							n_1++;
 							n_11++;
@@ -382,7 +395,7 @@ void Serial_Test::test()
 					{
 						if (flag == 0) ch /= 2;
 						flag = 0;
-						if ( ch % 2 )
+						if ( ch % 2 )//bitt( ch, i ) )
 						{
 							n_1++;
 							n_01++;
@@ -399,6 +412,12 @@ void Serial_Test::test()
 				}
 			}
 		}
+		else //Wenn Positionierung in Datei nicht erfolgt, dann Schleife fortsetzen
+		{
+			anf = 0;
+			SuccessFlag = TRUE;
+			continue;
+		}
 		Set_test_ergeb( (4 * ((n_00 * n_00) + (n_01 * n_01) + (n_10 * n_10) + (n_11 * n_11)) / (n * 8 - 1)) - ((2 * (n_0 * n_0 + n_1 * n_1))/(n * 8)) + 1);	
 						//Nach den Formel [4 / (n - 1) * (n_00^2 + n_01^2 + n_10^2 + n_11^2)] - [(2 / n) * (n_0^2 + n_1^2)] + 1
 						//n_0 - die Anzahl der Nullen in der Datei
@@ -407,13 +426,9 @@ void Serial_Test::test()
 
 		vergleiche_test_ergeb();
 
-		if (GetResult()==TRUE) alle++;
+		if (TRUE != (SuccessFlag &= GetResult())) break;
 		else continue;
 	}
-
-	if (alle == j) Set_result(TRUE); //Wenn alle tests bestanden sind dann ist der Test bestanden
-	else Set_result(FALSE);
-
 
 }
 
@@ -441,16 +456,16 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 {
 	//Man untersucht die ganze Datei nach einem Longrun, wenn gefunden dan TRUE, wenn nicht dan FALSE
 	char ch = '\0';
-	long run = 0, j = 0, longest_run = 0, i = 0, tmp = 0;
+	long run = 0, bit = 0, longest_run = 0, i = 0, ByteLengthOfInput = 0;
 		//run - Lokalzähler der Run
 		//longest_run - Dir gröste Run
 		//i - Dateipositionzähler
-		//tmp - Testlänge
+		//ByteLengthOfInput - Testlänge
 
 	CStdioFile file_;
 	file_.Open(infile, CFile::modeRead);
-	if (fips_flag == FALSE)	tmp = file_.GetLength();
-	else tmp = 2500;
+	if (fips_flag == FALSE)	ByteLengthOfInput = file_.GetLength();
+	else ByteLengthOfInput = 2500;
 	file_.Close();
 
 	ifstream file( infile, ios::in | ios::binary );
@@ -458,22 +473,22 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 				//längste Run ist
 	{
 		int flag = 2;
-		while ( i < tmp )
+		while ( i < ByteLengthOfInput )
 		{
 			if ( flag == 2 )
 			{
 				file >> ch;
 				i++;
 			}
-			if ( !( i < tmp ) ) break;
-			if (j >= 8) 
+			if ( !( i < ByteLengthOfInput ) ) break;
+			if (bit >= 8) 
 			{
 				file >> ch;
 				i++;
-				if ( !( i < tmp ) ) break;
-				j=0;
+				if ( !( i < ByteLengthOfInput ) ) break;
+				bit=0;
 			}
-			while( ch % 2 )
+			while( bitt( ch, bit ) )
 			{
 				if ( flag == 0 )
 				{
@@ -481,19 +496,19 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 					run = 0;
 				}
 				flag = 1;
-				if ( j >= 8 ) 
+				if ( bit >= 8 ) 
 				{
 					file >> ch;
 					i++;
-					if ( !( i < tmp ) ) break;
-					j=0;
+					if ( !( i < ByteLengthOfInput ) ) break;
+					bit=0;
 					continue;
 				}
 				run++;
-				ch /= 2;
-				j++;
+				//ch /= 2;
+				bit++;
 			}
-			while( !( ch % 2 ) )
+			while( !( bitt( ch, bit ) ) )
 			{
 				if ( flag == 1 )
 				{
@@ -501,21 +516,30 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 					run = 0;
 				}
 				flag = 0;
-				if ( j >= 8 ) 
+				if ( bit >= 8 ) 
 				{
 					file >> ch;
 					i++;
-					if ( !( i < tmp ) ) break;
-					j=0;
+					if ( !( i < ByteLengthOfInput ) ) break;
+					bit=0;
 					continue;
 				}
 				run++;
-				ch /= 2;
-				j++;
+				//ch /= 2;
+				bit++;
 			}
 		}
-		if ( longest_run >= run_groesse ) return FALSE;
-		else return TRUE;
+
+		if ( longest_run >= run_groesse ) 
+		{
+			longest_run_final = longest_run;
+			return FALSE;
+		}
+		else 
+		{
+			longest_run_final = longest_run;
+			return TRUE;
+		}
 	}
 	file.close();
 	return FALSE;
@@ -548,10 +572,12 @@ Runs_Test::~Runs_Test()
 
 void Runs_Test::test()
 {
+	BOOL SuccessFlag = TRUE;
+
 	Set_degr((2 * runlang) - 2);
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	long tmp = file.GetLength();
+	long ByteLengthOfInput = file.GetLength();
 	file.Close();
 
 	unsigned long anf = 0, bis = 0; // Neue Variabeln für RandomTest Sequenz???
@@ -561,7 +587,7 @@ void Runs_Test::test()
 	if ((def == TRUE) && (fips == FALSE))
 	{
 		offs = 0;
-		testlen = tmp;
+		testlen = ByteLengthOfInput;
 	}
 
 	if (fips == TRUE)
@@ -576,25 +602,25 @@ void Runs_Test::test()
 	if (def2 == TRUE) lang_test=10;
 	else if (def2 == FALSE) lang_test=1;
 
-	for (int j=0; j<lang_test ;j++)
+	for (int TestDurchlaeufe=0; TestDurchlaeufe<lang_test ;TestDurchlaeufe++)
 	{
 		if ( def2 == TRUE ) //Benutzen wir Random Offset und Testlänge ???
 		{
-			anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % tmp;
+			anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			if(def == FALSE)
 			{
-				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % tmp;
+				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			}
 			else
 			{
-				bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % tmp;
+				bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			}
 	
-			while((anf + bis) > tmp)
+			while((anf + bis) > ByteLengthOfInput)
 			{
-				anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % tmp;
-				if ( def == FALSE ) bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % tmp;
-				else bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % tmp;
+				anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+				if ( def == FALSE ) bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+				else bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			}
 		}
 
@@ -618,10 +644,11 @@ void Runs_Test::test()
 		}
 		Set_test_ergeb( summe1 + summe2 );
 		vergleiche_test_ergeb();
-		if (GetResult() == TRUE) alle++;
+
+		if (TRUE != (SuccessFlag &= GetResult())) break;
+		else continue;
+
 	}
-	if (alle == j) Set_result( TRUE );
-	else Set_result ( FALSE );
 }
 
 long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsigned int offset, unsigned int bis)
@@ -638,14 +665,13 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 
 		UINT flag = 1;
 		UINT bit = 0; //An welchen BIT in der Datei sind wir gerade?
-		char tmp; //Temporary char weil mann den "Orginal ch" immer durch 2 teilt
+		char Temp_Char; //Temporary char weil mann den "Orginal ch" immer durch 2 teilt
 		while ( i < bis )
 		{
 			if ( flag == 1 ) 
 			{
 				File >> ch;
-				tmp = ch;
-				//for (int j=0; j<(7-bit); j++) ch /= 2; // Man liest nicht von dem letzten (durch 2 teilen) sondern ab den ersten bit
+				Temp_Char = ch;
 				flag = 0;
 			}
 			if (was)
@@ -664,16 +690,12 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						}
 						File >> ch;
 						bit = 0;
-						tmp = ch;
-						//for (int j=0; j<(7-bit); j++) ch /= 2;
+						Temp_Char = ch;
 						if ( bitt (ch, bit) ) continue;
 						else break;
 					}
-					//ch /= 2;
-					ch = tmp;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					ch = Temp_Char;
 				}
-///
 				if (bit >= 8)
 				{
 					i++;
@@ -684,8 +706,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 					}
 					File >> ch;
 					bit = 0;
-					tmp = ch;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					Temp_Char = ch;
 					continue;
 				}
 
@@ -711,12 +732,10 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						}
 						File >> ch;
 						bit = 0;
-						tmp = ch;
-						//for (int j=0; j<(7-bit); j++) ch /= 2;
+						Temp_Char = ch;
 						continue;
 					}
-					ch = tmp;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					ch = Temp_Char;
 				}
 			}
 
@@ -736,13 +755,11 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						}
 						File >> ch;
 						bit = 0;
-						tmp = ch;
-						//for (int j=0; j<(7-bit); j++) ch /= 2;
+						Temp_Char = ch;
 
 						continue;
 					}
-					ch = tmp;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					ch = Temp_Char;
 
 				}
 
@@ -762,8 +779,7 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 					}
 					File >> ch;
 					bit = 0;
-					tmp = ch;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					Temp_Char = ch;
 					continue;
 				}
 		
@@ -781,13 +797,11 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						}
 						File >> ch;
 						bit = 0;
-						tmp = ch;
-						//for (int j=0; j<(7-bit); j++) ch /= 2;
+						Temp_Char = ch;
 
 						continue;
 					}
-					ch = tmp;
-					//for (int j=0; j<(7-bit); j++) ch /= 2;
+					ch = Temp_Char;
 				}
 			}
 		}
@@ -826,18 +840,22 @@ Poker_Test::~Poker_Test()
 void Poker_Test::test()
 {
 //////////////////////////////////////////////
-	long tmp = 0, tmp2 = 0;
-	UINT alle = 0;
+	UINT TestDurchlaeufe=0;
+
+	//long tmp2 = 0;
+	//UINT alle = 0;
+
+	BOOL SuccessFlag = TRUE;
 
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
-	tmp = file.GetLength();
+	long ByteLengthOfInput = file.GetLength();
 	file.Close();
 
 	if ((def == TRUE) && (fips == FALSE))
 	{
 		offs = 0;
-		testlen = tmp;
+		testlen = ByteLengthOfInput;
 	}
 
 	if (fips == TRUE)
@@ -859,25 +877,18 @@ void Poker_Test::test()
 	if (def2 == TRUE) lang_test=10;
 	else if (def2 == FALSE) lang_test=1;
 
-	for (int j=0; j<lang_test ;j++)
+	for (TestDurchlaeufe=0; TestDurchlaeufe<lang_test; TestDurchlaeufe++)
 	{
 		if ( def2 == TRUE ) //Benutzen wir Random Offset und Testlänge ???
 		{
-			anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % tmp;
-			if(def == FALSE)
+			anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+			bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+
+			while(((anf + bis) >= ByteLengthOfInput) || (bis <= 12))
 			{
-				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % tmp;
-			}
-			else
-			{
-				bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % tmp;
-			}
-	
-			while((anf + bis) > tmp)
-			{
-				anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % tmp;
-				if ( def == FALSE ) bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % tmp;
-				else bis = ((unsigned) (testlen - (rand() % RAND_RANGE))) % tmp;
+				anf = 0; bis = 0;
+				anf = ((unsigned) (offs + (rand() % RAND_RANGE))) % ByteLengthOfInput;
+				bis = ((unsigned) (testlen + (rand() % RAND_RANGE))) % ByteLengthOfInput;
 			}
 		}
 
@@ -887,9 +898,11 @@ void Poker_Test::test()
 			bis = testlen;
 		}
 
+		if (anf < 0) anf = 0;
+
 		n = 0;
 		//null=0; eins = 0;
-		int bit = 8;
+		int bit;
 		double tupel_block = 0; //Zahl der untersuchten nicht überlappenden Blöcke
 		double potenz = 1; //Potenz der Nummer 2
 
@@ -911,7 +924,7 @@ void Poker_Test::test()
 				{
 					potenz = 1;
 					for (int pot = 0; pot < i; pot++) potenz *= 2;
-					feld_platz += (( bitt( ch, bit )) * (potenz)); //Hier rechnet man Pokermuster Platz
+					feld_platz += ( ( bitt( ch, bit ) ) * (potenz)); //Hier rechnet man Pokermuster Platz
 					//ch /= 2;
 					bit++;
 					if (bit == 8)
@@ -927,6 +940,13 @@ void Poker_Test::test()
 				if (tupel_block == (((bis*8)-(bis*8)%tupel)/tupel)) break;
 			}
 		}
+		else //Wenn Positionierung in Datei nicht erfolgt, dann Schleife fortsetzen
+		{
+			anf = 0;
+			SuccessFlag = TRUE;
+			continue;
+		}
+
 
 		potenz = 1;
 		for (int pot = 0; pot < tupel; pot++) potenz *= 2;
@@ -939,12 +959,12 @@ void Poker_Test::test()
 		tmp_Test_Ergebnis = Get_test_ergeb();
 		vergleiche_test_ergeb();
 
-		if (GetResult()==TRUE) alle++;
+		if (TRUE != (SuccessFlag &= GetResult())) break;
 		else continue;
 	}
 
-	if (alle == j) Set_result(TRUE);
-	else Set_result(FALSE);
+	/*if (alle == TestDurchlaeufe) Set_result(TRUE);
+	else Set_result(FALSE);*/
 
 }
 

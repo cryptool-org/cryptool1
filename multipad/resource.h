@@ -410,6 +410,13 @@
 #define IDC_BMP_FIPS_HAK                1286
 #define IDC_BATTERIETEST                1287
 #define IDC_ENTROPIE_STATIC             1288
+#define IDC_INFO_STATIC                 1295
+#define IDC_INFO_STATIC_RUN             1296
+#define IDC_INFO_STATIC_LONGRUN         1297
+#define IDC_LONGRUN_INFO                1298
+#define IDC_MONO_INFO                   1299
+#define IDC_POKER_INFO                  1300
+#define IDC_RUNS_INFO                   1301
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -926,7 +933,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        259
 #define _APS_NEXT_COMMAND_VALUE         33153
-#define _APS_NEXT_CONTROL_VALUE         1295
+#define _APS_NEXT_CONTROL_VALUE         1302
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -40,10 +40,7 @@ public:
 	UINT	m_Lang;
 	BOOL	m_Default;
 	BOOL	m_Default_2;
-	long	m_Einsen;
-	long	m_Nullen;
-	long	m_Laenge;
-	double	m_DefaultStaticParam;
+	CString	m_Info_Static;
 	//}}AFX_DATA
 
 	CString alpha;
@@ -97,6 +94,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_Zufallsgenerator_Tests_Runs)
 	enum { IDD = IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS };
+	CString	m_InfoStatic_LongRun;
 	CEdit	m_Longrunlang_Ctrl;
 	CEdit	m_Runlang_Ctrl;
 	CEdit	m_Testlang_Ctrl;
@@ -115,6 +113,7 @@ public:
 	UINT	m_Testlang;
 	UINT	m_Runlang;
 	UINT	m_Longrunlang;
+	CString	m_InfoStatic_Run;
 	//}}AFX_DATA
 
 	const char *infile;
@@ -160,6 +159,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1)
 	enum { IDD = IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_FIPS_PUB };
+	CButton	m_BatterieTest_Ctrl;
 	CStatic	m_Run_Kre_Ctrl;
 	CStatic	m_Run_Hak_Ctrl;
 	CStatic	m_Poker_Kre_Ctrl;
@@ -176,6 +176,10 @@ public:
 	CString	m_Pokertest_Static;
 	CString	m_Runstest_Static;
 	CString	m_Batterie_Static;
+	CString	m_LongRun_Info;
+	CString	m_Mono_Info;
+	CString	m_Poker_Info;
+	CString	m_Runs_Info;
 	//}}AFX_DATA
 
 	const char *infile;
