@@ -50,7 +50,7 @@ to new calculation methods on many computers \\ (see also:
 \href{http://www.mersenne.org/prime.htm}{\tt
 http://www.mersenne.org/prime.htm}).
 \end{itemize}
-Many people have been fascinated by prime numbers over the past two millenniums.
+Many people have been fascinated by prime numbers over the past two millennia.
 Ambition to make new discoveries about prime numbers has often resulted in
 brilliant ideas and conclusions. The following section provides an easily
 comprehensible introduction to the basics of prime numbers. We will also explain
@@ -81,9 +81,10 @@ $p$ will always denote a prime number.
 The sequence of prime numbers starts with $$ 2,~ 3,~ 5,~ 7, ~ 11, ~ 13, ~
 17, ~ 19, ~ 23, ~ 29, ~ 31, ~ 37, ~ 41, ~ 43, ~ 47, ~ 53, ~ 59, ~ 61,
 ~ 67, ~ 71, ~ 73, ~ 79, ~ 83, ~ 89, ~ 97, \cdots . $$
-The first 100 numbers include precisely 25 prime numbers. After this, the percentage of primes
-constantly decreases. Prime numbers can be factorised in a unique {\em trivial}
-way: $$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1,013 = 1 \cdot 1,013,  \quad
+The first 100 numbers include precisely 25 prime numbers. After this,
+the percentage of primes constantly decreases. Prime numbers can be
+factorised in a uniquely {\em trivial} way: 
+$$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1,013 = 1 \cdot 1,013,  \quad
 1,296,409 = 1 \cdot 1,296,409.$$
 All numbers that have $2$ or more factors are called \index{Number!composite}
 {\em composite}. These include $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$ as well
@@ -141,7 +142,7 @@ the elementary particles in physics (see \cite[p. 22]{Blum1999}).
 Although there are only $92$ natural chemical elements, the number of prime
 numbers is unlimited. Even the Greek, \index{Euclid} Euclid%
 \footnote{Euclid,
-a Greek mathematician of 4th and 3rd century before Christ. He worked at the
+a Greek mathematician of 4th and 3rd century B.C. He worked at the
 Egyptian academy of Alexandria and wrote ``The Elements'', the most well 
 known systematically textbook of the Greek mathematics.} 
 knew this in the third century before Christ.
@@ -161,7 +162,11 @@ $$
 the English translation of which is: the prime numbers are more than 
 any previously existing amount of prime numbers.
 }]\label{thm-pz-euklid} % Ende der Fuﬂnote
-% Fussnote vor ], damit kein Leerraum vor dem Fussnotennummer
+% Fussnote VOR "]" in [Euclid], damit kein Leerraum vor der Fussnotennummer.
+% Vorher stand da: ...(Euclid). BLANK Fussnote und das Blank stoerte.
+% Nun steht die Fussnote direkt hinter "Euclid" und vor der ")".
+% Eigentlich h‰tte ich sie gerne direkt hinter "(Euclid)", noch vor dem 
+% automatisch gesetzten Punkt. 
 The sequence of prime numbers does not discontinue.
 Therefore, the quantity of prime numbers is infinite.
 \end{theorem}
@@ -175,7 +180,7 @@ mistakes in the chain of conclusions, it could only be the assumption that was
 wrong. Therefore, there must be an infinite number of primes!
 
 \hypertarget{euclid}{}
-\paragraph{Euclid's proof by contradiction} argues as follows:
+\paragraph{Euclid's proof by contradiction} goes as follows:
 
 {\bf Assumption:} \quad There is a {\em finite} number of primes. \\*[4pt] {\bf
 Conclusion:} \quad Then these can be listed $p_1 < p_2 < p_3 < \dots < p_n$,
@@ -191,10 +196,10 @@ it also divides the difference of these numbers. Thus: $p_i$ divides  $a - (a-1)
 Contradiction:} \quad Our assumption was false.
 
 Thus there is an {\em infinite} number of primes
-\hyperlink{primhfk}{(Cross-reference: overview under \ref{s:primhfk} of the number of
-prime numbers in various intervals)}.\par \vskip + 3pt
+\hyperlink{primhfk}{(Cross-reference: overview under \ref{s:primhfk} of 
+the number of prime numbers in various intervals)}.\par \vskip + 10pt
 
-Here we may mention yet another fact which is initially somewhat surprising. 
+Here we should perhaps mention yet another fact which is initially somewhat surprising. 
 Namely, in the prime numbers sequence $p_1, p_2, \cdots,$ gaps between prime numbers can have
 an individually determined length $n$. It is undeniable that under the $n$
 succession of natural numbers
@@ -216,7 +221,8 @@ of various orders of magnitude / dimensions)}.
 
 % --------------------------------------------------------------------------
 \hypertarget{MersenneNumbers01}{}
-\subsubsection{Special number types -- Mersenne numbers} \index{Mersenne!Mersenne numbers}
+\subsubsection{Special number types -- Mersenne numbers} 
+\index{Mersenne!number}
 
 Almost all known huge prime numbers are special candidates, called
 \index{Mersenne Marin} {\em Mersenne numbers} of the form $2^p -1,$ where $p$ is
@@ -233,12 +239,13 @@ $$
 \end{array}
 $$
 
-\index{Number!Mersenne}\index{Mersenne!Mersenne!number}
+\index{Number!Mersenne}\index{Mersenne!number}
 \index{Mersenne!theorem} 
 
 Even Mersenne knew that not all Mersenne numbers
 are prime (see exponent $p = 11$). 
-A prime Mersenne number \index{Mersenne!Mersenne prime number} is called Mersenne prime number.  \\
+A prime Mersenne number \index{Mersenne!prime number} is called
+Mersenne prime number.  \\
 However, he is to be thanked for the interesting conclusion that a number of the form $2^n-1$ is not a prime number
 if $n$ is a composite number:
 
@@ -289,7 +296,7 @@ Due to the fact that the exponents of the Mersenne numbers
 \index{Mersenne!number} do not use all
 natural numbers, but only the primes, the {\em experimental space} is limited
 considerably. The currently known Mersenne prime numbers 
-\index{Mersenne!Mersenne prime number} have the exponents 
+\index{Mersenne!prime number} have the exponents 
 $$
 \begin{array}{c}
 2; ~ 3; ~ 5; ~ 7; ~ 13; ~ 17; ~ 19; ~ 31; ~ 61; ~ 89; ~ 107; ~ 127;
@@ -301,8 +308,10 @@ $$
 \end{array}
 $$
 Thus $39$ Mersenne prime numbers are currently known
-\index{Prime number!Mersenne}\index{Mersenne!Mersenne prime number}. 
-For the first 38 Mersenne prime numbers we know that this list is complete. The exponents until the 39th Mersenne prime numbers are not yet checked completely.
+\index{Prime number!Mersenne}\index{Mersenne!prime number}. 
+For the first 38 Mersenne prime numbers we know that this list is complete.
+The exponents until the 39th Mersenne prime number have not yet been checked
+completely.
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates Samual} Yates coined the expression {\em
@@ -323,35 +332,40 @@ These numbers can be found at the following URLs:
 
 
 \vskip +15 pt
-\paragraph{M-37 -- January 1998}\index{Mersenne!Mersenne prime number!M-37}\mbox{}
+\paragraph{M-37 -- January 1998}\index{Mersenne!prime number!M-37}\mbox{}
 \vskip +10 pt
 
-The 37th Mersenne prime,
-$$ 2^{3,021,377} - 1. $$
+The 37th Mersenne prime, $$ 2^{3,021,377} - 1 $$
 was found in January 1998 and has 909,526
 digits in the decimal system, which corresponds to 33 pages in the newspaper!
 
 
 \vskip +15 pt
-\paragraph{M-38 -- June 1999}\index{Mersenne!Mersenne prime number!M-38}\mbox{}
+\paragraph{M-38 -- June 1999}\index{Mersenne!prime number!M-38}\mbox{}
 \vskip +10 pt
 
-The 38th Mersenne prime, called M-38,
-$$ 2^{6,972,593} - 1. $$
+The 38th Mersenne prime, called M-38, $$ 2^{6,972,593} - 1 $$
 was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 (that corresponds to around 77 pages in the newspaper).
 
 Right now (Feb. 2003) all exponents smaller than $ 6,972,593 $ have been
-checked: so it is sure, that this is really the 38th Mersenne prime number.
+checked: so we can be certain, that this is really the 38th Mersenne prime
+number.
 This means there is no other Mersenne prime number between the 37th 
-Mersenne prime number and this number.
+Mersenne prime number and this one.
 
 
 \vskip +15 pt
-\paragraph{M13466917 -- December 2001} \index{Mersenne!Mersenne prime number!M-39}\mbox{}
+\paragraph{M13466917 -- December 2001} \index{Mersenne!prime number!M-39}\mbox{}
 \vskip +10 pt
 
-This number was discovered as 39th Mersenne prime (and already called M-39, despite it is not proven yet, whether there do not exist further Mersenne prime numbers between M-38 und M13466917), $$2^{13,466,917}-1,$$ at December 6, 2001 ñ- more exactly, the verification of this number, found at November 14, 2001 by the Canadian student Michael Cameron, was successfully finished. This number has about 4 million decimal digits (exactly 4,053,946 digits).
+This number was discovered as 39th Mersenne prime (and already called M-39,
+despite it has not been proven yet, whether no further Mersenne prime
+numbers between M-38 und M13466917 do indeed exist), $$2^{13,466,917}-1,$$
+at December 6, 2001 -- more exactly, the verification of this number,
+found at November 14, 2001 by the Canadian student Michael Cameron, was
+successfully completed. This number has about 4 million decimal digits
+(exactly 4,053,946 digits).
 Trying only to print this number 
 $$(924947738006701322247758 \cdots 1130073855470256259071)$$
 would need around 200 pages in the Financial Times.
@@ -376,11 +390,13 @@ organisation EFF (Electronic Frontier Foundation) using the means of an unknown
 donator. The participants are rewarded with a total of 500,000 USD if they find
 the longest prime number. In promoting this project, the unknown donator is not
 looking for the quickest computer, but rather wants to draw people's attention
-to the possibilities offered by {\em cooperative networking} \\
+to the opportunities offered by {\em cooperative networking} \\
 {\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}
 
-The discoverer of M-38 got for discovering the first prime with more than 1 million decimal digits 50,000 USD
-from the EFF. The next price from EFF with 100,000 USD is for a proven prime with more than 10 million decimal digits.
+The discoverer of M-38 received 50,000 USD from the EFF for discovering 
+the first prime with more than 1 million decimal digits. 
+The next prize from EFF for 100,000 USD is for a proven prime with more
+than 10 million decimal digits.
 %{\href{http://www.octocad.demon.co.uk/mersenne/prime.htm }{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
 
 Edouard Lucas (1842-1891) held the record for the longest prime number for over
@@ -396,7 +412,7 @@ numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
 decimal system!).
 
 Up to now we have always looked for the prime factors in order to decide whether
-a number is prime. However, if even the smallest prime factor is enormous, the
+a number is prime. However, even if the smallest prime factor is enormous, the
 search takes too long. Factorising numbers using systematic computational
 division or using the sieve of Eratosthenes (see below) is only feasible using
 current computers for numbers with up to around $20$ digits in the decimal
@@ -409,7 +425,7 @@ question, there are extremely highly developed procedures that are much quicker.
 In the 17th century, Fermat wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
 of the form $$ F(n) = 2^{2^n} + 1 $$ are prime for all whole numbers $n$ greater
 than or equal to $0$ (\hyperlink{FermatNumbers02}{see below}) 
-\index{Number!Fermat number}\index{Fermat!Fermat number}
+\index{Number!Fermat}\index{Fermat!number}
 
 As early as in the 19th century, it was discovered that the $29$-digit number $$
 F(7) = 2^{2^7} + 1 $$ is not prime. However, it was not until 1970 that
@@ -482,8 +498,8 @@ would be happy if they could find a formula that leaves gaps (i.e. does not
 deliver all prime numbers) but does not deliver any composite (non-prime)
 numbers.
 
-Ideally, we would like, for the number $n$, to immediately obtain the $n$-th
-prime number, i.e. for $f(8) = 19\,$ or for  $f(52) = 239$.
+Ideally, we would like, for the number $n$, to immediately be able to 
+obtain the $n$-th prime number, i.e. for $f(8) = 19\,$ or for  $f(52) = 239$.
 
 Ideas for this can be found at
 \vspace{-10pt}
@@ -553,10 +569,10 @@ $$
 
     The discovered factors can be compound integers or primes.
      
-    At February 22, 2003 John Cosgrave discovered 
+    On February 22, 2003 John Cosgrave discovered 
     \begin{itemize} 
-     \item the largest composite Fermat number yet and
-     \item the largest prime non-Mersenne prime yet with 645,817 digits.
+     \item the largest composite Fermat number to date and
+     \item the largest prime non-Mersenne number so far with 645,817 digits.
     \end{itemize}
     
     The Fermat number
@@ -590,7 +606,7 @@ $$
 \vskip +15 pt
 \hypertarget{generalizedFermatprimes}{}
 \item {\em Generalized Fermat numbers}\footnote{%
-The base of this power is no more restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
+The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
 \index{Fermat!Fermat number!Generalized}  \\
     Generalized Fermat numbers are more numerous than Mersenne numbers at
     equal size and many of them are waiting to be discovered to fill the
@@ -694,7 +710,7 @@ $$
  \begin{array}{ll}
 f(0) = 41 & \mapsto {\rm ~prime} \\
 f(1) = 43 & \mapsto {\rm ~prime} \\
-f(2) = 47 & \mapsto {\rm ~prim} \\
+f(2) = 47 & \mapsto {\rm ~prime} \\
 f(3) = 53 & \mapsto {\rm ~prime} \\
 f(4) = 61 & \mapsto {\rm ~prime} \\
 f(5) = 71 & \mapsto {\rm ~prime} \\
@@ -770,8 +786,8 @@ delivers prime values.
     For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where you
 will also find further details about prime number formulae.
 
-    This means there is no hope to look for further formulas 
-    similiar to that of type 11. or 12.
+    This means there is no hope in looking for further formulae 
+    similar to that of type 11. or 12.
 
 
 \pagebreak
@@ -862,7 +878,7 @@ These formulae, which only apply when n tends to infinity, can be replaced by
 more precise formulae.
 For $x \geq 67$:
 $$ ln(x) - 1,5 < x / PI(x) < ln(x) - 0,5 $$
-As we know that $PI(x)  =  x / \ln x$ only for very large $x$ ($x$ tending
+Given that we know $PI(x)  =  x / \ln x$ only for very large $x$ ($x$ tending
 towards infinity), we can create the following overview:
 $$
 \begin{array}{ccccc}
@@ -911,7 +927,7 @@ $2$ and $3,$ $ 11$ and $13, $ $ 809$ and $811$, on the other hand large gaps
 containing no primes also occur. For example, no primes lie between $113$ and
 $127, $ $ 293$ and $307, $ $317$ and $331, $ $ 523$ and $541, $ $ 773$ and $787,
 $ $ 839$ and $853$ as well as between $887$ and $907$. \\
-For details, see: 
+For details, please see: 
 \vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.utm.edu/research/primes/notes/gaps.html}
@@ -924,7 +940,7 @@ This is precisely part of what motivates mathematicians to discover its secrets.
 \paragraph{Sieve of Eratosthenes}\mbox{}
 
 An easy way of calculating all $PI(x)$ primes less than or equal to $x$ is to
-use the sieve of Eratosthenes. In the 3rd century before Christ, he found an
+use the sieve of Eratosthenes. In the 3rd century B.C., he found an
 extremely easy, automatic way of finding this out. To begin with, you write down
 all numbers from 2 to $x$, circle 2, then cross out all multiples of 2. Next,
 you circle the lowest number that hasn't been circled or crossed out (3) and
@@ -945,7 +961,7 @@ the factors of all composite numbers that are formed as follows: $$ f(n) = b^n
 \pm 1  \quad {\rm for~} b = 2, 3, 5, 6, 7, 10, 11, 12 $$ ($b$ is not equal to
 multiples of bases already used, such as $4, 8, 9$).
 
-Details of this can be found under:
+Details of this can be found at:
 \vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.cerias.purdue.edu/homes/ssw/cun}
@@ -959,58 +975,71 @@ Details of this can be found under:
 
 \begin{itemize}
   \item For each number $n$ in ${\bf N}$ there are $n$ consecutive natural
-numbers that are not primes.
-    A proof of this can be found in \cite[p. 79]{Padberg1996}.
+      numbers that are not primes.
+      A proof of this can be found in \cite[p. 79]{Padberg1996}.
   \item The Hungarian mathematician Paul Erd\"os (1913-1996) proved:
-    Between each random number not equal to $1$ and its double, there is at
-least one prime. (He was not the first to prove this theorem, but proved it in a
-simpler manner than those before him).
-  \item There is a real number a such that the function $f: {\bf N} \rightarrow
-{\mathbb Z}$ where $n \mapsto a^{3^n}$     only delivers primes for all $n$ (see
-\cite[p. 82]{Padberg1996}).
-    Unfortunately, problems arise when we try to determine $a$ (see below).
+      Between each random number not equal to $1$ and its double, there is
+      at least one prime. He was not the first to prove this theorem, but
+      proved it in a much simpler manner than those before him.
+  \item There is a real number a such that the function $f: {\bf N}
+      \rightarrow {\mathbb Z}$ where $n \mapsto a^{3^n}$ 
+      only delivers primes for all $n$ (see \cite[p. 82]{Padberg1996}).
+      Unfortunately, problems arise when we try to determine $a$ (see below).
 \end{itemize}
 
 \textbf{Proven statements / conjectures about primes}
 
 \begin{itemize}
   \item The German mathematician \index{Goldbach Christian} Christian Goldbach
-(1690-1764) conjectured:
-    Every even natural number greater than 2 can be represented as the sum of
-two prime numbers.
-    Computers have verified\footnote{It is generally accepted today, that
-the Goldbach Conjecture is true, i.~e.\ valid for all even natural numbers bigger than $2$.
-In 1999, mathematician J\"org Richstein from the computer sciences institute at the University
-of Giessen, studied even numbers up to 400 billion and found no contradictory example (see
-\href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).\index{Richstein 1999}
+      (1690-1764) conjectured: Every even natural number greater than 2 can
+      be represented as the sum of two prime numbers.
+      Computers have verified\footnote{%
+It is generally accepted today, that the Goldbach Conjecture is true, 
+i.~e.\ valid for all even natural numbers bigger than $2$.
+In 1999, mathematician J\"org Richstein from the computer sciences 
+institute at the University of Giessen, studied even numbers up to 
+400 billion and found no contradictory example (see
+\href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).
+\index{Richstein 1999}
 Nevertheless, this does not provide us with general proof.\\
-The fact that despite all efforts, Goldbachs' conjecture has to date not been proven leads
-one to believe that: since the pioneer work of the Austrian mathematician Kurt G\"odel \index{G\""odel Kurt} is well-known,
-not every true mathematical theorem is provable (see
-\href{http://www.mathematik.ch/mathematiker/goedel.html}{http://www.mathematik.ch/mathematiker/goedel.html}).
-Perhaps Goldbachs' Conjecture was correct, despite that however,
-proof will never be found. Conversely, that will presumably also remain unproven.}
-the Goldbach conjecture for all even numbers up to
-$4*10^{14}$ but no general proof has yet been found\footnote{The English
-publisher {\em Faber} and the American publisher {\em Bloomsbury} issued in 2000
-the 1992 published book ``Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
-It's the story of an old maths professor who fails to prove a more than 250
-year old puzzle. To
-stimulate the sell rates the English and American publishers compete a prize of 1 million USD, 
-if someone proves the conjecture -- to be published till 2004 by a well-known mathematical journal.\\
+The fact is that despite all efforts, Goldbach's conjecture has to date
+not been proven leads one to believe that since the pioneer work of
+the Austrian mathematician Kurt G\"odel \index{G\""odel Kurt} is 
+well-known, not every true mathematical theorem is provable (see
+\href{http://www.mathematik.ch/mathematiker/goedel.html}
+{http://www.mathematik.ch/mathematiker/goedel.html}).
+Perhaps Goldbach's conjecture was correct, but in any case the proof
+will never be found. Conversely, that will presumably also remain unproven.}
+      the Goldbach conjecture for all even numbers up to
+      $4*10^{14}$ but no general proof has yet been found\footnote{%
+The English publisher {\em Faber} and the American publisher {\em Bloomsbury}
+issued in 2000 the 1992 published book ``Uncle Petros and Goldbach's 
+Conjecture'' by Apostolos Doxiadis.
+It's the story of an old maths professor who fails to prove a more than
+250 year old puzzle. To boost the sales figues the English and American
+publishers have offered a prize of 1 million USD, if someone can prove
+the conjecture -- which should be published by 2004 in a well-known
+mathematical journal.\\
 Surprisingly only British and American citizens are allowed to participate.\\
-The theorem closest to Goldbach's conjecture yet was proven 1966 by Chen Jing-Run in a hard to understand fashion:
-Each even integer bigger than $2$ is the sum of one prime and of the product of two primes. E.g.: $20=5+3*5.$\\
-Most of the research about the Goldbach conjecture is collected in the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World scientific
+The theorem which has come closest so far to Goldbach's conjecture
+was proved by Chen Jing-Run in 1966 in a way which is somewhat hard
+to understand:
+Each even integer greater than $2$ is the sum of one prime and of 
+the product of two primes. E.g.: $20=5+3*5.$\\
+Most of the research about the Goldbach conjecture is collected in 
+the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World scientific
 Series in Pure Maths, Vol. 4.\\
-Especially this conjecture makes transparent, that even today we do not
-have fully understood the deeper connections between addition and
-multiplication of natural numbers.}.
+Especially this conjecture makes it clear, that even today we do not
+have a complete understanding of the deeper connections between addition and
+multiplication of natural numbers.}
+      .
   \item The German \index{Riemann Bernhard} mathematician Bernhard Riemann
-(1826-1866) put forward a formula for the distribution of primes that would
-further improve the estimate. However, this has neither been proved nor
-contradicted so far.
+      (1826-1866) put forward a formula for the distribution of primes
+      that would further improve the estimate. However, this has neither
+      been proved nor contradicted so far.
 \end{itemize}
+
 
 \textbf{Open questions} \\
 
@@ -1027,8 +1056,8 @@ interval?
   \item The above proof of the function  $f: \: N \rightarrow Z$ with $n \mapsto
 a^{3^n}$  only guarantees the existence of such a number $a$.  How can we
 determine this number $a$ and will it have a value, making the function also of
-practical interest?
-\item Is there an infinite number of Mersenne prime numbers?\index{Prime number!Mersenne}\index{Mersenne!Mersenne prime number}
+some practical interest?
+\item Is there an infinite number of Mersenne prime numbers?\index{Prime number!Mersenne}\index{Mersenne!prime number}
 \item Is there an infinite number of Fermat prime numbers?
 
   \item Does a polynomial time algorithm exist for calculating the prime factors of a number (see
@@ -1142,7 +1171,7 @@ See {\href{http://www.utm.edu/research/primes/notes/by_year.html}
 In the description of cryptographic protocols and algorithms, numbers occur that
 are so large or so small that they are inaccessible to our intuitive
 understanding. It may therefore be useful to provide comparative numbers from
-the real world that surrounds us so that we can develop a feeling for the
+the real world around us so that we can develop a feeling for the
 security of cryptographic algorithms. Some of the numbers listed below originate
 from \cite{Schwenk1996} and \cite[p.18]{Schneier1996}.  \hypertarget{grosord}{}
 \begin{tabbing}
@@ -1208,9 +1237,9 @@ Calculation using GMP, for example:
     \href{http://www.cs.berkeley.edu/~aaronson/prime.ps}
          {\texttt{http://www.cs.berkeley.edu/~aaronson/prime.ps}}. \\
     Only after I had completed this article, I did come across the 
-    beautiful paper of von Scott Aaronson, which also offers a simple, 
-    didactically well done but nervertheless not to low aimed intoduction
-    into this topic.
+    extremely well-written paper by Scott Aaronson, which also offers
+    a didactically well done intoduction to this topic. It is 
+    humorous and easy to read but at the same time precise and erudite.
 
 
 %already defined in elementaryNumberTheory.inc -> 2 davor
@@ -1294,8 +1323,8 @@ Calculation using GMP, for example:
 
 \begin{enumerate}
 \item GIMPS (Great Internet Mersenne-Prime Search) 
-      \index{Mersenne!Mersenne prime number} \\
-      www.mersenne.org is the home page of the GIMPS project, \index{GIMPS} \\
+      \index{Mersenne!prime number}  \index{GIMPS} \\
+      www.mersenne.org is the home page of the GIMPS project, \\
       \href{http://www.mersenne.org/prime.htm}{\tt http://www.mersenne.org/prime.htm }
 
 \item The Proth Search Page with the Windows program by Yves Gallot \\
@@ -1308,7 +1337,7 @@ Calculation using GMP, for example:
 \item Distributed Search for Fermat Number Dividers \\
       \href{http://www.fermatsearch.org/}{\tt http://www.fermatsearch.org/}
 
-\item At the university of Tennessee you will find extensive research
+\item At the University of Tennessee you will find extensive research
       results about prime numbers. \\
       \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
 
@@ -1353,7 +1382,7 @@ http://www.cerias.purdue.edu/homes/ssw/cun }
 \subsection*{Acknowledgments} \addcontentsline{toc}{subsection}{Acknowledgments}
 
 I would like to take this opportunity to thank Mr. Henrik Koy and Mr. Roger
-Oyono for their very constructively proof-reading of this article.
+Oyono for their very constructive proof-reading of this article.
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

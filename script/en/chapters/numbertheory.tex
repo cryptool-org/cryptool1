@@ -13,12 +13,13 @@
 \section{Introduction to Elementary Number Theory with Examples}
 (Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, Feb. 2003) \\
 
-This ``introduction'' is for people mathematically interested. There is no more pre-knowledge necessary than
-what you learn in the secondary school.\par
+This ``introduction'' is for people with a mathematical interest. There is no
+more pre-knowledge necessary than what you learn in the secondary school.\par
 
-We by will had ``beginners'' in mind; we did not take the approach of mathematical textbooks, called 
-``introduction'', which can not be understood at the first go further than page 5 and
-which have the real purpose to deliver all information that special monographs can be read.
+We intentionally had ``beginners'' in mind; we did not take the approach
+of mathematical textbooks, called ``introduction'', which cannot be
+understood at the first reading further than page 5 and which have the real
+purpose to deliver all information that special monographs can be read.
 
 
 
@@ -78,8 +79,9 @@ time and better than all sophisticated physical methods such as those used to pr
 This article explains the basics of elementary number theory in a way that you can easily understand. It provides 
 numerous examples and very rarely goes into any proofs (these can be found in mathematical textbooks).
 
-The goal is not to exhaustively explain the number theory findings, but to show the essential
-procedures. The volume of the content is oriented that the reader can understand and apply the RSA method.
+The goal is not to exhaustively explain the number theory findings, but 
+to show the essential procedures. The volume of the content is so oriented
+that the reader can understand and apply the RSA method.
 
 For this purpose we will use both theory and examples to explain how 
 to perform calculations in finite sets and describe how these techniques
@@ -120,8 +122,8 @@ from numerology.
 Number theory has always been a source of fascination -- for both amateurs and professional mathematicians. In 
 contrast to other areas of mathematics, many of the problems and theorems in number theory can be understood 
 by non-experts. On the other hand, mathematicians often take a long time to find solutions to the problems or 
-prove the theorems. It is therefore easy to pose good questions but quite another matter to find the answer. One 
-example of this is what is known as Fermat’s Last (or large) theorem\footnote{One of the things you learn in mathematics at school is Pythagoras theorem, which states the following for a right-angle 
+prove the theorems. It is therefore one thing to pose good questions but quite another matter to find the answer. One 
+example of this is what is known as Fermat's Last (or large) theorem\footnote{One of the things you learn in mathematics at school is Pythagoras theorem, which states the following for a right-angle 
 triangle: $a^2 + b^2 = c^2$, where $a$ and $b$ are the lengths of the sides containing the right angle and $c$ is the 
 length of the hypotenuse. Fermat famously proposed that $a^n + b^n \not= c^n$ for whole-number exponents $n 
 > 2$. Unfortunately, the letter in which Fermat made the claim did not have enough space for him to prove it. 
@@ -159,7 +161,7 @@ Unless stated otherwise:
 \item The letter $i$ and $j$ represent natural numbers. 
 \item The letter $p$ always represents a prime number.
 \item Te sets $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ and $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
-are the {\em natral} and {\em whole} numbers respectively.
+are the {\em natural} and {\em whole} numbers respectively.
 \end{itemize}
 
 % \vskip +40 pt
@@ -1495,8 +1497,8 @@ The individual steps for implementing the \index{RSA} RSA procedure can be descr
 Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
 6 and 7 are the decryption:
 \begin{itemize}
-\item[{\bf 1.}] Select two distinct random prime numbers
-\footnote{Compaq introduced the so-called multi-prime method with high marketing 
+\item[{\bf 1.}] Select two distinct random prime numbers\footnote{
+Compaq introduced the so-called multi-prime method with high marketing 
 effort in 2000.
 $n$ was the product of two big and one relative small prime: $n=o*p*q.$ 
 With theorem \ref{J_of_p1..pk} we get:
@@ -1517,14 +1519,16 @@ but not too close:
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$
 They recommend to generate the primes independently and check that the 
 restriction is fulfilled (see
-\href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}{\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).}.
+\href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
+{\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}).
+}.
 The value $n$ is called the RSA modulus\footnote{
 In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 \item[{\bf 2.}] Select a random $e \in \{2, \cdots, n-1\}$ such that:\\
                 $e$ is relatively prime to $J(n) = (p-1)*(q-1)$.
                 For example, we can select $e$ such that:  
-                $\max(p,q)  <  e <  J(n) - 1$
-                \footnote{The procedure also allows us to select $d$ freely and then 
+                $\max(p,q)  <  e <  J(n) - 1$\footnote{The 
+		procedure also allows us to select $d$ freely and then 
                 calculate $e$. However, this has practical disadvantages.
                 We usually want to be able to encrypt messages ``quickly'', which 
                 is why we choose a public exponent $e$ such that it has a short 
@@ -1537,12 +1541,10 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
                 quickly during encryption. The prime numbers $3, 17$ and $65537$ 
                 have proved to be particularly practical for this purpose.}.
                 We can then ``throw away'' $p$ and $q$.
-\item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  
-                $e*d \equiv 1  {\rm ~(mod~} J(n))$,
-                i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$
-                \footnote{For reasons of security, $d$ should not 
-                be too small.}$^,$
-                \footnote{We start by determining either $d$ or $e$ depending 
+\item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
+                {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
+		of $e$ modulo $J(n)$\footnote{For reasons of security, 
+		$d$ should not be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending 
                 on the implementation.}. We can then ``throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
@@ -2128,7 +2130,7 @@ menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
 }
 .
 
-Alice and Bob\footnote{Bob and Alice are the standard names used for the two authorised participants in a protocol 
+Alice and Bob\footnote{Bob and Alice are the default names used for the two authorised participants in a protocol 
 (see \cite[p. 23]{Schneier1996}).
 } use a one way function to obtain a key $S$, the session key, for subsequent correspondence. This is then a secret 
 that is only known to the two of them. Alice selects a random number $a$ and keeps it secret. She applies a one way 
@@ -2253,8 +2255,8 @@ Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now
 % --------------------------------------------------------------------------
 \subsubsection{RSA with small prime numbers and with a number as message}
 
-Before applying the RSA procedure to a text, we will first demonstrate it directly
-using a number
+Before applying the RSA procedure to a text, we will first demonstrate it
+directly using a single number as message
 \footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with
 the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} RSA Cryptosystem}.}.
 \begin{itemize}
@@ -2341,7 +2343,8 @@ All 7 parts are decrypted using:  $M \equiv C^{97}{\rm ~(mod~}3,713)$: \\
 {\tt 0120 2001 0311 0001 2000 0401 2314} \\
 The 2-digit numbers are transformed into capital letters and blanks.
 
-Using the selected values it is easy for a cryptanalyst to derive the secret values from the public 
+Using the selected values it is easy for a cryptanalyst\index{Cryptanalysis}
+to derive the secret values from the public 
 parameters $n=3,713$ and $e=37$ by revealing that $3,713 = 47 * 79$.\\  
 If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
 
@@ -2504,7 +2507,7 @@ The pure solution has been published by Prof. Stinson at
 
 However, it is not the 
 result that is important here but rather the individual steps of the solution, that is, the explanation of the 
-cryptanalysis\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool\index{CrypTool} 
+cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool\index{CrypTool} 
 and in the presentation on the website. If anyone sends us a well prepared exact method of solving the problem, we 
 would be pleased to include it in the documentation.}.
 
@@ -2601,7 +2604,7 @@ TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example il
 The following task is a corrected version from the excellent book written by Prof. Yan 
 \cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the individual steps of the solution, that is, 
-the explanation of the cryptanalysis\footnote{The method of solving the problem is outlined in the scenario of 
+the explanation of the cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of 
 the online help to CrypTool\index{CrypTool} and in the CrypTool presentation. If anyone sends us a well prepared exact 
 method of solving the problem, we would be pleased to include it in the documentation.}.
 
@@ -2713,9 +2716,9 @@ This needs to be stressed because the type of padding is extremely important dur
     {\em Angewandte Kryptographie}, 
     Fachbuchverlag Leipzig FV 2001.
 
-\bibitem[GISA2001xxx?]{GISA2001xxx?} \index{GISA}
+\bibitem[GISA2002]{GISA2002} \index{GISA 2002}
     GISA (German Information Security Agency) \\
-    {\em Recommendation for key length selection},\\
+    {\em Recommendation for key length selection}, Bonn, Sep. 2002, \\
     \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}
     {\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf} \\
     A statement on these recommendations: \\
@@ -2896,7 +2899,7 @@ This needs to be stressed because the type of padding is extremely important dur
          {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
 
          
-   \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
+   \item The Cunningham Project, \index{Cunningham project}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
          {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
 
@@ -2911,7 +2914,7 @@ This needs to be stressed because the type of padding is extremely important dur
 I would like to take this opportunity to thank 
 \begin{itemize}
   \item {Mr. Henrik Koy for making many very useful suggestions, 
-         for very constructively proof-reading this article and
+         for very constructive proof-reading this article and
          for helping with TeX.}
   \item {J\"org-Cornelius Schneider for his TeX support.}
   \item {Dr. Illies for pointing me to Pari-GP \index{Pari-GP}.}

@@ -10,23 +10,29 @@
 % --------------------------------------------------------------------------
 \subsection{Verschl"usselung}
 
-Sinn der Verschl"usselung  \index{Verschl""usselung} ist es, Daten so zu ver"andern, dass nur ein autorisierter Empf"an\-ger
-in der Lage ist,
-den Klartext zu rekonstruieren. Das hat den Vorteil, dass verschl"usselte Daten offen "ubertragen werden
-k"onnen und trotzdem keine Gefahr besteht, dass ein Angreifer die Daten unberechtigterweise lesen kann. Der
-autorisierte Empf"anger ist im Besitz einer geheimen Information, des sogenannten Schl"ussels, die
-es ihm erlaubt, die Daten zu entschl"usseln, w"ahrend sie jedem anderen verborgen bleiben.\par \vskip + 3pt
+Sinn der Verschl"usselung \index{Verschl""usselung} ist es, Daten so zu
+ver"andern, dass nur ein autorisierter Empf"an\-ger in der Lage ist,
+den Klartext zu rekonstruieren. Das hat den Vorteil, dass verschl"usselte
+Daten offen "ubertragen werden k"onnen und trotzdem keine Gefahr besteht,
+dass ein Angreifer die Daten unberechtigterweise lesen kann. Der
+autorisierte Empf"anger ist im Besitz einer geheimen Information, des
+sogenannten Schl"ussels, die es ihm erlaubt, die Daten zu entschl"usseln,
+w"ahrend sie jedem anderen verborgen bleiben.\par \vskip + 3pt
 
-Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, das \index{One-­Time-­Pad} {\em One-Time-Pad}. Dieses weist allerdings einige
-praktische Nachteile auf (der verwendete Schl"ussel muss zuf"allig gew"ahlt werden und genauso lang wie die zu
-sch"utzende Nachricht sein), so dass es au"ser in geschlossenen Umgebungen, zum Beispiel beim hei"sen Draht
-zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
+Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, 
+das \index{One-­Time-­Pad} {\em One-Time-Pad}. Dieses weist allerdings
+einige praktische Nachteile auf (der verwendete Schl"ussel muss zuf"allig
+gew"ahlt werden und genauso lang wie die zu sch"utzende Nachricht sein),
+so dass es au"ser in geschlossenen Umgebungen, zum Beispiel beim hei"sen
+Draht zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
 
-F"ur alle anderen Verfahren gibt es (theoretische) M"oglichkeiten, sie zu brechen. Bei guten Verfahren sind
-diese jedoch so aufwendig, dass sie praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
+F"ur alle anderen Verfahren gibt es (theoretische) M"oglichkeiten, sie
+zu brechen. Bei guten Verfahren sind diese jedoch so aufwendig, dass sie
+praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
 sicher angesehen werden k"onnen.\par \vskip + 3pt
 
-Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfahren zur Verschl"usselung.
+Grunds"atzlich unterscheidet man zwischen symmetrischen und 
+asymmetrischen Verfahren zur Verschl"usselung.
 
 % --------------------------------------------------------------------------
 \subsubsection[Symmetrische Verschl"usselung]
@@ -40,10 +46,12 @@ Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfa
         Twofish (AES-Kandidat), Rijndael (offizielles AES-Verfahren).
         }
 
-Bei der {\em symmetrischen} Verschl"usselung \index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger "uber einen
-gemeinsamen (geheimen)
-Schl"ussel verf"ugen, den sie vor Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
-benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der Empf"anger, um diese zu entschl"usseln.\par \vskip + 3pt
+Bei der {\em symmetrischen} Verschl"usselung 
+\index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger
+"uber einen gemeinsamen (geheimen) Schl"ussel verf"ugen, den sie vor
+Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
+benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der
+Empf"anger, um diese zu entschl"usseln.\par \vskip + 3pt
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschl"usselt werden.
@@ -74,17 +82,18 @@ Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
 des DES-Verfahrens.
 
 N"aheres zu den AES-Algorithmen finden Sie in der
-CrypTool-Online-Hilfe\index{CrypTool}
-  \footnote{%
+CrypTool-Online-Hilfe\index{CrypTool}%
+\footnote{%
       CrypTool-Online-Hilfe\index{CrypTool}: das Stichwort {\bf AES} im Index
-      f"hrt auf die Hilfeseiten: {\bf AES-Kandidaten}, 
-      {\bf Der AES-Gewinner Rijndael} und {\bf AES-Algorithmus Rijndael}.
+      f"hrt auf die 3 Hilfeseiten: {\bf AES-Kandidaten}, 
+      {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.
   }
 .
 
 
 % --------------------------------------------------------------------------
 \subsubsection{Neue Ergebnisse zur Kryptoanalyse von AES}
+\index{Kryptoanalyse}
 
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch) unbegr"undet. Die folgenden Informationen beruhen auf den unten angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und \cite{Lucks-DuD2002}.
 
@@ -185,11 +194,11 @@ mit konkreten Zahlen gezeigt.
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
 nutzen zu k"onnen, werden (zur Verschl"usselung) in der Praxis meist 
-Hybridverfahren verwendet.\par \vskip + 3pt
+Hybridverfahren \index{Verschl""usselung!Hybrid} verwendet.\par \vskip + 3pt
 
 Hier werden die Daten mittels symmetrischer Verfahren
 verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig\footnote{%
-Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
+Die Erzeugung zuf"alliger Zahlen ist ein wichtiger Bestandteil 
 kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} v1.3 
 k"onnen Sie "uber das Men"u {\bf Einzelverfahren \textbackslash{} 
 Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren. 
@@ -197,8 +206,8 @@ Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren.
 verschiedene Testverfahren f"ur Zufallsdaten auf bin"are Dokumente
 anwenden. \\
 Bisher konzentriert sich CrypTool auf kryptographisch starke 
-Pseudozufallzahlgeneratoren. Nur im Secude-Generators wird eine "echte" 
-Zufallsquelle einbezogen. 
+Pseudozufallzahlgeneratoren. Nur im Secude-Generator\index{Secude} 
+wird eine \glqq echte\grqq Zufallsquelle einbezogen. 
 }\index{Zufall}
 generierter Sitzungsschl"ussel (session key)\index{Session Key}, der nur f"ur diese
 Nachricht verwendet wird. Anschlie"send wird dieser

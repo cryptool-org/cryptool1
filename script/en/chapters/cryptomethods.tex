@@ -1,8 +1,8 @@
 % ..............................................................................
 %                V E R S C H L U E S S E L U N G S V E R F A H R E N
 %
-% Schreibregelung: Capitel header to capitalize words,
-%                  All other headers in normal lower/upper case 
+% Schreibregelung: Capitel header with all nouns/verbs-words capitalized,
+%                  All other headers in the normal lower/upper case manner
 %                  like sentences without dot at the end.
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,15 +17,15 @@
 \subsection{Encryption}
 
 The purpose of encryption \index{Encryption} is to change data in such a way
-that only an authorised recipient is able to reconstruct the plaintext. This has
-the advantage that you can transmit encrypted data openly and nevertheless need
-not fear a perpetrator reading the data without authorisation. Authorised
-recipients possess a piece of secret information --- called the key --- which
-allows them to decrypt the data while it remains hidden from everyone else.\par \vskip + 3pt
+that only an authorised recipient is able to reconstruct the plaintext. This
+has the advantage of being able to transmit encrypted data openly and 
+nevertheless need not fear a perpetrator reading the data without 
+authorisation. Authorised recipients possess a piece of secret 
+information -- called the key -- which allows them to decrypt the data
+while it remains hidden from everyone else.\par \vskip + 3pt
 
-One encryption procedure has been proved to be secure --- the {\em One Time
-  Pad}.
-\index{One ­Time ­Pad} However, this procedure has several practical
+One encryption procedure has been proved to be secure -- the {\em One
+Time Pad}\index{One ­Time ­Pad}. However, this procedure has several practical
 disadvantages (the key used must be selected randomly and must be just as long
 as the message to be protected), which means that it is hardly used except in
 closed environments such as for the hot wire between Moscow and Washington.\par \vskip + 3pt
@@ -50,9 +50,10 @@ We basically distinguish between symmetric and asymmetric encryption procedures.
   }
 
 For {\em symmetric} encryption \index{Encryption!symmetric} the sender and
-recipient must possess a common (secret) key which they have exchanged before
-actually starting to communicate. The sender uses this key to encrypt the
-message and the recipient uses it to decrypt it.\par \vskip + 3pt
+recipient must be in possession of a common (secret) key which they have
+exchanged before actually starting to communicate. The sender uses this
+key to encrypt the message and the recipient uses it to decrypt it.
+\par \vskip + 3pt
 
 The advantages of symmetric algorithms are the high speed with which data can be
 encrypted and decrypted. One disadvantage is the need for key management. In
@@ -76,16 +77,16 @@ procedure can now only be considered to be conditionally secure. Symmetric
 alternatives to the DES procedure include the IDEA \index{IDEA} or Triple DES
 algorithms.\par \vskip + 3pt
 
-Up-to-the-minute procedures are the symmetric AES procedures. The associated
-Rijndael procedure was declared winner the AES award on 2 October 2000 and thus
-succeeds the DES procedure.
+Up-to-the-minute procedure is the symmetric AES standard. The associated
+Rijndael algorithm was declared winner of the AES award on 2 October 2000
+and thus succeeds the DES procedure.
 
 More details about the AES algorithms can be found within the 
-Online help of CrypTool\index{CrypTool}
-  \footnote{%
-      CrypTool Online help\index{CrypTool}: the index see head-word {\bf AES}
-      leads to the help pages: {\bf AES candidates}, 
-      {\bf The AES Winner Rijndael} and 
+online help of CrypTool\index{CrypTool}%
+\footnote{%
+      CrypTool Online help\index{CrypTool}: the index head-word {\bf AES}
+      leads to the 3 help pages: {\bf AES candidates}, 
+      {\bf The AES winner Rijndael} and 
       {\bf The Rijndael encryption algorithm}.
   }
 .
@@ -93,13 +94,14 @@ Online help of CrypTool\index{CrypTool}
 
 % --------------------------------------------------------------------------
 \subsubsection{New results about cryptanalysis of AES}
+\index{Cryptanalysis}
 
 Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded
 % = do not bring disrepute upon AES
 . 
 The following information is based on the original papers and the articles \cite{Wobst-iX2002} and \cite{Lucks-DuD2002}.
 
-AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks - as long as the quantum computers weren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
+AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
 Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable for organizations, for example a security agency.
 
@@ -150,7 +152,7 @@ cannot be used to derive the private key.\par \vskip + 3pt
 Such a procedure can be demonstrated using a series of thief-proof letter boxes.
 If I have composed a message, I then look for the letter box of the recipient
 and post the letter through it. After that, I can no longer read or change the
-message myself, because only the legitimate recipient possesses the key for the
+message myself, because only the legitimate recipient has the key for the
 letter box.\par \vskip + 3pt
 
 The advantage of asymmetric procedures is the easy \index{Key management} key management. Let's look again at a network with $n$
@@ -159,7 +161,7 @@ an encrypted connection to each other subscriber, each subscriber
 must possess a pair of keys. We therefore need $2n$ keys or $n$
 pairs of keys. Furthermore, no secure channel is needed before
 messages are transmitted, because all the information required in
-order to communicate confidentially can be transmitted openly. In
+order to communicate confidentially can be sent openly. In
 this case, you simply have to pay attention to the accuracy
 (integrity and authenticity) \index{Authenticity} of the public
 key. Disadvantage: Pure asymmetric procedures take a lot longer to
@@ -187,20 +189,20 @@ this dialogue shows the single steps and its dependencies with concrete
 numbers.
 }\index{Hybrid procedures}
 
-In order to benefit from the advantages of symmetric and asymmetric techniques
-together, hybrid procedures are usually used (for encryption) in practice.
-\par \vskip + 3pt
+In order to benefit from the advantages of symmetric and asymmetric
+techniques together, hybrid procedures \index{Encryption!hybrid} are
+usually used (for encryption) in practice. \par \vskip + 3pt
 
 In this case the data is encrypted using symmetric procedures: the key is a
 session key\index{Session key} generated by the sender
-randomly \footnote{%
+randomly\footnote{%
 An important part of cryptographically secure techniques is to generate 
 random numbers. Within CrypTool\index{CrypTool} v1.3 you can check out
 different random number generators using the menu {\bf Indiv. Procedures 
 \textbackslash{} Generate Random Numbers}. 
 Using the menu{\bf Analysis \textbackslash{} Random Tests} you can apply
 different test methods for random data to binary documents. \\
-Till now CrypTool concentrates on cryptographically strong 
+Up to now CrypTool has concentrated on cryptographically strong 
 pseudo number generators. Only the integrated Secude generator 
 involves a "pure" random source. 
 }\index{Random}
@@ -216,9 +218,9 @@ quickly and efficiently using symmetric procedures.
 % --------------------------------------------------------------------------
 \subsubsection{Further details}
 
-Beside information you can find in many books and on a lot of websites the 
-online help of CrypTool\index{CrypTool} also offers very many details about
-the symmetric and asymmetric encryption methods.
+Beside the information you can find in many books and on a good number 
+of websites the online help of CrypTool\index{CrypTool} also offers very
+many details about the symmetric and asymmetric encryption methods.
 
 
 % --------------------------------------------------------------------------

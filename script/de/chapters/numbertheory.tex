@@ -1689,8 +1689,9 @@ Das BSI \index{BSI} (Bundesamt f"ur Sicherheit in der Informationstechnik) empfi
 und $q$ ungef"ahr gleich gro"s zu w"ahlen, aber nicht zu dicht beieinander, d.h. konkret etwa
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Die Primfaktoren werden unter Beachtung der genannten 
 Nebenbedingung zuf"allig und unabh"angig voneinander erzeugt 
-(Siehe \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}
-            {\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).
+(Siehe 
+\href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
+     {\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}).
 }. 
 Der Wert $n$ wird als RSA-Modul bezeichnet\footnote{%
 In CrypTool\index{CrypTool} wird der RSA-Modul mit einem gro"sen \glqq N'' 
@@ -1712,15 +1713,16 @@ Das Verfahren erlaubt es auch, $d$ frei zu w"ahlen und dann $e$ zu berechnen.
                 Zahl ist prim und deshalb zu sehr vielen Zahlen teilerfremd).
                 }. Danach kann man $p$ und $q$ \glqq wegwerfen''.
 \item[{\bf 3.}] W"ahle $d \in \{1, \cdots, n-1\}$  mit  $e*d = 1$  mod $J(n)$,
-                d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$ \footnote{%
-Aus Sicherheitsgr"unden darf $d$ nicht zu klein sein.
-                }$^,$\footnote{%
-Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt.
-                }. Danach kann man $J(n)$ \glqq wegwerfen''.
-                \begin{itemize}
-                   \item[$\rightarrow$] $(n, e)$ ist der "offentliche Schl"ussel $P$.
-                   \item[$\rightarrow$] $(n, d)$ ist der geheime Schl"ussel $S$ (es ist nur $d$ geheim zu halten).
-                \end{itemize}
+      d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$\footnote{%
+      Aus Sicherheitsgr"unden darf $d$ nicht zu klein sein.
+      }$^,$\footnote{%
+      Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt.
+      }. Danach kann man $J(n)$ \glqq wegwerfen''.
+  \begin{itemize}
+      \item[$\rightarrow$] $(n, e)$ ist der "offentliche Schl"ussel $P$.
+      \item[$\rightarrow$] $(n, d)$ ist der geheime Schl"ussel $S$ (es 
+            ist nur $d$ geheim zu halten).
+  \end{itemize}
 \item[{\bf 4.}] Zum Verschl"usseln wird die als (bin"are) Zahl dargestellte Nachricht in Teile 
                 aufgebrochen, so dass jede Teilzahl kleiner als $n$ ist.
 \item[{\bf 5.}] Verschl"usselung des Klartextes (bzw. seiner Teilst"ucke) $M \in \{1, \cdots, n-1\}$:
@@ -2582,8 +2584,9 @@ Entschl"usselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3.713)
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 Umwandeln von 2-stelligen Zahlen in Gro"sbuchstaben und Blanks.\\
-Bei den gew"ahlten Werten ist es f"ur einen Kryptoanalytiker einfach, aus den
-"offentlichen Parametern $n=3713$ und $e=37$ die geheimen Werte zu finden, indem
+Bei den gew"ahlten Werten ist es f"ur einen Kryptoanalytiker
+\index{Kryptoanalyse} einfach, aus den "offentlichen Parametern
+$n=3713$ und $e=37$ die geheimen Werte zu finden, indem
 er offenlegt, dass $3713 = 47 * 79$.
 
 Wenn $n$ eine $768$-Bit-Zahl ist, bestehen daf"ur -- nach heutigen Kenntnissen -- wenig Chancen.
@@ -2770,7 +2773,7 @@ oder
 }
 
 ver"offentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der L"osung, 
-also um die Darlegung der Kryptoanalyse\footnote{%
+also um die Darlegung der Kryptoanalyse\index{Kryptoanalyse}\footnote{%
 Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der Pr"asentation auf der
 Web-Seite wird der L"osungsweg skizziert. Wenn uns jemand einen gut
 aufbereiteten konkreten L"osungsweg schickt, nehmen wir ihn gerne in die
@@ -2880,7 +2883,8 @@ Szenario f"ur die RSA-Demonstration\grqq~ der CrypTool-Auslieferung
 Die folgende Aufgabe ist eine korrigierte Variante aus dem sehr guten Buch
 von Prof.~Yan \cite[Example 3.3.7, S. 318]{Yan2000}. \index{Yan 2000}
 Es geht aber nicht nur um das Ergebnis, sondern vor allem um die
-Einzelschritte der L"osung, also um die Darlegung der Kryptoanalyse\footnote{%
+Einzelschritte der L"osung, also um die Darlegung der 
+Kryptoanalyse\index{Kryptoanalyse}\footnote{%
 Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der 
 CrypTool-Pr"asentation werden der L"osungsweg skizziert. 
 Wenn uns jemand einen gut aufbereiteten konkreten L"osungsweg schickt, 
@@ -2981,11 +2985,14 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     {\em Verschl"usselungsalgorithmen -- Angewandte Zahlentheorie 
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
-\bibitem[BSI2001xxx?]{BSI2001xxx?} \index{BSI}
-    GISA (German Information Security Agency) \\
-    {\em Empfehlungen zur Wahl der Schl"ussell"angen},\\
-    \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}
-    {\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf} \\
+\bibitem[BSI2002]{BSI2002} \index{BSI 2002}
+    BSI (Bundesamt f"ur Sicherheit in der Informationstechnik) \\
+    {\em Empfehlungen zur Wahl der Schl"ussell"angen}, Bonn, 9.9.2002, \\
+    (Geeignete Kryptoalgorithmen zur Erf"ullung der Anforderungen
+    nach §17 (1) SigG vom 22. Mai 2001 in Verbindung mit Anlage 1, 
+    I 2, SigV vom 22. November 2001), \\
+    \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
+    {\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
     Eine Stellungnahme zu diesen Empfehlungen: \\
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
@@ -3204,13 +3211,14 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +20 pt
 \subsection*{Dank} \addcontentsline{toc}{subsection}{Dank}
-Ich m"ochte hier die Gelegenheit nutzen, den folgenden Personen zu danken: 
+Ich m"ochte hier die Gelegenheit nutzen, den folgenden Personen ganz 
+herzlich zu danken: 
 \begin{itemize}
   \item {Hr. Henrik Koy f"ur das anregende und sehr konstruktive 
          Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
          und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
-         dieser Form erschienen w"aere.}
-  \item {J"org-Cornelius Schneider f"ur die Unterst"utung bei TeX.}
+         dieser Form erschienen w"are.}
+  \item {J"org-Cornelius Schneider f"ur die Unterst"utzung bei TeX.}
   \item {Dr. Illies f"ur den Hinweis auf Pari-GP \index{Pari-GP}.}
 \end{itemize}
 
