@@ -1,3 +1,4 @@
+@echo off
 rem create and populate setup-%lang% directory 
 if not exist template\nul goto errortemplate
 if x%1==xde goto ok
@@ -9,11 +10,10 @@ goto end
 
 :ok 
 set lang=%1
-set otherlang=de
-if %lang%==de set otherlang=en
 
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 xcopy /s/q template\*.* setup-%lang%\
+xcopy /s/q template-%lang%\*.* setup-%lang%\
 copy ..\release_%lang%\*.exe setup-%lang%
 copy ..\release_%lang%\CrypTool-%lang%.hlp setup-%lang%
 copy ..\release_%lang%\CrypTool-%lang%.cnt setup-%lang%
@@ -27,7 +27,6 @@ rmdir /s/q examples\CVS
 rmdir /s/q pse\CVS
 rmdir /s/q pse\pseca\CVS
 rmdir /s/q reference\CVS
-del ReadMe-%otherlang%.txt
 
 set sum=md5sum
 %sum% * 2>nul  | perl -pe "$_ = '' if m{ReadMe-...txt}" >..\%sum%-%lang%.txt 
