@@ -216,6 +216,7 @@ UINT VigenereAuto(PVOID p)
 		para.flags&=!CRYPT_DISPLAY_BG;
 	// == execute and plot the autocorrelation
     r = Autocorr(&para);	
+	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
@@ -667,6 +668,7 @@ UINT XorAuto(PVOID p)
 	if(c.GetSize()<2)
 		para.flags&=!CRYPT_DISPLAY_BG;
     r = Autocorr(&para);
+	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
@@ -820,6 +822,7 @@ UINT AddAuto(PVOID p)
 	if(c.GetSize()<2)
 		para.flags&=!CRYPT_DISPLAY_BG;
     r = Autocorr(&para);
+	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
 	if (Opt.m_VKorr) 
 	{
@@ -852,7 +855,7 @@ UINT AddAuto(PVOID p)
 	}
 	
 	
-// == Partition the ciphertext and evaluete the assumed ADD-Key
+// == Partition the ciphertext and evaluate the assumed ADD-Key
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {

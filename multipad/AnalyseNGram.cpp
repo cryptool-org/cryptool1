@@ -480,6 +480,9 @@ void CNGram::add( const char *substring )
 	hashed++;
 }
 
+
+static int NGramSize = 1;
+
 int compare( const void *arg1, const void *arg2 )
 {
 	hashEntry *he_1, *he_2;
@@ -487,7 +490,7 @@ int compare( const void *arg1, const void *arg2 )
 	he_2 = (hashEntry*)arg2;
 	if ( he_1->count < he_2->count ) return 1;
 	if ( he_1->count > he_2->count ) return -1;
-	return 0;
+    return memcmp(he_1->SubStr, he_2->SubStr, NGramSize);
 }
 
 
@@ -523,12 +526,9 @@ int  CNGram::preSort( int tSize, int cnt )
 
 void CNGram::sort()
 {
+	NGramSize = N;
 	int tSize = HashTableSize;
 	tSize = preSort( tSize, 0 );
-	tSize = preSort( tSize, 1 );
-	tSize = preSort( tSize, 2 );
-	tSize = preSort( tSize, 3 );
-	tSize = preSort( tSize, 4 );
 	qsort((void*)NGramHashTable, (size_t)tSize, 4+N, compare );
 }
 
