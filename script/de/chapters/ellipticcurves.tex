@@ -310,7 +310,7 @@ Eine besondere Rolle spielen die K"orper $GF(p)$, deren Ordnung eine Primzahl is
 % -----------------------------------------------------------------------------
 \subsection{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
-In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung. Es hat sich bei Untersuchungen gezeigt, dass die durch eine Kurve vom Grad drei\footnote{D.h. die Summe der Exponenten jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert auch wirklich vor.} der Form
+In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung. Es hat sich bei Untersuchungen gezeigt, dass die durch eine Kurve vom Grad drei\footnote{D.h. die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.} der Form
 $$ F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
 $$
 wobei die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"or"-pers $K$ sind, der eine f"ur die Kryptographie interessante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
@@ -346,16 +346,16 @@ Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der 
 
 In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer gro"sen Primzahl $p$ oder $GF(2^n)$ mit einer (gro"sen) nat"urlichen Zahl $n$ zu betrachten. Der Grund f"ur die Verwendung des Primk"orpers $GF(p)$ liegt in seiner einfachen Arithmetik; andererseits kommt $GF(2^n)$ der bin"aren Darstellung in Computersystemen entgegen. Andere K"orper wie z.B. $GF(7^n)$ bieten keiner dieser beiden Vorteile und werden daher in der Praxis nicht verwendet, ohne dass dies theoretische Gr"unde h"atte.
 
-Durch Koordinatentransformation kann man die Weierstrass-Gleichung in eine einfachere Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst ver"andert wird.} Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erh"alt so
+Durch Koordinatentransformation kann man die Weierstrass-Gleichung in einer einfacheren Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst ver"andert wird.}.  Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erh"alt so
 
 \begin{itemize}
-\item im Fall $GF(p)$, $p>3$, Elliptische Gleichungen der Form
+\item im Fall $GF(p)$, $p>3$, die Elliptische Kurven-Gleichung der Form
 \begin{equation}
  y^2 = x^3 + ax + b
 \label{ellp}
 \end{equation}
 mit $4a^3+27b^2\ne 0$
-\item im Fall $GF(2^n)$ Gleichungen der Form
+\item im Fall $GF(2^n)$ die Elliptische Kurven-Gleichung der Form
 \begin{equation}
  y^2+xy = x^3 + ax^2 + b
 \label{ell2}

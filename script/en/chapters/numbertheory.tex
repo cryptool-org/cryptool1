@@ -158,9 +158,9 @@ This article only deals with the area of elementary number theory.
 \subsubsection{Convention}
 Unless stated otherwise: 
 \begin{itemize}
-\item The letter $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
-\item The letter $i$~\mbox{and} $j$ represent natural numbers. 
-\item The letter $p$ always represents a prime number.
+\item The letters $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
+\item The letters $i$ ~\mbox{and} $j$ represent natural numbers. 
+\item The letters $p$ always represents a prime number.
 \item Te sets $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ and $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
 are the {\em natural} and {\em whole} numbers respectively.
 \end{itemize}
@@ -323,7 +323,7 @@ For division by $7$, only the following remainders are possible:
 $$r = 0, 1, 2, \cdots, 6.$$
 
 The numbers that result in the same remainder $r$ when divided by $7$ are combined to form the ``remainder 
-class $r$ modulo $7$''. Two numbers $a$ and $b$~\mbox{belonging} to the same remainder class modulo $7$ are said to 
+class $r$ modulo $7$''. Two numbers $a$ and $b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
 be ``congruent modulo 7''. Or in general:
 
 \begin{definition}\label{def-zth-remainder} \index{Remainder class}
@@ -1790,7 +1790,7 @@ limiting factor.
 Within the above mentioned article \cite{Bourseau2002} Dirk Fox\footnote{%
 His company Secorvo Ltd made a statement on the recommendation for key
 length selection published by the GISA\index{GISA} (German Information
-Security Agency). Chapter 2.3.1 of their statement contains a very
+Security Agency). Chapter 2.3.1 of this statement contains a very
 competent and understandable discussion of RSA security (this document
 exists -- to my knowledge -- only in German):\\
 \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
@@ -2222,9 +2222,9 @@ In this example using such small numbers, it would be possible, but with large n
 problem\footnote{If you try to determine the discrete logarithm $x$ that solves the equation $11^x \equiv 49 {\rm ~(mod~} 347) $ with 
 Mathematica by means of Solve, you obtain the {em tdep message} ``The equations appear to involve the variables to be solved for 
 in an essentially non-algebraic way''. Mathematica therefore claims not to know a direct algebraic procedure for solving the equation.
-Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice):
+Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice)\index{Mathematica}:
 {\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
-The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
+The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\index{Pari-GP}\\
 Such number-theory tasks can also be solved using other tools such as the
 LiDIA\index{LiDIA} or BC package (see web links in appendix).
 The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.
@@ -2238,12 +2238,12 @@ For info: there are
 $172$ different primitive roots for modulo $347$, $32$ of which are prime (not necessary).
 Since the number $11$ selected for $g$ in the example is not a primitive root of $347$, the remainders do not take all 
 values from the set $\{1, 2, \cdots, 346\}$. Thus, for a particular remainder there may be more than one exponent or 
-even no exponent at all in the set $\{0, 1, \cdots, 345\}$ that satisfies the equation.\\
+even no exponent at all in the set $\{0, 1, \cdots, 345\}$ that satisfies the equation.\index{Mathematica}\\
 {\tt 
 PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
 MultiplicativeOrder[11, 347] = 173}\\
 The syntax with Pari-GP is: \texttt{isprime(347); eulerphi(347);
-  gcd(11,347); znorder(Mod(11,347))}.
+  gcd(11,347); znorder(Mod(11,347))}.\index{Pari-GP}
 \vskip +10 pt
 \begin{tabular}{|c|c|l|}
 \hline
@@ -2908,10 +2908,10 @@ This needs to be stressed because the type of padding is extremely important dur
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
                       
     \item Once again only after finishing this I happened upon
-          the web site of Mr.~Wagner, who is responsible for the development of
-          the curriculum of computer science in one of the German federal 
-          states (L\"ander). Here you can get hold of (but only in German) a collection of texts 
-          and (Java-)\discretionary{}{}{}programs:\\
+          the web site of Mr.~Wagner, who is responsible for the development
+	  of the curriculum of computer science in one of the German federal 
+          states (L\"ander). Here you can get hold of a collection of texts
+	  and (Java-)\discretionary{}{}{}programs (available only in German):\\
           \href{http://www.hom.saar.de/~awa/kryptolo.htm}
           {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
           
@@ -2946,9 +2946,9 @@ I would like to take this opportunity to thank
   \item {Mr.\ Henrik Koy for making many very useful suggestions, 
          for the very constructive proof-reading this article and
          for helping with TeX. \\
-	 Mr.\ Koy developed the functions and the complex dialog box of the
-	 RSA cryptosystem, which enable you to execute the RSA samples
-	 of this article.}
+	 Mr.\ Koy designed and developed the functions and the complex
+	 dialog box of the RSA cryptosystem, which enable you to execute
+	 the RSA samples of this article.}
   \item {J\"org-Cornelius Schneider for his TeX support und for the many 
          cases where he helped when facing programming or design problems.}
   \item {Dr. Illies for pointing me to Pari-GP \index{Pari-GP}.}

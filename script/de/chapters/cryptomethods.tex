@@ -42,7 +42,7 @@ asymmetrischen Verfahren zur Verschl"usselung.
 % --------------------------------------------------------------------------
 \subsection[Symmetrische Verschl"usselung]
 {Symmetrische Verschl"usselung\footnotemark}
-        \footnotetext{
+        \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
         Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
         {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch} folgende 
         modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
@@ -174,16 +174,19 @@ Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptogr
 % --------------------------------------------------------------------------
 \subsection[Asymmetrische Verschl"usselung]
 {Asymmetrische Verschl"usselung\footnotemark}
-        \footnotetext{
+        \footnotetext{%
         Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
         {\bf Ver-/Entschl"usseln \textbackslash{} Asymmetrisch} mit RSA 
         ver- und entschl"usseln.
         }
 
-Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl""usselung!asymmetrisch} hat jeder Teilnehmer ein
-pers"onliches Schl"us\-selpaar, das aus einem
-{\em geheimen} \index{Schl""ussel!geheim} und einem {\em "offentlichen} Schl"ussel \index{Schl""ussel!""offentlich} besteht. Der "offentliche Schl"ussel wird, der Name deutet es an,
-"offentlich bekanntgemacht, zum Beispiel in einem Schl"usselverzeichnis im Internet.\par \vskip + 3pt
+Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl"usselung!
+asymmetrisch} hat jeder Teilnehmer ein pers"onliches Schl"us\-selpaar, 
+das aus einem {\em geheimen} \index{Schl"ussel!geheim} und einem 
+{\em "offentlichen} Schl"ussel \index{Schl"ussel!""offentlich} besteht.
+Der "offentliche Schl"ussel wird, der Name deutet es an,
+"offentlich bekanntgemacht, zum Beispiel in einem Schl"usselverzeichnis
+im Internet.\par \vskip + 3pt
 
 M"ochte Alice\index{Alice}%
 \footnote{%
@@ -278,7 +281,7 @@ verschl"usselt und zusammen mit der Nachricht an den Empf"anger
 "ubertragen. Der Empf"anger kann den Sitzungsschl"ussel mit Hilfe
 seines geheimen Schl"ussels bestimmen und mit diesem dann die
 Nachricht entschl"usseln. Auf diese Weise nutzt man das bequeme
-Schl"usselmanagement \index{Schl""usselmanagement} asymmetrischer
+Schl"usselmanagement \index{Schl"usselmanagement} asymmetrischer
 Verfahren und kann trotzdem gro"se Datenmengen schnell und effektiv mit
 symmetrischen Verfahren verschl"usseln.
 

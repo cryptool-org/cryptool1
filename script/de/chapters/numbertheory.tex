@@ -136,8 +136,8 @@ widersetzten sich die L"osungen zu den Problemen und die Beweise zu den S"atzen
 oft sehr lange den Mathematikern. Es ist also leicht, gute Fragen zu stellen,
 aber es ist ganz etwas anderes, die Antwort zu finden. Ein Beispiel daf"ur ist
 der sogenannte letzte (oder gro"se) Satz von Fermat\footnote{Thema der
-	Schul-Mathematik ist der Satz von Pythagoras\index{Satz von
-	Pythagoras}\index{Pythagoras!Satz von}, wo gelehrt wird, dass in einem
+	Schul-Mathematik ist der Satz von Pythagoras\index{Pythagoras!Satz von},
+	wo gelehrt wird, dass in einem
 	rechtwinkligen Dreieck gilt: $a^2 + b^2 = c^2$, wobei $a, b$ die
 	Schenkell"angen sind und c die L"ange der Hypothenuse ist. Fermats ber"uhmte
 	Behauptung war, dass f"ur ganzzahlige Exponenten $n > 2$ immer die
@@ -181,7 +181,7 @@ Zahlentheorie.
 Wird nichts anderes gesagt, gilt: 
 \begin{itemize}
 \item Die Buchstaben $a, b, c, d, e, k, n, m, p, q$ stehen f"ur ganze Zahlen.
-\item Die Buchstaben $i$~\mbox{und}~$j$ stehen f"ur nat"urliche Zahlen. 
+\item Die Buchstaben $i$ ~\mbox{und} ~$j$ stehen f"ur nat"urliche Zahlen. 
 \item Der Buchstabe $p$ steht stets f"ur eine Primzahl.
 \item Die Mengen $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ und $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
 sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
@@ -1838,7 +1838,7 @@ $$
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
-    \footnotetext{
+    \footnotetext{%
     Gro"se Teile der Kapitel \ref{complexity} und \ref{chptSecurityParam}
     sind angelehnt an den Artikel \glqq Vorz"uge und Grenzen des
     RSA-Verfahrens\grqq von F. Bourseau, D. Fox und C. Thiel 
@@ -1990,7 +1990,7 @@ gewachsen ist, d"urfte hierdurch kein zus"atzlicher Engpass entstehen.
   Dirk Fox\footnote{%
   Seine Firma Secorvo GmbH hat eine Stellungnahme zur
   Schl"ussell"angenempfehlung des BSI\index{BSI} f"ur den Bundesanzeiger  
-  abgegeben. In Kapitel 2.3.1 ihrer Stellungnahme geht sie sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch): \\  
+  abgegeben. Kapitel 2.3.1 dieser Stellungnahme geht sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch): \\  
   \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
   {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
   }
@@ -2448,9 +2448,9 @@ $11^x \equiv 49 {\rm ~(mod~}347)$ l"ost, mit Hilfe von Solve zu bestimmen, erh"a
 in an essentially non-algebraic way''. Mathematica meint also, keine
 algebraisch direkten Verfahren zu kennen, um die Gleichung zu l"osen.
 Doch mit der verallgemeinerten Funktion f"ur die multiplikative Ordnung kann
-es Mathematica (hier f"ur Alice): 
+es Mathematica (hier f"ur Alice)\index{Mathematica}: 
 {\texttt{MultiplicativeOrder[11, 347, 49]}} liefert den Wert $67$. \\
-In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}.
+In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}.\index{Pari-GP}
 \\
 Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang Web-Links)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
@@ -2470,11 +2470,12 @@ prim (ist nicht notwendig).
 Da die im Beispiel f"ur $g$ gew"ahlte Zahl $11$ keine Primitivwurzel von $347$ ist,
 nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 346\}$ an. Somit
 kann es f"ur einen bestimmten Rest mehr als einen oder auch gar keinen
-Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung erf"ullt. \\
+Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung
+erf"ullt.\index{Mathematica} \\
 {\tt 
 PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
 MultiplicativeOrder[11, 347] = 173} \\
-In Pari-GP lautet die Syntax:\\
+In Pari-GP lautet die Syntax:\index{Pari-GP} \\
 {\tt isprime(347); eulerphi(347); gcd(11,347); znorder(Mod(11,347))}.
 \vskip +10 pt
 \begin{tabular}{|c|c|l|}
@@ -3202,7 +3203,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          ausgereift die grundlegenden Denkweisen der Mathematik anhand
          der elementaren Zahlentheorie nahebringt. Sie entstand f"ur
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasiums
-         (sie ist leider nur in Deutsch verf"ugbar): \\
+         (leider nur in Deutsch verf"ugbar): \\
          \href{http://www.hydrargyrum.de/kryptographie}
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
          
@@ -3248,9 +3249,10 @@ herzlich zu danken:
          Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
          und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
          dieser Form erschienen w"are. \\
-	 Au"serdem hat Hr. Koy die komplexe Dialogbox samt Verarbeitung
-	 zum RSA-Kryptosystem erstellt, mit der die RSA-Beispiele dieses
-	 Artikels nachvollzogen werden k"onnen.}
+	 Au"serdem hat Hr. Koy im CrypTool-Programm die komplexe Dialogbox
+	 zum RSA-Kryptosystem designed und die dahinterliegende Logik
+	 entwickelt, mit der die RSA-Beispiele dieses Artikels 
+	 nachvollzogen werden k"onnen.}
   \item {J"org-Cornelius Schneider f"ur die Unterst"utzung bei TeX und
          die mannigfaltigen Hilfen bei allen Arten von Programmier- und
 	 Design-Problemen.}
