@@ -312,7 +312,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
     LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",
                     IDC_STATIC,10,5,198,26
-    LTEXT           "Die Annahme, daß im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",
+    LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",
                     IDC_STATIC,10,79,198,18
     LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",
                     IDC_STATIC,10,120,198,16
@@ -387,7 +387,7 @@ BEGIN
     CONTROL         "Wenn möglich bei der Ver-/Entschlüsselung Informationen zur Groß/\nKleinschreibung beibehalten",
                     IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
                     BS_MULTILINE | WS_TABSTOP,20,52,233,18
-    CONTROL         "Groß/Kleinschreibung beachten",IDC_CHECK2,"Button",
+    CONTROL         "Groß-/Kleinschreibung beachten",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,72,118,10
     CONTROL         "Großbuchstaben",IDC_CHECK3,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,20,107,69,10
@@ -418,7 +418,7 @@ BEGIN
                     WS_EX_STATICEDGE
     GROUPBOX        "Playfair",IDC_STATIC,8,236,257,30
     LTEXT           "Trennzeichen",IDC_STATIC,154,251,45,10
-    GROUPBOX        "Groß/Kleinschreibung",IDC_STATIC,8,40,257,48
+    GROUPBOX        "Groß-/Kleinschreibung",IDC_STATIC,8,40,257,48
 END
 
 IDD_KEYLENGTH DIALOG DISCARDABLE  0, 0, 186, 68
@@ -4376,7 +4376,7 @@ BEGIN
     IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH 
                             "PIN und PIN-Verifikation stimmen nicht überein.\nBitte nochmal eingeben."
     IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH 
-                            "Für die Bitlänge L des RSA-Moduls muß gelten:\n\n\t%d < L < %d.\n\nBitte nochmal eingeben."
+                            "Für die Bitlänge L des RSA-Moduls muss gelten:\n\n\t%d < L < %d.\n\nBitte nochmal eingeben."
     IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT "Eingabe nicht korrekt"
     IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT 
                             "\nkollidiert mit der Eingabe: "
@@ -4497,7 +4497,7 @@ BEGIN
     IDS_STRING_VERNAM_ENCRYPTION_OF 
                             "Vernam-Verschlüsselung von <%%s> und <%s>"
     IDS_STRING_HILL         "Hill"
-    IDS_STRING_ENTROPY_OF   "Entropie des Dokumentes ist %f bit/Zeichen"
+    IDS_STRING_ENTROPY_OF   "Das eingestellte Alphabet\n- enthält %d Zeichen,\n- die maximale Entropie dafür beträgt  %.3f Bit/Zeichen.\nDas analysierte Dokument\n- enthält %d verschiedene Zeichen,\n- seine Entropie beträgt  %.3f Bit/Zeichen."
     IDS_STRING_AUTOCORRELATION "Autokorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autokorrelation von <%s>"
     IDS_STRING_MSG_MATCHING_CHARACTERS "Anzahl der übereinstimmenden Zeichen"
@@ -4554,7 +4554,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "Die signierte Nachricht liegt in Datei:         "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "Die Eingabe muß mindestens %d Zeichen aus dem aktuellen Alphabet enthalten"
+                            "Die Eingabe muss mindestens %d Zeichen aus dem aktuellen Alphabet enthalten."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
     IDS_STRING_ERR_NO_ZIP_FILE "Keine ZIP-Datei (""Magic-Number""-Fehler)."
@@ -4604,7 +4604,7 @@ BEGIN
     IDS_STRING_ERR_ON_WRONG_ALPHABET 
                             "Für ein Alphabet mit nur einem Zeichen existiert kein Schlüssel."
     IDS_STRING_MSG_ON_ALPHABET 
-                            "Das in [Optionen->Textoptionen] einzustellende Alphabet muß mindestens %d Zeichen enthalten."
+                            "Das in [Optionen->Textoptionen] einzustellende Alphabet muss mindestens %d Zeichen enthalten."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Die SECUDE-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
     IDS_STRING_ANALYSE_ON   "Analyse von %s"
@@ -4828,15 +4828,15 @@ BEGIN
     IDS_STRING_ENTER_UPPER_LOWER_BOUND "Geben Sie Ober- und Untergrenze ein!"
     IDS_STRING_MSG_LOWERBOUND_UPPERBOUND 
                             "Die Untergrenze darf nicht größer als die Obergrenze sein!"
-    IDS_STRING_MSG_LOWERBOUND "Die Untergrenze muß kleiner als %d sein!"
+    IDS_STRING_MSG_LOWERBOUND "Die Untergrenze muss kleiner als %d sein!"
     IDS_STRING_MSG_LOWERBOUND_LOWERBOUND 
-                            "Das Produkt der Untergrenzen muß kleiner als %d sein!"
+                            "Das Produkt der Untergrenzen muss kleiner als %d sein!"
     IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND 
                             "Schlechte Wahl der Grenzen im linken Fenster, es wurde keine Primzahl gefunden !"
     IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND 
                             "Schlechte Wahl der Grenzen im rechten Fenster, es wurde keine Primzahl gefunden !"
     IDS_STRING_MSG_RSA_MODUL_TO_LARGE 
-                            "Das Produkt der Primzahlen muß kleiner als %d sein !"
+                            "Das Produkt der Primzahlen muss kleiner als %d sein !"
     IDS_ERRON_OPEN_REFERENCE_FILE 
                             "Fehler beim Öffnen der Referenzdatei !\nBitte wählen Sie unter dem Menü Optionen / Textoptionen eine geeignete Datei."
 END
@@ -4844,7 +4844,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_RANGE_DSA_BITLENGTH 
-                            "Für die Bitlänge L der DSA-Primzahl muß gelten:\n\n\t L < %d.\n\nBitte nochmal eingeben."
+                            "Für die Bitlänge L der DSA-Primzahl muss gelten:\n\n\t L < %d.\n\nBitte nochmal eingeben."
     IDS_STRING_MODUL        "Modul"
     IDS_STRING_EXPONENT     "Exponent"
     IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER 
@@ -4877,7 +4877,7 @@ BEGIN
     IDS_STRING_PERIOD_ANALYSIS_D "Periodenalyse %d %%."
     IDS_STRING_PERIOD_ANALYSIS "Periodizitätsanalyse"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
-                            "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
+                            "Die zu analysierende Datei muss mindestens 4 Bytes groß sein!"
     IDS_STRING_PA_NO        "Nr."
     IDS_HILLEXAMPLE_CODE_ALPHABET 
                             "Hill-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
@@ -4939,7 +4939,7 @@ BEGIN
                             "Die Datei %s kann nicht gefunden werden!\nDer Test kann deshalb nicht ausgeführt werden!"
     IDS_METHOD_KEY          "%s-Schlüssel"
     IDS_STRING_ERR_ONBLOCKLENGTH 
-                            "Die Blocklänge muß aus dem Zahlenbereich 1, ...,  %i sein !"
+                            "Die Blocklänge muss aus dem Zahlenbereich 1, ...,  %i sein !"
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
                             "Der Eingabetext wird in Blöcke der Länge %i aufgeteilt (das Symbol '#' dient als Trennzeichen)."
     IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
@@ -4964,7 +4964,7 @@ BEGIN
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
-                            "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß/Kleinschreibung beachten"" deaktivieren!"
+                            "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5233,7 +5233,7 @@ BEGIN
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
                             "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 10.000 Iterationen ! \nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
-                            "Die Anzahl der Hash-Iterationen muß größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
+                            "Die Anzahl der Hash-Iterationen muss größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
                             "Bitte geben Sie die Länge des Ausgabelüssels an!"
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
@@ -5891,7 +5891,7 @@ BEGIN
     CONTROL         "Keep characters not present in the alphabet unchanged",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,
                     213,10
-    CONTROL         "If possible: keep for encryption/decryption uppe/lower case informations",
+    CONTROL         "If possible: keep for encryption/decryption upper/lower case informations",
                     IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
                     BS_MULTILINE | WS_TABSTOP,20,52,235,16
     CONTROL         "Distinguish between uppercase and lowercase",IDC_CHECK2,
@@ -9705,7 +9705,7 @@ BEGIN
     IDS_STRING_VERNAM_KEYFILE "Key file"
     IDS_STRING_VERNAM_ENCRYPTION_OF "Vernam encryption of <%%s> and <%s>"
     IDS_STRING_HILL         "Hill"
-    IDS_STRING_ENTROPY_OF   "Entropy of document is %f bits/char"
+    IDS_STRING_ENTROPY_OF   "The current alphabet\n- contains %d characters,\n- resulting in a maximum entropy of %.3f bit/char.\nThe document being analysed\n- contains %d distinct characters,\n- its entropy amounts to %.3f bit/char."
     IDS_STRING_AUTOCORRELATION "Autocorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autocorrelation of <%s>"
     IDS_STRING_MSG_MATCHING_CHARACTERS "Number of characters that agree"
