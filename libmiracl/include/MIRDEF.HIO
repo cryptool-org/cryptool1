@@ -1,0 +1,26 @@
+/* 
+ *   MIRACL compiler/hardware definitions - mirdef.h
+ *   This version suitable for use with most 32-bit computers
+ *   e.g. 80386+ PC, VAX, Archimedes. Assembly language versions of muldiv,
+ *   muldvm and muldvd will be necessary. See mrmuldv.any 
+ *
+ *   NOTE: This is for Integer-Only builds of the MIRACL library
+ *   This will be slightly faster if flash arithmetic is not needed.
+ *
+ *   The larger MR_IOBSIZ is required by the program mueller.cpp
+ *
+ *   Also suitable for DJGPP GNU C Compiler
+ *   Copyright (c) 1988-1997 Shamus Software Ltd.
+ */
+
+#define MIRACL 32
+#define MR_LITTLE_ENDIAN    /* This may need to be changed        */
+#define mr_utype int
+                            /* the underlying type is usually int *
+                             * but see mrmuldv.any                */
+#define mr_unsign32 unsigned int
+                            /* 32 bit unsigned type               */
+#define MR_IBITS  32        /* Bits in int  */
+#define MR_LBITS  32        /* Bits in long */
+
+
