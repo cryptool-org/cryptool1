@@ -380,6 +380,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 }
 
 
+/*
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
     char outfile[128];
@@ -390,6 +391,20 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 	KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.m_Dec);
 	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.m_Dec );
+	theApp.DoWaitCursor(0);
+}
+*/
+
+void PlayfairAnalyse(const char *infile, const char *OldTitle)
+{
+    char outfile[128];
+	GetTmpName(outfile,"cry",".tmp");
+	class CDialogPlayfair KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
+
+	if(KeyDialog.Display()!=IDOK) return;
+
+	KeyDialog.getAlg()->ApplyPlayfairToInput(KeyDialog.getDec());
+	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
 	theApp.DoWaitCursor(0);
 }
 
