@@ -11,6 +11,9 @@
 // 2001 Martin Bartosch <m.bartosch@cynops.de>; Cynops GmbH
 //
 // $Log$
+// Revision 1.3  2001/12/18 19:26:46  bdf100
+// PKCS12_import: added DSA case and fixed memory leaks
+//
 // Revision 1.2  2001/11/23 16:35:09  idj100
 // Änderungen Peer:
 // - Entfernen der Nullen bei RSA-Decrypt,
@@ -226,8 +229,8 @@ int PKCS12_import(PSE pse, OctetString *input, OctetString *password, int newpse
 	char *name;
 	char *ext;
 	RSAPrivateKey * rsaprivkey;
-    KeyInfo *keyinfo;
-    KeyBits *keybits;
+    KeyInfo keyinfo;
+    KeyBits keybits;
     BitString *bitstr;
 
     memset(&P12safe, 0, sizeof(P12safe));
@@ -426,72 +429,62 @@ int PKCS12_import(PSE pse, OctetString *input, OctetString *password, int newpse
 							return -1;
 						}
 
-						keybits = (KeyBits *) theApp.SecudeLib.aux_malloc(sizeof(KeyBits));
-						memset(keybits, 0, sizeof(KeyBits));
-						keybits->part1.noctets = rsaprivkey->prime1.noctets;
-						keybits->part1.octets = rsaprivkey->prime1.octets; 
-						rsaprivkey->prime1.octets = NULL;
-						keybits->part2.noctets = rsaprivkey->prime2.noctets;
-						keybits->part2.octets = rsaprivkey->prime2.octets; 
-						rsaprivkey->prime1.octets = NULL;
+						memset(&keybits, 0, sizeof(KeyBits));
+						keybits.part1.noctets = rsaprivkey->prime1.noctets;
+						keybits.part1.octets = rsaprivkey->prime1.octets; 
+						keybits.part2.noctets = rsaprivkey->prime2.noctets;
+						keybits.part2.octets = rsaprivkey->prime2.octets; 
+						
+						bitstr = theApp.SecudeLib.e_KeyBits(&keybits);
+						theApp.SecudeLib.aux_free_RSAPrivateKey(&rsaprivkey);
 
-						bitstr = theApp.SecudeLib.e_KeyBits(keybits);
-
-						keyinfo = (KeyInfo *) theApp.SecudeLib.aux_malloc(sizeof(KeyInfo));
-						memset(keyinfo, 0, sizeof(KeyInfo));
-						keyinfo->subjectkey.nbits = bitstr->nbits;
-						keyinfo->subjectkey.bits = bitstr->bits; 
+						memset(&keyinfo, 0, sizeof(KeyInfo));
+						keyinfo.subjectkey.nbits = bitstr->nbits;
+						keyinfo.subjectkey.bits = bitstr->bits; 
 						bitstr->bits = NULL;
-						keyinfo->subjectAI = theApp.SecudeLib.aux_cpy_AlgId(thisbag->content.key->privateKeyAlgorithm);
+						keyinfo.subjectAI = thisbag->content.key->privateKeyAlgorithm;
 
 						// write KeyInfo to PSE (using SECURE IF, because of OID)
 						psesel = theApp.SecudeLib.af_get_PSESel(pse, (ObjId *) 0);
 						psesel->object = name;
 						psesel->object_type = theApp.SecudeLib.SKnew_oid;
-						ostr = theApp.SecudeLib.e_KeyInfo(keyinfo);
+						ostr = theApp.SecudeLib.e_KeyInfo(&keyinfo);
 						theApp.SecudeLib.sec_write_PSE(psesel, ostr);
+						theApp.SecudeLib.aux_free_OctetString(&ostr);
 
 						break;
-					case DSA:
-/*
-						rsaprivkey = theApp.SecudeLib.d_RSAPrivateKey(thisbag->content.key->privateKey);
-						if (!rsaprivkey) 
-						{
-							fprintf(stderr, "could not decode RSAPrivateKey\n");
-						    return -1;
-						}
-
-						if (rsaprivkey->pubex.noctets != 3) 
-						{
-							fprintf(stderr, "pubex not F4!?!\n"); // FIXME
-							return -1;
-						}
-
-						keybits = (KeyBits *) theApp.SecudeLib.aux_malloc(sizeof(KeyBits));
-						memset(keybits, 0, sizeof(KeyBits));
-						keybits->part1.noctets = rsaprivkey->prime1.noctets;
-						keybits->part1.octets = rsaprivkey->prime1.octets; 
-						rsaprivkey->prime1.octets = NULL;
-						keybits->part2.noctets = rsaprivkey->prime2.noctets;
-						keybits->part2.octets = rsaprivkey->prime2.octets; 
-						rsaprivkey->prime1.octets = NULL;
-
-						bitstr = theApp.SecudeLib.e_KeyBits(keybits);
-
-						keyinfo = (KeyInfo *) theApp.SecudeLib.aux_malloc(sizeof(KeyInfo));
-						memset(keyinfo, 0, sizeof(KeyInfo));
-						keyinfo->subjectkey.nbits = bitstr->nbits;
-						keyinfo->subjectkey.bits = bitstr->bits; 
+					case DSA: {
+						OctetString *privkey = thisbag->content.key->privateKey;
+						memset(&keyinfo, 0, sizeof(KeyInfo));
+#if 0
+						/* according to the secude docs this should work... */
+						KeyBits kb;
+						memset(&kb,0,sizeof(kb));
+						kb.part1.noctets = privkey->noctets;
+						kb.part1.octets = privkey->octets;
+						bitstr = theApp.SecudeLib.e_KeyBits(&kb);
+						keyinfo.subjectkey.nbits = bitstr->nbits;
+						keyinfo.subjectkey.bits = bitstr->bits; 
 						bitstr->bits = NULL;
-						keyinfo->subjectAI = theApp.SecudeLib.aux_cpy_AlgId(thisbag->content.key->privateKeyAlgorithm);
+#else
+						/* this does the trick... (as you can see by dumping SKnew) */
+						keyinfo.subjectkey.nbits = 8*privkey->noctets;
+						keyinfo.subjectkey.bits = privkey->octets; 
+#endif
+						
+						AlgId *privkeyalg = thisbag->content.key->privateKeyAlgorithm;
+						/* KeyBits *privkeyparams = (KeyBits*)privkeyalg->param; */
+						/* privkeyparams->part1 == p, ->part2 == q, ->part3 == g */
+						keyinfo.subjectAI = privkeyalg;
 
 						// write KeyInfo to PSE (using SECURE IF, because of OID)
 						psesel = theApp.SecudeLib.af_get_PSESel(pse, (ObjId *) 0);
 						psesel->object = name;
 						psesel->object_type = theApp.SecudeLib.SKnew_oid;
-						ostr = theApp.SecudeLib.e_KeyInfo(keyinfo);
+						ostr = theApp.SecudeLib.e_KeyInfo(&keyinfo);
 						theApp.SecudeLib.sec_write_PSE(psesel, ostr);
-*/
+						theApp.SecudeLib.aux_free_OctetString(&ostr);
+					}
 						break;
 					default:
 						return -1;
@@ -507,6 +500,7 @@ int PKCS12_import(PSE pse, OctetString *input, OctetString *password, int newpse
 				psesel->object_type = theApp.SecudeLib.Cert_oid;
 				ostr = theApp.SecudeLib.e_Certificate(thisbag->content.cert);
 				theApp.SecudeLib.sec_write_PSE(psesel, ostr);
+				theApp.SecudeLib.aux_free_OctetString(&ostr);
 				break;
 			case -2:
 			    theApp.SecudeLib.aux_free_String(&name); 
