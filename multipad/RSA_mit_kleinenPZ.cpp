@@ -431,14 +431,14 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 				}
 				else
 				{
-					SkipWS();
+					if ( FALSE == SkipWS() ) return;
 					Segmentation( MODE_ALPHABET );
 				}
 				RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 			}
 			else
 			{
-				SkipWS();
+				if ( FALSE == SkipWS() ) return;
 				HeadingEncryption( ENCRYPT_TEXT );		
 				Segmentation( MODE_DLG_OF_SISTERS );
 				RSA->Encrypt( m_edit11, m_edit12, GetBase(), TRUE );
@@ -492,7 +492,7 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 				}
 				else
 				{
-					SkipWS();
+					if ( FALSE == SkipWS() ) return;
 					Segmentation( MODE_ALPHABET );
 				}
 				RSA->Decrypt( m_edit11, m_edit12, GetBase() );
@@ -500,7 +500,7 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 			else
 			{
 				HeadingDecryption( DECRYPT_TEXT );		
-				SkipWS();
+				if ( FALSE == SkipWS() ) return;
 				Segmentation( MODE_DLG_OF_SISTERS );
 				RSA->Decrypt( m_edit11, m_edit12, GetBase(), TRUE );
 			}
@@ -812,15 +812,27 @@ void RSA_mit_kleinenPZ::HeadingDecryption( BOOL decryptText )
 }
 
 
-void RSA_mit_kleinenPZ::SkipWS()
+BOOL RSA_mit_kleinenPZ::SkipWS()
 {
-	for (int i=0 ;i<m_edit10.GetLength();)
+	CString cleanStr = m_edit10;
+	for (int i=0 ;i<cleanStr.GetLength();)
 	{
-		if ( !isCharOf(m_edit10[i], DlgOptions->m_alphabet.GetBuffer(0)) )
-			m_edit10.Delete(i);
+		if ( !isCharOf(cleanStr[i], DlgOptions->m_alphabet.GetBuffer(0)) )
+			cleanStr.Delete(i);
 		else
 			i++;
 	}
+	if ( m_edit10.GetLength() != cleanStr.GetLength() )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_WARN_BEFOR_SKIPWS, pc_str,STR_LAENGE_STRING_TABLE);
+		int RetValue;
+		if ( 1 != (RetValue = MessageBox(pc_str, "RSA Demo", MB_OKCANCEL | MB_ICONINFORMATION )) )
+		{
+			return FALSE;
+		}
+	}
+	m_edit10 = cleanStr;
+	return TRUE;
 }
 
 
@@ -1131,8 +1143,4 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}
 }
-
-
-
-
 

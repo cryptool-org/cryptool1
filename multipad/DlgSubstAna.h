@@ -19,10 +19,11 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSubstAna)
 	enum { IDD = IDD_DIALOG_ANALYSE_OPT_MONO };
+	CButton	m_control2;
+	CButton	m_control1;
 	int		m_radio1;
 	BOOL	m_check1;
 	BOOL	m_check2;
-	BOOL	m_check3;
 	//}}AFX_DATA
 
 
@@ -44,6 +45,7 @@ protected:
 	afx_msg void OnRadio2();
 	afx_msg void OnCheck3();
 	afx_msg void OnRadio1();
+	afx_msg void OnRadio3();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

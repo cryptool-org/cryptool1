@@ -517,6 +517,10 @@ public:
 	{
 		return ((playfair_letter*) my_matrix->getElement (x, y));
 	}
+	keymatrix* getMatrix ()
+	{
+		return (my_matrix);
+	}
 	playfair_alphabet *getAlphabet ()
 	{
 		return myAlphabet;

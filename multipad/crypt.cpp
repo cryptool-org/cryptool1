@@ -1787,7 +1787,7 @@ UINT AnaSubst(PVOID p) {
 	// Manuelle Analyse wurde gewählt.
 	// In diesem Fall ist eine Anzeige des Fortschrittsanzeigers nicht nötig,
 	// da keine umfangreichen Berechnungen angestellt werden müssen.
-	if(Dialog.m_check3==(int)false){
+	if(Dialog.m_radio1<2){
 		if(par->flags & CRYPT_DO_PROGRESS) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 			theApp.fs.Display(pc_str);
@@ -1876,7 +1876,7 @@ UINT AnaSubst(PVOID p) {
 	   Substitution wird benutzt, um den zu bearbeitenden Ciphertext zu entschlüsseln.
 	   Das Resultat wird im unteren Texfenster dargestellt.				*/
 
-	if (Dialog.m_check3==(int)true){
+	if (Dialog.m_radio1==2){
 		// Anzeigen des Nachbearbeitungsfensters
 		CDlg_SubstResult Dialogbox;
 		if (Dialogbox.DoModal()==IDOK){

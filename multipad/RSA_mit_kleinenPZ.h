@@ -126,7 +126,7 @@ private:
 	BOOL ReSegmentation( int mode );
 	void Segmentation  ( int mode );
 	void SetDlgOptions();
-	void SkipWS();
+	BOOL SkipWS();
 	void HeadingDecryption(BOOL encryptText);
 	void HeadingEncryption(BOOL decryptText);
 	void EnableEncryption( BOOL mode = TRUE );

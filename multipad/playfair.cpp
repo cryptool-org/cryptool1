@@ -1537,7 +1537,7 @@ bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation,
 			if(i<len)
 				ib2=toupper(theinbuf[i]);
 			else
-				ib2=theinbuf[inbuflen++]=theApp.TextOptions.m_trenn[0];
+				ib2=theinbuf[theinbuflen++]=theApp.TextOptions.m_trenn[0];
 		}
 		else
 			break;
@@ -1734,7 +1734,7 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 	trace.analyse(my_matrix, myAlphabet);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len, tmp_inbuf));
+	return (DoCipher (false, 1, MAXSHOWLETTER, tmp_stip, len, tmp_inbuf, len));
 } // CreateMatrix
 
 

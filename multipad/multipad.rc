@@ -289,24 +289,29 @@ BEGIN
                     IDC_STATIC,13,11,160,8
 END
 
-IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 171, 183
+IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 218, 191
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Starten",IDOK,21,151,50,17
-    PUSHBUTTON      "Abbrechen",IDCANCEL,99,151,50,17
-    CONTROL         "Deutsch ?",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,49,33,49,10
-    CONTROL         "Englisch ?",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,49,
-                    47,49,10
-    GROUPBOX        "Ist der zu erwartende Klartext",IDC_STATIC,31,14,111,54
-    CONTROL         "'e' als häufigstes Zeichen annehmen",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,21,90,128,8
-    CONTROL         "erweiterte Analyse (deutscher Klartext)",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,107,136,8
-    CONTROL         "Manuelle Analyse",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,21,131,71,8
+    DEFPUSHBUTTON   "&Starten",IDOK,10,163,50,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,158,163,50,17
+    CONTROL         "Der erwartete Klartext ist Deutsch.",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
+    CONTROL         "Der erwartete Klartext ist Englisch.",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,30,48,123,10
+    CONTROL         "Manuelle Analyse.",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,30,60,71,9
+    CONTROL         "'e' als häufigstes Zeichen annehmen.",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,101,168,8
+    CONTROL         "erweiterte Analyse (deutscher Klartext).",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
+    LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",
+                    IDC_STATIC,10,5,198,26
+    LTEXT           "Die Annahme, daß im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",
+                    IDC_STATIC,10,79,198,18
+    LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",
+                    IDC_STATIC,10,120,198,16
 END
 
 IDD_DIALOG_CERT DIALOG DISCARDABLE  0, 0, 382, 213
@@ -1203,70 +1208,66 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 342, 343
+IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 432, 343
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfairanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_MYTXT,6,285,326,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,202,7,64,10
-    CONTROL         "&Entschlüsseln",IDC_RADV,"Button",BS_AUTORADIOBUTTON,
-                    202,18,64,8
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,276,7,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,276,
-                    18,50,8
-    EDITTEXT        IDC_PASSWORD,45,9,150,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
-    PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,55,174,72,18
-    GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,50,134,118
-    EDITTEXT        IDC_EDIT_1_1,18,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_2,38,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_3,58,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_4,78,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_5,98,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_6,118,63,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_2_1,18,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_2,38,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_3,58,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_4,78,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_5,98,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_6,118,80,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_3_1,18,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_2,38,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_3,58,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_4,78,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_5,98,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_6,118,97,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_4_1,18,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_2,38,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_3,58,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_4,78,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_5,98,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_6,118,114,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_5_1,18,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_2,38,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_3,58,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_4,78,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_5,98,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_6,118,131,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_1,18,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_2,38,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_3,58,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_4,78,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_5,98,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_6,118,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,8,134,118
+    EDITTEXT        IDC_EDIT_1_1,18,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_2,38,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_3,58,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_4,78,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_5,98,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_6,118,21,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_2_1,18,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_2,38,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_3,58,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_4,78,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_5,98,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_6,118,38,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_3_1,18,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_2,38,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_3,58,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_4,78,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_5,98,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_6,118,55,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_4_1,18,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_2,38,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_3,58,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_4,78,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_5,98,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_6,118,72,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_5_1,18,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_2,38,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_3,58,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_4,78,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_5,98,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_6,118,89,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_1,18,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_2,38,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_3,58,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_4,78,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_5,98,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_6,118,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,43,185,151
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,271,311,61,18
-    EDITTEXT        IDC_LIST,6,218,326,53,ES_MULTILINE | ES_UPPERCASE | 
+                    WS_TABSTOP,147,43,278,151
+    DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,364,311,61,18
+    EDITTEXT        IDC_LIST,6,218,419,53,ES_MULTILINE | ES_UPPERCASE | 
                     ES_READONLY | ES_WANTRETURN | WS_HSCROLL
-    LTEXT           "Passwort",IDC_STATIC,6,9,32,10
-    RTEXT           "Buchstabeninformationen",IDC_STATIC,154,29,81,8
+    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,23,150,50,8
+    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,79,
+                    150,50,8
+    EDITTEXT        IDC_PASSWORD,187,9,150,12,ES_AUTOHSCROLL
+    LTEXT           "Passwort",IDC_STATIC,147,9,32,10
+    RTEXT           "Buchstabeninformationen",IDC_STATIC,147,31,81,8
     CONTROL         "Doppelte &ignorieren",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,45,28,80,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,33,132,80,8
+    EDITTEXT        IDC_MYTXT,6,285,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,39,171,72,18
     LTEXT           "Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",
                     IDC_STATIC,6,208,254,10
     LTEXT           "Eingabe",IDC_STATIC,6,275,85,10
@@ -3160,14 +3161,7 @@ BEGIN
 
     IDD_DIALOG_ANALYSE_OPT_MONO, DIALOG
     BEGIN
-        VERTGUIDE, 21
-        VERTGUIDE, 49
-        VERTGUIDE, 149
-        HORZGUIDE, 98
-        HORZGUIDE, 115
-        HORZGUIDE, 139
-        HORZGUIDE, 151
-        HORZGUIDE, 168
+        HORZGUIDE, 180
     END
 
     IDD_DIALOG_CERT, DIALOG
@@ -3353,6 +3347,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 261
         VERTGUIDE, 280
+        VERTGUIDE, 425
         HORZGUIDE, 311
         HORZGUIDE, 329
     END
@@ -4821,6 +4816,8 @@ BEGIN
     IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5000 ein."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
                             "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder Verschlüsseln sie die Eingabe als Text."
+    IDS_STRING_WARN_BEFOR_SKIPWS 
+                            "Die Eingabe enthält buchstaben, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen Verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5123,26 +5120,6 @@ BEGIN
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,49,63,20
     PUSHBUTTON      "&Cancel",IDCANCEL,177,49,55,20
     LTEXT           "Enter key (max. 26 characters)",IDC_STATIC,13,11,160,8
-END
-
-IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 171, 183
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Substitution Analysis"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "&Start",IDOK,21,151,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,99,151,50,17
-    CONTROL         "German",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,49,33,49,10
-    CONTROL         "English",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,49,47,
-                    49,10
-    GROUPBOX        "The expected plaintext is",IDC_STATIC,31,14,111,54
-    CONTROL         "Use ‘e’ as most frequent character",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,21,90,128,8
-    CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,21,107,136,8
-    CONTROL         "Manual analysis",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,21,131,71,8
 END
 
 IDD_DIALOG_CERT DIALOG DISCARDABLE  0, 0, 382, 213
@@ -6033,72 +6010,66 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 342, 343
+IDD_DIALOG_PLAYFAIR DIALOG DISCARDABLE  0, 0, 432, 343
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_MYTXT,10,285,322,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    CONTROL         "&Encrypt",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,213,4,42,10
-    CONTROL         "&Decrypt",IDC_RADV,"Button",BS_AUTORADIOBUTTON,213,15,
-                    40,8
+    EDITTEXT        IDC_MYTXT,10,285,415,15,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,273,5,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,273,
-                    16,50,8
+                    WS_GROUP,16,135,50,8
+    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,81,
+                    135,50,8
     CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,47,29,71,8
-    EDITTEXT        IDC_PASSWORD,46,9,150,12,ES_AUTOHSCROLL
+                    WS_TABSTOP,16,156,71,8
+    EDITTEXT        IDC_PASSWORD,183,9,181,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Output results of analysis",IDOK,10,311,119,18
-    GROUPBOX        "Key matrix",IDC_STATIC,10,50,131,118
-    EDITTEXT        IDC_EDIT_1_1,18,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_2,38,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_3,58,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_4,78,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_5,98,63,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_6,118,63,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_2_1,18,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_2,38,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_3,58,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_4,78,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_5,98,80,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_6,118,80,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_3_1,18,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_2,38,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_3,58,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_4,78,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_5,98,97,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_6,118,97,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_4_1,18,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_2,38,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_3,58,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_4,78,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_5,98,114,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_6,118,114,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_5_1,18,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_2,38,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_3,58,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_4,78,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_5,98,131,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_6,118,131,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_1,18,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_2,38,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_3,58,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_4,78,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_5,98,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_6,118,148,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Key matrix",IDC_STATIC,10,8,131,118
+    EDITTEXT        IDC_EDIT_1_1,18,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_2,38,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_3,58,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_4,78,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_5,98,21,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_1_6,118,21,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_2_1,18,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_2,38,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_3,58,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_4,78,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_5,98,38,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_2_6,118,38,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_3_1,18,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_2,38,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_3,58,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_4,78,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_5,98,55,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_3_6,118,55,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_4_1,18,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_2,38,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_3,58,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_4,78,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_5,98,72,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_4_6,118,72,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_5_1,18,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_2,38,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_3,58,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_4,78,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_5,98,89,15,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_5_6,118,89,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_1,18,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_2,38,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_3,58,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_4,78,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_5,98,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_6_6,118,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,43,185,151
-    PUSHBUTTON      "&Cancel",IDCANCEL,271,311,61,18
-    EDITTEXT        IDC_LIST,10,218,322,53,ES_MULTILINE | ES_UPPERCASE | 
+                    WS_TABSTOP,147,43,278,151
+    PUSHBUTTON      "&Cancel",IDCANCEL,364,311,61,18
+    EDITTEXT        IDC_LIST,10,218,415,53,ES_MULTILINE | ES_UPPERCASE | 
                     ES_READONLY | ES_WANTRETURN | WS_HSCROLL
-    LTEXT           "Password:",IDC_STATIC,10,10,32,10
-    RTEXT           "Digrams",IDC_STATIC,245,27,31,8
-    EDITTEXT        IDC_NUMD,220,27,20,12,ES_READONLY | ES_NUMBER | NOT 
-                    WS_BORDER
-    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,57,175,72,18
+    LTEXT           "Password:",IDC_STATIC,147,10,32,10
+    LTEXT           "Letter informations",IDC_STATIC,183,28,187,8
+    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,176,72,18
     LTEXT           "ciphertext, input or result of the frequency analysis, found plaintext",
                     IDC_STATIC,10,208,270,10
     LTEXT           "Input",IDC_STATIC,10,275,85,10
@@ -6914,6 +6885,31 @@ BEGIN
     RTEXT           "Verification:",IDC_STATIC,15,157,37,12
 END
 
+IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 218, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Substitution Analysis"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Start",IDOK,10,163,50,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,158,163,50,17
+    CONTROL         "The expected plaintext is German.",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
+    CONTROL         "The expected plaintext is English.",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,30,48,121,10
+    CONTROL         "Manual analysis.",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,30,60,71,9
+    CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,100,168,8
+    CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
+    LTEXT           "The automatic substitution analysis is just for german and for english plaintext implemented. For all other languages the manual analysis is recommended.",
+                    IDC_STATIC,10,5,198,26
+    LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",
+                    IDC_STATIC,10,79,198,18
+    LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",
+                    IDC_STATIC,10,120,198,16
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6989,8 +6985,8 @@ BEGIN
     BEGIN
         MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "S&chließen\tStrg+F4",         ID_FILE_CLOSE
-        MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
+        MENUITEM "&Close\tStrg+F4",             ID_FILE_CLOSE
+        MENUITEM "&Save\tStrg+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
@@ -7415,9 +7411,9 @@ BEGIN
     BEGIN
         MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "S&chließen\tStrg+F4",         ID_FILE_CLOSE
-        MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
-        MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
+        MENUITEM "&Close\tStrg+F4",             ID_FILE_CLOSE
+        MENUITEM "&Save\tStrg+S",               ID_FILE_SAVE
+        MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
@@ -7869,7 +7865,10 @@ BEGIN
 
     IDD_DIALOG_PLAYFAIR, DIALOG
     BEGIN
-        VERTGUIDE, 332
+        VERTGUIDE, 10
+        VERTGUIDE, 425
+        HORZGUIDE, 143
+        HORZGUIDE, 194
         HORZGUIDE, 329
     END
 
@@ -7934,6 +7933,12 @@ BEGIN
         HORZGUIDE, 244
         HORZGUIDE, 277
         HORZGUIDE, 296
+    END
+
+    IDD_DIALOG_ANALYSE_OPT_MONO, DIALOG
+    BEGIN
+        VERTGUIDE, 30
+        HORZGUIDE, 180
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -9095,12 +9100,14 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_PLAYFAIR_WARNMSG002 
-                            "Das Chiffrat enthält auch ungültige Zeichen. Diese sind ausmaskiert."
+                            "The Ciphertext does contain characters which do not belong to the Playfair alphabet. These characters are replaced by the wildcard "" . ""."
     IDS_STRING_PLAYFAIR_WARNMSG003 
-                            "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
+                            "The letter 'J' and the digits '0', .., '9' does not belong t a 5 x 5 Playfair matrix alphabet.\nYou may continue the analysis on a 6 x 6 Playfair matrix."
     IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5000!\nPlease enter a number between 1 and 5000."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
                             "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
+    IDS_STRING_WARN_BEFOR_SKIPWS 
+                            "The input does contain characters which are not in the alphabet set!\nIf you click OK, only characters of the alphabet will be encrypted (the other characters will be erased from the input)."
 END
 
 STRINGTABLE DISCARDABLE 

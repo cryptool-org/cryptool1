@@ -25,6 +25,7 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 	m_Alg = new Playfair("",0,infile,outfile,r,c,1);
 //	m_Alg->SetSize(false);
 //	m_Alg->GetDiGrams();
+	m_Alg->getMatrix()->clear(m_Alg->getAlphabet()->getNullElement());
 
 	for (i=0;i<6;i++)
 	{
@@ -193,8 +194,27 @@ BEGIN_MESSAGE_MAP(CDialogPlayfair, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnAnalyse)
 	ON_EN_UPDATE(IDC_MYTXT, OnManAnalyse)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
+	ON_WM_PAINT()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
+
+void CDialogPlayfair::OnPaint() 
+{
+	CPaintDC dc(this); // device context for painting
+
+	int start_ch, end_ch;
+	m_txtfeld.GetSel(start_ch, end_ch);
+    CPoint x = m_txtfeld.GetCaretPos();
+	if ( start_ch == end_ch )
+	{
+		int ofs = start_ch - ((x.x+1)/9);
+		if ( ofs < 0 ) ofs = 0;
+		UpdateData();
+		m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf+ofs,dbuf+ofs,obuf+ofs);
+		UpdateData(FALSE);
+	}
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDialogPlayfair 
@@ -453,6 +473,8 @@ void CDialogPlayfair::OnSechs()
 //	m_Alg->GetDiGrams();
 //	m_Alg->UpdateDigrams(m_Dec);
 	m_Alg->UpdateDigrams(true);
+	m_Alg->getMatrix()->clear(m_Alg->getAlphabet()->getNullElement());
+
 	for (i=0;i<m_Alg->getSize();i++)
 	{
 		for (j=0;j<m_Alg->getSize();j++)
@@ -461,7 +483,8 @@ void CDialogPlayfair::OnSechs()
 		}
 	}
 	UpdateData(FALSE);
-	UpdateListBox();	
+	OnManAnalyse();
+//	UpdateListBox();	macht schon OnManAnalyse
 } // void CDialogPlayfair::OnSechs()
 
 BOOL CDialogPlayfair::OnInitDialog() 
@@ -474,6 +497,7 @@ BOOL CDialogPlayfair::OnInitDialog()
 	m_txtfeld.SetFont(&m_Font);
 
 	int colWidth = 55;  // Spaltenbreite in Pixel
+
 
 //	LoadString(AfxGetInstanceHandle(),IDS_STRING_BEFORE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 0, " ", LVCFMT_LEFT, colWidth-30 , 0); // Buchstabe
@@ -497,7 +521,8 @@ BOOL CDialogPlayfair::OnInitDialog()
 void CDialogPlayfair::UpdateListBox()
 {
 	int i,j,k;
-	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
+//	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
+	char c,s[100];
 	playfair_letter *let;
 
 	m_listview.DeleteAllItems( );
@@ -562,9 +587,8 @@ void CDialogPlayfair::UpdateListBox()
 	}
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 //	*/
-	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
+	// m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
 	UpdateData(FALSE);
-
 
 } // void CDialogPlayfair::UpdateListBox()
 
@@ -634,16 +658,15 @@ void CDialogPlayfair::InitListBox()
 			else
 				isinvalidoccured = true;
 	}
-	if (is6x6possible) {
-//	if (is6x6possible && !isinvalidoccured) {
+	if (is6x6possible || isinvalidoccured) {
+			if (is6x6possible)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
 			if (isinvalidoccured)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG002,pc_str,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(s,pc_str);
 			AfxMessageBox (s);
 			UpdateData(TRUE);
-				m_sechs = 1;
+				m_sechs = (is6x6possible && !isinvalidoccured)?1:0;
 			UpdateData(FALSE);
 			OnSechs();
 	}
@@ -841,7 +864,8 @@ END_MESSAGE_MAP()
 void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	char b2[2];
-	int i,j,k;
+	int i,j,k, len;
+	char s[MAXSHOWLETTER+2];
 
 	if((!m_Alg->myisalpha2(nChar)) && (nChar>32))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, nChar);
@@ -857,10 +881,11 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	else if(nChar==8)
 	{
+		len = GetLine (0, s, MAXSHOWLETTER);
 		GetSel(i,j);
 		if(i==j&&i==0)
 			return;
-		b2[0] = NULLELEMENT;
+		b2[0] = (len==i)?'\0':NULLELEMENT;
 		b2[1] = 0;
 		for(k=(i==0?0:i-1);k<j;k++)
 		{
@@ -875,7 +900,13 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	else
 	{
-		b2[0] = NULLELEMENT;
+		if ((nChar=='J')||(('0'<=nChar)&&(nChar<='9'))) {
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG003,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(s,pc_str);
+			AfxMessageBox (s);
+			b2[0] = '\0';
+		} else
+			b2[0] = NULLELEMENT;
 		b2[1] = '\0';
 		GetSel(i,j);
 		if(i==j)
