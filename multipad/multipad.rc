@@ -3298,6 +3298,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Perioden Analyse"
+    IDS_STRING36909         "Perioden Analyse von %s:\n"
+    IDS_STRING36910         "Nr\tOffset\tLänge\tPeriodenzahl\tPerioden Inhalt\n"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6261,6 +6263,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Period Analysis"
+    IDS_STRING36909         "Period Analysis of %s:\n"
+    IDS_STRING36910         "No\tOffset\tLength\tCount\tPeriod Content\n"
 END
 
 STRINGTABLE DISCARDABLE 
