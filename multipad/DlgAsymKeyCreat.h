@@ -101,6 +101,7 @@ protected:
 	afx_msg void OnDecimalRadio();
 	afx_msg void OnOctalRadio();
 	afx_msg void OnHexRadio();
+	afx_msg void OnButtonP12import();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

@@ -254,6 +254,7 @@ BEGIN
                     NOT WS_BORDER
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
+    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
 END
 
 IDD_DIALOG_RSAENC DIALOG DISCARDABLE  0, 0, 392, 271
@@ -542,8 +543,8 @@ END
 
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "Verfügbare Asymmetrische Schlüsselpaare"
+FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -554,10 +555,10 @@ BEGIN
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
-    PUSHBUTTON      "&Alle Parameter anzeigen...",IDC_BUTTON2,127,257,120,14
-    PUSHBUTTON      "&Zertifikat anzeigen",IDC_BUTTON4,127,276,120,14
-    PUSHBUTTON      "&Eintrag löschen...",IDC_BUTTON3,260,238,120,14
-    DEFPUSHBUTTON   "&Schließen",IDOK,260,271,120,19
+    PUSHBUTTON      "&Alle Parameter anzeigen...",IDC_BUTTON2,260,238,120,14
+    PUSHBUTTON      "&Zertifikat anzeigen",IDC_BUTTON4,127,258,120,14
+    PUSHBUTTON      "&Eintrag löschen...",IDC_BUTTON3,127,276,120,14
+    DEFPUSHBUTTON   "&Schließen",IDOK,260,276,120,14
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
@@ -565,6 +566,8 @@ BEGIN
                     WS_TABSTOP,27,260,76,8
     CONTROL         "EC Schlüssel",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,274,76,8
+    PUSHBUTTON      "Zertifikat &exportieren (PKCS#12)",IDC_BUTTON5,260,258,
+                    120,14
 END
 
 IDD_DIALOG_PINCODE DIALOG DISCARDABLE  0, 0, 192, 159
@@ -1869,7 +1872,6 @@ BEGIN
                     151,220,22,20
 END
 
-
 IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Inverser Kongruenzgenerator (ICG)"
@@ -2046,6 +2048,28 @@ BEGIN
     PUSHBUTTON      "Hashwert als &HEX-Datei",IDOK,7,46,108,18
 END
 
+IDD_DIALOG_PIN_VERIFICATION DIALOG DISCARDABLE  0, 0, 173, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PIN-Eingabe"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,53,187,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,116,187,50,14
+    EDITTEXT        IDC_EDIT1,68,45,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,68,131,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "PIN:",-1,15,133,37,12
+    RTEXT           "Verifikation:",-1,15,157,37,12
+    GROUPBOX        "",-1,7,84,159,95
+    GROUPBOX        "",-1,7,7,159,63
+    RTEXT           "PIN:",-1,15,45,37,12
+    EDITTEXT        IDC_EDIT3,68,156,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PIN1,15,16,138,23,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PIN2,15,93,138,25,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2077,8 +2101,8 @@ BEGIN
     END
     POPUP "&Schlüsselverwaltung"
     BEGIN
-        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
-        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
+        MENUITEM "Schlüssel &erzeugen/importieren...",      ID_CRYPT_KeyGen
+        MENUITEM "Schlüssel &anzeigen/exportieren...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Einzelverfahren"
     BEGIN
@@ -3725,7 +3749,7 @@ BEGIN
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Fehler! Die Datei %s kann nicht geöffnet werden oder ist nicht vorhanden.\nOhne diese Datei können keine Schlüsselpaare für Elliptische Kurven angezeigt werden."
     ID_OPTTEXT              "Festlegen des Alphabets und der Referenztext-Quelle für die klassischen Verschlüsselungsverfahren"
-    ID_SHOW_ALL_EC_KEYS     "Anzeigen oder Löschen von asymmetrischen Schlüsseln; Anzeigen von Zertifikaten"
+    ID_SHOW_ALL_EC_KEYS     "Anzeigen oder Löschen von asymmetrischen Schlüsseln; Anzeigen und Exportieren (PKCS#12) von Zertifikaten"
     IDS_STRING_KEYLIST_ASYM_SELECT 
                             "Wählen Sie einen Schlüsselbezeichner aus der Liste."
     IDS_STRING_KEYLIST_ASYM_EMPTY 
@@ -4626,6 +4650,8 @@ BEGIN
     IDS_CRYPT_TWOFISH       "Twofish"
     IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA-Demo: Geheime Parameter"
+    IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 
+                            "Die verschlüsselte Nachricht ist kein Text!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4674,6 +4700,24 @@ BEGIN
                             "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
 END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
+    IDS_STRING_P12_CREAT_FAILED 
+                            "PKCS#12 Struktur konnte nicht erzeugt werden."
+    IDS_STRING_INPUT_PSEPIN "Bitte geben Sie die PSE-PIN ein."
+    IDS_STRING_INPUT_P12PIN "Bitte geben Sie die PIN für die PKCS#12-Datei ein."
+    IDS_STRING_FILEOPENERROR "Die Datei konnte nicht geöffnet werden."
+    ID_P12IMPORT            "Import von Zertifikaten und privaten Schlüsseln im PKCS#12 Format"
+    IDS_STRING_FILEEXISTS   "Eine Datei mit diesem Namen existiert bereits."
+    IDS_STRING_PSECREATIONERROR "Die PSE konnte nicht erstellt werden."
+    IDS_STRING_INCOMPATIBLE_CERT 
+                            "In der PKCS#12-Datei ist kein CrypTool-Zertifikat. Die Daten können nicht importiert werden."
+    IDS_STRING_CERT_DECODING_ERROR 
+                            "Das Zertifikat konnte nicht korrekt dekodiert werden."
+END
+
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -4917,6 +4961,7 @@ BEGIN
                     NOT WS_BORDER
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
+    PUSHBUTTON      "PKCS#12 &import",IDC_BUTTON_P12IMPORT,154,310,86,19
 END
 
 IDD_DIALOG_RSAENC DIALOG DISCARDABLE  0, 0, 392, 271
@@ -5201,7 +5246,7 @@ END
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "The list below shows the asymmetric key pairs that are available.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -5211,10 +5256,10 @@ BEGIN
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
     PUSHBUTTON      "Show &public parameters...",IDC_BUTTON1,127,238,120,14
-    PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,127,257,120,14
-    PUSHBUTTON      "Show &certificate",IDC_BUTTON4,127,276,120,14
-    PUSHBUTTON      "&Delete...",IDC_BUTTON3,260,238,120,14
-    DEFPUSHBUTTON   "C&lose",IDOK,260,271,120,19
+    PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,259,238,120,14
+    PUSHBUTTON      "Show &certificate",IDC_BUTTON4,127,258,120,14
+    PUSHBUTTON      "&Delete...",IDC_BUTTON3,127,276,120,14
+    DEFPUSHBUTTON   "C&lose",IDOK,259,276,120,14
     GROUPBOX        "Listed key types:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA keys",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
@@ -5222,6 +5267,8 @@ BEGIN
                     WS_TABSTOP,27,260,76,8
     CONTROL         "EC keys",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,274,76,8
+    PUSHBUTTON      "&Export certificate (PKCS#12)",IDC_BUTTON5,259,257,120,
+                    14
 END
 
 IDD_DIALOG_PINCODE DIALOG DISCARDABLE  0, 0, 192, 159
@@ -6700,6 +6747,27 @@ BEGIN
                     14
 END
 
+IDD_DIALOG_PIN_VERIFICATION DIALOG DISCARDABLE  0, 0, 173, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PIN Request"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,53,187,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,116,187,50,14
+    EDITTEXT        IDC_EDIT1,68,45,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,68,131,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "PIN:",IDC_STATIC,15,133,37,12
+    RTEXT           "Verification:",IDC_STATIC,15,157,37,12
+    GROUPBOX        "",IDC_STATIC,7,84,159,95
+    GROUPBOX        "",IDC_STATIC,7,7,159,63
+    RTEXT           "PIN:",IDC_STATIC,15,45,37,12
+    EDITTEXT        IDC_EDIT3,68,156,85,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PIN1,15,16,138,23,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PIN2,15,93,138,25,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6731,8 +6799,8 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation......",       ID_CRYPT_KeyGen
-        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
+        MENUITEM "&Key Generation/Import...",       ID_CRYPT_KeyGen
+        MENUITEM "&Display Keys/Export Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Indiv. Procedures"
     BEGIN
@@ -7925,7 +7993,7 @@ BEGIN
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Error! File %s cannot be opened or does not exist.\nWithout this file it is not possible to display any key pairs for elliptic curves."
     ID_OPTTEXT              "Determine the alphabet and the reference text source for the classical encryption algorithms"
-    ID_SHOW_ALL_EC_KEYS     "Show or delete asymmetric keys; show certificates"
+    ID_SHOW_ALL_EC_KEYS     "Show or delete asymmetric keys; show or export certificates"
     IDS_STRING_KEYLIST_ASYM_SELECT "Choose a key identifier from the list."
     IDS_STRING_KEYLIST_ASYM_EMPTY 
                             "There are currently no asymmetric keys of the desired type available.\nChoose another key type or create some new keys."
@@ -7985,7 +8053,7 @@ BEGIN
     ID_UNZIP                "Decompress a file compressed using the ZIP program"
     ID_WINDOW_CLOSE_ALL     "Closes all windows"
     ID_HILL_AUTO            "Plaintext attack on a text encrypted using the Hill algorithm"
-    ID_CRYPT_KeyGen         "Generate a key pair for different asymmetric algorithms"
+    ID_CRYPT_KeyGen         "Generate (or import from PKCS#12) a key pair for different asymmetric algorithms"
     ID_CRYPT_RsaEnc         "Encrypts file using the RSA algorithm"
     ID_CRYPT_RsaDec         "Decrypts a file encrypted with the RSA algorithm"
     ID_CryptMono            "Encryption through substitution"
@@ -8806,6 +8874,8 @@ BEGIN
     IDS_CRYPT_TWOFISH       "Twofish"
     IDS_CRYPT_PRIMES        "Two primes p and q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA demonstration: Secret parameter"
+    IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 
+                            "The encrypted message is not a textmessage!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8854,6 +8924,22 @@ BEGIN
                             "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
 END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
+    IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
+    IDS_STRING_INPUT_PSEPIN "Please enter the PSE PIN."
+    IDS_STRING_INPUT_P12PIN "Please enter the PIN for the PKCS#12 file."
+    IDS_STRING_FILEOPENERROR "The file could not be opened."
+    ID_P12IMPORT            "Import certificates and private keys from PKCS#12 files"
+    IDS_STRING_FILEEXISTS   "A file with this name already exists."
+    IDS_STRING_PSECREATIONERROR "The PSE could not be created."
+    IDS_STRING_INCOMPATIBLE_CERT 
+                            "The PKCS#12 file does not contain a CrypTool certificate. Import failed."
+    IDS_STRING_CERT_DECODING_ERROR "The certificate could not be decoded."
+END
+
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////

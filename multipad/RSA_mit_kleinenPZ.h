@@ -91,6 +91,14 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	BOOL ReSegmentation( int mode );
+	void Segmentation  ( int mode );
+	void SetDlgOptions();
+	void SkipWS();
+	void HeadingDecryption(BOOL encryptText);
+	void HeadingEncryption(BOOL decryptText);
+	void EnableEncryption( BOOL mode = TRUE );
+	void RequestForInput( BOOL clearInput = TRUE );
 	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );
 	int GetBase();
 	DlgPrimesGenerator            *DlgRSAPrimes;

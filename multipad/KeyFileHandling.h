@@ -15,6 +15,7 @@
 #include <afxtempl.h>
 
 #define PSE_FILE_SUFFIX ".pse"
+#define P12_FILE_SUFFIX ".p12"
 
 class CKeyFile : public CStdioFile
 {

@@ -30,6 +30,7 @@ public:
 	CButton	m_CheckDSA;
 	CButton	m_CheckRSA;
 	CButton	m_show_cert_button;
+	CButton	m_export_cert_button;
 	CListCtrl	m_listview;
 	CButton	m_secret_param_button;
 	CButton	m_pub_param_button;
@@ -75,6 +76,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnClickList3(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnButtonShowCert();
+	afx_msg void OnButtonExportCert();
 	afx_msg void OnColumnclickList3(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnItemclickList3(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnKeydownList3(NMHDR* pNMHDR, LRESULT* pResult);

@@ -12,6 +12,7 @@
 #include "KeyFileHandling.h"
 #include "DlgAsymKeyCreat.h"
 #include "PinCodeDialog.h"
+#include "PinAndNewPinDialog.h"
 #include "DlgShowPubEcKeys.h"
 #include "DlgShowPrivEcKeys.h"
 #include "DialogCert.h"
@@ -19,6 +20,7 @@
 #include "s_ecFp.h" // elliptic curve stuff
 #include "s_prng.h" // big random integers
 
+#include "SecudeTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,6 +66,7 @@ void CDlgAsymKeys::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK2, m_CheckDSA);
 	DDX_Control(pDX, IDC_CHECK1, m_CheckRSA);
 	DDX_Control(pDX, IDC_BUTTON4, m_show_cert_button);
+	DDX_Control(pDX, IDC_BUTTON5, m_export_cert_button);
 	DDX_Control(pDX, IDC_LIST3, m_listview);
 	DDX_Control(pDX, IDC_BUTTON2, m_secret_param_button);
 	DDX_Control(pDX, IDC_BUTTON1, m_pub_param_button);
@@ -78,6 +81,7 @@ BEGIN_MESSAGE_MAP(CDlgAsymKeys, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON3, OnDeleteEntryButton)
 	ON_NOTIFY(NM_CLICK, IDC_LIST3, OnClickList3)
 	ON_BN_CLICKED(IDC_BUTTON4, OnButtonShowCert)
+	ON_BN_CLICKED(IDC_BUTTON5, OnButtonExportCert)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LIST3, OnColumnclickList3)
 	ON_NOTIFY(HDN_ITEMCLICK, IDC_LIST3, OnItemclickList3)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LIST3, OnKeydownList3)
@@ -463,6 +467,122 @@ void CDlgAsymKeys::OnButtonShowCert()
 	return;
 }
 
+// 2001-10 Martin Bartosch; Cynops GmbH
+// added PKCS#12 export
+void CDlgAsymKeys::OnButtonExportCert() 
+{
+	CKeyFile DataFile;
+	CString passwd;
+	CString export_passwd;
+	
+	if ( sortedAsymKeyList.IsEmpty() )
+	{
+		// there is no string selectable
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		return; // no selection
+	}
+	else if ( UserKeyId.GetLength() < 1 )
+	{
+		// there is no selected string
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		return; // no selection
+	}
+
+	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+
+	// Query PINs for PSE and PKCS#12 file
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_PSEPIN,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_P12PIN,pc_str1,STR_LAENGE_STRING_TABLE);
+
+	CPinAndNewPinDialog PinRequest(pc_str, pc_str1);
+	if (PinRequest.DoModal() == IDOK)
+	{
+		passwd = PinRequest.m_PinCode;
+		export_passwd = PinRequest.m_NewPinCode;
+	}
+	else return;
+
+	// get absolute PSE file name
+	CString PSE_file = (CString) PseVerzeichnis + ((CString)"/") + UserKeyId + ((CString)PSE_FILE_SUFFIX);
+
+	// copy PSE file name
+	LPTSTR PSE_file_str = new TCHAR[PSE_file.GetLength()+1];
+	_tcscpy(PSE_file_str, PSE_file);		
+	char *PSE_file_strptr = PSE_file_str;
+
+	// copy PIN
+	LPTSTR passwd_str= new TCHAR[passwd.GetLength()+1];
+	_tcscpy(passwd_str, passwd);
+	char *passwd_strptr = passwd_str;
+
+	// Open PSE and export certificate as PKCS #12 structure
+	PSE PseHandle;
+	PseHandle = theApp.SecudeLib.af_open(PSE_file_strptr, NULL, passwd_strptr, NULL);
+
+	if (!PseHandle)
+	{	// report PSE open error 
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_PSEOPENERROR, pc_str,
+			STR_LAENGE_STRING_TABLE);
+
+		sprintf(pc_str1, pc_str, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
+		AfxMessageBox (((CString)pc_str1), MB_ICONSTOP);
+
+		delete [] passwd_str;
+		delete [] PSE_file_str;
+		return;
+	}
+	delete [] passwd_str;
+	delete [] PSE_file_str;
+
+	// pop up "save as" file selector box
+	CFileDialog Dlg(FALSE, P12_FILE_SUFFIX, UserKeyId, OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY,
+	"PKCS #12 Files (*.p12)|*.p12||", this);
+	if(IDCANCEL == Dlg.DoModal()) return;
+
+	CString p12_file = Dlg.GetPathName();
+
+	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+
+
+	// FIXME: get password from GUI
+	LPTSTR export_passwd_str = new TCHAR[export_passwd.GetLength()+1];
+	_tcscpy(export_passwd_str, export_passwd);		
+	char *export_passwd_strptr = export_passwd_str;
+
+	OctetString * export_passwd_ostr;
+	export_passwd_ostr = theApp.SecudeLib.aux_latin1_to_unicode(export_passwd_strptr, TRUE);
+	delete [] export_passwd_str;
+
+	// PSE is now open; get Cert and SKNew objects and stuff them into a 
+	// PKCS#12 structure
+	OctetString *P12_Obj = PKCS12_encode(PseHandle, export_passwd_ostr, 1, 1);
+	if (!P12_Obj)
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_P12_CREAT_FAILED, pc_str,
+		STR_LAENGE_STRING_TABLE);
+
+		sprintf(pc_str1, pc_str, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
+		AfxMessageBox (((CString)pc_str1), MB_ICONSTOP);
+
+		return;
+	}
+
+	// copy p12 file name
+	LPTSTR p12_file_str = new TCHAR[p12_file.GetLength()+1];
+	_tcscpy(p12_file_str, p12_file);		
+	char *p12_file_strptr = p12_file_str;
+
+	RC rc = theApp.SecudeLib.aux_OctetString2file(P12_Obj, p12_file_strptr, 2); // 2: 'create or overwrite'
+
+	delete [] p12_file_str;
+	
+	theApp.SecudeLib.aux_free_OctetString(&P12_Obj);
+	theApp.SecudeLib.af_close(PseHandle);
+
+	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+}
 
 void CDlgAsymKeys::InitAsymKeyListBox(unsigned nLocalKeylistType)
 {
@@ -563,6 +683,7 @@ void CDlgAsymKeys::UpdateRowSel(int row)
 		m_secret_param_button.EnableWindow(TRUE); // Button einblenden
 		m_pub_param_button.EnableWindow(TRUE); // Button einblenden
 		m_show_cert_button.EnableWindow(FALSE); // Button ausblenden
+		m_export_cert_button.EnableWindow(FALSE); // Button ausblenden
 	}
 	else
 	{
@@ -570,6 +691,7 @@ void CDlgAsymKeys::UpdateRowSel(int row)
 		m_secret_param_button.EnableWindow(FALSE); // Button ausblenden
 		m_pub_param_button.EnableWindow(FALSE); // Button ausblenden
 		m_show_cert_button.EnableWindow(TRUE); // Button einblenden
+		m_export_cert_button.EnableWindow(TRUE); // Button einblenden
 	}
 	
 	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein

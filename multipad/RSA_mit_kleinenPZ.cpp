@@ -6,11 +6,21 @@
 #include "DlgRSAwithSmallPrimesOptions.h"
 #include "RSA_mit_kleinenPZ.h"
 #include "crypt.h"
+#include "ChrTools.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
+
+#define ENCRYPT_TEXT     TRUE
+#define ENCRYPT_NUMBERS  FALSE
+#define DECRYPT_TEXT     TRUE
+#define DECRYPT_NUMBERS  FALSE
+#define MODE_ASCII          1
+#define MODE_ALPHABET       0
+#define MODE_DLG_OF_SISTERS 2
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld RSA_mit_kleinenPZ 
@@ -125,27 +135,6 @@ RSA_mit_kleinenPZ::~RSA_mit_kleinenPZ()
 	delete RSA;
 }
 
-int RSA_mit_kleinenPZ::GetBase()
-{
-	int baseNumbers = 10;
-
-	switch ( DlgOptions->m_numberBasis ) {
-	case 0: 
-		baseNumbers = 10;
-		break;
-	case 1: 
-		baseNumbers = 2;
-		break;
-	case 2: 
-		baseNumbers = 8;
-		break;
-	case 3: 
-		baseNumbers = 16;
-		break;
-	}
-
-	return baseNumbers;
-}
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -172,27 +161,17 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 	}
 	if ( RSA->IsInitialized() )
 	{
-		m_ButtonDecrypt.EnableWindow(true);
-		m_ButtonEncrypt.EnableWindow(true);
+		EnableEncryption();
 		m_ButtonOptionen.EnableWindow(true);
-		DlgOptions->m_Bitlength = RSA->GetBlockLength();
-		DlgOptions->m_log2N = RSA->GetLog2RSAModul();
-		DlgOptions->ReInitBlockLength();
+		SetDlgOptions();
 	}
 	else
 	{
-		m_ButtonDecrypt.EnableWindow(false);
-		m_ButtonEncrypt.EnableWindow(false);
+		EnableEncryption(false);
 		m_ButtonOptionen.EnableWindow(false);
 	}
-	m_edit10  = "";
-	m_edit11  = "";
-	m_edit12  = "";
-	m_edit13  = "";
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-	m_Header2 = "";
-	m_Header3 = "";
-	m_Header4 = "";
+
+	RequestForInput();
 	UpdateData(false);
 }
 
@@ -245,9 +224,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		}
 	}
 
-	DlgOptions->m_Bitlength = RSA->GetBlockLength();
-	DlgOptions->m_log2N = RSA->GetLog2RSAModul();
-	DlgOptions->ReInitBlockLength();
+	SetDlgOptions();
 	
 	if ( RSA->IsInitialized() && DlgOptions->m_BlockLength!=0 && DlgOptions->m_alphabet.GetLength()<m_oeffentliche_schluessel_e)
 	{
@@ -256,14 +233,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 			CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
 			CopyKey ( pc_str, Primes );
-	//		m_ButtonDecrypt.EnableWindow(true);
-	//		m_ButtonEncrypt.EnableWindow(true);
-	//		m_ButtonOptionen.EnableWindow(true);
-	//		DlgOptions->m_Bitlength = RSA->GetBlockLength();
-	//		DlgOptions->m_log2N = RSA->GetLog2RSAModul();
-	//		DlgOptions->ReInitBlockLength();
-			m_ButtonDecrypt.EnableWindow(true);
-			m_ButtonEncrypt.EnableWindow(true);
+			EnableEncryption(true);
 			m_ButtonOptionen.EnableWindow(true);
 		}
 		else
@@ -277,24 +247,20 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 				DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
 			}
 			if ( DlgOptions->Anzahl_Zeichen <= atoi(m_oeffentliche_parameter_pq))
-				{
+			{
 				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 				CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
 				CopyKey ( pc_str, Primes );
-				m_ButtonDecrypt.EnableWindow(true);
-				m_ButtonEncrypt.EnableWindow(true);
+				EnableEncryption(true);
 				m_ButtonOptionen.EnableWindow(true);	
-				}
+			}
 			else
 			{
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
-				char line[128];
 				sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 				AfxMessageBox(line);
-				m_ButtonDecrypt.EnableWindow(false);
-				m_ButtonEncrypt.EnableWindow(false);
+				EnableEncryption(false);
 				m_ButtonOptionen.EnableWindow(true);
-
 			}
 		}
 	}
@@ -309,21 +275,12 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
 		}
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
-		char line[128];
 		sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 		AfxMessageBox(line);
-		m_ButtonDecrypt.EnableWindow(false);
-		m_ButtonEncrypt.EnableWindow(false);
-		m_ButtonOptionen.EnableWindow(true);
-	}
-	m_edit10  = "";
-	m_edit11  = "";
-	m_edit12  = "";
-	m_edit13  = "";
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-	m_Header2 = "";
-	m_Header3 = "";
-	m_Header4 = "";
+		EnableEncryption(false);
+		m_ButtonOptionen.EnableWindow(true);		
+	}	
+	RequestForInput();
 	UpdateData(false);		
 }
 
@@ -331,55 +288,22 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 void RSA_mit_kleinenPZ::OnUpdateEdit10() 
 {
 	UpdateData(true);
-	m_edit11 = "";
-	m_edit12 = "";
-	m_edit13  = "";
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-	m_Header2 = "";
-	m_Header3 = "";
-	m_Header4 = "";
-/*
-	if (DlgOptions->m_TextOptions)
-	{
-		for (int i=0 ;i<m_edit10.GetLength(); i++)
-		{
-			for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-			{
-				if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
-			}
-			if (j >= DlgOptions->m_alphabet.GetLength() ) 
-				m_edit10.Delete(i);
-		}
-	}
-*/
+	RequestForInput( FALSE );
 	UpdateData(false);
 }
 
 void RSA_mit_kleinenPZ::OnOptionen() 
 {
 	UpdateData(TRUE);
-	DlgOptions->m_Bitlength = RSA->GetBlockLength();
-	DlgOptions->m_log2N = RSA->GetLog2RSAModul();
-	DlgOptions->RSA_Modul = m_oeffentliche_parameter_pq;
-//	if ( DlgOptions->m_BlockLength < 1 ) DlgOptions->m_BlockLength = 1;
-	if ( IDOK == DlgOptions->DoModal()) //&& DlgOptions->m_alphabet.GetLength()>m_oeffentliche_parameter_pq -1)// && DlgOptions->m_BlockLength >= 1)	
+	SetDlgOptions();	
+	if ( IDOK == DlgOptions->DoModal()) 
 	{
-		m_edit10  = "";
-		m_edit11  = "";
-		m_edit12  = "";
-		m_edit13  = "";
-		SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-		m_Header2 = "";
-		m_Header3 = "";
-		m_Header4 = "";
-		m_ButtonDecrypt.EnableWindow(true);
-		m_ButtonEncrypt.EnableWindow(true);
-	}
-	
+		RequestForInput();
+		EnableEncryption();
+	}	
 	else 
 	{
-			m_ButtonDecrypt.EnableWindow(false);
-			m_ButtonEncrypt.EnableWindow(false);	
+		EnableEncryption(false);
 	}
 
 	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
@@ -395,57 +319,29 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 	{
 		if ( !DlgOptions->m_RSAVariant )
 		{
+
 			if ( !DlgOptions->m_TextOptions )
 			{
 				EncryptASCII();
 			}
 			else
 			{
-				for (int i=0 ;i<m_edit10.GetLength();)
-				{
-					for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-					{
-						if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
-					}
-					if (j >= DlgOptions->m_alphabet.GetLength() ) 
-						m_edit10.Delete(i);
-					else
-						i++;
-				}
+				SkipWS();
 				EncryptAlphabet();
 			}
-			SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-			SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-			SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-			SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+			HeadingEncryption( ENCRYPT_TEXT );
 		}
 		else
 		{
-			for (int i=0 ;i<m_edit10.GetLength();)
-			{
-				for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-				{
-					if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
-				}
-				if (j >= DlgOptions->m_alphabet.GetLength() ) 
-					m_edit10.Delete(i);
-				else
-					i++;
-			}
+			SkipWS();
 			EncryptDialogueOfSisters();
-			SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-			SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-			SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-			SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+			HeadingEncryption( ENCRYPT_TEXT );		
 		}
 	}
 	else
 	{
 		EncryptNumbers();
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase() );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header3, IDS_RSA_MKPZ_CIPHERTEXT );
+		HeadingEncryption( ENCRYPT_NUMBERS );
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -466,51 +362,21 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 			}
 			else
 			{
-				for (int i=0 ;i<m_edit10.GetLength();)
-				{
-					for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-					{
-						if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
-					}
-					if (j >= DlgOptions->m_alphabet.GetLength() ) 
-						m_edit10.Delete(i);
-					else
-						i++;
-				}
+				SkipWS();
 				DecryptAlphabet();
 			}
-			SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-			SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-			SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-			SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
+			HeadingDecryption( DECRYPT_TEXT );
 		}
 		else
 		{
-			for (int i=0 ;i<m_edit10.GetLength();)
-			{
-				for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-				{
-					if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
-				}
-				if (j >= DlgOptions->m_alphabet.GetLength() ) 
-					m_edit10.Delete(i);
-				else
-					i++;
-			}
+			SkipWS();
 			DecryptDialogueOfSisters();
-			SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-			SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-			SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-			SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
-		}
+			HeadingDecryption( DECRYPT_TEXT );		}
 	}
 	else
 	{
 		DecryptNumbers();
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase() );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header3, IDS_RSA_MKPZ_PLAINTEXT );
+		HeadingDecryption( DECRYPT_NUMBERS );
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -520,348 +386,87 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 
 void RSA_mit_kleinenPZ::EncryptASCII()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	CString tmpStr;
-	CString NumStr;
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; 
-	m_edit13 = ""; 
-	
-	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		tmpStr    = m_edit10.Mid(i, blockSize);
-		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
-		CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
-		}
-	}
-	RSA->Encrypt( m_edit11, m_edit12, baseNumbers );
+	Segmentation( MODE_ASCII );
+	RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 }
 
 void RSA_mit_kleinenPZ::DecryptASCII()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	CString tmpStr;
-	CString NumStr;
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; 
-	m_edit13 = ""; 
-	
-	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		tmpStr    = m_edit10.Mid(i, blockSize);
-		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
-		CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit13 += " # ";
-			m_edit11 += " # ";
-		}
-	}
-	RSA->Decrypt( m_edit11, m_edit12, baseNumbers );
+	Segmentation( MODE_ASCII );
+	RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 }
 
 
 void RSA_mit_kleinenPZ::EncryptAlphabet()
 {
-	int blockSize = DlgOptions->m_BlockLength;
-	CString tmpStr;
-	CString NumStr;
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; 
-	m_edit13 = ""; 
-	
-	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		tmpStr    = m_edit10.Mid(i, blockSize);
-		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
-		AlphabetToNumStr(tmpStr, NumStr, DlgOptions->m_alphabet, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
-		}
-	}
-	RSA->Encrypt( m_edit11, m_edit12, baseNumbers );
+	Segmentation( MODE_ALPHABET );
+	RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 }
 
 void RSA_mit_kleinenPZ::DecryptAlphabet()
 {
-	int blockSize = DlgOptions->m_BlockLength;
-	CString tmpStr;
-	CString NumStr;
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; 
-	m_edit13 = ""; 
-	
-	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		tmpStr    = m_edit10.Mid(i, blockSize);
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
-		AlphabetToNumStr(tmpStr, NumStr, DlgOptions->m_alphabet, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
-		}
-	}
-	RSA->Decrypt( m_edit11, m_edit12, baseNumbers );
+	Segmentation( MODE_ALPHABET );
+	RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 }
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void RSA_mit_kleinenPZ::EncryptDialogueOfSisters()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
-
-	int i;
-	for (i=0; i<m_edit10.GetLength(); )
-	{
-		for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-			if ( m_edit10[i] == DlgOptions->m_alphabet[j] ) break;
-		if ( j>=DlgOptions->m_alphabet.GetLength() ) 
-		{
-			m_edit10.Delete(i);
-		}
-		else
-			i++;
-	}
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; CString NumStr;
-	m_edit13 = "";
-	for (i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		AlphabetToNumStr(p_str+i, NumStr, blockSize, DlgOptions->m_alphabet, baseNumbers ); 
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
-		}
-	}
-	RSA->EncryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, baseNumbers );
+	Segmentation( MODE_DLG_OF_SISTERS );
+	RSA->EncryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, GetBase() );
 }
 
 void RSA_mit_kleinenPZ::DecryptDialogueOfSisters()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
-
-	int i;
-	for (i=0; i<m_edit10.GetLength(); )
-	{
-		for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
-			if ( m_edit10[i] == DlgOptions->m_alphabet[j] ) break;
-		if ( j>=DlgOptions->m_alphabet.GetLength() ) 
-		{
-			m_edit10.Delete(i);
-		}
-		else
-			i++;
-	}
-
-	int baseNumbers = GetBase();
-	m_edit11 = ""; CString NumStr;
-	m_edit13 = "";
-	for (i = 0; i<m_edit10.GetLength(); i+=blockSize )
-	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		AlphabetToNumStr(p_str+i, NumStr, blockSize, DlgOptions->m_alphabet, baseNumbers ); 
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
-		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
-		}
-	}
-	RSA->DecryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, baseNumbers );
+	Segmentation( MODE_DLG_OF_SISTERS );
+	RSA->DecryptDialogueOfSisters( m_edit11, m_edit12, DlgOptions->m_alphabet, GetBase() );
 }
+
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void RSA_mit_kleinenPZ::EncryptNumbers()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
-
-	m_edit11 = ""; 
-	m_edit12 = "";
-	m_edit13 = "";
-	int baseNumbers = GetBase();
 	
-	RSA->Encrypt( m_edit10, m_edit13, baseNumbers );
+	RSA->Encrypt( m_edit10, m_edit13, GetBase() );
 
 	if ( !DlgOptions->m_RSAVariant )
 	{
-		int i1, i2;
-		i1 = i2 = 0;
-		CString tmp1, tmp2;
-		while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
 				
 		if ( !DlgOptions->m_TextOptions )
 		{
-			while ( i1 < m_edit13.GetLength() )
-			{
-				i2 = m_edit13.Find(" ", i1);
-				if (i2 < 0) 
-				{
-					if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-					else break;
-				}
-				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToASCII( tmp1, tmp2, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-				i1 = i2;
-				if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-			}
+			ReSegmentation( MODE_ASCII );
 		}
 		else
 		{
-			while ( i1 < m_edit13.GetLength() )
-			{
-				i2 = m_edit13.Find(" ", i1);
-				if (i2 < 0) 
-				{
-					if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-					else break;
-				}
-				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToAlphabet( tmp1, tmp2, DlgOptions->m_alphabet, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-				i1 = i2;
-				if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-			}
-
+			ReSegmentation( MODE_ALPHABET );
 		}
 	}
 	else
-	{
-		int i1, i2;
-		i1 = i2 = 0;
-		CString tmp1, tmp2;
-		while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
-			
-		while ( i1 < m_edit13.GetLength() )
-		{
-			i2 = m_edit13.Find(" ", i1);
-			if (i2 < 0) 
-			{
-				if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-				else break;
-			}
-			tmp1 = m_edit13.Mid(i1, i2-i1);
-			CStringToAlphabet( tmp1, tmp2, DlgOptions->m_alphabet, baseNumbers );
-			m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-			m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-			while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-			i1 = i2;
-			if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-		}
+	{  
+		ReSegmentation( MODE_DLG_OF_SISTERS );
 	}
 
 }
 
 void RSA_mit_kleinenPZ::DecryptNumbers()
 {
-	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
-
-	m_edit11 = ""; 
-	m_edit12 = "";
-	m_edit13 = "";
-	int baseNumbers = GetBase();
 	
-	RSA->Decrypt( m_edit10, m_edit13, baseNumbers );
+	RSA->Decrypt( m_edit10, m_edit13, GetBase() );
 
 	if ( !DlgOptions->m_RSAVariant )
 	{
-		int i1, i2;
-		i1 = i2 = 0;
-		CString tmp1, tmp2;
-		while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
 
 		if ( !DlgOptions->m_TextOptions )
 		{				
-			while ( i1 < m_edit13.GetLength() )
-			{
-				i2 = m_edit13.Find(" ", i1);
-				if (i2 < 0) 
-				{
-					if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-					else break;
-				}
-				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToASCII( tmp1, tmp2, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-				i1 = i2;
-				if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-			}
+			ReSegmentation( MODE_ASCII );
 		}
 		else
 		{
-			while ( i1 < m_edit13.GetLength() )
-			{
-				i2 = m_edit13.Find(" ", i1);
-				if (i2 < 0) 
-				{
-					if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-					else break;
-				}
-				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToAlphabet( tmp1, tmp2, DlgOptions->m_alphabet, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
-				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-				i1 = i2;
-				if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-			}
+			ReSegmentation( MODE_ALPHABET );
 		}
 	}
 	else
 	{
-		int i1, i2;
-		i1 = i2 = 0;
-		CString tmp1, tmp2;
-		while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
-				
-		while ( i1 < m_edit13.GetLength() )
-		{
-			i2 = m_edit13.Find(" ", i1);
-			if (i2 < 0) 
-			{
-				if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
-				else break;
-			}
-			tmp1 = m_edit13.Mid(i1, i2-i1);
-			CStringToAlphabet( tmp1, tmp2, DlgOptions->m_alphabet, baseNumbers );
-			m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-			m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
-			while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
-			i1 = i2;
-			if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
-		}
-
+		ReSegmentation( MODE_DLG_OF_SISTERS );
 	}
 
 }
@@ -878,8 +483,7 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 	CDialog::OnInitDialog();
 	
 	m_control_p.SetFocus();
-	m_ButtonDecrypt.EnableWindow(false);
-	m_ButtonEncrypt.EnableWindow(false);
+	EnableEncryption(false);
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 	CString Primes;
 	if ( PasteKey( pc_str, Primes ) )
@@ -898,7 +502,7 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 		m_ButtonOptionen.EnableWindow(false);
 	}
 	return FALSE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+ 	               // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
 void RSA_mit_kleinenPZ::OnUpdatePrimeP() 
@@ -909,41 +513,24 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeP()
 
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_p.GetSel(sels, sele);
-	
-	//CheckEdit(m_control_p,sels,sele);
 
 	res.Empty();
 	
-	
-//	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
-
 	for(k=i=0;i<m_eingabe_p.GetLength();i++) {
 		c = m_eingabe_p[i];
-//		if(AppConv.IsInAlphabet(c)) { // valid character
-			res += c;
-			k++;
-//		}
-//		else { // invalid character
-		//	MessageBeep(MB_OK);
-		//	if(k<sels) sels--;
-		//	if(k<sele) sele--;
-//		}
+		res += c;
+		k++;
 	}
-	
 
 	m_eingabe_p = res;
 	if ( m_eingabe_p.GetLength() )
 	{
-//		m_eingabe_q = _T("");
 		m_geheime_parameter = _T("");
 		m_oeffentliche_parameter_pq = _T("");
-//		m_oeffentliche_schluessel_e = _T("3");
 		m_geheime_schluessel_d = _T("");
 		m_edit10 = _T("");
-		m_ButtonDecrypt.EnableWindow(false);		
-		m_ButtonEncrypt.EnableWindow(false);		
+		EnableEncryption(false);
 	}
-	
 	
 	UpdateData(FALSE);
 	m_control_p.SetSel(sels,sele);
@@ -959,38 +546,22 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeQ()
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_q.GetSel(sels, sele);
 	
-//	CheckEdit(m_control_p,sels,sele);
-
 	res.Empty();
-	
-	
 
 	for(k=i=0;i<m_eingabe_q.GetLength();i++) {
 		c = m_eingabe_q[i];
-//		if(AppConv.IsInAlphabet(c)) { // valid character
-			res += c;
-			k++;
-//		}
-//		else { // invalid character
-		//	MessageBeep(MB_OK);
-		//	if(k<sels) sels--;
-		//	if(k<sele) sele--;
-//		}
+		res += c;
+		k++;
 	}
-	
-
 	m_eingabe_q = res;
 	if ( m_eingabe_q.GetLength() )
 	{
 		m_geheime_parameter = _T("");
 		m_oeffentliche_parameter_pq = _T("");
-//		m_oeffentliche_schluessel_e = _T("3");
 		m_geheime_schluessel_d = _T("");
 		m_edit10 = _T("");
-		m_ButtonDecrypt.EnableWindow(false);		
-		m_ButtonEncrypt.EnableWindow(false);	
+		EnableEncryption(false);
 	}
-	
 	
 	UpdateData(FALSE);
 	m_control_q.SetSel(sels,sele);
@@ -1005,25 +576,13 @@ void RSA_mit_kleinenPZ::OnUpdatePublicKeyE()
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_edit5.GetSel(sels, sele);
 	
-//	CheckEdit(m_control_p,sels,sele);
-
 	res.Empty();
-	
-	
 
 	for(k=i=0;i<m_oeffentliche_schluessel_e.GetLength();i++) {
 		c = m_oeffentliche_schluessel_e[i];
-//		if(AppConv.IsInAlphabet(c)) { // valid character
-			res += c;
-			k++;
-//		}
-//		else { // invalid character
-		//	MessageBeep(MB_OK);
-		//	if(k<sels) sels--;
-		//	if(k<sele) sele--;
-//		}
+		res += c;
+		k++;
 	}
-	
 
 	m_oeffentliche_schluessel_e = res;
 	if ( m_oeffentliche_schluessel_e.GetLength() )
@@ -1032,11 +591,212 @@ void RSA_mit_kleinenPZ::OnUpdatePublicKeyE()
 		m_oeffentliche_parameter_pq = _T("");
 		m_geheime_schluessel_d = _T("");
 		m_edit10 = _T("");
-		m_ButtonDecrypt.EnableWindow(false);		
-		m_ButtonEncrypt.EnableWindow(false);	
+		EnableEncryption(false);
 	}
-	
 	
 	UpdateData(FALSE);
 	m_control_edit5.SetSel(sels,sele);
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Small Tools
+
+int RSA_mit_kleinenPZ::GetBase()
+{
+	int baseNumbers = 10;
+
+	switch ( DlgOptions->m_numberBasis ) {
+	case 0: 
+		baseNumbers = 10;
+		break;
+	case 1: 
+		baseNumbers = 2;
+		break;
+	case 2: 
+		baseNumbers = 8;
+		break;
+	case 3: 
+		baseNumbers = 16;
+		break;
+	}
+
+	return baseNumbers;
+}
+
+void RSA_mit_kleinenPZ::RequestForInput( BOOL clearInput )
+{
+	if ( clearInput ) 
+		m_edit10  = "";
+	m_edit11  = "";
+	m_edit12  = "";
+	m_edit13  = "";
+	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
+	m_Header2 = "";
+	m_Header3 = "";
+	m_Header4 = "";
+}
+
+
+void RSA_mit_kleinenPZ::EnableEncryption(BOOL mode)
+{
+	m_ButtonDecrypt.EnableWindow(mode);		
+	m_ButtonEncrypt.EnableWindow(mode);	
+}
+
+
+void RSA_mit_kleinenPZ::HeadingEncryption( BOOL encryptText )
+{
+	if ( encryptText ) 
+	{
+		SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
+		SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
+		SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+	}
+	else
+	{
+		SetHeadLine( m_Header1, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header3, IDS_RSA_MKPZ_CIPHERTEXT );
+	}
+}
+
+void RSA_mit_kleinenPZ::HeadingDecryption( BOOL decryptText )
+{
+	if ( decryptText ) 
+	{
+		SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
+		SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
+		SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
+	}
+	else
+	{
+		SetHeadLine( m_Header1, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
+		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header3, IDS_RSA_MKPZ_PLAINTEXT );
+	}
+}
+
+
+void RSA_mit_kleinenPZ::SkipWS()
+{
+	for (int i=0 ;i<m_edit10.GetLength();)
+	{
+		for (int j=0; j<DlgOptions->m_alphabet.GetLength(); j++)
+		{
+			if (m_edit10[i] == DlgOptions->m_alphabet[j]) break;
+		}
+		if (j >= DlgOptions->m_alphabet.GetLength() ) 
+			m_edit10.Delete(i);
+		else
+			i++;
+	}
+}
+
+
+void RSA_mit_kleinenPZ::SetDlgOptions()
+{
+	DlgOptions->m_Bitlength = RSA->GetBlockLength();
+	DlgOptions->m_log2N     = RSA->GetLog2RSAModul();
+	DlgOptions->RSA_Modul   = m_oeffentliche_parameter_pq;
+	DlgOptions->ReInitBlockLength();
+}
+
+
+void RSA_mit_kleinenPZ::Segmentation( int mode )
+{
+	int blockSize    = DlgOptions->m_BlockLength;
+	CString tmpStr;
+	CString NumStr;
+
+	int baseNumbers = GetBase();
+	m_edit11 = ""; 
+	m_edit13 = ""; 
+
+	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
+	{
+		m_edit13 += m_edit10.Mid(i, blockSize);
+		tmpStr    = m_edit10.Mid(i, blockSize);
+		while ( tmpStr.GetLength() < blockSize ) { 
+			tmpStr += ' '; m_edit13 += ' '; 
+		}
+		switch ( mode ) {
+			case MODE_ASCII: 
+				CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
+				break;
+			case MODE_ALPHABET:
+				AlphabetToNumStr( tmpStr, NumStr, DlgOptions->m_alphabet, 
+								  baseNumbers, (DlgOptions->m_codingMethod == 1));
+				break;
+			case MODE_DLG_OF_SISTERS:
+				AlphabetToNumStr( tmpStr, NumStr, DlgOptions->m_BlockLength, DlgOptions->m_alphabet, baseNumbers );
+				break;
+		}
+		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
+		if ( i+blockSize < m_edit10.GetLength() ) 
+		{
+			m_edit11 += " # ";
+			m_edit13 += " # ";
+		}
+	}
+}
+
+
+BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
+{
+	int blockSize   = DlgOptions->m_BlockLength;
+	int baseNumbers = GetBase();
+
+	m_edit11 = "";
+	m_edit12 = "";
+	BOOL flag = TRUE;
+	int i1, i2;
+	i1 = i2 = 0;
+	CString tmp1, tmp2;
+	char _tmp2[512];
+	char _tmp3[512];
+	while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
+
+	while ( i1 < m_edit13.GetLength() )
+	{
+		i2 = m_edit13.Find(" ", i1);
+		if (i2 < 0) 
+		{
+			if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
+			else break;
+		}
+		tmp1 = m_edit13.Mid(i1, i2-i1);
+		switch ( mode ) {
+			case MODE_ASCII: 
+				flag &= CStringToASCII(tmp1, _tmp2, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod==1));
+				break;
+			case MODE_ALPHABET:
+				flag &= CStringToAlphabet( tmp1, _tmp2, DlgOptions->m_alphabet, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1));
+				break;
+			case MODE_DLG_OF_SISTERS:
+				CStringToAlphabet( tmp1, tmp2, DlgOptions->m_alphabet, baseNumbers );
+				strcpy(_tmp2, tmp2.GetBuffer(DlgOptions->m_BlockLength+1));
+				break;
+		}
+		if ( !flag )
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+			m_edit11  = pc_str; 
+			m_edit12  = "";
+			break;
+		}
+		int outStrLength = 0;
+		encodeASCII(_tmp3, outStrLength, 512, _tmp2, 0, DlgOptions->m_BlockLength, NULL );
+		_tmp3[outStrLength] = '\0';
+		m_edit11 += _tmp3;
+		m_edit12 += _tmp3;
+		while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
+		i1 = i2;
+		if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
+	}
+	return flag;
 }

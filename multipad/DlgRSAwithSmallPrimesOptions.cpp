@@ -198,7 +198,8 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectAlphabet()
 
 void CDlgRSAwithSmallPrimesOptions::OnOK() 
 {
-	// TODO: Zusätzliche Prüfung hier einfügen
+	char line[256];
+
 	UpdateData();
 	int blockLength = GetBlockLength();
 	if (m_TextOptions==0)
@@ -209,7 +210,6 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 	{
 		Anzahl_Zeichen=m_alphabet.GetLength();
 	}
-//	if ( m_BlockLength < 1 || m_BlockLength > blockLength ) 
 
 	if ( m_RSAVariant == 1  )
 	{
@@ -218,11 +218,8 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 		if ( Anzahl_Zeichen > int_RSA_Modul)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
-			char line[128];
 			sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
-//			sprintf(line, pc_str, theApp.TextOptions.m_alphabet);
 			AfxMessageBox(line);
-			//m_BlockLength = 1;
 			return;
 		}
 		
@@ -230,29 +227,22 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 	else if ( blockLength==0 ) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
-		char line[128];
 		sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
-//		sprintf(line, pc_str, theApp.TextOptions.m_alphabet);
 		AfxMessageBox(line);
-		//m_BlockLength = 1;
 		return;
 	}
 	else if ( blockLength==1 && (m_BlockLength ==0 || m_BlockLength > 1) ) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_1, pc_str,STR_LAENGE_STRING_TABLE);
-		char line[128];
 		sprintf(line, pc_str);
 		AfxMessageBox(line);
-		//m_BlockLength = 1;
 		return;
 	}
 	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength )) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH, pc_str,STR_LAENGE_STRING_TABLE);
-		char line[128];
 		sprintf(line, pc_str, blockLength);
 		AfxMessageBox(line);
-		//m_BlockLength = 1;
 		return;
 	}
 	UpdateData(false);
@@ -352,12 +342,6 @@ void CDlgRSAwithSmallPrimesOptions::OnCancel()
 	{
 		m_BlockLength=blockLength;
 	}
-	/*
-	if (m_BlockLength < 1)
-	{
-		
-	}
-	*/
 	UpdateData(false);
 	CDialog::OnCancel();
 }

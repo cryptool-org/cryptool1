@@ -31,8 +31,12 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 void CStringToBig(CString &CStrNumber, Big &t, int base );
 
 void CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                                        int base );
-void CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                       int BlockLength, int base,  bool CodingBasisSystem = false );
+BOOL CStringToASCII   ( CString &CStringNumber, char *asciiStr, int maxLength,                            int base );
+BOOL CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                       int BlockLength, int base,  bool CodingBasisSystem = false );
+BOOL CStringToASCII   ( CString &CStringNumber, char *asciiStr,                          int BlockLength, int base,  bool CodingBasisSystem = false );
 void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet,                  int base );
+BOOL CStringToAlphabet( CString &CStringNumber, char *AlphabetStr,
+					    CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem = false );
 void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int Bitlength,   int base,  bool CodingBasisSystem = false );
 
 void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase );

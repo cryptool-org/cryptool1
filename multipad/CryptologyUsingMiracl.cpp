@@ -91,7 +91,8 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
 	}
 	else
 	{
-		char asciiStr[256];
+		char *asciiStr;
+		asciiStr = new char[len+1];
 		asciiStr[len--] = 0;
 		while ( t != 0 )
 		{
@@ -99,10 +100,39 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
 			t /= 256;
 		}
 		ASCIIStr = asciiStr;
+		delete []asciiStr;
 	}
 }
 
-void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int BlockLength, int base, bool CodingBasisSystem  )
+BOOL CStringToASCII( CString &CStringNumber, char *asciiStr, int maxLength, int base )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+1);
+	int len = bits(t)/8;
+	if (bits(t) % 8) len++;
+	if ( len >= maxLength ) 
+		return FALSE;
+	if (0 == len)
+	{
+		asciiStr[0] = '\0';
+	}
+	else
+	{
+		asciiStr[len--] = '\0';
+		while ( t != 0 )
+		{
+			asciiStr[len--] = (char)(t % 256);
+			t /= 256;
+		}
+	}
+	return TRUE;
+}
+
+
+BOOL CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int BlockLength, int base, bool CodingBasisSystem  )
 {
 	Big t;
 	miracl *mip = &g_precision;
@@ -130,7 +160,40 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int BlockLength,
 			t = t / modul;
 		}
 	}
+	if ( t != 0 ) return FALSE;
+	else          return TRUE;
+}
 
+BOOL CStringToASCII( CString &CStringNumber, char *asciiStr, int BlockLength, int base, bool CodingBasisSystem  )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
+	asciiStr[BlockLength] = '\0';
+	if ( !CodingBasisSystem )
+	{
+		for (int k=0; k<BlockLength; k++) 
+		{
+			asciiStr[BlockLength-1-k] = t % 256;
+			t = t / 256;
+		}
+	}
+	else
+	{
+		int digits = (int)ceil(log(256)/log(base));
+		int modul = base;
+		for (int i=1; i<digits; i++) modul *= base;
+		for (int k=0; k<BlockLength; k++) 
+		{
+			int i = (t % modul) % 256;
+			asciiStr[BlockLength-1-k] = char(i);
+			t = t / modul;
+		}
+	}
+	if ( t != 0 ) return FALSE;
+	else          return TRUE;
 }
 
 
@@ -146,6 +209,41 @@ void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &A
 	int i = t % Alphabet.GetLength();
 	AlphabetStr = "";
 	AlphabetStr.Insert( 0, Alphabet[i] );
+}
+
+BOOL CStringToAlphabet( CString &CStringNumber, char *AlphabetStr, 
+					    CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
+	if ( !CodingBasisSystem )
+	{
+		AlphabetStr[BlockLength] = 0;
+		for (int k=0; k<BlockLength; k++) 
+		{
+			int i = t % Alphabet.GetLength();
+			t = t / Alphabet.GetLength();
+			AlphabetStr[BlockLength-1-k] = Alphabet[i];
+		}
+	}
+	else
+	{
+		int digits = (int)ceil(log(Alphabet.GetLength())/log(base));
+		int modul = base;
+		for (int i=1; i<digits; i++) modul *= base;
+		AlphabetStr[BlockLength] = 0;
+		for (int k=0; k<BlockLength; k++) 
+		{
+			int i = (t % modul) % Alphabet.GetLength();
+			t = t / modul;
+			AlphabetStr[BlockLength-1-k] = Alphabet[i];
+		}
+	}
+	if ( t != 0 ) return FALSE;
+	else          return TRUE;
 }
 
 void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem )

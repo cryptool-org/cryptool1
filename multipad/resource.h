@@ -94,6 +94,7 @@
 #define IDB_BITMAP5                     259
 #define IDD_TEST                        260
 #define IDD_SHOW_HASH                   268
+#define IDD_DIALOG_PIN_VERIFICATION     270
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -424,6 +425,9 @@
 #define IDC_INFO_STATIC_RUN             1296
 #define IDC_INFO_STATIC_LONGRUN         1297
 #define IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION 1302
+#define IDC_BUTTON_P12IMPORT            1303
+#define IDC_EDIT_PIN1                   1304
+#define IDC_EDIT_PIN2                   1305
 #define IDC_EDIT_ANZAHL_ZEICHEN         1307
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -567,6 +571,7 @@
 #define ID_ANALYSE_ZUFALLSTESTS_LONGRUNTEST 33150
 #define ID_COPY_KEY                     33151
 #define ID_AES_SELFEXTRACT              33152
+#define ID_P12IMPORT                    33153
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -950,6 +955,7 @@
 #define IDS_CRYPT_TWOFISH               37671
 #define IDS_CRYPT_PRIMES                37672
 #define IDS_CRYPT_RSADEMO_PARAMETER     37673
+#define IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 37674
 #define IDS_STRING_REFERENCE_FILE       37700
 #define IDS_STRING_TESTS_ERGEBNIS_INFO  37701
 #define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 37702
@@ -983,14 +989,23 @@
 #define IDS_STRING_ERR_PRIME_ARE_EQUAL  37816
 #define IDS_STRING_ANZAHL_ZEICHEN       37817
 #define IDS_STRING_ANZAHL_ZEICHEN2      37818
-#define IDS_STRING_BENOETIGTE_ZEIT_FAKT 37818
+#define IDS_STRING_BENOETIGTE_ZEIT_FAKT 37819
+#define IDS_STRING_PSEOPENERROR         37820
+#define IDS_STRING_P12_CREAT_FAILED     37821
+#define IDS_STRING_INPUT_PSEPIN         37822
+#define IDS_STRING_INPUT_P12PIN         37823
+#define IDS_STRING_FILEOPENERROR        37824
+#define IDS_STRING_FILEEXISTS           37825
+#define IDS_STRING_PSECREATIONERROR     37826
+#define IDS_STRING_INCOMPATIBLE_CERT    37827
+#define IDS_STRING_CERT_DECODING_ERROR  37828
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        269
-#define _APS_NEXT_COMMAND_VALUE         33153
+#define _APS_NEXT_RESOURCE_VALUE        271
+#define _APS_NEXT_COMMAND_VALUE         33154
 #define _APS_NEXT_CONTROL_VALUE         1308
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

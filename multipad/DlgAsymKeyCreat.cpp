@@ -25,6 +25,8 @@
 #include "KeyFileHandling.h"
 #include "DlgEcKeysCreat.h"
 #include "DLG_param.h"
+#include "PinAndNewPinDialog.h"
+#include "SecudeTools.h"
 
 #include <time.h>
 
@@ -126,6 +128,7 @@ BEGIN_MESSAGE_MAP(CDlgAsymKeyCreat, CDialog)
 	ON_BN_CLICKED(IDC_RADIO5, OnDecimalRadio)
 	ON_BN_CLICKED(IDC_RADIO4, OnOctalRadio)
 	ON_BN_CLICKED(IDC_RADIO6, OnHexRadio)
+	ON_BN_CLICKED(IDC_BUTTON_P12IMPORT, OnButtonP12import)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -854,7 +857,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 
 		DisName=theApp.SecudeLib.aux_Name2DName(string8);
 
-		// Erzeugung des Prototyp-Zertifikates
+		// Erzeugung des self-signed Prototyp-Zertifikates
 		// Erklärung der Parameter:
 		// PseHandle    : 
 		// keyinfo.key  : zu zertifizierender öff. Schl.
@@ -883,6 +886,31 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			delete string7;
 			return;
 		}
+
+
+		// Make it a X509.v3 certificate
+		// Add extensions, in particular store the PSE name in a private extension.
+		// This is required if the certificate is exported via PKCS#12 and later
+		// imported by another CrypTool
+
+		// get PSE name
+		LPTSTR UserKeyId_str= new TCHAR[UserKeyId.GetLength()+1];
+		_tcscpy(UserKeyId_str, UserKeyId);
+
+		SEQUENCE_OF_Extension extensions;
+		extensions.element = (v3Extension *) theApp.SecudeLib.aux_malloc(sizeof(v3Extension));
+		extensions.element->extnId = CrypToolPSEName_OID();
+		extensions.element->critical = false;
+		extensions.element->extnDERcode = theApp.SecudeLib.e_PrintableString((char *) UserKeyId_str);
+		extensions.next = NULL;
+		delete [] UserKeyId_str;
+
+		CertExtensions cert_ext;
+		memset (&cert_ext, 0, sizeof(CertExtensions));
+		cert_ext.nonSupported = &extensions;
+
+		Zert->tbs->extensions = &cert_ext;
+
 
 		PSE PseHandle2;
 		
@@ -935,7 +963,57 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			delete string7;
 			return;
 		}
+
+		// 2001-10-26 Martin Bartosch: added
+		// get PKRoot object from CA PSE and copy it to the new PSE
+		PKRoot * pkroot;
+		pkroot = theApp.SecudeLib.af_pse_get_PKRoot(PseHandle2);
+		if (pkroot)
+		{
+			fehler = theApp.SecudeLib.af_pse_update_PKRoot(PseHandle, pkroot);
+			if (fehler==-1)
+			{
+				// Error writing certificate to the user PSE
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);  //FIXME: change error code
+				AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+				// Lösche die neu angelegte PSE
+				remove(string3);
+				// Freigeben von dynamisch angelegtem Speicher
+				delete string2;
+				delete string4;
+				delete string7;
+				theApp.SecudeLib.af_close(PseHandle2);
+				theApp.SecudeLib.aux_free_DName (&DisName);
+				theApp.SecudeLib.aux_free_PKRoot(&pkroot);
+				theApp.SecudeLib.af_close(PseHandle);
+				return;
+			}
+		}
+
+		theApp.SecudeLib.aux_free_PKRoot(&pkroot);
 		
+
+		// 2001-10-22 Martin Bartosch: added
+		// write certificate to PSE object
+		fehler=theApp.SecudeLib.af_pse_update(PseHandle, "Cert", Zert2, *theApp.SecudeLib.Cert_OID);
+		if (fehler==-1)
+		{
+			// Error writing certificate to the user PSE
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);  //FIXME: change error code
+			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			// Lösche die neu angelegte PSE
+			remove(string3);
+			// Freigeben von dynamisch angelegtem Speicher
+			delete string2;
+			delete string4;
+			delete string7;
+			theApp.SecudeLib.af_close(PseHandle2);
+			theApp.SecudeLib.aux_free_DName (&DisName);
+			theApp.SecudeLib.af_close(PseHandle);
+			return;
+		}
+
+			
 		theApp.SecudeLib.af_close(PseHandle2);
 		theApp.SecudeLib.aux_free_DName (&DisName);
 		theApp.SecudeLib.af_close(PseHandle);
@@ -957,4 +1035,287 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 	char temp[100];
 	sprintf(temp, pc_str, duration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
+}
+
+
+// import PKCS#12 files; store private key and certificate in new PSE
+// and in CA database
+// 2001-11 Martin Bartosch; Cynops GmbH
+
+void CDlgAsymKeyCreat::OnButtonP12import() 
+{
+	CString p12_passwd;
+	CString pse_passwd;
+	SEQUENCE_OF_Extension *thisextension = NULL;
+	char *PSEName_from_ext = NULL;
+	char *PSEName = NULL;
+
+	// pop up file selector box
+	CFileDialog Dlg(TRUE, P12_FILE_SUFFIX, NULL, OFN_HIDEREADONLY,
+	"PKCS #12 Files (*.p12)|*.p12|All Files (*.*)|*.*||", this);
+	if(IDCANCEL == Dlg.DoModal()) return;
+
+	CString p12_file = Dlg.GetPathName();
+
+	// make temporary PSE file (will be removed or renamed later)
+	PSEName = _tempnam(PseVerzeichnis, "pse");
+
+	// check if PSE already exists
+	if (_access(PSEName, 0) != -1)
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_FILEEXISTS, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+		free(PSEName);
+		return;
+	}
+
+	// read input file
+	OctetString * input = theApp.SecudeLib.aux_file2OctetString(p12_file);
+
+	if (!input) 
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_FILEOPENERROR, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+		free(PSEName);
+		return; // no selection
+	}
+
+	// get PIN for PKCS#12 file and PIN for new PSE
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_P12PIN,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_PSEPIN,pc_str1,STR_LAENGE_STRING_TABLE);
+
+	CPinAndNewPinDialog PinRequest(pc_str, pc_str1);
+	if (PinRequest.DoModal() == IDOK)
+	{
+		p12_passwd = PinRequest.m_PinCode;
+		pse_passwd = PinRequest.m_NewPinCode;
+	}
+	else 
+	{
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		free(PSEName);
+		return;
+	}
+
+
+
+	LPTSTR pse_passwd_str = new TCHAR[pse_passwd.GetLength()+1];
+	_tcscpy(pse_passwd_str, pse_passwd);
+	char *pse_passwd_strptr = pse_passwd_str;
+
+	// create new PSE
+	PSE	pse = theApp.SecudeLib.af_create(PSEName, NULL, pse_passwd_strptr, NULL, TRUE);
+	delete [] pse_passwd_str;
+
+	if (!pse) 
+	{
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_PSECREATIONERROR, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION, 0);
+	    // aux_print_error(NULL, verbose);
+		free(PSEName);
+		theApp.SecudeLib.af_close(pse);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+	    return;
+	}
+
+
+	LPTSTR p12_passwd_str = new TCHAR[p12_passwd.GetLength()+1];
+	_tcscpy(p12_passwd_str, p12_passwd);
+	char *p12_passwd_strptr = p12_passwd_str;
+
+	OctetString * p12_passwd_ostr = theApp.SecudeLib.aux_latin1_to_unicode(p12_passwd_strptr, TRUE);
+	delete [] p12_passwd_str;
+
+	int rc = PKCS12_import(pse, input, p12_passwd_ostr, 1);
+	if (rc) 
+	{
+	 	AfxMessageBox("Could not decode PKCS#12 file", MB_ICONINFORMATION, 0);
+	    // aux_print_error(NULL, verbose);
+		remove(PSEName);
+		free(PSEName);
+		theApp.SecudeLib.aux_free_OctetString(&p12_passwd_ostr);
+		theApp.SecudeLib.af_close(pse);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		return;
+	}
+	theApp.SecudeLib.aux_free_OctetString(&p12_passwd_ostr);
+
+
+	// The certificate is now stored in the PSE
+	// get it and register it in the CA database
+	// NOTE: this is a hack that is necessary because of the 
+	// way CrypTool handles its certificates.
+	// As a side effect, it is probably not possible to import
+	// certificates not issued by CrypTool.
+	
+	Certificate * cert = theApp.SecudeLib.af_pse_get_Certificate(pse, SIGNATURE, NULL, NULL);
+ 	if (!cert)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		// remove newly created PSE
+		remove(PSEName);
+		free(PSEName);
+		theApp.SecudeLib.af_close(pse);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		return;
+	}
+
+	theApp.SecudeLib.af_close(pse);
+
+
+	// get certificate extensions
+	PSEName_from_ext = NULL;
+	if (cert->tbs->extensions)
+		for (thisextension = cert->tbs->extensions->nonSupported; thisextension; thisextension = thisextension->next)
+			if (theApp.SecudeLib.aux_cmp_ObjId(thisextension->element->extnId, CrypToolPSEName_OID()) == 0)
+				// found private PSE name extension
+				PSEName_from_ext = theApp.SecudeLib.d_PrintableString(thisextension->element->extnDERcode);
+
+
+	// get proper name for the PSE
+	if (PSEName_from_ext)
+	{
+		// if our private extension is present, use the PSE name contained in the extension
+		// and rename the temporary PSE to this name
+
+		CString tmp = (CString) PseVerzeichnis + ((CString)"/") + (CString) PSEName_from_ext + (CString)PSE_FILE_SUFFIX;
+		theApp.SecudeLib.aux_free(PSEName_from_ext);
+
+		LPTSTR tmp_str = (LPTSTR) calloc(tmp.GetLength() + 1, sizeof(TCHAR));
+		_tcscpy(tmp_str, tmp);
+
+		rename(PSEName, (char *) tmp_str);
+		free(PSEName);
+		PSEName = (char *) tmp_str;
+	}
+	else
+	{
+		// this seems to be an old certificate (issued by an older version of CrypTool) or
+		// a certficate that has not been issued by cryptool at all.
+
+		// determine if this is a CrypTool cert
+		char *issuer_name = theApp.SecudeLib.aux_DName2Name(cert->tbs->issuer);
+		if (issuer_name)
+		{
+			if (strcmp(issuer_name, "CN=CA, L=Frankfurt, O=DB, C=DE") == 0)
+			{
+				// this is a CrypTool certificate, try to extract the relevant data
+
+				// compose PSE name from certificate data
+				char * subject_name = theApp.SecudeLib.aux_DName2Name(cert->tbs->subject);
+	
+				CString FirstName, LastName, CreationTime, Algorithm, KeySize;
+				LastName = subject_name;
+				LastName.Delete(0, LastName.Find("CN=") + 3);
+
+				FirstName = LastName.Left(LastName.Find(" "));
+				LastName.Delete(0, FirstName.GetLength() + 1);
+				LastName = LastName.Left(LastName.Find(" "));
+
+				CreationTime = subject_name;
+				CreationTime.Delete(0, CreationTime.Find("[") + 1);
+				CreationTime = CreationTime.Left(CreationTime.Find("]"));
+
+				theApp.SecudeLib.aux_free(&subject_name);
+
+				// get algorithm ID
+				char * alg_name = theApp.SecudeLib.aux_sprint_AlgId(NULL, cert->tbs->subjectPK->subjectAI);
+
+				KeySize = alg_name;
+				KeySize.Delete(0, KeySize.Find("Keysize =") + 9);
+				KeySize.TrimLeft(" ");
+				KeySize = KeySize.SpanIncluding("0123456789");
+
+				Algorithm = alg_name;
+				Algorithm.Delete(0, Algorithm.Find("Algorithm") + 9);
+				Algorithm.TrimLeft(" ");
+				Algorithm = Algorithm.Left(Algorithm.Find("(OID"));
+				Algorithm.TrimRight(" ");
+				
+				theApp.SecudeLib.aux_free(&alg_name);
+
+				// construct PSE name
+				CString tmp = (CString) PseVerzeichnis + 
+					(CString)"/[" + LastName + (CString) "][" + 
+					FirstName + (CString) "][" + 
+					Algorithm + (CString) "-" + KeySize + (CString) "][" +
+					CreationTime + (CString) "]" + 
+					(CString) PSE_FILE_SUFFIX;
+
+				LPTSTR tmp_str = (LPTSTR) calloc(tmp.GetLength() + 1, sizeof(TCHAR));
+				_tcscpy(tmp_str, tmp);
+
+				rename(PSEName, (char *) tmp_str);
+				free(PSEName);
+				PSEName = (char *) tmp_str;
+			}
+			else
+			{
+				// this is not a CrypTool certificate - for now we cannot process these
+				// certificates because of the internal PSE handling.
+				// FIXME: find out what we can do about it.
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_INCOMPATIBLE_CERT,pc_str,STR_LAENGE_STRING_TABLE);
+				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+
+				remove(PSEName);
+				free(PSEName);
+				theApp.SecudeLib.aux_free(&issuer_name);
+				theApp.SecudeLib.aux_free_Certificate(&cert);
+				theApp.SecudeLib.aux_free_OctetString(&input);
+				return;
+			}
+
+			theApp.SecudeLib.aux_free(&issuer_name);
+		}
+		else
+		{
+			// FIXME: error handling
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_CERT_DECODING_ERROR, pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			remove(PSEName);
+			free(PSEName);
+			theApp.SecudeLib.aux_free(&issuer_name);
+			theApp.SecudeLib.aux_free_Certificate(&cert);
+			theApp.SecudeLib.aux_free_OctetString(&input);
+			return;
+		}
+	}
+
+
+	// Open CA PSE
+	PSE capse = theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
+	if (!capse)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+	
+		remove(PSEName);
+		free(PSEName);
+		theApp.SecudeLib.aux_free_Certificate(&cert);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		return;
+	}
+
+
+	rc = theApp.SecudeLib.af_cadb_add_Certificate (capse, SIGNATURE, cert);
+	if (rc)
+	{
+		// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		// remove newly created PSE
+		remove(PSEName);
+		free(PSEName);
+		theApp.SecudeLib.aux_free_Certificate(&cert);
+		theApp.SecudeLib.af_close(capse);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		return;
+	}
+
+	free(PSEName);
+	theApp.SecudeLib.aux_free_Certificate(&cert);
+	theApp.SecudeLib.aux_free_OctetString(&input);
+	theApp.SecudeLib.af_close(capse);
 }
