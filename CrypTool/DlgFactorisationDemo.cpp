@@ -935,8 +935,10 @@ void CDlgFactorisationDemo::OnShowFactorisationDetails()
 	DetailsFactorisation.m_Factor2isPrime   = "";
 	DetailsFactorisation.m_factor2          = "";
 	DetailsFactorisation.m_factor1          = "";
+	DetailsFactorisation.m_Factorisation    = m_Factorisation;
 
 	DetailsFactorisation.m_orignNumber = m_CompositeNoStr;
+	DetailsFactorisation.m_benoetigte_zeit_global = m_benoetigte_zeit_global;
 	if ( DetailsFactorisation.DoModal() == IDCANCEL )
 	{
 		// ToDo: Flag Setzen für das Speichern der Datei

@@ -5036,6 +5036,14 @@ BEGIN
                             "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
     IDS_SECUDE_COULD_NOT_BE_LOADED "Secude Lib konnte nicht geladen werden!"
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
+    IDS_FACTORISATION_LIST_DESCRIPTION 
+                            "Die jeweilig nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
+    IDS_FACTORISATION_LIST_TOTAL_TIME 
+                            "Gesamtzeitdauer der Faktorisierungen: %s"
+    IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Faktorisierung"
+    IDS_FACTORISATION_LIST_TIME "Gesamtdauer der Faktorisierung: %s"
+    IDS_FACTORISATION_LIST_RESULT 
+                            "Die Eingabezahl wurde in den folgenden Faktoren Zerlegt:"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5324,8 +5332,8 @@ BEGIN
                             "Die Eingabe ist keine positve ganze Zahl."
     IDS_STRING_FAKTORISATION_ABORTED 
                             "Die Faktorisation wurde vorzeitig beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
-    IDS_STRING_FAKTORISATION_ABORT_MSG "Abgebrochen"
-    IDS_STRING_FAKTORISATION_STOP_MSG "Ohne Erfolg"
+    IDS_STRING_FAKTORISATION_ABORT_MSG "abgebrochen"
+    IDS_STRING_FAKTORISATION_STOP_MSG "ohne Erfolg"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10338,6 +10346,14 @@ BEGIN
                             "To choose this option, you must first deactivate the option below\n[+] ""Distinguish between uppercase and lowercase""!"
     IDS_SECUDE_COULD_NOT_BE_LOADED "The Secude library could not be loaded !"
     IDS_NGRAM_TITLE         "N-Gram List of %s"
+    IDS_FACTORISATION_LIST_DESCRIPTION 
+                            "The particular next composite number will be factorised into two factors:"
+    IDS_FACTORISATION_LIST_TOTAL_TIME 
+                            "Total time of the single factorisations: %s"
+    IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Factorisation"
+    IDS_FACTORISATION_LIST_TIME "Total factorisation time: %s"
+    IDS_FACTORISATION_LIST_RESULT 
+                            "The input integer has been factorised into the following factors:"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10612,8 +10628,8 @@ BEGIN
                             "The input is not a positiv integer."
     IDS_STRING_FAKTORISATION_ABORTED 
                             "The faktorisation has been aborted.\nThe present factorisation still contains at least one composite factor."
-    IDS_STRING_FAKTORISATION_ABORT_MSG "Aborted"
-    IDS_STRING_FAKTORISATION_STOP_MSG "Without success"
+    IDS_STRING_FAKTORISATION_ABORT_MSG "aborted"
+    IDS_STRING_FAKTORISATION_STOP_MSG "without success"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -31,6 +31,7 @@ CDlgFactorisationList::CDlgFactorisationList(CWnd* pParent)
 	//}}AFX_DATA_INIT
 	List = NULL;
 	b_SaveFactorList = false;
+	m_benoetigte_zeit_global = _T("");
 }
 
 
@@ -203,70 +204,97 @@ void CDlgFactorisationList::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+
+#define _FACTORISATION_LIST_INDENT "        "
+
 void CDlgFactorisationList::OnCancel() 
 {
 	
 	UpdateData(TRUE);
 	SHOW_HOUR_GLASS
 	b_SaveFactorList = true;
+	int i_No = 0;
 	
 	GetTmpName(outfile,"cry",".tmp");
 	ofstream f_Details(outfile);
 
 	LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_INPUT,pc_str,STR_LAENGE_STRING_TABLE);
-    f_Details << pc_str << m_orignNumber << endl << endl << endl;
+    f_Details << pc_str << m_orignNumber << endl;
+	
+	LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_LIST_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
+    f_Details << pc_str << endl << endl << endl;
 	struct DFItem *Seek = List;	
 	while ( Seek != NULL ) 
 	{
 		char line[128];
-		
-		{ // Factorized Number
-			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTORISEDNUMBER,
+		i_No++;
+		f_Details << i_No << ".) ";
+
+		if ( Seek->Factor1.GetLength() > 0 )
+		{
+			{ // Factorized Number
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTORISEDNUMBER,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << pc_str << Seek->Num << endl;
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << pc_str << " = " << Seek->BitlengthF1+Seek->BitlengthF2 << endl;
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << pc_str << ": " << Seek->Method << ".  ";
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLTIME,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << pc_str << ": " << Seek->Time << endl << endl;
+			}
+			{ // Factor 1
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR1,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << _FACTORISATION_LIST_INDENT << pc_str  << Seek->Factor1 << endl;
+				if ( Seek->PrimeMask & 1 )
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+				}
+				else
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+				}
+				sprintf(line, pc_str, Seek->BitlengthF1);
+				f_Details << _FACTORISATION_LIST_INDENT << line << endl << endl;
+			}
+			{ // Factor 2
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR2,
+					pc_str,STR_LAENGE_STRING_TABLE);
+				f_Details << _FACTORISATION_LIST_INDENT << pc_str  << Seek->Factor2 << endl;
+				if ( Seek->PrimeMask & 2 )
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+				}
+				else
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+				}
+				sprintf(line, pc_str, Seek->BitlengthF2);
+				f_Details << _FACTORISATION_LIST_INDENT << line << endl << endl << endl;		
+			}
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_LIST_CURRENT_FACTORISATION,
 				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << pc_str << Seek->Num << endl;
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,
-				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << pc_str << " = " << Seek->BitlengthF1+Seek->BitlengthF2 << endl;
-			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
-				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << pc_str << ": " << Seek->Method << ".  ";
+			f_Details << pc_str << " " << Seek->Method << endl;
 			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLTIME,
 				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << pc_str << ": " << Seek->Time << endl << endl;
+			f_Details << pc_str << ": " << Seek->Time << endl << endl << endl;
 		}
-		{ // Factor 1
-			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR1,
-				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << "   " << pc_str  << Seek->Factor1 << endl;
-			if ( Seek->PrimeMask & 1 )
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
-			}
-			else
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
-			}
-			sprintf(line, pc_str, Seek->BitlengthF1);
-			f_Details << "   " << line << endl << endl;
-		}
-		{ // Factor 2
-			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR2,
-				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << "   " << pc_str  << Seek->Factor2 << endl;
-			if ( Seek->PrimeMask & 2 )
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
-			}
-			else
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
-			}
-			sprintf(line, pc_str, Seek->BitlengthF2);
-			f_Details << "   " << line << endl << endl << endl;		
-		}
-		
 		Seek = Seek->next;
 	}
+
+	f_Details << m_benoetigte_zeit_global << endl << endl;
+	LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_LIST_RESULT,
+		pc_str,STR_LAENGE_STRING_TABLE);
+	f_Details << pc_str  << endl;
+	f_Details << m_Factorisation << endl;
+
 	f_Details.close();	
 	CDialog::OnCancel();
 }

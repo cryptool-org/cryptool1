@@ -54,6 +54,8 @@ public:
 	CString	m_factor1;
 	//}}AFX_DATA
 
+	CString m_benoetigte_zeit_global;
+	CString m_Factorisation;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
