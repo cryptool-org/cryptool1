@@ -131,6 +131,7 @@ public:
 	CListCtrl           m_listview;
 	int					m_use;
 	int					m_TextWasPreformatted;
+	int                 m_ActualiseExpectedPlaintext;
 	//}}AFX_DATA
 
 

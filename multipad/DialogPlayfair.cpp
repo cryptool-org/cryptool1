@@ -49,6 +49,7 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 	m_sechs               = 0;
 	m_iScroll             = 0;
 	m_TextWasPreformatted = 1;
+	m_ActualiseExpectedPlaintext = 1;
 	m_txtfeld.SetAlg(m_Alg);
 	//}}AFX_DATA_INIT
 }
@@ -175,6 +176,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PLAYFAIR_LIST, m_listview);
 	DDX_Control(pDX, IDC_PASSWORD, m_pwfeld);
 	DDX_Control(pDX, IDC_MYTXT, m_txtfeld);
+	DDX_Check(pDX, IDC_CHECK4, m_ActualiseExpectedPlaintext);
 	// DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER); m_mytxt ersetzt durch lokale Variable
 	DDX_Text(pDX, IDC_PASSWORD, m_password);
 	DDV_MaxChars(pDX, m_password, 36);
@@ -364,6 +366,7 @@ void CDialogPlayfair::OnAnalyse()
 	int i, k;
 	char buf[MAXSHOWLETTER+2], line[256];
 	int maxchars=MAXSHOWLETTER;
+	BOOL flagSuccess;
 
 	UpdateData(TRUE);
 
@@ -374,14 +377,14 @@ void CDialogPlayfair::OnAnalyse()
 		buf[i] = m_plaintext[i]; i++;
 	}
 	buf[i]='\0';
-		if (!m_Alg->CreateMatrixStandalone (buf, i)) { // Analyse Peer Wichmann
-			// keine gültige Matrix gefunden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_NOMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox (line);
-		}
+	if (!(flagSuccess = m_Alg->CreateMatrixStandalone(buf, i))) { // Analyse Peer Wichmann
+		// keine gültige Matrix gefunden
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_NOMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox (line);
+	}
 
-		m_password = m_Alg->CreatePassfromMatrix();
+	m_password = m_Alg->CreatePassfromMatrix();
 
 
 	// Matrix neu schreiben
@@ -395,6 +398,33 @@ void CDialogPlayfair::OnAnalyse()
 		
 	UpdateData(FALSE);
 	UpdateListBox();	
+	if ( m_ActualiseExpectedPlaintext && flagSuccess ) 
+	{
+		char obuf[MAXSHOWLETTER+2];
+		int i,j,k;
+		i=j=k=0;
+		while(i<MAXSHOWLETTER&&j<m_Alg->inbuflen)
+		{
+			char c=m_Alg->inbuf[j++];
+			if(!m_Alg->myisalpha2(c) && !isinvalidoccured)  
+				c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
+			if(m_Alg->myisalpha2(c)) {
+				obuf[i] = m_Alg->outbuf[k];
+				k++;
+			} else {
+				obuf[i] = '.';
+			}
+			i++;
+		}
+		obuf[i] = '\0';
+		CString tmp = obuf;
+		int ps, pe;
+		m_txtfeld.GetSel(ps, pe);
+		m_txtfeld.SetSel(0,-1);
+		m_txtfeld.ReplaceSel(tmp, TRUE);
+		m_txtfeld.SetSel(ps,ps);
+	}
+	m_txtfeld.SetFocus();
 }
 
 
@@ -715,7 +745,7 @@ void CDialogPlayfair::UpdateListBox()
 	}
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
-	// ScrollRange( i );
+	ScrollRange( i );
 	// OnChangeHScrollEditPlaintext();
 	UpdateData(FALSE);
 } 
