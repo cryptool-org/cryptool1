@@ -55,8 +55,13 @@ statement from your version.
 #ifndef _SIDECHANNELATTACK_
 #define _SIDECHANNELATTACK_
 
-class istream;
-class ostream;
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
+#include <iostream.h>
+#else
+#include <iostream>
+using namespace std;
+#endif
+
 class SCA_Error;
 class SCA_Client;
 class SCA_Server;
