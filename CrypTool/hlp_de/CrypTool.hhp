@@ -129,7 +129,6 @@ hidd_sidechannelattackvisualization_he_finished.html
 hidd_sidechannelattackvisualization_he_bob.html
 hidd_sidechannelattackvisualization_he_alice.html
 hidd_sidechannelattackvisualization_he.html
-hidd_sidechannalattackvisualization_he_attackcycle.html
 hidd_show_publickey_ec.html
 hidd_show_progress.html
 hidd_show_privatekey_ec.html
@@ -408,6 +407,7 @@ hid_cr_sz_onetimepasswords.html
 hid_cr_sz_passwords.html
 hid_cr_usage.html
 hid_cr_overview.html
+hidd_sidechannelattackvisualization_he_attackcycle.html
 
 [ALIAS]
 #include CrypTool_Alias.h
