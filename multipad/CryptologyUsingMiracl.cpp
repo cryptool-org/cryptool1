@@ -2250,7 +2250,7 @@ int TutorialFactorisation::initv()
 
     sieve=(unsigned char *)mr_alloc(SSIZE+1,1);
 
-    if ( r1 == NULL || r2 == NULL || rp == NULL || bb == NULL || e == NULL 
+    if ( r1 == NULL || r2 == NULL || rp == NULL || e == NULL 
 	  || logp == NULL || pr == NULL || hash == NULL || sieve == NULL )
     {
         return QS_ALLOCATING_ERROR;
@@ -2289,7 +2289,6 @@ int TutorialFactorisation::initv()
 		{
 			return QS_ALLOCATING_ERROR;
 		}
-
     }
     for (i=0;i<=mlf;i++)
     {
