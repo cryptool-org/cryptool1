@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, Juli 2003
+    CrypTool, Version 1.3.04, August 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
     Bernhard Esslinger
@@ -1151,7 +1151,7 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Juli 2003	8,4 MB		8,0 MB		DB
+1.3.04    Aug. 2003	8,6 MB		8,1 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00
