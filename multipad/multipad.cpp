@@ -264,6 +264,15 @@ BOOL CMultiPadApp::InitInstance()
 	else
 		m_Selfextract_EXE = NULL;
 
+	// korrektes Helpfile laden
+	CString HlpTmp;
+	free((void*)m_pszHelpFilePath);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HELPNAME,pc_str,STR_LAENGE_STRING_TABLE);
+	HlpTmp = Pfad;
+	HlpTmp += pc_str;
+	m_pszHelpFilePath=_tcsdup(HlpTmp);
+
+
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
