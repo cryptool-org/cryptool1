@@ -32,6 +32,7 @@ private:
 	CEdit	m_CtrlPIN;
 	CEdit	m_CtrlFirstName;
 	CEdit	m_CtrlName;
+	CEdit	m_CtrlKeyID;
 	CButton	m_CtrlOK;
 	CString	m_sDName;
 	CString	m_sFirstName;

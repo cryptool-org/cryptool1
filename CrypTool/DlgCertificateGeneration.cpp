@@ -41,6 +41,7 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgCertificateGeneration)
 	DDX_Control(pDX, IDC_EDIT_CERT_PIN_VERIFY, m_CtrlPINv);
 	DDX_Control(pDX, IDC_EDIT_CERT_PIN, m_CtrlPIN);
+	DDX_Control(pDX, IDC_EDIT_CERT_KEY_ID, m_CtrlKeyID);
 	DDX_Control(pDX, IDC_EDIT_CERT_FIRSTNAME, m_CtrlFirstName);
 	DDX_Control(pDX, IDC_EDIT_CERT_NAME, m_CtrlName);
 	DDX_Control(pDX, IDOK, m_CtrlOK);
@@ -97,6 +98,11 @@ BOOL CDlgCertificateGeneration::OnInitDialog()
 		m_sBitLength.Format(IDS_BIT, m_Cert->GetBitLength());
 
 	}
+	m_CtrlFirstName.EnableWindow(m_Cert->IsInitialized());
+	m_CtrlName.EnableWindow(m_Cert->IsInitialized());
+	m_CtrlPIN.EnableWindow(m_Cert->IsInitialized());
+	m_CtrlPINv.EnableWindow(m_Cert->IsInitialized());
+	m_CtrlKeyID.EnableWindow(m_Cert->IsInitialized());
 	m_CtrlOK.EnableWindow(FALSE);
 
 	UpdateData(FALSE);

@@ -174,7 +174,8 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 		{
 			m_sCheckPrime.LoadString( IDS_PRIME_CHECK ); // "p und q sind Primzahlen."		
 			m_CheckPublicCtrl.ShowWindow( SW_SHOW ); // CheckPublic anzeigen.
-			m_KeyPublicCtrl.EnableWindow( TRUE );	// Eingabe für Public Key ermöglichen...
+			// removed for medida: m_KeyPublicCtrl.EnableWindow( TRUE );	// Eingabe für Public Key ermöglichen...
+			m_KeyPublicCtrl.EnableWindow( FALSE ); // this is the medida version (workaround for secude problem with keys != 2^16+1
 			if ( m_Cert->SetPublicKey( m_sKeyPublic ) ) // Ist e teilerfremd zu phi (N)?
 			{
 				m_sCheckPublic.LoadString( IDS_PUBLIC_CHECK ); // "e ist teilerfremd zu phi (N) ."

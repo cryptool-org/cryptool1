@@ -1,7 +1,7 @@
 ==================================================================
-              CrypTool, Version 1.3.01, April 2002
+              CrypTool, Version 1.3.01x, April 2002
                   (c) Deutsche Bank AG 1998-2002
-                  (c) Universiät Siegen und Karlsruhe
+                  (c) Universität Siegen und Karlsruhe
                          Frankfurt am Main
 ==================================================================
 
@@ -15,8 +15,9 @@
  1.3. .... Neuer Maintainer in der Zukunft
  2. .... Beschränkungen und Voraussetzungen
  2.1. .... Installation unter Windows 95
- 2.2. .... Unterstützung verschiedener Sprachen
- 2.3. .... Einschränkungen in den verwendeten Bibliotheken
+ 2.2. .... Interaktive Online-Hilfe unter Windows XP
+ 2.3. .... Unterstützung verschiedener Sprachen
+ 2.4. .... Einschränkungen in den verwendeten Bibliotheken
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
@@ -29,7 +30,7 @@
  6.5. .... Hilfe / PDF-Skript
  6.6. .... Sonstiges
  6.7. .... Änderungen von Version 1.3.00 zu Version 1.3.01
- 6.8. .... Änderungen von Version 1.3.01 zu Version 1.3.02
+ 6.8. .... Geplante Änderungen von Vers. 1.3.01 zu Vers. 1.3.02
  7. .... Mögliche Punkte für eine Weiterentwicklung
  8. .... Kurze Historie der Hauptversionen
  9. .... Roadmap
@@ -38,7 +39,8 @@
 12. .... Verweise
 12.1. .... Wirtschaftswoche Spezial
 12.2. .... c't 14/2001, S. 204-208
-12.3. .... GNU-Projekt Crank
+12.3. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
+12.4. .... Freeware-Projekt Crank
 13. .... Anhang
 13.1. .... CrypTool unter Linux mit Wine
 
@@ -88,7 +90,7 @@ eingesetzt wird.
   Mitarbeiter-Sensibilisierung für IT-Sicherheit.
 
 - Die meisten der krytographischen Basisalgorithmen stammen von:
-  - der Industrie-bewährten SECUDE-Bibliothek (Version 5.4.15)
+  - der Industrie-bewährten Secude-Bibliothek (Version 5.4.15)
     (www.secude.com) und von 
   - der Miracl-Bibliothek (Version 4.4.3) 
     (http://indigo.ie/~mscott/).
@@ -154,29 +156,52 @@ Bei älteren Windows 95 Systemen erhalten Sie beim Aufruf von
 CrypTool die Meldung "kann 'secude.dll' nicht finden". In diesem
 Fall können Sie CrypTool nur eingeschränkt nutzen.
 
-Die Algorithmen der SECUDE-Bibliothek werden beim Start von
+Die Algorithmen der Secude-Bibliothek werden beim Start von
 CrypTool mit Hilfe der Bibliothek "msvcrt.dll" dynamisch geladen.
 Leider unterstützt unter Windows 95 nicht jede Version von
-"msvcrt.dll" das Einbinden der SECUDE-Bibliothek. Zu dem
+"msvcrt.dll" das Einbinden der Secude-Bibliothek. Zu dem
 Lieferumfang verschiedener Programme gehört eine neuere Version
 von "msvcrt.dll" - kopieren Sie diese Datei in das Windows-
 Verzeichnis oder in das Verzeichnis von CrypTool.
 
 
-2.2. Unterstützung verschiedener Sprachen
+2.2. Interaktive Online-Hilfe unter Windows XP
+     -----------------------------------------
+Unter Windows XP ist der Aufruf der interaktiven Online-Hilfe über
+die F1-Taste in einem Spezialfall nicht möglich: betroffen sind
+nur Menüs, die noch Untermenüs haben. Das Problem tritt nur auf,
+wenn das Untermenü aufgeklappt ist. F1 bewirkt dann gar nichts.
+
+Normalerweise kann bei CrypTool auch Hilfe zu einem Menüeintrag 
+angefordert werden, der selbst weitere Untermenüs hat. 
+Unter Windows XP erhält man die Online-Hilfe dazu nur, wenn das
+Popup-Fenster der untergeordneten Menüpunkte nicht aufgeklappt 
+ist. 
+Bei den anderen Windows-Versionen spielt das keine Rolle, dort ist
+nur wichtig, dass das Menü den Fokus hat.
+
+Workaround anhand eines Beispiels: Einzelverfahren / RSA-Demo
+Wenn hier das Untermenü zu "RSA-Demo" aufklappt, Sie aber die 
+Hilfe zum Menüeintrag "RSA-Demo" haben wollen, müssen Sie - nur
+unter Windows XP - das Untermenü von "RSA-Demo" erst mit Escape
+(Esc) oder den Pfeiltasten wieder einklappen, dann funktioniert 
+das Aufrufen der Online-Hilfe mit F1 auch unter Windows XP.
+
+
+2.3. Unterstützung verschiedener Sprachen
      ------------------------------------
-Das Programm ist mehrsprachig ausgelegt (zur Zeit englisch und
-deutsch).
-Ebenso liegen das Hilfesystem und die Dokumentation in deutscher
-und englischer Sprache vor.
+Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
+gelegt (zur Zeit englisch und deutsch).
 
-Die Umstellung der Programmsprache erfolgt nur unter Windows NT
-automatisch, leider nicht unter Win9x.
-Deshalb wird CrypTool in 3 Installationsvarianten ausgeliefert
-(siehe Kapitel 4. Dateiliste).
+Für jede unterstützte Sprache gibt es ein eigenes Setup mit dem
+entsprechenden ausführbaren Programm (der Versuch, alle Sprachen
+in ein einziges Executable einzubinden wurde wieder aufgegeben,
+da die automatische Spracheinstellung beim Anwender (anhand seiner
+Systemeinstellungen) nur unter Windows 4.0, nicht aber unter 
+Win9x, korrekt funktionierte).
 
 
-2.3. Einschränkungen in den verwendeten Bibliotheken
+2.4. Einschränkungen in den verwendeten Bibliotheken
      -----------------------------------------------
 Die beigelegte Secude-Lib ist durch das Ticketfile bei den 
 asymmetrischen Verfahren auf eine Schlüssellänge von 768 Bits 
@@ -541,7 +566,7 @@ Funktionalität:
 + Hashwerte von Dateien berechnen, ohne sie zu laden.
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei
   der Hybridverschlüsselung und -Entschlüsselung.
-+ Die schrittweise Verifikation einer Signatur ist nun auch
++ Die schrittweise Verifikation einer RSA-Signatur ist nun auch
   möglich (dabei werden wie bei der Visualisierung der Hybrid-
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 + Verbesserung bei der Faktorisierung zusammengesetzter Zahlen:
@@ -550,24 +575,27 @@ Funktionalität:
      gegebene Zahl mehr Speicher braucht als verfügbar ist.
 + Erweiterung der Funktionalität im RSA-Kryptosystem
   - interaktive Nutzung der Faktorisierung, wenn nur die
-    öffentlichen Parameter bekannt sind
-  - Eingabe von Hexwerten möglich
+    öffentlichen Parameter bekannt sind,
+  - Eingabe von Hexwerten möglich.
 + Verbesserungen beim AES-Tool.
-+ Hillverfahren: Schlüsselmatrix transponieren.   xxxxxxxx???
-+ Hillverfahren: Eingabe von Zahlen in die Schlüsselmatrix
-+ Update der Miracl-Lib von Version 4.4.3 auf XXXXXX.
++ Bei der Hillverschlüsselung können die Details zur aktuellen 
+  Schlüsselmatrix in einer Textdatei ausgegeben werden:
+  - das aktuell in Optionen/Textoptionen gewählte Alphabet,
+  - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und 
+  - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail. 
 + Langfassung des "Dialoges der Schwestern" in Deutsch und
   Englisch beigelegt (darin wird ein in der RSA-Demo 
   behandelter Sonderfall des RSA-Verfahrens beschrieben) 
   - vielen Dank an den Autor, Herrn Dr. Carsten Elsner.
-
-
-6.8. Änderungen von Version 1.3.01 zu Version 1.3.02
-     -----------------------------------------------
-Funktionalität:
 + Visualisierung 
   - der einzelnen Schritte / Abhängigkeiten bei der
     Erzeugung einer elektronischen Signatur.
+
+
+6.8. Geplante Änderungen von Version 1.3.01 zu Version 1.3.02
+     --------------------------------------------------------
+Funktionalität:
++ Visualisierung 
   - der Wirkung von Textänderungen auf den Hashwert 
     (Sensitivität von Hashverfahren)
 
@@ -583,7 +611,7 @@ Funktionalität:
   einer Option, um z.B. den Initialisierungsvektor, die Anzahl
   von Runden, die Schlüssel- oder Wortlänge oder das Padding
   zu setzen. Dies muss dann als Beschreibung dieses speziellen
-  Algorithmuses in den internen Schlüsselspeicher aufgenommen
+  Algorithmus in den internen Schlüsselspeicher aufgenommen
   werden (z.B. für den RC5-Algorithmus - siehe RFC 2040).
 + Wörterbuch für alle Angriffe benutzen, nicht nur für die
   Substitution.
@@ -613,6 +641,9 @@ Funktionalität:
   zur Analyse der Homophonen Verschlüsselung benötigt).
 + Bei gleitender Entropie: Automatische Anzeige der
   entsprechenden Stellen mit hoher Entropie.
++ Hillverfahren: Schlüsselmatrix transponieren.
++ Hillverfahren: Eingabe von Zahlen in die Schlüsselmatrix.
++ Update der Miracl-Lib auf eine neuere Version als 4.4.3.
 + Portierung nach Linux (eine SECUDE-Lib bzw. Miracl-Lib stehen
   zur Verfügung).
 + Portierung nach Java (eine SECUDE-Lib dafür steht zur
@@ -673,7 +704,8 @@ Version         Datum
 1.2.00          Aug. 2000
 1.2.02          Dez. 2000
 1.3.00          Jan. 2002
-1.3.01          Apr. 2002
+1.3.01x         Apr. 2002
+1.3.02          Juni 2002 (Plan)
 
 
 
@@ -731,8 +763,19 @@ Außerdem wurde in c't 25/1999 die Fantasy-Geschichte
 "Der Dialog der Schwestern" veröffentlicht. Die darin verwendete
 Variante von RSA kann mit CrypTool v1.3.00 nachvollzogen werden.
 
-12.3. GNU-Projekt Crank
-      -----------------
+12.3. BSI Bürger-CD "Ins Internet - mit Sicherheit"
+      ---------------------------------------------
+Das Bundesamt für Sicherheit in der Informationstechnik (BSI) hat
+zusammen mit dem Deutschen Bundesinnenministerium zur CeBIT 2002
+eine CD veröffentlicht, die die Bürger aufklärt, wie man mit
+Computer und Internet umgeht und wie man sich sicher im Internet
+bewegen kann.
+Auf dieser CD ist auch CrypTool enthalten, um das Verständnis der 
+kryptographischen Sicherheitsfunktionen zu verbessern.
+Von dieser CD sind mehr als 500.000 Stück produziert worden.
+
+12.4. Freeware-Projekt Crank
+      ----------------------
 http://freshmeat.net/projects/crank/
 
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
