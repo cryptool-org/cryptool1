@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Solution to Challenge-Response Scenario (asymmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Solution to Challenge-Response Scenario (asymmetric)">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sol_crasymmetric"></A>Solution to Challenge-Response Scenario (asymmetric)</H3>
+
+<P>The solution lies in so-called <A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>. The attacker sees to it that all data packet is transferred through him and identifies himself before the client as server and before the server as client. So, invisibly, he is involved in all protocol steps. As soon as the client is accepted by the server the attacker can disconnect the client and play its role for further communication. In Scenario you proceed as follows:</p>
+
+<OL>
+	<LI>You create a connection between the attacker and the two routers.<BR><BR></LI>
+
+	<LI>Separate the connection between the two routers.<BR><BR></LI>
+
+	<LI>Now you have reached a connection configuration so that the whole communication between Client and Server 1 is passed through you. If you put on your masking you are ready for the <A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>.<BR><BR></LI>
+
+	<LI>Start the protocol from the client. Finally, you (attacker) due to your masking will be authenticated instead of the client(<A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>).</LI>
+</OL>
+
+<P>This solution works, by the way, for all previous scenarios too.</P>
+
+<P><IMG SRC="images/cr_sol_crasymmetric.jpg" ALT="cr_sol_crasymmetric.jpg" BORDER=0></P>
+
+</BODY>
+</HTML>

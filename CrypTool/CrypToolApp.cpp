@@ -91,6 +91,7 @@ statement from your version.
 #include "DlgDiffieHellmanVisualization.h"
 #include "DialogeMessage.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
+#include "ChallengeResponseDlg.h"
 
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -147,6 +148,8 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
+	ON_COMMAND(ID_SCRIPT, OnScript)
+	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -154,8 +157,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_SCRIPT, OnScript)
-	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -735,7 +737,7 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 			alinkid[sizeof(alinkid) - 1] = '\0';
 		}
 		// perpare help macro string
-		TCHAR formstr[] = "%s"; // mletzko:vorher >> ... = "AL(\"%s\",1)" <<; AL = ALink = jump to A footnote; 1 means: jump to topic if match was unique
+		TCHAR formstr[] = "%s"; 
 		TCHAR cmd[sizeof(formstr) + sizeof(alinkid)];
 		_snprintf(cmd,sizeof(cmd),formstr,alinkid);
 		cmd[sizeof(cmd)-1] = '\0';
@@ -745,11 +747,17 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 		
 		// to ensure that the help window is created before an Alink is looked up, this command is called 
-		::HtmlHelp(
+		HWND hwnd = ::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_DISPLAY_TOPIC,
-				NULL) ;		
+				NULL) ;
+		
+		// Error in case help is not found 
+		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
+		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
+		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
+		
 		
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE_TITLE,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -776,22 +784,26 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 		
 		// calling the help by turning an ID over to the htmlhelp
+		HWND hwnd;
 		switch (nCmd)
 		{
-			case HELP_CONTEXT:	::HtmlHelp(
+			case HELP_CONTEXT:	hwnd = ::HtmlHelp(
 										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */					
 										html_help_path,										
 										HH_HELP_CONTEXT,
 										dwData) ;
 			break;
-			case HELP_FINDER:	::HtmlHelp(
+			case HELP_FINDER:	hwnd = ::HtmlHelp(
 										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */				
 										html_help_path,										
 										HH_DISPLAY_TOPIC,
 										NULL) ;			
 			break;	
 		}
-		
+		// Error in case help is not found
+		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
+		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
+		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
 	}	
 
 }
@@ -850,8 +862,6 @@ void CCrypToolApp::OnHilfeIndex()
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_HILFE_INDEX+0x10000) ;
-
-	//this->WinHelp(NULL, HELP_INDEX);
 }
 
 void CCrypToolApp::OnHilfeStartseite() 
@@ -863,9 +873,6 @@ void CCrypToolApp::OnHilfeStartseite()
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_WIE_SIE_STARTEN+0x10000) ;
-	
-	// Startseite der Online-Hilfe aufrufen
-	// CWinApp::WinHelp(ID_WIE_SIE_STARTEN+0x10000);
 }
 
 void CCrypToolApp::OnHilfeSzenarien() 
@@ -877,8 +884,6 @@ void CCrypToolApp::OnHilfeSzenarien()
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_HILFE_SZENARIEN+0x10000) ;
-	// Hilfe zu den Szenarien aufrufen
-	// CWinApp::WinHelp(ID_HILFE_SZENARIEN+0x10000);
 }
 
 void CCrypToolApp::OnSignaturAttack() 
@@ -943,4 +948,23 @@ void CCrypToolApp::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 {
 	CDlgSideChannelAttackVisualizationHE dlg;
 	dlg.DoModal();
+}
+
+void CCrypToolApp::OnChallengeResponse() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	CChallengeResponseDlg dlg;
+
+	
+	int nResponse = dlg.DoModal();
+	if (nResponse == IDOK)
+	{
+		// TODO: Place code here to handle when the dialog is
+		//  dismissed with OK
+	}
+	else if (nResponse == IDCANCEL)
+	{
+		// TODO: Place code here to handle when the dialog is
+		//  dismissed with Cancel
+	}	
 }

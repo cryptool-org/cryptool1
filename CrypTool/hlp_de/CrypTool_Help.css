@@ -1,0 +1,26 @@
+/* CSS fuer die CrypTool HTML Hilfe */
+
+body {background-color:#FFFFFF;text:#000000;font-family:Arial;font-size:11pt}
+
+a:link { color:#0000FF; }
+a:visited { color:#000080; }
+a:active { color:#008000; }
+ 
+
+h1 {font-family:Arial;bold;font-size:16pt;}
+h2 {font-family:Arial;bold;font-size:14pt;}
+h3 {font-family:Arial;bold;font-size:12pt;}
+h4 {font-family:Arial;bold;font-size:11pt;}
+
+
+div.indent {margin-left:40pt} /* wird verwendet, um beliebige Blocke einzuruecken */
+p.tindent {text-indent:-40pt;margin-left:40pt;} /* wird verwendet, um Einrueckung nach Zeilenumbruechen zu realisieren */
+
+table.pad10 td {padding-left:10pt;padding-right:10pt;} /* Gestaltung der Tabellen durch einen Rand links und rechts des Tabelleninhaltes */
+table.pad20 td {padding-left:20pt;padding-right:20pt;}
+table.pad30 td {padding-left:30pt;padding-right:30pt;}
+
+
+
+
+

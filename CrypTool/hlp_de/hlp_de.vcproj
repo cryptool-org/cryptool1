@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="hlp_de"
+	ProjectGUID="{B835E875-5E34-46B9-B507-D0462C92D87A}"
+	SccProjectName=""
+	SccLocalPath=""
+	Keyword="MakeFileProj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="0"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				Output="CrypTool-de.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release_de|Win32"
+			OutputDirectory=".\..\Release_de"
+			IntermediateDirectory=".\..\Release_de"
+			ConfigurationType="0"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				Output="CrypTool-de.chm"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath="hlp_de.mak">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

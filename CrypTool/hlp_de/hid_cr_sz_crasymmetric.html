@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario Challenge-Response Asymmetrisch</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario Challenge-Response Asymmetrisch">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sz_crasymmetric"></A>Szenario Challenge-Response (asymmetrisch)</H3>
+
+<P>Das Challenge-Response-Verfahren kann auch mit asymmetrischen kryptografischen Verfahren durchgeführt werden. Dadurch wird der große Aufwand zum sicheren Austausch von Schlüsseln für jedes Client-Server-Paar vermieden. </P>
+
+<P>Grundsätzlich gibt es zwei Varianten, wobei im weiteren nur die erste betrachtet wird:</P>
+
+<OL>
+	<LI>Zur Authentifizierung wird eine Challenge (Zufallszahl) vom Server an den Client geschickt, der diese dann mit seinem geheimen Schlüssel signiert und das Ergebnis als Response zurückschickt. Jetzt kann jeder, der im Besitz des öffentlichen Schlüssels des Clients ist, also auch der Server, die Response prüfen; Er verifiziert also, ob die Challenge mit dem privaten Schlüssel des Clients, den nur er haben kann, signiert wurde.<BR><BR></LI>
+
+	<LI>Zur Authentifizierung schickt der Server an den Client eine Challenge, die aus einer mit dem öffentlichen Schlüssel des Clients verschlüsselten Zufallszahl besteht. Der Client entschlüsselt die Challenge mit seinem privaten Schlüssel und schickt das Ergebnis (die Zufallszahl) als Response zurück. Nun kann der Server überprüfen, ob die empfangene Zufallszahl mit der verschlüsselt gesendeten übereinstimmt. Ist das der Fall, kann sich der Server sicher sein, das die Response vom Client kommt, da nur dieser den privaten Schlüssel hat, um die Challenge zu entschlüsseln. Bei diesem Verfahren ist allerdings die Güte der verwendeten Zufallszahl sehr wichtig, um zu verhindern, dass ein Angreifer die Response errät.<BR>
+Aus diesem Grund wird meistens das erste Verfahren bevorzugt.</LI>
+</OL>
+
+<P>Ihre Aufgabe als Angreifer ist es nun wieder, von Server 1 als Client anerkannt zu werden. Diesmal gibt es eine sehr spezielle Lösung. Falls es Ihnen nicht gelingt, diese Lösung zu finden, können Sie <A href="hid_cr_sol_crasymmetric.html">hier</A> nachsehen.</P>
+
+<P><A href="hid_cr_sol_crasymmetric.html">Zur Lösung</A></P>
+
+</BODY>
+</HTML>

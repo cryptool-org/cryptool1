@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Lösung zum Szenario Challenge-Response Symmetrisch</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Lösung zum Szenario Challenge-Response Symmetrisch">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sol_crsymmetric"></A>Lösung zum Szenario Challenge-Response (symmetrisch)</H3>
+
+<P>Diese Lösung zielt darauf, dass alle Kommunikationspartner, also Server 1, Server 2 und Client denselben symmetrischen Schlüssel verwenden. Ist nun einer der Kommunikationspartner nicht vertrauenswürdig oder angreifbar, so ist die gesamte Kommunikation innerhalb der drei Parteien kompromittiert.</P>
+
+<P>Dies ist ein spezifisches Problem beim Einsatz symmetrischer Kryptographie. In unserem Fall reicht es also aus, den geheimen Schlüssel unautorisiert von einem der Server auszulesen, um sich bei allen anderen Servern auch authentifizieren zu können. Im Szenario gehen Sie wie folgt vor:</P>
+
+<OL>
+	<LI>Verbinden Sie sich zu Router 1 oder Router 2.<BR><BR></LI>
+
+	<LI>Greifen Sie dann Server 2 an. In diesem Szenario ist das möglich, weil Server 2 für einen schlecht geschützten Server steht. Dadurch erhalten Sie den geheimen Schlüssel.<BR><BR></LI>
+
+	<LI>Damit können Sie dann das Protokoll vom Angreifer aus starten.</LI>
+</OL>
+
+<P><IMG SRC="images/cr_sol_crsymmetric.jpg" ALT="cr_sol_crsymmetric.jpg" BORDER=0></P>
+
+</BODY>
+</HTML>

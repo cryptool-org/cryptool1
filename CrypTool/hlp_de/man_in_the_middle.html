@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Man in the middle</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Man in the middle">
+</OBJECT>
+
+<H3><A NAME="man_in_the_middle"></A>Man-in-the-middle-Angriff</H3>
+
+<P>Bei einem „Man-in-the-middle-Angriff“ versucht ein Angreifer, sich in die Kommunikation von zwei Parteien einzuklinken, mitzuhören oder durch Vortäuschen falscher Identitäten (er gibt sich gegenüber den beiden Parteien jeweils als die andere Partei aus - Maskierung) unerlaubten Zugang zu erhalten.</P>
+
+<P>In unserem Fall will sich der Angreifer gegenüber Server 1 als Client und gegenüber dem Client als Server 1 ausgeben. Das funktioniert aber nur in einer Verbindungskonfiguration, in der alle Pakete zwischen Server 1 und Client nur über den Angreifer laufen, Server 1 und Client also keine direkte Verbindung mehr zueinander besitzen. </P>
+
+<P>Ablauf:
+
+<UL>
+	<LI>Der Angreifer stellt eine Verbindungskonfiguration her, in der ihn alle Pakete zwischen Server 1 und Client passieren und in der es keine weitere direkte Verbindung zwischen Client und Server 1 gibt.<BR><BR></LI>
+
+	<LI>Jetzt versucht sich der Client zu authentifizieren und schickt seinen Wunsch an Server 1. Diese Anforderung fängt der Angreifer ab und stellt eine eigene Anforderung an Server 1, mit dem Wunsch, authentifiziert zu werden.<BR><BR></LI>
+
+	<LI>Dafür schickt Server 1 eine Challenge an den Angreifer.<BR><BR></LI>
+
+	<LI>Jetzt gibt sich der Angreifer gegenüber dem Client als Server 1 aus und schickt dem Client diese Challenge, um die „richtige“ Response zu erhalten.<BR><BR></LI>
+
+	<LI>Der Client denkt, er kommuniziere mit Server 1, und schickt seine Response an den Angreifer.<BR><BR></LI>
+
+	<LI>Jetzt gibt sich der Angreifer gegenüber Server 1 als Client aus und schickt die erhaltene Response an den Server 1.<BR><BR></LI>
+
+	<LI>Server 1 sieht, dass er die richtige Response vom Angreifer (der sich als Client ausgibt) erhalten hat und authentifiziert den Angreifer als Client.<BR><BR></LI>
+
+	<LI>Der Man-in-the-middle-Angriff war erfolgreich!</LI>
+</UL>
+
+<P>Ein Beispiel für einen Man-in-the-middle-Angriff ist der IMSI-Catcher, der in GSM-Netzen verwendet werden kann. (Siehe <A href="http://www.heise.de/newsticker/meldung/40089">Heise Artikel</A>)</P>
+
+</BODY>
+</HTML>

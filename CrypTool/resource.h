@@ -29,6 +29,7 @@
 #define IDR_HEXTYPE                     130
 #define IDR_ASCTYPE                     131
 #define IDR_PLOTTYPE                    132
+#define IDB_CR_BACKGROUND_BITMAP        138
 #define IDD_OPTIONS_SUBSTITUTION_ANALYSIS 145
 #define IDD_MANUAL_SUBST_ANALYSIS       146
 #define IDD_SHOW_CERTIFICATE            147
@@ -725,6 +726,65 @@
 #define IDC_BUTTON_ALLREMAININGSTEPS    1540
 #define IDC_EDIT_COMPUTEDMESSAGE        1542
 #define IDC_ATTACKCONTROL               1543
+#define IDC_CR_SCENARIO_CHOOSE          1544
+#define IDC_CR_ACTIONS_ATTACKER         1545
+#define IDC_START_RADIO                 11008
+#define IDC_EINFUEHRUNG_RADIO           11009
+#define IDC_PASSWORT_RADIO              11010
+#define IDC_EINMALPASSWOERTER           11011
+#define IDC_CHALLENGERESPONSE1_RADIO    11012
+#define IDC_CHALLENGERESPONSE2_RADIO    11013
+#define IDC_WECHSELSEITIG_RADIO         11014
+#define IDC_EXIT_BUTTON                 11015
+#define IDC_EDIT                        11017
+#define IDC_ACTION_NOTHING_RADIO        11019
+#define IDC_ACTION_CONNECT_RADIO        11020
+#define IDC_ACTION_DISCONNECT_RADIO     11021
+#define IDC_ACTION_ATTACK_RADIO         11022
+#define IDC_ACTION_REMOVE_ATTACK_RADIO  11023
+#define IDC_AUTHENTICATE_CLIENT_BUTTON  11032
+#define IDC_AUTHENTICATE_ATTACKER_BUTTON 11033
+#define IDC_RESET_BUTTON                11034
+#define IDC_CHECK_MASK                  11036
+#define IDC_HELPBUTTON                  11037
+#define IDC_SCENARIO_HELP_BUTTON        11038
+#define IDD_CHALLENGERESPONSE_DIALOG    11102
+#define IDS_modeText_Start              11102
+#define IDS_modeText_Einfuehrung        11103
+#define IDS_modeText_Passwoerter        11104
+#define IDS_modeText_Einmalpasswoerter  11105
+#define IDS_modeText_ChallengeResponseSymmetrisch 11106
+#define IDS_modeText_ChallengeResponseAsymmetrisch 11107
+#define IDS_modeText_WechselseitigeAuthentifikation 11108
+#define IDS_dataCaption_Passwort        11109
+#define IDS_dataCaption_Einmalpasswort  11110
+#define IDS_dataCaption_geheimerSchluesselClient 11111
+#define IDS_dataCaption_oeffentlicherSchluesselClient 11112
+#define IDS_dataCaption_geheimerSchluesselServer1 11113
+#define IDS_dataCaption_oeffentlicherSchluesselServer1 11114
+#define IDS_dataCaption_ChallengeFromServer1 11115
+#define IDS_dataCaption_ResponseToServer1 11116
+#define IDS_dataCaption_ChallengeFromClient 11117
+#define IDS_dataCaption_ResponseToClient 11118
+#define IDS_dataCaption_Schluessel      11119
+#define IDS_Message_ComputerToStrong    11120
+#define IDS_Message_NoConnectionToComputer 11121
+#define IDS_Message_NoScenarioChosen    11122
+#define IDS_Message_ProtocolInterrupted 11123
+#define IDS_Message_AuthenticationFailed 11124
+#define IDS_Message_AuthenticationOfAttackerSuccessfull 11125
+#define IDS_Message_ManInTheMiddleSuccessful 11126
+#define IDS_Message_AuthenticationOfClientSuccessful 11127
+#define IDS_Message_CannotMaskConnectionsMisconfiguration 11128
+#define IDS_Message_MaskBeforeProtocolStart 11129
+#define ID_CR_OVERVIEW                  11131
+#define ID_CR_USAGE                     11132
+#define ID_CR_SZ_PASSWORDS              11133
+#define ID_CR_SZ_ONETIMEPASSWORDS       11135
+#define IDB_RC_BACKGROUND_BITMAP        11135
+#define ID_CR_SZ_CRSYMMETRIC            11137
+#define ID_CR_SZ_CRASYMMETRIC           11139
+#define ID_CR_SZ_MUTUALAUTHENTICATION   11141
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -944,6 +1004,7 @@
 #define ID_SCRIPT                       33264
 #define ID_HYBDEC_SIDECHANNELATTACK     33265
 #define ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 33266
+#define ID_CHALLENGE_RESPONSE           33267
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1607,6 +1668,7 @@
 #define IDS_PERMUTATION_DECRYPT_INV     37909
 #define IDS_ALINK_ERROR_MESSAGE_TITLE   37910
 #define IDS_ALINK_ERROR_MESSAGE         37911
+#define IDS_HELP_ERROR                  37912
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -1710,15 +1772,14 @@
 #define IDS_DH_LOG_7                    61997
 #define IDS_DH_LOG_VALUE_A              61998
 #define IDS_DH_LOG_VALUE_B              61999
-#define IDS_DH_PP_SECRET_PREDICTABLE    62000
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        791
-#define _APS_NEXT_COMMAND_VALUE         33267
-#define _APS_NEXT_CONTROL_VALUE         1544
+#define _APS_NEXT_RESOURCE_VALUE        794
+#define _APS_NEXT_COMMAND_VALUE         33268
+#define _APS_NEXT_CONTROL_VALUE         1546
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

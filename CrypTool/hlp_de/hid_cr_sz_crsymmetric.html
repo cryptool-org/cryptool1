@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario Challenge-Response Symmetrisch</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario Challenge-Response Symmetrisch">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sz_crsymmetric"></A>Szenario Challenge-Response (symmetrisch)</H3>
+
+<P>Dieses Szenario verfeinert die Idee der Einmalpasswörter noch etwas. Die Verbesserung besteht darin, dass das aktuelle Passwort erst während der Durchführung des Protokolls erzeugt wird. Das wird möglich durch die Verwendung eines (symmetrischen) Verschlüsselungsverfahrens.</P>
+
+<P>Das Protokoll beginnt damit, dass Server 1 eine Zufallszahl an den Client schickt, die Challenge (Herausforderung) genannt wird. Der Client verschlüsselt diese Zahl mit dem geheimen Schlüssel und schickt das Ergebnis als Antwort (Response) an Server 1 zurück. Dieser kennt denselben geheimen Schlüssel ebenfalls, entschlüsselt die Antwort und vergleicht sie dann mit der Challenge. Stimmen diese überein, akzeptiert Server 1 die Identität des Clients und der Client ist authentifiziert.</P>
+
+<P>Exkurs Schlüsselaustausch: Wollen n Parteien (Beispiel n=1000) vertraulich miteinander kommunizieren und soll symmetrische Kryptographie so verwendet werden, dass je zwei Kommunikationspartner einen gemeinsamen Schlüssel verwenden, so sind </P>
+
+<P>½ * n * (n-1) </P>
+
+
+<P>verschiedene Schlüssel notwendig. (Bei n=1000 sind dies 499500 verschiedene Schlüssel)</P>
+<br>
+<P>Bei asymmetrischer Kryptographie würden </P>
+
+<P>2 * n </P>
+
+<P>Schlüssel benötigt. (Bei n=1000 sind dies 2000 verschiedene Schlüssel)</P>
+
+<P>Da alle nur symmetrische Verfahren einsetzen, verwenden Server 1, Server 2 und Client aus Effizienzgründen in diesem Szenario denselben symmetrischen Schlüssel, um miteinander vertraulich kommunizieren zu können. Eine der möglichen Lösungen dieses Szenarios zielt auch genau auf die damit verbundene Problematik ab.</P>
+
+<P>Ihre Aufgabe als Angreifer ist es wieder, von Server 1 als Client anerkannt zu werden. Diesmal gibt es sehr verschiedene Lösungen. Falls Sie keine Lösung finden, können Sie diese <A href="hid_cr_sol_crsymmetric.html">hier</A> einsehen.</P>
+
+<P>Symmetrische Challenge-Response-Verfahren kommen z.B. beim digitalen Mobilfunk (z.B. in GSM-Netzen) zum Einsatz.</P>
+
+<P><A href="hid_cr_sol_crsymmetric.html">Zur Lösung</A></P>
+
+</BODY>
+</HTML>

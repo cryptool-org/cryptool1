@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Man in the middle</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Man in the middle">
+</OBJECT>
+
+<H3><A NAME="man_in_the_middle"></A>Man-in-the-Middle-Attack</H3>
+
+<P>By means of a Man-in-the-Middle-Attack an attacker tries to jump in, eavesdrop the communication of two parties or to affect untrue identities (he pretends to be the other party towards each party) to gain access.</P>
+
+<P>In that case the attacker pretends to be Server 1 towards Client and pretends to be the Client towards Server 1. This is only possible, by using a connection configuration that all data passes the attacker and no other connection is established between Server 1 and Client. </P>
+
+<P>Operations:</p>
+
+<UL>
+	<LI>The attacker establishes a connection, so all data sent between Server 1 and Client passes him.<BR><BR></LI>
+
+	<LI>Now, the Client tries to authenticate and sends a request to Server 1. This request is intercepted by the Attacker and he sends an own request for authentication to Server 1.<BR><BR></LI>
+
+	<LI>Therefore Server 1 sends a challenge to the Attacker.<BR><BR></LI>
+
+	<LI>At present the attacker pretends to be Server 1 towards the Client and sends the challenge to the client to get the correct response.<BR><BR></LI>
+
+	<LI>The Client believes in communicating with Server 1 and returns the response to the Attacker.<BR><BR></LI>
+
+	<LI>By now the Attacker pretends to be the Client towards Server 1 and sends the received response to Server 1.<BR><BR></LI>
+
+	<LI>Server 1 gets the expected response from the Attacker (who pretends to be the Client) and finds acceptance by Server 1 as Client.<BR><BR></LI>
+
+	<LI>The Man-in-the-Middle-Attack was successful!</LI>
+</UL>
+
+<P>An example for an Man-in-the-Middle-Attack is an IMSI-Catcher, which can be used in GSM networks to eavesdrop communication.</P>
+
+</BODY>
+</HTML>

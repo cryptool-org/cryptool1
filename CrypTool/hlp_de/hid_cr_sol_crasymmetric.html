@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Lösung zum Szenario Challenge-Response Asymmetrisch</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Lösung zum Szenario Challenge-Response Asymmetrisch">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sol_crasymmetric"></A>Lösung zum Szenario Challenge-Response (asymmetrisch)</H3>
+
+<P>Diese Lösung verwendet den so genannten <A href="man_in_the_middle.html">Man-in-the-middle-Angriff</A>. Dabei sorgt der Angreifer dafür, dass alle Datenpakete über ihn laufen und gibt sich gegenüber dem Client als Server 1 und gegenüber dem Server 1 als Client aus. Dadurch ist er unsichtbar an allen Protokollschritten beteiligt. Sobald der Client vom Server1 akzeptiert ist, kann der Angreifer den Client abhängen und für die weitere Kommunikation in dessen Rolle schlüpfen. Im Szenario gehen Sie wie folgt vor:
+
+<OL>
+	<LI>Stellen Sie zwei Verbindungen vom Angreifer zu den beiden Routern her.<BR><BR></LI>
+
+	<LI>Trennen Sie die Verbindung zwischen den beiden Routern.<BR><BR></LI>
+
+	<LI>Jetzt haben Sie eine Verbindungskonfiguration erreicht, bei der die gesamte Kommunikation zwischen Client und Server 1 über Sie geht. Wenn Sie jetzt die Maskierung einschalten, sind Sie bereit für den <A href="man_in_the_middle.html">Man-in-the-middle-Angriff</A>.<BR><BR></LI>
+
+	<LI>Starten Sie das Protokoll vom Client aus. Am Schluss werden Sie (der Angreifer) an Stelle des Clients aufgrund Ihrer Maskierung authentifiziert(<A href="man_in_the_middle.html">Man-in-the-middle-Angriff</A>).</LI>
+</OL>
+
+<P>Diese Lösung funktioniert übrigens auch für alle bisherigen Szenarien.</P>
+
+<P><IMG SRC="images/cr_sol_crasymmetric.jpg" ALT="cr_sol_crasymmetric.jpg" BORDER=0></P>
+
+</BODY>
+</HTML>

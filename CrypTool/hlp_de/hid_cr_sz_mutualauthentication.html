@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario Wechselseitige Authentifikation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario Wechselseitige Authentifikation">
+</OBJECT>
+
+<H3><A NAME="hid_cr_sz_mutualauthentication"></A>Wechselseitige Authentifikation</H3>
+
+<P>Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings in beide Richtungen gleichzeitig angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. </P>
+
+<P>Dadurch wird ein Angriff auf Protokollebene unmöglich. Sie können alle vorangegangenen Lösungen ausprobieren, dieses Protokoll ist damit nicht zu knacken. Beachten Sie aber, dass es andere Angriffe geben kann - gegen die verwendeten kryptografischen Verfahren oder gegen die physikalischen und logischen Verbindungen. Angriffe auf kryptografische Verfahren können mit CrypTool ausprobiert werden (z.B. Vigenére), zu Angriffen gegen die physikalischen und logischen Verbindungen machen Sie sich doch mal in der Literatur oder dem Internet über z.B. DNS-Spoofing oder ARP-Spoofing schlau.</P>
+
+<P>Wechselseitige Authentifikation auf der Basis von Challenge-Response-Verfahren werden z.B. in UMTS-Netzen eingesetzt. Allerdings sehen die UMTS-Standards verschiedene Aspekte wie Schlüsselhinterlegung vor, um gesetzlichen Regelungen im Bereich der Strafverfolgung zu entsprechen.</P>
+
+<P><A href="hid_cr_sol_mutualauthentication.html">Zur Lösung</A></P>
+
+</BODY>
+</HTML>
