@@ -436,7 +436,7 @@ Aus S"atzen der Algebra folgt, dass wesentliche Teile der "ublichen
 Rechenregeln beim "Ubergang zum modularen Rechnen "uber der Grundmenge $\mathbb{Z}$
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt f"ur die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
-\label{ftn-res-divmodn}Die Division modulo $m$ ist nur f"ur Zahlen, die teilerfremd zu $m$ sind definiert. 
+\label{ftn-res-divmodn}Die Division modulo $m$ ist nur f"ur Zahlen, die teilerfremd zu $m$ sind, definiert. 
 Vergleiche Kapitel \ref{multmodn}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
@@ -495,10 +495,10 @@ das neutrale Element ist. Dann ist $x$ die Inverse von $a$ bez"uglich dieser Ope
 \begin{center}
 \fbox{\parbox{15cm}{
     \emph{Seneca\index{Seneca}\footnotemark:}\\
-    Lang ist der Weg duch Lehren, kurz und wirksam durch Beispiele.
+    Lang ist der Weg durch Lehren, kurz und wirksam durch Beispiele.
 }}
 \end{center}
-\addtocounter{footnote}{0}\footnotetext{Lucius Annaeus, philosophischer Schriftsteller und
+\addtocounter{footnote}{0}\footnotetext{Lucius Annaeus Seneca, philosophischer Schriftsteller und
     Dichter, 4~v.~Chr. - 65~n.~Chr.}
 
 Wir haben bisher gesehen:
@@ -1430,6 +1430,7 @@ Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 \subsubsection*{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 \textmd \small \label{SrcArith3c}
 \begin{center}
+\vspace{-5ex}
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
 $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
@@ -1490,11 +1491,14 @@ $J(46)$ berechnet sich nach Satz \ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{%
-Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1 \le a, i < 11$.
+Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1
+\le a, i < 11$. Die vorige Tabelle mod 46 passt nicht zu diesem Satz.
 }${}^,$ \footnote{%
 Das Aussch"opfen des Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische Eigenschaft 
-(vergleiche Satz \ref{thm-zth-exhperm}).
-} F"ur einen Modul $p$ und $a < p$ nimmt $a^i, i = 1, \cdots, p-1$ alle $J(p)$ Werte 
+(vergleiche Satz \ref{thm-zth-exhperm}). Hiermit wird eine Permutation
+$\pi(p-1)$ festgelegt.
+} F"ur einen Modul $p$ und $a < p$ nimmt $a^i$ (mod $p$), $i = 1, \cdots,
+p-1$ alle $J(p) = p - 1$ Werte 
 $1, \cdots, p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
 \end{satz}
 
@@ -1740,7 +1744,7 @@ einsetzbar, weil gilt:
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
-
+\vspace{0ex}
 
 
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1766,8 +1770,8 @@ S"aulen:
 Die Anwendung und Schl"usselerzeugung wird heute gut beherrscht. 
 Die Implementierung ist auf Basis einer Langzahlarithmetik sehr einfach.
 
-Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden Punkte.
-
+%Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden Punkte.
+In den folgenden Abnschnitten werden die ersten beiden Punkte n"aher untersucht.
 
 \subsubsection{Komplexit"at}
 
@@ -1775,10 +1779,10 @@ Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden 
   Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne
   Kenntnis des geheimen Schl"us"-sels --- erfordert, die $e$-te Wurzel mod
   $n$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative
-  Inverse zu $e$, kann mit Hilfe der Eulerschen Funktion $J(n)$ bestimmt
-  werden. $J(n)$ wiederum l"asst sich aus den Primfaktoren von $n$
-  berechnen.  Das Brechen kann daher nicht schwieriger sein als das
-  Faktorisieren des Moduls $n$.
+  Inverse zu $e$ mod $J(N)$, kann leicht bestimmt werden, wenn die
+  Eulersche Funktion $J(n)$ bekannt ist. $J(n)$ wiederum l"asst sich aus
+  den Primfaktoren von $n$ berechnen.  Das Brechen des RSA-Verfahrens kann
+  daher nicht schwieriger sein als das Faktorisieren des Moduls $n$.
 \end{sloppypar}
 Das beste heute bekannte Verfahren ist eine Weiterentwicklung des urspr"unglich f"ur Zahlen mit einer bestimmten 
 Darstellung (z.B. Fermatzahlen) entwickelten General Number Field Sieve (GNFS). \index{General Number Field Sieve (GNFS)}
@@ -1796,11 +1800,12 @@ Siehe:
 
 Die Formel zeigt, dass das Faktorisierungsproblem zur Komplexit"atsklasse der Probleme mit subexponentieller 
 Berechnungskomplexit"at geh"ort (d.h. der L"osungsaufwand w"achst
-asymtotisch nicht so stark wie $e^l$ oder $2^l$, sondern echt schw"acher, etwa $e^{\sqrt{l}}$). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
+asymptotisch nicht so stark wie $e^l$ oder $2^l$, sondern echt schw"acher,
+z.~B. wie $e^{\sqrt{l}}$). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
 jedoch nicht, dass das Faktorisierungsproblem m"oglicherweise nicht auch
 polynominell gel"ost werden kann (s. \ref{RSABernstein}).
 
-$O(l)$ gibt die Zahl der durchschnittlich erforderlichen Prozessor-Operationen abh"angig von der L"ange $l$ der zu 
+$O(l)$ gibt die Zahl der durchschnittlich erforderlichen Prozessor-Operationen abh"angig von der Bitl"ange $l$ der zu 
 faktorisierenden Zahl $n$ an. F"ur den besten allgemeinen Faktorisierungsalgorithmus ist die Konstante 
 $c = (64/9)^{1/173} = 1,923$.
 
@@ -1887,30 +1892,47 @@ den RSA-Algorithmus wesentlich beeintr"achtigen. Je nach Effizienz der Faktorisi
 $p, q, n$ m"usste der verwendete Modul $n$ (z.Zt. 1024 bit) erheblich vergr"o"sert oder --- im Extremfall --- auf den 
 Einsatz des RSA ganz verzichtet werden.
 
-Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer factorization: a proposal''
-(siehe \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}) von D.J. Bernstein behandelt 
-das Problem der Faktorisierung gro"ser Zahlen. 
-Die Kernaussage des Papers besteht darin, einen Faktorisierungsalgorithmus anzugeben, der mit gleichem Aufwand wie die 
-besten bisher bekannten Algorithmen Zahlen n mit 3-mal gr"o"serer Stellenzahl (Bit-L"ange) faktorisieren kann.
+Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer
+factorization: a proposal'' (siehe
+\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}) von
+D.J. Bernstein behandelt das Problem der Faktorisierung gro"ser Zahlen.
+Die Kernaussage des Papers besteht darin, dass es m"oglich ist die
+Implementierung des General Number Field Sieve-Algorithmus (GNFS) so zu
+verbessern, so dass mit gleichem Aufwand wie bisher Zahlen mit 3-mal
+gr"o"serer Stellenzahl (Bit-L"ange) faktorisiert werden k"onnen.
 
-Wesentlich bei der Interpretation des Resultats ist die Definition des Aufwandes: Als Aufwand wird das Produkt von 
-ben"otigter Rechenzeit und Kosten der Maschine (insbesondere des verwendeten Speicherplatzes) angesetzt. Zentral f"ur 
-das Ergebnis des Papiers ist die Beobachtung, dass ein wesentlicher Teil der Faktorisierung auf Sortierung zur"uckgef"uhrt 
-werden kann und mit dem  Schimmlerschen Sortierschema ein Algorithmus zur Verf"ugung steht, der sich besonders gut f"ur 
-den Einsatz von Parallelrechnern eignet. Am Ende des Abschnittes 3 gibt Bernstein konkret an, dass die Verwendung von 
-$m^2$ Parallelrechnern mit jeweils gleicher Menge an Speicherplatz mit Kosten in der Gr"o"senordnung von $m^2$ einhergeht 
---- genau so wie ein einzelner Rechner mit $m^2$ Speicherzellen. Der Parallelrechner bew"altigt die Sortierung jedoch 
-(unter Verwendung der o.g. Sortierverfahrens) in linearer Zeit proportional zu m, wohingegen der Rechner mit dem gro"sen 
-Speicherplatz Zeit proportional $m^2$ ben"otigt. Verringert man daher den verwendeten Speicherplatz und erh"oht --- bei 
-insgesamt gleich bleibenden Kosten --- die Anzahl der Prozessoren entsprechend, verringert sich die ben"otigte Zeit um 
-die Gr"o"senordnung $1/m$. In Abschnitt 5 wird ferner angef"uhrt, dass der massive Einsatz der parallelisierten Elliptic 
-Curve-Methode von Lenstra die Kosten der Faktorisierung ebenfalls um eine Gr"o"senordnung verringert (ein Suchalgorithmus 
-hat dann quadratische statt kubische Kosten).
-Alle Ergebnisse von Bernstein gelten nur asymptotisch f"ur gro"se Zahlen $n$. Leider liegen keine Absch"atzungen "uber 
-den Fehlerterm, d.h. die Abweichung der tats"achlichen Zeit von dem asymptotischen Wert, vor --- ein Mangel, den auch 
-Bernstein in seinem Papier erw"ahnt. Daher kann zur Zeit keine Aussage getroffen werden, ob die Kosten (im Sinne der 
-Bernsteinschen Definition) bei der Faktorisierung z.Zt. verwendeter RSA-Zahlen (1024-2048 bit) bereits signifikant 
-sinken w"urden.
+Wesentlich bei der Interpretation des Resultats ist die Definition des
+Aufwandes: Als Aufwand wird das Produkt von ben"otigter Rechenzeit und
+Kosten der Maschine (insbesondere des verwendeten Speicherplatzes)
+angesetzt. Zentral f"ur das Ergebnis des Papiers ist die Beobachtung, dass
+ein wesentlicher Teil der Faktorisierung auf Sortierung zur"uckgef"uhrt
+werden kann und mit dem Schimmlerschen Sortierschema ein Algorithmus zur
+Verf"ugung steht, der sich besonders gut f"ur den Einsatz von
+Parallelrechnern eignet. Am Ende des Abschnittes 3 gibt Bernstein konkret
+an, dass die Verwendung von $m^2$ Parallelrechnern mit jeweils gleicher
+Menge an Speicherplatz mit Kosten in der Gr"o"senordnung von $m^2$
+einhergeht --- genau so wie ein einzelner Rechner mit $m^2$ Speicherzellen.
+Der Parallelrechner bew"altigt die Sortierung von $m^2$ Zahlen jedoch
+(unter Verwendung der o.~g.\ Sortierverfahrens) in Zeit proportional zu m,
+wohingegen der Rechner mit dem gro"sen Speicherplatz Zeit proportional
+$m^2\log(m)$ ben"otigt.  Verringert man daher den verwendeten Speicherplatz
+und erh"oht --- bei insgesamt gleich bleibenden Kosten --- die Anzahl der
+Prozessoren entsprechend, verringert sich die ben"otigte Zeit um die
+Gr"o"senordnung $1/(m\log(m))$.\footnote{Zum Sortieren von $x$ Zahlen
+  ben"otigt man mit einem Prozessor $O(x\log(x))$ Schritte. Die
+  Verringerung der n"otigen Sortierzeit ergibt sich zu $O(m/(m^2\log(m^2)))
+  = O(m/(2m^2\log(m))) = O(1/(m\log(m)))$.} In Abschnitt 5 wird ferner
+angef"uhrt, dass der massive Einsatz der parallelisierten Elliptic
+Curve-Methode von Lenstra die Kosten der Faktorisierung ebenfalls um eine
+Gr"o"senordnung verringert (ein Suchalgorithmus hat dann quadratische statt
+kubische Kosten).  Alle Ergebnisse von Bernstein gelten nur asymptotisch
+f"ur gro"se Zahlen $n$.  Leider liegen keine Absch"atzungen "uber den
+Fehlerterm, d.h.  die Abweichung der tats"achlichen Zeit von dem
+asymptotischen Wert, vor --- ein Mangel, den auch Bernstein in seinem
+Papier erw"ahnt. Daher kann zur Zeit keine Aussage getroffen werden, ob die
+Kosten (im Sinne der Bernsteinschen Definition) bei der Faktorisierung
+z.Zt. verwendeter RSA-Zahlen (1024-2048 bit) bereits signifikant sinken
+w"urden.
 
 Zusammenfassend l"asst sich sagen, dass der Ansatz von Bernstein durchaus innovativ ist. Da die Verbesserung der 
 Rechenzeit unter gleichbleibenden Kosten durch einen massiven Einsatz von Parallelrechnern erkauft wird, stellt sich die 
@@ -1925,7 +1947,7 @@ Solange noch keine (kosteng"unstige) Hardware oder verteilte Ans"atze  entwickel
 dem Bernsteinschen Prinzip basieren, besteht noch keine akute Gef"ahrdung des RSA. Es bleibt zu kl"aren, ab welchen 
 Gr"o"senordnungen von n die Asymptotik greift. 
 
-Arjen Lenstra, Adi Shamir et. al. haben das Bernstein-Paper analysiert \cite{Lenstra2002}.
+Arjen Lenstra, Adi Shamir et.~al.\ haben das Bernstein-Paper analysiert \cite{Lenstra2002}.
 Als Ergebnis kommen Sie zu einer Bitl"angen-Verbesserung der Faktorisierung um den Faktor 1.17 
 (anstatt Faktor 3 wie von Bernstein erwartet).
 
@@ -1945,13 +1967,10 @@ We conclude that from a practical standpoint, the security of RSA relies
 exclusively on the hardness of the relation collection step of the number
 field sieve.''
 
-Auch \href{http://www.rsasecurity.com}{RSA Security} kommt in ihrer Analyse der Bernstein Arbeit (Titel
-{\em Has the RSA algorithm been compromised as a result of Bernstein's Paper?} vom 8. April 2002 
+Auch \href{http://www.rsasecurity.com/}{RSA Security} kommt in ihrer Analyse der Bernstein Arbeit (Titel
+{\em Has the RSA algorithm been compromised as a result of Bernstein's Paper?}) vom 8. April 2002 
 zu dem Ergebnis, dass RSA weiterhin als ungebrochen betrachtet werden kann (siehe
-\href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com}).
-
-
-
+\href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}).
 
 \begin{minipage}{\textwidth}
 Verweise:
@@ -1965,6 +1984,7 @@ Verweise:
 \end{itemize}
 \end{minipage}
 
+\vspace{4ex}
 \subsubsection{Status der Faktorisierung von gro"sen Zahlen}
 \label{NoteFactorisation}
 
@@ -1985,11 +2005,11 @@ liegt in der Zerlegung einer 158-stelligen Zahl in ihre beiden Primfaktoren (die
 
 Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn, fand deutlich 
 weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
-Forscher die 155-stellige Zahl in ihre beiden 78--stellige Primfaktoren zerlegten.
+Forscher die 155-stellige Zahl in ihre beiden 78-stellige Primfaktoren zerlegten.
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
 Primfaktoren der Zahl $2^{953}+1$ zu finden (s.~ ``Wanted List'' des
-Cunningham Projekts \href{http://www.cerias.purdue.edu/homes/ssw/cun/index.html}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/index.html}}). Als letzter Faktor blieb der sogenannte Teiler  ''C158'',
+Cunningham Projekts \href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
 von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
 $$
 \begin{array}{c}
@@ -2931,15 +2951,14 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
-In diesem Anhang finden Sie den Quellcode der berechneten Tabellen und
-Beispiele f"ur Mathematica 
-und f"ur das freie Programm Pari-GP.
-
+In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
+Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP
+berrechnet werden k"onnen.
 
 \subsubsection*{Multiplikationstabellen modulo $m$} \hypertarget{AppArith1}{}
 
-Die auf Seite \pageref{SrcArith1a} aufgef"uhrten Tabelle der Multiplikationstabelle modulo $m = 17$
-f"ur $a=5$ und $a=6$ wird mit Mathematica durch die folgenden Befehle bestimmt: 
+Die auf Seite \pageref{SrcArith1a} aufgef"uhrten Multiplikationstabellen modulo $m = 17$
+f"ur $a=5$ und $a=6$ werden mit Mathematica durch die folgenden Befehle bestimmt: 
 \begin{verbatim}
 m = 17; iBreite = 18; iFaktor1 = 5; iFaktor2 = 6; 
 Print[ ''i '', Table[ i, {i, 1, iBreite} ] ]; 
@@ -2958,13 +2977,23 @@ Mit Pari-GP k"onnen Sie die Tabellenwerte folgenderma"sen berechnen:
 {\tt matrix(1,iBreite, x,y, (iFaktor1*y)\%m )} ergibt \\
 {\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
 
-Beachte: Pari-GP erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod} und gibt es auch aus:
+Beachte: Pari-GP erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod}
+und gibt es auch aus:
+\vspace{-2ex}
 \begin{verbatim}
 matrix(1,iBreite, x,y, Mod(iFaktor1*y, m))
 [Mod(5, 17) Mod(10, 17) Mod(15, 17) Mod(3, 17) Mod(8, 17) Mod(13, 17) Mod(1, 17)
  Mod(6, 17) Mod(11, 17) Mod(16, 17) Mod(4, 17) Mod(9, 17) Mod(14, 17) Mod(2, 17)
  Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
 \end{verbatim}
+
+Aus dem zusammengesetzten {\tt Mod} Objekt gewinnt man die einzelnen
+Komponent mit der \texttt{component}-Funktion zur"uck: 
+
+\texttt{%
+  component(Mod(5, 17),1) $\rightarrow$ 17 \\
+  component(Mod(5, 17),2) $\rightarrow$ 5
+}
 
 Die weiteren Beispiele der Multiplikationstabelle modulo $13$ und modulo $12$ auf Seite 
 \pageref{SrcArith1b} bestimmen Sie, indem Sie im Quelltext jeweils {\tt m=17} durch den 
@@ -3150,3 +3179,7 @@ Satz \ref{thm-zth-ordp} & Aussch"opfung des Wertebereiches & \pageref{thm-zth-or
 \end{tabular}
 \end{center}
 \vskip +6 pt
+
+% Local Variables:
+% TeX-master: "../script-de.tex"
+% End:
