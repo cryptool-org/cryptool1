@@ -1622,7 +1622,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Eingabe (Passwort und Parameter)",IDC_STATIC,8,4,295,
                     169
-    LTEXT           "Paßwort:",IDC_STATIC,19,28,31,8
+    LTEXT           "Passwort:",IDC_STATIC,19,28,31,8
     LTEXT           "Länge des Ausgabeschlüssels (in Bytes):",IDC_STATIC,19,
                     48,129,8
     LTEXT           "(darf nicht länger als die Ausgabelänge der gewählten Hashfunktion sein).",
@@ -1802,7 +1802,7 @@ BEGIN
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,34,165,8
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
-    LTEXT           "Durch das Anklicken des Buttons ""Weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt.",
+    LTEXT           "Durch das Anklicken des Buttons ""Weiter"" wird initial die Zahl im Eingabefeld und dann jeweils die nächste zusammengesetzte Zahl im Feld ""Produktdarstellung"" in zwei Faktoren zerlegt.",
                     IDC_STATIC,24,132,318,17
     GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,105
     LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.\nZusammengesetzte Zahlen sind rot markiert.",
@@ -5250,7 +5250,7 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
                             "Eingabe der Nachricht als Zahlen im Format: Zahl(1) # Zahl(2) # ... # Zahl(n)   (Zahlen zur Basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
-                            "Die Entschlüsselung (RSA-Exponentation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
+                            "Die Entschlüsselung (RSA-Exponentiation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
                             "Die Nachricht hat den folgenden Hashwert. Dies entspricht %sdem entschlüsselten Hashwert oben.   %s"
 END
@@ -7669,7 +7669,7 @@ BEGIN
     GROUPBOX        "Input",-1,166,6,187,107
     LTEXT           "Enter the number to be factorised:",-1,177,34,165,8
     GROUPBOX        "Factorisation (stepwise)",-1,13,118,340,64
-    LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.",
+    LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorisation result"" will be factorised into two factors.",
                     -1,24,132,318,17
     GROUPBOX        "Factorisation",-1,13,192,340,109
     LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",
