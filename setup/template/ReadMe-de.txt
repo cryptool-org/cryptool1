@@ -441,7 +441,7 @@ cry*.*............ CrypTool schreibt temporäre Dateien mit dem
                    (Endungen: asc, hex, org, plt, tmp, txt).
 CrypTool.ini...... Diese Datei befindet sich im Windows-
                    Verzeichnis und enthält neben der Einstellung,
-                   ob Begrüßungsfenster angezeigt werden soll,
+                   ob der Begrüßungsdialog angezeigt werden soll,
                    die Dateinamen der zuletzt bearbeiteten 
                    Dateien. 
 
@@ -775,11 +775,12 @@ Version   Datum		Deutsch		Englisch
 1.2.02    Dez. 2000	3,2		-
 1.3.00    Jan. 2002	4,9		4,7
 1.3.02    Juni 2002	6,9		6,4
-1.3.03    Aug. 2002	xxx		xxx
+1.3.03    Aug. 2002	7,5		6,9
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00
-1.3.03    viele kleine Bugfixes und Dokumentation gegenüber 1.3.02
+1.3.03    viele kleine Bugfixes und Verbesserungen der 
+          Dokumentation
 
 
 

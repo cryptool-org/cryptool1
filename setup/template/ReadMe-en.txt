@@ -747,17 +747,17 @@ Functionality:
 
 			Windows-Setup in MB
 Version   Date		English		German
-1.0.01    Oct. 1999	-		1,3
-1.1.01    May  2000	-		2,3
-1.2.00    Aug. 2000	-		2,8
-1.2.02    Dec. 2000	-		3,2
-1.3.00    Jan. 2002	4,7		4,9
-1.3.02    June 2002	6,4		6,9
-1.3.03    Aug. 2002	xxx		xxx
+1.0.01    Oct. 1999	-		1.3
+1.1.01    May  2000	-		2.3
+1.2.00    Aug. 2000	-		2.8
+1.2.02    Dec. 2000	-		3.2
+1.3.00    Jan. 2002	4.7		4.9
+1.3.02    June 2002	6.4		6.9
+1.3.03    Aug. 2002	6.9		7.5
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
-1.3.03    many minor bug fixes and documentation compared to 1.3.02
+1.3.03    many minor bug fixes and documentation improvements 
 
 
 
