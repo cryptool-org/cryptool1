@@ -1689,8 +1689,6 @@ BEGIN
                     IDC_STATIC,18,8,256,24
     GROUPBOX        "",IDC_STATIC,9,0,283,36
     GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,31
-    CONTROL         "Zufallsgenerator Tests durchführen",IDC_TESTCHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,157,81,126,10
 END
 
 IDD_RANDOM_PARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
@@ -1908,23 +1906,113 @@ BEGIN
                     SS_NOTIFY
 END
 
-IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 268, 82
+IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 269, 175
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Dialogfenster beenden",IDOK,178,55,83,20
-    COMBOBOX        IDC_COMBO_ALPHA,15,31,94,30,CBS_DROPDOWN | CBS_SORT | 
+    DEFPUSHBUTTON   "&Dialog beenden",IDOK,183,149,79,19
+    COMBOBOX        IDC_COMBO_ALPHA,108,18,45,44,CBS_DROPDOWN | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Diskrepanz Parameter ""alpha"":",IDC_STATIC,15,19,98,8
-    GROUPBOX        "Parameter Auswahl:",IDC_STATIC,7,7,114,41
-    GROUPBOX        "Test Ergebnisse:",IDC_STATIC,132,7,129,41
-    LTEXT           "Test bestanden ...",IDC_STATIC_ERGEBNIS,138,19,78,23
-    PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,9,55,79,20
-    CONTROL         251,IDC_BITMAP_1,"Static",SS_BITMAP | NOT WS_VISIBLE,223,
-                    21,18,16
-    CONTROL         250,IDC_BITMAP_2,"Static",SS_BITMAP | NOT WS_VISIBLE,224,
-                    21,18,16
+    LTEXT           "Signifikanz-Niveau ""alpha"":",IDC_STATIC,15,20,88,8
+    GROUPBOX        "Parameter Auswahl",IDC_STATIC,7,7,255,82
+    GROUPBOX        "Teststatus",IDC_STATIC,7,91,255,50
+    LTEXT           "Test bestanden ...",IDC_STATIC_ERGEBNIS,102,110,129,27
+    PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,15,110,79,18
+    CONTROL         251,IDC_BITMAP_1,"Static",SS_BITMAP | NOT WS_VISIBLE,233,
+                    110,18,16
+    CONTROL         250,IDC_BITMAP_2,"Static",SS_BITMAP | NOT WS_VISIBLE,233,
+                    111,18,16
+    EDITTEXT        IDC_EDIT1,46,68,60,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,196,68,59,13,ES_AUTOHSCROLL
+    CONTROL         "Default Offset und Testlänge",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
+    LTEXT           "Testlänge:",IDC_STATIC,144,70,34,8
+    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
+    CONTROL         "Zufällig gewählte Testblöcke verwenden",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
+    LTEXT           "Tupelgrösse:",IDC_TUPEL_STATIC,172,20,42,8
+    COMBOBOX        IDC_TUPELCOMBO,228,18,27,60,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DIALOG_HINTS DIALOG DISCARDABLE  0, 0, 308, 202
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tips & Tricks"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Dialogfenster beenden",IDOK,218,179,83,16
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_BORDER,7,7,294,164
+    CONTROL         "Beim Start vom Cryptool ""Tips && Tricks"" nicht mehr zeigen",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,181,
+                    197,11
+END
+
+IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS DIALOG DISCARDABLE  0, 0, 247, 282
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Runs Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Dialog beenden",IDOK,157,257,83,18
+    GROUPBOX        "Runs Parameter",IDC_STATIC,7,7,233,104
+    GROUPBOX        "Long Runs Parameter",IDC_STATIC,7,115,233,50
+    CONTROL         "Default Long Run Parameter",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,127,106,10
+    LTEXT           "Long Run Länge:",IDC_STATIC,14,145,56,8
+    LTEXT           "Signifikanz-Niveau ""alpha"": ",IDC_STATIC,14,21,90,8
+    COMBOBOX        IDC_COMBO1,120,19,66,46,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Default Run Test  Parameter",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,39,104,10
+    CONTROL         "Zufällig gewählte Testblöcke verwenden",IDC_CHECK3,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,51,170,13
+    LTEXT           "Offset:",IDC_STATIC,14,72,22,8
+    LTEXT           "Testlänge:",IDC_STATIC,126,72,34,8
+    EDITTEXT        IDC_EDIT2,57,70,63,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,170,70,63,12,ES_AUTOHSCROLL
+    LTEXT           "Runlänge:",IDC_STATIC,14,91,34,8
+    EDITTEXT        IDC_EDIT5,57,89,63,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,77,143,63,12,ES_AUTOHSCROLL
+    LTEXT           "",IDC_LONGRUN_ERGEBNIS,90,222,114,26
+    CONTROL         251,IDC_ERFOLGNICHT_LONGRUN,"Static",SS_BITMAP,213,222,
+                    18,16
+    CONTROL         250,IDC_ERFOLG_LONGRUN,"Static",SS_BITMAP,213,222,18,16
+    GROUPBOX        "Teststatus",IDC_STATIC,7,168,233,83
+    PUSHBUTTON      "Tests durchführen",IDC_TESTBUTTON,14,204,67,18
+    LTEXT           "\nBitte auf die ""Tests durchführen""\ntaste drücken !!!",
+                    IDC_RUN_ERGEBNIS,89,186,114,25
+    CONTROL         251,IDC_ERFOLGNICHT_RUN,"Static",SS_BITMAP,213,186,18,16
+    CONTROL         250,IDC_ERFOLG_RUN,"Static",SS_BITMAP,213,186,18,16
+END
+
+IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_FIPS_PUB DIALOG DISCARDABLE  0, 0, 241, 289
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FIPS-PUB-140-1 Test-Batterie"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Dialog beenden",IDOK,147,263,87,18
+    GROUPBOX        "Tests Status",IDC_STATIC,7,45,227,159
+    GROUPBOX        "Entropie Status",IDC_STATIC,7,7,227,33
+    GROUPBOX        "Test-Batterie Status",IDC_STATIC,7,208,227,42
+    PUSHBUTTON      "Test-Batterie starten",IDC_BATTERIETEST,7,263,84,18
+    CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,201,103,18,16
+    CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,202,68,18,16
+    CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,202,138,18,16
+    CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,202,173,18,16
+    CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,202,69,18,16
+    CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,202,103,18,16
+    CONTROL         250,IDC_BMP_POKER_HAK,"Static",SS_BITMAP,203,138,18,16
+    CONTROL         250,IDC_BMP_RUN_HAK,"Static",SS_BITMAP,202,173,18,16
+    LTEXT           "Longrun Test Ergebnis:",IDC_TEXT_LONG,17,60,124,28
+    LTEXT           "Mono-Bit Test Ergebnis:",IDC_TEXT_MONO,17,94,124,28
+    LTEXT           "Poker Test Ergebnis:",IDC_TEXT_POKER,17,130,124,28
+    LTEXT           "Runs Test Ergebnis:",IDC_TEXT_RUN,17,166,124,28
+    LTEXT           "FIPS-PUB-140-1 Test-Batterie Status:",IDC_TEXT_BATTERIE,
+                    17,222,163,20
+    CONTROL         251,IDC_BMP_FIPS_KRE,"Static",SS_BITMAP,202,222,18,16
+    CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,202,222,18,16
+    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,204,11
 END
 
 
@@ -2332,6 +2420,24 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
+        POPUP "&Zufallstests"
+        BEGIN
+            MENUITEM "&Autokerrelation Test",       ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION
+
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+
+            MENUITEM SEPARATOR
+            MENUITEM SEPARATOR
+            MENUITEM "F&IPS PUB-140-1 Test-Batterie", 
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+
+        END
     END
     POPUP "&Schlüsselverwaltung"
     BEGIN
@@ -2728,6 +2834,21 @@ BEGIN
 0x3639, 0x0030, 
     IDC_COMBO2, 0x403, 5, 0
 0x3031, 0x3432, "\000" 
+    0
+END
+
+IDD_DIALOG_FREQTEST DLGINIT
+BEGIN
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0031, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0032, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0033, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0034, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0035, 
     0
 END
 
@@ -3257,11 +3378,51 @@ BEGIN
     IDD_DIALOG_FREQTEST, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 261
+        RIGHTMARGIN, 262
+        VERTGUIDE, 15
+        VERTGUIDE, 142
+        VERTGUIDE, 231
+        VERTGUIDE, 255
         TOPMARGIN, 7
-        BOTTOMMARGIN, 75
-        HORZGUIDE, 48
-        HORZGUIDE, 55
+        BOTTOMMARGIN, 168
+        HORZGUIDE, 50
+        HORZGUIDE, 67
+        HORZGUIDE, 149
+    END
+
+    IDD_DIALOG_HINTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 301
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        VERTGUIDE, 14
+        VERTGUIDE, 81
+        VERTGUIDE, 89
+        VERTGUIDE, 120
+        VERTGUIDE, 204
+        VERTGUIDE, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+        HORZGUIDE, 57
+    END
+
+    IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_FIPS_PUB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        VERTGUIDE, 17
+        VERTGUIDE, 141
+        VERTGUIDE, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 281
+        HORZGUIDE, 263
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -4136,6 +4297,7 @@ BEGIN
     IDS_STRING_PA_LENGTH    "Länge"
     IDS_RAND_OUTPUT         "Zufallsdaten zu %d %% erzeugt"
     IDS_RANDOM_GENERATOR    "Zufallsdaten erzeugen"
+    IDS_STRING_CAPTATION_SERIAL_TEST "Serial Test (overlaping) von %s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4289,6 +4451,7 @@ BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
     ID_HOMOPHONE_HEX        "Verschlüsseln mit ein- oder zweifacher Permutation"
     ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation"
+    ID_ANALYSE_ZUFALLSTESTS_LONGRUNTEST "Testet die Datei nach einem Long-Run"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4306,6 +4469,35 @@ BEGIN
                             "G hat die prime Ordnung r und den Kofaktor k (r*k sind die Anzahl der Punkte auf E):"
     IDS_STRING_EC_SEPERATOR " "
     IDS_STRING_PERMUTATION  "Permutation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_CAPTATION_FREQUENCY_TEST "Frequency Test von %s"
+    IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST 
+                            "Der Frequency Test sollte auf eine Datei angemacht werden, die mindenstens 1250 Byte lang ist."
+    IDS_STRING_TEST_KLEINE_DATEI 
+                            "Die Datei muss gleich/grösser als 16 Byte sein !!!"
+    IDS_STRING_CAPTATION_RUNS_TESTS "Runs Tests von %s"
+    IDS_STRING_CAPTATION_POKER_TEST "Poker Test von %s"
+    IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Test-Batterie von %s"
+    IDS_STRING_TESTS_FIPS_ENTROPIE 
+                            "Entropie der Datei beträgt : %lf bit/Zeichen"
+    IDS_STRING_TEST_FIPS_KLEINE_DATEI 
+                            "Für FIPS-PUB-140-1 Test-Batterie muss die Datei genau\n2500 Byte gross sein. Am sonsten werden nur die ersten\n2500 Byte der gesamten Dateilänge getestet."
+    IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
+                            "Für FIPS-PUB-140-1 Test-Batterie muss die Datei\nmindenstens 2500 Byte gros sein !"
+    IDS_STRING_TESTS_FALSCHE_OFFSET 
+                            "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
+                            "Longrun Länge muss gleich/kleiner als Dateilänge\noder nicht gleich Null sein !"
+    IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "Test Ergebnis:\n%s BESTANDEN !"
+    IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN 
+                            "Test Ergebnis:\n%s NICHT BESTANDEN !"
+    IDS_STRING_TESTS_BATTERIE_BESTANDEN 
+                            "%s Test-Batterie Ergebnis:\nDatei hat den Test-Batterie BESTANDEN !"
+    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN 
+                            "%s Test-Batterie Ergebnis:\nDatei hat den Test-Batterie NICHT BESTANDEN !"
 END
 
 #endif    // Deutsch (Deutschland) resources

@@ -20,10 +20,14 @@
 #include "DlgSignExtract.h" // für OnCryptExtract
 #include "Dlg_Tests.h"
 
+
 UINT AESBrute(PVOID p);
 
 /////////////////////////////////////////////////////////////////////////////
 // CCryptDoc
+
+
+
 
 IMPLEMENT_DYNCREATE(CCryptDoc, CPadDoc)
 
@@ -109,8 +113,34 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_CRYPT_EXTRACT, OnCryptExtract)
 	ON_COMMAND(ID_ANALYZE_SUBST, OnAnalyzeSubst)
 	ON_COMMAND(ID_FLOATING, OnFloating)
+
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_CBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_EXTRACT, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD2, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD4, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD5, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_RIPEMD160, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_SHA, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_SHA1, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_IDEA, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_RC4, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_RC2, OnUpdateNeedSecude)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_RsaDec, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_RsaEnc, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_SIGN, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_CRYPT_VERIFY, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_DESCBC, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_DESECB, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_IDEA, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC2, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
+
+	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_ANALYSE_DESCBC, OnAnalyseDescbc)
 	ON_COMMAND(ID_ANALYSE_DESECB, OnAnalyseDesecb)
 	ON_COMMAND(ID_ANALYSE_IDEA, OnAnalyseIdea)
@@ -136,31 +166,13 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
 	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
 	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD2, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD4, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_MD5, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_RIPEMD160, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_SHA, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_HASH_SHA1, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_IDEA, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_RC4, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_RC2, OnUpdateNeedSecude)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_RsaDec, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_RsaEnc, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_SIGN, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_CRYPT_VERIFY, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_DESCBC, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_DESECB, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_IDEA, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC2, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-//	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, OnAnalyseZufallstestsSerialtest)
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_RUNS, OnAnalyseZufallstestsRuns)
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_POKERTEST, OnAnalyseZufallstestsPokertest)
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, OnAnalyseZufallstestsFipspub1401)
+
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1248,12 +1260,156 @@ void CCryptDoc::OnPermutationAsc()
     PermutationAsc(ContentName, GetTitle());
 }
 
-/*
 void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
 {
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	UpdateContent();
-	Dlg_Tests_Freq FREQT;
-	FREQT.DoModal();
+	CStdioFile file;
+	file.Open(ContentName, CFile::modeRead);
+	if(file.GetLength() < 16) 
+	{
+		file.Close();
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
+	}
+	else
+	{
+		if ((file.GetLength()*8) <= 10000) 
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		file.Close();
+		UpdateContent();
+		Freq_Test test;
+		Dlg_Tests_Freq FREQT;
+		FREQT.SetCurrentTest( &test );
+		FREQT.init(ContentName, GetTitle());
+		sprintf(FREQT.tmpStr, "Frequency-Test");
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_FREQUENCY_TEST, pc_str, STR_LAENGE_STRING_TABLE);
+		char tmpstr[127];
+		sprintf(tmpstr, pc_str, GetTitle());
+
+		FREQT.SetAlternativeWindowText( tmpstr );
+		FREQT.DoModal();
+	}
 }
-*/
+
+void CCryptDoc::OnAnalyseZufallstestsSerialtest() 
+{
+	CStdioFile file;
+	file.Open(ContentName, CFile::modeRead);
+
+	if(file.GetLength() < 16) 
+	{
+		file.Close();
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
+	}
+	else
+	{
+		file.Close();
+		UpdateContent();
+		Serial_Test test;
+		Dlg_Tests_Freq SERT;
+		SERT.SetCurrentTest( &test );
+		SERT.init(ContentName, GetTitle());
+		sprintf(SERT.tmpStr, "Serial-Test");
+
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_SERIAL_TEST,pc_str,STR_LAENGE_STRING_TABLE);
+		char tmpStr[256];
+		sprintf( tmpStr, pc_str, GetTitle());
+		
+		SERT.SetAlternativeWindowText(tmpStr);
+		SERT.DoModal();
+	}
+
+}
+
+void CCryptDoc::OnAnalyseZufallstestsRuns() 
+{
+	theApp.DoWaitCursor(-1);
+	CStdioFile file;
+	file.Open(ContentName, CFile::modeRead);
+	if(file.GetLength() < 16) 
+	{
+		file.Close();
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
+	}
+	else
+	{
+		file.Close();
+		UpdateContent();
+		Dlg_Zufallsgenerator_Tests_Runs LRT;
+		LRT.init(ContentName, GetTitle());
+
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_RUNS_TESTS, pc_str, STR_LAENGE_STRING_TABLE);
+		char tmpstr[127];
+		sprintf(tmpstr, pc_str, GetTitle());
+
+		LRT.SetAlternativeWindowText( tmpstr );
+
+		LRT.DoModal();
+	}
+	theApp.DoWaitCursor(0);
+}
+
+void CCryptDoc::OnAnalyseZufallstestsPokertest() 
+{
+	CStdioFile file;
+	file.Open(ContentName, CFile::modeRead);
+	if(file.GetLength() < 16) 
+	{
+		file.Close();
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
+	}
+	else
+	{
+		file.Close();
+		UpdateContent();
+		Poker_Test test;
+		Dlg_Tests_Freq POKT;
+		POKT.Set_Poker_Flag( TRUE );
+		POKT.SetCurrentTest( &test );
+		POKT.init(ContentName, GetTitle());
+		sprintf(POKT.tmpStr, "Poker-Test");
+
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_POKER_TEST,pc_str,STR_LAENGE_STRING_TABLE);
+		char tmpStr[256];
+		sprintf( tmpStr, pc_str, GetTitle());
+		
+		POKT.SetAlternativeWindowText(tmpStr);
+		POKT.DoModal();
+	}
+}
+
+
+void CCryptDoc::OnAnalyseZufallstestsFipspub1401() 
+{
+	CStdioFile file;
+	file.Open(ContentName, CFile::modeRead);
+	if(file.GetLength() < 2500) 
+	{
+		file.Close();
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str);
+	}
+	else
+	{
+		if (file.GetLength() > 2500)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FIPS_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		file.Close();
+		Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1 FIPS;
+		FIPS.init(ContentName, GetTitle());
+
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_FIPS_PUB,pc_str,STR_LAENGE_STRING_TABLE);
+		char tmpStr[256];
+		sprintf( tmpStr, pc_str, GetTitle());
+		FIPS.SetAlternativeWindowText(tmpStr);
+
+		FIPS.DoModal();
+	}
+}
