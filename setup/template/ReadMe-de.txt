@@ -1,5 +1,5 @@
 ==================================================================
-              CrypTool, Version 1.3.01x, April 2002
+              CrypTool, Version 1.3.02, Juni 2002
                   (c) Deutsche Bank AG 1998-2002
                   (c) Universität Siegen und Karlsruhe
                          Frankfurt am Main
@@ -29,8 +29,8 @@
  6.4. .... Formatierung / Anzeige / Navigation
  6.5. .... Hilfe / PDF-Skript
  6.6. .... Sonstiges
- 6.7. .... Änderungen von Version 1.3.00 zu Version 1.3.01
- 6.8. .... Geplante Änderungen von Vers. 1.3.01 zu Vers. 1.3.02
+ 6.7. .... Änderungen von Version 1.3.00 zu Version 1.3.02
+ 6.8. .... Geplante Änderungen nach Version 1.3.02
  7. .... Mögliche Punkte für eine Weiterentwicklung
  8. .... Kurze Historie der Hauptversionen
  9. .... Roadmap
@@ -53,7 +53,10 @@ einem Programm, mit dem man kryptographische Funktionen leicht
 demonstrieren, aber auch bekannte und unbekannte Verfahren
 analysieren kann.
 
-Zu jedem Programmteil gibt es reichhaltige Hilfe.
+Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
+ohne tiefes Kryptowissen verstanden werden kann.
+ 
+CrypTool ist komplett in Deutsch und Englisch vorhanden.
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
@@ -65,7 +68,10 @@ Internet-Adressen:   http://www.CrypTool.de
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen, die Verwendung und die Grenzen einzelner Mechanismen
-aufzuzeigen.
+aufzuzeigen. In CrypTool sind fast alle State-of-the-art-Krypto-
+funktionen implementiert, die unter einer einheitlichen Umgebung
+und einen "spielerischen" Einstieg in die moderne und 
+klassische Kryptographie ermöglichen.
 
 Die Lizenz- und Nutzungsbestimmungen werden bei der Installation
 und auf der Einstiegsseite der Onlinehilfe erläutert.
@@ -128,7 +134,7 @@ es in Zukunft als Open Source weitergepflegt wird.
 Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank,
 Secude GmbH und FZI Karlsruhe. 1.3.0x ist die letzte Version, 
 die die Deutsche Bank als Maintainer herausbringt.
-Ab Mai 2002 ist der Lehrstuhl Sicherheit in der Informations-
+Ab Juli 2002 ist der Lehrstuhl Sicherheit in der Informations-
 technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia 
 Eckert an der TU Darmstadt der neue Maintainer.
 
@@ -544,8 +550,11 @@ Bugfixes hinzu:
    - zusätzliche Infos: Präsentation auf deutsch und englisch.
 
 
-6.7. Änderungen von Version 1.3.00 zu Version 1.3.01
+6.7. Änderungen von Version 1.3.00 zu Version 1.3.02
      -----------------------------------------------
+Die Version 1.3.01 wurde nicht offiziell verteilt, da sie als
+Zwischenversion nur in Deutsch vorlag.
+
 Source:
 + Überarbeitung des Quelltextes für die Übergabe an den neuen
   Maintainer.
@@ -555,7 +564,7 @@ Webseite:
   ermöglicht so einen Check der Integrität der auf dem
   Computer befindlichen Dateien.
 Dokumentation:
-+ Einheitliche CrypTool-Präsentation zu 1.3.01 (keine Trennung
++ Einheitliche CrypTool-Präsentation zu 1.3.02 (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
   neuen Funktionen und Einbau einer Zeittafel).
@@ -563,7 +572,7 @@ Funktionalität:
 + Ist ein Menüeintrag selektiert, der noch ein Untermenü hat,
   und man drückt F1, gelangt man nun auf die entsprechende
   Hilfeseite der Online-Hilfe zum ganzen Menü.
-+ Hashwerte von Dateien berechnen, ohne sie zu laden.
++ Hashwerte von Dateien berechnen, ohne die Dateien zu laden.
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei
   der Hybridverschlüsselung und -Entschlüsselung.
 + Die schrittweise Verifikation einer RSA-Signatur ist nun auch
@@ -592,12 +601,15 @@ Funktionalität:
     Erzeugung einer elektronischen Signatur.
 
 
-6.8. Geplante Änderungen von Version 1.3.01 zu Version 1.3.02
-     --------------------------------------------------------
+6.8. Geplante Änderungen nach Version 1.3.02
+     ---------------------------------------
 Funktionalität:
 + Visualisierung 
   - der Wirkung von Textänderungen auf den Hashwert 
     (Sensitivität von Hashverfahren)
++ XXXX AES-Tool läuft komplett auch von der Kommandozeile
++ XXXX Die Kommandozeilenversion des AES-Tools liegt auch unter
+     OS/2 und Linux vor.
 
 
 7. Mögliche Punkte für eine Weiterentwicklung
@@ -704,8 +716,7 @@ Version         Datum
 1.2.00          Aug. 2000
 1.2.02          Dez. 2000
 1.3.00          Jan. 2002
-1.3.01x         Apr. 2002
-1.3.02          Juni 2002 (Plan)
+1.3.02          Juni 2002
 
 
 
@@ -716,6 +727,9 @@ Maintainer.
 
 Dann ist auch geplant ist, die Sourcen von CrypTool als Open
 Source für die Internet-Gemeinschaft freizugeben.
+
+Wer früher schon an den Sourcen mitentwickeln möchte, kann sich
+an die unten angegebenen email-Adressen wenden.
 
 
 
@@ -772,7 +786,8 @@ Computer und Internet umgeht und wie man sich sicher im Internet
 bewegen kann.
 Auf dieser CD ist auch CrypTool enthalten, um das Verständnis der 
 kryptographischen Sicherheitsfunktionen zu verbessern.
-Von dieser CD sind mehr als 500.000 Stück produziert worden.
+Von dieser CD sind mehr als 500.000 Stück produziert worden und
+zum Beispiel mit der PC-Welt verteilt worden.
 
 12.4. Freeware-Projekt Crank
       ----------------------

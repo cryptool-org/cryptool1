@@ -1,5 +1,5 @@
 ==================================================================
-              CrypTool, Version 1.3.01x, April 2002
+              CrypTool, Version 1.3.02, June 2002
                   (c) Deutsche Bank AG 1998-2002
                   (c) University of Siegen and Karlsruhe
                          Frankfurt am Main
@@ -29,8 +29,8 @@
  6.4. .... Formatting / display / navigation
  6.5. .... Help / PDF script
  6.6. .... Miscellaneous
- 6.7. .... Enhancements from version 1.3.00 to 1.3.01
- 6.8. .... Planned enhancements from version 1.3.01 to 1.3.02
+ 6.7. .... Enhancements from version 1.3.00 to 1.3.02
+ 6.8. .... Planned enhancements after version 1.3.02
  7. .... Possible areas for further development
  8. .... Brief history of the main versions of CrypTool
  9. .... Road map
@@ -52,7 +52,11 @@ This README file is part of the free distribution of CrypTool,
 a program by means of which cryptographic functions can be easily
 demonstrated and known and unknown algorithms analysed.
 
-Every part of the program comes with extensive help.
+Every part of the program comes with extensive Online help, which
+can be understood without deep knowledge in cryptography, therefore
+no user manual on how to use CrypTool is provided. 
+
+CrypTool is completely available in English and German.
 
 It is required that the user is able to use typical applications
 under Windows.
@@ -64,6 +68,9 @@ The current version of CrypTool can be found at these addresses:
 
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
+CrypTool has implemented almost all state-of-the-art crypto 
+functions and allows you to learn about and use, modern and classic
+cryptography within the same environment in a "playful" manner.
 
 Kindly note the terms of the licence and the information regarding
 liability for any damage arising from the use of CrypTool. These
@@ -128,7 +135,7 @@ development as open source is co-ordinated.
 The current sponsors of CrypTool have been Deutsche Bank,
 Secude Ltd. and FZI Karlsruhe. 1.3.0x is the last version,
 released by Deutsche Bank as maintainer.
-From May 2002 the new maintainer is the chair "Security
+From July 2002 the new maintainer is the chair "Security
 in Information Technology", faculty computer science from
 Mrs. Prof. Dr. Claudia Eckert at the technical university of
 Darmstadt, Germany.
@@ -537,8 +544,11 @@ CrypTool version 1.202 (Dec 2000).
    - Additional information: presentation in German and English.
 
 
-6.7. Enhancements from version 1.3.00 to 1.3.01
+6.7. Enhancements from version 1.3.00 to 1.3.02
      ------------------------------------------
+Version 1.3.01 was not distributed officially, because it was only
+a intermedior release, available only in German.
+
 Source:
 + Revision of the source code for the transmission to the new
   maintainer.
@@ -548,7 +558,7 @@ Web page:
   So you can verify whether the integrity of the files on your
   computer is ok.
 Dokumentation:
-+ Single CrypTool praesentation for version 1.3.01
++ Single CrypTool praesentation for version 1.3.02
   (no separation in features of 1.2.xx and new within 1.3.0x).
 + The online Help got further improvement and enhancements (e.g.
   for the new Functions, addition of a time table).
@@ -585,8 +595,8 @@ Functionality:
     creation and verification of an electronic signature.
 
 
-6.8. Planned enhancements from version 1.3.01 to 1.3.02
-     --------------------------------------------------
+6.8. Planned enhancements after version 1.3.02
+     -----------------------------------------
 Functionality:
 + Show/Visualize 
   - how changes to a document change the hash value
@@ -688,8 +698,7 @@ Version		Date
 1.2.00		Aug. 2000
 1.2.02		Dec. 2000
 1.3.00		Jan. 2002
-1.3.01x		Apr. 2002
-1.3.02		June 2002 (planned)
+1.3.02		June 2002 
 
 
 
@@ -701,6 +710,9 @@ maintainer.
 Then it is planned to make the source code of CrypTool
 freely available as open source to the Internet community.
 
+If you are interested to help developing CrypTool before it is
+available as open source please do not hesitate to contact one
+of the email addresses listed below.
 
 
 10. Feedback on errors (bugs)
