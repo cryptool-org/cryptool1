@@ -23,7 +23,8 @@ template <class T> inline T min(T a, T b) {return ( a < b ) ? a : b;}
 template <class T> inline T max(T a, T b) {return ( a > b ) ? a : b;}
 template <class T> inline T min(T a, T b, T c) {return min(min(a,b),c);}
 template <class T> inline T max(T a, T b, T c) {return max(max(a,b),c);}
-template <class T> inline T abs(T a) {return ( a >= (T)0 ) ? a : -a;}
+//template <class T> inline T abs(T a) {return ( a >= (T)0 ) ? a : -a;} //roger 05.04.2001
+
 //template <class T> inline const T& min(const T& a, const T& b) { return (b < a) ? b : a; }
 //template <class T> inline const T& max(const T& a, const T& b) { return (b > a) ? b : a; }
 
@@ -50,6 +51,8 @@ template <class T> inline T abs(T a) {return ( a >= (T)0 ) ? a : -a;}
 #pragma warning( push )
 #pragma warning( disable : 4666 )
 
+
+/* Roger Löschung 23.02.2001
 template <class T> inline int __stdcall operator!=(const T& x, const T& y) 
 { return !(x == y); }
 template <class T> inline int __stdcall operator>(const T& x, const T& y) 
@@ -58,6 +61,7 @@ template <class T> inline int __stdcall operator<=(const T& x, const T& y)
 { return !(y < x); }
 template <class T> inline int __stdcall operator>=(const T& x, const T& y) 
 { return !(x < y); }
+*/
 
 #pragma warning( pop )
 
@@ -67,6 +71,9 @@ template <class T, class A> inline T __stdcall operator+(const T& x, A& y)
 ///////////////////////////////////////////////////////////////////////////////////////
 // Ende Aenderung Jens Liebehenschel, 30.12.1998
 ///////////////////////////////////////////////////////////////////////////////////////
+
+
+/* Roger Löschung 23.02.2001
 template <class T, class A> inline T operator-(const T& x, A& y) 
 { T tmp(x); tmp-=y; return tmp; }
 template <class T, class A> inline T operator*(const T& x, A& y) 
@@ -81,6 +88,6 @@ template <class T, class A> inline T operator|(const T& x, A& y)
 { T tmp(x); tmp|=y; return tmp; }
 template <class T, class A> inline T operator&(const T& x, A& y) 
 { T tmp(x); tmp&=y; return tmp; }
-
+*/
 
 #endif /* _MYTEMPLATES_H */
