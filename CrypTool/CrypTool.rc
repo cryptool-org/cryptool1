@@ -464,15 +464,15 @@ BEGIN
                     117,8
 END
 
-IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 277, 87
+IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 288, 87
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,10,59,64,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,217,59,50,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,228,59,50,18
     CTEXT           "Ermittelter Schlüssel:",IDC_STATIC,10,10,257,8
-    EDITTEXT        IDC_EDIT1,10,23,257,24,ES_MULTILINE
+    EDITTEXT        IDC_EDIT1,10,23,268,24,ES_MULTILINE | WS_VSCROLL
 END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOG DISCARDABLE  0, 0, 347, 319
@@ -2371,12 +2371,12 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,402,228,115,14
     CONTROL         "Oval1_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,32,278,94,14
+    CONTROL         "Oval2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,304,282,50,14
     EDITTEXT        IDC_EDIT_TITLE,26,326,503,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,26,339,503,94,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Oval2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,304,282,50,14
 END
 
 IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 254
@@ -2783,17 +2783,23 @@ BEGIN
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
+IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 150
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Weitere Optionen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,58,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,58,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,129,50,14
     CONTROL         "Einleitungsdialog beim &Start anzeigen",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,133,10
     GROUPBOX        "Optionen für die Diffie-Hellman-Demonstration",
                     IDC_STATIC,7,7,277,40
+    GROUPBOX        "Optionen für die Hybridverschlüsselung",IDC_STATIC,7,60,
+                    277,55
+    CONTROL         "128 bit AES-Schlüssel verwenden",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,79,123,10
+    CONTROL         "256 bit AES-Schlüssel verwenden",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,92,123,10
 END
 
 IDD_DIFFIEHELLMANVISUALIZATION DIALOG DISCARDABLE  0, 0, 525, 345
@@ -2948,6 +2954,240 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
+IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOG DISCARDABLE  0, 0, 650, 364
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
+    CONTROL         "IDB_SCA_BUTTON2_R_",IDC_PREPARATIONS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,70,100,30
+    CONTROL         "IDB_SCA_BUTTON3_R_",IDC_MESSAGETRANSMISSION,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,120,100,30
+    CONTROL         "IDB_SCA_BUTTON4_R_",IDC_MESSAGEINTERCEPTION,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,205,100,30
+    CONTROL         "IDB_SCA_BUTTON5_R_",IDC_ATTACKCYCLE,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,255,100,30
+    CONTROL         "IDB_SCA_BUTTON6_R_",IDC_REPORT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,10,305,100,30
+    CONTROL         "IDB_SCA_BUTTON7_R_",IDC_ALICE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,164,16,30,30
+    CONTROL         "IDB_SCA_BUTTON8_R_",IDC_BOB,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,544,16,30,30
+    CONTROL         "IDB_SCA_BUTTON9_R_",IDC_TRUDY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,338,241,30,30
+    GROUPBOX        "Alice [Client]",IDC_STATIC,161,7,138,101
+    GROUPBOX        "Bob [Server]",IDC_STATIC,512,7,130,101
+    GROUPBOX        "Trudy [Angreifer]",IDC_STATIC,335,232,138,125
+    GROUPBOX        "Navigationsleiste:",IDC_STATIC,7,7,140,350
+    CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
+    CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
+    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
+                    PBS_SMOOTH | WS_BORDER,339,341,130,12
+    LTEXT           "Fortschritt des Angriffs:",IDC_STATIC,339,330,72,8
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,66,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,116,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,201,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,251,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,301,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,196,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,192,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,187,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,177,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,182,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,168,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,172,8,5
+    CONTROL         764,IDC_STATIC,"Static",SS_BITMAP,73,166,8,5
+    PUSHBUTTON      "&Beenden",IDCLOSE,593,343,50,14
+    PUSHBUTTON      "&Nächster Einzelschritt",IDC_BUTTON_NEXTSINGLESTEP,225,
+                    296,100,25
+    PUSHBUTTON      "&Alle Schritte auf einmal",IDC_BUTTON_ALLREMAININGSTEPS,
+                    225,325,100,26
+    GROUPBOX        "Steuerung des Angriffs:",IDC_ATTACKCONTROL,220,282,111,
+                    75
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION DIALOG DISCARDABLE  0, 0, 250, 198
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Einleitung Seitenkanalangriff-Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,99,177,50,14
+    LTEXT           "Willkommen zur Visualisierung des von Ulrich Kühn entwickelten Seitenkanalangriffs auf das RSA-basierte Hybridverschlüsselungsprotokoll.",
+                    IDC_STATIC,7,7,235,24
+    LTEXT           "Alice möchte ihrem Freund Bob eine Nachricht schicken, die vor fremdem Einblick geschützt sein soll. Zur Geheimhaltung nutzt Alice das Hybridverschlüsselungsprotokoll.",
+                    IDC_STATIC,7,55,235,24
+    LTEXT           "Bob's ehemalige Freundin Trudy fängt die verschlüsselte Nachricht ab und versucht anschließend, die von Alice versandte Nachricht unter Zuhilfenahme eines Seitenkanals zu entschlüsseln.",
+                    IDC_STATIC,7,87,235,24
+    LTEXT           "In dem interaktiven Dialog nehmen Sie als Anwender situationsbedingt abwechselnd die Rollen von Alice, Bob und Trudy ein und müssen daher bestimmte Eingaben tätigen.",
+                    IDC_STATIC,7,118,235,24
+    LTEXT           "Falls Sie Fragen haben, steht Ihnen über die F1-Taste jederzeit eine kontextbezogene Hilfe zur Verfügung.",
+                    IDC_STATIC,7,150,235,16
+    LTEXT           "Damit auch Anwender, die nicht so sehr mit Kryptographie vertraut sind, den Ausführungen folgen können, wird ein mögliches Szenario entworfen und visualisiert:",
+                    IDC_STATIC,7,31,235,24
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG DISCARDABLE  0, 0, 275, 118
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Vorbereitungen durchführen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,97,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,97,50,14
+    LTEXT           "Bevor Alice eine verschlüsselte Nachricht an Bob versenden kann, muss sie entweder ein bestimmtes Dokument hybridverschlüsseln oder eine bereits hybridverschlüsselte Datei auswählen.",
+                    IDC_STATIC,7,7,261,24
+    LTEXT           "Nach einem Klick auf OK öffnet sich ein weiterer Dialog, mit dem Sie die Hybridverschlüsselung einer Datei durchführen können.",
+                    IDC_STATIC,7,71,261,16
+    LTEXT           "Die Hybridverschlüsselung ist das z.B. in PGP und S/MIME eingesetzte Standardverfahren, das die Vorteile von symmetrischer und asymmetrischer Verschlüsselung verknüpft.",
+                    IDC_STATIC,7,39,261,24
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION DIALOG DISCARDABLE  0, 0, 240, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Nachricht abfangen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,89,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,89,50,14
+    LTEXT           "In ihrem Glauben, das Hybriverschlüsselungsprotokoll sei absolut sicher, hat Alice eine Nachricht an Bob über einen ""unsicheren"" (öffentlichen) Kanal versandt.",
+                    IDC_STATIC,7,7,226,24
+    LTEXT           "Trudy, die den öffentlichen Kanal zwischen Alice und Bob belauscht, kann die hybridverschlüsselte Nachricht abfangen.",
+                    IDC_STATIC,7,39,226,16
+    LTEXT           "Mit einem Klick auf OK können Sie das Abfangen der Nachricht durch Trudy einleiten.",
+                    IDC_STATIC,7,63,226,16
+END
+
+IDD_SIDECHANNALATTACKVISUALIZATION_HE_ATTACKCYCLE DIALOG DISCARDABLE  0, 0, 240, 148
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Angriffszyklus starten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,127,50,14
+    LTEXT           "Trudy hat die Nachricht, die Alice an Bob versandt hat, abgefangen.",
+                    IDC_STATIC,7,7,226,8
+    LTEXT           "Der Besitz der verschlüsselten Nachricht allein befähigt Trudy aber noch lange nicht dazu, die Nachricht zu verstehen, da Trudy nicht über den privaten Schlüssel von Bob verfügt.",
+                    IDC_STATIC,7,23,226,24
+    LTEXT           "Dieser private Schlüssel ist aber nötig, um den verwendeten Sessionkey zu berechnen. Aus diesem Grund führt Trudy zur Ermittlung des Sessionkeys einen Seitenkanalangriff auf das implementierte Protokoll aus.",
+                    IDC_STATIC,7,55,226,32
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,127,50,14
+    LTEXT           "Mit einem Klick auf OK können Sie den von Trudy durchzuführenden Angriffszyklus auf den Server von Bob starten.",
+                    IDC_STATIC,7,95,226,16
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_REPORT DIALOG DISCARDABLE  0, 0, 240, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Zusammenfassung erstellen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,69,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,69,50,14
+    LTEXT           "Um die durchgeführten Schritte dieses Seitenkanalangriffs besser zu verstehen, kann ein Bericht erzeugt werden, der die Einzelschritte protokolliert.",
+                    IDC_STATIC,7,7,226,24
+    LTEXT           "Mit einem Klick auf OK können Sie sich einen solchen Bereicht erzeugen und in einem neuen Fenster anzeigen lassen.",
+                    IDC_STATIC,7,39,226,16
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Nachricht übertragen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,49,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,49,50,14
+    LTEXT           "Alice hat die an Bob adressierte Nachricht hybridverschlüsselt.",
+                    IDC_STATIC,7,7,226,8
+    LTEXT           "Mit einem Klick auf OK können Sie die hybridverschlüsselte Nachricht von Alice an Bob versenden.",
+                    IDC_STATIC,7,23,226,16
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PIN-Eingabe"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PIN,87,58,50,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,87,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,169,87,50,14
+    LTEXT           "Bitte geben Sie nun die PIN für Bobs privaten Schlüsseln ein:",
+                    IDC_STATIC,7,39,193,8
+    LTEXT           "Bob braucht zum Entschlüsseln seinen privaten Schlüssel. Der private Schlüssel ist PIN-geschützt, um unbefugten Zugriff zu verhindern.",
+                    IDC_STATIC,7,7,212,24
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG DISCARDABLE  0, 0, 375, 250
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Aktueller Status von Alice"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,149,229,50,14
+    CONTROL         761,IDC_ALICE,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
+    EDITTEXT        IDC_EDIT_ORIGINALSESSIONKEY,7,100,361,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Zufällig gewählter Sessionkey:",IDC_STATIC,7,85,141,8,
+                    SS_CENTERIMAGE
+    LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | 
+                    LBS_NOINTEGRALHEIGHT | LBS_NOSEL
+    LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG DISCARDABLE  0, 0, 375, 250
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Aktueller Status von Bob"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,149,229,50,14
+    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",
+                    LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | 
+                    WS_BORDER | WS_TABSTOP,7,100,361,110
+    CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
+    LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen:",
+                    IDC_STATIC,7,85,190,8
+    LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOG DISCARDABLE  0, 0, 375, 350
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Aktueller Status von Trudy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,149,329,50,14
+    CONTROL         760,IDC_TRUDY,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
+    CONTROL         "List1",IDC_LIST_MODIFIEDSESSIONKEYS,"SysListView32",
+                    LVS_REPORT | WS_BORDER | WS_TABSTOP,7,140,361,55
+    EDITTEXT        IDC_EDIT_DETERMINEDSESSIONKEY,7,225,361,14,
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Durch den Angriff ermittelter, entschlüsselter Sessionkey:",
+                    IDC_STATIC,7,210,179,8
+    LTEXT           "Modifizierte Sessionkeys:",IDC_STATIC,7,125,80,8
+    LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | 
+                    LBS_NOINTEGRALHEIGHT | LBS_NOSEL
+    LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
+    LTEXT           "Mit Hilfe des Sessionkeys berechnete Nachricht:",
+                    IDC_STATIC,7,250,154,8
+    EDITTEXT        IDC_EDIT_COMPUTEDMESSAGE,7,265,361,51,ES_MULTILINE | 
+                    ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_INTERCEPTEDENCRYPTEDSESSIONKEY,7,100,361,14,
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Abgefangener, verschlüsselter Sessionkey:",IDC_STATIC,7,
+                    85,136,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG DISCARDABLE  0, 0, 215, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Seitenkanalangriff erfolgreich ausgeführt!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,84,69,50,14
+    CTEXT           "Sie haben erfolgreich einen Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll durchgeführt.",
+                    IDC_STATIC,7,23,201,16
+    LTEXT           "Herzlichen Glückwunsch!",IDC_STATIC,57,7,84,8
+    CTEXT           "Klicken Sie bitte auf das Symbol von Trudy, um zu überprüfen, ob Trudy die Nachricht korrekt entschlüsselt hat.",
+                    IDC_STATIC,7,47,201,16
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2991,15 +3231,18 @@ BEGIN
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "&RSA-Algorithmus...",         ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "&RSA-Kryptosystem...",        ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&Faktorisieren (IFP)...",     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktorisieren einer Zahl...", 
+                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN
         END
-        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+
+        MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
     END
     POPUP "&Optionen"
@@ -3168,8 +3411,10 @@ BEGIN
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Angriff auf die digitale Signatur ...", 
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3209,9 +3454,9 @@ BEGIN
     END
     POPUP "&Optionen"
     BEGIN
-        MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
-        MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
-        MENUITEM "&Text Optionen...",           ID_OPTTEXT
+        MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
+        MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
+        MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
@@ -3248,6 +3493,7 @@ BEGIN
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
+        MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Zuletzt geöffnete Dateien",   ID_FILE_MRU_FILE1, GRAYED
@@ -3374,6 +3620,8 @@ BEGIN
 
         MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3479,7 +3727,7 @@ BEGIN
         MENUITEM "&Neu\tStrg+N",                ID_FILE_NEW
         MENUITEM "&Öffnen...\tStrg+O",          ID_FILE_OPEN
         MENUITEM SEPARATOR
-        MENUITEM "D&rucker einrichten...",      ID_FILE_PRINT_SETUP
+        MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Zuletzt geöffnete Dateien",   ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
@@ -3528,6 +3776,8 @@ BEGIN
 
         MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+
     END
     POPUP "&Optionen"
     BEGIN
@@ -3698,6 +3948,8 @@ BEGIN
 
         MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+
     END
     POPUP "A&nalyse"
     BEGIN
@@ -4075,6 +4327,82 @@ IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\MainBackground.bmp"
 IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
+IDB_SCA_BUTTON1_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_R_U.bmp"
+IDB_SCA_BUTTON1_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_R_F.bmp"
+IDB_SCA_BUTTON1_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_R_X.bmp"
+IDB_SCA_BUTTON1_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_G_U.bmp"
+IDB_SCA_BUTTON1_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_G_D.bmp"
+IDB_SCA_BUTTON1_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_G_F.bmp"
+IDB_SCA_BUTTON1_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_G_X.bmp"
+IDB_SCA_BUTTON2_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_R_U.bmp"
+IDB_SCA_BUTTON2_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_R_D.bmp"
+IDB_SCA_BUTTON2_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_R_F.bmp"
+IDB_SCA_BUTTON2_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_R_X.bmp"
+IDB_SCA_BUTTON2_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_G_D.bmp"
+IDB_SCA_BUTTON2_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_G_F.bmp"
+IDB_SCA_BUTTON2_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_G_X.bmp"
+IDB_SCA_BUTTON2_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button2_G_U.bmp"
+IDB_SCA_BUTTON3_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_R_D.bmp"
+IDB_SCA_BUTTON3_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_R_U.bmp"
+IDB_SCA_BUTTON3_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_R_F.bmp"
+IDB_SCA_BUTTON3_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_R_X.bmp"
+IDB_SCA_BUTTON3_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_G_U.bmp"
+IDB_SCA_BUTTON3_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_G_D.bmp"
+IDB_SCA_BUTTON3_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_G_F.bmp"
+IDB_SCA_BUTTON3_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button3_G_X.bmp"
+IDB_SCA_BUTTON4_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_R_U.bmp"
+IDB_SCA_BUTTON4_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_R_D.bmp"
+IDB_SCA_BUTTON4_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_R_F.bmp"
+IDB_SCA_BUTTON4_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_R_X.bmp"
+IDB_SCA_BUTTON4_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_G_D.bmp"
+IDB_SCA_BUTTON4_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_G_U.bmp"
+IDB_SCA_BUTTON4_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_G_F.bmp"
+IDB_SCA_BUTTON4_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button4_G_X.bmp"
+IDB_SCA_BUTTON5_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_R_D.bmp"
+IDB_SCA_BUTTON5_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_R_U.bmp"
+IDB_SCA_BUTTON5_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_R_F.bmp"
+IDB_SCA_BUTTON5_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_R_X.bmp"
+IDB_SCA_BUTTON5_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_G_D.bmp"
+IDB_SCA_BUTTON5_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_G_U.bmp"
+IDB_SCA_BUTTON5_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_G_F.bmp"
+IDB_SCA_BUTTON5_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button5_G_X.bmp"
+IDB_SCA_BUTTON6_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_R_D.bmp"
+IDB_SCA_BUTTON6_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_R_F.bmp"
+IDB_SCA_BUTTON6_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_R_U.bmp"
+IDB_SCA_BUTTON6_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_R_X.bmp"
+IDB_SCA_BUTTON6_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_G_D.bmp"
+IDB_SCA_BUTTON6_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_G_U.bmp"
+IDB_SCA_BUTTON6_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_G_F.bmp"
+IDB_SCA_BUTTON6_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button6_G_X.bmp"
+IDB_SCA_BUTTON7_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_R_D.bmp"
+IDB_SCA_BUTTON7_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_R_U.bmp"
+IDB_SCA_BUTTON7_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_R_F.bmp"
+IDB_SCA_BUTTON7_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_R_X.bmp"
+IDB_SCA_BUTTON7_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_G_D.bmp"
+IDB_SCA_BUTTON7_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_G_U.bmp"
+IDB_SCA_BUTTON7_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_G_F.bmp"
+IDB_SCA_BUTTON7_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button7_G_X.bmp"
+IDB_SCA_BUTTON8_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_R_D.bmp"
+IDB_SCA_BUTTON8_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_R_U.bmp"
+IDB_SCA_BUTTON8_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_R_F.bmp"
+IDB_SCA_BUTTON8_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_R_X.bmp"
+IDB_SCA_BUTTON8_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_G_U.bmp"
+IDB_SCA_BUTTON8_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_G_D.bmp"
+IDB_SCA_BUTTON8_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_G_F.bmp"
+IDB_SCA_BUTTON8_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button8_G_X.bmp"
+IDB_SCA_BUTTON1_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button1_R_D.bmp"
+IDB_SCA_BUTTON9_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_R_D.bmp"
+IDB_SCA_BUTTON9_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_R_U.bmp"
+IDB_SCA_BUTTON9_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_R_F.bmp"
+IDB_SCA_BUTTON9_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_R_X.bmp"
+IDB_SCA_BUTTON9_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_G_U.bmp"
+IDB_SCA_BUTTON9_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_G_D.bmp"
+IDB_SCA_BUTTON9_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_G_F.bmp"
+IDB_SCA_BUTTON9_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\Button9_G_X.bmp"
+IDB_SCA_TRUDY_SMALL     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_trudy_small.bmp"
+IDB_SCA_ALICE_SMALL     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_alice_small.bmp"
+IDB_SCA_BOB_SMALL       BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_bob_small.bmp"
+IDB_SCA_GAPFILLER       BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_gapfiller.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4306,6 +4634,13 @@ BEGIN
         HORZGUIDE, 96
     END
 
+    IDD_KEY_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 278
+        BOTTOMMARGIN, 77
+    END
+
     IDD_AUTHORS, DIALOG
     BEGIN
         HORZGUIDE, 292
@@ -4322,6 +4657,14 @@ BEGIN
     BEGIN
         VERTGUIDE, 11
         VERTGUIDE, 329
+    END
+
+    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 20
+        VERTGUIDE, 284
+        HORZGUIDE, 143
     END
 
     IDD_SIGATTMODIFICDEMO, DIALOG
@@ -4355,6 +4698,108 @@ BEGIN
         BOTTOMMARGIN, 184
         HORZGUIDE, 64
     END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 643
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 357
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_SIDECHANNALATTACKVISUALIZATION_HE_ATTACKCYCLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_REPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 368
+        VERTGUIDE, 80
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 368
+        VERTGUIDE, 80
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 368
+        VERTGUIDE, 17
+        VERTGUIDE, 80
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 343
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -4367,6 +4812,15 @@ END
 IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
 IDR_GIF2                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis.gif"
 IDR_GIF3                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimationBasis0.gif"
+IDR_SCA_LIGHTS_NORMAL   GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_lights.gif"
+IDR_SCA_LIGHTS_GREEN    GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_lights_green.gif"
+IDR_SCA_ABARROWSTATIC   GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_static.gif"
+IDR_SCA_ABARROWINTERCEPTION GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_interception.gif"
+IDR_SCA_ABARROWTRANSMISSION GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_transmission.gif"
+IDR_SCA_ABARROWFAILURE  GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_failure.gif"
+IDR_SCA_ABARROWSUCCESS  GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_success.gif"
+IDR_SCA_LIGHTS_RED      GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_lights_red.gif"
+IDR_SCA_ABARROWTRANSMISSION_TRUDYBOB GIF     DISCARDABLE     "res\\SCABitmaps\\gifs\\sca_ab_arrow_transmission_trudybob.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5081,18 +5535,18 @@ BEGIN
     IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL 
                             "Diese Funktion ist in der gegenwärtigen Version von CrypTool noch nicht realisiert!"
     IDS_STRING_HYBRID_RECIEVER "Empfänger:    "
-    IDS_STRING_HYBRID_ENC_KEY "    Verschlüsselter Session Key:    "
+    IDS_STRING_HYBRID_ENC_KEY "    Verschlüsselter Sessionkey:    "
     IDS_STRING_HYBRID_SYM_METHOD "    Symmetrisches Verfahren:    "
     IDS_STRING_HYBRID_ASYM_METHOD "    Asymmetrisches Verfahren:    "
     IDS_STRING_HYBRID_CIPHERTEXT "    Chiffretext:    "
     IDS_STRING_ZERT_DATEN   "Hier werden Ihre Zertifikatsdaten angezeigt."
     IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybridentschlüsselung:"
     IDS_STRING_HYBRID_ENC_SYM_KEY 
-                            "Zufällig gewählter symmetrischer Session Key:"
+                            "Zufällig gewählter symmetrischer Sessionkey:"
     IDS_STRING_HYBRID_DEC_MSG2 
                             "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
-                            "Dokument, symmetrisch verschlüsselt mit dem Session Key:"
+                            "Dokument, symmetrisch verschlüsselt mit dem Sessionkey:"
     IDS_STRING_HYBRID_DEC_MSG4 
                             "Ihr privater RSA-Schlüssel d ist die Zahl: \r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
@@ -5106,7 +5560,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
-                            "Session Key, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers:"
+                            "Sessionkey, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers:"
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Die Eingabe ist keine hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
     IDS_STRING_HYBRID_DEC_MSG10 "Sie haben das falsche Zertifikat gewählt!"
@@ -5119,12 +5573,12 @@ BEGIN
     IDS_STRING_RSA_DLG_TITLE "RSA-Schlüssel für die Hybridentschlüsselung"
     IDS_STRING_HYBRID_DEC_MSG12 "Klicken Sie auf Weiter...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
-                            "Im 2. Schritt erhalten Sie Informationen zum privaten RSA-Schlüssel.\r\nDieser wird gebraucht, um den Session Key zu entschlüsseln.\r\n"
+                            "Im 2. Schritt erhalten Sie Informationen zum privaten RSA-Schlüssel.\r\nDieser wird gebraucht, um den Sessionkey zu entschlüsseln.\r\n"
     IDS_STRING_HYBRID_ENC_DLG "RSA-Schlüssel für die Hybridverschlüsselung"
     IDS_STRING_HYBRID_STEP_BY_STEP 
                             "Ausgeführt: Schritt %d von maximal %d Schritten."
     IDS_STRING_HYB_SHOW_DATA 
-                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch\nund den Sessionkey asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Wähle den Empfängerschlüssel von der Liste."
     IDS_KEYHEX_MAX_INPUT_LENGTH_TXT 
@@ -5465,8 +5919,8 @@ BEGIN
     IDS_DH_LOG_2            "Nun wählten sowohl Alice als auch Bob jeweils für sich ihre Geheimzahlen. Alice und Bob legten ihre Geheimnisse a und b wie folgt fest:"
     IDS_DH_LOG_3            "Anhand ihrer zuvor gewählten Geheimnisse erzeugte Alice ihren öffentlichen Teilschlüssel A. Bob erzeugte parallel dazu seinen öffentlichen Teilschlüssel B:"
     IDS_DH_LOG_4            "Als nächstes tauschten Alice und Bob ihre öffentlichen Teilschlüssel aus, d.h. Alice sendete ihren Schlüssel A an Bob und Bob sendete seinen Schlüssel B an Alice."
-    IDS_DH_LOG_5            "Nun konnten Alice und Bob jeweils den geheimen und gemeinsamen Session Key erzeugen. Alice berechnete ihren Schlüssel SA, Bob berechnete den Schlüssel SB:"
-    IDS_DH_LOG_6            "Theoretisch wäre es Alice und Bob nun möglich, mit Hilfe des jeweils berechneten Session Keys SA und SB untereinander auszutauschende Dokumente zum Schutz vor Dritten zu verschlüsseln bzw. zu entschlüsseln."
+    IDS_DH_LOG_5            "Nun konnten Alice und Bob jeweils den geheimen und gemeinsamen Sessionkey erzeugen. Alice berechnete ihren Schlüssel SA, Bob berechnete den Schlüssel SB:"
+    IDS_DH_LOG_6            "Theoretisch wäre es Alice und Bob nun möglich, mit Hilfe des jeweils berechneten Sessionkeys SA und SB untereinander auszutauschende Dokumente zum Schutz vor Dritten zu verschlüsseln bzw. zu entschlüsseln."
     IDS_DH_KEY_VERIFICATION_YES 
                             "Verifikation erfolgreich! - Die Schlüssel von Alice und Bob sind identisch."
     IDS_DH_KEY_VERIFICATION_NO 
@@ -5986,7 +6440,7 @@ BEGIN
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-Exponentiation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
-    IDS_NORSAKEY_AVAILABLE  "Es steht kein RSA-Schlüssel zur Verfügung!\nSie erzeugen sich Ihren eigenen RSA-Schlüssel unter Menü: ""Schlüsselverwaltung\\Schlüssel erzeugen""."
+    IDS_NORSAKEY_AVAILABLE  "Es steht kein RSA-Schlüssel zur Verfügung!\nSie können sich im folgenden Dialog einen neuen erzeugen."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6030,7 +6484,7 @@ BEGIN
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
                             "Das gewählte Geheimnis S sollte größer als 1 sein.\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
-    IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis, d.h. dem Session Key S von Alice und Bob."
+    IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis, d.h. dem Sessionkey S von Alice und Bob."
     IDS_DH_PP_PRIME_ZERO    "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte wählen Sie eine von 0 verschiedene Zahl,\nda das Verfahren sonst nicht funktioniert!"
 END
 
@@ -6073,11 +6527,140 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "Der Protokollverlauf mit Ihren Zahlen wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
+    IDS_SCA_HYBENCFILE_ALREADY_OPENED 
+                            "Es ist bereits eine hybridverschlüsselte Datei geöffnet.\nMöchten Sie diese Datei als Basis für den Angriff verwenden?"
+    IDS_SCA_NO_KEYPAIRS_AVAILABLE 
+                            "Es sind keine gespeicherten Schlüsselpaare auffindbar.\nSie werden nun aufgefordert, ein neues Schlüsselpaar zu erzeugen."
+    IDS_SCA_TEXTFILE_OPENED "Es ist bereits eine Datei geöffnet. Wollen Sie diese Datei\nhybridverschlüsseln und als Basis für den Angriff verwenden?"
+    IDS_SCA_PSE_WRONG_PIN   "Die von Ihnen eingegebene PIN ist falsch!"
+    IDS_SCA_PSE_PIN_EXTRACTION_ERROR 
+                            "Bei der Verifikation der PIN ist ein Fehler aufgetreten!"
+    IDS_SCA_PSE_IS_NEEDED   "Ohne Eingabe der PIN könne Sie die Visualisierung nicht fortsetzen!"
+    IDS_SCA_PSE_OTHER_ERROR "Es ist ein interner Fehler aufgetreten!"
+    IDS_SCA_SERVER_ANSWER   "Entschlüsselung:"
+    IDS_SCA_SERVER_RECEIVEDSESSIONKEYHEX 
+                            "Entschlüsselter Sessionkey (hexadezimal):"
+    IDS_SCA_SERVER_ANSWER_SUCCESS "Erfolgreich"
+    IDS_SCA_SERVER_ANSWER_FAILURE "Fehlerhaft"
+    IDS_SCA_ATTACKER_MODIFIEDSESSIONKEY 
+                            "Modifizierter und verschlüsselter Sessionkey (hexadezimal):"
+    IDS_SCA_SESSIONKEYNUMBER "Nr.:"
+    IDS_SCA_ATTACKER_SESSIONKEYNOTDETERMINEDYET 
+                            "Der Sessionkey konnte noch nicht ermittelt werden!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_SCRIPT               "Zeigt das CrypTool Script an (Acrobat Reader erforderlich)"
+    ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
+                            "Visualisierung eines Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCA_CLIENT_SESSIONKEYUNKNOWN 
+                            "Der Sessionkey ist Alice nicht bekannt (weil die Datei schon verschlüsselt vorlag)!"
+    IDS_SCA_ATTACKER_SESSIONKEYNOTINTERCEPTEDYET 
+                            "Der Sessionkey wurde noch nicht abgefangen!"
+    IDS_SCA_ASKFORATTACKMODE 
+                            "Wollen Sie den Angriff auf detaillierte Weise im Einzelschrittmodus durchführen?"
+    IDS_SCA_E_INTERNAL_ERROR "Es ist ein interner Fehler aufgetreten!"
+    IDS_SCA_E_MEMORY_ALLOCATION "Fehler bei Speicheranforderung!"
+    IDS_SCA_E_HYBENCFILE_EXTRACTION 
+                            "Fehler beim Parsen der hybridverschlüsselten Datei!"
+    IDS_SCA_E_ATTACK_CONDITIONS_NOT_MET 
+                            "Die Vorbedingungen für den Seitenkanalangriff sind nicht erfüllt!"
+    IDS_SCA_E_MIRACL_ERROR  "Fehler innerhalb der Miracl-Bibliothek!"
+    IDS_SCA_E_WRONG_PIN     "Falsche PIN eingegeben!"
+    IDS_SCA_E_UNKNOWN_ERROR "ACHTUNG!\n\nEs ist ein unbekannter Fehler aufgetreten!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCA_KEYWORD         "Alice"
+    IDS_SCA_CLIENT_NOHYBENCFILEDEFINED 
+                            "- Alice hat noch keine hybridverschlüsselte Datei gewählt bzw. erstellt"
+    IDS_SCA_CLIENT_CHOSEEXISTINGHYBENCFILE 
+                            "- Alice hat eine bereits existente, hybridverschlüsselte Datei ausgesucht"
+    IDS_SCA_CLIENT_CREATEDMESSAGE "- Alice hat eine Nachricht an Bob verfasst"
+    IDS_SCA_CLIENT_GOTPUBLICKEY 
+                            "- Alice hat Bobs öffentlichen RSA-Schlüssel e ausgewählt"
+    IDS_SCA_CLIENT_ENCRYPTEDMESSAGE 
+                            "- Alice hat die Nachricht mit dem Sessionkey symmetrisch verschlüsselt"
+    IDS_SCA_CLIENT_TRANSMITTEDHYBENCFILE 
+                            "- Alice hat die hybridverschlüsselte Nachricht an Bob übertragen"
+    IDS_SCA_CLIENT_CHOSESESSIONKEY 
+                            "- Alice hat einen zufälligen Sessionkey gewählt"
+    IDS_SCA_CLIENT_ENCRYPTSESSIONKEY 
+                            "- Alice hat den Sessionkey mit Bobs öffentlichem RSA-Schlüssel verschlüsselt"
+    IDS_SCA_SERVER_RECEIVEDMESSAGES "- Bob hat bisher %d Nachricht empfangen"
+    IDS_SCA_SERVER_RECEIVEDNOMESSAGES 
+                            "- Bob hat noch keine Nachrichten empfangen"
+    IDS_SCA_SERVER_SUCCESSRESPONSE 
+                            "- Bob konnte die Nachricht erfolgreich entschlüsseln"
+    IDS_SCA_ATTACKER_MESSAGENOTINTERCEPTEDYET 
+                            "- Trudy hat die Nachricht von Alice noch nicht abgefangen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCA_ATTACKER_MESSAGEINTERCEPTED 
+                            "- Trudy hat die Nachricht abgefangen, die Alice an Bob geschickt hat"
+    IDS_SCA_ATTACKER_HASEXTRACTEDDENCSESSIONKEY 
+                            "- Trudy hat den verschlüsselten Sessionkey aus der Nachricht isoliert"
+    IDS_SCA_ATTACKER_NOMODIFICATIONSYET 
+                            "- Trudy hat noch keine modifizierten Sessionkeys erstellt"
+    IDS_SCA_ATTACKER_MODIFICATIONSMADE 
+                            "- Trudy hat bisher %d modifizierte Sessionkeys erstellt"
+    IDS_SCA_ATTACKER_SUCCESSRESPONSES 
+                            "- %d von %d modifizierten Nachrichten wurden von Bobs Server erfolgreich entschlüsselt"
+    IDS_SCA_REPORTGENERATED "Der Bericht des Seitenkanalangriffs wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
+    IDS_SCA_REPORT_ALICECREATEDMESSAGE 
+                            "Alice verfasst eine Nachricht M, die sie an Bob versenden möchte.\n\n"
+    IDS_SCA_REPORT_ALICECHOSESESSIONKEY 
+                            "Alice wählt einen zufälligen Sessionkey S:\n"
+    IDS_SCA_REPORT_ALICEENCRYPTEDMESSAGE 
+                            "\n\nAlice verschlüsselt die Nachricht M symmetrisch mit dem Sessionkey S.\n\n"
+    IDS_SCA_REPORT_ALICECHOSEPUBLICKEY 
+                            "Alice wählt Bobs öffentlichen RSA-Schlüssel e:\n"
+    IDS_SCA_REPORT_ALICEENCRYPTEDSESSIONKEY 
+                            "\n\nAlice verschlüsselt den Sessionkey S asymmetrisch mit Bobs öffentlichem RSA-Schlüssel e:\n"
+    IDS_SCA_REPORT_ALICETOOKEXISTINGFILE 
+                            "Alice verwendet eine nicht von ihr erstellte, hybridverschlüsselte Datei. Sie hat deshalb keine Kenntnis über den Inhalt der Datei.\n"
+    IDS_SCA_REPORT_ALICETRANSMITTEDMESSAGE 
+                            "Alice versendet die hybridverschlüsselte Datei über einen unsicheren Kanal an Bob.\n"
+    IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE 
+                            "Trudy fängt die hybridverschlüsselte Datei ab und isoliert den darin enthaltenen, verschlüsselten Sessionkey S:\n"
+    IDS_SCA_REPORT_TRUDYMODIFIEDSESSIONKEYS 
+                            "Trudy modifiziert den ursprünglichen, verschlüsselten Sessionkey S und erhält S'. Sie schickt ein exaktes Abbild der ursprünglichen Nachricht an Bob-- sie tauscht lediglich den Sessionkey aus, d.h. S wird durch S' ersetzt.\n"
+    IDS_SCA_REPORT_HEADINGPREPARATIONS "I. TREFFEN NÖTIGER VORBEREITUNGEN\n\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCA_REPORT_HEADINGMESSAGETRANSMISSION 
+                            "\nII. ÜBERTRAGUNG DER NACHRICHT\n\n"
+    IDS_SCA_REPORT_HEADINGMESSAGEINTERCEPTION 
+                            "\nIII. ABFANGEN DER NACHRICHT\n\n"
+    IDS_SCA_REPORT_HEADINGATTACKCYCLE "\n\nIV. BEGINN DES ANGRIFFSZYKLUS\n\n"
+    IDS_SCA_REPORT_TRUDYREPEATSMODIFICATION 
+                            "\nDiesen Schritt wiederholt Trudy %d mal, wobei die Schrittzahl von der Bitlänge des verwendeten Sessionkeys abhängt (Schrittzahl = Bitlänge + 2)."
+    IDS_SCA_E_TIMER_NOT_AVAILABLE "Es ist kein freier Timer verfügbar!"
+    IDS_SCA_SESSIONKEYISNULL 
+                            "Der verschlüsselte Sessionkey ist NULL! Der Seitenkanalangriff ist deshalb nicht möglich!"
+    IDS_SCA_REPORTNOTYETGENERATED 
+                            "Die Zusammenfassung kann erst nach Beendigung des Angriffs erstellt werden!"
+    IDS_SCA_ATTACKER_MODIFICATIONSMADE_S 
+                            "- Trudy hat bisher 1 modifizierten Sessionkey erstellt"
+    IDS_SCA_ATTACKER_SUCCESSRESPONSE_FALSE 
+                            "- die modifizierte Nachricht konnte von Bobs Server nicht erfolgreich entschlüsselt werden"
+    IDS_SCA_ATTACKER_SUCCESSRESPONSE_TRUE 
+                            "- die modifizierte Nachricht konnte von Bobs Server erfolgreich entschlüsselt werden"
+    IDS_SCA_SERVER_FAILURERESPONSE 
+                            "- Bob konnte die Nachricht nicht entschlüsseln"
+    IDS_SCA_SERVER_SUCCESSRESPONSES 
+                            "- Bob konnte %d von %d Nachrichten erfolgreich entschlüsseln"
+    IDS_SCA_SERVER_RECEIVEDMESSAGE "- Bob hat bisher 1 Nachricht empfangen"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6562,15 +7145,15 @@ BEGIN
                     128,8
 END
 
-IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 277, 87
+IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 287, 87
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Decrypt",IDOK,10,59,64,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,217,59,50,18
-    CTEXT           "Derived key:",IDC_STATIC,10,10,257,8
-    EDITTEXT        IDC_EDIT1,10,23,257,24,ES_MULTILINE
+    PUSHBUTTON      "&Cancel",IDCANCEL,227,59,50,18
+    CTEXT           "Derived key:",IDC_STATIC,10,10,267,8
+    EDITTEXT        IDC_EDIT1,10,23,267,24,ES_MULTILINE | WS_VSCROLL
 END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOG DISCARDABLE  0, 0, 347, 319
@@ -9040,7 +9623,8 @@ BEGIN
 
             MENUITEM "&RSA Cryptosystem...",        ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorisation of a Number...", 
+                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN
@@ -10127,6 +10711,78 @@ IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\MainBackground.bmp"
 IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
+IDB_SCA_BUTTON1_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_G_D.bmp"
+IDB_SCA_BUTTON1_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_G_F.bmp"
+IDB_SCA_BUTTON1_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_G_U.bmp"
+IDB_SCA_BUTTON1_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_G_X.bmp"
+IDB_SCA_BUTTON1_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_R_D.bmp"
+IDB_SCA_BUTTON1_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_R_F.bmp"
+IDB_SCA_BUTTON1_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_R_U.bmp"
+IDB_SCA_BUTTON1_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button1_R_X.bmp"
+IDB_SCA_BUTTON2_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_G_D.bmp"
+IDB_SCA_BUTTON2_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_G_F.bmp"
+IDB_SCA_BUTTON2_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_G_U.bmp"
+IDB_SCA_BUTTON2_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_G_X.bmp"
+IDB_SCA_BUTTON2_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_R_D.bmp"
+IDB_SCA_BUTTON2_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_R_F.bmp"
+IDB_SCA_BUTTON2_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_R_U.bmp"
+IDB_SCA_BUTTON2_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button2_R_X.bmp"
+IDB_SCA_BUTTON3_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_G_D.bmp"
+IDB_SCA_BUTTON3_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_G_F.bmp"
+IDB_SCA_BUTTON3_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_G_U.bmp"
+IDB_SCA_BUTTON3_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_G_X.bmp"
+IDB_SCA_BUTTON3_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_R_D.bmp"
+IDB_SCA_BUTTON3_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_R_F.bmp"
+IDB_SCA_BUTTON3_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_R_U.bmp"
+IDB_SCA_BUTTON3_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button3_R_X.bmp"
+IDB_SCA_BUTTON4_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_G_D.bmp"
+IDB_SCA_BUTTON4_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_G_F.bmp"
+IDB_SCA_BUTTON4_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_G_U.bmp"
+IDB_SCA_BUTTON4_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_G_X.bmp"
+IDB_SCA_BUTTON4_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_R_D.bmp"
+IDB_SCA_BUTTON4_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_R_F.bmp"
+IDB_SCA_BUTTON4_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_R_U.bmp"
+IDB_SCA_BUTTON4_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button4_R_X.bmp"
+IDB_SCA_BUTTON5_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_G_D.bmp"
+IDB_SCA_BUTTON5_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_G_F.bmp"
+IDB_SCA_BUTTON5_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_G_U.bmp"
+IDB_SCA_BUTTON5_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_G_X.bmp"
+IDB_SCA_BUTTON5_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_R_D.bmp"
+IDB_SCA_BUTTON5_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_R_F.bmp"
+IDB_SCA_BUTTON5_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_R_U.bmp"
+IDB_SCA_BUTTON5_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button5_R_X.bmp"
+IDB_SCA_BUTTON6_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_G_D.bmp"
+IDB_SCA_BUTTON6_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_G_F.bmp"
+IDB_SCA_BUTTON6_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_G_U.bmp"
+IDB_SCA_BUTTON6_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_G_X.bmp"
+IDB_SCA_BUTTON6_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_R_D.bmp"
+IDB_SCA_BUTTON6_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_R_F.bmp"
+IDB_SCA_BUTTON6_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_R_U.bmp"
+IDB_SCA_BUTTON6_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button6_R_X.bmp"
+IDB_SCA_BUTTON7_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_G_D.bmp"
+IDB_SCA_BUTTON7_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_G_F.bmp"
+IDB_SCA_BUTTON7_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_G_U.bmp"
+IDB_SCA_BUTTON7_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_G_X.bmp"
+IDB_SCA_BUTTON7_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_R_D.bmp"
+IDB_SCA_BUTTON7_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_R_F.bmp"
+IDB_SCA_BUTTON7_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_R_U.bmp"
+IDB_SCA_BUTTON7_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button7_R_X.bmp"
+IDB_SCA_BUTTON8_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_G_D.bmp"
+IDB_SCA_BUTTON8_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_G_F.bmp"
+IDB_SCA_BUTTON8_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_G_U.bmp"
+IDB_SCA_BUTTON8_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_G_X.bmp"
+IDB_SCA_BUTTON8_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_R_D.bmp"
+IDB_SCA_BUTTON8_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_R_F.bmp"
+IDB_SCA_BUTTON8_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_R_U.bmp"
+IDB_SCA_BUTTON8_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button8_R_X.bmp"
+IDB_SCA_BUTTON9_G_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_G_D.bmp"
+IDB_SCA_BUTTON9_G_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_G_F.bmp"
+IDB_SCA_BUTTON9_G_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_G_U.bmp"
+IDB_SCA_BUTTON9_G_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_G_X.bmp"
+IDB_SCA_BUTTON9_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_D.bmp"
+IDB_SCA_BUTTON9_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_F.bmp"
+IDB_SCA_BUTTON9_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_U.bmp"
+IDB_SCA_BUTTON9_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_X.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10405,7 +11061,7 @@ BEGIN
     IDD_KEY_ANALYSIS, DIALOG
     BEGIN
         LEFTMARGIN, 10
-        RIGHTMARGIN, 267
+        RIGHTMARGIN, 277
         TOPMARGIN, 10
         BOTTOMMARGIN, 77
     END
@@ -12290,7 +12946,7 @@ BEGIN
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "At least one number of the input is bigger than the RSA modulus N\n(the RSA exponentation is for a number bigger than N not invertible)!\n\nPlease correct your input."
-    IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own RSA key via the menu: ""Key Management\\Key Generation."""
+    IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own within the following dialogue."
 END
 
 STRINGTABLE DISCARDABLE 
