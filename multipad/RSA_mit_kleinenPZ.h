@@ -52,7 +52,7 @@ protected:
 	//{{AFX_MSG(RSA_mit_kleinenPZ)
 	afx_msg void OnUpdateEINGABEPZp();
 	afx_msg void OnUpdateEINGABEPZq();
-	afx_msg void OnUpdateEditOeffentlicheParam();
+	afx_msg void OnButtonVerschluesseln();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

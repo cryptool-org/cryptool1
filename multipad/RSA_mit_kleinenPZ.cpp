@@ -120,7 +120,7 @@ BEGIN_MESSAGE_MAP(RSA_mit_kleinenPZ, CDialog)
 	//{{AFX_MSG_MAP(RSA_mit_kleinenPZ)
 	ON_EN_UPDATE(IDC_EINGABE_PZ_p, OnUpdateEINGABEPZp)
 	ON_EN_UPDATE(IDC_EINGABE_PZ_q, OnUpdateEINGABEPZq)
-	ON_EN_UPDATE(IDC_EDIT_OEFFENTLICHE_PARAM, OnUpdateEditOeffentlicheParam)
+	ON_BN_CLICKED(IDC_BUTTON_VERSCHLUESSELN, OnButtonVerschluesseln)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -149,9 +149,11 @@ void RSA_mit_kleinenPZ::OnUpdateEINGABEPZq()
 
 
 
-void RSA_mit_kleinenPZ::OnUpdateEditOeffentlicheParam() 
+
+void RSA_mit_kleinenPZ::OnButtonVerschluesseln() 
 {
 	UpdateData(true);
-	_itoa(atoi((LPCTSTR)m_eingabe_pz_p)*atoi((LPCTSTR)m_eingabe_pz_q),m_oeffentliche_param_pq.GetBuffer(10),10);
+
 	UpdateData(false);	
+	
 }
