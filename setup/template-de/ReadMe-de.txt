@@ -1121,14 +1121,15 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Juni 2003	8,1 MB		7,6 MB		DB
+1.3.04    Juni 2003	8,4 MB		8,0 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00
 1.3.03    Viele kleine Bugfixes und Verbesserungen der Dokumentation.
 1.3.04    Etliche neue Funktionalität (siehe Kapitel 5.2), einige
           kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
-          und größere Verbesserung und Erweiterung der Dokumentation.
+          und umfangreiche Verbesserung und Erweiterung der Dokumentation
+          (Online-Hilfe, Skript).
 
 
 

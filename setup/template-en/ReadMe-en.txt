@@ -1085,14 +1085,15 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    June 2003	7.6 MB	    8,1 MB	DB
+1.3.04    June 2003	8.0 MB	    8,4 MB	DB
 
 Remark about the current versions:
 1.3.02    Many new functions compared to 1.3.00
 1.3.03    Many minor bug fixes and documentation improvements.
 1.3.04    Some new functionality (see chap. 5.2), some minor bug
           fixes (crash in analysis of Playfair, N-gram, RSA), and
-          major documentation improvements and enhancements.
+          major documentation improvements and enhancements (online
+          help, script).
 
 
 
