@@ -135,6 +135,7 @@ public:
 			AllButtons[4].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
+			AllButtons[12].CancelAction();
 		}
 		if(b == 9)
 		{
