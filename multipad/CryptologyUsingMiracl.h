@@ -162,10 +162,11 @@ public:
 
 class TutorialRSA  
 {
+protected: //private: // geändert für abgeleitete Klasse CTutorialCert
 	Big phiOfN;
 	Big d;
 	BOOL isInitialized_N, isInitialized_d, isInitialized_e;
-protected:
+//protected: // geändert für abgeleitete Klasse CTutorialCert
 	Big N;
 	Big e;
 
@@ -184,9 +185,10 @@ public:
 	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10, BOOL DlgOfSisters = FALSE);
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10, BOOL DlgOfSisters = FALSE);
 
+protected: //private: // geändert für abgeleitete Klasse CTutorialCert
+	int InitParameter( Big &p, Big &q );
 private:
 	int SetPublicKey ( Big &e );
-	int InitParameter( Big &p, Big &q );
 	BOOL Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock );
 	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };
