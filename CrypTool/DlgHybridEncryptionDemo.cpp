@@ -150,8 +150,14 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	CWnd* pStatic=GetDlgItem(IDC_EDIT_TXT);
 	pStatic->SetFont(&m_font,false);
 	
-	if (!m_strPathSelDoc.IsEmpty()) 
+
+	if (!m_strPathSelDoc.IsEmpty())
+	{
 		DateiOeffnen(m_strPathSelDoc);
+		OnButtonShowDocument();
+	}
+
+	
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
