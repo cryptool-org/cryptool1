@@ -122,13 +122,13 @@ und ver"offentlicht. Ein Mathematiker w"urde sagen, dass die Elliptischen Kurven
 Mathematik, das hei"st Elliptische Kurven wurden zum Beispiel in den mathematischen Teilgebieten
 Zahlentheorie und algebraische Geometrie untersucht, die allgemein sehr abstrakt sind. Auch in der
 nahen Vergangenheit spielten Elliptische Kurven eine bedeutende Rolle in der reinen Mathematik. In den
-Jahren 1993 und 1994 ver"offentlichte Andrew Wiles\index{Wiles} mathematische Arbeiten, die weit "uber das Fachpublikum
+Jahren 1993 und 1994 ver"offentlichte Andrew Wiles\index{Wiles Andrew} mathematische Arbeiten, die weit "uber das Fachpublikum
 hinaus auf gro"se Begeisterung gesto"sen sind. In diesen Arbeiten bewies er die Richtigkeit einer --- in
 den sechziger Jahren des 20. Jahrhunderts von zwei Japanern aufgestellten --- Vermutung. Dabei geht es
 kurz und grob gesagt um den Zusammenhang zwischen Elliptischen Kurven und sogenannten Modulformen.
 Das f"ur die meisten eigentlich Interessante daran ist, dass Wiles mit seinen Arbeiten auch den ber"uhmten
 zweiten Satz von Fermat\index{Fermat!letzter Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
-(Fermat\index{Fermat} lebte von 1601 bis 1665) einem umfassenden Beweis durch die Mathematik entzogen. Dementsprechend
+(Fermat\index{Fermat Pierre} lebte von 1601 bis 1665) einem umfassenden Beweis durch die Mathematik entzogen. Dementsprechend
 gro"s war die Resonanz auf den Beweis durch Wiles. In der Formulierung von Fermat lautet der nach ihm
 benannte Satz so (Fermat hat folgende Worte an den Rand des 1621 von Bachet herausgegebenen Werks Diophants geschrieben):
 
@@ -152,8 +152,9 @@ Im "ubrigen ist der Beweis von Wiles sehr umfangreich (alle im Zusammenhang mit 
 stehenden Ver"offentlichungen von Wiles ergeben schon ein eigenes Buch). Man sollte sich daher
 im klaren sein, dass die Elliptischen Kurven im allgemeinen sehr tiefgreifende Mathematik ber"uhren.
 
-Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik. Im Jahr 1985 haben Neal Koblitz
-und Victor Miller unabh"angig voneinander vorgeschlagen, Elliptische Kurven in der Kryptographie
+Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik.
+Im Jahr 1985 haben Neal Koblitz\index{Koblitz Neal} und 
+Victor Miller \index{Miller Victor} unabh"angig voneinander vorgeschlagen, Elliptische Kurven in der Kryptographie
 einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die
 Faktorisierung von ganzen Zahlen \index{Faktorisierung}
@@ -183,6 +184,7 @@ wird.
 In diesem Abschnitt erhalten Sie Informationen "uber
 \index{Gruppen} {\em Gruppen} und \index{K""orper} {\em K"orper}.
 
+
 % -----------------------------------------------------------------------------
 \subsubsection{Gruppen}
 
@@ -194,7 +196,7 @@ kurz eingef"uhrt werden:
          Verkn"upfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verkn"upfung $ab=a\cdot  b$ ein Element aus $G$.
    \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
    \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $\cdot$ neutral verh"alt´, d.h., f"ur alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
-   \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element}
+   \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element}%
 \footnote{Das inverse Element ist eindeutig bestimmt, denn sind $x,y\in G$ zwei Inverse zu $a$, d.h. gilt $ax=xa=e$ und $ay=ya=e$, so folgt $x=xe=x(ay)=(xa)y=ey=y$.}
 $a^{-1}$(in $G$), so dass gilt: $aa^{-1} = a^{-1}a = e$.
 \end{itemize}
@@ -251,7 +253,7 @@ Unter einem K"orper versteht man in der Mathematik eine Menge $K$ mit den zwei V
 K"orper k"onnen endlich viele oder unendliche viele Elemente enthalten --- je nach dem nennt man den K"orper {\em endlich} oder {\em unendlich}. So sind die uns vertrauten K"orper der rationalen bzw. der reellen Zahlen unendlich. Beispiele f"ur endliche K"orper sind die Primk"orper
 ${\mathbb Z}_p = \{0, 1, 2, 3, \cdots, p-1\}$, $p$ eine Primzahl, versehen mit
 der Addition modulo $p$ und der Multiplikation modulo $p$ (auch Restklassenk"orper genannt).
-\index{K"orper!Charakteristik}
+\index{K""orper!Charakteristik}
 \paragraph{Charakteristik eines K"orpers}
 Die Charakteristik eines K"orper $K$ ist die Ordnung des neutralen Elements der Multiplikation ($1$-Element) bez"uglich der Addition, d.h. die kleinste nat"urliche Zahl $n$, so dass gilt
 $$ \underbrace{1 + 1 + \cdots + 1}_{\hbox{$n$ mal}} =0
@@ -326,7 +328,12 @@ Ferner betrachten wir Punkte, die sich nur durch eine Vervielfachung jeder Kompo
 \\ Setzt man in der Ausgangsgleichung $x_3=0$, so wird diese zu $-x_1^3=0$, also $x_1=0$. Folglich ist die "Aquivalenzklasse, die das Element $(0,1,0)$ enth"alt, die einzige Punkt mit $x_3=0$. F"ur alle anderen L"osungspunkte k"onnen wir die Transformation
 $$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1\over x_3}, {x_2\over x_3}\right) \in K\times K
 $$
-vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gew"ahlt, dass sich auf diese Weise die sogenannten Weierstrass-Glei"-chung\footnote{Karl Weierstrass, 1815-1897, dt. Mathematiker, Verfechter der streng formalen Ausrichtung der Mathematik.}
+vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. 
+Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gew"ahlt, dass sich auf
+diese Weise die sogenannten Weierstrass-Glei"-chung\footnote{%
+Karl Weierstrass, 31.10.1815$-$19.12.1897, dt. Mathematiker, 
+Verfechter der streng formalen Ausrichtung der Mathematik.
+}
 \begin{equation}
  y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6
 \label{ell}

@@ -12,7 +12,7 @@
 \newpage
 \hypertarget{Kapitel_3}{}
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
-(Bernhard Esslinger, besslinger@web.de, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003) \\
+(Bernhard Esslinger, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003) \\
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -25,10 +25,10 @@ man danach auch spezielle Monographien zu dem Thema lesen k"onnen soll.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Mathematik und Kryptographie}
-Ein gro"ser Teil der modernen, asymmetrischen Kryptographie beruht auf mathematischen 
-Erkenntnissen -- auf den Eigenschaften (\glqq Gesetzen'') ganzer 
-Zahlen, die in der elementaren \index{Zahlentheorie!elementare} Zahlentheorie
-untersucht werden. \glqq Elementar\grqq\ bedeutet hier, 
+Ein gro"ser Teil der modernen, asymmetrischen Kryptographie beruht auf 
+mathematischen Erkenntnissen -- auf den Eigenschaften (\glqq Gesetzen'')
+ganzer Zahlen, die in der elementaren \index{Zahlentheorie!elementare}
+Zahlentheorie untersucht werden. \glqq Elementar\grqq\ bedeutet hier, 
 dass die zahlentheoretischen Fragestellungen im wesentlichen
 in der Menge der nat"urlichen und der ganzen Zahlen durchgef"uhrt werden.
 
@@ -44,7 +44,11 @@ Verwendung finden, sind
 \end{itemize}
 
 Die Zahlentheorie oder Arithmetik (hier wird mehr der Aspekt des Rechnens
-mit Zahlen betont) wurde von Carl Friedrich Gauss \index{Gauss Carl Friedrich}
+mit Zahlen betont) wurde von Carl Friedrich Gauss\footnote{%
+  Carl Friedrich Gauss, deutscher Mathematiker und Astronom,
+  30.4.1777$-$23.2.1855.
+}
+\index{Gauss Carl Friedrich}
 als besondere mathematische Disziplin begr"undet. Zu ihren elementaren
 Gegenst"anden geh"oren: gr"o"ster gemeinsamer Teiler\footnote{%
 Auf ggT\index{ggT}, englisch gcd (greatest common divisor), geht dieser
@@ -104,8 +108,7 @@ Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahre
 \vskip +40 pt
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss \index{Gauss Carl Friedrich}
-(30.4.1777$-$23.2.1855):}\\
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss \index{Gauss Carl Friedrich}:}\\
 Die Mathematik ist die K"onigin der Wissenschaften, die Zahlentheorie aber
 ist die K"onigin der Mathematik.}}
 \end{center}
@@ -116,15 +119,19 @@ ist die K"onigin der Mathematik.}}
 \index{Zahlentheorie!Einf""uhrung} 
 
 Die Zahlentheorie entstand aus Interesse an den positiven ganzen Zahlen $1,
-2, 3, 4, \cdots ,$ die auch als die Menge der \index{Zahlen!nat""urliche} {\em nat"urlichen Zahlen} $\mathbb{N}$ bezeichnet
+2, 3, 4, \cdots ,$ die auch als die Menge der \index{Zahlen!nat""urliche}
+{\em nat"urlichen Zahlen} $\mathbb{N}$ bezeichnet
 werden. Sie sind die ersten mathematischen Konstrukte der menschlichen
-Zivilisation. Nach Kronecker\footnote{Leopold Kronecker, deutscher
-  Mathematiker, 7.12.1823$-$29.12.1891.}\index{Kronecker Leopold} hat sie der liebe
-Gott 
-geschaffen, nach Dedekind\footnote{Julius Wilhelm Richard Dedekind,
-  deutscher Mathematiker, 06.10.1831$-$12.02.1916.}\index{Dedekind Julius}
-der menschliche Geist.
-Das ist je nach Weltanschauung ein unl"osbarer Widerspruch oder ein und dasselbe.
+Zivilisation. Nach Kronecker\footnote{%
+Leopold Kronecker, deutscher Mathematiker, 7.12.1823$-$29.12.1891.
+}
+\index{Kronecker Leopold} hat sie der liebe Gott geschaffen, 
+nach Dedekind\footnote{Julius Wilhelm Richard Dedekind,
+deutscher Mathematiker, 06.10.1831$-$12.02.1916.
+}
+\index{Dedekind Julius} der menschliche Geist.
+Das ist je nach Weltanschauung ein unl"osbarer Widerspruch oder
+ein und dasselbe.
 
 Im Altertum gab es keinen Unterschied zwischen Zahlentheorie und
 Numerologie, die einzelnen Zahlen mystische Bedeutung zuma"s. So wie sich
@@ -305,8 +312,9 @@ Diese Mengen werden speziell aus der Menge der nat"urlichen Zahlen gebildet.
 Ein Beispiel findet sich in diesem \hyperlink{uniqueness}{Skript}
 auf Seite~\pageref{thm-pz-euklid} %eigentlich \pageref{remFundTheoOfArithm},
 %aber hyperref ist buggy
-am Ende von Kapitel~\ref{primesinmath}
-} konstruieren, bei denen eine multiplikative Zerlegung in die Primfaktoren
+am Ende von Kapitel~\ref{primesinmath}.
+}
+konstruieren, bei denen eine multiplikative Zerlegung in die Primfaktoren
 dieser Mengen {\em nicht} eindeutig ist.
 
 F"ur eine mathematische Aussage ist es deshalb nicht nur wichtig, f"ur welche
@@ -528,7 +536,7 @@ bez"uglich dieser Operation.
 \end{center}
 \addtocounter{footnote}{0}
 \footnotetext{Lucius Annaeus Seneca, philosophischer Schriftsteller und
-              Dichter, 4~v.~Chr. - 65~n.~Chr.}
+              Dichter, 4~v.~Chr. $-$ 65~n.~Chr.}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \pagebreak
@@ -1173,7 +1181,7 @@ Einheit annimmt) und wenn $b=x$ ist (also die Abbildung einen Fixpunkt\index{Fix
 \subsubsection{Die Euler-Funktion}
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots, n-1\}$,
 die zu $n$ teilerfremd sind, gleich dem Wert der Euler\footnote{%
-Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler, Leonhard} 
+Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler Leonhard} 
 }-Funktion $J(n)$.
 \index{Eulersche Phi-Funktion}
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{}
@@ -1596,15 +1604,16 @@ RSA\footnote{%
 Das RSA-Verfahren\index{RSA} ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschl"usseln eingesetzt werden.
-Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses Verfahren -
-die folgende Anmerkung soll eher humorvoll zeigen, dass man jede
+Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses
+Verfahren $-$ die folgende Anmerkung soll eher humorvoll zeigen, dass man jede
 Buchstabenkombination mehrfach belegen kann: in Deutschland gibt es sehr
 Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit \glqq RSA''
 der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der
 gesetzlichen Krankenversicherung mit einem j"ahrlichen Volumen von "uber 24
 Milliarden DM bezeichnet.
 }$^,$\footnote{%
-In der Literatur und in Filmen werden nicht nur klassische Verfahren
+In der Literatur\index{Literatur} und in Filmen\index{Filme} werden nicht
+nur klassische Verfahren
 benutzt (wie z.~B. die geheime Nachricht, die Sherlock Holmes in der
 Geschichte "`Die tanzenden M"annchen"' von Arthur Conan Doyle \index{Arthur 
 Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
@@ -1617,8 +1626,12 @@ Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
   (als PDF dem CrypTool-Paket\index{CrypTool} beigelegt),
   wo die Heldinnen sich vertraulich mit einer Variante des RSA-Verfahrens
   unterhalten.
+\item dem Roman "`Das Museum der gestohlenen Erinnerungen"' von Ralf Isau, 
+  \index{Isau 2003} Thienemann-Verlag 2003, wo der letzte Teil des Spruches
+  nur durch die vereinten Kr"afte der Computergemeinschaft gel"ost werden kann.
 \end{list}
-}-Verfahren \glqq beweisen''.
+}
+-Verfahren \glqq beweisen''.
 
 
 % --------------------------------------------------------------------------
@@ -2311,7 +2324,7 @@ Verweise:
 \vskip +20pt
 \paragraph{RSA-160} \label{RSA-160} \index{RSA-160}\mbox{}
 
-Am 1. April 2003 zerlegten Forschern der Universit"at Bonn\footnote{%
+Am 1. April 2003 zerlegten Forscher der Universit"at Bonn\footnote{%
    \href{http://www.loria.fr/~zimmerma/records/rsa160}
 {\texttt{http://www.loria.fr/\~{}zimmerma/records/rsa160}}} 
 mit der GNFS-Methode (General Number Field Sieve) \index{General Number
@@ -2332,7 +2345,7 @@ Weitere Informationen zu Kryptoalgorithmen auf den BSI-Internetseiten unter:
 {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}}
 }.
 
-Die zusammengesetzte Zahl "`RSA-160"'lautet (die folgenden drei Zeilen 
+Die zusammengesetzte Zahl "`RSA-160"' lautet (die folgenden drei Zeilen 
 sind eine einzige Zahl):
 $$
 \begin{array}{c}
@@ -2428,7 +2441,7 @@ ist wie Addieren.
 
 % --------------------------------------------------------------------------
 \subsubsection{Einwegfunktionen}
-\hypertarget{Einwegfunktionen2}{}
+\hypertarget{Einwegfunktionen2}{}%    %%% be_24.5.03 Ohne das % bg. die ff. Zeile ("Wenn der ...") mit einem Blank
 Wenn der Schl"ussel auch bei gleichzeitiger Kenntnis von
 Klar- und Chiffretext nicht ermittelbar sein soll, braucht man eine
 Funktion, die einerseits relativ einfach berechenbar ist - man will ja
@@ -2902,13 +2915,13 @@ Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der Pr"asentatio
 Web-Seite wird der L"osungsweg skizziert. Wenn uns jemand einen gut
 aufbereiteten konkreten L"osungsweg schickt, nehmen wir ihn gerne in die
 Dokumentation auf.
-}.
+}:
 
 Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task
 is to decrypt them. The public parameters of the system are 
 
-$n = 18923$ and $e = 1261$ (for Table 4.1) and \\
-$n = 31313$ and $e = 4913$ (for Table 4.2).
+$n = 18.923$ and $e = 1.261$ (for Table 4.1) and \\
+$n = 31.313$ and $e = 4.913$ (for Table 4.2).
 
 This can be accomplished as follows. First, factor $n$ (which is easy because
 it is so small). Then compute the exponent $d$ from $J(n)$, and, finally,
@@ -2921,9 +2934,9 @@ element of $\mathbb{Z}_n$ represents three alphabetic characters as in the follo
 examples: 
 
 {\tt \begin{tabular}{lll}
-DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2398$ \\
-CAT & $\mapsto$ & $2 * 26^2 + 0 * 26 + 19 = 1371$ \\
-ZZZ & $\mapsto$ & $25 * 26^2 + 25 * 26 + 25 = 17575$. 
+DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2.398$ \\
+CAT & $\mapsto$ & $2 * 26^2 + 0 * 26 + 19 = 1.371$ \\
+ZZZ & $\mapsto$ & $25 * 26^2 + 25 * 26 + 25 = 17.575$. 
 \end{tabular} }
 
 You will have to invert this process as the final step in your program.
@@ -2932,7 +2945,7 @@ The first plaintext was taken from ''The Diary of Samuel Marchbanks'', by
 Robertson Davies, 1947, and the second was taken from ''Lake Wobegon Days'',
 by Garrison Keillor, 1985.
 
-\newpage
+% \newpage  be_24.5.03 raus, da sonst vorherige Seite fast leer.
 TABLE 4.1\footnote{%
 Die Zahlen dieser Tabelle k"onnen Sie mit Copy und Paste weiter bearbeiten.
 }: RSA-Ciphertext

@@ -4,8 +4,9 @@
 % ...........................................................................
 
 \newpage
+% --------------------------------------------------------------------------
 \section{Digital Signatures}
-\index{Signatures!digital}
+\index{Signature!digital}
 (Schneider J. / Esslinger B. / Filipovics B. / Koy H., June 2002,
 Update: Feb. 2003)
 
@@ -63,21 +64,73 @@ Using menu {\bf Indiv. Procedures \textbackslash{} Hash} you have the possibilit
 \item to calculate the hash value of a file, \\
 \item to test, how changes to a text change the according hash value and \\
 \item to perform a simulation, how digital signatures could be attacked 
-      by a targeted search for hash value collisions.
+      by a targeted search for hash value collisions\index{collisions}.
 \end{list}
 }.
 
-A cryptographic \index{Hash function} {\em hash function} maps a message of any
-length to a string of characters with a constant size (usually 128 or 160 bits),
+
+% --------------------------------------------------------------------------
+\subsection{Hash functions}
+\index{Hash function}
+A cryptographic \index{Hash function} {\em hash function}\footnote{%
+Secure hash algorithms compute a condensed representation of 
+electronic data (message).
+When a message is input to a hash algorithm, the result is an output called
+a message digest. The message digests typically range in length 
+from 128 to 512 bits, depending on the algorithm. 
+Secure hash algorithms are typically used with
+other cryptographic algorithms, such as digital signature algorithms and
+keyed-hash message authentication codes, or in the generation of random
+numbers (bits).
+}
+maps a message of any
+length to a string of characters with a constant size,
 the \index{Hash value} hash value. It should be practically impossible, for a
 given number, to find a message that has precisely this number as hash value.
 Furthermore, it should be practically impossible to find two messages with the
-same hash value. In both cases the final signature procedure would display weak
-points.
+same hash value\index{collisions}. 
+In both cases the final signature procedure would include weaknesses.
 
-So far, no formal proof has been found that perfectly secure cryptographic hash
-functions exist. However, there are several good candidates that have not yet
-shown any weak points in practice (e.g. \index{SHA-1} SHA-1 or \index{RIPEMD-160} RIPEMD-­160).
+So far, no formal proof has been found that perfectly secure cryptographic
+hash functions exist. However, there are several good candidates that have
+not yet shown any weak points in their structure in practice 
+(e.g. \index{SHA-1} SHA--1\footnote{%
+SHA-1 \index{SHA-1} is a 160 bit hashfunction specified in FIPS 180-1, 
+ANSI X9.30 Part 2 and \cite{FIPS186}.\\
+SHA means Secure Hash Algorithm, and is widely used, 
+e.g. with DSA, RSA or ECDSA.\\
+The current standard \cite{FIPS180-2} defines four secure hash algorithms
+-- SHA-1, SHA-256, SHA-384, and SHA-512.
+
+For these hash algorithms there are also validation tests defined in the
+test suite FIPS 140-2.
+
+The output length of the SHA algorithms was enhanced because of the
+possibility of birthday attacks\index{Birthday attack}\index{collisions}:
+these make n-bit AES and a 2n-bit hash roughly equivalent: \\
+- 128-bit AES -- SHA-256 \\
+- 192-bit AES -- SHA-384 \\
+- 256-bit AES -- SHA-512.
+
+With CrypTool\index{CrypTool} v1.3.04 you can comprehend the birthday attack
+\index{Birthday attack} on digital signatures: \\
+using menu {\bf Indiv. Procedures \textbackslash{} 
+Attack on the hashvalue of the digital signature}.
+
+}  or \index{RIPEMD-160} RIPEMD-­160\footnote{%
+RIPEMD-160, RIPEMD-128 and the optional extension RIPEMD-256 have object
+identifiers defined by the ISO-identified organization TeleTrusT, both 
+as hash algorithm and in combination with RSA.
+ 
+RIPEMD-160 is also part of the ISO/IEC international standard 
+ISO/IEC 10118-3:1998 on dedicated hash functions, together with 
+RIPEMD-128 and SHA-1. 
+
+Further details: \\
+http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html \\
+http://www.ietf.org/rfc/rfc2857.txt ("The Use of HMAC-RIPEMD-160-96 within ESP and AH").
+}
+).
 
 The hash function procedure is as follows:\\ Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
@@ -103,9 +156,10 @@ two sections. After that we go one step further and show how digital
 signatures can be used to create the digital equivalent of ID cards. This
 is called Public Key Certification.
 
+% --------------------------------------------------------------------------
 \subsection{RSA signatures}
-\index{Signatures!digital}
-\index{RSA!signatures}
+\index{Signature!digital}
+\index{RSA!signature}
 
 \def\Mod#1{\ (\mbox{mod }#1)}
 As mentioned in the comment at the end of \hyperlink{RSAproof}{section
@@ -133,9 +187,10 @@ described in the PKCS\#1 (Public Key Cryptography Standard \#1
 being in use for several years, can serve as an example of how difficult it is
 to get the details of cryptography right.
 
+% --------------------------------------------------------------------------
 \subsection{DSA signatures}
-\index{Signatures!digital}
-\index{DSA signatures}
+\index{Signature!digital}
+\index{DSA!signature}
 
 In August of 1991, the U.S. National Institute of Standards and Technology
 (NIST\index{NIST}) proposed a digital signature algorithm (DSA), which was
@@ -175,7 +230,7 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \item $(s,r)$ is the signature.
 \item The security of the signature depends not only on the mathematical
   properties, but also on using a good random source\index{Random}  for $k$.
-\item SHA-1 \index{SHA-1} is a 160-bit hash function specified in FIPS186.
+\item SHA-1 \index{SHA-1} is a 160-bit hash function.
 \end{itemize}
 \paragraph{Verifying}\strut\\
 \begin{tabular}{l@{ }l}
@@ -194,6 +249,7 @@ at the time when it was specified), it has been noted
 \cite[p.~490]{Schneier1996ds}, that the operations involved in DSA can be
 used to emulate RSA and ElGamal encryption.
 
+% --------------------------------------------------------------------------
 \subsection{Public key certification}
 \index{Certification!public key}
 The aim of public key certification is to guarantee the connection between a
@@ -202,6 +258,7 @@ which it is impossible to ensure that a public key really belongs to a
 particular person, many protocols are no longer secure, even if the individual
 cryptographic modules cannot be broken.
 
+% --------------------------------------------------------------------------
 \subsubsection{Impersonation attacks}
 \index{Impersonation attack}
 Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
@@ -234,8 +291,8 @@ certification, which is intended to guarantee the
 \index{Authenticity} authenticity of public keys. The most common
 certification method is the X.509 standard.
 
+% --------------------------------------------------------------------------
 \subsubsection{X.509}
-
 All participants who want to \index{X.509} have a X.509 certificate verifying that their public
 key belongs to a real person consult what is known as a
 \index{Certification authority (CA)} certification authority (CA). They prove their identity to this
@@ -268,13 +325,28 @@ the root entity, can also be secured by means of making them available publicly.
     Applied Cryptography, Protocols, Algorithms, and Source Code in C, \\
     Wiley, 2nd edition, 1996.
 
+
 \bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
     PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard, April 19, 2002.
 
+
+\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. 
+    \index{FIPS180-2} \\
+    Secure Hash Standard (SHS), August 1, 2002.\\
+    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
+
+
 \bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T.
     \index{FIPS186} \\
-    Entity authentication using public key cryptography, February 18, 1997.
+    Entity authentication using public key cryptography, February 18, 1997.\\
+    No more valid.
     
+\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. 
+    \index{FIPS186-2} \\
+    Digital Signature Standard (DSS), January 27, 2000.\\
+    Change Note: October 5, 2001.\\
+    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
+
 \end{thebibliography}
 
 % Local Variables:

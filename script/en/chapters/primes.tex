@@ -8,7 +8,7 @@
 \newpage
 \section{Prime Numbers}
 \hypertarget{Kapitel_2}{}
-(Bernhard Esslinger, besslinger@web.de, May 1999, Updates Nov. 2000, Dec. 2001, Feb. 2003)
+(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, Feb. 2003)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -17,7 +17,7 @@
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  German physicist and Nobel Prize winner, March 14, 1879 $-$ April 14, 1955
+  Albert Einstein, German physicist and Nobel Prize winner, Mar 14, 1879 $-$ Apr 14, 1955.
 }
 
 % --------------------------------------------------------------------------
@@ -43,7 +43,7 @@ natural numbers, upon which numerous brilliant mathematical ideas are based.
 the 1970's, is \index{RSA} RSA encryption. Only using (large) prime numbers for
 particular parameters can you guarantee that an algorithm is secure, both for
 the RSA procedure and for even more modern procedures (digital
-\index{Signatures!digital} signature, elliptic curves).
+\index{Signature!digital} signature, elliptic curves).
   \item The search for the largest known prime numbers does not have any
 practical usage known to date, but requires the best computers, is an excellent
 benchmark (possibility for determining the performance\index{Performance} of computers) and leads
@@ -152,7 +152,7 @@ known systematically textbook of the Greek mathematics.}
 knew this in the third century B.C.
 \begin{theorem}[Euclid\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
 the true inventor is merely not as prominent. The theorem has already been distinguished
-and proven in Euclid's Elements (Book IX, s. 20). The phraseology is remarkable due to 
+and proven in Euclid's Elements (Book IX, theorem 20). The phraseology is remarkable due to 
 the fact that the word infinite is not used. The text reads as followed
 $$
 O\acute{\iota}~\pi\varrho\tilde{\omega}\tau o \iota~\grave{\alpha}\varrho\iota\vartheta\mu o\grave{\iota}~
@@ -282,8 +282,9 @@ prime exponent for which the Mersenne number is {\bf not} prime (see the
 above example $2^{11}-1, $ where $11$ is prime, but $2^{11}-1$ not).
 
 Mersenne claimed that $2^{67}-1$ is a prime number. There is also a mathematical
-history behind this claim: it first took over 200 years before \index{Lucas
-  Edouard} Edouard Lucas (1842-1891) proved that this number is composite.
+history behind this claim: it first took over 200 years before 
+\index{Lucas Edouard} Edouard Lucas (1842-1891) proved that this number 
+is composite.
 However, he argued indirectly and did not name any of the factors. Then Frank
 Nelson showed in 1903 which factors make up this composite number: 
 $$ 2^{67} -1
@@ -478,7 +479,13 @@ There are numbers that pass the Fermat test with all bases and yet are not
 prime: these numbers are called \index{Number!Carmichael} {\em
 Carmichael numbers}. The first of these is $$ 561 = 3 \cdot 11 \cdot 17. $$
 
-A stronger test is provided by\index{Miller G.L.}\index{Rabin} Miller/Rabin: it is
+A stronger test is provided by\index{Miller Gary L.}\index{Rabin Michael O.}
+Miller/Rabin\footnote{
+In 1976 an efficient probabilistic primality test was published by Prof. Rabin, based on a number theoretic result of Prof. Miller from the year before. \\
+Prof. Miller worked at the Carnegie-Mellon University, School of Computer
+Science. Prof. Rabin, born in 1931, worked at the Harvard and Hebrew University.
+}%
+: it is
 only passed by so-called {\em strong pseudo prime numbers}. Again, there are
 strong pseudo prime numbers that are not primes, but this is much less often the
 case than for (simple) pseudo prime numbers. The smallest strong pseudo prime
@@ -809,14 +816,15 @@ will also find further details about prime number formulae.
     This means there is no hope in looking for further formulae 
     similar to that of type 11. or 12.
 
-  \item \index{Catalan Eugene} \index{Catalan number} Eugene Catalan\footnote{%
-Belgian mathematician, May 5, 1814 - Feb 14, 1894. 
-
-After him the so-called
-{\em Catalan numbers}
-$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2  =  1, 2, 5, 14, 42, 132, 429, 1430, 
+  \item \index{Catalan Eugene} \index{Catalan number} Eugene Cahrles 
+  Catalan\footnote{%
+Eugene Charles Catalan, Belgian mathematician, May 5, 1814$-$Feb 14, 1894.\\
+After him the so-called {\em Catalan numbers}
+$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2 $ \\
+$=  1, 2, 5, 14, 42, 132, 429, 1430, 
 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
-are named.}
+are named.
+}
 conjectured that $C_4$ is a prime:
 $$
  \begin{array}{l}
@@ -889,7 +897,7 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 
 This is the \index{Prime number!theorem} \textbf{prime number theorem}. 
 It was put forward by Legendre\footnote{%
-Adrien-Marie Legendre, French mathematician, Sep 18, 1752$-$Jan 10, 1833.
+Adrien-Marie Legendre, French mathematician, Sep 18, 1752 $-$ Jan 10, 1833.
 }
 \index{Legendre Adrien-Marie}
 and Gauss\index{Gauss Carl Friedrich} (1777-1855) but not proved until
@@ -1096,14 +1104,14 @@ some practical interest?
     This question can be divided into the two following questions:
    \begin{itemize} 
       \item Does a polynomial time algorithm exist that decides whether a
-            number is prime?
+            number is prime? \\
 	    This question has been answered by the AKS algorithm\index{AKS} 
-	    (see chapter\ref{PrimesinP}, ``Primes in P'': 
+	    (see chapter \ref{PrimesinP}, ``Primes in P'': 
 	    Primality testing is polynomial).
 
       \item Does a polynomial time algorithm exist that calculates for a
             composite number $n$ a non-trivial (i.e. other than $1$ and $n$)
-	    factor of $n$?\footnote{Please see chapters \ref{RSABernstein}
+	    factor of $n$?\footnote{Please compare chapters \ref{RSABernstein}
 	    and \ref{NoteFactorisation}.}
    \end{itemize}
 \end{itemize}

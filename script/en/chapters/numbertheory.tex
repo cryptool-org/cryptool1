@@ -12,7 +12,7 @@
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, May 2003) \\
+(Bernhard Esslinger, July 2001, Updates: Dec. 2001, June 2002, May 2003) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -42,7 +42,11 @@ Further mathematical disciplines currently used in cryptography include
 \end{itemize}
 
 Number theory or arithmetic (the emphasis here is more on the aspect of 
-performing calculations with numbers) was established by Carl Friedrich Gauss
+performing calculations with numbers) was established 
+by Carl Friedrich Gauss\footnote{%
+  Carl Friedrich Gauss, German mathematician and astronomer,
+  Apr 30, 1777$-$Feb 23, 1855.
+}
 \index{Gauss Carl Friedrich} as a special mathematical discipline. Its 
 elementary features include the greatest common divisor\footnote{This 
 article deals with the gcd (greatest common 
@@ -97,13 +101,12 @@ Additionally I added some qualified statements about the security of the RSA alg
 \vskip +40 pt
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss Carl Friedrich}
-(Apr 4, 1777$-$Feb 23, 1855):}\\
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss Carl Friedrich}:}\\
 Mathematics is the queen of sciences and number theory is the queen of mathematics.}}
 \end{center}
 
 %\begin{quote}
-%{\em Carl Friedrich Gauss (30.4.1777$-$23.2.1855):}\\
+%{\em Carl Friedrich Gauss:}\\
 %Mathematics is the queen of sciences and number theory is the queen of mathematics.
 %\end{quote}
 
@@ -116,7 +119,7 @@ Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$
 used by human civilisation. According to Kronecker\footnote{Leopold
   Kronecker, German mathematician, Dec 7, 1823$-$Dec 29, 1891}\index{Kronecker Leopold}, they are a creation of God. 
 In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
-  German mathematician, 06.10.1831$-$12.02.1916.}\index{Dedekind Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
+  German mathematician, Oct 6, 1831 $-$ Feb 12, 1916.}\index{Dedekind Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
 this is an unsolvable contradiction or one and the same thing.
 
 In ancient times, no distinction was made between number theory and numerology, which attributed a mystical 
@@ -275,7 +278,10 @@ The 1st fundamental theorem only appears to be obvious. We can construct numerou
 numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on 
 page~\pageref{thm-pz-euklid} % should be \pageref{remFundTheoOfArithm}, but
 % hyperref seems to be buggy
-at the end of chapter \ref{primesinmath}} for which numbers in the set {\em cannot} be expressed 
+at the end of chapter \ref{primesinmath}.
+}
+for which numbers in the 
+set {\em cannot} be expressed 
 uniquely as a product of the prime numbers of the set.
 
 In order to make a mathematical statement, therefore, it is important to state not only the operation for which it is 
@@ -393,7 +399,7 @@ large numbers are divisible by a certain number.
 {\bf Example:} \\
 Is $69,993$ divisible by $7$? \\
 The number can be written in the form of a difference in which it is clear that each operand is divisible by $7$: 
-$69,993 = 70,000 – 7$. Therefore, the difference is also divisible by $7$.
+$69,993 = 70,000 - 7$. Therefore, the difference is also divisible by $7$.
 
 Although these considerations and definitions may seem to be rather theoretical, we are so familiar with them in 
 everyday life that we no longer think about the formal procedure. For example, the 24 hours on a clock are 
@@ -476,7 +482,7 @@ $x$ is the inverse of $a$ regarding this operation.
 \newpage
 \begin{center}
 \fbox{\parbox{15cm}{
-    \emph{Seneca\footnotemark:}\\
+    \emph{Seneca\index{Seneca}\footnotemark:}\\
     The way of theory is long, it is short and effective by examples.
 }}
 \end{center}
@@ -1050,7 +1056,6 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 % --------------------------------------------------------------------------
 \subsubsection{Patterns and structures}
 \hypertarget{Kap_3_8}{}\label{patternsandstructures}
-
 As mathematicians investigate the structure \index{Structure} $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
@@ -1448,23 +1453,31 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 \hypertarget{Kapitel_3_10}{}\index{RSA}\label{rsaproof}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
-RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most common asymmetric 
-cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leonard Adleman, it can be used both for
-signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
-please note that the abbreviation may be used in other fields to mean
-something completely different.}$^,$\footnote{%
-In literature and movies not only classical methods are used (like the
-secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
-Men'' by Arthur Conan  Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
+RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
+common asymmetric cryptography procedure. Developed in 1978 by Ronald Rivest,
+Adi Shamir and Leonard Adleman, it can be used both for signatures and for
+encryption. Cryptographers always associate this procedure with the
+abbreviation ``RSA''. However, please note that the abbreviation may be
+used in other fields to mean something completely different.}$^,$\footnote{%
+In literature\index{Literature} and movies\index{Movies} not only 
+classical methods are used (like the secret message solved by Sherlock Holmes
+in ``The Adventure of the Dancing Men'' by Arthur Conan  
+Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
 Examples are
 % hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 \begin{list}{\textbullet}{\leftmargin10pt}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
-\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner\index{Elsner 1999}, 1999
-  (included in the CrypTool package\index{CrypTool} as PDF file), where the sisters
+\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner
+  \index{Elsner 1999}, 1999 (included in the CrypTool package
+  \index{CrypTool} as PDF file), where the sisters
   communicate confidentially using a variant of RSA.
-\end{list}\vspace{-\baselineskip}\vspace{-\parskip}}
+\item the novel ``Das Museum der gestohlenen Erinnerungen (Museum of
+  the stolen memories'' by Ralf Isau \index{Isau 2003}, 
+  Thienemann 2003, where the last part of the oracle can only be
+  solved with the joined help of the computer community.
+\end{list}\vspace{-\baselineskip}\vspace{-\parskip}
+}
 procedure in the group $\mathbb{Z}_n^*$.
 
 
@@ -1657,7 +1670,7 @@ $$
 
 {\bf 2nd comment:} \\
 When it comes to signing messages, we perform the same operations but first use the secret key $d$, followed by the 
-public key $e$. The RSA procedure can also be used to create digital signatures\index{Signatures!digital}, because: 
+public key $e$. The RSA procedure can also be used to create digital signatures\index{Signature!digital}, because: 
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
@@ -1827,7 +1840,7 @@ Progress made with factorisation is bigger than estimated 5 years ago -- this
 is not only founded on faster computers but also in new knowledge.
 
 The security of the RSA algorithm is based on the empirical observation
-that factoring large numbers is a hard problem. A Module $n$ (typically,
+that factoring large numbers is a hard problem. A module $n$ (typically,
 1024 bit) can be easily constructed as the product of two large primes $p$,
 $q$ (typically, 500$-$600 bit each), by calculating $n=pq$. However, it is
 a hard problem to extract $p$, $q$ from $n$.  Without knowing $p$ or $q$,
@@ -1949,7 +1962,7 @@ Links:
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{The TWIRL Device} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
+\paragraph{The TWIRL device} \label{TWIRLDevice} \index{TWIRL device}\mbox{}
 
 In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{Shamir2003}. 
 
@@ -2123,7 +2136,7 @@ factorised a 160-digit number into its both prime factors (these are build
 with each 80 decimal digits) using the GNFS method (General Number Field
 Sieve).
 
-The  computations for the factorization of RSA160 took place at the 
+The  computations for the factorization of RSA-160 took place at the 
 German Information Security Agency (GISA) in Bonn\footnote{%
 Every year the GISA\index{GISA} creates a paper to describe which 
 crypto algorithms are feasible to generate digital signatures according
@@ -2229,7 +2242,7 @@ The essential reason for this is that subtraction is just as simple an operation
 
 % --------------------------------------------------------------------------
 \subsubsection{One way functions}\index{One way function}
-\hypertarget{OneWayFunktion2}{} 
+\hypertarget{OneWayFunktion2}{}%
 If the key is to be impossible to determine even with knowledge of both the 
 plaintext and the cipher text, we need a function that is, on the one hand, 
 relatively easy to calculate -- we don't want to have problems encrypting 
@@ -2502,7 +2515,7 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 
 
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
-{\bf Key generation (steps 1 to 3)}:\\ \label{SrcArith4b}
+{\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
 See \hyperlink{AppArith4b}{Appendix D of this chapter} for the source code to factorise
 the number $J(n)$ using Mathematica and Pari-GP.
@@ -2518,7 +2531,7 @@ is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
 
 
 % --------------------------------------------------------------------------
-\subsubsection*{Variant 1: All ASCII characters are encrypted and decrypted separately (no blocks\index{Block length} are formed).}
+\subsubsection*{Variant 1: All ASCII characters are en-/decrypted separately (no blocks\index{Block length} are formed).}
 
 {\bf 4. Encryption}:\\
 {\tt
@@ -2561,7 +2574,7 @@ Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
 
 
 % --------------------------------------------------------------------------
-\subsubsection*{Variant 2: The ASCII characters are encrypted and decrypted two at a time as blocks.}
+\subsubsection*{Variant 2: The ASCII characters are en-/decrypted two at a time as blocks.}
 
 In variant 2 the block formation is done in two different sub-variants: (4./5. and 4'./5'.).
 
@@ -2643,9 +2656,10 @@ However, it is not the
 result that is important here but rather the individual steps of the solution, that is, the explanation of the 
 cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool\index{CrypTool} 
 and in the presentation on the website. If anyone sends us a well prepared exact method of solving the problem, we 
-would be pleased to include it in the documentation.}.
+would be pleased to include it in the documentation.}:
 
-Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. Your task is to decrypt them.
+Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. 
+Your task is to decrypt them.
 The public parameters of the system are 
 
 $n = 18,923$ and $e = 1,261$ (for Table 4.1) and \\
@@ -2824,7 +2838,7 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorz\"uge und Grenzen des RSA-Verfahrens},\\
-    in Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89.
+    In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89.
 
 \bibitem[Brands2002]{Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
@@ -2955,9 +2969,9 @@ This needs to be stressed because the type of padding is extremely important dur
     
 \bibitem[Wiles1994]{Wiles1994} \index{Wiles Andrew}
     Wiles, Andrew, \\
-    {\em Modular elliptic curves and Fermat's Last Theorem}, \\
-    \index{Fermat!last theorem}
-    in Annals of Mathematics 141 (1995).
+    {\em Modular elliptic curves and Fermat's Last Theorem}, 
+    \index{Fermat!last theorem} \\
+    In: Annals of Mathematics 141 (1995).
 
 \bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
@@ -3031,7 +3045,7 @@ This needs to be stressed because the type of padding is extremely important dur
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
          
 	 
-   \item Factorisation records and challenges\index{Factorisation!factorisation records},\\
+   \item Factorisation records and challenges\index{Factorisation!factoring records},\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.crypto-world.com/FactorWorld.html}
