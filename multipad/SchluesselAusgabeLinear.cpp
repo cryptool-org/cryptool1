@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "SchluesselAusgabeLinear.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -46,14 +47,23 @@ END_MESSAGE_MAP()
 
 void CSchluesselAusgabeLinear::OnCopyKey() 
 {
+	//In der Zwischen Ablage kopieren
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	m_CtrlKey.SetSel(0,-1);
-	m_CtrlKey.Copy();	
+	if ( FALSE == CopyKey(strTitle, m_Key) )
+	{
+		m_CtrlKey.SetSel(0,-1); 
+		m_CtrlKey.Copy();
+	}
+	CopyKey(strTitle, m_Key);
 }
 
 BOOL CSchluesselAusgabeLinear::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+
+	//if (s_alternativeWindowText[0])
+	//	SetWindowText(s_alternativeWindowText);
+
 
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -66,3 +76,9 @@ int CSchluesselAusgabeLinear::DoModal()
 	return CDialog::DoModal();
 }
 
+
+void CSchluesselAusgabeLinear::SetAlternativeWindowText(LPCTSTR s_title)
+{
+    strncpy(s_alternativeWindowText, s_title, 126);
+	s_alternativeWindowText[126]=0;
+}

@@ -37,6 +37,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,153,53,55,19
     LTEXT           "Static",IDC_STATIC_TEXT,11,5,197,16
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,82,53,57,19
+    PUSHBUTTON      "key laden",IDC_BUTTON2,133,75,64,8
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -4197,7 +4198,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"
     IDS_STRING_KEY_INPUT_LENGTH 
                             "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
-    IDS_STRING_KEY_INPUT_VIGENERE "Vigènere Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_VIGENERE "Vigenère Schlüsseleingabe"
     IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
     IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
     IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
@@ -8143,7 +8144,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_CAESAR "Key Entry: Caesar"
     IDS_STRING_KEY_INPUT_LENGTH 
                             "Enter the key. The key is exactly %d characters long!"
-    IDS_STRING_KEY_INPUT_VIGENERE "Key Entry: Vigènere"
+    IDS_STRING_KEY_INPUT_VIGENERE "Key Entry: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Frequency"
     IDS_STRING_KEY_INPUT_XOR "Key Entry: XOR"
     IDS_STRING_KEY_INPUT_ADD "Key Entry: ADD"

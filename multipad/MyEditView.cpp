@@ -91,20 +91,29 @@ void CMyEditView::OnGotoVater()
 	}
 }
 
+
+
 void CMyEditView::OnShowKey() 
 {
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 
 	CString Key = ((CMyDocument*)m_pDocument)->csSchluessel;
+	
+	int i;
+	CString Title;
+	Title=((CMyDocument*)m_pDocument)->GetTitle();
 
-	if ( Key.GetLength() > 0 )
+	if ( Key.GetLength() >0 )
 	{
 		if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_LINEAR )
 		{
 			CSchluesselAusgabeLinear AusgabeFenster;
-			
-			AusgabeFenster.m_Key = Key;
+			for (i=0; i<12; i++ ) if ( Title[i] == '\0' || Title[i] == ' ' ) break;
+								  else AusgabeFenster.strTitle[i]=Title[i]; 
+			AusgabeFenster.strTitle[i] = '\0';
 
+			AusgabeFenster.m_Key = Key;
+		
 			// Fenster anzeigen
 			AusgabeFenster.DoModal();
 		}
@@ -296,3 +305,5 @@ HRESULT CMyEditView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFor
 	}
 	return S_FALSE;
 }
+
+

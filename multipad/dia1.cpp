@@ -7,6 +7,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "dia1.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,6 +71,7 @@ BEGIN_MESSAGE_MAP(dia1, CDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -160,3 +162,17 @@ BOOL dia1::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+
+void dia1::OnPasteKey() 
+{
+	int i;
+	CString Title;
+	Title=s_alternativeWindowText;
+
+	for (i=0; i<12; i++ ) if ( Title[i] == '\0' || Title[i] == ' ' ) break;
+						  else strTitle[i]=Title[i]; 
+	strTitle[i] = '\0';
+	UpdateData(TRUE);
+	PasteKey(strTitle,m_text);
+	UpdateData(FALSE);
+}

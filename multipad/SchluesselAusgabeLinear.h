@@ -11,6 +11,9 @@ class CSchluesselAusgabeLinear : public CDialog
 {
 // Konstruktion
 public:
+	CString Key;
+	char strTitle[13];
+	void SetAlternativeWindowText(LPCTSTR s_title);
 	CSchluesselAusgabeLinear(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -31,6 +34,10 @@ public:
 	//}}AFX_VIRTUAL
 
 // Implementierung
+
+private:
+    char s_alternativeWindowText[127];
+
 protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen

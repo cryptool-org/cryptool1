@@ -109,3 +109,5 @@ void CMyDocument::SetData(int i)
 
 
 
+
+

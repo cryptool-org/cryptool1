@@ -7,6 +7,7 @@
 // #include "fileutil.h"
 #include "CryptDoc.h"
 #include "dia1.h"
+#include "SchluesselAusgabeLinear.h"
 #include "hexdialog.h"
 #include "crypt.h"
 #include "HillEingabe.h"

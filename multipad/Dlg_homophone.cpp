@@ -6,6 +6,7 @@
 #include "multipad.h"
 #include "Dlg_homophone.h"
 #include "assert.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -169,9 +170,14 @@ void Dlg_homophone::OnLoadKey()
 	theApp.DoWaitCursor(0);
 
 	UpdateData(TRUE);
-	m_KeyCtrl.SetSel(0,-1);
-	m_KeyCtrl.Paste();
-	m_KeyCtrl.GetWindowText(m_KeyCStr);
+	
+	if ( FALSE == PasteKey("Homophone", m_KeyCStr ) )
+	{
+		m_KeyCtrl.SetSel(0,-1);
+		m_KeyCtrl.Paste();
+		m_KeyCtrl.GetWindowText(m_KeyCStr);
+	}
+
 	HB.load_enc_table(m_KeyCStr.GetBuffer(16000));	
 	m_NoOfHomophones = HB.GetKeySize();
 	m_Bitlength = HB.LogKeySize( 2 );

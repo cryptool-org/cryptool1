@@ -15,6 +15,7 @@ class dia1 : public CDialog
 {
 // Construction
 public:
+	char strTitle[13];
 	void SetAlternativeWindowText(LPCTSTR s_title);
 	long m_Decrypt;
 	int len;
@@ -51,6 +52,7 @@ protected:
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
