@@ -3,9 +3,10 @@
 % ...........................................................................
 
 \newpage
-\section{Digital signatures}
+\section{Digital Signatures}
 \index{Signatures!digital}
-(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Update: June 2002)
+(Esslinger B. / Filipovics B. / Schneider J. / Koy H., June 2002,
+Update: Feb. 2003)
 
 \vspace{12pt}
 The aim of digital signatures is to guarantee the following two points:
@@ -26,9 +27,9 @@ the sender's public key to verify whether the signature is correct. As before,
 it must be impossible to use the public key to derive the secret key\footnote{%
 With CrypTool\index{CrypTool} v1.3 you can also generate and check 
 digital signatures: \\
-using the submenus of the main menu ``Digital Signatures'' or \\
-using menu {\bf Indiv. Procedures \textbackslash RSA Demonstration 
-\textbackslash Signature Demonstration}.
+using the submenus of the main menu {\bf Digital Signatures} or \\
+using menu {\bf Indiv. Procedures \textbackslash{} RSA Demonstration 
+\textbackslash{} Signature Demonstration}.
 }.
 
 
@@ -51,9 +52,9 @@ approximately as long as the document itself. To prevent an unnecessary increase
 in data traffic, and also for reasons of performance\index{Performance}, we use 
 a cryptographic hash function\footnote{%
 %xxxxxxxxxx Menüeinträgsbezeichnungen ok?
-Hash functions are implemented within CrypTool\index{CrypTool} v1.3.04 at
-several places: \\
-using menu  ``Indiv. Procedures \textbackslash Hash'' you have the possibility
+Hash functions\index{Hash function} are implemented within CrypTool\index{CrypTool} v1.3.04 at
+several places. \\
+Using menu {\bf Indiv. Procedures \textbackslash{} Hash} you have the possibilities
 \begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip} % um den Abstand zu verringern bebe
 \item to apply one of 6 hash functions to the content of the current window, \\
 \item to calculate the hash value of a file, \\
@@ -100,7 +101,7 @@ two sections. After that we go one step further and show how digital
 signatures can be used to create the digital equivalent of ID cards. This
 is called Public Key Certification.
 
-\subsection{RSA Signatures}
+\subsection{RSA signatures}
 \index{Signatures!digital}
 \index{RSA signatures}
 
@@ -130,7 +131,7 @@ described in the PKCS\#1 (Public Key Cryptography Standard \#1
 being in use for several years, can serve as an example how difficult it is
 to get the details of cryptography right.
 
-\subsection{DSA Signatures}
+\subsection{DSA signatures}
 \index{Signatures!digital}
 \index{DSA signatures}
 
@@ -162,7 +163,7 @@ $x < q$ (a 160-bit number)
 \paragraph{Signing}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & the message to be signed\\
-$k$ & choose at random, less than $q$\\
+$k$ & choose at random\index{Random}, less than $q$\\
 $r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
@@ -171,7 +172,7 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \begin{itemize}
 \item $(s,r)$ is the signature.
 \item The security of the signature depends not only on the mathematical
-  properties, but also on using a good random source  for $k$.
+  properties, but also on using a good random source\index{Random}  for $k$.
 \item SHA-1 \index{SHA-1} is a 160-bit hash function specified in FIPS186.
 \end{itemize}
 \paragraph{Verifying}\strut\\
@@ -259,17 +260,19 @@ the root entity, can also be secured by means of making them available publicly.
 
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
+
 \bibitem[Schneier1996]{5Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    Applied Cryptography, Protocols, Algorithms,
-    and Source Code in C, Wiley, 2nd edition, 1996.
+    Applied Cryptography, Protocols, Algorithms, and Source Code in C, \\
+    Wiley, 2nd edition, 1996.
 
-        \bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
-          PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
+\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
+    PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard, April 19, 2002.
 
-        \bibitem[FIPS186]{FIPS186} U.S. Department of
-          Commerce/N.I.S.T.\\\index{FIPS186}
-          Entity authentication using public key cryptography. February 18, 1997.
+\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T.
+    \index{FIPS186} \\
+    Entity authentication using public key cryptography, February 18, 1997.
+    
 \end{thebibliography}
 
 % Local Variables:

@@ -6,8 +6,7 @@
 \section{Elliptic Curves}
 \index{Elliptic curves}
 \hypertarget{ellcurve}{}
-(Filipovics B. / Esslinger B. / Oyono R., April 2000, Updates: Dec. 2001,
-June 2002)
+(Filipovics B. / B"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dec. 2001, June 2002, Mar. 2003)
 
 \subsection{Elliptic curve cryptography --- a high-performance substitute for RSA?}\index{Performance}\label{ECAlternative}
 
@@ -373,7 +372,7 @@ The parameters $a, b, p, G, r$ and $k$ listed above are called
 E}$ and in which cyclic subgroup of ${\bf E}$ a signature
 procedure has been ``used''.
 
-The secret key $s$ of the signature generator is a (random) whole number $s$ in
+The secret key $s$ of the signature generator is a (random\index{Random}) whole number $s$ in
 the interval $[1, r-1]$. The public key of the signature generator is a point
 $W=(x,y)$ on the elliptic curve ${\bf E}$. The public key $W$ and secret key $s$
 are interrelated as follows: $W = sG$. This means that the domain parameters
@@ -435,7 +434,7 @@ are therefore highly suitable for parallelisation.
 
 \subsection{Implementing elliptic curves}
 
-CrypTool\index{CrypTool} uses elliptic curves for the digital signature function.
+CrypTool\index{CrypTool} also offers elliptic curves for the digital signature function.
 
 It implements the basic algorithms for group operations, for generating elliptic
 curves, for importing and exporting parameters for elliptic curves over finite
@@ -453,29 +452,38 @@ no. 8 of the IEEE P1363 work group). This was done in collaboration with the
 Secude GmbH --- using the above library and the Secude SDK.
 \index{Secude}
 
+
+
+%--------------------------------------------------------------------
 \newpage
 %\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
-        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
-                Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
-\end{thebibliography}
-%\newpage
 
+\bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
+   Factoring integers with elliptic curves, 
+   Annals of Mathematics 126, pp. 649-673, 1987.
+
+\end{thebibliography}
+
+
+%--------------------------------------------------------------------
+%\newpage
 \section*{Web links}\addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
    \item Certicom Online Tutorial, \index{Certicom}\\
-                \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
-        \item IEEE P1363
+         \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
+		
+   \item IEEE P1363
+          \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
 
-                \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
-        \item  \hypertarget{Lenstra2}{}
-An informative web page about factorisation with elliptic curves.
-
-\href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
-
-There, one finds literature to the topic factorisation with elliptic curves as well as links to other web page. 
+   \item \hypertarget{Lenstra2}{}
+         An informative web page about factorisation with elliptic curves. \\
+         \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
+	 {\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}} \\
+         There, one finds literature to the topic factorisation with 
+	 elliptic curves as well as links to other web page. 
 
 \end{enumerate}
 

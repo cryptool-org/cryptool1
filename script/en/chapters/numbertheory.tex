@@ -5,10 +5,13 @@
 % ..........................................................................
 % --------------------------------------------------------------------------
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%                 E l e m e n t a r e  Z a h l e n t h e o r i e
+% /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, Feb. 2003)
+(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, Feb. 2003) \\
 
 This ``introduction'' is for people mathematically interested. There is no more pre-knowledge necessary than
 what you learn in the secondary school.\par
@@ -53,8 +56,8 @@ For example, the ratio of
 %laevorotary and dextrorotary 
 rotating counterclockwise and rotating clockwise 
 spirals in a sunflower is equal to two consecutive 
-Fibonacci\index{Fibonacci} numbers
-\footnote{The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined 
+Fibonacci\index{Fibonacci} numbers \footnote{%
+The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined 
 by the ``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ 
 we define $a_{n+2} := a_{n+1}+a_n$.  
 This historical sequence can be found in many interesting forms in nature 
@@ -78,9 +81,11 @@ numerous examples and very rarely goes into any proofs (these can be found in ma
 The goal is not to exhaustively explain the number theory findings, but to show the essential
 procedures. The volume of the content is oriented that the reader can understand and apply the RSA method.
 
-For this purpose we will use both theory and examples to explain how to perform calculations in finite sets and 
-describe how these techniques are applied in cryptography. Particular attention will be paid to the traditional 
-Diffie-Hellman (DH) and RSA public key procedures.\index{RSA}
+For this purpose we will use both theory and examples to explain how 
+to perform calculations in finite sets and describe how these techniques
+are applied in cryptography. Particular attention will be paid to the 
+traditional Diffie-Hellman\index{Diffie-Hellman} (DH) and RSA public 
+key procedures.\index{RSA}
 
 Additionally I added some qualified statements about the security of the RSA algorithm.
 \vskip +40 pt
@@ -652,8 +657,8 @@ also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicativ
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
-See \hyperlink{AppArith1}{Appendix D} for the source code to compute the tables using Mathematica\index{Mathematica}
-or Pari-GP.\index{Pari-GP}
+See \hyperlink{AppArith1}{Appendix D} for the source code to compute
+the tables using Mathematica\index{Mathematica} and Pari-GP.\index{Pari-GP}
 }
 illustrate the properties of multiplicative inverses.
 
@@ -1028,7 +1033,7 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 %\end{quote}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Euler function, Fermat's Little Theorem and Euler-Fermat}
+\subsection{Euler function, Fermat's little theorem and Euler-Fermat}
 
 % --------------------------------------------------------------------------
 \subsubsection{Patterns and Structures}
@@ -1226,7 +1231,8 @@ $10$ and we notice that:
 
 {\bf Example 1:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3a}{Appendix D} for the source code to generate the table using Mathematica or Pari-GP.
+See \hyperlink{AppArith3a}{Appendix D} for the source code to generate
+the table using Mathematica and Pari-GP.
 } 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
@@ -1275,7 +1281,8 @@ The following two tables show the multiplicative orders and primitive roots modu
 
 {\bf Example 2:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3b}{Appendix D} for the source code to generate the table using Mathematica or Pari-GP.
+See \hyperlink{AppArith3b}{Appendix D} for the source code to generate
+the table using Mathematica and Pari-GP.
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
 
@@ -1329,8 +1336,8 @@ The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primit
 
 {\bf Example 4:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3c}{Appendix D} for the source code to generate the table using Mathematica
-or Pari-GP.
+See \hyperlink{AppArith3c}{Appendix D} for the source code to generate
+the table using Mathematica and Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 
@@ -1432,6 +1439,7 @@ Within literature and movies not only classical methods are used (like the
 secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
 Men'' by Arthur Conan  Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
 Examples are
+% hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 \begin{itemize}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
@@ -1663,7 +1671,7 @@ methods --- on the following 4 central pillars:
 Usage and key generation are well understood today. Implementation based on
 long integer arithmetic is very easy.
 
-%Therefor the fundamental characteristics of a special method are the first two points.
+%Therefore the fundamental characteristics of a special method are the first two points.
 The following sections examine the RSA algorithm with respect to the first
 two points. 
 
@@ -1690,13 +1698,13 @@ Please refer to: \\
 \begin{list}{}{\setlength{\topsep}{-7 pt}}
   \item[] A. Lenstra, H. Lenstra:  
           {\em The development of the Number Field Sieve} 
-          \cite{Lenstra1993}
+          \cite{Lenstra1993}.
   \item[] Robert D. Silverman:  
           {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
 	  Key Lengths} 
-	  \cite{Silverman2000}
+	  \cite{Silverman2000}.
 \end{list}
-\vskip +12 pt
+\vskip +12pt
 
 This formula shows, that the factorization problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
@@ -1714,13 +1722,14 @@ factorization of $n$, is still not proven.  Most number theorists consider
 the ``RSA problem'' and the factorization problem equivalent in terms of
 time complexity.
 
-Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}
+Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Security Parameters because of progress in factorisation} \label{chptSecurityParam}
+\subsubsection{Security parameters because of progress in 
+               factorisation} \label{chptSecurityParam}
 
 The complexity is basically determined by the length $l$ of the module $n$.
 
@@ -1733,7 +1742,7 @@ The complexity is basically determined by the length $l$ of the module $n$.
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] C. Pomerance:  
                 {\em The quadratic sieve factoring algorithm} 
-                \cite{Pomerance1984}
+                \cite{Pomerance1984}.
       \end{list}
       \vskip +12pt
 
@@ -1746,9 +1755,9 @@ The complexity is basically determined by the length $l$ of the module $n$.
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
                 {\em Factoring integers with the number field sieve} 
-                \cite{Buhler1993}
+                \cite{Buhler1993}.
       \end{list}
-      \vskip +12 pt
+      \vskip +12pt
 \end{itemize}
 
 This made evident, that a module length of 512 bit no longer prevents from
@@ -1758,9 +1767,10 @@ Within the last 20 years a lot of progress has been made. Estimations about
 the future development of the ability to factor RSA modules vary and depend
 on some assumptions:
 \begin{itemize}
-\item progression in computing performance\index{Performance} (Moore's law: every 18 month the
-  computing power will double) and in grid computing 
-\item development of new algorithms.
+  \item progression in computing performance\index{Performance} (Moore's 
+      law\index{Moore's law}: every 18 month the computing power will double) 
+      and in grid computing\index{grid computing}.
+  \item development of new algorithms.
 \end{itemize}
 Within the last years the module bit length feasible for factorization
 increased --- even without new algorithms --- by 10 bit per year. Larger
@@ -1788,7 +1798,7 @@ factorization increases by 20 bit on average.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Further actual Research in Factorisation and Number Theory}
+\subsubsection{Further actual research in factorisation and number theory}
 Prime numbers are part of many very topical research areas in number theory and computer science. 
 Progress made with factorisation is bigger than estimated 5 years ago -- this
 is not only founded on faster computers but also in new knowledge.
@@ -1812,7 +1822,7 @@ be compromised.
 \paragraph{Bernstein's paper and it's implication on the
   security of the RSA algorithm}
 \label{RSABernstein} \index{Factorisation problem}\mbox{}
-% \\
+
 In his paper ``Circuits for integer factorization: a proposal'' 
 (\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
 published November 2001, D.~J.\ Bernstein \cite{Bernstein2001} 
@@ -1917,7 +1927,7 @@ Links:
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{The TWIRL Device} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
-% \\
+
 In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{Shamir2003}. 
 
 Their abstract summarizes their results very well: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
@@ -1928,7 +1938,7 @@ So recommendations like the ones from the GISA (German Information Security Agen
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{``Primes in P'': Primality testing is polynomial} \label{TWIRLDevice} \index{TWIRL Device}\mbox{}
-% \\
+
 In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm 
 \cite{Agrawal2002}. 
 They discovered a polynomial time deterministic algorithm for determining if a number is prime or not.
@@ -1938,9 +1948,13 @@ The importance of this discovery is that it provides number theorists with new i
 But even its authors note that other known algorithms may be faster (for example ECPP). The new algorithm works on any integer. For example the GIMPS project uses the Lucas-Lehmer primality test which takes advantage of the special properties of Mersenne numbers. This makes the Lucas-Lehmer test much faster, allowing to test numbers with millions of digits while general purpose algorithms are limited to numbers with a few thousand digits.
 
 Current research results on this topic can be found at:\\
-\href{http://www.mersenne.org/}{\texttt{http://www.mersenne.org/}}  and \\
-\href{http://fatphil.org/maths/AKS/}{\texttt{http://fatphil.org/maths/AKS/}} .
-\\
+\begin{itemize}
+  \item[] \href{http://www.mersenne.org/}
+               {\texttt{http://www.mersenne.org/}} \\
+          \href{http://fatphil.org/maths/AKS/}
+               {\texttt{http://fatphil.org/maths/AKS/}} 
+\end{itemize}
+\vskip +10 pt
 
 
 
@@ -1954,7 +1968,6 @@ Current research results on this topic can be found at:\\
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
   German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
-
 % --------------------------------------------------------------------------
 \vspace{4ex}
 \subsubsection{Status regarding factorisation of concrete large numbers}
@@ -1991,9 +2004,11 @@ $$
 128064886830166671444802576129115872060027.
 \end{array}
 $$
-The first 3 factors can be easily computed (e.g. using CrypTool\index{CrypTool} 
-via menu {\bf Indiv. Procedures \textbackslash RSA Demonstration \textbackslash 
-Factorisation of a Number}).
+The first 3 factors can be easily computed \footnote{%
+e.g. using CrypTool\index{CrypTool} via menu 
+{\bf Indiv. Procedures \textbackslash{} RSA Demonstration \textbackslash{} 
+Factorisation of a Number}.
+}
 The next three prime factors were found by P.~Zimmerman
 (\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}), 
 T.~Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
@@ -2099,14 +2114,16 @@ us much about the function as a whole (in contrast to addition and multiplicatio
 
 % --------------------------------------------------------------------------
 \subsubsection{The Diffie-Hellman key exchange protocol}
+\index{Diffie Whitfield} 
+\index{Hellman Martin} 
 \index{Key agreement (key exchange)!Diffie-Hellman}
+\index{Diffie-Hellman}
 
 Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key 
-exchange protocol in Stanford in 1976
-\footnote{%
-With CrypTool\index{CrypTool} v1.3.04 you can execute the single steps of this 
-exchange protocol with concrete numbers: \\
-using menu {\bf Indiv. Procedures \textbackslash Diffie-Hellman Demonstration}.
+exchange protocol in Stanford in 1976\footnote{%
+With CrypTool\index{CrypTool} v1.3.04  this exchange protocol has been
+visualized: you can execute the single steps with concrete numbers using 
+menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
 }
 .
 
@@ -2238,7 +2255,7 @@ Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now
 Before applying the RSA procedure to a text, we will first demonstrate it directly
 using a number
 \footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with
-the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.}.
+the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} RSA Cryptosystem}.}.
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
@@ -2263,7 +2280,7 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 \subsubsection{RSA with slightly larger primes and a text of upper case letters}
 
 We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
-CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.
+CrypTool\index{CrypTool} v1.3 you can solve this with the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} RSA Cryptosystem}.
 This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
 
 \hypertarget{Grossbuchstaben-Alphabet}{}    
@@ -2312,8 +2329,8 @@ This $28$-digit number is divided into $4$-digit parts
 \label{SrcArith4a}
 All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{%
 See \hyperlink{AppArith4a}{Appendix D} for source code to do RSA
-  encryption using Mathematica or Pari-GP.  You can also encrypt
-  the message with CrypTool\index{CrypTool} v1.3 ``Indiv. Procedures \textbackslash RSA Demonstration \textbackslash Factorisation of a Number''.}: \\
+  encryption using Mathematica and Pari-GP.  You can also encrypt
+  the message with CrypTool\index{CrypTool} v1.3 {\bf Indiv. Procedures \textbackslash{} RSA Demonstration \textbackslash{} Factorisation of a Number}.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 {\bf 5. Decryption}: \\
@@ -2333,8 +2350,10 @@ If $n$ is a $768$-bit number, there is, according to present knowledge, little c
 
 In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
 
-The idea for this task\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with the 
-``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash RSA Cryptosystem''.} is taken from the example in \cite[p. 215]{Eckert2003}\index{Eckert 2003}.
+The idea for this task\footnote{Using CrypTool\index{CrypTool} v1.3 you can 
+solve this with the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration 
+\textbackslash{} RSA Cryptosystem}.} is taken from the example in 
+\cite[p. 271]{Eckert2003}\index{Eckert 2003}.
 
 Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 {\tt
@@ -2347,9 +2366,11 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
 {\bf Key generation (steps 1 to 3)}:\\ \label{SrcArith4b}
 {\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise the number $J(n)$ using Mathematica
-or Pari-GP.
-Using CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA Demonstration \textbackslash Factorisation of a Number''.}. \\
+See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise
+the number $J(n)$ using Mathematica and Pari-GP.
+Using CrypTool\index{CrypTool} v1.3 you can solve this with the 
+{\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} 
+Factorisation of a Number}.}. \\
 {\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
 therefore, be $2, 127$ or $251$ ($65537 = 2^{16}+1$).\\
 In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
@@ -2375,12 +2396,12 @@ combine several numbers. Two characters need $16$ bits, whereby the maximum valu
 The modulus $n$ must then be greater than $2^{16} = 65536$. This is applied in variant 2.
 When the numbers are combined, the leading zeros are kept in binary notation (just as if we were to write all numbers with $3$ 
 digits in decimal notation above and were then to obtain the sequence 
-{\tt 082 083,  065 032, 119 111,  114 107,  115 033)}.}!
+{\tt 082 083,  065 032, 119 111,  114 107,  115 033}).}!
 
 \label{SrcArith4c}
 Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA exponentiation using Mathematica
-or Pari-GP.
+See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA 
+exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt
 \begin{tabular}{lllll}
@@ -2427,13 +2448,14 @@ Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{lll}
 01110011, 115 & 01110011 00100001 & =29473 \\
 00100001, 33: 
 \end{tabular}} (each ASCII character is encoded into a 8 digit binary number below):\\
-{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with the ``Indiv.Procedures \textbackslash RSA
-Demonstration \textbackslash RSA Cryptosystem'' 
+{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool\index{CrypTool} v1.3 you can solve this with the {\bf Indiv.Procedures \textbackslash{} RSA
+Demonstration \textbackslash{} RSA Cryptosystem} 
 with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
 
 \label{SrcArith4d}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA exponentiation using Mathematica or Pari-GP.
+See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA 
+exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -2457,7 +2479,8 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA exponentiation using Mathematica or Pari-GP.
+See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA 
+exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
 
@@ -2578,7 +2601,7 @@ The following task is a corrected version from the excellent book written by Pro
 \cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the individual steps of the solution, that is, 
 the explanation of the cryptanalysis\footnote{The method of solving the problem is outlined in the scenario of 
-the online help to CrypTool\index{CrypTool} and in the presentation on the website. If anyone sends us a well prepared exact 
+the online help to CrypTool\index{CrypTool} and in the CrypTool presentation. If anyone sends us a well prepared exact 
 method of solving the problem, we would be pleased to include it in the documentation.}.
 
 There are three tasks with completely different degrees of difficulty here. In each case we know the ciphe rtext 
@@ -2592,7 +2615,8 @@ and the public key $(e,n)$:
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
-{\bf Message\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}:}
+{\bf Message\footnote{The numbers of this table are in the online help 
+``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}:}
 
 {\tt
 \begin{tabular}{l}
@@ -2648,7 +2672,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Bernstein2001]{Bernstein2001} \index{Bernstein 2001}
     D.~J. Bernstein, \\
-    {\em Circuits for integer factorization: a proposal}, 
+    {\em Circuits for integer factorization: a proposal},\\ 
     \href{http://cr.yp.to/papers/nfscircuit.ps}
     {\texttt{http://cr.yp.to/papers/nfscircuit.ps}} \\
     \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}.
@@ -2673,7 +2697,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
     J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
-    {\em Factoring integers with the number field sieve}, 
+    {\em Factoring integers with the number field sieve}, \\
     In: A.K. Lenstra, H.W. Lenstra (Hrsg.): The Development of the 
     Number Field Sieve, Lecture Notes in Mathematics, Vol.~1554, 
     Springer, Heidelberg 1993, pp~50$-$94.
@@ -2699,7 +2723,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
     Graham, Knuth, Patashnik, \\
-    {\em Concrete Mathemathics, a Foundation of Computer Science}, 
+    {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
     Addison Wesley 1989, 6th printing 1990.
 
 \bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
@@ -2714,13 +2738,13 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
-    {\em The Art of Computer Programming, vol 2: 
-    Seminumerical Algorithms}, Addison-Wesley, 2nd edition 1998.
+    {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, \\
+    Addison-Wesley, 2nd edition 1998.
     % wann war erste Edition ?
 
 \bibitem[Lenstra1993]{Lenstra1993} \index{Lenstra 1993}
      A. Lenstra, H. Lenstra: \\ 
-     {\em The development of the Number Field Sieve.},
+     {\em The development of the Number Field Sieve}, \\
      Lecture Notes in Mathematics 1554, Springer, New York 1993
 
 \bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
@@ -2741,21 +2765,21 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Pomerance1984]{Pomerance1984} \index{Pomerance 1984} 
     C. Pomerance, \\
-    {\em The quadratic sieve factoring algorithm}, 
+    {\em The quadratic sieve factoring algorithm}, \\
     In: G.R. Blakley, D. Chaum (Hrsg.): Proceedings of Crypto '84, 
     LNCS 196, Springer Berlin 1995, pp~169-182.
 
 \bibitem[RSA Security 2002]{RSA Security 2002} \index{RSA Security 2002} 
     RSA Security, \\
     {\em Has the RSA algorithm been compromised as a result 
-    of Bernstein's Paper?}, 
+    of Bernstein's Paper?}, \\
     April 8th, 2002, \\
     \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}.
     
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    {\em Applied Cryptography}, Protocols, Algorithms,
-    and Source Code in C, Wiley, 2nd edition 1996.
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley, 2nd edition 1996.
 
 \bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
     J\"org Schwenk, \\
@@ -2776,7 +2800,7 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
      {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
-          Key Lengths.} 
+          Key Lengths} \\
      In: RSA Laboratories Bulletin, No. 13, April 2000, p. 1-22
 
 \bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
@@ -2789,8 +2813,9 @@ This needs to be stressed because the type of padding is extremely important dur
     
 \bibitem[Wiles1994]{Wiles1994} \index{Wiles}
     Wiles, Andrew, \\
-    {\em Modular elliptic curves and Fermat's Last Theorem}
-    \index{Fermat!last theorem}, in Annals of Mathematics 141 (1995).
+    {\em Modular elliptic curves and Fermat's Last Theorem}, \\
+    \index{Fermat!last theorem}
+    in Annals of Mathematics 141 (1995).
 
 \bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
@@ -2865,18 +2890,31 @@ This needs to be stressed because the type of padding is extremely important dur
 	 
    \item Factorisation records \index{Factorisation records}\\
          \href{http://www.crypto-world.com/}
-	 {\texttt{http://www.crypto-world.com/}}
+	 {\texttt{http://www.crypto-world.com/}} \\
+	 \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
+	 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
+
 	 
+   \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
+         \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
+         {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
+
+
 \end{enumerate}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +20 pt
-\subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
+\subsection*{Acknowledgments} \addcontentsline{toc}{subsection}{Acknowledgments}
 
-I would like to take this opportunity to thank \\
-- Mr. Henrik Koy for making many very useful suggestions and for very constructively proof-reading this article, and\\
-- Dr. Illies for pointing me to Pari-GP.
+I would like to take this opportunity to thank 
+\begin{itemize}
+  \item {Mr. Henrik Koy for making many very useful suggestions, 
+         for very constructively proof-reading this article and
+	 for helping with TeX.}
+  \item {J\"org-Cornelius Schneider for his TeX support.}
+  \item {Dr. Illies for pointing me to Pari-GP \index{Pari-GP}.}
+\end{itemize}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

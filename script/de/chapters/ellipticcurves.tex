@@ -6,7 +6,7 @@
 \section{Elliptische Kurven}
 \index{Elliptische Kurven}
 \hypertarget{ellcurve}{}
-(Filipovics B. / Esslinger B. / Oyono R. / B"uger M., April 2000, Updates: Dez. 2001, Juni 2002)
+(Filipovics B. / B"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dez. 2001, Juni 2002, M"arz 2003)
 
 \subsection{Elliptische Kurven --- ein effizienter Ersatz f"ur RSA?} \label{ECAlternative}
 
@@ -356,7 +356,7 @@ Parameter von Kryptoverfahren, die auf dem Problem {\em Faktorisieren von ganzen
 die Parameter von Kryptoverfahren, die auf dem ECDL-Problem basieren.
 
 % --------------------------------------------------------------------------------------------------------------------
-\subsubsection{Digitale-Signaturen mit Elliptischen Kurven}
+\subsubsection{Digitale Signaturen mit Elliptischen Kurven}
 
 \begin{sloppypar}
   Das {\em Elliptische Kurven Diskreter Logarithmus
@@ -381,7 +381,7 @@ Die eben genannten Parameter $a, b, p, G, r$ und $k$ bezeichnet man als \index{D
 festgelegt, auf welcher Elliptischen Kurve ${\bf E}$ und in welcher zyklischen Untergruppe von ${\bf E}$ ein
 Signaturverfahren \glqq eingesetzt\grqq\ wurde.
 
-Der geheime Schl"ussel $s$ des Signaturerstellers ist eine (zuf"allige) ganze Zahl $s$ aus dem
+Der geheime Schl"ussel $s$ des Signaturerstellers ist eine (zuf"allige\index{Zufall}) ganze Zahl $s$ aus dem
 Intervall $[1, r-1]$. Der "offentliche Schl"ussel des Signaturerstellers ist ein Punkt $W=(x,y)$ auf der
 Elliptischen Kurve ${\bf E}$. "Offentlicher Schl"ussel $W$ und geheimer Schl"ussel $s$ h"angen wie folgt voneinander ab:
 $W = sG$. Das hei"st durch die Domain-Parameter (insbesondere $G$) und den geheimen Schl"ussel $s$
@@ -433,7 +433,7 @@ Daher eigenen sich diese Verfahren auch sehr gut f"ur Parallelisierung.
 % ---------------------------------------------------------------------------------------------------------------------
 \subsection{Implementierung Elliptische Kurven}
 
-CrypTool\index{CrypTool} benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
+CrypTool\index{CrypTool} bietet bei der Funktion f"ur digitale Signaturen auch Elliptische Kurven an.
 
 Implementiert sind die Basisalgorithmen f"ur Gruppenoperationen, f"ur das Erzeugen von Elliptischen
 Kurven und f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "uber endlichen
@@ -448,15 +448,21 @@ die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen 
 GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
 \index{Secude GmbH}
 
+
+%--------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
+
+\bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
                 Factoring integers with elliptic curves, 
 		Annals of Mathematics 126, pp. 649-673, 1987.
+
 \end{thebibliography}
 
 
+%--------------------------------------------------------------------
+%\newpage
 \section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
 
 \begin{enumerate}
@@ -468,11 +474,9 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
          \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
         
    \item \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren 
-         mit Elliptischen Kurven
-
+         mit Elliptischen Kurven. \\
         \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
-	{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
-
+	{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}} \\
         Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen
 	Kurven sowie Links zu anderen Seiten.
 

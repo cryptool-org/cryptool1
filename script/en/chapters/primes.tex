@@ -5,9 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\section{Prime numbers}
+\section{Prime Numbers}
 \hypertarget{Kapitel_2}{}
-(Bernhard Esslinger, besslinger@web.de, May 1999, Updates Nov. 2000, December 2001, February 2003)
+(Bernhard Esslinger, besslinger@web.de, May 1999, Updates Nov. 2000, Dec. 2001, Feb. 2003)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -158,8 +158,9 @@ O\acute{\iota}~\pi\varrho\tilde{\omega}\tau o \iota~\grave{\alpha}\varrho\iota\v
 \pi\varrho\acute{\omega}\tau\omega\nu~
 \grave{\alpha}\varrho\iota\vartheta\mu\tilde{\omega}\nu,
 $$
-the English translation of which is: the prime numbers are more than any previously existing amount
-of prime numbers.}
+the English translation of which is: the prime numbers are more than 
+any previously existing amount of prime numbers.
+} % Ende der Fußnote
 The sequence of prime numbers does not discontinue.
 Therefore, the quantity of prime numbers is infinite.
 \end{theorem}
@@ -214,7 +215,7 @@ of various orders of magnitude / dimensions)}.
 
 % --------------------------------------------------------------------------
 \hypertarget{MersenneNumbers01}{}
-\subsubsection{Special number types -- Mersenne numbers} \index{ Mersenne numbers}
+\subsubsection{Special number types -- Mersenne numbers} \index{Mersenne!Mersenne numbers}
 
 Almost all known huge prime numbers are special candidates, called
 \index{Mersenne Marin} {\em Mersenne numbers} of the form $2^p -1,$ where $p$ is
@@ -231,14 +232,17 @@ $$
 \end{array}
 $$
 
-\index{Number!Mersenne}\index{Mersenne!number}
-\index{Mersenne!theorem} Even Mersenne knew that not all Mersenne numbers
-are prime (see exponent $p = 11$). A prime Mersenne number \index{Mersenne!prime number} is called Mersenne prime number.  
+\index{Number!Mersenne}\index{Mersenne!Mersenne!number}
+\index{Mersenne!theorem} 
+
+Even Mersenne knew that not all Mersenne numbers
+are prime (see exponent $p = 11$). 
+A prime Mersenne number \index{Mersenne!Mersenne prime number} is called Mersenne prime number.  \\
 However, he is to be thanked for the interesting conclusion that a number of the form $2^n-1$ is not a prime number
 if $n$ is a composite number:
 
-\begin{theorem}[Mersenne]\label{thm-pz-mersenne} If $2^n - 1$ is a prime number, then $n$ is also a
-prime number.
+\begin{theorem}[Mersenne]\label{thm-pz-mersenne} 
+  If $2^n - 1$ is a prime number, then $n$ is also a prime number.
 \end{theorem}
 
 \begin{Proof}{}
@@ -257,9 +261,13 @@ or $ n_2 =1$. But this contradicts our assumption. Therefore the assumption is
 false. This means that there exists no composite number $ n, $ such that $ 2^n -
 1 $ is a prime.
 \end{Proof} 
+
 \vskip + 5pt
-Unfortunately this theorem only applies in one direction (the inverse does not
-apply, no equivalence): see the above example $2^{11}-1, $ where $11$ is prime.
+\hypertarget{Mer-nums-not-always-prim}{}
+Unfortunately this theorem only applies in one direction (the inverse 
+statement does not apply, no equivalence): that means that there exist 
+prime exponent for which the Mersenne number ist {\bf not} prime (see the 
+above example $2^{11}-1, $ where $11$ is prime, but $2^{11}-1$ not).
 
 Mersenne claimed that $2^{67}-1$ is a prime number. There is also a mathematical
 history behind this claim: it first took over 200 years before \index{Lucas
@@ -271,16 +279,16 @@ He admitted to having worked 20 years on the factorisation
 \index{factorisation} (expression as a product of factors) 
 \footnote{%
 Using CrypTool\index{CrypTool} v1.3 you can factorize numbers in the 
-following way: menu {\bf Indiv. Procedures \textbackslash RSA Demonstration 
-\textbackslash Factorisation of a Number}.
+following way: menu {\bf Indiv. Procedures \textbackslash{} RSA Demonstration 
+\textbackslash{} Factorisation of a Number}.
 }
 of this 21-digit decimal number!
 
 Due to the fact that the exponents of the Mersenne numbers
 \index{Mersenne!number} do not use all
 natural numbers, but only the primes, the {\em experimental space} is limited
-considerably. The currently known Mersenne prime numbers \index{Mersenne!prime number} 
-have the exponents 
+considerably. The currently known Mersenne prime numbers 
+\index{Mersenne!Mersenne prime number} have the exponents 
 $$
 \begin{array}{c}
 2; ~ 3; ~ 5; ~ 7; ~ 13; ~ 17; ~ 19; ~ 31; ~ 61; ~ 89; ~ 107; ~ 127;
@@ -291,7 +299,9 @@ $$
 6,972,593; \\13,466,917.
 \end{array}
 $$
-Thus $39$ Mersenne prime numbers are currently known. For the first 38 Mersenne prime numbers we know that this list is complete. The exponents until the 39th Mersenne prime numbers are not yet checked completely.
+Thus $39$ Mersenne prime numbers are currently known
+\index{Prime number!Mersenne}\index{Mersenne!Mersenne prime number}. 
+For the first 38 Mersenne prime numbers we know that this list is complete. The exponents until the 39th Mersenne prime numbers are not yet checked completely.
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates Samual} Yates coined the expression {\em
@@ -302,47 +312,54 @@ with at least $10,000$ digits in the decimal system (Yates coined the expression
 now long outdated).
 
 These numbers can be found at the following URLs:
+\begin{itemize}
+  \item[] \href{http://reality.sgi.com/chongo/prime/prime_press.html}
+               {\texttt{http://reality.sgi.com/chongo/prime/prime\_press.html}} 
+  \item[] \href{http://www.utm.edu/}
+               {\texttt{http://www.utm.edu/}}
+\end{itemize}
 
-{\href{http://reality.sgi.com/chongo/prime/prime_press.html}{\tt http://reality.sgi.com/chongo/prime/prime\_press.html}}
-\vskip - 4pt \noindent
-\begin{quote}
-(The supercomputer manufacturer SGI Cray Research not only employed brilliant
-mathematicians but also used the prime number tests as benchmarks for their
-machines.)
-\end{quote}
-{\href{http://www.utm.edu/}{\tt http://www.utm.edu/}}
-\vskip - 4pt \noindent
-\begin{quote}
-(At the university of Tennessee you will find extensive research results about
-prime numbers.)
-\end{quote}
 
 \vskip +15 pt
-\paragraph{M-37 -- January 1998}\index{Mersenne!prime number!M-37}\mbox{}
-% \\
+\paragraph{M-37 -- January 1998}\index{Mersenne!Mersenne prime number!M-37}\mbox{}
+\vskip +10 pt
+
 The 37th Mersenne prime,
 $$ 2^{3,021,377} - 1. $$
 was found in January 1998 and has 909,526
 digits in the decimal system, which corresponds to 33 pages in the newspaper!
 
+
 \vskip +15 pt
-\paragraph{M-38 -- June 1999}\index{Mersenne!prime number!M-38}\mbox{}
-% \\
+\paragraph{M-38 -- June 1999}\index{Mersenne!Mersenne prime number!M-38}\mbox{}
+\vskip +10 pt
+
 The 38th Mersenne prime, called M-38,
 $$ 2^{6,972,593} - 1. $$
 was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 (that corresponds to around 77 pages in the newspaper).
 
+Right now (Feb. 2003) all exponents smaller than $ 6,972,593 $ have been
+checked: so it is sure, that this is really the 38th Mersenne prime number.
+This means there is no other Mersenne prime number between the 37th 
+Mersenne prime number and this number.
+
+
 \vskip +15 pt
-\paragraph{M13466917 -- December 2001} \index{Mersenne!prime number!M-39}\mbox{}
-% \\
+\paragraph{M13466917 -- December 2001} \index{Mersenne!Mersenne prime number!M-39}\mbox{}
+\vskip +10 pt
+
 This number was discovered as 39th Mersenne prime (and already called M-39, despite it is not proven yet, whether there do not exist further Mersenne prime numbers between M-38 und M13466917), $$2^{13,466,917}-1,$$ at December 6, 2001 –- more exactly, the verification of this number, found at November 14, 2001 by the Canadian student Michael Cameron, was successfully finished. This number has about 4 million decimal digits (exactly 4,053,946 digits).
-Trying only to print this number $(924947738006701322247758 \cdots 1130073855470256259071)$ in the Financial Times would need around 200 pages.
+Trying only to print this number 
+$$(924947738006701322247758 \cdots 1130073855470256259071)$$
+would need around 200 pages in the Financial Times.
+
 
 \vskip +15 pt
 \paragraph{GIMPS}\index{GIMPS}\mbox{}
-% \\
-Discovering the 39th Mersenne prime the GIMPS project (Great Internet Mersenne Prime Search) founded in 1996 already discovered for the 5th time the greatest Mersenne number to be proven being prime
+\vskip +10 pt
+
+Discovering the 39th Mersenne prime the GIMPS project (Great Internet Mersenne Prime Search)\index{GIMPS} founded in 1996 already discovered for the 5th time the greatest Mersenne number to be proven being prime
 ({\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}).
 
 Now more than 130,000 volunteers, amateurs and experts, are working for the GIMPS project. They connect their computers into the so called ``primenet'', organized by the company entropia, to find such numbers using distributed computer programs.
@@ -387,10 +404,10 @@ However, if we know something about the {\em construction} of the number in
 question, there are extremely highly developed procedures that are much quicker.
 
 \hypertarget{FermatNumbers01}{}
-In the 17th century, Fermat wrote to Mersenne that he presumed that all numbers
+In the 17th century, Fermat wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
 of the form $$ F(n) = 2^{2^n} + 1 $$ are prime for all whole numbers $n$ greater
 than or equal to $0$ (\hyperlink{FermatNumbers02}{see below}) 
-\index{Zahlen!Fermatzahlen}\index{Fermat!Fermatzahl}
+\index{Number!Fermat number}\index{Fermat!Fermat number}
 
 As early as in the 19th century, it was discovered that the $29$-digit number $$
 F(7) = 2^{2^7} + 1 $$ is not prime. However, it was not until 1970 that
@@ -441,14 +458,14 @@ More extensive mathematics behind the Rabin test delivers the probability that
 the number examined is prime (such probabilities are currently around $10^{-
 60}$).
 
-Detailed descriptions of tests for finding out whether a number is prime can be
-found on Web sites such as:
-
-{\href{http://www.utm.edu/research/primes/mersenne.shtml}{\tt
-http://www.utm.edu/research/primes/mersenne.shtml}} and
-
-{\href{http://www.utm.edu/research/primes/prove/index.html}{\tt
-http://www.utm.edu/research/primes/prove/index.html}}.
+Detailed descriptions of tests for finding out whether a number is prime
+can be found on Web sites such as:
+\begin{itemize}
+  \item[] \href{http://www.utm.edu/research/primes/mersenne.shtml}
+               {\texttt{http://www.utm.edu/research/primes/mersenne.shtml}} \\
+          \href{http://www.utm.edu/research/primes/prove/index.html}
+               {\texttt{http://www.utm.edu/research/primes/prove/index.html}} 
+\end{itemize}
 
 
 % --------------------------------------------------------------------------
@@ -465,30 +482,37 @@ numbers.
 Ideally, we would like, for the number $n$, to immediately obtain the $n$-th
 prime number, i.e. for $f(8) = 19\,$ or for  $f(52) = 239$.
 
-Ideas for this can be found at \\
-{\href{http://www.utm.edu/research/primes/notes/faq/p_n.html}
- {\tt http://www.utm.edu/research/primes/notes/faq/p\_n.html}}.
+Ideas for this can be found at
+\begin{itemize}
+  \item[] {\href{http://www.utm.edu/research/primes/notes/faq/p_n.html}
+          {\tt http://www.utm.edu/research/primes/notes/faq/p\_n.html}}.
+\end{itemize}
 
-Cross-reference:  \hyperlink{ntePrimzahl}{the table under \ref{s:ntePrimzahl}} contains the precise values for the $n$th
-prime numbers for selected $ n.$
+
+Cross-reference:  \hyperlink{ntePrimzahl}{the table under \ref{s:ntePrimzahl}}
+contains the precise values for the $n$th prime numbers for selected $ n.$
 \\
 
-The following enumeration contains the most common ideas for ``prime number formulae'':
+The following enumeration contains the most common ideas for 
+``prime number formulae'':
 \begin{enumerate}
 
-\item Mersenne numbers  $f(n) = 2^n - 1$: \\
-    As shown \hyperlink{MersenneNumbers01}{above}, this formula seems to deliver 
-    relatively large prime numbers but - as for $n=11$ [$f(n)=2,047$] - it is 
-    repeatedly the case that the result is not prime.
-    Today, all the Mersenne primes having less than 2,000,000 digits are known\\
+\item {\em Mersenne numbers}  $f(n) = 2^n - 1$  \quad for $ n $ prime: \\
+    As shown \hyperlink{MersenneNumbers01}{above}, this formula seems
+    to deliver relatively large prime numbers but - as for $n=11$ 
+    [$f(n)=2,047$] - it is repeatedly the case that the result even with
+    prime exponents is \hyperlink{Mer-nums-not-always-prim}{not} prime.\\
+    Today, all the Mersenne primes having less than 2,000,000 digits are 
+    known (M-38) \\
     ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
            {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
 
 
 \item $F(k,n) = k \cdot 2^n \pm 1$  for $ n $ prime and $ k $ small primes:\\
    For this generalisation of the Mersenne numbers there are (for small $k$)
-   also extremely quick prime number tests (see \cite{Knuth1981}). This can be
-   performed in practice using software such as the PROTHS software from Yves Gallot \\
+   also extremely quick prime number tests (see \cite{Knuth1981}). This can
+   be performed in practice using software such as the PROTHS software from
+   Yves Gallot \\
    ({\href{http://www.prothsearch.net/index.html}
     {\tt http://www.prothsearch.net/index.html}}).
 
@@ -516,11 +540,12 @@ F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4 ,294, 967, 297 = 641 \cdot
 \end{array} 
 $$
 
-    Within the project ``Distributed Search for Fermat Number Dividers'' offered by
-    Leonid Durman there is also progress in finding new monster primes
+    Within the project ``Distributed Search for Fermat Number Dividers''
+    offered by Leonid Durman there is also progress in finding new monster
+    primes
     ({\href{http://www.fermatsearch.org/}
-       {\tt http://www.fermatsearch.org/}}).
-    This website has conjectured webpages in Russian, Italian and German.
+       {\tt http://www.fermatsearch.org/}}  --  This website has conjectured
+    webpages in Russian, Italian and German).
 
     The discovered factors can be compound integers or primes.
      
@@ -531,21 +556,24 @@ $$
     \end{itemize}
     
     The Fermat number
-    $$ F[2,145,351] = 2^(2^{2,145,351}) + 1 $$ 
+    $$ F[2,145,351] = 2^{(2^{2,145,351})} + 1 $$ 
     is divisible by the prime
-    $$ p = (3*2^{2,145,353} + 1) $$ \\
-    This prime is the largest known prime generalized Mersenne number. 
-    It was discovered only a few days after Michael Angel discovered the largest
-    generalized Fermat number (\hyperlink{generalizedFermatprimes}{see below}).
-    This moved GIMPS first prime discovery, M-35 = M1398269, into 7th place.
+    $$ p = 3*2^{2,145,353} + 1 $$ \\
+    This prime p is the largest known prime generalized Mersenne number. 
+    It was discovered only a few days after Michael Angel discovered the 
+    largest generalized Fermat number (\hyperlink{generalizedFermatprimes}
+    {see below}).  This moved GIMPS' \index{GIMPS} first prime discovery,
+    M-35 = M1398269, into 7th place.
 
-    This work was done using NewPGen from Paul Jobling's, PRP from George Woltman's, 
-    Proth from Yves Gallot's programs and also the Proth-Gallot group at St. Patrick's 
-    College, Dublin.
+    This work was done using NewPGen from Paul Jobling's, PRP from 
+    George Woltman's, Proth from Yves Gallot's programs and also the
+    Proth-Gallot group at St. Patrick's College, Dublin.
 
-    More details are in\\
-    {\href{http://www.fermatsearch.org/history/cosgrave_record.htm/}
-       {\tt http://www.fermatsearch.org/history/cosgrave\_record.htm}}.
+    More details are in
+    \begin{itemize}
+      \item[] \href{http://www.fermatsearch.org/history/cosgrave_record.htm/}
+          {\texttt{http://www.fermatsearch.org/history/cosgrave\_record.htm/}}
+    \end{itemize}
 
 %    ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
 %           {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
@@ -556,27 +584,34 @@ $$
 
 \vskip +15 pt
 \hypertarget{generalizedFermatprimes}{}
-\item Generalized Fermat numbers    $F(b,m) = b^{2^m} + 1$: \\
-\index{Fermat numbers}
-    Generalized Fermat numbers are more numerous than Mersenne numbers at equal size 
-    and many of them are waiting to be discovered to fill the big gaps between the 
-    Mersenne primes already found or still undiscovered.
-    Progress in number theory made it possible that numbers, where the representation is not 
-    limited to the base 2, can be tested at almost the same speed than a 
-    Mersenne number.
+\item {\em Generalized Fermat numbers}\footnote{%
+The base of this power is no more restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
+\index{Fermat!Fermat number!Generalized}  \\
+    Generalized Fermat numbers are more numerous than Mersenne numbers at
+    equal size and many of them are waiting to be discovered to fill the
+    big gaps between the Mersenne primes already found or still undiscovered.
+    Progress in number theory made it possible that numbers, where the
+    representation is not limited to the base 2, can be tested at almost
+    the same speed than a Mersenne number.
     
-    Yves Gallot wrote the program Proth.exe to investigate generalized Fermat numbers.
+    Yves Gallot wrote the program Proth.exe to investigate generalized
+    Fermat numbers.
     
-    Using this program at February 16, 2003 Michael Angel discovered the largest of them 
-    till then with 628,808 digits, which so became the 5th largest known prime number:
-    $$ b^{2^{17}} + 1  =  62722^{131,072} + 1. $$ 
-    This moved GIMPS first prime discovery, M-35 = M1398269, into 6th place.
-    
-   ({\href{http://www.prothsearch.net/index.html}
-    {\tt http://www.prothsearch.net/index.html}})
-    
-   ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
-    {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}})
+    Using this program at February 16, 2003 Michael Angel discovered the
+    largest of them till then with 628,808 digits, which so became the
+    5th largest known prime number:
+    $$ b^{2^{17}} + 1  =  62,722^{131,072} + 1. $$ 
+    This moved GIMPS' \index{GIMPS} first prime discovery, M-35 = M1398269,
+    into 6th place.
+
+    More details are in
+    \begin{itemize}
+      \item[] \href{http://www.prothsearch.net/index.html}
+                   {\texttt{http://www.prothsearch.net/index.html}} \\
+              \href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
+               {\texttt{http://perso.wanadoo.fr/yves.gallot/primes/index.html}} 
+    \end{itemize}
+
 
 
   \vskip +15 pt
@@ -615,10 +650,11 @@ $$
 \end{array} 
 $$
 
-  \item \index{Euclidean number} {\em Euclidean numbers} $e_n = e_0 \cdot e_1
-\cdots e_{n-1} + 1$  with $n$ greater than or equal to $1$ and $e_0 := 1$.
-$e_{n-1}$ is not the $(n-1)$th prime number, but the number previously found
-here.
+  \item \index{Euclidean number} {\em Euclidean numbers} $e_n = e_0 
+    \cdot e_1 \cdots e_{n-1} + 1$  with $n$ greater than or equal to 
+    $1$ and $e_0 := 1$. \\
+    $e_{n-1}$ is not the $(n-1)$th prime number, but the number 
+    previously found here.
     Unfortunately this formula is not open but recursive.
     The sequence starts with 
 
@@ -639,9 +675,9 @@ e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29,881\cdot 67,003 \cdot 9,119,521
 $$
 
 $e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
-particularly useful. Comment: However, what is special about all these numbers
+particularly useful. Comment: However, what is special about these numbers
 is that any pair of them does not have a common factor other than $1$. They are
-therefore \index{Prime number!relative} {\em relatively prime}.
+therefore \index{Prime number!relative}\index{Relatively prim} {\em relatively prime}.
 
 
   \item $f(n) = n^2 + n + 41$:\\
@@ -667,8 +703,8 @@ $$
 
 The first $40$ values are prime numbers (which have the obvious regularity that
 their difference starts with $2$ and increases by $2$ each time), but the $41$th
-and $42$th values are not prime numbers.     It is easy to see that $f(41)$ hl
-cannot be a prime number:
+and $42$th values are not prime numbers. 
+It is easy to see that $f(41)$ cannot be a prime number:
     $f(41) = 41^2 + 41 + 41 = 41 (41 + 1 + 1) = 41 \cdot 43$.
 
 
@@ -728,6 +764,9 @@ delivers prime values.
     For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where you
 will also find further details about prime number formulae.
 
+    This means there is no hope to look for further formulas 
+    similiar to that of type 11. or 12.
+
 
 \pagebreak
   \item  \index{Catalan number} Catalan, after whom the so-called
@@ -763,7 +802,7 @@ not very likely.
 In any case, it has not been proved that this formula delivers only primes.
 \end{enumerate}
 
-
+\vskip +10 pt
 % --------------------------------------------------------------------------
 \subsection{Density and distribution of the primes}
 
@@ -842,34 +881,32 @@ consider $ 16 \cdot \ln 10 = 36,8 $ numbers (on average) until we find a prime.
 A precise investigation shows: There are $10$ prime numbers between $10^{16}-
 370$ and $10^{16}-1$.
 
-Under the heading {\em How Many Primes Are There} under
-
-{\href{http://www.utm.edu/research/primes/howmany.shtml}{\tt
-http://www.utm.edu/research/primes/howmany.shtml}}.
-
+Under the heading {\em How Many Primes Are There} at \\
+{\href{http://www.utm.edu/research/primes/howmany.shtml}
+{\tt http://www.utm.edu/research/primes/howmany.shtml}} \\
 you will find numerous other details.
 
-Using the following Web site:
-
-{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{\tt
-http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}}
-
+Using the following Web site: \\
+{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
+{\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}} \
 you can easily determine $PI(x)$.
 
 
 The \textbf{distribution} of primes displays several irregularities for which no
-€system€ has yet been found. (On the one hand, many occur closely together, like
+€system€ has yet been found: On the one hand, many occur closely together, like
 $2$ and $3,$ $ 11$ and $13, $ $ 809$ and $811$, on the other hand large gaps
 containing no primes also occur. For example, no primes lie between $113$ and
 $127, $ $ 293$ and $307, $ $317$ and $331, $ $ 523$ and $541, $ $ 773$ and $787,
-$ $ 839$ and $853$ as well as between $887$ and $907$) (For details, see:
-
+$ $ 839$ and $853$ as well as between $887$ and $907$. \\
+For details, see: \\
 {\href{http://www.utm.edu/research/primes/notes/gaps.html}{\tt
-http://www.utm.edu/research/primes/notes/gaps.html}}).
+http://www.utm.edu/research/primes/notes/gaps.html}}.
 
 This is precisely part of what motivates mathematicians to discover its secrets.
+
 \index{Eratosthenes!sieve}
-\paragraph{Sieve of Eratosthenes}
+\paragraph{Sieve of Eratosthenes}\mbox{}
+
 An easy way of calculating all $PI(x)$ primes less than or equal to $x$ is to
 use the sieve of Eratosthenes. In the 3rd century before Christ, he found an
 extremely easy, automatic way of finding this out. To begin with, you write down
@@ -969,11 +1006,11 @@ number?
   The largest twin primes known today are $1,693,965 \cdot 2^{66,443} \pm 1.$
   \item Does a formula exist for calculating the number of twin primes per
 interval?
-  \item The above proof of the function  $f: N \rightarrow Z$ with $n \mapsto
+  \item The above proof of the function  $f: \\qquad N \rightarrow Z$ with $n \mapsto
 a^{3^n}$  only guarantees the existence of such a number $a$.  How can we
 determine this number $a$ and will it have a value, making the function also of
 practical interest?
-\item Is there an infinite number of Mersenne prime numbers?
+\item Is there an infinite number of Mersenne prime numbers?\index{Prime number!Mersenne}\index{Mersenne!Mersenne prime number}
 \item Is there an infinite number of Fermat prime numbers?
 
   \item Does a polynomial time algorithm exist for calculating the prime factors of a number (see
@@ -989,15 +1026,21 @@ prime?
 \end{itemize}
 \end{itemize}
 
+
 \paragraph{Further interesting topics regarding prime numbers}
+\mbox{}
+
 This chapter doesn't consider other number theory topics such as
 divisibility rules, modulus calculation, modular inverses, modular powers and
 roots, Chinese remainder theorem, Euler PHI function, perfect numbers.
+Some of these are considered in the next chapter.
+
 
 % --------------------------------------------------------------------------
 \newpage
 \subsubsection{Number of prime numbers in various intervals}\label{s:primhfk}
 \hypertarget{primhfk}{}
+\vskip +10 pt
 
 \begin{tabular}{|l|l||l|l||l|l|}\hline
 \multicolumn{2}{|l||}{Ten-sized intervals} & \multicolumn{2}{l||}{Hundred-sized
@@ -1032,7 +1075,9 @@ Intervall & Number & Average number per 1000 \\ \hline
 
 % --------------------------------------------------------------------------
 \newpage
-\subsubsection{Indexing prime numbers ($n$-th prime number)} \hypertarget{ntePrimzahl}{}\label{s:ntePrimzahl}
+\subsubsection{Indexing prime numbers ($n$-th prime number)} 
+\hypertarget{ntePrimzahl}{}\label{s:ntePrimzahl}
+\vskip +10 pt
 
 \begin{tabular}{|l|l|l|l|}\hline
 Index   &   Precise value  & Rounded value &
@@ -1058,16 +1103,19 @@ Comment \\
 1E+09  &    22,801,763,489  &    2.28018E+10 & \\
 1E+12  &    29,996,224,275,833 & 2.99962E+13 & \\ \hline
 \end{tabular}
-\vskip +2 pt Comment: With gaps, extremely large prime numbers were discovered
+\vskip +2pt Comment: With gaps, extremely large prime numbers were discovered
 at an early stage.  \\
-\vskip +10pt Web links:
 
-{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}.} \vskip +7 pt Output of the
-$n$-th prime number
 
-See {\href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt
-http://www.utm.edu/research/primes/notes/by\_year.html}.}
-\vskip +7 pt
+\vskip +12pt Web links:
+
+{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}.} 
+
+\vskip +16pt Output of the $n$-th prime number
+
+See {\href{http://www.utm.edu/research/primes/notes/by_year.html}
+    {\tt http://www.utm.edu/research/primes/notes/by\_year.html}.}
+
 
 
 % --------------------------------------------------------------------------
@@ -1135,6 +1183,18 @@ Calculation using GMP, for example:
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
 
+
+\bibitem[Aaronson2003]{Aaronson2003} \index{Aaronson 2003}
+    Scott Aaronson, \\
+    {\em The Prime Facts: From Euclid to AKS}, \\
+    \href{http://www.cs.berkeley.edu/~aaronson/prime.ps}
+         {\texttt{http://www.cs.berkeley.edu/~aaronson/prime.ps}}. \\
+    Only after I had completed this article, I did come across the 
+    beautiful paper of von Scott Aaronson, which also offers a simple, 
+    didactically well done but nervertheless not to low aimed intoduction
+    into this topic.
+
+
 %already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Bartholome1996]{2Bartholome1996}  \index{Bartholome 1996}
     A. Bartholomé, J. Rung, H. Kern, \\     
@@ -1146,11 +1206,11 @@ Calculation using GMP, for example:
 
 \bibitem[Bundschuh1998]{Bundschuh1998} \index{Bundschuh 1998}
     Peter Bundschuh, \\
-    {\em Einführung in die Zahlentheorie}, Springer 1988, 1998.
+    {\em Einf"uhrung in die Zahlentheorie}, Springer 1988, 4th edition 1998.
 
 \bibitem[Doxiadis2000]{Dioxadis2000}
     Apostolos Doxiadis, \\
-    {\em Uncle Petros and the Goldbach's Conjecture}, 
+    {\em Uncle Petros and the Goldbach's Conjecture}, \\
     Faber/Bloomsbury, 2000.
 
 \bibitem[Graham1989]{Graham1989} \index{Graham 1989}     
@@ -1159,13 +1219,13 @@ Calculation using GMP, for example:
 
 \bibitem[Klee1997]{Klee1997} \index{Klee 1997}     
    V. Klee, S. Wagon, \\
-   {\em Ungel\"oste Probleme in der Zahlentheorie und der Geometrie der Ebene},
-   Birkh\"auser Verlag, 1997.
+   {\em Ungel\"oste Probleme in der Zahlentheorie und der Geometrie der 
+   Ebene}, \\ Birkh\"auser Verlag, 1997.
 
 \bibitem[Knuth1981]{Knuth1981} \index{Knuth 1981}     
    Donald E. Knuth, \\ 
-   {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, 
-   Addison-Wesley, 1969; 2nd edition 1981.
+   {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, \\
+   Addison-Wesley, 1969, 2nd edition 1981.
 
 \bibitem[Lorenz1993]{Lorenz1993} \index{Lorenz 1993}     
    F. Lorenz, \\
@@ -1193,13 +1253,13 @@ Calculation using GMP, for example:
 
 \bibitem[Schroeder1999]{Schroeder1999} \index{Schroeder 1999}
     M.R. Schroeder, \\
-    {\em Number Theory in Science and Communication}, 
+    {\em Number Theory in Science and Communication}, \\ 
     Springer 1984, 3rd edition 1997, Corrected Printing 1999.
 
 \bibitem[Schwenk1996]{Schwenk1996} \index{Schwenk 1996}     
     J. Schwenk \\
-    {\em Conditional Access},
-    in taschenbuch der telekom praxis 1996, 
+    {\em Conditional Access}, 
+    in taschenbuch der telekom praxis 1996, \\
     Hrgb. B. Seiler, Verlag Schiele und Sch\"on, Berlin.
 
 \bibitem[Tietze1973]{Tietze1973} \index{Tietze 1973}     
@@ -1209,13 +1269,14 @@ Calculation using GMP, for example:
 
 \end{thebibliography}
 
-\newpage
 
 % --------------------------------------------------------------------------
+\newpage
 \section*{Web links} \addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
-\item GIMPS (Great Internet Mersenne-Prime Search) \\
+\item GIMPS (Great Internet Mersenne-Prime Search) 
+      \index{Mersenne!Mersenne prime number} \\
       www.mersenne.org is the home page of the GIMPS project, \index{GIMPS} \\
       \href{http://www.mersenne.org/prime.htm}{\tt http://www.mersenne.org/prime.htm }
 
@@ -1229,13 +1290,25 @@ Calculation using GMP, for example:
 \item Distributed Search for Fermat Number Dividers \\
       \href{http://www.fermatsearch.org/}{\tt http://www.fermatsearch.org/}
 
-\item \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
+\item At the university of Tennessee you will find extensive research
+      results about prime numbers. \\
+      \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
 
-\item \href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt
-http://www.utm.edu/research/primes/notes/by\_year.html }
+\item Descriptions e.g. about prime number tests \\
+      \href{http://www.utm.edu/research/primes/mersenne.shtml}
+           {\texttt{http://www.utm.edu/research/primes/mersenne.shtml}} \\
+      \href{http://www.utm.edu/research/primes/prove/index.html}
+           {\texttt{http://www.utm.edu/research/primes/prove/index.html}} 
 
-\item \href{http://reality.sgi.com/chongo/prime/prime_press.html}{\tt
-http://reality.sgi.com/chongo/prime/prime\_press.html }
+\item Showing the $n$-th prime number \\
+      \href{http://www.utm.edu/research/primes/notes/by_year.html}
+           {\tt http://www.utm.edu/research/primes/notes/by\_year.html }
+
+\item The supercomputer manufacturer SGI Cray Research not only 
+      employed brilliant mathematicians but also used the prime 
+      number tests as benchmarks for their machines. \\
+      \href{http://reality.sgi.com/chongo/prime/prime_press.html}
+      {\tt http://reality.sgi.com/chongo/prime/prime\_press.html }
 
 \item \href{http://www.eff.org/coop-awards/prime-release1.html}{\tt
 http://www.eff.org/coop-awards/prime-release1.html }
@@ -1254,17 +1327,12 @@ http://www.cerias.purdue.edu/homes/ssw/cun }
 
 \item \href{http://www.mscs.dal.ca/~dilcher/golbach/index.html}{\tt http://www.mscs.dal.ca/\~{}dilcher/goldbach/index.html}
 
-\item Only after I had completed this article, I did come across the beautiful
-              paper of von Scott Aaronson, which also offers a simple, didactically well
-	      done but nervertheless not to low aimed intoduction into this topic:
-	      ``The Prime Facts: From Euclid to AKS'', 2003 \\
-         \href{http://www.cs.berkeley.edu/~aaronson/prime.ps}
-              {\texttt{http://www.cs.berkeley.edu/~aaronson/prime.ps}}
-	      \index{Aaronson}
 \end{enumerate}
 
+
+\vskip +10 pt
 % --------------------------------------------------------------------------
-\subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
+\subsection*{Acknowledgments} \addcontentsline{toc}{subsection}{Acknowledgments}
 
 I would like to take this opportunity to thank Mr. Henrik Koy and Mr. Roger
 Oyono for their very constructively proof-reading of this article.

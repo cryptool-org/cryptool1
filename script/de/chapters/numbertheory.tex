@@ -5,10 +5,13 @@
 % ..........................................................................
 % --------------------------------------------------------------------------
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%                 E l e m e n t a r e  Z a h l e n t h e o r i e
+% /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 \newpage
 \hypertarget{Kapitel_3}{}
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
-(Bernhard Esslinger, besslinger@web.de, Juli 2001, Updates: Nov. 2001, Juni 2002, Feb. 2003)
+(Bernhard Esslinger, besslinger@web.de, Juli 2001, Updates: Nov. 2001, Juni 2002, Feb. 2003) \\
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -90,7 +93,7 @@ orientiert sich daran, das RSA-Verfahren verstehen und anwenden zu k"onnen.
 Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
 Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
-(DH) und RSA eingegangen.
+\index{Diffie-Hellman} (DH) und RSA eingegangen.
 
 Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahrens zu machen.
 
@@ -732,7 +735,7 @@ Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{Kapitel 3.9 Multi
 
 Die folgenden drei Beispiele\footnote{%
 In \hyperlink{AppArith1}{Anhang D} finden Sie den Quellcode zur Berechnung der Tabellen mit Mathematica\index{Mathematica}
-oder Pari-GP.\index{Pari-GP}
+und Pari-GP.\index{Pari-GP}
 } veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht mehr 
 die vollst"andigen Multiplikationstabellen angegeben, sondern nur die Zeilen f"ur die Faktoren $5$ und $6$).
 
@@ -1361,8 +1364,8 @@ gleiche Ordnung haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 {\bf Beispiel 1:}\\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur Bestimmung der Tabelle mit Mathematica und
-Pari-GP.
+In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur Bestimmung der 
+Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}11$ f"ur die Exponenten $i = 1, 2, \cdots, 10$ und f"ur 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich f"ur jedes a daraus ergebenden Wert $ord_{11}(a)$:
 
@@ -1421,7 +1424,8 @@ modulo $45$ und modulo $46$.
 
 {\bf Beispiel 2:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3b}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
+In \hyperlink{AppArith3b}{Anhang D} Finden Sie den Quelltext zur Berechnung der 
+Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}45$
 f"ur die Exponenten $i = 1, 2, \cdots, 12$ und f"ur die Basen $a = 1, 2, \cdots, 12$
 sowie den sich f"ur jedes $a$ daraus ergebenden Wert $ord_{45}(a)$.
@@ -1590,6 +1594,7 @@ In der Literatur und in Filmen werden nicht nur klassische Verfahren
 benutzt (wie z.~B. die geheime Nachricht, die Sherlock Holmes in der
 Geschichte "`Die tanzenden M"annchen"' von Arthur Conan Doyle \index{Arthur 
 Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
+% hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 \begin{itemize}
 \item dem Film "`Das Kartenhaus"', 1992, wo sich die Autisten mit Hilfe von
   5- und 6-stelligen Primzahlen unterhalten,
@@ -1867,18 +1872,18 @@ Die L"osungskomplexit"at des Faktorisierungsproblems liegt damit asymptotisch be
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
-Siehe: \\
+Siehe: 
 % {\em The development of the Number Field Sieve} \cite{Lenstra1993} und \\ 
 % {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
 %     Key Lengths} \cite{Silverman2000} 
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
+\begin{list}{}{\setlength{\topsep}{-7pt}}
   \item[] A. Lenstra, H. Lenstra:  
           {\em The development of the Number Field Sieve} 
-          \cite{Lenstra1993}
+          \cite{Lenstra1993}.
   \item[] Robert D. Silverman:  
           {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
 	  Key Lengths} 
-	  \cite{Silverman2000}
+	  \cite{Silverman2000}.
 \end{list}
 
      
@@ -1901,7 +1906,7 @@ ist bis heute nicht bewiesen. Zahlentheoretiker halten das ``RSA-Problem'' und d
 komplexit"atstheoretisch "aquivalent.
 
 % \noindent   Wird das gebraucht ? (2003-03-02)
-Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}
+Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 
 
@@ -1920,9 +1925,9 @@ Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $n$ bestimmt
 %     \noindent  - ist das noetig - im Englischen auch nicht ? 2003-03-02
       Siehe:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
-        \item[] C. Pomerance,:  
+        \item[] C. Pomerance:  
                 {\em The quadratic sieve factoring algorithm} 
-                \cite{Pomerance1984}
+                \cite{Pomerance1984}.
       \end{list}
       \vskip +12pt
 
@@ -1936,7 +1941,7 @@ Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $n$ bestimmt
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
                 {\em Factoring integers with the number field sieve} 
-                \cite{Buhler1993}
+                \cite{Buhler1993}.
       \end{list}
       \vskip +12 pt
 
@@ -1950,8 +1955,9 @@ Absch"atzungen "uber die zuk"unftige Entwicklung der Sicherheit
 unterschiedlicher RSA-Modull"angen differieren und h"angen von 
 verschiedenen Annahmen ab:
 \begin{itemize}
-   \item Entwicklung der Rechnergeschwindigkeit (Gesetz von Moore: Verdopplung der Rechnerleistung alle 18 Monate) 
-         und des Grid-Computing. \index{Gesetz von Moore}
+   \item Entwicklung der Rechnergeschwindigkeit (Gesetz von Moore: 
+         Verdopplung der Rechnerleistung alle 18 Monate) 
+         und des Grid-Computing. \index{Gesetz von Moore}\index{Grid-Computing}
    \item Entwicklung neuer Algorithmen.
 \end{itemize}
 Selbst ohne neue Algorithmen wurden in den letzten Jahren durchschnittlich
@@ -2003,8 +2009,10 @@ Einsatz des RSA ganz verzichtet werden.
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{Das Papier von Bernstein und seine Auswirkungen auf die Sicherheit
-des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierungsproblem}\mbox{}
-% \\
+des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierungsproblem}
+\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! 
+        % Braucht die Leerzeile danach auch noch !! bebebe
+
 Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer
 factorization: a proposal'' (siehe
 \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}) von
@@ -2115,8 +2123,9 @@ Verweise:
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{Das TWIRL-Device} \label{TWIRLDevice} \index{TWIRL-Device}\mbox{}
-% \\
+\paragraph{Das TWIRL-Device} \label{TWIRLDevice} \index{TWIRL-Device}
+\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
+
 Im Januar 2003 ver"offentlichten Adi Shamir und Eran Tromer vom Weizmann Institute of Science den vorl"aufigen Draft {\em ``Factoring Large Numbers with the TWIRL Device''}, in dem deutliche Bedenken gegen RSA-Schl"ussell"angen unter 1024 begr"undet werden \cite{Shamir2003}.
 
 Das Abstract fasst ihre Ergebnisse folgenderma"sen zusammen: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
@@ -2128,7 +2137,7 @@ Damit erscheinen die aktuellen Empfehlungen des BSI, auf l"angere RSA-Schl"ussel
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{``Primes in P'': Testen auf Primalit"at ist polynominal} \label{PrimesinP} \index{Primzahltest} 
- \mbox{} % da er // allein nicht mag ! xxxxxxxxx
+\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
 Im August 2002 ver"offentlichten die drei indischen Forscher M. Agrawal, N. Kayal und N. Saxena ihr Paper {\em ``PRIMES in P''} "uber einen neuen Primzahltest-Algorithmus \cite{Agrawal2002}. 
 Sie entdeckten einen polynominalen deterministischen Algorithmus, um zu entscheiden, ob eine gegebene Zahl prim ist oder nicht.
@@ -2137,15 +2146,19 @@ Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neue
 
 Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) schneller sein k"onnen. Der neue Algorithmus funktioniert f"ur alle positiven ganzen Zahlen. Dagegen verwendet das GIMPS-Projekt den Lucas-Lehmer-Primzahltest, der besondere Eigenschaften der Mersennezahlen ausnutzt. Dadurch ist der Lucas-Lehmer-Test viel schneller und erlaubt, Zahlen mit Millionen von Stellen zu testen, w"ahrend generische Algorithmen auf Zahlen mit einigen tausend Stellen beschr"ankt sind. Nachteil der bisherigen schnellen Verfahren ist, dass sie probabilistisch sind, also ihr Ergebnis h"ochstwahrscheinlich, aber nicht ganz sicher ist.
 
-Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: \\
-\href{http://www.mersenne.org/}{\texttt{http://www.mersenne.org/}} und \\
-\href{http://fatphil.org/maths/AKS/}{\texttt{http://fatphil.org/maths/AKS/}}.
-\\
+Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: 
+\begin{itemize}
+  \item[] \href{http://www.mersenne.org/}
+               {\texttt{http://www.mersenne.org/}} \\
+          \href{http://fatphil.org/maths/AKS/}
+               {\texttt{http://fatphil.org/maths/AKS/}} 
+\end{itemize}
+
+\vskip +10 pt
 
 
 
-
-\vspace{4ex}
+\vspace{6ex}
 \begin{center}
 \fbox{\parbox{15cm}{
     \emph{Hermann Hesse\footnotemark:}\\
@@ -2158,7 +2171,7 @@ Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: \\
     02.07.1877$-$09.08.1962.}
 
 % --------------------------------------------------------------------------
-\vspace{4ex}
+\vspace{2ex}
 \subsubsection{Status der Faktorisierung von konkreten gro"sen Zahlen}
 \label{NoteFactorisation}
 
@@ -2190,9 +2203,12 @@ $$
 \end{array}
 $$
 \begin{sloppypar}
-Wobei die drei kleinsten Faktoren leicht (z.B. mit CrypTool\index{CrypTool}
-unter Men"u {\bf Einzelverfahren \textbackslash RSA-Demonstration \textbackslash Faktorisieren einer Zahl}) 
-bestimmt werden.
+Wobei die drei kleinsten Faktoren leicht \footnote{%
+Z.B. mit CrypTool\index{CrypTool} "uber das Men"u 
+{\bf Einzelverfahren \textbackslash{} RSA-Demonstration \textbackslash{} 
+Faktorisieren einer Zahl}.
+}
+bestimmt werden k"onnen.
 Die n"achsten drei Primfaktoren wurden von P.~Zimmerman
 (\href{http://www.loria.fr/zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}), 
 T.~Grandlund
@@ -2313,14 +2329,15 @@ Funktion im ganzen.
 \subsubsection{Das Diffie-Hellman Schl"usselaustausch-Protokoll 
                (Key Exchange Protocol)} 
 \index{Diffie Whitfield} 
-\index{Hellman Martin} \index{Schl""usselaustausch!Diffie-Hellman}
+\index{Hellman Martin} 
+\index{Schl""usselaustausch!Diffie-Hellman}
+\index{Diffie-Hellman}
 
 Das DH-Schl"usselaustauschprotokoll wurde 1976 in Stanford von Whitfield
-Diffie, Martin E. Hellman und Ralph Merkle erdacht
-\footnote{%
-Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie die einzelnen Schritte
-dieses Austauschprotokolls mit konkreten Zahlen nachvollziehen: \\
-per \glqq Einzelverfahren \textbackslash Diffie-Hellman-Demo''.
+Diffie, Martin E. Hellman und Ralph Merkle erdacht\footnote{%
+In CrypTool\index{CrypTool} v1.3.04 ist dieses Austauschprotokoll visualisiert:
+Sie k"onnen die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
+per  {\bf Einzelverfahren \textbackslash{} Diffie-Hellman-Demo}.
 }
 . 
 
@@ -2469,7 +2486,7 @@ Schritte hier mit konkreten, aber kleinen Zahlen durchgef"uhrt werden.
 Bevor wir RSA auf einen Text anwenden, wollen wir es erst direkt mit einer
 Zahl zeigen
 \footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per \glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash RSA-Kryptosystem'' l"osen.
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per  {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen.
 }.
 \begin{itemize}
   \item[\bf 1.] Die gew"ahlten Primzahlen seien $p=5$ und $q=11$. \\
@@ -2495,7 +2512,7 @@ ASCII-Zeichensatz als Bausteine f"ur die Nachrichten.
 Gegeben ist der Text \glqq ATTACK AT DAWN'' und die Zeichen werden auf folgende
 einfache Weise \index{Blockl""ange} codiert\footnote{%
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per 
-\glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash RSA-Kryptosystem'' l"osen. Dies ist auch im Tutorial/Szenario der Online-Hilfe 
+{\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen. Dies ist auch im Tutorial/Szenario der Online-Hilfe 
 zu CrypTool beschrieben [Optionen, Alphabet vorgeben, Basissystem, Blockl"ange 2 und Dezimaldarstellung].
 }:
 \vskip +5 pt
@@ -2549,9 +2566,9 @@ die Blockl"ange 2 betr"agt.\\
 
 \label{SrcArith4a}
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
-In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel-Quelltext zur RSA-Verschl"usselung mit
-Mathematica und Pari-GP. \\
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per \glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash RSA-Kryptosystem'' l"osen. 
+In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel-Quelltext zur 
+RSA-Verschl"usselung mit Mathematica und Pari-GP. \\
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen. 
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -2578,8 +2595,17 @@ Real wird das ASCII-Alphabet benutzt, um die Einzelzeichen der Nachricht in
 8-Bit lange Zahlen zu codieren. 
 
 Diese Aufgabe\footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per \glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash RSA-Kryptosystem'' l"osen.
-} ist angeregt durch das Beispiel aus \cite[S. 215]{Eckert2003}. \index{Eckert 2003}
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren 
+\textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen.
+} 
+ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2003}. 
+\index{Eckert 2003}
+% Eigentlich stammte die Aufgabe aus Eckert2001, S. 215. Diese 1. Buchausgabe
+% ist nun nicht mehr im Literaturverzeichnis (6.6.2, Das RSA-Verfahren,
+% Bsp. 6.14 (ASCII-Codierung).
+% In Eckert2001 passten nur die Zahlen nicht ganz, so dass ich andere
+% wählte bei gl. Text. In Eckert 2003 sind nochmal andere Zahlen,
+% aber ich ließ das Skript unverändert.
 
 Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert: 
 
@@ -2593,8 +2619,9 @@ Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam f"ur beide sind die Sc
 \vskip +10pt
 {\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
-In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari-GP. \\
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per ``Einzelverfahren \textbackslash RSA-Demo \textbackslash Faktorisieren einer Zahl'' l"osen.
+In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung 
+von $J(n)$ mit Mathematica und Pari-GP. \\
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Faktorisieren einer Zahl} l"osen.
 }. \\
 {\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. muss teilerfremd
 zu $255.016$ sein)\footnote{%
@@ -2684,8 +2711,8 @@ Blockbildung\footnote{%
 \end{tabular}
 } (die ASCII-Zeichen werden als 8-stellige Bin"arzahlen hintereinander geschrieben):\\
 {\tt 21075 16672 30575 29291 29473}\footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per \glqq Einzelverfahren 
-\textbackslash RSA-Demo \textbackslash RSA-Kryptosystem'' mit den 
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren 
+\textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} mit den 
 folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale Darstellung.
 }
 
@@ -2780,7 +2807,7 @@ by Garrison Keillor, 1985.
 \newpage
 TABLE 4.1\footnote{%
 Die Zahlen dieser Tabelle k"onnen Sie mit Copy und Paste weiter bearbeiten.
-}: RSA Ciphertext
+}: RSA-Ciphertext
 
 {\tt 
 \begin{tabular}{llllllll}
@@ -2820,7 +2847,7 @@ TABLE 4.2\footnote{%
 Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq 
 Szenario f"ur die RSA-Demonstration\grqq~ der CrypTool-Auslieferung
 \index{CrypTool}.
-}: RSA Ciphertext
+}: RSA-Ciphertext
 
 {\tt 
 \begin{tabular}{llllllll}
@@ -2854,7 +2881,7 @@ von Prof.~Yan \cite[Example 3.3.7, S. 318]{Yan2000}. \index{Yan 2000}
 Es geht aber nicht nur um das Ergebnis, sondern vor allem um die
 Einzelschritte der L"osung, also um die Darlegung der Kryptoanalyse\footnote{%
 Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der 
-Pr"asentation auf der Web-Seite wird der L"osungsweg skizziert. 
+CrypTool-Pr"asentation werden der L"osungsweg skizziert. 
 Wenn uns jemand einen gut aufbereiteten konkreten L"osungsweg schickt, 
 nehmen wir ihn gerne in die Dokumentation auf.
 }.
@@ -2934,7 +2961,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Bernstein2001]{Bernstein2001} \index{Bernstein 2001}
     D.~J. Bernstein, \\
-    {\em Circuits for integer factorization: a proposal}, 
+    {\em Circuits for integer factorization: a proposal},\\ 
     \href{http://cr.yp.to/papers/nfscircuit.ps}
     {\texttt{http://cr.yp.to/papers/nfscircuit.ps}} \\
     \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}.
@@ -2968,7 +2995,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
     J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
-    {\em Factoring integers with the number field sieve}, 
+    {\em Factoring integers with the number field sieve}, \\
     In: A.K. Lenstra, H.W. Lenstra (Hrsg.): The Development of the 
     Number Field Sieve, Lecture Notes in Mathematics, Vol.~1554, 
     Springer, Heidelberg 1993, S. 50$-$94.
@@ -2985,7 +3012,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
      Graham, Knuth, Patashnik, \\
-     {\em Concrete Mathemathics, a Foundation of Computer Science}, 
+     {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
      Addison Wesley 1989, 6th printing 1990.
 
 \bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
@@ -3000,13 +3027,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
-    {\em The Art of Computer Programming, vol 2: 
-    Seminumerical Algorithms}, Addison-Wesley, 2nd edition 1998.
+    {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, \\
+    Addison-Wesley, 2nd edition 1998.
     % wann war erste Edition ?
 
 \bibitem[Lenstra1993]{Lenstra1993} \index{Lenstra 1993}
      A. Lenstra, H. Lenstra: \\ 
-     {\em The development of the Number Field Sieve.},
+     {\em The development of the Number Field Sieve}, \\
      Lecture Notes in Mathematics 1554, Springer, New York 1993
 
 \bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
@@ -3027,21 +3054,21 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Pomerance1984]{Pomerance1984} \index{Pomerance 1984} 
     C. Pomerance, \\
-    {\em The quadratic sieve factoring algorithm}, 
+    {\em The quadratic sieve factoring algorithm}, \\
     In: G.R. Blakley, D. Chaum (Hrsg.): Proceedings of Crypto '84, 
     LNCS 196, Springer Berlin 1995, S. 169-182.
 
 \bibitem[RSA Security 2002]{RSA Security 2002} \index{RSA Security 2002} 
     RSA Security, \\
     {\em Has the RSA algorithm been compromised as a result 
-    of Bernstein's Paper?}, 
+    of Bernstein's Paper?}, \\
     8. April 2002, \\
     \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}.
 
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms,
-    and Source Code in C}, Wiley 1994, 2nd edition 1996.
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley 1994, 2nd edition 1996.
 
 \bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
     J\"org Schwenk, \\
@@ -3062,7 +3089,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
      {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
-          Key Lengths.} 
+          Key Lengths} \\ 
      In: RSA Laboratories Bulletin, No. 13, April 2000, S. 1-22
 
 \bibitem[Stinson1995]{3Stinson1995} \index{Stinson 1995}
@@ -3075,8 +3102,9 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Wiles1994]{Wiles1994} \index{Wiles}
     Wiles, Andrew, \\
-    {\em Modular elliptic curves and Fermat's Last Theorem} 
-    \index{Fermat!last theorem}, in Annals of Mathematics 141 (1995).
+    {\em Modular elliptic curves and Fermat's Last Theorem}%
+    \index{Fermat!last theorem}, \\
+    in Annals of Mathematics 141 (1995).
 
 \bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J"org Schwenk, Klaus-Dieter Wolfenstetter, \\
@@ -3160,17 +3188,31 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
    \item Faktorisierungsrekorde \index{Faktorisierungsrekorde},\\
          \href{http://www.crypto-world.com/}
-	 {\texttt{http://www.crypto-world.com/}}
+	 {\texttt{http://www.crypto-world.com/}} \\
+	 \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
+	 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}
 	 
+   \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
+         \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
+         {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
+
+
 \end{enumerate}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +20 pt
 \subsection*{Dank} \addcontentsline{toc}{subsection}{Dank}
-F"ur das anregende und konstruktive Korrekturlesen und viele Verbesserungen dieses Artikels:\\
-Hr. Henrik Koy.\\
-F"ur den Hinweis auf Pari-GP: Dr. Illies.
+Ich m"ochte hier die Gelegenheit nutzen, den folgenden Personen zu danken: 
+\begin{itemize}
+  \item {Hr. Henrik Koy f"ur das anregende und sehr konstruktive 
+         Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
+	 und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
+	 dieser Form erschienen w"aere.}
+  \item {J"org-Cornelius Schneider f"ur die Unterst"utung bei TeX.}
+  \item {Dr. Illies f"ur den Hinweis auf Pari-GP \index{Pari-GP}.}
+\end{itemize}
+
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3316,7 +3358,7 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \input{figures/line-de.latex}
 
 \newpage
-\subsection*{Anhang D: Beispiele mit Mathematica und Pari-GP} \hypertarget{AppendixD}{}
+\subsection*{Anhang D: Beispiele mit Mathematica und Pari-GP } \hypertarget{AppendixD}{}
 \addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 

@@ -33,7 +33,7 @@ Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfa
 {Symmetrische Verschl"usselung\footnotemark}
 	\footnotetext{
 	Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
-	{\bf Ver-/Entschl"usseln \textbackslash Symmetrisch} folgende 
+	{\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch} folgende 
 	modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
 	IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
 	MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
@@ -73,8 +73,14 @@ dazu geh"orende Rijndael Verfahren wurde am 2. Oktober 2000 zum
 Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
 des DES-Verfahrens.
 
-N"aheres zu den AES-Algorithmen finden Sie in der CrypTool-Online-Hilfe\index{CrypTool} unter den Stichw"ortern {\em AES} und auf den  {\em AES-Kandidaten} und {\em AES-Algorithmus Rijndael}.
-
+N"aheres zu den AES-Algorithmen finden Sie in der
+CrypTool-Online-Hilfe\index{CrypTool}
+  \footnote{%
+      CrypTool-Online-Hilfe\index{CrypTool}: das Stichwort {\bf AES} im Index
+      f"hrt auf die Hilfeseiten: {\bf AES-Kandidaten}, 
+      {\bf Der AES-Gewinner Rijndael} und {\bf AES-Algorithmus Rijndael}.
+  }
+.
 
 
 % --------------------------------------------------------------------------
@@ -91,22 +97,34 @@ Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel und Whitin
 Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} ver"offentlichten 2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie entwickelten das auf der Eurocrypt 2000 von Shamir et al. vorgestellte XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren (eXtended Sparse Linearization). Das XL-Verfahren ist eine heuristische Technik, mit der es manchmal gelingt, gro"se nicht-lineare Gleichungssysteme zu l"osen und die bei der Analyse eines asymmetrischen Algorithmus (HFE) angewandt wurde.  Die Innovation Courois und Pieprzyk war, das XL-Verfahren auf symmetrische Verfahren anzuwenden: das XSL-Verfahren kann auf spezielle Gleichungssysteme angewandt werden. Damit k"onnte ein 256-Bit-AES-Verfahren in rund $2^{230}$ Schritten geknackt werden. Dies ist zwar immer noch ein rein akademischer Angriff, aber er ist richtungsweisend f"ur eine ganze Klasse von Blockchiffren. Das generelle Problem mit diesem Angriff besteht darin, dass man bisher nicht angeben kann, unter welchen Umst"anden er zum Erfolg f"uhrt: die Autoren geben in ihrer Arbeit notwendige Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
 Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik, sondern auf Algebra beruhte. Dadurch erscheinen Angriffe m"oglich, die nur geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit eines Produktalgorithmus nicht mehr exponentiell mit der Rundenzahl.
 
-Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a}, das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur 128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als Spezialfall eines Algorithmus BES (Big Encryption System) darstellten, der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit realisierbar ist. Bei 256 bit Schl"ussell"ange sch"atzen die Autoren den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
+Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a}, das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur 128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als Spezialfall eines Algorithmus BES (Big Encryption System) darstellten, der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit realisierbar ist. Bei 256 Bit Schl"ussell"ange sch"atzen die Autoren den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
 
 Weitere Details dazu stehen unter:\\
-\href{http://www.cryptosystem.net/aes}{\texttt{http://www.cryptosystem.net/aes}} und \\ 
-\href{http://www.minrank.org/aes/}{\texttt{http://www.minrank.org/aes/}}
+% nur \href rückt nicht ein, deshalb \item dazu !
+\begin{itemize}
+  \item[] \href{http://www.cryptosystem.net/aes}
+               {\texttt{http://www.cryptosystem.net/aes}} 
+  \item[] \href{http://www.minrank.org/aes/}
+               {\texttt{http://www.minrank.org/aes/}}
+\end{itemize}
 
-F"ur AES mit 256 w"are der Angriff ebenfalls viel besser als Brute-Force, 
-aber noch weiter au"serhalb der Reichweite realisierbarer Rechenpower. 
-Die Diskussion ist aber kontrovers: Don Coppersmith (einer der DES-Erfinder) 
+F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-Force, 
+aber auch noch weiter au"serhalb der Reichweite realisierbarer Rechenpower.
+
+Die Diskussion ist sehr kontrovers: Don Coppersmith (einer der DES-Erfinder) 
 z.B. bezweifelt die generelle Durchf"uhrbarkeit des Angriffs: XLS liefere f"ur 
 AES gar keine L"osung \cite{Coppersmith2002}. Dann w"urde auch die Optimierung von 
 Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Asymmetrische Verschl"usselung}
+\subsubsection[Asymmetrische Verschl"usselung]
+{Asymmetrische Verschl"usselung\footnotemark}
+	\footnotetext{
+	Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
+	{\bf Ver-/Entschl"usseln \textbackslash{} Asymmetrisch} mit RSA 
+	ver- und entschl"usseln.
+	}
 
 Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl""usselung!asymmetrisch} hat jeder Teilnehmer ein
 pers"onliches Schl"us\-selpaar, das aus einem
@@ -158,7 +176,7 @@ ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die
 {Hybridverfahren\footnotemark} 
 \footnotetext{%
 In CrypTool\index{CrypTool} v1.3 erhalten Sie "uber das Men"u
-\glqq Ver-/Entschl"usseln \textbackslash Hybrid-Demo'' eine Visualisierung
+{\bf Ver-/Entschl"usseln \textbackslash{} Hybrid-Demo} eine Visualisierung
 dieses Verfahrens: darin werden die einzelnen Schritte und ihre Abhängigkeiten
 mit konkreten Zahlen gezeigt.
 }\index{Hybridverfahren}
@@ -169,7 +187,18 @@ nutzen zu k"onnen, werden (zur Verschl"usselung) in der Praxis meist
 Hybridverfahren verwendet.\par \vskip + 3pt
 
 Hier werden die Daten mittels symmetrischer Verfahren
-verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig
+verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig\footnote{%
+Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
+kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} v1.3 
+k"onnen Sie "uber das Men"u {\bf Einzelverfahren \textbackslash{} 
+Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren. 
+"Uber das Men"u {\bf Analyse \textbackslash{} Zufallstests} k"onnen Sie
+verschiedene Testverfahren f"ur Zufallsdaten auf bin"are Dokumente
+anwenden. \\
+Bisher konzentriert sich CrypTool auf kryptographisch starke 
+Pseudozufallzahlgeneratoren. Nur im Secude-Generators wird eine "echte" 
+Zufallsquelle einbezogen. 
+}\index{Zufall}
 generierter Sitzungsschl"ussel (session key)\index{Session Key}, der nur f"ur diese
 Nachricht verwendet wird. Anschlie"send wird dieser
 Sitzungsschl"ussel mit Hilfe des asymmetrischen Verfahrens
@@ -191,15 +220,16 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
 
 % --------------------------------------------------------------------------
+\newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
 
 \bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
         Klaus Schmeh, \\
-        {\em Kryptografie und Public-Key Infrastrukturen im Internet}, 
+        {\em Kryptografie und Public-Key Infrastrukturen im Internet},\\ 
 	dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
         Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber Kryptographie. 
-	Geht auch auf die praktischen Probleme, wie Standardisierung oder 
+	Geht auch auf praktische Probleme, wie Standardisierung oder 
 	real existierende Software, ein.
 
 %xxxxxxxxxxx
@@ -211,17 +241,17 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\
-        {\em Re: Impact of Courtois and Pieprzyk results}, 
-	19.09.2002, in den "AES Discussion Groups" unter \\
+        {\em Re: Impact of Courtois and Pieprzyk results}, \\ 
+	19.09.2002, in den \glqq AES Discussion Groups\grqq~ unter \\
         \href{http://aes.nist.gov/aes/}
         {\texttt{http://aes.nist.gov/aes/}}
 
 \bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
         Nicolas Courtois, Josef Pieprzyk, \\
-        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, 
-	received 10 Apr 2002, last revised 9 Nov 2002,
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, \\
+	received 10 Apr 2002, last revised 9 Nov 2002.\\
 	Eine davon verschiedene "compact version" des ersten XSL-Angriffs wurde 
-	auf der Asiacrypt im Dezember 2002 ver"offentlicht, \\
+	auf der Asiacrypt im Dezember 2002 ver"offentlicht. \\
         \href{http://eprint.iacr.org/2002/044}
         {\texttt{http://eprint.iacr.org/2002/044}}
 
@@ -258,6 +288,18 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 	und der Leserbrief dazu von Johannes Merkle in der iX 2/2003.
 
 \end{thebibliography}
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
+
+\begin{enumerate}
+  \item[] \href{http://www.cryptosystem.net/aes}
+               {\texttt{http://www.cryptosystem.net/aes}} 
+  \item[] \href{http://www.minrank.org/aes/}
+               {\texttt{http://www.minrank.org/aes/}}
+\end{enumerate}
 
 
 % Local Variables:

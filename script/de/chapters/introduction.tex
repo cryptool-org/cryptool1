@@ -1,30 +1,67 @@
 % ............................................................................
-%                         E I N F ‹ H R U N G
+%      V O R W O R T  und  E I N F ‹ H R U N G (Zusammenspiel Skript-CT) 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\section*{Einf"uhrung}  \addcontentsline{toc}{section}{Einf"uhrung}
 
-Dieses Skript wird zusammen mit CrypTool\index{CrypTool} ausgeliefert.
+% --------------------------------------------------------------------------
+\section*{Vorwort zur 6. Ausgabe des CrypTool-Skripts}  \addcontentsline{toc}{section}{Vorwort zur 6. Ausgabe des CrypTool-Skripts}
 
-CrypTool ist ein Programm mit sehr umfangreicher Online-Hilfe, mit dessen
-Hilfe Sie unter einer einheitlichen Oberfl"ache kryptographische Verfahren
-anwenden und analysieren k"onnen.
-\par \vskip + 3pt
+Seit dem Jahr 2000 wurde mit CrypTool\index{CrypTool} auch ein Skript 
+ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
+m"oglichst verst"andlich erl"autern sollte.
 
-CrypTool wurde im Zuge des End-User Awareness-Programmes entwickelt, um die
-Sensibilit"at der Mitarbeiter f"ur IT-Sicherheit zu erh"ohen und um ein
-tieferes Verst"andnis f"ur den Begriff Sicherheit zu erm"oglichen. 
-\par \vskip +3pt 
+Um auch hier die M"oglichkeit zu schaffen, dass getrennte Entwickler/Autoren
+mitarbeiten k"onnen, wurden die Themen sinnvoll unterteilt und daf"ur jeweils
+eigenst"andig lesbare Kapitel geschrieben. In der anschlie"senden 
+redaktionellen Arbeit wurden in TeX Querverweise eingef"ugt. Dabei wurde
+dann jeweils auch eingef"ugt, wo man die entsprechenden Funktionen in CrypTool\index{CrypTool}
+aufrufen kann. Nat"urlich g"abe es viel mehr Themen in Mathematik und 
+Kryptographie, die man vertiefen k"onnte -- deshalb ist diese Auswahl auch 
+nur eine von vielen m"oglichen.
 
-Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank
-eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als 
-verl"asslicher Referenzimplementierung der verschiedenen 
-Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten 
-\index{Secude GmbH} Secude-Bibliothek) auch m"og\-lich, die in anderen 
-Programmen eingesetzte Verschl"usselung zu testen.\par \vskip + 3pt
+Die rasante Verbreitung des Internets hat auch zu einer verst"arkten 
+Forschung der damit verbundenen Technologien gef"uhrt. Gerade im Bereich 
+der Kryptographie gibt es viele neue Erkenntnisse.
 
-Inzwischen wird CrypTool\index{CrypTool} in Ausbildung und Lehre eingesetzt
-und von mehreren Universit"aten mit weiterentwickelt. \par \vskip + 3pt
+Auf den aktuellen Stand gebracht wurden in dieser Ausgabe des Skripts die
+Zusammenfassungen zu den Forschungsergebnissen "uber:                   
+\begin{itemize}
+\item die Suche nach den gr"o"sten Primzahlen (verallgemeinerte Mersenne- und Fermatzahlen),
+\item Fortschritte in der Zahlentheorie ("Primes in P"),
+\item die Faktorisierung gro"ser Zahlen (TWIRL) und
+\item die Fortschritte bei der Kryptoanalyse des AES-Standard.
+% \item den Einsatz Elliptischer Kurven [nicht nur GP(p)].
+\end{itemize}
+
+Seit das Skript dem CrypTool-Paket in Version 1.2.01 das 1. Mal beigelegt 
+wurde, ist es mit jeder neuen Version von CrypTool (1.2.02, 1.3.00, 
+1.3.02, 1.3.03 und nun 1.3.04) ebenfalls erweitert und aktualisiert worden.
+
+Ich w"urde mich sehr freuen, wenn sich dies auch innerhalb der ab nun 
+folgenden Open Source-Versionen von CrypTool\index{CrypTool} so weiter
+fortsetzt.
+
+Herzlichen Dank nochmal an alle, die mit Ihrem gro"sem Einsatz zum 
+Erfolg und der weiten Verbreitung dieses Projektes beigetragen haben. 
+
+Ich hoffe, dass viele Leser mit diesem Skript mehr Interesse an und 
+Verst"andnis f"ur dieses moderne und zugleich uralte Thema finden.
+
+Bernhard Esslinger
+
+Frankfurt, M"arz 2003
+
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section*{Einf"uhrung -- Zusammenspiel Skript und CrypTool}  \addcontentsline{toc}{section}{Einf"uhrung -- Zusammenspiel Skript und CrypTool}
+
+
+\textbf{Das Skript}
+
+Dieses Skript wird zusammen mit CrypTool\index{CrypTool} ausgeliefert. \par \vskip + 3pt
 
 Da die Artikel dieses Skripts weitgehend in sich abgeschlossen sind, kann
 dieses Skript auch unabh"angig von CrypTool\index{CrypTool} gelesen werden.
@@ -35,28 +72,49 @@ breite Leserschaft darzustellen -- ohne mathematisch unkorrekt zu werden.
 Dieser didaktische Anspruch ist am besten geeignet, die Awareness
 f"ur die IT-Sicherheit und die Bereitschaft f"ur den Einsatz 
 standardisierter, moderner Kryptographie zu f"ordern.
+\par \vskip + 15pt
 
-Au"serdem wurde versucht, die jeweils neuesten Erkenntnisse bez"uglich
-Primzahlen, Faktorisierung und Kryptoanalyse von AES darzustellen, 
-um top-aktuell zu sein.
-\\
 
-An dieser Stelle m"ochte ich explizit drei Personen nennen und danken, 
-die bisher in ganz besonderer Weise zu CrypTool beigetragen haben.
-Ohne ihre besonderen F"ahigkeiten und ihr groﬂes Engagement w"are CrypTool
+\textbf{Das Programm CrypTool\index{CrypTool}}
+
+CrypTool\index{CrypTool} ist ein Programm mit sehr umfangreicher Online-Hilfe,
+mit dessen Hilfe Sie unter einer einheitlichen Oberfl"ache
+kryptographische Verfahren anwenden und analysieren k"onnen.
+\par \vskip + 3pt
+
+CrypTool\index{CrypTool} wurde im Zuge des End-User Awareness-Programmes
+entwickelt, um die Sensibilit"at der Mitarbeiter f"ur IT-Sicherheit
+zu erh"ohen und um ein tieferes Verst"andnis f"ur den Begriff Sicherheit
+zu erm"oglichen. 
+\par \vskip +3pt 
+
+Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank
+eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als 
+verl"asslicher Referenzimplementierung der verschiedenen 
+Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten 
+\index{Secude GmbH} Secude-Bibliothek) auch m"og\-lich, die in anderen 
+Programmen eingesetzte Verschl"usselung zu testen.\par \vskip + 3pt
+
+Inzwischen wird CrypTool\index{CrypTool} vielerorts
+in Ausbildung und Lehre eingesetzt und von mehreren Hochschulen
+mit weiterentwickelt. \par \vskip + 13pt
+
+
+An dieser Stelle m"ochte ich explizit drei Personen danken, 
+die bisher in ganz besonderer Weise zu CrypTool\index{CrypTool} 
+beigetragen haben.
+Ohne ihre besonderen F"ahigkeiten und ihr gro"ses Engagement w"are CrypTool
 nicht, was es heute ist:
 \begin{itemize}
    \item Hr. Henrik Koy
-   \item Hr. Joerg-Cornelius Schneider und
+   \item Hr. J"org-Cornelius Schneider und
    \item Dr. Peer Wichmann.
 \end{itemize}
-Auch allen hier nicht namentlich genannten ganz herzlichen Dank f"ur das 
+Auch allen hier nicht namentlich Genannten ganz herzlichen Dank f"ur das 
 (meist in der Freizeit) geleistete Engagement.
 \\
 
 Bernhard Esslinger
-
-Frankfurt, March 2003
 
 
 % Local Variables:

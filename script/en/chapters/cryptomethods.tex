@@ -1,9 +1,14 @@
 % ..............................................................................
 %                V E R S C H L U E S S E L U N G S V E R F A H R E N
+%
+% Schreibregelung: Capitel header to capitalize words,
+%                  All other headers in normal lower/upper case 
+%                  like sentences without dot at the end.
+%
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
-\section{Encryption procedures}
+\section{Encryption Procedures}
 \hypertarget{Kapitel_1}{}
 (Bernhard Esslinger, besslinger@web.de, May 1999, Updates Dec. 2001, Feb. 2003)
 
@@ -35,14 +40,14 @@ We basically distinguish between symmetric and asymmetric encryption procedures.
 % --------------------------------------------------------------------------
 \subsubsection[Symmetric encryption]
 {Symmetric encryption\footnotemark}
-\footnotetext{%
-With CrypTool\index{CrypTool} v1.3 you can execute the following modern
-symmetric encryption algorithms 
-(using the menu ``Crypt \textbackslash Symmetric''): \\
-IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
-MARS (AES candidate), RC6 (AES candidate), Serpent (AES candidate), 
-Twofish (AES candidate), Rijndael (official AES algorithm).
-}
+  \footnotetext{%
+    With CrypTool\index{CrypTool} v1.3 you can execute the following modern
+    symmetric encryption algorithms 
+    (using the menu {\bf Crypt \textbackslash{} Symmetric}): \\
+    IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
+    MARS (AES candidate), RC6 (AES candidate), Serpent (AES candidate), 
+    Twofish (AES candidate), Rijndael (official AES algorithm).
+  }
 
 For {\em symmetric} encryption \index{Encryption!symmetric} the sender and
 recipient must possess a common (secret) key which they have exchanged before
@@ -75,13 +80,24 @@ Up-to-the-minute procedures are the symmetric AES procedures. The associated
 Rijndael procedure was declared winner the AES award on 2 October 2000 and thus
 succeeds the DES procedure.
 
-More details about the AES algorithms can be found within the Online help of CrypTool\index{CrypTool} (in the index see head-word {\em AES} and then the help pages {\em AES candidates}, {\em The AES Winner Rijndael} and {\em The Rijndael encryption algorithm}).
+More details about the AES algorithms can be found within the 
+Online help of CrypTool\index{CrypTool}
+  \footnote{%
+      CrypTool Online help\index{CrypTool}: the index see head-word {\bf AES}
+      leads to the help pages: {\bf AES candidates}, 
+      {\bf The AES Winner Rijndael} and 
+      {\bf The Rijndael encryption algorithm}.
+  }
+.
 
 
 % --------------------------------------------------------------------------
 \subsubsection{New results about cryptanalysis of AES}
 
-Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded. The following information is based on the original papers and the articles \cite{Wobst-iX2002} and \cite{Lucks-DuD2002}.
+Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded
+% = do not bring disrepute upon AES
+. 
+The following information is based on the original papers and the articles \cite{Wobst-iX2002} and \cite{Lucks-DuD2002}.
 
 AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks - as long as the quantum computers weren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
@@ -95,14 +111,25 @@ There are two very new aspects of this attack: firstly this attack is not based 
 Currently there is a large amount of research in this area: for example Murphy and Robshaw presented a paper at Crypto 2002 \cite{Robshaw2002a}, which could dramatically improve cryptanalysis: the burden for a 128-bit key was estimated at about $2^{100}$ steps by describing AES as a special case of an algorithm called BES (Big Encryption System), which has an especially "round" structure. But even $2^{100}$ steps are beyond what is achievable in the foreseeable future. Using a 256 bit key the authors estimate that a XSL-attack will require $2^{200}$ operations.
 
 More details can be found at: \\
-\href{http://www.cryptosystem.net/aes}{\texttt{http://www.cryptosystem.net/aes}} and \\ 
-\href{http://www.minrank.org/aes/}{\texttt{http://www.minrank.org/aes/}}
+\begin{itemize}
+  \item[] \href{http://www.cryptosystem.net/aes}
+               {\texttt{http://www.cryptosystem.net/aes}}
+  \item[] \href{http://www.minrank.org/aes/}
+               {\texttt{http://www.minrank.org/aes/}}
+\end{itemize}
 
-So for 256-AES the attack is much more effective than brute-force but still far away from any computing power which could be accessible in the short-to-long term. The discussion is very controversial: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
+So for 256-AES the attack is much more effective than brute-force but still far more away from any computing power which could be accessible in the short-to-long term. 
+
+The discussion is very controversial: Don Coppersmith (one of the inventors of DES) for example queries the practicability of the attack because XLS would provide no solution for AES \cite{Coppersmith2002}. This concludes that then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Asymmetric encryption}
+\subsubsection[Asymmetric encryption]
+{Asymmetric encryption\footnotemark}
+  \footnotetext{%
+    With CrypTool\index{CrypTool} v1.3 you can execute RSA encryption
+    and decryption (using the menu {\bf Crypt \textbackslash{} Asymmetric}).
+  }
 
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
 subscriber has a personal pair of keys consisting of a {\em secret}
@@ -149,12 +176,12 @@ Algorithm).
 
 
 % --------------------------------------------------------------------------
-\newpage
+% \newpage
 \subsubsection[Hybrid procedures]
 {Hybrid procedures\footnotemark}
 \footnotetext{%
 Within CrypTool\index{CrypTool} v1.3 you can get a visualization of this
-technique using the menu ``Crypt \textbackslash Hybrid Demonstration'': 
+technique using the menu {\bf Crypt \textbackslash{} Hybrid Demonstration}: 
 this dialogue shows the single steps and its dependencies with concrete
 numbers.
 }\index{Hybrid procedures}
@@ -164,7 +191,19 @@ together, hybrid procedures are usually used (for encryption) in practice.
 \par \vskip + 3pt
 
 In this case the data is encrypted using symmetric procedures: the key is a
-session key\index{Session key} generated by the sender randomly that is only used for this message.
+session key\index{Session key} generated by the sender
+randomly \footnote{%
+An important part of cryptographically secure techniques is to generate 
+random numbers. Within CrypTool\index{CrypTool} v1.3 you can check out
+different random number generators using the menu {\bf Indiv. Procedures 
+\textbackslash{} Generate Random Numbers}. 
+Using the menu{\bf Analysis \textbackslash{} Random Tests} you can apply
+different test methods for random data to binary documents. \\
+Till now CrypTool concentrates on cryptographically strong 
+pseudo number generators. Only the integrated Secude generator 
+involves a "pure" random source. 
+}\index{Random}
+that is only used for this message.
 This session key is then encrypted using the asymmetric procedure and
 transmitted to the recipient together with the message. Recipients can determine
 the session key using their secret keys and then use the session key to encrypt
@@ -182,31 +221,32 @@ the symmetric and asymmetric encryption methods.
 
 
 % --------------------------------------------------------------------------
+\newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
 
 \bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
         Klaus Schmeh, \\
-        {\em Cryptography and Public Key Infrastructures on the Internet}, 
+        {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
 	John Wiley \& Sons Ltd., Chichester 2003. \\
         A considerable, up-to-date, good reading book, which also 
-	considers practical problems, like standardisation or
+	considers practical problems like standardisation or
         real existing software.
 
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\
-        {\em Re: Impact of Courtois and Pieprzyk results}, 
-	2002-09-19, AES Discussion Groups at \\
+        {\em Re: Impact of Courtois and Pieprzyk results}, \\
+	2002-09-19, ``AES Discussion Groups''~ at \\
         \href{http://aes.nist.gov/aes/}
         {\texttt{http://aes.nist.gov/aes/}}
 
 \bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
         Nicolas Courtois, Josef Pieprzyk, \\
-        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, 
-	received 10 Apr 2002, last revised 9 Nov 2002,
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, \\
+	received 10 Apr 2002, last revised 9 Nov 2002.\\
 	A different version, so called compact version of the first XSL attack,
-	was published in Asiacrypt Dec 2002, \\
+	was published at Asiacrypt Dec 2002. \\
         \href{http://eprint.iacr.org/2002/044}
         {\texttt{http://eprint.iacr.org/2002/044}}
 
@@ -243,6 +283,18 @@ the symmetric and asymmetric encryption methods.
 	plus the reader's remark by Johannes Merkle in iX Feb. 2003.
 
 \end{thebibliography}
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section*{Web links}\addcontentsline{toc}{subsection}{Web links}
+
+\begin{enumerate}
+  \item[] \href{http://www.cryptosystem.net/aes}
+               {\texttt{http://www.cryptosystem.net/aes}}
+  \item[] \href{http://www.minrank.org/aes/}
+               {\texttt{http://www.minrank.org/aes/}}
+\end{enumerate}
 
 
 % Local Variables:

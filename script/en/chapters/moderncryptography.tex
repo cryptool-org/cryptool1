@@ -88,8 +88,8 @@
 
 \newpage
 %**************************************************************************************************************************
-\section{The Mathematical Ideas Behind Modern Cryptography}
- (Oyono R. / Esslinger B., September 2000, Update Nov. 2000)
+\section{The Mathematical Ideas behind Modern Cryptography}
+(Oyono R. / Esslinger B., Sep. 2000, Updates Nov. 2000, Feb. 2003)
 \subsection{One way functions with trapdoor and complexity classes}
 \index{Cryptography!modern} \index{One way function} \hypertarget{OneWayFunktion1}{}
 A {\bf one way function} is a (one-to-one) function that can be calculated 
@@ -205,9 +205,13 @@ could be solved polynomially. The most famous failed applicant is the knapsack
 with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 
 \newpage
-\subsection{Knapsack problem as a basis for public key procedures}
-\index{Knapsack}
-\subsubsection{Knapsack problem}
+%--------------------------------------------------------------------
+\subsection{Knapsack problem as a basis for public key procedures}%
+\index{Cryptography!Public Key}
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+\subsubsection{Knapsack problem} \index{Knapsack}
+%--------------------------------------------------------------------
 
 You are given $ n $ objects $ G_1, \dots, G_n $ with the weights $ g_1, \dots 
 g_n $ and the values $w_1, \cdots, w_n. $ The aim is to carry away as much as 
@@ -282,8 +286,12 @@ sequence in the timeframe of $ O(n). $
 \vskip +20 pt
 
 
+%--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman knapsack encryption}
-\index{Hellman Martin} \index{Merkle} In 1978, Merkle and Hellman 
+%--------------------------------------------------------------------
+\index{Hellman Martin} \index{Merkle Ralph} 
+
+In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
 encryption procedure that is based on ``defamiliarising'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
@@ -348,8 +356,8 @@ procedures}
 {The RSA procedure\footnotemark}
 \footnotetext{
 Using CrypTool\index{CrypTool} v1.3 you gain practical experience
-with the RSA procedure via the menu ``Indiv.Procedures \textbackslash 
-RSA Demonstration \textbackslash RSA Cryptosystem''.
+with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
+RSA Demonstration \textbackslash{} RSA Cryptosystem}.
 }
 \index{RSA} \hypertarget{RSAVerfahren}{} 
 As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
@@ -549,12 +557,16 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \subsubsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
 \footnotetext{%
-With CrypTool\index{CrypTool} v1.3.04 you can execute the single steps of this 
-exchange protocol with concrete numbers: \\
-using menu {\bf Indiv. Procedures \textbackslash Diffie-Hellman Demonstration}.
+With CrypTool\index{CrypTool} v1.3.04  this exchange protocol has been
+visualized: you can execute the single steps with concrete numbers using 
+menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
 }
+
 \index{Key agreement (key exchange)!Diffie-Hellman} 
-\index{Diffie Whitfield} 
+\index{Diffie Whitfield}
+\index{Hellman Martin}
+\index{Diffie-Hellman}
+
 
 The mechanisms and 
 algorithms of classical cryptography only take effect when the subscribers have 
@@ -593,11 +605,13 @@ The safety of the {\bf Diffie-Hellman protocol} is closely connected to
 calculating the discrete logarithm mod $p$\index{Logarithm}. It is even thought that these 
 problems are equivalent.
 
-
-    \subsubsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
+%--------------------------------------------------------------------
+\subsubsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
+%--------------------------------------------------------------------
 \index{ElGamal!public key}
-By varying the Diffie-Hellman key agreement protocol \index{Encryption!El Gamal public key} slightly, you can obtain an asymmetric encryption algorithm. This 
-observation was made by Taher ElGamal.
+By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
+\index{Encryption!El Gamal public key} slightly, you can obtain an 
+asymmetric encryption algorithm. This observation was made by Taher ElGamal.
 \begin{center}
 \fbox{\parbox{12cm}{        
 Let $ p $ be a prime number such that the discrete logarithm in $ \Z_p $ is 
@@ -627,8 +641,9 @@ and
 
 
 
-
-    \subsubsection{Generalised ElGamal public key encryption procedure}
+%--------------------------------------------------------------------
+\subsubsection{Generalised ElGamal public key encryption procedure}
+%--------------------------------------------------------------------
 
 The discrete logarithm can be generalised in any number of finite \index{Group} 
 groups $ (G, \circ) $. The following provides several properties of $ G, $ that 
@@ -754,53 +769,68 @@ and
 \hyperlink{ellcurve}{Elliptic curves} {} provide useful groups for public key 
 encryption procedures.
 
+
+%--------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99}
 \addcontentsline{toc}{subsection}{Bibliography}
-           \bibitem[Adleman1982]{Adleman1982} Adleman L.: \index{Adleman Leonard}
-           \emph{On breaking the iterated Merkle-Hellman public key 
-Cryptosystem.} \\ 
-           Advances in Cryptologie, Proceedings of Crypto 82, Plenum Press 1983, 
-303-308.
 
- \bibitem[Balcazar1988]{Balcazar1988}\index{Balcazar 1988} Balcazar J.L., Daaz J., Gabarr\'{} J.: 
-           \emph{Structural Complexity I.} \\ 
-           Springer Verlag, pp 63.
+   \bibitem[Adleman1982]{Adleman1982} \index{Adleman 1982}
+       Adleman L.: 
+       \emph{On breaking the iterated Merkle-Hellman public key 
+             Cryptosystem.} \\ 
+       Advances in Cryptologie, Proceedings of Crypto 82, 
+       Plenum Press 1983, 303-308.
+
+   \bibitem[Balcazar1988]{Balcazar1988} \index{Balcazar 1988} 
+       Balcazar J.L., Daaz J., Gabarr\'{} J.: 
+       \emph{Structural Complexity I.} \\ 
+       Springer Verlag, pp 63.
            
-       \bibitem[Brickell1985]{Brickell1985} Brickell E.F.:
-           \emph{Breaking Iterated Knapsacks.}  \\
-       Advances in Cryptology: Proc. CRYPTO\'84, Lecture Notes in Computer 
-Science, vol. 196, 
-           Springer-Verlag, New York, 1985, pp. 342-358.
+    \bibitem[Brickell1985]{Brickell1985} \index{Brickell 1985}
+       Brickell E.F.:
+       \emph{Breaking Iterated Knapsacks.}  \\
+       Advances in Cryptology: Proc. CRYPTO\'84, 
+       Lecture Notes in Computer Science, vol. 196, 
+       Springer-Verlag, New York, 1985, pp. 342-358.
 
-           \bibitem[Lagarias1983]{Lagarias1983} Lagarias J.C.:
-           \emph{Knapsack public key Cryptosystems and diophantine 
-Approximation.} \\
-           Advances in Cryptology, Proseedings of Crypto 83, Plenum Press.
+    \bibitem[Lagarias1983]{Lagarias1983} \index{Lagarias 1983} 
+       Lagarias J.C.:
+       \emph{Knapsack public key Cryptosystems and diophantine
+             Approximation.} \\
+       Advances in Cryptology, Proseedings of Crypto 83, Plenum Press.
 
-           \bibitem[Merkle1978]{Merkle1978} Merkle R. and Hellman M.:
-           \emph{Hiding information and signatures in trapdoor knapsacks.}  \\
-           IEEE Trans. Information Theory, IT-24, 1978.
+    \bibitem[Merkle1978]{Merkle1978} \index{Merkle 1978} 
+       Merkle R. and Hellman M.:
+       \emph{Hiding information and signatures in trapdoor knapsacks.} \\
+       IEEE Trans. Information Theory, IT-24, 1978.
 
-       \bibitem[RSA1978]{RSA1978} Rivest R.L., Shamir A. and Adleman L.:
-           \emph{A Method for Obtaining Digital Signatures and Public Key 
-Cryptosystems.} \\
-           Commun. ACM, vol 21, April 1978, pp. 120-126.\index{RSA}
+    \bibitem[RSA1978]{RSA1978} \index{RSA 1978}
+       Rivest R.L., Shamir A. and Adleman L.:
+       \emph{A Method for Obtaining Digital Signatures and 
+             Public Key Cryptosystems.} \\
+       Commun. ACM, vol 21, April 1978, pp. 120-126.
 
-           \bibitem[Shamir1982]{Shamir1982} Shamir A.:
-           \emph{A polynomial time algorithm for breaking the basic Merkle-
-Hellman Cryptosystem.}\\
-           Symposium on Foundations of Computer Science (1982), 145-152.
-           \index{Shamir Adi}
-%already defined in elementaryNumberTheory.inc
-       \bibitem[Stinson1995]{4Stinson1995} Stinson D.R.:
-           \emph{Cryptography.}  \index{Stinson 1995} \\
-           CRC Press, Boca Raton, London, Tokyo, 1995.\index{Stinson 1995}
+    \bibitem[Shamir1982]{Shamir1982} \index{Shamir 1982}
+       Shamir A.:
+       \emph{A polynomial time algorithm for breaking the basic 
+             Merkle-Hellman Cryptosystem.} \\
+       Symposium on Foundations of Computer Science (1982), 145-152.
+           
+%already defined in elementaryNumberTheory.tex
+    \bibitem[Stinson1995]{4Stinson1995} \index{Stinson 1995}
+       Stinson D.R.:
+       \emph{Cryptography.} \\
+       CRC Press, Boca Raton, London, Tokyo, 1995.
+
 \end{thebibliography}
+
+
+%--------------------------------------------------------------------
 \section*{Web links} \addcontentsline{toc}{subsection}{Web links}
 \begin{enumerate}
-   \item 
-\href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
+   \item \href{http://www.geocities.com/st_busygin/clipat.html}
+              {http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}
 
 % Local Variables:

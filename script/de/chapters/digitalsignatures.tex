@@ -5,7 +5,8 @@
 \newpage
 \section{Digitale Signaturen}
 \index{Signatur!digitale}
-(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Update: Juni 2002)
+(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Juni 2002, 
+Update: Feb. 2003)
 
 \vspace{12pt}
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
@@ -25,8 +26,8 @@ zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den
 abzuleiten
 \footnote{%
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen erzeugen und pr"ufen: \\
-in den Untermen"us des Hauptmen"upunktes \glqq Digitale Signaturen'' oder \\
-per \glqq Einzelverfahren \textbackslash RSA-Demo \textbackslash Signaturdemo'' .
+in den Untermen"us des Hauptmen"upunktes {\bf Digitale Signaturen} oder \\
+per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Signaturdemo} .
 }
 .
 
@@ -48,8 +49,8 @@ genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig an
 Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion
 \footnote{%
 %xxxxxxxxxx Menüeinträgsbezeichnungen ok?
-Hashfunktionen sind in CrypTool\index{CrypTool} v1.3.04 an mehreren Stellen implementiert: \\
-in dem Men"u \glqq Einzelverfahren \textbackslash Hashwerte'' haben Sie die M"oglichkeit
+Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool} v1.3.04 an mehreren Stellen implementiert. \\
+In dem Men"u {\bf Einzelverfahren \textbackslash{} Hashwerte} haben Sie die M"oglichkeit
 \begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
 \item f"ur eine Datei den Hashwert zu berechnen, \\
@@ -170,7 +171,7 @@ $x < q$ (160bit Zahl)
 \paragraph{Signatur}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & zu signierende Nachricht\\
-$k$ & zuf"allig gew"ahlte Primzahl, kleiner als $q$\\
+$k$ & zuf"allig\index{Zufall} gew"ahlte Primzahl, kleiner als $q$\\
 $r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
@@ -179,8 +180,10 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \begin{itemize}
 \item $(s,r)$ ist die Signatur.
 \item Die Sicherheit der Signatur h"angt nicht nur von der Mathematik ab,
-sondern auch von der Verf"ugbarkeit einer guten Zufallsquelle f"ur $k$.
-\item SHA-1 \index{SHA-1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
+sondern auch von der Verf"ugbarkeit einer guten Zufallsquelle\index{Zufall}
+f"ur $k$.
+\item SHA-1 \index{SHA-1} ist eine in FIPS186 spezifizierte 160-Bit 
+Hashfunktion.
 
 \end{itemize}
 \paragraph{Verifikation}\strut\\
@@ -278,15 +281,15 @@ gesichert "ubermittelt werden.
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \bibitem[Schneier1996]{5Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    Applied Cryptography, Protocols, Algorithms,
-    and Source Code in C, Wiley, 2nd edition, 1996.
+    Applied Cryptography, Protocols, Algorithms, and Source Code in C, \\
+    Wiley, 2nd edition, 1996.
 
 \bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}\index{RSA Laboratories}
-    PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
+    PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard, April 19, 2002.
 
-\bibitem[FIPS186]{FIPS186} U.S. Departement of
-    Commerce/N.I.S.T. \index{FIPS186} //
-    Entity authentication using public key cryptography. February 18, 1997.
+\bibitem[FIPS186]{FIPS186} U.S. Departement of Commerce/N.I.S.T. 
+    \index{FIPS186} \\
+    Entity authentication using public key cryptography, February 18, 1997.
 \end{thebibliography}
                                                           
 

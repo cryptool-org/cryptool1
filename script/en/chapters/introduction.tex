@@ -1,25 +1,67 @@
 % ............................................................................
-%                         E I N F Ü H R U N G
+%      V O R W O R T  und  E I N F Ü H R U N G (Zusammenspiel Skript-CT) 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\section*{Introduction}  \addcontentsline{toc}{section}{Introduction}
 
-This script is delivered together with CrypTool\index{CrypTool}.
+% --------------------------------------------------------------------------
+\section*{Preface to the 6th edition of the CrypTool script}  \addcontentsline{toc}{section}{Preface to the 6th edition of the CrypTool script}
 
-CrypTool is a program with an extremely comprehensive online help enabling you
-to use and analyse cryptographic procedures within a unified graphical user interface.\par \vskip + 3pt
+Starting in the year 2000 this script became a part of the 
+CrypTool\index{CrypTool} package. It should accomplish the program 
+CrypTool by explaining some mathematical topics in more details, 
+but still in a good to understand manner.
 
-CrypTool was developed during the end-user awareness program in order to
-increase employee awareness of IT security and provide them with a deeper
-understanding of the term security.\par \vskip + 3pt
+In order to also enable independent developers/authors work together 
+the topics have been split up and for each topic an extra chapter was 
+written readable by its own. The later editorial work in TeX added 
+cross linkages and descriptions, where you can find the according 
+functions within the CrypTool\index{CrypTool} program. Naturally 
+there are much more interesting topics in mathematics and cryptography 
+which could be more deepened -- therefore this is only one of many
+ways to do it.
 
-A further aim was to enable users to understand the cryptographic procedures
-implemented in the Deutsche Bank. In this way, using CrypTool as a reliable
-reference implementation of the various encryption procedures (because of using the industry-proven Secude Library\index{Secude}),
-you can test the encryption implemented in other programs. \par \vskip + 3pt
+Rapid spread of the Internet also lead to an intensified research 
+in the technologies involved. Especially within the area of cryptography 
+much new knowledge came up.
 
-Since then CrypTool\index{CrypTool} has been used for education in companies and
-universities and several universities help to develop further project.
+This edition of the script updates the summaries of the following 
+topical research areas:         
+\begin{itemize}
+\item the search for the largest prime numbers (generalized Mersenne 
+      and Fermat primes), 
+\item progress in number theory ("Primes in P"), 
+\item the factorisation of big numbers (TWIRL) and 
+\item progress in cryptanalysis of the AES standard. 
+% \item usage of elliptic curves.
+\end{itemize}
+
+The first time when the script was delivered with CrypTool\index{CrypTool} 
+was in version 1.2.01. Since then it was extended and updated with each 
+new version of CrypTool (1.2.02, 1.3.00, 1.3.02, 1.3.03 and now 1.3.04).
+
+I'd be more than happy if this keeps on going also in the further 
+open source versions of CrypTool\index{CrypTool}.
+
+I am deeply grateful to all the people helping with their impressive engagement to make this project successful and wide-spreaded.
+
+I hope that many readers have fun with this script and that they get 
+out of it more interest and higher understanding for this modern but 
+also very ancient topic.
+
+Bernhard Esslinger
+
+Frankfurt, March 2003
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section*{Introduction -- How do the script and CrypTool play together?}  \addcontentsline{toc}{section}{Introduction -- How do the script and CrypTool play together?}
+
+
+\textbf{This script}
+
+This script is delivered together with CrypTool\index{CrypTool}. \par \vskip + 3pt
 
 Because the articles in this script are largely self-contained, this script can also
 be read independently of CrypTool\index{CrypTool}.
@@ -28,26 +70,41 @@ The {\em authors} tried to describe cryptography for a broad audience --
 without being mathematically incorrect. We believe, that this didactical
 pretension is the best way to promote the awareness for IT security and the
 readiness to use standardised modern cryptography.
+\par \vskip + 15pt
 
-Additionally we aimed to describe the newest results, as well as their
-origins, concerning primes, factorization and cryptanalysis of AES, in order to be highly topical.
-\\
 
-At this point I'd like to thank explicitely 3 persons who espcially 
-contributed to CrypTool. Without their talents and engagement 
+\textbf{The program CrypTool\index{CrypTool}}
+
+CrypTool\index{CrypTool} is a program with an extremely comprehensive online help enabling you
+to use and analyse cryptographic procedures within a unified graphical user interface.\par \vskip + 3pt
+
+CrypTool\index{CrypTool} was developed during the end-user awareness program in order to
+increase employee awareness of IT security and provide them with a deeper
+understanding of the term security.\par \vskip + 3pt
+
+A further aim was to enable users to understand the cryptographic procedures
+implemented in the Deutsche Bank. In this way, using CrypTool as a reliable
+reference implementation of the various encryption procedures (because of using the industry-proven Secude Library\index{Secude}),
+you can test the encryption implemented in other programs. \par \vskip + 3pt
+
+Since then CrypTool\index{CrypTool} has often been used for 
+education in companies and teaching and several universities 
+help to further develop the project. \par \vskip + 3pt
+\vskip +10 pt
+
+At this point I'd like to thank explicitely 3 persons who especially 
+contributed to CrypTool\index{CrypTool}. Without their talents and engagement 
 CrypTool would not be what it is today:
 \begin{itemize}
    \item Mr. Henrik Koy
-   \item Mr. Joerg-Cornelius Schneider and
+   \item Mr. J"org-Cornelius Schneider and
    \item Dr. Peer Wichmann.
 \end{itemize}
-Also I want to thank all the ones not named here for their engagement (mostly
-performed in their spare time).
+Also I want to thank all the many ones not named here for their 
+engagement (mostly performed in their spare time).
 \\
 
 Bernhard Esslinger
-
-Frankfurt, March 2003
 
 
 % Local Variables:
