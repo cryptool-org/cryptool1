@@ -52,7 +52,7 @@ BEGIN_MESSAGE_MAP(CDlgHashDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgHashDemo)
 	ON_BN_CLICKED(IDC_RADIO_MD2, OnRadioMd2)
 	ON_BN_CLICKED(IDC_RADIO_MD5, OnRadioMd5)
-	ON_BN_CLICKED(IDC_RADIO_SHA, OnRadioSha)
+	ON_BN_CLICKED(IDC_RADIO_SHA1, OnRadioSha1)
 	ON_BN_CLICKED(IDC_RADIO_BIN, OnRadioBin)
 	ON_BN_CLICKED(IDC_RADIO_DEC, OnRadioDec)
 	ON_BN_CLICKED(IDC_RADIO_HEX, OnRadioHex)
@@ -88,14 +88,11 @@ BOOL CDlgHashDemo::OnInitDialog()
 	// Schriftart im Textfeld "aktuelle Datei", Felder in denen die Hashwerte und die Differenz angezeigt 
 	// werden, "Courier" definieren
 
-	sprintf(title, "Hash Demo   MD2-Hash");
-	SetWindowText(title);
+	CString title;
+	title.LoadString(IDS_HASH_DEMO_TITLE_MD2);
+	SetWindowText((LPCTSTR)title);
 	// Der Text in der Titelleiste von Hashdemo wird gesetzt
 
-	//CString leisteText;
-	//GetWindowText(leisteText);
-	//gibt den Titel des Editfenstern zur¸ck, leiste Text w¸rd per Referenz¸bergabe ¸bergeben
-		
 	m_ctrlText.SetWindowText(m_strText);
 	OnChangeEditText();
 	// SetRed();
@@ -106,17 +103,17 @@ BOOL CDlgHashDemo::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zur¸ckgeben
 }
 
-void CDlgHashDemo::SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA)
+void CDlgHashDemo::SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1)
 {
 	m_hashMD2=hashMD2;
 	m_hashMD5=hashMD5;
-	m_hashSHA=hashSHA;
+	m_hashSHA1=hashSHA1;
 	//die Hashwerte der Originaldatei werden in m_hashxxx (in der Klasse Hash Demo) gespeichert
 
 	showHashHex( m_hashMD2 );
 	//Beim Aufruf des Dialogs soll der Hashwert MD2 hexadezimal angezeigt werden
 
-	SetNewHash(hashMD2,hashMD5,hashSHA);
+	SetNewHash(hashMD2,hashMD5,hashSHA1);
 	//der aktuellen Hashwerte sind beim Aufruf gleich denen der Originaldatei 
 	//und im Speicher gehalten,so daﬂ bei der Bet‰tigung der Radiobuttons nicht der 
 	//Hashwert jedes Mal neu berechnet werden muﬂ
@@ -127,11 +124,11 @@ void CDlgHashDemo::SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString
 	//die Differenz der beiden Hashwerte wird gesetzt
 }
 
-void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA)
+void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1)
 {
 	m_newHashMD2=hashMD2;
 	m_newHashMD5=hashMD5;
-	m_newHashSHA=hashSHA;
+	m_newHashSHA1=hashSHA1;
 	//Initialisieren der Membervariablen der aktuellen Hashwerte 
 
 	switch(m_Auswahl_HW)
@@ -139,12 +136,12 @@ void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetStr
 	case 2:
 			switch(m_rb_DarstHW)
 		   {
-			case 1:showNewHashHex(m_newHashSHA);
-				   showDiffNewHashBin(m_newHashSHA);break;
-			case 0:showNewHashDec(m_newHashSHA);
-				   showDiffNewHashBin(m_newHashSHA);break;
-			case 2:showNewHashBin(m_newHashSHA);
-				   showDiffNewHashBin(m_newHashSHA);break;
+			case 1:showNewHashHex(m_newHashSHA1);
+				   showDiffNewHashBin(m_newHashSHA1);break;
+			case 0:showNewHashDec(m_newHashSHA1);
+				   showDiffNewHashBin(m_newHashSHA1);break;
+			case 2:showNewHashBin(m_newHashSHA1);
+				   showDiffNewHashBin(m_newHashSHA1);break;
 		   }
 	case 1:
 			switch(m_rb_DarstHW)
@@ -172,6 +169,7 @@ void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetStr
 
 void CDlgHashDemo::OnRadioMd2() 
 {
+	OnChangeEditText();
 	hashTextWithMd2();
 }
 
@@ -179,7 +177,9 @@ void CDlgHashDemo::hashTextWithMd2()
 {
 	UpdateData(true);
 	
-	sprintf(title, "Hash Demo   MD2-Hash");
+	CString title;
+	title.LoadString(IDS_HASH_DEMO_TITLE_MD2);
+	SetWindowText((LPCTSTR)title);
 
 	m_strOrigHash = "";
 
@@ -198,8 +198,6 @@ void CDlgHashDemo::hashTextWithMd2()
 
 	showDiffOrigHashBin(m_hashMD2);
 	SetHashDiff(m_hashMD2,m_newHashMD2);
-	SetWindowText(title);
-	//Titel des Dialogs wird gesetzt
 
 	UpdateData(false);
 	
@@ -208,6 +206,7 @@ void CDlgHashDemo::hashTextWithMd2()
 
 void CDlgHashDemo::OnRadioMd5() 
 {
+	OnChangeEditText();
 	hashTextWithMd5();
 }
 
@@ -215,8 +214,10 @@ void CDlgHashDemo::hashTextWithMd5()
 {
 	UpdateData(true);
 
-	sprintf(title, "Hash Demo   MD5-Hash");
-
+	CString title;
+	title.LoadString(IDS_HASH_DEMO_TITLE_MD5);
+	SetWindowText((LPCTSTR)title);
+	
 	if(m_rb_DarstHW==0)
 	{
 		OnRadioDec();
@@ -233,21 +234,23 @@ void CDlgHashDemo::hashTextWithMd5()
 	showDiffOrigHashBin(m_hashMD5);
 	SetHashDiff(m_hashMD5,m_newHashMD5);
 
-	SetWindowText(title);
 	UpdateData(false);
 }
 
 
-void CDlgHashDemo::OnRadioSha() 
+void CDlgHashDemo::OnRadioSha1() 
 {
+	OnChangeEditText();
 	UpdateData(true);
-	hashTextWithSha();
+	hashTextWithSha1();
 	UpdateData(false);
 }
 
-void CDlgHashDemo::hashTextWithSha()
+void CDlgHashDemo::hashTextWithSha1()
 {	
-	sprintf(title, "Hash Demo   SHA-Hash");
+	CString title;
+	title.LoadString(IDS_HASH_DEMO_TITLE_MD2);
+	SetWindowText(title);
 
 	if(m_rb_DarstHW==0)
 	{
@@ -262,11 +265,10 @@ void CDlgHashDemo::hashTextWithSha()
 		OnRadioBin();
 	}
 
-	showDiffOrigHashBin(m_hashSHA);
-	showDiffNewHashBin(m_hashSHA);
+	showDiffOrigHashBin(m_hashSHA1);
+	showDiffNewHashBin(m_hashSHA1);
 
-	SetHashDiff(m_hashSHA,m_newHashSHA);
-	SetWindowText(title);
+	SetHashDiff(m_hashSHA1,m_newHashSHA1);
 }
 
 void CDlgHashDemo::OnRadioHex() 
@@ -280,8 +282,8 @@ void CDlgHashDemo::OnRadioHex()
 		case 1: showHashHex(m_hashMD5);
 				showNewHashHex(m_newHashMD5);
 			break;
-		case 2: showHashHex(m_hashSHA);
-				showNewHashHex(m_newHashSHA);
+		case 2: showHashHex(m_hashSHA1);
+				showNewHashHex(m_newHashSHA1);
 			break;
 	}
 	UpdateData(false);
@@ -319,8 +321,8 @@ void CDlgHashDemo::OnRadioDec()
 		case 1: showHashDec(m_hashMD5);
 				showNewHashDec(m_newHashMD5);
 			break;
-		case 2: showHashDec(m_hashSHA);
-				showNewHashDec(m_newHashSHA);
+		case 2: showHashDec(m_hashSHA1);
+				showNewHashDec(m_newHashSHA1);
 			break;
 	}
 	UpdateData(false);
@@ -362,8 +364,8 @@ void CDlgHashDemo::OnRadioBin()
 				showNewHashBin(m_newHashMD5);
 
 			break;
-		case 2: showHashBin(m_hashSHA);
-				showNewHashBin(m_newHashSHA);
+		case 2: showHashBin(m_hashSHA1);
+				showNewHashBin(m_newHashSHA1);
 
 			break;
 	}
@@ -431,20 +433,16 @@ void CDlgHashDemo::OnChangeEditText()
 	/*************************************
 	bearbeiten
 	*************************************/
-	if(strlaenge>MAX_LAENGE_STRTEXT)
-	{
-		MessageBox("Textl‰nge zu groﬂ!");
-	}
-
+	
 	m_sndHashMD2.noctets=0;
 	m_sndHashMD5.noctets=0;
-	m_sndHashSHA.noctets=0;
+	m_sndHashSHA1.noctets=0;
 	
 	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashMD2,theApp.SecudeLib.md2_aid,NULL);
 	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashMD5,theApp.SecudeLib.md5_aid,NULL);
-	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashSHA,theApp.SecudeLib.sha_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashSHA1,theApp.SecudeLib.sha1_aid,NULL);
 
-	SetNewHash(m_sndHashMD2,m_sndHashMD5,m_sndHashSHA);
+	SetNewHash(m_sndHashMD2,m_sndHashMD5,m_sndHashSHA1);
 	
 	if(m_Auswahl_HW==0)
 	{
@@ -456,7 +454,7 @@ void CDlgHashDemo::OnChangeEditText()
 	}
 	else
 	{
-		SetHashDiff(m_hashSHA,m_newHashSHA);
+		SetHashDiff(m_hashSHA1,m_newHashSHA1);
 	}
 
 	delete m_Messg;
@@ -712,26 +710,32 @@ void CDlgHashDemo::SetRed()
 
 	static int c=0;
 
-	int laenge=144; 
-	m_strHashDiffRE.GetLength();
+	int laenge = m_strHashDiffRE.GetLength();
 
 	int x=0;
 
 	CString b = "";
+	int zero = 0, one = 0;
 	if(m_ctrlHashDiff.m_hWnd!=0)
 	{	
 		for( x=0;x<laenge;x++)
 		{
 			if(m_strHashDiffRE[x]=='1')
-			{	
+			{	one++;
 				b += "{\\cf2 1}";
 			}
 			else
-			{
+			{	
+				if (m_strHashDiffRE[x]=='0')
+					zero++;
 				b += m_strHashDiffRE[x];
 			}
 		
 		}
+		b += "\n\\par ";
+		CString ratio;
+		ratio.Format(IDS_HASH_DEMO_PERCENT,(100.0*one)/(one+zero));
+		b += ratio;
 	}
 
 	m_ctrlHashDiff.ShowWindow(SW_SHOW);

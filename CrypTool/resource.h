@@ -524,7 +524,7 @@
 #define IDC_RICHEDIT_HASHDIFF           1383
 #define IDC_RADIO_MD2                   1385
 #define IDC_RADIO_MD5                   1386
-#define IDC_RADIO_SHA                   1387
+#define IDC_RADIO_SHA1                  1387
 #define IDC_STATIC_TITEL                1388
 #define IDC_STATIC_TITEL2               1389
 #define IDC_BUTTON1_TXT_EINFUEGEN       1390
@@ -1311,6 +1311,11 @@
 #define IDS_RSASGN_PSE                  37892
 #define IDS_RSASGN_PSE_IMP              37893
 #define IDS_RSASGN_ALG                  37894
+#define IDS_HASH_DEMO_PERCENT           37895
+#define IDS_HASH_DEMO_TITLE_MD2         37896
+#define IDS_HASH_DEMO_TITLE_MD5         37897
+#define IDS_HASH_DEMO_TITLE_SHA1        37898
+#define IDS_HASH_DEMO_TITLE_TOO_LONG    37899
 
 // Next default values for new objects
 // 

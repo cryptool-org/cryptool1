@@ -26,16 +26,16 @@ public:
 	void showNewHashHex(OctetString &hash);
 	void showNewHashDec(OctetString &hash);
 	void showNewHashBin(OctetString &hash);
-	OctetString m_newHashMD2,m_newHashMD5,m_newHashSHA;
-	void SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA);
+	OctetString m_newHashMD2,m_newHashMD5,m_newHashSHA1;
+	void SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1);
 	OctetString * m_Messg;
-	OctetString m_sndHashSHA;
+	OctetString m_sndHashSHA1;
 	OctetString m_sndHashMD5;
 	OctetString m_sndHashMD2;
-	OctetString m_hashMD2,m_hashMD5, m_hashSHA;
+	OctetString m_hashMD2,m_hashMD5, m_hashSHA1;
 	OctetString *msg;
 	CString m_strText; // initial content of m_ctrlText;
-	void SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA);
+	void SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1);
 	CDlgHashDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -48,7 +48,7 @@ public:
 	CFont m_font;
 	int		m_rb_DarstHW;
 	int		m_Auswahl_HW;
-	CString	m_strOrigHash;
+	CString	m_strOrigHash; // display original hash in hex
 	CString	m_strNewHash;
 	CString m_strHash;
 	CString	m_strTitel;
@@ -70,10 +70,10 @@ private:
 	void showHashBin(OctetString &hash);
 	void showHashHex(OctetString &hash);
 	void showHashDec(OctetString &hash);
-	void hashTextWithSha();
+	void hashTextWithSha1();
 	void hashTextWithMd5();
 	void hashTextWithMd2();
-	char title[256];
+	//char title[256];
 protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
@@ -81,7 +81,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnRadioMd2();
 	afx_msg void OnRadioMd5();
-	afx_msg void OnRadioSha();
+	afx_msg void OnRadioSha1();
 	afx_msg void OnRadioBin();
 	afx_msg void OnRadioDec();
 	afx_msg void OnRadioHex();

@@ -2318,8 +2318,8 @@ BEGIN
                     WS_GROUP,33,25,31,10
     CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
                     10
-    CONTROL         "SHA",IDC_RADIO_SHA,"Button",BS_AUTORADIOBUTTON,33,57,31,
-                    10
+    CONTROL         "SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,57,
+                    31,10
     GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,209,9,94,63
     CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,224,41,39,10
@@ -2327,7 +2327,7 @@ BEGIN
                     224,26,55,10
     CONTROL         "binär",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,58,
                     31,10
-    LTEXT           "aktuelle Datei  ",IDC_STATIC,20,85,48,8,NOT WS_GROUP
+    LTEXT           "Aktuelle Datei",IDC_STATIC,20,85,45,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     LTEXT           "Hashwert der Originaldatei",IDC_STATIC,20,219,84,8
@@ -2340,10 +2340,10 @@ BEGIN
                     IDC_STATIC,20,284,278,8
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
-                    294,294,49
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,353,59,14
-    LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
-    LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
+                    294,294,53
+    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,359,59,14
+    LTEXT           "",IDC_STATIC_TITEL,110,219,54,9
+    LTEXT           "Bearbeiten",IDC_STATIC_TITEL2,71,85,61,10
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 445
@@ -5559,7 +5559,7 @@ BEGIN
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "Die Eingabe muss mindestens 1 Zeichen enthalten!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
-                            "Die Datei ist größer als %i Bytes und wird auf %i Bytes gekürzt"
+                            "Die Dateigrösse ist in dieser Demonstration auf %d Bytes begrenzt.\nDer Rest der Datei wird ignoriert."
     IDS_BITLENGTH           "Länge in Bit:           %i\r\n"
     IDS_CONTENT_CERT        "Zertifikat"
     IDS_CONTENT_SIGN        " %s-Signatur von <%s>"
@@ -5575,6 +5575,10 @@ BEGIN
     IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
     IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
     IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich."
+    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2-Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5-Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1-Hash"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7920,8 +7924,8 @@ BEGIN
                     WS_GROUP,33,25,31,10
     CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
                     10
-    CONTROL         "SHA",IDC_RADIO_SHA,"Button",BS_AUTORADIOBUTTON,33,57,31,
-                    10
+    CONTROL         "SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,57,
+                    34,10
     GROUPBOX        "Base of numbers",IDC_STATIC,217,9,93,63
     CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,232,41,39,10
@@ -7929,7 +7933,7 @@ BEGIN
                     232,26,55,10
     CONTROL         "binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
-    LTEXT           "Actual file",IDC_STATIC,16,85,48,8,NOT WS_GROUP
+    LTEXT           "Actual file",IDC_STATIC,16,85,32,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     LTEXT           "Original hash value",IDC_STATIC,16,219,70,8
@@ -7940,12 +7944,12 @@ BEGIN
                     ES_READONLY
     LTEXT           "Difference between original / actual file",IDC_STATIC,
                     16,284,252,8
-    PUSHBUTTON      "E&xit",IDCANCEL,251,353,59,14
+    PUSHBUTTON      "E&xit",IDCANCEL,251,356,59,14
     LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
-    LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
+    LTEXT           "Bearbeiten",IDC_STATIC_TITEL2,52,85,61,10
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
-                    296,294,49
+                    296,294,53
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
@@ -10755,7 +10759,7 @@ BEGIN
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "The file size must be at least one character!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
-                            "The file size exceeds %i bytes and will be restricted to %i bytes"
+                            "The file size in this demonstration is limited to %d characters.\nEverything beyond that will be ignored. "
     IDS_BITLENGTH           "Length in bit:          %i\r\n"
     IDS_CONTENT_CERT        "Certificate"
     IDS_CONTENT_SIGN        " %s signature of <%s>"
@@ -10827,6 +10831,10 @@ BEGIN
     IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
     IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file %s. \r\n\r\n"
     IDS_RSASGN_ALG          "As the hash function you have selected %s. "
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ."
+    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
 END
 
 STRINGTABLE DISCARDABLE 

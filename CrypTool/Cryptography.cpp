@@ -3157,10 +3157,9 @@ void Hashdemo(const char *infile,const char *OldTitle)
 
 	if(  !test.eof() )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_DateilaengeZuLang,pc_str,100);
-		char tmpstr[128];
-		sprintf(tmpstr,pc_str,MAX_LAENGE_STRTEXT,MAX_LAENGE_STRTEXT);
-		AfxMessageBox(tmpstr,MB_ICONEXCLAMATION);	
+		CString msg;
+		msg.Format(IDS_STRING_Hashdemo_DateilaengeZuLang,MAX_LAENGE_STRTEXT);
+		AfxMessageBox((LPCTSTR)msg,MB_ICONEXCLAMATION);	
 	}
 	// das Objekt test liest maximum 16000 Zeichen in das Array t ein
 	
@@ -3178,7 +3177,7 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	}
 
 
-	OctetString *message,hashMD2, hashMD5, hashSHA;
+	OctetString *message,hashMD2, hashMD5, hashSHA1;
 	//OctetString ist eine Struktur mit 2 Variablen, 1 Zeiger auf char (octets=der auf den zu hashenden
 	//text zeigt, bzw auf den Hashwert) und 1 Unsigned long das die Anzahl der chars angibt (noctets)
 	//message ist die Eingabe für die Hashfunktionen
@@ -3195,7 +3194,7 @@ void Hashdemo(const char *infile,const char *OldTitle)
 
 	hashMD2.noctets=0;
 	hashMD5.noctets=0;
-	hashSHA.noctets=0;
+	hashSHA1.noctets=0;
 	//Länge des noch nicht berechneten Hashs =0
 	
 	theApp.SecudeLib.sec_hash_all(message,&hashMD2,theApp.SecudeLib.md2_aid,NULL);
@@ -3204,10 +3203,10 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	//und die Adresse auf die Strukur hashMD2, in die der Hashwert und dessen Länge geschrieben wird.
 
 	theApp.SecudeLib.sec_hash_all(message,&hashMD5,theApp.SecudeLib.md5_aid,NULL);
-	theApp.SecudeLib.sec_hash_all(message,&hashSHA,theApp.SecudeLib.sha_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(message,&hashSHA1,theApp.SecudeLib.sha1_aid,NULL);
 	//es werden die drei benötigten Hashwerte der Originaldatei gebildet und im Speicher gehalten
 	
-	HashDlg.SetHash(hashMD2,hashMD5,hashSHA);
+	HashDlg.SetHash(hashMD2,hashMD5,hashSHA1);
 	//Übergabe von Referenzen auf die drei Hashwerte der Originaldatei
 
 	
