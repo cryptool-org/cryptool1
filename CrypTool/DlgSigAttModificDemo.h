@@ -55,6 +55,7 @@ protected:
 	afx_msg void OnUnprintable();
 	afx_msg void OnUpdateHashvalue();
 	afx_msg void OnUpdateSigbit();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

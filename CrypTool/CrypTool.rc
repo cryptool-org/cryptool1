@@ -2687,8 +2687,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,11,242,61,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,203,242,55,17
-    CONTROL         "&vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,115,161,63,10
+    CONTROL         "&Vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,161,64,10
     GROUPBOX        "Optionen für die Nachrichtenmodifikation",IDC_STATIC,11,
                     122,247,109
     CONTROL         "&Leerzeichenverdoppelung",IDC_CHECK3,"Button",
@@ -2879,13 +2879,13 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
 END
 
-IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 210
+IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 215
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Nachrichtenmodifikation anhand eines Hashwerts"
+CAPTION "Nachrichtenmodifikation durch einen Hashwert"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Modifikation berechnen",IDOK,18,183,107,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,231,184,50,14
+    PUSHBUTTON      "&Modifikation berechnen",IDOK,18,183,107,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,231,183,50,17
     LTEXT           "Hashwert",IDC_STATIC,29,22,31,8
     EDITTEXT        IDC_HASHVALUE,79,20,191,14,ES_AUTOHSCROLL
     LTEXT           "Signifikante\nBitlänge",IDC_STATIC,29,43,43,18
@@ -2894,8 +2894,8 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,29,88,84,10
     CONTROL         "&Zeichen anhängen",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,29,123,76,10
-    CONTROL         "&vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,135,88,63,10
+    CONTROL         "&Vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,88,64,10
     CONTROL         "Leerzeichenver&doppelung",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,135,104,98,10
     CONTROL         "&Druckbare Zeichen (zur Demonstration)",IDC_RADIO3,
@@ -3122,10 +3122,10 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "&Angriff auf die digitale Signatur ...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Angriff auf die digitale Signatur ...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3319,13 +3319,13 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "ASN.1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3461,7 +3461,7 @@ BEGIN
     END
     POPUP "&Einzelverfahren"
     BEGIN
-        MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
+        MENUITEM "&Hashwert einer Datei ...",   ID_HASH_OFAFILE
         MENUITEM "&Schlüssel aus Passwort generieren ...", 
                                                 ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -3478,11 +3478,10 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Nachrichtenmodifikation",    ID_SIGATTMODIFICDEMO
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "&Optionen"
     BEGIN
@@ -3640,11 +3639,12 @@ BEGIN
         MENUITEM "ASN.1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
-        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Nachrichtenmodifikation",    ID_SIGATTMODIFICDEMO
+        MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
+                                                ID_SIGNATUR_ATTACK
+        MENUITEM "&Nachrichtenmodifikation durch einen Hashwert ...", 
+                                                ID_SIGATTMODIFICDEMO
     END
     POPUP "A&nalyse"
     BEGIN
@@ -4269,7 +4269,7 @@ BEGIN
         VERTGUIDE, 270
         VERTGUIDE, 281
         TOPMARGIN, 7
-        BOTTOMMARGIN, 203
+        BOTTOMMARGIN, 208
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -8714,7 +8714,7 @@ BEGIN
     LTEXT           "By clicking ""Start search"" you initiate the attack which searches for two modifications of the messages above which translate to the same hash value.",
                     IDC_STATIC,28,207,270,17
     GROUPBOX        "Start search / Set options",IDC_STATIC,18,192,291,113
-    LTEXT           "In the ""Options"" you can set the hash algorithm, the number of bits of the hash values that have to match and the method of modifying the messages.",
+    LTEXT           "In the ""Options"" you can set the hash function, the number of bits of the hash values that have to match and the method of modifying the messages.",
                     IDC_STATIC,28,248,270,27
     LTEXT           "The semantics of the messages does not vary throughout the attack as only unprintable or formatting characters are used for modifying them.",
                     IDC_STATIC,28,226,270,19
@@ -8744,17 +8744,17 @@ BEGIN
                     10
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,151,
                     71,58,10
-    GROUPBOX        "Hash algorithm",IDC_STATIC,11,7,247,105
+    GROUPBOX        "Hash function",IDC_STATIC,11,7,247,105
     LTEXT           "Significant bit length",IDC_STATIC,21,93,64,8
     EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
     PUSHBUTTON      "&Reset to standard",IDC_BUTTON1,82,242,104,17
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
     LTEXT           "Determine the way messages are modified throughout the attack.",
                     IDC_STATIC,21,137,211,17
-    LTEXT           "Choose one of the six hash algorithms and set the number of bits that have to match between two hash values so that the attack is considered successful.",
+    LTEXT           "Choose one of the six hash functions and set the number of bits that have to match between two hash values so that the attack is considered successful.",
                     IDC_STATIC,21,22,211,25
-    CONTROL         "&Include blanks",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,21,161,62,10
+    CONTROL         "&Insert blanks",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,21,161,56,10
     CONTROL         "A&ttach characters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,21,197,77,10
     CONTROL         "&Printable characters (demonstration)",IDC_RADIO9,
@@ -8794,6 +8794,39 @@ BEGIN
     GROUPBOX        "Additional bytes",IDC_STATIC,11,255,318,40
     LTEXT           "Static",IDC_STATIC_HARMLESS,24,267,297,8
     LTEXT           "Static",IDC_STATIC_DANGEROUS,24,281,297,8
+END
+
+IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 217
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Modification of as message by a hash value"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Compute &modification",IDOK,18,183,107,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,231,183,50,17
+    LTEXT           "Hash value",IDC_STATIC,29,22,37,8
+    EDITTEXT        IDC_HASHVALUE,79,20,191,14,ES_AUTOHSCROLL
+    LTEXT           "Significant\nbit length",IDC_STATIC,29,43,43,18
+    EDITTEXT        IDC_SIGBIT,79,44,40,14,ES_AUTOHSCROLL
+    CONTROL         "&Insert blanks",IDC_METHOD,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,29,88,56,10
+    CONTROL         "&Attach characters",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,29,123,72,10
+    CONTROL         "In front of &end of line",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,88,81,10
+    CONTROL         "&Double Blanks",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,104,62,10
+    CONTROL         "&Printable characters (demonstration)",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,135,123,129,10
+    CONTROL         "&Unprintable characters",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,135,139,87,10
+    GROUPBOX        "Optionen für die Nachrichtenmodifikation",IDC_STATIC,17,
+                    74,264,101
+    GROUPBOX        "Hash value",IDC_STATIC,18,8,263,59
+    LTEXT           "Parity of the hash value",IDC_STATIC,151,46,74,8
+    EDITTEXT        IDC_PARITY,230,44,40,14,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO1,136,153,28,111,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Run",IDC_STATIC,171,155,14,8
 END
 
 
@@ -9006,11 +9039,11 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "&Attack on the hash value of the digital signature...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "&Analysis"
     BEGIN
@@ -9207,11 +9240,11 @@ BEGIN
         MENUITEM "ASN.1 decryption of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "&Analysis"
     BEGIN
@@ -9364,11 +9397,11 @@ BEGIN
                                                     ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "&Attack on the hash value of the digital signature...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
     END
     POPUP "&Options"
     BEGIN
@@ -9526,11 +9559,13 @@ BEGIN
         MENUITEM "ASN.1 decryption of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
-                                                ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Attack on the hash value of the digital signature...", 
+                                                ID_SIGNATUR_ATTACK
+        MENUITEM "&Modification of a message by a hash value ...", 
+                                                ID_SIGATTMODIFICDEMO
     END
     POPUP "&Analysis"
     BEGIN
@@ -10019,6 +10054,31 @@ BEGIN
     0
 END
 
+IDD_SIGATTMODIFICDEMO DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 4, 0
+0x3130, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3230, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3330, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3430, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3530, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3630, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3730, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3830, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3930, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3031, 0x002e, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10469,6 +10529,19 @@ BEGIN
     BEGIN
         VERTGUIDE, 11
         VERTGUIDE, 329
+    END
+
+    IDD_SIGATTMODIFICDEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 286
+        VERTGUIDE, 18
+        VERTGUIDE, 29
+        VERTGUIDE, 136
+        VERTGUIDE, 270
+        VERTGUIDE, 281
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
     END
 END
 #endif    // APSTUDIO_INVOKED

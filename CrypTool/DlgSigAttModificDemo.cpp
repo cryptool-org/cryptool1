@@ -24,8 +24,8 @@ CDlgSigAttModificDemo::CDlgSigAttModificDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSigAttModificDemo::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgSigAttModificDemo)
-	m_hashvalue = _T("012");
-	m_sigbit = 8;
+	m_hashvalue = _T("");
+	m_sigbit = 0;
 	m_method = 0;
 	m_printable = 0;
 	m_parity = 0;
@@ -308,4 +308,21 @@ void CDlgSigAttModificDemo::CalculateParity()
 
 	BitParity BP;
 	m_parity = BP.GetParity(String, m_sigbit);
+}
+
+BOOL CDlgSigAttModificDemo::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	m_control_eol.EnableWindow(TRUE);
+	m_control_eol.SetCheck(1);
+	m_control_double.EnableWindow(TRUE);
+	m_control_double.SetCheck(1);
+	m_control_printable.EnableWindow(FALSE);
+	m_control_unprintable.EnableWindow(FALSE);
+	m_control_run.EnableWindow(FALSE);
+	
+	UpdateData(FALSE);
+	
+	return TRUE;
 }
