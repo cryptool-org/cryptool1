@@ -82,7 +82,8 @@ Internet-Adressen:  http://www.CrypTool.de
                     http://www.CrypTool.org
 
 Seit Anfang 2003 bewegt sich die Downloadrate bei rund 1000
-CrypTool-Paketen pro Monat -- mit wachsender Tendenz.
+CrypTool-Paketen pro Monat -- mit wachsender Tendenz (davon
+entfallen z.Zt. ca. 1/3 auf die englische Version).
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Mechanismen
@@ -100,6 +101,11 @@ CrypTool wird eingesetzt
 Bitte beachten Sie die Lizenz- und Nutzungsbestimmungen für
 CrypTool. Diese werden bei der Installation und auf der
 Einstiegsseite der Online-Hilfe erläutert.
+
+Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
+Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Doktor-
+oder Seminararbeiten), die man in CrypTool integrieren könnte, sind
+wir sehr dankbar. Kontakte: siehe Kapitel 8 und 9 unten.
 
 
 1.1. Wie Sie am besten starten - Der Einstieg in CrypTool
@@ -120,8 +126,8 @@ ausprobieren.
 
 Einen schnellen Einstieg in CrypTool finden Sie, wenn Sie einige
 Szenarien (Tutorials) der Online-Hilfe durchspielen (die Szenarien
-stehen im Inhaltsverzeichnis der Hilfe unter "Beginn der Arbeit
-mit CrypTool").
+stehen im Inhaltsverzeichnis der Online-Hilfe unter "Beginn der 
+Arbeit mit CrypTool").
 
 Wenn Ihnen ein Menüpunkt nichts sagt oder Sie in einem Dialogfenster
 nicht recht weiter wissen, sollte die Hilfe über F1 Ihnen jeweils
@@ -260,15 +266,15 @@ ist derselbe in allen bisherigen CT-Versionen, geschützt mit einer
 ebenfalls bewusst sehr einfachen PIN für die CA-PSE (Personal
 Security Environment).
 Daher hat die in CT eingebaute CA auch keine für produktive Zwecke 
-adäquate Schlüssellänge (wie z.B. RSA 1024 oder 1536 Bit), sondern 
-nur 512 Bit.
+adäquate Schlüssellänge (wie z.B. RSA 1024, 1536 oder 2048 Bit), 
+sondern nur 512 Bit.
 Die Gültigkeit des eingebauten CA-Schlüssels ist definiert bis 2010.
 
 Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
-Programm eine Root-CA mit demselben Schlüsselpaar beinhaltet, mit der
-die im Programm erzeugten User-Zertifikate signiert werden. 
-D.h. jeder (!), der CrypTool einsetzt, kann User-Zertifikate mit dieser
-eingebauten CA signieren.
+Programm eine Root-CA mit demselben Schlüsselpaar beinhaltet, mit 
+der die im Programm erzeugten User-Zertifikate signiert werden. 
+D.h. jeder (!), der CrypTool einsetzt, kann User-Zertifikate mit 
+dieser eingebauten CA signieren.
 
 Die Verfahren selbst sind entsprechend den internationalen Standards
 implementiert und genauso "gut" wie in produktiven Anwendungen.
@@ -318,14 +324,15 @@ nur Menüs, die noch Untermenüs haben. Das Problem tritt nur auf,
 wenn das Untermenü aufgeklappt ist. F1 bewirkt dann gar nichts.
 
 Normalerweise kann bei CrypTool auch Hilfe zu einem Menüeintrag
-angefordert werden, der selbst weitere Untermenüs hat.
+angefordert werden, der selbst weitere Untermenüs hat -- unabhängig
+davon, ob das Untermenü aufgeklappt ist oder nicht.
 Unter Windows XP erhält man die Online-Hilfe dazu nur, wenn das
 Popup-Fenster der untergeordneten Menüpunkte nicht aufgeklappt
 ist.
 Bei den anderen Windows-Versionen spielt das keine Rolle, dort ist
 nur wichtig, dass das Menü den Fokus hat.
 
-Workaround anhand eines Beispiels: Einzelverfahren \ RSA-Demo
+Workaround anhand eines Beispiels: Einzelverfahren \ RSA-Demo :
 Wenn hier das Untermenü zu "RSA-Demo" aufklappt, Sie aber die
 Hilfe zum Menüeintrag "RSA-Demo" haben wollen, müssen Sie - nur
 unter Windows XP - das Untermenü von "RSA-Demo" erst mit Escape
@@ -342,7 +349,7 @@ Für jede unterstützte Sprache gibt es ein eigenes Setup (der
 Versuch, alle Sprachen in ein einziges Executable einzubinden
 wurde wieder aufgegeben, da die automatische Spracheinstellung
 beim Anwender (anhand seiner Systemeinstellungen) nur unter
-Windows 4.0, nicht aber unter Win9x, korrekt funktionierte).
+Windows NT 4.0, nicht aber unter Win9x, korrekt funktionierte).
 
 
 2.6. Einschränkungen in den verwendeten Bibliotheken
@@ -405,7 +412,7 @@ In Mehrbenutzersystemen wie Windows XP hat der Administrator vollen
 Zugriff auf das ganze Dateisystem, die restlichen User können/sollten
 eingeschränkt sein.
 
-Zur Installation braucht der Benutzer braucht Schreibrechte für das 
+Zur Installation braucht der Benutzer Schreibrechte für das 
 Verzeichnis, in das CrypTool installiert werden soll (z.B. für das 
 Verzeichnis "C:\Programme", falls das Unterverzeichnis "CrypTool" noch
 nicht angelegt ist,  oder für das Verzeichnis "C:\Programme\CrypTool",
@@ -423,7 +430,8 @@ Explizit nötig sind Schreibrechte auf:
 - das Standard-Windows-Verzeichnis für temporäre Dateien 
   (für die *.cry-Dateien),
 - das Unterverzeichnis "CrypTool\pse", da darin die erzeugten 
-  asymmetrischen Zertifikate und Schlüssel abgelegt werden, und
+  asymmetrischen Zertifikate und Schlüssel abgelegt werden (siehe
+  Kapitel 3 oben), und
 - die Datei CrypTool.ini, in der das CrypTool-Programm Einstellungen
   speichert, die über die jeweilige Programm-Session hinausgehen
   (Persistenz).
@@ -437,7 +445,7 @@ Explizit nötig sind Schreibrechte auf:
   erhalten, könnte eine spätere Version 
    - unter Windows die persistenten Einstellungen Benutzer-spezifisch 
      in die Registry statt in eine Ini-Datei schreiben.
-   - für den Benutzer eine zusätzliche  Optionen anbieten, ob man eine
+   - für den Benutzer eine zusätzliche Optionen anbieten, ob man eine
      Einstellung nur für die entsprechende Programm-Session oder 
      persistent ändern möchte.
 
@@ -446,7 +454,7 @@ Explizit nötig sind Schreibrechte auf:
 4. Dateiliste
    ----------
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
-zwei Sprachversionen verteilt:
+zwei verschiedenen Sprachversionen verteilt:
 
 SetupCrypTool_1-3-04_en.exe    Englische Sprachversion.
 SetupCrypTool_1-3-04_de.exe    Deutsche Sprachversion.
@@ -474,8 +482,8 @@ irunin.*.......... Diese Dateien sind nötig für Installation und
                    Deinstallation von CrypTool.
 
 script-de.pdf..... Ein Skript (deutsch) über Kryptographie,
-                   Primzahlen, Zahlentheorie und die Mathematik
-                   hinter einigen Algorithmen.
+                   Primzahlen, elementare Zahlentheorie und die 
+                   Mathematik hinter einigen Algorithmen.
 script-en.pdf..... Die englische Fassung von script-de.pdf.
 CrypToolPresentation_1_3_04_de.pdf... Folien-Präsentation
 CrypToolPresentation_1_3_04_en.pdf... Englische Fassung der Präs.
@@ -483,6 +491,10 @@ DialogSchwestern.pdf.. Fantasy-Geschichte von Dr. Elsner, in der
                        eine Variante des RSA-Kryptosystems
                        beschrieben wird.
 DialogueSisters.pdf... Englische Fassung von DialogSchwestern.pdf.
+Original.txt...... "Harmlose" Beispieldatei für die Hashkollision-Demo
+original.txt...... Englische Fassung von Original.txt
+Faelschung.txt.... "Gefährliche" Beispieldatei für die Hashkollision-Demo
+fake.txt.......... Englische Fassung von Faelschung.txt
 
 references\....... Dieses Verzeichnis enthält Textdateien in den
                    Sprachen Deutsch, Englisch, Französisch,
@@ -564,7 +576,7 @@ man eine veränderte Datei auf seinem Rechner hat.
 
 a) Herunterladbare Dateien
 Auf der Homepage von CrypTool www.cryptool.de finden Sie
-die Hashwerte aller von der deutschen Seite direkt
+die Hashwerte aller von der deutschen Webseite direkt
 herunterladbaren Dateien in den Dateien md5sum.txt bzw.
 in sha1sum.txt.
 Mit weit verbreiteten Tools wie MD5SUM und SHA1SUM kann
@@ -587,7 +599,7 @@ oder das Programm CrypTool selbst.
 Die Hashwerte von "externen" Dateien können Sie auch berechnen,
 ohne diese in CrypTool zu laden:
 - Menü Einzelverfahren \ Hashwerte \ Hashwert einer Datei...
-  (MD5 oder SHA1 als Hashalgorithmus wählen!)
+  (MD5 oder SHA1 als Hashalgorithmus wählen)
 - Öffnen der entsprechenden Datei
 - Vergleich mit dem Wert hier.
 
@@ -602,8 +614,8 @@ sind, dass Ihr Rechner unberührt ist.
  
 5.1. Änderungen von Version 1.2.02 zu Version 1.3.00
      -----------------------------------------------
-Seit CrypTool 1.202 (Dez. 2000) wurden folgende Erweiterungen und
-Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
+Kapitel 5.1 listet die Erweiterungen und Bugfixes auf, die in
+CrypTool 1.3.00 seit CrypTool 1.202 (Dez. 2000) hinzugefügt wurden:
 - CrypTool ist nun komplett in gleicher Weise in deutsch und
   englisch.
 - Alle Dialoge wurden im Hinblick auf Konsistenz und
@@ -656,8 +668,8 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
        -----------------------
 + Demo zur Zahlentheorie und zum RSA-Verfahren neu
   - Primzahlen generieren
-  - Zahlen (schrittweise) und mit verschiedenen Verfahren
-    faktorisieren
+  - Zahlen (schrittweise) und mit verschiedenen, in parallel
+    laufenden Threats durchgeführten Verfahren faktorisieren
   - das RSA-Kryptosystem transparent durchführen (auch für
     selbst-gewählte Primzahlen).
     Damit kann z.B. auch der "Dialog der Schwestern"
@@ -667,7 +679,7 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
        -----------------------------------
 + intern werden die Schlüssel und Eigenschaften aller Verfahren
   getrennt gespeichert. Speicherung und Abruf der dabei
-  eingegebenen Schlüssel erfolgt über 2 Buttons. Dadurch
+  eingegebenen Schlüssel erfolgen über 2 Buttons. Dadurch
   wird die Wiederverwendung deutlich einfacher, wenn
   wie in klassischen Verfahren wie Playfair sehr spezifische
   Formate verwendet werden.
@@ -723,9 +735,10 @@ Dokumentation:
   - neu in Kapitel 6 sind Informationen zur Motivation und
     Interoperabilität von Elliptischen Kurven.
   - neu in 1.3.04: 
-    aktueller Stand der Kryptoanalyse von AES und RC5,
-    aktuelle Entwicklungen bei der Faktorisierung (TWIRL) und
-    in der Zahlentheorie ("Primes in P") ergänzt.
+      - aktueller Stand der Kryptoanalyse von AES und RC5 ergänzt,
+      - aktuelle Entwicklungen bei der Faktorisierung (TWIRL) und
+        in der Zahlentheorie ("Primes in P") ergänzt und
+      - den Menübaum von CrypTool in den Anhang abgedruckt.
 + Einheitliche CrypTool-Präsentation zu 1.3.0x (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
@@ -754,13 +767,13 @@ Funktionalität:
   - Das AES-Tool bietet nun den vollen Funktionsumfang auch bei
     einem Aufruf von der Kommandozeile.
     Es kann entweder selbständig oder über die Menüfolge 
-    Ver/Entschlüsseln \ Symmetrisch \ AES (selbstextrahierend)
-    aus Cryptool heraus aufgerufen werden.
+    "Ver/Entschlüsseln \ Symmetrisch \ AES (selbstextrahierend)"
+    aus CrypTool heraus aufgerufen werden.
   - Der Dateityp (Exe oder Aes) stellt sich weitgehend selbst ein.
   - Bitte beachten Sie, dass die Ausgabe des AES-Tools auch bei der
-    Dateiendung "Aes" nicht vollkommen identisch ist mit dem Ausgabe,
+    Dateiendung "Aes" nicht vollkommen identisch ist mit der Ausgabe,
     die Sie erhalten mit der Menüfolge
-    Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES).
+    "Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES)".
 + Bei der Hill-Verschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen \ Textoptionen gewählte Alphabet,
@@ -838,7 +851,7 @@ Funktionalität:
 6.1. Analyse
      -------
 + zu allen Verschlüsselungsverfahren eine (gute) Analyse anbieten
-  (zumindest für die klassischen Verfahren mehr als Brute-Force).
+  (zumindest für die klassischen Verfahren besser als Brute-Force).
 + Analyse neu implementieren für
   - homophone Verschlüsselung.
 + Analyse verbessern (nicht performant und korrekt genug bisher) für
@@ -861,12 +874,12 @@ Funktionalität:
 + Bei gleitender Entropie: Automatische Anzeige der
   entsprechenden Stellen mit hoher Entropie.
 + Vigenere-Analyse noch weiter veranschaulichen:
-  - bei den Keylängen die Eingabe eines Ranges statt eines Einzel-
+  - bei den Keylängen die Eingabe eines Bereiches statt eines Einzel-
     wertes ermöglichen (z.B. "2-9") und dann in der Folgemaske auch
     für jede Länge den statistisch wahrscheinlichen Schlüssel ausgeben.
     Per Klick auf einen der angezeigten Keys erhält man die jeweilige
-    Entschlüsselung. Per Klick auf weiteren Button werden für alle 
-    Keys die Entschlüsselungen angeboten.
+    Entschlüsselung. Per Klick auf einen weiteren Button werden für
+    alle Keys die Entschlüsselungen angeboten.
   - mit der Analyseoption "Basischiffre anzeigen" werden z.Zt. pro
     Spaltencaesar (d.h. bei einer ermittelten Schlüssellänge von
     n wird das Caesarverfahren für jeden Wert von i jeweils auf die
@@ -878,13 +891,16 @@ Funktionalität:
   groß, sondern auch in roter Schrift anzeigen.
 + Beliebige Textdateien in Blöcken einstellbarer Breite darstellen:
   xxx xxx xxx  oder  xxxxx xxxxx xxxxx ...
++ Angriff gegen die RSA-Verschlüsselung, wenn der Exponent zu klein ist.
+  RSA-Angriff: Pure C++-Sourcen und eine zahlentheoretische Diplomarbeit
+               in Deutsch sind verfügbar.
 
 
 6.2. Algorithmen / Verfahren
      -----------------------
 + Weitere Algorithmen zu jedem Thema implementieren:
     - Verschlüsselung
-       - ADFGVX bei den klassischen Verfahren,
+       - ADFGVX und Fleißner-Schablone bei den klassischen Verfahren,
        - RC5 und Ghost bei den symmetrischen Verfahren oder
        - Rabin bei den Public Key-Verfahren.
     - Hashverfahren
@@ -895,11 +911,13 @@ Funktionalität:
   ADFGVX: Sourcen in Basic mit Oberfläche liegen uns vor. Diese sind
           aus Zeitmangel noch nicht nach C übertragen und in CrypTool
           integriert.
-+ Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen normierten
-  und regulären Mustern und Suche nach unbekannten, aber mehrfach
-  vorkommenden Mustern im Dokument, ...), indem der Dialog zum
-  Massen-Vergleich mit bekannten Mustern in einer anderen Datei
-  entsprechend erweitert wird.
+  Fleißner-Schablone: Sourcen in Java mit Oberfläche und eine
+                      Seminararbeit (Deutsch) sind verfügbar.
++ Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen 
+  normierten und regulären Mustern und Suche nach unbekannten, 
+  aber mehrfach vorkommenden Mustern im Dokument, ...), indem der 
+  Dialog zum Massen-Vergleich mit bekannten Mustern in einer anderen
+  Datei entsprechend erweitert wird.
   Zur Suche könnte man auch Ersetzen ergänzen.
 + Hillverfahren
    - Schlüsselmatrix transponieren
@@ -936,10 +954,10 @@ Funktionalität:
     Es wäre eine gute Ergänzung für CrypTool, diese Standard-
     anforderungen zur Evaluierung von Zufallszahlen  
     einzubauen und dies auch zu visualisieren.
-+ Weitere Standards implementieren und direkt über die Menüs
-  bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
++ Weitere Standards implementieren und direkt über die Menüs bzw.
+  aus der Online-Hilfe heraus an alle Stellen verzweigen, wo diese
   Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit
-  dabei sind nur User Interface und Dokumentation).
+  dabei sind User Interface und Dokumentation).
 + Ähnlich wie CrypTool "gute" Schlüssel aus Passworten generiert (PKCS#5),
   sollte eine DOKUMENTIERTE Schnittstelle da sein zu den verschiedenen
   Verfahren, die gute Passworte generieren.
@@ -949,10 +967,8 @@ Funktionalität:
     die Struktur, holt den Key heraus (PGP-Sourcen sind gegeben) und
     nutzt diesen, um mit den in CrypTool implementierten Verfahren 
     PGP-Files zu entschlüsseln oder zu signieren. 
-    Damit klar, dass PGP nur mit Standard-Algorithmen arbeitet.
-+ Angriff gegen die RSA-Verschlüsselung, wenn der Exponent zu klein ist.
-  RSA-Angriff: Pure C++-Sourcen und eine zahlentheoretische Diplomarbeit
-               in Deutsch sind verfügbar.
+    Damit wird klar, dass PGP nur mit Standard-Algorithmen arbeitet.
++ CrypTool als Demonstrator für XML-Signaturen.
 
 
 6.3. Interne Schnittstellen
@@ -966,10 +982,12 @@ Funktionalität:
   Funktionen auf beide anwenden (und z.B. beim Versuch der Playfair-
   Verschlüsselung mit einem Nicht-Textfile alle Buchstaben außerhalb
   des Alphabets ignorieren) oder in einer gemeinsamen Menüstruktur
-  die Menüeinträge dynamisch ein-/ausblenden. 
+  die Menüeinträge dynamisch ein-/ausblenden/ausgrauen.
+  Dies ist eine häufig gestellte Anfrage, um die Navigation zu
+  erleichtern. 
 + Die Sourcen so umstellen, dass die Ausgabe/Anzeige komplett von
   den Kryptomodulen getrennt ist (erleichtert Portierungen und
-  Fehlersuche).
+  Fehlersuche). Dies ist wirklich nötig.
 + Parametrisierung, wo immer das möglich ist:
   Anbieten einer Option, um z.B. den Initialisierungsvektor,
   die Anzahl von Runden, die Schlüssel- oder Wortlänge oder
@@ -980,37 +998,46 @@ Funktionalität:
 + Wörterbuch für alle Angriffe benutzen, nicht nur für die
   Substitution.
 + Libraries:
-   - Unterstützung weiterer Libraries (Gnu, LiDIA, FLINT/C, ...)
+   - Unterstützung weiterer Libraries (Gnu, LiDIA, FLINT/C, Wei Dai's
+     Crypto++, ...)
    - Update der Miracl-Lib auf eine neuere Version als 4.4.3.,
      sofern dies eine Performance-Verbesserung bringt.
    - Update der Secude-Lib auf eine neuere Version als 5.4.15C,
      sofern dies eine Performance-Verbesserung bringt oder
      weitere Verfahren benötigt werden.
-+  Benutzer-spezifische persistente Informationen in die Windows-Registry
-   schreiben statt in CrypTool.ini (vgl. Kapitel 3.2. oben).
++ Einschränkungen in der bearbeitbaren Größe von zu ladenden Dateien
+  ausdehnen (vgl. 5.1. oben).
++ Einschränkungen in der N-Gramm-Analyse bzgl. Dateigröße ausdehnen
+  (evtl. mit Benutzerfeedback, dass viel Zeit erforderlich)
+  (vgl. 5.1.1. oben).
++ Benutzer-spezifische persistente Informationen in die 
+  Windows-Registry schreiben statt in CrypTool.ini 
+  (vgl. Kapitel 3.2. oben).
 
 
 6.4. User-Interface / Visualisierungen
      ---------------------------------
 + In den Dialogen in CrypTool können Zahlen nicht immer in allen
-  Darstellungsarten eingegeben werden (z.B. kann im Dialog RSA-Kryptosystem
-  die zu verschlüsselnde Nachricht als Text mit frei einzustellendem 
-  Alphabet und als Zahl mit 4 verschiedenen Basen) eingegeben werden,
-  die Primzahlen dagegen kann man "nur" als Zahl im Zehnersystem bzw. als
-  Ausdrücke mit Zahlen im Zehnersystem eingegeben).
+  Darstellungsarten eingegeben werden (z.B. kann im Dialog 
+  RSA-Kryptosystem die zu verschlüsselnde Nachricht als Text mit frei
+  einzustellendem Alphabet und als Zahl mit 4 verschiedenen Basen) 
+  eingegeben werden; die Primzahlen dagegen kann man "nur" als Zahl 
+  im Zehnersystem bzw. als Ausdrücke mit Zahlen im Zehnersystem 
+  eingeben).
   Nützlich wäre es, wenn man aus CrypTool heraus einen Taschenrechner
-  als a-modales Fenster aufmachen könnte, der Terme mit Zahlen beliebiger
-  Basis als Eingabe nimmt und die Ausgabe in mehreren Feldern in 
-  verschiedenen Zahlensystemen parallel anzeigt. Von hier aus sollte
-  man dann die Zahlen per Knopfdruck ins Clipboard bringen können oder
-  per Maus in die Eingabefelder der CrypTool-Dialogboxen ziehen können.
+  als a-modales Fenster aufmachen könnte, der Terme mit Zahlen 
+  beliebiger Basis als Eingabe nimmt und die Ausgabe in mehreren
+  Feldern in verschiedenen Zahlensystemen parallel anzeigt. Von hier
+  aus sollte man dann die Zahlen per Knopfdruck ins Clipboard bringen
+  können oder per Maus in die Eingabefelder der CrypTool-Dialogboxen
+  ziehen können.
 + Für den Benutzer konfigurierbar einstellbar machen, ob neue Fenster
   wie bisher innerhalb des Hauptfensters erscheinen oder als "freie"
-  Fenster danebenstehen.
-  Z.B. einzelne Dialogboxen (z.B. N-Gramm-Analyse, Manuelle Analysen,
-  Hybriddemo) als amodale Fenster erzeugen, so dass man beliebig
+  (modale oder a-modale) Fenster danebenstehen.
+  Einzelne Dialogboxen (z.B. N-Gramm-Analyse, Manuelle Analysen,
+  Hybriddemo) als a-modale Fenster erzeugen, so dass man beliebig
   zwischen Hauptfenster und Auswertungsfenster springen kann
-  (aufwendigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
+  (aufwändigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
   rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw.
   nach Änderung der Originaldaten im Hauptfenster, ...).
 + AES-Tool:
@@ -1018,35 +1045,37 @@ Funktionalität:
   - Einbinden des PKCS#5-Dialog, um dem Benutzer seine gewohnte
     Eingabeweise zu bieten: dann zufällige Werte für Salz und 
     Iterationszahl voreinstellen und den User auffordern, sich
-    den Hexwert zu merken oder sicher aufzubewahren.
+    den Hexwert zu merken oder ihn sicher aufzubewahren.
   Generell sind bei CrypTool die Schlüssel ganz bewusst für die
   modernen Verschlüsselungsverfahren in Hex-Zeichen einzugeben. 
   Es ist Absicht, dass man in CrypTool zunächst sieht, welche Art
   Schlüssel die verschiedenen Algorithmen erwarten: bei den 
   klassischen Verfahren besteht der Schlüssel aus dem zugrunde
-  liegenden Alphabet, bei den modernen Verfahren sind es 
-  Binärdaten von 56 Bit bis 256 Bit Länge.
+  liegenden Alphabet, bei den modernen symmetrischen Verfahren sind
+  es Binärdaten von 56 Bit bis 256 Bit Länge.
   Andererseits sind Benutzer gewohnt, ihre Eingaben per ASCII-Zeichen
   zu machen. Da in einer produktiven Anwendung der Schlüssel nicht
   aus ASCII-Zeichen bestehen sollte, ist es besser, wenn man schon
   ein ASCII-Passwort als Grundlage verwendet, daraus mit einem 
   vernünftigen Verfahren einen Schlüssel herzuleiten. 
   In CrypTool könnte man die Anforderung "ASCII-Schlüsseleingabe" und
-  Zeigen, dass gute Hex-Keys zu verwenden sind, folgendermaßen 
+  "Zeigen, dass gute Hex-Keys zu verwenden sind", folgendermaßen 
   miteinander verbinden:
-  In dem HEX-Schlüsseleingabe-Dialog sollte man per Button die Funktion 
-  "Einzelverfahren \ Schlüssel aus Passwort erzeugen" aufrufen können. 
+  In dem HEX-Schlüsseleingabe-Dialog sollte man per Button die 
+  Funktion "Einzelverfahren \ Schlüssel aus Passwort erzeugen" 
+  aufrufen können. 
   Der Dialog ist dann mit der richtigen Schlüssellänge parametrisiert 
-  und der generierte Schlüssel wird in die HEX-Schlüsseleingabe übernommen. 
-  Damit dies auch für AES-256 funktioniert, müsste noch die SHA-256-
-  Hashfunktion eingebaut werden.
+  und der generierte Schlüssel wird in die HEX-Schlüsseleingabe 
+  übernommen. Damit dies auch für AES-256 funktioniert, müsste noch
+  die SHA-256-Hashfunktion eingebaut werden.
   Analog könnte man das AES-Tool so erweitern, dass der PKCS#5-Dialog
   eingebunden wird. Dadurch wäre die allgemeine Nutzung bequemer.
-  Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem Aufruf,
-  der nur eine ASCII-Passwort eingibt, voreinstellen, und den User
-  auffordern, sich den Hexwert zu merken und/oder sicher aufzubewahren.
+  Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem
+  Aufruf, der nur eine ASCII-Passwort eingibt, voreinstellen, und 
+  den User auffordern, sich den Hexwert zu merken und/oder sicher
+  aufzubewahren.
 + Für den Benutzer konfigurierbar einstellbar machen, wie groß die
-  Text- und Binärdateien sein können, die CrypTool laden kann.
+  Teile von Text- und Binärdateien sein können, die CrypTool laden kann.
 + In der Anzeige für Grafiken eine Vergrößerungsfunktion einbauen
   und / oder die Koordinaten anzeigen, an denen sich die Maus
   befindet.
@@ -1086,7 +1115,8 @@ Funktionalität:
 6.7. Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
      ------------------------------------------------------------
 + Einbau des RC5-Algorithmus wie oben beschrieben, um zu sehen,
-  an welchen Stellen überall die Sourcen dafür zu ergänzen sind.
+  an welchen Stellen überall die Sourcen dafür zu ergänzen sind
+  (Funktion selbst, Optionen, Menüs + Statuszeileninfo, Online-Hilfe).
 + alle möglichen Arten von Transpositionen und Superpositionen
   für den Inhalt von Textfenstern in einem ansprechenden Dialog
   anbieten.
@@ -1128,8 +1158,8 @@ Bemerkung zu den aktuellen Versionen:
 1.3.03    Viele kleine Bugfixes und Verbesserungen der Dokumentation.
 1.3.04    Etliche neue Funktionalität (siehe Kapitel 5.2), einige
           kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
-          und umfangreiche Verbesserung und Erweiterung der Dokumentation
-          (Online-Hilfe, Skript).
+          und umfangreiche Verbesserung und Erweiterung der 
+          Dokumentation (Online-Hilfe, Skript).
 
 
 
@@ -1226,9 +1256,11 @@ zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 Der Inhalt dieser CD floss ein in das BSI Sicherheits-Portal
 "für unerfahrene Internet-Nutzer" (http://www.bsi-fuer-buerger.de).
 
+
 10.2.3. Freeware-Projekte Crank, Griffon, CAP, CryptAid, etc.
         -----------------------------------------------------
-Available with source code are:
+Mit Source-Code sidn verfügbar:
+
 - http://freshmeat.net/projects/crank/
   Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
   der GNU General Public Licence (GPL) freigegeben.
@@ -1261,9 +1293,9 @@ sind:
 - CryptAid von David Lovelock
   (wahrscheinlich seit 1997 nicht mehr weitergepflegt)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
-- das Visual Basic-Programm "Cryptological Mathematics" von Prof. R.E. Lewand
-  (anschauliche Darstellung einiger zahlentheoretischer Funktionen und
-  Funktionen zur Ver- und Entschlüsselung;
+- das Visual Basic-Programm "Cryptological Mathematics" von 
+  Prof. R.E. Lewand (anschauliche Darstellung einiger zahlen-
+  theoretischer Funktionen und Funktionen zur Ver- und Entschlüsselung;
   keine Funktionen zur Kryptoanalyse; Software zu seinem Buch)
   http://faculty.goucher.edu/blewand/cryptomath/companion_software.htm
 - John Trafton's studentisches Cryptography-Projekt in Java

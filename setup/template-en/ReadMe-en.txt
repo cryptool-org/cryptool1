@@ -9,15 +9,15 @@
                        Contents
 
  1. .... Brief description of the CrypTool package
- 1.1. .... How to start - An Introduction to CrypTool
+ 1.1. .... How to start - An introduction to CrypTool
  1.2. .... What do you get in the CrypTool package?
  1.3. .... Acknowledgements
- 1.4. .... New maintainer in the future - Road Map
+ 1.4. .... New maintainer in the future - Roadmap
  2. .... Limitations and requirements
  2.1. .... Education, training and awareness software
  2.2. .... Win32 environment
  2.3. .... Installation under Windows 95
- 2.4. .... Interactive Online Help under Windows XP
+ 2.4. .... Interactive Online help under Windows XP
  2.5. .... Support for different languages
  2.6. .... Restrictions in libraries used
  3. .... Installation / de-installation / operating
@@ -65,7 +65,7 @@
    -----------------------------------------
 This README file is part of the free distribution of CrypTool,
 a program by means of which cryptographic functions can be easily
-demonstrated and known and unknown algorithms analyzed.
+demonstrated and known and unknown algorithms can be analyzed.
 
 Every part of the program comes with extensive Online help, which
 can be understood without deep knowledge in cryptography,
@@ -77,12 +77,13 @@ It is required that the user is able to use typical applications
 under Windows.
 
 The current version of CrypTool can be found at these addresses:
-                http://www.CrypTool.com
                 http://www.CrypTool.org
+                http://www.CrypTool.com
                 http://www.CrypTool.de
 
 Since beginning of 2003 the average download number of the CrypTool
-package is about 1000 pieces per month -- with a growing trend.
+package is about 1000 pieces per month -- with a growing trend
+(about 1/3 of the current downloads request the English version).
 
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
@@ -102,8 +103,13 @@ liability for any damage arising from the use of CrypTool. These
 conditions are described during the installation process and at
 the introduction page of the Online help for CrypTool.
 
+We welcome very much everybody willing to further develop CrypTool
+or to give feedback. We are also glad about hints telling us about
+papers (diploma or doctor thesis or seminar homeworks), which could
+be integrated into CrypTool. Contact: please see chapter 8 and 9 below.
 
-1.1. How to start - An Introduction to CrypTool
+
+1.1. How to start - An introduction to CrypTool
      ------------------------------------------
 When you start up CrypTool, the CrypTool work area starts up
 along with a small welcome screen which appears in the
@@ -113,15 +119,15 @@ This starting page is a good starting point, to become acquainted
 with all essential features of CrypTool (using the links on this
 starting page).
 
-Please read the information and tips on the introductory help page
-and then, in the CrypTool work area, open an unencrypted file
+Please read the information and the hints on the introductory help 
+page and then, in the CrypTool work area, open an unencrypted file
 from the "examples" subdirectory.
 You can now try out many of the CrypTool functions on this file.
 
 To quickly get up to speed on CrypTool, we recommend that you
 work through some of the examples (tutorials) provided within the
-Online help facility (the examples are shown in the Help contents
-overview under "Starting work with CrypTool").
+Online help facility (the examples are shown in the Online help 
+contents overview under "Starting work with CrypTool").
 
 If a menu item has no meaning to you or you don't know exactly what
 to do within a dialogue window, please press F1. If the according
@@ -166,7 +172,7 @@ training purposes:
 A comprehensive documentation is provided. This consists of four
 parts:
 a) README file (this file)
-b) Online Help
+b) Online help
    - context-specific help in order to use the program and further
      information about individual topics and principles,
    - demos and sample scenarios (here you learn to know single
@@ -182,13 +188,13 @@ self-extracting executable files which can also be used
 independently. In this program a session key is generated
 from a password, and with this key any file content is
 AES-encrypted.
-This encryption tool can be called either as a Windows application
+This encryption tool can be called both as a Windows application
 and as a command line tool (e.g. called from within a batch file).
 
 (4) The story "The Dialogue of the Sisters" as PDF file
 -------------------------------------------------------
-The title-role sisters use a variant of the RSA algorithm, to
-securely communicate.
+The title-role sisters use a variant of the RSA algorithm, in
+order to communicate securely.
 
 All the single files included in the package are listed within
 chapter 4 (see below in this README file).
@@ -197,7 +203,7 @@ chapter 4 (see below in this README file).
 
 1.3. Acknowledgements
      ----------------
-A number of individuals have contributed to CrypTool, many of
+A big number of individuals have contributed to CrypTool, many of
 them in their free time as well (some are listed in the dialog
 box you get after double clicking the "About" dialog box).
 We are extremely grateful to them.
@@ -219,7 +225,7 @@ mentioned companies and asking for their current terms of licence.
 
 
 
-1.4. New maintainer in the future - Road Map
+1.4. New maintainer in the future - Roadmap
      ---------------------------------------
 CrypTool got an academic home as planned. There the further
 development as open source is co-ordinated.
@@ -253,19 +259,20 @@ productively as a Certification Authority (CA).
 It is a demonstration primarily for training and awareness purposes,
 which can be used at once without any previous configuration work.
 
-Therefore - in the opposite to productive CA applications - the 
-CA key pair is contained directly within the software (source and
-binary) and it is the same one in all the CrypTool versions right now.
+Therefore - contrary to productive CA applications - the CA key pair
+is contained directly within the software (source and binary) and
+it is the same one in all the CrypTool versions right now.
 Intentionally the PIN, protecting the CA-PSE (personal security
 environment) is also very simple.
-So by will the CA built in within CrypTool has not a key length adequate
-for productive CAs (e.g. RSA with 1024 or 1536 bit), but only 512 bit.
+So by will the CA built in within CrypTool has not a key length 
+adequate for productive CAs (e.g. RSA with 1024, 1536 or 2048 bit),
+but only 512 bit. 
 The built in CA key is defined to be valid till 2010.
 
 Please notice when creating user certificates with CrypTool, that each
 CrypTool program contains a root CA with the same key pair. 
-This means that everybody (!), who uses CrypTool, can sign user certificates
-with this built-in CA.
+This means that everybody (!), who uses CrypTool, can sign user 
+certificates with this built-in CA.
 
 Nevertheless all the algorithms implemented are according to international
 standards and are working as "well" as in productive applications.
@@ -305,31 +312,32 @@ extract the files. Follow the instructions in the ReadMe.txt file
 contained in the package in order to install the missing file.
 
 
-2.4. Interactive Online Help under Windows XP
+2.4. Interactive Online help under Windows XP
      ----------------------------------------
 Using Windows XP there is a special case where it is not
 possible to get the Online help via F1: Only menu entries with
-sub-menu are affected. The Problem only occurs while the sub-menu
+submenus are affected. The problem only occurs while the submenu
 is displayed. In this case pressing F1 has no effect.
 
 Usually you can also get help in CrypTool for menu items which
-itself have sub menus, if they are selected.
+itself have submenus, if they are selected -- independent of whether
+the submenu is popped up or not.
 Under Windows XP you only get the Online help, if the submenu
 is not popped up.
 With other versions of Windows this doesn't matter - there it is
 only important, that the menu has the focus.
 
-Workaround with example: Indiv. Procedures \ RSA Demonstration
-If the sub menu of "RSA Demonstration" pops up, but you want to
+Workaround with example: Indiv. Procedures \ RSA Demonstration :
+If the submenu of "RSA Demonstration" pops up, but you want to
 get help for the menu item "RSA Demonstration" itself, only
-under Windows XP you have to close the sub menu of
+under Windows XP you have to close the submenu of
 "RSA-Demonstration" using the Esc or the arrow key, and then
 press F1.
 
 
 2.5. Support for different languages
      -------------------------------
-Program,  help facility and the documentation are designed to run
+Program, help facility and the documentation are designed to run
 in more than one language (currently in English and German).
 
 For each supported language we deliver an extra setup (we gave up
@@ -358,7 +366,7 @@ length up to 1024.
 3. Installation / de-installation / operating
    -----------------------------------------
 To install CrypTool on your PC, copy the CrypTool setup executable
-to a suitable place in your file system and double-click on it.
+to a suitable place in the file system and double-click on it.
 The default installation directory is "C:\Program Files\CrypTool".
 The target directory can be altered in the installation routine.
 
@@ -369,10 +377,10 @@ of the old files will not be overwritten. Please note:
 - During de-installation not all of the directories and files in
   the program directories (normally "C:\Program Files\CrypTool")
   may be deleted. Delete these manually.
-- De installation will delete all user generated asymmetric keys.
-  If you intend to use those keys a newly installed version of
-  CrypTool, then perform the following steps. Copy the
-  entire pse\ directory in order to protect these keys. De install
+- De-installation will delete all user generated asymmetric keys.
+  If you intend to use those keys also in the newly installed 
+  version of CrypTool, then perform the following steps. Copy the
+  entire pse\ directory in order to protect these keys. De-install
   CrypTool and install the new version. Finally copy the saved
   pse\ directory to the installation folder.
   Starting with version 1.3.00 you alternatively can export/import
@@ -409,7 +417,7 @@ If this does not work, the user normally gets a warning.
 Writing access is explicitly necessary for:
 - the default Windows directory for temporary files (for the *.cry files),
 - the sub-directory "CrypTool\pse", where the created asymmetric keys
-  and certificates are stored in, and
+  and certificates are stored in (see chapter 3 above), and
 - the file CrypTool.ini, where the CrypTool program stores settings or
   adjustments, surviving the actual program session (persistence).
   CrypTool.ini is normally created within the Windows directory
@@ -421,26 +429,26 @@ Writing access is explicitly necessary for:
      CrypTool.ini file exists yet. 
   To achieve a higher flexibility with persistent adjustments a future
   version of CrypTool could
-   - user-specifically write the persistent adjustments under Windows into 
-     the registry instead of using an ini file.
-   - offer another option for the user, whether the adjustment should be
-     made for the current program session only or whether it should be
-     persistent.
+   - user-specifically write the persistent adjustments under Windows
+     into the registry instead of using an ini file.
+   - offer another option for the user, whether the adjustment should
+     be made for the current program session only or whether it should
+     be persistent.
 
 
 
 4. List of files
    -------------
 The package is distributed as compressed, self extracting archive
-in two language versions:
+in two different language versions:
 
 SetupCrypTool_1-3-04_en.exe   English language support only.
 SetupCrypTool_1-3-04_de.exe   German language support only.
 
 The archives contain the following files:
 
-ReadMe-de.txt..... Copy of these brief instructions (German).
 ReadMe-en.txt..... Copy of these brief instructions (English).
+ReadMe-de.txt..... Copy of these brief instructions (German).
 CrypTool-en.cnt... Index list for the CrypTool help system.
 CrypTool-de.cnt... The German version of CrypTool-en.cnt.
 CrypTool.exe...... The executable program.
@@ -452,21 +460,25 @@ CrypTool-de.hlp... The German version of CrypTool-en.hlp
 EC-Param.ini...... Initialisation file for public key procedures
                    based on elliptic curves.
 secude.dll........ Library of cryptographic functions provided by
-                   Secude GmbH.
+                   Secude Ltd.
 ticket............ License for the Secude library.
 libeay32.dll...... Library from OpenSSL 0.96.
 irunin.*.......... These files are necessary for installation and
                    de-installation.
 
 script-en.pdf..... A script on cryptography, prime numbers,
-                   number theory and the mathematics behind
-                   certain algorithms.
+                   elementary number theory and the mathematics
+                   behind certain algorithms.
 script-de.pdf..... The German version of script-en.pdf.
 CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
 CrypToolPresentation_1_3_04_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf... German version of DialogueSisters.pdf.
+original.txt...... "Harmless" sample for the hash collision demonstration
+Original.txt...... German version of original.txt
+fake.txt.......... "Dangerous" sample for the hash collision demonstration
+Faelschung.txt.... German version of fake.txt
 
 references\....... This directory contains text files in the
                    languages German, English, French, Spanish and
@@ -524,8 +536,8 @@ managed:
 CrypTool.GID...... The help system generates and manages this
                    file.
 cry*.*............ CrypTool writes temporary files to the Temp
-                   directory which has a name beginning cry*.*
-                   (extensions: asc, hex, org, plt, tmp, txt).
+                   directory (file names begin with cry*.*;
+                   extensions: asc, hex, org, plt, tmp, txt).
 CrypTool.ini...... This file is located in the Windows
                    directory and contains the setting for
                    showing/not showing the welcome screen and
@@ -539,17 +551,16 @@ CrypTool.ini...... This file is located in the Windows
 You can verify the integrity of files using hash values.
 Hash values are like fingerprints: if you newly calculate the
 hash of a downloaded file and then compare it with the values
-at the CrypTool homepage, you can see, whether you got a unchanged
+at the CrypTool homepage, you can see, whether you got an unchanged
 copy of the original file or not.
 If the hash values are different you should download the file
 again and eventually try to find the reason, why you had a
 modified file at your computer.
 
 a) Downloadable files
-At the homepage of CrypTool www.cryptool.org/.com you can find
-the hash values of all files, which could be directly downloaded
-from the English page, within the files md5sum.txt and
-sha1sum.txt.
+At the homepage of CrypTool www.cryptool.org you can find the
+hash values of all files directly downloadable from the English
+Web page within the files md5sum.txt and sha1sum.txt.
 Using the wide-spread tools MD5SUM and SHA1SUM you can check
 the integrity of these files.
 
@@ -570,7 +581,7 @@ in part (a) or you can use the program CrypTool itself.
 You can calculate the hash values of "external" files, even
 without loading them into CrypTool:
 - menu Indiv. Procedures \ Hash \ Hash value of a file...
-  (using MD5 or SHA1 as hash algorithm!)
+  (using MD5 or SHA1 as hash algorithm)
 - open the regarding file
 - compare the shown hash value with the value within this
   README file.
@@ -586,7 +597,7 @@ your computer is untouched.
 
 5.1. Enhancements from version 1.2.02 to 1.3.00
      ------------------------------------------
-The following enhancements and bug fixes (listed till 5.1.6) have
+Chapter 5.1 lists the enhancements and bug fixes which have
 been added for version 1.3.00 since CrypTool version 1.202:
 - CrypTool is now fully available in both English and German
   language versions.
@@ -597,7 +608,7 @@ been added for version 1.3.00 since CrypTool version 1.202:
   Because of performance reasons CrypTool is customized in a way, that
   - from text files only 4 MB and
   - from binary files only 1 MB can be loaded.
-  Using the AES tool files of any size can be encrypted.  
+  Using the AES-Tool files of any size can be encrypted.  
 - The most recent configuration relating to an algorithm (such
   as the key or alphabet chosen) is stored internally within the
   program.
@@ -605,8 +616,8 @@ been added for version 1.3.00 since CrypTool version 1.202:
 5.1.1. Classical methods
        -----------------
 + Homophone encryption is new
-+ Permutation encryption new
-+ Generation of random numbers
++ Permutation encryption is new
++ Generation of random numbers is new
   The following pseudo random number generators are available:
   - The random number generator provided by Secude lib
   - A  "x^2 mod N" random number generator configured through
@@ -641,7 +652,7 @@ been added for version 1.3.00 since CrypTool version 1.202:
 + Demo on number theory and RSA method:
   - prime number generation
   - factorization of numbers (in stages) and using several
-    different methods
+    different methods, running in parallel threats.
   - transparent use of the RSA cryptosystem (including for
     self-selected prime numbers).
     This means that you can e.g. duplicate "The Dialogue of
@@ -655,14 +666,14 @@ been added for version 1.3.00 since CrypTool version 1.202:
   use very specific formats, so that this makes reuse a lot
   simpler.
 + Switching from hex display to text display is no longer
-  possible for non-text files
+  possible for non-text files.
 + When the display changes, the parent window is retained.
-+ Hot keys added for moving around within the PDF script
++ Hot keys added for moving around within the PDF script.
 
 5.1.5. Help / PDF script
        -----------------
 + Script extended to include an introduction to elementary number
-  theory with a lot of examples
+  theory with a lot of examples.
 
 5.1.6. Miscellaneous
        -------------
@@ -680,7 +691,7 @@ Source code:
 ============
 + Revision of the source code for the transmission to the new
   maintainer.
-+ Further automation the process of generating the setup package.
++ Further automation of the process of generating the setup package.
 
 Web page:
 =========
@@ -700,20 +711,21 @@ Documentation:
     - an appendix about the example calls using the software
       package for computer-aided number theory PARI-GP (now you
       can duplicate the examples not only with Mathematica but
-      also with a free mathematical package) and with
+      also with a free mathematical package) and
     - chapter 3.11: information about the current discussion
       about the security of the RSA algorithm (see Bernstein).
   - new chapters 5.1 and 5.2 about special signatures.
   - new in chapter 6: information about the motivation and
     interoperability of elliptic curves.
   - new in 1.3.04: 
-    current status of cryptanalysis of AES and RC5 and current
-    proceedings regarding factorization (TWIRL) and
-    number theory ("Primes in P") added.
+      - current status of cryptanalysis of AES and RC5 added,
+      - current proceedings regarding factorization (TWIRL) and
+        number theory ("Primes in P") added and
+      - menu tree of CrypTool added in the appendix.
 + Single CrypTool presentation for version 1.3.0x
   (no separation in features of 1.2.xx and new within 1.3.0x).
-+ The Online help got further improvement and enhancements (e.g.
-  for the new functions and addition of a time table about
++ The Online help got further improvements and enhancements (e.g.
+  for the new functions and by addition of a time table about
   cryptography).
   In 1.3.04 e.g. topical information about PGP / GnuPP added.
 
@@ -737,11 +749,11 @@ Functionality:
   - AES-Tool now offers complete functionality also when called
     from the command line.
     AES-Tool can be called by itself or within CrypTool via the menu
-    item Crypt \ Symmetric \ AES (self extracting).
+    item "Crypt \ Symmetric \ AES (self extracting)".
   - There is a customisation suggesting the file type (exe or aes).
   - Please note, that the output of the AES-Tool (even with file type
     "aes") is not completely identical with the output you get via the
-    menu item Crypt \ Symmetric \ Rijndael (AES).
+    menu item "Crypt \ Symmetric \ Rijndael (AES)".
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (chosen with Options \ Text Options)
@@ -769,11 +781,11 @@ Functionality:
   can be taken in which order. If you click a step, where the
   prerequisites are not there, then a popup explains this in
   detail.
-+ Step-by-step verification of an RSA-signature is now possible
++ Step-by-step verification of an RSA signature is now possible
   too (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
-+ New menu item Starting Options.
-+ Structure of Analysis became clearer.
++ New menu item "Starting Options".
++ Structure of menu Analysis became clearer.
 + When the user saves the window content to a file now a fitting
   file name is suggested:  Cry-<Method>-<Sourcefilename>.*
   For intentionally saved documents the window title contains
@@ -782,18 +794,18 @@ Functionality:
 Completely new in 1.3.04 are:
 -----------------------------
 + The CrypTool menu within the Windows Start\Program menu now
-  also contains a hint to the readme file.
+  also contains a hint to the README file.
 + Within the dialogues for visualization the background was improved
   in order to be clearly visible even with new templates used with
   Windows XP.
 + Brute-force attacks at symmetric algorithms now allow to use
-  more than 5 joker characters (20 bits)and the expected time 
-  is presented.  Additionally the length of the here used entropy
-  window can now be customized via analysis options.
+  more than 5 joker characters (20 bits) and the expected time 
+  is presented.  Additionally the length of the used entropy
+  window can now be customized via the analysis options.
 + Implementation of a high-performance search for hash collisions
   using the birthday paradox. This practically allows to show for
   concrete files how such an attack on hash or signature methods works.
-+ Show/Visualize the Diffie-Hellman key exchange method.
++ Show/Visualize the Diffie-Hellman key exchange protocol.
 
 
 
@@ -816,12 +828,12 @@ Functionality:
 6.1. Analysis
      --------
 + Offer a (good) analysis method for all encryption algorithms
-  (at least for the classical one better than brute-force).
+  (at least for the classical algorithms better than brute-force).
 + Implement analysis newly for
   - homophone encryption.
 + Analysis improvement (not sophisticated enough yet) of
-  - monoalphabetic substitution (plus display of inverted digram
-                                pairs and double characters),
+  - monoalphabetic substitution (plus display of inverted digrams
+    like "th" / "ht" and of double characters like "tt"),
   - Playfair encryption.
     Playfair: Pure C sources (Gunnar-Andresson) are available. 
               Because of restricted time these are not yet
@@ -861,7 +873,7 @@ Functionality:
      --------------------
 + Implement additional algorithms on each topic:
     - Encryption
-       - ADFGVX as a classic procedure,
+       - ADFGVX and Fleissner grille as classical procedures,
        - the RC5 and Ghost as symmetric procedures or
        - Rabin for the public key methods.
     - Hashes
@@ -872,14 +884,17 @@ Functionality:
   ADFGVX: Sources in Basic including a user interface are available.
           Because of restricted time these are not yet transferred
           in C and integrated into CrypTool.
+  Fleissner grille: Sources in Java including a user interface and
+                    a seminar homework (German) are available.
 + Implementation of an enhanced pattern search (with pre-given
   standardized and regular patterns and unknown but repeated
   patterns in a document, ...) by enhancing the dialogue used for
   mass comparison with known patterns from another file.
-  The search could be enhanced by replacing.
+  The search could be enhanced by additionally offering replacing.
 + Hill cipher
    - enable to transpose the key matrix
-   - allow not only letters but also integers as input for the key matrix.
+   - allow not only letters but also integers as input for the 
+     key matrix.
 + Generate cryptographically strong elliptic curves and use these
   to implement a cryptosystem based on elliptic curves.
   Here, one could take the cryptosystem developed by Menezes and
@@ -918,11 +933,12 @@ Functionality:
   there should be a DOCUMENTED way on different methods how to
   generate good passwords.
 + Link to PGP:
-  - Use PGP key within CrypTool:
-    Idea: Open private key ring via password, analyse its structure,
-    get the private key (PGP sources are available) and use this key,
-    to decrypt PGP files with the algorithms implemented in CrypTool.
-    This shows, that PGP only uses standard algorithms.
+  - Use a PGP key within CrypTool:
+    Idea: Open private key ring via a given password, analyse its 
+    structure, get the private key (PGP sources are available) and 
+    use this key, to decrypt PGP files with the algorithms implemented
+    in CrypTool. This shows, that PGP only uses standard algorithms.
++ Usage of CrypTool as a demonstrator for XML signaturen.
 
 
 6.3. Internal interfaces
@@ -934,10 +950,13 @@ Functionality:
   consider this only as a view of the same file and use the
   according functions for all window types (e.g. when encrypting
   a non-text file with Playfair one could ignore all letters 
-  outside the alphabet) or one could dynamically enable/disable
-  the menu items within a common menu structure. 
+  outside the alphabet) or one could dynamically enable/disable or
+  grey the menu items within a common menu structure.
+  This is one of the most often made requests to make navigation
+  more easy. 
 + Rearrange the source to facilitate a separation of cryptographic
   functions and user interface (make ports and debugging easier).
+  This is really necessary.
 + Customisation wherever possible:
   option to set e.g. initial vector, number of rounds, key length,
   word size or the kind of padding (e.g. for the RC5-Algorithm
@@ -946,14 +965,20 @@ Functionality:
   format for the internal key storage.
 + Use a dictionary for all attacks, not just for substitution.
 + Libraries:
-   - Support further libraries (Gnu, LiDIA, FLINT/C, ...)
+   - Support further libraries (Gnu, LiDIA, FLINT/C, Wei Dai's
+     Crypto++, ...)
    - Update the Miracl library to a newer version than 4.4.3., 
      if this improves the performance.
    - Update the Secude library to a newer version than 5.4.15C,
      if this improves the performance or if further methods are
      needed.
-+  Write user-specific persistent information in the Windows registry
-   instead of CrypTool.ini (see chapter 3.2. above).
++ Extend existing limitations of the size which loaded of files
+  (see 5.1. above).
++ Extend existing limitations of the N-Gram analysis concerning
+  the file size (evtl. give user feedback, that a high amount of time
+  is necessary)(see 5.1.1. above).
++ Write user-specific persistent information in the Windows registry
+  instead of CrypTool.ini (see chapter 3.2. above).
 
 
 
@@ -972,9 +997,9 @@ Functionality:
   The right output number representation could be transferred into
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
-+ Offer a customizing feature to user, so that he can choose that
++ Offer a customizing feature to the user, so that he can choose that
   all new windows appear within the main windows (as right now) or
-  as "free" windows outside the main window.
+  as "free" (modal or a-modal) windows outside the main window.
   E.g. show single dialogue windows in an a-modal way (e.g. N-gram
   analysis, manual analysis, hybrid encryption demonstration).
   This allows that one can switch between the main window and
@@ -993,10 +1018,10 @@ Functionality:
   intentionally must be typed in using the hex format. 
   We pedagogically did it by will, that everybody sees what type of
   key the different methods expect: classical methods expect a key
-  built from the used alphabet, modern methods expect binary data of
-  key length 56 bit till 256 bit.
+  built from the used alphabet, modern symmetric methods expect 
+  binary data of key length 56 bit till 256 bit.
   On the other hand people normally are used to type their input using
-  all ASCII-keyboard-buttons. Within a productive application the key
+  all ASCII keyboard buttons. Within a productive application the key
   should NOT be built of ASCII-letters. If it is wished to use a ASCII
   password then it is better to generate a good key from the password. 
   Within CrypTool both requirements (key input via ASCII and showing,
@@ -1009,27 +1034,27 @@ Functionality:
   input for the encryption method. In order to make this also work
   for AES-256, the hash function SHA-256 must be added to the 
   "Key Generation from Password"-dialog.
-  Analog könnte man das AES-Tool so erweitern, dass der PKCS#5-Dialog
-  eingebunden wird. Dadurch wäre die allgemeine Nutzung bequemer.
-  Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem Aufruf,
-  der nur eine ASCII-Passwort eingibt, voreinstellen, und den User
-  auffordern, sich den Hexwert zu merken und/oder sicher aufzubewahren.
-+ Make customizable by user how big the text and binary files can
-  be loaded by CrypTool.
+  Analogically AES-Tool could be enhanced by integrating the
+  PKCS#5 dialog. This would make the general usage more easy.
+  Calling this dialog from the AES-Tool should set random values
+  for the salt and the number of iterations, and then make the user
+  to remember the hex value or to store it securely.
++ Make customizable by the user how big the part of text and binary
+  files can be loaded by CrypTool.
 + New magnification function in the display for graphics and/or
   display of co-ordinates of the current mouse pointer position.
 + Visualization:
   - Visualization of dependencies and workflows in protocols 
     (not only "simple" algorithms) is a meaningful enhancement.
   - Attacks on weak RSA keys are described in CrypTool's 
-    online help at Help \ Szenarios \ RSA cryptosystem (demonstration), 
+    Online help at Help \ Szenarios \ RSA cryptosystem (demonstration),
     under  "3.) Attack on the RSA algorithm":  saying
     factorisation of the modules can break the method.
     This is implemented, but not visualized.
   - Attacks on other asymmetric methods are not implemented in
     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
     has to calculate "discrete logarithms". After implementing
-    this also could be visualized.
+    this it also could be visualized.
 
 
 6.5. Adding number theoretic functions
@@ -1040,27 +1065,28 @@ Functionality:
 
 6.6. Porting to Linux
      ----------------
-+ Porting to Linux - here a great demand is noticed.
-   - a Secude and Miracl library is available.
++ Porting to Linux: Here a great demand is noticed.
+   - A Secude and Miracl library is available.
    - Divide the complete task in meaningful parts:
        - graphical user interface
        - functionality implemented in pure C/C++
-       - online help from Winhelp to HTML.
+       - Online help from Winhelp to HTML.
 + Porting to Java (a Secude library is available for this).
 
 
 6.7. Meaningful tasks to make the new maintainer familiar with
      ---------------------------------------------------------
 + Integrate the RC5 algorithms as described above, in order to
-  see all places where to enhance the sources.
-+ offer all kind of transpositions and superpositions for the
+  see all places where to enhance the sources (function itself,
+  options, menus + status line info, Online help, ...).
++ Offer all kind of transpositions and superpositions for the
   content of text windows in an easy-to-use dialogue window.
-+ Create test suite with examples and solutions, in order to
++ Create a test suite with examples and solutions, in order to
   automate testing and to make sure, that program changes do not
   negatively influence old and running functionality:
   a) interface, to load test cases manually into the dialog boxes
-  b) create interface, to load test cases from a file into the
-     different dialog boxes.
+  b) interface, to load test cases from a file into the different
+     dialog boxes.
      Maybe build a script language to control all dialogues or
      use automated test tools off-the-shelf.
   c) create command line interface (best after within the source
@@ -1092,7 +1118,7 @@ Remark about the current versions:
 1.3.03    Many minor bug fixes and documentation improvements.
 1.3.04    Some new functionality (see chap. 5.2), some minor bug
           fixes (crash in analysis of Playfair, N-gram, RSA), and
-          major documentation improvements and enhancements (online
+          major documentation improvements and enhancements (Online
           help, script).
 
 
@@ -1106,7 +1132,7 @@ description of the problem by e-mail to
 - the mailing list: cryptool-list@sec.informatik.tu-darmstadt.de
 
 We would be very grateful for suggestions of any kind regarding
-CrypTool and we'll be helpful whenever out time allows.
+CrypTool and we'll be helpful whenever our time allows.
 
 We would also be interested to hear how and where you use
 CrypTool.
@@ -1169,7 +1195,7 @@ In the special issue "Cryptography" of the magazine Wirtschaftswoche
 (Sept. 2000) there was a competition entitled "Crack the text!".
 Please see http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
 cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
-If you followed the tips provided, you could be able to crack the
+If you followed the hints provided, you could be able to crack the
 task using CrypTool in a few mouse clicks.
 
 10.2.2. GISA citizen CD "Into the Internet - with Security"
@@ -1184,9 +1210,11 @@ More than 600,000 copies of this CD have been produced.
 The content of this CD is the basic for the GISA security portal
 "for inexperienced Internet users" (http://www.bsi-fuer-buerger.de).
 
+
 10.2.3. Freeware projects Crank, Griffon, CAP, CryptAid, etc
         ----------------------------------------------------
 Available with source code are:
+
 - http://freshmeat.net/projects/crank/
   Crank was initiated in January 2001 by Matthew Russell and is
   released under the GNU general public license, the GPL.
@@ -1218,10 +1246,10 @@ where the source code is probably not public, are:
 - CryptAid from David Lovelock
   (development probably stopped already in 1997)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
-- the Visual Basic program "Cryptological Mathematics" from Prof. R.E. Lewand
-  (vivid presentation of some number theoretic functions, functions for
-  encryption and encryption; no functions for cryptanalysis; software to
-  accompany his book)
+- the Visual Basic program "Cryptological Mathematics" from 
+  Prof. R.E. Lewand (vivid presentation of some number theoretic 
+  functions, functions for encryption and encryption; no functions
+  for cryptanalysis; software to accompany his book)
   http://faculty.goucher.edu/blewand/cryptomath/companion_software.htm
 - John Trafton's student cryptography project in Java:
   (single statistical functions and classical encryption methods;
