@@ -2115,7 +2115,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
-            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM
+            MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
@@ -2140,22 +2140,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-            MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
-            MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
     END
     POPUP "&Schlüsselverwaltung"
@@ -2229,8 +2214,6 @@ BEGIN
     BEGIN
         POPUP "&Klassisch"
         BEGIN
-            MENUITEM "&Substitution...",            ID_CryptMono
-            MENUITEM "H&omophone",                  ID_HOMOPHONE_HEX
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
@@ -2301,7 +2284,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
-            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM_BIN
+            MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM_BIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
@@ -2325,12 +2308,6 @@ BEGIN
         END
         POPUP "A&lgorithmen"
         BEGIN
-            MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
-            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-            MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-            , GRAYED
             MENUITEM "A&ddition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
             MENUITEM SEPARATOR
@@ -2549,7 +2526,7 @@ BEGIN
             MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING
             MENUITEM "&Histogramm",                 ID_HISTOGRAM
-            MENUITEM "&N-Gramm",                    ID_ANALYSE_NGRAM
+            MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
@@ -2557,20 +2534,6 @@ BEGIN
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-            MENUITEM "A&ddition",                   ID_ADD_AUTO
-            MENUITEM "&XOR",                        ID_XOR_AUTO
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
         POPUP """&known plaintext"""
         BEGIN
@@ -2588,22 +2551,6 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-            MENUITEM "A&ddition",                   ID_ADD_AUTO
-            MENUITEM "&XOR",                        ID_XOR_AUTO
-            MENUITEM SEPARATOR
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
     END
     POPUP "&Schlüsselverwaltung"
@@ -4315,6 +4262,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
     ID_HOMOPHONE_HEX        "Verschlüsseln mit ein- oder zweifacher Permutation"
+    ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation"
 END
 
 STRINGTABLE DISCARDABLE 
