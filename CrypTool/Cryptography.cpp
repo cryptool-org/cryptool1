@@ -949,7 +949,7 @@ UINT Autocorr(PVOID p)
 	CryptPar *par;
 	CFile f;
 	FILE *fo;
-//__asm int 3
+
 	r=0;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -981,8 +981,6 @@ UINT Autocorr(PVOID p)
 
 		tx = new SCorrelation(text,n);	// Auto-Korrelation 1..200 betrachten,
 	}
-
-		// GetSize() liefert 0 zurück, text vermutlich nicht richtig initialisiert?
 
 	if(fsize < 8) { // Mindestlänge 8 Zeichen
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 8);

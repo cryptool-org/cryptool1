@@ -68,11 +68,11 @@ protected:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSignatureDemo)
 	enum { IDD = IDD_SIGNATURE_DEMO };
+	CButton	m_info_hash_c;
 	CStatic	m_DisplayContentCtrl;
 	CEdit	m_DisplayInfoCtrl;
 	CString	m_DisplayInfo;
 	CString	m_DisplayContent;
-		// HINWEIS: Der Klassen-Assistent fügt hier Datenelemente ein
 	//}}AFX_DATA
 
 

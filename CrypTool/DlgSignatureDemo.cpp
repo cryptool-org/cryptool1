@@ -56,11 +56,11 @@ void CDlgSignatureDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgSignatureDemo)
+	DDX_Control(pDX, IDC_INFO_HASH, m_info_hash_c);
 	DDX_Control(pDX, IDC_DISPLAY_CONTENT, m_DisplayContentCtrl);
 	DDX_Control(pDX, IDC_DISPLAY_INFO, m_DisplayInfoCtrl);
 	DDX_Text(pDX, IDC_DISPLAY_INFO, m_DisplayInfo);
 	DDX_Text(pDX, IDC_DISPLAY_CONTENT, m_DisplayContent);
-		// HINWEIS: Der Klassen-Assistent fügt hier DDX- und DDV-Aufrufe ein
 	//}}AFX_DATA_MAP
 }
 
@@ -405,8 +405,7 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 	else
 		HashDialog->m_sHashAlg = CString("SHA-1");
 	HashDialog->m_deactivateMD4 = TRUE;
-	HashDialog->DoModal();
-	if(m_Cert->GetHashAlg() != HashDialog->m_sHashAlg)
+	if ( IDOK == HashDialog->DoModal() && m_Cert->GetHashAlg() != HashDialog->m_sHashAlg )
 	{
 		m_bUpdateHsh = TRUE;
 		m_bUpdateEnc = TRUE;
@@ -436,7 +435,13 @@ void CDlgSignatureDemo::OnCompute()
 
 void CDlgSignatureDemo::OnInfoHash() 
 {
-	if (!m_osHash.noctets || m_bUpdateHsh) return;	
+	if (!m_osHash.noctets || m_bUpdateHsh) return;
+
+	if(!m_info_hash_c.GetState())
+	{
+		exit(0);//Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
+		return;
+	}
 		
 	UpdateData(TRUE);
 	int srcSize = m_osHash.noctets;
