@@ -39,8 +39,7 @@ public:
 	int GetBitLength();
 	BOOL NameIsInitialized(){return m_NameIsInitialized;}
 	BOOL PSEIsInitialized(){return m_PSEIsInitialized;}
-	BOOL Sign(OctetString* hash, OctetString** sign);
-
+	BOOL Encode(const OctetString& hash, OctetString& sign);
 
 
 protected:
@@ -53,6 +52,7 @@ protected:
 	Big		m_bigPrime_q;
 	BOOL	m_NameIsInitialized;
 	BOOL	m_PSEIsInitialized;
+	OctetString m_DER_Encoding;
 	// PSE
 	CString	m_sPseName;
 	CString	m_sUserKeyId;
@@ -64,6 +64,9 @@ protected:
 	AlgId*  m_HashAlgId;
 	DName*  m_DName;
 	long	m_lTime;
+
+private:
+	BOOL EMSA_PKCS1_v1_5_ENCODE( OctetString& EM, const OctetString& H);
 };
 
 #endif // !defined(AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_)

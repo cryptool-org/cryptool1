@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Programmiert von Christian Tobias und Bartol Filipovic
 //////////////////////////////////////////////////////////////////
@@ -40,10 +40,11 @@ int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zug
 				  char *hash_id, char *Verfahren, char *Verfahren2,\
 				  CString UserKeyId, Signature* Signatur, L_NUMBER *c, L_NUMBER *d );
 
-OctetString* PrintSignature(OctetString&	Signature, 
-							const CString&	EncAlg, 
-							const CString&	HshAlg, 
-							const CString&	UserKeyId);
+BOOL PrintSignature(OctetString&		SignText,
+					const OctetString&	Signature, 
+					const CString&		EncAlg, 
+					const CString&		HshAlg, 
+					const CString&		UserKeyId);
 
 int GetSignData(char* infile, bool& zugross, CString& filename, OctetString *message, CString& SigAlg,\
 				CString& HashAlg, CString& UserKeyId, int *SignLength, Signature *Signatur,\

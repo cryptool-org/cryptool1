@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Programmiert von Christian Tobias und Bartol Filipovic
 //////////////////////////////////////////////////////////////////
@@ -41,8 +41,7 @@
 #include <time.h>
 
 #include "asymmetric.h"
-#include "DialogMessage.h" 
-#include "MakeNewName.h"
+#include "crypt.h" // ## Später Ersetzen durch Tools.h
 
 // the extern (global) Variables are from multipad.cpp
 extern char *Pfad; // Directory Path of the main programm
@@ -51,16 +50,16 @@ extern char pc_str[STR_LAENGE_STRING_TABLE]; // from multipad.cpp
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; 
 // aus multipad.cpp
 
-/*  Die folgende Funktion erzeugt ein (asymmetrisches) Schlüsselpaar und legt es
-	PIN-geschützt lokal ab.
-	Grundsätzlich muß hier zwischen Verfahren unterschieden werden, die auf dem
-	SECUDE-Toolkit aufbauen und Verfahren, die komplett selbst erstellt wurden.
+/* Die folgende Funktion erzeugt ein (asymmetrisches) Schlüsselpaar und legt es
+PIN-geschützt lokal ab.
+Grundsätzlich muß hier zwischen Verfahren unterschieden werden, die auf dem
+SECUDE-Toolkit aufbauen und Verfahren, die komplett selbst erstellt wurden.
 
-	Verfahren, die auf SECUDE aufbauen:
-	Ein Schlüsselpaar und eine PSE (Personal Secure Environment, durch PIN-Nummer
-	geschützter Bereich eines Benutzers) werden erzeugt. Der geheime Schlüssel wird
-	in der PSE (PIN-geschützt) abgelegt. Der öffentliche Schlüssel wird durch eine 
-	lokale CA zertifiziert und das Zertifikat in einer CA-Datenbank abgelegt.
+  Verfahren, die auf SECUDE aufbauen:
+  Ein Schlüsselpaar und eine PSE (Personal Secure Environment, durch PIN-Nummer
+  geschützter Bereich eines Benutzers) werden erzeugt. Der geheime Schlüssel wird
+  in der PSE (PIN-geschützt) abgelegt. Der öffentliche Schlüssel wird durch eine 
+  lokale CA zertifiziert und das Zertifikat in einer CA-Datenbank abgelegt.
   
 	Komplett selbst erstellte Verfahren:
 	Auch hier werden ein Schlüsselpaar und eine PSE erzeugt. Der geheime Schlüssel
@@ -74,9 +73,10 @@ extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 	Deshalb werden die öffentlichen Schlüssel (lokal) in einer öffentlichen Datei abgelegt.
 	Dies betrifft vorerst nur Signatur-Verfahren, die auf Elliptischen Kurven arbeiten.
 	Bei Hinzufügen von weiteren Verfahren, die nicht von SECUDE bereitgestellt werden, stellt
-	sich jedoch dasselbe Problem. */
-
+	sich jedoch dasselbe Problem.
+*/
 void KeyGen(){
+	
 	// Anzeigen der Dialogbox zur näheren Spezifikation des zu erzeugenden
 	// Schlüsselpaares (Verfahren, Schlüssellänge)
 	CDlgAsymKeyCreat DlgKey;
@@ -438,7 +438,9 @@ void RsaDec(char* infile, const char *OldTitle)
 	}
 }
 
-/*	Die folgende Funktion erstellt eine Signatur der Daten im aktuellen Fenster */
+/*
+Die folgende Funktion erstellt eine Signatur der Daten im aktuellen Fenster
+*/
 void Sign(char* infile, const char *OldTitle)
 {
 	char *hash_id;
@@ -961,47 +963,52 @@ int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zug
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-OctetString* PrintSignature(OctetString&	Signature, 
-							const CString&	EncAlg, 
-							const CString&	HshAlg, 
-							const CString&	UserKeyId)
+BOOL PrintSignature(OctetString&		SignText,
+					const OctetString&	Signature, 
+					const CString&		EncAlg, 
+					const CString&		HshAlg, 
+					const CString&		UserKeyId)
 {
-	OctetString* osSignText = new OctetString;
-	memset(osSignText, 0, sizeof(OctetString));
+	//OctetString* osSignText = new OctetString;
+	memset(&SignText, 0, sizeof(OctetString));
 	CString sText;
 
 	sText.LoadString(IDS_STRING_MSG_SIGNATURE);
-	while (sText.GetLength()<16) sText += ' ';
-	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
-	Add2OString(osSignText, Signature.octets, Signature.noctets);
+	//while (sText.GetLength()<16) sText += ' ';
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
+	Add2OString(&SignText, Signature.octets, Signature.noctets);
 	
 	// Ausgabe: 'Signaturlänge' in Anzahl der Octets
 	char signlength[20];
 	sText.LoadString(IDS_STRING_HEADING_SIGNATURELENGTH);
 	_itoa(Signature.noctets*8, signlength, 10); 
 	sText += signlength;
-	while (sText.GetLength()<16) sText += ' ';
-	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	//while (sText.GetLength()<16) sText += ' ';
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
 	
 	// Ausgabe: 'Verfahren'
 	sText.LoadString(IDS_STRING_ASYMKEY_METHOD);
-	while (sText.GetLength()<16) sText += ' ';
+	//while (sText.GetLength()<16) sText += ' ';
 	sText += EncAlg; 
-	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
 
 	// Ausgabe: 'Hashfunction'
 	sText.LoadString(IDS_STRING_ASYMKEY_SELECT_HASH_METHOD);
 	sText += HshAlg;
-	while (sText.GetLength()<16) sText += ' ';
-	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	//while (sText.GetLength()<16) sText += ' ';
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
 
 	// Schlüssel mit dem Nachricht signiert wurde ausgeben
 	sText.LoadString(IDS_STRING_KEY);
 	sText += UserKeyId;
-	while (sText.GetLength()<16) sText += ' ';
-	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	//while (sText.GetLength()<16) sText += ' ';
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
 
-	return osSignText;
+	sText.LoadString(IDS_STRING_ASYMKEY_MESSAGE);
+	//while (sText.GetLength()<16) sText += ' ';
+	Add2OString(&SignText, LPCSTR(sText), sText.GetLength());
+
+	return TRUE;
 }
 
 
@@ -1248,10 +1255,18 @@ Dies Daten müssen folgende Struktur haben:
 }
 
 
-/* 	Funktion zum Verifizieren von digitalen Signaturen.
-	Dabei wird vorausgesetzt, daß die Signatur, das verwendete Verfahren und die
-	signierte Nachricht so vorliegen, wie sie von der Funktion Sign() bzw. PrintSignData()
-	abgelegt wurden. */
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+//
+/* 
+Funktion zum Verifizieren von digitalen Signaturen.
+Dabei wird vorausgesetzt, daß die Signatur, das verwendete Verfahren und die
+signierte Nachricht so vorliegen, wie sie von der Funktion Sign() bzw. PrintSignData()
+abgelegt wurden.
+*/
 void Verify(char* infile, const char *OldTitle)
 {
 	int fret;
@@ -1657,7 +1672,6 @@ void Verify(char* infile, const char *OldTitle)
 		if (message.octets) free(message.octets);
 	}
 }
-
 
 int GenEcKeyPair(EcDomParam_ac_ptr ecParam)
 {

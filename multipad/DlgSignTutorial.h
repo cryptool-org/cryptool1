@@ -23,21 +23,20 @@ public:
 
 protected:
 	// Variablen
-	CString			m_sPathName; // Pfadname des Dokuments
-	CString			m_sFileName; // Titel des Dokuments
+	CString			m_sPathName;	// Pfadname des Dokuments
+	CString			m_sFileName;	// Titel des Dokuments
 	CString			m_sFileNameNew; // Titel des signierten Dokuments
-	//CString			m_sHashAlg;  // Algorithmus Name
 	int				m_nIDHash;
-	int				m_nCols;
+	int				m_nCols;		// Spaltenzahl des Displays
 	CFont			m_Font1;	
-	OctetString*	m_osHash;
-	OctetString*	m_osHashEnc;
 	BOOL			m_bUpdateHsh;
 	BOOL			m_bUpdateEnc;
 	BOOL			m_bUpdateSgn;
 	BOOL			m_bUpdateCrt;
 
 	// Zeiger
+	OctetString*	m_osHash;
+	OctetString*	m_osHashEnc;
 	OctetString*    m_Message;
 	OctetString*	m_Signature;
 	OctetString*	m_SignText;

@@ -10,7 +10,7 @@
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "multipad.h"
-#include "DialogMessage.h"
+#include "crypt.h"
 #include "secudetools.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
@@ -21,18 +21,36 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+#define TUTORIAL_KEY_ID "TUTORIAL"
+#define TUTORIAL_ALG_NAME "RSA"
+
+#pragma warning ( disable : 4305 4309 )  
+const char DER_MD2[]	   = {0x30, 0x20, 0x30, 0x0c, 0x06, 0x08, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x02, 0x02, 0x05, 0x00, 0x04, 0x10};
+const char DER_MD5[]	   = {0x30, 0x20, 0x30, 0x0c, 0x06, 0x08, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x02, 0x05, 0x05, 0x00, 0x04, 0x10};
+const char DER_SHA[]	   = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2B, 0x0E, 0x03, 0x02, 0x12, 0x05, 0x00, 0x04, 0x14};
+const char DER_SHA1[]	   = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x0e, 0x03, 0x02, 0x1a, 0x05, 0x00, 0x04, 0x14};
+const char DER_RIPEMD160[] = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x24, 0x03, 0x02, 0x01, 0x05, 0x00, 0x04, 0x14};
+#pragma warning ( default : 4305 4309 ) 
+const int  DER_MD2_SIZE = 18;
+const int  DER_MD5_SIZE = 18;
+const int  DER_SHA_SIZE = 15;
+const int  DER_SHA1_SIZE = 15;
+const int  DER_RIPEMD160_SIZE = 15;
+
 //////////////////////////////////////////////////////////////////////
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
-#define TUTORIAL_KEY_ID "TUTORIAL"
-#define TUTORIAL_ALG_NAME "RSA"
+
 
 CTutorialCert::CTutorialCert()
 : m_HashAlgId(0),
 m_NameIsInitialized(FALSE),
 m_PSEIsInitialized(FALSE)
 {
-	memset (&m_Key, 0, sizeof(Key));
+	memset(&m_Key, 0, sizeof(Key));
+	memset(&m_DER_Encoding, 0, sizeof(OctetString));
+	
+	//memset (&m_hPSE, 0, sizeof(PSE));
 }
 
 CTutorialCert::~CTutorialCert()
@@ -53,6 +71,8 @@ BOOL CTutorialCert::SetName( CString& sName, CString& sFirstName, CString& sKeyI
 	time(&m_lTime);
 	m_NameIsInitialized = TRUE;
 	m_PSEIsInitialized = FALSE;
+	//m_sUserKeyId.Format(IDS_CREATE_USER_KEY_ID2, m_sName, m_sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), m_lTime, m_sKeyId);
+	//m_sDisName.Format(IDS_CREATE_DISNAME, m_sFirstName, m_sName, m_lTime);
 	
 	return TRUE;
 }
@@ -364,29 +384,29 @@ BOOL CTutorialCert::SetHashAlg(const CString& sHashAlg)
 				theApp.SecudeLib.aux_free_AlgId(&m_HashAlgId);
 				m_HashAlgId = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.md2WithRsaEncryption_aid);
 				return TRUE;
-	}
-	if(sHashAlg=="MD5")
+	} 
+	else if(sHashAlg=="MD5")
 	{
 				m_sHashAlg = sHashAlg;
 				theApp.SecudeLib.aux_free_AlgId(&m_HashAlgId);
 				m_HashAlgId = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.md5WithRsaEncryption_aid);
 				return TRUE;
-	}
-	if(sHashAlg=="SHA")
+	} 
+	else if(sHashAlg=="SHA")
 	{
 				m_sHashAlg = sHashAlg;
 				theApp.SecudeLib.aux_free_AlgId(&m_HashAlgId);
 				m_HashAlgId = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.shaWithRSASignature_aid);
 				return TRUE;
 	}
-	if(sHashAlg=="SHA-1")
+	else if(sHashAlg=="SHA-1")
 	{
 				m_sHashAlg = sHashAlg;
 				theApp.SecudeLib.aux_free_AlgId(&m_HashAlgId);
 				m_HashAlgId = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.sha1WithRSASignature_aid);
 				return TRUE;
-	}
-	if(sHashAlg=="RIPEMD160")
+	} 
+	else if(sHashAlg=="RIPEMD-160")
 	{
 				m_sHashAlg = sHashAlg;
 				theApp.SecudeLib.aux_free_AlgId(&m_HashAlgId);
@@ -451,7 +471,7 @@ CString CTutorialCert::GetCert()
 }
 
 
-BOOL CTutorialCert::Sign(OctetString* hash, OctetString** sign)
+BOOL CTutorialCert::Encode(const OctetString& hash, OctetString& sign)
 {
 	/*
 	memset (&keybits, 0, sizeof(KeyBits));
@@ -489,6 +509,15 @@ BOOL CTutorialCert::Sign(OctetString* hash, OctetString** sign)
 	bitstring.nbits = (keybits.part1.noctets + keybits.part2.noctets)* 8;
 	bitstring.bits = new char[bitstring.nbits];
 
+	//OctetString* EM = new OctetString;
+	//if(!EM) return FALSE;
+
+	sign.noctets = (bits(N)-1)/8;
+	sign.octets = new char[sign.noctets];
+	if(!EMSA_PKCS1_v1_5_ENCODE(sign, hash)) return FALSE;
+
+	//sign = EM;
+	/*
 	if(theApp.SecudeLib.rsa_sign_all(hash, &bitstring, &keybits))
 	{
 		//delete keybits; 
@@ -501,16 +530,63 @@ BOOL CTutorialCert::Sign(OctetString* hash, OctetString** sign)
 
 		return FALSE;
 	}
+	*/
+
+	return TRUE;
+}
 
 
+BOOL CTutorialCert::EMSA_PKCS1_v1_5_ENCODE(OctetString& EM, const OctetString& H)
+{
 
+	delete[] m_DER_Encoding.octets;
+	memset(&m_DER_Encoding, 0, sizeof(OctetString));
+	unsigned i;
 
+	if(m_sHashAlg=="MD2")
+	{
+		m_DER_Encoding.noctets = DER_MD2_SIZE;
+		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
+		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_MD2[i];
+	} 
+	else if(m_sHashAlg=="MD5")
+	{
+		m_DER_Encoding.noctets = DER_MD5_SIZE;
+		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
+		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_MD5[i];
+	} 
+	else if(m_sHashAlg=="SHA")
+	{
+			m_DER_Encoding.noctets = DER_SHA_SIZE;
+		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
+		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_SHA[i];
+	}
+	else if(m_sHashAlg=="SHA-1")
+	{
+		m_DER_Encoding.noctets = DER_SHA1_SIZE;
+		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
+		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_SHA1[i];
+	} 
+	else if(m_sHashAlg=="RIPEMD-160")
+	{
+		m_DER_Encoding.noctets = DER_RIPEMD160_SIZE;
+		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
+		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_RIPEMD160[i];
+	}
+	else return FALSE;
 
+	if(EM.noctets < m_DER_Encoding.noctets+10) return FALSE;
 
+	unsigned int PSsize = EM.noctets - m_DER_Encoding.noctets - H.noctets - 2;
+	char* EMptr = EM.octets;
 
-
-
-
+	#pragma warning ( disable : 4305 4309 ) 
+	*EMptr = 0x01; EMptr++;	
+	for(; EMptr <= EM.octets+PSsize; EMptr++) *EMptr = 0xff;
+	*EMptr = 0x00; EMptr++;	
+	for(i=0; i < m_DER_Encoding.noctets; i++, EMptr++) *EMptr = m_DER_Encoding.octets[i];
+	for(i=0; i < H.noctets; i++, EMptr++) *EMptr = H.octets[i];
+	#pragma warning ( default : 4305 4309 ) 
 
 	return TRUE;
 }
