@@ -19,7 +19,8 @@ private:
 // Konstruktion
 public:
 	CDlgDiffieHellmanSecretInput(CWnd* pParent = NULL);			// Standardkonstruktor
-	CDlgDiffieHellmanSecretInput(std::string,Big&,CWnd* pParent = NULL);	// Zusätzlicher Konstruktor
+	CDlgDiffieHellmanSecretInput(std::string,Big&,CWnd* pParent = NULL);				// Zusätzlicher Konstruktor
+	CDlgDiffieHellmanSecretInput(std::string,std::string,Big&,CWnd* pParent = NULL);	// Zusätzlicher Konstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanSecretInput)

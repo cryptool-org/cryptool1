@@ -32,6 +32,14 @@ CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, B
 	m_Secret = _T("");
 }
 
+CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, std::string prev_secret,Big& prime, CWnd* pParent /*=NULL*/)
+	: CDialog(CDlgDiffieHellmanSecretInput::IDD, pParent)
+{
+	m_Party = party;
+	m_Prime = prime;
+	m_Secret = prev_secret.c_str();
+}
+
 void CDlgDiffieHellmanSecretInput::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);

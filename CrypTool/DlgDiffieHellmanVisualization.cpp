@@ -210,11 +210,19 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 	// abhängt, muss dem Konstruktor an dieser Stelle der Primzahlmodul per 
 	// Parameter übergeben werden. Anhand des ersten Parameters wird der Titel
 	// des erscheinenden Dialogs generiert.
-	CDlgDiffieHellmanSecretInput dlg("Alice",this->Alice->GetPrime());
-	if(dlg.DoModal() == IDCANCEL) return;
+
+	// Weiterhin wird ggf. das zuvor eingegebene Geheimnis "voreingestellt", sofern
+	// der Benutzer ein Geheimnis zum zweiten Mal festlegen will (bzw. widerrufen will)
+
+	CDlgDiffieHellmanSecretInput *dlg;
+
+	if(Alice->HasSecret()) dlg = new CDlgDiffieHellmanSecretInput("Alice", Alice->GetStrSecret(), Alice->GetPrime());
+	else dlg = new CDlgDiffieHellmanSecretInput("Alice",this->Alice->GetPrime());
+	
+	if(dlg->DoModal() == IDCANCEL) return;
 
 	// Zugriff auf DH-Partei, ggf. Ausnahmebehandlung
-	try{ this->Alice->SetSecret((char*)(LPCTSTR)dlg.m_Secret); }
+	try{ this->Alice->SetSecret((char*)(LPCTSTR)dlg->m_Secret); }
 	catch(DHError& e){ CreateErrorMessage(e); return; }
 
 	if(this->m_bShowInfoDialogues)
@@ -223,8 +231,11 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 	
-	this->m_SecretAlice = dlg.m_Secret;
+	this->m_SecretAlice = dlg->m_Secret;
 	UpdateData(false);
+
+	// Speicher freigeben
+	delete dlg;
 
 	// Button mit Index 5 gedrückt
 	this->UpdateGUI(5);
@@ -239,10 +250,14 @@ void CDlgDiffieHellmanVisualization::OnButtonbob1()
 	// abhängt, muss dem Konstruktor an dieser Stelle der Primzahlmodul per 
 	// Parameter übergeben werden. Anhand des ersten Parameters wird der Titel
 	// des erscheinenden Dialogs generiert.
-	CDlgDiffieHellmanSecretInput dlg("Bob", this->Bob->GetPrime());
-	if(dlg.DoModal() == IDCANCEL) return;
+	CDlgDiffieHellmanSecretInput *dlg;
+	
+	if(Bob->HasSecret()) dlg = new CDlgDiffieHellmanSecretInput("Bob", Bob->GetStrSecret(), this->Bob->GetPrime());
+	else dlg = new CDlgDiffieHellmanSecretInput("Bob", Bob->GetPrime());
 
-	try{ this->Bob->SetSecret((char*)(LPCTSTR)dlg.m_Secret); }
+	if(dlg->DoModal() == IDCANCEL) return;
+
+	try{ this->Bob->SetSecret((char*)(LPCTSTR)dlg->m_Secret); }
 	catch(DHError& e){ CreateErrorMessage(e); return; }
 
 	if(this->m_bShowInfoDialogues)
@@ -251,8 +266,11 @@ void CDlgDiffieHellmanVisualization::OnButtonbob1()
 		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 	}
 	
-	this->m_SecretBob = dlg.m_Secret;
+	this->m_SecretBob = dlg->m_Secret;
 	UpdateData(false);
+
+	// Speicher freigeben
+	delete dlg;
 
 	// Button mit Index 6 gedrückt
 	this->UpdateGUI(6);

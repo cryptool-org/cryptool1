@@ -52,6 +52,7 @@ public:
 	// Diese Methode GIBT DAS GEHEIMNIS PREIS
 	// "quick-n-dirty"-Implementierung der Klasse DiffieHellmanLogFile
 	std::string GetStrSecret() { return strSecret; };
+	bool HasSecret() { return bHasSecret; };
 };
 
 // Klasse zur Ausnahmebehandlung/Fehlerbehandlung
