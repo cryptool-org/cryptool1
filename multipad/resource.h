@@ -62,6 +62,7 @@
 #define IDD_DIALOG_KEY_HOMOPHON         221
 #define IDD_PRIMES_GENERATOR            222
 #define IDD_DIALOG_PRIMES_GENERATOR     223
+#define IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN 226
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -306,8 +307,21 @@
 #define IDC_CHECK9                      1184
 #define IDC_MYTXT                       1185
 #define IDC_BUTTON5                     1186
+#define IDC_BUTTON_PZ_GENERIEREN        1187
+#define IDC_BUTTON_PZ_EINGEBEN          1188
+#define IDC_EINGABE_PZ_p                1189
 #define IDC_BUTTON_ACCEPT               1190
+#define IDC_EINGABE_PZ_q                1190
 #define IDC_BUTTON_GENERATE             1191
+#define IDC_BUTTON_ENTSCHLUESSELN       1193
+#define IDC_BUTTON_VERSCHLUESSELN       1194
+#define IDC_LIST_LOCHERUNG              1195
+#define IDC_LIST_VERSCHLUESSELTER_TEXT  1196
+#define IDC_LIST_TEXTEINGABE            1197
+#define IDC_EDIT_OEFFENTLICHE_PARAM     1198
+#define IDC_EDIT_GEHEIME_PARAM          1199
+#define IDC_EDIT_OEFF_SCHLUESSEL_e      1200
+#define IDC_EDIT_GEHEIMER_SCHLUESSEL_d  1201
 #define ID_CAESAR_ASC                   32769
 #define ID_VIGENERE_ASC                 32770
 #define ID_ADD_BIN                      32771
@@ -711,9 +725,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        226
+#define _APS_NEXT_RESOURCE_VALUE        227
 #define _APS_NEXT_COMMAND_VALUE         32936
-#define _APS_NEXT_CONTROL_VALUE         1187
+#define _APS_NEXT_CONTROL_VALUE         1202
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
