@@ -1,5 +1,5 @@
 // aestoolDlg.cpp : Implementierungsdatei
-//
+// $I$
 
 #include "stdafx.h"
 #include "io.h"
@@ -9,6 +9,7 @@
 #include "splash.h"
 #include "help.h"
 #include "direct.h"
+#include <stdio.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -138,6 +139,9 @@ BOOL CAestoolDlg::OnInitDialog()
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
+	m_consoleDetached = (INVALID_HANDLE_VALUE == GetStdHandle(STD_OUTPUT_HANDLE) ||
+						 _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),0) == -1);
+
 	CMenu* pSysMenu = GetSystemMenu(FALSE);
 	if (pSysMenu != NULL)
 	{
@@ -173,10 +177,10 @@ BOOL CAestoolDlg::OnInitDialog()
 	if(SetSource(m_CMD_inName)) { // sourcefile aus CMD-Zeile ist nicht gültig
 		if (TestEncryptedFile(EXEName)) { // verschlüsseltes selbstextrahierendes Archiv
 			CSplash dia;
-			if(IDCANCEL == dia.DoModal()) EndDialog( IDCANCEL );
 			if(m_HexIn.BinLen > 0) { // do decryption and exit
-				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
+				EndDialog(DoDecrypt());
 			}
+			if(IDCANCEL == dia.DoModal()) EndDialog( IDCANCEL );
 		}
 		// else // create a new encrypted file
 	}
@@ -186,14 +190,21 @@ BOOL CAestoolDlg::OnInitDialog()
 		}
 		if(m_HexIn.BinLen > 0) { // Ver-Entschlüsselung anstoßen und beenden
 			if(m_direction == DIR_ENCRYPT) {
-				DoEncrypt();
-				EndDialog( IDOK );
+				if(m_NameDst.Right(4).CompareNoCase(".exe"))
+					m_Radio = 1;
+				else
+					m_Radio = 0;
+				EndDialog(DoEncrypt());
+				return TRUE;
 			}
-			else
-				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
+			else {
+				EndDialog(DoDecrypt());
+				return TRUE;
+			}
 		}
 	}
 
+	detachConsole();
 	UpdateData(FALSE);
 	m_CNameSrc.SetSel(0,-1);
 	m_CNameDst.SetSel(0,-1);
@@ -409,8 +420,10 @@ void CAestoolDlg::SetDestName()
 	m_CNameDst.EnableWindow(TRUE);
 }
 
-void CAestoolDlg::DoEncrypt()
+int CAestoolDlg::DoEncrypt()
 {
+	CString Message;
+	char emsg[512];
 	CFile OutFile;
 	CFile EXEFile;
 	CFileException e;
@@ -418,16 +431,37 @@ void CAestoolDlg::DoEncrypt()
 	int bufflen, i, keylen;
 	CFile SrcFile;
 
-	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) {
-		AfxMessageBox(IDS_STRING_FILEERROR, MB_RETRYCANCEL );
-		return;
+	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, &e)) {
+		if(!consoleDetached()) {
+			e.GetErrorMessage(emsg,sizeof(emsg));
+			Message.LoadString(IDS_STRING_FILEERROR);
+			fprintf(stderr,(LPCTSTR)Message,(LPCTSTR)e.m_strFileName,emsg);
+			exit(1);
+		}
+		else return e.ReportError( MB_RETRYCANCEL );
 	}
 	DataLen = SrcFile.GetLength();
 	bufflen = max(DataLen+16, 4096);
 	buffer = (char *) malloc(bufflen);
-	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite, &e);
+	if (!OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite, &e)) {
+		if(!consoleDetached()) {
+			e.GetErrorMessage(emsg,sizeof(emsg));
+			Message.LoadString(IDS_STRING_FILEERROR);
+			fprintf(stderr,(LPCTSTR)Message,(LPCTSTR)e.m_strFileName,emsg);
+			exit(1);
+		} else
+			return e.ReportError(MB_RETRYCANCEL);
+	}
 	if(m_Radio == 0) { // copy EXE-File first
-		EXEFile.Open(EXEName, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL);
+		if (!EXEFile.Open(EXEName, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL),&e) {
+			if(!consoleDetached()) {
+				e.GetErrorMessage(emsg,sizeof(emsg));
+				Message.LoadString(IDS_STRING_FILEERROR);
+				fprintf(stderr,(LPCTSTR)Message,(LPCTSTR)e.m_strFileName,emsg);
+				exit(1);
+			} else
+				return e.ReportError(MB_RETRYCANCEL);
+		}
 		while(i=EXEFile.ReadHuge(buffer, bufflen))
 			OutFile.WriteHuge(buffer, bufflen);
 		EXEFile.Close();
@@ -478,27 +512,35 @@ void CAestoolDlg::DoEncrypt()
 
 	OutFile.Close();
 
+	if(!consoleDetached()) return 0;
+
 	AfxMessageBox(IDS_STRING_DATEI_VERSCHLUESSELT, MB_OK);
+	return 0;
 }
 
 int CAestoolDlg::DoDecrypt()
 {
+	CString Message;
+	char emsg[512];
 	CFile SrcFile;
 	CFile OutFile;
 	CFileException e;
 	char *buffer1, *buffer2, keybuffhex[64],keybuffbin[32];
 	int bufflen, i, keylen;
-
+		
 	bufflen = DataLen;
 	buffer1 = (char *) malloc(bufflen);
 	buffer2 = (char *) malloc(bufflen);
-	memset(buffer1, '\0', bufflen);
-	memset(buffer2, '\0', bufflen);
-
 
 	// Load Sourcedata
-	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) { // Datei konnte nicht geöffnet werden
-		return AfxMessageBox(IDS_STRING_FILEERROR, MB_RETRYCANCEL );
+	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, &e)) { // Datei konnte nicht geöffnet werden
+		if(!consoleDetached()) {
+			e.GetErrorMessage(emsg,sizeof(emsg));
+			Message.LoadString(IDS_STRING_FILEERROR);
+			fprintf(stderr,(LPCTSTR)Message,(LPCTSTR)e.m_strFileName,emsg);
+			exit(1);
+		} else
+			return e.ReportError(MB_RETRYCANCEL);
 	}
 	SrcFile.Seek( - 12 - DataLen - NameLen, CFile::end);
 	SrcFile.ReadHuge(buffer1, DataLen);
@@ -530,7 +572,13 @@ int CAestoolDlg::DoDecrypt()
 	for(i=DataLen-1;buffer2[i]==0;i--);
 	// check trailing 1
 	if(buffer2[i]!=1) { // display error
-		return AfxMessageBox(IDS_STRING_DECERROR, MB_RETRYCANCEL );
+		if(!consoleDetached()) {
+			Message.LoadString(IDS_STRING_DECERROR);
+   			fputs(Message.GetBuffer(0), stderr);
+
+			exit(2);
+		}
+		else return AfxMessageBox(IDS_STRING_DECERROR, MB_RETRYCANCEL );
 	}
 	DataLen = i;
 
@@ -544,7 +592,8 @@ int CAestoolDlg::DoDecrypt()
 
 	OutFile.Close();
 
-	AfxMessageBox(IDS_STRING_DATEI_ENTSCHLUESSELT, MB_OK);
+	if(consoleDetached()) 
+		AfxMessageBox(IDS_STRING_DATEI_ENTSCHLUESSELT, MB_OK);
 	return IDOK;
 }
 
@@ -771,7 +820,9 @@ void CAestoolDlg::OnKillfocusEdit3() // wird aufgerufen, wenn der Benutzer versu
 
 	UpdateData(FALSE); // Fenster aktualisieren
 	m_CNameDst.SetSel(s+l2-l1,e+l2-l1);
-
+	
+	
+	CFileException err;
 	if(ft.Open(m_NameDst, CFile::modeRead | CFile::shareDenyNone)) { // file exists!
 		if(!m_HexString.IsEmpty() && !m_NameSrc.IsEmpty())
 			m_OK.EnableWindow(TRUE);
@@ -779,7 +830,7 @@ void CAestoolDlg::OnKillfocusEdit3() // wird aufgerufen, wenn der Benutzer versu
 			m_OK.EnableWindow(FALSE);
 		ft.Close();
 	}
-	else if(ft.Open(m_NameDst, CFile::modeCreate | CFile::shareDenyNone)) { // file succesfully created
+	else if(ft.Open(m_NameDst, CFile::modeCreate | CFile::shareDenyNone,&err)) { // file succesfully created
 		if(!m_HexString.IsEmpty() && !m_NameSrc.IsEmpty())
 			m_OK.EnableWindow(TRUE);
 		else
@@ -788,7 +839,7 @@ void CAestoolDlg::OnKillfocusEdit3() // wird aufgerufen, wenn der Benutzer versu
 		ft.Remove(m_NameDst);
 	}
 	else { // file cannot be crated: directory not existant!
-		if(IDRETRY == AfxMessageBox(IDS_STRING_DIRECTORY_MISSING, MB_RETRYCANCEL )) {
+		if(IDRETRY == err.ReportError(MB_RETRYCANCEL )) {
 			m_OK.EnableWindow(FALSE);
 			m_CNameDst.SetFocus();
 		}
@@ -813,3 +864,16 @@ void CAestoolDlg::OnRadio4()
 	m_HexIn.Invalidate();
 }
 
+void CAestoolDlg::detachConsole() 
+{
+	if (consoleDetached())
+		return;
+	FreeConsole();
+	m_consoleDetached = 1;
+}
+
+int CAestoolDlg::consoleDetached() 
+{	
+	return m_consoleDetached;
+}
+	

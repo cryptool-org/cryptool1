@@ -1,5 +1,5 @@
 // aestoolDlg.h : Header-Datei
-//
+// $I$
 
 #if !defined(AFX_AESTOOLDLG_H__A8D430F4_1896_11D5_8ACA_0010A4F6E7D5__INCLUDED_)
 #define AFX_AESTOOLDLG_H__A8D430F4_1896_11D5_8ACA_0010A4F6E7D5__INCLUDED_
@@ -29,7 +29,7 @@ public:
 	int ChangeDestName( void );
 	int TestEncryptedFile( CString Filename);
 	int DoDecrypt();
-	void DoEncrypt ( void );
+	int DoEncrypt ( void );
 	void SetDestName( void );
 	int findStr(CString *l);
 	void ScanCMDLine( char * cmd );
@@ -44,6 +44,10 @@ public:
 	CFile m_SrcFile;
 	CString EXEName;
 	CAestoolDlg(CWnd* pParent = NULL);	// Standard-Konstruktor
+
+	int m_consoleDetached;
+	int consoleDetached();
+	void detachConsole();
 
 // Dialogfelddaten
 	//{{AFX_DATA(CAestoolDlg)
