@@ -698,7 +698,7 @@ Funktionalität:
   Werte erweitern.
 
 
-6.1 Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
+6.1. Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
      ------------------------------------------------------------
 + Einbau des RC5-Algorithmus wie oben beschrieben, um zu sehen,
   an welchen Stellen überall die Sourcen dafür zu ergänzen sind.

@@ -676,7 +676,7 @@ Functionality:
 
 
 
-6.1 Meaningful tasks to make the new maintainer familiar
+6.1. Meaningful tasks to make the new maintainer familiar
      ---------------------------------------------------
 + Integrate the RC5 algorithms as described above, in order to
   see all places where to enhance the sources.
