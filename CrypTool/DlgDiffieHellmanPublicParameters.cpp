@@ -53,9 +53,6 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 {
 	UpdateData(true);
 	
-	Big g = (char*)(LPCTSTR)m_Generator;
-	Big p = (char*)(LPCTSTR)m_Prime;
-
 	// Überprüfungen für Primzahl (p)
 	if( !IsDecimalNumber(m_Prime))
 	{
@@ -64,7 +61,20 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 		m_PrimeControl.SetFocus();
 		return;
 	}
+	
+	// Überprüfung für Generator (g)
+	if( !IsDecimalNumber(m_Generator))
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NON_DECIMAL_VALUE, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
+		m_GeneratorControl.SetFocus();
+		return;
+	}
 
+	Big g = (char*)(LPCTSTR)m_Generator;
+	Big p = (char*)(LPCTSTR)m_Prime;
+
+	// Überprüfungen für Primzahl (p)
 	if( m_Prime.IsEmpty() || !prime(p) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
@@ -74,14 +84,6 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	}
 
 	// Überprüfung für Generator (g)
-	if( !IsDecimalNumber(m_Generator))
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NON_DECIMAL_VALUE, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_GeneratorControl.SetFocus();
-		return;
-	}
-	
 	if( m_Generator.IsEmpty() || g <= 1 || g >= p )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_GENERATOR_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
