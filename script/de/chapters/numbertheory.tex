@@ -1972,6 +1972,7 @@ Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $n$ bestimmt
       General Number Field Sieve-Algorithmus (GNFS), der ab ca. 116 
       Dezimalstellen effizienter ist als QS, nach knapp 5 Monaten ein 
       155-stelliger Modul (512 Bit) faktorisiert.
+\index{General Number Field Sieve (GNFS)}
 
 %      \noindent  - ist das noetig - im Englischen auch nicht ? 2003-03-02
       Siehe: 
@@ -2056,7 +2057,8 @@ factorization: a proposal'' (siehe
 D.J. Bernstein \cite{Bernstein2001} behandelt das Problem der 
 Faktorisierung gro"ser Zahlen.
 Die Kernaussage des Papers besteht darin, dass es m"oglich ist, die
-Implementierung des General Number Field Sieve-Algorithmus (GNFS) so zu
+Implementierung des General Number Field Sieve-Algorithmus (GNFS)
+\index{General Number Field Sieve (GNFS)} so zu
 verbessern, dass mit gleichem Aufwand wie bisher Zahlen mit 3-mal
 gr"o"serer Stellenzahl (Bit-L"ange) faktorisiert werden k"onnen.
 
@@ -2171,16 +2173,16 @@ Eine sehr gute Erl"auterung, wie der Angriff mit dem Generalized Number Field
 Sieve (GNFS) \index{General Number Field Sieve (GNFS)} funktioniert und
 welche Fortschritte sich ergaben, findet sich
 in dem 3-seitigen Artikel in der DuD-Ausgabe Juni/2003 \cite{Weis2003}.
-Beim GNFS können 2 grundlegende Schritte unterschieden werden: 
+Beim GNFS k"onnen 2 grundlegende Schritte unterschieden werden: 
 der Siebungsschritt (Relationen sammeln) und die Matrix-Reduktion.
 Auch wenn der Siebungsschritt hochgradig parallelisierbar ist, so dominiert
 er doch den Gesamtrechenaufwand. Bisher haben Shamir und Tromer noch kein 
-TWIRL-Device gebaut, jedoch ist der dafür geschätzte Aufwand von 10 bis
+TWIRL-Device gebaut, jedoch ist der daf"ur gesch"atzte Aufwand von 10 bis
 50 Millionen Euro, um eine 1024-Bit Zahl in einem Jahr zu faktorisieren
-für Geheimdienste oder große kriminelle Organisationen keineswegs prohibitiv,
+f"ur Geheimdienste oder gro"se kriminelle Organisationen keineswegs prohibitiv,
 denn die \glqq Kosten f"ur einen einzigen Spionagesatelliten sch"atzt man
 z.B. auf mehrere Milliarden USD\grqq. Die Autoren empfehlen deshalb konkret,
-m"oglichst rasch sensible bisherig-benutzte RSA-, Diffie-Hellman- oder 
+m"oglichst rasch sensible, bisher benutzte RSA-, Diffie-Hellman- oder 
 ElGamal-Schl"ussel von bis zu 1024 Bit zu wechseln und Schl"ussel von 
 mindestens 2048 Bit L"ange einzusetzen.
 Auch f"ur die geplante TCPA/Palladium-Hardware \index{Palladium} werden
@@ -2202,13 +2204,16 @@ Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neue
 
 Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) schneller sein k"onnen. Der neue Algorithmus funktioniert f"ur alle positiven ganzen Zahlen. Dagegen verwendet das GIMPS-Projekt den Lucas-Lehmer-Primzahltest, der besondere Eigenschaften der Mersennezahlen ausnutzt. Dadurch ist der Lucas-Lehmer-Test viel schneller und erlaubt, Zahlen mit Millionen von Stellen zu testen, w"ahrend generische Algorithmen auf Zahlen mit einigen tausend Stellen beschr"ankt sind. Nachteil der bisherigen schnellen Verfahren ist, dass sie probabilistisch sind, also ihr Ergebnis h"ochstwahrscheinlich, aber nicht ganz sicher ist.
 
+\enlargethispage{20pt}
 Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: 
 \vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.mersenne.org/}
                {\texttt{http://www.mersenne.org/}} \\
           \href{http://fatphil.org/maths/AKS/}
-               {\texttt{http://fatphil.org/maths/AKS/}} 
+               {\texttt{http://fatphil.org/maths/AKS/}} Originaltext in Englisch\\
+          \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}
+               {\texttt{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}}\\\hspace*{2em}Gute Erl"auterung in Deutsch von Thomas Hofmeister.
 \end{itemize}
 
 \vskip +10 pt

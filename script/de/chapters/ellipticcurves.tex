@@ -11,9 +11,9 @@
 % -----------------------------------------------------------------------------
 \subsection{Elliptische Kurven -- ein effizienter Ersatz f"ur RSA?} \label{ECAlternative}
 
-In vielen Bereichen sind Sicherheit und Effizienz von Daten"ubertragungen
-von gro"ser Wichtigkeit. Viele Anwendungen verwenden den RSA-Algorithmus
-als asymmetrisches Signatur- und Verschl"usselungsverfahren.
+Bei Daten"ubertragungen kommt es auf Sicherheit und Effizienz an.  Viele
+Anwendungen verwenden den RSA-Algorithmus als asymmetrisches Signatur- und
+Verschl"usselungsverfahren.
 
 Solange die verwendeten Schl"ussel hinreichend lang sind, bestehen keinerlei
 Bedenken gegen die {\em Sicherheit} des RSA-Verfahrens. Allerdings hat die
@@ -31,10 +31,14 @@ Der entscheidende Vorteil Elliptischer Kurven im Vergleich zum
 RSA-Algorithmus liegt in der Tatsache, dass die sicheren Schl"ussell"angen
 erheblich k"urzer sind. 
 
-Setzt man den Trend, dass sich die
-Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}\footnote{empirische Erkenntnis von Gordon Moore, Mitbegr"under von Intel, 1965}), in die Zukunft
-fort, so kann man von einer Entwicklung der sicheren Schl"ussell"angen
-wie in Abbildung~\ref{RSAKeylength} ausgehen \cite{Lenstra1999}
+Setzt man den Trend, dass sich die Leistung der verf"ugbaren Rechner im 
+Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}%
+\footnote{empirische Erkenntnis von Gordon Moore, Mitbegr"under von Intel,
+1965.} ), in die Zukunft fort, so kann man von einer Entwicklung der
+sicheren Schl"ussell"angen wie in Abbildung~\ref{RSAKeylength} ausgehen
+\cite{Lenstra1999} (Quelle: Arjen Lenstra und Eric Verheul:
+\href{http://cryptosavvy.com/table.htm}
+{\texttt{http://cryptosavvy.com/table.htm}}).
 
 % -> Figur 1
 \begin{figure}[h]
@@ -211,11 +215,11 @@ denn ${\mathbb Z} = \{ \cdots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \cdots\}$. Die Ver
 liegt in ${\mathbb Z}$, denn $1+2 = 3$ und $3$ liegt in ${\mathbb Z}$. Das neutrale Element der Gruppe
 ${\mathbb Z}$ ist $0$. Das Inverse Element von $3$ ist $-3$, denn $3+(-3) = 0$.
 
-F"ur unsere Zwecke besonders interssant sind sogenannte {\em endliche} Gruppen, bei denen die zugrundelegte Menge $G$ nur aus einer endlichen Anzahl von
+F"ur unsere Zwecke besonders interessant sind sogenannte {\em endliche} Gruppen, bei denen die zugrundelegte Menge $G$ nur aus einer endlichen Anzahl von
 Elementen besteht. Beispiele sind die Gruppen ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ der Teilerreste bei der Division durch $n$ mit der Addition als Verkn"upfung.
 
 \paragraph{Zyklische Gruppen}\index{Gruppen!zyklische}
-Als {\it zyklische Gruppen}\footnote{Zyklische Gruppen sind Gruppen, die von einem Element erzeugt werden. Sie k"onnen grunds"atzlich auch unendlich sein wie z.B. die additive Gruppe der ganzen Zahlen. Wir betrachten hier jedoch nur endliche zyklische Gruppen.} bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
+Als {\it zyklische Gruppen}\footnote{Zyklische Gruppen k"onnen grunds"atzlich auch unendlich sein wie z.B. die additive Gruppe der ganzen Zahlen. Wir betrachten hier jedoch nur endliche zyklische Gruppen.} bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
 mittels der Gruppen-Verkn"upfung alle anderen Elemente der Gruppe erzeugen kann. Es gibt also f"ur jedes
 Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so dass die $i$-fache Verkn"upfung von $g$ mit sich
 selbst $g^i = g\cdot g \cdots g = a$. Das Element $g$ ist ein {\em Generator} der zyklischen Gruppe --- jedes Element
@@ -315,7 +319,7 @@ Eine besondere Rolle spielen die K"orper $GF(p)$, deren Ordnung eine Primzahl is
 \subsection{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
 In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung der Form\footnote{Die hier verwendete Kurve erh"alt man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdr"ucke der Form
-$P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ "uber dem K"orper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht.}
+$P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ "uber dem K"orper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht. Die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.}
 \begin{equation}
  F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0.
 \label{eccbasisgleichung}
@@ -353,11 +357,11 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \end{center}
 \vskip -10 pt
 \end{figure}
-Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$, also nicht wie in Abblidung \ref{ExampleEllipticCurve} die zu einer stetigen Kurve f"uhrenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und "Ubertragung von Nachrichten stets nur endlich viele Zust"ande zur Verf"ugung haben (aufgrund der Arbeitsweise moderner Computer), K"orper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollst"andig darstellen k"onnen.
+Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$, also nicht wie in Abbildung \ref{ExampleEllipticCurve} die zu einer stetigen Kurve f"uhrenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und "Ubertragung von Nachrichten stets nur endlich viele Zust"ande zur Verf"ugung haben (aufgrund der Arbeitsweise moderner Computer), K"orper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollst"andig darstellen k"onnen.
 
 In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer gro"sen Primzahl $p$ oder $GF(2^n)$ mit einer (gro"sen) nat"urlichen Zahl $n$ zu betrachten. Der Grund f"ur die Verwendung des Primk"orpers $GF(p)$ liegt in seiner einfachen Arithmetik; andererseits kommt $GF(2^n)$ der bin"aren Darstellung in Computersystemen entgegen. Andere K"orper wie z.B. $GF(7^n)$ bieten keiner dieser beiden Vorteile und werden daher in der Praxis nicht verwendet, ohne dass dies theoretische Gr"unde h"atte.
 
-Durch Koordinatentransformation kann man die Weierstrass-Gleichung in einer einfacheren Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst ver"andert wird.}.  Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erh"alt so
+Durch Koordinatentransformation kann man die Weierstrass-Gleichung\index{Weierstrass, Karl} in einer einfacheren Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst ver"andert wird.}.  Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erh"alt so
 
 \begin{itemize}
 \item im Fall $GF(p)$, $p>3$, die Elliptische Kurven-Gleichung der Form
@@ -371,7 +375,7 @@ mit $4a^3+27b^2\ne 0$
  y^2+xy = x^3 + ax^2 + b
 \label{ell2}
 \end{equation}
-mit $b\ne 0$\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass-Gleichung. Ist die Charakteristik des K"orpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu f"uhrt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen F"allen nicht zu befriedigenden Ergebnissen f"uhrt.}.
+mit $b\ne 0$\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass-Gleichung\index{Weierstrass, Karl}. Ist die Charakteristik des K"orpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu f"uhrt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen F"allen nicht zu befriedigenden Ergebnissen f"uhrt.}.
 \end{itemize}
 Durch diese Bedingungen an die Parameter $a,b$ ist gew"ahrleistet, dass die Elliptische Gleichung f"ur kryptographische Anwendungen geeignet ist\footnote{Formal sagt man, die Kurve ist nicht singul"ar.}.
 
@@ -446,7 +450,7 @@ Ebene dargestellt werden.
 % -----------------------------------------------------------------------------
 \subsection{Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
 
-Wie bereits in Abschnitt \ref{ECC-Crypto} erw"ahnt, betrachten wir in der Kryptographie Elliptische Kurven "uber diskreten K"orpern $GF(2^n)$ oder $GF(p)$ (f"ur gro"se Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden K"orper stammen. Ist nun $E$ eine Elliptische Kurve "uber einem solchen K"orper und $P$ ein Punkt auf der Kurve $E$, so kann man f"ur jede nat"urliche Zahl $m$
+Wie bereits in Abschnitt \ref{ECC-Crypto} erw"ahnt, betrachten wir in der Kryptographie Elliptische Kurven "uber diskreten\footnote{Diskret im Gegensatz zu kontinuierlich.} K"orpern $GF(2^n)$ oder $GF(p)$ (f"ur gro"se Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden K"orper stammen. Ist nun $E$ eine Elliptische Kurve "uber einem solchen K"orper und $P$ ein Punkt auf der Kurve $E$, so kann man f"ur jede nat"urliche Zahl $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
 $$
 bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchf"uhren muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ bin"ar und addiert schlie"slich entsprechend der Bin"ardarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Nat"urlich kann man $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu ben"otigt man jedoch $m$ Additionen.
@@ -509,30 +513,33 @@ festgelegt, auf welcher Elliptischen Kurve ${\bf E}$ und in welcher zyklischen U
 Signaturverfahren eingesetzt  wurde.
 
 \par
-\smallskip
-{\bf Verschl"usselung:}
+%\smallskip
+%{\bf Verschl"usselung:}
+\subsubsection{Verschl"usselung}
 
-Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{Diffie-Hellman Protokoll}{DH-KeyExch} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt.
+Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{DH-KeyExch}{Diffie-Hellman Protokoll} \index{Diffie-Hellman} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt!
 
-In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (n"amlich $r_Ar_B G$) erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
+In der Schreibweise der Elliptischen Kurven liest sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (n"amlich $r_Ar_B G$) erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
 \\ F"ur einen Dritten ist es nach heutigen Kenntnisstand nicht m"oglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP l"ost.
 
-Um einen ``Man-in-the-middle"{}~Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die "ubertragenen Werte $G,q,R_A,R_B$ digital signieren.
+Um einen ``Man-in-the-middle''-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die "ubertragenen Werte $G,q,R_A,R_B$ digital signieren.
 
 \par
-\smallskip 
-{\bf Signatur-Erstellung:}
+%\smallskip 
+%{\bf Signatur-Erstellung:}
+\subsubsection{Signatur-Erstellung}
 
 "Ubertr"agt man den DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man w"ahlt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schl"ussel. Hingegen werden $q$, $G$ und $R=sG$ ver"offentlicht. Aus $G$ und $R$ l"asst sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
 
-Eine Nachricht $m$ wird zun"achst mit Hilfe eines Hash-Verfahrens $h$ ein digitaler Fingerabdruck erstellt, wobei $h(m)$ im Wertebereich $\{0,1,2,\dots, q-1\}$ liegt und $h(m)$ somit als Element von ${\mathbb Z}_q$ interpretiert werden kann. Dann wird ein zuf"alliges $r\in{\mathbb Z}_q$ gew"ahlt und $R=(r_1,r_2)=rG$ berechnet. Die erste Komponente $r_1$ von $R$ ist ein Element von $GF(p^n)$. Diese wird auf ${\mathbb Z}_q$ abgebildet, z.B. im Fall $n=1$ als Element von $\{0,1,\dots,p-1\}$ interpretiert und dann der Teilerrest modulo $q$ gebildet. Das so erhaltene Element von ${\mathbb Z}_q$ bezeichnen wir mit $\bar r_1$. Nun bestimmt man $x\in {\mathbb Z}_q$ mit
+F"ur eine Nachricht $m$ wird zun"achst mit Hilfe eines Hash-Verfahrens $h$ ein digitaler Fingerabdruck erstellt, wobei $h(m)$ im Wertebereich $\{0,1,2,\dots, q-1\}$ liegt und $h(m)$ somit als Element von ${\mathbb Z}_q$ interpretiert werden kann. Dann wird ein zuf"alliges $r\in{\mathbb Z}_q$ gew"ahlt und $R=(r_1,r_2)=rG$ berechnet. Die erste Komponente $r_1$ von $R$ ist ein Element von $GF(p^n)$. Diese wird auf ${\mathbb Z}_q$ abgebildet, z.B. im Fall $n=1$ als Element von $\{0,1,\dots,p-1\}$ interpretiert und dann der Teilerrest modulo $q$ gebildet. Das so erhaltene Element von ${\mathbb Z}_q$ bezeichnen wir mit $\bar r_1$. Nun bestimmt man $x\in {\mathbb Z}_q$ mit
 $$ rx-s\bar r_1-h(m)=0 .
 $$
 Das Tripel $(m,r_1,x)$ bildet nun die digitale Signatur.
 
 \par
-\smallskip 
-{\bf Signatur-Verifikation:}
+%\smallskip 
+%{\bf Signatur-Verifikation:}
+\subsubsection{Signatur-Verifikation}
 
 Zur Verifikation muss zun"achst $u_1=h(m)/x$, $u_2=\bar r_1/x$ (in ${\mathbb Z}_q$ gebildet werden). Dann bestimmt man
 $$ V=u_1G+u_2Q .
@@ -612,9 +619,9 @@ Forschungsprojekte im Bereich der Faktorisierung einen Durchbruch erzielen.
 % -----------------------------------------------------------------------------
 \subsection{Elliptische Kurven im praktischen Einsatz}
 
-Bereits heute werden Elliptische Kurven in der Praxis eingesetzt. Als prominentes Beispiel ist hier der Informationsverbund Bonn-Berlin (IVBB) zu nennen, bei dem streng vertrauliche Dokumente der deutschen Bundesregierung zwischen Regierungsstellen mit Sitz in Berlin und Bonn ausgetauscht werden. Durch den Einsatz von ECC konnte eine Hochsicherheitsl"osung realisiert werden. Fragen der Interoperabilit"at spielten hingegen eine untergeordnete Rolle.
+Bereits heute werden Elliptische Kurven in der Praxis eingesetzt. Als prominentes Beispiel ist hier der Informationsverbund Bonn-Berlin (IVBB)\footnote{Der IVBB verbindet Regierungsstellen in der alten und neuen deutschen Hauptstadt.}\index{IVBB} zu nennen, bei dem streng vertrauliche Dokumente der deutschen Bundesregierung zwischen Regierungsstellen mit Sitz in Berlin und Bonn ausgetauscht werden. Durch den Einsatz von ECC konnte eine Hochsicherheitsl"osung realisiert werden. Fragen der Interoperabilit"at spielten hingegen eine untergeordnete Rolle.
 
-Nach Auskunft des Projektleiters e-Government in "Osterreich, Prof.\ Posch, ist in K"urze auch mit einer Massenanwendung auf Basis von ECC zu rechnen: Die Bankkarte mit Signaturanwendung, die ab 2004 in "Osterreich herausgegeben werden soll, setzt auf elliptische Kurven.
+Nach Auskunft des Projektleiters e-Government in "Osterreich, Prof.\ Posch, ist in K"urze auch mit einer Massenanwendung in "Osterreich auf Basis von ECC zu rechnen: Die Bankkarte mit Signaturanwendung, die ab 2004 herausgegeben werden soll, setzt auf Elliptische Kurven.
 
 Beide Beispiele zeigen gut die typischen Einsatzgebiete elliptischer Kurven: Als Hochsicherheitsl"osungen und bei Implementierungen auf Smartcards, bei denen der Schl"ussell"ange (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
@@ -622,17 +629,37 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete elliptischer Kurven: Als
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-        \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
-	\bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-	\bibitem[Menezes1993]{Menezes1993}A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
+        \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels, 
+	{\em Lectures on elliptic curves}, Cambridge University Press, 
+	1991, 143 Seiten.
+	\bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, 
+	{\em Introduction to elliptic curves and modular forms}, 
+	Graduate Texts in Mathemathics, Springer-Verlag, 1984.
+	\bibitem[Koblitz1998]{Koblitz1998}N. Koblitz, 
+	{\em Algebraic aspects of Cryptography. With an appendix on 
+	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
+	J. Zuccherato}, Springer-Verlag, 1998, 206 Seiten.
+        \bibitem[Menezes1993]{Menezes1993}A. J, Menezes, 
+	{\em Elliptic curve public key cryptosystems}, 
+	Kluwer Academic Publishers, 1993.
         \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra \index{Lenstra 1987} \\
-                Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
-	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul  \index{Lenstra/Verheul 1999} \\
-         	Selecting Cryptographic Key Sizes (1999), Journal of Cryptology: the journal of the International Association for Cryptologic Research \\
-		\href{http://www.cryptosavvy.com/cryptosizes.pdf}{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
-	\bibitem[Silverman1986]{Silverman1986} J. Silverman \\ The Arithmetic of Elliptic Curves, Springer-Verlag, 1986. \index{Silverman 1986}
-	\bibitem[Silverman1992]{Silverman1992}J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-	\bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
+                {\em Factoring integers with elliptic curves}, Annals of Mathematics
+		126, pp. 649-673, 1987.
+	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
+	        \index{Lenstra/Verheul 1999} \\
+         	{\em Selecting Cryptographic Key Sizes (1999)}, Journal of 
+		Cryptology: the journal of the International Association for
+		Cryptologic Research \\
+		\href{http://www.cryptosavvy.com/cryptosizes.pdf}
+		{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+	\bibitem[Silverman1986]{Silverman1986} J. Silverman \\ 
+	        {\em The Arithmetic of Elliptic Curves}, Springer-Verlag, 1986.
+		\index{Silverman 1986}
+	\bibitem[Silverman1992]{Silverman1992}J. Silverman, 
+	        {\em The arithmetic of elliptc curves}, 
+		Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+	\bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate, 
+	        {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
 \end{thebibliography}
 
 

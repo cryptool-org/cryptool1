@@ -1721,10 +1721,10 @@ prime factors of $n$.  Breaking of RSA therefore cannot be more difficult
 than factorisation of the module $n$.
 
 The best factorisation method known today is a further development of the
-General Number Field Sieve (GNFS), which was originally devised to
-factor only numbers of a special form (like Fermat numbers).  The
-complexity of solving the factorisation problem with the GNFS is
-asymptotically
+General Number Field Sieve (GNFS) \index{General Number Field Sieve (GNFS)},
+which was originally devised to factor only numbers of a special form 
+(like Fermat numbers).  The complexity of solving the factorisation problem
+with the GNFS is asymptotically
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
@@ -1783,8 +1783,9 @@ The complexity is basically determined by the length $l$ of the module $n$.
       \vskip +12pt
 
 \item In 1999 a 155-digit module (512 bit) was factored with an implementation
-      of the General Number Field Sieve algorithm (GNFS), developed by Buhler,
-      Lenstra and Pomerance. The GNFS is more efficient than QS if $n$ is longer
+      of the General Number Field Sieve algorithm (GNFS) \index{General 
+      Number Field Sieve (GNFS)}, developed by Buhler, Lenstra and Pomerance.
+      The GNFS is more efficient than QS if $n$ is longer
       than about 116 decimal digits. This effort took 5 months.
 
       Please refer to:
@@ -1865,9 +1866,9 @@ published November 2001, D.~J.\ Bernstein \cite{Bernstein2001}
 addresses the problem of
 factorising large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
-implementation of the General Number Field Sieve algorithm (GNFS) can be
-improved to factor, with the same effort as before, integers with three
-times more digits.
+implementation of the General Number Field Sieve algorithm (GNFS)
+ \index{General Number Field Sieve (GNFS)} can be improved to factor, with
+the same effort as before, integers with three times more digits.
 
 We note that the definition of \emph{effort} is a crucial point: Bernstein
 claims that effort is the product of time and costs of the machine
@@ -2020,7 +2021,10 @@ Current research results on this topic can be found at:
   \item[] \href{http://www.mersenne.org/}
                {\texttt{http://www.mersenne.org/}} \\
           \href{http://fatphil.org/maths/AKS/}
-               {\texttt{http://fatphil.org/maths/AKS/}} 
+               {\texttt{http://fatphil.org/maths/AKS/}} Original paper in English\\
+          \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}
+               {\texttt{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}}\\
+	       \hspace*{2em}Good explanation in German by Thomas Hofmeister. 
 \end{itemize}
 \vskip +10 pt
 
@@ -2074,7 +2078,7 @@ On January 18, 2002 researchers of the German University of Bonn\footnote{%
 {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}
 factorised a 158-digit number into its both prime factors (these are build
 with 73 and 86 decimal digits) using the GNFS method (General Number Field
-Sieve).
+Sieve)\index{General Number Field Sieve (GNFS)}.
 
 This record got much less attention within the press than the solution of
 RSA-155.
@@ -2152,7 +2156,7 @@ On January 18, 2002 researchers of the German University of Bonn\footnote{%
 {\texttt{http://www.loria.fr/\~{}zimmerma/records/rsa160}}} 
 factorised a 160-digit number into its both prime factors (these are build
 with each 80 decimal digits) using the GNFS method (General Number Field
-Sieve).
+Sieve)\index{General Number Field Sieve (GNFS)}.
 
 The  computations for the factorization of RSA-160 took place at the 
 German Information Security Agency (GISA) in Bonn\footnote{%
