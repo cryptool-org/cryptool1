@@ -79,7 +79,7 @@ void CaesarAsc(const char *infile, const char *OldTitle)
     char outfile[128], title[128], line[256];
     CMyDocument *NewDoc;
 
-    dia1 KeyDialog(1);
+    dia1 KeyDialog(-1);
 
 	SymbolArray text(AppConv);
 	{
@@ -93,8 +93,10 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 			return;
 		}
 		WCursor.Restore();
-
-
+// == title of modal window: 
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
+		KeyDialog.SetAlternativeWindowText(pc_str);
+// ===================================
 		if(KeyDialog.Display()!=IDOK) return;
 		WCursor.Restore();
 	    if (KeyDialog.GetLen()==0) return;
@@ -149,6 +151,10 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 			return;
 		}
 
+// == title of modal window: 
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
+		KeyDialog.SetAlternativeWindowText(pc_str);
+// ===================================
 		if(KeyDialog.Display()!=IDOK) return;
 		WCursor.Restore();
 	    if(KeyDialog.GetLen()==0) return;

@@ -27,17 +27,16 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // Dialog
 //
 
-IDD_DIALOG_KEY_INPUT DIALOG DISCARDABLE  0, 0, 220, 98
+IDD_DIALOG_KEY_INPUT DIALOG DISCARDABLE  0, 0, 220, 85
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,38,197,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Verschlüsseln",IDOK,11,66,58,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,153,66,55,19
-    LTEXT           "Static 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                    IDC_STATIC_TEXT,11,15,197,8
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,82,66,57,19
+    EDITTEXT        IDC_EDIT1,11,29,197,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,53,58,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,153,53,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,11,5,197,16
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,82,53,57,19
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -329,7 +328,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -371,7 +370,7 @@ END
 IDD_DIALOG_TEXTOPTIONEN DIALOGEX 0, 0, 272, 282
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Textoptionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,20,254,50,17
     PUSHBUTTON      "Abbrechen",IDCANCEL,202,254,55,17
@@ -547,7 +546,7 @@ END
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -1468,7 +1467,7 @@ END
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
@@ -1795,7 +1794,7 @@ END
 IDD_RANDOM_PARAMETER_LCG DIALOGEX 0, 0, 200, 111
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Kongruenzgenerator (LCG)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,73,82,50,17
     CTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
@@ -1840,7 +1839,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,90,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
-    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im anderen Fall werden zusammen- gesetzte Zahlen rot dargestellt. ",
+    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andu?",
                     IDC_STATIC,24,157,318,32
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
                     IDC_STATIC,24,191,318,17
@@ -3721,7 +3720,8 @@ BEGIN
                             "Mehrere Zeichen sind gleich häufig.\nHäufigstes Zeichen wird nicht berücksichtigt.\nDadurch ist auch keine erweiterte Analyse möglich."
     IDS_STRING_POSSIBLE_PLAINTEXT_OF 
                             "Möglicher Klartext von <%s>, Schlüssel: <%s>"
-    IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT "Eingabe maximal %d Zeichen !"
+    IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT 
+                            "Geben Sie den Schlüssel ein. Die Schlüssellänge ist maximal  %d Zeichen !"
     IDS_STRING_ERR_ZIP      "ZIP-Fehler"
     IDS_STRING_MSG_ZIP_COMPRESSION_OF "ZIP-Kompression von <%s>"
     IDS_STRING_ERR_ZIP_FILE "Fehler im ZIP-File"
@@ -4062,6 +4062,7 @@ BEGIN
     IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Knadidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "%s-Schlüsseleingabe"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Rijndael-Schlüsseleingabe (AES)"
+    IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4229,6 +4230,13 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_HOMOPHONE_HEX        "Homophone Ver-/Entschlüsselung"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_KEY_INPUT_LENGTH 
+                            "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
+    IDS_STRING_KEY_INPUT_VIGENERE "Vigènere Schlüsseleingabe"
 END
 
 #endif    // Deutsch (Deutschland) resources

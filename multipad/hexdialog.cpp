@@ -77,7 +77,7 @@ void hexdialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_einstr);
 	DDV_MaxChars(pDX, m_einstr, len);
 	DDX_Text(pDX, IDC_STATIC_TEXT, m_static_text);
-	DDX_Radio(pDX, IDC_RADIO1, m_Decrypt);
+// 	DDX_Radio(pDX, IDC_RADIO1, m_Decrypt);
 	//}}AFX_DATA_MAP
 }
 

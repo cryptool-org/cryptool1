@@ -23,16 +23,41 @@ dia1::dia1(int maxlen, CWnd* pParent /*=NULL*/)
 {
 	char line[80];
 
-	len = maxlen;
+	len = (maxlen > 0) ? maxlen : -maxlen;
 	//{{AFX_DATA_INIT(dia1)
 	m_text = _T("");
 	m_static_text = _T("");
-	m_Decrypt = 0;
 	//}}AFX_DATA_INIT
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,pc_str,len);
-	m_static_text = line;
+	if ( maxlen > 0 )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,len);
+		m_static_text = line;
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,len);
+		m_static_text = line;
+	}
+	s_alternativeWindowText[0]=0;
 }
+
+
+//DEL dia1::dia1(int maxlen, const long StringID, CWnd *pParent)
+//DEL {
+//DEL 	char line[80];
+//DEL 
+//DEL 	len = maxlen;
+//DEL 	//{{AFX_DATA_INIT(dia1)
+//DEL 	m_text = _T("");
+//DEL 	m_static_text = _T("");
+//DEL 	//}}AFX_DATA_INIT
+//DEL 	LoadString(AfxGetInstanceHandle(),StringID,pc_str,STR_LAENGE_STRING_TABLE);
+//DEL 	sprintf(line,pc_str,len);
+//DEL 	m_static_text = line;
+//DEL 	s_alternativeWindowText[0]=0;
+//DEL }
 
 int dia1::Display()
 {
@@ -50,7 +75,6 @@ void dia1::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_text);
 	DDV_MaxChars(pDX, m_text, len);
 	DDX_Text(pDX, IDC_STATIC_TEXT, m_static_text);
-	DDX_Radio(pDX, IDC_RADIO1, m_Decrypt);
 	//}}AFX_DATA_MAP
 }
 
@@ -58,6 +82,8 @@ void dia1::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(dia1, CDialog)
 	//{{AFX_MSG_MAP(dia1)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
+	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
+	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -104,3 +130,36 @@ void dia1::OnUpdateEdit1()
 	UpdateData(FALSE);
 	m_text_ctl.SetSel(sels,sele);
 } 
+
+void dia1::OnDecrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_Decrypt = 1;
+	OnOK();
+}
+
+void dia1::OnEncrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_Decrypt = 0;
+	OnOK();
+}
+
+void dia1::SetAlternativeWindowText(LPCTSTR s_title)
+{
+    strncpy(s_alternativeWindowText, s_title, 126);
+	s_alternativeWindowText[126]=0;
+}
+
+BOOL dia1::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	// TODO: Zusätzliche Initialisierung hier einfügen
+	if (s_alternativeWindowText[0])
+		SetWindowText(s_alternativeWindowText);
+	
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+

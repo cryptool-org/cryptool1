@@ -17,6 +17,8 @@ class dia1 : public CDialog
 {
 // Construction
 public:
+	void SetAlternativeWindowText(LPCTSTR s_title);
+	long m_Decrypt;
 	int len;
 
 	dia1(int maxlen, CWnd* pParent = NULL);   // standard constructor
@@ -30,7 +32,6 @@ public:
 	CEdit	m_text_ctl;
 	CString	m_text;
 	CString	m_static_text;
-	int		m_Decrypt;
 	//}}AFX_DATA
 
 
@@ -47,8 +48,14 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(dia1)
 	afx_msg void OnUpdateEdit1();
+	afx_msg void OnDecrypt();
+	afx_msg void OnEncrypt();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+    char s_alternativeWindowText[127];
 };
 
 #endif // DIA1_H
