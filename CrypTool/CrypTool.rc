@@ -1678,7 +1678,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "Zufallsgenerator der &Secude Bibliothek",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
-    CONTROL         "&x^2 (mod N)  Zufallsgenerator",IDC_RADIO2,"Button",
+    CONTROL         "&X^2 (mod N)  Zufallsgenerator",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,18,74,119,8
     CONTROL         "&Linearer Kongruenz Generator (LCG)",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,18,89,129,8
@@ -2513,7 +2513,8 @@ BEGIN
     END
     POPUP "&Einzelverfahren"
     BEGIN
-        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel aus Passwort generieren ...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA-Demo"
         BEGIN
@@ -2662,7 +2663,8 @@ BEGIN
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
-        MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel aus Passwort generieren ...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Komprimieren"
         BEGIN
@@ -2854,7 +2856,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
         END
-        MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel aus Passwort generieren ...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Komprimieren"
         BEGIN
@@ -3010,7 +3013,8 @@ BEGIN
     POPUP "&Einzelverfahren"
     BEGIN
         MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
-        MENUITEM "&Schlüssel generieren...",    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel aus Passwort generieren ...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA-Demo"
         BEGIN
@@ -3156,7 +3160,8 @@ BEGIN
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
-        MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel aus Passwort generieren ...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Komprimieren"
         BEGIN
@@ -7400,7 +7405,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "&Secude Library random number generator",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
-    CONTROL         "&x^2 (mod N)  random number generator",IDC_RADIO2,
+    CONTROL         "&X^2 (mod N)  random number generator",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,18,74,158,8
     CONTROL         "&Linear Congruence Generator (LCG)",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,18,89,129,8
@@ -7440,7 +7445,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,10,64,72,19
     EDITTEXT        IDC_EDIT1,52,39,193,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Cancel",IDCANCEL,178,64,67,19
-    LTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter.\nAdditional information can be obtained from the on-line help (""F1"" key).",
+    LTEXT           "A X^2 (mod N) random number generator requires modulus N as input parameter.\nAdditional information can be obtained from the on-line help (""F1"" key).",
                     IDC_STATIC,10,7,235,28
     LTEXT           "Modulus N = ",IDC_STATIC,10,41,42,8
 END
@@ -8257,7 +8262,8 @@ BEGIN
     END
     POPUP "&Indiv. Procedures"
     BEGIN
-        MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Key Generation from Password...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA Demonstration"
         BEGIN
@@ -8405,7 +8411,8 @@ BEGIN
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
-        MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Key Generation from Password...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Compress"
         BEGIN
@@ -8597,7 +8604,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
         END
-        MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Key Generation from Password...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Compress"
         BEGIN
@@ -8753,7 +8761,8 @@ BEGIN
     POPUP "&Indiv. Procedures"
     BEGIN
         MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
-        MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Key Generation from Password...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA Demonstration"
         BEGIN
@@ -8899,7 +8908,8 @@ BEGIN
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
-        MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Key Generation from Password...", 
+                                                ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Compress"
         BEGIN

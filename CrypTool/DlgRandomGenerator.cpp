@@ -56,7 +56,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 		break;
 	case 1:
 		{
-			title.Format(IDS_RAND_GEN_PARAM, "x^2 (mod N)", par->m_DataSize);
+			title.Format(IDS_RAND_GEN_PARAM, "X^2 (mod N)", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
 			par->rnd_x2modN.setSeed( par->m_seed );
 			for ( j=0; j<par->m_DataSize; j++ )
@@ -75,7 +75,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 				}
 			}		
 		}
-		title.Format(IDS_STRING_RAND_DATA_PARAM, "x^2 (mod N)", par->m_DataSize);
+		title.Format(IDS_STRING_RAND_DATA_PARAM, "X^2 (mod N)", par->m_DataSize);
 		break;
 	case 2:
 		{

@@ -1479,7 +1479,9 @@ void Verify(char* infile, const char *OldTitle)
 			if (message.octets) free(message.octets);
 			return;
 		}
-		
+	
+
+
 // == RSA oder DSA Signatur überprüfen
 		
 		//Öffnen der CA-PSE
@@ -1634,8 +1636,9 @@ void Verify(char* infile, const char *OldTitle)
 			dataToHexDump( Signatur.signature.bits, (Signatur.signature.nbits+7)/8, RSASigDemo.m_edit_RSA_input); 
 			RSASigDemo.CheckRSASignature = true;
 			RSASigDemo.message = &message;
-			RSASigDemo.DoModal();
-			// return;
+			if(RSASigDemo.DoModal()==2) return;
+			// vorher:
+			// RSASigDemo.DoModal();  // also einfach ohne Prüfung, ob SCHLIESSEN gedrückt wurde
 		}
 
 		// Verifikation starten
@@ -1686,6 +1689,8 @@ void Verify(char* infile, const char *OldTitle)
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 	}
+
+
 }
 
 int GenEcKeyPair(EcDomParam_ac_ptr ecParam)

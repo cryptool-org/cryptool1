@@ -23,7 +23,7 @@ typedef struct
 	long	m_DataSize;
 	CString m_seed;
 
-	// x^2 (mod N) Generator
+	// X^2 (mod N) Generator
 	CX2ModNGenerator rnd_x2modN;
 	CDlgX2ModNRandomParamater DRPXN;
 
