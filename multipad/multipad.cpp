@@ -516,12 +516,14 @@ void CMultiPadApp::OnGenRandomData()
 	DlgGenRandomData DGR;
 	if ( IDOK == DGR.DoModal() )
 	{
+		theApp.DoWaitCursor(0);
 		CMyDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
 		remove(DGR.outfile);
 		if(NewDoc) {
 			NewDoc->SetTitle(DGR.GetRandInfo());
 		}
+		theApp.DoWaitCursor(-1);
 	}
 }
 

@@ -7,6 +7,8 @@
 // DlgRandParamICG.h : Header-Datei
 //
 
+#include "KeyEdit.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgRandParamICG 
 
@@ -19,17 +21,23 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgRandParamICG)
 	enum { IDD = IDD_RANDOM_PARAMETER_ICG };
-	CEdit	m_Param_aCtrl;
-	long	m_Param_a;
-	long	m_Param_b;
-	long	m_Param_N;
+	CStatic	m_StaticGPA;
+	CKeyEdit	m_PrimLang_Ctrl;
+	CKeyEdit	m_Param_NCtrl;
+	CKeyEdit	m_Param_bCtrl;
+	CKeyEdit	m_Param_aCtrl;
+	CString	m_Param_a;
+	CString	m_Param_b;
+	CString	m_Param_N;
+	UINT	m_PrimLang;
 	//}}AFX_DATA
 
-	void Set( long a, long b, long N )
+	void Set( CString a, CString b, CString N )
 	{ m_Param_a = a; m_Param_b = b; m_Param_N = N; }
-	long Get_a() { return m_Param_a; }
-	long Get_b() { return m_Param_b; }
-	long Get_N() { return m_Param_N; }
+	void SetPrimLang ( UINT Laenge ) { m_PrimLang = Laenge; }
+	CString Get_a() { return m_Param_a; }
+	CString Get_b() { return m_Param_b; }
+	CString Get_N() { return m_Param_N; }
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -44,6 +52,11 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(DlgRandParamICG)
 	afx_msg void OnStaticGp_a();
+	afx_msg void OnPrimbutton();
+	afx_msg void OnStaticGpc();
+	afx_msg void OnStaticGpp();
+	afx_msg void OnStaticGpl();
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -1070,7 +1070,7 @@ BOOL PseudoRandomGenerator::setSeed(CString &SeetStr)
 
 x2modN_generator::x2modN_generator()
 {
-	CString tmp = "245438302030331732360701189397045881523"; // "2551459793"; // 32 Bit RSA-Modul
+	CString tmp = STANDARD_X2MOD_N_MODUL;
 	CStringFormulaToBig( tmp, Modul_N );
 }
 
@@ -1120,4 +1120,40 @@ BOOL LinearCongruenceGenerator::SetParameter(CString &aStr, CString &bStr, CStri
 void LinearCongruenceGenerator::randomize()
 {
 	RandNo = (a*RandNo + b) % N;
+}
+
+//////////////////////////////////////////////////////////////////////
+// InverseCongruenceGenerator Klasse
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+InverseCongruenceGenerator::InverseCongruenceGenerator()
+{
+	N = 2147483053;
+	a = 22211;
+	b = 11926380;
+	count = 0;
+}
+
+InverseCongruenceGenerator::~InverseCongruenceGenerator()
+{
+}
+
+BOOL InverseCongruenceGenerator::SetParameter( CString &aStr, CString &bStr, CString &NStr )
+{
+	return ( CStringFormulaToBig( aStr, a ) && CStringFormulaToBig( bStr, b ) && 
+			 CStringFormulaToBig( NStr, N ) );
+}
+
+void InverseCongruenceGenerator::randomize()
+{
+	RandNo = inverse( a * ( Seed + count ) + b, N) % N;
+}
+
+BOOL InverseCongruenceGenerator::SetCount( long n )
+{
+	return ( count = n );
 }

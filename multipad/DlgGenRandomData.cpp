@@ -10,6 +10,7 @@
 #include "DlgParamRandSECUDE.h"
 #include "ExtEuclid.h"
 #include "crypt.h"
+#include "DlgPrimesGenerator.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -79,15 +80,14 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	m_SelGenerator = 0;
 	m_seed = _T("314159");
 	m_DataSize = 1024;
+	m_TestCheck = FALSE;
 	//}}AFX_DATA_INIT
 // x2modN-Generator
-	DRPXN.SetModul(CString("245438302030331732360701189397045881523"));
+	DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));
 // LCG-Parameter nach Lehmer
     DLCG.SetParameter(CString("23"), CString("0"), CString("100000001"));
 // ICG-Parameter nach ???
-	l_Param_a_ICG    = 22211;
-	l_Param_b_ICG    = 11926380;
-	l_Param_N_ICG    = 2147483053;
+	DLCG.SetParameter(CString("22211"), CString("11926380"), CString("2147483053"));
 }
 
 
@@ -100,6 +100,7 @@ void DlgGenRandomData::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_seed);
 	DDX_Text(pDX, IDC_EDIT2, m_DataSize);
 	DDV_MinMaxLong(pDX, m_DataSize, 1, 1048576);
+	DDX_Check(pDX, IDC_TESTCHECK, m_TestCheck);
 	//}}AFX_DATA_MAP
 }
 
@@ -137,13 +138,21 @@ void DlgGenRandomData::OnSelGenParam()
 			}
 		break;
 	case 3: {
-				DlgRandParamICG DRP_ICG;
-				DRP_ICG.Set(l_Param_a_ICG, l_Param_b_ICG, l_Param_N_ICG);			
 				if (IDOK == DRP_ICG.DoModal() )
 				{
-					l_Param_a_ICG = DRP_ICG.Get_a();
-					l_Param_b_ICG = DRP_ICG.Get_b();
-					l_Param_N_ICG = DRP_ICG.Get_N();
+					GeneratePrimes P;
+					P.SetP(DRP_ICG.Get_N());
+					BOOL test=FALSE;
+					test = P.MillerRabinTest(100);
+					test = P.SolvayStrassenTest(100);
+					test = P.FermatTest(100);
+
+					if (test) DICG.SetParameter(DRP_ICG.Get_a(), DRP_ICG.Get_b(), DRP_ICG.Get_N());
+					else 
+					{
+						AfxMessageBox("Keine Primzahl ist für P eingegeben, die Initialwerte werden aufgeruft !!!");
+						DRP_ICG.Set(CString("22211"), CString("11926380"),CString("2147483053"));
+					}
 				}
 
 		break;
@@ -155,12 +164,15 @@ void DlgGenRandomData::OnSelGenParam()
 
 void DlgGenRandomData::OnGenRandomData() 
 {
+	theApp.DoWaitCursor(0);
 	UpdateData(TRUE);
 
 	GenRandomData();
 
 	UpdateData(FALSE);
 	CDialog::OnOK();
+	theApp.DoWaitCursor(-1);
+	if( m_TestCheck ) AfxMessageBox(" Erfolg !!! ");
 }
 
 const char * DlgGenRandomData::GetRandInfo()
@@ -214,27 +226,18 @@ void DlgGenRandomData::GenRandomData()
 		break;
 	case 3:
 		{
-			long l_seed = 134569;
-			long l_s=l_seed;
-			long n=0;
-			for(j=0;j<m_DataSize;j++)
+			DICG.setSeed( m_seed );
+			for(j=0;j<m_DataSize*9;j++)
 			{
 				o=0;
 				for (i=0; i<8 ; i++)
 				{
-					// X_j = (a*(X_0+n)+b)^{-1} (mod P)
-					l_s = (l_seed + n) % l_Param_N_ICG;
-					ASSERT( l_s > 0 );
-					l_s = multmodn(l_Param_a_ICG, l_s, l_Param_N_ICG);
-					ASSERT( l_s > 0 );
-					l_s = (l_s + l_Param_b_ICG) % l_Param_N_ICG;
-					ASSERT( l_s > 0 );
-					l_s = inverse(l_s, l_Param_N_ICG);
-					ASSERT( l_s > 0 );
-					o |= (l_s % 2) << (7-i);
-					n++;
+					o |= DICG.randBit() << (7-i);
+					DICG.SetCount(j+i);
 				}
 				rndData << o;
+				j += i; //weil j+i als SetCount gestellt wird, und m_DataSize*9 genommen ist
+						//d.h. counter soll immer um 1 erhöht sein
 			}
 		}
 		sprintf(c_generated_by, pc_str, "ICG", m_DataSize);
@@ -243,3 +246,5 @@ void DlgGenRandomData::GenRandomData()
 	rndData.close();
 
 }
+
+

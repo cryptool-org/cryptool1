@@ -16,10 +16,10 @@ class DlgPrimesGenerator : public CDialog
 {
 // Konstruktion
 	void ErrorMsg( const int IDS_STRING_ID );
-	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
 
 public:
 	DlgPrimesGenerator(CWnd* pParent = NULL);   // Standardkonstruktor
+	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
 
 // Dialogfelddaten
 	//{{AFX_DATA(DlgPrimesGenerator)

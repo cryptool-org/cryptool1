@@ -12,6 +12,7 @@
 #include "DlgRandomParameterLCG.h"
 #include "DlgRandParamICG.h"
 
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgGenRandomData 
 
@@ -30,9 +31,8 @@ public:
 	DlgRandomParameterLCG DRP_LCG;
 
 // EICG Generator
-	long l_Param_a_ICG;
-	long l_Param_b_ICG;
-	long l_Param_N_ICG;
+	InverseCongruenceGenerator DICG;
+	DlgRandParamICG DRP_ICG;
 
 // ============================================
 	char outfile[128];
@@ -46,6 +46,7 @@ public:
 	int		m_SelGenerator;
 	CString m_seed;
 	long	m_DataSize;
+	BOOL	m_TestCheck;
 	//}}AFX_DATA
 
 

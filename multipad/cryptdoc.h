@@ -120,6 +120,7 @@ protected:
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
     afx_msg void OnPermutationAsc();
+	afx_msg void OnAnalyseZufallstestsFrequencytest();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

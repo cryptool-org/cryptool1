@@ -135,6 +135,11 @@ public:
 
 };
 
+/////////////////////////////////////////////////////////////////////////////
+// Standardparameter
+
+#define STANDARD_X2MOD_N_MODUL "245438302030331732360701189397045881523"
+
 
 class x2modN_generator : public PseudoRandomGenerator  
 {
@@ -155,6 +160,20 @@ public:
 	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
 	LinearCongruenceGenerator();
 	virtual ~LinearCongruenceGenerator();
+};
+
+
+class InverseCongruenceGenerator : public PseudoRandomGenerator  
+{
+	Big a, b, N;
+	long count;
+public:
+	void randomize();
+	BOOL SetCount( long n );
+	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
+	InverseCongruenceGenerator();
+	virtual ~InverseCongruenceGenerator();
+
 };
 
 #endif // !defined(AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_)

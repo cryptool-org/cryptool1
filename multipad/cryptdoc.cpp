@@ -18,6 +18,7 @@
 #include "Dlg_homophone.h"
 #include "AnalyseNGram.h"
 #include "DlgSignExtract.h" // für OnCryptExtract
+#include "Dlg_Tests.h"
 
 UINT AESBrute(PVOID p);
 
@@ -106,10 +107,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_CRYPT_SIGN, OnCryptSign)
 	ON_COMMAND(ID_CRYPT_VERIFY, OnCryptVerify)
 	ON_COMMAND(ID_CRYPT_EXTRACT, OnCryptExtract)
-	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
-	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
-	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-
 	ON_COMMAND(ID_ANALYZE_SUBST, OnAnalyzeSubst)
 	ON_COMMAND(ID_FLOATING, OnFloating)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_CBC, OnUpdateNeedSecude)
@@ -131,14 +128,15 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_AES_RIJNDAEL, OnAnalyseAesRijndael)
 	ON_COMMAND(ID_ANALYSE_AES_SERPENT, OnAnalyseAesSerpent)
 	ON_COMMAND(ID_ANALYSE_AES_TWOFISH, OnAnalyseAesTwofish)
-	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
-	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
-	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
-	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
-
 	ON_COMMAND(ID_TOTXT, OnToTxt) 
 	ON_COMMAND(ID_TOHEX, OnToHex) 
-
+	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
+	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
+	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
+	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
+	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
+	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
+	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -162,7 +160,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
-  //}}AFX_MSG_MAP
+	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1233,3 +1232,11 @@ void CCryptDoc::OnPermutationAsc()
 }
 
 
+
+void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	UpdateContent();
+	Dlg_Tests_Freq FREQT;
+	FREQT.DoModal();
+}

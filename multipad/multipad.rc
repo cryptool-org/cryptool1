@@ -1711,14 +1711,14 @@ BEGIN
     LTEXT           "-Gramm",IDC_STATIC,45,64,25,8
 END
 
-IDD_DIALOG_GEN_RANDOMDATA DIALOG DISCARDABLE  0, 0, 292, 255
+IDD_DIALOG_GEN_RANDOMDATA DIALOG DISCARDABLE  0, 0, 301, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallsdaten erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,229,127,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,214,229,68,19
-    GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,9,42,273,79
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,229,68,19
+    GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,9,42,283,79
     CONTROL         "Zufallsgenerator der &SECUDE Bibliothek",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&x^2 (mod N)  Zufallsgenerator",IDC_RADIO2,"Button",
@@ -1727,7 +1727,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,18,89,129,8
     CONTROL         "&Inverser Kongruenz Generator (ICG)",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON,18,104,127,8
-    GROUPBOX        "Parameter ",IDC_STATIC,9,126,273,58
+    GROUPBOX        "Parameter ",IDC_STATIC,9,126,283,58
     LTEXT           "Saat:",IDC_STATIC,18,141,18,9
     EDITTEXT        IDC_EDIT1,40,140,207,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Generatorspezifische &Parameter wählen ...",IDC_BUTTON1,
@@ -1736,8 +1736,10 @@ BEGIN
     EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
     LTEXT           "Zufallsdaten werden mit Hilfe der sogenannten ""Pseudo Zufallsgeneratoren"" erzeugt. Dies ist eine Auswahl sowohl von ""kryptographisch starken"" als auch unsicheren Pseudo-Zufallsgeneratoren.",
                     IDC_STATIC,18,8,256,24
-    GROUPBOX        "",IDC_STATIC,9,0,273,36
-    GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,273,31
+    GROUPBOX        "",IDC_STATIC,9,0,283,36
+    GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,31
+    CONTROL         "Zufallsgenerator Tests durchführen",IDC_TESTCHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,157,81,126,10
 END
 
 IDD_RANDOM_PARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
@@ -1920,25 +1922,45 @@ BEGIN
     LTEXT           "2. Permutation",IDC_STATIC,19,55,197,9
 END
 
-IDD_RANDOM_PARAMETER_ICG DIALOGEX 0, 0, 230, 111
+IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Inverser Kongruenzgenerator (ICG)"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    CTEXT           "Der lnverse Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
-                    IDC_STATIC,13,9,202,24
-    LTEXT           "Geraden Parameter:",IDC_STATIC,13,48,65,10
-    LTEXT           "Modul",IDC_STATIC,13,67,71,10
-    DEFPUSHBUTTON   "OK",IDOK,84,84,61,17
-    LTEXT           "&a=",IDC_STATIC_GPA,84,48,8,10
-    LTEXT           "b=",IDC_STATIC,151,48,8,10
-    EDITTEXT        IDC_EDIT1,97,48,48,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT2,165,48,53,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    LTEXT           "N=",IDC_STATIC,84,67,13,11
-    EDITTEXT        IDC_EDIT3,97,67,48,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
+    CTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\n Weitere Informationen erhalten Sie mit der Taste ""F1""",
+                    IDC_STATIC,10,9,275,34
+    LTEXT           "Primzahl &P = ",IDC_STATIC_GPP,15,95,42,10,SS_NOTIFY
+    DEFPUSHBUTTON   "Übernehmen",IDOK,212,123,73,18
+    LTEXT           "&a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
+    LTEXT           "&c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
+    EDITTEXT        IDC_EDIT1,59,61,126,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Abbrechen",IDCANCEL,10,123,78,18
+    PUSHBUTTON      "P &erzeugen",IDC_PRIMBUTTON,198,87,79,20,BS_MULTILINE
+    GROUPBOX        "Parameter Eintrag:",IDC_STATIC,10,48,275,65
+    EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
+    LTEXT           "Bit&länge der Primzahl P:",IDC_STATIC_GPL,198,58,75,8,
+                    SS_NOTIFY
+END
+
+IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 268, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Frequency Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Dialogfenster beenden",IDOK,178,55,83,20
+    COMBOBOX        IDC_COMBO_ALPHA,15,31,94,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Diskrepanz Parameter ""alpha"":",IDC_STATIC,15,19,98,8
+    GROUPBOX        "Parameter Auswahl:",IDC_STATIC,7,7,114,41
+    GROUPBOX        "Test Ergebnisse:",IDC_STATIC,132,7,129,41
+    LTEXT           "Test bestanden ...",IDC_STATIC_ERGEBNIS,138,19,78,23
+    PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,9,55,79,20
+    CONTROL         251,IDC_BITMAP_1,"Static",SS_BITMAP | NOT WS_VISIBLE,223,
+                    21,18,16
+    CONTROL         250,IDC_BITMAP_2,"Static",SS_BITMAP | NOT WS_VISIBLE,224,
+                    21,18,16
 END
 
 
@@ -2345,6 +2367,27 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
+        POPUP "&Zufallstests"
+        BEGIN
+            MENUITEM "klassische Verfahren:",       ID_CLASSIC, INACTIVE
+            MENUITEM SEPARATOR
+            MENUITEM "&Autokerrelation",            ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION
+
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+
+            MENUITEM "",                            ID_EMPTY, GRAYED
+            MENUITEM "Test-Batterien:",             ID_ANALYSE_ZUFALLSTESTS_TESTBATTERIEN
+            , INACTIVE
+            MENUITEM SEPARATOR
+            MENUITEM "F&IPS PUB-140-1",             ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+
+        END
     END
     POPUP "&Schlüsselverwaltung"
     BEGIN
@@ -2684,6 +2727,8 @@ AFX_IDB_CHECKLISTBOX_NT BITMAP  DISCARDABLE     "res\\ntcheck.bmp"
 AFX_IDB_CHECKLISTBOX_95 BITMAP  DISCARDABLE     "res\\95check.bmp"
 IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
 IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3230,7 +3275,8 @@ BEGIN
         VERTGUIDE, 9
         VERTGUIDE, 18
         VERTGUIDE, 274
-        VERTGUIDE, 282
+        VERTGUIDE, 283
+        VERTGUIDE, 292
         HORZGUIDE, 238
     END
 
@@ -3270,16 +3316,23 @@ BEGIN
 
     IDD_RANDOM_PARAMETER_ICG, DIALOG
     BEGIN
-        VERTGUIDE, 13
-        VERTGUIDE, 84
-        VERTGUIDE, 145
+        VERTGUIDE, 10
+        VERTGUIDE, 88
+        VERTGUIDE, 198
+        VERTGUIDE, 285
         TOPMARGIN, 9
-        BOTTOMMARGIN, 110
+        BOTTOMMARGIN, 149
+        HORZGUIDE, 91
+    END
+
+    IDD_DIALOG_FREQTEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
         HORZGUIDE, 48
-        HORZGUIDE, 58
-        HORZGUIDE, 67
-        HORZGUIDE, 84
-        HORZGUIDE, 101
+        HORZGUIDE, 55
     END
 END
 #endif    // APSTUDIO_INVOKED

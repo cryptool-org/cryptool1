@@ -79,6 +79,9 @@
 #define IDD_RSA_WITH_SMALL_PRIMES_OPTIONS 241
 #define IDD_DIALOG_PERIOD_OUTPUT        242
 #define IDD_DIALOG_PERMUTATION          243
+#define IDD_DIALOG_FREQTEST             244
+#define IDB_BITMAP3                     250
+#define IDB_BITMAP4                     251
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -366,6 +369,16 @@
 #define IDC_OPTIONEN                    1236
 #define IDC_ENDDIALOG                   1237
 #define IDC_STATIC_GPA                  1239
+#define IDC_PRIMBUTTON                  1240
+#define IDC_STATIC_GPC                  1241
+#define IDC_STATIC_GPP                  1242
+#define IDC_STATIC_GPL                  1243
+#define IDC_TESTCHECK                   1244
+#define IDC_STATIC_ERGEBNIS             1245
+#define IDC_COMBO_ALPHA                 1246
+#define IDC_BUTTON_FREQTEST             1247
+#define IDC_BITMAP_1                    1248
+#define IDC_BITMAP_2                    1249
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -505,6 +518,15 @@
 #define ID_ZUFALL_GENERATOREN           33136
 #define ID_HOMOPHONE_HEX                33137
 #define ID_PERMUTATION_ASC              33138
+#define ID_CLASSIC                      33140
+#define ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION 33141
+#define ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 33142
+#define ID_ANALYSE_ZUFALLSTESTS_POKERTEST 33143
+#define ID_ANALYSE_ZUFALLSTESTS_RUNS    33144
+#define ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 33145
+#define ID_EMPTY                        33147
+#define ID_ANALYSE_ZUFALLSTESTS_TESTBATTERIEN 33148
+#define ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 33149
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -855,9 +877,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        244
-#define _APS_NEXT_COMMAND_VALUE         33139
-#define _APS_NEXT_CONTROL_VALUE         1240
+#define _APS_NEXT_RESOURCE_VALUE        252
+#define _APS_NEXT_COMMAND_VALUE         33150
+#define _APS_NEXT_CONTROL_VALUE         1249
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
