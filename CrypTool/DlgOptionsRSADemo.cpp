@@ -247,11 +247,15 @@ void CDlgOptionsRSADemo::OnOK()
 		Message(IDS_STRING_ERR_ONBLOCKLENGTH_1, MB_ICONSTOP);
 		return;
 	}
-	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength )) 
+	// FLORIAN
+	// Letzte Bedingung m_BlockLength>GetBlockLength() nötig, da sonst "falsche" Eingaben
+	// für die Blocklänge möglich sind (z.B. 4 anstatt 2 Byte usw.)
+	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength ) || m_BlockLength > GetBlockLength() ) 
 	{
 		Message(IDS_STRING_ERR_ONBLOCKLENGTH, MB_ICONSTOP, blockLength);
 		return;
 	}
+
 	UpdateData(FALSE);
 	CDialog::OnOK();
 }

@@ -5622,6 +5622,8 @@ BEGIN
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_ENC_KEY_ASYM 
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
+    IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS 
+                            "Der von Ihnen eingegebene Klartext enthält kein einziges Zeichen aus dem von Ihnen gewählten Alphabet.\nBitte korrigieren Sie Ihre Eingabe!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10651,7 +10653,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
-    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just klick the button Decrypt."
+    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just click the button Decrypt."
     IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
     IDS_NUMBER_NOT_RSA_MODUL 
                             "The integer N is not an RSA modulus:\n- either N has been factorized into more than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
@@ -10919,6 +10921,8 @@ BEGIN
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_KEY_ASYM 
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+    IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS 
+                            "The plain text you entered does not contain a single character of the given alphabet.\nPlease correct your plain text."
 END
 
 STRINGTABLE DISCARDABLE 

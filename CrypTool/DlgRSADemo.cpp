@@ -182,7 +182,7 @@ void CDlgRSADemo::OnRadioRSAComplete()
 	m_control_edit_q.EnableWindow();
 	m_control_edit_N.SetReadOnly(TRUE);
 	m_GeneratePrimes.EnableWindow();
-
+	
 	SetStatusPrivateKey(TRUE);
 
 	// RESSOURCEN
@@ -1216,6 +1216,19 @@ BOOL CDlgRSADemo::SkipWS()
 			cleanStr.Delete(i);
 		else
 			i++;
+	}
+	// FLORIAN
+	// Fügt man den folgenden if-Block NICHT ein, so besteht die Gefahr,
+	// dass man den gesamten Klartext löscht und somit "nichts" verschlüsselt;
+	// der User wird also auf seine fehlerhafte Eingabe hingewiesen, der
+	// FALSE-Rückgabewert wiederum bewirkt, dass keine Verschlüsselung stattfindet.
+	if ( cleanStr.GetLength() == 0 )
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS, pc_str, STR_LAENGE_STRING_TABLE);
+		
+		MessageBox(pc_str, "RSA-Demo", MB_OK | MB_ICONINFORMATION);
+
+		return FALSE;
 	}
 	if ( m_edit_RSA_input.GetLength() != cleanStr.GetLength() )
 	{
