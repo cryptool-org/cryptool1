@@ -10,6 +10,7 @@
 #include "DlgNGramAnalysis.h"
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
+#include <iostream.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,10 +46,10 @@ void CDlgNGramAnaylsis::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgNGramAnaylsis)
 	DDX_Control(pDX, IDC_EDIT1, m_ShowCntNGramCtrl);
 	DDX_Control(pDX, IDC_EDIT2, m_NrNGramCtrl);
-		DDX_Control(pDX, IDC_LIST1,  m_ListView);
-	    DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
-	    DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
-		DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
+	DDX_Control(pDX, IDC_LIST1,  m_ListView);
+	DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
+	DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
+	DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
 	DDV_MinMaxLong(pDX, m_NrNGram, 3, 16);
 	//}}AFX_DATA_MAP
 }
@@ -88,6 +89,11 @@ BOOL CDlgNGramAnaylsis::OnInitDialog()
 	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth,3);
 	SetupListBox( m_N_NGram+1 );
 	m_NrNGramCtrl.EnableWindow(true);
+
+	char line[1024];
+	LoadString(AfxGetInstanceHandle(),IDS_NGRAM_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(line, pc_str, Title);
+	SetWindowText(CString(line));
 	return(TRUE);
 }
 
@@ -246,9 +252,9 @@ void CDlgNGramAnaylsis::SetupListBox( int N )
 			strcpy(string, SubStr);
 		}
 		m_ListView.SetItemText(j,1,string);
-		sprintf(string,"%2.3f", rel*100.0);
+		sprintf(string,"  %2.4f", rel*100.0);
 		m_ListView.SetItemText(j,2,string);
-		sprintf(string,"%6i", cnt);
+		sprintf(string,"  %1i", cnt);
 		m_ListView.SetItemText(j,3,string);
 	}
 }
@@ -310,7 +316,7 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	ofstream txt_NGram(outfile);
 	// TODO Title via Ressourcen String Einfügen
 	char string[100];
-	char title[128], method[20]; 
+	char title[1024], method[20]; 
 	switch ( m_N_NGram )  {
 	case 0: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy( method, pc_str );
@@ -326,7 +332,8 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 		break;
 	}
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
-	MakeNewName2(title,sizeof(title),pc_str, Title,method);
+	sprintf(title, pc_str, method, Title, bufferSize);
+//	MakeNewName2(title,sizeof(title),pc_str, Title,method);
 	txt_NGram << title << "\n";
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
 	txt_NGram << pc_str << "\n\n";
@@ -409,9 +416,12 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 		}
 		txt_NGram.width(wd);
 		txt_NGram << string << "\t";
-		txt_NGram.width(22);
+		txt_NGram.width(15);
 		txt_NGram.precision(4);
+		txt_NGram.setf(ios::fixed, ios::floatfield);
 		txt_NGram << rel*100.0 << "\t";
+		txt_NGram.width(7);
+		txt_NGram << '\t';
 		txt_NGram << cnt << '\n';
 	}
 	txt_NGram.close();

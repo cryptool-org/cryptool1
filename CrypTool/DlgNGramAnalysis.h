@@ -32,12 +32,12 @@ class CDlgNGramAnaylsis : public CDialog
 	unsigned long bufferSize;
 	void	SetupListBox( int N = 1 );
 	BOOL    NGramActualized;
-	char    Title[127];
+	char    Title[256];
 
 public:
 	void Register( int N );
 	bool b_saveNGramList();
-	char outfile[128];
+	char outfile[256];
 	int  GetN();
 	void LoadText( char *buffer, const unsigned long Size, const char *OldTitle, 
 		           BOOL BinaryFile = FALSE );

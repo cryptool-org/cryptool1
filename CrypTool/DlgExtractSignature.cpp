@@ -375,8 +375,16 @@ int CDlgExtractSignature::UpdateSigEditBox()
 				return -1;
 			}
 
-			m_Signature = ((CString)"\r\nc = ")+((CString)strC)+((CString)" ");
-			m_Signature = m_Signature+((CString)"\r\n\r\nd = ")+((CString)strD)+((CString)" ");
+			if (base == 16) 
+			{
+				m_Signature = ((CString)"\r\nc = ")+((CString)(strC+2))+((CString)" ");
+				m_Signature = m_Signature+((CString)"\r\n\r\nd = ")+((CString)(strD+2))+((CString)" ");
+			}
+			else
+            {
+				m_Signature = ((CString)"\r\nc = ")+((CString)strC)+((CString)" ");
+				m_Signature = m_Signature+((CString)"\r\n\r\nd = ")+((CString)strD)+((CString)" ");
+			}
 			UpdateData(FALSE);
 
 			free(strC);
@@ -460,7 +468,8 @@ int CDlgExtractSignature::UpdateSigEditBox()
 				return -1;
 			}
 
-			m_Signature = ((CString)"\r\n ")+((CString)strSig)+((CString)" ");
+			if (base == 16) m_Signature = ((CString)"\r\n ")+((CString)(strSig+2))+((CString)" ");
+			else            m_Signature = ((CString)"\r\n ")+((CString)strSig)+((CString)" ");
 			UpdateData(FALSE);
 
 			free(strSig);
