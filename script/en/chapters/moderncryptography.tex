@@ -133,18 +133,18 @@ In this process, we describe a problem as ``easy'' if it can be solved in
 input. If the length of the input is $ n $ bits, then the time for calculating 
 the function is proportional to $ n^{a}, $ where $ a $  is a constant. We say 
 that the \index{Complexity} complexity of such problems is $ O(n^{a}) $
-t (Landau- or Big-O notation). 
+[Landau- or Big-O notation]. 
 
-If you compare 2 functions  $ 2^n $  and   $ n^{a} $,  where $ a $  is a
+If you compare two functions  $ 2^n $  and   $ n^{a} $,  where $ a $  is a
 constant, then there always exists a value for  $ n $,  from which for all
 further  $ n $  applies: $ n^{a}  <  2^n $. 
 The function  $ n^{a} $  has a lower complexity.    
 Sample: for $ a=5 $ the following applies: from the length $ n=23 $, $ 2^n$
 is greater than $n^5 $; for further $ n $  $ 2^n $ clearly increases more
 quickly \
-[($ 2^{22}= 4,194,304 $, $ 22^5= 5,153,632 $); \
- ($ 2^{23}= 8,388,608 $, $ 23^5= 6,436,343 $); \
- ($ 2^{24}=16,777,216 $, $ 24^5= 7,962,624 $);].\par 
+[($ 2^{22}= 4,194,304 $, $ 22^5= 5,153,632 $), \
+ ($ 2^{23}= 8,388,608 $, $ 23^5= 6,436,343 $), \
+ ($ 2^{24}=16,777,216 $, $ 24^5= 7,962,624 $)].\par 
 
 The term ``practically impossible'' is slightly less precise. In 
 general, we can say that a problem cannot be solved \index{Runtime!efficient} 

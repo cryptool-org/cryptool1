@@ -71,7 +71,7 @@ F"ur einen Gegner, der den "offentlichen Schl"ussel $ e_T $  kennt, ist es prakt
 
 Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-In"-for"-ma"-tion. \par
 
-Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist, d.h. wenn es so gel"ost werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abh"angigkeit der L"ange der Eingabe darstellen l"‰sst. 
+Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist, d.h. wenn es so gel"ost werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abh"angigkeit der L"ange der Eingabe darstellen l"asst. 
 Wenn die L"ange der Eingabe $ n $ Bits betr"agt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexit""at} Komplexit"at solcher Probleme $ O(n^{a}) $ betr"agt (Landau- oder Big-O-Notation). 
 
 Vergleicht man 2 Funktionen  $ 2^n $  und   $ n^{a} $, wobei $ a $  
@@ -81,9 +81,9 @@ Die Funktion  $ n^{a} $  hat eine geringere Komplexit"at.
 Z.B. f"ur $ a=5 $ gilt: ab der L"ange $ n=23 $ ist 
 $ 2^n > n^5 $ ~\mbox{und} danach w"achst $ 2^n $ auch deutlich 
 schneller \
-[($ 2^{22}= 4.194.304 $, $ 22^5= 5.153.632 $); \
- ($ 2^{23}= 8.388.608 $, $ 23^5= 6.436.343 $); \
- ($ 2^{24}=16.777.216 $, $ 24^5= 7.962.624 $);].\par 
+[($ 2^{22}= 4.194.304 $, $ 22^5= 5.153.632 $), \
+ ($ 2^{23}= 8.388.608 $, $ 23^5= 6.436.343 $), \
+ ($ 2^{24}=16.777.216 $, $ 24^5= 7.962.624 $)].\par 
 % "\mbox" nur, weil bei Ausdruck bei be die Blanks stets falsch saﬂen:
 %  "n^5un d"
 
