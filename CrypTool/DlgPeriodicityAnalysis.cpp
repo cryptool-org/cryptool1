@@ -29,6 +29,13 @@ CDlgPeriodicityAnalysis::CDlgPeriodicityAnalysis(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CDlgPeriodicityAnalysis)
 		// HINWEIS: Der Klassen-Assistent fügt hier Elementinitialisierung ein
 	//}}AFX_DATA_INIT
+	OldTitle = 0;
+}
+
+CDlgPeriodicityAnalysis::~CDlgPeriodicityAnalysis()
+{
+	if ( OldTitle )
+		free(OldTitle);
 }
 
 void CDlgPeriodicityAnalysis::DoDataExchange(CDataExchange* pDX)
@@ -42,6 +49,7 @@ void CDlgPeriodicityAnalysis::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgPeriodicityAnalysis, CDialog)
 	//{{AFX_MSG_MAP(CDlgPeriodicityAnalysis)
+	ON_BN_CLICKED(IDOK, OnSaveList)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -76,7 +84,6 @@ BOOL CDlgPeriodicityAnalysis::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEX,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth+300 , 5); // Perioden Inhalt Hexdump
 
-//	for (int i=0; i<zahlenanalyse->cnt_periodResults; i++) { 
 	for (int i=zahlenanalyse->cnt_periodResults-1; i>=0; i--) { 
 		sprintf(pc_str1,"%d", zahlenanalyse->cnt_periodResults-i);
 		int j = m_listview.InsertItem (zahlenanalyse->cnt_periodResults-i-1, pc_str1);
@@ -104,4 +111,53 @@ BOOL CDlgPeriodicityAnalysis::OnInitDialog()
 	// m_listview.SortItems(
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgPeriodicityAnalysis::OnSaveList() 
+{
+	char line[1024], header[256];
+	UpdateData(TRUE);
+	SHOW_HOUR_GLASS
+	// b_SaveFactorList = true;
+	
+	GetTmpName(outfile,"DetFct",".tmp");
+	ofstream f_details(outfile);
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(header, pc_str, OldTitle);
+	f_details << header << "\n";
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEADER,pc_str,STR_LAENGE_STRING_TABLE);
+	f_details << pc_str;
+
+	int maxtxtlen = (zahlenanalyse->periodResults[zahlenanalyse->cnt_periodResults-1].length<PA_MAXPRINTLENGTH) ? 
+		             zahlenanalyse->periodResults[zahlenanalyse->cnt_periodResults-1].length : PA_MAXPRINTLENGTH;
+	for (int i=zahlenanalyse->cnt_periodResults-1; i>=0; i--) {
+		line[0] = '\0';
+		f_details << zahlenanalyse->cnt_periodResults-i << "\t";
+		f_details << zahlenanalyse->periodResults[i].offset+1 << "\t";
+		f_details << zahlenanalyse->periodResults[i].length << "\t";
+		f_details << zahlenanalyse->periodResults[i].repeated+1 << "\t\t";
+
+		pc_str1[0]='\0';
+		char s [PA_MAXPRINTLENGTH*4+10]; s[0]='\0';
+		int len = (zahlenanalyse->periodResults[i].length)<PA_MAXPRINTLENGTH ? 
+			       zahlenanalyse->periodResults[i].length : PA_MAXPRINTLENGTH;
+		for (int k=0; k<len; k++) {
+			s[k] = IsText(zahlenanalyse->periodResults[i].str[k]) ? 
+				    zahlenanalyse->periodResults[i].str[k] : '.';
+			sprintf(pc_str1,"%s %02.2X", pc_str1, (unsigned char)zahlenanalyse->periodResults[i].str[k]);
+		}
+		s[len]='\0';
+		f_details << s << "\t";
+		for (int j= (maxtxtlen - zahlenanalyse->periodResults[i].length+7) / 8; j>0; j--) 
+			f_details << "\t";
+		f_details << pc_str1 << "\n";
+	}
+
+	f_details.close();
+	{
+		theApp.ThreadOpenDocumentFileNoMRU(outfile, header);
+		remove(outfile);
+	}
+	CDialog::OnOK();	
 }

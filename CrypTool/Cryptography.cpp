@@ -827,26 +827,28 @@ UINT Periode(PVOID p)
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
 	}
-	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		HIDE_HOUR_GLASS
+	CDlgPeriodicityAnalysis POutp;
+	POutp.OldTitle = strdup(par->OldTitle);
+	class CRandomAnalysisTools analyse((char *)par->infile);
+	int isPeriode;
+	OPENFILENAME ofn;
+	// Ausgabe der Periodenlänge
+	char fname[257], ftitle[128], fboxtitle[128];
 
 	{
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			SHOW_HOUR_GLASS
+
 		// Initialisierung des Fortschrittbalkens
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
 
 		// Thomas' Variante
 		// eigentliche Periodenanalyse
-		class CRandomAnalysisTools analyse((char *)par->infile);
-		int isPeriode = analyse.FindPeriod();
+		isPeriode = analyse.FindPeriod();
 
 		// Vollständigkeit des Fortschrittbalkens anzeigen
 		theApp.fs.Set(100,pc_str);
-
-		// Ausgabe der Periodenlänge
-		CDlgPeriodicityAnalysis POutp;
-		OPENFILENAME ofn;
-		char fname[257], line[256], ftitle[128], fboxtitle[128];
 
 		// prepare the fileselectorbox dialog
 		memset(&ofn,0,sizeof(ofn));
@@ -863,65 +865,75 @@ UINT Periode(PVOID p)
 		ofn.lpstrFileTitle = ftitle;	ftitle[0] = '\0';
 		ofn.nMaxFileTitle = sizeof(ftitle);
 
-		POutp.zahlenanalyse = &analyse;
-		if ((isPeriode > 0) && (POutp.DoModal()==IDOK) && (GetSaveFileName(&ofn)) && (fname[0]!='\0'))
-		{  // Ausgabewerte speichern
-			FILE *out;
-			out=fopen(fname,"w");
-
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
-			fprintf(out,pc_str, "");
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEADER,pc_str,STR_LAENGE_STRING_TABLE);
-			fprintf(out,pc_str);
-
-			int maxtxtlen = (analyse.periodResults[analyse.cnt_periodResults-1].length<PA_MAXPRINTLENGTH) ? analyse.periodResults[analyse.cnt_periodResults-1].length : PA_MAXPRINTLENGTH;
-//			for (int i=0; i<analyse.cnt_periodResults; i++) {
-			for (int i=analyse.cnt_periodResults-1; i>=0; i--) {
-				line[0] = '\0';
-				fprintf(out,"%d\t", analyse.cnt_periodResults-i);
-				fprintf(out,"%d\t", analyse.periodResults[i].offset+1);
-				fprintf(out,"%d\t", analyse.periodResults[i].length);
-				fprintf(out,"%d\t\t", analyse.periodResults[i].repeated+1);
-
-				pc_str1[0]='\0';
-				char s [PA_MAXPRINTLENGTH*4+10]; s[0]='\0';
-				int len = (analyse.periodResults[i].length)<PA_MAXPRINTLENGTH ? analyse.periodResults[i].length : PA_MAXPRINTLENGTH;
-				for (int k=0; k<len; k++) {
-					s[k] = IsText(analyse.periodResults[i].str[k]) ? analyse.periodResults[i].str[k] : '.';
-					sprintf(pc_str1,"%s %02.2X", pc_str1, (unsigned char)analyse.periodResults[i].str[k]);
-				}
-				s[len]='\0';
-
-				fprintf(out,"%s\t", s);
-				for (int j= (maxtxtlen - analyse.periodResults[i].length+7) / 8; j>0; j--) fprintf(out,"\t");
-				fprintf(out,"%s\n", pc_str1);
-			}
-			fclose(out);
-		}
-		// Keine Periode gefunden
-		if (isPeriode == 0)
-		{
-			Message(IDS_STRING_NO_PERIOD_FOUND, MB_ICONINFORMATION);
+		if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
+			while(theApp.fs.Set(100)!=100) Sleep(100);
+			theApp.fs.cancel();
 		}
 
-		// Zu analysierende Textdatei zu kurz
-		if (isPeriode < 0)
-		{
-			Message(IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH, MB_ICONEXCLAMATION);
-		}
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+
+		par->flags |= CRYPT_DONE;
+
 	}
-
-
-	if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
-		while(theApp.fs.Set(100)!=100) Sleep(100);
-		theApp.fs.cancel();
-	}
-
-	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		HIDE_HOUR_GLASS
-
-	par->flags |= CRYPT_DONE;
 	FreePar(par);
+	p = NULL;
+
+	POutp.zahlenanalyse = &analyse;
+	if ( isPeriode > 0 )
+	{
+		POutp.DoModal();
+	}
+
+
+/*
+	if ((isPeriode > 0) && (POutp.DoModal()==IDOK) && (GetSaveFileName(&ofn)) && (fname[0]!='\0'))
+	{  // Ausgabewerte speichern
+		FILE *out;
+		out=fopen(fname,"w");
+
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+		fprintf(out,pc_str, "");
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_HEADER,pc_str,STR_LAENGE_STRING_TABLE);
+		fprintf(out,pc_str);
+
+		int maxtxtlen = (analyse.periodResults[analyse.cnt_periodResults-1].length<PA_MAXPRINTLENGTH) ? analyse.periodResults[analyse.cnt_periodResults-1].length : PA_MAXPRINTLENGTH;
+//			for (int i=0; i<analyse.cnt_periodResults; i++) {
+		for (int i=analyse.cnt_periodResults-1; i>=0; i--) {
+			line[0] = '\0';
+			fprintf(out,"%d\t", analyse.cnt_periodResults-i);
+			fprintf(out,"%d\t", analyse.periodResults[i].offset+1);
+			fprintf(out,"%d\t", analyse.periodResults[i].length);
+			fprintf(out,"%d\t\t", analyse.periodResults[i].repeated+1);
+
+			pc_str1[0]='\0';
+			char s [PA_MAXPRINTLENGTH*4+10]; s[0]='\0';
+			int len = (analyse.periodResults[i].length)<PA_MAXPRINTLENGTH ? analyse.periodResults[i].length : PA_MAXPRINTLENGTH;
+			for (int k=0; k<len; k++) {
+				s[k] = IsText(analyse.periodResults[i].str[k]) ? analyse.periodResults[i].str[k] : '.';
+				sprintf(pc_str1,"%s %02.2X", pc_str1, (unsigned char)analyse.periodResults[i].str[k]);
+			}
+			s[len]='\0';
+
+			fprintf(out,"%s\t", s);
+			for (int j= (maxtxtlen - analyse.periodResults[i].length+7) / 8; j>0; j--) fprintf(out,"\t");
+			fprintf(out,"%s\n", pc_str1);
+		}
+		fclose(out);
+
+	}
+*/
+	// Keine Periode gefunden
+	if (isPeriode == 0)
+	{
+		Message(IDS_STRING_NO_PERIOD_FOUND, MB_ICONINFORMATION);
+	}
+
+	// Zu analysierende Textdatei zu kurz
+	if (isPeriode < 0)
+	{
+		Message(IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH, MB_ICONEXCLAMATION);
+	}
 
 	return 0;
 }

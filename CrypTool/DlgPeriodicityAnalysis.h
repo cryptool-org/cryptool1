@@ -23,10 +23,12 @@ class CDlgPeriodicityAnalysis : public CDialog
 {
 // Konstruktion
 public:
-	CDlgPeriodicityAnalysis(CWnd* pParent = NULL);   // Standardkonstruktor
-
+	CDlgPeriodicityAnalysis(CWnd* pParent = NULL);  // Standardkonstruktor
+	~CDlgPeriodicityAnalysis(); 
 	CRandomAnalysisTools *zahlenanalyse;
 
+	char outfile[1024];
+	char *OldTitle;
 		
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgPeriodicityAnalysis)
@@ -47,6 +49,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgPeriodicityAnalysis)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnSaveList();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

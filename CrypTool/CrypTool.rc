@@ -1868,15 +1868,15 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Ausgabe der gefundenen Perioden"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Perioden&ausgabe speichern",IDOK,7,236,159,22
+    DEFPUSHBUTTON   "Liste im &Hauptfenster anzeigen",IDOK,7,236,159,22
     PUSHBUTTON      "&Schließen",IDCANCEL,307,236,68,22
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,52,370,169
-    LTEXT           "Jede Zeile der Ausgabe hier ist eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
+    LTEXT           "Jede Zeile der Ausgabe unten enthält pro gefundener Periode folgende Informationen:",
                     -1,7,7,368,10
-    LTEXT           "- die erste Position in der Datei, wo die Periodizität startet (Offset)",
-                    -1,7,17,310,8
+    LTEXT           "- die erste Position in der Datei, wo die Periode startet (das erste Zeichen in der Datei hat den Offset-Wert 0)",
+                    -1,7,17,362,8
     LTEXT           "- die Länge der Periode",-1,7,27,310,8
     LTEXT           "- die ersten maximal 20 Bytes, mit der die Periode beginnt (ausgegeben im ASCII- und Hexformat).",
                     -1,7,37,310,8
@@ -4926,8 +4926,8 @@ BEGIN
     IDS_STRING_UPPERBOUND_GRAPHWIDTH 
                             "Kurvenstärke muss kleiner als 11 sein.\n"
     IDS_STRING_LOWERBOUND_GRAPHWIDTH "Kurvenstärke muss grösser als 0 sein.\n"
-    IDS_STRING_NO_PERIOD_FOUND "keine Periodizität gefunden"
-    IDS_STRING_PERIOD_ANALYSIS_D "Periodenalyse %d %%."
+    IDS_STRING_NO_PERIOD_FOUND "Keine Periodizität gefunden."
+    IDS_STRING_PERIOD_ANALYSIS_D "Periodenanalyse %d %%."
     IDS_STRING_PERIOD_ANALYSIS "Periodizitätsanalyse"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muss mindestens 4 Bytes groß sein!"
@@ -5004,7 +5004,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Periodenanalyse"
-    IDS_STRING_PA_TITLE     "Periodenanalyse von %s:\n"
+    IDS_STRING_PA_TITLE     "Periodenanalyse von %s:"
     IDS_STRING_PA_HEADER    "Nr\tOffset\tLänge\tPeriodenzahl\tPeriodeninhalt\n"
 END
 
@@ -7387,17 +7387,17 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Results of Periodicity Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Save periodicity analysis",IDOK,7,236,159,22
+    DEFPUSHBUTTON   "&Save list into main window",IDOK,7,236,159,22
     PUSHBUTTON      "&Close",IDCANCEL,307,236,68,22
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,52,370,169
-    LTEXT           "Every line output is a cycle calculated, for which the following information is output:",
+    LTEXT           "Each line below contains the following characteristics of the found cycles:",
                     -1,7,7,368,10
-    LTEXT           "- The first position in the file where the periodicity starts (offset)",
-                    -1,7,19,310,10
-    LTEXT           "- The cycle length",-1,7,29,310,10
-    LTEXT           "- The maximum first 20 bytes (output in ascii and hex format) which occur at the start of the cycle.",
+    LTEXT           "- the first position in the file, where the cycle starts (the first character within the file has the offset value 1)",
+                    -1,7,19,356,10
+    LTEXT           "- the length of the cycle",-1,7,29,310,10
+    LTEXT           "- the first maximum 20 bytes of the cycle (presented in ascii and hex format)",
                     -1,7,39,310,10
 END
 
@@ -10283,7 +10283,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Periodicity analysis"
-    IDS_STRING_PA_TITLE     "Periodicity analysis of %s:\n"
+    IDS_STRING_PA_TITLE     "Periodicity analysis of %s:"
     IDS_STRING_PA_HEADER    "No.\tOffset\tLength\tNumber of cycles\tCycle content\n"
 END
 
