@@ -6661,6 +6661,9 @@ BEGIN
     IDS_SCA_SERVER_SUCCESSRESPONSES 
                             "- Bob konnte %d von %d Nachrichten erfolgreich entschlüsseln"
     IDS_SCA_SERVER_RECEIVEDMESSAGE "- Bob hat bisher 1 Nachricht empfangen"
+    IDS_DH_LOG_7            "Falls die gewählten Geheimnisse a und b größer oder gleich dem Primzahlmodul p sind, werden sie Modulo p reduziert. Nachfolgend sind die tatsächlich verwendeten Werte angegeben:"
+    IDS_DH_LOG_VALUE_A      "a (reduziert mod p):\n"
+    IDS_DH_LOG_VALUE_B      "b (reduziert mod p):\n"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -13077,6 +13080,13 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_SCRIPT               "Opens the CrypTool script (Acrobat Reader required)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_LOG_7            "If the chosen secret values a and b are greater or equal the prime module p, then they need to be reduced modulo p. The actual values are given below:"
+    IDS_DH_LOG_VALUE_A      "a (reduced mod p):\n"
+    IDS_DH_LOG_VALUE_B      "b (reduced mod p):\n"
 END
 
 #endif    // Englisch (GB) resources

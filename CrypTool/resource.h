@@ -41,7 +41,6 @@ statement from your version.
 
 **********************************************************************/
 
-
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
 // Used by CrypTool.rc
@@ -1749,6 +1748,9 @@ statement from your version.
 #define IDS_SCA_SERVER_FAILURERESPONSE  61994
 #define IDS_SCA_SERVER_SUCCESSRESPONSES 61995
 #define IDS_SCA_SERVER_RECEIVEDMESSAGE  61996
+#define IDS_DH_LOG_7                    61997
+#define IDS_DH_LOG_VALUE_A              61998
+#define IDS_DH_LOG_VALUE_B              61999
 
 // Next default values for new objects
 // 

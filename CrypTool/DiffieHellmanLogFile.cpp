@@ -115,6 +115,36 @@ DiffieHellmanLogFile::DiffieHellmanLogFile(std::string prime,
 
 	this->LogText += BREAK;
 
+	// Florian Marchal, 10.05.2004
+	// Sind <a> oder <b> größer oder gleich <p>, so werden
+	// <a> und/oder <b> jeweils Modulo <p> reduziert
+	Big bigA = (char*)SecretAlice.c_str();
+	Big bigB = (char*)SecretBob.c_str();
+	Big bigM = (char*)PrimeModule.c_str();
+	// Berechnung der "tatsächlichen" Werte
+	Big realA = bigA % bigM;
+	Big realB = bigB % bigM;
+	std::string strA;
+	std::string strB;
+	pc_str << realA;
+	strA = pc_str;
+	pc_str << realB;
+	strB = pc_str;
+	// Ausgabe Informationstext
+	temp.LoadString(IDS_DH_LOG_7);
+	this->LogText += temp;
+	this->LogText += BREAK;
+	// Angabe der tatsächlichen Werte von A...
+	temp.LoadString(IDS_DH_LOG_VALUE_A);
+	this->LogText += temp;
+	this->LogText += strA;
+	this->LogText += BREAK;
+	// ...und B
+	temp.LoadString(IDS_DH_LOG_VALUE_B);
+	this->LogText += temp;
+	this->LogText += strB;
+	this->LogText += BREAK;
+
 	temp.LoadString(IDS_DH_LOG_3);
 	this->LogText += temp;
 
