@@ -671,6 +671,14 @@ SOURCE=.\DialoKeyCaesar.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Dlg_homophone.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_homophone.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLG_param.cpp
 # End Source File
 # Begin Source File
@@ -1057,6 +1065,14 @@ SOURCE=.\HillSchluesselAusgabeGross.cpp
 # Begin Source File
 
 SOURCE=.\HillSchluesselAusgabeGross.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Homophone_Ber.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Homophone_Ber.h
 # End Source File
 # Begin Source File
 

@@ -25,8 +25,7 @@
 #include "Dlg_PlayfairKey.h"
 #include "DialogPlayfair.h"
 #include "zzahlanalyse.h"
-// #include "zzgen.h"
-// #include "dlg_homophon.h"
+#include "Dlg_homophone.h"
 
 char *Eingabedatei;
 int *MaxPermu[26];
@@ -2788,4 +2787,76 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 		}
 	}
 }
- 
+
+void HomophoneAsc(const char *infile, const char *OldTitle)
+{
+    char outfile[128], title[128], line[256];
+    CMyDocument *NewDoc;
+
+    dia1 KeyDialog(2);
+	Dlg_homophone DH;
+
+	SymbolArray text(AppConv);
+	{
+		CWaitCursor WCursor;
+		text.Read(infile);
+
+		if(text.GetSize() < 1)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str,1);
+			AfxMessageBox (line);
+			return;
+		}
+		WCursor.Restore();
+
+		if(1!=DH.Display())
+		{
+			return;
+		}
+		WCursor.Restore();
+	    if (false==DH.Is_key())
+		{
+			return;
+		}
+
+		SymbolArray Key(AppConv);
+		CString c;
+		
+	    Key.ReadString(/*KeyDialog.GetData()*/c);
+		Key += 1;
+   
+		GetTmpName(outfile,"cry",".tmp");
+
+	    if(KeyDialog.m_Decrypt)
+		{
+		    text -= Key;
+		}
+	    else
+		{
+		    text += Key;
+		}
+	    text.Write(outfile);
+
+		Reformat(infile, outfile, FALSE);
+	}
+
+    NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
+    remove(outfile);
+    if(NewDoc) 
+	{
+	    if(KeyDialog.m_Decrypt)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
+        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+        NewDoc->SetTitle(title);
+    }
+
+	theApp.DoWaitCursor(0);
+}

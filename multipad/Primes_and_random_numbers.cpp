@@ -96,10 +96,12 @@ long Primes_and_random_numbers::Random_with_limits(long lower, long upper)
 	
 		// erzeugt eine Zufallszahl rand_val, wobei gilt: lower <= rand_val <= upper
 {
-	long rand_val=zz.zzgen4();
-	rand_val*=256;
-	rand_val+=zz.zzgen4();
-	rand_val*=256;
+	long rand_val=0;
+	for(int i=1;i<=2;i++)
+	{
+		rand_val+=zz.zzgen4();
+		rand_val*=256;
+	}
 	rand_val+=zz.zzgen4();
 	rand_val*=128;
 	rand_val+=((zz.zzgen4()-1)/2);
@@ -183,6 +185,8 @@ long Primes_and_random_numbers::jacobi(long a, long n)
 }
 
 bool Primes_and_random_numbers::Prime_test_Fermat(long n, long t)
+
+		// Fermat-Test, gibt true zurück, wenn n Primzahl ist
 {
 	for(int i=1;i<=t;i++)
 	{

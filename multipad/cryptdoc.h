@@ -113,6 +113,7 @@ protected:
 	afx_msg void OnNotAvail();
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
 	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
+	afx_msg void OnHomophone();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

@@ -108,6 +108,7 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 void DlgPrimesGenerator::OnButtonGenerate() 
 
 		// erzeugt zwei Zufalls-Primzahlen innerhalb der angegebenen Grenzen
+		// Fehler werden mit entsprechenden Messages behandelt
 {
 	UpdateData(true);
 
@@ -119,7 +120,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 			{
 				if((Get_Value(m_edit1)*Get_Value(m_edit3))<(c_MaxPrime_low))
 				{
-					theApp.DoWaitCursor(0);
+					theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 					long prime1=Get_Random_Value(m_edit1,m_edit2);
 					if(0!=prime1)
 					{
@@ -143,7 +144,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
-					theApp.DoWaitCursor(-1);
+					theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 				}
 				else
 				{
@@ -265,13 +266,13 @@ void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sel
 		sels=sele=0;								
 	}
 
-	int exp_counter=0;
+	int exp_counter=0;			//  '^' darf höchstens einmal im Eingabefeld erscheinen !
 	for(int i=0;i<m_edit.GetLength();i++)
 	{
 		char ch=m_edit.GetAt(i);
 		if((ch>='0')&&(ch<='9'))
 		{
-			
+								// Zeichen von '0' bis '9' werden akzeptiert
 		}
 		else if('^'==ch)
 		{
@@ -371,8 +372,10 @@ void DlgPrimesGenerator::OnCancel()
 
 		// wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
 {
+	UpdateData(true);
 	m_edit5=m_edit6="0";	
 	CDialog::OnCancel();
+	UpdateData(false);
 }
 
 void DlgPrimesGenerator::OnButtonAccept() 
@@ -380,6 +383,7 @@ void DlgPrimesGenerator::OnButtonAccept()
 		// wenn der Button "Übernehmen" gewählt wird, kann der Dialog nur verlassen werden,
 		// wenn das Produkt der beiden Primzahlen kleiner als c_MaxPrime_high ist
 {
+	UpdateData(true);
 	double product=(Get_Value(m_edit5)*Get_Value(m_edit6));
 	if(product<c_MaxPrime_high)
 	{
@@ -391,6 +395,7 @@ void DlgPrimesGenerator::OnButtonAccept()
 		sprintf(line,pc_str,c_MaxPrime_high);
 		AfxMessageBox(line);
 	}
+	UpdateData(false);
 }
 
 long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_limit)
@@ -412,28 +417,30 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 			}
 			loop_counter++;
 			rand_val=Parn.Random_with_limits(lower,upper);
-			if((2==rand_val)||(3==rand_val))
-			{
-				return(rand_val);
+			if((2==rand_val)||(3==rand_val))		// die Primzahlen 2 und 3 werden hier schon
+			{										// abgefangen, da manche Algorithmen bei diesen
+				return(rand_val);					// (kleinen) Zahlen Abstürze verursachen
 			}
 		}		
-		while((0==(rand_val%2))||(1==rand_val));
+		while((0==(rand_val%2))||(1==rand_val));	// sucht solange eine Zufallszahl, bis diese
+													// ungleich 1 und nicht teilbar durch 2 ist
 		
 		if((0==m_radio1)&&(true==Parn.Prime_test_Miller_Rabin(rand_val,100)))
 		{
-			return(rand_val);
+			return(rand_val);						// Aufruf von Miller-Rabin-Test
 		}
 
 		if((1==m_radio1)&&(true==Parn.Prime_test_Solovay_Strassen(rand_val,100)))
 		{
-			return(rand_val);
+			return(rand_val);						// Aufruf von Solovay-Strassen-Test		
 		}
 
 		if((2==m_radio1)&&(true==Parn.Prime_test_Fermat(rand_val,100)))
 		{
-			return(rand_val);
+			return(rand_val);						// Aufruf von Fermat-Test
 		}
 	}
 
-	return(0);	
+	return(0);			// wenn keine Promzahl innerhalb der Grenzen gefunden wurde, erfolgt eine
+						// entsprechende Fehlermeldung
 }

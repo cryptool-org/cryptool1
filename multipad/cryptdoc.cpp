@@ -17,6 +17,7 @@
 #include "About.h"
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
+#include "Dlg_homophone.h"
 
 #include "DlgSignExtract.h" // für OnCryptExtract
 
@@ -133,6 +134,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -156,7 +158,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
+	ON_COMMAND(ID_HOMOPHONE, OnHomophone)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1202,4 +1204,10 @@ void CCryptDoc::OnEinzelverfahrenTutorialRsaalgorithmus()
 {
 	RSA_mit_kleinenPZ objekt;
 	objekt.DoModal();
+}
+
+void CCryptDoc::OnHomophone() 
+{
+    UpdateContent();
+    HomophoneAsc(ContentName, GetTitle());
 }
