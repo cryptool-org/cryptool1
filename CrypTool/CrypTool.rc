@@ -2555,7 +2555,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
     LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice (a) bzw. Bob (b) festlegen. Die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 117
@@ -2567,9 +2567,9 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
     LTEXT           "Nun können Sie die öffentlichen Schlüssel von Alice (A) und Bob (B) erzeugen, sofern Sie im vorigen Schritt schon deren Geheimnisse a und b festgelegt haben.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
     LTEXT           "Die beiden Teilschlüssel lassen sich wie folgt berechnen: A=g^a mod p bzw. B=g^b mod p.",
                     IDC_STATIC,7,69,186,16
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG DISCARDABLE  0, 0, 200, 101
@@ -2581,7 +2581,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
     LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel S berechnen können, müssen zunächst ihre öffentlichen Schlüssel A und B ausgetauscht werden.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 118
@@ -2593,9 +2593,9 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
     LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und den gemeinsamen Schlüssel S berechnen.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
     LTEXT           "Dieser gemeinsame Session Key S wird berechnet als (g^a)^b mod p und als (g^b)^a mod p.",
                     IDC_STATIC,7,69,186,17
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG DISCARDABLE  0, 0, 388, 146
@@ -2649,7 +2649,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
     LTEXT           "Nach einem Klick auf OK werden Sie aufgefordert, die öffentlichen Parameter des Schlüsselaustauschs einzugeben, den Primzahlmodul (p) und den Generator (g).",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
@@ -2856,23 +2856,24 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
-    GROUPBOX        "Alice",IDC_STATIC,152,69,126,210
-    GROUPBOX        "Bob",IDC_STATIC,387,69,126,210
+    GROUPBOX        "Alice",IDC_ALICEFRAMELABEL,152,69,126,210
+    GROUPBOX        "Bob",IDC_BOBFRAMELABEL,387,69,126,210
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
     CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
-    LTEXT           "a:",IDC_STATIC,160,107,10,14,SS_CENTERIMAGE
-    LTEXT           "b:",IDC_STATIC,395,107,10,14,SS_CENTERIMAGE
-    LTEXT           "A:",IDC_STATIC,160,157,10,14,SS_CENTERIMAGE
-    LTEXT           "B:",IDC_STATIC,395,157,10,14,SS_CENTERIMAGE
-    LTEXT           "S:",IDC_STATIC,160,257,10,14,SS_CENTERIMAGE
-    LTEXT           "S:",IDC_STATIC,395,257,10,14,SS_CENTERIMAGE
-    LTEXT           "Generator g:",IDC_STATIC,160,40,70,14,SS_CENTERIMAGE
-    LTEXT           "Primzahlmodul p:",IDC_STATIC,160,20,70,14,
+    LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
+    LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
+    LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
+    LTEXT           "B:",IDC_BOBSHAREDLABEL,395,157,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_ALICEFINALLABEL,160,257,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_BOBFINALLABEL,395,257,10,14,SS_CENTERIMAGE
+    LTEXT           "Generator g:",IDC_GENERATORLABEL,160,40,70,14,
                     SS_CENTERIMAGE
-    GROUPBOX        "Von beiden benutzte öffentliche Parameter",IDC_STATIC,
-                    152,10,361,50
+    LTEXT           "Primzahlmodul p:",IDC_PRIMELABEL,160,20,70,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Von beiden benutzte öffentliche Parameter",
+                    IDC_PUBLICFRAME,152,10,361,50
     EDITTEXT        IDC_GENERATOR,230,40,275,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     EDITTEXT        IDC_PRIME,230,20,275,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -4026,11 +4027,6 @@ IDB_DH_CALCULATE_R_F    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate
 IDB_DH_CALCULATE_R_U    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_U.bmp"
 IDB_DH_CALCULATE_R_X    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_X.bmp"
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\arrow.bmp"
-IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_5.bmp"
-IDB_DH_STEP_2           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_2.bmp"
-IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_3.bmp"
-IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_4.bmp"
-IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_1.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\GapFiller.bmp"
 IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_KEY_X            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_X.bmp"
@@ -5958,6 +5954,11 @@ BEGIN
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistik des Angriffs"
     IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 
                             "Die Versuchsreihe wurde abgebrochen."
+    IDS_DH_STEP1            "Schritt 1"
+    IDS_DH_STEP2            "Schritt 2"
+    IDS_DH_STEP3            "Schritt 3"
+    IDS_DH_STEP4            "Schritt 4"
+    IDS_DH_STEP5            "Schritt 5"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6027,25 +6028,27 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
-    GROUPBOX        "Alice",IDC_STATIC,152,69,126,210
-    GROUPBOX        "Bob",IDC_STATIC,387,69,126,210
+    GROUPBOX        "Alice",IDC_ALICEFRAMELABEL,152,69,126,210
+    GROUPBOX        "Bob",IDC_BOBFRAMELABEL,387,69,126,210
     EDITTEXT        IDC_GENERATOR,230,40,275,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     EDITTEXT        IDC_PRIME,230,20,275,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "Generator g:",IDC_STATIC,160,40,70,14,SS_CENTERIMAGE
-    LTEXT           "Prime module p:",IDC_STATIC,160,20,70,14,SS_CENTERIMAGE
-    GROUPBOX        "Public parameters:",IDC_STATIC,152,10,361,50
+    LTEXT           "Generator g:",IDC_GENERATORLABEL,160,40,70,14,
+                    SS_CENTERIMAGE
+    LTEXT           "Prime module p:",IDC_PRIMELABEL,160,20,70,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Public parameters:",IDC_PUBLICFRAME,152,10,361,50
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
     CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
-    LTEXT           "a:",IDC_STATIC,160,107,10,14,SS_CENTERIMAGE
-    LTEXT           "b:",IDC_STATIC,395,107,10,14,SS_CENTERIMAGE
-    LTEXT           "A:",IDC_STATIC,160,157,10,14,SS_CENTERIMAGE
-    LTEXT           "B:",IDC_STATIC,395,157,10,14,SS_CENTERIMAGE
-    LTEXT           "S:",IDC_STATIC,160,257,10,14,SS_CENTERIMAGE
-    LTEXT           "S:",IDC_STATIC,395,257,10,14,SS_CENTERIMAGE
+    LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
+    LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
+    LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
+    LTEXT           "B:",IDC_BOBSHAREDLABEL,395,157,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_ALICEFINALLABEL,160,257,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_BOBFINALLABEL,395,257,10,14,SS_CENTERIMAGE
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,73,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,62,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
@@ -8523,7 +8526,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
     LTEXT           "Before Alice and Bob can compute their Session Key, their previously calculated shared keys need to be exchanged. Please exchange the keys by clicking the 'OK' button.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_ASN1_PSE_PIN_PROMPT DIALOG DISCARDABLE  0, 0, 229, 81
@@ -8550,7 +8553,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
     LTEXT           "After clicking the 'OK' button you will be promted for the public parameters of the Diffie-Hellman key exchange protocol, that is the prime module (p) and the generator (g).",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         549,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_INTRO DIALOG DISCARDABLE  0, 0, 276, 215
@@ -8586,9 +8589,9 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,143,88,50,14
     LTEXT           "If you already chose secret numbers for Alice (a) or Bob (b), you can create their according shared keys A and B now.",
                     IDC_STATIC,7,37,186,16,NOT WS_GROUP
-    CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
     LTEXT           "The shared keys are computed as follows:\nA=g^a mod p and B=g^b mod p.",
                     IDC_STATIC,7,61,186,16
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 117
@@ -8598,11 +8601,11 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,96,50,14
-    CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
     LTEXT           "All preconditions to generate a common and secret Session Key S for Alice and Bob are fulfilled. You can generate Alice's and Bob's Session Key after a click on 'OK'.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     LTEXT           "The common Session Key S is computed as follows:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",
                     IDC_STATIC,7,69,186,16
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
@@ -8653,7 +8656,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
     LTEXT           "Now you can separately choose the secret numbers for Alice (a) and Bob (b). The necessary buttons will be activated as soon as you click the 'OK' button.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
 IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 295
@@ -9897,11 +9900,6 @@ REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
 IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
 IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
-IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_1.bmp"
-IDB_DH_STEP_2           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_2.bmp"
-IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_3.bmp"
-IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_4.bmp"
-IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_5.bmp"
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\dh_arrow.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\dh_gapfi.bmp"
 IDB_DH_BUTTON1_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_D.bmp"
@@ -12160,6 +12158,11 @@ BEGIN
     IDS_STRING_SIG_ATT_STA_ADDEDBYTES "ADDED BYTES"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistics of the attack"
     IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED "The test series was aborted."
+    IDS_DH_STEP1            "Step 1"
+    IDS_DH_STEP2            "Step 2"
+    IDS_DH_STEP3            "Step 3"
+    IDS_DH_STEP4            "Step 4"
+    IDS_DH_STEP5            "Step 5"
 END
 
 STRINGTABLE DISCARDABLE 

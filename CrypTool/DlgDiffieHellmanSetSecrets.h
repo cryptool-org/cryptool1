@@ -19,6 +19,10 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanSetSecrets)
 	enum { IDD = IDD_DIFFIEHELLMAN_SETSECRETS };
+	CStatic	m_HeadingControl;
+	CStatic	m_TextCtl;
+	CString	m_Test;
+	CString	m_HeadingText;
 	//}}AFX_DATA
 
 
@@ -35,6 +39,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgDiffieHellmanSetSecrets)
 	virtual void OnOK();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

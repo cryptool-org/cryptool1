@@ -93,6 +93,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanVisualization, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
 	ON_BN_CLICKED(IDC_KEY, OnKey)
 	ON_WM_PAINT()
+	ON_WM_CTLCOLOR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -392,6 +393,13 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 
 	this->pButtonControl = new DiffieHellmanBitmapButtonControl(this);
 
+	// Farben für Textfelder etc. festlegen
+	this->m_greycolor=0x00C0C0C0; // RGB(0x00C0C0C0/*198,195,198*/);	// Standard-Grau
+	this->m_greybrush.CreateSolidBrush(m_greycolor);
+	this->m_blackcolor=RGB(0,0,0); // Schwarz
+	this->m_blackbrush.CreateSolidBrush(m_blackcolor);
+	
+
 	UpdateData(false);
 	
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -597,4 +605,65 @@ void CDlgDiffieHellmanVisualization::OnPaint()
          dc.BitBlt( 0, 0, 795, 575, &memdc, 0, 0, SRCCOPY );
          memdc.SelectObject( poldbmp );
          // Do not call CDialog::OnPaint() for painting messages
+}
+
+
+// Diese Funktion sorgt für korrekte Hintergrundfarben in den Textfeldern (vgl. OnPaint)
+HBRUSH CDlgDiffieHellmanVisualization::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
+{
+	HBRUSH hbr;
+
+	// ***********
+	switch (nCtlColor) 
+	{ 
+		
+		case CTLCOLOR_MSGBOX: 
+		case CTLCOLOR_EDIT: 
+		case CTLCOLOR_BTN:
+		case CTLCOLOR_STATIC:
+		switch (pWnd->GetDlgCtrlID())  
+		{     
+			case IDC_PRIME:
+			case IDC_GENERATOR: 
+			case IDC_SECRETALICE: 
+			case IDC_SECRETBOB:
+			case IDC_SHAREDALICE:
+			case IDC_SHAREDBOB:
+			case IDC_FINALALICE:
+			case IDC_FINALBOB:
+			case IDC_PUBLICFRAME:		// Rahmen um die beiden Textfelder für g und p
+			case IDC_PRIMELABEL:		// Primzahlbeschriftung
+			case IDC_GENERATORLABEL:	// Generatorbeschriftung
+			case IDC_ALICEFRAMELABEL:
+			case IDC_BOBFRAMELABEL:
+			case IDC_ALICESECRETLABEL:
+			case IDC_BOBSECRETLABEL:
+			case IDC_ALICESHAREDLABEL:
+			case IDC_BOBSHAREDLABEL:
+			case IDC_ALICEFINALLABEL:
+			case IDC_BOBFINALLABEL:
+			case IDC_CHECK_DISABLEHELP:
+			case IDOK:
+			// put your own CONTROL ID here    
+			pDC->SetBkColor(m_greycolor); // change the background color
+			pDC->SetTextColor(m_blackcolor); // change the text color			
+			hbr = (HBRUSH) m_greybrush; //  apply the brush
+			break; 
+        
+			// otherwise do default handling of OnCtlColor
+			default:    
+			hbr= CDialog::OnCtlColor(pDC,pWnd,nCtlColor); 
+			break;  
+		}  
+		
+		break; 
+   
+		// otherwise do default handling of OnCtlColor
+		default:  
+		hbr=CDialog::OnCtlColor(pDC,pWnd,nCtlColor); 
+	}
+	// ***********
+	
+	// TODO: Anderen Pinsel zurückgeben, falls Standard nicht verwendet werden soll
+	return hbr;
 }

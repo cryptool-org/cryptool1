@@ -645,6 +645,18 @@
 #define IDC_PARITY                      1482
 #define IDC_STATIC_HARMLESS             1483
 #define IDC_STATIC_DANGEROUS            1484
+#define IDC_PUBLICFRAME                 1486
+#define IDC_PRIMELABEL                  1489
+#define IDC_GENERATORLABEL              1490
+#define IDC_ALICEFRAMELABEL             1491
+#define IDC_BOBFRAMELABEL               1492
+#define IDC_ALICESECRETLABEL            1493
+#define IDC_BOBSECRETLABEL              1494
+#define IDC_ALICESHAREDLABEL            1495
+#define IDC_BOBSHAREDLABEL              1496
+#define IDC_ALICEFINALLABEL             1497
+#define IDC_BOBFINALLABEL               1498
+#define IDC_HEADING                     1500
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -1535,6 +1547,11 @@
 #define IDS_STRING_SIG_ATT_STA_ADDEDBYTES 61911
 #define IDS_STRING_SIG_ATT_STA_DOCTITLE 61912
 #define IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 61913
+#define IDS_DH_STEP1                    61914
+#define IDS_DH_STEP2                    61915
+#define IDS_DH_STEP3                    61916
+#define IDS_DH_STEP4                    61917
+#define IDS_DH_STEP5                    61918
 
 // Next default values for new objects
 // 
@@ -1542,7 +1559,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        639
 #define _APS_NEXT_COMMAND_VALUE         33263
-#define _APS_NEXT_CONTROL_VALUE         1485
+#define _APS_NEXT_CONTROL_VALUE         1501
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -3482,6 +3482,10 @@ SOURCE=.\res\DHBitmaps\bmps\MainBackground.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps_en\bmps\MainBackground.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\mainfram.bmp
 # End Source File
 # Begin Source File
