@@ -1584,7 +1584,7 @@ UINT AnaSubst(PVOID p) {
 	// Manuelle Analyse wurde gewählt.
 	// In diesem Fall ist eine Anzeige des Fortschrittsanzeigers nicht nötig,
 	// da keine umfangreichen Berechnungen angestellt werden müssen.
-	if(Dialog.m_radio1<2){
+	if(Dialog.m_radio1 < 2 && Dialog.m_radio1 >= 0){
 		if(par->flags & CRYPT_DO_PROGRESS) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 			theApp.fs.Display(pc_str);
@@ -1595,7 +1595,6 @@ UINT AnaSubst(PVOID p) {
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			SHOW_HOUR_GLASS
 	}
-
 
 	// Umlaute und Zeilenumbrueche umwandeln
 	char outfile2[128];
@@ -1673,8 +1672,21 @@ UINT AnaSubst(PVOID p) {
 	   Substitution wird benutzt, um den zu bearbeitenden Ciphertext zu entschlüsseln.
 	   Das Resultat wird im unteren Texfenster dargestellt.				*/
 
-	if (Dialog.m_radio1==2){
+	if (Dialog.m_radio1==2 || Dialog.m_storedKey == 0){
 		// Anzeigen des Nachbearbeitungsfensters
+		if ( Dialog.m_storedKey == 0 )
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_ANALYSIS_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+			CString SubstKey;
+			if ( PasteKey( pc_str, SubstKey ) )
+			{
+				for (int i=0; i<26; i++)
+				{
+					*MaxPermu[i] = SubstKey[i];
+				}
+			}
+		}
+
 		CDlgManualSubstAnalysis Dialogbox;
 		if (Dialogbox.DoModal()==IDOK){
 			// Entschlüsseln und Ausgabe des Textes
@@ -3228,5 +3240,6 @@ void SignatureTutorial(const char *infile, const char* OldTitle)
 		delete SigDemo;
 	}
 }
+
 
 
