@@ -23,6 +23,7 @@
 #include "DlgSign.h"
 #include "DlgSignVerif.h"
 #include "MyDocument.h"
+#include "crypt.h"
 
 #include "DlgEcKeysCreat.h"
 #include "KeyFileHandling.h"
@@ -960,17 +961,7 @@ int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zug
 	return 0;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-void Add2OString(OctetString*	osTarget, 
-				 const char*	Source,
-				 const int		Length)
-{
-	char* Buffer = new char[osTarget->noctets+Length];
-	for(unsigned u=0; u<osTarget->noctets; u++) Buffer[u] = osTarget->octets[u];
-	for(int i=0; i<Length; i++) Buffer[osTarget->noctets+i] = Source[i];
-	delete[] osTarget->octets;
-	osTarget->octets = Buffer;
-	osTarget->noctets += Length;
-}
+
 
 OctetString* PrintSignature(OctetString&	Signature, 
 							const CString&	EncAlg, 
@@ -983,7 +974,7 @@ OctetString* PrintSignature(OctetString&	Signature,
 	int i;
 
 	sText.LoadString(IDS_STRING_MSG_SIGNATURE);
-	//for(i=0; i<; i++) sText += ' ';
+	while (sText.GetLength()<16) sText += ' ';
 	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
 	Add2OString(osSignText, Signature.octets, Signature.noctets);
 	
@@ -991,24 +982,26 @@ OctetString* PrintSignature(OctetString&	Signature,
 	char signlength[20];
 	sText.LoadString(IDS_STRING_HEADING_SIGNATURELENGTH);
 	_itoa(Signature.noctets*8, signlength, 10); 
-	//for(i=0; i<; i++) sText += ' ';
 	sText += signlength;
+	while (sText.GetLength()<16) sText += ' ';
 	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
 	
 	// Ausgabe: 'Verfahren'
 	sText.LoadString(IDS_STRING_ASYMKEY_METHOD);
-	//for(i=0; i<; i++) sText += ' ';
+	while (sText.GetLength()<16) sText += ' ';
 	sText += EncAlg; 
 	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
 
 	// Ausgabe: 'Hashfunction'
 	sText.LoadString(IDS_STRING_ASYMKEY_SELECT_HASH_METHOD);
-	sText += HshAlg; 
+	sText += HshAlg;
+	while (sText.GetLength()<16) sText += ' ';
 	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
 
 	// Schlüssel mit dem Nachricht signiert wurde ausgeben
 	sText.LoadString(IDS_STRING_KEY);
 	sText += UserKeyId;
+	while (sText.GetLength()<16) sText += ' ';
 	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
 
 	return osSignText;

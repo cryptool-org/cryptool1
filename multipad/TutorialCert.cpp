@@ -340,6 +340,9 @@ BOOL CTutorialCert::CreatePSE()
 
 	/************************************/
 
+	PSE PseHandle;
+	PseHandle = theApp.SecudeLib.af_open(const_cast<char*>(LPCTSTR(m_sPseName)), NULL, const_cast<char*>(LPCTSTR(m_sPIN)), NULL);
+
 	return TRUE;	
 }
 

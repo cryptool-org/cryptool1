@@ -9,7 +9,7 @@
 #include "DlgKeyTutorial.h"
 #include "DlgSelHash.h"
 #include "DlgCertTutorial.h"
-#include "asymmetric.h"
+//#include "asymmetric.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -395,7 +395,8 @@ void CDlgSignTutorial::OnInfoHash()
 
 	
 	UpdateData(TRUE);
-	dataToHexDump(msgdata.octets, msgdata.noctets, m_DisplayInfo);
+	dataToHexDump(msgdata.octets, msgdata.noctets, m_DisplayInfo); /*FIXME*/
+	//m_DisplayInfo = static_cast<CString>(msgdata);
 	m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
 	UpdateData(FALSE);
 
@@ -504,13 +505,18 @@ void CDlgSignTutorial::OnOK()
 		char outfile[128];
 		CMyDocument* NewDoc;		
 
-		// Signatur erstellen:
-		GetTmpName(outfile,"cry",".hex");
-		theApp.SecudeLib.aux_OctetString2file(m_Message,outfile,2);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-		remove(outfile);
-		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
-		NewDoc->SetTitle(m_sFileNameNew);
+		if(m_SignText)
+		{
+			GetTmpName(outfile,"cry",".hex");
+			
+
+			Add2OString(m_SignText, m_Message->octets, m_Message->noctets);
+			theApp.SecudeLib.aux_OctetString2file(m_SignText,outfile,2);
+			NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+			remove(outfile);
+			m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
+			NewDoc->SetTitle(m_sFileNameNew);
+		}
 	}
 	
 	CDialog::OnOK();
