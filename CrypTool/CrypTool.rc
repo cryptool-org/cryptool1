@@ -2417,14 +2417,14 @@ CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
 
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,60,29,20,52
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
     CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
     CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
-    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,64,
-                    124,69,49
+    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
+                    124,135,69
     CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
                     108,20,58
-    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,68,81
+    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
     CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
                     107,20,58
     CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
@@ -2449,12 +2449,14 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,405,164,110,15
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,402,230,115,14
-    EDITTEXT        IDC_EDIT_TITLE,31,284,176,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TITLE,31,284,497,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,31,302,497,142,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    PUSHBUTTON      "&Dialog beenden",IDCANCEL,461,453,94,14
+    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,12,224,94,14
 END
+
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3401,6 +3403,10 @@ IDB_BITMAP_ARROWBEN     BITMAP  DISCARDABLE     "res\\Bitmaps\\ARROW_BEND.bmp"
 IDB_BITMAP9             BITMAP  DISCARDABLE     "res\\arrben.bmp"
 IDB_BITMAP_ARROW90      BITMAP  DISCARDABLE     "res\\bitmap10.bmp"
 IDB_BITMAP_ARRBEN2      BITMAP  DISCARDABLE     "res\\bitmap10_2.bmp"
+IDB_BITMAP10            BITMAP  DISCARDABLE     "hlp-de\\bitmaps\\RauteDaten.bmp"
+OVAL1U                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_U.bmp"
+OVAL1F                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_F.bmp"
+OVAL1D                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval1_D.bmp"
 CANCEL_Y_U              BITMAP  DISCARDABLE     "res\\CANCEL_Y_U.bmp"
 CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\CANCEL_Y_F.bmp"
 CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\CANCEL_Y_D.bmp"

@@ -126,6 +126,7 @@
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
+#define IDB_BITMAP10                    517
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -1248,7 +1249,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        517
+#define _APS_NEXT_RESOURCE_VALUE        518
 #define _APS_NEXT_COMMAND_VALUE         33160
 #define _APS_NEXT_CONTROL_VALUE         1406
 #define _APS_NEXT_SYMED_VALUE           101
