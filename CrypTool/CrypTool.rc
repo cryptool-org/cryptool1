@@ -5239,10 +5239,31 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ACCESS_PSE          "Schlüssel und Zertifikat importieren"
+    IDS_IMPORT              "Importieren"
+    IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
+    IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
+    IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
+    IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich (%d von %d)."
+    IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo   MD2-Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo   MD5-Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
+    IDS_ENTROPY_TITLE       "Entropie <%s>"
+    IDS_HASH_DEMO_SEQUENCE  "Längste unveränderte Bitfolge: Offset %d, Länge %d."
     IDS_PERMUTATION_ENCRYPT "Text mit der Permutation verschlüsseln"
     IDS_PERMUTATION_DECRYPT "Text mit der Permutation entschlüsseln"
     IDS_PERMUTATION_ENCRYPT_INV 
                             "Text mit der inversen Permutation verschlüsseln"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_PERMUTATION_DECRYPT_INV 
                             "Text mit der inversen Permutation entschlüsseln"
     IDS_PERMUTATION_CLEAR   "&Klartext anzeigen"
@@ -5623,23 +5644,6 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ACCESS_PSE          "Schlüssel und Zertifikat importieren"
-    IDS_IMPORT              "Importieren"
-    IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
-    IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
-    IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
-    IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
-    IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
-    IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich (%d von %d)."
-    IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo   MD2-Hash"
-    IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo   MD5-Hash"
-    IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
-    IDS_ENTROPY_TITLE       "Entropie <%s>"
-    IDS_HASH_DEMO_SEQUENCE  "Längste unveränderte Bitfolge: Offset %d, Länge %d."
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "RSA-Modul faktorisieren..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Zu verwendendes Alphabet (%i Zeichen):"
     IDS_STRING_HYB_ENC_DOC_SYM 
@@ -5657,6 +5661,7 @@ BEGIN
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS 
                             "Der von Ihnen eingegebene Klartext enthält kein einziges Zeichen aus dem von Ihnen gewählten Alphabet.\nBitte korrigieren Sie Ihre Eingabe!"
+    IDS_TITLE_NGRAMANALYSIS "%sAnalyse von <%s>"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8103,6 +8108,7 @@ BEGIN
     GROUPBOX        "1. Permutation",IDC_STATIC,17,13,283,59
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
 END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10570,9 +10576,30 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ACCESS_PSE          "Import key and certificate"
+    IDS_IMPORT              "Import"
+    IDS_CONGRATULATIONS     "Congratulations! \r\n\r\n"
+    IDS_RSASGN_DOCNAME      "You have succsessfully created an RSA signature of the document %s. \r\n\r\n"
+    IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file: %s. \r\n\r\n"
+    IDS_RSASGN_ALG          "As the hash function you have selected %s. "
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ (%d of %d)."
+    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
+    IDS_ENTROPY_TITLE       "Entropy <%s>"
+    IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: offset %d, length %d."
     IDS_PERMUTATION_ENCRYPT "Encrypt text with permutation"
     IDS_PERMUTATION_DECRYPT "Decrypt text with permutation"
     IDS_PERMUTATION_ENCRYPT_INV "Encrypt text with inverse permutation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
     IDS_PERMUTATION_CLEAR   "&Display clear text"
     IDS_PERMUTATION_CIPHER  "&Display cipher text"
@@ -10947,23 +10974,6 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ACCESS_PSE          "Import key and certificate"
-    IDS_IMPORT              "Import"
-    IDS_CONGRATULATIONS     "Congratulations! \r\n\r\n"
-    IDS_RSASGN_DOCNAME      "You have succsessfully created an RSA signature of the document %s. \r\n\r\n"
-    IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
-    IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file: %s. \r\n\r\n"
-    IDS_RSASGN_ALG          "As the hash function you have selected %s. "
-    IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ (%d of %d)."
-    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
-    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
-    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
-    IDS_ENTROPY_TITLE       "Entropy <%s>"
-    IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: offset %d, length %d."
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorise RSA modulus..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Alphabet to use (%i characters):"
     IDS_STRING_HYB_ENC_DOC_SYM 
@@ -10981,6 +10991,7 @@ BEGIN
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS 
                             "The plain text you entered does not contain a single character of the given alphabet.\nPlease correct your plain text."
+    IDS_TITLE_NGRAMANALYSIS "%sAnalysis of <%s>"
 END
 
 STRINGTABLE DISCARDABLE 

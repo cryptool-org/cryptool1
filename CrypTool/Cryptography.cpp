@@ -2897,7 +2897,7 @@ void NGramAsc(const char *infile, const char *OldTitle)
 				sprintf( method, pc_str, DiaNGram.m_NrNGram );
 				break;
 			}
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_TITLE_NGRAMANALYSIS,pc_str,STR_LAENGE_STRING_TABLE);
 			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
 			NewDoc->SetTitle(title);
 		}
@@ -2942,7 +2942,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 				sprintf( method, pc_str, DiaNGram.m_NrNGram );
 				break;
 			}
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_TITLE_NGRAMANALYSIS,pc_str,STR_LAENGE_STRING_TABLE);
 			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
 			NewDoc->SetTitle(title);
 		}
