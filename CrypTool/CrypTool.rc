@@ -2543,6 +2543,10 @@ BEGIN
     BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
+        MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
@@ -2737,6 +2741,10 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -2955,6 +2963,10 @@ BEGIN
     BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
+        MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
@@ -3020,6 +3032,10 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3215,6 +3231,10 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -5733,6 +5753,9 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_OPTIONS_STARTOPTIONS "Einstellungen für den Programmstart ändern"
+    ID_HILFE_STARTSEITE     "Zeigt die Startseite der Online-Hilfe an"
+    ID_HILFE_INDEX          "Zeigt den Hilfe-Index an"
+    ID_HILFE_SZENARIEN      "Zeigt die Hilfe zu den Szenarien an"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8255,6 +8278,10 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
+        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
@@ -8448,6 +8475,10 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -8666,6 +8697,10 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
+        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
@@ -8731,6 +8766,10 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -8926,6 +8965,10 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "Inde&x",                      ID_HILFE_INDEX
+        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -11128,6 +11171,9 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_OPTIONS_STARTOPTIONS "Change settings for program start"
+    ID_HILFE_STARTSEITE     "Shows the online help's starting page"
+    ID_HILFE_INDEX          "Shows the help index"
+    ID_HILFE_SZENARIEN      "Shows the help concerning scenarios"
 END
 
 STRINGTABLE DISCARDABLE 

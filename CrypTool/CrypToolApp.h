@@ -84,6 +84,9 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnEinzelverfahrenTutorialSignaturerzeugung();
 	afx_msg void OnVerentschlsselnHybridverfahrenHybridverschlsselung();
 	afx_msg void OnOptionsStartoptions();
+	afx_msg void OnHilfeIndex();
+	afx_msg void OnHilfeStartseite();
+	afx_msg void OnHilfeSzenarien();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

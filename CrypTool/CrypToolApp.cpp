@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_HASH_OFAFILE, OnHashOfAFile)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIGN, OnEinzelverfahrenTutorialSignaturerzeugung)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
+	ON_COMMAND(ID_OPTIONS_STARTOPTIONS, OnOptionsStartoptions)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -92,7 +93,9 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_OPTIONS_STARTOPTIONS, OnOptionsStartoptions)
+	ON_COMMAND(ID_HILFE_INDEX, OnHilfeIndex)
+	ON_COMMAND(ID_HILFE_STARTSEITE, OnHilfeStartseite)
+	ON_COMMAND(ID_HILFE_SZENARIEN, OnHilfeSzenarien)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -707,4 +710,23 @@ void CCrypToolApp::OnOptionsStartoptions()
 {
 	CDlgOptionsStartoptions oso;
 	oso.DoModal();
+}
+
+void CCrypToolApp::OnHilfeIndex() 
+{
+	// Hilfe-Index zu CrypTool aufrufen
+	this->WinHelp(NULL, HELP_INDEX);
+}
+
+void CCrypToolApp::OnHilfeStartseite() 
+{
+	// Startseite der Online-Hilfe aufrufen
+	CWinApp::WinHelp(ID_WIE_SIE_STARTEN+0x10000);
+}
+
+void CCrypToolApp::OnHilfeSzenarien() 
+{
+	// Hilfe zu den Szenarien aufrufen
+	CWinApp::WinHelp(ID_HILFE_SZENARIEN+0x10000);
+	
 }

@@ -702,6 +702,10 @@
 #define ID_EINZELVERFAHREN_SIGN         33158
 #define ID_EINZELVERFAHREN_SIGN_DOC     33159
 #define ID_OPTIONS_STARTOPTIONS         33170
+#define ID_HILFE_Y                      33173
+#define ID_HILFE_STARTSEITE             33174
+#define ID_HILFE_INDEX                  33175
+#define ID_HILFE_SZENARIEN              33176
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1358,7 +1362,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        548
-#define _APS_NEXT_COMMAND_VALUE         33173
+#define _APS_NEXT_COMMAND_VALUE         33178
 #define _APS_NEXT_CONTROL_VALUE         1424
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
