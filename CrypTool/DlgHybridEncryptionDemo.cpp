@@ -243,7 +243,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 	//Symmetrischer Schlüssel soll hexadezimal angezeigt werden
 
 	m_strEdit = SymKeyInHexDump;
-	m_strTitle = "Symmetrischer Schlüssel:";
+	m_strTitle.LoadString(IDS_STRING_HYBRID_ENC_SYM_KEY);
 	UpdateData(false);
 }
 
@@ -645,7 +645,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	Schluessel.private_key=NULL;
 
 	CDlgShowKeyParameter dlg;
-	dlg.m_Title = "Öffentlicher Schlüssel von: ";
+	dlg.m_Title.LoadString(IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF);
 	dlg.m_Title+=rsaDlg.Name;
 	dlg.m_Title+=" ";
 	dlg.m_Title+= rsaDlg.Firstname;
@@ -746,7 +746,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 	}
 	SHOW_HOUR_GLASS
 	m_strEdit = m_strBuffEditEncDoc;
-	m_strTitle = "Symmetrisch verschlüsseltes Dokument: ";
+	m_strTitle.LoadString(IDS_STRING_HYBRID_ENC_SYM_ENC_DOC);
 	UpdateData(false);
 	HIDE_HOUR_GLASS
 }
@@ -759,7 +759,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey()
 		return;
 	}
 	SHOW_HOUR_GLASS
-	m_strTitle = "Asymmetrisch verschlüsselter symmetrischer Schlüssel:";
+	m_strTitle.LoadString(IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY);
 	m_strEdit = m_strBuffEditEncKeyAsym;
 	UpdateData(false);
 	HIDE_HOUR_GLASS

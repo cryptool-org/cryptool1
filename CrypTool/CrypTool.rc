@@ -1443,7 +1443,7 @@ BEGIN
     CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE | WS_GROUP,19,14,353,26
-    CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die veröffentlichten RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
+    CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die öffentlichen RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE,19,42,353,23
     EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
@@ -4842,8 +4842,12 @@ BEGIN
     IDS_STRING_HYBRID_CIPHERTEXT "    Chiffretext:    "
     IDS_STRING_ZERT_DATEN   "Hier werden Ihre Zertifikatsdaten angezeigt."
     IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybridentschlüsselung:"
+    IDS_STRING_HYBRID_ENC_SYM_KEY 
+                            "Zufällig gewählter symmetrischer Session Key:"
     IDS_STRING_HYBRID_DEC_MSG2 
                             "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n\r\n"
+    IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
+                            "Dokument, symmetrisch verschlüsselt mit dem Session Key:"
     IDS_STRING_HYBRID_DEC_MSG4 
                             "Ihr privater RSA-Schlüssel d ist die Zahl: \r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
@@ -4856,9 +4860,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
+                            "Session Key, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers::"
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Die Eingabe ist keine Hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
     IDS_STRING_HYBRID_DEC_MSG10 "Sie haben das falsche Zertifikat gewählt!"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Öffentlicher Schlüssel von:"
     IDS_STRING_ZERT_DATEN2  "Ihre Zertifikatsdaten:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Länge des verschlüsselten Session-Key:    "
@@ -7002,7 +7009,7 @@ BEGIN
     CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE | WS_GROUP,19,15,353,26
-    CONTROL         "For the purpose of data encryption or certificate checking it will do with the published RSA parameter: the RSA modulus N and the public key e.",
+    CONTROL         "For the purpose of data encryption or certificate checking it is sufficient to enter the public RSA parameters: the RSA modulus N and the public key e.",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE,19,43,353,19
     EDITTEXT        IDC_EDIT1,100,82,172,12,ES_AUTOHSCROLL
@@ -7353,10 +7360,10 @@ BEGIN
     GROUPBOX        "Text options",IDC_STATIC,7,5,277,65
     LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,145,25,121,11
     GROUPBOX        "RSA variant",IDC_STATIC,7,76,277,31
-    GROUPBOX        "Method for the coding of text into numbers",IDC_STATIC,
-                    7,113,277,30
+    GROUPBOX        "Method for coding of text into numbers",IDC_STATIC,7,
+                    113,277,30
     LTEXT           "&Method:",IDC_STATIC,18,128,51,8
-    LTEXT           "Blocklength in characters:",IDC_STATIC,18,192,83,8
+    LTEXT           "Block length in characters:",IDC_STATIC,18,192,86,8
     EDITTEXT        IDC_EDIT3,135,192,141,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Number system",IDC_STATIC,7,213,277,53
@@ -7985,7 +7992,7 @@ BEGIN
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
     CONTROL         "OVAL2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,304,287,50,14
+                    BS_BITMAP | WS_TABSTOP,308,287,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
                     273,52,36
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
@@ -10108,23 +10115,29 @@ BEGIN
     IDS_STRING_HYBRID_CIPHERTEXT "    Ciphertext:    "
     IDS_STRING_ZERT_DATEN   "Your certificate data will be shown below."
     IDS_STRING_HYBRID_DEC_STEP "Step-by-step hybrid decryption:"
+    IDS_STRING_HYBRID_ENC_SYM_KEY "Symmetric session key, selected randomly:"
     IDS_STRING_HYBRID_DEC_MSG2 
                             "Please select for encrytion your certificate from the PSE.\r\n\r\n"
+    IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
+                            "Document encrypted symmetrically with the session key:"
     IDS_STRING_HYBRID_DEC_MSG4 
                             "Your private RSA key d is the integer number \r\n\r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
                             "The next step will decrypt and display the session key.\r\n\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\n\r\nThe session key is the following 128 bit message\r\n\r\nSession key: "
+                            "\r\n\r\nThe session key is the following 128 bit number\r\n\r\nSession key: "
     IDS_STRING_HYBRID_DEC_MSG7 
                             "With the session key you are now able to decrypt the message.\r\n\r\nClick Decrypt."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
+                            "Session key encrypted asymmetrically with recipient's public key:"
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Your Input is not a valid hybrid encrypted file!\r\nIt could not be decrypted.\r\n"
     IDS_STRING_HYBRID_DEC_MSG10 "You have selected the wrong Certificate!"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Public key of:"
     IDS_STRING_ZERT_DATEN2  "Your Certificate Data:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Length of encrypted session key:    "
@@ -10770,7 +10783,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_CONTENT_HASH_ENC    "Encryptded hash value"
+    IDS_CONTENT_HASH_ENC    "Encrypted hash value"
     IDS_CONTENT_KEY         "RSA key"
     IDS_PRIME_CHECK         "p and q are prime numbers."
     IDS_PRIME_NO_CHECK_Q    "q is NOT a prime number !"
