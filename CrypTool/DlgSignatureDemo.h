@@ -105,6 +105,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnInfoCert();
 	afx_msg void OnInfoSign();
+	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

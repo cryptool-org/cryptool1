@@ -139,7 +139,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib libeay32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ENDIF 
@@ -3184,6 +3184,10 @@ SOURCE=.\HomophoneEncryption.h
 # Begin Source File
 
 SOURCE=".\res\hybrid-background.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\hybrid_b.bmp
 # End Source File
 # Begin Source File
 

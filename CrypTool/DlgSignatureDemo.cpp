@@ -80,6 +80,7 @@ BEGIN_MESSAGE_MAP(CDlgSignatureDemo, CDialog)
 	ON_BN_CLICKED(IDC_COMBINE, OnCombine)
 	ON_BN_CLICKED(IDC_INFO_CERT, OnInfoCert)
 	ON_BN_CLICKED(IDC_INFO_SIGN, OnInfoSign)
+	ON_WM_PAINT()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -649,3 +650,13 @@ void CDlgSignatureDemo::OnInfoSign()
 	UpdateData(FALSE);
 }
 
+
+void CDlgSignatureDemo::OnPaint() 
+{
+	CPaintDC dc(this); // device context for painting
+	
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
+		// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
+	dc.FillSolidRect(0,0,800,700,0x00C6C3C6);
+	// Kein Aufruf von CDialog::OnPaint() für Zeichnungsnachrichten
+}

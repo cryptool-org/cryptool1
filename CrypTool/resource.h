@@ -156,6 +156,7 @@
 #define IDD_OPTIONS_FURTHEROPTIONS      632
 #define IDD_DIALOG1                     634
 #define IDB_DH_MAINBACKGROUND           637
+#define IDB_HYBRID_BACK                 640
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -1557,7 +1558,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        639
+#define _APS_NEXT_RESOURCE_VALUE        641
 #define _APS_NEXT_COMMAND_VALUE         33263
 #define _APS_NEXT_CONTROL_VALUE         1501
 #define _APS_NEXT_SYMED_VALUE           101

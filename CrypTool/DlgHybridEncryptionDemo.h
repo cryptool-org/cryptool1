@@ -100,6 +100,7 @@ protected:
 	afx_msg void OnButtonShowEncDocument();
 	afx_msg void OnButtonShowEncSymKey();
 	afx_msg void OnButtonDatenausgabe();
+	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

@@ -102,8 +102,9 @@ BEGIN_MESSAGE_MAP(CDlgHybridEncryptionDemo, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SHOWTXT, OnButtonShowDocument)
 	ON_BN_CLICKED(IDC_BUTTON2, OnButtonShowEncDocument)
 	ON_BN_CLICKED(IDC_BUTTON3, OnButtonShowEncSymKey)
-	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDC_BUTTON_DATENAUSGABE, OnButtonDatenausgabe)
+	ON_WM_SETCURSOR()
+	ON_WM_PAINT()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1105,4 +1106,30 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	}
 	CDialog::OnOK();
 	
+}
+void CDlgHybridEncryptionDemo::OnPaint() 
+{
+	CPaintDC dc(this); // device context for painting
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
+	// Kein Aufruf von CDialog::OnPaint() für Zeichnungsnachrichten
+
+    CBitmap bmp, *poldbmp;
+    CDC memdc;
+
+    // Load the bitmap resource
+    bmp.LoadBitmap( IDB_HYBRID_BACK );
+
+    // Create a compatible memory DC
+    memdc.CreateCompatibleDC( &dc );
+
+    // Select the bitmap into the DC
+    poldbmp = memdc.SelectObject( &bmp );
+
+    // Copy (BitBlt) bitmap from memory DC to screen DC
+    dc.BitBlt( 0, 0, 838, 730, &memdc, 0, 0, SRCCOPY );
+
+    memdc.SelectObject( poldbmp );
+
+         // Do not call CDialog::OnPaint() for painting messages
+
 }
