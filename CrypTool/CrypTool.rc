@@ -2404,45 +2404,49 @@ BEGIN
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
 END
 
-IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 565, 474
+IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 474
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Visualisierung der Hybridverschlüsselung"
+CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
+
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,259,
-                    127,29,46
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,60,29,20,52
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
+    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,64,
+                    124,69,49
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
+                    108,20,58
+    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,68,81
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
+                    107,20,58
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
     CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,36,18,89,14
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
     CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,24,80,89,14
+                    BS_BITMAP | WS_TABSTOP,31,81,89,14
     CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,239,18,93,14
+                    BS_BITMAP | WS_TABSTOP,209,17,93,14
     CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,225,80,93,14
-    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,437,18,92,14
-    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,425,80,93,14
+                    BS_BITMAP | WS_TABSTOP,205,81,93,14
     CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,235,165,102,14
-    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,426,164,110,15
+                    BS_BITMAP | WS_TABSTOP,208,165,102,14
     CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,225,223,92,14
+                    WS_TABSTOP,202,230,92,14
+    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,17,92,14
+    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,405,81,93,14
+    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,405,164,110,15
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,421,223,115,14
-    EDITTEXT        IDC_EDIT_TITLE,47,284,176,14,ES_AUTOHSCROLL | 
+                    WS_TABSTOP,402,230,115,14
+    EDITTEXT        IDC_EDIT_TITLE,31,284,176,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_TXT,49,302,497,142,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_TXT,31,302,497,142,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     PUSHBUTTON      "&Dialog beenden",IDCANCEL,461,453,94,14
-    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,459,
-                    128,23,29
-    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,265,58,18,19
-    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,61,58,18,19
-    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,262,203,18,19
-    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,465,203,18,19
-    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,465,57,18,19
 END
 
 
@@ -2589,6 +2593,11 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
+        END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
         END
     END
     POPUP "D&igitale Signaturen"
@@ -2767,6 +2776,11 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -2918,6 +2932,14 @@ BEGIN
         MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
         MENUITEM "S&tatusleiste",               ID_VIEW_STATUS_BAR
     END
+    POPUP "Ver-/Entschlüsseln"
+    BEGIN
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+        END
+    END
     POPUP "&Schlüsselverwaltung"
     BEGIN
         MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
@@ -3035,6 +3057,11 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -3080,13 +3107,6 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        POPUP "&Hybridverfahren"
-        BEGIN
-            MENUITEM "Hybridverschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybridentschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3238,29 +3258,7 @@ PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
 PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
 IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool_de.bmp"
 IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
-IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
-IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
-RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
-RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
-SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
-SECHSECK1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
-RAUTE2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
-RAUTE2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
-RAUTE3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
-RAUTE3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
-SECHSECK2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
-SECHSECK2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
-SECHSECK3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
-SECHSECK3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
-VIERECK1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
-VIERECK1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
-VIERECK2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
-VIERECK2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
-RAUTE4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
-RAUTE4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
-RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
-RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
 IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\Layout.bmp"
@@ -3346,6 +3344,49 @@ CANCEL_G_U              BITMAP  DISCARDABLE     "res\\CANCEL_G_U.bmp"
 OK_G_D                  BITMAP  DISCARDABLE     "res\\OK_G_D.bmp"
 OK_G_F                  BITMAP  DISCARDABLE     "res\\OK_G_F.bmp"
 CANCEL_G_D              BITMAP  DISCARDABLE     "res\\CANCEL_G_D.bmp"
+IDB_BITMAP_ARROWDOWN    BITMAP  DISCARDABLE     "res\\arrdown.bmp"
+RAUTE1D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_D.bmp"
+RAUTE1F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_F.bmp"
+RAUTE1X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_X.bmp"
+RAUTE1U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute1_U.bmp"
+RAUTE2X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_X.bmp"
+RAUTE2F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_F.bmp"
+RAUTE2U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_U.bmp"
+RAUTE2D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute2_D.bmp"
+RAUTE3X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_X.bmp"
+RAUTE3F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_F.bmp"
+RAUTE3U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_U.bmp"
+RAUTE3D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute3_D.bmp"
+RAUTE4D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_D.bmp"
+RAUTE4F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_F.bmp"
+RAUTE4U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_U.bmp"
+RAUTE4X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute4_X.bmp"
+RAUTE5X                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_X.bmp"
+RAUTE5F                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_F.bmp"
+RAUTE5U                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_U.bmp"
+RAUTE5D                 BITMAP  DISCARDABLE     "res\\Bitmaps\\Raute5_D.bmp"
+SECHSECK1U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_U.bmp"
+SECHSECK1F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_F.bmp"
+SECHSECK1D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck1_D.bmp"
+SECHSECK3D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_D.bmp"
+SECHSECK3F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_F.bmp"
+SECHSECK3U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck3_U.bmp"
+SECHSECK2D              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_D.bmp"
+SECHSECK2F              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_F.bmp"
+SECHSECK2U              BITMAP  DISCARDABLE     "res\\Bitmaps\\Sechseck2_U.bmp"
+VIERECK1D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_D.bmp"
+VIERECK1F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_F.bmp"
+VIERECK1U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_U.bmp"
+VIERECK1X               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck1_X.bmp"
+VIERECK2X               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_X.bmp"
+VIERECK2F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_F.bmp"
+VIERECK2U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_U.bmp"
+VIERECK2D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Viereck2_D.bmp"
+IDB_BITMAP_ARROWBEN     BITMAP  DISCARDABLE     "res\\Bitmaps\\ARROW_BEND.bmp"
+IDB_BITMAP9             BITMAP  DISCARDABLE     "res\\arrben.bmp"
+IDB_BITMAP_ARROW90      BITMAP  DISCARDABLE     "res\\bitmap10.bmp"
+IDB_BITMAP_ARRBEN2      BITMAP  DISCARDABLE     "res\\bitmap10_2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8542,28 +8583,7 @@ PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
 IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool.bmp"
 IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
 IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
-IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
-RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
-RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
-SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
-SECHSECK1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
-RAUTE2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
-RAUTE2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
-RAUTE3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
-RAUTE3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
-SECHSECK2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
-SECHSECK2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
-SECHSECK3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
-SECHSECK3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
-VIERECK1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
-VIERECK1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
-VIERECK2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
-VIERECK2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
-RAUTE4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
-RAUTE4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
-RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
-RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
 CANCEL_G_U              BITMAP  DISCARDABLE     "res\\cancel_g.bmp"
