@@ -78,7 +78,7 @@ disk full on encrypt -> output file removed
 disk full on decrypt -> output file removed
 Version 1.1 encrypted file: message: use old version, cmd-line 
 key size 33 byte 0123AB67890123AB67890123AB67890123AB67890123AB67890123AB6789012345
-key size 80 byte 0123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB6789
+key size 80 byte 0123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB6789 -> everything beyond 32 bytes is ignored
 corrupt aes file: modified datalen [0,negative,longer: detected; shorter: first block of deciphered text corrupt, rest is a tail of the original text]
 corrupt aes file: modified infolen [detected]
 corrupt aes file: modified infoblock [not used when all parameter are provided on command line, gui detected]
