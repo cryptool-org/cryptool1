@@ -5,6 +5,7 @@
 #include "multipad.h"
 #include "DlgTutorialFactorisation.h"
 #include "CryptologyUsingMiracl.h"
+#include "DlgRuntime.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -14,6 +15,7 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgTutorialFactorisation 
+long ExitFactorisationCode;
 
 
 DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
@@ -82,6 +84,56 @@ void DlgTutorialFactorisation::OnButtonEnd()
 	CDialog::OnOK();
 }
 
+//////////////////////////////////////////////////////////////////////////////
+CDlgRuntime dlg;
+
+
+UINT singleThreadBrent( PVOID x )
+{
+	TutorialFactorisation *f;
+	f = (TutorialFactorisation*)x;
+	BOOL ret = f->Brent();
+	dlg.PostMessage(WM_TIMER,47,NULL);
+	return 0;
+}
+
+UINT singleThreadPollard( PVOID x )
+{
+	TutorialFactorisation *f;
+	f = (TutorialFactorisation*)x;
+	BOOL ret = f->Pollard();
+	dlg.PostMessage(WM_TIMER,47,NULL);
+	return 0;
+}
+
+UINT singleThreadWilliams( PVOID x )
+{
+	TutorialFactorisation *f;
+	f = (TutorialFactorisation*)x;
+	BOOL ret = f->Williams();
+	dlg.PostMessage(WM_TIMER,47,NULL);
+	return 0;
+}
+
+UINT singleThreadLenstra( PVOID x )
+{
+	TutorialFactorisation *f;
+	f = (TutorialFactorisation*)x;
+	BOOL ret = f->Lenstra();
+	dlg.PostMessage(WM_TIMER,47,NULL);
+	return 0;
+}
+
+UINT singleThreadQuadraticSieve( PVOID x )
+{
+	TutorialFactorisation *f;
+	f = (TutorialFactorisation*)x;
+	BOOL ret = f->QuadraticSieve();
+	dlg.PostMessage(WM_TIMER,47,NULL);
+	return 0;
+}
+
+
 void DlgTutorialFactorisation::OnButtonFactorisation() 
 {
 	UpdateData(TRUE);
@@ -100,12 +152,16 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
 	{
-		TutorialFactorisation fact;
 		bool ja_nein;
-		ja_nein=fact.SetN(next_factor);
+		{
+			TutorialFactorisation f;
+			ja_nein=f.SetN(next_factor);
+		}
 		if (ja_nein==true)
 		{
 			BOOL factorized = FALSE;
+			CString f1, f2;
+
 			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 			{
 				//Sie müssen mindestens ein Verfahren wählen!
@@ -123,38 +179,149 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			}
 			if ( !factorized && m_bruteForce )
 			{
-				factorized = fact.BruteForce();
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				if ( TRUE == (factorized = fact.BruteForce()) )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
 			}
 			if ( !factorized && m_Brent )
 			{
-				factorized = fact.Brent();
+				ExitFactorisationCode = 0;
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				AfxBeginThread( singleThreadBrent, PVOID(&fact) );
+				dlg.SetCaption("Brent");
+				if ( IDOK != dlg.DoModal() )
+				{
+					ExitFactorisationCode = -1;
+					Sleep( 200 );
+				}
+				factorized = fact.isItFactorized();
+				if ( TRUE == factorized )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
 			}
 			if ( !factorized && m_Pollard )
 			{
-				factorized = fact.Pollard();
+/*
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				if ( TRUE == (factorized = fact.Pollard()) )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
+*/
+				ExitFactorisationCode = 0;
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				AfxBeginThread( singleThreadPollard, PVOID(&fact) );
+				Sleep(200);
+				dlg.SetCaption("Pollard");
+				if ( IDOK != dlg.DoModal() )
+				{
+					ExitFactorisationCode = -1;
+					Sleep( 200 );
+				}
+				factorized = fact.isItFactorized();
+				if ( TRUE == factorized )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
+
 			}
 
 			if ( !factorized && m_Williams )
 			{
-				factorized = fact.Williams();
+/*
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				if ( TRUE == (factorized = fact.Williams()) )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
+*/
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				ExitFactorisationCode = 0;
+				AfxBeginThread( singleThreadWilliams, PVOID(&fact) );
+				Sleep(200);
+				dlg.SetCaption("Williams");
+				if ( IDOK != dlg.DoModal() )
+				{
+					ExitFactorisationCode = -1;
+					Sleep( 200 );
+				}
+				factorized = fact.isItFactorized();
+				if ( TRUE == factorized )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
 			}
 
 			if ( !factorized && m_Lenstra )
 			{
-				factorized = fact.Lenstra();
+/*
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				if ( TRUE == (factorized = fact.Lenstra()) )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
+*/
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				ExitFactorisationCode = 0;
+				AfxBeginThread( singleThreadLenstra, PVOID(&fact) );
+				Sleep(200);
+				dlg.SetCaption("Lenstra");
+				if ( IDOK != dlg.DoModal() )
+				{
+					ExitFactorisationCode = -1;
+					Sleep( 200 );
+				}
+				factorized = fact.isItFactorized();
+				if ( TRUE == factorized )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
+
 			}
 			
 			if ( !factorized && m_QSieve )
 			{
-				factorized = fact.QuadraticSieve();
+				TutorialFactorisation fact;
+				fact.SetN(next_factor);
+				ExitFactorisationCode = 0;
+				AfxBeginThread( singleThreadQuadraticSieve, PVOID(&fact) );
+				Sleep(200);
+				dlg.SetCaption("Quadratic Sieve");
+				if ( IDOK != dlg.DoModal() )
+				{
+					ExitFactorisationCode = -1;
+					Sleep( 2000 );
+				}
+				factorized = fact.isItFactorized();
+				if ( TRUE == factorized )
+				{
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+				}
 			}		
+			Sleep( 200 );
 			if ( factorized )
 			{
-				CString f1, f2;
-				fact.GetFactor1Str( f1 );
-				fact.GetFactor2Str( f2 );
 				expandFactorisation( next_factor, f1, f2 );
-				// Zahl wurde Faktorisiert
 			}
 			else
 			{

@@ -9,6 +9,10 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+extern long ExitFactorisationCode;
+
+
+
 #include "BIG.H"	// Hinzugefügt von der Klassenansicht
 #include <monty.h>
 
@@ -110,7 +114,9 @@ class TutorialFactorisation
 	Big N;
 	Big factor1;
 	Big factor2;
+	bool isFactorized;
 public:
+	bool isItFactorized() { return isFactorized; }
 	bool gotcha(Big& NN, Big& P);
 	bool factored(long lptr, Big& T);
 	void new_poly();

@@ -941,6 +941,14 @@ SOURCE=.\DlgRSAwithSmallPrimesOptions.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgRuntime.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRuntime.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgShowPrivEcKeys.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"

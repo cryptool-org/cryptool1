@@ -119,8 +119,6 @@ private:
 
 	int m_sechs,m_Dec;
 	CFont m_Font;
-
-
 };
 
 //{{AFX_INSERT_LOCATION}}

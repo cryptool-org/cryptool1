@@ -2,64 +2,82 @@ Microsoft (R) Help Compiler
 HCRTF 4.03.0002
 Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
 multipad.hpj
-    HC3037: Warning: C:\Entwicklung\CrypTool\source\multipad\hlp\.\multipad.hm : 
+    HC3037: Warning: C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\multipad.hm : 
 	The map value for "HIDD_BRUTEFORCE" is the same as the map value for "HIDD_DIALOG1".
-    HC1003: Note: topic #1 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC1003: Note: topic #1 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC1003: Note: topic #1 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC3048: Warning: topic #38 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #38 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3048: Warning: topic #40 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #40 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3110: Warning: topic #50 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #50 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #93 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #93 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #96 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #96 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #97 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #97 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC1012: Note: topic #122 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #122 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC3111: Warning: topic #159 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #159 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #160 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #160 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #161 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #161 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #162 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #162 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3110: Warning: topic #164 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #164 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC1012: Note: topic #167 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #167 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC1012: Note: topic #169 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #169 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC3110: Warning: topic #172 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #172 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC1012: Note: topic #177 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #178 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC3048: Warning: topic #179 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #180 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3110: Warning: topic #188 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3021: Warning: topic #182 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\falsch_offset_dialog.bmp."
+    HC3021: Warning: topic #182 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\falsch_offset_msgbox.bmp."
+    HC3021: Warning: topic #183 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\serial_beispiel2_dlg.bmp."
+    HC3021: Warning: topic #184 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\poker_beispiel2_dlg.bmp."
+    HC3021: Warning: topic #185 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\fips_beispiel2_dlg.bmp."
+    HC3021: Warning: topic #186 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\falsch_longrun_dialog.bmp."
+    HC3021: Warning: topic #186 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\falsch_longrun_msgbox.bmp."
+    HC3021: Warning: topic #186 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\runs_beispiel_dlg.bmp."
+    HC3021: Warning: topic #186 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\runs_beispiel2_dlg.bmp."
+    HC3021: Warning: topic #186 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Cannot find the bitmap "bitmaps\runs_beispiel3_dlg.bmp."
+    HC3110: Warning: topic #189 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3111: Warning: topic #189 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
-	This topic contains keywords but no title.
-    HC1012: Note: topic #191 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #204 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
     HC4010: Warning: 
 	There are more opening braces than closing braces.
-    HC1003: Note: topic #3 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
+    HC1003: Note: topic #3 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC1012: Note: topic #8 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
+    HC1012: Note: topic #8 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
 	Table cell borders are not supported.
-    HC3026: Warning: topic #50 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
-	The Topic ID "HID_PERIODE" has already been defined in topic 164 in file C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
-    HC3026: Warning: topic #50 of C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
-	The Topic ID "HID_ANALYSE_PERIOD" has already been defined in topic 164 in file C:\Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
+    HC3026: Warning: topic #50 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	The Topic ID "HID_PERIODE" has already been defined in topic 164 in file C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
+    HC3026: Warning: topic #50 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	The Topic ID "HID_ANALYSE_PERIOD" has already been defined in topic 164 in file C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
     HC1010: Note: 
 	The following mapped Topic IDs were not used in any topic:
 	AFX_HIDP_UNREG_DONE
@@ -78,6 +96,7 @@ multipad.hpj
 	HID_PERMUTATION_ASC
 	HIDD_RANDOM_PARAMETER_ICG
 	HIDD_RANDOM_PARAMETER_LCG
+	HID_AES_SELFEXTRACT
 	HIDD_DIALOG_KEY_SEARCH
 	HIDD_DIALOG_KEY_HOMOPHON
 	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
@@ -95,14 +114,14 @@ multipad.hpj
 	HIDD_DIALOG_KEY_PLAYFAIR
 	HID_HT_CLOSE
 	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-270	Topics
-2,188	Jumps
-302	Keywords
-176	Bitmaps
+283	Topics
+2,221	Jumps
+316	Keywords
+194	Bitmaps
 
 
-Created C:\Entwicklung\CrypTool\source\multipad\hlp\CrypTool.HLP, 1,215,520 bytes
-Bitmaps: 972,045 bytes
-Hall+Zeck compression decreased help file by 226,120 bytes.
-Compile time: 1 minute, 14 seconds
-11 notes, 19 warnings
+Created C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\CrypTool.HLP, 1,314,523 bytes
+Bitmaps: 1,053,135 bytes
+Hall+Zeck compression decreased help file by 240,227 bytes.
+Compile time: 2 minutes, 18 seconds
+11 notes, 28 warnings

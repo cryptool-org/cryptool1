@@ -889,6 +889,7 @@ BOOL TutorialFactorisation::IsPrime(CString &Num)
 
 BOOL TutorialFactorisation::Precheck()
 {
+	isFactorized = false;
 	factor1 = 0;
 	factor2 = 0;
 
@@ -906,6 +907,7 @@ BOOL TutorialFactorisation::Precheck()
 	{
 		factor1 = 2;
 		factor2 = N / 2;
+		isFactorized = true;
 		return true;
 	}
 	return false;
@@ -928,10 +930,12 @@ BOOL TutorialFactorisation::BruteForce()
         { // factor found 
             factor1 = p;
 			factor2 = N/p;
+			isFactorized = true;
 			return true;
         }
         if ((N/p)<=p)
         { // must be prime 
+			isFactorized = true;
 			return true;
         }
 		p=mip->PRIMES[++n];
@@ -944,7 +948,12 @@ BOOL TutorialFactorisation::BruteForce()
 
 BOOL TutorialFactorisation::Brent()
 {
-	if ( Precheck() ) return true;
+	if ( Precheck() ) 
+	{
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
 
     long k,r,i,m,iter;
     Big z;
@@ -968,10 +977,11 @@ BOOL TutorialFactorisation::Brent()
 		do
 		{
 			iter++;
-                if (iter>BTRIES)
-                {
-                    return false;
-                }
+            if ( ExitFactorisationCode )
+            {
+				ExitFactorisationCode = 1;
+                return false;
+            }
 			ys=y;
 			for (i=1L;i<=min(m,r-k);i++)
 			{   
@@ -991,12 +1001,15 @@ BOOL TutorialFactorisation::Brent()
 
 	if (z==N) 
 	{
+		ExitFactorisationCode = 1;
 		return false;
 	}
 
 	factor1 = z;
 	factor2 = N/z;
 
+	ExitFactorisationCode = 1;
+	isFactorized = true;
 	return true;
 }
 
@@ -1065,7 +1078,12 @@ int TutorialFactorisation::giant_step_pollard()
 
 BOOL TutorialFactorisation::Pollard()
 {
-	if ( Precheck() ) return true;
+	if ( Precheck() ) 
+	{
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
 
 	
 	/*  factoring program using Pollards (p-1) method */
@@ -1095,6 +1113,12 @@ BOOL TutorialFactorisation::Pollard()
     //cout << "\nprime= " << setw(8) << p;
     forever
     { /* main loop */
+        if ( ExitFactorisationCode )
+        {
+			ExitFactorisationCode = 1;
+            return false;
+        }
+
         if (phase==1)
         { /* looking for all factors of (p-1) < LIMIT1 */
             p=mip->PRIMES[i];
@@ -1145,10 +1169,14 @@ BOOL TutorialFactorisation::Pollard()
 			factor2=N;
             //if (prime(N)) cout << "\nprime factor      " << n;
             //else          cout << "\ncomposite factor  " << n;
+			isFactorized = true;
+			ExitFactorisationCode = 1;
             return true;
         }
     } 
     //"\nfailed to factor\n";
+	isFactorized = false;
+	ExitFactorisationCode = 1;
     return false;
 }
 
@@ -1198,7 +1226,12 @@ int TutorialFactorisation::giant_step_williams()
 
 BOOL TutorialFactorisation::Williams()
 {
-	if ( Precheck() ) return true;
+	if ( Precheck() ) 
+	{
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
 
 	 /*  factoring program using Williams (p+1) method */
     int k,phase,m,nt,pos,btch;
@@ -1230,6 +1263,12 @@ BOOL TutorialFactorisation::Williams()
         //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
+			if ( ExitFactorisationCode )
+			{
+				ExitFactorisationCode = 1;
+				return false;
+			}
+
             if (phase==1)
             { /* looking for all factors of p+1 < LIMIT1 */
                 p=mip->PRIMES[i];
@@ -1282,6 +1321,8 @@ BOOL TutorialFactorisation::Williams()
                 //else          cout << "\ncomposite factor " << n;
 				factor1=t;
 				factor2=N;
+				isFactorized = true;
+				ExitFactorisationCode = 1;
                 return true;
             }
         } 
@@ -1290,7 +1331,8 @@ BOOL TutorialFactorisation::Williams()
     }
     //cout << "\nfailed to factor\n";
     //return 0;
-
+	isFactorized = false;
+	ExitFactorisationCode = 1;
 	return false;
 }
 
@@ -1412,7 +1454,12 @@ BOOL TutorialFactorisation::Lenstra()
 {
 	 /*  factoring program using Lenstras Elliptic Curve method */
 
-	if ( Precheck() ) return true;
+	if ( Precheck() ) 
+	{
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
 	
     int phase,m,k,nc,pos,btch;
     long i,pa;
@@ -1449,6 +1496,12 @@ BOOL TutorialFactorisation::Lenstra()
         //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
+			if ( ExitFactorisationCode )
+			{
+				ExitFactorisationCode = 1;
+				return false;
+			}
+
             if (phase==1)
             {
                 p=mip->PRIMES[i];
@@ -1499,6 +1552,8 @@ BOOL TutorialFactorisation::Lenstra()
                 //else          cout << "\ncomposite factor " << N;
 				factor1=t;
 				factor2=N;
+				isFactorized = true;
+				ExitFactorisationCode = 1;
                 return true;
             }
         }
@@ -1506,7 +1561,7 @@ BOOL TutorialFactorisation::Lenstra()
         //cout << "\ntrying a different curve " << nc << "\n";
     } 
     //cout << "\nfailed to factor\n";
-    
+	ExitFactorisationCode = 1;
 	return false;
 }
 
@@ -1636,7 +1691,13 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
     do
     { /* search for best Knuth-Schroepel multiplier */
-        kk=pk[++nk];
+		if ( ExitFactorisationCode )
+		{
+			ExitFactorisationCode = 1;
+			return false;
+		}
+        
+		kk=pk[++nk];
         if (kk==0)
         { /* finished */
             kk=pk[bk];
@@ -1650,6 +1711,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
         fks-=log((double)kk)/(2.0e0);
         i=0;
         j=1;
+
         while (j<mmm)
         { /* select small primes */
             p=mip->PRIMES[++i];
@@ -1872,7 +1934,12 @@ bool TutorialFactorisation::gotcha(Big &NN, Big &P)
 
 BOOL TutorialFactorisation::QuadraticSieve()
 {
-	if ( Precheck() ) return true;
+	if ( Precheck() ) 
+	{
+		isFactorized = true;
+		ExitFactorisationCode = 1;
+		return true;
+	}
 
 	/* factoring via quadratic sieve */
 	
@@ -1889,6 +1956,8 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	if (result_initv==-1)
 	{
 		//this number is prime
+		isFactorized = true;
+		ExitFactorisationCode = 1;
 		return true;
 	}
 
@@ -1897,6 +1966,8 @@ BOOL TutorialFactorisation::QuadraticSieve()
 		//this number is a perfect square!
 		factor1=NN;
 		factor2=NN;
+		isFactorized = true;
+		ExitFactorisationCode = 1;
 		return true;
 	}
 
@@ -1919,6 +1990,12 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	logp[0]=0;
     for (i=1;i<=mmm;i++)
     { /* find root mod each prime, and approx log of each prime */
+		if ( ExitFactorisationCode )
+		{
+			ExitFactorisationCode = 1;
+			return false;
+		}
+
         r=DD%epr[i];
         rp[i]=sqrmp(r,epr[i]);     /* = square root of r mod epr[i] */
         logp[i]=0;
@@ -1942,11 +2019,22 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
     forever
     { /* try a new polynomial  */
+		if ( ExitFactorisationCode )
+		{
+			ExitFactorisationCode = 1;
+			return false;
+		}
 
         new_poly();
 
         for (ptr=(-NS);ptr<NS;ptr++)
         { /* sieve over next period */
+			if ( ExitFactorisationCode )
+			{
+				ExitFactorisationCode = 1;
+				return false;
+			}
+
             la=(long)ptr*SSIZE;
             SV=(unsigned int *)sieve;
             for (i=0;i<SSIZE/sizeof(int);i++) *SV++=0;
@@ -2003,13 +2091,14 @@ BOOL TutorialFactorisation::QuadraticSieve()
                     					
 					factor1=PP;
 					factor2=NN;
-
+					ExitFactorisationCode = 1;
+					isFactorized = true;
 					return true;
                 }
             }
         }
     }
-
+	ExitFactorisationCode = 1;
 	return false;
 }
 
