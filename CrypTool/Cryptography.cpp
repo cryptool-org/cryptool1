@@ -742,14 +742,27 @@ void Hill(const char *infile, const char *OldTitle)
 
 void Entropy( const char* infile, SymbolArray &text )
 {
+/*
+Das eingestellte Alphabet:
+- enthält %d verschiedene Zeichen.
+- die maximale Entropie dafür beträgt  %f Bit/Zeichen.
+Das analysierte Dokument:
+- enthält x verschiedene Zeichen.
+- die Entropie des Dokuments beträgt  %f Bit/Zeichen.
+*/
 	LoadText( infile, text );
 	if ( !CheckTextSize( text ) ) return;
+	int nalph = text.GetModulus();
+	int nsymbol = 0;
 
-    char line[256];
+    char line[STR_LAENGE_STRING_TABLE + 4*20];
 	CWaitCursor WCursor;
 	NGram distr(text);
+	for (int i = 0; i < nalph; i++) 
+		if (distr[i])
+			nsymbol++;
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTROPY_OF,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,pc_str,distr.Entropie());
+	sprintf(line,pc_str,nalph,log2(nalph),nsymbol,distr.Entropie());
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_ENTROPY,pc_str,STR_LAENGE_STRING_TABLE);
     theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
 
