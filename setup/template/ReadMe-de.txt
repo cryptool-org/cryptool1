@@ -348,7 +348,7 @@ CrypTool-en.hlp .. Die englische Fassung von CrypTool-de.hlp
 EC-Param.ini...... Initialisierungsdatei für auf Elliptischen
                    Kurven basierende Public Key-Verfahren.
 secude.dll........ Bibliothek kryptographischer Funktionen von der
-                   SECUDE GmbH.
+                   Secude GmbH.
 ticket............ Lizenz für die Secude-Bibliothek.
 irunin.*.......... Diese Dateien sind nötig für Installation und
                    Deinstallation von CrypTool.
@@ -387,13 +387,13 @@ examples\.. Dieses Verzeichnis enthält unterschiedliche
             verschiedenen Szenarien der Hilfe verwendet
             werden.
 
-Beispieldateien\CrypTool.bmp
-               \CrypTool-de.txt
-               \CrypTool-en.txt
-               \Playfair-enc-de.txt
-               \probetext-de.txt
-               \psion-enc.hex
-               \vernam.txt
+examples\CrypTool.bmp
+        \CrypTool-de.txt
+        \CrypTool-en.txt
+        \Playfair-enc-de.txt
+        \probetext-de.txt
+        \psion-enc.hex
+        \vernam.txt
 
 pse\.............. In diesem Verzeichnis und seinem
                    Unterverzeichnis pseca\ werden erzeugte
