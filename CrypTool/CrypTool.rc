@@ -331,7 +331,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -2232,11 +2232,11 @@ BEGIN
     EDITTEXT        IDC_EDIT_RSA_PHI_N,100,134,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
     LTEXT           "(geheim)",IDC_STATIC_RSA6,238,136,30,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,152,75,8,
+    LTEXT           "Öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,152,75,8,
                     NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,
+    LTEXT           "Geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,
                     NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
@@ -2247,8 +2247,6 @@ BEGIN
     LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    PUSHBUTTON      "RSA-Schlüssel importieren...",ID_IMPORT_KEY,100,197,128,
-                    14
 END
 
 IDD_CERTIFICATE_GENERATION DIALOG DISCARDABLE  0, 0, 354, 269
@@ -2295,7 +2293,7 @@ END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Select a hash function"
+CAPTION "Hashverfahren auswählen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
@@ -2309,7 +2307,7 @@ BEGIN
                     25,61,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
                     BS_LEFT,25,76,61,10
-    GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
 END
 
 IDD_FACTORISATION_LIST DIALOG DISCARDABLE  0, 0, 383, 348
@@ -4023,9 +4021,7 @@ BEGIN
     IDD_SEL_HASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 141
         TOPMARGIN, 7
-        BOTTOMMARGIN, 123
     END
 
     IDD_SELECT_HASHFUNCTION, DIALOG
@@ -5692,7 +5688,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -7563,7 +7559,7 @@ END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hashverfahren auswählen"
+CAPTION "Select a hash function"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
@@ -7577,47 +7573,44 @@ BEGIN
                     25,61,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
                     BS_LEFT,25,76,61,10
-    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+    GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
 END
 
 IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "RSA-Schlüssel generieren"
+CAPTION "Generate RSA key"
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",
                     IDC_STATIC_TEXT,7,7,296,24
-    GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,7,36,337,48
-    LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
+    GROUPBOX        "Prime number entry",IDC_STATIC_PRIME,7,36,337,48
+    LTEXT           "Prime number p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
-    LTEXT           "Primzahl q",IDC_STATIC_PRIME2,19,66,75,8
+    LTEXT           "Prime number q",IDC_STATIC_PRIME2,19,66,75,8
     EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Primzahlen &generieren...",IDC_GENERATE_PRIME,238,48,98,
+    PUSHBUTTON      "Generate prime numbers...",IDC_GENERATE_PRIME,238,48,98,
                     14
-    GROUPBOX        "RSA-Schlüssel-Parameter für Empfänger",IDC_STATIC_RSA,7,
-                    87,337,101
-    LTEXT           "RSA-Modul N",IDC_STATIC_RSA1,19,118,75,8
+    GROUPBOX        "RSA  parameter",IDC_STATIC_RSA,7,87,337,101
+    LTEXT           "RSA modulus N",IDC_STATIC_RSA1,19,118,75,8
     EDITTEXT        IDC_EDIT_RSA_MODUL_N,100,117,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "(öffentlich)",IDC_STATIC_RSA5,238,119,34,8
+    LTEXT           "(public)",IDC_STATIC_RSA5,238,119,24,8
     LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC_RSA2,19,135,75,8,NOT 
                     WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_PHI_N,100,134,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "(geheim)",IDC_STATIC_RSA6,238,136,30,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,152,75,8,
-                    NOT WS_GROUP
+    LTEXT           "(secret)",IDC_STATIC_RSA6,238,136,24,8
+    LTEXT           "Public key e",IDC_STATIC_RSA3,19,152,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,
-                    NOT WS_GROUP
+    LTEXT           "Private key d",IDC_STATIC_RSA4,19,169,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    PUSHBUTTON      "Abbrechen",IDCANCEL,19,197,50,14
-    DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,238,197,106,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,19,197,50,14
+    DEFPUSHBUTTON   "Accept key",IDOK,238,197,106,14,WS_DISABLED
     LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
     LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
-    LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
+    LTEXT           "Length",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
 END
@@ -8376,6 +8369,7 @@ END
 
 #endif    // !_MAC
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
@@ -8428,9 +8422,6 @@ RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10036,7 +10027,7 @@ END
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
-*/
+
 
 
 #ifndef APSTUDIO_INVOKED

@@ -243,7 +243,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (hPSE_CA==NULL)
 	{
 		// Fehler beim Öffnen der CA-PSE
-		//Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove("");
 		// Freigeben von dynamisch angelegtem Speicher
@@ -259,7 +259,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (Cert_CA==NULL)
 	{
 		// Fehler bei der Zertifizierung
-		//Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2, MB_ICONSTOP); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -273,7 +273,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (theApp.SecudeLib.af_cadb_add_Certificate (hPSE_CA, SIGNATURE, Cert_CA))
 	{
 		// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-		//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -295,7 +295,7 @@ BOOL CPSEDemo::CreatePSE()
 		if (theApp.SecudeLib.af_pse_update_PKRoot(m_hPSE, pkroot))
 		{
 			// Error writing certificate to the user PSE
-			//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
+			Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 			// Lösche die neu angelegte PSE
 			//remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -316,7 +316,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (theApp.SecudeLib.af_pse_update(m_hPSE, "Cert", Cert_CA, *theApp.SecudeLib.Cert_OID))
 	{
 		// Error writing certificate to the user PSE
-		//Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 		//remove(string3);
 		// Freigeben von dynamisch angelegtem Speicher
@@ -405,14 +405,29 @@ BOOL CPSEDemo::SetHashAlg(const CString& sHashAlg)
 CString CPSEDemo::CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const long lTime)
 {
 	CString sUserKeyId;
-	sUserKeyId.Format(sKeyID.IsEmpty()? IDS_CREATE_USER_KEY_ID1: IDS_CREATE_USER_KEY_ID2, sName, sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), lTime, sKeyID);
+	CString Name = sName;
+	CString FirstName = sFirstName;
+	CString KeyID = sKeyID;
+	Name.TrimLeft();
+	Name.TrimRight();
+	FirstName.TrimLeft();
+	FirstName.TrimRight();
+	KeyID.TrimLeft();
+	KeyID.TrimRight();
+	sUserKeyId.Format(KeyID.IsEmpty()? IDS_CREATE_USER_KEY_ID1: IDS_CREATE_USER_KEY_ID2, Name, FirstName, TUTORIAL_ALG_NAME, GetBitLength(), lTime, sKeyID);
 	return sUserKeyId;
 }
 
 CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName, const long lTime)
 {
 	CString sDisName;
-	sDisName.Format(IDS_CREATE_DISNAME, sFirstName, sName, lTime);
+	CString Name = sName;
+	CString FirstName = sFirstName;
+	Name.TrimLeft();
+	Name.TrimRight();
+	FirstName.TrimLeft();
+	FirstName.TrimRight();
+	sDisName.Format(IDS_CREATE_DISNAME, FirstName, Name, lTime);
 	return sDisName;
 }
 
@@ -425,7 +440,7 @@ CString CPSEDemo::GetCert()
 	if (hPSE_CA==NULL)
 	{
 		// Fehler beim öffnen der CA-Datenbank
-		//Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT); /*FIXME*/
 		// Freigeben von dynamisch angelegtem Speicher
 
 		return m_sCert;

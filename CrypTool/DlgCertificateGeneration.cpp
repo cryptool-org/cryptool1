@@ -121,10 +121,10 @@ void CDlgCertificateGeneration::OnChangeEdit()
 	time(&m_lTime);
 
 	
-	m_sUserID = m_Cert->CreateUserKeyID();
-	m_sDName = m_Cert->CreateDisName();
+	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
+	m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
 	UpdateData(FALSE);
-	m_CtrlOK.EnableWindow(TRUE);
+	if(m_Cert->IsInitialized()) m_CtrlOK.EnableWindow(TRUE);
 }
 
 void CDlgCertificateGeneration::OnOK() 
