@@ -5124,13 +5124,13 @@ BEGIN
     IDS_SECUDE_COULD_NOT_BE_LOADED "Secude Lib konnte nicht geladen werden!"
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
-                            "Die jeweilig nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
+                            "Die jeweils nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
     IDS_FACTORISATION_LIST_TOTAL_TIME 
                             "Gesamtzeitdauer der Faktorisierungen: %s"
     IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Faktorisierung"
     IDS_FACTORISATION_LIST_TIME "Gesamtdauer der Faktorisierung: %s"
     IDS_FACTORISATION_LIST_RESULT 
-                            "Die Eingabezahl wurde in den folgenden Faktoren zerlegt:"
+                            "Die Eingabezahl wurde in die folgenden Faktoren zerlegt:"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5548,7 +5548,7 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müssen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
-    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %s"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Insgesamt benötigte Zeit:   %s"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED 
                             "PKCS#12-Struktur konnte nicht erzeugt werden."
@@ -10969,7 +10969,7 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
     IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
-    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Time required:   %s"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Total time required:   %s"
     IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
     IDS_STRING_INPUT_PSEPIN "Please enter the PSE PIN."
