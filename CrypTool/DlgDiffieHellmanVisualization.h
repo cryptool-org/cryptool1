@@ -73,6 +73,7 @@ protected:
 	afx_msg void OnButtonbob3();
 	afx_msg void OnCheckDisablehelp();
 	afx_msg void OnKey();
+	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

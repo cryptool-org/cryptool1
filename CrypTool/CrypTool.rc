@@ -2530,8 +2530,8 @@ CAPTION "Öffentliche Parameter setzen"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
     EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
     PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,109,100,
                     14
     DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
@@ -2541,7 +2541,7 @@ BEGIN
     LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahlmodul (p) - dürfen öffentlich bekannt sein.",
                     IDC_STATIC,15,7,363,8
-    LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+    LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Falls Sie keine große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
                     IDC_STATIC,15,28,363,16
     LTEXT           "Primzahlmodul:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
 END
@@ -2553,21 +2553,23 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
-    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice (a) bzw. Bob (b) festlegen, die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
+    LTEXT           "Sie können nun jeweils nacheinander die Geheimnisse für Alice (a) bzw. Bob (b) festlegen. Die entsprechenden Buttons werden nach einem Klick auf OK aktiviert.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
-IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 101
+IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 117
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Öffentliche Teilschlüssel erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
-    LTEXT           "Nun können Sie die öffentlichen Teilschlüssel A und B von Alice und Bob erzeugen, sofern Sie im vorigen Schritt schon deren Geheimnisse a und b festgelegt haben.",
+    DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
+    LTEXT           "Nun können Sie die öffentlichen Schlüssel von Alice (A) und Bob (B) erzeugen, sofern Sie im vorigen Schritt schon deren Geheimnisse a und b festgelegt haben.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Die beiden Teilschlüssel lassen sich wie folgt berechnen: A=g^a mod p bzw. B=g^b mod p.",
+                    IDC_STATIC,7,69,186,16
 END
 
 IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG DISCARDABLE  0, 0, 200, 101
@@ -2582,16 +2584,18 @@ BEGIN
     CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 101
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 118
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Geheimen Schlüssel generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
-    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel S berechnen.",
+    DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und den gemeinsamen Schlüssel S berechnen.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "Dieser gemeinsame Session Key S wird berechnet als (g^a)^b mod p und als (g^b)^a mod p.",
+                    IDC_STATIC,7,69,186,17
 END
 
 IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG DISCARDABLE  0, 0, 388, 146
@@ -4038,6 +4042,7 @@ IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExc
 IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
 IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\MainBackground.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5921,9 +5926,9 @@ BEGIN
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Bitte geben Sie nur natürliche Zahlen in dezimaler Form ein (keine Buchstaben und/oder sonstige Sonderzeichen)."
     IDS_DH_CALCULATE_PUBLIC_KEY_ALICE 
-                            "Alice hat ihren öffentlichen Teilschlüssel A = g^a berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+                            "Alice hat ihren öffentlichen Teilschlüssel A = g^a mod p berechnet.\nDieser Teilschlüssel wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_CALCULATE_PUBLIC_KEY_BOB 
-                            "Bob hat seinen öffentlichen Teilschlüssel B = g^b berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+                            "Bob hat seinen öffentlichen Teilschlüssel B = g^b mod p berechnet.\nDieser Teilschlüssel wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_SESSION_KEY_CALCULATED_BY_ALICE 
                             "Alice hat anhand des öffentlichen Schlüssels von Bob (B) und ihres Geheimnisses (a) den gemeinsamen Schlüssel S = B^a = (g^b)^a berechnet.\nDieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
@@ -8572,28 +8577,32 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,168,133,10
 END
 
-IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 101
+IDD_DIFFIEHELLMAN_CREATESHAREDKEY DIALOG DISCARDABLE  0, 0, 200, 109
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Create Shared Keys"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,88,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,88,50,14
     LTEXT           "If you already chose secret numbers for Alice (a) or Bob (b), you can create their according shared keys A and B now.",
-                    IDC_STATIC,7,37,186,24,NOT WS_GROUP
+                    IDC_STATIC,7,37,186,16,NOT WS_GROUP
     CONTROL         547,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
+    LTEXT           "The shared keys are computed as follows:\nA=g^a mod p and B=g^b mod p.",
+                    IDC_STATIC,7,61,186,16
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 101
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG DISCARDABLE  0, 0, 200, 117
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generate Common Session Key"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,96,50,14
     CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
-    LTEXT           "All preconditions to generate a common and secret Session Key S for Alice and Bob are fulfilled. You can generate Alice's and Bob's Session Key after a click on the 'OK' button.",
+    LTEXT           "All preconditions to generate a common and secret Session Key S for Alice and Bob are fulfilled. You can generate Alice's and Bob's Session Key after a click on 'OK'.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    LTEXT           "The common Session Key S is computed as follows:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",
+                    IDC_STATIC,7,69,186,16
 END
 
 IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG DISCARDABLE  0, 0, 393, 172
@@ -8602,8 +8611,8 @@ CAPTION "Set Public Parameters"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Generate Prime",IDC_GENERATE_PRIME,277,53,100,14
     EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Generate Prime",IDC_GENERATE_PRIME,277,53,100,14
     PUSHBUTTON      "Create Ge&nerator",IDC_GENERATE_GENERATOR,278,109,100,
                     14
     DEFPUSHBUTTON   "&Accept parameters",IDOK,15,137,100,20

@@ -92,6 +92,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanVisualization, CDialog)
 	ON_BN_CLICKED(IDC_BUTTONBOB3, OnButtonbob3)
 	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
 	ON_BN_CLICKED(IDC_KEY, OnKey)
+	ON_WM_PAINT()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -573,4 +574,27 @@ void CDlgDiffieHellmanVisualization::OnKey()
 {
 	CDlgDiffieHellmanKeyInformation dlg((char*)(LPCTSTR)this->m_SessionKeyAlice, (char*)(LPCTSTR)this->m_SessionKeyBob, this->pDiffieHellmanLogFile);
 	dlg.DoModal();
+}
+
+
+// Diese Funktion soll verhindern, dass der Hauptdialog unter verschiedenen
+// Betriebssystemen/Versionen möglichst ähnlich aussieht. Die Funktion hinterlegt
+// ein flächendeckendes, großes Bitmap, dass für eine einheiliche Hintergrundfarbe
+// sorgt.
+void CDlgDiffieHellmanVisualization::OnPaint() 
+{
+	CPaintDC dc(this); // device context for painting
+	
+	     CBitmap bmp, *poldbmp;
+         CDC memdc;
+         // Load the bitmap resource
+         bmp.LoadBitmap( IDB_DH_MAINBACKGROUND );
+         // Create a compatible memory DC
+         memdc.CreateCompatibleDC( &dc );
+         // Select the bitmap into the DC
+         poldbmp = memdc.SelectObject( &bmp );
+         // Copy (BitBlt) bitmap from memory DC to screen DC
+         dc.BitBlt( 0, 0, 795, 575, &memdc, 0, 0, SRCCOPY );
+         memdc.SelectObject( poldbmp );
+         // Do not call CDialog::OnPaint() for painting messages
 }
