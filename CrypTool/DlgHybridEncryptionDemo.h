@@ -22,8 +22,9 @@ class CDlgHybridEncryptionDemo : public CDialog
 // Konstruktion
 public:
 	bool DateiOeffnen(const CString &DateiPfadName);
-	bool m_arrSetButtons[11];
-	bool m_barrSetCondition[11];
+	int m_ButtonStatus[11];					// Zustand des Buttons (deaktiviert / aktiviert, aber noch nicht
+											// gedrückt / aktiviert und schon gedrückt)
+	bool m_ActionPerformed[11];				// Button wurde gedrückt? (TRUE = ja / FALSE = nein)
 	bool m_setMatrix[11][11];
 	CString m_strBuffEditEncKeyAsym;
 	CString m_strBuffEditEncDoc;
@@ -68,8 +69,8 @@ public:
 	CBitmapButton m_ctrlBmpSechseck1;
 	CBitmapButton m_ctrlBmpSechseck2;
 	CBitmapButton m_ctrlBmpSechseck3;
-	CBitmapButton m_ctrlBmpViereck1;
-	CBitmapButton m_ctrlBmpViereck2;
+	CBitmapButton m_ctrlBmpRechteck1;
+	CBitmapButton m_ctrlBmpRechteck2;
 	CBitmapButton m_ctrlBmpOval1;
 	CBitmapButton m_ctrlBmpOval2;
 
@@ -82,6 +83,8 @@ public:
 
 // Implementierung
 protected:
+
+	CWnd *m_hFocus;		// Zeiger auf CWnd
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgHybridEncryptionDemo)
@@ -99,6 +102,9 @@ protected:
 	afx_msg void OnButtonDatenausgabe();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+	enum ButtonStatus {inactive /* = 0*/, active_not_pressed /* = 1*/, active_pressed /* = 2*/};
 };
 
 //{{AFX_INSERT_LOCATION}}

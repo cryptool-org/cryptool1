@@ -899,7 +899,7 @@ int CHillEncryption::angriff(int min, int max, CSquareMatrixModN** mat, int rc_a
 		
 		CSquareMatrixModN* ergebnismat;
 		ergebnismat = new CSquareMatrixModN(testdim,modul);
-		__asm int 3
+
 		SucheSchluessel (0, // Rekursionsstufe
 			testdim,
 			local_laenge/testdim,  //Anzahl der Bloecke

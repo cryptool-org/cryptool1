@@ -43,10 +43,14 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	
 	for(int i=0;i<11;i++)
 	{
-		m_barrSetCondition[i] = false;
-		m_arrSetButtons[i] = false;
+		m_ButtonStatus[i] = inactive;
+		m_ActionPerformed[i] = false;
 	}
 	
+	m_ButtonStatus[0] = active_not_pressed;		// diese drei Buttons können am Anfang schon gedrückt werden, daher
+	m_ButtonStatus[1] = active_not_pressed;		// werden sie auf active_not_pressed gesetzt
+	m_ButtonStatus[3] = active_not_pressed;
+
 	//Array mit den Voraussetzungen
 
 	for(i=0;i<11;i++)
@@ -117,19 +121,20 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	m_ctrlBmpRaute3.AutoLoad(IDC_BUTTON_SHOW_ASYM_KEY,this);
 	m_ctrlBmpRaute4.AutoLoad(IDC_BUTTON2,this);
 	m_ctrlBmpRaute5.AutoLoad(IDC_BUTTON3,this);
-	m_ctrlBmpViereck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
-	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
+	m_ctrlBmpRechteck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
+	m_ctrlBmpRechteck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
 	m_ctrlBmpOval1.AutoLoad(IDCANCEL,this);
 	m_ctrlBmpOval2.AutoLoad(IDC_BUTTON_DATENAUSGABE,this);
+
 	//Laden der Bitmaps und als Steuerelemte anzeigen
 
 	if(!m_bAuswahlDat)
 	{
-		m_barrSetCondition[0]=true;
+		m_ActionPerformed[0]=true;
 	}
 	//wenn m_bAuswahlDat auf false gesetzt ist, wurde Text aus dem CrypTool-Editor in das Editfeld des 
 	//HybridverfahrenDialogs geladen, d.h. es muss keine Datei mehr ausgewählt werden.
-	//Der Button um den Text anzuzeigen wird aktiviert indem m_barrSetCondition[0]auf true gesetzt wird
+	//Der Button um den Text anzuzeigen wird aktiviert indem m_ActionPerformed[0]auf true gesetzt wird
 	EnDisButtons();
 	//Aktualisieren der gegebenen Voraussetzungen
 	ShowButtons();
@@ -154,6 +159,8 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 
 void CDlgHybridEncryptionDemo::OnButtonGetDocument() 
 {
+	m_ButtonStatus[0]=active_pressed;
+
 	int DatGroesse=0;
 	CString loc_filename = "";
 	m_strBuffTitle = "";
@@ -184,6 +191,7 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 {
 	//Generieren eines symmetrischen Schluessels mit einem Zufallsgenerator
 
+	m_ButtonStatus[1]=active_pressed;
 	UpdateData(true);
 	m_strSymKey="";
 	m_strEdit = "";
@@ -209,13 +217,15 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 			_snprintf(array,3,"%02.2X",(unsigned char) SymKey[j]);
 			m_strSymKey+=array;					
 	}
+
 	SetCondition(1,true);
+
 	UpdateData(false);
 }
 
 void CDlgHybridEncryptionDemo::OnButtonShowSymKey() 
 {
-	if(!m_arrSetButtons[2])	
+	if(inactive==m_ButtonStatus[2])	
 	{
 		Message( IDS_STRING_HYB_SHOW_SYM_KEY, MB_ICONEXCLAMATION );
 		return;
@@ -241,11 +251,14 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 
 void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym() 
 {
-	if(!m_arrSetButtons[5])	
+	if(inactive==m_ButtonStatus[5])	
 	{
 		Message(IDS_STRING_HYB_ENC_DOC_SYM, MB_ICONEXCLAMATION);
 		return;
 	}
+
+	m_ButtonStatus[5]=active_pressed;
+
 	UpdateData(true);
 
 	int AlgId=3;
@@ -283,6 +296,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	HIDE_HOUR_GLASS
 
 	SetCondition(5,true);
+
 	UpdateData(false);
 }
 
@@ -326,7 +340,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 			return;
 		}
 		theApp.SecudeLib.af_close(PseHandle);
-		
+		m_ButtonStatus[3]=active_pressed;
 		SetCondition(3,true);
 	}
 	UserKeyId=rsaDlg.UserKeyId;
@@ -339,7 +353,7 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 {
 	// Dialogbox zur Auswahl des zu benutzenden (öffentlichen) Schlüssels anzeigen
 	
-	if(m_barrSetCondition[3])
+	if(m_ActionPerformed[3])
 	{
 		// Initialisierung der Variablen
 		OctetString *in=new OctetString;
@@ -461,11 +475,14 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 
 void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym() 
 {
-	if(!m_arrSetButtons[6])	
+	if(inactive==m_ButtonStatus[6])	
 	{
 		Message(IDS_STRING_HYB_ENC_KEY_ASYM,MB_ICONEXCLAMATION);
 		return;
 	}
+
+	m_ButtonStatus[6]=active_pressed;
+
 	SHOW_HOUR_GLASS
 	//Sanduhr als Cursor
 
@@ -480,6 +497,12 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 			m_strBuffEditEncKeyAsym+=array;					
 	}
 	m_strTitle = "";
+
+	
+
+	UpdateData(false);
+
+
 	SetCondition(6,true);
 	UpdateData(false);
 	HIDE_HOUR_GLASS
@@ -490,7 +513,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 void CDlgHybridEncryptionDemo::OnButtonShowAsymKey() 
 {
 
-	if(!m_arrSetButtons[4])	
+	if(inactive==m_ButtonStatus[4])	
 	{
 		Message(IDS_STRING_HYB_SHOW_ASYM_KEY, MB_ICONEXCLAMATION);
 		return;
@@ -621,10 +644,9 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	UpdateData(false);	
 }
 
-
 void CDlgHybridEncryptionDemo::SetCondition(int button,bool state)
 {
-	m_barrSetCondition[button] = state;
+	m_ActionPerformed[button] = state;
 	ResetDependent(button);
 	EnDisButtons();
 	ShowButtons();
@@ -633,37 +655,46 @@ void CDlgHybridEncryptionDemo::SetCondition(int button,bool state)
 void CDlgHybridEncryptionDemo::ResetDependent(int button)
 {
 	int i;
-	for (i = 0; i < 11; i++) 
-		if (m_setMatrix[i][button] && m_barrSetCondition[i]) {
-			m_barrSetCondition[i] = false;
+	for (i = 0; i < 11; i++)
+	{
+		if (m_setMatrix[i][button] && m_ActionPerformed[i])
+		{
+			m_ActionPerformed[i] = false;
 			ResetDependent(i);
 		}
+	}
 }
+
 void CDlgHybridEncryptionDemo::EnDisButtons()
 {
 	for(int i=0;i<11;i++)
 	{
-		m_arrSetButtons[i]=true;
+		if(!m_ActionPerformed[i])
+		{
+			m_ButtonStatus[i]=active_not_pressed;
+		}
+		else
+		{
+			m_ButtonStatus[i]=active_pressed;
+		}
+
 		for(int j=0;j<11;j++)
 		{
 			if(m_setMatrix[i][j])
 			{
-				if(!m_barrSetCondition[j])
+				if(!m_ActionPerformed[j])
 				{
-					m_arrSetButtons[i]=false;
+					m_ButtonStatus[i]=inactive;
 					break;
 				}
-				
 			}
 		}
 	}
-
 }
-
 
 void CDlgHybridEncryptionDemo::OnButtonShowDocument() 
 {
-	if(!m_arrSetButtons[7])	
+	if(inactive==m_ButtonStatus[7])	
 	{
 		Message(IDS_STRING_HYB_SHOW_DOC, MB_ICONEXCLAMATION);
 		return;
@@ -694,7 +725,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowDocument()
 
 void CDlgHybridEncryptionDemo::OnButtonShowEncDocument() 
 {
-	if(!m_arrSetButtons[8])	
+	if(inactive==m_ButtonStatus[8])	
 	{
 		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
@@ -726,7 +757,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 
 void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey() 
 {
-	if(!m_arrSetButtons[9])	
+	if(inactive==m_ButtonStatus[9])	
 	{
 		Message(IDS_STRING_HYB_ENC_SYM_KEY, MB_ICONEXCLAMATION);
 		return;
@@ -740,123 +771,178 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey()
 
 void CDlgHybridEncryptionDemo::ShowButtons()
 {
+	m_hFocus = GetFocus();
 
 	for(int i=0;i<11;i++)
 	{
-	
 		switch(i)
 		{
-		case 0:break;
-		case 1:break;
-		case 2:if(m_arrSetButtons[i])
+		case 0:if(active_not_pressed==m_ButtonStatus[i])
 			   {
-					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2U","RAUTE2D","RAUTE2F",NULL);
+					m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_R_U", "SECHSECK1_R_D", "SECHSECK1_R_F", NULL);
+					m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
+			   }
+				else if(active_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpSechseck1.LoadBitmaps("SECHSECK1_G_U", "SECHSECK1_G_D", "SECHSECK1_G_F", NULL);
+					m_ctrlBmpSechseck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck1.ShowWindow(SW_SHOW);
+			   };break;
+
+		case 1:if(active_not_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_R_U", "SECHSECK2_R_D", "SECHSECK2_R_F", NULL);
+					m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
+			   }
+				else if(active_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpSechseck2.LoadBitmaps("SECHSECK2_G_U", "SECHSECK2_G_D", "SECHSECK2_G_F", NULL);
+					m_ctrlBmpSechseck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck2.ShowWindow(SW_SHOW);
+			   };break;
+
+		case 2:if(m_ButtonStatus[i])
+			   {
+					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_B_U", "RAUTE2_B_D", "RAUTE2_B_F", NULL);
 					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2X",NULL,NULL,NULL);
+					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2_X_U", NULL, NULL, NULL);
 					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 3:break;
-		case 4:if(m_arrSetButtons[i])
+
+		case 3:if(active_not_pressed==m_ButtonStatus[i])
 			   {
-					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3U","RAUTE3D","RAUTE3F",NULL);
+					m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_R_U", "SECHSECK3_R_D", "SECHSECK3_R_F", NULL);
+					m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
+			   }
+				else if(active_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpSechseck3.LoadBitmaps("SECHSECK3_G_U", "SECHSECK3_G_D", "SECHSECK3_G_F", NULL);
+					m_ctrlBmpSechseck3.ShowWindow(SW_HIDE);
+					m_ctrlBmpSechseck3.ShowWindow(SW_SHOW);
+			   };break;
+
+		case 4:if(m_ButtonStatus[i])
+			   {
+					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_B_U", "RAUTE3_B_D", "RAUTE3_B_F", NULL);
 					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3X",NULL,NULL,NULL);
+					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3_X_U", NULL, NULL, NULL);
 					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 5:if(m_arrSetButtons[i])
+
+		case 5:if(active_not_pressed==m_ButtonStatus[i])
 			   {
-					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1U","VIERECK1D","VIERECK1F",NULL);
-					m_ctrlBmpViereck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpViereck1.ShowWindow(SW_SHOW);
+					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_R_U", "RECHTECK1_R_D", "RECHTECK1_R_F", NULL);
+					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
+			   }
+				else if(active_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_G_U", "RECHTECK1_G_D", "RECHTECK1_G_F", NULL);
+					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1X",NULL,NULL,NULL);
-					m_ctrlBmpViereck1.ShowWindow(SW_HIDE);
-					m_ctrlBmpViereck1.ShowWindow(SW_SHOW);
+					m_ctrlBmpRechteck1.LoadBitmaps("RECHTECK1_X_U", NULL, NULL, NULL);
+					m_ctrlBmpRechteck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck1.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 6:if(m_arrSetButtons[i])
+
+		case 6:if(active_not_pressed==m_ButtonStatus[i])
 			   {
-					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2U","VIERECK2D","VIERECK2F",NULL);
-					m_ctrlBmpViereck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpViereck2.ShowWindow(SW_SHOW);
+					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_R_U", "RECHTECK2_R_D", "RECHTECK2_R_F", NULL);
+					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
+			   }
+				else if(active_pressed==m_ButtonStatus[i])
+			   {
+					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_G_U", "RECHTECK2_G_D", "RECHTECK2_G_F", NULL);
+					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2X",NULL,NULL,NULL);
-					m_ctrlBmpViereck2.ShowWindow(SW_HIDE);
-					m_ctrlBmpViereck2.ShowWindow(SW_SHOW);
+					m_ctrlBmpRechteck2.LoadBitmaps("RECHTECK2_X_U", NULL, NULL, NULL);
+					m_ctrlBmpRechteck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpRechteck2.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 7:if(m_arrSetButtons[i])
+
+		case 7:if(m_ButtonStatus[i])
 			   {
-					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1U","RAUTE1D","RAUTE1F",NULL);
+					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_B_U", "RAUTE1_B_D", "RAUTE1_B_F", NULL);
 					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1X",NULL,NULL,NULL);
+					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1_X_U", NULL, NULL, NULL);
 					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 8:if(m_arrSetButtons[i])
+
+		case 8:if(m_ButtonStatus[i])
 			   {
-					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4U","RAUTE4D","RAUTE4F",NULL);
+					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_B_U", "RAUTE4_B_D", "RAUTE4_B_F", NULL);
 					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4X",NULL,NULL,NULL);
+					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4_X_U", NULL, NULL, NULL);
 					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
 			   
 			   };break;
-		case 9:if(m_arrSetButtons[i])
+
+		case 9:if(m_ButtonStatus[i])
 			   {
-					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5U","RAUTE5D","RAUTE5F",NULL);
+					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_B_U", "RAUTE5_B_D", "RAUTE5_B_F", NULL);
 					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5X",NULL,NULL,NULL);
+					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5_X_U", NULL, NULL, NULL);
 					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
 			   
 			   };break;
-   	   case 10:if(m_arrSetButtons[i])
+
+   	   case 10:if(m_ButtonStatus[i])
 			   {
-					m_ctrlBmpOval2.LoadBitmaps("OVAL2U","OVAL2D","OVAL2F",NULL);
+					m_ctrlBmpOval2.LoadBitmaps("OVAL2_G_U", "OVAL2_G_D", "OVAL2_G_F", NULL);
 					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
 					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-					m_ctrlBmpOval2.LoadBitmaps("OVAL2X",NULL,NULL,NULL);
+					m_ctrlBmpOval2.LoadBitmaps("OVAL2_X_U", NULL, NULL, NULL);
 					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
 					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
 			   
 			   };break;
-
-
 		}
 	}
+
+	m_hFocus->SetFocus();
 }
 
 CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
@@ -900,7 +986,7 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 
 void CDlgHybridEncryptionDemo::OnButtonDatenausgabe() 
 {
-	if(!m_arrSetButtons[10])	
+	if(!m_ButtonStatus[10])	
 	{
 		Message(IDS_STRING_HYB_SHOW_DATA, MB_ICONEXCLAMATION);
 		return;
@@ -993,5 +1079,3 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	CDialog::OnOK();
 	
 }
-
-

@@ -496,6 +496,10 @@ SOURCE=.\res\bitmap8.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap9.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmapLetsStart.bmp
 # End Source File
 # Begin Source File
@@ -2931,6 +2935,18 @@ SOURCE=.\res\Bitmaps_en\Oval1_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Oval1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval1_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Oval1_U.bmp
 # End Source File
 # Begin Source File
@@ -2963,6 +2979,18 @@ SOURCE=.\res\Oval2_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Oval2_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval2_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Oval2_U.bmp
 # End Source File
 # Begin Source File
@@ -2984,6 +3012,10 @@ SOURCE=.\res\Bitmaps\Oval2_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Oval2_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval2_X_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3110,6 +3142,18 @@ SOURCE=.\RandomTest.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Raute1_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute1_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute1_B_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Raute1_D.bmp
 # End Source File
 # Begin Source File
@@ -3139,6 +3183,22 @@ SOURCE=.\res\Bitmaps\Raute1_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Raute1_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute1_X_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute2_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute2_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute2_B_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3174,6 +3234,22 @@ SOURCE=.\res\Bitmaps_en\Raute2_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Raute2_X_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute3_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute3_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute3_B_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Raute3_D.bmp
 # End Source File
 # Begin Source File
@@ -3203,6 +3279,22 @@ SOURCE=.\res\Bitmaps\Raute3_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Raute3_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute3_X_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute4_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute4_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute4_B_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3238,6 +3330,22 @@ SOURCE=.\res\Bitmaps_en\Raute4_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Raute4_X_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute5_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute5_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute5_B_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Raute5_D.bmp
 # End Source File
 # Begin Source File
@@ -3267,6 +3375,10 @@ SOURCE=.\res\Bitmaps\Raute5_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Raute5_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Raute5_X_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3314,6 +3426,10 @@ SOURCE=.\res\sarrows.cur
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\sechseck.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Sechseck1_D.bmp
 # End Source File
 # Begin Source File
@@ -3327,6 +3443,30 @@ SOURCE=.\res\Bitmaps\Sechseck1_F.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Sechseck1_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck1_R_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3354,6 +3494,30 @@ SOURCE=.\res\Bitmaps_en\Sechseck2_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Sechseck2_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck2_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck2_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck2_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck2_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Sechseck2_U.bmp
 # End Source File
 # Begin Source File
@@ -3375,6 +3539,30 @@ SOURCE=.\res\Bitmaps\Sechseck3_F.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Sechseck3_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Sechseck3_R_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3568,6 +3756,30 @@ SOURCE=.\res\Bitmaps_en\Viereck1_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Viereck1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Viereck1_U.bmp
 # End Source File
 # Begin Source File
@@ -3581,6 +3793,10 @@ SOURCE=.\res\Bitmaps\Viereck1_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Viereck1_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck1_X_U.bmp
 # End Source File
 # Begin Source File
 
@@ -3600,6 +3816,30 @@ SOURCE=.\res\Bitmaps_en\Viereck2_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Viereck2_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Bitmaps\Viereck2_U.bmp
 # End Source File
 # Begin Source File
@@ -3613,6 +3853,10 @@ SOURCE=.\res\Bitmaps\Viereck2_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Viereck2_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Viereck2_X_U.bmp
 # End Source File
 # Begin Source File
 
