@@ -2,16 +2,17 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>(Untitled)</TITLE>
+<TITLE>Diffie-Hellman-Schlüsselaustauschverfahren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Diffie-Hellman-Schlüsselaustausch">
 </OBJECT>
 
-<P><A NAME="dh-verfahren"></A><B>Diffie-Hellman-Schlüsselaustauschverfahren</B></P>
+<h3><P><A NAME="dh-verfahren"></A><B>Diffie-Hellman-Schlüsselaustauschverfahren</B></P></h3>
 
 <P>Das Diffie-Hellman-Schlüsselaustauschverfahren wurde 1976 von Whitfield Diffie, Martin E. Hellman und Ralph Merkle entwickelt.</P>
 
@@ -23,25 +24,21 @@
 
 <P>Im folgenden werden die beiden Parteien zwecks besseren Verständnisses als Alice und Bob bezeichnet. Die nachstehende Skizze soll einen kurzen Überblick über den Verfahrensablauf geben:</P>
 
-<P><IMG SRC="images/dh_procedure.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dh_procedure.gif" ALT="dh_procedure.gif" BORDER=0></P>
 
 <P>Der gemeinsame und geheime Schlüssel, den man auch als <I>Session Key</I> bezeichnet, hängt von folgenden Parametern ab:</P>
 
-<P><!--ZZZUL-->
-
 <UL>
-	<LI>Öffentliche Parameter (p und g)<BR><BR></LI>
+	<LI>Öffentliche Parameter (p und g)</LI>
 
-	<LI>Geheimnis Alice<BR><BR></LI>
+	<LI>Geheimnis Alice</LI>
 
-	<LI>Geheimnis Bob<BR><BR></LI>
+	<LI>Geheimnis Bob</LI>
 
-	<LI>Öffentlicher Schlüssel Alice<BR><BR></LI>
+	<LI>Öffentlicher Schlüssel Alice</LI>
 
 	<LI>Öffentlicher Schlüssel Bob</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 <P>Basis des Verfahrens ist das Problem des diskreten Logarithmus, d.h. man nutzt die Eigenschaft sogenannter Einwegfunktionen aus: Eine <B>Einwegfunktion</B> ist eine mathematische Funktion, die in eine Richtung einfach - das heißt ohne großen Aufwand - zu berechnen ist, deren Inverses zu berechnen jedoch extrem schwierig ist. </P>
 
@@ -69,10 +66,10 @@
 
 <P><B>Bemerkung 3</B>:</P>
 
-<P>Weitere Details finden Sie <!--ZZZUL-->
+<P>Weitere Details finden Sie</P>
 
 <UL>
-	<LI>im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> zu CrypTool und <BR><BR></LI>
+	<LI>im <A href="script-de.pdf">Skript</A> zu CrypTool und </LI>
 
 	<LI>in Kapitel 12.6 "Key agreement based on asymmetric techniques" (S. 515 ff.) in Menezes/Oorschot/Vanstone, Handbook of Applied Cryptography, CRC Press, © 1997, 5th printing 2001.</LI>
 </UL>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialogue visualising hybrid encryption</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Visualising hybrid encryption">
@@ -13,13 +14,13 @@
 	<PARAM NAME="Keyword" VALUE="Encryption">
 </OBJECT>
 
-<P><A NAME="hidd_hybrid_encryption_demo"></A>Dialogue Visualising Hybrid Encryption</P>
+<h3><P><A NAME="hidd_hybrid_encryption_demo"></A>Dialogue Visualising Hybrid Encryption</P></h3>
 
 <P>This dialogue lets you go through all the steps of the hybrid encryption algorithm, thereby making the seemingly complex procedure transparent.</P>
 
-<P>Hybrid encryption is the most widely deployed method of transferring encrypted data. More details on the <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrid encryption</A> method can be found in the <!--ZZZLINK--><A href="script-en.pdf">script</A>.</P>
+<P>Hybrid encryption is the most widely deployed method of transferring encrypted data. More details on the <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrid encryption</A> method can be found in the <A href="script-en.pdf">script</A>.</P>
 
-<P><IMG SRC="images/hybridscrshot.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/hybridscrshot.gif" ALT="hybridscrshot.gif" BORDER=0></P>
 
 <P>Figure: Dialogue visualising hybrid encryption</P>
 
@@ -33,32 +34,32 @@
 
 <P>The dialogue is designed in a way that you experiment with hybrid encryption playfully. Every step of the algorithm is depicted by graphical buttons shaped after data flow plan pictograms.</P>
 
-<TABLE cols=2 width=619>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=26%><B><IMG SRC="images/sechseckvorbereitung.gif" ALT="" BORDER=0></B></TD>
-<TD width=74%>
+<TD><B><IMG SRC="images/sechseckvorbereitung.gif" ALT="sechseckvorbereitung.gif" BORDER=0></B></TD>
+<TD>
 <P><B>Symbol for preliminary steps (e.g. choosing a file)</B></P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%><B><IMG SRC="images/rautedaten.gif" ALT="" BORDER=0></B></TD>
-<TD width=74%>
+<TD><B><IMG SRC="images/rautedaten.gif" ALT="rautedaten.gif" BORDER=0></B></TD>
+<TD>
 <P><B>Symbol for process data (e.g. the session key)</B></P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%><B><IMG SRC="images/tonnegespdaten.gif" ALT="" BORDER=0></B></TD>
-<TD width=74%>
+<TD><B><IMG SRC="images/tonnegespdaten.gif" ALT="tonnegespdaten.gif" BORDER=0></B></TD>
+<TD>
 <P><B>Symbol for stored data (e.g. the asymmetric key)</B></P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%><B><IMG SRC="images/viereckvordefproc.gif" ALT="" BORDER=0></B></TD>
-<TD width=74%>
+<TD><B><IMG SRC="images/viereckvordefproc.gif" ALT="viereckvordefproc.gif" BORDER=0></B></TD>
+<TD>
 <P><B>Symbol for a named standard procedure (e.g. encrypt text symmetrically)</B></P>
 </TD>
 </TR>
@@ -66,44 +67,42 @@
 
 <P><B>The colour of the symbols informs you about the state of the corresponding step resp. data element.</B></P>
 
-<TABLE cols=2 width=615>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=16%><B>Red</B></TD>
-<TD width=84%><B>Open tasks (preparation / input / processes)</B></TD>
+<TD><B>Red</B></TD>
+<TD><B>Open tasks (preparation / input / processes)</B></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=16%><B>Green</B></TD>
-<TD width=84%><B>Completed tasks (preparation / input / processes)</B></TD>
+<TD><B>Green</B></TD>
+<TD><B>Completed tasks (preparation / input / processes)</B></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=16%><B>Blue</B></TD>
-<TD width=84%><B>Available data (display and further processing possible)</B></TD>
+<TD><B>Blue</B></TD>
+<TD><B>Available data (display and further processing possible)</B></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=16%><B>Grey</B></TD>
-<TD width=84%><B>Inactive (unavailable data / processes with missing input data)</B></TD>
+<TD><B>Grey</B></TD>
+<TD><B>Inactive (unavailable data / processes with missing input data)</B></TD>
 </TR>
 </TABLE><BR>
 
 <P>Dependencies between steps are symbolised by arrows between the corresponding symbols. Active buttons (red/green/blue) can be selected in arbitrary order and even multiple times. Inactive buttons (grey) cannot be selected. Processes are only activated if all necessary pre-conditions are met.</P>
 
-<P>The diagram is divided in four rows: <!--ZZZUL-->
+<P>The diagram is divided in four rows: </P>
 
 <UL>
-	<LI>The first row contains preliminary steps, that have to be performed before anything can be encrypted (e.g. session key generation and selecting the data to be encrypted).<BR><BR></LI>
+	<LI>The first row contains preliminary steps, that have to be performed before anything can be encrypted (e.g. session key generation and selecting the data to be encrypted).</LI>
 
-	<LI>Row number two contains symbols for the data elements produced by the first row. The data can be displayed by clicking on the symbols.<BR><BR></LI>
+	<LI>Row number two contains symbols for the data elements produced by the first row. The data can be displayed by clicking on the symbols.</LI>
 
-	<LI>The third row holds the encryption procedures.<BR><BR></LI>
+	<LI>The third row holds the encryption procedures.</LI>
 
 	<LI>Row number four displays the encrypted document and session key.</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 <P>XXXXX TODO</P>
 

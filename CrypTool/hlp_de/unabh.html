@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Unabhängige Zufallsfolgen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Unabhängige Zufallsfolgen">
@@ -13,42 +14,54 @@
 	<PARAM NAME="Keyword" VALUE="Zufallsfolgen">
 </OBJECT>
 
-<P><A NAME="unabh"></A><B>Unabhängige Zufallsfolgen</B></P>
+<h3><P><A NAME="unabh"></A><B>Unabhängige Zufallsfolgen</B></P></h3>
 
 <P>Zufallsfolgen heißen unabhängig, wenn die Quelle, die diese Zufallszahlen erzeugt ohne <B>Gedächtnis</B> arbeitet. Das heißt: unabhängig von den zuvor erzeugten Gliedern der Zufallsfolge wird die nächste zufällige Zahl generiert - so als ob diese Zahl das erste Glied der Zufallsfolge ist. </P>
 
-<P>Unabhängige Zufallsfolgen haben deshalb die folgende Eigenschaft: <!--ZZZINDN--></P>
+<P>Unabhängige Zufallsfolgen haben deshalb die folgende Eigenschaft: </P>
+
+<div class="indent">
 
 <P>P[X_i trifft Ereignis x] = P[x_1 trifft Ereignis x]    für  i = 2, 3, 4, ....</P>
 
-<P>Zum Beispiel kann man aus k unabhängigen, gleichverteilten Münzwürfen (P[X_i = 0] = P[X_i = 1] = 0.5 für i=1, 2, 3, ...) eine zufällige <!--ZZZPOPUP--><A href="gleichmaessig_verteilt.html">gleichverteilte</A> Zufallszahl X aus dem Wertebereich 0, ..., 2^k-1 bestimmen: <!--ZZZINDN--></P>
+</div>
+
+<P>Zum Beispiel kann man aus k unabhängigen, gleichverteilten Münzwürfen (P[X_i = 0] = P[X_i = 1] = 0.5 für i=1, 2, 3, ...) eine zufällige <!--ZZZPOPUP--><A href="gleichmaessig_verteilt.html">gleichverteilte</A> Zufallszahl X aus dem Wertebereich 0, ..., 2^k-1 bestimmen: </P>
+
+<div class="indent">
 
 <P>X = 2^(k-1)*X_1 + 2^(k-2)*X_2 + ... + 2^1*X_[k-1] + X_k</P>
 
-<P>Das kann man nur wegen der Unabhängigkeit so einfach ausführen, da bei Unabhängigkeit die folgende multiplikative Formel gilt: <!--ZZZINDN--></P>
+</div>
 
-<TABLE cols=2 width=506>
+<P>Das kann man nur wegen der Unabhängigkeit so einfach ausführen, da bei Unabhängigkeit die folgende multiplikative Formel gilt: </P>
+
+<div class="indent">
+
+<TABLE cols=2 width="0*">
 
 <TR VALIGN="top">
-<TD width=10%>P[X=x]</TD>
-<TD width=90%>= P[X = x =2^(k-1)x_1 + 2^(k-2)x_2 + ... + x_k] </TD>
+<TD style="white-space:nowrap">P[X=x]</TD>
+<TD>= P[X = x =2^(k-1)x_1 + 2^(k-2)x_2 + ... + x_k] </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=10%>&nbsp;</TD>
-<TD width=90%>= P[X_1 = x_1 und X_2 = x2 und ... und X_k = x_k]</TD>
+<TD>&nbsp;</TD>
+<TD>= P[X_1 = x_1 und X_2 = x2 und ... und X_k = x_k]</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=10%>&nbsp;</TD>
-<TD width=90%>= P[X_1 = x_1] * P[X_2 = x_2] * ... * P[X_k = x_k]</TD>
+<TD>&nbsp;</TD>
+<TD>= P[X_1 = x_1] * P[X_2 = x_2] * ... * P[X_k = x_k]</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=10%>&nbsp;</TD>
-<TD width=90%>= ½ * ½ * ... * ½ = 2^(-k).</TD>
+<TD>&nbsp;</TD>
+<TD>= ½ * ½ * ... * ½ = 2^(-k).</TD>
 </TR>
 </TABLE><BR>
+
+</div>
 
 <P>Die Formel x =2^(k-1)x_1 + 2^(k-2)x_2 + ... + x_k beschreibt hierbei die Zahl x in Binärdarstellung.</P>
 

@@ -3,26 +3,27 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>X square modulo N generator</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Random generator">
 	<PARAM NAME="Keyword" VALUE="Generator">
 </OBJECT>
 
-<P><A NAME="hidd_x2modn_randomparameter"></A><B>X square modulo N generator</B></P>
+<h3><P><A NAME="hidd_x2modn_randomparameter"></A><B>X square modulo N generator</B></P></h3>
 
 <P>The X square modulo N (X^2ModN) generator is an algorithm for generating a sequence of apparently random whole numbers (X_[i]) in accordance with the recursive calculation rule:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>X_[0] := secret seed value, whereby X_[0]*X_[0] &gt; N</P>
 
 <P>X_[i+1] := X_[i]*X_[i]  (mod N)   for i = 0, 1, 2, 3, ...</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>whereby X_[i] are whole numbers from the range 0,1,2, ..., N-1. In CrypTool we observe only "coin throws" ("heads" are mapped to the 0 and "tails" to the 1). In the X^2ModN generator, the coin throw 0 is therefore represented by the event [X_[i] = 0] (mod 2) and the coin throw 1 by the event [X_[i] = 1 (mod 2)] . The sequence of coin throws is saved as a binary file (a sequence of 8 coin throws produces one random ASCII character).</P>
 
@@ -30,7 +31,7 @@
 
 <P>Select <B>Individual Procedures \ Generate Random Numbers</B> and activate the radio button <B>X^2 (mod N) random number generator</B>. You can now specify the parameters under "<B>Choose generator-specific parameters...</B>".</P>
 
-<P><IMG SRC="images/x2modnoptions.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/x2modnoptions.gif" ALT="x2modnoptions.gif" BORDER=0></P>
 
 <P>Please note that the quality of the X^2ModN generator depends critically on the choice of parameters. If one knows the prime factorisation of modulus N, then it is possible to calculate the square root modulo N of X_[i+1] and one can crack the random number generator. For this reason one often uses large RSA moduli for modulus N where in practice the prime factorisation N = p * q cannot be determined with knowledge of N alone. RSA modulus N = p*q is a predefined parameter with the characteristic that p and q are Blum numbers. Such X^2 mod N generators are called Blum-Blum-Shub generators.</P>
 

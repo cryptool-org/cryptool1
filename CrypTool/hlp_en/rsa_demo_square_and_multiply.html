@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Square and multiply exponentiation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Square and multiply exponentiation">
@@ -14,8 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Fast Exponentation">
 </OBJECT>
 
-<P><A NAME="rsa_demo_square_and_multiply"></A><B>Square and multiply exponentiation</B></P>
-
+<h3><P><A NAME="rsa_demo_square_and_multiply"></A><B>Square and multiply exponentiation</B></P></h3>
 <P>"Square and multiply" exponentiation is a quick method of raising to a power modulus N.</P>
 
 <P>Calculation of y = m^x  (mod N) in pseudo-code:</P>
@@ -33,9 +33,13 @@
 
 <P>For example, in the calculation</P>
 
-<P><!--ZZZIND--> m^65537_10 = m^10000000000000001_2   (mod N)</P>
+<div class="indent">
 
-<P><!--ZZZIND--> y = 1; y = y*y;  y = y*m (x[0]=1); y=y*y (x[1]=0); ....; y=y*y (x[15]=0); y=y*y; y*y*m (x[16]=1)</P>
+<P> m^65537_10 = m^10000000000000001_2   (mod N)</P>
+
+<P> y = 1; y = y*y;  y = y*m (x[0]=1); y=y*y (x[1]=0); ....; y=y*y (x[15]=0); y=y*y; y*y*m (x[16]=1)</P>
+
+</div>
 
 <P>modulus N is calculated via one multiplication and 16 squares.</P>
 

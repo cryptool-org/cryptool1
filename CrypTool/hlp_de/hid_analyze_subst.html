@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Automatische Analyse monoalphabetische Substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analyse">
@@ -34,27 +35,25 @@
 
 <P><U>Option "Erweiterte Analyse (deutscher Klartext) ":</U></P>
 
-<P>Diese Analyse basiert auf Besonderheiten der deutschen Sprache. Grundsätzlich wäre diese Analyse auch für englischen Klartext möglich. <!--ZZZUL--></P>
+<P>Diese Analyse basiert auf Besonderheiten der deutschen Sprache. Grundsätzlich wäre diese Analyse auch für englischen Klartext möglich. </P>
 
-<P>Vor der Pattern-Suche werden vier Buchstaben auf folgende Art und Weise zugeordnet:
+<P>Vor der Pattern-Suche werden vier Buchstaben auf folgende Art und Weise zugeordnet:</P>
 
 <UL>
-	<LI>Es wird wieder angenommen, dass der häufigste Buchstabe im Text dem Chiffrat des Buchstaben ,e‘ entspricht.<BR><BR></LI>
+	<LI>Es wird wieder angenommen, dass der häufigste Buchstabe im Text dem Chiffrat des Buchstaben ,e‘ entspricht.</LI>
 
-	<LI>Aus diesem Grunde ist das Abschalten der Option ",e‘ als häufigstes Zeichen annehmen" nicht sinnvoll und wird vom Programm ausgeschlossen.<BR><BR></LI>
+	<LI>Aus diesem Grunde ist das Abschalten der Option ",e‘ als häufigstes Zeichen annehmen" nicht sinnvoll und wird vom Programm ausgeschlossen.</LI>
 
-	<LI>Es wird eine Liste mit den häufigsten Buchstaben am Wortanfang, am Wortende und vor und nach dem ,e‘ erstellt. Diese wird in absteigender Reihenfolge sortiert.<BR><BR></LI>
+	<LI>Es wird eine Liste mit den häufigsten Buchstaben am Wortanfang, am Wortende und vor und nach dem ,e‘ erstellt. Diese wird in absteigender Reihenfolge sortiert.</LI>
 
-	<LI>Es werden die beiden Buchstaben ermittelt, die in den sortierten Listen der häufigsten Buchstaben am Ende der Wortes und nach dem ,e‘ "am weitesten oben stehen" (Die Summe der Indizes ist minimal). Es wird angenommen, dass diese beiden Buchstaben den Chiffraten von ,n‘ und ,r‘ entsprechen.<BR><BR></LI>
+	<LI>Es werden die beiden Buchstaben ermittelt, die in den sortierten Listen der häufigsten Buchstaben am Ende der Wortes und nach dem ,e‘ "am weitesten oben stehen" (Die Summe der Indizes ist minimal). Es wird angenommen, dass diese beiden Buchstaben den Chiffraten von ,n‘ und ,r‘ entsprechen.</LI>
 
-	<LI>Als das Chiffrat von ,n‘ wird der Buchstabe angenommen, der in der Liste der häufigsten Buchstaben am Wortende am weitesten oben steht.<BR><BR></LI>
+	<LI>Als das Chiffrat von ,n‘ wird der Buchstabe angenommen, der in der Liste der häufigsten Buchstaben am Wortende am weitesten oben steht.</LI>
 
-	<LI>Es werden Listen mit den häufigsten Buchstaben vor und nach dem n angelegt und sortiert.<BR><BR></LI>
+	<LI>Es werden Listen mit den häufigsten Buchstaben vor und nach dem n angelegt und sortiert.</LI>
 
 	<LI>Der Buchstabe, der in den drei Listen der häufigsten Buchstaben vor und nach dem ,e‘ und vor dem ,n‘ "am weitesten oben steht", wird als das Chiffrat von ,i‘ angenommen.</LI>
 </UL>
-
-<P><!--ZZZUL--></P>
 
 <P>Mit dieser (partiellen) Substitution wird nun wieder eine Pattern-Suche gestartet.</P>
 

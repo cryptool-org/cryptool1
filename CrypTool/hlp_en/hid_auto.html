@@ -3,32 +3,31 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Autocorrelation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Autocorrelation">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 </OBJECT>
 
-<P><A NAME="hid_auto"></A><B>Calculating the autocorrelation of a document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P>
+<h3><P><A NAME="hid_auto"></A><B>Calculating the autocorrelation of a document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P></h3>
 
 <P>The autocorrelation of a <!--ZZZPOPUP--><A href="dokument.html">document</A> is an index of the similarity of different sections of the document. It is sometimes possible to work out the <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> of an <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> document from its autocorrelation.</P>
 
 <P><U>Correlation</U></P>
 
-<P>The statements about Correlation are valid here for a <B>independently, uniformly distributed, binary random sequence</B>: <!--ZZZUL-->
+<P>The statements about Correlation are valid here for a <B>independently, uniformly distributed, binary random sequence</B>: </P>
 
 <UL>
-	<LI>"Binary random sequence" means that the events of the random sequence takes the values '0' or '1'.<BR><BR></LI>
+	<LI>"Binary random sequence" means that the events of the random sequence takes the values '0' or '1'.</LI>
 
-	<LI>"Independent" means that the probability of the (n+1)st event is independent from all n previous events.<BR><BR></LI>
+	<LI>"Independent" means that the probability of the (n+1)st event is independent from all n previous events.</LI>
 
 	<LI>"uniformly distributed" means for each event in the random sequence that the probability of '1' is equal to the probability of '0'.</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 <P>The similarity between two sets of data is normally measured by their correlation. Correlation<CODE> C</CODE> between two sequences of length<CODE> n</CODE> is calculated from the number<CODE> A</CODE> of agreeing and the number<CODE> D</CODE> of non-agreeing sequence members according to the formula</P>
 

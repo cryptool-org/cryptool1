@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Floating entropy</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Floating entropy">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 </OBJECT>
 
-<P><A NAME="hid_floating"></A><B>Calculating the floating frequency of a document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P>
+<h3><P><A NAME="hid_floating"></A><B>Calculating the floating frequency of a document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P></h3>
 
 <P>The floating frequency of a <!--ZZZPOPUP--><A href="dokument.html">document</A> is an index of its local information content at individual points in the document. The floating frequency specifies how many different characters are to be found in any given 64-character long segment of the document.</P>
 
@@ -22,17 +23,17 @@
 
 <P>Depending on the structure and content of the data in the active window, different profiles are produced:</P>
 
-<P><!--ZZZUL--></P>
+<UL>
 
-<P>-In <B>images</B> (bmp files) values obtained usually lie between 5 and 20.</P>
+	<LI>In <B>images</B> (bmp files) values obtained usually lie between 5 and 20.</LI>
 
-<P>-With <B>text</B> one can expect the values to fluctuate between 18 and 30.</P>
+	<LI>With <B>text</B> one can expect the values to fluctuate between 18 and 30.</LI>
 
-<P>-<B>Executable programs</B> have values between 30 and 40 in their actual program sections. In the data section they fluctuate around 20.</P>
+	<LI><B>Executable programs</B> have values between 30 and 40 in their actual program sections. In the data section they fluctuate around 20.</LI>
 
-<P>-<A href="hid_zip.html"><B>Compressed</B></A> <!--ZZZPOPUP--><A href="datei.html"><B>files</B></A>, <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> data and <!--ZZZPOPUP--><A href="schluessel.html">keys</A> themselves have values just below the maximum value of 64.</P>
+	<LI><A href="hid_zip.html"><B>Compressed</B></A> <!--ZZZPOPUP--><A href="datei.html"><B>files</B></A>, <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> data and <!--ZZZPOPUP--><A href="schluessel.html">keys</A> themselves have values just below the maximum value of 64.<BR><BR></LI>
 
-<P><!--ZZZULE--></P>
+</UL>
 
 <P><U>Interpretation of the index</U></P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Run-Test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Zufallstest">
@@ -13,27 +14,43 @@
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_runs"></A><B>Run-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_runs"></A>Run-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</P></h3>
 
 <P>Mit dem klassischen Run-Test untersucht man monoton steigend bzw. fallende Teilsequenzen einer Zahlenfolge. Unter einem "Run - up" der Länge k versteht man eine Teilfolge X_i; ... ; X_(i + k – 1) mit X_(i + r) &lt;= X_(i + r + 1) für alle r, 0 &lt;= r &lt;= k - 1. Analog werden "Run-downs" der Länge k definiert. Schlechte Generatoren erzeugen tendenziell zu lange Runs.</P>
 
 <P>Der Run Test vergleicht nun die beobachteten Häufigkeiten unterschiedlicher Run - Längen mit den erwarteten Häufigkeiten. Für die erwartete Häufigkeit eines Run - up' s der Länge k in einer Folge der Länge n gilt:</P>
 
-<P><!--ZZZIND--> E_k = [(k ^ 2 + k + 1) * (n - k - 1)] / (k + 2)!</P>
+<div style="text-align:center">
+
+<P>E_k = [(k ^ 2 + k + 1) * (n - k - 1)] / (k + 2)!</P>
+
+</div>
 
 <P>Da hintereinander folgende Runs nicht voneinander unabhängig sind (auf einen langen Run folgt mit größerer Wahrscheinlichkeit ein kurzer Run als ein langer Run und umgekehrt), darf der <A href="chi_2_verteilung.html">chi^2</A> -Test nicht ohne weiteres zum Vergleich der beobachteten Runs mit den erwarteten Häufigkeiten herangezogen werden. Knuth schlägt als einfache Problemlösung vor, jede Zahl, die unmittelbar auf das Ende eines Runs folgt, zu verwerfen. Dadurch erhält man voneinander unabhängige Runs, die mit dem <A href="chi_2_verteilung.html">chi^2</A> -Test mit k - 1 Freiheitsgraden auf ihre Verteilung überprüft werden können. Die Häufigkeitsverteilung wird in k Klassen eingeteilt, wobei die i-te Klasse,0 &lt;= i &lt;= k - 1, Runs mit der Länge i und die Klasse k - 1 Runs der Länge &gt;= k enthält. Die Wahrscheinlichkeiten für Runs der Länge k ist gegeben durch</P>
 
-<P><!--ZZZIND--> P(<I>Run hat Länge k</I>) = k / (k + 1)!</P>
+<div style="text-align:center">
+
+<P>P(<I>Run hat Länge k</I>) = k / (k + 1)!</P>
+
+</div>
 
 <P>Im Falle der Überprüfung von binären Folgen vereinfacht sich die Betrachtung der Runs – up / Runs - Down auf die Länge der zu beobachtenden <!--ZZZPOPUP--><A href="block_lueck.html">Lücken und Blöcke</A>. Der Zweck des Run-Tests - angewendet auf Binärfolgen - ist es, zu bestimmen, ob die Anzahl der binären Runs verschiedener Längen in der Folge s sich wie bei einer echten Zufallsfolge verhält.</P>
 
 <P>Die in einer n-Bit Zufallsfolge erwartete Anzahl an <!--ZZZPOPUP--><A href="block_lueck.html">Lücken</A> (bzw. <!--ZZZPOPUP--><A href="block_lueck.html">Blöcken</A>) der Länge i ist gegeben durch</P>
 
-<P><!--ZZZIND--> E_i = (n - i + 3) / 2 ^ (i + 2)</P>
+<div style="text-align:center">
+
+<P>E_i = (n - i + 3) / 2 ^ (i + 2)</P>
+
+</div>
 
 <P>Sei k gleich der größten Zahl i, für die gilt ei _ 5, und seien Bi; Gi die Anzahl der <!--ZZZPOPUP--><A href="block_lueck.html">Blöcke und Lücken</A> der Länge i in s für alle i, 1 _ i _ k. Die verwendete Teststatistik ist gegeben durch</P>
 
-<P><!--ZZZIND--> X4 =sum[i = 1; i = k] (B_i – e_i) ^ 2 / e_i + sum[i = 1; i = k] (G_i – e_i) ^ 2 / e_i</P>
+<div style="text-align:center">
+
+<P>X4 =sum[i = 1; i = k] (B_i – e_i) ^ 2 / e_i + sum[i = 1; i = k] (G_i – e_i) ^ 2 / e_i</P>
+
+</div>
 
 <P>wobei X4 annähernd einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit 2k - 2 Freiheitsgraden gehorcht.</P>
 
@@ -51,72 +68,78 @@
 
 <P>Durch absolute(s) = 160 gilt in unserem konkreten Run-Test für s: k = 3. Die erwartete Anzahl von Runs der Länge i = 1, 2, 3 in einer 160 - Bit Folge beträgt e_i = (160 – i + 3) / 2 ^ (i + 2), 1 &lt;= i &lt;= 3.</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=3 width=284>
+<TABLE cols=3 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=30%>E_1 = 20.25</TD>
-<TD width=36%>E_2 = 10.0625</TD>
-<TD width=34%>E_3 = 5</TD>
+<TD>E_1 = 20.25<BR></TD>
+<TD>E_2 = 10.0625<BR></TD>
+<TD>E_3 = 5<BR></TD>
 </TR>
 </TABLE><BR>
 
+</div>
+
 <P>In der Sequenz <I>s</I> gibt es die folgende Anzahl von <!--ZZZPOPUP--><A href="block_lueck.html">Blöcke</A> B_i bzw. <!--ZZZPOPUP--><A href="block_lueck.html">Lücken</A> G_i der Längen i = 1, 2, 3:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=2 width=246>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=50%>
+<TD>
 <PRE><CODE>B_1 = 17</CODE></PRE>
 </TD>
-<TD width=50%>
+<TD>
 <PRE><CODE>G_1 = 20</CODE></PRE>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%>
+<TD>
 <PRE><CODE>B_2 = 9</CODE></PRE>
 </TD>
-<TD width=50%>
+<TD>
 <PRE><CODE>G_2 = 8</CODE></PRE>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%>
+<TD>
 <PRE><CODE>B_3 = 6</CODE></PRE>
 </TD>
-<TD width=50%>
+<TD>
 <PRE><CODE>G_3 = 7</CODE></PRE>
 </TD>
 </TR>
 </TABLE><BR>
 
+</div>
+
 <P>Bestimmen wir nun die Prüfgröße für den Run-Test:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=2 width=548>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=8%>X4=</TD>
-<TD width=92%>[(17 – 20.25) ^ 2 / 20.25] + [(9 – 10.0625) ^ 2 / 10.0625] + [(6 – 5) ^ 2 / 5] + </TD>
+<TD>X4=</TD>
+<TD>[(17 – 20.25) ^ 2 / 20.25] + [(9 – 10.0625) ^ 2 / 10.0625] + [(6 – 5) ^ 2 / 5] + </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=8%>&nbsp;</TD>
-<TD width=92%>[(20 – 20.25) ^ 2 / 20.25] + [(8 – 10.0625) ^ 2 / 10.0625] + [(7 – 5) ^ 2 / 5]</TD>
+<TD>&nbsp;</TD>
+<TD>[(20 – 20.25) ^ 2 / 20.25] + [(8 – 10.0625) ^ 2 / 10.0625] + [(7 – 5) ^ 2 / 5]</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=8%> = </TD>
-<TD width=92%>2.0596</TD>
+<TD> = </TD>
+<TD>2.0596</TD>
 </TR>
 </TABLE><BR>
+
+</div>
 
 <P>Für ein Signifikanzniveau von ‘alpha‚ = 0:05 gibt bei 2 * 3 - 2 = 4 Freiheitsgraden einen kritischen Bereich über 9.488 an. Mit X4 = 2.0596 &lt;= 9.488 besteht die Folge <I>s</I> den Run-Test.</P>
 

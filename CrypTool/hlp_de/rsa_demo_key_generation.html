@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA-Schlüssel generieren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="RSA-Schlüssel generieren">
@@ -14,41 +15,41 @@
 	<PARAM NAME="Keyword" VALUE="Demonstration">
 </OBJECT>
 
-<P><A NAME="rsa_demo_key_generation"></A><B>RSA-Schlüssel generieren</B>:</P>
+<h3><P><A NAME="rsa_demo_key_generation"></A><B>RSA-Schlüssel generieren</B>:</P></h3>
 
 <P>Eine besondere Eigenschaft des RSA-Kryptosystems ist, dass vor der RSA-Ver- bzw. Entschlüsselung aufwendige Berechnungen zur Generierung des RSA-Schlüssels notwendig sind. Zunächst werden die RSA-Parameter p, q, N sowie die Eulersche Zahl phi(N) berechnet:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>Wähle zufällig zwei verschiedene Primzahlen p und q und berechne den sogenannten RSA-Modul N = pq. Aus den Primfaktoren p und q berechnet sich die Eulersche Zahl phi(N) = (p-1)*(q-1).</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>Im zweiten Schritt wird der öffentliche RSA-Exponent e bestimmt und daraus mit Hilfe von phi(N) der geheime RSA-Exponent d berechnet:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>Wähle die Zahl e: 1 &lt; e &lt; phi(N), mit der Eigenschaft: <!--ZZZPOPUP--><A href="rsa_demo_ggt.html">e ist relativ prim zu phi(N)</A>. Besonders beliebt ist hier der Wert e = 2^16+1 = 65537, da dieser in den meisten Fällen teilerfremd zu phi(N) ist und sich besonders gut für die <!--ZZZPOPUP--><A href="rsa_demo_square_and_multiply.html">square and multiply Exponentiation</A> eignet. </P>
 
 <P>Aus dem öffentlichen Exponenten e berechnet sich der geheime Exponent d = e^(-1) mod phi(N) als das multiplikative Inverse modulo phi(N).</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
-<P>Weitere Grundlagen finden Sie in dem zur Dokumentation gehörenden <!--ZZZLINK--><A href="script-de.pdf">Skript</A>. </P>
+<P>Weitere Grundlagen finden Sie in dem zur Dokumentation gehörenden <A href="script-de.pdf">Skript</A>. </P>
 
-<P><IMG SRC="images/rsa_demo_2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_2.gif" ALT="rsa_demo_2.gif" BORDER=0></P>
 
 <P>Sie können die Primzahlen p und q direkt eingeben. Falls Sie keine Primzahl für p oder q eingeben, erhalten Sie eine Fehlermeldung. Mit Hilfe des Buttons <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html"><B>Primzahlen generieren</B></A> können Sie zufällige Primzahlen aus einem vorgegebenen Zahlenintervall bestimmen. Mit den Button <B>Parameter aktualisieren</B> wird aus e und phi(N) der geheime Exponent d berechnet. Für den Fall, dass e nicht teilerfremd zu phi(N) ist, erhalten Sie eine Fehlermeldung mit der Aufforderung, eine andere Zahl für den öffentlichen Exponenten e zu wählen.</P>
 
 <P>Nach der erfolgreichen RSA-Schlüsselerzeugung erhalten Sie das asymmetrische RSA-Schlüsselpaar:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>(N,e) ist der <!--ZZZPOPUP--><A href="rsa_demo_public_key.html">öffentliche Schlüssel</A> und</P>
 
 <P>(N,d) ist der <!--ZZZPOPUP--><A href="rsa_demo_private_key.html">geheime Schlüssel</A>.</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>Die <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">Bitlänge des RSA-Schlüssels</A> berechnet sich aus der Anzahl der Bits, die zur dualen Darstellung des RSA-Moduls N notwendig sind.</P>
 

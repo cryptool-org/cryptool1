@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA-Verschlüsselung von Nachrichten</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="RSA-Verschlüsselung von Nachrichten">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Demonstration">
 </OBJECT>
 
-<P><A NAME="rsa_demo_encryption"></A><B>RSA-Verschlüsselung von Nachrichten:</B></P>
+<h3><P><A NAME="rsa_demo_encryption"></A><B>RSA-Verschlüsselung von Nachrichten:</B></P></h3>
 
 <P>Nach dem <A href="rsa_demo_key_generation.html">Erzeugen des RSA-Schlüssels</A> werden der Modul N und der RSA-Exponent e veröffentlicht. Jeder kann damit für den Besitzer des geheimen RSA-Schlüssels eine Nachricht verschlüsseln, oder eine digitale Signatur verifizieren.</P>
 
@@ -25,17 +26,21 @@
 
 <P>Nach dem Klick auf <B>Verschlüsseln</B> wird die Nachricht zunächst in Zahlen umgewandelt. Dazu wird die Nachricht M in <!--ZZZPOPUP--><A href="rsa_demo_segment_size.html">Blöcke von je k Zeichen</A> aufgeteilt (M = M[1] # M[2] # ... # M[j]), wobei k*8 stets kleiner als die <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">Bitlänge des RSA-Moduls N</A> ist. Die Nachrichtenblöcke (M[i], i = 1, 2, ..., j) werden für die Verschlüsselung in Zahlen umgewandelt (m[i], für i = 1, 2, ..., j) und mit den öffentlichen RSA-Schlüssel (N,e) nach der Formel</P>
 
+<div class="indent">
+
 <P>c[i] = m[i]^e (mod N)    für  i = 1, 2, ..., j</P>
+
+</div>
 
 <P>verschlüsselt. Weil der öffentliche Schlüssel (N,e) jedem zugänglich ist und der geheime Schlüssel (N,d) geheimgehalten wird, können wir festhalten:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P><B>Jeder kann eine Nachricht mit dem öffentlichen Schlüssel verschlüsseln. Aber nur der Besitzer des geheimen Schlüssel kann die Nachricht wieder <A href="rsa_demo_decryption.html">entschlüsseln</A></B>.</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
-<P><IMG SRC="images/rsa_demo_3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_3.gif" ALT="rsa_demo_3.gif" BORDER=0></P>
 
 <P>Die Umwandlung des Klartextes M in Zahlen m = m[1] # m[2] # .... #  m[j] und die Verschlüsselung c = c[1] # c[2] # .... # c[j] wird in den nächsten beiden Zeilen unterhalb der Eingabe angezeigt. </P>
 
@@ -45,7 +50,7 @@
 
 <P>Statt der Eingabe von Text können Sie auch einstellen, dass Sie einen Zahlenklartext m =  m[1] # m[2] # ... # m[j] direkt verschlüsseln möchten:</P>
 
-<P><IMG SRC="images/rsa_demo_4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_4.gif" ALT="rsa_demo_4.gif" BORDER=0></P>
 
 <P>In <U>CrypToo</U>l gibt es <A href="szenarien_rsa_demo.html">Szenarien</A>, in denen RSA-<!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A><CODE>-</CODE>/ <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mit dem RSA-Demo vorgeführt werden.</P>
 

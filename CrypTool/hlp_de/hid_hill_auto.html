@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Automatische Analyse Hill-Verschlüsselungsverfahren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analyse">
 	<PARAM NAME="Keyword" VALUE="Hill-Analyse">
 </OBJECT>
 
-<P><A NAME="hid_hill_auto"></A><B>Automatische Analyse für Hill-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ "known plaintext")</B></P>
+<h3><P><A NAME="hid_hill_auto"></A><B>Automatische Analyse für Hill-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ "known plaintext")</B></P></h3>
 
 <P>Für das <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A> steht ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) zur Verfügung. Das heißt, man muss der Funktion sowohl einen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> als auch den mittels Hill-Verschlüsselungsverfahren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text eingeben. Daraufhin ermittelt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem der Klartext verschlüsselt worden ist. </P>
 
@@ -22,74 +23,74 @@
 
 <P><U>Beispiel zum Suchen einer Kombination von Blöcken:</U></P>
 
-<TABLE cols=2 width=393>
+<TABLE cols=2 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=63%>Der Klartext lautet:</TD>
-<TD width=37%>ABCDXY.</TD>
+<TD>Der Klartext lautet:</TD>
+<TD>ABCDXY.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=63%>Der verschlüsselte Text ist:</TD>
-<TD width=37%>STONLC.</TD>
+<TD>Der verschlüsselte Text ist:</TD>
+<TD>STONLC.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=63%>Die <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> beträgt:</TD>
-<TD width=37%>2.</TD>
+<TD>Die <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> beträgt:</TD>
+<TD>2.</TD>
 </TR>
 </TABLE><BR>
 
 <P>Als erstes probiert CrypTool mit Hilfe der folgenden Matrizen den Schlüssel zu finden.</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>AB</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ST</TD>
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>CD</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>ON</TD>
+<TD>&nbsp;</TD>
+<TD>CD</TD>
+<TD>&nbsp;</TD>
+<TD>ON</TD>
 </TR>
 </TABLE><BR>
 
 <P>Die Matrix K ist nicht invertierbar. Daher wäre es nicht möglich, den Schlüssel zu finden, wenn der Klartext ABCD und der verschlüsselte Text STON wäre. Da in dem Beispiel aber ein weiterer Block vorhanden ist, wird die nächste mögliche Kombination von Blöcken gebildet. Die Matrizen haben dann folgendes Aussehen:</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>AB</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ST</TD>
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>XY</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>LC</TD>
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
 </TR>
 </TABLE><BR>
 
 <P>Da diese Matrix K invertierbar ist, kann das Produkt der Inversen Matrix von K und der Matrix V berechnet werden und man erhält sofort den Schlüssel der Dimension 2 x 2:</P>
 
-<TABLE cols=2 width=81>
+<TABLE cols=2 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=29%><U>A:</U></TD>
-<TD width=71%>TE</TD>
+<TD><U>A:</U></TD>
+<TD>TE</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=29%>&nbsp;</TD>
-<TD width=71%>ST</TD>
+<TD>&nbsp;</TD>
+<TD>ST</TD>
 </TR>
 </TABLE><BR>
 
@@ -97,20 +98,20 @@
 
 <P>Die letzte mögliche Kombination von Blöcken wäre bei diesem Klartext und diesem verschlüsselten Text:</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>CD</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ON</TD>
+<TD><U>K:</U></TD>
+<TD>CD</TD>
+<TD><U>V:</U></TD>
+<TD>ON</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>XY</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>LC</TD>
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
 </TR>
 </TABLE><BR>
 

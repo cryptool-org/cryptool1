@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Das RSA-Kryptosystem (Demonstration)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Das RSA-Kryptosystem (Demonstration)">
@@ -15,27 +16,31 @@
 	<PARAM NAME="Keyword" VALUE="Kryptosystem">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_tutorial_rsaalgorithmus"></A><B>Dialog RSA-Kryptosystem (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P>
+<h3><P><A NAME="hid_einzelverfahren_tutorial_rsaalgorithmus"></A><B>Dialog RSA-Kryptosystem (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P></h3>
 
 <P>Das wohl bekannteste asymmetrische Kryptosystem ist das nach den Autoren Ron Rivest, Adi Shamir und Leonard Adleman benannte RSA-Verfahren. In diesem Dialog können Sie alle drei Schritte</P>
 
-<P><!--ZZZOL--></P>
+<OL>
 
-<P>1. <A href="rsa_demo_key_generation.html">RSA-Schlüssel generieren</A>, </P>
+	<LI> <A href="rsa_demo_key_generation.html">RSA-Schlüssel generieren</A>, <BR><BR></LI>
 
-<P>2. <A href="rsa_demo_encryption.html">RSA-Verschlüsselung von Nachrichten</A> und</P>
+	<LI> <A href="rsa_demo_encryption.html">RSA-Verschlüsselung von Nachrichten</A> und<BR><BR></LI>
 
-<P>3. <A href="rsa_demo_decryption.html">RSA-Entschlüsselung von Nachrichten</A></P>
+	<LI> <A href="rsa_demo_decryption.html">RSA-Entschlüsselung von Nachrichten</A></LI>
 
-<P><!--ZZZOLE--></P>
+</OL>
 
 <P>des RSA-Kryptosystems nachvollziehen.</P>
 
-<P>Für die <A href="public_rsa_parameter.html">RSA-Verschlüsselung und RSA-Signatur-Verifikation</A> genügen als Eingabe die veröffentlichten Parameter: <!--ZZZUL--></P>
+<P>Für die <A href="public_rsa_parameter.html">RSA-Verschlüsselung und RSA-Signatur-Verifikation</A> genügen als Eingabe die veröffentlichten Parameter: </P>
 
-<P>-der RSA-Modul N und</P>
+<UL>
 
-<P>-der öffentliche RSA-Schlüssel e. <!--ZZZULE--></P>
+	<LI> der RSA-Modul N und</LI>
+
+	<LI> der öffentliche RSA-Schlüssel e. </LI>
+
+</UL>
 
 <P>In diesem Fall müssen die geheimen Parameter (die Eulersche Phi-Funktion von N und der geheime Schlüssel d) nicht bekannt sein.</P>
 
@@ -43,13 +48,13 @@
 
 <P>Wird CrypTool neu gestartet, so gilt folgende Voreinstellung (Initialisierung):</P>
 
-<P><!--ZZZUL--></P>
+<UL>
 
-<P>-Im Dialogfenster "Das RSA-Kryptosystem" sind bis auf den Wert "2^16+1" für den öffentlichen Exponenten e keine Werte eingestellt.</P>
+	<LI> Im Dialogfenster "Das RSA-Kryptosystem" sind bis auf den Wert "2^16+1" für den öffentlichen Exponenten e keine Werte eingestellt.</LI>
 
-<P>-Im Fenster "Optionen für die RSA-Verschlüsselung" wird standardmäßig als Alphabet das 256 Zeichen umfassende Alphabet der 8-Bit-ASCII Kodierung eingestellt.</P>
+	<LI> Im Fenster "Optionen für die RSA-Verschlüsselung" wird standardmäßig als Alphabet das 256 Zeichen umfassende Alphabet der 8-Bit-ASCII Kodierung eingestellt.</LI>
 
-<P><!--ZZZULE--></P>
+</UL>
 
 <P>Solange Sie die CrypTool-Anwendung nicht beenden, werden bei jedem neuen Aufruf des Dialogfensters "Das RSA-Kryptosystem" die zuletzt eingestellten Werte für die Primzahlen, RSA-Parameter und Optionen wieder benutzt, so dass Sie sie nicht neu eingegeben müssen. Natürlich können Sie diese Werte jederzeit ändern.</P>
 
@@ -63,7 +68,7 @@
 
 <P>"Verkaufen Sie am 14.07.00 meine Aktienpakete, und kaufen Sie mir dafür eine Südsee Insel".</P>
 
-<P><IMG SRC="images/rsa_demo_1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_1.gif" ALT="rsa_demo_1.gif" BORDER=0></P>
 
 <P>Dieser Vorgang wird über die folgenden Schritte durchgeführt:</P>
 
@@ -71,15 +76,15 @@
 
 <P>Vor der Ver- bzw. Entschlüsselung können Sie im <B>Dialog </B><A href="hidd_options_rsa_demo.html">Optionen für Alphabet und Zahlensystem</A> weitere Einstellungen für die Verschlüsselung vornehmen. Und zwar:</P>
 
-<P><!--ZZZUL--></P>
+<UL>
 
-<P>- Alphabetoptionen (Textoptionen)</P>
+	<LI> Alphabetoptionen (Textoptionen)</LI>
 
-<P>- Die RSA-Variante aus dem Dialog der Schwestern</P>
+	<LI> Die RSA-Variante aus dem Dialog der Schwestern</LI>
 
-<P>- Das Zahlensystem, in dem die Zahlen der RSA-Ver-/Entschlüsselung dargestellt werden</P>
+	<LI> Das Zahlensystem, in dem die Zahlen der RSA-Ver-/Entschlüsselung dargestellt werden</LI>
 
-<P><!--ZZZULE--></P>
+</UL>
 
 <P>Zur Verschlüsselung geben Sie den Klartext ein und klicken den Button <B>Verschlüsseln</B>. </P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA encryption in blocks</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="RSA encryption in blocks">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Blocks">
 </OBJECT>
 
-<P><A NAME="rsa_demo_sections"></A><B>RSA encryption in blocks</B></P>
+<h3><P><A NAME="rsa_demo_sections"></A><B>RSA encryption in blocks</B></P></h3>
 
 <P>The calculations involved in RSA encryption and decryption operate on numbers. For this reason the plaintext message M has to be transformed into numbers before it can be encrypted. Using a RSA modulus N only the numbers 0,1,2, ..., N-1 can be encrypted, which necessitates splitting up the message into blocks of length k. <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">Block length k</A> alwaysdefaults to the maximum possible length of <!--ZZZPOPUP--><A href="ascii.html">ASCII</A> character strings with which messages can be coded into numbers from the range 0,...,N-1 without loss of any information.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Inverse Kongruenzgenerator (ICG)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Dialog">
@@ -14,17 +15,17 @@
 	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
 </OBJECT>
 
-<P><A NAME="hidd_icg_randomparameter"></A><B>Dialog</B> <B>Der Inverse Kongruenzgenerator (ICG)</B></P>
+<h3><P><A NAME="hidd_icg_randomparameter"></A><B>Dialog</B> <B>Der Inverse Kongruenzgenerator (ICG)</B></P></h3>
 
 <P>Der Inverse Kongruenzgenerator (ICG) ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X_[i]) gemäß der rekursiven Rechenvorschrift:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>X_[0] := Geheimer Saatwert</P>
 
 <P>X_[i+1] := inverse[a*(X_[0]+i) + c]  (mod P)   für i = 0, 1, 2, 3, ...</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>wobei X_[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., P-1 sind. Es ist üblich, die Zufallszahlen in den rationalen Wertebereich [0,1[ zu normieren, deshalb erfolgt die Ausgabe als rationale Zahlen Z[i] := X_[i]/P. </P>
 
@@ -34,7 +35,7 @@
 
 <P>Nachdem Sie im Dialog <A href="menu_related_methods.html"><B>Einzelverfahren</B></A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton "Inverse Kongruenzgenerator (ICG)" gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameter des ICG festlegen:</P>
 
-<P><IMG SRC="images/icgoptions.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/icgoptions.gif" ALT="icgoptions.gif" BORDER=0></P>
 
 <P>Beachten Sie, dass die Qualität des ICG entscheidend von der Wahl der Parameter abhängt. Ein wichtiges Maß ist hierbei die <A href="periodenlänge.html">Periodenlänge</A> der Zufallsfolge, die durch die Parameter festgelegt wird. </P>
 

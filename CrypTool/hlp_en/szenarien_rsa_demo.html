@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Example illustrating the RSA demonstration</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Example illustrating the RSA demonstration">
 	<PARAM NAME="Keyword" VALUE="RSA demonstration">
 </OBJECT>
 
-<P><B><A NAME="szenarien_rsa_demo"></A>Example illustrating the RSA cryptosystem (Indiv. Procedures \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Demonstration</A>)</B></P>
+<h3><P><B><A NAME="szenarien_rsa_demo"></A>Example illustrating the RSA cryptosystem (Indiv. Procedures \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Demonstration</A>)</B></P></h3>
 
 <P>This text describes an <A href="hid_hilfe_szenarien.html">example</A> illustrating the RSA demonstration. The RSA demonstration contains facilities for <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">generating prime</A> numbers and <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">factorising</A> (breaking down into prime factors) natural numbers, plus the <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Cryptosystem</A>. </P>
 
@@ -20,41 +21,43 @@
 
 <P>Not only is a description provided of how the RSA algorithm works but the individual steps involved in running the RSA algorithm using small numbers are also described.</P>
 
-<P>This example consists of three parts: <!--ZZZOL--></P>
+<P>This example consists of three parts: </P>
 
-<P>1.) generation of an RSA key,</P>
+<OL>
 
-<P>2.) encryption and decryption of messages and</P>
+	<LI> generation of an RSA key,<BR><BR></LI>
 
-<P>3.) an attack on the RSA algorithm.</P>
+	<LI> encryption and decryption of messages and<BR><BR></LI>
 
-<P><!--ZZZOLE--></P>
+	<LI> an attack on the RSA algorithm.<BR><BR></LI>
 
-<P><!--ZZZOL--></P>
+</OL>
 
-<P><B>1.) Generation of RSA keys</B></P>
+<OL>
+
+<P><B><LI> Generation of RSA keys</LI></B></P>
 
 <P>We would like first of all to create an <A href="rsa_demo_key_generation.html">RSA key</A>. Do this, select <B>Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem</B>.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="dialogrsa-kryptosystem1.gif" BORDER=0></P>
 
 <P>For the RSA key, first of all we need two different <U>prime numbers</U>, p and q. You can enter two prime numbers into the fields <B>Prime number p</B> and <B>Prime number q</B>, or you can generate two random prime numbers, p and q.</P>
 
 <P>As an example we wish to generate a random 256-bit RSA key. To this end, click on the <B>Generate prime numbers…</B> button. Similarly to menu selection <B>Indiv. Procedures \ RSA Demonstration \ <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Generate Prime Numbers…</A></B>, a dialogue box opens in which to generate prime numbers p and q. For prime number p, choose 2^127+2^126 as the <B>lower limit</B> and 2^128 as the <B>upper limit</B>, and activate the radio button, ”<B>Both value ranges are equal</B>”. When you click on <B>Generate prime numbers</B>, two prime numbers p and q of bit length between 127.5 and 128 are generated. When p and q are multiplied together, the result is RSA modulus N of bit length greater than 2*127.5 = 255, i.e. a 256-bit <!--ZZZPOPUP--><A href="rsa_demo_key_generation.html">RSA key</A>.</P>
 
-<P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="rsaszenariopzgenerieren.gif" BORDER=0></P>
 
 <P>You can generate prime numbers as often as you like. If you click on the <B>Copy primes to clipboard</B> pushbutton, prime numbers p and q are passed to the RSA dialogue. At the same time RSA modulus N is calculated, also the Euler phi function phi(N). </P>
 
 <P>The next step is to determine the <!--ZZZPOPUP--><A href="rsa_demo_public_key.html">public RSA key</A> e, a number that is coprime to phi(N). Sometimes it is not easy to find such a number. For this reason we offer a small tip: the number e = 2^16+1 = 65537 (= 10000000000000001 binary) is in practice always coprime to phi(N).</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem2.gif" ALT="dialogrsa-kryptosystem2.gif" BORDER=0></P>
 
 <P>Click on the <B>Update parameters</B> pushbutton, and the <!--ZZZPOPUP--><A href="rsa_demo_private_key.html">secret RSA key</A> d will then be calculated from the number e.</P>
 
 <P>You can now encrypt and decrypt messages.</P>
 
-<P><B>2.) Encryption or decryption of messages using the RSA key pair</B></P>
+<P><B><LI> Encryption or decryption of messages using the RSA key pair</LI></B></P>
 
 <P>Once you have generated the RSA key, you can encrypt and decrypt messages. We will now demonstrate the various options of the RSA algorithm using the samples contained in the script.</P>
 
@@ -64,11 +67,11 @@
 
 <P>Now click on <A href="hidd_options_rsa_demo.html"><B>Options for alphabet and number system...</B></A> and activate the <B>Specify alphabet</B> radio button. The predefined alphabet ” ABCDEFGHIJKLMNOPQRSTUVWXYZ” codes the letters &lt;SPACE&gt; as 0, A as 1, ... and Z as 26. Now choose the <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>Number system</B></A> option in the <B>Method and </B><!--ZZZPOPUP--><A href="rsa_demo_sections.html"><B>block length</B></A><B> for the coding of text into numbers</B> box and then specify 2 as the block length.</P>
 
-<P><IMG SRC="images/dialogrsaoptions1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsaoptions1.gif" ALT="dialogrsaoptions1.gif" BORDER=0></P>
 
 <P>To confirm your entries, click on <B>OK</B>. You can now enter the input text, ”ATTACK AT DAWN”, in the input line and click on the <B>Encrypt</B> button.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem3.gif" ALT="dialogrsa-kryptosystem3.gif" BORDER=0></P>
 
 <P>The encrypted version of this is the number sequence</P>
 
@@ -76,21 +79,21 @@
 
 <P>The number ”#” serves here to visually split up the individual numbers. If you insert these numbers into the input line and then choose <B>Decrypt</B>, the original <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> will be restored.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem3b.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem3b.gif" ALT="dialogrsa-kryptosystem3b.gif" BORDER=0></P>
 
 <P><B>Example from Section 3.13.3, encryption of the message ”RSA works!”</B></P>
 
 <P>First of all create the RSA key p=251, q=269 e=65537. Then click on <B>Update parameters</B>, and the parameters N = p*q = 67519, phi(N) = 67000 and d = 2473 are calculated. </P>
 
-<P><!--ZZZOL--></P>
+<OL type="a">
 
-<P><B>a) Encryption of the message with block length 1</B></P>
+<P><B><LI>Encryption of the message with block length 1</LI></B></P>
 
 <P>Now click on <B>Options for alphabet and number system...</B> and activate the <B>All 256 ASCII characters </B>radio button. Now choose the <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>b-adic</B></A> option in the <B>Method and block length for the coding of text into numbers</B> box and then specify 1 as the block length.</P>
 
 <P>To confirm your entries, click on <B>OK</B>. You can now enter the input text, ”RSA works!”, in the input line and click on the <B>Encrypt</B> button.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem4.gif" ALT="dialogrsa-kryptosystem4.gif" BORDER=0></P>
 
 <P>The encrypted version of this is the number sequence</P>
 
@@ -100,7 +103,7 @@
 
 <P>The number ”#” serves here to visually split up the individual numbers. If you insert these numbers into the input line and then choose <B>Decrypt</B>, the original plaintext will be restored.</P>
 
-<P><B>b) Encryption of the message with block length 2</B></P>
+<P><B><LI>Encryption of the message with block length 2</LI></B></P>
 
 <P>Now click on <B>Options for alphabet and number system...</B> and activate the <B>All 256 ASCII characters </B>radio button. Now choose the <B>b-adic</B> option in the <B>Method and block length for the coding of text into numbers</B> box, and then specify 2 as the maximum block length.</P>
 
@@ -108,15 +111,13 @@
 
 <P>03046 # 29337 # 62503 # 09978 # 40883</P>
 
-<P><!--ZZZOLE--></P>
+</OL>
 
-<P><B>3.) Attack on the RSA algorithm</B></P>
+<P><B><LI> Attack on the RSA algorithm</LI></B></P>
 
 <P>We illustrate a possible attack on the RSA cryptosystem using ”challenges” to crack ciphertext. As well as the ciphertext, the attacker also has access to the public key e and the RSA modulus N.</P>
 
 <P>The following examples describe attacks for the factorisation of public RSA modulus N. If the factorisation is successful, then all the secret parameters of the RSA cryptosystem can be calculated, and these can then be used to crack the ciphertext challenge. The most well-known crypto challenges are published by RSA Security Lab (<U>www.rsa.com</U>).</P>
-
-<P><!--ZZZOLE--></P>
 
 <P><B>Challenge 1 (Stinson)</B></P>
 
@@ -152,34 +153,32 @@
 25973  4477 30989
 </CODE></PRE>
 
-<P>The formulation of this challenge can also be taken from the CrypTool <!--ZZZLINK--><A href="script-en.pdf">script</A> [3.13.4 <U>A small RSA cipher challenge (1)</U>].</P>
+<P>The formulation of this challenge can also be taken from the CrypTool <A href="script-en.pdf">script</A> [3.13.4 <U>A small RSA cipher challenge (1)</U>].</P>
+
+</OL>
 
 <P><B><U>Cryptanalysis using CrypTool</U></B></P>
 
 <P>The analysis is performed in two stages: first of all the prime factorisation of the RSA modulus is calculated using factorisation, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
 
-<P><!--ZZZOL-->
-
 <OL>
 	<LI>Factorisation of the RSA modulus with the aid of prime factorisation:</LI>
-</OL>
+
 
 <P>To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Demonstration \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B></P>
 
 <P><I>N </I>= 31313 into its prime factors p and q.</P>
 
-<P><IMG SRC="images/dialogfactorisation1.gif" ALT="" BORDER=0><BR>
+<P><IMG SRC="images/dialogfactorisation1.gif" ALT="dialogfactorisation1.gif" BORDER=0><BR>
 </P>
 
 <P>It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Brute Force method). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).</P>
 
-<OL start=2>
+
 	<LI>Calculate the secret key d from the prime factorisation of N and the public key e.</LI>
-</OL>
+
 
 <P>With knowledge of the prime factors p = 173 and q = 181 and the public key <I>e </I>= 4913, you are now in a position to decrypt the ciphertext:</P>
-
-<P><!--ZZZOL-->
 
 <OL type=a>
 	<LI>Open the next dialogue box via menu selection <B>Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem</B>:<BR><BR></LI>
@@ -188,25 +187,29 @@
 
 	<LI>Click on <B>Update parameters</B>. The Euler phi function phi(N) = (p-1)*(q-1) is calculated from the numbers p and q, and from this and public key e the secret RSA key d is determined. Further information will be found in the script, Section 3.6.2.<BR><BR></LI>
 
-	<LI>Click on the <B>Options for alphabet and numbers system…</B> pushbutton, and make the following settings: <!--ZZZUL-->
-<P>-  Text options for the input text: <B>Specify alphabet</B><BR>
-    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	<LI>Click on the <B>Options for alphabet and numbers system…</B> pushbutton, and make the following settings: <BR></LI>
 
-<P>-  RSA variant: <B>Normal</B>
+	<UL type="disc">
+	
+<LI>  Text options for the input text: <B>Specify alphabet</B><BR><BR></LI>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR><BR>
 
-<P>-  Method = <B>b-adic</B>
+	<LI>  RSA variant: <B>Normal</B></LI>
 
-<P>-  Block length in characters: <B>3</B>
+	<LI>  Method = <B>b-adic</B></LI>
 
-<P>-  Representation of numbers for RSA encryption/decryption: <B>Decimal</B> <!--ZZZULE-->
-</LI>
+	<LI>  Block length in characters: <B>3</B></LI>
+
+	<LI>  Representation of numbers for RSA encryption/decryption: <B>Decimal</B> </LI>
+
+</UL>
 
 	<LI>Now enter the ciphertext in the input text field. The fastest method is to mark the ciphertext provided above and use Ctrl+C to copy it to the clipboard. Then paste the text into the input field using Ctrl+V.<BR><BR></LI>
 
 	<LI>Now click on the <B>Decrypt</B> button to obtain the plaintext version.</LI>
 </OL>
 
-<P><!--ZZZOLE--> <!--ZZZOLE--></P>
+</OL>
 
 <P>The full text of the plaintext goes as follows:</P>
 
@@ -240,48 +243,56 @@ WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
 
 <P><CODE>32870167545903741339819671379</CODE></P>
 
-<P>The formulation of this challenge can also be taken from the CrypTool <!--ZZZLINK--><A href="script-en.pdf">script</A> [3.13.5 <U>A small RSA cipher challenge (2)</U>].</P>
+<P>The formulation of this challenge can also be taken from the CrypTool <A href="script-en.pdf">script</A> [3.13.5 <U>A small RSA cipher challenge (2)</U>].</P>
 
 <P><B><U>Cryptanalysis using CrypTool</U></B></P>
 
 <P>The analysis is performed in two stages: first of all the prime factorisation of the RSA modulus is calculated using factorisation, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
 
-<P><!--ZZZOL--></P>
+<OL>
 
-<P>1) Factorisation of the RSA modulus with the aid of prime factorisation:<BR>
+<LI> Factorisation of the RSA modulus with the aid of prime factorisation:<BR>
 To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Demonstration \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B><I> N </I>= 63978486879527143858831415041 into its prime factors p and q.<BR>
 <BR>
-<IMG SRC="images/dialogfactorisation2.gif" ALT="" BORDER=0><BR>
+<IMG SRC="images/dialogfactorisation2.gif" ALT="dialogfactorisation2.gif" BORDER=0><BR>
 <BR>
-It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Quadratic Sieve). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).</P>
+It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Quadratic Sieve). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).<BR><BR></LI>
 
-<P>2) Calculate the secret key d from the prime factorisation of N and the public key e.<BR>
-With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 and the public key <I>e </I>= 17579, you are now in a position to decrypt the ciphertext: <!--ZZZOL--></P>
+<LI> Calculate the secret key d from the prime factorisation of N and the public key e.<BR>
+With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 and the public key <I>e </I>= 17579, you are now in a position to decrypt the ciphertext: <BR><BR></LI>
 
-<P>a)Open the next dialogue box via menu selection Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem:</P>
+<OL type="a">
 
-<P>b)Enter the prime factors identified, p = 145295143558111 and q = 440334654777631, and public key e = 17579.</P>
+<LI>Open the next dialogue box via menu selection Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem:<BR><BR></LI>
 
-<P>c)Click on Update parameters. The Euler phi function phi(N) = (p-1)*(q-1) is calculated from the numbers p and q by the RSA modulus, and from this and the public key e the secret RSA key d is determined. Further information will be found in the script, Section 3.6.2.</P>
+<LI>Enter the prime factors identified, p = 145295143558111 and q = 440334654777631, and public key e = 17579.<BR><BR></LI>
 
-<P>d)Click on the Options for alphabet and numbers system… pushbutton, and make the following settings: <!--ZZZUL--></P>
+<LI>Click on Update parameters. The Euler phi function phi(N) = (p-1)*(q-1) is calculated from the numbers p and q by the RSA modulus, and from this and the public key e the secret RSA key d is determined. Further information will be found in the script, Section 3.6.2.<BR><BR></LI>
 
-<P>-  Text options for the input text: <B>Specify alphabet<BR>
-</B>    ABCDEFGHIJKLMNOPQRSTUVWXYZ</P>
+<LI>Click on the Options for alphabet and numbers system… pushbutton, and make the following settings: <BR><BR></LI>
 
-<P>-  RSA variant: <B>Normal</B></P>
+<UL type="disc">
 
-<P>-  Method: <B>Number system</B></P>
+<LI>  Text options for the input text: <B>Specify alphabet</B><BR><BR></LI>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR><BR>
 
-<P>-  Block length in characters: <B>14</B></P>
+<LI>  RSA variant: <B>Normal</B></LI>
 
-<P>-  Representation of numbers for RSA encryption/decryption: <B>Decimal</B> <!--ZZZULE--></P>
+<LI>  Method: <B>Number system</B></LI>
 
-<P>e)Now enter the ciphertext in the input text field. The fastest method is to mark the ciphertext provided above and use Ctrl+C to copy it to the clipboard. Then paste the text into the input field using Ctrl+V.</P>
+<LI>  Block length in characters: <B>14</B></LI>
 
-<P>f)Now click on the Decrypt button to obtain the plaintext version.</P>
+<LI>  Representation of numbers for RSA encryption/decryption: <B>Decimal</B></LI>
 
-<P><!--ZZZOLE--> <!--ZZZOLE--></P>
+</UL>
+
+<LI>Now enter the ciphertext in the input text field. The fastest method is to mark the ciphertext provided above and use Ctrl+C to copy it to the clipboard. Then paste the text into the input field using Ctrl+V.<BR><BR></LI>
+
+<LI>Now click on the Decrypt button to obtain the plaintext version.<BR><BR></LI>
+
+</OL>
+
+</OL>
 
 <P>Check your results: ”NATURAL NUMBERS ARE MADE BY GOD”.</P>
 
@@ -291,7 +302,7 @@ With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 
 
 <P>Start the dialog via <B>Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem...</B> and then click the 2nd radio button: this means you only know the public parameters. Then click ”Factorise RSA modulus...”.</P>
 
-<P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="rsaszenariomodulfactorisation.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Byteweise Addition</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
 	<PARAM NAME="Keyword" VALUE="Byteweise Addition">
 </OBJECT>
 
-<P><A NAME="hid_add_bin"></A><B>Byteweise Addition (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+<h3><P><A NAME="hid_add_bin"></A><B>Byteweise Addition (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P></h3>
 
 <P>Bei diesem <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> wird der eingegebene <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zeichenweise (byteweise) auf die zu <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselnden</A> Daten addiert. Dabei wird die Addition <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 256 verwendet, das heißt eventuelle Überträge bleiben unberücksichtigt. Der Schlüssel wird dabei zyklisch verwendet (wie beim <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A> und bei <A href="hid_xor_bin.html">exklusivem Oder</A>), das heißt wenn alle Zeichen (Bytes) des Schlüssels benutzt worden sind, wird wieder mit dem ersten Zeichen begonnen, bis der Text vollständig verschlüsselt worden ist.</P>
 

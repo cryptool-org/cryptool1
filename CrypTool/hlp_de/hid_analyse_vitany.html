@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Vitany-Analyse</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Vitany-Analyse">
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
-<P><A NAME="hid_analyse_vitany"></A><B>Vitany-Analyse des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P>
+<h3><P><A NAME="hid_analyse_vitany"></A><B>Vitany-Analyse des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P></h3>
 
 <P>Die Vitany-Analyse beruht auf einer Veröffentlichung von Paul Vitany, Ming Li und Tao Jiang (Kolmorov Complexity and a Triangle Problem of the Heilbronn Type, http://www.cwi.nl/~paulv/papers/jlms.ps).</P>
 
@@ -22,17 +23,21 @@
 
 <P>Das Diagramm zeigt die Proportionalitätskonstante in Abhängigkeit von der Anzahl der Punkte. Sie ist auf den Mittelwert normiert (Mittelwert = 1.0). Weiterhin wird der Mittelwert und die normierte Variation ausgegeben.</P>
 
-<P>Zu erwarten ist: <!--ZZZUL--></P>
+<P>Zu erwarten ist:</P>
 
-<P>- dass bei einer nicht gleichmäßig verteilten Folge die Kurve fällt und </P>
+<UL>
 
-<P>- dass bei einer nicht unabhängigen Folge der ausgegebene Graph steigt.</P>
+	<LI> dass bei einer nicht gleichmäßig verteilten Folge die Kurve fällt und </LI>
+
+	<LI> dass bei einer nicht unabhängigen Folge der ausgegebene Graph steigt.</LI>
+
+</UL>
 
 <P><B>Beispiel</B>:</P>
 
 <P>Mit Hilfe des Linearen Kongruenzgenerator (LCG-Parameter: a = 23, b = 0, Modul N = 100001) wurden 12.500 "zufällige" Zeichen erzeugt. Die Vitany-Analyse bestimmt das folgende Diagramm:</P>
 
-<P><IMG SRC="images/vitanyexample.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/vitanyexample.gif" ALT="vitanyexample.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Lineare Kongruenzgenerator</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Lineare Kongruenzgenerator">
@@ -14,17 +15,17 @@
 	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
 </OBJECT>
 
-<P><A NAME="hidd_lcg_randomparameter"></A><B>Dialog Der Lineare Kongruenzgenerator</B></P>
+<h3><P><A NAME="hidd_lcg_randomparameter"></A><B>Dialog Der Lineare Kongruenzgenerator</B></P></h3>
 
 <P>Der lineare Kongruenzgenerator (LCG) ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X_[i]) gemäß der rekursiven Rechenvorschrift:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>X_[0] := Geheimer Saatwert</P>
 
 <P>X_[i+1] := a*X_[i] +b  (mod N)   für i = 0, 1, 2, 3, ...</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>wobei X_[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., N-1 sind. Es ist üblich, die Zufallszahlen in den rationalen Wertebereich [0,1[ zu normieren, deshalb erfolgt die Ausgabe als rationale Zahlen Z[i] := X_[i]/N. </P>
 
@@ -36,7 +37,7 @@
 
 <P>Nachdem Sie im Dialog <A href="menu_related_methods.html"><B>Einzelverfahren</B></A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton "Linearer Kongruenzgenerator (LCG)" gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameters des LCG festlegen:</P>
 
-<P><IMG SRC="images/lcgoptions.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/lcgoptions.gif" ALT="lcgoptions.gif" BORDER=0></P>
 
 <P>Beachten Sie, dass die Qualität des LCG entscheidend von der Wahl der Parameter abhängt. Ein wichtiges Maß ist hierbei die <A href="periodenlänge.html">Periodenlänge</A> der Zufallsfolge, die durch die Parameter festgelegt wird. </P>
 
@@ -44,216 +45,216 @@
 
 <P>Die folgende Tabelle liefert einen Überblick über die Parameter einiger ausgewählter LCG.</P>
 
-<TABLE cols=4 width=624>
+<TABLE cols=4 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=18%>a</TD>
-<TD width=16%>b</TD>
-<TD width=18%>N</TD>
-<TD width=48%>Referenz</TD>
+<TD>a</TD>
+<TD>b</TD>
+<TD>N</TD>
+<TD>Referenz<BR><BR></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>19496</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^15-19</TD>
-<TD width=48%>Chiang, Hwang, Kao</TD>
+<TD>19496</TD>
+<TD>0</TD>
+<TD>2^15-19</TD>
+<TD>Chiang, Hwang, Kao</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>214013</TD>
-<TD width=16%>13523655</TD>
-<TD width=18%>2^24</TD>
-<TD width=48%>BASIC</TD>
+<TD>214013</TD>
+<TD>13523655</TD>
+<TD>2^24</TD>
+<TD>BASIC</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>16598013</TD>
-<TD width=16%>12820163</TD>
-<TD width=18%>2^24</TD>
-<TD width=48%>Qbasic</TD>
+<TD>16598013</TD>
+<TD>12820163</TD>
+<TD>2^24</TD>
+<TD>Qbasic</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>62605</TD>
-<TD width=16%>113218009</TD>
-<TD width=18%>2^29</TD>
-<TD width=48%>Berkeley UNIX Pascal</TD>
+<TD>62605</TD>
+<TD>113218009</TD>
+<TD>2^29</TD>
+<TD>Berkeley UNIX Pascal</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>452807053</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31</TD>
-<TD width=48%>URN12</TD>
+<TD>452807053</TD>
+<TD>0</TD>
+<TD>2^31</TD>
+<TD>URN12</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>16807</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>_Minimal Standard_ von Lewis, et al.</TD>
+<TD>16807</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>_Minimal Standard_ von Lewis, et al.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>41358</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>L'Ecuyer</TD>
+<TD>41358</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>L'Ecuyer</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>48271</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>Park &amp; Miller</TD>
+<TD>48271</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Park &amp; Miller</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>51081</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>Härtel</TD>
+<TD>51081</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Härtel</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>69621</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>Park &amp; Miller</TD>
+<TD>69621</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Park &amp; Miller</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>950706376</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>FISH von Fishman &amp; Moore</TD>
+<TD>950706376</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>FISH von Fishman &amp; Moore</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>63060016</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>SIMSCRIPT II</TD>
+<TD>63060016</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>SIMSCRIPT II</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>397204094</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31-1</TD>
-<TD width=48%>SAS &amp; IMSL-Library von Hoaglin</TD>
+<TD>397204094</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>SAS &amp; IMSL-Library von Hoaglin</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>65539</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^31</TD>
-<TD width=48%>IBM's RANDU</TD>
+<TD>65539</TD>
+<TD>0</TD>
+<TD>2^31</TD>
+<TD>IBM's RANDU</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>1103515245</TD>
-<TD width=16%>12345</TD>
-<TD width=18%>2^31</TD>
-<TD width=48%>UNIX rand [Rip90], ANSI C</TD>
+<TD>1103515245</TD>
+<TD>12345</TD>
+<TD>2^31</TD>
+<TD>UNIX rand [Rip90], ANSI C</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>129</TD>
-<TD width=16%>907633385</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>Turbo Pascal</TD>
+<TD>129</TD>
+<TD>907633385</TD>
+<TD>2^32</TD>
+<TD>Turbo Pascal</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>69069</TD>
-<TD width=16%>1</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>VAX VMS-Generator von Marsaglia</TD>
+<TD>69069</TD>
+<TD>1</TD>
+<TD>2^32</TD>
+<TD>VAX VMS-Generator von Marsaglia</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>663608941</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>C-RAND von Ahrens</TD>
+<TD>663608941</TD>
+<TD>0</TD>
+<TD>2^32</TD>
+<TD>C-RAND von Ahrens</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>1099087573</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>Fishman</TD>
+<TD>1099087573</TD>
+<TD>0</TD>
+<TD>2^32</TD>
+<TD>Fishman</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>3141592653</TD>
-<TD width=16%>1</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>DERIVE</TD>
+<TD>3141592653</TD>
+<TD>1</TD>
+<TD>2^32</TD>
+<TD>DERIVE</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>2147001325</TD>
-<TD width=16%>715136305</TD>
-<TD width=18%>2^32</TD>
-<TD width=48%>BCPL von Richards, Whitby-Strevens</TD>
+<TD>2147001325</TD>
+<TD>715136305</TD>
+<TD>2^32</TD>
+<TD>BCPL von Richards, Whitby-Strevens</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>5^15</TD>
-<TD width=16%>7261067085</TD>
-<TD width=18%>2^35</TD>
-<TD width=48%>Boeing Computer Services BCSLIB</TD>
+<TD>5^15</TD>
+<TD>7261067085</TD>
+<TD>2^35</TD>
+<TD>Boeing Computer Services BCSLIB</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>71971110957370</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^47-115</TD>
-<TD width=48%>L'Ecuyer</TD>
+<TD>71971110957370</TD>
+<TD>0</TD>
+<TD>2^47-115</TD>
+<TD>L'Ecuyer</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>25214903917</TD>
-<TD width=16%>11</TD>
-<TD width=18%>2^48</TD>
-<TD width=48%>SUN-UNIX drand48</TD>
+<TD>25214903917</TD>
+<TD>11</TD>
+<TD>2^48</TD>
+<TD>SUN-UNIX drand48</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>44485709377909</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^48</TD>
-<TD width=48%>Cray X-MP Library</TD>
+<TD>44485709377909</TD>
+<TD>0</TD>
+<TD>2^48</TD>
+<TD>Cray X-MP Library</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>68909602460261</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^48</TD>
-<TD width=48%>Fishman</TD>
+<TD>68909602460261</TD>
+<TD>0</TD>
+<TD>2^48</TD>
+<TD>Fishman</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>13^13</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^59</TD>
-<TD width=48%>NAG Fortran Library</TD>
+<TD>13^13</TD>
+<TD>0</TD>
+<TD>2^59</TD>
+<TD>NAG Fortran Library</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>2307085864</TD>
-<TD width=16%>0</TD>
-<TD width=18%>2^63-25</TD>
-<TD width=48%>L'Ecuyer</TD>
+<TD>2307085864</TD>
+<TD>0</TD>
+<TD>2^63-25</TD>
+<TD>L'Ecuyer</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>427419669081</TD>
-<TD width=16%>0</TD>
-<TD width=18%>10^12-11</TD>
-<TD width=48%>MAPLE</TD>
+<TD>427419669081</TD>
+<TD>0</TD>
+<TD>10^12-11</TD>
+<TD>MAPLE</TD>
 </TR>
 </TABLE><BR>
 

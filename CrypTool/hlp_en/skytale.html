@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Skytale of Sparta</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Skytale">
 	<PARAM NAME="Keyword" VALUE="Permutation">
 </OBJECT>
 
-<P><A NAME="skytale"></A><B>Skytale of Sparta (500 ad) (described by Plutarch)</B></P>
+<h3><P><A NAME="skytale"></A><B>Skytale of Sparta (500 ad) (described by Plutarch)</B></P></h3>
 
 <P>Sender and receiver both need 2 cylinders (squared timbers) of the </P>
 
@@ -20,11 +21,11 @@
 
 <P>The sender winds a small ribbon of vellum spirally round his cylinder and writes lengthwise his message onto the ribbon. The message on the unwinded ribbon can be read only by a person who has a cylinder of the same kind. </P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<P><IMG SRC="images/skytale1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/skytale1.gif" ALT="skytale1.gif" BORDER=0></P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>How can this algorithm be modelled within CrypTool ? </P>
 
@@ -34,33 +35,41 @@
 
 <P>For n=3 (exactly 3 corners) the sender writes onto the ribbon:</P>
 
-<P><!--ZZZIND--><CODE> JAM ESB OND</CODE></P>
+<div class="indent">
+
+<PRE><CODE>JAM ESB OND</CODE></PRE>
+
+</div>
 
 <P>and gets an unwinded ribbon with: </P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P><CODE>JEO ASN MBD</CODE>.</P>
 
+</div>
+
 <P></P>
 
-<P><!--ZZZINDNE--></P>
+<P>iIf he writes </P>
 
-<P>iIf he writes <!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    JAM ESB OND
-    WAN TED DEA</CODE></PRE>
+    WAN TED DEA</CODE>
+    <CODE>DOR ALI VE</CODE></PRE>
 
-<P><CODE>DOR ALI VE</CODE></P>
+</div>
 
-<P><!--ZZZINDNE--></P>
+<P>he gets </P>
 
-<P>he gets <!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    JEO WTD DAV
-    ASN AEE OLE</CODE></PRE>
+    ASN AEE OLE</CODE>
+    <CODE>MBD NDA RI</CODE></PRE>
 
-<P><CODE>MBD NDA RI</CODE></P>
+</div>
 
 </BODY>
 </HTML>

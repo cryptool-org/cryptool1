@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Factorisation algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Factorisation">
@@ -14,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Dialogue">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp"></A><B>Dialogue Factorisation algorithms (menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ RSA Demonstration)</B></P>
+<h3><P><A NAME="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp"></A><B>Dialogue Factorisation algorithms (menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ RSA Demonstration)</B></P></h3>
 
 <P>This dialogue can be called via <A href="menu_related_methods.html"><B>Individual Procedures</B></A><B> \ RSA Demonstration \ Factorisation of a number</B>.</P>
 
@@ -24,7 +25,7 @@
 
 <P>This tutorial is intended to give you an idea of how factorisation problems are tackled in practice.</P>
 
-<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif" BORDER=0></P>
 
 <P>You have various factorisation algorithms to choose from to break down your input.</P>
 
@@ -38,23 +39,23 @@
 
 <P>Using the Brute-force method,</P>
 
-<P><IMG SRC="images/bruteforce.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/bruteforce.gif" ALT="bruteforce.gif" BORDER=0></P>
 
 <P>and then the Brent method</P>
 
-<P><IMG SRC="images/brent.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/brent.gif" ALT="brent.gif" BORDER=0></P>
 
 <P>The algorithms <B>Pollard (p-1) </B> and <B>Williams (p+1) algorithms </B>are likely to be successful if the number N to be factorised has a prime number p such that (p-1) and (p+1) consists of only small prime factors. They are used to split off factors that are relatively small and therefore naturally come before the stronger factorisation methods.</P>
 
 <P>Example 233333330996666690033333333:</P>
 
-<P><IMG SRC="images/pollard.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/pollard.gif" ALT="pollard.gif" BORDER=0></P>
 
 <P>The <B>Lenstra</B> algorithm is based on a generalisation of Pollard‚s (p-1) method to elliptic curves. This method is also known as the <B>ECM (Elliptic Curve Method)</B>. With ECM it is possible to break down far bigger factors. Nevertheless, ECM is also suitable for drawing out factors with particular characteristics. This limitation means that "relatively small" factors are more likely to be found than "big" factors. Nevertheless, it is essentially more worthwhile to use ECM instead of the (p-1) method. </P>
 
 <P>Example 3035124991756191792335802070931:</P>
 
-<P><IMG SRC="images/lenstraecm.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/lenstraecm.gif" ALT="lenstraecm.gif" BORDER=0></P>
 
 <P>Very small prime divisors p of a number n are discovered more quickly by trial and error than using ECM. The time it takes to perform the ECM calculations depends primarily on the size of the prime divisor that is being sought rather than on the number that is to be factorised. If a number with 1000 decimal places has a 20-digit divisor, then it can be found using ECM. On the other hand, the bigger the smallest factor is, the greater the computing time. ECM is suitable for factors with up to 30 decimal places. The biggest prime factor found using this method up to now has 47 decimal places and was discovered by Peter Montgomery of the Centre for Mathematics and Information Science (CWI) in Amsterdam.</P>
 
@@ -62,7 +63,7 @@
 
 <P>Example 1999999999999999999077757777777777777777787:</P>
 
-<P><IMG SRC="images/qsieb.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/qsieb.gif" ALT="qsieb.gif" BORDER=0></P>
 
 <P>The computing time here is not dependent on the smallest factor but on the number to be factorised itself. The quadratic sieve is, albeit with slight deviations, one of the fastest factorisation methods yet to have been discovered by mathematicians.</P>
 
@@ -74,13 +75,16 @@
 
 <P>On 22 Aug 1999, a research group co-ordinated by Herman te Riele of the CWI Amsterdam, published the factorisation of the 512-bit number <B>RSA 155</B> with the NFS algorithm. RSA 155 comes from the "RSA challenge list" produced by RSA inc. </P>
 
-<P><B>RSA 155</B> =10941738641570527421809707322040357612003732945449205990913842131476349984288934784717997257891267332497625752899781833797076537244027146743531593354333897 </P>
+<P><B>RSA 155</B></P>
+<P>=10941738641570527421809707322040357612003732945449205990913842131476349984288934784717997257891267332497625752899781833797076537244027146743531593354333897</P>
 
-<P>= 102639592829741105772054196573991675900716567808038066803341933521790711307779 * 106603488380168454820927220360012878679207958575989291522270608237193062808643 </P>
+<P>=102639592829741105772054196573991675900716567808038066803341933521790711307779 * 106603488380168454820927220360012878679207958575989291522270608237193062808643 </P>
 
 <P>It took 7.4 months (9 weeks‚ preparation and 5.2 months for the actual factorisation) to carry out all the steps.</P>
 
-<P>a) Application of the <B>sieve step</B> took 35.7 CPU years. The following computers were used for this:</P>
+<OL type="a">
+
+<LI> Application of the <B>sieve step</B> took 35.7 CPU years. The following computers were used for this:</LI>
 
 <P>160 * 175-400 MHz SGI and Sun workstations</P>
 
@@ -92,11 +96,13 @@
 
 <P>This effort was roughly equivalent to 8000 MIPS years. 124,722,179 relations were collected. </P>
 
-<P>b) The resulting matrix had 6,699,191 lines and 6,711,336 columns. The matrix was worked off in around 224 CPU hours with a main memory requirement of 2GB on a Cray C916 belonging to the SARA Amsterdam Academic Computer Centre. The factorisation took from 17 March to 22 August.</P>
+<LI> The resulting matrix had 6,699,191 lines and 6,711,336 columns. The matrix was worked off in around 224 CPU hours with a main memory requirement of 2GB on a Cray C916 belonging to the SARA Amsterdam Academic Computer Centre. The factorisation took from 17 March to 22 August.</LI>
 
-<P>The sieve stage can in practice be run in parallel on an arbitrary number of computers. In particular, organisations with unrestricted hardware budgets can significantly speed up the factorisation task with special hardware (e.g. see the opto-electronic TWINKLE device). </P>
+<P>The sieve stage can in practice be run in parallel on an arbitrary number of computers. In particular, organisations with unrestricted hardware budgets can significantly speed up the factorisation task with </P>
 
-<P>http://web.hamline.edu/~wnk/rsa/rsa.html</P>
+<P><U>http://web.hamline.edu/~wnk/rsa/rsa.html</U></P>
+
+</OL>
 
 </BODY>
 </HTML>

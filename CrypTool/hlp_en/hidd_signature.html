@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialogue Create message signature</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Dialogue">
@@ -13,57 +14,57 @@
 	<PARAM NAME="Keyword" VALUE="Signature generation">
 </OBJECT>
 
-<P><A NAME="hidd_signature"></A><B>Dialogue Create message signature</B></P>
+<h3><P><A NAME="hidd_signature"></A><B>Dialogue Create message signature</B></P></h3>
 
 <P>In this dialogue a <A href="hid_crypt_sign.html">document can be signed</A>. </P>
 
 <P>The dialogue contains two prominent boxes, <B>Choose hash function</B> and <B>Choose signature algorithm</B>. There are five <A href="hashfunktion.html">hash functions</A> available (<A href="hid_crypt_hash_md2.html">MD2</A>, <A href="hid_crypt_hash_md5.html">MD5</A>, <A href="hid_crypt_hash_ripemd160.html">RIPEMD-160</A>, <A href="hid_crypt_hash_sha.html">SHA</A> and <A href="hid_crypt_hash_sha1.html">SHA 1</A>) and four signature algorithms (RSA, DSA, ECSP-DSA and ECSP-NR). According to the cryptographic standards, not every signature algorithm can be used with every hash function. The table below shows the combinations that are permitted:</P>
 
-<TABLE cols=6 width=470>
+<TABLE cols=6 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=21%>&nbsp;</TD>
-<TD width=20%><B>MD2</B></TD>
-<TD width=14%><B>MD5</B></TD>
-<TD width=22%><B>RIPEMD-160</B></TD>
-<TD width=10%><B>SHA</B></TD>
-<TD width=13%><B>SHA-1</B></TD>
+<TD>&nbsp;</TD>
+<TD><B>MD2</B></TD>
+<TD><B>MD5</B></TD>
+<TD><B>RIPEMD-160</B></TD>
+<TD><B>SHA</B></TD>
+<TD><B>SHA-1</B></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=21%><B>RSA</B></TD>
-<TD width=20%>Yes</TD>
-<TD width=14%>Yes</TD>
-<TD width=22%>Yes</TD>
-<TD width=10%>Yes</TD>
-<TD width=13%>Yes</TD>
+<TD><B>RSA</B></TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=21%><B>DSA</B></TD>
-<TD width=20%>No</TD>
-<TD width=14%>No</TD>
-<TD width=22%>No</TD>
-<TD width=10%>Yes</TD>
-<TD width=13%>Yes</TD>
+<TD><B>DSA</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=21%><B>ECSP-DSA</B></TD>
-<TD width=20%>No</TD>
-<TD width=14%>No</TD>
-<TD width=22%>Yes</TD>
-<TD width=10%>No</TD>
-<TD width=13%>Yes</TD>
+<TD><B>ECSP-DSA</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+<TD>Yes</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=21%><B>ECSP-NR</B></TD>
-<TD width=20%>No</TD>
-<TD width=14%>No</TD>
-<TD width=22%>Yes</TD>
-<TD width=10%>No</TD>
-<TD width=13%>Yes</TD>
+<TD><B>ECSP-NR</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+<TD>Yes</TD>
 </TR>
 </TABLE><BR>
 

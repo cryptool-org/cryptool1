@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Primzahlen generieren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Primzahlen generieren">
@@ -14,37 +15,35 @@
 	<PARAM NAME="Keyword" VALUE="Dialog">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_tutorial_primzahlengenerieren"></A><B>Dialog Primzahlen generieren (Demonstration) (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P>
+<h3><P><A NAME="hid_einzelverfahren_tutorial_primzahlengenerieren"></A><B>Dialog Primzahlen generieren (Demonstration) (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P></h3>
 
 <P>Primzahlen sind natürliche Zahlen größer 1, die nur durch die 1 und durch sich selbst teilbar sind. Sie spielen in der Kryptographie eine wichtige Rolle. In dieser Demonstration können Sie sich selbst Primzahlen erzeugen, wobei die Primzahlen zufällig innerhalb frei definierbarer Grenzen bestimmt werden:</P>
 
-<P><IMG SRC="images/generatepz.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/generatepz.gif" ALT="generatepz.gif" BORDER=0></P>
 
-<P>Wenn Sie den Knopf <B>Primzahlen generieren</B> drücken, wird mit Hilfe von <!--ZZZPOPUP--><A href="zufall.html">Zufall</A> nach Primzahlen für p und q gesucht. Eine Zahl X wird zufällig aus dem Wertebereich [Untergrenze, ..., Obergrenze] gezogen. Danach wird für X "getestet", ob X eine Primzahl sein kann. Für diesen Test wird wiederum Zufall eingesetzt: <!--ZZZUL--> </P>
+<P>Wenn Sie den Knopf <B>Primzahlen generieren</B> drücken, wird mit Hilfe von <!--ZZZPOPUP--><A href="zufall.html">Zufall</A> nach Primzahlen für p und q gesucht. Eine Zahl X wird zufällig aus dem Wertebereich [Untergrenze, ..., Obergrenze] gezogen. Danach wird für X "getestet", ob X eine Primzahl sein kann. Für diesen Test wird wiederum Zufall eingesetzt: </P>
 
-<P>Falls X keine Primzahl ist, dann gibt der gewählte Test mit der Wahrscheinlichkeit 1/2 an, dass X keine Primzahl ist, im anderen Fall ist die Rückmeldung stets positiv. Wenn der Primzahltest 80 mal "unabhängig" wiederholt wird und stets positiv ausfällt, dann ist die Wahrscheinlichkeit, dass X doch keine Primzahl ist mit 2^(-80) vernachlässigbar klein und die so gefundene Zahl wird als Primzahl aufgefasst und als Primzahl p bzw. als Primzahl q ausgegeben.</P>
+<UL>
 
-<P>Ist einer der k Primzahltests negativ, dann ist X nicht prim und der Test wird mit einer neuen zufällig gewählten Zahl X wiederholt.</P>
+	<LI>Falls X keine Primzahl ist, dann gibt der gewählte Test mit der Wahrscheinlichkeit 1/2 an, dass X keine Primzahl ist, im anderen Fall ist die Rückmeldung stets positiv. Wenn der Primzahltest 80 mal "unabhängig" wiederholt wird und stets positiv ausfällt, dann ist die Wahrscheinlichkeit, dass X doch keine Primzahl ist mit 2^(-80) vernachlässigbar klein und die so gefundene Zahl wird als Primzahl aufgefasst und als Primzahl p bzw. als Primzahl q ausgegeben.</LI>
 
-<P><!--ZZZULE--></P>
+	<LI>Ist einer der k Primzahltests negativ, dann ist X nicht prim und der Test wird mit einer neuen zufällig gewählten Zahl X wiederholt.</LI>
+
+</UL>
 
 <P>In diesem Dialog können Sie zwischen den folgenden Primzahltests wählen:</P>
 
-<P><!--ZZZUL-->
-
 <UL>
-	<LI>Miller-Rabin-Test,<BR><BR></LI>
+	<LI>Miller-Rabin-Test,</LI>
 
-	<LI>Solovay-Strassen-Test und <BR><BR></LI>
+	<LI>Solovay-Strassen-Test und </LI>
 
 	<LI>Fermat-Test.</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
 <P>Für den Fall, dass für 1000 zufällig gezogene Zahlen X keine Primzahl gefunden wurde, erhalten Sie eine entsprechende Fehlermeldung. Sie sollten dann den zulässigen Wertebereich [Untergrenze, ..., Obergrenze] für die Primzahlen entsprechend vergrößern. </P>
 
-<P>Ausführliche Informationen zum Thema Primzahlen finden Sie im <!--ZZZLINK--><A href="script-de.pdf">Skript</A>.</P>
+<P>Ausführliche Informationen zum Thema Primzahlen finden Sie im <A href="script-de.pdf">Skript</A>.</P>
 
 </BODY>
 </HTML>

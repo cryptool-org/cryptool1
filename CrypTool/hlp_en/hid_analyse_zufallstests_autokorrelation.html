@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Autocorrelation test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Autocorrelation">
@@ -13,17 +14,25 @@
 	<PARAM NAME="Keyword" VALUE="Statistic">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_autokorrelation"></A><B>Autocorrelation Test (Menu <A href="menu_analyze.html">Analysis</A> \ Random Tests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_autokorrelation"></A><B>Autocorrelation Test (Menu <A href="menu_analyze.html">Analysis</A> \ Random Tests)</B></P></h3>
 
 <P>The purpose of this empirical test of independence is to check correlations between succeeding outcomes of the pseudorandom number generator and/or between the binary sequence <I>s</I> and an alternative version of <I>s</I> that is displaced by t positions.</P>
 
 <P>Let t be a number, 1 &lt;= t &lt;= (n / 2) and fixed. The number of bit positions in <I>s</I> which do not agree with the version of <I>s</I> that has been displaced by t positions is determined by</P>
 
-<P><!--ZZZIND--> D(t) = sum[i = 0; i = n – t – 1] s_i XOR s_(i + t)</P>
+<div style="text-align:center">
+
+<P>D(t) = sum[i = 0; i = n – t – 1] s_i XOR s_(i + t)</P>
+
+</div>
 
 <P>The test statistics used are given by</P>
 
-<P><!--ZZZIND--> X5 = 2 * [(D(t) – [(n – t) / 2]) / (n – t) ^ (1 / 2)]</P>
+<div style="text-align:center">
+
+<P>X5 = 2 * [(D(t) – [(n – t) / 2]) / (n – t) ^ (1 / 2)]</P>
+
+</div>
 
 <P>whereby X5 approximates an N(0, 1) distribution, provided that n - t &gt;= 10. As both small and large values for D(t) are unexpected, a two-tailed test is recommended.</P>
 
@@ -41,7 +50,11 @@
 
 <P>We choose t = 8. The sequence s departs from the copy of s displaced by 8 positions precisely at D(8) = 68 positions. The Autocorrelation Test thus produces a test statistic of</P>
 
-<P><!--ZZZIND--> X5 = 2 * (68 – [(160 – 8) / 2) / (160 – 8) ^ (1 / 2) = -1.29777</P>
+<div style="text-align:center">
+
+<P>X5 = 2 * (68 – [(160 – 8) / 2) / (160 – 8) ^ (1 / 2) = -1.29777</P>
+
+</div>
 
 <P>The limit for a <A href="norm_vert.html">normally distributed</A> test statistic X5 is 1.6449 at a <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> of ‘alpha‚ = 0.05. With X5 = -1.29777 &lt;= 1.6449, sequence <I>s</I> passes the Autocorrelation Test.</P>
 

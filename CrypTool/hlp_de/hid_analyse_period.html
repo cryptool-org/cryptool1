@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Periodizität ermitteln</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analyse">
@@ -26,45 +27,49 @@
 
 <P>Beispiele: </P>
 
-<TABLE cols=2 width=601>
+<div class="indent">
+	
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=24%>
+<TD>
 <PRE><CODE>bbbbaaaa     </CODE></PRE>
 </TD>
-<TD width=76%>die Periode <B><CODE>a</CODE></B> hat Offset 5 und die Länge 1.</TD>
+<TD>die Periode <B><CODE>a</CODE></B> hat Offset 5 und die Länge 1.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=24%>
+<TD>
 <PRE><CODE>bbbazazaz    </CODE></PRE>
 </TD>
-<TD width=76%><B><CODE>az</CODE></B> hat Offset 4 und die Länge 2.</TD>
+<TD><B><CODE>az</CODE></B> hat Offset 4 und die Länge 2.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=24%>
+<TD>
 <PRE><CODE>bbbazazbazaz </CODE></PRE>
 </TD>
-<TD width=76%>enthält zwei verschachtelte Perioden: Zum einen die mit Offset 3 und der Länge 5 (<B><CODE>bazaz</CODE></B>), zum anderen die mit Offset 9 und der Länge 2 (<B><CODE>az</CODE></B>).</TD>
+<TD>enthält zwei verschachtelte Perioden: Zum einen die mit Offset 3 und der Länge 5 (<B><CODE>bazaz</CODE></B>), zum anderen die mit Offset 9 und der Länge 2 (<B><CODE>az</CODE></B>).</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=24%>
+<TD>
 <PRE><CODE>axakaxal</CODE></PRE>
 </TD>
-<TD width=76%>ist keine Periode</TD>
+<TD>ist keine Periode</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=24%>
+<TD>
 <PRE><CODE>axaxaxak</CODE></PRE>
 </TD>
-<TD width=76%>ist keine Periode</TD>
+<TD>ist keine Periode</TD>
 </TR>
 </TABLE><BR>
 
-<P><IMG SRC="images/perioddlg.gif" ALT="" BORDER=0></P>
+</div>
+
+<P><IMG SRC="images/perioddlg.gif" ALT="perioddlg.gif" BORDER=0></P>
 
 <P>Die Periodenanalyse wird nur dann ausgeführt, wenn das Dokument mindestens 2 Bytes groß ist.</P>
 

@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Caesar-Verschlüsselungsverfahren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
 	<PARAM NAME="Keyword" VALUE="Caesar-Verschlüsselungsverfahren">
 </OBJECT>
 
-<P><A NAME="hid_caesar_asc"></A><B>Caesar-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+<h3><P><A NAME="hid_caesar_asc"></A>Caesar-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</P></h3>
 
 <P>Bei dem schon von Caesar eingesetzten <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> werden nur die Zeichen aus dem Alphabet <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>. (das Alphabet wird im Dialog <A href="hidd_text_options.html">Textoptionen</A> ausgewählt). </P>
 
@@ -26,50 +27,58 @@
 
 <P>Bei dem Schlüssel "C" werden alle Buchstaben zyklisch um 3 Stellen verschoben:</P>
 
-<P><U>KlartextVerschlüsselter Text</U><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=2 width=222>
+<TABLE cols=2 width="0*" class="pad20">
+
+	
+<TR VALIGN="top">
+<TD><U>Klartext</U></TD>
+<TD><U>Verschlüsselter Text</U><BR><BR></TD>
 
 <TR VALIGN="top">
-<TD width=51%>A</TD>
-<TD width=49%>D</TD>
+<TD style="text-align=center">A</TD>
+<TD style="text-align=center">D</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>B</TD>
-<TD width=49%>E</TD>
+<TD style="text-align=center">B</TD>
+<TD style="text-align=center">E</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>C</TD>
-<TD width=49%>F</TD>
+<TD style="text-align=center">C</TD>
+<TD style="text-align=center">F</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>...</TD>
-<TD width=49%>...</TD>
+<TD style="text-align=center">...</TD>
+<TD style="text-align=center">...</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>W</TD>
-<TD width=49%>Z</TD>
+<TD style="text-align=center">W</TD>
+<TD style="text-align=center">Z</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>X</TD>
-<TD width=49%>A</TD>
+<TD style="text-align=center">X</TD>
+<TD style="text-align=center">A</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>Y</TD>
-<TD width=49%>B</TD>
+<TD style="text-align=center">Y</TD>
+<TD style="text-align=center">B</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=51%>Z</TD>
-<TD width=49%>C</TD>
+<TD style="text-align=center">Z</TD>
+<TD style="text-align=center">C</TD>
 </TR>
+
 </TABLE><BR>
+</div>
+</div>
 
 <P>Bemerkung: Der Schlüssel "Z" sollte nicht verwendet werden, da in diesem Fall der verschlüsselte Text mit dem Klartext übereinstimmt.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Optionen für Alphabet und Zahlensystem</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Optionen für Alphabet und Zahlensystem">
@@ -16,11 +17,11 @@
 	<PARAM NAME="Keyword" VALUE="Zahlensystem">
 </OBJECT>
 
-<P><A NAME="hidd_options_rsa_demo"></A><B>Dialog Optionen für Alphabet und Zahlensystem</B></P>
+<h3><P><A NAME="hidd_options_rsa_demo"></A><B>Dialog Optionen für Alphabet und Zahlensystem</B></P></h3>
 
 <P>Bei diesem Dialog haben Sie die Möglichkeit, Optionen für die RSA-Ver/Entschlüsselung einzustellen:</P>
 
-<P><IMG SRC="images/rsa_demo_8.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_8.gif" ALT="rsa_demo_8.gif" BORDER=0></P>
 
 <P><B>Textoptionen \ Alphabetoptionen:</B></P>
 
@@ -30,36 +31,36 @@
 
 <P>Die Kodierung des vordefinierten Alphabets "&lt;Leerzeichen&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ":</P>
 
-<TABLE border=1 cols=3 frame=box rules=all width=270>
+<TABLE cols=3 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=36%>&lt;Leerzeichen&gt;</TD>
-<TD width=30%>-&gt;</TD>
-<TD width=34%>0</TD>
+<TD>&lt;Leerzeichen&gt;</TD>
+<TD>-&gt;</TD>
+<TD>0</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=36%>A</TD>
-<TD width=30%>-&gt;</TD>
-<TD width=34%>1</TD>
+<TD>A</TD>
+<TD>-&gt;</TD>
+<TD>1</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=36%>B</TD>
-<TD width=30%>-&gt;</TD>
-<TD width=34%>2</TD>
+<TD>B</TD>
+<TD>-&gt;</TD>
+<TD>2</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=36%>&nbsp;</TD>
-<TD width=30%>....</TD>
-<TD width=34%>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>....</TD>
+<TD>&nbsp;</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=36%>Z</TD>
-<TD width=30%>-&gt;</TD>
-<TD width=34%>26</TD>
+<TD>Z</TD>
+<TD>-&gt;</TD>
+<TD>26</TD>
 </TR>
 </TABLE><BR>
 
@@ -77,37 +78,48 @@
 
 <P><B>Beispiel</B>: Die Nachricht "ATTACK AT DAWN", zerlegt in Blöcke der Länge 2 ergibt: </P>
 
-<P><!--ZZZIND--> AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
+<div class="indent">
+
+<P>AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
+
+</div>
 
 <P>Die Kodierung der Einzelbuchstaben der Nachricht in Zahlen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) ergibt erst mal: </P>
 
-<P><!--ZZZIND--> 01 20 20 01 03 00 01 20 00 04 01 23 14 00</P>
+<div class="indent">
+
+<P>01 20 20 01 03 00 01 20 00 04 01 23 14 00</P>
+
+</div>
 
 <P>Wie man aus den Zahlen eines Blockes eine neue Zahl generiert, wird durch die beiden Kodierungsmethoden b-adisch und Basissystem festgelegt:</P>
 
-<P>(1) Kodierung der Zahlenblöcke der Länge k = 2 nach der b-adischen Formel (jeder Block besteht aus zwei Buchstaben):</P>
+<OL>
 
-<P><!--ZZZINDN--></P>
+	<LI> Kodierung der Zahlenblöcke der Länge k = 2 nach der b-adischen Formel (jeder Block besteht aus zwei Buchstaben):</P>
+
+<div class="indent">
 
 <P>&lt;Buchstabe1&gt;*27^1 + &lt;Buchstabe2&gt;   liefert die Kodierung:</P>
 
 <P>047 # 541 # 081 # 047 # 004 # 050 # 378</P>
 
-<P>Diese Kodierung ist optimal (in dem Sinn, dass der Wertebereich möglichst klein bleibt).</P>
+<P>Diese Kodierung ist optimal (in dem Sinn, dass der Wertebereich möglichst klein bleibt).</P><BR></LI>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
-<P>(2) Kodierung der Zahlenblöcke der Länge k = 2 nach der Basissystem-Formel (Basis 10^k = 100):</P>
+	<LI> Kodierung der Zahlenblöcke der Länge k = 2 nach der Basissystem-Formel (Basis 10^k = 100):</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>&lt;Buchstabe1&gt;*100^1 + &lt;Buchstabe2&gt;   liefert die Kodierung</P>
 
 <P>0120 # 2001 # 0300 # 0120 # 0004 # 0123 # 1400</P>
 
-<P>Bei dieser Kodierung können Sie die Kodierung der Einzelbuchstaben direkt ablesen.</P>
+<P>Bei dieser Kodierung können Sie die Kodierung der Einzelbuchstaben direkt ablesen.</P><BR></LI>
+</div>
 
-<P><!--ZZZINDNE--></P>
+</OL>
 
 <P><B>Bemerkung:</B></P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Analyseoptionen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analyseoptionen">
@@ -13,11 +14,13 @@
 	<PARAM NAME="Keyword" VALUE="Analyseoptionen">
 </OBJECT>
 
-<P><A NAME="hidd_options_analysis"></A><B>Dialog Analyseoptionen</B></P>
+<h3><P><A NAME="hidd_options_analysis"></A><B>Dialog Analyseoptionen</B></P></h3>
 
-<P>In diesem Dialog können verschiedene Optionen festgelegt werden, die das Verhalten von Verfahren im Menü <A href="menu_analyze.html">Analyse</A> beeinflussen. <!--ZZZOL--></P>
+<P>In diesem Dialog können verschiedene Optionen festgelegt werden, die das Verhalten von Verfahren im Menü <A href="menu_analyze.html">Analyse</A> beeinflussen.</P>
 
-<P>1.  Im oberen Teil kann die Ausgabe bestimmter Zwischenergebnisse für die <B>automatische Analyse</B> verschiedener <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> festgelegt werden.<BR>
+<OL>
+
+	<LI>  Im oberen Teil kann die Ausgabe bestimmter Zwischenergebnisse für die <B>automatische Analyse</B> verschiedener <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> festgelegt werden.<BR>
 <BR>
 Für das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> sind die Punkte im linken Rechteck maßgeblich.<BR>
 Für das <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A>, die <A href="hid_add_bin.html">byteweise Addition</A> und das <A href="hid_xor_bin.html">exklusive Oder</A> die Punkte im Rechteck auf rechten Seite.<BR>
@@ -25,12 +28,12 @@ Für das <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A>, 
 <B>Analysen der Basischiffren ausgeben</B> bedeutet bei der Vigenère-Analyse, dass pro "Spalten-Caesar"-Teiltext das Histogramm und die <A href="correlation.html">Korrelation</A> angezeigt werden. <BR>
 Bei binärer Addition und XOR wird nur das Histogramm zusätzlich angezeigt.<BR>
 <BR>
-Die entsprechende Information wird ausgegeben, falls sich ein Häkchen davor befindet. Durch Anklicken mit der Maus kann man das Häkchen entfernen und wiederherstellen. Je mehr Häkchen vorhanden sind, desto mehr Fenster mit Informationen werden im Rahmen der Analyse ausgegeben.</P>
+Die entsprechende Information wird ausgegeben, falls sich ein Häkchen davor befindet. Durch Anklicken mit der Maus kann man das Häkchen entfernen und wiederherstellen. Je mehr Häkchen vorhanden sind, desto mehr Fenster mit Informationen werden im Rahmen der Analyse ausgegeben.<BR><BR></LI>
 
-<P>2.  Der untere Teil diese Dialoges erlaubt Einstellungen für <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Attacken</A> auf symmetrische Algorithmen. Diese Attacke wird in der Hilfe zum Dialog <A href="hidd_bruteforce.html">Brute-Force Analyse</A> genauer beschrieben. <BR>
-Die Option <B>Anzahl Bytes für den Entropietest</B> legt fest, wieviele Bytes der Entropietest berücksichtigen soll (gezählt vom Anfang des untersuchten Dokuments). Der Standardwert von 128 Byte ist ein guter Kompromiss zwischen Genauigkeit und Geschwindigkeit. Kleinere Werte sind etwas schneller, finden aber möglicherweise nicht den richtigen Schlüssel. Größere Werte können sinnvoll sein, wenn das Dokument mit einem Abschnitt hoher Entropie beginnt.</P>
+	<LI>  Der untere Teil diese Dialoges erlaubt Einstellungen für <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Attacken</A> auf symmetrische Algorithmen. Diese Attacke wird in der Hilfe zum Dialog <A href="hidd_bruteforce.html">Brute-Force Analyse</A> genauer beschrieben. <BR>
+	Die Option <B>Anzahl Bytes für den Entropietest</B> legt fest, wieviele Bytes der Entropietest berücksichtigen soll (gezählt vom Anfang des untersuchten Dokuments). Der Standardwert von 128 Byte ist ein guter Kompromiss zwischen Genauigkeit und Geschwindigkeit. Kleinere Werte sind etwas schneller, finden aber möglicherweise nicht den richtigen Schlüssel. Größere Werte können sinnvoll sein, wenn das Dokument mit einem Abschnitt hoher Entropie beginnt.<BR><BR></LI>
 
-<P><!--ZZZOLE--></P>
+</OL>
 
 <P>Dieser Dialog wird über das Menü <B>Optionen \ <A href="hid_options_analysis.html">Analyseoptionen</A></B> aufgerufen.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Asymmetrischen Schlüssel erzeugen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Erzeugen">
@@ -13,27 +14,37 @@
 	<PARAM NAME="Keyword" VALUE="Asymmetrischen Schlüssel erzeugen">
 </OBJECT>
 
-<P><A NAME="hid_crypt_keygen"></A><B>Asymmetrischen Schlüssel erzeugen (Menü <A href="menu_key.html">Schlüsselverwaltung</A>)</B></P>
+<h3><P><A NAME="hid_crypt_keygen"></A><B>Asymmetrischen Schlüssel erzeugen (Menü <A href="menu_key.html">Schlüsselverwaltung</A>)</B></P></h3>
 
-<P>Um asymmetrische Verfahren zur <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> bzw. zur digitalen <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> von Nachrichten einzusetzen, ist es nötig, dass entsprechende <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaare</A> vorliegen. Näheres zu asymmetrischen <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> findet man im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> (Abschnitt Verschlüsselungsverfahren). Mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> lassen sich asymmetrische <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaare</A> für folgende Verfahren erzeugen:</P>
+<P>Um asymmetrische Verfahren zur <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> bzw. zur digitalen <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> von Nachrichten einzusetzen, ist es nötig, dass entsprechende <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaare</A> vorliegen. Näheres zu asymmetrischen <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> findet man im <A href="script-de.pdf">Skript</A> (Abschnitt Verschlüsselungsverfahren). Mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> lassen sich asymmetrische <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaare</A> für folgende Verfahren erzeugen:</P>
 
-<P><B>RSA</B> <!--ZZZINDN--></P>
+<P><B>RSA</B>
 
-<P>CrypTool unterstützt RSA-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> oder RSA-<!--ZZZPOPUP--><A href="signatur.html"> Signatur</A> von <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> - mit den durch CrypTool erzeugten RSA-<!--ZZZPOPUP--><A href="schluessel.html">Schlüsseln</A>.</P>
+<div class="indent">
 
-<P><B>DSA</B> <!--ZZZINDN--></P>
+CrypTool unterstützt RSA-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> oder RSA-<!--ZZZPOPUP--><A href="signatur.html"> Signatur</A> von <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> - mit den durch CrypTool erzeugten RSA-<!--ZZZPOPUP--><A href="schluessel.html">Schlüsseln</A>.
 
-<P>DSA-Schlüssel dienen zur Signatur von Dokumenten mittels des Digital Signature Algorithm <A href="dsa.html">DSA</A>.</P>
+</div></P>
 
-<P><B>Elliptische Kurven</B> <!--ZZZINDN--></P>
+<P><B>DSA</B>
+
+<div class="indent">
+
+DSA-Schlüssel dienen zur Signatur von Dokumenten mittels des Digital Signature Algorithm <A href="dsa.html">DSA</A>.
+
+</div></P>
+
+<P><B>Elliptische Kurven</B> </P>
+
+<div class="indent">
 
 <P>CrypTool bietet auch zwei Verfahren an, die auf <A href="ellipkurven.html">Elliptischen Kurven</A> basierende Signaturen von Dokumenten erstellen. Dabei handelt es sich um die beiden folgenden Signaturverfahren:</P>
 
-<P><B>ECSP-DSA</B> (Elliptic Curve Signature Primitiv – DSA Variante) ist eine Variante des DSA, die sich das Elliptische Kurven Diskrete Logarithmus Problem zunutze macht, ansonsten aber dem DSA sehr ähnlich ist.</P>
+<P class="tindent"> <B>ECSP-DSA</B> (Elliptic Curve Signature Primitiv – DSA Variante) ist eine Variante des DSA, die sich das Elliptische Kurven Diskrete Logarithmus Problem zunutze macht, ansonsten aber dem DSA sehr ähnlich ist.</P>
 
-<P><B>ECSP-NR</B> (Elliptic Curve Signature Primitiv – Nyberg-Rueppel Variante) ist ein Signaturverfahren, das nach seinen Erfindern (Nyberg und Rueppel) benannt ist.</P>
+<P class="tindent"> <B>ECSP-NR</B> (Elliptic Curve Signature Primitiv – Nyberg-Rueppel Variante) ist ein Signaturverfahren, das nach seinen Erfindern (Nyberg und Rueppel) benannt ist.</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>RSA- und DSA Schlüsselpaare werden in der sogenannten PSE (Personal Security Environment – verschlüsselte <!--ZZZPOPUP--><A href="datei.html">Datei</A>) abgelegt – ein Zugriff auf den geheimen Schlüssel ist nur mit einem vom Benutzer festgelegten PIN-Code möglich. Die öffentlichen Parameter des <A href="ellipkurven.html">Elliptischen Kurven</A> Schlüsselpaares werden in einer unverschlüsselten <!--ZZZPOPUP--><A href="datei.html">Datei</A> gespeichert; der geheime Teil wird verschlüsselt und - mit einem PIN-Code geschützt - in die entsprechende PSE geschrieben.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Zufallsdaten erzeugen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Dialog">
@@ -14,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Erzeugen">
 </OBJECT>
 
-<P><A NAME="hid_zufall_generatoren"></A><B>Dialog Zufallsdaten erzeugen (Menü <A href="menu_related_methods.html">Einzelverfahren</A></B>)</P>
+<h3><P><A NAME="hid_zufall_generatoren"></A><B>Dialog Zufallsdaten erzeugen (Menü <A href="menu_related_methods.html">Einzelverfahren</A></B>)</P></h3>
 
 <P>Der Begriff der <!--ZZZPOPUP--><A href="zufall.html">Zufälligkeit</A> spielt in wachsendem Maße nicht nur in der Informatik eine Rolle, sondern auch in der modernen Kryptographie. Zufallsdaten werden in der Kryptographie für verschiedene Zwecke benötigt. Unter anderem spielen sie eine wichtige Rolle bei der <!--ZZZPOPUP--><A href="menu_key.html">Schlüsselgenerierung</A> asymmetrischer Verschlüsselungsverfahren.</P>
 
@@ -22,19 +23,17 @@
 
 <P>Ein Pseudozufallsgenerator mag ein statistisch durchaus brauchbares Verhalten besitzen, kryptographisch jedoch unzumutbare Sicherheitsmängel aufweisen. Um für kryptographische Zwecke einsetzbar zu sein, reicht es nicht, dass die produzierten Folgen alle möglichen statistischen Tests bestehen, sondern es muss jeweils für die als nächstes produzierte Zufallszahl eine gewisse Form der Unvorhersagbarkeit vorliegen. </P>
 
-<P>Zusammengefasst: <!--ZZZUL-->
+<P>Zusammengefasst: </P>
 
 <UL>
-	<LI>Die Zahlen müssen "zufällig" aussehen. Das bedeutet, sie müssen alle statistischen Tests bezüglich Zufälligkeit bestehen (z.B. soll die Anzahl von erzeugten Einsen und Nullen fast gleich groß sein).<BR><BR></LI>
+	<LI>Die Zahlen müssen "zufällig" aussehen. Das bedeutet, sie müssen alle statistischen Tests bezüglich Zufälligkeit bestehen (z.B. soll die Anzahl von erzeugten Einsen und Nullen fast gleich groß sein).</LI>
 
-	<LI>Sie müssen <B>unvorhersehbar</B> sein. Es darf nicht möglich sein, das nächste <B>Zufallsbit</B> vorherzusagen, auch wenn man den verwendeten Algorithmus, die verwendete Hardware und alle bisherigen Zufallsbits kennt.<BR><BR></LI>
+	<LI>Sie müssen <B>unvorhersehbar</B> sein. Es darf nicht möglich sein, das nächste <B>Zufallsbit</B> vorherzusagen, auch wenn man den verwendeten Algorithmus, die verwendete Hardware und alle bisherigen Zufallsbits kennt.</LI>
 
 	<LI>Sie können nicht reproduziert werden. Wenn man den Zufallszahlengenerator ein zweites Mal mit den gleichen Eingabedaten startet, so muss er eine komplett andere Reihe von Zufallszahlen erzeugen.</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
-<P><IMG SRC="images/zufallsdaten.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/zufallsdaten.gif" ALT="zufallsdaten.gif" BORDER=0></P>
 
 <P>In diesem Dialog ist eine Auswahl sowohl von "kryptographisch starken" als auch von unsicheren Pseudozufallsgeneratoren implementiert.</P>
 

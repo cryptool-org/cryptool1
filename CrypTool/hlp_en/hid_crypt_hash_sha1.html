@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>SHA-1 hash value</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Hash value">
 	<PARAM NAME="Keyword" VALUE="SHA-1 Hash value">
 </OBJECT>
 
-<P><A NAME="hid_crypt_hash_sha1"></A><B>SHA-1 hash value (Menu <A href="menu_related_methods.html">Individual Procedures</A></B> \<B> Hash)</B></P>
+<h3><P><A NAME="hid_crypt_hash_sha1"></A><B>SHA-1 hash value (Menu <A href="menu_related_methods.html">Individual Procedures</A></B> \<B> Hash)</B></P></h3>
 
 <P>The SHA-1 algorithm produces a <!--ZZZPOPUP--><A href="hashwert.html">hash value</A> of length 160 bits (= 20 bytes). Beside RIPMED-160 hash algorithm, SHA-1 (published by the <!--ZZZPOPUP--><A href="nist.html">NIST</A> in 1991) is the most commonly used cryptographic hash function.</P>
 
@@ -58,13 +59,17 @@ H<SUB>4</SUB> = C3D2E1F0. </CODE></PRE>
 
 <P>Now M<SUB>1</SUB>, M<SUB>2</SUB>,..., M<SUB>n</SUB> are processed. To process M<SUB>i</SUB>, we proceed as follows: </P>
 
-<PRE><CODE>a. Divide M<SUB>i</SUB> into 16 words W<SUB>0</SUB>, W<SUB>1</SUB>,..., W<SUB>15</SUB>, where W<SUB>0</SUB> is the left-most word. 
-b. For t = 16 to 79 let W<SUB>t</SUB> = S<SUP>1</SUP>(W<SUB>t-3</SUB> XOR W<SUB>t-8</SUB> XOR W<SUB>t- 14</SUB> XOR W<SUB>t-16</SUB>). 
-c. Let A = H<SUB>0</SUB>, B = H<SUB>1</SUB>, C = H<SUB>2</SUB>, D = H<SUB>3</SUB>, E = H<SUB>4</SUB>.
-d. For t = 0 to 79 do 
+<OL type="a">
+
+	<LI> Divide M<SUB>i</SUB> into 16 words W<SUB>0</SUB>, W<SUB>1</SUB>,..., W<SUB>15</SUB>, where W<SUB>0</SUB> is the left-most word.<BR><BR></LI> 
+	<LI> For t = 16 to 79 let W<SUB>t</SUB> = S<SUP>1</SUP>(W<SUB>t-3</SUB> XOR W<SUB>t-8</SUB> XOR W<SUB>t- 14</SUB> XOR W<SUB>t-16</SUB>).<BR><BR></LI> 
+	<LI> Let A = H<SUB>0</SUB>, B = H<SUB>1</SUB>, C = H<SUB>2</SUB>, D = H<SUB>3</SUB>, E = H<SUB>4</SUB>.<BR><BR></LI>
+	<LI> For t = 0 to 79 do 
 TEMP = S<SUP>5</SUP>(A) + f<SUB>t</SUB>(B,C,D) + E + W<SUB>t</SUB> + K<SUB>t</SUB>; 
-E = D; D = C; C = S<SUP>30</SUP>(B); B = A; A = TEMP; 
-e. Let H<SUB>0</SUB> = H<SUB>0</SUB> + A, H<SUB>1</SUB> = H<SUB>1</SUB> + B, H<SUB>2</SUB> = H<SUB>2</SUB> + C, H<SUB>3</SUB> = H<SUB>3</SUB> + D, H<SUB>4</SUB> = H<SUB>4</SUB> + E. </CODE></PRE>
+E = D; D = C; C = S<SUP>30</SUP>(B); B = A; A = TEMP;<BR><BR></LI> 
+	<LI> Let H<SUB>0</SUB> = H<SUB>0</SUB> + A, H<SUB>1</SUB> = H<SUB>1</SUB> + B, H<SUB>2</SUB> = H<SUB>2</SUB> + C, H<SUB>3</SUB> = H<SUB>3</SUB> + D, H<SUB>4</SUB> = H<SUB>4</SUB> + E. <BR><BR></LI>
+
+</OL>
 
 <P>After processing M<SUB>n</SUB>, the message digest is the 160-bit string represented by the 5 words </P>
 

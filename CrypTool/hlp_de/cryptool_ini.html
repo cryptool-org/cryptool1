@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Die CrypTool-Initialisierungsdatei</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Geburtstagsangriff">
@@ -17,40 +18,37 @@
 	<PARAM NAME="Keyword" VALUE="Testreihe">
 </OBJECT>
 
-<P><A NAME="cryptool_ini"></A><B>Die CrypTool-Initialisierungsdatei "CrypTool.ini"</B></P>
-
+<h3><P><A NAME="cryptool_ini"></A><B>Die CrypTool-Initialisierungsdatei "CrypTool.ini"</B></P></h3>
 <P>Die Default-Einstellungen für einige in CrypTool benutzte Optionen, die eine Sitzung überdauern sollen (Persistenz), werden in der Datei CrypTool.ini abgespeichert.</P>
 
 <P>Wenn Sie CrypTool zum ersten Mal aufrufen, werden Ihnen einführende Informationen (Startdialog und eine Beispieldatei) angezeigt. Jedesmal haben Sie die Möglichkeit, zu entscheiden, ob diese Information auch bei den zukünftigen Aufrufen angezeigt werden soll. </P>
 
 <P>Die Datei CrypTool.ini befindet sich im Windows-Verzeichnis (z.B. C:\Windows oder C:\WINNT). Die in dieser Datei gespeicherten Informationen werden im folgenden erklärt.</P>
 
-<P>Grundsätzlich werden in der CrypTool.ini-Datei die Informationen in Sektionen unterteilt. Eine Sektion beginnt mit einem in eckigen Klammern stehenden Text. CrypTool verwendet die Sektionen <!--ZZZUL-->
+<P>Grundsätzlich werden in der CrypTool.ini-Datei die Informationen in Sektionen unterteilt. Eine Sektion beginnt mit einem in eckigen Klammern stehenden Text. CrypTool verwendet die Sektionen </P>
 
 <UL>
-	<LI>[Settings] für allgemeine Einstellungen, <BR><BR></LI>
+	<LI>[Settings] für allgemeine Einstellungen,</LI>
 
-	<LI>[Recent File List] für die Liste der 10 zuletzt in CrypTool geöffneten Dateien und <BR><BR></LI>
+	<LI>[Recent File List] für die Liste der 10 zuletzt in CrypTool geöffneten Dateien und </LI>
 
 	<LI>[SigAttTest] für Parameter von Versuchsreihen des Geburtstagsangriffs auf die digitale Signatur.</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
 <P><B>Sektion [Settings]: Allgemeine Einstellungen </B></P>
 
-<P><!--ZZZOL--></P>
+<OL>
 
-<P>1.  Startoptionen für CrypTool:<BR>
+	<LI>  Startoptionen für CrypTool:<BR>
 Die <A href="hid_options_startoptions.html">Startoptionen</A> werden unter Menü <A href="menu_options.html"><B>Optionen</B></A><B> \ Startoptionen</B> eingestellt. <BR>
 <CODE>NoTipps=1</CODE> oder <CODE>NoTipps=0</CODE> gibt an, ob der "Wie Sie starten"-Dialog (Startdialog) zu Programmbeginn gezeigt wird. <BR>
-<CODE>SampleTextFile=1</CODE> oder <CODE>SampleTextFile=0</CODE>·gibt an, ob CrypTool beim Start automatisch eine Beispieldatei geöffnet wird oder mit Leeren Hauptfenster beginnt.</P>
+<CODE>SampleTextFile=1</CODE> oder <CODE>SampleTextFile=0</CODE>·gibt an, ob CrypTool beim Start automatisch eine Beispieldatei geöffnet wird oder mit Leeren Hauptfenster beginnt.<BR><BR></LI>
 
-<P>2.  Optionen für das <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman-Schlüsselaustauschprotokoll</A>: <BR>
+	<LI>  Optionen für das <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman-Schlüsselaustauschprotokoll</A>: <BR>
 Wenn Sie zum ersten Mal das Diffie-Hellman-Protokoll aufrufen, erscheint zu Beginn eine kleine Einführung. Wenn Sie in der Ini-Datei die Variable <CODE>DH_IntroDialogue=0</CODE> setzen, dann wird diese Information nicht mehr angzeigt. Das Löschen dieser Zeile, oder das Setzen dieser Variable auf 1 bewirkt das Gegenteil. Sie können diese Einstellung auch unter Menü <A href="menu_options.html"><B>Optionen</B></A><B> \ Weitere Optionen</B> vornehmen.<BR>
-Vor jedem Einzelschritt des Protokolls werden Ihnen Informationen angezeigt. Mit <CODE>DH_InfoDialogues=0</CODE> wird die Anzeige dieser Dialoge unterdrückt. Das Setzen dieser Variablen auf 1 oder das Löschen dieser Zeile setzt die Option wieder auf den Anfangswert.</P>
+Vor jedem Einzelschritt des Protokolls werden Ihnen Informationen angezeigt. Mit <CODE>DH_InfoDialogues=0</CODE> wird die Anzeige dieser Dialoge unterdrückt. Das Setzen dieser Variablen auf 1 oder das Löschen dieser Zeile setzt die Option wieder auf den Anfangswert.<BR><BR></LI>
 
-<P>3.  Optionen zum <A href="hid_signatur_attack.html">Geburtstagsangriff auf die digitale Signatur</A>:<BR>
+	<LI>  Optionen zum <A href="hid_signatur_attack.html">Geburtstagsangriff auf die digitale Signatur</A>:<BR>
 Die im Dialog <A href="hidd_options_signature_attack.html">Optionen für den Geburtstagsangriff auf die digitale Signatur</A> einzustellenden Optionen werden folgendermaßen gespeichert:<BR>
 <BR>
 Die Option <CODE>SignatureAttackTestMode=1</CODE> legt fest, dass statt der interaktiven Nutzung eine Testreihe für den Signaturangriff durchgeführt werden soll (siehe unten: Testreihen für den Geburtstagsangriff auf digitale Signaturen erstellen). Normalerweise steht hier der Wert <CODE>0 </CODE>für die interaktive Nutzung.<BR>
@@ -63,9 +61,10 @@ Wenn die Option <CODE>SignatureAttackModificationMethod=0 </CODE>gesetzt ist (di
 Neben den Optionen werden auch die Pfade der beiden Ausgangsdateien zum Finden einer Kollision gesichert. Wenn Sie diese beiden Zeilen aus der CrypTool.ini-Datei löschen, werden die ursprünglichen Pfade der im CrypTool-Paket mitgelieferten Dateien eingetragen:</P>
 
 <PRE><CODE>SignatureAttackHarmlessFile=C:\Programme\CrypTool\Original.txt
-SignatureAttackDangerousFile=C:\Programme\CrypTool\Faelschung.txt</CODE></PRE>
+SignatureAttackDangerousFile=C:\Programme\CrypTool\Faelschung.txt</CODE></PRE></LI>
 
-<P><!--ZZZOLE--></P>
+</OL>
+
 
 <P><B>Sektion [SigAttTest]: Testreihen für den Geburtstagsangriff auf die digitale Signatur erstellen </B></P>
 
@@ -138,10 +137,10 @@ File9=C:\Programme\CrypTool\pse\pseca\psec</CODE></PRE>
 
 <P><B>Bemerkung 2</B>:</P>
 
-<P>NICHT permanent, sondern nur für die aktuelle Session werden zur Zeit in CrypTool folgende Parameter gespeichert: <!--ZZZUL-->
+<P>NICHT permanent, sondern nur für die aktuelle Session werden zur Zeit in CrypTool folgende Parameter gespeichert: </P>
 
 <UL>
-	<LI>Passworte für einzelne Verschlüsselungsverfahren,<BR><BR></LI>
+	<LI>Passworte für einzelne Verschlüsselungsverfahren,</LI>
 
 	<LI>Länge des Entropiefensters bei der Brute-Force Analyse.</LI>
 </UL>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Homophone Substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Dialog">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
 </OBJECT>
 
-<P><A NAME="hidd_key_homophone"></A><B>Dialog Schlüsseleingabe Homophone Substitution</B></P>
+<h3><P><A NAME="hidd_key_homophone"></A><B>Dialog Schlüsseleingabe Homophone Substitution</B></P></h3>
 
 <P>Dialog Schlüsseleingabe für das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> <A href="hid_homophone_asc.html">homophone Substitution</A>.</P>
 
@@ -21,14 +22,14 @@
 
 <P>In der jetzigen Version von CrypTool können Sie keinen eigenen Schlüssel festlegen.</P>
 
-<P>Die Parameter für den Schlüssel zur homophonen Substitution sind:
+<P>Die Parameter für den Schlüssel zur homophonen Substitution sind:</P>
 
 <UL>
-	<LI>das verwendete Alphabet.<BR><BR></LI>
+	<LI>das verwendete Alphabet.</LI>
 
-	<LI>die Referenzdatei, die für die Berechnung der Homophonen-Verteilung notwendig ist.<BR><BR></LI>
+	<LI>die Referenzdatei, die für die Berechnung der Homophonen-Verteilung notwendig ist.</LI>
 
-	<LI>ob die Formatierungszeichen Zeilenvorschub &lt;NL&gt;, Wagenrücklauf &lt;CR&gt; und Tabulator &lt;TAB&gt; in das Schlüsselalphabet mit aufgenommen werden.<BR><BR></LI>
+	<LI>ob die Formatierungszeichen Zeilenvorschub &lt;NL&gt;, Wagenrücklauf &lt;CR&gt; und Tabulator &lt;TAB&gt; in das Schlüsselalphabet mit aufgenommen werden.</LI>
 
 	<LI>die Gesamtzahl der Homophonen.</LI>
 </UL>
@@ -39,13 +40,17 @@
 
 <P>Beispielsweise wird bei einem Schlüssel mit 1024 Homophonen jedes Klartext-Zeichen in eine Zahl aus dem Wertebereich 0, ..., 1023 verschlüsselt. Jede dieser Zahlen benötigt zur eindeutigen Darstellung 10 Bits. In diesem Fall wird ein 2000 Byte langer Text in einen Chiffretext der Länge 2000 x 10 Bit = 2500 Bytes expandiert. </P>
 
-<P>Mit dem Button <B>Aktualisieren</B> wird <!--ZZZUL--></P>
+<P>Mit dem Button <B>Aktualisieren</B> wird<BR></P>
 
-<P>- die Gesamtzahl der Homophonen dem Wert des Eingabefeldes angeglichen,</P>
+<UL>
 
-<P>- die notwendige Bitlänge für die Verschlüsselung von einem Zeichen und schließlich</P>
+	<LI> die Gesamtzahl der Homophonen dem Wert des Eingabefeldes angeglichen,</LI>
 
-<P>- ein neuer zufälliger Homophonen-Schlüssel berechnet.</P>
+	<LI> die notwendige Bitlänge für die Verschlüsselung von einem Zeichen und schließlich</LI>
+
+	<LI> ein neuer zufälliger Homophonen-Schlüssel berechnet.<BR><BR></LI>
+
+</UL>
 
 <P>Mit dem Button <B>Zufälliger Schlüssel erzeugen</B>, wird ein neuer zufälliger Homophonen-Schlüssel berechnet.</P>
 
@@ -53,7 +58,7 @@
 
 <P>Das Ergebnis der Verschlüsselung ist ein binäres Dokument.</P>
 
-<P>Wenn Sie ein in verschlüsseltes Dokument entschlüsseln wollen, müssen Sie zuvor den Homophonen-Schlüssel im <A href="hid_show_key.html">Schlüsselspeicher</A> gesichert haben (wenn das verschlüsselte Dokument im CrypTool Desktop aktiv ist, dann können Sie den Homophonen-Schlüssel über das Menü <B>Bearbeiten \ <A href="hid_show_key.html">Schlüssel anzeigen</A></B> den Schlüssel in den Schlüsselspeicher kopieren: In der folgenden Dialogbox <B>Schlüssel kopieren</B> drücken). Den Schlüssel fügen Sie dann mit Hilfe des Knopfes <IMG SRC="images/iconinsertkey.gif" ALT="" BORDER=0> in den Dialog ein (falls der Knopf blass dargestellt ist, steht kein Schlüssel im Schlüsselspeicher). Zur Entschlüsselung wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+<P>Wenn Sie ein in verschlüsseltes Dokument entschlüsseln wollen, müssen Sie zuvor den Homophonen-Schlüssel im <A href="hid_show_key.html">Schlüsselspeicher</A> gesichert haben (wenn das verschlüsselte Dokument im CrypTool Desktop aktiv ist, dann können Sie den Homophonen-Schlüssel über das Menü <B>Bearbeiten \ <A href="hid_show_key.html">Schlüssel anzeigen</A></B> den Schlüssel in den Schlüsselspeicher kopieren: In der folgenden Dialogbox <B>Schlüssel kopieren</B> drücken). Den Schlüssel fügen Sie dann mit Hilfe des Knopfes <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> in den Dialog ein (falls der Knopf blass dargestellt ist, steht kein Schlüssel im Schlüsselspeicher). Zur Entschlüsselung wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
 
 </BODY>
 </HTML>

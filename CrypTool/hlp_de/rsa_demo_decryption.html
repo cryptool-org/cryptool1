@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA-Entschlüsselung</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="RSA-Entschlüsselung">
@@ -13,21 +14,29 @@
 	<PARAM NAME="Keyword" VALUE="Demonstration">
 </OBJECT>
 
-<P><A NAME="rsa_demo_decryption"></A><B>RSA-Entschlüsselung einer Nachricht</B></P>
+<h3><P><A NAME="rsa_demo_decryption"></A><B>RSA-Entschlüsselung einer Nachricht</B></P></h3>
 
 <P>Nur wenn Sie den geheimen RSA-Schlüssel d besitzen, können Sie eine Nachricht entschlüsseln. Wenn Sie nur die öffentlichen RSA-Parameter N und e kennen, dann gibt es (für zu kurze RSA-Schlüssel) die Möglichkeit durch den <A href="rsa_demo_factorisation_attack.html">Faktorisierungsangriff</A> den geheimen RSA-Schlüssel zu berechnen.</P>
 
 <P>Zur Entschlüsselung von <A href="rsa_demo_encryption.html">RSA-verschlüsselten Nachrichten</A> geben Sie die Zahlenkodierung der verschlüsselten Nachricht ein. Nach dem Klick auf <B>Entschlüsseln</B> wird die Eingabe </P>
 
-<P><!--ZZZIND--> c = c[1] # c[2] # .... # c[j]</P>
+<div class="indent">
+
+<P>c = c[1] # c[2] # .... # c[j]</P>
+
+</div>
 
 <P>mit dem geheimen Schlüssel (N,d) nach der Formel</P>
 
-<P><!--ZZZIND--> m[i] = c[i]^d mod N  für i = 1, ..., j</P>
+<div class="indent">
+
+<P>m[i] = c[i]^d mod N  für i = 1, ..., j</P>
+
+</div>
 
 <P>entschlüsselt. Danach erfolgt die Umwandlung der Zahlen m = m[1] # m[2] # .... #  m[j] in die ursprüngliche Textnachricht M, indem die Aufteilung in Blöcke rückgängig gemacht wird:</P>
 
-<P><IMG SRC="images/rsa_demo_5.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_5.gif" ALT="rsa_demo_5.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

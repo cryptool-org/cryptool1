@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Szenario für die Verschlüsselung durch binäre Addition</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Binäre Addition">
 </OBJECT>
 
-<P><A NAME="szenarien_addition"></A><B>Szenario für die Verschlüsselung durch binäre Addition</B></P>
+<h3><P><A NAME="szenarien_addition"></A><B>Szenario für die Verschlüsselung durch binäre Addition</B></P></h3>
 
 <P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselung</A> durch <A href="hid_add_bin.html">binäre Addition</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
 
@@ -23,37 +24,37 @@
 
 <P>Zuerst laden wir einen Teil des Hilfetextes ”Wie Sie starten” zu CrypTool, welche sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool-de.txt</CODE> befindet. Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
 
-<P><IMG SRC="images/szenarioadd1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd1.gif" ALT="szenarioadd1.gif" BORDER=0></P>
 
 <P>Bevor das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, werfen wir einen Blick auf die Häufigkeitsverteilung der Zeichen, das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> (<A href="menu_analyze.html">Menü Analyse \ Allgemein</A> \ <A href="hid_histogram.html">Histogramm</A>).</P>
 
-<P><IMG SRC="images/szenarioadd2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd2.gif" ALT="szenarioadd2.gif" BORDER=0></P>
 
 <P>An dem Histogramm kann man sehen, dass das am häufigsten vorkommende Zeichen der Buchstabe<CODE> E</CODE> ist. Dies ist bei sehr vielen deutschen und englischen Texten der Fall. Diese Information werden wir uns später beim Angriff zunutze machen.</P>
 
 <P>Zunächst wird das <!--ZZZPOPUP--><A href="dokument.html">Textdokument</A> wieder durch einen Mausklick aktiviert. Jetzt geschieht eine <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> mittels <A href="hid_add_bin.html">binärer Addition</A> (zu erreichen über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_add_bin.html">Addition</A>). Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wählen wir<CODE> 12 34 AB CD</CODE> und geben dies in den geöffneten Dialog ein.</P>
 
-<P><IMG SRC="images/szenarioadd3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd3.gif" ALT="szenarioadd3.gif" BORDER=0></P>
 
 <P>Nach Beenden des Dialoges mit dem <B>Verschlüsseln</B>-Knopf öffnet sich ein Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
 
-<P><IMG SRC="images/szenarioadd4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd4.gif" ALT="szenarioadd4.gif" BORDER=0></P>
 
 <P>Als nächstes soll ein <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> durchgeführt werden. Dazu muss das im letzten Schritt <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> aktiviert sein. Über das <A href="menu_analyze.html">Menü Analyse \ ciphertext only</A> \ <A href="hid_add_auto.html">Addition</A> wird zuerst die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnet und angezeigt.</P>
 
-<P><IMG SRC="images/szenarioadd5.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd5.gif" ALT="szenarioadd5.gif" BORDER=0></P>
 
 <P>Nun wird der Dialog <A href="hidd_bin_keylength.html">Automatische Analyse (Addition, exklusives Oder)</A> geöffnet, in dem die ermittelte <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A><CODE> 4</CODE> ausgegeben wird. Wie wir am Anfang gesehen haben, ist das häufigste Zeichen das<CODE> E</CODE>. Der hexadezimale Wert von<CODE> E</CODE> ist<CODE> 45</CODE> (siehe <A href="ascii.html">ASCII-Tabelle</A>). Wenn wir aber noch einmal kurz zum <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> zurückkehren, bemerken wir, dass das am häufigsten vorkommende Zeichen nicht der Großbuchstabe<CODE> E</CODE> , sondern der Kleinbuchstabe<CODE> e</CODE> ist. Bei den meisten Texten ist der Kleinbuchstabe<CODE> e</CODE> das am häufigsten vorkommende Zeichen. Bei kürzeren Texten könnte es auch das Leerzeichen mit hexadezimalem Wert<CODE> 20</CODE> sein. Der hexadezimale Wert von<CODE> e</CODE> ist<CODE> 65</CODE>. Dieses geben wir in das entsprechende Feld ein.</P>
 
-<P><IMG SRC="images/szenarioadd6.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd6.gif" ALT="szenarioadd6.gif" BORDER=0></P>
 
 <P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> war in der Lage, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu finden, wie in der nächsten Abbildung zu sehen ist. Die einzige dazu benötigte Information war, dass das am häufigsten vorkommende Zeichen im <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> der Kleinbuchstabe<CODE> e</CODE> ist.</P>
 
-<P><IMG SRC="images/szenarioadd7.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd7.gif" ALT="szenarioadd7.gif" BORDER=0></P>
 
 <P>Nach Betätigung des <B>OK</B>-Knopfes erscheint ein neues Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
 
-<P><IMG SRC="images/szenarioadd8.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd8.gif" ALT="szenarioadd8.gif" BORDER=0></P>
 
 <P>In der Titelzeile des Fensters sehen wir den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A><CODE> 12 34 AB CD</CODE>, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Textdokument</A> anfangs <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> worden ist.</P>
 
@@ -63,19 +64,19 @@
 
 <P>Zum Packen des Dokuments muss es zuerst wieder aktiviert werden.</P>
 
-<P><IMG SRC="images/szenarioadd1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd1.gif" ALT="szenarioadd1.gif" BORDER=0></P>
 
 <P>Nun kann es über das <A href="menu_compress.html">Menü Komprimieren</A> \ <A href="hid_zip.html">ZIP</A> gepackt werden.</P>
 
-<P><IMG SRC="images/szenarioadd19.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd19.gif" ALT="szenarioadd19.gif" BORDER=0></P>
 
 <P>Nach der Anzeige des Kompressionsgrades (siehe Befehl <A href="hid_zip.html">Dokument Komprimieren (ZIP)</A>) wird das <A href="hid_zip.html">gepackte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> angezeigt.</P>
 
-<P><IMG SRC="images/szenarioadd9.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd9.gif" ALT="szenarioadd9.gif" BORDER=0></P>
 
 <P>Auch für dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> werfen wir zunächst einen Blick auf das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> (<A href="menu_analyze.html">Menü Analyse \ Allgemein</A> \ <A href="hid_histogram.html">Histogramm</A>).</P>
 
-<P><IMG SRC="images/szenarioadd10.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd10.gif" ALT="szenarioadd10.gif" BORDER=0></P>
 
 <P>Man erkennt sofort, dass sich durch das <A href="hid_zip.html">Packen</A> eine ganz andere Charakteristik des <!--ZZZPOPUP--><A href="histogramm.html">Histogrammes</A> ergibt als im vorherigen <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> für das unkomprimierte <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>. Die Zeichen sind viel gleichmäßiger verteilt als bei dem <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselten</A> Dokument.</P>
 
@@ -83,43 +84,43 @@
 
 <P>Zuerst verschlüsseln wir das Dokument, das vor dem Aufruf der Funktion zum Verschlüsseln erst wieder aktiviert werden muss, mit dem gleichen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wie vorher:<CODE> 12 34 AB CD</CODE>.</P>
 
-<P><IMG SRC="images/szenarioadd3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd3.gif" ALT="szenarioadd3.gif" BORDER=0></P>
 
 <P>Nach der Eingabe des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> und Betätigung des <B>OK</B>-Knopfes erscheint wie gewohnt das Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
 
-<P><IMG SRC="images/szenarioadd11.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd11.gif" ALT="szenarioadd11.gif" BORDER=0></P>
 
 <P>Nun rufen wir erneut die Analyse auf und sehen, dass mit der Autokorrelation die Länge des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> nicht so gut wie vorher bestimmt werden kann.</P>
 
-<P><IMG SRC="images/szenarioadd12.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd12.gif" ALT="szenarioadd12.gif" BORDER=0></P>
 
 <P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> findet die falsche <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A><CODE> 34</CODE>.</P>
 
-<P><IMG SRC="images/szenarioadd13.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd13.gif" ALT="szenarioadd13.gif" BORDER=0></P>
 
 <P>Damit wird der richtige <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> auch nicht gefunden.</P>
 
-<P><IMG SRC="images/szenarioadd14.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd14.gif" ALT="szenarioadd14.gif" BORDER=0></P>
 
 <P>Durch einen Mausklick auf den <B>OK</B>-Knopf erhalten wir das – natürlich falsche – <!--ZZZPOPUP--><A href="dokument.html">Klartext dokument</A>. Dieses Dokument hat keinerlei Ähnlichkeit mit dem ursprünglichen <A href="hid_zip.html">gepackten</A>, aber <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselten</A>, Dokument.</P>
 
-<P><IMG SRC="images/szenarioadd15.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd15.gif" ALT="szenarioadd15.gif" BORDER=0></P>
 
 <P>Zuletzt wollen wir noch überprüfen, ob sich aus dem gepackten und dann <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wieder das lesbare Textdokument ermitteln lässt. Dazu müssen wir den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem das Dokument verschlüsselt worden war, (<CODE>12 34 AB CD</CODE>) und das Verschlüsselungsverfahren (<A href="hid_add_bin.html">binäre Addition</A>) kennen. Zuerst muss das gepackte verschlüsselte Dokument aktiviert werden.</P>
 
-<P><IMG SRC="images/szenarioadd11.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd11.gif" ALT="szenarioadd11.gif" BORDER=0></P>
 
 <P>Jetzt <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A> wir das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem bekannten <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>. Dabei ist darauf zu achten, dass in dem Dialog <B>Entschlüsseln</B> ausgewählt ist, sich also ein Punkt in dem Kreis links von dem Feld befindet. Dies geschieht durch Anklicken des Feldes.</P>
 
-<P><IMG SRC="images/szenarioadd18.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd18.gif" ALT="szenarioadd18.gif" BORDER=0></P>
 
 <P>Durch Betätigung des <B>OK</B>-Knopfes erhalten wir das <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselte</A>, aber noch <A href="hid_zip.html">gepackte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
 
-<P><IMG SRC="images/szenarioadd16.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd16.gif" ALT="szenarioadd16.gif" BORDER=0></P>
 
 <P>Nun kann es über das <A href="menu_compress.html">Menü Komprimieren</A> \ <A href="hid_unzip.html">UNZIP</A> wieder <A href="hid_unzip.html">entpackt</A> werden und wir erhalten schließlich wieder den Originaltext.</P>
 
-<P><IMG SRC="images/szenarioadd17.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioadd17.gif" ALT="szenarioadd17.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dokument signieren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Signieren">
@@ -15,20 +16,20 @@
 	<PARAM NAME="Keyword" VALUE="ECSP-NR-Signatur">
 </OBJECT>
 
-<P><A NAME="hid_crypt_sign"></A><B>Dokument signieren (Menü <A href="menu_sign.html">Digitale Signaturen</A></B> <B>\ Dokument signieren)</B></P>
+<h3><P><A NAME="hid_crypt_sign"></A><B>Dokument signieren (Menü <A href="menu_sign.html">Digitale Signaturen</A></B> <B>\ Dokument signieren)</B></P></h3>
 
 <P>Dokumente oder Nachrichten werden signiert, damit der Empfänger ihre Authentizität sicherstellen kann (inhaltliche Integrität, korrekter Absender).</P>
 
-<P>Weitere Informationen über digitale <!--ZZZPOPUP--><A href="signatur.html">Signaturen</A> finden Sie im Kapitel "Digitale Signaturen" im <!--ZZZLINK--><A href="script-de.pdf">Skript</A>. Insbesondere wird dort beschrieben, welche Bedeutung <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktionen</A> für digitale Signaturen haben.</P>
+<P>Weitere Informationen über digitale <!--ZZZPOPUP--><A href="signatur.html">Signaturen</A> finden Sie im Kapitel "Digitale Signaturen" im <A href="script-de.pdf">Skript</A>. Insbesondere wird dort beschrieben, welche Bedeutung <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktionen</A> für digitale Signaturen haben.</P>
 
-<P>Mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> werden Signaturverfahren unterstützt, die auf folgenden kryptographisch relevanten Problemen basieren: <!--ZZZUL--></P>
+<P>Mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> werden Signaturverfahren unterstützt, die auf folgenden kryptographisch relevanten Problemen basieren:</P>
 
 <UL>
 	<LI><B>Die Schwierigkeit, eine große ganze Zahl in ihre (beiden) Primfaktoren zu zerlegen (Problemklasse "Faktorisieren")</B>.<BR>
-Das RSA-Signaturverfahren basiert auf diesem Problem.<BR><BR></LI>
+	Das RSA-Signaturverfahren basiert auf diesem Problem.<BR><BR></LI>
 
 	<LI><B>Das Problem, den diskreten Logarithmus in endlichen Gruppen zu bestimmen</B>.<BR>
-Das <A href="dsa.html">DSA-Signaturverfahren</A> basiert auf diesem Problem.<BR><BR></LI>
+	Das <A href="dsa.html">DSA-Signaturverfahren</A> basiert auf diesem Problem.<BR><BR></LI>
 
 	<LI><B>Das diskreter Logarithmus-Problem auf </B><A href="ellipkurven.html">Elliptischen Kurven</A><B> Gruppen</B>.<BR>
 In CrypTool gibt es die beiden folgenden Verfahren, die auf diesem Problem beruhen: Elliptische Kurven-<!--ZZZPOPUP--><A href="signatur.html">Signatur</A> nach Nyberg-Rueppel und DSA auf Elliptischen Kurven-Gruppen.</LI>
@@ -36,9 +37,9 @@ In CrypTool gibt es die beiden folgenden Verfahren, die auf diesem Problem beruh
 
 <P>Die CrypTool-Implementierung der beiden eben angesprochenen Verfahren basiert auf dem vorläufigen Entwurf (Draft Version 8 – Oktober 1998) der Arbeitsgruppe IEEE P1363 Standard Specifications for Public Key Cryptography. In diesem Entwurf sind die benutzten Elliptischen Kurven Signaturverfahren - die in CrypTool implementiert sind - unter den folgenden Bezeichnungen zu finden:</P>
 
-<P><B>ECSP-DSA</B> (Elliptic Curve Signature Primitiv – DSA Variante) ist eine Variante des DSA, die sich das <!--ZZZIND--> Elliptische Kurven-Diskreter Logarithmus-Problem zunutze macht, ansonsten aber dem DSA sehr ähnlich ist. <!--ZZZINDE--></P>
+<P class="tindent"><B> ECSP-DSA</B> (Elliptic Curve Signature Primitiv – DSA Variante) ist eine Variante des DSA, die sich das Elliptische Kurven-Diskreter Logarithmus-Problem zunutze macht, ansonsten aber dem DSA sehr ähnlich ist. </P>
 
-<P><B>ECSP-NR</B> (Elliptic Curve Signature Primitiv – Nyberg-Rueppel Variante) ist ein Signaturverfahren, <!--ZZZIND--> das nach seinen Erfindern (Nyberg und Rueppel) benannt ist.</P>
+<P class="tindent"><B> ECSP-NR</B> (Elliptic Curve Signature Primitiv – Nyberg-Rueppel Variante) ist ein Signaturverfahren, das nach seinen Erfindern (Nyberg und Rueppel) benannt ist.</P>
 
 <P>Wählt man den Befehl Dokument signieren, so wird der Inhalt des gerade in CrypTool aktiven <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> mit einem zu wählenden Verfahren und einer zu diesem Verfahren passend gewählten <A href="hashfunktion.html">Hashfunktion</A> <!--ZZZPOPUP--><A href="signatur.html">signiert</A>. Die Auswahl geschieht im Dialog <A href="hidd_signature.html">Signatur einer Nachricht erstellen</A>.</P>
 

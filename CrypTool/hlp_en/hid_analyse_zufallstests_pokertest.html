@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Poker test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Poker test">
@@ -13,11 +14,11 @@
 	<PARAM NAME="Keyword" VALUE="Random test">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_pokertest"></A><B>Poker Test (Menu <A href="menu_analyze.html">Analysis</A></B> \ <B>Random Tests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_pokertest"></A><B>Poker Test (Menu <A href="menu_analyze.html">Analysis</A></B> \ <B>Random Tests)</B></P></h3>
 
 <P>For the Poker Test, the sub-sequence <I>s</I> of length n with s_i element from [0; 1]; 0 &lt;= i &lt;= n - 1 that is to be tested must be transformed through u_i = d * s_i; 0 &lt;= i &lt;= n - 1, into whole numbers from the range [0; d - 1]. Let us now consider in each case five integer, contiguous, non-overlapping numbers that follow in sequence from u. The following patterns can occur, as in a game of poker:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    Bust:            abcde
     One Pair:        aabcd
@@ -27,11 +28,11 @@
     Four of a Kind:  aaaab
     Five of a Kind:  aaaaa</CODE></PRE>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>One determines how often each of these five tuples occurs in the sequence. One then compares the values calculated with the expected values, using a <A href="chi_2_verteilung.html">chi^2 test</A>. The probabilities for the various models can be specified as follows with a transformation factor of d = 10.</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    P("abcde") = 0.3024
     P("aabcd") = 0.504
@@ -41,11 +42,11 @@
     P("aaaab") = 0.0045
     P("aaaaa") = 0.0001</CODE></PRE>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>A <A href="chi_2_verteilung.html">chi^2 test</A> can be carried out with six degrees of freedom on the frequency distribution of the seven classes with d = 10. Only the number of the different values is calculated here and this is then used to reduce the number of classes to five categories. For each class, the following probabilities hold true:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    P("5 different") = 0.3024
     P("4 different") = 0.504
@@ -53,7 +54,7 @@
     P("2 different") = 0.0135
     P("1 different") = 0.0001</CODE></PRE>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>Menezes Alfred J., Van Oorschot Paul C. and Vanstone Scott A. (1997), Handbook of Applied Cryptography, CRC Press, Boca Raton, New York, London contains the following variant of the classic Poker Test for binary sequences. For every number m there are 2^m different possibilities for a binary sequence of length m. Under this test, sequence s is split into blocks of length m and then the probability of each of the 2^m possible sub-sequences of length m contained in s is determined. The Poker Test now checks whether the 2^m possible values occur to an acceptable extent in the sequence. </P>
 
@@ -61,7 +62,11 @@
 
 <P>The test statistics used are given by</P>
 
-<P><!--ZZZIND--> X3 = (2^m / k) * (sum[i = 0; i = 2 ^ m – 1] n_i ^ 2) - k</P>
+<div style="text-align:center">
+
+<P>X3 = (2^m / k) * (sum[i = 0; i = 2 ^ m – 1] n_i ^ 2) - k</P>
+
+</div>
 
 <P>whereby X3 approaches a <A href="chi_2_verteilung.html">chi^2 distribution</A> with 2^m-1 degrees of freedom. It is recommended repeating the test several times with different values for m.</P>
 
@@ -86,16 +91,21 @@ N[011] = 9    N[111] = 7</CODE></PRE>
 
 <P>Let us now calculate the test statistics for the Poker Test:</P>
 
-<P><!--ZZZIND--> X3 = (8 / 53) * (4^2 +8^2 +3^2 +9^2 +9^2 +9^2 +4^2 +7^2) – 53 = 6.925</P>
+<div style="text-align:center">
+
+<P>X3 = (8 / 53) * (4^2 +8^2 +3^2 +9^2 +9^2 +9^2 +4^2 +7^2) – 53 = 6.925</P>
+
+</div>
 
 <P>According to the table for the <A href="chi_2_verteilung.html">chi^2 distribution</A>, with a <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> of ‘alpha‚ = 0.05 and a <A href="chi_2_verteilung.html">chi^2 distribution</A> with 2^3-1 = 7 degrees of freedom, the threshold value is 14.07. With X3 = 6.925 &lt;= 14.07, sequence <I>s</I> passes the Poker Test.</P>
 
-<P><B>References:</B> <!--ZZZUL-->
+<P><B>References:</B> </P>
 
 <UL>
-	<LI>Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.<BR><BR></LI>
+	<LI>Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</LI>
 
 	<LI>Menezes Alfred J., Van Oorschot Paul C. and Vanstone Scott A, <I>Handbook of Applied Cryptography,</I> CRC Press, Boca Raton, New York, London, 1997.</LI>
+	
 </UL>
 
 </BODY>

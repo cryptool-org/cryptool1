@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Szenario für das Triple DES-Verschlüsselungsverfahren im CBC-Modus</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="DES-Verschlüsselungsverfahren im CBC-Modus">
 </OBJECT>
 
-<P><A NAME="szenarien_tripledescbc"></A><B>Szenario für das Triple DES-Verschlüsselungsverfahren im CBC-Modus</B></P>
+<h3><P><A NAME="szenarien_tripledescbc"></A><B>Szenario für das Triple DES-Verschlüsselungsverfahren im CBC-Modus</B></P></h3>
 
 <P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_crypt_3des_cbc.html">Triple DES Verschlüsselung</A> im <A href="cbcmodus.html">CBC-Modus</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
 
@@ -21,55 +22,55 @@
 
 <P>Zuerst laden wir einen Teil des Hilfetextes ”Wie Sie starten” zu <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, welcher sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool-de.txt</CODE> befindet. Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
 
-<P><IMG SRC="images/szenario3descbc1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc1.gif" ALT="szenario3descbc1.gif" BORDER=0></P>
 
 <P>Bevor das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, werfen wir (über das <A href="menu_analyze.html">Menü Analyse \ Allgemein</A> \ <A href="hid_histogram.html">Histogramm</A>) einen Blick auf die <!--ZZZPOPUP--><A href="histogramm.html">Häufigkeitsverteilung</A> der Zeichen, das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>.</P>
 
-<P><IMG SRC="images/szenario3descbc2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc2.gif" ALT="szenario3descbc2.gif" BORDER=0></P>
 
 <P>Jetzt <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A> wir das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mittels <A href="hid_crypt_3des_cbc.html">Triple DES Verschlüsselung</A> im <A href="cbcmodus.html">CBC-Modus</A> (zu erreichen über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Symmetrisch</A> \ <A href="hid_crypt_3des_cbc.html">Triple DES (CBC)</A>). Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wählen wir<CODE> 12 34 AB CD</CODE> und geben diesen in den geöffneten Dialog ein.</P>
 
-<P><IMG SRC="images/szenario3descbc3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc3.gif" ALT="szenario3descbc3.gif" BORDER=0></P>
 
 <P>Daraufhin öffnet sich ein Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
 
-<P><IMG SRC="images/szenario3descbc4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc4.gif" ALT="szenario3descbc4.gif" BORDER=0></P>
 
 <P>Von dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> lassen wir ebenfalls das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> erzeugen.</P>
 
-<P><IMG SRC="images/szenario3descbc5.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc5.gif" ALT="szenario3descbc5.gif" BORDER=0></P>
 
 <P>Dieses hat keine Ähnlichkeit mit dem <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> des <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>, wie dies beispielsweise im <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> der Fall war.</P>
 
 <P>Über den Befehl <A href="hid_auto.html">Autokorrelation</A> im <A href="menu_analyze.html">Menü Analyse \ Allgemein</A> berechnen wir die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> des <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>.</P>
 
-<P><IMG SRC="images/szenario3descbc6.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc6.gif" ALT="szenario3descbc6.gif" BORDER=0></P>
 
 <P>Die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> weist keine Regelmäßigkeit auf, die auf die <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> deuten könnte, wie es beispielsweise im <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> durch <A href="hid_add_bin.html">binäre Addition</A> der Fall war.</P>
 
 <P>Die <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> eines verschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> funktioniert wie die Verschlüsselung mit der Ausnahme, dass im Dialog das Feld <B>Entschlüsseln</B> angeklickt werden muss.</P>
 
-<P><IMG SRC="images/szenario3descbc7.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc7.gif" ALT="szenario3descbc7.gif" BORDER=0></P>
 
 <P>Durch Betätigung des <B>OK</B>-Knopfes öffnet sich das Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
 
-<P><IMG SRC="images/szenario3descbc8.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc8.gif" ALT="szenario3descbc8.gif" BORDER=0></P>
 
 <P>Nachdem wir gesehen haben, wie die <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> funktioniert, wollen wir aus dem verschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mittels eines <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriffes</A> des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> ermitteln. Dazu aktivieren wir zunächst das verschlüsselte Dokument wieder.</P>
 
-<P><IMG SRC="images/szenario3descbc4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc4.gif" ALT="szenario3descbc4.gif" BORDER=0></P>
 
 <P>Über den Befehl <A href="hid_analyse_tripledescbc.html">Triple DES (CBC)</A> im <A href="menu_analyze.html">Menü Analyse \ ciphertext only</A> öffnen wir den folgenden Dialog, in das der zu durchsuchenden Bereich eingegeben wird (hier ** ** AB CD) (siehe dazu den <A href="hidd_bruteforce.html">Dialog Suchbereich für Schlüssel</A>).</P>
 
-<P><IMG SRC="images/szenario3descbc9.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc9.gif" ALT="szenario3descbc9.gif" BORDER=0></P>
 
 <P>Durch Klick auf den <B>OK</B>-Knopf oder Betätigung der <B>Eingabetaste</B> wird der <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A> gestartet. Nach dem Durchsuchen des Bereiches von <!--ZZZPOPUP--><A href="schluessel.html">Schlüsseln</A> öffnet sich ein Dialog mit dem gefundenen Schlüssel.</P>
 
-<P><IMG SRC="images/szenario3descbc10.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc10.gif" ALT="szenario3descbc10.gif" BORDER=0></P>
 
 <P>Das Bestätigen des Dialoges führt zu einer <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> des <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>; da der korrekte <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> gefunden worden ist, erhalten wir wieder unseren <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
 
-<P><IMG SRC="images/szenario3descbc11.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenario3descbc11.gif" ALT="szenario3descbc11.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

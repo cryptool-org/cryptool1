@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Automatic Analysis, Hill encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 	<PARAM NAME="Keyword" VALUE="Hill analysis">
 </OBJECT>
 
-<P><A NAME="hid_hill_auto"></A><B>Automatic analysis, Hill encryption method (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Classical)</B></P>
+<h3><P><A NAME="hid_hill_auto"></A><B>Automatic analysis, Hill encryption method (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Classical)</B></P></h3>
 
 <P>A <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A> is available for the <A href="hid_hill.html">Hill encryption algorithm</A>. This means that it is necessary to enter not just the text <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> by the Hill encryption algorithm but also the same text in <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> form. <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> then works out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> with which the plaintext was encrypted. </P>
 
@@ -22,74 +23,74 @@
 
 <P><U>Example of searching a combination of blocks</U></P>
 
-<TABLE cols=2 width=412>
+<TABLE cols=2 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=72%>The plaintext goes:</TD>
-<TD width=28%><CODE>ABCDXY</CODE>.</TD>
+<TD>The plaintext goes:</TD>
+<TD><CODE>ABCDXY</CODE>.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=72%>The encrypted text is:</TD>
-<TD width=28%><CODE>STONLC</CODE>.</TD>
+<TD>The encrypted text is:</TD>
+<TD><CODE>STONLC</CODE>.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=72%>The <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> is:</TD>
-<TD width=28%>2.</TD>
+<TD>The <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> is:</TD>
+<TD>2.</TD>
 </TR>
 </TABLE><BR>
 
 <P>First of all CrypTool tries to find the key using the following matrices.</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>AB</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ST</TD>
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>CD</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>ON</TD>
+<TD>&nbsp;</TD>
+<TD>CD</TD>
+<TD>&nbsp;</TD>
+<TD>ON</TD>
 </TR>
 </TABLE><BR>
 
 <P>Matrix<CODE> K</CODE> is not invertible. Therefore it would not be possible to find the key if the plaintext were<CODE> ABCD</CODE> and the encrypted text<CODE> STON</CODE>. However, as there is another block in the example, the next possible combination of blocks is now formed, producing these matrices:</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>AB</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ST</TD>
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>XY</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>LC</TD>
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
 </TR>
 </TABLE><BR>
 
 <P>As this matrix<CODE> K</CODE> is invertible, the product of the inverse matrix of<CODE> K</CODE> and matrix<CODE> V</CODE> is calculated, and immediately one obtains the key of dimension 2 x 2:</P>
 
-<TABLE cols=2 width=81>
+<TABLE cols=2 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=29%><U>A:</U></TD>
-<TD width=71%>TE</TD>
+<TD><U>A:</U></TD>
+<TD>TE</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=29%>&nbsp;</TD>
-<TD width=71%>ST</TD>
+<TD>&nbsp;</TD>
+<TD>ST</TD>
 </TR>
 </TABLE><BR>
 
@@ -97,20 +98,20 @@
 
 <P>With this plaintext and this encrypted text, the last possible combination of blocks would be:</P>
 
-<TABLE cols=4 width=166>
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=14%><U>K:</U></TD>
-<TD width=34%>CD</TD>
-<TD width=17%><U>V:</U></TD>
-<TD width=35%>ON</TD>
+<TD><U>K:</U></TD>
+<TD>CD</TD>
+<TD><U>V:</U></TD>
+<TD>ON</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=14%>&nbsp;</TD>
-<TD width=34%>XY</TD>
-<TD width=17%>&nbsp;</TD>
-<TD width=35%>LC</TD>
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
 </TR>
 </TABLE><BR>
 

@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Binäres exklusives Oder</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
 	<PARAM NAME="Keyword" VALUE="Binäres exklusives Oder">
 </OBJECT>
 
-<P><A NAME="hid_xor_bin"></A><B>Binäres exklusives Oder (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+<h3><P><A NAME="hid_xor_bin"></A><B>Binäres exklusives Oder (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P></h3>
 
 <P>Der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für dieses <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> besteht aus einer Folge von Bits. Er muss im <A href="hidd_key.html">Dialog Schlüssel</A> eingegeben werden.</P>
 
@@ -22,40 +23,42 @@
 
 <P>Das exklusive Oder ermittelt aus zwei Wahrheitswerten (FALSCH=0 und WAHR=1) einen neuen Wahrheitswert. In der folgenden Tabelle sind alle Möglichkeiten angegeben:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=3 width=156>
+<TABLE cols=3 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=35%><U>a</U></TD>
-<TD width=19%><U>b</U></TD>
-<TD width=46%><U>a  XOR  b</U></TD>
+<TD><U>a</U></TD>
+<TD><U>b</U></TD>
+<TD><U>a  XOR  b</U></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=35%>0</TD>
-<TD width=19%>0</TD>
-<TD width=46%>0</TD>
+<TD>0</TD>
+<TD>0</TD>
+<TD style="text-align:center">0</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=35%>0</TD>
-<TD width=19%>1</TD>
-<TD width=46%>1</TD>
+<TD>0</TD>
+<TD>1</TD>
+<TD style="text-align:center">1</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=35%>1</TD>
-<TD width=19%>0</TD>
-<TD width=46%>1</TD>
+<TD>1</TD>
+<TD>0</TD>
+<TD style="text-align:center">1</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=35%>1</TD>
-<TD width=19%>1</TD>
-<TD width=46%>0</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD style="text-align:center">0</TD>
 </TR>
 </TABLE><BR>
+
+</div>
 
 <P>Das exklusive Oder liefert also den Wahrheitswert WAHR, falls beide Wahrheitswerte unterschiedlich sind, ansonsten FALSCH.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Serial-Test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Zufallstest">
@@ -13,17 +14,25 @@
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_serialtest"></A><B>Serial-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_serialtest"></A>Serial-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</P></h3>
 
 <P>Dieser Test untersucht, ob Paare aufeinanderfolgender Zahlen <A href="gleichver.html">gleichverteilt</A> sind und prüft somit die Unabhängigkeit. Bei Binärfolgen wird bestimmt, ob die Wahrscheinlichkeit dafür, dass aufeinanderfolgende Elemente der Folge gleich oder unterschiedlich sind, in etwa gleich groß ist. Dies ist ein Indiz dafür, dass jedes Bit unabhängig von seinem Vorgängerbit ist. Die Anzahl der Teilfolgen 00; 01; 10; 11 in s soll annähernd der bei einer echten Zufallsfolge erwarteten Anzahl entsprechen. Da bei diesem Test stets zwei Bits auf einmal untersucht werden, wird der Test in der Literatur auch mit <I>Zwei–Bit-Test</I> bezeichnet.</P>
 
 <P>Seien n0 ; n1 die Anzahl der Nullen bzw. der Einsen in s und seien n00 ; n01 ; n10 ; n11 die jeweilige Anzahl der Teilsequenzen 00; 01; 10; 11 in <I>s</I>. Da sich die Teilfolgen überlappen dürfen, gilt: </P>
 
-<P><!--ZZZIND--> n00 + n01 + n10 + n11 = n - 1</P>
+<div style="text-align:center">
+
+<P>n00 + n01 + n10 + n11 = n - 1</P>
+
+</div>
 
 <P>Die verwendete Teststatistik ist gegeben durch</P>
 
-<P><!--ZZZIND--> X2 = [4 / (n –1)] * (n_00^2 + n_01^2 + n_10^2 + n_11^2) – (2 / n) * (n_0^2 + n1^2) + 1,</P>
+<div style="text-align:center">
+
+<P>X2 = [4 / (n –1)] * (n_00^2 + n_01^2 + n_10^2 + n_11^2) – (2 / n) * (n_0^2 + n1^2) + 1,</P>
+
+</div>
 
 <P>wobei X2 annähernd einer <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit zwei Freiheitsgraden entspricht, vorausgesetzt n &gt;= 21.</P>
 
@@ -32,6 +41,8 @@
 <P><B>Ein Serial-Test-Beispiel:</B></P>
 
 <P>Im folgenden werden beispielhaft an der kurzen Binärfolge</P>
+
+
 
 <PRE><CODE>s =
 00010111 01101101 01111101 11110011 00101111 
@@ -43,24 +54,30 @@
 
 <P>Die Anzahl der sich überlappenden Paare 00; 01; 10; 11 in <I>s</I> beträgt </P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
-<TABLE cols=2 width=322>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=50%>n_00 = 35</TD>
-<TD width=50%>n_10 = 38</TD>
+<TD>n_00 = 35</TD>
+<TD>n_10 = 38</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%>n_01 = 39</TD>
-<TD width=50%>N_11 = 47</TD>
+<TD>n_01 = 39</TD>
+<TD>N_11 = 47</TD>
 </TR>
 </TABLE><BR>
 
+</div>
+
 <P>Die Prüfgröße für den <I>Zwei-Bit-Test</I> wird ermittelt durch </P>
 
-<P><!--ZZZIND--> X2 = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 1 = 1.081</P>
+<div style="text-align:center">
+
+<P>X2 = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 1 = 1.081</P>
+
+</div>
 
 <P>Der Grenzwert für X2 ist bei einer <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit zwei Freiheitsgraden und einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von ‘alpha‚ = 0:05 gegeben mit 5:991 . Mit X2 = 1.081 &lt;= 5.991 besteht die Folge s den Serial-Test.</P>
 

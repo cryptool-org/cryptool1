@@ -3,15 +3,16 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
-<P><A NAME="hidd_diffiehellmanvisualization"></A><B>Dialog zur Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</B></P>
+<h3><P><A NAME="hidd_diffiehellmanvisualization"></A><B>Dialog zur Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</B></P></h3>
 
 <P>Dieser Dialog gibt Ihnen die Möglichkeit, den Ablauf des <A href="dh-verfahren.html">Diffie-Hellman-Schlüsselaustauschverfahrens</A> nachzuvollziehen.</P>
 
-<P><IMG SRC="images/bitmaps/dh_maindialogue.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dh_maindialogue.gif" ALT="dh_maindialogue.gif" BORDER=0></P>
 
 <P>Falls Sie bisher über keinerlei Erfahrungen mit dem genannten Verfahren verfügen, so vergewissern Sie sich bitte, dass das Kontrollkästchen <B>Informationsdialoge anzeigen</B> markiert ist. Auf diese Weise erhalten Sie neben der kontextabhängigen Hilfe zusätzliche Informationen zum Ablauf des Schlüsselaustauschverfahrens.</P>
 
@@ -25,25 +26,21 @@
 
 <P>Die fünf Hauptschritte des Diffie-Hellman-Schlüsselaustauschverfahrens lauten wie folgt:</P>
 
-<P><!--ZZZUL-->
-
 <UL>
-	<LI>Setzen der öffentlichen Parameter<BR><BR></LI>
+	<LI>Setzen der öffentlichen Parameter</LI>
 
-	<LI>Wählen der Geheimnisse<BR><BR></LI>
+	<LI>Wählen der Geheimnisse</LI>
 
-	<LI>Erzeugen der Teilschlüssel<BR><BR></LI>
+	<LI>Erzeugen der Teilschlüssel</LI>
 
-	<LI>Austauschen der Teilschlüssel<BR><BR></LI>
+	<LI>Austauschen der Teilschlüssel</LI>
 
 	<LI>Erzeugen des gemeinsamen und geheimen Schlüssels</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
 <P>Das <A href="hidd_diffiehellman_publicparameters.html">Setzen der öffentlichen Parameter</A> gilt für beide Parteien. Danach müssen alle weiteren Schritte des <A href="dh-verfahren.html">Schlüsselaustauschverfahrens</A> für Alice und Bob separat durchgeführt werden. Die Trennung von Alice und Bob wird durch zwei <B>Gruppenfelder</B> gekennzeichnet, die als Aufschrift <B>Alice</B> und <B>Bob</B> tragen. Die beiden Gruppenfelder symbolisieren die privaten Bereiche für Alice und Bob; in sie erhält niemand Einblick außer der autorisierten Partei selbst.</P>
 
-<P>Insofern bilden die öffentlichen Parameter eine Ausnahme, da "öffentliche Parameter" jedem frei zugänglich und somit nicht geheim sind. Dies wird durch das <B>Gruppenfeld „Öffentliche Parameter"</B> dargestellt, das sowohl den öffentlichen Bereich als auch den privaten Bereich von Alice und Bob schneidet. Als öffentlich gelten auch die übertragenen Daten (A, B) von Alice und Bob.</P>
+<P>Insofern bilden die öffentlichen Parameter eine Ausnahme, da "öffentliche Parameter" jedem frei zugänglich und somit nicht geheim sind. Dies wird durch das <B>Gruppenfeld ”Öffentliche Parameter"</B> dargestellt, das sowohl den öffentlichen Bereich als auch den privaten Bereich von Alice und Bob schneidet. Als öffentlich gelten auch die übertragenen Daten (A, B) von Alice und Bob.</P>
 
 <P>Dies zeigt, dass nicht nur Alice und Bob über Kenntnisse im Bezug auf die öffentlichen Parameter verfügen: Jeder beliebige Dritte kann ebenso die öffentlichen Parameter einsehen.</P>
 
@@ -63,7 +60,7 @@
 
 <P><B>Bemerkung</B>:</P>
 
-<P>Im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> finden Sie im Kapitel 3.12.2 weitere Informationen zum Schlüsselaustauschverfahren nach Diffie-Hellman. Insbesondere erhalten Sie einen tieferen Einblick in die Mathematik, die sich hinter dem Verfahren verbirgt.</P>
+<P>Im <A href="script-de.pdf">Skript</A> finden Sie im Kapitel 3.12.2 weitere Informationen zum Schlüsselaustauschverfahren nach Diffie-Hellman. Insbesondere erhalten Sie einen tieferen Einblick in die Mathematik, die sich hinter dem Verfahren verbirgt.</P>
 
 </BODY>
 </HTML>

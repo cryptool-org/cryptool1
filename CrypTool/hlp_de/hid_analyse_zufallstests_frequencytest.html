@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Frequency-Test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Zufallstest">
@@ -13,11 +14,15 @@
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_frequencytest"></A><B>Frequency-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_frequencytest"></A><B>Frequency-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P></h3>
 
 <P>Mit diesem statistischen Test wird für eine Bitfolge ein Merkmal der <A href="gleichver.html">Gleichverteilung</A> überprüft. Der Frequency-Test zählt in der Bitfolge die Anzahl der Nullen n0 und die Anzahl der Einsen n1 und vergleicht das Ergebnis mit dem Verhalten einer unabhängigen gleichverteilten Zufalls-Binärfolge. In der Literatur wird dieser Test auch als "Mono–Bit-Test" bezeichnet. Die Teststatistik ist gegeben durch</P>
 
-<P><!--ZZZIND--> X1 = (( n0<SUB> </SUB> - n1 ) ^ 2) / 2.</P>
+<div style="text-align:center">
+
+<P>X1 = (( n0<SUB> </SUB> - n1 ) ^ 2) / 2.</P>
+
+</div>
 
 <P>Wenn die Zahlen n0 und n1 aus einem zufälligen Intervall einer unabhängigen gleichverteilten Zufalls-Binärfolge stammen, dann ist X1 eine <A href="chi_2_verteilung.html">chi^2 – verteilte</A> Zufallsvariable mit einem Freiheitsgrad.</P>
 
@@ -47,11 +52,17 @@
 
 <P>den Frequency-Test bestimmt die Prüfgröße</P>
 
-<P><!--ZZZIND--> X1 = ( 74 – 86 ) ^ 2 / 160 = 0.9 .</P>
+<div style="text-align:center">
+
+<P>X1 = ( 74 – 86 ) ^ 2 / 160 = 0.9 .</P>
+
+</div>
 
 <P>Der kritische Bereich für X1 liegt bei einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit einem Freiheitsgrad und einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von ‘alpha‚ = 0.05 über 3.814. </P>
 
 <P>Mit X1 = 0.9 &lt; 3.814 besteht die Folge den Frequency-Test.</P>
+
+<BR>
 
 <P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, Klagenfurt, 1999.</P>
 

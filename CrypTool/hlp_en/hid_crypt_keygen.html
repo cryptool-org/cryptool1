@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Generate asymmetric Key</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Generate">
@@ -13,29 +14,37 @@
 	<PARAM NAME="Keyword" VALUE="Key">
 </OBJECT>
 
-<P><A NAME="hid_crypt_keygen"></A><B>Generate asymmetric Key (Menu <A href="menu_key.html">Key Management</A>)</B></P>
+<h3><P><A NAME="hid_crypt_keygen"></A><B>Generate asymmetric Key (Menu <A href="menu_key.html">Key Management</A>)</B></P></h3>
 
-<P>In order to use asymmetric procedures for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> or for digital <!--ZZZPOPUP--><A href="signatur.html">signing</A> of messages, it is necessary to have corresponding <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A>. Further information on asymmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A> will be found in the <!--ZZZLINK--><A href="script-en.pdf">Script</A> (Encryption algorithms section). Using <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> it is possible to generate asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A> for the following methods:</P>
+<P>In order to use asymmetric procedures for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> or for digital <!--ZZZPOPUP--><A href="signatur.html">signing</A> of messages, it is necessary to have corresponding <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A>. Further information on asymmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A> will be found in the <A href="script-en.pdf">Script</A> (Encryption algorithms section). Using <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> it is possible to generate asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A> for the following methods:</P>
 
-<P><B>RSA</B> <!--ZZZINDN--></P>
+<P><B>RSA</B>
 
-<P>CrypTool supports RSA <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> or RSA <!--ZZZPOPUP--><A href="signatur.html">signing</A> of <!--ZZZPOPUP--><A href="dokument.html">documents</A> - with RSA <!--ZZZPOPUP--><A href="schluessel.html">keys</A> generated using CrypTool.</P>
+<div class="indent">
 
-<P><!--ZZZINDNE--></P>
+CrypTool supports RSA <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> or RSA <!--ZZZPOPUP--><A href="signatur.html">signing</A> of <!--ZZZPOPUP--><A href="dokument.html">documents</A> - with RSA <!--ZZZPOPUP--><A href="schluessel.html">keys</A> generated using CrypTool.
 
-<P><B>DSA</B></P>
+</div></P>
 
-<P><!--ZZZIND--> DSA keys are used to sign documents using the digital signature algorithm <A href="dsa.html">DSA</A>.</P>
+<P><B>DSA</B>
 
-<P><B>Elliptic curves</B> <!--ZZZINDN--></P>
+<div class="indent">
+
+DSA keys are used to sign documents using the digital signature algorithm <A href="dsa.html">DSA</A>.
+
+</div></P>
+
+<P><B>Elliptic curves</B> </P>
+
+<div class="indent">
 
 <P>CrypTool also offers two procedures for creating signatures for documents that are based on <A href="ellipkurven.html">elliptic curves</A>. The two following signature algorithms are involved here:</P>
 
-<P><B>ECSP-DSA</B> (Elliptic Curve Signature Primitive – DSA variant) is a variant of DSA which makes <!--ZZZIND--> use of the elliptic curve discrete logarithm problem but is otherwise very similar to DSA.</P>
+<P class="tindent"> <B>ECSP-DSA</B> (Elliptic Curve Signature Primitive – DSA variant) is a variant of DSA which makes use of the elliptic curve discrete logarithm problem but is otherwise very similar to DSA.</P>
 
-<P><B>ECSP-NR</B> (Elliptic Curve Signature Primitive – Nyberg-Rueppel variant) is a signature algorithm <!--ZZZIND--> which is named after its inventors (Nyberg and Rueppel).</P>
+<P class="tindent"> <B>ECSP-NR</B> (Elliptic Curve Signature Primitive – Nyberg-Rueppel variant) is a signature algorithm which is named after its inventors (Nyberg and Rueppel).</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>RSA and DSA key pairs are stored in the Personal Security Environment (PSE), an encrypted file, and access to the secret key is only possible with a PIN defined by the user. The public parameters of the elliptic curve key pair are stored in an unencrypted file, while the secret part is encrypted and - protected with a PIN - written to the corresponding PSE.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>FIPS-PUB-140-1 Testbatterie</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Zufallstest">
@@ -13,70 +14,87 @@
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
-<P><A NAME="hid_analyse_zufallstests_fipspub1401"></A><B>FIPS-PUB-140-1 Test-Batterie (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+<h3><P><A NAME="hid_analyse_zufallstests_fipspub1401"></A><B>FIPS-PUB-140-1 Test-Batterie (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P></h3>
 
 <P>FIPS PUB 140-1 spezifiziert Sicherheitsanforderungen für den Entwurf und die Implementierung von kryptographischen Modulen, u.a. auch von Pseudozufallsgeneratoren. Für Pseudozufallsgeneratoren werden vier statistische Test - Verfahren vorgeschlagen, anhand derer einfach die Ausgabe eines Pseudozufallsgenerators auf Zufälligkeit geprüft werden kann. Dabei wird dem Anwender die Wahl eines entsprechenden <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveaus</A> abgenommen und konkrete Grenzwerte für die einzelnen Teststatistiken angegeben. Für Anwendungen im Hochsicherheitsbereich empfehlen die Autoren von FIPS PUB-140-1, nach jedem Neustart eines Zufallsbitgenerators die vier statistischen Tests durchzuführen.</P>
 
 <P>Eine 20000-Bit Binärfolge, die von einem Pseudozufallsgenerator erzeugt wurde, wird vier statistischen Tests unterzogen. Wenn die Sequenz auch nur bei einem Test durchfällt, so besteht der Generator den Test nicht. Die folgenden Tests sind durchzuführen:</P>
 
-<P><B>Mono-Bit-Test</B></P>
+<P><B>Mono-Bit-Test</B>
 
-<P><!--ZZZIND--> Die Anzahl der Einsen in s sollte zwischen 9654 und 10346 liegen.</P>
+<div class="indent">
 
-<P><B>Poker-Test</B> <!--ZZZINDN--></P>
+Die Anzahl der Einsen in s sollte zwischen 9654 und 10346 liegen.</P>
 
-<P>Die Teststatistik X3 (vgl. Abschnitt 3.3.3) wird für m = 4 (Tupelgröße) berechnet. Der Poker-Test wird bestanden, wenn gilt: 1.03 &lt; X3 &lt; 57.4.</P>
+</div>
 
-<P><!--ZZZINDNE--></P>
+<P><B>Poker-Test</B> 
 
-<P><B>Run-Test</B> <!--ZZZINDN--></P>
+<div class="indent">
 
-<P>Die Anzahl B_i bzw. G_i der <!--ZZZPOPUP--><A href="block_lueck.html">Blöcke bzw. Lücken</A> der Länge i in <I>s</I> werden für alle i; 1 &lt;= i &lt;= 6 gezählt. Längere Runs werden als Runs der Länge 6 angesehen. Der Test wird bestanden, wenn die ermittelten Werte B_i ;G_i ; 1 &lt;= i &lt;= 6 in den entsprechenden, spezifizierten Intervallen liegen. Unterliegende Tabelle listet diese Intervalle auf. <!--ZZZINDN--></P>
+Die Teststatistik X3 (vgl. Abschnitt 3.3.3) wird für m = 4 (Tupelgröße) berechnet. Der Poker-Test wird bestanden, wenn gilt: 1.03 &lt; X3 &lt; 57.4.</P>
 
-<TABLE cols=2 width=303>
+</div>
+
+<P><B>Run-Test</B>
+
+<div class="indent">
+
+Die Anzahl B_i bzw. G_i der <!--ZZZPOPUP--><A href="block_lueck.html">Blöcke bzw. Lücken</A> der Länge i in <I>s</I> werden für alle i; 1 &lt;= i &lt;= 6 gezählt. Längere Runs werden als Runs der Länge 6 angesehen. Der Test wird bestanden, wenn die ermittelten Werte B_i ;G_i ; 1 &lt;= i &lt;= 6 in den entsprechenden, spezifizierten Intervallen liegen. Unterliegende Tabelle listet diese Intervalle auf. </P>
+
+</div>
+
+<div style="text-align:center">
+
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=50%><B>Länge der Runs</B></TD>
-<TD width=50%><B>Gültiges Intervall</B></TD>
+<TD><B><nobr>Länge der Runs<nobr></B></TD>
+<TD><B><nobr>Gültiges Intervall<nobr></B></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>1</I></TD>
-<TD width=50%>2267 – 2733</TD>
+<TD><I>1</I></TD>
+<TD>2267 – 2733</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>2</I></TD>
-<TD width=50%>1079 – 1421</TD>
+<TD><I>2</I></TD>
+<TD>1079 – 1421</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>3</I></TD>
-<TD width=50%>502 – 748</TD>
+<TD><I>3</I></TD>
+<TD>502 – 748</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>4</I></TD>
-<TD width=50%>223 – 402</TD>
+<TD><I>4</I></TD>
+<TD>223 – 402</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>5</I></TD>
-<TD width=50%>90 – 223</TD>
+<TD><I>5</I></TD>
+<TD>90 – 223</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=50%><I>&gt;= 6</I></TD>
-<TD width=50%>90 – 223</TD>
+<TD><I>&gt;= 6</I></TD>
+<TD>90 – 223</TD>
 </TR>
 </TABLE><BR>
 
-<P><!--ZZZINDNE--> <!--ZZZIND-->NE</P>
 
-<P><B>Long Run-Test</B> </P>
+</div>
 
-<P><!--ZZZIND--> Dieser Test wird bestanden, wenn es keine Runs der Länge 34 oder mehr gibt.</P>
+<P><B>Long Run-Test</B>
 
+<div class="indent">
+
+Dieser Test wird bestanden, wenn es keine Runs der Länge 34 oder mehr gibt.</P>
+
+</div>
+<BR>
 <P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, Klagenfurt, 1999.</P>
 
 </BODY>

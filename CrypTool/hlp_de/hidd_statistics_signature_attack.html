@@ -3,11 +3,12 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Statistikausgabe des Angriffs auf die digitale Signatur</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
-<P><A NAME="hidd_statistics_signature_attack"></A><B>Dialog Statistik des Angriffs auf die digitale Signatur</B></P>
+<h3><P><A NAME="hidd_statistics_signature_attack"></A><B>Dialog Statistik des Angriffs auf die digitale Signatur</B></P></h3>
 
 <P>Die während des Angriffs gesammelten statistischen Daten werden im Dialog <B>Statistische Auswertung des Angriffs</B> angezeigt, sofern der Angriff erfolgreich war.</P>
 
@@ -15,21 +16,20 @@
 
 <P>In der Gruppierung <B>Tatsächlich geleisteter Aufwand</B> sind aufgeführt:</P>
 
-<P><!--ZZZUL--></P>
+<UL>
 
-<P>-Die <B>benötigte Rechenzeit</B> aufgeschlüsselt nach Jahren, Tagen, Stunden, Minuten und Sekunden.</P>
+	<LI>Die <B>benötigte Rechenzeit</B> aufgeschlüsselt nach Jahren, Tagen, Stunden, Minuten und Sekunden.</LI>
+	<LI>Die Anzahl der <B>Schritte</B>, die zum Finden eines Nachrichtenpaars insgesamt benötigt wurde.</LI>
 
-<P>-Die Anzahl der <B>Schritte</B>, die zum Finden eines Nachrichtenpaars insgesamt benötigt wurde.</P>
+	<LI>Die Zahl der insgesamt ausgeführten <B>Hashoperationen</B>.</LI>
 
-<P>-Die Zahl der insgesamt ausgeführten <B>Hashoperationen</B>.</P>
+	<LI>Eine Liste, die jeden der durchlaufenen Runs nach <B>Schritten bis zur Kollision</B>, <B>Schritten zur</B> <B>Überprüfung der Kollision</B> und <B>Gesamtschritten</B> aufschlüsselt.</LI>
 
-<P>-Eine Liste, die jeden der durchlaufenen Runs nach <B>Schritten bis zur Kollision</B>, <B>Schritten zur</B> <B>Überprüfung der Kollision</B> und <B>Gesamtschritten</B> aufschlüsselt.</P>
-
-<P><!--ZZZULE--></P>
+</UL>
 
 <P>Das Gruppenfeld <B>Hinzugefügte Bytes</B> informiert darüber, wie viele Bytes der harmlosen und gefährlichen Nachricht hinzugefügt werden mussten, so dass die Hashwerte der resultierenden Modifikationen kollidierten. Wurde das Modifikationsverfahren <B>Zeichen anhängen</B> gewählt, so ist die Anzahl der hinzugefügten Bytes bei beiden Nachrichten gleich, bei der Modifizierung durch das <B>Einfügen von Leerzeichen</B> können jeder Nachricht unterschiedlich viele Bytes hinzugefügt worden sein.</P>
 
-<P><IMG SRC="images/ads_statistics.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/ads_statistics.gif" ALT="ads_statistics.gif" BORDER=0></P>
 
 <P>Mit Drücken des Buttons <B>Statistik ausgeben</B> werden alle statistischen Daten des Dialoges in einer Textdatei ausgegeben, außerdem kehrt man zum Dialog <A href="hidd_signature_attack.html">Angriff auf den Hashwert der digitalen Signatur</A> zurück.</P>
 

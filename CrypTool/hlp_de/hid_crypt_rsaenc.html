@@ -3,46 +3,71 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA-Verschlüsselung</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
 	<PARAM NAME="Keyword" VALUE="RSA-Verschlüsselung">
 </OBJECT>
 
-<P><A NAME="hid_crypt_rsaenc"></A><B>RSA-Verschlüsselung (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Asymmetrisch)</B></P>
+<h3><P><A NAME="hid_crypt_rsaenc"></A><B>RSA-Verschlüsselung (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Asymmetrisch)</B></P></h3>
 
 <P>Die Daten in dem aktiven <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> werden über den Dialog <A href="hidd_rsa_encryption.html">RSA-Verschlüsselung</A> mit dem RSA-Verfahren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>.</P>
 
 <P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> gibt es ein <A href="szenarien_rsa_verschluesselung.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mittels RSA-Verfahren.</P>
 
-<P>Das bekannteste asymmetrische Chiffrierverfahren wurde 1977 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt, der RSA-Algorithmus. Der private und der öffentliche Schlüssel werden durch zwei frei gewählte, aber geheim zu haltende große <!--ZZZLINK--><A href="script-de.pdf">Primzahlen</A> p und q konstruiert. Man wählt zwei natürliche Zahlen e und d so, dass gilt: <!--ZZZINDN--></P>
+<P>Das bekannteste asymmetrische Chiffrierverfahren wurde 1977 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt, der RSA-Algorithmus. Der private und der öffentliche Schlüssel werden durch zwei frei gewählte, aber geheim zu haltende große <A href="script-de.pdf">Primzahlen</A> p und q konstruiert. Man wählt zwei natürliche Zahlen e und d so, dass gilt: </P>
 
-<P><IMG SRC="images/formel1.gif" ALT="" BORDER=0></P>
+<div style="text-align:center">
 
-<P>Das Produkt n=p&times;q und e dienen dann als öffentlicher Schlüssel, n und d als privater Schlüssel. Auch für diese Verschlüsselungsmethode müssen die Klartextbuchstaben erst in Zahlen übertragen werden. Dies geschieht in der Regel mit dem ASCII-Code, man kann aber natürlich auch wieder A=0, B=1, ... ,Z=25 vereinbaren. Es muss allerdings die Nummer jedes Klartextbuchstabens kleiner sein als das Produkt n. Dies wird deutlich, wenn man sich die Ver- und Entschlüsselungsfunktionen ansieht (a: Klartextbuchstabe, c: Geheimtextbuchstabe): <!--ZZZINDN--></P>
+<P><IMG SRC="images/formel1.gif" ALT="formel1.gif" BORDER=0></P>
 
-<P><IMG SRC="images/formel2.gif" ALT="" BORDER=0>                                 <IMG SRC="../images/formel3.gif" ALT="" BORDER=0></P>
+</div>
+
+<P>Das Produkt n=p&times;q und e dienen dann als öffentlicher Schlüssel, n und d als privater Schlüssel. Auch für diese Verschlüsselungsmethode müssen die Klartextbuchstaben erst in Zahlen übertragen werden. Dies geschieht in der Regel mit dem ASCII-Code, man kann aber natürlich auch wieder A=0, B=1, ... ,Z=25 vereinbaren. Es muss allerdings die Nummer jedes Klartextbuchstabens kleiner sein als das Produkt n. Dies wird deutlich, wenn man sich die Ver- und Entschlüsselungsfunktionen ansieht (a: Klartextbuchstabe, c: Geheimtextbuchstabe): </P>
+
+<div style="text-align:center">
+	
+<TABLE cols=2 width="0*" class="pad20">
+	<TR VALIGN="top">
+	<TD style="text-align:center"><P><IMG SRC="images/formel2.gif" ALT="formel2.gif" BORDER=0></P></TD>
+	<TD style="text-align:center"><P><IMG SRC="images/formel3.gif" ALT="formel3.gif" ALT="" BORDER=0></P></TD>
+	</TR>
+	</TABLE>	
+</div>
 
 <P>Da man bei der modulo-Division auch zuerst von jedem Faktor den Rest bei der Division modulo n bestimmen kann und danach den Rest ihres Produktes modulo n, würde sich nicht immer ein eindeutiges Geheimtextzeichen ergeben können, wenn a größer als n sein darf.</P>
 
-<P>Kryptographisch wichtig ist <!--ZZZUL--></P>
+<P>Kryptographisch wichtig ist</P>
 
-<P>- ob die Entschlüsselungsfunktion tatsächlich die ursprüngliche Nachricht liefert,</P>
+<UL>
 
-<P>- ob man nicht den privaten Schlüssel aus der Kenntnis des öffentlichen Schlüssels berechnen oder</P>
+	<LI> ob die Entschlüsselungsfunktion tatsächlich die ursprüngliche Nachricht liefert,</LI>
 
-<P>- gar ohne Schlüssel den Klartext wiederherstellen kann.</P>
+	<LI> ob man nicht den privaten Schlüssel aus der Kenntnis des öffentlichen Schlüssels berechnen oder</LI>
 
-<P>Die erste Frage ist ganz klar mit 'Ja' zu beantworten. Setzt man in die Entschlüsselungsfunktion für c  a^d mod n ein, erhält man: <!--ZZZINDN--></P>
+	<LI> gar ohne Schlüssel den Klartext wiederherstellen kann.</LI>
 
-<P><IMG SRC="images/formel4.gif" ALT="" BORDER=0></P>
+</UL>
 
-<P>Aus den Eigenschaften der Variablen ergibt sich a^(d&times;e) - a mod p = 0 und a^(d&times;e) - a mod q = 0. Die verschiedenen Primzahlen p und q teilen also dieselbe Zahl. Deshalb muss auch ihr Produkt diese Zahl teilen. Es folgt also (ein ausführlicher Beweis befindet sich im <!--ZZZLINK--><A href="script-de.pdf">Skript</A>): <!--ZZZINDN--></P>
+<P>Die erste Frage ist ganz klar mit 'Ja' zu beantworten. Setzt man in die Entschlüsselungsfunktion für c  a^d mod n ein, erhält man: </P>
 
-<P><IMG SRC="images/formel5.gif" ALT="" BORDER=0></P>
+<div style="text-align:center">
+
+<P><IMG SRC="images/formel4.gif" ALT="formel4.gif" BORDER=0></P>
+
+</div>
+
+<P>Aus den Eigenschaften der Variablen ergibt sich a^(d&times;e) - a mod p = 0 und a^(d&times;e) - a mod q = 0. Die verschiedenen Primzahlen p und q teilen also dieselbe Zahl. Deshalb muss auch ihr Produkt diese Zahl teilen. Es folgt also (ein ausführlicher Beweis befindet sich im <A href="script-de.pdf">Skript</A>):</P>
+
+<div style="text-align:center">
+
+<P><IMG SRC="images/formel5.gif" ALT="formel5.gif" BORDER=0></P>
+
+</div>
 
 <P>Die zweite Frage, ob der private Schlüssel durch den öffentlichen Schlüssel berechnet werden kann, ist theoretisch auch mit 'Ja' zu beantworten. Tatsächlich ist es aber noch niemandem gelungen, den privaten Schlüssel bei genügend großen p und q zu errechnen. Das Verfahren dafür ist allerdings bekannt: Da n das Produkt zweier Primzahlen ist, und e und d direkt von diesen beiden Primzahlen abhängen, müsste es also genügen, die beiden Primzahlen herauszufinden, indem man n in seine Primfaktoren, nämlich p und q zerlegt. Der normale Weg, die Primfaktoren herauszufinden, ist, alle Primzahlen von 2 bis zur Quadratwurzel aus n daraufhin zu überprüfen, ob sie n teilen oder nicht. Da aber n mindestens 300 Stellen groß sein sollte, ist dies eine sehr zeitaufwendige Methode. An der Faktorisierung einer 129-stelligen Zahl arbeiteten 1994 600 Menschen (bzw. deren Computer) acht Monate lang! Die Rechenzeit für die Faktorisierung einer 160-stelligen Zahl wurde 1996 auf fünf Jahre geschätzt. Man kann sagen, dass jeder der beiden Schlüssel für sich betrachtet eine Einwegfunktion darstellt (eine Einwegfunktion ist eine mathematische Funktion, die einfach, das heißt ohne großen Aufwand zu berechnen ist, deren Inverses zu berechnen jedoch extrem schwierig ist). </P>
 

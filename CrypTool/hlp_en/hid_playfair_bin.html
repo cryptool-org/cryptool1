@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>The Playfair encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Encryption algorithm">
 	<PARAM NAME="Keyword" VALUE="Playfair encryption algorithm">
 </OBJECT>
 
-<P><A NAME="hid_playfair_bin"></A><B>The Playfair encryption algorithm (Menu <A href="menu_crypt.html">Crypt</A> \ Classical)</B></P>
+<h3><P><A NAME="hid_playfair_bin"></A><B>The Playfair encryption algorithm (Menu <A href="menu_crypt.html">Crypt</A> \ Classical)</B></P></h3>
 
 <P>The Playfair <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> is based on an algorithm developed by Charles Wheatstone in 1854.</P>
 
@@ -24,11 +25,19 @@
 
 <P>The message to be encrypted is then written down in groups of two characters each (digrams). For example, suppose the message to be encrypted is </P>
 
-<P><!--ZZZIND--> AL LE SI ST HE RA US FL IE HE SO FO RT  (= " cover is broken flee immediately ").</P>
+<div class="indent">
+
+<P>AL LE SI ST HE RA US FL IE HE SO FO RT  (= " cover is broken flee immediately ").</P>
+
+</div>
 
 <P>To encrypt the message, first of all one takes the first pair of letters, AL. These two letters form the end points of one of the diagonals in a rectangle (A-L from bottom to top). The endpoints of the other diagonal (also read from bottom to top) are points P and M. The pair of letters AL is thus replaced by the pair PM. LE becomes XR. There are problems with the pair ST as both letters occur in the same row. In this case the letters immediately to the right of the original letters are used - TW. If there are no more letters to the left, then one simply proceeds to the end of the row. If the letters in a letter pair in the table are above each other, as is the case with the pair FL, then in each case one takes the next letters underneath - LY. The encrypted message now reads:</P>
 
-<P><!--ZZZIND--> PM XR TH TW KB UP BA LY KC KB TP KP CP</P>
+<div class="indent">
+
+<P>M XR TH TW KB UP BA LY KC KB TP KP CP</P>
+
+</div>
 
 <P>To improve security, it is possible to eliminate any letter duplications prior to encryption by inserting, for example, the letter X, as pairs of identical letters provide attackers with a lot of useful information.</P>
 

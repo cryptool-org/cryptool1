@@ -3,11 +3,12 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Diffie-Hellman-Schlüsselaustausch: Öffentlichen Teilschlüssel erzeugen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
-<P><A NAME="hidd_diffiehellman_createsharedkey"></A><B>Dialog Öffentliche Teilschlüssel erzeugen</B></P>
+<h3><P><A NAME="hidd_diffiehellman_createsharedkey"></A><B>Dialog Öffentliche Teilschlüssel erzeugen</B></P></h3>
 
 <P>Nach einem Klick auf die Schaltfläche <B>OK</B> lassen sich die öffentlichen Teilschlüssel für Alice und Bob erzeugen.</P>
 
@@ -15,7 +16,11 @@
 
 <P>Dieser Umstand lässt sich leicht nachvollziehen, wenn man die Gleichung für den öffentlichen Schlüssel von Alice betrachtet:</P>
 
-<P><!--ZZZIND--> <!--ZZZFORMEL--> <I>A</I> = <I>g</I><SUP>a</SUP>mod <I>p</I> </P>
+<div style="text-align:center">
+
+<P><!--ZZZFORMEL--> <I>A</I> = <I>g</I><SUP>a</SUP>mod <I>p</I> </P>
+
+</div>
 
 <P>Bobs öffentlicher Schlüssel B wird nach dem gleichen Muster berechnet, allerdings potenziert man nicht mit dem Geheimnis von Alice (a), sondern mit dem Geheimnis von Bob (b).</P>
 

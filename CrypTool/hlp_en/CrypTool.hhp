@@ -4,16 +4,16 @@ Compiled file=CrypTool-en.chm
 Contents file=cryptool.hhc
 Default Font=Arial,10,0
 Default Window=MainWindow
-Default topic=main_index.html
+Default topic=hidd_tipps_and_tricks.html
 Display compile progress=No
-Error log file=CrypTool.log
+Error log file=Cryptool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
 Language=0x809 Englisch (Groﬂbritannien)
 Title=CrypTool Help
 
 [WINDOWS]
-MainWindow="Help for CrypTool","cryptool.hhc","CrypTool.hhk","main_index.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[374,195,1193,820],,,,,,,0
+MainWindow="Help for CrypTool 1.3.06 b1","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[366,280,1049,778],,,,,,,0
 
 
 [FILES]
@@ -380,6 +380,19 @@ verschluesselung.html
 verschlverfahren.html
 visualizations.html
 add_digital_signatures.html
+man_in_the_middle.html
+hid_cr_sol_crasymmetric.html
+hid_cr_sol_crsymmetric.html
+hid_cr_sol_mutualauthentication.html
+hid_cr_sol_onetimepasswords.html
+hid_cr_sol_passwords.html
+hid_cr_sz_crasymmetric.html
+hid_cr_sz_crsymmetric.html
+hid_cr_sz_mutualauthentication.html
+hid_cr_sz_onetimepasswords.html
+hid_cr_sz_passwords.html
+hid_cr_usage.html
+hid_cr_overview.html
 
 [ALIAS]
 #include CrypTool_Alias.h

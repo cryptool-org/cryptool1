@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA encryption of messages</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="RSA encryption of messages">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Demonstration">
 </OBJECT>
 
-<P><A NAME="rsa_demo_encryption"></A><B>RSA encryption of messages</B></P>
+<h3><P><A NAME="rsa_demo_encryption"></A><B>RSA encryption of messages</B></P></h3>
 
 <P>After the <A href="rsa_demo_key_generation.html">RSA key generation</A>, the modulus N and the RSA key e can be published. Anyone could encrypt a message to the owner of the secret RSA key or check a digital signature.</P>
 
@@ -25,17 +26,21 @@
 
 <P>When you click on <B>Encrypt</B>, first of all the message is converted to numbers. For this purpose, message M is split up into <!--ZZZPOPUP--><A href="rsa_demo_segment_size.html">blocks of k characters</A> (M = M[1] # M[2] # ... # M[j]), whereby k*8 is always smaller than the <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">bit length of RSA modulus N</A>. The message blocks (M[i], i = 1, 2, ..., j) are converted for encryption into numbers (m[i], for i = 1, 2, ..., j) and encrypted with the public RSA key (N,e) according to the following formula:</P>
 
-<P><!--ZZZIND--> c[i] = m[i]^e (mod N)    for  i = 1, 2, ..., j .</P>
+<div class="indent">
+
+<P>c[i] = m[i]^e (mod N)    for  i = 1, 2, ..., j .</P>
+
+</div>
 
 <P>Because the public key (N,e) is available to everyone and the secret key (N,d) remains confidential, we can establish that</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P><B>Anyone can encrypt a message with the public key. But only the owner of the secret key can <A href="#rsa_demo_encryption">decrypt</A></B> <B>the message again.</B></P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
-<P><IMG SRC="images/rsa_demo_3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_3.gif" ALT="rsa_demo_3.gif" BORDER=0></P>
 
 <P>The conversion of the plaintext M to numbers m = m[1] # m[2] # .... #  m[j] and the encrypted version c = c[1] # c[2] # .... # c[j] are displayed in the two lines below the data input field. </P>
 
@@ -45,7 +50,7 @@
 
 <P>Instead of entering text you can also specify in the options that you wish to directly encrypt a sequence of plaintext numbers m =  m[1] # m[2] # ... # m[j]:</P>
 
-<P><IMG SRC="images/rsa_demo_4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsa_demo_4.gif" ALT="rsa_demo_4.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>The CrypTool initialization file</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Series of experiments">
@@ -16,7 +17,7 @@
 	<PARAM NAME="Keyword" VALUE="Configuration file">
 </OBJECT>
 
-<P><A NAME="cryptool_ini"></A><B>The CrypTool initialization file "CrypTool.ini"</B></P>
+<h3><P><A NAME="cryptool_ini"></A><B>The CrypTool initialization file "CrypTool.ini"</B></P></h3>
 
 <P>The default settings for some options used in CrypTool to survive a program session (persistance) are stored into the file CrypTool.ini. </P>
 
@@ -24,32 +25,30 @@
 
 <P>The file CrypTool.ini is located in the standard Windows directory (e.g. C:\Windows or C:\WINNT). Below the information stored in CrypTool.ini is explained.</P>
 
-<P>The CrypTool.ini file is organized in sections. Each section starts with an expression in brackets. CrypTool uses the sections <!--ZZZUL-->
+<P>The CrypTool.ini file is organized in sections. Each section starts with an expression in brackets. CrypTool uses the sections </P>
 
 <UL>
-	<LI>[Settings] for generic settings, <BR><BR></LI>
+	<LI>[Settings] for generic settings, </LI>
 
-	<LI>[Recent File List] for the list of the 10 last files which where opened in CrypTool and <BR><BR></LI>
+	<LI>[Recent File List] for the list of the 10 last files which where opened in CrypTool and </LI>
 
 	<LI>[SigAttTest] for parameters used to control the series of experiments of the birthday attack against the digital signature.</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
 <P><B>Section [Settings]: General Settings </B></P>
 
-<P><!--ZZZOL--></P>
+<OL>
 
-<P>1.  Start options for CrypTool:<BR>
+	<LI> Start options for CrypTool:<BR>
 The <A href="hid_options_startoptions.html">Start options</A> are set via the menu <A href="menu_options.html"><B>Options</B></A><B> \ Start options</B>. <BR>
 <CODE>NoTipps=1</CODE> or <CODE>NoTipps=0</CODE> define if the "How to Start" dialogue is shown at the begin of CrypTool.<BR>
-<CODE>SampleTextFile=1</CODE> or <CODE>SampleTextFile=0</CODE> defines, if CrypTool opens automatically an example file or if it starts with an empty main window.</P>
+<CODE>SampleTextFile=1</CODE> or <CODE>SampleTextFile=0</CODE> defines, if CrypTool opens automatically an example file or if it starts with an empty main window.<BR><BR></LI>
 
-<P>2.  Options for the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange protocol</A>: <BR>
+	<LI> Options for the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange protocol</A>: <BR>
 If you start the Diffie-Hellman key exchange protocol at first time, a short introducing dialogue text is shown at the beginning. The variable <CODE>DH_IntroDialogue </CODE>in the CrypTool.ini file controls if this dialogue will be shown. If you set this variable to 0, this information dialogue will be shown no more. Setting this variable to 1 or deleting this variable will lead to the opposite. These settings are also controlled via the menu <A href="menu_options.html"><B>Options</B></A><B> \ Further Options</B>.<BR>
-Before each single step of the Diffie-Hellman protocol information to this step will be shown. Setting <CODE>DH_InfoDialogues</CODE> to 0 disables the appearence of these dialogues. Setting this variable to 1 or deleting this variable will enable the information again.</P>
+Before each single step of the Diffie-Hellman protocol information to this step will be shown. Setting <CODE>DH_InfoDialogues</CODE> to 0 disables the appearence of these dialogues. Setting this variable to 1 or deleting this variable will enable the information again.<BR><BR></LI>
 
-<P>3.  Options to the <A href="hid_signatur_attack.html">birthday attack on the digital signature</A>:<BR>
+	<LI> Options to the <A href="hid_signatur_attack.html">birthday attack on the digital signature</A>:<BR>
 The options which are set in the dialogue <A href="hidd_options_signature_attack.html">Options for the birthday attack on the digital signature</A> are stored within the CrypTool.ini file as follows:<BR>
 <BR>
 The option <CODE>SignatureAttackTestMode=1</CODE> controls that instead of the interactive usage a series of experiments for the birthday attack is performed (see below: series of experiments for the birthday attack against the digital signature). By default this option has the value <CODE>0</CODE> for interactive usage.<BR>
@@ -62,9 +61,9 @@ If the option <CODE>SignatureAttackModificationMethod </CODE>is set to <CODE>0</
 Beside the options above the paths of the initial files for the signature attack are stored within the ini file. If you remove the following rows from your CrypTool.ini file then the initial paths of the CrypTool example files are stored within the ini file:</P>
 
 <PRE><CODE>SignatureAttackHarmlessFile=C:\Programs\CrypTool\original.txt
-SignatureAttackDangerousFile=C:\Programs\CrypTool\fake.txt</CODE></PRE>
+SignatureAttackDangerousFile=C:\Programs\CrypTool\fake.txt</CODE></PRE><BR><BR></LI>
 
-<P><!--ZZZOLE--></P>
+</OL>
 
 <P><B>Section [SigAttTest]: Series of experiments for the birthday attack against the digital signature</B></P>
 
@@ -135,15 +134,13 @@ File9=C:\Programme\CrypTool\pse\pseca\psec</CODE></PRE>
 
 <P><B>Remark 2</B>:</P>
 
-<P>The following parameters are stored in CrypTool during the current session, but not permanently:
+<P>The following parameters are stored in CrypTool during the current session, but not permanently:</P>
 
 <UL>
-	<LI>Passwords used for different encryption methods, <!--ZZZUL--><BR><BR></LI>
+	<LI>Passwords used for different encryption methods, </LI>
 
 	<LI>Length of the entropy window used at the brute-force analysis.</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 </BODY>
 </HTML>

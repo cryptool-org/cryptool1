@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Szenario für das RSA-Kryptosystem</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Demonstration">
 </OBJECT>
 
-<P><A NAME="szenarien_rsa_demo"></A><B>Szenario für das RSA-Kryptosystem (Einzelverfahren \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Demo</A>)</B></P>
+<h3><P><A NAME="szenarien_rsa_demo"></A><B>Szenario für das RSA-Kryptosystem (Einzelverfahren \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Demo</A>)</B></P></h3>
 
 <P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die RSA-Demonstration vorgestellt. Das Szenario beinhaltet die <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Erzeugung von Primzahlen</A>, das <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Kryptosystem</A> und die <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Faktorisierung</A> (Zerlegung in Primfaktoren) von natürlichen Zahlen. </P>
 
@@ -21,57 +22,65 @@
 
 <P>Beim RSA-Verfahren werden nicht nur die Funktionsweise, sondern auch die Einzelschritte zur Durchführung des RSA-Verfahrens anhand kleiner Zahlen beschrieben.</P>
 
-<P>Dieses Szenario besteht aus drei Teilen <!--ZZZOL--></P>
+<P>Dieses Szenario besteht aus drei Teilen </P>
 
-<P>1.) Der Erzeugung eines RSA-Schlüssels,</P>
+<OL>
 
-<P>2.) Dem Ver- und Entschlüsseln von Nachrichten und</P>
+	<LI> Der Erzeugung eines RSA-Schlüssels,<BR><BR></LI>
 
-<P>3.) Dem Angriff auf das RSA-Verfahren.</P>
+	<LI> Dem Ver- und Entschlüsseln von Nachrichten und<BR><BR></LI>
 
-<P><!--ZZZOL--></P>
+	<LI> Dem Angriff auf das RSA-Verfahren.<BR><BR></LI>
 
-<P><B>1.) Erzeugen von RSA-Schlüsseln</B></P>
+</OL>
+<BR>
+<OL>
+
+<P><B><LI> Erzeugen von RSA-Schlüsseln</LI></B></P>
 
 <P>Wir wollen zunächst einen <A href="rsa_demo_key_generation.html">RSA-Schlüssel</A> erzeugen. Öffnen Sie hierzu den Dialog unter <B>Einzelverfahren \ RSA-Demo \ <U>RSA-Kryptosystem</U></B>.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="dialogrsa-kryptosystem1.gif" BORDER=0></P>
 
 <P>Für den RSA-Schlüssel benötigen wir als erstes zwei unterschiedliche <U>Primzahlen</U> p und q. Sie können zwei Primzahlen in die Felder Primzahl p und Primzahl q eingeben, oder Sie können zwei zufällige Primzahlen p und q generieren.</P>
 
 <P>Als Beispiel wollen wir einen zufälligen 256-Bit RSA-Schlüssel erzeugen. Klicken Sie dafür den Button <B>Primzahlen generieren...</B>. Wie unter dem Menü <B>Einzelverfahren \ RSA-Demo \ <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Primzahlen Generieren...</A></B> öffnet sich der Dialog zum Generieren von Primzahlen p und q. Wählen Sie für die Primzahl p als <B>Untergrenze</B> 2^127+2^126 und als <B>Obergrenze</B> 2^128 sowie den Radiobutton <B>Beide Wertebereiche sind gleich</B>. Wenn Sie den Button <B>Primzahlen generieren</B> klicken, werden zwei Primzahlen p und q der Bitlänge zwischen 127,5 und 128 erzeugt. Die Multiplikation von p und q ergibt als Ergebnis das RSA-Modul N (Bitlänge größer als 2*127,5 = 255 - also ein 256-Bit <A href="rsa_demo_key_generation.html">RSA-Schlüssel</A>).</P>
 
-<P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="rsaszenariopzgenerieren.gif" BORDER=0></P>
 
 <P>Sie können beliebig oft Primzahlen generieren. Durch den Button <B>Primzahlen übernehmen</B> werden die Primzahlen p und q in den RSA-Dialog übertragen. Gleichzeitig werden der RSA-Modul N sowie die <A href="rsa_demo_key_generation.html">Eulersche Phi-Funktion</A> Phi(N) berechnet. </P>
 
 <P>Als nächstes müssen Sie als <A href="rsa_demo_public_key.html">öffentlichen RSA-Schlüssel</A> e eine zu Phi(N) teilerfremde Zahl bestimmen. Es scheint manchmal nicht einfach solch eine Zahl zu finden. Deshalb ein kleiner Tipp: die Primzahl e = 2^16+1 = 65537 (= 10000000000000001 binär) ist fast immer teilerfremd zu Phi(N).</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem2.gif" ALT="dialogrsa-kryptosystem2.gif" BORDER=0></P>
 
 <P>Aus der Zahl e berechnet sich dann nach dem Klick auf dem Button <B>Parameter aktualisieren</B> der <A href="rsa_demo_private_key.html">geheime RSA-Schlüssel</A> d.</P>
 
 <P>Sie können jetzt Nachrichten ver- und entschlüsseln.</P>
 
-<P><B>2.) Das Ver- oder Entschlüsseln von Nachrichten mit dem RSA-Schlüsselpaar</B></P>
+<P><B><LI> Das Ver- oder Entschlüsseln von Nachrichten mit dem RSA-Schlüsselpaar</LI></B></P>
 
-<P>Haben Sie den RSA-Schlüssel erzeugt, dann können Sie Nachrichten ver- oder entschlüsseln. Wir wollen die verschiedenen Optionen des RSA Verfahrens an den Beispielen aus dem <!--ZZZLINK--><A href="script-de.pdf">Skript</A> demonstrieren:</P>
+<P>Haben Sie den RSA-Schlüssel erzeugt, dann können Sie Nachrichten ver- oder entschlüsseln. Wir wollen die verschiedenen Optionen des RSA Verfahrens an den Beispielen aus dem <A href="script-de.pdf">Skript</A> demonstrieren:</P>
 
 <P><B>Beispiel aus dem Skript Kapitel 3.13.2: Verschlüsseln der Nachricht <CODE>ATTACK AT DAWN</CODE>:</B></P>
 
 <P>Erzeugen Sie sich zunächst den RSA-Schlüssel: Geben Sie dazu die Parameter p=47, q=79 e=37 in den Dialog nach den Menüeinträgen<B> Einzelverfahren \ RSA-Demo</B> ein. Nach dem Klick auf <B>Parameter aktualisieren</B> werden die Parameter N = p*q = 3713, Phi(N) = 3588 und d = 97 berechnet. </P>
 
-<P>Wählen Sie dann unter <A href="hidd_options_rsa_demo.html"><B>Optionen für Alphabet und Zahlensystem...</B></A> den Radiobutton <B>Alphabet vorgeben</B>. Das voreingestellte Alphabet <!--ZZZINDN--></P>
+<P>Wählen Sie dann unter <A href="hidd_options_rsa_demo.html"><B>Optionen für Alphabet und Zahlensystem...</B></A> den Radiobutton <B>Alphabet vorgeben</B>. Das voreingestellte Alphabet </P>
+
+<div class="indent">
 
 <P>"<CODE> ABCDEFGHIJKLMNOPQRSTUVWXYZ</CODE>"</P>
 
+</div>
+
 <P>kodiert &lt;BLANK&gt; nach 0, A nach 1, ... und Z nach 26. Wählen Sie im Themenbereich "Verfahren bei der Kodierung in Zahlen" die Option <A href="hidd_options_rsa_demo.html">Basissystem</A> und im Themenbereich "<A href="rsa_demo_sections.html">Blocklänge</A>" die Blocklänge 2.</P>
 
-<P><IMG SRC="images/dialogrsaoptions1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsaoptions1.gif" ALT="dialogrsaoptions1.gif" BORDER=0></P>
 
 <P>Übernehmen Sie die Optionen mit <B>OK</B>. Sie können jetzt den Eingabetext  <CODE>ATTACK AT DAWN </CODE> in die Eingabezeile eingeben und den Button <B>Verschlüsseln</B> klicken.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem3.gif" ALT="dialogrsa-kryptosystem3.gif" BORDER=0></P>
 
 <P>Als Verschlüsselung erhalten Sie die Zahlenfolge </P>
 
@@ -79,21 +88,21 @@
 
 <P>Das Zeichen '#' dient hierbei nur zur optischen Trennung der einzelnen Zahlen. Wenn Sie diese Zahlen in die Eingabezeile einfügen und dann <B>Entschlüsseln</B> wählen, erhalten Sie wieder den ursprünglichen <A href="klartext.html">Klartext</A>.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem3b.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem3b.gif" ALT="dialogrsa-kryptosystem3b.gif" BORDER=0></P>
 
 <P><B>Beispiele aus dem Skript Kapitel 3.13.3: Verschlüsselung der Nachricht <CODE>RSA works!</CODE></B></P>
 
 <P>Erzeugen Sie sich zunächst den RSA-Schlüssel: Geben Sie dazu die Parameter p=251, q=269 e=65537 in den Dialog nach den Menüeinträgen<B> Einzelverfahren \ RSA-Demo</B> ein. Nach dem Klick auf <B>Parameter aktualisieren</B> werden die Parameter N = p*q = 67519, Phi(N) = 67000 und d = 2473 berechnet. </P>
 
-<P><!--ZZZOL--></P>
+<OL type="a">
 
-<P><B>a) Verschlüsseln der Nachricht mit Blocklänge 1</B></P>
+<P><B><LI> Verschlüsseln der Nachricht mit Blocklänge 1</LI></B></P>
 
 <P>Wählen Sie dann unter <B>Optionen für Alphabet und Zahlensystem...</B> den Radiobutton<B> Alle 256 Zeichen</B>. Wählen Sie im Themenbereich "Verfahren und Blocklänge bei der Kodierung in Zahlen" die Option <A href="hidd_options_rsa_demo.html"><B>b-adisch</B></A> und im Themenbereich "<A href="rsa_demo_sections.html">Blocklänge</A>" die Blocklänge 1.</P>
 
 <P>Übernehmen Sie die Optionen mit <B>OK</B>. Sie können jetzt den Eingabetext <CODE>RSA works!</CODE> in die Eingabezeile eingeben und den Button <B>Verschlüsseln</B> wählen.</P>
 
-<P><IMG SRC="images/dialogrsa-kryptosystem4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogrsa-kryptosystem4.gif" ALT="dialogrsa-kryptosystem4.gif" BORDER=0></P>
 
 <P>Als Verschlüsselung erhalten Sie die Zahlenfolge </P>
 
@@ -102,7 +111,7 @@
 
 <P>Das Zeichen '#' dient hierbei nur zur optischen Trennung der einzelnen Zahlen. Wenn Sie diese Zahlen in die Eingabezeile einfügen und dann <B>Entschlüsseln</B> wählen, erhalten Sie wieder den ursprünglichen Klartext.</P>
 
-<P><B>b) Verschlüsseln der Nachricht mit Blocklänge 2</B></P>
+<P><B><LI> Verschlüsseln der Nachricht mit Blocklänge 2</LI></B></P>
 
 <P>Wählen Sie jetzt unter <B>Optionen für Alphabet und Zahlensystem...</B> den Radiobutton<B> Alle 256 Zeichen</B>. Wählen Sie im Themenbereich <B>Verfahren und Blocklänge bei der Kodierung in Zahlen</B> die Option <B>b-adisch</B> und im Themenbereich <B>Blocklänge</B> die maximale Blocklänge 2.</P>
 
@@ -110,7 +119,9 @@
 
 <P>03046 # 29337 # 62503 # 09978 # 40883</P>
 
-<P><B>3.) Der Angriff auf das RSA-Verfahren</B></P>
+</OL>
+
+<P><B><LI> Der Angriff auf das RSA-Verfahren</LI></B></P>
 
 <P>Wir verdeutlichen den potentiell möglichen Angriff auf das RSA-Kryptosystem anhand von <A href="rsa_challange.html">Challenges</A>, also Herausforderungen (meist öffentlichen Wettbewerben) zum Knacken von <A href="chiffretext.html">Chiffretexten</A>. Neben dem Chiffretext ist dem Angreifer auch der öffentliche Schlüssel e und der RSA Modul N zugänglich. </P>
 
@@ -124,16 +135,16 @@
 
 <P>Die 2 Komponenten des öffentlichen Schlüssels: </P>
 
-<TABLE cols=2 width=615>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%>RSA-Modul </TD>
-<TD width=77%>N = 31313 </TD>
+<TD>RSA-Modul </TD>
+<TD>N = 31313 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%>Öffentlicher Exponent </TD>
-<TD width=77%>e = 4913</TD>
+<TD>Öffentlicher Exponent </TD>
+<TD>e = 4913</TD>
 </TR>
 </TABLE><BR>
 
@@ -158,48 +169,62 @@
  6000 31280 29413  2066   369 23204  8425  7792
 25973  4477 30989</CODE></PRE>
 
-<P>Die Aufgabenstellung dieser Challenge finden Sie auch im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> zu CrypTool [3.13.4 Eine kleine RSA-Cipher-Challenge (1)].</P>
+<P>Die Aufgabenstellung dieser Challenge finden Sie auch im <A href="script-de.pdf">Skript</A> zu CrypTool [3.13.4 Eine kleine RSA-Cipher-Challenge (1)].</P>
+
+</OL>
 
 <P><B><U>Kryptoanalyse mittels CrypTool:</U></B></P>
 
-<P>Die Analyse erfolgt in zwei Schritten: zunächst werden mit der Faktorisierung die Primfaktoren des RSA-Moduls berechnet und daraus im zweiten Schritt der geheime Schlüssel zur Entschlüsselung der Nachricht bestimmt. Danach kann der Chiffretext mit dem geknackten geheimen Schlüssel entschlüsselt werden. <!--ZZZOL--></P>
+<P>Die Analyse erfolgt in zwei Schritten: zunächst werden mit der Faktorisierung die Primfaktoren des RSA-Moduls berechnet und daraus im zweiten Schritt der geheime Schlüssel zur Entschlüsselung der Nachricht bestimmt. Danach kann der Chiffretext mit dem geknackten geheimen Schlüssel entschlüsselt werden.</P>
 
-<P>1)Primfaktorzerlegung des RSA-Moduls:<BR>
+<OL>
+
+	<LI>Primfaktorzerlegung des RSA-Moduls:<BR>
 Per <B>Einzelverfahren \ RSA-Demo \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Faktorisieren einer Zahl</A></B> zerlegen Sie die natürliche Zahl N = 31313 in ihrer Primfaktoren p und q.<BR>
 <BR>
-<IMG SRC="images/dialogfactorisation1.gif" ALT="" BORDER=0><BR>
+<IMG SRC="images/dialogfactorisation1.gif" ALT="dialogfactorisation1.gif" BORDER=0><BR>
 <BR>
-Interessant ist hier, welches Verfahren am schnellsten den RSA-Modul zerlegt hatte (hier die Brute-Force Methode). Kopieren Sie das Ergebnis der Faktorisierung (Markieren der Ausgabe und mit Ctrl-C in die Zwischenablage kopieren) in ein Textfeld.</P>
+Interessant ist hier, welches Verfahren am schnellsten den RSA-Modul zerlegt hatte (hier die Brute-Force Methode). Kopieren Sie das Ergebnis der Faktorisierung (Markieren der Ausgabe und mit Ctrl-C in die Zwischenablage kopieren) in ein Textfeld.<BR><BR></LI>
 
-<P>2)Berechnung des geheimen Schlüssels d aus der Primfaktorzerlegung von N und dem öffentlichen Schlüssel e:<BR>
+	<LI>Berechnung des geheimen Schlüssels d aus der Primfaktorzerlegung von N und dem öffentlichen Schlüssel e:<BR>
 <BR>
-Mit Kenntnis der Primfaktoren p = 173 und q = 181 und des öffentlichen Schlüssel <I>e </I>= 4913 sind Sie nun in der Lage, den Chiffretext zu entschlüsseln: <!--ZZZOL--><BR>
+Mit Kenntnis der Primfaktoren p = 173 und q = 181 und des öffentlichen Schlüssel <I>e </I>= 4913 sind Sie nun in der Lage, den Chiffretext zu entschlüsseln: <BR><BR></LI>
+
+<OL type="a">
+
+	<LI>Öffnen Sie den Dialog <B>Einzelverfahren \ RSA-Demo \ RSA-Kryptosystem</B>:<BR><BR></LI>
+
+	<LI>Fügen Sie die gefundenen Primfaktoren p = 173 und q = 181 und den öffentlichen Schlüssel <I>e </I>= 4913 ein.<BR><BR></LI>
+
+	<LI>Klicken Sie den Button <B>Parameter aktualisieren</B>. Aus den Zahlen p und q wird die Eulersche Phi-Funktion Phi(N) = (p-1)*(q-1) berechnet und daraus bestimmt sich mit dem öffentlichen Schlüssel e der geheime RSA-Schlüssel d.<BR><BR></LI>
+
+	<LI>Stellen Sie die folgenden Optionen ein, indem Sie auf den Button <B>Optionen für Alphabet und Zahlensystem...</B> klicken:<BR><BR></LI>
+
+<UL type="disc">
+
+<LI> die Textoption des Eingabetextes = <B>Alphabet vorgeben</B>:<BR><BR></LI>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR><BR>
+	<LI> die RSA-Variante = <B>normal</B></LI>
+	<LI> die Methode = <B>b-adisch</B></LI>
+	<LI> die Blocklänge in Zeichen = <B>3</B></LI>
+	<LI> die Zahlensystem-Darstellung der RSA-Ver-/Entschlüsselung = <B>dezimal.<BR><BR></LI>
+	
+</UL>
+	
+</B><IMG SRC="images/dialogrsaoptions2.gif" ALT="dialogrsaoptions2.gif" BORDER=0><BR>
 </P>
 
-<P>a)Öffnen Sie den Dialog <B>Einzelverfahren \ RSA-Demo \ RSA-Kryptosystem</B>:</P>
+<LI>Geben Sie nun den Chiffretext im Editfeld <B>Eingabetext</B> ein: Am schnellsten geht das, indem Sie den oben angegebenen Chiffretext markieren und mit Ctrl-C in die Zwischenablage kopieren. Mit Ctrl-V fügen Sie den Text in das Eingabefeld mit der Überschrift Eingabetext ein.<BR><BR></LI>
 
-<P>b)Fügen Sie die gefundenen Primfaktoren p = 173 und q = 181 und den öffentlichen Schlüssel <I>e </I>= 4913 ein.</P>
+<LI>Durch das Klicken des Buttons <B>Entschlüsseln</B> erhalten Sie den Klartext.<BR><BR></LI>
 
-<P>c)Klicken Sie den Button <B>Parameter aktualisieren</B>. Aus den Zahlen p und q wird die Eulersche Phi-Funktion Phi(N) = (p-1)*(q-1) berechnet und daraus bestimmt sich mit dem öffentlichen Schlüssel e der geheime RSA-Schlüssel d.</P>
-
-<P>d)Stellen Sie die folgenden Optionen ein, indem Sie auf den Button <B>Optionen für Alphabet und Zahlensystem...</B> klicken: <!--ZZZUL--><BR>
-- die Textoption des Eingabetextes = <B>Alphabet vorgeben</B>:<BR>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR>
-- die RSA-Variante = <B>normal</B><BR>
-- die Methode = <B>b-adisch</B><BR>
-- die Blocklänge in Zeichen = <B>3</B><BR>
-- die Zahlensystem-Darstellung der RSA-Ver-/Entschlüsselung = <B>dezimal.<BR>
 <BR>
-</B><IMG SRC="images/dialogrsaoptions2.gif" ALT="" BORDER=0><BR>
-</P>
 
-<P>e)Geben Sie nun den Chiffretext im Editfeld <B>Eingabetext</B> ein: Am schnellsten geht das, indem Sie den oben angegebenen Chiffretext markieren und mit Ctrl-C in die Zwischenablage kopieren. Mit Ctrl-V fügen Sie den Text in das Eingabefeld mit der Überschrift Eingabetext ein.</P>
+<IMG SRC="images/dialogrsa-kryptosystem5.gif" ALT="dialogrsa-kryptosystem5.gif" BORDER=0><BR>
 
-<P>f)Durch das Klicken des Buttons <B>Entschlüsseln</B> erhalten Sie den Klartext.<BR>
-<BR>
-<IMG SRC="images/dialogrsa-kryptosystem5.gif" ALT="" BORDER=0></P>
+</OL>
 
-<P><!--ZZZULE--> <!--ZZZOLE--> <!--ZZZOLE--></P>
+</OL>
 
 <P>Vollständig dargestellt lautet der Klartext:</P>
 
@@ -221,16 +246,16 @@ WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
 
 <P>Die 2 Komponenten des öffentlichen Schlüssels:</P>
 
-<TABLE cols=2 width=615>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%>RSA-Modul </TD>
-<TD width=77%>N = 63978486879527143858831415041</TD>
+<TD>RSA-Modul </TD>
+<TD>N = 63978486879527143858831415041</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%>Öffentlicher Exponent </TD>
-<TD width=77%>e = 17579</TD>
+<TD>Öffentlicher Exponent </TD>
+<TD>e = 17579</TD>
 </TR>
 </TABLE><BR>
 
@@ -242,53 +267,67 @@ WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
 32870167545903741339819671379
 </CODE></PRE>
 
-<P>Die Aufgabenstellung dieser Challenge finden Sie auch im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> zu CrypTool [3.13.5 Eine kleine RSA-Cipher-Challenge (2)].</P>
+<P>Die Aufgabenstellung dieser Challenge finden Sie auch im <A href="script-de.pdf">Skript</A> zu CrypTool [3.13.5 Eine kleine RSA-Cipher-Challenge (2)].</P>
 
 <P><B><U>Kryptoanalyse mittels CrypTool:</U></B></P>
 
-<P>Die Analyse erfolgt in zwei Schritten: zunächst werden mit der Faktorisierung die Primfaktoren des RSA-Moduls berechnet und daraus im zweiten Schritt der geheime Schlüssel zur Entschlüsselung der Nachricht bestimmt. Danach kann der Chiffretext mit dem geknackten geheimen Schlüssel entschlüsselt werden. <!--ZZZOL--></P>
+<P>Die Analyse erfolgt in zwei Schritten: zunächst werden mit der Faktorisierung die Primfaktoren des RSA-Moduls berechnet und daraus im zweiten Schritt der geheime Schlüssel zur Entschlüsselung der Nachricht bestimmt. Danach kann der Chiffretext mit dem geknackten geheimen Schlüssel entschlüsselt werden.</P>
 
-<P>1)Primfaktorzerlegung des RSA-Moduls:<BR>
+<OL>
+
+	<LI>Primfaktorzerlegung des RSA-Moduls:<BR>
 Per <B>Einzelverfahren \ RSA-Demo \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Faktorisieren einer Zahl</A></B> zerlegen Sie die natürliche Zahl N = 63978486879527143858831415041 in ihre Primfaktoren p und q.<BR>
 <BR>
-<IMG SRC="images/dialogfactorisation2.gif" ALT="" BORDER=0><BR>
+<IMG SRC="images/dialogfactorisation2.gif" ALT="dialogfactorisation2.gif" BORDER=0><BR>
 <BR>
 Interessant ist hier, welches Verfahren am schnellsten den RSA-Modul zerlegt hatte (hier das Quadratische Sieb). Kopieren Sie das Ergebnis der Faktorisierung (Markieren der Ausgabe und mit Ctrl-C in die Zwischenablage kopieren) in ein Textfeld.<BR>
-</P>
+<BR><BR></LI>
 
-<P>2)Berechnung des geheimen Schlüssels d aus der Primfaktorzerlegung von N und dem öffentlichen Schlüssel e:<BR>
+	<LI>Berechnung des geheimen Schlüssels d aus der Primfaktorzerlegung von N und dem öffentlichen Schlüssel e:<BR>
 <BR>
-Mit Kenntnis der Primfaktoren p = 145295143558111 und q = 440334654777631 und des öffentlichen Schlüssel <I>e </I>= 17579 sind Sie nun in der Lage, den Chiffretext zu entschlüsseln: <!--ZZZOL--></P>
+Mit Kenntnis der Primfaktoren p = 145295143558111 und q = 440334654777631 und des öffentlichen Schlüssel <I>e </I>= 17579 sind Sie nun in der Lage, den Chiffretext zu entschlüsseln: <BR><BR></LI>
 
-<P>a)Öffnen Sie den Dialog <B>Einzelverfahren \ RSA-Demo \ RSA-Kryptosystem</B>:</P>
+<OL type="a">
 
-<P>b)Fügen Sie die gefundenen Primfaktoren p = 145295143558111 und q = 440334654777631 und den öffentlichen Schlüssel <I>e </I>= 17579 ein.</P>
+	<LI>Öffnen Sie den Dialog <B>Einzelverfahren \ RSA-Demo \ RSA-Kryptosystem</B>:<BR><BR></LI>
 
-<P>c)Klicken Sie den Button <B>Parameter aktualisieren</B>. Aus den Zahlen p und q wird die Eulersche Phi-Funktion Phi(N) = (p-1)*(q-1)von dem RSA-Modul berechnet und daraus bestimmt sich mit dem öffentlichen Schlüssel e der geheime RSA-Schlüssel d. </P>
+	<LI>Fügen Sie die gefundenen Primfaktoren p = 145295143558111 und q = 440334654777631 und den öffentlichen Schlüssel <I>e </I>= 17579 ein.<BR><BR></LI>
 
-<P>d)Stellen Sie die folgenden Optionen ein, indem Sie auf den Button <B>Optionen für Alphabet und Zahlensystem...</B> klicken: <!--ZZZUL--></P>
+	<LI>Klicken Sie den Button <B>Parameter aktualisieren</B>. Aus den Zahlen p und q wird die Eulersche Phi-Funktion Phi(N) = (p-1)*(q-1)von dem RSA-Modul berechnet und daraus bestimmt sich mit dem öffentlichen Schlüssel e der geheime RSA-Schlüssel d. <BR><BR></LI>
 
-<P>- die Textoption des Eingabetextes = <B>Alphabet vorgeben</B>:</P>
+	<LI>Stellen Sie die folgenden Optionen ein, indem Sie auf den Button <B>Optionen für Alphabet und Zahlensystem...</B> klicken:<BR><BR></LI>
+	
+<UL type="disc">
 
-<P><CODE> ABCDEFGHIJKLMNOPQRSTUVWXYZ</CODE></P>
+	<LI> die Textoption des Eingabetextes = <B>Alphabet vorgeben</B>:
 
-<P>- die RSA-Variante = <B>normal</B></P>
+<P><CODE> ABCDEFGHIJKLMNOPQRSTUVWXYZ</CODE></P></LI>
 
-<P>- die Methode = <B>Basissystem</B></P>
+	<LI> die RSA-Variante = <B>normal</B></LI>
 
-<P>- die Blocklänge in Zeichen = 14</P>
+	<LI> die Methode = <B>Basissystem</B></LI>
 
-<P>- die Zahlensystem-Darstellung der RSA-Ver-/Entschlüsselung = <B>dezimal</B>.</P>
+	<LI> die Blocklänge in Zeichen = 14</LI>
 
-<P>e)Geben Sie nun den Chiffretext im Editfeld <B>Eingabetext</B> ein: Am schnellsten geht das, indem Sie den oben angegebenen Chiffretext markieren und mit Ctrl-C in die Zwischenablage kopieren. Mit Ctrl-V fügen Sie den Text in das Eingabefeld mit der Überschrift Eingabetext ein.</P>
+	<LI> die Zahlensystem-Darstellung der RSA-Ver-/Entschlüsselung = <B>dezimal</B>.<BR><BR></LI>
 
-<P>f)Durch das Klicken des Buttons <B>Entschlüsseln</B> erhalten Sie den Klartext.</P>
+</UL>
+	
+	<LI>Geben Sie nun den Chiffretext im Editfeld <B>Eingabetext</B> ein: Am schnellsten geht das, indem Sie den oben angegebenen Chiffretext markieren und mit Ctrl-C in die Zwischenablage kopieren. Mit Ctrl-V fügen Sie den Text in das Eingabefeld mit der Überschrift Eingabetext ein.<BR><BR></LI>
 
-<P><!--ZZZULE--> <!--ZZZOLE--> <!--ZZZOLE--></P>
+	<LI>Durch das Klicken des Buttons <B>Entschlüsseln</B> erhalten Sie den Klartext.<BR><BR></LI>
 
-<P>Kontrollieren Sie Ihr Ergebnis: <!--ZZZINDN--></P>
+</OL>
+
+</OL>
+
+<P>Kontrollieren Sie Ihr Ergebnis:</P>
+
+<div class="indent">
 
 <PRE><CODE>NATURAL NUMBERS ARE MADE BY GOD</CODE></PRE>
+
+</div>
 
 <P><B>Bemerkung</B>:</P>
 
@@ -296,7 +335,7 @@ Mit Kenntnis der Primfaktoren p = 145295143558111 und q = 440334654777631 und de
 
 <P>Dazu starten Sie den Dialog per ”Einzelverfahren \ RSA-Demo \ Das RSA-Kryptosystem” und klicken oben auf den zweiten Radiobutton, da Ihnen ja nur die öffentlichen Parameter bekannt sind. Danach klicken Sie auf ”RSA-Modul faktorisieren... ”.</P>
 
-<P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="rsaszenariomodulfactorisation.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

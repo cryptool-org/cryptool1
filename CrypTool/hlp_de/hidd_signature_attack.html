@@ -3,16 +3,18 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Angriff auf die digitale Signatur</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<OBJECT TYPE="application/x-oleobject" 
+	CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Angriff">
 	<PARAM NAME="Keyword" VALUE="Digitale Signatur">
 </OBJECT>
 
-<P><A NAME="hidd_signature_attack"></A><B>Dialog Angriff auf die digitale Signatur (Menü <A href="menu_related_methods.html">Einzelverfahren</A>)</B></P>
+<h3><P><A NAME="hidd_signature_attack"></A><B>Dialog Angriff auf die digitale Signatur (Menü <A href="menu_related_methods.html">Einzelverfahren</A>)</B></P></h3>
 
 <P>Der auf dem <A href="birthdayparadox.html">Geburtstagsparadoxon</A> beruhende <A href="hid_signatur_attack.html"><B>generische Angriff</B> auf den Hashwert der digitalen Signatur</A> kann gegen jede beliebige Hashfunktion durchgeführt werden. Mit ihm verfolgt der Angreifer das Ziel, zwei unterschiedliche Nachrichten mit gleichem Hashwert zu finden.</P>
 
@@ -22,7 +24,7 @@
 
 <P>In den Gruppierungen "<B>Harmlose</B>"<B> Datei auswählen</B> bzw. "<B>Gefährliche</B>"<B> Datei auswählen</B> legt der Angreifer die beiden Nachrichten fest, mit denen der Geburtstagsangriff durchgeführt werden soll.</P>
 
-<P><IMG SRC="images/ads_main.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/ads_main.gif" ALT="ads_main.gif" BORDER=0></P>
 
 <P>Danach können noch <A href="hidd_options_signature_attack.html"><B>Optionen für den Angriff auf den Hashwert der digitalen Signatur</B></A> festgelegt werden.</P>
 
@@ -34,11 +36,15 @@
 
 <P><B>Bemerkung 2</B> (in CrypTool mitgelieferte Beispieldateien):</P>
 
-<P>Das CrypTool-Paket enthält die Beispieldateien "Original.txt" und "Faelschung.txt" als Beispiel einer harmlosen Nachricht und einer gefährlichen Nachricht. Falls Sie eigene Dateien benutzt haben, danach aber wieder die Pfade dieser Beispieldaten angezeigt haben wollen, löschen Sie in der <A href="cryptool_ini.html">CrypTool.ini</A>-Datei die Zeilen <!--ZZZINDN--></P>
+<P>Das CrypTool-Paket enthält die Beispieldateien "Original.txt" und "Faelschung.txt" als Beispiel einer harmlosen Nachricht und einer gefährlichen Nachricht. Falls Sie eigene Dateien benutzt haben, danach aber wieder die Pfade dieser Beispieldaten angezeigt haben wollen, löschen Sie in der <A href="cryptool_ini.html">CrypTool.ini</A>-Datei die Zeilen </P>
+
+<div class="indent">
 
 <PRE><CODE>SignatureAttackHarmlessFile</CODE></PRE>
 
 <P><CODE>SignatureAttackDangerousFile</CODE>.</P>
+
+</div>
 
 </BODY>
 </HTML>

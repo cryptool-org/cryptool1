@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Szenario für das Playfair-Verschlüsselungsverfahren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
 	<PARAM NAME="Keyword" VALUE="Playfair-Verschlüsselungsverfahren">
 </OBJECT>
 
-<P><A NAME="szenarien_playfair"></A><B>Szenario für das Playfair-Verschlüsselungsverfahren</B></P>
+<h3><P><A NAME="szenarien_playfair"></A><B>Szenario für das Playfair-Verschlüsselungsverfahren</B></P></h3>
 
 <P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
 
@@ -22,60 +23,64 @@
 
 <P>Dazu öffnen wir ein Dokument, welches einen Teil des CrypTool-Hilfetextes ”Wie Sie starten”. Der Dateiname des zu öffnenden Dokuments ist<CODE> CrypTool-de.txt</CODE>. Das Öffnen dieser <!--ZZZPOPUP--><A href="datei.html">Datei</A> geschieht über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_open.html">Öffnen</A>.</P>
 
-<P><IMG SRC="images/playfairplaintext.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/playfairplaintext.gif" ALT="playfairplaintext.gif" BORDER=0></P>
 
 <P>Nun wollen wir dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>. Dazu öffnen wir über <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_playfair_bin.html">Playfair</A> folgenden Dialog. Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wird PEGASOS eingetragen.</P>
 
-<P><IMG SRC="images/playfairkeydialog.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/playfairkeydialog.gif" ALT="playfairkeydialog.gif" BORDER=0></P>
 
 <P>Aus diesem Schlüsselwort wird die Playfair Schlüsselmatrix berechnet:</P>
 
-<TABLE cols=5 width=95>
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=20%>P</TD>
-<TD width=20%>E</TD>
-<TD width=20%>G</TD>
-<TD width=20%>A</TD>
-<TD width=20%>S</TD>
+<TD>P</TD>
+<TD>E</TD>
+<TD>G</TD>
+<TD>A</TD>
+<TD>S</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>O</TD>
-<TD width=20%>B</TD>
-<TD width=20%>C</TD>
-<TD width=20%>D</TD>
-<TD width=20%>F</TD>
+<TD>O</TD>
+<TD>B</TD>
+<TD>C</TD>
+<TD>D</TD>
+<TD>F</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>H</TD>
-<TD width=20%>I</TD>
-<TD width=20%>K</TD>
-<TD width=20%>L</TD>
-<TD width=20%>M</TD>
+<TD>H</TD>
+<TD>I</TD>
+<TD>K</TD>
+<TD>L</TD>
+<TD>M</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>N</TD>
-<TD width=20%>Q</TD>
-<TD width=20%>R</TD>
-<TD width=20%>T</TD>
-<TD width=20%>U</TD>
+<TD>N</TD>
+<TD>Q</TD>
+<TD>R</TD>
+<TD>T</TD>
+<TD>U</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>V</TD>
-<TD width=20%>W</TD>
-<TD width=20%>X</TD>
-<TD width=20%>Y</TD>
-<TD width=20%>Z</TD>
+<TD>V</TD>
+<TD>W</TD>
+<TD>X</TD>
+<TD>Y</TD>
+<TD>Z</TD>
 </TR>
 </TABLE><BR>
 
+</div>
+
 <P>Nach Betätigung des Buttons <B>Verschlüsseln</B> wird der Playfair-Schlüsseldialog geschlossen und es öffnen sich nacheinander zwei Fenster mit der Vorformatierung des Klartextes und dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text:</P>
 
-<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="" BORDER=0> <!--ZZZUL--></P>
+<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="playfairpreformatandencryption.gif" BORDER=0> </P>
 
 <UL>
 	<LI>Die Vorformatierung entfernt aus dem Klartext alle Zeichen, die nicht zum Playfair-Alphabet gehören und fügt zwischen doppelt vorkommenden Zeichen den Buchstaben X als Trennzeichen ein. Beispielsweise wird aus dem Klartext "<CODE>CrypTool ist</CODE>" der vorformatierte Text<CODE> CRYPTOXOLIST</CODE>.<BR><BR></LI>
@@ -83,57 +88,61 @@
 	<LI>Ausgehend von der Playfair-Schlüsselmatrix können wir den vorformatierten Text verschlüsseln. Die Idee hinter der Playfair-Verschlüsselung ist, dass die beiden verschiedenen Zeichen eines Digramms die gegenüberliegenden Ecken eines Rechtecks in der Playfair-Matrix beschreiben. Für die Ausnahme, dass die Zeichen des Digramms in derselben Zeile oder Spalte der Playfair-Schlüsselmatrix stehen, betrachten wir "eindimensionale" Rechtecke. Als Beispiel verschlüsseln wir von Hand den vorformatierten Klartext<CODE> CRYPTOXOLIST</CODE>: In der Playfair-Matrix beschreiben die Digramme des Klartextes die folgenden Rechtecke:</LI>
 </UL>
 
-<TABLE cols=4 width=265>
+<div style="text-align:center">
+
+<TABLE cols=4 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=26%>Klartext-Digramm</TD>
-<TD width=29%>Rechteck</TD>
-<TD width=16%>Dimension</TD>
-<TD width=29%>Verschlüsselung</TD>
+<TD>Klartext-Digramm</TD>
+<TD>Rechteck</TD>
+<TD>Dimension</TD>
+<TD>Verschlüsselung</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>CR</TD>
-<TD width=29%>C,K,R,X</TD>
-<TD width=16%>1</TD>
-<TD width=29%>KX</TD>
+<TD>CR</TD>
+<TD>C,K,R,X</TD>
+<TD>1</TD>
+<TD>KX</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>YP</TD>
-<TD width=29%>Y,V,P,A</TD>
-<TD width=16%>2</TD>
-<TD width=29%>VA</TD>
+<TD>YP</TD>
+<TD>Y,V,P,A</TD>
+<TD>2</TD>
+<TD>VA</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>TO</TD>
-<TD width=29%>T,N,O,D</TD>
-<TD width=16%>2</TD>
-<TD width=29%>ND</TD>
+<TD>TO</TD>
+<TD>T,N,O,D</TD>
+<TD>2</TD>
+<TD>ND</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>XO</TD>
-<TD width=29%>X,V,O,C</TD>
-<TD width=16%>2</TD>
-<TD width=29%>VC</TD>
+<TD>XO</TD>
+<TD>X,V,O,C</TD>
+<TD>2</TD>
+<TD>VC</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>LI</TD>
-<TD width=29%>L,M,I,K</TD>
-<TD width=16%>1</TD>
-<TD width=29%>MK</TD>
+<TD>LI</TD>
+<TD>L,M,I,K</TD>
+<TD>1</TD>
+<TD>MK</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=26%>ST</TD>
-<TD width=29%>S,A,T,U</TD>
-<TD width=16%>2</TD>
-<TD width=29%>AU</TD>
+<TD>ST</TD>
+<TD>S,A,T,U</TD>
+<TD>2</TD>
+<TD>AU</TD>
 </TR>
 </TABLE><BR>
+
+</div>
 
 <P>Wenn das Rechteck zweidimensional ist, dann zählen wir die Ecken im Rechteck wie folgt auf: Wir beginnen mit dem ersten Buchstaben im Klartextdigramm, danach wählen wir den Buchstaben, der die Ecke in der gleichen Zeile beschreibt und dann den zweiten Buchstaben des Klartextdigramms. Schließlich fügen wir den Buchstaben der letzten Ecke an. </P>
 
@@ -143,13 +152,13 @@
 
 <P>Die noch unbenutzten Ecken aus dem Rechtecken bilden dann die Chiffren der Klartextdigramme. Der Chiffretext der Eingabe lautet:<CODE>  KXVANDVCMKAU</CODE>.</P>
 
-<P>Wenn der Playfair-Chiffre ein aktives Fenster in CrypTool ist, können Sie auf die Ikone <IMG SRC="images/iconkeydialog.gif" ALT="" BORDER=0> klicken, oder Menü Bearbeiten \ Schlüssel Anzeigen wählen und der Playfair-Schlüssel wird angezeigt. Sie können jetzt den Playfair-Schlüssel in dem Schlüsselspeicher sichern.</P>
+<P>Wenn der Playfair-Chiffre ein aktives Fenster in CrypTool ist, können Sie auf die Ikone <IMG SRC="images/iconkeydialog.gif" ALT="iconkeydialog.gif" BORDER=0> klicken, oder Menü Bearbeiten \ Schlüssel Anzeigen wählen und der Playfair-Schlüssel wird angezeigt. Sie können jetzt den Playfair-Schlüssel in dem Schlüsselspeicher sichern.</P>
 
 <P><B>Playfair-Entschlüsselung</B></P>
 
-<P>Jetzt kann der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dieses <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> einfach wieder über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_playfair_bin.html">Playfair</A> ermittelt werden. In dem Dialog geben wir den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> worden ist (PEGASOS), ein. Falls Sie diesen Schlüssel in den Schlüsselspeicher gesichert haben, können Sie den Schlüssel einfach durch das Anklicken der <IMG SRC="images/iconinsertkey.gif" ALT="" BORDER=0> Ikone in den Schlüsseldialog kopieren. </P>
+<P>Jetzt kann der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dieses <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> einfach wieder über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_playfair_bin.html">Playfair</A> ermittelt werden. In dem Dialog geben wir den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> worden ist (PEGASOS), ein. Falls Sie diesen Schlüssel in den Schlüsselspeicher gesichert haben, können Sie den Schlüssel einfach durch das Anklicken der <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> Ikone in den Schlüsseldialog kopieren. </P>
 
-<P><IMG SRC="images/dialogplayfairdecrytion.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/dialogplayfairdecrytion.gif" ALT="dialogplayfairdecrytion.gif" BORDER=0></P>
 
 <P>Die Wahl des Knopfes <B>Entschlüsseln</B> ist die Aufforderung an <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, den Text zu <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>. Wir erhalten sofort wieder den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
 
@@ -157,7 +166,7 @@
 
 <P>Wir wollen mit Hilfe der manuellen Analyse einen verschlüsselten Text dechiffrieren. Dazu laden wir den zu dechiffrierenden Text aus der Datei<CODE> Playfair-enc-de.txt</CODE>: </P>
 
-<P><IMG SRC="images/szenarioplayfair1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioplayfair1.gif" ALT="szenarioplayfair1.gif" BORDER=0></P>
 
 <P>Dieser Text wurde mit dem <A href="hidd_key_playfair.html">Playfair-</A><!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> ohne Vorformatierung erstellt: Bei dieser Verschlüsselungsoption werden Zeichen, die nicht zum Playfair-Alphabet gehören, in den Chiffretext übernommen. Deshalb erkennt man in diesem Chiffretext anhand der unverschlüsselten Leerzeichen, Satzzeichen und Zeilenvorschübe die Länge der einzelnen Wörter. Außerdem wurden Doppelbuchstaben beim Verschlüsseln des Klartextes ignoriert, d.h. es wurde kein Trennzeichen X zwischen Doppelbuchstaben hineingeschoben.</P>
 
@@ -165,18 +174,20 @@
 
 <P>Öffnen wir also das Fenster Playfairanalyse (<A href="menu_analyze.html">Menü Analyse</A> \ manuelle Analyse \ <A href="hidd_playfair_analysis.html">Playfair</A>).</P>
 
-<P><IMG SRC="images/szenarioplayfair2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioplayfair2.gif" ALT="szenarioplayfair2.gif" BORDER=0></P>
 
 <P>Wahrscheinlich beginnt der Brief mit dem Text <B><CODE>Sehr geehrte Damen und Herren</CODE></B>. </P>
 
 <P>Der Text wird in dem Feld mit der Überschrift <B>Vermuteter Klartext</B> eingegeben. Nach jedem eingegebenen Buchstaben wird die Tabelle der <B>Buchstabeninformationen</B> aktualisiert. </P>
 
-<P>Damit haben wir schon eine ganze Menge an Digrammpaare vorgegeben: <!--ZZZINDN--></P>
+<P>Damit haben wir schon eine ganze Menge an Digrammpaare vorgegeben:</P>
 
-<TABLE cols=2 width=218>
+<div class="indent">
+
+<TABLE cols=2 width="0*" class="pad20" style="text-align:center">
 
 <TR VALIGN="top">
-<TD width=47%>SE  &gt;  TG
+<TD>SE  &gt;  TG
 <P>HR  &gt;  IG</P>
 
 <P>GE  &gt;  HR</P>
@@ -187,7 +198,8 @@
 
 <P>ED  &gt;  RX</P>
 </TD>
-<TD width=53%>AM  &gt;  VN
+
+<TD>AM  &gt;  VN
 <P>EN  &gt;  IX</P>
 
 <P>UN  &gt;  AX</P>
@@ -201,274 +213,304 @@
 </TR>
 </TABLE><BR>
 
+</div>
+
 <P>Und durch einen Klick auf den Knopf <B>Erzeuge Matrix</B> werden mit diesen Informationen die bekannten Teile der Playfair-Schlüsselmatrix berechnet:</P>
 
-<P><IMG SRC="images/szenarioplayfair3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenarioplayfair3.gif" ALT="szenarioplayfair3.gif" BORDER=0></P>
 
-<P>Wir zeigen anhand der Klartextvermutung und den Regeln zur Playfair-Verschlüsselung, wie die Schlüsselmatrix von Hand berechnet werden kann: <!--ZZZUL--></P>
+<P>Wir zeigen anhand der Klartextvermutung und den Regeln zur Playfair-Verschlüsselung, wie die Schlüsselmatrix von Hand berechnet werden kann: </P>
 
 <UL>
-	<LI>Aus ER &gt; RG erkennt man, dass die Folge ERG in der Matrix entweder als Spalte oder Zeile auftauchen muss. Nehmen wir an, sie sei in einer Spalte, dann muss wegen RT &gt; EF auch T und F in derselben Spalte sein und wegen GE &gt; HR auch noch H, also 6 Buchstaben, was zuviel ist. Also ist ERG in einer Zeile. <BR><BR></LI>
+	<LI>Aus ER &gt; RG erkennt man, dass die Folge ERG in der Matrix entweder als Spalte oder Zeile auftauchen muss. Nehmen wir an, sie sei in einer Spalte, dann muss wegen RT &gt; EF auch T und F in derselben Spalte sein und wegen GE &gt; HR auch noch H, also 6 Buchstaben, was zuviel ist. Also ist ERG in einer Zeile. </LI>
 
-	<LI>Wegen EH &gt; RI ist auch I in derselben Zeile und ebenso H (GE &gt; HR). Schreiben wir ERGHI z.B. in die letzte Zeile (Die Reihenfolge HI stimmt wegen EH &gt; RI). <BR><BR></LI>
+	<LI>Wegen EH &gt; RI ist auch I in derselben Zeile und ebenso H (GE &gt; HR). Schreiben wir ERGHI z.B. in die letzte Zeile (Die Reihenfolge HI stimmt wegen EH &gt; RI).</LI>
 
 	<LI>Wir können noch ein paar weitere Buchstaben eintragen, nämlich DL, NX, DX, TF, ST, UA: </LI>
 </UL>
 
-<P><!--ZZZINDN--></P>
+<div style="text-align:center">
 
-<TABLE cols=5 width=95>
+<TABLE cols=5 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>F</TD>
-<TD width=20%>S</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>T</TD>
+<TD>F</TD>
+<TD>S</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>T</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>A</TD>
-<TD width=20%>U</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>A</TD>
+<TD>U</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>D</TD>
-<TD width=20%>*</TD>
-<TD width=20%>L</TD>
-<TD width=20%>N</TD>
-<TD width=20%>X</TD>
+<TD>D</TD>
+<TD>*</TD>
+<TD>L</TD>
+<TD>N</TD>
+<TD>X</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>R</TD>
-<TD width=20%>G</TD>
-<TD width=20%>H</TD>
-<TD width=20%>I</TD>
-<TD width=20%>E</TD>
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
+<TD>E</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>Mit dem bekannten Digrammpaar (AM  &gt;  VN) können wir die Matrix erweitern, da in der vierten Zeile nur noch eine mögliche Stelle für das M zur Verfügung steht:</P>
+
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>F</TD>
+<TD>S</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>V</TD>
+<TD>*</TD>
+<TD>A</TD>
+<TD>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>D</TD>
+<TD>M</TD>
+<TD>L</TD>
+<TD>N</TD>
+<TD>X</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
+<TD>E</TD>
 </TR>
 </TABLE><BR>
 
-<P>Mit dem bekannten Digrammpaar (AM  &gt;  VN) können wir die Matrix erweitern, da in der vierten Zeile nur noch eine mögliche Stelle für das M zur Verfügung steht: <!--ZZZINDN--></P>
-
-<TABLE cols=5 width=95>
-
-<TR VALIGN="top">
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD width=20%>F</TD>
-<TD width=20%>S</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>T</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD width=20%>*</TD>
-<TD width=20%>V</TD>
-<TD width=20%>*</TD>
-<TD width=20%>A</TD>
-<TD width=20%>U</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD width=20%>D</TD>
-<TD width=20%>M</TD>
-<TD width=20%>L</TD>
-<TD width=20%>N</TD>
-<TD width=20%>X</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD width=20%>R</TD>
-<TD width=20%>G</TD>
-<TD width=20%>H</TD>
-<TD width=20%>I</TD>
-<TD width=20%>E</TD>
-</TR>
-</TABLE><BR>
+</div>
 
 <P>Die selektierte Option <B>Vermuteter Klartext aktualisieren</B> bewirkt, dass das Ergebnis der Playfair-Entschlüsselung mit der Matrix aus der Analyse in das Feld Vermuteter Klartext kopiert wird. Dabei werden Buchstaben, die nicht entschlüsselt werden können, mit dem Jokerzeichen '<B><CODE>*</CODE></B>' markiert und können jetzt ersetzt werden:</P>
 
-<P></P>
+<P>Nun fallen etwa die Teilworte <B><CODE>E**.*IEMLI**</CODE></B> auf. Wenn wir diese zu <B><CODE>EIN.ZIEMLICH</CODE></B> ergänzen, ergeben sich die weiteren Digrammpaare: IN  &gt;  BO und CH  &gt;  HK. Mit der bisherigen Schlüsselmatrix in dem ersten Digrammpaar folgern wir, dass die Buchstaben I,N,B,O in der gleichen Spalte und somit in der Schlüsselmatrix der Buchstabe B direkt unter I und der Buchstabe O direkt unter N liegt. Der Klick auf <B>Erzeuge Matrix </B>vertauscht die zweite und vierte Zeile, danach die zweite und die dritte Zeile, usw. und liefert als Schlüsselmatrix:</P>
 
-<P>Nun fallen etwa die Teilworte <B><CODE>E**.*IEMLI**</CODE></B> auf. Wenn wir diese zu <B><CODE>EIN.ZIEMLICH</CODE></B> ergänzen, ergeben sich die weiteren Digrammpaare: IN  &gt;  BO und CH  &gt;  HK. Mit der bisherigen Schlüsselmatrix in dem ersten Digrammpaar folgern wir, dass die Buchstaben I,N,B,O in der gleichen Spalte und somit in der Schlüsselmatrix der Buchstabe B direkt unter I und der Buchstabe O direkt unter N liegt. Der Klick auf <B>Erzeuge Matrix </B>vertauscht die zweite und vierte Zeile, danach die zweite und die dritte Zeile, usw. und liefert als Schlüsselmatrix: <!--ZZZINDN--></P>
+<div style="text-align:center">
 
-<TABLE cols=5 width=95>
-
+<TABLE cols=5 width="0*" class="pad10">
+	
 <TR VALIGN="top">
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>K</TD>
-<TD width=20%>B</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>K</TD>
+<TD>B</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>U</TD>
-<TD width=20%>Z</TD>
-<TD width=20%>*</TD>
-<TD width=20%>*</TD>
-<TD width=20%>A</TD>
+<TD>U</TD>
+<TD>Z</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>A</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>X</TD>
-<TD width=20%>D</TD>
-<TD width=20%>M</TD>
-<TD width=20%>L</TD>
-<TD width=20%>N</TD>
+<TD>X</TD>
+<TD>D</TD>
+<TD>M</TD>
+<TD>L</TD>
+<TD>N</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>T</TD>
-<TD width=20%>F</TD>
-<TD width=20%>S</TD>
-<TD width=20%>C</TD>
-<TD width=20%>O</TD>
+<TD>T</TD>
+<TD>F</TD>
+<TD>S</TD>
+<TD>C</TD>
+<TD>O</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=20%>E</TD>
-<TD width=20%>R</TD>
-<TD width=20%>G</TD>
-<TD width=20%>H</TD>
-<TD width=20%>I</TD>
+<TD>E</TD>
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
 </TR>
 </TABLE><BR>
 
-<P>Leider führt die Entschlüsselung mit dieser Matrix zu Worten, die es nicht gibt. <!--ZZZINDN--></P>
+</div>
+
+<P>Leider führt die Entschlüsselung mit dieser Matrix zu Worten, die es nicht gibt.</P>
+
+<div class="indent">
 
 <PRE><B><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
-    GEHEIMER.*X**.BLEIOT.NICH*.IMMER.**NGE.GEHEIM..</CODE></B></PRE>
+    GEHEIMER.*X**.BLEIOT.NICH*.IMMER.**NGE.GEHEIM..</CODE></B>
+    <B><CODE>MI*.*DXUNDLICHEN.GRUX**EN</CODE></B></PRE>
 
-<P><B><CODE>MI*.*DXUNDLICHEN.GRUX**EN</CODE></B></P>
+</div>
 
-<P>Jedoch können wir bis auf das Wort <B><CODE>*X**</CODE></B> mit hoher Wahrscheinlichkeit den Klartext erraten. Deshalb korrigieren wir das Wort <B><CODE>*X**</CODE></B> zu <B><CODE>****</CODE></B> (um Konsistenzfehler bei der Playfair-Analyse zu vermeiden) und korrigieren alle anderen Worte zu <!--ZZZINDN--></P>
+<P>Jedoch können wir bis auf das Wort <B><CODE>*X**</CODE></B> mit hoher Wahrscheinlichkeit den Klartext erraten. Deshalb korrigieren wir das Wort <B><CODE>*X**</CODE></B> zu <B><CODE>****</CODE></B> (um Konsistenzfehler bei der Playfair-Analyse zu vermeiden) und korrigieren alle anderen Worte zu </P>
 
-<PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
-    GEHEIMER.*<B>*</B>**.BLEI<B>B</B>T.NICH<B>T</B>.IMMER.<B>LA</B>NGE.GEHEIM..</CODE></PRE>
-
-<P><CODE>MI<B>T</B>.<B>FRE</B>UNDLICHEN.GRU<B>ESS</B>EN</CODE></P>
-
-<P>Dies führt zu den weiteren Digrammpaaren BT  &gt;  TF, TI  &gt;  BE, LA  &gt; NW, TF  &gt;  BZ, RE  &gt;  FT, SS  &gt;  KK und UE  &gt;  XT. Ein Klick auf <B>Matrix erzeugen</B> liefert jetzt <!--ZZZINDN--></P>
+<div class="indent">
 
 <PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
-    GEHEIMER.<B>TE</B>**.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..</CODE></PRE>
+    GEHEIMER.*<B>*</B>**.BLEI<B>B</B>T.NICH<B>T</B>.IMMER.<B>LA</B>NGE.GEHEIM..</CODE>
+    <CODE>MI<B>T</B>.<B>FRE</B>UNDLICHEN.GRU<B>ESS</B>EN</CODE></PRE>
 
-<P><CODE>MIT.FREUNDLICHEN.GRUESSEN</CODE> <!--ZZZINDN--></P>
+</div>
 
-<TABLE cols=5 width=104>
+<P>Dies führt zu den weiteren Digrammpaaren BT  &gt;  TF, TI  &gt;  BE, LA  &gt; NW, TF  &gt;  BZ, RE  &gt;  FT, SS  &gt;  KK und UE  &gt;  XT. Ein Klick auf <B>Matrix erzeugen</B> liefert jetzt </P>
 
+<div class="indent">
+
+<PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
+    GEHEIMER.<B>TE</B>**.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..</CODE>
+    <CODE>MIT.FREUNDLICHEN.GRUESSEN</CODE></PRE>
+
+</div>
+
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10">
+	
 <TR VALIGN="top">
-<TD width=18%>T</TD>
-<TD width=18%>F</TD>
-<TD width=18%>S</TD>
-<TD width=18%>K</TD>
-<TD width=28%>B</TD>
+<TD>T</TD>
+<TD>F</TD>
+<TD>S</TD>
+<TD>K</TD>
+<TD>B</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>U</TD>
-<TD width=18%>Z</TD>
-<TD width=18%>V</TD>
-<TD width=18%>W</TD>
-<TD width=28%>A</TD>
+<TD>U</TD>
+<TD>Z</TD>
+<TD>V</TD>
+<TD>W</TD>
+<TD>A</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>X</TD>
-<TD width=18%>D</TD>
-<TD width=18%>M</TD>
-<TD width=18%>L</TD>
-<TD width=28%>N</TD>
+<TD>X</TD>
+<TD>D</TD>
+<TD>M</TD>
+<TD>L</TD>
+<TD>N</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>*</TD>
-<TD width=18%>*</TD>
-<TD width=18%>*</TD>
-<TD width=18%>C</TD>
-<TD width=28%>O</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>C</TD>
+<TD>O</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>E</TD>
-<TD width=18%>R</TD>
-<TD width=18%>G</TD>
-<TD width=18%>H</TD>
-<TD width=28%>I</TD>
+<TD>E</TD>
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
 </TR>
 </TABLE><BR>
 
-<P>Zu guter letzt kommen wir, indem wir <B><CODE>TE**</CODE></B> zu <B><CODE>TEXT</CODE></B> ergänzen, auf das Digrammpaar XT  &gt;  PU. Die Playfair-Analyse des Chiffretext liefert die Schlüsselmatrix <!--ZZZINDN--></P>
+</div>
 
-<TABLE cols=5 width=104>
+<P>Zu guter letzt kommen wir, indem wir <B><CODE>TE**</CODE></B> zu <B><CODE>TEXT</CODE></B> ergänzen, auf das Digrammpaar XT  &gt;  PU. Die Playfair-Analyse des Chiffretext liefert die Schlüsselmatrix </P>
+
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10">
 
 <TR VALIGN="top">
-<TD width=18%>T</TD>
-<TD width=18%>F</TD>
-<TD width=18%>S</TD>
-<TD width=18%>K</TD>
-<TD width=28%>B</TD>
+<TD>T</TD>
+<TD>F</TD>
+<TD>S</TD>
+<TD>K</TD>
+<TD>B</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>U</TD>
-<TD width=18%>Z</TD>
-<TD width=18%>V</TD>
-<TD width=18%>W</TD>
-<TD width=28%>A</TD>
+<TD>U</TD>
+<TD>Z</TD>
+<TD>V</TD>
+<TD>W</TD>
+<TD>A</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>X</TD>
-<TD width=18%>D</TD>
-<TD width=18%>M</TD>
-<TD width=18%>L</TD>
-<TD width=28%>N</TD>
+<TD>X</TD>
+<TD>D</TD>
+<TD>M</TD>
+<TD>L</TD>
+<TD>N</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>P</TD>
-<TD width=18%>*</TD>
-<TD width=18%>*</TD>
-<TD width=18%>C</TD>
-<TD width=28%>O</TD>
+<TD>P</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>C</TD>
+<TD>O</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=18%>E</TD>
-<TD width=18%>R</TD>
-<TD width=18%>G</TD>
-<TD width=18%>H</TD>
-<TD width=28%>I</TD>
+<TD>E</TD>
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
 </TR>
 </TABLE><BR>
 
-<P>Der Klartext wurde ursprünglich mit dem äquivalenten Passwort <B><CODE>HIERGIBTESWASZUENTDECKEN </CODE></B>verschlüsselt, wobei die Optionen <B>Text Vorformatieren </B>und <B>Doppelte Zeichen im Schlüssel Ignorieren</B> deaktiviert waren. Schließlich erhalten wir den Klartext: <!--ZZZINDN--></P>
+</div>
+
+<P>Der Klartext wurde ursprünglich mit dem äquivalenten Passwort <B><CODE>HIERGIBTESWASZUENTDECKEN </CODE></B>verschlüsselt, wobei die Optionen <B>Text Vorformatieren </B>und <B>Doppelte Zeichen im Schlüssel Ignorieren</B> deaktiviert waren. Schließlich erhalten wir den Klartext: </P>
+
+<div class="indent">
 
 <PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
-    GEHEIMER.TEXT.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..</CODE></PRE>
+    GEHEIMER.TEXT.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..</CODE>
+    <CODE>MIT.FREUNDLICHEN.GRUESSEN</CODE></PRE>
 
-<P><CODE>MIT.FREUNDLICHEN.GRUESSEN</CODE></P>
+</div>
 
 <P>Durch Betätigung des Knopfes <B>Ergebnis der Analyse ausgeben</B> wird die Dialogbox Playfairanalyse beendet und der Klartext angezeigt.</P>
 

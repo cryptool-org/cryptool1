@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Automatic Analysis, Vigenère encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 	<PARAM NAME="Keyword" VALUE="Vigenère analysis">
 </OBJECT>
 
-<P><A NAME="hid_vigenere_auto"></A><B>Automatic analysis, Vigenère encryption method (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Classical)</B></P>
+<h3><P><A NAME="hid_vigenere_auto"></A><B>Automatic analysis, Vigenère encryption method (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Classical)</B></P></h3>
 
 <P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-Only attack</A>is available for the <A href="hid_vigenere_asc.html">Vigenère encryption algorithm</A> in the form of an automated key search.</P>
 
@@ -36,13 +37,17 @@
 
 <P>The key will normally be found if the <!--ZZZPOPUP--><A href="dokument.html">document</A></P>
 
-<P>is not too short (at least around 20 characters per character in the key, e.g. at least approx. 80 <!--ZZZIND--> characters for the key<CODE> TEST</CODE>),</P>
+<P>is not too short (at least around 20 characters per character in the key, e.g. at least approx. 80 characters for the key<CODE> TEST</CODE>),</P>
 
 <P>contains German text in which the character frequency distribution is normal.</P>
 
 <P>The second condition means, for example, that it is not possible to calculate the key for a plaintext </P>
 
-<P><!--ZZZIND--><CODE> qw yx as qw yx as qw yx as qw yx as qw yx as, </CODE></P>
+<div class="indent">
+
+<PRE><CODE>qw yx as qw yx as qw yx as qw yx as qw yx as, </CODE></PRE>
+
+</div>
 
 <P>even though there are sufficient characters.</P>
 

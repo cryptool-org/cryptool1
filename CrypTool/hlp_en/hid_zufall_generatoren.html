@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Generation of Random Numbers</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Random numbers">
 	<PARAM NAME="Keyword" VALUE="Generator">
 </OBJECT>
 
-<P><A NAME="hid_zufall_generatoren"></A><B>Dialogue Generation of Random Numbers (Menu <A href="menu_related_methods.html">Indiv. Procedures</A>)</B></P>
+<h3><P><A NAME="hid_zufall_generatoren"></A><B>Dialogue Generation of Random Numbers (Menu <A href="menu_related_methods.html">Indiv. Procedures</A>)</B></P></h3>
 
 <P>The concept of <!--ZZZPOPUP--><A href="zufall.html">randomness</A> plays an increasingly important role not only in information science but also in modern cryptography. <B>Random data</B> is required in cryptography for a number of different purposes. Amongst other things, it plays an important role in <!--ZZZPOPUP--><A href="menu_key.html">key generation</A> for asymmetric encryption algorithms.</P>
 
@@ -22,19 +23,15 @@
 
 <P>A pseudorandom number generator may produce the right statistics as far as the numbers it generates are concerned, yet have unacceptable security defects as far as cryptography is concerned. In order to be usable for cryptographic purposes, not only must the number sequences generated satisfy the statistical requirements, but they must also exhibit a certain form of unpredictability.</P>
 
-<P><!--ZZZUL-->
-
 <UL>
-	<LI>The numbers must look <B>random</B>. This means that they must pass all statistical tests of randomness (e.g. the number of ones and zeros generated must be equally large).<BR><BR></LI>
+	<LI>The numbers must look <B>random</B>. This means that they must pass all statistical tests of randomness (e.g. the number of ones and zeros generated must be equally large).</LI>
 
-	<LI>They must be<B> unpredictable</B>. It must not be possible to predict the next <B>random bit</B>, even if one knows which algorithm and what hardware were used and all the random bits up to this point.<BR><BR></LI>
+	<LI>They must be<B> unpredictable</B>. It must not be possible to predict the next <B>random bit</B>, even if one knows which algorithm and what hardware were used and all the random bits up to this point.</LI>
 
 	<LI>They must not be reproducible. If the random number generator is initiated a second time with the same input data, the sequence of random numbers produced must be quite different.</LI>
 </UL>
 
-<P><!--ZZZULE--></P>
-
-<P><IMG SRC="images/zufallsdaten.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/zufallsdaten.gif" ALT="zufallsdaten.gif" BORDER=0></P>
 
 <P>In this dialogue a selection of both "cryptographically strong" and also insecure pseudorandom number generators has been implemented.</P>
 

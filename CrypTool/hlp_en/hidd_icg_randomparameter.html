@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Inverse Congruence Generator</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Random generator">
@@ -13,17 +14,17 @@
 	<PARAM NAME="Keyword" VALUE="Inverse Congruence Generator">
 </OBJECT>
 
-<P><A NAME="hidd_icg_randomparameter"></A><B>Inverse Congruence Generator (ICG)</B></P>
+<h3><P><A NAME="hidd_icg_randomparameter"></A><B>Inverse Congruence Generator (ICG)</B></P></h3>
 
 <P>The Inverse Congruence Generator (ICG) is an algorithm for generating a sequence of apparently random whole numbers (X_[i]) in accordance with the recursive calculation rule:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>X_[0] := secret seed value</P>
 
 <P>X_[i+1] := inverse[a*(X_[0]+i) + c]  (mod P)   for i = 0, 1, 2, 3, ...</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>whereby X_[i] are whole numbers from the range 0,1,2, ..., P-1. It is customary to standardise the random numbers to the rational value range [0,1[, hence the output as rational numbers Z[i] := X_[i]/P.</P>
 
@@ -33,7 +34,7 @@
 
 <P>Select <B>Individual Procedures \ Generate Random Numbers</B> and activate the radio button <B>Inverse Congruence Generator (ICG)</B>. You can now specify the ICG parameters under "<B>Choose generator-specific parameters...</B>".</P>
 
-<P><IMG SRC="images/icgoptions.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/icgoptions.gif" ALT="icgoptions.gif" BORDER=0></P>
 
 <P>Please note that the quality of the ICG depends critically on the choice of parameters. An important dimension here is the <A href="periodenlänge.html">period length </A> of the random sequence, which is determined by the parameters. </P>
 

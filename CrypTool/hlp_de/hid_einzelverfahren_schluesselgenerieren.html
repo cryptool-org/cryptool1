@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Schlüssel aus Passwort generieren</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Schlüssel">
@@ -17,8 +18,7 @@
 	<PARAM NAME="Keyword" VALUE="PKCS#5">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialog Schlüssel aus Passwort generieren (Menü <A href="menu_related_methods.html">Einzelverfahren</A>)</B></P>
-
+<h3><P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialog Schlüssel aus Passwort generieren (Menü <A href="menu_related_methods.html">Einzelverfahren</A>)</B></P></h3>
 <P>Selbst wenn eine kryptographische Anwendung sicher ist, so ist letztendlich die praxisrelevante Benutzersicherheit von einem geheimen Text - dem "Passwort" - abhängig. Das Passwort selbst ist in der Regel für solche Kryptosysteme nicht direkt anwendbar, sondern man berechnet aus dem Passwort einen Schlüssel. Im Dialog <B>Schlüssel aus Passwort generieren</B> kann man kryptographisch sichere Schlüssel aus Passwörtern produzieren. Die Implementierung richtet sich dabei nach dem <A href="standards.html">Standard</A> PKCS#5.</P>
 
 <P>Der hergeleitete Schlüssel ist neben dem geheimen Passwort auch von anderen Parametern abhängig: dem Salz, der Hashfunktion und der Anzahl der Iterationen, für die jeweils die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktion</A> angewendet wird.</P>
@@ -29,15 +29,15 @@
 
 <P>Sie können entsprechend dem PKCS#5-Standard zur Schlüsselerzeugung eine der folgenden Hashfunktionen wählen (die anderen von CrypTool angebotenen Funktionen sind (noch) nicht in den PKCS#5-Standard eingeflossen):</P>
 
-<P><!--ZZZUL--></P>
+<UL>
 
-<P>- MD2  128 Bit = 16 Bytes Hashfunktion</P>
+	<LI> MD2  128 Bit = 16 Bytes Hashfunktion</LI>
 
-<P>- MD5  128 Bit = 16 Bytes Hashfunktion</P>
+	<LI> MD5  128 Bit = 16 Bytes Hashfunktion</LI>
 
-<P>- SHA-1  160 Bit = 20 Bytes Hashfunktion</P>
+	<LI> SHA-1  160 Bit = 20 Bytes Hashfunktion</LI>
 
-<P><!--ZZZULE--></P>
+</UL>
 
 <P>Je nach dem, welche Hashfunktion Sie wählen, ist die Ausgabelänge des Schlüssels maximal 16 oder 20 Bytes.</P>
 
@@ -45,7 +45,7 @@
 
 <P>In dem nachfolgenden Beispiel erzeugt man aus dem (schlecht gewählten) Passwort<CODE> HUND</CODE> einen 8 Byte Schlüssel, der z.B. für die Verschlüsselung mit <!--ZZZPOPUP--><A href="hid_crypt_des_desecb.html">DES</A> benutzt werden kann (dafür kopiert man den erzeugten Schlüssel einfach in die Zwischenablage):</P>
 
-<P><IMG SRC="images/generatekey.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/generatekey.gif" ALT="generatekey.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

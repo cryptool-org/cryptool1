@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>RSA Signature Generation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Signature generation">
@@ -14,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Dialogue">
 </OBJECT>
 
-<P><A NAME="hidd_signature_demo"></A><B>Dialogue RSA Signature Generation</B></P>
+<h3><P><A NAME="hidd_signature_demo"></A><B>Dialogue RSA Signature Generation</B></P></h3>
 
 <P>This Dialogue allows to execute all steps of the <A href="hid_crypt_sign.html">RSA signature</A> process, and therefore it will show transparently the details of the <A href="hid_einzelverfahren_sign_doc.html">RSA signature generation</A>. </P>
 
@@ -22,46 +23,46 @@
 
 <P>Several coloured symbols are used for buttons:</P>
 
-<TABLE cols=2 width=600>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sympre.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sympre.gif" ALT="sympre.gif" BORDER=0></TD>
+<TD>
 <P>Symbol for preparations (e.g. select a hash function).</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sym_inp.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sym_inp.gif" ALT="sym_inp.gif" BORDER=0></TD>
+<TD>
 <P>Symbol for manual data input (e.g. key generation).</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sym_dat.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sym_dat.gif" ALT="sym_dat.gif" BORDER=0></TD>
+<TD>
 <P>General symbol for data (e.g. hash value).</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sym_str.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sym_str.gif" ALT="sym_str.gif" BORDER=0></TD>
+<TD>
 <P>Symbol for stored data (here certificate).</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sym_pro.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sym_pro.gif" ALT="sym_pro.gif" BORDER=0></TD>
+<TD>
 <P>Processing symbol (here: signature generation).</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><IMG SRC="images/sym_trm.gif" ALT="" BORDER=0></TD>
-<TD width=75%>
+<TD><IMG SRC="images/sym_trm.gif" ALT="sym_trm.gif" BORDER=0></TD>
+<TD>
 <P>Process end symbol (e.g. store signature).</P>
 </TD>
 </TR>
@@ -69,26 +70,26 @@
 
 <P>The colors of the symbols informs you about the actual state of the individual process step within the flowchart:</P>
 
-<TABLE cols=2 width=591>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=13%><B>red</B></TD>
-<TD width=87%>Operation to handle (preparation / input / process).</TD>
+<TD><B>red</B></TD>
+<TD>Operation to handle (preparation / input / process).</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=13%><B>green</B></TD>
-<TD width=87%>Finished operation (preparation / input / process).</TD>
+<TD><B>green</B></TD>
+<TD>Finished operation (preparation / input / process).</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=13%><B>blue</B></TD>
-<TD width=87%>Available data (display and further process steps are possible).</TD>
+<TD><B>blue</B></TD>
+<TD>Available data (display and further process steps are possible).</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=13%><B>grey</B></TD>
-<TD width=87%>Inactive (missing data or not yet executed preliminary processes).</TD>
+<TD><B>grey</B></TD>
+<TD>Inactive (missing data or not yet executed preliminary processes).</TD>
 </TR>
 </TABLE><BR>
 
@@ -96,41 +97,41 @@
 
 <P>On each symbol on lower left corner there are additional icons placed. Those icons symbolise the type of the operation / data element:</P>
 
-<TABLE cols=2 width=619>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_doc.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Input file for the digital signature.</TD>
+<TD><IMG SRC="images/icn_doc.gif" ALT="icn_doc.gif" BORDER=0></TD>
+<TD>Input file for the digital signature.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_alg.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Information about the selected hash function.</TD>
+<TD><IMG SRC="images/icn_alg.gif" ALT="icn_alg.gif" BORDER=0></TD>
+<TD>Information about the selected hash function.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_hsh.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Hash value of the input file.</TD>
+<TD><IMG SRC="images/icn_hsh.gif" ALT="icn_hsh.gif" BORDER=0></TD>
+<TD>Hash value of the input file.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_key.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Secret RSA key for hash value decryption (signing process).</TD>
+<TD><IMG SRC="images/icn_key.gif" ALT="icn_key.gif" BORDER=0></TD>
+<TD>Secret RSA key for hash value decryption (signing process).</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_enc.gif" ALT="" BORDER=0></TD>
-<TD width=89%>RSA-encrypted hash value.</TD>
+<TD><IMG SRC="images/icn_enc.gif" ALT="icn_enc.gif" BORDER=0></TD>
+<TD>RSA-encrypted hash value.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_crt.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Stored certificate.</TD>
+<TD><IMG SRC="images/icn_crt.gif" ALT="icn_crt.gif" BORDER=0></TD>
+<TD>Stored certificate.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=11%><IMG SRC="images/icn_sgn.gif" ALT="" BORDER=0></TD>
-<TD width=89%>Complete RSA signature, on this header, the input file will be attached later.</TD>
+<TD><IMG SRC="images/icn_sgn.gif" ALT="icn_sgn.gif" BORDER=0></TD>
+<TD>Complete RSA signature, on this header, the input file will be attached later.</TD>
 </TR>
 </TABLE><BR>
 

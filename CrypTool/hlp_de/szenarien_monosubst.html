@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Szenario für die Verschlüsselung durch monoalphabetische Substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Monoalphabetische Substitution">
 </OBJECT>
 
-<P><A NAME="szenarien_monosubst"></A><B>Szenario für die Verschlüsselung durch monoalphabetische Substitution</B></P>
+<h3><P><A NAME="szenarien_monosubst"></A>Szenario für die Verschlüsselung durch monoalphabetische Substitution</P></h3>
 
 <P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselung</A> durch <A href="hid_cryptmono.html">monoalphabetische Substitution</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
 
@@ -39,60 +40,60 @@
 
 <P>Dieser Text befindet sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> probetext-de.txt</CODE>. Das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
 
-<P><IMG SRC="images/szenariosubst1.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst1.gif" ALT="szenariosubst1.gif" BORDER=0></P>
 
 <P>Nun wird das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A><CODE> CRYPTOOL</CODE> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>. Über das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_cryptmono.html">Substitution</A> kann der Dialog zur Schlüsseleingabe geöffnet werden.</P>
 
-<P><IMG SRC="images/szenariosubst2.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst2.gif" ALT="szenariosubst2.gif" BORDER=0></P>
 
 <P>Nach Eingabe<CODE> CRYPTOOL</CODE> in das entsprechende Feld und Betätigung des <B>Verschlüsseln</B>-Knopfes öffnet sich folgender Dialog.</P>
 
-<P><IMG SRC="images/szenariosubst3.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst3.gif" ALT="szenariosubst3.gif" BORDER=0></P>
 
 <P>Dieser Dialog erklärt, wie aus dem <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A><CODE> CRYPTOOL</CODE> die Substitutionen entstanden sind. Zur <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> wurden folgende Ersetzungen vorgenommen (Klartext --&gt; Chiffretext):</P>
 
-<TABLE cols=3 width=109>
+<TABLE cols=3 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=30%><CODE>A</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>C</CODE></TD>
+<TD><CODE>A</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>C</CODE></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%><CODE>B</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>R</CODE></TD>
+<TD><CODE>B</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>R</CODE></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%><CODE>C</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>Y</CODE></TD>
+<TD><CODE>C</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>Y</CODE></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%><CODE>D</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>P</CODE></TD>
+<TD><CODE>D</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>P</CODE></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%>...</TD>
-<TD width=35%>&nbsp;</TD>
-<TD width=35%>&nbsp;</TD>
+<TD>...</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%><CODE>Y</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>B</CODE></TD>
+<TD><CODE>Y</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>B</CODE></TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=30%><CODE>Z</CODE></TD>
-<TD width=35%>-&gt;</TD>
-<TD width=35%><CODE>A</CODE></TD>
+<TD><CODE>Z</CODE></TD>
+<TD>-&gt;</TD>
+<TD><CODE>A</CODE></TD>
 </TR>
 </TABLE><BR>
 
@@ -102,47 +103,47 @@
 
 <P>Nach der Bestätigung dieses Dialoges öffnet sich ein neues Fenster mit dem verschlüsselten Text.</P>
 
-<P><IMG SRC="images/szenariosubst4.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst4.gif" ALT="szenariosubst4.gif" BORDER=0></P>
 
 <P>Nun vergessen wir den Schlüssel und wollen eine Analyse des verschlüsselten Textes durchführen. Dazu öffnen wir über das Menü <A href="menu_analyze.html">Analyse \ Manuelle Analyse</A> \ <A href="hid_analyze_subst.html">Substitution</A> folgendes Fenster:</P>
 
-<P><IMG SRC="images/szenariosubst5.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst5.gif" ALT="szenariosubst5.gif" BORDER=0></P>
 
 <P>Dort haben wir angegeben, dass wir einen deutschen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> erwarten und dass die erweiterte Analyse durchgeführt werden soll. Das Bestätigen dieses Dialoges öffnet das Fenster zur <A href="hidd_manual_subst_analysis.html">manuellen Nachbearbeitung</A> des Analyseergebnisses.</P>
 
-<P><IMG SRC="images/szenariosubst6.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst6.gif" ALT="szenariosubst6.gif" BORDER=0></P>
 
 <P>In diesem Dialog ist im unteren Teil der bisher erkannte <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dargestellt. Die Großbuchstaben stellen von der automatischen Analyse erkannte Ersetzungen dar, die Kleinbuchstaben sind direkt aus dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text übernommen.</P>
 
-<P>Jetzt ist die manuelle Nachbearbeitung erforderlich. Wir könnten beispielsweise durch Ansehen des Klartextes vermuten, dass <!--ZZZUL-->
+<P>Jetzt ist die manuelle Nachbearbeitung erforderlich. Wir könnten beispielsweise durch Ansehen des Klartextes vermuten, dass </P>
 
 <UL>
-	<LI>das erste Wort<CODE> DIE</CODE> ist, also<CODE> P</CODE> nicht wie vorgeschlagen mit<CODE> B</CODE>, sondern mit<CODE> D</CODE> ersetzt wird,<BR><BR></LI>
+	<LI>das erste Wort<CODE> DIE</CODE> ist, also<CODE> P</CODE> nicht wie vorgeschlagen mit<CODE> B</CODE>, sondern mit<CODE> D</CODE> ersetzt wird,</LI>
 
-	<LI>das zweite Wort<CODE> DEUTSCHE</CODE> ist, also<CODE> G</CODE> mit<CODE> U</CODE> statt mit<CODE> A</CODE> ersetzt wird,<BR><BR></LI>
+	<LI>das zweite Wort<CODE> DEUTSCHE</CODE> ist, also<CODE> G</CODE> mit<CODE> U</CODE> statt mit<CODE> A</CODE> ersetzt wird,</LI>
 
 	<LI>das sechste Wort von hinten<CODE> INFORMATIONSSICHERHEIT</CODE> ist, also<CODE> O</CODE> wird durch<CODE> F</CODE>,<CODE> N</CODE> durch<CODE> O</CODE>,<CODE> S</CODE> durch<CODE> M</CODE> und<CODE> C</CODE> durch<CODE> A</CODE> ersetzt.</LI>
 </UL>
 
 <P>Nach dem Eintragen dieser Informationen sieht das Fenster <A href="hidd_manual_subst_analysis.html">Manuelle Nachbearbeitung</A> wie folgt aus:</P>
 
-<P><IMG SRC="images/szenariosubst7.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst7.gif" ALT="szenariosubst7.gif" BORDER=0></P>
 
 <P>Nun werden noch die restlichen Substitutionen, die jetzt sehr leicht erraten werden können, in den Dialog eingetragen:<CODE> R</CODE> wird durch<CODE> B</CODE>,<CODE> V</CODE> durch<CODE> K</CODE>,<CODE> F</CODE> durch<CODE> V</CODE>,<CODE> L</CODE> durch<CODE> G</CODE>,<CODE> U</CODE> durch<CODE> L</CODE>,<CODE> E</CODE> durch<CODE> W</CODE>,<CODE> W</CODE> durch<CODE> J</CODE> und<CODE> M</CODE> durch<CODE> P</CODE> ersetzt.</P>
 
-<P>Der Vorteil dieser Computer-unterstützten Analyse ist, dass <!--ZZZUL-->
+<P>Der Vorteil dieser Computer-unterstützten Analyse ist, dass </P>
 
 <UL>
-	<LI>Ihre Annahme sofort an allen Stellen ersetzt wird,<BR><BR></LI>
+	<LI>Ihre Annahme sofort an allen Stellen ersetzt wird,</LI>
 
 	<LI>Sie sofort eine Warnung bekommen, wenn Sie einen bestimmten Buchstaben mehr als einmal zuordnen.</LI>
 </UL>
 
-<P><IMG SRC="images/szenariosubst8.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst8.gif" ALT="szenariosubst8.gif" BORDER=0></P>
 
 <P>Damit haben wir den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> gefunden. Dafür war neben dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> lediglich das Wissen, dass es sich um einen deutschen Text handelt, und ein wenig Fingerspitzengefühl für die ersten Ersetzungen notwendig. Durch Drücken des Knopfes <B>Aktuellen Zwischenstand ausgeben</B> wird der Klartext in einem Fenster dargestellt.</P>
 
-<P><IMG SRC="images/szenariosubst9.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/szenariosubst9.gif" ALT="szenariosubst9.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialogue Key Generation from Password</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Key">
@@ -16,7 +17,7 @@
 	<PARAM NAME="Keyword" VALUE="Dictionary attack">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialogue Key Generation from Password</B></P>
+<h3><P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialogue Key Generation from Password</B></P></h3>
 
 <P>Even if a cryptographic application is secure, at the end of the day in practice user security depends on a secret text, the password. The password itself is generally not directly usable for such cryptosystems, but instead a key is calculated from the password. In the <B>Key Generation</B> dialogue it is possible to generate cryptographically secure keys out of passwords. Implementation is oriented here towards the RSA <A href="standards.html">standard</A> PKCS#5.</P>
 
@@ -28,7 +29,7 @@
 
 <P>In accordance with the PKCS#5 standard on key generation, you can choose one of the following hash functions:</P>
 
-<P><!--ZZZINDN--></P>
+<div class="indent">
 
 <P>MD2128 bits = 16 bytes hash function</P>
 
@@ -36,7 +37,7 @@
 
 <P>SHA1160 bits = 20 bytes hash function</P>
 
-<P><!--ZZZINDNE--></P>
+</div>
 
 <P>Depending on which hash function you choose, the maximum output length of the key will be either 16 or 20 bytes.</P>
 
@@ -44,7 +45,7 @@
 
 <P>In the next example an eight-byte key is generated from the (weak) password HUND which, for example, can be used for encryption with <!--ZZZPOPUP--><A href="hid_crypt_des_desecb.html">DES</A> (to do this, the generated key is simply copied to the clipboard):</P>
 
-<P><IMG SRC="images/generatekey.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/generatekey.gif" ALT="generatekey.gif" BORDER=0></P>
 
 </BODY>
 </HTML>

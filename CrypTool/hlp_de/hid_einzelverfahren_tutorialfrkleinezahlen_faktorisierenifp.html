@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Faktorisierungsalgorithmen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Faktorisierungsalgorithmen">
@@ -14,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
 </OBJECT>
 
-<P><A NAME="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp"></A><B>Dialog Faktorisierungsalgorithmen (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P>
+<h3><P><A NAME="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp"></A><B>Dialog Faktorisierungsalgorithmen (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Demo)</B></P></h3>
 
 <P>Diesen Dialog erhält man über den Menüeintrag <A href="menu_related_methods.html"><B>Einzelverfahren</B></A><B> \ RSA Demonstration \ Faktorisieren einer Zahl</B>.</P>
 
@@ -24,7 +25,7 @@
 
 <P>Dieses Tutorial soll Ihnen einen Eindruck vermitteln, wie Faktorisierungsaufgaben in der Praxis angegangen werden.</P>
 
-<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif" BORDER=0></P>
 
 <P>Sie haben verschiedene Faktorisierungsalgorithmen zur Zerlegung Ihrer Eingabe zur Auswahl.</P>
 
@@ -38,11 +39,11 @@
 
 <P>Mit Brute-Force,</P>
 
-<P><IMG SRC="images/bruteforce.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/bruteforce.gif" ALT="bruteforce.gif" BORDER=0></P>
 
 <P>und dann mit Brent</P>
 
-<P><IMG SRC="images/brent.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/brent.gif" ALT="brent.gif" BORDER=0></P>
 
 <P>Die Algorithmen <B>Pollard‚s (p-1) </B>bzw. <B>Williams (p+1)</B> führen mit großer Wahrscheinlichkeit </P>
 
@@ -50,13 +51,13 @@
 
 <P>Beispiel: 233333330996666690033333333</P>
 
-<P><IMG SRC="images/pollard.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/pollard.gif" ALT="pollard.gif" BORDER=0></P>
 
 <P>Der Algorithmus von <B>Lenstra</B> basiert auf einer Verallgemeinerung der Pollard‚s (p-1)-Methode auf elliptischen Kurven. Dieses Verfahren wird auch als <B>ECM (Elliptic Curve Method)</B> bezeichnet. Mit ECM kann man weitaus größere Faktoren abspalten. Trotzdem ist auch ECM nur für die Abspaltung von Faktoren mit bestimmten Eigenschaften geeignet. Diese Einschränkung führt dazu, dass "kleinere" Faktoren mit größerer Wahrscheinlichkeit gefunden werden als "große" Faktoren. Jedoch ist es wesentlich lohnenswerter, ECM statt der (p-1)-Methode einzusetzen. </P>
 
 <P>Beispiel: 3035124991756191792335802070931</P>
 
-<P><IMG SRC="images/lenstraecm.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/lenstraecm.gif" ALT="lenstraecm.gif" BORDER=0></P>
 
 <P>Sehr kleine Primteiler p einer Zahl n werden durch Probieren schneller aufgedeckt als mit ECM. Die Rechenzeit von ECM hängt hauptsächlich von der Größe des gesuchten Primteilers und kaum von der zu faktorisierenden Zahl ab. Wenn eine Zahl mit 1000 Dezimalstellen einen 20-stelligen Teiler hat, kann man ihn mit ECM finden. Andererseits wächst die Rechenzeit beträchtlich mit der Größe des kleinsten Faktors. ECM ist für Faktoren mit bis zu 30 Dezimalstellen geeignet. Der größte bisher mit diesem Verfahren gefundene Primfaktor hat 47 Dezimalstellen und wurde von Peter Montgomery am Zentrum für Mathematik und Informatik (CWI) in Amsterdam entdeckt.</P>
 
@@ -64,7 +65,7 @@
 
 <P>Beispiel: 1999999999999999999077757777777777777777787</P>
 
-<P><IMG SRC="images/qsieb.gif" ALT="" BORDER=0></P>
+<P><IMG SRC="images/qsieb.gif" ALT="qsieb.gif" BORDER=0></P>
 
 <P>Die Rechenzeit ist dabei nicht abhängig vom kleinsten Faktor sondern von der zu faktorisierenden Zahl selbst. Das quadratische Sieb gehört – allerdings mit leichten Abwandlungen – zum schnellsten, was die Mathematiker an Faktorisierungsmethoden bisher "ausknobeln" konnten.</P>
 
@@ -82,7 +83,9 @@
 
 <P>Die Gesamtdauer zur Durchführung sämtlicher Schritte betrug 7,4 Monate (9 Wochen Vorberechnung und 5,2 Monate für die eigentliche Faktorisierung).</P>
 
-<P>a) Für den <B>Siebungs-Schritt</B> wurden 35.7 CPU-Jahre verwendet. Hierfür wurden folgende Rechner verwendet:</P>
+<OL type="a">
+
+	<LI><P> Für den <B>Siebungs-Schritt</B> wurden 35.7 CPU-Jahre verwendet. Hierfür wurden folgende Rechner verwendet:</P>
 
 <P>160 * 175-400 MHz SGI und Sun workstations</P>
 
@@ -92,15 +95,17 @@
 
 <P>4 * 500 MHz Digital/Compaq boxes</P>
 
-<P>Dieser Aufwand war ungefähr äquivalent zu 8000 MIPS Jahren. 124.722.179 Relationen wurden gesammelt.</P>
+<P>Dieser Aufwand war ungefähr äquivalent zu 8000 MIPS Jahren. 124.722.179 Relationen wurden gesammelt.</P></LI>
 
-<P>b) Die resultierende Matrix hatte 6.699.191 Zeilen und 6.711.336 Spalten. Abgearbeitet wurde die Matrix in etwa 224 CPU Stunden mit einem Hauptspeicherbedarf von 2 Gbyte auf einer Cray C916 des SARA Amsterdam Academic Computer Center. Die Faktorisierung dauerte vom 17. März bis zum 22. August.</P>
+<LI><P> Die resultierende Matrix hatte 6.699.191 Zeilen und 6.711.336 Spalten. Abgearbeitet wurde die Matrix in etwa 224 CPU Stunden mit einem Hauptspeicherbedarf von 2 Gbyte auf einer Cray C916 des SARA Amsterdam Academic Computer Center. Die Faktorisierung dauerte vom 17. März bis zum 22. August.</P></LI>
+
+</OL>
 
 <P>Den Siebungsschritt kann man praktisch beliebig parallelisieren. Insbesondere Organisationen mit unbeschränktem Hardwareetat können mit Spezialhardware (vgl. das optoelektronische TWINKLE-Device) die Faktorisierungsaufgabe stark beschleunigen. </P>
 
 <P>http://web.hamline.edu/~wnk/rsa/rsa.html</P>
 
-<P>Weitere Details siehe <!--ZZZLINK--><A href="script-de.pdf">Skript</A>, Kapitel 3.11.</P>
+<P>Weitere Details siehe <A href="script-de.pdf">Skript</A>, Kapitel 3.11.</P>
 
 </BODY>
 </HTML>

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Signatur überprüfen</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Überprüfen">
@@ -13,16 +14,18 @@
 	<PARAM NAME="Keyword" VALUE="Signieren">
 </OBJECT>
 
-<P><A NAME="hid_crypt_verify"></A><B>Signatur überprüfen (Menü <A href="menu_sign.html">Digitale Signaturen</A>)</B></P>
+<h3><P><A NAME="hid_crypt_verify"></A><B>Signatur überprüfen (Menü <A href="menu_sign.html">Digitale Signaturen</A>)</B></P></h3>
 
 <P>Der Dialog <A href="hidd_verify_signature.html">Verifizieren einer Signatur</A> dient dazu, eine mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> erstellte <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> zu verifizieren. Dazu muss das aktive <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> die Ausgabe enthalten, die mit dem Befehl <A href="hid_crypt_sign.html">Dokument signieren</A> oder mit dem Befehl <B>Signatur speichern</B> aus der <A href="hid_einzelverfahren_sign_doc.html">Signatur-Demonstration</A> erzeugt wurde.</P>
 
-<P>Um eine Signatur zu überprüfen, muss man CrypTool manuell (durch entsprechende Auswahl in dem Dialog <A href="hidd_verify_signature.html">Verifizieren einer Signatur</A>) mitteilen, wer die Signatur erstellt hat (genauer: mit welchem <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> die Signatur erstellt wurde): <!--ZZZUL-->
+<P>Um eine Signatur zu überprüfen, muss man CrypTool manuell (durch entsprechende Auswahl in dem Dialog <A href="hidd_verify_signature.html">Verifizieren einer Signatur</A>) mitteilen, wer die Signatur erstellt hat (genauer: mit welchem <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> die Signatur erstellt wurde):</P>
 
 <UL>
-	<LI>Für RSA- und DSA-Signaturen werden aus der Signaturausgabe die restlichen zur Signaturüberprüfung nötigen Informationen (wie zum Beispiel das benutzte Verfahren, die benutzte <A href="hashfunktion.html">Hashfunktion</A>, die signierte Nachricht) von CrypTool automatisch herausgefiltert und vorgeschlagen.<BR><BR></LI>
+
+	<LI>Für RSA- und DSA-Signaturen werden aus der Signaturausgabe die restlichen zur Signaturüberprüfung nötigen Informationen (wie zum Beispiel das benutzte Verfahren, die benutzte <A href="hashfunktion.html">Hashfunktion</A>, die signierte Nachricht) von CrypTool automatisch herausgefiltert und vorgeschlagen.</LI>
 
 	<LI>Bei den beiden <A href="ellipkurven.html">Elliptischen Kurven</A>-Signaturverfahren (ECSP-DSA und ECSP-NR) ist neben der Angabe des Signaturerstellers auch noch die benutzte Hashfunktion und das benutzte Verfahren auszuwählen. Alle diese Informationen befinden sich in dem Ausgabefenster, das mit dem Befehl <A href="hid_crypt_sign.html">Dokument signieren</A> erzeugt wurde. Auf eine automatische Erkennung der benutzten Hashfunktion und des benutzen Verfahrens wurde hier verzichtet, um das Experimentieren zu fördern.</LI>
+	
 </UL>
 
 <P>Mit dem Befehl <A href="hid_crypt_extract.html">Signatur extrahieren</A> aus dem Menü <A href="menu_sign.html"><B>Digitale Signaturen</B></A> kann man die Signatur extrahieren.</P>

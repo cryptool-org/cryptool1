@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Menü Analyse</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analyse">
@@ -15,45 +16,45 @@
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse">
 </Object>
-<P><A NAME="menu_analyze"></A> <B>Befehle des Menüs Analyse</B></P>
+<h3><P><A NAME="menu_analyze"></A> <B>Befehle des Menüs Analyse</B></P></h3>
 
 <P>Das Menü <B>Analyse</B> enthält folgende Befehle:</P>
 
-<TABLE cols=2 width=584>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=25%><A href="#analyse_allgemein">Allgemein</A></TD>
-<TD width=75%>Allgemeine statistische Informationen über das aktive Dokument.</TD>
+<TD><A href="#analyse_allgemein">Allgemein</A></TD>
+<TD>Allgemeine statistische Informationen über das aktive Dokument.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="menu_analyserandomtest.html">Zufalltests</A></TD>
-<TD width=75%>Analyse der Zufallseigenschaften des aktiven Dokuments.</TD>
+<TD><A href="menu_analyserandomtest.html">Zufalltests</A></TD>
+<TD>Analyse der Zufallseigenschaften des aktiven Dokuments.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><U>Algorithmen </U></TD>
-<TD width=75%>&nbsp;</TD>
+<TD><U>Algorithmen </U></TD>
+<TD>&nbsp;</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="#analyse_algorithmen">(automatische Analyse)</A></TD>
-<TD width=75%>Liste der Algorithmen, für die eine automatische Analyse implementiert ist.</TD>
+<TD><A href="#analyse_algorithmen">(automatische Analyse)</A></TD>
+<TD>Liste der Algorithmen, für die eine automatische Analyse implementiert ist.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="#analyse_ciphertextonly">Ciphertext only</A></TD>
-<TD width=75%>Automatische Analyse, wobei nur der verschlüsselte Text gegeben ist.</TD>
+<TD><A href="#analyse_ciphertextonly">Ciphertext only</A></TD>
+<TD>Automatische Analyse, wobei nur der verschlüsselte Text gegeben ist.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="#analyse_knownplaintext">Known plaintext</A></TD>
-<TD width=75%>Automatische Analyse, wobei Klartext und Chiffrat gegeben sind.</TD>
+<TD><A href="#analyse_knownplaintext">Known plaintext</A></TD>
+<TD>Automatische Analyse, wobei Klartext und Chiffrat gegeben sind.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="#analyse_manuelleanalyse">Manuelle Analyse</A></TD>
-<TD width=75%>Unterstützung für Benutzer-gesteuerte Analysen.</TD>
+<TD><A href="#analyse_manuelleanalyse">Manuelle Analyse</A></TD>
+<TD>Unterstützung für Benutzer-gesteuerte Analysen.</TD>
 </TR>
 </TABLE><BR>
 
@@ -68,43 +69,46 @@
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse_Allgemein">
 </Object>
-<P><A NAME="analyse_allgemein"></A><U>1. Allgemeine Informationen über das aktive Dokument:</U></P>
 
-<TABLE cols=2 width=584>
+<OL>
+
+<LI><A NAME="analyse_allgemein"></A><U> Allgemeine Informationen über das aktive Dokument:</U></LI>
+
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_entropy.html">Entropie</A></TD>
-<TD width=75%>Berechnet die <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> des <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>.</TD>
+<TD><A href="hid_entropy.html">Entropie</A></TD>
+<TD>Berechnet die <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> des <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_floating.html">Gleitende&nbsp;Häufigkeit</A></TD>
-<TD width=75%>Berechnet die gleitende <!--ZZZPOPUP--><A href="histogramm.html">Häufigkeit</A> des Dokuments.</TD>
+<TD><A href="hid_floating.html">Gleitende&nbsp;Häufigkeit</A></TD>
+<TD>Berechnet die gleitende <!--ZZZPOPUP--><A href="histogramm.html">Häufigkeit</A> des Dokuments.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_histogram.html">Histogramm</A></TD>
-<TD width=75%>Berechnet die Häufigkeit der in dem Dokument auftretenden Buchstaben.</TD>
+<TD><A href="hid_histogram.html">Histogramm</A></TD>
+<TD>Berechnet die Häufigkeit der in dem Dokument auftretenden Buchstaben.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_analyse_ngram.html">N-Gramm</A></TD>
-<TD width=75%>Analysiert die Häufigkeit von N-Grammen.</TD>
+<TD><A href="hid_analyse_ngram.html">N-Gramm</A></TD>
+<TD>Analysiert die Häufigkeit von N-Grammen.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_auto.html">Autokorrelation</A></TD>
-<TD width=75%>Berechnet die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrrelation</A> des Dokuments.</TD>
+<TD><A href="hid_auto.html">Autokorrelation</A></TD>
+<TD>Berechnet die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrrelation</A> des Dokuments.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_analyse_vitany.html">Vitany</A></TD>
-<TD width=75%>Gibt ein Vitany-Diagramm aus.</TD>
+<TD><A href="hid_analyse_vitany.html">Vitany</A></TD>
+<TD>Gibt ein Vitany-Diagramm aus.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=25%><A href="hid_analyse_period.html">Periode</A></TD>
-<TD width=75%>Analysiert die Periodizität.</TD>
+<TD><A href="hid_analyse_period.html">Periode</A></TD>
+<TD>Analysiert die Periodizität.</TD>
 </TR>
 </TABLE><BR>
 
@@ -113,108 +117,110 @@
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse_AlgorithmenautomatischeAnalyse">
 </Object>
-<P><U><A NAME="analyse_algorithmen"></A>2. Automatische Analysen:</U></P>
+<LI><U><A NAME="analyse_algorithmen"></A> Automatische Analysen:</U></LI>
 
-<P>a) <U>Algorithmen:</U></P>
+<OL type="a">
 
-<TABLE cols=2 width=631>
+<LI><U>Algorithmen:</U></LI>
+
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%><A href="#analyse_algorithmen">Algorithmen</A></TD>
-<TD width=77%>Hier werden alle in b) und c) vorhandenen Verfahren aufgelistet, für die eine automatische Analyse implementiert ist. 
+<TD><A href="#analyse_algorithmen">Algorithmen</A></TD>
+<TD>Hier werden alle in b) und c) vorhandenen Verfahren aufgelistet, für die eine automatische Analyse implementiert ist. 
 <P>In b) und c) werden die beiden Angriffsformen <B>Ciphertext only</B> und <B>Known plaintext</B> unterschieden (siehe dazu das Kapitel <A href="angriffe.html">Angriffsszenarien</A>):</P>
 </TD>
 </TR>
 </TABLE><BR>
 
-<P><BR>
 </P>
 
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse_Ciphertextonly">
 </Object>
-<P><A NAME="analyse_ciphertextonly"></A>b) <U>"Ciphertext-only" Angriffe:</U></P>
 
-<TABLE cols=2 width=631>
+<LI><A NAME="analyse_ciphertextonly"></A><U>"Ciphertext-only" Angriffe:</U></LI>
+
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_caesar_auto.html">Caesar</A></TD>
-<TD width=77%>Automatische Analyse für das Caesar-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</TD>
+<TD><A href="hid_caesar_auto.html">Caesar</A></TD>
+<TD>Automatische Analyse für das Caesar-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_vigenere_auto.html">Vigenère</A></TD>
-<TD width=77%>Automatische Analyse für das Vigenère-Verschlüsselungsverfahren</TD>
+<TD><A href="hid_vigenere_auto.html">Vigenère</A></TD>
+<TD>Automatische Analyse für das Vigenère-Verschlüsselungsverfahren</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_add_auto.html">Addition</A></TD>
-<TD width=77%>Automatische Analyse für byteweise Addition.</TD>
+<TD><A href="hid_add_auto.html">Addition</A></TD>
+<TD>Automatische Analyse für byteweise Addition.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_xor_auto.html">XOR</A></TD>
-<TD width=77%>Automatische Analyse für binäres exklusives Oder.</TD>
+<TD><A href="hid_xor_auto.html">XOR</A></TD>
+<TD>Automatische Analyse für binäres exklusives Oder.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_idea.html">IDEA</A></TD>
-<TD width=77%>Automatische Analyse für IDEA-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_idea.html">IDEA</A></TD>
+<TD>Automatische Analyse für IDEA-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_rc2.html">RC2</A></TD>
-<TD width=77%>Automatische Analyse für RC2-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_rc2.html">RC2</A></TD>
+<TD>Automatische Analyse für RC2-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_rc4.html">RC4</A></TD>
-<TD width=77%>Automatische Analyse für RC4-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_rc4.html">RC4</A></TD>
+<TD>Automatische Analyse für RC4-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_desecb.html">DES&nbsp;(ECB)</A></TD>
-<TD width=77%>Automatische Analyse für DES-Verschlüsselungsverfahren im ECB-Modus.</TD>
+<TD><A href="hid_analyse_desecb.html">DES&nbsp;(ECB)</A></TD>
+<TD>Automatische Analyse für DES-Verschlüsselungsverfahren im ECB-Modus.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_descbc.html">DES&nbsp;(CBC)</A></TD>
-<TD width=77%>Automatische Analyse für DES-Verschlüsselungsverfahren im CBC-Modus.</TD>
+<TD><A href="hid_analyse_descbc.html">DES&nbsp;(CBC)</A></TD>
+<TD>Automatische Analyse für DES-Verschlüsselungsverfahren im CBC-Modus.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_tripledesecb.html">Triple&nbsp;DES&nbsp;(ECB)</A></TD>
-<TD width=77%>Automatische Analyse für Triple DES-Verschlüsselungsverfahren im ECB-Modus.</TD>
+<TD><A href="hid_analyse_tripledesecb.html">Triple&nbsp;DES&nbsp;(ECB)</A></TD>
+<TD>Automatische Analyse für Triple DES-Verschlüsselungsverfahren im ECB-Modus.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_tripledescbc.html">Triple&nbsp;DES&nbsp;(CBC)</A></TD>
-<TD width=77%>Automatische Analyse für Triple DES-Verschlüsselungsverfahren im CBC-Modus.</TD>
+<TD><A href="hid_analyse_tripledescbc.html">Triple&nbsp;DES&nbsp;(CBC)</A></TD>
+<TD>Automatische Analyse für Triple DES-Verschlüsselungsverfahren im CBC-Modus.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_aes_mars.html">MARS</A></TD>
-<TD width=77%>Automatische Analyse für MARS-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_aes_mars.html">MARS</A></TD>
+<TD>Automatische Analyse für MARS-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_aes_rc6.html">RC6</A></TD>
-<TD width=77%>Automatische Analyse für RC6-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_aes_rc6.html">RC6</A></TD>
+<TD>Automatische Analyse für RC6-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_aes_rijndael.html">Rijndael</A></TD>
-<TD width=77%>Automatische Analyse für Rijndael-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_aes_rijndael.html">Rijndael</A></TD>
+<TD>Automatische Analyse für Rijndael-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_aes_serpent.html">Serpent</A></TD>
-<TD width=77%>Automatische Analyse für Serpent-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_aes_serpent.html">Serpent</A></TD>
+<TD>Automatische Analyse für Serpent-Verschlüsselungsverfahren.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_aes_twofish.html">Twofish</A></TD>
-<TD width=77%>Automatische Analyse für Twofish-Verschlüsselungsverfahren.</TD>
+<TD><A href="hid_analyse_aes_twofish.html">Twofish</A></TD>
+<TD>Automatische Analyse für Twofish-Verschlüsselungsverfahren.</TD>
 </TR>
 </TABLE><BR>
 
@@ -223,67 +229,73 @@
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse_Knownplaintext">
 </Object>
-<P><A NAME="analyse_knownplaintext"></A>c) <U>"Known-plaintext" Angriffe:</U></P>
+	
+<LI><A NAME="analyse_knownplaintext"></A><U>"Known-plaintext" Angriffe:</U></LI>
 
-<TABLE cols=2 width=629>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_hill_auto.html">Hill</A></TD>
-<TD width=77%>Automatische Analyse für das Hill-Verschlüsselungsverfahren. Es kann nur auf Textdateien angewandt werden.</TD>
+<TD><A href="hid_hill_auto.html">Hill</A></TD>
+<TD>Automatische Analyse für das Hill-Verschlüsselungsverfahren. Es kann nur auf Textdateien angewandt werden.</TD>
 </TR>
 </TABLE><BR>
 
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analyse_manuelleAnalyse">
-</Object>
-<P><A NAME="analyse_manuelleanalyse"></A><U>3. Manuelle Analysen:</U></P>
+	</Object>
+</OL>
+	
+<LI><A NAME="analyse_manuelleanalyse"></A><U> Manuelle Analysen:</U></LI>
 
-<TABLE cols=2 width=631>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyze_subst.html">Substitution</A></TD>
-<TD width=77%>Automatische Analyse für monoalphabetische Substitution.</TD>
+<TD><A href="hid_analyze_subst.html">Substitution</A></TD>
+<TD>Automatische Analyse für monoalphabetische Substitution.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=23%><A href="hid_analyse_playfair.html">Playfair</A></TD>
-<TD width=77%>Analysehilfe für den Playfair-Algorithmus.</TD>
+<TD><A href="hid_analyse_playfair.html">Playfair</A></TD>
+<TD>Analysehilfe für den Playfair-Algorithmus.</TD>
 </TR>
+
 </TABLE><BR>
 
 <P>Diese beiden Analyseverfahren können nur auf Textdateien angewandt werden.</P>
 
-<P><U>4. Algorithmen zu Zufallstests:</U></P>
+<LI><U>Algorithmen zu Zufallstests:</U></LI>
 
-<TABLE cols=2 width=631>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=31%><A href="hid_analyse_zufallstests_frequencytest.html">Frequency-Test</A></TD>
-<TD width=69%>Führt den Frequency-Test an dem Dokument durch.</TD>
+<TD><A href="hid_analyse_zufallstests_frequencytest.html">Frequency-Test</A></TD>
+<TD>Führt den Frequency-Test an dem Dokument durch.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=31%><A href="hid_analyse_zufallstests_pokertest.html">Poker-Test</A></TD>
-<TD width=69%>Führt den Poker-Test an dem Dokument durch.</TD>
+<TD><A href="hid_analyse_zufallstests_pokertest.html">Poker-Test</A></TD>
+<TD>Führt den Poker-Test an dem Dokument durch.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=31%><A href="hid_analyse_zufallstests_runs.html">Run-Test</A></TD>
-<TD width=69%>Führt den Run-Test an dem Dokument durch.</TD>
+<TD><A href="hid_analyse_zufallstests_runs.html">Run-Test</A></TD>
+<TD>Führt den Run-Test an dem Dokument durch.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=31%><A href="hid_analyse_zufallstests_serialtest.html">Serial-Test</A></TD>
-<TD width=69%>Führt den Serial-Test an dem Dokument durch.</TD>
+<TD><A href="hid_analyse_zufallstests_serialtest.html">Serial-Test</A></TD>
+<TD>Führt den Serial-Test an dem Dokument durch.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=31%><A href="hid_analyse_zufallstests_fipspub1401.html">FIPS-PUB-140-1 Test-Batterie</A></TD>
-<TD width=69%>Führt die FIPS-PUB-140-1 Test-Batterie an dem Dokument durch.</TD>
+<TD><A href="hid_analyse_zufallstests_fipspub1401.html">FIPS-PUB-140-1 Test-Batterie</A></TD>
+<TD>Führt die FIPS-PUB-140-1 Test-Batterie an dem Dokument durch.</TD>
 </TR>
 </TABLE><BR>
 
 <P>Die Zufallstests stehen nur für Binärdateien zur Verfügung.</P>
+
+</OL>
 
 </BODY>
 </HTML>

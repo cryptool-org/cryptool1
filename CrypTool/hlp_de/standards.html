@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Standards</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Standards">
@@ -13,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="Interoperabilität">
 </OBJECT>
 
-<P><A NAME="standards"></A><B>Standards</B></P>
+<h3><P><A NAME="standards"></A><B>Standards</B></P></h3>
 
 <P>Dies ist ein kurzer Überblick/Auszug der wichtigsten Standards im Bereich Kryptographie und PKI.</P>
 
@@ -21,16 +22,16 @@
 
 <P>Diese werden von http://www.rsa.com herausgegeben.</P>
 
-<TABLE cols=2 width=615>
+<TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #1: </TD>
-<TD width=61%>Basic RSA schemes für SSL, S/MIME, PKIX</TD>
+<TD>PKCS #1: </TD>
+<TD>Basic RSA schemes für SSL, S/MIME, PKIX</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #7: </TD>
-<TD width=61%>Cryptographic Message Syntax 
+<TD>PKCS #7: </TD>
+<TD>Cryptographic Message Syntax 
 <P>Signierte, verschlüsselte Nachrichten-Syntax.</P>
 
 <P>Erweiterungen zu PEM (Privacy-Enhanced Mail).</P>
@@ -40,47 +41,47 @@
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #11:</TD>
-<TD width=61%>Cryptographic Token Interface (Cryptoki)
+<TD>PKCS #11:</TD>
+<TD>Cryptographic Token Interface (Cryptoki)
 <P>Programming interface für Smartcards</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #15:</TD>
-<TD width=61%>Cryptographic Token Information Format
+<TD>PKCS #15:</TD>
+<TD>Cryptographic Token Information Format
 <P>Dateiformat für kryptografische Daten auf Smartcards</P>
 </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #3:</TD>
-<TD width=61%>Diffie-Hellman Key-Agreement</TD>
+<TD>PKCS #3:</TD>
+<TD>Diffie-Hellman Key-Agreement</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%><A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS #5</A>:</TD>
-<TD width=61%>Password-Based Cryptography</TD>
+<TD><A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS #5</A>:</TD>
+<TD>Password-Based Cryptography</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #8:</TD>
-<TD width=61%>Private-Key Information Syntax</TD>
+<TD>PKCS #8:</TD>
+<TD>Private-Key Information Syntax</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #9:</TD>
-<TD width=61%>Selected Attribute Types</TD>
+<TD>PKCS #9:</TD>
+<TD>Selected Attribute Types</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%>PKCS #10:</TD>
-<TD width=61%>Certification Request Syntax </TD>
+<TD>PKCS #10:</TD>
+<TD>Certification Request Syntax </TD>
 </TR>
 
 <TR VALIGN="top">
-<TD width=39%><A href="pkcs12_import_export.html">PKCS #12</A>:</TD>
-<TD width=61%>Personal Information Exchange Syntax</TD>
+<TD><A href="pkcs12_import_export.html">PKCS #12</A>:</TD>
+<TD>Personal Information Exchange Syntax</TD>
 </TR>
 </TABLE><BR>
 
@@ -88,57 +89,59 @@
 
 <P>Die IETF veröffentlicht die RFCs (bisher rund 3000).</P>
 
-<P>Im Standard Track werden diese 3 Stufen durchlaufen:<!--ZZZUL--></P>
+<P>Im Standard Track werden diese 3 Stufen durchlaufen:</P>
 
-<P>-Proposed Standard</P>
+<UL>
 
-<P>-Draft Standard (es existieren mindestens 2 unabhängige Implementierungen)</P>
+	<LI>Proposed Standard</LI>
 
-<P>-Offizieller Standard. <!--ZZZULE--></P>
+	<LI>Draft Standard (es existieren mindestens 2 unabhängige Implementierungen)</LI>
 
+	<LI>Offizieller Standard.</LI>
+
+</UL>
+	
 <P>Daneben gibt es Experimental, Informal, Best Current Practice RFCs.</P>
 
 <P>Als Beispiel sei hier die 1995 gegründete PKIX-Arbeitsgruppe genannt mit der Aufgabe, Internet-Standards für auf X.509-basierende PKIs zu entwickeln. Der Umfang der PKIX-Arbeiten hat ihr ursprüngliche Ziel bereits überschritten. PKIX beschreibt nicht nur ITU PKI Standards, sondern entwickelt auch neue Standards, die sich auf die Anwendung von X.509-basierender PKI im Internet beziehen.</P>
 
-<P>Request For Comments (RFC) der PKIX-Gruppe: <!--ZZZUL-->
+<P>Request For Comments (RFC) der PKIX-Gruppe:</P>
 
 <UL>
-	<LI>Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 2459)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 2459)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Certificate Management Protocols (RFC 2510)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Certificate Management Protocols (RFC 2510)</LI>
 
-	<LI>Internet X.509 Certificate Request Message Format (RFC 2511) <BR><BR></LI>
+	<LI>Internet X.509 Certificate Request Message Format (RFC 2511) </LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Certificate Policy and Certification Practices Framework (RFC 2527) <BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Certificate Policy and Certification Practices Framework (RFC 2527) </LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Representation of Key Exchange Algorithm (KEA) Keys in Internet X.509 Public Key Infrastructure Certificates (RFC 2528) <BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Representation of Key Exchange Algorithm (KEA) Keys in Internet X.509 Public Key Infrastructure Certificates (RFC 2528) </LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Operational Protocols: FTP and HTTP (RFC 2585)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Operational Protocols: FTP and HTTP (RFC 2585)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure LDAPv2 Schema (RFC 2587)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure LDAPv2 Schema (RFC 2587)</LI>
 
-	<LI>X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP (RFC 2560)<BR><BR></LI>
+	<LI>X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP (RFC 2560)</LI>
 
-	<LI>Certificate Management Messages over CMS (RFC 2797)<BR><BR></LI>
+	<LI>Certificate Management Messages over CMS (RFC 2797)</LI>
 
-	<LI>Diffie-Hellman Proof-of-Possession Algorithms (RFC 2875)<BR><BR></LI>
+	<LI>Diffie-Hellman Proof-of-Possession Algorithms (RFC 2875)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Qualified Certificates Profile (RFC 3039)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Qualified Certificates Profile (RFC 3039)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Data Validation and Certification Server Protocols (RFC 3029)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Data Validation and Certification Server Protocols (RFC 3029)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Time Stamp Protocols (TSP) (RFC 3161) (54585 bytes)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Time Stamp Protocols (TSP) (RFC 3161) (54585 bytes)</LI>
 
-	<LI>Algorithms and Identifiers for the Internet X.509 Public Key Infrastructure Certificate and CRI Profile (RFC 3279)<BR><BR></LI>
+	<LI>Algorithms and Identifiers for the Internet X.509 Public Key Infrastructure Certificate and CRI Profile (RFC 3279)</LI>
 
-	<LI>Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 3280)<BR><BR></LI>
+	<LI>Internet X.509 Public Key Infrastructure Certificate and CRL Profile (RFC 3280)</LI>
 
-	<LI>An Internet Attribute Certificate Profile for Authorization (RFC 3281)<BR><BR></LI>
+	<LI>An Internet Attribute Certificate Profile for Authorization (RFC 3281)</LI>
 
 	<LI>Delegated Path Validation and Delegated Path Discovery Protocol Requirements (RFC 3379)</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 <P><B>ISO = International Organisation for Standardisation</B></P>
 

@@ -3,16 +3,17 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Automatic analysis, monoalphabetic substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution analysis">
 </OBJECT>
 
-<P><A NAME="hid_analyze_subst"></A><B>Automatic analysis, monoalphabetic substitution (Menu <A href="menu_analyze.html">Analysis</A> \ Classical)</B></P>
+<h3><P><A NAME="hid_analyze_subst"></A><B>Automatic analysis, monoalphabetic substitution (Menu <A href="menu_analyze.html">Analysis</A> \ Classical)</B></P></h3>
 
 <P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-Only attack</A><U> </U>is available for the <A href="hid_cryptmono.html">monoalphabetic substitution encryption algorithm</A>. i.e. <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> tries with your help to find the <!--ZZZPOPUP--><A href="schluessel.html">key</A> that was used to encrypt the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>.</P>
 
@@ -36,25 +37,23 @@
 
 <P>This analysis is based on peculiarities of the German language. In principle, however, this analysis would also be possible for English plaintext, albeit with different baseline numbers.</P>
 
-<P>Prior to the pattern search four letters are assigned in the following manner: <!--ZZZUL-->
+<P>Prior to the pattern search four letters are assigned in the following manner: </P>
 
 <UL>
-	<LI>It is assumed that the letter that occurs most frequently in the text is the encrypted version of the letter ‘e‚.<BR><BR></LI>
+	<LI>It is assumed that the letter that occurs most frequently in the text is the encrypted version of the letter ‘e‚.</LI>
 
-	<LI>For this reason it would be inconsistent to select this option but at the same time disable the option "Use ‘e‚ as most frequent character", so the program does not permit this combination of options.<BR><BR></LI>
+	<LI>For this reason it would be inconsistent to select this option but at the same time disable the option "Use ‘e‚ as most frequent character", so the program does not permit this combination of options.</LI>
 
-	<LI>A list containing the letters which occur most frequently at the beginning and end of a word and before and after the letter ‘e‚ is created. This is sorted in descending order.<BR><BR></LI>
+	<LI>A list containing the letters which occur most frequently at the beginning and end of a word and before and after the letter ‘e‚ is created. This is sorted in descending order.</LI>
 
-	<LI>The program then ascertains the two letters which in the sorted lists of letters which occur the most frequently at the end of a word and after the letter ‘e‚ are nearest to the top of the list (the sum of the indices is minimal). It is assumed that these two letters corresponds to the encrypted letters ‘n‚ and ‘r‚.<BR><BR></LI>
+	<LI>The program then ascertains the two letters which in the sorted lists of letters which occur the most frequently at the end of a word and after the letter ‘e‚ are nearest to the top of the list (the sum of the indices is minimal). It is assumed that these two letters corresponds to the encrypted letters ‘n‚ and ‘r‚.</LI>
 
-	<LI>The encrypted version of ‘n‚ is assumed to be the letter which occurs most frequently at the end of a word.<BR><BR></LI>
+	<LI>The encrypted version of ‘n‚ is assumed to be the letter which occurs most frequently at the end of a word.</LI>
 
-	<LI>Lists containing the most frequent letters before and after the ‘n‚ are then created and sorted.<BR><BR></LI>
+	<LI>Lists containing the most frequent letters before and after the ‘n‚ are then created and sorted.</LI>
 
 	<LI>The letter which in the three lists of the letters which occur the most frequently before and after the ‘e‚ and before the ‘n‚ the greatest number of times is assumed to be the letter ‘i‚.</LI>
 </UL>
-
-<P><!--ZZZULE--></P>
 
 <P>A pattern search is now started having made this (partial) substitution.</P>
 

@@ -3,9 +3,10 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>PKCS12 Import / Export</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="PKCS#12">
@@ -14,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Zertifikat importieren / exportieren">
 </OBJECT>
 
-<P><A NAME="pkcs12_import_export"></A><B>CrypTool PKCS#12 Import/Export</B></P>
+<h3><P><A NAME="pkcs12_import_export"></A><B>CrypTool PKCS#12 Import/Export</B></P></h3>
 
 <P>CrypTool unterstützt das Exportieren und das Importieren von digitalen Zertifikaten und privaten Schlüsseln innerhalb der standardisierten PKCS #12-Datenstruktur. PKCS#12 ist ein Industrie-bewährter <A href="standards.html">Standard</A>, der den sicheren Transport von sensitiven Daten erlaubt. Der in der PKCS #12-Datenstruktur gespeicherte Schlüssel ist symmetrisch verschlüsselt und damit geschützt. Nur der Besitzer der Transport-PIN kann den Schlüssel zur symmetrischen Entschlüsselung berechnen lassen, und den privaten Schlüssel aus der PKCS #12-Struktur extrahieren.</P>
 
@@ -22,9 +23,13 @@
 
 <P>Wir möchten hier noch mal betonen, dass mit CrypTool erzeugte Schlüssel und Zertifikate nur für Ausbildungszwecke bestimmt sind. Es ist nicht zu empfehlen, diese in einer produktiven Applikation zu nutzen, da jeder ein gültiges CrypTool Zertifikat erstellen kann (für jede CrypTool-Installation ist der CA-Schlüssel identisch).</P>
 
-<P><B>Einschränkungen:</B> <!--ZZZINDN--></P>
+<P><B>Einschränkungen:</B> </P>
+
+<div class="indent">
 
 <P>Obwohl die in der CrypTool-Umgebung erzeugten und genutzten Zertifikate dem X.509-Standard genügen, ist es nicht möglich, fremde Zertifikate in CrypTool zu importieren. CrypTool speichert innerhalb der PKCS #12-Struktur weitere intern benötigte Daten, die von fremden Applikationen nicht zur Verfügung gestellt werden. Diese Daten werden beim Importieren des Zertifikats in einer weiteren CrypTool-Installation benötigt.</P>
+
+</div>
 
 </BODY>
 </HTML>
