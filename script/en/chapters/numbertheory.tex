@@ -446,7 +446,18 @@ Especially the case is investigated, where the result $b$ of this operation is t
 $x$ is the inverse of $a$ regarding this operation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\pagebreak
 \subsection{Examples of modular calculations}
+
+\begin{center}
+\fbox{\parbox{15cm}{
+    \emph{Seneca\footnotemark:}\\
+    The way of theory is long, it is short and effective by examples.
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{%
+  Lucius Annaeus, philosophical writer and poet, 4 B.~C. $-$ 65 A.~D.
+}
 
 As we have already seen:
 
@@ -606,7 +617,7 @@ are exactly $J(6) = (2-1)*(3-1) = 1 * 2 = 2$ numbers that have a multiplicative 
 
 Although it may seem difficult to calculate the table of multiplicative inverses for large moduli (this only applies 
 to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
-to create a simple algorithm for this \cite[p. 80]{Pfleger1997}. Quicker algorithms are described, for instance, in 
+to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algorithms are described, for instance, in 
 \cite{Knuth1998}\footnote{Using Euclid’s extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
 multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix 
 A}). Alternatively, we can also use the primitive roots. }.
@@ -1117,12 +1128,12 @@ $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n))
     \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
 $$
 
-The problems of \index{Factorising} factorising $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
+The problems of \index{Factorising} factorising\index{Factorisation problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
 and if we find a solution for one of the two problems, we also have a solution for the
 other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
 solutions of the quadratic equation
 $ x^2 - (p+q) x + pq=0.
-$
+$\\
 If only $n$ and $J(n)$ are known, then it is:
 $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
 $$ x^2 + (J(n)-n-1)x +n= 0.
@@ -1356,7 +1367,19 @@ $a^i, i = 1, \cdots, p-1$ assumes all $J(p)$ values $1, \cdots, p-1$ once if and
 RSA\footnote{The RSA procedure is the most common asymmetric 
 cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leonard Adleman, it can be used both for
 signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
-please note that the abbreviation may be used in other fields to mean something completely different.} 
+please note that the abbreviation may be used in other fields to mean
+something completely different.}$^,$\footnote{%
+Within literature and movies not only cassical methods are used (like the
+secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
+Men'' by Arthur Conan  Doyle), but also the RSA scheme. Examples are
+\begin{itemize}
+\item the movie ``House of Cards'', 1992, where autistic children
+  communicate via primes,
+\item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner, 1999
+  (included in the CrypTool package as PDF file), where the sisters
+  privately communicate using a variant of RSA.
+\end{itemize}
+} 
 procedure in the group $\mathbb{Z}_n^*$.
 
 \subsubsection{Basic idea of public key cryptography}
@@ -1405,7 +1428,7 @@ $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
 One reason probably is, that Compaq claimed a patent \index{Patent} on it. Generally there is less understanding in Europe
 and with the Open Source Initiative, that one can claim patents on algorithms. But there is really no understanding outside
 the U.S., that one can get a patent for a special case (3 factors) of an algorithm (RSA), although the patent for the general case is
-almost expired.} \footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
+almost expired.}$^,$\footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
 $ e*d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
 ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ But it is $ (5^3)^7\equiv 0 $ mod $ 25$.
 } $p$ and $q$ and calculate 
@@ -1428,7 +1451,7 @@ The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is d
                 We can then ``throw away'' $p$ and $q$.
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  $e*d \equiv 1  {\rm ~(mod~} J(n))$,
                 i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$\footnote{For reasons of security, $d$ should not 
-                be too small.} \footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ``throw away'' $J(n)$.
+                be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ``throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
         \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
@@ -1654,7 +1677,8 @@ Mathematica by means of Solve, you obtain the {em tdep message} ``The equations 
 in an essentially non-algebraic way''. Mathematica therefore claims not to know a direct algebraic procedure for solving the equation.
 Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice):
 {\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
-Such number-theory tasks can also be solved using other tools such as the LiDIA\index{LiDIA} or BC package (see URLs in appendix).
+Such number-theory tasks can also be solved using other tools such as the
+LiDIA\index{LiDIA} or BC package (see web links in appendix).
 The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.}
 \footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
 The discrete logarithm is the smallest natural exponent that solves the equation $11^x\equiv49 {\rm ~(mod~} 347)$. Both $x=67$ 
@@ -2109,8 +2133,8 @@ This needs to be stressed because the type of padding is extremely important dur
     The Art of Computer Programming, vol 2: 
     Seminumerical Algorithms, Addison-Wesley, 2nd edition, 1998.
 
-\bibitem[Pfleger1997]{Pfleger1997} \index{Pfleger 1997}
-    Charles P. Pfleger, \\
+\bibitem[Pfleeger1997]{Pfleeger1997} \index{Pfleeger 1997}
+    Charles P. Pfleeger, \\
     Security in Computing, Prentice-Hall, 2nd edition, 1997.
 
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
@@ -2142,7 +2166,7 @@ This needs to be stressed because the type of padding is extremely important dur
 
 
 \newpage
-\subsection*{URLs / links (selection)}\addcontentsline{toc}{subsection}{URLs}
+\subsection*{Web links}\addcontentsline{toc}{subsection}{Web links}
 
 \begin{enumerate}
    \item \hypertarget{knott}{} 

@@ -13,11 +13,11 @@
 In vielen Bereichen sind Sicherheit und Effizienz von Daten"ubertragungen von gro"ser
 Wichtigkeit. Viele Anwendungen verwenden den RSA-Algorithmus als asymmetrisches Verschl"usselungsverfahren.
 
-Solange die verwendeten Schl"ussel hinreichend lang sind, bestehen keinerlei Bedenken gegen die
+Solange die verwendeten Schl"ussel hinreichend lang sind, bestehen zur Zeit keinerlei Bedenken gegen die
 Sicherheit des RSA. Allerdings hat die Entwicklung der Rechnerleistungen in der vergangenen Jahren dazu
-geführt, dass die ben"otigten Schl"ussell"angen mehrfach angehoben werden mussten (vergleiche Kapitel \ref{SecurityRSA}).
-Bedenkt man, dass die meisten Chips auf Smartcards nicht in der Lage sind, l"angere Schl"ussel als
-1024 bit zu verarbeiten, so zeigt dies den Bedarf f"ur Alternativen zum RSA. Elliptische Kurven
+gef"uhrt, dass die ben"otigten Schl"ussell"angen mehrfach angehoben werden mussten (vergleiche Kapitel \ref{SecurityRSA}).
+Da die meisten Chips auf Smartcards\index{Smartcard} nicht in der Lage sind, l"angere Schl"ussel als
+1024 bit zu verarbeiten, hat man Bedarf f"ur Alternativen zum RSA. Elliptische Kurven
 k"onnen eine solche Alternative bieten.
 
 Die Effizienz eines kryptographischen Algorithmus h"angt wesentlich von der ben"otigten \linebreak[4]Schl"ussell"ange
@@ -26,47 +26,49 @@ Der entscheidende Vorteil Elliptischer Kurven im Vergleich zum RSA-Algorithmus l
 dass die ben"otigten Schl"ussell"angen erheblich k"urzer sind. 
 
 Setzt man den Trend, dass sich die
-Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore), in die Zukunft
+Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}), in die Zukunft
 fort, so kann man von einer Entwicklung der ben"otigten Schl"ussell"angen wie in der folgenden Graphik ausgehen
-(Quelle: Arjen Lebstra und Eric Verheul: 
+(Quelle: Arjen Lenstra und Eric Verheul: 
 \href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
 
 \vskip -40 pt
 % -> Figur 1
-\begin{center}
 \begin{figure}[h]
-\includegraphics[scale=0.5]{figures/RSAKeylength}
-% \caption{} 
-\end{figure}
+\begin{center}
+\vspace{1.5cm}\includegraphics[scale=0.75]{figures/RSAKeylength}
+\caption{Gegenüberstellung des Aufwands der Operationen Sign und Verify bei
+  RSA und Elliptischen Kurven (Quelle: Dr. J.
+  Merkle, Elliptic Curve Cryptography Workshop, 2001)} 
 \end{center}
+\end{figure}
 \vskip -30 pt
 
 \newpage
 
-Bei der digitalen Signatur muss man differenzieren: f"ur die {\em Erstellung} einer digitalen Signatur ben"otigt
-bei auf Elliptischen Kurven basierenden Verfahren im Vergleich zu RSA nur gut ein
+Bei der digitalen Signatur muss man differenzieren: f"ur die {\em Erstellung} einer digitalen Signatur ben"otigen
+bei auf Elliptischen Kurven basierende Verfahren im Vergleich zu RSA nur gut ein
 Zehntel des Rechenaufwandes (66 zu 515 Multiplikationen). Betrachtet man die f"ur eine {\em Verifikation} durchzuf"uhrenden
 Rechenschritte, dreht sich dieses Bild jedoch zu Gunsten des RSA um. Der Grund liegt darin, dass es bei
 Verwendung des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu w"ahlen, solange der
 private Schl"ussel nur hinreichend lang ist.
 
 % -> Figur 2
-\begin{center}
 \begin{figure}[h]
-\includegraphics[scale=0.5]{figures/ThousandBitMultiplications}
-% \caption{} 
-\end{figure}
+\begin{center}
+\includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
+\caption{Prognose f"ur die Entwicklung der als sicher betrachteten
+  Schl"ussell"ange f"ur RSA und Elliptische Kurven\vspace{1ex}} 
 \end{center}
+\end{figure}
 \vskip -20 pt
 
 Da bei Smartcard basierten Systemen stets der lange private Schl"ussel auf der Karte gespeichert werden
-muss und digitalen Signatur, nicht aber die Verifikation auf der Karte stattfindet, treten hier deutlich
-die Vorteile Elliptischer Kurven zu Tage. Unter Effizienzgesichtspunkten sind Verfahren, die auf Elliptischen
-Kurven basieren, daher RSA-Anwendungen vorzuziehen.
+muss und die Erstellung der digitalen Signatur, nicht aber die Verifikation, auf der Karte stattfindet, treten hier deutlich
+die Vorteile Elliptischer Kurven zu Tage. 
 \par
 \smallskip
 Das gr"o"sste Problem bei der Implementierung von Verfahren, die auf Elliptischen Kurven beruhen, ist bislang die
-mangelnde {\em Standardisierung}. Es gibt nur eine RSA-Implementierung, aber viele Arten, Elliptische Kurven einzusetzen.
+mangelnde {\em Standardisierung\index{Standardisierung}}. Es gibt nur eine RSA-Implementierung, aber viele Arten, Elliptische Kurven einzusetzen.
 So k"onnen verschiedene Zahlk"orper zugrunde gelegt, eine Vielzahl von (elliptischen) Kurven --- durch
 6 Parameter beschrieben --- eingesetzt und unterschiedliche Darstellungen der Kurvenpunkte verwendet werden.
 Jede Wahl hat ihre Vorz"uge, so dass f"ur jede Anwendung eine andere Implementierung optimal sein kann. Dies
@@ -76,7 +78,7 @@ eine Vielzahl von Implementierungen vorhalten, was den Effizienzvorteil gegen"ub
 zunichte macht.
 
 Deshalb bem"uhen sich internationale Organisationen hierzu um Standardisierung. Zu erw"ahnen sind
-Initiativen von IEEE (P1363), ASC (ANSI X9.62, X9.63), IOS/IEC sowie von RSA labs und Certicom. Im
+Initiativen von IEEE (P1363), ASC (ANSI X9.62, X9.63), IOS/IEC sowie von RSA Laboratories\index{RSA Laboratories} und Certicom\index{Certicom}. Im
 Gegensatz zur IEEE, die bisher nur eine Beschreibung der verschiedenen Implementierungen vorgenommen hat,
 hat die ASC konkret 10 Kurven ausgew"ahlt und empfiehlt deren Verwendung. Der Vorteil des ASC-Ansatzes ist,
 dass ein einziges Byte ausreicht, um die verwendete Kurve zu spezifizieren. Zur Zeit ist jedoch nicht
@@ -447,7 +449,7 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
                 Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
 \end{thebibliography}
 
-\section*{URLs}\addcontentsline{toc}{subsection}{URLs}
+\section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
 
 \begin{enumerate}
    \item Online-Tutorial "uber elliptische Kurven der Firma Certicom\index{Certicom}\\

@@ -16,7 +16,7 @@ Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
 
 
 Zum Einsatz kommt wieder eine asymmetrische Technik (siehe Verschl"usselungsverfahren).
-Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, mu"s ein
+Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, muss ein
 Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel, um Signaturen zu erzeugen,
 und der Empf"anger benutzt den "offentlichen Schl"ussel des Absenders, um die Richtigkeit der Signatur
 zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen Schl"ussel
@@ -29,7 +29,7 @@ also den Vorteil, dass die Unterschrift auch vom unterschriebenen Dokument abh"a
 ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten Dokumente nicht vollkommen
 "ubereinstimmen. Selbst das Einf"ugen eines Leerzeichens in den Text w"urde zu einer anderen Signatur
 f"uhren. Eine Verletzung der Nachrichtenintegrit"at wird also vom Empf"anger der Nachricht erkannt,
-da in diesem Falle die Signatur nicht mehr zum Dokument pa"st und sich bei der "Uberpr"ufung als unkorrekt
+da in diesem Falle die Signatur nicht mehr zum Dokument passt und sich bei der "Uberpr"ufung als unkorrekt
 erweist.
 
 Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hilfe des "offentlichen
@@ -51,7 +51,7 @@ Schw"achen gezeigt haben (zum Beispiel \index{SHA-1} SHA-­1 oder \index{RIPEMD-1
 Das Verfahren mit Hashfunktion sieht folgenderma"sen aus:\\
 Anstatt das eigentliche Dokument zu signieren, berechnet der Absender nun zuerst den Hashwert
 der Nachricht und signiert diesen. Der Empf"anger bildet ebenfalls den Hashwert der Nachricht (der benutzte
-Algorithmus mu"s bekannt sein). Er "uberpr"uft dann, ob die mitgeschickte Signatur eine korrekte Signatur des
+Algorithmus muss bekannt sein). Er "uberpr"uft dann, ob die mitgeschickte Signatur eine korrekte Signatur des
 Hashwertes ist. Ist dies der Fall, so wurde die Signatur korrekt verifiziert. Die Authentizit"at der Nachricht
 ist damit gegeben, da wir angenommen hatten, dass aus der Kenntnis des "offentlichen Schl"ussels nicht der
 geheime Schl"ussel abgeleitet werden kann. Dieser geheime Schl"ussel w"are jedoch notwendig, um Nachrichten
@@ -69,10 +69,10 @@ keiner direkten Verbindung zu einem entsprechenden
 Verschl"usselungsverfahren.
 
 Beide Signaturverfahren, RSA und DSA, werden in den folgenden beiden
-Abschnitten n"aher beleuchtet. Anschliessend gehen wir einen Schritt weiter
-und zeigen, wie basierend auf der elektronischen Unterschrift das digitael
-Pendent zum Personalausweis entwickelt wurde. Dies Verfahren nennt man
-Public Key Zertifizierung.
+Abschnitten n"aher beleuchtet. Anschlie"send gehen wir einen Schritt weiter
+und zeigen, wie basierend auf der elektronischen Unterschrift das digitale
+Pendant zum Personalausweis entwickelt wurde. Dieses Verfahren nennt man
+Public Key-Zertifizierung.
 
 \subsection{RSA-Signatur}
 \index{Signatur!digitale}
@@ -121,7 +121,7 @@ Algorithm) vorgestellt, der sp"ater zum U.S. Federal Information Processing
 Standard (FIPS 186 \cite{FIPS186}) wurde.
 
 Der Algorithmus ist eine Variante des ElGamal-Verfahrens. Seine Sicherheit
-beruhrt auf dem Diskreten Logarithmus
+beruht auf dem Diskreten Logarithmus
 Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten
 und "offentlichen DSA-Schl"ussels, sowie die Verfahren zur Signatur und
 Verifikation sind im Folgenden zusammengefasst.
@@ -175,7 +175,7 @@ Obwohl DSA unabh"angig von einem Verschl"usselungsverfahren so spezifiziert
 wurde, dass es aus L"ander exportiert werden kann, die den Export von
 kryptographischer Hard- und Software einschr"anken, wie die USA zum
 Zeitpunkt der Spezifikation, wurde festgestellt
-\cite[p.~490]{5Schneier1996}, dass die Operationen des DSA dazu geeignet
+\cite[S.~490]{5Schneier1996}, dass die Operationen des DSA dazu geeignet
 sind, nach RSA bzw. ElGamal zu verschl"usseln.
 
 
@@ -185,8 +185,8 @@ sind, nach RSA bzw. ElGamal zu verschl"usseln.
 
 % ---------------------------------------------------------------------------------------------------------------
 \subsection{Public Key-Zertifizierung}
-\index{Zertifizierung!Public-Key}
-Ziel der Public Key-­Zertifizierung ist es, die Bindung eines "offentlichen Schl"ussel
+\index{Zertifizierung!Public Key}
+Ziel der Public Key-­Zertifizierung ist es, die Bindung eines "offentlichen Schl"ussels
 an einen Benutzers zu garantieren und nach au"sen nachvollziehbar zu machen. In F"allen, in denen nicht
 sichergestellt werden kann, dass ein "offentlicher Schl"ussel auch wirklich zu einer bestimmten Person geh"ort,
 sind viele Protokolle nicht mehr sicher, selbst wenn die einzelnen kryptographischen Bausteine nicht
@@ -228,7 +228,7 @@ garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.
 % --------------------------------------------------------------------------------------------------------------------
 \subsubsection{X.509}
 
-Jeder Teilnehmer, der sich bei \index{X.509}  X.509 die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner
+Jeder Teilnehmer, der sich per \index{X.509} X.509 Zertifikat die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner
 realen Person best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification Authority (CA)} Certification Authority (CA). Dieser
 beweist er seine Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt die CA ihm ein
 elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen die Namen des Zertifikatnehmers und
@@ -240,15 +240,16 @@ Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob das 
 CA garantiert also die Zugeh"origkeit von Benutzer und "offentlichem Schl"ussel.
 
 Dieses Verfahren ist nur so lange sicher, wie die Richtigkeit des "offentlichen Schl"ussels der CA
-sichergestellt ist. Aus diesem Grund l"a"st jede CA ihren "offentlichen Schl"ussel bei einer anderen CA
-zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten Hierarchieebene gibt es in der Regel
+sichergestellt ist. Aus diesem Grund l"asst jede CA ihren "offentlichen Schl"ussel bei einer anderen CA
+zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten
+Hierarchieebene (Wurzelinstanz) gibt es in der Regel
 nur eine CA, die dann nat"urlich keine M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
 zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel auf andere Art und Weise gesichert
 zu "ubermitteln. Bei vielen Software-­Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
 von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-­CAs schon von Anfang an fest in das Programm
-eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch die
-"offentliche Bekanntgabe k"onnen ("offentliche) CA-­Schl"ussel, insbesondere die der Wurzelinstanz,
-gesichert werden.
+eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch
+"offentliche Bekanntgabe in Zeitungen k"onnen ("offentliche) CA-­Schl"ussel
+gesichert "ubermittelt werden.
 
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
@@ -257,7 +258,7 @@ gesichert werden.
     Applied Cryptography, Protocols, Algorithms,
     and Source Code in C, Wiley, 2nd edition, 1996.
 
-\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
+\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}\index{RSA Laboratories}
     PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
 
 \bibitem[FIPS186]{FIPS186} U.S. Departement of
