@@ -2232,7 +2232,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
     do
     { /* search for best Knuth-Schroepel multiplier */
-		THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
+	//	THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
         
 		kk=pk[++nk];
         if (kk==0)
@@ -2251,7 +2251,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
         while (j<mmm)
         { /* select small primes */
-			THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
+			//THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
             p=mip->PRIMES[++i];
             rem=D%p;
             if (spmd(rem,(p-1)/2,p)<=1) /* x = spmd(a,b,c) = a^b mod c */
@@ -2705,7 +2705,6 @@ x2modN_generator::~x2modN_generator()
 
 BOOL x2modN_generator::setModul( CString &NStr )
 {
-	BOOL ausgabe;
 	return CStringFormulaToBig( NStr, Modul_N );
 }
 
