@@ -35,7 +35,7 @@ zu brechen. Bei guten Verfahren sind diese jedoch so aufw"andig, dass sie
 praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
 sicher angesehen werden k"onnen.\par \vskip + 3pt
 
-Einen sehr guten "Uberblick zu den Verfahren bietet das Buch von Bruce Schneier \cite{Schneier1996}. Grunds"atzlich unterscheidet man zwischen symmetrischen und 
+Einen sehr guten "Uberblick zu den Verfahren bietet das Buch von Bruce Schneier \cite{Schneier1996cm}. Grunds"atzlich unterscheidet man zwischen symmetrischen und 
 asymmetrischen Verfahren zur Verschl"usselung.
 
 % --------------------------------------------------------------------------
@@ -88,7 +88,7 @@ er heute als nur noch bedingt sicher anzusehen ist. Symmetrische Alternativen zu
 IDEA \index{IDEA} oder Triple-DES.\par \vskip + 3pt
 
 Hohe Aktualit"at besitzen die symmetrischen AES-Verfahren. \index{AES} Das
-dazu geh"orende Rijndael-Verfahren wurde am 2. Oktober 2000 zum
+dazu geh"orende Rijndael-Ver"-fahren wurde am 2. Oktober 2000 zum
 Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
 des DES-Verfahrens.
 
@@ -131,11 +131,12 @@ Weitere Details dazu stehen unter:
 F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-force, 
 aber auch noch weiter au"serhalb der Reichweite realisierbarer Rechenpower.
 
+\begin{sloppypar}
 Die Diskussion ist z.Zt. sehr kontrovers: Don Coppersmith (einer der DES-Erfinder) 
 z.B. bezweifelt die generelle Durchf"uhrbarkeit des Angriffs: XLS liefere f"ur 
 AES gar keine L"osung \cite{Coppersmith2002}. Dann w"urde auch die Optimierung von 
 Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
-
+\end{sloppypar}
 
 % --------------------------------------------------------------------------
 \subsubsection{Aktueller Stand der Brute-force-Angriffe auf 
@@ -146,21 +147,23 @@ symmetrische Verfahren (RC5)}
 Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-force-Angriffen
 auf symmetrische Verschl"usselungsverfahren gut erl"autert werden.
 
-Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet man das vollst"andige Durchsuchen des Schl"usselraumes: dazu m"ussen keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird der Ciphertext mit allen m"oglichen Schl"usseln des Schl"usselraums entschl"usselt und gepr"uft, ob der resultierende Text einen sinnvollen Klartext ergibt. Bei einer Schl"ussell"ange von 64 Bit sind dies maximal 2^64 = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu "uberpr"ufende Schl"ussel\index{CrypTool}%
+\begin{sloppypar}
+Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet man das vollst"andige Durchsuchen des Schl"usselraumes: dazu m"ussen keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird der Ciphertext mit allen m"oglichen Schl"usseln des Schl"usselraums entschl"usselt und gepr"uft, ob der resultierende Text einen sinnvollen Klartext ergibt. Bei einer Schl"ussell"ange von 64 Bit sind dies maximal $2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu "uberpr"ufende Schl"ussel\index{CrypTool}%
 \footnote{%
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
         {\bf Analyse \textbackslash{} Ciphertext only} ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren durchf"uhren: um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu erhalten, sollten Sie nicht mehr als 20 Bit des Schl"ussels als unbekannt kennzeichnen.
 }.
+\end{sloppypar}
 
-Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security sogenannte Cipher-Challenges (siehe \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}). Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte, verschl"usselt mit verschiedenen Verfahren und Schl"ussell"angen, zu entschl"usseln und den symmetrischen Schl"ussel zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
+Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security sogenannte Cipher-Challenges\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte, verschl"usselt mit verschiedenen Verfahren und Schl"ussell"angen, zu entschl"usseln und den symmetrischen Schl"ussel zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
 
-Dass das "alte" Standard-Verfahren DES mit der fixen Schl"ussell"ange von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack eine DES-verschl"usselte Nachricht in weniger als einem Tag knackten (siehe \href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}).
+Dass das "alte" Standard-Verfahren DES mit der fixen Schl"ussell"ange von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack eine DES-verschl"usselte Nachricht in weniger als einem Tag knackten\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
 Der aktuelle Rekord f"ur starke symmetrische Verfahren liegt bei 64 Bit langen Schl"usseln. Dazu wurde das Verfahren RC5 benutzt, eine Blockchiffre mit variabler Schl"ussell"ange. 
 
-Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom distributed.net-Team gel"ost (siehe \href{http://distributed.net/pressroom/news-20020926.html}{\tt http://distributed.net/pressroom/news-20020926.html}). Insgesamt arbeiteten 331.252 Personen gemeinsam "uber das Internet zusammen. Getestet wurden rund 15 Trillionen Schl"ussel, bis der richtige Schl"ussel gefunden wurde.
+Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom distributed.net-Team gel"ost\footnote{\href{http://distributed.net/pressroom/news-20020926.html}{\tt http://distributed.net/pressroom/news-20020926.html}}. Insgesamt arbeiteten 331.252 Personen gemeinsam "uber das Internet zusammen. Getestet wurden rund 15 Trillionen Schl"ussel, bis der richtige Schl"ussel gefunden wurde.
 
-Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptographische Schw"achen haben) mit 64 Bit langen Schl"usseln keine geeigneten Verfahren mehr sind, um sensible Daten l"anger geheim zu halten.
+Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptographische Schw"a"-chen haben) mit 64 Bit langen Schl"usseln keine geeigneten Verfahren mehr sind, um sensible Daten l"anger geheim zu halten.
 
 "Ahnliche Cipher-Challenges gibt es auch f"ur asymmetrische Verfahren (siehe Kapitel 3.11.4).
 
@@ -184,7 +187,7 @@ pers"onliches Schl"us\-selpaar, das aus einem
 M"ochte Alice\index{Alice}%
 \footnote{%
       Zur Beschreibung kryptographischer Protokolle werden den Teilnehmern
-      oft Namen gegeben (vergleiche \cite[S. 23]{Schneier1996}). 
+      oft Namen gegeben (vergleiche \cite[S. 23]{Schneier1996cm}). 
       Alice und Bob f"uhren alle allgemeinen 
       2-Personen-Protokolle durch, wobei Alice dies initiiert und Bob antwortet.
       Die Angreifer werden als Eve (eavesdropper = passiver Lauscher) und Mallory 
@@ -307,7 +310,7 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
         Geht auch auf praktische Probleme, wie Standardisierung oder 
         real existierende Software, ein.
 
-\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
+\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley 1994, 2nd edition 1996.

@@ -453,7 +453,6 @@ F(7) & = & 34.279.974.696.877.740.253.374.607.431.768.211.457 \\
 129.054. 721.
 \end{eqnarray*}
 
-\\
 Auch wenn sich Fermat bei seiner Vermutung irrte, so stammt in diesem
 Zusammenhang von ihm doch ein sehr wichtiger Satz: Der (kleine)
 Fermatsche Satz, den Fermat im Jahr 1640 aufstellte, ist der 
@@ -600,9 +599,10 @@ $$
     ({\href{http://www.fermatsearch.org/}
        {\tt http://www.fermatsearch.org/}}  --  diese Webseite hat 
     Verkn"upfungen zu Seiten in russisch, italienisch und deutsch).
-
-    Die entdeckten Faktoren k"onnen sowohl zusammengesetzte nat"urliche als auch 
+    \begin{sloppypar}
+    Die entdeckten Faktoren k"onnen sowohl zusammengesetzte nat"ur"-liche als auch 
     prime nat"urliche Zahlen sein.
+    \end{sloppypar}
      
     Am 22. Februar 2003 entdeckte John Cosgrave
     \begin{itemize} 
@@ -667,7 +667,7 @@ Hier ist die Basis b nicht notwendigerweise 2 !}  $F(b,m) = b^{2^m} + 1$ :
     Primzahl wurde:
     $$ b^{2^{17}} + 1  =  62.722^{131.072} + 1. $$ 
     Dadurch wurde die erste im GIMPS-Projekt\index{GIMPS} gefundene
-    Mersenne-Primzahl M-35 = M1398269 auf den 6. Platz verwiesen.
+    Mersenne-Primzahl $$\mbox{M-35 = M1398269}$$ auf den 6. Platz verwiesen.
 
     Weitere Details finden sich unter
     \vspace{-10pt}
@@ -719,7 +719,7 @@ $$
     Diese Formel ist leider nicht offen, sondern rekursiv.
     Die Folge startet mit
 $$
-\small\begin{array}{lll}
+\begin{array}{lll}
 e_1 = 1 + 1 &   = 2 &   \mapsto {\rm ~prim} \\
 e_2 = e_1 + 1   &   = 3 &   \mapsto {\rm ~prim} \\
 e_3 = e_1 \cdot e_2 + 1 &   = 7 &   \mapsto {\rm ~prim} \\
@@ -1199,7 +1199,7 @@ n"utzlich sein, Vergleichszahlen aus der uns umgebenden realen
 Welt bereitzustellen, so dass man ein Gef"uhl f"ur die Sicherheit
 kryptographischer Algorithmen entwickeln kann. Die angegebenen
 Werte stammen teilweise aus \cite{Schwenk1996} und
-\cite[S.18]{Schneier1996}.  \hypertarget{grosord}{}
+\cite[S.18]{Schneier1996p}.  \hypertarget{grosord}{}
 \begin{tabbing}
 Wahrscheinlichkeit, dass Sie  auf ihrem n"achsten Flug entf"uhrt
 werden:~~ \= abcdefhijk \= \kill
@@ -1317,7 +1317,7 @@ Berechnung zum Beispiel per GMP:
     Mathematics of Computation. 
 
 %already defined in elementaryNumberTheory.inc -> 2 davor
-\bibitem[Schneier1996]{2Schneier1996} \index{Schneier 1996}
+\bibitem[Schneier1996]{Schneier1996p} \index{Schneier 1996}
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C},\\
     Wiley and Sons, 2nd edition 1996.
