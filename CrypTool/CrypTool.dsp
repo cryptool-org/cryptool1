@@ -1619,6 +1619,14 @@ SOURCE=.\DlgOptionsRSADemo.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgOptionsStartoptions.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsStartoptions.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgOptionsSubstitutionAnalysis.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"

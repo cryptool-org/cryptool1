@@ -129,6 +129,7 @@
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDD_KEY_PERMUTATION_INFO        545
+#define IDD_STARTOPTIONS                546
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -700,6 +701,7 @@
 #define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 33157
 #define ID_EINZELVERFAHREN_SIGN         33158
 #define ID_EINZELVERFAHREN_SIGN_DOC     33159
+#define ID_OPTIONS_STARTOPTIONS         33170
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1345,13 +1347,14 @@
 #define IDS_PERMUTATION_DECRYPT_INV     37904
 #define IDS_PERMUTATION_CLEAR           37905
 #define IDS_PERMUTATION_CIPHER          37906
+#define IDS_STRING_SAMPLE_FILE          61889
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        546
-#define _APS_NEXT_COMMAND_VALUE         33170
+#define _APS_NEXT_RESOURCE_VALUE        547
+#define _APS_NEXT_COMMAND_VALUE         33173
 #define _APS_NEXT_CONTROL_VALUE         1424
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

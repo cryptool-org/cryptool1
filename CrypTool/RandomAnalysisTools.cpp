@@ -256,9 +256,14 @@ int CRandomAnalysisTools::FindPeriod()
 // gesucht. Sobald zwischen beiden Zeigern wieder ungleiche Werte entstehen, ist der Periodenanfang
 // gefunden. Der Status wechselt wieder zu 'keine Periode', der folgende Zeiger springt wieder ans
 // Ende und es wird eine übergeordnete Periode gesucht.
+
+// Jan Blumenstein: diverse Änderungen, da teilweise Perioden nicht erkannt und/oder falsch
+// im Dialog ausgegeben wurden
+
 {
 	int p=0;
 	int search, follow=origlen-1;
+
 
 	for (search=origlen-2; search>=0; search--)
 	{
@@ -289,23 +294,20 @@ int CRandomAnalysisTools::FindPeriod()
 				{
 					return cnt_periodResults;
 				}
-				periodResults[cnt_periodResults].offset  = search+1;
-				periodResults[cnt_periodResults].length  = follow-search;
-				periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
-				int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
+
+				periodResults[cnt_periodResults].length   = follow - search;
+				periodResults[cnt_periodResults].repeated = (origlen - 1 - follow) / (follow - search);
+				periodResults[cnt_periodResults].offset   = origlen - periodResults[cnt_periodResults].length * (periodResults[cnt_periodResults].repeated + 1);
+				int l=(PA_MAXPRINTLENGTH < (follow - search)) ? PA_MAXPRINTLENGTH : (follow - search);
 				for (int j=0; j<l; j++)
 				{
-					periodResults[cnt_periodResults].str[j] = data[search+1+j];
+					periodResults[cnt_periodResults].str[j] = data[origlen - follow + search + j];
 				}
 				periodResults[cnt_periodResults].str[l] = '\0';
 				cnt_periodResults++;
-
-				// Jan Blumenstein (JB) Bugfix 08-08-02 Beginn
-				// war notwendig, da z.B. in "zezrzrzzezrzrz" die Periode "zezrzrz" nicht erkannt wurde
 				
 				search = follow;
 
-				// search wird auf Position von follow zurückgesetzt, wenn eine Periode gefunden wurde
 			}				
 			
 			else	// hier kommt man hin, wenn bei search zwar eine gleiche Zeichenfolge wie am Ende
@@ -317,7 +319,6 @@ int CRandomAnalysisTools::FindPeriod()
 				// search-Position, nicht "verloren" - sie könnten schließlich der Anfang einer langen
 				// Periode sein
 			}
-			// JB Bugfix Ende
 
 			follow = origlen-1;
 		}
@@ -331,13 +332,13 @@ int CRandomAnalysisTools::FindPeriod()
 			{
 				return cnt_periodResults;
 			}
-			periodResults[cnt_periodResults].offset  = search+1;
-			periodResults[cnt_periodResults].length  = follow-search;
-			periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+			periodResults[cnt_periodResults].length   = follow - search;
+			periodResults[cnt_periodResults].repeated = (origlen - 1 - follow) / (follow - search);
+			periodResults[cnt_periodResults].offset   = origlen - periodResults[cnt_periodResults].length * (periodResults[cnt_periodResults].repeated + 1);
             int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
             for (int j=0; j<l; j++)
 			{
-				periodResults[cnt_periodResults].str[j] = data[search+1+j];
+				periodResults[cnt_periodResults].str[j] = data[origlen - follow + search + j];
 			}
 			periodResults[cnt_periodResults].str[l] = '\0';
 			cnt_periodResults++;

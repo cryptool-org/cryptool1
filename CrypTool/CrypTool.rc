@@ -2460,6 +2460,21 @@ BEGIN
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
 END
 
+IDD_STARTOPTIONS DIALOG DISCARDABLE  0, 0, 258, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Startoptionen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,22,67,50,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,193,67,50,18
+    CONTROL         """Wie Sie starten""-Dialog beim Programmstart von CrypTool anzeigen",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
+                    231,10
+    CONTROL         "Beispieldatei wird nach dem Start von CrypTool automatisch geöffnet",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,
+                    232,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2702,6 +2717,7 @@ BEGIN
         MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
         MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Optionen...",           ID_OPTTEXT
+        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -2915,6 +2931,7 @@ BEGIN
         MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
+        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -2987,6 +3004,7 @@ BEGIN
         MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
+        MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Hilfe"
     BEGIN
@@ -3172,6 +3190,7 @@ BEGIN
         MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
+        MENUITEM "&Startoptionen",              ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -4158,6 +4177,14 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
+    END
+
+    IDD_STARTOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5239,6 +5266,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
+    IDS_STRING_SAMPLE_FILE  "c:/stdin.txt"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5676,6 +5704,11 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_VITANY_ERR_FILESIZE "Für die Vitany-Analyse muss die Eingabedatei mindestens 500 Bytes lang sein!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_OPTIONS_STARTOPTIONS "Einstellungen für den Programmstart ändern"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -8109,6 +8142,21 @@ BEGIN
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
 END
 
+IDD_STARTOPTIONS DIALOG DISCARDABLE  0, 0, 258, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Starting options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,22,67,50,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,193,67,50,18
+    CONTROL         "Show dialogue ""How to start"" when starting CrypTool",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
+                    183,10
+    CONTROL         "Open sample text file automatically when starting CrypTool",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,
+                    198,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8350,6 +8398,7 @@ BEGIN
         MENUITEM "&Plot Options...",            ID_OPTIONS_PLOT
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
+        MENUITEM "&Starting options...",        ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -8563,6 +8612,7 @@ BEGIN
         MENUITEM "&Plot Options...",            ID_OPTIONS_PLOT
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
+        MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -8635,6 +8685,7 @@ BEGIN
         MENUITEM "&Plot Options...",            ID_OPTIONS_PLOT
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
+        MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Help"
     BEGIN
@@ -8820,6 +8871,7 @@ BEGIN
         MENUITEM "&Plot Options...",            ID_OPTIONS_PLOT
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
+        MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -9527,6 +9579,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 83
         HORZGUIDE, 66
+    END
+
+    IDD_STARTOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -10576,6 +10636,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+    IDS_STRING_SAMPLE_FILE  "c:/stdin.txt"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10713,7 +10774,7 @@ BEGIN
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "The input is not a positiv integer."
     IDS_STRING_FAKTORISATION_ABORTED 
-                            "The faktorisation has been aborted.\nThe present factorisation still contains at least one composite factor."
+                            "The factorisation has been aborted.\nThe present factorisation still contains at least one composite factor."
     IDS_STRING_FAKTORISATION_ABORT_MSG "aborted"
     IDS_STRING_FAKTORISATION_STOP_MSG "without success"
 END
@@ -11006,6 +11067,11 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_VITANY_ERR_FILESIZE "For Vitany analysis, the input file size must exceed 500 bytes!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_OPTIONS_STARTOPTIONS "Change settings for program start"
 END
 
 #endif    // Englisch (GB) resources

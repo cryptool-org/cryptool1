@@ -38,6 +38,8 @@
 #include "DlgRandomGenerator.h"
 #include "DlgTipsAndTricks.h"
 #include "DlgHybridEncryptionDemo.h"
+#include "DlgOptionsStartoptions.h"
+
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
 char pc_str[STR_LAENGE_STRING_TABLE];
@@ -90,6 +92,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_OPTIONS_STARTOPTIONS, OnOptionsStartoptions)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -285,9 +288,23 @@ BOOL CCrypToolApp::InitInstance()
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
-	if(FALSE == Tipps.m_DoNotShowThisAgain) {
+	if(FALSE == Tipps.m_DoNotShowThisAgain)
+	{
 		Tipps.DoModal();
-		WriteProfileInt("Settings","NoTipps", Tipps.m_DoNotShowThisAgain);
+		WriteProfileInt("Settings", "NoTipps", Tipps.m_DoNotShowThisAgain);
+	}
+
+	if(TRUE == GetProfileInt("Settings", "SampleTextFile", FALSE))
+	{
+		FILE *f;
+		CString filename;
+		
+		filename.LoadString(IDS_STRING_SAMPLE_FILE);
+		if(f = fopen(filename, "r"))	// öffnet die Beispiel-Datei, sofern sie gefunden wurde
+		{
+			fclose(f);
+			OpenDocumentFileNoMRU(filename, "", SCHLUESSEL_LINEAR);
+		}
 	}
 	
 	// Enable RichEdit Windows...
@@ -681,6 +698,10 @@ void CCrypToolApp::OnVerentschlsselnHybridverfahrenHybridverschlsselung()
 {
 	CDlgHybridEncryptionDemo hyb;
 	hyb.DoModal();
-	
 }
 
+void CCrypToolApp::OnOptionsStartoptions() 
+{
+	CDlgOptionsStartoptions oso;
+	oso.DoModal();
+}
