@@ -50,7 +50,6 @@
 #	so that the online help and this file have to be updated
 
 ENGLISH	Analysis	# &Analysis
-#ENGLISH	Analysis_Algorithms	# &Analysis|A&lgorithms
 ENGLISH Analysis_Algorithmsautomaticanalysis # &Analysis|A&lgorithms (automatic analysis)
 ENGLISH	Analysis_CiphertextOnly	# &Analysis|&Ciphertext-Only
 ENGLISH	Analysis_General	# &Analysis|&General
@@ -75,7 +74,6 @@ ENGLISH	Options	# &Options
 ENGLISH	View	# &View
 ENGLISH	Window	# &Window
 GERMAN	Analyse	# A&nalyse
-#GERMAN	Analyse_Algorithmen	# A&nalyse|A&lgorithmen
 GERMAN Analyse_AlgorithmenautomatischeAnalyse # A&nalyse|A&lgorithmen (automatische Analyse)
 GERMAN	Analyse_Allgemein	# A&nalyse|&Allgemein
 GERMAN	Analyse_Zufallstests	# A&nalyse|&Zufallstests

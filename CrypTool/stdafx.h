@@ -59,6 +59,7 @@ statement from your version.
 
 #include <afx.h>
 
+#include <htmlhelp.h> 
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
