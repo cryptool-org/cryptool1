@@ -3183,8 +3183,8 @@ END
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "Challenge Response Demo"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "Challenge-Response-Demo"
+FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "Start",IDC_START_RADIO,"Button",BS_AUTORADIOBUTTON | 
                     BS_PUSHLIKE | BS_MULTILINE | WS_GROUP,5,5,75,25
@@ -3468,7 +3468,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
-        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
+        MENUITEM "&Challenge-Response-Demo...", ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3676,7 +3676,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
-        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
+        MENUITEM "&Challenge-Response-Demo...", ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3833,7 +3833,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
-        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
+        MENUITEM "&Challenge-Response-Demo...", ID_CHALLENGE_RESPONSE
     END
     POPUP "&Optionen"
     BEGIN
@@ -4006,7 +4006,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
-        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
+        MENUITEM "&Challenge-Response-Demo...", ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
