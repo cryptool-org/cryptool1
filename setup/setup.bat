@@ -4,6 +4,11 @@ set lang=de
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 xcopy /s/q template\*.* setup-%lang%\
 copy ..\release_%lang%\*.exe setup-%lang%
+copy ..\release_%lang%\CrypTool-%lang%.hlp setup-%lang%
+copy ..\release_%lang%\CrypTool-%lang%.cnt setup-%lang%
+copy ..\script\script-%lang%.pdf setup-%lang%
+copy ..\DialogSchwestern\*.pdf setup-%lang%
+
 
 cd setup-%lang%
 rmdir /s/q CVS
@@ -29,6 +34,10 @@ set lang=en
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 xcopy /s/q template\*.* setup-%lang%\
 copy ..\release_%lang%\*.exe setup-%lang%
+copy ..\release_%lang%\CrypTool-%lang%.hlp setup-%lang%
+copy ..\release_%lang%\CrypTool-%lang%.cnt setup-%lang%
+copy ..\script\script-%lang%.pdf setup-%lang%
+copy ..\DialogueSisters\*.pdf setup-%lang%
 
 cd setup-%lang%
 rmdir /s/q CVS
