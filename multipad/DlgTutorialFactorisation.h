@@ -26,6 +26,9 @@ class DlgTutorialFactorisation : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	double duration;
+	clock_t FactFinish;
+	clock_t FactStart;
 	void CheckEdit(CString &m_edit, int & sels, int & sele);
 	CString Search_First_Composite_Factor();
 	void Set_NonPrime_Factor_Red();
@@ -49,6 +52,7 @@ public:
 	BOOL	m_QSieve;
 	CString	m_Factorisation;
 	CString	m_Name;
+	CString	m_benoetigte_zeit;
 	//}}AFX_DATA
 
 

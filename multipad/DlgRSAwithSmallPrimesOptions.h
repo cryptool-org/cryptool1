@@ -14,7 +14,8 @@ class CDlgRSAwithSmallPrimesOptions : public CDialog
 {
 // Konstruktion
 public:
-	void ReInitBlockLength( int Bitlength );
+	void MsgAnzahlZeichen();
+	void ReInitBlockLength();
 	void MsgBlockLength();
 	CDlgRSAwithSmallPrimesOptions(CWnd* pParent = NULL);   // Standardkonstruktor
 
@@ -33,8 +34,11 @@ public:
 	int     m_Bitlength;
 	CString	m_MaxBlockLength;
 	int		m_codingMethod;
+	CString	m_AnzahlZeichen;
 	//}}AFX_DATA
 	double m_log2N;
+	CString RSA_Modul;
+	int Anzahl_Zeichen;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -61,8 +65,12 @@ protected:
 	afx_msg void OnBase2();
 	afx_msg void OnBase8();
 	afx_msg void OnBase16();
+	virtual void OnCancel();
+	afx_msg void OnChangeEdit3();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	int GetBlockLength();
 };
 
 //{{AFX_INSERT_LOCATION}}

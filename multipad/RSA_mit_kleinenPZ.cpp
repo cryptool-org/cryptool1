@@ -56,6 +56,7 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 	m_Header3 = _T("");
 	m_Header4 = _T("");
 	m_edit13 = _T("");
+	//m_control_p.SetFocus();
 	//}}AFX_DATA_INIT
 
 	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
@@ -72,6 +73,7 @@ void RSA_mit_kleinenPZ::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(RSA_mit_kleinenPZ)
+	DDX_Control(pDX, IDC_EDIT5, m_control_edit5);
 	DDX_Control(pDX, IDC_EDIT13, m_control_edit13);
 	DDX_Control(pDX, IDC_OPTIONEN, m_ButtonOptionen);
 	DDX_Control(pDX, IDC_BUTTON_VERSCHLUESSELN, m_ButtonEncrypt);
@@ -173,7 +175,9 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 		m_ButtonDecrypt.EnableWindow(true);
 		m_ButtonEncrypt.EnableWindow(true);
 		m_ButtonOptionen.EnableWindow(true);
-		DlgOptions->ReInitBlockLength( RSA->GetBlockLength() );
+		DlgOptions->m_Bitlength = RSA->GetBlockLength();
+		DlgOptions->m_log2N = RSA->GetLog2RSAModul();
+		DlgOptions->ReInitBlockLength();
 	}
 	else
 	{
@@ -197,7 +201,9 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(true);
-	if ( RSA->InitParameter( m_eingabe_p, m_eingabe_q ) )
+	char line [256];
+	int RSAInitError;
+	if ( 0 == (RSAInitError = RSA->InitParameter( m_eingabe_p, m_eingabe_q )) )
 	{
 		if (RSA->SetPublicKey( m_oeffentliche_schluessel_e ) )
 		{
@@ -207,30 +213,108 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		}
 		else
 		{
+			// Falls e nicht coprime zu phi(N) ist, wird man aufgefordert eine andere Zahl für e zu wählen
 			Message(IDS_STRING_RSATUT_WRONG_PUBLICKEY);
 			m_geheime_schluessel_d = "";
+			m_control_edit5.SetFocus();
+			return;
 		}
 	}
-	else
+	else 
 	{
-		Message( IDS_STRING_RSATUT_NOPRIMES );
-		m_geheime_schluessel_d = "";
+		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
+		if ( -1 == RSAInitError )
+		{
+			Message(IDS_STRING_RSADEMO_P_NOT_PRIME);
+			m_control_p.SetFocus();
+			return;
+		}
+		if ( -2 == RSAInitError )
+		{
+			Message(IDS_STRING_RSADEMO_Q_NOT_PRIME);
+			m_control_q.SetFocus();
+			m_geheime_schluessel_d = "";
+			return;
+		}
+		if ( -3 == RSAInitError )
+		{
+			Message(IDS_STRING_ERR_PRIME_ARE_EQUAL);
+			m_control_p.SetFocus();
+			m_geheime_schluessel_d = "";
+			return;
+		}
 	}
-	if ( RSA->IsInitialized() )
+
+	DlgOptions->m_Bitlength = RSA->GetBlockLength();
+	DlgOptions->m_log2N = RSA->GetLog2RSAModul();
+	DlgOptions->ReInitBlockLength();
+	
+	if ( RSA->IsInitialized() && DlgOptions->m_BlockLength!=0 && DlgOptions->m_alphabet.GetLength()<m_oeffentliche_schluessel_e)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
-		CopyKey ( pc_str, Primes );
-		m_ButtonDecrypt.EnableWindow(true);
-		m_ButtonEncrypt.EnableWindow(true);
-		m_ButtonOptionen.EnableWindow(true);
-		DlgOptions->ReInitBlockLength( RSA->GetBlockLength() );
+		if (DlgOptions->m_RSAVariant==0)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+			CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
+			CopyKey ( pc_str, Primes );
+	//		m_ButtonDecrypt.EnableWindow(true);
+	//		m_ButtonEncrypt.EnableWindow(true);
+	//		m_ButtonOptionen.EnableWindow(true);
+	//		DlgOptions->m_Bitlength = RSA->GetBlockLength();
+	//		DlgOptions->m_log2N = RSA->GetLog2RSAModul();
+	//		DlgOptions->ReInitBlockLength();
+			m_ButtonDecrypt.EnableWindow(true);
+			m_ButtonEncrypt.EnableWindow(true);
+			m_ButtonOptionen.EnableWindow(true);
+		}
+		else
+		{
+			if (DlgOptions->m_TextOptions==0)
+			{
+				DlgOptions->Anzahl_Zeichen=256;	
+			}
+			else
+			{
+				DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
+			}
+			if ( DlgOptions->Anzahl_Zeichen <= atoi(m_oeffentliche_parameter_pq))
+				{
+				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+				CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
+				CopyKey ( pc_str, Primes );
+				m_ButtonDecrypt.EnableWindow(true);
+				m_ButtonEncrypt.EnableWindow(true);
+				m_ButtonOptionen.EnableWindow(true);	
+				}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
+				char line[128];
+				sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
+				AfxMessageBox(line);
+				m_ButtonDecrypt.EnableWindow(false);
+				m_ButtonEncrypt.EnableWindow(false);
+				m_ButtonOptionen.EnableWindow(true);
+
+			}
+		}
 	}
-	else
+	else 
 	{
+		if (DlgOptions->m_TextOptions==0)
+		{
+			DlgOptions->Anzahl_Zeichen=256;	
+		}
+		else
+		{
+			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
+		}
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
+		char line[128];
+		sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
+		AfxMessageBox(line);
 		m_ButtonDecrypt.EnableWindow(false);
 		m_ButtonEncrypt.EnableWindow(false);
-		m_ButtonOptionen.EnableWindow(false);
+		m_ButtonOptionen.EnableWindow(true);
 	}
 	m_edit10  = "";
 	m_edit11  = "";
@@ -276,8 +360,9 @@ void RSA_mit_kleinenPZ::OnOptionen()
 	UpdateData(TRUE);
 	DlgOptions->m_Bitlength = RSA->GetBlockLength();
 	DlgOptions->m_log2N = RSA->GetLog2RSAModul();
-	if ( DlgOptions->m_BlockLength < 1 ) DlgOptions->m_BlockLength = 1;
-	if ( IDOK == DlgOptions->DoModal() )	
+	DlgOptions->RSA_Modul = m_oeffentliche_parameter_pq;
+//	if ( DlgOptions->m_BlockLength < 1 ) DlgOptions->m_BlockLength = 1;
+	if ( IDOK == DlgOptions->DoModal()) //&& DlgOptions->m_alphabet.GetLength()>m_oeffentliche_parameter_pq -1)// && DlgOptions->m_BlockLength >= 1)	
 	{
 		m_edit10  = "";
 		m_edit11  = "";
@@ -287,7 +372,16 @@ void RSA_mit_kleinenPZ::OnOptionen()
 		m_Header2 = "";
 		m_Header3 = "";
 		m_Header4 = "";
+		m_ButtonDecrypt.EnableWindow(true);
+		m_ButtonEncrypt.EnableWindow(true);
 	}
+	
+	else 
+	{
+			m_ButtonDecrypt.EnableWindow(false);
+			m_ButtonEncrypt.EnableWindow(false);	
+	}
+
 	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
 	UpdateData(FALSE);
 }
@@ -354,7 +448,7 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		SetHeadLine( m_Header3, IDS_RSA_MKPZ_CIPHERTEXT );
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 
@@ -419,7 +513,7 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 		SetHeadLine( m_Header3, IDS_RSA_MKPZ_PLAINTEXT );
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(0);
+	theApp.DoWaitCursor(-1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -427,16 +521,19 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 void RSA_mit_kleinenPZ::EncryptASCII()
 {
 	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
+	CString tmpStr;
+	CString NumStr;
 
 	int baseNumbers = GetBase();
-	m_edit11 = ""; CString NumStr;
+	m_edit11 = ""; 
 	m_edit13 = ""; 
 	
 	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
 	{
 		m_edit13 += m_edit10.Mid(i, blockSize);
-		CharToNumStr(p_str+i, NumStr, blockSize, baseNumbers, 256);
+		tmpStr    = m_edit10.Mid(i, blockSize);
+		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
+		CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
 		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
 		if ( i+blockSize < m_edit10.GetLength() ) 
 		{
@@ -450,16 +547,19 @@ void RSA_mit_kleinenPZ::EncryptASCII()
 void RSA_mit_kleinenPZ::DecryptASCII()
 {
 	int blockSize    = DlgOptions->m_BlockLength;
-	char *p_str = m_edit10.GetBuffer( m_edit10.GetLength() );
+	CString tmpStr;
+	CString NumStr;
 
 	int baseNumbers = GetBase();
-	m_edit11 = ""; CString NumStr;
+	m_edit11 = ""; 
 	m_edit13 = ""; 
 	
 	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
 	{
 		m_edit13 += m_edit10.Mid(i, blockSize);
-		CharToNumStr(p_str+i, NumStr, blockSize, baseNumbers, 256);
+		tmpStr    = m_edit10.Mid(i, blockSize);
+		while ( tmpStr.GetLength() < blockSize ) { tmpStr += ' '; m_edit13 += ' '; }
+		CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
 		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
 		if ( i+blockSize < m_edit10.GetLength() ) 
 		{
@@ -624,7 +724,7 @@ void RSA_mit_kleinenPZ::EncryptNumbers()
 					else break;
 				}
 				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToASCII( tmp1, tmp2, baseNumbers );
+				CStringToASCII( tmp1, tmp2, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
 				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
 				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
 				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
@@ -710,7 +810,7 @@ void RSA_mit_kleinenPZ::DecryptNumbers()
 					else break;
 				}
 				tmp1 = m_edit13.Mid(i1, i2-i1);
-				CStringToASCII( tmp1, tmp2, baseNumbers );
+				CStringToASCII( tmp1, tmp2, DlgOptions->m_BlockLength, baseNumbers, (DlgOptions->m_codingMethod == 1) );
 				m_edit11 += tmp2.GetBuffer( tmp2.GetLength()+1 );
 				m_edit12 += tmp2.GetBuffer( tmp2.GetLength()+1 );
 				while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
@@ -777,6 +877,7 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	m_control_p.SetFocus();
 	m_ButtonDecrypt.EnableWindow(false);
 	m_ButtonEncrypt.EnableWindow(false);
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
@@ -796,24 +897,146 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 	{
 		m_ButtonOptionen.EnableWindow(false);
 	}
-	return TRUE;  // return TRUE unless you set the focus to a control
+	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
 void RSA_mit_kleinenPZ::OnUpdatePrimeP() 
 {
-	UpdateData(true);
-	UpdateData(false);
+	int sels, sele, i, k;
+	char c;
+	CString res;
+
+	UpdateData(TRUE); // get the displayed value in m_text 
+	m_control_p.GetSel(sels, sele);
+	
+	//CheckEdit(m_control_p,sels,sele);
+
+	res.Empty();
+	
+	
+//	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
+
+	for(k=i=0;i<m_eingabe_p.GetLength();i++) {
+		c = m_eingabe_p[i];
+//		if(AppConv.IsInAlphabet(c)) { // valid character
+			res += c;
+			k++;
+//		}
+//		else { // invalid character
+		//	MessageBeep(MB_OK);
+		//	if(k<sels) sels--;
+		//	if(k<sele) sele--;
+//		}
+	}
+	
+
+	m_eingabe_p = res;
+	if ( m_eingabe_p.GetLength() )
+	{
+//		m_eingabe_q = _T("");
+		m_geheime_parameter = _T("");
+		m_oeffentliche_parameter_pq = _T("");
+//		m_oeffentliche_schluessel_e = _T("3");
+		m_geheime_schluessel_d = _T("");
+		m_edit10 = _T("");
+		m_ButtonDecrypt.EnableWindow(false);		
+		m_ButtonEncrypt.EnableWindow(false);		
+	}
+	
+	
+	UpdateData(FALSE);
+	m_control_p.SetSel(sels,sele);
+
 }
 
 void RSA_mit_kleinenPZ::OnUpdatePrimeQ() 
 {
-	UpdateData(true);
-	UpdateData(false);
+	int sels, sele, i, k;
+	char c;
+	CString res;
+
+	UpdateData(TRUE); // get the displayed value in m_text 
+	m_control_q.GetSel(sels, sele);
+	
+//	CheckEdit(m_control_p,sels,sele);
+
+	res.Empty();
+	
+	
+
+	for(k=i=0;i<m_eingabe_q.GetLength();i++) {
+		c = m_eingabe_q[i];
+//		if(AppConv.IsInAlphabet(c)) { // valid character
+			res += c;
+			k++;
+//		}
+//		else { // invalid character
+		//	MessageBeep(MB_OK);
+		//	if(k<sels) sels--;
+		//	if(k<sele) sele--;
+//		}
+	}
+	
+
+	m_eingabe_q = res;
+	if ( m_eingabe_q.GetLength() )
+	{
+		m_geheime_parameter = _T("");
+		m_oeffentliche_parameter_pq = _T("");
+//		m_oeffentliche_schluessel_e = _T("3");
+		m_geheime_schluessel_d = _T("");
+		m_edit10 = _T("");
+		m_ButtonDecrypt.EnableWindow(false);		
+		m_ButtonEncrypt.EnableWindow(false);	
+	}
+	
+	
+	UpdateData(FALSE);
+	m_control_q.SetSel(sels,sele);
 }
 
 void RSA_mit_kleinenPZ::OnUpdatePublicKeyE() 
 {
-	UpdateData(true);
-	UpdateData(false);
+	int sels, sele, i, k;
+	char c;
+	CString res;
+
+	UpdateData(TRUE); // get the displayed value in m_text 
+	m_control_edit5.GetSel(sels, sele);
+	
+//	CheckEdit(m_control_p,sels,sele);
+
+	res.Empty();
+	
+	
+
+	for(k=i=0;i<m_oeffentliche_schluessel_e.GetLength();i++) {
+		c = m_oeffentliche_schluessel_e[i];
+//		if(AppConv.IsInAlphabet(c)) { // valid character
+			res += c;
+			k++;
+//		}
+//		else { // invalid character
+		//	MessageBeep(MB_OK);
+		//	if(k<sels) sels--;
+		//	if(k<sele) sele--;
+//		}
+	}
+	
+
+	m_oeffentliche_schluessel_e = res;
+	if ( m_oeffentliche_schluessel_e.GetLength() )
+	{
+		m_geheime_parameter = _T("");
+		m_oeffentliche_parameter_pq = _T("");
+		m_geheime_schluessel_d = _T("");
+		m_edit10 = _T("");
+		m_ButtonDecrypt.EnableWindow(false);		
+		m_ButtonEncrypt.EnableWindow(false);	
+	}
+	
+	
+	UpdateData(FALSE);
+	m_control_edit5.SetSel(sels,sele);
 }

@@ -7,6 +7,8 @@
 #include "CryptologyUsingMiracl.h"
 #include "DlgRuntime.h"
 
+#include <time.h>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -29,8 +31,10 @@ DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
 	m_QSieve = TRUE;
 	m_Factorisation = _T("");
 	m_Name = _T("");
+	m_benoetigte_zeit = _T("");
 	//}}AFX_DATA_INIT
 	factorList = 0;
+	duration = 0;
 }
 
 DlgTutorialFactorisation::~DlgTutorialFactorisation()
@@ -62,6 +66,7 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK6, m_QSieve);
 	DDX_Text(pDX, IDC_RICHEDIT2, m_Factorisation);
 	DDX_Text(pDX, IDC_EDIT2, m_Name);
+	DDX_Text(pDX, IDS_STRING_BENOETIGTE_ZEIT_FAKT, m_benoetigte_zeit);
 	//}}AFX_DATA_MAP
 }
 
@@ -136,6 +141,11 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	TutorialFactorisation Brent(0,"Brent"), Pollard(1,"Pollard"), 
 			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4,"Quadratic Sieve");
 
+//	Da man die gesamte Laufzeit braucht, wurden die folgenden Deklaration global gemacht!!
+//	clock_t FactStart;
+//	clock_t FactFinish;
+//	double duration;
+
 	UpdateData(TRUE);
 	
 	if ( m_CompositeNoStr.GetLength() )
@@ -146,6 +156,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 	CString next_factor;
 	char line [256];
+
 	next_factor=Search_First_Composite_Factor();
 	
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
@@ -177,6 +188,9 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 				return;
 			}
+			
+			FactStart = clock();
+
 			if ( !factorized && m_bruteForce )
 			{
 				TutorialFactorisation fact;
@@ -252,11 +266,13 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				}
 			}
 
+			
 			if ( factorized )
 			{
 				expandFactorisation( next_factor, f1, f2 );
 				m_Name = name;
 			}
+			
 			else
 			{
 				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
@@ -265,7 +281,15 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 				m_Name = "";
 			}
-
+			
+			FactFinish = clock();
+			duration =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration;
+			
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);
+			char line[256];
+			sprintf( line, pc_str, duration );
+			m_benoetigte_zeit = line;	
+			
 			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
@@ -346,14 +370,14 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 			}
 			else if ( ndx->factorStr == f1 )
 			{
-				factorList->exponent++;
+				factorList->exponent = factorList->exponent + expFactor;
 			}
 			else
 			{
 				while ( 0 != ndx->next && ( (ndx->next->factorStr.GetLength() < f1.GetLength()) ||
 					  (ndx->next->factorStr.GetLength() == f1.GetLength() && ndx->next->factorStr < f1) ) ) 
 					      ndx = ndx->next;
-				if ( ndx->next && ndx->next->factorStr == f1 ) ndx->next->exponent++;
+				if ( ndx->next && ndx->next->factorStr == f1 ) ndx->next->exponent = ndx->next->exponent + expFactor;
 				else
 				{
 					NumFactor * insFactor = new NumFactor;
@@ -377,16 +401,24 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 			factorList->isPrime = f.IsPrime( f2 );
 			factorList->next = ndx;
 		}
-		else if ( ndx->factorStr == f2 )
+		else if ( ndx->factorStr == f2 && ndx->isPrime ==0)
 		{
-			factorList->exponent++;
+//			Roger 30.10.2001
+//			factorList->exponent++;
+			factorList->exponent= factorList->exponent + expFactor;
+		}
+		else if ( ndx->factorStr == f2 && ndx->isPrime ==1)
+		{
+//			Roger 30.10.2001
+			factorList->exponent = factorList->exponent + expFactor;
+//			factorList->exponent= (factorList->exponent)*2;
 		}
 		else
 		{
 			while ( 0 != ndx->next && ( (ndx->next->factorStr.GetLength() < f2.GetLength()) ||
 				  (ndx->next->factorStr.GetLength() == f2.GetLength() && ndx->next->factorStr < f2) ) ) 
 					  ndx = ndx->next;
-			if ( ndx->next && ndx->next->factorStr == f2 ) ndx->next->exponent++;
+			if ( ndx->next && ndx->next->factorStr == f2 ) ndx->next->exponent = ndx->next->exponent + expFactor;
 			else
 			{
 				NumFactor * insFactor = new NumFactor;
@@ -656,6 +688,8 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 		m_vollstaendig.EnableWindow(false);	
 	}
 	m_Factorisation = "";
+	m_benoetigte_zeit="";
+	duration=0;
 	while ( factorList != 0 )
 	{
 		NumFactor *tmp = factorList;

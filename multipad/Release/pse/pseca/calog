@@ -4,3 +4,6 @@
 06/21/100 14:19:00 : SIGN CERTIFICATE ISSUED FOR <CN=12 12 [961589940], L=Frankfurt, O=DB, C=DE>
                     Validity Wed Jun 21 14:19:00 2000 - Thu Jun 21 14:19:00 2001
                     SerialNo: 02
+10/24/01 11:32:26 : SIGN CERTIFICATE ISSUED FOR <CN=Test Test [1003915944], L=Frankfurt, O=DB, C=DE>
+                    Validity Wed Oct 24 11:32:26 2001 - Thu Oct 24 11:32:26 2002
+                    SerialNo: 03

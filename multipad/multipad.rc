@@ -205,7 +205,7 @@ END
 
 IDD_DIALOG_KEY_CREAT_ASYM DIALOG DISCARDABLE  0, 0, 397, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Erzeugung eines Asymmetrischen Schlüsselpaares"
+CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
@@ -280,8 +280,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,13,48,61,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,177,48,55,20
-    LTEXT           "Schlüssel eingeben (max.26 Zeichen):",IDC_STATIC,13,11,
-                    160,8
+    LTEXT           "Schlüssel eingeben (max.26 verschiedene Zeichen):",
+                    IDC_STATIC,13,11,160,8
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,94,48,63,20
     EDITTEXT        IDC_EDIT1,13,24,192,12,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -324,7 +324,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -542,8 +542,8 @@ END
 
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Verfügbare Asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif"
+CAPTION "Verfügbare asymmetrische Schlüsselpaare"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -613,7 +613,7 @@ END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentlicher Schlüssel (Asymmetrisch)"
+CAPTION "Öffentlicher Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Zurück",IDOK,321,260,73,19
@@ -647,7 +647,7 @@ END
 
 IDD_DIALOG_EC_PRIV_PARAM DIALOG DISCARDABLE  0, 0, 401, 322
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentliche und Private Schlüssel (Asymmetrisch)"
+CAPTION "Öffentliche und Private Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Zurück",IDOK,316,295,79,18
@@ -1376,17 +1376,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen Generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
-                    19
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
-    LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
     EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
     EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
+                    19
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
@@ -1394,38 +1391,41 @@ BEGIN
                     BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
+    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
+                    142,61
     CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
     CONTROL         "Beide Wertebereiche sind gleich",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
+    LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
+    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
+                    IDC_STATIC,19,9,289,17
+    GROUPBOX        "",IDC_STATIC,11,0,303,32
+    LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
+    LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
     GROUPBOX        "Primzahl p",IDC_STATIC,11,106,142,80
     GROUPBOX        "Primzahl q",IDC_STATIC,172,106,142,80
-    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
-                    142,61
-    LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
     LTEXT           "Ergebnis",IDC_STATIC,18,168,37,10
     LTEXT           "Ergebnis",IDC_STATIC,179,168,35,10
     EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,11,0,303,32
-    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
-                    IDC_STATIC,19,9,289,17
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
 END
 
 IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 366
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Das RSA Kryptosystem"
+CAPTION "Das RSA-Kryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,246,
-                    51,86,18
     EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,246,
+                    51,86,18
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
+    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
     LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
     LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1468,7 +1468,7 @@ END
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
@@ -1731,17 +1731,16 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,176,96,67,21
 END
 
-IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
+IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Faktorisierungsalgorithmen"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,140,107
-    GROUPBOX        "Eingabe",IDC_STATIC,166,6,187,107
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
-    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,187,340,84
+    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,96
     DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,278,94,18
+    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,295,94,18
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,34,165,8
     CONTROL         "Brute-force Methode",IDC_CHECK1,"Button",
@@ -1757,17 +1756,21 @@ BEGIN
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,98,104,10
     LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.\nZusammengesetzte Zahlen sind rot markiert.",
-                    IDC_STATIC,24,204,318,19
-    LTEXT           "Produktdarstellung der Faktorisierung       Letzte Faktorisierung durch:",
-                    IDC_STATIC,24,233,219,9
+                    IDC_STATIC,24,208,318,19
+    LTEXT           "Produktdarstellung der Faktorisierung:",IDC_STATIC,24,
+                    250,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
-                    WS_BORDER | WS_TABSTOP,24,245,318,16
+                    WS_BORDER | WS_TABSTOP,24,265,318,16
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
     PUSHBUTTON      "Vollständig &faktorisieren",
-                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
-    LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollständig faktorisiert.",
+                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT 
+                    WS_VISIBLE | WS_DISABLED
+    LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt.",
                     IDC_STATIC,24,132,318,17
-    EDITTEXT        IDC_EDIT2,248,230,77,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,117,229,77,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Letzte Faktorisierung durch:",IDC_STATIC,24,230,89,14
+    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,203,230,139,
+                    14
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 262
@@ -1792,7 +1795,7 @@ BEGIN
                     33,10
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     200,208,56,10
-    LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
+    LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
                     IDC_STATIC,19,185,233,18
     CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,23,89,51,8
@@ -1810,6 +1813,7 @@ BEGIN
     CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
                     148,128,69,8
     LTEXT           "Methode:",IDC_STATIC,23,128,51,8
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -1843,7 +1847,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,23,68,204,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,92
-    LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
+    LTEXT           "Eingabe (Buchstaben oder durch Kommata getrennte Zahlen)",
                     IDC_STATIC,23,30,204,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,23,59,204,8
@@ -1993,7 +1997,7 @@ END
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wie Sie Starten"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Schließen",IDOK,195,189,50,14
     CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen",
@@ -2009,25 +2013,25 @@ CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,78,156,50,14
-    LTEXT           "Algorithmus",IDC_STATIC,16,19,37,8
-    LTEXT           "Brent",IDC_STATIC,16,41,60,8
+    LTEXT           "Algorithmus",IDC_STATIC,14,19,37,8
+    LTEXT           "Brent",IDC_STATIC,14,41,60,8
     PUSHBUTTON      "Abbrechen",IDCANCEL2,133,38,50,14,WS_DISABLED
     LTEXT           "Iterationen",IDC_STATIC,86,19,34,8
     EDITTEXT        IDC_EDIT1,87,38,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
-    LTEXT           "Pollard",IDC_STATIC,16,63,60,8
+    LTEXT           "Pollard",IDC_STATIC,14,63,60,8
     PUSHBUTTON      "Abbrechen",IDCANCEL3,133,60,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT2,87,60,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
-    LTEXT           "Williams",IDC_STATIC,16,85,60,8
+    LTEXT           "Williams",IDC_STATIC,14,85,60,8
     PUSHBUTTON      "Abbrechen",IDCANCEL4,133,82,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT3,87,82,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
-    LTEXT           "Lenstra",IDC_STATIC,16,107,60,8
+    LTEXT           "Lenstra",IDC_STATIC,14,107,60,8
     PUSHBUTTON      "Abbrechen",IDCANCEL5,133,104,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT4,87,104,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
-    LTEXT           "Quadatisches Sieb",IDC_STATIC,16,129,60,8
+    LTEXT           "Quadratisches Sieb",IDC_STATIC,14,129,65,8
     PUSHBUTTON      "Abbrechen",IDCANCEL6,133,126,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT5,87,126,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
@@ -3391,7 +3395,8 @@ BEGIN
         HORZGUIDE, 6
         HORZGUIDE, 113
         HORZGUIDE, 175
-        HORZGUIDE, 278
+        HORZGUIDE, 244
+        HORZGUIDE, 277
         HORZGUIDE, 296
     END
 
@@ -3487,6 +3492,11 @@ BEGIN
         HORZGUIDE, 8
         HORZGUIDE, 181
         HORZGUIDE, 203
+    END
+
+    IDD_TEST, DIALOG
+    BEGIN
+        VERTGUIDE, 10
     END
 
     IDD_SHOW_HASH, DIALOG
@@ -3817,7 +3827,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_ENCRYPTION_ERROR 
                             "Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n (bei IDEA kann dieser Fehler\nbei einem falschen Schlüssel zum\n entschlüsseln auftreten)\n"
-    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA Verschlüsselung von <%s>"
+    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA-Verschlüsselung von <%s>"
     IDS_STRING_ENCRYPTION_ERROR_2 
                             "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n"
     IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF "RSA Entschlüsselung von <%s>"
@@ -4324,7 +4334,7 @@ BEGIN
                             "Verschlüsselung in den Chiffretext  c[i] = m[i]^e (mod N)."
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Entschlüsselung in den Klartext  m[i] = c[i]^d (mod N)"
-    IDS_STRING_RSATUT_MAXBLOCKLENGTH "Maximale Blocklänge %i Zeichen"
+    IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maximale Blocklänge %i Zeichen)"
     IDS_STRING_RSATUT_INPUTPLAINTEXT "Eingabetext"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
                             "Zahlendarstellung des Klartextes zur Basis %i"
@@ -4640,8 +4650,16 @@ BEGIN
                             "Die Anzahl der Homophone wird auf %i herabgesetzt !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
+    IDS_STRING_RSADEMO_MODUL_KLEIN 
+                            "Die Anzahl der Zeichen im Alphabet (hier %i) muß kleiner als der RSA-Modul N= %s sein.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
+    IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
+                            "Bitte ändern Sie das Alphabet, so daß die Anzahl der Zeichen im Alphabet (hier %i) höchstens so groß wie der RSA-Modul N = %s ist."
+    IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
+    IDS_STRING_ERR_PRIME_ARE_EQUAL 
+                            "Die Primzahlen p und q müßen verschieden sein!"
+    IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.5f Sekunden"
 END
-
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -4954,7 +4972,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (c) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -5169,7 +5187,7 @@ END
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "The list below shows the asymmetric key pairs that are available.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -5998,18 +6016,15 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif"
 BEGIN
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
                     19
     PUSHBUTTON      "C&opy primes to clipboard",IDC_BUTTON_ACCEPT,11,224,110,
                     20
-    LTEXT           "Lower limit",IDC_STATIC,17,128,40,9
-    LTEXT           "Upper limit",IDC_STATIC,18,147,44,8
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    LTEXT           "Lower limit",IDC_STATIC,178,128,40,9
-    LTEXT           "Upper limit",IDC_STATIC,178,147,44,8
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
     GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,
                     39,142,61
     CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",
@@ -6018,14 +6033,18 @@ BEGIN
                     BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
+    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,172,39,
+                    142,61
     CONTROL         "&To be entered independently",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
     CONTROL         "&Both value ranges are equal",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
+    LTEXT           "Lower limit",IDC_STATIC,17,128,40,9
+    LTEXT           "Upper limit",IDC_STATIC,18,147,44,8
+    LTEXT           "Lower limit",IDC_STATIC,178,128,40,9
+    LTEXT           "Upper limit",IDC_STATIC,178,147,44,8
     GROUPBOX        "Prime number p",IDC_STATIC,11,106,142,80
     GROUPBOX        "Prime number q",IDC_STATIC,172,106,142,80
-    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,172,39,
-                    142,61
     LTEXT           "of each other",IDC_STATIC,196,64,53,8
     LTEXT           "Result",IDC_STATIC,18,168,37,10
     LTEXT           "Result",IDC_STATIC,179,168,35,10
@@ -6036,7 +6055,6 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
                     IDC_STATIC,19,9,289,17
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
 END
 
 IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 367
@@ -6044,12 +6062,12 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "The RSA Cryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
-                    243,51,89,18
     EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
+                    243,51,89,18
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Update parameters",IDC_BUTTON2,246,148,86,19
+    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,246,148,86,19
     LTEXT           "Prime number p",IDC_STATIC,19,52,55,8
     LTEXT           "Prime number q",IDC_STATIC,19,70,59,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -6284,7 +6302,7 @@ END
 IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 238, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Random Number Generator"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,8,60,72,17
     EDITTEXT        IDC_EDIT1,52,39,176,13,ES_AUTOHSCROLL,WS_EX_STATICEDGE
@@ -6350,43 +6368,6 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,176,96,67,21
 END
 
-IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Factorisation Algorithms"
-FONT 8, "MS Sans Serif"
-BEGIN
-    GROUPBOX        "Algorithms for factorisation",IDC_STATIC,13,6,140,107
-    GROUPBOX        "Input",IDC_STATIC,166,6,187,107
-    EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
-    GROUPBOX        "Factorisation",IDC_STATIC,13,187,340,84
-    DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "C&lose",IDC_BUTTON_cancel,259,278,94,18
-    LTEXT           "Enter the number to be factorised:",IDC_STATIC,177,34,
-                    165,8
-    CONTROL         "Brute-force method",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,24,23,81,10
-    CONTROL         "Brent algorithm",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,24,38,89,10
-    CONTROL         "Pollard method",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,24,53,67,10
-    CONTROL         "Williams method",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,24,68,71,10
-    CONTROL         "Lenstra algorithm",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,24,83,95,10
-    CONTROL         "Quadratic sieve method",IDC_CHECK6,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,24,98,104,10
-    LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",
-                    IDC_STATIC,24,204,318,19
-    LTEXT           "Factorisation result",IDC_STATIC,24,233,222,9
-    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
-                    WS_BORDER | WS_TABSTOP,24,245,318,16
-    GROUPBOX        "Faktorisation (stepwise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "Complete &factorisation into primes",
-                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16
-    LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.\nWith the second button, the factorisation of the input will be completed.",
-                    IDC_STATIC,24,132,318,17
-END
-
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 268
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Options for RSA Encryption"
@@ -6427,6 +6408,7 @@ BEGIN
     CONTROL         "N&umber system",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
                     159,134,69,8
     LTEXT           "Method:",IDC_STATIC,24,134,27,10
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -6614,7 +6596,7 @@ END
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "How to Start"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
     CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",
@@ -6647,7 +6629,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL5,133,104,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT4,87,104,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
-    LTEXT           "Quadatisches Sieb",IDC_STATIC,16,129,60,8
+    LTEXT           "Quadratisches Sieb",IDC_STATIC,16,129,60,8
     PUSHBUTTON      "Cancel",IDCANCEL6,133,126,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT5,87,126,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
@@ -6661,6 +6643,47 @@ BEGIN
     EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Close",IDCANCEL,147,46,87,18
     PUSHBUTTON      "Store hash value to &HEX format",IDOK,7,46,113,18
+END
+
+IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Factorisation Algorithms"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Algorithms for factorisation",-1,13,6,140,107
+    EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
+    GROUPBOX        "Factorisation",-1,13,192,340,96
+    DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
+    PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,295,94,18
+    LTEXT           "Enter the number to be factorised:",-1,177,34,165,8
+    CONTROL         "Brute-force method",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,23,76,10
+    CONTROL         "Brent algorithm",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,38,63,10
+    CONTROL         "Pollard method",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,53,63,10
+    CONTROL         "Williams method",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,68,67,10
+    CONTROL         "Lenstra algorithm",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,83,69,10
+    CONTROL         "Quadratic sieve method",IDC_CHECK6,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,98,91,10
+    LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",
+                    -1,24,208,318,19
+    LTEXT           "Factorisation result:",-1,24,250,219,9
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_BORDER | WS_TABSTOP,24,265,318,16
+    GROUPBOX        "Factorisation (stepwise)",-1,13,118,340,64
+    PUSHBUTTON      "Complete &factorisation into primes",
+                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT 
+                    WS_VISIBLE | WS_DISABLED
+    LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.",
+                    -1,24,132,318,17
+    EDITTEXT        IDC_EDIT2,109,229,77,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Last Factorisation trough:",-1,24,230,89,14
+    GROUPBOX        "Input",-1,166,6,187,107
+    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,195,230,147,
+                    14
 END
 
 
@@ -7656,6 +7679,20 @@ BEGIN
         BOTTOMMARGIN, 64
         HORZGUIDE, 46
     END
+
+    IDD_DIALOG_ZAHL_FAKTORISIEREN, DIALOG
+    BEGIN
+        VERTGUIDE, 13
+        VERTGUIDE, 24
+        VERTGUIDE, 342
+        VERTGUIDE, 353
+        HORZGUIDE, 6
+        HORZGUIDE, 113
+        HORZGUIDE, 175
+        HORZGUIDE, 244
+        HORZGUIDE, 277
+        HORZGUIDE, 296
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -8464,7 +8501,7 @@ BEGIN
                             "Encryption into ciphertext  c[i] = m[i]^e (mod N)"
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Decryption into plaintext  m[i] = c[i]^d (mod N)"
-    IDS_STRING_RSATUT_MAXBLOCKLENGTH "Maximum block length %i characters"
+    IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maximum block length %i characters)"
     IDS_STRING_RSATUT_INPUTPLAINTEXT "Input text"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
                             "Plaintext coded in numbers of base %i"
@@ -8769,7 +8806,6 @@ BEGIN
     IDS_STRING_NGRAM_RELFREQUENCY "Frequency (in %)"
 END
 
-
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Substring"
@@ -8779,6 +8815,15 @@ BEGIN
                             "The number of homophones will be decreased to %i !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
+    IDS_STRING_RSADEMO_MODUL_KLEIN 
+                            "The number of characters in the alphabet (here %i) must be smaller than the RSA-Modul N= %s.\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+    IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
+                            "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul N =%s."
+    IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
+    IDS_STRING_ERR_PRIME_ARE_EQUAL 
+                            "The prime numbers p and q must be different!"
+    IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
+    IDS_STRING_ANZAHL_ZEICHEN2 "Time required:   %.5f second"
 END
 
 #endif    // Englisch (GB) resources

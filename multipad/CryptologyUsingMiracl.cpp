@@ -102,6 +102,38 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
 	}
 }
 
+void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int BlockLength, int base, bool CodingBasisSystem  )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
+	ASCIIStr = "";
+	if ( !CodingBasisSystem )
+	{
+		for (int k=0; k<BlockLength; k++) 
+		{
+			ASCIIStr.Insert( 0, char(t % 256) );
+			t = t / 256;
+		}
+	}
+	else
+	{
+		int digits = (int)ceil(log(256)/log(base));
+		int modul = base;
+		for (int i=1; i<digits; i++) modul *= base;
+		for (int k=0; k<BlockLength; k++) 
+		{
+			int i = (t % modul) % 256;
+			ASCIIStr.Insert( 0, char(i) );
+			t = t / modul;
+		}
+	}
+
+}
+
+
 void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base )
 {
 	Big t;
@@ -145,7 +177,6 @@ void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &A
 			AlphabetStr.Insert( 0, Alphabet[i] );
 		}
 	}
-
 }
 
 void BigToCString(const Big &t, CString &CStrNumber, int base, int OutLength )
@@ -175,6 +206,37 @@ void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase, int InB
 		tmp = tmp + (unsigned char)in[i];
 	}
 	BigToCString( tmp, NumStr, OutBase );
+}
+
+void CharToNumStr(CString &in, CString &NumStr, int OutBase, bool CodingBasisSystem )
+{
+	Big tmp = 0;
+	int OutLength;
+	if ( !CodingBasisSystem )
+	{
+		OutLength = (int)ceil(in.GetLength()*log(256)/log(OutBase));
+		int modulo = 256;
+		for (int i=0; i<in.GetLength(); i++ )
+		{
+			tmp *= modulo;
+			tmp  = tmp + (unsigned char)in[i];
+		}
+	}
+	else
+	{
+		int digits = (int)ceil(log(256)/log(OutBase));
+		OutLength = digits * in.GetLength();
+		int modulo = 256;
+		int i, modul = OutBase;
+		for (i=1; i<digits; i++) modul *= OutBase;
+		for (i=0; i<in.GetLength(); i++ )
+		{
+			tmp *= modul;
+			tmp  = tmp + (unsigned char)in[i];
+		}
+	}
+
+	BigToCString( tmp, NumStr, OutBase, OutLength );
 }
 
 void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase )
@@ -498,7 +560,6 @@ BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 	if ( p <= 40 )
 	{
 		if ( 2 == p || 3 == p  || 5 == p || 7 == p || 11 == p || 13 == p || 17 == p || 
-//			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error = (Error & 0xFFFFFFFF) ^ GP_ERROR_NOPRIME;
 			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
@@ -642,17 +703,18 @@ TutorialRSA::~TutorialRSA()
 
 }
 
-BOOL TutorialRSA::InitParameter( Big &p, Big &q )
+int TutorialRSA::InitParameter( Big &p, Big &q )
 {
 	isInitialized_N = isInitialized_e = isInitialized_d = false;
 	GeneratePrimes P; P.SetP( p );
-	if ( !P.SolvayStrassenTest() /* || !P.MillerRabinTest() */ ) return false;
+	if ( !P.SolvayStrassenTest() ) return -1;
 	GeneratePrimes Q; Q.SetP( q );
-	if ( !Q.SolvayStrassenTest() /* || !Q.MillerRabinTest() */ ) return false;
+	if ( !Q.SolvayStrassenTest() ) return -2;
+	if (p==q) return -3;
 	N = p*q;
 	phiOfN = (p-1)*(q-1);
 	isInitialized_N = true;
-	return true;
+	return 0;
 }
 
 BOOL TutorialRSA::InitParameter( CString &pStr, CString &qStr, int base )
@@ -2122,9 +2184,9 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
 	if (result_initv==-2)
 	{
-		//this number is a perfect square!
+		//this number is a perfect square! <-----Ob diese stimmt, bin ich am zweifeln ----Roger 30.10.2001
 		factor1=NN;
-		factor2=NN;
+		factor2=RR;
 		factorized = true;
 		status |= THREAD_FACTORIZED;
 		THREAD_END;

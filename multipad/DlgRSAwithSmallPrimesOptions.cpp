@@ -27,6 +27,7 @@ CDlgRSAwithSmallPrimesOptions::CDlgRSAwithSmallPrimesOptions(CWnd* pParent /*=NU
 	m_BlockLength = 1;
 	m_MaxBlockLength = _T("");
 	m_codingMethod = 0;
+	m_AnzahlZeichen = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -46,6 +47,7 @@ void CDlgRSAwithSmallPrimesOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_BlockLength);
 	DDX_Text(pDX, IDC_EDIT3, m_MaxBlockLength);
 	DDX_Radio(pDX, IDC_RADIO9, m_codingMethod);
+	DDX_Text(pDX, IDC_EDIT_ANZAHL_ZEICHEN, m_AnzahlZeichen);
 	//}}AFX_DATA_MAP
 }
 
@@ -69,30 +71,22 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgRSAwithSmallPrimesOptions 
 
-
-
-
 BOOL CDlgRSAwithSmallPrimesOptions::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 	
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	UpdateData(true);
-	if ( m_BlockLength < 1 )
-	{
-		m_BlockLength = 1;
-	}
+	m_BlockLength = GetBlockLength();
 	if ( !m_RSAVariant ) 
 	{
 		if ( !m_TextOptions )
 		{
-			m_BlockLength = m_Bitlength / 8;
 			m_alphabetControl.EnableWindow( FALSE );
-			m_CodingControl.EnableWindow( FALSE );
+			m_CodingControl.EnableWindow( TRUE );
 		}
 		else
 		{
-			m_BlockLength = m_Bitlength / (int)ceil(log(m_alphabet.GetLength()+1)/log(2));
 			m_alphabetControl.EnableWindow( TRUE );
 			m_CodingControl.EnableWindow( TRUE );
 		}		
@@ -102,9 +96,9 @@ BOOL CDlgRSAwithSmallPrimesOptions::OnInitDialog()
 		m_RSAVariantCtrl.EnableWindow( FALSE );	
 		m_alphabetControl.EnableWindow( TRUE );
 		m_CodingControl.EnableWindow( FALSE );
-		m_BlockLength = (int)floor(m_BlockLength/(log(m_alphabet.GetLength()+1)/log(2)) );
 	}
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(false);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -114,48 +108,14 @@ void CDlgRSAwithSmallPrimesOptions::MsgBlockLength()
 {
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_RSATUT_MAXBLOCKLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	char line[256];
-	int  bl;
-	if ( !m_RSAVariant )
-	{
-		if ( !m_TextOptions )
-		{
-			bl = m_Bitlength / 8;
-		}
-		else
-		{
-			if ( !m_codingMethod )
-				bl = (int)floor(m_log2N / (log(m_alphabet.GetLength())/log(2)));
-			else
-			{
-				double bl1 = log(m_alphabet.GetLength()+1)/log(2);
-				int b1, b2;
-				double b3;
-				switch ( m_numberBasis ) {
-					case 0: b1=10;
-						break;
-					case 1: b1=2;
-						break;
-					case 2: b1=8;
-						break;
-					case 3: b1=16;
-				}
-				b2 = (int)ceil(log(m_alphabet.GetLength())/log(b1));
-				b3 = double(b2)*log(b1)/log(2);
-				bl = (int)(floor)(m_Bitlength / b3);
-				if ( bl*b3 + bl1 <= m_log2N ) bl++;
-			}
-		}
-	}
-	else
-	{
-		m_BlockLength = 1;
-		bl = 1;
-	}
+	int  bl = GetBlockLength();
 	sprintf( line, pc_str, bl );
 	m_MaxBlockLength = line;
 	if ( !m_BlockLength ) m_BlockLength = 1;
 	if ( bl < m_BlockLength ) m_BlockLength = bl;
 }
+
+
 
 void CDlgRSAwithSmallPrimesOptions::OnChangeAlphabet() 
 {
@@ -178,48 +138,15 @@ void CDlgRSAwithSmallPrimesOptions::OnChangeAlphabet()
 		}
 	}
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(false);
 	m_alphabetControl.SetSel(sels, sele);
 
 }
 
-void CDlgRSAwithSmallPrimesOptions::ReInitBlockLength(int Bitlength)
+void CDlgRSAwithSmallPrimesOptions::ReInitBlockLength()
 {
-	if ( !m_RSAVariant )
-	{
-		if ( !m_TextOptions )
-		{
-			m_BlockLength = Bitlength / 8;
-		}
-		else
-		{
-			if ( !m_codingMethod )
-				m_BlockLength = (int)floor(m_log2N / (log(m_alphabet.GetLength())/log(2)));
-			else
-			{
-				double bl1 = log(m_alphabet.GetLength())/log(2);
-				int b1, b2;
-				double b3;
-				switch ( m_numberBasis ) {
-					case 0: b1=10;
-						break;
-					case 1: b1=2;
-						break;
-					case 2: b1=8;
-						break;
-					case 3: b1=16;
-				}
-				b2 = (int)ceil(log(m_alphabet.GetLength())/log(b1));
-				b3 = double(b2)*log(b1)/log(2);
-				m_BlockLength = (int)(floor)(m_Bitlength / b3);
-				if ( m_BlockLength*b3 + bl1 <= m_log2N ) m_BlockLength++;
-			}
-		}
-	}
-	else
-	{
-		m_BlockLength = 1;
-	}
+	m_BlockLength = GetBlockLength();
 }
 
 void CDlgRSAwithSmallPrimesOptions::OnSelectRSA() 
@@ -227,9 +154,9 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectRSA()
 	UpdateData(true);	
 	m_BlockLengthCtrl.EnableWindow( TRUE );
 	m_RSAVariantCtrl.EnableWindow( TRUE );
-	if ( m_TextOptions )
-		m_CodingControl.EnableWindow( TRUE );
+	m_CodingControl.EnableWindow( TRUE );
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(false);
 }
 
@@ -242,6 +169,7 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectDialougeOfSisters()
 	m_codingMethod = 0;
 	UpdateData(false);
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	OnSelectAlphabet();
 	m_RSAVariantCtrl.EnableWindow( FALSE );	
 	m_CodingControl.EnableWindow( FALSE );
@@ -252,8 +180,9 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectASCII()
 	UpdateData(true);
 	m_codingMethod = 0;
 	m_alphabetControl.EnableWindow( FALSE );
-	m_CodingControl.EnableWindow(FALSE);
+	m_CodingControl.EnableWindow(TRUE);
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(false);
 }
 
@@ -263,6 +192,7 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectAlphabet()
 	m_alphabetControl.EnableWindow( TRUE );
 	m_CodingControl.EnableWindow( TRUE );
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(false);
 }
 
@@ -270,46 +200,59 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 {
 	// TODO: Zusätzliche Prüfung hier einfügen
 	UpdateData();
-	int bl = 1;
-	if ( !m_RSAVariant )
+	int blockLength = GetBlockLength();
+	if (m_TextOptions==0)
 	{
-		if ( !m_TextOptions )
-		{
-			bl = m_Bitlength / 8;
-		}
-		else
-		{
-			if ( !m_codingMethod )
-				bl = (int)floor(m_log2N / (log(m_alphabet.GetLength())/log(2)));
-			else
-			{
-				double bl1 = log(m_alphabet.GetLength()+1)/log(2);
-				int b1, b2;
-				double b3;
-				switch ( m_numberBasis ) {
-					case 0: b1=10;
-						break;
-					case 1: b1=2;
-						break;
-					case 2: b1=8;
-						break;
-					case 3: b1=16;
-				}
-				b2 = (int)ceil(log(m_alphabet.GetLength())/log(b1));
-				b3 = double(b2)*log(b1)/log(2);
-				bl = (int)(floor)(m_Bitlength / b3);
-				if ( bl*b3 + bl1 <= m_log2N ) bl++;
-			}
-		}
+		Anzahl_Zeichen=256;	
 	}
+	else
+	{
+		Anzahl_Zeichen=m_alphabet.GetLength();
+	}
+//	if ( m_BlockLength < 1 || m_BlockLength > blockLength ) 
 
-	if ( m_BlockLength < 1 || m_BlockLength > bl ) 
+	if ( m_RSAVariant == 1  )
+	{
+		int int_RSA_Modul;
+		int_RSA_Modul=atoi(RSA_Modul);
+		if ( Anzahl_Zeichen > int_RSA_Modul)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
+			char line[128];
+			sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
+//			sprintf(line, pc_str, theApp.TextOptions.m_alphabet);
+			AfxMessageBox(line);
+			//m_BlockLength = 1;
+			return;
+		}
+		
+	}
+	else if ( blockLength==0 ) 
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
+		char line[128];
+		sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
+//		sprintf(line, pc_str, theApp.TextOptions.m_alphabet);
+		AfxMessageBox(line);
+		//m_BlockLength = 1;
+		return;
+	}
+	else if ( blockLength==1 && (m_BlockLength ==0 || m_BlockLength > 1) ) 
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_1, pc_str,STR_LAENGE_STRING_TABLE);
+		char line[128];
+		sprintf(line, pc_str);
+		AfxMessageBox(line);
+		//m_BlockLength = 1;
+		return;
+	}
+	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength )) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH, pc_str,STR_LAENGE_STRING_TABLE);
 		char line[128];
-		sprintf(line, pc_str, bl);
+		sprintf(line, pc_str, blockLength);
 		AfxMessageBox(line);
-		m_BlockLength = 1;
+		//m_BlockLength = 1;
 		return;
 	}
 	UpdateData(false);
@@ -320,6 +263,7 @@ void CDlgRSAwithSmallPrimesOptions::OnCodingNumberSystem()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
 }
 
@@ -327,6 +271,7 @@ void CDlgRSAwithSmallPrimesOptions::OnCodingBAdic()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
 }
 
@@ -334,6 +279,7 @@ void CDlgRSAwithSmallPrimesOptions::OnBase10()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
 }
 
@@ -341,6 +287,7 @@ void CDlgRSAwithSmallPrimesOptions::OnBase2()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
 }
 
@@ -348,6 +295,7 @@ void CDlgRSAwithSmallPrimesOptions::OnBase8()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
 }
 
@@ -355,5 +303,79 @@ void CDlgRSAwithSmallPrimesOptions::OnBase16()
 {
 	UpdateData();
 	MsgBlockLength();
+	MsgAnzahlZeichen();
 	UpdateData(FALSE);
+}
+
+int CDlgRSAwithSmallPrimesOptions::GetBlockLength()
+{
+	int blockLength = 0;
+	if ( !m_RSAVariant )
+	{
+		int AlphabetSize = ( !m_TextOptions ) ? 256 : m_alphabet.GetLength();
+		if ( !m_codingMethod )
+			blockLength = (int)floor(m_log2N / (log(AlphabetSize)/log(2)));
+		else
+		{
+			double bl1 = log(AlphabetSize)/log(2);
+			int b1, b2;
+			double b3;
+			switch ( m_numberBasis ) {
+				case 0: b1=10;
+					break;
+				case 1: b1=2;
+					break;
+				case 2: b1=8;
+					break;
+				case 3: b1=16;
+			}
+			b2 = (int)ceil(log(AlphabetSize)/log(b1));
+			b3 = double(b2)*log(b1)/log(2);
+			blockLength = (int)(floor)(m_Bitlength / b3);
+			if ( blockLength*b3 + bl1 <= m_log2N ) blockLength++;
+		}
+	}
+	else
+	{
+		blockLength = 1;
+	}
+	return blockLength;
+}
+
+void CDlgRSAwithSmallPrimesOptions::OnCancel() 
+{
+		// TODO: Zusätzliche Prüfung hier einfügen
+	UpdateData();
+	int blockLength = GetBlockLength();
+
+	if ( m_BlockLength > blockLength ) 
+	{
+		m_BlockLength=blockLength;
+	}
+	/*
+	if (m_BlockLength < 1)
+	{
+		
+	}
+	*/
+	UpdateData(false);
+	CDialog::OnCancel();
+}
+
+void CDlgRSAwithSmallPrimesOptions::MsgAnzahlZeichen()
+{
+	if (m_TextOptions==0)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANZAHL_ZEICHEN,pc_str,STR_LAENGE_STRING_TABLE);
+		char line[256];
+		sprintf( line, pc_str, 256 );
+		m_AnzahlZeichen = line;	
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANZAHL_ZEICHEN,pc_str,STR_LAENGE_STRING_TABLE);
+		char line[256];
+		sprintf( line, pc_str, m_alphabet.GetLength() );
+		m_AnzahlZeichen = line;
+	}
 }

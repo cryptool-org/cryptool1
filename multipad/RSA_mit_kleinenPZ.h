@@ -38,6 +38,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(RSA_mit_kleinenPZ)
 	enum { IDD = IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN };
+	CEdit	m_control_edit5;
 	CEdit	m_control_edit13;
 	CButton	m_ButtonOptionen;
 	CButton	m_ButtonEncrypt;

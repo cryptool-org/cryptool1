@@ -29,14 +29,19 @@ extern volatile long ExitFactorisationCode;
 
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 void CStringToBig(CString &CStrNumber, Big &t, int base );
-void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base );
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base );
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int Bitlength, int base, bool CodingBasisSystem = false );
+
+void CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                                        int base );
+void CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                       int BlockLength, int base,  bool CodingBasisSystem = false );
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet,                  int base );
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int Bitlength,   int base,  bool CodingBasisSystem = false );
+
 void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase );
-void AlphabetToNumStr(CString &in, CString &NumStr, CString &Alphabet, int OutBase, bool CodingBasisSystem = false );
+void AlphabetToNumStr(CString    &in, CString &NumStr,          CString &Alphabet, int OutBase, bool CodingBasisSystem = false );
+void CharToNumStr    (const char *in, CString &NumStr, int len,                    int OutBase = 10, int Inbase = 256);
+void CharToNumStr    (CString    &in, CString &NumStr,                             int OutBase, bool CodingBasisSystem );
+
 
 void BigToCString(const Big &t, CString &CStrNumber, int base = 10, int OutLength = 0);
-void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase = 10, int Inbase = 256);
  
 class evaluate  
 {
@@ -90,7 +95,7 @@ protected:
 public:
 	TutorialRSA();
 	virtual ~TutorialRSA();
-	BOOL InitParameter( CString &pStr, CString &qStr, int base = 10 );
+	int  InitParameter( CString &pStr, CString &qStr, int base = 10 );
 	BOOL SetPublicKey ( CString &eStr, int base = 10 );
 	BOOL SetPrivateKey();
 	int  GetBlockLength();

@@ -11,6 +11,7 @@
 2 Automatische Analyse durchführen.=menu_analyze
 2 Informationen über das aktuelle Dokument berechnen.=menu_analyze
 2 Hilfe-Index anzeigen.=main_index
+2 Zeittafel=menu_zeittafel
 1 Dokument bearbeiten
 2 Neues Dokument erstellen.=HID_FILE_NEW
 2 Bestehendes Dokument öffnen.=HID_FILE_OPEN
