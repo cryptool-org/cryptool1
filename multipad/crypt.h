@@ -97,6 +97,7 @@ void NGramBin(const char *infile, const char *OldTitle);
 void PermutationAsc(const char *infile, const char *OldTitle);
 void Hashdemo(const char *infile,const char *OldTitle);
 void HashOfAFile();
+void SignatureTutorial(const char *infile, const char* OldTitle);
 
 
 BOOL CheckAlphabet( int minSize = 1);

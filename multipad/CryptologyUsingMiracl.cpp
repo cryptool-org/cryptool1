@@ -1176,6 +1176,7 @@ TutorialRSA::~TutorialRSA()
 
 }
 
+/*
 int TutorialRSA::InitParameter( Big &p, Big &q )
 {
 	isInitialized_N = isInitialized_e = isInitialized_d = false;
@@ -1195,6 +1196,29 @@ int TutorialRSA::InitParameter( Big &p, Big &q )
 	isInitialized_N = true;
 	return 0;
 }
+*/
+
+int TutorialRSA::InitParameter( Big &p, Big &q )
+{
+	int ePrime(0);
+	isInitialized_N = isInitialized_e = isInitialized_d = false;
+	if ( p<2 ) ePrime |= ERR_P_LESS_THAN_TWO;	
+	if ( q<2 ) ePrime |= ERR_Q_LESS_THAN_TWO;
+	if ( !prime( p ) ) ePrime |= ERR_P_NOT_PRIME;
+	if ( !prime( q ) ) ePrime |= ERR_Q_NOT_PRIME;
+	if ( p==q ) ePrime |= ERR_P_EQUALS_Q;	
+	int l1,l2;
+	l1=bits( p );
+	l2=bits( q );
+	if (l1+l2-1 > MAX_BIT_LENGTH) ePrime |= ERR_MAX_BIT_LENGTH;
+	if ( ePrime ) return ePrime;
+	N = p*q;
+	phiOfN = (p-1)*(q-1);
+	isInitialized_N = true;
+	return 0;
+}
+
+
 
 int TutorialRSA::InitParameter( CString &pStr, CString &qStr, int base )
 {

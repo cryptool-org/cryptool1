@@ -129,6 +129,7 @@ protected:
 	afx_msg void OnAnalyseZufallstestsFipspub1401();
 	afx_msg void OnEinzelverfahrenHashwerteHashdemo();
 	afx_msg void OnEinzelverfahrenHybridverfahrenHybridverschlsselung();
+	afx_msg void OnEinzelverfahrenSignDoc();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

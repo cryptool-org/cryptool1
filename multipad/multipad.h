@@ -24,7 +24,7 @@
 #include "MyDocument.h"
 #include "MyEditView.h"
 #include "SecudeLib.h"	// Hinzugefügt von ClassView
-
+#include "DlgSignTutorial.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Definiert in multipad.cpp
@@ -61,6 +61,7 @@ class CMultiPadApp : public CWinApp
 	afx_msg void OnEinzelverfahrenSchluesselgenerieren();
 	afx_msg void OnGenRandomData();
 	afx_msg void OnHashOfAFile();
+	afx_msg void OnEinzelverfahrenTutorialSignaturerzeugung();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

@@ -34,6 +34,8 @@
 #include "SelctAHashfunction.h"
 #include "Secude.h"
 #include "Hashdemo.h"
+#include "DlgSignTutorial.h"
+
 #include <fstream.h>
 
 #define MAX_LAENGE_STRTEXT 16000
@@ -3514,4 +3516,16 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	delete []t;
 	//Speicher auf dem Heap freigeben
 }
+
+//crypt.cpp
+void SignatureTutorial(const char *infile, const char* OldTitle)
+{
+	if(CDlgSignTutorial* SigDemo = new CDlgSignTutorial)
+	{
+		SigDemo->InitDocument( infile, OldTitle );
+		SigDemo->DoModal();
+		delete SigDemo;
+	}
+}
+
 

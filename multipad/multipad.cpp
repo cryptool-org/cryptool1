@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_HASH_OFAFILE, OnHashOfAFile)
+	ON_COMMAND(IDD_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG, OnEinzelverfahrenTutorialSignaturerzeugung)
 	//}}AFX_MSG_MAP
 
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)     // file commands...
@@ -574,9 +575,15 @@ void CMultiPadApp::OnGenRandomData()
 }
 
 
-
 void CMultiPadApp::OnHashOfAFile() 
 {
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 	HashOfAFile();	
+}
+
+
+void CMultiPadApp::OnEinzelverfahrenTutorialSignaturerzeugung() 
+{
+	CDlgSignTutorial DST;
+	DST.DoModal();
 }

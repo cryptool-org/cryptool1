@@ -25,12 +25,18 @@ protected:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgCertTutorial)
 	enum { IDD = IDD_CERT_TUTORIAL };
+	CEdit	m_CtrlName;
+	CButton	m_CtrlOK;
+	CString	m_sDName;
 	CString	m_sFirstName;
-	CString	m_sHash;
-	CString	m_sHashEnc;
+	CString	m_sKeyID;
 	CString	m_sName;
-	CString	m_sModN;
+	CString	m_sUserID;
+	CString	m_sBitLength;
+	CString	m_sPIN;
+	CString	m_sPINv;
 	CString	m_sKeyPublic;
+	CString	m_sModN;
 	//}}AFX_DATA
 
 
@@ -47,6 +53,8 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgCertTutorial)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnChangeEdit();
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

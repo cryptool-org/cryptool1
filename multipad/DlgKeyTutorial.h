@@ -42,10 +42,6 @@ private:
 	CString	m_sKeyPrivate;
 	CString	m_sModN;
 	CString	m_sPhiN;
-	CString	m_sFirstName;
-	CString	m_sName;
-	CString	m_sPIN;
-	CString	m_sPINv;
 	CString	m_sCheckPrime;
 	CString	m_sCheckPublic;
 	CString	m_sBitLength;

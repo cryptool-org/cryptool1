@@ -766,6 +766,14 @@ SOURCE=.\DlgGenRandomData.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgKeyTutorial.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyTutorial.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgMono.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -937,6 +945,14 @@ SOURCE=.\DlgSignSteps.cpp
 # Begin Source File
 
 SOURCE=.\DlgSignSteps.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSignTutorial.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSignTutorial.h
 # End Source File
 # Begin Source File
 

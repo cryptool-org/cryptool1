@@ -960,6 +960,61 @@ int PrintSignData(char *infile, const char *OldTitle, OctetString *in, bool& zug
 	
 	return 0;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+void Add2OString(OctetString*	osTarget, 
+				 const char*	Source,
+				 const int		Length)
+{
+	char* Buffer = new char[osTarget->noctets+Length];
+	for(unsigned u=0; u<osTarget->noctets; u++) Buffer[u] = osTarget->octets[u];
+	for(int i=0; i<Length; i++) Buffer[osTarget->noctets+i] = Source[i];
+	delete[] osTarget->octets;
+	osTarget->octets = Buffer;
+	osTarget->noctets += Length;
+}
+
+OctetString* PrintSignature(OctetString&	Signature, 
+							const CString&	EncAlg, 
+							const CString&	HshAlg, 
+							const CString&	UserKeyId)
+{
+	OctetString* osSignText = new OctetString;
+	memset(osSignText, 0, sizeof(OctetString));
+	CString sText;
+	int i;
+
+	sText.LoadString(IDS_STRING_MSG_SIGNATURE);
+	//for(i=0; i<; i++) sText += ' ';
+	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	Add2OString(osSignText, Signature.octets, Signature.noctets);
+	
+	// Ausgabe: 'Signaturlänge' in Anzahl der Octets
+	char signlength[20];
+	sText.LoadString(IDS_STRING_HEADING_SIGNATURELENGTH);
+	_itoa(Signature.noctets*8, signlength, 10); 
+	//for(i=0; i<; i++) sText += ' ';
+	sText += signlength;
+	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+	
+	// Ausgabe: 'Verfahren'
+	sText.LoadString(IDS_STRING_ASYMKEY_METHOD);
+	//for(i=0; i<; i++) sText += ' ';
+	sText += EncAlg; 
+	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+
+	// Ausgabe: 'Hashfunction'
+	sText.LoadString(IDS_STRING_ASYMKEY_SELECT_HASH_METHOD);
+	sText += HshAlg; 
+	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+
+	// Schlüssel mit dem Nachricht signiert wurde ausgeben
+	sText.LoadString(IDS_STRING_KEY);
+	sText += UserKeyId;
+	Add2OString(osSignText, LPCSTR(sText), sText.GetLength());
+
+	return osSignText;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //

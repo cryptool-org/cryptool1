@@ -15,22 +15,31 @@
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 
+
 class CTutorialCert : public TutorialRSA  
 {
 public:
-	BOOL isInitialized_Name, isInitialized_FName, isInitialized_PIN;
 	CTutorialCert();
 	virtual ~CTutorialCert();
 
-	BOOL SetName(CString& sName, CString& sFirstName);
-	BOOL SetPIN(CString& sPIN);
-	BOOL SetPublicKey ( CString &sKeyPublic, int base = 10 );
-	void GetName(CString& sName, CString& sFirstName);
+	BOOL SetName(CString& sName, CString& sFirstName, CString& sKeyId);
+	void GetName(CString& sName, CString& sFirstName, CString& sKeyId);
+	BOOL SetHashAlg(const CString& sHashAlg);
+	CString GetHashAlg(){return m_sHashAlg;}
+	BOOL SetPIN(const CString& sPIN);
+	BOOL CheckPIN(const CString& sPIN){return m_sPIN == sPIN;}
+	CString GetPIN(){return m_sPIN; }
+	BOOL SetPublicKey ( CString &sKeyPublic, const int base = 10 );
 	void GetPrimes( CString &sPrime_p, CString &sPrime_q );
 	BOOL GetPublicString( CString &sKeyPublic );
-	BOOL InitSecude();
-	int InitParameter(CString sPrime_p, CString sPrime_q, int base = 10 );
+	BOOL CreatePSE();
+	CString GetCert();
+	void GetKeyId(CString& sUserKeyId, CString& sDisName);
+	int InitParameter(CString& sPrime_p, CString& sPrime_q, int base = 10 );
 	int GetBitLength();
+	BOOL NameIsInitialized(){return m_NameIsInitialized;}
+	BOOL PSEIsInitialized(){return m_PSEIsInitialized;}
+
 
 
 protected:
@@ -38,11 +47,21 @@ protected:
 	CString m_sName;
 	CString m_sFirstName;
 	CString m_sPIN;
+	CString m_sCert;
 	Big		m_bigPrime_p;
 	Big		m_bigPrime_q;
+	BOOL	m_NameIsInitialized;
+	BOOL	m_PSEIsInitialized;
 	// PSE
+	CString	m_sPseName;
+	CString	m_sUserKeyId;
+	CString m_sKeyId;
+	CString m_sDisName;
 	PSE		m_hPSE;
 	Key		m_Key;
+	CString m_sHashAlg;
+	AlgId*  m_HashAlgId;
+	DName*  m_DName;
 	long	m_lTime;
 };
 

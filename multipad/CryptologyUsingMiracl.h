@@ -9,9 +9,9 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#define __DEVELOP_CRYPTOOL
+
 extern volatile long ExitFactorisationCode;
-
-
 
 #include "BIG.H"	// Hinzugefügt von der Klassenansicht
 #include <monty.h>
@@ -53,6 +53,23 @@ extern volatile long ExitFactorisationCode;
 #define SPLIT_NUMBERS_VSMODUL 2
 #define SPLIT_NUMBERS_VSFLOOR 4
 #define FORMAT_MODULO         8
+
+
+/* Mark Santiago --- Signatur-Demo */
+#define ERR_P_NOT_PRIME 1
+#define ERR_Q_NOT_PRIME 2
+#define ERR_E_TO_BIG 3
+#define ERR_P_EQUALS_Q  4
+#define ERR_P_TO_BIG 5
+#define ERR_Q_TO_BIG 6
+
+#define ERR_MAX_BIT_LENGTH 8
+#define ERR_P_LESS_THAN_TWO 16
+#define ERR_Q_LESS_THAN_TWO 32
+
+#define ERR_PQ_NOT_PRIME 3
+/***********************************/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nur temporär  definiert

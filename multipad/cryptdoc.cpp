@@ -181,6 +181,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 
 	ON_COMMAND(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnEinzelverfahrenHashwerteHashdemo)
 	ON_COMMAND(ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
+	ON_COMMAND(IDD_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1523,3 +1524,10 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 	
 	ein.close();
 }
+
+void CCryptDoc::OnEinzelverfahrenSignDoc() 
+{
+	UpdateContent();
+	SignatureTutorial ( ContentName, GetTitle());
+}
+

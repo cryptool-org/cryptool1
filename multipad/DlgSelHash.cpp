@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 CDlgSelHash::CDlgSelHash(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgSelHash::IDD, pParent)
+	: CDialog(CDlgSelHash::IDD, pParent), m_nIDFirst(IDC_MD2), m_nIDLast(IDC_RIPEMD160), m_nIDHash(0)
 {
 	//{{AFX_DATA_INIT(CDlgSelHash)
 		// HINWEIS: Der Klassen-Assistent fügt hier Elementinitialisierung ein
@@ -46,7 +46,7 @@ BOOL CDlgSelHash::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if(!m_nIDHash) m_nIDHash = IDC_MD2;
+	//if(!m_nIDHash) m_nIDHash = IDC_MD2;
 	CheckRadioButton(m_nIDFirst, m_nIDLast, m_nIDHash);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control

@@ -111,6 +111,9 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 	{
 		m_control_button_accept.EnableWindow(false);
 	}
+	
+	if(m_radio4) OnRadio5();
+
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

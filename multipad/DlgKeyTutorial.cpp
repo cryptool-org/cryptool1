@@ -28,10 +28,6 @@ CDlgKeyTutorial::CDlgKeyTutorial(CWnd* pParent /*=NULL*/)
 	m_sKeyPrivate = _T("");
 	m_sModN = _T("");
 	m_sPhiN = _T("");
-	m_sFirstName = _T("");
-	m_sName = _T("");
-	m_sPIN = _T("");
-	m_sPINv = _T("");
 	m_sCheckPrime = _T("");
 	m_sCheckPublic = _T("");
 	m_sBitLength = _T("");
@@ -54,10 +50,6 @@ void CDlgKeyTutorial::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RSA_KEY_PRIVATE, m_sKeyPrivate);
 	DDX_Text(pDX, IDC_EDIT_RSA_MODUL_N, m_sModN);
 	DDX_Text(pDX, IDC_EDIT_RSA_PHI_N, m_sPhiN);
-	DDX_Text(pDX, IDC_EDIT_CERT_FIRSTNAME, m_sFirstName);
-	DDX_Text(pDX, IDC_EDIT_CERT_NAME, m_sName);
-	DDX_Text(pDX, IDC_EDIT_CERT_PIN, m_sPIN);
-	DDX_Text(pDX, IDC_EDIT_CERT_PIN_VERIFY, m_sPINv);
 	DDX_Text(pDX, IDC_CHECK_PRIME, m_sCheckPrime);
 	DDX_Text(pDX, IDC_CHECK_PUBLIC, m_sCheckPublic);
 	DDX_Text(pDX, IDC_EDIT_RSA_BITLENGTH, m_sBitLength);
@@ -91,7 +83,7 @@ BOOL CDlgKeyTutorial::OnInitDialog()
 		m_Cert->GetParameter(m_sModN, m_sPhiN, m_sKeyPublic, m_sKeyPrivate); 
 		m_Cert->GetPublicString( m_sKeyPublic );
 		m_Cert->GetPrimes(m_sPrime_p, m_sPrime_q); // Primzahlen holen
-		m_Cert->GetName(m_sName, m_sFirstName); // Zertifikatsdaten holen
+		//m_Cert->GetName(m_sName, m_sFirstName); // Zertifikatsdaten holen
 	}
 
 	UpdateData(FALSE);
@@ -112,9 +104,10 @@ void CDlgKeyTutorial::OnGeneratePrime()
 	PrimeDialog = new DlgPrimesGenerator(this);
 
 	PrimeDialog->m_edit1 = "2^150";
-	PrimeDialog->m_edit3 = "2^150";
+	//PrimeDialog->m_edit3 = "2^150";
 	PrimeDialog->m_edit2 = "2^151";
-	PrimeDialog->m_edit4 = "2^151";
+	//PrimeDialog->m_edit4 = "2^151";
+	PrimeDialog->m_radio4 = 1;
 
 	if(PrimeDialog->DoModal()==IDOK) // Primzahl Generierung
 	{
@@ -144,7 +137,9 @@ void CDlgKeyTutorial::OnUpdateParameter()
 	CString sKeyPublic = m_sKeyPublic; // Eingegebene Formel (z.B. 2^16+1) sichern.
 	int		ePrime = m_Cert->InitParameter( m_sPrime_p, m_sPrime_q );
 	BOOL	bIsEmpty = m_sPrime_p.IsEmpty() || m_sPrime_q.IsEmpty();
-	m_sBitLength.Format(IDS_BIT, m_Cert->GetBitLength());
+	int		iBitLength = m_Cert->GetBitLength();
+	if(iBitLength) m_sBitLength.Format(IDS_BIT, iBitLength);
+		else m_sBitLength.Empty();
 	
 	if( bIsEmpty )
 	{
@@ -214,31 +209,6 @@ void CDlgKeyTutorial::OnOK()
 	UpdateData(TRUE);
 	UpdateData(FALSE);
 
-	if(m_sName.IsEmpty())
-	{
-		AfxMessageBox(IDS_NOTIFY_NAME);
-	}
-	else if(m_sFirstName.IsEmpty())
-	{
-		AfxMessageBox(IDS_NOTIFY_NAME);
-	}
-	else if(m_sPIN.IsEmpty())
-	{
-		AfxMessageBox(IDS_NOTIFY_PIN);
-	}
-	else if(m_sPIN != m_sPINv)
-	{
-		AfxMessageBox(IDS_NOTIFY_PIN_V);
-	}
-	else
-	{
-		UpdateData(TRUE);	
-		m_Cert->SetName(m_sName, m_sFirstName);
-		m_Cert->SetPIN(m_sPIN);
-		m_Cert->InitSecude();
-		UpdateData(FALSE);
-
-		CDialog::OnOK();
-	}
+	CDialog::OnOK();
 }
 

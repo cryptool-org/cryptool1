@@ -26,7 +26,7 @@ protected:
 	CString			m_sPathName; // Pfadname des Dokuments
 	CString			m_sFileName; // Titel des Dokuments
 	CString			m_sFileNameNew; // Titel des signierten Dokuments
-	CString			m_sHashAlg;  // Algorithmus Name
+	//CString			m_sHashAlg;  // Algorithmus Name
 	int				m_nIDHash;
 	int				m_nCols;
 	CFont			m_Font1;	
@@ -34,11 +34,13 @@ protected:
 	OctetString		m_osHashEnc;
 	BOOL			m_bUpdateHsh;
 	BOOL			m_bUpdateEnc;
-	BOOL			m_bUpdateRsl;
+	BOOL			m_bUpdateSgn;
+	BOOL			m_bUpdateCrt;
 
 	// Zeiger
 	OctetString*    m_Message;
 	OctetString*	m_Signature;
+	OctetString*	m_SignText;
 	CTutorialCert*	m_Cert;
 	CMyDocument*	m_NewDoc;
 
@@ -67,6 +69,7 @@ protected:
 // Implementierung
 protected:
 	void EnableButtons();
+	void ClearInfo();
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgSignTutorial)
@@ -84,7 +87,8 @@ protected:
 	afx_msg void OnInfoAlg();
 	afx_msg void OnCombine();
 	virtual void OnOK();
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	afx_msg void OnInfoCert();
+	afx_msg void OnInfoSign();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -9,6 +9,7 @@
 #include "DlgKeyTutorial.h"
 #include "DlgSelHash.h"
 #include "DlgCertTutorial.h"
+#include "asymmetric.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,7 +25,10 @@ CDlgSignTutorial::CDlgSignTutorial(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSignTutorial::IDD, pParent),
   m_nIDHash(0), 
   m_Message(0),
-  m_nCols(16)
+  m_Signature(0),
+  m_NewDoc(0),
+  m_nCols(16),
+  m_SignText(0)
 {
 	//{{AFX_DATA_INIT(CDlgSignTutorial)
 	m_DisplayInfo = _T("");
@@ -33,9 +37,6 @@ CDlgSignTutorial::CDlgSignTutorial(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 
 	m_Cert = new CTutorialCert;
-	m_NewDoc = 0;
-	m_Message = 0;
-	m_Signature = 0;
 	m_osHash.noctets = 0;
 	m_osHash.octets = 0;
 	m_osHashEnc.noctets = 0;
@@ -43,14 +44,19 @@ CDlgSignTutorial::CDlgSignTutorial(CWnd* pParent /*=NULL*/)
 
 	m_bUpdateHsh = TRUE;
 	m_bUpdateEnc = TRUE;
-	m_bUpdateRsl = TRUE;
+	m_bUpdateSgn = TRUE;
+	m_bUpdateCrt = TRUE;
 }
 
 CDlgSignTutorial::~CDlgSignTutorial()
 {
 	if(m_Cert) delete m_Cert;
+
 	if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
 	theApp.SecudeLib.aux_free_OctetString(&m_Message);
+	if(m_SignText) delete[] m_SignText->octets;
+	delete   m_SignText;
+	m_SignText = 0;
 }
 
 
@@ -81,7 +87,8 @@ BEGIN_MESSAGE_MAP(CDlgSignTutorial, CDialog)
 	ON_BN_CLICKED(IDC_SELECT_CERT, OnSelectCert)
 	ON_BN_CLICKED(IDC_INFO_ALG, OnInfoAlg)
 	ON_BN_CLICKED(IDC_COMBINE, OnCombine)
-		// HINWEIS: Der Klassen-Assistent fügt hier Zuordnungsmakros für Nachrichten ein
+	ON_BN_CLICKED(IDC_INFO_CERT, OnInfoCert)
+	ON_BN_CLICKED(IDC_INFO_SIGN, OnInfoSign)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -125,11 +132,11 @@ void CDlgSignTutorial::OnSelectDocument()
 
 	if(doc->DoModal()==IDOK)// Aufruf des File-Dialogs
 	{
+		m_bUpdateHsh = TRUE;
+		m_bUpdateEnc = TRUE;
+		m_bUpdateSgn = TRUE;
 		if( m_sPathName != doc->GetPathName() )
 		{
-			m_bUpdateHsh = TRUE;
-			m_bUpdateEnc = TRUE;
-			m_bUpdateRsl = TRUE;
 			m_sFileName = doc->GetFileName(); // Titel setzen
 			m_sPathName = doc->GetPathName(); // Pfadnamen setzen
 		}		
@@ -138,10 +145,9 @@ void CDlgSignTutorial::OnSelectDocument()
 			theApp.SecudeLib.aux_free_OctetString(&m_Message);
 			m_Message=theApp.SecudeLib.aux_file2OctetString(m_sPathName);
 		}
+		EnableButtons(); // Bitmap-Butttons ein/ausblenden
 	}	
 	delete doc;
-
-	EnableButtons(); // Bitmap-Butttons ein/ausblenden
 }
 
 BOOL CDlgSignTutorial::InitDocument(const char *infile, const char* OldTitle)
@@ -155,33 +161,33 @@ BOOL CDlgSignTutorial::InitDocument(const char *infile, const char* OldTitle)
 
 void CDlgSignTutorial::OnInfoDocument() 
 {
-	if (m_Message->noctets)
-	{
-		int srcSize = m_Message->noctets;
-		int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
+	if (!m_Message->noctets) return;
 	
-		char *msgdata = new char[destSize+1];
+	int srcSize = m_Message->noctets;
+	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
 
-		if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_Message->octets), srcSize, m_nCols))
-		{
-			//FEHLER xxxxxxxxxxxxx MARKSSSS
-		}
-		
-		UpdateData(TRUE);
-		m_DisplayContent.LoadString(IDS_CONTENT_DOCUMENT);
-		m_DisplayInfo = static_cast<CString>(msgdata);
-		m_DisplayContent += m_sFileName;
-		UpdateData(FALSE);	
-		
-		delete[] msgdata;
+	char *msgdata = new char[destSize+1];
+
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_Message->octets), srcSize, m_nCols))
+	{
+		//FEHLER xxxxxxxxxxxxx MARKSSSS
 	}
+	
+	UpdateData(TRUE);
+	m_DisplayContent.LoadString(IDS_CONTENT_DOCUMENT);
+	m_DisplayInfo = static_cast<CString>(msgdata);
+	m_DisplayContent += m_sFileName;
+	UpdateData(FALSE);	
+	
+	delete[] msgdata;
 }
+
 
 void CDlgSignTutorial::OnSelectKey() 
 {
-	CString a1, a2, a3, a4, a5, a6, b1, b2, b3, b4, b5, b6;
+	CString a1, a2, a3, a4, a5, a6, a7, b1, b2, b3, b4, b5, b6, b7;
 	m_Cert->GetParameter(a1, a2, a3, a4); // alte Werte retten
-	m_Cert->GetName(a5, a6);
+	m_Cert->GetName(a5, a6, a7);
 	CDlgKeyTutorial* KeyDialog;
 	KeyDialog = new CDlgKeyTutorial(this);
 
@@ -189,36 +195,35 @@ void CDlgSignTutorial::OnSelectKey()
 	if(KeyDialog->DoModal()==IDOK) 
 	{
 		m_Cert->GetParameter(b1, b2, b3, b4);
-		m_Cert->GetName(b5, b6);
+		m_Cert->GetName(b5, b6, b7);
 		if(a1 != b1 || a2 != b2 || a3 != b3 || a4 != b4)
 		{
 			m_bUpdateEnc = TRUE;
-			m_bUpdateRsl = TRUE;
+			m_bUpdateSgn = TRUE;
+			m_bUpdateCrt = TRUE;
 		}
-		if(a5 != b5 || a6 != b6) 
+		if(a5 != b5 || a6 != b6 || a7 != b7 ) 
 		{
-			m_bUpdateRsl = TRUE;
+			m_bUpdateSgn = TRUE;
+			m_bUpdateCrt = TRUE;
 		}
+		EnableButtons();
 	}
-
-	delete KeyDialog;
-
-	EnableButtons();
+	delete KeyDialog;	
 }
 
 void CDlgSignTutorial::OnInfoKey() 
 {
-	CString sName, sFirstName, sKeyID, sModN, sPhiN, sKeyPublic, sKeyPrivate, sOutput;
+	if(!m_Cert->IsInitialized()) return;
+
+	CString sModN, sPhiN, sKeyPublic, sKeyPrivate, sOutput;
 	m_Cert->GetParameter(sModN, sPhiN,sKeyPublic,sKeyPrivate);
-	m_Cert->GetName(sName, sFirstName);
+
+	ClearInfo();
 	UpdateData(TRUE);
 	m_DisplayContent.LoadString(IDS_CONTENT_KEY);
-
-	// AUSGABE
-	sOutput.Format(IDS_NAME2, sFirstName, sName);
-	m_DisplayInfo = sOutput;
-	//sOutput.Format(IDS_KEY_IDENTIFIER2, sKeyID);
-	//m_DisplayInfo += sOutput;
+	sOutput.Format(IDS_BITLENGTH, m_Cert->GetBitLength());
+	m_DisplayInfo += sOutput;
 	sOutput.Format(IDS_MOD_N, sModN);
 	m_DisplayInfo += sOutput;
 	sOutput.Format(IDS_PHI_N, sPhiN);
@@ -235,6 +240,8 @@ void CDlgSignTutorial::OnInfoKey()
 /********************************************************************************/
 void CDlgSignTutorial::EnableButtons()
 {
+	ClearInfo();
+
 	UpdateData(TRUE);
 	// Info Dokument
 	if( !m_sPathName.IsEmpty() )
@@ -272,20 +279,20 @@ void CDlgSignTutorial::EnableButtons()
 	{}
 
 	// Info Hashwert
-	if( m_osHash.octets && !m_bUpdateHsh )
+	if( m_osHash.noctets && !m_bUpdateHsh )
 	{}
 	else
 	{}
 
 	// Info  verschlüsselter Hashwert
-	if( m_osHashEnc.octets && !m_bUpdateEnc )
+	if( m_osHashEnc.noctets && !m_bUpdateEnc )
 	{}
 	else
 	{}
 
 	/*
 	// Info signiertes Dokument
-	if( && !m_bUpdateHsh && !m_bUpdateEnc && !m_bUpdateRsl)
+	if( && !m_UpdateCrt && !m_bUpdateHsh && !m_bUpdateEnc && !m_bUpdateSgn)
 	{}
 	else
 	{}
@@ -324,82 +331,82 @@ void CDlgSignTutorial::OnSelectHashAlg()
 	{
 		m_bUpdateHsh = TRUE;
 		m_bUpdateEnc = TRUE;
-		m_bUpdateRsl = TRUE;
+		m_bUpdateSgn = TRUE;
 		m_nIDHash = HashDialog->GetHashID();
 		switch( m_nIDHash ) 
 		{
-			case IDC_MD2:		m_sHashAlg = "MD2";			break;
-			case IDC_MD4:		m_sHashAlg = "MD4";			break;
-			case IDC_MD5:		m_sHashAlg = "MD5";			break;
-			case IDC_SHA:		m_sHashAlg = "SHA";			break;
-			case IDC_SHA_1:		m_sHashAlg = "SHA-1";		break;
-			case IDC_RIPEMD160: m_sHashAlg = "RIPEMD160";	break;
-			default:			m_sHashAlg.Empty();
+			case IDC_MD2:		m_Cert->SetHashAlg(static_cast<CString>("MD2"));		break;
+			case IDC_MD5:		m_Cert->SetHashAlg(static_cast<CString>("MD5"));		break;
+			case IDC_SHA:		m_Cert->SetHashAlg(static_cast<CString>("SHA"));		break;
+			case IDC_SHA_1:		m_Cert->SetHashAlg(static_cast<CString>("SHA-1"));		break;
+			case IDC_RIPEMD160: m_Cert->SetHashAlg(static_cast<CString>("RIPEMD160"));	break;
+			default:			m_Cert->SetHashAlg(static_cast<CString>(""));
 		}
-	}
-	
-	delete HashDialog;
-
-	EnableButtons();
+		EnableButtons();
+	}	
+	delete HashDialog;	
 }
 
 
 
 void CDlgSignTutorial::OnCompute() 
 {
+	if(m_sPathName.IsEmpty()) return;
+
 	m_osHash.noctets = 0;
    
-	if(!m_sPathName.IsEmpty())
+	switch (m_nIDHash)
 	{
-		switch (m_nIDHash)
-		{
-			case IDC_MD2:
-				theApp.SecudeLib.sec_hash_all(m_Message, &m_osHash, theApp.SecudeLib.md2_aid, NULL);
-				break;
-			case IDC_MD4:
-				theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md4_aid,NULL);
-				break;
-			case IDC_MD5:
-				theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md5_aid,NULL);
-				break;
-			case IDC_SHA:
-				theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha_aid,NULL);
-				break;
-			case IDC_SHA_1:
-				theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha1_aid,NULL);
-				break;
-			case IDC_RIPEMD160:
-				theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.ripemd160_aid,NULL);
-				break;
-		}
-		m_bUpdateHsh = FALSE;
-		EnableButtons();	
-	}	
+		case IDC_MD2:
+			theApp.SecudeLib.sec_hash_all(m_Message, &m_osHash, theApp.SecudeLib.md2_aid, NULL);
+			break;
+		case IDC_MD4:
+			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md4_aid,NULL);
+			break;
+		case IDC_MD5:
+			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md5_aid,NULL);
+			break;
+		case IDC_SHA:
+			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha_aid,NULL);
+			break;
+		case IDC_SHA_1:
+			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha1_aid,NULL);
+			break;
+		case IDC_RIPEMD160:
+			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.ripemd160_aid,NULL);
+			break;
+	}
+	m_bUpdateHsh = FALSE;		
+	EnableButtons();
 }
 
 void CDlgSignTutorial::OnInfoHash() 
 {
-	if (m_osHash.noctets)
+	if (!m_osHash.noctets || m_bUpdateHsh) return;
+	
+	int srcSize = m_osHash.noctets;
+	OctetString msgdata;
+
+	if (!HexDumpOct(msgdata, m_osHash, m_nCols))
 	{
-		int srcSize = m_osHash.noctets;
-		OctetString msgdata;
-
-		if (!HexDumpOct(msgdata, m_osHash, m_nCols))
-		{
-			//FEHLER
-		}
-		
-		UpdateData(TRUE);
-		m_DisplayInfo = static_cast<CString>(msgdata.octets);
-		m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_sHashAlg, m_sFileName);
-		UpdateData(FALSE);
-
-		delete[] msgdata.octets;
+		//FEHLER
+		return;
 	}
+
+	
+	UpdateData(TRUE);
+	dataToHexDump(msgdata.octets, msgdata.noctets, m_DisplayInfo);
+	m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
+	UpdateData(FALSE);
+
+	delete[] msgdata.octets;
+	
 }
 
 void CDlgSignTutorial::OnEncrypt() 
 {
+	if(!m_osHash.noctets || !m_Cert->IsInitialized()) return;
+
 	CString sN, sD, sC, sp, se, test;
 	m_Cert->GetParameter(sN, sp, se, sD);
 	Big Hash = from_binary(m_osHash.noctets, m_osHash.octets);
@@ -416,98 +423,78 @@ void CDlgSignTutorial::OnEncrypt()
 		m_osHashEnc.octets = new char[m_osHashEnc.noctets];
 		to_binary(C, m_osHashEnc.noctets, m_osHashEnc.octets);
 	}
-
 	m_bUpdateEnc = FALSE;
 	EnableButtons();
 }
 
 void CDlgSignTutorial::OnInfoHashEnc() 
 {
-	if (m_osHashEnc.noctets)
-	{
-		int srcSize = m_osHashEnc.noctets;
-		int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
-
+	if (!m_osHashEnc.noctets || m_bUpdateEnc) return;
 	
-		char *msgdata = new char[destSize+1];
+	int srcSize = m_osHashEnc.noctets;
+	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
 
-		if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc.octets), srcSize, m_nCols))
-		{
-			//FEHLER
-		}
-		
-		UpdateData(TRUE);
-		m_DisplayInfo = static_cast<CString>(msgdata);
-		m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_sHashAlg, m_sFileName);
-		UpdateData(FALSE);	
-		
-		delete[] msgdata;
+
+	char *msgdata = new char[destSize+1];
+
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc.octets), srcSize, m_nCols))
+	{
+		//FEHLER
+		return;
 	}
+	
+	UpdateData(TRUE);
+	m_DisplayInfo = static_cast<CString>(msgdata);
+	m_DisplayContent.Format(IDS_STRING_ENC_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
+	UpdateData(FALSE);	
+	
+	delete[] msgdata;
+	
 }
 
 void CDlgSignTutorial::OnSelectCert() 
 {
+	if(!m_Cert->IsInitialized()) return;
+
 	CDlgCertTutorial* CertDialog;
 	CertDialog = new CDlgCertTutorial(this);
 
 	CertDialog->InitRSA(m_Cert);
 	if(CertDialog->DoModal()==IDOK) 
 	{
-		
+		m_bUpdateSgn=TRUE;
+		if(m_Cert->CreatePSE())
+		{
+			m_bUpdateCrt=FALSE;
+		}
+		EnableButtons();
 	}
 
 	delete CertDialog;
 
-	EnableButtons();	
+	
 }
 
 void CDlgSignTutorial::OnInfoAlg() 
 {
+	if(m_Cert->GetHashAlg().IsEmpty()) return;
+
 	UpdateData(TRUE);
 	m_DisplayContent.LoadString(IDS_CONTENT_ALG);
-	m_DisplayInfo = m_sHashAlg;
+	m_DisplayInfo = m_Cert->GetHashAlg();
 	UpdateData(FALSE);
 }
 
 void CDlgSignTutorial::OnCombine() 
 {
-	if(m_Message->noctets)
-	{
-		/*
-		char outfile[128];
-		WINDOWPLACEMENT place;
-		CWnd* CWnd_hilf;
-		BOOL NotFirst(FALSE);
-
-		if(m_NewDoc)
-		{
-			// Älters Signiertes Dokument ersetzen
-			CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
-			CWnd_hilf->GetWindowPlacement( &place );
-			m_NewDoc->SetModifiedFlag(FALSE);
-			m_NewDoc->OnCloseDocument();
-			m_NewDoc = 0;
-			NotFirst = TRUE;
-		}
-
-		GetTmpName(outfile,"cry",".hex");
-
-		// Signatur erstellen:
-		theApp.SecudeLib.aux_OctetString2file(m_Message,outfile,2);
-
-
-		m_NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-		remove(outfile);
-		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_sHashAlg, m_sFileName);
-		m_NewDoc->SetTitle(m_sFileNameNew);
-		if(NotFirst)
-		{
-			// Position des Vorgängerdokuments zuweisen
-			CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
-			CWnd_hilf->SetWindowPlacement( &place );
-		}
-		*/		
-	}
+	if(!m_Message->noctets) return;
+	if(m_SignText) delete[] m_SignText->octets;
+	delete   m_SignText;
+	m_SignText = 0;
+		
+	CString UserKeyId, Buffer;
+	m_Cert->GetKeyId(UserKeyId, Buffer);
+	m_SignText = PrintSignature(m_osHashEnc, "RSA", m_Cert->GetHashAlg(),UserKeyId);
 }
 
 void CDlgSignTutorial::OnOK() 
@@ -522,9 +509,52 @@ void CDlgSignTutorial::OnOK()
 		theApp.SecudeLib.aux_OctetString2file(m_Message,outfile,2);
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
-		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_sHashAlg, m_sFileName);
+		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
 		NewDoc->SetTitle(m_sFileNameNew);
 	}
 	
 	CDialog::OnOK();
 }
+
+void CDlgSignTutorial::ClearInfo()
+{
+	UpdateData(TRUE);
+	m_DisplayContent.Empty();
+	m_DisplayInfo.Empty();	
+	UpdateData(FALSE);
+}
+
+void CDlgSignTutorial::OnInfoCert() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	if(!m_Cert->PSEIsInitialized()) return;
+
+	UpdateData(TRUE);
+	m_DisplayContent.LoadString(IDS_CONTENT_CERT);
+	m_DisplayInfo = m_Cert->GetCert();
+	UpdateData(FALSE);
+}
+
+void CDlgSignTutorial::OnInfoSign() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	int srcSize = m_SignText->noctets;
+	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
+
+
+	char *msgdata = new char[destSize+1];
+
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_SignText->octets), srcSize, m_nCols))
+	{
+		//FEHLER
+		return;
+	}
+
+
+	UpdateData(TRUE);
+	m_DisplayContent.Format(IDS_CONTENT_SIGN, m_Cert->GetHashAlg(), m_sFileName);
+	m_DisplayInfo = static_cast<CString>(msgdata);
+	UpdateData(FALSE);
+}
+
