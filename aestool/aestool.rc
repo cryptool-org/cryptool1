@@ -79,7 +79,7 @@ CAPTION "Info über AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.0",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.1",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
@@ -89,7 +89,7 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 230
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
@@ -195,17 +195,20 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040704B0"
+        BLOCK "040704b0"
         BEGIN
+            VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "MFC-Anwendung aestool\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "aestool\0"
-            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "aestool.EXE\0"
+            VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Anwendung aestool\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -351,7 +354,7 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 233
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
@@ -428,7 +431,7 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.0",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.1",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
