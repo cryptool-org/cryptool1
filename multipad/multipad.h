@@ -44,7 +44,6 @@ extern HWND hWndAktivesFenster;
 #define SCHLUESSEL_LINEAR		1
 #define SCHLUESSEL_QUADRATISCH	2
 
-
 class CMultiPadApp : public CWinApp
 {
 	BOOL InitInstance();

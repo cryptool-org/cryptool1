@@ -1906,13 +1906,13 @@ BEGIN
                     SS_NOTIFY
 END
 
-IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 269, 175
+IDD_DIALOG_FREQTEST DIALOG DISCARDABLE  0, 0, 269, 278
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Dialog beenden",IDOK,183,149,79,19
-    COMBOBOX        IDC_COMBO_ALPHA,108,18,45,44,CBS_DROPDOWN | CBS_SORT | 
+    DEFPUSHBUTTON   "&Dialog beenden",IDOK,183,251,79,20
+    COMBOBOX        IDC_COMBO_ALPHA,108,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Signifikanz-Niveau ""alpha"":",IDC_STATIC,15,20,88,8
     GROUPBOX        "Parameter Auswahl",IDC_STATIC,7,7,255,82
@@ -1932,8 +1932,12 @@ BEGIN
     CONTROL         "Zufällig gewählte Testblöcke verwenden",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
     LTEXT           "Tupelgrösse:",IDC_TUPEL_STATIC,172,20,42,8
-    COMBOBOX        IDC_TUPELCOMBO,228,18,27,60,CBS_DROPDOWN | CBS_SORT | 
+    COMBOBOX        IDC_TUPELCOMBO,228,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT4,80,164,62,17,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,80,186,62,17,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,80,209,62,17,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,80,234,62,17,ES_AUTOHSCROLL
 END
 
 IDD_DIALOG_HINTS DIALOG DISCARDABLE  0, 0, 308, 202
@@ -1961,7 +1965,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,127,106,10
     LTEXT           "Long Run Länge:",IDC_STATIC,14,145,56,8
     LTEXT           "Signifikanz-Niveau ""alpha"": ",IDC_STATIC,14,21,90,8
-    COMBOBOX        IDC_COMBO1,120,19,66,46,CBS_DROPDOWN | CBS_SORT | 
+    COMBOBOX        IDC_COMBO1,120,19,66,46,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     CONTROL         "Default Run Test  Parameter",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,14,39,104,10
@@ -2433,7 +2437,7 @@ BEGIN
         END
         POPUP "&Zufallstests"
         BEGIN
-            MENUITEM "&Autokerrelation Test",       ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION
+            MENUITEM "&Autokorrelation Test",       ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION
 
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
@@ -2862,6 +2866,16 @@ BEGIN
 0x0034, 
     IDC_TUPELCOMBO, 0x403, 2, 0
 0x0035, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0036, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0037, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0038, 
+    IDC_TUPELCOMBO, 0x403, 2, 0
+0x0039, 
+    IDC_TUPELCOMBO, 0x403, 3, 0
+0x3031, "\000" 
     0
 END
 
@@ -3397,10 +3411,10 @@ BEGIN
         VERTGUIDE, 231
         VERTGUIDE, 255
         TOPMARGIN, 7
-        BOTTOMMARGIN, 168
+        BOTTOMMARGIN, 271
         HORZGUIDE, 50
         HORZGUIDE, 67
-        HORZGUIDE, 149
+        HORZGUIDE, 251
     END
 
     IDD_DIALOG_HINTS, DIALOG
@@ -4473,6 +4487,17 @@ BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
     ID_HOMOPHONE_HEX        "Verschlüsseln mit ein- oder zweifacher Permutation"
     ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation"
+    ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
+                            "Autokorrelation Test des Dokumentes durchführen"
+    ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
+                            "Frequency Test des Dokumentes durchführen"
+    ID_ANALYSE_ZUFALLSTESTS_POKERTEST "Poker Test des Dokumentes durchführen"
+    ID_ANALYSE_ZUFALLSTESTS_RUNS 
+                            "Run und Long-Run Test des Dokumentes durchführen"
+    ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 
+                            "Serial Test des Dokumentes durchführen"
+    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
+                            "FIPS-PUB-140-1 Test-Batterie an dem Dokument durchführen"
     ID_ANALYSE_ZUFALLSTESTS_LONGRUNTEST "Testet die Datei nach einem Long-Run"
 END
 

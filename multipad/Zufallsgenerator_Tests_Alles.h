@@ -12,6 +12,9 @@
 #if !defined(AFX_ZUFALLSGENERATOR_TESTS_ALLES_H__F59A6EF7_8003_11D5_A855_00025532117A__INCLUDED_)
 #define AFX_ZUFALLSGENERATOR_TESTS_ALLES_H__F59A6EF7_8003_11D5_A855_00025532117A__INCLUDED_
 
+// Makro-Funktion BITT - für Bit-Weise Zugriff and die Daten
+#define bitt(x, bit) ((x >> ( 7 - bit )) & 1)
+
 
 
 #if _MSC_VER > 1000
@@ -32,7 +35,7 @@ protected:
 	UINT offs;
 	UINT degr;				//Kein ID sondern das Wert von den Freiheitsgrad v
 	double test_ergeb;		//Das Test-Ergebnis
-	double def_param;		//parameter mit dem man das Ergebnis vergleicht
+//	double def_param;		//parameter mit dem man das Ergebnis vergleicht
 	BOOL bestanden;			//Ob das Test bestanden ist oder nicht
 	
 	//Die Member-Funktionen
@@ -46,14 +49,13 @@ protected:
 	const char *oldtitle;  //für die test() Funktion
 
 
-
 public:
 	BOOL fips;
 	UINT tupel;
 	void Set_degr( UINT n ) { degr = n; }
 	void Set_infile( const char *n ) { infile = n; }
 	void Set_oldtitle( const char *n ) { oldtitle = n; }
-	void Set_DefParam( double n ) { def_param = n; }
+	void Set_DefParam( double n );
 	virtual void test() = 0;
 	BOOL GetResult() { return bestanden; }
 	BOOL SetOffset( UINT n );
@@ -62,25 +64,35 @@ public:
 	BOOL def, def2; // def ist für default Offset und Testlänge
 					// def2 ist für Random Offset und Testlänge
 
+// nicht vergessen: raus!
+	long einsen;
+// nict vergessen: raus!
+	long nullen;
+	long testlaenge;
+////////////////////////
+	long GetEinsen() { return einsen; }
+	long GetNullen() { return nullen; }
+	long GetTestLaenge() { return testlaenge; }
+	double GetDefaultStaticParam() { return def_param; }
+	double def_param;		//parameter mit dem man das Ergebnis vergleicht
+////////////////////////////////////
+
 	//Konstruktor-Destruktor
 
 	Zufallsgenerator_Tests();
 	virtual ~Zufallsgenerator_Tests();
-
 };
 
 // Frequency Test
 class Freq_Test : public Zufallsgenerator_Tests  
 {
 public:
-	long einsen;
 	UINT tupel;
 
 	//Konstruktor-Destruktor
 
 	Freq_Test();
 	virtual ~Freq_Test();
-
 	//Definition von der virtuellen Funktion test()
 
 	void test();

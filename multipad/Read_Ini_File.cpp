@@ -180,4 +180,3 @@ int CReadIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	return 0;
 }
- 

@@ -10,6 +10,7 @@
 #include "DlgParamRandSECUDE.h"
 #include "ExtEuclid.h"
 #include "crypt.h"
+#include "cryptdoc.h"
 #include "DlgPrimesGenerator.h"
 
 #ifdef _DEBUG

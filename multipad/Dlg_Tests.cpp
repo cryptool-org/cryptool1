@@ -28,8 +28,12 @@ Dlg_Tests_Freq::Dlg_Tests_Freq(CWnd* pParent /*=NULL*/)
 	m_Lang = 1024;
 	m_Default = TRUE;
 	m_Default_2 = TRUE;
+	m_Einsen = 0;
+	m_Nullen = 0;
+	m_Laenge = 0;
 	infile = NULL;
 	oldTitle = NULL;
+	m_DefaultStaticParam = 0.0;
 	//}}AFX_DATA_INIT
 	currentTest = 0;	
 	s_alternativeWindowText[0]=0;
@@ -55,6 +59,10 @@ void Dlg_Tests_Freq::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_Lang);
 	DDX_Check(pDX, IDC_CHECK1, m_Default);
 	DDX_Check(pDX, IDC_CHECK2, m_Default_2);
+	DDX_Text(pDX, IDC_EDIT5, m_Einsen);
+	DDX_Text(pDX, IDC_EDIT4, m_Nullen);
+	DDX_Text(pDX, IDC_EDIT6, m_Laenge);
+	DDX_Text(pDX, IDC_EDIT8, m_DefaultStaticParam);
 	//}}AFX_DATA_MAP
 }
 
@@ -170,13 +178,20 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 	{
 		currentTest->Set_DefParam(iniFile.GetAlphaParam(alpha, currentTest->Get_degr()));
 
+		// currentTest->def_param = iniFile.GetAlphaParam(alpha, currentTest->Get_degr());
 		if (m_Default == TRUE) currentTest->def=TRUE;
 		else if (m_Default == FALSE) currentTest->def=FALSE;
 
 		if (m_Default_2 == TRUE) currentTest->def2=TRUE;
 		else if (m_Default_2 == FALSE) currentTest->def2=FALSE;
 
+		UpdateData(TRUE);
 		currentTest->test();
+		m_Nullen = currentTest->GetNullen();
+		m_Einsen = currentTest->GetEinsen();
+		m_Laenge = currentTest->GetTestLaenge();
+		m_DefaultStaticParam = currentTest->def_param;
+		UpdateData(FALSE);
 
 		if(!currentTest->GetResult())
 		{
@@ -544,7 +559,7 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnCheck1()
 	else if ( m_Default_Longrun == FALSE )
 	{
 		UpdateData(TRUE);
-		m_Longrunlang = 36;
+		m_Longrunlang = 34;
 		UpdateData(FALSE);
 		m_Longrunlang_Ctrl.EnableWindow(FALSE);
 		m_Default_Longrun = TRUE;

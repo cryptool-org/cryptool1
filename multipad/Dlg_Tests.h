@@ -40,6 +40,10 @@ public:
 	UINT	m_Lang;
 	BOOL	m_Default;
 	BOOL	m_Default_2;
+	long	m_Einsen;
+	long	m_Nullen;
+	long	m_Laenge;
+	double	m_DefaultStaticParam;
 	//}}AFX_DATA
 
 	CString alpha;
