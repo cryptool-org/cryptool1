@@ -38,21 +38,6 @@ void RSA_mit_kleinenPZ::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int bas
 	mHeader = line;
 }
 
-void Message( int IDS_STRING_ID, int No = 0 )
-{
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
-	if ( 0 != No )
-	{
-		char line[IDS_STRINGLENGTH];
-		sprintf( line, pc_str, No );
-		AfxMessageBox (line);
-	}
-	else
-	{
-		AfxMessageBox (pc_str);
-	}
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Constructor/Destructor + MFC Source

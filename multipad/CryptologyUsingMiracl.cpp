@@ -2127,6 +2127,7 @@ int TutorialFactorisation::initv()
     if (digits<10) mmm=digits;               
     else mmm=25;
     if (digits>20) mmm=(digits*digits*digits*digits)/4096;
+
     dp=(double)2*(mmm+100);          /* number of primes to generate */
 
     maxp=(int)(dp*(log(dp*log(dp)))); /* Rossers upper bound */

@@ -7,6 +7,21 @@
 
 #include "DlgFortschritt.h"
 
+//////////////////////////////////////////////////////////////////
+//
+//
+//
+
+#define IDS_STRINGLENGTH 1024
+void Message(int IDS_STRING_ID, int No1 = 0, int No2 = 0);
+void Message(int IDS_STRING_ID, int No, const char * str, bool transpose = false);
+void Message(int IDS_STRING_ID, const char* str1, const char* str2 = NULL);
+
+/////////////////////////////////////////////////////////////////
+//
+//
+//
+
 typedef struct {
 	const char	*infile;
 	const char	*OldTitle;

@@ -35,6 +35,7 @@ extern volatile long ExitFactorisationCode;
 #define EVAL_NULL 2
 #define EVAL_EINS 3
 #define EVAL_OK 4
+#define ERROR_SPEICHER 7
 
 
 #define TIMES '*'
@@ -61,7 +62,6 @@ extern volatile long ExitFactorisationCode;
 //
 // diese defines in eine globale HeaderDatei unterbringen
 //
-#define IDS_STRINGLENGTH 256
 #define VALID_FORMULA "0..9^+-*/()"
 #define VALID_BIN     "01"
 #define VALID_OCT     "0..7"

@@ -39,6 +39,66 @@ int *MaxPermu[26];
 float Fortschritt=20.0;
 
 //////////////////////////////////////////////////////////////////////////////
+//
+// Message Box Handling
+//
+
+void Message( int IDS_STRING_ID, int No1, int No2 )
+{
+	char line[IDS_STRINGLENGTH];
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
+	if ( 0 == No2 )
+	{
+		if ( 0 == No1 )
+		{
+			AfxMessageBox (pc_str);
+		}
+		sprintf( line, pc_str, No1 );
+		AfxMessageBox (line);
+	}
+	else
+	{
+		sprintf( line, pc_str, No1, No2 );
+	}
+}
+
+void Message(int IDS_STRING_ID, int No, const char * str, bool transpose)
+{
+	char line[IDS_STRINGLENGTH];
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
+	if ( transpose )
+	{
+		sprintf( line, pc_str, str, No );
+	}
+	else
+	{
+		sprintf( line, pc_str, No, str );
+	}
+	AfxMessageBox (line);
+}
+
+void Message(int IDS_STRING_ID, const char* str1, const char* str2)
+{
+	char line[IDS_STRINGLENGTH];
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
+	if ( NULL == str2 )
+	{
+		sprintf( line, pc_str, str1 );
+	}
+	else
+	{
+		sprintf( line, pc_str, str1, str2 );
+	}
+	AfxMessageBox (line);
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
 KeyData keylist[KEYDATA_TABLE_SIZE];
 
 //////////////////////////////////////////////////////////////////////////////
