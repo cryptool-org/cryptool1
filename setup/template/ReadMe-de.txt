@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.03, Juli 2002
+         CrypTool, Version 1.3.03, August 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
          (c) Universität Siegen und Karlsruhe
          $Id$
@@ -39,7 +39,7 @@
 10.1. .... Wirtschaftswoche Spezial
 10.2. .... c't 14/2001, S. 204-208
 10.3. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
-10.4. .... Freeware-Projekt Crank etc.
+10.4. .... Freeware-Projekt Crank, CAP, CryptAid,  etc.
 11. .... Anhang
 11.1. .... CrypTool unter Linux mit Wine
 
@@ -159,14 +159,14 @@ Programm integriert, das auch eigenständig benutzt werden kann.
 Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
 ein beliebiger Dateiinhalt AES-verschlüsselt wird.
 
-(4) Die Geschichte "Der Dialog der Schwestern" als PDF-Datei.
-----------------------------------------------
+(4) Die Geschichte "Der Dialog der Schwestern" als PDF-Datei
+------------------------------------------------------------
 Hierin wird eine Variante des RSA-Verfahren von den Titelheldinnen
 benutzt, um verschlüsselt zu kommunizieren.
 
-In Kapitel 4 (unten in diesem Readme) sind alle Einzeldateien,
-die bei der Installation des CrypTool-Packetes auf Ihre Platte
-kopiert werden, aufgeführt.
+Alle Einzeldateien, die bei der Installation des CrypTool-Packetes
+auf Ihre Platte kopiert werden, sind in Kapitel 4 (unten in diesem
+Readme) aufgeführt.
 
 
 
@@ -174,11 +174,14 @@ kopiert werden, aufgeführt.
      -----
 Zu CrypTool haben viele verschiedene Personen beigetragen -
 insbesondere auch in ihrer Freizeit (einige sind in der Dialogbox
-zu sehen, die man erhält wenn man in der Dialogbox "Über CrypTool"
+zu sehen, die man erhält, wenn man in der Dialogbox "Über CrypTool"
 einen Doppelklick ausführt). Herzlichen Dank.
 
 Dr. Carsten Elsner erlaubte uns, seine Geschichte "Der Dialog der
-Schwestern" als PDF-Datei beizulegen.
+Schwestern" als PDF-Datei beizulegen. 
+Diese Geschichte wurde in dem Computermagazin c't 25/1999 
+veröffentlicht. Während in der c't 25/99 eine etwas gekürzte Fassung
+veröffentlicht wurde, liegt hier die Originalfassung bei.
 Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk,
 räumt dem CrypTool-Maintainer das ausschließliche Vervielfälti-
 gungs- und Verbreitungsrecht ein. Die Geschichte darf nur zusammen
@@ -194,7 +197,7 @@ Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank AG,
 Secude GmbH und FZI Karlsruhe. 1.3.0x ist die letzte Version,
 die die Deutsche Bank als Maintainer herausbringt.
 
-Ab August 2002 ist der Lehrstuhl Sicherheit in der Informations-
+Ab September 2002 ist der Lehrstuhl Sicherheit in der Informations-
 technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia
 Eckert an der TU Darmstadt der neue Maintainer.
 
@@ -542,8 +545,9 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
   - Zahlen (schrittweise) und mit verschiedenen Verfahren
     faktorisieren
   - das RSA-Kryptosystem transparent durchführen (auch für
-    selbst-gewählte Primzahlen) (damit kann auch der "Dialog
-    der Schwestern" aus der c't 25/1999 nachvollzogen werden).
+    selbst-gewählte Primzahlen).
+    Damit kann z.B. auch der "Dialog der Schwestern" 
+    nachvollzogen werden.
 
 5.4. Formatierung / Anzeige / Navigation
      -----------------------------------
@@ -761,14 +765,19 @@ Funktionalität:
 7. Kurze Historie der freigegebenen Hauptversionen
    -----------------------------------------------
 
-Version   Datum
-1.0.01    Okt. 1999
-1.1.01    Mai  2000
-1.2.00    Aug. 2000
-1.2.02    Dez. 2000
-1.3.00    Jan. 2002
-1.3.02    Juni 2002 (sehr viele neue Funktionen gegenüber 1.3.00)
-1.3.03    Juli 2002 (kleine Bugfixes gegenüber 1.3.02)
+			Größe des Windows-Setups in MB
+Version   Datum		Deutsch		Englisch
+1.0.01    Okt. 1999	1,3		-
+1.1.01    Mai  2000	2,3		-
+1.2.00    Aug. 2000	2,8		-
+1.2.02    Dez. 2000	3,2		-
+1.3.00    Jan. 2002	4,9		4,7
+1.3.02    Juni 2002	6,9		6,4
+1.3.03    Aug. 2002	xxx		xxx
+
+Bemerkung zu den aktuellen Versionen:
+1.3.02    viele neue Funktionen gegenüber 1.3.00
+1.3.03    viele kleine Bugfixes und Dokumentation gegenüber 1.3.02
 
 
 
@@ -780,7 +789,7 @@ bitte mit einer Beschreibung des Problems per e-mail an
 - bernhard.esslinger@db.com / besslinger@web.de
 
 Für Anregungen jeglicher Art bezüglich CrypTool sind wir immer
-dankbar.
+dankbar und helfen Ihnen gern, wenn es unsere Zeit erlaubt.
 
 Auch würden wir uns freuen, wenn Sie uns mitteilen, wie und wo Sie
 CrypTool einsetzen.
@@ -801,22 +810,18 @@ CrypTool einsetzen.
     --------
 10.1. Wirtschaftswoche Spezial
       ------------------------
-In dem Spezial "Kryptographie" der Wirtschaftswoche finden Sie ein
-Preisausschreiben: "Knacken Sie den Text!". Das Preisausschreiben
-erhalten Sie unter der URL
-http://wiwo.de/WirtschaftsWoche/Wiwo_CDA/0,1702,12723_47642,00.html
-Wenn Sie sich an die Tipps der Aufgabenstellung halten, knacken
-Sie mit CrypTool die Aufgabe mit wenigen Mausklicks.
+Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche (Rubrik
+Netzwelt Sept. 2000) enthielt ein Preisausschreiben: "Knacken Sie den
+Text!" unter der URL http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/
+buildww/cn/cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html
+Wenn man sich an die Tipps der Aufgabenstellung hielt, konnte man
+mit CrypTool die Aufgabe mit wenigen Mausklicks lösen.
 
 10.2. c't 14/2001, S. 204-208
       -----------------------
 In diesem renommierten und auflagenstarken deutsch-sprachigen
 Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
 CrypTool veröffentlicht.
-Außerdem wurde in c't 25/1999 die Fantasy-Geschichte
-"Der Dialog der Schwestern" veröffentlicht. Die darin verwendete
-Variante von RSA kann ab CrypTool v1.3.00 nachvollzogen werden.
-Diese Geschichte liegt als PDF-Dokument dem CrypTool-Paket bei.
 
 10.3. BSI Bürger-CD "Ins Internet - mit Sicherheit"
       ---------------------------------------------
@@ -830,8 +835,8 @@ kryptographischen Sicherheitsfunktionen zu verbessern.
 Von dieser CD sind mehr als 600.000 Stück produziert und
 zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 
-10.4. Freeware-Projekt Crank etc.
-      ---------------------------
+10.4. Freeware-Projekt Crank, CAP, CryptAid,  etc.
+      --------------------------------------------
 http://freshmeat.net/projects/crank/
 
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
@@ -842,8 +847,8 @@ Brechen von klassischen Kryptoalgorithmen ermöglicht.
 Initial liegt der Fokus auf der Analyse monoalphabetischer
 Substitutions-Chiffren und der Entwicklung generischer und
 flexibler Analysetools.
-Auf dieser Seite gibt es auch einige sehr interessante Links über
-klassische Kryptoanalyse.
+Auf dieser Seite gibt es auch einige sehr interessante Links zu
+klassischer Kryptoanalyse.
 
 Die einzigen anderen uns bekannten brauchbaren Programme, die
 Kryptographie und Kryptoanalyse (unter einer graphischen

@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.03, July 2002
+         CrypTool, Version 1.3.03, August 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
          (c) University of Siegen and Karlsruhe
          $Id$
@@ -35,11 +35,11 @@
  7. .... Brief history of the released main versions of CrypTool
  8. .... Feedback on errors
  9. .... Contact addresses
-10. .... References
+10. .... References / Hints
 10.1. .... Wirtschaftswoche special issue
 10.2. .... c't 14/2001, pp 204-208
 10.3. .... GISA citizen CD "Into the Internet - with Security"
-10.4. .... Freeware project Crank etc
+10.4. .... Freeware project Crank, CAP, CryptAid, etc
 11. .... Appendix
 11.1. .... Hints for using CrypTool on Linux with Wine
 
@@ -158,13 +158,13 @@ independently. In this program a session key is generated
 from a password, and with this key any file contents are
 AES-encrypted.
 
-(4) The story "The Dialogue of the Sisters" as PDF file.
--------------------------------------------
+(4) The story "The Dialogue of the Sisters" as PDF file
+-------------------------------------------------------
 The title-role sisters use a variant of the RSA algoritm, to
 securely communicate.
 
-Within chapter 4 (see below in this README file) all the single
-files included in the package are listed.
+All the single files included in the package are listed within
+chapter 4 (see below in this README file).
 
 
 
@@ -177,6 +177,9 @@ We are extremely grateful to them.
 
 Dr. Carsten Elsner allowed us to include his story "The Dialogue
 of the Sisters" (translated from the German by Klaus Esslinger).
+The German version of this story was published in the computer
+magazine c't, 25/1999. While c't published a slidely shortened
+version you here get the original version.
 The author owns all rights at this story. The maintainer of
 CrypTool is allowed by author only to distribute this story
 together with the CrypTool package.
@@ -191,7 +194,7 @@ The current sponsors of CrypTool have been Deutsche Bank AG,
 Secude Ltd. and FZI Karlsruhe. 1.3.0x is the last version,
 released by Deutsche Bank as maintainer.
 
-From August 2002 the new maintainer is the chair "Security
+From September 2002 the new maintainer is the chair "Security
 in Information Technology", faculty computer science from
 Mrs. Prof. Dr. Claudia Eckert at the technical university of
 Darmstadt, Germany.
@@ -532,9 +535,9 @@ added for version 1.3.00 since CrypTool version 1.202 (Dec 2000).
   - factorization of numbers (in stages) and using several
     different methods
   - transparent use of the RSA cryptosystem (including for
-    self-selected prime numbers) (this means that you can
-    duplicate "The Dialogue of the Sisters" from c't 25/1999
-    magazine).
+    self-selected prime numbers).
+    This means that you can e.g. duplicate "The Dialogue of 
+    the Sisters".
 
 5.4. Formatting / display / navigation
      ---------------------------------
@@ -740,14 +743,19 @@ Functionality:
 7. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-Version   Date
-1.0.01    Oct. 1999
-1.1.01    May 2000
-1.2.00    Aug. 2000
-1.2.02    Dec. 2000
-1.3.00    Jan. 2002
-1.3.02    June 2002 (many new functions compared to 1.3.00)
-1.3.03    July 2002 (minor bug fixes compared to 1.3.02)
+			Windows-Setup in MB
+Version   Date		English		German
+1.0.01    Oct. 1999	-		1,3
+1.1.01    May  2000	-		2,3
+1.2.00    Aug. 2000	-		2,8
+1.2.02    Dec. 2000	-		3,2
+1.3.00    Jan. 2002	4,7		4,9
+1.3.02    June 2002	6,4		6,9
+1.3.03    Aug. 2002	xxx		xxx
+
+Remark about the current versions:
+1.3.02    many new functions compared to 1.3.00
+1.3.03    many minor bug fixes and documentation compared to 1.3.02
 
 
 
@@ -759,7 +767,8 @@ description of the problem by e-mail to
 - bernhard.esslinger@db.com / besslinger@web.de
 
 We would be very grateful for suggestions of any kind regarding
-CrypTool.
+CrypTool and we'll be helpful whenever out time allows.
+
 We would also be interested to hear how and where you use
 CrypTool.
 
@@ -775,25 +784,21 @@ CrypTool.
 
 
 
-10. References
-    ----------
+10. References / Hints
+    ------------------
 10.1. Wirtschaftswoche special issue
       ------------------------
-In the special "Cryptography" issue of Wirtschaftswoche there is
-a competition entitled "Crack the text!". Further details
-regarding the competition can be obtained from
-http://wiwo.de/WirtschaftsWoche/Wiwo_CDA/0,1702,12723_47642,00.html
-If you follow the tips provided, you will be able to crack the
+In the special issue "Cryptography" of the magazibe Wirtschaftswoche
+(Sept. 2000) there was a competition entitled "Crack the text!". 
+Please see http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
+cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html
+If you followed the tips provided, you could be able to crack the
 task using CrypTool in a few mouse clicks.
 
 10.2. c't 14/2001, pp 204-208
       -----------------------
 A 5-page article on CrypTool was published in July 2001 in this
-well-known, widely circulated German computer magazine.
-The fantasy story, "The Dialogue of the Sisters", was also
-published in c't, 25/1999. The variant of RSA used in this story
-can be duplicated from CrypTool version 1.3.00.
-This story is included as PDF document with the CrypTool package.
+renowned and widely circulated German computer magazine.
 
 10.3. GISA citizen CD "Into the Internet - with Security"
       ---------------------------------------------------
@@ -801,12 +806,12 @@ The German Information Security Agency (GISA) and the German
 ministry for internal affairs published in spring 2002 a CD
 in order to inform citizens how to use computers and Internet
 and how one can securely use the Internet.
-CrypTool is also at this CD to raise the knowledge of
+CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
-There have been produced more than 600,000 copies of this CD.
+More than 600,000 copies of this CD have been produced.
 
-10.4. Freeware project Crank etc
-      --------------------------
+10.4. Freeware project Crank, CAP, CryptAid, etc
+      ------------------------------------------
 http://freshmeat.net/projects/crank/
 
 Crank was initiated in January 2001 by Matthew Russell and is
