@@ -490,8 +490,6 @@ void CDlgSignTutorial::OnSelectCert()
 	}
 
 	delete CertDialog;
-
-	
 }
 
 void CDlgSignTutorial::OnInfoAlg() 
