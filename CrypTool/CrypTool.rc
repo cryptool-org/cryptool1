@@ -10392,17 +10392,17 @@ BEGIN
     IDS_STRING_HYBRID_DEC_STEP "Step-by-step hybrid decryption:"
     IDS_STRING_HYBRID_ENC_SYM_KEY "Symmetric session key, selected randomly:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "Please select for encrytion your certificate from the PSE.\r\n"
+                            "As step 1 please select your certificate from the PSE.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
                             "Document encrypted symmetrically with the session key:"
     IDS_STRING_HYBRID_DEC_MSG4 
-                            "Your private RSA key d is the integer number \r\n\r\nd = "
+                            "Your private RSA key d is the integer number:\r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
-                            "The next step will decrypt and display the session key.\r\n"
+                            "As step 3 your session key will be decrypted and displayed.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\nThe session key is the following 128 bit number\r\n\r\nSession key: "
+                            "\r\nThe session key is the following 128 bit number:\r\nSession key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "With the session key you are now able to decrypt the message.\r\n\r\nClick Decrypt."
+                            "Clicking Decrypt\r\n- decrypts the message with the session key and\r\n- displays the decrypted message within the main window and\r\n- closes this dialogue box.\r\n\r\nClick Decrypt."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10421,7 +10421,7 @@ BEGIN
     IDS_STRING_RSA_DLG_TITLE "RSA key for Hybrid decryption"
     IDS_STRING_HYBRID_DEC_MSG12 "Click Continue > ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
-                            "After you entered your PIN, you are able to decrypt the session key\r\nwith your secret key.\r\nThe next step will show your secret RSA key.\r\n"
+                            "As step 2 your private RSA key is shown. It is used to decrypt the session key.\r\n"
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid encryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
     IDS_STRING_HYB_SHOW_DATA 
@@ -11086,7 +11086,7 @@ BEGIN
     IDS_STRING_Hashdemo_DateilaengeZuLang 
                             "The file size in this demonstration is limited to %d characters.\nEverything beyond that will be ignored. "
     IDS_BITLENGTH           "Length in bit:          %i\r\n"
-    IDS_CONTENT_CERT        "Certificate"
+    IDS_CONTENT_CERT        "Certificate of signer (added to signature for examination)"
     IDS_CONTENT_SIGN        " %s signature of <%s>"
     IDS_BITLENGTH_MODN      "Bit length of N:         %i\r\n"
 END
@@ -11112,7 +11112,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_CONTENT_HASH_ENC    "Encrypted hash value"
+    IDS_CONTENT_HASH_ENC    "Hash value encrypted with the private key of the signer"
     IDS_CONTENT_KEY         "RSA key"
     IDS_PRIME_CHECK         "p and q are prime numbers."
     IDS_PRIME_NO_CHECK_Q    "q is NOT a prime number !"
