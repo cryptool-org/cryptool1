@@ -646,7 +646,8 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 
 	CDlgShowKeyParameter dlg;
 	dlg.m_Title.LoadString(IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF);
-	dlg.m_Title+=rsaDlg.Name;
+	dlg.m_Title+=" ";
+	dlg.m_Title+= rsaDlg.Name;
 	dlg.m_Title+=" ";
 	dlg.m_Title+= rsaDlg.Firstname;
 

@@ -5584,7 +5584,7 @@ BEGIN
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "Die Anzahl der Hash-Iterationen muss größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
-                            "Die eingegebenen Länge des Ausgabeschlüssels ist kleiner als 1!\nBitte geben Sie eine Zahl zwischen 1 und %i ein!"
+                            "Die eingegebene Länge des Ausgabeschlüssels ist kleiner als 1!\nBitte geben Sie eine Zahl zwischen 1 und %i ein!"
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
                             "Schlüssellänge zu groß!\nDer aus dem Passwort generierte Schlüssel ist mindestens 1 Byte lang und ist höchstens\nso lange wie die Ausgabelänge der gewählten Hashfunktion (hier %i Bytes).\n\nBitte geben Sie die korrekte Länge des Ausgabeschlüssels ein."
     IDS_STRING_HORIZ        "Horizontal"
@@ -5601,7 +5601,7 @@ BEGIN
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "Die Eingabe ist keine positve ganze Zahl."
     IDS_STRING_FAKTORISATION_ABORTED 
-                            "Die Faktorisation wurde vorzeitig beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
+                            "Die Faktorisierung wurde vorzeitig beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
     IDS_STRING_FAKTORISATION_ABORT_MSG "abgebrochen"
     IDS_STRING_FAKTORISATION_STOP_MSG "ohne Erfolg"
 END
