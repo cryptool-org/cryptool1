@@ -286,7 +286,7 @@ public:
 	BOOL setSeed( CString &SeetStr );
 	PseudoRandomGenerator();
 	virtual ~PseudoRandomGenerator();
-	long     randBit();
+	virtual long     randBit() = 0;
 
 };
 
@@ -304,6 +304,7 @@ public:
 	BOOL setModul( CString &NStr );
 	x2modN_generator();
 	virtual ~x2modN_generator();
+	long     randBit();
 };
 
 
@@ -315,6 +316,7 @@ public:
 	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
 	LinearCongruenceGenerator();
 	virtual ~LinearCongruenceGenerator();
+	long     randBit();
 };
 
 
@@ -328,7 +330,7 @@ public:
 	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
 	InverseCongruenceGenerator();
 	virtual ~InverseCongruenceGenerator();
-
+	long     randBit();
 };
 
 #endif // !defined(AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_)

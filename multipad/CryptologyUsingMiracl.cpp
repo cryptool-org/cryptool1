@@ -2366,12 +2366,6 @@ PseudoRandomGenerator::~PseudoRandomGenerator()
 {
 }
 
-long PseudoRandomGenerator::randBit()
-{
-	randomize();
-	return RandNo % 2;
-}
-
 BOOL PseudoRandomGenerator::setSeed(CString &SeetStr)
 {
 	BOOL retValue = CStringFormulaToBig( SeetStr, Seed );
@@ -2412,6 +2406,13 @@ void x2modN_generator::randomize()
 }
 
 
+long x2modN_generator::randBit()
+{
+	randomize();
+	return RandNo % 2;
+}
+
+
 //////////////////////////////////////////////////////////////////////
 // LlinearCongruenceGenerator Klasse
 //////////////////////////////////////////////////////////////////////
@@ -2441,6 +2442,13 @@ void LinearCongruenceGenerator::randomize()
 {
 	RandNo = (a*RandNo + b) % N;
 }
+
+long LinearCongruenceGenerator::randBit()
+{
+	randomize();
+	return (RandNo > N/2) ? 1 : 0;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // InverseCongruenceGenerator Klasse
@@ -2476,6 +2484,12 @@ void InverseCongruenceGenerator::randomize()
 BOOL InverseCongruenceGenerator::SetCount( long n )
 {
 	return ( count = n );
+}
+
+long InverseCongruenceGenerator::randBit()
+{
+	randomize();
+	return (RandNo >  N/2) ? 1 : 0;
 }
 
 
