@@ -1389,7 +1389,7 @@ CAPTION
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,206,275,50,14
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,14,142,61
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,15,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,30,69,10
     CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
@@ -1413,10 +1413,10 @@ BEGIN
     PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,68,275,110,14
     PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,107,228,110,
                     14
-    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,14,
+    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,15,
                     142,61
-    LTEXT           "Primzahl 1",IDC_STATIC,16,104,38,8
-    LTEXT           "Primzahl 2",IDC_STATIC,177,104,38,8
+    LTEXT           "Primzahl 1",IDC_STATIC,16,107,38,8
+    LTEXT           "Primzahl 2",IDC_STATIC,177,107,38,8
     LTEXT           "einzugeben",IDC_STATIC,196,42,53,10
     LTEXT           "Ergebnis",IDC_STATIC,18,198,37,12
     LTEXT           "Ergebnis",IDC_STATIC,179,198,35,12
@@ -1553,8 +1553,8 @@ BEGIN
     CONTROL         "Pseudozufallsgenerator der SECUDE Bibliothek",
                     IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,25,
                     165,10
-    CONTROL         "Blum-Blum-Shub Generator mit kleinen Zahlen",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,16,40,160,10
+    CONTROL         "x^2 (mod N)  Generator",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,16,40,89,10
     CONTROL         "Generator nach der Formel (x*a)+b (mod c)",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,16,55,149,10
     CONTROL         "Generator mit zyklischen Shifts",IDC_RADIO4,"Button",
@@ -1579,6 +1579,19 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,67,65,50,14
     EDITTEXT        IDC_EDIT1,7,14,172,36,ES_MULTILINE | ES_READONLY | NOT 
                     WS_BORDER | NOT WS_TABSTOP
+END
+
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "x^2 (mod N) Zufallsgenerator"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,67,74,50,14
+    EDITTEXT        IDC_EDIT1,90,51,48,14,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    LTEXT           "Modul N = ",IDC_STATIC,53,53,36,8
+    CTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Parameter natürlich den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
+                    IDC_STATIC,7,12,172,28
 END
 
 
@@ -2034,6 +2047,8 @@ BEGIN
         VERTGUIDE, 172
         TOPMARGIN, 9
         BOTTOMMARGIN, 296
+        HORZGUIDE, 76
+        HORZGUIDE, 115
     END
 
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
@@ -2093,6 +2108,14 @@ BEGIN
         RIGHTMARGIN, 179
         TOPMARGIN, 7
         BOTTOMMARGIN, 79
+    END
+
+    IDD_RANDOM_PARAMETER_X2_MOD_N, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
     END
 END
 #endif    // APSTUDIO_INVOKED

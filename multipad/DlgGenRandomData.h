@@ -16,6 +16,7 @@ class DlgGenRandomData : public CDialog
 {
 // Konstruktion
 public:
+	long l_modul_x2_mod_N;
 	char outfile[128];
 	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
 

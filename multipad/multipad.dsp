@@ -820,6 +820,14 @@ SOURCE=.\DlgPrimesGenerator.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgRandParameter_x2_mod_N.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandParameter_x2_mod_N.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgShowPrivEcKeys.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
