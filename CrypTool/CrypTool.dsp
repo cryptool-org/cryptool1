@@ -55,7 +55,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
@@ -109,9 +109,9 @@ BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
@@ -124,8 +124,8 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 1
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "CrypTool___Win32_Release_en"
-# PROP Intermediate_Dir "CrypTool___Win32_Release_en"
+# PROP Output_Dir "..\Release_en"
+# PROP Intermediate_Dir "..\Release_en"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
@@ -138,9 +138,9 @@ BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ENDIF 
@@ -212,7 +212,7 @@ InputPath=".\hlp-de\CrypTool.hpj"
 
 USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\CrypTool___Win32_Release_en
+OutDir=.\..\Release_en
 ProjDir=.
 TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
@@ -295,7 +295,7 @@ InputPath=".\hlp-en\CrypTool.hpj"
 
 USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
 # Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\CrypTool___Win32_Release_en
+OutDir=.\..\Release_en
 ProjDir=.
 TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
