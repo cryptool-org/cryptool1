@@ -89,288 +89,130 @@ LINK32=link.exe
 
 # Name "multipad - Win32 Release"
 # Name "multipad - Win32 Debug"
-# Begin Group "Help Files"
+# Begin Group "hlp-de"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\hlp\About.bmp
+SOURCE=".\hlp-de\AfxCore.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\AfxCore.rtf
+SOURCE=".\hlp-de\AfxPrint.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\AfxPrint.rtf
+SOURCE=".\hlp-de\CrypTool.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\AppExit.alt.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\AppExit.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\AttackHill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\Bullet.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CiphertextHill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CrypTool.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CrypTool.cnt
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CrypTool.rtf
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CurArw2.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CurArw4.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\CurHelp.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\EditCopy.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\EditCut.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\EditPast.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\EditUndo.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\fenster_buchst.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\fenster_hex.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\fenster_text.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\FileNew.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\FileOpen.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\FilePrnt.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\FileSave.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\Help.alt.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\Help.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\hill_ana.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\hill_anakey.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\histo_balken.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\histo_linie.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\HlpSBar.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\HlpTBar.alt.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\HlpTBar.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\KeyInput1Hill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\KeyInputHill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\KeyOutput1Hill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\KeyOutput2Hill.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\MakeHelp.bat
-# End Source File
-# Begin Source File
+SOURCE=".\hlp-de\multipad.hpj"
 
-SOURCE=.\hlp\MenuAnw.bmp
-# End Source File
-# Begin Source File
+!IF  "$(CFG)" == "multipad - Win32 Release"
 
-SOURCE=.\hlp\MenuDok.bmp
-# End Source File
-# Begin Source File
+USERDEP__MULTI="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\Release
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-de\multipad.hpj"
 
-SOURCE=.\hlp\Monoalph.bmp
-# End Source File
-# Begin Source File
+"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp-de.bat"
 
-SOURCE=.\hlp\Plaintext1Hill.bmp
-# End Source File
-# Begin Source File
+# End Custom Build
 
-SOURCE=.\hlp\PlaintextHill.bmp
-# End Source File
-# Begin Source File
+!ELSEIF  "$(CFG)" == "multipad - Win32 Debug"
 
-SOURCE=.\hlp\Primzahlen.rtf
-# End Source File
-# Begin Source File
+USERDEP__MULTI="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\Debug
+ProjDir=.
+TargetName=cryptool
+InputPath=".\hlp-de\multipad.hpj"
 
-SOURCE=.\hlp\RecFirst.bmp
-# End Source File
-# Begin Source File
+"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp-de.bat"
 
-SOURCE=.\hlp\RecLast.bmp
-# End Source File
-# Begin Source File
+# End Custom Build
 
-SOURCE=.\hlp\RecNext.bmp
-# End Source File
-# Begin Source File
+!ENDIF 
 
-SOURCE=.\hlp\RecPrev.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\Scclose.bmp
+SOURCE=".\hlp-de\Primzahlen.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\Scmax.bmp
+SOURCE=".\hlp-de\szenarien.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\ScMenu.bmp
+SOURCE=".\hlp-de\tutorial.rtf"
 # End Source File
-# Begin Source File
+# End Group
+# Begin Group "hlp-en"
 
-SOURCE=.\hlp\Scmin.alt.bmp
-# End Source File
+# PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\hlp\Scmin.bmp
+SOURCE=".\hlp-en\AfxCore.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\Scwiederher.bmp
+SOURCE=".\hlp-en\AfxPrint.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\szenarien.rtf
+SOURCE=".\hlp-en\CrypTool.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\SzenarioXOR1.bmp
-# End Source File
-# Begin Source File
+SOURCE=".\hlp-en\multipad.hpj"
 
-SOURCE=.\hlp\SzenarioXOR10.bmp
-# End Source File
-# Begin Source File
+!IF  "$(CFG)" == "multipad - Win32 Release"
 
-SOURCE=.\hlp\SzenarioXOR11.bmp
-# End Source File
-# Begin Source File
+USERDEP__MULTI="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\Release
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-en\multipad.hpj"
 
-SOURCE=.\hlp\SzenarioXOR12.bmp
-# End Source File
-# Begin Source File
+"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp-en.bat"
 
-SOURCE=.\hlp\SzenarioXOR1a.bmp
-# End Source File
-# Begin Source File
+# End Custom Build
 
-SOURCE=.\hlp\SzenarioXOR2.bmp
-# End Source File
-# Begin Source File
+!ELSEIF  "$(CFG)" == "multipad - Win32 Debug"
 
-SOURCE=.\hlp\SzenarioXOR3.bmp
-# End Source File
-# Begin Source File
+USERDEP__MULTI="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\Debug
+ProjDir=.
+TargetName=cryptool
+InputPath=".\hlp-en\multipad.hpj"
 
-SOURCE=.\hlp\SzenarioXOR4.bmp
-# End Source File
-# Begin Source File
+"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp-en.bat"
 
-SOURCE=.\hlp\SzenarioXOR5.bmp
-# End Source File
-# Begin Source File
+# End Custom Build
 
-SOURCE=.\hlp\SzenarioXOR6.bmp
-# End Source File
-# Begin Source File
+!ENDIF 
 
-SOURCE=.\hlp\SzenarioXOR7.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\SzenarioXOR8.bmp
+SOURCE=".\hlp-en\Primzahlen.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\SzenarioXOR9.bmp
+SOURCE=".\hlp-en\szenarien.rtf"
 # End Source File
 # Begin Source File
 
-SOURCE=.\hlp\tutorial.rtf
+SOURCE=".\hlp-en\tutorial.rtf"
 # End Source File
 # End Group
 # Begin Source File
@@ -1374,6 +1216,14 @@ SOURCE=.\res\mainfram.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=".\MakeHelp-de.bat"
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeHelp.bat
+# End Source File
+# Begin Source File
+
 SOURCE="..\AES\Mars\mars-opt.c"
 # End Source File
 # Begin Source File
@@ -1412,41 +1262,6 @@ SOURCE=.\multipad.cpp
 # Begin Source File
 
 SOURCE=.\multipad.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\hlp\multipad.hpj
-
-!IF  "$(CFG)" == "multipad - Win32 Release"
-
-USERDEP__MULTI="$(ProjDir)\hlp\AfxCore.rtf"	"$(ProjDir)\hlp\AfxPrint.rtf"	
-# Begin Custom Build - Hilfedatei wird erzeugt...
-OutDir=.\Release
-ProjDir=.
-TargetName=CrypTool
-InputPath=.\hlp\multipad.hpj
-
-"$(OutDir)\$(TargetName).hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat"
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "multipad - Win32 Debug"
-
-USERDEP__MULTI="$(ProjDir)\hlp\AfxCore.rtf"	"$(ProjDir)\hlp\AfxPrint.rtf"	
-# Begin Custom Build - Hilfedatei wird erzeugt...
-OutDir=.\Debug
-ProjDir=.
-TargetName=cryptool
-InputPath=.\hlp\multipad.hpj
-
-"$(OutDir)\$(TargetName).hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat"
-
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
