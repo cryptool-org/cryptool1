@@ -19,6 +19,7 @@
 #include "DialogeMessage.h"
 #include "DlgHybridDecryptionDemo.h"
 #include "DlgKeyAsymGeneration.h"
+#include "SecudeTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -221,7 +222,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			OctetString *SNummer;
 			SNummer=Zert->element->serial;
 			Zert2=theApp.SecudeLib.af_cadb_get_Certificate(PseHandle, SNummer);
-			CString Zertifikat=theApp.SecudeLib.aux_sprint_Certificate(PseHandle,NULL,Zert2);
+			CString Zertifikat=sprint_Certificate_with_key(PseHandle,NULL,Zert2);
  //			m_DisplayData += (Zertifikat +nl +nl);
 			
 			theApp.SecudeLib.af_close(PseHandle);

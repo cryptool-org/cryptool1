@@ -177,7 +177,8 @@
 	DoOneData(ObjId, SKnew_oid)\
 	DoOneData(ObjId, Cert_oid)\
 	DoOneData(ObjId, FCPath_oid)\
-	DoOneData(sec_uint4, print_cert_flag)
+	DoOneData(sec_uint4, print_cert_flag)\
+	DoOneData(sec_uint4, print_keyinfo_flag)
 	
 
 // erstellen der Typedefs für die SECUDE lib:

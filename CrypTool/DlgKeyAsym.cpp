@@ -560,7 +560,11 @@ void CDlgKeyAsym::OnButtonShowCert()
 	OctetString *SNummer;
 	SNummer=Zert->element->serial;
 	Zert2=theApp.SecudeLib.af_cadb_get_Certificate(PseHandle, SNummer);
-	CString Zertifikat=theApp.SecudeLib.aux_sprint_Certificate(PseHandle,NULL,Zert2);
+    //*theApp.SecudeLib.print_cert_flag = DER | TBS | KEYINFO | VAL | ISSUER |ALG |SIGNAT | HSH | VER | SUBJECT | EXTENSIONS | NOASN1;
+    *theApp.SecudeLib.print_cert_flag = TBS | KEYINFO | VAL | ISSUER |ALG |SIGNAT | HSH | VER | SUBJECT | EXTENSIONS;
+    //*theApp.SecudeLib.print_keyinfo_flag = ALGID | BITSTRING | KEYBITS | PK | SK | ALGINFO;
+	*theApp.SecudeLib.print_keyinfo_flag = ALGID | KEYBITS | PK;
+	CString Zertifikat=sprint_Certificate_with_key(PseHandle,NULL,Zert2);
 	{	CDlgShowCertificate DCert(Zertifikat, NULL);
 		if (DCert.DoModal()==IDCANCEL) CDialog::OnCancel();
 	}

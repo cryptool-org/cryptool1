@@ -467,7 +467,7 @@ CString CPSEDemo::GetCert()
 	OctetString *osSerial;
 	osSerial=Cert->element->serial;
 	Cert2=theApp.SecudeLib.af_cadb_get_Certificate(hPSE_CA, osSerial);
-	m_sCert=theApp.SecudeLib.aux_sprint_Certificate(hPSE_CA,NULL,Cert2);
+	m_sCert=sprint_Certificate_with_key(hPSE_CA,NULL,Cert2);
 	
 	theApp.SecudeLib.af_close(hPSE_CA);
 	

@@ -11,6 +11,9 @@
 // 2001 Martin Bartosch <m.bartosch@cynops.de>; Cynops GmbH
 //
 // $Log$
+// Revision 1.2  2002/06/07 16:15:12  bdf100
+// display of certificates: do not obmit the public key
+//
 // Revision 1.1  2002/02/27 12:48:24  idj100
 // CrypTool develop 1.3.01
 //
@@ -517,4 +520,21 @@ int PKCS12_import(PSE pse, OctetString *input, OctetString *password, int newpse
 
 
 	return(0);
+}
+
+// like, aux_sprint_Certificate, but include the public key
+char *sprint_Certificate_with_key(PSE pse_handle, char *stringornull, Certificate *cert)
+{
+	sec_uint4 old_print_keyinfo_flag = *theApp.SecudeLib.print_keyinfo_flag;
+    //*theApp.SecudeLib.print_keyinfo_flag = ALGID | BITSTRING | KEYBITS | PK | SK | ALGINFO;
+	*theApp.SecudeLib.print_keyinfo_flag = ALGID | KEYBITS | PK; // KEYBITS is what we want. PK seems to have no influence
+	char *result = theApp.SecudeLib.aux_sprint_Certificate(pse_handle,stringornull,cert);
+	*theApp.SecudeLib.print_keyinfo_flag = old_print_keyinfo_flag;
+	// HACK: replace "Private exponent" in the resulting text with "Public exponent"
+	char *x = strstr(result,"Private exponent");
+	if (x) {
+		char pk[] = "Public exponent "; // should be same length as "Private exponent"
+		memcpy(x,pk,strlen(pk));
+	}
+	return result;
 }
