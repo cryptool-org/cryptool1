@@ -32,6 +32,7 @@ CDlgRSADecryption::CDlgRSADecryption(CWnd* pParent /*=NULL*/)
 	KeyType = "";
 	KeyInfo = "";
 	CreatTime = "";
+	m_bHideDuration = FALSE;
 
 	m_lastSelectedRow = -1; //  Änderung in Member-Funktion CDlgRSAEncryption::OnClickList1()
 
@@ -44,6 +45,9 @@ CDlgRSADecryption::CDlgRSADecryption(CWnd* pParent /*=NULL*/)
 void CDlgRSADecryption::DoDataExchange(CDataExchange* pDX) 
 {
 	//{{AFX_DATA_MAP(CDlgRSADecryption)
+	DDX_Control(pDX, IDOK, m_OKCtrl);
+	DDX_Control(pDX, IDCANCEL, m_CancelCtrl);
+	DDX_Control(pDX, IDC_CHECK1, m_ShowDurationCtrl);
 	DDX_Control(pDX, IDC_LIST_KEYS, m_listview);
 	DDX_Control(pDX, IDC_EDIT1, m_PinCodeEditctrl);
 	DDX_Text(pDX, IDC_EDIT1, m_PinCode);
@@ -73,6 +77,12 @@ BOOL CDlgRSADecryption::OnInitDialog()
 	CDialog::OnInitDialog();
 	
 	// TODO: Zusätzliche Initialisierung hier einfügen
+
+	// Modifikationen initialisieren
+	if(m_bHideDuration) m_ShowDurationCtrl.ShowWindow(SW_HIDE);
+	if(!m_sDialogText.IsEmpty()) SetWindowText(m_sDialogText);
+	if(!m_sOKText.IsEmpty()) m_OKCtrl.SetWindowText(m_sOKText);
+	if(!m_sCancelText.IsEmpty()) m_CancelCtrl.SetWindowText(m_sCancelText);
 
 	// m_listview in Report-Mode initialisieren
 

@@ -22,10 +22,23 @@ public:
 	CDlgRSADecryption(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	CString UserKeyId;
+	CString KeyType;
+	CString KeyInfo;
+	CString Name;
+	CString Firstname;
+	CString CreatTime;
+
+	CString m_sDialogText;
+	CString m_sCancelText;
+	CString m_sOKText;
+	BOOL	m_bHideDuration;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSADecryption)
 	enum { IDD = IDD_RSA_DECRYPTION };
+	CButton	m_OKCtrl;
+	CButton	m_CancelCtrl;
+	CButton	m_ShowDurationCtrl;
 	CListCtrl	m_listview;
 	CEdit	m_PinCodeEditctrl;
 	CString	m_PinCode;
@@ -46,12 +59,6 @@ protected:
 	int m_lastSelectedRow;
 	int sortBy;
 	unsigned nKeylistType;
-
-	CString KeyType;
-	CString KeyInfo;
-	CString Name;
-	CString Firstname;
-	CString CreatTime;
 
 	void InitAsymKeyListBox(unsigned nLocalKeylistType);
 	void UpdateRowSel(int row);
