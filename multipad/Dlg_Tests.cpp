@@ -28,7 +28,7 @@ Dlg_Tests_Freq::Dlg_Tests_Freq(CWnd* pParent /*=NULL*/)
 	m_Offset = 0;
 	m_Lang = 1024;
 	m_Default = TRUE;
-	m_Default_2 = TRUE;
+	m_Default_2 = FALSE;
 	m_Info_Static = _T("");
 	infile = NULL;
 	oldTitle = NULL;
@@ -292,7 +292,7 @@ Dlg_Zufallsgenerator_Tests_Runs::Dlg_Zufallsgenerator_Tests_Runs(CWnd* pParent /
 {
 	//{{AFX_DATA_INIT(Dlg_Zufallsgenerator_Tests_Runs)
 	m_Default_Run = TRUE;
-	m_Random = TRUE;
+	m_Random = FALSE;
 	m_Default_Longrun = TRUE;
 	m_Run_Ergebnis = _T("");
 	m_Longrun_Ergebnis = _T("");
