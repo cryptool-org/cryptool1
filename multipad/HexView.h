@@ -47,6 +47,8 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
+	int m_NewSize;
+	BOOL m_SizeActive;
 	int AdjustCursor(int direction);
 	int m_curlen;
 	int m_lineoffset;

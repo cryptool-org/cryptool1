@@ -13,6 +13,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "Dlg_Schluessel_gen.h"
+#include "string.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -76,7 +77,12 @@ END_MESSAGE_MAP()
 BOOL Dlg_Schluessel_gen::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
+
+	UpdateData(true);
+	char line[20];
+	sprintf(line, "%i%i", rand(), rand() );
+	m_salt = line;
+	UpdateData(false);
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	
 	return TRUE;  // return TRUE unless you set the focus to a control

@@ -24,6 +24,8 @@ IMPLEMENT_DYNCREATE(CHexView, CMyEditView)
 CHexView::CHexView()
 {
 	m_hexwidth = 8;
+	m_SizeActive = FALSE;
+	m_NewSize = 0;
 	m_nWordWrap = WrapNone;
 }
 
@@ -105,6 +107,7 @@ int CHexView::AdjustCursor(int direction)
 	// wenn direction==0 dann Cursor nach rechts falls benötigt
 	// 1: Cursor nach links falls benötigt
 
+	char *t;
 	long s,e;
 
 	GetRichEditCtrl().GetSel(s,e);
@@ -113,11 +116,13 @@ int CHexView::AdjustCursor(int direction)
 	m_lineindex = GetRichEditCtrl().LineIndex(m_curline);
 	m_lineoffset = s - m_lineindex;
 	m_curlen = GetRichEditCtrl().GetLine(m_curline, m_line, sizeof(m_line));
+	t = strchr(m_line, 0x0d);
+	if(t) m_curlen = t-m_line;
 	if(m_lineoffset < 7) {
 		m_lineoffset=7;
 	}
 	// ****** todo wrap around *******
-	if(m_lineoffset < 3*m_hexwidth+9) {
+	if(m_lineoffset < 3*m_hexwidth+9) { // in hex-block
 		if(direction == 0) {
 			for(;m_lineoffset < 3*m_hexwidth+9; m_lineoffset++)
 				if(m_line[m_lineoffset]!=' ')  break;
@@ -127,8 +132,8 @@ int CHexView::AdjustCursor(int direction)
 				if(m_line[m_lineoffset]!=' ')  break;
 		}
 	}
-	if(m_lineoffset >= m_curlen) {
-		m_lineoffset = m_curlen-1;
+	if(m_lineoffset > m_curlen) {
+		m_lineoffset = m_curlen; // position at end of line
 	}
 	m_charoffset = m_lineoffset + m_lineindex;
 	GetRichEditCtrl().SetSel(m_charoffset, m_charoffset);
@@ -205,6 +210,23 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			return;
 		}
 		n = m_lineoffset - (3*m_hexwidth+9); // number of char to edit
+		if(m_lineoffset >= m_curlen) { // end of line reached, jump to next line
+			if(m_curline < GetRichEditCtrl().GetLineCount()-1) { // jump to next line
+				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+MAX_ADR_LEN+ASC_SEP;
+				GetRichEditCtrl().SetSel(n,n);
+				n = 0; // number of char to edit;
+				m_curline++; // current line
+				m_lineindex = GetRichEditCtrl().LineIndex(m_curline);
+				m_lineoffset = MAX_ADR_LEN + 3*m_hexwidth + ASC_SEP;
+				m_charoffset = m_lineoffset + m_lineindex;
+				m_curlen = GetRichEditCtrl().GetLine(m_curline, m_line, sizeof(m_line));
+			}
+			else { // end of file reached
+				MessageBeep(MB_ICONHAND); // end of file reached
+				SetRedraw(TRUE);
+				return;
+			}
+		}
 		// edit Hex Section
 		sprintf(buff,"%02.2X",nChar);
 		GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
@@ -215,7 +237,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		buff[1]=0;
 		GetRichEditCtrl().ReplaceSel( buff, FALSE );
 		// check to wrap to next line
-		if(m_lineoffset >= m_curlen-3) {
+		if(m_lineoffset >= m_curlen-1) {
 			if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
 				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+MAX_ADR_LEN+ASC_SEP;
 				GetRichEditCtrl().SetSel(n,n);
@@ -375,58 +397,65 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 	BOOL modified;
 
 	CMyEditView::OnSize(nType, cx, cy);
-	
-	WinLen = cx / 8 - 1;
-	NewHexWidth = (WinLen - 11) / 4;
-	NewHexWidth = max(NewHexWidth, 8);
-	if(NewHexWidth != m_hexwidth) { // Hexgröße anpassen!
-		modified = GetRichEditCtrl().GetModify();
-		buffer1 = (char *) malloc(buffsize+1);
-		OldHexWidth = m_hexwidth;
-		OldLineLength = OldHexWidth * 4 + 11;
-		m_hexwidth = NewHexWidth;
-		llen = m_hexwidth * 4 + 11;
-		maxl = buffsize / m_hexwidth + 1;
-		buffer2 = (unsigned char *) malloc(buffsize/4 + m_hexwidth);
-		GetRichEditCtrl().GetSel(start, end);
-		UINT nLen = GetTextLength();
-		buffer3 = (char *) malloc(maxl * llen + 1);
-		pos = adr = state = l1 = l2 = l3 = 0;
-		SetRedraw(FALSE);
-		do {
-			GetRichEditCtrl().SetSel(pos, pos + buffsize);
-			l1 = GetRichEditCtrl().GetSelText(buffer1);
-			ASSERT(l1<=buffsize);
-			if(l1 == 0) break;
-			l = HexUndumpMem(buffer1, l1, (char *)(buffer2 + l2), &state);
-			ASSERT(l2+l < buffsize/4 + m_hexwidth);
-			l2 += l;
-			l = l2 / m_hexwidth;
-			l = l * m_hexwidth; // Anzahl kompletter Zeilen
-			l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l, m_hexwidth, adr);
-			buffer3[l3]=0;
-			adr += l;
-			memcpy(buffer2, buffer2+l, l2-l);
-			l2 -= l;
+
+	m_NewSize = cx;
+	if(m_SizeActive == TRUE) return;
+	m_SizeActive = TRUE;
+	while(m_NewSize > 0) {
+		WinLen = m_NewSize / 8 - 1;
+		m_NewSize = 0;
+		NewHexWidth = (WinLen - 11) / 4;
+		NewHexWidth = max(NewHexWidth, 8);
+		if(NewHexWidth != m_hexwidth) { // Hexgröße anpassen!
+			modified = GetRichEditCtrl().GetModify();
+			buffer1 = (char *) malloc(buffsize+1);
+			OldHexWidth = m_hexwidth;
+			OldLineLength = OldHexWidth * 4 + 11;
+			m_hexwidth = NewHexWidth;
+			llen = m_hexwidth * 4 + 11;
+			maxl = buffsize / m_hexwidth + 1;
+			buffer2 = (unsigned char *) malloc(buffsize/4 + m_hexwidth);
+			GetRichEditCtrl().GetSel(start, end);
+			UINT nLen = GetTextLength();
+			buffer3 = (char *) malloc(maxl * llen + 1);
+			pos = adr = state = l1 = l2 = l3 = 0;
+			SetRedraw(FALSE);
+			do {
+				GetRichEditCtrl().SetSel(pos, pos + buffsize);
+				l1 = GetRichEditCtrl().GetSelText(buffer1);
+				ASSERT(l1<=buffsize);
+				if(l1 == 0) break;
+				l = HexUndumpMem(buffer1, l1, (char *)(buffer2 + l2), &state);
+				ASSERT(l2+l < buffsize/4 + m_hexwidth);
+				l2 += l;
+				l = l2 / m_hexwidth;
+				l = l * m_hexwidth; // Anzahl kompletter Zeilen
+				l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l, m_hexwidth, adr);
+				buffer3[l3]=0;
+				adr += l;
+				memcpy(buffer2, buffer2+l, l2-l);
+				l2 -= l;
+				GetRichEditCtrl().ReplaceSel(buffer3);
+				pos += l3;
+			} while(1);
+			l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l2, m_hexwidth, adr);
+			GetRichEditCtrl().SetSel(pos, pos);
 			GetRichEditCtrl().ReplaceSel(buffer3);
 			pos += l3;
-		} while(1);
-		l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l2, m_hexwidth, adr);
-		GetRichEditCtrl().SetSel(pos, pos);
-		GetRichEditCtrl().ReplaceSel(buffer3);
-		pos += l3;
-		GetRichEditCtrl().SetSel(pos-2, pos);
-		GetRichEditCtrl().GetSelText(buffer3);
-		if(buffer3[0] == 13)
-			GetRichEditCtrl().ReplaceSel("");
-		free(buffer1);
-		free(buffer2);
-		free(buffer3);
-		GetRichEditCtrl().SetSel(start, end);
-		GetRichEditCtrl().SetModify(modified);
-		SetRedraw(TRUE);
-		Invalidate();
+			GetRichEditCtrl().SetSel(pos-2, pos);
+			GetRichEditCtrl().GetSelText(buffer3);
+			if(buffer3[0] == 13)
+				GetRichEditCtrl().ReplaceSel("");
+			free(buffer1);
+			free(buffer2);
+			free(buffer3);
+			GetRichEditCtrl().SetSel(start, end);
+			GetRichEditCtrl().SetModify(modified);
+			SetRedraw(TRUE);
+			Invalidate();
+		}
 	}
+	m_SizeActive = 0;
 	ASSERT_VALID(this);
 }
 

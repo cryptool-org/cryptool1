@@ -14,6 +14,7 @@ class CDlgRSAwithSmallPrimesOptions : public CDialog
 {
 // Konstruktion
 public:
+	void ReInitBlockLength( int Bitlength );
 	void MsgBlockLength();
 	CDlgRSAwithSmallPrimesOptions(CWnd* pParent = NULL);   // Standardkonstruktor
 

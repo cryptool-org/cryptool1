@@ -153,3 +153,15 @@ void CDlgRSAwithSmallPrimesOptions::OnChangeAlphabet()
 	m_alphabetControl.SetSel(sels, sele);
 
 }
+
+void CDlgRSAwithSmallPrimesOptions::ReInitBlockLength(int Bitlength)
+{
+	if ( !m_TextOptions )
+	{
+		m_BlockLength = Bitlength / 8;
+	}
+	else
+	{
+		m_BlockLength = 1;
+	}
+}

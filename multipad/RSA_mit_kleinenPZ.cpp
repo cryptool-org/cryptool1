@@ -167,7 +167,7 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 		m_ButtonDecrypt.EnableWindow(true);
 		m_ButtonEncrypt.EnableWindow(true);
 		m_ButtonOptionen.EnableWindow(true);
-		DlgOptions->MsgBlockLength();
+		DlgOptions->ReInitBlockLength( RSA->GetBlockLength() );
 	}
 	else
 	{
@@ -213,7 +213,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		m_ButtonDecrypt.EnableWindow(true);
 		m_ButtonEncrypt.EnableWindow(true);
 		m_ButtonOptionen.EnableWindow(true);
-		DlgOptions->MsgBlockLength();
+		DlgOptions->ReInitBlockLength( RSA->GetBlockLength() );
 	}
 	else
 	{
@@ -262,8 +262,8 @@ void RSA_mit_kleinenPZ::OnOptionen()
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void RSA_mit_kleinenPZ::OnButtonVerschluesseln() 
 {
+	theApp.DoWaitCursor(1);
 	UpdateData(FALSE);
-
 	if ( !(RSA->CheckInput(m_edit10, GetBase())) )
 	{
 		if ( !DlgOptions->m_TextOptions )
@@ -288,13 +288,14 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
 		SetHeadLine( m_Header3, IDS_RSA_MKPZ_CIPHERTEXT );
 	}
-
 	UpdateData(FALSE);
+	theApp.DoWaitCursor(0);
 }
 
 
 void RSA_mit_kleinenPZ::OnButtonEntschluesseln() 
 {
+	theApp.DoWaitCursor(1);
 	UpdateData(FALSE);
 	if ( !(RSA->CheckInput(m_edit10, GetBase())) )
 	{
@@ -320,8 +321,8 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
 		SetHeadLine( m_Header3, IDS_RSA_MKPZ_PLAINTEXT );
 	}
-
 	UpdateData(FALSE);
+	theApp.DoWaitCursor(0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

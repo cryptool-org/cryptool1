@@ -22,7 +22,7 @@ AnalyseNGram::AnalyseNGram(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(AnalyseNGram)
 		m_N_NGram      = 0;
 	    m_ShowCntNGram = 20;
-		m_NrNGram      = 4;
+		m_NrNGram      = 3;
 	//}}AFX_DATA_INIT
 	b_SaveNGramList = false;
 }
@@ -32,12 +32,13 @@ void AnalyseNGram::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(AnalyseNGram)
+	DDX_Control(pDX, IDC_EDIT2, m_NrNGramCtrl);
 		DDX_Control(pDX, IDC_LIST1,  m_ListView);
 	    DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
 	    DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
 	    DDV_MinMaxLong(pDX, m_ShowCntNGram, 0, 2147483647);
 		DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
-		DDV_MinMaxLong(pDX, m_NrNGram, 4, 99);
+		DDV_MinMaxLong(pDX, m_NrNGram, 3, 3);
 	//}}AFX_DATA_MAP
 	toAnalyze = 0;
 	SA = 0;
@@ -74,7 +75,7 @@ BOOL AnalyseNGram::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST3,pc_str,STR_LAENGE_STRING_TABLE);
 	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth+2000,3);						
 	SetupListBox( m_N_NGram+1 );
-
+	m_NrNGramCtrl.EnableWindow(false);
 	return(TRUE);
 
 }
@@ -88,7 +89,6 @@ void AnalyseNGram::LoadText(SymbolArray & text, BOOL BinaryFile )
 
 void AnalyseNGram::SetupListBox( int N )
 {
-	theApp.DoWaitCursor(0);
 	char string[100];
 	int  i,j;
 	l_N = N;
@@ -162,8 +162,6 @@ void AnalyseNGram::SetupListBox( int N )
 		sprintf(string,"%2.3f", toAnalyze->GetFrequency(i_Ndx)*100.0);
 		m_ListView.SetItemText(j,2,string);
 	}
-	theApp.DoWaitCursor(-1);
-
 }
 
 int AnalyseNGram::GetN()
@@ -173,6 +171,7 @@ int AnalyseNGram::GetN()
 
 void AnalyseNGram::OnEvalNGram() 
 {
+	theApp.DoWaitCursor(1);
 	UpdateData(TRUE);
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
     if ( m_N_NGram < 3 )
@@ -184,10 +183,12 @@ void AnalyseNGram::OnEvalNGram()
 		SetupListBox( m_NrNGram );
 	}
 	UpdateData(FALSE);
+	theApp.DoWaitCursor(0);
 }
 
 void AnalyseNGram::OnSaveNGramList() 
 {
+	theApp.DoWaitCursor(1);
 	b_SaveNGramList = true;
 	
 	GetTmpName(outfile,"NGram",".tmp");
@@ -260,6 +261,7 @@ void AnalyseNGram::OnSaveNGramList()
 	}
 
 	txt_NGram.close();
+	theApp.DoWaitCursor(0);
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	CDialog::OnOK();
 }

@@ -25,6 +25,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(AnalyseNGram)
 	enum { IDD = IDD_DIALOG_ANALYSE_NGRAM };
+	CEdit	m_NrNGramCtrl;
 		CListCtrl m_ListView;
 		int       m_N_NGram;
 	long	m_ShowCntNGram;

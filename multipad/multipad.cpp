@@ -96,9 +96,7 @@ END_MESSAGE_MAP()
 
 BOOL CMultiPadApp::InitInstance()
 {
-//	_tsetlocale(LC_ALL, _T(""));
-
-
+	//	_tsetlocale(LC_ALL, _T(""));
 	//Initialisierung der globalen Variablen
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
 	iHillSchluesselDim = 2;
@@ -112,7 +110,6 @@ BOOL CMultiPadApp::InitInstance()
 	// Es soll zun‰chst der (komplette) Pfad der Anwendung herausgefunden werden.
 	// Hierzu muﬂ unterschieden werden, ob die Anwendung von der Kommandozeile oder
 	// aus dem Explorer (oder einer ‰hnlichen Anwendung) heraus aufgerufen wird.
-	
 	CString Pfad2=GetCommandLine();
 	
 	// AfxMessageBox (Pfad2);
