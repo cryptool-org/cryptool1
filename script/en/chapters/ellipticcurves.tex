@@ -20,7 +20,7 @@ recommends the usage of 2048-bit keys from 2006 on (compare
 section~\ref{SecurityRSA}).  The fact that most chips on smart cards cannot
 process keys extending 1024 bit shows that there is a need for
 alternatives. Elliptic curve cryptography (ECC) can be such an
-alternative in the field of asymmetric cryptography.
+alternative in the area of asymmetric cryptography.
 
 The efficiency of a cryptographic algorithm depends on the key length and
 the calculation effort that is necessary to provide a prescribed level of
@@ -141,7 +141,7 @@ Anyway that's enough about the role of elliptic curves in pure mathematics.
 In 1985 Neal Koblitz\index{Koblitz Neal} and Victor Miller\index{Miller Victor}
 independently suggested using elliptic curves in cryptography. Elliptic 
 curves have thus also found a concrete practical application. 
-Another interesting field of application for elliptic curves is for
+Another interesting area of application for elliptic curves is for
 factorising whole numbers \index{Factorisation} (the RSA cryptographic system
 is based on the \index{Complexity} difficulty/complexity of finding prime
 factors of an extremely large number;  compare section \ref{SecurityRSA}.).
@@ -233,7 +233,7 @@ Fields may contain an infinite number of elements (e.g. the field of real number
 {\em finite}, if it contains only a finite number of elements (e.g. ${\mathbb Z}_p = \{0, 1, 2, 3, \cdots, p-1\}$
 , where $p$ is a prime. ${\mathbb Z}_p$ with addition mod $p$ and multiplication
 mod $p$).
-\index{Field!Characteristic}
+\index{Field!characteristic}
 \paragraph{Characteristic of a field}
 Let $K$ be a field and $1$ be the neutral element of $K$ with
 respect to the multiplicative operation ``$\cdot$''. Then the characteristic of $K$ is said to be the order of $1$ with respect to the additive operation. This means that the characteristic of $K$ is the smallest positive integer $n$ such that
@@ -252,7 +252,7 @@ the characteristic $p$. If $p$ is not prime, ${\mathbb Z}_p$ is not a field at a
 
 The most simple field is ${\mathbb Z}_2=\{ 0,1\}$. It contains only two elements, the neutral elements with respect to addition and multiplication. In particular, we have $0+0=0$, $0+1=1+0=1$, $1+1=0$, $1\cdot 1=1$, $0\cdot 0=0\cdot 1=1\cdot 0=0$.
 
-\index{Finite!Fields}
+\index{Field!finite}
 \paragraph{Finite Fields}
 As mentioned above, each finite field has a characteristic $p\ne 0$, where $p$ is a prime. On the other hand, given a prime $p$ there is a field which has exactly $p$ elements, that is ${\mathbb Z}_p$.
 
@@ -437,7 +437,7 @@ Not useful for cryptography are {\em a-normal} (that are curves over ${\mathbb Z
 for which the set ${\bf E}$ consists of exactly $p$ elements) and {\em supersingular} curves (that are curves, for which the ECDLP can be reduced to the ``normal'' discrete logarithms in another, smaller finite field). This means that there are cryptographically useful and non-useful elliptic curves. Given the parameters $a$ and $b$, it is possible to determine whether a curve is useful or not. In many publications one can find parameters that turned out to be useful for cryptography. The open (scientific) discussion guarantees that these results take into account latest research.
 \vskip +5 pt
 
-Given a secure curve, the time that is needed to solve the ECDLP is strongly correlated with parameter $p$ in case $GF(p)$ respectively $n$ in case of $GF(2^n)$. The larger these parameters become, the more time an attacker needs to solve the ECDLP --- at least with the best algorithms known so far. Experts recommend bit-lengths of $200$ for $p$ for secure curves. A comparison with RSA modulus length shows why elliptic curves are so interesting for applications. We note that the computation effort for signing and encryption is closely related to the bit-length of the parameters. In addition the initiation process, i.e. the generation of the private-public-key-pair, becomes more complicated the larger $p$ is. Thus, one looks for the smallest parameters that still come along with the security required. It is remarkable that a length of $200$ bits for $p$ is sufficient to construct a {\em good} elliptic curve that is as secure as RSA with a $1024$ bit \index{RSA!Modulus} RSA-Modulus (as far as we know today). For short, the reason for this advantage of ECC lies in the fact that the best algorithms known for solving the ECDLP need exponential time while the best algorithms for factorizing are sub-exponential (number field sieve, quadratic sieve or factorizing with elliptic curves). Hence, the parameters for a cryptosystem that is based on the problem of {\em factorizing large integers} have to be larger than the parameters for a system based on ECDLP.
+Given a secure curve, the time that is needed to solve the ECDLP is strongly correlated with parameter $p$ in case $GF(p)$ respectively $n$ in case of $GF(2^n)$. The larger these parameters become, the more time an attacker needs to solve the ECDLP --- at least with the best algorithms known so far. Experts recommend bit-lengths of $200$ for $p$ for secure curves. A comparison with RSA modulus length shows why elliptic curves are so interesting for applications. We note that the computation effort for signing and encryption is closely related to the bit-length of the parameters. In addition the initiation process, i.e. the generation of the private-public-key-pair, becomes more complicated the larger $p$ is. Thus, one looks for the smallest parameters that still come along with the security required. It is remarkable that a length of $200$ bits for $p$ is sufficient to construct a {\em good} elliptic curve that is as secure as RSA with a $1024$ bit \index{RSA!modulus} RSA modulus (as far as we know today). For short, the reason for this advantage of ECC lies in the fact that the best algorithms known for solving the ECDLP need exponential time while the best algorithms for factorizing are sub-exponential (number field sieve, quadratic sieve or factorizing with elliptic curves). Hence, the parameters for a cryptosystem that is based on the problem of {\em factorizing large integers} have to be larger than the parameters for a system based on ECDLP.
 
 
 % -----------------------------------------------------------------------------
@@ -451,7 +451,9 @@ Given a secure curve, the time that is needed to solve the ECDLP is strongly cor
     \item An elliptic curve {\bf E} with an underlying field $GF(p^n)$.
     \item A prime $q\ne p$ and a point $G$ on the elliptic curve ${\bf E}$ with order $q$. This means that $qG={\cal O}$ and $rG\ne {\cal O}$ for all $r\in \{1,2,\dots,q-1\}$. Thus $q$ is a factor of the group order (i.e. the number of elements) $\#{\bf E}$ of $E$. Since $q$ is prime, $G$ generates a cyclic sub-group of ${\bf E}$ of order $q$.
 \end{itemize}
-The parameters mentioned are often called \index{Domain-Parameter} {\em Domain}-Parameter. They describe the elliptic curve ${\bf E}$ and the cyclic sub-group of ${\bf E}$ on which the signature scheme is based.
+The parameters mentioned are often called \index{Domain parameter}
+{\em Domain} parameter. They describe the elliptic curve ${\bf E}$ and 
+the cyclic sub-group of ${\bf E}$ on which the signature scheme is based.
 
 \par
 %\smallskip

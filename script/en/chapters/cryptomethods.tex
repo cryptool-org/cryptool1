@@ -88,11 +88,11 @@ alternatives to the DES procedure include the IDEA \index{IDEA} or Triple DES
 algorithms.\par \vskip + 3pt
 
 Up-to-the-minute procedure is the symmetric AES standard. The associated
-Rijndael algorithm was declared winner of the AES award on 2 October 2000
+Rijndael algorithm was declared winner of the AES award on October 2nd, 2000
 and thus succeedes the DES procedure.
 
-More details about the AES algorithms can be found within the 
-online help of CrypTool\index{CrypTool}%
+More details about the AES algorithms and the AES candidates of the last round
+can be found within the online help of CrypTool\index{CrypTool}%
 \footnote{%
       CrypTool online help\index{CrypTool}: the index head-word {\bf AES}
       leads to the 3 help pages: {\bf AES candidates}, 
@@ -110,7 +110,7 @@ Below you will find some results, which have recently called into question the s
 . 
 The following information is based on the original papers and the articles \cite{Wobst-iX2002} and \cite{Lucks-DuD2002}.
 
-AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
+AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks\index{Attack!brute-force} -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known crypto attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
 Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable only just for organizations, for example a security agency.
 
@@ -144,8 +144,20 @@ successful: the authors specify in their paper necessary conditions, but it is
 not known, which conditions are sufficient.  There are two very new aspects of
 this attack: firstly this attack is not based on statistics but on algebra. So
 attacks seem to be possible, where only very small amounts of cipher text are
-available. Secondly the security of a product-algorithm does not exponentially
-increase with the number of rounds.
+available. Secondly the security of a product-algorithm\index{Cascade cipher}%
+\footnote{%
+A cipher text can be used as input for another encryption algorithm. 
+A cascade cipher is build up as a composition of different encryption 
+transformations.\\
+Cascading does not always improve the security.\\
+This process is also used within modern algorithms:
+They usually combine simple and, considered at its own, cryptologically
+relatively unsecure single steps in several rounds into an efficient 
+overall procedure.  Most block ciphers (e.g. DES, IDEA) are cascade ciphers.\\
+Also serial usage of the same cipher with different keys (like with Triple-DES)
+is called cascade cipher. 
+}
+does not exponentially increase with the number of rounds.
 
 Currently there is a large amount of research in this area: for example Murphy and Robshaw presented a paper at Crypto 2002 \cite{Robshaw2002a}, which could dramatically improve cryptanalysis: the burden for a 128-bit key was estimated at about $2^{100}$ steps by describing AES as a special case of an algorithm called BES (Big Encryption System), which has an especially "round" structure. But even $2^{100}$ steps are beyond what is achievable in the foreseeable future. Using a 256 bit key the authors estimate that a XSL-attack will require $2^{200}$ operations.
 
@@ -158,7 +170,7 @@ More details can be found at:
                {\texttt{http://www.minrank.org/aes/}}
 \end{itemize}
 
-So for 256-AES the attack is much more effective than brute-force but still far more away from any computing power which could be accessible in the short-to-long term. 
+So for 256-AES the attack is much more effective than brute-force\index{Attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
 
 The discussion is very controversial at the moment: Don Coppersmith (one of the
 inventors of DES) for example queries the practicability of the attack because
@@ -169,7 +181,7 @@ then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
 % --------------------------------------------------------------------------
 \subsubsection{Current status of brute-force attacks on 
 symmetric algorithms (RC5)}
-\index{Brute-force attack}
+\index{Attack!brute-force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
 
@@ -194,7 +206,7 @@ The RC5-64 challenge has been solved by the distributed.net team after 5 years\f
 
 This makes clear, that symmetric algorithms (even if they have no cryptographical weakness) using keys of size 64 bit are no more appropriate to keep sensible data private.
 
-Similar cipher challenges are there for asymmetric algorithms (please see chapter 3.11.4).
+Similar cipher challenges are there for asymmetric algorithms (please see chapter \ref{NoteFactorisation}).
 
 
 
@@ -251,13 +263,14 @@ perform than symmetric ones.\par \vskip + 3pt
 The most well-known asymmetric procedure is the \index{RSA} 
 RSA algorithm\index{CrypTool}%
 \footnote{%
-The RSA algorithm is extensively described in chapter 3.10 and later
+The RSA algorithm is extensively described in chapter \ref{rsabeweis} and later
 within this script. 
 The RSA cryptosystem can be executed in many variations with 
 CrypTool\index{CrypTool} v1.3 (using the menu 
 {\bf Individual Procedures \textbackslash{} RSA Demonstration \textbackslash{}
 RSA Cryptosystem}). 
-The topical research results concerning RSA are described in chapter 3.11.
+The topical research results concerning RSA are described 
+in chapter \ref{SecurityRSA}.
 }%
 ,
 named after its developers Ronald \index{Rivest Ronald} Rivest, Adi

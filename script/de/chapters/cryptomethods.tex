@@ -88,13 +88,13 @@ sind in der Vergangenheit schon mehrfach mit dem DES verschl"usselte Nachrichten
 er heute als nur noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind zum Beispiel die Algorithmen
 IDEA \index{IDEA} oder Triple-DES.\par \vskip + 3pt
 
-Hohe Aktualit"at besitzen die symmetrischen AES-Verfahren. \index{AES} Das
-dazu geh"orende Rijndael-Ver"-fahren wurde am 2. Oktober 2000 zum
-Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
+Hohe Aktualit"at besitzt das symmetrische AES-Verfahren: \index{AES} 
+Der dazu geh"orende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
+Gewinner der AES-Ausschreibung erkl"art und ist damit Nachfolger
 des DES-Verfahrens.
 
-N"aheres zu den AES-Algorithmen finden Sie in der
-CrypTool-Online-Hilfe\index{CrypTool}%
+N"aheres zum AES-Algorithmus und den AES-Kandidaten der letzten Runde finden
+Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 \footnote{%
       CrypTool-Online-Hilfe\index{CrypTool}: das Stichwort {\bf AES} im Index
       f"uhrt auf die 3 Hilfeseiten: {\bf AES-Kandidaten}, 
@@ -110,12 +110,48 @@ Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in letzter Z
 
 Der AES bietet mit einer Mindestschl"ussell"ange von 128 Bit gegen Brute-force-Angriffe auch auf l"angere Sicht gen"ugend Sicherheit -- es sei denn, es st"unden entsprechend leistungsf"ahige Quantencomputer zur Verf"ugung. Der AES war immun gegen alle bis dahin bekannten Kryptoanalyse-Verfahren, die vor allem auf statistischen "Uberlegungen beruhen und auf DES angewandt wurden: man konstruiert aus Geheim- und Klartextpaaren Ausdr"ucke, die sich nicht rein zuf"allig verhalten, sondern R"uckschl"usse auf den verwendeten Schl"ussel zulassen. Dazu waren aber unrealistische Mengen an abgeh"orten Daten n"otig.
 
-Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als ''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie theoretisch schneller sind als das Durchprobieren aller Schl"ussel, das beim Brute-force-Angriff verwendet wird. Im Fall des AES mit maximaler Schl"ussell"ange (256 Bit) braucht die ersch"opfende Schl"usselsuche im Durchschnitt $2^{255}$ Verschl"usselungsoperationen. Ein kryptoanalytischer Angriff muss diesen Wert unterbieten. Als aktuell gerade noch praktikabel (z.B. f"ur einen Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$ Verschl"usselungsoperationen.
+Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als ''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie theoretisch schneller sind als das Durchprobieren aller Schl"ussel, das beim Brute-force-Angriff\index{Angriff!Brute-force} verwendet wird. Im Fall des AES mit maximaler Schl"ussell"ange (256 Bit) braucht die ersch"opfende Schl"usselsuche im Durchschnitt $2^{255}$ Verschl"usselungsoperationen. Ein kryptoanalytischer Angriff muss diesen Wert unterbieten. Als aktuell gerade noch praktikabel (z.B. f"ur einen Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$ Verschl"usselungsoperationen.
 
 Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar, was aufgrund seiner ''relativ'' "ubersichtlichen Struktur gelang. Da diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zun"achst nicht f"ur die Kryptoanalyse. Dennoch war die wissenschaftliche Neugier geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein "uberbestimmtes System von rund 8000 quadratischen Gleichungen ("uber algebraischen Zahlk"orpern) mit rund 1600 Variablen (einige Unbekannte sind die Schl"usselbits) darstellen l"asst -- solch gro"se Gleichungssysteme sind praktisch nicht l"osbar. Dieses Gleichungssystem ist relativ d"unn besetzt (''sparse''), d.h. von den insgesamt etwa 1.280.000 m"oglichen quadratischen Termen tauchen nur relativ wenige "uberhaupt im Gleichungssystem auf.
 
-Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} ver"offentlichten 2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie entwickelten das auf der Eurocrypt 2000 von Shamir et al. vorgestellte XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren (eXtended Sparse Linearization). Das XL-Verfahren ist eine heuristische Technik, mit der es manchmal gelingt, gro"se nicht-lineare Gleichungssysteme zu l"osen und die bei der Analyse eines asymmetrischen Algorithmus (HFE) angewandt wurde.  Die Innovation von Courois und Pieprzyk war, das XL-Verfahren auf symmetrische Verfahren anzuwenden: das XSL-Verfahren kann auf spezielle Gleichungssysteme angewandt werden. Damit k"onnte ein 256-Bit-AES-Verfahren in rund $2^{230}$ Schritten geknackt werden. Dies ist zwar immer noch ein rein akademischer Angriff, aber er ist richtungsweisend f"ur eine ganze Klasse von Blockchiffren. Das generelle Problem mit diesem Angriff besteht darin, dass man bisher nicht angeben kann, unter welchen Umst"anden er zum Erfolg f"uhrt: die Autoren geben in ihrer Arbeit notwendige Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
-Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik, sondern auf Algebra beruhte. Dadurch erscheinen Angriffe m"oglich, die nur geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit eines Produktalgorithmus nicht mehr exponentiell mit der Rundenzahl.
+Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} ver"offentlichten 
+2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie 
+entwickelten das auf der Eurocrypt 2000 von Shamir et al. vorgestellte 
+XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren 
+(eXtended Sparse Linearization). Das XL-Verfahren ist eine heuristische 
+Technik, mit der es manchmal gelingt, gro"se nicht-lineare Gleichungssysteme 
+zu l"osen und die bei der Analyse eines asymmetrischen Algorithmus (HFE) 
+angewandt wurde.  Die Innovation von Courois und Pieprzyk war, das 
+XL-Verfahren auf symmetrische Verfahren anzuwenden: das XSL-Verfahren kann
+auf spezielle Gleichungssysteme angewandt werden. Damit k"onnte ein 
+256-Bit-AES-Verfahren in rund $2^{230}$ Schritten geknackt werden. Dies ist 
+zwar immer noch ein rein akademischer Angriff, aber er ist richtungsweisend
+f"ur eine ganze Klasse von Blockchiffren. Das generelle Problem mit diesem
+Angriff besteht darin, dass man bisher nicht angeben kann, unter welchen
+Umst"anden er zum Erfolg f"uhrt: die Autoren geben in ihrer Arbeit notwendige
+Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
+Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik,
+sondern auf Algebra beruhte. Dadurch erscheinen Angriffe m"oglich, die nur
+geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit
+eines Produktalgorithmus\index{Produktalgorithmus}%
+\footnote{%
+Ein Geheimtext kann selbst wieder Eingabe f"ur eine Chiffrierung sein. Eine
+Mehrfachverschl"usselung (cascade cipher)\index{Mehrfachverschl\""usselung}
+entsteht aus einer Komposition von mehreren Verschl"usselungstransformationen.
+Die Gesamtchiffrierung wird Produktalgorithmus oder Kaskadenalgorithmus
+genannt (manchmal ist die Namensgebung abh"angig davon, ob die verwendeten
+Schl"ussel statistisch abh"angig oder unabh"angig sind).\\
+Nicht immer wird die Sicherheit eines Verfahrens durch Produktbildung 
+erhöht.\\
+Diese Vorgehen wird auch innerhalb moderner Algorithmen angewandt:
+Sie kombinieren in der Regel einfache und, f"ur sich genommen, kryptologisch
+relativ unsichere Einzelschritte in mehreren Runden zu einem leistungsf"ahigen
+Gesamtverfahren. Die meisten modernen Blockchiffrierungen (z.B. DES, IDEA)
+sind Produktalgorithmen.\\
+Als Mehrfachverschl"usselung wird auch das Hintereinanderschalten desselben
+Verfahrens mit verschiedenen Schl"usseln wie beim Triple-DES bezeichnet. 
+}
+nicht mehr exponentiell mit der Rundenzahl.
 
 Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a}, das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur 128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als Spezialfall eines Algorithmus BES (Big Encryption System) darstellten, der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit realisierbar ist. Bei 256 Bit Schl"ussell"ange sch"atzen die Autoren den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
 
@@ -129,7 +165,7 @@ Weitere Details dazu stehen unter:
                {\texttt{http://www.minrank.org/aes/}}
 \end{itemize}
 
-F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-force, 
+F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-force\index{Angriff!Brute-force}, 
 aber auch noch weiter au"serhalb der Reichweite realisierbarer Rechenpower.
 
 \begin{sloppypar}
@@ -157,7 +193,8 @@ Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
 }.
 \end{sloppypar}
 
-Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security sogenannte Cipher-Challenges\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte, verschl"usselt mit verschiedenen Verfahren und Schl"ussell"angen, zu entschl"usseln und den symmetrischen Schl"ussel zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
+Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security sogenannte Cipher-Challenges\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte 
+(verschl"usselt mit verschiedenen Verfahren und verschiedenen Schl"ussell"angen) zu entschl"usseln und den symmetrischen Schl"ussel zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
 
 Dass das "`alte"' Standard-Verfahren DES mit der fixen Schl"ussell"ange von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack eine DES-verschl"usselte Nachricht in weniger als einem Tag knackten\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
@@ -167,7 +204,7 @@ Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom distributed.net-T
 
 Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptographische Schw"a"-chen haben) mit 64 Bit langen Schl"usseln keine geeigneten Verfahren mehr sind, um sensible Daten l"anger geheim zu halten.
 
-"Ahnliche Cipher-Challenges gibt es auch f"ur asymmetrische Verfahren (siehe Kapitel 3.11.4).
+"Ahnliche Cipher-Challenges gibt es auch f"ur asymmetrische Verfahren (siehe Kapitel \ref{NoteFactorisation}).
 
 
 
@@ -232,12 +269,12 @@ asymmetrische Verfahren jedoch um ein Vielfaches langsamer.\par \vskip + 3pt
 Das bekannteste asymmetrische Verfahren ist der \index{RSA} 
 RSA-Algorithmus\index{CrypTool}%
 \footnote{%
-RSA wird in diesem Skript ab Kapitel 3.10 ausf"uhrlich beschrieben.
+RSA wird in diesem Skript ab Kapitel \ref{rsabeweis} ausf"uhrlich beschrieben.
 Das RSA-Kryptosystem kann mit CrypTool\index{CrypTool} v1.3 "uber das Men"u 
 {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} 
 RSA-Kryptosystem} in vielen Variationen nachvollzogen werden. Die 
 aktuellen Forschungsergebnisse im Umfeld von RSA werden in Kapitel
-3.11 beschrieben.
+\ref{SecurityRSA} beschrieben.
 }%
 ,
 der nach seinen Entwicklern Ronald \index{Rivest Ronald} Rivest, Adi \index{Shamir Adi} Shamir und Leonard \index{Adleman Leonard} Adleman benannt wurde. Der
@@ -291,7 +328,7 @@ symmetrischen Verfahren verschl"usseln.
 % --------------------------------------------------------------------------
 \subsection{Weitere Details}
 
-Neben den weiteren Kapiteln in diesem Skript, der umfangreichen Fachliteratur
+Neben den anderen Kapiteln in diesem Skript, der umfangreichen Fachliteratur
 und vielen Stellen im Internet enth"alt auch die Online-Hilfe von 
 CrypTool\index{CrypTool} sehr viele weitere Informationen zu den 
 einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.

@@ -11,8 +11,11 @@
 
 \newpage
 %\hypertarget{Kap_3}
+\hypertarget{Kapitel_3}{}
+
 \section{Introduction to Elementary Number Theory with Examples}
 (Bernhard Esslinger, July 2001, Updates: Dec. 2001, June 2002, May 2003) \\
+\label{Kapitel_3}
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -284,11 +287,14 @@ for which numbers in the
 set {\em cannot} be expressed 
 uniquely as a product of the prime numbers of the set.
 
-In order to make a mathematical statement, therefore, it is important to state not only the operation for which it is 
-defined but also the basic set on which the operation is defined.
+In order to make a mathematical statement, therefore, it is important to 
+state not only the operation for which it is defined but also the basic set
+on which the operation is defined.
 
-For more details on prime numbers (e.g. how ``Fermat's Little Theorem'' can be used to test extremely large 
-numbers to determine whether they are prime), please refer to the article on \hyperlink{Kapitel_2}{prime numbers} in this script.
+For more details on prime numbers (e.g. how ``Fermat's Little Theorem'' can
+be used to test extremely large numbers to determine whether they are prime),
+please refer to the article on \hyperlink{Kapitel_2}{\ref{Label_Kapitel_2}, 
+Prime numbers} in this script.
 
 
 
@@ -469,7 +475,9 @@ $
 
 % --------------------------------------------------------------------------
 \subsubsection{Patterns and structures}
-\hypertarget{kap_3_5_2}
+\hypertarget{kap_3_5_2}{}
+\label{Label_Kapitel_3_5_2}
+
 In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
 which values $x$ can take for given values of $a, ~b, ~m.$
 
@@ -666,7 +674,8 @@ also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then the product $a*i {\rm ~mod ~} m $ takes for a 
 certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
-also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicative order and primitive roots}.}.
+also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}
+{chapter \ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
@@ -824,7 +833,7 @@ $$
 \subsubsection{Fast calculation of high powers} \hypertarget{hohpot}{} \label{hohpot}\index{Power}
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
-RSA encryption and decryption\footnote{See chapter \ref{rsaproof} (Proof of the
+RSA encryption and decryption\footnote{See chapter \ref{rsabeweis} (Proof of the
 RSA procedure with Euler-Fermat) \index{RSA} and chapter~\ref{rsaconcrete} (The
 RSA procedure with actual numbers).} entails calculating high powers modulo
 $m$.  For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit
@@ -1022,7 +1031,8 @@ Example for $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
 
-The unique inverse is an essential condition for cryptography (see section~\ref{rsaproof}).
+The unique invertibility\index{Invertibility} is an essential condition for
+cryptography (see section~\ref{rsabeweis}).
 
 
 
@@ -1056,11 +1066,14 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 % --------------------------------------------------------------------------
 \subsubsection{Patterns and structures}
 \hypertarget{Kap_3_8}{}\label{patternsandstructures}
-As mathematicians investigate the structure \index{Structure} $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
+As mathematicians investigate the structure \index{Structure}
+$a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}
+{chapter \ref{Label_Kapitel_3_5_2}}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
-Again here they are interested in the case, if $ b=1$ (value of the multiplicative inverse) and
-if $ b=x$ (the function has a fixpoint\index{Fixpoint}).
+Again here they are interested in the case, if $ b=1$ (value of the 
+multiplicative inverse) and if $ b=x$ (the function has a 
+fixpoint\index{Fixpoint}).
 
 
 % --------------------------------------------------------------------------
@@ -1115,9 +1128,10 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 
 % --------------------------------------------------------------------------
 \subsubsection{The theorem of Euler-Fermat}\index{Euler Leonhard}\index{RSA}
+\label{Label_KleinerSatzFermat-chap3}
 In order to prove the RSA procedure, we need Fermat's theorem and its 
 generalisation (Euler-Fermat theorem) -- 
-\hyperlink{KleinerSatzFermat-chap2}{please also see chapter 2.5}.
+\hyperlink{KleinerSatzFermat-chap2}{please see chapter \ref{primality_tests}}.
 
 \hypertarget{KleinerSatzFermat-chap3}{}
 \begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, Aug 17, 1601 -- Jan 12, 1665.
@@ -1220,7 +1234,8 @@ $\\
 If only $n$ and $J(n)$ are known, then it is:
 $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
 $$ x^2 + (J(n)-n-1)x +n= 0.
-$$} (please compare requisition 3 in section 3.10.1).
+$$} (please compare requisition 3 in \hyperlink{Kapitel_3_10_1}
+{section \ref{Label_Kapitel_3_10_1}}).
 
 
 
@@ -1450,7 +1465,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Proof of the RSA procedure with Euler-Fermat}
-\hypertarget{Kapitel_3_10}{}\index{RSA}\label{rsaproof}
+\hypertarget{Kapitel_3_10}{}\index{RSA}\label{rsabeweis}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
@@ -1483,6 +1498,9 @@ procedure in the group $\mathbb{Z}_n^*$.
 
 % --------------------------------------------------------------------------
 \subsubsection{Basic idea of public key cryptography}
+\index{Cryptography!public key}
+\hypertarget{Kapitel_3_10_1}{}
+\label{Label_Kapitel_3_10_1}
 
 The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
 public keys for all recipients are published. You can retrieve the public key $P$ for a recipient from a directory just as you 
@@ -1783,8 +1801,9 @@ The complexity is basically determined by the length $l$ of the module $n$.
       \vskip +12pt
 
 \item In 1999 a 155-digit module (512 bit) was factored with an implementation
-      of the General Number Field Sieve algorithm (GNFS) \index{General 
-      Number Field Sieve (GNFS)}, developed by Buhler, Lenstra and Pomerance.
+      of the General Number Field Sieve algorithm (GNFS) 
+      \index{General Number Field Sieve (GNFS)}, developed by Buhler, 
+      Lenstra and Pomerance.
       The GNFS is more efficient than QS if $n$ is longer
       than about 116 decimal digits. This effort took 5 months.
 

@@ -278,7 +278,7 @@ Beispiel: Der K"orper ${\mathbb Z}_p$, $p$ prim, hat die Charakteristik $p$. Ist
 
 Der einfachste, denkbare K"orper ist ${\mathbb Z}_2 \; = \{ 0,1\}$, der nur Null- und Einselement enth"alt. Dabei ist $0+0=0$, $0+1=1+0=1$, $1+1=0$, $1\cdot 1=1$, $0\cdot 0=0\cdot 1=1\cdot 0=0$.
 
-\index{Endliche!K"orper}
+\index{K""orper!endliche}
 \paragraph{Endliche K"orper}
 Wie bereits erw"ahnt, hat jeder endliche K"orper eine Charakteristik $p\ne 0$, wobei $p$ eine Primzahl ist. Zu jeder Primzahl $p$ gibt es einen K"orper mit $p$ Elementen, n"amlich ${\mathbb Z}_p$.
 
@@ -522,7 +522,7 @@ Signaturverfahren eingesetzt  wurde.
 %{\bf Verschl"usselung:}
 \subsubsection{Verschl"usselung}
 
-Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{DH-KeyExch}{Diffie-Hellman Protokoll} \index{Diffie-Hellman} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt!
+Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{DH-KeyExch}{Diffie-Hellman} Protokoll \index{Diffie-Hellman} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt!
 
 In der Schreibweise der Elliptischen Kurven liest sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (n"amlich $r_Ar_B G$) erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
 \\ F"ur einen Dritten ist es nach heutigen Kenntnisstand nicht m"oglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP l"ost.

@@ -11,8 +11,10 @@
 
 \newpage
 \hypertarget{Kapitel_3}{}
+
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
 (Bernhard Esslinger, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003) \\
+\label{Kapitel_3}
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -321,9 +323,10 @@ F"ur eine mathematische Aussage ist es deshalb nicht nur wichtig, f"ur welche
 Operation sie definiert wird, sondern auch auf welcher Grundmenge diese
 Operation definiert wird.
 
-Weitere Details zu den Primzahlen (z.B. wie der \glqq Kleine Satz von Fermat'' zum
-Testen sehr gro"ser Zahlen auf ihre Primzahleigenschaft benutzt werden kann)
-finden sich in diesem Skript in dem Artikel "uber \hyperlink{Kapitel_2}{Primzahlen}.
+Weitere Details zu den Primzahlen (z.B. wie der \glqq Kleine Satz von 
+Fermat'' zum Testen sehr gro"ser Zahlen auf ihre Primzahleigenschaft benutzt
+werden kann) finden sich in diesem Skript in dem Artikel "uber 
+\hyperlink{Kapitel_2}{\ref{Label_Kapitel_2}, Primzahlen}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -515,6 +518,7 @@ $
 % --------------------------------------------------------------------------
 \subsubsection{Muster und Strukturen} \index{Struktur}
 \hypertarget{Kapitel_3_5_2}{}
+\label{Label_Kapitel_3_5_2}
 
 Generell untersuchen die Mathematiker \glqq Strukturen\grqq. Sie fragen sich
 z.B. bei $ a * x \equiv b {\rm ~mod~ } m, $ welche Werte $x$ f"ur gegebene 
@@ -727,10 +731,11 @@ Daher gibt es in mod $6$ genau $J(6) = (2-1)*(3-1) = 1 * 2 = 2$ Zahlen, die eine
 multiplikative Inverse haben, n"amlich die $1$ und die $5$.
 
 F"ur gro"se Moduli scheint es nicht einfach, die Tabelle der multiplikativen
-Inversen zu berechnen (das gilt nur f"ur die in den oberen Multiplikationstabellen 
-fett markierten Zahlen). Mit Hilfe des kleinen Satzes von Fermat\index{Fermat!kleiner Satz} kann man daf"ur
-einen einfachen Algorithmus aufstellen \cite[S. 80]{Pfleeger1997}. Schnellere
-Algorithmen werden z.B. in \cite{Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
+Inversen zu berechnen (das gilt nur f"ur die in den oberen 
+Multiplikationstabellen fett markierten Zahlen). Mit Hilfe des kleinen Satzes
+von Fermat\index{Fermat!kleiner Satz} kann man daf"ur einen einfachen 
+Algorithmus aufstellen \cite[S. 80]{Pfleeger1997}. Schnellere Algorithmen
+werden z.B. in \cite{Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
 beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
 multiplikative Inverse berechnen und die Invertierbarkeit bestimmen (Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
@@ -739,13 +744,16 @@ Alternativ kann auch die Primitivwurzel genutzt werden.
 
 \vskip +10 pt
 Kryptographisch ist nicht nur die Eindeutigkeit der Inversen, sondern auch das
-Aussch"opfen des gesamten Wertebereiches\index{Wertebereich} eine wichtige Eigenschaft.
+Aussch"opfen des gesamten Wertebereiches\index{Wertebereich} eine wichtige
+Eigenschaft.
 
 \begin{satz}\label{thm-zth-exhperm}
-Sei $a,i\in \{1, \cdots , m-1\}$ mit ${\rm~ggT} (a,m)=1, $ dann nimmt f"ur eine bestimmte Zahl $a$ das Produkt 
-$a*i {\rm ~mod~} m$  alle Werte aus $ \{1, \cdots ,m-1\}$ an (ersch"opfende  Permutation\index{Permutation} der L"ange 
-$m-1$)\footnote{%
-Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{Kapitel 3.9 Multiplikative Ordnung und Primitivwurzel}.
+Sei $a,i\in \{1, \cdots , m-1\}$ mit ${\rm~ggT} (a,m)=1, $ dann nimmt f"ur
+eine bestimmte Zahl $a$ das Produkt $a*i {\rm ~mod~} m$  alle Werte aus
+$ \{1, \cdots ,m-1\}$ an (ersch"opfende Permutation\index{Permutation} der
+L"ange $m-1$)\footnote{%
+Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}
+{Kapitel \ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel}.
 }.
 \end{satz}
 
@@ -926,7 +934,7 @@ $$
 \subsubsection{Schnelles Berechnen hoher Potenzen} 
 %\subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} 
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} 
-\hypertarget{hohpot}{}\label{hohpot} \index{Potenzen}
+\hypertarget{hohpot}{}\label{hohpot} \index{Potenz}
 Bei RSA-Ver- und Entschl"usselungen\footnote{%
 Siehe Kapitel \ref{rsabeweis} (Beweis des RSA-Verfahrens mit Euler-Fermat) und 
 Kapitel \ref{rsakonkret} (Das RSA-Verfahren mit konkreten Zahlen).
@@ -1143,8 +1151,9 @@ Beispiel f"ur $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
 1 & \equiv & 3 * 7{\rm ~(mod~}10), \nonumber \\
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
-Die eindeutige Invertierung (Umkehrbarkeit)\index{Umkehrbarkeit} ist eine notwendige Bedingung f"ur die
-Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
+Die eindeutige Invertierung (Umkehrbarkeit)\index{Umkehrbarkeit} ist eine
+notwendige Bedingung f"ur die Kryptographie (siehe Kapitel \ref{rsabeweis}: 
+\hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
 
 
 
@@ -1170,11 +1179,13 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
 
 % --------------------------------------------------------------------------
 \subsubsection{Muster und Strukturen}\index{Struktur}
-So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen (s. \hyperlink{Kapitel_3_5_2}{Kapitel 3.5.2}),
+So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen 
+(s. \hyperlink{Kapitel_3_5_2}{Kapitel \ref{Label_Kapitel_3_5_2}}),
 so interessiert sie auch die Struktur $ x^{a}\equiv b {\rm ~mod~}m$. 
 
-Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist (also den Werte der multiplikativen
-Einheit annimmt) und wenn $b=x$ ist (also die Abbildung einen Fixpunkt\index{Fixpunkt} hat).
+Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist 
+(also den Werte der multiplikativen Einheit annimmt) und wenn $b=x$ ist 
+(also die Abbildung einen Fixpunkt\index{Fixpunkt} hat).
 
 
 % --------------------------------------------------------------------------
@@ -1231,9 +1242,10 @@ $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 
 % --------------------------------------------------------------------------
 \subsubsection{Der Satz von Euler-Fermat}\index{Euler Leonhard}\index{RSA}
+\label{Label_KleinerSatzFermat-chap3}
 F"ur den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und 
 dessen Verallgemeinerung (Satz von Euler-Fermat) -- 
-\hyperlink{KleinerSatzFermat-chap2}{vergleiche Kapitel 2.5}.
+\hyperlink{KleinerSatzFermat-chap2}{vergleiche Kapitel \ref{primality_tests}}.
 
 \hypertarget{KleinerSatzFermat-chap3}{}
 \index{Fermat!kleiner Satz}
@@ -1352,12 +1364,14 @@ $x^2-(p+q)x+pq=0. $\\
 Sind nur 
 $n$ und $J(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -J(n).$  Man erh"alt somit die Faktoren $p$ und $q$ von $n$, indem man die quadratische Gleichung
 $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.
-} (vergleiche Forderung 3 in \hyperlink{Kapitel_3_10_1}{Kapitel 3.10.1}).
+} (vergleiche Forderung 3 in \hyperlink{Kapitel_3_10_1}
+{Kapitel \ref{Label_Kapitel_3_10_1}}).
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot} 
+\subsection{Multiplikative Ordnung und Primitivwurzel}
+\hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot} 
 
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
 wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Struktur}).
@@ -1635,8 +1649,11 @@ Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Grundidee der Public Key-Kryptographie}\index{Kryptographie!Public Key}
+\subsubsection{Grundidee der Public Key-Kryptographie}
+\index{Kryptographie!Public Key}
 \hypertarget{Kapitel_3_10_1}{}
+\label{Label_Kapitel_3_10_1}
+
 Die Grundidee bei der Public Key-Kryptographie besteht darin, dass alle
 Teilnehmer ein unterschiedliches Paar von Schl"usseln ($P$ und $S$) besitzen und
 man f"ur alle Empf"anger die "offentlichen Schl"ussel publiziert. So wie man die
@@ -3281,7 +3298,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     R"udiger Weis, Stefan Lucks, Andreas Bogk, \\
     {\em Sicherheit von 1024 bit RSA-Schl"usseln gef"ahrdet},\\
     In: Datenschutz und Datensicherheit (DuD) 6/2003, S. 360-362 (s. www.dud.de)\\
-    Der Artikel erl"autert Details zum TWIRL-Device\index{TWIRL Device}.
+    Der Artikel erl"autert Details zum TWIRL-Device\index{TWIRL-Device}.
 
 \bibitem[Welschenbach2001]{Welschenbach2001} \index{Welschenbach 2001}
     Welschenbach, Michael, \\
@@ -3365,7 +3382,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          Informatik an der gymnasialen Oberstufe des Landes Saarland bekannt.
          Hier befindet sich eine Sammlung von Texten und Programmen 
          (in Java), die aus didaktischen "Uberlegungen entstand (alles 
-         leider nur in deutsch verf"ugbar). \\
+         leider nur in Deutsch verf"ugbar). \\
          \href{http://www.hom.saar.de/~awa/kryptolo.htm}
          {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
          
@@ -3412,10 +3429,11 @@ herzlich zu danken:
          Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
          und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
          dieser Form erschienen w"are. \\
-	 Au"serdem hat Hr. Koy im CrypTool-Programm die komplexe Dialogbox
-	 zum RSA-Krypto"-system designed und die dahinterliegende Logik
-	 entwickelt, mit der die RSA-Beispiele dieses Artikels 
-	 nachvollzogen werden k"onnen.}
+	 Au"serdem hat Hr. Koy in seiner Freizeit im CrypTool-Programm 
+	 die komplexe Dialogbox zum RSA-Kryptosystem
+%	 RSA-Krypto"-system   (TRENNUNG erzwingen)
+	 designed und die dahinterliegende Logik entwickelt, mit der die
+	 RSA-Beispiele dieses Artikels nachvollzogen werden k"onnen.}
   \item {J"org Cornelius Schneider f"ur die Unterst"utzung bei TeX und
          die mannigfaltigen Hilfen bei allen Arten von Programmier- und
 	 Design-Problemen.}
