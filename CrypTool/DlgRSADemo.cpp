@@ -175,13 +175,15 @@ void CDlgRSADemo::OnRadioRSAComplete()
 	SetStatusPrivateKey(TRUE);
 
 	// RESSOURCEN
-	m_frame_rsa_mode.SetWindowText("Primzaheingabe");
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+	m_frame_rsa_mode.SetWindowText(pc_str);
 	m_RSA_caption_prime_p.ShowWindow(TRUE);
 	m_RSA_caption_prime_q.ShowWindow(TRUE);
 	m_control_edit_p.ShowWindow(TRUE);
 	m_control_edit_q.ShowWindow(TRUE);
 	m_RSA_mode_factorisation.ShowWindow(FALSE);
-	m_GeneratePrimes.SetWindowText("Primzahlen generieren...");
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES,pc_str,STR_LAENGE_STRING_TABLE);
+	m_GeneratePrimes.SetWindowText(pc_str);
 
 	CheckRSAParameter();
 
@@ -233,10 +235,12 @@ void CDlgRSADemo::OnRadioRSAPublicKey()
 	m_control_edit_q.EnableWindow(FALSE);
 	// Öffentlicher RSA-Modul N editierbar
 	m_control_edit_N.SetReadOnly(FALSE);
-	m_GeneratePrimes.SetWindowText("RSA-Modul faktorisieren...");
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK,pc_str,STR_LAENGE_STRING_TABLE);
+	m_GeneratePrimes.SetWindowText(pc_str);
 
 	// RESSOURCEN
-	m_frame_rsa_mode.SetWindowText("Faktorisierungsangriff");
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL,pc_str,STR_LAENGE_STRING_TABLE);
+	m_frame_rsa_mode.SetWindowText(pc_str);
 	m_RSA_caption_prime_p.ShowWindow(FALSE);
 	m_RSA_caption_prime_q.ShowWindow(FALSE);
 	m_control_edit_p.ShowWindow(FALSE);

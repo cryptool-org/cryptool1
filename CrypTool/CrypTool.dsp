@@ -19,6 +19,8 @@ CFG=CrypTool - Win32 Debug
 !MESSAGE 
 !MESSAGE "CrypTool - Win32 Release" (basierend auf  "Win32 (x86) Application")
 !MESSAGE "CrypTool - Win32 Debug" (basierend auf  "Win32 (x86) Application")
+!MESSAGE "CrypTool - Win32 Release_de" (basierend auf  "Win32 (x86) Application")
+!MESSAGE "CrypTool - Win32 Release_en" (basierend auf  "Win32 (x86) Application")
 !MESSAGE 
 
 # Begin Project
@@ -53,7 +55,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
@@ -81,7 +83,65 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libcd"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libcd"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# PROP BASE Use_MFC 1
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "CrypTool___Win32_Release_de"
+# PROP BASE Intermediate_Dir "CrypTool___Win32_Release_de"
+# PROP BASE Ignore_Export_Lib 0
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 1
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "..\Release_de"
+# PROP Intermediate_Dir "..\Release_de"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD BASE RSC /l 0x809 /d "NDEBUG"
+# ADD RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# SUBTRACT BASE LINK32 /map
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# SUBTRACT LINK32 /map
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# PROP BASE Use_MFC 1
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "CrypTool___Win32_Release_en"
+# PROP BASE Intermediate_Dir "CrypTool___Win32_Release_en"
+# PROP BASE Ignore_Export_Lib 0
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 1
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "CrypTool___Win32_Release_en"
+# PROP Intermediate_Dir "CrypTool___Win32_Release_en"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD BASE RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
+# ADD RSC /l 0x809 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_ENG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# SUBTRACT BASE LINK32 /map
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib  ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# SUBTRACT LINK32 /map
 
 !ENDIF 
 
@@ -89,6 +149,8 @@ LINK32=link.exe
 
 # Name "CrypTool - Win32 Release"
 # Name "CrypTool - Win32 Debug"
+# Name "CrypTool - Win32 Release_de"
+# Name "CrypTool - Win32 Release_en"
 # Begin Group "hlp-de"
 
 # PROP Default_Filter ""
@@ -123,6 +185,34 @@ InputPath=".\hlp-de\CrypTool.hpj"
 USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Debug
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-de\CrypTool.hpj"
+
+"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat" de
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
+# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\..\Release_de
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-de\CrypTool.hpj"
+
+"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat" de
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
+# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\CrypTool___Win32_Release_en
 ProjDir=.
 TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
@@ -187,6 +277,34 @@ InputPath=".\hlp-en\CrypTool.hpj"
 
 # End Custom Build
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\..\Release_de
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-en\CrypTool.hpj"
+
+"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat" en
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
+# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
+OutDir=.\CrypTool___Win32_Release_en
+ProjDir=.
+TargetName=CrypTool
+InputPath=".\hlp-en\CrypTool.hpj"
+
+"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat" en
+
+# End Custom Build
+
 !ENDIF 
 
 # End Source File
@@ -216,6 +334,16 @@ SOURCE=.\AESEncryption.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -266,6 +394,16 @@ SOURCE=.\AsymmetricEncryption.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -282,6 +420,16 @@ SOURCE=.\AutomaticAnalysis.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -624,6 +772,16 @@ SOURCE=.\CryptDoc.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -640,6 +798,16 @@ SOURCE=.\CryptDocTemplate.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -659,6 +827,16 @@ SOURCE=.\Cryptography.cpp
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
 # ADD CPP /W3
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -680,6 +858,16 @@ SOURCE=.\CrypToolApp.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -704,6 +892,28 @@ InputPath=.\CrypToolPopupMenuIDs.txt
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+USERDEP__CRYPTO="CrypTool.rc"	
+# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
+InputPath=.\CrypToolPopupMenuIDs.txt
+
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+USERDEP__CRYPTO="CrypTool.rc"	
+# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
+InputPath=.\CrypToolPopupMenuIDs.txt
+
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
 
 USERDEP__CRYPTO="CrypTool.rc"	
 # Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
@@ -751,6 +961,16 @@ SOURCE=.\DialogLaengeBin.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -768,6 +988,16 @@ SOURCE=.\DlgAbout.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -784,6 +1014,16 @@ SOURCE=.\DlgAuthors.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -809,6 +1049,16 @@ SOURCE=.\DlgCaesarAnalysis.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -859,6 +1109,16 @@ SOURCE=.\DlgECSignatureStepByStep.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -875,6 +1135,16 @@ SOURCE=.\DlgExtractSignature.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -917,6 +1187,16 @@ SOURCE=.\DlgHillAnalysis.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -950,6 +1230,16 @@ SOURCE=.\DlgKey.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -967,6 +1257,16 @@ SOURCE=.\DlgKeyAsym.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -983,6 +1283,16 @@ SOURCE=.\DlgKeyAsymGeneration.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1017,6 +1327,16 @@ SOURCE=.\DlgKeyHexAnalysis.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1034,6 +1354,16 @@ SOURCE=.\DlgKeyHill10x10.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1050,6 +1380,16 @@ SOURCE=.\DlgKeyHill5x5.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1075,6 +1415,16 @@ SOURCE=.\DlgKeyLength.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1109,6 +1459,16 @@ SOURCE=.\DlgKeySubstitution.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1125,6 +1485,16 @@ SOURCE=.\DlgKeyVigenere.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1151,6 +1521,16 @@ SOURCE=.\DlgManualSubstAnalysis.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1175,6 +1555,16 @@ SOURCE=.\DlgOptionsAnalysis.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1201,6 +1591,16 @@ SOURCE=.\DlgOptionsSubstitutionAnalysis.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1225,6 +1625,16 @@ SOURCE=.\DlgPINAccess.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1283,6 +1693,16 @@ SOURCE=.\DlgRSADecryption.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1307,6 +1727,16 @@ SOURCE=.\DlgRSAEncryption.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1341,6 +1771,16 @@ SOURCE=.\DlgShowCertificate.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1366,6 +1806,16 @@ SOURCE=.\DlgShowKey.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1383,6 +1833,16 @@ SOURCE=.\DlgShowKeyHill10x10.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1399,6 +1859,16 @@ SOURCE=.\DlgShowKeyHill5x5.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1425,6 +1895,16 @@ SOURCE=.\DlgShowParameterKeyEC.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1441,6 +1921,16 @@ SOURCE=.\DlgShowPrivateKeyEC.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1467,6 +1957,16 @@ SOURCE=.\DlgShowPublicKeyEC.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1483,6 +1983,16 @@ SOURCE=.\DlgSignature.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -1517,6 +2027,16 @@ SOURCE=.\DlgTextOptions.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1542,6 +2062,16 @@ SOURCE=.\DlgVerifyECSignatureStepByStep.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -1558,6 +2088,16 @@ SOURCE=.\DlgVerifySignature.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -2132,6 +2672,16 @@ SOURCE=.\KeyFileHandling.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -2324,6 +2874,16 @@ SOURCE=.\ParseIniFile.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 
@@ -2602,6 +3162,16 @@ SOURCE=.\SecudeLib.cpp
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
 !ENDIF 
 
 # End Source File
@@ -2722,6 +3292,16 @@ SOURCE=.\ValueList.cpp
 # ADD CPP /O1
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+# ADD BASE CPP /O1
+# ADD CPP /O1
 
 !ENDIF 
 

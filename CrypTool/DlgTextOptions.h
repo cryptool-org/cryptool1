@@ -42,6 +42,7 @@ public:
 	CString	m_trenn;
 	BOOL	m_addx;
 	CString	m_StrRefFile;
+	CStatic	m_InformationAlphabetSize;
 	//}}AFX_DATA
 
 // Überschreibungen
@@ -77,6 +78,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
+	void UpdateHeaderAlphabet();
 	int UpdateTags();
 	CString OldAlphabet;
 	BOOL	OldFormat;

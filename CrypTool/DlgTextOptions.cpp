@@ -59,6 +59,7 @@ void CDlgTextOptions::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 
 	//{{AFX_DATA_MAP(CDlgTextOptions)
+	DDX_Control(pDX, IDC_TEXTOPTIONS_ALPHABET, m_InformationAlphabetSize);
 	DDX_Control(pDX, IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI, m_CtrlRefFile);
 	DDX_Control(pDX, IDC_CHECK2, m_CaseControl);
 	DDX_Control(pDX, IDC_EDIT1, m_alphacontrol);
@@ -159,6 +160,7 @@ void CDlgTextOptions::OnUpdateEdit1()
 	m_alphacontrol.GetSel(SS, SE);
 	UpdateTags();
 	m_alphacontrol.SetSel(SS, SE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -169,6 +171,7 @@ void CDlgTextOptions::OnButton1()
 	m_ConvertCase = TRUE;
 	m_Format = TRUE;
 	UpdateTags();
+	UpdateHeaderAlphabet();
 }
 
 
@@ -183,6 +186,8 @@ BOOL CDlgTextOptions::OnInitDialog()
 
 	m_CtrlRefFile.SetFocus();
 	m_CtrlRefFile.SetSel(0,-1);
+
+	UpdateHeaderAlphabet();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -213,6 +218,7 @@ void CDlgTextOptions::OnCheck2() // Groß-Keinschreibubg beachten
 		m_ConvertCase = FALSE;
 	}
 	UpdateTags();
+	UpdateHeaderAlphabet();
 }
 
 
@@ -248,6 +254,7 @@ void CDlgTextOptions::OnCheck3() // Großbuchstaben
 		m_GrossVal = 0;
 	}
 	UpdateData(FALSE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -273,6 +280,7 @@ void CDlgTextOptions::OnCheck4() // Kleinbuchstaben
 		m_KleinVal = 0;
 	}
 	UpdateData(FALSE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -291,6 +299,7 @@ void CDlgTextOptions::OnCheck5() // Leerzeichen
 		m_LeerVal = FALSE;
 	}
 	UpdateData(FALSE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -314,6 +323,7 @@ void CDlgTextOptions::OnCheck6() // Satzzeichen
 		m_SatzVal = 0;
 	}
 	UpdateData(FALSE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -424,6 +434,7 @@ void CDlgTextOptions::OnCheck7() // Zahlen
 		m_ZahlVal = 0;
 	}
 	UpdateData(FALSE);
+	UpdateHeaderAlphabet();
 }
 
 
@@ -437,6 +448,7 @@ void CDlgTextOptions::OnCheck8() // Groß-Keinschreibubg konvertieren
 		m_ConvertCase = FALSE;
 		UpdateData(FALSE);
 	}
+	UpdateHeaderAlphabet();
 }
 
 void CDlgTextOptions::OnButtonTextoptionenSucheReferenzdatei() 
@@ -478,4 +490,12 @@ void CDlgTextOptions::OnUpdateEditTextoptionenReferenzdatei()
 	
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	
+}
+
+void CDlgTextOptions::UpdateHeaderAlphabet()
+{
+	LoadString(AfxGetInstanceHandle(),IDS_TEXTOPTIONS_HEADER_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
+	char line[256];
+	sprintf(line, pc_str, m_alphabet.GetLength());
+	m_InformationAlphabetSize.SetWindowText(line);
 }

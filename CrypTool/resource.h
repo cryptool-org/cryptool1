@@ -125,7 +125,6 @@
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
-#define IDB_BITMAP10                    517
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -547,6 +546,7 @@
 #define IDC_RSA_CAPTION_PRIME_P         1407
 #define IDC_RSA_CAPTION_PRIME_Q         1408
 #define IDC_RSA_MODE_FACTORISATION      1409
+#define IDC_TEXTOPTIONS_ALPHABET        1410
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1156,6 +1156,11 @@
 #define IDS_STRING_FMT_DAYS             37738
 #define IDS_STRING_FMT_SEC              37739
 #define IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 37740
+#define IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME 37741
+#define IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES 37742
+#define IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL 37743
+#define IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK 37744
+#define IDS_TEXTOPTIONS_HEADER_ALPHABET 37745
 #define IDS_STRING_NGRAM_ANALYSIS_OF    37800
 #define IDS_STRING_NGRAM_HISTOGRAM      37801
 #define IDS_STRING_NGRAM_DIGRAM         37802
@@ -1252,7 +1257,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        518
 #define _APS_NEXT_COMMAND_VALUE         33160
-#define _APS_NEXT_CONTROL_VALUE         1410
+#define _APS_NEXT_CONTROL_VALUE         1411
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
