@@ -151,13 +151,18 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	pStatic->SetFont(&m_font,false);
 	
 
+	// Falls ein Dokument vorliegt, wird es initial im Demo-Dialog angezeigt
 	if (!m_strPathSelDoc.IsEmpty())
 	{
 		DateiOeffnen(m_strPathSelDoc);
 		m_ActionPerformed[0] = true;
 		EnDisButtons();
 		ShowButtons();
-		OnButtonShowDocument();
+		OnButtonShowDocument();	
+		// Den Fokus _nur_ dann auf den Button "Dokument" legen (und deshalb FALSE zurückgeben),
+		// wenn auch wirklich ein Dokument vorliegt
+		m_ctrlBmpRaute1.SetFocus();
+		return FALSE;
 	}
 
 	

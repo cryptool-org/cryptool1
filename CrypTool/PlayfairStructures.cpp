@@ -94,10 +94,12 @@ bool CPlayfairAlphabet::myisalpha( char ch )
 	if (my_count == 36)
 	{
 		return ((ch>='A'&&ch<='Z')||(ch>='0'&&ch<='9')||(ch>='a'&&ch<='z'));
-	} else 	if (my_count == 25) {
+	} 
+	else 	if (my_count == 25) {
 		return (((ch>='A'&&ch<='Z')||(ch>='a'&&ch<='z'))&&(ch!='j')&&(ch!='J'));
 	}
-	assert (0); return (false);
+	assert (0); 
+	return (false);
 }
 
 char CPlayfairAlphabet::replaceInvalidLetter(bool withConvert, char let, bool isDigitsOk, bool isPlayfairTypical)

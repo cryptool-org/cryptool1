@@ -278,6 +278,28 @@ void PlayfairBin(const char *infile, const char *OldTitle)
  	char outfile[128],preform[128],title[128];
     CAppDocument *NewDoc;
 
+	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
+	CFile datei(infile, CFile::modeRead);
+
+	long infile_zeichen_anz = 0;
+	char c;
+	while(datei.Read(&c,1))
+	{
+		
+		if( ( (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')  ) )
+		{
+			infile_zeichen_anz++;
+			if ( infile_zeichen_anz >= 2 ) break;
+		}
+	}
+	datei.Close();
+	
+	if (infile_zeichen_anz < 2)
+	{
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
+		return;
+	}
+	
 	int n=strlen(infile);
 	if ( strncmp(OldTitle+n-4,".asc",4) && theApp.TextOptions.m_Format )
 		GetTmpName(outfile,"cry",".txt");
