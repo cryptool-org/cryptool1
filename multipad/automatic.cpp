@@ -151,6 +151,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	text.Write(name);
 	ForceReformat(infile,name, FALSE);
 	CString csKey = theApp.TextOptions.m_alphabet[shift];
+
     NewDoc = theApp.OpenDocumentFileNoMRU(name, csKey);
     remove(name);
 	if(NewDoc) {
@@ -161,7 +162,6 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		NewDoc->SetTitle(line);
     }
 	theApp.DoWaitCursor(0);
-	
 }
 
 // ======================================================================================

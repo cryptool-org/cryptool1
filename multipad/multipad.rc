@@ -1475,7 +1475,7 @@ BEGIN
     GROUPBOX        "Gesamtzahl und Bitlänge der Homophonen",IDC_STATIC,14,4,
                     162,42
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
-    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,199,42
+    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,95,42
     CONTROL         "Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,192,19,56,8
     CONTROL         "Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
@@ -1494,7 +1494,7 @@ BEGIN
     LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
     PUSHBUTTON      "Schlüssel aus der Zwischenablage laden",IDC_BUTTON2,147,
                     332,149,17
-    EDITTEXT        IDC_EDIT6,327,20,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
+    EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Bitlänge:",IDC_STATIC,27,32,30,8
     EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
@@ -1502,6 +1502,10 @@ BEGIN
     LTEXT           "Bit",IDC_STATIC,98,33,18,9
     PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,147,358,79,18
     PUSHBUTTON      "Aktualisieren",IDC_BUTTON3,109,15,53,12
+    GROUPBOX        "Formatierungen",IDC_STATIC,285,4,97,42
+    CONTROL         "Formatierungen",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,296,17,65,8
+    LTEXT           "mit verschlüsseln",IDC_STATIC,308,27,54,8
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
@@ -3805,7 +3809,7 @@ BEGIN
     IDS_STRING_ERR_ON_WRONG_ALPHABET 
                             "Für ein Alphabet mit nur einem Zeichen existiert kein Schlüssel."
     IDS_STRING_MSG_ON_ALPHABET 
-                            "Das Alphabet muß mindestens zwei Zeichen enthalten."
+                            "Das in [Optionen->Textoptionen] einzustellende Alphabet muß mindestens %d Zeichen enthalten."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Die SECUDE-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
     IDS_STRING_ANALYSE_ON   "Analyse von %s"
@@ -4236,6 +4240,9 @@ BEGIN
     IDS_STRING_KEY_INPUT_LENGTH 
                             "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
     IDS_STRING_KEY_INPUT_VIGENERE "Vigènere Schlüsseleingabe"
+    IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
+    IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
 END
 
 #endif    // Deutsch (Deutschland) resources

@@ -45,6 +45,8 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 int SucheLeer (int Start, int Laenge, SymbolArray& text);
 bool match (char *current, char *common);
 
+
+// =============== TOOLS ====================================================
 void MakeNewName(char *dest, unsigned int len, const char *format, const char *old)
 {
     if(strlen(format)+strlen(old)<len)
@@ -74,272 +76,237 @@ void FreePar(CryptPar *par)
 	if(par->key) free(par->key);
 }
 
-void CaesarAsc(const char *infile, const char *OldTitle)
+BOOL CheckAlphabet( int minSize )
 {
-    char outfile[128], title[128], line[256];
-    CMyDocument *NewDoc;
-
-    dia1 KeyDialog(-1);
-
-	SymbolArray text(AppConv);
+	if (theApp.TextOptions.m_alphabet.GetLength() < minSize )
 	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-
-		if(text.GetSize() < 1) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,1);
-			AfxMessageBox (line);
-			return;
-		}
-		WCursor.Restore();
-// == title of modal window: 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
-		KeyDialog.SetAlternativeWindowText(pc_str);
-// ===================================
-		if(KeyDialog.Display()!=IDOK) return;
-		WCursor.Restore();
-	    if (KeyDialog.GetLen()==0) return;
-
-		SymbolArray Key(AppConv);
-	    Key.ReadString(KeyDialog.GetData());
-		Key += 1;
-   
-		GetTmpName(outfile,"cry",".tmp");
-
-	    if(KeyDialog.m_Decrypt)
-		    text -= Key;
-	    else
-		    text += Key;
-	    text.Write(outfile);
-
-		Reformat(infile, outfile, FALSE);
+		char line[200];
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf( line, pc_str, minSize );
+		AfxMessageBox (line);
+		return FALSE;
 	}
+	return TRUE;
+}
 
-    NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
+BOOL CheckTextSize( SymbolArray &text, int Threshold )
+{
+	if(text.GetSize() < Threshold ) 
+	{
+		char line[80];
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str, Threshold );
+		AfxMessageBox (line);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+void SetDialogTitle( dia1 &Dialog, int IDS_STRING_ID )
+{
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+	Dialog.SetAlternativeWindowText(pc_str);
+}
+
+void SetDialogTitle( hexdialog &Dialog, int IDS_STRING_ID )
+{
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+	Dialog.SetAlternativeWindowText(pc_str);
+}
+
+void LoadText( const char *infile, SymbolArray &text )
+{
+	CWaitCursor WCursor;
+	text.Read(infile);
+	WCursor.Restore();
+}
+
+void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, int IDS_STRING_ID, 
+				 BOOL Decrypt, int KeyType )
+{
+	char title[128];
+	CMyDocument *NewDoc;
+	NewDoc = theApp.OpenDocumentFileNoMRU( outfile, keyStr, KeyType );
     remove(outfile);
     if(NewDoc) {
-	    if(KeyDialog.m_Decrypt)
+	    if(Decrypt)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 		else
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,keyStr);
         NewDoc->SetTitle(title);
     }
+}
+
+
+// ========================================================================
+void CaesarAsc(const char *infile, const char *OldTitle)
+{
+    char outfile[128];
+    dia1 KeyDialog(-1);
+	SymbolArray text(AppConv);
+
+// == load INPUT
+	if ( !CheckAlphabet() ) return;
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_CAESAR );
+
+// == KeyDialog
+	if(KeyDialog.Display()!=IDOK) return;
+	SymbolArray Key(AppConv);
+	Key.ReadString(KeyDialog.GetData());
+	Key += 1;
+
+// == Encryption / Decryption
+	theApp.DoWaitCursor(1);
+	GetTmpName(outfile,"cry",".tmp");
+	if(KeyDialog.m_Decrypt)
+		text -= Key;
+	else
+		text += Key;
+	text.Write(outfile);
+	Reformat(infile, outfile, FALSE);
+
+// == Open the new document
+	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_CAESAR, KeyDialog.m_Decrypt );
 
 	theApp.DoWaitCursor(0);
 }
 
-
 void VigenereAsc(const char *infile, const char *OldTitle)
 {
-    char outfile[128], title[128], line[256];
-	CMyDocument *NewDoc;
-
+    char outfile[128];
     dia1 KeyDialog(MAX_VIGENERE);
-
 	SymbolArray text(AppConv);
-	{
-		CWaitCursor WCursor;
-		text.Read(infile);
 
-		if(text.GetSize() < 1) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,1);
-			AfxMessageBox (line);
-			return;
-		}
+// == load INPUT
+	if ( !CheckAlphabet() ) return;
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_VIGENERE );
 
-// == title of modal window: 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
-		KeyDialog.SetAlternativeWindowText(pc_str);
-// ===================================
-		if(KeyDialog.Display()!=IDOK) return;
-		WCursor.Restore();
-	    if(KeyDialog.GetLen()==0) return;
+// == KeyDialog
+	if(KeyDialog.Display()!=IDOK) return;
 
-		theApp.DoWaitCursor(1);
-
-		GetTmpName(outfile,"cry",".tmp");
-
-		SymbolArray Key(AppConv);
-	    Key.ReadString(KeyDialog.GetData());
-
-	    if(KeyDialog.m_Decrypt)
-		    text -= Key;
-		else
-			text += Key;
-		text.Write(outfile);
-		Reformat(infile, outfile, FALSE);
-	}
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
-	remove(outfile);
-	if(NewDoc) {
-		if(KeyDialog.m_Decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-		NewDoc->SetTitle(title);
-    }
+// == Encryption / Decryption
+	theApp.DoWaitCursor(1);
+	GetTmpName(outfile,"cry",".tmp");
+	SymbolArray Key(AppConv);
+	Key.ReadString(KeyDialog.GetData());
+	if(KeyDialog.m_Decrypt)
+		text -= Key;
+	else
+		text += Key;
+	text.Write(outfile);
+	Reformat(infile, outfile, FALSE);
+	
+// == Open the new document
+	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_CAESAR, KeyDialog.m_Decrypt );
 
 	theApp.DoWaitCursor(0);
-
 }
 
 void XorBin(const char *infile, const char *OldTitle)
 {
-    char outfile[128], title[128], *buffer, line[256];
-    CMyDocument *NewDoc;
-	int i;
-
+    char outfile[128], *buffer;
     hexdialog KeyDialog(MAX_VIGENERE);
-
 	SymbolArray text(IdConv);
-	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-	}
-	if(text.GetSize() < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	
+// == load INPUT
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_XOR );
 
+// == KeyDialog
 	if(KeyDialog.Display()!=IDOK) return;
-    if (KeyDialog.GetLen()==0) return;
 
+// == Encryption / Decryption
 	theApp.DoWaitCursor(1);
-
     GetTmpName(outfile,"cry",".tmp");
-
 	SymbolArray Key(IdConv,KeyDialog.GetLen());
 	buffer = KeyDialog.GetData();
-	for(i=KeyDialog.GetLen()-1;i>=0;i--) Key[i]=buffer[i];
-
+	for(int i=KeyDialog.GetLen()-1;i>=0;i--) Key[i]=buffer[i];
     text ^= Key;
     text.Write(outfile);
 
-    NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
-    remove(outfile);
-    if(NewDoc) {
-	    if(KeyDialog.m_Decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_XOR,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.m_einstr);
-        NewDoc->SetTitle(title);
-    }
+// == Open the new document
+	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_XOR, KeyDialog.m_Decrypt );
 
 	theApp.DoWaitCursor(0);
-
 }
 
 void AddBin(const char *infile, const char *OldTitle)
 {
-    char outfile[128], title[128], *buffer, line[256];
-    CMyDocument *NewDoc;
-	int i;
-
+    char outfile[128], *buffer;
     hexdialog KeyDialog(MAX_VIGENERE);
-
 	SymbolArray text(IdConv);
-	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-	}
-	if(text.GetSize() < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	
+// == load INPUT
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_ADD );
 
+// == KeyDialog
 	if(KeyDialog.Display()!=IDOK) return;
-    if (KeyDialog.GetLen()==0) return;
 
+// == Encryption / Decryption
 	theApp.DoWaitCursor(1);
-
     GetTmpName(outfile,"cry",".tmp");
-
 	SymbolArray Key(IdConv,KeyDialog.GetLen());
 	buffer = KeyDialog.GetData();
-	for(i=KeyDialog.GetLen()-1;i>=0;i--) Key[i]=buffer[i];
-
+	for(int i=KeyDialog.GetLen()-1;i>=0;i--) Key[i]=buffer[i];
     if(KeyDialog.m_Decrypt)
         text -= Key;
     else
         text += Key;
     text.Write(outfile);
 
-    NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
-    remove(outfile);
-    if(NewDoc) {
-	    if(KeyDialog.m_Decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADD,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.m_einstr);
-        NewDoc->SetTitle(title);
-    }
+// == Open the new document
+	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_ADD, KeyDialog.m_Decrypt );
 
 	theApp.DoWaitCursor(0);
-
 }
 
 void VernamBin(const char *infile, const char *OldTitle)
 {
-	OPENFILENAME ofn;
 	char fname[257], line[256], ftitle[128];
     char outfile[128], title[128];
     CMyDocument *NewDoc;
-
 	SymbolArray text(IdConv);
+
+// == load INPUT
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+	
+// == load KEY
 	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-	}
-	if(text.GetSize() < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
+		OPENFILENAME ofn;
+		memset(&ofn,0,sizeof(ofn));
+		ofn.lStructSize = sizeof(ofn);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_VERNAM_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
+		ofn.lpstrTitle = pc_str;
+		ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
+		ofn.lpstrFile = fname;
+		fname[0] = 0;
+		ofn.nMaxFile = sizeof(fname)-1;
+		ofn.lpstrFileTitle = ftitle;
+		ftitle[0] = 0;
+		ofn.nMaxFileTitle = sizeof(ftitle)-1;
+		if(!GetOpenFileName(&ofn)) return;
+		if(fname[0]==0) return;
 	}
 
-	memset(&ofn,0,sizeof(ofn));
-	ofn.lStructSize = sizeof(ofn);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_VERNAM_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
-	ofn.lpstrTitle = pc_str;
-	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
-	ofn.lpstrFile = fname;
-	fname[0] = 0;
-	ofn.nMaxFile = sizeof(fname)-1;
-	ofn.lpstrFileTitle = ftitle;
-	ftitle[0] = 0;
-	ofn.nMaxFileTitle = sizeof(ftitle)-1;
-	if(!GetOpenFileName(&ofn)) return;
-	if(fname[0]==0) return;
-
+// == Encryption / Decryption
 	theApp.DoWaitCursor(1);
-
     GetTmpName(outfile,"cry",".tmp");
-
 	SymbolArray Key(IdConv);
-	{
-		CWaitCursor WCursor;
-		Key.Read(fname);
+	Key.Read( fname );
+    text ^= Key;
+    text.Write(outfile);
 
-	    text ^= Key;
-
-		text.Write(outfile);
-	}
-/*	Reformat(infile, outfile);*/
-
+// == Open the new document
 	CString csKey = "Datei ";
 	csKey += fname;
     NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csKey);
@@ -350,7 +317,6 @@ void VernamBin(const char *infile, const char *OldTitle)
         MakeNewName(title,sizeof(title),line,OldTitle);
         NewDoc->SetTitle(title);
     }
-
 	theApp.DoWaitCursor(0);
 }
 
@@ -359,10 +325,9 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 {
     char outfile[128],preform[128],title[128];
     CMyDocument *NewDoc;
-	int n;
 
-	n=strlen(infile);
-	if (strncmp(OldTitle+n-4,".asc",4)&&theApp.TextOptions.m_Format)
+	int n=strlen(infile);
+	if ( strncmp(OldTitle+n-4,".asc",4) && theApp.TextOptions.m_Format )
 		GetTmpName(outfile,"cry",".txt");
 	else
 		GetTmpName(outfile,"cry",".asc");
@@ -389,6 +354,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 			NewDoc->SetTitle(title);
 			NewDoc->SetData(2);
 		}
+
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
 		remove(outfile);
 		if(NewDoc)
@@ -406,18 +372,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	else
 	{
 		KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.m_Dec);
-		
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
-		remove(outfile);
-		if(NewDoc) {
-			if(KeyDialog.m_Dec)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-			NewDoc->SetTitle(title);
-		}
+		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.m_Dec );
 	}
 	theApp.DoWaitCursor(0);
 }
@@ -425,29 +380,14 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
-    char outfile[128], title[128];
-    CMyDocument *NewDoc;
-
+    char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-
 	class CDialogPlayfair KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
 
 	if(KeyDialog.Display()!=IDOK) return;
 
 	KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.m_Dec);
-
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
-	remove(outfile);
-	if(NewDoc) {
-		if(KeyDialog.m_Dec)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-		NewDoc->SetTitle(title);
-    }
-
+	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.m_Dec );
 	theApp.DoWaitCursor(0);
 }
 
@@ -455,19 +395,13 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 void Hill(const char *infile, const char *OldTitle)
 {
 	// Es muss mindestens ein Zeichen im Alphabet zu verschlüsseln sein
-	if (theApp.TextOptions.m_alphabet.GetLength() == 0)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str);
-		return;
-	}
+	if ( !CheckAlphabet( 2 ) ) return;
 
 	// Die Hillklasse wird zur Ueberpruefung der erlaubten Zeichen benoetigt
 	hill *hillklasse;
 	hillklasse = new hill(theApp.TextOptions.m_alphabet.GetBuffer(0));
 
-    char outfile[128], title[128], line[256];
-    CMyDocument *NewDoc;
+    char outfile[128], line[256];
 
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(infile, CFile::modeRead);
@@ -796,19 +730,8 @@ void Hill(const char *infile, const char *OldTitle)
 	// Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
     // und danach die temporaere Datei wieder loeschen
 	Reformat(infile, outfile, FALSE);
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,schluessel,SCHLUESSEL_QUADRATISCH);
-    remove(outfile);
 
-	if(NewDoc)
-	{
-	    if(i_m_decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,schluessel);
-        NewDoc->SetTitle(title);
-    }
+	OpenNewDoc( outfile, schluessel, OldTitle, IDS_PLAYFAIR, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 
 	delete matrix;
 
@@ -844,62 +767,34 @@ void Hill(const char *infile, const char *OldTitle)
 }
 
 
-void EntropyASCII(const char *infile, const char *OldTitle)
+void Entropy( const char* infile, SymbolArray &text )
 {
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) return;
+
     char line[256];
-
-    SymbolArray text(AppConv);
-	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-	}
-	if(text.GetSize() < 2) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
-		return;
-	}
-
-	{
-		CWaitCursor WCursor;
-	    NGram distr(text);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTROPY_OF,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,distr.Entropie());
-	}
-
+	CWaitCursor WCursor;
+	NGram distr(text);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTROPY_OF,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(line,pc_str,distr.Entropie());
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_ENTROPY,pc_str,STR_LAENGE_STRING_TABLE);
     theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
+
+	theApp.DoWaitCursor(0);
 }
 
+void EntropyASCII(const char *infile, const char *OldTitle)
+{
+    SymbolArray text(AppConv);
+	Entropy( infile, text );
+}
 
 void EntropyBin(const char *infile, const char *OldTitle)
 {
-    char line[256];
-
     SymbolArray text(IdConv);
-	{
-		CWaitCursor WCursor;
-		text.Read(infile);
-	}
-	if(text.GetSize() < 2) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
-		return;
-	}
-
-	{
-		CWaitCursor WCursor;
-	    NGram distr(text);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTROPY_OF,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,distr.Entropie());
-	}
-
-	theApp.DoWaitCursor(0);
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_ENTROPY,pc_str,STR_LAENGE_STRING_TABLE);
-    theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
+	Entropy( infile, text );
 }
+
 
 int deltas[]={1,2,5,10,20,25,50,100,200,250,500,1000};
 
@@ -979,12 +874,6 @@ UINT Periode(PVOID p)
 				sprintf(pc_str1,"%d: Länge = %d Offset = %d Wdh = %d", i, analyse.periodResults[i].length, analyse.periodResults[i].offset+1, analyse.periodResults[i].repeated);
 				int x = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
 			}
-/*			for (int i=0; i<analyse.cnt_periodResults; i++) {
-				sprintf(pc_str1,pc_str, analyse.periodResults[i].length, analyse.periodResults[i].offset+1);
-				strcpy (pc_str, pc_str1);
-			}
-			int x = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
-*/
 		}
 
 		// Keine Periode gefunden
@@ -999,42 +888,7 @@ UINT Periode(PVOID p)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str);
-		}
-
-/* Hendriks Variante
-        // Henrik Koy Oktober 2000
-	    // neu Defnition der Schnittstelle für Periodenanalyse:
-		// i_periodenLaenge: länge der gefundenen Periode
-		// i_periodenOffset: Start der Periode im Dokument
-		// eigentliche Periodenanalyse
-		class zzahlanalyse analyse((char *)par->infile);
-		int i_periodenOffset;
-		int i_periodenLaenge = analyse.FindPeriod( i_periodenOffset );
-
-		// Ausgabe der Periodenlänge
-		if (i_periodenLaenge > 0)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(pc_str1,pc_str, i_periodenLaenge, i_periodenOffset+1);
-			int x = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
-		}
-
-		// Keine Periode gefunden
-		if (i_periodenLaenge == 0)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_PERIOD_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
-		}
-
-		// Zu analysierende Textdatei zu kurz
-		if (i_periodenLaenge < 0)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
-		}
-*/
-
-	
+		}	
 	}
 
 	if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
@@ -1328,30 +1182,22 @@ void HistogramASCII(const char *infile, const char *OldTitle)
 {
     char line[256], name[128], name2[128], numbuff[20];
 	CFile f;
-	int len;
 
 	theApp.DoWaitCursor(1);
 
     SymbolArray text(AppConv);
 
     text.Read(infile);
-	len = text.GetSize();
-	if(len < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	if ( !CheckTextSize( text ) ) return;
 
     NGram distr(text);
 	GetTmpName(name,"cry",".plt");
 
+	int len = text.GetSize();
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCII_HISTOGRAM_OF,pc_str,STR_LAENGE_STRING_TABLE);
     MakeNewName2(line,sizeof(line),pc_str,_itoa(len, numbuff, 10),OldTitle);
 
 	distr.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0) << OStream::Percent());
-//	distr.Show(PlotStream()<<OStream::PlotTitle(line));
-
 	// get the tmp name without file extension
 	strcpy(name2, name);
 	name2[strlen(name)-4] = 0x0;
@@ -1366,27 +1212,13 @@ void HistogramASCII(const char *infile, const char *OldTitle)
 
 		// headline <<  x_label << y_label
 		ar << s1 << s2 << s3;
-		
 		// CONTINUOUS  X_CHAR  Y_CHAR
 		ar << (int)0 << (char)0x40 << (char)0x30;
-		/*sprintf(buffer,"%d\n %d\n %d\n %d\n %d\n ", 1, 0, 0); 		
-		
-		ar<<buffer;
-		*/
 		ar.Close(); f.Close();
-
 	}
 
     theApp.ThreadOpenDocumentFileNoMRU(name,line);
-
-//    remove(name2);    // delete temporary files
-
-/*    if(NewDoc) {
-        NewDoc->SetTitle(line);
-    }*/
-
 	theApp.DoWaitCursor(0);
-
 }
 
 
@@ -1395,26 +1227,20 @@ void HistogramBin(const char *infile, const char *OldTitle)
 {
     char line[256],name[128], name2[128], numbuff[20];
 	CFile f;
-	int len;
 
 	theApp.DoWaitCursor(1);
 
     SymbolArray text(IdConv);
     text.Read(infile);
-	len = text.GetSize();
-	if(len < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	if ( !CheckTextSize( text ) ) return;
 
     NGram distr(text);
 	GetTmpName(name,"cry",".plt");
+
+	int len = text.GetSize();
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_BINARY_HISTOGRAM_OF,pc_str,STR_LAENGE_STRING_TABLE);
     MakeNewName2(line,sizeof(line),pc_str,_itoa(len, numbuff, 10),OldTitle);
 	distr.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0) << OStream::Percent());
-//	distr.Show(PlotStream()<<OStream::PlotTitle(line));
 
 	// get the tmp name without file extension
 	strcpy(name2, name);
@@ -1433,19 +1259,12 @@ void HistogramBin(const char *infile, const char *OldTitle)
 
 		// CONTINUOUS  X_CHAR  Y_CHAR
 		ar << (int)0 << '0' << '0';
-
 		ar.Close(); f.Close();
-
 	}
 
     theApp.ThreadOpenDocumentFileNoMRU(name,line);
-//    remove(name2);
-
 	theApp.DoWaitCursor(0);
-
 }
-
-
 
 
 
@@ -2761,35 +2580,12 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 
 void HomophoneAsc(const char *infile, const char *OldTitle)
 {
-	char line[100];
-	CWaitCursor WCursor;
-
-// first precondition:
-// the alphabet for encryption must NOT be empty
-	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TEXT_OPTIONS,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
-		AfxMessageBox(line);		
-		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
-	}
-
-// second precondition:
-// the text for encryption must NOT be empty
+	if ( !CheckAlphabet() ) return;
 	SymbolArray text(AppConv);
 	text.Read(infile);
-	if(0==text.GetSize())
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox(line);		
-		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
-	}
+	if ( !CheckTextSize( text ) ) return;
 	
-
-	WCursor.Restore();	
 	char inbuffer[buffsize];
-
 	Dlg_homophone DH;
 	DH.DeactivateDecryptionButton = TRUE;
 	for (int i=0; ; i++ ) {
@@ -2856,24 +2652,6 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			out << residuum; 
 	}
 
-/*
-	else								// Entschlüsselung
-	{
-		DH.HB.Make_dec_table();
-		while(in.gcount())
-		{
-			outbuffsize=0;
-			for(int i=0;i<in.gcount();i++)
-			{
-				outbuffer[outbuffsize]=DH.HB.Decrypt(inbuffer[i]);
-				outbuffsize++;
-			}
-			out.write(outbuffer,outbuffsize);
-			in.read(inbuffer,buffsize);
-		}
-	}
-*/
-
 	in.close();
  	out.close();
 
@@ -2901,31 +2679,12 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 void HomophoneHex(const char *infile, const char *OldTitle)
 {
-	char line[100];
 	CWaitCursor WCursor;
 
-// first precondition:
-// the alphabet for encryption must NOT be empty
-	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TEXT_OPTIONS,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
-		AfxMessageBox(line);		
-		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
-	}
-
-// second precondition:
-// the text for encryption must NOT be empty
+	if ( !CheckAlphabet() ) return;
     SymbolArray text(IdConv);
 	text.Read(infile);
-	if(0==text.GetSize())
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox(line);		
-		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
-	}
-	
+	if ( !CheckTextSize( text ) ) return;
 
 	WCursor.Restore();	
 	unsigned char inbuffer[buffsize];
@@ -3004,24 +2763,6 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 			in.read(inbuffer,buffsize);
 		}
 	}
-/*
-	{
-		DH.HB.Make_dec_table();
-
-		
-		while(in.gcount())
-		{
-			outbuffsize=0;
-			for(int i=0;i<in.gcount();i++)
-			{
-				outbuffer[outbuffsize]=DH.HB.Decrypt(inbuffer[i]);
-				outbuffsize++;
-			}
-			out.write(outbuffer,outbuffsize);
-			in.read(inbuffer,buffsize);
-		}
-	}
-*/
 	in.close();
  	out.close();
 
@@ -3057,22 +2798,11 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 void NGramAsc(const char *infile, const char *OldTitle)
 {
-    char line[256];
-	CFile f;
-	int len;
-
 	theApp.DoWaitCursor(1);
-
     SymbolArray text(AppConv);
 
     text.Read(infile);
-	len = text.GetSize();
-	if(len < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	if ( !CheckTextSize( text ) ) return;
 
 	AnalyseNGram DiaNGram;
 	DiaNGram.LoadText(text, 0);
@@ -3084,41 +2814,20 @@ void NGramAsc(const char *infile, const char *OldTitle)
 		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
 		remove(DiaNGram.outfile);
 		if(NewDoc) {
-/*
-			if(KeyDialog.m_Decrypt)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-			NewDoc->SetTitle(title);
-*/
 			NewDoc->SetTitle("N-Gramm Analyse von");
 		}
 	}
-
 
 	theApp.DoWaitCursor(0);
 }
 
 void NGramBin(const char *infile, const char *OldTitle)
 {
-    char line[256];
-	CFile f;
-	int len;
-
 	theApp.DoWaitCursor(1);
-
     SymbolArray text(IdConv);
 
     text.Read(infile);
-	len = text.GetSize();
-	if(len < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
-		return;
-	}
+	if ( !CheckTextSize( text ) ) return;
 
 	AnalyseNGram DiaNGram;
 	DiaNGram.LoadText(text, 1);
@@ -3130,15 +2839,6 @@ void NGramBin(const char *infile, const char *OldTitle)
 		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
 		remove(DiaNGram.outfile);
 		if(NewDoc) {
-/*
-			if(KeyDialog.m_Decrypt)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
-			NewDoc->SetTitle(title);
-*/
 			NewDoc->SetTitle("N-Gramm Analyse von X ");
 		}
 	}

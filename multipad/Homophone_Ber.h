@@ -57,6 +57,8 @@ public:
 					{	data.Init_Data(); }
 	int				GetKeySize() 
 					{	return data.SizeHomophoneKey; }
+	double			GetFrequency( const int i )
+					{	return data.frequency[i]; }
 	int				LogKeySize( int base )
 					{	return (int)ceil( log( data.SizeHomophoneKey )/log(base) ); }
 	void			Resize( const int Size )

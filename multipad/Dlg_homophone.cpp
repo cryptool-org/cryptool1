@@ -26,6 +26,7 @@ Dlg_homophone::Dlg_homophone(CWnd* pParent /*=NULL*/)
 	m_EditNoOfHomophones = 0;
 	m_RowHomophonesList = _T("");
 	m_HomophonesList = _T("");
+	m_EncryptFormatCharacters = FALSE;
 	//}}AFX_DATA_INIT
 	m_crypt = 0;
 	m_lastSelectedRow = -1;
@@ -51,6 +52,7 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxInt(pDX, m_EditNoOfHomophones, 0, 4096);
 	DDX_Text(pDX, IDC_EDIT2, m_RowHomophonesList);
 	DDX_Text(pDX, IDC_ROW, m_HomophonesList);
+	DDX_Check(pDX, IDC_CHECK1, m_EncryptFormatCharacters);
 	//}}AFX_DATA_MAP
 }
 
@@ -64,9 +66,9 @@ BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	ON_BN_CLICKED(IDC_RADIO5, OnDecimal)
 	ON_BN_CLICKED(IDC_BUTTON3, OnActualizeNoOfHomophones)
 	ON_NOTIFY(NM_CLICK, IDC_LIST1, OnSelectList)
-	ON_NOTIFY(LVN_KEYDOWN, IDC_LIST1, OnKeySelectList)
 	ON_NOTIFY(NM_DBLCLK, IDC_LIST1, OnDblclkSelect)
 	ON_NOTIFY(NM_RETURN, IDC_LIST1, OnReturnSelect)
+	ON_BN_CLICKED(IDC_CHECK1, OnSelectEncryptFormatCharacters)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -117,20 +119,23 @@ BOOL Dlg_homophone::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
+	m_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_COLUMN_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth-8,3);							// Verschlüsselung
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_LIST_OF_HOMOPHONES,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn(4,pc_str,LVCFMT_LEFT,colWidth+2000,4);							// Verschlüsselung
+	Init_ListBox();
+
 	LOGFONT LogFont;
 	CFont *defaultFont=m_listview.GetFont();				// this->GetFont() sollte auch funktionieren
 	defaultFont->GetLogFont(&LogFont);						// Default Systemschrift ermitteln
 	strncpy(LogFont.lfFaceName,"Courier",32);				// Auf Courier umstellen
 	m_Font.CreateFontIndirect(&LogFont);					// Font initialisieren
 	m_listview.SetFont(&m_Font);
-	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_LIST_OF_HOMOPHONES,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth+2000,3);							// Verschlüsselung
-	Init_ListBox();
 
 	if ( DeactivateDecryptionButton )
 		m_ButtonDecryption.EnableWindow(FALSE);
@@ -147,7 +152,7 @@ void Dlg_homophone::Init_ListBox()
 	int i;
 	
 	m_listview.DeleteAllItems(); 
-	TA.Analyse( /* c_SourceFile */ );
+	TA.Analyse( );
 	for(i=0;i<range;i++)
 	{
 		HB.SetFrequency(i, TA.freq[i]);
@@ -193,7 +198,11 @@ void Dlg_homophone::LoadListBox()
 			assert(number>0);
 			sprintf(string,"%4i  ",number);
 			m_listview.SetItemText(j,1,string);
-
+			sprintf(string,"%2i.%1i", (int)floor(HB.GetFrequency(i)*100.0),
+				   (int)floor( (HB.GetFrequency(i)*100.0-floor(HB.GetFrequency(i)*100.0))*10.0+0.5) );
+			string[4] = 0;
+			m_listview.SetItemText(j,2,string);
+			
 			int		l = ( !m_BaseHomophones ) ? HB.LogKeySize( 16 ) : HB.LogKeySize( 10 );
 			char	num[64];
 
@@ -226,7 +235,7 @@ void Dlg_homophone::LoadListBox()
 				m++;
 			}
 
-			m_listview.SetItemText(j,2,string);
+			m_listview.SetItemText(j,3,string);
 		}
 	}
 }
@@ -315,41 +324,6 @@ void Dlg_homophone::UpdateSelectedRow(int newRow)
 	}
 
 	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
-}
-
-void Dlg_homophone::OnKeySelectList(NMHDR* pNMHDR, LRESULT* pResult) 
-{
-	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
-
-	int keycode = pLVKeyDow->wVKey; // welche Taste wurde gedrückt?
-	int selRow;
-
-	if ( (keycode == VK_UP) && (m_lastSelectedRow > 0) )
-	{
-		// UP-Arrow key pressed
-		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
-		UpdateSelectedRow(selRow-1);
-	}
-	else if ( (keycode == VK_DOWN) && (m_lastSelectedRow < m_listview.GetItemCount()-1) )
-	{
-		// DOWN-Arrow key pressed
-		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
-		UpdateSelectedRow(selRow+1);
-	}
-	else if ( (keycode == VK_RIGHT) || (keycode == VK_LEFT) || (keycode == VK_SPACE) )
-	{
-		// RIGHT- OR LEFT-Arrow or SPACEBAR pressed
-		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
-		UpdateSelectedRow(selRow); // Select row
-	}
-	else
-	{
-		// andere Taste gedrückt
-		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
-		UpdateSelectedRow(selRow); // letzte selektion rückgängig machen
-	}
-
-	*pResult = 0;
 }
 
 int Dlg_homophone::GetSpecificRow(UINT mask)
@@ -450,4 +424,18 @@ void Dlg_homophone::OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	
 
 	*pResult = 0;
+}
+
+void Dlg_homophone::OnSelectEncryptFormatCharacters() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	if ( !m_EncryptFormatCharacters )
+	{	
+		m_EncryptFormatCharacters = TRUE;
+	}
+	else
+	{
+		m_EncryptFormatCharacters = FALSE;
+	}
+	
 }

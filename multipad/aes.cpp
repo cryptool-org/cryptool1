@@ -130,12 +130,11 @@ die Daten ver-/entschlüsselt werden sollen:
 void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 {
 	
-    char outfile[128], title[128], line[256], keybuffhex[65],AlgTitel[128];
+    char outfile[128], line[256], keybuffhex[65],AlgTitel[128];
 	unsigned char keybuffbin[33];
 	unsigned char *borg, *bcip, *key;
 	char mode;
 	int keylen;
-    CMyDocument *NewDoc;
 	
 	FILE *fi;
 	int i, datalen;
@@ -187,13 +186,9 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	{
 		return;
 	}
-	if(KeyDialog.GetLen() ==0) return;
 	key = (unsigned char *) KeyDialog.GetData();
-	keylen = KeyDialog.GetLen();
+	if ( 0 == (keylen = KeyDialog.GetLen()) ) return;
 
-	if(keylen==0)
-		return;
-	
 	for(i=0;i<32;i++) keybuffbin[i]=0;
 	for(i=0;i<keylen; i++) keybuffbin[i] = key[i];
 	
@@ -228,7 +223,6 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	doaescrypt(AlgId,mode,keylen,keybuffhex,borg,datalen,bcip);
 	
 	free(borg);
-	
 	datalen >>= 3;                 // Länge wieder in Byte
 	
     if(KeyDialog.m_Decrypt)
@@ -240,26 +234,15 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	fi = fopen(outfile,"wb");
 	fwrite(bcip, 1, datalen, fi);
 	fclose(fi);
-	
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
-	remove(outfile);
-	if(NewDoc)
-	{
-		if(KeyDialog.m_Decrypt)	   // Entschlüsselung ausgewählt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
-		NewDoc->SetTitle(title);
-	}
+
+	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_ADD, KeyDialog.m_Decrypt );
 }
 
 
-/*
-AESBrute() führt eine Schlüsselraumsuche für die AES Verfahren aus.
-in (CryptPar *)p sind alle nötigen Daten (AlgId siehe AESCrypt())
-enthalten.
-*/
+/////////////////////////////////////////////////////////////////////////////////////////
+// AESBrute() führt eine Schlüsselraumsuche für die AES Verfahren aus.
+// in (CryptPar *)p sind alle nötigen Daten (AlgId siehe AESCrypt())
+// enthalten.
 UINT AESBrute(PVOID p)
 {
     char outfile[128], line[256], AlgTitel[128];

@@ -48,6 +48,7 @@ public:
 	int		m_EditNoOfHomophones;
 	CString	m_RowHomophonesList;
 	CString	m_HomophonesList;
+	BOOL	m_EncryptFormatCharacters;
 	//}}AFX_DATA
 	int m_crypt;
 
@@ -72,9 +73,9 @@ protected:
 	afx_msg void OnDecimal();
 	afx_msg void OnActualizeNoOfHomophones();
 	afx_msg void OnSelectList(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnKeySelectList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnSelectEncryptFormatCharacters();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

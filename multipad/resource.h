@@ -811,6 +811,9 @@
 #define IDS_STRING_KEY_INPUT_CAESAR     37135
 #define IDS_STRING_KEY_INPUT_LENGTH     37136
 #define IDS_STRING_KEY_INPUT_VIGENERE   37137
+#define IDS_STRING_COLUMN_FREQUENCY     37138
+#define IDS_STRING_KEY_INPUT_XOR        37139
+#define IDS_STRING_KEY_INPUT_ADD        37140
 
 // Next default values for new objects
 // 
