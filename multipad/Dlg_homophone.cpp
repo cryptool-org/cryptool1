@@ -71,5 +71,6 @@ CString Dlg_homophone::Get_Key()
 	{
 		itoa(HB.Get_key(i),c.GetBuffer(800),10);
 	}
-	HB.Get_key(
+	// HB.Get_key(
+	return c;
 }

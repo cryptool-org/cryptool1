@@ -1460,6 +1460,21 @@ BEGIN
     LTEXT           "Verschlüsselter Text",IDC_STATIC,7,247,62,8
 END
 
+IDD_DIALOG_HOMOPHONE DIALOG DISCARDABLE  0, 0, 337, 252
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Homophone Verschlüsselung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Schlüssel speichern",IDOK,167,215,77,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,272,218,50,14
+    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,179,114,80,14
+    EDITTEXT        IDC_EDIT1,53,33,142,12,ES_AUTOHSCROLL
+    CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,40,62,59,10
+    CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    35,84,59,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2390,12 +2405,12 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "H&ill...",                    ID_HILL
+            MENUITEM "H&omophone",                  ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-//            MENUITEM "&Homophon",                   ID_HOMOPHONE
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -3306,6 +3321,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 
                             "Generiert zwei Primzahlen"
+    ID_HOMOPHONE_ASC        "Homophone Verschlüsselung"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6535,58 +6551,6 @@ END
 /////////////////////////////////////////////////////////////////////////////
 
 
-/*
-/////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_DIALOG_HOMOPHONE DIALOG DISCARDABLE  0, 0, 337, 252
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Homophone Verschlüsselung"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "&Schlüssel speichern",IDOK,167,215,77,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,272,218,50,14
-    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,179,114,80,14
-    EDITTEXT        IDC_EDIT1,53,33,142,12,ES_AUTOHSCROLL
-    CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,40,62,59,10
-    CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    35,84,59,10
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
-BEGIN
-    IDD_DIALOG_HOMOPHONE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 330
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 245
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-#endif    // Englisch (GB) resources
-/////////////////////////////////////////////////////////////////////////////
-*/
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
