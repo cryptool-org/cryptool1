@@ -528,6 +528,7 @@
 #define ID_EMPTY                        33147
 #define ID_ANALYSE_ZUFALLSTESTS_TESTBATTERIEN 33148
 #define ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 33149
+#define ID_COPY_KEY                     33150
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -879,7 +880,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        252
-#define _APS_NEXT_COMMAND_VALUE         33150
+#define _APS_NEXT_COMMAND_VALUE         33151
 #define _APS_NEXT_CONTROL_VALUE         1250
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

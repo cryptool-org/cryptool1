@@ -351,6 +351,7 @@ CMyDocument * CMultiPadApp::OpenDocumentFileNoMRU(const char *name, CString Key,
 
     doc = (CMyDocument*)OpenDocumentFile(name);
 
+	doc->SetModifiedFlag(FALSE);
 	doc->hWndVaterFenster = HWND_hilf;
 	doc->CWndVaterFenster = CWnd_hilf;
 	doc->csSchluessel = Key;

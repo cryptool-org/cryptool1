@@ -205,7 +205,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 	Reformat(infile, outfile, FALSE);
 	
 // == Open the new document
-	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_CAESAR, KeyDialog.m_Decrypt );
+	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_VIGENERE, KeyDialog.m_Decrypt );
 
 	theApp.DoWaitCursor(0);
 }
@@ -2903,7 +2903,7 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen)
 	int i, k, pt;
 
 	for(pt=i=0;i<plen;i++) {
-		for(k=i;k<len;k+=plen)
+		for(k=p[i];k<len;k+=plen)
 			dest[pt++]=src[k];
 	}
 }
@@ -2913,7 +2913,7 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen)
 	int i, k, pt;
 
 	for(pt=i=0;i<plen;i++) {
-		for(k=i;k<len;k+=plen)
+		for(k=p[i];k<len;k+=plen)
 			dest[k]=src[pt++];
 	}
 }
@@ -2959,20 +2959,20 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 
 		if(Perm.m_Dec) {
 			if(Perm.m_P2len) {
-				DoInvPerm(b2, b1, l2, Perm.m_P2, Perm.m_P2len);
-				DoInvPerm(b1, b2, l2, Perm.m_P1, Perm.m_P1len);
+				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len);
+				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len);
 				b3 = b1;
 			}
 			else {
-				DoInvPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len);
+				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len);
 				b3 = b2;
 			}
 		}
 		else {
-			DoPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len);
+			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len);
 			if(Perm.m_P2len) {
 				b3 = b1;
-				DoPerm(b1, b2, l2, Perm.m_P2, Perm.m_P2len);
+				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len);
 			}
 			else b3 = b2;
 		}
