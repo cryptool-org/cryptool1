@@ -2760,7 +2760,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (selbstextrahierend)",   ID_AES_SELFEXTRACT
+            MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetrisch"
         BEGIN
@@ -3044,7 +3044,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (selbstextrahierend)",   ID_AES_SELFEXTRACT
+            MENUITEM "&AES (selbstextrahierend)...",   ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetrisch"
         BEGIN
@@ -8348,7 +8348,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (self extracting)",      ID_AES_SELFEXTRACT
+            MENUITEM "&AES (self extracting)...",      ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN
@@ -8632,7 +8632,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
-            MENUITEM "&AES (self extracting)",      ID_AES_SELFEXTRACT
+            MENUITEM "&AES (self extracting)...",      ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN
