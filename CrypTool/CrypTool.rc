@@ -7786,7 +7786,7 @@ END
 
 IDD_FACTORISATION_LIST DIALOG DISCARDABLE  0, 0, 383, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Details for the current Factorisation"
+CAPTION "Details for the current factorisation"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,326,319,50,20

@@ -237,6 +237,35 @@ void CDlgOptionsRSADemo::OnOK()
 		}
 		
 	}
+	// FALL 1:
+	// Falls GetBlockLength() null zurückgibt, eine Fehlermeldung erzeugen
+	else if ( blockLength==0 ) 
+	{
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH_NULL, MB_ICONSTOP, Anzahl_Zeichen, RSA_Modul);
+		return;
+	}
+	// FALL 2:
+	// Falls die mögliche Blocklänge eins, der Anwender aber einen anderen Wert eingibt, ebenfalls Fehlermeldung erzeugen
+	else if ( blockLength == 1  &&  m_BlockLength != 1 ) 
+	{
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH_1, MB_ICONSTOP);
+		return;
+	}
+	// FALL 3:
+	// Falls Eingabe des Anwenders <1 bzw. seine Angabe generell ungültig (z.B. >blocklength)
+	else if ( m_BlockLength < 1 || m_BlockLength > blockLength ) 
+	{
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH, MB_ICONSTOP, blockLength);
+		return;
+	}
+		
+	// Ggf. Änderungen für Anwender sichtbar machen
+	UpdateData(FALSE);
+	
+	CDialog::OnOK();
+		
+	
+	/*
 	else if ( blockLength==0 ) 
 	{
 		Message(IDS_STRING_ERR_ONBLOCKLENGTH_NULL, MB_ICONSTOP, Anzahl_Zeichen, RSA_Modul);
@@ -248,16 +277,17 @@ void CDlgOptionsRSADemo::OnOK()
 		return;
 	}
 	// FLORIAN
-	// Letzte Bedingung m_BlockLength>GetBlockLength() nötig, da sonst "falsche" Eingaben
+	// Letzte Bedingung m_BlockLength>blockLength nötig, da sonst "falsche" Eingaben
 	// für die Blocklänge möglich sind (z.B. 4 anstatt 2 Byte usw.)
-	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength ) || m_BlockLength > GetBlockLength() ) 
+	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength ) || m_BlockLength > blockLength ) 
 	{
 		Message(IDS_STRING_ERR_ONBLOCKLENGTH, MB_ICONSTOP, blockLength);
 		return;
 	}
-
+	
 	UpdateData(FALSE);
 	CDialog::OnOK();
+	*/
 }
 
 
