@@ -151,8 +151,10 @@
 #define IDD_SIGNATURE_ATTACK            564
 #define IDD_OPTIONS_SIGNATURE_ATTACK    565
 #define IDD_STATISTICS_SIGNATURE_ATTACK 566
+#define IDD_SIGATTMODIFICDEMO           567
 #define IDD_DIFFIEHELLMAN_KEY           571
 #define IDD_OPTIONS_FURTHEROPTIONS      632
+#define IDD_DIALOG1                     634
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -634,6 +636,11 @@
 #define IDC_BITLENGTHBOB                1474
 #define IDC_SHOWLOGTEXT                 1475
 #define IDC_EXCHANGEARROWS              1476
+#define IDC_SERACH                      1477
+#define IDC_FILE                        1478
+#define IDC_HASHVALUE                   1479
+#define IDC_SIGBIT                      1480
+#define IDC_METHOD                      1481
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -847,6 +854,7 @@
 #define IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS 33259
 #define IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 33260
 #define ID_OPTIONS_FURTHEROPTIONS       33261
+#define ID_SIGATTMODIFICDEMO            33262
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1513,9 +1521,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        634
-#define _APS_NEXT_COMMAND_VALUE         33262
-#define _APS_NEXT_CONTROL_VALUE         1477
+#define _APS_NEXT_RESOURCE_VALUE        635
+#define _APS_NEXT_COMMAND_VALUE         33263
+#define _APS_NEXT_CONTROL_VALUE         1482
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

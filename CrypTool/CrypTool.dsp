@@ -735,7 +735,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button1_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button1_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -743,11 +751,23 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button1_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button1_R_F.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button1_R_U.bmp
 # End Source File
 # Begin Source File
 
@@ -763,11 +783,23 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button2_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button2_G_F.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button2_G_U.bmp
 # End Source File
 # Begin Source File
 
@@ -783,7 +815,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button2_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button2_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -791,7 +831,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button2_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button2_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -799,7 +847,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button3_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button3_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -807,7 +863,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button3_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button3_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -815,7 +879,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button3_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button3_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -823,7 +895,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button3_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button3_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -831,7 +911,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button4_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button4_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -839,7 +927,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button4_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button4_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -847,7 +943,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button4_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button4_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -855,7 +959,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button4_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button4_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -863,7 +975,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button5_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button5_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -871,7 +991,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button5_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button5_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -879,7 +1007,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button5_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button5_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -887,7 +1023,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Button5_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Button5_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -911,7 +1055,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Calculate_G_F.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Calculate_G_U.bmp
 # End Source File
 # Begin Source File
 
@@ -919,7 +1071,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Calculate_G_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Calculate_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Calculate_R_D.bmp
 # End Source File
 # Begin Source File
 
@@ -927,11 +1087,23 @@ SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Calculate_R_F.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Calculate_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Calculate_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Calculate_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -1233,6 +1405,14 @@ SOURCE=.\res\DerEinstiegInCrypTool.bmp
 # Begin Source File
 
 SOURCE=.\res\DerEinstiegInCrypTool_de.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\dh_arrow.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\dh_gapfi.bmp
 # End Source File
 # Begin Source File
 
@@ -2424,6 +2604,14 @@ SOURCE=.\DlgShowPublicKeyEC.cpp
 # Begin Source File
 
 SOURCE=.\DlgShowPublicKeyEC.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSigAttModificDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSigAttModificDemo.h
 # End Source File
 # Begin Source File
 
@@ -4425,7 +4613,15 @@ SOURCE=.\res\Bitmaps_en\Sechseck3_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Secret_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Secret_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -4433,7 +4629,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Secret_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Secret_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -4441,7 +4645,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Secret_G_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Secret_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Secret_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -4449,7 +4661,15 @@ SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_F.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\Secret_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps_en\bmps\Secret_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\Secret_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -4584,7 +4804,15 @@ SOURCE=.\res\DHBitmaps\bmps\Step_1.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps_en\bmps\Step_1.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Step_2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Step_2.bmp
 # End Source File
 # Begin Source File
 
@@ -4592,11 +4820,23 @@ SOURCE=.\res\DHBitmaps\bmps\Step_3.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps_en\bmps\Step_3.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Step_4.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps_en\bmps\Step_4.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Step_5.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps_en\bmps\Step_5.bmp
 # End Source File
 # Begin Source File
 
