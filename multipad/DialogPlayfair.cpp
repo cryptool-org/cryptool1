@@ -213,11 +213,12 @@ void CDialogPlayfair::OnManAnalyse()
 	UpdateData(TRUE);
 	
 	i=0;
-	while ((i<maxchars)&&(i<m_mytxt.GetLength())) {
+	while ((i<maxchars)&&(i<m_mytxt.GetLength())&&(m_Alg->myisalpha2(m_mytxt[i]))) {
 		buf[i] = m_mytxt[i]; i++;
 	}
 	buf[i]='\0';
-	diglist = new playfair_digrammlist(m_Alg->getAlphabet(), m_Alg->getDigrams(), buf, m_Alg->inbuf, min (maxchars, m_Alg->inbuflen));
+	diglist = new playfair_digrammlist(m_Alg->getAlphabet(), m_Alg->getDigrams(), 
+										buf, m_Alg->inbuf, min (maxchars, m_Alg->inbuflen));
 	// in der Initialisierung läuft die eigentliche Arbeit ab:
 	// für jedes Pärchen des Klartextes, wird das passende Digramm gesucht, das durch das Chiffrat festgelegt ist.
 
@@ -254,7 +255,7 @@ void CDialogPlayfair::OnManAnalyse()
 		AfxMessageBox (line);
 	}
 
-	if ((true) && (i%2==0)) {
+	if ((false) && (i%2==0) && (i>0)) {
 		//automatische Generierung der Matrix aktiv
 
 //		if (!m_Alg->CreateMatrixfromLettergraph (buf, i)) { // Analyse Thomas Gauweiler
@@ -288,6 +289,41 @@ void CDialogPlayfair::OnManAnalyse()
 void CDialogPlayfair::OnAnalyse()
 // Schalter "erzeuge Matrix", war "Häufigkeitsanalyse"
 {
+	int i, k;
+	char buf[302], line[256];
+	int maxchars=300;
+
+	UpdateData(TRUE);
+
+	i=0;
+	while ((i<maxchars)&&(i<m_mytxt.GetLength())&&(m_Alg->myisalpha2(m_mytxt[i]))) {
+		buf[i] = m_mytxt[i]; i++;
+	}
+	buf[i]='\0';
+
+//		if (!m_Alg->CreateMatrixfromLettergraph (buf, i)) { // Analyse Thomas Gauweiler
+		if (!m_Alg->CreateMatrixStandalone (buf, i)) { // Analyse Peer Wichmann
+			// keine gültige Matrix gefunden
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_NOMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox (line);
+		}
+
+		m_password = m_Alg->CreatePassfromMatrix();
+
+
+	// Matrix neu schreiben
+	for (i=0;i<m_Alg->getSize();i++)
+	{
+		for (k=0;k<m_Alg->getSize();k++)
+		{
+			m_mat[i][k]=m_Alg->getCharOfMatrix(i,k);
+		}
+	}
+
+
+	UpdateData(FALSE);
+	UpdateListBox();	
 /*
 	char buf[302],c;
 	struct digram *dig;

@@ -325,7 +325,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 					insert2set (col_sure, s);
 			}
 			break;
-        other :
+        default :
                 assert(0);
         }
 } // playfair_letter::insert2set(playfair_set set, playfair_letter* s)
@@ -375,7 +375,7 @@ void playfair_letter::setNeighbour(playfair_neighbour pos, playfair_letter* s)
 				insert2set (row_sure, s);
 			}
 			break;
-        other :
+        default :
                 assert(0);
         }
 } //playfair_letter::setNeighbour
@@ -809,7 +809,8 @@ int playfair_digramm::getIndex(playfair_letter* c1, playfair_letter* c2)
 /*--------------------------------------------------------------------*/
 /* class playfair_letterlist                                             */
 /*--------------------------------------------------------------------*/
-playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, playfair_digramm* digramsbase, char *plain, char *chiffre, int charlen, int the_maxDigLen)
+playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, playfair_digramm* digramsbase, 
+										   char *plain, char *chiffre, int charlen, int the_maxDigLen)
 {
 	int j, iseol = 0;
 	playfair_digramm* dig=digramsbase;
@@ -819,11 +820,18 @@ playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, play
 	j=0;
 	for (my_len=0; my_len < charlen/2; my_len++) {  // evtl. Probleme, wenn doppelte Zeichen erlaubt
 		char c1, c2, p1, p2;
-		do { c1=chiffre[j]; p1=plain[j++]; } while (!my_alphabet->myisalpha(c1));
-		do { c2=chiffre[j]; p2=plain[j++]; } while (!my_alphabet->myisalpha(c2));
+		do { 
+			c1=chiffre[j]; 
+			p1=plain[j++];
+			iseol = iseol || (p1=='\0');
+		} while (!my_alphabet->myisalpha(c1));
+		do { 
+			c2=chiffre[j]; 
+			p2=plain[j++];
+			iseol = iseol || (p2=='\0');
+		} while (!my_alphabet->myisalpha(c2));
 		dig = &digramsbase[dig->getIndex(c1, c2)];
 		dig->setChiffres (c1, c2);
-		iseol = iseol || (p1=='\0') || (p2=='\0');
 		if (!iseol)
 			dig->setLetters (p1, p2);
 		my_digramms[my_len] =  dig;
@@ -1703,7 +1711,7 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 	while ((i<=301) && (i<len) && (inbuf[j]) && (i<inbuflen)) {
 		if (myisalpha2(toupper(inbuf[j]))) {
 			tmp_inbuf [i] = toupper(inbuf[j]);
-			if (tmp_inbuf [i] = stipulation [i])
+			if (tmp_inbuf [i] == stipulation [i])
 				return false;
 			i++;
 		}
@@ -1951,7 +1959,7 @@ bool playfair_backtrace::analyse( keymatrix *km, playfair_alphabet *pfalpha )
                 for(y=ALEN-1;y>=0;y--) {
                         for(x=0;x<ALEN;x++) {
 							c1 = I2C(s.array->m[y][ALEN-x-1]);
-							pflet = pfalpha->getLetter(c1);
+							pflet = pfalpha->getLetter((c1=='@')?'*':c1);
 							km->setElement(pflet, x, y);
                         }
                 }
@@ -2000,13 +2008,14 @@ playfair_backtrace::test(char ch, int x1, int y1, int level)
                                 minn = a[level].c[i].possible;
                                 maxf = a[level].c[i].freq;
                         }
-                        else if(minn > a[level].c[i].possible && maxf < a[level].c[i].freq) {
+                        else if(minn == a[level].c[i].possible && maxf < a[level].c[i].freq) {
                                 c1 = i;
                                 minn = a[level].c[i].possible;
                                 maxf = a[level].c[i].freq;
                         }
                 }
         }
+		if(maxf == 0) throw playfair_success(a+level);
         for(x=0; x<ALEN; x++)
                 for(y=0; y<ALEN; y++)
                         if(info->c[c1].p[x][y]) {
@@ -2396,7 +2405,7 @@ void playfair_liste::read(char *pname, char *cname)
 
         l = 0;
         do {
-                fread(p, 1, 2, fp);
+				if(!fread(p, 1, 2, fp)) break;
                 if(p[0] > 'J') p[0]--;
                 if(p[1] > 'J') p[1]--;
                 fread(c, 1, 2, fc);
