@@ -114,6 +114,10 @@
 #define IDB_LOGO_DB                     520
 #define IDB_LOGO_FZI                    522
 #define IDB_LOGO_SECUDE                 523
+#define IDB_HYBRID_DOWN                 524
+#define IDB_HYBRID_DOWN_RIGHT           525
+#define IDB_HYBRID_RIGHT_DOWN_RIGHT     526
+#define IDB_HYBRID_BACKGROUND           527
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -1291,7 +1295,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        524
+#define _APS_NEXT_RESOURCE_VALUE        528
 #define _APS_NEXT_COMMAND_VALUE         33170
 #define _APS_NEXT_CONTROL_VALUE         1413
 #define _APS_NEXT_SYMED_VALUE           101

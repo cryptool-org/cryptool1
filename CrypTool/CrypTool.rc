@@ -334,7 +334,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
@@ -2348,44 +2348,44 @@ CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
 
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
-    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
-                    124,135,69
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
                     108,20,58
-    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
                     107,20,58
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
+    CONTROL         525,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
+                    124,135,69
+    CONTROL         526,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
     CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
-    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,31,81,89,14
     CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,209,17,93,14
-    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,205,81,93,14
-    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,208,165,102,14
-    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,202,230,92,14
     CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,17,92,14
+    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,31,81,89,14
+    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,205,81,93,14
     CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,405,81,93,14
+    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,208,165,102,14
     CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,405,164,110,15
+    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,202,230,92,14
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,402,230,115,14
+    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,12,224,94,14
     EDITTEXT        IDC_EDIT_TITLE,31,281,497,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,31,299,497,98,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,12,224,94,14
     PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,478,407,50,14
 END
 
@@ -3357,6 +3357,9 @@ IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\EMPTY1b.bmp"
 IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
 IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
 IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
+IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
+IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
+IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4070,12 +4073,16 @@ BEGIN
 
     IDD_HYBRID_ENCRYPTION_DEMO, DIALOG
     BEGIN
-        HORZGUIDE, 18
+        VERTGUIDE, 12
+        VERTGUIDE, 543
+        HORZGUIDE, 6
+        HORZGUIDE, 12
         HORZGUIDE, 64
         HORZGUIDE, 80
         HORZGUIDE, 140
         HORZGUIDE, 205
         HORZGUIDE, 212
+        HORZGUIDE, 273
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5833,7 +5840,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe",
@@ -7881,18 +7888,18 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybrid Encryption - Visualisation with a Flow Chart"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
-    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
+    CONTROL         525,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
                     124,135,69
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
                     108,20,58
-    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
+    CONTROL         526,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
                     107,20,58
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
     CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
     CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
@@ -8867,6 +8874,9 @@ SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
 IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
 IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
 IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
+IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
+IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
+IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -2500,6 +2500,10 @@ SOURCE=.\HomophoneEncryption.h
 # End Source File
 # Begin Source File
 
+SOURCE=".\res\hybrid-background.bmp"
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\ico00001.ico
 # End Source File
 # Begin Source File
@@ -2716,6 +2720,18 @@ SOURCE=.\KeyRepository.h
 # Begin Source File
 
 SOURCE=.\res\Layout.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\link-hybrid-down-right.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\link-hybrid-down.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\link-hybrid-right-down-right.bmp"
 # End Source File
 # Begin Source File
 
