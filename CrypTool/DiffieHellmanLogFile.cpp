@@ -114,39 +114,13 @@ DiffieHellmanLogFile::DiffieHellmanLogFile(std::string prime,
 
 std::string DiffieHellmanLogFile::GetLogText()
 {
+	// Text nach 70 Zeichen umbrechen
 	MakeUpText(this->LogText, 70);
 	return this->LogText;
 }
 
 void DiffieHellmanLogFile::MakeUpText(std::string &in, int columns)
 {
-	// Temporären C-String erzeugen
-	CString temp = in.c_str();
-	
-	/*
-
-	// TESTWEISE!!!!!!!!!!!
-
-	// Aktuelle Position
-	int cur_pos = 0;
-	// Position des "letzten" Leerzeichens in der Zeile
-	int lst_blk = 0;
-	// Position des "nächsten" Umbruchs (eine ROW hat X COLUMNS)
-	int nxt_brk = columns;
-
-	for(cur_pos=0;cur_pos<temp.GetLength();cur_pos++)
-	{
-		if(temp.GetAt(cur_pos) == ' ') lst_blk = cur_pos;
-		
-		// ...umbrechen
-		if(cur_pos == nxt_brk)
-		{
-			temp.SetAt(lst_blk,'\n');
-			nxt_brk += columns;
-		}
-	}
-	*/
-	
-	in = temp;	
+	// noch zu implementieren
 }
 
