@@ -7,7 +7,8 @@
 #include <stdlib.h>
 
 #include "DlgPrimesGenerator.h"
-#include "crypt.h"
+#include "Keyrepository.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////////////////////////
 // CryptologyUsingMiracl.cpp: Implementierung der Klasse evaluate.
-//
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "resource.h"
 #include "CryptologyUsingMiracl.h"
+
 #include <monty.h>
 #include "DlgRuntime.h"
 
@@ -258,19 +258,6 @@ BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
 	return TRUE;
 }
 
-BOOL isCharOf( const char ch, const char *expr )
-{
-	int len = strlen(expr);
-	for (int i=0; i<len; i++) 
-        if ( i+3 < len && expr[i+1] == '.' && expr[i+2] == '.' && expr[i] < expr[i+3] )
-		{
-			if ( ch >= expr[i] && ch <= expr[i+3] ) return TRUE;
-               i += 3;
-		}
-        else if ( ch == expr[i] ) return TRUE;
-	return FALSE;
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
@@ -313,41 +300,10 @@ BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber)
 ////////////////////////////////////////////////////////////////////////////////
 // Nur temporär & lokal definiert
 
-BOOL Whitespace( char ch )
+inline
+BOOL NewLineTabSpace( char ch )
 {
-	return isCharOf( ch, WHITESPACE);
-}
-
-BOOL IsNumber( char ch, int base )
-{
-	  switch (base) {
-	  case BASE_BIN: return isCharOf(ch, VALID_BIN);
-					break;
-	  case BASE_OCT: return isCharOf(ch, VALID_OCT);
-					break;
-	  case BASE_DEC: return isCharOf(ch, VALID_DEC);
-					break;
-	  case BASE_HEX: return isCharOf(ch, VALID_HEX); 
-					break;
-	  default: return isCharOf(ch, VALID_DEC);
-	  }
-}
-
-int NeededBase( char ch )
-{
-	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_BIN);
-	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_OCT);
-	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_DEC);
-	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_HEX);
-	return 0;
-}
-
-char DigitToNum( char ch )
-{
-	if ( ch >= '0' && ch <= '9' ) return ch - '0';
-	if ( ch >= 'A' && ch <= 'F' ) return ch - 'A' + 10;
-	if ( ch >= 'a' && ch <= 'f' ) return ch - 'a' + 10;
-	return -1;
+	return isCharOf( ch, " \t\r\n");
 }
 
 
@@ -444,103 +400,6 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList )
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//
-// return true if the INPUT is a HEX-dump + formats the INPUT
-//
-
-BOOL IsHexDump( CString &CStr )
-{
-	CString fmt = _T("");
-	int twoStep = 0;
-	for (int i=0; i<CStr.GetLength(); i++ ) {
-		if ( !Whitespace( CStr[i] ) )
-		{
-			if ( IsNumber( CStr[i], BASE_HEX ) )
-			{
-				fmt += CStr[i];
-				twoStep++;
-				if ( 2 == twoStep ) {
-					fmt += ' ';
-					twoStep = 0;
-					if ( i+1 < CStr.GetLength() && !Whitespace( CStr[i+1] ) )
-						return FALSE;
-				}
-			}
-			else 
-				return FALSE;
-		}
-	}
-	if (twoStep != 0) return FALSE;
-	else              return TRUE;
-}
-
-char ToHex( const char ch )
-{
-	if ( ch % BASE_HEX < BASE_DEC ) return ('0' + (ch % BASE_HEX));
-	else                            return ('A' + ((ch % BASE_HEX) -10));
-}
-
-void dataToHexDump( const char* data, int len, char* hexDump )
-{
-	int j=0;
-    	for (int i=0; i<len; i++) 
-	{
-		hexDump[j++] = ToHex(((unsigned char)data[i]) / 16);
-		hexDump[j++] = ToHex(((unsigned char)data[i]) % 16);
-		if ( i+1 < len ) hexDump[j++] = ' ';
-		else             hexDump[j++] = '\0';
-	}
-}
-
-void dataToHexDump( const char* data, int len, CString& hexDump )
-{
-	char *tmp;
-	tmp = new char[3*len];
-	dataToHexDump(data, len, tmp);
-	hexDump = tmp;
-	delete []tmp;
-}
-
-int HexDumpToData( const char *hexDump, char *data )
-{
-	int twoStep = 0;
-	char ch;
-    	int i,j = 0;
-    	for ( i=0; hexDump[i] != 0; i++ )
-	{
-		if ( IsNumber(hexDump[i], BASE_HEX) )
-		{
-			char res;
-			if (twoStep++)
-			{
-				res = ( ch << 4 ) + DigitToNum( hexDump[i] );
-				data[j++] = res;
-				twoStep = 0;
-			}
-			else
-				ch = DigitToNum( hexDump[i] );
-		}
-		else
-		{
-			if ( !Whitespace( hexDump[i] ) )
-				return -1; // error: no HEX-Dump
-		}
-	}
-	return j;
-}
-
-int HexDumpToData( CString &hexDump, char *data )
-{
-	char *tmp;
-	tmp = new char[hexDump.GetLength()+1];
-	strcpy( tmp, hexDump.GetBuffer(0) );
-	int retVal = HexDumpToData( tmp, data );
-	hexDump = tmp;
-	delete []tmp;
-	return retVal;
-}
-
-////////////////////////////////////////////////////////////////////////////////
 // 
 // converts DigitString to a Big Number
 // 
@@ -549,10 +408,10 @@ int StringToBig( const char* StrNumber, Big &t, int base )
 	char *tmp;
 	tmp = new char[strlen(StrNumber)+1];
 	int i = 0,j;
-	while ( Whitespace(StrNumber[i]) && StrNumber[i] ) i++;
+	while ( NewLineTabSpace(StrNumber[i]) && StrNumber[i] ) i++;
 	for ( j=0; StrNumber[i] != 0; i++) {
 		if ( IsNumber(StrNumber[i], base) ) tmp[j++] = StrNumber[i];
-		else /* if (!Whitespace(StrNumber[i])) */ break;
+		else break;
 	}
 	tmp[j] = '\0';
 	miracl *mip = &g_precision;

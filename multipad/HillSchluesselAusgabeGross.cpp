@@ -10,7 +10,7 @@
 #include "multipad.h"
 #include "HillSchluesselAusgabeGross.h"
 #include "sq_mat.h"
-#include "crypt.h"
+#include "KeyRepository.h"
 #include "hill.h"
 
 #ifdef _DEBUG

@@ -52,13 +52,8 @@ CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 }
 
 
-
-
-
 void CTextOptions::DoDataExchange(CDataExchange* pDX)
-
 {
-
 	CDialog::DoDataExchange(pDX);
 
 	//{{AFX_DATA_MAP(CTextOptions)
@@ -79,11 +74,7 @@ void CTextOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK9, m_addx);
 	DDX_Text(pDX, IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI, m_StrRefFile);
 	//}}AFX_DATA_MAP
-
 }
-
-
-
 
 
 BEGIN_MESSAGE_MAP(CTextOptions, CDialog)
@@ -169,7 +160,6 @@ void CTextOptions::OnUpdateEdit1()
 }
 
 
-
 void CTextOptions::OnButton1() 
 {
 	m_alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -180,13 +170,8 @@ void CTextOptions::OnButton1()
 }
 
 
-
-
-
 BOOL CTextOptions::OnInitDialog() 
-
 {
-
 	CDialog::OnInitDialog();
 
 	OldAlphabet = m_alphabet;
@@ -202,25 +187,19 @@ BOOL CTextOptions::OnInitDialog()
 }
 
 
-
 void CTextOptions::OnCancel() 
 {
 	m_alphabet = OldAlphabet;
 	m_Case = OldCase;
 	m_Format = OldFormat;
-
 	CDialog::OnCancel();
 }
-
 
 
 void CTextOptions::OnCheck2() // Groﬂ-Keinschreibubg beachten
 {
 	int i, r;
-
-
 	UpdateData(TRUE);  // Werte aus Eingabemaske lesen	
-
 	if(!m_Case) { // ignore Case
 		m_alphabet.MakeUpper();
 		for(i=0;i<m_alphabet.GetLength();i++) {
@@ -235,7 +214,6 @@ void CTextOptions::OnCheck2() // Groﬂ-Keinschreibubg beachten
 }
 
 
-
 void CTextOptions::OnOK() 
 {
 	UpdateData(TRUE);  // Werte aus Eingabemaske lesen
@@ -246,7 +224,6 @@ void CTextOptions::OnOK()
 	AppConv.SetAlphabet(m_alphabet.GetBuffer(257), m_IgnoreCase);
 	CDialog::OnOK();
 }
-
 
 
 void CTextOptions::OnCheck3() // Groﬂbuchstaben
@@ -270,7 +247,6 @@ void CTextOptions::OnCheck3() // Groﬂbuchstaben
 	}
 	UpdateData(FALSE);
 }
-
 
 
 void CTextOptions::OnCheck4() // Kleinbuchstaben
@@ -298,9 +274,7 @@ void CTextOptions::OnCheck4() // Kleinbuchstaben
 }
 
 
-
 void CTextOptions::OnCheck5() // Leerzeichen
-
 {
 	int i;
 
@@ -316,7 +290,6 @@ void CTextOptions::OnCheck5() // Leerzeichen
 	}
 	UpdateData(FALSE);
 }
-
 
 
 void CTextOptions::OnCheck6() // Satzzeichen
@@ -342,7 +315,6 @@ void CTextOptions::OnCheck6() // Satzzeichen
 }
 
 
-
 int CTextOptions::UpdateTags()
 {
 	char c, *s;
@@ -363,15 +335,11 @@ int CTextOptions::UpdateTags()
 		break;
 	case(3): m_GrossVal = 2; // gemischt
 	}
-
-
 	// Update Leerzeichen 
 	if(-1 == m_alphabet.Find(' '))
 			m_LeerVal = FALSE; // Zeichen nicht gefunden
 		else
 			m_LeerVal = TRUE; // Zeichen gefunden
-
-
 	// Update Kleinbuchstaben 
 
 	OK = 0;

@@ -5,7 +5,8 @@
 #include "multipad.h"
 #include "DlgRSAwithSmallPrimesOptions.h"
 #include "RSA_mit_kleinenPZ.h"
-#include "crypt.h"
+#include "DialogMessage.h"
+#include "KeyRepository.h"
 #include "ChrTools.h"
 #include "fileutil.h"
 #ifdef _DEBUG

@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignSteps.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #include "fileutil.h"
 #include "s_prng.h"

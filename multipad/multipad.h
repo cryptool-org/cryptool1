@@ -12,6 +12,10 @@
 // electronic documentation provided with the library.
 // See these sources for detailed information regarding the
 // Microsoft Foundation Classes product.
+
+#ifndef __MULTIPAD_H
+#define __MULTIPAD_H
+
 #ifndef __AFXWIN_H__
 	#error include 'stdafx.h' before including this file for PCH
 #endif
@@ -116,3 +120,5 @@ class CPadDoc : public CMyDocument
 
 /////////////////////////////////////////////////////////////////////////////
 extern CMultiPadApp NEAR theApp;
+
+#endif

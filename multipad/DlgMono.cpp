@@ -12,7 +12,7 @@
 #include "multipad.h"
 #include "DlgMono.h"
 #include "crypt.h"
-//#include "MyCEdit.h"
+#include "KeyRepository.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

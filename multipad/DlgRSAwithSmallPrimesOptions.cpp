@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgRSAwithSmallPrimesOptions.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -19,9 +19,7 @@
 #include "pkcs.h"   // Include-File von SECUDE
 #include "MyDocument.h"
 #include "DlgShowHash.h"
-
-void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
-
+#include "DialogMessage.h"
 
 /*  Die Funktion Crypt führt die eigentliche 
 	(symmetrische) Verschlüsselung aus. 
@@ -285,24 +283,3 @@ void hash (char* infile, const char *OldTitle, int AlgId)
 	}
 }
 
-
-/* Die folgende Funktion generiert aus dem Namen des Fensters mit den zu bearbeitenden
-   Daten einen Namen für das Fenster, in dem die Ausgabe dargestellt wird		*/
-void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg)
-{
-	///////////////////////////////////////////////////////////////////////
-	// Aenderung Jens Liebehenschel, 30.12.1998
-	///////////////////////////////////////////////////////////////////////
-	// Um die Warnung C4018 
-	// "Konflikt zwischen signed und unsigned"
-	// wegzubekommen, wird der Type-Cast nach 
-	// size_t (= unsigned int) durchgefuehrt.
-	///////////////////////////////////////////////////////////////////////
-    if(strlen(format)+strlen(old)+strlen(alg)<(size_t)len)
-        sprintf(dest,format,alg,old);
-    else
-        sprintf(dest,format,alg,"...");
-	///////////////////////////////////////////////////////////////////////
-	// Ende Aenderung Jens Liebehenschel, 30.12.1998
-	///////////////////////////////////////////////////////////////////////
-}

@@ -13,7 +13,7 @@
 
 
 #include "multipad.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 //#include "hexdialog.h"	// Dialog-Box für die Schlüsseleingabe
 
 #ifdef _DEBUG

@@ -15,11 +15,8 @@ extern volatile long ExitFactorisationCode;
 
 #include "BIG.H"	// Hinzugefügt von der Klassenansicht
 #include <monty.h>
+#include "ChrTools.h"
 
-#define BASE_BIN 2
-#define BASE_OCT 8
-#define BASE_DEC 10
-#define BASE_HEX 16
 
 #define MAX_8BIT_LENGTH 256
 #define MAX_BIT_LENGTH  1024
@@ -72,19 +69,10 @@ extern volatile long ExitFactorisationCode;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Nur temporär  definiert
-// 
-
-////////////////////////////////////////////////////////////////////////////////
 //
 // diese defines in eine globale HeaderDatei unterbringen
 //
 #define VALID_FORMULA "0..9^+-*/()"
-#define VALID_BIN     "01"
-#define VALID_OCT     "0..7"
-#define VALID_DEC     "0..9"
-#define VALID_HEX     "0..9a..fA..F"
-#define WHITESPACE    " \t\r\n"
 #define NUMBER_SEPARATOR " \r\n#,;:"
 #define SEPARATOR     " # "
 
@@ -92,20 +80,8 @@ BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx );
 BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx);
 BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber = FALSE);
 double BitLength(CString &number, int base = 10);
-
-BOOL isCharOf( const char ch, const char *expr );
-BOOL Whitespace( char ch );
-BOOL IsNumber( char ch, int base );
-int  NeededBase( char ch );
-char DigitToNum( char ch );
 int  IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList = 0 );
 BOOL IsHexDump( CString &CStr );
-char ToHex( const char ch );
-void dataToHexDump( const char* data, int len, char* hexDump );
-void dataToHexDump( const char* data, int len, CString& hexDump );
-int  HexDumpToData( const char *hexDump, char *data );
-int  HexDumpToData( CString &hexDump, char *data );
-
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 int  StringToBig( const char* StrNumber, Big &t, int base );
 int  CStringToBig( CString &CStrNumber, Big &t, int base );

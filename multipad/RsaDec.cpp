@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "RsaDec.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "KeyFileHandling.h"
 
 #ifdef _DEBUG

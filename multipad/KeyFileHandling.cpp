@@ -17,7 +17,7 @@
 #include "af.h"
 #include "fileutil.h"
 #include "pkcs.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #include <time.h>
 #include <algorithm>

@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "PlotDoc.h"
 
 /////////////////////////////////////////////////////////////////////////////

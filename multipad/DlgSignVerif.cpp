@@ -11,7 +11,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignVerif.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 //#include "secure.h"
 //#include "af.h"

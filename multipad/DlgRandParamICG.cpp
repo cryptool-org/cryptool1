@@ -6,7 +6,7 @@
 #include "DlgRandParamICG.h"
 #include "CryptologyUsingMiracl.h"
 #include "DlgPrimesGenerator.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -14,7 +14,7 @@
 #include "s_prng.h"
 #include "s_ecconv.h"
 #include "ECsecude.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

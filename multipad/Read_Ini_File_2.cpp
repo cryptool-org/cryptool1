@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "Read_Ini_File_2.h"
 
 extern char *Pfad; // Pfad contains the path of the directory there the mainprogram is executed

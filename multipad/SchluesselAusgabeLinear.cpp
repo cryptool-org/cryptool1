@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "SchluesselAusgabeLinear.h"
-#include "crypt.h"
+#include "KeyRepository.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

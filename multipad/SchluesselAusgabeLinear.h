@@ -4,7 +4,8 @@
 // SchluesselAusgabeLinear.h : Header-Datei
 //
 
-#include "crypt.h"
+
+#include "KeyRepository.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CSchluesselAusgabeLinear 

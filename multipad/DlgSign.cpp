@@ -14,7 +14,7 @@
 #include "KeyFileHandling.h"
 #include "DlgAsymKeyCreat.h"
 #include "DlgSign.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
 
@@ -577,13 +577,6 @@ void CDlgSign::UpdateRowSel(int row)
 		}
 		if ((m_radio!=2) && (m_radio!=4))
 		{
-    		/*
-			m_ctrl11.SetCheck(0);
-	 		m_ctrl12.SetCheck(0);
-			m_ctrl13.SetCheck(0);
-			m_ctrl14.SetCheck(0);
-			m_ctrl15.SetCheck(0);
-			*/
 			CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5); // Hashfunktion auf SHA_1 (Standard) setzen
 		}
 		// alle Hashfunktionen ausser RIPEMD-160 und SHA-1 ausblenden
@@ -657,13 +650,6 @@ void CDlgSign::UpdateRowSel(int row)
 			if ((m_radio!=3) && (m_radio!=4))
 			{
 				// kein SHA oder SHA-1 Button gewähhlt
-				/*
-    			m_ctrl11.SetCheck(0);
-	 			m_ctrl12.SetCheck(0);
-				m_ctrl13.SetCheck(0);
-				m_ctrl14.SetCheck(0);
-				m_ctrl15.SetCheck(0);
-				*/
 				CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5); // Hashfunktion auf SHA-1 (Standard) setzen
 			}
 			// Buttons ein- und ausblenden
@@ -977,13 +963,6 @@ void CDlgSign::OnRadioDSA()
 	m_ctrl15.EnableWindow(TRUE);
 
 	if ((m_radio!=3) && (m_radio!=4)){// Falls weder SHA noch SHA-1 gewählt
-    	/*
-		m_ctrl11.SetCheck(0);
-	 	m_ctrl12.SetCheck(0);
-		m_ctrl13.SetCheck(0);
-		m_ctrl14.SetCheck(0);
-		m_ctrl15.SetCheck(0);
-		*/
 		CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5); // SHA-1 wählen
 	}
 
@@ -1028,13 +1007,6 @@ void CDlgSign::OnRadioECDSA()
 	m_ctrl15.EnableWindow(TRUE);
 
 	if ((m_radio!=2) && (m_radio!=4)){// Falls weder RIPEMD-160 noch SHA-1 gewählt
-		/*
-		m_ctrl11.SetCheck(0);
-	 	m_ctrl12.SetCheck(0);
-		m_ctrl13.SetCheck(0);
-		m_ctrl14.SetCheck(0);
-		m_ctrl15.SetCheck(0);
-		*/
 		CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5); // SHA-1 wählen
 	}
 	// Nur RIPEMD-160 und SHA-1 einblenden
@@ -1078,13 +1050,6 @@ void CDlgSign::OnRadioECNR()
 	m_ctrl15.EnableWindow(TRUE);
 
 	if ((m_radio!=2) && (m_radio!=4)){// Falls weder RIPEMD-160 noch SHA-1 gewählt
-		/*
-		m_ctrl11.SetCheck(0);
-	 	m_ctrl12.SetCheck(0);
-		m_ctrl13.SetCheck(0);
-		m_ctrl14.SetCheck(0);
-		m_ctrl15.SetCheck(0);
-		*/
 		CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5); // SHA-1 wählen
 	}
 	// Nur RIPEMD-160 und SHA-1 einblenden

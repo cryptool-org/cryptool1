@@ -5,7 +5,7 @@
 #include "multipad.h"
 #include "DlgKeyTutorial.h"
 #include "DlgPrimesGenerator.h"
-#include "crypt.h"
+#include "KeyRepository.h"
 #include "CryptologyUsingMiracl.h"
 
 #ifdef _DEBUG

@@ -1,12 +1,7 @@
 #if !defined(AFX_RSA_MIT_KLEINENPZ_H__42495664_FB3E_11D4_BEF2_0006291976BD__INCLUDED_)
 #define AFX_RSA_MIT_KLEINENPZ_H__42495664_FB3E_11D4_BEF2_0006291976BD__INCLUDED_
 
-//#include <miracl.h>
-//#include <big.h>
-//#include "..\LIBMIRACL\INCLUDE\BIG.H"	// Hinzugefügt von der Klassenansicht
-#include "RSA_Berechnungen.h"	// Hinzugefügt von der Klassenansicht
 #include "DlgPrimesGenerator.h"	// Hinzugefügt von der Klassenansicht
-//#include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
 #include "DlgRSAwithSmallPrimesOptions.h"
 
 #if _MSC_VER > 1000

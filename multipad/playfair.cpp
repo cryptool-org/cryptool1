@@ -1177,59 +1177,12 @@ void Playfair::GetDiGrams()
 			numdigrams++;
 	}
 	my_cntdigrams = numdigrams;
-/*
-	digrams=(struct digram *)malloc((numdigrams)*sizeof(struct digram));
-	i=j=0;
-	while (i<36*36) // übertrage die lokalen Daten der Digramme in die Objektvariablen
-	{
-		if (dgt[i])
-		{
-			digrams[j].anz=dgt[i];
-			digrams[j].di[2]=0;
-			digrams[j].ciphdi[2]=0;
-			sprintf(digrams[j].di,"%c%c",valkey(i%36),valkey(i/36));
-			j++;
-		}
-		i++;
-	}
-	qsort(digrams,numdigrams,sizeof(struct digram),(int (__cdecl *)(const void *,const void *))compdigram);
-*/
 }
 
 void Playfair::UpdateDigrams(int Dec)
 {
-	/*
-	int j,k,c1,r1,c2,r2,x;
-	
-	for (x=0;x<numdigrams;x++)
-	{
-		for ( j=0; j<mysize; j++ )
-		{
-			for ( k=0; k<mysize; k++ )
-			{
-				if ( getCharOfMatrix (j,k) == digrams[x].di[0] )
-				{
-					c1 = k;
-					r1 = j;
-				}
-				if ( getCharOfMatrix (j,k) == digrams[x].di[1] )
-				{
-					c2 = k;
-					r2 = j;
-				}
-			}
-		}
-		PlayfairCipher( Dec, r1, r2, c1, c2, digrams[x].ciphdi, 0 );
-	}
-	*/
 }
 
-/*
-int compdigram(struct digram *x,struct digram *y)
-{
-	return y->anz - x->anz;
-}
-*/
 
 Playfair::~Playfair()
 {
@@ -1489,13 +1442,13 @@ void Playfair::ApplyPlayfairToInput( bool DecEnc)
 } 
 
 /*
-DoCipher() Den EingabeText verschlüsseln.
-(len gibt die zu verschlüsselnde Länge an)
-Benutzt PlayfairCipher().
-Gauweiler, 23.10.01: erweitert um eine Vorgabe zu berücksichtigen.
-Keine Änderung bei nicht gesetzter Vorgabe.
-Sobald des Entschlüsselungsergebnis von der Vorgabe
-abweicht, bricht die Routine mit false ab.
+	DoCipher() Den EingabeText verschlüsseln.
+	(len gibt die zu verschlüsselnde Länge an)
+	Benutzt PlayfairCipher().
+	Gauweiler, 23.10.01: erweitert um eine Vorgabe zu berücksichtigen.
+	Keine Änderung bei nicht gesetzter Vorgabe.
+	Sobald des Entschlüsselungsergebnis von der Vorgabe
+	abweicht, bricht die Routine mit false ab.
 */
 bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation, int stiplen, char *theinbuf, int theinbuflen)
 {
@@ -1615,16 +1568,16 @@ bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation,
 }
 
 /*
-PlayfairCipher() eigentliche VERSCHLUESSELUNG 
-Nachdem fuer szText_s[i und i+1] jeweils Spalte und Zeile bestimmt 
-wurden, wird das zu diesem Klartextpaar gehoerende Cipherpaar      
-ermittelt.                                                         
-Fall 1: r1 = r2: beide in derselben Zeile 
-Fall 2: c1 = c2: beide in derselben Spalte 
-Fall 3: sonst    
-Bem.:                                                              
-- nur in Fall 1 und 2 unterscheiden sich die Ver- und die          
-Entschluesselung.                                                
+	PlayfairCipher() eigentliche VERSCHLUESSELUNG 
+	Nachdem fuer szText_s[i und i+1] jeweils Spalte und Zeile bestimmt 
+	wurden, wird das zu diesem Klartextpaar gehoerende Cipherpaar      
+	ermittelt.                                                         
+	Fall 1: r1 = r2: beide in derselben Zeile 
+	Fall 2: c1 = c2: beide in derselben Spalte 
+	Fall 3: sonst    
+	Bem.:                                                              
+	- nur in Fall 1 und 2 unterscheiden sich die Ver- und die          
+	Entschluesselung.                                                
 */
 void Playfair::PlayfairCipher (int dec_enc, int r1, int r2, int c1, int c2, char *cipher, int i)
 {
@@ -1768,10 +1721,6 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 #define MAXINT	0x07ffff
 #define R(x)	((x + ALEN) % ALEN)
 
-//#define C2I(x)	((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1)
-//#define I2C(x)	(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1)
-
-
 class playfair_backthrow {
 public:
         playfair_backthrow() {};
@@ -1812,6 +1761,7 @@ playfair_arrinfo::playfair_arrinfo( )
 {
 //	assert (0);
 }
+
 playfair_arrinfo::playfair_arrinfo_init(int msize)
 {
         int i, j;

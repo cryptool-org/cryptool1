@@ -10,7 +10,7 @@
 #include "multipad.h"
 
 #include "Read_Ini_File.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "s_ecconv.h"
 #include "arithmet.h"
 

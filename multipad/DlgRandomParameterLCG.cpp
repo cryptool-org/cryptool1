@@ -5,7 +5,7 @@
 #include "multipad.h"
 #include "DlgRandomParameterLCG.h"
 #include "CryptologyUsingMiracl.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

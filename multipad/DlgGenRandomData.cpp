@@ -8,7 +8,6 @@
 #include "s_prng.h"
 #include "DlgGenRandomData.h"
 #include "DlgParamRandSECUDE.h"
-#include "ExtEuclid.h"
 #include "crypt.h"
 #include "cryptdoc.h"
 #include "DlgPrimesGenerator.h"
@@ -34,8 +33,6 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 	long			i, j, k(0), l;
 	progress.LoadString(IDS_RAND_PROGRESS);
 
-
-	//LoadString(AfxGetInstanceHandle(),IDS_STRING_RAND_DATA_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 	switch ( par->m_SelGenerator ) {
 	case 0:
 		title.Format(IDS_RAND_GEN_PARAM, "SECUDE", par->m_DataSize);

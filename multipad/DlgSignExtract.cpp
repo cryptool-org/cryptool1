@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignExtract.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #include "asymmetric.h"
 #include "fileutil.h"
