@@ -3979,10 +3979,10 @@ IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp
 IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
 IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
-IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\bmp00038.bmp"
-IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\bmp00039.bmp"
-IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\bmp00040.bmp"
+IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10297,12 +10297,12 @@ IDB_DH_SECRET_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_F.bmp"
 IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
-IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
-IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\bmp00041.bmp"
-IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\bmp00042.bmp"
-IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\bmp00043.bmp"
-IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\bmp00044.bmp"
-IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\bmp00045.bmp"
+IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
