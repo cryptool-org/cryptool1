@@ -7,13 +7,13 @@ LCID=0x407 0x0 0x0 ; Deutsch (Deutschland)
 REPORT=Yes
 CONTENTS=main_index
 TITLE=CrypTool-Anwendungshilfe
-CNT=CrypTool.cnt
+CNT=CrypTool_ger.cnt
 COPYRIGHT=Copyright (C) 1998-2001 Deutsche Bank AG, Frankfurt
 BMROOT=..
 BMROOT=.
 ROOT=..
 ROOT=.
-HLP=CrypTool.HLP
+HLP=CrypTool_ger.HLP
 
 [FILES]
 afxcore.rtf
