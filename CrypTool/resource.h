@@ -633,6 +633,7 @@
 #define IDC_BITLENGTHALICE              1473
 #define IDC_BITLENGTHBOB                1474
 #define IDC_SHOWLOGTEXT                 1475
+#define IDC_EXCHANGEARROWS              1476
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -1510,9 +1511,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        633
+#define _APS_NEXT_RESOURCE_VALUE        634
 #define _APS_NEXT_COMMAND_VALUE         33262
-#define _APS_NEXT_CONTROL_VALUE         1476
+#define _APS_NEXT_CONTROL_VALUE         1477
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

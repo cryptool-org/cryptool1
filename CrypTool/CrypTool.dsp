@@ -385,6 +385,10 @@ SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange2.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\AscEdit.cpp
 # End Source File
 # Begin Source File
@@ -676,6 +680,38 @@ SOURCE=.\res\bmp00036.bmp
 # Begin Source File
 
 SOURCE=.\res\bmp00037.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00038.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00039.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00040.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00041.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00042.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00043.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00044.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00045.bmp
 # End Source File
 # Begin Source File
 

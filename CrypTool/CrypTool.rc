@@ -2860,9 +2860,10 @@ BEGIN
                     SS_CENTERIMAGE
     GROUPBOX        "Von beiden benutzte öffentliche Parameter",IDC_STATIC,
                     160,23,345,50
-    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
+    CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
 END
 
 
@@ -3972,11 +3973,16 @@ IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_3.bm
 IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_4.bmp"
 IDB_DH_STEP_1           BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Step_1.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\GapFiller.bmp"
-IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_KEY_X            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_X.bmp"
 IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp"
 IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
+IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
+IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\bmp00038.bmp"
+IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\bmp00039.bmp"
+IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\bmp00040.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6526,9 +6532,10 @@ BEGIN
     LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
     LTEXT           "Prime module p:",IDC_STATIC,175,53,70,14,SS_CENTERIMAGE
     GROUPBOX        "Public parameters:",IDC_STATIC,160,23,345,50
-    CONTROL         551,IDC_ARROWS,"Static",SS_BITMAP,281,158,103,114
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
+    CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -10229,7 +10236,6 @@ IDB_DH_STEP_3           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_3
 IDB_DH_STEP_4           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_4.bmp"
 IDB_DH_STEP_5           BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Step_5.bmp"
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\dh_arrow.bmp"
-IDB_DH_ARROWS_1         BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\dh_gapfi.bmp"
 IDB_DH_BUTTON1_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_D.bmp"
 IDB_DH_BUTTON1_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_R_X.bmp"
@@ -10291,6 +10297,12 @@ IDB_DH_SECRET_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_F.bmp"
 IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
+IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\bmp00041.bmp"
+IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\bmp00042.bmp"
+IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\bmp00043.bmp"
+IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\bmp00044.bmp"
+IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\bmp00045.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
