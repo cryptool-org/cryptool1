@@ -134,11 +134,8 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	PlainText = CipherText = 0;
 	m_bAuswahlDat = true;
 
-	// Default-Länge für symmetrischen Schlüssel ermitteln
-	// Schlüssellänge in Bits ermitteln und...
-	int symKeyBitLength = theApp.GetProfileInt("Settings", "HybridEncryptionSymmetricKeyLength", 0);
-	// ...daraus Schlüssellänge in Bytes ableiten..
-	symKeyByteLength = (symKeyBitLength+7)/8;
+	// Länge für symmetrischen Schlüssel auf 128 Bit (128/8 Byte) setzen...
+	symKeyByteLength = 128/8;
 	// ...und Speicher für symmetrischen Schlüssel anfordern
 	SymKey = new char[symKeyByteLength];
 }

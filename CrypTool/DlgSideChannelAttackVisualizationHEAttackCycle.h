@@ -62,7 +62,7 @@ public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSideChannelAttackVisualizationHEAttackCycle)
-	enum { IDD = IDD_SIDECHANNALATTACKVISUALIZATION_HE_ATTACKCYCLE };
+	enum { IDD = IDD_SIDECHANNELATTACKVISUALIZATION_HE_ATTACKCYCLE };
 		// HINWEIS: Der Klassen-Assistent fügt hier Datenelemente ein
 	//}}AFX_DATA
 

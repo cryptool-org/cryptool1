@@ -64,8 +64,6 @@ public:
 	//{{AFX_DATA(CDlgFurtherOptions)
 	enum { IDD = IDD_OPTIONS_FURTHEROPTIONS };
 	BOOL	m_ShowIntroDialogue;
-	BOOL	m_SymKey128Bit;
-	BOOL	m_SymKey256Bit;
 	//}}AFX_DATA
 
 
@@ -83,8 +81,6 @@ protected:
 	//{{AFX_MSG(CDlgFurtherOptions)
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
-	afx_msg void OnCheckSymKey128Bit();
-	afx_msg void OnCheckSymKey256Bit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

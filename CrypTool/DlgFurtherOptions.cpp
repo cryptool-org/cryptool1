@@ -64,8 +64,6 @@ CDlgFurtherOptions::CDlgFurtherOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgFurtherOptions)
 	m_ShowIntroDialogue = FALSE;
-	m_SymKey128Bit = FALSE;
-	m_SymKey256Bit = FALSE;
 	//}}AFX_DATA_INIT
 }
 
@@ -75,16 +73,12 @@ void CDlgFurtherOptions::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgFurtherOptions)
 	DDX_Check(pDX, IDC_CHECK1, m_ShowIntroDialogue);
-	DDX_Check(pDX, IDC_CHECK2, m_SymKey128Bit);
-	DDX_Check(pDX, IDC_CHECK3, m_SymKey256Bit);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgFurtherOptions, CDialog)
 	//{{AFX_MSG_MAP(CDlgFurtherOptions)
-	ON_BN_CLICKED(IDC_CHECK2, OnCheckSymKey128Bit)
-	ON_BN_CLICKED(IDC_CHECK3, OnCheckSymKey256Bit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -101,15 +95,6 @@ BOOL CDlgFurtherOptions::OnInitDialog()
 	if(theApp.GetProfileInt("Settings", "DH_IntroDialogue", 1))
 		this->m_ShowIntroDialogue = true;
 	
-	// welche AES-Schlüssellänge soll für die Hybridverschlüsselung
-	// verwendet werden? (128 bit oder 256 bit)
-	int skl = theApp.GetProfileInt("Settings", "HybridEncryptionSymmetricKeyLength", 0);
-	// DEFAULT: 128 bit
-	if(skl == 256)
-		this->m_SymKey256Bit = true;
-	else
-		this->m_SymKey128Bit = true;
-	
 	UpdateData(false);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -125,25 +110,6 @@ void CDlgFurtherOptions::OnOK()
 
 	// Diffie-Hellman-Intro-Dialog
 	this->m_ShowIntroDialogue ? theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 1) : theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 0);
-
-	// Default-Länge des symmetrischen Schlüssels für Hybridverschlüsselung
-	this->m_SymKey256Bit ? theApp.WriteProfileInt("Settings", "HybridEncryptionSymmetricKeyLength", 256) : theApp.WriteProfileInt("Settings", "HybridEncryptionSymmetricKeyLength", 128);
 	
 	CDialog::OnOK();
-}
-
-void CDlgFurtherOptions::OnCheckSymKey128Bit() 
-{
-	// Anzeige aktualisieren, d.h. 256-Bit-Flag nullen
-	m_SymKey128Bit = true;
-	m_SymKey256Bit = false;
-	UpdateData(false);
-}
-
-void CDlgFurtherOptions::OnCheckSymKey256Bit() 
-{
-	// Anzeige aktualisieren, d.h. 128-Bit-Flag nullen
-	m_SymKey128Bit = false;
-	m_SymKey256Bit = true;
-	UpdateData(false);
 }
