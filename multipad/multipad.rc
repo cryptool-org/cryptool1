@@ -3241,10 +3241,8 @@ Raute4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
 Raute4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
 Raute5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 Raute5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
-IDB_BITMAP7             BITMAP  DISCARDABLE     "res\\background2.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
-IDB_BITMAP_ARR_DOWN_KL  BITMAP  DISCARDABLE     "res\\bitmap9.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
