@@ -1426,48 +1426,46 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
-IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 338, 308
+IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 335, 380
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA mit kleinen Primzahlen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,14,30,
-                    78,14
-    EDITTEXT        IDC_EINGABE_PZ_p,141,28,40,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EINGABE_PZ_q,142,43,40,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_OEFF_SCHLUESSEL_e,272,80,40,14,ES_AUTOHSCROLL
-    LISTBOX         IDC_LIST_TEXTEINGABE,7,140,305,16,LBS_SORT | 
-                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,173,284,50,14
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,240,284,50,14
-    DEFPUSHBUTTON   "OK",IDOK,71,284,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,7,284,50,14
-    LTEXT           "Primzahl p",IDC_STATIC,101,32,32,8
-    LTEXT           "Primzahl q",IDC_STATIC,101,45,32,8
-    EDITTEXT        IDC_EDIT_OEFFENTLICHE_PARAM,51,80,40,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "RSA-Modul",IDC_STATIC,14,83,36,8
-    LTEXT           "(p-1)(q-1)",IDC_STATIC,20,99,28,8
-    EDITTEXT        IDC_EDIT_GEHEIME_PARAM,51,96,40,14,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "Primzahleneingabe",IDC_STATIC,94,14,107,48
-    GROUPBOX        "RSA Schlüssel erzeugen",IDC_STATIC,7,7,305,59
-    LTEXT           "(öffentliche Parameter)",IDC_STATIC,95,85,74,8
-    LTEXT           "(geheime Parameter)",IDC_STATIC,93,100,75,8
-    GROUPBOX        "RSA Schlüssel",IDC_STATIC,177,67,135,57
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,187,84,69,8
-    LTEXT           "geheimer Schlüssel d",IDC_STATIC,188,105,66,8
-    EDITTEXT        IDC_EDIT_GEHEIMER_SCHLUESSEL_d,272,101,40,14,
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "RSA Parameter",IDC_STATIC,7,69,163,55
-    LTEXT           "Texteingabe",IDC_STATIC,7,129,39,8
-    LISTBOX         IDC_LIST_LOCHERUNG,7,225,305,16,LBS_SORT | 
-                    LBS_NOINTEGRALHEIGHT | WS_DISABLED | WS_VSCROLL
-    LTEXT           "Kodierung der Texteingabe in Zahlen",IDC_STATIC,7,215,
-                    249,8
-    LISTBOX         IDC_LIST_VERSCHLUESSELTER_TEXT,7,259,305,16,LBS_SORT | 
-                    LBS_NOINTEGRALHEIGHT | WS_DISABLED | WS_VSCROLL
-    LTEXT           "Verschlüsselter Text",IDC_STATIC,7,247,62,8
+    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,15,29,
+                    77,14
+    EDITTEXT        IDC_EDIT1,220,23,66,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,220,40,66,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,220,144,66,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,173,356,50,14
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,240,356,50,14
+    DEFPUSHBUTTON   "OK",IDOK,71,356,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,7,356,50,14
+    LTEXT           "Primzahl p",IDC_STATIC,125,26,32,8
+    LTEXT           "Primzahl q",IDC_STATIC,126,41,32,8
+    EDITTEXT        IDC_EDIT3,159,79,61,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    LTEXT           "RSA-Modul",IDC_STATIC,119,82,36,8
+    LTEXT           "(p-1)(q-1)",IDC_STATIC,120,98,28,8
+    EDITTEXT        IDC_EDIT4,159,97,61,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC,115,13,197,48
+    GROUPBOX        "RSA Schlüssel erzeugen",IDC_STATIC,7,6,314,188
+    LTEXT           "(öffentliche Parameter)",IDC_STATIC,226,83,74,8
+    LTEXT           "(geheime Parameter)",IDC_STATIC,226,98,75,8
+    GROUPBOX        "RSA Schlüssel",IDC_STATIC,115,133,197,55
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,129,148,69,8
+    LTEXT           "geheimer Schlüssel d",IDC_STATIC,130,164,66,8
+    EDITTEXT        IDC_EDIT6,220,162,66,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    GROUPBOX        "RSA Parameter",IDC_STATIC,115,67,197,50
+    LTEXT           "Klartext",IDC_STATIC,7,200,39,8
+    LTEXT           "Kodierung des Klartextes",IDC_STATIC,7,239,249,8
+    LTEXT           "Verschlüsselter Text",IDC_STATIC,7,277,68,8
+    PUSHBUTTON      "Parameter generieren",IDC_BUTTON1,15,80,77,15
+    PUSHBUTTON      "Schlüssel generieren",IDC_BUTTON2,15,140,77,14
+    EDITTEXT        IDC_EDIT10,7,214,314,19,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,7,253,314,19,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,7,288,314,19,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 362
@@ -1515,6 +1513,173 @@ BEGIN
                     32,52,10
     CONTROL         "Bit-Weise",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,202,
                     32,46,10
+END
+
+
+IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 427, 397
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Erzeugung elliptischer Kurven"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Zahlensystem der Parameter Darstellung",IDC_STATIC,10,
+                    335,231,32
+    CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,348,
+                    144,10
+    PUSHBUTTON      "OK",IDOK,120,376,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,226,376,50,14
+    GROUPBOX        "Algorithmen zur Erzeugung von EC Kurven",IDC_STATIC,10,
+                    11,202,55
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,13,230,380,100
+    LTEXT           "Domain Parameter der erzeugten Elliptischen Kurve",
+                    IDC_STATIC,12,215,291,12
+    LTEXT           "Geben Sie die Primzahl ein (Beispiele: 24877, 2^{17-1}-1)",
+                    IDC_STATIC,20,90,360,12
+    EDITTEXT        IDC_EDIT1,109,112,288,16,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "EC Kurve erzeugen",IDC_BUTTON_GEN,325,169,79,20
+    PUSHBUTTON      "EC Kurve übernehmen",IDC_BUTTON_ACCEPT,325,200,79,20
+    CONTROL         "Komplexe Multiplikation",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,24,105,15
+    CONTROL         "Zufälliger Wahl der EC-Kurve",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,26,46,115,10
+    CONTROL         "Oktal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,27,348,33,10
+    CONTROL         "Dezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,99,347,
+                    41,10
+    CONTROL         "Hexadezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,178,
+                    347,56,10
+    GROUPBOX        "Primzahl",IDC_STATIC,13,74,398,60
+    LTEXT           "Die Berechnung der elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall eine ""Saat"" setzen.",
+                    IDC_STATIC,21,152,374,12
+    EDITTEXT        IDC_EDIT2,52,171,94,17,ES_AUTOHSCROLL
+    LTEXT           "Saat",IDC_STATIC,21,174,16,8
+    GROUPBOX        "Saat setzen",IDC_STATIC,14,141,398,55
+END
+
+IDD_DIALOG_Faktorisieren DIALOG DISCARDABLE  0, 0, 368, 394
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Faktorisierungsalgorithmen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,11,14,142,
+                    111
+    CONTROL         "&Brute",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,23,30,33,10
+    CONTROL         "B&rent",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,45,33,
+                    10
+    CONTROL         "&Pollard",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,60,
+                    37,10
+    CONTROL         "&Williams",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,24,75,
+                    41,10
+    CONTROL         "&Lenstra",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,24,90,
+                    39,10
+    CONTROL         "&Q-Sieve",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,24,104,
+                    41,10
+    GROUPBOX        "Eingabe",IDC_STATIC,166,19,187,51
+    LTEXT           "Geben Sie bitte die zu faktorisierende Zahl ein",
+                    IDC_STATIC,173,32,176,8
+    EDITTEXT        IDC_EDIT1,175,45,170,14,ES_AUTOHSCROLL
+    GROUPBOX        "Ausgabe",IDC_STATIC,15,184,325,179
+    LTEXT           "Primfaktor-1",IDC_STATIC,26,205,46,11
+    LTEXT           "Primfaktor-2",IDC_STATIC,26,224,46,11
+    LTEXT           "Co-Primfaktor-1",IDC_STATIC,23,289,52,11
+    LTEXT           "Co-Primfaktor-2",IDC_STATIC,23,317,52,11
+    EDITTEXT        IDC_EDIT2,88,198,228,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,88,219,228,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT4,87,284,228,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT5,87,310,228,13,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "Faktorisieren",IDC_BUTTON_Faktorisieren,216,92,116,23
+    LTEXT           "Primfaktor-3",IDC_STATIC,26,249,46,11
+    LTEXT           "Primfaktor-4",IDC_STATIC,26,268,46,11
+    EDITTEXT        IDC_EDIT6,88,241,228,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT7,88,263,228,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT8,277,146,59,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,279,164,59,12,ES_AUTOHSCROLL
+    GROUPBOX        "Primfaktoren Zerlegung",IDC_STATIC,13,134,254,42
+    CONTROL         "Hybrid-Verfahren mit Benutzung der oben angegenenen Verfahren",
+                    IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,22,153,
+                    224,10
+    EDITTEXT        IDC_EDIT10,90,336,227,11,ES_AUTOHSCROLL
+    LTEXT           "2^",IDC_STATIC,71,337,9,8
+    PUSHBUTTON      "OK",IDC_BUTTON_OK,83,368,58,13
+    PUSHBUTTON      "Abbrechen",IDC_BUTTON_cancel,213,368,58,13
+END
+
+IDD_DIALOG_Schluessel_gen DIALOG DISCARDABLE  0, 0, 310, 294
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüssel aus Paßwort generieren"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Ausgabe",IDC_STATIC,8,193,295,94
+    GROUPBOX        "Eingabe",IDC_STATIC,8,4,295,181
+    LTEXT           "Paßwort",IDC_STATIC,32,22,34,8
+    LTEXT           "Ermitelter Schlüssel (in Hex Anzeige)",IDC_STATIC,35,
+                    212,125,8
+    EDITTEXT        IDC_EDIT1,86,21,185,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,35,232,236,13,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "Schlüssel erzeugen",IDC_BUTTON_Generieren,176,155,79,21
+    PUSHBUTTON      "Abbrechen",IDC_BUTTON_cancel,191,258,64,21
+    PUSHBUTTON      "Übernehmen",IDC_BUTTON_Uebernehmen,47,258,64,21
+    GROUPBOX        "Bitte Hashfunktion wählen",IDC_STATIC,19,90,125,86
+    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    35,125,29,10
+    CONTROL         "MD5",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,35,142,30,
+                    10
+    CONTROL         "SHA-1",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,35,159,34,
+                    10
+    LTEXT           "Verfahren",IDC_STATIC,35,108,32,8
+    LTEXT           "Ausgabenlänge",IDC_STATIC,85,107,50,8
+    LTEXT           "128 Bit",IDC_STATIC,86,125,23,8
+    LTEXT           "128 Bit",IDC_STATIC,87,142,23,8
+    LTEXT           "160 Bit",IDC_STATIC,87,160,23,8
+    LTEXT           "Salt",IDC_STATIC,162,107,13,8
+    LTEXT           "Anzahl der Iterationen",IDC_STATIC,162,126,70,8
+    EDITTEXT        IDC_EDIT3,190,105,87,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,235,124,42,13,ES_AUTOHSCROLL
+    GROUPBOX        "Optionale Parameter",IDC_STATIC,156,90,132,58
+    LTEXT           "Schlüssellänge (in Byte)",IDC_STATIC,32,59,76,8
+    EDITTEXT        IDC_EDIT5,126,56,20,15,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_RSA_KLEIN DIALOG DISCARDABLE  0, 0, 428, 335
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RSA mit kleinen Primzahlen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC,15,11,197,66
+    GROUPBOX        "Schlüsseln generieren",IDC_STATIC,222,11,196,116
+    CONTROL         "Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,
+                    24,97,59,10
+    CONTROL         "Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    24,112,59,10
+    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_Primzahlen_generieren,
+                    126,56,79,15
+    PUSHBUTTON      "Schlüsseln generieren",IDC_BUTTON_Schluessel_generieren,
+                    330,105,79,15
+    GROUPBOX        "",IDC_STATIC,17,86,195,40
+    EDITTEXT        IDC_EDIT7,17,194,404,17,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,18,235,404,17,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT9,17,277,404,17,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT1,107,22,99,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,107,39,99,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,313,25,99,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,313,43,99,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,313,61,99,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,313,79,99,14,ES_AUTOHSCROLL
+    LTEXT           "Primzahl p",IDC_STATIC,21,25,33,8
+    LTEXT           "Primzahl q",IDC_STATIC,21,41,33,8
+    LTEXT           "Öffentliche Parameter",IDC_STATIC,232,28,69,8
+    LTEXT           "Geheime Parameter",IDC_STATIC,232,46,63,8
+    LTEXT           "Öffentlicher Schlüssel",IDC_STATIC,232,63,69,8
+    LTEXT           "Geheimer Schlüssel",IDC_STATIC,232,81,63,8
+    LTEXT           "Klartext",IDC_STATIC,17,182,24,8
+    LTEXT           "Kodierung des Klartextes",IDC_STATIC,17,220,79,8
+    LTEXT           "Verschlüsselter Text",IDC_STATIC,17,263,64,8
+    PUSHBUTTON      "Abbrechen",IDC_BUTTON3,31,309,50,14
+    PUSHBUTTON      "OK",IDC_BUTTON4,131,309,50,14
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON5,232,309,50,14
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON6,335,309,50,14
 END
 
 IDD_DIALOG_ANALYSE_NGRAM DIALOG DISCARDABLE  0, 0, 317, 238
@@ -2054,10 +2219,67 @@ BEGIN
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 331
+        RIGHTMARGIN, 321
+        VERTGUIDE, 15
+        VERTGUIDE, 92
+        VERTGUIDE, 115
+        VERTGUIDE, 220
+        VERTGUIDE, 226
+        VERTGUIDE, 286
         VERTGUIDE, 312
         TOPMARGIN, 7
-        BOTTOMMARGIN, 298
+        BOTTOMMARGIN, 370
+        HORZGUIDE, 74
+    END
+
+    IDD_DIALOG_GEN_EC_KURVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 420
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 390
+    END
+
+    IDD_DIALOG_Faktorisieren, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 361
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 387
+    END
+
+    IDD_DIALOG_Schluessel_gen, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        VERTGUIDE, 33
+        VERTGUIDE, 41
+        VERTGUIDE, 87
+        VERTGUIDE, 163
+        VERTGUIDE, 272
+        VERTGUIDE, 278
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 287
+        HORZGUIDE, 61
+        HORZGUIDE, 77
+        HORZGUIDE, 96
+        HORZGUIDE, 113
+        HORZGUIDE, 130
+        HORZGUIDE, 142
+    END
+
+    IDD_DIALOG_RSA_KLEIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 421
+        VERTGUIDE, 17
+        VERTGUIDE, 212
+        VERTGUIDE, 232
+        VERTGUIDE, 412
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 328
+        HORZGUIDE, 323
     END
 
     IDD_DIALOG_HOMOPHONE, DIALOG
@@ -2675,6 +2897,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
         END
+        MENUITEM "Schluessel generieren",           ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
         POPUP "&Komprimieren"
         BEGIN
             MENUITEM "&Zip",                        ID_ZIP
@@ -2685,6 +2909,13 @@ BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+
+            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+
+            MENUITEM "ECDLP",                       ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN

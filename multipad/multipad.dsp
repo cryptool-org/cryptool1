@@ -70,7 +70,8 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\LibMiracl\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
+# SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
@@ -471,6 +472,22 @@ SOURCE=.\Autoren.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Ber_Ell_Kurve.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Ber_Ell_Kurve.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\BIG.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=..\LibMiracl\include\BIG.H
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmap1.bmp
 # End Source File
 # Begin Source File
@@ -496,6 +513,14 @@ SOURCE=.\ChrTools.cpp
 # Begin Source File
 
 SOURCE=.\ChrTools.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\COMFLASH.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\COMFLASH.H
 # End Source File
 # Begin Source File
 
@@ -679,6 +704,14 @@ SOURCE=.\DialoKeyCaesar.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Dlg_Faktorisieren.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_Faktorisieren.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Dlg_homophone.cpp
 # End Source File
 # Begin Source File
@@ -700,6 +733,14 @@ SOURCE=.\Dlg_PlayfairKey.cpp
 # Begin Source File
 
 SOURCE=.\Dlg_PlayfairKey.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_Schluessel_gen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_Schluessel_gen.h
 # End Source File
 # Begin Source File
 
@@ -980,6 +1021,18 @@ SOURCE=..\LibEc\include\ECSSA.H
 # End Source File
 # Begin Source File
 
+SOURCE=..\LibMiracl\SOURCE\ECSVER.C
+# End Source File
+# Begin Source File
+
+SOURCE=.\ELLIPTIC.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\ELLIPTIC.H
+# End Source File
+# Begin Source File
+
 SOURCE=..\LibEc\include\EMSA1.H
 # End Source File
 # Begin Source File
@@ -997,6 +1050,30 @@ SOURCE=.\fixedview.cpp
 # Begin Source File
 
 SOURCE=.\fixedview.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\FLASH.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\FLASH.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\FPOLY.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\FPOLY.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\GenEcKurve.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GenEcKurve.h
 # End Source File
 # Begin Source File
 
@@ -1153,6 +1230,14 @@ SOURCE=..\AES\Mars\mars.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\MONTY.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\MONTY.H
+# End Source File
+# Begin Source File
+
 SOURCE=.\multipad.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -1291,11 +1376,35 @@ SOURCE=.\PlotView.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\POLY.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\POLY.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\POLYMOD.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=.\POLYMOD.H
+# End Source File
+# Begin Source File
+
 SOURCE=.\Primes_and_random_numbers.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\Primes_and_random_numbers.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Primfaktor_Zerlegung.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Primfaktor_Zerlegung.h
 # End Source File
 # Begin Source File
 
@@ -1352,6 +1461,14 @@ SOURCE=.\RSA_Berechnungen.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\RSA_KLEIN.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_KLEIN.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\RSA_mit_kleinen_PZ.h
 # End Source File
 # Begin Source File
@@ -1403,6 +1520,14 @@ SOURCE=..\LibEc\sources\s_prng.c
 # Begin Source File
 
 SOURCE=..\LibEc\include\s_prng.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Schluessel_gen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Schluessel_gen.h
 # End Source File
 # Begin Source File
 
