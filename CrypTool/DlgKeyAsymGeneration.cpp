@@ -130,7 +130,6 @@ BEGIN_MESSAGE_MAP(CDlgKeyAsymGeneration, CDialog)
 	ON_BN_CLICKED(IDC_RADIO6, OnHexRadio)
 	ON_BN_CLICKED(IDC_BUTTON_P12IMPORT, OnButtonP12import)
 	ON_NOTIFY(NM_CLICK, IDC_LIST1, OnClickList)
-	ON_WM_VSCROLL(IDC_LIST1, OnVScrollList)
 	ON_EN_KILLFOCUS(IDC_EDIT_LV, OnKillfocusEditLv)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -1359,11 +1358,6 @@ void CDlgKeyAsymGeneration::OnClickList(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
-void CDlgKeyAsymGeneration::OnVScrollList( UINT nSBCode, UINT nPos, CScrollBar* pScrollBar )
-{
-	nPos++;
-}
-
 //this function will returns the item text depending on the item and SubItem Index
 CString CDlgKeyAsymGeneration::GetItemText(HWND hWnd, int nItem, int nSubItem) const
 {
@@ -1389,3 +1383,4 @@ void CDlgKeyAsymGeneration::OnKillfocusEditLv()
 {
 	::ShowWindow(::GetDlgItem(m_hWnd,IDC_EDIT_LV),SW_HIDE);
 }
+

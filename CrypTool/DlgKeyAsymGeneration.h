@@ -103,7 +103,6 @@ protected:
 	afx_msg void OnHexRadio();
 	afx_msg void OnButtonP12import();
 	afx_msg void OnClickList(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnVScrollList( UINT nSBCode, UINT nPos, CScrollBar* pScrollBar );
 	afx_msg void OnKillfocusEditLv();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
