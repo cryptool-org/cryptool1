@@ -98,7 +98,6 @@ BOOL CMultiPadApp::InitInstance()
 {
 //	_tsetlocale(LC_ALL, _T(""));
 
-
 	//Initialisierung der globalen Variablen
 	m_HexFormat = RegisterClipboardFormat("HexFormat");
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
@@ -528,3 +527,8 @@ void CMultiPadApp::OnGenRandomData()
 	}
 }
 
+
+//DEL BOOL CMultiPadApp::InitApplication()
+//DEL {
+//DEL 	return TRUE;
+//DEL }

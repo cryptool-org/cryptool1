@@ -429,6 +429,14 @@ SOURCE=.\AnalyseNGram.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\AscEdit.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AscEdit.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\asymmetric.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
