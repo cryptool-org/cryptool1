@@ -539,7 +539,7 @@ void CCrypToolApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren()
 {
 	CDlgFactorisationDemo FAKT;
 	AfxInitRichEdit();
-    FAKT.DoModal();
+        FAKT.DoModal();
 /*
 	if ( FAKT.DetailsFactorisation.b_SaveFactorList )
 	{

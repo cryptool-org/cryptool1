@@ -1425,59 +1425,66 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
-IDD_RSA_DEMO DIALOG DISCARDABLE  0, 0, 351, 366
+IDD_RSA_DEMO DIALOG DISCARDABLE  0, 0, 391, 399
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Das RSA-Kryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
-                    IDC_STATIC,10,7,332,24
-    GROUPBOX        "Primzahleneingabe",IDC_STATIC,10,39,332,48
-    LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
-    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
-    LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
-    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,246,
-                    51,86,18
-    GROUPBOX        "RSA Parameter",IDC_STATIC,10,90,332,84
-    LTEXT           "RSA-Modul N",IDC_STATIC,19,102,52,8
-    EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Primzahleneingabe",IDC_FRAME_RSA_MODE,10,73,371,48
+    LTEXT           "Primzahl p",IDC_RSA_CAPTION_PRIME_P,19,86,32,8
+    EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
+    LTEXT           "Primzahl q",IDC_RSA_CAPTION_PRIME_Q,19,104,32,8
+    EDITTEXT        IDC_EDIT2,100,102,176,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,285,
+                    85,87,18
+    GROUPBOX        "RSA Parameter",IDC_STATIC,10,124,371,84
+    LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
+    EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,153,55,8
+    EDITTEXT        IDC_EDIT4,100,152,176,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(öffentlich)",IDC_STATIC,246,103,34,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
-    EDITTEXT        IDC_EDIT4,100,118,134,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
+    EDITTEXT        IDC_EDIT5,100,171,176,12,ES_AUTOHSCROLL
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
+    EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,139,75,8
-    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,157,73,8
-    EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
+    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,285,182,87,19
     GROUPBOX        "RSA-Verschlüsselung mit e / Entschlüsselung mit d",
-                    IDC_STATIC,10,177,332,155
-    LTEXT           "Eingabe als",IDC_STATIC,19,193,39,8
+                    IDC_STATIC,10,211,371,155
+    LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
     CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
-                    WS_TABSTOP,61,193,32,8
+                    WS_TABSTOP,61,227,32,8
     CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_TABSTOP,96,193,37,8
+                    WS_TABSTOP,96,227,37,8
     PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
-                    IDC_OPTIONEN,184,187,148,16
-    EDITTEXT        IDC_HEADER1,20,207,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_OPTIONEN,224,221,148,16
+    EDITTEXT        IDC_HEADER1,19,241,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT10,20,219,313,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_HEADER4,20,238,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT10,19,253,353,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER2,20,268,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER3,20,300,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT12,20,311,313,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
-    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
+    EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
+    GROUPBOX        "RSA mit privaten und öffentlichen Schlüssel -- oder nur mit öffentlichen Schlüssel",
+                    IDC_STATIC,10,1,371,67
+    CONTROL         "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1)  (mod  phi(N)) berechnet.",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE | WS_GROUP,19,14,353,26
+    CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die veröffentlichten RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE,19,42,353,23
+    LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
+                    IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -5306,6 +5313,15 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Permuationseingabe"
+    IDS_CRYPT_RSADEMO_MAINPARAMETER "RSA-MitEigenenParametern:"
+    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen (benutzen Sie hierfür den Knopf Entschlüsseln)."
+    IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
+    IDS_NUMBER_NOT_RSA_MODUL 
+                            "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
+    IDS_RSA_HEXNOTINVERTIBLE 
+                            "Der eigegebene hex-dump lässt sich nicht RSA-Invertieren!\nbitte wählen Sie Eingabe als Text."
+    IDS_RSADEMO_REQUEST_FORNUMMBERS 
+                            "Die Eingabe wurde als Folge von Zahlen erkannt!\n\nWollen Sie die Eingabe als Folge von Zahlen betrachten [ja/nein]?"
 END
 
 STRINGTABLE DISCARDABLE 
