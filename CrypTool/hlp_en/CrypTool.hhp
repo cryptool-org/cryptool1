@@ -393,6 +393,7 @@ hid_cr_sz_onetimepasswords.html
 hid_cr_sz_passwords.html
 hid_cr_usage.html
 hid_cr_overview.html
+..\hlp_de\hid_sidechannel_overview.html
 
 [ALIAS]
 #include CrypTool_Alias.h
