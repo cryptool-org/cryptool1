@@ -1,8 +1,8 @@
 ==================================================================
-         CrypTool, Version 1.3.04, March 2003
-         (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
-         (c) University of Siegen and Karlsruhe  xxxxxxxxxx
-         $Id$
+    CrypTool, Version 1.3.04, March 2003
+    (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
+    (c) University of Siegen and Karlsruhe  xxxxxxxxxx
+    $Id$
 ==================================================================
 
 xxxxxxxxx evtl. Verweis auf frz. Fassung
@@ -589,16 +589,22 @@ been added for version 1.3.00 since CrypTool version 1.202:
 
 5.2. Enhancements from version 1.3.00 to 1.3.04
      ------------------------------------------
-The following topics have been improved:
+The following topics have been improved/enhanced:
+
 Source code:
+============
 + Revision of the source code for the transmission to the new
   maintainer.
 + Further automation the process of generating the setup package.
+
 Web page:
+=========
 + It now contains the hash values of the downloadable files.
   So you can verify whether the integrity of the files on your
   computer is ok.
+
 Documentation:
+==============
 + Script:
   - The article "Introduction to elementary number theory"
     (chapter 3) was enhanced with
@@ -611,12 +617,20 @@ Documentation:
   - new chapters 5.1 and 5.2 about special signatures.
   - new in chapter 6: information about the motivation and
     interoperability of elliptic curves.
+  - new in 1.3.04: 
+    current status of cryptanalysis of AES and current
+    proceedings regarding factorization (TWIRL) and
+    number theory ("Primes in P").
 + Single CrypTool presentation for version 1.3.0x
   (no separation in features of 1.2.xx and new within 1.3.0x).
 + The Online help got further improvement and enhancements (e.g.
   for the new functions and addition of a time table about
   cryptography).
+  In 1.3.04 current information about PGP / GnuPP added.
+
+
 Functionality:
+==============
 + Clicking F1 now also leads you to the regarding text in the
   Online help, even if the active menu item has a submenu.
 + Calculate hash values of external files without loading them
@@ -675,18 +689,21 @@ Functionality:
   file name is suggested:  Cry-<Method>-<Sourcefilename>.*
   For intentionally saved documents the window title contains
   the filename (instead of the description).
+
+Completely new in 1.3.04 are:
+-----------------------------
++ The CrypTool menu within the Startup submenu now also contains
+  a hint to the readme file.
 + Brute-force attacks at symmetric algorithms now allow to use
   more than 5 joker characters (20 bits)and the expected time 
   is presented.  Additionally the length of the here used entropy
   window can now be customized via analysis options.
-Completely new in 1.3.04 are:
-+ The CrypTool menu within the Startup submenu now also contains
-  a hint to the readme file.
 + A high performance pattern search to find either multiple patterns of
   any length within one file or to find any patterns in one file which
   also appear in another given file.
-+ Implementation of a high-performance attack on hash or signature methods
-  to show/visualize the birthday paradoxon applied to hash collisions.
++ Implementation of a high-performance search for hash collisions
+  using the birthday paradoxon. This allows to show for concrte files
+  how such an attack on hash or signature methods works.
 + Show/Visualize the Diffie-Hellman key exchange method.
 
 
@@ -855,7 +872,7 @@ CrypTool.
 - besslinger@web.de
 - henrik.koy@db.com
 - cryptool-list@sec.informatik.tu-darmstadt.de
-- peer.wichmann@fzi.de xxxxxxxx rausnehmen ?
+- peer.wichmann@web.de
 
 
 

@@ -1,10 +1,9 @@
 ==================================================================
-         CrypTool, Version 1.3.04, März 2003
-         (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
-         (c) Universität Siegen und Karlsruhe xxxxxxxxxxx
-         $Id$
+    CrypTool, Version 1.3.04, März 2003
+    (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
+    (c) Universität Siegen und Karlsruhe xxxxxxxxxxx
+    $Id$
 ==================================================================
-
 
                        Inhalt
 
@@ -598,33 +597,46 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
 
 5.2. Änderungen von Version 1.3.00 zu Version 1.3.04
      -----------------------------------------------
-Zu folgenden Themen gab es Verbesserungen:
+Zu folgenden Themen gab es Verbesserungen/Erweiterungen:
+
 Sourcecode:
+===========
 + Überarbeitung des Quelltextes für die Übergabe an den neuen
   Maintainer.
 + Weitere Automatisierung beim Erzeugen des Setup-Paketes.
+
 Webseite:
+=========
 + Enthält die Hashwerte der herunterladbaren Dateien und
   ermöglicht so einen Check der Integrität der auf dem
   Computer befindlichen Dateien.
+
 Dokumentation:
+==============
 + Im Skript:
   - Der Artikel "Einführung in die elementare Zahlentheorie"
     (Kapitel 3) wurde ergänzt um
     - einen Anhang, der die Beispielaufrufe für den Zahlentheorie-
-      Interpreter PARI-GP (so dass Sie die Beispiele nicht nur
-      mit Mathematica, sondern auch mit einem kostenlosen
-      Mathematik-Paket durchführen können) und um
+      Interpreter PARI-GP enthält (damit können Sie die Beispiele
+      nicht nur mit Mathematica, sondern auch mit einem kostenlosen
+      Mathematik-Paket durchführen) und um
     - Kapitel 3.11: Informationen zur aktuellen Diskussion über
       die Sicherheit des RSA-Verfahrens (vgl. Bernstein).
   - neu sind Kapitel 5.1 und 5.2 zu speziellen Signaturen.
   - neu in Kapitel 6 sind Informationen zur Motivation und
     Interoperabilität von Elliptischen Kurven.
+  - neu in 1.3.04: 
+    aktueller Stand der Kryptoanalyse von AES und
+    aktuelle Entwicklungen bei Faktorisierung (TWIRL) und
+    Zahlentheorie ("Primes in P").
 + Einheitliche CrypTool-Präsentation zu 1.3.0x (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
   neuen Funktionen und Einbau einer Zeittafel der Kryptographie).
+  In 1.3.04 wurde der Abschnitt zu PGP / GnuPP aktualisiert.
+
 Funktionalität:
+===============
 + Ist ein Menüeintrag selektiert, der noch ein Untermenü hat,
   und man drückt F1, gelangt man nun auf die entsprechende
   Hilfeseite der Online-Hilfe zum ganzen Menü.
@@ -690,20 +702,23 @@ Funktionalität:
   passender Name: Cry-<Verfahren>-<Quelldateiname>.*
   Bei bewusst abgespeicherten Dokumenten wird dann der Dateiname
   im Fenstertitel angezeigt (anstatt der Beschreibung).
+
+Ganz neu in 1.3.04 sind:
+------------------------
++ Das Menü zu CrypTool im Startup-Untermenü enthält nun auch einen
+  Verweis auf die Readme-Datei.
 + Bei der Brute-Force-Attacke auf symmetrische Algorithmen werden
   nun mehr als 5 Jokerzeichen (bisher 20 Bit) zugelassen und die
   erwartete Zeit wird ausgegeben. Außerdem kann man die Breite für
   das hierbei genutzte Entropiefenster per Analyseoptionen einstellen.
-Ganz neu in 1.3.04 sind:
-+ Das Menü zu CrypTool im Startup-Untermenü enthält nun auch einen
-  Verweis auf die Readme-Datei.
 + Eine hochperformante Mustersuche, um entweder mehrfach vorkommende
   Muster beliebiger Länge in einer Datei zu finden oder um alle Patterns
   in einer Datei zu finden, die auch in einer anderen (vorzugebenden)
   Datei vorkommen.
-+ Die Implementierung eines hochperformanten Angriffs auf Hash- bzw.
-  Signatur-Verfahren und damit die Visualisierung des Geburtstagsparadoxons,
-  angewandt auf Hash-Kollisionen.
++ Hochperformante Implementierung zum Suchen von Hash-Kollisionen 
+  (Anwendung des Geburtstagsparadoxons). Damit kann man einen
+  eingeschränkten Angriff auf Hash- bzw. Signatur-Verfahren 
+  praktisch für konkrete Dateien zeigen.
 + Visualisierung des Diffie-Hellman Schlüsselaustausch-Verfahrens.
 
 
@@ -879,7 +894,7 @@ CrypTool einsetzen.
 - besslinger@web.de
 - henrik.koy@db.com
 - cryptool-list@sec.informatik.tu-darmstadt.de
-- peer.wichmann@fzi.de xxxxxxxxx rausnehmen ?
+- peer.wichmann@web.de
 
 
 
