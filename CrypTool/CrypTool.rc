@@ -10508,14 +10508,14 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
-    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou are now be able to operate the RSA operation with the secret key d:\nFor this purpose just klick the button Decrypt."
+    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just klick the button Decrypt."
     IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
     IDS_NUMBER_NOT_RSA_MODUL 
-                            "The integer N is not an RSA modulus:\n- either N has been factorized into mor than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
+                            "The integer N is not an RSA modulus:\n- either N has been factorized into more than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
     IDS_RSA_HEXNOTINVERTIBLE 
-                            "The entered hex dump colud not be inverted via the RSA operation!\nPlease select the radio button ""Input as text"""
+                            "The entered hex dump could not be inverted via the RSA operation!\nPlease select the radio button ""Input as text"""
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
-                            "The input has been indicated as a sequnce of numbers!\n\nDo you wish to consider it as a sequence of numbers [jes/no]?"
+                            "The input looks like a sequence of numbers!\n\nDo you wish to consider it as a sequence of numbers [yes/no]?"
     IDS_ENTROPY_ALPHABET_INFO 
                             "The document contains %i different characters compared to the %i characters of the pre selected alphabet."
     IDS_ENTROPY_INFO        "The entropy of the document is %2.2f\n(maximum possible entropy %2.2f)."
