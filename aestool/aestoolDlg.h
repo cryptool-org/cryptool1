@@ -28,10 +28,11 @@ public:
 
 	CString m_CMD_inKey;
 	CString m_CMD_inName;
+	CString m_CMD_outName;
 	SrcInfo m_SrcInfo;
 	int m_Format; // EXE or AES, controlled by radio button, see OnRadioFormat
 	CString EXEName;
-	CAestoolDlg(CString key,CString in,CWnd* pParent = NULL);
+	CAestoolDlg(CString key,CString in,CString out,CWnd* pParent = NULL);
 
 // Dialogfelddaten
 	//{{AFX_DATA(CAestoolDlg)
@@ -43,7 +44,6 @@ public:
 	CEdit	m_CEditSrc;
 	CHexEdit	m_CHEditKey;
 	CButton	m_CButtonSrc;
-	CString	m_NameDst;
 	CString	m_Key;
 	int		m_RadioFormat;
 	int		m_PWShowHide;

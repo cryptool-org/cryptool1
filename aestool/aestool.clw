@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CAestoolDlg
+LastClass=CHelp
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "aestool.h"
@@ -13,20 +13,20 @@ Class2=CAestoolDlg
 Class3=CAboutDlg
 
 ResourceCount=13
-Resource1=IDD_ABOUTBOX
+Resource1=IDD_HELP (Deutsch (Deutschland))
 Resource2=IDR_MAINFRAME
-Resource3=IDD_HELP (Englisch (GB))
-Resource4=IDD_SPLASH (Englisch (GB))
+Resource3=IDD_SPLASH
+Resource4=IDD_HELP (Englisch (GB))
 Class4=CSplash
-Resource5=IDD_HELP
+Resource5=IDD_SPLASH (Englisch (GB))
 Class5=CHelp
-Resource6=IDD_SPLASH
-Resource7=IDD_AESTOOL_DIALOG (Englisch (GB))
-Resource8=IDD_SPLASH (Deutsch (Deutschland))
-Resource9=IDD_AESTOOL_DIALOG
-Resource10=IDD_ABOUTBOX (Deutsch (Deutschland))
-Resource11=IDD_HELP (Deutsch (Deutschland))
-Resource12=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
+Resource6=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource7=IDD_ABOUTBOX (Deutsch (Deutschland))
+Resource8=IDD_AESTOOL_DIALOG
+Resource9=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
+Resource10=IDD_ABOUTBOX
+Resource11=IDD_SPLASH (Deutsch (Deutschland))
+Resource12=IDD_HELP
 Resource13=IDD_ABOUTBOX (Englisch (GB))
 
 [CLS:CAestoolApp]
@@ -110,9 +110,9 @@ Control4=IDC_STATIC,static,1342308352
 [DLG:IDD_HELP]
 Type=1
 Class=CHelp
-ControlCount=27
+ControlCount=26
 Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
+Control2=IDC_STATIC,static,1342308352
 Control3=IDC_STATIC,static,1342308352
 Control4=IDC_STATIC,static,1342308352
 Control5=IDC_STATIC,static,1342308352
@@ -137,7 +137,6 @@ Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
 Control26=IDC_STATIC,static,1342308352
-Control27=IDC_STATIC,static,1342308352
 
 [CLS:CHelp]
 Type=0
@@ -145,7 +144,8 @@ HeaderFile=Help.h
 ImplementationFile=Help.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDCANCEL
+LastObject=CHelp
+VirtualFilter=dWC
 
 [DLG:IDD_AESTOOL_DIALOG]
 Type=1
@@ -169,9 +169,9 @@ Control14=IDC_STATIC,button,1342177287
 [DLG:IDD_HELP (Englisch (GB))]
 Type=1
 Class=?
-ControlCount=26
+ControlCount=25
 Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
+Control2=IDC_STATIC,static,1342308352
 Control3=IDC_STATIC,static,1342308352
 Control4=IDC_STATIC,static,1342308352
 Control5=IDC_STATIC,static,1342308352
@@ -190,12 +190,11 @@ Control17=IDC_STATIC,static,1342308352
 Control18=IDC_STATIC,static,1342308352
 Control19=IDC_STATIC,static,1342308352
 Control20=IDC_STATIC,static,1342308352
-Control21=IDC_STATIC,static,1342308352
+Control21=IDC_STATIC,static,1342308354
 Control22=IDC_STATIC,static,1342308354
-Control23=IDC_STATIC,static,1342308354
+Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
-Control26=IDC_STATIC,static,1342308352
 
 [DLG:IDD_ABOUTBOX (Englisch (GB))]
 Type=1
@@ -246,9 +245,9 @@ Control4=IDC_STATIC,static,1342308352
 [DLG:IDD_HELP (Deutsch (Deutschland))]
 Type=1
 Class=?
-ControlCount=27
+ControlCount=26
 Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
+Control2=IDC_STATIC,static,1342308352
 Control3=IDC_STATIC,static,1342308352
 Control4=IDC_STATIC,static,1342308352
 Control5=IDC_STATIC,static,1342308352
@@ -273,5 +272,4 @@ Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
 Control26=IDC_STATIC,static,1342308352
-Control27=IDC_STATIC,static,1342308352
 

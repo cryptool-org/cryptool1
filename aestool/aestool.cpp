@@ -153,7 +153,7 @@ BOOL CAestoolApp::InitInstance()
 		// gui mode
 		FreeConsole(); // close extra console window (does nothing if started from dos box)
 
-		CAestoolDlg dlg(m_CMD_inKey,m_CMD_inName);
+		CAestoolDlg dlg(m_CMD_inKey,m_CMD_inName,m_CMD_outName);
 		m_pMainWnd = &dlg;
 		dlg.DoModal();
 	}

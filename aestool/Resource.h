@@ -24,6 +24,8 @@
 #define IDS_STRING_CORRUPT              115
 #define IDS_STRING_INVALID_KEY          116
 #define IDS_STRING_KEY_TOO_LONG         117
+#define IDS_STRING_AESTOOL              118
+#define IDS_STRING_AESTOOL_FILE         119
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130

@@ -35,7 +35,7 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CHelp)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	afx_msg BOOL OnHelpInfo(HELPINFO* pHelpInfo);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

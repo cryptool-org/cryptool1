@@ -67,16 +67,19 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CAestoolDlg Dialogfeld
 
-CAestoolDlg::CAestoolDlg(CString key,CString in,CWnd* pParent /*=NULL*/)
-	: m_CMD_inKey(key), m_CMD_inName(in), CDialog(CAestoolDlg::IDD, pParent)
+CAestoolDlg::CAestoolDlg(CString key,CString in,CString out,CWnd* pParent /*=NULL*/)
+	: m_CMD_inKey(key), m_CMD_inName(in), m_CMD_outName(out), 
+	  CDialog(CAestoolDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CAestoolDlg)
-	m_NameDst = _T("");
 	m_Format = -1;
 	m_PWShowHide = 0;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benˆtigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_Format = 0;
+	if (!out.IsEmpty())
+		m_Format = out.Right(4).CompareNoCase(".exe") == 0 ? 0 : 1;
 }
 
 void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
@@ -147,7 +150,6 @@ BOOL CAestoolDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Groﬂes Symbol verwenden
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
 	
-	m_Format = 0;
 	m_CButtonOK.EnableWindow(FALSE);
 
 	m_CHEditKey.SetWindowText(m_CMD_inKey);
@@ -248,6 +250,7 @@ void CAestoolDlg::OnOK()
 		switch (infoblock.decrypt(m_SrcInfo,m_CHEditKey.BinData,m_CHEditKey.BinLen)) {
 		case InfoBlock::CORRUPT:
 			AfxMessageBox(IDS_STRING_KEYERROR,MB_OK);
+			m_CHEditKey.SetSel(0,-1); m_CHEditKey.SetFocus();
 			return;
 		case InfoBlock::NOMEM:
 			AfxMessageBox(IDS_STRING_NOMEMORY,MB_OK);
@@ -261,29 +264,32 @@ void CAestoolDlg::OnOK()
 		mask = "Exe Files (*.exe)|*.exe||";
 	else
 		mask = "AES Files (*.aes)|*.aes||";
-	m_NameDst = defaultDstName(&m_SrcInfo,&infoblock,m_Format == 0);
-	CFileDialog Dlg(FALSE, NULL, m_NameDst, 
+	CString dstname = 
+		m_CMD_outName.IsEmpty() ? 
+			defaultDstName(&m_SrcInfo,&infoblock,m_Format == 0) :
+			m_CMD_outName;
+	CFileDialog Dlg(FALSE, NULL, dstname, 
 		OFN_OVERWRITEPROMPT|OFN_PATHMUSTEXIST|OFN_HIDEREADONLY, mask, this);
 
 	if(IDCANCEL == Dlg.DoModal()) return;
-	m_NameDst = Dlg.GetPathName();
+	dstname = Dlg.GetPathName();
 
-	CString errormsg;
+	CString text = dstname;
 	bool success;
 	unsigned id;
 	if(m_SrcInfo.isEncrypted()) {
 		success = AesToolDecrypt(m_CHEditKey.BinData,m_CHEditKey.BinLen,
-								 m_SrcInfo,m_NameDst,errormsg);
+								 m_SrcInfo,dstname,text);
 		id = success ? IDS_STRING_DECOK : IDS_STRING_DECERROR;
 	} else {
 		success = AesToolEncrypt(m_CHEditKey.BinData,m_CHEditKey.BinLen,
-								 m_SrcInfo,m_NameDst,
+								 m_SrcInfo,dstname,
 								 (m_Format == 0 ? (LPCTSTR)EXEName : 0),
-								 errormsg);
+								 text);
 		id = success ? IDS_STRING_ENCOK : IDS_STRING_ENCERROR;
 	}
 	CString msg;
-	msg.Format(id,errormsg);
+	msg.Format(id,text);
 	AfxMessageBox(msg,MB_OK);
 }
 
@@ -335,6 +341,10 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	// change text of ok button
 	text.Format(encrypted ? IDS_STRING_ENTSCHLUESSELN : IDS_STRING_VERSCHLUESSELN);
 	m_CButtonOK.SetWindowText(text);
+	// change app title
+	text.Format(name.IsEmpty() ? IDS_STRING_AESTOOL : IDS_STRING_AESTOOL_FILE,name);
+	free((void*)theApp.m_pszAppName);
+	theApp.m_pszAppName = strdup(text);
 	// enable/disable direction radio buttons
 	m_CRadioExe.EnableWindow(!encrypted);
 	m_CRadioAes.EnableWindow(!encrypted);

@@ -79,7 +79,7 @@ CAPTION "Info über AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.3",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.3.03",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
@@ -131,8 +131,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hilfe zu AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,181,261,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,255,261,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,261,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen Rijndael-Algorithmus (= AES) verschlüsselt werden können.",
                     IDC_STATIC,12,8,446,16
     LTEXT           "Das Programm kann auf verschiedene Arten aufgerufen werden:",
@@ -145,7 +144,7 @@ BEGIN
                     IDC_STATIC,72,59,386,17
     LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",
                     IDC_STATIC,72,76,386,17
-    LTEXT           "Die Ausgabedatei bestimmt das Ziel der Ver- bzw. Entschlüsselung.\nBeim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei hat:",
+    LTEXT           "Die Ausgabedatei für die ver- bzw. entschlüsselten Daten kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",
                     IDC_STATIC,72,93,386,17
     LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt eine Datei dar, die sowohl die Daten enthält als auch gleichzeitig ein Programm ist. Dieses Programm hat die gleiche Funktionalität wie AES-Tool und erlaubt es, die enthalten Daten zu entschlüsseln",
                     IDC_STATIC,80,110,378,16
@@ -166,7 +165,7 @@ BEGIN
     LTEXT           "3.",IDC_STATIC,12,230,12,14
     LTEXT           "-",IDC_STATIC,72,110,8,16
     LTEXT           "-",IDC_STATIC,72,135,8,14
-    LTEXT           "Dabei wird automatisch erkannt, ob die Quelldatei verschlüsselt ist und entsprechend ver- bzw. enschlüsselt.\nDie Endung der Zieldatei steuert das Ausgabeformat: .EXE: selbstextrahierendes Archiv, andere: normale verschlüsselte Dateien.",
+    LTEXT           "Dabei wird automatisch erkannt, ob die Quelldatei verschlüsselt ist und entsprechend ver- bzw. entschlüsselt.\nDie Endung der Zieldatei steuert das Ausgabeformat: .EXE: selbstextrahierendes Archiv, andere: normale verschlüsselte Dateien.",
                     IDC_STATIC,24,201,434,16
     LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",
                     IDC_STATIC,79,126,274,8
@@ -300,8 +299,8 @@ BEGIN
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
     IDS_STRING_ENCRYPT      "Verschlüsseln einer Datei"
     IDS_STRING_DECERROR     "Fehler beim Entschlüsseln: %s"
-    IDS_STRING_ENCOK        "Die Datei wurde erfolgreich verschlüsselt."
-    IDS_STRING_DECOK        "Die Datei wurde erfolgreich entschlüsselt."
+    IDS_STRING_ENCOK        "Die verschüsselte Datei %s wurde erfolgreich erstellt."
+    IDS_STRING_DECOK        "Die entschlüsselte Datei %s wurde erfolgreich erstellt."
     IDS_STRING_VERSCHLUESSELN "Verschlüsseln"
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
     IDS_STRING_FILEERROR    "Fehler beim Öffnen von %s: %s\n"
@@ -316,6 +315,8 @@ BEGIN
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
     IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
+    IDS_STRING_AESTOOL      "AES-Tool"
+    IDS_STRING_AESTOOL_FILE "AES-Tool [%s]"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -391,8 +392,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Help for AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,181,232,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,255,232,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,232,50,14
     LTEXT           "AES-Tool is an encryption program that can be used to encrypt data files using the symmetric Rijndael algorithm (= AES)",
                     IDC_STATIC,12,9,446,10
     LTEXT           "The program can be invoked in three ways:",IDC_STATIC,
@@ -405,28 +405,28 @@ BEGIN
                     IDC_STATIC,62,52,396,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. ",
                     IDC_STATIC,62,70,396,19
-    LTEXT           "The output file specifies the destination of encrypted or decrypted data. \nWhen encrypting a selection between two formats can be made with ""radio buttons"".",
+    LTEXT           "The output file for the encrypted or decrypted data can be determined after pressing the ""encrypt"" or ""decrypt"" button, resp. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
                     IDC_STATIC,62,89,396,19
-    LTEXT           "A 'self extracting archive ' is file containing data and at the same time a program. This program has the same functionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
+    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
                     IDC_STATIC,69,108,389,19
     LTEXT           "An 'encrypted file' contains the data only. This program is required for decryption.",
                     IDC_STATIC,69,127,389,11
-    LTEXT           "The second way to invoke the program is with comand line parameters. These can be specified either by position or by key word. If all",
-                    IDC_STATIC,24,138,420,8
+    LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",
+                    IDC_STATIC,24,138,425,8
     LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,
                     159,396,10
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
                     IDC_STATIC,62,169,396,10
-    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file is here being preset by the self extracting archive.",
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file here is being preset by the self extracting archive.",
                     IDC_STATIC,24,210,434,15
-    LTEXT           "With a normal start by clicking the icon all necessary parameters can be entered into a dialogue box.",
+    LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialogue box.",
                     IDC_STATIC,24,33,434,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,138,12,11
     LTEXT           "3.",IDC_STATIC,12,210,12,11
     RTEXT           "-",IDC_STATIC,56,108,8,19
     RTEXT           "-",IDC_STATIC,56,127,8,11
-    LTEXT           "The program determines automatically if the input file is encrypted and decrypts or encrypts accordingly.\nThe output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts or encrypts accordingly.\nThe output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
                     IDC_STATIC,24,180,434,16
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
                     IDC_STATIC,24,146,426,8
@@ -440,7 +440,7 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.3",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.3.03",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
@@ -525,8 +525,8 @@ BEGIN
     IDS_STRING_DECRYPT      "Decrypt a file"
     IDS_STRING_ENCRYPT      "Encrypt a file"
     IDS_STRING_DECERROR     "File decryption error: %s"
-    IDS_STRING_ENCOK        "The file was successfully encrypted."
-    IDS_STRING_DECOK        "The file was successfully decrypted."
+    IDS_STRING_ENCOK        "The file encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "The file decrypted file %s has been successfully created."
     IDS_STRING_VERSCHLUESSELN "Encrypt"
     IDS_STRING_ENTSCHLUESSELN "Decrypt"
     IDS_STRING_FILEERROR    "Error opening %s: %s\n"
@@ -541,6 +541,8 @@ BEGIN
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_AESTOOL      "AES-Tool"
+    IDS_STRING_AESTOOL_FILE "AES-Tool [%s]"
 END
 
 #endif    // Englisch (GB) resources

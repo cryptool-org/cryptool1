@@ -35,9 +35,13 @@ void CHelp::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CHelp, CDialog)
 	//{{AFX_MSG_MAP(CHelp)
-		// HINWEIS: Der Klassen-Assistent fügt hier Zuordnungsmakros für Nachrichten ein
+	ON_WM_HELPINFO()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-/////////////////////////////////////////////////////////////////////////////
-// Behandlungsroutinen für Nachrichten CHelp 
+
+BOOL CHelp::OnHelpInfo(HELPINFO* pHelpInfo) 
+{
+	// do nothing - no help on help	
+	return true;
+}
