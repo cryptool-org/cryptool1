@@ -455,11 +455,11 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 	if(KeyDialog.Display()!=IDOK) return;
 
-	if (KeyDialog.m_preformat&&!KeyDialog.m_Dec)
+	if (KeyDialog.m_preformat&&!KeyDialog.getDec())
 	{
 		GetTmpName(outfile,"cry",".asc");
 		GetTmpName(preform,"cry",".asc");
-		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.m_Dec,preform,outfile);
+		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(),preform,outfile);
 		char tmpStr[128];
 		for (int i=0; i<KeyDialog.m_text.GetLength(); i++ )
 			tmpStr[i] = KeyDialog.m_text.GetAt(i);
@@ -478,7 +478,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		remove(outfile);
 		if(NewDoc)
 		{
-			if(KeyDialog.m_Dec)
+			if(KeyDialog.getDec())
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -490,8 +490,8 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	}
 	else
 	{
-		KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.m_Dec);
-		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.m_Dec );
+		KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.getDec());
+		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
 	}
 	theApp.DoWaitCursor(0);
 }

@@ -88,14 +88,26 @@ letter alphabet::getLetter(char let, bool isConvert, bool isDigitsOk, bool isPla
 	return NULL;
 }
 
-char alphabet::replaceInvalidLetter(bool isConvert, char let, bool isDigitsOk, bool isPlayfairTypical)
+bool alphabet::myisalpha( char ch )
+// prüft auf korrekte Zeichen
+{
+	if (my_count == 36)
+	{
+		return ((ch>='A'&&ch<='Z')||(ch>='0'&&ch<='9')||(ch>='a'&&ch<='z'));
+	} else 	if (my_count == 25) {
+		return (((ch>='A'&&ch<='Z')||(ch>='a'&&ch<='z'))&&(ch!='j')&&(ch!='J'));
+	}
+	assert (0); return (false);
+}
+
+char alphabet::replaceInvalidLetter(bool withConvert, char let, bool isDigitsOk, bool isPlayfairTypical)
 {
 	if ((let>='a') && (let<='z')) let = let - 'a' + 'A';  // a-z in Großbuchstaben wandeln;
 	if ((let == 'J') && isPlayfairTypical) return ('I');
 	if ((let>='A') && (let<='Z')) return (let);
 	if ((let>='0') && (let<='9') && isDigitsOk && !isPlayfairTypical) return (let);
 
-	if (!isConvert) return (let);
+	if (!withConvert) return (let);
 
 	if ((let>='à') && (let<='ý')) let = let - 'à' + 'À';  // in Großbuchstaben wandeln;
 	switch (let) { // jetzt Sonderzeichen wandeln

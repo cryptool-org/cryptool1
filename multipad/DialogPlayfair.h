@@ -75,7 +75,7 @@ public:
 	void UpdatePassword();
 	char *GetData();
 	class Playfair *getAlg() const { return m_Alg; }
-	int getDec() const { return m_Dec; }
+	bool getDec() { return ((bool) m_Dec); }
 	class CChEdit *getEinfeld(int i, int j) { return &m_einfeld[i][j]; }
 
 	void InitListBox();

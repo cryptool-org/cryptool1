@@ -23,11 +23,14 @@ class CDlg_PlayfairKey : public CDialog
 public:
 	~CDlg_PlayfairKey();
 	CDlg_PlayfairKey(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
+	bool getDec()  { return ((bool) m_Dec); }
 	char *GetData();
 	int Display();
 
 	class Playfair *m_Alg;
+private:
 	int m_Dec;
+public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlg_PlayfairKey)
@@ -47,7 +50,7 @@ public:
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlg_PlayfairKey)
 	protected:
-	// virtual BOOL OnInitDialog();
+	virtual BOOL OnInitDialog();
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
 

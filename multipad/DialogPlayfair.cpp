@@ -484,7 +484,7 @@ void CDialogPlayfair::UpdateListBox()
 //	m_ciphfeld.ReplaceSel(m_Alg->outbuf);
 //	m_ciphfeld.SetSel(0,0);
 
-	m_Alg->DoCipher(m_Dec,300);
+	m_Alg->DoCipher(false, m_Dec,300);
 	UpdateData(TRUE);
 
 //	/* wird veralteten
@@ -544,7 +544,7 @@ void CDialogPlayfair::InitListBox()
 		m_listview.SetItemText( i, 2, c );
 	}
 */
-	m_Alg->DoCipher(m_Dec,300);
+	m_Alg->DoCipher(false, m_Dec,300);
 
 	UpdateData(TRUE);
 	m_cipher=m_Alg->outbuf;
@@ -637,7 +637,7 @@ void CChEdit::SetAlg(class Playfair *alg,class CDialogPlayfair *dia)
 */
 
 BEGIN_MESSAGE_MAP(CChEdit, CEdit)
-	//{{AFX_MSG_MAP(CHexEdit)
+	//{{AFX_MSG_MAP(CChEdit)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
@@ -708,7 +708,7 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			i=i;
 		}
 		m_Alg->UpdateDigrams(m_Dia->getDec());
-		m_Alg->DoCipher(m_Dia->getDec(),300);
+		m_Alg->DoCipher(false, m_Dia->getDec(),300);
 		m_Dia->UpdateListBox();
 		m_Dia->UpdatePassword();
 	} else  // invalid character
@@ -738,7 +738,7 @@ void CMyEdit::SetAlg(class Playfair *alg)
 */
 
 BEGIN_MESSAGE_MAP(CMyEdit, CEdit)
-	//{{AFX_MSG_MAP(CHexEdit)
+	//{{AFX_MSG_MAP(CMyEdit)
 	ON_WM_CHAR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()

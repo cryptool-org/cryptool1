@@ -34,8 +34,8 @@
 #define WEIGHT_col			0005	// Gewicht für mögliche Zeile
 
 #define	C2I(x)	((my_matrixsize==6)?((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1):(((x)>='J')?(x)-'A'-1:(x)-'A'))
-#define I2C(x)	((my_matrixsize==6)?(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1):(((x)<'J'-'A')?(x)+'A':(x)+'A'+1))
-
+#define I2C(x)	((char) (my_matrixsize==6)?(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1):(((x)<'J'-'A')?(x)+'A':(x)+'A'+1))
+#define L2U(x)	((char) (((x)>='a')&&((x)<='z'))?(x)-'a'+'A':(x))
 
 playfair_letter::playfair_letter(char c)        : letter()/*,
                         my_row_sure(NULL),
@@ -715,8 +715,8 @@ void playfair_letterlist::sortViaWeight ()
 playfair_digramm::playfair_digramm(playfair_alphabet* ab, int msize, char letter1, char letter2, char chiffre1, char chiffre2)
 {
 	my_matrixsize = msize;
-	setLetters(letter1, letter2);
-	setChiffres(chiffre1, chiffre2);
+	setLetters(L2U(letter1), L2U(letter2));
+	setChiffres(L2U(chiffre1), L2U(chiffre2));
 	my_count = 1;
 	my_alphabet = ab;
 }
@@ -755,8 +755,8 @@ inline bool playfair_digramm::operator==(const playfair_digramm &other)
 
 inline void playfair_digramm::setLetters(char c1,  char c2)
 {
-	my_letter1 = my_alphabet->getLetter(c1);
-	my_letter2 = my_alphabet->getLetter(c2);
+	my_letter1 = my_alphabet->getLetter((char)L2U(c1));
+	my_letter2 = my_alphabet->getLetter((char)L2U(c2));
 }
 
 inline void playfair_digramm::setLetters(playfair_letter* c1, playfair_letter* c2)
@@ -767,8 +767,8 @@ inline void playfair_digramm::setLetters(playfair_letter* c1, playfair_letter* c
 
 inline void playfair_digramm::setChiffres(char c1, char c2)
 {
-	my_chiffre1 = my_alphabet->getLetter(c1);
-	my_chiffre2 = my_alphabet->getLetter(c2);
+	my_chiffre1 = my_alphabet->getLetter((char)L2U(c1));
+	my_chiffre2 = my_alphabet->getLetter((char)L2U(c2));
 }
 
 inline void playfair_digramm::setChiffres(playfair_letter* c1, playfair_letter* c2)
@@ -787,6 +787,8 @@ int playfair_digramm::getIndex()
 
 int playfair_digramm::getIndex(char chiffre1, char chiffre2)
 {
+	chiffre1 = L2U(chiffre1);
+	chiffre2 = L2U(chiffre2);
 	assert ((my_matrixsize==5) || (my_matrixsize==6));
 	int ret = (C2I(chiffre1))*MAXDIM*MAXDIM + C2I(chiffre2);
 	int a = (C2I(chiffre1))*MAXDIM*MAXDIM;
@@ -814,12 +816,16 @@ playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, play
 	my_alphabet = the_alphabet;
 	my_maxLen = max (the_maxDigLen, charlen/2);
 	my_digramms = (playfair_digramm**) malloc(my_maxLen*sizeof(playfair_digramm*));
-	for (j=0, my_len=0; my_len < charlen/2; my_len++, j+=2) {  // evtl. Probleme, wenn doppelte Zeichen erlaubt
-		dig = &digramsbase[dig->getIndex(chiffre[j], chiffre[j+1])];
-		dig->setChiffres (chiffre[j], chiffre[j+1]);
-		iseol = iseol || (plain[j]=='\0') || (plain[j+1]=='\0');
+	j=0;
+	for (my_len=0; my_len < charlen/2; my_len++) {  // evtl. Probleme, wenn doppelte Zeichen erlaubt
+		char c1, c2, p1, p2;
+		do { c1=chiffre[j]; p1=plain[j++]; } while (!my_alphabet->myisalpha(c1));
+		do { c2=chiffre[j]; p2=plain[j++]; } while (!my_alphabet->myisalpha(c2));
+		dig = &digramsbase[dig->getIndex(c1, c2)];
+		dig->setChiffres (c1, c2);
+		iseol = iseol || (p1=='\0') || (p2=='\0');
 		if (!iseol)
-			dig->setLetters (plain[j], plain[j+1]);
+			dig->setLetters (p1, p2);
 		my_digramms[my_len] =  dig;
 		assert (dig->getLetter1() && dig->getLetter2() && dig->getChiffre1() && dig->getChiffre2());
 	}
@@ -1366,7 +1372,7 @@ ApplyPlayfairPreformat() führt die Ver-/Entschlüsselung mit vorherigem
 umformatieren (wird in prename abgespeichert) durch und schreibt das 
 Ergebnis nach o. 
 */
-void Playfair::ApplyPlayfairPreformat( int DecEnc,char *prename,char *o)
+void Playfair::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *o)
 {
 	FILE *pre;
 	char *prebuf;
@@ -1414,7 +1420,7 @@ void Playfair::ApplyPlayfairPreformat( int DecEnc,char *prename,char *o)
 	fwrite(inbuf,1,inbuflen,pre);
 	fclose(pre);
 	
-	DoCipher(DecEnc,inbuflen);
+	DoCipher(true, DecEnc,inbuflen);
 	
 	strcpy(outfile,o);
 	outfp=fopen(outfile,"wb");
@@ -1426,12 +1432,15 @@ void Playfair::ApplyPlayfairPreformat( int DecEnc,char *prename,char *o)
 ApplyPlayfairToInput():
 Apply PLAYFAIR to the input text.
 Danach bei Bedarf wieder vormatieren.
+TG: Diese Routine wird nur angesprungen, wenn im
+Dialog PlayfairKey die Option vorformatieren
+abgeschaltet ist.
 */
-void Playfair::ApplyPlayfairToInput( int DecEnc)
+void Playfair::ApplyPlayfairToInput( bool DecEnc)
 {
 	int i,j,k;
 	
-	DoCipher(DecEnc,inbuflen);
+	DoCipher(false, DecEnc,inbuflen);
 	
 	if(!ReFormat)
 	{
@@ -1443,7 +1452,7 @@ void Playfair::ApplyPlayfairToInput( int DecEnc)
 	for(i=j=0;i<inbuflen;i++)
 	{
 		if(!myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = myAlphabet->replaceInvalidLetter(true, inbuf[i]);
+			inbuf[i] = myAlphabet->replaceInvalidLetter(false, inbuf[i]);
 		if(myisalpha2(inbuf[i]))
 		{
 			if(islower(inbuf[i])&&ConvertCase)
@@ -1472,7 +1481,7 @@ Keine Änderung bei nicht gesetzter Vorgabe.
 Sobald des Entschlüsselungsergebnis von der Vorgabe
 abweicht, bricht die Routine mit false ab.
 */
-bool Playfair::DoCipher( int Dec, int len, char *stipulation, int stiplen)
+bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation, int stiplen)
 {
 	int  r1, r2, c1, c2,i,j,k;
 	char *CipherBufTemp;
@@ -1496,14 +1505,16 @@ bool Playfair::DoCipher( int Dec, int len, char *stipulation, int stiplen)
 		char ib1,ib2;
 		
 		c1 = -1; r1 = -1; c2 = -1; r2 = -1;
-		if(!myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = getAlphabet()->replaceInvalidLetter(true, inbuf[i]);
+		if(withConvert && !myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			inbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, inbuf[i]);
 		while (!myisalpha2(inbuf[i])&&i<inbuflen)
 			i++;
 		if(i<inbuflen)
 		{
 			ib1=toupper(inbuf[i]);
 			i++;
+			if(withConvert && !myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+				inbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, inbuf[i]);
 			while(!myisalpha2(inbuf[i])&&i<inbuflen)
 				i++;
 			if(i<inbuflen)
@@ -1679,16 +1690,28 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 // stipulation enthält die Klartextvorgabe. Sofern eine versuchte Entschlüsselung
 // der Vorlage entspricht, ist eine (erstmal) gültige Matrix gefunden.
 {
+	char tmp_inbuf [302];
+	int i, j;
+
 	playfair_backtrace trace (getSize());
 
 	myLetterlist->sortViaWeight();
 	my_matrix->clear(myAlphabet->getNullElement());
 
-	trace.memread(stipulation, inbuf, len, inbuflen);
+	// copy inbuf to tmp_inbuf, but only the valid chars
+	i=0; j=0;
+	while ((i<=301) && (i<len) && (inbuf[j]) && (i<inbuflen)) {
+		if (myisalpha2(toupper(inbuf[j])))
+			tmp_inbuf [i++] = toupper(inbuf[j]);
+		j++;
+	}
+	tmp_inbuf[i]='\0';
+
+	trace.memread(stipulation, tmp_inbuf, len, i);
 	trace.analyse(my_matrix, myAlphabet);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (1, 300, stipulation, len));
+	return (DoCipher (false, 1, 300, stipulation, len));
 } // CreateMatrix
 
 
@@ -2558,7 +2581,7 @@ bool Playfair::AnaLg_RekLetter (int theIndex, char *stipulation, int len)
 		my_matrix->print (debugstr);
 //		DbgOutString (debugfile, debugstr);
 		fprintf (debugfile, debugstr);
-		if (DoCipher (1, 300, stipulation, len)) {
+		if (DoCipher (false, 1, 300, stipulation, len)) {
 			fclose (debugfile);
 			return (true);
 		}
@@ -2750,7 +2773,7 @@ bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 	fclose (debugfile);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (1, 300, stipulation, len));
+	return (DoCipher (false, 1, 300, stipulation, len));
 } // CreateMatrixfromLettergraph
 
 

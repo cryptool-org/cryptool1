@@ -95,8 +95,9 @@ public:
         letter addLetter(char let);
         void delLetter(char let);
         void delLetter(letter let);
-        letter getLetter(char let, bool isConvert, bool isDigitsOk=1, bool isPlayfairTypical=0);
-		char replaceInvalidLetter(bool isConvert, char let, bool isDigitsOk=1, bool isPlayfairTypical=0);
+        letter getLetter(char let, bool withConvert, bool isDigitsOk=1, bool isPlayfairTypical=0);
+		bool myisalpha( char ch );
+		char replaceInvalidLetter(bool withConvert, char let, bool isDigitsOk=1, bool isPlayfairTypical=0);
 		bool getValidOfLetter(int no){
 			return my_validletters[no];
 		}

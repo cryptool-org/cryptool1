@@ -411,15 +411,15 @@ int compdigram(struct digram *,struct digram *);
 class Playfair
 {
 public:
-	void ApplyPlayfairToInput( int ); //used in crypt.cpp
-	void ApplyPlayfairPreformat( int,char *,char *); //used in crypt.cpp
+	void ApplyPlayfairToInput( bool ); //used in crypt.cpp
+	void ApplyPlayfairPreformat( bool,char *,char *); //used in crypt.cpp
 /*private:
 	int genliste(anadigramme *);
 	int genliste2(anadigramme *);
 */
 public:
 	void CreateMatrixFromPass(); //used in DialogPlayfair.cpp
-	bool DoCipher( int Dec, int len, char *stipulation=NULL, int stiplen=0); //used in DialogPlayfair.cpp
+	bool DoCipher( bool withConvert, bool Dec, int len, char *stipulation=NULL, int stiplen=0); //used in DialogPlayfair.cpp
 //	BOOL myisalpha( char );  //used in DialogPlayfair.cpp
 	BOOL myisalpha2( char );  //used in DialogPlayfair.cpp
 private:
