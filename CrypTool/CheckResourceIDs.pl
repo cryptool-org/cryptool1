@@ -14,6 +14,8 @@ sub clean {
 @stack = ();
 %rcmenu = ();  
 %filemenu = ();
+%id = (); #$id{lang}{id} = $lno
+%dialog = (); #$dialog{lang}{dialogid}{elementid} = $lno
 $nwarning = 0;
 $lno = 0;
 
@@ -21,6 +23,8 @@ my $MID = $ARGV[0] || "CrypToolPopupMenuIDs.txt";
 my $RC = "CrypTool.rc";
 my $OKLOG = $ARGV[1];
 my $instringtable = 0;
+my $indialog = 0;
+my $cont = ''; # handle continuation lines in dialogs
 
 if (!defined $OKLOG) {
 	$OKLOG = $0;
@@ -39,7 +43,31 @@ foreach (<RC>) {
 
 	if (m{^\s*(\w+)\s+(DIALOG|BITMAP|ICON)\s+}) {
 		$id{$lang}{$1} = $lno;
+		$indialog = $1 if $2 eq 'DIALOG';
 		next;
+	}
+	if ($indialog) {
+		if (m{^\s*END\s*}) {
+			$indialog = '';
+			next;
+		}
+		if ($cont) { # handle continuation lines
+			$_ = $cont . $_;
+			$cont = '';
+		}
+		if (m{[,|]\s*$}) { # handle continuation lines
+			chomp;
+			$cont = $_;
+			next;
+		}
+		if (m{^\s*([a-zA-Z]+)\s+(\"[^\"]*\"\s*,\s*)?(-1|([a-zA-Z]\w*))\s*,}) {
+			my $id = $3 eq '-1' ? IDC_STATIC : $3;
+			#next if $3 =~ m{^IDC_STATIC};
+			#next if $1 =~ m{EDITTEXT|CONTROL|DEFPUSHBUTTON|PUSHBUTTON|LTEXT|GROUPBOX|CTEXT|COMBOBOX|RTEXT|SCROLLBAR|LISTBOX};
+			#print "$indialog\{$1}{$2}{$3} $_";
+			$dialog{$lang}{$indialog}{$id} = $lno;
+			next;
+		}
 	}
 	
 	if (m{^\s*STRINGTABLE}) {
@@ -133,6 +161,27 @@ foreach (sort keys %$idde) {
 	unless (defined $iden->{$_}) {
 		print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n";
 		$nwarning++;
+	}
+}
+
+my $id;
+my $dialogen = $dialog{ENGLISH};
+my $dialogde = $dialog{GERMAN};
+foreach $id (sort keys %$dialogen) {
+	next unless defined $dialogde->{$id};
+	my $iden = $dialogen->{$id};
+	my $idde = $dialogde->{$id};
+	foreach (sort keys %$iden) {
+		unless (defined $idde->{$_}) {
+			print "$RC($iden->{$_}) : warning: $_ (dialog $id) is missing in german language ressources\n";
+			$nwarning++;
+		}
+	}
+	foreach (sort keys %$idde) {
+		unless (defined $iden->{$_}) {
+			print "$RC($idde->{$_}) : warning: $_ (dialog $id) is missing in english language ressources\n";
+			$nwarning++;
+		}
 	}
 }
 
