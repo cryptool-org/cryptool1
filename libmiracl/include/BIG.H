@@ -165,11 +165,9 @@ public:
     friend Big luc(const Big& ,const Big&, const Big&, Big *b4=NULL);
     friend Big inverse(const Big&, const Big&);
     friend Big rand(const Big&);     // 0 < rand < parameter
-	/* Roger Löschung
-	friend Big rand(int,int);        // (digits,base) e.g. (1024,2)
-   	friend Big abs(const Big&);
-    */
-	friend int bit(const Big& b,int i)  {return mr_testbit(b.fn,i);}
+    friend Big rand(int,int);        // (digits,base) e.g. (1024,2)
+    friend Big abs(const Big&);
+    friend int bit(const Big& b,int i)  {return mr_testbit(b.fn,i);}
     friend int bits(const Big& b) {return logb2(b.fn);}
     friend int jacobi(const Big& b1,const Big& b2) {return jack(b1.fn,b2.fn);}
     friend int toint(const Big& b)  {return size(b.fn);} 
