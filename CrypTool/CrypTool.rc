@@ -350,7 +350,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
@@ -2843,9 +2843,7 @@ BEGIN
     GROUPBOX        "Alice",IDC_ALICEFRAMELABEL,152,69,126,210
     GROUPBOX        "Bob",IDC_BOBFRAMELABEL,387,69,126,210
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,152,280,50,14
-    CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
+                    WS_TABSTOP,237,280,50,14
     LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
     LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
     LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
@@ -2866,6 +2864,7 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,62,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
+    CONTROL         "",IDC_ANIMGIF,"Static",SS_BLACKRECT,281,159,20,20
 END
 
 IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 215
@@ -3941,7 +3940,6 @@ IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\EMPTY1b.bmp"
 IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
 IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
 IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
-IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
 OVAL2_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_U.bmp"
@@ -4012,18 +4010,11 @@ IDB_DH_CALCULATE_R_U    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate
 IDB_DH_CALCULATE_R_X    BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Calculate_R_X.bmp"
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\arrow.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\GapFiller.bmp"
-IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_KEY_X            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_X.bmp"
 IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp"
 IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
-IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
-IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
-IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\MainBackground.bmp"
-IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4262,6 +4253,13 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GIF
+//
+
+IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6026,8 +6024,6 @@ BEGIN
     GROUPBOX        "Public parameters:",IDC_PUBLICFRAME,152,10,361,50
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
-    CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
     LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
     LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
     LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
@@ -6039,6 +6035,7 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,71,8,5
+    CONTROL         "",IDC_ANIMGIF,"Static",SS_BLACKRECT,281,159,20,20
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -6315,7 +6312,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
@@ -9931,14 +9928,7 @@ IDB_DH_SECRET_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_F.bmp"
 IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
-IDB_DH_ARROWS_G_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_G_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange2.bmp"
-IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
-IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
-IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\MainBackground.bmp"
-IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

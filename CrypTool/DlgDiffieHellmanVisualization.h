@@ -10,6 +10,8 @@
 #include "DiffieHellmanParty.h"
 #include "ButtonControl.h"
 #include "DiffieHellmanLogFile.h"
+// für animierte GIF-Pfeile
+#include "PictureEx.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanVisualization 
@@ -27,6 +29,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanVisualization)
 	enum { IDD = IDD_DIFFIEHELLMANVISUALIZATION };
+	CPictureEx	m_AnimGif;
 	CString	m_Generator;
 	CString	m_Prime;
 	CString	m_SecretAlice;

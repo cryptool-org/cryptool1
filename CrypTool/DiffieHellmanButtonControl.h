@@ -29,12 +29,7 @@ private:
 		AllButtons[9].SetActive( AllButtons[4].IsActionPerformed() );
 		AllButtons[10].SetActive(AllButtons[4].IsActionPerformed() );
 		AllButtons[11].SetActive(AllButtons[9].IsActionPerformed() && AllButtons[10].IsActionPerformed() );
-		// Button 12 dient _NUR_ als work-around, d.h. die in dieser Funktion angewandte Methodik zum Einbinden
-		// von Bitmap-Buttons wurde genutzt, um den "Pfeilen" ein Zustandsverhalten (grau->grün) zuzuordnen,
-		// obwohl die "Pfeile" eigentlich auch als normales Bitmap dargestellt werden könnten. Das Austauschen
-		// "normaler" Bitmaps gestaltete sich aber schwerer als das Benutzen der Update-Funktion.
-		AllButtons[12].SetActive(false);
-		
+			
 		// Alle Buttons parsen und entsprechend aktivieren oder deaktivieren
 		for(int i=0; i<NumberOfButtons; i++)
 		{
@@ -76,7 +71,6 @@ public:
 			AllButtons[8].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
-			AllButtons[12].CancelAction();
 		}
 		if(b == 1)
 		{
@@ -89,7 +83,6 @@ public:
 			AllButtons[8].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
-			AllButtons[12].CancelAction();
 		}
 		if(b == 2)
 		{
@@ -99,14 +92,12 @@ public:
 			AllButtons[8].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
-			AllButtons[12].CancelAction();
 		}
 		if(b == 3)
 		{
 			AllButtons[4].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
-			AllButtons[12].PerformAction();
 		}
 		if(b == 4)
 		{
@@ -135,7 +126,6 @@ public:
 			AllButtons[4].CancelAction();
 			AllButtons[9].CancelAction();
 			AllButtons[10].CancelAction();
-			AllButtons[12].CancelAction();
 		}
 		if(b == 9)
 		{

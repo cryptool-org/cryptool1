@@ -58,12 +58,15 @@ CDlgDiffieHellmanVisualization::~CDlgDiffieHellmanVisualization()
 	delete this->Bob;
 	delete this->pButtonControl;
 	delete this->pDiffieHellmanLogFile;
+
+	m_AnimGif.UnLoad();
 }
 
 void CDlgDiffieHellmanVisualization::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgDiffieHellmanVisualization)
+	DDX_Control(pDX, IDC_ANIMGIF, m_AnimGif);
 	DDX_Text(pDX, IDC_GENERATOR, m_Generator);
 	DDX_Text(pDX, IDC_PRIME, m_Prime);
 	DDX_Text(pDX, IDC_SECRETALICE, m_SecretAlice);
@@ -197,6 +200,9 @@ void CDlgDiffieHellmanVisualization::OnExchangesharedkeys()
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
 
+	// GIF Animation fortführen
+	m_AnimGif.Draw();
+
 	// Button mit Index 3 gedrückt
 	this->UpdateGUI(3);
 }
@@ -212,6 +218,9 @@ void CDlgDiffieHellmanVisualization::OnGeneratefinalkey()
 		CDlgDiffieHellmanGenerateFinalKey dlg;
 		if(dlg.DoModal() == IDCANCEL) return;
 	}
+
+	// GIF Animation stoppen
+	m_AnimGif.Stop();
 
 	// Button mit Index 4 gedrückt
 	this->UpdateGUI(4);
@@ -399,6 +408,12 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	this->m_blackcolor=RGB(0,0,0); // Schwarz
 	this->m_blackbrush.CreateSolidBrush(m_blackcolor);
 	
+	// GIF Image
+	if (m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF")))
+	{
+		m_AnimGif.Draw();
+		m_AnimGif.Stop();
+	}
 
 	UpdateData(false);
 	

@@ -381,6 +381,10 @@ SOURCE=.\res\Bitmaps\ARROW_BEND.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DHBitmaps\bmps\ArrowsAnimation.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\ArrowsExchange.bmp
 # End Source File
 # Begin Source File
@@ -3139,6 +3143,10 @@ SOURCE=.\res\GENKEY_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\gif2.bin
+# End Source File
+# Begin Source File
+
 SOURCE=.\HashingOperations.cpp
 # End Source File
 # Begin Source File
@@ -3838,6 +3846,14 @@ SOURCE=.\res\PfeilUnten.bmp
 # Begin Source File
 
 SOURCE=.\res\PfeilUntenKlein.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PictureEx.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PictureEx.h
 # End Source File
 # Begin Source File
 
@@ -4849,6 +4865,10 @@ SOURCE=.\res\DHBitmaps\bmps\Step_5.bmp
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Step_5.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\DHBitmaps\bmps\test.gif
 # End Source File
 # Begin Source File
 
