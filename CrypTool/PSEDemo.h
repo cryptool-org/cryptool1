@@ -48,6 +48,10 @@ public:
 	BOOL AccessPSE(){ return AccessPSE(m_sPIN, m_sPseName); }
 	BOOL AccessPSE(const CString& sPIN, const CString& sPseName);
 	BOOL AccessPSE_DLG();
+	void SetTime(){time(&m_lTime);}
+	void SetTime(const CString& sTime){m_lTime = atol(sTime);}
+	void SetTime(const long lTime){m_lTime = lTime;}
+	long GetTime(){return m_lTime;}
 
 
 protected:

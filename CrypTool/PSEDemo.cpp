@@ -69,7 +69,7 @@ BOOL CPSEDemo::SetName( CString& sName, CString& sFirstName, CString& sKeyId )
 	m_sName = sName;
 	m_sFirstName = sFirstName;
 	m_sKeyId = sKeyId;
-	time(&m_lTime);
+	//time(&m_lTime);
 	m_NameIsInitialized = TRUE;
 	m_PSEIsInitialized = FALSE;
 	//m_sUserKeyId.Format(IDS_CREATE_USER_KEY_ID2, m_sName, m_sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), m_lTime, m_sKeyId);
@@ -671,7 +671,11 @@ BOOL CPSEDemo::AccessPSE_DLG()
 	DlgPSE.m_bHideDuration = TRUE;
 	if(DlgPSE.DoModal()==IDOK)
 	{
-		
+		SetName(DlgPSE.Name, DlgPSE.Firstname, DlgPSE.KeyInfo);
+		SetTime(DlgPSE.CreatTime);
+		m_sPseName = DlgPSE.UserKeyId;
+		SetPIN(DlgPSE.m_PinCode);
+		return AccessPSE();
 	}
-	return TRUE;
+	return FALSE;
 }

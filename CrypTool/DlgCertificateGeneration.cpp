@@ -112,6 +112,7 @@ void CDlgCertificateGeneration::OnChangeEdit()
 	CString sFirstName = m_sFirstName;
 	CString sKeyID	= m_sKeyID;	
 	m_Cert->SetName(sName, sFirstName, sKeyID);
+	m_Cert->SetTime();
 	m_Cert->GetKeyId(m_sUserID, m_sDName); 
 	UpdateData(FALSE);	
 }
