@@ -33,7 +33,7 @@
 #include "RSA_mit_kleinenPZ.h"
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
-#include "DlgTutorialFaktorisation.h"
+#include "DlgTutorialFactorisation.h"
 #include "Dlg_Schluessel_gen.h"
 #include "DlgGenRandomData.h"
 
@@ -78,7 +78,7 @@ BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
-//	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	
 	//}}AFX_MSG_MAP
@@ -498,11 +498,11 @@ void CMultiPadApp::OnEinzelverfahrenTutorialRsaalgorithmus()
 	objekt.DoModal();
 }
 
-// void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
-// {
-// 	DlgTutorialFaktorisation FAKT;
-//	FAKT.DoModal();
-// }
+void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
+{
+	DlgTutorialFactorisation FAKT;
+    FAKT.DoModal();
+}
 
 void CMultiPadApp::OnEinzelverfahrenSchluesselgenerieren() 
 {

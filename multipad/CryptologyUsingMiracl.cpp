@@ -870,6 +870,15 @@ TutorialFactorisation::~TutorialFactorisation()
 
 }
 
+BOOL TutorialFactorisation::IsPrime(CString &Num)
+{
+	Big tmpN;
+	CStringFormulaToBig( Num, tmpN );
+	GeneratePrimes P; P.SetP( tmpN );
+	if ( P.SolvayStrassenTest() ) return TRUE;
+	return FALSE;
+}
+
 BOOL TutorialFactorisation::Precheck()
 {
 	factor1 = 0;
@@ -1157,3 +1166,4 @@ BOOL InverseCongruenceGenerator::SetCount( long n )
 {
 	return ( count = n );
 }
+

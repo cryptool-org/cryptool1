@@ -160,7 +160,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
+//	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, OnAnalyseZufallstestsFrequencytest)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1248,6 +1248,7 @@ void CCryptDoc::OnPermutationAsc()
     PermutationAsc(ContentName, GetTitle());
 }
 
+/*
 void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
 {
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
@@ -1255,3 +1256,4 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 	Dlg_Tests_Freq FREQT;
 	FREQT.DoModal();
 }
+*/

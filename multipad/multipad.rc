@@ -1555,55 +1555,6 @@ BEGIN
                     154
 END
 
-IDD_DIALOG_Faktorisieren DIALOG DISCARDABLE  0, 0, 368, 394
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Faktorisierungsalgorithmen"
-FONT 8, "MS Sans Serif"
-BEGIN
-    GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,13,140,
-                    112
-    CONTROL         "&Brute-force Methode",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,24,32,94,8
-    CONTROL         "Algorithmus nach B&rent",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,24,47,105,8
-    CONTROL         "&Pollard Methode",IDC_RADIO3,"Button",
-                    BS_AUTORADIOBUTTON,24,62,89,8
-    CONTROL         "&Williams Methode",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON,24,77,107,8
-    CONTROL         "Algorithmus nach &Lenstra",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON,24,92,116,8
-    CONTROL         "&Quadratische Sieb Methode",IDC_RADIO6,"Button",
-                    BS_AUTORADIOBUTTON,24,107,100,8
-    GROUPBOX        "Eingabe",IDC_STATIC,166,13,187,112
-    EDITTEXT        IDC_EDIT1,176,56,170,14,ES_AUTOHSCROLL
-    GROUPBOX        "Ausgabe",IDC_STATIC,13,184,340,179
-    LTEXT           "Primfaktor-1",IDC_STATIC,24,202,46,8
-    LTEXT           "Primfaktor-2",IDC_STATIC,24,224,46,8
-    LTEXT           "Co-Primfaktor-1",IDC_STATIC,24,289,52,8
-    LTEXT           "Co-Primfaktor-2",IDC_STATIC,24,315,52,8
-    EDITTEXT        IDC_EDIT2,88,197,228,13,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,88,219,228,13,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT4,87,284,228,13,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT5,87,310,228,13,ES_AUTOHSCROLL | ES_READONLY
-    DEFPUSHBUTTON   "Faktorisieren",IDC_BUTTON_Faktorisieren,230,89,116,23
-    LTEXT           "Primfaktor-3",IDC_STATIC,24,246,46,8
-    LTEXT           "Primfaktor-4",IDC_STATIC,24,268,46,8
-    EDITTEXT        IDC_EDIT6,88,241,228,13,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT7,88,263,228,13,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT8,279,140,59,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT9,279,162,59,12,ES_AUTOHSCROLL
-    GROUPBOX        "Primfaktoren Zerlegung",IDC_STATIC,13,134,254,42
-    CONTROL         "Hybrid-Verfahren mit Benutzung der oben angegenenen Verfahren",
-                    IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,22,153,
-                    224,10
-    EDITTEXT        IDC_EDIT10,88,336,227,12,ES_AUTOHSCROLL
-    LTEXT           "2^",IDC_STATIC,71,337,9,8
-    PUSHBUTTON      "OK",IDC_BUTTON_OK,13,368,75,19
-    PUSHBUTTON      "Abbrechen",IDC_BUTTON_cancel,279,368,74,19
-    LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
-                    177,41,169,8
-END
-
 IDD_DIALOG_SCHLUESSEL_GEN DIALOG DISCARDABLE  0, 0, 310, 266
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüssel aus Paßwort generieren"
@@ -1831,7 +1782,6 @@ BEGIN
     GROUPBOX        "Eingabe",IDC_STATIC,166,13,187,112
     EDITTEXT        IDC_EDIT1,177,56,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Faktorisierung",IDC_STATIC,13,133,340,126
-    EDITTEXT        IDC_EDIT2,24,227,318,16,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Faktorisieren",IDC_BUTTON_Faktorisieren,226,92,116,23
     PUSHBUTTON      "Dialog &beenden",IDC_BUTTON_cancel,250,272,103,21
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
@@ -1848,12 +1798,16 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,90,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
-    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im and",
-                    IDC_STATIC,24,150,318,32
+    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.",
+                    IDC_STATIC,24,150,318,16
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
-                    IDC_STATIC,24,182,318,17
+                    IDC_STATIC,24,185,318,17
     LTEXT           "Produktdarstellung der Faktorisierung",IDC_STATIC,24,
                     212,222,9
+    LTEXT           "Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im anderen Fall ist die Zahl zusammengesetzt und wird rot dargestellt",
+                    IDC_STATIC,24,167,318,17
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_BORDER | WS_TABSTOP,24,225,318,16
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 183
@@ -1908,18 +1862,22 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 249, 129
+IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 238, 130
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Permutationseingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,19,33,197,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,19,74,197,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,23,103,58,19
+    EDITTEXT        IDC_EDIT1,12,23,215,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,12,55,215,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,103,58,19
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,97,103,57,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,170,103,55,19
-    LTEXT           "1. Permutation",IDC_STATIC_TEXT,19,14,197,9
-    LTEXT           "2. Permutation",IDC_STATIC,19,55,197,9
+    LTEXT           "1. Permutation",IDC_STATIC_TEXT,12,11,215,9
+    LTEXT           "2. Permutation",IDC_STATIC,12,43,215,9
+    PUSHBUTTON      "Schlüssel aus der &Zwischenablage Einfügen",IDC_BUTTON2,
+                    43,76,150,16
+    EDITTEXT        IDC_EDIT3,70,0,157,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER
 END
 
 IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
@@ -2259,6 +2217,7 @@ BEGIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_HEX
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -2315,7 +2274,7 @@ BEGIN
             MENUITEM "&RSA-Kryptosystem",           ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            , GRAYED
+
         END
         MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
@@ -2366,27 +2325,6 @@ BEGIN
             MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-        END
-        POPUP "&Zufallstests"
-        BEGIN
-            MENUITEM "klassische Verfahren:",       ID_CLASSIC, INACTIVE
-            MENUITEM SEPARATOR
-            MENUITEM "&Autokerrelation",            ID_ANALYSE_ZUFALLSTESTS_AUTOKERRELATION
-
-            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
-
-            MENUITEM "",                            ID_EMPTY, GRAYED
-            MENUITEM "Test-Batterien:",             ID_ANALYSE_ZUFALLSTESTS_TESTBATTERIEN
-            , INACTIVE
-            MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1",             ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
-
         END
     END
     POPUP "&Schlüsselverwaltung"
@@ -2449,7 +2387,7 @@ BEGIN
             MENUITEM "&RSA-Kryptosystem",           ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            , GRAYED
+
         END
         MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
@@ -2578,7 +2516,7 @@ BEGIN
             MENUITEM "&RSA-Kryptosystem",           ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            , GRAYED
+
         END
         MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
@@ -2727,8 +2665,6 @@ AFX_IDB_CHECKLISTBOX_NT BITMAP  DISCARDABLE     "res\\ntcheck.bmp"
 AFX_IDB_CHECKLISTBOX_95 BITMAP  DISCARDABLE     "res\\95check.bmp"
 IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
 IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
-IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
-IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3223,36 +3159,6 @@ BEGIN
         HORZGUIDE, 340
     END
 
-    IDD_DIALOG_Faktorisieren, DIALOG
-    BEGIN
-        VERTGUIDE, 13
-        VERTGUIDE, 24
-        VERTGUIDE, 88
-        VERTGUIDE, 177
-        VERTGUIDE, 279
-        VERTGUIDE, 346
-        VERTGUIDE, 353
-        HORZGUIDE, 13
-        HORZGUIDE, 40
-        HORZGUIDE, 55
-        HORZGUIDE, 70
-        HORZGUIDE, 85
-        HORZGUIDE, 100
-        HORZGUIDE, 115
-        HORZGUIDE, 125
-        HORZGUIDE, 140
-        HORZGUIDE, 176
-        HORZGUIDE, 210
-        HORZGUIDE, 232
-        HORZGUIDE, 254
-        HORZGUIDE, 276
-        HORZGUIDE, 297
-        HORZGUIDE, 323
-        HORZGUIDE, 348
-        HORZGUIDE, 368
-        HORZGUIDE, 387
-    END
-
     IDD_DIALOG_SCHLUESSEL_GEN, DIALOG
     BEGIN
         VERTGUIDE, 19
@@ -3296,6 +3202,11 @@ BEGIN
         HORZGUIDE, 99
     END
 
+    IDD_DIALOG_ZAHL_FAKTORISIEREN, DIALOG
+    BEGIN
+        VERTGUIDE, 24
+    END
+
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -3312,6 +3223,18 @@ BEGIN
     BEGIN
         HORZGUIDE, 236
         HORZGUIDE, 258
+    END
+
+    IDD_DIALOG_PERMUTATION, DIALOG
+    BEGIN
+        VERTGUIDE, 12
+        VERTGUIDE, 227
+        HORZGUIDE, 20
+        HORZGUIDE, 23
+        HORZGUIDE, 52
+        HORZGUIDE, 66
+        HORZGUIDE, 92
+        HORZGUIDE, 122
     END
 
     IDD_RANDOM_PARAMETER_ICG, DIALOG

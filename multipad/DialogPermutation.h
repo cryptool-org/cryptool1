@@ -29,6 +29,8 @@ public:
 	enum { IDD = IDD_DIALOG_PERMUTATION };
 	CString	m_Perm1;
 	CString	m_Perm2;
+	CString m_PastedKey;
+	CEdit   m_PastedKeyCtrl;
 	//}}AFX_DATA
 
 
@@ -46,6 +48,7 @@ protected:
 	//{{AFX_MSG(CDialogPermutation)
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

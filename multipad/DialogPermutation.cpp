@@ -21,6 +21,7 @@ CDialogPermutation::CDialogPermutation(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CDialogPermutation)
 	m_Perm1 = _T("");
 	m_Perm2 = _T("");
+	m_PastedKey = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -33,6 +34,8 @@ void CDialogPermutation::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_Perm1, 32);
 	DDX_Text(pDX, IDC_EDIT2, m_Perm2);
 	DDV_MaxChars(pDX, m_Perm2, 32);
+	DDX_Control(pDX, IDC_EDIT3, m_PastedKeyCtrl);
+	DDX_Text   (pDX, IDC_EDIT3, m_PastedKey);
 	//}}AFX_DATA_MAP
 }
 
@@ -41,6 +44,7 @@ BEGIN_MESSAGE_MAP(CDialogPermutation, CDialog)
 	//{{AFX_MSG_MAP(CDialogPermutation)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -65,6 +69,37 @@ void CDialogPermutation::OnEncrypt()
 	UpdateData(FALSE);
 	m_Dec = 0;
 	OnOK();
+}
+
+void CDialogPermutation::OnPasteKey() 
+{
+	char *tmpStr;
+	char key1[256]; 
+	char key2[256];
+
+	theApp.DoWaitCursor(0);
+	UpdateData(TRUE);
+	m_PastedKeyCtrl.SetSel(0,-1);
+	m_PastedKeyCtrl.Paste();
+	m_PastedKeyCtrl.GetWindowText(m_PastedKey);
+	tmpStr = m_PastedKey.GetBuffer(256);
+	for (int i=0; i<m_PastedKey.GetLength() && tmpStr[i] != ';'; i++)
+		key1[i] = tmpStr[i];
+	key1[i] = 0;
+	m_Perm1 = key1;
+	i++;
+	if (i < m_PastedKey.GetLength())
+	{	
+		int j = 0;
+		for ( ; i < m_PastedKey.GetLength(); i++ )
+			key2[j++] = tmpStr[i];
+		key2[j] = 0;
+		m_Perm2 = key2;
+	}
+	else m_Perm2 = _T("");
+	UpdateData(FALSE);
+
+	theApp.DoWaitCursor(-1);
 }
 
 

@@ -103,6 +103,7 @@ class TutorialFactorisation
 	Big factor1;
 	Big factor2;
 public:
+	static BOOL IsPrime( CString & Num );
 	void GetFactor2Str( CString &Factor2 );
 	void GetFactor1Str( CString &Factor1 );
 	void SetN( CString &NStr );

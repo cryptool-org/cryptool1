@@ -1045,11 +1045,11 @@ SOURCE=.\DlgSubstAna.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgTutorialFaktorisation.cpp
+SOURCE=.\DlgTutorialFactorisation.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgTutorialFaktorisation.h
+SOURCE=.\DlgTutorialFactorisation.h
 # End Source File
 # Begin Source File
 
@@ -1258,6 +1258,14 @@ SOURCE=.\res\idr_hext.ico
 # Begin Source File
 
 SOURCE=.\res\idr_main.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyEdit.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyEdit.h
 # End Source File
 # Begin Source File
 

@@ -379,6 +379,7 @@
 #define IDC_BUTTON_FREQTEST             1247
 #define IDC_BITMAP_1                    1248
 #define IDC_BITMAP_2                    1249
+#define IDC_RICHEDIT2                   1249
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -879,7 +880,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        252
 #define _APS_NEXT_COMMAND_VALUE         33150
-#define _APS_NEXT_CONTROL_VALUE         1249
+#define _APS_NEXT_CONTROL_VALUE         1250
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

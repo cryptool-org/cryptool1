@@ -971,6 +971,7 @@ UINT Autocorr(PVOID p)
 	if(par->flags & CRYPT_ASCII)
 		text.SetConverter((class Converter &) AppConv);
 
+	// FLAG für Fortschrittsanzeiger
 	if(par->flags & CRYPT_DO_PROGRESS) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOCORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Display(pc_str);
