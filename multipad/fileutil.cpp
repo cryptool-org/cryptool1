@@ -418,3 +418,16 @@ int filesize( const char *name )
 	fclose(f);
 	return l;
 }
+
+
+void Add2OString(OctetString*	osTarget, 
+				 const char*	Source,
+				 const int		Length)
+{
+	char* Buffer = new char[osTarget->noctets+Length];
+	for(unsigned u=0; u<osTarget->noctets; u++) Buffer[u] = osTarget->octets[u];
+	for(int i=0; i<Length; i++) Buffer[osTarget->noctets+i] = Source[i];
+	delete[] osTarget->octets;
+	osTarget->octets = Buffer;
+	osTarget->noctets += Length;
+}

@@ -29,6 +29,9 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 // Rückgabewert: Anzahl der geschriebenen Zeichen
 int HexDumpOct(OctetString& Dest, OctetString& Src, const int len, long start=0);
 
+
+void Add2OString(OctetString* osTarget, const char* Source, const int Length);
+
 // Erstellen eines formatierten Dumps für Dateien, die keine Zeilenumbrüche enthalten.
 // Quelle und Ziel sind jeweils Dateien.
 // Je nach eingestelltem Alphabet werden die Dateien in der eingestellten Blocklänge blocklen
