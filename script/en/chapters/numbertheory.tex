@@ -44,7 +44,7 @@ Further mathematical disciplines currently used in cryptography include
 Number theory or arithmetic (the emphasis here is more on the aspect of performing calculations with numbers) 
 was established by Carl Friedrich Gauss as a special mathematical discipline. Its elementary features 
 include the greatest common divisor\footnote{This article deals with the gcd (greatest common 
-divisor)\index{Gcd} in \hyperlink{Appendix_A}{Appendix A}.} (gcd), congruence (remainder classes), 
+divisor)\index{Gcd} in \hyperlink{Appendix_A}{Appendix A of this chapter}.} (gcd), congruence (remainder classes), 
 factorisation, the Euler-Fermat theorem and primitive roots. However, the most important 
 aspect is prime numbers and their multiplicative operation.
 
@@ -82,7 +82,7 @@ numerous examples and very rarely goes into any proofs (these can be found in ma
 
 The goal is not to exhaustively explain the number theory findings, but 
 to show the essential procedures. The volume of the content is so oriented
-that the reader can understand and apply the RSA method.
+that the reader can understand and apply the RSA method\index{RSA}.
 
 For this purpose we will use both theory and examples to explain how 
 to perform calculations in finite sets and describe how these techniques
@@ -414,7 +414,7 @@ the remainder when this number is divided by $m$. The result is that all results
 From algebra theorems it follows that essential parts of the conventional calculation rules are kept when we 
 proceed to modular calculations over a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
 The same goes for multiplication modulo $m$. The result of a division\footnote{\label{ftn-zth-divmodn}When dividing modulo $m$\index{Division modulo $n$}  we cannot use every number because some numbers have the same 
-property as zero. See footnote \ref{ftn-mod6}.} is not a fraction but rather a whole number between $0$ and $m-1$.
+property as zero. See footnote \ref{ftn-mod6} in chapter \ref{addmult}.} is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
 \begin{itemize}
@@ -447,7 +447,7 @@ such that: \\
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
 \index{Inverse!multiplicative}
 \item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The property of closeness is always defined in relation to an operation in a set. See 
-\hyperlink{Appendix_B}{Appendix B}.}:   \\
+\hyperlink{Appendix_B}{Appendix B of this chapter}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
 \item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
@@ -501,14 +501,14 @@ when we divide $8$ by $5$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}
+\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}\label{addmult}
 
 The following shows
 
 \begin{itemize}
 \item the addition table\footnote{Comment on subtraction modulo 5: \\
 $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
-It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C}). }
+It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C of this chapter}). }
 ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
@@ -649,8 +649,7 @@ Although it may seem difficult to calculate the table of multiplicative inverses
 to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
 to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algorithms are described, for instance, in 
 \cite{Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
-multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix 
-A}). Alternatively, we can also use the primitive roots. }.
+multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots. }.
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
@@ -661,7 +660,7 @@ also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicativ
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
-See \hyperlink{AppArith1}{Appendix D} for the source code to compute
+See \hyperlink{AppArith1}{Appendix D of this chapter} for the source code to compute
 the tables using Mathematica\index{Mathematica} and Pari-GP.\index{Pari-GP}
 }
 illustrate the properties of multiplicative inverses.
@@ -846,7 +845,7 @@ and the squares (mod $103$) can be calculated beforehand
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
 we have\footnote{%
-  See \hyperlink{AppArith2}{Appendix D} for source code implementing the
+  See \hyperlink{AppArith2}{Appendix D of this chapter} for source code implementing the
   square and multiply method in Mathematica and Pari-GP, which can be used
   to reproduce the calculations above. }:
 \label{SrcArith2}
@@ -885,7 +884,7 @@ knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\
 
 The situation is similar if 
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A}:
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A of this chapter}:
 the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem \ref{thm-zth-pot} to obtain:
 $$
@@ -1196,7 +1195,7 @@ $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n))
     \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
 $$
 
-The problems of \index{Factorising} factorising\index{Factorisation problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
+The problems of \index{Factorisation} factorising\index{Factorisation!factorisation problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
 and if we find a solution for one of the two problems, we also have a solution for the
 other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
 solutions of the quadratic equation
@@ -1239,7 +1238,7 @@ $10$ and we notice that:
 
 {\bf Example 1:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3a}{Appendix D} for the source code to generate
+See \hyperlink{AppArith3a}{Appendix D of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
@@ -1289,7 +1288,7 @@ The following two tables show the multiplicative orders and primitive roots modu
 
 {\bf Example 2:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3b}{Appendix D} for the source code to generate
+See \hyperlink{AppArith3b}{Appendix D of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
@@ -1344,7 +1343,7 @@ The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primit
 
 {\bf Example 4:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3c}{Appendix D} for the source code to generate
+See \hyperlink{AppArith3c}{Appendix D of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
@@ -1438,7 +1437,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 \hypertarget{Kapitel_3_10}{}\index{RSA}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
-RSA\footnote{The RSA procedure\index{RSA procedure} is the most common asymmetric 
+RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most common asymmetric 
 cryptography procedure. Developed in 1978 by Ronald Rivest, Adi Shamir and Leonard Adleman, it can be used both for
 signatures and for encryption. Cryptographers always associate this procedure with the abbreviation ``RSA''. However, 
 please note that the abbreviation may be used in other fields to mean
@@ -1573,7 +1572,7 @@ Concrete for the RSA method does this mean:
 \vskip - 1em
 \begin{enumerate}
 \item it is hard to calculate $J(n)$ for big compounds $n$ and
-\item it is hard to calculate the prime factors of big compounds $n$ (factorisation problem).
+\item it is hard to calculate the prime factors of big compounds $n$ (Factorisation!factorisation problem).
 \end{enumerate}
 \vskip +1em
 
@@ -1629,6 +1628,7 @@ $$
 (M^{e * d} - M) \equiv 0 {\rm ~(mod~}p*q) {\rm ~~or~~ } M^{e * d} \equiv M {\rm ~(mod~}p*q) {\rm ~~or~~} 
  M^{e * d} \equiv M {\rm ~(mod~}n).
 $$
+\hfill$\Box$
 
 {\bf 1st comment:} \\
 We can also condense the three steps if we use the theorem \ref{thm-zth-fermateuler} (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
@@ -1660,7 +1660,7 @@ $$
 
 There have always been discussions about the suitability of the RSA
 algorithm for digital signatures and encryption, e.~g.\ after publications
-of breakthroughs in factorization. Nevertheless the RSA algorithm has
+of breakthroughs in factorisation. Nevertheless the RSA algorithm has
 become a de-facto standard since it was published more than 20 years ago
 (compare~\ref{ECAlternative}).
 
@@ -1668,7 +1668,7 @@ The security of the RSA algorithm rests --- as with all cryptographic
 methods --- on the following 4 central pillars:
 \begin{itemize}
 \item the complexity of the number theoretical problem on which the
-  algorithm is based (here factorization of big numbers),
+  algorithm is based (here factorisation of big numbers),
 \item the election of fitting parameters (here the length of the module $N$),
 \item the adequate usage of the algorithm and key generation and
 \item the correct implementation of the algorithm.
@@ -1689,12 +1689,12 @@ private key --- requires calculating the $e$-th root mod $n$.  The private
 key, this is the multiplicative inverse of $e$ mod $J(n)$, can be easily
 determined if $J(n)$ is known.  $J(n)$ again can be calculated from the
 prime factors of $n$.  Breaking of RSA therefore cannot be more difficult
-than factorization of the module $n$.
+than factorisation of the module $n$.
 
-The best factorization method known today is a further development of the
+The best factorisation method known today is a further development of the
 General Number Field Sieve (GNFS), which was originally devised to
 factor only numbers of a special form (like Fermat numbers).  The
-complexity of solving the factorization problem with the GNFS is
+complexity of solving the factorisation problem with the GNFS is
 asymptotically
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
@@ -1712,20 +1712,20 @@ Please refer to:
 \end{itemize}
 
 
-This formula shows, that the factorization problem belongs to the class of
+This formula shows, that the factorisation problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
 but strictly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
 all that is currently known; it does not preclude the possibility that the
-factorization problem can be solved in polynomial time (see~\ref{RSABernstein}).
+factorisation problem can be solved in polynomial time (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
-$l$ of the number $n$ to be factorized.  For the best currently known
-factorization algorithm the constant $c = (64/9)^{1/173} = 1,923$.
+$l$ of the number $n$ to be factorised.  For the best currently known
+factorisation algorithm the constant $c = (64/9)^{1/173} = 1,923$.
 
 The inverse proposition, that the RSA algorithm can be broken only by
-factorization of $n$, is still not proven.  Most number theorists consider
-the ``RSA problem'' and the factorization problem equivalent in terms of
+factorisation of $n$, is still not proven.  Most number theorists consider
+the ``RSA problem'' and the factorisation problem equivalent in terms of
 time complexity.
 
 Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
@@ -1740,7 +1740,7 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 The complexity is basically determined by the length $l$ of the module $n$.
 
 \begin{itemize}
-\item In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorized
+\item In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorised
       by a distributed implementation of the Quadratic Sieve algorithm (QS),
       developed 1982 by Pomerance. This effort took 8 months.
 
@@ -1775,10 +1775,10 @@ on some assumptions:
 \begin{itemize}
   \item progression in computing performance\index{Performance} (Moore's 
       law\index{Moore's law}: every 18 month the computing power will double) 
-      and in grid computing\index{grid computing}.
+      and in grid computing\index{Grid computing}.
   \item development of new algorithms.
 \end{itemize}
-Within the last years the module bit length feasible for factorization
+Within the last years the module bit length feasible for factorisation
 increased --- even without new algorithms --- by 10 bit per year. Larger
 numbers require not only more time to be factored, but also huge RAM
 storage for the solutions matrix being used by the best algorithms known
@@ -1796,9 +1796,9 @@ exists -- to my knowledge -- only in German):\\
 \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
 {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
 }
-prognosticates an almost linear progression with the factorization, if all
+prognosticates an almost linear progression with the factorisation, if all
 factors are included: Each year the module length feasible for
-factorization increases by 20 bit on average.
+factorisation increases by 20 bit on average.
 
 
 
@@ -1816,10 +1816,10 @@ $q$ (typically, 500$-$600 bit each), by calculating $n=pq$. However, it is
 a hard problem to extract $p$, $q$ from $n$.  Without knowing $p$ or $q$,
 the private key cannot be calculated.
 
-Thus, any progress in efficiency of factorizing large integers will effect
+Thus, any progress in efficiency of factorising large integers will effect
 the security of the RSA. As a consequence, the underlying primes $p$, $q$
 and, thus, the module n (1024 bit as of today) have to be increased. In
-the worst case of a breakthrough in factorization, the RSA algorithm might
+the worst case of a breakthrough in factorisation, the RSA algorithm might
 be compromised.
 
 
@@ -1827,13 +1827,13 @@ be compromised.
 \vskip +20pt
 \paragraph{Bernstein's paper and its implication on the
   security of the RSA algorithm}
-\label{RSABernstein} \index{Factorisation problem}\mbox{}
+\label{RSABernstein} \index{Factorisation!factorisation problem}\mbox{}
 
-In his paper ``Circuits for integer factorization: a proposal'' 
+In his paper ``Circuits for integer factorisation: a proposal'' 
 (\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
 published November 2001, D.~J.\ Bernstein \cite{Bernstein2001} 
 addresses the problem of
-factorizing large integers. Therefore, his results are of relevance from a
+factorising large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
 implementation of the General Number Field Sieve algorithm (GNFS) can be
 improved to factor, with the same effort as before, integers with three
@@ -1842,7 +1842,7 @@ times more digits.
 We note that the definition of \emph{effort} is a crucial point: Bernstein
 claims that effort is the product of time and costs of the machine
 (including the memory used). The gist of the paper lies in the fact that he
-can reduce a big part of factorizing to sorting. Using Schimmler's scheme,
+can reduce a big part of factorising to sorting. Using Schimmler's scheme,
 sorting can be optimized by massive parallel computing.  At the end of
 section 3 Bernstein explains this effect: The costs of $m^2$ parallel
 computers with a constant amount of memory is a constant times $m^2$.  The
@@ -1853,7 +1853,7 @@ scheme) can be achieved in time $m$, while a $m^2$-memory computer needs
 time of the order of $m^2$. Decreasing memory and increasing the number of
 processors, the computing time can be reduced by a factor $1/m$ without
 additional effort in terms of total costs.  In section 5 it is said that
-massive parallel computing can also increase efficiency of factorizing
+massive parallel computing can also increase efficiency of factorising
 using Lenstra's elliptic-curve-method (a search algorithm has costs that
 increase in a quadratic square manner instead of cubically).
 
@@ -1862,7 +1862,7 @@ that they only hold in the limit n to infinity. Unfortunately, there is no
 upper limit for the residual error (i.e. the difference between the real
 and the asymptotic value) for finite n --- a problem which has already been
 addressed by the author. As a consequence, one cannot conclude whether the
-costs (in the sense of Bernstein) for factorizing 1024$-$2048-bit RSA modules
+costs (in the sense of Bernstein) for factorising 1024$-$2048-bit RSA modules
 can be significantly reduced.
 
 There is no doubt that Bernstein's approach is innovative. However, the
@@ -1885,7 +1885,7 @@ could lead to a significant improvement (in the sense of the asymptotic
 result). 
 
 Arjen Lenstra, Adi Shamir et. al. analyzed the paper of Bernstein
-\cite{Lenstra2002}.  In summary they expect a factorization improvement on
+\cite{Lenstra2002}.  In summary they expect a factorisation improvement on
 how much longer the bit length of the keys could be with a factor of 1.17
 (instead of factor 3 as proposed by Bernstein).
 
@@ -1893,13 +1893,13 @@ The abstract of their paper ``Analysis of Bernstein's Factorization
 Circuit'' says:
 
 ``... Bernstein proposed a circuit-based implementation of the matrix
-step of the number field sieve factorization algorithm. We show that under
+step of the number field sieve factorisation algorithm. We show that under
 the non-standard cost function used in [1], these circuits indeed offer an
 asymptotic improvement over other methods but to a lesser degree than
 previously claimed: for a given cost, the new method can factor integers
 that are 1.17 times larger (rather than 3.01).  We also propose an improved
 circuit design based on a new mesh routing algorithm, and show that for
-factorization of 1024-bit integers the matrix step can, under an optimistic
+factorisation of 1024-bit integers the matrix step can, under an optimistic
 assumption about the matrix size, be completed within a day by a device
 that costs a few thousand dollars.  We conclude that from a practical
 standpoint, the security of RSA relies exclusively on the hardness of the
@@ -1996,11 +1996,11 @@ Current research results on this topic can be found at:
 The web page
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
 contains an excellent overview about the factoring 
-records\index{factoring records} of composed
+records\index{Factorisation!factoring records} of composed
 integers using different methods.
 \hypertarget{C158-chap3}{}
 The current record (as of June 2002) obtained using the GNFS method
-(General Number Field Sieve) factorized a 158-digit into its both prime
+(General Number Field Sieve) factorised a 158-digit into its both prime
 factors (these are build with 73 and 86 decimal digits).
 
 This record, established on January 18, 2002 by researchers of the German
@@ -2009,8 +2009,8 @@ University of Bonn\footnote{%
 {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}, got much less attention within the press than the
 solution of the RSA challenge\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
          {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}}, established on August 22, 1999, when
-researchers from the Netherlands factorized the 155-digit number into its
-both 78-digit primes (see Chapter \ref{chptSecurityParam}). 
+researchers from the Netherlands factorised the 155-digit number into its
+both 78-digit primes (see chapter \ref{chptSecurityParam}). 
 One reason is that 512 bit RSA-155 was a kind of {\em magic} border.
 
 The task of the researchers from Bonn was not initiated by a challenge, but
@@ -2073,7 +2073,7 @@ Links:
 \end{minipage}
 \vspace{12pt}
 
-As you notice the factorized compound numbers built of 2 prime factors are
+As you notice the factorised compound numbers built of 2 prime factors are
 much smaller than the especially structured numbers, for which primality 
 tests\index{Primality testing} are able to decide whether they are prime 
 or not (see chapters 2.4 and 2.5).
@@ -2341,7 +2341,7 @@ L       & 12   & Y    & 25 \\
 {\bf 1.} $p=47, q=79$ $( n= 3,713; ~J(n) = (p-1)*(q-1)=3,588).$ \\
 {\bf 2.} $e = 37$ (should lie between $79$ and $3,588$ and must be relatively prime to $3,588$). \\
 {\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3,589 \equiv 1{\rm ~(mod~}3,588) \;$)\footnote{How
-to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A}}. \\
+to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A of this chapter}}. \\
 {\bf 4. Encryption}:\\
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
@@ -2356,7 +2356,7 @@ This $28$-digit number is divided into $4$-digit parts
 
 \label{SrcArith4a}
 All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{%
-See \hyperlink{AppArith4a}{Appendix D} for source code to do RSA
+See \hyperlink{AppArith4a}{Appendix D of this chapter} for source code to do RSA
   encryption using Mathematica and Pari-GP.  You can also encrypt
   the message with CrypTool\index{CrypTool} v1.3 {\bf Indiv. Procedures \textbackslash{} RSA Demonstration \textbackslash{} Factorisation of a Number}.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -2395,7 +2395,7 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
 {\bf Key generation (steps 1 to 3)}:\\ \label{SrcArith4b}
 {\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise
+See \hyperlink{AppArith4b}{Appendix D of this chapter} for the source code to factorise
 the number $J(n)$ using Mathematica and Pari-GP.
 Using CrypTool\index{CrypTool} v1.3 you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} 
@@ -2429,7 +2429,7 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA 
+See \hyperlink{AppArith4c}{Appendix D of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt
@@ -2483,7 +2483,7 @@ with the following options: all 256 ASCII characters, b-adic, block length\index
 
 \label{SrcArith4d}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA 
+See \hyperlink{AppArith4d}{Appendix D of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
@@ -2508,7 +2508,7 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA 
+See \hyperlink{AppArith4e}{Appendix D of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
@@ -2639,7 +2639,7 @@ and the public key $(e,n)$:
 \begin{itemize}
 \item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
 \item[{\bf (b)}] Cipher text only: \index{Attack!cipher text only} find $d$ and the plaintext.
-\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation problem}
+\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation!factorisation problem}
 \end{itemize}
 
 \newpage
@@ -2919,7 +2919,7 @@ This needs to be stressed because the type of padding is extremely important dur
           German Information Security Agency \\
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
          
-   \item Factorisation records and challenges \index{Factorisation records}\\
+   \item Factorisation records and challenges \index{Factorisation!factorisation records}\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}

@@ -45,8 +45,8 @@ Die Zahlentheorie oder Arithmetik (hier wird mehr der Aspekt des Rechnens
 mit Zahlen betont) wurde von Carl Friedrich Gauss \index{Gauss} als besondere
 mathematische Disziplin begr"undet. Zu ihren elementaren Gegenst"anden
 geh"oren: gr"o"ster gemeinsamer Teiler\footnote{%
-Auf ggT\index{ggT}, englisch gcd (greatest common divisor), geht dieser Artikel im 
-\hyperlink{Appendix_A}{Anhang A} ein.
+Auf ggT\index{ggT}, englisch gcd (greatest common divisor), geht dieser
+Artikel im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} ein.
 } (ggT), Kongruenzen (Restklassen), Faktorisierung, Satz von Euler-Fermat und
 primitive Wurzeln. Kernbegriff sind jedoch die Primzahlen und ihre
 multiplikative Verkn"upfung.
@@ -89,7 +89,8 @@ Beispiele vorgestellt -- auf Beweise wird (fast) vollst"andig verzichtet
 
 Ziel ist nicht die umfassende Darstellung der zahlentheoretischen Erkenntnisse,
 sondern das Aufzeigen der wesentlichen Vorgehensweisen. Der Umfang des Stoffes
-orientiert sich daran, das RSA-Verfahren verstehen und anwenden zu k"onnen.
+orientiert sich daran, das RSA-Verfahren\index{RSA} verstehen und anwenden
+zu k"onnen.
 
 Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
@@ -457,7 +458,7 @@ Rechenregeln beim "Ubergang zum modularen Rechnen "uber der Grundmenge $\mathbb{
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt f"ur die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
 \label{ftn-res-divmodn}Die Division modulo $m$\index{Division modulo $n$} ist nur f"ur Zahlen, die teilerfremd zu $m$ sind, definiert. 
-Vergleiche Kapitel \ref{multmodn}.
+Vergleiche Fu"ssnote \ref{ftn-mod6} in Kapitel \ref{addmult}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
 Es gelten die bekannten Gesetze:
@@ -489,7 +490,7 @@ Es ist gleichg"ultig, in welcher Reihenfolge die Modulo-Operation durchgef"uhrt 
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
 \item[\bf 7.] \index{Abgeschlossenheit} {\bf Abgeschlossenheit:}\footnote{%
 \label{ftn-closed}Diese Eigenschaft wird innerhalb einer Menge immer bez"uglich einer Operation definiert. 
-Siehe \hyperlink{Appendix_B}{Anhang B}.
+Siehe \hyperlink{Appendix_B}{Anhang B zu diesem Kapitel}.
 } \\
 $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
 $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
@@ -548,16 +549,16 @@ etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist, wenn man $8$
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition und Multiplikation} \index{Addition} \index{Multiplikation}
+\subsubsection{Addition und Multiplikation} \index{Addition} \index{Multiplikation}\label{addmult}
 
 Im folgenden werden 
 \begin{itemize}
 \item die Additionstabelle\footnote{%
 Bemerkung zur Subtraktion modulo 5: \\
       $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
-      Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{Anhang C}). 
+      Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{Anhang C zu diesem Kapitel}). 
       } f"ur ${\rm mod~ } 5$ und
-\item die Multiplikationstabellen\footnote{%
+\item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
 Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
 \noindent Bei der Division darf nicht durch die Null geteilt werden, dies liegt an
@@ -720,7 +721,7 @@ einen einfachen Algorithmus aufstellen \cite[S. 80]{Pfleeger1997}. Schnellere
 Algorithmen werden z.B. in \cite{Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
 beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
-multiplikative Inverse berechnen und die Invertierbarkeit bestimmen (Siehe \hyperlink{Appendix_A}{Anhang A}).
+multiplikative Inverse berechnen und die Invertierbarkeit bestimmen (Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
 Alternativ kann auch die Primitivwurzel genutzt werden. 
 }.
 
@@ -738,7 +739,7 @@ Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{Kapitel 3.9 Multi
 
 
 Die folgenden drei Beispiele\footnote{%
-In \hyperlink{AppArith1}{Anhang D} finden Sie den Quellcode zur Berechnung der Tabellen mit Mathematica\index{Mathematica}
+In \hyperlink{AppArith1}{Anhang D zu diesem Kapitel} finden Sie den Quellcode zur Berechnung der Tabellen mit Mathematica\index{Mathematica}
 und Pari-GP.\index{Pari-GP}
 } veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht mehr 
 die vollst"andigen Multiplikationstabellen angegeben, sondern nur die Zeilen f"ur die Faktoren $5$ und $6$).
@@ -995,7 +996,7 @@ Konstanten $C > 1$.
 "Ahnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
 Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist, findet man 
 leicht\footnote{%
-Siehe \hyperlink{Appendix_A}{Anhang A}: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.
+Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.
 } $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz \ref{thm-zth-pot} 
 $$
         a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
@@ -1372,8 +1373,8 @@ gleiche Ordnung haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 {\bf Beispiel 1:}\\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur Bestimmung der 
-Tabelle mit Mathematica und Pari-GP.
+In \hyperlink{AppArith3a}{Anhang D zu diesem Kapitel} finden Sie den Quelltext
+zur Bestimmung der Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}11$ f"ur die Exponenten $i = 1, 2, \cdots, 10$ und f"ur 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich f"ur jedes a daraus ergebenden Wert $ord_{11}(a)$:
 
@@ -1432,7 +1433,7 @@ modulo $45$ und modulo $46$.
 
 {\bf Beispiel 2:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3b}{Anhang D} Finden Sie den Quelltext zur Berechnung der 
+In \hyperlink{AppArith3b}{Anhang D zu diesem Kapitel} Finden Sie den Quelltext zur Berechnung der 
 Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}45$
 f"ur die Exponenten $i = 1, 2, \cdots, 12$ und f"ur die Basen $a = 1, 2, \cdots, 12$
@@ -1497,7 +1498,7 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \newpage
 {\bf Beispiel 4:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3c}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
+In \hyperlink{AppArith3c}{Anhang D zu diesem Kapitel} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
 } beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 
@@ -1903,7 +1904,9 @@ Siehe:
 \vskip +12pt
 
 Die Formel zeigt, dass das Faktorisierungsproblem zur
-Komplexit"atsklasse\index{Komplexit""atsklasse} der Probleme mit subexponentieller 
+Komplexit"atsklasse\index{Komplexit""at!Komplexit""atsklasse} der 
+% WARUM zweimal " bei Umlauten hier im Index ??????????? (be 20.4.03)
+Probleme mit subexponentieller 
 Berechnungskomplexit"at\index{Komplexit""at!subexponentielle} geh"ort (d.h. der L"osungsaufwand w"achst
 asymptotisch nicht so stark wie $e^l$ oder $2^l$, sondern echt schw"acher,
 z.~B. wie $e^{\sqrt{l}}$). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
@@ -2574,7 +2577,7 @@ L       & 12   & Y    & 25 \\
 {\bf 2.} $e=37$ (sollte zwischen 79 und 3588 liegen und muss teilerfremd zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3.589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
-Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet wird im \hyperlink{Appendix_A}{Anhang A} gezeigt.
+Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet wird im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
 }.
 
 {\bf 4. Verschl"usselung:} \\ 
@@ -2592,7 +2595,7 @@ die Blockl"ange 2 betr"agt.\\
 
 \label{SrcArith4a}
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
-In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel-Quelltext zur 
+In \hyperlink{AppArith4a}{Anhang D zu diesem Kapitel} finden Sie den Beispiel-Quelltext zur 
 RSA-Verschl"usselung mit Mathematica und Pari-GP. \\
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem} l"osen. 
 }: \\
@@ -2646,7 +2649,7 @@ Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam f"ur beide sind die Sc
 \vskip +10pt
 {\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
-In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung 
+In \hyperlink{AppArith4b}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
 von $J(n)$ mit Mathematica und Pari-GP. \\
 Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie dies per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Faktorisieren einer Zahl} l"osen.
 }. \\
@@ -2688,7 +2691,7 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 
 \label{SrcArith4c}
 Verschl"usselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4c}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
+In \hyperlink{AppArith4c}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }:
 
 {\tt
@@ -2745,7 +2748,7 @@ folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale
 
 \label{SrcArith4d}
 Verschl"usselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
-In \hyperlink{AppArith4d}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
+In \hyperlink{AppArith4d}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -2769,7 +2772,7 @@ da die ASCII-Bl"ocke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 
 \label{SrcArith4e}
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4e}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
+In \hyperlink{AppArith4e}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
 
