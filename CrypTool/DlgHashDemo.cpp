@@ -692,14 +692,40 @@ void CDlgHashDemo::SetHashDiff(OctetString &hash1, OctetString &hash2)
 	
 }
 
+
+static DWORD CALLBACK EditStreamCallBack(DWORD dwCookie, LPBYTE pbBuff, LONG cb, 
+                                                              LONG *pcb)
+{
+      CString *pstr = (CString *)dwCookie;
+
+      if( pstr->GetLength() < cb )
+      {
+              *pcb = pstr->GetLength();
+              memcpy(pbBuff, (LPCSTR)*pstr, *pcb );
+              pstr->Empty();
+      }
+      else
+      {
+              *pcb = cb;
+              memcpy(pbBuff, (LPCSTR)*pstr, *pcb );
+              *pstr = pstr->Right( pstr->GetLength() - cb );
+      }
+      return 0;
+}
+
 void CDlgHashDemo::SetRed()
 {
-	m_ctrlHashDiff.HideSelection( true, true );
-	CHARFORMAT farbeZahl;
-	farbeZahl.cbSize=sizeof (CHARFORMAT);
-	farbeZahl.dwMask=CFM_COLOR;
-	farbeZahl.dwEffects = 0;
-	
+
+	CString rtfPrefix, rtfPostfix;
+	rtfPrefix = "{\\rtf1\\ansi\\deff0\\deftab720{\\fonttbl{\\f0\\froman "
+		      "Courier New;}}\n{\\colortbl;\\red0\\green0\\blue0;\\red255\\green0\\blue0;}\n"
+			  "\\deflang1033\\pard\\tx360\\tx720\\tx1080\\tx1440\\tx1800"
+			  "\\tx2160\\tx2520\\tx2880\\tx3240\\tx3600\\tx3960\\tx4320"
+			  "\\tx4680\\tx5040\\tx5400\\tx5760\\tx6120"
+			  "\\tx6480\\plain\\f3\\fs20 ";
+    rtfPostfix = "\n\\par }";
+
+
 	static int c=0;
 
 	int laenge=144; 
@@ -707,31 +733,28 @@ void CDlgHashDemo::SetRed()
 
 	int x=0;
 
-	CString b;
+	CString b = "";
 	if(m_ctrlHashDiff.m_hWnd!=0)
 	{	
 		for( x=0;x<laenge;x++)
 		{
 			if(m_strHashDiffRE[x]=='1')
 			{	
-				farbeZahl.crTextColor=RGB(255,0,0);
-				m_ctrlHashDiff.SetSel(x,x+1);
-				m_ctrlHashDiff.SetSelectionCharFormat(farbeZahl);	
-						
+				b += "{\\cf2 1}";
 			}
-			
 			else
 			{
-				farbeZahl.crTextColor=RGB(0,0,0);
-				m_ctrlHashDiff.SetSel(x,x+1);
-				m_ctrlHashDiff.SetSelectionCharFormat(farbeZahl);	
-		
+				b += m_strHashDiffRE[x];
 			}
 		
 		}
-		
-		
-
 	}
 
+
+    // The rtfString contains the word Bold in bold font.
+    CString rtfString = rtfPrefix + b + rtfPostfix;
+    EDITSTREAM es = {(DWORD)&rtfString, 0, EditStreamCallBack};
+
+	// richEd is the rich edit control
+	m_ctrlHashDiff.StreamIn(SF_RTF | SFF_SELECTION, es);
 }

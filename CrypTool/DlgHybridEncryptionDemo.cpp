@@ -959,7 +959,7 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 {
 	if(!m_arrSetButtons[10])	
 	{
-		// Message(IDS_STRING_HYB_SHOW_DATA, MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_SHOW_DATA, MB_ICONEXCLAMATION);
 		return;
 	}
 	char outfile[128], title[128];

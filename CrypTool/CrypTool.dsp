@@ -2931,6 +2931,22 @@ SOURCE=.\res\Bitmaps_en\Oval1_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Oval2_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Oval2_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Oval2_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval2_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\paddoc.ico
 # End Source File
 # Begin Source File

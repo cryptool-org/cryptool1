@@ -2345,51 +2345,56 @@ BEGIN
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
 END
 
-IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
+IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 445
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
 
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
-    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
-    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,65,24,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,237,23,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,23,20,58
     CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
-                    108,20,58
+                    103,20,58
     CONTROL         524,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
-                    107,20,58
-    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
-    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
+                    102,20,58
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,237,173,20,52
+    CONTROL         524,IDC_STATIC,"Static",SS_BITMAP,438,172,20,58
     CONTROL         525,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
-                    124,135,69
-    CONTROL         526,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
+                    119,135,69
+    CONTROL         526,IDC_STATIC,"Static",SS_BITMAP,302,89,87,98
     CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,34,12,89,14
     CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,209,17,93,14
+                    BS_BITMAP | WS_TABSTOP,209,12,93,14
     CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,17,92,14
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,12,92,14
     CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,31,81,89,14
+                    BS_BITMAP | WS_TABSTOP,34,76,89,14
     CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,205,81,93,14
+                    BS_BITMAP | WS_TABSTOP,205,76,93,14
     CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,81,93,14
+                    BS_BITMAP | WS_TABSTOP,405,76,93,14
     CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,208,165,102,14
+                    BS_BITMAP | WS_TABSTOP,208,160,102,14
     CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,405,164,110,15
+                    BS_BITMAP | WS_TABSTOP,405,159,110,15
     CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,202,230,92,14
+                    WS_TABSTOP,202,225,92,14
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,402,230,115,14
+                    WS_TABSTOP,402,225,115,14
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,12,224,94,14
-    EDITTEXT        IDC_EDIT_TITLE,31,281,497,14,ES_AUTOHSCROLL | 
+                    WS_TABSTOP,12,279,94,14
+    EDITTEXT        IDC_EDIT_TITLE,26,325,503,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_TXT,31,299,497,98,ES_MULTILINE | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TXT,26,338,503,94,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,478,407,50,14
+    CONTROL         "Oval2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,287,279,50,14
+    CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
+                    268,52,36
+    CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
+                    268,52,36
 END
 
 IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 254
@@ -3377,10 +3382,16 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
+OVAL2U                  BITMAP  DISCARDABLE     "res\\Oval2_U.bmp"
+OVAL2F                  BITMAP  DISCARDABLE     "res\\Oval2_F.bmp"
+OVAL2D                  BITMAP  DISCARDABLE     "res\\Oval2_D.bmp"
+OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
+IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
+IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4852,6 +4863,8 @@ BEGIN
     IDS_STRING_HYBRID_ENC_DLG "RSA-Schlüssel für die Hybridverschlüsselung"
     IDS_STRING_HYBRID_STEP_BY_STEP 
                             "Ausgeführt: Schritt %d von maximal %d Schritten."
+    IDS_STRING_HYB_SHOW_DATA 
+                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher das Dokument symmetrisch verschlüsseln\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6031,8 +6044,8 @@ BEGIN
     EDITTEXT        IDC_EDIT25,220,106,14,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Reset entries to the result of the automatic analysis",
                     IDC_BUTTON2,13,127,198,20
-    CONTROL         "UNDO_",IDC_UNDO_,"Button",BS_OWNERDRAW | 
-                    WS_DISABLED | WS_TABSTOP,266,127,22,20
+    CONTROL         "UNDO_",IDC_UNDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
+                    WS_TABSTOP,266,127,22,20
     EDITTEXT        IDC_EDIT4,13,168,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     DEFPUSHBUTTON   "Output current &status",IDOK,13,291,120,21
@@ -6069,8 +6082,8 @@ BEGIN
     LTEXT           "Each change of the substitution list below will result into a change of the intermediate status of decryption below. Using the actual state of decryption you may try out other substitutions. ",
                     IDC_STATIC,13,23,321,17
     PUSHBUTTON      "&Copy key",IDC_BUTTON1,149,291,80,21
-    CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | 
-                    WS_DISABLED | WS_TABSTOP,312,127,22,20
+    CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
+                    WS_TABSTOP,312,127,22,20
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
@@ -8931,6 +8944,16 @@ IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
 IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
 IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
+OVAL2U                  BITMAP  DISCARDABLE     "res\\Oval2_U.bmp"
+OVAL2F                  BITMAP  DISCARDABLE     "res\\Oval2_F.bmp"
+OVAL2D                  BITMAP  DISCARDABLE     "res\\Oval2_D.bmp"
+OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_X.bmp"
+UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
+UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
+REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
+REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
+IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
+IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10081,6 +10104,8 @@ BEGIN
                             "After you entered your PIN, you are able to decrypt the session key\r\nwith your secret key.\r\nThe next step will show your secret RSA key.\r\n"
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid decryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
+    IDS_STRING_HYB_SHOW_DATA 
+                            "This button is currently inactive! Before encryption, the document must be encrypted symmetrically \nand the session key must be encrypted asymmetrically.\n\nThe F1 key will give you further informations on which sequence you can control the activities on the flowchart."
 END
 
 STRINGTABLE DISCARDABLE 

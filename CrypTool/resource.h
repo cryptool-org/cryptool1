@@ -123,6 +123,8 @@
 #define IDB_BACKWARD_GREY               531
 #define IDB_FOREWARD                    532
 #define IDB_FOREWARD_GREY               533
+#define IDB_HYBRID_SPEICHERN_LINKS      534
+#define IDB_HYBRID_SPEICHERN_RECHTS     535
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -972,6 +974,7 @@
 #define IDS_STRING_HYBRID_DEC_MSG13     36954
 #define IDS_STRING_HYBRID_ENC_DLG       36955
 #define IDS_STRING_HYBRID_STEP_BY_STEP  36956
+#define IDS_STRING_HYB_SHOW_DATA        36957
 #define IDS_STRING_ENTER_UPPER_LOWER_BOUND 37000
 #define IDS_STRING_MSG_LOWERBOUND_UPPERBOUND 37001
 #define IDS_STRING_MSG_LOWERBOUND       37002
@@ -1308,7 +1311,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        534
+#define _APS_NEXT_RESOURCE_VALUE        536
 #define _APS_NEXT_COMMAND_VALUE         33170
 #define _APS_NEXT_CONTROL_VALUE         1420
 #define _APS_NEXT_SYMED_VALUE           101
