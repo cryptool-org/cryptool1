@@ -138,6 +138,15 @@ END_MESSAGE_MAP()
 void CDlgAsymKeyCreat::OnOK() 
 {
 	UpdateData (TRUE);
+	m_edit1.TrimLeft();
+	m_edit1.TrimRight();
+	m_edit2.TrimLeft();
+	m_edit2.TrimRight();
+	m_user_keyinfo.TrimLeft();
+	m_user_keyinfo.TrimRight();
+	UpdateData (FALSE);
+
+	UpdateData (TRUE);
 
 	// Check if Name, Last Name, PIN-Code, and PIN-Verification were entered
 	if (m_edit1==""){
