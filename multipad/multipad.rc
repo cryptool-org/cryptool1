@@ -2034,7 +2034,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,82,151,59,17
     LTEXT           "Algorithmus",IDC_STATIC,14,24,37,8
-    LTEXT           "Iterationen",IDC_STATIC,86,24,34,8
+    LTEXT           "Iterationen",IDC_STATIC,82,24,34,8
     LTEXT           "Brent",IDC_STATIC,14,41,60,8
     EDITTEXT        IDC_EDIT1,82,38,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
