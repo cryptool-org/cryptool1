@@ -83,21 +83,25 @@ void CDlgMono::OnChangeEdit1()
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 		
 	UpdateData(TRUE);
-	int lang=m_edit.GetLength();
-	if (lang!=0){
-		for (int i=0 ;i<lang; i++){
-			if ((m_edit[i]<'A')||(m_edit[i]>'Z')){
+
+	int selStart;
+	int selEnd;
+	m_edit2.GetSel(selStart, selEnd);
+	for (int i=0 ;i<m_edit.GetLength(); i++)
+	{
+		if ((m_edit[i]<'A')||(m_edit[i]>'Z'))
+		{
 				//Entfernen des fehlerhaften Zeichens.
 				//Der Cursor wird anschließend an die Stelle gesetzt, an der das
 				//fehlerhafte Zeichen stand.
-				m_edit.SetAt(i,' ');
-				m_edit=m_edit.SpanExcluding(" ")+m_edit.Right(lang-(i+1));
-				UpdateData(FALSE);
-				m_edit2.SetSel(i,i);
-				break;
-			}
+				m_edit.Delete(i);
+				selStart = selEnd = i;
+				i--;		
 		}
-	}
+	}	
+
+	UpdateData(FALSE);
+	m_edit2.SetSel(selStart, selEnd);
 }
 
 BOOL CDlgMono::OnInitDialog() 
