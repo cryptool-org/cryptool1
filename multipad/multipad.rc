@@ -4818,10 +4818,10 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
     IDS_STRING_BIG_RSA_MODUL 
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
-    IDS_STRING_FAKTORISATION_OPERATOR 
-                            "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnet läßt."
+    IDS_STRING_INPUT_FALSE  "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnen läßt."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
+    IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9073,9 +9073,11 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "The demostration does support only positive integers of bitlength smaller than 1024. These are decimal numbers with at most 308 digits."
     IDS_STRING_BIG_RSA_MODUL 
                             "The demonstartion dos support only positve integers of bitlength smaller than 1024.\nThe Bitlength of the actually generated RSA modul exceeds 1024.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^1024."
-    IDS_STRING_INPUT_FALSE  "Your input is no valid expression to compute a positive integer."
-    IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
+    IDS_STRING_INPUT_FALSE
+							"Your input is no valid expression to compute a positive integer."
+    IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE
                             "Please enter a positive integer greater than 1."
+    IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
 END
 
 STRINGTABLE DISCARDABLE 
