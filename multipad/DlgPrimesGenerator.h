@@ -58,6 +58,7 @@ protected:
 	afx_msg void OnButtonGenerate();
 	afx_msg void OnButtonAccept();
 	afx_msg void OnEndDialog();
+	afx_msg void OnUpdateEdit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

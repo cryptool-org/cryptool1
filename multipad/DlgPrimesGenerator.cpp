@@ -49,13 +49,9 @@ void DlgPrimesGenerator::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
 	DDX_Radio(pDX, IDC_RADIO4, m_radio4);
 	DDX_Text(pDX, IDC_EDIT1, m_edit1);
-	DDV_MaxChars(pDX, m_edit1, 15);
 	DDX_Text(pDX, IDC_EDIT2, m_edit2);
-	DDV_MaxChars(pDX, m_edit2, 15);
 	DDX_Text(pDX, IDC_EDIT3, m_edit3);
-	DDV_MaxChars(pDX, m_edit3, 15);
 	DDX_Text(pDX, IDC_EDIT4, m_edit4);
-	DDV_MaxChars(pDX, m_edit4, 15);
 	DDX_Text(pDX, IDC_EDIT5, m_edit5);
 	DDX_Text(pDX, IDC_EDIT6, m_edit6);
 	//}}AFX_DATA_MAP
@@ -69,6 +65,8 @@ BEGIN_MESSAGE_MAP(DlgPrimesGenerator, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_GENERATE, OnButtonGenerate)
 	ON_BN_CLICKED(IDC_BUTTON_ACCEPT, OnButtonAccept)
 	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
+	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit)
+	ON_EN_UPDATE(IDC_EDIT2, OnUpdateEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -91,6 +89,7 @@ void DlgPrimesGenerator::OnRadio5()
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
 	UpdateData(false);
+	OnUpdateEdit();
 }
 
 BOOL DlgPrimesGenerator::OnInitDialog() 
@@ -239,3 +238,14 @@ void DlgPrimesGenerator::OnEndDialog()
 }
 
 
+
+void DlgPrimesGenerator::OnUpdateEdit() 
+{
+	if(m_radio4)
+	{
+		UpdateData(true);
+		m_edit3 = m_edit1;
+		m_edit4 = m_edit2;
+		UpdateData(false);
+	}	
+}
