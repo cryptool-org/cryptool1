@@ -14,6 +14,7 @@
 
 #define TIMES '*'
 #define RAISE '^'
+#define BTRIES 1000
 #define LIMIT1 10000   /* must be int, and > MULT/2 */
 #define LIMIT2 2000000L /* may be long */
 #define MULT   2310     /* must be int, product of small primes 2.3.. */

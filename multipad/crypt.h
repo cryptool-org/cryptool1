@@ -12,6 +12,26 @@ typedef struct {
 	void		*result;
 } CryptPar;
 
+
+// ================================================================
+class KeyData {
+	char     keytype[12];
+    CString  key;
+
+public:
+	KeyData() { keytype[0] = '\0'; key = _T(""); }
+    friend BOOL CopyKey ( const char* KeyType, const CString &Key );
+	friend BOOL PasteKey( const char* KeyType, CString &Key ); 
+};
+
+BOOL CopyKey ( const char* KeyType, const CString &Key );
+BOOL PasteKey( const char* KeyType, CString &Key ); 
+
+extern KeyData keylist[37];
+// ================================================================
+
+
+
 #define CRYPT_DISPLAY_BG		0x001
 #define CRYPT_FREE_MEM			0x002
 #define CRYPT_DO_WAIT_CURSOR	0x004

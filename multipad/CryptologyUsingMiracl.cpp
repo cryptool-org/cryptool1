@@ -954,36 +954,40 @@ BOOL TutorialFactorisation::Brent()
     r=1L;
     iter=0L;
     z=0;
-    modulo(N);    // ZZn arithmetic done mod n 
-    y=z;          // convert back to ZZn (n has changed!) 
-                  // note:- a change of modulus is tricky for
-                  // for n-residue representation used in Montgomery
-                  // arithmetic 
-    q=1;
-    do
-    {
-        x=y;
-        for (i=1L;i<=r;i++) y=(y*y+3);
-        k=0;
-        do
-        {
-            iter++;
-            ys=y;
-            for (i=1L;i<=min(m,r-k);i++)
-            {   
-                y=(y*y+3);
-                q=((y-x)*q);
-            }
-            z=gcd(q,N);
-            k+=m;
-        } while (k<r && z==1);
-        r*=2;
-    } while (z==1);
-    if (z==N) do 
-    { // back-track 
-        ys=(ys*ys+3);
-        z=gcd(ys-x,N);
-    } while (z==1);
+	modulo(N);    // ZZn arithmetic done mod n 
+	y=z;          // convert back to ZZn (n has changed!) 
+				  // note:- a change of modulus is tricky for
+				  // for n-residue representation used in Montgomery
+				  // arithmetic 
+	q=1;
+	do
+	{
+		x=y;
+		for (i=1L;i<=r;i++) y=(y*y+3);
+		k=0;
+		do
+		{
+			iter++;
+                if (iter>BTRIES)
+                {
+                    return false;
+                }
+			ys=y;
+			for (i=1L;i<=min(m,r-k);i++)
+			{   
+				y=(y*y+3);
+				q=((y-x)*q);
+			}
+			z=gcd(q,N);
+			k+=m;
+		} while (k<r && z==1);
+		r*=2;
+	} while (z==1);
+	if (z==N) do 
+	{ // back-track 
+		ys=(ys*ys+3);
+		z=gcd(ys-x,N);
+	} while (z==1);
 
 	if (z==N) 
 	{
@@ -992,6 +996,7 @@ BOOL TutorialFactorisation::Brent()
 
 	factor1 = z;
 	factor2 = N/z;
+
 	return true;
 }
 
