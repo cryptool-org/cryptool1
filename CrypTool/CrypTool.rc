@@ -10735,7 +10735,7 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "The demostration does support only positive integers of bitlength smaller than 1024. These are decimal numbers with at most 308 digits."
     IDS_STRING_BIG_RSA_MODUL 
                             "The demonstartion dos support only positve integers of bitlength smaller than 1024.\nThe Bitlength of the actually generated RSA modul exceeds 1024.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^1024."
-    IDS_STRING_INPUT_FALSE  "In this field you enter a number or an expression to\ncompute an integer!\nExamples: 123, 2^15+1, (2^17-5)^2."
+    IDS_STRING_INPUT_FALSE  "Please enter into this field an integer or an expression, that\nevaluates to an integer!\nExamples: 123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Please enter a positive integer greater than 1."
     IDS_STRING_MODUL_NOT_PRIME 
