@@ -164,8 +164,8 @@ sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
 \newpage
 
 \begin{quote}
-{\em Joanne K. Rowling\footnote{Joanne K. Rowling,\QM Harry Potter und der Stein der Weisen'', Carlsen, (c)
-1997, Kapitel\QM Durch die Fallt"ur'', S. 310.}:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
+{\em Joanne K. Rowling\footnote{Joanne K. Rowling,~\QM Harry Potter und der Stein der Weisen'', Carlsen, (c)
+1997, Kapitel ~ \QM Durch die Fallt"ur'', S. 310.}:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
 Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.
 \end{quote}
 
@@ -333,7 +333,7 @@ Als {\bf Restklasse $r$ modulo $m$} bezeichnet man alle ganzen Zahlen $a$, die b
 durch $m$ denselben Rest $r$ haben.
 \end{definition}
 \newpage
-{\bf Beispiel:}
+{\bf Beispiele:}
 \begin{itemize}
 \item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{N} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
 \item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{N} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
@@ -359,8 +359,8 @@ Gauss eingef"uhrt. Gew"ohnlich ist der Teiler positiv, aber a und b k"onnen auch
 \end{itemize}
 
 \begin{satz}
-$a \equiv b$ (mod $m$) gilt genau dann,  wenn $a - b$ durch $m$ teilbar ist, d.h. wenn es
-ein $q\in \mathbf{Z}$ gibt mit $ a-b=q*m.$
+$a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$ teilbar ist, also wenn 
+ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$
 \end{satz}
 Diese beiden Aussagen sind also "aquivalent.
 
@@ -513,7 +513,7 @@ Additionstabelle modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
 \subsubsection*{Beispiel Multiplikationstabelle:}
 Das Ergebnis der Multiplikation $4 * 4 {\rm ~(mod~ } 5)$ wird folgenderma"sen berechnet: berechne $ 4*4=16$ und
 ziehe solange die $5$ ab, bis sich ein Ergebnis kleiner als der Modul ergibt:
-$$16 - 5 = 11; 11 - 5 = 6; 6- 5 = 1.$$
+$$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
 Direkt ergibt es sich auch aus der Tabelle: $4 * 4 \equiv 1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.
 Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert.
 
@@ -570,7 +570,7 @@ Bei der modularen Addition ist das f"ur jeden Modul (also nicht nur f"ur $5$)
 so. Bei der modularen Multiplikation dagegen ist das nicht so: hier gibt es
 f"ur eine nat"urliche Zahl $a$ aus der Menge $\{1, ..., m-1\}$ genau dann eine
 Inverse, wenn sie mit dem Modul $m$ teilerfremd\footnote{
-Weitere Bezeichnungen f"ur teilerfremd :''relativ prim'' oder \QM paarweise
+Weitere Bezeichnungen f"ur teilerfremd:~''relativ prim'' oder \QM paarweise
 prim''. Es gilt auch: Zwei ganze Zahlen $a$ und $b$ sind genau dann teilerfremd, wenn
 ${\rm ggT}(a, b) = 1$. Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.
@@ -814,7 +814,7 @@ Wenn die Eulerfunktion $J(m)$ von $m$ bekannt ist, berechnet man
 leicht\footnote{Siehe \hyperlink{Appendix_A}{Anhang A}: der Gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.} 
 $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz 4
 $$
-        a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d (mod J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
+        a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
 die {\em $c$-te Wurzel} $b$ von $a$. \par
 
@@ -938,7 +938,7 @@ Beispiel f"ur $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
 7 & \equiv & 3 * 9{\rm ~(mod~}10) \nonumber 
 \end{eqnarray}
 Die eindeutige Invertierung ist eine notwendige Bedingung f"ur die
-Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat).}
+Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
 
 % .......................................................................................................
 \subsection{Euler-Funktion, kleiner Satz von Fermat und Euler -- Fermat}
@@ -1629,16 +1629,16 @@ abh"orbaren Kanal aushandeln.
                  Information offen aus.
    \item[\bf 2.] Alice w"ahlt nun $a$, eine Zufallszahl kleiner $p$ und h"alt diese geheim.
                  Bob w"ahlt ebenso $b$, eine Zufallszahl kleiner $p$ und h"alt diese geheim.
-   \item[\bf 3.] Alice berechnet nun $A = g^a {\rm ~(mod~} p)$. \\
-                 Bob berechnet $B = g^b {\rm ~(mod~} p)$.
+   \item[\bf 3.] Alice berechnet nun $A \equiv g^a {\rm ~(mod~} p)$. \\
+                 Bob berechnet $B \equiv g^b {\rm ~(mod~} p)$.
    \item[\bf 4.] Alice sendet das Ergebnis $A$ an Bob. \\
                  Bob sendet das Ergebnis $B$ an Alice.
    \item[\bf 5.] Um den nun gemeinsam zu benutzenden Sessionkey zu bestimmen, potenzieren sie
                  beide jeweils f"ur sich das jeweils empfangene Ergebnis mit ihrer geheimen
                  Zufallszahl modulo $p$. Das hei"st:
 		 \begin{itemize}
-                    \item[-] Alice berechnet $S = B^a {\rm ~(mod~} p)$, und 
-                    \item[-] Bob berechnet   $S = A^b {\rm ~(mod~} p)$.
+                    \item[-] Alice berechnet $S \equiv B^a {\rm ~(mod~} p)$, und 
+                    \item[-] Bob berechnet   $S \equiv A^b {\rm ~(mod~} p)$.
 		 \end{itemize}
 \end{itemize}		
 Auch wenn ein Spion $g, p$, und die Zwischenergebnisse $A$ und $B$ abh"ort, kann er den 
@@ -1909,31 +1909,31 @@ Blockbildung\footnote{
 
 {\tt \begin{tabular}{lll}
 & Bin"ardarstellung  &Dezimaldarstellung\\
-1010010, 82 & 1010010 1010011 & =10579 \\
-1010011, 83 & \\
-1000001, 65 & 1000001 0100000 & =8352  \\
-0100000, 32  \\
-1110111, 119 & 1110111 1101111 & =15343 \\
-1101111, 111 \\ 
-1110010, 114 & 1110010 1101011 & =14699 \\
-1101011, 107 \\
-1110011, 115 & 1110011 0100001 & =14753 \\
-0100001, 33: 
+01010010, 82 & 01010010 01010011 & =21075 \\
+01010011, 83 & \\
+01000001, 65 & 01000001 00100000 & =16672  \\
+00100000, 32  \\
+01110111, 119 & 01110111 01101111 & =30575 \\
+01101111, 111 \\ 
+01110010, 114 & 01110010 01101011 & =29291 \\
+01101011, 107 \\
+01110011, 115 & 01110011 00100001 & =29473 \\
+00100001, 33: 
 \end{tabular} }
-} (die ASCII-Zeichen werden als 7-stellige Bin"arzahlen hintereinander geschrieben):\\
-10579 8352 15343 14699 14753
+} (die ASCII-Zeichen werden als 8-stellige Bin"arzahlen hintereinander geschrieben):\\
+{\tt 21075 16672 30575 29291 29473}
 
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}67519)$ \footnote{
-Mit Mathematica kann das mit PowerMod[{10579, 8352, 15343, 14699, 14753},
+Mit Mathematica kann das mit PowerMod[{21075, 16672, 30575, 29291, 29473},
 65537, 67519] berechnet werden. }: \\
-{\tt 5449 36997 21817 30808 37500}
+{\tt 3046 29337 62503 9978 40883}
 
 {\bf 5. Entschl"usselung:} \\
 Chiffrat: \\
-{\tt 5449 36997 21817 30808 37500}
+{\tt 3046 29337 62503 9978 40883}
 
 Entschl"usselung pro Block per: $M \equiv C^{2473}{\rm ~(mod~}67519)$: \\
-{\tt 10579 8352 15343 14699 14753}
+{\tt 21075 16672 30575 29291 29473}
 
 \vskip +10 pt
 %{\bf Umwandeln:} jeden Block bin"ar in 2 Zahlen; danach jede Zahl in ASCII-Zeichen.

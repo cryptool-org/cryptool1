@@ -233,7 +233,7 @@ void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 {
 	r=lower;
 	if ( upper > lower )
-		r=rand(upper-(lower+1))+(lower-1);
+		r=rand(upper-(lower-1))+(lower-0);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -498,7 +498,8 @@ BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 	if ( p <= 40 )
 	{
 		if ( 2 == p || 3 == p  || 5 == p || 7 == p || 11 == p || 13 == p || 17 == p || 
-			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error = (Error & 0xFFFFFFFF) ^ GP_ERROR_NOPRIME;
+//			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error = (Error & 0xFFFFFFFF) ^ GP_ERROR_NOPRIME;
+			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
 	else
