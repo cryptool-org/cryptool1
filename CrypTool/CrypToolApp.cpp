@@ -302,6 +302,17 @@ BOOL CCrypToolApp::InitInstance()
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
+
+	CString TopicStr = _T("Settings");
+	CString ItemStr =  _T("SignatureAttackHarmlessFile");
+	if (GetProfileInt(TopicStr,ItemStr,1))
+	{  // fixme !!!
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
+		WriteProfileString("Settings", "SignatureAttackHarmlessFile", CString(Pfad)+CString(pc_str) );
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
+		WriteProfileString("Settings", "SignatureAttackDangerousFile", CString(Pfad)+CString(pc_str) );
+	}
+	
 	if(FALSE == Tipps.m_DoNotShowThisAgain)
 	{
 		Tipps.DoModal();
