@@ -37,6 +37,11 @@ char *Eingabedatei;
 int *MaxPermu[26];
 float Fortschritt=20.0;
 
+//////////////////////////////////////////////////////////////////////////////
+KeyData keylist[37];
+
+//////////////////////////////////////////////////////////////////////////////
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -49,6 +54,43 @@ bool match (char *current, char *common);
 
 
 // =============== TOOLS ====================================================
+BOOL CopyKey ( const char* KeyType, const CString &Key )
+{
+	int hash = 0;
+	if ( KeyType[0] == '\0' || !Key.GetLength() ) return FALSE;
+	for ( int i=0; KeyType[i] != '\0' && i < 12; i++ ) hash += (int)KeyType[i];
+	hash %= 37;
+	int counter = 0;
+	while ( strcmp( KeyType, keylist[hash].keytype ) && keylist[hash].keytype[0] != '\0' ) 
+	{
+		hash = (hash+1) % 37; // suche 
+		if ( counter++ > 37 ) exit(0);
+	}
+	if ( keylist[hash].keytype[0] == '\0' ) strcpy( keylist[hash].keytype, KeyType );
+	keylist[hash].key = Key;
+	return TRUE;
+}
+
+
+BOOL PasteKey( const char* KeyType, CString &Key )
+{
+	int hash = 0;
+	if ( KeyType[0] == '\0' ) return FALSE;
+	for ( int i=0; KeyType[i] != '\0' && i < 12; i++ ) hash += (int)KeyType[i];
+	hash %= 37;
+	int counter = 0;
+	while ( strcmp( KeyType, keylist[hash].keytype ) && keylist[hash].keytype[0] != '\0' ) 
+	{
+		hash = (hash+1) % 37; // suche 
+		if ( counter++ > 37 ) exit(0);
+	}
+	if (  keylist[hash].keytype[0] == '\0' ) return FALSE;
+	if ( !keylist[hash].key.GetLength() ) return FALSE;
+	Key = keylist[hash].key;
+	return TRUE;
+}
+
+
 void MakeNewName(char *dest, unsigned int len, const char *format, const char *old)
 {
     if(strlen(format)+strlen(old)<len)
