@@ -4812,7 +4812,7 @@ BEGIN
     IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
                             "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
     IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
-                            "\nHill-Entschlüsseluung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
+                            "\nHill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
     IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
     IDS_HILLEXAMPLE_HLENCRYPT 
                             "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
@@ -9619,7 +9619,7 @@ BEGIN
     IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
                             "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
     IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
-                            "\nHill-Entschlüsseluung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
+                            "\nHill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
     IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
     IDS_HILLEXAMPLE_HLENCRYPT 
                             "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
