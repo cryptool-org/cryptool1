@@ -588,6 +588,8 @@ void RSA_mit_kleinenPZ::OnEndDialog()
 {
 	if(RSA->IsInitialized())
 	{ // Copy RSA Demo Parameter
+		char tmp[20];
+		sprintf(tmp, "%i", DlgOptions->m_BlockLength);
 		LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
 		CString RSAOptions = "";
 		RSAOptions = CString("PUBLIC_KEY:") + m_oeffentliche_schluessel_e 
@@ -599,11 +601,11 @@ void RSA_mit_kleinenPZ::OnEndDialog()
 			 RSAOptions += CString(";ALPHABET:")+DlgOptions->m_alphabet;
 		RSAOptions += CString(";RSA_VARIANT:")   + char(DlgOptions->m_RSAVariant   + '0')
 					+CString(";BASEOFNUMBERS:")  + char(DlgOptions->m_numberBasis  + '0')
-					+CString(";CODING_METHOD:")  + char(DlgOptions->m_codingMethod + '0') + ';';
+					+CString(";CODING_METHOD:")  + char(DlgOptions->m_codingMethod + '0')  
+					+CString(";BLOCK_LENGTH:")   + CString(tmp) + ';';
 		CopyKey ( pc_str, RSAOptions );
 	}
 	
-
 	CDialog::OnCancel();
 }
 
@@ -652,6 +654,7 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 		DlgOptions->m_RSAVariant = load(RSAParam,"RSA_VARIANT:", NULL);
 		DlgOptions->m_numberBasis = load(RSAParam,"BASEOFNUMBERS:", NULL);
 		DlgOptions->m_codingMethod = load(RSAParam,"CODING_METHOD:", NULL);
+		DlgOptions->m_BlockLength = load(RSAParam, "BLOCK_LENGTH:", NULL);
 		UpdateData(FALSE);
 		OnParameterAktualisieren();
 	}
@@ -1222,7 +1225,7 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 
 	long curp = GetSel();
-	if ( nChar == 22 && nFlags == 47 )
+	if ( nChar == 22 && ((nFlags & 47) == 47) )
 	{
 		OnMyPaste();
 	}

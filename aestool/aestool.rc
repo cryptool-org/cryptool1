@@ -12,8 +12,13 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
+#define  __switch_de
+#define  __switch_en
+
 /////////////////////////////////////////////////////////////////////////////
 // Deutsch (Deutschland) resources
+
+#if defined(__switch_de) || defined(__switch_both)
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -89,7 +94,7 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Durchsuchen",IDC_BUTTON1,215,80,78,17
@@ -144,7 +149,7 @@ BEGIN
     LTEXT           "Ausgabedatei:",IDC_STATIC,24,93,48,17
     LTEXT           "Der Schlüssel wird in hexadezimaler Form (Zeichen '0' bis '9' und 'A' bis 'F') eingegeben. Die maximale Schlüssellänge beträgt 256 Bit. Das entspricht 64 hexadezimalen Zeichen. Die gegenwärtig empfohlene Mindestlänge liegt bei 20 Zeichen.",
                     IDC_STATIC,72,59,386,17
-    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Prgramm verschlüsselte Daten enthält) so wird das Programm automatisch auf Entschlüsseln eingestellt.",
+    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",
                     IDC_STATIC,72,76,386,17
     LTEXT           "Die Ausgabedatei bestimmt das Ziel der Ver- bzw. Entschlüsselung.\nBei Verschlüsselung wird über ""Radiobuttons"" zwischen zwei Formaten unterschieden:",
                     IDC_STATIC,72,93,386,17
@@ -153,7 +158,7 @@ BEGIN
     LTEXT           "Für die Entschlüsselung einer ""Verschlüsselten Datei"" wird dieses Programm benötigt.",
                     IDC_STATIC,72,126,386,10
     LTEXT           "Die zweite Möglichkeit des Aufrufs ist mit Kommandozeilenparametern. Diese können entweder über die Position oder über Schlüsselworte angegeben werden. Die Angabe eines Parameters bewirkt, dass das entsprechende Feld der Eingabemaske vorbelegt wird.",
-                    IDC_STATIC,24,136,434,25
+                    IDC_STATIC,24,136,434,19
     LTEXT           "Sind alle Felder vorbelegt, so wird die Ver- bzw. Entschlüsselungsfunktion sofort angestossen. Es ergeben sich zwei Aufrufmuster:",
                     IDC_STATIC,24,161,434,10
     LTEXT           "AESTool <Quelldatei> <Zeildatei> <Schlüssel>",
@@ -301,15 +306,26 @@ END
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
-
 /////////////////////////////////////////////////////////////////////////////
 // Englisch (GB) resources
+
+#endif //  __switch_de 
+#if defined(__switch_en) || defined(__switch_both)
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\aestool.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -333,7 +349,7 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Search",IDC_BUTTON1,215,80,78,17
@@ -390,7 +406,7 @@ BEGIN
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
                     IDC_STATIC,62,175,396,10
     LTEXT           "The third possibility for program invocation is the self extracting archive. The input file is here being preset by the self extracting archive.",
-                    IDC_STATIC,24,188,434,15
+                    IDC_STATIC,24,186,434,15
     LTEXT           "Static",IDC_STATIC,415,12,19,8
     LTEXT           "With a normal start by clicking the icon all necessary parameters can be entered into a dialogue box.",
                     IDC_STATIC,24,33,434,9
@@ -499,6 +515,8 @@ END
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
+
+#endif // __switch_en
 
 
 #ifndef APSTUDIO_INVOKED

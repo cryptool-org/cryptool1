@@ -159,12 +159,12 @@ are the {\em natral} and {\em whole} numbers respectively.
 \newpage
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark\:}\newline This isn't magic – it's logic – a puzzle. A 
+\fbox{\parbox{15cm}{{\em Joanne\index{Rowling} K. Rowling\footnotemark\:}\newline This isn't magic-it's logic-a puzzle. A 
 lot of the greatest wizards haven't got an ounce of logic.}}
 \end{center}
 
-\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling,~''Harry Potter and the Philosopher's Stone'', Carlsen, (c) 
-1997, chapter ''Through the trapdoor'', p. 310.}
+\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling,~''Harry Potter and the Philosopher's Stone'', Bloomsbury, (c) 
+1997, chapter ''Through the trapdoor'', p. 307, by Hermine.}
 
 
 %\begin{quote}
@@ -437,7 +437,7 @@ $
 \end{itemize}
 \subsubsection{Patterns and Structures}
 \hypertarget{kap_3_5_2}
-In general mathematicians investigate ''Structures''. They ask e.g. at $ a * x \equiv b $ mod $m$,
+In general mathematicians investigate ''Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
 which values $x$ can take for given values of $a, ~b, ~m.$
 
 Especially the case is investigated, where the result $b$ of this operation is the neutral element. Then
@@ -595,7 +595,7 @@ The numbers $2$, $3$ and $4$ have the factor $2$ or $3$ in common with the modul
 $1$ and $5$, which are relatively prime to $6$, have multiplicative inverses, namely themselves.
 
 The number of numbers that are relatively prime to the modulus $m$ is the same as the number of numbers that 
-have a multiplicative inverse (see the \hyperlink{EulerFunction}{Euler function} below).
+have a multiplicative inverse (see the \hyperlink{EulerFunction}{Euler function} $J(m)$ \index{Euler!(phi) function} below).
 
 For the two moduli $5$ and $6$ used in the multiplication tables, this means: the modulus $5$ is a prime number 
 itself. In mod $5$, therefore, there are exactly $J(5) = 5 - 1 = 4$ numbers that are relatively prime to the modulus, 
@@ -790,7 +790,6 @@ a fast computer chip would take longer than the age of the universe to calculate
 an extremely effective shortcut for calculating exponentials (but not for calculating logarithms).
 
 If the expression is divided differently using the rules of modular arithmetic, then the calculation does not even exceed the 
-$16$-bit short integer region\index{Short Integer}:
 $$
 (a^5) \equiv (((a^2{\rm ~(mod~}m))^2 {\rm ~(mod~}m)) * a){\rm ~(mod~}m).
 $$
@@ -828,7 +827,7 @@ The powers $(a^2)^k$ can be determined easily by means of repeated squaring. As 
 can calculate them beforehand and -- if enough memory is available -- save them. In order to then find $a^n$ in each 
 individual case, it now only needs to multiply those $(a^{2})^k$ for which there is a one in the kth position of the binary 
 representation of $n$. The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
-This frequently used algorithm is called ''Square and Multiply''\index{Square and Multiply}.
+This frequently used algorithm is called ''Square and Multiply''\index{Square and multiply}.
 
 % ..............................................................................................................
 \subsubsection{Roots and logarithms} \index{Roots} \index{Logarithms}
@@ -851,7 +850,7 @@ knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\
 
 The situation is similar if 
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A}:
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A}:
 the greatest common divisor (gcd) of whole numbers.} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem \ref{thm-zth-pot} to obtain:
 $$
@@ -952,8 +951,8 @@ an element of $R'$. Since $1$ and $n-1$ are always relatively prime to $n$, they
 If we select a random element in $\mathbb{Z}_n^*$ and multiply it by every other element in $\mathbb{Z}_n^*$, then the
 products\footnote{This is due to the fact that $\mathbb{Z}_n^*$ is closed with respect to the multiplication and due to the gcd property: \\
 $[a, b \in \mathbb{Z}_n^* ] \Rightarrow [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$, exactly:\\
-$[a, b \in \mathbb{Z}_n^* ] \Rightarrow  [{\rm ggT}(a, n) = 1, {\rm ggT}(b, n) = 1] 
-\Rightarrow  [{\rm ggT}(a*b, n) = 1] \Rightarrow  [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$.}
+$[a, b \in \mathbb{Z}_n^* ] \Rightarrow  [{\rm gcd}(a, n) = 1, {\rm gcd}(b, n) = 1] 
+\Rightarrow  [{\rm gcd}(a*b, n) = 1] \Rightarrow  [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$.}
 are all in $\mathbb{Z}_n^*$,  and the results are also a unique permutation of the elements in $\mathbb{Z}_n^*$. Since $1$ 
 is always an element of $\mathbb{Z}_n^*$, there is a unique ''partner'' in this set such that the product is $1$.  In other words:
 
@@ -976,18 +975,18 @@ The unique inverse is an essential condition for cryptography (see Section 3.10:
 \subsubsection{Patterns and Structures}
 \hypertarget{Kap_3_8}{}
 
-As mathematicians investigate the structure $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
+As mathematicians investigate the structure \index{Structure} $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
 Again here they are interested in the case, if $ b=1$ (value of the multiplicative inverse) and
 if $ b=x$ (the function has a fixpoint\index{Fixpoint}).
-\subsubsection{The Euler function\index{Euler!(Phi) function}}
+\subsubsection{The Euler function\index{Euler!(phi) function}}
 Given $n$, the number of numbers from the set $\{1, \cdots, n-1\}$ that are relatively prime to $n$ is equal to the value of 
-the Euler\footnote{Leonhard Euler, Swiss mathematician, 15.4.1707 -- 18.9.1783}
+the Euler\footnote{Leonhard Euler, Swiss mathematician, 15.4.1707 -- 18.9.1783\index{Euler}}
  function $J(n)$.
 
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{} 
-The Euler function\footnote{Is often described as the Euler phi function\index{Euler!(Phi) Function} $\Phi(n)$.} $J(n)$ specifies the number of 
+The Euler function\footnote{Is often described as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
 elements in $\mathbb{Z}_n^*$.
 \end{definition}
 $J(n)$ also specifies how many whole numbers have multiplicative inverses in mod $n$.
@@ -1032,7 +1031,7 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 \subsubsection{The theorem of Euler-Fermat}
 In order to prove the RSA procedure, we need Fermat's theorem and its generalisation (Euler-Fermat theorem).
 
-\begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, 17.8.1601 -- 12.1.1665.}
+\begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, 17.8.1601 -- 12.1.1665.\index{Fermat}}
 Let $p$ be a prime number and $a$ be a random whole number, then:
 $$  a^p \equiv a {\rm ~(mod~} p).$$ 
 \end{theorem}
@@ -1131,7 +1130,7 @@ $$} (please compare requisition 3 in section 3.10.1).
 \hypertarget{Kap_3_9}{}
 
 Mathematicians often ask, under which conditions the repeated application of an operation results in the neutral
-element.
+element (compare patterns and structures before)\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
 of the multiplication (1) if and only if $a$ and $m$ are relatively prime. The value of $i$, for which  
@@ -1341,7 +1340,7 @@ $J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22
 The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 \begin{theorem}\label{thm-zth-ordp}\footnote{Compare the above table with the values for $a^i$ mod 11, with $ 1 \le a,
-i < 11$.}\footnote{Exhausting all possible values of the set is an important cryptographic proposition (compare theorem \ref{thm-zth-exhperm}).}
+i < 11$.} \footnote{Exhausting all possible values of the set is an important cryptographic proposition (compare theorem \ref{thm-zth-exhperm}).}
 For a modulus $p$ and $a < p$:
 $a^i, i = 1, \cdots, p-1$ assumes all $J(p)$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
 \end{theorem}
@@ -1402,7 +1401,7 @@ $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
 One reason probably is, that Compaq claimed a patent \index{Patent} on it. Generally there is less understanding in Europe
 and with the Open Source Initiative, that one can claim patents on algorithms. But there is really no understanding outside
 the U.S., that one can get a patent for a special case (3 factors) of an algorithm (RSA), although the patent for the general case is
-almost expired.}\footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
+almost expired.} \footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
 $ e ~d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
 ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ But it is $ (5^3)^7\equiv 0 $ mod $ 25$.
 } $p$ and $q$ and calculate 
@@ -1425,7 +1424,7 @@ The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is d
                 We can then ''throw away'' $p$ and $q$.
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with  $e*d \equiv 1  {\rm ~(mod~} J(n))$,
                 i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$\footnote{For reasons of security, $d$ should not 
-                be too small.}\footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ''throw away'' $J(n)$.
+                be too small.} \footnote{We start by determining either $d$ or $e$ depending on the implementation.}. We can then ''throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
         \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
@@ -1531,8 +1530,8 @@ $$
 It is our choices, that show what we truly are, far more than our abilities.}}
 \end{center}
 
-\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, ~''Harry Potter and the Chamber of Secrets'', Carlsen, 1998, 
-last chapter ''Dobby's reward'', p 343.}
+\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, ~''Harry Potter and the Chamber of Secrets'', Bloomsbury, 1998, 
+last chapter ''Dobby's reward'', p 245, by Dumbledore.}
 
 %\begin{quote}
 %{\em Joanne K. Rowling}\footnote{Joanne K. Rowling, ~''Harry Potter and the Chamber of Secrets'', Carlsen, 1998, 
@@ -2189,7 +2188,7 @@ Algorithms of Euclid}\index{Euclidean algorithm!extended}
 very quickly. Here we make use of the fact that if a number $c$ divides the numbers $a$ and $b$ 
 (i.e. there exists an $a'$ and a $b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides 
 the remainder $r$ of $a/b$. In short notion we can write: If $c$ divedes $a$ and $b$ it follows that 
-$c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss} bracket $\lfloor x \rfloor $
+$c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $
 of a real number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
 }.
 As the latter statement is valid for each common divisor $c$ of $a$ and $b$ it follows that:
@@ -2229,7 +2228,7 @@ If we apply the above gcd algorithm to this matrix, we obtain the extended gcd a
            \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
   \item[\tt 2.] {\tt if (b != 0) then goto 1.}
 \end{itemize}
-{\tt OUTPUT:} ''ggT$(a,b) = a*x +b*y$: '', ''ggT$(a,b) =$ '' $b$, ''$x = $'' $x_{2,1}$, ''$y = $'' $x_{2,2}$
+{\tt OUTPUT:} ''gcd$(a,b) = a*x +b*y$: '', ''gcd$(a,b) =$ '' $b$, ''$x = $'' $x_{2,1}$, ''$y = $'' $x_{2,2}$
 
 Since this algorithm only performs linear transformations, the same equations always apply
 \begin{eqnarray}
@@ -2317,20 +2316,20 @@ Definition \ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibi
 Definition \ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
 Definition \ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
 Theorem \ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
-Theorem \ref{thm-zth-multinv} & multiplicative Inverse & \pageref{thm-zth-multinv}  \\
-Theorem \ref{thm-zth-exhperm} & exhaustive Permutation & \pageref{thm-zth-exhperm} \\
-Theorem \ref{thm-zth-pot} & Power mod $m$ & \pageref{thm-zth-pot} \\ \hline
+Theorem \ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
+Theorem \ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
+Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
 Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
 Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
-Theorem \ref{thm-zth-znmult} & multiplicative Inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
-Definition \ref{def-zth-phiofn} & Euler-Function $J(n)$ & \pageref{def-zth-phiofn} \\
+Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
+Definition \ref{def-zth-phiofn} & Euler-function $J(n)$ & \pageref{def-zth-phiofn} \\
 Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
 Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
 Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
 Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
 Theorem \ref{thm-zth-fermat1} & small Fermat  &  \pageref{thm-zth-fermat1}\\
 Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
-Definition \ref{def-zth-ordn} & multiplicative Order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
+Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
 Definition \ref{def-zth-primitiveroot} & primitive root von $m$ &  \pageref{def-zth-primitiveroot}\\
 Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
 \end{tabular}

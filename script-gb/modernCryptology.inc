@@ -38,7 +38,7 @@
 \newcommand{\Fix}{\text{Fix}}
 \newcommand{\Syl}{\text{Syl}}
 \newcommand{\Bild}{\text{Bild}}
-\newcommand{\ggt}{{\rm ggT}}
+\newcommand{\ggt}{{\rm gcd}}
 \newcommand{\kgv}{\text{kgV}}
 \newcommand{\Id}{\text{Id}}
 \newcommand{\nqcarre}{{\ncarre}_{q^2}}
@@ -383,7 +383,7 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 {\bf RSA procedure} (based on the factorisation problem).
 \vskip +20 pt
 \index{Factorisation problem}
-\index{Euler!(Phi) function}
+\index{Euler!(phi) function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
 numbers that do not have a common factor with $ N $ \index{Coprime} {}

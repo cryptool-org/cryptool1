@@ -94,13 +94,13 @@ orientiert sich daran, das RSA-Verfahren verstehen und anwenden zu k"onnen.
 
 Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
-Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
+Insbesondere wird auf die klassischen Public-Key-Verfahren Diffie-Hellman
 (DH) und RSA eingegangen.
 
 \vskip +40 pt
 
 \begin{center}
-\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss (30.4.1777 - 23.2.1855):}\\
+\fbox{\parbox{15cm}{{\em Carl Friedrich Gauss \index{Gauss}(30.4.1777 - 23.2.1855):}\\
 Die Mathematik ist die K"onigin der Wissenschaften, die Zahlentheorie aber
 ist die K"onigin der Mathematik.}}
 \end{center}
@@ -206,7 +206,7 @@ sich selbst. Die Zahl 12 hat die sechs Teiler 1, 2, 3, 4, 6 und 12\footnote{Aufg
 gro"sen Teilerzahl von 12 findet sich diese Zahl -- und Vielfache dieser Zahl -- oft im allt"aglichen wieder:
 Die 12 Stunden-Skala der Uhr, die 60 Minuten einer Stunde, die 360 Grad-Skala der Winkelmessung, usw. Teilt man 
 diese Skalen in Bruchteile auf, so ergeben sich in vielen F"allen die Br"uche als ganze Zahlen. Mit diesen kann 
-man im Kopf einfacher arbeiten als mit gebrochenen Zahlen.}. Viele
+man im Kopf einfacher rechnen als mit gebrochenen Zahlen.}. Viele
 Zahlen sind nur teilbar durch sich selbst und durch 1. Bez"uglich der
 Multiplikation sind dies die \glqq Atome'' im Bereich der Zahlen.
 
@@ -664,7 +664,7 @@ Nur die zu $6$ teilerfremden Zahlen $1$ und $5$ haben multiplikative Inverse, n"
 
 Die Anzahl der zum Modul $m$ teilerfremden Zahlen ist auch die Anzahl
 derjenigen Zahlen, die eine multiplikative Inverse haben (vgl. unten die
-\hyperlink{EulerFunction}{Euler-Funktion} $ J(m)$).
+\hyperlink{EulerFunction}{Euler-Funktion} \index{Eulersche Phi-Funktion} $J(m)$).
 
 F"ur die beiden in den Multiplikationstabellen verwendeten Moduli $5$ und $6$
 bedeutet dies:
@@ -867,7 +867,7 @@ $$
 \vskip + 10 pt
 \subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} \addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} \hypertarget{hohpot}{} \index{Potenzen}
 Bei RSA--Ver- und Entschl"usselungen\footnote{Siehe \hyperlink{RSABeweis}{Kapitel 3.10 Beweis des RSA--Verfahrens mit Euler--Fermat} und \hyperlink{Kapitel_3_12}{Kapitel 3.12 Das RSA--Verfahren mit konkreten Zahlen}.}
-m"ussen hohe Potenzen Modulo $m$ berechnet
+m"ussen hohe Potenzen modulo $m$ berechnet
 werden. Schon die Berechnung $(100^5){\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
 Definition $a$ tats"achlich $n$-mal mit sich selbst multipliziert. Bei sehr gro"sen Zahlen w"are selbst ein
@@ -887,7 +887,7 @@ Dies kann man verallgemeinern, indem man den Exponenten bin"ar darstellt.
 Beispielsweise w"urde die Berechnung von $a^n$ f"ur $n = 37$ auf dem naiven Wege $36$
 Multiplikationen erfordern.
 Schreibt man jedoch $n$ in der Bin"ardarstellung als $100101 = 1*2^5 + 1*2^2 + 1*2^0$,
-so kann man umformen: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$
+so kann man umformen: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$.
 
 {\bf Beispiel 3:} $87^{43}{\rm ~(mod~}103)$. \\
 Da $43 = 32+8+2+1$, $103$ prim , $43<J(103)$ ist und
@@ -922,7 +922,7 @@ Dieser h"aufig verwendete Algorithmus hei"st \glqq Square and Multiply''. \index
 \vskip +40 pt
 
 % ..............................................................................................................
-\subsubsection{Wurzeln und Logarithmen} \index{Wurzeln} \index{Logarithmen}
+\subsubsection{Wurzeln und Logarithmen} 
 
 Die Umkehrungen des Potenzierens sind ebenfalls definiert: Wurzeln und
 Logarithmen sind abermals ganze Zahlen, aber im Gegensatz zur "ublichen
@@ -944,7 +944,7 @@ Konstanten $C > 1$.
 \item[\bf b)] {\bf Wurzel-Berechnung (Bestimmen von $b$):}  
 
 "Ahnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
-Wenn die Eulerfunktion $J(m)$ bekannt ist, berechnet man 
+Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist, berechnet man 
 leicht\footnote{Siehe \hyperlink{Appendix_A}{Anhang A}: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.} 
 $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz \ref{thm-zth-pot} 
 $$
@@ -1090,7 +1090,7 @@ Einheit annimmt) und wenn $b=x$ ist (also die Abbildung einen Fixpunkt\index{Fix
 \subsubsection{Die Euler-Funktion}
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots, n-1\}$,
 die zu $n$ teilerfremd sind, gleich dem Wert der Euler\footnote{Leonhard Euler, schweizer Mathematiker,
-15.4.1707 -- 18.9.1783}-Funktion $J(n)$.
+15.4.1707 -- 18.9.1783\index{Euler} }-Funktion $J(n)$.
 \index{Eulersche Phi-Funktion}
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{}
 Die Euler-Funktion\footnote{Wird oft auch als Eulersche Phi--Funktion $\Phi(n)$ geschrieben.} $J(n)$ gibt die Anzahl der Elemente von $\mathbb{Z}_n^*$ an.
@@ -1137,7 +1137,8 @@ $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 \subsubsection{Der Satz von Euler-Fermat}
 F"ur den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und dessen Verallgemeinerung (Satz von Euler-Fermat).
 \index{Fermat!kleiner Satz}
-\begin{satz}\label{thm-zth-fermat1}{\bf Kleiner Satz von Fermat}\footnote{Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665}
+\begin{satz}\label{thm-zth-fermat1}{\bf Kleiner Satz von Fermat}\footnote{Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665
+\index{Fermat}}
 \hypertarget{kleiner-Fermat}Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt
 $$a^p \equiv a {\rm ~(mod~} p).$$
 \end{satz}
@@ -1248,9 +1249,8 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.} (vergleiche Forderung 3 in
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{}
 
-
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
-wiederholte Anwendung einer Operation das neutrale Element.
+wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Strukturen}).
 
 F"ur die i-fach aufeinander folgende modulare Multiplikation einer Zahl $a$ mit 
 $i=1, \cdots , m-1$ ergibt sich als Produkt das neutrale Element der Multiplikation $(1)$ nur dann, wenn
@@ -1476,7 +1476,7 @@ Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1 \le a, i < 11$.}
 \footnote{Das Aussch"opfen des Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische Eigenschaft 
-(vergleiche Satz \ref{thm-zth-exhperm }).}
+(vergleiche Satz \ref{thm-zth-exhperm}).}
 F"ur einen Modul $p$ und $a < p$ nimmt $a^i, i = 1, \cdots, p-1$ alle $J(p)$ Werte 
 $1, \cdots, p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
 \end{satz}
@@ -1499,9 +1499,9 @@ Milliarden DM bezeichnet.
 }-Verfahren \glqq beweisen''.
 
 % ...............................................................................................................................
-\subsubsection{Grundidee der Public Key-Kryptographie}
+\subsubsection{Grundidee der Public-Key-Kryptographie}
 \hypertarget{Kapitel_3_10_1}{}
-Die Grundidee bei der Public Key-Kryptographie \index{Public Key} besteht darin, dass alle
+Die Grundidee bei der Public-Key-Kryptographie \index{Public-Key} besteht darin, dass alle
 Teilnehmer ein unterschiedliches Paar von Schl"usseln ($P$ und $S$) besitzen und
 man f"ur alle Empf"anger die "offentlichen Schl"ussel publiziert. So wie man die
 Telefonnummer einer Person aus dem Telefonbuch nachschl"agt, kann man den
@@ -1586,7 +1586,7 @@ bezeichnet\footnote{In CrypTool wird der RSA-Modul mit einem gro"sen \glqq N'' b
                 diese im Vergleich zum Modul $n$ sehr kleine Bitl"angen haben und in ihrer Bin"ardarstellung 
 		nur wenige Einsen aufweisen. H"aufig verwendet
 	  	wird die Zahl $65537 = 2^{16}+1$, also bin"ar: $10\cdots 0\cdots 01$ (diese
-		Zahl ist prim und desahlb zu sehr vielen Zahlen teilerfremd).}. 
+		Zahl ist prim und deshalb zu sehr vielen Zahlen teilerfremd).}. 
 	  	Danach kann man $p$ und $q$ \glqq wegwerfen''.
 \item[{\bf 3.}] W"ahle $d \in \{1, \cdots, n-1\}$  mit  $e*d = 1$  mod $J(n)$,
                 d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$ \footnote{Aus Sicherheitsgr"unden
@@ -1912,8 +1912,8 @@ Zahl zeigen\footnote{Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahre
   \item[\bf 2.] $e = 7$ (sollte zwischen $11$ und $40$ liegen und mu"s teilerfremd zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
-     \item[] $\rightarrow$ Public Key des Senders: $(55, 7),$
-     \item[] $\rightarrow$ Private Key des Empf"angers: $(55, 23).$ 
+     \item[] $\rightarrow$ Public-Key des Senders: $(55, 7),$
+     \item[] $\rightarrow$ Private-Key des Empf"angers: $(55, 23).$ 
   \end{itemize}
   \item[\bf 4.] Nachricht sei nur die Zahl $M = 2$ (also ist kein Aufbrechen in Bl"ocke n"otig).
   \item[\bf 5.] Verschl"usseln: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
@@ -2430,8 +2430,8 @@ und die beiden Algorithmen von Euklid}
 \item Der gr"o"ste gemeinsame Teiler zweier nat"urlicher Zahlen $a$ und $b$ ist eine wichtige und 
 sehr schnell zu berechnende Gr"o"se. Wenn eine Zahl $c$ die Zahlen $a$ und $b$ 
 teilt (d.h. es gibt ein $a'$ und ein $b'$, so dass $a = a'*c$ und $b = b'*c$), dann teilt $c$ auch den
-Rest $r$ der Division von $a$ durch $b$. Wir schreiben in aller K"urze: Aus $c$ teilt $a$ und $b$ folgt $c$ teilt  
-$r = a - \lfloor a/b \rfloor * b$\footnote{Die Gau"sklammer $\lfloor x \rfloor $ 
+Rest $r$ der Division von $a$ durch $b$. Wir schreiben in aller K"urze: Aus $c$ teilt $a$ und $b$ folgt: $c$ teilt  
+$r = a - \lfloor a/b \rfloor * b$\footnote{Die Gau"sklammer \index{Gau""sklammer} $\lfloor x \rfloor $ 
 der reellwertigen Zahl $x$ ist definiert als: $\lfloor x \rfloor $ ist die gr"o"ste ganze Zahl kleiner oder gleich $x$.
 }.
 
@@ -2585,14 +2585,14 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \begin{tabular}{|l|l|l|}\hline
  & Kurzbeschreibung~~ & Seite \\ \hline
 Definition \ref{def-zth-prime} & Primzahlen &  \pageref{def-zth-prime} \\
-Definition \ref{def-zth-composite} & zusammengesetzte Zahlen & \pageref{def-zth-composite}  \\ \hline
-Satz \ref{thm-zth-cnum} & Teiler von zusammengesetzte Zahlen~~~~~~~ & \pageref{thm-zth-cnum}\\
-Satz \ref{thm-zth-mthm} &  Erste Hauptsatz der elemenatren Zahlentheorie&  \pageref{thm-zth-mthm} \\  \hline
+Definition \ref{def-zth-composite} & Zusammengesetzte Zahlen & \pageref{def-zth-composite}  \\ \hline
+Satz \ref{thm-zth-cnum} & Teiler von zusammengesetzten Zahlen~~~~~~~ & \pageref{thm-zth-cnum}\\
+Satz \ref{thm-zth-mthm} &  Erster Hauptsatz der elementaren Zahlentheorie&  \pageref{thm-zth-mthm} \\  \hline
 Definition \ref{def-zth-divisibility} & Teilbarkeit &  \pageref{def-zth-divisibility} \\
 Definition \ref{def-zth-remainder} & Restklasse $r$ modulo $m$ &  \pageref{def-zth-remainder} \\
 Definition \ref{def-zth-congruence} & restgleich oder kongruent & \pageref{def-zth-congruence}  \\ \hline
 Satz \ref{thm-zth-div} & Kongruenz mittels Differenz  &  \pageref{thm-zth-div} \\
-Satz \ref{thm-zth-multinv} & multiplikative Inverse (Existenz) & \pageref{thm-zth-multinv}   \\
+Satz \ref{thm-zth-multinv} & Multiplikative Inverse (Existenz) & \pageref{thm-zth-multinv}   \\
 Satz \ref{thm-zth-exhperm} & Ersch"opfende Permutation &  \pageref{thm-zth-exhperm} \\
 Satz \ref{thm-zth-pot} & Gestaffelte Exponentiation mod $m$ & \pageref{thm-zth-pot}  \\ \hline
 Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn} \\
@@ -2603,7 +2603,7 @@ Satz \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime} \\
 Satz \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq} \\
 Satz \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime}  \\
 Satz \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum}  \\
-Satz \ref{thm-zth-fermat1} & Klein Satz von Fermat  &  \pageref{thm-zth-fermat1} \\
+Satz \ref{thm-zth-fermat1} & Kleiner Satz von Fermat  &  \pageref{thm-zth-fermat1} \\
 Satz \ref{thm-zth-fermateuler} & Satz von Euler-Fermat & \pageref{thm-zth-fermateuler}  \\ \hline
 Definition \ref{def-zth-ordn} & Multiplikative Ordnung $ {\rm ord}_{m} (a)$ &  \pageref{def-zth-ordn} \\
 Definition \ref{def-zth-primitiveroot} & Primitivwurzel von $m$ &  \pageref{def-zth-primitiveroot} \\

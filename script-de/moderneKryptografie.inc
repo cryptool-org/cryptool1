@@ -235,7 +235,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 %---------------------------------------------------------------------
-       \subsection{Primfaktorzerlegung als Basis f"ur Public-Key-Verfahren}
+      \subsection{Primfaktorzerlegung als Basis f"ur Public-Key-Verfahren}
 %--------------------------------------------------------------------
 
 
@@ -337,7 +337,10 @@ Primfaktoren zu zerlegen; dies gilt selbst dann, wenn $ 10^{12} $  Operationen p
 was jenseits der Leistung der heutigen Technik liegt und in der Entwicklung Milliarden von Dollar kosten w"urde. Da"s es aber
 nicht doch schon morgen zu einem mathematischen Durchbruch kommt, kann man nie ausschlie"sen.
 
-Bewiesen ist bis heute nicht, da"s das Problem, RSA zu brechen, "aquivalent zum Faktorisierungsproblem ist. Es ist aber klar, da"s, wenn das Faktorisierungsproblem \glqq gel"ost\grqq {} ist, da"s dann das RSA-Verfahren  nicht mehr sicher ist.
+Bewiesen ist bis heute nicht, da"s das Problem, RSA zu brechen "aquivalent zum Faktorisierungsproblem \index{Faktorisierungsproblem}
+ist. Es ist aber klar, dass wenn das Faktorisierungsproblem \glqq gel"ost\grqq {} ist, dass dann das RSA-Verfahren nicht mehr sicher ist.
+
+
 
 
 %--------------------------------------------------------------------
@@ -592,7 +595,7 @@ und
            IEEE Trans. Information Theory, IT-24, 1978.
 
        \bibitem[RSA1978]{RSA1978} Rivest R.L., Shamir A. and Adleman L.:\index{RSA}\index{Shamir Adi}
-           \emph{A Method for Obtaining Digital Signatures and Public Key Cryptosystems.} \\
+           \emph{A Method for Obtaining Digital Signatures and Public-Key Cryptosystems.} \\
            Commun. ACM, vol 21, April 1978, pp. 120-126.
 
            \bibitem[Shamir1982]{Shamir1982} Shamir A.:

@@ -282,6 +282,15 @@ quickly and efficiently using symmetric procedures.
 Beside information you can find in many books and on a lot of websites the online help
 of CrypTool also offers very many details about the symmetric and asymmetric encryption methods.
 
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literatur}
+\bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
+	Klaus Schmeh, \\
+	Kryptografie und Public-Key Infrastrukturen im Internet, dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
+	A considerable, up-to-date, good reading book, which considers practical problems, like standardisation or
+	real existing software. Currently published only in German language.
+\end{thebibliography}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % C H A P T E R   T W O
@@ -295,7 +304,7 @@ of CrypTool also offers very many details about the symmetric and asymmetric enc
 %\paragraph{What are prime numbers?}
 \subsection*{What are prime numbers?}
 \addcontentsline{toc}{subsection}{~~~~~~What are prime numbers?}
-\index{Prime number} \index{Numbers!prime number}
+\index{Prime number} \index{Numbers!prime numbers}
 Prime numbers are whole, positive numbers greater than or equal to $2$ that can
 only be divided by 1 and themselves. All other natural numbers greater than or
 equal to $2$ can be formed by multiplying prime numbers.
@@ -312,8 +321,8 @@ Prime numbers are particularly important for 3 reasons:
   \item In number theory, they are considered to be the basic components of
 natural numbers, upon which numerous brilliant mathematical ideas are based.
   \item They are of extreme practical importance in modern
-\index{Cryptography!modern} cryptography (public-key \index{Cryptography!public-
-key} cryptography). The most common public-key procedure, invented at the end of
+\index{Cryptography!modern} cryptography (public key \index{Cryptography!public 
+key} cryptography). The most common public key procedure, invented at the end of
 the 1970's, is \index{RSA} RSA encryption. Only using (large) prime numbers for
 particular parameters can you guarantee that an algorithm is secure, both for
 the RSA procedure and for even more modern procedures (digital
@@ -343,7 +352,7 @@ area of numbers. Such numbers are called prime numbers.
 In mathematics, a slightly different (but equivalent) definition is used.
 
 \begin{definition}\label{def-pz-prime}
-A whole number $p \in {\bf N}$ is called prime \index{Numbers!prime number} if
+A whole number $p \in {\bf N}$ is called prime \index{Numbers!prime numbers} if
 $p > 1$ and $p$ only possesses the trivial factors $\pm 1$ and $\pm p$.
 \end{definition}
 
@@ -471,8 +480,8 @@ $$(n+1)!+2,\cdots, (n+1)!+(n+1),
 $$
 none of them is a prime number since in order, the numbers $2,3,\cdots,(n+1)$  
 are comprised respectively as real divisors. 
-Nevertheless $n!$ means the product of the first $n$ natural numbers therefore 
-$ n!= n*(n-1)*\cdots *2*1.$
+($n!$ means the product of the first $n$ natural numbers therefore 
+$ n!= n*(n-1)*\cdots *2*1$).
 
 \subsection{The search for extremely large primes}
 
@@ -499,8 +508,8 @@ $$
 
 \index{Numbers!Mersenne numbers}\index{Mersenne Marin!Mersenne numbers}
 \index{Mersenne Marin!theorem} Even Mersenne knew that not all Mersenne numbers
-are prime (see exponent $p = 11$). However, he is to be thanked for the
-interesting conclusion that a number of the form $2^n-1$ is not a prime number
+are prime (see exponent $p = 11$). A prime Mersenne number \index{Mersenne prime number} is called Mersenne prime number.  
+However, he is to be thanked for the interesting conclusion that a number of the form $2^n-1$ is not a prime number
 if $n$ is a composite number:
 
 \begin{theorem}[Mersenne]\label{thm-pz-mersenne} If $2^n - 1$ is a prime number, then $n$ is also a
@@ -537,7 +546,8 @@ product of factors) of this 21-digit decimal number!
 
 Due to the fact that the exponents of the Mersenne numbers do not use all
 natural numbers, but only the primes, the {\em experimental space} is limited
-considerably. The currently known Mersenne prime numbers have the exponents
+considerably. The currently known Mersenne prime numbers \index{Mersenne prime number} 
+have the exponents 
 $$
 \begin{array}{c}
 2; ~ 3; ~ 5; ~ 7; ~ 13; ~ 17; ~ 19; ~ 31; ~ 61; ~ 89; ~ 107; ~ 127;
@@ -965,7 +975,7 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 
 
 This is the \index{Prime number!theorem} \textbf{prime number theorem}. It was
-put forward by Legendre (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
+put forward by Legendre \index{Legendre} (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
 over 100 years later.
 
 \hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
@@ -1085,7 +1095,7 @@ simpler manner than those before him).
     Every even natural number greater than 2 can be represented as the sum of
 two prime numbers.
     Computers have verified\footnote{It is generally accepted today, that
-the Goldbach Conjecture is true, i.e. valid for all prime numbers.
+the Goldbach Conjecture is true, i.e. valid for all natural numbers bigger than $2$.
 In 1999, mathematician J\"org Richtstein from the computer sciences institute at the University
 of Giessen, studied even numbers up to 400 billion and found no contradictory example (see
 \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).\index{Richstein 1999}
@@ -1111,7 +1121,7 @@ Series in Pure Maths, Vol. 4.}.
   \item The German \index{Riemann Bernhard} mathematician Bernhard Riemann
 (1826-1866) put forward a formula for the distribution of primes that would
 further improve the estimate. However, this has neither been proved nor
-contradicted (?) so far.
+contradicted so far.
 \end{itemize}
 
 \textbf{Open questions} \\
@@ -1145,7 +1155,7 @@ calculates a non-trivial (i.e. other than $1$ and $n$) factor of $n$?
 \end{itemize}
 
 \paragraph{Further interesting topics regarding prime numbers}
-This chapter doesn't consider the other number theory topics such as
+This chapter doesn't consider other number theory topics such as
 divisibility rules, modulus calculation, modular inverses, modular powers and
 roots, Chinese remainder theorem, Euler PHI function, perfect numbers.
 
@@ -1444,16 +1454,16 @@ particularly important in countries such as France, in which procedures are
 allowed for digital signatures but where you are not permitted to encrypt
 messages without authorisation.
 
-\subsection{Public-key certification}
-\index{Certification!Public-Key}
-The aim of public-key certification is to guarantee the connection between a
+\subsection{Public key certification}
+\index{Certification!public key}
+The aim of public key certification is to guarantee the connection between a
 public key and a user and to make it traceable for external parties. In cases in
 which it is impossible to ensure that a public key really belongs to a
 particular person, many protocols are no longer secure, even if the individual
 cryptographic modules cannot be broken.
 
 \subsubsection{Impersonation attacks}
-\index{Impersonation attacks}
+\index{Impersonation attack}
 Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
 the secret key and PK the public key. Further assume that he manages to palm off
 PK1 on Alice as Bob's public key and PK2 on Bob as Alice's public key (by
@@ -1579,7 +1589,7 @@ can be found under Factorisation using elliptic curves.}
 \subsection{Elliptic curves --- mathematical basics}
 
 This section provides information about \index{Groups} {\em groups} and
-\index{Fields} {\em fields}.
+\index{Field} {\em fields}.
 
 \subsubsection{Groups}
 
@@ -1635,7 +1645,7 @@ e$ bzw.\ $a^r = e$), is called the {\em order} of $a$.
 
 The order of the group is the number of elements in the set $G$.
 
-\subsubsection{Fields }
+\subsubsection{Fields}
 
 In mathematics, a field is understood to be a set $K$ with two operations
 (denoted as $+$ and $\cdot$) which fulfils the following conditions:
@@ -1709,13 +1719,13 @@ can therefore be added and the result is a point that also lies on the same elli
 % \newpage
 \begin{figure}[htbp]
 \subsubsection*{Adding of two points on an elliptic curve}
-The following two figures shows an elliptic curve in the affine plane and
+The following two figures show an elliptic curve in the affine plane and
 shows how points on an elliptic curve are added. Note that the point in infinity $O$ cannot be represented in
 the affine plane.
 \begin{center}
-\includegraphics{ell1.png}
-\caption{Doubling the point P} \vspace{\floatsep}
-\includegraphics{ell2.png}
+\includegraphics[scale=1.08]{ec-mult2.pdf}
+\caption{Doubling the point P} \vspace{\floatsep} \vskip +20 pt
+\includegraphics[scale=0.65]{ec-add.pdf}
 \caption{ Adding distinct points P and Q} % \footnotemark}
 \end{center}
 \end{figure}
@@ -1782,7 +1792,7 @@ based on the ECDLP problem.
 
 \subsubsection{Digital signatures using elliptic curves}
 
-The {\em elliptic curve discrete logarithm problem} (ECDLP) forms the basis for
+The {\em elliptic curve discrete logarithm problem} (ECDLP) \index{ECDLP} forms the basis for
 elliptic-curve cryptography. Various signature procedures are based on this.
 What they have in common is how they use the public parameters and how these
 parameters are used to generate secret and public keys:
@@ -1867,7 +1877,7 @@ It implements the basic algorithms for group operations, for generating elliptic
 curves, for importing and exporting parameters for elliptic curves over finite
 fields with $p$ ($p$ prime) elements. The algorithms have been implemented in
 ANSI C and comply with draft no. 8 of the IEEE P1363 work group {\em Standard
-Specifications for Public-Key Cryptography}
+Specifications for Public Key Cryptography}
 
 {\href{http://grouper.ieee.org/groups/1363}{\tt
 http://grouper.ieee.org/groups/1363}}.

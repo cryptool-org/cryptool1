@@ -25,7 +25,7 @@ CDlgRSAwithSmallPrimesOptions::CDlgRSAwithSmallPrimesOptions(CWnd* pParent /*=NU
 	m_numberBasis = 0;
 	m_TextOptions = 0;
 	m_RSAVariant  = 0;
-	m_BlockLength = 1;
+	m_BlockLength = -1;
 	m_MaxBlockLength = _T("");
 	m_codingMethod = 0;
 	m_AnzahlZeichen = _T("");
@@ -77,8 +77,10 @@ BOOL CDlgRSAwithSmallPrimesOptions::OnInitDialog()
 	CDialog::OnInitDialog();
 	
 	// TODO: Zusätzliche Initialisierung hier einfügen
+	unsigned long blockLength = GetBlockLength();
 	UpdateData(true);
-	m_BlockLength = GetBlockLength();
+	if ( m_BlockLength <= 0 || m_BlockLength > blockLength )
+		m_BlockLength = blockLength;
 	if ( !m_RSAVariant ) 
 	{
 		if ( !m_TextOptions )
@@ -147,7 +149,9 @@ void CDlgRSAwithSmallPrimesOptions::OnChangeAlphabet()
 
 void CDlgRSAwithSmallPrimesOptions::ReInitBlockLength()
 {
-	m_BlockLength = GetBlockLength();
+	unsigned long blockLength = GetBlockLength();
+	if ( m_BlockLength <= 0 || m_BlockLength > blockLength )
+		m_BlockLength = blockLength;
 }
 
 void CDlgRSAwithSmallPrimesOptions::OnSelectRSA() 
@@ -236,7 +240,7 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 		Message(IDS_STRING_ERR_ONBLOCKLENGTH, MB_ICONSTOP, blockLength);
 		return;
 	}
-	UpdateData(false);
+	UpdateData(FALSE);
 	CDialog::OnOK();
 }
 

@@ -16,6 +16,10 @@
 /////////////////////////////////////////////////////////////////////////////
 // Deutsch (Deutschland) resources
 
+#define __NULLOVERT
+#define __NULLONIX
+#ifdef __NULLOVERT
+
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
@@ -330,7 +334,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -343,17 +347,17 @@ BEGIN
     CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,104,241,
                     8
     CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
-                    121,185,33,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
+                    121,200,40,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT1,0,161,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
     CTEXT           "Kontakt:",IDC_STATIC,0,178,241,10
-    LTEXT           "bernhard.esslinger@db.com /",IDC_STATIC,69,188,145,8
-    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
-    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,69,208,128,
-                    10
-    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
-    LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de",
+                    IDC_STATIC,70,188,145,17
+    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,70,206,128,
+                    8
+    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,216,172,9
+    LTEXT           "support@secude.com",IDC_STATIC,69,226,172,8
     CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,253,242,19
 END
@@ -590,12 +594,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 285
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 289
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,263,50,14
+    DEFPUSHBUTTON   "OK",IDOK,58,267,50,14
     CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idee, Sponsoring, Challenges:",IDC_STATIC,0,24,167,8
@@ -604,13 +608,13 @@ BEGIN
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
                     64,167,17
     CTEXT           "Henrik Koy",IDC_STATIC,0,99,167,10,NOT WS_GROUP
-    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,116,166,9
-    CTEXT           "Ariane Büger\nWolfgang Scondo\nWolfgang Patzewitz",
-                    IDC_STATIC,0,227,167,27
+    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,112,166,9
+    CTEXT           "Ariane Büger\nWolfgang Patzewitz\nWolfgang Scondo\nGary Tagg",
+                    IDC_STATIC,0,228,167,32
     CTEXT           "Kümmerer Version 1.3:",IDC_STATIC,1,88,166,8
-    CTEXT           "Jan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
-                    IDC_STATIC,1,127,166,82
-    CTEXT           "Review",IDC_STATIC,0,216,166,9
+    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
+                    IDC_STATIC,1,123,166,88
+    CTEXT           "Review",IDC_STATIC,0,218,166,9
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -1812,7 +1816,7 @@ BEGIN
                     218,250,56,10
     PUSHBUTTON      "&Abbrechen",IDCANCEL,234,274,50,18
     GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,277,65
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,101,31,175,11
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,122,24,132,11
     GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,277,31
     GROUPBOX        "Verfahren bei der Kodierung der Nachricht in Zahlen ",
                     IDC_STATIC,7,113,277,30
@@ -1824,8 +1828,8 @@ BEGIN
     LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt.",
                     IDC_STATIC,19,226,233,18
     GROUPBOX        "Blocklänge",IDC_STATIC,7,149,277,59
-    LTEXT           "Die Anzahl der Zeichen, die pro RSA-Operation verschlüsselt werden.\r\nDie maximale Anzahl ist abhängig von der Bitlänge des RSA Moduls N, der Anzahl der Zeichen im Alphabet und der Kodierungsmethode der Nachricht.",
-                    IDC_STATIC,18,161,258,29
+    LTEXT           "Die Anzahl der Zeichen, die pro RSA-Operation verschlüsselt werden.\r\nDie maximale Anzahl ist abhängig von der Bitlänge des RSA-Moduls N, der Anzahl der Zeichen im Alphabet und der Kodierungsmethode der Nachricht.",
+                    IDC_STATIC,18,161,258,25
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -2292,7 +2296,7 @@ BEGIN
                     52,61,10
     CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,45,67,61,10
-    CONTROL         "RIPEMD160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,45,82,61,10
 END
 
@@ -2457,7 +2461,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2630,7 +2634,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2891,7 +2895,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -3317,6 +3321,11 @@ BEGIN
         HORZGUIDE, 203
     END
 
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        VERTGUIDE, 70
+    END
+
     IDD_DIALOG_TEXTOPTIONEN, DIALOG
     BEGIN
         VERTGUIDE, 8
@@ -3401,7 +3410,8 @@ BEGIN
     IDD_AUTOREN, DIALOG
     BEGIN
         VERTGUIDE, 94
-        HORZGUIDE, 277
+        BOTTOMMARGIN, 285
+        HORZGUIDE, 281
     END
 
     IDD_DIALOG_EC_PUB_PARAM, DIALOG
@@ -4978,10 +4988,10 @@ BEGIN
     IDS_STRING_RSADEMO_MODUL_KLEIN 
                             "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muß kleiner als der RSA-Modul (hier N= %s) sein.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
-                            "Bitte ändern Sie das Alphabet, so daß die Anzahl der Zeichen im Alphabet (hier %i) höchstens so groß wie der RSA-Modul (hier N = %s) ist."
+                            "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) höchstens so groß wie der RSA-Modul (hier N = %s) ist."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
-                            "Die Primzahlen p und q müßen verschieden sein!"
+                            "Die Primzahlen p und q müssen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %s"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
@@ -5012,7 +5022,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
     IDS_STRING_FMT_SEC      " %02.2i,%s Sekunden."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Aphabet (hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5046,7 +5056,7 @@ BEGIN
     IDS_RAND_GEN_PARAM      "%s Zufallsgenerator"
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
     IDS_STRING_BIG_RSA_MODUL 
-                            "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
+                            "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, dass der RSA-Modul N=p*q kleiner ist als 2^1024."
     IDS_STRING_INPUT_FALSE  "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnen läßt."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
@@ -5075,7 +5085,7 @@ BEGIN
     IDS_KEY_PRIVATE         "Privater Schlüssel:     %s\r\n"
     IDS_NOTIFY_NAME         "Bitte geben Sie den vollständigen Namen an."
     IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code  ein."
-    IDS_NOTIFY_PIN_V        "Bitte stellen Sie sicher, daß die PIN-Verifikation mit dem Pin-Code übereinstimmt."
+    IDS_NOTIFY_PIN_V        "Bitte stellen Sie sicher, dass die PIN-Verifikation mit dem Pin-Code übereinstimmt."
     IDS_CONTENT_ALG         "Hashverfahren"
     IDS_RSA_SIGNATURE_OF    "RSA (%s) Signatur von <%s>"
 END
@@ -5107,9 +5117,12 @@ END
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
+#endif
 
 /////////////////////////////////////////////////////////////////////////////
 // Englisch (GB) resources
+
+#ifdef __NULLONIX
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -5397,7 +5410,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -5414,14 +5427,14 @@ BEGIN
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
     CTEXT           "Contact:",IDC_STATIC,0,178,241,10
-    LTEXT           "bernhard.esslinger@db.com /",IDC_STATIC,69,188,145,8
-    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
-    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,69,208,128,
-                    10
-    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,123,9
-    LTEXT           "support@secude.com",IDC_STATIC,69,232,134,8
     CTEXT           "Copyright (c) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,253,242,19
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de",
+                    IDC_STATIC,70,189,145,17
+    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,70,207,128,
+                    8
+    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,172,9
+    LTEXT           "support@secude.com",IDC_STATIC,69,227,172,8
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -5652,26 +5665,26 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 278
+IDD_AUTOREN DIALOG DISCARDABLE  0, 0, 167, 285
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,256,50,14
+    DEFPUSHBUTTON   "OK",IDOK,58,263,50,14
     CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Idea, sponsoring, challenges:",IDC_STATIC,0,24,167,8
     CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
     CTEXT           "Design, Support:",IDC_STATIC,1,50,166,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,95,153,10,NOT WS_GROUP
-    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,111,166,9
+    CTEXT           "Henrik Koy",IDC_STATIC,7,93,153,10,NOT WS_GROUP
+    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,106,166,9
     CTEXT           "Review:",IDC_STATIC,1,211,166,8
     CTEXT           "Main person taking overall care for version 1.3:",
-                    IDC_STATIC,1,84,166,10
-    CTEXT           "Jan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
-                    IDC_STATIC,0,122,166,82
-    CTEXT           "Ariane Büger\nWolfgang Scondo\nWolfgang Patzewitz",
-                    IDC_STATIC,0,221,167,27
+                    IDC_STATIC,1,82,166,10
+    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
+                    IDC_STATIC,0,117,166,87
+    CTEXT           "Ariane Büger\nWolfgang Patzewitz\nWolfgang Scondo\nGary Tagg",
+                    IDC_STATIC,0,221,167,32
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
                     60,167,17
 END
@@ -6829,7 +6842,7 @@ BEGIN
                     218,250,57,10
     PUSHBUTTON      "&Cancel",IDCANCEL,234,274,50,18
     GROUPBOX        "Text options",IDC_STATIC,7,5,277,65
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,101,31,175,11
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,145,25,121,11
     GROUPBOX        "RSA variant",IDC_STATIC,7,76,277,31
     GROUPBOX        "Method for the coding of text into numbers",IDC_STATIC,
                     7,113,277,30
@@ -7335,7 +7348,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7508,7 +7521,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7769,7 +7782,7 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
-            MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "&RIPEMD-160",                  ID_CRYPT_HASH_RIPEMD160
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -8131,7 +8144,8 @@ BEGIN
 
     IDD_AUTOREN, DIALOG
     BEGIN
-        HORZGUIDE, 270
+        BOTTOMMARGIN, 278
+        HORZGUIDE, 277
     END
 
     IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG
@@ -9458,7 +9472,7 @@ END
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
-
+#endif
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

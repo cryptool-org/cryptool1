@@ -262,7 +262,7 @@ void hash (char* infile, const char *OldTitle, int AlgId)
 			break;
 		case 6://RIPEMD160
 			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.ripemd160_aid,NULL);
-			AlgTitel="RIPEMD160";
+			AlgTitel="RIPEMD-160";
 			break;
 	}
 	CDlgShowHash HashDlg;
