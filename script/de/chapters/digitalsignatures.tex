@@ -5,7 +5,7 @@
 
 \newpage
 % --------------------------------------------------------------------------
-\section{Digitale Signaturen}
+\section{Hashfunktionen und Digitale Signaturen}
 \index{Signatur!digitale}
 (Schneider J. / Esslinger B. / Filipovics B. / Koy H., Juni 2002, 
 Update: Feb. 2003)
@@ -20,42 +20,56 @@ Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
 \end{itemize}
 
 
-Zum Einsatz kommt wieder eine asymmetrische Technik (siehe Verschl"usselungsverfahren).
-Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, muss ein
-Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel, um Signaturen zu erzeugen,
-und der Empf"anger benutzt den "offentlichen Schl"ussel des Absenders, um die Richtigkeit der Signatur
-zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen Schl"ussel
-abzuleiten\footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen erzeugen und pr"ufen: \\
+Zum Einsatz kommt wieder eine asymmetrische Technik (siehe 
+Verschl"usselungsverfahren).
+Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will,
+muss ein Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel,
+um Signaturen zu erzeugen, und der Empf"anger benutzt den "offentlichen
+Schl"ussel des Absenders, um die Richtigkeit der Signatur zu "uberpr"ufen.
+Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen
+Schl"ussel abzuleiten\footnote{%
+Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen
+erzeugen und pr"ufen: \\
 in den Untermen"us des Hauptmen"upunktes {\bf Digitale Signaturen} oder \\
-per {\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Signaturdemo}.
+per 
+{\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Signaturdemo}.
 }.
 
 
-Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} folgenderma"sen aus: \\
-Der Absender berechnet aus seiner Nachricht und seinem geheimen Schl"ussel die digitale
-Signatur der Nachricht. Im Vergleich zur handschriftlichen Unterschrift hat die digitale Signatur
-also den Vorteil, dass die Unterschrift auch vom unterschriebenen Dokument abh"angt. Die Unterschriften
-ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten Dokumente nicht vollkommen
-"ubereinstimmen. Selbst das Einf"ugen eines Leerzeichens in den Text w"urde zu einer anderen Signatur
-f"uhren. Eine Verletzung der Nachrichtenintegrit"at wird also vom Empf"anger der Nachricht erkannt,
-da in diesem Falle die Signatur nicht mehr zum Dokument passt und sich bei der "Uberpr"ufung als unkorrekt
-erweist.
+Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} 
+folgenderma"sen aus: \\
+Der Absender berechnet aus seiner Nachricht und seinem geheimen Schl"ussel
+die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
+Unterschrift hat die digitale Signatur also den Vorteil, dass die 
+Unterschrift auch vom unterschriebenen Dokument abh"angt. Die Unterschriften
+ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten
+Dokumente nicht vollkommen "ubereinstimmen. Selbst das Einf"ugen eines
+Leerzeichens in den Text w"urde zu einer anderen Signatur f"uhren. Eine
+Verletzung der Nachrichtenintegrit"at wird also vom Empf"anger der 
+Nachricht erkannt, da in diesem Falle die Signatur nicht mehr zum Dokument
+passt und sich bei der "Uberpr"ufung als unkorrekt erweist.
 
-Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hilfe des "offentlichen
-Schl"ussels des Absenders, des Dokuments und der Signatur feststellen, ob die Signatur korrekt ist.
-In der Praxis hat das gerade beschriebene Verfahren jedoch einen entscheidenden Nachteil. Die Signatur ist ungef"ahr
-genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus 
-Performance-Gr"unden\index{Performance} benutzt man eine kryptographische Hashfunktion\footnote{%
-%xxxxxxxxxx Men"ueintr"agsbezeichnungen ok?
-Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool} v1.3.04 an mehreren Stellen implementiert. \\
-In dem Men"u {\bf Einzelverfahren \textbackslash{} Hashwerte} haben Sie die M"oglichkeit
+Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann
+mit Hilfe des "offentlichen Schl"ussels des Absenders, des Dokuments und
+der Signatur feststellen, ob die Signatur korrekt ist.
+In der Praxis hat das gerade beschriebene Verfahren jedoch einen
+entscheidenden Nachteil. Die Signatur ist ungef"ahr genauso lang wie das
+eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu
+lassen und aus Performance-Gr"unden\index{Performance} benutzt man eine
+kryptographische Hashfunktion\footnote{%
+Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool} v1.3.04
+an mehreren Stellen implementiert.\\
+In den Men"us {\bf Einzelverfahren \textbackslash{} Hashwerte} bzw.
+              {\bf Einzelverfahren \textbackslash{} Angriff auf den Hashwert
+	           der digitalen Signatur}
+haben Sie die M"oglichkeit
 % hier die items nicht einr"ucken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
 \item f"ur eine Datei den Hashwert zu berechnen, \\
-\item in der Hash-Demo die Auswirkung von Text"anderungen auf den Hashwert zu testen und \\
+\item in der Hash-Demo die Auswirkung von Text"anderungen auf den
+      Hashwert zu testen und \\
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
@@ -261,24 +275,23 @@ Zeitpunkt der Spezifikation), wurde festgestellt
 sind, nach RSA bzw. ElGamal zu verschl"usseln.
 
 
-      
-
-
 
 % --------------------------------------------------------------------------
 \subsection{Public Key-Zertifizierung}
 \index{Zertifizierung!Public Key}
-Ziel der Public Key-­Zertifizierung ist es, die Bindung eines "offentlichen Schl"ussels
-an einen Benutzers zu garantieren und nach au"sen nachvollziehbar zu machen. In F"allen, in denen nicht
-sichergestellt werden kann, dass ein "offentlicher Schl"ussel auch wirklich zu einer bestimmten Person geh"ort,
-sind viele Protokolle nicht mehr sicher, selbst wenn die einzelnen kryptographischen Bausteine nicht
-geknackt werden k"onnen.
-
+\index{PKI}
+Ziel der Public Key-­Zertifizierung ist es, die Bindung eines 
+"offentlichen Schl"ussels an einen Benutzers zu garantieren und nach au"sen
+nachvollziehbar zu machen. In F"allen, in denen nicht sichergestellt werden
+kann, dass ein "offentlicher Schl"ussel auch wirklich zu einer bestimmten
+Person geh"ort, sind viele Protokolle nicht mehr sicher, selbst wenn die
+einzelnen kryptographischen Bausteine nicht geknackt werden k"onnen.
 
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Die Impersonalisierungsattacke} \index{Impersonalisierungsattacke} \label{Impersonalisierungsattacke}
+\subsubsection{Die Impersonalisierungsattacke} 
+\index{Impersonalisierungsattacke} \label{Impersonalisierungsattacke}
 
 Angenommen Charlie hat zwei Schl"usselpaare (PK1, SK1) und (PK2, SK2). 
 Hierbei bezeichnet SK den geheimen Schl"ussel (secret key) und PK den
@@ -310,19 +323,24 @@ von Angriffen verspricht die Public Key­-Zertifizierung, die die \index{Authenti
 garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
 
 % --------------------------------------------------------------------------
-\subsubsection{X.509}
-
-Jeder Teilnehmer, der sich per \index{X.509} X.509-Zertifikat \cite{X.509} die
-Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner realen Person
-best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification
-Authority (CA)} Certification Authority (CA). Dieser beweist er seine
-Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt
-die CA ihm ein elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen
-die Namen des Zertifikatnehmers und der CA, der "offentliche Schl"ussel des
-Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt sind.
-Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen
+\subsubsection{X.509-Zertifikat}
+\index{X.509}
+Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
+die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner realen Person
+best"atigen lassen m"ochte, wendet sich an eine sogenannte
+\index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
+Oft auch Trustcenter oder im Gesetz \glqq Zertifizierungsdiensteanbieter\grqq
+genannt, wenn die Zertifikate nicht nur einer geschlossenen Benutzergruppe
+angeboten werden.
+}.
+Dieser beweist er seine Identit"at (etwa durch Vorlage seines 
+Personalausweises). Anschlie"send stellt die CA ihm ein elektronisches
+Dokument (Zertifikat) aus, in dem im wesentlichen der Name des 
+Zertifikatnehmers und der Name der CA, der "offentliche Schl"ussel des 
+Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt
+sind. Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen
 Schl"ussel.
-
+  
 Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob das Zertifikat unverf"alscht ist. Die
 CA garantiert also die Zugeh"origkeit von Benutzer und "offentlichem Schl"ussel.
 
@@ -347,8 +365,17 @@ gesichert "ubermittelt werden.
     Wiley, 2nd edition, 1996.
 
 
-\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}\index{RSA Laboratories}
+\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ 
+    \index{PKCS\#1} \index{RSA Laboratories}
     PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard, April 19, 2002.
+
+
+\bibitem[X.509v3]{X.509v3} ITU-T\\ 
+    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
+    X.509 (1993) Amendment 1: Certificate Extensions, The Directory
+    Authentication Framework,\\ 
+    International Telecommunication Union, Geneva, Switzerland, July 1995\\
+    (equivalent to Amendment 1 to ISO/IEC 9594-8).
 
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. 

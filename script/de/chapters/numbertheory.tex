@@ -2167,6 +2167,25 @@ Im Januar 2003 ver"offentlichten Adi Shamir und Eran Tromer vom Weizmann Institu
 
 Das Abstract fasst ihre Ergebnisse folgenderma"sen zusammen: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
 
+Eine sehr gute Erl"auterung, wie der Angriff mit dem Generalized Number Field
+Sieve (GNFS) \index{General Number Field Sieve (GNFS)} funktioniert und
+welche Fortschritte sich ergaben, findet sich
+in dem 3-seitigen Artikel in der DuD-Ausgabe Juni/2003 \cite{Weis2003}.
+Beim GNFS können 2 grundlegende Schritte unterschieden werden: 
+der Siebungsschritt (Relationen sammeln) und die Matrix-Reduktion.
+Auch wenn der Siebungsschritt hochgradig parallelisierbar ist, so dominiert
+er doch den Gesamtrechenaufwand. Bisher haben Shamir und Tromer noch kein 
+TWIRL-Device gebaut, jedoch ist der dafür geschätzte Aufwand von 10 bis
+50 Millionen Euro, um eine 1024-Bit Zahl in einem Jahr zu faktorisieren
+für Geheimdienste oder große kriminelle Organisationen keineswegs prohibitiv,
+denn die \glqq Kosten f"ur einen einzigen Spionagesatelliten sch"atzt man
+z.B. auf mehrere Milliarden USD\grqq. Die Autoren empfehlen deshalb konkret,
+m"oglichst rasch sensible bisherig-benutzte RSA-, Diffie-Hellman- oder 
+ElGamal-Schl"ussel von bis zu 1024 Bit zu wechseln und Schl"ussel von 
+mindestens 2048 Bit L"ange einzusetzen.
+Auch f"ur die geplante TCPA/Palladium-Hardware \index{Palladium} werden
+2048-Bit RSA-Schl"ussel verwendet!
+
 Damit erscheinen die aktuellen Empfehlungen des BSI, auf l"angere RSA-Schl"ussell"angen umzustellen, mehr als gerechtfertigt.
 
 
@@ -3123,7 +3142,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorz"uge und Grenzen des RSA-Verfahrens},\\
-    in Datenschutz und Datensicherheit (DuD) 26/2002, S. 84-89.
+    In: Datenschutz und Datensicherheit (DuD) 26/2002, S. 84-89 (s. www.dud.de).
 
 \bibitem[Brands2002]{Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
@@ -3233,7 +3252,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Robert Sedgewick,\\
     {\em Algorithms in C}, Addison-Wesley, 1990.
 
-\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} 
+\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} \index{TWIRL-Device} 
     Adi Shamir, Eran Tromer, \\
     {\em Factoring Large Numbers with the TWIRL Device}, 
     Januar 2003, \\
@@ -3249,6 +3268,12 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \bibitem[Stinson1995]{3Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
     {\em Cryptography - Theory and Practice}, CRC Press, 1995.
+
+\bibitem[Weis2003]{Weis2003} \index{Weis 2003} \index{Lucks 2003} \index{Bogk 2003}
+    R"udiger Weis, Stefan Lucks, Andreas Bogk, \\
+    {\em Sicherheit von 1024 bit RSA-Schl"usseln gef"ahrdet},\\
+    In: Datenschutz und Datensicherheit (DuD) 6/2003, S. 360-362 (s. www.dud.de)\\
+    Der Artikel erl"autert Details zum TWIRL-Device\index{TWIRL Device}.
 
 \bibitem[Welschenbach2001]{Welschenbach2001} \index{Welschenbach 2001}
     Welschenbach, Michael, \\

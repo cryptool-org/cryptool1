@@ -5,7 +5,7 @@
 
 \newpage
 % --------------------------------------------------------------------------
-\section{Digital Signatures}
+\section{Hash Functions and Digital Signatures}
 \index{Signature!digital}
 (Schneider J. / Esslinger B. / Filipovics B. / Koy H., June 2002,
 Update: Feb. 2003)
@@ -53,10 +53,12 @@ procedure we have just described has a decisive disadvantage. The signature is
 approximately as long as the document itself. To prevent an unnecessary increase
 in data traffic, and also for reasons of performance\index{Performance}, we use 
 a cryptographic hash function\footnote{%
-%xxxxxxxxxx Menüeinträgsbezeichnungen ok?
-Hash functions\index{Hash function} are implemented within CrypTool\index{CrypTool} v1.3.04 at
-several places. \\
-Using menu {\bf Indiv. Procedures \textbackslash{} Hash} you have the possibilities
+Hash functions\index{Hash function} are implemented within 
+CrypTool\index{CrypTool} v1.3.04 at several places.\\
+Using menus {\bf Individual Procedures \textbackslash{} Hash} and
+            {\bf Individual Procedures \textbackslash{} Attack on the Hash
+	         Value of the Digital Signature}
+you have the possibilities
 % hier die items nicht einrücken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip} % um den Abstand zu verringern bebe
@@ -246,14 +248,17 @@ at the time when it was specified), it has been noted
 \cite[p.~490]{Schneier1996ds}, that the operations involved in DSA can be
 used to emulate RSA and ElGamal encryption.
 
+
 % --------------------------------------------------------------------------
 \subsection{Public key certification}
 \index{Certification!public key}
+\index{PKI}
 The aim of public key certification is to guarantee the connection between a
 public key and a user and to make it traceable for external parties. In cases in
 which it is impossible to ensure that a public key really belongs to a
 particular person, many protocols are no longer secure, even if the individual
 cryptographic modules cannot be broken.
+
 
 % --------------------------------------------------------------------------
 \subsubsection{Impersonation attacks}\label{Impersonalisierungsattacke}
@@ -289,16 +294,20 @@ certification, which is intended to guarantee the
 certification method is the X.509 standard.
 
 % --------------------------------------------------------------------------
-\subsubsection{X.509}
-All participants who want to \index{X.509} have a X.509 certificate
-\cite{X.509} verifying that their public key belongs to a real person consult
-what is known as a \index{Certification authority (CA)} certification authority
-(CA). They prove their identity to this CA (for example by showing their ID).
-The CA then issues them an electronic document (certificate) which essentially
-contains the names of the certificate-holder and the CA, the
-certificate-holder's public key and the validity period of the certificate. The
-CA then signs the certificate using its secret key.
-
+\subsubsection{X.509 certificate}
+\index{X.509} 
+Each participant who wants to have an X.509 certificate (\cite{X.509})
+verifying that his public key belongs to a real person consults what is
+known as a \index{Certification authority (CA)} certification authority
+(CA)\footnote{%
+Often called trust center, if the certificates are not only offered
+to a closed user group.
+}. 
+He proves his identity to this CA (for example by showing his ID). 
+The CA then issues him an electronic document (certificate) which 
+essentially contains the name of the certificate-holder and the name
+of the CA, the certificate-holder's public key and the validity period
+of the certificate. The CA then signs the certificate using its secret key.
 
 Anyone can now use the CA's public key to verify whether a certificate is
 falsified. The CA therefore guarantees that a public key belongs to a particular
@@ -324,8 +333,17 @@ the root entity, can also be secured by means of making them available publicly.
     Wiley, 2nd edition, 1996.
 
 
-\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
+\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ 
+    \index{PKCS\#1} \index{RSA Laboratories}
     PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard, April 19, 2002.
+
+
+\bibitem[X.509v3]{X.509v3} ITU-T\\ 
+    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
+    X.509 (1993) Amendment 1: Certificate Extensions, The Directory
+    Authentication Framework,\\ 
+    International Telecommunication Union, Geneva, Switzerland, July 1995\\
+    (equivalent to Amendment 1 to ISO/IEC 9594-8).
 
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. 

@@ -1982,6 +1982,24 @@ completed in less than ten minutes with a \$10K device. Coupled with recent
 results about the difficulty of the NFS matrix step ... this raises some
 concerns about the security of these key sizes.''
 
+The 3-page article in the DuD issue of June 2003 \cite{Weis2003} contains
+a very good explanation, how the attack using the Generalized Number Field
+Sieve (GNFS) \index{General Number Field Sieve (GNFS)} works and which 
+progress is made, to factorize numbers.
+At GNFS we can distinguish 2 general steps: 
+The sieve step (relation collecting) and the matrix reduction.
+Besides the sieve step is highly parallelizable, it dominates the overall
+calculation burdon. Shamir and Tromer haven't built a TWIRL device yet,
+but the estimated costs of 10 till 50 million Euro (in order to factorise
+a 1024-bit number) is not prohibitive for secret agencies or big criminal
+organizations, because the ``costs for a single espionage satellite is
+estimated e.g. to be several billion USD''. The authors therefore
+recommend, to get as soon as possible rid of today used sensible RSA, 
+Diffie-Hellman or ElGamal keys up to 1024 bit and to use then keys of at
+least 2048 bit length.
+The planned TCPA/Palladium hardware \index{Palladium} will use 2048-bit
+RSA keys!
+
 So recommendations like the ones from the GISA (German Information Security Agency) to use higher key lengths are very valid.
 
 
@@ -2845,7 +2863,7 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorz\"uge und Grenzen des RSA-Verfahrens},\\
-    In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89.
+    In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89 (see www.dud.de).
 
 \bibitem[Brands2002]{Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
@@ -2953,7 +2971,7 @@ This needs to be stressed because the type of padding is extremely important dur
     Robert Sedgewick,\\
     {\em Algorithms in C}, Addison-Wesley, 1990.
 
-\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} 
+\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} \index{TWIRL device} 
     Adi Shamir, Eran Tromer, \\
     {\em Factoring Large Numbers with the TWIRL Device}, 
     Januar 2003, \\
@@ -2969,6 +2987,12 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
     {\em Cryptography - Theory and Practice}, CRC Press, 1995.
+
+\bibitem[Weis2003]{Weis2003} \index{Weis 2003} \index{Lucks 2003} \index{Bogk 2003}
+    R\"udiger Weis, Stefan Lucks, Andreas Bogk, \\
+    {\em Sicherheit von 1024 bit RSA-Schl\"usseln gef\"ahrdet},\\
+    In: Datenschutz und Datensicherheit (DuD) 6/2003, pp~360-362 (see www.dud.de)\\
+    The article explains details about the TWIRL device\index{TWIRL device}.
 
 \bibitem[Welschenbach2001]{Welschenbach2001} \index{Welschenbach 2001}
     Welschenbach, Michael, \\

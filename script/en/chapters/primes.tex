@@ -8,7 +8,8 @@
 \newpage
 \section{Prime Numbers}
 \hypertarget{Kapitel_2}{}
-(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, Feb. 2003)
+%(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, Feb. 2003)
+(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, June 2003)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -227,6 +228,7 @@ of various orders of magnitude / dimensions)}.
 \hypertarget{MersenneNumbers01}{}
 \subsubsection{Special number types -- Mersenne numbers} 
 \index{Mersenne!number}
+\label{zahlentyp_mersenne}
 
 Almost all known huge prime numbers are special candidates, called
 \index{Mersenne Marin} {\em Mersenne numbers} of the form $2^p -1,$ where $p$ is
@@ -308,11 +310,16 @@ $$
 ~ 521; ~ 607; ~ 1,279; ~ 2,203; ~ 2,281; ~ 3,217; ~ 4,253;\\
  4,423; ~ 9,689; ~ 9,941, ~ 11,213; ~ 19,937; ~ 21,701; ~ 23,207; ~ 44,497; ~
 86,243; ~ 110,503; ~ 132,049; \\
- 216,091; ~ 756,839; ~ 859,433; ~ 1,257,787; ~ 1,398,269; ~ 2,976,221; ~ 3,021,377; ~
-6,972,593; \\13,466,917.
+ 216,091; ~ 756,839; ~ 859,433; ~ 1,257,787; ~ 1,398,269; ~ 2,976,221;
+ ~ 3,021,377; ~ 6,972,593; \\
+13,466,917.
+%13,466,917; ~ xxx,xxx,xxx.
 \end{array}
 $$
-Thus $39$ Mersenne prime numbers are currently known
+Thus
+$39$
+%$40$
+Mersenne prime numbers are currently known%
 \index{Prime number!Mersenne}\index{Mersenne!prime number}. 
 For the first 38 Mersenne prime numbers we know that this list is complete.
 The exponents until the 39th Mersenne prime number have not yet been checked
@@ -354,14 +361,15 @@ was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 (that corresponds to around 77 pages in the newspaper).
 
 Right now (Feb. 2003) all exponents smaller than $ 6,972,593 $ have been
-checked: so we can be certain, that this is really the 38th Mersenne prime
-number.
-This means there is no other Mersenne prime number between the 37th 
-Mersenne prime number and this one.
+tested and double-checked (see home page of the GIMPS project:
+{\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}): so we can
+be certain, that this is really the 38th Mersenne prime number and that
+there are no smaller undiscovered Mersenne primes.
 
 
 \vskip +15 pt
-\paragraph{M13466917 -- December 2001} \index{Mersenne!prime number!M-39}\mbox{}
+\paragraph{M13466917 -- December 2001 -- M-39 ?}%
+\index{Mersenne!prime number!M-39}\mbox{}
 \vskip +10 pt
 
 This number was discovered as 39th Mersenne prime (and already called M-39,
@@ -376,16 +384,47 @@ $$(924947738006701322247758 \cdots 1130073855470256259071)$$
 would require around 200 pages in the Financial Times.
 
 
+%\vskip +15 pt
+%\paragraph{Mxxxxxxxxxx -- June 2003 2001 -- M-40 ?}%
+%\index{Mersenne!prime number!M-40}\mbox{}
+%\vskip +10 pt
+
+%This number was discovered as 40th Mersenne prime (and already called M-40,
+%despite it has not been proven yet, whether no further Mersenne prime
+%numbers between M-39 und Mxxxxxxxxx do indeed exist), $$2^{xx,xxx,xxx}-1,$$
+%at June xx, 2003 -- more exactly, the verification of this number,
+%found at June 02, 2003 by xxxxxxxxxx, was
+%successfully completed. 
+%The initiator and project leader George Woltman only announces a found
+%Mersenne number, after another double-check confirms that it is prime.
+%This number has about xx million decimal digits
+%(exactly xx,xxx,xxx digits).
+
+
 \vskip +15 pt
 \paragraph{GIMPS}\index{GIMPS}\mbox{}
 \vskip +10 pt
 
-Discovering the 39th Mersenne prime the GIMPS project (Great Internet Mersenne Prime Search)\index{GIMPS} founded in 1996 already discovered for the 5th time the greatest Mersenne number to be proven being prime
+Discovering the 
+39th 
+%40th 
+Mersenne prime the GIMPS project (Great Internet Mersenne Prime Search)\index{GIMPS} founded in 1996 already discovered for the 
+5th 
+%6th
+time the greatest Mersenne number to be proven being prime
 ({\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}).
 
 Now more than 130,000 volunteers, amateurs and experts, are working for the GIMPS project. They connect their computers into the so called ``primenet'', organized by the company entropia, to find such numbers using distributed computer programs.
 
-Currently the 4 largest known primes are Mersenne prime numbers. Only the 5th biggest known prime is another number type: it belongs to the so called  \hyperlink{generalizedFermatprimes}{generalized Fermat primes}.
+Currently
+%(June 2003)
+the 
+4
+%5
+largest known primes are Mersenne prime numbers. Only the 
+5th 
+%6th
+biggest known prime is another number type: it belongs to the so called  \hyperlink{generalizedFermatprimes}{generalized Fermat primes}.
 
 % --------------------------------------------------------------------------
 \vskip +15 pt
@@ -400,9 +439,13 @@ to the opportunities offered by {\em cooperative networking} \\
 
 The discoverer of M-38 received 50,000 USD from the EFF for discovering 
 the first prime with more than 1 million decimal digits. 
+
 The next prize of 100,000 USD offered by EFF is for a proven prime with more
 than 10 million decimal digits.
 %{\href{http://www.octocad.demon.co.uk/mersenne/prime.htm }{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
+
+According to the EFF rules for their prizes they offer in the next stage
+150,000 USD for a proven prime with more than 100 million decimal digits.
 
 Edouard Lucas\index{Lucas Edouard} (1842-1891) held the record for the
 longest prime number for over 70 years by proving that $2^{127}-1$ is prime.
@@ -544,7 +587,7 @@ The following enumeration contains the most common ideas for
     [$f(n)=2,047$] - it is repeatedly the case that the result even with
     prime exponents is \hyperlink{Mer-nums-not-always-prim}{not} prime.\\
     Today, all the Mersenne primes having less than around 2,000,000 digits are 
-    known (M-38\index{M-38}):
+    known (M-38\index{Mersenne!prime number!M-38}):
 \vspace{-10pt}
 \begin{itemize}
   \item[] {\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
