@@ -11,6 +11,11 @@
 // 2001 Martin Bartosch <m.bartosch@cynops.de>; Cynops GmbH
 //
 // $Log$
+// Revision 1.2  2001/11/23 16:35:09  idj100
+// Änderungen Peer:
+// - Entfernen der Nullen bei RSA-Decrypt,
+// - HexView Modifikationen
+//
 // Revision 1.1  2001/11/09 15:37:35  idj100
 // Sourcen von Martin Bartosch mit Eingebunden
 // RSA-Demo überarbeitet
@@ -446,6 +451,47 @@ int PKCS12_import(PSE pse, OctetString *input, OctetString *password, int newpse
 						ostr = theApp.SecudeLib.e_KeyInfo(keyinfo);
 						theApp.SecudeLib.sec_write_PSE(psesel, ostr);
 
+						break;
+					case DSA:
+/*
+						rsaprivkey = theApp.SecudeLib.d_RSAPrivateKey(thisbag->content.key->privateKey);
+						if (!rsaprivkey) 
+						{
+							fprintf(stderr, "could not decode RSAPrivateKey\n");
+						    return -1;
+						}
+
+						if (rsaprivkey->pubex.noctets != 3) 
+						{
+							fprintf(stderr, "pubex not F4!?!\n"); // FIXME
+							return -1;
+						}
+
+						keybits = (KeyBits *) theApp.SecudeLib.aux_malloc(sizeof(KeyBits));
+						memset(keybits, 0, sizeof(KeyBits));
+						keybits->part1.noctets = rsaprivkey->prime1.noctets;
+						keybits->part1.octets = rsaprivkey->prime1.octets; 
+						rsaprivkey->prime1.octets = NULL;
+						keybits->part2.noctets = rsaprivkey->prime2.noctets;
+						keybits->part2.octets = rsaprivkey->prime2.octets; 
+						rsaprivkey->prime1.octets = NULL;
+
+						bitstr = theApp.SecudeLib.e_KeyBits(keybits);
+
+						keyinfo = (KeyInfo *) theApp.SecudeLib.aux_malloc(sizeof(KeyInfo));
+						memset(keyinfo, 0, sizeof(KeyInfo));
+						keyinfo->subjectkey.nbits = bitstr->nbits;
+						keyinfo->subjectkey.bits = bitstr->bits; 
+						bitstr->bits = NULL;
+						keyinfo->subjectAI = theApp.SecudeLib.aux_cpy_AlgId(thisbag->content.key->privateKeyAlgorithm);
+
+						// write KeyInfo to PSE (using SECURE IF, because of OID)
+						psesel = theApp.SecudeLib.af_get_PSESel(pse, (ObjId *) 0);
+						psesel->object = name;
+						psesel->object_type = theApp.SecudeLib.SKnew_oid;
+						ostr = theApp.SecudeLib.e_KeyInfo(keyinfo);
+						theApp.SecudeLib.sec_write_PSE(psesel, ostr);
+*/
 						break;
 					default:
 						return -1;

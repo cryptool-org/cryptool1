@@ -436,7 +436,7 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 	long start, end, pos, l1, l2, l3, adr;
 	BOOL modified;
 
-	CMyEditView::OnSize(nType, cx, cy);
+	if(cy) CMyEditView::OnSize(nType, cx, cy);
 
 	m_NewSize = cx;
 	if(m_SizeActive == TRUE) return;
@@ -540,7 +540,9 @@ void CHexView::SerializeRaw(CArchive & ar)
 		ASSERT(pFile->GetPosition() == 0);
 		DWORD nFileSize = pFile->GetLength();
 
-		m_hexwidth --;
+
+redo:	
+		pFile->SeekToBegin();
 		width = m_hexwidth;
 		l1 = bufflen / width; //maximale Zeilenanzahl im Puffer;
 		buff2len = l1 * (4 * width + 11);
@@ -551,7 +553,7 @@ void CHexView::SerializeRaw(CArchive & ar)
 
 		m_totlen = m_TrailBlanks = m_NoPrintChars = adr = pos = 0;
 		do {
-			l = ar.Read(buffer, l1);
+			l = pFile->Read(buffer, l1);
 			m_totlen += l;
 			for(t=l; t>=0; t--) if(buffer[t] != 0) break;
 			if(t==-1) m_TrailBlanks += l;
@@ -561,8 +563,12 @@ void CHexView::SerializeRaw(CArchive & ar)
 				if((!IsPrint(buffer[i])) && (buffer[i] != 10) && (buffer[i] != 13))
 					m_NoPrintChars++;
 			l = HexDumpMem(buffer2, buff2len, (unsigned char *) buffer, l, width, adr);
-			GetRichEditCtrl().SetSel(pos, pos);
+			GetRichEditCtrl().SetSel(pos, -1);
 			GetRichEditCtrl().ReplaceSel(buffer2, FALSE);
+			if(width != m_hexwidth) {
+				free(buffer2);
+				goto redo;
+			}
 			pos += l;
 			adr += l1;
 		} while(l);

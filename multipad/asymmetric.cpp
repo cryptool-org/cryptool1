@@ -84,6 +84,17 @@ void KeyGen(){
 	// geschieht in der Klasse CDlgAsymKeyCreat
 }
 
+//////////////////////////////////////////////////////////////////////////
+//
+// searching for a matching within the data in->octets and the pattern
+// specified by the string-table id "ID" 
+//
+// the function returns the values 
+//     TRUE/FALSE depends on the success of pattern search
+//     start: start position of the pattern within in->octets
+//     end:   end position of the pattern within in->octets
+//
+
 BOOL find( OctetString *in, int ID, int &start, int &end )
 {
 	LoadString(AfxGetInstanceHandle(),ID,pc_str,STR_LAENGE_STRING_TABLE);
@@ -101,6 +112,17 @@ BOOL find( OctetString *in, int ID, int &start, int &end )
 	}
 	return FALSE;
 }
+
+
+//////////////////////////////////////////////////////////////////////////
+//
+// extracting a substring of in->octets between the index pos
+// and the index "start" computed by the function find(in, ID, start, end)
+//
+// the function returns the values
+//     TRUE/FALSE depends on the success of find(...)
+//     Result: without begining / ending whitespaces
+//     pos:    end index computed by find(...)
 
 BOOL extract( OctetString *in, CString &Result, int ID, int &pos )
 {
@@ -288,6 +310,7 @@ void RsaDec(char* infile, const char *OldTitle)
 {
 	char outfile[128], title[128];
     CMyDocument *NewDoc;
+	int i, blocklen;
 	
 	clock_t sigStart;
 	clock_t sigFinish;
@@ -385,6 +408,11 @@ void RsaDec(char* infile, const char *OldTitle)
 			return;
 		}
 		
+		// Abschneiden abschließender Nullen
+		blocklen = out.noctets / (in.nbits / 8 - out.noctets);
+		for(i=out.noctets-1;i>out.noctets-blocklen;i--)
+			if(out.octets[i]) break;
+		if(i>out.noctets-blocklen) out.noctets = i+1;
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		
 		//Ausgabe der verschluesselten Daten
