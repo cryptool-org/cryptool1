@@ -1163,7 +1163,10 @@
 #define IDS_STRING_FACTORISATION_TIMER  37837
 #define IDS_OPEN_DOCUMENT_FILTER        37838
 #define IDS_STRING_RSADEMO_Q_NOT_PRIME2 37839
+#define IDS_OPEN_DOCUMENT_FILTER2       37839
 #define IDS_OPEN_DOCUMENT               37840
+#define IDS_STRING_RSADEMO_Q_NOT_PRIME3 37840
+#define IDS_OPEN_DOCUMENT2              37841
 #define IDS_CONTENT_DOCUMENT            37842
 #define IDS_DEPENDENCY                  37843
 #define IDS_NAME2                       37844
@@ -1177,6 +1180,7 @@
 #define IDS_NOTIFY_PIN_V                37852
 #define IDS_CONTENT_ALG                 37853
 #define IDS_RSA_SIGNATURE_OF            37854
+#define IDS_NOTIFY_FIRST_NAME           37855
 #define IDS_CONTENT_KEY                 37857
 #define IDS_PRIME_CHECK                 37858
 #define IDS_PRIME_NO_CHECK_Q            37859

@@ -22,7 +22,7 @@ static char THIS_FILE[] = __FILE__;
 
 CDlgSignatureDemo::CDlgSignatureDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSignatureDemo::IDD, pParent),
-  m_nCols(16),
+  m_nCols(18),
   m_Message(0),
   m_NewDoc(0),  
   m_bUpdateHsh(TRUE),
@@ -530,6 +530,7 @@ void CDlgSignatureDemo::OnSelectCert()
 		OnInfoCert();
 		m_ButtonInfoCert.SetFocus();		
 	}
+	m_bPSEIsExtern = CertDialog->m_PSEIsExtern;
 
 	delete CertDialog;
 }

@@ -28,6 +28,9 @@ private:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgCertificateGeneration)
 	enum { IDD = IDD_CERTIFICATE_GENERATION };
+	CEdit	m_CtrlPINv;
+	CEdit	m_CtrlPIN;
+	CEdit	m_CtrlFirstName;
 	CEdit	m_CtrlName;
 	CButton	m_CtrlOK;
 	CString	m_sDName;

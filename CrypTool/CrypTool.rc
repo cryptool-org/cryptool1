@@ -2217,12 +2217,16 @@ BEGIN
     GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,7,36,337,48
     LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
-    LTEXT           "Primzahl q",IDC_STATIC_PRIME2,19,66,75,8
-    EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Primzahlen &generieren...",IDC_GENERATE_PRIME,238,48,98,
                     14
+    LTEXT           "Primzahl q",IDC_STATIC_PRIME2,19,66,75,8
+    EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
     GROUPBOX        "RSA-Schlüssel-Parameter für Empfänger",IDC_STATIC_RSA,7,
                     87,337,101
+    LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
     LTEXT           "RSA-Modul N",IDC_STATIC_RSA1,19,118,75,8
     EDITTEXT        IDC_EDIT_RSA_MODUL_N,100,117,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
@@ -2236,22 +2240,18 @@ BEGIN
                     NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
+    LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
     LTEXT           "Geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,
                     NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
     PUSHBUTTON      "Abbrechen",IDCANCEL,19,197,50,14
     DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,238,197,106,14,WS_DISABLED
-    LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
-    LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
-    LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_TABSTOP
 END
 
 IDD_CERTIFICATE_GENERATION DIALOG DISCARDABLE  0, 0, 354, 269
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "PSE und Zertifikat erzeugen"
+CAPTION "Zertifkat und PSE Erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Öffentliche RSA-Parameter",IDC_STATIC_RSA,7,7,340,64
@@ -2279,7 +2279,8 @@ BEGIN
     LTEXT           "PIN-Verifikation:",IDC_STATIC,15,168,50,8
     EDITTEXT        IDC_EDIT_CERT_PIN_VERIFY,97,165,138,12,ES_PASSWORD | 
                     ES_AUTOHSCROLL
-    GROUPBOX        "PSE / Zertifikat",IDC_STATIC,7,192,340,49
+    GROUPBOX        "Generierte Namen für PSE und Zertifikat",IDC_STATIC,7,
+                    192,340,49
     LTEXT           "User Key ID",IDC_STATIC,15,206,75,8
     EDITTEXT        IDC_EDIT_CERT_USER_ID,97,204,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY
@@ -2287,8 +2288,9 @@ BEGIN
     EDITTEXT        IDC_EDIT_CERT_DNAME,97,222,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL,7,248,60,14
-    DEFPUSHBUTTON   "PSE / Zertifkat Erzeugen",IDOK,244,248,103,14
-    DEFPUSHBUTTON   "Vorhandene PSE Öffnen",ID_PSE_IMPORT,97,248,103,14
+    DEFPUSHBUTTON   "Zertifikat / Schlüssel importieren",ID_PSE_IMPORT,97,
+                    248,112,14
+    DEFPUSHBUTTON   "Zertifkat und PSE Erzeugen",IDOK,244,248,103,14
 END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
@@ -2296,7 +2298,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hashverfahren auswählen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
     CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     WS_GROUP | WS_TABSTOP,25,15,61,10
     CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
@@ -2307,7 +2309,7 @@ BEGIN
                     25,61,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
                     BS_LEFT,25,76,61,10
-    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
 END
 
 IDD_FACTORISATION_LIST DIALOG DISCARDABLE  0, 0, 383, 348
@@ -5312,11 +5314,12 @@ BEGIN
     IDS_PHI_N               "phi(N) = (p-1)(q-1):    %s\r\n"
     IDS_KEY_PUBLIC          "Öffentlicher Schlüssel: %s\r\n"
     IDS_KEY_PRIVATE         "Privater Schlüssel:     %s\r\n"
-    IDS_NOTIFY_NAME         "Bitte geben Sie den vollständigen Namen an."
+    IDS_NOTIFY_NAME         "Bitte geben Sie Ihren Nachnamen ein."
     IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code  ein."
-    IDS_NOTIFY_PIN_V        "Bitte stellen Sie sicher, dass die PIN-Verifikation mit dem Pin-Code übereinstimmt."
+    IDS_NOTIFY_PIN_V        "Bitte bestätigen Sie den PIN-Code."
     IDS_CONTENT_ALG         "Hashverfahren"
     IDS_RSA_SIGNATURE_OF    "RSA (%s) Signatur von <%s>"
+    IDS_NOTIFY_FIRST_NAME   "Bitte geben Sie Ihren Vornamen ein."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7562,7 +7565,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Select a hash function"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
+    GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
     CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     WS_GROUP | WS_TABSTOP,25,15,61,10
     CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
@@ -7573,7 +7576,7 @@ BEGIN
                     25,61,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
                     BS_LEFT,25,76,61,10
-    GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
+    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
 END
 
 IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
@@ -7586,11 +7589,15 @@ BEGIN
     GROUPBOX        "Prime number entry",IDC_STATIC_PRIME,7,36,337,48
     LTEXT           "Prime number p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
-    LTEXT           "Prime number q",IDC_STATIC_PRIME2,19,66,75,8
-    EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Generate prime numbers...",IDC_GENERATE_PRIME,238,48,98,
                     14
+    LTEXT           "Prime number q",IDC_STATIC_PRIME2,19,66,75,8
+    EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
     GROUPBOX        "RSA  parameter",IDC_STATIC_RSA,7,87,337,101
+    LTEXT           "Length",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
     LTEXT           "RSA modulus N",IDC_STATIC_RSA1,19,118,75,8
     EDITTEXT        IDC_EDIT_RSA_MODUL_N,100,117,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
@@ -7603,16 +7610,55 @@ BEGIN
     LTEXT           "Public key e",IDC_STATIC_RSA3,19,152,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
+    LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
     LTEXT           "Private key d",IDC_STATIC_RSA4,19,169,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
     PUSHBUTTON      "Cancel",IDCANCEL,19,197,50,14
-    DEFPUSHBUTTON   "Accept key",IDOK,238,197,106,14,WS_DISABLED
-    LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
-    LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
-    LTEXT           "Length",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
+    DEFPUSHBUTTON   "Store key",IDOK,238,197,106,14,WS_DISABLED
+END
+
+IDD_CERTIFICATE_GENERATION DIALOG DISCARDABLE  0, 0, 354, 269
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Certificate and PSE"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Public RSA parameter",IDC_STATIC_RSA,7,7,340,64
+    LTEXT           "Bitlength",IDC_STATIC_RSA0,15,19,82,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,97,17,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "RSA modulus N",IDC_STATIC_RSA1,15,36,82,8
+    EDITTEXT        IDC_EDIT_RSA_MODUL_N,97,34,242,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Public key e",IDC_STATIC_RSA3,15,54,82,8
+    EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,97,52,242,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    GROUPBOX        "Personal data for the certificate",IDC_STATIC,7,76,340,
+                    113
+    LTEXT           "Name:",IDC_STATIC,15,90,50,8
+    EDITTEXT        IDC_EDIT_CERT_NAME,97,89,138,12,ES_AUTOHSCROLL
+    LTEXT           "First name:",IDC_STATIC,15,109,50,8
+    EDITTEXT        IDC_EDIT_CERT_FIRSTNAME,97,108,138,12,ES_AUTOHSCROLL
+    LTEXT           "Key identifier:",IDC_STATIC,15,129,73,8
+    EDITTEXT        IDC_EDIT_CERT_KEY_ID,97,127,138,12,ES_AUTOHSCROLL
+    LTEXT           "( Optional )",IDC_STATIC,244,128,35,8
+    LTEXT           "PIN:",IDC_STATIC,15,147,50,8
+    EDITTEXT        IDC_EDIT_CERT_PIN,97,146,138,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "PIN verification:",IDC_STATIC,15,168,50,8
+    EDITTEXT        IDC_EDIT_CERT_PIN_VERIFY,97,165,138,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Generated names for PSE and certificate",IDC_STATIC,7,
+                    192,340,49
+    LTEXT           "User Key ID",IDC_STATIC,15,206,75,8
+    EDITTEXT        IDC_EDIT_CERT_USER_ID,97,204,242,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Distinguished Name",IDC_STATIC,15,224,75,8
+    EDITTEXT        IDC_EDIT_CERT_DNAME,97,222,242,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "Cancel",IDCANCEL,7,248,60,14
+    DEFPUSHBUTTON   "Import certificate and key",ID_PSE_IMPORT,97,248,103,14
+    DEFPUSHBUTTON   "Create Certificate and PSE",IDOK,244,248,103,14
 END
 
 
@@ -7660,6 +7706,8 @@ BEGIN
             MENUITEM "&RSA Cryptosystem...",        ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "Signature generation",        IDD_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -7794,6 +7842,8 @@ BEGIN
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "Signature generation",        IDD_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -7970,6 +8020,8 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
+            MENUITEM "Signature generation",        IDD_EINZELVERFAHREN_SIGN_DOC
+
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8099,6 +8151,8 @@ BEGIN
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "Signature generation",        IDD_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8233,6 +8287,8 @@ BEGIN
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "Signature generation",        IDD_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8784,6 +8840,15 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 344
         TOPMARGIN, 7
+    END
+
+    IDD_CERTIFICATE_GENERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        VERTGUIDE, 97
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 262
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -10001,6 +10066,8 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT files (*.txt) |*.txt|ASCII files (*.asc)|*.asc|all files (*.*) |*.*||"
+    IDS_OPEN_DOCUMENT_FILTER2 
+                            "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10023,6 +10090,68 @@ BEGIN
                             "Due to memory overflow, the quadratic sieve method could not be executed."
     IDS_FACTORISATION_MEMORY_REQUEST 
                             "The quadratic sieve method requires more than 128 mega bytes of memory.\nWe recommend to deactivate this method."
+    IDS_BITLENGTH           "Length in bit:          %i\r\n"
+    IDS_CONTENT_CERT        "Certificate"
+    IDS_CONTENT_SIGN        " %s signature of <%s>"
+    IDS_BITLENGTH_MODN      "Bitlength of N:         %i\r\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_RSADEMO_Q_NOT_PRIME3 "Die Eingabe für q ist keine Primzahl !"
+    IDS_OPEN_DOCUMENT2      "Open document"
+    IDS_CONTENT_DOCUMENT    "Document:"
+    IDS_DEPENDENCY          "Dependency"
+    IDS_NAME2               "Name:                   %s %s\r\n"
+    IDS_KEY_IDENTIFIER2     "Key identifier:         %s\r\n"
+    IDS_MOD_N               "RSA modulus N:          %s\r\n"
+    IDS_PHI_N               "phi(N) = (p-1)(q-1):    %s\r\n"
+    IDS_KEY_PUBLIC          "Public key:             %s\r\n"
+    IDS_KEY_PRIVATE         "Private key:            %s\r\n"
+    IDS_NOTIFY_NAME         "Please enter your last name."
+    IDS_NOTIFY_PIN          "Please enter a PIN."
+    IDS_NOTIFY_PIN_V        "Please confirm the PIN."
+    IDS_CONTENT_ALG         "Hash function"
+    IDS_RSA_SIGNATURE_OF    "RSA (%s) signatur of <%s>"
+    IDS_NOTIFY_FIRST_NAME   "Please enter your first name."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONTENT_KEY         "RSA key"
+    IDS_PRIME_CHECK         "p and q are prime numbers."
+    IDS_PRIME_NO_CHECK_Q    "q is NOT a prime number !"
+    IDS_PUBLIC_CHECK        "e does not devide phi (N) ."
+    IDS_PUBLIC_NO_CHECK     "e divides phi (N) !"
+    IDS_PRIME_NO_CHECK_P    "p is NOT a prime number !"
+    IDS_PRIME_NO_CHECK_PQ   "p and q are NO prime numbers !"
+    IDS_PRIME_P_EQUALS_Q    "p equals q !"
+    IDS_PRIME_BIT_LENGTH    "Length exceeds 1024 bit !"
+    IDS_PRIME_LESS_THAN_TWO_P "p is below 2 !"
+    IDS_PRIME_LESS_THAN_TWO_Q "q is below 2 !"
+    IDS_CREATE_USER_KEY_ID3 "[%s][%s][%s-%i][%i]"
+    IDS_CREATE_PSE          "%s/%s.pse"
+    IDS_BIT                 "%i bit"
+    IDS_CREATE_DISNAME      "CN=%s %s [%i], L=Frankfurt, O=DB, C=DE"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
+    IDS_PADDING             "Padding string:         %s\r\n"
+    IDS_DERCODE             "Algorithm ID:           %s\r\n"
+    IDS_HASHVALUE           "Hash value:             %s\r\n"
+    IDS_HASHDER             "ASN-1 hash value:       %s\r\n"
+    IDS_HASHENC             "Encrypted hash value:   %s\r\n"
+    IDS_CONV_LONG           "%l"
+    IDS_CANCEL              "Cancel"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ACCESS_PSE          "Import key and certificate"
+    IDS_IMPORT              "Import"
 END
 
 #endif    // Englisch (GB) resources

@@ -39,6 +39,9 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgCertificateGeneration)
+	DDX_Control(pDX, IDC_EDIT_CERT_PIN_VERIFY, m_CtrlPINv);
+	DDX_Control(pDX, IDC_EDIT_CERT_PIN, m_CtrlPIN);
+	DDX_Control(pDX, IDC_EDIT_CERT_FIRSTNAME, m_CtrlFirstName);
 	DDX_Control(pDX, IDC_EDIT_CERT_NAME, m_CtrlName);
 	DDX_Control(pDX, IDOK, m_CtrlOK);
 	DDX_Text(pDX, IDC_EDIT_CERT_DNAME, m_sDName);
@@ -134,21 +137,25 @@ void CDlgCertificateGeneration::OnOK()
 	if(m_sName.IsEmpty())
 	{
 		AfxMessageBox(IDS_NOTIFY_NAME);
+		m_CtrlName.SetFocus();
 		return;
 	}
 	if(m_sFirstName.IsEmpty())
 	{
-		AfxMessageBox(IDS_NOTIFY_NAME);
+		AfxMessageBox(IDS_NOTIFY_FIRST_NAME);
+		m_CtrlFirstName.SetFocus();
 		return;
 	}
 	if(m_sPIN.IsEmpty())
 	{
 		AfxMessageBox(IDS_NOTIFY_PIN);
+		m_CtrlPIN.SetFocus();
 		return;
 	}
 	if(m_sPIN != m_sPINv)
 	{
 		AfxMessageBox(IDS_NOTIFY_PIN_V);
+		m_CtrlPINv.SetFocus();
 		return;
 	}
 	m_Cert->SetPIN(m_sPIN);

@@ -213,7 +213,7 @@ BOOL CPSEDemo::CreatePSE()
 	if (!Cert)
 	{
 		// Fehler bei der Zertifikatserzeugung
-		//Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1, MB_ICONSTOP); /*FIXME*/
+		Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1, MB_ICONSTOP); /*FIXME*/
 		// Lösche die neu angelegte PSE
 
 		// Freigeben von dynamisch angelegtem Speicher

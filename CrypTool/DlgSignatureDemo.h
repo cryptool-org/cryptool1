@@ -31,6 +31,7 @@ protected:
 	BOOL			m_bUpdateEnc;
 	BOOL			m_bUpdateSgn;
 	BOOL			m_bUpdateCrt;
+	BOOL			m_bPSEIsExtern;
 	OctetString 	m_osHash;
 	OctetString		m_osHashDER;
 	OctetString		m_osHashEnc;
