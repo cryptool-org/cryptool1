@@ -315,11 +315,14 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 				}
 			}
 
+			bool l_factorisation_aborted = false;
+
 			dlg.m_totalThreads = started;
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_FACTORISATION_TIMER,pc_str,STR_LAENGE_STRING_TABLE);
 			dlg.SetCaption(pc_str);
 			if ( IDOK != dlg.DoModal() )
 			{
+				l_factorisation_aborted = true;
 			}
 
 			for(i=0;i<5;i++) {
@@ -337,13 +340,17 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 				expandFactorisation( next_factor, f1, f2 );
 				m_Name = name;
 			}
-			
-			else
-			{
-				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-				Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
-				m_Name = "";
-			}
+			else if ( l_factorisation_aborted )
+				{
+					Message(IDS_STRING_FAKTORISATION_ABORTED, MB_ICONEXCLAMATION);
+					m_Name = "";
+				}
+				else
+				{
+					// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+					Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
+					m_Name = "";
+				}
 			
 			FactFinish = clock();
 			duration1 =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration1; //gesamte Laufzeit
@@ -425,6 +432,21 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 					                                  m_Name, m_benoetigte_zeit_pro_factorisation, 
 													  (int)f.IsPrime( f1 ) + ((int)f.IsPrime(f2))*2,
 													  (int)ceil(BitLength(f1)), (int)ceil(BitLength(f2)));
+				m_DialogeDetails.EnableWindow();
+			}
+			else 
+			{
+				if ( l_factorisation_aborted )
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_ABORT_MSG,pc_str,STR_LAENGE_STRING_TABLE);		
+				}
+				else
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_STOP_MSG,pc_str,STR_LAENGE_STRING_TABLE);
+				}
+				DetailsFactorisation.InsertFactDetail(next_factor, CString(""), CString(""), CString(pc_str), 
+					                                  m_benoetigte_zeit_pro_factorisation, 
+													  0, 0, 0);
 				m_DialogeDetails.EnableWindow();
 			}
 		}

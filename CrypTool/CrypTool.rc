@@ -2278,8 +2278,8 @@ BEGIN
     PUSHBUTTON      "&Liste im Hauptfenster anzeigen",IDCANCEL,178,321,112,
                     20
     LTEXT           "Eingabe-Zahl:",IDC_STATIC,7,7,57,10
-    GROUPBOX        "Informationen zur gewählten Faktorisierung",IDC_STATIC,
-                    7,202,369,112
+    GROUPBOX        "Informationen zur gewählten Faktorisierung (selektieren durch doppelklick auf die Zeile) ",
+                    IDC_STATIC,7,202,369,112
     LTEXT           "Faktorisierte Zahl:",IDC_STATIC,19,218,57,8
     LTEXT           "Erster Faktor:",IDC_STATIC,19,249,57,8
     LTEXT           "Zweiter Faktor:",IDC_STATIC,19,280,57,8
@@ -5305,6 +5305,10 @@ BEGIN
                             "Sie müssen mindestens einen Faktorisierungsalgorithmus wählen."
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "Die Eingabe ist keine positve ganze Zahl."
+    IDS_STRING_FAKTORISATION_ABORTED 
+                            "Die Faktorisation wurde vorzeitug beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
+    IDS_STRING_FAKTORISATION_ABORT_MSG "Abgebrochen"
+    IDS_STRING_FAKTORISATION_STOP_MSG "Ohne Erfolg"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7759,8 +7763,8 @@ BEGIN
     EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
-    GROUPBOX        "Information to the selected factorisation",IDC_STATIC,7,
-                    205,369,108
+    GROUPBOX        "Information to the selected factorisation (select by doubleclick on the row)",
+                    IDC_STATIC,7,205,369,108
     LTEXT           "Factorised number:",IDC_STATIC,18,218,73,8
     EDITTEXT        IDC_EDIT2,18,229,348,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "First factor:",IDC_STATIC,18,248,57,8
@@ -10570,6 +10574,10 @@ BEGIN
                             "Please select at least one factorisation algorithm. "
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "The input is not a positiv integer."
+    IDS_STRING_FAKTORISATION_ABORTED 
+                            "The faktorisation has been aborted.\nThe present factorisation still contains at least one composite factor."
+    IDS_STRING_FAKTORISATION_ABORT_MSG "Aborted"
+    IDS_STRING_FAKTORISATION_STOP_MSG "Without success"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -835,49 +835,49 @@ UINT Periode(PVOID p)
 	// Ausgabe der Periodenlänge
 	char fname[257], ftitle[128], fboxtitle[128];
 
-	{
-		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			SHOW_HOUR_GLASS
+	if(par->flags & CRYPT_DO_WAIT_CURSOR)
+		SHOW_HOUR_GLASS
 
-		// Initialisierung des Fortschrittbalkens
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
-		theApp.fs.Set(0,pc_str);
+	// Initialisierung des Fortschrittbalkens
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
+	theApp.fs.Set(0,pc_str);
 
-		// Thomas' Variante
-		// eigentliche Periodenanalyse
-		isPeriode = analyse.FindPeriod();
+	// Thomas' Variante
+	// eigentliche Periodenanalyse
+	isPeriode = analyse.FindPeriod();
 
-		// Vollständigkeit des Fortschrittbalkens anzeigen
-		theApp.fs.Set(100,pc_str);
+	// Vollständigkeit des Fortschrittbalkens anzeigen
+	theApp.fs.Set(100,pc_str);
 
-		// prepare the fileselectorbox dialog
-		memset(&ofn,0,sizeof(ofn));
-		ofn.lStructSize = sizeof(ofn);
-		ofn.hwndOwner = AfxGetMainWnd()->m_hWnd;
-		ofn.hInstance = AfxGetInstanceHandle();
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,pc_str,STR_LAENGE_STRING_TABLE);
-		ofn.lpstrTitle = fboxtitle;	fboxtitle[0] = '\0';
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,fboxtitle,128);
-		ofn.Flags = OFN_HIDEREADONLY;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
-		ofn.lpstrFile = fname;	strcpy(fname, pc_str);
-		ofn.nMaxFile = sizeof(fname)-1;
-		ofn.lpstrFileTitle = ftitle;	ftitle[0] = '\0';
-		ofn.nMaxFileTitle = sizeof(ftitle);
-
-		if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
-			while(theApp.fs.Set(100)!=100) Sleep(100);
-			theApp.fs.cancel();
-		}
-
-		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			HIDE_HOUR_GLASS
-
-		par->flags |= CRYPT_DONE;
-
+	if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
+		while(theApp.fs.Set(100)!=100) Sleep(100);
+		theApp.fs.cancel();
 	}
+	while(theApp.fs.m_displayed) Sleep(10);
+
+	if(par->flags & CRYPT_DO_WAIT_CURSOR)
+		HIDE_HOUR_GLASS
+
+	par->flags |= CRYPT_DONE;
+
 	FreePar(par);
 	p = NULL;
+
+
+	// prepare the fileselectorbox dialog
+	memset(&ofn,0,sizeof(ofn));
+	ofn.lStructSize = sizeof(ofn);
+	ofn.hwndOwner = AfxGetMainWnd()->m_hWnd;
+	ofn.hInstance = AfxGetInstanceHandle();
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,pc_str,STR_LAENGE_STRING_TABLE);
+	ofn.lpstrTitle = fboxtitle;	fboxtitle[0] = '\0';
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,fboxtitle,128);
+	ofn.Flags = OFN_HIDEREADONLY;
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
+	ofn.lpstrFile = fname;	strcpy(fname, pc_str);
+	ofn.nMaxFile = sizeof(fname)-1;
+	ofn.lpstrFileTitle = ftitle;	ftitle[0] = '\0';
+	ofn.nMaxFileTitle = sizeof(ftitle);
 
 	POutp.zahlenanalyse = &analyse;
 	if ( isPeriode > 0 )
@@ -934,6 +934,7 @@ UINT Periode(PVOID p)
 	{
 		Message(IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH, MB_ICONEXCLAMATION);
 	}
+
 
 	return 0;
 }
