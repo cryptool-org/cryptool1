@@ -429,6 +429,7 @@
 #define IDC_EDIT_PIN1                   1304
 #define IDC_EDIT_PIN2                   1305
 #define IDC_EDIT_ANZAHL_ZEICHEN         1307
+#define IDC_UNDO                        1308
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1009,7 +1010,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        271
 #define _APS_NEXT_COMMAND_VALUE         33154
-#define _APS_NEXT_CONTROL_VALUE         1308
+#define _APS_NEXT_CONTROL_VALUE         1309
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

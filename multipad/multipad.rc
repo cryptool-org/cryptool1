@@ -478,7 +478,7 @@ BEGIN
     EDITTEXT        IDC_EDIT25,220,78,14,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Ergebnis der automatischen Analyse wieder herstellen",
                     IDC_BUTTON2,14,99,198,20
-    PUSHBUTTON      "&Zurück",IDC_BUTTON1,269,99,63,20
+    PUSHBUTTON      "&Zurück",IDC_UNDO,269,99,63,20,WS_DISABLED
     EDITTEXT        IDC_EDIT4,14,141,318,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     DEFPUSHBUTTON   "Aktuellen &Zustand ausgeben",IDOK,15,265,145,21
@@ -5196,7 +5196,7 @@ BEGIN
     EDITTEXT        IDC_EDIT25,220,78,14,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Reset entries to the result of the automatic analysis",
                     IDC_BUTTON2,14,99,198,20
-    PUSHBUTTON      "&Back",IDC_BUTTON1,269,99,63,20
+    PUSHBUTTON      "&Back",IDC_UNDO,269,99,63,20,WS_DISABLED
     EDITTEXT        IDC_EDIT4,14,141,318,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     DEFPUSHBUTTON   "Output current &status",IDOK,15,265,145,21
