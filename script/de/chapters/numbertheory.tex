@@ -3449,10 +3449,12 @@ herzlich zu danken:
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
+\newpage 
+
 \subsection*{%
 Anhang A: Der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen \index{ggT}
-und die beiden Algorithmen von Euklid} \hypertarget{Appendix_A}{}
+und die beiden Algorithmen von Euklid}
+\hypertarget{Appendix_A}{} \label{Appendix_A} 
 \addcontentsline{toc}{subsection}{Anhang A: ggT und die beiden Algorithmen von Euklid}
 \begin{enumerate}
 \item Der gr"o"ste gemeinsame Teiler zweier nat"urlicher Zahlen $a$ und $b$ ist eine wichtige und 
@@ -3591,20 +3593,20 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \input{figures/line-de.latex}
 
 \newpage
-\subsection*{Anhang D: Basisdarstellung von Zahlen}
-\addcontentsline{toc}{subsection}{Anhang D: Basisdarstellung von Zahlen}
+\subsection*{Anhang D: Basisdarstellung von Zahlen, Absch"atzung der Ziffernl"ange}
+\addcontentsline{toc}{subsection}{Anhang D: Basisdarstellung von Zahlen, Absch"atzung der Ziffernl"ange}
 
-Betrachten man eine Zahl $z$, so stellt sich die Frage, wie man sie 
+Betrachtet man eine Zahl $z$, so stellt sich die Frage, wie man sie 
 darstellt.  "Ublich sind die Schreibweisen $z = 2374$ oder $z = \sqrt{2}$. Die zweite Zahl 
 kann nicht in der ersten Form dargestellt werden, da sie unendlich viele Stellen hat.
-Man umgeht man das Problem durch die symbolische Schreibweise. Muss man solche Zahlen 
-in der Ziffernschreibweise darstellen bleibt nichts anderes "ubrig als die Zahl zu runden. 
+Man umgeht das Problem durch die symbolische Schreibweise. Muss man solche Zahlen 
+in der Ziffernschreibweise darstellen, bleibt nichts anderes "ubrig als die Zahl zu runden. 
 
-Wir haben uns an die Dezimalschreibwese (Zahlen zur Basis 10) Ziffern 
+Wir haben uns an die Dezimalschreibweise (Zahlen zur Basis 10) 
 gew"ohnt. Computer rechnen intern mit Zahlen im Bin"arformat, die nur bei der Ausgabe in 
-dezimalschreibweise oder auch manchmal in Hexadezimalschreibweise (Basis 16) dargestellt werden.  
+Dezimalschreibweise oder auch manchmal in Hexadezimalschreibweise (Basis 16) dargestellt werden.  
 
-Dieser Anhang beschreibt, wie man die Basisdarstellung einer nat"urliche Zahl umwandelt
+Dieser Anhang beschreibt, wie man die Basisdarstellung einer nat"urlichen Zahl umwandelt
 und wie man mit Hilfe der Logarithmusfunktion die Ziffernl"ange einer beliebigen 
 nat"urlichen Zahl absch"atzen kann. 
 
@@ -3620,28 +3622,37 @@ gibt $a_0, a_1, \dots, a_n$ (n"amlich $a_i = b-1$ f"ur $i=0, \dots, n$), so dass
 $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
 (Damit l"asst sich leicht zeigen, dass jede nat"urliche Zahl sich als $b$-adische Summe darstellen l"asst).
 
-Wenn man diese Ziffern hintereninaderschreibt $a_na_{n-1} \cdots a_1a_0$, so erh"alt man die gewohnte Schreibweise f"ur Zahlen.
+Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereninaderschreibt und die Gewichte $b^i$ wegl"asst, 
+so erh"alt man die gewohnte Schreibweise f"ur Zahlen.
 
 {\bf Beispiele}: \\
 Basis $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ und \\
 Basis $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
 
 \subsubsection*{L"ange der Zifferndarstellung}
-F"ur eine nat"urliche Zahl $z$ kann die L"ange der Zahl in $b$-adischer Darstellung wiefolgt
-bestimmt werden. Dazu geht man von der Absch"atzung $b^{n+1} > z > b^n$, wobei $n+1$ die gesuchte Stellenzahl ist, aus.
-Nach dem Logarithmieren zur Basis $b$ \footnote{% 
+F"ur eine nat"urliche Zahl $z$ kann die L"ange der Zahl in $b$-adischer Darstellung wie folgt
+bestimmt werden. Dazu geht man von der Absch"atzung $b^{n+1} > z \ge b^n$, wobei $n+1$ die gesuchte Stellenzahl ist, aus.
+Nach dem Logarithmieren zur Basis $b$\footnote{% 
 Nach den Logarithmengesetzen gilt f"ur die Basen $b$ und $b'$ die Gleichung $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
 Es ist also einfach, ausgehend von Logarithmentafeln f"ur z.B. die Basis $b' = 10$ den Logarithmus zur Basis $b = 2$ zu berechnen.
 } bestimmt man die Ungleichung $n+1 > log_b z \ge n$. 
-Es folgt, dass $n = \lfloor \log_b z \rfloor$. Man bezeichnet mit $l_b(z)$ die Zahl der ben"otigten Ziffern zur Darstellung
+Es folgt, dass $n = \lfloor \log_b z \rfloor$\footnote{%
+Die Funktion $\lfloor x \rfloor$ bestimmt die n"achste ganzen Zahl, kleiner $x$ (wenn $x \ge 0$, dann werden die Nachkommastellen 
+der Zahl einfach abgeschnitten). Man sagt auch {\em untere Gau"sklammer von} $x$.
+}. Man bezeichnet mit $l_b(z)$ die Zahl der ben"otigten Ziffern zur Darstellung
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
 
 \vskip +10 pt
-{\bf Beispiel}:
-F"ur die Zahl $z = 234$ in Dezimalschreibweise bestimmt man die L"ange in Hexadezimalschreibweise durch
+{\bf Beispiel 1}:
+F"ur die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die L"ange in Hexadezimalschreibweise durch
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
 
+\vskip +10 pt 
+{\bf Beispiel 2}:
+F"ur die Zahl $z = 234$ in Dezimalschreibweise (11101010 in bin"ar) bestimmt man die L"ange in Bin"arschreibweise durch
+$$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7,87... \rfloor + 1 = 7 + 1 = 8.$$
 
+\vskip +20 pt
 \subsubsection*{Algorithmen zur Basisdarstellung von Zahlen}
 Ausgehend von der Zahl $z$ bestimmt man die Zahlendarstellung zur Basis $b$ durch den folgenden Algorithmus:
 

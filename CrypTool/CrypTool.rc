@@ -4852,7 +4852,7 @@ BEGIN
     IDS_STRING_MSG_ON_INPUT_FORMAT 
                             "Die Eingabefelder für den Namen, Vornamen und die Schlüsselkennung\ndürfen folgende Sonderzeichen NICHT enthalten:\n\\/:*?""<>|~$%&,;]["
     IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST 
-                            "Zur Zeit gibt es keine RSA-Schlüsselpaare !"
+                            "Sie haben noch keine PSE (RSA-Schlüsselpaar und Zertifikat) erzeugt.\nErzeugen Sie diese entweder\n- im Menü ""Schlüsselverwaltung \\ Schlüssel erzeugen"" oder\n- in dieser Dialogbox über ""Schlüssel erzeugen"" und danach ""Zertifikat bereitstellen""."
     IDS_STRING_KEY          "                Schlüssel:      "
     IDS_STRING_DECRYPTION_OF_USING_KEY 
                             "%s-Entschlüsselung von <%s>, Schlüssel <%s>"
@@ -11231,7 +11231,7 @@ BEGIN
     IDS_STRING_MSG_ON_INPUT_FORMAT 
                             "The input fields for the last name, first name and the key identifier\nmust not contain any of the following special characters:\n\\/:*?""<>|~$%&,;]["
     IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST 
-                            "There are no RSA key pairs at present!"
+                            "There is no PSE, containing an RSA key pair and a certificate or a user.\nYou can deliver this either\n- within the menu ""Key management \\ Key generation"" or\n- within this dialogue box via ""Generate Key"" and then via Provide certificate""."
     IDS_STRING_KEY          "                Key:      "
     IDS_STRING_DECRYPTION_OF_USING_KEY "%s decryption of <%s>, key <%s>"
     IDS_STRING_ENCRYPTION_OF_USING_KEY "%s encryption of <%s>, key <%s>"
@@ -12115,7 +12115,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_PLAYFAIR_WARNMSG002 
-                            "The Ciphertext does contain characters which do not belong to the Playfair alphabet. These characters are replaced by the wildcard "" . ""."
+                            "The ciphertext does contain characters which do not belong to the Playfair alphabet. These characters are replaced by the wildcard "" . ""."
     IDS_STRING_PLAYFAIR_WARNMSG003 
                             "The letter 'J' and the digits '0', .., '9' does not belong t a 5 x 5 Playfair matrix alphabet.\nYou may continue the analysis on a 6 x 6 Playfair matrix."
     IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5000!\nPlease enter a number between 1 and 5000."

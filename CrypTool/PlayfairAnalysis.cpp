@@ -817,23 +817,38 @@ playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, play
 										   char *plain, char *chiffre, int charlen, int the_maxDigLen)
 {
 	int j, iseol = 0;
+	bool abort = false;
+
 	playfair_digramm* dig=digramsbase;
 	my_alphabet = the_alphabet;
 	my_maxLen = max (the_maxDigLen, charlen/2);
 	my_digramms = (playfair_digramm**) malloc(my_maxLen*sizeof(playfair_digramm*));
+
 	j=0;
 	for (my_len=0; my_len < charlen/2; my_len++) {  // evtl. Probleme, wenn doppelte Zeichen erlaubt
 		char c1, c2, p1, p2;
 		do { 
+			if ( !chiffre[j] /* || !plain[j] */ )
+			{
+				abort = true;
+				break;
+			}
 			c1=chiffre[j]; 
 			p1=plain[j++];
 			iseol = iseol || (p1=='\0');
 		} while (!my_alphabet->myisalpha(c1));
 		do { 
+			if ( !chiffre[j] /* || !plain[j] */ )
+			{
+				abort = true;
+				break;
+			}
 			c2=chiffre[j]; 
 			p2=plain[j++];
 			iseol = iseol || (p2=='\0');
 		} while (!my_alphabet->myisalpha(c2));
+		if ( abort )
+			break;
 		dig = &digramsbase[dig->getIndex(c1, c2)];
 		dig->setChiffres (c1, c2);
 		if (!iseol)
@@ -844,6 +859,7 @@ playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, play
 	for (int i = my_len; i < my_maxLen; i++)
 		my_digramms[i] = NULL;
 }
+
 playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, int the_maxDigLen)
 {
 	my_alphabet = the_alphabet;
@@ -853,6 +869,7 @@ playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, int 
 	for (int i = 0; i < my_maxLen; i++)
 		my_digramms[i] = NULL;
 }
+
 playfair_digrammlist::~playfair_digrammlist()
 {
 	free (my_digramms);

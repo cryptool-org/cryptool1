@@ -742,9 +742,15 @@ Dies ist eine 2. m"ogliche Verallgemeinerung der
     Wie \hyperlink{FermatNumbers01}{oben} in Kapitel~\ref{FermatNumbers01}
     erw"ahnt, schrieb Fermat an 
     Mersenne, dass er vermutet, dass alle Zahlen dieser Form prim seien. 
-    Erstaunlicherweise w"are es f"ur ihn m"oglich gewesen, mit dem auf 
-    seinem kleinen Satz beruhenden negativen Primzahltest f"ur $n=5$ ein 
-    positives Ergebnis zu erhalten.
+    Diese Vermutung wurde jedoch von Euler (1732) widerlegt. Es gilt $641 | f(5)$\footnote{%
+    Erstaunlicherweise kann man mit Hilfe des Satzes von Fermat diese Zahl leicht finden (siehe z.B. 
+    \cite[S. 176]{Scheid1994})
+    }. 
+    
+	       
+%    Erstaunlicherweise w"are es f"ur ihn m"oglich gewesen, mit dem auf 
+%    seinem kleinen Satz beruhenden negativen Primzahltest f"ur $n=5$ ein 
+%    positives Ergebnis zu erhalten.
 $$
 \begin{array}{lll}
 f(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prim}  \\
@@ -944,7 +950,12 @@ Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so dass dies auch
 keine brauchbare Primzahlformel ist.
 
 Bemerkung: Das Besondere an diesen Zahlen ist, dass sie jeweils paarweise
-keinen gemeinsamen Teiler au"ser $1$ haben, sie sind also%
+keinen gemeinsamen Teiler au"ser $1$ haben\footnote{%
+Dies kann leicht mit Hilfe der {\em gr"o"ste gemeinsame Teiler} ($ggT$)-Rechenregel $ggT(a,b) = ggT(b-\lfloor b/a\rfloor,a)$ (siehe Seite \pageref{Appendix_A}) 
+gezeigt werden: Es gilt f"ur $i<j$: \\
+$ggT(e_i,e_j) \le ggT(e_1 \cdots e_i \cdots e_{j-1}, e_j) = ggT(e_j - e_1 \cdots e_i \cdots e_{j-1}, e_1 \cdots e_i \cdots e_{j-1}) 
+= ggT(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.
+}, sie sind also%
 \index{Primzahl!relative}\index{relativ prim} {\em relativ zueinander prim}.
 
 
@@ -1128,13 +1139,10 @@ Verh"altnisses  $P(n)/(n\cdot \ln n)$ ist gleich $1$, wenn $n$
 gegen unendlich geht.
 \end{satz}
 
-Es gilt f"ur gro"se $n$, dass  $P(n)$  zwischen  $2n$  und  $n^2$  liegt.
-Somit gibt es also weniger Primzahlen als gerade nat"urliche Zahlen, aber 
-es gibt mehr Primzahlen als Quadratzahlen. 
-
-Dies gilt schon ab der 5. Primzahl, wie man in 
-\hyperlink{ntePrimzahl}{der Tabelle \ref{s:ntePrimzahl}} 
-sehen kann: $P(5) = 11$.
+Es gilt f"ur $n \ge 5$, dass  $P(n)$  zwischen  $2n$  und  $n^2$  liegt.
+Es gibt also weniger Primzahlen als gerade nat"urliche Zahlen, aber es gibt mehr Primzahlen als Quadratzahlen\footnote{%
+Vergleiche auch \hyperlink{ntePrimzahl}{Tabelle \ref{s:ntePrimzahl}}.
+}.
 
 
 \vskip +15 pt
@@ -1616,6 +1624,10 @@ Berechnung zum Beispiel per GMP:
     {\em Verifying the Goldbach Conjecture up to $4*10^{14},$} 
     Mathematics of Computation. 
 
+\bibitem[Scheid1994]{Scheid1994} \index{Scheid 1994}
+    Harald Scheid, \\ 
+    {\em Zahlentheorie}, BI Wissenschaftsverlag, 2. Auflage, 1994.
+
 %already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Schneier1996]{Schneier1996p} \index{Schneier 1996}
     Bruce Schneier, \\
@@ -1719,11 +1731,11 @@ http://www.cerias.purdue.edu/homes/ssw/cun }
 
 
 \vskip +10 pt
-% --------------------------------------------------------------------------
+% --------------------------------------------------------------------------(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)
 \subsection*{Dank} \addcontentsline{toc}{subsection}{Dank}
 F"ur das sehr konstruktive Korrekturlesen dieses Artikels: Hr.
 Henrik Koy und Hr. Roger Oyono.
 
 % Local Variables:
 % TeX-master: "../script-de.tex"
-% End:
+% End:(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)
