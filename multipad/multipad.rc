@@ -2566,7 +2566,6 @@ BEGIN
             MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
-            MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test-Batterie", 
                                                     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
 
@@ -7320,7 +7319,6 @@ BEGIN
 
             MENUITEM "&Serial test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
-            MENUITEM SEPARATOR
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 test battery", 
                                                     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
