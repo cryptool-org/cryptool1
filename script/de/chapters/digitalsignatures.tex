@@ -101,7 +101,7 @@ In beiden F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
 Hashfunktionen nicht formal bewiesen werden. Es gibt jedoch einige gute
 Kandidaten, die in der Praxis bislang keine Schw"achen in ihrer Struktur
-gezeigt haben (zum Beispiel \index{SHA-1} SHA-­1\footnote{%
+gezeigt haben (zum Beispiel \index{SHA-1} SHA-1\footnote{%
 SHA-1 \index{SHA-1} ist eine in FIPS 180-1, ANSI X9.30 Part 2 und
 \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
 SHA bedeutet ``Secure Hash Algorithm'' und wird h"aufig benutzt, z.B. 
@@ -126,7 +126,7 @@ Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie den Geburtstagsangriff
 per {\bf Einzelverfahren \textbackslash{} 
 Angriff auf den Hashwert der digitalen Signatur}.
 } 
-oder \index{RIPEMD-160} RIPEMD­-160\footnote{%
+oder \index{RIPEMD-160} RIPEMD-160\footnote{%
 RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
 Object Identifier, definiert von der ISO-identifizierten Organisation
 TeleTrusT, sowohl f"ur Hashverfahren als auch in Kombination mit RSA.
@@ -281,7 +281,7 @@ sind, nach RSA bzw. ElGamal zu verschl"usseln.
 \subsection{Public Key-Zertifizierung}
 \index{Zertifizierung!Public Key}
 \index{PKI}
-Ziel der Public Key-­Zertifizierung ist es, die Bindung eines 
+Ziel der Public Key-Zertifizierung ist es, die Bindung eines 
 "offentlichen Schl"ussels an einen Benutzers zu garantieren und nach au"sen
 nachvollziehbar zu machen. In F"allen, in denen nicht sichergestellt werden
 kann, dass ein "offentlicher Schl"ussel auch wirklich zu einer bestimmten
@@ -322,9 +322,9 @@ auch, wenn Charlie nur ein Schl"usselpaar hat.
 Ein anderer Name f"ur diese Art von Angriffen ist 
 \index{Angriff!Man-in-the-middle-attack}
 % \index{Man-in-the-middle-attack}
-\glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
-von Angriffen verspricht die Public Key­-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
-garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
+\glqq man-in-the-middle-attack\grqq. Hilfe gegen diese Art
+von Angriffen verspricht die Public Key-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
+garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509-Standard.
 
 % --------------------------------------------------------------------------
 \subsubsection{X.509-Zertifikat}
@@ -334,9 +334,8 @@ die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner realen Person
 best"atigen lassen m"ochte, wendet sich an eine sogenannte
 \index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
 Oft auch Trustcenter oder im deutschen Signaturgesetz
-\glqq Zertifizierungsdiensteanbieter\grqq 
-genannt, wenn die Zertifikate nicht nur einer geschlossenen Benutzergruppe
-angeboten werden.
+\glqq Zertifizierungsdiensteanbieter\grqq\ genannt, wenn die Zertifikate nicht
+nur einer geschlossenen Benutzergruppe angeboten werden.
 }.
 Dieser beweist er seine Identit"at (etwa durch Vorlage seines 
 Personalausweises). Anschlie"send stellt die CA ihm ein elektronisches
@@ -355,10 +354,10 @@ zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten
 Hierarchieebene (Wurzelinstanz) gibt es in der Regel
 nur eine CA, die dann nat"urlich keine M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
 zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel auf andere Art und Weise gesichert
-zu "ubermitteln. Bei vielen Software-­Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
-von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-­CAs schon von Anfang an fest in das Programm
+zu "ubermitteln. Bei vielen Software-Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
+von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-CAs schon von Anfang an fest in das Programm
 eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch
-"offentliche Bekanntgabe in Zeitungen k"onnen ("offentliche) CA-­Schl"ussel
+"offentliche Bekanntgabe in Zeitungen k"onnen ("offentliche) CA-Schl"ussel
 gesichert "ubermittelt werden.
 
 \begin{thebibliography}{99999}
@@ -374,18 +373,18 @@ gesichert "ubermittelt werden.
     {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
     April 19, 2002.
 
+\bibitem[X.509]{X.509} ITU-T, \\
+    \index{X.509}
+    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
+    Open Systems Interconnection -- The Directory: Authentication Framework},\\
+    June 1997.
+
 \bibitem[X.509v3]{X.509v3} ITU-T, \\ 
     \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
     {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
     Authentication Framework},\\ 
     International Telecommunication Union, Geneva, Switzerland, July 1995\\
-    (equivalent to Amendment 1 to ISO/IEC 9594-8).
-
-\bibitem[X.509]{X.509} ITU-T, 
-    \index{X.509}
-    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework},\\
-    June 1997.
+    (equivalent to amendment 1 to ISO/IEC 9594-8).
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS180-2} \\
