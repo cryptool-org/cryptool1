@@ -66,15 +66,15 @@ In dem Men"u {\bf Einzelverfahren \textbackslash{} Hashwerte} haben Sie die M"og
 \subsection{Hashfunktionen}
 \index{Hashfunktion}
 Eine kryptographische \index{Hashfunktion} {\em Hashfunktion}\footnote{%
-Sichere Hashverfahren berechnen eine komprimierte Representation elektronischer
+Sichere Hashverfahren berechnen eine komprimierte Repr"asentation elektronischer
 Daten (Message).
 Die Verarbeitung dieser Message durch das Hashverfahren ergibt als Output
 einen sogenannten Message Digest. Message Digests sind typischerweise
 zwischen 128 und 512 Bit lang -- abh"angig vom Algorithmus. 
 Sichere Hashverfahren werden typischerweise mit anderen kryptographischen
 Algorithmen kombiniert, wie z.B. Digitale-Signatur-Algorithmen,
-Keyed-Hash Message Authentication Codes oder bei der Erzeugung von
-Zufallszahlen (Bits).
+Keyed-Hash Message Authentication Codes, oder bei der Erzeugung von
+Zufallszahlen (Bits) benutzt.
 }
 bildet eine Nachricht beliebiger L"ange auf eine Zeichenfolge mit
 konstanter Gr"o"se, den \index{Hashwert}
@@ -93,14 +93,13 @@ SHA-1 \index{SHA-1} ist eine in FIPS 180-1, ANSI X9.30 Part 2 und
 SHA bedeutet Secure Hash Algorithm und wird h"aufig benutzt, z.B. 
 mit DSA, RSA oder ECDSA.\\
 Der aktuelle Standard \cite{FIPS180-2} definiert vier sichere Hashverfahren
--- SHA-1, SHA-256, SHA-384, und SHA-512.
-
+-- SHA-1, SHA-256, SHA-384 und SHA-512.
 F"ur diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
 Validierungstests definiert.
 
 Die Ausgabel"ange der SHA-Algorithmen wurde vergr"o"sert aufgrund der
-M"oglichkeit von Geburtstagsangriffen\index{Geburtstagsangriff}
-\index{Kollisionen}:
+M"oglichkeit von Geburtstagsangriffen:\index{Geburtstagsangriff}
+\index{Kollisionen}
 diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
 Hashverfahren "aquivalent: \\
 - 128-bit AES -- SHA-256 \\
@@ -108,17 +107,16 @@ Hashverfahren "aquivalent: \\
 - 256-bit AES -- SHA-512.
 
 Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie den Geburtstagsangriff
-\index{Geburtstagsangriff} auf auf digitale Signaturen nachvollziehen: \\
+\index{Geburtstagsangriff} auf digitale Signaturen nachvollziehen: \\
 per {\bf Einzelverfahren \textbackslash{} 
 Angriff auf den Hashwert der digitalen Signatur}.
 } 
 oder \index{RIPEMD-160} RIPEMD­-160\footnote{%
 RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
-Object Identifier definiert von der ISO-identifizierten Organisation
+Object Identifier, definiert von der ISO-identifizierten Organisation
 TeleTrusT, sowohl f"ur Hashverfahren als auch in Kombination mit RSA.
- 
 RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
-ISO/IEC 10118-3:1998 für dedizierte Hashfunktionen, zusammen mit
+ISO/IEC 10118-3:1998 f"ur dedizierte Hashfunktionen, zusammen mit
 RIPEMD-128 and SHA-1. 
 
 Weitere Details: \\
