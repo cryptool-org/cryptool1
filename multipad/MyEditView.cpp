@@ -100,6 +100,8 @@ void CMyEditView::OnShowKey()
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 
 	CString Key = ((CMyDocument*)m_pDocument)->csSchluessel;
+	
+	int i;
 	CString Title;
 	Title=((CMyDocument*)m_pDocument)->GetTitle();
 
@@ -305,21 +307,45 @@ HRESULT CMyEditView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFor
 
 BOOL CMyEditView::OnPreparePrinting(CPrintInfo* pInfo) 
 {
-	// TODO: DoPreparePrinting aufrufen, um das Dialogfeld Drucken zu öffnen
-	
 	return DoPreparePrinting(pInfo);
 }
 
 void CMyEditView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
 {
-	// TODO: Speziellen Code hier einfügen und/oder Basisklasse aufrufen
-	CFont font;
-//	pDC->SetMapMode(MM_TWIPS);
-	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
-		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
-					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
-					DEFAULT_PITCH | FF_MODERN, "Courier New");
-	CFont *pOldFont = (CFont*)(pDC->SelectObject(&font));
+	CSize size;
+
+	size = pDC->GetWindowOrg();
+	size = pDC->GetWindowExt();
+	size = pDC->GetViewportOrg();
+	size = pDC->GetViewportExt();
 	CRichEditView::OnPrint(pDC, pInfo);
-	pDC->SelectObject(pOldFont);
+}
+
+void CMyEditView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
+{
+	CSize size;
+//	LOGFONT lf;
+//	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
+//		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
+//					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
+//					DEFAULT_PITCH | FF_MODERN, "Courier New");
+//	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
+//		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
+//					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
+//					FIXED_PITCH, "Courier New");
+//    font.CreatePointFont(800, "Courier", NULL);
+//	font.GetLogFont(&lf);
+//	pDC->SelectObject(&font);
+	size = pDC->GetWindowOrg();
+	size = pDC->GetWindowExt();
+	size = pDC->GetViewportOrg();
+	size = pDC->GetViewportExt();
+	pDC->SetWindowOrg(-200,-200);
+	pDC->SetWindowExt(100,100);
+	size = pDC->GetWindowExt();
+	size.cx -= 200;
+	size.cy -= 200;
+	pDC->SetWindowExt(size);
+	CRichEditView::OnBeginPrinting( pDC, pInfo);
+//	pDC->SelectObject(&font);
 }

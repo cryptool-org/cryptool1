@@ -106,7 +106,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnAnalyse();
 	afx_msg void OnManAnalyse();
-	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
@@ -121,10 +120,12 @@ private:
 	class CEdit m_ciphfeld,m_pwfeld;
 	class CMyEdit m_txtfeld;
 	CListCtrl m_listview;
-	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2];
+
 	int m_sechs,m_Dec;
 	CFont m_Font;
 
+	bool is6x6possible;
+	bool isinvalidoccured;
 
 };
 

@@ -1575,7 +1575,8 @@ bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation,
 		if (stipulation != NULL) {
 			if (outbuflen+1 == stiplen) {
 				// falls Länge der ungeraden Vorgabe (stiplen) erreicht ist.
-				bool flag = (stipulation [outbuflen] == CipherBufTemp [outbuflen]);
+				bool flag = ((stipulation [outbuflen] == CipherBufTemp [outbuflen]) || 
+					(myAlphabet->getNullElement()->getValue() == CipherBufTemp [outbuflen]));
 				free(CipherBufTemp);
 				return (flag);
 			}
@@ -1734,7 +1735,7 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 	trace.analyse(my_matrix, myAlphabet);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (false, 1, MAXSHOWLETTER, tmp_stip, len, tmp_inbuf, len));
+	return (DoCipher (false, 1, MAXSHOWLETTER, tmp_stip, i, tmp_inbuf, i));
 } // CreateMatrix
 
 
@@ -2065,15 +2066,15 @@ int playfair_arrinfo::test_rule(playfair_data d )
         // a1, a2 gesetzt
         if(a1_set && a2_set) {
                 // Chiffrat berechnen
-                if(a1_x == a2_x) { // eine Spalte
-                        c1p_y = R(a1_y - 1);
-                        c2p_y = R(a2_y - 1);
-                        c1p_x = c2p_x = a1_x;
-                }
-                else if(a1_y == a2_y) { // eine Zeile
+                if(a1_y == a2_y) { // eine Zeile
                         c1p_x = R(a1_x + 1);
                         c2p_x = R(a2_x + 1);
                         c1p_y = c2p_y = a1_y;
+                }
+                else if(a1_x == a2_x) { // eine Spalte
+                        c1p_y = R(a1_y - 1);
+                        c2p_y = R(a2_y - 1);
+                        c1p_x = c2p_x = a1_x;
                 }
                 else { // Rechteck
                         c1p_x = a2_x;
@@ -2091,15 +2092,15 @@ int playfair_arrinfo::test_rule(playfair_data d )
         }
         // c1, c2 gesetzt ********************************************************************************
         if(c1_set && c2_set) {
-                if(c1_x == c2_x) { // eine Spalte
-                        a1p_y = R(c1_y + 1);
-                        a2p_y = R(c2_y + 1);
-                        a1p_x = a2p_x = c1_x;
-                }
-                else if(c1_y == c2_y) { // eine Zeile
+                if(c1_y == c2_y) { // eine Zeile
                         a1p_x = R(c1_x - 1);
                         a2p_x = R(c2_x - 1);
                         a1p_y = a2p_y = c1_y;
+                }
+                else if(c1_x == c2_x) { // eine Spalte
+                        a1p_y = R(c1_y + 1);
+                        a2p_y = R(c2_y + 1);
+                        a1p_x = a2p_x = c1_x;
                 }
                 else {
                         a1p_x = c2_x;

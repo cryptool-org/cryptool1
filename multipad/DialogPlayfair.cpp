@@ -194,27 +194,8 @@ BEGIN_MESSAGE_MAP(CDialogPlayfair, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnAnalyse)
 	ON_EN_UPDATE(IDC_MYTXT, OnManAnalyse)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
-	ON_WM_PAINT()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
-void CDialogPlayfair::OnPaint() 
-{
-	CPaintDC dc(this); // device context for painting
-
-	int start_ch, end_ch;
-	m_txtfeld.GetSel(start_ch, end_ch);
-    CPoint x = m_txtfeld.GetCaretPos();
-	if ( start_ch == end_ch )
-	{
-		int ofs = start_ch - ((x.x+1)/9);
-		if ( ofs < 0 ) ofs = 0;
-		UpdateData();
-		m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf+ofs,dbuf+ofs,obuf+ofs);
-		UpdateData(FALSE);
-	}
-}
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDialogPlayfair 
@@ -521,8 +502,7 @@ BOOL CDialogPlayfair::OnInitDialog()
 void CDialogPlayfair::UpdateListBox()
 {
 	int i,j,k;
-//	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
-	char c,s[100];
+	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
 	playfair_letter *let;
 
 	m_listview.DeleteAllItems( );
@@ -568,7 +548,7 @@ void CDialogPlayfair::UpdateListBox()
 	while(i<MAXSHOWLETTER&&j<m_Alg->inbuflen)
 	{
 		c=m_Alg->inbuf[j++];
-		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+		if(!m_Alg->myisalpha2(c) && !isinvalidoccured)  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
 		if(m_Alg->myisalpha2(c)) {
 			ibuf[i] = toupper(c);
@@ -582,13 +562,15 @@ void CDialogPlayfair::UpdateListBox()
 			ibuf[i] = '.';
 			dbuf[i] = '.';
 			obuf[i] = '.';
+//			obuf[i] = c;    //[TG Sonderzeichen doch zeigen]
 		}
 		i++;
 	}
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 //	*/
-	// m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
+	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
 	UpdateData(FALSE);
+
 
 } // void CDialogPlayfair::UpdateListBox()
 
@@ -619,8 +601,8 @@ void CDialogPlayfair::UpdatePassword()
 
 void CDialogPlayfair::InitListBox()
 {
-	bool is6x6possible = false;
-	bool isinvalidoccured = false;
+	is6x6possible = false;
+	isinvalidoccured = false;
 	int i;
 	char c, s[245];
 

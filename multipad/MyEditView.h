@@ -40,6 +40,8 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
+	CFont font;
+	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	//{{AFX_MSG(CMyEditView)
 	afx_msg void OnKillFocus(CWnd* pNewWnd);
 	afx_msg void OnGotoVater();
