@@ -28,6 +28,7 @@ Dlg_homophone::Dlg_homophone(CWnd* pParent /*=NULL*/)
 	m_RowHomophonesList = _T("");
 	m_HomophonesList = _T("");
 	m_EncryptFormatCharacters = FALSE;
+	m_KodiereUmlaute = FALSE;
 	//}}AFX_DATA_INIT
 	m_crypt = 0;
 	m_lastSelectedRow = -1;
@@ -48,13 +49,13 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO4, m_BaseHomophones);
 	DDX_Text(pDX, IDC_EDIT5, m_Bitlength);
 	DDX_Text(pDX, IDC_EDIT1, m_NoOfHomophones);
-	DDV_MinMaxInt(pDX, m_NoOfHomophones, 256, 4096);
 	DDX_Text(pDX, IDC_EDIT3, m_EditNoOfHomophones);
 	DDV_MinMaxInt(pDX, m_EditNoOfHomophones, 0, 4096);
 	DDX_Text(pDX, IDC_EDIT2, m_RowHomophonesList);
 	DDX_Text(pDX, IDC_ROW, m_HomophonesList);
 	DDX_Check(pDX, IDC_CHECK1, m_EncryptFormatCharacters);
-  //}}AFX_DATA_MAP
+	DDX_Check(pDX, IDC_CHECK2, m_KodiereUmlaute);
+	//}}AFX_DATA_MAP
 }
 
 BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
@@ -152,7 +153,7 @@ BOOL Dlg_homophone::OnInitDialog()
 	{
 		m_Paste.EnableWindow(FALSE);
 	}
-
+	m_AlphabetBackup = theApp.TextOptions.m_alphabet;
 	return(TRUE);
 }
 
@@ -209,9 +210,13 @@ void Dlg_homophone::LoadListBox()
 	{
 		if(HB.GetEncryptionData1(i)>0)
 		{
-			string[0]=i;
-			for (k =1; k<=6; k++) string[k] =' '; 
+			for (k=0; k<=6; k++) string[k] =' '; 
 			string[k] = 0;
+			if ( char(i) == '\n' )      { string[0] = 'N'; string[1] = 'L'; }
+			else if ( char(i) == '\t' ) { string[0] = 'T'; string[1] = 'A'; string[2] = 'B'; }
+			else if ( char(i) == '\r' ) { string[0] = 'C'; string[1] = 'R'; }
+			else string[0]=i;
+
 			j=m_listview.InsertItem(i,string);
 			number=HB.GetEncryptionData1(i);
 			assert(number>0);
@@ -278,6 +283,24 @@ void Dlg_homophone::OnDecimal()
 void Dlg_homophone::OnActualizeNoOfHomophones() 
 {
 	UpdateData(TRUE);
+	if ( m_NoOfHomophones < range )
+	{
+		char Note[128];
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_HOMOPHONE_LOWERBND,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(Note, pc_str, range);
+		AfxMessageBox( Note );
+		m_NoOfHomophones = range;
+	}
+
+	if ( m_NoOfHomophones > upper_range )
+	{
+		char Note[128];
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_HOMOPHONE_UPPERBND,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(Note, pc_str, upper_range);
+		AfxMessageBox( Note );
+		m_NoOfHomophones = upper_range;
+	}
+
 	if ( m_NoOfHomophones != HB.GetKeySize() )
 	{
 		theApp.DoWaitCursor(0);
@@ -440,8 +463,6 @@ void Dlg_homophone::OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 	UpdateData(FALSE);
 
-	
-
 	*pResult = 0;
 }
 
@@ -451,10 +472,31 @@ void Dlg_homophone::OnSelectEncryptFormatCharacters()
 	if ( !m_EncryptFormatCharacters )
 	{	
 		m_EncryptFormatCharacters = TRUE;
+		if ( 0 > theApp.TextOptions.m_alphabet.Find("\n", 0) ) 
+			theApp.TextOptions.m_alphabet.Insert(0, "\n"); 
+		if ( 0 > theApp.TextOptions.m_alphabet.Find("\t", 0) ) 
+			theApp.TextOptions.m_alphabet.Insert(0, "\t");
+		if ( 0 > theApp.TextOptions.m_alphabet.Find("\r", 0) ) 
+			theApp.TextOptions.m_alphabet.Insert(0, "\r");
+		HB.Make_enc_table();
+		m_listview.DeleteAllItems(); 
+		LoadListBox();	
+		OnErzeugen();
 	}
 	else
 	{
 		m_EncryptFormatCharacters = FALSE;
+		int ndx;
+		if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\n", 0)) ) 
+			theApp.TextOptions.m_alphabet.Delete(ndx);
+		if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\t", 0)) ) 
+			theApp.TextOptions.m_alphabet.Delete(ndx);
+		if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\r", 0)) ) 
+			theApp.TextOptions.m_alphabet.Delete(ndx);
+		HB.Make_enc_table();
+		m_listview.DeleteAllItems(); 
+		LoadListBox();
+		OnErzeugen();
 	}
 	
 }

@@ -2766,7 +2766,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	text.Read(infile);
 	if ( !CheckTextSize( text ) ) return;
 	
-	char inbuffer[buffsize];
+	char inbuffer[buffsize+3];
 	Dlg_homophone DH;
 	DH.DeactivateDecryptionButton = TRUE;
 	for (int i=0; ; i++ ) {
@@ -2781,9 +2781,12 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
+		theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
+	theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[17000];
 	long outbuffsize;
@@ -2802,23 +2805,61 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		while(in.gcount())
 		{
 			outbuffsize=0;
-			for (int i=0;i<in.gcount();i++)
-			{
-				value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
+			char buff = 0;
+			bool umlautFlag = FALSE;
+			for (int i=0;i<in.gcount(); )
+			{				
+				if ( DH.m_KodiereUmlaute && buff == 0 )
+				{
+					switch ( (char)inbuffer[i] ) {
+					case 'ä': inbuffer[i] = 'a'; buff = 'e'; umlautFlag = true;
+						break;
+					case 'ö': inbuffer[i] = 'o'; buff = 'e'; umlautFlag = true;
+						break;
+					case 'ü': inbuffer[i] = 'u'; buff = 'e'; umlautFlag = true;
+						break;
+					case 'ß': inbuffer[i] = 's'; buff = 's'; umlautFlag = true;
+						break;
+					case 'Ä': inbuffer[i] = 'A'; buff = 'e'; umlautFlag = true;
+						break;
+					case 'Ö': inbuffer[i] = 'O'; buff = 'e'; umlautFlag = true;
+						break;
+					case 'Ü': inbuffer[i] = 'U'; buff = 'e'; umlautFlag = true;
+						break;
+					}					
+					value=DH.HB.Encrypt((unsigned char)inbuffer[i]);					
+				}
+
+				if ( !buff )
+				{	
+					value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
+					i++;
+				}
+				else if ( umlautFlag ) 
+				{
+					umlautFlag = false;
+				}
+				else
+				{
+					value=DH.HB.Encrypt((unsigned char)buff);
+					buff = 0;
+					i++;
+				}
+
 				if ( value >= 0 )
 				{
 					value <<= offsetResiduum;
 					value |= residuum;
 					offsetResiduum += bitLength;
-					for (int i=0; offsetResiduum >= 8; i++ )
+					for (int j=0; offsetResiduum >= 8; j++ )
 					{
-						outbuffer[outbuffsize]= p_value[i];
+						outbuffer[outbuffsize]= p_value[j];
 						outbuffsize++;
 						offsetResiduum -= 8;
 					}
 					if ( offsetResiduum ) 
 					{
-						residuum = p_value[i];
+						residuum = p_value[j];
 					}
 					else
 					{
@@ -2826,6 +2867,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 					}
 				}
 			}
+
 			out.write(outbuffer,outbuffsize);
 			in.read(inbuffer,buffsize);
 		}
@@ -2883,9 +2925,12 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
+		theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
+	theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[4096];
 	long outbuffsize;
@@ -2980,13 +3025,15 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 void NGramAsc(const char *infile, const char *OldTitle)
 {
 	theApp.DoWaitCursor(1);
-    SymbolArray text(AppConv);
 
-    text.Read(infile);
-	if ( !CheckTextSize( text ) ) return;
-
+    char      * buffer;
+	CFile f( infile, CFile::modeRead );
+	unsigned long fLen = (f.GetLength() < 262144) ? f.GetLength() : 262144;  //  2^18 bytes restriction restriction
+	buffer = new char[fLen+1];
+	f.Read( (void *)buffer, fLen );	
 	AnalyseNGram DiaNGram;
-	DiaNGram.LoadText(text, 0);
+	DiaNGram.LoadText(buffer, fLen, OldTitle, 0);
+
     DiaNGram.DoModal();
 
     if ( DiaNGram.b_saveNGramList() )
@@ -2994,8 +3041,25 @@ void NGramAsc(const char *infile, const char *OldTitle)
 		CMyDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
 		remove(DiaNGram.outfile);
-		if(NewDoc) {
-			NewDoc->SetTitle("N-Gramm Analyse von");
+		if (NewDoc) {
+			char title[128], method[20]; 
+			switch ( DiaNGram.m_N_NGram )  {
+			case 0: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 1: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_DIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 2: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_TRIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 3:  LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_NGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf( method, pc_str, DiaNGram.m_NrNGram );
+				break;
+			}
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
+			NewDoc->SetTitle(title);
 		}
 	}
 
@@ -3005,22 +3069,42 @@ void NGramAsc(const char *infile, const char *OldTitle)
 void NGramBin(const char *infile, const char *OldTitle)
 {
 	theApp.DoWaitCursor(1);
-    SymbolArray text(IdConv);
 
-    text.Read(infile);
-	if ( !CheckTextSize( text ) ) return;
+    char      * buffer;	
+	CFile f( infile, CFile::modeRead );
+	unsigned long fLen = (f.GetLength() < 65536) ? f.GetLength() : 65536;  // 2^16 bytes restriction
+	buffer = new char[fLen+1];
+	f.Read( (void *)buffer, fLen );
 
 	AnalyseNGram DiaNGram;
-	DiaNGram.LoadText(text, 1);
+	DiaNGram.LoadText(buffer, fLen, OldTitle, 1);
 
 	DiaNGram.DoModal();
+
     if ( DiaNGram.b_saveNGramList() )
 	{
 		CMyDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
 		remove(DiaNGram.outfile);
-		if(NewDoc) {
-			NewDoc->SetTitle("N-Gramm Analyse von X ");
+		if (NewDoc) {
+			char title[128], method[20]; 
+			switch ( DiaNGram.m_N_NGram )  {
+			case 0: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 1: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_DIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 2: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_TRIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				strcpy( method, pc_str );
+				break;
+			case 3:  LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_NGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf( method, pc_str, DiaNGram.m_NrNGram );
+				break;
+			}
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
+			NewDoc->SetTitle(title);
 		}
 	}
 
@@ -3031,7 +3115,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 // == permutation cryptology 
 // == Peer Wichmann July 2001
 void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zout)
-{
+{		
 	int i, k, pt;
 	int Zeilenzahl, LetzteZLen;
 	int pres[26], sstart[26], slen[26];

@@ -101,7 +101,6 @@
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
 #define IDC_EDIT_KEYTYPE                1018
-#define IDC_EDIT132                     1018
 #define IDC_EDIT3                       1019
 #define IDC_EDIT4                       1020
 #define IDC_EDIT5                       1021
@@ -484,7 +483,7 @@
 #define ID_CRYPT_VERIFY                 33056
 #define ID_CRYPT_EXTRACT                33057
 #define ID_ANALYZE_SUBST                33058
-#define IDS_STRING32860                 33059
+#define IDS_STRING_CUT_NULLS            33059
 #define ID_WIE_SIE_STARTEN              33061
 #define IDS_STRING32863                 33062
 #define ID_OPEN_BACKGND                 33063
@@ -958,6 +957,19 @@
 #define IDS_STRING_ERR_ONBLOCKLENGTH    37705
 #define IDS_STRING_RSA_TUT_TEXTSEGMENTATION 37706
 #define IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 37707
+#define IDS_STRING_NGRAM_ANALYSIS_OF    37800
+#define IDS_STRING_NGRAM_HISTOGRAM      37801
+#define IDS_STRING_NGRAM_DIGRAM         37802
+#define IDS_STRING_NGRAM_TRIGRAM        37803
+#define IDS_STRING_NGRAM_NGRAM          37804
+#define IDS_STRING_NGRAM_DESCRIPTION    37805
+#define IDS_STRING_NGRAM_NO             37806
+#define IDS_STRING_NGRAM_RELFREQUENCY   37807
+#define IDS_STRING_NGRAM_SUBSTR         37808
+#define IDS_STRING_MSG_HOMOPHONE_LOWERBND 37809
+#define IDS_STRING_MSG_HOMOPHONE_UPPERBND 37810
+#define IDS_STRING_RSADEMO_P_NOT_PRIME  37811
+#define IDS_STRING_RSADEMO_Q_NOT_PRIME  37812
 
 // Next default values for new objects
 // 

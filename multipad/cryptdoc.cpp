@@ -1157,9 +1157,10 @@ void CCryptDoc::OnToHex()
 void CCryptDoc::OnToTxt() 
 {
 	CMyDocument *NewDoc;
-	char outfile[128];
+	char outfile[128], c;
 	BOOL Modified;
 	WINDOWPLACEMENT place;
+	FILE *in;
 
 	GetTmpName(outfile,"cry",".txt");
 	
@@ -1167,6 +1168,17 @@ void CCryptDoc::OnToTxt()
 	CWnd_hilf->GetWindowPlacement( &place );
 	Modified = IsModified();
 	OnSaveDocument(outfile);
+
+	// Test auf abschließende Nullzeichen
+	in = fopen(outfile,"rb");
+	fseek(in, -1, SEEK_END);
+	fread(&c, 1, 1, in);
+	fclose(in);
+	if(c==0) { // abschließende Null gefunden --> Benutzer warnen
+		if(IDYES != AfxMessageBox (IDS_STRING_CUT_NULLS, MB_YESNO | MB_ICONQUESTION))
+			return;
+	}
+
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
 	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
 	CWnd_hilf->SetWindowPlacement( &place );

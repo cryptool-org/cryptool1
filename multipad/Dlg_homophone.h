@@ -8,6 +8,7 @@
 #endif // _MSC_VER > 1000
 
 #define range		256
+#define upper_range 4096
 
 
 // Dlg_homophone.h : Header-Datei
@@ -31,6 +32,7 @@ public:
 	HomophoneEncryption HB;
 	TextAnalyse TA;
 	char c_SourceFile[128];
+	CString m_AlphabetBackup;
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
 	enum { IDD = IDD_DIALOG_HOMOPHONE };
@@ -49,6 +51,7 @@ public:
 	CString	m_RowHomophonesList;
 	CString	m_HomophonesList;
 	BOOL	m_EncryptFormatCharacters;
+	BOOL	m_KodiereUmlaute;
 	//}}AFX_DATA
 	int m_crypt;
 

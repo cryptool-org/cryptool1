@@ -116,7 +116,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&übernehmen",IDOK,13,158,65,18
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,158,65,18
     PUSHBUTTON      "Abbrechen",IDCANCEL,177,158,66,18
     LTEXT           "Umfang der Ausgabe bei der automatischen Analyse",
                     IDC_STATIC,13,13,230,8
@@ -140,7 +140,7 @@ END
 
 IDD_DIALOG_TEXTEINGABE_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 301, 221
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-Analyse (known plaintext)"
+CAPTION "Hill-Analyse (Known Plaintext)"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | 
@@ -205,7 +205,7 @@ END
 
 IDD_DIALOG_KEY_CREAT_ASYM DIALOG DISCARDABLE  0, 0, 397, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
+CAPTION "Erzeugung eines Asymmetrischen Schlüsselpaares"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
@@ -237,7 +237,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,
                     144,10
     DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,318,310,72,19
+    PUSHBUTTON      "&Schließen",IDCANCEL,318,310,72,19
     LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
                     IDC_STATIC,237,15,152,26
     GROUPBOX        "Verfahren",IDC_STATIC,10,10,205,135
@@ -275,7 +275,7 @@ END
 
 IDD_DIALOG_KEY_INPUT_MONO DIALOG DISCARDABLE  0, 0, 245, 79
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Monoalphabetische Substitution Schlüsseleingabe"
+CAPTION "Monoalphabetische Substitution: Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,13,48,61,20
@@ -324,7 +324,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -349,7 +349,7 @@ BEGIN
                     16,205,23,WS_EX_TRANSPARENT
     CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
                     121,185,33,WS_EX_TRANSPARENT
-    LTEXT           "b.esslinger@eudoramail.com",IDC_STATIC,70,196,91,8
+    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -513,11 +513,11 @@ END
 
 IDD_DIALOG_KEY_CREATED_EC DIALOG DISCARDABLE  0, 0, 397, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Asymmetrischen Schlüssel erzeugen (Elliptische Kurven)"
+CAPTION "Asymmetrischen Schlüssel Erzeugen (Elliptische Kurven)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,284,66,19
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,321,284,68,19
+    PUSHBUTTON      "&Schließen",IDCANCEL,321,284,68,19
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
@@ -542,8 +542,8 @@ END
 
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "Verfügbare Asymmetrische Schlüsselpaare"
+FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -557,7 +557,7 @@ BEGIN
     PUSHBUTTON      "&Alle Parameter anzeigen...",IDC_BUTTON2,127,257,120,14
     PUSHBUTTON      "&Zertifikat anzeigen",IDC_BUTTON4,127,276,120,14
     PUSHBUTTON      "&Eintrag löschen...",IDC_BUTTON3,260,238,120,14
-    DEFPUSHBUTTON   "Dialog &beenden",IDOK,260,271,120,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,260,271,120,19
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
@@ -613,10 +613,10 @@ END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentlicher Schlüssel (asymmetrisch)"
+CAPTION "Öffentlicher Schlüssel (Asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Zurück",IDOK,321,260,73,19
+    DEFPUSHBUTTON   "&Zurück",IDOK,321,260,73,19
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,67,260,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,
@@ -647,16 +647,16 @@ END
 
 IDD_DIALOG_EC_PRIV_PARAM DIALOG DISCARDABLE  0, 0, 401, 322
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Öffentlicher und privater Schlüssel (asymmetrisch)"
+CAPTION "Öffentliche und Private Schlüssel (Asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Zurück",IDOK,316,295,79,18
-    CONTROL         "Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+    DEFPUSHBUTTON   "&Zurück",IDOK,316,295,79,18
+    CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,68,292,61,12
-    CONTROL         "Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,292,
-                    61,12
-    CONTROL         "Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,212,
+    CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,
                     292,61,12
+    CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
+                    212,292,61,12
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,52,
                     281,231,32
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
@@ -959,7 +959,7 @@ END
 
 IDD_DIALOG_SIGN DIALOG DISCARDABLE  0, 0, 388, 377
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Signatur einer Nachricht erstellen"
+CAPTION "Signatur einer Nachricht Erstellen"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
@@ -1273,7 +1273,7 @@ END
 
 IDD_DIALOG_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe Playfair"
+CAPTION "Schlüsseleingabe: Playfair"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,10,236,66,20
@@ -1373,7 +1373,7 @@ END
 
 IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Primzahlen generieren"
+CAPTION "Primzahlen Generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
@@ -1462,13 +1462,13 @@ BEGIN
                     NOT WS_BORDER
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
-    PUSHBUTTON      "Dialog &beenden",IDC_ENDDIALOG,252,339,90,18
+    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
@@ -1508,19 +1508,21 @@ BEGIN
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
     PUSHBUTTON      "Aktualisieren",IDC_BUTTON3,109,15,53,12
     GROUPBOX        "Formatierungen",IDC_STATIC,285,4,97,42
-    CONTROL         "Formatierungen",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,296,17,65,8
-    LTEXT           "mit verschlüsseln",IDC_STATIC,308,27,54,8
+    CONTROL         "Formatierungen mit",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,296,15,82,8
+    LTEXT           "verschlüsseln",IDC_STATIC,308,23,44,8
+    CONTROL         "Umlaute kodieren",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,296,32,71,10
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Elliptische Kurven erzeugen"
+CAPTION "Elliptische Kurven Erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,
                     272,160,28
-    PUSHBUTTON      "&Beenden",IDCANCEL,298,322,78,18
+    PUSHBUTTON      "&Schließen",IDCANCEL,298,322,78,18
     GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
@@ -1556,7 +1558,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_GEN DIALOG DISCARDABLE  0, 0, 310, 266
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüssel aus Paßwort generieren"
+CAPTION "Schlüssel aus Paßwort Generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Aus dem Paßwort und den weiteren Parametern generierte Schlüssel",
@@ -1623,7 +1625,7 @@ END
 
 IDD_DIALOG_GEN_RANDOMDATA DIALOG DISCARDABLE  0, 0, 301, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Zufallsdaten erzeugen"
+CAPTION "Zufallsdaten Erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,229,127,19
@@ -1655,7 +1657,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "SECUDE Zufallsgenerator"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,67,63,50,16
+    DEFPUSHBUTTON   "&OK",IDOK,67,63,50,16
     EDITTEXT        IDC_EDIT1,7,14,172,36,ES_MULTILINE | ES_READONLY | NOT 
                     WS_BORDER | NOT WS_TABSTOP
 END
@@ -1665,12 +1667,12 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Zufallsgenerator"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Übernehmen",IDOK,9,60,69,18
+    DEFPUSHBUTTON   "&OK",IDOK,9,60,69,18
     EDITTEXT        IDC_EDIT1,44,37,186,12,ES_AUTOHSCROLL
     LTEXT           "Modul N = ",IDC_STATIC,8,39,33,8
     LTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
                     IDC_STATIC,7,12,224,21
-    PUSHBUTTON      "Abbrechen",IDCANCEL,156,60,73,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,60,73,18
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -1716,17 +1718,17 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Kongruenzgenerator (LCG)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Übenehmen",IDOK,174,99,69,18
+    DEFPUSHBUTTON   "&OK",IDOK,11,96,69,21
     LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
                     IDC_STATIC,11,9,232,25
     LTEXT           "Geraden-Parameter:",IDC_STATIC,11,37,64,10
     EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
-    LTEXT           "&a =",IDC_STATIC,82,37,11,8
-    LTEXT           "&b =",IDC_STATIC,81,54,10,8
-    LTEXT           "Modul  &N =",IDC_STATIC,57,72,35,8
+    LTEXT           "a =",IDC_STATIC,82,37,11,8
+    LTEXT           "b =",IDC_STATIC,81,54,10,8
+    LTEXT           "Modul  N =",IDC_STATIC,57,72,35,8
     EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Abbrechen",IDCANCEL,11,99,67,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,176,96,67,21
 END
 
 IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
@@ -1738,11 +1740,11 @@ BEGIN
     GROUPBOX        "Eingabe",IDC_STATIC,166,6,187,107
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,187,340,84
-    DEFPUSHBUTTON   "&weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Dialog &beenden",IDC_BUTTON_cancel,259,278,94,18
+    DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
+    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,278,94,18
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,34,165,8
-    CONTROL         "&Brute-force Methode",IDC_CHECK1,"Button",
+    CONTROL         "Brute-force Methode",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,23,81,10
     CONTROL         "Algorithmus nach Brent",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,38,89,10
@@ -1761,7 +1763,7 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "vollständig &faktorisieren",
+    PUSHBUTTON      "Vollständig &faktorisieren",
                     IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
     LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollständig faktorisiert.",
                     IDC_STATIC,24,132,318,17
@@ -1774,7 +1776,7 @@ CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,233,50,18
-    PUSHBUTTON      "Ab&brechen",IDCANCEL,214,233,50,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,214,233,50,18
     EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
     GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,257,65
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
@@ -1873,14 +1875,15 @@ BEGIN
     CTEXT           "Der lnverse Kongruenzgenerator hat als Parameter die Zahlen a, c und die Primzahl P. Daraus berechnet er die Folge der Zufallszahlen (X_n) nach der Formel: \nX_n = inverse ( a * ( X_0 + n ) + c ) mod P.\n Weitere Informationen erhalten Sie mit der Taste ""F1""",
                     IDC_STATIC,10,9,275,34
     LTEXT           "Primzahl &P = ",IDC_STATIC_GPP,15,95,42,10,SS_NOTIFY
-    DEFPUSHBUTTON   "Übernehmen",IDOK,212,123,73,18
+    DEFPUSHBUTTON   "&OK",IDOK,10,123,73,19
     LTEXT           "&a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
     LTEXT           "&c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT1,59,61,126,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Abbrechen",IDCANCEL,10,123,78,18
-    PUSHBUTTON      "P &erzeugen",IDC_PRIMBUTTON,198,87,79,20,BS_MULTILINE
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,207,123,78,19
+    PUSHBUTTON      "Primzahl &erzeugen",IDC_PRIMBUTTON,198,89,79,20,
+                    BS_MULTILINE
     GROUPBOX        "Parameter Eintrag:",IDC_STATIC,10,48,275,65
     EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
     LTEXT           "Bit&länge der Primzahl P:",IDC_STATIC_GPL,198,58,75,8,
@@ -1892,7 +1895,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Dialog beenden",IDOK,164,152,79,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,164,152,79,19
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Signifikanzniveau 'alpha':",IDC_STATIC,15,20,80,8
@@ -1923,7 +1926,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Runs Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Dialog beenden",IDOK,144,270,83,18
+    DEFPUSHBUTTON   "&Schließen",IDOK,144,270,83,18
     GROUPBOX        "Runs Parameter",IDC_STATIC,7,7,220,104
     GROUPBOX        "Long Runs Parameter",IDC_STATIC,7,115,220,50
     CONTROL         "Default Long Run Parameter",IDC_CHECK1,"Button",
@@ -1962,12 +1965,12 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "FIPS-PUB-140-1 Test-Batterie"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Dialog beenden",IDOK,114,212,76,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,114,212,76,19
     GROUPBOX        "Ergebnise der einzelnen FIPS-PUB-140-1 Tests",
                     IDC_STATIC,7,46,183,111
     GROUPBOX        "Entropiestatus",IDC_STATIC,7,7,183,33
     GROUPBOX        "Testbatterie Status",IDC_STATIC,7,163,183,42
-    PUSHBUTTON      "Testbatterie starten",IDC_BATTERIETEST,7,212,84,19
+    PUSHBUTTON      "&Testbatterie starten",IDC_BATTERIETEST,7,212,84,19
     CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
     CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
     CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
@@ -1989,11 +1992,11 @@ END
 
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Wie Sie starten"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "Wie Sie Starten"
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,195,189,50,14
-    CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",
+    DEFPUSHBUTTON   "&Schließen",IDOK,195,189,50,14
+    CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,
                     160,13
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
@@ -2005,7 +2008,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Abbrechen",IDCANCEL,78,156,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,78,156,50,14
     LTEXT           "Algorithmus",IDC_STATIC,16,19,37,8
     LTEXT           "Brent",IDC_STATIC,16,41,60,8
     PUSHBUTTON      "Abbrechen",IDCANCEL2,133,38,50,14,WS_DISABLED
@@ -2037,7 +2040,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Schließen",IDCANCEL,144,46,90,18
-    PUSHBUTTON      "&Hashwert im Desktop anzeigen",IDOK,7,46,108,18
+    PUSHBUTTON      "Hashwert als &HEX-Datei",IDOK,7,46,108,18
 END
 
 
@@ -3147,6 +3150,7 @@ BEGIN
 
     IDD_AUTOREN, DIALOG
     BEGIN
+        VERTGUIDE, 94
         HORZGUIDE, 255
     END
 
@@ -3363,6 +3367,11 @@ BEGIN
         HORZGUIDE, 79
     END
 
+    IDD_RANDOM_PARAMETER_X2_MOD_N, DIALOG
+    BEGIN
+        HORZGUIDE, 78
+    END
+
     IDD_RANDOM_PARAMETER_LCG, DIALOG
     BEGIN
         VERTGUIDE, 11
@@ -3370,7 +3379,7 @@ BEGIN
         VERTGUIDE, 243
         BOTTOMMARGIN, 117
         HORZGUIDE, 9
-        HORZGUIDE, 99
+        HORZGUIDE, 96
     END
 
     IDD_DIALOG_ZAHL_FAKTORISIEREN, DIALOG
@@ -3422,6 +3431,7 @@ BEGIN
         TOPMARGIN, 9
         BOTTOMMARGIN, 149
         HORZGUIDE, 91
+        HORZGUIDE, 123
     END
 
     IDD_DIALOG_FREQTEST, DIALOG
@@ -3525,7 +3535,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_PLAYFAIR            "Playfair"
-    IDS_REL_MATCH           "relative Übereinstimmung [%]"
+    IDS_REL_MATCH           "Relative Übereinstimmung [%]"
     IDS_STRING_DIAGRAM_VITANY "Vitany Diagramm von <%s>"
 END
 
@@ -3658,7 +3668,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 6"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 7"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -3681,7 +3691,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_CRYPT_IDEA           "Ver-/Entschlüsseln mit IDEA"
     ID_ANALYSE_AES_MARS     "Automatische Analyse einer Mars Verschlüsselung"
-    ID_CRYPT_AES_MARS       "Ver-/Entschlüsseln mit Mars"
+    ID_CRYPT_AES_MARS       "Ver-/Entschlüsseln mit MARS"
     ID_CRYPT_RC2            "Ver-/Entschlüsseln mit RC2"
     ID_CRYPT_AES_RC6        "Ver-/Entschlüsseln mit RC6"
     ID_CRYPT_AES_RIJNDAEL   "Ver-/Entschlüsseln mit Rijndael"
@@ -3702,6 +3712,7 @@ BEGIN
     ID_CRYPT_VERIFY         "Signatur des aktiven Dokuments überprüfen"
     ID_CRYPT_EXTRACT        "Extrahieren der eigentlichen Signatur aus der durch ""Dokument signieren"" erzeugten Ausgabe"
     ID_ANALYZE_SUBST        "Automatische Analyse einer Verschlüsselung durch Substitution"
+    IDS_STRING_CUT_NULLS    "Der Text enthält  abschließende Nullzeichen. Diese werden bei der Darstellung abgeschnitten. Trotzdem als Text darstellen?"
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Fehler! Die Datei %s kann nicht geöffnet werden oder ist nicht vorhanden.\nOhne diese Datei können keine Schlüsselpaare für Elliptische Kurven angezeigt werden."
     ID_OPTTEXT              "Festlegen des Alphabets und der Referenztext-Quelle für die klassischen Verschlüsselungsverfahren"
@@ -4242,7 +4253,7 @@ BEGIN
     IDS_STRING_PERIOD_ANALYSIS "Periodizitätsanalyse"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
-    IDS_STRING_PA_NO        "Nr"
+    IDS_STRING_PA_NO        "Nr."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4292,7 +4303,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_ANALYSE_PERIOD       "Perioden Analyse"
+    ID_ANALYSE_PERIOD       "Periodenanalyse"
     IDS_STRING_PA_TITLE     "Periodenanalyse von %s:\n"
     IDS_STRING_PA_HEADER    "Nr\tOffset\tLänge\tPeriodenzahl\tPeriodeninhalt\n"
 END
@@ -4599,7 +4610,7 @@ BEGIN
     IDS_CRYPT_DES_CBC       "DES (CBC)"
     IDS_CRYPT_TRIPLE_DES_ECB "Triple-DES (ECB)"
     IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
-    IDS_CRYPT_MARS          "Mars"
+    IDS_CRYPT_MARS          "MARS"
     IDS_CRYPT_RC6           "RC6"
     IDS_CRYPT_RIJNDAEL      "Rijndael"
     IDS_CRYPT_SERPENT       "Serpent"
@@ -4607,6 +4618,30 @@ BEGIN
     IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA-Demo: Geheime Parameter"
 END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_NGRAM_ANALYSIS_OF "%sAnalyse von %s"
+    IDS_STRING_NGRAM_HISTOGRAM "Histogramm-"
+    IDS_STRING_NGRAM_DIGRAM "Digramm-"
+    IDS_STRING_NGRAM_TRIGRAM "Trigramm-"
+    IDS_STRING_NGRAM_NGRAM  "%i-Gramm-"
+    IDS_STRING_NGRAM_DESCRIPTION "absteigend sortiert nach der Häufigkeit"
+    IDS_STRING_NGRAM_NO     "Nr."
+    IDS_STRING_NGRAM_RELFREQUENCY "Häufigkeit (in %)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_NGRAM_SUBSTR "Teilstring"
+    IDS_STRING_MSG_HOMOPHONE_LOWERBND 
+                            "Die Anzahl der Homophone wird auf %i heraufgesetzt !"
+    IDS_STRING_MSG_HOMOPHONE_UPPERBND 
+                            "Die Anzahl der Homophone wird auf %i herabgesetzt !"
+    IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
+    IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
+END
+
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -4739,7 +4774,7 @@ END
 
 IDD_DIALOG_TEXTEINGABE_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 301, 221
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill Analysis (known plaintext)"
+CAPTION "Hill Analysis (Known Plaintext)"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | 
@@ -4761,7 +4796,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 191
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill key matrix"
+CAPTION "Hill Key Matrix"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",
@@ -4833,7 +4868,7 @@ BEGIN
     CONTROL         "Display generated key pair",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,144,10
     DEFPUSHBUTTON   "Generate &new key pair...",IDOK,10,310,128,19
-    PUSHBUTTON      "&Exit dialogue",IDCANCEL,318,310,72,19
+    PUSHBUTTON      "&Close",IDCANCEL,318,310,72,19
     LTEXT           "The key pair will be put in an encrypted PSE with the name shown below. The key pair will be protected by your PIN code.",
                     IDC_STATIC,237,15,152,26
     GROUPBOX        "Algorithm",IDC_STATIC,10,10,205,135
@@ -4919,7 +4954,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (c) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -4943,7 +4978,7 @@ BEGIN
                     16,205,23,WS_EX_TRANSPARENT
     CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
                     121,185,33,WS_EX_TRANSPARENT
-    LTEXT           "b.esslinger@eudoramail.com",IDC_STATIC,70,196,91,8
+    LTEXT           "besslinger@web.de",IDC_STATIC,70,196,63,8
 END
 
 IDD_DIALOG_FORTSCHRITT DIALOG DISCARDABLE  0, 0, 187, 98
@@ -5109,7 +5144,7 @@ CAPTION "Asymmetric Key Generation (Elliptic Curves)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,8,284,66,19
-    PUSHBUTTON      "&Exit dialogue",IDCANCEL,321,284,68,19
+    PUSHBUTTON      "&Close",IDCANCEL,321,284,68,19
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
@@ -5134,7 +5169,7 @@ END
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "The list below shows the asymmetric key pairs that are available.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
@@ -5147,7 +5182,7 @@ BEGIN
     PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,127,257,120,14
     PUSHBUTTON      "Show &certificate",IDC_BUTTON4,127,276,120,14
     PUSHBUTTON      "&Delete...",IDC_BUTTON3,260,238,120,14
-    DEFPUSHBUTTON   "&Exit dialogue",IDOK,260,271,120,19
+    DEFPUSHBUTTON   "C&lose",IDOK,260,271,120,19
     GROUPBOX        "Listed key types:",IDC_STATIC,8,232,105,58
     CONTROL         "RSA keys",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
@@ -5206,7 +5241,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Public Key (Asymmetric)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Back",IDOK,321,260,73,19
+    DEFPUSHBUTTON   "&Back",IDOK,321,260,73,19
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,67,260,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,
@@ -5240,7 +5275,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Public and Private Keys (Asymmetric)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Back",IDOK,316,295,79,18
+    DEFPUSHBUTTON   "&Back",IDOK,316,295,79,18
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,68,292,61,12
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,
@@ -5284,7 +5319,7 @@ END
 
 IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF_GROSS DIALOG DISCARDABLE  0, 0, 252, 298
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill key matrix"
+CAPTION "Hill Key Matrix"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",
@@ -6050,7 +6085,7 @@ BEGIN
                     NOT WS_BORDER
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,341,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,341,73,18
-    PUSHBUTTON      "E&xit dialogue",IDC_ENDDIALOG,252,341,90,18
+    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,341,90,18
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -6107,7 +6142,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,
                     272,160,28
-    PUSHBUTTON      "&Beenden",IDCANCEL,298,322,78,18
+    PUSHBUTTON      "&Close",IDCANCEL,298,322,78,18
     GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
@@ -6246,17 +6281,17 @@ BEGIN
                     WS_BORDER | NOT WS_TABSTOP
 END
 
-IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 186, 95
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 238, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Random Number Generator"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,67,74,50,14
-    EDITTEXT        IDC_EDIT1,90,51,48,14,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    LTEXT           "Modulus N = ",IDC_STATIC,45,53,42,8
-    CTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter. Additional information can be obtained from the on-line help (""F1"" key).",
-                    IDC_STATIC,7,12,172,28
+    DEFPUSHBUTTON   "&OK",IDOK,8,60,72,17
+    EDITTEXT        IDC_EDIT1,52,39,176,13,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    LTEXT           "Modulus N = ",IDC_STATIC,8,41,42,8
+    LTEXT           "A x^2 (mod N) random number generator requires modulus N as input parameter. Additional information can be obtained from the on-line help (""F1"" key).",
+                    IDC_STATIC,7,7,219,28
+    PUSHBUTTON      "&Cancel",IDCANCEL,160,60,67,17
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -6302,7 +6337,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Congruence Generator (LCG)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,174,99,69,18
+    DEFPUSHBUTTON   "&OK",IDOK,11,96,69,21
     CTEXT           "The linear congruence generator uses a and b from line ax + b and modulus N as parameters. Additional information can be obtained from the on-line help (""F1"" key).",
                     IDC_STATIC,11,9,232,25
     LTEXT           "Straight line parameters:",IDC_STATIC,21,44,64,10
@@ -6312,7 +6347,7 @@ BEGIN
     LTEXT           "b =",IDC_STATIC,81,54,10,8
     LTEXT           "Modulus  N =",IDC_STATIC,49,72,44,8
     EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Exit",IDCANCEL,11,99,67,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,176,96,67,21
 END
 
 IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
@@ -6325,7 +6360,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Factorisation",IDC_STATIC,13,187,340,84
     DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "&Exit dialoge",IDC_BUTTON_cancel,259,278,94,18
+    PUSHBUTTON      "C&lose",IDC_BUTTON_cancel,259,278,94,18
     LTEXT           "Enter the number to be factorised:",IDC_STATIC,177,34,
                     165,8
     CONTROL         "Brute-force method",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
@@ -6459,13 +6494,13 @@ BEGIN
     CTEXT           "The inverse congruence generator uses a and b from the line ax + c and the prime number P as parameters. The generator produces the sequence of random numbers (X_n) from the formula :    X_n = inverse ( a * ( X_0 + n ) + c ) mod P.",
                     IDC_STATIC,10,9,275,25
     LTEXT           "prime P = ",IDC_STATIC_GPP,25,95,31,10,SS_NOTIFY
-    DEFPUSHBUTTON   "&OK",IDOK,212,123,73,18
+    DEFPUSHBUTTON   "&OK",IDOK,10,121,73,20
     LTEXT           "a = ",IDC_STATIC_GPA,44,62,14,10,SS_NOTIFY
     LTEXT           "c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT1,59,61,126,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Exit",IDCANCEL,10,123,78,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,207,121,78,20
     PUSHBUTTON      "&generate prime",IDC_PRIMBUTTON,198,87,79,20,
                     BS_MULTILINE
     GROUPBOX        "Parameter options",IDC_STATIC,10,48,275,65
@@ -6481,7 +6516,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Cancel dialogue",IDOK,164,152,79,19
+    DEFPUSHBUTTON   "&Close",IDOK,164,152,79,19
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Signifikance level 'alpha':",IDC_STATIC,15,20,80,8
@@ -6509,10 +6544,10 @@ END
 
 IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS DIALOG DISCARDABLE  0, 0, 234, 295
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Runs test"
+CAPTION "Runs Test"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Cancel dialogue",IDOK,144,270,83,18
+    DEFPUSHBUTTON   "&Close",IDOK,144,270,83,18
     GROUPBOX        "Runs parameter",IDC_STATIC,7,7,220,104
     GROUPBOX        "Long runs parameter",IDC_STATIC,7,115,220,50
     CONTROL         "Default long run parameter",IDC_CHECK1,"Button",
@@ -6551,12 +6586,12 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "FIPS-PUB-140-1 Test battery"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Cancel dialogue",IDOK,114,212,76,19
+    DEFPUSHBUTTON   "&Close",IDOK,114,212,76,19
     GROUPBOX        "Result of the individual FIPS-PUB-140-1 tests",
                     IDC_STATIC,7,46,183,111
     GROUPBOX        "Entropy state",IDC_STATIC,7,7,183,33
-    GROUPBOX        "Testbattery result",IDC_STATIC,7,163,183,42
-    PUSHBUTTON      "Start testbattery",IDC_BATTERIETEST,7,212,84,19
+    GROUPBOX        "Testbattery status",IDC_STATIC,7,163,183,42
+    PUSHBUTTON      "&Start testbattery",IDC_BATTERIETEST,7,212,84,19
     CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
     CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
     CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
@@ -6578,11 +6613,11 @@ END
 
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "How to start"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "How to Start"
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Exit",IDOK,195,189,50,14
-    CONTROL         "Don't show this dialogue again",IDC_CHECK2,"Button",
+    DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
+    CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
                     8,239,173,WS_EX_TRANSPARENT
@@ -6593,27 +6628,27 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Abbrechen",IDCANCEL,78,156,50,14
-    LTEXT           "Algorithmus",IDC_STATIC,16,19,37,8
+    PUSHBUTTON      "&Cancel",IDCANCEL,78,156,50,14
+    LTEXT           "Algorithm",IDC_STATIC,16,19,30,8
     LTEXT           "Brent",IDC_STATIC,16,41,60,8
-    PUSHBUTTON      "Abbrechen",IDCANCEL2,133,38,50,14,WS_DISABLED
-    LTEXT           "Iterationen",IDC_STATIC,86,19,34,8
+    PUSHBUTTON      "Cancel",IDCANCEL2,133,38,50,14,WS_DISABLED
+    LTEXT           "Iterations",IDC_STATIC,86,19,30,8
     EDITTEXT        IDC_EDIT1,87,38,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     LTEXT           "Pollard",IDC_STATIC,16,63,60,8
-    PUSHBUTTON      "Abbrechen",IDCANCEL3,133,60,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL3,133,60,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT2,87,60,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     LTEXT           "Williams",IDC_STATIC,16,85,60,8
-    PUSHBUTTON      "Abbrechen",IDCANCEL4,133,82,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL4,133,82,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT3,87,82,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     LTEXT           "Lenstra",IDC_STATIC,16,107,60,8
-    PUSHBUTTON      "Abbrechen",IDCANCEL5,133,104,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL5,133,104,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT4,87,104,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     LTEXT           "Quadatisches Sieb",IDC_STATIC,16,129,60,8
-    PUSHBUTTON      "Abbrechen",IDCANCEL6,133,126,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL6,133,126,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT5,87,126,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
 END
@@ -6625,7 +6660,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Close",IDCANCEL,147,46,87,18
-    PUSHBUTTON      "Show hashvalue in &Desktop",IDOK,7,46,97,18
+    PUSHBUTTON      "Store hash value to &HEX format",IDOK,7,46,113,18
 END
 
 
@@ -7586,6 +7621,14 @@ BEGIN
         HORZGUIDE, 359
     END
 
+    IDD_RANDOM_PARAMETER_LCG, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        VERTGUIDE, 243
+        HORZGUIDE, 96
+        HORZGUIDE, 117
+    END
+
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
         VERTGUIDE, 110
@@ -7597,6 +7640,12 @@ BEGIN
         VERTGUIDE, 12
         VERTGUIDE, 238
         HORZGUIDE, 235
+    END
+
+    IDD_RANDOM_PARAMETER_ICG, DIALOG
+    BEGIN
+        HORZGUIDE, 121
+        HORZGUIDE, 141
     END
 
     IDD_SHOW_HASH, DIALOG
@@ -7777,7 +7826,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 6"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 7"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -7821,6 +7870,7 @@ BEGIN
     ID_CRYPT_VERIFY         "Verify signature on the active document"
     ID_CRYPT_EXTRACT        "Extract the actual signature from the output generated through ""Sign document"""
     ID_ANALYZE_SUBST        "Automatic analysis of a text encrypted using the substitution method"
+    IDS_STRING_CUT_NULLS    "The Text contains an endeing section of Null characters. This section will be cut from the text. Proceed to show as text?"
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Error! File %s cannot be opened or does not exist.\nWithout this file it is not possible to display any key pairs for elliptic curves."
     ID_OPTTEXT              "Determine the alphabet and the reference text source for the classical encryption algorithms"
@@ -7832,8 +7882,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_FLOATING_FREQ "Gleitende Häufigkeit"
-    IDS_STRING_FLOATING_FREQ_FINISHED "Gleitende Häufigkeit erledigt: %d%%"
+    IDS_STRING_FLOATING_FREQ "Floating frequency"
+    IDS_STRING_FLOATING_FREQ_FINISHED "Floating frequency completed: %d%%."
     ID_FLOATING             "Calculate floating entropy of the document"
     ID_SHOW_KEY             "Shows the key\nShow Key"
     ID_GOTO_VATER           "Takes you to the parent window\nParent Window"
@@ -8137,7 +8187,7 @@ BEGIN
     IDS_STRING_SIGNATURE_LENGTH "Length of signature: %s bits"
     IDS_STRING_SIGNATURE_USED_KEY "Used key:"
     IDS_STRING_SIGNATURE_METHOD "Signature algorithm:"
-    IDS_STRING_SIGNATURE    "Signatur:"
+    IDS_STRING_SIGNATURE    "Signature:"
     IDS_STRING_SIGNED_MESSAGE "Signed message:"
     IDS_STRING_SIGNED_MESSAGE_FIRST_PART "First part of signed message:"
     IDS_STRING_MESSAGE_TO_SIGN "Message M to be signed:"
@@ -8383,15 +8433,19 @@ BEGIN
                             "Maximal test value: %d\nLongest Run: %d\n"
     IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 
                             "Unable to find file %s!\nThis test could not be executed!"
-    IDS_METHOD_KEY          "%s Schlüssel"
+    IDS_METHOD_KEY          "%s key"
     IDS_STRING_ERR_ONBLOCKLENGTH 
                             "The block length must be a value out of  1, ..., %i !"
+    IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
+                            "The Input text will be seperated into Segments (the symbol '#' is used as separator)."
+    IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
+                            "Output text from the encryption of the segments (the symbol '#' is used as separator)."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Periodicity analysis"
-    IDS_STRING_PA_TITLE     "Periodicity Analysis of %s:\n"
+    IDS_STRING_PA_TITLE     "Periodicity analysis of %s:\n"
     IDS_STRING_PA_HEADER    "No.\tOffset\tLength\tNumber of cycles\tCycle content\n"
 END
 
@@ -8694,13 +8748,37 @@ BEGIN
     IDS_CRYPT_DES_CBC       "DES (CBC)"
     IDS_CRYPT_TRIPLE_DES_ECB "Triple-DES (ECB)"
     IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
-    IDS_CRYPT_MARS          "Mars"
+    IDS_CRYPT_MARS          "MARS"
     IDS_CRYPT_RC6           "RC6"
     IDS_CRYPT_RIJNDAEL      "Rijndael"
     IDS_CRYPT_SERPENT       "Serpent"
     IDS_CRYPT_TWOFISH       "Twofish"
     IDS_CRYPT_PRIMES        "Two primes p and q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA demonstration: Secret parameter"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analysis of %s"
+    IDS_STRING_NGRAM_HISTOGRAM "Histogram"
+    IDS_STRING_NGRAM_DIGRAM "Digram"
+    IDS_STRING_NGRAM_TRIGRAM "Trigram"
+    IDS_STRING_NGRAM_NGRAM  "%i Gram"
+    IDS_STRING_NGRAM_DESCRIPTION "descending sorted on frequency"
+    IDS_STRING_NGRAM_NO     "No."
+    IDS_STRING_NGRAM_RELFREQUENCY "Frequency (in %)"
+END
+
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_NGRAM_SUBSTR "Substring"
+    IDS_STRING_MSG_HOMOPHONE_LOWERBND 
+                            "The number of homophones will be increased to %i !"
+    IDS_STRING_MSG_HOMOPHONE_UPPERBND 
+                            "The number of homophones will be decreased to %i !"
+    IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
+    IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
 END
 
 #endif    // Englisch (GB) resources

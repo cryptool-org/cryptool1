@@ -14,7 +14,7 @@ class CDlgShowHash : public CDialog
 {
 // Konstruktion
 public:
-	void SetHash( OctetString &hash, const char * );
+	void SetHash( OctetString &hash, const char *, const char * );
 	CDlgShowHash(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -41,7 +41,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	char title[256];
+	char title[80];
 };
 
 //{{AFX_INSERT_LOCATION}}

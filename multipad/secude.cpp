@@ -270,7 +270,7 @@ void hash (char* infile, const char *OldTitle, int AlgId)
 			break;
 	}
 	CDlgShowHash HashDlg;
-	HashDlg.SetHash( hash, AlgTitel );
+	HashDlg.SetHash( hash, OldTitle, AlgTitel );
 	if ( IDOK == HashDlg.DoModal() )
 	{
 		theApp.SecudeLib.aux_free_OctetString(&message);

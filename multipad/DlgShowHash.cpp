@@ -58,9 +58,10 @@ BOOL CDlgShowHash::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-void CDlgShowHash::SetHash(OctetString &hash, const char * method )
+void CDlgShowHash::SetHash( OctetString &hash, const char *Title, const char * method )
 {
-	sprintf(title, "%s-Hash", method);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+	MakeNewName2(title, sizeof(title), pc_str, Title, method );
 	m_HashStr = "";
 	for (unsigned int i=0; i<hash.noctets; i++)
 	{

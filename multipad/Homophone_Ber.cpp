@@ -77,20 +77,27 @@ void HomophoneEncryption::Make_enc_table()
 
 	for(i=1;i<range;i++)
 	{
-		if(data.frequency[i]>0.0)
+		if (-1 != theApp.TextOptions.m_alphabet.Find(char(i)) )
 		{
-			data.encryptionData1[i]=int(floor(data.SizeHomophoneKey*data.frequency[i]));
-			// Eingefügt 24. April 2001 -- Henrik Koy
-			if ( (0==data.encryptionData1[i]) )
+			if(data.frequency[i]>0.0)
+			{
+				data.encryptionData1[i]=int(floor(data.SizeHomophoneKey*data.frequency[i]));
+				// Eingefügt 24. April 2001 -- Henrik Koy
+				if ( (0==data.encryptionData1[i]) )
+				{
+					data.encryptionData1[i]=1;
+					data.doNotRoundMe[i]=true;
+				}
+			}
+			else 
 			{
 				data.encryptionData1[i]=1;
 				data.doNotRoundMe[i]=true;
 			}
 		}
-		else if ( -1 != theApp.TextOptions.m_alphabet.Find(char(i)) )
+		else
 		{
-			data.encryptionData1[i]=1;
-			data.doNotRoundMe[i]=true;
+			data.encryptionData1[i]=-1;
 		}
 	}
 
