@@ -125,9 +125,9 @@ BOOL Dlg_homophone::OnInitDialog()
 	m_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_COLUMN_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-24,2);							// Anzahl
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth-8,3);							// Verschlüsselung
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_LIST_OF_HOMOPHONES,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn(4,pc_str,LVCFMT_LEFT,colWidth+2000,4);							// Verschlüsselung
@@ -210,23 +210,26 @@ void Dlg_homophone::LoadListBox()
 	{
 		if(HB.GetEncryptionData1(i)>0)
 		{
+	// Insert letter
 			for (k=0; k<=6; k++) string[k] =' '; 
 			string[k] = 0;
-			if ( char(i) == '\n' )      strncpy(string, "<LF>", 4); // { string[0] = 'N'; string[1] = 'L'; }
-			else if ( char(i) == '\t' ) strncpy(string, "<TAB>", 5);// { string[0] = 'T'; string[1] = 'A'; string[2] = 'B'; }
-			else if ( char(i) == '\r' ) strncpy(string, "<CR>", 4); // { string[0] = 'C'; string[1] = 'R'; }
+			if ( char(i) == '\n' )      strncpy(string, "<LF>", 4); 
+			else if ( char(i) == '\t' ) strncpy(string, "<TAB>", 5);
+			else if ( char(i) == '\r' ) strncpy(string, "<CR>", 4); 
 			else string[0]=i;
-
 			j=m_listview.InsertItem(i,string);
+	// Insert frequency
 			number=HB.GetEncryptionData1(i);
 			assert(number>0);
-			sprintf(string,"%4i  ",number);
-			m_listview.SetItemText(j,1,string);
 			sprintf(string,"%2i.%1i", (int)floor(HB.GetFrequency(i)*100.0),
 				   (int)floor( (HB.GetFrequency(i)*100.0-floor(HB.GetFrequency(i)*100.0))*10.0+0.5) );
 			string[4] = 0;
+			m_listview.SetItemText(j,1,string);
+	// Insert Count of Homophones
+			sprintf(string,"%4i  ",number);
 			m_listview.SetItemText(j,2,string);
 			
+	// Insert list of Homophones
 			int		l = ( !m_BaseHomophones ) ? HB.LogKeySize( 16 ) : HB.LogKeySize( 10 );
 			char	num[64];
 
@@ -399,12 +402,21 @@ void Dlg_homophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	Text = m_listview.GetItemText( selRow, 0 );
 	m_RowHomophonesList = Text;
 
-	Text = m_listview.GetItemText( selRow, 1 );
+	Text = m_listview.GetItemText( selRow, 2 );
 	m_EditNoOfHomophones = atoi(Text);
 
 	int		l = ( !m_BaseHomophones ) ? HB.LogKeySize( 16 ) : HB.LogKeySize( 10 );
 	char	num[64];
-	int		m = HB.GetEncryptionData0( (int)m_RowHomophonesList[0] );
+	
+	int   m;
+	{
+		char  ch_tmp;
+		if (      0 == m_RowHomophonesList.Find("<TAB>")) ch_tmp = '\t';
+		else if ( 0 == m_RowHomophonesList.Find("<LF>"))  ch_tmp = '\n';
+		else if ( 0 == m_RowHomophonesList.Find("<CR>"))  ch_tmp = '\r';
+		else ch_tmp = m_RowHomophonesList[0];
+		m = HB.GetEncryptionData0( (unsigned int)ch_tmp );
+	}
 
 	{
 		char string[16000];
@@ -478,7 +490,6 @@ void Dlg_homophone::OnSelectEncryptFormatCharacters()
 			theApp.TextOptions.m_alphabet.Insert(0, "\t");
 		if ( 0 > theApp.TextOptions.m_alphabet.Find("\r", 0) ) 
 			theApp.TextOptions.m_alphabet.Insert(0, "\r");
-		HB.Make_enc_table();
 		m_listview.DeleteAllItems(); 
 		LoadListBox();	
 		OnErzeugen();
@@ -493,7 +504,6 @@ void Dlg_homophone::OnSelectEncryptFormatCharacters()
 			theApp.TextOptions.m_alphabet.Delete(ndx);
 		if ( 0 <= (ndx = theApp.TextOptions.m_alphabet.Find("\r", 0)) ) 
 			theApp.TextOptions.m_alphabet.Delete(ndx);
-		HB.Make_enc_table();
 		m_listview.DeleteAllItems(); 
 		LoadListBox();
 		OnErzeugen();

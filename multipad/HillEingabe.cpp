@@ -624,37 +624,6 @@ void CHillEingabe::MatrixAnzeigen(square_matrix& mat)
 	}
 }
 
-//DEL void CHillEingabe::OnKopieren() 
-//DEL {
-//DEL 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-//DEL 	
-//DEL 	// Zuerst in cs die Matrix der Schlüssel aufbauen,
-//DEL 	// danach in das unsichtbare Feld schreiben und
-//DEL 	// schliesslich in diesem Feld alles markieren und in die Zwischenablage speichern
-//DEL 
-//DEL 	CString cs, hilf;
-//DEL 
-//DEL 	for (int i=0; i<HILL_MAX_DIM; i++)
-//DEL 	{
-//DEL 		for (int j=0; j<HILL_MAX_DIM; j++)
-//DEL 		{
-//DEL 			m_pFelder[i][j]->GetWindowText(hilf);
-//DEL 			if (hilf.GetLength() == 1)
-//DEL 			{
-//DEL 				cs += hilf;
-//DEL 			}
-//DEL 			else
-//DEL 			{
-//DEL 				cs += ' ';
-//DEL 			}
-//DEL 		}
-//DEL 		cs += '\n';
-//DEL 	}
-//DEL 
-//DEL 	m_FeldUnsichtbar.SetWindowText(cs);
-//DEL 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
-//DEL 	m_FeldUnsichtbar.Copy();
-//DEL }
 
 // Die Position fuer den naechsten Eintrag in der Schluesselmatrix wird berechnet.
 // Falls kein weiterer Eintrag mehr zur Verfuegung steht, wird FALSE zurueckgegeben,
@@ -680,64 +649,6 @@ bool CHillEingabe::NaechsterEintrag(int &i, int &j)
 	return rc;
 }
 
-//DEL void CHillEingabe::OnEinfuegen() 
-//DEL {
-//DEL 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-//DEL 	
-//DEL 	// Test aus der Zwischenablage holen und in die entsprechenden Felder schreiben
-//DEL 
-//DEL 	CString cs, hilf;
-//DEL 
-//DEL 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
-//DEL 	m_FeldUnsichtbar.Paste();
-//DEL 	m_FeldUnsichtbar.GetWindowText(cs);
-//DEL 
-//DEL 	int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
-//DEL 		j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
-//DEL 		l=0, // Laufvariable fuer den Text aus der Zwischenablage
-//DEL 		laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
-//DEL 	
-//DEL 	while (l < laenge)
-//DEL 	{
-//DEL 		hilf = cs[l];
-//DEL 
-//DEL 		// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
-//DEL 		// deshalb muss dies hier nicht mehr abgefragt werden.
-//DEL 		if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
-//DEL 		{
-//DEL 			// Naechsten Eintrag berechnen
-//DEL 			if (NaechsterEintrag(i,j))
-//DEL 			{
-//DEL 				// Wert einfach uebernehmen
-//DEL 				m_pFelder[i][j]->SetWindowText(hilf);
-//DEL 			}
-//DEL 			else
-//DEL 			{
-//DEL 				// Es gibt keine weitere Zeile
-//DEL 				l = laenge;
-//DEL 			}
-//DEL 		}
-//DEL 		else if (hilf[0] == '\n')
-//DEL 		{
-//DEL 			// Wir starten in der naechsten Zeile wieder vorne,
-//DEL 			// sofern wir nicht schon am Anfang einer Zeile stehen...
-//DEL 			i++;
-//DEL 			j = -1;
-//DEL 			// ... sofern es noch eine weitere gibt.
-//DEL 			if (i == HILL_MAX_DIM)
-//DEL 			{
-//DEL 				// Es gibt keine weitere Zeile
-//DEL 				l = laenge;
-//DEL 			}
-//DEL 		}
-//DEL 
-//DEL 		l++;
-//DEL 	}
-//DEL 	
-//DEL 	// Cursor in Feld links oben setzen
-//DEL 	m_pFelder[0][0]->SetFocus();
-//DEL 	m_pFelder[0][0]->SetSel(0,-1);
-//DEL }
 
 void CHillEingabe::OnPasteKey() 
 {
@@ -746,54 +657,95 @@ void CHillEingabe::OnPasteKey()
 	if ( PasteKey(pc_str,cs) )
 	{
 
- 		int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
- 			j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
- 			l=0, // Laufvariable fuer den Text aus der Zwischenablage
+ 		int i=0,          // Zeile des naechsten Eintrages in die Schluesselmatrix
+ 			j=-1,         // Spalte des naechsten Eintrages in die Schluesselmatrix 
+ 			l=0,          // Laufvariable fuer den Text aus der Zwischenablage
  			laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
- 		
- 		while (l < laenge)
- 		{
- 			hilf = cs[l];
- 
-			// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
-			// deshalb muss dies hier nicht mehr abgefragt werden.
-			if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
-			{
- 				// Naechsten Eintrag berechnen
- 				if (NaechsterEintrag(i,j))
- 				{
- 					// Wert einfach uebernehmen
-					m_pFelder[i][j]->SetWindowText(hilf);
- 				}
- 				else
- 				{
- 					// Es gibt keine weitere Zeile
- 					l = laenge;
- 				}
- 			}
- 			else if (hilf[0] == '\n')
+			
+		while (l<laenge) {
+			hilf = cs[l++];
+			if (hillklasse->ist_erlaubtes_zeichen(hilf[0])) i++;
+		}
+		
+		if ( i < HILL_MAX_DIM*HILL_MAX_DIM )
+		{	
+			i = l = 0;
+ 			while (l < laenge)
  			{
- 				// Wir starten in der naechsten Zeile wieder vorne,
- 				// sofern wir nicht schon am Anfang einer Zeile stehen...
- 				i++;
- 				j = -1;
- 				// ... sofern es noch eine weitere gibt.
- 				if (i == HILL_MAX_DIM_GROSS)
- 				{
- 					// Es gibt keine weitere Zeile
- 					l = laenge;
- 				}
- 			}
+ 				hilf = cs[l];
  
- 			l++;
- 		}
- 		
- 		// Cursor in Feld links oben setzen
- 		m_pFelder[0][0]->SetFocus();
- 		m_pFelder[0][0]->SetSel(0,-1);
+				// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
+				// deshalb muss dies hier nicht mehr abgefragt werden.
+				if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
+				{
+ 					// Naechsten Eintrag berechnen
+ 					if (NaechsterEintrag(i,j))
+ 					{
+ 						// Wert einfach uebernehmen
+						m_pFelder[i][j]->SetWindowText(hilf);
+ 					}
+ 					else
+ 					{
+ 						// Es gibt keine weitere Zeile
+ 						l = laenge;
+ 					}
+ 				}
+ 				else if (hilf[0] == '\n')
+ 				{
+ 					// Wir starten in der naechsten Zeile wieder vorne,
+ 					// sofern wir nicht schon am Anfang einer Zeile stehen...
+ 					i++;
+ 					j = -1;
+ 					// ... sofern es noch eine weitere gibt.
+ 					if (i == HILL_MAX_DIM)
+ 					{
+ 						// Es gibt keine weitere Zeile
+ 						l = laenge;
+ 					}
+ 				}
+ 
+ 				l++;
+ 			}
 
+			if ( j < 0 ) i--;
+			ASSERT ((0 <= i) && (i <= HILL_MAX_DIM));
+			dim = i;
+			iHillSchluesselDim = dim;
+
+			switch (i)
+			{
+			case 1:	
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO1);
+				break;
+			case 2:	
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+				break;
+			case 3:	
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO3);
+				break;
+			case 4:	
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO4);
+				break;
+			case 5:	
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO5);
+				break;
+			default:
+				// Default Dimension = 2
+				dim = 2;
+				iHillSchluesselDim = dim;
+				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+				break;
+			}
+			AnzeigeDimensionSetzen(i);
+			// Cursor in Feld links oben setzen
+ 			m_pFelder[0][0]->SetFocus();
+ 			m_pFelder[0][0]->SetSel(0,-1);
+		}
+ 		else
+		{  
+			// Message ... the stored Hill Key ...
+		}
 	}
-
 }
 
 

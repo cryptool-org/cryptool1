@@ -12,16 +12,21 @@
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-TextAnalyse::TextAnalyse()
+void TextAnalyse::Init()
 {
 	int i;
-	
+
 	for(i=0;i<range;i++)
 	{
 		count[i]=0;
 		freq[i]=-1.0;
 	}
 	total_count=0;
+}
+
+TextAnalyse::TextAnalyse()
+{
+	Init();
 }
 
 TextAnalyse::~TextAnalyse()
@@ -36,6 +41,8 @@ void TextAnalyse::Analyse()
 {
 	char buffer[buffsize];
 	int i,value;
+
+	Init();
 
 	ifstream f(theApp.TextOptions.m_StrRefFile);
 	f.read(buffer,buffsize);
@@ -139,6 +146,8 @@ void TextAnalyse::Analyse(const char *f_toAnalyse)
 	ifstream f(f_toAnalyse);
 	f.read(buffer,buffsize);
 
+	Init();
+
 	while(f.gcount())
 	{
 		for(i=0;i<f.gcount();i++)
@@ -156,5 +165,4 @@ void TextAnalyse::Analyse(const char *f_toAnalyse)
 	Correct_count_table();
 	Make_freq_table();
 	assert(true==Checksum());
-
 }

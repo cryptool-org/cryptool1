@@ -27,6 +27,7 @@ private:
 	void Correct_count_table();
 	void Make_freq_table();
 	long total_count;
+	void Init();
 };
 
 #endif // !defined(AFX_TEXTANALYSE_H__83C7F3B3_0C82_11D5_8102_000629C93170__INCLUDED_)

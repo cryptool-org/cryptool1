@@ -20,58 +20,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-/*
-// später raus !
-long multmodn(long a, long b, long n)
-{
-	long s,t,u;
-
-	if(b<a)
-	{
-		t=b;
-		u=a;
-	}
-	else
-	{
-		t=a;
-		u=b;
-	}
-	s=0;
-	while(t)
-	{
-		if(t&1)
-			s=(s+u)%n;
-		u=(u+u)%n;
-		t>>=1;
-	}
-	return s;
-}
-
-long powermod(long a, long x, long n)
-{
-	unsigned long s,t,u;
-	
-	s=1;
-	t=a;
-	u=x;
-	
-	while(u)
-	{
-		if(u&1)
-			s=multmodn(s,t,n);
-		u>>=1;
-		t=multmodn(t,t,n);
-	}
-	return(s);
-}
-
-long inverse( long a, long b )
-{
-	ExtEuclid Euclid(a, b);
-	return Euclid.get_u();
-}
-*/
-
 
 UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 {

@@ -1701,8 +1701,12 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 	// copy inbuf to tmp_inbuf, but only the valid chars
 	i=0; j=0;
 	while ((i<=301) && (i<len) && (inbuf[j]) && (i<inbuflen)) {
-		if (myisalpha2(toupper(inbuf[j])))
-			tmp_inbuf [i++] = toupper(inbuf[j]);
+		if (myisalpha2(toupper(inbuf[j]))) {
+			tmp_inbuf [i] = toupper(inbuf[j]);
+			if (tmp_inbuf [i] = stipulation [i])
+				return false;
+			i++;
+		}
 		j++;
 	}
 	tmp_inbuf[i]='\0';

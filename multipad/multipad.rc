@@ -1469,7 +1469,7 @@ END
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
@@ -1489,7 +1489,7 @@ BEGIN
                     17
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     147,332,149,17
-    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,14,292,28,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -4409,7 +4409,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDP_NO_ERROR_AVAILABLE "Keine Fehlermeldung verfügbar."
-    AFX_IDS_NOT_SUPPORTED_EXCEPTION "Es wurde versucht, eine nicht unterstützte Operation auszuführen."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION 
+                            "Es wurde versucht, eine nicht unterstützte Operation auszuführen."
     AFX_IDS_RESOURCE_EXCEPTION "Eine benötigte Ressource ist nicht verfügbar."
     AFX_IDS_MEMORY_EXCEPTION "Nicht genügend Speicher."
     AFX_IDS_USER_EXCEPTION  "Ein unerwarteter Fehler ist aufgetreten."
@@ -4417,96 +4418,114 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_INVALID_FILENAME,       "Ungültiger Dateiname."
-	AFX_IDP_FAILED_TO_OPEN_DOC,     "Fehler beim Öffnen des Dokuments."
-	AFX_IDP_FAILED_TO_SAVE_DOC,     "Fehler beim Speichern des Dokuments."
-	AFX_IDP_ASK_TO_SAVE,            "Änderungen in %1 speichern?"
-	AFX_IDP_FAILED_TO_CREATE_DOC,   "Fehler beim Erzeugen eines leeren Dokuments."
-	AFX_IDP_FILE_TOO_LARGE,         "Die Datei ist zu groß zum Öffnen."
-	AFX_IDP_FAILED_TO_START_PRINT,  "Der Druckauftrag konnte nicht gestartet werden."
-	AFX_IDP_FAILED_TO_LAUNCH_HELP,  "Die Hilfe konnte nicht aufgerufen werden."
-	AFX_IDP_INTERNAL_FAILURE,       "Interner Anwendungsfehler."
-	AFX_IDP_COMMAND_FAILURE,        "Befehl fehlgeschlagen."
-	AFX_IDP_FAILED_MEMORY_ALLOC     "Nicht genügend Speicher vorhanden, um Operation auszuführen."
-	AFX_IDP_DLL_LOAD_FAILED,        "Dieses Programm benötigt die Datei %s, die auf diesem System nicht gefunden wurde."
-	AFX_IDP_DLL_BAD_VERSION,        "Programm verbunden mit Export-%s (fehlt) in Datei %s. Auf diesem Computer ist evtl. eine nichtkompatible Version von %s installiert."
+    AFX_IDP_INVALID_FILENAME "Ungültiger Dateiname."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Fehler beim Öffnen des Dokuments."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Fehler beim Speichern des Dokuments."
+    AFX_IDP_ASK_TO_SAVE     "Änderungen in %1 speichern?"
+    AFX_IDP_FAILED_TO_CREATE_DOC 
+                            "Fehler beim Erzeugen eines leeren Dokuments."
+    AFX_IDP_FILE_TOO_LARGE  "Die Datei ist zu groß zum Öffnen."
+    AFX_IDP_FAILED_TO_START_PRINT 
+                            "Der Druckauftrag konnte nicht gestartet werden."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Die Hilfe konnte nicht aufgerufen werden."
+    AFX_IDP_INTERNAL_FAILURE "Interner Anwendungsfehler."
+    AFX_IDP_COMMAND_FAILURE "Befehl fehlgeschlagen."
+    AFX_IDP_FAILED_MEMORY_ALLOC 
+                            "Nicht genügend Speicher vorhanden, um Operation auszuführen."
+    AFX_IDP_DLL_LOAD_FAILED "Dieses Programm benötigt die Datei %s, die auf diesem System nicht gefunden wurde."
+    AFX_IDP_DLL_BAD_VERSION "Programm verbunden mit Export-%s (fehlt) in Datei %s. Auf diesem Computer ist evtl. eine nichtkompatible Version von %s installiert."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDS_NOT_DOCOBJECT           "Die Datei wird nicht von einem Dokumentobjekt-Server unterstützt."
-	AFX_IDP_FAILED_TO_NOTIFY        "%1\nRegistrierung des Dokuments nicht möglich.\nDas Dokument ist vielleicht schon geöffnet."
-	AFX_IDP_GET_NOT_SUPPORTED,      "Lesen ist wegen der Eigenschaft Nur-Schreiben nicht möglich."
-	AFX_IDP_SET_NOT_SUPPORTED,      "Schreiben ist wegen der Eigenschaft Nur-Lesen nicht möglich."
+    AFX_IDS_NOT_DOCOBJECT   "Die Datei wird nicht von einem Dokumentobjekt-Server unterstützt."
+    AFX_IDP_FAILED_TO_NOTIFY 
+                            "%1\nRegistrierung des Dokuments nicht möglich.\nDas Dokument ist vielleicht schon geöffnet."
+    AFX_IDP_GET_NOT_SUPPORTED 
+                            "Lesen ist wegen der Eigenschaft Nur-Schreiben nicht möglich."
+    AFX_IDP_SET_NOT_SUPPORTED 
+                            "Schreiben ist wegen der Eigenschaft Nur-Lesen nicht möglich."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_FAILED_INVALID_FORMAT   "Unerwartetes Dateiformat."
-	AFX_IDP_FAILED_INVALID_PATH     "%1\nDiese Datei konnte nicht gefunden werden.\nÜberprüfen Sie, ob der korrekte Pfad und Dateiname angegeben wurde."
-	AFX_IDP_FAILED_DISK_FULL        "Das Ziellaufwerk ist voll."
-	AFX_IDP_FAILED_ACCESS_READ      "Lesen von %1 ist nicht möglich, da von anderem Anwender geöffnet."
-	AFX_IDP_FAILED_ACCESS_WRITE     "Schreiben auf %1 ist nicht möglich, da schreibgeschützt oder von anderem Anwender geöffnet."
-	AFX_IDP_FAILED_IO_ERROR_READ    "Beim Lesen von %1 ist ein unerwarteter Fehler aufgetreten."
-	AFX_IDP_FAILED_IO_ERROR_WRITE   "Beim Schreiben von %1 ist ein unerwarteter Fehler aufgetreten."
+    AFX_IDP_FAILED_INVALID_FORMAT "Unerwartetes Dateiformat."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nDiese Datei konnte nicht gefunden werden.\nÜberprüfen Sie, ob der korrekte Pfad und Dateiname angegeben wurde."
+    AFX_IDP_FAILED_DISK_FULL "Das Ziellaufwerk ist voll."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Lesen von %1 ist nicht möglich, da von anderem Anwender geöffnet."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Schreiben auf %1 ist nicht möglich, da schreibgeschützt oder von anderem Anwender geöffnet."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "Beim Lesen von %1 ist ein unerwarteter Fehler aufgetreten."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "Beim Schreiben von %1 ist ein unerwarteter Fehler aufgetreten."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_PARSE_INT,              "Geben Sie bitte eine ganze Zahl ein."
-	AFX_IDP_PARSE_REAL,             "Geben Sie bitte eine Zahl ein."
-	AFX_IDP_PARSE_INT_RANGE,        "Geben Sie bitte eine ganze Zahl zwischen %1 und %2 ein."
-	AFX_IDP_PARSE_REAL_RANGE,       "Geben Sie bitte eine Zahl zwischen %1 und %2 ein."
-	AFX_IDP_PARSE_STRING_SIZE,      "Geben Sie bitte nicht mehr als %1 Zeichen ein."
-	AFX_IDP_PARSE_RADIO_BUTTON,     "Wählen Sie bitte eine Schaltfläche."
-	AFX_IDP_PARSE_BYTE,             "Geben Sie bitte eine ganze Zahl zwischen 0 und 255 ein."
-	AFX_IDP_PARSE_UINT,             "Geben Sie bitte eine positive ganze Zahl ein."
-	AFX_IDP_PARSE_DATETIME,         "Geben Sie bitte ein Datum und/oder eine Zeit ein."
-	AFX_IDP_PARSE_CURRENCY,         "Geben Sie bitte eine Währung ein."
+    AFX_IDP_PARSE_INT       "Geben Sie bitte eine ganze Zahl ein."
+    AFX_IDP_PARSE_REAL      "Geben Sie bitte eine Zahl ein."
+    AFX_IDP_PARSE_INT_RANGE "Geben Sie bitte eine ganze Zahl zwischen %1 und %2 ein."
+    AFX_IDP_PARSE_REAL_RANGE 
+                            "Geben Sie bitte eine Zahl zwischen %1 und %2 ein."
+    AFX_IDP_PARSE_STRING_SIZE "Geben Sie bitte nicht mehr als %1 Zeichen ein."
+    AFX_IDP_PARSE_RADIO_BUTTON "Wählen Sie bitte eine Schaltfläche."
+    AFX_IDP_PARSE_BYTE      "Geben Sie bitte eine ganze Zahl zwischen 0 und 255 ein."
+    AFX_IDP_PARSE_UINT      "Geben Sie bitte eine positive ganze Zahl ein."
+    AFX_IDP_PARSE_DATETIME  "Geben Sie bitte ein Datum und/oder eine Zeit ein."
+    AFX_IDP_PARSE_CURRENCY  "Geben Sie bitte eine Währung ein."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDS_PASTELINKEDTYPE         "Verknüpft: %s"
-	AFX_IDS_UNKNOWNTYPE             "Unbekannter Typ"
+    AFX_IDS_PASTELINKEDTYPE "Verknüpft: %s"
+    AFX_IDS_UNKNOWNTYPE     "Unbekannter Typ"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_FILE_NONE                "Kein Fehler aufgetreten."
-	AFX_IDP_FILE_GENERIC             "Ein unbekannter Fehler ist beim Zugriff auf %1 aufgetreten."
-	AFX_IDP_FILE_NOT_FOUND           "%1 wurde nicht gefunden."
-	AFX_IDP_FILE_BAD_PATH            "%1 enthält eine ungültige Pfadangabe."
-	AFX_IDP_FILE_TOO_MANY_OPEN       "%1 konnte nicht geöffnet werden, da zu viele Dateien geöffnet sind."
-	AFX_IDP_FILE_ACCESS_DENIED       "Zugriff auf %1 wurde verwehrt."
-	AFX_IDP_FILE_INVALID_FILE        "Eine ungültige Dateikennung war mit %1 verbunden."
-	AFX_IDP_FILE_REMOVE_CURRENT      "Das Verzeichnis %1 konnte nicht entfernt werden, da es das aktuelle Verzeichnis ist. "
-	AFX_IDP_FILE_DIR_FULL            "%1 konnte nicht erstellt werden, da das Verzeichnis voll ist."
-	AFX_IDP_FILE_BAD_SEEK            "Positionierungsfehler auf %1."
-	AFX_IDP_FILE_HARD_IO             "Ein Hardware-E/A-Fehler wurde während des Zugriffs auf %1 gemeldet."
-	AFX_IDP_FILE_SHARING             "Eine Zugriffsverletzung ist während des Zugriffs auf %1 aufgetreten."
-	AFX_IDP_FILE_LOCKING             "Eine Sperrverletzung ist während des Zugriffs auf %1 aufgetreten."
-	AFX_IDP_FILE_DISKFULL            "Beim Zugriff auf %1 wurde ein voller Datenträger gemeldet."
-	AFX_IDP_FILE_EOF                 "Es wurde versucht, auf eine Stelle hinter dem Ende von %1 zuzugreifen."
+    AFX_IDP_FILE_NONE       "Kein Fehler aufgetreten."
+    AFX_IDP_FILE_GENERIC    "Ein unbekannter Fehler ist beim Zugriff auf %1 aufgetreten."
+    AFX_IDP_FILE_NOT_FOUND  "%1 wurde nicht gefunden."
+    AFX_IDP_FILE_BAD_PATH   "%1 enthält eine ungültige Pfadangabe."
+    AFX_IDP_FILE_TOO_MANY_OPEN 
+                            "%1 konnte nicht geöffnet werden, da zu viele Dateien geöffnet sind."
+    AFX_IDP_FILE_ACCESS_DENIED "Zugriff auf %1 wurde verwehrt."
+    AFX_IDP_FILE_INVALID_FILE 
+                            "Eine ungültige Dateikennung war mit %1 verbunden."
+    AFX_IDP_FILE_REMOVE_CURRENT 
+                            "Das Verzeichnis %1 konnte nicht entfernt werden, da es das aktuelle Verzeichnis ist. "
+    AFX_IDP_FILE_DIR_FULL   "%1 konnte nicht erstellt werden, da das Verzeichnis voll ist."
+    AFX_IDP_FILE_BAD_SEEK   "Positionierungsfehler auf %1."
+    AFX_IDP_FILE_HARD_IO    "Ein Hardware-E/A-Fehler wurde während des Zugriffs auf %1 gemeldet."
+    AFX_IDP_FILE_SHARING    "Eine Zugriffsverletzung ist während des Zugriffs auf %1 aufgetreten."
+    AFX_IDP_FILE_LOCKING    "Eine Sperrverletzung ist während des Zugriffs auf %1 aufgetreten."
+    AFX_IDP_FILE_DISKFULL   "Beim Zugriff auf %1 wurde ein voller Datenträger gemeldet."
+    AFX_IDP_FILE_EOF        "Es wurde versucht, auf eine Stelle hinter dem Ende von %1 zuzugreifen."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_ARCH_NONE               "Kein Fehler aufgetreten."
-	AFX_IDP_ARCH_GENERIC                "Ein unbekannter Fehler ist beim Zugriff auf %1 aufgetreten."
-	AFX_IDP_ARCH_READONLY           "%1 ist nur lesbar. Es wurde versucht, darauf zu schreiben."
-	AFX_IDP_ARCH_ENDOFFILE          "Es wurde versucht, auf eine Stelle hinter dem Ende von %1 zuzugreifen."
-	AFX_IDP_ARCH_WRITEONLY          "%1 ist lesegeschützt. Es wurde versucht, davon zu lesen."
-	AFX_IDP_ARCH_BADINDEX           "%1 besitzt ein falsches Format."
-	AFX_IDP_ARCH_BADCLASS           "%1 enthielt ein unerwartetes Objekt."
-	AFX_IDP_ARCH_BADSCHEMA          "%1 enthält ein falsches Schema."
+    AFX_IDP_ARCH_NONE       "Kein Fehler aufgetreten."
+    AFX_IDP_ARCH_GENERIC    "Ein unbekannter Fehler ist beim Zugriff auf %1 aufgetreten."
+    AFX_IDP_ARCH_READONLY   "%1 ist nur lesbar. Es wurde versucht, darauf zu schreiben."
+    AFX_IDP_ARCH_ENDOFFILE  "Es wurde versucht, auf eine Stelle hinter dem Ende von %1 zuzugreifen."
+    AFX_IDP_ARCH_WRITEONLY  "%1 ist lesegeschützt. Es wurde versucht, davon zu lesen."
+    AFX_IDP_ARCH_BADINDEX   "%1 besitzt ein falsches Format."
+    AFX_IDP_ARCH_BADCLASS   "%1 enthielt ein unerwartetes Objekt."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 enthält ein falsches Schema."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDP_FAILED_MAPI_LOAD        "Systemunterstützung für elektronische Post kann nicht geladen werden."
-	AFX_IDP_INVALID_MAPI_DLL        "Die System-DLL für elektronische Post ist ungültig."
-	AFX_IDP_FAILED_MAPI_SEND        "\042Nachricht senden\042 scheiterte beim Senden der Nachricht."
+    AFX_IDP_FAILED_MAPI_LOAD 
+                            "Systemunterstützung für elektronische Post kann nicht geladen werden."
+    AFX_IDP_INVALID_MAPI_DLL 
+                            "Die System-DLL für elektronische Post ist ungültig."
+    AFX_IDP_FAILED_MAPI_SEND 
+                            """Nachricht senden"" scheiterte beim Senden der Nachricht."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4516,17 +4535,16 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	AFX_IDS_PRINTONPORT,            "auf %1"         // for print output
-	AFX_IDS_ONEPAGE,                "&Eine Seite"     // for preview button
-	AFX_IDS_TWOPAGE,                "&Zwei Seiten"     // for preview button
-	AFX_IDS_PRINTPAGENUM,           "Seite %u"       // for print output
-	AFX_IDS_PREVIEWPAGEDESC,        "Seite %u\nSeiten %u-%u\n"
-	AFX_IDS_PRINTDEFAULTEXT,        "prn"           // default extension
-	AFX_IDS_PRINTDEFAULT,           "Ausgabe.prn"    // default file
-	AFX_IDS_PRINTFILTER,
-		"Drucker-Dateien (*.prn)|*.prn|Alle Dateien (*.*)|*.*||"
-	AFX_IDS_PRINTCAPTION,           "In Datei drucken" // caption for browse dlg
-	AFX_IDS_PRINTTOFILE,            "in %1"         // to file
+    AFX_IDS_PRINTONPORT     "auf %1"
+    AFX_IDS_ONEPAGE         "&Eine Seite"
+    AFX_IDS_TWOPAGE         "&Zwei Seiten"
+    AFX_IDS_PRINTPAGENUM    "Seite %u"
+    AFX_IDS_PREVIEWPAGEDESC "Seite %u\nSeiten %u-%u\n"
+    AFX_IDS_PRINTDEFAULTEXT "prn"
+    AFX_IDS_PRINTDEFAULT    "Ausgabe.prn"
+    AFX_IDS_PRINTFILTER     "Drucker-Dateien (*.prn)|*.prn|Alle Dateien (*.*)|*.*||"
+    AFX_IDS_PRINTCAPTION    "In Datei drucken"
+    AFX_IDS_PRINTTOFILE     "in %1"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6178,7 +6196,7 @@ END
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,14,358,84,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,358,79,18
@@ -6195,7 +6213,7 @@ BEGIN
     PUSHBUTTON      "&Generate random key",IDC_ERZEUGEN,14,332,109,17
     PUSHBUTTON      "Load keys from the &clipboard",IDC_BUTTON2,147,332,149,
                     17
-    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,14,292,29,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
@@ -7744,6 +7762,11 @@ BEGIN
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
     BEGIN
         HORZGUIDE, 359
+    END
+
+    IDD_DIALOG_HOMOPHONE, DIALOG
+    BEGIN
+        HORZGUIDE, 304
     END
 
     IDD_RANDOM_PARAMETER_LCG, DIALOG

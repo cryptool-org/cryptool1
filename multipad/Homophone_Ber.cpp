@@ -145,7 +145,7 @@ void HomophoneEncryption::Increase_ciphers()
 // erhöht die Anzahl der ciphertext-Zeichen, wenn deren Summe kleiner als range ist
 {
 	int i,index=0;
-	double value=0.01;
+	double value=0.0001;
 
 	for(i=0;i<range;i++)
 	{

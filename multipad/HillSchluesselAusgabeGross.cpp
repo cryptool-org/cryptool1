@@ -728,6 +728,8 @@ void CHillSchluesselAusgabeGross::OnKopieren()
 	m_FeldUnsichtbar.SetWindowText(cs);
 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
 	m_FeldUnsichtbar.Copy();
+
+	CDialog::OnOK();
 }
 
 

@@ -330,6 +330,10 @@ void CHillSchluesselAusgabe::OnKopieren()
 	// danach in das unsichtbare Feld schreiben und
 	// schliesslich in diesem Feld alles markieren und in die Zwischenablage speichern
 
+	UpdateData(TRUE);
+	m_decrypt = 0;
+	UpdateData(FALSE);
+	OnDecrypt();
 	CString cs, hilf;
 
 	for (int i=0; i<HILL_MAX_DIM; i++)
@@ -353,6 +357,8 @@ void CHillSchluesselAusgabe::OnKopieren()
 	m_FeldUnsichtbar.SetWindowText(cs);
 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
  	m_FeldUnsichtbar.Copy();
+
+	CDialog::OnOK();
 }
 
 void CHillSchluesselAusgabe::SchluesselAnzeigen(CString Key)
