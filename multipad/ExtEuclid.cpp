@@ -28,13 +28,25 @@ ExtEuclid::~ExtEuclid()
 
 void ExtEuclid::extgcd(long a, long b)
 {
-	if (b==0)
-		g=a;
-	else
+	if ( b > a )
 	{
-		extgcd(b, a % b);
-		modify(a/b);
+		long x = a; a = b; b = x;
+		long y = u; u = v; v = y;
 	}
+	while (b != 0)
+	{
+		long x = b; b = a % b; a = x;
+		if ( b != 0 )
+		{
+		    long y = u; u = v; v = y - (a/b)*v;
+		}
+		else
+		{
+		    long y = u; u = v; v = y;
+		}
+// 		modify(a/b);
+	}
+	g = a;
 }
 
 void ExtEuclid::modify(long q)

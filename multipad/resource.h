@@ -847,6 +847,8 @@
 #define IDS_STRING_EC_SEPERATOR         37175
 #define IDS_STRING_PERMUTATION          37176
 #define IDS_STRING_PA_LENGTH            37612
+#define IDS_RAND_OUTPUT                 37613
+#define IDS_RANDOM_GENERATOR            37614
 #define IDS_STRING_REFERENCE_FILE       43660
 
 // Next default values for new objects

@@ -119,7 +119,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,13,158,65,18
+    DEFPUSHBUTTON   "&übernehmen",IDOK,13,158,65,18
     PUSHBUTTON      "Abbrechen",IDCANCEL,177,158,66,18
     LTEXT           "Umfang der Ausgabe bei der automatischen Analyse",
                     IDC_STATIC,13,13,230,8
@@ -242,7 +242,7 @@ BEGIN
                     144,10
     DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
     PUSHBUTTON      "Dialog &beenden",IDCANCEL,318,310,72,19
-    LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch ihren PIN-Code wird das Schlüsselpaar geschützt:",
+    LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
                     IDC_STATIC,237,15,152,26
     GROUPBOX        "Verfahren",IDC_STATIC,10,10,205,135
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
@@ -370,8 +370,8 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Textoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,20,254,50,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,202,254,55,17
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,8,254,65,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,202,254,63,17
     CONTROL         "Nicht im Alphabet enthaltene Zeichen unverändert beibehalten",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,20,
                     213,10
@@ -390,18 +390,18 @@ BEGIN
                     WS_TABSTOP,105,85,55,10
     CONTROL         "Ziffern",IDC_CHECK7,"Button",BS_AUTO3STATE | WS_TABSTOP,
                     20,115,36,10
-    GROUPBOX        "Formatierungsoptionen",IDC_STATIC,5,5,260,45
+    GROUPBOX        "Formatierungsoptionen",IDC_STATIC,8,5,257,45
     CONTROL         "Groß-/Kleinschreibung erhalten (wenn möglich)",
                     IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,35,
                     163,10
-    GROUPBOX        "Alphabetoptionen",IDC_STATIC,5,55,260,107
-    GROUPBOX        "Playfair",IDC_STATIC,5,214,260,30
+    GROUPBOX        "Alphabetoptionen",IDC_STATIC,8,55,257,107
+    GROUPBOX        "Playfair",IDC_STATIC,8,214,257,30
     CONTROL         "Doppelbuchstaben trennen",IDC_CHECK9,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,229,100,10
     LTEXT           "Trennzeichen",IDC_STATIC,154,229,45,10
     EDITTEXT        IDC_EDIT2,202,226,15,12,ES_AUTOHSCROLL
     GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,
-                    5,168,260,39
+                    8,168,257,39
     EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,184,165,14,
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
                     WS_EX_STATICEDGE
@@ -520,12 +520,12 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,284,66,19
     PUSHBUTTON      "Dialog &beenden",IDCANCEL,321,284,68,19
-    CONTROL         "Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
-    CONTROL         "Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
+    CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
                     61,12
-    CONTROL         "Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,169,
-                    250,61,12
+    CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
+                    169,250,61,12
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,239,
                     232,32
     PUSHBUTTON      "&Neues Schlüsselpaar erzeugen",IDC_BUTTON1,135,284,125,
@@ -554,7 +554,7 @@ BEGIN
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
-    PUSHBUTTON      "&Öffentliche Parameter anzeigen",IDC_BUTTON1,127,238,
+    PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
     PUSHBUTTON      "&Alle Parameter anzeigen...",IDC_BUTTON2,127,257,120,14
     PUSHBUTTON      "&Zertifikat anzeigen",IDC_BUTTON4,127,276,120,14
@@ -618,12 +618,12 @@ CAPTION "Öffentlicher Schlüssel (asymmetrisch)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Zurück",IDOK,321,260,73,19
-    CONTROL         "Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,67,260,61,12
-    CONTROL         "Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,260,
-                    61,12
-    CONTROL         "Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,211,
+    CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,
                     260,61,12
+    CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
+                    211,260,61,12
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,51,
                     250,231,29
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
@@ -1372,8 +1372,8 @@ BEGIN
                     175,26
     CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | 
                     LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,12,26,293,57
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
+    EDITTEXT        IDC_TITEL,15,3,285,19,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER
 END
 
 IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 255
@@ -1609,8 +1609,8 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüssel aus Paßwort generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Ausgabe ermittelter Schlüssel (HEX)",IDC_STATIC,8,185,
-                    295,70
+    GROUPBOX        "Aus dem Paßwort und den weiteren Parametern generierte Schlüssel",
+                    IDC_STATIC,8,185,295,70
     GROUPBOX        "Eingabe (Passwort und Parameter)",IDC_STATIC,8,4,295,
                     169
     LTEXT           "Paßwort:",IDC_STATIC,19,28,31,8
@@ -1641,6 +1641,7 @@ BEGIN
     LTEXT           "Länge des Ausgabeschlüssels (in Bytes):",IDC_STATIC,19,
                     48,129,8
     EDITTEXT        IDC_EDIT5,151,47,20,12,ES_AUTOHSCROLL
+    LTEXT           "(1 - 20 bytes)",IDC_STATIC,177,48,42,8
 END
 
 IDD_DIALOG_RSA_KLEIN DIALOG DISCARDABLE  0, 0, 428, 335
@@ -1749,17 +1750,17 @@ BEGIN
                     WS_BORDER | NOT WS_TABSTOP
 END
 
-IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 186, 95
+IDD_RANDOM_PARAMETER_X2_MOD_N DIALOG DISCARDABLE  0, 0, 238, 85
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Zufallsgenerator"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,67,74,50,14
-    EDITTEXT        IDC_EDIT1,90,51,48,14,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    LTEXT           "Modul N = ",IDC_STATIC,53,53,36,8
-    CTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
-                    IDC_STATIC,7,12,172,28
+    DEFPUSHBUTTON   "Übernehmen",IDOK,9,60,69,18
+    EDITTEXT        IDC_EDIT1,44,37,186,12,ES_AUTOHSCROLL
+    LTEXT           "Modul N = ",IDC_STATIC,8,39,33,8
+    LTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
+                    IDC_STATIC,7,12,224,21
+    PUSHBUTTON      "Abbrechen",IDCANCEL,156,60,73,18
 END
 
 AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
@@ -1800,25 +1801,22 @@ BEGIN
     PUSHBUTTON      "&Close",AFX_ID_PREVIEW_CLOSE,278,2,44,12
 END
 
-IDD_RANDOM_PARAMETER_LCG DIALOGEX 0, 0, 200, 111
+IDD_RANDOM_PARAMETER_LCG DIALOG DISCARDABLE  0, 0, 253, 129
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Kongruenzgenerator (LCG)"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,73,82,50,17
-    CTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
-                    IDC_STATIC,13,9,174,28
-    LTEXT           "Geraden-Parameter:",IDC_STATIC,21,44,64,10
-    EDITTEXT        IDC_EDIT1,101,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT2,155,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    LTEXT           "a=",IDC_STATIC,91,44,9,8
-    LTEXT           "b=",IDC_STATIC,145,44,10,8
-    LTEXT           "Modul:",IDC_STATIC,21,63,27,8
-    EDITTEXT        IDC_EDIT3,101,62,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
-    LTEXT           "N=",IDC_STATIC,90,63,10,8
+    DEFPUSHBUTTON   "Übenehmen",IDOK,174,99,69,18
+    LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
+                    IDC_STATIC,11,9,232,25
+    LTEXT           "Geraden-Parameter:",IDC_STATIC,11,37,64,10
+    EDITTEXT        IDC_EDIT1,95,36,148,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,95,53,148,12,ES_AUTOHSCROLL
+    LTEXT           "&a =",IDC_STATIC,82,37,11,8
+    LTEXT           "&b =",IDC_STATIC,81,54,10,8
+    LTEXT           "Modul  &N =",IDC_STATIC,57,72,35,8
+    EDITTEXT        IDC_EDIT3,95,71,148,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Abbrechen",IDCANCEL,11,99,67,18
 END
 
 IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
@@ -1925,7 +1923,7 @@ END
 IDD_RANDOM_PARAMETER_ICG DIALOGEX 0, 0, 230, 111
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Inverser Kongruenzgenerator (ICG)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CTEXT           "Der lnverse Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
                     IDC_STATIC,13,9,202,24
@@ -2026,7 +2024,7 @@ BEGIN
         MENUITEM "Ö&ffnen...\tStrg+O",          ID_FILE_OPEN
         MENUITEM "S&chließen\tStrg+F4",         ID_FILE_CLOSE
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
-        MENUITEM "Speichern &unter...",         ID_FILE_SAVE_AS
+        MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
@@ -2199,7 +2197,7 @@ BEGIN
         MENUITEM "Ö&ffnen...\tStrg+O",          ID_FILE_OPEN
         MENUITEM "S&chließen\tStrg+F4",         ID_FILE_CLOSE
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
-        MENUITEM "Speichern &unter...",         ID_FILE_SAVE_AS
+        MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
@@ -2434,7 +2432,7 @@ BEGIN
         MENUITEM "Ö&ffnen...\tStrg+O",          ID_FILE_OPEN
         MENUITEM "S&chließen\tStrg+F4",         ID_FILE_CLOSE
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
-        MENUITEM "Speichern &unter...",         ID_FILE_SAVE_AS
+        MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
@@ -2929,7 +2927,7 @@ BEGIN
 
     IDD_DIALOG_TEXTOPTIONEN, DIALOG
     BEGIN
-        VERTGUIDE, 5
+        VERTGUIDE, 8
         VERTGUIDE, 20
         VERTGUIDE, 185
         VERTGUIDE, 202
@@ -3244,11 +3242,12 @@ BEGIN
 
     IDD_RANDOM_PARAMETER_LCG, DIALOG
     BEGIN
-        VERTGUIDE, 13
+        VERTGUIDE, 11
         VERTGUIDE, 187
-        BOTTOMMARGIN, 99
+        VERTGUIDE, 243
+        BOTTOMMARGIN, 117
         HORZGUIDE, 9
-        HORZGUIDE, 82
+        HORZGUIDE, 99
     END
 
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
@@ -3898,7 +3897,9 @@ BEGIN
     IDS_STRING_SWITCH_HEX_MODE "zeigt aktuelles Fenster als HexDump an"
     ID_TOHEX                "Zeigt aktuelles Fenster als Hex Dump an"
     IDS_STRING_PLAYFAIR_ANALYSE "Einfache Playfair Analyse"
+    ID_PLAYFAIR_ANALYSE     "Manuelle Analyse der Playfair Verschlüsselung"
     IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
+    ID_ANALYSE_VITANY       "Gütetest für Zufallsdaten: Test auf Unabhängigkeit"
     IDS_STRING_KEY_GENERATION_DATE "Schlüssel erstellt am:"
     IDS_STRING_MSG_FILENAME_TO_LONG 
                             "Der vom Programm erzeugte Dateiname\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
@@ -3938,6 +3939,7 @@ BEGIN
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 
                             "Erzeugt ein Hex-Schlüssel aus ein Schlüsselwort"
     ID_ANALYSE_NGRAM        "Berechnet N-Gramm Analyse"
+    ID_ANALYSE_NGRAM_BIN    "Anzeige der im Text häufigsten Zeichen, Digramme, Trigramme, ..."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4150,6 +4152,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_PA_LENGTH    "Länge"
+    IDS_RAND_OUTPUT         "Zufallsdaten zu %d %% erzeugt"
+    IDS_RANDOM_GENERATOR    "Zufallsdaten erzeugen"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -19,16 +19,14 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgRandomParameterLCG)
 	enum { IDD = IDD_RANDOM_PARAMETER_LCG };
-	long	m_LinParam_a;
-	long	m_LinParam_b;
-	long	m_Modul_N;
+	CString	m_LinParam_a;
+	CString	m_LinParam_b;
+	CString	m_LinParam_N;
 	//}}AFX_DATA
 
-	void Set( long a, long b, long N )
-	{ m_LinParam_a = a; m_LinParam_b = b; m_Modul_N = N; }
-	long Get_a() { return m_LinParam_a; }
-	long Get_b() { return m_LinParam_b; }
-	long Get_N() { return m_Modul_N; }
+	CString Get_a() { return m_LinParam_a; }
+	CString Get_b() { return m_LinParam_b; }
+	CString Get_N() { return m_LinParam_N; }
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen

@@ -1174,7 +1174,6 @@ void CCryptDoc::OnVitanyAnalyse()
 void CCryptDoc::OnPeriod()
 {
     CryptPar *para;
-
 	para = (CryptPar *) malloc(sizeof(CryptPar));
     UpdateContent();
 	memset(para,0,sizeof(CryptPar));
@@ -1183,13 +1182,7 @@ void CCryptDoc::OnPeriod()
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM | CRYPT_ASCII;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Periode, ((void *) para) );
-
-/*
-	UpdateContent();
-	class zzahlanalyse ana(ContentName);
-	ana.FindPeriod();
-*/
-  }
+}
 
 void CCryptDoc::OnNotAvail() 
 {

@@ -19,7 +19,7 @@ DlgRandParameter_x2_mod_N::DlgRandParameter_x2_mod_N(CWnd* pParent /*=NULL*/)
 	: CDialog(DlgRandParameter_x2_mod_N::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(DlgRandParameter_x2_mod_N)
-	m_EditModul_N = 0;
+	m_EditModul_N = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -29,7 +29,6 @@ void DlgRandParameter_x2_mod_N::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgRandParameter_x2_mod_N)
 	DDX_Text(pDX, IDC_EDIT1, m_EditModul_N);
-	DDV_MinMaxLong(pDX, m_EditModul_N, 2, 1000000000);
 	//}}AFX_DATA_MAP
 }
 
@@ -43,12 +42,12 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten DlgRandParameter_x2_mod_N 
 
-void DlgRandParameter_x2_mod_N::SetModul(long N)
+void DlgRandParameter_x2_mod_N::SetModul(CString &NStr)
 {
-	m_EditModul_N = N;
+	m_EditModul_N = NStr;
 }
 
-long DlgRandParameter_x2_mod_N::GetModul()
+CString DlgRandParameter_x2_mod_N::GetModul()
 {
 	return m_EditModul_N;
 }

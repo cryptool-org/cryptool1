@@ -19,9 +19,9 @@ DlgRandomParameterLCG::DlgRandomParameterLCG(CWnd* pParent /*=NULL*/)
 	: CDialog(DlgRandomParameterLCG::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(DlgRandomParameterLCG)
-	m_LinParam_a = 0;
-	m_LinParam_b = 0;
-	m_Modul_N = 0;
+	m_LinParam_a = _T("23");
+	m_LinParam_b = _T("0");
+	m_LinParam_N = _T("100000001");
 	//}}AFX_DATA_INIT
 }
 
@@ -32,7 +32,7 @@ void DlgRandomParameterLCG::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(DlgRandomParameterLCG)
 	DDX_Text(pDX, IDC_EDIT1, m_LinParam_a);
 	DDX_Text(pDX, IDC_EDIT2, m_LinParam_b);
-	DDX_Text(pDX, IDC_EDIT3, m_Modul_N);
+	DDX_Text(pDX, IDC_EDIT3, m_LinParam_N);
 	//}}AFX_DATA_MAP
 }
 

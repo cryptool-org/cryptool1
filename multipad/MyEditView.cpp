@@ -189,6 +189,7 @@ void CMyEditView::SerializeRaw(CArchive & ar)
 			pos += len;
 			if(!len) break;
 		}
+		GetRichEditCtrl().EmptyUndoBuffer();
 		ASSERT_VALID(this);
 	}
 	free(buffer);

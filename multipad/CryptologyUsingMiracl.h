@@ -97,8 +97,6 @@ private:
 	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };
 
-
-
 class TutorialFactorisation  
 {
 	Big N;
@@ -118,6 +116,45 @@ public:
 	virtual ~TutorialFactorisation();
 private:
 	BOOL Precheck();
+};
+
+
+
+class PseudoRandomGenerator  
+{
+protected:
+	Big Seed;
+	Big RandNo;
+
+public:
+	virtual void randomize() = 0;
+	BOOL setSeed( CString &SeetStr );
+	PseudoRandomGenerator();
+	virtual ~PseudoRandomGenerator();
+	long     randBit();
+
+};
+
+
+class x2modN_generator : public PseudoRandomGenerator  
+{
+	Big Modul_N;
+public:
+	void randomize();
+	BOOL setModul( CString &NStr );
+	x2modN_generator();
+	virtual ~x2modN_generator();
+};
+
+
+class LinearCongruenceGenerator : public PseudoRandomGenerator  
+{
+	Big a, b, N;
+public:
+	void randomize();
+	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
+	LinearCongruenceGenerator();
+	virtual ~LinearCongruenceGenerator();
 };
 
 #endif // !defined(AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_)

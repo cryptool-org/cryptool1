@@ -14,14 +14,14 @@ class DlgRandParameter_x2_mod_N : public CDialog
 {
 // Konstruktion
 public:
-	long GetModul(void);
-	void SetModul(long N);
+	CString GetModul(void);
+	void SetModul(CString &NStr);
 	DlgRandParameter_x2_mod_N(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(DlgRandParameter_x2_mod_N)
 	enum { IDD = IDD_RANDOM_PARAMETER_X2_MOD_N };
-	long	m_EditModul_N;
+	CString	m_EditModul_N;
 	//}}AFX_DATA
 
 

@@ -7,7 +7,10 @@
 // DlgGenRandomData.h : Header-Datei
 //
 #include "HexEdit1.h"
-
+#include "CryptologyUsingMiracl.h"
+#include "DlgRandParameter_x2_mod_N.h"
+#include "DlgRandomParameterLCG.h"
+#include "DlgRandParamICG.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgGenRandomData 
@@ -16,14 +19,22 @@ class DlgGenRandomData : public CDialog
 {
 // Konstruktion
 public:
+	void GenRandomData();
 	const char * GetRandInfo();
-	long l_Modul_N_LCG;
-	long l_LinParam_b_LCG;
-	long l_LinParam_a_LCG;
-	long l_modul_x2_mod_N;
+// x^2 (mod N) Generator
+	x2modN_generator rnd_x2modN;
+	DlgRandParameter_x2_mod_N DRPXN;
+
+// LCG Generator
+	LinearCongruenceGenerator DLCG;
+	DlgRandomParameterLCG DRP_LCG;
+
+// EICG Generator
 	long l_Param_a_ICG;
 	long l_Param_b_ICG;
 	long l_Param_N_ICG;
+
+// ============================================
 	char outfile[128];
 	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
 

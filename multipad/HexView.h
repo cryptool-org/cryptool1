@@ -23,6 +23,7 @@ public:
 
 // Operationen
 public:
+	int m_NoPrintChars;
 	HRESULT QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, DWORD dwReco, 
 		                    BOOL bReally, HGLOBAL hMetaFile);
 	virtual void SerializeRaw(CArchive& ar);
@@ -63,10 +64,11 @@ protected:
 	afx_msg void OnEmpty();
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnEditUndo();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditPaste();
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnUpdateTotxt(CCmdUI* pCmdUI);
+	afx_msg void OnEditUndo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

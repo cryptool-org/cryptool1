@@ -8,10 +8,8 @@
 #include "s_prng.h"
 #include "DlgGenRandomData.h"
 #include "DlgParamRandSECUDE.h"
-#include "DlgRandParameter_x2_mod_N.h"
-#include "DlgRandomParameterLCG.h"
-#include "DlgRandParamICG.h"
 #include "ExtEuclid.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -79,14 +77,13 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(DlgGenRandomData)
 	m_SelGenerator = 0;
-	m_seed = _T("");
+	m_seed = _T("314159");
 	m_DataSize = 1024;
 	//}}AFX_DATA_INIT
-	l_modul_x2_mod_N = 718335467;
+// x2modN-Generator
+	DRPXN.SetModul(CString("245438302030331732360701189397045881523"));
 // LCG-Parameter nach Lehmer
-	l_LinParam_a_LCG = 23;
-	l_LinParam_b_LCG = 0;
-	l_Modul_N_LCG    = 100000001;
+    DLCG.SetParameter(CString("23"), CString("0"), CString("100000001"));
 // ICG-Parameter nach ???
 	l_Param_a_ICG    = 22211;
 	l_Param_b_ICG    = 11926380;
@@ -128,20 +125,14 @@ void DlgGenRandomData::OnSelGenParam()
 			}
 			break;
 	case 1: {
-				DlgRandParameter_x2_mod_N DRPXN;
-				DRPXN.SetModul(l_modul_x2_mod_N); 
-				DRPXN.DoModal();
-				l_modul_x2_mod_N = DRPXN.GetModul();
+				if (IDOK == DRPXN.DoModal() )
+					rnd_x2modN.setModul( DRPXN.GetModul() );
 			}
 		break;
 	case 2: {
-				DlgRandomParameterLCG DRP_LCG;
-				DRP_LCG.Set(l_LinParam_a_LCG, l_LinParam_b_LCG, l_Modul_N_LCG);			
 				if (IDOK == DRP_LCG.DoModal() )
 				{
-					l_LinParam_a_LCG = DRP_LCG.Get_a();
-					l_LinParam_b_LCG = DRP_LCG.Get_b();
-					l_Modul_N_LCG    = DRP_LCG.Get_N();
+					DLCG.SetParameter(DRP_LCG.Get_a(), DRP_LCG.Get_b(), DRP_LCG.Get_N());
 				}
 			}
 		break;
@@ -166,10 +157,24 @@ void DlgGenRandomData::OnGenRandomData()
 {
 	UpdateData(TRUE);
 
+	GenRandomData();
+
+	UpdateData(FALSE);
+	CDialog::OnOK();
+}
+
+const char * DlgGenRandomData::GetRandInfo()
+{
+	return c_generated_by;
+}
+
+void DlgGenRandomData::GenRandomData()
+{
+
 	GetTmpName(outfile,"rnd",".hex");
 	ofstream rndData(outfile, ios::binary);
 	unsigned char	o;
-	long			i, j, l;
+	long			i, j;
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_RAND_DATA_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 	switch ( m_SelGenerator ) {
@@ -185,36 +190,23 @@ void DlgGenRandomData::OnGenRandomData()
 		break;
 	case 1:
 		{
-			long l_seed = 31459;
-			long l_s = l_seed;
-			l = 0;
-			for(j=0;j<m_DataSize;j++)
+			rnd_x2modN.setSeed( m_seed );
+			for ( j=0; j<m_DataSize; j++ )
 			{
-				o = 0;
-				for (i=0; i<8; i++)
-				{
-					l_s = powermod(l_s, 2, l_modul_x2_mod_N);
-					o |= (l_s %2) << (7-i);
-				}
+				o=0;
+				for (i=0; i<8; i++) o |= rnd_x2modN.randBit() << (7-i);
 				rndData << o;
 			}
-			l_seed = l_s;
 		}
 		sprintf(c_generated_by, pc_str, "x^2 (mod N)", m_DataSize);
 		break;
 	case 2:
 		{
-			long l_seed = 47594118;
-			long l_s = l_seed;
+			DLCG.setSeed( m_seed );
 			for(j=0;j<m_DataSize;j++)
 			{
 				o = 0;
-				for (i=0; i<8; i++)
-				{
-					l_s = multmodn(l_LinParam_a_LCG, l_s, l_Modul_N_LCG);
-					l_s = (l_s + l_LinParam_b_LCG) % l_Modul_N_LCG;
-					o |= (l_s %2) << (7-i);
-				}
+				for (i=0; i<8; i++) o |= DLCG.randBit() << (7-i);
 				rndData << o;
 			}
 		}
@@ -224,18 +216,23 @@ void DlgGenRandomData::OnGenRandomData()
 		{
 			long l_seed = 134569;
 			long l_s=l_seed;
-			for(j=0;j<(m_DataSize*9);j++)
+			long n=0;
+			for(j=0;j<m_DataSize;j++)
 			{
 				o=0;
 				for (i=0; i<8 ; i++)
 				{
-					// X_j = (a*(X_0+j)+b)^{-1} (mod N)
-					l_s = (l_seed + j) % l_Param_N_ICG;
+					// X_j = (a*(X_0+n)+b)^{-1} (mod P)
+					l_s = (l_seed + n) % l_Param_N_ICG;
+					ASSERT( l_s > 0 );
 					l_s = multmodn(l_Param_a_ICG, l_s, l_Param_N_ICG);
+					ASSERT( l_s > 0 );
 					l_s = (l_s + l_Param_b_ICG) % l_Param_N_ICG;
+					ASSERT( l_s > 0 );
 					l_s = inverse(l_s, l_Param_N_ICG);
+					ASSERT( l_s > 0 );
 					o |= (l_s % 2) << (7-i);
-					j++;
+					n++;
 				}
 				rndData << o;
 			}
@@ -245,11 +242,4 @@ void DlgGenRandomData::OnGenRandomData()
 	}
 	rndData.close();
 
-	UpdateData(FALSE);
-	CDialog::OnOK();
-}
-
-const char * DlgGenRandomData::GetRandInfo()
-{
-	return c_generated_by;
 }

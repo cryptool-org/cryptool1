@@ -40,13 +40,15 @@ BEGIN_MESSAGE_MAP(CHexView, CMyEditView)
 	ON_COMMAND(ID_EDIT_CLEAR, OnEmpty)
 	ON_WM_CHAR()
 	ON_WM_KEYDOWN()
-	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_WM_SIZE()
+	ON_UPDATE_COMMAND_UI(ID_TOTXT, OnUpdateTotxt)
+	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_CLEAR, OnUpdateFalse)
 	ON_COMMAND(ID_EDIT_CUT, OnEmpty)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REPLACE, OnUpdateFalse)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateFalse)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -121,7 +123,6 @@ int CHexView::AdjustCursor(int direction)
 	if(m_lineoffset < 7) {
 		m_lineoffset=7;
 	}
-	// ****** todo wrap around *******
 	if(m_lineoffset < 3*m_hexwidth+9) { // in hex-block
 		if(direction == 0) {
 			for(;m_lineoffset < 3*m_hexwidth+9; m_lineoffset++)
@@ -145,7 +146,7 @@ int CHexView::AdjustCursor(int direction)
 void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	int n, old_offset;
-	char new_c, buff[5];
+	char new_c, buff[5], oldChar;
 	BOOL invalid;
 
 	SetRedraw(FALSE);
@@ -162,20 +163,25 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if(IsHex(nChar)) { // hex character --> do the editing
 			n = (m_lineoffset-MAX_ADR_LEN)/3; // number of char to edit
 			if(('a'<=nChar) && (nChar <= 'f')) nChar = nChar+'A'-'a';
+			oldChar = 16*HexVal(m_line[7+3*n]) + HexVal(m_line[8+3*n]);
+			if((!IsPrint(oldChar)) && (oldChar != 10) && (oldChar != 13))
+				m_NoPrintChars = max(m_NoPrintChars-1,0);
 			m_line[m_lineoffset] = nChar;
 			new_c = 16*HexVal(m_line[7+3*n]) + HexVal(m_line[8+3*n]);
+			if((!IsPrint(new_c)) && (new_c != 10) && (new_c != 13))
+				m_NoPrintChars++;
 			// select the ASCII char to change
 			GetRichEditCtrl().SetSel(m_lineindex+3*m_hexwidth+9+n,m_lineindex+3*m_hexwidth+10+n);
 			buff[1]=0;
 			buff[0]='.';
             if(IsPrint(new_c))
 				buff[0] = new_c;
-			GetRichEditCtrl().ReplaceSel( buff, FALSE );
+			GetRichEditCtrl().ReplaceSel( buff, TRUE );
 			// select and change HEX part
 			GetRichEditCtrl().SetSel(m_charoffset, m_charoffset+1);
 			old_offset = m_charoffset;
 			buff[0]=nChar;
-			GetRichEditCtrl().ReplaceSel( buff, FALSE );
+			GetRichEditCtrl().ReplaceSel( buff, TRUE );
 			AdjustCursor(0);
 			// check to wrap to next line
 			if(m_lineoffset >= 3*m_hexwidth+9) {
@@ -228,14 +234,19 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		// edit Hex Section
+		GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
+		GetRichEditCtrl().GetSelText(buff);
+		oldChar = (char) strtol(buff, NULL, 16);
+		if((!IsPrint(oldChar)) && (oldChar != 10) && (oldChar != 13))
+			m_NoPrintChars = min(m_NoPrintChars-1,0);
 		sprintf(buff,"%02.2X",nChar);
 		GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
-		GetRichEditCtrl().ReplaceSel( buff, FALSE );
+		GetRichEditCtrl().ReplaceSel( buff, TRUE );
 		// edit ASCII Section
 		GetRichEditCtrl().SetSel(m_charoffset, m_charoffset+1);
 		buff[0]=nChar;
 		buff[1]=0;
-		GetRichEditCtrl().ReplaceSel( buff, FALSE );
+		GetRichEditCtrl().ReplaceSel( buff, TRUE );
 		// check to wrap to next line
 		if(m_lineoffset >= m_curlen-1) {
 			if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
@@ -267,21 +278,24 @@ void CHexView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CHexView::OnEditUndo() 
 {
-	GetRichEditCtrl().Undo();
-	GetRichEditCtrl().Undo();
+ 	SetRedraw(FALSE);
+ 	GetRichEditCtrl().Undo();
+// 	GetRichEditCtrl().Undo();
+ 	SetRedraw(TRUE);
+ 	Invalidate(TRUE);
 }
 
 void CHexView::OnEditCopy() 
 {
 	int l, i, j;
-	HGLOBAL glob;
+	HGLOBAL glob1, glob2;
 	HANDLE hndl;
 	long start,end;
 	long startl, endl;
 	long startc, endc;
 	long clen, cstart, cend;
 	long startind, endind;
-	char line[1024], *p;
+	char line[1024], *p1, *p2;
 
 	GetRichEditCtrl().GetSel(start,end);
 	startl = GetRichEditCtrl().LineFromChar(start);
@@ -302,19 +316,11 @@ void CHexView::OnEditCopy()
 		else endind = endc - 3*m_hexwidth-10;
 	}
 
-//	if(startc < 7) startind = 0;
-//	else if(startc < 3*m_hexwidth+6) startind = (startc-6)/3;
-//	else if(startc < 3*m_hexwidth+9) startind = 0;
-//	else startind = startc - 3*m_hexwidth-9;
-//	if(endc < 7) endind = 0;
-//	else if(endc < 3*m_hexwidth+6) endind = (endc-6)/3;
-//	else if(endc < 3*m_hexwidth+9) endind = 0;
-//	else endind = endc - 3*m_hexwidth-9;
-
 	l=(endl-startl)*m_hexwidth-startind+endind+2;
-	glob = GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, l);
+	glob1 = GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, l);
+	glob2 = GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, l+sizeof(long));
 
-	p= (char *) GlobalLock(glob);
+	p2=p1= (char *) GlobalLock(glob1);
 	for(i=startl;i<=endl;i++) {
 		clen = GetRichEditCtrl().GetLine(i,line,sizeof(line)-1);
 		if(i==startl) cstart = startind;
@@ -322,28 +328,37 @@ void CHexView::OnEditCopy()
 		if(i==endl) cend = endind;
 		else cend = m_hexwidth-1;
 		for(j=cstart; j<=cend; j++) {
-			*p = 16*HexVal(line[7+3*j]) + HexVal(line[8+3*j]);
-			p++;
+			*p1 = 16*HexVal(line[7+3*j]) + HexVal(line[8+3*j]);
+			p1++;
 		}
 	}
-	*p=0;
+	*p1=0;
+	p1=p2;
+	p2= (char *) GlobalLock(glob2);
+	((long *) p2)[0] = l-1;
+	p2 += sizeof(long);
+	memcpy(p2, p1, l-1);
 
-	GlobalUnlock(glob);
+	GlobalUnlock(glob1);
+	GlobalUnlock(glob2);
+
 	OpenClipboard();
-	hndl = SetClipboardData(CF_TEXT,glob);
+	hndl = SetClipboardData(CF_TEXT,glob1);
+	if(hndl==0) l = GetLastError();
+	hndl = SetClipboardData(theApp.m_HexFormat,glob2);
 	if(hndl==0) l = GetLastError();
 	CloseClipboard();
 }
 
 void CHexView::OnEditPaste() 
 {
-	int l, i, max_l;
+	int i, max_l;
 	HANDLE hndl;
 	long start,end;
 	long startl;
 	long startc;
-	long startind;
-	char buff[10];
+	long startind, dataLen;
+	char buff[10], *dataBuff, *globBuff;
 	unsigned char *p;
 	CHARRANGE range={0,-1};
 
@@ -363,14 +378,22 @@ void CHexView::OnEditPaste()
 
 	OpenClipboard();
 //*** to be done *******	
-//	hndl = GetClipboardData(range, RECO_PASTE, , );
-
-	p = (unsigned char *) GlobalLock(hndl);
-	l = GlobalSize(hndl)-1;
-	l = min(l, max_l);
+	hndl = ::GetClipboardData(theApp.m_HexFormat);
+	if(hndl) {
+		globBuff = (char *) GlobalLock(hndl);
+		dataLen = ((long *) globBuff)[0];
+		dataBuff = globBuff+sizeof(long);
+	}
+	else {
+		hndl = ::GetClipboardData(CF_TEXT);
+		globBuff = (char *) GlobalLock(hndl);
+		dataLen = strlen(globBuff);
+		dataBuff = globBuff;
+	}
+	p = (unsigned char*) dataBuff;
 	startc = GetRichEditCtrl().LineIndex(startl) + 7 + 3 * startind;
 	GetRichEditCtrl().SetSel(startc, startc);
-	for(i=0;i<l;i++) {
+	for(i=0;i<dataLen;i++) {
 		if(*p<16) {
 			buff[0]='0';
 			_itoa(*p,buff+1,16);
@@ -451,6 +474,7 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 			free(buffer3);
 			GetRichEditCtrl().SetSel(start, end);
 			GetRichEditCtrl().SetModify(modified);
+			GetRichEditCtrl().EmptyUndoBuffer();
 			SetRedraw(TRUE);
 			Invalidate();
 		}
@@ -464,7 +488,7 @@ void CHexView::SerializeRaw(CArchive & ar)
 {
 	char *buffer;
 	char *buffer2;
-	int bufflen = 20000, state, l, width;
+	int bufflen = 20000, state, l, width, i;
 	long start, end, textlen, pos, len, l1, buff2len, adr;
 
 	GetRichEditCtrl().GetSel(start, end);
@@ -508,16 +532,20 @@ void CHexView::SerializeRaw(CArchive & ar)
 
 		// ReadFromArchive takes the number of characters as argument
 
-		adr = pos = 0;
+		m_NoPrintChars = adr = pos = 0;
 		do {
 			l = ar.Read(buffer, l1);
 			if(l==0) break;
+			for(i=0;i<l;i++)
+				if((!IsPrint(buffer[i])) && (buffer[i] != 10) && (buffer[i] != 13))
+					m_NoPrintChars++;
 			l = HexDumpMem(buffer2, buff2len, (unsigned char *) buffer, l, width, adr);
 			GetRichEditCtrl().SetSel(pos, pos);
-			GetRichEditCtrl().ReplaceSel(buffer2);
+			GetRichEditCtrl().ReplaceSel(buffer2, FALSE);
 			pos += l;
 			adr += l1;
 		} while(l);
+		GetRichEditCtrl().EmptyUndoBuffer();
 		free(buffer2);
 		ASSERT_VALID(this);
 	}
@@ -534,3 +562,15 @@ HRESULT CHexView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat
 	return 1;
 }
 
+
+void CHexView::OnUpdateTotxt(CCmdUI* pCmdUI) 
+{
+	if(m_NoPrintChars > 0)
+	{
+        pCmdUI->Enable(FALSE);
+	}
+	else
+	{
+        pCmdUI->Enable(TRUE);
+	}
+}

@@ -1027,3 +1027,97 @@ void TutorialFactorisation::GetFactor2Str(CString &Factor2)
 {
 	BigToCString( factor2, Factor2 );
 }
+
+//////////////////////////////////////////////////////////////////////
+// PseudoRandomGenerator Klasse
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+PseudoRandomGenerator::PseudoRandomGenerator()
+{
+	Seed = 314159;
+	RandNo = Seed;
+}
+
+PseudoRandomGenerator::~PseudoRandomGenerator()
+{
+}
+
+long PseudoRandomGenerator::randBit()
+{
+	randomize();
+	return RandNo % 2;
+}
+
+BOOL PseudoRandomGenerator::setSeed(CString &SeetStr)
+{
+	BOOL retValue = CStringFormulaToBig( SeetStr, Seed );
+	RandNo = Seed;
+	return retValue;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// x2modN_generator Klasse
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+x2modN_generator::x2modN_generator()
+{
+	CString tmp = "245438302030331732360701189397045881523"; // "2551459793"; // 32 Bit RSA-Modul
+	CStringFormulaToBig( tmp, Modul_N );
+}
+
+x2modN_generator::~x2modN_generator()
+{
+
+}
+
+BOOL x2modN_generator::setModul( CString &NStr )
+{
+	return 	CStringFormulaToBig( NStr, Modul_N );
+}
+
+void x2modN_generator::randomize()
+{
+	Big two = 2;
+	Big tmp = RandNo;
+	RandNo  = pow( tmp, two, Modul_N );
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// LlinearCongruenceGenerator Klasse
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+LinearCongruenceGenerator::LinearCongruenceGenerator()
+{
+	N = 100000001;
+	a = 23; 
+	b = 0;
+}
+
+LinearCongruenceGenerator::~LinearCongruenceGenerator()
+{
+}
+
+BOOL LinearCongruenceGenerator::SetParameter(CString &aStr, CString &bStr, CString &NStr)
+{
+	return ( CStringFormulaToBig( aStr, a ) && CStringFormulaToBig( bStr, b ) &&
+		     CStringFormulaToBig( NStr, N ) );
+}
+
+void LinearCongruenceGenerator::randomize()
+{
+	RandNo = (a*RandNo + b) % N;
+}
