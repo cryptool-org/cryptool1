@@ -608,11 +608,9 @@ Bei der modularen Multiplikation dagegen ist das nicht so:
 F"ur eine nat"urliche Zahl $a$ aus der Menge $\{1, \cdots, m-1\}$ gibt es genau dann eine\index{ggT}
 multiplikative Inverse, wenn sie mit dem Modul $m$ \index{teilerfremd} teilerfremd\footnote{
 Es gilt: Zwei ganze Zahlen $a$ und $b$ sind genau dann teilerfremd, wenn
-${\rm ggT}(a, b) = 1$.
-
+${\rm ggT}(a, b) = 1$.\\
 Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
-Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.
-
+Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
 Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
 \item $a_1,a_2, \cdots, a_n$ hei"sen {\em relativ prim}	\index{relativ prim}, wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
@@ -1047,8 +1045,7 @@ W"ahlt man irgendein Element aus $\mathbb{Z}_n^*$ und multipliziert es mit jedem
 Element von $\mathbb{Z}_n^*$, so sind die Produkte\footnote{
 Dies ergibt sich aus der Abgeschlossenheit von $\mathbb{Z}_n^*$ bez"uglich der Multiplikation und der 
 ggT-Eigenschaft: \\
-$[a, b \in \mathbb{Z}_n^* ] \Rightarrow [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$, genauer:
-
+$[a, b \in \mathbb{Z}_n^* ] \Rightarrow [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$, genauer:\\
 $[a, b \in \mathbb{Z}_n^* ] \Rightarrow  [{\rm ggT}(a, n) = 1, {\rm ggT}(b, n) = 1] 
 \Rightarrow  [{\rm ggT}(a*b, n) = 1] \Rightarrow  [((a * b) {\rm ~(mod~} n)) \in \mathbb{Z}_n^*]$.
 } alle wieder in $\mathbb{Z}_n^*$ und au"serdem 
@@ -1556,8 +1553,7 @@ die Entschl"usselung:
 Compaq hatte in 2000 mit hohem Marketingaufwand das sogenannte Multiprime-Verfahren eingef"uhrt.
 $n$ war dabei das Produkt von zwei gro"sen und einer relativ dazu kleinen Primzahl:
 $n=o*p*q.$ Nach Satz \ref{J_of_p1..pk} ist dann $ J(n)= (o-1)*(p-1)*(q-1).$ Das
-Verfahren hat sich bisher nicht durchgesetzt.
-
+Verfahren hat sich bisher nicht durchgesetzt.\\
 Mit ein Grund daf"ur d"urfte sein, da"s Compaq ein Patent\index{Paten} daf"ur angemeldet hat. Generell gibt es in Europa und in der Open Source Bewegung wenig Verst"andnis
 f"ur Patente auf Algorithmen. "Uberhaupt kein Verst"andnis herscht au"serhalb der USA, da"s man auf den Sonderfall (3 Faktoren) eines
 Algorithmus (RSA) ein Patent beantragen kann, obwohl das Patent f"ur den allgemeinen Fall schon fast abgelaufen ist.
@@ -1856,8 +1852,7 @@ gew"ahlte Zahl) erf"ullen die Gleichung und k"onnen damit zur Berechnung des
 Sessionkeys benutzt werden: $285^{240}  \equiv 285^{67} \equiv 268 {\rm ~(mod~}347)$.
 H"atten Alice und Bob als Basis $g$ eine Primitivwurzel modulo $p$ gew"ahlt, dann
 gibt es f"ur jeden Rest aus der Menge
-$\{1, 2, \cdots, p-1\}$ genau einen Exponenten aus der Menge $\{0, 1, \cdots, p-2\}.$ 
-
+$\{1, 2, \cdots, p-1\}$ genau einen Exponenten aus der Menge $\{0, 1, \cdots, p-2\}.$ \\
 Info: Zum Modul $347$ gibt es $172$ verschiedene Primitvwurzeln, davon sind $32$
 prim (ist nicht notwendig).
 Da die im Beispiel f"ur $g$ gew"ahlte Zahl $11$ keine Primitivwurzel von $347$ ist,
@@ -1976,8 +1971,7 @@ die Blockl"ange 2 betr"agt.\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{
-Mit Mathematica kann das z.B. per {\tt PowerMod[120, 37, 3713]} berechnet werden.
-
+Mit Mathematica kann das z.B. per {\tt PowerMod[120, 37, 3713]} berechnet werden.\\
 Mit CrypTool v1.3 k"onnen Sie dies per 
 \glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen. }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -2024,8 +2018,7 @@ mit {\tt FactorInteger[67.000]= \{\{2,3\}, \{5,3\}, \{67,1\}\}}. \\
 Mit CrypTool v1.3 k"onnen Sie dies per
 ''Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen.}. \\
 {\bf 2.} $e=65.537$ (soll zwischen $269$ und $67.000$ liegen u. mu"s teilerfremd zu $67.000$ sein)\footnote{
-$e$ soll also nicht $2, 5$ oder $67$ sein.
-
+$e$ soll also nicht $2, 5$ oder $67$ sein.\\
 Real wird $J(n)$ nicht faktorisiert,
 sondern f"ur das gew"ahlte $e$ wird mit dem Euklid`schen Algorithmus
 sichergestellt, da"s ggT$(d,J(n))=1$.}.\\
@@ -2090,7 +2083,6 @@ Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4.
 {\bf 4. Verschl"usselung:} \\
 Blockbildung\footnote{
 %Bin"ardarstellung:Dezimaldarstellung
-
 {\tt \begin{tabular}{lll}
 & Bin"ardarstellung  &Dezimaldarstellung\\
 01010010, 82 & 01010010 01010011 & =21075 \\
@@ -2111,7 +2103,7 @@ folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale
 
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}67519)$\footnote{
 Mit Mathematica kann das mit PowerMod[{21075, 16672, 30575, 29291, 29473},
-65537, 67519] berechnet werden. }: \\
+65537, 67519] berechnet werden.}: \\
 {\tt 3046 29337 62503 9978 40883}
 
 {\bf 5. Entschl"usselung:} \\

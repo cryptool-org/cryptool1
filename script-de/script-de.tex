@@ -7,10 +7,18 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{makeidx}
+%Formatierung der Fu"snoten
+\usepackage[flushmargin]{footmisc}
+%\usepackage{myThanks}
+
 % \usepackage{thumbpdf}
 
 \makeindex
 \hypersetup{colorlinks=true}
+
+\newlength{\myFootnoteWidth}
+\newlength{\myFootnoteLabel}
+\setlength{\myFootnoteLabel}{1.2em}%  <-- can be changed to any valid value
 
 \setlength{\textwidth}{460 pt}
 \hoffset-0.7in
@@ -35,6 +43,15 @@ Frankfurt am Main \\*[8pt]
 
 \begin{document}
 %\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
+%Formatierung der Fu"snoten
+
+%space between text and footnote 
+%\renewcommand\footnoterule{%
+%  \vspace{1em}%   <-- one line space between text and footnoterule
+%  \kern-3\p@\hrule\@width.4\columnwidth%
+%  \kern2.6\p@
+%}
+
 \maketitle
 
 \parskip 4pt
@@ -439,9 +456,8 @@ auch das Produkt $a-1 = p_1 \cdot p_2 \cdots p_n$, da $p_i$ ja ein
 Faktor von $a-1$ ist. Da $ p_i $ die Zahlen $ a $ und $ a-1 $
 teilt, teilt sie auch die Differenz dieser Zahlen. Daraus folgt:
 $p_i$ teilt  $a - (a-1) = 1$. $p_i$ m"u"ste also $1$ teilen und
-das ist unm"oglich.
-\\*[4pt] {\bf Wiederspruch}: \quad Unsere Annahme war falsch.
-
+das ist unm"oglich.\\*[4pt] 
+{\bf Wiederspruch}: \quad Unsere Annahme war falsch.\par
 Also gibt es {\em unendlich} viele Primzahlen
 \hyperlink{primhfk}{(Verweis: "Ubersicht unter 2.6.1 "uber die
 Anzahl von Primzahlen in verschiedenen Intervallen).}\par \vskip + 3pt
@@ -1041,30 +1057,24 @@ Da"s die Goldbachsche Vermutung wahr, d.h. g"ultig f"ur alle nat"urlichen Zahlen
 Der Mathematiker J"org Richstein vom Institut f"ur Informatik der Universit"at Gie"sen hat 1999 die geraden Zahlen bis
 400 Billionen untersucht und kein Gegenbeispiel gefunden (Siehe 
 \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).\index{Richstein 1999}
-Trotzdem ist das kein allgemeiner Beweis.
-
+Trotzdem ist das kein allgemeiner Beweis.\\
 Da"s die Goldbach’sche Vermutung trotz aller Anstrengungen bis heute nicht bewiesen wurde, f"ordert allerdings einen Verdacht:
 Seit den bahnbrechenden Arbeiten des "osterreichischen Mathematikers Kurt G"odel\index{G"odel Kurt}
 ist bekannt, da"s nicht jeder wahre Satz in der Mathematik auch beweisbar ist
 (Siehe \href{http://www.mathematik.ch/mathematiker/goedel.html}{http://www.mathematik.ch/mathematiker/goedel.html}).
 M"oglicherweise hat Goldbach also Recht,
-und trotzdem wird nie ein Beweis gefunden werden. Das wiederum l"asst sich aber vermutlich auch nicht beweisen. 
-}, aber
-    allgemein noch nicht bewiesen\footnote{
-	Der englische Verlag {\em Faber} und die amerikanische Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmal
-	ver"offentlichte Buch \glqq Onkel Petros und die Goldbachsche Vermutung\grqq~ von Apostolos Doxiadis. Es ist die Geschichte
-	eines Mathematikprofessors, der daran scheitert, ein mehr als 250 Jahre altes R"atsel zu l"osen.
-
+und trotzdem wird nie ein Beweis gefunden werden. Das wiederum l"asst sich aber vermutlich auch nicht beweisen.},
+aber allgemein noch nicht bewiesen\footnote{
+Der englische Verlag {\em Faber} und die amerikanische Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmal
+ver"offentlichte Buch \glqq Onkel Petros und die Goldbachsche Vermutung\grqq~ von Apostolos Doxiadis. Es ist die Geschichte
+eines Mathematikprofessors, der daran scheitert, ein mehr als 250 Jahre altes R"atsel zu l"osen.\\
 Um die Verkaufszahlen zu f"ordern schreiben die beiden  Verlage einen Preis von 1 Million USD aus, wenn jemand die Vermutung
 beweist -- ver"offentlicht in einer angesehenen mathematischen Fachzeitschrift bis 2004 (Siehe 
-\href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}{\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).
-
-Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker davon teilnehmen.
-
+\href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}{\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).\\
+Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker davon teilnehmen.\\
 Der Beweis, der der Goldbach Vermutung bisher am n"achsten kommt, wurde 1966 von Chen Jing-Run
 bewiesen -- in ein schwer nachvollziehbar Art und Weise: Jede Gerade Zahl gr"o"ser 2 ist die Summe einer Primzahl und des Produkts zweier
-Primzahlen. Z.B. $20=5+3*5.$
-
+Primzahlen. Z.B. $20=5+3*5.$\\
 Die wichtigsten Forschungsergebnisse zur Goldbachsche Vermutung sind zusammengefa"st in dem von Wang Yuan herausgegebenen Band: \glqq Goldbach Conjectures\grqq, 1984, 
 World Scientific Series in Pure Maths, Vol. 4.}.
   \item Der deutsche \index{Riemann Bernhard} Mathematiker Bernhard Riemann (1826-1866) stellte eine bisher unbewiesene, aber auch nicht widerlegte (?)
@@ -1628,8 +1638,7 @@ zu bezeichnen.
 Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist
 aber nicht die normale/"ubliche Addition\footnote{
 Eine Animation der Punktaddition auf elliptischen Kurven findet man auf der Certicom\index{Certicom} Seite
-unter 
-
+unter \\
 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}.} in den reellen Zahlen)
 zweier Elemente aus ${\bf E}$ definieren, so da"s diese
 Verkn"upfung ein Element ergibt, das wieder in ${\bf E}$ liegt.
