@@ -1282,7 +1282,7 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 	PSE capse = theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
 	if (!capse)
 	{
-		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 	
 		remove(PSEName);
 		free(PSEName);

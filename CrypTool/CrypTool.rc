@@ -570,7 +570,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -590,7 +590,7 @@ BEGIN
                     WS_TABSTOP,27,274,76,8
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
-    LTEXT           "Klicken Sie auf den Eintrag in der Spalte Name, um eine Zeile zu selektieren.",
+    LTEXT           "Klicken Sie mit der linken Maustaste auf eine Zeile, um eine Auswahl vorzunehmen.",
                     IDC_STATIC,8,14,375,8
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
 END
@@ -4265,7 +4265,7 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Bitte wählen Sie eine PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Bitte geben Sie den PIN-Code ein."
     IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
-                            "Fehler beim Öffnen der CA-PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
+                            "Fehler beim Öffnen der CA-PSE\n(Fehlermeldung: ""%s"")\n\nBitte überprüfen Sie\n- dass der Verzeichnisbaum \\pse\\pseca im CrypTool heimatverzeichnis existiert \n- und dass alle Dateien unter diesen Verzeichnissen nicht schreibgeschützt sind. \nGegebenenfalls müssen Sie CrypTool neu installieren."
     IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
                             "Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
@@ -6242,7 +6242,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Show &public parameters...",IDC_BUTTON1,127,238,120,14
     PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,259,238,120,14
@@ -6261,7 +6261,7 @@ BEGIN
                     WS_TABSTOP,27,274,76,8
     LTEXT           "The list below shows the asymmetric key pairs that are available.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
-    LTEXT           "Select the desired name by clicking on it with the left mouse button.",
+    LTEXT           "Select the desired name by clicking its row with the left mouse button.",
                     IDC_STATIC,8,14,375,8
     GROUPBOX        "Listed key types:",IDC_STATIC,8,232,105,58
 END
@@ -9671,7 +9671,7 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Please select a PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Please enter the PIN code."
     IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
-                            "An error occurred during opening of the CA PSE.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
+                            "An error occurred during opening of the CA PSE.\n(Error message: ""%s"")\n\nPlease make sure\n- that there exists a sub directory called \\pse\\pseca in the CrypTool directory\n- and that all files within this directory are NOT write protected."
     IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
                             "An error occurred on retrieving the certificate.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
