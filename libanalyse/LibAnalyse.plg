@@ -6,37 +6,6 @@
 --------------------Konfiguration: LibAnalyse - Win32 Debug--------------------
 </h3>
 <h3>Befehlszeilen</h3>
-Erstellen der temporären Datei  "C:\TEMP\RSPFA.tmp" mit Inhalten
-[
-/nologo /MTd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/LibAnalyse.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
-"D:\data\src\CrypTool-VS.NET\CrypTool-Src\LibAnalyse\Converter.cpp"
-]
-Creating command line "cl.exe @C:\TEMP\RSPFA.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSPFB.tmp" mit Inhalten
-[
-/nologo /out:"Debug\LibAnalyse.lib" 
-".\Debug\Chi2.obj"
-".\Debug\Cipher.obj"
-".\Debug\Converter.obj"
-".\Debug\Des.obj"
-".\Debug\FFT.OBJ"
-".\Debug\FreqTable.obj"
-".\Debug\LFSR.OBJ"
-".\Debug\MYMATH.OBJ"
-".\Debug\NGram.obj"
-".\Debug\OStream.obj"
-".\Debug\Permutation.obj"
-".\Debug\SBox.obj"
-".\Debug\StaticObjects.obj"
-".\Debug\String.obj"
-".\Debug\Symbol.obj"
-".\Debug\SymbolArray.obj"
-]
-Erstellen der Befehlzeile "link.exe -lib @C:\TEMP\RSPFB.tmp"
-<h3>Ausgabefenster</h3>
-Kompilierung läuft...
-Converter.cpp
-Bibliothek wird erstellt...
 
 
 

@@ -57,7 +57,7 @@ statement from your version.
 #ifndef POLY_H
 #define POLY_H
 
-#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#if defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #else
 #include <iostream>

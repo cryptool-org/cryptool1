@@ -85,7 +85,7 @@
 
 /////////////////////////////////////////////////////////////////////
 
-#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #include <fstream.h>
 #else

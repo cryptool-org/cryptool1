@@ -54,7 +54,7 @@ statement from your version.
 #include "DlgNGramAnalysis.h"
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
-#if !defined(_MSC_VER) && (!defined(MSC_VER) || MSC_VER <= 1200)
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #else
 #include <iostream>

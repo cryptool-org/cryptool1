@@ -31,9 +31,9 @@ void FeistelCipher::operator()(NTupleRW<symbol>& Vec, int mode /*=Encrypt*/) con
 			Vec[0]=t;
 		}
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
-	swap(Vec[0],Vec[1]);
+		swap(Vec[0],Vec[1]);
 #else
-	std::swap(Vec[0],Vec[1]);
+		std::swap(Vec[0],Vec[1]);
 #endif
 	} else {
 		int len=m_f.GetSize();
