@@ -707,7 +707,7 @@ int CAestoolDlg::SetSource(CString src)
 	m_NameSrc = src;
 	{
 		CString tmp;
-		tmp.Format("AES-Tool: [%s]", src);
+		tmp.Format("AES-Tool [%s]", src);
 		theApp.m_pszAppName = strdup(tmp);
 	}
 
