@@ -15,10 +15,10 @@ static char THIS_FILE[]=__FILE__;
 // WICHTIG: Die Miracl Variable ist nur für den Speicherbereich
 // von RSA_Berechnungen.obj definiert.
 
-//Miracl	g_precision=25;
+Miracl	g_precision=25;
 //Big		t;
 Big		ausgabe;
-//miracl *mip3=&g_precision;
+miracl *mip3=&g_precision;
 
 
 
@@ -26,9 +26,9 @@ Big		ausgabe;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-RSA_Berechnungen::RSA_Berechnungen(): g_precision(25)
+RSA_Berechnungen::RSA_Berechnungen()//: g_precision(25)
 {
-	mip3=&g_precision;
+//	mip3=&g_precision;
 }
 
 RSA_Berechnungen::~RSA_Berechnungen()

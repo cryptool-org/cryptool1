@@ -38,12 +38,12 @@
 
 class RSA_Berechnungen  
 {
-	Miracl g_precision;
+//	Miracl g_precision;
 public:
 	CString konvertiere_Big_CString (Big Eingabe);
 	Big konvertiere_CString_Big (CString Eingabe);
 	Big t;
-	miracl *mip3;
+//	miracl *mip3;
 //	Big ausgabe;
 // 	char *str;
 	bool eval ();
