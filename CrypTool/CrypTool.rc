@@ -331,12 +331,12 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.01 - beta)",IDC_STATIC,0,51,
+    CTEXT           "CrypTool     (Version 1.3.01 - beta 1)",IDC_STATIC,0,51,
                     242,8
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
@@ -3175,14 +3175,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.01 - beta\0"
+            VALUE "FileVersion", "1.3.01 - beta 1\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.01 - beta\0"
+            VALUE "ProductVersion", "1.3.01 - beta 1\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -4193,7 +4193,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta-1"
+    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-1"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5658,12 +5658,12 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.01 - beta)",IDC_STATIC,0,51,
+    CTEXT           "CrypTool     (Version 1.3.01 - beta 1)",IDC_STATIC,0,51,
                     242,8
     CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
                     242,8
@@ -8216,14 +8216,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.01 - beta \0"
+            VALUE "FileVersion", "1.3.01 - beta 1\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.01 - beta\0"
+            VALUE "ProductVersion", "1.3.01 - beta 1\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -8235,7 +8235,6 @@ END
 
 #endif    // !_MAC
 
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
@@ -8246,7 +8245,51 @@ IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
 IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
 IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
 IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
+PASTEU                  BITMAP  DISCARDABLE     "res\\EditPaste.bmp"
+PASTED                  BITMAP  DISCARDABLE     "res\\EditPastebmp.bmp"
+PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
+PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
 IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool.bmp"
+IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
+IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
+OPNDOC_F_U              BITMAP  DISCARDABLE     "res\\OPNDOC_F_U.bmp"
+OPNDOC_F_F              BITMAP  DISCARDABLE     "res\\OPNDOC_F_F.bmp"
+OPNDOC_F_D              BITMAP  DISCARDABLE     "res\\OPNDOC_F_D.bmp"
+OPNDOC_T_U              BITMAP  DISCARDABLE     "res\\OPNDOC_T_U.bmp"
+OPNDOC_T_F              BITMAP  DISCARDABLE     "res\\OPNDOC_T_F.bmp"
+OPNDOC_T_D              BITMAP  DISCARDABLE     "res\\OPNDOC_T_D.bmp"
+INFDOC_X                BITMAP  DISCARDABLE     "res\\INFDOC_X.bmp"
+INFDOC_F                BITMAP  DISCARDABLE     "res\\INFDOC_F.bmp"
+INFDOC_U                BITMAP  DISCARDABLE     "res\\INFDOC_U.bmp"
+INFDOC_D                BITMAP  DISCARDABLE     "res\\INFDOC_D.bmp"
+RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
+RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
+SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
+SECHSECK1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
+RAUTE2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
+RAUTE2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
+RAUTE3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
+RAUTE3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
+SECHSECK2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
+SECHSECK2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
+SECHSECK3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
+SECHSECK3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
+VIERECK1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
+VIERECK1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
+VIERECK2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
+VIERECK2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
+RAUTE4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
+RAUTE4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
+RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
+RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
+IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
+IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9821,7 +9864,7 @@ END
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
-
+*/
 
 
 #ifndef APSTUDIO_INVOKED
