@@ -27,7 +27,7 @@ Der entscheidende Vorteil Elliptischer Kurven im Vergleich zu RSA-Algorithmus li
 dass die sicheren Schl"ussell"angen erheblich k"urzer sind. 
 
 Setzt man den Trend, dass sich die
-Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}), in die Zukunft
+Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}\footnote{empirische Erkenntnis von Gordon Moore, Mitbegr"under von Intel, 1965}), in die Zukunft
 fort, so kann man von einer Entwicklung der sicheren Schl"ussell"angen
 wie in Abbildung~\ref{RSAKeylength} ausgehen \cite{Lenstra1999}
 
@@ -94,7 +94,7 @@ Aktuelle Informationen zur Sicherheit des RSA-Verfahrens finden Sie in Kapitel \
 Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor handelt, die noch
 nach 2005\footnote{%
-BSI Empfehlung} operativ sein sollen.
+BSI Empfehlung (GISA recommendation)} operativ sein sollen.
 
 
 
@@ -142,7 +142,7 @@ und Victor Miller unabh"angig voneinander vorgeschlagen, Elliptische Kurven in d
 einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktorisierung von ganzen Zahlen
 (auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
-zum Beispiel das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
+das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
 auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. Es gibt auch
 Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren.
 
@@ -155,7 +155,7 @@ Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n
 Gruppen. \hyperlink{faktell}{N"aheres dazu findet sich unter Faktorisieren mit Elliptischen Kurven.}
 
 % ----------------------------------------------------------------------------------------------------------------
-\subsection{Elliptische Kurven -- Mathematische Grundlagen}
+\subsection{Elliptische Kurven --- Mathematische Grundlagen}
 
 In diesem Abschnitt erhalten Sie Informationen "uber
 \index{Gruppen} {\em Gruppen} und \index{K""orper} {\em K"orper}.
@@ -199,14 +199,15 @@ Nun zur Ordnung eines Elements der Gruppe: Sei $a$ aus $G$. Die kleinste positiv
 die gilt, dass $a^r$, also $r$ mal $a$ mit sich selbst verkn"upft, das neutrale Element der Gruppe $G´$ ist
 (d.h. $a^r = e$), nennt man {\em Ordnung} von $a$.
 
-Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist die Gruppe $G$ zyklisch und $g$ ein Generator, so stimmt die Ordnung von $g$ mit der Gruppenordnung überein. Man kann leicht zeigen, dass die Ordnung eines Gruppenelements stets die Gruppenordnung teilt. Hieraus folgt insbesondere, dass Gruppen mit Primzahlordnung (d.h. die Ordnung der Gruppe ist eine Primzahl) zyklisch sind.
+Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist die Gruppe $G$ zyklisch und $g$ ein Generator, so stimmt die Ordnung von $g$ mit der Gruppenordnung "uberein. Man kann leicht zeigen, dass die Ordnung eines Gruppenelements stets die Gruppenordnung teilt. Hieraus folgt insbesondere, dass Gruppen mit Primzahlordnung (d.h. die Ordnung der Gruppe ist eine Primzahl) zyklisch sind.
 
 % --------------------------------------------------------------------------------------------------------------------
 \subsubsection{K"orper}
 
-In praktischen Anwendungen betrachtet man h"aufig Mengen, auf denen nicht nur eine \mbox{(Gruppen-)} Verkn"upfung, sondern zwei Verkn"upfungen definiert sind. Diese nennt man oft Addition und Multiplikation. Die mathematisch interessantesten Mengen dieser Art sind sogenannte K"orper, wie z.B. die Menge der reellen Zahlen.
+In praktischen Anwendungen betrachtet man h"aufig Mengen, auf denen nicht nur eine \mbox{(Gruppen-)}
+Verkn"upfung, sondern zwei Verkn"upfungen definiert sind. Diese nennt man oft Addition und Multiplikation. Die mathematisch interessantesten Mengen dieser Art sind sogenannte K"orper, wie z.B. die Menge der reellen Zahlen.
 
-Unter einem K"orper versteht man in der Mathematik eine Menge $K$ mit zwei Verkn"upfungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erf"ullt sind:
+Unter einem K"orper versteht man in der Mathematik eine Menge $K$ mit den zwei Verkn"upfungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erf"ullt sind:
 \begin{itemize}
    \item Die Menge $K$ ist zusammen mit der Verkn"upfung $+$ (Addition) eine abelsche
          Gruppe. Dabei sei $0$ das neutrale Element der Verkn"upfung $+$.
@@ -223,9 +224,10 @@ der Addition modulo $p$ und der Multiplikation modulo $p$ (auch Restklassenk"orp
 \paragraph{Charakteristik eines K"orpers}
 Die Charakteristik eines K"orper $K$ ist die Ordnung des neutralen Elements der Multiplikation ($1$-Element) bez"uglich der Addition, d.h. die kleinste nat"urliche Zahl $n$, so dass gilt
 $$ \underbrace{1 + 1 + \cdots + 1}_{\hbox{$n$ mal}} =0
- \, .
+ \, ,
 $$
-Gibt es keine solche nat"urliche Zahl, d.h. ist $1 + 1 + \cdots + 1$ unabh"angig von der Zahl der Summanden nie $0$, so sagt man, der K"orper habe Charakteristik $0$.
+wobei $0$ das neutrale Element der Addition ist.
+Gibt es keine solche nat"urliche Zahl, d.h. ergibt $1 + 1 + \cdots + 1$ unabh"angig von der Zahl der Summanden nie das neutrale Element der Addition $0$, so sagt man, der K"orper habe Charakteristik $0$.
 
 K"orper mit Charakteristik $0$ haben daher stets die (paarweise verschiedenen) Elemente $1, 1+1, 1+1+1, \dots$ und sind folglich stets unendlich; andererseits k"onnen K"orper mit endlicher Charakteristik durchaus endlich oder auch unendlich sein.
 Ist die Charakteristik $n$ endlich, so muss sie eine Primzahl sein, denn w"are sie zusammengesetzt, d.h. $n=pq$, so sind $p,q<n$ und aufgrund der Minimalit"at der Charakteristik ist keines der K"orperelemente $\bar p=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$p$ mal}}$, $\bar q=\underbrace{1 + 1 + \cdots + 1}_{\hbox{$q$ mal}}$ gleich $0$. Folglich existieren Inverse $\bar p^{-1},\bar q^{-1}$ bez"uglich der Multiplikation. Dann ist aber $(\bar p\bar q)( \bar p^{-1}\bar q^{-1})=1$, andererseits ist nach Definition der Charakteristik $\bar p\bar q=n=0$ und somit $\underbrace{(\bar p\bar q)}_{=0}( \bar p^{-1}\bar q^{-1})=0$, was zu einem Widerspruch f"uhrt.
@@ -236,10 +238,45 @@ Der einfachste, denkbare K"orper ist ${\mathbb Z}_2=\{ 0,1\}$, der nur Null- und
 
 \index{Endliche!K"orper}
 \paragraph{Endliche K"orper}
-Wie bereits erw"ahnt, hat jeder endliche K"orper eine Charakteristik $p\ne 0$, wobei $p$ eine Primzahl ist. Zu jeder Primzahl $p$ gibt es genau einen K"orper mit $p$ Elementen\footnote{F"ur Primk"orper sind additive wie multiplikative Gruppe zyklisch.}, n"amlich ${\mathbb Z}_p$. Man nennt ${\mathbb Z}_p$ deshalb auch den Primk"orper zur Primzahl $p$.
+Wie bereits erw"ahnt, hat jeder endliche K"orper eine Charakteristik $p\ne 0$, wobei $p$ eine Primzahl ist. Zu jeder Primzahl $p$ gibt es einen K"orper mit $p$ Elementen, n"amlich ${\mathbb Z}_p$.
 
-Die Anzahl der Elemente eines K"orpers muss jedoch im allgemeinen keine Primzahl sein. So ist es nicht schwer, einen K"orper mit $4$ Elementen zu konstruieren. Man kann allgemein zeigen, dass es genau dann einen K"orper mit $k$ Elementen gibt, wenn $k$ eine Primzahlpotenz ist, sich also in der Form $k=p^n$, $p$ prim, schreiben l"asst. Da zwei endliche K"orper mit gleicher Zahl von Elementen nicht unterscheidbar\footnote{Sind $K,K'$ zwei K"orper mit $k=p^n$ Elementen, so gibt es eine eineindeutige Abbildung $\varphi:K\to K'$, die sich mit der K"orperarithmetik vertr"agt. Eine solche Abbildung nennt man Isomorphie. Isomorphe K"orper verhalten sich mathematisch gleich, so dass es keinen Sinn macht, zwischen ihnen zu unterscheiden. Z.B. sind ${\mathbb Z}_2$ und $K'=\{ NULL,EINS\}$ mit Nullelement $NULL$ und Einselement $EINS$ isomorph.} sind, spricht man von {\bf dem\ K"orper mit $p^n$ Elementen} und bezeichnet diesen mit $GF(p^n)$. Dabei steht $GF$ f"ur {\it Galois Feld} in Erinnerung an den franz"osischen Mathematiker Galois.
+Die Anzahl der Elemente eines K"orpers muss jedoch im allgemeinen keine Primzahl sein. So ist es nicht schwer, einen K"orper mit $4$ Elementen zu konstruieren\footnote{%
+Die Menge $K=\{0,1,a,b\}$ ist mit den Verkn"upfungen der folgenden Tabellen ein K"orper:\\
+$
+\begin{array}{|c||c|c|c|c|} 
+\hline 
++ & 0 & 1 & a & b \\
+\hline \hline
+0 & 0 & 1 & a & b \\
+\hline 
+1 & 1 & 0 & b & a \\
+\hline 
+a & a & b & 0 & 1 \\
+\hline 
+b & b & a & 1 & 0 \\
+\hline 
+\end{array} \qquad {\rm ~und~} \qquad
+\begin{array}{|c||c|c|c|c|} 
+\hline 
+\cdot & 0 & 1 & a & b  \\
+\hline \hline
+0 & 0 & 0 & 0 & 0 \\ 
+\hline 
+1 & 0 & 1 & a & b \\ 
+\hline 
+a & 0 & a & b & 1 \\ 
+\hline 
+b & 0 & b & 1 & a \\
+\hline 
+\end{array} 
+$  \\
+}.
 
+Man kann zeigen, dass die Ordnung jedes K"orpers eine Primzahlpotenz (d.h. die Potenz einer Primzahl) ist. Andererseits kann man zu jeder Primzahlpotenz $p^n$ einen K"orper konstruieren, der Ordnung $p^n$ besitzt. Da zwei endliche K"orper mit gleicher Zahl von Elementen nicht unterscheidbar\footnote{Sind $K,K'$ zwei K"orper mit $k=p^n$ Elementen, so gibt es eine eineindeutige Abbildung $\varphi:K\to K'$, die sich mit der K"orperarithmetik vertr"agt. Eine solche Abbildung nennt man Isomorphie. Isomorphe K"orper verhalten sich mathematisch gleich, so dass es keinen Sinn macht, zwischen ihnen zu unterscheiden. Z.B. sind ${\mathbb Z}_2$ und $K'=\{ NULL,EINS\}$ mit Nullelement $NULL$ und Einselement $EINS$ isomorph. Hierbei sei darauf hingewiesen, dass mathematische Objekte ausschlie"slich "uber ihre Eigenschaften definiert sind.} sind, spricht man von {\bf dem\ K"orper mit $p^n$ Elementen} und bezeichnet diesen mit $GF(p^n)$. Dabei steht $GF$ f"ur {\it Galois Feld} in Erinnerung an den franz"osischen Mathematiker Galois.
+
+Eine besondere Rolle spielen die K"orper $GF(p)$, deren Ordnung eine Primzahl ist. Man nennt solche K"orper Primk"orper zur Primzahl $p$ und bezeichnet ihn meist mit ${\mathbb Z}_p$\footnote{F"ur Primk"orper sind die additive Gruppe sowie die multiplikative Gruppe zyklisch. Ferner enth"alt jeder K"orper $GF(p^n)$ einen zu ${\mathbb Z}_p$ isomorphen Promk"orper.}.
+
+ 
 
 % --------------------------------------------------------------------------------------------------------------------
 \subsection{Elliptische Kurven in der Kryptographie}
@@ -247,23 +284,23 @@ Die Anzahl der Elemente eines K"orpers muss jedoch im allgemeinen keine Primzahl
 In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung. Es hat sich bei Untersuchungen gezeigt, dass die durch eine Kurve vom Grad drei\footnote{d.h. die Summe der Exponenten jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ auch wirklich vor} der Form
 $$ F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
 $$
-wobei die Variablen $x_1,x_2,x_3$ wie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"orpers $K$ sind, eine f"ur die Kryptographie interessante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
+wobei die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"orpers $K$ sind, der eine f"ur die Kryptographie interessante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
 Damit sich eine sinnvolle Kurve ergibt, m"ussen die Parameter so gew"ahlt sein, dass die folgenden Nebenbedingungen gelten
-$$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0,
+$$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0, \quad
 {\partial F\over\partial x_3}\ne 0 .
 $$
-Ferner identifizieren wir Punkte, die sich nur durch eine Vervielfachung jeder Komponente ergeben, denn mit $(x_1,x_2,x_3)$ erf"ullt stets auch $\alpha (x,y,z)$ die Ausgangsgleichung. Formal betrachten wir daher "Aquivalenzklassen von Punkten $(x_1,x_2,x_3)$, wobei wir zwei Punkte als gleich ansehen, wenn sie durch Multiplikation mit einer Konstante $\alpha$ auseinander hervorgehen.
-\\ Setzt man in der Ausgangsgleichung $x_3=0$, so wird diese zu $-x_1^3=0$, also $x_1=0$. Folglich ist die "Aquivalenzklasse, die das Element $(0,1,0)$ enth"alt, die einzige Punkt mit $x_3=0$. F"ur allen anderen L"osungspunkte k"onnen wir die Transformation
-$$ (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1\over x_3}, {x_2\over x_3}\right)
+Ferner betrachten wir Punkte, die sich nur durch eine Vervielfachung jeder Komponente ergeben, als identisch, denn mit $(x_1,x_2,x_3)$ erf"ullt stets auch $\alpha (x,y,z)$ die Ausgangsgleichung. Formal betrachten wir daher "Aquivalenzklassen von Punkten $(x_1,x_2,x_3)$, wobei wir zwei Punkte als gleich ansehen, wenn sie durch Multiplikation mit einer Konstante $\alpha$ auseinander hervorgehen.
+\\ Setzt man in der Ausgangsgleichung $x_3=0$, so wird diese zu $-x_1^3=0$, also $x_1=0$. Folglich ist die "Aquivalenzklasse, die das Element $(0,1,0)$ enth"alt, die einzige Punkt mit $x_3=0$. F"ur alle anderen L"osungspunkte k"onnen wir die Transformation
+$$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1\over x_3}, {x_2\over x_3}\right) \in K\times K
 $$
-vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gew"ahlt, dass sich auf diese Weise die sogenannten Weierstrass--Gleichung
+vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gew"ahlt, dass sich auf diese Weise die sogenannten Weierstrass-Gleichung\footnote{Karl Weierstrass, 1815-1897, dt. Mathematiker, Verfechter der streng formalen Ausrichtung der Mathematik}
 \begin{equation}
  y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6
 \label{ell}
 \end{equation}
 ergibt.
 Da alle bis auf einen L"osungspunkt durch die Gleichung (\ref{ell}) beschrieben werden k"onnen, bezeichnet man (\ref{ell}) auch oft als die Elliptische Gleichung, ihre L"osungsmenge folglich mit
-$$ {\bf E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6  \right\} \cup \{\ {\cal O} \}.
+$$ {\bf E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6  \right\} \cup \{{\cal O} \}.
 $$
 Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ darstellen, der durch die Projektion (Division durch $x_3$) quasi in den unendlich fernen Punkt abgebildet wird.
 
@@ -276,21 +313,34 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \vskip -10 pt
 \end{figure}
 
-Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$. In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer gro"sen Primzahl $p$ oder $GF(2^n)$ mit einer (gro"sen) nat"urlichen Zahl $n$ zu betrachten. Der Primk"orper $GF(p)$ bietet einerseits eine einfache Arithmetik, andererseits kommt $GF(2^n)$ der bin"aeren Darstellung in Computersystemen entgegen.
+Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$, also nicht wie in Abblidung \ref{ ExampleEllipticCurve} die zu einer stetigen Kurve f"uhrenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und "Ubertragung von Nachrichten stets nur endlich viele Zust"ande zur Verf"ugung haben (aufgrund der Arbeitsweise moderner Computer), K"orper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollst"andig darstellen k"onnen.
 
-Durch Koordinatentransformation kann man die Weierstrass-Gleichung in einer ver"anderten Form schreiben. Mathematische Untersuchungen, auf die wir hier nicht im Detail eingehen k"onnen, haben gezeigt, dass man die Weierstrass-Gleichung in Abh"angigkeit vom zugrunde liegenden K"orper in eine einfachere Form "uberf"uhren kann, ohne relevante Informationen zu verlieren.
+In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer gro"sen Primzahl $p$ oder $GF(2^n)$ mit einer (gro"sen) nat"urlichen Zahl $n$ zu betrachten. Der Grund f"ur die Verwendung des Primk"orpers $GF(p)$ liegt in seiner einfachen Arithmetik; andererseits kommt $GF(2^n)$ der bin"aren Darstellung in Computersystemen entgegen. Andere K"orper wie z.B. $GF(7^n)$ bieten keiner dieser beiden Vorteile und werden daher in der Praxis nicht verwendet, ohne dass dies theoretische Gr"unde h"atte.
 
-Im Fall $GF(p)$, $p>3$, betrachtet man so meist Elliptische Gleichungen der Form
+Durch Koordinatentransformation kann man die Weierstrass-Gleichung in eine einfachere Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst ver"andert wird.} Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erh"alt so
+
+\begin{itemize}
+\item im Fall $GF(p)$, $p>3$, Elliptische Gleichungen der Form
 \begin{equation}
  y^2 = x^3 + ax + b
 \label{ellp}
 \end{equation}
-mit $4a^3+27b^2\ne 0$; im Fall $GF(2^n)$ Gleichungen der Form
+mit $4a^3+27b^2\ne 0$
+\item im Fall $GF(2^n)$ Gleichungen der Form
 \begin{equation}
  y^2+xy = x^3 + ax^2 + b
 \label{ell2}
 \end{equation}
-mit $b\ne 0$\footnote{Diese Form ist die Standardform der Weierstrass-Gleichung. Ist die Charakteristik des K"orpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu f"uhrt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen F"allen nicht zu befriedigenden Ergebnissen f"uhrt.}. Durch diese Bedingungen an die Parameter $a,b$ ist gew"ahrleistet, dass die Elliptische Gleichung f"ur die kryptographische Anwendungen geeignet ist\footnote{formal sagt man, die Kurve ist nicht singul"ar}.
+mit $b\ne 0$\footnote{Die Form (\ref{}ellp)ist die Standardform der Weierstrass-Gleichung. Ist die Charakteristik des K"orpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu f"uhrt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen F"allen nicht zu befriedigenden Ergebnissen f"uhrt. Auf dieF"ur $p=3$}.
+\end{itemize}
+Durch diese Bedingungen an die Parameter $a,b$ ist gew"ahrleistet, dass die Elliptische Gleichung f"ur kryptographische Anwendungen geeignet ist\footnote{formal sagt man, die Kurve ist nicht singul"ar}.
+
+
+
+
+
+
+
 
 F"ur die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ "uber einem K"orper $GF(k)$ (praktisch $k=p$ prim oder $k=2^n$) gilt die einfache Beziehung
 $$ (\sqrt{k}-1)^2=k-2\sqrt{k}+1 \le |E| \le k+1 .
@@ -298,7 +348,7 @@ $$
 Dies bedeutet, dass f"ur gro"se $k$ die Anzahl der Elemente der Elliptischen Kurve praktisch wie $k$ w"achst.
 
 
-\subsection{ Verkn"upfung auf Elliptischen Kurven}
+\subsection{Verkn"upfung auf Elliptischen Kurven}
 
 Um mit Elliptischen Kurven arbeiten zu k"onnen, definiert man eine Verkn"upfung (meist additiv als $+$ geschrieben) auf den Punkten der Elliptischen Kurve. Dabei definiert man bei Elliptischen Kurven "uber $GF(p)$ die Verkn"upfung durch
 \begin{enumerate}
@@ -333,7 +383,7 @@ findet man auf der Certicom-Seite\index{Certicom} unter \\
 % \newpage
 \begin{figure}[htbp]
 \subsubsection*{Addieren von Punkten auf einer Elliptischen Kurve}
-Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve in affinen Koordinaten
+Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve "uber den reellen Zahlen in affinen Koordinaten
 zwei Punkte addiert werden. Der unendlich ferne Punkt ${\cal O}$ kann nicht in der affinen 
 Ebene dargestellt werden.  
 \begin{center}
@@ -342,7 +392,7 @@ Ebene dargestellt werden.
 \vspace{\floatsep}
 \vskip +20 pt
 \includegraphics[scale=0.65]{figures/ec-add}
-\caption{Addition zweier verschiedener Punkte} % \footnotemark }
+\caption{Addition zweier verschiedener Punkte im K"orper der reellen Zahlen} % \footnotemark }
 \end{center}
 \end{figure}
 % \addtocounter{footnote}{0}\footnotetext{Der Punkt $O$ kann nicht in der affinen Ebene dargestellt werden.}
@@ -414,11 +464,19 @@ Die genannten Parameter bezeichnet man als \index{Domain-Parameter} {\em Domain}
 festgelegt, auf welcher Elliptischen Kurve ${\bf E}$ und in welcher zyklischen Untergruppe von ${\bf E}$ ein
 Signaturverfahren \glqq eingesetzt\grqq\ wurde.
 
+\par
+\smallskip
 {\bf Verschl"usselung:}
 
-Mit Hilfe Elliptischer Kurven kann ein Schl"usselaustausch nach dem Dieffie-Helman Protokoll erfolgen. Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und ein Element $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden $R_A=r_AG$, $R_B=r_BG$ und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt $r_Ar_B G$ erh"alt auch B, indem er $r_BR_A$ bildet.
+Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{Diffie-Hellman Protokoll}{DH-KeyExch} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. 
+
+In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und ein Element $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt $r_Ar_B G$ erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet.
 \\ F"ur einen Dritten ist es nach heutigen Kenntnisstand nicht m"oglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP l"ost.
 
+Um einen ``Man-in-the-middle" Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die "ubertragenen Werte $G,q,R_A,R_B$ digital signieren.
+
+\par
+\smallskip 
 {\bf Signatur-Erstellung:}
 
 "Ubertr"agt man den DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man w"ahlt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schl"ussel. Hingegen werden $q$, $G$ und $R=sG$ ver"offentlicht. Aus $G$ und $R$ l"asst sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
@@ -426,8 +484,10 @@ Mit Hilfe Elliptischer Kurven kann ein Schl"usselaustausch nach dem Dieffie-Helm
 Eine Nachricht $m$ wird zun"achst mit Hilfe eines Hash-Verfahrens $h$ ein digitaler Fingerabdruck erstellt, wobei $h(m)$ im Wertebereich $\{0,1,2,\dots, q-1\}$ liegt und $h(m)$ somit als Element von ${\mathbb Z}_q$ interpretiert werden kann. Dann wird ein zuf"alliges $r\in{\mathbb Z}_q$ gew"ahlt und $R=(r_1,r_2)=rG$ berechnet. Die erste Komponente $r_1$ von $R$ ist ein Element von $GF(p^n)$. Diese wird auf ${\mathbb Z}_q$ abgebildet, z.B. im Fall $n=1$ als Element von $\{0,1,\dots,p-1\}$ interpretiert und dann der Teilerrest modulo $q$ gebildet. Das so erhaltene Element von ${\mathbb Z}_q$ bezeichnen wir mit $\bar r_1$. Nun bestimmt man $x\in {\mathbb Z}_q$ mit
 $$ rx-s\bar r_1-h(m)=0 .
 $$
-Das Trippel $(m,r_1,x)$ bildet nun die digitale Signatur.
+Das Tripel $(m,r_1,x)$ bildet nun die digitale Signatur.
 
+\par
+\smallskip 
 {\bf Signatur-Verifikation:}
 
 Zur Verifikation muss zun"achst $u_1=h(m)/x$, $u_2=\bar r_1/x$ (in ${\mathbb Z}_q$ gebildet werden). Dann bestimmt man
@@ -442,7 +502,7 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 
 
 % --------------------------------------------------------------------------------------------------------------------------
-\subsubsection{Faktorisieren mit Elliptischen Kurven}
+\subsection{Faktorisieren mit Elliptischen Kurven}
 \hypertarget{faktell}{}
 
 Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven
@@ -470,10 +530,10 @@ bekommt man wieder Punkte, die auf der Kurve liegen oder findet einen Teiler von
 Faktorisierungsalgorithmen auf Basis von Elliptischen Kurven arbeiten also probabilistisch.
 Durch die M"oglichkeit, sehr viele Elliptische Kurven "uber ${\mathbb Z}_n$ zu definieren, kann man die
 Wahrscheinlichkeit erh"ohen, zwei Punkte zu finden, bei deren Addition ein Teiler von $n$ gefunden wird.
-Daher eigenen sich diese Verfahren auch sehr gut f"ur Parallelisierung.
+Daher eigenen sich diese Verfahren auch sehr gut f"ur eine Parallelisierung.
 
 % ---------------------------------------------------------------------------------------------------------------------
-\subsection{Implementierung Elliptische Kurven}
+\subsection{Implementierung Elliptischer Kurven}
 
 CrypTool benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
 
@@ -490,7 +550,7 @@ die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen 
 GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
 \index{Secude GmbH}
 
-Wenn man statt des Primk"orpers $GF(p)$ einen K"orper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der bin"aren Darstellung effizienter durchgef"uhrt werden k"onnen. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufw"andig ist (was z.B. beim beschriebenen Signaturverfahren die Erstellung Signatur ebenso wie ihre sp"atere Verifikation betrifft).
+Wenn man statt des Primk"orpers $GF(p)$ einen K"orper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der bin"aren Darstellung effizienter durchgef"uhrt werden k"onnen. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufw"andig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre sp"atere Verifikation betrifft, da beide eine Divisionsoperation enthalten).
 
 Um das Potenzial der Effizienzsteigerung m"oglichst optimal zu nutzen, kann man z.B. K"orper w"ahlen, die besondere Basen besitzen, wie Polynomialbasen (besonders geeignet f"ur Software-Implementierungen) oder Normalbasen (bevorzugt bei Hardware-Implementierungen). F"ur bestimmte Werte von $n$ (wie z.B. $n=163,179,181$) lassen sich sogar beide Vorteile kombinieren. Allerdings sind spezielle Darstellungen oft nicht Standard.
 
@@ -506,16 +566,16 @@ Aus diesem Grund gibt es Bestrebungen, sich auf wenige
 Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener
 Kurven zu beschr"anken (ASC-Ansatz).
 
-Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Dies w"are aber eine Voraussetzung daf"ur, dass sich ECC dauerhaft als Alternative zu RSA etablieren wird.
+Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Dies w"are aber eine Voraussetzung daf"ur, dass sich ECC dauerhaft als Alternative zu RSA etabliert.
 
 
 
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
+        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra \index{Lenstra 1987} \\
                 Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
-	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul \\ \index{Lenstra/Verheul 1999}
+	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul  \index{Lenstra/Verheul 1999} \\
          	Selecting Cryptographic Key Sizes (1999), Journal of Cryptology: the journal of the International Association for Cryptologic Research \\
 		\href{cryptosavvy.com/cryptosizes.pdf}{\texttt{cryptosavvy.com/cryptosizes.pdf}}
 \end{thebibliography}
@@ -523,12 +583,12 @@ Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Di
 
 \section*{B"ucher "uber Elliptische Kurven (Auswahl)}\addcontentsline{toc}{subsection}{B"ucher "uber Elliptische Kurven (Auswahl)}
 \begin{itemize}
-    \item[[{\sc Cas}]] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
-    \item[[{\sc Kob}]] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-    \item[[{\sc Kob}]] N. Koblitz, {\em Algebraic aspects of Cryptography. With an appendix on Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert J. Zuccherato}, Springer, 1998, 206 Seiten.
-    \item[[{\sc Men}]] A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
-    \item[[{\sc Sil}]] J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-    \item[[{\sc ST}]] J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
+    \item[]\hskip -25 pt [{\sc Cas}] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
+    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
+    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Algebraic aspects of Cryptography. With an appendix on Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert J. Zuccherato}, Springer, 1998, 206 Seiten.
+    \item[]\hskip -25 pt  [{\sc Men}] A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
+    \item[]\hskip -25 pt  [{\sc Sil}] J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+    \item[]\hskip -25 pt  [{\sc ST}] J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
 \end{itemize}
 
 
