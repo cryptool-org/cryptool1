@@ -5,7 +5,7 @@
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Update Dec. 2001)
+(Bernhard Esslinger, besslinger@web.de, July 2001, Update Dec. 2001, June 2002)
 
 \begin{center}
 \fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne}}\newline
@@ -456,7 +456,7 @@ $x$ is the inverse of $a$ regarding this operation.
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  Lucius Annaeus, philosophical writer and poet, 4 B.~C. $-$ 65 A.~D.
+  Lucius Annaeus Seneca, philosophical writer and poet, 4 B.~C. $-$ 65 A.~D.
 }
 
 As we have already seen:
@@ -1547,6 +1547,309 @@ $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Considerations regarding the security of the RSA algorithm}\label{SecurityRSA}
+
+Major parts of this chapter come from the article ``Vorz\"uge und Grenzen des
+RSA-Verfahrens'' written by F.~Bourseau / D.~Fox / C.~Thiel, and published
+in \emph{Datenschutz und Datensicherheit} (DuD), 26/2002, pp. 84$-$89.
+
+There have always been discussions about the suitability of the RSA
+algorithm for digital signatures and encryption, e.~g.\ after publications of
+breakthroughs in factorization. Nevertheless the RSA algorithm has become a
+de-facto standard since it was published more than 20 years ago.
+
+The security of the RSA algorithm rests --- as with all cryptographic
+methods --- on the following 4 central pillars:
+\begin{itemize}
+\item the complexity of the number theoretical problem on which the
+  algorithm is based (here factorization of big numbers),
+\item the election of fitting parameters (here the length of the module $N$),
+\item the adequate usage of the algorithm and key generation and
+\item the correct implementation of the algorithm.
+\end{itemize}
+Usage and key generation are well understood today. Implementation based on
+long integer arithmetic is very easy.
+
+%Therefor the fundamental characteristics of a special method are the first two points.
+The following sections examine the RSA algorithm with respect to the first
+two points. 
+
+\subsubsection{Complexity}
+
+Successful decryption or forgery of a signature --- without knowing the
+private key --- requires calculating the $e$-th root mod $n$.  The private
+key, this is the multiplicative inverse of $e$ mod $J(n)$, can be easily
+determined if $J(n)$ is known.  $J(n)$ again can be calculated from the
+prime factors of $n$.  Breaking of RSA therefore cannot be more difficult
+than factorization of the module $n$.
+
+The best factorization method known today is a further development of the
+General Number Field Sieve (GNFS), which was originally devised to
+factor only numbers of a special form (like Fermat numbers).  The
+complexity of solving the factorization problem with the GNFS is
+asymptotically
+$$
+O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
+$$
+Please refer to:
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
+\item[] A. Lenstra / H. Lenstra: \\ {\em The development of the Number
+    Field Sieve.}  Lecture Notes in Mathematics 1554, Springer, New York
+  1993
+\item[] Robert D. Silverman: \\ {\em A Cost-Based Security Analysis of
+    Symmetric and Asymmetric Key Lengths.}  In: RSA Laboratories Bulletin,
+  No. 13, April 2000, S. 1-22
+\end{list} \vskip +12 pt
+
+This formula shows, that the factorization problem belongs to the class of
+problems with sub-exponential time complexity (i.~e.\ time complexity grows
+asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
+but stricly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
+all that is currently known; it does not preclude the possiblity that the
+factorization problem can be solved in polynomial time (s.
+\ref{RSABernstein}).
+
+$O(l)$ is the average number of processor steps depending on the bit length
+$l$ of the number $n$ to be factored.  For the best currently known
+factorization algorithm the constant $c = (64/9)^/173) = 1,923$.
+
+The inverse proposition, that the RSA algorithm can be broken only by
+factorization of $n$, is still not proven.  Most number theorists consider
+the ``RSA problem'' and the factorization problem equivalent in terms of
+time complexity.
+
+Please refer to:
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
+   \item[] A.J. Menezes / van Oorschot / P.C. Vanstone: \\
+           {\em Handbook of Applied Cryptography}, CRC Press, 1996
+\end{list}\vskip +12 pt
+
+\subsubsection{Security Parameters}
+
+The complexity is basically determined by the length $l$ of the module $n$.
+
+In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorized
+by a distributed implementation of the Quadratic Sieve algorithm (QS),
+developed 1982 by Pomerance. This effort took 8 months.
+
+Please refer to:
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
+   \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
+           In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
+\end{list}\vskip +12 pt
+
+In 1999 a 154-digit module (512 bit) was factored with an implementation
+of the General Number Field Sieve algorithm (GNFS), developed by Buhler,
+Lenstra and Pomerance. The GNFS is more efficient than QS if $n$ is longer
+than about 116 decimal digits. This effort took 5 months.
+
+Please refer to:
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
+   \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
+           {\em Factoring integers with the number field sieve.} 
+           In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
+           in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50$-$94
+\end{list}\vskip +12 pt
+
+This made evident, that a module length of 512 bit no longer prevents from
+attackers.
+
+Within the last 20 years a lot of progress has been made. Estimations about
+the future development of the ability to factor RSA modules vary and depend
+on some assumptions:
+\begin{itemize}
+\item progression in computing performance (Moore's law: every 18 month the
+  computing power will double) and in grid computing 
+\item development of new algorithms.
+\end{itemize}
+Within the last years the module bit length feasible for factorization
+increased --- even without new algorithms --- by 10 bit per year. Larger
+numbers require not only more time to be factored, but also more RAM
+storage for the solutions matrix being used by best algorithms known today.
+This need for storage grows quadratically with the length of the module
+$l$.  Therefor bigger breakthroughs probably require totally new algorithms.
+
+Within the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' Dirk Fox
+prognosticates an almost linear progression with the factorization, if all
+factors are included: Each year the module length feasible for
+factorization increases by 20 bit on average.  Please refer: DuD, 26/2002,
+pp. 84-89, F.~Bourseau / D.~Fox / C.~Thiel
+
+The company Secorvo GmbH made a statement on the recommendation for key
+length selection published by the GISA\index{GISA} (German Information
+Security Agency). Chapter 2.3.1 of their statement contains a very
+competent and understandable discussion of RSA security (this document
+exists to my
+knowledge only in German):\\
+\href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}{\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
+
+
+\subsubsection{D.~J.\ Bernstein's paper and it's implication on the
+  security of the RSA algorithm}
+\label{RSABernstein} \index{Factorisation problem}
+
+The security of the RSA algorithm is based on the empirical observation
+that factoring large numbers is a hard problem. A Module $n$ (typically,
+1024 bit) can be easily constructed as the product of two large primes $p$,
+$q$ (typically, 500$-$600 bit each), by calculating $n=pq$. However, it is
+a hard problem to extract $p$, $q$ from $n$.  Without knowing $p$ or $q$,
+the private key cannot be calculated.
+
+Thus, any progress in efficiency of factorizing large integers will effect
+the security of the RSA. As a consequence, the underlying primes $p$, $q$
+and, thus, the module n (1024 bit as off today) have to be increased. In
+the worst case of a breakthrough in factorization, the RSA algorithm might
+be compromised.
+
+In his paper ``Circuits for integer factorization: a proposal'' (s.
+\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
+published November 2001, D.~J.\ Bernstein addresses the problem of
+factorizing large integers. Therefore, his results are of relevance from a
+RSA point of view.  As a main result Bernstein claims that the
+implementation of the General Number Field Sieve algorithm (GNFS) can be
+improved to factor, with the same effort as before, integers with three
+times more digits.
+
+We note that the definition of \emph{effort} is a crucial point: Bernstein
+claims that effort is the product of time and costs of the machine
+(including the memory used). The gist of the paper lies in the fact that he
+can reduce a big part of factorizing to sorting. Using Schimmler's scheme,
+sorting can be optimized by massive parallel computing.  At the end of
+section 3 Bernstein explains this effect: The costs of $m^2$ parallel
+computers with a constant amount of memory is a constant times $m^2$.  The
+costs of a computer with a single processor and memory of size $m^2$ is
+also of the order of $m^2$, but with a diffrent constant factor.  With
+$m^2$ processors in parallel, sorting of $m^2$ numbers (with Schimmler's
+scheme) can be achieved in time $m$, while a $m^2$-memory computer needs
+time of the order of $m^2$. Decreasing memory and increasing the number of
+processors, one can reduce the computing time by a factor $1/m$ without
+additional effort in terms of total costs.  In section 5 it is said that
+massive parallel computing can also increase efficiency of factorizing
+using Lenstra's elliptic-curve-method (a search algorithm has costs that
+increase quadratically instead of cubically).
+
+We note that all results achieved so far are asymptotic results. This means
+that they only hold in the limit n to infinity. Unfortunately, there are no
+upper bounds for the residual error (i.e. the difference between the real
+and the asymptotic value) for finite n --- a problem which has already been
+addressed by the author. As a consequence, one cannot conclude whether the
+costs (in the sense of Bernstein) for factorizing 1024$-$2048-bit RSA modules
+can be significantly reduced.
+
+There is no doubt that Bernstein's approach is innovative. However, the
+reduction of computing time under constant costs comes along with a massive
+use of parallel computing --- a scenario which seems not to be realistic
+yet. For example, formally 1 sec computing time on one machine and
+1/1,000,000 sec time parallel computing time on 1,000,000 machines might
+have same costs.  In reality, it is much harder to realize the second
+situation, and Bernstein does not take into account the fixed costs, in
+particular for building a network between all these computers.
+
+Although distributed computing over a large network might help to overcome
+this problem, realistic costs for data transfer has to be taken into
+account --- a point which was not addressed in Bernstein's proposal.
+
+As long as there is neither (low cost) hardware nor a distributed computing
+approach (based on Bernstein's ideas), there should not be a problem for
+RSA. It has to be clarified from which magnitude of n on Bernstein's method
+could lead to a significant improvement (in the sense of the asymptotic
+result). 
+
+Arjen Lenstra, Adi Shamir et. al. analyzed the paper of Bernstein
+\cite{Lenstra2002}.  In summary they expect a factorization improvement on
+how much longer the bit length of the keys could be with a factor of 1.17
+(instead of factor 3 as proposed by Bernstein).
+
+The abstract of their paper ``Analysis of Bernstein's Factorization
+Circuit'' says:
+
+``In [1], Bernstein proposed a circuit-based implementation of the matrix
+step of the number field sieve factorization algorithm. We show that under
+the non-standard cost function used in [1], these circuits indeed offer an
+asymptotic improvement over other methods but to a lesser degree than
+previously claimed: for a given cost, the new method can factor integers
+that are 1.17 times larger (rather than 3.01).  We also propose an improved
+circuit design based on a new mesh routing algorithm, and show that for
+factorization of 1024-bit integers the matrix step can, under an optimistic
+assumption about the matrix size, be completed within a day by a device
+that costs a few thousand dollars.  We conclude that from a practical
+standpoint, the security of RSA relies exclusively on the hardness of the
+relation collection step of the number field sieve.''
+
+\href{http://www.rsasecurity.com/}{RSA Security's} analysis of the Bernstein
+paper (title {\em Has the RSA algorithm been compromised as a result of
+  Bernstein's Paper?}, April, 8 2002) also concludes, that RSA is still not
+compromised (s.\ 
+\href{http://www.rsasecurity.com/}{\texttt{http://www.rsasecurity.com/}}).
+
+\begin{minipage}{\textwidth}
+Links:
+\begin{itemize}
+  \item[] \href{http://cr.yp.to/djb.html}
+               {\texttt{http://cr.yp.to/djb.html}}
+  \item[] \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
+               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}}
+  \item[] \href{http://www.math.uic.edu}
+               {\texttt{http://www.math.uic.edu}}
+\end{itemize}
+\end{minipage}
+
+\vspace{4ex}
+\subsubsection{Status regarding factorisation of large numbers}
+\label{NoteFactorisation}
+
+\begin{center}
+\fbox{\parbox{15cm}{
+    \emph{Hermann Hesse\footnotemark:}\\
+    To let the possible happen, you again and again have to try the impossible.
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{%
+  German/Swiss writer and Nobel prize winner, July 2, 1877 $-$ August 9, 1962.}
+
+The web page
+\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
+contains an excellent overview about the factoring records of composed
+integers using different methods.  The current record (as of June 2002)
+obtained using the GNFS method (General Number Field Sieve) factorized a
+158-digit into its both prime factors (these are build with 73 and 86
+decimal digits).
+
+This record, established on January 18, 2002 by researchers of the German
+university of Bonn, got much less attention within the press than the
+solution of the RSA challenge, established on August 22, 1999, when
+researchers from the Netherlands factorized the 155-digit number into its
+both 78-digit primes.
+
+The task of the reserachers from Bonn was not initiated by a challenge, but
+they wanted to find the last prime factors of the integer $2^{953} - 1$
+(s.~ ``Wanted List'' des Cunningham Projekts
+\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}).
+The last remaining factor, called ``C158'', was known to be composite by
+then, but its factors where not known:
+$$
+\begin{array}{c}
+39505874583265144526419767800614481996020776460304936 \\
+45413937605157935562652945068360972784246821953509354 \\
+4305870490251995655335710209799226484977949442955603
+\end{array}
+$$
+The factorisation resulted in the following two prime factors:
+$$
+\begin{array}{c}
+3388495837466721394368393204672181522 \\
+815830368604993048084925840555281177
+\end{array}
+$$
+and
+$$
+\begin{array}{c}
+1165882340667125990314837655838327081813101 \\
+2258146392600439520994131344334162924536139.
+\end{array}
+$$
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \vskip +40 pt
@@ -2162,6 +2465,10 @@ This needs to be stressed because the type of padding is extremely important dur
 \bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
     Number Theory for Computing, Springer, 2000.
+\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
+    Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
+    {\em Analysis of Bernstein’s Factorization Circuit},\\
+    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 \end{thebibliography}
 
 
@@ -2189,7 +2496,14 @@ This needs to be stressed because the type of padding is extremely important dur
    \item BC, \\
      Interpreter with number-theory functions \\
           \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
-   \item Only after I had completed this article I did come across a website which interactively and 
+   \item Pari-GP, \index{Pari-GP}\\
+         Excellent fast open source interpreter with number theoretical functions\\
+         \href{http://www.parigp-home.de}
+              {\texttt{http://www.parigp-home.de}} and
+         \href{http://www.parigp-home.com}
+              {\texttt{http://www.parigp-home.com}}
+   \item Only after I had completed this article I did come across the
+     website of Mr.\ M\"unchenbach, which interactively and 
      didactically uses elementary number theory to provide an extremely sophisticated description of the
      fundamental mathematical thought processes. It was created for a teaching project in the 11th grade 
      of the technical grammar school (unfortunately only available in German):\index{Muenchenbach} \\
@@ -2364,3 +2678,7 @@ Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
 \end{tabular}
 \end{center}
 \vskip +6 pt
+
+% Local Variables:
+% TeX-master: "../script-en.tex"
+% End:

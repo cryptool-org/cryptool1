@@ -2,7 +2,87 @@
 \section{Elliptic Curves}
 \index{Elliptic curves}
 \hypertarget{ellcurve}{}
-(Filipovics B. / Esslinger B. / Oyono R., April 2000, Update Dec. 2001)
+(Filipovics B. / Esslinger B. / Oyono R., April 2000, Update Dec. 2001,
+June 2002)
+
+\subsection{Elliptic curce cryptography --- a high-performance substitute for RSA?}
+
+In the financial business secure and efficient data transfer is essential.
+In particular, the RSA algorithm is used in many applications. Although the
+security of RSA is beyond doubt, the evolution in computing power has
+caused a growth in the necessary key length.  Today, 1024-bit RSA-keys are
+standard, but the The GISA\index{GISA} (German Information Security Agency)
+recommends the usage of 2048-bit keys from 2006 on (compare
+section~\ref{SecurityRSA}).  The fact that most chips on smart cards cannot
+process keys extending 1024 bit shows that there is a need for
+alternatives. Elliptic curve cryptography (ECC) can be an such an
+alternative in the field of asymmetric cryptography.
+
+The efficiency of a cryptographic algorithm depends on the key length and
+the calculation effort that is necessary to provide a prescribed level of
+security. The major advantage of ECC compared to RSA is that it requires
+much shorter key lengths. If we assume that the computing power increases
+by Moore’s law (i.~e.\ it doubles every 18 months), then the evolution of
+the key lengths for secure communication will be as
+figure~\ref{ThousandBitMultiplications} (source: Arjen Lenstra und Eric
+Verheul:
+\href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
+
+% -> Figure 1
+\begin{figure}[h]
+\begin{center}
+\vspace{1.5cm}\includegraphics[scale=0.75]{figures/RSAKeylength}
+\caption{Comparison of signing and verification time for RSA and Elliptic Curves} 
+\label{RSAKeylength}
+\end{center}
+\end{figure}
+
+In addition, a digital signature can be processed 10-times faster with ECC
+than with RSA.  However, verification of a given signature is still more
+efficient with RSA than with ECC. Refer to
+figure~\ref{ThousandBitMultiplications} (source: Dr.~J.\ Merkle, Elliptic
+Curve Cryptography Workshop, 2001) for a comparison.  The reason is that
+RSA public keys can be chosen relatively small as long as the secret key is
+sufficiently long.
+
+% -> Figure 2
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
+\caption{Prognose of the key lengths to be regarded safe for RSA and
+  Elliptic Curves\vspace{1ex}} 
+\label{ThousandBitMultiplications}
+\end{center}
+\end{figure}
+
+Nevertheless, thin clients like smart cards usually have to store the (long) secret key
+and have to process a digital signature rather than to verify one. Therefore, there is
+a clear advantage for ECC in terms of efficiency.
+\par
+\smallskip
+Today, the major problem with ECC-implementations is the lack of standardization.
+There is only one way to implement RSA, but there are many ways for ECC: One can work with
+different sets of numbers, different (elliptic) curves described by up to 6 parameters,
+and a variety of representations of the elements on the curve. Each choice has its
+advantages and disadvantages, and one can certainly construct the most efficient for
+each application. However, this causes problems in interoperability. But if all
+ECC-tools should be able to communicate with each other, they will have to support
+all different algorithms, which might put the advantage of efficient computation and
+the need of less storage capacity to the contrary.
+
+Therefore, international standardization organizations like IEEE (P1363),
+ASC (ANSI X9.62, X9.63), ISO/IEC as well as major players like RSA labs or
+Certicom have recently started standardization initiatives. While the IEEE
+only describes the different implementations, the ASC has explicitly stated
+10 elliptic curves and recommends their usage. The advantage of the ASC
+approach is that one needs only a single byte to indicate which curve is
+meant. However, it is not clear yet whether the ASC-curves will become a de
+facto standard.
+
+Although we see no need to replace RSA in any application today, one should
+take the usage of ECC-based tools into consideration whenever a new system
+is set up --- in particular, when the tool should be available beyond 2005.
+
 
 \subsection{Elliptic curves --- history}
 

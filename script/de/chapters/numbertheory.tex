@@ -1914,25 +1914,21 @@ Menge an Speicherplatz mit Kosten in der Gr"o"senordnung von $m^2$
 einhergeht --- genau so wie ein einzelner Rechner mit $m^2$ Speicherzellen.
 Der Parallelrechner bew"altigt die Sortierung von $m^2$ Zahlen jedoch
 (unter Verwendung der o.~g.\ Sortierverfahrens) in Zeit proportional zu m,
-wohingegen der Rechner mit dem gro"sen Speicherplatz Zeit proportional
-$m^2\log(m)$ ben"otigt.  Verringert man daher den verwendeten Speicherplatz
-und erh"oht --- bei insgesamt gleich bleibenden Kosten --- die Anzahl der
-Prozessoren entsprechend, verringert sich die ben"otigte Zeit um die
-Gr"o"senordnung $1/(m\log(m))$.\footnote{Zum Sortieren von $x$ Zahlen
-  ben"otigt man mit einem Prozessor $O(x\log(x))$ Schritte. Die
-  Verringerung der n"otigen Sortierzeit ergibt sich zu $O(m/(m^2\log(m^2)))
-  = O(m/(2m^2\log(m))) = O(1/(m\log(m)))$.} In Abschnitt 5 wird ferner
-angef"uhrt, dass der massive Einsatz der parallelisierten Elliptic
-Curve-Methode von Lenstra die Kosten der Faktorisierung ebenfalls um eine
-Gr"o"senordnung verringert (ein Suchalgorithmus hat dann quadratische statt
-kubische Kosten).  Alle Ergebnisse von Bernstein gelten nur asymptotisch
-f"ur gro"se Zahlen $n$.  Leider liegen keine Absch"atzungen "uber den
-Fehlerterm, d.h.  die Abweichung der tats"achlichen Zeit von dem
-asymptotischen Wert, vor --- ein Mangel, den auch Bernstein in seinem
-Papier erw"ahnt. Daher kann zur Zeit keine Aussage getroffen werden, ob die
-Kosten (im Sinne der Bernsteinschen Definition) bei der Faktorisierung
-z.Zt. verwendeter RSA-Zahlen (1024-2048 bit) bereits signifikant sinken
-w"urden.
+wohingegen der Einprozessorrechner Zeit proportional $m^2$ ben"otigt.
+Verringert man daher den verwendeten Speicherplatz und erh"oht --- bei
+insgesamt gleich bleibenden Kosten --- die Anzahl der Prozessoren
+entsprechend, verringert sich die ben"otigte Zeit um die Gr"o"senordnung
+$1/m$. In Abschnitt 5 wird ferner angef"uhrt, dass der massive Einsatz der
+parallelisierten Elliptic Curve-Methode von Lenstra die Kosten der
+Faktorisierung ebenfalls um eine Gr"o"senordnung verringert (ein
+Suchalgorithmus hat dann quadratische statt kubische Kosten).  Alle
+Ergebnisse von Bernstein gelten nur asymptotisch f"ur gro"se Zahlen $n$.
+Leider liegen keine Absch"atzungen "uber den Fehlerterm, d.h.  die
+Abweichung der tats"achlichen Zeit von dem asymptotischen Wert, vor --- ein
+Mangel, den auch Bernstein in seinem Papier erw"ahnt. Daher kann zur Zeit
+keine Aussage getroffen werden, ob die Kosten (im Sinne der Bernsteinschen
+Definition) bei der Faktorisierung z.~Zt.\ verwendeter RSA-Zahlen
+(1024$--$2048 bit) bereits signifikant sinken w"urden.
 
 Zusammenfassend l"asst sich sagen, dass der Ansatz von Bernstein durchaus innovativ ist. Da die Verbesserung der 
 Rechenzeit unter gleichbleibenden Kosten durch einen massiven Einsatz von Parallelrechnern erkauft wird, stellt sich die 

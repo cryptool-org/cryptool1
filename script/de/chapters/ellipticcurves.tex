@@ -27,7 +27,8 @@ dass die ben"otigten Schl"ussell"angen erheblich k"urzer sind.
 
 Setzt man den Trend, dass sich die
 Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}), in die Zukunft
-fort, so kann man von einer Entwicklung der ben"otigten Schl"ussell"angen wie in der folgenden Graphik ausgehen
+fort, so kann man von einer Entwicklung der ben"otigten Schl"ussell"angen
+wie in Abbildung~\ref{RSAKeylength} ausgehen
 (Quelle: Arjen Lenstra und Eric Verheul: 
 \href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
 
@@ -37,20 +38,24 @@ fort, so kann man von einer Entwicklung der ben"otigten Schl"ussell"angen wie in
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.75]{figures/RSAKeylength}
 \caption{Gegenüberstellung des Aufwands der Operationen Sign und Verify bei
-  RSA und Elliptischen Kurven (Quelle: Dr. J.
-  Merkle, Elliptic Curve Cryptography Workshop, 2001)} 
+  RSA und Elliptischen Kurven} 
+\label{RSAKeylength}
 \end{center}
 \end{figure}
 \vskip -30 pt
 
 \newpage
 
-Bei der digitalen Signatur muss man differenzieren: f"ur die {\em Erstellung} einer digitalen Signatur ben"otigen
-bei auf Elliptischen Kurven basierende Verfahren im Vergleich zu RSA nur gut ein
-Zehntel des Rechenaufwandes (66 zu 515 Multiplikationen). Betrachtet man die f"ur eine {\em Verifikation} durchzuf"uhrenden
-Rechenschritte, dreht sich dieses Bild jedoch zu Gunsten des RSA um. Der Grund liegt darin, dass es bei
-Verwendung des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu w"ahlen, solange der
-private Schl"ussel nur hinreichend lang ist.
+Bei der digitalen Signatur muss man differenzieren: f"ur die {\em
+  Erstellung} einer digitalen Signatur ben"otigen bei auf Elliptischen
+Kurven basierende Verfahren im Vergleich zu RSA nur gut ein Zehntel des
+Rechenaufwandes (66 zu 515 Multiplikationen). Siehe hierzu
+Abbildung~\ref{ThousandBitMultiplications} (Quelle: Dr. J.  Merkle,
+Elliptic Curve Cryptography Workshop, 2001) Betrachtet man die f"ur eine
+{\em Verifikation} durchzuf"uhrenden Rechenschritte, dreht sich dieses Bild
+jedoch zu Gunsten des RSA um. Der Grund liegt darin, dass es bei Verwendung
+des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu
+w"ahlen, solange der private Schl"ussel nur hinreichend lang ist.
 
 % -> Figur 2
 \begin{figure}[h]
@@ -58,6 +63,7 @@ private Schl"ussel nur hinreichend lang ist.
 \includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
 \caption{Prognose f"ur die Entwicklung der als sicher betrachteten
   Schl"ussell"ange f"ur RSA und Elliptische Kurven\vspace{1ex}} 
+\label{ThousandBitMultiplications}
 \end{center}
 \end{figure}
 \vskip -20 pt
