@@ -27,18 +27,18 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // Dialog
 //
 
-IDD_KEY DIALOG DISCARDABLE  0, 0, 220, 85
+IDD_KEY DIALOG DISCARDABLE  0, 0, 251, 85
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,155,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,11,29,185,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    192,28,22,20
+                    218,28,22,20
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,53,58,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,82,53,57,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,153,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,7,193,17
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,89,53,57,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,185,53,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -3633,8 +3633,10 @@ BEGIN
     IDD_KEY, DIALOG
     BEGIN
         VERTGUIDE, 11
-        VERTGUIDE, 208
+        VERTGUIDE, 196
+        VERTGUIDE, 240
         HORZGUIDE, 48
+        HORZGUIDE, 72
     END
 
     IDD_DIALOG_PLOT_PARAM, DIALOG
@@ -4944,6 +4946,8 @@ BEGIN
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Wähle den Empfängerschlüssel von der Liste."
+    IDS_KEYHEX_MAX_INPUT_LENGTH_TXT 
+                            "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge maximal %d Hexadezimalzeichen (= %d Bytes)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5723,6 +5727,12 @@ BEGIN
     ID_OPTIONS_STARTOPTIONS "Einstellungen für den Programmstart ändern"
 END
 
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_KEYHEX_INPUT_LENGTH_TXT 
+                            "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge genau %d Hexadezimalzeichen (= %d Bytes)."
+END
+
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -5741,18 +5751,18 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 // Dialog
 //
 
-IDD_KEY DIALOG DISCARDABLE  0, 0, 220, 85
+IDD_KEY DIALOG DISCARDABLE  0, 0, 251, 85
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,155,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,11,29,191,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    192,28,22,20
+                    220,28,22,20
     DEFPUSHBUTTON   "&Encrypt",IDOK,11,53,58,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,82,53,57,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,153,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,7,193,17
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,53,57,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,185,53,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -9337,6 +9347,11 @@ BEGIN
     IDD_KEY, DIALOG
     BEGIN
         VERTGUIDE, 11
+        VERTGUIDE, 202
+        VERTGUIDE, 220
+        VERTGUIDE, 240
+        HORZGUIDE, 53
+        HORZGUIDE, 72
     END
 
     IDD_KEY_HILL5X5, DIALOG
@@ -10341,6 +10356,8 @@ BEGIN
                             "This button is currently inactive!\nBefore saving, the document must be encrypted symmetric\nand the session key must be encrypted asymmetric.\n\nThe F1 key will give you further information on which sequence you can control the activities on the flowchart."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Select the receiver key from the list."
+    IDS_KEYHEX_MAX_INPUT_LENGTH_TXT 
+                            "Enter the key using hex characters (0..9, A..F).\nKey length at maximum  %d hex characters (= %d bytes)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11097,6 +11114,12 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_OPTIONS_STARTOPTIONS "Change settings for program start"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_KEYHEX_INPUT_LENGTH_TXT 
+                            "Enter the key using hex characters (0..9, A..F).\nKey length exactly  %d hex characters (= %d bytes)."
 END
 
 #endif    // Englisch (GB) resources

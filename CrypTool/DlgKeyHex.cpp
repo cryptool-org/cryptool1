@@ -52,6 +52,22 @@ CDlgKeyHex::CDlgKeyHex(int maxlen, CWnd* pParent /*=NULL*/)
 	m_einstr = _T(INIT_STRING);
 	m_Decrypt = 0;
 	//}}AFX_DATA_INIT
+
+	char line[160];
+
+	if ( maxlen > 0 )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_KEYHEX_MAX_INPUT_LENGTH_TXT, pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,i_maxlen*2, i_maxlen);
+		m_static_text = line;
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_INPUT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,i_maxlen*2, i_maxlen);
+		m_static_text = line;
+	}
+	s_alternativeWindowText[0]=0;
 }
 
 int CDlgKeyHex::Display()

@@ -294,7 +294,7 @@ BOOL CCrypToolApp::InitInstance()
 		WriteProfileInt("Settings", "NoTipps", Tipps.m_DoNotShowThisAgain);
 	}
 
-	if(TRUE == GetProfileInt("Settings", "SampleTextFile", FALSE))
+	if(1 == GetProfileInt("Settings", "SampleTextFile", 1))
 	{
 		FILE *f;
 		CString filename = Pfad, help;
@@ -306,6 +306,7 @@ BOOL CCrypToolApp::InitInstance()
 			fclose(f);
 			OpenDocumentFileNoMRU(filename, "", SCHLUESSEL_LINEAR);
 		}
+		WriteProfileInt("Settings", "SampleTextFile", 1);
 	}
 	
 	// Enable RichEdit Windows...
