@@ -95,7 +95,7 @@ page).
 
 Read the information and tips on the introductory help page
 and then, in the CrypTool work area, open an unencrypted file
-from the "Beispieldateien"xxxxxxxxxx subdirectory.
+from the "examples" subdirectory.
 You can now try out many of the CrypTool functions on this file.
 
 To quickly get up to speed on CrypTool, we recommend that you
@@ -331,21 +331,21 @@ script-de.pdf..... The German version of script-en.pdf
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 
-Referenztexte\.... This directory contains text files in the
+reference\........ This directory contains text files in the
                    languages German, English, French, Spanish and
                    Latin. These files are routinely used as
                    references for the analysis of encrypted
                    texts. These files are write-protected.
 
-Referenztexte\deutsch.txt // Extract from the Value-Added Tax Law
-             \english.txt // Extract from Agenda 21 [UN document]
-             \genesis-de.txt  // book of Genesis in the
-             \genesis-en.txt  // languages German, English
-             \genesis-es.txt  // French, Spanish and Latin
-             \genesis-fr.txt  // The 2-letter codes are according
-             \genesis-la.txt  // to the ISO 639 Language Codes.
+reference\deutsch.txt // Extract from the Value-Added Tax Law
+         \english.txt // Extract from Agenda 21 [UN document]
+         \genesis-de.txt  // book of Genesis in the
+         \genesis-en.txt  // languages German, English
+         \genesis-es.txt  // French, Spanish and Latin
+         \genesis-fr.txt  // The 2-letter codes are according
+         \genesis-la.txt  // to the ISO 639 Language Codes.
 
-Beispieldateien\.. This directory contains various sample files
+examples\......... This directory contains various sample files
                    which are used in the examples provided in the
                    program. Files ending with the suffix ".txt"
                    are text files. All other files are binary.
@@ -354,13 +354,13 @@ Beispieldateien\.. This directory contains various sample files
 		   not change these files as they are used in the
 		   various examples provided in the program.
 
-Beispieldateien\CrypTool.bmp
-               \CrypTool-en.txt
-               \CrypTool-de.txt
-               \Playfair-enc-de.txt
-               \probetext-de.txt
-               \psion-enc.hex
-               \vernam.txt
+examples\CrypTool.bmp
+        \CrypTool-en.txt
+        \CrypTool-de.txt
+        \Playfair-enc-de.txt
+        \probetext-de.txt
+        \psion-enc.hex
+        \vernam.txt
 
 pse\.............. This directory and its subdirectory pseca\ are
                    used to store (asymmetric) keys and
@@ -415,51 +415,12 @@ downloaded setup-package.
 In order to do this check for these files, you can find the
 hash values of them here within the readme:
 
-XXXXXXXXXX             RIPEMD-160     SHA-1       MD5
-Directory cryptool:
-aestool.exe
-CrypTool-en.cnt
-CrypTool-en.hlp
-CrypTool.exe
-deutsch.txt
-DialogueSisters.pdf
-EC-Param.ini
-english.txt
-irunin.dat
-irunin.ini
-irunin.lng
-ReadMe-en.txt
-script-en.pdf
-secude.dll
-TEST-Param.ini
-ticket
+MD5 hash value                    name
+XXX
 
-Directory cryptool\Beispieldateien:
-CrypTool-de.txt
-CrypTool-en.txt
-CrypTool.bmp
-Playfair-enc-de.txt
-probetext-de.txt
-psion-enc.hex
-vernam.txt
+SHA1 hash value                          name
+XXX
 
-Directory cryptool\pse\pseca:
-calog
-CA_exts
-cert.dir
-cert.pag
-crls.dir
-crls.pag
-pseca
-user.dir
-user.pag
-
-Directory cryptool\Referenzdateien:
-genesis-de.txt
-genesis-en.txt
-genesis-es.txt
-genesis-fr.txt
-genesis-la.txt
 
 In order to do the check you can use the tools mentioned
 in part (a) or you can use the program CrypTool itself.

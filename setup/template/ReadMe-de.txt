@@ -95,7 +95,7 @@ Seite).
 
 Lesen Sie die Hinweise und Tipps der Hilfe-Einstiegsseite und
 öffnen Sie dann auf der CrypTool-Arbeitsfläche eine
-unverschlüsselte Datei aus dem Unterverzeichnis "Beispieldateien".
+unverschlüsselte Datei aus dem Unterverzeichnis "examples".
 Sie können jetzt viele der Funktionen von CrypTool an dieser Datei
 ausprobieren.
 
@@ -340,22 +340,22 @@ DialogSchwestern.pdf.... Fantasy-Geschichte von Dr. Elsner, in der
                          eine Variante des RSA-Kryptosystems
                          beschrieben wird.
 
-Referenztexte\.... Dieses Verzeichnis enthält Textdateien in den
+reference\........ Dieses Verzeichnis enthält Textdateien in den
                    Sprachen Deutsch, Englisch, Französisch,
                    Spanisch und Latein. Diese Dateien werden
                    standardmäßig als Referenz für die Analyse von
                    Chiffretexten herangezogen.
                    Diese Dateien sind schreibgeschützt.
 
-Referenztexte\deutsch.txt // Auszug aus dem Umsatzsteuergesetz
-             \english.txt // Auszug aus der Agenda 21[UN-Dokument]
-             \genesis-de.txt  // Buch Genesis in den Sprachen
-             \genesis-en.txt  // deutsch, englisch, französisch,
-             \genesis-es.txt  // spanisch und lateinisch.
-             \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
-             \genesis-la.txt  // den ISO 639 Language Codes.
+reference\deutsch.txt // Auszug aus dem Umsatzsteuergesetz
+         \english.txt // Auszug aus der Agenda 21[UN-Dokument]
+         \genesis-de.txt  // Buch Genesis in den Sprachen
+         \genesis-en.txt  // deutsch, englisch, französisch,
+         \genesis-es.txt  // spanisch und lateinisch.
+         \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
+         \genesis-la.txt  // den ISO 639 Language Codes.
 
-Beispieldateien\.. Dieses Verzeichnis enthält unterschiedliche
+examples\......... Dieses Verzeichnis enthält unterschiedliche
                    Beispieldateien, die in den Szenarien verwendet
                    werden. Dateien mit der Endung ".txt" sind
                    Textdateien. Alle anderen Dateien sind binär.
@@ -365,13 +365,13 @@ Beispieldateien\.. Dieses Verzeichnis enthält unterschiedliche
                    verschiedenen Szenarien der Hilfe verwendet
                    werden.
 
-Beispieldateien\CrypTool.bmp
-               \CrypTool-de.txt
-               \CrypTool-en.txt
-               \Playfair-enc-de.txt
-               \probetext-de.txt
-               \psion-enc.hex
-               \vernam.txt
+examples\CrypTool.bmp
+        \CrypTool-en.txt
+        \CrypTool-de.txt
+        \Playfair-enc-de.txt
+        \probetext-de.txt
+        \psion-enc.hex
+        \vernam.txt
 
 pse\.............. In diesem Verzeichnis und seinem
                    Unterverzeichnis pseca\ werden erzeugte
@@ -425,51 +425,11 @@ b) Auch die Dateien INNERHALB des heruntergeladenen
 Setup-Paketes können überprüft werden.
 Dazu stehen deren Hashwerte hier im Readme:
 
-XXXXXXXXXX             RIPEMD-160     SHA-1       MD5
-Verzeichnis Cryptool:
-aestool.exe
-CrypTool-de.cnt
-CrypTool-de.FTS
-CrypTool-de.hlp
-CrypTool.exe
-deutsch.txt
-DialogSchwestern.pdf
-EC-Param.ini
-english.txt
-irunin.dat
-irunin.ini
-irunin.lng
-ReadMe-de.txt
-script-de.pdf
-secude.dll
-TEST-Param.ini
-ticket
+MD5-Hashwert                      Name
+XXX
 
-Verzeichnis cryptool\Beispieldateien:
-CrypTool-de.txt
-CrypTool.bmp
-Playfair-enc-de.txt
-probetext-de.txt
-psion-enc.hex
-vernam.txt
-
-Verzeichnis cryptool\pse\pseca:
-calog
-CA_exts
-cert.dir
-cert.pag
-crls.dir
-crls.pag
-pseca
-user.dir
-user.pag
-
-Verzeichnis cryptool\Referenzdateien:
-genesis-de.txt
-genesis-en.txt
-genesis-es.txt
-genesis-fr.txt
-genesis-la.txt
+SHA1-Hashwert                            Name
+XXX
 
 Zur Überprüfung können Sie die oben genannten Tools verwenden
 oder das Programm CrypTool selbst.
