@@ -275,7 +275,7 @@ void VernamBin(const char *infile, const char *OldTitle)
 
 void PlayfairBin(const char *infile, const char *OldTitle)
 {
-    char outfile[128],preform[128],title[128];
+ 	char outfile[128],preform[128],title[128];
     CAppDocument *NewDoc;
 
 	int n=strlen(infile);
