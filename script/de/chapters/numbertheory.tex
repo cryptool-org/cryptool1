@@ -131,17 +131,19 @@ Zahlentheorie die Numerologie hinter sich.
 Die Zahlentheorie faszinierte schon immer Amateure wie auch professionelle
 Mathematiker. Im Unterschied zu anderen Teilgebieten der Mathematik k"onnen
 viele der Probleme und S"atze auch von Laien verstanden werden, andererseits
-widersetzten sich die L"osungen zu den Problemen und die Beweise zu den
-S"atzen oft sehr lange den Mathematikern. Es ist also leicht, gute Fragen zu
-stellen, aber es ist ganz etwas anderes, die Antwort zu finden. Ein Beispiel
-daf"ur ist der sogenannte letzte (oder gro"se) Satz von Fermat\footnote{%
-Thema der Schul-Mathematik ist der Satz von Pythagoras, wo gelehrt wird, dass
-in einem rechtwinkligen Dreieck gilt: $a^2 + b^2 = c^2$, wobei $a, b$ die
-Schenkell"angen sind und c die L"ange der Hypothenuse ist. Fermats ber"uhmte
-Behauptung war, dass f"ur ganzzahlige Exponenten $n > 2$ immer die Ungleichheit
-$a^n + b^n \not= c^n$ gilt. Leider fand \index{Fermat!letzter Satz} Fermat auf dem Brief, wo er die
-Behauptung aufstellte, nicht gen"ugend Platz, um den Satz zu beweisen. Der
-Satz konnte erst "uber 300 Jahre sp"ater bewiesen werden \cite[S. 433-551]{Wiles1994}. \index{Wiles}
+widersetzten sich die L"osungen zu den Problemen und die Beweise zu den S"atzen
+oft sehr lange den Mathematikern. Es ist also leicht, gute Fragen zu stellen,
+aber es ist ganz etwas anderes, die Antwort zu finden. Ein Beispiel daf"ur ist
+der sogenannte letzte (oder gro"se) Satz von Fermat\footnote{Thema der
+	Schul-Mathematik ist der Satz von Pythagoras\index{Satz von
+	Pythagoras}\index{Pythagoras!Satz von}, wo gelehrt wird, dass in einem
+	rechtwinkligen Dreieck gilt: $a^2 + b^2 = c^2$, wobei $a, b$ die
+	Schenkell"angen sind und c die L"ange der Hypothenuse ist. Fermats ber"uhmte
+	Behauptung war, dass f"ur ganzzahlige Exponenten $n > 2$ immer die
+	Ungleichheit $a^n + b^n \not= c^n$ gilt. Leider fand \index{Fermat!letzter
+	Satz} Fermat auf dem Brief, wo er die Behauptung aufstellte, nicht gen"ugend
+	Platz, um den Satz zu beweisen. Der Satz konnte erst "uber 300 Jahre sp"ater
+	bewiesen werden \cite[S.  433-551]{Wiles1994}. \index{Wiles}
 }.
 
 Bis zur Mitte des 20. Jahrhunderts wurde die Zahlentheorie als das reinste
@@ -178,7 +180,7 @@ Zahlentheorie.
 Wird nichts anderes gesagt, gilt: 
 \begin{itemize}
 \item Die Buchstaben $a, b, c, d, e, k, n, m, p, q$ stehen f"ur ganze Zahlen.
-\item Die Buchstaben $i$ und $j$ stehen f"ur nat"urliche Zahlen. 
+\item Die Buchstaben $i$~\mbox{und}~$j$ stehen f"ur nat"urliche Zahlen. 
 \item Der Buchstabe $p$ steht stets f"ur eine Primzahl.
 \item Die Mengen $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ und $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
 sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
@@ -211,7 +213,7 @@ man im Kopf einfacher rechnen als mit gebrochenen Zahlen.
 }. Viele Zahlen sind nur teilbar durch sich selbst und durch 1. Bez"uglich der
 Multiplikation sind dies die \glqq Atome'' im Bereich der Zahlen.
 
-\index{Primzahlen}
+\index{Primzahl}
 \begin{definition}\label{def-zth-prime} 
 {\bf Primzahlen} sind nat"urliche Zahlen gr"o"ser als $1$, die nur durch $1$ und sich
 selbst teilbar sind.
@@ -1329,7 +1331,7 @@ folgenderma"sen berechnen:
 \end{eqnarray*}
 
 
-Besteht die Zahl $n$ aus zwei verschiedenen Primfaktoren, so ist die Faktorisierung\index{Faktorisierungsproblem} von $n$ und das Finden von $J(n)$ 
+Besteht die Zahl $n$ aus zwei verschiedenen Primfaktoren, so ist die Faktorisierung\index{Faktorisierung!Faktorisierungsproblem} von $n$ und das Finden von $J(n)$ 
 "ahnlich schwierig\footnote{%
 F"ur $n=pq$  mit $p\neq q$ gilt $ J(n) = (p-1)*(q-1)
 = n -(p+q)+1.$ Ferner sind die Zahlen $p$ und $q$ L"osungen der quadratischen Gleichung
@@ -1573,7 +1575,8 @@ Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
     Permutation\index{Permutation} $\pi(p-1)$ festgelegt.
 }${}^,$\footnote{%
 Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
-maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,21$
+maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
+\mbox{ und } 21$
 die Ordnung 22.
 } F"ur einen Modul $n$ und $a$ teilerfremd zu $n$ gilt: $\{ a^i (\mbox{mod }n) | i =
 1,\dots,J(n)\}$ ist gleich der multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
@@ -1585,7 +1588,7 @@ die Ordnung 22.
 \subsection{Beweis des RSA-Verfahrens mit Euler-Fermat}
 \hypertarget{RSABeweis}{} Mit dem Satz von Euler-Fermat kann man in der Gruppe $\mathbb{Z}_n^*$ das 
 RSA\footnote{%
-Das RSA-Verfahren\index{RSA-Verfahren} ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
+Das RSA-Verfahren\index{RSA} ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschl"usseln eingesetzt werden.
 Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses Verfahren -
@@ -1600,7 +1603,7 @@ In der Literatur und in Filmen werden nicht nur klassische Verfahren
 benutzt (wie z.~B. die geheime Nachricht, die Sherlock Holmes in der
 Geschichte "`Die tanzenden M"annchen"' von Arthur Conan Doyle \index{Arthur 
 Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
-% hier die items nicht einrücken!
+% hier die items nicht einr"ucken!
 \begin{list}{\textbullet}{\leftmargin10pt}
 \item dem Film "`Das Kartenhaus"', 1992, wo sich die Autisten mit Hilfe von
   5- und 6-stelligen Primzahlen unterhalten,
@@ -1646,7 +1649,7 @@ Damit dieses System mit jeder Nachricht $M$ funktioniert, m"ussen folgende 4
 Die 1. Forderung ist eine generelle Bedingung f"ur alle kryptographischen
 Verschl"usselungsalgorithmen.
 
-Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele \index{Primzahlen!Anzahl}
+Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele \index{Primzahl!Anzahl}
 Primzahlen gibt\footnote{%
 Nach dem Primzahlsatz (prime number theorem) von Legendre und Gauss gibt es
 bis zur Zahl $n$ asymptotisch $n/{\rm ln}(n)$ Primzahlen. Dies bedeutet
@@ -1748,7 +1751,7 @@ Beim RSA-Verfahren bedeutet dies, dass
 \begin{enumerate}
   \item $J(n)$ f"ur gro"se zusammengesetzte $n$ schwer zu berechnen ist, und
   \item  $n$ f"ur gro"se $n$ nur schwer in seine Primfaktoren zerlegt werden kann (Faktorisierungsproblem).
-\index{Faktorisierungsproblem}
+\index{Faktorisierung!Faktorisierungsproblem}
 \end{enumerate}
 
 
@@ -1807,6 +1810,7 @@ $$
 (M^{e * d} - M) \equiv 0 {\rm ~(mod~}p*q) {\rm ~~oder~~ } M^{e * d} \equiv M {\rm ~(mod~}p*q) {\rm ~~oder~~} 
  M^{e * d} \equiv M {\rm ~(mod~}n).
 $$
+\hfill$\Box$
 
 {\bf 1. Bemerkung:} \\
 Man kann die 3 Schritte auch k"urzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
@@ -1822,7 +1826,7 @@ $$
 Beim Signieren werden die gleichen Operationen durchgef"uhrt, aber zuerst mit
 dem geheimen Schl"ussel $d$, und dann mit dem "offentlichen Schl"ussel $e$. Das
 RSA-Verfahren ist auch f"ur die Erstellung von digitalen
-Signaturen\index{Signatur!digitale}\index{Signatur!RSA}\index{RSA-Signatur}
+Signaturen\index{Signatur!digitale}\index{Signatur!RSA}\index{RSA!Signatur}
 einsetzbar, weil gilt:
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
@@ -1850,7 +1854,7 @@ Die Sicherheit des RSA-Verfahrens basiert - wie die aller kryptographischen Verf
 S"aulen:
 \begin{itemize}
 \item der Komplexit"at des dem Problem zugrunde liegenden zahlentheoretischen Problems (hier der Faktorisierung
-      \index{Faktorisierungsproblem} gro"ser Zahlen),
+      \index{Faktorisierung!Faktorisierungsproblem} gro"ser Zahlen),
 \item der Wahl geeigneter Sicherheitsparameter (hier der L"ange des Moduls $n$),
 \item der geeigneten Anwendung des Verfahrens sowie der Schl"usselerzeugung und
 \item der korrekten Implementierung des Algorithmus.
@@ -2019,8 +2023,8 @@ Einsatz des RSA ganz verzichtet werden.
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{Das Papier von Bernstein und seine Auswirkungen auf die Sicherheit
-des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierungsproblem}
-\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! 
+des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierung!Faktorisierungsproblem}
+\mbox{} % f"ur Zeilenumbruch, da er // allein nicht mag ! 
         % Braucht die Leerzeile danach auch noch !! bebebe
 
 Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer
@@ -2134,7 +2138,7 @@ Verweise:
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{Das TWIRL-Device} \label{TWIRLDevice} \index{TWIRL-Device}
-\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
+\mbox{} % f"ur Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
 Im Januar 2003 ver"offentlichten Adi Shamir und Eran Tromer vom Weizmann Institute of Science den vorl"aufigen Draft {\em ``Factoring Large Numbers with the TWIRL Device''}, in dem deutliche Bedenken gegen RSA-Schl"ussell"angen unter 1024 begr"undet werden \cite{Shamir2003}.
 
@@ -2147,7 +2151,7 @@ Damit erscheinen die aktuellen Empfehlungen des BSI, auf l"angere RSA-Schl"ussel
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{``Primes in P'': Testen auf Primalit"at ist polynominal} \label{PrimesinP} \index{Primzahltest} 
-\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
+\mbox{} % f"ur Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
 Im August 2002 ver"offentlichten die drei indischen Forscher M. Agrawal, N. Kayal und N. Saxena ihr Paper {\em ``PRIMES in P''} "uber einen neuen Primzahltest-Algorithmus \cite{Agrawal2002}. 
 Sie entdeckten einen polynominalen deterministischen Algorithmus, um zu entscheiden, ob eine gegebene Zahl prim ist oder nicht.
@@ -2186,7 +2190,7 @@ Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
 \label{NoteFactorisation}
 
 Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren
-zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
+zusammengesetzter Zahlen \index{Faktorisierung!Faktorisierungsrekorde}
 mit unterschiedlichen Methoden findet sich auf der Webseite 
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}. 
 \hypertarget{C158-chap3}{}
@@ -2199,9 +2203,13 @@ Dezimalstellen).
 Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der 
 Universit"at Bonn\footnote{\href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}}, fand deutlich 
-weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
-Forscher eine $155$-stellige Zahl in ihre beiden $78$-stellige Primfaktoren zerlegten (vergleiche Kapitel \ref{chptSecurityParam}).
-Das liegt unter anderem daran, dass die $512$ bit Zahl RSA-155 eine {\em magische} Grenze war. 
+weniger Aufmerksamkeit in der Presse als die L"osung der
+RSA-Challenge\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
+	{\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}}
+vom 22. Oktober 1999, als niederl"andische Forscher eine $155$-stellige Zahl in
+ihre beiden $78$-stellige Primfaktoren zerlegten (vergleiche Kapitel
+\ref{chptSecurityParam}).  Das liegt unter anderem daran, dass die $512$ bit
+Zahl RSA-155 eine {\em magische} Grenze war. 
 
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
@@ -2623,8 +2631,8 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2003}.
 % ist nun nicht mehr im Literaturverzeichnis (6.6.2, Das RSA-Verfahren,
 % Bsp. 6.14 (ASCII-Codierung).
 % In Eckert2001 passten nur die Zahlen nicht ganz, so dass ich andere
-% wählte bei gl. Text. In Eckert 2003 sind nochmal andere Zahlen,
-% aber ich ließ das Skript unverändert.
+% w"ahlte bei gl. Text. In Eckert 2003 sind nochmal andere Zahlen,
+% aber ich lie"s das Skript unver"andert.
 
 Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert: 
 
@@ -2912,7 +2920,7 @@ Gegeben ist jeweils der Ciphertext und der "offentliche Schl"ussel $(e,n)$:
 \item \index{Angriff!Known-Plaintext} Known-Plaintext: finde den geheimen Schl"ussel $d$ unter Benutzung der
 zus"atzlich bekannten Ursprungsnachricht.
 \item \index{Angriff!Ciphertext-only} Ciphertext-only: finde $d$ und den Cleartext.
-\item \index{Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
+\item \index{Faktorisierung!Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
 \end{itemize}
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
@@ -3209,7 +3217,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
 
-   \item Faktorisierungsrekorde und Challenges \index{Faktorisierungsrekorde},\\
+   \item Faktorisierungsrekorde und Challenges \index{Faktorisierung!Faktorisierungsrekorde},\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}

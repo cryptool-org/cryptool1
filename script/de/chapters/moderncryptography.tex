@@ -65,7 +65,8 @@ Ein allt"agliches Beispiel f"ur eine Einwegfunktion ist ein Telefonbuch: die aus
 
 Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public Key-Verschl"usselung \index{Verschl""usselung!Public Key} (asymmetrische Kryptographie):\par
 
-Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schl""ussel!privat} \index{Schl""ussel!""offentlich} Schl"ussel $ d_T $ und ein sogenannter "offentlicher Schl"ussel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
+Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schl""ussel!privat}
+\index{Schl""ussel!""offentlich} Schl"ussel $d_T$~\mbox{und} ein sogenannter "offentlicher Schl"ussel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
 F"ur einen Gegner, der den "offentlichen Schl"ussel $ e_T $  kennt, ist es praktisch unm"oglich, den privaten Schl"ussel  $ d_T $ zu bestimmen.\par
 
 Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-In"-for"-ma"-tion. \par
@@ -73,7 +74,15 @@ Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunk
 Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist. Wenn die L"ange der Eingabe $ n $ Bits betr"agt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexit""at} Komplexit"at solcher Probleme $ O(n^{a}) $ betr"agt. 
 
 
-Der Begriff \glqq praktisch unm"oglich\grqq {} ist etwas schwammiger. Allgemein kann man sagen, ein Problem ist \index{Laufzeit!effizient} nicht effizient l"osbar, wenn der zu seiner L"osung ben"otigte Aufwand schneller w"achst als die polynomiale Zeit als Funktion der Gr"o"se der Eingabe. Wenn beispielsweise die L"ange der Eingabe $ n $  Bits betr"agt und die Zeit  zur Berechnung der Funktion proportional zu $ 2^n $ ist, so gilt zur Zeit: die Funktion ist f"ur $n > 80$ praktisch nicht zu berechnen (f"ur $ a=5 $ gilt: ab der L"ange $ n=23 $ ist $ 2^n > n^5 $ und danach w"achst $ 2^n $ auch deutlich schneller ($ 2^{23}=8.388.608, $ $ 23^5= 6.436.343 $)).\par 
+Der Begriff \glqq praktisch unm"oglich\grqq {} ist etwas schwammiger. Allgemein
+kann man sagen, ein Problem ist \index{Laufzeit!effizient} nicht effizient
+l"osbar, wenn der zu seiner L"osung ben"otigte Aufwand schneller w"achst als die
+polynomiale Zeit als Funktion der Gr"o"se der Eingabe. Wenn beispielsweise die
+L"ange der Eingabe $ n $  Bits betr"agt und die Zeit  zur Berechnung der
+Funktion proportional zu $ 2^n $ ist, so gilt zur Zeit: die Funktion ist f"ur $n
+> 80$ praktisch nicht zu berechnen (f"ur $ a=5 $ gilt: ab der L"ange $ n=23 $
+ist $ 2^n > n^5 $~\mbox{und} danach w"achst $ 2^n $ auch deutlich schneller ($
+2^{23}=8.388.608, $ $ 23^5= 6.436.343 $)).\par 
 
 Die Entwicklung eines praktisch einsetzbaren Public Key-Verfahrens h"angt daher von der Entdeckung einer geeigneten Einwegfunktion mit Fallt"ur ab.\par
 
@@ -229,12 +238,12 @@ mit dem RSA-Verfahren sammeln: per Men"u {\bf Einzelverfahren
 Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
-\index{Faktorisierungsproblem}
+\index{Faktorisierung!Faktorisierungsproblem}
 \index{Eulersche Phi-Funktion}
 \begin{center}
 \fbox{\parbox{12cm}{        
 \underline{Schl"usselgenerierung:} \vskip + 5pt
-Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$ Sei $e$ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahlen!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so dass gilt
+Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$ Sei $e$ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahl!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so dass gilt
 
 \[ ed \equiv 1 \mod \phi (N). \]
 Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}. 
@@ -306,18 +315,25 @@ $L(N)$ & $ 1,42 \cdot 10^{10} $ &  $ 2,34  \cdot 10^{15} $ &  $ 3,26 \cdot 10^{1
 \end{tabular}
 \end{center}
 \vskip +5 pt 
-Solange kein besserer Algorithmus gefunden wird, hei"st dies, dass Werte der Gr"o"senordnung $ 100 $ bis $ 200 $ 
-Dezimalstellen zur Zeit sicher sind. Einsch"atzungen der aktuellen Computertechnik besagen, dass eine Zahl mit $100$ 
-Dezimalstellen bei vertretbaren Kosten in etwa zwei Wochen zerlegt werden k"onnte. Mit einer teuren Konfiguration 
-(z.B. im Bereich von 10 Millionen US-Dollar) k"onnte eine Zahl mit $150$ Dezimalstellen in etwa einem Jahr zerlegt werden. 
-Eine $200-$stellige Zahl d"urfte noch f"ur eine sehr lange Zeit unzerlegbar bleiben, falls es zu keinem mathematischen 
-Durchbruch kommt. Zum Beispiel w"urde es etwa 1000 Jahre dauern, um eine 200-stellige Zahl mit den bestehenden Algorithmen in 
-Primfaktoren zu zerlegen; dies gilt selbst dann, wenn $ 10^{12} $  Operationen pro Sekunde ausgef"uhrt werden k"onnten, 
-was jenseits der Leistung der heutigen Technik liegt und in der Entwicklung Milliarden von Dollar kosten w"urde. Dass es aber
-nicht doch schon morgen zu einem mathematischen Durchbruch kommt, kann man nie ausschlie"sen.
+Solange kein besserer Algorithmus gefunden wird, hei"st dies, dass Werte der
+Gr"o"senordnung $ 100 $ bis $ 200 $ Dezimalstellen zur Zeit sicher sind.
+Einsch"atzungen der aktuellen Computertechnik besagen, dass eine Zahl mit $100$
+Dezimalstellen bei vertretbaren Kosten in etwa zwei Wochen zerlegt werden
+k"onnte. Mit einer teuren Konfiguration (z.B. im Bereich von 10 Millionen
+US-Dollar) k"onnte eine Zahl mit $150$ Dezimalstellen in etwa einem Jahr zerlegt
+werden.  Eine $200-$stellige Zahl d"urfte noch f"ur eine sehr lange Zeit
+unzerlegbar bleiben, falls es zu keinem mathematischen Durchbruch kommt. Zum
+Beispiel w"urde es etwa 1000 Jahre dauern, um eine 200-stellige Zahl mit den
+bestehenden Algorithmen in Primfaktoren zu zerlegen; dies gilt selbst dann, wenn
+$ 10^{12} $  Operationen pro Sekunde ausgef"uhrt werden k"onnten, was jenseits
+der Leistung der heutigen Technik liegt und in der Entwicklung Milliarden von
+Dollar kosten w"urde. Dass es aber nicht doch schon morgen zu einem
+mathematischen Durchbruch kommt, kann man nie ausschlie"sen.
 
-Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen "aquivalent zum Faktorisierungsproblem \index{Faktorisierungsproblem}
-ist. Es ist aber klar, dass wenn das Faktorisierungsproblem \glqq gel"ost\grqq {} ist, dass dann das RSA-Verfahren nicht mehr sicher ist.
+Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen "aquivalent zum
+Faktorisierungsproblem \index{Faktorisierung!Faktorisierungsproblem} ist. Es ist
+aber klar, dass wenn das Faktorisierungsproblem \glqq gel"ost\grqq {} ist, dass
+dann das RSA-Verfahren nicht mehr sicher ist.
 
 
 %--------------------------------------------------------------------

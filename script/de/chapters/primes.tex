@@ -20,7 +20,7 @@
 
 % --------------------------------------------------------------------------
 \subsection{Was sind Primzahlen?}
-\index{Primzahlen} \index{Zahlen!Primzahl} Primzahlen sind ganze,
+\index{Primzahl} \index{Zahlen!Primzahl} Primzahlen sind ganze,
 positive Zahlen gr"o"ser gleich $2$, die man nur durch 1 und durch
 sich selbst teilen kann. Alle anderen nat"urlichen Zahlen gr"o"ser
 gleich $2$ lassen sich durch Multiplikation von Primzahlen
@@ -102,7 +102,7 @@ $n = p_1 \cdot p_2 \cdot \dots \cdot p_m$ von Primzahlen schreiben.
 Sind zwei solche Zerlegungen
 $$n =  p_1 \cdot p_2 \cdots p_m = p'_1 \cdot p'_2 \cdots p'_{m'}$$
 gegeben, dann gilt nach eventuellem Umsortieren $\;m = m'\;$ und  f"ur alle $i$:  $\;p_i = p'_i$. \\
-($n = p_1 \cdot p_2 \cdot \dots \cdot p_m$ nennt man die Primfaktoren von n)
+($p_1, p_2, \dots, p_m$ nennt man die Primfaktoren\index{Primfaktor} von n)
 \end{satz}
 
 In anderen Worten: Jede nat"urliche Zahl au"ser der $1$ l"asst sich auf genau eine Weise als Produkt von
@@ -155,7 +155,7 @@ O\acute{\iota}~\pi\varrho\tilde{\omega}\tau o \iota~\grave{\alpha}\varrho\iota\v
 \grave{\alpha}\varrho\iota\vartheta\mu\tilde{\omega}\nu,
 $$
 zu deutsch: Die Primzahlen sind mehr als jede vorgegebene Menge von Primzahlen.
-}]\label{thm-pz-euklid}\hypertarget{thm-pz-euklid}{} % Ende der Fuﬂnote
+}]\label{thm-pz-euklid}\hypertarget{thm-pz-euklid}{} % Ende der Fu"snote
 Die Folge der Primzahlen bricht nicht ab, es gibt also unendlich 
 viele Primzahlen.
 \end{satz}
@@ -287,7 +287,7 @@ dieser Behauptung gibt es eine interessante mathematische Historie:
 Zuerst dauerte es "uber 200 Jahre, bis \index{Lucas Edouard}
 Edouard Lucas (1842-1891) bewies, dass diese Zahl zusammengesetzt
 ist. Er argumentierte aber indirekt und kannte keinen der
-Faktoren. Dann zeigte Frank Nelson 1903, aus welchen Faktoren
+Faktoren. Dann zeigte Frank Nelson Cole 1903, aus welchen Faktoren
 diese Primzahl besteht:
 $$ 2^{67} -1 =147. 573. 952. 589. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
 Er gestand, 20 Jahre an der Faktorisierung 
@@ -311,18 +311,20 @@ $$
 \end{array}
 $$
 Damit sind heute $39$ Mersenne-Primzahlen
-\index{Primzahlen!Mersenne}\index{Mersenne!Mersenne-Primzahl} 
-bekannt. F"ur die ersten 38 Mersenne-Primzahlen wei"s man inzwischen, dass diese Liste vollst"andig ist. Die Exponenten bis zur 39. bekannten Mersenne-Primzahl sind noch nicht vollst"andig gepr"uft (vergleiche Kapitel 2.5 Primzahltests
-\index{Primzahltest}).
+\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl} 
+bekannt. F"ur die ersten 38 Mersenne-Primzahlen wei"s man inzwischen, dass diese
+Liste vollst"andig ist. Die Exponenten bis zur 39. bekannten Mersenne-Primzahl
+sind noch nicht vollst"andig gepr"uft (vergleiche Kapitel 2.5
+Primzahltests\index{Primzahltest}).
 
 Die $19$. Zahl
 mit dem Exponenten $4.253$ war die erste mit mindestens $1.000$
 Stellen im Zehnersystem (der Mathematiker Samual \index{Yates
 Samual} Yates pr"agte daf"ur den Ausdruck {\em titanische}
-\index{Primzahlen!titanische} Primzahl; sie wurde 1961 von Hurwitz
+\index{Primzahl!titanische} Primzahl; sie wurde 1961 von Hurwitz
 gefunden); die $27$. Zahl mit dem Exponenten $44.497$ war die
 erste mit mindestens $10.000$ Stellen im Zehnersystem (Yates
-pr"agte daf"ur den Ausdruck \index{Primzahlen!gigantische}  {\em
+pr"agte daf"ur den Ausdruck \index{Primzahl!gigantische}  {\em
 gigantische} Primzahl. Diese Bezeichnungen sind heute l"angst
 veraltet).
 
@@ -352,7 +354,7 @@ wurde im Januar 1998 gefunden und hat
 
 
 \vskip +15 pt
-\paragraph{M-38 -- Juni 1999} \index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
+\paragraph{M-38 -- Juni 1999}\index{M-38}\index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
 % \\
 
 Die 38. Mersenne-Primzahl, genannt M-38, $$ 2^{6.972.593} - 1 $$
@@ -433,16 +435,17 @@ Die gr"o"ste Zahl, die bisher in ihre beiden ann"ahernd gleich gro"sen
 Primfaktoren zerlegt werden konnte, hatte 158 Stellen (vgl. 
 \hyperlink{C158-chap3}{Kapitel 3.11.4}).
 
-Ist aber etwas "uber die {\em Bauart}(spezielle Struktur) der fraglichen 
+Ist aber etwas "uber die {\em Bauart} (spezielle Struktur) der fraglichen 
 Zahl bekannt, gibt es sehr hochentwickelte Verfahren, die deutlich schneller
-sind. Diese Verfahen beantworten nur die Primalit"atseigenschaft einer Zahl,
+sind. Diese Verfahren beantworten nur die Primalit"atseigenschaft einer Zahl,
 k"onnen aber nicht die Primfaktoren sehr gro"ser zusammengesetzter Zahlen
 bestimmen.
 
 \hypertarget{FermatNumbers01}{}
 Fermat\index{Fermat} hatte im 17. Jahrhundert an Mersenne \index{Mersenne Marin} geschrieben, dass er vermute, 
 dass alle Zahlen der Form $$ F(n) = 2^{2^n} + 1 $$ f"ur alle ganzen Zahlen $n$ gr"o"ser 
-oder gleich $0$ prim seien (\hyperlink{FermatNumbers02}{siehe unten}).
+oder gleich $0$ prim seien (\hyperlink{FermatNumbers02}{siehe unten},
+Kapitel~\ref{spezialzahlentypen}).
 \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}
 
 Schon im 19. Jahrhundert wusste man, dass die $29$-stellige Zahl
@@ -451,7 +454,7 @@ keine Primzahl ist. Aber erst 1970 fanden Morrison/Billhart ihre Zerlegung.
 \begin{eqnarray*}
 F(7) & = & 340.282.366.920.938.463.463.374.607.431.768.211.457 \\
 & = & 59. 649. 589. 127. 497. 217 \cdot  5.704.689.200.685.129.054.721
-\end{eqnarray*}
+\end{eqnarray*}\label{f7}
 
 Auch wenn sich Fermat bei seiner Vermutung irrte, so stammt in diesem
 Zusammenhang von ihm doch ein sehr wichtiger Satz: Der (kleine)
@@ -517,8 +520,9 @@ prim ist, finden sich zum Beispiel unter:
 
 % --------------------------------------------------------------------------
 \vskip +20 pt
-\subsection{Weitere Spezial-Zahlentypen und die Suche nach einer Formel f"ur Primzahlen}
-\index{Primzahlen!Formel}
+\subsection{Weitere Spezial-Zahlentypen und die Suche nach einer Formel f"ur
+Primzahlen}\label{spezialzahlentypen}
+\index{Primzahl!Formel}
 Derzeit sind keine brauchbaren, offenen (also nicht rekursiven) Formeln bekannt, die nur Primzahlen
 liefern (rekursiv bedeutet, dass zur Berechnung der Funktion auf dieselbe Funktion in Abh"angigkeit
 einer kleineren Variablen zugegriffen wird). Die Mathematiker w"aren schon zufrieden, wenn sie eine
@@ -588,8 +592,14 @@ F(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prim}  \\
 F(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prim}  \\
 F(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prim}  \\
 F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = 65.537 &  \mapsto {\rm ~prim}  \\
-F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4 .294. 967. 297 = 641 \cdot
-6.700.417 &  \mapsto {\rm ~NICHT~prim} !
+F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4.294.967.297 = 641 \cdot
+6.700.417 &  \mapsto {\rm ~NICHT~prim} !\\
+F(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = 18.446.744.073.709.551.617 \\
+                                 &  = 274.177 \cdot 67.280.421.310.721  
+																 & \mapsto {\rm ~NICHT~prim} ! \\
+F(7) = 2^{2^7} + 1  = 2^{128} + 1 & = \mbox{(siehe S.~\pageref{f7})}  
+																 & \mapsto {\rm ~NICHT~prim} !
+															
 \end{array}
 $$
 
@@ -638,7 +648,7 @@ $$
 
 %    ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
 %           {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
-% M.E. ist die Zahl auf seiner Webseite zu groﬂ, da M-39 "nur" 4 Mio. Stellen hat !
+% M.E. ist die Zahl auf seiner Webseite zu gro"s, da M-39 "nur" 4 Mio. Stellen hat !
 %    Heute kennt man alle Fermatschen Primzahlen mit bis zu 2.000.000.000 ???
 %    Dezimalstellen. \\
 
@@ -734,7 +744,7 @@ Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so dass dies auch
 keine brauchbare Formel ist. Bemerkung: Das Besondere an 
 diesen Zahlen ist, dass sie jeweils paarweise keinen
 gemeinsamen Teiler au"ser $1$ haben, sie sind also%
-\index{Primzahlen!relative}\index{relativ prim} {\em relativ zueinander prim}.
+\index{Primzahl!relative}\index{relativ prim} {\em relativ zueinander prim}.
 
 
 \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -858,7 +868,7 @@ Bewiesen ist jedenfalls nicht, dass diese Formel nur Primzahlen liefert.
 \subsection{Dichte und Verteilung der Primzahlen}
 
 Wie Euklid herausfand, gibt es unendlich viele Primzahlen. Einige unendliche Mengen sind aber
-{\em dichter} \index{Primzahlen!Dichte} als andere. Innerhalb der nat"urlichen Zahlen gibt es unendlich viele gerade, ungerade und
+{\em dichter} \index{Primzahl!Dichte} als andere. Innerhalb der nat"urlichen Zahlen gibt es unendlich viele gerade, ungerade und
 quadratische Zahlen.
 
 Nach folgenden Gesichtspunkten gibt es mehr gerade Zahlen als quadratische:
@@ -1086,7 +1096,7 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
   \item Der Beweis oben zu der Funktion  $f: \: N \rightarrow Z$ mit $n \mapsto a^{3^n}$  garantiert nur die Existenz einer
     solchen Zahl $a$.  Wie kann diese Zahl $a$ bestimmt werden, und wird sie einen Wert haben, so dass
     die Funktion auch von praktischem Interesse ist?
-  \item Gibt es unendlich viele Mersenne-Primzahlen?\index{Primzahlen!Mersenne}\index{Mersenne!Mersenne-Primzahl}
+  \item Gibt es unendlich viele Mersenne-Primzahlen?\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
   \item Gibt es unendlich viele Fermatsche Primzahlen?
   \item Gibt es einen Polynomialzeit-Algorithmus zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
     \cite[S. 167]{Klee1997})?

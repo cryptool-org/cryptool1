@@ -110,7 +110,7 @@ product $n = p_1 \cdot p_2 \dots p_m$ of prime numbers. If two such
 factorisations $$n =  p_1 \cdot p_2 \cdot \cdots \cdot p_m = p'_1 \cdot p'_2 \cdots
 p'_{m'}$$ are given, then they can be reordered such that $\;m = m'\;$ and for
 all $i$:  $\;p_i = p'_i$. \\
-($n = p_1 \cdot p_2 \cdot \dots \cdot p_m$ are called the prime factors of n)
+($p_1, p_2, \dots, p_m$ are called the prime factors of n)
 
 \end{theorem}
 
@@ -428,7 +428,7 @@ has 158 digits (see \hyperlink{C158-chap3}{chapter 3.11.4}).
 However, if we know something about the {\em construction} of the number in
 question, there are extremely highly developed procedures that are much quicker.
 These procedures can determine the primality attribute of a number, but they
-cannot determine the prime factors of the numbers, if they are compound.
+cannot determine the prime factors of a number, if it is compound.
 
 \hypertarget{FermatNumbers01}{}
 In the 17th century, Fermat wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
@@ -572,9 +572,10 @@ F(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prime}  \\
 F(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prime}  \\
 F(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prime}  \\
 F(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prime}  \\
-F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = 65,537 &  \mapsto {\rm ~prime}  \\
-F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4 ,294, 967, 297 = 641 \cdot
-6,700,417 &  \mapsto {\rm ~NOT~prime} !
+F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = \mbox{65,537} &  \mapsto {\rm ~prime}  \\
+F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = \mbox{4,294,967,297} = 641 \cdot \mbox{6,700,417} &  \mapsto {\rm ~NOT~prime} ! \\
+F(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = \mbox{18,446,744,073,709,551,617} \\
+                                 &  = \mbox{274,177} \cdot \mbox{67,280,421,310,721} & \mapsto {\rm ~NOT~prime} !
 \end{array} 
 $$
 
@@ -750,8 +751,6 @@ and $42$th values are not prime numbers.
 It is easy to see that $f(41)$ cannot be a prime number:
     $f(41) = 41^2 + 41 + 41 = 41 (41 + 1 + 1) = 41 \cdot 43$.
 
-
-\pagebreak
   \item $f(n) = n^2 - 79 \cdot n + 1,601$: \\
     This function delivers prime numbers for all values from $n=0$ to $n=79$.
 Unfortunately $f(80) = 1,681 = 11 \cdot 151$ is not a prime number. To this
@@ -810,8 +809,6 @@ will also find further details about prime number formulae.
     This means there is no hope in looking for further formulae 
     similar to that of type 11. or 12.
 
-
-\pagebreak
   \item  \index{Catalan number} Catalan, after whom the so-called
 {\em Catalan numbers} $A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ are named,
 conjectured that $C_4$ is a prime:
@@ -870,7 +867,7 @@ can again say that there are more even numbers.
 \end{itemize}
 \vskip +3 pt
 \begin{theorem}\label{thm-pz-density}
-For large n: The value of the $n$th prime $P(n)$ is asymptotic to $n \cdot
+For large n: The value of the $n$-th prime $P(n)$ is asymptotic to $n \cdot
 ln(n)$, i.e. the limit of the relation  $P(n)/(n\cdot \ln n)$ is equal to $1$ if
 $n$ tends to infinity.
 \end{theorem}
@@ -1335,8 +1332,8 @@ Calculation using GMP, for example:
 
 \bibitem[Tietze1973]{Tietze1973} \index{Tietze 1973}     
     H. Tietze, \\
-    {\em Gel\"oste und ungel\"oste mathematische Probleme}, 
-    Verlag C.H. Beck 1959, 6th edition 1973.
+    {\em Gel\"oste und ungel\"oste mathematische Probleme}, \\
+    Verlag C. H. Beck 1959, 6th edition 1973.
 
 \end{thebibliography}
 
