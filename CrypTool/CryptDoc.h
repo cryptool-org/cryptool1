@@ -9,10 +9,11 @@
 
 class CCryptDoc : public CPadDoc
 {
+
 protected:
-	char ContentName[128];
+	char ContentName[CRYPTOOL_PATH_LENGTH];
 	virtual BOOL present(const char *in, char *out);
-	char PresentationName[128];
+	// PRESENTATION_NAME char PresentationName[128];
 	CCryptDoc();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CCryptDoc)
 

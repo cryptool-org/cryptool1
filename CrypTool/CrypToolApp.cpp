@@ -417,6 +417,7 @@ CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key
 	doc->CWndVaterFenster = CWnd_hilf;
 	doc->csSchluessel = Key;
 	doc->iSchluesselTyp = KeyType;
+	doc->ClearPathName();
 
     MRU_Flag = oldflag;
     return doc;

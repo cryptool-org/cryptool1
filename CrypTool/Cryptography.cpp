@@ -3088,27 +3088,51 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 
 		b2 = (char *) malloc(l2+1);
 
-		if(Perm.m_Dec&&!Perm.m_Invert||!Perm.m_Dec&&Perm.m_Invert)
+		if(Perm.m_Dec) 
 		{
 			if(Perm.m_P2len)
 			{
-				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-				b3 = b1;
+				if ( !Perm.m_Invert )
+				{
+					DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+					DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					b3 = b1;
+				}
+				else
+				{
+					DoInvPerm(b2, b1, l2, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+					DoInvPerm(b1, b2, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					b3 = b1;
+				}
 			}
 			else
 			{
-				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-				b3 = b2;
+				if ( !Perm.m_Invert )
+				{
+					DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					b3 = b2;
+				}
+				else
+				{
+					DoInvPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					b3 = b2;
+				}
 			}
 		}
-		else
+		else // Perm Dec == FALSE
 		{
-			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+			if ( !Perm.m_Invert )
+				DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+			else
+				DoPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+
 			if(Perm.m_P2len)
 			{
 				b3 = b1;
-				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+				if ( !Perm.m_Invert )
+					DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+				else
+					DoPerm(b1, b2, l2, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
 			}
 			else b3 = b2;
 		}

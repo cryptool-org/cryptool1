@@ -19,7 +19,8 @@ public:
 // Operationen
 public:
 	virtual void SetData(int);
-
+	void ClearPathName() { m_strPathName = ""; }
+	BOOL DoSave(LPCTSTR lpszPathName, BOOL bReplace = TRUE);
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CAppDocument)

@@ -108,6 +108,52 @@ void CAppDocument::SetData(int i)
 }
 
 
+BOOL CAppDocument::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
+{
+	CString newName = lpszPathName;
+	if (newName.IsEmpty())
+	{
+		CDocTemplate* pTemplate = GetDocTemplate();
+		ASSERT(pTemplate != NULL);
 
+		newName = m_strPathName;
+		if (bReplace && newName.IsEmpty())
+		{
+			newName = m_strTitle;
+			int i1, i2;
+			i2 = newName.FindOneOf(_T(".>"));
+			newName.ReleaseBuffer(i2);
+			i1 = newName.ReverseFind('<');
+			
+			CString descr = _T("");
+			if ( i1 >= 0 && i2 > i1 )
+			{
+				descr = newName.Mid(i1+1, i2-i1-1);
+			}
+			// check for dubious filename
+			int iBad = newName.FindOneOf(_T(" -#%;/\\"));
+			if (iBad != -1)
+				newName.ReleaseBuffer(iBad);
+
+			newName = CString("cry-") + newName + CString("-") + descr;
+			// append the default suffix if there is one
+			CString strExt;
+			if (pTemplate->GetDocString(strExt, CDocTemplate::filterExt) &&
+			  !strExt.IsEmpty())
+			{
+				ASSERT(strExt[0] == '.');
+				newName += strExt;
+			}
+		}
+
+		if (!AfxGetApp()->DoPromptFileName(newName,
+		  bReplace ? AFX_IDS_SAVEFILE : AFX_IDS_SAVEFILECOPY,
+		  OFN_HIDEREADONLY | OFN_PATHMUSTEXIST, FALSE, pTemplate))
+			return FALSE;       // don't even attempt to save
+		lpszPathName = newName;
+	}
+
+	return CDocument::DoSave(lpszPathName, bReplace );
+}
 
 

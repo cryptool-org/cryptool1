@@ -39,7 +39,7 @@ IMPLEMENT_DYNCREATE(CCryptDoc, CPadDoc)
 CCryptDoc::CCryptDoc()
 {
 	ContentName[0] = 0;
-	PresentationName[0] = 0;
+	// PRESENTATION_NAME PresentationName[0] = 0;
 }
 
 BOOL CCryptDoc::OnNewDocument()
@@ -59,6 +59,7 @@ BOOL CCryptDoc::OnNewDocument()
 		return FALSE;
 	}
 	fclose(f);
+/*  PRESENTATION_NAME
     GetTmpName(PresentationName,"cry",".txt");
 	f = fopen(PresentationName,"wb");
 	if (!f)
@@ -69,6 +70,7 @@ BOOL CCryptDoc::OnNewDocument()
 		return FALSE;
 	}
 	fclose(f);
+*/
 	return TRUE;
 }
 
@@ -216,12 +218,13 @@ void CCryptDoc::Serialize(CArchive& ar)
 
 void CCryptDoc::OnCloseDocument() 
 {
-    char name1[128], name2[128];
+    char // PRESENTATION_NAME name1[128], 
+		 name2[128];
 
-    strncpy(name1,PresentationName,sizeof(name1));
+    // PRESENTATION_NAME strncpy(name1,PresentationName,sizeof(name1));
     strncpy(name2,ContentName,sizeof(name2));
 	CPadDoc::OnCloseDocument();
-    remove(name1);
+    // PRESENTATION_NAME remove(name1);
     remove(name2);
 }
 
@@ -236,6 +239,25 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 		return FALSE;
 	}
+
+	// ADD_PRESENTATION_NAME
+    int r = FileCpy(ContentName,lpszPathName, 0x0FFFFF);
+    if( !r ) {
+        remove(ContentName);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
+		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
+		return FALSE;
+    }
+	if(r==2) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
+		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
+	}
+
+	// ADD_PRESENTATION_NAME
+
+/* PRESENTATION_NAME
     if(!FileCpy(ContentName,lpszPathName,-1)) {
         remove(ContentName);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -243,17 +265,21 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 		return FALSE;
     }
+*/
+/* PRESENTATION_NAME
 	if(!present(ContentName, PresentationName)) {
         remove(ContentName);
 	    remove(PresentationName);
 		return FALSE;
 	}
-	if (!CPadDoc::OnOpenDocument(PresentationName)) {
+*/
+	if (!CPadDoc::OnOpenDocument( ContentName /* PRESENTATION_NAME PresentationName */)) {
         remove(ContentName);
-        remove(PresentationName);
+        // PRESENTATION_NAME remove(PresentationName);
 		return FALSE;
     }
-    SetPathName(lpszPathName);
+
+	SetPathName(lpszPathName);
 	return TRUE;
 }
 
@@ -651,7 +677,8 @@ BOOL CAscDoc::UpdateContent( void )
 		title = GetTitle();
 
 		/* store modified file */
-	    CAscDoc::OnSaveDocument(PresentationName);
+	    // PRESENTATION_NAME CAscDoc::OnSaveDocument(PresentationName);
+		CAscDoc::OnSaveDocument(ContentName);
 
 	    if(oldname[0]) SetPathName(oldname,FALSE);
 		SetTitle(title);

@@ -78,6 +78,25 @@ END_MESSAGE_MAP()
 void CDlgKeyPermutation::OnDecrypt() 
 {
 	UpdateData(TRUE);
+
+	// Nullen dürfen nicht eingegeben werden
+	// Überprüfung IDC_EDIT1
+	if( m_Perm1.GetLength() && ((m_Perm1[0]=='0') || (m_Perm1.Find(",0",0)!=(-1))) )
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str,"CrypTool",MB_ICONWARNING|MB_OK);
+		m_CPerm1.SetFocus();
+		return;
+	}
+	// Überprüfung IDC_EDIT2
+	if( m_Perm2.GetLength() && ((m_Perm2[0]=='0') || (m_Perm2.Find(",0",0)!=(-1))) )
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONWARNING|MB_OK);
+		m_CPerm2.SetFocus();
+		return;
+	}
+
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
 	if(m_P1len <= 0) {
 		m_CPerm1.SetFocus();
@@ -106,7 +125,7 @@ void CDlgKeyPermutation::OnEncrypt()
 
 	// Nullen dürfen nicht eingegeben werden
 	// Überprüfung IDC_EDIT1
-	if( (m_Perm1[0]=='0') || (m_Perm1.Find(",0",0))!=(-1) )
+	if( m_Perm1.GetLength() && ((m_Perm1[0]=='0') || (m_Perm1.Find(",0",0)!=(-1))) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,"CrypTool",MB_ICONWARNING|MB_OK);
@@ -114,7 +133,7 @@ void CDlgKeyPermutation::OnEncrypt()
 		return;
 	}
 	// Überprüfung IDC_EDIT2
-	if( (m_Perm2[0]=='0') || (m_Perm2.Find(",0",0))!=(-1) )
+	if( m_Perm2.GetLength() && ((m_Perm2[0]=='0') || (m_Perm2.Find(",0",0)!=(-1))) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, "CrypTool", MB_ICONWARNING|MB_OK);
@@ -122,8 +141,6 @@ void CDlgKeyPermutation::OnEncrypt()
 		return;
 	}
 	
-
-
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
 	if(m_P1len <= 0)
 	{
