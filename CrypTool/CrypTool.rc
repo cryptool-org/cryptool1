@@ -3950,8 +3950,6 @@ UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
-IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
-IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
 IDB_DH_BUTTON1_R_X      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_R_X.bmp"
 IDB_DH_BUTTON1_G_F      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_F.bmp"
 IDB_DH_BUTTON1_G_U      BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Button1_G_U.bmp"
@@ -4015,6 +4013,7 @@ IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp
 IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\MainBackground.bmp"
+IDB_HYBRID_BACK			BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9886,8 +9885,6 @@ UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
 REDO_X                  BITMAP  DISCARDABLE     "res\\foreward-grey.bmp"
-IDB_HYBRID_SPEICHERN_LINKS BITMAP  DISCARDABLE     "res\\hybrid_speichern_links.bmp"
-IDB_HYBRID_SPEICHERN_RECHTS BITMAP  DISCARDABLE     "res\\hybrid_speichern_rechts.bmp"
 IDB_DH_ARROW            BITMAP  DISCARDABLE     "res\\dh_arrow.bmp"
 IDB_DH_GAPFILLER        BITMAP  DISCARDABLE     "res\\dh_gapfi.bmp"
 IDB_DH_BUTTON1_G_D      BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Button1_G_D.bmp"
@@ -9951,6 +9948,8 @@ IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\MainBackground.bmp"
+IDB_HYBRID_BACK			BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
