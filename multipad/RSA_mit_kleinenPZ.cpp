@@ -46,7 +46,7 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 
 RSA_mit_kleinenPZ::~RSA_mit_kleinenPZ()
 {
-   delete Options;
+	delete Options;
 }
 
 
