@@ -622,37 +622,33 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 284, 268
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 303
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,245,50,14
-    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
+    DEFPUSHBUTTON   "OK",IDOK,65,278,50,14
+    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,166,
                     11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,263,8
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,152,8
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,263,16
-    CTEXT           "Henrik Koy",IDC_STATIC,14,93,263,9,NOT WS_GROUP
-    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,270,
+                    59,152,16
+    CTEXT           "Henrik Koy",IDC_STATIC,14,93,152,9,NOT WS_GROUP
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
                     22,BS_CENTER
-    GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,270,30,
+    GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,166,30,
                     BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,270,22,
+    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,166,22,
                     BS_CENTER
     GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
-                    109,270,86,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,198,270,42,BS_CENTER
-    LTEXT           "Martin Bartosch,\nKlaus Esslinger,\nPeter Gruber,\nMatej Matejicek,\nDaniel Saffran,\nChristian Tobias,",
-                    IDC_STATIC,18,122,84,67
-    LTEXT           "Jan Blumenstein,\nBartol Filipovic,\nJens Liebehenschel,\nChristian Mletzko,\nMark Santiago,\nMyriam Zeuner-Guerrier.",
-                    IDC_STATIC,102,122,84,67
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,209,84,26
-    LTEXT           "Richard Christensen,\nThomas Gauweiler,\nFlorian Marchal,\nRoger Oyono,\nThomas Thiele,",
-                    IDC_STATIC,186,122,85,63
-    LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
-                    IDC_STATIC,102,209,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,209,85,26
+                    109,166,86,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,198,166,71,BS_CENTER
+    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
+                    IDC_STATIC,18,122,150,40
+    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,18,162,150,27
+    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...und viele andere.",
+                    IDC_STATIC,14,208,152,57
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -3192,6 +3188,68 @@ BEGIN
                     IDC_STATIC,7,47,201,16
 END
 
+IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Challenge Response Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Start",IDC_START_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE | WS_GROUP,5,5,75,25
+    CONTROL         "Einführung",IDC_EINFUEHRUNG_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,34,75,
+                    25
+    CONTROL         "Passwort",IDC_PASSWORT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,85,75,
+                    25
+    CONTROL         "Einmalpasswörter",IDC_EINMALPASSWOERTER,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,114,75,
+                    25
+    CONTROL         "Challenge-Response (symmetrisch)",
+                    IDC_CHALLENGERESPONSE1_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE,5,142,75,25
+    CONTROL         "Challenge-Response (asymmetrisch)",
+                    IDC_CHALLENGERESPONSE2_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE,5,172,75,25
+    CONTROL         "Wechselseitige Authentifikation",
+                    IDC_WECHSELSEITIG_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE,5,202,75,25
+    PUSHBUTTON      "Beenden",IDC_EXIT_BUTTON,7,315,75,20
+    EDITTEXT        IDC_EDIT,89,244,422,91,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    CONTROL         "",IDC_ACTION_NOTHING_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE | WS_GROUP,465,25,40,20,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Verbinden",IDC_ACTION_CONNECT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,65,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Trennen",IDC_ACTION_DISCONNECT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,87,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Rechner angreifen",IDC_ACTION_ATTACK_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,109,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Angriff auf Rechner beenden",
+                    IDC_ACTION_REMOVE_ATTACK_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,131,
+                    40,30,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Authentifizieren des Clients",
+                    IDC_AUTHENTICATE_CLIENT_BUTTON,104,51,60,21,BS_MULTILINE
+    PUSHBUTTON      "Authentifizieren des Angreifers",
+                    IDC_AUTHENTICATE_ATTACKER_BUTTON,130,172,68,22,
+                    BS_MULTILINE
+    CONTROL         "Maskieren",IDC_CHECK_MASK,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,130,196,68,16
+    PUSHBUTTON      "Hilfe zum Szenario",IDC_SCENARIO_HELP_BUTTON,445,223,66,
+                    16
+    PUSHBUTTON      "Szenario zurücksetzen",IDC_RESET_BUTTON,92,221,88,17
+    GROUPBOX        "Szenarienauswahl",IDC_CR_SCENARIO_CHOOSE,1,74,83,158,
+                    BS_CENTER
+    GROUPBOX        "Aktionen",IDC_CR_ACTIONS_ATTACKER,463,53,44,111,
+                    BS_CENTER
+    
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3419,6 +3477,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3626,6 +3685,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3782,6 +3842,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "&Optionen"
     BEGIN
@@ -3954,6 +4015,7 @@ BEGIN
                                                 ID_SIGNATUR_ATTACK
         MENUITEM "S&eitenkanalangriff-Demo...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "A&nalyse"
     BEGIN
@@ -4407,6 +4469,7 @@ IDB_SCA_TRUDY_SMALL     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_trud
 IDB_SCA_ALICE_SMALL     BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_alice_small.bmp"
 IDB_SCA_BOB_SMALL       BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_bob_small.bmp"
 IDB_SCA_GAPFILLER       BITMAP  DISCARDABLE     "res\\SCABitmaps\\bmps\\sca_gapfiller.bmp"
+IDB_CR_BACKGROUND_BITMAP BITMAP  DISCARDABLE     "res\\white.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4647,15 +4710,7 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 18
-        VERTGUIDE, 102
-        VERTGUIDE, 186
-        VERTGUIDE, 277
-        BOTTOMMARGIN, 259
-        HORZGUIDE, 122
-        HORZGUIDE, 209
-        HORZGUIDE, 235
+        HORZGUIDE, 292
     END
 
     IDD_STARTOPTIONS, DIALOG
@@ -4811,6 +4866,28 @@ BEGIN
         RIGHTMARGIN, 208
         TOPMARGIN, 7
         BOTTOMMARGIN, 83
+    END
+
+    IDD_CHALLENGERESPONSE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 511
+        VERTGUIDE, 165
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 335
+        HORZGUIDE, 30
+        HORZGUIDE, 35
+        HORZGUIDE, 59
+        HORZGUIDE, 76
+        HORZGUIDE, 100
+        HORZGUIDE, 105
+        HORZGUIDE, 129
+        HORZGUIDE, 134
+        HORZGUIDE, 157
+        HORZGUIDE, 162
+        HORZGUIDE, 187
+        HORZGUIDE, 192
+        HORZGUIDE, 239
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5379,6 +5456,7 @@ BEGIN
                             "Text mit der inversen Permutation entschlüsseln"
     IDS_ALINK_ERROR_MESSAGE_TITLE "Fehler"
     IDS_ALINK_ERROR_MESSAGE "Alink konnte nicht aufgelöst werden."
+    IDS_HELP_ERROR          "Die Hilfe konnte nicht gefunden werden in: "
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5940,7 +6018,7 @@ BEGIN
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verifikation fehlgeschlagen! - Die Schlüssel von Alice und Bob sind nicht identisch!"
     IDS_DH_PP_SECRET_DANGEROUS 
-                            "Das von Ihnen eingegebene Geheimnis S ist entweder gleich 0 oder gleich p-1. Bitte beachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist, da der Sessionkey dann zu 1 wird!"
+                            "Das von Ihnen eingegebene Geheimnis S ist entweder gleich Null oder gleich einem weiteren, kritischen Wert.\nBeachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist!"
     IDS_DH_PP_NO_USER_INPUT "Bitte lassen Sie die Eingabefelder nicht leer!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "Der harmlosen Nachricht wurden %d Bytes hinzugefügt."
@@ -6568,6 +6646,7 @@ BEGIN
     ID_SCRIPT               "Zeigt das CrypTool Script an (Acrobat Reader erforderlich)"
     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
                             "Visualisierung eines Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll..."
+    ID_CHALLENGE_RESPONSE   "Visualisierung von Authentisierungsverfahren"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6682,8 +6761,54 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DH_PP_SECRET_PREDICTABLE 
-                            "Sie haben den Wert 1 als Geheimnis gewählt. Bitte beachten Sie, dass das Verfahren mit dieser Wahl unter Umständen nicht sicher ist, weil der zu ermittelnde Sessionkey den Wert des öffentlichen Generators annehmen könnte!"
+    IDS_modeText_Start      "Willkommen zur Demonstration des Challenge-Response-Protokolls.\r\nDas Protokoll wird in mehreren Szenarien eingeführt.\r\nMit den Knöpfen auf der linken Seite können Sie zwischen den einzelnen Szenarien wählen. Es ist sinnvoll, die Szenarien von oben nach unten durchzuarbeiten.\r\nWeiterführende Informationen erhalten Sie in jedem Szenario über die Online-Hilfe. Die Online-Hilfe sollten Sie sich vor der ersten Verwendung ansehen.\r\n\r\nBitte fahren Sie nun mit 'Einführung' fort."
+    IDS_modeText_Einfuehrung 
+                            "Einführung: Allen folgenden Szenarien liegt das oben gezeigte Netzwerk mit seinen Elementen zugrunde:\r\nQuadrate sind Rechner und ihre Benutzer,\r\nLinien sind die Netzwerkverbindungen dazwischen.\r\nSie schlüpfen in die Rolle eines Angreifers und versuchen Informationen zu erlangen, mit denen Sie sich bei Server 1 authentifizieren können. Dazu stehen Ihnen die Aktionen Leitungen verbinden und trennen sowie Rechner angreifen und den Angriff auf den Rechner beenden zur Verfügung. Alle Aktionen werden durchgeführt, indem Sie zunächst den entsprechenden Knopf auswählen und dann auf den gewünschten Rechner oder die gewünschte Verbindung klicken. Verbindungen zwischen Angreifer und einem Router werden durch ’Verbinden’ und Anklicken des Routers hergestellt. Wenn einer der beiden Knöpfe zum Authentifizieren gedrückt wird, startet das Protokoll und zwischen den Rechnern werden Datenpakete verschickt. Angegriffene Rechner schicken eine Kopie aller durchgehenden Pakete sowie alle ihre geheimen Daten an den Angreifer. Mit 'Maskieren' können Sie einen Man-in-the-middle-Angriff durchführen.\r\nDurch ’Szenario zurücksetzen’ können Sie ein Szenario in den ursprünglichen Zustand versetzen.\r\n\r\nBevor Sie das erste Szenario auswählen, können Sie hier alle Funktionen ausprobieren. Viel Spaß!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_modeText_Passwoerter 
+                            "Passwort: In diesem Szenario authentifiziert sich der Client durch ein Passwort, das er und Server 1 kennen.\r\n\r\nIhre Aufgabe als Angreifer ist es, sich bei Server 1 als Client auszugeben und als solcher auch zu authentifizieren."
+    IDS_modeText_Einmalpasswoerter 
+                            "Einmalpasswörter: Um dem Angriff des Passwort-Szenarios zu entgehen, haben Client und Server 1 vereinbart, nach jeder erfolgten Authentifikation das Passwort zu wechseln. Dafür haben sie eine Liste mit Einmalpasswörtern angelegt und ausgetauscht. Wurde ein Einmalpasswort für die Authentifizierung verwendet, wird es als benutzt gekennzeichnet und kann nicht noch einmal verwendet werden. Für die nächste Authentifizierung muss ein anderes Einmalpasswort der Liste verwendet werden.\r\n\r\nIhre Aufgabe ist es wieder, sich als Angreifer so bei Server 1 zu authentifizieren, dass er Sie für den Client hält."
+    IDS_modeText_ChallengeResponseSymmetrisch 
+                            "Challenge Response (mit symmetrischer Verschlüsselung): Nach dem Angriff auf Einmalpasswörter setzen der Client und die Server nun ein Verschlüsselungsverfahren mit einem geheimen Schlüssel ein. Um den organisatorischen Aufwand gering zu halten, wird nicht für jedes Paar aus einem Client und einem Server ein neuer Schlüssel erzeugt und verteilt, sondern alle vertrauenswürdigen Parteien erhalten einen gemeinsamen Schlüssel. Zur Authentifizierung schickt der Server eine Zufallszahl, genannt Challenge (Herausforderung) an den Client. Durch Verschlüsselung mit dem geheimen Schlüssel generiert der Client daraus die Response (Antwort) und schickt diese zurück an den Server. Der Server entschlüsselt die Response und überprüft, ob die entschlüsselte Challenge mit der von ihm geschickten übereinstimmt. Ist dies der Fall, ist die Authentifikation erfolgreich; wenn nicht, wird der Client abgewiesen. Der Server kann dem Client vertrauen, weil kein Außenstehender den geheimen Schlüssel kennt und deshalb die Response nicht korrekt erzeugen kann.\r\n\r\nAber vielleicht haben die beiden etwas übersehen...weitere Tipps in der Hilfe."
+    IDS_modeText_ChallengeResponseAsymmetrisch 
+                            "Challenge Response (mit asymmetrischer Verschlüsselung): Dieses Mal wird das Challenge-Response-Verfahren mit asymmetrischer (public key) Verschlüsselung durchgeführt. Jeder Teilnehmer besitzt ein eigenes Schlüsselpaar aus einem privaten, den nur der Teilnehmer kennt, und einem öffentlichen Schlüssel, den jeder kennt. Zur Authentifizierung wird wieder eine Challenge vom Server an den Client geschickt, der diese dann mit seinem geheimen Schlüssel signiert und das Ergebnis als Response zurückschickt. Jetzt kann jeder, der im Besitz des öffentlichen Schlüssels des Clients ist, also auch der Server, die Response prüfen, also überprüfen ob die Challenge mit dem privaten Schlüssel des Clients, den nur er haben kann, signiert wurde.\r\n\r\nTrotzdem, mit einem kleinen Trick kann sich der Angreifer vielleicht doch noch bei Server1 als Client authentifizieren."
+    IDS_modeText_WechselseitigeAuthentifikation 
+                            "Wechselseitige Authentifikation: Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings gleichzeitig in beide Richtungen angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. Dadurch wird ein Angriff auf Protokollebene unmöglich. Sie können alle vorangegangenen Lösungen ausprobieren, dieses Protokoll ist damit nicht zu knacken. Beachten Sie aber, dass es andere Angriffe geben kann -  gegen die verwendeten kryptografischen Verfahren oder gegen die physikalischen und logischen Verbindungen. Angriffe auf kryptografische Verfahren können mit CrypTool ausprobiert werden, zu Angriffen gegen die physikalischen und logischen Verfahren sei auf die Hilfe verwiesen."
+    IDS_dataCaption_Passwort "Passwort: "
+    IDS_dataCaption_Einmalpasswort "Aktuelles Passwort:  "
+    IDS_dataCaption_geheimerSchluesselClient "Private Key (Client): "
+    IDS_dataCaption_oeffentlicherSchluesselClient "Public Key (Client): "
+    IDS_dataCaption_geheimerSchluesselServer1 "Private Key (Server): "
+    IDS_dataCaption_oeffentlicherSchluesselServer1 "Public Key (Server): "
+    IDS_dataCaption_ChallengeFromServer1 "Challenge von Server: "
+    IDS_dataCaption_ResponseToServer1 "Response an Server: "
+    IDS_dataCaption_ChallengeFromClient "Challenge von Client: "
+    IDS_dataCaption_ResponseToClient "Response an Client: "
+    IDS_dataCaption_Schluessel "Key: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_Message_ComputerToStrong "Dieser Rechner ist zu stark gesichert!"
+    IDS_Message_NoConnectionToComputer 
+                            "Sie haben keine Verbindung zu diesem Rechner!"
+    IDS_Message_NoScenarioChosen "Sie haben kein Szenario ausgewählt."
+    IDS_Message_ProtocolInterrupted "Das Protokoll wurde gestört."
+    IDS_Message_AuthenticationFailed "Authentifikation fehlgeschlagen."
+    IDS_Message_AuthenticationOfAttackerSuccessfull 
+                            "Authentifikation des Angreifers erfolgreich."
+    IDS_Message_ManInTheMiddleSuccessful 
+                            "Authentifikation des Angreifers als 'Man In The Middle' durch Maskierung erfolgreich."
+    IDS_Message_AuthenticationOfClientSuccessful 
+                            "Authentifikation des Clients erfolgreich."
+    IDS_Message_CannotMaskConnectionsMisconfiguration 
+                            "Maskierung des Angreifers bei dieser Verbindungskonfiguration nicht möglich."
+    IDS_Message_MaskBeforeProtocolStart 
+                            "Maskierung nur vor Beginn des Protokolls möglich."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -7324,36 +7449,32 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 291, 273
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,119,244,50,19
-    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
+    DEFPUSHBUTTON   "OK",IDOK,65,276,50,15
+    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,166,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
-    CTEXT           "Henrik Koy",IDC_STATIC,14,94,270,8,NOT WS_GROUP
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,152,8
+    CTEXT           "Henrik Koy",IDC_STATIC,14,94,152,8,NOT WS_GROUP
+    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...and many more.",
+                    IDC_STATIC,14,205,152,57
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,270,17
-    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,277,
+                    59,152,17
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
                     23,BS_CENTER
-    GROUPBOX        " Design, Support ",IDC_STATIC,7,49,277,31,BS_CENTER
+    GROUPBOX        " Design, Support ",IDC_STATIC,7,49,166,31,BS_CENTER
     GROUPBOX        " Main person taking overall care for version 1.3 ",
-                    IDC_STATIC,7,83,277,24,BS_CENTER
+                    IDC_STATIC,7,83,166,24,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",
-                    IDC_STATIC,7,110,277,81,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,195,277,43,BS_CENTER
-    LTEXT           "Martin Bartosch,\nKlaus Esslinger,\nPeter Gruber,\nMatej Matejicek,\nDaniel Saffran,\nChristian Tobias,",
-                    IDC_STATIC,18,122,84,67
-    LTEXT           "Jan Blumenstein,\nBartol Filipovic,\nJens Liebehenschel,\nChristian Mletzko,\nMark Santiago,\nMyriam Zeuner-Guerrier.",
-                    IDC_STATIC,102,122,84,67
-    LTEXT           "Richard Christensen,\nThomas Gauweiler,\nFlorian Marchal,\nRoger Oyono,\nThomas Thiele,",
-                    IDC_STATIC,186,122,85,63
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,209,84,26
-    LTEXT           "Matthias Büger\nWolfgang Scondo\n...and many others.",
-                    IDC_STATIC,102,209,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,209,85,26
+                    IDC_STATIC,7,110,166,82,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,195,166,70,BS_CENTER
+    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
+                    IDC_STATIC,17,122,150,40
+    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,17,162,150,27
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -9605,6 +9726,65 @@ BEGIN
     GROUPBOX        "Prime number p",IDC_STATIC,7,77,307,80
 END
 
+IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Challenge Response Demo"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Start",IDC_START_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE | WS_GROUP,5,5,75,25
+    CONTROL         "Introduction",IDC_EINFUEHRUNG_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,34,75,
+                    25
+    CONTROL         "Password",IDC_PASSWORT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,85,75,
+                    25
+    CONTROL         "One-time-passwords",IDC_EINMALPASSWOERTER,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,114,75,
+                    25
+    CONTROL         "Challenge-Response (symmetric)",
+                    IDC_CHALLENGERESPONSE1_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE,5,142,75,25
+    CONTROL         "Challenge-Response (asymmetric)",
+                    IDC_CHALLENGERESPONSE2_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE,5,172,75,25
+    CONTROL         "Mutual authentication",IDC_WECHSELSEITIG_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,202,75,
+                    25
+    PUSHBUTTON      "Quit",IDC_EXIT_BUTTON,7,315,75,20
+    EDITTEXT        IDC_EDIT,89,244,422,91,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    CONTROL         "",IDC_ACTION_NOTHING_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | BS_MULTILINE | WS_GROUP,465,25,40,20,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Link",IDC_ACTION_CONNECT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,66,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Unlink",IDC_ACTION_DISCONNECT_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,87,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Attack station",IDC_ACTION_ATTACK_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,465,109,
+                    40,20,WS_EX_CLIENTEDGE
+    CONTROL         "Quit attacking station",IDC_ACTION_REMOVE_ATTACK_RADIO,
+                    "Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,
+                    465,131,40,30,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Authenticate client",IDC_AUTHENTICATE_CLIENT_BUTTON,104,
+                    51,60,21,BS_MULTILINE
+    PUSHBUTTON      "Authenticate attacker",IDC_AUTHENTICATE_ATTACKER_BUTTON,
+                    130,172,68,22,BS_MULTILINE
+    CONTROL         "Mask",IDC_CHECK_MASK,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,130,196,68,16
+    PUSHBUTTON      "Help for scenario",IDC_SCENARIO_HELP_BUTTON,445,223,66,
+                    16
+    PUSHBUTTON      "Reset scenario",IDC_RESET_BUTTON,92,221,88,17
+    GROUPBOX        "Range of scenarios",IDC_CR_SCENARIO_CHOOSE,1,74,83,158,
+                    BS_CENTER
+    GROUPBOX        "Actions",IDC_CR_ACTIONS_ATTACKER,463,53,44,111,
+                    BS_CENTER
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9830,6 +10010,7 @@ BEGIN
 
         MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "&Analysis"
     BEGIN
@@ -10035,6 +10216,7 @@ BEGIN
 
         MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "&Analysis"
     BEGIN
@@ -10190,6 +10372,7 @@ BEGIN
 
         MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "&Options"
     BEGIN
@@ -10361,6 +10544,7 @@ BEGIN
 
         MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
+        MENUITEM "&Challenge Response Demo",    ID_CHALLENGE_RESPONSE
     END
     POPUP "&Analysis"
     BEGIN
@@ -10810,6 +10994,7 @@ IDB_SCA_BUTTON9_R_D     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Butto
 IDB_SCA_BUTTON9_R_F     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_F.bmp"
 IDB_SCA_BUTTON9_R_U     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_U.bmp"
 IDB_SCA_BUTTON9_R_X     BITMAP  DISCARDABLE     "res\\SCABitmaps_en\\bmps\\Button9_R_X.bmp"
+IDB_CR_BACKGROUND_BITMAP BITMAP  DISCARDABLE     "res\\cr_backg.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -11103,13 +11288,8 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 18
-        VERTGUIDE, 102
-        VERTGUIDE, 186
-        VERTGUIDE, 284
-        BOTTOMMARGIN, 263
-        HORZGUIDE, 244
+        BOTTOMMARGIN, 291
+        HORZGUIDE, 277
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -11428,6 +11608,28 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 187
         HORZGUIDE, 64
+    END
+
+    IDD_CHALLENGERESPONSE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 511
+        VERTGUIDE, 165
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 335
+        HORZGUIDE, 30
+        HORZGUIDE, 35
+        HORZGUIDE, 59
+        HORZGUIDE, 76
+        HORZGUIDE, 100
+        HORZGUIDE, 105
+        HORZGUIDE, 129
+        HORZGUIDE, 134
+        HORZGUIDE, 157
+        HORZGUIDE, 162
+        HORZGUIDE, 187
+        HORZGUIDE, 192
+        HORZGUIDE, 239
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11975,6 +12177,7 @@ BEGIN
     IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
     IDS_ALINK_ERROR_MESSAGE_TITLE "Error"
     IDS_ALINK_ERROR_MESSAGE "Alink could not be resolved."
+    IDS_HELP_ERROR          "Help could not be found at: "
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12515,7 +12718,7 @@ BEGIN
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verification failed! The keys of Alice and Bob are NOT identical!"
     IDS_DH_PP_SECRET_DANGEROUS 
-                            "The secret number S you chose is either 0 or p-1. Please note that the proceeding will not be safe because the Session Key, which is to be determined, will turn out to be 1!"
+                            "The secret number you chose is either zero or otherwise considered critical!\nThus, the proceeding might not be safe!"
     IDS_DH_PP_NO_USER_INPUT "Please fill all entry fields!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "%d bytes were added to the harmless message."
@@ -13017,7 +13220,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_DH_PP_PRIME_INVALID "The number you chose is NOT a prime!\nThus, the proceeding might not be safe!"
     IDS_DH_PP_GENERATOR_INVALID 
-                            "You chose a generator (g) which is either 0 or a multiple of the prime module (p) or otherwise considered critical!\nThus, the following proceeding might not be safe!"
+                            "You chose a generator (g) which is either zero, a multiple of the prime module (p) or otherwise considered critical!\nThus, the following proceeding might not be safe!"
     IDS_DH_DATA_INCONSISTENCY "An internal error has occured!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Please use natural numbers in decimal format only (no special characters)!"
@@ -13111,6 +13314,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_SCRIPT               "Opens the CrypTool script (Acrobat Reader required)"
+    ID_CHALLENGE_RESPONSE   "Demonstration of several authentication methods"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -13122,8 +13326,53 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DH_PP_SECRET_PREDICTABLE 
-                            "You chose 1 as the secret number S. Please note that the proceeding might not be safe because the Session Key, which is to be determined, might equal the public generator!"
+    IDS_modeText_Start      "Welcome to the demonstration of the Challenge-Response-protocol.\r\nYou will develop the protocol in several scenarios.\r\nThe different scenarios can be selected by the buttons on the left side. It makes sense to wade through the scenarios top down.\r\nYou can get further information by the use of the online-help. You should take a look at the online-help before your first usage.\r\n\r\nPlease continue with 'Introduction' now."
+    IDS_modeText_Einfuehrung 
+                            "Introduction: The above shown network with its elements forms the basis of the following scenarios:\r\nQuadrates illustrate computers and their users,\r\nlines show the network connections between these.\r\nYour cast will be the role of the attacker and your task is to get information to authenticate yourself at Server 1. For that purpose the actions link and unlink as well as attack station and quit attacking station are available. All actions can be performed by choosing the corresponding button and then click on the desired station or conduction. Connections between the attacker and a router can be established by choosing 'Link' and click on the according router. By pushing one of the 'Authenticate...' buttons, the authentication protocol is started and data packets are sent between the computers. Attacked computers send a copy of all packets as well as all their secrect data at the attacker. By choosing 'Mask' you can start a man-in-the-middle-attack.\r\nTo restore the initial state of a scenario press 'Reset "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_modeText_Passwoerter 
+                            "Password: In this scenario the client authenticates himself by means of a password that he and server 1 know.\r\n\r\nYour job is to authenticate yourself as attacker at server 1 so that he expects you to be the client."
+    IDS_modeText_Einmalpasswoerter 
+                            "One-time-passwords: In order to avoid the attack of the password-scenario, client and server 1 have agreed to change the password after each authentication taken place. Therefor they have created a list of one-time-passwords they know both. After authentication with a current password, this one will be marked as used and it cannot be used again. For next authentication another one-time-password of the list must be used.\r\n\r\nAgain your exercise is to authenticate yourself as attacker at server 1 so that he expects you to be the client."
+    IDS_modeText_ChallengeResponseSymmetrisch 
+                            "Challenge Response (with symmetric encryption): After the attack at the one-time-passwords client and servers use symmetric encryption by means of a secrect key now. In order to minimize the organisational effort, not each pair of client and server get an own key, but all confidential parties get a common secret key. For authentication the server sends a random number, called Challenge, to the client. By the use of encryption the client generates the response and sends it back to the server. The server decrypts the response and checks whether the decrypted response conforms with the sent one. If that is the case, authentication is successful; otherwise the client is rejected. The server can trust the client, because no outsider knows the secret key and therefor can not generate the correct Response.\r\n\r\nBut maybe something has been overlooked by them...you can find more hints in the online-help."
+    IDS_modeText_ChallengeResponseAsymmetrisch 
+                            "Challenge Response (with asymmetric encryption): This time the Challenge Response procedure is performed with asymmetric (public key) encryption. Each participant holds an own pair of key, consisting of a public key that everyone knows and a secret one that only the owner knows. Again, for authentication the server sends a Challenge to the client, who signs it with his secret key and then sends the result back to the server. Now everyone, knowing the client´s public key, so as well the server, can verify the Response, viz verify that the challenge was signed by the use of the client´s private key, of which only he is owner.\r\n\r\nEven so the attacker perhaps can authenticate himself as client at server 1 by a trick."
+    IDS_modeText_WechselseitigeAuthentifikation 
+                            "Mutual Authentication: This scenario is based upon asymmetric encryption, too. But this time it is used synchronous in both directions. Viz the server sends a challenge to the client, which the client signs and returns to the server with his own challenge. Now the server can verify by the use of the client´s public key that the signed challenge (response from the client) can only derive from the client, because he is the only one with the according private key. To prove his own identity, the server signs the client´s challenge by the use of his private key and returns this to the client. Now, the client can verify the origin of the server´s response by means of the server´s public key. Thus both can be sure to know to whom they talk and basing on that establish a secure (encrypted) channel by exchanging an asymmetrical encrpyted session key.Thus an attack at the level of protocols gets impossible. You can give all previous solutions a try, but you won´t be able to crack that protocol. But please take attacks to crack the encryption or the physical and logical connections into account. Attacking cryptografical methods can be tried with CrypTool. For more information according attacks to the physical or logical operations please see the online help."
+    IDS_dataCaption_Passwort "Password: "
+    IDS_dataCaption_Einmalpasswort "Current password:  "
+    IDS_dataCaption_geheimerSchluesselClient "Private Key (Client): "
+    IDS_dataCaption_oeffentlicherSchluesselClient "Public Key (Client): "
+    IDS_dataCaption_geheimerSchluesselServer1 "Private Key (Server): "
+    IDS_dataCaption_oeffentlicherSchluesselServer1 "Public Key (Server): "
+    IDS_dataCaption_ChallengeFromServer1 "Challenge from server: "
+    IDS_dataCaption_ResponseToServer1 "Response to server: "
+    IDS_dataCaption_ChallengeFromClient "Challenge from client: "
+    IDS_dataCaption_ResponseToClient "Response from client: "
+    IDS_dataCaption_Schluessel "Key: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_Message_ComputerToStrong "This station is protected too strong!"
+    IDS_Message_NoConnectionToComputer "You have no link up to this computer!"
+    IDS_Message_NoScenarioChosen "You have not selected a scenario."
+    IDS_Message_ProtocolInterrupted "The protocol was disturbed."
+    IDS_Message_AuthenticationFailed "Authentication failed."
+    IDS_Message_AuthenticationOfAttackerSuccessfull 
+                            "Authentication of attacker was successful."
+    IDS_Message_ManInTheMiddleSuccessful 
+                            "Authentication of attacker as 'Man In The Middle' successful by the use of masking."
+    IDS_Message_AuthenticationOfClientSuccessful 
+                            "Authentication of client successful."
+    IDS_Message_CannotMaskConnectionsMisconfiguration 
+                            "By use of that connection-configuration masking is not possible."
+    IDS_Message_MaskBeforeProtocolStart 
+                            "Masking only is possible before starting the protocol."
 END
 
 #endif    // Englisch (GB) resources
