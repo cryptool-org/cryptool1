@@ -49,19 +49,16 @@ void CSchluesselAusgabeLinear::OnCopyKey()
 {
 	//In der Zwischen Ablage kopieren
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	if ( FALSE == CopyKey(strTitle, m_Key) )
-	{
-		m_CtrlKey.SetSel(0,-1); 
-		m_CtrlKey.Copy();
-	}
-	CopyKey(strTitle, m_Key);
+	CopyKey(strTitle, m_Key); 
+	m_CtrlKey.SetSel(0,-1); 
+	m_CtrlKey.Copy();
 }
 
 BOOL CSchluesselAusgabeLinear::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 
-	//if (s_alternativeWindowText[0])
+	// if (s_alternativeWindowText[0])
 	//	SetWindowText(s_alternativeWindowText);
 
 
@@ -77,8 +74,10 @@ int CSchluesselAusgabeLinear::DoModal()
 }
 
 
+/*
 void CSchluesselAusgabeLinear::SetAlternativeWindowText(LPCTSTR s_title)
 {
     strncpy(s_alternativeWindowText, s_title, 126);
 	s_alternativeWindowText[126]=0;
 }
+*/

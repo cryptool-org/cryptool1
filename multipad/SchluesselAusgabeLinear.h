@@ -4,6 +4,8 @@
 // SchluesselAusgabeLinear.h : Header-Datei
 //
 
+#include "crypt.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CSchluesselAusgabeLinear 
 
@@ -12,8 +14,8 @@ class CSchluesselAusgabeLinear : public CDialog
 // Konstruktion
 public:
 	CString Key;
-	char strTitle[13];
-	void SetAlternativeWindowText(LPCTSTR s_title);
+	char strTitle[KEYDATA_HASHSTRING_LENGTH+1];
+//	void SetAlternativeWindowText(LPCTSTR s_title);
 	CSchluesselAusgabeLinear(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -36,7 +38,7 @@ public:
 // Implementierung
 
 private:
-    char s_alternativeWindowText[127];
+//    char s_alternativeWindowText[127];
 
 protected:
 

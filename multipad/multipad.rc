@@ -32,12 +32,13 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,197,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,11,29,155,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,53,58,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,153,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,5,197,16
+    LTEXT           "Static",IDC_STATIC_TEXT,7,7,197,17
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,82,53,57,19
-    PUSHBUTTON      "key laden",IDC_BUTTON2,133,75,64,8
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    192,28,22,20
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -1490,7 +1491,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Liste der Homophonen",IDC_STATIC,92,283,72,8
     LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
-    PUSHBUTTON      "Schlüssel aus der &Zwischenablage laden",IDC_BUTTON2,
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     147,332,149,17
     EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
@@ -2752,6 +2753,11 @@ IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
 IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
 IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
 IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool.bmp"
+PASTEU                  BITMAP  DISCARDABLE     "res\\EditPaste.bmp"
+PASTED                  BITMAP  DISCARDABLE     "res\\EditPastebmp.bmp"
+PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
+PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2925,6 +2931,12 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
+    IDD_DIALOG_KEY_INPUT, DIALOG
+    BEGIN
+        VERTGUIDE, 208
+        HORZGUIDE, 48
+    END
+
     IDD_DIALOG_PLOT_PARAM, DIALOG
     BEGIN
         VERTGUIDE, 106
@@ -3861,10 +3873,10 @@ BEGIN
     IDS_STRING_ERR_ZIP_FILE "Fehler im ZIP-File"
     IDS_STRING_MSG_ZIP_DECOMPRESSION_OF "ZIP-Dekompression von <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE "Eingabe maximal %d Bytes"
-    IDS_STRING_DES_ECB      "DES (ECB Modus)"
-    IDS_STRING_DES_CBC      "DES (CBC Modus)"
-    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC Modus)"
-    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB Modus)"
+    IDS_STRING_DES_ECB      "DES (ECB)"
+    IDS_STRING_DES_CBC      "DES (CBC)"
+    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC)"
+    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB)"
     IDS_STRING_DECRYPTION_OF "%s Entschlüsselung von <%s>"
 END
 
@@ -4500,7 +4512,37 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_CRYPT_CAESAR        "Caesar"
+    IDS_CRYPT_VIGENERE      "Vigenère"
+    IDS_CRYPT_HILL          "Hill"
+    IDS_CRYPT_HOMOPHONE     "Homophone"
+    IDS_CRYPT_SUBSTITUTION  "Substitution"
+    IDS_CRYPT_PLAYFAIR      "Playfair"
+    IDS_CRYPT_ADDITION      "Addition"
+    IDS_CRYPT_XOR           "XOR"
+    IDS_CRYPT_VERNAM        "Vernam"
+    IDS_CRYPT_PERMUTATION   "Permutation"
+    IDS_CRYPT_IDEA          "IDEA"
+    IDS_CRYPT_RC2           "RC2"
+    IDS_CRYPT_RC4           "RC4"
+    IDS_CRYPT_DES_ECB       "DES (ECB)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_STRING_MSG_PERM     "Permuationseingabe"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CRYPT_DES_CBC       "DES (CBC)"
+    IDS_CRYPT_TRIPLE_DES_ECB "Triple-DES (ECB)"
+    IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
+    IDS_CRYPT_MARS          "Mars"
+    IDS_CRYPT_RC6           "RC6"
+    IDS_CRYPT_RIJNDAEL      "Rijndael"
+    IDS_CRYPT_SERPENT       "Serpent"
+    IDS_CRYPT_TWOFISH       "Twofish"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -7818,10 +7860,10 @@ BEGIN
     IDS_STRING_ERR_ZIP_FILE "Error in ZIP file"
     IDS_STRING_MSG_ZIP_DECOMPRESSION_OF "ZIP decompression of <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE "Maximum input %d bytes"
-    IDS_STRING_DES_ECB      "DES (ECB mode)"
-    IDS_STRING_DES_CBC      "DES (CBC mode)"
-    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC mode)"
-    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB mode)"
+    IDS_STRING_DES_ECB      "DES (ECB)"
+    IDS_STRING_DES_CBC      "DES (CBC)"
+    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC)"
+    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB)"
     IDS_STRING_DECRYPTION_OF "%s decryption of <%s>"
 END
 
@@ -8443,7 +8485,37 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_CRYPT_CAESAR        "Caesar"
+    IDS_CRYPT_VIGENERE      "Vigenère"
+    IDS_CRYPT_HILL          "Hill"
+    IDS_CRYPT_HOMOPHONE     "Homophone"
+    IDS_CRYPT_SUBSTITUTION  "Substitution"
+    IDS_CRYPT_PLAYFAIR      "Playfair"
+    IDS_CRYPT_ADDITION      "Addition"
+    IDS_CRYPT_XOR           "XOR"
+    IDS_CRYPT_VERNAM        "Vernam"
+    IDS_CRYPT_PERMUTATION   "Permutation"
+    IDS_CRYPT_IDEA          "IDEA"
+    IDS_CRYPT_RC2           "RC2"
+    IDS_CRYPT_RC4           "RC4"
+    IDS_CRYPT_DES_ECB       "DES (ECB)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CRYPT_DES_CBC       "DES (CBC)"
+    IDS_CRYPT_TRIPLE_DES_ECB "Triple-DES (ECB)"
+    IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
+    IDS_CRYPT_MARS          "Mars"
+    IDS_CRYPT_RC6           "RC6"
+    IDS_CRYPT_RIJNDAEL      "Rijndael"
+    IDS_CRYPT_SERPENT       "Serpent"
+    IDS_CRYPT_TWOFISH       "Twofish"
 END
 
 #endif    // Englisch (GB) resources

@@ -18,7 +18,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // dia1 dialog
 
-
 dia1::dia1(int maxlen, CWnd* pParent /*=NULL*/)
 	: CDialog(dia1::IDD, pParent)
 {
@@ -96,6 +95,8 @@ void dia1::OnUpdateEdit1()
 	CString res;
 
 	UpdateData(TRUE); /* get the displayed value in m_text */
+
+
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
@@ -153,11 +154,29 @@ BOOL dia1::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+
 	// TODO: Zusätzliche Initialisierung hier einfügen
+	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+	
+
+
 	if (s_alternativeWindowText[0])
 		SetWindowText(s_alternativeWindowText);
 	m_EncryptionButton.EnableWindow(FALSE);
 	m_DecryptionButton.EnableWindow(FALSE);	
+
+	int i;
+	CString Title;
+	Title=s_alternativeWindowText;
+
+	if ( IsKeyEmpty( Title ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -169,10 +188,15 @@ void dia1::OnPasteKey()
 	CString Title;
 	Title=s_alternativeWindowText;
 
-	for (i=0; i<12; i++ ) if ( Title[i] == '\0' || Title[i] == ' ' ) break;
-						  else strTitle[i]=Title[i]; 
-	strTitle[i] = '\0';
+	ExtractStrKeyType( strTitle, Title );
+
 	UpdateData(TRUE);
-	PasteKey(strTitle,m_text);
+	if ( PasteKey(strTitle,m_text) )
+	{
+		m_EncryptionButton.EnableWindow(TRUE);
+		m_DecryptionButton.EnableWindow(TRUE);	
+	}
 	UpdateData(FALSE);
 }
+
+

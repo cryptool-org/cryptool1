@@ -917,18 +917,40 @@
 #define IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 37642
 #define IDS_STRING_FAKTORISATION_VERFAHREN 37643
 #define IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 37644
-#define IDS_STRING_REFERENCE_FILE       43660
-#define IDS_STRING_TESTS_ERGEBNIS_INFO  43661
-#define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 43662
-#define IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 43663
+#define IDS_CRYPT_CAESAR                37650
+#define IDS_CRYPT_VIGENERE              37651
+#define IDS_CRYPT_HILL                  37652
+#define IDS_CRYPT_HOMOPHONE             37653
+#define IDS_CRYPT_SUBSTITUTION          37654
+#define IDS_CRYPT_PLAYFAIR              37655
+#define IDS_CRYPT_ADDITION              37656
+#define IDS_CRYPT_XOR                   37657
+#define IDS_CRYPT_VERNAM                37658
+#define IDS_CRYPT_PERMUTATION           37659
+#define IDS_CRYPT_IDEA                  37660
+#define IDS_CRYPT_RC2                   37661
+#define IDS_CRYPT_RC4                   37662
+#define IDS_CRYPT_DES_ECB               37663
+#define IDS_CRYPT_DES_CBC               37664
+#define IDS_CRYPT_TRIPLE_DES_ECB        37665
+#define IDS_CRYPT_TRIPLE_DES_CBC        37666
+#define IDS_CRYPT_MARS                  37667
+#define IDS_CRYPT_RC6                   37668
+#define IDS_CRYPT_RIJNDAEL              37669
+#define IDS_CRYPT_SERPENT               37670
+#define IDS_CRYPT_TWOFISH               37671
+#define IDS_STRING_REFERENCE_FILE       37700
+#define IDS_STRING_TESTS_ERGEBNIS_INFO  37701
+#define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 37702
+#define IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 37703
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        261
+#define _APS_NEXT_RESOURCE_VALUE        268
 #define _APS_NEXT_COMMAND_VALUE         33153
-#define _APS_NEXT_CONTROL_VALUE         1303
+#define _APS_NEXT_CONTROL_VALUE         1307
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

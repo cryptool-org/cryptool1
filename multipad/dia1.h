@@ -6,6 +6,7 @@
 // dia1.h : header file
 //
 
+#include "crypt.h"
 #define MAX_VIGENERE	1024
 
 /////////////////////////////////////////////////////////////////////////////
@@ -14,8 +15,11 @@
 class dia1 : public CDialog
 {
 // Construction
+private:
+		CBitmapButton m_Paste;
+
 public:
-	char strTitle[13];
+	char strTitle[KEYDATA_HASHSTRING_LENGTH];
 	void SetAlternativeWindowText(LPCTSTR s_title);
 	long m_Decrypt;
 	int len;
@@ -56,8 +60,9 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
-private:
+protected:
     char s_alternativeWindowText[127];
+
 };
 
 #endif // DIA1_H

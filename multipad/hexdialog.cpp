@@ -80,6 +80,7 @@ BEGIN_MESSAGE_MAP(hexdialog, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateKey)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteHexKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -111,3 +112,22 @@ void hexdialog::OnUpdateKey()
 	}
 	UpdateData(FALSE);
 }
+
+void hexdialog::OnPasteHexKey() 
+{
+	int i;
+	CString Title;
+	Title=s_alternativeWindowText;
+
+	ExtractStrKeyType( strTitle, Title );
+
+	UpdateData(TRUE);
+	if ( PasteKey(strTitle,m_einstr) )
+	{
+		m_EncryptionButton.EnableWindow(TRUE);
+		m_DecryptionButton.EnableWindow(TRUE);	
+	}
+	UpdateData(FALSE);
+}
+
+

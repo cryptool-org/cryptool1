@@ -141,6 +141,18 @@ BOOL Dlg_homophone::OnInitDialog()
 
 	if ( DeactivateDecryptionButton )
 		m_ButtonDecryption.EnableWindow(FALSE);
+
+	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+
+	if ( IsKeyEmpty( "Homophone" ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
+
 	return(TRUE);
 }
 

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "MyEditView.h"
+#include "crypt.h"
 #include "SchluesselAusgabeLinear.h"
 #include "HillSchluesselAusgabe.h"
 #include "HillSchluesselAusgabeGross.h"
@@ -108,7 +109,8 @@ void CMyEditView::OnShowKey()
 		if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_LINEAR )
 		{
 			CSchluesselAusgabeLinear AusgabeFenster;
-			for (i=0; i<12; i++ ) if ( Title[i] == '\0' || Title[i] == ' ' ) break;
+			
+			for (i=0; i<KEYDATA_HASHSTRING_LENGTH; i++ ) if ( Title[i] == '\0' ) break;
 								  else AusgabeFenster.strTitle[i]=Title[i]; 
 			AusgabeFenster.strTitle[i] = '\0';
 

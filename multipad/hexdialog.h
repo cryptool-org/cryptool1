@@ -46,6 +46,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(hexdialog)
 	afx_msg void OnUpdateKey();
+	afx_msg void OnPasteHexKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

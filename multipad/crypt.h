@@ -1,6 +1,10 @@
 //////////////////////////////////////////////////////////////////
 // Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
+
+#ifndef __CRYPT_H
+#define __CRYPT_H
+
 #include "DlgFortschritt.h"
 
 typedef struct {
@@ -14,20 +18,26 @@ typedef struct {
 
 
 // ================================================================
+#define KEYDATA_TABLE_SIZE 37
+#define KEYDATA_HASHSTRING_LENGTH 30
+
 class KeyData {
-	char     keytype[12];
+	char     keytype[KEYDATA_HASHSTRING_LENGTH];
     CString  key;
 
 public:
 	KeyData() { keytype[0] = '\0'; key = _T(""); }
     friend BOOL CopyKey ( const char* KeyType, const CString &Key );
 	friend BOOL PasteKey( const char* KeyType, CString &Key ); 
+	friend BOOL IsKeyEmpty( const char* KeyType);
 };
 
 BOOL CopyKey ( const char* KeyType, const CString &Key );
 BOOL PasteKey( const char* KeyType, CString &Key ); 
+BOOL IsKeyEmpty( const char* KeyType);
+BOOL ExtractStrKeyType( char * KeyType, const char* keyStr );
 
-extern KeyData keylist[37];
+extern KeyData keylist[KEYDATA_TABLE_SIZE];
 // ================================================================
 
 
@@ -76,3 +86,5 @@ BOOL CheckTextSize( SymbolArray &text, int Threshold = 1 );
 void LoadText( const char *infile, SymbolArray &text );
 void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, int IDS_STRING_ID, 
 				 BOOL Decrypt = FALSE, int KeyType = SCHLUESSEL_LINEAR );
+
+#endif // __CRYPT_H

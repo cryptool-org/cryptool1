@@ -79,6 +79,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	CBitmapButton m_Paste;
 	void Init_ListBox();
 };
 
