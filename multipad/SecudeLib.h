@@ -62,11 +62,13 @@
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  aux_sprint_Certificate, SEC_PROTOTYPE_3(PSE, pse_handle, char*, string, Certificate	*, cert))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_LN2OctetString, SEC_PROTOTYPE_2(L_NUMBER_ARRAY, lnum, int, size))\
 	DoOneFn(PSE SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_create, SEC_PROTOTYPE_5(char*, psename, char*, cadir, char*, pin, SC_DATA*, sc_data, Boolean, onekeypaironly))\
+	DoOneFn(PSESel SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, sec_create, SEC_PROTOTYPE_4(char *, psename, char *, pin, SC_DATA *, sc_data, Boolean, onekeypaironly))\
 	DoOneFn(Certificate SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, af_cadb_get_Certificate, SEC_PROTOTYPE_2(PSE, pse_handle, OctetString*, serial))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_BString2OString, SEC_PROTOTYPE_1(BitString*, bstr))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_Certificate, SEC_PROTOTYPE_1(Certificate**, cert))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_SET_OF_IssuedCertificate, SEC_PROTOTYPE_1(SET_OF_IssuedCertificate**, isscertset))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_close, SEC_PROTOTYPE_1(PSE, pse_handle))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_close, SEC_PROTOTYPE_1(PSESel *, pse_sel))\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_encrypt_all, SEC_PROTOTYPE_5(PSE, pse_handle, OctetString*, inoctets, BitString*, outbits, Key*, key, DName*, dname))\
 	DoOneFn(SET_OF_IssuedCertificate SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, af_cadb_get_user, SEC_PROTOTYPE_2(PSE, pse_handle, Name*, name))\
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, th_get_last_error_text, SEC_PROTOTYPE_0())\
@@ -98,6 +100,7 @@
 	DoOneFn(PKRoot SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  af_pse_get_PKRoot, SEC_PROTOTYPE_1(PSE, pse_handle))\
 	DoOneFn(Certificate SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  af_PKRoot2Protocert, SEC_PROTOTYPE_1(PKRoot *, pkroot))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_PKRoot, SEC_PROTOTYPE_1(	PKRoot	**	, pkroot))\
+	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_RSAPrivateKey, SEC_PROTOTYPE_1(RSAPrivateKey **	, privkey))\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, pkcs12_encode, SEC_PROTOTYPE_3(P12_Safe *, safe, OctetString *, password, OctetString *, asn1_out))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_error, SEC_PROTOTYPE_0())\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_pse_update_PKRoot, SEC_PROTOTYPE_2(PSE, pse_handle, PKRoot *, pkroot))\
@@ -108,7 +111,6 @@
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_Certificate, SEC_PROTOTYPE_1(Certificate *, certificate))\
 	DoOneFn(AlgEnc SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_ObjId2AlgEnc, SEC_PROTOTYPE_1(ObjId *, given_objid))\
 	DoOneFn(RSAPrivateKey SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, d_RSAPrivateKey, SEC_PROTOTYPE_1(OctetString *, asn1_string))\
-	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_RSAPrivateKey, SEC_PROTOTYPE_1(RSAPrivateKey **	, privkey))\
 	DoOneFn(BitString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_KeyBits, SEC_PROTOTYPE_1(KeyBits *, kb))\
 	DoOneFn(AlgId SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_cpy_AlgId, SEC_PROTOTYPE_1(AlgId *, aid))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_KeyInfo, SEC_PROTOTYPE_1(KeyInfo *, ki))\
@@ -120,6 +122,13 @@
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_PrintableString, SEC_PROTOTYPE_1(char *, infostruct))\
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, d_PrintableString, SEC_PROTOTYPE_1(OctetString *, asn1string))\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_cmp_ObjId, SEC_PROTOTYPE_2(ObjId *, oid1, ObjId *, oid2))\
+	DoOneFn(ObjId SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  af_get_objoid, SEC_PROTOTYPE_1(char *, objname))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_pse_get_keysize, SEC_PROTOTYPE_4(PSE , pse_handle, int *, sig, int *, enc, AlgEnc *, sig_type))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_write, SEC_PROTOTYPE_2(PSESel	*, pse_sel, OctetString	 *, content))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_read, SEC_PROTOTYPE_2(PSESel *, pse_sel, OctetString *, content))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_read_PSE, SEC_PROTOTYPE_2(PSESel *, pse_sel, OctetString *, value))\
+	DoOneFn(KeyInfo SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  d_KeyInfo, SEC_PROTOTYPE_1(OctetString *, asn1_string))\
+	DoOneFn(AlgId SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  aux_Name2AlgId, SEC_PROTOTYPE_1(char *, name))\
 	DoOneData(AlgId, ripemd160WithRSASignature_aid)\
 	DoOneData(AlgId, shaWithRSASignature_aid)\
 	DoOneData(AlgId, md2WithRsaEncryption_aid)\
@@ -140,6 +149,7 @@
 	DoOneData(AlgId, ripemd160_aid)\
 	DoOneData(AlgId, sha1WithRSASignature_aid)\
 	DoOneData(AlgId, rsa_aid)\
+	DoOneData(AlgId, rsaEncryption_aid)\
 	DoOneData(AlgId, dsaWithSHA_aid)\
 	DoOneData(AlgId, dsaWithSHA1_aid)\
 	DoOneData(ObjId *, Uid_OID)\
