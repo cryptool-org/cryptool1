@@ -104,6 +104,10 @@ SOURCE=.\aestoolDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Help.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\HexEdit1.cpp
 # End Source File
 # Begin Source File
@@ -136,6 +140,10 @@ SOURCE=.\aestool.h
 # Begin Source File
 
 SOURCE=.\aestoolDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Help.h
 # End Source File
 # Begin Source File
 

@@ -6,6 +6,7 @@
 #include "aestoolDlg.h"
 #include "rijndael-api-fst.h"
 #include "splash.h"
+#include "help.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -71,6 +72,7 @@ CAestoolDlg::CAestoolDlg(CWnd* pParent /*=NULL*/)
 	m_NameSrc = _T("");
 	m_NameDst = _T("");
 	m_HexString = _T("");
+	m_Radio = -1;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -80,6 +82,9 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAestoolDlg)
+	DDX_Control(pDX, IDOK, m_OK);
+	DDX_Control(pDX, IDC_RADIO1, m_Radio1Ctl);
+	DDX_Control(pDX, IDC_RADIO2, m_Radio2Ctl);
 	DDX_Control(pDX, IDC_EDIT3, m_CNameDst);
 	DDX_Control(pDX, IDC_EDIT2, m_CNameSrc);
 	DDX_Control(pDX, IDC_EDIT1, m_HexIn);
@@ -90,6 +95,7 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT3, m_NameDst);
 	DDX_Text(pDX, IDC_EDIT1, m_HexString);
 	DDV_MaxChars(pDX, m_HexString, 47);
+	DDX_Radio(pDX, IDC_RADIO1, m_Radio);
 	//}}AFX_DATA_MAP
 }
 
@@ -101,6 +107,9 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, OnSucheSrc)
 	ON_BN_CLICKED(IDC_BUTTON2, OnSucheDst)
+	ON_BN_CLICKED(IDC_RADIO1, OnRadio)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
+	ON_BN_CLICKED(IDC_BUTTON3, OnHelp)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -136,53 +145,38 @@ BOOL CAestoolDlg::OnInitDialog()
 	
 	// ZU ERLEDIGEN: Hier zusätzliche Initialisierung einfügen
 
+	m_Radio = 0;
+	m_OK.EnableWindow(FALSE);
 	ScanCMDLine(theApp.m_lpCmdLine);
 
 	// EXEFile bestimmen
 //	EXEName = m_CMD_inName;
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
 	EXEName.ReleaseBuffer();
-	EXEFile.Open(EXEName, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL);
-	EXEFile.Seek(-12, CFile::end);
-	EXEFile.Read(& DataLen, sizeof(long));
-	EXEFile.Read(& NameLen, sizeof(long));
-	EXEFile.Read(& Magic, sizeof(long));
-	m_HexIn.ReplaceSel(m_CMD_inKey);
-	m_HexIn.GetWindowText(m_HexString);
-	if( Magic == FILE_MAGIC ) { // restore encrypted data
-		m_direction = DIR_DECRYPT;
-		AfxFormatString1(m_title, IDS_STRING_DECRYPT, "");
-		CSplash dia;
-		dia.DoModal();
-		EXEFile.Seek(-12-NameLen, CFile::end);
-		EXEFile.Read(OrgName.GetBuffer(NameLen+2), NameLen);
-		OrgName.GetBuffer(NameLen+2)[NameLen]=0;
-		OrgName.ReleaseBuffer();
-		m_NameSrc = EXEName;
-		m_SucheSrc.EnableWindow(FALSE);
-		m_NameDst = OrgName;
-		m_SucheDst.EnableWindow(TRUE);
-		if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
-		if(m_HexIn.BinLen > 0) { // do decryption and exit
-			if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
-		}
-	}
-	else { // create a new encrypted file
-		m_direction = DIR_ENCRYPT;
-		AfxFormatString1(m_title, IDS_STRING_ENCRYPT, "");
-		m_SucheSrc.EnableWindow(TRUE);
-		m_SucheDst.EnableWindow(FALSE);
-		if(!m_CMD_inName.IsEmpty()) {
-			FILE *ft;
-			m_NameSrc = m_CMD_inName;
-			if(ft = fopen(m_NameSrc, "r")) {
-				fclose(ft);
-				SetDestName();
-				if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
-				if(m_HexIn.BinLen > 0) { // do encryption and exit
-				DoEncrypt();
-				EndDialog( IDOK );
+
+	if(m_CMD_inName.IsEmpty() || !TestEncryptedFile(m_CMD_inName)) {
+		if (!TestEncryptedFile(EXEName)) { // create a new encrypted file
+			m_SucheSrc.EnableWindow(TRUE);
+			m_SucheDst.EnableWindow(FALSE);
+			if(!m_CMD_inName.IsEmpty()) {
+				FILE *ft;
+				m_NameSrc = m_CMD_inName;
+				if(ft = fopen(m_NameSrc, "r")) {
+					fclose(ft);
+					SetDestName();
+					if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
+					if(m_HexIn.BinLen > 0) { // do encryption and exit
+						DoEncrypt();
+						EndDialog( IDOK );
+					}
+				}
 			}
+		}
+		else {
+			CSplash dia;
+			dia.DoModal();
+			if(m_HexIn.BinLen > 0) { // do decryption and exit
+				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
 			}
 		}
 	}
@@ -253,22 +247,49 @@ void CAestoolDlg::OnSucheSrc()
 {
 	UpdateData(TRUE);
 	CFileDialog Dlg(TRUE, NULL, m_NameSrc, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY,
-		"All Files (*.*)|*.*||", this);
+		"All Files (*.*)|*.*|EXE Files (*.exe)|*.exe|AES Files (*.aes)|*.aes||", this);
 	if(IDCANCEL == Dlg.DoModal()) return;
 	m_NameSrc = Dlg.GetPathName();
-	SetDestName();
+	m_direction = DIR_ENCRYPT;
+	if(TestEncryptedFile(m_NameSrc)) {// verschlüsselte Datei --> entschlüsseln
+		m_Radio1Ctl.EnableWindow(FALSE);
+		m_Radio2Ctl.EnableWindow(FALSE);
+	}
+	else { // neue Datei verschlüsseln
+		m_Radio1Ctl.EnableWindow(TRUE);
+		m_Radio2Ctl.EnableWindow(TRUE);
+		SetDestName();
+	}
+	m_OK.EnableWindow(TRUE);
+	if(m_HexString.IsEmpty()) m_HexIn.SetFocus();
+	else m_OK.SetFocus();
 	UpdateData(FALSE);
+	m_CNameSrc.SetSel(0,-1);
+	m_CNameDst.SetSel(0,-1);
 }
 
 void CAestoolDlg::OnSucheDst() 
 {
+	CString mask;
+
+	if(m_direction == DIR_DECRYPT)
+		mask = "All Files (*.*)|*.*||";
+	else if(m_Radio == 0)
+		mask = "Exe Files (*.exe)|*.exe||";
+	else
+		mask = "AES Files (*.aes)|*.aes||";
 	UpdateData(TRUE);
 	CFileDialog Dlg(FALSE, NULL, m_NameDst, OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY,
-		(m_direction == DIR_ENCRYPT?"Exe Files (*.exe)|*.exe||":"All Files (*.*)|*.*||"), this);
+		mask, this);
 
 	if(IDCANCEL == Dlg.DoModal()) return;
 	m_NameDst = Dlg.GetPathName();
+	m_OK.EnableWindow(TRUE);
+	if(m_HexString.IsEmpty()) m_HexIn.SetFocus();
+	else m_OK.SetFocus();
 	UpdateData(FALSE);
+	m_CNameSrc.SetSel(0,-1);
+	m_CNameDst.SetSel(0,-1);
 }
 
 void CAestoolDlg::OnOK() 
@@ -365,24 +386,26 @@ int CAestoolDlg::findStr(CString l)
 void CAestoolDlg::SetDestName()
 {
 	int p1, p2, l;
-	CString ext;
+	CString ext1, ext2;
 
+	if(m_Radio == 0) ext1 = ".exe";
+	else ext1 = ".aes";
 	m_NameDst = m_NameSrc;
 	p1 = m_NameDst.ReverseFind('.');
 	p2 = m_NameDst.ReverseFind('\\');
 	l = m_NameDst.GetLength();
 	if(p1 > p2) { // name extension found
-		ext = m_NameDst.Right(l-p1-1);
+		ext2 = m_NameDst.Right(l-p1-1);
 		m_NameDst = m_NameDst.Left(p1);
-		if(ext.CompareNoCase("exe")) { // extension not .exe
-			m_NameDst += ".exe";
+		if(ext1.CompareNoCase(ext2)) { // extension not .exe (or .aes)
+			m_NameDst += ext1;
 		}
 		else { // extension .exe
-			m_NameDst += "x.exe";
+			m_NameDst += "x" + ext1;
 		}
 	}
 	else { // No name extension found
-		m_NameDst += ".exe";
+		m_NameDst += ext1;
 	}
 	m_SucheDst.EnableWindow(TRUE);
 }
@@ -390,6 +413,7 @@ void CAestoolDlg::SetDestName()
 void CAestoolDlg::DoEncrypt()
 {
 	CFile OutFile;
+	CFile EXEFile;
 	CFileException e;
 	char *buffer, keybuffhex[64],keybuffbin[32];
 	int bufflen, i, keylen;
@@ -401,10 +425,12 @@ void CAestoolDlg::DoEncrypt()
 	DataLen = SrcFile.GetLength();
 	bufflen = max(DataLen+16, 4096);
 	buffer = (char *) malloc(bufflen);
-	// copy EXEFile
-	EXEFile.SeekToBegin();
-	while(i=EXEFile.ReadHuge(buffer, bufflen))
-		OutFile.WriteHuge(buffer, bufflen);
+	if(m_Radio == 0) { // copy EXE-File first
+		EXEFile.Open(EXEName, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary, NULL);
+		while(i=EXEFile.ReadHuge(buffer, bufflen))
+			OutFile.WriteHuge(buffer, bufflen);
+		EXEFile.Close();
+	}
 	// load Sourcedata
 	SrcFile.ReadHuge(buffer, DataLen);
 	SrcFile.Close();
@@ -450,11 +476,11 @@ void CAestoolDlg::DoEncrypt()
 	OutFile.Write(&Magic, sizeof(long));
 
 	OutFile.Close();
-	EXEFile.Close();
 }
 
 int CAestoolDlg::DoDecrypt()
 {
+	CFile SrcFile;
 	CFile OutFile;
 	CFileException e;
 	char *buffer1, *buffer2, keybuffhex[64],keybuffbin[32];
@@ -465,8 +491,10 @@ int CAestoolDlg::DoDecrypt()
 	buffer2 = (char *) malloc(bufflen);
 
 	// Load Sourcedata
-	EXEFile.Seek( - 12 - DataLen - NameLen, CFile::end);
-	EXEFile.ReadHuge(buffer1, DataLen);
+	SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary, NULL);
+	SrcFile.Seek( - 12 - DataLen - NameLen, CFile::end);
+	SrcFile.ReadHuge(buffer1, DataLen);
+	SrcFile.Close();
 
 	// decrypt
 
@@ -506,7 +534,63 @@ int CAestoolDlg::DoDecrypt()
 	free (buffer2);
 
 	OutFile.Close();
-	EXEFile.Close();
 
 	return IDOK;
+}
+
+int CAestoolDlg::TestEncryptedFile(CString Filename)
+{
+	m_SrcFile.Open(Filename, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL);
+	m_SrcFile.Seek(-12, CFile::end);
+	m_SrcFile.Read(& DataLen, sizeof(long));
+	m_SrcFile.Read(& NameLen, sizeof(long));
+	m_SrcFile.Read(& Magic, sizeof(long));
+	if( Magic == FILE_MAGIC ) { // restore encrypted data
+		m_direction = DIR_DECRYPT;
+		AfxFormatString1(m_title, IDS_STRING_DECRYPT, "");
+		m_SrcFile.Seek(-12-NameLen, CFile::end);
+		m_SrcFile.Read(OrgName.GetBuffer(NameLen+2), NameLen);
+		OrgName.GetBuffer(NameLen+2)[NameLen]=0;
+		OrgName.ReleaseBuffer();
+		m_NameSrc = Filename;
+		m_NameDst = OrgName;
+		m_SucheDst.EnableWindow(TRUE);
+		m_Radio1Ctl.EnableWindow(FALSE);
+		m_Radio2Ctl.EnableWindow(FALSE);
+		if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
+		return 1;
+	}
+	m_direction = DIR_ENCRYPT;
+	AfxFormatString1(m_title, IDS_STRING_ENCRYPT, "");
+	return 0;
+}
+
+int CAestoolDlg::ChangeDestName()
+{
+	int p1;
+	CString ext;
+
+	if(m_Radio == 0) ext = ".exe";
+	else ext = ".aes";
+	p1 = m_NameDst.ReverseFind('.');
+	m_NameDst = m_NameDst.Left(p1);
+	m_NameDst += ext;
+	m_SucheDst.EnableWindow(TRUE);
+	return 0;
+}
+
+void CAestoolDlg::OnRadio() 
+{
+	UpdateData();
+	ChangeDestName();
+	UpdateData(FALSE);
+	m_CNameSrc.SetSel(0,-1);
+	m_CNameDst.SetSel(0,-1);
+}
+
+void CAestoolDlg::OnHelp() 
+{
+	CHelp dia;
+
+	dia.DoModal();
 }

@@ -21,6 +21,8 @@ class CAestoolDlg : public CDialog
 {
 // Konstruktion
 public:
+	int ChangeDestName( void );
+	int TestEncryptedFile( CString Filename);
 	int DoDecrypt();
 	void DoEncrypt ( void );
 	void SetDestName( void );
@@ -34,13 +36,16 @@ public:
 	long NameLen;
 	long DataLen;
 	long Magic;
-	CFile EXEFile;
+	CFile m_SrcFile;
 	CString EXEName;
 	CAestoolDlg(CWnd* pParent = NULL);	// Standard-Konstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CAestoolDlg)
 	enum { IDD = IDD_AESTOOL_DIALOG };
+	CButton	m_OK;
+	CButton	m_Radio1Ctl;
+	CButton	m_Radio2Ctl;
 	CEdit	m_CNameDst;
 	CEdit	m_CNameSrc;
 	CHexEdit	m_HexIn;
@@ -50,6 +55,7 @@ public:
 	CString	m_NameSrc;
 	CString	m_NameDst;
 	CString	m_HexString;
+	int		m_Radio;
 	//}}AFX_DATA
 
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
@@ -72,6 +78,8 @@ protected:
 	afx_msg void OnSucheSrc();
 	afx_msg void OnSucheDst();
 	virtual void OnOK();
+	afx_msg void OnRadio();
+	afx_msg void OnHelp();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
