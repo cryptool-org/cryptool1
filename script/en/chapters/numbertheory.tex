@@ -117,7 +117,7 @@ Mathematics is the queen of sciences and number theory is the queen of mathemati
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
 \index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
 used by human civilisation. According to Kronecker\footnote{Leopold
-  Kronecker, German mathematician, Dec 7, 1823$-$Dec 29, 1891}\index{Kronecker Leopold}, they are a creation of God. 
+  Kronecker, German mathematician, Dec 7, 1823 $-$ Dec 29, 1891}\index{Kronecker Leopold}, they are a creation of God. 
 In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
   German mathematician, Oct 6, 1831 $-$ Feb 12, 1916.}\index{Dedekind Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
 this is an unsolvable contradiction or one and the same thing.
@@ -533,7 +533,7 @@ The result when we add $3$ and $4 {\rm ~(mod~ } 5)$ is calculated as follows: Ca
 subtracting $5$ from the result until the result is less than the modulo:  $7 - 5 = 2$. 
 Therefore:  $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$.
 %
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
 Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
@@ -555,7 +555,7 @@ $$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
 The table directly shows that $4 * 4 \equiv 1 {\rm ~(mod~} 5)$ because $16 : 5 = 3$ remainder $1$. 
 Multiplication is defined on the set $\mathbb{Z}$  excluding $0$.
 %
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|cccc}
 Multiplication table modulo 5: \quad * & 1& 2 & 3 & 4  \\
@@ -624,7 +624,7 @@ multiplicative inverse in mod $5$.
 A counterexample shows the multiplication table for mod $6$ (since the modulus $m=6$ is not prime, not all elements from 
 $\mathbb{Z}_6\setminus \{0\}$ are relatively prime to $6$):
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
 Multiplication table modulo $6$: \quad* &  1 & 2 & 3 & 4 & 5  \\
@@ -664,7 +664,7 @@ multiplicative inverse and determine whether numbers have an inverse (see \hyper
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
-For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then takes the product $a*i {\rm ~mod ~} m $ for a 
+For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then the product $a*i {\rm ~mod ~} m $ takes for a 
 certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
 also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicative order and primitive roots}.}.
 \end{theorem}
@@ -882,7 +882,7 @@ This frequently used algorithm is called ``Square and Multiply''\index{Square an
 
 The inverses of the powers are also defined. The roots and logarithms are again whole numbers. Yet in contrast 
 to the usual situation, they are not only difficult to calculate but, in the case of large numbers, cannot be 
-calculated at all within a reasonable space of time.
+calculated at all within a reasonable amount of time.
 
 Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
 
@@ -928,7 +928,7 @@ defined set and a defined relation (an operation such as addition or multiplicat
 \begin{itemize}
 \item The set is closed \index{Closeness}
 \item A neutral element exists
-\item An inverse element exists
+\item An inverse element exists for each element
 \item The associative law applies.
 \end{itemize}
 
@@ -1070,7 +1070,7 @@ the Euler\footnote{Leonhard Euler, Swiss mathematician, Apr 15, 1707 -- Sep 18, 
  function $J(n)$.
 
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{} 
-The Euler function\footnote{Is often described as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
+The Euler function\footnote{Often written as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
 elements in $\mathbb{Z}_n^*$.
 \end{definition}
 $J(n)$ also specifies how many whole numbers have multiplicative inverses in mod $n$.
@@ -1473,7 +1473,7 @@ Examples are
   \index{CrypTool} as PDF file), where the sisters
   communicate confidentially using a variant of RSA.
 \item the novel ``Das Museum der gestohlenen Erinnerungen (Museum of
-  the stolen memories'' by Ralf Isau \index{Isau 2003}, 
+  the stolen memories)'' by Ralf Isau \index{Isau 2003}, 
   Thienemann 2003, where the last part of the oracle can only be
   solved with the joined help of the computer community.
 \end{list}\vspace{-\baselineskip}\vspace{-\parskip}
@@ -2148,6 +2148,13 @@ Further information about crypto algorithms on the web page of GISA:
    \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
 {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}}.
 }.
+
+The 160-digit decimal number origins from the old challenge list of RSADSI.
+This number was retracted after RSA-155 (RSA512) had been factorized successfully,
+leaving RSA576, RSA640 etc. (using 64 bit steps upwards).
+The prime factors of RSA-160 were still unknown.
+So this record of the team of Prof.\ Franke provides the solution of 
+the old challenge, for which RSADSI didn't award a price anymore.
 
 The composite number called ``RSA-160'' is (the following 3 lines contain
 one number):

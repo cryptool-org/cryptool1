@@ -56,7 +56,7 @@
 %--------------------------------------------------------------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
 Eine {\bf Einwegfunktion} \hypertarget{Einwegfunktionen1}{} ist eine effizient zu 
-berechnende (injektive) Funktion, deren Umkehrung jedoch nur mit 
+berechnende Funktion, deren Umkehrung jedoch nur mit 
 extrem hohem Rechenaufwand -- jedoch praktisch unm"oglich -- zu berechnen ist.\par
 
 Etwas genauer formuliert:  Eine Einwegfunktion ist eine Abbildung $ f $ einer Menge $ X $ in eine Menge $ Y, $ so dass $ f(x) $ f"ur jedes Element $ x $ von $ X $ leicht zu berechnen ist, w"ahrend es f"ur (fast) jedes $ y $ aus $ Y $  praktisch unm"oglich ist, ein Urbild $ x $ (d.h. ein $ x $ mit $ f(x)=y $) zu finden.\par
@@ -403,13 +403,13 @@ Es gibt viele Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson199
 \begin{tabular}{|l|l|}\hline
 Name                 &        Komplexit"at \\ \hline \hline
 Baby-Step-Giant-Step &         $ O(\sqrt{p}) $ \\ \hline
-Silver-Pohlig-Hellman    &    polynomial in $ q, $ dem gr"o"sten \\
+Silver-Pohlig-Hellman &    polynomial in $ q, $ dem gr"o"sten \\
 &  Primteiler von $ p-1. $ \\ \hline
 Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\ \hline
 \end{tabular}
 \end{center}
 \vskip +5 pt
-\index{Silver} \index{Pohlig} \index{Hellman Martin}
+\index{Silver} \index{Pohlig S. C.} \index{Hellman Martin} \index{Baby-Step-Giant-Step}
 
 
 %--------------------------------------------------------------------

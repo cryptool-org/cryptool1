@@ -1042,7 +1042,7 @@ Addition oder Multiplikation) die folgenden Eigenschaften erf"ullt sind:
 \begin{itemize}
 \item Abgeschlossenheit \index{Abgeschlossenheit}
 \item Existenz des neutralen Elements
-\item Existenz des inversen Elements und
+\item Existenz eines inversen Elements zu jedem Element und
 \item G"ultigkeit des Assoziativgesetzes.
 \end{itemize}
 Die abgek"urzte mathematische Schreibweise lautet: $(G, +)$ oder $(G,*)$.
@@ -1445,7 +1445,7 @@ modulo $45$ und modulo $46$.
 
 {\bf Beispiel 2:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3b}{Anhang D zu diesem Kapitel} Finden Sie den Quelltext zur Berechnung der 
+In \hyperlink{AppArith3b}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur Berechnung der 
 Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}45$
 f"ur die Exponenten $i = 1, 2, \cdots, 12$ und f"ur die Basen $a = 1, 2, \cdots, 12$
@@ -1510,7 +1510,7 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \newpage
 {\bf Beispiel 4:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3c}{Anhang D zu diesem Kapitel} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
+In \hyperlink{AppArith3c}{Anhang D zu diesem Kapitel} finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
 } beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 
@@ -1625,7 +1625,7 @@ Conan Doyle} l"ost), sondern auch moderne Verfahren: z.~B. in
   \index{Elsner 1999} 1999
   (als PDF dem CrypTool-Paket\index{CrypTool} beigelegt),
   wo die Heldinnen sich vertraulich mit einer Variante des RSA-Verfahrens
-  unterhalten.
+  unterhalten,
 \item dem Roman "`Das Museum der gestohlenen Erinnerungen"' von Ralf Isau, 
   \index{Isau 2003} Thienemann-Verlag 2003, wo der letzte Teil des Spruches
   nur durch die vereinten Kr"afte der Computergemeinschaft gel"ost werden kann.
@@ -2345,6 +2345,13 @@ Weitere Informationen zu Kryptoalgorithmen auf den BSI-Internetseiten unter:
 {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}}
 }.
 
+Die 160-stellige Dezimalzahl stammt von der alten Challenge-Liste von RSADSI.
+Diese wurde nach der Faktorisierung von RSA-155 (RSA512) zur"uckgezogen,
+und es blieben darin noch RSA576, RSA640 etc. (in 64-er Schritten).
+Die Primfaktoren von RSA-160 waren aber nicht bekannt.
+Deshalb ist dieser Rekord von Prof.\ Frankes Team immer noch die L"osung 
+einer alten Challenge, f"ur die es aber von RSADSI kein Geld gibt.
+
 Die zusammengesetzte Zahl "`RSA-160"' lautet (die folgenden drei Zeilen 
 sind eine einzige Zahl):
 $$
@@ -2946,6 +2953,7 @@ Robertson Davies, 1947, and the second was taken from ''Lake Wobegon Days'',
 by Garrison Keillor, 1985.
 
 % \newpage  be_24.5.03 raus, da sonst vorherige Seite fast leer.
+\vspace{12pt}
 TABLE 4.1\footnote{%
 Die Zahlen dieser Tabelle k"onnen Sie mit Copy und Paste weiter bearbeiten.
 }: RSA-Ciphertext

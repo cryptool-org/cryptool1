@@ -11,12 +11,12 @@ pdf: $(PDF)
 dvi: $(DVI)
 
 $(PDF): $(SRC) style.ist
-	echo q | latex $(TEX) | tail
-	echo q | latex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
 	makeindex -s style.ist $(IDX)
-	echo q | latex $(TEX) | tail
-	echo q | latex $(TEX) | tail
-	dvipdf $(DVI) $(PDF)
+	echo q | pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
+	#dvipdf $(DVI) $(PDF)
 
 script-$(LANG).ind: script-$(LANG).idx style.ist
 	makeindex -s style.ist script-$(LANG).idx

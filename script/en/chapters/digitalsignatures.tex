@@ -64,7 +64,7 @@ Using menu {\bf Indiv. Procedures \textbackslash{} Hash} you have the possibilit
 \item to calculate the hash value of a file, \\
 \item to test, how changes to a text change the according hash value and \\
 \item to perform a simulation, how digital signatures could be attacked 
-      by a targeted search for hash value collisions\index{collisions}.
+      by a targeted search for hash value collisions\index{Collision}.
 \end{list}
 }.
 
@@ -89,19 +89,18 @@ the \index{Hash value} hash value. It should be practically impossible, for a
 given number, to find a message that has precisely this number as hash value.
 Furthermore, it should be practically impossible to find two messages with the
 same hash value\index{collisions}. 
-In both cases the final signature procedure would include weaknesses.
+In both cases the final signature procedure would have weaknesses.
 
 So far, no formal proof has been found that perfectly secure cryptographic
 hash functions exist. However, there are several good candidates that have
 not yet shown any weak points in their structure in practice 
 (e.g. \index{SHA-1} SHA--1\footnote{%
-SHA-1 \index{SHA-1} is a 160 bit hashfunction specified in FIPS 180-1, 
+SHA-1 \index{SHA-1} is a 160 bit hash function specified in FIPS 180-1, 
 ANSI X9.30 Part 2 and \cite{FIPS186}.\\
 SHA means Secure Hash Algorithm, and is widely used, 
 e.g. with DSA, RSA or ECDSA.\\
 The current standard \cite{FIPS180-2} defines four secure hash algorithms
 -- SHA-1, SHA-256, SHA-384, and SHA-512.
-
 For these hash algorithms there are also validation tests defined in the
 test suite FIPS 140-2.
 
@@ -121,16 +120,14 @@ Attack on the hashvalue of the digital signature}.
 RIPEMD-160, RIPEMD-128 and the optional extension RIPEMD-256 have object
 identifiers defined by the ISO-identified organization TeleTrusT, both 
 as hash algorithm and in combination with RSA.
- 
 RIPEMD-160 is also part of the ISO/IEC international standard 
 ISO/IEC 10118-3:1998 on dedicated hash functions, together with 
 RIPEMD-128 and SHA-1. 
 
 Further details: \\
 http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html \\
-http://www.ietf.org/rfc/rfc2857.txt ("The Use of HMAC-RIPEMD-160-96 within ESP and AH").
-}
-).
+http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96 within ESP and AH'').
+}).
 
 The hash function procedure is as follows:\\ Rather than signing the actual
 document, the sender now first calculates the hash value of the message and

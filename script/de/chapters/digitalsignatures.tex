@@ -56,7 +56,7 @@ In dem Men"u {\bf Einzelverfahren \textbackslash{} Hashwerte} haben Sie die M"og
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
 \item f"ur eine Datei den Hashwert zu berechnen, \\
 \item in der Hash-Demo die Auswirkung von Text"anderungen auf den Hashwert zu testen und \\
-\item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollisionen}
+\item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
 }.
@@ -81,7 +81,7 @@ konstanter Gr"o"se, den \index{Hashwert}
 Hashwert, ab. Es sollte praktisch unm"oglich sein, zu einer gegebenen Zahl
 eine Nachricht zu finden, die genau diese Zahl als Hashwert hat. Ferner
 sollte es praktisch unm"oglich sein, zwei Nachrichten mit demselben
-Hashwert zu finden\index{Kollisionen}. 
+Hashwert zu finden\index{Kollision}. 
 In beiden F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
 
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
@@ -90,7 +90,7 @@ Kandidaten, die in der Praxis bislang keine Schw"achen in ihrer Struktur
 gezeigt haben (zum Beispiel \index{SHA-1} SHA-­1\footnote{%
 SHA-1 \index{SHA-1} ist eine in FIPS 180-1, ANSI X9.30 Part 2 und
 \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
-SHA bedeutet Secure Hash Algorithm und wird h"aufig benutzt, z.B. 
+SHA bedeutet ``Secure Hash Algorithm'' und wird h"aufig benutzt, z.B. 
 mit DSA, RSA oder ECDSA.\\
 Der aktuelle Standard \cite{FIPS180-2} definiert vier sichere Hashverfahren
 -- SHA-1, SHA-256, SHA-384 und SHA-512.
@@ -99,7 +99,7 @@ Validierungstests definiert.
 
 Die Ausgabel"ange der SHA-Algorithmen wurde vergr"o"sert aufgrund der
 M"oglichkeit von Geburtstagsangriffen:\index{Geburtstagsangriff}
-\index{Kollisionen}
+\index{Kollision}
 diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
 Hashverfahren "aquivalent: \\
 - 128-bit AES -- SHA-256 \\
@@ -120,19 +120,21 @@ ISO/IEC 10118-3:1998 f"ur dedizierte Hashfunktionen, zusammen mit
 RIPEMD-128 and SHA-1. 
 
 Weitere Details: \\
-http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html \\
-http://www.ietf.org/rfc/rfc2857.txt ("The Use of HMAC-RIPEMD-160-96 within ESP and AH").
-} 
-).
+http://www.esat.kuleuven.ac.be/\~bosselae/ripemd160.html \\
+http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96 within ESP and AH'').
+}).
 
-Das Verfahren mit Hashfunktion sieht folgenderma"sen aus:\\
-Anstatt das eigentliche Dokument zu signieren, berechnet der Absender nun zuerst den Hashwert
-der Nachricht und signiert diesen. Der Empf"anger bildet ebenfalls den Hashwert der Nachricht (der benutzte
-Algorithmus muss bekannt sein). Er "uberpr"uft dann, ob die mitgeschickte Signatur eine korrekte Signatur des
-Hashwertes ist. Ist dies der Fall, so wurde die Signatur korrekt verifiziert. Die Authentizit"at der Nachricht
-ist damit gegeben, da wir angenommen hatten, dass aus der Kenntnis des "offentlichen Schl"ussels nicht der
-geheime Schl"ussel abgeleitet werden kann. Dieser geheime Schl"ussel w"are jedoch notwendig, um Nachrichten
-in einem fremden Namen zu signieren.
+Das Signatur-Verfahren mit Hashfunktion (ohne den oben genannten Nachteil)
+sieht folgenderma"sen aus:\\ Anstatt das eigentliche Dokument zu signieren,
+berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
+diesen. Der Empf"anger bildet ebenfalls den Hashwert der Nachricht (der
+benutzte Algorithmus muss bekannt sein). Er "uberpr"uft dann, ob die
+mitgeschickte Signatur eine korrekte Signatur des Hashwertes ist. Ist dies der
+Fall, so wurde die Signatur korrekt verifiziert. Die Authentizit"at der
+Nachricht ist damit gegeben, da wir angenommen hatten, dass aus der Kenntnis
+des "offentlichen Schl"ussels nicht der geheime Schl"ussel abgeleitet werden
+kann. Dieser geheime Schl"ussel w"are jedoch notwendig, um Nachrichten in einem
+fremden Namen zu signieren.
 
 Einige digitale Signaturverfahren basieren auf asymmetrischer
 Verschl"usselung, das bekannteste Beispiel dieser Gattung ist RSA. F"ur die
@@ -209,7 +211,7 @@ Verifikation sind im Folgenden zusammengefasst.
 \paragraph{"Offentlicher Schl"ussel}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prim \\
-$q$ & 160bit Primfaktor von $p - 1$ \\
+$q$ & 160-Bit Primfaktor von $p - 1$ \\
 $g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, wobei $h < p - 1$ und
 $h^{(p-1)/q} > 1  \Mod{p}$ \\
 $y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
@@ -220,7 +222,7 @@ Benutzern gemeinsam genutzt werden.
 
 \paragraph{Privater Schl"ussel}\strut\\
 \begin{tabular}{l@{ }l}
-$x < q$ (160bit Zahl) 
+$x < q$ (160-Bit Zahl) 
 \end{tabular}
 
 \paragraph{Signatur}\strut\\
@@ -355,7 +357,7 @@ gesichert "ubermittelt werden.
 \bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. 
     \index{FIPS186} \\
     Entity authentication using public key cryptography, February 18, 1997.\\
-    Nicht mehr gültig.
+    Nicht mehr g"ultig.
 
 \bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. 
     \index{FIPS186-2} \\
