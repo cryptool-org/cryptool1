@@ -10302,7 +10302,7 @@ BEGIN
                             "The Secude library could not be loaded.\nSome of the functions are therefore not available."
     IDS_STRING_ANALYSE_ON   "Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
-                            "%d bit bute force search %%d%%%% completed\\dRemaining time: %%s"
+                            "%d bit bute force search %%d%%%% completed\nRemaining time: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "The signed message is very large. It cannot be displayed in the CrypTool hex editor.\nThe message has therefore been provisionally stored in the temporary file '%s'."
