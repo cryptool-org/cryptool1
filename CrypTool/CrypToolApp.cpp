@@ -605,8 +605,8 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 			// remove from mi
 			// - everything except alphanumerics
 			// - \t and everything following
-			while ((c = mi[j++]) && c != '\t')
-				if (isalnum(c))
+			while ((c = mi[j++]) && c != '\t')  //isalnum liefert auch true beim Umlaute
+				if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 					mi[i++] = c;
 				//else don't copy c, don't increment i
 			mi[i] = '\0';
@@ -650,7 +650,7 @@ void CCrypToolApp::updateMenuItemStack(HMENU hmenu,INT index) {
 
 BOOL CCrypToolApp::ProcessMessageFilter(int code, LPMSG lpMsg)
 {
-	if (code == MSGF_MENU && lpMsg->message == WM_MENUSELECT) {
+	if ( code == MSGF_MENU && lpMsg->message == WM_MENUSELECT) {
 		HMENU hmenu = (HMENU)lpMsg->lParam;
 		UINT flags = (UINT)HIWORD(lpMsg->wParam); 
 		UINT item = (UINT)LOWORD(lpMsg->wParam);

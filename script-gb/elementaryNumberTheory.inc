@@ -284,7 +284,7 @@ A whole number $n$ is {\bf divisible} by a whole number $d$ if the quotient $n/d
 = c * d$.
 \end{definition}
 
-$n$ is called a {\em multiple} of $d$, whereas $d$ is called a {\em divisor} or {\em factor} of $n$.
+$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor} {\em divisor} or \index{Factor} {\em factor} of $n$.
 
 The mathematical notation for this is $d | n$  (read ''$d$ divides $n$''). The notation $d \!\!\not| n$ means that $d$ 
 does not divide the number $n$.
@@ -790,6 +790,7 @@ a fast computer chip would take longer than the age of the universe to calculate
 an extremely effective shortcut for calculating exponentials (but not for calculating logarithms).
 
 If the expression is divided differently using the rules of modular arithmetic, then the calculation does not even exceed the 
+16-bit short integer number range:\index{Short Integer}
 $$
 (a^5) \equiv (((a^2{\rm ~(mod~}m))^2 {\rm ~(mod~}m)) * a){\rm ~(mod~}m).
 $$
@@ -839,7 +840,7 @@ calculated at all within a reasonable space of time.
 Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
 
 \begin{itemize}
-\item [\bf a)] {\bf Taking the logarithm (determining $c$) -- Discrete logarithm problem \index{Discrete logarithm problem}:}
+\item [\bf a)] {\bf Taking the logarithm (determining $c$) -- Discrete logarithm problem \index{Logarithm problem!discrete}:}
 
 If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
 of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
@@ -909,7 +910,7 @@ of a group are valid for all elements in $\mathbb{Z}_n$:
 \item   each element $a \in \mathbb{Z}_n$ has an inverse for this operation, namely $n-a$  \\
         (because $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
-Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, this structure is even a ''commutative group''.
+Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, this structure \index{Structure} is even a ''commutative group''.
 % ..............................................................................................
 \subsubsection{Multiplication in a group}\index{Multiplication}
 
@@ -940,8 +941,8 @@ $\mathbb{Z}_n^*$ is sometimes also called the reduced remainder set $R'$ modulo 
 {\bf Example:}
 For $n=10=2*5$ the following applies: 
 \begin{itemize}
-  \item[] full remainder set $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$
-  \item[] reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
+  \item[] \index{Remainder set!full} full remainder set $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$
+  \item[] \index{Remainder set!reduced} reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
 \end{itemize}
 
 {\bf Comment:}
@@ -1134,7 +1135,7 @@ element (compare patterns and structures before)\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
 of the multiplication (1) if and only if $a$ and $m$ are relatively prime. The value of $i$, for which  
-the product $a^{i}=1,$ is called the multiplicative order of $a$.
+the product $a^{i}=1,$ is called the multiplicative order of $a$. \index{Order!multiplicative}
 
 The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
 
@@ -1149,7 +1150,7 @@ $10$ and we notice that:
 \begin{enumerate}
 \item The orders are all factors of $10$.
 \item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these numbers have the 
-      {\bf maximum order} in $\mathbb{Z}_{11}^*$.
+      {\bf maximum order} \index{Order!maximum} in $\mathbb{Z}_{11}^*$.
 \end{enumerate}
 
 {\bf Example 1:} \\
@@ -1402,7 +1403,7 @@ One reason probably is, that Compaq claimed a patent \index{Patent} on it. Gener
 and with the Open Source Initiative, that one can claim patents on algorithms. But there is really no understanding outside
 the U.S., that one can get a patent for a special case (3 factors) of an algorithm (RSA), although the patent for the general case is
 almost expired.} \footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
-$ e ~d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
+$ e*d \equiv 1$ mod $J(n)$ is fulfilled). Example: If $ n=5^2$ then according to theorem \ref{thm-zth-exhperm} it is $J(n)=5*4=20, ~ e=3,
 ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ But it is $ (5^3)^7\equiv 0 $ mod $ 25$.
 } $p$ and $q$ and calculate 
 $n = p*q$\footnote{The GISA\index{GISA} (German Information Security Agency) recommends, to choose the prime factors $p$ and $q$ almost the same,
@@ -1541,7 +1542,7 @@ last chapter ''Dobby's reward'', p 245, by Dumbledore.}
 
 \subsection{Further applications of number theory in cryptography}
 
-The results of modular arithmetic are used extensively in modern cryptography. Here we will provide a few examples from 
+The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
 cryptography using small\footnote{In the RSA procedure, we call numbers ''small'' if the bit lengths are much less than $1024$ 
 bits (i.e. $308$ decimal points). In practice, $1024$ bits is currently the minimum length for a secure Certification 
 Authority RSA modulus.} numbers.
@@ -1578,7 +1579,7 @@ another or calculating exponentials totally mixes up all the numbers. Knowing a 
 us much about the function as a whole (in contrast to addition and multiplication).
 
 
-\subsubsection{The Diffie-Hellman key exchange protocol}
+\subsubsection{The Diffie-Hellman key exchange protocol} \index{Diffie-Hellman key exchange}
 
 Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key exchange protocol in Stanford in 1976.
 
@@ -1918,7 +1919,7 @@ Each block is decrypted using: $M \equiv C^{2,473}{\rm ~(mod~}67,519)$: \\
 {\tt 82083 65032 119111 114107 115033}
 
 
-\subsubsection{A small RSA cipher challenge (1)}
+\subsubsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
 
 The task is taken from \cite[Exercise 4.6]{Stinson1995}:
 The pure solution has been published by Prof. Stinson at 
@@ -1939,7 +1940,7 @@ $n = 18,923$ and $e = 1,261$ (for Table 4.1) and \\
 $n = 31,313$ and $e = 4,913$ (for Table 4.2). 
 
 This can be accomplished as follows. First, factor $n$ (which is easy because it is so small). Then compute the 
-exponent $d$ from $J(n)$, and, finally, decrypt the ciphertext. Use the square-and-multiply\index{Square and Multiply} algorithm to exponentiate 
+exponent $d$ from $J(n)$, and, finally, decrypt the ciphertext. Use the square-and-multiply\index{Square and multiply} algorithm to exponentiate 
 modulo $n$. 
 
 In order to translate the plaintext back into ordinary English text, you need to know how alphabetic characters are 
@@ -2018,7 +2019,7 @@ TABLE 4.2\footnote{The numbers of this table are in the online-help ''Example il
 25973  & 4477 & 30989                               
 \end{tabular} } % tt
 
-\subsubsection{A small RSA cipher challenge (2)}
+\subsubsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
 
 The following task is a corrected version from the excellent book written by Prof. Yan 
 \cite[Example 3.3.7, p. 318]{Yan2000}.
@@ -2030,9 +2031,9 @@ method of solving the problem, we would be pleased to include it in the document
 There are three tasks with completely different degrees of difficulty here. In each case we know the ciphertext 
 and the public key $(e,n)$:
 \begin{itemize}
-\item[{\bf (a)}] Known plaintext: find the secret key $d$ using the additionally known original message.
-\item[{\bf (b)}] Ciphertext only: find $d$ and the plaintext.
-\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message).
+\item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
+\item[{\bf (b)}] Ciphertext only: \index{Attack!ciphertext only} find $d$ and the plaintext.
+\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation problem}
 \end{itemize}
 
 \newpage
@@ -2277,7 +2278,7 @@ Thus
 \subsection*{Appendix B: Forming closed sets} \hypertarget{Appendix_B}{}
 \addcontentsline{toc}{subsection}{Appendix B: Forming closed sets}
 
-The property of closedness is always defined in relation to an operation in a set.
+The property of closedness \index{Closedness} is always defined in relation to an operation in a set.
 The following shows how to construct the ''closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
 \begin{eqnarray}
 G_0 & = & \{ 2, 3 \} {\rm ~addition~of~the~numbers~in~} G_0 {\rm ~determines~further~numbers:} \nonumber \\

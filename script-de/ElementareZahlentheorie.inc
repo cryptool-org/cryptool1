@@ -7,7 +7,7 @@
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
 (Bernhard Esslinger, besslinger@web.de, Juli 2001, Update Nov. 2001)
 \begin{center}
-\fbox{\parbox{15cm}{{\em \index{Berne Eric} Eric Berne\footnotemark\ :}\newline
+\fbox{\parbox{15cm}{{\em \index{Berne} Eric Berne\footnotemark\ :}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
 Die transaktionale Spielanalyse dagegen befa"st sich mit Spielen, die
 unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
@@ -18,7 +18,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
-Wir haben uns bewu"st an \glqq Einsteiger\grqq~ und \glqq Interessenten\grqq~ orientiert, und nicht an den
+Wir haben uns bewu"st an \glqq Einsteigern\grqq~ und \glqq Interessenten\grqq~ orientiert, und nicht an den
 Gepflogenheiten mathematischer Lehrb"ucher, die auch dann \glqq Einf"uhrung\grqq~ genannt werden,
 wenn sie schon auf der 5. Seite nicht mehr auf Anhieb zu verstehen sind und sie eigentlich den Zweck haben, dass
 man danach auch spezielle Monographien zu dem Thema lesen k"onnen soll.
@@ -67,7 +67,7 @@ aufeinanderfolgende\index{Fibonacci} Fibonacci-Zahlen\footnote{Die Folge der Fib
 Vorschrift $a_1 := a_2 := 1$ und f"ur alle Zahlen  $n=1,2,3,\cdots$ definiert man 
 $a_{n+2} := a_{n+1}+a_n$.  Zu dieser historischen Folge gibt es viele interessante 
 Anwendungen in der Natur (siehe z.B. \cite[S. 290 ff]{Graham1994}\index{Graham 1994} oder die Web-Seite 
-von \hyperlink{knott}{Ron Knott:} hier dreht sich alles um Fibonacci-Zahlen). 
+von \hyperlink{knott}{Ron Knott:} \index{Knott Ron} hier dreht sich alles um Fibonacci-Zahlen). 
 Die Fibonacci-Folge ist gut verstanden und wird heute als wichtiges Werkzeug in der 
 Mathematik benutzt.
 }, also z.B.  wie  $21 : 34$.
@@ -94,7 +94,7 @@ orientiert sich daran, das RSA-Verfahren verstehen und anwenden zu k"onnen.
 
 Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
-Insbesondere wird auf die klassischen Public-Key-Verfahren Diffie-Hellman
+Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
 (DH) und RSA eingegangen.
 
 \vskip +40 pt
@@ -187,7 +187,7 @@ sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
 Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.}}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling,~\glqq Harry Potter und der Stein der Weisen'', Carlsen, (c)
-1997, Kapitel ~ \glqq Durch die Fallt"ur'', S. 310.}
+1997, Kapitel ~ \glqq Durch die Fallt"ur'', S. 310, Hermine.}
 
 %\begin{quote}
 %{\em Joanne K.\index{Rowling} Rowling\footnote{Joanne K. Rowling,~\glqq Harry Potter und der Stein der Weisen'', Carlsen, (c)
@@ -324,7 +324,7 @@ Eine ganze Zahl $n$ ist {\bf teilbar} durch eine ganze Zahl $d$, wenn der Quotie
 eine ganze Zahl $c$ ist, so dass $n = c * d$.
 \end{definition}
 
-Die Zahl $n$ wird {\em Vielfaches} von $d$ genannt; $d$ wird {\em Teiler, Divisor} \index{Teiler} \index{Divisor} oder {\em Faktor} von $n$
+Die Zahl $n$ wird {\em Vielfaches} von $d$ genannt; $d$ wird {\em Teiler, Divisor} \index{Teiler} \index{Divisor} oder \index{Faktor} {\em Faktor} von $n$
 genannt.
 
 Mathematisch schreibt man das: $d | n$ (gelesen: \glqq  $d$ teilt $n$'').
@@ -922,7 +922,7 @@ Dieser h"aufig verwendete Algorithmus hei"st \glqq Square and Multiply''. \index
 \vskip +40 pt
 
 % ..............................................................................................................
-\subsubsection{Wurzeln und Logarithmen} 
+\subsubsection{Wurzeln und Logarithmen} \index{Wurzel}
 
 Die Umkehrungen des Potenzierens sind ebenfalls definiert: Wurzeln und
 Logarithmen sind abermals ganze Zahlen, aber im Gegensatz zur "ublichen
@@ -1006,7 +1006,7 @@ gelten die folgenden Eigenschaften einer Gruppe f"ur alle Elemente von $\mathbb{
   \item   jedes Element $a \in \mathbb{Z}_n$ besitzt bez"uglich dieser Operation ein Inverses, n"amlich $n-a$ \\ 
                 (denn es gilt: $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
-Da die Operation kommutativ ist, d.h. es gilt $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, ist diese Struktur sogar 
+Da die Operation kommutativ ist, d.h. es gilt $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, ist diese Struktur \index{Struktur} sogar 
 eine \glqq kommutative Gruppe''.
 % ..............................................................................................
 \subsubsection{Multiplikation in einer Gruppe}\index{Multiplikation}
@@ -1239,7 +1239,7 @@ folgenderma"sen berechnen:
 
 Besteht die Zahl $n$ aus zwei verschiedenen Primfaktoren, so ist die Faktorisierung von $n$ und das Finden von $J(n)$ 
 "ahnlich schwierig\footnote{Ist die Faktorisierung von $ n=pq$  mit $p\neq q$ bekannt, so ist $ J(n) = (p-1)*(q-1)
-= n -(p+q)+1.$ Ferner sind die Zahlen $p$ und $q$ L"osungen der quadratische Gleichung
+= n -(p+q)+1.$ Ferner sind die Zahlen $p$ und $q$ L"osungen der quadratischen Gleichung
 $x^2-(p+q)x+pq=0. $ Sind also nur 
 $n$ und $J(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -J(n).$  Man erh"alt somit die Faktoren $p$ und $q$ von $n$, indem man die quadratische Gleichung
 $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.} (vergleiche Forderung 3 in 
@@ -1247,12 +1247,12 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.} (vergleiche Forderung 3 in
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{}
+\subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{} 
 
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
-wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Strukturen}).
+wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Struktur}).
 
-F"ur die i-fach aufeinander folgende modulare Multiplikation einer Zahl $a$ mit 
+F"ur die $i$-fach aufeinander folgende modulare Multiplikation einer Zahl $a$ mit 
 $i=1, \cdots , m-1$ ergibt sich als Produkt das neutrale Element der Multiplikation $(1)$ nur dann, wenn
 $a$ und $m$ teilerfremd sind. Der Wert von $i, $ f"ur den das Produkt $a^{i}= 1$ ist, hei"st 
 multiplikative Ordnung von $a.$
@@ -1499,9 +1499,9 @@ Milliarden DM bezeichnet.
 }-Verfahren \glqq beweisen''.
 
 % ...............................................................................................................................
-\subsubsection{Grundidee der Public-Key-Kryptographie}
+\subsubsection{Grundidee der Public Key-Kryptographie}
 \hypertarget{Kapitel_3_10_1}{}
-Die Grundidee bei der Public-Key-Kryptographie \index{Public-Key} besteht darin, dass alle
+Die Grundidee bei der Public Key-Kryptographie \index{Public Key} besteht darin, dass alle
 Teilnehmer ein unterschiedliches Paar von Schl"usseln ($P$ und $S$) besitzen und
 man f"ur alle Empf"anger die "offentlichen Schl"ussel publiziert. So wie man die
 Telefonnummer einer Person aus dem Telefonbuch nachschl"agt, kann man den
@@ -1608,7 +1608,7 @@ darf $d$ nicht zu klein sein.} \footnote{Je nach Implementierung wird zuerst $d$
 Die Zahlen $d, e, n$ sind normalerweise sehr gro"s (z.B. $d$ und $e$ $300$ Bit, $n$ $600$ Bit).
 
 {\bf Bemerkung:}\par
-Die Sicherheit des RSA-Verfahrens h"angt wie bei allen Public-Key-Verfahren davon ab,
+Die Sicherheit des RSA-Verfahrens h"angt wie bei allen Public Key-Verfahren davon ab,
 dass man den privaten Key $d$ nicht aus  dem "offentlichen Key $(n,e)$ berechnen kann.
 
 Beim RSA-Verfahren bedeutet dies, dass
@@ -1703,7 +1703,7 @@ unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.}}
 \end{center}
 
 \addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, \glqq Harry Potter und die Kammer des Schreckens'', Carlsen,
-(c) 1998, letztes Kapitel \glqq Dobbys Belohnung'', S. 343.}
+(c) 1998, letztes Kapitel \glqq Dobbys Belohnung'', S. 343, Dumbledore.}
 %\begin{quote}
 %{\em Joanne K.\index{Rowling} Rowling\footnote{Joanne K. Rowling, \glqq Harry Potter und die Kammer des Schreckens'', Carlsen,
 %(c) 1998, letztes Kapitel \glqq Dobbys Belohnung'', S. 343.}:}\newline
@@ -1841,7 +1841,7 @@ berechnen.
 
 {\bf Bemerkung:} \\
 In diesem Beispiel mit den kleinen Zahlen ist das Diskrete Logarithmus-Problem\index{Logarithmusproblem!diskret} l"osbar,
-aber mit gro"sen Zahlen ist es kaum zu l"osen\footnote{Versucht man mit Mathematica den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$, der die Gleichung
+aber mit gro"sen Zahlen ist es kaum zu l"osen\footnote{Versucht man mit Mathematica, den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$, der die Gleichung
 $11^x \equiv 49 {\rm ~(mod~}347)$ l"ost, mit Hilfe von Solve zu bestimmen, erh"alt man die
 {\em tdep}-Message ''The equations appear to involve the variables to be solved for
 in an essentially non-algebraic way''. Mathematica meint also, keine
@@ -1912,8 +1912,8 @@ Zahl zeigen\footnote{Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahre
   \item[\bf 2.] $e = 7$ (sollte zwischen $11$ und $40$ liegen und mu"s teilerfremd zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
-     \item[] $\rightarrow$ Public-Key des Senders: $(55, 7),$
-     \item[] $\rightarrow$ Private-Key des Empf"angers: $(55, 23).$ 
+     \item[] $\rightarrow$ Public Key des Senders: $(55, 7),$
+     \item[] $\rightarrow$ Private Key des Empf"angers: $(55, 23).$ 
   \end{itemize}
   \item[\bf 4.] Nachricht sei nur die Zahl $M = 2$ (also ist kein Aufbrechen in Bl"ocke n"otig).
   \item[\bf 5.] Verschl"usseln: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
@@ -2028,7 +2028,7 @@ Mit CrypTool v1.3 k"onnen Sie dies per
 {\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. mu"s teilerfremd
 zu $255.016$ sein)\footnote{$e$ soll also nicht $2, 127$ oder $251$ sein.\\
 Real wird $J(n)$ nicht faktorisiert,
-sondern f"ur das gew"ahlte $e$ wird mit dem Euklid`schen Algorithmus
+sondern f"ur das gew"ahlte $e$ wird mit dem Euklidschen Algorithmus
 sichergestellt, dass ggT$(d,J(n))=1$.}.\\
 {\bf 3.} $d=231.953$ (denn $e \equiv d^{-1}{\rm ~mod~}J(n); ~65.537*231.953 \equiv 15.201.503.761 \equiv 1
 {\rm ~(mod~}255.016))$\footnote{Andere m"ogliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013),
@@ -2270,15 +2270,15 @@ Dokumentation auf.}.
 Man kann sich drei v"ollig unterschiedlich schwierige Aufgaben vorstellen:
 Gegeben ist jeweils der Ciphertext und der "offentliche Schl"ussel $(e,n)$:
 \begin{itemize}
-\item Known-Plaintext: finde den geheimen Schl"ussel $d$ unter Benutzung der
+\item \index{Angriff!Known-Plaintext} Known-Plaintext: finde den geheimen Schl"ussel $d$ unter Benutzung der
 zus"atzlich bekannten Ursprungsnachricht.
-\item Ciphertext only: finde $d$ und den Cleartext.
-\item RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
+\item \index{Angriff!Ciphertext only} Ciphertext only: finde $d$ und den Cleartext.
+\item \index{Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
 \end{itemize}
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
-Message\footnote{Die Zahlen dieser Tabelle befinden sich in der Online-Hilfe \glqq Szenario
+Message\footnote{Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq Szenario
 f"ur die RSA-Demonstration\grqq~ der CrypTool-Auslieferung.}:
 
 {\tt

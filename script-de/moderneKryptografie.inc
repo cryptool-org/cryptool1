@@ -102,12 +102,12 @@ Etwas genauer formuliert:  Eine Einwegfunktion ist eine Abbildung $ f $ einer Me
 
 Ein allt"agliches Beispiel f"ur eine Einwegfunktion ist ein Telefonbuch: die auszuf"uhrende Funktion ist die, einem Namen die entsprechende Telefonnummer zuzuordnen. Da die Namen alphabetisch geordnet sind, ist diese Zuordnung einfach auszuf"uhren. Aber ihre Invertierung, also die Zuordnung eines Namens zu einer gegebenen Nummer, ist offensichtlich schwierig, wenn man nur ein Telefonbuch zur Verf"ugung hat. \par
 
-Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public-Key-Verschl"usselung \index{Verschl""usselung!Public-Key} (asymmetrische Kryptographie):\par
+Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public Key-Verschl"usselung \index{Verschl""usselung!Public Key} (asymmetrische Kryptographie):\par
 
-Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schl""ussel!privat} \index{Schl""ussel!""offentlich} Schl"ussel $ d_T $   und ein sogenannter "offentlicher Schl"ussel $ e_T $   zugeordnet. Dabei mu"s die folgende Eigenschaft (Public-Key-Eigenschaft) gelten:\\
+Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schl""ussel!privat} \index{Schl""ussel!""offentlich} Schl"ussel $ d_T $   und ein sogenannter "offentlicher Schl"ussel $ e_T $   zugeordnet. Dabei mu"s die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
 F"ur einen Gegner, der den "offentlichen Schl"ussel $ e_T $  kennt, ist es praktisch unm"oglich, den privaten Schl"ussel  $ d_T $ zu bestimmen.\par
 
-Zur Konstruktion n"utzlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-Information. \par
+Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-Information. \par
 
 Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist. Wenn die L"ange der Eingabe $ n $ Bits betr"agt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, da"s die \index{Komplexit""at} Komplexit"at solcher Probleme $ O(n^{a}) $ betr"agt. 
 
@@ -115,7 +115,7 @@ Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufz
 
 Der Begriff \glqq praktisch unm"oglich\grqq {} ist etwas schwammiger. Allgemein kann man sagen, ein Problem ist \index{Laufzeit!effizient} nicht effizient l"osbar, wenn der zu seiner L"osung ben"otigte Aufwand schneller w"achst als die polynomiale Zeit als Funktion der Gr"o"se der Eingabe. Wenn beispielsweise die L"ange der Eingabe $ n $  Bits betr"agt und die Zeit  zur Berechnung der Funktion proportional zu $ 2^n $ ist, so gilt zur Zeit: die Funktion ist f"ur $n > 80$ praktisch nicht zu berechnen (f"ur $ a=5 $ gilt: ab der L"ange $ n=23 $ ist $ 2^n > n^5 $ und danach w"achst $ 2^n $ auch deutlich schneller ($ 2^{23}=8.388.608, $ $ 23^5= 6.436.343 $)).\par 
 
-Die Entwicklung eines praktisch einsetzbaren Public-Key-Verfahrens h"angt daher von der Entdeckung einer geeigneten Einwegfunktion mit Fallt"ur ab.\par
+Die Entwicklung eines praktisch einsetzbaren Public Key-Verfahrens h"angt daher von der Entdeckung einer geeigneten Einwegfunktion mit Fallt"ur ab.\par
 
 Um Ordnung in die verwirrende Vielfalt von m"oglichen Problemen und ihre Komplexit"aten zu bringen, fa"st man Probleme mit "ahnlicher Komplexit"at zu Klassen zusammen.
 
@@ -142,10 +142,10 @@ Es gab immer wieder die Aussage, jemand habe die "Aquivalenz bewiesen, z.B.
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen f"ur Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zun"achst vielversprechend erschienen, als polynomial l"osbar. Der ber"uhmteste durchgefallene Bewerber ist der Knapsack mit Fallt"ur, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
+Es wurden eine Reihe von Algorithmen f"ur Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zun"achst vielversprechend erschienen, als polynomial l"osbar. Der ber"uhmteste durchgefallene Bewerber ist der Knapsack mit Fallt"ur, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
 
 %--------------------------------------------------------------------
-       \subsection{Knapsackproblem als Basis f"ur Public-Key-Verfahren} \index{Kryptographie!Public-Key}
+       \subsection{Knapsackproblem als Basis f"ur Public Key-Verfahren} \index{Kryptographie!Public Key}
 %--------------------------------------------------------------------
 \index{Knapsack}
 %--------------------------------------------------------------------
@@ -157,8 +157,8 @@ Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{L
 
 Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die nat"urlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
-Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gew"ahlt ist). Dieses Problem hei"st auch  {\bf 0-1-Knapsackproblem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
-
+Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gew"ahlt ist).
+Dieses Problem hei"st auch  {\bf 0-1-Knapsackproblem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
 Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und  $ K(a'_1, \dots, a'_n;g') $  hei"sen kongruent, falls es zwei \index{teilerfremd} teilerfremde Zahlen $ w $ und $ m $ gibt, so da"s
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
@@ -205,7 +205,7 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 %--------------------------------------------------------------------
     \subsubsection{Merkle-Hellman Knapsack Verschl"usselung}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public-Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffiert.
+\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffiert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
 
@@ -235,7 +235,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 %---------------------------------------------------------------------
-      \subsection{Primfaktorzerlegung als Basis f"ur Public-Key-Verfahren}
+      \subsection{Primfaktorzerlegung als Basis f"ur Public Key-Verfahren}
 %--------------------------------------------------------------------
 
 
@@ -344,11 +344,11 @@ ist. Es ist aber klar, dass wenn das Faktorisierungsproblem \glqq gel"ost\grqq {
 
 
 %--------------------------------------------------------------------
-    \subsubsection{Rabin-Public-Key-Verfahren (1979)}
+    \subsubsection{Rabin-Public Key-Verfahren (1979)}
 %--------------------------------------------------------------------
 
-F"ur \index{Rabin} \index{Rabin!Public-Key} dieses Verfahren konnte gezeigt werden, da"s es "aquivalent zum Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anf"allig gegen chosen-ciphertext-Angriffe.
-\index{Angriff!chosen-ciphertex}
+F"ur \index{Rabin} \index{Rabin!Public Key} dieses Verfahren konnte gezeigt werden, da"s es "aquivalent zum Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anf"allig gegen chosen-ciphertext-Angriffe.
+\index{Angriff!chosen-ciphertext}
 \begin{center}
 \fbox{\parbox{12cm}{        
 Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ und $ n = pq.$ Sei $ 0\leq B \leq n-1.$ \\
@@ -378,9 +378,9 @@ Hintert"ur-Information ist die Primfaktorzerlegung von $ n = pq. $
 
 
 %--------------------------------------------------------------------
-       \subsection{Der diskrete Logarithmus als Basis f"ur Public-Key-Verfahren}
+       \subsection{Der diskrete Logarithmus als Basis f"ur Public Key-Verfahren}
 %--------------------------------------------------------------------
-Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind  Grundlagen f"ur eine gro"se Anzahl von Algorithmen von Public-Key-Verfahren.
+Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind  Grundlagen f"ur eine gro"se Anzahl von Algorithmen von Public Key-Verfahren.
 
 
 
@@ -441,10 +441,10 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} h"angt eng mit der Berechnung
 
 
 %--------------------------------------------------------------------
-    \subsubsection{ElGamal-Public-Key-Verschl"usselungsverfahren in $ \Z_p^\ast$}
+    \subsubsection{ElGamal-Public Key-Verschl"usselungsverfahren in $ \Z_p^\ast$}
 %--------------------------------------------------------------------
-\index{ElGamal!Public-Key}
-Indem man das Diffie-Hellman Schl"usselvereinbarungsprotokoll \index{Verschl""usselung!El Gamal-Public-Key} leicht variiert, kann man einen asymmetrischen Verschl"usselungsalgorithmus erhalten. Diese Beobachtung geht auf Taher ElGamal zur"uck.
+\index{ElGamal!Public Key}
+Indem man das Diffie-Hellman Schl"usselvereinbarungsprotokoll \index{Verschl""usselung!El Gamal-Public Key} leicht variiert, kann man einen asymmetrischen Verschl"usselungsalgorithmus erhalten. Diese Beobachtung geht auf Taher ElGamal zur"uck.
 \begin{center}
 \fbox{\parbox{12cm}{        
 Sei $ p $ eine Primzahl, so da"s der diskrete Logarithmus in $ \Z_p $ schwer ist. Sei $ \alpha \in \Z_p^\ast $ ein primitives Element. Sei $ a $ und $ \beta = \alpha^{a}  \mod p. $\\
@@ -473,7 +473,7 @@ und
 
 
 %----------------------------------------------------------------------------------------------------------------------------------------------------------
-    \subsubsection{Verallgemeinertes ElGamal-Public-Key-Verschl"usselungsverfahren }
+    \subsubsection{Verallgemeinertes ElGamal-Public Key-Verschl"usselungsverfahren }
 %----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im folgenden geben wir einige Eigenschaften "uber die Gruppe $ G, $ damit das diskrete Logarithmusproblem schwierig wird. \\
@@ -501,7 +501,7 @@ Man erh"alt also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuel 
 \end{Beweis}
 
 \vskip +10 pt
-{\bf Problem des diskreten Logarithmus'}
+{\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus'}
 \vskip +10 pt
 \begin{center}
 \fbox{\parbox{12cm}{ 
@@ -541,7 +541,7 @@ Wenn also das Logarithmusproblem schwer sein soll, so mu"s die Ordnung der verwe
 
 
 
-%%Unter geeigneten Voraussetzung "uber die Gruppe $ G $ kann der diskrete Logarithmus schwierig werden. Dies ist Grundbaustein f"ur das verallgemeinerte El% Gamal-Public-Key-Verfahren.
+%%Unter geeigneten Voraussetzung "uber die Gruppe $ G $ kann der diskrete Logarithmus schwierig werden. Dies ist Grundbaustein f"ur das verallgemeinerte El% Gamal-Public Key-Verfahren.
 
 \begin{center}
 \fbox{\parbox{12cm}{    
@@ -567,7 +567,7 @@ und
 {\bf Verallgemeinertes ElGamal Verfahren} (auf das diskrete Logarithmusproblem basierend).
 \vskip +20 pt
 
-\hyperlink{ellcurve}{Elliptische Kurven} {} liefern n"utzliche Gruppen f"ur Public-Key-Verschl"usselungsverfahren.
+\hyperlink{ellcurve}{Elliptische Kurven} {} liefern n"utzliche Gruppen f"ur Public Key-Verschl"usselungsverfahren.
 
 \newpage
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
@@ -595,7 +595,7 @@ und
            IEEE Trans. Information Theory, IT-24, 1978.
 
        \bibitem[RSA1978]{RSA1978} Rivest R.L., Shamir A. and Adleman L.:\index{RSA}\index{Shamir Adi}
-           \emph{A Method for Obtaining Digital Signatures and Public-Key Cryptosystems.} \\
+           \emph{A Method for Obtaining Digital Signatures and Public Key Cryptosystems.} \\
            Commun. ACM, vol 21, April 1978, pp. 120-126.
 
            \bibitem[Shamir1982]{Shamir1982} Shamir A.:

@@ -650,7 +650,7 @@ $ g $. The claim is thus proved by induction to $ n. $
 \end{Proof}
 
 \vskip +10 pt
-{\bf Problem of the discrete logarithm}
+{\bf Problem of the discrete logarithm}\index{Logarithm problem!discrete}
 \vskip +10 pt
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -746,7 +746,7 @@ encryption procedures.
 \newpage
 \begin{thebibliography}{99}
 \addcontentsline{toc}{subsection}{Bibliography}
-           \bibitem[Adleman1982]{Adleman1982} Adleman L.: 
+           \bibitem[Adleman1982]{Adleman1982} Adleman L.: \index{Adleman Leonard}
            \emph{On breaking the iterated Merkle-Hellman public key 
 Cryptosystem.} \\ 
            Advances in Cryptologie, Proceedings of Crypto 82, Plenum Press 1983, 
