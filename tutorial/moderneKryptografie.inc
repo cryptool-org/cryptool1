@@ -93,7 +93,8 @@
        \subsection{Einwegfunktionen mit Fallt"ur und Komplexit"atsklassen}
 %--------------------------------------------------------------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
-Eine {\bf Einwegfunktion} ist eine effizient zu berechnende (injektive) Funktion, deren Umkehrung jedoch nur mit 
+Eine {\bf Einwegfunktion} \hypertarget{Einwegfunktionen1}{} ist eine effizient zu 
+berechnende (injektive) Funktion, deren Umkehrung jedoch nur mit 
 extrem hohem Rechenaufwand -- jedoch praktisch unm"oglich -- zu berechnen ist.\par
 
 Etwas genauer formuliert:  Eine Einwegfunktion ist eine Abbildung $ f $ einer Menge $ X $ in eine Menge $ Y, $ so da"s $ f(x) $ f"ur jedes Element $ x $ von $ X $ leicht zu berechnen ist, w"ahrend es f"ur (fast) jedes $ y $ aus $ Y $  praktisch unm"oglich ist, ein Urbild $ x $ (d.h. ein $ x $ mit $ f(x)=y $) zu finden.\par
@@ -242,7 +243,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 %--------------------------------------------------------------------
     \subsubsection{Das RSA--Verfahren}
 %--------------------------------------------------------------------
-\index{RSA} Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
+\index{RSA} \hypertarget{RSAVerfahren}{} Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
 
@@ -378,14 +379,14 @@ Diskrete Logarithmen sind  Grundlagen f"ur eine gro"se Anzahl von Algorithmen vo
 
 
 %--------------------------------------------------------------------
-    \subsubsection{Der diskrete Logarithmus in $ \Z_p $}
+    \subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}
 %--------------------------------------------------------------------
-Sei $ p $ eine Primzahl, und sei $ g \in \Z_p^\ast=\{0,1,\ldots,p-1\} $. Dann ist die diskrete Exponentialfunktion zur Basis $ g $  definiert durch
+Sei $ p $ eine Primzahl, und sei $g$ ein Erzeuger der zyklische multiplikative Gruppe $ \Z_p^\ast=\{1,\ldots,p-1\} $. Dann ist die diskrete Exponentialfunktion zur Basis $ g $  definiert durch
 \[ e_g : k \longrightarrow y:=g^k \mod p, \quad 1\leq k \leq p-1. \]
 Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
 \[ \log_g (g^k) =k. \]
 \index{Exponentialfunktion!diskrete} Unter dem Problem des diskreten Logarithmus (in $ \Z_p^\ast$) versteht man das folgende:
-\[ \text{Gegeben } p,g \text{ und } y, \text{ bestimme } k \text{ so, da"s } y=g^k \mod p \text{ gilt.}\]
+\[ \text{Gegeben } p,g \text{(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, da"s } y=g^k \mod p \text{ gilt.}\]
 Die Berechnung des diskreten Logarithmus ist viel schwieriger als die Auswertung der diskreten Exponentialfunktion (siehe 3.4.4).
 Es gibt viele Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson1995}:
 \vskip + 5pt
