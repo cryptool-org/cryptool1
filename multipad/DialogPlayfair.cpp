@@ -12,7 +12,7 @@
 #include "DialogPlayfair.h"
 #include "playfair.h"
 #include "assert.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -578,11 +578,9 @@ BOOL CDialogPlayfair::OnInitDialog()
 	m_listview.InsertColumn( 5, "row or col?", LVCFMT_LEFT, colWidth+60 , 3); // 
 	m_listview.InsertColumn( 6, "Metrik", LVCFMT_LEFT, colWidth , 3); // 
 
-/****** Mark Santiago, Henrik Koy *******/
 	m_bHScroll = FALSE;
 	m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted;
 	m_iPos = 0;
-/****************************************/
 
 	InitListBox();
 	SetupListBox();
@@ -593,24 +591,6 @@ BOOL CDialogPlayfair::OnInitDialog()
 
 /****** Mark Santiago, Henrik Koy *******/
 const int iEditSize=69;
-
-/*
-#define SB_LINEUP           0
-#define SB_LINELEFT         0
-#define SB_LINEDOWN         1
-#define SB_LINERIGHT        1
-#define SB_PAGEUP           2
-#define SB_PAGELEFT         2
-#define SB_PAGEDOWN         3
-#define SB_PAGERIGHT        3
-#define SB_THUMBPOSITION    4
-#define SB_THUMBTRACK       5
-#define SB_TOP              6
-#define SB_LEFT             6
-#define SB_BOTTOM           7
-#define SB_RIGHT            7
-#define SB_ENDSCROLL        8
-*/
 
 void CDialogPlayfair::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
 {
@@ -654,13 +634,10 @@ void CDialogPlayfair::ScrollRange(int length_in_characters)
 	}
 	m_ctrlScroll.SetScrollRange(0, m_iSMax);
 	m_iPos = m_ctrlScroll.GetScrollPos();
-	// m_txtfeld.SetScrollRange(SB_HORZ, 0, m_iSMax);
-	// m_txtfeld.ShowScrollBar(SB_HORZ, FALSE);
 	m_ciphfeld.SetScrollRange(SB_HORZ, 0, m_iSMax);
 	m_ciphfeld.LineScroll(0, m_iPos);
 	m_ciphfeld.ShowScrollBar(SB_HORZ, FALSE);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 //

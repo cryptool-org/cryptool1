@@ -1,10 +1,9 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "commdlg.h"
 #include "multipad.h"
-// #include "fileutil.h"
 #include "CryptDoc.h"
 #include "dia1.h"
 #include "SchluesselAusgabeLinear.h"
@@ -36,6 +35,10 @@
 #include "Hashdemo.h"
 #include "DlgSignTutorial.h"
 
+#include "DialogMessage.h"
+#include "MakeNewName.h"
+#include "CrypToolTools.h"
+
 #include <fstream.h>
 
 #define MAX_LAENGE_STRTEXT 16000
@@ -44,57 +47,7 @@ char *Eingabedatei;
 int *MaxPermu[26];
 float Fortschritt=20.0;
 
-//////////////////////////////////////////////////////////////////////////////
-//
-// Message Box Handling
-//
 
-void Message( int IDS_STRING_ID, int FLAGS, int No1, int No2 )
-{
-	char line[IDS_STRINGLENGTH];
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf( line, pc_str, No1, No2);
-	AfxMessageBox(line, FLAGS);
-}
-
-void Message(int IDS_STRING_ID, int FLAGS, int No, const char * str, bool transpose)
-{
-	char line[IDS_STRINGLENGTH];
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
-	if ( transpose )
-	{
-		sprintf( line, pc_str, str, No );
-	}
-	else
-	{
-		sprintf( line, pc_str, No, str );
-	}
-	AfxMessageBox (line, FLAGS);
-}
-
-void Message(int IDS_STRING_ID, int FLAGS, const char* str1, const char* str2)
-{
-	char line[IDS_STRINGLENGTH];
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
-	if ( NULL == str2 )
-	{
-		sprintf( line, pc_str, str1 );
-	}
-	else
-	{
-		sprintf( line, pc_str, str1, str2 );
-	}
-	AfxMessageBox (line, FLAGS);
-}
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////
-KeyData keylist[KEYDATA_TABLE_SIZE];
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -108,143 +61,7 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 int SucheLeer (int Start, int Laenge, SymbolArray& text);
 bool match (char *current, char *common);
 
-
-// =============== TOOLS ====================================================
-const int CryptMethods[] =  {
-		IDS_CRYPT_CAESAR,         
-		IDS_CRYPT_VIGENERE,       
-		IDS_CRYPT_HILL,
-		IDS_CRYPT_HOMOPHONE,      
-		IDS_CRYPT_SUBSTITUTION,   
-		IDS_CRYPT_PLAYFAIR,       
-		IDS_CRYPT_ADDITION,       
-		IDS_CRYPT_XOR,            
-		IDS_CRYPT_VERNAM,         
-		IDS_CRYPT_PERMUTATION,    
-		IDS_CRYPT_IDEA,           
-		IDS_CRYPT_RC2,            
-		IDS_CRYPT_RC4,            
-		IDS_CRYPT_TRIPLE_DES_ECB, // ACHTUNG "Triple DES (ECB)" steht vor "DES (ECB)" --> Teilstringproblem!
-		IDS_CRYPT_TRIPLE_DES_CBC, 
-		IDS_CRYPT_DES_ECB,        
-		IDS_CRYPT_DES_CBC,        
-		IDS_CRYPT_MARS,    
-		IDS_CRYPT_RC6,     
-		IDS_CRYPT_RIJNDAEL,
-		IDS_CRYPT_SERPENT,
-		IDS_CRYPT_TWOFISH,
-		IDS_CRYPT_PRIMES,
-		IDS_CRYPT_RSADEMO_PARAMETER,
-		IDS_PARAM_PERMUTATION,
-		IDS_PARAM_HOMOPHONE,
-		IDS_PARAM_PLAYFAIR,
-		IDS_PARAM_RSA_DEMO,
-		0
-};
-
-BOOL ExtractStrKeyType( char * KeyType, const char* keyStr )
-{
-	int i,j = 0;
-	CString KeyString = keyStr;
-	while ( CryptMethods[j] != 0 )
-	{
-		LoadString(AfxGetInstanceHandle(),CryptMethods[j++],pc_str,STR_LAENGE_STRING_TABLE);		
-		if ( 0 <= (i = KeyString.Find( pc_str )) )
-		{
-			strncpy( KeyType, pc_str, KEYDATA_HASHSTRING_LENGTH );
-			KeyType[KEYDATA_HASHSTRING_LENGTH] = '\0';
-			return TRUE;
-		}
-	}
-	return FALSE;
-}
-
-
-BOOL IsKeyEmpty( const char* KeyType)
-{
-	int hash = 0;
-	char intKeyType[KEYDATA_HASHSTRING_LENGTH+1];
-	if ( !ExtractStrKeyType( intKeyType, KeyType ) ) 
-		return FALSE;
-
-//	if ( KeyType[0] == '\0' ) return FALSE;
-	for ( int i=0; intKeyType[i] != '\0' && i < KEYDATA_HASHSTRING_LENGTH; i++ ) hash += (int)intKeyType[i];
-
-	hash %= KEYDATA_TABLE_SIZE;
-	int counter = 0;
-	while ( strcmp( intKeyType, keylist[hash].keytype ) && keylist[hash].keytype[0] != '\0' ) 
-	{
-		hash = (hash+1) % KEYDATA_TABLE_SIZE; // suche 
-		if ( counter++ > KEYDATA_TABLE_SIZE ) exit(0);
-	}
-	if (  keylist[hash].keytype[0] == '\0' ) return FALSE;
-	return TRUE;
-}
-
-BOOL CopyKey ( const char* KeyType, const CString &Key )
-{
-	int hash = 0;
-	char intKeyType[KEYDATA_HASHSTRING_LENGTH+1];
-	if ( !ExtractStrKeyType( intKeyType, KeyType ) ) 
-		return FALSE;
-
-	for ( int i=0; intKeyType[i] != '\0' && i < KEYDATA_HASHSTRING_LENGTH; i++ ) hash += (int)intKeyType[i];
-
-	hash %= KEYDATA_TABLE_SIZE;
-	int counter = 0;
-	while ( strcmp( intKeyType, keylist[hash].keytype ) && keylist[hash].keytype[0] != '\0' ) 
-	{
-		hash = (hash+1) % KEYDATA_TABLE_SIZE; // suche 
-		if ( counter++ > KEYDATA_TABLE_SIZE ) exit(0);
-	}
-	if ( keylist[hash].keytype[0] == '\0' ) strcpy( keylist[hash].keytype, intKeyType );
-	keylist[hash].key = Key;
-	return TRUE;
-}
-
-
-BOOL PasteKey( const char* KeyType, CString &Key )
-{
-	int hash = 0;
-	char intKeyType[KEYDATA_HASHSTRING_LENGTH+1];
-	if ( !ExtractStrKeyType( intKeyType, KeyType ) ) 
-		return FALSE;
-	for ( int i=0; intKeyType[i] != '\0' && i < KEYDATA_HASHSTRING_LENGTH; i++ ) hash += (int)intKeyType[i];
-
-	hash %= KEYDATA_TABLE_SIZE;
-	int counter = 0;
-	while ( strcmp( intKeyType, keylist[hash].keytype ) && keylist[hash].keytype[0] != '\0' ) 
-	{
-		hash = (hash+1) % KEYDATA_TABLE_SIZE; // suche 
-		if ( counter++ > KEYDATA_TABLE_SIZE ) exit(0);
-	}
-	if (  keylist[hash].keytype[0] == '\0' ) return FALSE;
-	if ( !keylist[hash].key.GetLength() ) return FALSE;
-	Key = keylist[hash].key;
-	return TRUE;
-}
-
-
-void MakeNewName(char *dest, unsigned int len, const char *format, const char *old)
-{
-    if(strlen(format)+strlen(old)<len)
-        sprintf(dest,format,old);
-    else
-        sprintf(dest,format,"...");
-}
-
-void MakeNewName3(char *dest, unsigned int len, const char *format, const char *alg, const char *old, const char *key)
-{
-    if(strlen(format)+strlen(alg)+strlen(old)+strlen(key)<len)
-        sprintf(dest,format,alg,old,key);
-    else {
-	    if(strlen(format)+strlen(alg)+3+strlen(key)<len)
-	        sprintf(dest,format,alg,"...",key);
-		else
-	        sprintf(dest,format,alg,"...","...");
-	}
-}
-
+/* local functions */
 void FreePar(CryptPar *par)
 {
 	if(!(par->flags & CRYPT_FREE_MEM)) return;
@@ -252,26 +69,6 @@ void FreePar(CryptPar *par)
 	if(par->infile) free((void *) par->infile);
 	if(par->OldTitle) free((void *) par->OldTitle);
 	if(par->key) free(par->key);
-}
-
-BOOL CheckAlphabet( int minSize )
-{
-	if (theApp.TextOptions.m_alphabet.GetLength() < minSize )
-	{
-		Message(IDS_STRING_MSG_ON_ALPHABET, MB_ICONEXCLAMATION, minSize);
-		return FALSE;
-	}
-	return TRUE;
-}
-
-BOOL CheckTextSize( SymbolArray &text, int Threshold )
-{
-	if(text.GetSize() < Threshold ) 
-	{
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, Threshold);
-		return FALSE;
-	}
-	return TRUE;
 }
 
 void SetDialogTitle( dia1 &Dialog, int IDS_STRING_ID )
@@ -285,32 +82,6 @@ void SetDialogTitle( hexdialog &Dialog, int IDS_STRING_ID )
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
 	Dialog.SetAlternativeWindowText(pc_str);
 }
-
-void LoadText( const char *infile, SymbolArray &text )
-{
-	CWaitCursor WCursor;
-	text.Read(infile);
-	WCursor.Restore();
-}
-
-void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, int IDS_STRING_ID, 
-				 BOOL Decrypt, int KeyType )
-{
-	char title[128];
-	CMyDocument *NewDoc;
-	NewDoc = theApp.OpenDocumentFileNoMRU( outfile, keyStr, KeyType );
-    remove(outfile);
-    if(NewDoc) {
-	    if(Decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,keyStr);
-        NewDoc->SetTitle(title);
-    }
-}
-
 
 // ========================================================================
 void CaesarAsc(const char *infile, const char *OldTitle)
@@ -454,23 +225,6 @@ void VernamBin(const char *infile, const char *OldTitle)
 	
 // == load KEY
 	{
-		/*
-		OPENFILENAME ofn;
-		memset(&ofn,0,sizeof(ofn));
-		ofn.lStructSize = sizeof(ofn);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_VERNAM_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
-		ofn.lpstrTitle = pc_str;
-		ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
-		ofn.lpstrFile = fname;
-		fname[0] = 0;
-		ofn.nMaxFile = sizeof(fname)-1;
-		ofn.lpstrFileTitle = ftitle;
-		ftitle[0] = 0;
-		ofn.nMaxFileTitle = sizeof(ftitle)-1;
-		if(!GetOpenFileName(&ofn)) return;
-		if(fname[0]==0) return;
-		*/	
-		
 		// Initialisierung des File-Dialogs:
 		CString sFileFilter;
 		CString sDefName("*.txt");
@@ -1626,9 +1380,9 @@ void Mono(const char *infile, const char *OldTitle){
 		fclose (stream);
 		fclose (stream2);
 		
-		// Sollen Leerzeichen im  Chiffretexttext erhalten bleiben???
-/****************** Die Formatierung des Textes wird jetzt ueber eine globale Option gesetzt. Damit bleinben
-alle Formatierunginformationen erhalten
+// Sollen Leerzeichen im  Chiffretexttext erhalten bleiben???
+/*	Die Formatierung des Textes wird jetzt ueber eine globale Option gesetzt. Damit bleinben
+	alle Formatierunginformationen erhalten
 		const Converter *Conv;
 		if (Mono1.m_check==FALSE){ //Encrypt gewählt
 			if (Mono1.m_check2==FALSE){
@@ -1642,7 +1396,8 @@ alle Formatierunginformationen erhalten
 			Conv=&AlphaSpaceConv;
 		}
 		SymbolArray text(*Conv);
-*************************/
+*/
+
 		SymbolArray text(AlphaConv);
 
 		//text.Read(infile);
@@ -1679,11 +1434,6 @@ alle Formatierunginformationen erhalten
 		remove (outfile2);
 		if(NewDoc) 
 		{
-/* Ohne Ausgabe des Schlüssels in der Titelleiste:
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MONOALPHABETIC_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName(title,sizeof(title),pc_str,OldTitle);
-			NewDoc->SetTitle(title);
-*/
 			if(Mono1.m_check)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
@@ -1693,7 +1443,6 @@ alle Formatierunginformationen erhalten
 			// da bei der Analyse nur die Permutation gefunden werden kann, 
 			// nicht jedoch das Schlüsselwort. 
 			// Wegen der Konsistenz wird hier nur die Permutation ausgegeben 
-			//MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,Mono1.m_edit);
 			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
 			NewDoc->SetTitle(title);
 		}
@@ -1701,26 +1450,24 @@ alle Formatierunginformationen erhalten
 }
 
 UINT AnaSubst(PVOID p) {
+/*  Diese Funktion dient zum Brechen einer monoalphabetischen Substitution.
+	Sie arbeitet mit deutschen und englischen Standardtexten.
+	Die Leerzeichen müssen im Ciphertext enthalten sein.
 
-	/* Diese Funktion dient zum Brechen einer monoalphabetischen Substitution.
-	   Sie arbeitet mit deutschen und englischen Standardtexten.
-	   Die Leerzeichen müssen im Ciphertext enthalten sein.
+	Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen 
+	Sprache. Im englischen ist die Wahrscheinlichkeit, daß ein zufällig aus einem
+	Standardtext herausgegriffenes Wort in dieser Liste enthalten ust gerade 0,5.
 
-	   Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen 
-	   Sprache. Im englischen ist die Wahrscheinlichkeit, daß ein zufällig aus einem
-	   Standardtext herausgegriffenes Wort in dieser Liste enthalten ust gerade 0,5.
+	Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der 
+	Liste verglichen. Bei jeder möglichen Zuordnung ergibt sich daraus eine
+	(partielle) Substitution. Durch einen Suchbaum wird diejenige Substitution
+	ermittelt, die mit den meisten partiellen Substitutionen verträglich ist.
 
-	   Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der 
-	   Liste verglichen. Bei jeder möglichen Zuordnung ergibt sich daraus eine
-	   (partielle) Substitution. Durch einen Suchbaum wird diejenige Substitution
-	   ermittelt, die mit den meisten partiellen Substitutionen verträglich ist.
-
-       Quelle: George W. Hart
-			   To Decode Short Cryptograms
-			   Communications of the ACM, Sept 1994, Vol 37, No.4
-	*/
+	Quelle: George W. Hart
+		   To Decode Short Cryptograms
+		   Communications of the ACM, Sept 1994, Vol 37, No.4
+*/
 	
-
 	char *common[135];
 	CryptPar *par;
 	int Grenze;
@@ -2020,10 +1767,7 @@ UINT AnaSubst(PVOID p) {
 	while ((Start<Laenge)&&(Worte_in_Analyse<100)){
 
 		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled))   return 0;
-
-// Sleep(1000);
 		Leerzeichen=SucheLeer(Start, Laenge, text);
-// Sleep(1000);
 
 		// Es werden Wörter gefunden, die länger als 20 Zeichen sind.
 		// D.h. entweder der Text hat gar keine Leerzeichen oder das
@@ -2033,7 +1777,6 @@ UINT AnaSubst(PVOID p) {
 		if ((Leerzeichen-Start)>20){
 			Start=Leerzeichen+1;
 			continue;}
-// Sleep(1000);
 		// Kopiere das letzte Wort (bis zum Blank) nach char *current
 		// Gleichzeitig werden die Felder vore[26] und nache[26] mit den 
 		// Buchstabenhäufigkeiten vor bzw. nach dem e gepflegt
@@ -2148,18 +1891,18 @@ UINT AnaSubst(PVOID p) {
 		}
 	}
 
-	///////////////////////////////////////////////////////////////////////
-	// Ordnen der Ciphertextklassen
-	///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+// Ordnen der Ciphertextklassen
+///////////////////////////////////////////////////////////////////////
 
-	/* Finden des Root-Wortes
-	   Wir suchen die Ciphertextklasse, für die die Anzahl der verschiedenen Buchstaben im Pattern geteilt
-	   durch die Größe der Pattern Set maximal ist			
-	
-	   Das Feld nBuch[100] speichert die Anzahl der verschiedenen Buchstaben der Patterns
-	   Das Feld nPatSet die Größe der zugehörigen Pattern Set
-	   Das Feld Taken merkt sich, ob die entsprechende Ciphertexte Klasse bereits in die Sortierung aufgenommen wurde
-	   Die Reihenfolge wird in Perm[100] gespeichert			*/
+/*  Finden des Root-Wortes
+	Wir suchen die Ciphertextklasse, für die die Anzahl der verschiedenen 
+	Buchstaben im Pattern geteilt durch die Größe der Pattern Set maximal ist			
+
+	Das Feld nBuch[100] speichert die Anzahl der verschiedenen Buchstaben der Patterns 
+	Das Feld nPatSet die Größe der zugehörigen Pattern Set
+	Das Feld Taken merkt sich, ob die entsprechende Ciphertexte Klasse bereits 
+	in die Sortierung aufgenommen wurde	Die Reihenfolge wird in Perm[100] gespeichert */
 	float max=0;
 	int nMax;
 	int nBuch[100];
@@ -2194,15 +1937,15 @@ UINT AnaSubst(PVOID p) {
 			}
 		}
 
-
 		for (j=0; j<50; j++){
 			if (PatSet[i][j]!=NULL){
 				nPatSet[i]++;
 			}
-			else{
-				break;}
+			else
+			{	
+				break;
+			}
 		}
-
 
 		if (((float)nBuch[i])/((float)nPatSet[i])>max){
 			max=((float)nBuch[i])/((float)nPatSet[i]);
@@ -2222,9 +1965,8 @@ UINT AnaSubst(PVOID p) {
 	for (i=1; i<DMax; i++){
 		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled))    return 0;
 
-		// Bestimme das aktuelle Maximum nMax der nBuch
+// Bestimme das aktuelle Maximum nMax der nBuch
 //	theApp.fs.Set(i);
-//	Sleep(1000);
 
 		nMax=-1;
 		int Maximum=-1;
@@ -2355,32 +2097,6 @@ UINT AnaSubst(PVOID p) {
 			Maximalwert=-1;
 		}
 
-// Wenn die folgenden Zeilen auskommentiert werden, bitte auf die Strings über die Stringtable zugreifen
-// VON HIER
-		// Testweise Ausgabe der sortierten Listen
-		/*CString help="anfangSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(anfangSort[i]+65);
-		}
-		AfxMessageBox (help);
-
-		help="endeSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(endeSort[i]+65);
-		}
-		AfxMessageBox (help);
-
-		help="voreSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(voreSort[i]+65);
-		}
-		AfxMessageBox (help);
-
-		help="nacheSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(nacheSort[i]+65);
-		}
-		AfxMessageBox (help);*/
 
 
 		/* Bestimme das n als den Buchstaben, der in den Listen
@@ -2397,7 +2113,6 @@ UINT AnaSubst(PVOID p) {
 		   wird als Chiffrat des r angenommen.
 			 der in der 
 		   Liste endeSort[26] am weitesten oben steht		*/
-// BIS HIER
 
 
 		int Minimum=5000, Minimum2=5000;
@@ -2422,17 +2137,6 @@ UINT AnaSubst(PVOID p) {
 			}
 		}
 
-// Wenn die folgenden Zeilen auskommentiert werden, bitte auf die Strings über die Stringtable zugreifen
-// VON HIER
-		// Testausgabe
-		/*CString help2="n ist: ";
-		help2+=(char)(endeSort[Minimum]+65);
-		AfxMessageBox (help2);
-		help2="Oder n ist: ";
-		help2+=(char)(endeSort[Minimum2]+65);
-		AfxMessageBox (help2);*/
-// BIS HIER
-		
 		// Unterscheide n und r
 		// Kann durchaus noch verbessert werden.
 		if (Minimum<Minimum2){
@@ -2499,22 +2203,6 @@ UINT AnaSubst(PVOID p) {
 			benutzt[Maximum]=true;
 			Maximalwert=-1;
 		}
-
-// Wenn die folgenden Zeilen auskommentiert werden, bitte auf die Strings über die Stringtable zugreifen
-// VON HIER
-		// Testweise Ausgabe der ersten drei Einträge von vorn[26] und nachn[26]
-		/*help="vornSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(vornSort[i]+65);
-		}
-		AfxMessageBox (help);
-
-		help="nachnSort: ";
-		for (i=0; i<26; i++){
-			help+=(char)(nachnSort[i]+65);
-		}
-		AfxMessageBox (help);*/
-// BIS HIER
 
 
 		/* Bestimme das i als den Buchstaben, der in den Listen
@@ -3335,11 +3023,6 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		remove(outfile);	
 		if(NewDoc) 
 		{
-/* Ohne Ausgabe des Schlüssels in der Titelleiste:
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MONOALPHABETIC_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName(title,sizeof(title),pc_str,OldTitle);
-			NewDoc->SetTitle(title);
-*/
 			if(Perm.m_Dec)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else

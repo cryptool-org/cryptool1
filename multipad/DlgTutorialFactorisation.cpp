@@ -6,7 +6,7 @@
 #include "DlgTutorialFactorisation.h"
 #include "CryptologyUsingMiracl.h"
 #include "DlgRuntime.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 
 #include <time.h>

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Programmierung der Dialog-Klasse zur Eingabe eines 
 // hexadezimalen Schlüssels. Bei der Eingabe werden nur die 

@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
 // AESSuche.cpp: Implementierungsdatei
 //
 
@@ -9,7 +12,6 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld AESSuche 
-
 
 AESSuche::AESSuche(CWnd* pParent /*=NULL*/)
 	: CDialog(AESSuche::IDD, pParent)
@@ -81,7 +83,6 @@ char *AESSuche::GetData()
 void AESSuche::GetDataInt(char *p)
 {
 	int i;
-
 	for (i=0;i<m_len*2;i++)
 	{
 		if (i%2)
@@ -104,27 +105,21 @@ int AESSuche::GetBinlen()
 int AESSuche::Display(char *titel,int max)
 {
 	int res;
-
 	m_text_len=(max*3)-1;
-
 	res=DoModal();
-
 	return res;
 }
 
 int AESSuche::Display(char *titel)
 {
 	int res;
-
 	res=DoModal();
-
 	return res;
 }
 
 int AESSuche::Step()
 {
 	int i,n,m;
-
 	if (m_co<=m_max)
 	{
 		i=0;

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 #ifndef AFX_AUTOREN_H__831C14C1_3834_11D3_8A66_0020351F15C0__INCLUDED_
 #define AFX_AUTOREN_H__831C14C1_3834_11D3_8A66_0020351F15C0__INCLUDED_

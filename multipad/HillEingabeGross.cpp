@@ -12,6 +12,7 @@
 #include "HillEingabeGross.h"
 #include "hill.h"
 #include "ChrTools.h"
+#include "KeyRepository.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

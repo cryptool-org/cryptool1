@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
@@ -21,6 +21,7 @@
 #include "MyDocument.h"
 #include <iostream.h>
 #include <stdio.h>
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -65,17 +66,12 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	
 	SymbolArray text(AppConv);
     text.Read(infile);
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Henrik Koy November 2000 
-	// Automatische Analyse wird abgebrochen, wenn weinger als 2 Zeichen 
-	// für die Analyse zur Verfügung stehen
-// == additional condition: if the sieved ciphertext length is 0 ... exit the procedure
-	if (text.GetSize() <= 1)
+// == additional condition: if the sieved ciphertext length is below 2 ... exit the procedure
+	if (text.GetSize() < 2)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return;	
 	}
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	
 // == compare the ciphertext and the reference text
 	SymbolArray reference(AppConv);
@@ -270,11 +266,7 @@ UINT VigenereAuto(PVOID p)
 		
 		int shift=c.FindPeak();
 		
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		// ## NEW CODE (Nov 00) 
-		// key evaluation is now modulo c.GetSize() (=alphabet-size). 
 		key[i] = theApp.TextOptions.m_alphabet[(shift+1) % c.GetSize()];
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		if (Opt.m_VBase) {
 			// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 			GetTmpName(name,"cry",".plt");
@@ -627,16 +619,12 @@ UINT XorAuto(PVOID p)
 	SymbolArray text(IdConv);
     text.Read(par->infile);
 	SCorrelation c(text,min(text.GetSize(),200));	// Auto-Korrelation 1..200 betrachten,
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Henrik Koy November 2000 
-	// Automatische Analyse wird abgebrochen, wenn weinger als 3 Zeichen 
-	// für die Analyse zur Verfügung stehen
+// == additional condition: if the sieved ciphertext length is below 2 ... exit the procedure
 	if (c.GetSize() <= 1)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return 0;	
 	}
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	
 	memset(&para,0,sizeof(para));
 	para.infile = par->infile;
@@ -779,16 +767,12 @@ UINT AddAuto(PVOID p)
 	SymbolArray text(IdConv);
     text.Read(par->infile);
 	SCorrelation c(text,min(text.GetSize(),200));	// Auto-Korrelation 1..200 betrachten,
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Henrik Koy November 2000 
-	// Automatische Analyse wird abgebrochen, wenn weinger als 3 Zeichen 
-	// für die Analyse zur Verfügung stehen
+// == additional condition: if the sieved ciphertext length is below 2 ... exit the procedure
 	if (c.GetSize() <= 1)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return 0;	
 	}
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	
 	memset(&para,0,sizeof(para));
 	para.infile = par->infile;
@@ -818,7 +802,7 @@ UINT AddAuto(PVOID p)
 	s = (av + mx) / 2;
 	// ~~~~~~~~~ Henrik Koy 20. Nov 2000 
 	// Bug: 200 ==> Überlauf! wurde entfernt 
-	for(periode=1;periode<c.GetSize()/*200*/;periode++) if(c[periode]>s) break;
+	for(periode=1;periode<c.GetSize();periode++) if(c[periode]>s) break;
 
 // == Display (edit) the assumed key-length and enter the assumed most frequent plaintext-character
 	if(Opt.m_VLen) {

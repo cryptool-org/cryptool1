@@ -14,7 +14,6 @@
 
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
-//#include "fileutil.h"
 #include "pkcs.h"	// SECUDE Header-File
 
 #include "s_ecFp.h"
@@ -27,7 +26,8 @@
 #include "DLG_param.h"
 #include "PinAndNewPinDialog.h"
 #include "SecudeTools.h"
-#include "crypt.h"
+
+#include "DialogMessage.h"
 #include <time.h>
 
 
@@ -424,18 +424,12 @@ void CDlgAsymKeyCreat::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomPa
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_POINT_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
 	m_dom_param_listview.SetItemText( 5, 1, pc_str );
 
-//	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_X_COORD,pc_str,STR_LAENGE_STRING_TABLE);
-//	sprintf(pc_str1, pc_str, curveID);
-//	m_dom_param_listview.InsertItem( 5, (CString) pc_str1 ); // "x coord of G"
 	m_dom_param_listview.InsertItem( 6, "x" );
 	m_dom_param_listview.SetItemText( 6, 1, ecParamString->G_xcoord );
 	bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->x);
 	_itoa(bitlength+1, pc_str, 10);
 	m_dom_param_listview.SetItemText( 6, 2, pc_str ); // Bitlänge von x coord of G
 
-//	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_Y_COORD,pc_str,STR_LAENGE_STRING_TABLE);
-//	sprintf(pc_str1, pc_str, curveID);
-//	m_dom_param_listview.InsertItem( 6, (CString) pc_str1 ); // "y coord of G"
 	m_dom_param_listview.InsertItem( 7, "y" );
 	m_dom_param_listview.SetItemText( 7, 1, ecParamString->G_ycoord );
 	bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->y);

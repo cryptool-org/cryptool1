@@ -11,6 +11,7 @@
 #include "HillEingabe.h"
 #include "hill.h"
 #include "ChrTools.h"
+#include "KeyRepository.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CHillEingabe 

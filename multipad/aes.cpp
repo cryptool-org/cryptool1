@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Diese Quellcode-Datei enthält die Funktionen zur symmetrischen
 // Ver- und Entschlüsselung.
@@ -8,9 +8,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-// #include "crypt.h"
 #include "fileutil.h"
-// #include "CryptDoc.h"
 #include "hexdialog.h"	// Dialog-Box für die Schlüsseleingabe
 #include "..\AES\mars\mars.h"
 #include "..\AES\RC6\RC6.h"
@@ -21,24 +19,27 @@
 #include "DialogKeyHex.h"
 #include "AESSuche.h"   // Dialogbox für die Schlüsselsuche
 
-// void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
+#include "DialogMessage.h"
+#include "CrypToolTools.h"
+#include "crypt.h"
+
+
 void FreePar(CryptPar *par);
 void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *borg,int datalen,
 				unsigned char *bcip);
 
 
 /*  Die Funktion doaescrypt führt die eigentliche 
-(symmetrische) Verschlüsselung aus. 
-Über die Parameter, die doaescrypt von der 
-aufrufenden Funktion bekommt wird so die 
-Funktion sec_encrypt_all bzw. sec_decrypt_all
-angesteuert. (je nach mode)
-keybufhex enthält den Schlüssel, Länge keylen,
-borg den Orginaltext, Länge datalen, und in bcip
-wird der ciphertext gespeichert. 
-Der Parameter AlgId gibt an, mit welchem Algorithmus
-die Daten ver-/entschlüsselt werden sollen:
-*/
+	(symmetrische) Verschlüsselung aus. 
+	Über die Parameter, die doaescrypt von der 
+	aufrufenden Funktion bekommt wird so die 
+	Funktion sec_encrypt_all bzw. sec_decrypt_all
+	angesteuert. (je nach mode)
+	keybufhex enthält den Schlüssel, Länge keylen,
+	borg den Orginaltext, Länge datalen, und in bcip
+	wird der ciphertext gespeichert. 
+	Der Parameter AlgId gibt an, mit welchem Algorithmus
+	die Daten ver-/entschlüsselt werden sollen: */
 void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *borg,int datalen,
 				unsigned char *bcip)
 {
@@ -118,15 +119,14 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 
 
 /*  Die Funktion AESCrypt führt die eigentliche 
-(symmetrische) Verschlüsselung aus. 
-Der Parameter AlgId gibt an, mit welchem Algorithmus
-die Daten ver-/entschlüsselt werden sollen:
-1 steht für Mars
-2 steht für RC6
-3 steht für Rijndael
-4 steht für Serpent
-5 steht für Twofish
-*/
+	(symmetrische) Verschlüsselung aus. 
+	Der Parameter AlgId gibt an, mit welchem Algorithmus
+	die Daten ver-/entschlüsselt werden sollen:
+	1 steht für Mars
+	2 steht für RC6
+	3 steht für Rijndael
+	4 steht für Serpent
+	5 steht für Twofish */
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName, char* NewFileKey )
 {
 	
@@ -261,10 +261,9 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////
-// AESBrute() führt eine Schlüsselraumsuche für die AES Verfahren aus.
-// in (CryptPar *)p sind alle nötigen Daten (AlgId siehe AESCrypt())
-// enthalten.
+/* AESBrute() führt eine Schlüsselraumsuche für die AES Verfahren aus.
+	in (CryptPar *)p sind alle nötigen Daten (AlgId siehe AESCrypt())
+	enthalten. */
 UINT AESBrute(PVOID p)
 {
     char outfile[128], line[256], AlgTitel[128];

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
@@ -59,6 +59,158 @@ void MyToLower(CString &str)
 	str.ReleaseBuffer();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+BOOL isCharOf( const char ch, const char *expr )
+{
+	int len = strlen(expr);
+	for (int i=0; i<len; i++) 
+        if ( i+3 < len && expr[i+1] == '.' && expr[i+2] == '.' && expr[i] < expr[i+3] )
+		{
+			if ( ch >= expr[i] && ch <= expr[i+3] ) return TRUE;
+               i += 3;
+		}
+        else if ( ch == expr[i] ) return TRUE;
+	return FALSE;
+}
+
+BOOL IsNumber( char ch, int base )
+{
+	  switch (base) {
+	  case BASE_BIN: return isCharOf(ch, VALID_BIN);
+					break;
+	  case BASE_OCT: return isCharOf(ch, VALID_OCT);
+					break;
+	  case BASE_DEC: return isCharOf(ch, VALID_DEC);
+					break;
+	  case BASE_HEX: return isCharOf(ch, VALID_HEX); 
+					break;
+	  default: return isCharOf(ch, VALID_DEC);
+	  }
+}
+
+int NeededBase( char ch )
+{
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_BIN);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_OCT);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_DEC);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_HEX);
+	return 0;
+}
+
+char DigitToNum( char ch )
+{
+	if ( ch >= '0' && ch <= '9' ) return ch - '0';
+	if ( ch >= 'A' && ch <= 'F' ) return ch - 'A' + 10;
+	if ( ch >= 'a' && ch <= 'f' ) return ch - 'a' + 10;
+	return -1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Nur temporär & lokal definiert
+
+inline
+BOOL NewLineTabSpace( char ch )
+{
+	return isCharOf( ch, " \r\t\n");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// return true if the INPUT is a HEX-dump + formats the INPUT
+//
+
+BOOL IsHexDump( CString &CStr )
+{
+	CString fmt = _T("");
+	int twoStep = 0;
+	for (int i=0; i<CStr.GetLength(); i++ ) {
+		if ( !NewLineTabSpace( CStr[i] ) )
+		{
+			if ( IsNumber( CStr[i], BASE_HEX ) )
+			{
+				fmt += CStr[i];
+				twoStep++;
+				if ( 2 == twoStep ) {
+					fmt += ' ';
+					twoStep = 0;
+					if ( i+1 < CStr.GetLength() && !NewLineTabSpace( CStr[i+1] ) )
+						return FALSE;
+				}
+			}
+			else 
+				return FALSE;
+		}
+	}
+	if (twoStep != 0) return FALSE;
+	else              return TRUE;
+}
+
+char ToHex( const char ch )
+{
+	if ( ch % BASE_HEX < BASE_DEC ) return ('0' + (ch % BASE_HEX));
+	else                            return ('A' + ((ch % BASE_HEX) -10));
+}
+
+void dataToHexDump( const char* data, int len, char* hexDump )
+{
+	int j=0;
+    	for (int i=0; i<len; i++) 
+	{
+		hexDump[j++] = ToHex(((unsigned char)data[i]) / 16);
+		hexDump[j++] = ToHex(((unsigned char)data[i]) % 16);
+		if ( i+1 < len ) hexDump[j++] = ' ';
+		else             hexDump[j++] = '\0';
+	}
+}
+
+void dataToHexDump( const char* data, int len, CString& hexDump )
+{
+	char *tmp;
+	tmp = new char[3*len];
+	dataToHexDump(data, len, tmp);
+	hexDump = tmp;
+	delete []tmp;
+}
+
+int HexDumpToData( const char *hexDump, char *data )
+{
+	int twoStep = 0;
+	char ch;
+    	int i,j = 0;
+    	for ( i=0; hexDump[i] != 0; i++ )
+	{
+		if ( IsNumber(hexDump[i], BASE_HEX) )
+		{
+			char res;
+			if (twoStep++)
+			{
+				res = ( ch << 4 ) + DigitToNum( hexDump[i] );
+				data[j++] = res;
+				twoStep = 0;
+			}
+			else
+				ch = DigitToNum( hexDump[i] );
+		}
+		else
+		{
+			if ( !NewLineTabSpace( hexDump[i] ) )
+				return -1; // error: no HEX-Dump
+		}
+	}
+	return j;
+}
+
+int HexDumpToData( CString &hexDump, char *data )
+{
+	char *tmp;
+	tmp = new char[hexDump.GetLength()+1];
+	strcpy( tmp, hexDump.GetBuffer(0) );
+	int retVal = HexDumpToData( tmp, data );
+	hexDump = tmp;
+	delete []tmp;
+	return retVal;
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 

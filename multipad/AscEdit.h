@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+
 #if !defined(AFX_ASCEDIT_H__2B17B659_F65C_430E_BDB5_9181C5B3C75F__INCLUDED_)
 #define AFX_ASCEDIT_H__2B17B659_F65C_430E_BDB5_9181C5B3C75F__INCLUDED_
 

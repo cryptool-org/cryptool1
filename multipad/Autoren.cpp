@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Autoren.cpp: Implementierungsdatei
 //
@@ -10,20 +10,14 @@
 #include "Autoren.h"
 #include "DlgPrimesGenerator.h"
 
-
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CAutoren 
-
-
-
 
 CAutoren::CAutoren(CWnd* pParent /*=NULL*/)
 : CDialog(CAutoren::IDD, pParent)
@@ -33,9 +27,6 @@ CAutoren::CAutoren(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
-
-
 void CAutoren::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -43,9 +34,6 @@ void CAutoren::DoDataExchange(CDataExchange* pDX)
 	// HINWEIS: Der Klassen-Assistent fügt hier DDX- und DDV-Aufrufe ein
 	//}}AFX_DATA_MAP
 }
-
-
-
 
 BEGIN_MESSAGE_MAP(CAutoren, CDialog)
 //{{AFX_MSG_MAP(CAutoren)

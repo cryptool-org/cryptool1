@@ -16,7 +16,7 @@
 #include "fileutil.h"
 #include "Zufallsgenerator_Tests_Alles.h"
 #include "Read_Ini_File_2.h"
-#include "crypt.h"
+#include "CrypToolTools.h"
 // Für Zuffalszahlen
 #include <time.h>
 // Für File-Stream

@@ -6,6 +6,9 @@
 #include "AscEdit.h"
 #include "DialogPermutation.h"
 
+#include "KeyRepository.h"
+#include "DialogMessage.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -267,33 +270,6 @@ int CDialogPermutation::PrintPerm(char *dest, int *perm, int len)
 	return strlen(dest);
 }
 
-
-//DEL void CDialogPermutation::OnCopyKey() 
-//DEL {
-//DEL 	HANDLE hndl;
-//DEL 	char *globBuff;
-//DEL 	int k;
-//DEL 	CString buffer;
-//DEL 
-//DEL 	OpenClipboard();
-//DEL 	hndl = ::GetClipboardData(CF_TEXT);
-//DEL 	globBuff = (char *) GlobalLock(hndl);
-//DEL 	buffer = globBuff;
-//DEL 	GlobalUnlock(hndl);
-//DEL 	CloseClipboard();
-//DEL 	k = buffer.Find(';');
-//DEL 	if(k==-1) {
-//DEL 		m_Perm1 = makeASCII(buffer);
-//DEL 		m_Perm2.Empty();
-//DEL 	}
-//DEL 	else {
-//DEL 		m_Perm1 = makeASCII(buffer.Left(k));
-//DEL 		m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
-//DEL 	}
-//DEL 	UpdateData(FALSE);
-//DEL 	OnChangeEdit1();
-//DEL 	OnChangeEdit2();
-//DEL }
 
 void CDialogPermutation::OnPasteKey() 
 {

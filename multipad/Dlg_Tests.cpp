@@ -6,7 +6,7 @@
 #include "Dlg_Tests.h"
 #include "Zufallsgenerator_Tests_Alles.h"
 #include "Read_Ini_File_2.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -186,12 +186,6 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 
 		UpdateData(TRUE);
 		currentTest->test();
-		/*
-		m_Nullen = currentTest->GetNullen();
-		m_Einsen = currentTest->GetEinsen();
-		m_Laenge = currentTest->GetTestLaenge();
-		m_DefaultStaticParam = currentTest->def_param;
-		*/
 		UpdateData(FALSE);
 
 		if(!currentTest->GetResult())
@@ -495,10 +489,6 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		RT_test.Set_DefParam(parameter);
 		RT_test.test();
 
-		//char info_ergeb[128] = "Maximaler Testwert: %lf\nTest Ergebnis: %lf\n";
-		/*char kleiner = '<';
-		char groesser = '>';*/
-
 		if(!RT_test.GetResult())
 		{
 			m_Run_Hak_Ctrl.ShowWindow(FALSE);
@@ -695,8 +685,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Mono-Bit Test");
 		m_Monobit_Static = tmpStr;
-		//sprintf(tmpStr, "Die Zahl x der Einsen : %d\n9654 < x=%d < 10346", FREQT.einsen, FREQT.einsen);
-		//m_Mono_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -709,16 +697,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Mono-Bit Test");
 		m_Monobit_Static = tmpStr;
-		/*if (FREQT.einsen <= 9654)
-		{
-			sprintf(tmpStr, "Die Zahl x der Einsen: %d\n%d < 9654", FREQT.einsen, FREQT.einsen);
-			m_Mono_Info = tmpStr;
-		}
-		else if (FREQT.einsen >= 10346)
-		{
-			sprintf(tmpStr, "Die Zahl x der Einsen: %d\n10346 < %d", FREQT.einsen, FREQT.einsen);
-			m_Mono_Info = tmpStr;
-		}*/
 		UpdateData(FALSE);
 	}
 
@@ -740,8 +718,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Longrun Test");
 		m_Longrun_Static = tmpStr;
-		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d < 34", LRT.longest_run_final, LRT.longest_run_final);
-		//m_LongRun_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -754,8 +730,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Longrun Test");
 		m_Longrun_Static = tmpStr;
-		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d > 34", LRT.longest_run_final, LRT.longest_run_final);
-		//m_LongRun_Info = tmpStr;
 		UpdateData(FALSE);
 	}
 
@@ -766,12 +740,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 	POKT.Set_infile(infile);
 	POKT.Set_oldtitle(oldTitle);
 	POKT.tupel = 4;
-
-	/*UINT potenz = 1;
-	for (UINT pot = 0; pot < POKT.tupel; pot++) potenz *= 2;
-	POKT.Set_degr(potenz - 1);
-	if ((potenz - 1) == 15) POKT.Set_degr( 11 ); //Keine verfügbare Daten für weiter Freiheitsgraden*/
-
 	POKT.SetTestLength(2500);
 	POKT.fips = TRUE;
 	POKT.test();
@@ -784,8 +752,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Poker Test");
 		m_Pokertest_Static = tmpStr;
-		//sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\n1.03 < x=%.4lf < 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
-		//m_Poker_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -798,18 +764,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Poker Test");
 		m_Pokertest_Static = tmpStr;
-
-		/*if (POKT.GetResult() <= 1.03)
-		{
-			sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\nx=%.4lf < 1.03", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
-			m_Poker_Info = tmpStr;
-		}
-		else if (FREQT.einsen >= 57.4)
-		{
-			sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\nx=%.4lf > 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
-			m_Poker_Info = tmpStr;
-		}*/
-
 		UpdateData(FALSE);
 	}
 

@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
 // AnalyseNGram.cpp: Implementierungsdatei
 //
 
@@ -5,7 +8,8 @@
 #include "multipad.h"
 #include "fileutil.h"
 #include "AnalyseNGram.h"
-#include "crypt.h"    // ### Heraus!
+#include "DialogMessage.h"
+#include "MakeNewName.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -15,7 +19,6 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld AnalyseNGram 
-
 
 AnalyseNGram::AnalyseNGram(CWnd* pParent /*=NULL*/)
 	: CDialog(AnalyseNGram::IDD, pParent)

@@ -6,7 +6,8 @@
 #include "multipad.h"
 #include "Dlg_homophone.h"
 #include "assert.h"
-#include "crypt.h"
+#include "DialogMessage.h"
+#include "KeyRepository.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

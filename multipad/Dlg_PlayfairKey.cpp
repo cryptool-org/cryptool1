@@ -12,7 +12,7 @@
 #include "multipad.h"
 #include "Dlg_PlayfairKey.h"
 #include "playfair.h"
-#include "crypt.h"
+#include "KeyRepository.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlg_PlayfairKey 
@@ -42,9 +42,7 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 CDlg_PlayfairKey::~CDlg_PlayfairKey()
 {
 	assert (m_Alg);
-/*	//{{AFX_DATA_INIT(CDlg_PlayfairKey) */
     delete m_Alg; m_Alg = NULL;
-/*	//}}AFX_DATA_INIT */
 }
 
 //////////////////////////////////////////////////////////////////////////////

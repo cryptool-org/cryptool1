@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // Programmiert von Christian Tobias
 //////////////////////////////////////////////////////////////////
@@ -19,6 +19,7 @@
 #include "MyDocument.h"
 #include "DialogKeyHex.h"
 #include "AESSuche.h"
+#include "DialogMessage.h"
 
 #define WINSIZE	128
 
@@ -36,28 +37,27 @@ int KLen(unsigned __int64 *k)
 }
 
 /*  Die Funktion Brute führt die eigentliche Analyse der
-symmetrischen Verschlüsselung über Brute force aus. 
-Über die Parameter, die Crypt von der 
-aufrufenden Funktion bekommt wird so die 
-Funktion sec_encrypt_all bzw. angesteuert.
-Der Parameter AlgId gibt an, mit welchem Algorithmus
-die Daten ver-/entschlüsselt werden sollen:
-1 steht für IDEA
-2 steht für DES im ECB mode
-3 steht für DES im CBC mode
-4 steht für Triple-DES im CBC mode
-5 steht für Triple-DES im ECB mode
-6 steht für RC4
-7 steht für rc2
+	symmetrischen Verschlüsselung über Brute force aus. 
+	Über die Parameter, die Crypt von der 
+	aufrufenden Funktion bekommt wird so die 
+	Funktion sec_encrypt_all bzw. angesteuert.
+	Der Parameter AlgId gibt an, mit welchem Algorithmus
+	die Daten ver-/entschlüsselt werden sollen:
+	1 steht für IDEA
+	2 steht für DES im ECB mode
+	3 steht für DES im CBC mode
+	4 steht für Triple-DES im CBC mode
+	5 steht für Triple-DES im ECB mode
+	6 steht für RC4
+	7 steht für rc2
 
-  Sollen später weitere Algorithmen integriert werden, so muß diese Funktion
-  aber unter Umständen angepaßt werden:
-  Die Funktion baut, in ihrer jetzigen Form, einzig und allein auf der SECUDE-
-  Bibliothek auf. Zur Ver- und Entschlüsselung müssen nur der Plain- bzw.
-  Ciphertext zusammen mit dem eingegebenen Schlüssel und dem Algorithmen-
-  Identifier des zu benutzenden Verfahrens übergeben werden. Alles weitere
-  macht das SECUDE-Toolkit.
-*/
+	Sollen später weitere Algorithmen integriert werden, so muß diese Funktion
+	aber unter Umständen angepaßt werden:
+	Die Funktion baut, in ihrer jetzigen Form, einzig und allein auf der SECUDE-
+	Bibliothek auf. Zur Ver- und Entschlüsselung müssen nur der Plain- bzw.
+	Ciphertext zusammen mit dem eingegebenen Schlüssel und dem Algorithmen-
+	Identifier des zu benutzenden Verfahrens übergeben werden. Alles weitere
+	macht das SECUDE-Toolkit. */
 UINT Brute(PVOID p)
 {
 	

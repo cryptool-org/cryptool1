@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 // CryptDoc.cpp : implementation file
 //
@@ -22,7 +22,7 @@
 #include "Dlg_Tests.h"
 #include "HybridEncr.h"
 #include <sys\stat.h>
-
+#include "DialogMessage.h"
 
 
 UINT AESBrute(PVOID p);
@@ -563,8 +563,8 @@ BOOL CHexDoc::OnSaveDocument(LPCTSTR lpszPathName)
     /* store modified file */
     CPadDoc::OnSaveDocument(ContentName);
 
-    /* Do Hex undump */
-/*    f1 = fopen(PresentationName,"rt");
+/* Do Hex undump */
+/*  f1 = fopen(PresentationName,"rt");
     f2 = fopen(ContentName,"wb");
     if((!f1) || (!f2)) return FALSE;
 	state = 0; // in scan mode scan adress first

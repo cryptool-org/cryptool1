@@ -21,7 +21,7 @@
 #include "s_prng.h" // big random integers
 
 #include "SecudeTools.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

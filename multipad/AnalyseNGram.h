@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+
 #if !defined(AFX_ANALYSENGRAM_H__93B8AE31_1461_11D5_92DF_00B0D0161C45__INCLUDED_)
 #define AFX_ANALYSENGRAM_H__93B8AE31_1461_11D5_92DF_00B0D0161C45__INCLUDED_
 

@@ -11,7 +11,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "Dlg_SubstResult.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 extern int *MaxPermu[26];
 extern char *Eingabedatei;
