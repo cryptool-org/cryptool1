@@ -678,7 +678,7 @@ also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
-See \hyperlink{AppArith1}{Appendix D of this chapter} for the source code to compute
+See \hyperlink{AppArith1}{Appendix E of this chapter} for the source code to compute
 the tables using Mathematica\index{Mathematica} and Pari-GP.\index{Pari-GP}
 }
 illustrate the properties of multiplicative inverses.
@@ -867,7 +867,7 @@ and the squares (mod $103$) can be calculated beforehand
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
 we have\footnote{%
-  See \hyperlink{AppArith2}{Appendix D of this chapter} for source code implementing the
+  See \hyperlink{AppArith2}{Appendix E of this chapter} for source code implementing the
   square and multiply method in Mathematica and Pari-GP, which can be used
   to reproduce the calculations above. }:
 \label{SrcArith2}
@@ -1268,7 +1268,7 @@ $10$ and we notice that:
 
 {\bf Example 1:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3a}{Appendix D of this chapter} for the source code to generate
+See \hyperlink{AppArith3a}{Appendix E of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
@@ -1318,7 +1318,7 @@ The following two tables show the multiplicative orders and primitive roots modu
 
 {\bf Example 2:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3b}{Appendix D of this chapter} for the source code to generate
+See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
@@ -1373,7 +1373,7 @@ The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primit
 
 {\bf Example 4:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3c}{Appendix D of this chapter} for the source code to generate
+See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source code to generate
 the table using Mathematica and Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
@@ -2529,7 +2529,7 @@ This $28$-digit number is divided into $4$-digit parts
 
 \label{SrcArith4a}
 All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{%
-See \hyperlink{AppArith4a}{Appendix D of this chapter} for source code to do RSA
+See \hyperlink{AppArith4a}{Appendix E of this chapter} for source code to do RSA
   encryption using Mathematica and Pari-GP.  You can also encrypt
   the message with CrypTool\index{CrypTool} v1.3 {\bf Indiv. Procedures \textbackslash{} RSA Demonstration \textbackslash{} Factorisation of a Number}.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -2568,7 +2568,7 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
 {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix D of this chapter} for the source code to factorise
+See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source code to factorise
 the number $J(n)$ using Mathematica and Pari-GP.
 Using CrypTool\index{CrypTool} v1.3 you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} 
@@ -2602,7 +2602,7 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix D of this chapter} for the source code for RSA 
+See \hyperlink{AppArith4c}{Appendix E of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt
@@ -2656,7 +2656,7 @@ with the following options: all 256 ASCII characters, b-adic, block length\index
 
 \label{SrcArith4d}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix D of this chapter} for the source code for RSA 
+See \hyperlink{AppArith4d}{Appendix E of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
@@ -2681,7 +2681,7 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix D of this chapter} for the source code for RSA 
+See \hyperlink{AppArith4e}{Appendix E of this chapter} for the source code for RSA 
 exponentiation using Mathematica and Pari-GP.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
@@ -3284,63 +3284,87 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 \input{figures/line-en.latex}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection*{Appendix D: Base representation and base transformation of numbers}
+\newpage
+\subsection*{Appendix D: Base representation of numbers}
 \addcontentsline{toc}{subsection}{Appendix D: Base representation and base transformation of numbers}
 
-For a given number $z$ one may ask how to represent such a number. In general we know
-the representation $z = 2374$ or $z = \sqrt{2}$. But the second number consists of an infinite
-number of digits and therefore it can never described by the forst representation. In this case 
-the number is representated via the first $x$ decimals (rounding).
+For a given number $z$ one may ask how to represent such a number. In general we use
+representations like $z = 2374$ or $z = \sqrt{2}$. The second number consists of an infinite
+number of digits and therefore it can never be described precisely by the first representation. In this case 
+the number must rounded.
 
-Even if we represent numbers usually in the decimal system (numbers of base 10) computers
-are working with the binary representation of numbers. For easy reading those numbers are 
-transformed into the hexadecimal (base 16) representation.
+We represent numbers usually in the decimal system (base 10). Computers
+are working with the binary representation of numbers --- only for the display numbers are 
+represented in decimal or sometimes hexadecimal (base 16).
 
-This appendix describes how to represent an intenger in a base representation and how 
-to determine the length of the base representation of a number via the log function.
+This appendix describes how to generate arbitrary base representations of a positive integers and how 
+to determine the number of required digits via the log function.
 
-The integer $z$ in base representation on base $b$ can be represented as the sum 
-$$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0. $$
-The output leave out the weights $b^i$ of this sum. So the number is represented by the 
-well known writing $a_na_{n-a} \cdots a_1a_0$. Starting from the internal representation
-of the integer $z$ (computer are using numbers of base $2$, we use the base $10$) the representation 
-of base $b$ can be computed via the following algorithm:
+
+\subsubsection*{$b$-adic sum representation of positive integers}
+Given base $b$, each positive integer $z$ can be represented as a $b$-adic sum 
+$$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$
+where $a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
+For this sum, it follows that for arbitrary digits $a_0, a_1, \dots, a_n$ we have 
+$b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$. On the other hand there exists
+$a_0, a_1, \dots, a_n$ (namely $a_i = b-1$ for $i=0, \dots, n$) following that  
+$b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
+(using those inequalities it can be shown that each positve integer can be represented by a $b$-adic sum).
+
+By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row the usual writing for numbers comes to hand.
+
+{\bf Examples}: \\
+Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ und \\
+Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
+
+
+\subsubsection*{Number of digits to represent a positive integer}
+
+For a positive integer $z$ the length of the $b$-adic representation can be determined via the 
+following steps. Starting from the inequality $b^{n+1} > z \ge b^n$ 
+we have after applying the logarithm function on basis $b$ \footnote{%
+Applying the logarithm formula on base $b$ and $b'$ we have $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
+It is therefore easy using e.g. logarithm tables for the base $b' = 10$ to compute the logarithm of base $b = 2$.
+} $n+1 > log_b z \ge n$. Therefore we have $n = \lfloor log_b z \rfloor$. 
+We call $l_b(z)$ {\em the number of required digits to represent the number $z$ on the base $b$}. We have
+$$l_b(z) := \lfloor log_b z \rfloor +1.$$
+
+\vskip +10 pt
+{\bf Example}:
+The decimal number $z = 234$ we compute for the hexadecimal representation (base of numbers $b = 16$)
+$$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
+
+
+\subsubsection*{Algorithm to compute the base representation}
+Given the number $z$ one can compute the base $b$ representation of $z$ using the following algorithm
 
 \begin{tabbing}
 bla\= \kill
-input: $z, b$ \\
+{\bf input}: $z, b$ \\
 $n := 0, z' := z$ \\
-while $z' > 0$ do \\
+{\bf while} $z' > 0$ {\bf do} \\
  \> $a_n := z' {\rm ~mod~} b$,\\
- \> $z' := z' / b$  \\
+ \> $z' := \lfloor z' / b \rfloor$  \\
  \> $n := n+1$ \\
-end do \\
-output: integer $a_n a_{n-1} \cdots a_1 a_0$ in base representation $b$ 
+{\bf end do} \\
+{\bf output}:  $a_n a_{n-1} \cdots a_1 a_0$ in base $b$ representation. 
 \end{tabbing}
 
-In the end the $n+1$ is the number of digits required to representate the integer $z$ on
-the base of numbers $b$. Because of the inequality $b^{n+1} > z \ge b^n$ 
-we have after aplying the logarithm function $n+1 > log_b z \ge n$. 
-Therefore we have $n = \lfloor log_b z \rfloor$. It follows that the required number of 
-digits $l_b(z)$ to represent the number $z$ on the base of numbers $b$ can be computed via
-$$l_b(z) := \rfloor log_b z \lfloor +1.$$
 
 {\bf Example 1}:
 The integer $z = 234$ on the base of numbers $10$ will be transformed into the hex representation via
-$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, $a_1 = 14 {\rm ~mod~} 16 = E$ and therefor $EA$. 
-
-The number of digits required to represent $z$ in hex format is computed via
-$$l_{16}(z) = \lfoor \log_{16}(z) \rfloor + 1 = \lfoor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
+$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, $a_1 = 14 {\rm ~mod~} 16 = E$ and therefore we have $EA$. 
 
 \vskip +10 pt
 {\bf Example 2}:
 The binary number $z = 1000100101110101$ is computed into the decimal representation via the following steps:
 
-$1000100101110101 = 1001$ (mod $1010)  \Longmapsto a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
-$110110111110 = 1000$ (mod $1010) \Longmapsto a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
-$101011111 = 1$ (mod $1010) \Longmapsto a_2 = 1$, $10101111 / 1010 = 100011$ \\
-$100011 =  101$ (mod $1010) \Longmapsto a_3 = 5$, $100011 / 1010 = 1$ \\
-$11 = 11$ (mod $1010) \Longmapsto a_4 = 3$
+$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
+$110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
+$101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
+$100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
+$11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
+therefore $z = 35189$. 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
