@@ -20,6 +20,7 @@ class CDlgShowKeyParameter : public CDialog
 {
 // Konstruktion
 public:
+	CString m_Title;
 	bool disableOkButton;
 	CDlgShowKeyParameter(CWnd* pParent = NULL);   // Standardkonstruktor
 

@@ -118,6 +118,7 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	m_ctrlBmpRaute5.AutoLoad(IDC_BUTTON3,this);
 	m_ctrlBmpViereck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
 	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
+	m_ctrlBmpOval1.AutoLoad(IDCANCEL,this);
 	if(!m_bAuswahlDat)
 	{
 		m_barrSetCondition[0]=true;
@@ -272,7 +273,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 		
 	}
 	m_strEdit = SymKeyInHexDump;
-	m_strTitle = "symmetrischer Schlüssel:";
+	m_strTitle = "Symmetrischer Schlüssel:";
 	UpdateData(false);
 }
 
@@ -537,6 +538,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 
 void CDlgHybridEncryptionDemo::OnButtonShowAsymKey() 
 {
+
 	if(!m_arrSetButtons[4])	
 	{
 		AfxMessageBox("Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
@@ -567,7 +569,15 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	
 	CKeyFile KeyHandling;
 	CString caDB_keyid_name = KeyHandling.CreateDistName(RsaDialog1.Name, RsaDialog1.Firstname, RsaDialog1.CreatTime);
-	// caDB_keyid_name: unter diesem Bezeichner/Namen wurde das Zertifikat in die CA-Datenbank geschrieben
+	// cDB_keyid_name: unter diesem Bezeichner/Namen wurde das Zertifikat in die CA-Datenbank geschrieben
+	/*CString strNameReceiver;
+	{
+		int l_ndxStart = caDB_keyid_name.Find("CA=")+3;
+		int l_count = caDB_keyid_name.Find("[") - l_ndxStart;
+		strNameReceiver = caDB_keyid_name.Mid(l_ndxStart, l_count);
+	}
+	*/
+	
 	
 	LPTSTR string3 = new TCHAR[caDB_keyid_name.GetLength()+1];
 	_tcscpy(string3, caDB_keyid_name);
@@ -630,6 +640,12 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	Schluessel.private_key=NULL;
 
 	CDlgShowKeyParameter dlg;
+	dlg.m_Title = "Öffentlicher Schlüssel von: ";
+	dlg.m_Title+=RsaDialog1.Name;
+	dlg.m_Title+=" ";
+	dlg.m_Title+= RsaDialog1.Firstname;
+
+	
 	dlg.disableOkButton = true;
 	KeyBits *ki;
 	ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
@@ -728,7 +744,7 @@ void CDlgHybridEncryptionDemo::OnShowEncTxt()
 	}
 	theApp.DoWaitCursor(1);
 	m_strEdit = m_strEdit3;
-	m_strTitle = "symmetrisch verschlüsselter Text: ";
+	m_strTitle = "Symmetrisch verschlüsseltes Dokument: ";
 	UpdateData(false);
 	theApp.DoWaitCursor(0);
 }
@@ -741,7 +757,7 @@ void CDlgHybridEncryptionDemo::OnShowEncSymKey()
 		return;
 	}
 	theApp.DoWaitCursor(1);
-	m_strTitle = "asymmetrisch verschlüsselter symmetrischer Schlüssel :";
+	m_strTitle = "Asymmetrisch verschlüsselter symmetrischer Schlüssel:";
 	m_strEdit = m_strEdit4;
 	UpdateData(false);
 	theApp.DoWaitCursor(0);
@@ -854,14 +870,14 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 	}
 }
 
-BOOL CDlgHybridEncryptionDemo::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
+/*BOOL CDlgHybridEncryptionDemo::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
 {
 	 if (m_bCursor)
 	 return TRUE;
 	 else	
 	return CDialog::OnSetCursor(pWnd, nHitTest, message);
 }
-
+*/
 CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
 {
 	if(m_strEdit1)

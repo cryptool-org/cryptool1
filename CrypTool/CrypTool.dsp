@@ -2298,6 +2298,18 @@ SOURCE=.\res\OPNDOC_T_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Bitmaps\Oval1_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval1_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Bitmaps\Oval1_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\paddoc.ico
 # End Source File
 # Begin Source File
@@ -2488,6 +2500,10 @@ SOURCE=.\res\Bitmaps\Raute5_U.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps\Raute5_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=".\hlp-de\bitmaps\RauteDaten.bmp"
 # End Source File
 # Begin Source File
 

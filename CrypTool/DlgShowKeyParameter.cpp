@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgShowKeyParameter.h"
+#include "DlgHybridEncryptionDemo.h"
 #include "s_ecconv.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -107,7 +108,9 @@ BOOL CDlgShowKeyParameter::OnInitDialog()
 	//Hybridverschlüsselung
     if(disableOkButton)
 	{
+		CDlgHybridEncryptionDemo dlg;
 		m_ctrlOK.ShowWindow(false);
+		SetWindowText(m_Title);
 	}
 
 	for (i=0;i<m_entries;i++)

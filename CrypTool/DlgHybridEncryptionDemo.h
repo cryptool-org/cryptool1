@@ -18,6 +18,7 @@ class CDlgHybridEncryptionDemo : public CDialog
 {
 // Konstruktion
 public:
+	CString m_fn;
 	bool m_bCursor;
 	void ShowButtons();
 	bool m_arrSetButtons[10];
@@ -65,6 +66,7 @@ public:
 	CBitmapButton m_ctrlBmpSechseck3;
 	CBitmapButton m_ctrlBmpViereck1;
 	CBitmapButton m_ctrlBmpViereck2;
+	CBitmapButton m_ctrlBmpOval1;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -89,7 +91,7 @@ protected:
 	afx_msg void OnButtonShowtxt();
 	afx_msg void OnShowEncTxt();
 	afx_msg void OnShowEncSymKey();
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+//	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
