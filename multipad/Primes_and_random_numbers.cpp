@@ -4,6 +4,7 @@
 
 #include "stdafx.h"
 #include "Primes_and_random_numbers.h"
+#include "eval.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -15,10 +16,9 @@ static char THIS_FILE[]=__FILE__;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-Primes_and_random_numbers::Primes_and_random_numbers(): precision4(25)
+Primes_and_random_numbers::Primes_and_random_numbers()
 {
-	mip4=&precision4;
-//	str=new char[256];
+
 }
 
 Primes_and_random_numbers::~Primes_and_random_numbers()
@@ -503,7 +503,6 @@ void Primes_and_random_numbers::encrypt_block(Big *Block, long blocklaenge,long 
 	// n =pq ist das RSA-Modul
 	// e ist RSA öffentliche Schluessel
 	long i;
-	long j;
 	ausgabe=0;
 	Big anzahl_buchstaben_big;
 //	lgconv(anzahl_buchstaben, anzahl_buchstaben_big);
@@ -548,175 +547,16 @@ void Primes_and_random_numbers::encrypt_block(Big *Block, long blocklaenge,long 
 	*/
 	Block[0]=ausgabe;
 	ausgabe_char<<Block[0];
-
 }
 
-
-static char *s;
-
-void Primes_and_random_numbers::eval_product(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case TIMES:
-                n*=oldn; 
-                break;
-        case '/':
-                n=oldn/n;
-                break;
-        case '%':
-                n=oldn%n;
-        }
-}
-
-
-void Primes_and_random_numbers::eval_power(Big &oldn, Big &n, char op)
-{
-	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
-}
-
-void Primes_and_random_numbers::eval_sum(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case '+':
-                n+=oldn;
-                break;
-        case '-':
-                n=oldn-n;
-        }
-}
-
-bool Primes_and_random_numbers::eval()
-{
-//	char *s = str; 
-	
-//	miracl *mip4=&precision4;
-	Big oldn[3];
-        Big n;
-        int i;
-        char oldop[3];
-        char op;
-        char minus;
-        for (i=0;i<3;i++)
-        {
-            oldop[i]=0;
-        }
-LOOP:
-        while (*s==' ')
-			s++;
-        if (*s=='-')    /* Unary minus */
-			{
-			s++;
-			minus=1;
-			}
-        else
-	        minus=0;
-        while (*s==' ')
-		    s++;
-        if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
-			{
-			s++;
-			eval ();
-			n=t;
-			}
-        else            /* Number is decimal value */
-        {
-		
-        for (i=0;s[i]>='0' && s[i]<='9';i++)
-               ;
-			if (!i)         /* No digits found */
-			{
-//					Error - invalid number
-//					LoadString(AfxGetInstanceHandle(),IDS_STRING37101,pc_str,STR_LAENGE_STRING_TABLE);
-//					sprintf(line,pc_str);
-//					AfxMessageBox(line);
-					return(false);
-			}
-			op=s[i];
-			s[i]=0;
-			n=s;
-
-			s+=i;
-			*s=op;
-		}
-        if (minus) n=-n;
-		//	char z[100];
-		//	mip4->IOBASE=10;
-		//	z << n;
-        do
-			op=*s++;
-			while (op==' ');
-        if (op==0 || op==')' || op==']' || op=='}')
-			{
-			eval_power (oldn[2],n,oldop[2]);
-			eval_product (oldn[1],n,oldop[1]);
-			eval_sum (oldn[0],n,oldop[0]);
-			t=n;
-//			char z[100];
-//			mip4->IOBASE=10;
-//			z << t;   Roger 11.06.01
-			return(true);
-			}
-        else
-        {
-			if (op==RAISE)
-				{
-						eval_power (oldn[2],n,oldop[2]);
-						oldn[2]=n;
-						oldop[2]=RAISE;
-				}
-			else
-			{
-					if (op==TIMES || op=='/' || op=='%')
-					{
-					eval_power (oldn[2],n,oldop[2]);
-					oldop[2]=0;
-					eval_product (oldn[1],n,oldop[1]);
-					oldn[1]=n;
-					oldop[1]=op;
-					}
-					else
-						{
-						if (op=='+' || op=='-')
-							{
-									eval_power (oldn[2],n,oldop[2]);
-									oldop[2]=0;
-									eval_product (oldn[1],n,oldop[1]);
-									oldop[1]=0;
-									eval_sum (oldn[0],n,oldop[0]);
-									oldn[0]=n;
-									oldop[0]=op;
-							}
-						else    /* Error - invalid operator */
-							{
-//									Error - invalid operator
-//									LoadString(AfxGetInstanceHandle(),IDS_STRING37109,pc_str,STR_LAENGE_STRING_TABLE);
-//									sprintf(line,pc_str);
-//									AfxMessageBox(line);
-									return(false);
-							}
-						}
-			}
-		}
-
-	goto LOOP;
-
-
-}
 
 Big Primes_and_random_numbers::konvertiere_CString_Big(CString Eingabe)
 {
 
 	
-//	char *strTmp=Eingabe.GetBuffer(250);
-//	strcpy( str, strTmp );
-
-	s=Eingabe.GetBuffer(250);
-
-	t=0;
+	char *str=Eingabe.GetBuffer(250);
 	
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(t, str)) 
 		return -1;//
 	ausgabe=t;//
 	
@@ -726,10 +566,7 @@ Big Primes_and_random_numbers::konvertiere_CString_Big(CString Eingabe)
 
 CString Primes_and_random_numbers::konvertiere_Big_CString(Big Eingabe)
 {
-	//mip4=&precision4;
 	CString ausgabe;
-	
-	//mip4->IOBASE=10;
 	
 	ausgabe.GetBuffer(500) << Eingabe;
 	

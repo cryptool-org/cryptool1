@@ -83,7 +83,7 @@ void CHexView::OnInitialUpdate()
 	CMyEditView::OnInitialUpdate();
 	m_charoffset = 0;
 	m_lineindex = 0;
-	GetEditCtrl().GetLine(0, m_line, sizeof(m_line));
+	GetRichEditCtrl().GetLine(0, m_line, sizeof(m_line));
 	m_cdc = GetDC();
 	CharSize = m_cdc->GetOutputTextExtent("12345678901234567890",1);
 	ReleaseDC(m_cdc);
@@ -104,14 +104,14 @@ int CHexView::AdjustCursor(int direction)
 	// wenn direction==0 dann Cursor nach rechts falls benötigt
 	// 1: Cursor nach links falls benötigt
 
-	int s,e;
+	long s,e;
 
-	GetEditCtrl().GetSel(s,e);
+	GetRichEditCtrl().GetSel(s,e);
 	m_charoffset = s;
-	m_curline = GetEditCtrl().LineFromChar(s);
-	m_lineindex = GetEditCtrl().LineIndex(m_curline);
+	m_curline = GetRichEditCtrl().LineFromChar(s);
+	m_lineindex = GetRichEditCtrl().LineIndex(m_curline);
 	m_lineoffset = s - m_lineindex;
-	m_curlen = GetEditCtrl().GetLine(m_curline, m_line, sizeof(m_line));
+	m_curlen = GetRichEditCtrl().GetLine(m_curline, m_line, sizeof(m_line));
 	if(m_lineoffset < 7) {
 		m_lineoffset=7;
 	}
@@ -129,7 +129,7 @@ int CHexView::AdjustCursor(int direction)
 		m_lineoffset = m_curlen-1;
 	}
 	m_charoffset = m_lineoffset + m_lineindex;
-	GetEditCtrl().SetSel(m_charoffset, m_charoffset);
+	GetRichEditCtrl().SetSel(m_charoffset, m_charoffset);
 
 	return m_lineindex;
 
@@ -146,7 +146,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if(m_lineoffset < 3*m_hexwidth+9) { // edit hexadecimal area
 		if(nChar == '\t') { // Tab char toggles between hex and ascii
 			n = (m_lineoffset-7)/3; // number of char to edit
-			GetEditCtrl().SetSel(m_lineindex+3*m_hexwidth+9+n,m_lineindex+3*m_hexwidth+9+n);
+			GetRichEditCtrl().SetSel(m_lineindex+3*m_hexwidth+9+n,m_lineindex+3*m_hexwidth+9+n);
 			AdjustCursor(0);
 			SetRedraw(TRUE);
 			Invalidate(TRUE);
@@ -158,27 +158,27 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			m_line[m_lineoffset] = nChar;
 			new_c = 16*HexVal(m_line[7+3*n]) + HexVal(m_line[8+3*n]);
 			// select the ASCII char to change
-			GetEditCtrl().SetSel(m_lineindex+3*m_hexwidth+9+n,m_lineindex+3*m_hexwidth+10+n);
+			GetRichEditCtrl().SetSel(m_lineindex+3*m_hexwidth+9+n,m_lineindex+3*m_hexwidth+10+n);
 			buff[1]=0;
 			buff[0]='.';
             if(IsPrint(new_c))
 				buff[0] = new_c;
-			GetEditCtrl().ReplaceSel( buff, FALSE );
+			GetRichEditCtrl().ReplaceSel( buff, FALSE );
 			// select and change HEX part
-			GetEditCtrl().SetSel(m_charoffset, m_charoffset+1);
+			GetRichEditCtrl().SetSel(m_charoffset, m_charoffset+1);
 			old_offset = m_charoffset;
 			buff[0]=nChar;
-			GetEditCtrl().ReplaceSel( buff, FALSE );
+			GetRichEditCtrl().ReplaceSel( buff, FALSE );
 			AdjustCursor(0);
 			// check to wrap to next line
 			if(m_lineoffset >= 3*m_hexwidth+9) {
-				if(GetEditCtrl().GetLineCount() > m_curline+1) {
-					n = GetEditCtrl().LineIndex(m_curline+1);
-					GetEditCtrl().SetSel(n,n);
+				if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
+					n = GetRichEditCtrl().LineIndex(m_curline+1);
+					GetRichEditCtrl().SetSel(n,n);
 					AdjustCursor(0);
 				}
 				else {
-					GetEditCtrl().SetSel(old_offset, old_offset);
+					GetRichEditCtrl().SetSel(old_offset, old_offset);
 					MessageBeep(MB_ICONHAND); // end of file reached
 				}
 			}
@@ -191,7 +191,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	else { // edit ASCII part
 		if(nChar == '\t') { // Tab char toggles between hex and ascii
 			n = m_lineoffset - (3*m_hexwidth+9); // number of char to edit
-			GetEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+7);
+			GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+7);
 			AdjustCursor(0);
 			SetRedraw(TRUE);
 			Invalidate(TRUE);
@@ -205,18 +205,18 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		n = m_lineoffset - (3*m_hexwidth+9); // number of char to edit
 		// edit Hex Section
 		sprintf(buff,"%02.2X",nChar);
-		GetEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
-		GetEditCtrl().ReplaceSel( buff, FALSE );
+		GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
+		GetRichEditCtrl().ReplaceSel( buff, FALSE );
 		// edit ASCII Section
-		GetEditCtrl().SetSel(m_charoffset, m_charoffset+1);
+		GetRichEditCtrl().SetSel(m_charoffset, m_charoffset+1);
 		buff[0]=nChar;
 		buff[1]=0;
-		GetEditCtrl().ReplaceSel( buff, FALSE );
+		GetRichEditCtrl().ReplaceSel( buff, FALSE );
 		// check to wrap to next line
 		if(m_lineoffset == m_curlen-1) {
-			if(GetEditCtrl().GetLineCount() > m_curline+1) {
-				n = GetEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+9;
-				GetEditCtrl().SetSel(n,n);
+			if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
+				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+9;
+				GetRichEditCtrl().SetSel(n,n);
 			}
 			else
 				MessageBeep(MB_ICONHAND); // end of file reached
@@ -241,8 +241,8 @@ void CHexView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CHexView::OnEditUndo() 
 {
-	GetEditCtrl().Undo();
-	GetEditCtrl().Undo();
+	GetRichEditCtrl().Undo();
+	GetRichEditCtrl().Undo();
 }
 
 void CHexView::OnEditCopy() 
@@ -250,18 +250,18 @@ void CHexView::OnEditCopy()
 	int l, i, j;
 	HGLOBAL glob;
 	HANDLE hndl;
-	int start,end;
-	int startl, endl;
-	int startc, endc;
-	int clen, cstart, cend;
-	int startind, endind;
+	long start,end;
+	long startl, endl;
+	long startc, endc;
+	long clen, cstart, cend;
+	long startind, endind;
 	char line[1024], *p;
 
-	GetEditCtrl().GetSel(start,end);
-	startl = GetEditCtrl().LineFromChar(start);
-	endl = GetEditCtrl().LineFromChar(end);
-	startc = start - GetEditCtrl().LineIndex(startl);
-	endc = end - GetEditCtrl().LineIndex(endl);
+	GetRichEditCtrl().GetSel(start,end);
+	startl = GetRichEditCtrl().LineFromChar(start);
+	endl = GetRichEditCtrl().LineFromChar(end);
+	startc = start - GetRichEditCtrl().LineIndex(startl);
+	endc = end - GetRichEditCtrl().LineIndex(endl);
 	if(startc < 3*m_hexwidth+6) { // HEX mode
 		if(startc < 7) startind = 0;
 		else startind = (startc-6)/3;
@@ -290,7 +290,7 @@ void CHexView::OnEditCopy()
 
 	p= (char *) GlobalLock(glob);
 	for(i=startl;i<=endl;i++) {
-		clen = GetEditCtrl().GetLine(i,line,sizeof(line)-1);
+		clen = GetRichEditCtrl().GetLine(i,line,sizeof(line)-1);
 		if(i==startl) cstart = startind;
 		else cstart = 0;
 		if(i==endl) cend = endind;
@@ -313,17 +313,18 @@ void CHexView::OnEditPaste()
 {
 	int l, i, max_l;
 	HANDLE hndl;
-	int start,end;
-	int startl;
-	int startc;
-	int startind;
+	long start,end;
+	long startl;
+	long startc;
+	long startind;
 	char buff[10];
 	unsigned char *p;
+	CHARRANGE range={0,-1};
 
 	SetRedraw(FALSE);
-	GetEditCtrl().GetSel(start,end);
-	startl = GetEditCtrl().LineFromChar(start);
-	startc = start - GetEditCtrl().LineIndex(startl);
+	GetRichEditCtrl().GetSel(start,end);
+	startl = GetRichEditCtrl().LineFromChar(start);
+	startc = start - GetRichEditCtrl().LineIndex(startl);
 	if(startc < 3*m_hexwidth+6) { // HEX mode
 		if(startc < 7) startind = 0;
 		else startind = (startc-6)/3;
@@ -332,15 +333,17 @@ void CHexView::OnEditPaste()
 		if(startc < 3*m_hexwidth+9) startind = 0;
 		else startind = startc - 3*m_hexwidth-9;
 	}
-	max_l = (GetEditCtrl().GetLineCount() - startl) * m_hexwidth - startind;
+	max_l = (GetRichEditCtrl().GetLineCount() - startl) * m_hexwidth - startind;
 
 	OpenClipboard();
-	hndl = GetClipboardData(CF_TEXT);
+//*** to be done *******	
+//	hndl = GetClipboardData(range, RECO_PASTE, , );
+
 	p = (unsigned char *) GlobalLock(hndl);
 	l = GlobalSize(hndl)-1;
 	l = min(l, max_l);
-	startc = GetEditCtrl().LineIndex(startl) + 7 + 3 * startind;
-	GetEditCtrl().SetSel(startc, startc);
+	startc = GetRichEditCtrl().LineIndex(startl) + 7 + 3 * startind;
+	GetRichEditCtrl().SetSel(startc, startc);
 	for(i=0;i<l;i++) {
 		if(*p<16) {
 			buff[0]='0';
@@ -364,10 +367,11 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 	char *buffer, *NewBuffer;
 	char *OldBuffer;
 
+// **** to be done ******************
 	CMyEditView::OnSize(nType, cx, cy);
 	
 	WinLen = cx / 8;
-	NewHexWidth = (WinLen - 10) / 4;
+	NewHexWidth = (WinLen - 11) / 4;
 	NewHexWidth = max(NewHexWidth, 8);
 	if(NewHexWidth != m_hexwidth) { // Hexgröße anpassen!
 		m_hexwidth = NewHexWidth;
@@ -401,24 +405,24 @@ void CHexView::SerializeRaw(CArchive & ar)
 
 	if (ar.IsStoring())
 	{
-		LPCTSTR lpszText = LockBuffer();
-		ASSERT(lpszText != NULL);
-		UINT nLen = GetBufferLength();
-		buffer = (unsigned char *) malloc(nLen/4); // maximale Größe fuer das Ergebnis
+// **** to be done *****		LPCTSTR lpszText = LockBuffer();
+// **** to be done *****		ASSERT(lpszText != NULL);
+// **** to be done *****		UINT nLen = GetBufferLength();
+// **** to be done *****		buffer = (unsigned char *) malloc(nLen/4); // maximale Größe fuer das Ergebnis
 		state = 0;
-		l = HexUndumpMem(lpszText, nLen, (char *) buffer, &state);
+// **** to be done *****		l = HexUndumpMem(lpszText, nLen, (char *) buffer, &state);
 		TRY
 		{
 			ar.Write(buffer, l);
 		}
 		CATCH_ALL(e)
 		{
-			UnlockBuffer();
+// **** to be done *****			UnlockBuffer();
 			THROW_LAST();
 		}
 		END_CATCH_ALL
 		free(buffer);
-		UnlockBuffer();
+// **** to be done *****		UnlockBuffer();
 	}
 	else
 	{

@@ -32,8 +32,7 @@
 
 class Ber_Ell_Kurve  
 {
-	Miracl precision;
-
+	miracl *mip;
 public:
 	int Disc;
 	Big k_par;
@@ -49,10 +48,6 @@ public:
 
 
 
-	bool eval (void);
-	void eval_product (Big &oldn,Big &n,char op);
-	void eval_sum( Big &oldn, Big &n, char op);
-	void eval_power(Big& oldn,Big& n,char op);
 	bool get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big W, int saat);
 	Big p;
 //	char *s[100];
@@ -67,7 +62,6 @@ public:
 	int getk(int D);
 	int geti(int D);
 	FPoly T; // Reduced class Polynomial.
-	miracl *mip;
 	Complex Fz(Complex z);
 	Ber_Ell_Kurve();
 	virtual ~Ber_Ell_Kurve();

@@ -6,6 +6,7 @@
 #include "stdafx.h"
 #include "Ber_Ell_Kurve.h"
 #include "multipad.h"
+#include "eval.h"
 
 
 #ifdef _DEBUG
@@ -20,20 +21,16 @@ static char THIS_FILE[]=__FILE__;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-//Miracl precision=25;
-//miracl *mip=&precision;
-static char *s; //Roger 11.06.01
 
 
-Ber_Ell_Kurve::Ber_Ell_Kurve(): precision(25)
+Ber_Ell_Kurve::Ber_Ell_Kurve()
 {
-	mip=&precision;
-//	s=new char[100]; 
+	mip = &g_precision;
 }
 
 Ber_Ell_Kurve::~Ber_Ell_Kurve()
 {
-//	delete []s;
+	mip = 0;
 }
 
 // F(z) Function A.13.3
@@ -317,15 +314,11 @@ bool Ber_Ell_Kurve::isacm(Big p,int D,Big &W,Big &V)
 }
 
 
-// Miracl precision=25;
-
 // Constructing a Curve and Point
 // A.14.4
 
-// miracl *mip=&precision;
 bool Ber_Ell_Kurve::get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big W, int saat)
 {
-//	miracl *mip=&precision;
 	Poly polly;
 	Big A0,B0,k;
     BOOL unstable;
@@ -572,159 +565,6 @@ bool Ber_Ell_Kurve::get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big
 	return TRUE;
 }
 
-
-
-void Ber_Ell_Kurve::eval_power(Big& oldn,Big& n,char op)
-{
-	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
-}
-
-void Ber_Ell_Kurve::eval_sum(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case '+':
-                n+=oldn;
-                break;
-        case '-':
-                n=oldn-n;
-        }
-}
-
-
-void Ber_Ell_Kurve::eval_product(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case TIMES:
-                n*=oldn; 
-                break;
-        case '/':
-                n=oldn/n;
-                break;
-        case '%':
-                n=oldn%n;
-        }
-}
-
-
-bool Ber_Ell_Kurve::eval()
-
-{
-	
-	//miracl *mip=&precision;
-	Big oldn[3];
-        Big n;
-        int i;
-        char oldop[3];
-        char op;
-        char minus;
-        for (i=0;i<3;i++)
-        {
-            oldop[i]=0;
-        }
-LOOP:
-        while (*s==' ')
-			s++;
-        if (*s=='-')    /* Unary minus */
-			{
-			s++;
-			minus=1;
-			}
-        else
-	        minus=0;
-        while (*s==' ')
-		    s++;
-        if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
-			{
-			s++;
-			eval ();
-			n=t;
-			}
-        else            /* Number is decimal value */
-        {
-		
-        for (i=0;s[i]>='0' && s[i]<='9';i++)
-               ;
-			if (!i)         /* No digits found */
-			{
-//					Error - invalid number
-					LoadString(AfxGetInstanceHandle(),IDS_STRING37101,pc_str,STR_LAENGE_STRING_TABLE);
-					sprintf(line,pc_str);
-					AfxMessageBox(line);
-					return(false);
-			}
-			op=s[i];
-			s[i]=0;
-			n=s;
-
-			s+=i;
-			*s=op;
-		}
-        if (minus) n=-n;
-			char z[100];
-			mip->IOBASE=10;
-			z << n;
-        do
-			op=*s++;
-			while (op==' ');
-        if (op==0 || op==')' || op==']' || op=='}')
-			{
-			eval_power (oldn[2],n,oldop[2]);
-			eval_product (oldn[1],n,oldop[1]);
-			eval_sum (oldn[0],n,oldop[0]);
-			t=n;
-			char z[100];
-			mip->IOBASE=10;
-			z << t;
-			return(true);
-			}
-        else
-        {
-			if (op==RAISE)
-				{
-						eval_power (oldn[2],n,oldop[2]);
-						oldn[2]=n;
-						oldop[2]=RAISE;
-				}
-			else
-			{
-					if (op==TIMES || op=='/' || op=='%')
-					{
-					eval_power (oldn[2],n,oldop[2]);
-					oldop[2]=0;
-					eval_product (oldn[1],n,oldop[1]);
-					oldn[1]=n;
-					oldop[1]=op;
-					}
-					else
-						{
-						if (op=='+' || op=='-')
-							{
-									eval_power (oldn[2],n,oldop[2]);
-									oldop[2]=0;
-									eval_product (oldn[1],n,oldop[1]);
-									oldop[1]=0;
-									eval_sum (oldn[0],n,oldop[0]);
-									oldn[0]=n;
-									oldop[0]=op;
-							}
-						else    /* Error - invalid operator */
-							{
-//									Error - invalid operator
-									LoadString(AfxGetInstanceHandle(),IDS_STRING37109,pc_str,STR_LAENGE_STRING_TABLE);
-									sprintf(line,pc_str);
-									AfxMessageBox(line);
-									return(false);;
-							}
-						}
-			}
-		}
-	goto LOOP;
-}
-
-
-
 int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
 {	
 
@@ -733,7 +573,6 @@ int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
     Big p,rmin;
     BOOL good,dir;
     int i,ip,k,K,D;
-//    mip=&precision;
 
     irand(0L);
 //    Program finds Elliptic Curve mod a prime P and point of prime order
@@ -751,16 +590,9 @@ int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
     suppress=FALSE;
     fout=FALSE;
 	dir=FALSE;
-
 	char *str=Eingabe.GetBuffer(100);//neu
 
-	//s=Eingabe.GetBuffer(100);//alte
-
-	s=&str[0];//neu
-
-	t=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(t, str)) 
 		return -1;
 
     p=t; 

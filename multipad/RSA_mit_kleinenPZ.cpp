@@ -782,9 +782,6 @@ void RSA_mit_kleinenPZ::Entschluesseln()
 			werte[i] = new Big[block_laenge];
 		}
 
-
-
-		long newlaenge;
 		m_edit10.GetBufferSetLength(m_edit10.GetLength()+1); 
 			
 		for (i=0;i<=m_edit10.GetLength()-2;i++)

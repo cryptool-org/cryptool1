@@ -8,7 +8,7 @@
 #define ZZAHLANALYSE
 
 #define MAXINT 10000000000.0
-#define V_NONE 0
+#define VALUE_NONE 0
 #define V_RESULT 1
 #define V_MEAN 2
 #define V_VARI 3

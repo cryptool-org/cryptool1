@@ -183,7 +183,7 @@ void zzahlanalyse::SetData(int len)
     if ( resultlen < 1 ) 
 		resultlen = 1;
 	result=(double *)malloc(resultlen*sizeof(double));
-	isValid=V_NONE;
+	isValid=VALUE_NONE;
 }
 
 zzahlanalyse::zzahlanalyse(int len, char *d)

@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CMyEditView
 
-IMPLEMENT_DYNCREATE(CMyEditView, CEditView)
+IMPLEMENT_DYNCREATE(CMyEditView, CRichEditView)
 
 CMyEditView::CMyEditView()
 {
@@ -28,7 +28,7 @@ CMyEditView::~CMyEditView()
 }
 
 
-BEGIN_MESSAGE_MAP(CMyEditView, CEditView)
+BEGIN_MESSAGE_MAP(CMyEditView, CRichEditView)
 	//{{AFX_MSG_MAP(CMyEditView)
 	ON_WM_KILLFOCUS()
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
@@ -53,12 +53,12 @@ void CMyEditView::OnDraw(CDC* pDC)
 #ifdef _DEBUG
 void CMyEditView::AssertValid() const
 {
-	CEditView::AssertValid();
+	CRichEditView::AssertValid();
 }
 
 void CMyEditView::Dump(CDumpContext& dc) const
 {
-	CEditView::Dump(dc);
+	CRichEditView::Dump(dc);
 }
 #endif //_DEBUG
 
@@ -73,7 +73,7 @@ void CMyEditView::OnKillFocus(CWnd* pNewWnd)
 	// um die Fenster Handle speichern zu koennen.
 	hWndAktivesFenster = m_hWnd;
 
-	CEditView::OnKillFocus(pNewWnd);
+	CRichEditView::OnKillFocus(pNewWnd);
 	
 	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
 	
@@ -148,7 +148,53 @@ void CMyEditView::OnShowKey()
 
 void CMyEditView::SerializeRaw(CArchive & ar)
 {
-	CEditView::SerializeRaw( ar );
+	char *buffer;
+	int bufflen=20000, len;
+	long start, end, textlen, pos;
+
+	SetRedraw(FALSE);
+	GetRichEditCtrl().GetSel(start, end);
+	buffer = (char *) malloc(bufflen+3);
+
+	if (ar.IsStoring())
+	{
+		textlen = GetRichEditCtrl().GetTextLength();
+		for(pos = 0; pos < textlen; ) {
+			GetRichEditCtrl().SetSel(pos, pos+bufflen);
+			len = GetRichEditCtrl().GetSelText(buffer);
+			TRY
+			{
+				ar.Write(buffer, len);
+			}
+			CATCH_ALL(e)
+			{
+				THROW_LAST();
+			}
+			END_CATCH_ALL
+			pos += len;
+		}
+	}
+	else
+	{
+		CFile* pFile = ar.GetFile();
+		ASSERT(pFile->GetPosition() == 0);
+		long nFileSize = pFile->GetLength();
+		// ReadFromArchive takes the number of characters as argument
+
+		for(pos = 0; pos < nFileSize; ) {
+			len = ar.Read(buffer, bufflen);
+			buffer[len]=0;
+			GetRichEditCtrl().SetSel(pos,pos);
+			GetRichEditCtrl().ReplaceSel(buffer);
+			pos += len;
+			if(!len) break;
+		}
+		ASSERT_VALID(this);
+	}
+	free(buffer);
+	GetRichEditCtrl().SetSel(start, end);
+	SetRedraw(TRUE);
+	ASSERT_VALID(this);
 }
 
 void CMyEditView::OnContextMenu(CWnd* pWnd, CPoint point) 
@@ -160,19 +206,19 @@ void CMyEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 	// Befehle des Anwendungsmenues erst nach Oeffnen des Menues aktualisiet werden. 
 	// Deshalb wurde die Aktivierung/Deaktivierung von Menuepunktenn zu Fuß gemacht.
 	// Die folgenden Funktionen stammen aus DevStudion\Vc\mfc\src\VIEWEDIT.CPP
-	// void CEditView::OnUpdateNeedSel(CCmdUI* pCmdUI)
-	// void CEditView::OnUpdateNeedClip(CCmdUI* pCmdUI)
-	// void CEditView::OnUpdateNeedText(CCmdUI* pCmdUI)
-	// (void CEditView::OnUpdateNeedFind(CCmdUI* pCmdUI))
-	// void CEditView::OnUpdateEditUndo(CCmdUI* pCmdUI)
+	// void CRichEditView::OnUpdateNeedSel(CCmdUI* pCmdUI)
+	// void CRichEditView::OnUpdateNeedClip(CCmdUI* pCmdUI)
+	// void CRichEditView::OnUpdateNeedText(CCmdUI* pCmdUI)
+	// (void CRichEditView::OnUpdateNeedFind(CCmdUI* pCmdUI))
+	// void CRichEditView::OnUpdateEditUndo(CCmdUI* pCmdUI)
 
 	// Kontextmenue laden
 	CMenu KontextMenu;
 	KontextMenu.LoadMenu(IDR_CONTEXT_MENU);
 
 	// Ist kein Text markiert ?
-	int nStartChar, nEndChar;
-	GetEditCtrl().GetSel(nStartChar, nEndChar);
+	long nStartChar, nEndChar;
+	GetRichEditCtrl().GetSel(nStartChar, nEndChar);
 	if (nStartChar == nEndChar)
 	{
 		// Ausschneiden, Kopieren und Loeschen deaktivieren
@@ -196,7 +242,7 @@ void CMyEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 
 	// Ist Rueckgaengig machen nicht moeglich ?
-	if (! GetEditCtrl().CanUndo())
+	if (! GetRichEditCtrl().CanUndo())
 	{
 		KontextMenu.EnableMenuItem(ID_EDIT_UNDO, MF_GRAYED);
 	}
@@ -222,10 +268,30 @@ void CMyEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 
 void CMyEditView::OnSetFocus(CWnd* pOldWnd) 
 {
-	CEditView::OnSetFocus(pOldWnd);
+	CRichEditView::OnSetFocus(pOldWnd);
 	
 	// Zum Sprung zum Vaterfenster ist es notwendig, daß wir uns die windowHandle merken.
 	// Dies muss nach OnSetFocus gemacht werden, damit das Fenster den Eingabefokus hat,
 	// um die Fenster Handle speichern zu koennen.
 	hWndAktivesFenster = m_hWnd;
+}
+
+HRESULT CMyEditView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile)
+{
+	ASSERT(lpcfFormat != NULL);
+	if (!bReally) // not actually pasting
+		return S_OK;
+
+	COleDataObject dataobj;
+	dataobj.Attach(lpdataobj, FALSE);
+	// if format is 0, then force particular formats if available
+	if (*lpcfFormat == 0 && (m_nPasteType == 0))
+	{
+		if (dataobj.IsDataAvailable(CF_TEXT))
+		{
+			*lpcfFormat = CF_TEXT;
+			return S_OK;
+		}
+	}
+	return S_FALSE;
 }

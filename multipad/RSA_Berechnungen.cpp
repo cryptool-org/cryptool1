@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "stdafx.h"
 #include "RSA_Berechnungen.h"
+#include "eval.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -15,25 +16,18 @@ static char THIS_FILE[]=__FILE__;
 // WICHTIG: Die Miracl Variable ist nur für den Speicherbereich
 // von RSA_Berechnungen.obj definiert.
 
-Miracl	g_precision=25;
-//Big		t;
 Big		ausgabe;
-miracl *mip3=&g_precision;
-
-
 
 //////////////////////////////////////////////////////////////////////
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-RSA_Berechnungen::RSA_Berechnungen()//: g_precision(25)
+RSA_Berechnungen::RSA_Berechnungen()
 {
-//	mip3=&g_precision;
 }
 
 RSA_Berechnungen::~RSA_Berechnungen()
 {
-
 }
 	
 
@@ -271,7 +265,6 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 	// n =pq ist das RSA-Modul
 	// e ist RSA öffentliche Schluessel
 	long i;
-	long j;
 	ausgabe=0;
 	Big anzahl_buchstaben_big;
 //	lgconv(anzahl_buchstaben, anzahl_buchstaben_big);
@@ -320,174 +313,12 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 }
 
 
-
-static char *s; //Roger 11.06.01
-
-void RSA_Berechnungen::eval_product(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case TIMES:
-                n*=oldn; 
-                break;
-        case '/':
-                n=oldn/n;
-                break;
-        case '%':
-                n=oldn%n;
-        }
-}
-
-
-void RSA_Berechnungen::eval_power(Big &oldn, Big &n, char op)
-{
-	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
-}
-
-void RSA_Berechnungen::eval_sum(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case '+':
-                n+=oldn;
-                break;
-        case '-':
-                n=oldn-n;
-        }
-}
-
-bool RSA_Berechnungen::eval()
-{
-//	char *s = str;  // Roger 11.06.01
-
-//	miracl *mip3=&g_precision;
-//	miracl *mip3=&precision3; // Roger 11.06.01
-	Big oldn[3];
-        Big n;
-        int i;
-        char oldop[3];
-        char op;
-        char minus;
-        for (i=0;i<3;i++)
-        {
-            oldop[i]=0;
-        }
-LOOP:
-        while (*s==' ')
-			s++;
-        if (*s=='-')    /* Unary minus */
-			{
-			s++;
-			minus=1;
-			}
-        else
-	        minus=0;
-        while (*s==' ')
-		    s++;
-        if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
-			{
-			s++;
-			eval ();
-			n=t;
-			}
-        else            /* Number is decimal value */
-        {
-		
-        for (i=0;s[i]>='0' && s[i]<='9';i++)
-               ;
-			if (!i)         /* No digits found */
-			{
-//					Error - invalid number
-//					LoadString(AfxGetInstanceHandle(),IDS_STRING37101,pc_str,STR_LAENGE_STRING_TABLE);
-//					sprintf(line,pc_str);
-//					AfxMessageBox(line);
-					return(false);
-			}
-			op=s[i];
-			s[i]=0;
-			n=s;
-
-			s+=i;
-			*s=op;
-		}
-        if (minus) n=-n;
-		//	char z[100];
-		//	mip3->IOBASE=10;
-		//	z << n;
-        do
-			op=*s++;
-			while (op==' ');
-        if (op==0 || op==')' || op==']' || op=='}')
-			{
-			eval_power (oldn[2],n,oldop[2]);
-			eval_product (oldn[1],n,oldop[1]);
-			eval_sum (oldn[0],n,oldop[0]);
-			t=n;
-//			char z[100];
-//			mip3->IOBASE=10;
-//			z << t;   Roger 11.06.01
-			return(true);
-			}
-        else
-        {
-			if (op==RAISE)
-				{
-						eval_power (oldn[2],n,oldop[2]);
-						oldn[2]=n;
-						oldop[2]=RAISE;
-				}
-			else
-			{
-					if (op==TIMES || op=='/' || op=='%')
-					{
-					eval_power (oldn[2],n,oldop[2]);
-					oldop[2]=0;
-					eval_product (oldn[1],n,oldop[1]);
-					oldn[1]=n;
-					oldop[1]=op;
-					}
-					else
-						{
-						if (op=='+' || op=='-')
-							{
-									eval_power (oldn[2],n,oldop[2]);
-									oldop[2]=0;
-									eval_product (oldn[1],n,oldop[1]);
-									oldop[1]=0;
-									eval_sum (oldn[0],n,oldop[0]);
-									oldn[0]=n;
-									oldop[0]=op;
-							}
-						else    /* Error - invalid operator */
-							{
-//									Error - invalid operator
-//									LoadString(AfxGetInstanceHandle(),IDS_STRING37109,pc_str,STR_LAENGE_STRING_TABLE);
-//									sprintf(line,pc_str);
-//									AfxMessageBox(line);
-									return(false);
-							}
-						}
-			}
-		}
-
-	goto LOOP;
-
-
-}
-
 Big RSA_Berechnungen::konvertiere_CString_Big(CString Eingabe)
 {
 
-//	miracl *mip3=&precision3;
-//	miracl *mip3=&g_precision;
 	char *str =Eingabe.GetBuffer(100);
-	s = &str[0];
-	//char *strTmp=Eingabe.GetBuffer(250); //Roger 11.06.01
-	//strcpy( str, strTmp );               //Roger 11.06.01
 
-	t=0;
-	
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(t, str)) 
 		return -1;//
 	ausgabe=t;//
 	
@@ -497,19 +328,10 @@ Big RSA_Berechnungen::konvertiere_CString_Big(CString Eingabe)
 
 CString RSA_Berechnungen::konvertiere_Big_CString(Big Eingabe)
 {
-	//mip3=&precision3;
-	CString ausgabe;
-	
-	//mip3->IOBASE=10;
-	
+	CString ausgabe;	
 	ausgabe.GetBuffer(500) << Eingabe;
-	
 	return ausgabe;
 }
-
-////////////////////////////////////////////
-////////////////////////////////////////////
-////////////////////////////////////////////
 
 //================================================================================================
 bool RSA_Berechnungen::Prime_test_Solovay_Strassen(Big n, long t)

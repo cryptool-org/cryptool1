@@ -46,10 +46,6 @@ public:
 //	miracl *mip3;
 //	Big ausgabe;
 // 	char *str;
-	bool eval ();
-	void eval_product(Big &oldn, Big &n, char op);
-	void eval_sum (Big &oldn, Big &n, char op);
-	void eval_power (Big &oldn, Big &n, char op);
 	void encrypt_block(Big *Block, long blocklaenge,long anzahl_buchstaben, Big ausgabe,Big n, Big e);
 	Big potenz (Big x, Big n);
 	long RSA_BlockLaengeBerechnung (Big x , long a);

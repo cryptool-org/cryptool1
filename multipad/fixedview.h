@@ -22,17 +22,18 @@ public:
 
 // Operations
 public:
+	virtual HRESULT QueryAcceptData( LPDATAOBJECT lpdataobj, CLIPFORMAT FAR * lpcfFormat, DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile );
 	char SepChar;
 	int m_AscBlocks,m_blocklen;
 	virtual void SerializeRaw(CArchive& ar);
-	void MyUpdate();
+//	void MyUpdate();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CFixedView)
 	public:
 	virtual void OnInitialUpdate();
-	virtual void OnUpdate( CView*, LPARAM, CObject*);
+//	virtual void OnUpdate( CView*, LPARAM, CObject*);
 	//}}AFX_VIRTUAL
 
 // Implementation
@@ -47,11 +48,10 @@ protected:
 protected:
 	//{{AFX_MSG(CFixedView)
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnEditPaste();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
+

@@ -6,6 +6,7 @@
 #include "stdafx.h"
 #include "Primfaktor_Zerlegung.h"
 #include "multipad.h"
+#include "eval.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -17,19 +18,16 @@ static char THIS_FILE[]=__FILE__;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-//Miracl precision2=50;
-//miracl *mip2=&precision2;
 
 
-Primfaktor_Zerlegung::Primfaktor_Zerlegung(): precision2(25)
+Primfaktor_Zerlegung::Primfaktor_Zerlegung()
 {
-	mip2=&precision2;
-//	s=new char[100];
+	mip = &g_precision;
 }
 
 Primfaktor_Zerlegung::~Primfaktor_Zerlegung()
 {
-//	delete []s;
+	mip = 0;
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -41,11 +39,12 @@ void Primfaktor_Zerlegung::marks(long start)
 	
 	// mark non-primes in this interval. Note    
     // that those < NEXT are dealt with already  
+
     int i,pr,j,k;
     for (j=1;j<=MULT/2;j+=2) plus[j]=minus[j]=TRUE;
     for (i=0;;i++)
     { // mark in both directions 
-        pr=mip2->PRIMES[i];
+        pr=mip->PRIMES[i];
         if (pr<NEXT) continue;
         if ((long)pr*pr>start) break;
         k=pr-start%pr;
@@ -165,159 +164,6 @@ int Primfaktor_Zerlegung::giant_step()
     return 1;   
 }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-static char *s;
-
-void Primfaktor_Zerlegung::eval_power(Big& oldn,Big& n,char op)
-{
-	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
-}
-
-void Primfaktor_Zerlegung::eval_sum(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case '+':
-                n+=oldn;
-                break;
-        case '-':
-                n=oldn-n;
-        }
-}
-
-
-void Primfaktor_Zerlegung::eval_product(Big &oldn, Big &n, char op)
-{
-	switch (op)
-        {
-        case TIMES:
-                n*=oldn; 
-                break;
-        case '/':
-                n=oldn/n;
-                break;
-        case '%':
-                n=oldn%n;
-        }
-}
-
-
-bool Primfaktor_Zerlegung::eval()
-
-{
-	Big oldn[3];
-        Big n;
-        int i;
-        char oldop[3];
-        char op;
-        char minus;
-        for (i=0;i<3;i++)
-        {
-            oldop[i]=0;
-        }
-LOOP:
-        while (*s==' ')
-			s++;
-        if (*s=='-')    /* Unary minus */
-			{
-			s++;
-			minus=1;
-			}
-        else
-	        minus=0;
-        while (*s==' ')
-		    s++;
-        if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
-			{
-			s++;
-			eval ();
-			n=temp;
-			}
-        else            /* Number is decimal value */
-        {
-		
-        for (i=0;s[i]>='0' && s[i]<='9';i++)
-               ;
-			if (!i)         /* No digits found */
-			{
-//					Error - invalid number
-					LoadString(AfxGetInstanceHandle(),IDS_STRING37101,pc_str,STR_LAENGE_STRING_TABLE);
-					sprintf(line,pc_str);
-					AfxMessageBox(line);
-					return(false);
-			}
-			op=s[i];
-			s[i]=0;
-			n=s;
-
-			s+=i;
-			*s=op;
-		}
-        if (minus) n=-n;
-//			char z[100];
-//			mip2->IOBASE=10;
-//			z << n;
-        do
-			op=*s++;
-			while (op==' ');
-        if (op==0 || op==')' || op==']' || op=='}')
-			{
-			eval_power (oldn[2],n,oldop[2]);
-			eval_product (oldn[1],n,oldop[1]);
-			eval_sum (oldn[0],n,oldop[0]);
-			temp=n;
-//			char z[100];
-//			mip2->IOBASE=10;
-//			z << t;
-			return(true);
-			}
-        else
-        {
-			if (op==RAISE)
-				{
-						eval_power (oldn[2],n,oldop[2]);
-						oldn[2]=n;
-						oldop[2]=RAISE;
-				}
-			else
-			{
-					if (op==TIMES || op=='/' || op=='%')
-					{
-					eval_power (oldn[2],n,oldop[2]);
-					oldop[2]=0;
-					eval_product (oldn[1],n,oldop[1]);
-					oldn[1]=n;
-					oldop[1]=op;
-					}
-					else
-						{
-						if (op=='+' || op=='-')
-							{
-									eval_power (oldn[2],n,oldop[2]);
-									oldop[2]=0;
-									eval_product (oldn[1],n,oldop[1]);
-									oldop[1]=0;
-									eval_sum (oldn[0],n,oldop[0]);
-									oldn[0]=n;
-									oldop[0]=op;
-							}
-						else    /* Error - invalid operator */
-							{
-//									Error - invalid operator
-									LoadString(AfxGetInstanceHandle(),IDS_STRING37109,pc_str,STR_LAENGE_STRING_TABLE);
-									sprintf(line,pc_str);
-									AfxMessageBox(line);
-									return(false);;
-							}
-						}
-			}
-		}
-	goto LOOP;
-}
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -344,20 +190,10 @@ int Primfaktor_Zerlegung::lenstra_fakt(CString Eingabe)
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(temp, str)) 
 	return -1;
 
 	n=temp; 
-
-//	mip2->IOBASE=10;
-//	n=Eingabe.GetBuffer(100);
-
 
     if (prime(n))
     {
@@ -401,8 +237,8 @@ int Primfaktor_Zerlegung::lenstra_fakt(CString Eingabe)
         { // main loop 
             if (phase==1)
             {	
-                p=mip2->PRIMES[i];
-                if (mip2->PRIMES[i+1]==0)
+                p=mip->PRIMES[i];
+                if (mip->PRIMES[i+1]==0)
                 { // now change gear 
                     phase=2;
 //                  cout << "\nphase 2 - trying last prime less than ";
@@ -497,10 +333,10 @@ int Primfaktor_Zerlegung::lenstra_fakt(CString Eingabe)
 
 
 
-void Primfaktor_Zerlegung::SetIOBASE(int base)
-{
-	mip2->IOBASE=base;
-}
+// void Primfaktor_Zerlegung::SetIOBASE(int base)
+// {
+//	mip->IOBASE=base;
+// }
 
 // eigentlich Miracl precision(50,0);
 
@@ -515,7 +351,6 @@ int Primfaktor_Zerlegung::brent(CString Eingabe)
     long k,r,i,m,iter;
     Big n,z;
     ZZn x,y,q,ys;
-//	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
 
 //    cout << "input number to be factored\n";
 //    cin >> n;
@@ -524,13 +359,7 @@ int Primfaktor_Zerlegung::brent(CString Eingabe)
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval( temp, str)) 
 	return -1;
 
 	n=temp; 
@@ -640,7 +469,6 @@ int Primfaktor_Zerlegung::brute(CString Eingabe)
 	int index, co_index;
 	int n,p;
     Big x;
-//	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
     
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
@@ -649,13 +477,7 @@ int Primfaktor_Zerlegung::brute(CString Eingabe)
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(temp, str)) 
 	return -1;
 
 	x=temp; 
@@ -682,7 +504,7 @@ int Primfaktor_Zerlegung::brute(CString Eingabe)
 		return 0;
 	}
 	n=0;
-	p=mip2->PRIMES[0];
+	p=mip->PRIMES[0];
     forever
     { // try division by each prime 
         if (x%p==0)
@@ -706,7 +528,7 @@ int Primfaktor_Zerlegung::brute(CString Eingabe)
 			CFL.lastcofaktor=co_index;
             return 0;
         }
-		p=mip2->PRIMES[++n];
+		p=mip->PRIMES[++n];
         if (p==0) break;
     }
     if (prime(x))
@@ -741,7 +563,6 @@ int Primfaktor_Zerlegung::Pollard(CString Eingabe)
     int phase,m,pos,btch;
     long i,pa;
     Big n,t;
-//    mip2=&precision2;
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
@@ -752,13 +573,7 @@ int Primfaktor_Zerlegung::Pollard(CString Eingabe)
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(temp, str)) 
 	return -1;
 
 	n=temp; 
@@ -795,8 +610,8 @@ int Primfaktor_Zerlegung::Pollard(CString Eingabe)
     { /* main loop */
         if (phase==1)
         { /* looking for all factors of (p-1) < LIMIT1 */
-            p=mip2->PRIMES[i];
-            if (mip2->PRIMES[i+1]==0)
+            p=mip->PRIMES[i];
+            if (mip->PRIMES[i+1]==0)
             {
                 phase=2;
 //                cout << "\nphase 2 - trying last prime less than ";
@@ -925,7 +740,7 @@ void Primfaktor_Zerlegung::marks_pollard(long start)
     for (j=1;j<=MULT/2;j+=2) plus[j]=minus[j]=TRUE;
     for (i=0;;i++)
     { /* mark in both directions */
-        pr=mip2->PRIMES[i];
+        pr=mip->PRIMES[i];
         if (pr<NEXT) continue;
         if ((long)pr*pr>start) break;
         k=pr-start%pr;
@@ -948,7 +763,7 @@ void Primfaktor_Zerlegung::marks_williams(long start)
     for (j=1;j<=MULT/2;j+=2) plus[j]=minus[j]=TRUE;
     for (i=0;;i++)
     { /* mark in both directions */
-        pr=mip2->PRIMES[i];
+        pr=mip->PRIMES[i];
         if (pr<NEXT) continue;
         if ((long)pr*pr>start) break;
         k=pr-start%pr;
@@ -1008,7 +823,6 @@ int Primfaktor_Zerlegung::Williams(CString Eingabe)
     int k,phase,m,nt,pos,btch;
     long i,pa;
     Big n,t;
-//  mip2=&precision2;
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
@@ -1019,13 +833,7 @@ int Primfaktor_Zerlegung::Williams(CString Eingabe)
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
+	if (false==evaluateFormula::eval(temp, str)) 
 	return -1;
 
 	n=temp; 
@@ -1066,8 +874,8 @@ int Primfaktor_Zerlegung::Williams(CString Eingabe)
         { /* main loop */
             if (phase==1)
             { /* looking for all factors of p+1 < LIMIT1 */
-                p=mip2->PRIMES[i];
-                if (mip2->PRIMES[i+1]==0)
+                p=mip->PRIMES[i];
+                if (mip->PRIMES[i+1]==0)
                 { /* now change gear */
                     phase=2;
 //                    cout << "\nphase 2 - trying last prime less than ";
@@ -1164,21 +972,13 @@ int Primfaktor_Zerlegung::QSieve(CString Eingabe)
     int S,r,s1,s2,NS,logm,ptr,threshold,epri;
     long M,la,lptr;
 	
-//  mip2=&precision2;
-
 	index=0;
 	co_index=0;
 
 	char *str=Eingabe.GetBuffer(100);
 
-//	s=Eingabe.GetBuffer(100);
-
-	s=&str[0];
-
-	temp=0;
-
-	if (false==eval()) 
-	return -1;
+	if (false==evaluateFormula::eval(temp, str)) 
+		return -1;
 
 	NN=temp;
     
@@ -1448,7 +1248,7 @@ int Primfaktor_Zerlegung::knuth(int mmm, int *epr, Big& N, Big& D)
         j=1;
         while (j<mmm)
         { /* select small primes */
-			p=mip2->PRIMES[++i];
+			p=mip->PRIMES[++i];
             rem=D%p;
             if (spmd(rem,(p-1)/2,p)<=1) /* x = spmd(a,b,c) = a^b mod c */
             { /* use only if Jacobi symbol = 0 or 1 */
@@ -1633,16 +1433,16 @@ void Primfaktor_Zerlegung::new_poly()
 {
 	/* form the next polynomial */
     int i,r,s,s1,s2;
-   
-    r=mip2->NTRY;        /* MR_NTRY is global - number of trys at proving */
-    mip2->NTRY=1;        /* a probable prime  */
+
+    r=mip->NTRY;        /* MR_NTRY is global - number of trys at proving */
+    mip->NTRY=1;        /* a probable prime  */
     do
     { /* looking for suitable prime DG = 3 mod 4 */
         do DG+=4; while(!prime(DG));
         TT=(DG-1)/2;
         TT=pow(DD,TT,DG);  /*  check DD is quad residue */
     } while (TT!=1);
-    mip2->NTRY=r;
+    mip->NTRY=r;
     TT=(DG+1)/4;
     BB=pow(DD,TT,DG);
     TT=(DD-BB*BB)/DG;

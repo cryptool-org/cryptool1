@@ -36,6 +36,10 @@ public:
 
 // Implementation
 public:
+// for rich text edit 
+	void SetModifiedFlag( BOOL bModified = TRUE );
+	BOOL IsModified();
+// 
 	virtual ~CCryptDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;

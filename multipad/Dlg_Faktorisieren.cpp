@@ -128,27 +128,27 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.lenstra_fakt(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 
@@ -169,27 +169,27 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.QSieve(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 
@@ -208,26 +208,26 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.Williams(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 	
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 
@@ -246,26 +246,26 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.Pollard(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 
@@ -284,27 +284,27 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.brent(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 
@@ -323,27 +323,27 @@ void Dlg_Faktorisieren::OnBUTTONFaktorisieren()
 	
 	PFAKT.brute(m_edit1_eingabe);
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim1.GetBuffer(100) << PFAKT.PL.prime[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim2.GetBuffer(100) << PFAKT.PL.prime[1];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim3.GetBuffer(100) << PFAKT.PL.prime[2];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_prim4.GetBuffer(100) << PFAKT.PL.prime[3];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim1.GetBuffer(100) << PFAKT.CFL.CoFaktor[0];
 
-	PFAKT.SetIOBASE(10);
+//	PFAKT.SetIOBASE(10);
 //	PFAKT.mip2->IOBASE=10;
 	m_edit_coprim2.GetBuffer(100) << PFAKT.CFL.CoFaktor[1];
 

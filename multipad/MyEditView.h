@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Ansicht CMyEditView 
 
-class CMyEditView : public CEditView
+class CMyEditView : public CRichEditView
 {
 protected:
 	CMyEditView();           // Dynamische Erstellung verwendet geschützten Konstruktor
@@ -18,6 +18,7 @@ public:
 
 // Operationen
 public:
+	virtual HRESULT QueryAcceptData( LPDATAOBJECT lpdataobj, CLIPFORMAT FAR * lpcfFormat, DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile );
 	virtual void SerializeRaw(CArchive& ar);
 
 // Überschreibungen

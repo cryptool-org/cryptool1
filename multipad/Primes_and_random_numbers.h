@@ -14,24 +14,15 @@
 
 
 #define TIMES '*'
-// #define RAISE '#'
 #define RAISE '^'
 
 class Primes_and_random_numbers  
 {
-
-	Miracl precision4;
 public:
-	miracl *mip4;
 	CString konvertiere_Big_CString (Big Eingabe);
 	Big konvertiere_CString_Big (CString Eingabe);
 	Big t;
 	Big ausgabe;
-//	char *str;
-	bool eval ();
-	void eval_product(Big &oldn, Big &n, char op);
-	void eval_sum (Big &oldn, Big &n, char op);
-	void eval_power (Big &oldn, Big &n, char op);
 	void encrypt_block(Big *Block, long blocklaenge,long anzahl_buchstaben, Big ausgabe,Big n, Big e);
 	Big potenz (Big x, Big n);
 	long RSA_BlockLaengeBerechnung (Big x , long a);

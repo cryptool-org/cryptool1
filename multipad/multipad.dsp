@@ -1061,6 +1061,14 @@ SOURCE=..\LibEc\include\EMSA1.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\eval.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\eval.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\fileutil.cpp
 # End Source File
 # Begin Source File

@@ -32,7 +32,6 @@
 #define min(a,b) ((a) < (b)? (a) : (b))
 
 #define TIMES '*'
-// #define RAISE '#'
 #define RAISE '^'
 
 struct PrimListe
@@ -54,7 +53,6 @@ struct PrimListe
 
 class Primfaktor_Zerlegung  
 {
-	Miracl precision2;
 public:// Für QSieve notwendige Variablen
 	int lp;
 	Big *ww;
@@ -119,16 +117,12 @@ public:// Für QSieve notwendige Variablen
 	int Pollard(CString Eingabe);
 	int brute(CString Eingabe);
 	int brent(CString Eingabe);
-	void SetIOBASE(int);
+//	void SetIOBASE(int);
 	int lenstra_fakt(CString Eingabe);
 	int giant_step();
 	void next_phase();
 	void ellipse(ZZn x,ZZn z,int r,ZZn& x1,ZZn& z1,ZZn& x2,ZZn& z2);
 	void addition(ZZn xd,ZZn zd,ZZn sm1,ZZn df1,ZZn sm2,ZZn df2,ZZn& x,ZZn& z);
-	bool eval();
-	void eval_power(Big& oldn,Big& n,char op);
-	void eval_sum(Big &oldn, Big &n, char op);
-	void eval_product(Big &oldn, Big &n, char op);
 	void duplication(ZZn sum,ZZn diff,ZZn& x,ZZn& z);
 	void marks (long start);
 
@@ -146,12 +140,11 @@ public:// Für QSieve notwendige Variablen
 	int iv;
 	long p;
 	
-	miracl *mip2;
-
 	Primfaktor_Zerlegung();
 	virtual ~Primfaktor_Zerlegung();
 private:
 
+	miracl *mip;
 };
 
 #endif // !defined(AFX_PRIMFAKTOR_ZERLEGUNG_H__2F4A1B71_13B1_11D5_889F_00062919F268__INCLUDED_)

@@ -1292,3 +1292,14 @@ void CCryptDoc::OnGenRandomData()
 	}
 }
 
+// rich text edit
+BOOL CCryptDoc::IsModified()
+{
+	return ((CMyEditView*)m_viewList.GetHead())->GetRichEditCtrl().GetModify();
+}
+
+void CCryptDoc::SetModifiedFlag(BOOL bModified)
+{
+	((CMyEditView*)m_viewList.GetHead())->GetRichEditCtrl().SetModify(bModified);
+}
+//
