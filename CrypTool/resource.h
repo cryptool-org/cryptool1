@@ -3,11 +3,11 @@
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
-#define ID_PSE_IMPORT                   3
 #define IDCANCEL3                       4
 #define IDCANCEL4                       5
 #define IDCANCEL5                       6
 #define IDCANCEL6                       7
+#define IDC_PSE_IMPORT                  8
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -24,7 +24,6 @@
 #define IDD_HILL_ANALYSIS               122
 #define IDD_SHOW_KEY_HILL5x5            125
 #define IDD_RSA_ENCRYPTION              126
-#define IDD_DIALOG_LISTBOX              127
 #define IDR_MAINFRAME                   128
 #define IDR_TEXTTYPE                    129
 #define IDR_HEXTYPE                     130
@@ -34,7 +33,7 @@
 #define IDD_MANUAL_SUBST_ANALYSIS       146
 #define IDD_SHOW_CERTIFICATE            147
 #define IDD_SHOW_PROGRESS               150
-#define IDD_RSADEMO_OPTIONS             154
+#define IDD_TEXT_OPTIONS                154
 #define IDD_KEYLENGTH                   155
 #define IDD_BIN_KEYLENGTH               156
 #define IDD_KEY_ANALYSIS                157
@@ -50,7 +49,6 @@
 #define IDD_SHOW_KEY                    180
 #define IDR_CONTEXT_MENU                182
 #define IDR_CONTEXT_MENU_PLOT           183
-#define IDD_DIALOG_KEY_SEARCH           185
 #define IDI_PLOTTYPE                    194
 #define IDI_ICON1                       199
 #define IDI_ICON2                       200
@@ -62,22 +60,17 @@
 #define IDD_EXTRACT_SIGNATURE           210
 #define IDD_VERIFY_ECSIGNATURE_STEPBYSTEP 211
 #define IDD_KEY_PLAYFAIR                214
-#define IDD_BRUTE_FORCE_AES             215
 #define IDD_BRUTEFORCE                  215
 #define IDD_SHOW_KEY_PARAMETER          216
 #define IDB_BITMAP2                     217
 #define IDB_BITMAP1                     218
-#define IDD_DIALOG_KEY_HOMOPHON         221
-#define IDD_PRIMES_GENERATOR            222
 #define IDD_PRIMES_GENERATOR_DEMO       223
 #define IDD_RSA_DEMO                    226
 #define IDD_KEY_HOMOPHONE               227
 #define IDD_EC_GENERATION               228
 #define IDD_RANDOM_GENERATOR            229
 #define IDD_RANDOMPARAMETER_SECUDE      230
-#define IDD_DIALOG_Faktorisieren        231
 #define IDD_KEY_FROM_PASSWORD           232
-#define IDD_DIALOG_RSA_KLEIN            235
 #define IDD_NGRAM_ANALYSIS              237
 #define IDD_X2MODN_RANDOMPARAMETER      238
 #define IDD_LCG_RANDOMPARAMETER         239
@@ -88,7 +81,6 @@
 #define IDD_FRQ_TEST                    244
 #define IDB_BITMAP3                     250
 #define IDB_BITMAP4                     251
-#define IDD_DIALOG_HINTS                253
 #define IDD_RUNS_TEST                   254
 #define IDD_FIPS_PUB_140_1              256
 #define IDD_TIPPS_AND_TRICKS            257
@@ -99,14 +91,12 @@
 #define IDD_SIGNATURE_DEMO              275
 #define IDD_DEMO_RSAKEY_GENERATION      276
 #define IDD_CERTIFICATE_GENERATION      277
-#define IDD_SEL_HASH                    278
 #define IDD_SELECT_HASHFUNCTION         279
 #define IDD_FACTORISATION_LIST          280
 #define IDD_HASH_DEMO                   281
 #define IDB_BITMAP6                     282
 #define IDD_HYBRID_ENCRYPTION_DEMO      283
 #define IDB_BITMAP_ARROW                284
-#define IDB_BITMAP_ARROW_DOWN           285
 #define IDB_BITMAP_ARROW_BEND           286
 #define IDB_BITMAP_ARRDOWN              287
 #define IDB_BITMAP_ARRLITTLE            288
@@ -115,13 +105,8 @@
 #define IDB_BITMAP8                     325
 #define IDB_BITMAP_ARR_DOWN_KL          326
 #define IDB_LAYOUT                      335
-#define IDB_BITMAP_ARROWDOWN            337
 #define IDB_EMPTY2                      344
 #define IDB_EMPTY1                      345
-#define IDB_BITMAP_ARROWBEN             382
-#define IDB_BITMAP9                     383
-#define IDB_BITMAP_ARROW90              385
-#define IDB_BITMAP_ARRBEN2              387
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
@@ -477,7 +462,6 @@
 #define IDC_SELECT_CERT                 1318
 #define IDC_INFO_HASH                   1321
 #define IDC_INFO_HASH_ENC               1322
-#define ID_IMPORT_KEY                   1323
 #define IDC_INFO_SIGN                   1324
 #define IDC_EDIT_CERT_KEY_ID            1325
 #define IDC_DISPLAY_CONTENT             1326
@@ -670,12 +654,8 @@
 #define IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION 33124
 #define ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 33125
 #define ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 33126
-#define ID_HOMOPHONE                    33127
 #define ID_HOMOPHONE_ASC                33128
-#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN 33129
 #define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 33130
-#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS 33131
-#define ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP 33132
 #define ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 33133
 #define ID_ANALYSE_NGRAM                33134
 #define ID_ANALYSE_NGRAM_BIN            33135
@@ -688,16 +668,14 @@
 #define ID_ANALYSE_ZUFALLSTESTS_RUNS    33144
 #define ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 33145
 #define ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 33149
-#define ID_ANALYSE_ZUFALLSTESTS_LONGRUNTEST 33150
-#define ID_COPY_KEY                     33151
 #define ID_AES_SELFEXTRACT              33152
 #define ID_P12IMPORT                    33153
 #define ID_HASH_OFAFILE                 33154
 #define ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 33155
 #define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 33156
 #define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 33157
-#define ID_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG 33158
-#define IDD_EINZELVERFAHREN_SIGN_DOC    33159
+#define ID_EINZELVERFAHREN_SIGN         33158
+#define ID_EINZELVERFAHREN_SIGN_DOC     33159
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -711,6 +689,7 @@
 #define IDS_STRING_RAND_SECUDE          36610
 #define IDS_SEEK_NEXT_PRIME             36611
 #define IDS_HEADING_EMPTY_ECDOMAINPARAMETER 36612
+#define IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 36613
 #define IDS_STRING37100                 36650
 #define IDS_STRING37101                 36651
 #define IDS_STRING37102                 36652
@@ -983,6 +962,7 @@
 #define IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND 37005
 #define IDS_STRING_MSG_RSA_MODUL_TO_LARGE 37006
 #define IDS_ERRON_OPEN_REFERENCE_FILE   37007
+#define IDS_VITANY_ERR_FILESIZE         37008
 #define IDS_PLAYFAIR                    37053
 #define IDS_REL_MATCH                   37054
 #define IDS_STRING_DIAGRAM_VITANY       37055
@@ -1307,7 +1287,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        518
+#define _APS_NEXT_RESOURCE_VALUE        519
 #define _APS_NEXT_COMMAND_VALUE         33170
 #define _APS_NEXT_CONTROL_VALUE         1412
 #define _APS_NEXT_SYMED_VALUE           101

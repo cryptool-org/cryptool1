@@ -61,7 +61,7 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertificateGeneration)
 	ON_EN_CHANGE(IDC_EDIT_CERT_NAME, OnChangeEdit)
-	ON_BN_CLICKED(ID_PSE_IMPORT, OnPseImport)
+	ON_BN_CLICKED(IDC_PSE_IMPORT, OnPseImport)
 	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
 	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
 	//}}AFX_MSG_MAP

@@ -44,7 +44,7 @@ public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgBruteForceAES)
-	enum { IDD = IDD_BRUTE_FORCE_AES };
+	enum { IDD = IDD_BRUTEFORCE };
 	CString	m_text;
 	CMyHexEdit m_text_ctl;
 	//}}AFX_DATA

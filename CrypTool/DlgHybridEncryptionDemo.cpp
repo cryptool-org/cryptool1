@@ -255,8 +255,6 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	}
 	UpdateData(true);
 
-	char* strPathEncDocument;
-	strPathEncDocument=new char[20];
 	int AlgId=3;
 
 	const char* path=m_strPathSelDoc.GetBuffer(0);
@@ -282,6 +280,9 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	//Groesse der Datei die ausgelesen werden soll wird 
 	//ermittelt und in m_iDataGroesse geschrieben
 
+	// Henrik Koy, 19. April 2002,
+	// Programm unter Windows XP-abgestürzt: 20 Zeichen Speicher sind zu wenig
+	char strPathEncDocument[1024];
 	GetTmpName(strPathEncDocument,"cry",".tmp");
 	//Name für eine temporäre Datei wird erzeugt, in der 
 	//der Verschluesselte Text geschrieben werden soll
