@@ -1118,7 +1118,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,228,255,8
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,242,85,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,319,242,56,19
-    LTEXT           "Wählen Sie Ihren geheimen Schlüssel aus der Liste aus:",
+    LTEXT           "Wählen Sie Ihren geheimen Schlüssel aus der Liste der PSEs aus:",
                     IDC_STATIC,9,6,366,10
     LTEXT           "Bemerkung: Es werden nur Namen mit einem RSA Schlüssel angezeigt.",
                     IDC_STATIC,8,214,265,8
@@ -6704,7 +6704,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,228,255,8
     DEFPUSHBUTTON   "&Decrypt",IDOK,9,242,85,19
     PUSHBUTTON      "&Cancel",IDCANCEL,319,242,56,19
-    LTEXT           "Select your secret key from the list.",IDC_STATIC,9,6,
+    LTEXT           "Select your secret key from the PSE list.",IDC_STATIC,9,6,
                     366,10
     LTEXT           "Note: Only PSEs containing an RSA key are shown.",
                     IDC_STATIC,8,214,255,8
