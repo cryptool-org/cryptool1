@@ -317,7 +317,7 @@ int CRandomAnalysisTools::FindPeriod()
 // letztendlich die Version von Henrik Koy (14-08-2002), nachdem bestimmte Perioden nicht gefunden oder falsch ausgegeben
 // wurden
 {
-	int follow, gap = 1, p, search = origlen - 2;
+	int follow, gap = 1, p = 0, search = origlen - 2;
 	
 	while(gap <= origlen / 2)
 	{

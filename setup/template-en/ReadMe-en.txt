@@ -1,5 +1,5 @@
 ==================================================================
-         CrypTool, Version 1.3.03, August 2002
+         CrypTool, Version 1.3.03, September 2002
          (c) Deutsche Bank AG 1998-2002, Frankfurt/Main
          (c) University of Siegen and Karlsruhe
          $Id$
