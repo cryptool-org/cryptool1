@@ -17,10 +17,13 @@ class CDlgCertificateGeneration : public CDialog
 // Konstruktion
 public:
 	CDlgCertificateGeneration(CWnd* pParent = NULL);   // Standardkonstruktor
+	BOOL m_PSEIsExtern;
 
 	void InitRSA(CPSEDemo* Cert);
 protected:
 	CPSEDemo* m_Cert;
+private:
+	long	m_lTime;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgCertificateGeneration)
@@ -38,7 +41,7 @@ protected:
 	CString	m_sKeyPublic;
 	CString	m_sModN;
 	//}}AFX_DATA
-
+	
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen

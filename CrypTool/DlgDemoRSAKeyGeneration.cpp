@@ -61,9 +61,9 @@ void CDlgDemoRSAKeyGeneration::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgDemoRSAKeyGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgDemoRSAKeyGeneration)
-	ON_BN_CLICKED(IDOK, OnOK)
 	ON_BN_CLICKED(IDC_GENERATE_PRIME, OnGeneratePrime)
 	ON_EN_UPDATE(IDC_EDIT_RSA_KEY_PUBLIC, OnUpdateParameter)
+	ON_BN_CLICKED(IDOK, OnOK)
 	ON_EN_UPDATE(IDC_EDIT_PRIME_P, OnUpdateParameter)
 	ON_EN_UPDATE(IDC_EDIT_PRIME_Q, OnUpdateParameter)
 	//}}AFX_MSG_MAP
@@ -85,14 +85,13 @@ BOOL CDlgDemoRSAKeyGeneration::OnInitDialog()
 		m_Cert->GetParameter(m_sModN, m_sPhiN, m_sKeyPublic, m_sKeyPrivate); 
 		m_Cert->GetPublicString( m_sKeyPublic );
 		m_Cert->GetPrimes(m_sPrime_p, m_sPrime_q); // Primzahlen holen
-		//m_Cert->GetName(m_sName, m_sFirstName); // Zertifikatsdaten holen
+		m_ButtonOKCtrl.EnableWindow(FALSE);
+		m_sPrime_p_OLD = m_sPrime_p;
+		m_sPrime_q_OLD = m_sPrime_q;
+		m_sKeyPublic_OLD = m_sKeyPublic;
 	}
 
 	UpdateData(FALSE);
-
-	// Bitmaps laden:
-	VERIFY(m_bmpCheck.LoadBitmap(IDB_BITMAP3));
-	VERIFY(m_bmpNoCheck.LoadBitmap(IDB_BITMAP4));
 
 	OnUpdateParameter(); // Schlüssel und Anzeige initialisieren
 	
@@ -219,7 +218,27 @@ void CDlgDemoRSAKeyGeneration::OnOK()
 		MessageBox( sMsg, sCpt, MB_ICONWARNING|MB_OK);		
 		return;
 	}
-
-	CDialog::OnOK();
+	if( (m_sPrime_p != m_sPrime_p_OLD) || (m_sPrime_q != m_sPrime_q_OLD) || (m_sKeyPublic != m_sKeyPublic_OLD) )
+	{
+		m_Cert->SetName(static_cast<CString>(""), static_cast<CString>(""), static_cast<CString>(""));
+		m_Cert->SetTime(0);
+		m_Cert->SetPIN(static_cast<CString>(""));
+		CDialog::OnOK();
+	}
+	else  CDialog::OnCancel();
 }
 
+
+void CDlgDemoRSAKeyGeneration::OnCancel() 
+{
+	// TODO: Zusätzlichen Bereinigungscode hier einfügen
+	UpdateData(TRUE);
+	m_sPrime_p = m_sPrime_p_OLD;
+	m_sPrime_q = m_sPrime_q_OLD;
+	m_sKeyPublic = m_sKeyPublic_OLD;
+	UpdateData(FALSE);
+
+	OnUpdateParameter();
+	
+	CDialog::OnCancel();
+}

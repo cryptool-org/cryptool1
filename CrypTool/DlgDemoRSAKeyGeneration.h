@@ -21,12 +21,15 @@ public:
 	void InitRSA(CPSEDemo* Cert);
 
 protected:
-	CBitmap m_bmpCheck;
-	CBitmap m_bmpNoCheck;
+	//CBitmap m_bmpCheck;
+	//CBitmap m_bmpNoCheck;
 	CBitmapButton m_ButtonInfo;
 
 private:
 	CPSEDemo* m_Cert; // Zertifikat
+	CString m_sPrime_p_OLD;
+	CString m_sPrime_q_OLD;
+	CString m_sKeyPublic_OLD;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDemoRSAKeyGeneration)
@@ -64,6 +67,7 @@ protected:
 	afx_msg void OnGeneratePrime();
 	afx_msg void OnUpdateParameter();
 	virtual void OnOK();
+	virtual void OnCancel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

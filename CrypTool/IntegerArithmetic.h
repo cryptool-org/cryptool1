@@ -182,8 +182,8 @@ public:
 
 protected: //private: // geändert für abgeleitete Klasse CPSEDemo
 	int InitParameter( Big &p, Big &q );
-private:
 	int SetPublicKey ( Big &e );
+private:
 	BOOL Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock );
 	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };

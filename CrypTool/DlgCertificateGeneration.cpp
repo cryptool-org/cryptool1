@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgCertificateGeneration.h"
+#include <time.h>
 
 
 #ifdef _DEBUG
@@ -57,9 +58,9 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertificateGeneration)
 	ON_EN_CHANGE(IDC_EDIT_CERT_NAME, OnChangeEdit)
+	ON_BN_CLICKED(ID_PSE_IMPORT, OnPseImport)
 	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
 	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
-	ON_BN_CLICKED(ID_PSE_IMPORT, OnPseImport)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -75,16 +76,25 @@ BOOL CDlgCertificateGeneration::OnInitDialog()
 	UpdateData(TRUE);
 	
 	m_Cert->GetName(m_sName, m_sFirstName, m_sKeyID); // Zertifikatsdaten holen
-	if( !(m_sName.IsEmpty()&&m_sFirstName.IsEmpty()&&m_sKeyID.IsEmpty()) ) m_Cert->GetKeyId(m_sUserID, m_sDName);
 	m_sPINv = m_sPIN = m_Cert->GetPIN();
+	m_lTime = m_Cert->GetTime();
+	
+	//if( !(m_sName.IsEmpty()&&m_sFirstName.IsEmpty()&&m_sKeyID.IsEmpty()) ) 
+	if( m_Cert->PSEIsInitialized() )
+	{
+		m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
+		m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
+	}
+	
 	if(m_Cert->IsInitialized())
 	{
-		// Schlüsseldaten holen:
+		// Schlüssel vorhanden:
 		CString sBuffer;
 		m_Cert->GetParameter(m_sModN, sBuffer, m_sKeyPublic, sBuffer);
 		m_sBitLength.Format(IDS_BIT, m_Cert->GetBitLength());
+
 	}
-	else m_CtrlOK.EnableWindow(FALSE);
+	m_CtrlOK.EnableWindow(FALSE);
 
 	UpdateData(FALSE);
 	
@@ -108,13 +118,13 @@ void CDlgCertificateGeneration::OnChangeEdit()
 
 	// eine ODER-Operation mit dem Attribut ENM_CHANGE und der Maske erfolgt.
 	UpdateData(TRUE);
-	CString sName = m_sName;
-	CString sFirstName = m_sFirstName;
-	CString sKeyID	= m_sKeyID;	
-	m_Cert->SetName(sName, sFirstName, sKeyID);
-	m_Cert->SetTime();
-	m_Cert->GetKeyId(m_sUserID, m_sDName); 
-	UpdateData(FALSE);	
+	time(&m_lTime);
+
+	
+	m_sUserID = m_Cert->CreateUserKeyID();
+	m_sDName = m_Cert->CreateDisName();
+	UpdateData(FALSE);
+	m_CtrlOK.EnableWindow(TRUE);
 }
 
 void CDlgCertificateGeneration::OnOK() 
@@ -141,13 +151,21 @@ void CDlgCertificateGeneration::OnOK()
 		AfxMessageBox(IDS_NOTIFY_PIN_V);
 		return;
 	}
+	m_Cert->SetPIN(m_sPIN);
+	m_Cert->SetName(m_sName, m_sFirstName, m_sKeyID);
+	m_Cert->SetTime(m_lTime);
 	
-	
+	m_PSEIsExtern = FALSE;
 	CDialog::OnOK();
 }
 
 void CDlgCertificateGeneration::OnPseImport() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	m_Cert->AccessPSE_DLG();
+	if(m_Cert->AccessPSE_DLG())	
+	{
+		m_PSEIsExtern = TRUE;
+		CDialog::OnOK();
+	}
 }
+

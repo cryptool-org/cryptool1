@@ -34,7 +34,6 @@ public:
 	BOOL GetPublicString( CString &sKeyPublic );
 	BOOL CreatePSE();
 	CString GetCert();
-	void GetKeyId(CString& sUserKeyId, CString& sDisName);
 	int InitParameter(CString& sPrime_p, CString& sPrime_q, int base = 10 );
 	int GetBitLength();
 	BOOL NameIsInitialized(){return m_NameIsInitialized;}
@@ -45,14 +44,17 @@ public:
 	void GetDER_Encoding(OctetString& DER_Encoding, const CString& sHashAlg);
 	int  GetHashLength(){return GetHashLength(m_sHashAlg);}
 	int  GetHashLength(const CString& sHashAlg);
-	BOOL AccessPSE(){ return AccessPSE(m_sPIN, m_sPseName); }
+	BOOL AccessPSE(){ return AccessPSE(m_sPIN, m_sPseName);}
 	BOOL AccessPSE(const CString& sPIN, const CString& sPseName);
 	BOOL AccessPSE_DLG();
 	void SetTime(){time(&m_lTime);}
 	void SetTime(const CString& sTime){m_lTime = atol(sTime);}
 	void SetTime(const long lTime){m_lTime = lTime;}
 	long GetTime(){return m_lTime;}
-
+	CString CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const long lTime);
+	CString CreateUserKeyID(){return CreateUserKeyID(m_sName, m_sFirstName, m_sKeyId, m_lTime);}
+	CString CreateDisName(const CString& sName, const CString& sFirstName, const long lTime);
+	CString CreateDisName(){return CreateDisName(m_sName, m_sFirstName, m_lTime);}
 
 protected:
 	CString m_sKeyPublic;
@@ -71,7 +73,7 @@ protected:
 	CString m_sKeyId;
 	CString m_sDisName;
 	PSE		m_hPSE;
-	Key		m_Key;
+	//Key		m_Key;
 	CString m_sHashAlg;
 	AlgId*  m_HashAlgId;
 	DName*  m_DName;
@@ -79,6 +81,7 @@ protected:
 
 private:
 	BOOL EMSA_PKCS1_v1_5_ENCODE( OctetString& EM, const OctetString& H);
+	BOOL TestAccess();
 };
 
 #endif // !defined(AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_)

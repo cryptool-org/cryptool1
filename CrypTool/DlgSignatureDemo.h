@@ -44,7 +44,25 @@ protected:
 
 	// Buttons
 	CBitmapButton m_ButtonSelectDoc;
+	CBitmapButton m_ButtonSelectHashAlg;
+	CBitmapButton m_ButtonSelectKey;
+	CBitmapButton m_ButtonSelectCert;
+
 	CBitmapButton m_ButtonInfoDoc;
+	CBitmapButton m_ButtonInfoHashAlg;
+	CBitmapButton m_ButtonInfoKey;
+	CBitmapButton m_ButtonInfoCert;
+
+	CBitmapButton m_ButtonCompute;
+	CBitmapButton m_ButtonEncrypt;
+	CBitmapButton m_ButtonCombine;
+
+	CBitmapButton m_ButtonInfoHash;
+	CBitmapButton m_ButtonInfoHashEnc;
+	CBitmapButton m_ButtonInfoSign;
+
+	CBitmapButton m_ButtonCancel;
+	CBitmapButton m_ButtonOK;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSignatureDemo)

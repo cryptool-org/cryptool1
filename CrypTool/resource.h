@@ -115,6 +115,7 @@
 #define IDB_BITMAP_ARR_DOWN             324
 #define IDB_BITMAP8                     325
 #define IDB_BITMAP_ARR_DOWN_KL          326
+#define IDB_LAYOUT                      335
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
@@ -473,6 +474,7 @@
 #define IDC_DISPLAY_CONTENT             1326
 #define IDC_INFO_KEY                    1328
 #define IDC_INFO_ALG                    1329
+#define IDC_INFO_HASHALG                1329
 #define IDC_INFO_RESULT                 1330
 #define IDC_INFO_CERT                   1331
 #define IDC_EDIT_CERT_USER_ID           1332
@@ -1091,6 +1093,7 @@
 #define IDS_BITLENGTH                   37692
 #define IDS_CONTENT_CERT                37693
 #define IDS_CONTENT_SIGN                37694
+#define IDS_BITLENGTH_MODN              37695
 #define IDS_STRING_REFERENCE_FILE       37700
 #define IDS_STRING_TESTS_ERGEBNIS_INFO  37701
 #define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 37702
@@ -1192,17 +1195,22 @@
 #define IDS_CREATE_USER_KEY_ID2         37872
 #define IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 37873
 #define IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 37874
+#define IDS_CREATE_USER_KEY_ID1         37875
 #define IDS_PADDING                     37881
 #define IDS_DERCODE                     37882
 #define IDS_HASHVALUE                   37883
 #define IDS_HASHDER                     37884
 #define IDS_HASHENC                     37885
+#define IDS_CONV_LONG                   37886
+#define IDS_CANCEL                      37887
+#define IDS_ACCESS_PSE                  37888
+#define IDS_IMPORT                      37889
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        327
+#define _APS_NEXT_RESOURCE_VALUE        337
 #define _APS_NEXT_COMMAND_VALUE         33155
 #define _APS_NEXT_CONTROL_VALUE         1404
 #define _APS_NEXT_SYMED_VALUE           101

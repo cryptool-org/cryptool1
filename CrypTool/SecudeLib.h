@@ -137,6 +137,13 @@
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_PSESel, SEC_PROTOTYPE_1(PSESel **, pse_sel))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_AlgId, SEC_PROTOTYPE_1(AlgId *, algid))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, rsa_sign_all, SEC_PROTOTYPE_3(OctetString *, hash,	BitString *, sign, KeyBits *, key))\
+	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_get_key, SEC_PROTOTYPE_2(KeyInfo *, keyinfo, Key *, key))\
+	DoOneFn(PSESel SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  sec_open, SEC_PROTOTYPE_3(char *, pse_name,	char *, pin, SC_DATA *, sc_data))\
+	DoOneFn(Certificate SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  d_Certificate, SEC_PROTOTYPE_1(OctetString *, asn1_string))\
+	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free2_KeyBits, SEC_PROTOTYPE_1(register KeyBits *, p))\
+	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free2_KeyInfo, SEC_PROTOTYPE_1(register KeyInfo *, p))\
+	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free2_OctetString, SEC_PROTOTYPE_1(OctetString *, ostr))\
+	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_cpy2_BitString, SEC_PROTOTYPE_2(BitString *, dup_bstr, BitString *, bstr))\
 	DoOneData(AlgId, ripemd160WithRSASignature_aid)\
 	DoOneData(AlgId, shaWithRSASignature_aid)\
 	DoOneData(AlgId, md2WithRsaEncryption_aid)\
@@ -169,7 +176,9 @@
 	DoOneData(ObjId, PKRoot_oid)\
 	DoOneData(ObjId, SKnew_oid)\
 	DoOneData(ObjId, Cert_oid)\
-	DoOneData(ObjId, FCPath_oid)
+	DoOneData(ObjId, FCPath_oid)\
+	DoOneData(sec_uint4, print_cert_flag)
+	
 
 // erstellen der Typedefs für die SECUDE lib:
 #undef SEC_GLOBAL_FUNC_PREFIX

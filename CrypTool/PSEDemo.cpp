@@ -13,6 +13,8 @@
 #include "Cryptography.h"
 #include "secudetools.h"
 #include "DlgRSADecryption.h"
+#include "secudelib.h"
+#include "DialogeMessage.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
 
@@ -46,12 +48,16 @@ const int  DER_RIPEMD160_SIZE = 15;
 CPSEDemo::CPSEDemo()
 : m_HashAlgId(0),
 m_NameIsInitialized(FALSE),
-m_PSEIsInitialized(FALSE)
+m_PSEIsInitialized(FALSE),
+m_lTime(0)
 {
-	memset(&m_Key, 0, sizeof(Key));
+	//memset(&m_Key, 0, sizeof(Key));
+	//AccessPSE("111", "C:/develop/CrypTool/source/CrypTool/Debug/PSE/[KEY][TEST][RSA-304][1015236527][].pse");
 	memset(&m_DER_Encoding, 0, sizeof(OctetString));
 	
 	//memset (&m_hPSE, 0, sizeof(PSE));
+
+	
 }
 
 CPSEDemo::~CPSEDemo()
@@ -80,8 +86,8 @@ BOOL CPSEDemo::SetName( CString& sName, CString& sFirstName, CString& sKeyId )
 
 BOOL CPSEDemo::SetPIN( const CString& sPIN )
 {
-	if(sPIN.IsEmpty()) return FALSE;
 	m_sPIN = sPIN;
+	if(sPIN.IsEmpty()) return FALSE;
 	return TRUE;
 }
 
@@ -124,28 +130,18 @@ BOOL CPSEDemo::SetPublicKey( CString& sKeyPublic, const int base )
 // Zur dauerhaften Speicherung: RSA-KEY in der PSE ablegen
 BOOL CPSEDemo::CreatePSE()
 {
-	// Reset m_Key
-	if(m_Key.private_key)
-	{
-		if(m_Key.private_key->subjectAI) theApp.SecudeLib.aux_free2_AlgId (m_Key.private_key->subjectAI);
-		theApp.SecudeLib.aux_free2_BitString (&m_Key.private_key->subjectkey);
-		delete m_Key.private_key;
-	}
-	if(m_Key.key)
-	{
-		if(m_Key.key->subjectAI) theApp.SecudeLib.aux_free2_AlgId (m_Key.key->subjectAI);
-		theApp.SecudeLib.aux_free2_BitString (&m_Key.key->subjectkey);
-		delete m_Key.key;
-	}
-	memset (&m_Key, 0, sizeof(Key));
+	
 
-	// Init m_Key
-	m_Key.private_key = new KeyInfo;
-	m_Key.key = new KeyInfo;
-
-	int		keysize;
+	int fehler;
 	KeyBits	keybits;
-	// Geheimen Schlüssel nach m_Key.private_key kopieren
+
+	KeyInfo keyinfo;
+	PSE_Sel* psesel;
+	BitString* bitstring;
+	OctetString* octetstring;
+
+
+	// Geheimen Schlüssel kopieren
 	memset (&keybits, 0, sizeof(KeyBits));
 	keybits.part1.noctets = (bits(m_bigPrime_p)+7)/8;
 	keybits.part1.octets = new char[keybits.part1.noctets];
@@ -153,29 +149,16 @@ BOOL CPSEDemo::CreatePSE()
 	keybits.part2.octets = new char[keybits.part2.noctets];
 	to_binary(m_bigPrime_p, keybits.part1.noctets, keybits.part1.octets);
 	to_binary(m_bigPrime_q, keybits.part2.noctets, keybits.part2.octets);
-	m_Key.private_key->subjectkey = *theApp.SecudeLib.e_KeyBits(&keybits);	
-	m_Key.private_key->subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
-	keysize = (keybits.part1.noctets + keybits.part2.noctets)*8;
-	*reinterpret_cast<int*>(m_Key.private_key->subjectAI->param) = keysize;
+	bitstring = theApp.SecudeLib.e_KeyBits(&keybits);
 	delete[] keybits.part1.octets;
 	delete[] keybits.part2.octets;
-
-	// Öffentlichen Schlüssel nach m_Key.key kopieren
-	memset(&keybits, 0, sizeof(KeyBits));
-	keybits.part1.noctets = (bits(N)+7)/8;
-	keybits.part1.octets = new char[keybits.part1.noctets];
-	keybits.part2.noctets = (bits(e)+7)/8;
-	keybits.part2.octets = new char[keybits.part2.noctets];
-	to_binary(N, keybits.part1.noctets, keybits.part1.octets);
-	to_binary(e, keybits.part2.noctets, keybits.part2.octets);
-	m_Key.key->subjectkey = *theApp.SecudeLib.e_KeyBits(&keybits);
-	m_Key.key->subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
-	*reinterpret_cast<int*>(m_Key.key->subjectAI->param) = keysize;
-	delete[] keybits.part1.octets;
-	delete[] keybits.part2.octets;
+	fehler = theApp.SecudeLib.aux_cpy2_BitString(&keyinfo.subjectkey, bitstring);
+	theApp.SecudeLib.aux_free_BitString(&bitstring);
+	keyinfo.subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
+	*reinterpret_cast<int*>(keyinfo.subjectAI->param) = (keybits.part1.noctets + keybits.part2.noctets)*8;
 
 	// PSE-File erzeugen und öffnen
-	m_sUserKeyId.Format(IDS_CREATE_USER_KEY_ID2, m_sName, m_sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), m_lTime, m_sKeyId);
+	m_sUserKeyId = CreateUserKeyID();
 	m_sPseName.Format(IDS_CREATE_PSE, PseVerzeichnis, m_sUserKeyId);
 	m_hPSE = theApp.SecudeLib.af_create(const_cast<char*>(LPCTSTR(m_sPseName)), NULL, const_cast<char*>(LPCTSTR(m_sPIN)), NULL, TRUE);
 	if(!m_hPSE)
@@ -184,35 +167,49 @@ BOOL CPSEDemo::CreatePSE()
 	}
 
 	// Geheimen Schlüssel in PSE schreiben
-	OctetString* osKey;
-	PSESel*		 psesel;
 	psesel = theApp.SecudeLib.af_get_PSESel(m_hPSE, static_cast<ObjId*>(0) );
 	psesel->object = theApp.SecudeLib.aux_cpy_String(SKnew_name);
 	psesel->object_type = theApp.SecudeLib.SKnew_oid;
-	osKey = theApp.SecudeLib.e_KeyInfo(m_Key.private_key);
-	if(theApp.SecudeLib.sec_write_PSE(psesel, osKey))
+	octetstring = theApp.SecudeLib.e_KeyInfo(&keyinfo);
+	theApp.SecudeLib.aux_free2_KeyInfo(&keyinfo);
+	if(theApp.SecudeLib.sec_write_PSE(psesel, octetstring))
 	{
 		// Fehler beim schreiben des Schlüssels in die PSE
+		theApp.SecudeLib.aux_free_OctetString(&octetstring);
 		return FALSE;
 	}
-	theApp.SecudeLib.aux_free_OctetString(&osKey);
+	theApp.SecudeLib.aux_free_OctetString(&octetstring);
 
 	// Initialisierung der Variablen, die zur Zertifizierung notwendig sind
 	OctetString osSerial;
 	char *string="000001";
 	osSerial.noctets=strlen(string);
 	osSerial.octets=string;
-	m_sDisName.Format(IDS_CREATE_DISNAME, m_sFirstName, m_sName, m_lTime);
+	m_sDisName = CreateDisName();
 	m_DName = theApp.SecudeLib.aux_Name2DName(const_cast<char*>(LPCTSTR(m_sDisName)));
 	if(!m_DName)
 	{
 		// Fehler beim Erzeugen des Distinguished Name
 		return FALSE;
 	}
+	// Öffentlichen Schlüssel  kopieren
+	memset(&keybits, 0, sizeof(KeyBits));
+	keybits.part1.noctets = (bits(N)+7)/8;
+	keybits.part1.octets = new char[keybits.part1.noctets];
+	keybits.part2.noctets = (bits(e)+7)/8;
+	keybits.part2.octets = new char[keybits.part2.noctets];
+	to_binary(N, keybits.part1.noctets, keybits.part1.octets);
+	to_binary(e, keybits.part2.noctets, keybits.part2.octets);
+	bitstring = theApp.SecudeLib.e_KeyBits(&keybits);
+	delete[] keybits.part1.octets;
+	delete[] keybits.part2.octets;
+	fehler = theApp.SecudeLib.aux_cpy2_BitString(&keyinfo.subjectkey, bitstring);
+	theApp.SecudeLib.aux_free_BitString(&bitstring);
+	keyinfo.subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
 
 	// Prototyp Zertifikat erzeugen
 	Certificate* Cert;
-	Cert=theApp.SecudeLib.af_create_Certificate(m_hPSE, m_Key.key, theApp.SecudeLib.md5WithRsaEncryption_aid/*m_HashAlgId*/, "SKnew", m_DName, &osSerial, NULL, NULL, TRUE, NULL);
+	Cert=theApp.SecudeLib.af_create_Certificate(m_hPSE, &keyinfo, theApp.SecudeLib.md5WithRsaEncryption_aid/*m_HashAlgId*/, "SKnew", m_DName, &osSerial, NULL, NULL, TRUE, NULL);
 	if (!Cert)
 	{
 		// Fehler bei der Zertifikatserzeugung
@@ -336,29 +333,12 @@ BOOL CPSEDemo::CreatePSE()
 	theApp.SecudeLib.aux_free_DName (&m_DName);
 	theApp.SecudeLib.af_close(m_hPSE);
 	m_PSEIsInitialized = TRUE;
-	// Freigeben von dynamisch angelegtem Speicher
 
-	//delete string2;
-	//delete string4;
-	//delete string7;
-	
-
-	// Eine Sekunde Verzögerung eingebaut, damit time_of_creat: Time in seconds since UTC 1/1/70
-	// für verschiedene Schlüssel immer verschieden ist (Wahrung der EINDEUTIGKEIT von UserKeyId)
-	Sleep(1000); // wait a second
-
-	// user-information: key pair succesfully created.
-	//LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR,pc_str,STR_LAENGE_STRING_TABLE);
-	//sprintf(pc_str1, pc_str, m_sUserKeyId);
-	//LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_GENERATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
-	//char temp[256];
-	//sprintf(temp, pc_str, duration);
-	//AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
-
-	/************************************/
-
+	/*
 	PSE PseHandle;
 	PseHandle = theApp.SecudeLib.af_open(const_cast<char*>(LPCTSTR(m_sPseName)), NULL, const_cast<char*>(LPCTSTR(m_sPIN)), NULL);
+	theApp.SecudeLib.af_close (PseHandle);
+	*/
 
 	return TRUE;	
 }
@@ -422,10 +402,18 @@ BOOL CPSEDemo::SetHashAlg(const CString& sHashAlg)
 	return FALSE;
 }
 
-void CPSEDemo::GetKeyId(CString& sUserKeyId, CString& sDisName)
+CString CPSEDemo::CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const long lTime)
 {
-	sUserKeyId.Format(IDS_CREATE_USER_KEY_ID2, m_sName, m_sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), m_lTime, m_sKeyId);
-	sDisName.Format(IDS_CREATE_DISNAME, m_sFirstName, m_sName, m_lTime);
+	CString sUserKeyId;
+	sUserKeyId.Format(sKeyID.IsEmpty()? IDS_CREATE_USER_KEY_ID1: IDS_CREATE_USER_KEY_ID2, sName, sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), lTime, sKeyID);
+	return sUserKeyId;
+}
+
+CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName, const long lTime)
+{
+	CString sDisName;
+	sDisName.Format(IDS_CREATE_DISNAME, sFirstName, sName, lTime);
+	return sDisName;
 }
 
 CString CPSEDemo::GetCert()
@@ -474,23 +462,6 @@ CString CPSEDemo::GetCert()
 
 BOOL CPSEDemo::Encode(const OctetString& hash, OctetString& sign)
 {
-	/*
-	memset (&keybits, 0, sizeof(KeyBits));
-	keybits.part1.noctets = (bits(m_bigPrime_p)+7)/8;
-	keybits.part1.octets = new char[keybits.part1.noctets];
-	keybits.part2.noctets = (bits(m_bigPrime_q)+7)/8;
-	keybits.part2.octets = new char[keybits.part2.noctets];
-	to_binary(m_bigPrime_p, keybits.part1.noctets, keybits.part1.octets);
-	to_binary(m_bigPrime_q, keybits.part2.noctets, keybits.part2.octets);
-	m_Key.private_key->subjectkey = *theApp.SecudeLib.e_KeyBits(&keybits);	
-	m_Key.private_key->subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
-	keysize = (keybits.part1.noctets + keybits.part2.noctets)*8;
-	*reinterpret_cast<int*>(m_Key.private_key->subjectAI->param) = keysize;
-	delete[] keybits.part1.octets;
-	delete[] keybits.part2.octets;
-	*/
-	
-	
 
 	if(!IsInitialized()) return FALSE;
 	KeyBits	keybits;
@@ -510,28 +481,10 @@ BOOL CPSEDemo::Encode(const OctetString& hash, OctetString& sign)
 	bitstring.nbits = (keybits.part1.noctets + keybits.part2.noctets)* 8;
 	bitstring.bits = new char[bitstring.nbits];
 
-	//OctetString* EM = new OctetString;
-	//if(!EM) return FALSE;
-
 	sign.noctets = (bits(N)-1)/8;
 	sign.octets = new char[sign.noctets];
 	if(!EMSA_PKCS1_v1_5_ENCODE(sign, hash)) return FALSE;
 
-	//sign = EM;
-	/*
-	if(theApp.SecudeLib.rsa_sign_all(hash, &bitstring, &keybits))
-	{
-		//delete keybits; 
-
-		return FALSE;
-	}
-	//delete keybits; 
-	if(!(*sign = theApp.SecudeLib.aux_BString2OString(&bitstring)))
-	{
-
-		return FALSE;
-	}
-	*/
 
 	return TRUE;
 }
@@ -546,40 +499,6 @@ BOOL CPSEDemo::EMSA_PKCS1_v1_5_ENCODE(OctetString& EM, const OctetString& H)
 	
 	GetDER_Encoding(m_DER_Encoding);
 	if(!m_DER_Encoding.noctets) return FALSE;
-
-	/*
-	if(m_sHashAlg=="MD2")
-	{
-		m_DER_Encoding.noctets = DER_MD2_SIZE;
-		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
-		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_MD2[i];
-	} 
-	else if(m_sHashAlg=="MD5")
-	{
-		m_DER_Encoding.noctets = DER_MD5_SIZE;
-		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
-		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_MD5[i];
-	} 
-	else if(m_sHashAlg=="SHA")
-	{
-			m_DER_Encoding.noctets = DER_SHA_SIZE;
-		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
-		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_SHA[i];
-	}
-	else if(m_sHashAlg=="SHA-1")
-	{
-		m_DER_Encoding.noctets = DER_SHA1_SIZE;
-		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
-		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_SHA1[i];
-	} 
-	else if(m_sHashAlg=="RIPEMD-160")
-	{
-		m_DER_Encoding.noctets = DER_RIPEMD160_SIZE;
-		m_DER_Encoding.octets = new char[m_DER_Encoding.noctets];
-		for(i=0; i<m_DER_Encoding.noctets; i++) m_DER_Encoding.octets[i] = DER_RIPEMD160[i];
-	}
-	else return FALSE;
-	*/
 
 	if(EM.noctets < m_DER_Encoding.noctets+10) return FALSE;
 
@@ -658,24 +577,87 @@ int CPSEDemo::GetHashLength(const CString& sHashAlg)
 
 BOOL CPSEDemo::AccessPSE(const CString& sPIN, const CString& sPseName)
 {
-	return TRUE;
+	KeyInfo* keyinfo;
+	KeyBits* keybits;
+	PSE_Sel* psesel;
+	OctetString octetstring;	
+	Certificate* cert;
+	int	fehler;
+
+	psesel = theApp.SecudeLib.sec_open(const_cast<char*>(LPCTSTR(sPseName)), const_cast<char*>(LPCTSTR(sPIN)), NULL);
+	
+	psesel->object = theApp.SecudeLib.aux_cpy_String(SKnew_name);
+	psesel->object_type = theApp.SecudeLib.aux_cpy_ObjId(theApp.SecudeLib.SKnew_oid);
+	fehler = theApp.SecudeLib.sec_read_PSE(psesel, &octetstring);
+	keyinfo = theApp.SecudeLib.d_KeyInfo(&octetstring);
+	keybits = theApp.SecudeLib.d_KeyBits(&keyinfo->subjectkey);
+	m_bigPrime_p = from_binary(keybits->part1.noctets, keybits->part1.octets);
+	m_bigPrime_q = from_binary(keybits->part2.noctets, keybits->part2.octets);	
+	theApp.SecudeLib.aux_free_KeyInfo(&keyinfo);
+	theApp.SecudeLib.aux_free2_OctetString(&octetstring);
+	theApp.SecudeLib.aux_free_KeyBits(&keybits);
+	theApp.SecudeLib.aux_free_String(&psesel->object);
+	theApp.SecudeLib.aux_free_ObjId(&psesel->object_type);
+	
+	psesel->object = theApp.SecudeLib.aux_cpy_String(Cert_name);
+	psesel->object_type = theApp.SecudeLib.aux_cpy_ObjId(theApp.SecudeLib.Cert_oid);
+	fehler = theApp.SecudeLib.sec_read_PSE(psesel, &octetstring);
+	cert = theApp.SecudeLib.d_Certificate(&octetstring);
+	m_sDisName = theApp.SecudeLib.aux_DName2Name(cert->tbs->subject);
+	keybits = theApp.SecudeLib.d_KeyBits(&cert->tbs->subjectPK->subjectkey);
+	e = from_binary(keybits->part2.noctets, keybits->part2.octets);
+	BigToCString(e, m_sKeyPublic);
+	theApp.SecudeLib.aux_free_KeyBits(&keybits);
+	theApp.SecudeLib.aux_free_String(&psesel->object);
+	theApp.SecudeLib.aux_free_ObjId(&psesel->object_type);
+	theApp.SecudeLib.aux_free_Certificate(&cert);
+
+	fehler = theApp.SecudeLib.sec_close(psesel);
+
+	CRSADemo::InitParameter(m_bigPrime_p, m_bigPrime_q);
+	CRSADemo::SetPublicKey(e);
+	m_PSEIsInitialized = CRSADemo::SetPrivateKey();	
+
+	return m_PSEIsInitialized;
 }
 
 BOOL CPSEDemo::AccessPSE_DLG()
 {
 	CDlgRSADecryption DlgPSE;
 
-	DlgPSE.m_sDialogText = "FIXME";
-	DlgPSE.m_sCancelText = "FIXME";
-	DlgPSE.m_sOKText = "FIXME";
+	DlgPSE.m_sDialogText.LoadString(IDS_ACCESS_PSE);
+	DlgPSE.m_sCancelText.LoadString(IDS_CANCEL);
+	DlgPSE.m_sOKText.LoadString(IDS_IMPORT);
 	DlgPSE.m_bHideDuration = TRUE;
 	if(DlgPSE.DoModal()==IDOK)
 	{
 		SetName(DlgPSE.Name, DlgPSE.Firstname, DlgPSE.KeyInfo);
 		SetTime(DlgPSE.CreatTime);
-		m_sPseName = DlgPSE.UserKeyId;
 		SetPIN(DlgPSE.m_PinCode);
-		return AccessPSE();
+		m_sUserKeyId = DlgPSE.UserKeyId;
+		m_sPseName.Format(IDS_CREATE_PSE, PseVerzeichnis, m_sUserKeyId);
+		return TestAccess() && AccessPSE();
 	}
 	return FALSE;
+}
+
+BOOL CPSEDemo::TestAccess()
+{
+		// Öffnen der PSE des Absenders (Siganturerstellers) - nur um Gültigkeit der PIN zu überprüfen
+		PSE PseHandle;
+		PseHandle = theApp.SecudeLib.af_open(const_cast<char*>(LPCTSTR(m_sPseName)), NULL, const_cast<char*>(LPCTSTR(m_sPIN)), NULL);
+		if (!PseHandle)
+		{
+			if (theApp.SecudeLib.LASTERROR==EPIN)
+			{
+				// falsche PIN-Nummer benutzt
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
+				return FALSE;
+			}
+			// sonstige Fehler beim öffnen der PSE
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+			return FALSE;
+		}
+		theApp.SecudeLib.af_close (PseHandle);
+		return TRUE;
 }
