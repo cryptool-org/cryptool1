@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, April 2003
+    CrypTool, Version 1.3.04, Mai 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
     $Id$
@@ -94,7 +94,7 @@ von CrypTool und im Vordergrund ein kleines Begrüßungsfenster.
 Wenn Sie hier die F1-Taste drücken, erscheint die Startseite der
 Online-Hilfe.
 Diese Startseite ist ein guter Ausgangspunkt, um alle wesentlichen
-Inhalte von CrypTool kennenzulernen (z.B. mit Hilfe der Links auf
+Inhalte von CrypTool kennen zu lernen (z.B. mit Hilfe der Links auf
 dieser Startseite).
 
 Lesen Sie die Hinweise und Tipps der Hilfe-Startseite und
@@ -273,7 +273,7 @@ ist.
 Bei den anderen Windows-Versionen spielt das keine Rolle, dort ist
 nur wichtig, dass das Menü den Fokus hat.
 
-Workaround anhand eines Beispiels: Einzelverfahren / RSA-Demo
+Workaround anhand eines Beispiels: Einzelverfahren \ RSA-Demo
 Wenn hier das Untermenü zu "RSA-Demo" aufklappt, Sie aber die
 Hilfe zum Menüeintrag "RSA-Demo" haben wollen, müssen Sie - nur
 unter Windows XP - das Untermenü von "RSA-Demo" erst mit Escape
@@ -410,7 +410,7 @@ examples\.. Dieses Verzeichnis enthält unterschiedliche
             Textdateien. Alle anderen Dateien sind binär.
             Dateien mit dem Format "XX-enc-YY.*" sind
             verschlüsselte Dateien. Bitte verändern Sie
-            diese Dateien nicht, da sie in den
+            diese Dateien nicht, da diese in den
             verschiedenen Szenarien der Hilfe verwendet
             werden.
 
@@ -489,9 +489,9 @@ XXXsha1sumXXX
 Zur Überprüfung können Sie die oben genannten Tools verwenden
 oder das Programm CrypTool selbst.
 
-Ab Version 1.3.01 kann man die Hashwerte von "externen"
-Dateien berechnen lassen, ohne sie in CrypTool zu laden:
-- Menü Einzelverfahren / Hashwerte / Hashwert einer Datei...
+Die Hashwerte von "externen" Dateien können Sie auch berechnen,
+ohne diese in CrypTool zu laden:
+- Menü Einzelverfahren \ Hashwerte \ Hashwert einer Datei...
   (MD5 oder SHA1 als Hashalgorithmus wählen!)
 - Öffnen der entsprechenden Datei
 - Vergleich mit dem Wert hier.
@@ -609,7 +609,7 @@ Webseite:
 + Enthält die Hashwerte der herunterladbaren Dateien und
   ermöglicht so einen Check der Integrität der auf dem
   Computer befindlichen Dateien.
-+ Für 1.3.04 wurden aufgenommem:
++ Für 1.3.04 wurden aufgenommen:
   + Frame-Eintrag, der zu einer Seite mit Links führt
   + Frame-Eintrag, der direkt zu der CrypTool-Präsentation führt
 
@@ -668,7 +668,7 @@ Funktionalität:
     Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES).
 + Bei der Hill-Verschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
-  - das aktuell in Optionen/Textoptionen gewählte Alphabet,
+  - das aktuell in Optionen \ Textoptionen gewählte Alphabet,
   - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und
   - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail.
 + Bei der Permutationsverschlüsselung (Doppelwürfel) wird nun
@@ -754,7 +754,7 @@ Funktionalität:
   Verschlüsselungsverfahren in Hex-Zeichen einzugeben. 
   Es ist Absicht, dass man in CrypTool zunächst sieht, welche Art
   Schlüssel die verschiedenen Algorithmen erwarten: bei den 
-  klassischen Verfahren besteht der Schluessel aus dem zugrunde
+  klassischen Verfahren besteht der Schlüssel aus dem zugrunde
   liegenden Alphabet, bei den modernen Verfahren sind es 
   Binärdaten von 56 Bit bis 256 Bit Länge.
   Andererseits sind Benutzer gewohnt, ihre Eingaben per ASCII-Zeichen
@@ -781,7 +781,7 @@ Funktionalität:
   als a-modales Fenster aufmachen könnte, der Terme mit Zahlen beliebiger
   Basis als Eingabe nimmt und die Ausgabe in mehreren Feldern in 
   verschiedenen Zahlensystemen parallel anzeigt. Von hier aus sollte
-  man dan die Zahlen per Knopfdruck ins Clipboard bringen können oder
+  man dann die Zahlen per Knopfdruck ins Clipboard bringen können oder
   per Maus in die Eingabefelder der CrypTool-Dialogboxen ziehen können.
 + Wörterbuch für alle Angriffe benutzen, nicht nur für die
   Substitution.
@@ -793,7 +793,7 @@ Funktionalität:
   Zur Suche könnte man auch Ersetzen ergänzen.
 + Analyse neu implementieren für
   - homophone Verschlüsselung.
-+ Analyse verbessern (nicht performant und stark genug bisher) für
++ Analyse verbessern (nicht performant und korrekt genug bisher) für
   - monoalphabetische Substitution
     (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
     und von Doppelzeichen wie "mm"),
@@ -863,7 +863,7 @@ Funktionalität:
     "3.) Der Angriff auf das RSA-Verfahren" beschrieben: durch
     Faktorisieren des Moduls kann man das Verfahren knacken.
     Dies ist auch implementiert, aber noch nicht visualisiert.
-  - Angriffe auf andere asymmetrische Verfahen sind in CrypTool
+  - Angriffe auf andere asymmetrische Verfahren sind in CrypTool
     bisher noch gar nicht behandelt. Um Diffie-Hellman, DSA oder
     EC-DSA anzugreifen, muss "diskrete Logarithmen" berechnen.
     Auch dies könnte man nach dem Implementieren wieder 
@@ -938,15 +938,15 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Apr. 2003	xxx MB		xxx MB		DB
+1.3.04    Mai  2003	xxx MB		xxx MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00
 1.3.03    viele kleine Bugfixes und Verbesserungen der
           Dokumentation.
-1.3.04    kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
-          einige neue Funktionalität (siehe Kapitel 5.2) und 
-          Verbesserung der Dokumentation.
+1.3.04    einige neue Funktionalität (siehe Kapitel 5.2), einige
+          kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
+          und Verbesserung und Erweiterung der Dokumentation.
 
 
 

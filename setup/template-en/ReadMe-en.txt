@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, April 2003
+    CrypTool, Version 1.3.04, May 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
     (c) University of Siegen and Darmstadt
     $Id$
@@ -271,7 +271,7 @@ is not popped up.
 With other versions of Windows this doesn't matter - there it is
 only important, that the menu has the focus.
 
-Workaround with example: Indiv. Procedures / RSA Demonstration
+Workaround with example: Indiv. Procedures \ RSA Demonstration
 If the sub menu of "RSA Demonstration" pops up, but you want to
 get help for the menu item "RSA Demonstration" itself, only
 under Windows XP you have to close the sub menu of
@@ -318,7 +318,7 @@ If you already possess an earlier version of CrypTool, it is
 recommended uninstalling the old version of CrypTool before
 installing the new one, as otherwise it is possible that some
 of the old files will not be overwritten. Please note:
-- During deinstallation not all of the directories and files in
+- During de-installation not all of the directories and files in
   the program directories (normally C:\Program Files\CrypTool)
   may be deleted. Delete these manually.
 - De installation will delete all user generated asymmetric keys.
@@ -361,14 +361,14 @@ aestool.exe....... A program which encrypts files into
                    the correct password must be entered.
 CrypTool-en.hlp... CrypTool help system with example scenarios.
 CrypTool-de.hlp... The German version of CrypTool-en.hlp
-EC-Param.ini...... Initialization file for public key procedures
+EC-Param.ini...... Initialisation file for public key procedures
                    based on elliptic curves.
 secude.dll........ Library of cryptographic functions provided by
                    Secude GmbH.
 ticket............ License for the Secude library.
 libeay32.dll...... Library from OpenSSL 0.96.
 irunin.*.......... These files are necessary for installation and
-                   deinstallation.
+                   de-installation.
 
 script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
@@ -479,9 +479,9 @@ XXXsha1sumXXX
 In order to do the check you can use the tools mentioned
 in part (a) or you can use the program CrypTool itself.
 
-From version 1.3.01 you can calculate the hash values of
-"external" files, without loading them into CrypTool:
-- menu Indiv. Procedures / Hash / Hash value of a file...
+You can calculate the hash values of "external" files, even
+without loading them into CrypTool:
+- menu Indiv. Procedures \ Hash \ Hash value of a file...
   (using MD5 or SHA1 as hash algorithm!)
 - open the regarding file
 - compare the shown hash value with the value within this
@@ -650,13 +650,13 @@ Functionality:
     from the command line.
     AES-Tool can be called by itself or within CrypTool via the menu
     item Crypt \ Symmetric \ AES (self extracting).
-  - There is a customization suggesting the file type (exe or aes).
+  - There is a customisation suggesting the file type (exe or aes).
   - Please note, that the output of the AES-Tool (even with file type
     "aes") is not completely identical with the output you get via the
     menu item Crypt \ Symmetric \ Rijndael (AES).
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
-  - the currently used alphabet (choosen with Options / Text Options)
+  - the currently used alphabet (chosen with Options \ Text Options)
   - the Hill key matrix, also coded in numbers
   - a sample encryption/decryption calculated in detail.
 + With the permutation cipher (double column transposition) now the
@@ -695,7 +695,7 @@ Completely new in 1.3.04 are:
 -----------------------------
 + The CrypTool menu within the Windows Start\Program menu now
   also contains a hint to the readme file.
-+ Within the dialoges for visualization the background was improved
++ Within the dialogues for visualization the background was improved
   in order to be clearly visible even with new templates used with
   Windows XP.
 + Brute-force attacks at symmetric algorithms now allow to use
@@ -703,7 +703,7 @@ Completely new in 1.3.04 are:
   is presented.  Additionally the length of the here used entropy
   window can now be customized via analysis options.
 + Implementation of a high-performance search for hash collisions
-  using the birthday paradoxon. This practically allows to show for
+  using the birthday paradox. This practically allows to show for
   concrete files how such an attack on hash or signature methods works.
 + Show/Visualize the Diffie-Hellman key exchange method.
 
@@ -729,18 +729,18 @@ Functionality:
   - ADFGVX as a classic procedure,
   - the RC5 and Ghost as symmetric procedures or
   - Rabin for the public key methods.
-+ Customization wherever possible:
++ Customisation wherever possible:
   option to set e.g. initial vector, number of rounds, key length,
   word size or the kind of padding (e.g. for the RC5-Algorithm
   see RFC2040).
-  Then these additional customizations must become part of the
+  Then these additional customisations must become part of the
   format for the internal key storage.
 + Within CrypTool the keys of modern encryption methods intentionally
   must be typed in using the hex format. 
   We pedagogically did it by will, that everybody sees what type of
   key the different methods expect: classical methods expect a key
   built from the used alphabet, modern methods expect binary data of
-  keylength 56 bit till 256 bit.
+  key length 56 bit till 256 bit.
   On the other hand people normally are used to type their input using
   all ASCII-keyboard-buttons. Within a productive application the key
   should NOT be built of ASCII-letters. If it is wished to use a ASCII
@@ -761,11 +761,11 @@ Functionality:
   as text (with an alphabet defined by you) or as a number (with 4
   different base numbers); compared with that the primes here can 
   only be entered as decimal numbers or as terms of decimal numbers.
-  It would be useful if a calculator can be be called from within 
+  It would be useful if a calculator can be called from within 
   CrypTool as an a-modal window: it should accept terms with numbers 
   of any basis as input and it should show the result in several
   fields in parallel with different number bases. 
-  The right output number repraesentation could be transferred into
+  The right output number representation could be transferred into
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
 + Use dictionary for all attacks, not just for substitution.
@@ -836,16 +836,16 @@ Functionality:
   encoded: integration of an ASN.1 decoding tool.
 + Visualization:
   - Visualization of dependencies and workflows in protocols 
-    (not only "simple" algorithms) is a senseful enhancement.
+    (not only "simple" algorithms) is a meaningful enhancement.
   - Attacks on weak RSA keys are described in CrypTool's 
     online help at Help \ Szenarios \ RSA cryptosystem (demonstration), 
-    under "3.) Attack on the RSA algorithm" beschrieben: 
+    under  "3.) Attack on the RSA algorithm":  saying
     factorisation of the moduls can break the method.
     This is implemented, but not visualized.
-  - Attacks on other asymmetric methods are not implmented in
+  - Attacks on other asymmetric methods are not implemented in
     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
     has to calculate "discrete logarithms". After implementing
-    this also could be visualzed.
+    this also could be visualized.
 + Random numbers:
   - Till now CrypTool concentrates on cryptographically strong
     pseudo number generators. Only the integrated Secude generator
@@ -853,7 +853,7 @@ Functionality:
     Adding further "pure" random sources e.g. via mouse moves
     would be a good enhancement for CrypTool (Yarrow, PGP, ...). 
   - In Germany evaluations of deterministic random number generators
-    are based on AIS 20 (since Dezember 1999; AIS = Application
+    are based on AIS 20 (since December 1999; AIS = Application
     Notes and Interpretation of the Scheme) and evaluations of 
     physical random number generators are based on AIS 31 (since
     September 2001). Especially AIS 31 has achieved great interest
@@ -863,13 +863,13 @@ Functionality:
     http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
     http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
     http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
-    It would be a senseful enhancement of CrypTool, to implement
+    It would be a meaningful enhancement of CrypTool, to implement
     these requirements on evaluating random number generators 
     and also to visualize them.
 + Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the Online
   help (main task here is user interface and documentation).
-+ Similiar as CrypTool generates good keys from passwords (via PKCS#5)
++ Similar as CrypTool generates good keys from passwords (via PKCS#5)
   there should be a DOCUMENTED way on different methods how to
   generate good passwords.
 + Enhance CrypTool as a front-end for number theoretic functions
@@ -913,14 +913,14 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    Apr. 2003	xxx MB	    xxx MB	DB
+1.3.04    May  2003	xxx MB	    xxx MB	DB
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
 1.3.03    many minor bug fixes and documentation improvements.
-1.3.04    minor bug fixes (crash in analysis of Playfair, N-gram, RSA),
-          some new functionality (see chap. 5.2) and 
-          documentation improvements.
+1.3.04    some new functionality (see chap. 5.2), some minor bug
+          fixes (crash in analysis of Playfair, N-gram, RSA), and
+          documentation improvements and enhancements.
 
 
 
@@ -1025,7 +1025,7 @@ where the source code is probably not public, are:
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
 - the Visual Basic program "Cryptological Mathematics" from Prof. R.E. Lewand
   (vivid presentation of some number theoretic functions, functions for
-  encryption and ecryption; no functions for crytanalysis; software to 
+  encryption and encryption; no functions for cryptanalysis; software to
   accompany his book)
   http://faculty.goucher.edu/blewand/cryptomath/companion_software.htm
 - John Trafton's student cryptography project in Java:
@@ -1039,7 +1039,7 @@ free to inform us, so that we can complete or correct the list.
 
 We explicitly want to state, that we would welcome very much if the
 efforts made for these single programs could be combined into one
-merged new program. We are very kean about any co-operation!!
+merged new program. We are very keen about any co-operation!!
 
 
 

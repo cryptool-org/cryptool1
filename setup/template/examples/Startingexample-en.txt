@@ -1,10 +1,10 @@
 CrypTool
 
-This is a text file, in order to help you to make your first steps with CrypTool.
+1) This is a text file, shown in order to help you to make your first steps with CrypTool.
 
-One thing you can do e.g. is to encrypt this file with the Caesar algorithm (via the menu Crypt \ Classical).
+One thing you can do e.g. is to encrypt this file with the Caesar algorithm (via the menu "Crypt \ Classical").
 
-Using the search keyword "Starting page" within the index of the Windows online help, you will see what else you can do with CrypTool.
-From the starting page you can get to all relevant functions via links.
+2) The best overview about all features of CrypTool is offered by the starting page of the Windows online help  which contains links to all relevant functions.
+You can call up the starting page via the menu "Help \ Starting page"  or  using the search keyword "Starting page" within the index of the online help.
 
-Especially with the examples (tutorials) provided with the online help makes it easy for you to get up to speed.
+3) Especially the examples (tutorials) provided with the online help make it easy for you to get up to speed. These pages can be found via the menu "Help" too.
