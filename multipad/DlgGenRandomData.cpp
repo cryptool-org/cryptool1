@@ -191,6 +191,7 @@ END_MESSAGE_MAP()
 void DlgGenRandomData::OnSelGenParam() 
 {
 	UpdateData(TRUE);
+
 	switch (m_SelGenerator) {
 	case 0: {
 				DlgParamRandSECUDE DPRS;
@@ -199,7 +200,7 @@ void DlgGenRandomData::OnSelGenParam()
 			break;
 	case 1: {
 				if (IDOK == m_pPara->DRPXN.DoModal() )
-				{
+				{																		
 					m_pPara->rnd_x2modN.setModul( m_pPara->DRPXN.GetModul() );
 				}
 			}
@@ -214,19 +215,7 @@ void DlgGenRandomData::OnSelGenParam()
 	case 3: {
 				if (IDOK == m_pPara->DRP_ICG.DoModal() )
 				{
-					GeneratePrimes P;
-					P.SetP(m_pPara->DRP_ICG.Get_N());
-					BOOL test=FALSE;
-					test = P.MillerRabinTest(100);
-					test = P.SolvayStrassenTest(100);
-					test = P.FermatTest(100);
-
-					if (test) m_pPara->DICG.SetParameter(m_pPara->DRP_ICG.Get_a(), m_pPara->DRP_ICG.Get_b(), m_pPara->DRP_ICG.Get_N());
-					else 
-					{
-						AfxMessageBox("Keine Primzahl ist für P eingegeben, die Initialwerte werden aufgeruft !!!");
-						m_pPara->DRP_ICG.Set(CString("22211"), CString("11926380"),CString("2147483053"));
-					}
+					m_pPara->DICG.SetParameter(m_pPara->DRP_ICG.Get_a(), m_pPara->DRP_ICG.Get_b(), m_pPara->DRP_ICG.Get_N());
 				}
 
 		break;

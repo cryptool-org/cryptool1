@@ -73,6 +73,7 @@ extern volatile long ExitFactorisationCode;
 
 BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx );
 BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx);
+BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber = FALSE);
 
 BOOL isCharOf( const char ch, const char *expr );
 BOOL Whitespace( char ch );
@@ -322,7 +323,7 @@ public:
 // Standardparameter
 
 #define STANDARD_X2MOD_N_MODUL "245438302030331732360701189397045881523"
-
+#define STANDARD_X2MOD_N_MODUL_BIG 245438302030331732360701189397045881523
 
 class x2modN_generator : public PseudoRandomGenerator  
 {

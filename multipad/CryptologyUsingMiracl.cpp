@@ -246,6 +246,7 @@ BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
 	}
 	if ( stack_i > -1 ) return FALSE;
 	Formula = f_formula;
+	ndx = -1;
 	return TRUE;
 }
 
@@ -282,6 +283,24 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 	delete []tmp;
 	return success;
 }
+
+BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber)
+{
+	CString upnExpr;
+	if ( !CheckFormula(CStrExpr, 10, upnExpr, ndx) )
+	{
+		return FALSE;
+	}
+	Big tmp;
+	if ( CStringFormulaToBig( CStrExpr, tmp ))
+	{
+		if ( TRUE == EvalNumber ) BigToCString( tmp, CStrExpr );
+		return TRUE;
+	}
+	else
+		return FALSE;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nur temporär & lokal definiert
@@ -1356,7 +1375,7 @@ TutorialFactorisation::TutorialFactorisation()
 	epr = NULL;
 	rp = NULL;
 	hash = NULL;
-	bb = NULL; //roger
+	bb = NULL; 
 	G = NULL;
 	EE = NULL;
 
@@ -2213,7 +2232,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
     do
     { /* search for best Knuth-Schroepel multiplier */
-//		THREAD_CHECK;
+		THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
         
 		kk=pk[++nk];
         if (kk==0)
@@ -2232,6 +2251,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
         while (j<mmm)
         { /* select small primes */
+			THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
             p=mip->PRIMES[++i];
             rem=D%p;
             if (spmd(rem,(p-1)/2,p)<=1) /* x = spmd(a,b,c) = a^b mod c */
@@ -2685,7 +2705,8 @@ x2modN_generator::~x2modN_generator()
 
 BOOL x2modN_generator::setModul( CString &NStr )
 {
-	return 	CStringFormulaToBig( NStr, Modul_N );
+	BOOL ausgabe;
+	return CStringFormulaToBig( NStr, Modul_N );
 }
 
 void x2modN_generator::randomize()
