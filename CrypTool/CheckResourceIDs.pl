@@ -1,6 +1,8 @@
-# Documentation: see CrypToolPopupIDs.txt
-# usage: perl CheckPopupMenuIDs.pl CrypToolPopupIDs.txt CrypToolPopupIDs.log
-# called CheckPopupMenuIDs.pl which is invoked by the custom build step of CrypToolPopupIDs.txt
+# This scripts does some conistency checks on CrypTool.rc
+# - do the english and german IDs match for dialogs, bitmaps, icons and stringtables
+# - have some popup menus changed (details and background: see CrypToolPopupIDs.txt)
+# usage: perl CheckResourceIDs.pl CrypToolPopupIDs.txt CheckResourceIDs.log
+# this script is invoked by the custom build step of CrypToolPopupIDs.txt
 # Any questions -> ask Jörg js@joergschneider.com
 
 sub clean {
@@ -12,13 +14,14 @@ sub clean {
 @stack = ();
 %rcmenu = ();  
 %filemenu = ();
-%filemenuline = ();
-%nerror = 0;
+$nerror = 0;
 $lno = 0;
 
 my $MID = $ARGV[0] || "CrypToolPopupMenuIDs.txt";
 my $RC = "CrypTool.rc";
 my $OKLOG = $ARGV[1];
+my $instringtable = 0;
+
 if (!defined $OKLOG) {
 	$OKLOG = $0;
 	$OKLOG  =~ s/\.[^.]*//;
@@ -33,6 +36,26 @@ foreach (<RC>) {
 			if (@stack);
 		$lang = $1 ;
 	}
+
+	if (m{^\s*(\w+)\s+(DIALOG|BITMAP|ICON)\s+}) {
+		$id{$lang}{$1} = $lno;
+		next;
+	}
+	
+	if (m{^\s*STRINGTABLE}) {
+		$instringtable = 1;
+	}
+	if ($instringtable) {
+		if (m{^\s*END\s*}) {
+			$instringtable = 0;
+			next;
+		}
+		if (m{^\s*(\w+)}) {
+			$id{$lang}{$1} = $lno;
+			next;
+		}
+	}
+
 	pop @stack
 		if (m{^\s*END\s*});
 	
@@ -95,6 +118,17 @@ foreach (sort keys %rcmenu) {
 		print STDERR "$RC($rcmenuline{$_}) : error: New menu entry? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
 		$nerror++;
 	}
+}
+
+my $iden = $id{ENGLISH};
+my $idde = $id{GERMAN};
+foreach (keys %$iden) {
+	print "$RC($iden->{$_}) : warning: $_ is missing in german language ressources\n"
+		unless defined $idde->{$_};
+}
+foreach (keys %$idde) {
+	print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n"
+		unless defined $iden->{$_};
 }
 
 if ($nerror == 0) {

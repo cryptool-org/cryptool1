@@ -454,8 +454,8 @@ USERDEP__CRYPTO="CrypTool.rc"
 # Begin Custom Build - Checking Popup Menu IDs $(InputPath)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckPopupMenuIDs.bat
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
 
 # End Custom Build
 
@@ -465,8 +465,8 @@ USERDEP__CRYPTO="CrypTool.rc"
 # Begin Custom Build - Checking Popup Menu IDs $(InputPath)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckPopupMenuIDs.bat
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
 
 # End Custom Build
 
