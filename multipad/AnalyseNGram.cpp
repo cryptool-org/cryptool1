@@ -5,7 +5,7 @@
 #include "multipad.h"
 #include "fileutil.h"
 #include "AnalyseNGram.h"
-#include "crypt.h"
+#include "crypt.h"    // ### Heraus!
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

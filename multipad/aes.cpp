@@ -8,9 +8,9 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-#include "crypt.h"
+// #include "crypt.h"
 #include "fileutil.h"
-#include "CryptDoc.h"
+// #include "CryptDoc.h"
 #include "hexdialog.h"	// Dialog-Box für die Schlüsseleingabe
 #include "..\AES\mars\mars.h"
 #include "..\AES\RC6\RC6.h"
@@ -21,7 +21,7 @@
 #include "DialogKeyHex.h"
 #include "AESSuche.h"   // Dialogbox für die Schlüsselsuche
 
-void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
+// void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
 void FreePar(CryptPar *par);
 void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *borg,int datalen,
 				unsigned char *bcip);

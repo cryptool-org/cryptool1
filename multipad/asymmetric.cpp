@@ -36,12 +36,11 @@
 #include "s_ecconv.h"
 #include "ecssa.h"
 #include "emsa1.h"
-#include "crypt.h"
 
 #include <time.h>
 
 #include "asymmetric.h"
-#include "crypt.h"
+// #include "crypt.h"
 
 // the extern (global) Variables are from multipad.cpp
 extern char *Pfad; // Directory Path of the main programm

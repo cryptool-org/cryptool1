@@ -2162,13 +2162,11 @@ int TutorialFactorisation::initv()
     nbts=8*sizeof(int);
 
     if (prime(NN))
-    {
-        
+    {      
 		//this number is prime
         return (-1);
     }
 	
-
     T=NN;
     digits=1;                   /* digits in N */
     while ((T/=10)>0) digits++;
@@ -2176,15 +2174,6 @@ int TutorialFactorisation::initv()
     if (digits<10) mmm=digits;               
     else mmm=25;
 	if (digits>20) mmm=(digits*digits*digits*digits)/4096;
-	{
-		double d_mmm = (digits*digits*digits*digits)/4096.0;
-		double d = (double)(INT_MAX/2)/max(sizeof(Big), sizeof(int*));
-		if ( d_mmm > (double)(INT_MAX/2)/max(sizeof(Big), sizeof(int*)) )
-		{
-			return -1;
-		}
-	}
-
     dp=(double)2*(mmm+100);          /* number of primes to generate */
 
     maxp=(int)(dp*(log(dp*log(dp)))); /* Rossers upper bound */
@@ -2220,15 +2209,13 @@ int TutorialFactorisation::initv()
 		{
 			// N is a perfect prime-square!" Sollte also sollen die zwei Faktoren schwarz markiert werden!!
 		}
-		 else
+     	else
 		{
 			// N is a perfect composite-square!" Sollte also sollen die zwei Faktoren rot markiert werden!!
 		}
 
         return (-2);
     }
-//    cout << "using multiplier k= " << k;
-//    cout << "\nand " << mmm << " small primes as factor base\n";
     gprime(0);   /* reclaim PRIMES space */
 
     mlf=2*mmm;    
@@ -2248,7 +2235,7 @@ int TutorialFactorisation::initv()
     sieve=(unsigned char *)mr_alloc(SSIZE+1,1);
 
     if ( r1 == NULL || r2 == NULL || rp == NULL || e == NULL 
-	  || logp == NULL || pr == NULL || hash == NULL || sieve == NULL )
+	|| logp == NULL || pr == NULL || hash == NULL || sieve == NULL )
     {
         return QS_ALLOCATING_ERROR;
     }	    
