@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /debug /machine:I386 /out:"release\CrypTool.exe"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /out:"release\CrypTool.exe"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "multipad - Win32 Debug"
@@ -334,6 +334,14 @@ SOURCE=.\Autoren.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\background2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\backgroundHybr.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\BIG.CPP
 # End Source File
 # Begin Source File
@@ -363,6 +371,10 @@ SOURCE=.\res\bitmap6.bmp
 # Begin Source File
 
 SOURCE=.\res\bitmap7.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap8.bmp
 # End Source File
 # Begin Source File
 
@@ -1398,6 +1410,10 @@ SOURCE=.\res\paddoc.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\PfeilUnten.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\PinAndNewPinDialog.cpp
 # End Source File
 # Begin Source File
@@ -1464,6 +1480,46 @@ SOURCE=.\POLYMOD.CPP
 # Begin Source File
 
 SOURCE=.\POLYMOD.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute1Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute1InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute2Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute2InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute3Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute3InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute4Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute4InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute5Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Raute5InAkt.bmp
 # End Source File
 # Begin Source File
 
@@ -1596,6 +1652,30 @@ SOURCE=.\SchluesselAusgabeLinear.cpp
 # Begin Source File
 
 SOURCE=.\SchluesselAusgabeLinear.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck1Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck1InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck2Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck2InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck3Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Sechseck3InAkt.bmp
 # End Source File
 # Begin Source File
 
@@ -1772,6 +1852,22 @@ SOURCE=.\ValueList.cpp
 # Begin Source File
 
 SOURCE=.\ValueList.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Viereck1Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Viereck1InAkt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Viereck2Akt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Viereck2InAkt.bmp
 # End Source File
 # Begin Source File
 

@@ -52,6 +52,7 @@ void CRsaEnc::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRsaEnc)
+	DDX_Control(pDX, IDCANCEL, m_ctrlCancel);
 	DDX_Control(pDX, IDC_CHECK1, m_ctrlTime);
 	DDX_Control(pDX, IDOK, m_ctrlOK);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
@@ -104,11 +105,16 @@ BOOL CRsaEnc::OnInitDialog()
 	// Initialisiere die Schlüsselliste mit allen verfügbaren RSA Schlüsseln
 	nKeylistType = RSA_KEY;
 	InitAsymKeyListBox(nKeylistType);
+
+	//disableButtons wird in CHybridEncr auf true gesetzt.
+	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
+	//Hybridverschlüsselung
 	if(disableButtons)
 	{
 		SetWindowText("RSA Schlüssel für die Hybridverschlüsselung");
 		m_ctrlOK.ShowWindow(false);
 		m_ctrlTime.ShowWindow(false);
+		m_ctrlCancel.SetWindowText("OK");
 		disableButtons = false;
 	}
 

@@ -56,6 +56,7 @@ void CHybridEncr::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CHybridEncr)
+	//DDX_Control(pDX, IDC_BMP, m_ctrlBG);
 	DDX_Text(pDX, IDC_EDIT_TXT, m_strEdit);
 	DDX_Text(pDX, IDC_EDIT_TITLE, m_strTitle);
 	//}}AFX_DATA_MAP
@@ -83,13 +84,13 @@ BOOL CHybridEncr::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	
 	m_ctrlBmpSechseck1.AutoLoad(IDC_BUTTON1_TXT_EINFUEGEN,this);
 	m_ctrlBmpSechseck2.AutoLoad(IDC_BUTTON_GEN_SYM_KEY,this);
 	m_ctrlBmpSechseck3.AutoLoad(IDC_BUTTON_GET_ASYM_KEY,this);
 
-
 	m_ctrlBmpRaute1.AutoLoad(IDC_BUTTON_SHOWTXT,this);
-	m_ctrlBmpRaute1.EnableWindow(false);
+	m_ctrlBmpRaute1.EnableWindow(false);	
 
 	m_ctrlBmpRaute2.AutoLoad(IDC_BUTTON_SHOW_SYM_KEY,this);
 	m_ctrlBmpRaute2.EnableWindow(false);
@@ -109,7 +110,6 @@ BOOL CHybridEncr::OnInitDialog()
 	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
 	m_ctrlBmpViereck2.EnableWindow(false);
 
-	
 	EnDisButtons();
 	
 		LOGFONT lf={14,0,0,0,FW_NORMAL,false,false,false,DEFAULT_CHARSET,OUT_CHARACTER_PRECIS,CLIP_CHARACTER_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH|FF_DONTCARE,"Courier"};
@@ -243,6 +243,7 @@ void CHybridEncr::OnButtonShowSymKey()
 void CHybridEncr::OnButtonEncTxtSym() 
 {
 		UpdateData(true);
+	
 		char* strPathEncTxt;
 		strPathEncTxt=new char[20];
 		int AlgId=3;
@@ -307,9 +308,12 @@ void CHybridEncr::OnButtonEncTxtSym()
 		char *strCryHex = new char [destSize+1];
 		int err = HexDumpMem(strCryHex,destSize,cryTxt,srcSize, len);
 		UpdateData();
-		m_strEdit = strCryHex;
-		m_strTitle = "symmetrisch verschlüsselter Text: ";
-		m_barrSetCondition[8] = true;
+		m_strEdit3 = "";
+		m_strEdit3 = strCryHex;
+		m_strTitle = "";
+		m_strEdit = "";
+		
+		m_barrSetCondition[5] = true;
 		EnDisButtons();
 		UpdateData(false);
 		delete[] strCryHex;
@@ -320,15 +324,13 @@ void CHybridEncr::OnButtonGetAsymKey()
 {	
 	RsaDialog1.disableButtons = true;
 
-	if ( IDOK == RsaDialog1.DoModal() ) 
+	if ( IDCANCEL == RsaDialog1.DoModal() ) 
 	{
 		m_iIsGenAsymKey = true;
 		m_barrSetCondition[3] = true;
 		EnDisButtons();
 	}
 	
-
-
 	UpdateData(false);
 }
 
@@ -464,15 +466,16 @@ void CHybridEncr::OnButtonEncKeyAsym()
 {
 	RSAEncrypt();
 	UpdateData();
-	m_strEdit="";
+	m_strEdit4 = "";
+	m_strEdit = "";
 	for (unsigned int j=0;j<EncSymKey->noctets;j++)
 	{
 			char array[3];
 			_snprintf(array,3,"%02.2X",(unsigned char) EncSymKey->octets[j]);
-			m_strEdit+=array;					
+			m_strEdit4+=array;					
 	}
-	m_strTitle = "asymmetrisch verschlüsselter symmetrischer Schlüssel :";
-	m_barrSetCondition[9] = true;
+	m_strTitle = "";
+	m_barrSetCondition[6] = true;
 	EnDisButtons();
 	UpdateData(false);
 }
@@ -698,10 +701,15 @@ void CHybridEncr::OnButtonShowtxt()
 
 void CHybridEncr::OnShowEncTxt() 
 {
-	
+	m_strEdit = m_strEdit3;
+	m_strTitle = "symmetrisch verschlüsselter Text: ";
+	UpdateData(false);
 }
 
 void CHybridEncr::OnShowEncSymKey() 
 {
-	
+	m_strTitle = "asymmetrisch verschlüsselter symmetrischer Schlüssel :";
+	m_strEdit = m_strEdit4;
+	UpdateData(false);
+
 }

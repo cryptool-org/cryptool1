@@ -101,6 +101,10 @@ BOOL DLG_param::OnInitDialog()
 	m_listctrl.InsertColumn(0,pc_str,LVCFMT_RIGHT,50,0);
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listctrl.InsertColumn(1,pc_str,LVCFMT_LEFT,375,1);
+
+	//disableOKButton wird in CHybridEncr auf true gesetzt.
+	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
+	//Hybridverschlüsselung
     if(disableOkButton)
 	{
 		m_ctrlOK.ShowWindow(false);

@@ -29,6 +29,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CRsaEnc)
 	enum { IDD = IDD_DIALOG_RSAENC };
+	CButton	m_ctrlCancel;
 	CButton	m_ctrlTime;
 	CButton	m_ctrlOK;
 	CListCtrl	m_listview;

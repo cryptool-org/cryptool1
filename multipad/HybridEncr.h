@@ -18,6 +18,9 @@ class CHybridEncr : public CDialog
 {
 // Konstruktion
 public:
+	CString m_strEdit4;
+	CString m_strEdit3;
+	CString m_strEdit2;
 	char* m_in;
 	int m_gc;
 	void GetCertificateData(Certificate* Zert);
@@ -44,10 +47,9 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CHybridEncr)
 	enum { IDD = IDD_DIALOG_HYBRID };
-	
+	CStatic	m_ctrlBG;
 	CString	m_strEdit;
 	CString	m_strTitle;
-	//CButton m_ctrlShowTxt;
 	//}}AFX_DATA
 
 	CBitmapButton m_ctrlBmpRaute1;

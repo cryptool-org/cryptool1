@@ -2381,35 +2381,38 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Visualisierung der Hybridverschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
+    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP,257,112,29,46
     CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,18,21,89,14
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,37,22,89,14
     CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,17,78,89,14
+                    BS_BITMAP | WS_TABSTOP,24,78,89,14
     CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,202,21,93,14
+                    BS_BITMAP | WS_TABSTOP,239,20,93,14
     CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,205,81,93,14
+                    BS_BITMAP | WS_TABSTOP,225,76,93,14
     CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,376,20,92,14
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,437,18,92,14
     CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,367,82,93,14
+                    BS_BITMAP | WS_TABSTOP,425,79,93,14
     CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,203,165,93,14
+                    BS_BITMAP | WS_TABSTOP,235,165,102,14
     CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,359,168,119,14
+                    BS_BITMAP | WS_TABSTOP,426,164,110,15
+    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,225,223,92,14
+    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,421,223,115,14
+    EDITTEXT        IDC_EDIT_TITLE,47,284,176,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
     EDITTEXT        IDC_EDIT_TXT,49,302,497,142,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     PUSHBUTTON      "&Dialog beenden",IDCANCEL,461,453,94,14
-    CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,138,50,32,30
-    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,232,126,21,22
-    CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,323,47,32,30
-    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,399,132,21,22
-    EDITTEXT        IDC_EDIT_TITLE,47,284,176,14,ES_AUTOHSCROLL | 
-                    ES_READONLY
-    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,207,223,92,14
-    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,362,220,115,14
+    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP,472,112,29,46
+    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,267,50,18,19
+    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,62,50,18,19
+    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,262,191,18,19
+    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,478,191,18,19
+    CONTROL         326,IDC_STATIC,"Static",SS_BITMAP,471,50,18,19
 END
 
 
@@ -3242,6 +3245,10 @@ Raute4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
 Raute4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
 Raute5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 Raute5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
+IDB_BITMAP7             BITMAP  DISCARDABLE     "res\\background2.bmp"
+IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
+IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
+IDB_BITMAP_ARR_DOWN_KL  BITMAP  DISCARDABLE     "res\\bitmap9.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4001,6 +4008,13 @@ BEGIN
         VERTGUIDE, 25
         TOPMARGIN, 7
         BOTTOMMARGIN, 111
+    END
+
+    IDD_DIALOG_HYBRID, DIALOG
+    BEGIN
+        HORZGUIDE, 64
+        HORZGUIDE, 140
+        HORZGUIDE, 205
     END
 END
 #endif    // APSTUDIO_INVOKED

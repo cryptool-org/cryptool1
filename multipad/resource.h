@@ -110,6 +110,10 @@
 #define IDB_BITMAP_ARROW_BEND           286
 #define IDB_BITMAP_ARRDOWN              287
 #define IDB_BITMAP_ARRLITTLE            288
+#define IDB_BITMAP7                     322
+#define IDB_BITMAP_ARR_DOWN             324
+#define IDB_BITMAP8                     325
+#define IDB_BITMAP_ARR_DOWN_KL          326
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -1188,9 +1192,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        320
+#define _APS_NEXT_RESOURCE_VALUE        327
 #define _APS_NEXT_COMMAND_VALUE         33155
-#define _APS_NEXT_CONTROL_VALUE         1403
+#define _APS_NEXT_CONTROL_VALUE         1404
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
