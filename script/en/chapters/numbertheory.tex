@@ -1355,9 +1355,12 @@ $J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22
 The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 \begin{theorem}\label{thm-zth-ordp}\footnote{Compare the above table with the values for $a^i$ mod 11, with $ 1 \le a,
-i < 11$.}$^,$\footnote{Exhausting all possible values of the set is an important cryptographic proposition (compare theorem \ref{thm-zth-exhperm}).}
+i < 11$. Please note that this theorem is not applicable to the above tabel
+mod 46.}$^,$\footnote{Exhausting all possible values of the set is an
+important cryptographic proposition (compare theorem
+\ref{thm-zth-exhperm}). This determines a permutation $\pi(p-1).}
 For a modulus $p$ and $a < p$:
-$a^i, i = 1, \cdots, p-1$ assumes all $J(p)$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
+$a^i \mbox{mod} p, i = 1, \cdots, p-1$ assumes all $J(p) = p-1$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
