@@ -873,6 +873,8 @@ UINT Periode(PVOID p)
 		// prepare the fileselectorbox dialog
 		memset(&ofn,0,sizeof(ofn));
 		ofn.lStructSize = sizeof(ofn);
+		ofn.hwndOwner = AfxGetMainWnd()->m_hWnd;
+		ofn.hInstance = AfxGetInstanceHandle();
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_FSBDTITLE,pc_str,STR_LAENGE_STRING_TABLE);
 		ofn.lpstrTitle = pc_str;
 		ofn.Flags = OFN_HIDEREADONLY;
@@ -886,7 +888,7 @@ UINT Periode(PVOID p)
 		if ((isPeriode > 0) && (POutp.DoModal()==IDOK) && (GetSaveFileName(&ofn)) && (fname[0]!='\0'))
 		{  // Ausgabewerte speichern
 			FILE *out;
-			out=fopen(fname,"w");	
+			out=fopen(fname,"w");
 
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
 			fprintf(out,pc_str, "");
