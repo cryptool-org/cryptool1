@@ -83,7 +83,6 @@ BOOL AnalyseNGram::OnInitDialog()
 	SetupListBox( m_N_NGram+1 );
 	m_NrNGramCtrl.EnableWindow(true);
 	return(TRUE);
-
 }
 
 // -----------------------------------------------------------------------------------------------------
@@ -459,15 +458,15 @@ void CNGram::add( const char *substring )
 	while ( qP < HashTableSize )  
 	{
 		hPtr = (hashEntry*)(NGramHashTable + ((4+N)*hashAddress) );
-		if ( !hPtr->SubStr[0] )
+		if ( !hPtr->count )
 		{
 			hPtr->count = 1;
-			strncpy( hPtr->SubStr, substring, N );
+			memcpy( hPtr->SubStr, substring, N );
 			individuals++;
 			break;
 		}
 		// in case of free Table
-		if ( strncmp(hPtr->SubStr, substring, N) )
+		if ( memcmp(hPtr->SubStr, substring, N) )
 		{
 			hashAddress = (hashAddress + qP*qP) % HashTableSize; 
 			qP++;
@@ -529,6 +528,7 @@ void CNGram::sort()
 	tSize = preSort( tSize, 1 );
 	tSize = preSort( tSize, 2 );
 	tSize = preSort( tSize, 3 );
+	tSize = preSort( tSize, 4 );
 	qsort((void*)NGramHashTable, (size_t)tSize, 4+N, compare );
 }
 
