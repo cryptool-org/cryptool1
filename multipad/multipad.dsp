@@ -893,6 +893,14 @@ SOURCE=.\DlgRandParameter_x2_mod_N.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgRandParamICG.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandParamICG.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgRSAwithSmallPrimesOptions.cpp
 # End Source File
 # Begin Source File
@@ -1074,6 +1082,14 @@ SOURCE=.\ELLIPTIC.H
 # Begin Source File
 
 SOURCE=..\LibEc\include\EMSA1.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\ExtEuclid.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ExtEuclid.h
 # End Source File
 # Begin Source File
 

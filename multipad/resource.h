@@ -7,6 +7,7 @@
 #define IDC_EDIT88                      55
 #define IDC_EDIT113                     56
 #define IDD_DIALOG_PLAYFAIR             102
+#define IDD_RANDOM_PARAMETER_ICG        103
 #define IDD_DIALOG_KEY_INPUT            109
 #define IDD_DIALOG_RSADEC               110
 #define IDD_DIALOG_KEY_INPUT_MONO       112
@@ -364,6 +365,7 @@
 #define IDC_HEADER3                     1235
 #define IDC_OPTIONEN                    1236
 #define IDC_ENDDIALOG                   1237
+#define IDC_STATIC_GPA                  1239
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -853,7 +855,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        244
 #define _APS_NEXT_COMMAND_VALUE         33139
-#define _APS_NEXT_CONTROL_VALUE         1238
+#define _APS_NEXT_CONTROL_VALUE         1240
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

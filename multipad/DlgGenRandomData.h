@@ -21,8 +21,12 @@ public:
 	long l_LinParam_b_LCG;
 	long l_LinParam_a_LCG;
 	long l_modul_x2_mod_N;
+	long l_Param_a_ICG;
+	long l_Param_b_ICG;
+	long l_Param_N_ICG;
 	char outfile[128];
 	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
+
 
 // Dialogfelddaten
 	//{{AFX_DATA(DlgGenRandomData)

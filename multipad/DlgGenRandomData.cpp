@@ -10,6 +10,8 @@
 #include "DlgParamRandSECUDE.h"
 #include "DlgRandParameter_x2_mod_N.h"
 #include "DlgRandomParameterLCG.h"
+#include "DlgRandParamICG.h"
+#include "ExtEuclid.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -62,7 +64,11 @@ long powermod(long a, long x, long n)
 	return(s);
 }
 
-
+long inverse( long a, long b )
+{
+	ExtEuclid Euclid(a, b);
+	return Euclid.get_u();
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgGenRandomData 
@@ -81,6 +87,10 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	l_LinParam_a_LCG = 23;
 	l_LinParam_b_LCG = 0;
 	l_Modul_N_LCG    = 100000001;
+// ICG-Parameter nach ???
+	l_Param_a_ICG    = 22211;
+	l_Param_b_ICG    = 11926380;
+	l_Param_N_ICG    = 2147483053;
 }
 
 
@@ -130,15 +140,25 @@ void DlgGenRandomData::OnSelGenParam()
 				if (IDOK == DRP_LCG.DoModal() )
 				{
 					l_LinParam_a_LCG = DRP_LCG.Get_a();
-					l_LinParam_b_LCG = DRP_LCG.Get_a();
+					l_LinParam_b_LCG = DRP_LCG.Get_b();
 					l_Modul_N_LCG    = DRP_LCG.Get_N();
 				}
 			}
 		break;
-	case 3:
+	case 3: {
+				DlgRandParamICG DRP_ICG;
+				DRP_ICG.Set(l_Param_a_ICG, l_Param_b_ICG, l_Param_N_ICG);			
+				if (IDOK == DRP_ICG.DoModal() )
+				{
+					l_Param_a_ICG = DRP_ICG.Get_a();
+					l_Param_b_ICG = DRP_ICG.Get_b();
+					l_Param_N_ICG = DRP_ICG.Get_N();
+				}
+
 		break;
-	}
+			}
 	UpdateData(FALSE);
+	}
 }
 
 
@@ -201,6 +221,25 @@ void DlgGenRandomData::OnGenRandomData()
 		sprintf(c_generated_by, pc_str, "LCG", m_DataSize);
 		break;
 	case 3:
+		{
+			long l_seed = 134569;
+			long l_s=l_seed;
+			for(j=0;j<(m_DataSize*9);j++)
+			{
+				o=0;
+				for (i=0; i<8 ; i++)
+				{
+					// X_j = (a*(X_0+j)+b)^{-1} (mod N)
+					l_s = (l_seed + j) % l_Param_N_ICG;
+					l_s = multmodn(l_Param_a_ICG, l_s, l_Param_N_ICG);
+					l_s = (l_s + l_Param_b_ICG) % l_Param_N_ICG;
+					l_s = inverse(l_s, l_Param_N_ICG);
+					o |= (l_s % 2) << (7-i);
+					j++;
+				}
+				rndData << o;
+			}
+		}
 		sprintf(c_generated_by, pc_str, "ICG", m_DataSize);
 		break;
 	}
