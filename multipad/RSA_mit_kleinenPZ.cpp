@@ -985,14 +985,14 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 void RSA_mit_kleinenPZ::OnRadio2() 
 {
 	UpdateData(TRUE);
-	RequestForInput(TRUE);
+	RequestForInput(FALSE);
 	UpdateData(FALSE);
 }
 
 void RSA_mit_kleinenPZ::OnRadio1() 
 {
 	UpdateData(TRUE);
-	RequestForInput(TRUE);
+	RequestForInput(FALSE);
 	UpdateData(FALSE);
 }
 

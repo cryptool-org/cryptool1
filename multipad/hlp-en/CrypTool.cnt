@@ -29,8 +29,7 @@
 2 Menu Key Management=menu_key
 2 Menu Digital Signatures=menu_sign
 2 Menu En-/decrypt=menu_crypt
-2 Submenu Hash=menu_hash
-2 Sub Menu Compress=menu_compress
+2 Menu Individual Procedures=menu_related_methods
 2 Menu Analysis=menu_analyze
 2 Menu Options=menu_options
 2 Menu Window=menu_window
