@@ -21,6 +21,8 @@
 #include "la_ostream.h"
 #endif
 
+#include <limits.h>
+
 ///////////////////////////////////////////////////////////////////
 //  NGram
 
@@ -30,7 +32,6 @@ void NGram::Init(int d, int n)
 	m_Rows=d;
 	ASSERT(pow(m_Rows,n-1) < INT_MAX);
 	m_Columns=(int)pow(m_Rows,n-1);
-
 	m_dim=d; m_N=n; 
 	ASSERT(pow(d,n) < INT_MAX);
 	m_hcount.SetSize((int)pow(d,n));
