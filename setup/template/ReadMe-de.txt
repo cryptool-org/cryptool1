@@ -607,8 +607,7 @@ Funktionalität:
 + Langfassung des "Dialoges der Schwestern" in Deutsch und
   Englisch beigelegt (darin wird ein in der RSA-Demo
   behandelter Sonderfall des RSA-Verfahrens beschrieben)
-+ Visualisierung
-  - der einzelnen Schritte / Abhängigkeiten bei
++ Visualisierung der einzelnen Schritte / Abhängigkeiten bei
     -> der Erzeugung einer elektronischen Signatur,
     -> der Hybridverschlüsselung und -Entschlüsselung.
     -> der Wirkung von Textänderungen auf den Hashwert
@@ -803,8 +802,8 @@ Computern und Internet umgeht und wie man sich sicher im Internet
 bewegen kann.
 Auf dieser CD ist auch CrypTool enthalten, um das Verständnis der
 kryptographischen Sicherheitsfunktionen zu verbessern.
-Von dieser CD sind mehr als 500.000 Stück produziert worden und
-zum Beispiel mit der Zeitschrift PC-Welt verteilt worden.
+Von dieser CD sind mehr als 600.000 Stück produziert worden und
+zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 
 11.4. Freeware-Projekt Crank
       ----------------------

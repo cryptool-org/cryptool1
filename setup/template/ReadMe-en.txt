@@ -593,8 +593,7 @@ Functionality:
 + Enclose the complete "Dialogue of the Sisters" in German and
   English (within this story a special case of the RSA encryption
   is described which is implemented within the RSA demo)
-+ Show/Visualize
-  - the single steps / dependencies of
++ Show/Visualize the single steps / dependencies of
     -> the creation of an electronic signature,
     -> the hybrid encryption and decryption.
     -> how changes to a document change the hash value
@@ -778,7 +777,7 @@ in order to inform citizens how to use computers and Internet
 and how one can securely use the Internet.
 CrypTool is also at this CD to raise the knowledge of
 cryptographic security functions.
-There have been produced more than 500,000 copies of this CD.
+There have been produced more than 600,000 copies of this CD.
 
 11.4. Freeware project crank
       ----------------------
