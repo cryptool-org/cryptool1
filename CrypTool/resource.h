@@ -559,6 +559,8 @@
 #define IDC_STATIC_PARAM_DESCRIPTION    1421
 #define IDC_EDIT_LV                     1422
 #define IDC_HEADLINE_SELECT             1423
+#define IDC_KEY_LEN                     1424
+#define IDC_EDIT_ENTROPY_WINDOW         1425
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1355,6 +1357,8 @@
 #define IDS_PERMUTATION_DECRYPT_INV     37904
 #define IDS_PERMUTATION_CLEAR           37905
 #define IDS_PERMUTATION_CIPHER          37906
+#define IDS_STRING_DAYS                 37907
+#define IDS_STRING_YEARS                37908
 #define IDS_STRING_SAMPLE_FILE          61889
 #define IDS_DLG_KEY_ASYM_TITLE          61890
 
@@ -1362,9 +1366,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        548
+#define _APS_NEXT_RESOURCE_VALUE        549
 #define _APS_NEXT_COMMAND_VALUE         33178
-#define _APS_NEXT_CONTROL_VALUE         1424
+#define _APS_NEXT_CONTROL_VALUE         1426
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

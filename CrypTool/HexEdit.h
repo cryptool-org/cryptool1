@@ -35,8 +35,10 @@ public:
 	int BinLen;
 	int HexVal(char c);
 	virtual ~CHexEdit();
+	void SetValidChars(LPCTSTR validchars) { m_validchars = validchars; }
+	void SetFixedByteLength(int l);
+	void SetFillChar(char c) { m_fillchar = c; }
 	virtual bool isvalidchar(char);
-
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
 	//{{AFX_MSG(CHexEdit)
@@ -47,11 +49,14 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-	int SelOrigin;
 	int active;
 	int BinBuffLen;
+	int m_fixedbytelength; // if >0 then the field is fixed length
+	char m_fillchar; // if shorter it is filled up with this char
+	int m_insert; // insert mode; default: 0 == overwrite mode
+	LPCTSTR m_validchars; // default: "0123456789ABCDEF"
 	void postproc( char *oldstring, int start, int end );
-	void preproc( char **oldstring, int *start, int *end );
+	void preproc( char **oldstring, int *start, int *end, char ch );
 	int shrink(int val);
 	int extend(int val, int max);
 };

@@ -17,19 +17,25 @@ CDlgBruteForceAES::CDlgBruteForceAES(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgBruteForceAES::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgBruteForceAES)
-	m_text = _T("");
-	m_text_len=96;
 	m_len=0;
+	m_keylenindex = -1;
 	//}}AFX_DATA_INIT
+	for (int i = 0; i < sizeof m_hexinc; i++) 
+		m_hexinc[i] = i + 1;
+	m_hexinc['9'] = 'A';
+	m_hexinc['F'] = '0';
+	m_text_ctl.SetValidChars("*0123456789ABCDEF");
+	m_text_ctl.SetFillChar('*');
+
 }
 
 void CDlgBruteForceAES::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgBruteForceAES)
+	DDX_Control(pDX, IDC_KEY_LEN, m_keylen_ctl);
 	DDX_Control(pDX, IDC_EDIT1, m_text_ctl);
-	DDX_Text(pDX, IDC_EDIT1, m_text);
-	DDV_MaxChars(pDX, m_text, m_text_len);
+	DDX_CBIndex(pDX, IDC_KEY_LEN, m_keylenindex);
 	//}}AFX_DATA_MAP
 }
 
@@ -37,6 +43,8 @@ void CDlgBruteForceAES::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgBruteForceAES, CDialog)
 	//{{AFX_MSG_MAP(CDlgBruteForceAES)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdate)
+	ON_CBN_SELCHANGE(IDC_KEY_LEN, OnSelchangeKeyLen)
+	ON_EN_SETFOCUS(IDC_EDIT1, OnSetfocusHexEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -45,34 +53,16 @@ END_MESSAGE_MAP()
 
 void CDlgBruteForceAES::OnUpdate() 
 {
-	int l, i,j, k,num;
-	char c;
-	CString res;
+	//m_text_ctl.GetWindowText(m_text); // done in OnSelchangeKeyLen()
+}
 
-	for (i=0;i<64;i++)
-		m_data[i]='0';
-	for (i=0;i<6;i++)
-		m_mask[i]=100;
-	UpdateData(TRUE);
-	for(k=i=num=l=j=0;i<m_text.GetLength();i++)
-	{
-		c = m_text[i];
-		if((c >= 'A' && c <= 'F')||(c >= '0'&& c <= '9')||(c=='*'))
-		{
-			if (c== '*')
-				m_mask[l++]=j;
-			m_data[j++]=c;
-		}
-	}
-	UpdateData(FALSE);
-
-	if(j == 0) m_len=0;
-	else if(j <= 32) m_len = 16;
-	else if(j <= 48) m_len = 24;
-	else m_len = 32;
-	m_data[m_len<<1]=0;
-	m_co=0;
-	m_max=(1<<(l*4))-1;
+void CDlgBruteForceAES::OnSelchangeKeyLen() 
+{
+	UpdateData(TRUE); // fetch m_keylenindex for GetBinlen()
+	int targetbits = GetBinlen();
+	ASSERT(targetbits % 8 == 0);
+	m_text_ctl.SetFixedByteLength(targetbits / 8);
+	//m_text_ctl.SetFocus();
 }
 
 char *CDlgBruteForceAES::GetData()
@@ -99,31 +89,69 @@ int CDlgBruteForceAES::GetLen()
 
 int CDlgBruteForceAES::GetBinlen()
 {
-	return m_text_ctl.BinLen;
+	return m_keylenmin + m_keylenindex * m_keylenstep;
 }
 
-int CDlgBruteForceAES::Display(char *titel,int max)
+int CDlgBruteForceAES::GetSearchBitLen()
+{
+	int n = 0;
+	while (m_mask[n] >= 0)
+		n++;
+	return n * 4;
+}
+
+int CDlgBruteForceAES::Display(char *titel,int keylenmin,int keylenmax, int keylenstep)
 {
 	int res;
-	m_text_len=(max*3)-1;
+	m_keylenmin = keylenmin;
+	m_keylenmax = keylenmax;
+	m_keylenstep = keylenstep;
 	res=DoModal();
 	return res;
 }
 
-int CDlgBruteForceAES::Display(char *titel)
+double CDlgBruteForceAES::getProgress()
 {
-	int res;
-	res=DoModal();
-	return res;
+	// interpret *m_mask[0],*m_mask[1],*m_mask[2],... as a base 16 fractional number 
+	// with least significant digit *m_mask[0] 
+	if (m_state == 0)
+		return 1.0;
+	double p = 0.0;
+	int i = 0;
+	while (m_mask[i] >= 0) {
+		//char c = *(m_mask[i++]);
+		char c = m_data[m_mask[i++]];
+		p += c >= 'A' ? c - 'A' + 10 : c - '0';
+		p /= 16.0;
+	}
+	return p;
 }
 
+
+#define incWithCarry(p) (((p) = m_hexinc[(p)]) == '0')
+		
+int CDlgBruteForceAES::Step()
+{
+	if (m_state < 0) {
+		m_state = 1;
+		return true;
+	}
+	int i = 0;
+	int j;
+	while ((j = m_mask[i]) >= 0 && incWithCarry(m_data[j]))
+		i++;
+	return m_state = (j >= 0);
+}
+
+#if 0
+alte implementierung
 int CDlgBruteForceAES::Step()
 {
 	int i,n,m;
 	if (m_co<=m_max)
 	{
 		i=0;
-		while((n=m_mask[i])!=100&&i<STARS)
+		while((n=m_mask[i])!=100)
 		{
 			m=(m_co>>(i*4))%16;
 			m_data[n]=m>9?m-10+'A':m+'0';
@@ -134,24 +162,68 @@ int CDlgBruteForceAES::Step()
 	}
 	return 0;
 }
+#endif 
 
-bool CMyHexEdit::isvalidchar(char c)
+
+BOOL CDlgBruteForceAES::OnInitDialog() 
 {
-	if ((c >= 'A' && c <= 'F')||(c >= '0'&& c <= '9'))
-		return true;
-	if (c=='*'&&starcount<STARS)
-	{
-		starcount++;
-		return true;
+	CDialog::OnInitDialog();
+	m_font.CreatePointFont(100,"Courier New");
+	m_text_ctl.SetFont(&m_font);
+	m_keylen_ctl.ResetContent();
+	for (int b = m_keylenmin; b <= m_keylenmax; b += m_keylenstep) {
+		CString s;
+		s.Format("%d",b);
+		m_keylen_ctl.AddString(s);
 	}
-	if ((c == 8) || (c == 3) || (c == 16) || (c == 18) || (c == 22) || (c == 23)|| (c == 24))
-		return true;
-	if (c==0)
-		starcount=0;
-	return false;
+	m_keylen_ctl.SetCurSel(0);
+	m_data[0] = 0;
+	OnSelchangeKeyLen();
+	m_text_ctl.SetFocus();
+	return 0; // don't let MFC mess with the focus
 }
 
-CMyHexEdit::CMyHexEdit()
+void CDlgBruteForceAES::UpdateDataMask()
 {
-	starcount=0;
+	int l, i,j, k,num;
+	char c;
+	CString res;
+
+	for (i=0;i<64;i++)
+		m_data[i]='0';
+	for(k=i=num=l=j=0;i<m_text.GetLength();i++)
+	{
+		c = m_text[i];
+		if((c >= 'A' && c <= 'F')||(c >= '0'&& c <= '9')||(c=='*'))
+		{
+			if (c== '*') {
+				ASSERT(l < sizeof(m_mask)/sizeof(int));
+				m_mask[l++] = j;
+				c = '0';
+			}
+			ASSERT(j < sizeof(m_data));
+			m_data[j++] = c;
+		}
+	}
+	ASSERT(l < sizeof(m_mask)/sizeof(int));
+	m_mask[l] = -1;
+	m_state = -1;
+	if(j == 0) m_len=0;
+	else if(j <= 32) m_len = 16;
+	else if(j <= 48) m_len = 24;
+	else m_len = 32;
+	m_data[m_len<<1]=0;
+
+}
+
+void CDlgBruteForceAES::OnOK() 
+{
+	m_text_ctl.GetWindowText(m_text);
+	UpdateDataMask();
+	CDialog::OnOK();
+}
+
+void CDlgBruteForceAES::OnSetfocusHexEdit() 
+{
+	m_text_ctl.SetSel(0,0);	
 }

@@ -311,20 +311,23 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	enthalten. */
 UINT AESBrute(PVOID p)
 {
+	int windowlen = theApp.Options.m_BFEntropyWindow;
     char outfile[CRYPTOOL_PATH_LENGTH], line[256], AlgTitel[128];
     char mode, *keyhex, kfound[65];
-	unsigned char key[128], *borg, *bcip;
+	unsigned char *borg, *bcip;
 	int i,pos, AlgId, cntr, keylen, datalen;
 	int distr[256];
 	double entr, emax, f;
 	FILE *fi;
-	CryptPar *par;
-	Key keyinfo;
-	KeyInfo info;
+	CryptPar *par = (CryptPar *) p;
 	int titleID;
-	
+	double *xlogx = new double[windowlen + 1];
+	if (!xlogx) return 0;
+	xlogx[0] = 0.0;
+	for (i = 1; i <= windowlen; i++) 
+		xlogx[i] = (f = i) * log(f);
 	mode = DIR_DECRYPT;
-	par = (CryptPar *) p;
+
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
 	
@@ -343,8 +346,8 @@ UINT AESBrute(PVOID p)
 	borg = (unsigned char *) malloc(datalen+32);
 	bcip = (unsigned char *) malloc(datalen+64);
 	
-	if(datalen > 1000)     // nur die ersten 1000 Zeichen anschauen
-		datalen=1000;
+	if(datalen > windowlen)     // nur die ersten windowlen Zeichen anschauen
+		datalen=windowlen;
 	
 	AlgId = *((int *) par->key);  // Namen setzen
 
@@ -378,9 +381,9 @@ UINT AESBrute(PVOID p)
 		borg[datalen]=0;          // padden
 	datalen <<= 3;
 	
-	class CDlgBruteForceAES KeyDialog;
-	
-	if(KeyDialog.Display(AlgTitel)!=IDOK||KeyDialog.GetLen() ==0)
+	CDlgBruteForceAES KeyDialog;
+
+	if(KeyDialog.Display(AlgTitel,par->keylenmin,par->keylenmax,par->keylenstep)!=IDOK)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
@@ -389,45 +392,24 @@ UINT AESBrute(PVOID p)
 	
 	if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ON,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,AlgTitel);
-		theApp.fs.Display(line);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SEARCHING_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
-		theApp.fs.Set(0,pc_str);
+		CString title;
+		title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
+		CString message;
+		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
+		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
+		theApp.fs.Display();
 	}
-	
-	info.subjectkey.bits=(char *)key;
-	keyinfo.key=&info;
-	keyinfo.pse_sel=NULL;
-	keyinfo.alg=NULL;
-	keyinfo.add_object=NULL;
-	keyinfo.add_object_type=NULL;
-	keyinfo.key_size=NULL;
-	keyinfo.private_key=NULL;
-	
+		
 	emax = 0.0;                      // max Entropie 
 	
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	keylen = KeyDialog.GetLen();
-//	if(keylen <= 16) keylen = 16;
-//	else if(keylen <= 24) keylen = 24;
-//	else keylen = 32;
-//	par->keylen = keylen;
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-	par->keylen = KeyDialog.GetLen();
-	keylen = par->keylen;
-
-		
-	info.subjectkey.nbits=par->keylen;
-
+	keylen = KeyDialog.GetBinlen();
 	keyhex=KeyDialog.GetData();
-	memcpy(kfound,keyhex,65);
+	strcpy(kfound,keyhex);
 	
     GetTmpName(outfile,"cry",".tmp");
 
 	pos=0;
+	theApp.fs.startClock();
 	while (cntr=KeyDialog.Step())    // nächsten Schlüssel setzen
 	{                                // und Fortschritt erhalten
 		keyhex=KeyDialog.GetData();  // Schlüssel holen
@@ -442,31 +424,21 @@ UINT AESBrute(PVOID p)
 				free(borg);
 				return 2;
 			}
-			if(cntr>pos)            // nur einmal für jedes Prozent
-			{
-				theApp.fs.Set(cntr);
-				pos++;
-			}
 		}
 		
-		doaescrypt(AlgId,mode,keylen,keyhex,borg,datalen,bcip);
+		doaescrypt(AlgId,mode,keylen/8,keyhex,borg,datalen,bcip);
 		
-		for(i=0;i<256;i++)           // Entropie berechnen
-			distr[i]=0;
-		for(i=0;i<1000;i++)
+		// Entropie berechnen
+		memset(distr,0,sizeof(distr));
+		for(i=0;i<windowlen;i++)
 			distr[(unsigned int) bcip[i]]++;
-		for(entr = i = 0; i<256; i++)
-		{
-			if(distr[i]>0)
-			{
-				f = distr[i];
-				entr = entr + f*log(f);
-			}
-		}
+		entr = 0.0;
+		for(i = 0; i<256; i++)
+			entr += xlogx[distr[i]];
 		if(entr > emax)
 		{
 			emax = entr;
-			memcpy(kfound,keyhex,65);
+			strcpy(kfound,keyhex);
 		}
 	}
 	
@@ -483,18 +455,6 @@ UINT AESBrute(PVOID p)
 		return 0;
 	}
 
-/*
-	for (i=0;i<64;i++)
-		kfound[i]='0';
-	keyhex=dia.GetData();
-	for (i=0;i<dia.GetLen();i++)
-	{                        // gefundenen Schlüssel in String 
-		pos=keyhex[i];       // umwandeln
-		kfound[i*2]=((pos/16)>9)?(pos/16)-10+'A':(pos/16)+'0';
-		kfound[(i*2)+1]=((pos%16)>9)?(pos%16)-10+'A':(pos%16)+'0';
-	}
-*/
-
 	if(par->flags & CRYPT_DO_PROGRESS)
 		theApp.fs.cancel();
 
@@ -509,7 +469,7 @@ UINT AESBrute(PVOID p)
 		borg[datalen]=0;            
 	datalen <<= 3;
 	
-	doaescrypt(AlgId,mode,keylen,kfound,borg,datalen,bcip);
+	doaescrypt(AlgId,mode,keylen/8,kfound,borg,datalen,bcip);
 	free(borg);
 	
 	datalen >>= 3;
@@ -518,6 +478,7 @@ UINT AESBrute(PVOID p)
 	
 	fi = fopen(outfile,"wb");        // Ergebnis ausgeben
 	fwrite(bcip, 1, datalen, fi);
+	free(bcip);
 	fclose(fi);
 	
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);

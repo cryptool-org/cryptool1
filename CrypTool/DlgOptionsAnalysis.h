@@ -26,6 +26,7 @@ public:
 	BOOL	m_VLen;
 	BOOL	m_VKorr;
 	BOOL	m_VBase;
+	long	m_BFEntropyWindow;
 	//}}AFX_DATA
 
 
@@ -41,7 +42,6 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgOptionsAnalysis)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

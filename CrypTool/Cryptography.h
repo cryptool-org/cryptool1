@@ -16,7 +16,9 @@
 typedef struct {
 	const char	*infile;
 	const char	*OldTitle;
-	int			keylen;
+	int			keylenmin;  // valid key lengths [bit]:
+	int			keylenmax;  // { x | x = keylenmin + n*keylenstep, n >= 0, x <= keylenmax }
+	int			keylenstep; 
 	char		*key;
 	int			flags;
 	void		*result;

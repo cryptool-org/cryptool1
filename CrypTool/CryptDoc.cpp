@@ -932,7 +932,8 @@ void CCryptDoc::OnAnalyseDescbc()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 3;
-	para->keylen = 64;
+	para->keylenstep = 1; 
+	para->keylenmin = para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -952,7 +953,8 @@ void CCryptDoc::OnAnalyseDesecb()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 2;
-	para->keylen = 64;
+	para->keylenstep = 1; 
+	para->keylenmin = para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -972,7 +974,8 @@ void CCryptDoc::OnAnalyseIdea()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 1;
-	para->keylen = 128;
+	para->keylenstep = 1; 
+	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -992,7 +995,9 @@ void CCryptDoc::OnAnalyseRc2()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 7;
-	para->keylen = 128;
+	para->keylenstep = 8; 
+	para->keylenmin = 8; 
+	para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -1012,7 +1017,9 @@ void CCryptDoc::OnAnalyseRc4()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 6;
-	para->keylen = 128;
+	para->keylenstep = 8; 
+	para->keylenmin = 8; 
+	para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -1032,7 +1039,8 @@ void CCryptDoc::OnAnalyseTripledescbc()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 4;
-	para->keylen = 128;
+	para->keylenstep = 1; 
+	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -1052,7 +1060,8 @@ void CCryptDoc::OnAnalyseTripledesecb()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 5;
-	para->keylen = 128;
+	para->keylenstep = 1; 
+	para->keylenmin = para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );
@@ -1102,7 +1111,9 @@ void CCryptDoc::OnAnalyseAesMars()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 1;
-	para->keylen = 128;
+	para->keylenstep = 64; 
+	para->keylenmin = 128;
+	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AESBrute, ((void *) para) );
@@ -1119,7 +1130,9 @@ void CCryptDoc::OnAnalyseAesRc6()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 2;
-	para->keylen = 128;
+	para->keylenstep = 64; 
+	para->keylenmin = 128;
+	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AESBrute, ((void *) para) );
@@ -1136,7 +1149,9 @@ void CCryptDoc::OnAnalyseAesRijndael()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 3;
-	para->keylen = 128;
+	para->keylenstep = 64; 
+	para->keylenmin = 128;
+	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AESBrute, ((void *) para) );
@@ -1153,7 +1168,9 @@ void CCryptDoc::OnAnalyseAesSerpent()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 4;
-	para->keylen = 128;
+	para->keylenstep = 64; 
+	para->keylenmin = 128;
+	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AESBrute, ((void *) para) );
@@ -1170,7 +1187,9 @@ void CCryptDoc::OnAnalyseAesTwofish()
 	para->OldTitle = strdup(GetTitle());
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 5;
-	para->keylen = 128;
+	para->keylenstep = 64; 
+	para->keylenmin = 128;
+	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AESBrute, ((void *) para) );

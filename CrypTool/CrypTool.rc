@@ -114,31 +114,39 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,179,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 256, 183
+IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 288, 270
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,158,65,18
-    PUSHBUTTON      "Abbrechen",IDCANCEL,177,158,66,18
-    LTEXT           "Umfang der Ausgabe bei der automatischen Analyse",
-                    IDC_STATIC,13,13,230,8
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,242,65,18
+    PUSHBUTTON      "Abbrechen",IDCANCEL,207,242,66,18
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,55,76,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,50,76,10
     CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,80,48,10
+                    WS_TABSTOP,27,75,48,10
     CONTROL         "Histogramme",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,105,57,10
+                    WS_TABSTOP,27,100,57,10
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK6,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,142,55,76,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,155,50,76,10
     CONTROL         "Ermittelte Schlüssellänge",IDC_CHECK7,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,142,80,91,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,155,75,91,10
     CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,142,105,61,10
+                    WS_TABSTOP,155,100,61,10
     CONTROL         "Basischiffre anzeigen",IDC_CHECK4,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,142,130,80,10
-    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
+                    BS_AUTOCHECKBOX | WS_TABSTOP,155,125,80,10
+    GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,120,109
+    GROUPBOX        "Optionen für Brute-Force Angriffe",IDC_STATIC,13,155,
+                    260,74
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,196,
+                    109,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,193,30,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",
+                    IDC_STATIC,13,16,260,132
+    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael, Serpent, Twofish",
+                    IDC_STATIC,20,173,247,50
 END
 
 IDD_HILL_ANALYSIS DIALOG DISCARDABLE  0, 0, 301, 221
@@ -379,7 +387,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,68,77,50,14
     CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
                     7,29,173,18
-    CTEXT           "Static",IDC_TEXT,18,53,147,15
+    CTEXT           "Static\nTage",IDC_TEXT,18,53,147,18
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 301
@@ -1367,21 +1375,26 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
+IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 288, 149
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-force Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,15,56,194,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Starten",IDOK,15,80,68,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,141,80,68,17
-    LTEXT           "Geben Sie den Suchraum ein: <*> für unbekannte Stellen",
-                    IDC_STATIC,15,6,194,10
-    LTEXT           "Beispiel: Mit der Eingabe <A**B>  durchsuchen Sie die",
-                    IDC_STATIC,15,19,194,8
-    LTEXT           "256 möglichen Schlüssel:  ",IDC_STATIC,44,29,165,8
-    LTEXT           "A00B,  A01B,  A02B,  . . .,  AFEB,  AFFB.",IDC_STATIC,
-                    44,39,165,8
+    COMBOBOX        IDC_KEY_LEN,69,69,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,15,88,257,24,ES_MULTILINE
+    DEFPUSHBUTTON   "&Starten",IDOK,15,123,68,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,205,123,68,17
+    LTEXT           "Geben Sie bekannte Teile des Schlüssels hexadezimal ein, unbekannte mit <*>.",
+                    IDC_STATIC,15,6,258,10
+    LTEXT           "Beispiel:",IDC_STATIC,15,20,29,8
+    LTEXT           "Schlüssellänge:",IDC_STATIC,15,73,50,8
+    LTEXT           "Tipp:",IDC_STATIC,15,48,22,8
+    LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn sie höchstens 6 Sterne <*> (= 24 Bit) verwenden.",
+                    IDC_STATIC,44,48,229,18
+    LTEXT           "Mit der Eingabe <00 ** AB ** ... **>  durchsuchen Sie alle Schlüssel, die mit einem Nullbyte beginnen, gefolgt von einem unbekannten Byte, dem Byte <AB>, und einem unbekannten Rest.",
+                    IDC_STATIC,44,20,229,26
+    LTEXT           "Bit",IDC_STATIC,100,73,9,8
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOG DISCARDABLE  0, 0, 317, 156
@@ -3565,6 +3578,17 @@ BEGIN
     0
 END
 
+IDD_BRUTEFORCE DLGINIT
+BEGIN
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3532, 0x0036, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3688,6 +3712,16 @@ BEGIN
         HORZGUIDE, 147
         HORZGUIDE, 164
         HORZGUIDE, 212
+    END
+
+    IDD_OPTIONS_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 13
+        RIGHTMARGIN, 273
+        BOTTOMMARGIN, 260
+        HORZGUIDE, 33
+        HORZGUIDE, 142
+        HORZGUIDE, 148
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -3938,9 +3972,11 @@ BEGIN
     BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 44
-        VERTGUIDE, 209
-        HORZGUIDE, 80
-        HORZGUIDE, 97
+        VERTGUIDE, 273
+        BOTTOMMARGIN, 140
+        HORZGUIDE, 20
+        HORZGUIDE, 48
+        HORZGUIDE, 81
     END
 
     IDD_SHOW_KEY_PARAMETER, DIALOG
@@ -4763,7 +4799,8 @@ BEGIN
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
     IDS_STRING_ANALYSE_ON   "Analyse von %s"
-    IDS_STRING_MSG_SEARCHING_COMPLETE "Vollständige Suche zu %d%% erledigt"
+    IDS_STRING_MSG_SEARCHING_COMPLETE 
+                            "Vollständige %d Bit Suche zu %%d%%%% erledigt\nRestzeit: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE 
                             "Automatische %s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
@@ -4771,6 +4808,16 @@ BEGIN
     IDS_STRING_SIGNATURE_ORIGINATOR "Signaturerzeuger:"
     IDS_STRING_SIGNATURE_DATE "%s; erzeugt am %s"
     IDS_STRING_SIGNATURE_HASH_FUNCTION "%s mit Hashfunktion %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PERMUTATION_DECRYPT_INV 
+                            "Text mit der inversen Permutation entschlüsseln"
+    IDS_PERMUTATION_CLEAR   "&Klartext anzeigen"
+    IDS_PERMUTATION_CIPHER  "&Verschlüsselten Text anzeigen"
+    IDS_STRING_DAYS         "Tage"
+    IDS_STRING_YEARS        "Jahre"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5346,14 +5393,6 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_PERMUTATION_DECRYPT_INV 
-                            "Text mit der inversen Permutation entschlüsseln"
-    IDS_PERMUTATION_CLEAR   "&Klartext anzeigen"
-    IDS_PERMUTATION_CIPHER  "&Verschlüsselten Text anzeigen"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     AFX_IDS_PRINTONPORT     "auf %1"
     AFX_IDS_ONEPAGE         "&Eine Seite"
     AFX_IDS_TWOPAGE         "&Zwei Seiten"
@@ -5883,31 +5922,38 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,181,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 256, 183
+IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 286, 270
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,13,158,65,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,177,158,66,18
-    LTEXT           "Output options for automatic analysis",IDC_STATIC,13,13,
-                    230,8
+    DEFPUSHBUTTON   "&Apply",IDOK,13,242,65,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,207,242,66,18
     CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,55,76,10
     CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,80,48,10
+                    WS_TABSTOP,27,77,48,10
     CONTROL         "Histograms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,105,57,10
+                    WS_TABSTOP,27,101,57,10
     CONTROL         "Derived key",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,142,55,76,10
+                    WS_TABSTOP,155,55,76,10
     CONTROL         "Derived key length",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,142,80,91,10
+                    WS_TABSTOP,155,77,91,10
     CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,142,105,61,10
+                    WS_TABSTOP,155,100,61,10
     CONTROL         "Show base ciphers",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,142,130,80,10
-    GROUPBOX        "Caesar",IDC_STATIC,13,35,103,113
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,127,35,116,113
+                    WS_TABSTOP,156,122,80,10
+    GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,35,118,105
+    GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,
+                    260,132
+    GROUPBOX        "Options for brute force attacks",IDC_STATIC,13,155,260,
+                    75
+    LTEXT           "Bytes for the entropy test:",IDC_STATIC,29,196,80,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,113,193,30,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael, Serpent, Twofish",
+                    IDC_STATIC,20,173,245,50
 END
 
 IDD_HILL_ANALYSIS DIALOG DISCARDABLE  0, 0, 301, 221
@@ -6115,7 +6161,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,68,77,50,14
     CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
                     7,29,173,18
-    CTEXT           "Static",IDC_TEXT,18,53,147,15
+    CTEXT           "Static\nDays",IDC_TEXT,18,53,147,18
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 300
@@ -7095,21 +7141,26 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
+IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 286, 146
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute Force Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,15,56,194,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Start",IDOK,15,80,68,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,141,80,68,17
-    LTEXT           "Enter the search space: <*> for unknown positions",
-                    IDC_STATIC,15,6,194,10
-    LTEXT           "Example: if you enter <A**B>, the system will search through the",
-                    IDC_STATIC,15,19,194,8
-    LTEXT           "256 possible keys:  ",IDC_STATIC,44,28,165,8
-    LTEXT           "A00B,  A01B,  A02B,  . . .,  AFEB,  AFFB.",IDC_STATIC,
-                    44,40,165,8
+    DEFPUSHBUTTON   "&Start",IDOK,15,121,68,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,204,121,68,17
+    EDITTEXT        IDC_EDIT1,15,84,257,24,ES_MULTILINE
+    COMBOBOX        IDC_KEY_LEN,56,65,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Enter known parts of the key in hexadecimal notation, unknown as <*>.",
+                    IDC_STATIC,15,6,258,10
+    LTEXT           "Example:",IDC_STATIC,15,20,29,8
+    LTEXT           "Key length:",IDC_STATIC,15,69,36,8
+    LTEXT           "Hint:",IDC_STATIC,15,44,22,8
+    LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisk <*> characters (= 24 bit).",
+                    IDC_STATIC,47,44,225,18
+    LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",
+                    IDC_STATIC,47,20,225,18
+    LTEXT           "bit",IDC_STATIC,87,69,8,8
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOG DISCARDABLE  0, 0, 317, 156
@@ -9323,6 +9374,17 @@ BEGIN
     0
 END
 
+IDD_BRUTEFORCE DLGINIT
+BEGIN
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3532, 0x0036, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9440,6 +9502,15 @@ BEGIN
         HORZGUIDE, 214
     END
 
+    IDD_OPTIONS_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 13
+        RIGHTMARGIN, 273
+        BOTTOMMARGIN, 260
+        HORZGUIDE, 87
+        HORZGUIDE, 110
+    END
+
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 10
@@ -9495,6 +9566,13 @@ BEGIN
         HORZGUIDE, 34
         HORZGUIDE, 231
         HORZGUIDE, 348
+    END
+
+    IDD_BRUTEFORCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 15
+        RIGHTMARGIN, 272
+        BOTTOMMARGIN, 138
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -10223,13 +10301,23 @@ BEGIN
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "The Secude library could not be loaded.\nSome of the functions are therefore not available."
     IDS_STRING_ANALYSE_ON   "Analysis of %s"
-    IDS_STRING_MSG_SEARCHING_COMPLETE "Search %d%% completed"
+    IDS_STRING_MSG_SEARCHING_COMPLETE 
+                            "%d bit bute force search %%d%%%% completed\\dRemaining time: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "The signed message is very large. It cannot be displayed in the CrypTool hex editor.\nThe message has therefore been provisionally stored in the temporary file '%s'."
     IDS_STRING_SIGNATURE_ORIGINATOR "Signer:"
     IDS_STRING_SIGNATURE_DATE "%s; created %s"
     IDS_STRING_SIGNATURE_HASH_FUNCTION "%s with hash function %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
+    IDS_PERMUTATION_CLEAR   "&Display clear text"
+    IDS_PERMUTATION_CIPHER  "&Display cipher text"
+    IDS_STRING_DAYS         "days"
+    IDS_STRING_YEARS        "years"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10779,13 +10867,6 @@ BEGIN
     IDS_PERMUTATION_ENCRYPT "Encrypt text with entered permutation"
     IDS_PERMUTATION_DECRYPT "Decrypt text with permutation"
     IDS_PERMUTATION_ENCRYPT_INV "Encrypt text with inverse permutation"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
-    IDS_PERMUTATION_CLEAR   "&Display clear text"
-    IDS_PERMUTATION_CIPHER  "&Display cipher text"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -19,7 +19,10 @@ CHexEdit::CHexEdit()
 	BinBuffLen = 128;
 	BinLen = 0;
 	active = 0;
-	SelOrigin = 0;
+	m_validchars = "0123456789ABCDEF";
+	m_fixedbytelength = 0;
+	m_fillchar = '0';
+	m_insert = 0;
 }
 
 CHexEdit::~CHexEdit()
@@ -44,21 +47,28 @@ void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char *b;
 	int s1, e1;
 
-	preproc(&b,&s1, &e1);
-
 	if (nChar >= 'a' && nChar <= 'z')
 		nChar=nChar-'a'+'A';
-	if(isvalidchar(nChar))
-		CEdit::OnChar(nChar, nRepCnt, nFlags);
-
+	if(!isvalidchar(nChar))
+		return;
+	preproc(&b,&s1, &e1, nChar);
+	CEdit::OnChar(nChar, nRepCnt, nFlags);
 	postproc(b, s1, e1);
+}
+
+void CHexEdit::SetFixedByteLength(int l) 
+{ 
+	m_fixedbytelength = l; 
+	char *b;
+	int s1, e1;
+	preproc(&b,&s1, &e1, 0);
+	postproc(b, s1, e1);
+	//SetLimitText(2*l);
 }
 
 bool CHexEdit::isvalidchar(char c)
 {
-	if (('A' <= c) && (c <= 'F'))
-		return true;
-	if (('0' <= c) && (c <= '9'))
+	if (strchr(m_validchars,c))
 		return true;
 	if ((c == 8) || (c == 3) || (c == 16) || (c == 18) || (c == 22) || (c == 23)|| (c == 24))
 		return true;
@@ -72,10 +82,15 @@ void CHexEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 	switch(nChar)
 	{
-	case(VK_LEFT):
-	case(VK_RIGHT):
-	case(VK_END):
-	case(VK_HOME):
+	case VK_INSERT:
+		m_insert = !m_insert;
+		break;
+	case VK_LEFT:
+	case VK_RIGHT:
+	case VK_UP:
+	case VK_DOWN:
+	case VK_END:
+	case VK_HOME:
 		CEdit::OnKeyDown(nChar, nRepCnt, nFlags);
 		GetSel(s1,e1);
 		if((s1 == e1) && (s1%3 == 2)) {
@@ -86,7 +101,7 @@ void CHexEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		Invalidate(TRUE);
 		break;
 	default:
-		preproc(&b,&s1, &e1);
+		preproc(&b,&s1, &e1, nChar);
 		CEdit::OnKeyDown(nChar, nRepCnt, nFlags);
 		postproc(b, s1, e1);
 		break;
@@ -105,17 +120,17 @@ int CHexEdit::shrink(int val)
 	return (val - (val / 3));
 }
 
-void CHexEdit:: preproc( char **oldstring, int *start, int *end )
+void CHexEdit:: preproc( char **oldstring, int *start, int *end, char ch )
 {
 	int i,j,l;
 	char *b1, *b2;
 
 	SetRedraw(FALSE);
 	active = 1;
-	l = LineLength();
+	l = GetWindowTextLength();
 	b1 = (char *) malloc(l+2);
 	b2 = (char *) malloc(l+2);
-	GetLine(0,b1,l+1);
+	GetWindowText(b1,l+1);
 	GetSel(*start,*end);
 	b1[l]=0;
 	for(i=j=0;i<l;i++)
@@ -127,9 +142,14 @@ void CHexEdit:: preproc( char **oldstring, int *start, int *end )
 		}
 	}
 	b2[j]=0;
-	SetSel(0, l);
-	ReplaceSel(b2);
-	SetSel(shrink(*start),shrink(*end));
+	//SetSel(0, l);
+	//ReplaceSel(b2);
+	SetWindowText(b2);
+	int sstart = shrink(*start);
+	int send = shrink(*end);
+	if (!m_insert && sstart == send && send < j && strchr(m_validchars,ch))
+		send++;
+	SetSel(sstart,send);
 	*oldstring = b1;
 	free(b2);
 }
@@ -137,41 +157,53 @@ void CHexEdit:: preproc( char **oldstring, int *start, int *end )
 void CHexEdit::postproc( char *oldstring, int start, int end )
 {
 	char *b1,*b2,*b3;
-	int i,j,l,s2,e2;
+	int i,j;
+	int la,lt; //  actual, target length in hex digits
+	int s2,e2;
 
 	b1 = oldstring;
-	l = LineLength();
-	b3 = (char *) malloc(l+2);
-	b2 = (char *) malloc(l + l + 2);
-	GetLine(0,b3,l+1);
+	la = GetWindowTextLength();
+	lt = m_fixedbytelength ? 2 * m_fixedbytelength : la;
+	b3 = (char *) malloc(la+1);
+	int ltspace = lt + (lt - 1) / 2 ;
+	b2 = (char *) malloc(ltspace + 1); // make room for ' '
+	GetWindowText(b3,la+1);
 	_strupr(b3);
-	if(BinBuffLen * 2 < l)
+	if(BinBuffLen * 2 < lt)
 	{
 		free(BinData);
-		BinBuffLen = l/2 + 128;
+		BinBuffLen = lt/2 + 128;
 		BinData = (char *) calloc(BinBuffLen,1);
 	}
 	GetSel(s2,e2);
-	isvalidchar(0);
-	for(i=j=0;i<l;i++)
+	for(i=j=0;i<lt;i++)
 	{
-		if(isvalidchar(b3[i]))
+		char c = (i < la) ? b3[i] : m_fillchar;
+		if(strchr(m_validchars,c))
 		{
+			ASSERT(j < ltspace);
 			if(2 == (j%3))
-			{
-				b2[j] = ' ';
-				j++;
-			}
-			b2[j] = b3[i];
-			j++;
+				b2[j++] = ' ';
+			ASSERT(j < ltspace);
+			b2[j++] = c;
 		}
 	}
+	ASSERT(j <= ltspace);
+	while (j < ltspace) {
+		ASSERT(j < ltspace);
+		if(2 == (j%3))
+			b2[j++] = ' ';
+		ASSERT(j < ltspace);
+		b2[j++] = m_fillchar;
+	}
+	ASSERT(j == ltspace);
 	b2[j]=0;
-	SetSel(0, l);
-	ReplaceSel(b2);
-	SetSel(extend(s2,l),extend(e2,l));
+	//SetSel(0, l);
+	//ReplaceSel(b2);
+	SetWindowText(b2);
+	SetSel(extend(s2,lt),extend(e2,lt));
 	SetRedraw(TRUE);
-	if(strcmp(b1,b2) || (start != extend(s2,l)) || (end != extend(e2,l)))
+	if(strcmp(b1,b2) || (start != extend(s2,lt)) || (end != extend(e2,lt)))
 	{
 		Invalidate(TRUE);
 		for(i=0;i<j;i+=3)
@@ -245,10 +277,10 @@ BOOL CHexEdit::OnUpdate()
 
 	active = 1;
 	SetRedraw(FALSE);
-	l = LineLength();
+	l = GetWindowTextLength();
 	b1 = (char *) malloc(l+2);
 	b2 = (char *) malloc(2*l+2);
-	GetLine(0,b1,l+1);
+	GetWindowText(b1,l+1);
 	_strupr(b1);
 	GetSel(ss1,se1);
 
@@ -256,7 +288,8 @@ BOOL CHexEdit::OnUpdate()
 	for(p=i=0;i<l;i++) {
 		if(i==ss1) ss2 = p;
 		if(i==se1) se2 = p;
-		if(-1 == HexVal(b1[i])) continue; // ignore non hex
+		//if(-1 == HexVal(b1[i])) continue; // ignore non hex
+		if(!isvalidchar(b1[i])) continue; // ignore non hex
 		b2[p++]=b1[i];
 		if((2 == (p%3)) && (i<l-1)) b2[p++] = ' ';
 	}

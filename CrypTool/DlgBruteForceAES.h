@@ -13,40 +13,33 @@
 
 ////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgBruteForceAES 
-#define STARS 5
 
-class CMyHexEdit : public CHexEdit
-{
-public:
-	CMyHexEdit();
-	bool isvalidchar(char);
-	int starcount;
-};
-
-class CDlgBruteForceAES : public CDialog
+class CDlgBruteForceAES : public CDialog, public CProgressModel
 {
 // Konstruktion
 public:
 	CDlgBruteForceAES(CWnd* pParent = NULL);   // Standardkonstruktor
 
-	char m_data[65];
-	int m_mask[STARS];
+	char m_data[256/8*2+1];
+	int m_mask[256/8*2+1];
+	int m_state; // -1: initially, 1: after first Step, 0: after last Step
 	int m_len;
 	int m_text_len;
-	long m_co,m_max;
-	int Display(char *,int);
-	int Display(char *);
+	int Display(char *titel,int keylenmin,int keylenmax, int keylenstep);
 	int GetLen();
 	int GetBinlen();
+	int GetSearchBitLen();
 	char *GetData();
 	void GetDataInt(char *);
-	int Step();
+	int Step(); // set next key if not finished, otherwise return false
+	virtual double getProgress(); // 0.0 <= result <= 1.0
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgBruteForceAES)
 	enum { IDD = IDD_BRUTEFORCE };
-	CString	m_text;
-	CMyHexEdit m_text_ctl;
+	CComboBox	m_keylen_ctl;
+	CHexEdit m_text_ctl;
+	int		m_keylenindex;
 	//}}AFX_DATA
 
 
@@ -59,10 +52,18 @@ public:
 
 // Implementierung
 protected:
-
+	char m_hexinc['F'];
+	int m_keylenmin, m_keylenmax, m_keylenstep; // see CryptPar
+	CFont m_font; // font for m_text_ctl
+	CString m_text; // m_text_ctl content
+	void UpdateDataMask();
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgBruteForceAES)
 	afx_msg void OnUpdate();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnSelchangeKeyLen();
+	virtual void OnOK();
+	afx_msg void OnSetfocusHexEdit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

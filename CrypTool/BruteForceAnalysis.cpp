@@ -21,8 +21,6 @@
 #include "DlgBruteForceAES.h"
 #include "DialogeMessage.h"
 
-#define WINSIZE	128
-
 void FreePar(CryptPar *par);
 
 int KLen(unsigned __int64 *k)
@@ -60,13 +58,18 @@ int KLen(unsigned __int64 *k)
 	macht das SECUDE-Toolkit. */
 UINT Brute(PVOID p)
 {
-	
+	int windowlen = theApp.Options.m_BFEntropyWindow;
     char outfile[CRYPTOOL_PATH_LENGTH], key[128], line[256],kfound[128];
-	int i, l, lorg, r, AlgId, cntr,pos,lenght;
+	int i, l, lorg, r, AlgId, pos,lenght;
 	int distr[256],keylen;
 	double entr, emax, f;
-	CryptPar *par;
+	double *xlogx = new double[windowlen + 1];
+	if (!xlogx) return 0;
+	xlogx[0] = 0.0;
+	for (i = 1; i <= windowlen; i++) 
+		xlogx[i] = (f = i) * log(f);
 	
+	CryptPar *par;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
@@ -129,7 +132,7 @@ UINT Brute(PVOID p)
 	
 	class CDlgBruteForceAES KeyDialog;
 	
-	if(KeyDialog.Display(AlgTitel,par->keylen/8)!=IDOK||KeyDialog.GetLen() ==0)
+	if(KeyDialog.Display(AlgTitel,par->keylenmin,par->keylenmax,par->keylenstep)!=IDOK)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
@@ -137,16 +140,17 @@ UINT Brute(PVOID p)
 	}
 	
 	if((keylen=KeyDialog.GetBinlen()) ==0) return r;
-    if ((AlgId==6)||(AlgId==7))
-		par->keylen=8*keylen;
+    //if ((AlgId==6)||(AlgId==7))
+	//	par->keylen=8*keylen;
 	
     if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ON,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,AlgTitel);
-		theApp.fs.Display(line);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SEARCHING_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
-		theApp.fs.Set(0,pc_str);
+		CString title;
+		title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
+		CString message;
+		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
+		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
+		theApp.fs.Display();
 	}
 	
     GetTmpName(outfile,"cry",".tmp");
@@ -166,7 +170,7 @@ UINT Brute(PVOID p)
 	out.noctets=0;
 	out.octets=(char*)malloc(in.nbits/8+16);   // genug Speicher !!
 	
-	info.subjectkey.nbits=par->keylen;
+	info.subjectkey.nbits= keylen;
 	info.subjectkey.bits=(char *)&key;
 	keyinfo.key=&info;
 	keyinfo.pse_sel=NULL;
@@ -177,7 +181,7 @@ UINT Brute(PVOID p)
 	keyinfo.private_key=NULL;
 	
 	lorg = in.nbits;
-	l = min(8*WINSIZE,lorg);
+	l = min(8*windowlen,lorg);
 	in.nbits = l;
 	l = l/8;
 	
@@ -190,7 +194,7 @@ UINT Brute(PVOID p)
 	}
 	
 	pos=0;
-	while ( cntr=KeyDialog.Step())  // Nächsten Schlüssel ermitteln
+	while ( KeyDialog.Step())  // Nächsten Schlüssel ermitteln
 	{                               // und Fortschritt
 		// Entschlüsselung des Plaintextes mit dem vom Benutzer eingegebenen Schlüssel.
 		if(par->flags & CRYPT_DO_PROGRESS)
@@ -203,11 +207,6 @@ UINT Brute(PVOID p)
 				par->flags |= CRYPT_DONE;
 				FreePar(par);
 				return 2;
-			}
-			if(cntr>pos)           // Nur bei Forschrittsänderung
-			{
-				pos++;
-				theApp.fs.Set(cntr);
 			}
 		}
 		KeyDialog.GetDataInt(key); // Schlüssel besorgen
@@ -256,16 +255,10 @@ UINT Brute(PVOID p)
 
 		// else                 // Falls kein Fehler Entropie berechenen
 		if ( !decryptionError ) {
-			for(i=0;i<256;i++) distr[i]=0;
+			memset(distr,0,sizeof(distr));
 			for(i=0;i<l;i++) distr[(unsigned char) out.octets[i]]++;
 			for(entr = i = 0; i<256; i++)
-			{
-				if(distr[i]>0)
-				{
-					f = distr[i];
-					entr = entr + f*log(f);
-				}
-			}
+				entr += xlogx[distr[i]];
 			if(entr > emax)
 			{
 				emax = entr;
@@ -296,12 +289,12 @@ UINT Brute(PVOID p)
 	}
 	
 	for(i=0; i<sizeof(key); i++) key[i]=0;
-	i = dia.GetLen();
-	memcpy(key,dia.GetData(),i);
-	if ((AlgId==6)||(AlgId==7))
-		par->keylen=8*i;
-	info.subjectkey.bits=(char *)key;
-	info.subjectkey.nbits=par->keylen;
+	//keylen = 8 * dia.GetLen();
+	memcpy(key,dia.GetData(),keylen / 8);
+	//if ((AlgId==6)||(AlgId==7))
+	//	par->keylen=8*i;
+	info.subjectkey.bits = (char *)key;
+	info.subjectkey.nbits = keylen;
 	
 	in.nbits = lorg;
 	out.noctets=0;
