@@ -743,6 +743,7 @@ void CDlgDiffieHellmanVisualization::ShowAnimatedGIF()
 		this->m_bStaticGIFLoaded = false;
 	}
 
+	m_AnimGif.Stop();
 	m_AnimGif.Draw();
 }
 
@@ -757,5 +758,6 @@ void CDlgDiffieHellmanVisualization::ShowStaticGIF()
 		this->m_bStaticGIFLoaded = true;
 	}
 	
+	m_AnimGif.Stop();
 	m_AnimGif.Draw();
 }
