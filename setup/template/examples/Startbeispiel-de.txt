@@ -1,4 +1,4 @@
-CrypTool 1.3.03
+CrypTool
 
 Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
 
