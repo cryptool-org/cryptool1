@@ -132,7 +132,7 @@ void CDlgProgressFactorisation::OnTimer(UINT nIDEvent)
 {
 	int i;
 
-	if(nIDEvent == 45) {
+	if(nIDEvent == 45) { // display timer
 		if(m_displayed==0) return;
 		{
 			Lock.Lock();
@@ -152,7 +152,7 @@ void CDlgProgressFactorisation::OnTimer(UINT nIDEvent)
 		}
 		return;
 	}
-	if(nIDEvent == 47) {
+	if(nIDEvent == 47) { // m_numThreads == 0
 		if(m_displayed==0) return;
 		{
 			int t = m_retcode;
