@@ -138,7 +138,7 @@ void CDlgSignatureDemo::OnSelectDocument()
 	CString sTitle;
 	DWORD   dwFlags(OFN_HIDEREADONLY);
 	sFileFilter.LoadString(IDS_OPEN_DOCUMENT_FILTER);
-	sTitle.LoadString(IDS_OPEN_DOCUMENT);
+	sTitle.LoadString(IDS_OPEN_DOC);
 	CFileDialog* doc;
 	doc = new CFileDialog(TRUE, NULL, sDefName, dwFlags, sFileFilter);
 	doc->m_ofn.lpstrTitle = sTitle;

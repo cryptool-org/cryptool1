@@ -2168,7 +2168,7 @@ BEGIN
     LTEXT           "Eingabe",IDC_STATIC,6,297,85,10
 END
 
-IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 504, 423
+IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 495, 423
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schrittweise Signaturerzeugung"
 FONT 8, "MS Sans Serif"
@@ -2201,17 +2201,17 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,242,199,50,28
     CONTROL         "INFOSIGN_B_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,354,199,50,28
-    CONTROL         "CANCEL_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,242,260,50,28
+    CONTROL         "CANCEL_Y_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,17,260,50,28
     CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,354,260,50,28
-    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,300,490,10,SS_SUNKEN | 
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,300,481,10,SS_SUNKEN | 
                     NOT WS_GROUP
-    EDITTEXT        IDC_DISPLAY_INFO,7,310,490,106,ES_MULTILINE | 
+    EDITTEXT        IDC_DISPLAY_INFO,7,310,481,106,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
-    CONTROL         345,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,160
-    CONTROL         344,IDC_EMPTY2,"Static",SS_BITMAP,129,260,113,37
+    CONTROL         543,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,123
+    CONTROL         542,IDC_EMPTY2,"Static",SS_BITMAP,129,260,227,37
 END
 
 IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
@@ -3386,6 +3386,11 @@ IDB_BITMAP_ARROWBEN     BITMAP  DISCARDABLE     "res\\Bitmaps\\ARROW_BEND.bmp"
 IDB_BITMAP9             BITMAP  DISCARDABLE     "res\\arrben.bmp"
 IDB_BITMAP_ARROW90      BITMAP  DISCARDABLE     "res\\bitmap10.bmp"
 IDB_BITMAP_ARRBEN2      BITMAP  DISCARDABLE     "res\\bitmap10_2.bmp"
+CANCEL_Y_U              BITMAP  DISCARDABLE     "res\\CANCEL_Y_U.bmp"
+CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\CANCEL_Y_F.bmp"
+CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\CANCEL_Y_D.bmp"
+IDB_EMPTY2B             BITMAP  DISCARDABLE     "res\\EMPTY2b.bmp"
+IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\EMPTY1b.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4117,10 +4122,11 @@ BEGIN
     IDD_SIGNATURE_DEMO, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 497
+        RIGHTMARGIN, 488
+        VERTGUIDE, 17
         VERTGUIDE, 121
         HORZGUIDE, 8
-        HORZGUIDE, 252
+        HORZGUIDE, 260
     END
 
     IDD_DEMO_RSAKEY_GENERATION, DIALOG
@@ -4602,7 +4608,6 @@ BEGIN
     IDS_STRING_HASH_VALUE_OF "%s Hashwert von <%s>"
     IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY 
                             "Die erweiterte Analyse ist vorerst nur für deutsche Klartexte verfügbar."
-    IDS_STRING_ENC_HASH_VALUE_OF "Verschlüsselter %s Hashwert von <%s>"
     IDS_STRING_ERR_EC_FILE_NOT_FOUND 
                             "Die Datei %s kann nicht gefunden werden!\nOhne diese Datei können keine Schlüssel für Elliptische Kurven basierte Signaturverfahren erstellt werden!"
     IDS_STRING_SUBSTITUTION_ANALYSE "Substitutionsanalyse"
@@ -5418,7 +5423,6 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
-    IDS_STRING_RSADEMO_Q_NOT_PRIME2 "Die Eingabe für q ist keine Primzahl !"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5429,7 +5433,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_OPEN_DOCUMENT       "Dokument öffnen"
+    IDS_OPEN_DOC            "Dokument öffnen"
     IDS_CONTENT_DOCUMENT    "Dokument: "
     IDS_DEPENDENCY          "Abhängigkeiten"
     IDS_NAME2               "Name:                   %s %s\r\n"
@@ -7674,6 +7678,7 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,242,76,50,28
     CONTROL         "INFOCERT_B_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,354,76,50,28
+    CONTROL         543,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,123
     CONTROL         "COMPUTE_R_",IDC_COMPUTE,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,129,138,50,28
     CONTROL         "ENCRYPT_R_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | 
@@ -7686,17 +7691,16 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,242,199,50,28
     CONTROL         "INFOSIGN_B_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,354,199,50,28
-    CONTROL         "CANCEL_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,242,260,50,28
-    CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,354,260,50,28
+    CONTROL         "CANCEL_Y_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,17,260,50,28
+    CONTROL         542,IDC_EMPTY2,"Static",SS_BITMAP,129,260,227,37
     LTEXT           "Static",IDC_DISPLAY_CONTENT,7,300,482,10,SS_SUNKEN | 
                     NOT WS_GROUP
     EDITTEXT        IDC_DISPLAY_INFO,7,310,482,106,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
-    CONTROL         345,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,160
-    CONTROL         344,IDC_EMPTY2,"Static",SS_BITMAP,129,260,113,37
+    CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,354,260,50,28
 END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
@@ -8666,6 +8670,14 @@ SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
 SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
 SELECTALG_R_F           BITMAP  DISCARDABLE     "res\\bmp00031.bmp"
 SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
+CANCEL_Y_U              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_U.bmp"
+CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_F.bmp"
+CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_D.bmp"
+IDB_EMPTY1              BITMAP  DISCARDABLE     "res\\bmp00033.bmp"
+IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\bmp00034.bmp"
+IDB_EMPTY2              BITMAP  DISCARDABLE     "res\\bmp00035.bmp"
+IDB_EMPTY2B             BITMAP  DISCARDABLE     "res\\bmp00036.bmp"
+IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\bmp00037.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10308,7 +10320,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_RSADEMO_Q_NOT_PRIME3 "Die Eingabe für q ist keine Primzahl !"
-    IDS_OPEN_DOCUMENT2      "Open document"
+    IDS_OPEN_DOC            "Open document"
     IDS_CONTENT_DOCUMENT    "Document:"
     IDS_DEPENDENCY          "Dependency"
     IDS_NAME2               "Name:                   %s %s\r\n"

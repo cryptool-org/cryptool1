@@ -126,6 +126,8 @@
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
+#define IDB_EMPTY2B                     542
+#define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -1185,9 +1187,8 @@
 #define IDS_OPEN_DOCUMENT_FILTER        37838
 #define IDS_STRING_RSADEMO_Q_NOT_PRIME2 37839
 #define IDS_OPEN_DOCUMENT_FILTER2       37839
-#define IDS_OPEN_DOCUMENT               37840
 #define IDS_STRING_RSADEMO_Q_NOT_PRIME3 37840
-#define IDS_OPEN_DOCUMENT2              37841
+#define IDS_OPEN_DOC                    37841
 #define IDS_CONTENT_DOCUMENT            37842
 #define IDS_DEPENDENCY                  37843
 #define IDS_NAME2                       37844

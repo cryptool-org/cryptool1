@@ -304,6 +304,10 @@ SOURCE=.\res\bitmap1.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap12.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmap10.bmp
 # End Source File
 # Begin Source File
@@ -356,6 +360,10 @@ SOURCE=.\res\bmp00002.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bmp00003.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bmp00004.bmp
 # End Source File
 # Begin Source File
@@ -368,7 +376,135 @@ SOURCE=.\res\bmp00006.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bmp00007.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00008.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00009.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00010.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00011.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00012.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00013.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00014.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00015.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00016.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00017.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00018.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00019.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00020.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00021.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00022.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00023.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00024.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00025.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00026.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00027.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00028.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00029.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00030.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00031.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00032.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00033.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00034.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00035.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00036.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00037.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\BruteForceAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\cancel_g.bmp
 # End Source File
 # Begin Source File
 
@@ -384,11 +520,27 @@ SOURCE=.\res\CANCEL_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\CANCEL_Y_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CANCEL_Y_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CANCEL_Y_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\ChrTools.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\ChrTools.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\combine_.bmp
 # End Source File
 # Begin Source File
 
@@ -425,6 +577,10 @@ SOURCE=.\COMFLASH.CPP
 # Begin Source File
 
 SOURCE=.\COMFLASH.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\compute_.bmp
 # End Source File
 # Begin Source File
 
@@ -1452,7 +1608,15 @@ SOURCE=.\res\EMPTY1.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\EMPTY1b.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\EMPTY2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\EMPTY2b.bmp
 # End Source File
 # Begin Source File
 
@@ -1512,9 +1676,210 @@ SOURCE=.\FPOLY.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\GB_CANCEL_Y_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_CANCEL_Y_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_CANCEL_Y_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_ENCRYPT_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENCERT_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_GENKEY_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOALG_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOALG_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOALG_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOALG_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOCERT_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOCERT_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOCERT_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOCERT_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFODOC_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFODOC_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFODOC_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFODOC_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOENC_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOENC_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOENC_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOENC_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOHASH_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOHASH_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOHASH_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOHASH_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOKEY_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOKEY_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOKEY_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOKEY_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOSIGN_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOSIGN_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOSIGN_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GB_INFOSIGN_B_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\GENCERT_G_D.bmp
 # End Source File
 # Begin Source File
+
 
 SOURCE=.\res\GENCERT_G_F.bmp
 # End Source File
@@ -1806,6 +2171,10 @@ SOURCE=.\res\Layout.bmp
 # Begin Source File
 
 SOURCE=.\res\magnify.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\mainfram.bmp
 # End Source File
 # Begin Source File
 
@@ -2228,6 +2597,10 @@ SOURCE=.\SecudeTools.cpp
 # Begin Source File
 
 SOURCE=.\SecudeTools.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\selectal.bmp
 # End Source File
 # Begin Source File
 
