@@ -994,7 +994,7 @@ BOOL TutorialFactorisation::Brent()
 
 	if (z==N) 
 	{
-		return ABORT();
+		return END_METHOD();
 	}
 
 	factor1 = z;
@@ -1138,7 +1138,7 @@ BOOL TutorialFactorisation::Pollard()
             return SUCCESS();
         }
     } 
-    return ABORT();
+    return END_METHOD();
 }
 
 
@@ -1263,7 +1263,7 @@ BOOL TutorialFactorisation::Williams()
         } 
         if (nt>=NTRYS) break;
     }
-	return ABORT();
+	return END_METHOD();
 }
 
 
@@ -1465,7 +1465,7 @@ BOOL TutorialFactorisation::Lenstra()
         }
         if (nc>NCURVES) break;
     } 
-	return ABORT();
+	return END_METHOD();
 }
 
 int TutorialFactorisation::initv()
@@ -1995,7 +1995,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
             }
         }
     }
-	return ABORT();
+	return END_METHOD();
 }
 
 

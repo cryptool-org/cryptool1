@@ -25,7 +25,8 @@ CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(CTextOptions::IDD, pParent)
 {
 	LoadString(/*AfxGetInstanceHandle()*/ NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-
+	char buffer[1024];
+	int n = SearchPath(NULL, pc_str, NULL, 1023, buffer, NULL);
 	//{{AFX_DATA_INIT(CTextOptions)
 	m_Format = TRUE;
 	m_alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -38,7 +39,12 @@ CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 	m_ConvertCase = FALSE;
 	m_trenn = _T("X");
 	m_addx = TRUE;
-	m_StrRefFile=pc_str;
+	if(n>0) {
+		m_StrRefFile=buffer;	
+	}
+	else
+		m_StrRefFile=_T("");
+
 	//}}AFX_DATA_INIT
 
 	m_ConvertCase = TRUE;

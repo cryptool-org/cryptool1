@@ -15,7 +15,7 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgTutorialFactorisation 
-long ExitFactorisationCode;
+volatile long ExitFactorisationCode;
 
 
 DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
@@ -93,7 +93,7 @@ UINT singleThreadBrent( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Brent();
-	dlg.PostMessage(WM_TIMER,47,NULL);
+	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -102,7 +102,7 @@ UINT singleThreadPollard( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Pollard();
-	dlg.PostMessage(WM_TIMER,47,NULL);
+	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -111,7 +111,7 @@ UINT singleThreadWilliams( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Williams();
-	dlg.PostMessage(WM_TIMER,47,NULL);
+	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -120,7 +120,7 @@ UINT singleThreadLenstra( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Lenstra();
-	dlg.PostMessage(WM_TIMER,47,NULL);
+	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -129,7 +129,7 @@ UINT singleThreadQuadraticSieve( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->QuadraticSieve();
-	dlg.PostMessage(WM_TIMER,47,NULL);
+	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -201,7 +201,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					if ( 0 == ExitFactorisationCode )
 					{
 						ExitFactorisationCode = 2;
-						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
 					}
 				}
 				factorized = fact.isItFactorized();
@@ -224,7 +224,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					if ( 0 == ExitFactorisationCode )
 					{
 						ExitFactorisationCode = 2;
-						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
 					}
 				}
 				factorized = fact.isItFactorized();
@@ -248,7 +248,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					if ( 0 == ExitFactorisationCode )
 					{
 						ExitFactorisationCode = 2;
-						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
 					}
 				}
 				factorized = fact.isItFactorized();
@@ -271,7 +271,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					if ( 0 == ExitFactorisationCode )
 					{
 						ExitFactorisationCode = 2;
-						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
 					}
 				}
 				factorized = fact.isItFactorized();
@@ -280,7 +280,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor1Str( f1 );
 					fact.GetFactor2Str( f2 );
 				}
-
 			}
 			
 			if ( !factorized && m_QSieve )
@@ -295,7 +294,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					if ( 0 == ExitFactorisationCode )
 					{
 						ExitFactorisationCode = 2;
-						while ( ExitFactorisationCode != 1 ) Sleep( 20 );
+						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
 					}
 				}
 				factorized = fact.isItFactorized();

@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-extern long ExitFactorisationCode;
+extern volatile long ExitFactorisationCode;
 
 
 
@@ -121,6 +121,10 @@ class TutorialFactorisation
 		return true;
 	}
 	BOOL ABORT() {
+		ExitFactorisationCode = -1;
+        return false;
+	}
+	BOOL END_METHOD() {
 		ExitFactorisationCode = 1;
         return false;
 	}
