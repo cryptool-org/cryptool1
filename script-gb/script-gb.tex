@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{makeidx}
+\usepackage{graphicx}
 \makeindex
 \hypersetup{colorlinks=true}
 
@@ -487,7 +488,7 @@ machines.)
 prime numbers.)
 \end{quote}
 \subsubsection{M-38 -- June 1999}\index{Mersenne Marine!M-38}
-The 38th Mersenne prime 
+The 38th Mersenne prime
 $$ 2^{6,972,593} - 1. $$
 was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 (that corresponds to around 77 pages in the newspaper).
@@ -519,7 +520,7 @@ to the possibilities offered by {\em cooperative networking}
 
 {\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}.
 
-The discoverer of M-38 got for discovering the first prime with more than 1 million decimal digits 50.000 USD 
+The discoverer of M-38 got for discovering the first prime with more than 1 million decimal digits 50.000 USD
 from the EFF. The next price from EFF with 100.000 USD is for a proven prime with more than 10 million decimal digits.
 %{\href{http://www.octocad.demon.co.uk/mersenne/prime.htm }{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
 
@@ -1439,7 +1440,7 @@ $a+b=c$, and $c$ lies in $G$).
    \item For all elements $a, b$ and $c$ in $G$: $(a+b)+c = a+(b+c)$.
    \item There exists an element $e$ in $G$ that behaves neutrally with respect
 to the operation $+$. That means that for all a in the set $G: ~a+e = e+a = a.$
-   \item For each element $a$ in $G$ there exists a so-called inverse element $-a$ 
+   \item For each element $a$ in $G$ there exists a so-called inverse element $-a$
 ($-a$ also lies in $G$) such that: $a+(-a) = (-a)+a = e$.
 \end{itemize}
 If also $a+b = b+a$ for all $a, b$ in $G$ then we call the group an {\em
@@ -1524,60 +1525,50 @@ represent the elements from these fields as bit strings. This leads to an
 efficient implementation of the arithmetic in such fields, which means that a
 computer can perform the operations of the field particularly quickly.
 
-An elliptic curve over ${\mathbb Z}_p$ is defined by an equation of the
-following form: $$ y^2 \; ({\rm mod} \; p) = x^3 + ax + b ({\rm mod} \; p) $$
-(thus: equality in the field ${\mathbb Z}_p$), where $a, b$ are in ${\mathbb
-Z}_p$ and $4a^3 + 27b^2$ mod $p$ is not equal to zero. For fixed chosen numbers
-$a$ and $b$ in ${\mathbb Z}_p$, this equation has the pair of solutions $$ {\bf
-E} = \left\{(x,y) \left| \begin{array}{c} x {\rm ~and~} y {\rm ~are~in~}
-{\mathbb Z}_p {\rm ~and~} \\ y^2  \equiv x^3 + ax + b \; ({\rm mod~} p) {\rm
-~and~} \\ 4a^3 + 27b^2 \not\equiv 0 \; ({\rm mod~} p)\end{array} \right.
-\right\}, $$ i.e. the set ${\bf E}$ consists of all pairs $x$ and $y$ that are a
-solution (in ${\mathbb Z}_p$) of the above equation. It must be noted that the
-numbers $a, b$ and $p$ determine which pairs $(x,y)$ lie in the set ${\bf E}$.
-This means that $a, b$ and $p$ specify this set. The elements $(x,y)$ in ${\bf
-E}$ are called points on the elliptic curve. In addition, ${\bf E}$ has one more
-element $O$ (the so-called point in infinity). The set ${\bf E}$ is usually
-called an elliptic curve. We can now define an operation (also denoted as $+$,
-although it is not the standard/usual addition of real numbers) on two elements
-in ${\bf E}$ such that the operation delivers an element that also lies in ${\bf
-E}$. The set ${\bf E}$ is therefore closed under the operation $+$. We can show
-that ${\bf E}$ is a group. The neutral element of the group ${\bf E}$ is the
-point in infinity $O$. Thus, for every two points $(x_1,y_1)$ and $(x_2,y_2)$ on
-the elliptic curve ${\bf E}$, there exists a point $(x_3,y_3)$ on ${\bf E}$ such
-that the operation $+$ complies with the following: $(x_1,y_1) + (x_2,y_2) =
-(x_3,y_3)$. Under certain circumstances, these points may also be equal to the
-point in infinity. Thus, when we speak of a point $P$ on an elliptic curve ${\bf
-E}$, we mean that $P = (x,y)$ and $(x,y)$ lies in the set ${\bf E}$. Any two
-points on an elliptic curve specified by $a, b$ and $p$ can therefore be added
-and the result is a point that also lies on the same elliptic curve. We must
-note that ${\bf E}$ can have the following meanings:
+Because these points actually refer to the same thing, it is seldom necessary to distinguish between exact meanings.
+
+An elliptic curve over ${\mathbb Z}_p$ is defined by an equation of the following form:
+$$ y^2 \; ({\rm mod} \; p) = x^3 + ax + b ({\rm mod} \; p) $$
+(thus: equality in the field ${\mathbb Z}_p$), where $a, b$ are in ${\mathbb Z}_p$ and $4a^3 + 27b^2$ mod $p$ is
+not equal to zero. For fixed chosen numbers $a$ and $b$ in ${\mathbb Z}_p$, this equation has the pair of solutions
+$$ {\bf E} = \left\{(x,y) \left| \begin{array}{c} x {\rm ~and~} y {\rm ~are~in~} {\mathbb Z}_p {\rm ~and~} \\
+y^2  \equiv x^3 + ax + b \;({\rm mod~} p) {\rm ~and~} \\ 4a^3 + 27b^2 \not\equiv 0 \;
+({\rm mod~} p)\end{array} \right. \right\}, $$ i.e. the set ${\bf E}$ consists of all pairs $x$ and $y$ that are a solution
+(in ${\mathbb Z}_p$) of the above equation. It must be noted that the numbers $a, b$ and $p$ determine which pairs $(x,y)$
+lie in the set ${\bf E}$. This means that $a, b$ and $p$ specify this set. The elements $(x,y)$ in ${\bf E}$ are called
+points on the elliptic curve. In addition, ${\bf E}$ has one more element $O$ (the so-called point in infinity).
+The set ${\bf E}$ is usually called an elliptic curve. We can now define an operation (also denoted as $+$, although it is
+not the standard/usual addition of real numbers) on two elements in ${\bf E}$ such that the operation delivers an element
+that also lies in ${\bf E}$. The set ${\bf E}$ is therefore closed under the operation $+$. We can show
+that ${\bf E}$ is a group. The neutral element of the group ${\bf E}$ is the point in infinity $O$. Thus, for every two
+points $(x_1,y_1)$ and $(x_2,y_2)$ on the elliptic curve ${\bf E}$, there exists a point $(x_3,y_3)$ on ${\bf E}$ such that
+the operation $+$ complies with the following: $(x_1,y_1) + (x_2,y_2) = (x_3,y_3)$. Under certain circumstances, these points
+may also be equal to the point in infinity. Thus, when we speak of a point $P$ on an elliptic curve ${\bf E}$,
+we mean that $P = (x,y)$ and $(x,y)$ lies in the set ${\bf E}$. Any two points on an elliptic curve specified by $a, b$ and $p$
+can therefore be added and the result is a point that also lies on the same elliptic curve. We must note that ${\bf E}$ can have
+the following meanings:
 \begin{itemize}
    \item the set ${\bf E}$ of solutions pairs $(x,y)$ for an equation including the point $O$
    \item the group ${\bf E}$ (with the operation ''addition of $(x_1,y_1)$ and $(x_2,y_2)$'')
    \item the elliptic curve ${\bf E}$ (which is actually the same as the group ${\bf E}$)
- \end{itemize}
+\end{itemize}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5]{ELL1_50.eps}
+\caption{Doubling the point P} \vspace{\floatsep}
+\includegraphics[scale=0.5]{ELL2_50.eps}
+\caption{ Adding distinct points P and Q}
+\end{center}
+\end{figure}
+For cryptography, the important fact is that, for very large numbers, it appears to be extremely difficult to use a
+given point $Q$ on an elliptic curve to determine which two points have to be added to obtain $Q$.
 
-Because these points actually refer to the same thing, it is seldom necessary to
-distinguish between exact meanings.
-
-For cryptography, the important fact is that, for very large
-numbers, it appears to be extremely difficult to use a given point
-$Q$ on an elliptic curve to determine which two points have to be
-added to obtain $Q$.
-
-For large numbers $a, b$ and $p$ ($p$, for
-example, has a length of more than $160$ bits), the computer can
-easily add the point $P$  $m$ times after another, i.e. to
-determine the point $P + P + \cdots + P = Q$ in an incredibly
-short space of time (in a few fractions of a second) ($m$ summands
-$P$). Rather than $P + P + \cdots + P = Q$ ($m$ summands $P$) we
-also write $mP = Q$. If we have a point $P$ and a point $Q$, which
-both lie on the same elliptic curve, no procedure is known that
-enables us --- within an acceptable space of time --- to determine
-the number $m$ (assuming it actually exists) for which $mP = Q$.
-This is referred to as the ''elliptic curve discrete logarithm
-problem'' (abbreviated to ECDLP).
+For large numbers $a, b$ and $p$ ($p$, for example, has a length of more than $160$ bits), the computer can easily add
+the point $P$  $m$ times after another, i.e. to determine the point $P + P + \cdots + P = Q$ in an incredibly short space
+of time (in a few fractions of a second) ($m$ summands $P$). Rather than $P + P + \cdots + P = Q$ ($m$ summands $P$)
+we also write $mP = Q$. If we have a point $P$ and a point $Q$, which both lie on the same elliptic curve, no procedure
+is known that enables us --- within an acceptable space of time --- to determine the number $m$ (assuming it actually exists)
+for which $mP = Q$. This is referred to as the ''elliptic curve discrete logarithm problem'' (abbreviated to ECDLP).
 
 We must note that not all elliptic curves are equally secure. This
 means that we must choose the parameters $a$ and $b$ carefully

@@ -1,7 +1,8 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[german]{babel}
 \usepackage{hyperref}
-\usepackage[dvips]{graphics}
+%\usepackage[dvips]{graphics}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -19,9 +20,9 @@
   {\textbf{Beweis #1} \\}
   {\hfill$\Box$ \\}
 
-\pdfinfo{ /Title (CrypTool Skript) /Creator (TeX) /Producer
-(pdfTeX 0.14a) /Author (Deutsch Bank AG) /CreationDate
-(D:20000920201000) }
+%\pdfinfo{ /Title (CrypTool Skript) /Creator (TeX) /Producer
+%(pdfTeX 0.14a) /Author (Deutsch Bank AG) /CreationDate
+%(D:20000920201000) }
 
 
 \title{ CrypTool Skript \\ Mathematik und Kryptographie }
@@ -371,7 +372,7 @@ $$ 60 = 1 \cdot 60 = 2 \cdot 30 = 4 \cdot 15 = 5 \cdot 12 =6 \cdot 10 = 2 \cdot 
         2 \cdot 5 \cdot 6 = 3 \cdot 4 \cdot 5 = ... $$
 
 Der folgende Absatz wendet sich eher an die mit der mathematischen Logik vertrauteren Menschen:
-Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich\label{remFundTheoOfArithm}. Man kann viele andere Zahlenmengen 
+Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich\label{remFundTheoOfArithm}. Man kann viele andere Zahlenmengen
 (ungleich der positiven ganzen Zahlen gr"o"ser als 1) konstruieren, bei denen selbst eine Zerlegung in
 die Primfaktoren dieser Mengen nicht eindeutig ist:
 In der Menge $M = \{1, 5, 10, 15, 20, ...\}$ gibt es unter der Multiplikation kein Analogon zum Hauptsatz.
@@ -548,10 +549,10 @@ genommen war am 6.12.2001 die Verifikation der am 14.11.2001 von dem kanadischen
 Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). Allein zu ihrer Darstellung
 (924947738006701322247758 ... 1130073855470256259071) br"auchte man in der FAZ knapp 200 Seiten.
 \subsubsection{GIMPS}\index{GIMPS}
-Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mersenne Prime Search) bereits 
+Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mersenne Prime Search) bereits
 zum 5. Mal die gr"o"ste Mersenne-Zahl entdeckt, die erwiesenerma"sen prim ist.
 
-Am GIMPS-Projekt beteiligen sich z.Zt. rund 130.000 freiwillige Amateure und Experten, die ihre Rechner in das 
+Am GIMPS-Projekt beteiligen sich z.Zt. rund 130.000 freiwillige Amateure und Experten, die ihre Rechner in das
 von der Firma entropia organisierte \glqq primenet\grqq~ einbinden, um mit verteilten Computerprogrammen solche Zahlen zu finden.
 \subsubsection{EFF}\index{EFF}
 
@@ -563,7 +564,7 @@ die M"oglichkeiten des {\em cooperative networking} aufmerksam machen
 
 {\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}.
 
-Der Entdecker von M-38 erhielt f"ur die Entdeckung der ersten Primzahl mit "uber 1 Million Dezimalstellen von der EFF eine 
+Der Entdecker von M-38 erhielt f"ur die Entdeckung der ersten Primzahl mit "uber 1 Million Dezimalstellen von der EFF eine
 Pr"amie von 50.000 USD. Die n"achste Pr"amie von 100.000 USD gibt es von der EFF f"ur eine Primzahl mit mehr als 10 Millionen
 Dezimalstellen.
 % {\href{http://www.octocad.demon.co.uk/mersenne/prime.htm}{\tt http://www.octocad.demon.co.uk/mersenne/prime.htm}}.
@@ -1012,10 +1013,10 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
     \cite[S. 167]{Klee1997})?
     Diese Frage kann man auf die beiden folgenden Fragestellungen aufsplitten:
   \begin{itemize}
-		\item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob eine Zahl prim ist?
-		\item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
-    	nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"a"st?
-		\end{itemize}
+        \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob eine Zahl prim ist?
+        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
+        nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"a"st?
+        \end{itemize}
 \end{itemize}
 \paragraph{Weitere interessante Themen rund um Primzahlen}
 Nicht betrachtet wurden in diesem Kapitel folgende eher
@@ -1379,7 +1380,7 @@ gesichert werden.
 \section{Elliptische Kurven}
 \index{elliptische Kurven}
 \hypertarget{ellcurve}{}
-(Bartol Filipovics / B. Esslinger, April 2000)
+(Bartol Filipovics / B. Esslinger / R. Oyono , April 2000, Update Dez. 2001)
 \subsection{Elliptische Kurven --- Historisches}
 
 Auf dem Gebiet der Elliptischen Kurven wird seit "uber 100 Jahren geforscht. Im Laufe der Zeit hat man
@@ -1431,7 +1432,7 @@ Primzahltests, die auf Elliptischen Kurven basieren.
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Verschl"usselungsverfahren auf Basis von Elliptischen Kurven beruhen auf der
 Schwierigkeit eines als Elliptische Kurven Diskreter Logrithmus bekannten Problems.
-Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, da"s man f"ur eine nat"urliche, 
+Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, da"s man f"ur eine nat"urliche,
 aus mehreren Primzahlen zusammengesetzte Zahl $n$ sehr viele verschiedene Elliptische
 Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n$ keine
 Gruppen. \hyperlink{faktell}{N"aheres dazu findet sich unter Faktorisieren mit Elliptischen Kurven.}
@@ -1526,11 +1527,7 @@ Charakteristik $2$ sind aus praktischer Sicht sehr interessant, da man in Comput
 aus diesen K"orpern als Bitstrings darstellen kann. Dies f"uhrt zu einer effizienten Realisierung der
 Arithmetik in solchen K"orpern: Das hei"st ein Computer kann die Verkn"upfungsoperationen des K"orpers
 besonders schnell durchf"uhren.
-\begin{figure}
-\begin{center}
-\includegraphics{ELL1_50.eps}
-\end{center}
-\end{figure}
+
 Eine Elliptische Kurve "uber ${\mathbb Z}_p$ wird durch eine Gleichung der folgenden Form definiert:
 $$ y^2 \; ({\rm mod} \; p) = x^3 + ax + b ({\rm mod} \; p) $$
 (also: Gleichheit im K"orper ${\mathbb Z}_p$),
@@ -1545,24 +1542,44 @@ obigen Gleichung sind. Zu bemerken ist, da"s durch die Zahlen $a, b$ und $p$ fes
 $(x,y)$ in der Menge ${\bf E}$ liegen. Das hei"st $a, b$ und $p$ spezifizieren diese Menge. Die Elemente $(x,y)$
 aus ${\bf E}$ nennt man Punkte auf der Elliptischen Kurve. Zus"atzlich hat ${\bf E}$ noch ein Element $O$
 (der sogenannte Punkt im Unendlichen). Es ist allgemein "ublich, die Menge ${\bf E}$ als Elliptische Kurve
-zu bezeichnen. Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist aber nicht die
-normale/"ubliche Addition in den reellen Zahlen) zweier Elemente aus ${\bf E}$ definieren, so da"s diese
-Verkn"upfung ein Element ergibt, das wieder in ${\bf E}$ liegt. Die Menge ${\bf E}$ ist also unter der
-Verkn"upfung $+$ abgeschlossen. Man kann zeigen, da"s ${\bf E}$ eine Gruppe ist. Das neutrale Element der
-Gruppe ${\bf E}$ ist der Punkt im Unendlichen $O$. Somit gibt es zu je zwei Punkten $(x_1,y_1)$ und $(x_2,y_2)$
-auf der Elliptischen Kurve ${\bf E}$ einen Punkt $(x_3,y_3)$ auf ${\bf E}$, so da"s mit der Verkn"upfung
-$+$ gilt: $(x_1,y_1) + (x_2,y_2) = (x_3,y_3)$. Dabei k"onnen unter Umst"anden diese Punkte auch gleich
-dem Punkt im Unendlichen sein. Wenn also von einem Punkt $P$ auf einer Elliptischen Kurve ${\bf E}$ die Rede
-ist, so ist damit gemeint, da"s $P = (x,y)$ ist und $(x,y)$ in der Menge ${\bf E}$ liegt. Je zwei
-Punkte auf einer durch $a, b$ und $p$ spezifizierten Elliptischen Kurve k"onnen also addiert werden und das
-Resultat ist ein Punkt, der ebenfalls auf derselben Elliptischen Kurve liegt. Zu beachten ist, da"s man ${\bf E}$
-folgende Bedeutungen zuordnen kann:
+zu bezeichnen.
+
+Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist
+aber nicht die normale/"ubliche Addition\footnote{
+Eine Animation der Punktaddition auf elliptischen Kurven findet man auf der Certicom Seite
+unter 
+
+\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}.} in den reellen Zahlen)
+zweier Elemente aus ${\bf E}$ definieren, so da"s diese
+Verkn"upfung ein Element ergibt, das wieder in ${\bf E}$ liegt.
+Die Menge ${\bf E}$ ist also unter der Verkn"upfung $+$
+abgeschlossen. Man kann zeigen, da"s ${\bf E}$ eine Gruppe ist.
+Das neutrale Element der Gruppe ${\bf E}$ ist der Punkt im
+Unendlichen $O$. Somit gibt es zu je zwei Punkten $(x_1,y_1)$ und
+$(x_2,y_2)$ auf der Elliptischen Kurve ${\bf E}$ einen Punkt
+$(x_3,y_3)$ auf ${\bf E}$, so da"s mit der Verkn"upfung $+$ gilt:
+$(x_1,y_1) + (x_2,y_2) = (x_3,y_3)$. Dabei k"onnen unter
+Umst"anden diese Punkte auch gleich dem Punkt im Unendlichen sein.
+Wenn also von einem Punkt $P$ auf einer Elliptischen Kurve ${\bf
+E}$ die Rede ist, so ist damit gemeint, da"s $P = (x,y)$ ist und
+$(x,y)$ in der Menge ${\bf E}$ liegt. Je zwei Punkte auf einer
+durch $a, b$ und $p$ spezifizierten Elliptischen Kurve k"onnen
+also addiert werden und das Resultat ist ein Punkt, der ebenfalls
+auf derselben Elliptischen Kurve liegt. Zu beachten ist, da"s man
+${\bf E}$ folgende Bedeutungen zuordnen kann:
 \begin{itemize}
    \item die Menge ${\bf E}$ der L"osungspaare $(x,y)$ einer Gleichung inklusive dem Punkt $O$ %\\[-20 pt]
    \item die Gruppe ${\bf E}$ (mit der Verkn"upfung \glqq Addition von $(x_1,y_1)$ und $(x_2,y_2)$\grqq) %\\[-20 pt]
    \item die Elliptische Kurve ${\bf E}$ (die eigentlich dasselbe wie die Gruppe ${\bf E}$ ist) %\\[-20pt]
  \end{itemize}
-
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5]{ELL1_50.eps}
+\caption{Verdoppelung eines Punktes} \vspace{\floatsep}
+\includegraphics[scale=0.5]{ELL2_50.eps}
+\caption{Addition zweier verschiedenen Punkten}
+\end{center}
+\end{figure}
 Da diese Bezeichnungen eigentlich alle dasselbe meinen, ist eine Unterscheidung "uber die genaue Bedeutung nur
 selten n"otig.
 
@@ -1653,11 +1670,14 @@ Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bek
 \subsubsection{Faktorisieren mit Elliptischen Kurven}
 \hypertarget{faktell}{}
 
-Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven basieren. Genauer gesagt, machen sich diese
-Verfahren zunutze, da"s man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl) Elliptische Kurven definieren kann.
-Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem Punkt auf solchen
-Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, da"s es - falls $n$ eine
-zusammengesetzte Zahl ist - in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
+Es gibt Faktorisierungalgorithmen, die auf Elliptischen Kurven basieren\footnote{
+Im Jahr 1987 stellte H.W. Lentra\index{Lenstra 1987} einen Faktorisierungsalgorithmus vor, der auf elliptischen Kurven basiert 
+(Siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit elliptischen Kurven faktorisierte Zahl  
+ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).} 
+Genauer gesagt, machen sich diese Verfahren zunutze, da"s man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
+Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
+Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, da"s es - falls $n$ 
+eine zusammengesetzte Zahl ist - in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
 modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
 Punkten (auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen Teiler
@@ -1693,6 +1713,34 @@ die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen 
 (nach Entwurf Nr.8 der Arbeitsgruppe IEEE P1363). Dies erfolgte in Zusammenarbeit mit der SECUDE
 GmbH --- und unter Benutzung der obigen Bibliothek und des SECUDE SDK.
 \index{SECUDE GmbH}
+
+\newpage
+%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+	\bibitem[Lenstra1987]{Lenstra1987}  \index{Lenstra 1987}
+		Factoring integers with elliptic curves.
+
+		Annals of Mathematics 126, pp. 649-673, 1987.
+\end{thebibliography}
+\newpage
+
+\section*{URLs}\addcontentsline{toc}{subsection}{URLs}
+
+\begin{enumerate}
+   \item Online-Tutorial "uber elliptische Kurven der Firma CERTICOM\index{Certicom}\\
+		\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}
+	\item Arbeitsgruppe IEEE P1363
+
+		\href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}
+	\item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit elliptischen Kurven
+
+		\href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\tt http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}
+
+		Dort findet man Literatur zum Thema Faktorisieren mit elliptischen Kurven sowie Links
+zu anderen Seiten.
+
+\end{enumerate}
 
 \addcontentsline{toc}{section}{Index} \printindex
 %

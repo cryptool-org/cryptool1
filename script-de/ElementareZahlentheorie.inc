@@ -848,7 +848,7 @@ $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 $$
 3^{28} \equiv 3^{4*7} \equiv 3^{4*7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
-\paragraph{Schnelles Berechnen hoher Potenzen} \hypertarget{hohpot}{} \index{Potenzen}
+\subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} \addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} \hypertarget{hohpot}{} \index{Potenzen}
 Bei RSA-Ver- und Entschl"usselungen\footnote{
 Siehe \hyperlink{Kapitel_3_10}{Kapitel 3.10} und \hyperlink{Kapitel_3_12}{3.12}} m"ussen hohe Potenzen Modulo $m$ berechnet
 werden. Schon die Berechnung $(100^5){\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long Integer}

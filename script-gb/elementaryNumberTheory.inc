@@ -733,8 +733,8 @@ $$
 3^{28} \equiv 3^{4*7} \equiv 3^{4*7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
 
-\paragraph{High powers} \hypertarget{hohpot}{} \index{Powers}
-
+\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Powers}
+\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
 RSA encryption and decryption\footnote{
 See\hyperlink{Kapitel_3_10}{chapter 3.10} and\hyperlink{Kapitel_3_12}{3.12}} entails calculating high powers modulo $m$. 
 For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit long integer number range provided we calculate $a^n$ 
