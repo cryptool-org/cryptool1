@@ -412,7 +412,7 @@ BOOL CDialogPlayfair::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING61415,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 2, pc_str, LVCFMT_RIGHT, colWidth , 2); // Vorname
 
-	InitListBox();
+	//InitListBox();
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

@@ -324,6 +324,7 @@
 #define IDC_EDIT_OEFF_SCHLUESSEL_e      1200
 #define IDC_EDIT_GEHEIMER_SCHLUESSEL_d  1201
 #define IDC_ERZEUGEN                    1202
+#define IDC_COMBOBOXEX1                 1211
 #define ID_CAESAR_ASC                   32769
 #define ID_VIGENERE_ASC                 32770
 #define ID_ADD_BIN                      32771
@@ -456,6 +457,10 @@
 #define ID_ANALYSE_PERIOD               36908
 #define IDS_STRING36909                 36909
 #define IDS_STRING36910                 36910
+#define IDS_STRING37000                 37000
+#define IDS_STRING37001                 37001
+#define IDS_STRING37002                 37002
+#define IDS_STRING37003                 37003
 #define IDS_STRING41405                 41405
 #define IDS_STRING41406                 41406
 #define IDS_STRING41407                 41407
@@ -733,7 +738,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        228
 #define _APS_NEXT_COMMAND_VALUE         32938
-#define _APS_NEXT_CONTROL_VALUE         1203
+#define _APS_NEXT_CONTROL_VALUE         1213
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -172,8 +172,8 @@ void Homophone_Ber::Generate_key()
 
 int Homophone_Ber::Get_free_position()
 {
-	int index,value=-1;
-	while(-1==value)
+	int index,value=0;
+	while(-1!=value)
 	{
 		index=zz.zzgen4();
 		value=Get_key(index);

@@ -2799,9 +2799,22 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	SymbolArray text(AppConv);
 	{
 		CWaitCursor WCursor;
-		text.Read(infile);
 
-		if(text.GetSize() < 1)
+		SymbolArray Reference(AppConv);
+		Reference.Read("c:/deutsch.txt");
+		NGram R(Reference);
+
+		int size=R.GetSize();		// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
+		if(0==size)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox (line);
+			return;
+		}
+
+		text.Read(infile);
+		if(text.GetSize()<1)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str,1);
@@ -2815,26 +2828,25 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			return;
 		}
 		WCursor.Restore();
-	    if (false==DH.Is_key())
+	    if(false==DH.Is_key())
 		{
 			return;
 		}
 
 		SymbolArray Key(AppConv);
-		CString c;
 		
-	    Key.ReadString(/*KeyDialog.GetData()*/c);
-		Key += 1;
+	    Key.ReadString(/*KeyDialog.GetData()*/DH.Get_key());
+		//Key += 1;
    
 		GetTmpName(outfile,"cry",".tmp");
-
-	    if(KeyDialog.m_Decrypt)
+		
+	    if(0==DH.Get_crypt())
 		{
-		    text -= Key;
+		    text.Homophone(Key,true,0);
 		}
 	    else
 		{
-		    text += Key;
+		    text.Homophone(Key,false,0);
 		}
 	    text.Write(outfile);
 
@@ -2845,7 +2857,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
     remove(outfile);
     if(NewDoc) 
 	{
-	    if(KeyDialog.m_Decrypt)
+	    if(0!=DH.Get_crypt())
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
 		}

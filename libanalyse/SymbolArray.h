@@ -48,6 +48,7 @@ private:
 	class c_GetPart {};
 	class c_Extract {};
 public:
+	void Homophone(SymbolArray,bool,int);
 // Constructors
 	EXPLICIT SymbolArray(int size=0, const Converter& cnv=DefaultConv);
 	EXPLICIT SymbolArray(const Converter& cnv,int size=0);

@@ -1467,12 +1467,14 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Schlüssel speichern",IDOK,167,215,77,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,272,218,50,14
-    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,179,114,80,14
-    EDITTEXT        IDC_EDIT1,53,33,142,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,47,209,80,14
     CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,40,62,59,10
+                    WS_GROUP,5,6,59,10
     CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    35,84,59,10
+                    6,27,59,10
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SORTASCENDING | WS_BORDER | 
+                    WS_TABSTOP,121,20,195,157
 END
 
 
@@ -3315,6 +3317,14 @@ BEGIN
     ID_ANALYSE_PERIOD       "Perioden Analyse"
     IDS_STRING36909         "Perioden Analyse von %s:\n"
     IDS_STRING36910         "Nr\tOffset\tLänge\tPeriodenzahl\tPerioden Inhalt\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING37000         "Das in ""Optionen""->""Textoptionen einzustellende Alphabet muß mindestens 1 Zeichen enthalten!"
+    IDS_STRING37001         "Zeichen"
+    IDS_STRING37002         "Anzahl"
+    IDS_STRING37003         "Verschlüsselung"
 END
 
 STRINGTABLE DISCARDABLE 
