@@ -23,7 +23,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPrimesGeneratorDemo::IDD, pParent)
 {
-	m_hide_button_accept = true;
+	m_hide_button_accept = false;
 	//{{AFX_DATA_INIT(CDlgPrimesGeneratorDemo)
 	m_radio1 = 0;
 	m_radio4 = 0;

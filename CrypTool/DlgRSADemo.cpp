@@ -64,7 +64,6 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	// Sub-Dialoge werden zu Beginn dynamisch erzeugt ...
 	DlgOptions			= new CDlgOptionsRSADemo();
 	DlgRSAPrimes		= new CDlgPrimesGeneratorDemo();
-	DlgRSAPrimes->m_hide_button_accept = false;
 	RSA					= new CRSADemo;
 	DlgFactorisation	= new CDlgFactorisationDemo;
 	DlgFactorisation->m_inputReadOnly = TRUE; // Don't edit the input for factorisation

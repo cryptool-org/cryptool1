@@ -535,6 +535,7 @@ void CCrypToolApp::OnKeyGen()
 void CCrypToolApp::OnEinzelverfahrenTutorialPrimzahlengenerieren() 
 {
 	CDlgPrimesGeneratorDemo DPG;
+	DPG.m_hide_button_accept = true;
 	DPG.DoModal();
 }
 
