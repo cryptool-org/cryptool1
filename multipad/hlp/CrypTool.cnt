@@ -1,0 +1,36 @@
+:Base CrypTool.hlp
+:Title CrypTool 1.2.02
+1 Beginn der Arbeit mit CrypTool
+2 Wie Sie starten.=HID_WIE_SIE_STARTEN
+2 Wie Sie Szenarien durchspielen.=szenarien
+2 Wie Sie Hilfe über diese Hilfe erhalten.=hilfeueberhilfe
+1 Funktionalität von CrypTool
+2 Dokument ver- oder entschlüsseln.=menu_crypt
+2 Hashwert eines Dokuments berechnen.=menu_hash
+2 Dokument komprimieren oder entkomprimieren.=menu_compress
+2 Automatische Analyse durchführen.=menu_analyze
+2 Informationen über das aktuelle Dokument berechnen.=menu_analyze
+2 Hilfe-Index anzeigen.=main_index
+1 Dokument bearbeiten
+2 Neues Dokument erstellen.=HID_FILE_NEW
+2 Bestehendes Dokument öffnen.=HID_FILE_OPEN
+2 Dokument bearbeiten.=HIDR_TEXTTYPE
+2 Dokument speichern.=HID_FILE_SAVE
+2 Dokument unter anderem Namen speichern.=HID_FILE_SAVE_AS
+2 Dokument schließen.=HID_FILE_CLOSE
+1 Einstellungen von CrypTool ändern
+2 Voreinstellungen von CrypTool einstellen.=menu_options
+2 Symbol- oder Statusleiste ein- oder ausschalten.=menu_view
+1 Menüs von CrypTool
+2 Menü Datei=menu_file
+2 Menü Bearbeiten=menu_edit
+2 Menü Ansicht=menu_view
+2 Menü Schlüsselverwaltung=menu_key
+2 Menü Digitale Signaturen=menu_sign
+2 Menü Ver-/Entschlüsseln=menu_crypt
+2 Menü Hashwerte=menu_hash
+2 Menü Komprimieren=menu_compress
+2 Menü Analyse=menu_analyze
+2 Menü Optionen=menu_options
+2 Menü Fenster=menu_window
+2 Menü Hilfe=menu_help

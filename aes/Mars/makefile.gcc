@@ -1,0 +1,42 @@
+#
+# Makefile for the Mars algorithm using GCC-based compilers
+#
+
+CC=	gcc
+CFLAGS=	-O6 -mcpu=pentiumpro -pedantic -fomit-frame-pointer -DINTEL_GCC
+
+OBJ=	mars-opt.o
+
+#
+# Rules
+#
+
+all:	kat.exe mct.exe
+
+mars-opt.o:	mars-opt.c aes.h
+	$(CC) $(CFLAGS) -c mars-opt.c
+
+test-kat.o:	tests.c aes.h
+	$(CC) $(CFLAGS) -c -o test-kat.o -DKAT tests.c
+test-mct.o:	tests.c aes.h
+	$(CC) $(CFLAGS) -c -o test-mct.o -DMCT tests.c
+
+kat.exe:	test-kat.o $(OBJ)
+	$(CC) $(CFLAGS) -o kat.exe test-kat.o $(OBJ)
+mct.exe:	test-mct.o $(OBJ)
+	$(CC) $(CFLAGS) -o mct.exe test-mct.o $(OBJ)
+
+#
+# Clean
+#
+clean:
+	-del *.o
+
+cleanexes:
+	-del *.exe
+
+cleanall: clean cleanexes
+
+#
+# End Of Makefile
+#

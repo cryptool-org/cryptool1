@@ -1,0 +1,13 @@
+# Example Makefile for the optimised ANSI C Rijndael code
+# v2.0 
+
+CFLAGS=-Wall -O2 -DTRACE_KAT_MCT=0 -DSTRICT_ALIGN=0
+
+rijndaeltest-fst:	rijndaeltest-fst.o rijndael-api-fst.o rijndael-alg-fst.o
+
+
+# On some platforms, casting char pointers to int pointers can 
+# cause problems. This will cause malfunctioning of the CBC Monte
+# Carlo tests.
+# In this case, STRICT_ALIGN should be set to 1. 
+# (Of course this results in slower code.) 

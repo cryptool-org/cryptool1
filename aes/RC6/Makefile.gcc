@@ -1,0 +1,58 @@
+#
+# Makefile for the RC6 algorithm using GCC-based compilers
+#
+
+CC=	gcc
+CFLAGS=	-O6 -mcpu=pentiumpro -pedantic -fomit-frame-pointer -DINTEL_GCC
+
+OBJ=	aes.o
+TRACE_OBJ= 
+
+#
+# Rules
+#
+
+all:	katmct.exe
+
+#
+# Dependencies
+# 
+
+aes.o:	aes.c aes.h
+	$(CC) $(CFLAGS) -c aes.c
+aes_main.o:	aes_main.c aes.h
+	$(CC) $(CFLAGS) -c aes_main.c
+
+katmct.exe:	aes_main.o $(OBJ)
+	$(CC) $(CFLAGS) -o katmct.exe aes_main.o $(OBJ)
+
+#
+# Use to run the tests
+#
+runtests: katmct.exe
+	-katmct.exe
+
+#
+# Clean
+#
+clean:
+	-del *.o
+
+cleanexes:
+	-del katmct.exe
+
+cleantests:
+	-del ecb_vk.txt
+	-del ecb_vt.txt
+	-del ecb_tbl.txt
+	-del ecb_iv.txt
+	-del ecb_e_m.txt
+	-del ecb_d_m.txt
+	-del cbc_e_m.txt
+	-del cbc_d_m.txt
+
+cleanall: clean cleanexes cleantests
+
+#
+# End Of Makefile
+#

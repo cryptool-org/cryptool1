@@ -1,0 +1,42 @@
+#
+# Makefile for the Mars algorithm using Visual C compiler
+#
+
+CC=	cl
+CFLAGS=	/G6 /Ox
+
+OBJ=	mars-opt.obj
+
+#
+# Rules
+#
+
+all:	kat.exe mct.exe
+
+mars-opt.obj:	mars-opt.c aes.h
+	$(CC) $(CFLAGS) /c mars-opt.c
+
+test-kat.obj:	tests.c aes.h
+	$(CC) $(CFLAGS) /c /Fotest-kat.obj -DKAT tests.c
+test-mct.obj:	tests.c aes.h
+	$(CC) $(CFLAGS) /c /Fotest-mct.obj -DMCT tests.c
+
+kat.exe:	test-kat.obj $(OBJ)
+	$(CC) $(CFLAGS) /Fekat.exe test-kat.obj $(OBJ)
+mct.exe:	test-mct.obj $(OBJ)
+	$(CC) $(CFLAGS) /Femct.exe test-mct.obj $(OBJ)
+
+#
+# Clean
+#
+clean:
+	-del *.obj
+
+cleanexes:
+	-del *.exe
+
+cleanall: clean cleanexes
+
+#
+# End Of Makefile
+#

@@ -1,0 +1,94 @@
+#
+# Serpent makefile for Visual C compiler
+#
+
+CC=	cl
+CFLAGS=	/G6 /Ox
+
+OBJ=	serpent.obj
+TRACE_OBJ= 
+
+#
+# Rules
+#
+
+all:	kat mct
+
+#
+# Dependencies
+# 
+
+kat:	ecb_vk.exe ecb_vt.exe
+mct:	ecb_e_m.exe ecb_d_m.exe cbc_e_m.exe cbc_d_m.exe
+
+serpent.obj:	serpent.c serpent.h
+	$(CC) $(CFLAGS) /c serpent.c
+
+ecb_vk.obj:	ecb_vk.c
+	$(CC) $(CFLAGS) /c ecb_vk.c
+ecb_vk.exe:	ecb_vk.obj $(OBJ)
+	$(CC) $(CFLAGS) /Feecb_vk.exe ecb_vk.obj $(OBJ)
+
+ecb_vt.obj:	ecb_vt.c
+	$(CC) $(CFLAGS) /c ecb_vt.c
+ecb_vt.exe:	ecb_vt.obj $(OBJ)
+	$(CC) $(CFLAGS) /Feecb_vt.exe ecb_vt.obj $(OBJ)
+
+ecb_e_m.obj:	ecb_e_m.c
+	$(CC) $(CFLAGS) /c ecb_e_m.c
+ecb_e_m.exe:	ecb_e_m.obj $(OBJ)
+	$(CC) $(CFLAGS) /Feecb_e_m.exe ecb_e_m.obj $(OBJ)
+
+ecb_d_m.obj:	ecb_d_m.c
+	$(CC) $(CFLAGS) /c ecb_d_m.c
+ecb_d_m.exe:	ecb_d_m.obj $(OBJ)
+	$(CC) $(CFLAGS) /Feecb_d_m.exe ecb_d_m.obj $(OBJ)
+
+cbc_e_m.obj:	cbc_e_m.c
+	$(CC) $(CFLAGS) /c cbc_e_m.c
+cbc_e_m.exe:	cbc_e_m.obj $(OBJ)
+	$(CC) $(CFLAGS) /Fecbc_e_m.exe cbc_e_m.obj $(OBJ)
+
+cbc_d_m.obj:	cbc_d_m.c
+	$(CC) $(CFLAGS) /c cbc_d_m.c
+cbc_d_m.exe:	cbc_d_m.obj $(OBJ)
+	$(CC) $(CFLAGS) /Fecbc_d_m.exe cbc_d_m.obj $(OBJ)
+
+
+runtests: all
+	-ecb_vk > ecb_vk.txt
+	-ecb_vt > ecb_vt.txt
+	-ecb_e_m > ecb_e_m.txt
+	-ecb_d_m > ecb_d_m.txt
+	-cbc_e_m > cbc_e_m.txt
+	-cbc_d_m > cbc_d_m.txt
+
+#
+# Clean
+#
+
+clean:
+	-del *.obj
+
+cleanexes:
+	-del ecb_vk.exe
+	-del ecb_vt.exe
+	-del ecb_e_m.exe
+	-del ecb_d_m.exe
+	-del cbc_e_m.exe
+	-del cbc_d_m.exe
+
+
+cleantests:
+	-del ecb_vk.txt
+	-del ecb_vt.txt
+	-del ecb_e_m.txt
+	-del ecb_d_m.txt
+	-del cbc_e_m.txt
+	-del cbc_d_m.txt
+
+cleanall: clean cleanexes cleantests
+
+#
+# End Of Makefile
+#

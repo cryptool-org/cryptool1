@@ -1,0 +1,224 @@
+// Dlg_PlayfairKey.cpp: Implementierungsdatei
+//
+
+#include "stdafx.h"
+#include "multipad.h"
+#include "Dlg_PlayfairKey.h"
+#include "playfair.h"
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Dialogfeld CDlg_PlayfairKey 
+
+
+CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,int c,CWnd* pParent /*=NULL*/)
+	: CDialog(CDlg_PlayfairKey::IDD, pParent)
+{
+	int i,j;
+
+	//{{AFX_DATA_INIT(CDlg_PlayfairKey)
+	m_Alg = new Playfair("",0,infile,outfile,r,c,1);
+	m_Dec = 0;
+	m_sechs = 0;
+	m_preformat=1;
+	m_use=1;
+	for (i=0;i<m_Alg->size;i++)
+	{
+		for (j=0;j<m_Alg->size;j++)
+		{
+			m_mat[i][j]=m_Alg->matrix[i][j];
+		}
+	}
+	//}}AFX_DATA_INIT
+}
+
+void CDlg_PlayfairKey::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CDlg_PlayfairKey)
+	DDX_Control(pDX, IDC_KEYENTER, m_text_ctl);
+	DDX_Text(pDX, IDC_KEYENTER, m_text);
+	DDV_MaxChars(pDX, m_text, 36);
+	DDX_Radio(pDX, IDC_RADIO1, m_Dec);
+	DDX_Radio(pDX, IDC_RADIO3, m_sechs);
+	DDX_Text(pDX, IDC_EDIT11, m_mat[0][0]);
+	DDX_Text(pDX, IDC_EDIT12, m_mat[0][1]);
+	DDX_Text(pDX, IDC_EDIT13, m_mat[0][2]);
+	DDX_Text(pDX, IDC_EDIT14, m_mat[0][3]);
+	DDX_Text(pDX, IDC_EDIT15, m_mat[0][4]);
+	DDX_Control(pDX, IDC_EDIT16, m_matc[0]);
+	DDX_Text(pDX, IDC_EDIT16, m_mat[0][5]);
+	DDX_Text(pDX, IDC_EDIT21, m_mat[1][0]);
+	DDX_Text(pDX, IDC_EDIT22, m_mat[1][1]);
+	DDX_Text(pDX, IDC_EDIT23, m_mat[1][2]);
+	DDX_Text(pDX, IDC_EDIT24, m_mat[1][3]);
+	DDX_Text(pDX, IDC_EDIT25, m_mat[1][4]);
+	DDX_Control(pDX, IDC_EDIT26, m_matc[1]);
+	DDX_Text(pDX, IDC_EDIT26, m_mat[1][5]);
+	DDX_Text(pDX, IDC_EDIT31, m_mat[2][0]);
+	DDX_Text(pDX, IDC_EDIT32, m_mat[2][1]);
+	DDX_Text(pDX, IDC_EDIT33, m_mat[2][2]);
+	DDX_Text(pDX, IDC_EDIT34, m_mat[2][3]);
+	DDX_Text(pDX, IDC_EDIT35, m_mat[2][4]);
+	DDX_Control(pDX, IDC_EDIT36, m_matc[2]);
+	DDX_Text(pDX, IDC_EDIT36, m_mat[2][5]);
+	DDX_Text(pDX, IDC_EDIT41, m_mat[3][0]);
+	DDX_Text(pDX, IDC_EDIT42, m_mat[3][1]);
+	DDX_Text(pDX, IDC_EDIT43, m_mat[3][2]);
+	DDX_Text(pDX, IDC_EDIT44, m_mat[3][3]);
+	DDX_Text(pDX, IDC_EDIT45, m_mat[3][4]);
+	DDX_Control(pDX, IDC_EDIT46, m_matc[3]);
+	DDX_Text(pDX, IDC_EDIT46, m_mat[3][5]);
+	DDX_Text(pDX, IDC_EDIT51, m_mat[4][0]);
+	DDX_Text(pDX, IDC_EDIT52, m_mat[4][1]);
+	DDX_Text(pDX, IDC_EDIT53, m_mat[4][2]);
+	DDX_Text(pDX, IDC_EDIT54, m_mat[4][3]);
+	DDX_Text(pDX, IDC_EDIT55, m_mat[4][4]);
+	DDX_Control(pDX, IDC_EDIT56, m_matc[4]);
+	DDX_Text(pDX, IDC_EDIT56, m_mat[4][5]);
+	DDX_Control(pDX, IDC_EDIT61, m_matc[5]);
+	DDX_Text(pDX, IDC_EDIT61, m_mat[5][0]);
+	DDX_Control(pDX, IDC_EDIT62, m_matc[6]);
+	DDX_Text(pDX, IDC_EDIT62, m_mat[5][1]);
+	DDX_Control(pDX, IDC_EDIT63, m_matc[7]);
+	DDX_Text(pDX, IDC_EDIT63, m_mat[5][2]);
+	DDX_Control(pDX, IDC_EDIT64, m_matc[8]);
+	DDX_Text(pDX, IDC_EDIT64, m_mat[5][3]);
+	DDX_Control(pDX, IDC_EDIT65, m_matc[9]);
+	DDX_Text(pDX, IDC_EDIT65, m_mat[5][4]);
+	DDX_Control(pDX, IDC_EDIT66, m_matc[10]);
+	DDX_Text(pDX, IDC_EDIT66, m_mat[5][5]);
+	DDX_Check(pDX, IDC_PREFORM, m_preformat);
+	DDX_Control(pDX, IDC_PREFORM, m_prec);
+	DDX_Check(pDX, IDC_CHECK1, m_use);
+	//}}AFX_DATA_MAP
+}
+
+
+BEGIN_MESSAGE_MAP(CDlg_PlayfairKey, CDialog)
+	//{{AFX_MSG_MAP(CDlg_PlayfairKey)
+	ON_EN_UPDATE(IDC_KEYENTER, OnUpdateEdit1)
+	ON_BN_CLICKED(IDC_RADIO1, OnDec)
+	ON_BN_CLICKED(IDC_RADIO2, OnDec)
+	ON_BN_CLICKED(IDC_RADIO3, OnSechs)
+	ON_BN_CLICKED(IDC_RADIO4, OnSechs)
+	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// Behandlungsroutinen für Nachrichten CDlg_PlayfairKey 
+
+void CDlg_PlayfairKey::OnDec()
+{
+	UpdateData(TRUE);
+	if (m_Dec)
+		m_prec.EnableWindow(FALSE);
+	else
+		m_prec.EnableWindow(TRUE);
+	UpdateData(FALSE);
+}
+
+void CDlg_PlayfairKey::OnCheck() 
+{
+	UpdateData(TRUE);
+	m_Alg->PassUse(m_use);
+	UpdateData(FALSE);
+	OnUpdateEdit1();
+}
+
+void CDlg_PlayfairKey::OnSechs() 
+{
+	int i;
+
+	UpdateData(TRUE);
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	if (m_sechs == 1)
+	{
+		m_Alg->SetSize(true);
+		for (i=0;i<11;i++)
+			m_matc[i].EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Alg->SetSize(false);
+		for (i=0;i<11;i++)
+			m_matc[i].EnableWindow(FALSE);
+		for (i=0;i<6;i++)
+			m_mat[i][5]="";
+		for (i=0;i<5;i++)
+			m_mat[5][i]="";
+	}
+	UpdateData(FALSE);
+	OnUpdateEdit1();
+}
+
+void CDlg_PlayfairKey::OnChange() 
+{
+	char tmp[100];
+	int i,j;
+
+	UpdateData(TRUE);
+	strcpy(tmp,m_text);
+	m_Alg->SetPass( tmp );
+	for (i=0;i<m_Alg->size;i++)
+	{
+		for (j=0;j<m_Alg->size;j++)
+		{
+			m_mat[i][j]=m_Alg->matrix[i][j];
+		}
+	}
+	UpdateData(FALSE);
+}
+
+char *CDlg_PlayfairKey::GetData()
+{
+	return m_text.GetBuffer(25);
+}
+
+int CDlg_PlayfairKey::Display()
+{
+	int res;
+
+	res=DoModal();
+
+	return res;
+}
+
+void CDlg_PlayfairKey::OnUpdateEdit1() 
+{
+	int sels, sele, i, k;
+	char c;
+	CString res;
+
+	UpdateData(TRUE); /* get the displayed value in m_text */
+	m_text_ctl.GetSel(sels, sele);
+	res.Empty();
+
+	m_text.MakeUpper();
+
+	for(k=i=0;i<m_text.GetLength();i++) {
+		c = m_text[i];
+		if(m_Alg->myisalpha(c)) { // valid character
+			res += c;
+			k++;
+		}
+		else { // invalid character
+			MessageBeep(MB_OK);
+			if(k<sels) sels--;
+			if(k<sele) sele--;
+		}
+	}
+
+	m_text = res;
+	UpdateData(FALSE);
+	m_text_ctl.SetSel(sels,sele);
+	OnChange();
+} 
+
+CDlg_PlayfairKey::~CDlg_PlayfairKey()
+{
+	//{{AFX_DATA_INIT(CDlg_PlayfairKey)
+    delete m_Alg;
+	//}}AFX_DATA_INIT
+}

@@ -1,0 +1,62 @@
+#
+# Makefile for the Rijndael algorithm using Borland compiler
+#
+
+CC=	gcc32
+CFLAGS=	-O6 -mcpu=pentiumpro -pedantic -fomit-frame-pointer -DINTEL_GCC
+
+OBJ=	rijndael-alg-fst.o rijndael-api-fst.o
+TRACE_OBJ=
+
+#
+# Rules
+#
+
+all:	rijndaeltest-fst.exe
+
+#
+# Dependencies
+# 
+
+rijndael-alg-fst.o:	rijndael-alg-fst.c rijndael-alg-fst.h
+	$(CC) $(CFLAGS) -c rijndael-alg-fst.c
+
+rijndael-api-fst.o:	rijndael-api-fst.c rijndael-api-fst.h
+	$(CC) $(CFLAGS) -c rijndael-api-fst.c
+
+rijndaeltest-fst.o:	rijndaeltest-fst.c rijndael-api-fst.h
+	$(CC) $(CFLAGS) -c rijndaeltest-fst.c
+
+rijndaeltest-fst.exe:	rijndaeltest-fst.o $(OBJ)
+	$(CC) $(CFLAGS) -erijndaeltest-fst.exe rijndaeltest-fst.o $(OBJ)
+
+#
+# Run the Tests
+#
+runtests: all
+	-rijndaeltest-fst.exe
+
+#
+# Clean
+#
+clean:
+	-del *.o
+
+cleanexes:
+	-del rijndaeltest-fst.exe
+
+cleantests:
+	-del ecb_vk.txt
+	-del ecb_vt.txt
+	-del ecb_tbl.txt
+	-del ecb_iv.txt
+	-del ecb_e_m.txt
+	-del ecb_d_m.txt
+	-del cbc_e_m.txt
+	-del cbc_d_m.txt
+
+cleanall: clean cleanexes cleantests
+
+#
+# End Of Makefile
+#

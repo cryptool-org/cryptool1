@@ -1,0 +1,58 @@
+#
+# Makefile for the RC6 algorithm using Visual C compiler
+#
+
+CC=	cl
+CFLAGS=	/G6 /Ox
+
+OBJ=	aes.obj
+TRACE_OBJ= 
+
+#
+# Rules
+#
+
+all:	katmct.exe
+
+#
+# Dependencies
+# 
+
+aes.obj:	aes.c aes.h
+	$(CC) $(CFLAGS) /c aes.c
+aes_main.obj:	aes_main.c aes.h
+	$(CC) $(CFLAGS) /c aes_main.c
+
+katmct.exe:	aes_main.obj $(OBJ)
+	$(CC) $(CFLAGS) /Fekatmct.exe aes_main.obj $(OBJ)
+
+#
+# Use to run the tests
+#
+runtests: katmct.exe
+	-katmct.exe
+
+#
+# Clean
+#
+clean:
+	-del *.obj
+
+cleanexes:
+	-del katmct.exe
+
+cleantests:
+	-del ecb_vk.txt
+	-del ecb_vt.txt
+	-del ecb_tbl.txt
+	-del ecb_iv.txt
+	-del ecb_e_m.txt
+	-del ecb_d_m.txt
+	-del cbc_e_m.txt
+	-del cbc_d_m.txt
+
+cleanall: clean cleanexes cleantests
+
+#
+# End Of Makefile
+#

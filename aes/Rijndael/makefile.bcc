@@ -1,0 +1,62 @@
+#
+# Makefile for the Rijndael algorithm using Borland compiler
+#
+
+CC=	bcc32
+CFLAGS=	-Oi -6 -v -A -a4 -O2
+
+OBJ=	rijndael-alg-fst.obj rijndael-api-fst.obj
+TRACE_OBJ=
+
+#
+# Rules
+#
+
+all:	rijndaeltest-fst.exe
+
+#
+# Dependencies
+# 
+
+rijndael-alg-fst.obj:	rijndael-alg-fst.c rijndael-alg-fst.h
+	$(CC) $(CFLAGS) -c rijndael-alg-fst.c
+
+rijndael-api-fst.obj:	rijndael-api-fst.c rijndael-api-fst.h
+	$(CC) $(CFLAGS) -c rijndael-api-fst.c
+
+rijndaeltest-fst.obj:	rijndaeltest-fst.c rijndael-api-fst.h
+	$(CC) $(CFLAGS) -c rijndaeltest-fst.c
+
+rijndaeltest-fst.exe:	rijndaeltest-fst.obj $(OBJ)
+	$(CC) $(CFLAGS) -erijndaeltest-fst.exe rijndaeltest-fst.obj $(OBJ)
+
+#
+# Run the Tests
+#
+runtests: all
+	-rijndaeltest-fst.exe
+
+#
+# Clean
+#
+clean:
+	-del *.obj
+
+cleanexes:
+	-del rijndaeltest-fst.exe
+
+cleantests:
+	-del ecb_vk.txt
+	-del ecb_vt.txt
+	-del ecb_tbl.txt
+	-del ecb_iv.txt
+	-del ecb_e_m.txt
+	-del ecb_d_m.txt
+	-del cbc_e_m.txt
+	-del cbc_d_m.txt
+
+cleanall: clean cleanexes cleantests
+
+#
+# End Of Makefile
+#
