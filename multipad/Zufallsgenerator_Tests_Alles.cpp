@@ -175,13 +175,13 @@ void Freq_Test::test() //Frequency-Test Verfahren
 		n = 0;
 		null=0; eins=0;
 
-		
 
 		if (read && read.seekg(anf))
 		{
 			while(n < bis) // Zaehlen von Einzen und Nullen
 			{
-				read >> ch;
+				//read >> ch;
+				read.get(ch);
 				n++;
 				for(i=0;i<8;i++)
 				{
@@ -327,7 +327,8 @@ void Serial_Test::test()
 									//flag - eine Flag der uns zeigt das eine neue Byte gelesen ist
 			while(n < bis) //Zahlen von Einzen und Nullen von 0 bis "bis"
 			{
-				read >> ch;
+				//read >> ch;
+				read.get(ch);
 				n++;
 				flag = 1;
 				for(i=1; i<=8 ;i++)
@@ -477,13 +478,15 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 		{
 			if ( flag == 2 )
 			{
-				file >> ch;
+				//file >> ch;
+				file.get(ch);
 				i++;
 			}
 			if ( !( i < ByteLengthOfInput ) ) break;
 			if (bit >= 8) 
 			{
-				file >> ch;
+				//file >> ch;
+				file.get(ch);
 				i++;
 				if ( !( i < ByteLengthOfInput ) ) break;
 				bit=0;
@@ -498,7 +501,8 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 				flag = 1;
 				if ( bit >= 8 ) 
 				{
-					file >> ch;
+					//file >> ch;
+					file.get(ch);
 					i++;
 					if ( !( i < ByteLengthOfInput ) ) break;
 					bit=0;
@@ -518,7 +522,8 @@ BOOL Long_Run_Test::longrun(CString infile, int run_groesse)
 				flag = 0;
 				if ( bit >= 8 ) 
 				{
-					file >> ch;
+					//file >> ch;
+					file.get(ch);
 					i++;
 					if ( !( i < ByteLengthOfInput ) ) break;
 					bit=0;
@@ -670,7 +675,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 		{
 			if ( flag == 1 ) 
 			{
-				File >> ch;
+				//File >> ch;
+				File.get(ch);
 				Temp_Char = ch;
 				flag = 0;
 			}
@@ -688,7 +694,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							if (temp == lang) zahl++;
 							return zahl;
 						}
-						File >> ch;
+						//File >> ch;
+						File.get(ch);
 						bit = 0;
 						Temp_Char = ch;
 						if ( bitt (ch, bit) ) continue;
@@ -704,7 +711,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						if (temp == lang) zahl++;
 						return zahl;
 					}
-					File >> ch;
+					//File >> ch;
+					File.get(ch);
 					bit = 0;
 					Temp_Char = ch;
 					continue;
@@ -730,7 +738,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							if (temp == lang) zahl++;
 							return zahl;
 						}
-						File >> ch;
+						//File >> ch;
+						File.get(ch);
 						bit = 0;
 						Temp_Char = ch;
 						continue;
@@ -753,7 +762,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							if (temp == lang) zahl++;
 							return zahl;
 						}
-						File >> ch;
+						//File >> ch;
+						File.get(ch);
 						bit = 0;
 						Temp_Char = ch;
 
@@ -777,7 +787,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 						if (temp == lang) zahl++;
 						return zahl;
 					}
-					File >> ch;
+					//File >> ch;
+					File.get(ch);
 					bit = 0;
 					Temp_Char = ch;
 					continue;
@@ -795,7 +806,8 @@ long Runs_Test::zaehle_luck_block(long lang, BOOL was, const char *infile, unsig
 							if (temp == lang) zahl++;
 							return zahl;
 						}
-						File >> ch;
+						//File >> ch;
+						File.get(ch);
 						bit = 0;
 						Temp_Char = ch;
 
@@ -911,7 +923,8 @@ void Poker_Test::test()
 
 		if (read.seekg(anf) && read)
 		{
-			read >> ch;
+			//read >> ch;
+			read.get(ch);
 			bit = 0;
 
 			while(n < bis) //Zahlen von Einzen und Nullen
@@ -929,7 +942,8 @@ void Poker_Test::test()
 					bit++;
 					if (bit == 8)
 					{
-						read >> ch;
+						//read >> ch;
+						read.get(ch);
 						n++;
 						if (n==bis) break;
 						bit = 0;

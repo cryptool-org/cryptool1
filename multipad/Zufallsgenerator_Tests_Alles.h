@@ -48,8 +48,17 @@ protected:
 
 
 public:
-	BOOL fips;
+
+	//Die Variablen
+
+	double def_param;		//parameter mit dem man das Ergebnis vergleicht
 	UINT tupel;
+	BOOL fips;
+	BOOL def, def2; // def ist für default Offset und Testlänge
+					// def2 ist für Random Offset und Testlänge
+
+	//Die Member-Funktionen
+
 	void Set_degr( UINT n ) { degr = n; }
 	void Set_infile( const char *n ) { infile = n; }
 	void Set_oldtitle( const char *n ) { oldtitle = n; }
@@ -61,9 +70,8 @@ public:
 	BOOL SetOffset( UINT n );
 	BOOL SetTestLength( UINT n );
 	UINT Get_degr() { return degr; }
-	BOOL def, def2; // def ist für default Offset und Testlänge
-					// def2 ist für Random Offset und Testlänge
-
+	
+	
 // nicht vergessen: raus!
 	long einsen;
 // nict vergessen: raus!
@@ -74,7 +82,6 @@ public:
 	long GetNullen() { return nullen; }
 	long GetTestLaenge() { return testlaenge; }
 	double GetDefaultStaticParam() { return def_param; }*/
-	double def_param;		//parameter mit dem man das Ergebnis vergleicht
 ////////////////////////////////////
 
 	//Konstruktor-Destruktor
@@ -87,40 +94,48 @@ public:
 class Freq_Test : public Zufallsgenerator_Tests  
 {
 public:
+	
 	UINT tupel;
 
 	//Konstruktor-Destruktor
 
 	Freq_Test();
 	virtual ~Freq_Test();
+
 	//Definition von der virtuellen Funktion test()
 
 	void test();
-
 };
 
 
 class Serial_Test : public Zufallsgenerator_Tests  
 {
 public:
+
 	void test();
 	Serial_Test();
 	virtual ~Serial_Test();
-
 };
 
 
 class Long_Run_Test : public Zufallsgenerator_Tests  
 {
 public:
+
 	int longest_run_final;
 	BOOL fips_flag;
 	UINT longrun_lang;
-	void test();
-	BOOL longrun ( CString infile, int runs_groesse);
+
+	//Konstruktor-Destruktor
+
 	Long_Run_Test();
 	virtual ~Long_Run_Test();
 
+	//Definition von der virtuellen Funktion test()
+
+	void test();
+	BOOL longrun ( CString infile, int runs_groesse);
+	
 };
 
 
@@ -128,12 +143,15 @@ public:
 class Runs_Test : public Zufallsgenerator_Tests  
 {
 public:
+
 	long runlang;
+	
 	double erwartet ( long folge, int i );
 	long zaehle_luck_block ( long lang, BOOL was, const char *infile, unsigned int offset, unsigned int bis );
 	void Set_runlang ( long n ) { runlang = n; }
 	void Set_degr ( UINT n ) { degr = ((n*2)-2); }
 	void test();
+	
 	Runs_Test();
 	virtual ~Runs_Test();
 
@@ -143,8 +161,11 @@ public:
 class Poker_Test : public Zufallsgenerator_Tests  
 {
 public:
+
 	double tmp_Test_Ergebnis;
+
 	void test();
+
 	Poker_Test();
 	virtual ~Poker_Test();
 };
