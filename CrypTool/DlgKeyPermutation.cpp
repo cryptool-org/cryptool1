@@ -46,9 +46,7 @@ void CDlgKeyPermutation::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT2, m_CPerm2);
 	DDX_Control(pDX, IDC_EDIT1, m_CPerm1);
 	DDX_Text(pDX, IDC_EDIT1, m_Perm1);
-	DDV_MaxChars(pDX, m_Perm1, 32);
 	DDX_Text(pDX, IDC_EDIT2, m_Perm2);
-	DDV_MaxChars(pDX, m_Perm2, 32);
 	DDX_Text(pDX, IDC_EDIT3, m_P1out);
 	DDX_Text(pDX, IDC_EDIT4, m_P2out);
 	DDX_Radio(pDX, IDC_RADIO1, m_P1InSeq);

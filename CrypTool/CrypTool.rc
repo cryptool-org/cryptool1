@@ -307,7 +307,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,30,48,123,10
     CONTROL         "Manuelle Analyse.",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,30,60,71,9
-    CONTROL         "Schlüssel aus dem Zwischenspeicher benutzen.",
+    CONTROL         "Manuelle Analyse mit dem gespeicherten Schlüssel.",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,73,
                     183,8
     CONTROL         "'e' als häufigstes Zeichen annehmen.",IDC_CHECK1,"Button",
@@ -7724,8 +7724,8 @@ BEGIN
                     BS_AUTORADIOBUTTON,30,48,121,10
     CONTROL         "Manual analysis.",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,30,60,71,9
-    CONTROL         "Use the stored key.",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,30,73,121,8
+    CONTROL         "Manual Analysis using the stored key.",IDC_RADIO4,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,73,150,8
     CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,30,111,168,8
     CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",

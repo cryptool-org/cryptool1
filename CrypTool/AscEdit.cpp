@@ -58,7 +58,14 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 	}
 	else if(m_mode == 1) { // Alpha Mode
-		if(isalpha(nChar))
+		if ( 32 < LineLength() )
+		{
+			LimitText(32);
+			if(isalpha(nChar))
+				CEdit::OnChar(nChar, nRepCnt, nFlags);
+			LimitText(0);
+		}
+		else if(isalpha(nChar))
 			CEdit::OnChar(nChar, nRepCnt, nFlags);
 	}
 	else { // Numeric Mode
