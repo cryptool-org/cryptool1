@@ -59,6 +59,7 @@ class CDlgBinKeyLength : public CDialog
 // Konstruktion
 public:
 	char m_c;
+	CString m_title; // dialogue title
 	CDlgBinKeyLength(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -84,6 +85,7 @@ protected:
 	//{{AFX_MSG(CDlgBinKeyLength)
 	afx_msg void OnChangeEdit2();
 	virtual void OnOK();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -124,4 +124,15 @@ void CDlgBinKeyLength::OnOK()
 	}
 	
 	CDialog::OnOK();
-} 
+}
+
+BOOL CDlgBinKeyLength::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	if (m_title.GetLength())
+		SetWindowText(m_title);
+	
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
