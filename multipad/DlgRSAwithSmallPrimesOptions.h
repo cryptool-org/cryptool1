@@ -20,10 +20,10 @@ public:
 	//{{AFX_DATA(CDlgRSAwithSmallPrimesOptions)
 	enum { IDD = IDD_RSA_WITH_SMALL_PRIMES_OPTIONS };
 	CEdit	m_alphabetControl;
-	BOOL	m_alphabetOptionExample;
 	CString	m_alphabet;
 	int		m_inputOption;
 	int		m_numberBasis;
+	int		m_TextOptions;
 	//}}AFX_DATA
 
 
@@ -39,7 +39,11 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgRSAwithSmallPrimesOptions)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	afx_msg void OnEncryptText();
+	afx_msg void OnEncryptNumbers();
+	afx_msg void OnTextOptionsASCII();
+	afx_msg void OnTextOptionsAlphabet();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

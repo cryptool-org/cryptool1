@@ -24,6 +24,7 @@ IMPLEMENT_DYNCREATE(CHexView, CMyEditView)
 CHexView::CHexView()
 {
 	m_hexwidth = 8;
+	m_nWordWrap = WrapNone;
 }
 
 CHexView::~CHexView()
@@ -363,34 +364,60 @@ void CHexView::OnEditPaste()
 
 void CHexView::OnSize(UINT nType, int cx, int cy) 
 {
-	int WinLen, NewHexWidth, state, l, maxline;
-	char *buffer, *NewBuffer;
-	char *OldBuffer;
+	int WinLen, NewHexWidth, state, l, OldHexWidth, OldLineLength, buffsize = 20000;
+	int maxl, llen;
+	char *buffer1, *buffer3;
+	unsigned char *buffer2;
+	long start, end, pos, l1, l2, l3, adr;
+	BOOL modified;
 
-// **** to be done ******************
 	CMyEditView::OnSize(nType, cx, cy);
 	
-	WinLen = cx / 8;
+	WinLen = cx / 8 - 1;
 	NewHexWidth = (WinLen - 11) / 4;
 	NewHexWidth = max(NewHexWidth, 8);
 	if(NewHexWidth != m_hexwidth) { // Hexgröße anpassen!
+		modified = GetRichEditCtrl().GetModify();
+		buffer1 = (char *) malloc(buffsize+1);
+		OldHexWidth = m_hexwidth;
+		OldLineLength = OldHexWidth * 4 + 11;
 		m_hexwidth = NewHexWidth;
-//		OldBuffer = LockBuffer();
-		UINT nLen = GetWindowTextLength();
-		OldBuffer = (char *) malloc(nLen+3);
-		GetWindowText(OldBuffer, nLen+2);
-		buffer = (char *) malloc(nLen/4); // maximale Größe fuer das Ergebnis
-		state = 0;
-		l = HexUndumpMem(OldBuffer, nLen, (char *) buffer, &state);
-		free(OldBuffer);
-		maxline = (l / m_hexwidth) + 1;
-		maxline =  maxline * (m_hexwidth * 4 + 11)+2; // maximale Größe des Dumps + 1
-		NewBuffer = (char *) malloc(maxline);
-		l = HexDumpMem(NewBuffer, maxline, (unsigned char *) buffer, l, m_hexwidth);
-		NewBuffer[l] = '\0';
-		free(buffer);
-		SetWindowText(NewBuffer);
-		free(NewBuffer);
+		llen = m_hexwidth * 4 + 11;
+		maxl = buffsize / m_hexwidth + 1;
+		buffer2 = (unsigned char *) malloc(buffsize/4 + m_hexwidth);
+		GetRichEditCtrl().GetSel(start, end);
+		UINT nLen = GetTextLength();
+		buffer3 = (char *) malloc(maxl * llen + 1);
+		pos = adr = state = l1 = l2 = l3 = 0;
+		SetRedraw(FALSE);
+		do {
+			GetRichEditCtrl().SetSel(pos, pos + buffsize);
+			l1 = GetRichEditCtrl().GetSelText(buffer1);
+			ASSERT(l1<=buffsize);
+			if(l1 == 0) break;
+			l = HexUndumpMem(buffer1, l1, (char *)(buffer2 + l2), &state);
+			ASSERT(l2+l < buffsize/4 + m_hexwidth);
+			l2 += l;
+			l = l2 / m_hexwidth;
+			l = l * m_hexwidth; // Anzahl kompletter Zeilen
+			l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l, m_hexwidth, adr);
+			buffer3[l3]=0;
+			adr += l;
+			memcpy(buffer2, buffer2+l, l2-l);
+			l2 -= l;
+			GetRichEditCtrl().ReplaceSel(buffer3);
+			pos += l3;
+		} while(1);
+		l3 = HexDumpMem(buffer3, maxl * llen + 1, buffer2, l2, m_hexwidth, adr);
+		GetRichEditCtrl().SetSel(pos, pos);
+		GetRichEditCtrl().ReplaceSel(buffer3);
+		pos += l3;
+		free(buffer1);
+		free(buffer2);
+		free(buffer3);
+		GetRichEditCtrl().SetSel(start, end);
+		GetRichEditCtrl().SetModify(modified);
+		SetRedraw(TRUE);
 		Invalidate();
 	}
 	ASSERT_VALID(this);
@@ -399,56 +426,74 @@ void CHexView::OnSize(UINT nType, int cx, int cy)
 
 void CHexView::SerializeRaw(CArchive & ar)
 {
-	unsigned char *buffer;
+	char *buffer;
 	char *buffer2;
-	int state, l, maxline;
+	int bufflen = 20000, state, l, width;
+	long start, end, textlen, pos, len, l1, buff2len, adr;
+
+	GetRichEditCtrl().GetSel(start, end);
+	buffer = (char *) malloc(bufflen+3);
 
 	if (ar.IsStoring())
 	{
-// **** to be done *****		LPCTSTR lpszText = LockBuffer();
-// **** to be done *****		ASSERT(lpszText != NULL);
-// **** to be done *****		UINT nLen = GetBufferLength();
-// **** to be done *****		buffer = (unsigned char *) malloc(nLen/4); // maximale Größe fuer das Ergebnis
+		SetRedraw(FALSE);
+		textlen = GetRichEditCtrl().GetTextLength();
+
 		state = 0;
-// **** to be done *****		l = HexUndumpMem(lpszText, nLen, (char *) buffer, &state);
-		TRY
-		{
-			ar.Write(buffer, l);
+		for(pos = 0; pos < textlen; ) {
+			GetRichEditCtrl().SetSel(pos, pos+bufflen);
+			len = GetRichEditCtrl().GetSelText(buffer);
+			l = HexUndumpMem(buffer, len, buffer, &state);
+			TRY
+			{
+				ar.Write(buffer, l);
+			}
+			CATCH_ALL(e)
+			{
+				THROW_LAST();
+			}
+			END_CATCH_ALL
+			pos += len;
 		}
-		CATCH_ALL(e)
-		{
-// **** to be done *****			UnlockBuffer();
-			THROW_LAST();
-		}
-		END_CATCH_ALL
-		free(buffer);
-// **** to be done *****		UnlockBuffer();
+		SetRedraw(TRUE);
 	}
 	else
 	{
 		CFile* pFile = ar.GetFile();
 		ASSERT(pFile->GetPosition() == 0);
 		DWORD nFileSize = pFile->GetLength();
+
+		width = m_hexwidth-1;
+		l1 = bufflen / width; //maximale Zeilenanzahl im Puffer;
+		buff2len = l1 * (4 * width + 11);
+		buffer2 = (char *)malloc(buff2len + 1); // Zielpuffergröße
+		l1 = l1 * width; // maximale Anzahl Zeichen um eine ganze Zeile zu füllen (im Puffer)
+
 		// ReadFromArchive takes the number of characters as argument
 
-		DWORD nLen = nFileSize;
-
-		maxline = (nFileSize / m_hexwidth) + 1;
-		l =  maxline * (m_hexwidth * 4 + 11) + 2; // maximale Größe des Dumps + 1
-
-		buffer = (unsigned char *) malloc(nFileSize); // Zwischenpuffer
-
-		buffer2 = (char *) malloc(l);
-		ar.Read(buffer, nLen);
-		l = HexDumpMem(buffer2, l, buffer, nFileSize, m_hexwidth);
-		// Replace the editing edit buffer with the newly loaded data
-		free(buffer);
-		buffer2[l] = '\0';
-
-		SetWindowText(buffer2);
+		adr = pos = 0;
+		do {
+			l = ar.Read(buffer, l1);
+			if(l==0) break;
+			l = HexDumpMem(buffer2, buff2len, (unsigned char *) buffer, l, width, adr);
+			GetRichEditCtrl().SetSel(pos, pos);
+			GetRichEditCtrl().ReplaceSel(buffer2);
+			pos += l;
+			adr += l1;
+		} while(l);
 		free(buffer2);
-		Invalidate();
 		ASSERT_VALID(this);
 	}
+	free(buffer);
+	GetRichEditCtrl().SetSel(start, end);
+	SetRedraw(TRUE);
+	Invalidate();
 	ASSERT_VALID(this);
 }
+
+HRESULT CHexView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, 
+								  DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile)
+{
+	return 1;
+}
+

@@ -4,9 +4,10 @@
 
 #include "stdafx.h"
 #include "stdafx.h"
-#include "Primfaktor_Zerlegung.h"
 #include "multipad.h"
 #include "eval.h"
+#include "Primfaktor_Zerlegung.h"
+
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -22,12 +23,12 @@ static char THIS_FILE[]=__FILE__;
 
 Primfaktor_Zerlegung::Primfaktor_Zerlegung()
 {
-	mip = &g_precision;
+//	mip = &g_precision;
 }
 
 Primfaktor_Zerlegung::~Primfaktor_Zerlegung()
 {
-	mip = 0;
+//	mip = 0;
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

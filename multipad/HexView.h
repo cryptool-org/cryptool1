@@ -23,6 +23,8 @@ public:
 
 // Operationen
 public:
+	HRESULT QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, DWORD dwReco, 
+		                    BOOL bReally, HGLOBAL hMetaFile);
 	virtual void SerializeRaw(CArchive& ar);
 	CSize CharSize;
 

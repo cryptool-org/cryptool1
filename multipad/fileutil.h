@@ -17,7 +17,7 @@ void GetTmpName( char *dest, const char *prefix, const char *ext );
 // returncode:	0: Fehler aufgetreten
 //				1: Ohne Fehler abgeschlossen
 //				2: Datei wurde abgeschnitten
-int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const int len);
+int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const int len, long start=0);
 
 // Erstellen eines formatierten Dumps für Dateien, die keine Zeilenumbrüche enthalten.
 // Quelle und Ziel sind jeweils Dateien.

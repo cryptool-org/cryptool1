@@ -61,7 +61,7 @@ int HexVal(const unsigned char c)
 
 
 
-int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const int len)
+int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const int len, long start)
 {
 	char *p;
 
@@ -77,7 +77,7 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
 
 	p = Dest;
     for(i=0;i<SrcSize;i+=len) {
-        sprintf(p,"%5.05X  ",i);
+        sprintf(p,"%5.05X  ",i+start);
 		p += 7;
         for(j=i;j<i+len;j++) {
             if(j<SrcSize) sprintf(p,"%02.2X",Src[j]);
@@ -236,7 +236,7 @@ int ASCDumpMem(char *Dest, int DestLen, const char *Src, int SrcLen, int blockle
 
 	for(i=j=0;i<SrcLen;) {
 		Dest[j++] = Src[i++];
-		if(i==SrcLen) break;
+//		if(i==SrcLen) break;
 		if(i%blocklen == 0) {
 			if(i%(blocklen*numblocks) == 0) { // Zeilenende
 				Dest[j++]='\r';

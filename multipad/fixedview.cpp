@@ -121,6 +121,7 @@ void CFixedView::SerializeRaw(CArchive & ar)
 		Invalidate();
 		ASSERT_VALID(this);
 	}
+	free(buffer);
 	ASSERT_VALID(this);
 }
 

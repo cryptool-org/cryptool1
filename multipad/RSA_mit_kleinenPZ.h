@@ -15,31 +15,20 @@
 // RSA_mit_kleinenPZ.h : Header-Datei
 //
 
-#include <miracl.h>
-#include <Big.h>
-#include "..\LIBMIRACL\INCLUDE\BIG.H"	// Hinzugefügt von der Klassenansicht
-
-
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld RSA_mit_kleinenPZ 
-
 class RSA_mit_kleinenPZ : public CDialog
 {
 	
 // Konstruktion
 public:
+	void EncryptASCII();
+	void DecryptASCII();
 	~RSA_mit_kleinenPZ();
-	void CheckEdit_Input3(CString &, int &, int &);
-	void CheckEdit_Input2 (CString &, int &, int &);
 	void Entschluesseln();
 	void Verschluesseln();
 	
-	void CheckEdit_Input(CString &,int&,int&);
 	RSA_mit_kleinenPZ(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -90,8 +79,9 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	RSA_Berechnungen RSAB;
-	CDlgRSAwithSmallPrimesOptions *Options;
+	DlgPrimesGenerator            *DlgRSAPrimes;
+	CDlgRSAwithSmallPrimesOptions *DlgOptions;
+	TutorialRSA                   *RSA;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -21,6 +21,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_Faktorisieren)
 	enum { IDD = IDD_DIALOG_Faktorisieren };
+/*
 	CEdit	m_control_2erfaktor;
 	CEdit	m_control_lastcofaktor;
 	CEdit	m_control_lastprime;
@@ -43,6 +44,7 @@ public:
 	int		m_lastcofaktor;
 	int		m_radio7;
 	CString	m_edit_2erfaktor;
+*/
 	//}}AFX_DATA
 
 
@@ -50,7 +52,9 @@ public:
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(Dlg_Faktorisieren)
 	protected:
+/*
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+*/
 	//}}AFX_VIRTUAL
 
 // Implementierung
@@ -58,6 +62,7 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(Dlg_Faktorisieren)
+/*
 	virtual BOOL OnInitDialog();
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnBUTTONFaktorisieren();
@@ -72,10 +77,11 @@ protected:
 	afx_msg void OnUpdateEdit10();
 	afx_msg void OnButtonOk();
 	afx_msg void OnBUTTONcancel();
+*/
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	Primfaktor_Zerlegung PFAKT;
+//	Primfaktor_Zerlegung PFAKT;
 };
 
 //{{AFX_INSERT_LOCATION}}

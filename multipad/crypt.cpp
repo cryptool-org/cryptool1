@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "commdlg.h"
 #include "multipad.h"
-#include "fileutil.h"
+// #include "fileutil.h"
 #include "CryptDoc.h"
 #include "dia1.h"
 #include "hexdialog.h"

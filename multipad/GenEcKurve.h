@@ -24,6 +24,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(GenEcKurve)
 	enum { IDD = IDD_DIALOG_GEN_EC_KURVE };
+/*
 	CEdit	m_control_edit2;
 	CListCtrl	m_listview;
 	CEdit	m_control_edit1;
@@ -33,6 +34,7 @@ public:
 	int		m_radio1;
 	int		m_radio3;
 	int		m_edit_random_seed;
+*/
 	//}}AFX_DATA
 
 
@@ -40,7 +42,9 @@ public:
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(GenEcKurve)
 	protected:
+/*
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+*/
 	//}}AFX_VIRTUAL
 
 // Implementierung
@@ -48,6 +52,7 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(GenEcKurve)
+/*
 	afx_msg void OnCheck1();
 	virtual void OnOK();
 	virtual void OnCancel();
@@ -55,11 +60,12 @@ protected:
 	afx_msg void OnButtonGen();
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnUpdateEdit2();
+*/
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 	void Liste_leeren();
-	Ber_Ell_Kurve BEK;
+//	Ber_Ell_Kurve BEK;
 };
 
 //{{AFX_INSERT_LOCATION}}

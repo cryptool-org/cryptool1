@@ -24,6 +24,7 @@ Dlg_Faktorisieren::Dlg_Faktorisieren(CWnd* pParent /*=NULL*/)
 	: CDialog(Dlg_Faktorisieren::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(Dlg_Faktorisieren)
+/*
 	m_edit1_eingabe = _T("179123741*302519933");
 	m_edit_prim1 = _T("");
 	m_edit_prim2 = _T("");
@@ -36,10 +37,12 @@ Dlg_Faktorisieren::Dlg_Faktorisieren(CWnd* pParent /*=NULL*/)
 	m_lastcofaktor = 0;
 	m_radio7 = -1;
 	m_edit_2erfaktor = _T("");
+*/
 	//}}AFX_DATA_INIT
 }
 
 
+/*
 void Dlg_Faktorisieren::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -68,10 +71,11 @@ void Dlg_Faktorisieren::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT10, m_edit_2erfaktor);
 	//}}AFX_DATA_MAP
 }
-
+*/
 
 BEGIN_MESSAGE_MAP(Dlg_Faktorisieren, CDialog)
 	//{{AFX_MSG_MAP(Dlg_Faktorisieren)
+/*
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
 	ON_BN_CLICKED(IDC_BUTTON_Faktorisieren, OnBUTTONFaktorisieren)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdateEdit2)
@@ -85,12 +89,14 @@ BEGIN_MESSAGE_MAP(Dlg_Faktorisieren, CDialog)
 	ON_EN_UPDATE(IDC_EDIT10, OnUpdateEdit10)
 	ON_BN_CLICKED(IDC_BUTTON_OK, OnButtonOk)
 	ON_BN_CLICKED(IDC_BUTTON_cancel, OnBUTTONcancel)
+*/
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten Dlg_Faktorisieren 
 
+/*
 BOOL Dlg_Faktorisieren::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -467,3 +473,4 @@ void Dlg_Faktorisieren::OnBUTTONcancel()
 	
 	CDialog::OnCancel();	
 }
+*/

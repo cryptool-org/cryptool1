@@ -53,7 +53,7 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_RowHomophonesList);
 	DDX_Text(pDX, IDC_ROW, m_HomophonesList);
 	DDX_Check(pDX, IDC_CHECK1, m_EncryptFormatCharacters);
-	//}}AFX_DATA_MAP
+  //}}AFX_DATA_MAP
 }
 
 BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
@@ -69,11 +69,12 @@ BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_LIST1, OnDblclkSelect)
 	ON_NOTIFY(NM_RETURN, IDC_LIST1, OnReturnSelect)
 	ON_BN_CLICKED(IDC_CHECK1, OnSelectEncryptFormatCharacters)
-	//}}AFX_MSG_MAP
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten Dlg_homophone 
+
 void Dlg_homophone::OnErzeugen() 
 {
 	UpdateData(true);

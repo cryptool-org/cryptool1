@@ -26,17 +26,19 @@ GenEcKurve::GenEcKurve(CWnd* pParent /*=NULL*/)
 	: CDialog(GenEcKurve::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(GenEcKurve)
+/*
 	m_edit1 = _T("2^{200-8}-2^{8^2}-7");
 	m_radio1 = 0;
 	m_radio3 = 0;
 	m_edit_random_seed = 2147483647;
+*/
 	//}}AFX_DATA_INIT
 }
 
-
+/*
 void GenEcKurve::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+//	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(GenEcKurve)
 	DDX_Control(pDX, IDC_EDIT2, m_control_edit2);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
@@ -49,14 +51,17 @@ void GenEcKurve::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_edit_random_seed);
 	//}}AFX_DATA_MAP
 }
+*/
 
 
 BEGIN_MESSAGE_MAP(GenEcKurve, CDialog)
 	//{{AFX_MSG_MAP(GenEcKurve)
+/*
 	ON_BN_CLICKED(IDC_CHECK1, OnCheck1)
 	ON_BN_CLICKED(IDC_BUTTON_GEN, OnButtonGen)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdateEdit2)
+*/
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -65,6 +70,7 @@ END_MESSAGE_MAP()
 
 
 
+/*
 void GenEcKurve::OnCheck1() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
@@ -218,3 +224,4 @@ void GenEcKurve::OnUpdateEdit2()
 	UpdateData(false);
 	m_control_edit2.SetSel(sels,sele);
 }
+*/

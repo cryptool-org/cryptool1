@@ -480,14 +480,6 @@ SOURCE=.\Autoren.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\Ber_Ell_Kurve.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Ber_Ell_Kurve.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\BIG.CPP
 # End Source File
 # Begin Source File
@@ -582,6 +574,14 @@ SOURCE=.\CryptDocTemplate.cpp
 # Begin Source File
 
 SOURCE=.\CryptDocTemplate.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CryptologyUsingMiracl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CryptologyUsingMiracl.h
 # End Source File
 # Begin Source File
 
@@ -709,14 +709,6 @@ SOURCE=.\DialoKeyCaesar.cpp
 # Begin Source File
 
 SOURCE=.\DialoKeyCaesar.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Dlg_Faktorisieren.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Dlg_Faktorisieren.h
 # End Source File
 # Begin Source File
 
@@ -1029,6 +1021,14 @@ SOURCE=.\DlgSubstAna.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgTutorialFaktorisation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgTutorialFaktorisation.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\dozip.cpp
 # End Source File
 # Begin Source File
@@ -1058,14 +1058,6 @@ SOURCE=.\ELLIPTIC.H
 # Begin Source File
 
 SOURCE=..\LibEc\include\EMSA1.H
-# End Source File
-# Begin Source File
-
-SOURCE=.\eval.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\eval.h
 # End Source File
 # Begin Source File
 
@@ -1448,22 +1440,6 @@ SOURCE=.\POLYMOD.H
 # End Source File
 # Begin Source File
 
-SOURCE=.\Primes_and_random_numbers.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Primes_and_random_numbers.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Primfaktor_Zerlegung.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Primfaktor_Zerlegung.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\AES\RC6\rc6.c
 # End Source File
 # Begin Source File
@@ -1506,26 +1482,6 @@ SOURCE="..\AES\Rijndael\rijndael-api-fst.c"
 # Begin Source File
 
 SOURCE="..\AES\Rijndael\rijndael-api-fst.h"
-# End Source File
-# Begin Source File
-
-SOURCE=.\RSA_Berechnungen.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\RSA_Berechnungen.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\RSA_KLEIN.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\RSA_KLEIN.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\RSA_mit_kleinen_PZ.h
 # End Source File
 # Begin Source File
 

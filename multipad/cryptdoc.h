@@ -116,16 +116,8 @@ protected:
 	afx_msg void OnHomophoneHex();
 	afx_msg void OnZZGen();
 	afx_msg void OnNotAvail();
-	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
-	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
 	afx_msg void OnHomophone();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenEckurven();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenEcdlp();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren();
-	afx_msg void OnEinzelverfahrenSchluesselgenerieren();
-	afx_msg void OnGenRandomData();
-	afx_msg void OnAnalyseNGram();
+    afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

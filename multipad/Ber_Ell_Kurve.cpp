@@ -4,9 +4,10 @@
 
 #include "stdafx.h"
 #include "stdafx.h"
-#include "Ber_Ell_Kurve.h"
 #include "multipad.h"
 #include "eval.h"
+#include "Ber_Ell_Kurve.h"
+
 
 
 #ifdef _DEBUG
@@ -25,12 +26,12 @@ static char THIS_FILE[]=__FILE__;
 
 Ber_Ell_Kurve::Ber_Ell_Kurve()
 {
-	mip = &g_precision;
+//	mip = &g_precision;
 }
 
 Ber_Ell_Kurve::~Ber_Ell_Kurve()
 {
-	mip = 0;
+//	mip = 0;
 }
 
 // F(z) Function A.13.3
@@ -592,7 +593,7 @@ int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
 	dir=FALSE;
 	char *str=Eingabe.GetBuffer(100);//neu
 
-	if (false==evaluateFormula::eval(t, str)) 
+	if (false==evaluate::eval(t, str)) 
 		return -1;
 
     p=t; 

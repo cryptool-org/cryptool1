@@ -33,8 +33,7 @@
 #include "RSA_mit_kleinenPZ.h"
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
-#include "GenEcKurve.h"
-#include "Dlg_Faktorisieren.h"
+#include "DlgTutorialFaktorisation.h"
 #include "Dlg_Schluessel_gen.h"
 #include "DlgGenRandomData.h"
 
@@ -64,6 +63,7 @@ HWND hWndAktivesFenster;
 
 CMultiPadApp NEAR theApp;
 
+
 BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	//{{AFX_MSG_MAP(CMultiPadApp)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
@@ -78,9 +78,6 @@ BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN, OnEinzelverfahrenTutorialfrkleinezahlenEckurven)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS, OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP, OnEinzelverfahrenTutorialfrkleinezahlenEcdlp)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	
@@ -500,27 +497,9 @@ void CMultiPadApp::OnEinzelverfahrenTutorialRsaalgorithmus()
 	objekt.DoModal();
 }
 
-void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenEckurven() 
-{
-	GenEcKurve GECK;
-	GECK.DoModal();
-}
-
-void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	
-}
-
-void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenEcdlp() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	
-}
-
 void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
 {
-	Dlg_Faktorisieren FAKT;
+	DlgTutorialFaktorisation FAKT;
 	FAKT.DoModal();
 }
 

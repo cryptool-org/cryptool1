@@ -10,20 +10,14 @@
 #include "CryptDoc.h"
 #include "crypt.h"
 #include "automatic.h"
-#include "RSA_mit_kleinenPZ.h"
 #include "secude.h"
 #include "dozip.h"
 #include "asymmetric.h"
 #include "About.h"
 #include "zzahlanalyse.h"
-#include "DlgPrimesGenerator.h"
 #include "Dlg_homophone.h"
-#include "GenEcKurve.h"
-#include "Dlg_Faktorisieren.h"
-#include "Dlg_Schluessel_gen.h"
 #include "AnalyseNGram.h"
 #include "DlgSignExtract.h" // für OnCryptExtract
-#include "DlgGenRandomData.h"
 
 UINT AESBrute(PVOID p);
 
@@ -167,16 +161,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
-
-	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN, OnEinzelverfahrenTutorialfrkleinezahlenEckurven)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS, OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP, OnEinzelverfahrenTutorialfrkleinezahlenEcdlp)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
-	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
-	//}}AFX_MSG_MAP
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1211,18 +1196,6 @@ void CCryptDoc::OnNotAvail()
 	AfxMessageBox (pc_str);
 }
 
-void CCryptDoc::OnEinzelverfahrenTutorialPrimzahlengenerieren() 
-{
-	DlgPrimesGenerator DPG;
-	DPG.DoModal();
-}
-
-void CCryptDoc::OnEinzelverfahrenTutorialRsaalgorithmus() 
-{
-	RSA_mit_kleinenPZ objekt;
-	objekt.DoModal();
-}
-
 void CCryptDoc::OnHomophone() 
 {
     UpdateContent();
@@ -1235,37 +1208,6 @@ void CCryptDoc::OnHomophoneHex()
     HomophoneHex(ContentName, GetTitle());
 }
 
-
-void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenEckurven() 
-{
-	GenEcKurve GECK;
-	GECK.DoModal();
-}
-
-void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	
-}
-
-void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenEcdlp() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	
-}
-
-void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
-{
-	Dlg_Faktorisieren FAKT;
-	FAKT.DoModal();
-}
-
-void CCryptDoc::OnEinzelverfahrenSchluesselgenerieren() 
-{
-	Dlg_Schluessel_gen SG;
-	SG.DoModal();
-}
-
 void CCryptDoc::OnAnalyseNGram()
 {
 	UpdateContent();
@@ -1276,20 +1218,6 @@ void CCryptDoc::OnAnalyseNGramBin()
 {
 	UpdateContent();
 	NGramBin( ContentName, GetTitle());
-}
-
-void CCryptDoc::OnGenRandomData()
-{
-	DlgGenRandomData DGR;
-	if ( IDOK == DGR.DoModal() )
-	{
-		CMyDocument *NewDoc;
-		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
-		remove(DGR.outfile);
-		if(NewDoc) {
-			NewDoc->SetTitle(DGR.GetRandInfo());
-		}
-	}
 }
 
 // rich text edit

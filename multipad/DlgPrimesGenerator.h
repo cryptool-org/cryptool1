@@ -1,34 +1,24 @@
 #if !defined(AFX_DLGPRIMESGENERATOR_H__0F161EA1_E56B_11D4_80D9_000629C93170__INCLUDED_)
 #define AFX_DLGPRIMESGENERATOR_H__0F161EA1_E56B_11D4_80D9_000629C93170__INCLUDED_
 
-#include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
-//#include "RSA_Berechnungen.h"
-#include "monty.h"
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 // DlgPrimesGenerator.h : Header-Datei
 //
 
-/////////////////////////////////////////////////////////////////////////////
-// obere Schranke für RSA-Modul
-
-const long c_MaxPrime_high=LONG_MAX/2-1;
-const long c_MaxPrime_low=c_MaxPrime_high-127;
+#include "CryptologyUsingMiracl.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgPrimesGenerator 
 
 class DlgPrimesGenerator : public CDialog
 {
-	
-	// Konstruktion
+// Konstruktion
+	void ErrorMsg( const int IDS_STRING_ID );
+	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
+
 public:
-	Big Get_Random_Value(CString,CString);
-	long Get_Prime2();
-	long Get_Prime1();
-	char line[256];
-	double Get_Value(CString);
 	DlgPrimesGenerator(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -60,26 +50,16 @@ public:
 
 // Implementierung
 protected:
-
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(DlgPrimesGenerator)
 	afx_msg void OnRadio4();
 	afx_msg void OnRadio5();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonGenerate();
-	afx_msg void OnUpdateEdit1();
-	afx_msg void OnUpdateEdit2();
-	afx_msg void OnUpdateEdit3();
-	afx_msg void OnUpdateEdit4();
 	virtual void OnCancel();
 	afx_msg void OnButtonAccept();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-private:
-	Primes_and_random_numbers RSAB;
-	//RSA_Berechnungen RSAB;
-
-	void CheckEdit_Input(CString &, int &, int &);
 };
 
 //{{AFX_INSERT_LOCATION}}

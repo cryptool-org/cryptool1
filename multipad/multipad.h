@@ -59,9 +59,6 @@ class CMultiPadApp : public CWinApp
 
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
 	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenEckurven();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus();
-	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenEcdlp();
 	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren();
 	afx_msg void OnEinzelverfahrenSchluesselgenerieren();
 	afx_msg void OnGenRandomData();

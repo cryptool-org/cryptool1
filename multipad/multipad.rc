@@ -1369,12 +1369,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 271
+IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,255,228,50,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,239,224,75,20
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
@@ -1396,8 +1396,8 @@ BEGIN
     LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
     EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,23,228,110,20
-    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,23,201,110,
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
+    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
                     19
     GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
                     142,61
@@ -1408,7 +1408,6 @@ BEGIN
                     NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,11,192,141,62
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
                     IDC_STATIC,19,9,289,17
@@ -1425,7 +1424,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,312,71,19
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,248,312,94,19
+    PUSHBUTTON      "Dialog beenden",IDCANCEL,252,312,90,19
     LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
     LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1849,26 +1848,26 @@ BEGIN
                     212,222,9
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 268, 207
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Optionen"
+CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,186,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,211,186,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,184,50,16
+    PUSHBUTTON      "Abbrechen",IDCANCEL,214,184,50,16
     LTEXT           "Sie können auswählen zwischen der Verschlüsselung von Text oder der Verschlüsselung von Zahlen",
-                    IDC_STATIC,11,18,233,17
+                    IDC_STATIC,16,18,233,17
     CONTROL         "Verschlüsselung von Text",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,11,40,97,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,16,40,97,8
     CONTROL         "Verschlüsselung von Zahlen",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,11,55,105,10
-    GROUPBOX        "Eingabeoptionen",IDC_STATIC,7,7,254,63
-    EDITTEXT        IDC_EDIT1,46,98,111,14,ES_AUTOHSCROLL
-    LTEXT           "Alphabet",IDC_STATIC,11,101,29,8
-    GROUPBOX        "Textoptionen",IDC_STATIC,7,71,254,49
+                    BS_AUTORADIOBUTTON,127,40,105,8
+    GROUPBOX        "Eingabeoptionen",IDC_STATIC,7,7,257,49
+    EDITTEXT        IDC_EDIT1,147,91,111,14,ES_AUTOHSCROLL
+    LTEXT           "Alphabet:",IDC_STATIC,114,94,31,8
+    GROUPBOX        "Textoptionen",IDC_STATIC,7,61,257,56
     LTEXT           "Wählen Sie die Zeichen, die verschlüsselt werden können",
-                    IDC_STATIC,12,81,192,8
-    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,122,254,55
+                    IDC_STATIC,16,75,192,8
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,122,257,55
     CONTROL         "Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,160,39,10
     CONTROL         "Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,160,32,
@@ -1878,9 +1877,11 @@ BEGIN
     CONTROL         "Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,200,
                     160,56,10
     LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
-                    IDC_STATIC,11,135,245,18
-    CONTROL         """Dialog der Schwestern""",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,169,100,94,10
+                    IDC_STATIC,16,133,245,18
+    CONTROL         "Alle 256 ASCII-Zeichen",IDC_RADIO7,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,16,89,89,8
+    CONTROL         "Dialog der Schwestern",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,16,100,87,8
 END
 
 
@@ -2064,13 +2065,7 @@ BEGIN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
-            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
-
-            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
@@ -2256,13 +2251,7 @@ BEGIN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
-            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
-
-            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
@@ -2381,13 +2370,7 @@ BEGIN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
-            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
-
-            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
@@ -2515,13 +2498,7 @@ BEGIN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
-            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
-
-            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
@@ -3148,8 +3125,7 @@ BEGIN
         HORZGUIDE, 154
         HORZGUIDE, 180
         HORZGUIDE, 188
-        HORZGUIDE, 228
-        HORZGUIDE, 248
+        HORZGUIDE, 244
     END
 
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
@@ -3264,11 +3240,14 @@ BEGIN
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 261
+        RIGHTMARGIN, 264
         VERTGUIDE, 11
+        VERTGUIDE, 16
         TOPMARGIN, 7
         BOTTOMMARGIN, 200
+        HORZGUIDE, 48
         HORZGUIDE, 170
+        HORZGUIDE, 184
     END
 END
 #endif    // APSTUDIO_INVOKED
