@@ -105,6 +105,8 @@ int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const 
     return p - Dest;
 }
 
+
+
 int HexUndumpMem(const char *inbuff, const int inlen, char *outbuff, int *state)
 {
 /*	Format of buffer:
@@ -156,6 +158,48 @@ int HexUndumpMem(const char *inbuff, const int inlen, char *outbuff, int *state)
 		}
 	}
 	return j;
+}
+
+int HexDumpOct(OctetString& Dest, OctetString& Src, const int len, long start)
+{
+
+    unsigned i,j;
+	int linelen, lines, rest;
+
+	linelen = 11 + len * 4;
+	lines = (Src.noctets+len-1) / len;
+	rest = Src.noctets % len;
+	Dest.noctets = lines * linelen - (rest? len - rest: 0);
+	Dest.octets = new char[Dest.noctets+1];
+
+	char* p = Dest.octets;
+    for(i=0; i<Src.noctets; i+=len) {
+        sprintf(p,"%5.05X  ",i+start); // = MAX_ADR_LEN Zeichen
+		p += 7;
+        for(j=i;j<i+len;j++) {
+            if(j<Src.noctets) sprintf(p,"%02.2X",Src.octets[j]);
+            else p[0] = p[1] = ' ';
+			p[2] = ' '; // = HEX_SEP Zeichen
+			p += 3;
+		}
+		p[0] = p[1] = ' '; // = ASC_SEP Zeichen
+		p += 2;
+        for(j=i;j<i+len;j++)
+            if(j<Src.noctets) {
+                if(IsPrint(Src.octets[j]))
+					*p = Src.octets[j];
+                else
+					*p = '.';
+				p++;
+            }
+			if(j<=Src.noctets) { // 2 Zeichen Zeilenende
+			p[0] = '\r';
+			p[1] = '\n';
+			p += 2;
+		}
+	}
+	*p = 0;
+    return p - Dest.octets;
 }
 
 int ASCDump(const char *outfile, const char *infile, const int blocklen, const int numblocks, int maxsize)

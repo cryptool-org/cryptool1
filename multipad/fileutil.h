@@ -2,6 +2,8 @@
 // Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 
+#include "secure.h"
+
 // Erstellen eines eindeutigen Namens für eine temporäre Datei.
 // Der gewählte Dateiname beginntm it prefix und endet mit ext.
 // ext sollte den '.' mit einschiessen. z.B. ext = ".tmp"
@@ -18,6 +20,14 @@ void GetTmpName( char *dest, const char *prefix, const char *ext );
 //				1: Ohne Fehler abgeschlossen
 //				2: Datei wurde abgeschnitten
 int HexDumpMem(char *Dest, int DestSize, unsigned char *Src, int SrcSize, const int len, long start=0);
+
+// Erstellen eines Hexdumps aus einem Octetstring
+// Das Ziel ist ebenfalls ein Octetstring für den mittels new[] automatisch Speicher allokiert wird
+// Es werden jeweils len Bytes in eine Zeile geschrieben.
+// Jede Zeile besteht aus einem Adressteil, enem HEX-Teil und anschließend einem Teil in dem die
+// abdruckbaren Zeichen aufgeführt sind.
+// Rückgabewert: Anzahl der geschriebenen Zeichen
+int HexDumpOct(OctetString& Dest, OctetString& Src, const int len, long start=0);
 
 // Erstellen eines formatierten Dumps für Dateien, die keine Zeilenumbrüche enthalten.
 // Quelle und Ziel sind jeweils Dateien.
