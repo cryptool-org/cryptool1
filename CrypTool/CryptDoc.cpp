@@ -1476,11 +1476,8 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 void CCryptDoc::OnAesSelfextract() 
 {
     UpdateContent();
-	CString name = GetPathName();
-	if (name.IsEmpty())
-		name = ContentName;
 	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, theApp.m_Selfextract_EXE,
-		name, NULL);
+		ContentName, NULL);
 }
 
 void CCryptDoc::OnUpdateAesSelfextract(CCmdUI* pCmdUI) 
