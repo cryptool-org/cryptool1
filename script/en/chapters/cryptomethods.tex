@@ -35,10 +35,10 @@ closed environments such as for the hot wire between Moscow and Washington.\par 
 
 For all other procedures there is a (theoretical) possibility of breaking them.
 If the procedures are good, however, the time taken to break them is so long
-that it is practically impossible to do and these procedures can therefore be
+that it is practically impossible to do so, and these procedures can therefore be
 considered (practically) secure.\par \vskip + 3pt
 
-The book of Bruce Schneier \cite{Schneier1996} offers a very good overview about the different algorithms. We basically distinguish between symmetric and asymmetric encryption procedures.
+The book of Bruce Schneier \cite{Schneier1996cm} offers a very good overview about the different algorithms. We basically distinguish between symmetric and asymmetric encryption procedures.
 
 % --------------------------------------------------------------------------
 \subsection[Symmetric encryption]
@@ -52,7 +52,7 @@ The book of Bruce Schneier \cite{Schneier1996} offers a very good overview about
     Twofish (AES candidate), Rijndael (official AES algorithm).
   }
 
-For {\em symmetric} encryption \index{Encryption!symmetric} the sender and
+For {\em symmetric} encryption \index{Encryption!symmetric} sender and
 recipient must be in possession of a common (secret) key which they have
 exchanged before actually starting to communicate. The sender uses this
 key to encrypt the message and the recipient uses it to decrypt it.
@@ -138,18 +138,18 @@ symmetric algorithms (RC5)}
 \index{brute-force attack}
 \index{RC5}
 
-The current status on brute-force attacks on symmetric encryption algorithms can be explained with the block cipher RC5.
+The current status of brute-force attacks on symmetric encryption algorithms can be explained with the block cipher RC5.
 
 Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the cipher text is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
 \footnote{%
     With CrypTool\index{CrypTool} v1.3 you also can try brute-force attacks
     of modern symmetric algorithms 
     (using the menu {\bf Analysis \textbackslash{} Ciphertext-Only}): 
-    to achieve a result in a appropriate time with a single PC you should 
+    to achieve a result in an appropriate time with a single PC you should 
     mark not more than 20 bit of the key as unknown.
 }.
 
-Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. They offer prizes for those who manage to decipher cipher texts, encrypted with different algorithms and different key lengths and unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
+Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. They offer prizes for those who manage to decipher cipher texts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
 
 It is well-known, that the "old" standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
@@ -180,8 +180,8 @@ Internet.\par \vskip + 3pt
 
 If Alice\index{Alice}%
 \footnote{%
-      In order to describe cryptographic protocols the participants
-      are often named Alice, Bob, \dots (see \cite[S. 23]{Schneier1996}). 
+      In order to describe cryptographic protocols participants
+      are often named Alice, Bob, \dots (see \cite[p. 23]{Schneier1996cm}). 
       Alice and Bob perform all 
       2-person-protocols. Alice will initiate all protocols and 
       Bob answers. The attackers are named Eve (eavesdropper) and
@@ -257,7 +257,7 @@ An important part of cryptographically secure techniques is to generate
 random numbers. Within CrypTool\index{CrypTool} v1.3 you can check out
 different random number generators using the menu {\bf Indiv. Procedures 
 \textbackslash{} Generate Random Numbers}. 
-Using the menu{\bf Analysis \textbackslash{} Random Tests} you can apply
+Using the menu {\bf Analysis \textbackslash{} Random Tests} you can apply
 different test methods for random data to binary documents. \\
 Up to now CrypTool has concentrated on cryptographically strong 
 pseudo random number generators. Only the integrated Secude generator 
@@ -295,11 +295,11 @@ symmetric and asymmetric encryption methods.
         Klaus Schmeh, \\
         {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
         John Wiley \& Sons Ltd., Chichester 2003. \\
-        A considerable, up-to-date, good reading book, which also 
+        A considerable, up-to-date, easy to read book, which also 
         considers practical problems like standardisation or
         real existing software.
 
-\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
+\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley 1994, 2nd edition 1996.

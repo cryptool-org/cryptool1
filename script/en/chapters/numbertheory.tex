@@ -1139,7 +1139,7 @@ of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Calculation of the multiplicative Inverse}
+\subsubsection{Calculation of the multiplicative inverse}
 
 Another interesting application is a special case of determining the multiplicative inverses using the Euler-Fermat 
 theorem (multiplicative inverses are otherwise determined using the extended Euclidean algorithm\index{Euclidean algorithm!extended}).
@@ -1157,7 +1157,7 @@ For our example, this means:
     $1579^{-1} \equiv 1579^{7349} {\rm ~(mod~} p).$
 \end{itemize}
 By cleverly breaking down the exponent, we can calculate this power relatively easily (see Section~\ref{hohpot}
-\hyperlink{hohpot}{Fast calculation of high powers)}:
+\hyperlink{hohpot}{Fast calculation of high powers}):
 \begin{itemize}
 \item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$
 \item[] $1579^{-1} \equiv 4716 {\rm ~(mod~} 7351).$
@@ -1987,10 +1987,11 @@ The current record (as of June 2002) obtained using the GNFS method
 factors (these are build with 73 and 86 decimal digits).
 
 This record, established on January 18, 2002 by researchers of the German
-university of Bonn\footnote{%
+University of Bonn\footnote{%
 \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
 {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}, got much less attention within the press than the
-solution of the RSA challenge, established on August 22, 1999, when
+solution of the RSA challenge\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
+         {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}}, established on August 22, 1999, when
 researchers from the Netherlands factorized the 155-digit number into its
 both 78-digit primes (see Chapter \ref{chptSecurityParam}). 
 One reason is that 512 bit RSA-155 was a kind of {\em magic} border.
@@ -2137,7 +2138,7 @@ menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
 }.
 
 Alice and Bob\footnote{Bob and Alice are the default names used for the two authorised participants in a protocol 
-(see \cite[p. 23]{Schneier1996}).
+(see \cite[p. 23]{Schneier1996nt}).
 } use a one way function to obtain a key $S$, the session key, for subsequent correspondence. This is then a secret 
 that is only known to the two of them. Alice selects a random number $a$ and keeps it secret. She applies a one way 
 function to $a$ to calculate the number $A = g^a$ and sends it to Bob. He does the same, by selecting a secret random 
@@ -2182,6 +2183,7 @@ used due to the difficulty of calculating the discrete logarithm\index{Discrete 
 We will now use an example with (unrealistically) small numbers to illustrate this.
 \vskip +1em
 
+\pagebreak
 {\bf Example using numbers:} 
 \begin{itemize}
 \item[{\bf 1.}] Alice and Bob select $g = 11, p = 347$.
@@ -2728,7 +2730,8 @@ This needs to be stressed because the type of padding is extremely important dur
     {\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
     A statement on these recommendations: \\
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
-    {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
+    {\texttt{http://www.secorvo.de/publikat/\\
+    \vspace*{1cm}stellungnahme-algorithmenempfehlung-020307.pdf}}
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
     Graham, Knuth, Patashnik, \\
@@ -2785,7 +2788,7 @@ This needs to be stressed because the type of padding is extremely important dur
     April 8th, 2002, \\
     \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}.
     
-\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
+\bibitem[Schneier1996]{Schneier1996nt} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley and Sons, 2nd edition 1996.
