@@ -112,7 +112,8 @@ void HybridEncryptedFileInfo::operator=(HybridEncryptedFileInfo &_hi)
 SCA_Server::SCA_Server()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 0);
+	// Default-Wert: 128 Bit
+	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 
 	// Speicher reservieren
@@ -355,7 +356,8 @@ void SCA_Client::cancelTransmission()
 SCA_Attacker::SCA_Attacker()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 0);
+	// Default-Wert: 128 Bit
+	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 	
 	// Speicher reservieren
