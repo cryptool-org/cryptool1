@@ -14,6 +14,9 @@
 
 // #define MAX_PERM_LENGTH <Innerhalb der Datei AscEdit.h defniert>
 
+#define INV_TOKEN "INV, "
+#define PARAM_TOKEN "PARAMETER: "
+
 class CDlgKeyPermutation : public CDialog
 {
 	CBitmapButton m_Paste;
@@ -73,6 +76,8 @@ protected:
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+
 };
 
 //{{AFX_INSERT_LOCATION}}

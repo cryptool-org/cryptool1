@@ -30,6 +30,7 @@
 #include "DlgRandomGenerator.h"
 #include "DlgPeriodicityAnalysis.h"
 #include "DlgKeyPermutation.h"
+#include "DlgKeyPermutationInfo.h"
 #include "DlgSelectHashFunction.h"
 #include "SecudeCryptography.h"
 #include "DlgHashDemo.h"
@@ -3082,29 +3083,88 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 			
 	// Dialogbox zur Schlüsseleingabe anzeigen
 	CDlgKeyPermutation Perm;
-	if (Perm.DoModal()==IDOK){
+	if (Perm.DoModal()==IDOK)
+	{
 
 		b2 = (char *) malloc(l2+1);
 
-		if(Perm.m_Dec) {
-			if(Perm.m_P2len) {
+		if(Perm.m_Dec&&!Perm.m_Invert||!Perm.m_Dec&&Perm.m_Invert)
+		{
+			if(Perm.m_P2len)
+			{
 				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
 				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
 				b3 = b1;
 			}
-			else {
+			else
+			{
 				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
 				b3 = b2;
 			}
 		}
-		else {
+		else
+		{
 			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-			if(Perm.m_P2len) {
+			if(Perm.m_P2len)
+			{
 				b3 = b1;
 				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
 			}
 			else b3 = b2;
 		}
+
+		CDlgKeyPermutationInfo KPI;
+
+		CString Titel;
+		char Field[128];
+
+		if(!Perm.m_Invert&&!Perm.m_Dec)
+		{
+			Titel.LoadString(IDS_PERMUTATION_ENCRYPT);
+		}
+		if(Perm.m_Invert&&!Perm.m_Dec)
+		{
+			Titel.LoadString(IDS_PERMUTATION_ENCRYPT_INV);
+		}
+		if(!Perm.m_Invert&&Perm.m_Dec)
+		{
+			Titel.LoadString(IDS_PERMUTATION_DECRYPT);
+		}
+		if(Perm.m_Invert&&Perm.m_Dec)
+		{
+			Titel.LoadString(IDS_PERMUTATION_DECRYPT_INV);
+		}
+		KPI.m_dialogue_title = Titel;
+
+		Titel.Empty();
+		if(Perm.m_Dec)
+		{
+			Titel.LoadString(IDS_PERMUTATION_CLEAR);
+		}
+		else
+		{
+			Titel.LoadString(IDS_PERMUTATION_CIPHER);
+		}
+		KPI.m_button_title = Titel;
+
+		if(Perm.PrintPerm(Field, Perm.m_P1, Perm.m_P1len))
+		{
+			KPI.m_Permutation1 = Field;
+		}
+		if(Perm.PrintPerm(Field, Perm.m_P1inv, Perm.m_P1len))
+		{
+			KPI.m_Inverse1 = Field;
+		}
+		if(Perm.PrintPerm(Field, Perm.m_P2, Perm.m_P2len))
+		{
+			KPI.m_Permutation2 = Field;
+		}
+		if(Perm.PrintPerm(Field, Perm.m_P2inv, Perm.m_P2len))
+		{
+			KPI.m_Inverse2 = Field;
+		}
+
+		KPI.DoModal();
 
 		GetTmpName(outfile,"cry",".tmp");
 		
@@ -3113,16 +3173,15 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		outf.Close();
 		Reformat(infile,outfile, FALSE);
 
-		char *Invert=new char[];
-		Invert = (Perm.m_Invert) ? "INV, " : "";
-
+		char *Invert = new char[];
+		(Perm.m_Invert) ? Invert= INV_TOKEN : Invert="";
 
 		if(Perm.m_P2len)
-			sprintf(key,"%s;%s PARAMETER: %s%i, %i, %i, %i, %i, %i",Perm.m_Perm1, Perm.m_Perm2, Invert,
+			sprintf(key,"%s;%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, Invert,
 			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		else
-			sprintf(key,"%s PARAMETER: %s%i, %i, %i, %i, %i, %i", Perm.m_Perm1, Invert,
+			sprintf(key,"%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, PARAM_TOKEN, Invert,
 			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		CAppDocument *NewDoc;

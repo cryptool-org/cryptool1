@@ -50,8 +50,12 @@ void CDlgShowKey::OnCopyKey()
 	//In der Zwischen Ablage kopieren
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	CopyKey(strTitle, m_Key); 
-	m_CtrlKey.SetSel(0,-1); 
-	m_CtrlKey.Copy();
+///////////////////////////////////////////////
+//	HENRIK KOY 06-08-2002
+//  Das Einfügen des Schlüsselstrings in die Windows-Zwischenablage bewirkt, dass der vom User eventuell
+//  dorthinein gespeicherte Inhalt überschrieben wird (verwirrt den User). -- deshalb auskommentiert
+//	m_CtrlKey.SetSel(0,-1); 
+//	m_CtrlKey.Copy();
 	CDialog::OnOK();
 }
 

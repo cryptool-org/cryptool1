@@ -5,6 +5,7 @@
 #include "CrypToolApp.h"
 #include "AscEdit.h"
 #include "DlgKeyPermutation.h"
+#include "DlgKeyPermutationInfo.h"		  
 
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
@@ -90,7 +91,8 @@ void CDlgKeyPermutation::OnDecrypt()
 	m_Dec = 1;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ")
+	CString Primes = CString(PARAM_TOKEN)
+		+ char((int)m_Invert + '0') + ' '
 		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
 		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
@@ -102,19 +104,22 @@ void CDlgKeyPermutation::OnEncrypt()
 {
 	UpdateData(TRUE);
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
-	if(m_P1len <= 0) {
+	if(m_P1len <= 0)
+	{
 		m_CPerm1.SetFocus();
 		return;
 	}
 	m_P2len = MakePerm(&m_Perm2, m_P2, m_P2inv);
-	if(m_P2len < 0) {
+	if(m_P2len < 0)
+	{
 		m_CPerm2.SetFocus();
 		return;
 	}
 	m_Dec = 0;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ")
+	CString Primes = CString(PARAM_TOKEN)
+		+ char((int)m_Invert + '0') + ' '
 		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
 		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
@@ -217,19 +222,21 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 	if ( PasteKey( pc_str, Primes ) )
 	{
 		UpdateData(true);
-		int d = strlen("PARAMETER: ");
-		m_P1InSeq  = (int)(Primes[d]   - '0');
-		m_P1Perm = (int)(Primes[d+2] - '0');
-		m_P1OutSeq = (int)(Primes[d+4] - '0');
-		m_P2InSeq  = (int)(Primes[d+6] - '0');
-		m_P2Perm = (int)(Primes[d+8] - '0');
-		m_P2OutSeq = (int)(Primes[d+10] - '0');
+		int d = strlen(PARAM_TOKEN);
+		m_Invert =	+ (int)(Primes[d] - '0');
+		m_P1InSeq  = (int)(Primes[d+2]   - '0');
+		m_P1Perm = (int)(Primes[d+4] - '0');
+		m_P1OutSeq = (int)(Primes[d+6] - '0');
+		m_P2InSeq  = (int)(Primes[d+8] - '0');
+		m_P2Perm = (int)(Primes[d+10] - '0');
+		m_P2OutSeq = (int)(Primes[d+12] - '0');
 		UpdateData(false);
 	}
 	else
 	{
 		UpdateData(true);
-		int d = Primes.Find("PARAMETER: ", 0);
+		int d = Primes.Find(PARAM_TOKEN, 0);
+		m_Invert = false;
 		m_P1InSeq  = 0;
 		m_P1Perm = 1;
 		m_P1OutSeq = 1;
@@ -285,17 +292,27 @@ void CDlgKeyPermutation::OnPasteKey()
 {
 	CString buffer;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	if ( PasteKey(pc_str, buffer) )
+	if(PasteKey(pc_str, buffer))
 	{
 		UpdateData(TRUE);
 		int k = buffer.Find(';');
-		if(k==-1) {
-			int k = buffer.Find("PARAMETER: ", 0);
+		if(k==-1)
+		{
+			int k = buffer.Find(PARAM_TOKEN, 0);
 			if ( k > 0 )
 			{
 				m_Perm1 = makeASCII(buffer.Left(k));
-				k += strlen("PARAMETER: ");
-				m_P1InSeq  = (int)(buffer[k]   - '0');
+				k += strlen(PARAM_TOKEN);
+				if ( 0 <= buffer.Find(INV_TOKEN) )
+				{
+					m_Invert = TRUE;
+					k += strlen(INV_TOKEN);
+				}
+				else
+				{
+					m_Invert = FALSE;
+				}
+				m_P1InSeq  = (int)(buffer[k] - '0');
 				m_P1Perm = (int)(buffer[k+2] - '0');
 				m_P1OutSeq = (int)(buffer[k+4] - '0');
 				m_P2InSeq  = (int)(buffer[k+6] - '0');
@@ -309,14 +326,24 @@ void CDlgKeyPermutation::OnPasteKey()
 			m_Perm2.Empty();
 
 		}
-		else {
+		else
+		{
 			m_Perm1 = makeASCII(buffer.Left(k));
-			int d = buffer.Find("PARAMETER: ", 0);
+			int d = buffer.Find(PARAM_TOKEN, 0);
 			if ( d > 0 )
 			{
 				m_Perm2 = makeASCII(buffer.Mid(k+1,(d-k)-1));
-				d += strlen("PARAMETER: ");
-				m_P1InSeq  = (int)(buffer[d]   - '0');
+				d += strlen(PARAM_TOKEN);
+				if ( 0 <= buffer.Find(INV_TOKEN) )
+				{
+					m_Invert = TRUE;
+					d += strlen(INV_TOKEN);
+				}
+				else
+				{
+					m_Invert = FALSE;
+				}
+				m_P1InSeq  = (int)(buffer[d] - '0');
 				m_P1Perm = (int)(buffer[d+2] - '0');
 				m_P1OutSeq = (int)(buffer[d+4] - '0');
 				m_P2InSeq  = (int)(buffer[d+6] - '0');

@@ -1471,6 +1471,14 @@ SOURCE=.\DlgKeyPermutation.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgKeyPermutationInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyPermutationInfo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgKeyPlayfair.cpp
 # End Source File
 # Begin Source File
