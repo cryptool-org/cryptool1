@@ -28,8 +28,6 @@ CDlgSigAttModificDemo::CDlgSigAttModificDemo(CWnd* pParent /*=NULL*/)
 	m_sigbit = 0;
 	m_method = 0;
 	m_printable = 0;
-	m_eol = TRUE;
-	m_double = TRUE;
 	//}}AFX_DATA_INIT
 }
 
@@ -49,8 +47,6 @@ void CDlgSigAttModificDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SIGBIT, m_sigbit);
 	DDX_Radio(pDX, IDC_METHOD, m_method);
 	DDX_Radio(pDX, IDC_RADIO3, m_printable);
-	DDX_Check(pDX, IDC_CHECK1, m_eol);
-	DDX_Check(pDX, IDC_CHECK2, m_double);
 	//}}AFX_DATA_MAP
 }
 
@@ -91,6 +87,7 @@ void CDlgSigAttModificDemo::OnModify()
 {
 	UpdateData(TRUE);
 
+	CString msg;
 	ifstream ifstr_Document;
 	int ii, DocumentLength;
 	struct stat stat_object;
@@ -108,6 +105,15 @@ void CDlgSigAttModificDemo::OnModify()
 				return;
 			}
 		}
+	}
+
+	if (0 == m_method && 1 != m_control_eol.GetCheck() && 1 != m_control_double.GetCheck())
+	{
+		msg.Format(IDS_STRING_SIG_ATT_NO_CHECK);
+		MessageBox(msg, "CrypTool", MB_ICONEXCLAMATION | MB_APPLMODAL);
+		m_control_eol.SetCheck(1);
+
+		return;
 	}
 
 	ifstr_Document.open(m_file, ios::in | ios::binary);
@@ -136,7 +142,7 @@ void CDlgSigAttModificDemo::OnModify()
 	ModifiedDocumentForHashing *m_Document;
 	if (!m_method)
 	{
-		m_Document = new ModifiedDocument_Blanks(Text, DocumentLength, m_sigbit, m_eol, m_double);
+		m_Document = new ModifiedDocument_Blanks(Text, DocumentLength, m_sigbit, -12, -12);
 	}
 	else
 	{

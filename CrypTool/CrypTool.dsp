@@ -2607,6 +2607,14 @@ SOURCE=.\DlgShowPublicKeyEC.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgSigAttModificDemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSigAttModificDemo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgSignature.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"

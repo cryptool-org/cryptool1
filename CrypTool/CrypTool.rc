@@ -2906,6 +2906,7 @@ BEGIN
     GROUPBOX        "Hashwert",IDC_STATIC,28,71,229,70
     GROUPBOX        "Datei",IDC_STATIC,15,16,241,45
     PUSHBUTTON      "&Suchen ...",IDC_SERACH,172,35,50,14
+    LTEXT           "Static",IDC_STATIC,139,119,44,8
 END
 
 

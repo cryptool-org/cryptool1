@@ -30,8 +30,6 @@ public:
 	int		m_sigbit;
 	int		m_method;
 	int		m_printable;
-	BOOL	m_eol;
-	BOOL	m_double;
 	//}}AFX_DATA
 
 
