@@ -65,6 +65,9 @@ The current version of CrypTool can be found at these addresses:
                 http://www.CrypTool.org
                 http://www.CrypTool.de
 
+Since beginning of 2002 the average download number of the CrypTool
+package is about 600 pieces per month -- with a growing trend.
+
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
 CrypTool has implemented almost all state-of-the-art crypto
@@ -155,12 +158,14 @@ d) presentation, which shows at some slides the possibilities of
 CrypTool contains a special program for the creation of
 self-extracting executable files which can also be used
 independently. In this program a session key is generated
-from a password, and with this key any file contents are
+from a password, and with this key any file content is
 AES-encrypted.
+This encryption tool can be called either as a Windows application
+and as a command line tool (e.g. called from within a batch file).
 
 (4) The story "The Dialogue of the Sisters" as PDF file
 -------------------------------------------------------
-The title-role sisters use a variant of the RSA algoritm, to
+The title-role sisters use a variant of the RSA algorithm, to
 securely communicate.
 
 All the single files included in the package are listed within
@@ -191,7 +196,7 @@ CrypTool will get an academic home as planned. There the further
 development as open source is co-ordinated.
 
 The current sponsors of CrypTool have been Deutsche Bank AG,
-Secude Ltd. and FZI Karlsruhe. 1.3.0x is the last version,
+Secude Ltd. and FZI Karlsruhe. 1.3.03 is the last version,
 released by Deutsche Bank as maintainer.
 
 From September 2002 the new maintainer is the chair "Security
@@ -399,9 +404,12 @@ examples\CrypTool.bmp
         \CrypTool-en.txt
         \CrypTool-de.txt
         \Playfair-enc-de.txt
-        \probetext-de.txt
+        \Probetext-de.txt
         \psion-enc.hex
         \vernam.txt
+        \Startbeispiel-de.txt
+        \Startingsample-en.txt
+
 
 pse\.............. This directory and its subdirectory pseca\ are
                    used to store (asymmetric) keys and
@@ -451,7 +459,7 @@ At the homepage of CrypTool www.cryptool.org/.com you can find
 the hash values of all files, which could be directly downloaded
 from the English page, within the files md5sum.txt and
 sha1sum.txt.
-Using the wide-spreaded tools MD5SUM and SHA1SUM you can check
+Using the wide-spread tools MD5SUM and SHA1SUM you can check
 the integrity of these files.
 
 b) Additionally you can check the files WITHIN the
@@ -489,7 +497,7 @@ added for version 1.3.00 since CrypTool version 1.202 (Dec 2000).
 - CrypTool is now fully available in both German and English
   language versions.
 - All dialogues has been reviewed for consistency and clarity.
-- The restrictions (maximum data volume 64 Kb) which previously
+- The restrictions (maximum data volume 64 KB) which previously
   applied to Windows versions Win95 and Win98 are no longer
   applicable.
 - The most recent configuration relating to an algorithm (such
@@ -609,15 +617,17 @@ Functionality:
   - it's now possible to use hex values as input too.
 + Improvements at the AES-Tool  
   (the version of the AES-Tool delivered with 1.3.03 was partly
-  rewritten and is no more comatible with its predecessors):
+  rewritten and is no more compatible with its predecessors):
   - AES-Tool now offers complete functionality also when called
     from the commandline.
   - There is a customization suggesting the file type (exe or aes).
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
-  - the currently used alphabet (choosen with Options/Textoptions)
+  - the currently used alphabet (choosen with Options / Text Options)
   - the Hill key matrix, also coded in numbers
   - a sample encryption/decryption calculated in detail.
++ With the permutation cipher (double column transposition) now the
+  inverse permutation key is also calculated and shown.
 + With the manual analysis of the substitution encryption it is
   now possible to move backward and forward between the last
   changes via button click.
@@ -632,8 +642,8 @@ Functionality:
 + Show/Visualize the single steps / dependencies of
     -> the creation of an electronic signature,
     -> the hybrid encryption and decryption,
-    -> how changes to a document change the hash value
-       (sensitivity of hash algorithms).
+    -> how changes to a document change the hash value (hash 
+       demonstration) (sensitivity of hash algorithms).
 + The flow charts used for visualization show you, which steps
   can be taken in which order. If you click a step, where the
   prerequisites are not there, then a popup explains this in
@@ -641,6 +651,7 @@ Functionality:
 + Step-by-step verification of an RSA-signature is now possible
   too (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
++ New menu item Starting Options.
 
 
 5.8. Planned enhancements after version 1.3.03
@@ -664,7 +675,7 @@ Functionality:
   option to set e.g. initial vector, number of rounds, key length,
   word size or the kind of padding (e.g. for the RC5-Algorithm
   see RFC2040).
-  Then these additional customazations must become part of the
+  Then these additional customizations must become part of the
   format for the internal key storage.
 + Use dictionary for all attacks, not just for substitution.
 + Implementation of standardized pattern searching.
@@ -673,7 +684,7 @@ Functionality:
 + Analysis improvement (not sophisticated enough yet) of
   - monoalphabetic substitution,
   - Playfair encryption,
-  - asymmetric cryptomethods.
+  - asymmetric crypto methods.
 + Summary of all display modules in a logical class tree.
 + Rearrange the source to facilitate a separation of cryptographic
   functions and user interface (make ports and debugging easier).
@@ -753,7 +764,7 @@ Version   Date		English		German
 1.2.02    Dec. 2000	-		3.2
 1.3.00    Jan. 2002	4.7		4.9
 1.3.02    June 2002	6.4		6.9
-1.3.03    Aug. 2002	6.9		7.5
+1.3.03    Aug. 2002	6.5		6.9
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
@@ -790,7 +801,7 @@ CrypTool.
     ------------------
 10.1. Wirtschaftswoche special issue
       ------------------------
-In the special issue "Cryptography" of the magazibe Wirtschaftswoche
+In the special issue "Cryptography" of the magazine Wirtschaftswoche
 (Sept. 2000) there was a competition entitled "Crack the text!". 
 Please see http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
 cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html
@@ -829,7 +840,7 @@ On this page there are also some very interesting links on
 classical cryptanalysis.
 
 The only "useful" programs known to us, which combine cryptography
-and crypanalysis (under a graphical user interface) are:
+and cryptanalysis (under a graphical user interface) are:
 - CAP from Dr. Richard Spillman
   http://www.cs.plu.edu/courses/privacy/index.htm
 - CryptAid from David Lovelock
@@ -839,7 +850,7 @@ and crypanalysis (under a graphical user interface) are:
 If we are missing something here, please feel free to inform us,
 so that we can complete the list.
 
-We explicitely want to state, that we would welcome if all the
+We explicitly want to state, that we would welcome if all the
 efforts made for these single programs could be combined into one
 new program.
 

@@ -65,6 +65,9 @@ Internet-Adressen:  http://www.CrypTool.de
                     http://www.CrypTool.com
                     http://www.CrypTool.org
 
+Seit Anfang 2002 bewegt sich die Downloadrate ziemlich konstant 
+bei 600 CrypTool-Paketen pro Monat -- mit wachsender Tendenz.
+
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Mechanismen
 aufzuzeigen. In CrypTool sind fast alle State-of-the-art-Krypto-
@@ -144,7 +147,7 @@ Zum Programm gehört eine umfangreiche Dokumentation, die aus vier
 Teilen besteht:
 a) Readme-Datei (diese Datei),
 b) Online-Hilfe
-   - kontext-bezogen zur Bedienung des Programms und mit
+   - Kontext-bezogen zur Bedienung des Programms und mit
      weiterreichenden Erläuterungen,
    - Demos bzw. Beispiel-Szenarien (hier werden Einzelverfahren
      Schritt für Schritt erläutert)
@@ -158,13 +161,15 @@ Zum Erstellen selbstentpackender Executables ist in CrypTool ein
 Programm integriert, das auch eigenständig benutzt werden kann.
 Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
 ein beliebiger Dateiinhalt AES-verschlüsselt wird.
+Dieses Verschlüsselungstool kann sowohl als Fenster als auch von
+Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
 
 (4) Die Geschichte "Der Dialog der Schwestern" als PDF-Datei
 ------------------------------------------------------------
 Hierin wird eine Variante des RSA-Verfahren von den Titelheldinnen
 benutzt, um verschlüsselt zu kommunizieren.
 
-Alle Einzeldateien, die bei der Installation des CrypTool-Packetes
+Alle Einzeldateien, die bei der Installation des CrypTool-Paketes
 auf Ihre Platte kopiert werden, sind in Kapitel 4 (unten in diesem
 Readme) aufgeführt.
 
@@ -194,7 +199,7 @@ Wie geplant wird CrypTool ein akademisches Zuhause erhalten, wo
 es in Zukunft als Open Source weitergepflegt wird.
 
 Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank AG,
-Secude GmbH und FZI Karlsruhe. 1.3.0x ist die letzte Version,
+Secude GmbH und FZI Karlsruhe. 1.3.03 ist die letzte Version,
 die die Deutsche Bank als Maintainer herausbringt.
 
 Ab September 2002 ist der Lehrstuhl Sicherheit in der Informations-
@@ -411,9 +416,11 @@ examples\CrypTool.bmp
         \CrypTool-de.txt
         \CrypTool-en.txt
         \Playfair-enc-de.txt
-        \probetext-de.txt
+        \Probetext-de.txt
         \psion-enc.hex
         \vernam.txt
+        \Startbeispiel-de.txt
+        \Startingsample-en.txt
 
 pse\.............. In diesem Verzeichnis und seinem
                    Unterverzeichnis pseca\ werden erzeugte
@@ -473,7 +480,7 @@ Dazu stehen deren Hashwerte hier im Readme:
 MD5-Hashwert                      Name
 XXXmd5sumXXX
 
-SHA1-Hashwert                            Name
+SHA1-Hashwert                          Name
 XXXsha1sumXXX
 
 
@@ -501,7 +508,7 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.6):
   englisch.
 - Alle Dialoge wurden im Hinblick auf Konsistenz und
   Verständlichkeit überarbeitet.
-- Die bisherigen Einschränkungen (maximale Datengröße 64 Kb) für
+- Die bisherigen Einschränkungen (maximale Datengröße 64 KB) für
   die Windows-Versionen Win95 und Win98 wurden aufgehoben.
 - die letzte Einstellung zu einem Verfahren (wie gewählter
   Schlüssel oder Alphabet) wird Programm-intern aufbewahrt.
@@ -631,6 +638,8 @@ Funktionalität:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
   - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und
   - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail.
++ Bei der Permutationsverschlüsselung (Doppelwürfel) wird nun
+  der inverse Permutationsschlüssel berechnet und angezeigt.
 + Bei der manuellen Analyse der Substitutionsverschlüsselung kann
   man sich nun per Button zwischen seinen letzten Änderungen hin-
   und her bewegen.
@@ -646,7 +655,7 @@ Funktionalität:
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei der
     -> Erzeugung einer elektronischen Signatur,
     -> Hybridverschlüsselung und -Entschlüsselung,
-    -> Wirkung von Textänderungen auf den Hashwert
+    -> Wirkung von Textänderungen auf den Hashwert (Hash-Demo)
        (Sensitivität von Hashverfahren).
 + In den Datenflussdiagrammen zur Visualisierung sehen Sie,
   welche Schritte in welcher Reihenfolge gemacht werden können.
@@ -655,6 +664,7 @@ Funktionalität:
 + Die schrittweise Verifikation einer RSA-Signatur ist nun auch
   möglich (dabei werden wie bei der Visualisierung der Hybrid-
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
++ Einführung des Menüpunktes Startoptionen.
 
 
 5.8. Geplante Änderungen nach Version 1.3.03
@@ -775,7 +785,7 @@ Version   Datum		Deutsch		Englisch
 1.2.02    Dez. 2000	3,2		-
 1.3.00    Jan. 2002	4,9		4,7
 1.3.02    Juni 2002	6,9		6,4
-1.3.03    Aug. 2002	7,5		6,9
+1.3.03    Aug. 2002	6,9		6,5
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00
@@ -865,7 +875,7 @@ Oberfläche) verbinden, sind:
 Falls uns hier etwas entgangen ist, würden wir uns über eine
 Nachricht freuen - wir vervollständigen diese Liste gerne.
 
-Ausserdem wollen wir hier ausdrücklich das Angebot machen, die
+Außerdem wollen wir hier ausdrücklich das Angebot machen, die
 Anstrengungen für diese einzelnen Programme in ein einziges
 Programm zu integrieren.
 
