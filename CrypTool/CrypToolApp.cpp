@@ -587,3 +587,78 @@ void CCrypToolApp::OnEinzelverfahrenTutorialSignaturerzeugung()
 	CDlgSignatureDemo DST;
 	DST.DoModal();
 }
+
+
+void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
+{
+	if (m_menuItemWithSubMenuSelected && !m_menuItemStack.empty()) {
+
+		TCHAR alinkid[255] = ""; //255 is the maximum for alinks
+		deque<menuitem>::iterator it;
+		// calculate a unique id for current menu item (alinkid) from stack
+		for (it = m_menuItemStack.begin(); it != m_menuItemStack.end(); it++) {
+			TCHAR mi[sizeof alinkid] = "";
+			GetMenuString((*it).hmenu,(*it).index,mi,sizeof(mi)-1,MF_BYPOSITION);
+			mi[sizeof mi - 1] = '\0';
+			int i = 0, j = 0;
+			TCHAR c;
+			// remove from mi
+			// - everything except alphanumerics
+			// - \t and everything following
+			while ((c = mi[j++]) && c != '\t')
+				if (isalnum(c))
+					mi[i++] = c;
+				//else don't copy c, don't increment i
+			mi[i] = '\0';
+			int len = strlen(alinkid);
+			if (len > 0 && len < sizeof(alinkid))
+				alinkid[len++] = '_';
+			strncpy(alinkid+len,mi,sizeof(alinkid)-len);
+			alinkid[sizeof(alinkid) - 1] = '\0';
+		}
+		// perpare help macro string
+		TCHAR formstr[] = "AL(\"%s\",1)"; // AL = ALink = jump to A footnote; 1 means: jump to topic if match was unique
+		TCHAR cmd[sizeof(formstr) + sizeof(alinkid)];
+		_snprintf(cmd,sizeof(cmd),formstr,alinkid);
+		cmd[sizeof(cmd)-1] = '\0';
+		// make sure the correct file is loaded
+		//CWinApp::WinHelp(dwData,(DWORD)(0x20000 + IDR_MAINFRAME));
+		CWinApp::WinHelp(dwData,nCmd);
+		// invoke help macro: jump to the key word derived from m_CurrentPopupMenu
+		CWinApp::WinHelp((DWORD)cmd,HELP_COMMAND);
+	} else
+		CWinApp::WinHelp(dwData,nCmd);
+}
+
+void CCrypToolApp::updateMenuItemStack(HMENU hmenu,INT index) { 
+	// update the stack of open menus with a new one
+	if (!m_menuItemStack.empty()) {
+		menuitem top = m_menuItemStack.back();
+		HMENU submenu = GetSubMenu(top.hmenu,top.index);
+		if (hmenu != submenu) {
+			//pop from stack until hmenu found our empty
+			while (!m_menuItemStack.empty() && hmenu != m_menuItemStack.back().hmenu)
+				m_menuItemStack.pop_back();
+			if (!m_menuItemStack.empty()) // found hmenu on stack
+				m_menuItemStack.pop_back(); // remove it so that it is repaced by a new entry with correct index
+		}
+	}
+	menuitem mi = { hmenu, index };
+	m_menuItemStack.push_back(mi);
+}
+
+
+BOOL CCrypToolApp::ProcessMessageFilter(int code, LPMSG lpMsg)
+{
+	if (code == MSGF_MENU && lpMsg->message == WM_MENUSELECT) {
+		HMENU hmenu = (HMENU)lpMsg->lParam;
+		UINT flags = (UINT)HIWORD(lpMsg->wParam); 
+		UINT item = (UINT)LOWORD(lpMsg->wParam);
+		m_menuItemWithSubMenuSelected = 0;
+		if (flags & MF_POPUP && !(flags == 0xFFFF && hmenu == 0 /*menu closed*/)) {
+			updateMenuItemStack(hmenu,item);
+			m_menuItemWithSubMenuSelected = 1;
+		}
+	}
+	return CWinThread::ProcessMessageFilter(code,lpMsg);
+}

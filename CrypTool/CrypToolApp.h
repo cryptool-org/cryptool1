@@ -20,6 +20,8 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
+#include <deque>
+#define deque std::deque
 #include "resource.h"
 #include "CPlotDocument.h"
 #include "DlgShowProgress.h"
@@ -51,6 +53,18 @@ extern HWND hWndAktivesFenster;
 class CCrypToolApp : public CWinApp
 {
 	BOOL InitInstance();
+	
+	BOOL m_menuItemWithSubMenuSelected; // true iff a menu item with sub menu is selected
+	struct menuitem {
+		HMENU hmenu;
+		UINT index;
+	};
+	deque<menuitem> m_menuItemStack; // updated by PrecessMessageFilter,
+									 // used by WinHelp to create unique IDs for menu items with sub menus
+	virtual void updateMenuItemStack(HMENU hmenu,INT index); // utility for updating m_menuItemStack
+	virtual void WinHelp( DWORD dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus
+	virtual BOOL ProcessMessageFilter(int code, LPMSG lpMsg); // overridden for tracking menu selection and updating m_menuItemStack
+	
 	//{{AFX_MSG(CCrypToolApp)
 	afx_msg void OnAppAbout();
 	afx_msg void OnOptionsAnalysis();
