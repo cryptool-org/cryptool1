@@ -296,7 +296,7 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 				else if ( 93 < bitlength_next_factor*log(2.0)/log(10.0) )
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_MEMORY_REQUEST,pc_str,STR_LAENGE_STRING_TABLE);
-					if ( IDOK != MessageBox(pc_str, NULL, MB_OKCANCEL) )
+					if ( IDNO == MessageBox(pc_str, NULL, MB_YESNO) )
 					{
 						QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
 						started++;

@@ -47,6 +47,8 @@ public:
 	~CDlgHybridEncryptionDemo();
 	void ShowButtons();
 	void EnDisButtons();
+	void SetCondition(int button,bool state);
+	void ResetDependent(int button);
 	void RSAEncrypt();
 	
 

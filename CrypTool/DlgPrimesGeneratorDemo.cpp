@@ -23,6 +23,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPrimesGeneratorDemo::IDD, pParent)
 {
+	m_hide_button_accept = true;
 	//{{AFX_DATA_INIT(CDlgPrimesGeneratorDemo)
 	m_radio1 = 0;
 	m_radio4 = 0;
@@ -100,7 +101,8 @@ BOOL CDlgPrimesGeneratorDemo::OnInitDialog()
 	
 	m_control_edit1.SetFocus();
 	CString Primes;
-	if ( PasteKey( pc_str, Primes ) )
+//	if ( PasteKey( pc_str, Primes ) )
+	if (false)
 	{
 		UpdateData(true);
 		int d = Primes.Find(';', 0);
@@ -114,6 +116,9 @@ BOOL CDlgPrimesGeneratorDemo::OnInitDialog()
 	}
 	
 	if(m_radio4) OnRadio5();
+
+	if (m_hide_button_accept)
+		m_control_button_accept.ShowWindow(SW_HIDE);
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

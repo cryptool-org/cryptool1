@@ -18,7 +18,8 @@ class CDlgPrimesGeneratorDemo : public CDialog
 public:
 	CDlgPrimesGeneratorDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
-
+	
+	bool m_hide_button_accept;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgPrimesGeneratorDemo)
 	enum { IDD = IDD_PRIMES_GENERATOR_DEMO };

@@ -3187,11 +3187,9 @@ void Hashdemo(const char *infile,const char *OldTitle)
 
 	CDlgHashDemo HashDlg;
 	// Objekt (HashDlg) der Klasse CDlgHashDemo wird erzeugt
-	HashDlg.m_strTitel=CString(" ' ") + OldTitle + CString(" ' ");
+	HashDlg.m_strTitel.Format(IDS_STRING_Hashdemo_orighash,(LPCTSTR)OldTitle);
 	//Setzen des Titelnamens der Datei in ein Textfeld (in Hashdemo)
 	HashDlg.m_strText = CString((char*)TextFile->octets);
-	
-
 
 	OctetString hashMD2, hashMD5, hashSHA1;
 	//OctetString ist eine Struktur mit 2 Variablen, 1 Zeiger auf char (octets=der auf den zu hashenden

@@ -275,7 +275,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,244,75,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,324,244,60,20
-    LTEXT           "Wählen Sie den Empfänger:",IDC_HEADLINE_SELECT,9,5,105,
+    LTEXT           "Wählen Sie den Empfänger:",IDC_HEADLINE_SELECT,9,5,375,
                     8
     LTEXT           "Bemerkung: Es werden nur Namen angezeigt, die einen RSA-Schlüssel haben.",
                     IDC_STATIC,7,217,365,8
@@ -1401,14 +1401,14 @@ BEGIN
                     ES_WANTRETURN | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOG DISCARDABLE  0, 0, 326, 255
+IDD_PRIMES_GENERATOR_DEMO DIALOG DISCARDABLE  0, 0, 326, 231
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
-                    19
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,202,101,
+                    20
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,135,202,95,20
     EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
@@ -1423,7 +1423,7 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
     CONTROL         "beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,121,10
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,202,59,20
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
                     IDC_STATIC,19,9,289,17
@@ -1490,8 +1490,8 @@ BEGIN
     LTEXT           "Primzahl q",IDC_RSA_CAPTION_PRIME_Q,19,104,32,8
     LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
     LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,153,55,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
+    LTEXT           "Öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
+    LTEXT           "Geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
     LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
     LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
     LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
@@ -1628,7 +1628,7 @@ BEGIN
     LTEXT           "(darf nicht länger als die Ausgabelänge der gewählten Hashfunktion sein).",
                     IDC_STATIC,174,48,127,20
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,19,75,125,88
-    LTEXT           "Ausgabenlänge",IDC_STATIC,85,93,50,8
+    LTEXT           "Ausgabelänge",IDC_STATIC,85,93,50,8
     LTEXT           "16 Bytes",IDC_STATIC,86,111,48,9
     LTEXT           "16 Bytes",IDC_STATIC,86,128,52,9
     LTEXT           "20 Bytes",IDC_STATIC,86,145,51,9
@@ -1671,7 +1671,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallsdaten erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "Zufallsgenerator der &SECUDE Bibliothek",IDC_RADIO1,
+    CONTROL         "Zufallsgenerator der &Secude Bibliothek",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&x^2 (mod N)  Zufallsgenerator",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,18,74,119,8
@@ -1697,7 +1697,7 @@ END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "SECUDE Zufallsgenerator"
+CAPTION "Secude Zufallsgenerator"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,67,63,50,16
@@ -2340,7 +2340,8 @@ BEGIN
                     IDC_STATIC,20,85,216,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Hashwert der Originaldatei",IDC_STATIC,20,219,84,8
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,20,219,184,
+                    8
     EDITTEXT        IDC_EDIT_ORIGHASH,20,229,300,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,20,252,92,8
@@ -2352,7 +2353,6 @@ BEGIN
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
                     294,294,53
     PUSHBUTTON      "Dialog &beenden",IDCANCEL,247,359,59,14
-    LTEXT           "",IDC_STATIC_TITEL,109,219,209,9
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 445
@@ -2476,13 +2476,13 @@ BEGIN
 
         POPUP "&RSA-Demo"
         BEGIN
-            MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+            MENUITEM "&Primzahlen generieren...",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "&RSA-Algorithmus...",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktorisieren (IFP)...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung",           ID_EINZELVERFAHREN_SIGN
+            MENUITEM "Signaturerzeugung...",           ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
@@ -2628,7 +2628,7 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung",           ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Signaturerzeugung...",           ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -2812,7 +2812,7 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung",           ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Signaturerzeugung...",           ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -2954,7 +2954,7 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung",           ID_EINZELVERFAHREN_SIGN
+            MENUITEM "Signaturerzeugung...",           ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
     END
@@ -3099,7 +3099,7 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung",           ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Signaturerzeugung...",           ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -3863,7 +3863,7 @@ BEGIN
         HORZGUIDE, 154
         HORZGUIDE, 180
         HORZGUIDE, 188
-        HORZGUIDE, 244
+        HORZGUIDE, 222
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -4648,7 +4648,7 @@ BEGIN
     IDS_STRING_MSG_ON_ALPHABET 
                             "Das in [Optionen->Textoptionen] einzustellende Alphabet muss mindestens %d Zeichen enthalten."
     IDS_STRING_ERR_ON_SECUDE_DLL 
-                            "Die SECUDE-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
+                            "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
     IDS_STRING_ANALYSE_ON   "Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE "Vollständige Suche zu %d%% erledigt"
     IDS_STRING_AUTOMATIC_ANALYSE 
@@ -4916,7 +4916,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_VARIABLE     "Variable"
-    IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "SECUDE .dll nicht verfügbar"
+    IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll nicht verfügbar"
     IDS_STRING_PLAYFAIR_PREFORMAT "Playfair-Vorformatierung von <%s>"
     IDS_STRING_NO_VALID_KEYS_FOUND 
                             "Im Suchbereich befinden sich keine gültigen Schlüssel für den verschlüsselten Text!"
@@ -4983,6 +4983,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING_Hashdemo_orighash "Hashwert der Originaldatei '%s'"
     IDS_STRING_REFERENCE_FILE "Referenzdatei"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
                             "Maximaler Testwert: %lf\nTestergebnis: %lf\n"
@@ -5012,13 +5013,13 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_LIST2  "Zeichenfolge"
     IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
-    IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma SECUDE benötigen Sie keine weiteren Parameter. Weitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
+    IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma Secude benötigen Sie keine weiteren Parameter.\r\nWeitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
     IDS_SEEK_NEXT_PRIME     "Suche nächst größere Primzahl!"
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
-    IDS_SECUDE_COULD_NOT_BE_LOADED "SECUDE Lib konnte nicht geladen werden!"
+    IDS_SECUDE_COULD_NOT_BE_LOADED "Secude Lib konnte nicht geladen werden!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5306,7 +5307,7 @@ BEGIN
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "Die Eingabe ist keine positve ganze Zahl."
     IDS_STRING_FAKTORISATION_ABORTED 
-                            "Die Faktorisation wurde vorzeitug beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
+                            "Die Faktorisation wurde vorzeitig beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
     IDS_STRING_FAKTORISATION_ABORT_MSG "Abgebrochen"
     IDS_STRING_FAKTORISATION_STOP_MSG "Ohne Erfolg"
 END
@@ -5556,7 +5557,7 @@ BEGIN
     IDS_FACTORISATION_OVERFLOW 
                             "Das Quadratische Sieb kann nicht ausgeführt werden und wird deaktiviert (Speicherüberlauf)."
     IDS_FACTORISATION_MEMORY_REQUEST 
-                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir empfehlen diese Methode zu deakivieren.\n\nOK deaktiviert das Quadratische Sieb,\nAbbrechen führt die Methode aus."
+                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir empfehlen diese Methode zu deaktivieren.\n\nMöchten Sie das Quadratische Sieb deaktivieren?"
     IDS_STRING_Hashdemo_FileNotFound 
                             "Es wurde keine temporäre Datei gefunden!"
     IDS_STRING_Hashdemo_KeineWerteGefunden 
@@ -5595,7 +5596,7 @@ BEGIN
     IDS_STRING_HYB_SHOW_SYM_KEY 
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel generieren.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_ENC_SYM_KEY 
-                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher den symmetrischen Schlüssel asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher den symmetrischen Schlüssel asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die\nAktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_SHOW_ENC_DOC 
                             "Dieser Button ist im Moment inaktiv!\nSie müssen vorher die Datei mit dem symmetrischen Schlüssel verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_SHOW_ASYM_KEY 
@@ -5859,8 +5860,8 @@ BEGIN
     LTEXT           "Last name:",IDC_STATIC,240,48,50,8
     LTEXT           "First name:",IDC_STATIC,240,66,50,8
     LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,89,64,20
-    LTEXT           "PIN code:",IDC_STATIC,240,110,50,8
-    LTEXT           "PIN confirmation:",IDC_STATIC,240,129,50,8
+    LTEXT           "PIN:",IDC_STATIC,240,110,50,8
+    LTEXT           "PIN verification:",IDC_STATIC,240,129,65,8
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,
                     32
     GROUPBOX        "User data",IDC_STATIC,224,4,185,145
@@ -5881,7 +5882,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
     DEFPUSHBUTTON   "&Encrypt",IDOK,7,244,75,20
     PUSHBUTTON      "&Cancel",IDCANCEL,324,244,60,20
-    LTEXT           "Choose a destination",IDC_HEADLINE_SELECT,9,5,105,8
+    LTEXT           "Choose a destination",IDC_HEADLINE_SELECT,9,5,373,8
     LTEXT           "Note: Only PSEs containing an RSA key are shown.",
                     IDC_STATIC,7,217,365,8
 END
@@ -6971,14 +6972,14 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOG DISCARDABLE  0, 0, 326, 255
+IDD_PRIMES_GENERATOR_DEMO DIALOG DISCARDABLE  0, 0, 326, 231
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
-                    19
-    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,11,224,110,20
+    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,11,202,101,
+                    20
+    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,135,202,83,20
     EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
@@ -6993,7 +6994,7 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
     CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,241,202,72,20
     EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -7240,7 +7241,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Random Numbers"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "&SECUDE Library random number generator",IDC_RADIO1,
+    CONTROL         "&Secude Library random number generator",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&x^2 (mod N)  random number generator",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,18,74,158,8
@@ -7266,7 +7267,7 @@ END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "SECUDE Random Number Generator"
+CAPTION "Secude Random Number Generator"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,67,63,50,16
@@ -7724,7 +7725,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,30,111,168,8
     CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,30,154,136,8
-    LTEXT           "The automatic substitution analysis is just for german and for english plaintext implemented. For all other languages the manual analysis is recommended.",
+    LTEXT           "The automatic substitution analysis is implemented for German and for English plaintexts only. For all other languages the manual analysis is recommended.",
                     IDC_STATIC,10,5,198,26
     LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",
                     IDC_STATIC,10,90,198,18
@@ -7949,7 +7950,8 @@ BEGIN
                     IDC_STATIC,16,85,294,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Hash value of the original file",IDC_STATIC,16,219,94,8
+    LTEXT           "Hash value of the original file",IDC_STATIC_TITEL,16,
+                    219,194,8
     EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Hash value of the actual file",IDC_STATIC,16,252,89,8
@@ -7958,7 +7960,6 @@ BEGIN
     LTEXT           "Difference between hash values of the original and actual file",
                     IDC_STATIC,16,284,252,8
     PUSHBUTTON      "E&xit",IDCANCEL,251,356,59,14
-    LTEXT           "",IDC_STATIC_TITEL,113,219,197,9
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
                     296,294,53
@@ -8071,7 +8072,7 @@ BEGIN
 
             MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation...",       ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8216,7 +8217,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation...",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8400,7 +8401,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation...",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8542,7 +8543,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation...",       ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8687,7 +8688,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation...",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -9943,7 +9944,7 @@ BEGIN
     IDS_STRING_MSG_ON_ALPHABET 
                             "The alphabet defined in [Options->Text Options] must contain at least %d characters."
     IDS_STRING_ERR_ON_SECUDE_DLL 
-                            "The SECUDE library could not be loaded.\nSome of the functions are therefore not available."
+                            "The Secude library could not be loaded.\nSome of the functions are therefore not available."
     IDS_STRING_ANALYSE_ON   "Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE "Search %d%% completed"
     IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"
@@ -10203,7 +10204,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_VARIABLE     "Variable"
-    IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "SECUDE .dll not available"
+    IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll not available"
     IDS_STRING_PLAYFAIR_PREFORMAT "Playfair preformatting of <%s>"
     IDS_STRING_NO_VALID_KEYS_FOUND 
                             "There are no valid keys for the encrypted text in the search range!"
@@ -10268,6 +10269,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING_Hashdemo_orighash "Hash value of the original file '%s'"
     IDS_STRING_REFERENCE_FILE "Reference file"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
                             "Maximal test value: %lf\ntest result: %lf\n"
@@ -10297,13 +10299,13 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_LIST2  "Character sequence"
     IDS_STRING_NGRAM_LIST3  "Frequency in %"
-    IDS_STRING_RAND_SECUDE  "For the SECUDE pseudorandom number generator you do not need any additional parameters. Further information can be obtained from the on-line help (""F1"" key)."
+    IDS_STRING_RAND_SECUDE  "For the Secude pseudorandom number generator you do not need any additional parameters. Further information can be obtained from the on-line help (""F1"" key)."
     IDS_SEEK_NEXT_PRIME     "Seeking next prime!"
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "The domain parameter of the selectet elliptic curve will be schown below."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "To choose this option, you must first deactivate the option below\n[+] ""Distinguish between uppercase and lowercase""!"
-    IDS_SECUDE_COULD_NOT_BE_LOADED "The SECUDE library could not be loaded !"
+    IDS_SECUDE_COULD_NOT_BE_LOADED "The Secude library could not be loaded !"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10769,7 +10771,7 @@ BEGIN
     IDS_FACTORISATION_OVERFLOW 
                             "Due to memory overflow, the quadratic sieve method could not be executed."
     IDS_FACTORISATION_MEMORY_REQUEST 
-                            "The quadratic sieve method requires more than 128 mega bytes of memory.\nWe recommend to deactivate this method.\n\nOK deactivates the quadratic sieve,\nCancel executes this method."
+                            "The quadratic sieve method requires more than 128 megabytes of memory.\nWe recommend to deactivate this method.\n\nWould you like to deactivate the quadratic sieve?"
     IDS_STRING_Hashdemo_FileNotFound "No temporary file was found!"
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "The file size must be at least one character!"

@@ -206,9 +206,7 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 			_snprintf(array,3,"%02.2X",(unsigned char) SymKey[j]);
 			m_strSymKey+=array;					
 	}
-	m_barrSetCondition[1] = true; 
-	EnDisButtons();
-	ShowButtons();
+	SetCondition(1,true);
 	UpdateData(false);
 }
 
@@ -282,9 +280,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 
 	HIDE_HOUR_GLASS
 
-	m_barrSetCondition[5] = true;
-	EnDisButtons();
-	ShowButtons();
+	SetCondition(5,true);
 	UpdateData(false);
 }
 
@@ -304,9 +300,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 		if (PseHandle==NULL)
 		{
 			// Fehler beim öffnen der CA-Datenbank
-			m_barrSetCondition[3] = false;
-			EnDisButtons();
-			ShowButtons();
+			SetCondition(3,false);
 			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			delete string1;
 			return;
@@ -318,9 +312,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 		if (Zert==NULL)
 		{
 			// Fehler beim lesen des Zertifikats
-			m_barrSetCondition[3] = false;
-			EnDisButtons();
-			ShowButtons();
+			SetCondition(3,false);
 			char *Fehler=theApp.SecudeLib.LASTTEXT;
 			CString Fehler2=Fehler;
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_GET_PSE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -333,9 +325,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 		}
 		theApp.SecudeLib.af_close(PseHandle);
 		
-		m_barrSetCondition[3] = true;
-		EnDisButtons();
-		ShowButtons();
+		SetCondition(3,true);
 	}
 	UserKeyId=rsaDlg.UserKeyId;
 	UpdateData(false);
@@ -488,9 +478,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 			m_strBuffEditEncKeyAsym+=array;					
 	}
 	m_strTitle = "";
-	m_barrSetCondition[6] = true;
-	EnDisButtons();
-	ShowButtons();
+	SetCondition(6,true);
 	UpdateData(false);
 	HIDE_HOUR_GLASS
 	//Sanduhr durch einen Pfeil ersetzen
@@ -632,6 +620,23 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 }
 
 
+void CDlgHybridEncryptionDemo::SetCondition(int button,bool state)
+{
+	m_barrSetCondition[button] = state;
+	ResetDependent(button);
+	EnDisButtons();
+	ShowButtons();
+}
+
+void CDlgHybridEncryptionDemo::ResetDependent(int button)
+{
+	int i;
+	for (i = 0; i < 11; i++) 
+		if (m_setMatrix[i][button] && m_barrSetCondition[i]) {
+			m_barrSetCondition[i] = false;
+			ResetDependent(i);
+		}
+}
 void CDlgHybridEncryptionDemo::EnDisButtons()
 {
 	for(int i=0;i<11;i++)
@@ -886,8 +891,7 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 	HIDE_HOUR_GLASS
 
 	//Schalter für EnDisButtons() siehe OnInitDialog()
-	m_barrSetCondition[0] = true;
-	EnDisButtons();
+	SetCondition(0,true);
 	
 	return true;
 }
