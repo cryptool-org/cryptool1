@@ -32,6 +32,8 @@ class DlgDetailsFactorisation : public CDialog
 // Konstruktion
 	struct DFItem *List;
 public:
+	char outfile[256];
+	bool b_SaveFactorList;
 	void ClearFactDetail();
 	void InsertFactDetail( CString & Num, CString &Factor1, 
 		                   CString &Factor2, CString &Method, CString &Time, int PrimeMask,
@@ -65,6 +67,7 @@ protected:
 	//{{AFX_MSG(DlgDetailsFactorisation)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult);
+	virtual void OnCancel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgDetailsFactorisation.h"
+#include "fileutil.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -199,4 +200,69 @@ void DlgDetailsFactorisation::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
+}
+
+void DlgDetailsFactorisation::OnCancel() 
+{
+	
+	UpdateData(TRUE);
+	theApp.DoWaitCursor(1);
+	b_SaveFactorList = true;
+	
+	GetTmpName(outfile,"DetFct",".tmp");
+	ofstream f_Details(outfile);
+
+	LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_INPUT,pc_str,STR_LAENGE_STRING_TABLE);
+    f_Details << pc_str << m_orignNumber << endl << endl << endl;
+	struct DFItem *Seek = List;	
+	while ( Seek != NULL ) 
+	{
+		char line[128];
+		
+		{ // Factorized Number
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTORISEDNUMBER,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << pc_str << Seek->Num << endl;
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << pc_str << ": " << Seek->Method << ". ";
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLTIME,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << pc_str << ": " << Seek->Time << endl << endl;
+		}
+		{ // Factor 1
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR1,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << "   " << pc_str  << Seek->Factor1 << endl;
+			if ( Seek->PrimeMask & 1 )
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+			}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+			}
+			sprintf(line, pc_str, Seek->BitlengthF1);
+			f_Details << "   " << line << endl << endl;
+		}
+		{ // Factor 2
+			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR2,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << "   " << pc_str  << Seek->Factor2 << endl;
+			if ( Seek->PrimeMask & 2 )
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
+			}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
+			}
+			sprintf(line, pc_str, Seek->BitlengthF2);
+			f_Details << "   " << line << endl << endl << endl;		
+		}
+		
+		Seek = Seek->next;
+	}
+	f_Details.close();	
+	CDialog::OnCancel();
 }

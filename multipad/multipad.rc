@@ -5181,6 +5181,11 @@ BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bitlänge = %i,  Primzahl."
     IDS_DETFACTORISATION_FACTORCOMPOSITE 
                             "Bitlänge = %i,  zusammengesetzte Zahl ."
+    IDS_DETFACTORISATION_HL_INPUT "Eingabe-Zahl: "
+    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Faktorisierte Zahl: "
+    IDS_DETFACTORISATION_HL_FACTOR1 "Faktor 1: "
+    IDS_DETFACTORISATION_HL_FACTOR2 "Faktor 2: "
+    IDS_DETFACTORISATION_HL_OUTPUT "Faktorisation der Zahl %s."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -9617,6 +9622,12 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bitlength = %i,  prime number."
     IDS_DETFACTORISATION_FACTORCOMPOSITE "Bitlength = %i,  composite number."
+    IDS_DETFACTORISATION_HL_INPUT 
+                            "Details for the factorisation of the \nInput number: "
+    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Factorised number: "
+    IDS_DETFACTORISATION_HL_FACTOR1 "Factor 1: "
+    IDS_DETFACTORISATION_HL_FACTOR2 "Factor 2: "
+    IDS_DETFACTORISATION_HL_OUTPUT "Factorisation of the integer %s."
 END
 
 #endif    // Englisch (GB) resources

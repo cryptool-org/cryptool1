@@ -39,6 +39,8 @@ public:
 	double duration1, duration2;
 	clock_t FactFinish;
 	clock_t FactStart;
+	DlgDetailsFactorisation DetailsFactorisation;
+
 	void CheckEdit(CString &m_edit, int & sels, int & sele);
 	CString Search_First_Composite_Factor();
 	void Set_NonPrime_Factor_Red();
@@ -90,7 +92,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	TutorialFactorisation f;
-	DlgDetailsFactorisation DetailsFactorisation;
 };
 
 //{{AFX_INSERT_LOCATION}}

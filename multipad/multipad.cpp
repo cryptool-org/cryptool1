@@ -538,6 +538,26 @@ void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren()
 	DlgTutorialFactorisation FAKT;
 	AfxInitRichEdit();
     FAKT.DoModal();
+	if ( FAKT.DetailsFactorisation.b_SaveFactorList )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU( FAKT.DetailsFactorisation.outfile);
+		remove(FAKT.DetailsFactorisation.outfile);
+		LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_OUTPUT,
+				pc_str,STR_LAENGE_STRING_TABLE);
+		char line[256];
+		CString tmp = FAKT.DetailsFactorisation.m_orignNumber;
+		if ( tmp.GetLength() < 20 )
+		{
+			sprintf( line, pc_str, tmp.GetBuffer(0) );
+		}
+		else
+		{
+			CString tmp2 = tmp.Left(9) + "..." + tmp.Right(8);
+			sprintf( line, pc_str, tmp2.GetBuffer(0) );
+		}
+		NewDoc->SetTitle(line);
+	}
 }
 
 void CMultiPadApp::OnEinzelverfahrenSchluesselgenerieren() 
