@@ -7,7 +7,7 @@
 (Bernhard Esslinger, Juli 2001, besslinger@web.de)
 
 \begin{quote} 
-{\em Eric Berne\footnote{Eric Berne, \QM Spiele der Erwachsenen'', rororo, (c) 1964, S. 235}:}\newline
+{\em Eric Berne\footnote{ Eric Berne, \QM Spiele der Erwachsenen'', rororo, (c) 1964, S. 235}:}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
 Die transaktionale Spielanalyse dagegen befa"st sich mit Spielen, die
 unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.
@@ -25,11 +25,11 @@ in der Menge der nat"urlichen und der ganzen Zahlen durchgef"uhrt werden.
 Weitere mathematische Disziplinen, die heute in der Kryptographie Verwendung finden, sind 
 (vgl. \cite[S. 2]{Bauer1995}, \cite[page 3]{Bauer2000}) :
 \begin{itemize}
-	\item Gruppentheorie
-	\item Kombinatorik
-	\item Komplexit"atstheorie
-	\item Ergodentheorie
-	\item Informationstheorie.
+    \item Gruppentheorie
+    \item Kombinatorik
+    \item Komplexit"atstheorie
+    \item Ergodentheorie
+    \item Informationstheorie.
 \end{itemize}
 
 Die Zahlentheorie oder Arithmetik (hier wird mehr der Aspekt des Rechnens
@@ -133,13 +133,13 @@ Vermutungen und beim L"osen bisher unl"osbarer numerischer Probleme.
 
 Die moderne Zahlentheorie \index{Zahlentheorie!moderne} besteht aus Teilgebieten wie
 \begin{itemize}
-	\item Elementare Zahlentheorie
-	\item Algebraische Zahlentheorie
-	\item Analytische Zahlentheorie
-	\item Geometrische Zahlentheorie
-	\item Kombinatorische Zahlentheorie
-	\item Numerische Zahlentheorie und
-	\item Wahrscheinlichkeitstheorie.
+    \item Elementare Zahlentheorie
+    \item Algebraische Zahlentheorie
+    \item Analytische Zahlentheorie
+    \item Geometrische Zahlentheorie
+    \item Kombinatorische Zahlentheorie
+    \item Numerische Zahlentheorie und
+    \item Wahrscheinlichkeitstheorie.
 \end{itemize}
 
 Die verschiedenen Teilgebiete besch"aftigen sich alle mit Fragestellungen zu
@@ -164,7 +164,7 @@ sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
 \newpage
 
 \begin{quote}
-{\em Joanne K. Rowling\footnote{Joanne K. Rowling,~\QM Harry Potter und der Stein der Weisen'', Carlsen, (c)
+{\em Joanne K. Rowling\footnote{ Joanne K. Rowling,~\QM Harry Potter und der Stein der Weisen'', Carlsen, (c)
 1997, Kapitel ~ \QM Durch die Fallt"ur'', S. 310.}:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
 Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.
 \end{quote}
@@ -176,7 +176,7 @@ Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.
 Primzahlen.
 
 Jede ganze Zahl hat Teiler oder Faktoren. Die Zahl 1 hat nur einen, n"amlich
-sich selbst. Die Zahl 12 hat die sechs Teiler 1, 2, 3, 4, 6 und 12 \footnote{Aufgrund der
+sich selbst. Die Zahl 12 hat die sechs Teiler 1, 2, 3, 4, 6 und 12 \footnote{ Aufgrund der
 gro"sen Teilerzahl von 12 findet sich diese Zahl -- und Vielfache dieser Zahl -- oft im allt"aglichen wieder:
 Die 12 Stunden-Skala der Uhr, die 60 Minuten einer Stunde, die 360 Grad-Skala der Winkelmessung, usw. Teilt man 
 diese Skalen in Bruchteile auf, so ergeben sich in vielen F"allen die Br"uche als ganze Zahlen. Mit diesen kann 
@@ -297,7 +297,7 @@ Eine ganze Zahl $n$ ist {\bf teilbar} durch eine ganze Zahl $d$, wenn der Quotie
 eine ganze Zahl $c$ ist, so da"s $n = c * d$.
 \end{definition}
 
-Die Zahl $n$ wird Vielfaches von $d$ genannt; $d$ wird {\em Teiler, Divisor} \index{Eiler} \index{Divisor} oder {\em Faktor} von $n$
+Die Zahl $n$ wird Vielfaches von $d$ genannt; $d$ wird {\em Teiler, Divisor} \index{Teiler} \index{Divisor} oder {\em Faktor} von $n$
 genannt.
 
 Mathematisch schreibt man das: $d | n$ (gelesen: \QM  $d$ teilt $n$'').
@@ -426,35 +426,35 @@ Zahlen die gleiche Eigenschaft wie die Null haben. Vergleiche Fu"snote 11.
 Es gelten die bekannten Gesetze:
 \begin{itemize}
 \item[\bf 1.] {\bf Assoziativgesetz:}\index{Assoziativgesetz} \\ 
-	$((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m)$ \\
-	$((a*b) * c) {\rm ~(mod~ } m) \equiv  (a * (b*c)) {\rm ~(mod~ } m)$
+    $((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m)$ \\
+    $((a*b) * c) {\rm ~(mod~ } m) \equiv  (a * (b*c)) {\rm ~(mod~ } m)$
 \item[\bf 2.] {\bf Kommutativgesetz:} \index{Kommutativgesetz}\\
-	$(a+b) {\rm ~(mod~ } m) \equiv  (b+a) {\rm ~(mod~ } m)$ \\
+    $(a+b) {\rm ~(mod~ } m) \equiv  (b+a) {\rm ~(mod~ } m)$ \\
      $(a*b) {\rm ~(mod~ } m) \equiv  (b*a) {\rm ~(mod~ } m)$
 \end{itemize}
 Assoziativgesetz und Kommutativgesetz gelten sowohl f"ur die Addition als auch f"ur die Multiplikation.
 \begin{itemize}
 \item[\bf 3.] {\bf Distributivgesetz:} \index{Distributivgesetz}\\
-	$ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m)$ 
+    $ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m)$ 
 \item[\bf 4.] {\bf Reduzierbarkeit:} \index{Reduzierbarkeit} \\
-	$(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m)$ \\  
-	$(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m)$
+    $(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m)$ \\  
+    $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m)$
 \end{itemize}
 Es ist gleichg"ultig, in welcher Reihenfolge die Modulo-Operation durchgef"uhrt wird.
 \begin{itemize}
 \item[\bf 5.] {\bf Existenz einer Identit"at:} \index{Identit"at}\\
-	$(a + 0) {\rm ~(mod~ } m) \equiv  0 + a {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m)$  \\
- 	$(a * 1) {\rm ~(mod~ } m) \equiv  1 * a {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m)$
+    $(a + 0) {\rm ~(mod~ } m) \equiv  0 + a {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m)$  \\
+    $(a * 1) {\rm ~(mod~ } m) \equiv  1 * a {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m)$
 \item[\bf 6.] {\bf Existenz des inversen Elements:} \\
-	F"ur jedes ganzzahlige $a$ und $m$ gibt es eine ganze Zahl $-a$, so da"s gilt: \\
-	$a + (-a) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive Inverse) \index{Inverse!additive}\\
-	F"ur jedes $a$ ($a \not= 0 {\rm ~(mod~ } p$) ) und $p$ prim gibt es eine ganze Zahl $a^{-1}$, so da"s gilt: \\
-	$(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
+    F"ur jedes ganzzahlige $a$ und $m$ gibt es eine ganze Zahl $-a$, so da"s gilt: \\
+    $a + (-a) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive Inverse) \index{Inverse!additive}\\
+    F"ur jedes $a$ ($a \not= 0 {\rm ~(mod~ } p$) ) und $p$ prim gibt es eine ganze Zahl $a^{-1}$, so da"s gilt: \\
+    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
 \item[\bf 7.] \index{Abgeschlossenheit} {\bf Abgeschlossenheit:}\footnote{
      Diese Eigenschaft wird innerhalb einer Menge immer bez"uglich einer Operation definiert. Siehe \hyperlink{Appendix_B}{Anhang B}
      }   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G$ \\
-	$a, b \in G  \Longrightarrow  ( a * b ) \in G$
+    $a, b \in G  \Longrightarrow  ( a * b ) \in G$
 \end{itemize}
 
 
@@ -487,7 +487,9 @@ Es gilt modulo $5$ also nicht, da"s $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{
 ${\rm ~(mod~ } 5)$ und die Multiplikationstabellen 
 \footnote{ Bemerkung zur Division modulo 6 :
 Bei der Division darf nicht durch die Null geteilt werden, dies liegt an der
-besonderen Rolle der $0$ als Identit"at bei der Addition.}
+besonderen Rolle der $0$ als Identit"at bei der Addition:\\
+f"ur alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist offensischtlich, da"s $0$ keine Inverse
+bzgl. der Multiplikation besitzt, denn sonst m"u"ste gelten $0 = 0 * 0^{-1} = 1.$}
 f"ur mod $5$ und f"ur mod $6$ aufgestellt.
 
 \subsubsection*{Beispiel Additionstabelle:}
@@ -669,54 +671,54 @@ $i=1, ..., m$ f"ur die Reste alle Werte zwischen $0, ..., m-1$ vor.
 \enlargethispage{0.5cm}
 
 {
-	{\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
+    {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
-	\vskip +20 pt
+    \vskip +20 pt
 
-	\begin{table}[h]
-	\begin{center}                                                                          
-	\subsubsection*{Multiplikationstabelle modulo $13$}
-	\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
-	\hline 
-	i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
-	\hline 
-	\hline 
-	5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
-	Rest                 & 5 & 10  & 2  & 7  & 12  & 4 & 9  & {\bf 1}  & 6  & 11 & 3  & 8  & 0 & 5  & 10  & 2   & 7   & 12 \\
-	\hline 
-	6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
-	Rest                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  & {\bf 1}  & 7  & 0  & 6  & 12  & 5   & 11   & 4 \\
-	\hline 
-	\end{tabular}
-	\end{center} 
-	\end{table}
-}	
+    \begin{table}[h]
+    \begin{center}                                                                          
+    \subsubsection*{Multiplikationstabelle modulo $13$}
+    \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
+    \hline 
+    i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+    \hline 
+    \hline 
+    5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
+    Rest                 & 5 & 10  & 2  & 7  & 12  & 4 & 9  & {\bf 1}  & 6  & 11 & 3  & 8  & 0 & 5  & 10  & 2   & 7   & 12 \\
+    \hline 
+    6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+    Rest                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  & {\bf 1}  & 7  & 0  & 6  & 12  & 5   & 11   & 4 \\
+    \hline 
+    \end{tabular}
+    \end{center} 
+    \end{table}
+}   
 
-	Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils teilerfremd sind, kommen
-	zwischen $i=1, ..., m$ f"ur die Reste alle Werte zwischen $0, ..., m-1$ vor.
+    Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils teilerfremd sind, kommen
+    zwischen $i=1, ..., m$ f"ur die Reste alle Werte zwischen $0, ..., m-1$ vor.
 
 {
-	{\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
+    {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 
-	\vskip +20 pt
+    \vskip +20 pt
 
-	\begin{table}[h]
-	\begin{center}                                                                          
-	\subsubsection*{Multiplikationstabelle modulo $12$}
-	\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
-	\hline 
-	i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
-	\hline 
-	\hline 
-	5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
-	Rest                 & 5 & 10  & 3  & 8  & {\bf 1}  & 6 & 11  & 4  & 9  & 2  & 7  & 0  & 5 & 10  & 3  & 8   & 1   & 6 \\
-	\hline 
-	6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
-	Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0   & 6   & 0 \\
-	\hline 
-	\end{tabular}
-	\end{center} 
-	\end{table}
+    \begin{table}[h]
+    \begin{center}                                                                          
+    \subsubsection*{Multiplikationstabelle modulo $12$}
+    \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
+    \hline 
+    i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+    \hline 
+    \hline 
+    5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
+    Rest                 & 5 & 10  & 3  & 8  & {\bf 1}  & 6 & 11  & 4  & 9  & 2  & 7  & 0  & 5 & 10  & 3  & 8   & 1   & 6 \\
+    \hline 
+    6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+    Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0   & 6   & 0 \\
+    \hline 
+    \end{tabular}
+    \end{center} 
+    \end{table}
 }
 Berechnet wurde $5 * i$ (mod $12$) und $6*i$ (mod $12$).
 Da $6$ und der Modul $m=12$ nicht teilerfremd sind, kommen zwischen $i=1, ..., m$
@@ -811,7 +813,7 @@ Konstanten $C > 1$.
 \item[\bf b)] {\bf Wurzel Berechnung (Bestimmen von $b$):}  
 "Ahnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind: \\
 Wenn die Eulerfunktion $J(m)$ von $m$ bekannt ist, berechnet man 
-leicht\footnote{Siehe \hyperlink{Appendix_A}{Anhang A}: der Gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.} 
+leicht\footnote{ Siehe \hyperlink{Appendix_A}{Anhang A}: der Gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.} 
 $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz 4
 $$
         a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
@@ -864,9 +866,9 @@ $$ a {\rm ~mod+~} b := (a + b){\rm ~(mod~}n) , $$
 so ist die Menge $\mathbb{Z}_n$ zusammen mit der Relation mod+ eine Gruppe, denn es
 gelten die folgenden Eigenschaften einer Gruppe f"ur alle Elemente von $\mathbb{Z}_n$:
 \begin{itemize}
-	\item	$ a {\rm ~mod+~} b$ ist ein Element von $\mathbb{Z}_n$  (Abgeschlossenheit),
-	\item 	$(a {\rm ~mod+~} b) {\rm ~mod+~} c \equiv a {\rm ~mod+~} (b {\rm ~mod+~} c)$  (mod+ ist assoziativ),
-	\item 	das neutrale Element ist die $0$.
+    \item   $ a {\rm ~mod+~} b$ ist ein Element von $\mathbb{Z}_n$  (Abgeschlossenheit),
+    \item   $(a {\rm ~mod+~} b) {\rm ~mod+~} c \equiv a {\rm ~mod+~} (b {\rm ~mod+~} c)$  (mod+ ist assoziativ),
+    \item   das neutrale Element ist die $0$.
   \item   jedes Element $a \in \mathbb{Z}_n$ besitzt bez"uglich dieser Operation ein Inverses, n"amlich $n-a$ \\ 
                 (denn es gilt: $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
@@ -897,7 +899,7 @@ W"ahlt man s"amtliche Elemente aus $\mathbb{Z}_n$ aus, die teilerfremd zu $n$ si
 diese Menge eine Gruppe bez"uglich mod*. Diese Menge bezeichnet man mit $\mathbb{Z}_n^*$ .
 
 \begin{definition}
-$\mathbb{Z}_n^*$ :
+{\bf $\mathbb{Z}_n^*$} :
 $$ \mathbb{Z}_n^* := \{ a \in \mathbb{Z}_n \big| {\rm ggT}(a,n) = 1 \}.$$
 \end{definition}
 $\mathbb{Z}_n^*$ wird manchmal auch als \index{Restmenge!reduzierte} {\em reduzierte Restemenge} $R'$ modulo $n$ bezeichnet.
@@ -946,8 +948,8 @@ Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahre
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, ..., n-1\}$,
 die zu $n$ teilerfremd sind, gleich dem Wert der Euler-Funktion $J(n)$.
 \index{Eulersche Phi-Funktion}
-\begin{definition} \hypertarget{EulerFunction}{}\footnote{Leonard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783}
-Die Euler-Funktion\footnote{Wird oft als Phi--Funktion $\Phi(n)$ geschrieben} $J(n)$ gibt die Anzahl der Elemente von $\mathbb{Z}_n^*$ an.
+\begin{definition} \hypertarget{EulerFunction}{}\footnote{ Leonard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783}
+Die Euler-Funktion\footnote{ Wird oft als Phi--Funktion $\Phi(n)$ geschrieben} $J(n)$ gibt die Anzahl der Elemente von $\mathbb{Z}_n^*$ an.
 \end{definition}
 
 $J(n)$ gibt auch an, wieviele ganze Zahlen in mod $n$ multiplikative Inverse
@@ -958,7 +960,7 @@ F"ur eine Primzahl gilt: $J(p) = p - 1$
 \end{satz}
 
 \begin{satz} \label{J_of_pq}
-Ist m das Produkt zweier Primzahlen $p$ und $q$, so gilt:
+Ist m das Produkt zweier verschiedenen Primzahlen $p$ und $q$, so gilt:
 $$J(p*q) = (p - 1) * (q - 1) \quad {\rm oder} \quad J(p * q) = J(p) * J(q)$$
 \end{satz}
 Dieser Fall ist f"ur das RSA-Verfahren wichtig.
@@ -977,16 +979,16 @@ Verallgemeinert gilt f"ur jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
  \item[2.] Ist $n = p_1^{e_1} * p_2^{e_2} * ... *p_k^{e_k}$,
            wobei $p_1$ bis $p_k$ verschiedene Primzahlen sind, dann gilt:
            $$J(n) = [(p_1^{e_1-1}) * (p_1-1)] * ... * [(p_k^{e_k-1})*(p_k - 1)] = n * ([(p_1-1) / p_1] * ... * [(p_k-1) / p_k]).$$
-\end{itemize}	   
+\end{itemize}      
 \end{satz}
 
 {\bf Beispiel:} \\
 $n = 2.701.125 = 3^2 * 5^3 * 7^4$ $\Longrightarrow$
 $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800$
 
-F"ur den Beweis des RSA-Vefahrens brauchen wir den Satz von Fermat und dessen Verallgemeinerung (Satz von Euler-Fermat).
+F"ur den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und dessen Verallgemeinerung (Satz von Euler-Fermat).
 \index{Fermat!kleiner Satz}
-\begin{satz}{\bf Kleiner Satz von Fermat}\footnote{Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665}
+\begin{satz}{\bf Kleiner Satz von Fermat}\footnote{ Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665}
 Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt
 $$a^p \equiv a {\rm ~(mod~} p).$$
 \end{satz}
@@ -998,7 +1000,7 @@ $$a^{p-1} \equiv 1 {\rm ~(mod~} p).$$
 \begin{satz}{\bf Satz von Euler-Fermat (Verallgemeinerung des kleines Satzes von Fermat)}
 F"ur alle Elemente $a$ aus der Gruppe $\mathbb{Z}_n^*$ gilt (d.h. $a$ und $n$ sind nat"urliche Zahlen, die
 teilerfremd zueinander sind):
-$$ 	a^{J(n)} \equiv 1  {\rm ~(mod~} n).$$
+$$  a^{J(n)} \equiv 1  {\rm ~(mod~} n).$$
 \end{satz}
 
 Dieser Satz besagt, da"s wenn man ein Gruppenelement (hier $a$) mit der Ordnung der Gruppe (hier $J(n)$) potenziert, 
@@ -1007,7 +1009,7 @@ ergibt sich immer das neutrale Element der Multiplikation (die Zahl 1).
 Die 2. Formulierung des kleinen Satzes von Fermat ergibt sich direkt aus dem
 Satz von Euler, wenn $n$ eine Primzahl ist.
 
-Falls $n$ das Produkt zweier Primzahlen ist, kann man mit dem Satz von Euler
+Falls $n$ das Produkt zweier verschiedenen Primzahlen ist, kann man mit dem Satz von Euler
 in bestimmten F"allen sehr schnell das Ergebnis einer modularen Potenz
 berechnen. Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 
@@ -1036,14 +1038,14 @@ $$a^{-1} \equiv a^{J(n) - 1} \equiv a^{(p-1)-1} \equiv a^{p-2} {\rm ~(mod~} p). 
 F"ur unser Beispiel bedeutet das:
 \begin{itemize}
    \item[]  Da der Modul $7351$ prim ist, ist $p-2 = 7349$. \\
-	    $1579^{-1} \equiv 1579^{7349}$ (mod $p$).
-\end{itemize}	    
+        $1579^{-1} \equiv 1579^{7349}$ (mod $p$).
+\end{itemize}       
 Durch geschicktes Zerlegen des Exponenten kann man diese Potenz relativ einfach berechnen 
 (siehe Kapitel 3.11: \hyperlink{hohpot}{Hohe Potenzen)}:
 
 \begin{itemize}
    \item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$ \\
-	   $1579^{-1} \equiv 4716$ (mod $7351$).
+       $1579^{-1} \equiv 4716$ (mod $7351$).
 \end{itemize}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1140,14 +1142,14 @@ gilt: $e*d \equiv 1$ (mod $J(26)$).
 F"ur alle $e$, die teilerfremd zu $J(n)$ sind, k"onnte man nach dem Satz von Euler-Fermat das $d$ 
 folgenderma"sen berechnen:
 \begin{eqnarray}
- d & \equiv & e^{-1}	  {\rm ~(mod~} J(n)) \nonumber \\
-   & \equiv & e^{J(J(n))-1}  {\rm ~(mod~} J(n)), \quad	{\rm denn~}  a^{J(n)} \equiv 1 {\rm ~(mod~} n)
+ d & \equiv & e^{-1}      {\rm ~(mod~} J(n)) \nonumber \\
+   & \equiv & e^{J(J(n))-1}  {\rm ~(mod~} J(n)), \quad  {\rm denn~}  a^{J(n)} \equiv 1 {\rm ~(mod~} n)
       \quad {\rm ~entspricht~~} a^{J(n)-1} \equiv a^{-1} {\rm ~(mod~} n). \nonumber
 \end{eqnarray}
 
 
-Besteht die Zahl $n$ aus zwei Primfaktoren, so ist die Faktorisierung von $n$ und das Finden von $J(n)$ 
-"ahnlich schwierig \footnote{Ist die Faktorisierung von $ n=pq$ bekannt, so ist $ J(n) = (p-1)*(q-1).$ Ist nun 
+Besteht die Zahl $n$ aus zwei verschiedenen Primfaktoren, so ist die Faktorisierung von $n$ und das Finden von $J(n)$ 
+"ahnlich schwierig \footnote{ Ist die Faktorisierung von $ n=pq$  mit $p\neq q$ bekannt, so ist $ J(n) = (p-1)*(q-1).$ Ist nun 
 der Wert $J(n)$ bekannt, so erh"alt man die Faktoren $p$ und {q} von $n$, indem man die quadratische Gleichung
 $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost, denn $n=pq$ und $J(n)=(p-1)*(q-1)=n-(p+q)+1$.}.
 
@@ -1220,7 +1222,8 @@ Da $45$ keine Primzahl ist, gibt es nicht f"ur alle Werte von $a$ eine
 $3, 5, 6, 9, 10, 12, ...,$ da $45 = 3^2*5$).
 
 {\bf Beispiel:} \\
-Hat $7$ eine Primitivwurzel modulo $45$? 
+Hat $7$ eine Primitivwurzel modulo $45$?\par
+
 Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erf"ullt.
 Aus der Tabelle kann man ersehen, da"s die Zahl $7$ keine Primitivwurzel von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.
@@ -1298,7 +1301,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 $J(46)$ berechnet sich nach Satz \ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
-\begin{satz}\footnote{ Vergeliche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1 \le a, i < 11$. }
+\begin{satz}\footnote{ Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1 \le a, i < 11$. }
 F"ur einen Modul $m = p$ und $a < m$ nimmt $a^i, i = 1, ..., p-1$ alle $J(p)$ Werte 
 $1, ..., p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
 \end{satz}
@@ -1339,11 +1342,11 @@ $M = D(S; C)$.
 Damit dieses System mit jeder Nachricht $M$ funktioniert, m"ussen folgende 4
 Forderungen erf"ullt sein:
 \begin{itemize}
-	\item[\bf 1.] $D ( S; E (P; M) ) = M$ f"ur jedes $M$ (Umkehrbarkeit)
-	\item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden (d.h. es mu"s viele davon geben).
-	\item[\bf 3.] Der Aufwand, $S$ aus $P$ herzuleiten, ist mindestens so hoch, wie das Entschl"usseln
+    \item[\bf 1.] $D ( S; E (P; M) ) = M$ f"ur jedes $M$ (Umkehrbarkeit)
+    \item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden (d.h. es mu"s viele davon geben).
+    \item[\bf 3.] Der Aufwand, $S$ aus $P$ herzuleiten, ist mindestens so hoch, wie das Entschl"usseln
                                von $M$ ohne Kenntnis von $S$.
-	\item[\bf 4.] Sowohl $C$ als auch $M$ lassen sich relativ einfach berechnen.
+    \item[\bf 4.] Sowohl $C$ als auch $M$ lassen sich relativ einfach berechnen.
 \end{itemize}
 
 Die 1. Forderung ist eine generelle Bedingung f"ur alle kryptographischen
@@ -1375,11 +1378,17 @@ folgenderma"sen beschreiben (s. \cite[S. 213 ff]{Eckert2001} und \cite[S. 338 ff
 Schritt 1 bis 3 sind die Schl"usselerzeugung, Schritt 4 und 5 sind die Verschl"usselung, 6 und 7 
 die Entschl"usselung:
 \begin{itemize}
-\item[{\bf 1.}] W"ahle zuf"allig $2$ Primzahlen $p$ und $q$ und berechne $n = p*q$\footnote{Die
-BSI \index{BSI} (Bundesamt f"ur Sicherheit in der Informationstechnik) empfehlt die Primfaktoren $p$ und $q$ ungef"ahr gleich gro"s zu w"ahlen, aber nicht zu dicht beieinander, d.h. konkret etwa
+\item[{\bf 1.}] W"ahle zuf"allig $2$ verschiedene Primzahlen \footnote{
+F"ur Primzahlen $p$ und $q$ mit $p=q$, und $e,d$ mit $ed\equiv 1 \mod J(n)$
+gilt i.a. nicht $ (m^{e})^d \equiv m \mod n \text{ f"ur alle } m <n.$
+Seien z.B. $n=5^2,~J(n)=5*4=20,~e=3,~d=7,~ed\equiv 21\equiv 1\mod~J(n).$ Dann gilt $ (5^3)^7 \equiv 0 \mod 25.$}
+$p$ und $q$ und berechne $n = p*q$\footnote{
+Das BSI \index{BSI} (Bundesamt f"ur Sicherheit in der Informationstechnik) empfiehlt, die Primfaktoren $p$ und $q$ ungef"ahr gleich gro"s zu w"ahlen, aber nicht zu dicht beieinander, d.h. konkret etwa
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Die Primfaktoren werden unter Beachtung der genannten 
-Nebenbedingung zuf"allig und unabh"angig voneinander erzeugt.}. Der Wert $n$ wird als RSA-Modul 
-bezeichnet\footnote{In CrypTool wird der RSA-Modul mit einem gro"sen \QM N'' bezeichnet.}. 
+Nebenbedingung zuf"allig und unabh"angig voneinander erzeugt 
+(Siehe \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}{\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).}.
+ Der Wert $n$ wird als RSA-Modul 
+bezeichnet\footnote{ In CrypTool wird der RSA-Modul mit einem gro"sen \QM N'' bezeichnet.}. 
 
 \item[{\bf 2.}] W"ahle zuf"allig $e \in \{2, ..., n-1\}$, so da"s gilt: \\
                 $e$ ist teilerfremd zu $J(n) = (p-1)*(q-1)$.
@@ -1389,15 +1398,15 @@ bezeichnet\footnote{In CrypTool wird der RSA-Modul mit einem gro"sen \QM N'' bez
                 Normalerweise will man \QM schnell'' verschl"usseln k"onnen und w"ahlt deshalb
                 einen "offentlichen Exponenten $e$ so, da"s er m"oglichst wenige bin"are Einsen
                 hat. H"aufig verwendet wird die Zahl $65537 = 2^{16}+1$, also bin"ar: $10...0...01$.
-	        }. Danach kann man $p$ und $q$ \QM wegwerfen''.
+            }. Danach kann man $p$ und $q$ \QM wegwerfen''.
 \item[{\bf 3.}] W"ahle $d \in \{1, ..., n-1\}$  mit  $e*d = 1$  mod $J(n)$,
                 d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$ \footnote{
-		Aus Sicherheitsgr"unden darf $d$ nicht zu klein sein. Andererseits m"ochte man
+        Aus Sicherheitsgr"unden darf $d$ nicht zu klein sein. Andererseits m"ochte man
                 f"ur das "offentlich bekannte $e$ einen vorteilhaften Wert w"ahlen, der eine
                 schnelle Exponentiation bei der Verschl"usselung erm"oglicht. Als besonders
                 praktisch haben sich hierf"ur die Primzahlen $3, 17$ und $65537$ erwiesen, da
                 diese in ihrer Bin"ardarstellung nur wenige Einsen aufweisen.} 
-                \footnote{Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt. Eigentlich
+                \footnote{ Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt. Eigentlich
                 sollte f"ur die Verschl"usselung $e$ zuf"allig gew"ahlt werden.
                 }. Danach kann man $J(n)$ \QM wegwerfen''.
                 \begin{itemize}
@@ -1435,16 +1444,16 @@ gibt es eine ganze Zahl $k$, so da"s gilt: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray}
 M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber \\
            & \equiv & M * (M^{p-1})^{k*(q-1)}{\rm ~(mod~}p) \quad {\rm ~aufgrund~von~Euler-Fermat:~} 
-  	              M^{p-1} \equiv 1 {\rm~(mod~}p) \nonumber \\ 
+                  M^{p-1} \equiv 1 {\rm~(mod~}p) \nonumber \\ 
            & \equiv & M * (1)^{k*(q-1)} {\rm~(mod~}p) \nonumber \\
-	   & \equiv & M {\rm ~(mod~}p) \nonumber
+       & \equiv & M {\rm ~(mod~}p) \nonumber
 \end{eqnarray}
 Die Voraussetzung f"ur die Anwendung des Satzes von Euler war, da"s $M$ und $p$ teilerfremd sind.
 
 Da das im allgemeinen nicht gilt, m"ussen wir noch betrachten, was ist, wenn
 $M$ und $p$ nicht teilerfremd sind: da $p$ eine Primzahl ist, mu"s dann
 notwendigerweise $p$ ein Teiler von $M$ sein. Das hei"st aber: 
-$$	M \equiv 0 {\rm ~(mod~}p) $$
+$$  M \equiv 0 {\rm ~(mod~}p) $$
 Wenn $p$ die Zahl $M$ teilt, so teilt $p$ erst recht $M^{e * d}$. Also ist auch:
 $$M^{e * d} \equiv 0 {\rm ~(mod~}p)$$
 Da $p$ sowohl $M$ als auch $M^{e * d}$ teilt, teilt er auch ihre Differenz:
@@ -1471,7 +1480,7 @@ der dem kleinen Satz von Fermat entspricht):
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
         (\underbrace{M^{(p-1)(q-1)}}_{\equiv M^{J(n)} \equiv 1 {\rm ~(mod~}n)})^k * M
-	\equiv 1^k * M \equiv M {\rm ~(mod~}n)
+    \equiv 1^k * M \equiv M {\rm ~(mod~}n)
 $$
 
 {\bf 2. Bemerkung:} \\
@@ -1485,7 +1494,7 @@ $$
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Hohe Potenzen} \hypertarget{hohpot}{} \index{Potenzen}
-Bei RSA Ver- und Entschl"usselungen m"ussen hohe Potenzen Modulo $n$ berechnet
+Bei RSA-Ver- und Entschl"usselungen m"ussen hohe Potenzen Modulo $n$ berechnet
 werden. Beispielsweise sprengt die Berechnung $(100^5){\rm ~mod~}3$ den $32$ Bit langen
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von an getreu der
 Definition $a$ tats"achlich $n$-mal mit sich selbst multipliziert. Bei sehr gro"sen Zahlen w"are selbst ein
@@ -1521,7 +1530,7 @@ berechnet: \\
 \begin{eqnarray}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
         & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
-	& \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
+    & \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
 \end{eqnarray}
 Die Potenzen $(a^2)^k$ sind durch fortgesetztes Quadrieren leicht zu bestimmen.
 Solange sich $a$ nicht "andert, kann ein Computer sie vorab berechnen und --
@@ -1534,7 +1543,7 @@ Dieser h"aufig verwendete Algorithmus hei"st \QM Square and Multiply''.
 \vskip +40 pt
 
 \begin{quote}
-{\em Joanne K. Rowling\footnote{Joanne K. Rowling, \QM Harry Potter und die Kammer des Schreckens'', Carlsen,
+{\em Joanne K. Rowling\footnote{ Joanne K. Rowling, \QM Harry Potter und die Kammer des Schreckens'', Carlsen,
 (c) 1998, letztes Kapitel \QM Dobbys Belohnung'', S. 343}:}\newline
 Viel mehr als unsere F"ahigkeiten sind es 
 unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.
@@ -1599,7 +1608,7 @@ Funktion im ganzen.
 \subsubsection{Das Diffie-Hellman Schl"usselaustausch-Protokoll (Key Exchange-Protokoll)}
 \index{Diffie Whitfield} \index{Hellman Martin} Dieses DH-Schl"usselaustauschprotokoll wurde 1976 in Stanford von Whitfield
 Diffie, Martin E. Hellman und Ralph Merkle erdacht. \index{Schl""usselaustausch!Diffie-Hellman}
-XXX (Bild Hr. Koy ?)
+%XXX (Bild Hr. Koy ?)
 
 Eine Einwegfunktion dient Alice und Bob\footnote{ 
 Alice und Bob werden standardm"a"sig als die beiden berechtigten Teilnehmer
@@ -1636,11 +1645,11 @@ abh"orbaren Kanal aushandeln.
    \item[\bf 5.] Um den nun gemeinsam zu benutzenden Sessionkey zu bestimmen, potenzieren sie
                  beide jeweils f"ur sich das jeweils empfangene Ergebnis mit ihrer geheimen
                  Zufallszahl modulo $p$. Das hei"st:
-		 \begin{itemize}
+         \begin{itemize}
                     \item[-] Alice berechnet $S \equiv B^a {\rm ~(mod~} p)$, und 
                     \item[-] Bob berechnet   $S \equiv A^b {\rm ~(mod~} p)$.
-		 \end{itemize}
-\end{itemize}		
+         \end{itemize}
+\end{itemize}       
 Auch wenn ein Spion $g, p$, und die Zwischenergebnisse $A$ und $B$ abh"ort, kann er den 
 schlie"slich bestimmten Sessionkey, wegen der Schwierigkeit, den diskreten Logarithmus zu 
 bestimmen, nicht berechnen.
@@ -1670,8 +1679,8 @@ $11^x \equiv 49 {\rm ~(mod~}347)$ l"ost, mit Hilfe von Solve zu bestimmen, erh"a
 in an essentially non-algebraic way''. Mathematica meint also, keine
 algebraisch direkten Verfahren zu kennen, um die Gleichung zu l"osen.
 Doch mit der verallgemeinerten Funktion f"ur die multiplikative Ordnung kann
-es Mathematica (hier f"ur Alice): \\
-{\tt MultiplicativeOrder[11, 347, 49]} liefert den Wert $67$.
+es Mathematica (hier f"ur Alice): 
+{\tt MultiplicativeOrder[11, 347, 49]} liefert den Wert $67$.\\
 Auch mit anderen Tools wie dem LiDIA- oder BC-Paket (siehe Anhang URLs)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
 Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
@@ -1714,8 +1723,8 @@ i  & $11^i{\rm ~mod~}347$ & \\
 \hline
 \end{tabular}
 \vskip +6 pt
-} ). Zu l"osen ist hier: \\
-Von Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, also $\log_{11}(49) {\rm ~(mod~}347)$
+} . Zu l"osen ist hier: \\
+Von Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, also $\log_{11}(49) {\rm ~(mod~}347).$\\
 Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}347)$.
 
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1726,7 +1735,7 @@ Schritte hier mit konkreten, aber kleinen Zahlen durchgef"uhrt werden.
 
 \subsubsection{RSA mit kleinen Primzahlen und mit einer Zahl als Message}
 Bevor wir RSA auf einen Text anwenden, wollen wir es erst direkt mit einer
-Zahl zeigen\footnote{Mit CrypTool v1.3 k"onnen Sie dies per \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.}.
+Zahl zeigen\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.}.
 \begin{itemize}
   \item[\bf 1.] Die gew"ahlten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)(q-1)=40$.
@@ -1750,8 +1759,8 @@ ASCII-Zeichensatz als Bausteine f"ur die Nachrichten.
 Gegeben ist der Text \QM ATTACK AT DAWN'' und die Zeichen werden auf folgende
 einfache Weise codiert\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per 
 \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.
-Dies ist auch im Tutorial/Szenario der Online-Hilfe zu CrypTool beschrieben.
-}:
+Dies ist auch im Tutorial/Szenario der Online-Hilfe zu CrypTool beschrieben [Option Alphabet vorgeben, Basissystem, Blockl"ange 2
+und Dezimaldarstellung].}:
 
 \begin{tabular}{|c|l||c|l|}
 \hline
@@ -1791,7 +1800,8 @@ L       & 12   & Y    & 25 \\
 \end{tabular}
 }
 
-Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$): \\
+Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$), d.h. da"s
+die Blockl"ange 2 betr"agt.\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}3713)$ \footnote{
@@ -1808,7 +1818,7 @@ Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.\\
 Entschl"usselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
-Umwandeln von 2-stelligen Zahlen in Gro"sbuchstaben und Blanks.
+Umwandeln von 2-stelligen Zahlen in Gro"sbuchstaben und Blanks.\\
 Bei den gew"ahlten Werten ist es f"ur einen Kryptoanalytiker einfach, aus den
 "offentlichen Parametern $n=3713$ und $e=37$ die geheimen Werte zu finden, indem
 er offenlegt, da"s $3713 = 47 * 79$.
@@ -1859,7 +1869,7 @@ Andere m"ogliche Kombinationen von (e,d) sind z.B.: (3, 44667), (7, 19143),
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-keine Zusammenfassung der Buchstaben\footnote{
+Keine Zusammenfassung der Buchstaben\footnote{
 F"ur sichere Verfahren braucht man gro"se Zahlen, die m"oglichst alle Werte bis
 $n-1$ annehmen. Wenn die m"ogliche Wertemenge der Zahlen in der Nachricht zu
 klein ist, nutzen auch gro"se Primzahlen nichts f"ur die Sicherheit.
@@ -1921,7 +1931,9 @@ Blockbildung\footnote{
 00100001, 33: 
 \end{tabular} }
 } (die ASCII-Zeichen werden als 8-stellige Bin"arzahlen hintereinander geschrieben):\\
-{\tt 21075 16672 30575 29291 29473}
+{\tt 21075 16672 30575 29291 29473}\footnote{
+Mit CrypTool v1.3 k"onnen Sie dies per \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' mit den 
+folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale Darstellung.}
 
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}67519)$ \footnote{
 Mit Mathematica kann das mit PowerMod[{21075, 16672, 30575, 29291, 29473},
@@ -1960,7 +1972,9 @@ Entschl"usselung pro Block per: $M \equiv C^{2473}{\rm ~(mod~}67519)$: \\
 \subsubsection{Eine kleine RSA-Cipher-Challenge (1)}
 \index{RSA!Cipher-Challenge}
 Die Aufgabe stammt aus \cite[Exercise 4.6]{Stinson1995}: 
-Die pure L"osung hat Prof. Stinson unter XXX ver"offentlicht. Es geht aber 
+Die pure L"osung hat Prof. Stinson unter 
+\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}
+ver"offentlicht. Es geht aber 
 nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der L"osung, 
 also um die Darlegung der Kryptoanalyse\footnote{
 Im Szenario der Online-Hilfe zu CrypTool und in der Pr"asentation auf der
@@ -2099,9 +2113,9 @@ Cipher:
 32870167545903741339819671379
 \end{tabular} } % tt
 
-{\bf Bemerkung:}
+{\bf Bemerkung:}\\
 Die urspr"ungliche Nachricht bestand aus einem Satz mit 31 Zeichen (codiert
-mit dem Gro"stextalphabet von S. 34). Dann wurden je 16 Dezimalziffern zu
+mit dem Gro"stextalphabet aus Abschnitt 3.13.2). Dann wurden je 16 Dezimalziffern zu
 einer Zahl zusammengefa"st (die letzte Zahl wurde mit Nullen aufgef"ullt).
 Diese Zahlen wurden mit $e$ potenziert.
 
@@ -2112,18 +2126,20 @@ Wir betonen das, weil in der Implementierung und Standardisierung die Art
 des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \newpage
+%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \bibitem[Bartholome1996]{Bartholome1996}  
     A. Bartholome, J. Rung, H. Kern, \\
     Zahlentheorie f"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
 
 \bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
-    Freidrich L. Bauer, \\
+    Friedrich L. Bauer, \\
     Entzifferte Geheimnisse, Springer, 1995.
 
 \bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
-    Freidrich L. Bauer, \\
-    Decrypted Secrets, Springer, 2nd edition 2000.
+    Friedrich L. Bauer, \\
+    Decrypted Secrets, Springer, 2nd edition, 2000.
 
 \bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
@@ -2133,13 +2149,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Johannes Buchmann, \\
     Einf"uhrung in die Kryptographie, Springer, 1999.
 
-\bibitem[Graham1994]{Graham1994} 
-     Graham, Knuth, Patashnik, \\
-      Concrete Mathemathics, a Foundation of Computer Science, 2nd edition, Addison Wesley, 1994.
-
 \bibitem[Eckert2001]{Eckert2001} \index{Eckert}
     Claudia Eckert, \\
     IT-Sicherheit: Konzepte-Verfahren-Protokolle, Oldenbourg, 2001.
+
+\bibitem[Graham1994]{Graham1994} 
+     Graham, Knuth, Patashnik, \\
+     Concrete Mathemathics, a Foundation of Computer Science, 2nd edition, Addison Wesley, 1994.
 
 \bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
@@ -2178,12 +2194,12 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \end{thebibliography}
 
 \newpage
-\subsection*{URLs / Links (Auswahl)}
+\subsection*{URLs / Links (Auswahl)}\addcontentsline{toc}{subsection}{URLs}
 
 \begin{enumerate}
    \item \hypertarget{knott}{} 
           Fibonacci Seite von Ron Knott, \\
-	  hier dreht sich alles um Fibonacci-Zahlen. \\
+      hier dreht sich alles um Fibonacci-Zahlen. \\
           \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\tt http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
    \item CrypTool Version 1.3, 2001, \\
           Freeware zur Veranschaulichung von Kryptographie, \\
@@ -2206,20 +2222,21 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasium (ist leider
          nur in Deutsch verf"ugbar): \\
          \href{http://www.djh-freeweb.de/~muenchenbach}{\tt http://www.djh-freeweb.de/~muenchenbach}
-	\item BSI, \\
+    \item BSI, \\
           Bundesamt f"ur Sicherheit und Informationstechnik \\
           \href{http://www.bsi.bund.de}{\tt http://www.bsi.bund.de}
 
 \end{enumerate}
 
 
-\subsection*{Dank}
+\subsection*{Dank} \addcontentsline{toc}{subsection}{Dank}
 F"ur das anregende und konstruktive Korrekturlesen dieses Artikels: Hr.
 Henrik Koy.
 
 
 \newpage
-\subsection*{Anhang A: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen} \hypertarget{Appendix_A}{}
+\subsection*{Anhang A: Der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen} \hypertarget{Appendix_A}{}
+\addcontentsline{toc}{subsection}{Anhang}
 
 Der gr"o"ste gemeinsame Teiler zweier nat"urlicher Zahlen $a$ und $b$ ist eine wichtige und 
 sehr schnell zu berechnende Gr"o"se. Wenn eine Zahl $c$ die Zahlen $a$ und $b$ 
@@ -2257,7 +2274,7 @@ zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erh"alt man den
   \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
   \item[\tt 1.] $ \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right) := 
                    \left(\begin{array}{cc} 0 & 1  \\ 1 & - \lfloor a/b \rfloor * b \end{array} \right)*
-		   \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
+           \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
   \item[\tt 2.] {\tt if (b != 0) then goto 1.}
 \end{itemize}
 {\tt OUTPUT:} ''ggT$(a,b) = a*x +b*y$: '', ''ggT$(a,b) =$ '' $b$, ''$x = $'' $x_{2,1}$, ''$y = $'' $x_{2,2}$
@@ -2323,7 +2340,29 @@ G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~die~Addition~der~Zahlen~in~} G_2 {
 G_3 & = & G_2 {\rm ~~man~sagt:~} G_2 {\rm~ist~abgeschlossen~bez"uglich~der~Addition~~(mod~}8). \nonumber 
 \end{eqnarray}
 Ende der Abschlu"sbildung.
+\vskip +10pt
+{\scriptsize\setlength{\unitlength}{1cm}
+\begin{center}
+\begin{picture}(15,10) %\fboxsep3mm
+%\put(0,0) {\framebox(15,10){}}
+\put(0,0) {\dashbox{0.2}(5.5,10){}}
+\put(9.5,0) {\dashbox{0.2}(5.5,10){}}
+\put(0.2,1) {\framebox(2.6,3.8){}}
+\put(0.2,5) {\framebox(2.6,3.5){}}
+\put(3,1) {\framebox(9,7.5){}}
+\put(12.2,1) {\framebox(2.6,3.8){}}
+\put(12.2,5) {\framebox(2.6,3.5){}}
+%\put(6.5,8){"offentlich}
+\put(6,7.5){Die Zahl $g$ ist "offentlich}
+\put(3.2,7.5){Berechne $A=g^{a}$}
+\put(3.2,5){Sende $A$ an Bob}
+\put(0.4,4){Berechne $S=B^{a}$}
+\put(0.4,7.5){Erzeuge $a$}
 
+
+\end{picture}
+\end{center}
+}
 \subsection*{Anhang C: Bemerkungen zur modulo Subtraktion} \hypertarget{Appendix_C}{}
 Beispielweise gilt f"ur die Subtraktion modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
 Es gilt modulo $5$ also nicht, da"s $-2 = 2$ ! Dies gleichzusetzen ist ein h"aufig
@@ -2332,4 +2371,3 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 
 \vskip +10 pt
 \input{line.latex}
-

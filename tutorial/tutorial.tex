@@ -19,12 +19,9 @@
   {\textbf{Beweis #1} \\}
   {\hfill$\Box$ \\}
 
-\pdfinfo{ /Title (CrypTool Skript)
-/Creator (TeX)
-/Producer (pdfTeX 0.14a)
-/Author (Deutsch Bank AG)
-/CreationDate (D:20000920201000)
-}
+\pdfinfo{ /Title (CrypTool Skript) /Creator (TeX) /Producer
+(pdfTeX 0.14a) /Author (Deutsch Bank AG) /CreationDate
+(D:20000920201000) }
 
 
 \title{ CrypTool Version 1.3 \\ Skript }
@@ -42,7 +39,7 @@ Frankfurt am Main \\*[8pt]
 \parskip 4pt
 \vskip + 30 pt
 {
-In diesem Skript zu CrypTool finden Sie eher mathematisch
+In diesem Skript zu dem Programm CrypTool finden Sie eher mathematisch
 orientierte Informationen zum Einsatz von
 Verschl"usselungsverfahren. Die Hauptkapitel sind von
 verschiedenen Autoren verfa"st und daher in sich abgeschlossen. Am
@@ -64,22 +61,22 @@ Elliptischen Kurven ist Grundlage f"ur sehr schnelle kryptographische
 Algorithmen zur digitalen Signatur; diese Algorithmen sind f"ur die
 Implementierung auf Chipkarten sehr gut geeignet.
 
-W"ahrend das Programm CrypTool eher den praktischen Umgang vermittelt, dient das 
+W"ahrend das Programm CrypTool eher den praktischen Umgang vermittelt, dient das
 Skript dazu, dem an Kryptographie Interessierten ein tieferes Verst"andnis
 f"ur die implementierten mathematischen Algorithmen zu vermitteln.
 
-Die Autoren Bernhard Esslinger, Bartol Filipovic, Henrik Koy und 
+Die Autoren Bernhard Esslinger, Bartol Filipovic, Henrik Koy und
 Roger Oyono m"ochten sich an dieser Stelle bedanken bei den Kollegen in der
-Firma und an den Universit"aten Frankfurt, Gie"sen und Karlsruhe, insbesondere 
-bei Dr. Peer Wichmann vom Forschungszentrum Informatik (FZI) Karlsruhe f"ur 
+Firma und an den Universit"aten Frankfurt, Gie"sen und Karlsruhe, insbesondere
+bei Dr. Peer Wichmann vom Forschungszentrum Informatik (FZI) Karlsruhe f"ur
 die unkomplizierte Unterst"utzung.
 
 % Das Skript dient dazu, dem an Kryptographie Interessierten neben der praktischen
 % Anwendung von CrypTool auch ein tieferes Verst"andnis "uber die implementierten
-% kryptographischen Algorithmen zu vermitteln. 
+% kryptographischen Algorithmen zu vermitteln.
 
 \enlargethispage{0.5cm}
-Wie auch bei CrypTool w"achst die Qualit"at des Skripts mit Ihren Anregungen 
+Wie auch bei CrypTool w"achst die Qualit"at des Skripts mit Ihren Anregungen
 und Verbesserungen. Wir freuen uns "uber Ihre R"uckmeldung.
 
 
@@ -91,7 +88,7 @@ und Verbesserungen. Wir freuen uns "uber Ihre R"uckmeldung.
 
 \vskip +7 pt \noindent
 Die aktuelle Version von CrypTool finden Sie unter \newline
-  \href{http://www.CrypTool.de}{\tt http://www.CrypTool.de}, 
+  \href{http://www.CrypTool.de}{\tt http://www.CrypTool.de},
   \href{http://www.cryptool.com}{\tt http://www.CrypTool.com} oder
   \href{http://www.cryptool.org}{\tt http://www.CrypTool.org}.
 \vskip + 7 pt \noindent
@@ -101,6 +98,7 @@ Im Readme zu CrypTool sind die Ansprechpartner f"ur dieses kostenlose Tool genan
 
 \newpage
 \tableofcontents
+\addcontentsline{toc}{section}{Inhaltsverzeichnis}
 \newpage
 \normalsize
 \parindent0cm
@@ -113,7 +111,7 @@ Im Readme zu CrypTool sind die Ansprechpartner f"ur dieses kostenlose Tool genan
 
 Dieses Skript wird zusammen mit CrypTool ausgeliefert.
 
-CrypTool ist ein Programm mit sehr umfangreicher Online-Hilfe, mit dessen Hilfe Sie kryptographische Verfahren 
+CrypTool ist ein Programm mit sehr umfangreicher Online-Hilfe, mit dessen Hilfe Sie kryptographische Verfahren
 anwenden und analysieren k"onnen.\par \vskip + 3pt
 
 F"ur die klassischen Verschl"usselungsverfahren stehen automatische Analysen zur Ver\-f"ugung, die Sie in
@@ -126,7 +124,8 @@ zu erm"oglichen.\par \vskip + 3pt
 
 Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank eingesetzten
 kryptographischen Verfahren. So ist es mit CrypTool als verl"a"slicher Referenzimplementierung
-der verschiedenen Verschl"usselungsverfahren auch m"og\-lich, die in anderen Programmen eingesetzte
+der verschiedenen Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten \index{SECUDE GmbH} SECUDE-Bibliothek)
+auch m"og\-lich, die in anderen Programmen eingesetzte
 Verschl"usselung zu testen.\par \vskip + 3pt
 
 
@@ -1125,7 +1124,9 @@ Berechnung zum Beispiel per GMP:
 {\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}
 
 \newpage
+%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \bibitem[Bartholome1996]{Bartholome1996}  \index{Bartholome 1996}
     A. Bartholomé, J. Rung, H. Kern, \\
     Zahlentheorie f"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
@@ -1177,7 +1178,7 @@ Berechnung zum Beispiel per GMP:
 
 \newpage
 
-\section*{URLs}
+\section*{URLs}\addcontentsline{toc}{subsection}{URLs}
 
 \begin{enumerate}
    \item \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
@@ -1651,9 +1652,7 @@ die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen 
 GmbH --- und unter Benutzung der obigen Bibliothek und des SECUDE SDK.
 \index{SECUDE GmbH}
 
-
-\printindex
-%\addcontentsline{toc}{section}{Index}
+\addcontentsline{toc}{section}{Index} \printindex
 %
 % ......................................................................................................................
 %
