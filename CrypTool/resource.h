@@ -547,6 +547,7 @@
 #define IDC_RSA_CAPTION_PRIME_Q         1408
 #define IDC_RSA_MODE_FACTORISATION      1409
 #define IDC_TEXTOPTIONS_ALPHABET        1410
+#define IDC_BUTTON_DATENAUSGABE         1411
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1257,7 +1258,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        518
 #define _APS_NEXT_COMMAND_VALUE         33160
-#define _APS_NEXT_CONTROL_VALUE         1411
+#define _APS_NEXT_CONTROL_VALUE         1412
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

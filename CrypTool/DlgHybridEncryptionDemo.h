@@ -19,9 +19,9 @@ class CDlgHybridEncryptionDemo : public CDialog
 // Konstruktion
 public:
 	bool DateiOeffnen(const CString &DateiPfadName);
-	bool m_arrSetButtons[10];
-	bool m_barrSetCondition[10];
-	bool m_setMatrix[10][10];
+	bool m_arrSetButtons[11];
+	bool m_barrSetCondition[11];
+	bool m_setMatrix[11][11];
 	CString m_strBuffEditEncKeyAsym;
 	CString m_strBuffEditEncDoc;
 	CString Edit;
@@ -31,9 +31,6 @@ public:
 	CDlgRSAEncryption rsaDlg;
 	char SymKey[KEY_LEN];
 	OctetString* EncSymKey;
-	//bool m_iIsGenAsymKey;
-	//bool m_iIsTxtAlreadySel;
-
 	int m_iDocSizeForEnc;
 	CFont m_font;
 	CString m_strSymKey;
@@ -50,6 +47,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHybridEncryptionDemo)
 	enum { IDD = IDD_HYBRID_ENCRYPTION_DEMO };
+	CButton	m_ctrlDatenAusgabe;
 	CStatic	m_ctrlBG;
 	CString	m_strEdit;
 	CString	m_strTitle;
@@ -79,17 +77,18 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgHybridEncryptionDemo)
-	afx_msg void OnButton1TxtEinfuegen();
+	afx_msg void OnButtonGetDocument();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonEncKeyAsym();
-	afx_msg void OnButtonEncTxtSym();
+	afx_msg void OnButtonEncDocumentSym();
 	afx_msg void OnButtonGenSymKey();
 	afx_msg void OnButtonGetAsymKey();
 	afx_msg void OnButtonShowSymKey();
 	afx_msg void OnButtonShowAsymKey();
-	afx_msg void OnButtonShowtxt();
-	afx_msg void OnShowEncTxt();
-	afx_msg void OnShowEncSymKey();
+	afx_msg void OnButtonShowDocument();
+	afx_msg void OnButtonShowEncDocument();
+	afx_msg void OnButtonShowEncSymKey();
+	afx_msg void OnButtonDatenausgabe();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

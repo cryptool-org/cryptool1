@@ -39,19 +39,17 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_strEdit = _T("");
 	m_strTitle = _T("");
 	//}}AFX_DATA_INIT
-	//m_iIsTxtAlreadySel = false;
-	//m_iIsGenAsymKey = false;
-
-	for(int i=0;i<10;i++)
+	
+	for(int i=0;i<11;i++)
 	{
 		m_barrSetCondition[i] = false;
 	}
 	
 	//Array mit den Voraussetzungen
 
-	for(i=0;i<10;i++)
+	for(i=0;i<11;i++)
 	{
-		for(int j=0;j<10;j++)
+		for(int j=0;j<11;j++)
 		{
 			m_setMatrix[i][j]=false;
 		}
@@ -65,6 +63,12 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_setMatrix[7][0]=true;
 	m_setMatrix[8][5]=true;
 	m_setMatrix[9][6]=true;
+	m_setMatrix[10][0]=true;
+	m_setMatrix[10][1]=true;
+	m_setMatrix[10][3]=true;
+	m_setMatrix[10][5]=true;
+	m_setMatrix[10][6]=true;
+
 	m_strBuffEditDoc = 0;
 
 	
@@ -75,7 +79,7 @@ void CDlgHybridEncryptionDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHybridEncryptionDemo)
-	//DDX_Control(pDX, IDC_BMP, m_ctrlBG);
+	DDX_Control(pDX, IDC_BUTTON_DATENAUSGABE, m_ctrlDatenAusgabe);
 	DDX_Text(pDX, IDC_EDIT_TXT, m_strEdit);
 	DDX_Text(pDX, IDC_EDIT_TITLE, m_strTitle);
 	//}}AFX_DATA_MAP
@@ -84,17 +88,18 @@ void CDlgHybridEncryptionDemo::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgHybridEncryptionDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgHybridEncryptionDemo)
-	ON_BN_CLICKED(IDC_BUTTON1_TXT_EINFUEGEN, OnButton1TxtEinfuegen)
+	ON_BN_CLICKED(IDC_BUTTON1_TXT_EINFUEGEN, OnButtonGetDocument)
 	ON_BN_CLICKED(IDC_BUTTON_ENC_KEY_ASYM, OnButtonEncKeyAsym)
-	ON_BN_CLICKED(IDC_BUTTON_ENC_TXT_SYM, OnButtonEncTxtSym)
+	ON_BN_CLICKED(IDC_BUTTON_ENC_TXT_SYM, OnButtonEncDocumentSym)
 	ON_BN_CLICKED(IDC_BUTTON_GEN_SYM_KEY, OnButtonGenSymKey)
 	ON_BN_CLICKED(IDC_BUTTON_GET_ASYM_KEY, OnButtonGetAsymKey)
 	ON_BN_CLICKED(IDC_BUTTON_SHOW_SYM_KEY, OnButtonShowSymKey)
 	ON_BN_CLICKED(IDC_BUTTON_SHOW_ASYM_KEY, OnButtonShowAsymKey)
-	ON_BN_CLICKED(IDC_BUTTON_SHOWTXT, OnButtonShowtxt)
-	ON_BN_CLICKED(IDC_BUTTON2, OnShowEncTxt)
-	ON_BN_CLICKED(IDC_BUTTON3, OnShowEncSymKey)
+	ON_BN_CLICKED(IDC_BUTTON_SHOWTXT, OnButtonShowDocument)
+	ON_BN_CLICKED(IDC_BUTTON2, OnButtonShowEncDocument)
+	ON_BN_CLICKED(IDC_BUTTON3, OnButtonShowEncSymKey)
 	ON_WM_SETCURSOR()
+	ON_BN_CLICKED(IDC_BUTTON_DATENAUSGABE, OnButtonDatenausgabe)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -147,11 +152,11 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-void CDlgHybridEncryptionDemo::OnButton1TxtEinfuegen() 
+void CDlgHybridEncryptionDemo::OnButtonGetDocument() 
 {
 	int DatGroesse=0;
 	CString loc_filename = "";
-	CString loc_title = "";
+	m_strBuffTitle = "";
 	m_strEdit = "";
 	m_strTitle = "";
 	UpdateData(false);
@@ -166,65 +171,17 @@ void CDlgHybridEncryptionDemo::OnButton1TxtEinfuegen()
 		//Sanduhr wird angezeigt
 
 		loc_filename = m_dlgFile.GetPathName();
-		DateiOeffnen(loc_filename);
-		/*
 		m_strBuffTitle = m_dlgFile.GetFileName();
-		struct stat *obj;
-		obj = new (struct stat);
-		//Groesse der Datei die ausgelesen werden soll wird 
-		//ermittelt und in m_iDataGroesse geschrieben
-		//und ob die Datei vorhanden ist 
-		obj->st_size;
-	    if ( 0 != stat((const char*)loc_filename,obj))
-		//Gibt Statusinformationen einer Datei zurück, auch wenn sie noch ungeöffnet ist.
-		//wenn es Probleme beim lesen gibt wird eine Fehlermeldung ausgegeben
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
-			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
-			delete obj;
-			return;
-		}
-
-		DatGroesse = obj->st_size;
-		
-		delete obj;
-		*/
+		DateiOeffnen(loc_filename);
 		m_strPathSelDoc = loc_filename;
 		ShowButtons();
-
+		theApp.DoWaitCursor(0);
  	} 
 	else
 	//wenn auf Abbrechen geklickt wurde, wird abgebrochen
 	{
 		return;
 	}
-	
-	
-
-	/*
-	ifstream test(loc_filename.GetBuffer(0),ios::in|ios::binary);
-	char* in=new char[DatGroesse];
-	test.read(in,DatGroesse);
-	//Datei wird gelesen
-	//und in der Variablen "in" gespeichert
-
-	m_iDocSize=test.gcount();
-	//tatsächliche Groesse der ausgelesenen Datei
-
-	test.close();
-
-	in[m_iDocSize]='\0';
-	m_strBuffEditDoc=new char[m_iDocSize+1];
-	memcpy(m_strBuffEditDoc,in,m_iDocSize);
-	//"in" wird in "m_strBuffEditDoc" geschrieben
-
-	UpdateData();
-	theApp.DoWaitCursor(0);
-	m_barrSetCondition[0] = true;
-	EnDisButtons();
-	ShowButtons();
-	UpdateData(false); // Variablen ---> Felder 	
-	*/
 }
 
 void CDlgHybridEncryptionDemo::OnButtonGenSymKey() 
@@ -288,7 +245,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 	UpdateData(false);
 }
 
-void CDlgHybridEncryptionDemo::OnButtonEncTxtSym() 
+void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym() 
 {
 	if(!m_arrSetButtons[5])	
 	{
@@ -297,8 +254,8 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 	}
 	UpdateData(true);
 
-	char* strPathEncTxt;
-	strPathEncTxt=new char[20];
+	char* strPathEncDocument;
+	strPathEncDocument=new char[20];
 	int AlgId=3;
 
 	const char* path=m_strPathSelDoc.GetBuffer(0);
@@ -324,22 +281,22 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 	//Groesse der Datei die ausgelesen werden soll wird 
 	//ermittelt und in m_iDataGroesse geschrieben
 
-	GetTmpName(strPathEncTxt,"cry",".tmp");
+	GetTmpName(strPathEncDocument,"cry",".tmp");
 	//Name für eine temporäre Datei wird erzeugt, in der 
 	//der Verschluesselte Text geschrieben werden soll
-	//der Name wird in die Variable strPathEncTxt geschrieben
+	//der Name wird in die Variable strPathEncDocument geschrieben
 
 	char key[100];
 	theApp.DoWaitCursor(1);
 	strcpy(key,m_strSymKey.GetBuffer(0));
-	AESCrypt((char*)path, "", AlgId,strPathEncTxt,key);
+	AESCrypt((char*)path, "", AlgId,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
 	
-	unsigned char* cryTxt;
-	cryTxt=new unsigned char[m_iDocSizeForEnc+32];
+	unsigned char* cryDocument;
+	cryDocument=new unsigned char[m_iDocSizeForEnc+32];
 //***********************************************************
-	ifstream crypt(strPathEncTxt,ios::in|ios::binary);
-	crypt.read(cryTxt,m_iDocSizeForEnc+KEY_LEN);
+	ifstream crypt(strPathEncDocument,ios::in|ios::binary);
+	crypt.read(cryDocument,m_iDocSizeForEnc+KEY_LEN);
 
 
 	int srcSize = crypt.gcount();
@@ -356,7 +313,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 		destSize = lines * linelen - len + rest;
 	}
 	char *strCryHex = new char [destSize+1];
-	int err = HexDumpMem(strCryHex,destSize,cryTxt,srcSize, len);
+	int err = HexDumpMem(strCryHex,destSize,cryDocument,srcSize, len);
 	UpdateData();
 	m_strBuffEditEncDoc = "";
 	m_strBuffEditEncDoc = strCryHex;
@@ -369,7 +326,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 	ShowButtons();
 	UpdateData(false);
 	delete[] strCryHex;
-	delete[] cryTxt;
+	delete[] cryDocument;
 }
 
 void CDlgHybridEncryptionDemo::OnButtonGetAsymKey() 
@@ -378,7 +335,6 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 
 	if ( IDOK == rsaDlg.DoModal() ) 
 	{
-		//m_iIsGenAsymKey = true;
 		m_barrSetCondition[3] = true;
 		EnDisButtons();
 		ShowButtons();
@@ -684,10 +640,10 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 
 void CDlgHybridEncryptionDemo::EnDisButtons()
 {
-	for(int i=0;i<10;i++)
+	for(int i=0;i<11;i++)
 	{
 		m_arrSetButtons[i]=true;
-		for(int j=0;j<10;j++)
+		for(int j=0;j<11;j++)
 		{
 			if(m_setMatrix[i][j])
 			{
@@ -704,7 +660,7 @@ void CDlgHybridEncryptionDemo::EnDisButtons()
 }
 
 
-void CDlgHybridEncryptionDemo::OnButtonShowtxt() 
+void CDlgHybridEncryptionDemo::OnButtonShowDocument() 
 {
 	if(!m_arrSetButtons[7])	
 	{
@@ -736,7 +692,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowtxt()
 	UpdateData(false);
 }
 
-void CDlgHybridEncryptionDemo::OnShowEncTxt() 
+void CDlgHybridEncryptionDemo::OnButtonShowEncDocument() 
 {
 	if(!m_arrSetButtons[8])	
 	{
@@ -750,7 +706,7 @@ void CDlgHybridEncryptionDemo::OnShowEncTxt()
 	theApp.DoWaitCursor(0);
 }
 
-void CDlgHybridEncryptionDemo::OnShowEncSymKey() 
+void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey() 
 {
 	if(!m_arrSetButtons[9])	
 	{
@@ -767,7 +723,7 @@ void CDlgHybridEncryptionDemo::OnShowEncSymKey()
 void CDlgHybridEncryptionDemo::ShowButtons()
 {
 
-	for(int i=0;i<10;i++)
+	for(int i=0;i<11;i++)
 	{
 	
 		switch(i)
@@ -866,6 +822,15 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
 			   
 			   };break;
+   	   case 10:if(m_arrSetButtons[i])
+			   {
+					m_ctrlDatenAusgabe.EnableWindow(true);
+			   }
+			   else
+			   {
+				   m_ctrlDatenAusgabe.EnableWindow(false);
+			   };break;
+
 
 		}
 	}
@@ -886,7 +851,6 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 	
 	int DatGroesse=0;
 	CString loc_filename = DateiPfadName;
-	CString loc_title = "";
 	struct stat *obj;
 	obj = new (struct stat);
 	if(stat(loc_filename ,obj)==-1)
@@ -908,7 +872,8 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 		return false;
 	}
 	m_bAuswahlDat = false;
-	m_strBuffTitle = loc_title;
+	//Schalter für EnDisButtons() siehe OnInitDialog()
+
 	m_strPathSelDoc = loc_filename;
 	ifstream test(loc_filename.GetBuffer(0),ios::in|ios::binary);
 	char* in=new char[DatGroesse];
@@ -929,5 +894,9 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 	EnDisButtons();
 	
 	return true;
+}
 
+void CDlgHybridEncryptionDemo::OnButtonDatenausgabe() 
+{
+	
 }
