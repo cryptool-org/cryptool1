@@ -17,6 +17,7 @@
 #include "arithmet.h"
 #include "s_ecconv.h"
 #include "asymmetric.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -113,8 +114,7 @@ BOOL CDlgEcKeysCreat::OnInitDialog()
 	theApp.DoWaitCursor(0);
 	if (error)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
 		EndDialog(IDCANCEL);
 		return FALSE;
 	}
@@ -126,8 +126,7 @@ BOOL CDlgEcKeysCreat::OnInitDialog()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		EndDialog(IDCANCEL);
 		return FALSE;
 	}
@@ -278,8 +277,7 @@ void CDlgEcKeysCreat::OnNewKeyPair()
 	theApp.DoWaitCursor(0);
 	if (error)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
 		return;
 	}
 
@@ -287,10 +285,7 @@ void CDlgEcKeysCreat::OnNewKeyPair()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
-		//EndDialog(IDCANCEL);
-		//return FALSE;
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 
@@ -304,10 +299,7 @@ void CDlgEcKeysCreat::OnOctalRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
-		//EndDialog(IDCANCEL);
-		//return FALSE;
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, ecParamString);
@@ -320,10 +312,7 @@ void CDlgEcKeysCreat::OnDecimalRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
-		//EndDialog(IDCANCEL);
-		//return FALSE;
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, ecParamString);
@@ -336,10 +325,7 @@ void CDlgEcKeysCreat::OnHexRadio()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
-		//EndDialog(IDCANCEL);
-		//return FALSE;
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, ecParamString);	
@@ -352,10 +338,8 @@ void CDlgEcKeysCreat::OnOK()
 	if (error)
 	{
 		// Fehler. Umwandlung in Strings nicht möglich
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		EndDialog(IDCANCEL);
-		//return FALSE;
 		return;
 	}
 }

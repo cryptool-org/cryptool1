@@ -12,7 +12,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgShowPrivEcKeys.h"
-
+#include "crypt.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -89,8 +89,7 @@ void CDlgShowPrivEcKeys::OnOctalRadio()
 	if (error > 0)
 	{
 		// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox();	
@@ -103,8 +102,7 @@ void CDlgShowPrivEcKeys::OnDecimalRadio()
 	if (error > 0)
 	{
 		// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM,MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox();
@@ -117,8 +115,7 @@ void CDlgShowPrivEcKeys::OnHexRadio()
 	if (error > 0)
 	{
 		// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM,MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox();	
@@ -318,8 +315,7 @@ BOOL CDlgShowPrivEcKeys::OnInitDialog()
 	if (error > 0)
 	{
 		// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM,MB_ICONSTOP);
 		return TRUE;
 	}
 

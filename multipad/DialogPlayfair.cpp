@@ -55,7 +55,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDialogPlayfair)
-	DDX_Radio(pDX, IDC_RADE, m_Dec);
+//	DDX_Radio(pDX, IDC_RADE, m_Dec);
 	DDX_Radio(pDX, IDC_RAD6, m_sechs);
 	DDX_Control(pDX, IDC_PLAYFAIR_LIST, m_listview);
 	DDX_Control(pDX, IDC_EDIT_1_1, m_einfeld[0][0]);
@@ -97,7 +97,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST, m_ciphfeld);
 	DDX_Control(pDX, IDC_PASSWORD, m_pwfeld);
 	DDX_Control(pDX, IDC_MYTXT, m_txtfeld);
-	DDV_MaxChars(pDX, m_mytxt, 300);
+	DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER);
 	DDX_Text(pDX, IDC_PASSWORD, m_password);
 	DDV_MaxChars(pDX, m_password, 36);
 	DDX_Text(pDX, IDC_EDIT_1_1, m_mat[0][0]);
@@ -173,7 +173,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_6_6, m_mat[5][5]);
 	DDV_MaxChars(pDX, m_mat[5][5], 1);
 	DDX_Text(pDX, IDC_LIST, m_cipher);
-	DDV_MaxChars(pDX, m_cipher, 3000);
+	DDV_MaxChars(pDX, m_cipher, MAXSHOWLETTER*10);
 	//DDX_Text(pDX, IDC_NUMD, m_Alg->numdigrams);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
 	DDX_Text(pDX, IDC_MYTXT, m_mytxt);
@@ -205,18 +205,30 @@ char *CDialogPlayfair::GetData()
 
 void CDialogPlayfair::OnManAnalyse()
 {
-	char buf[302], line[256];
-	int i,n, k;
-	int maxchars=300;
+	char buf[MAXSHOWLETTER+2], line[256];
+	int i,j, n, k;
+	int maxchars=MAXSHOWLETTER;
 	playfair_digrammlist* diglist;
 
 	UpdateData(TRUE);
 	
-	i=0;
-	while ((i<maxchars)&&(i<m_mytxt.GetLength())&&(m_Alg->myisalpha2(m_mytxt[i]))) {
-		buf[i] = m_mytxt[i]; i++;
+	i=0; j=0;
+	while ((i<maxchars)&&(j<m_mytxt.GetLength())) {
+		if ((NULLELEMENT==m_mytxt[j]) || (m_Alg->myisalpha2(m_mytxt[j]))) {
+			buf[i] = m_mytxt[j]; i++;
+		} //else if (('J'==m_mytxt[j]) || (('0'<=m_mytxt[j]) && (m_mytxt[j]<='9')))
+//			is6x6possible = true;
+		j++;
 	}
+/*	if (is6x6possible) {
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox (line);
+	}
+*/
 	buf[i]='\0';
+	digbuf[0]='\0';
+	m_Alg->initDigrams();
 	diglist = new playfair_digrammlist(m_Alg->getAlphabet(), m_Alg->getDigrams(), 
 										buf, m_Alg->inbuf, min (maxchars, m_Alg->inbuflen));
 	// in der Initialisierung läuft die eigentliche Arbeit ab:
@@ -228,7 +240,7 @@ void CDialogPlayfair::OnManAnalyse()
 	diglist->getPlainString(digbuf, n); // lege Ausgabe des Klartextes fest (2.Zeile)
 
 	try {
-		if (i%2==0) {
+		if (true || (i%2==0)) {
 			m_Alg->DeleteLetterGraph();
 			m_Alg->AnalyseDigramme(diglist);  //untersuchen der Digramme und erstellen des Lettergraphen
 		}
@@ -282,7 +294,7 @@ void CDialogPlayfair::OnManAnalyse()
 
 
 	UpdateData(FALSE);
-	UpdateListBox();	
+	UpdateListBox();
 }
 
 
@@ -290,13 +302,13 @@ void CDialogPlayfair::OnAnalyse()
 // Schalter "erzeuge Matrix", war "Häufigkeitsanalyse"
 {
 	int i, k;
-	char buf[302], line[256];
-	int maxchars=300;
+	char buf[MAXSHOWLETTER+2], line[256];
+	int maxchars=MAXSHOWLETTER;
 
 	UpdateData(TRUE);
 
 	i=0;
-	while ((i<maxchars)&&(i<m_mytxt.GetLength())&&(m_Alg->myisalpha2(m_mytxt[i]))) {
+	while ((i<maxchars)&&(i<m_mytxt.GetLength())) {
 		buf[i] = m_mytxt[i]; i++;
 	}
 	buf[i]='\0';
@@ -398,10 +410,11 @@ void CDialogPlayfair::OnCheck()
 void CDialogPlayfair::OnDec() 
 // Ver- oder Entschlüsseln
 {
-	UpdateData(TRUE);
+/*	UpdateData(TRUE);
 	m_Alg->UpdateDigrams(m_Dec);
 	UpdateData(FALSE);
 	UpdateListBox();
+*/
 }
 
 
@@ -438,7 +451,8 @@ void CDialogPlayfair::OnSechs()
 	m_password="";
 	m_Alg->SetPass("");
 //	m_Alg->GetDiGrams();
-	m_Alg->UpdateDigrams(m_Dec);
+//	m_Alg->UpdateDigrams(m_Dec);
+	m_Alg->UpdateDigrams(true);
 	for (i=0;i<m_Alg->getSize();i++)
 	{
 		for (j=0;j<m_Alg->getSize();j++)
@@ -447,7 +461,7 @@ void CDialogPlayfair::OnSechs()
 		}
 	}
 	UpdateData(FALSE);
-	InitListBox();	
+	UpdateListBox();	
 } // void CDialogPlayfair::OnSechs()
 
 BOOL CDialogPlayfair::OnInitDialog() 
@@ -482,8 +496,8 @@ BOOL CDialogPlayfair::OnInitDialog()
 
 void CDialogPlayfair::UpdateListBox()
 {
-	int i,j;
-	char buf[302],c,s[100];
+	int i,j,k;
+	char ibuf[MAXSHOWLETTER+2],dbuf[MAXSHOWLETTER+2],obuf[MAXSHOWLETTER+2],c,s[100];
 	playfair_letter *let;
 
 	m_listview.DeleteAllItems( );
@@ -520,23 +534,38 @@ void CDialogPlayfair::UpdateListBox()
 //	m_ciphfeld.ReplaceSel(m_Alg->outbuf);
 //	m_ciphfeld.SetSel(0,0);
 
-	m_Alg->DoCipher(false, m_Dec,300);
+//	m_Alg->DoCipher(false, m_Dec,MAXSHOWLETTER);
+	m_Alg->DoCipher(false, true,MAXSHOWLETTER);
 	UpdateData(TRUE);
 
 //	/* wird veralteten
-	i=j=0;
-	while(i<300&&j<m_Alg->inbuflen)
+	i=j=k=0;
+	while(i<MAXSHOWLETTER&&j<m_Alg->inbuflen)
 	{
 		c=m_Alg->inbuf[j++];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
-		if(m_Alg->myisalpha2(c))
-			buf[i++]=toupper(c);
+		if(m_Alg->myisalpha2(c)) {
+			ibuf[i] = toupper(c);
+			dbuf[i] = digbuf[k];
+			obuf[i] = m_Alg->outbuf[k];
+			k++;
+		} else {
+//			ibuf[i] = NULLELEMENT;
+//			dbuf[i] = NULLELEMENT;
+//			obuf[i] = NULLELEMENT;
+			ibuf[i] = '.';
+			dbuf[i] = '.';
+			obuf[i] = '.';
+		}
+		i++;
 	}
-	buf[i]=0;
+	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 //	*/
-	m_cipher.Format("%s\r\n%s\r\n%s\r\n",buf,digbuf,m_Alg->outbuf);
+	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
 	UpdateData(FALSE);
+
+
 } // void CDialogPlayfair::UpdateListBox()
 
 void CDialogPlayfair::UpdatePassword()
@@ -566,7 +595,10 @@ void CDialogPlayfair::UpdatePassword()
 
 void CDialogPlayfair::InitListBox()
 {
-//	int i; // Zeile
+	bool is6x6possible = false;
+	bool isinvalidoccured = false;
+	int i;
+	char c, s[245];
 
 /*	m_listview.DeleteAllItems( );
 
@@ -580,7 +612,8 @@ void CDialogPlayfair::InitListBox()
 		m_listview.SetItemText( i, 2, c );
 	}
 */
-	m_Alg->DoCipher(false, m_Dec,300);
+//	m_Alg->DoCipher(false, m_Dec,MAXSHOWLETTER);
+	m_Alg->DoCipher(false, true,MAXSHOWLETTER);
 
 	UpdateData(TRUE);
 	m_cipher=m_Alg->outbuf;
@@ -589,6 +622,32 @@ void CDialogPlayfair::InitListBox()
 	// Gauweiler 30.1.01, statt eine einzelne Zeile, sollten gleich alle drei Zeilen angezeigt werden.
 	// da die Update-Fkt das richtig macht, soll sie gleich mal zum ersten Mal ihre Arbeit machen.
 	strcpy(digbuf,"");
+
+    // ist vielleicht mit 6x6 Matrix verschlüsselt worden?
+	i=0;
+	while(i<MAXSHOWLETTER&&i<m_Alg->inbuflen)
+	{
+		c=m_Alg->inbuf[i++];
+		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			if (('J'==toupper(c)) || (('0'<=c) && (c<='9')))
+				is6x6possible = true;
+			else
+				isinvalidoccured = true;
+	}
+	if (is6x6possible) {
+//	if (is6x6possible && !isinvalidoccured) {
+			if (isinvalidoccured)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG002,pc_str,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG001,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(s,pc_str);
+			AfxMessageBox (s);
+			UpdateData(TRUE);
+				m_sechs = 1;
+			UpdateData(FALSE);
+			OnSechs();
+	}
+
 	UpdateListBox();
 
 } // void CDialogPlayfair::InitListBox()
@@ -606,7 +665,7 @@ int CDialogPlayfair::Display()
 
 
 void CDialogPlayfair::OnUpdate() 
-// sobald ein neues Zeichen eingegeben wurde (Passwort, Matrix, oder Klartextvorgabe)
+// sobald ein neues Zeichen im Passwort eingegeben wurde
 {
 	int sels, sele, i, k;
 	char c;
@@ -744,7 +803,7 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			i=i;
 		}
 		m_Alg->UpdateDigrams(m_Dia->getDec());
-		m_Alg->DoCipher(false, m_Dia->getDec(),300);
+		m_Alg->DoCipher(false, m_Dia->getDec(),MAXSHOWLETTER);
 		m_Dia->UpdateListBox();
 		m_Dia->UpdatePassword();
 	} else  // invalid character
@@ -811,7 +870,9 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		SetSel(i-1,i-1);
 	}
 	else if(nChar==3||nChar==22||nChar==24)
+	{
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
+	}
 	else
 	{
 		b2[0] = NULLELEMENT;

@@ -14,6 +14,7 @@
 #include "KeyFileHandling.h"
 #include "DlgAsymKeyCreat.h"
 #include "DlgSign.h"
+#include "crypt.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
 
@@ -377,16 +378,13 @@ void CDlgSign::OnOK()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// Noch kein Schlüsselbezeichner gewählt, obwohl in m_listview welche zur Auswahl stehen
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SELECT_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-		//LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONWARNING|MB_OK);
+		Message(IDS_STRING_ASYMKEY_MSG_SELECT_PSE,MB_ICONWARNING|MB_OK);
 		m_listview.SetFocus();
 		return;
 	}
@@ -396,9 +394,7 @@ void CDlgSign::OnOK()
 	if (m_edit=="")
 	{
 		// Pin-Code noch nicht eingegeben
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_ENTER_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-		//LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONWARNING|MB_OK);
+		Message(IDS_STRING_ASYMKEY_MSG_ENTER_PIN,MB_ICONWARNING|MB_OK);
 		m_ctrl1.SetFocus();
 		return;
 	}
@@ -414,15 +410,13 @@ void CDlgSign::OnOK()
 			if ( ret == -1)
 			{
 				// falsche PIN-Nummer zum öffnen der PSE benutzt
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 				return;
 			}
 			else if ( ret == -2)
 			{
 				// sonstiger Fehler beim öffnen der PSE
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+				Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 				return;
 			}
 			else if (ret != 0)
@@ -437,8 +431,7 @@ void CDlgSign::OnOK()
 		{
 			// Benutzer will Zwischenschritte in projektiven Koordinaten sehen
 			// Zwischenschritte werden aber nur in affinen Koordinaten angezeigt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_EC_AFFINE_PROJECTIVE_COORDINATES,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+			Message(IDS_STRING_MSG_EC_AFFINE_PROJECTIVE_COORDINATES, MB_ICONEXCLAMATION);
 		}
 	}
 	else
@@ -466,8 +459,7 @@ void CDlgSign::OnOK()
 			if (theApp.SecudeLib.LASTERROR==EPIN)
 			{
 				// falsche PIN-Nummer benutzt
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 
 				// Freigeben von dynamisch angelegtem Speicher
 				delete string1;
@@ -475,8 +467,7 @@ void CDlgSign::OnOK()
 				return;
 			}
 			// sonstige Fehler beim öffnen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string1;
@@ -628,8 +619,7 @@ void CDlgSign::UpdateRowSel(int row)
 		PseHandle=theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
 		if (PseHandle==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			return;
 		}
 		
@@ -638,8 +628,7 @@ void CDlgSign::UpdateRowSel(int row)
 		Liste=theApp.SecudeLib.af_cadb_get_user (PseHandle, string4);
 		if (Liste==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP,theApp.SecudeLib.LASTTEXT);
 			theApp.SecudeLib.af_close (PseHandle);
 			return;
 		}
@@ -650,8 +639,7 @@ void CDlgSign::UpdateRowSel(int row)
 		Zert=theApp.SecudeLib.af_cadb_get_Certificate (PseHandle, SNummer);
 		if (Zert==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			theApp.SecudeLib.af_close (PseHandle);
 			return;
 		}

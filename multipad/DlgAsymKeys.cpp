@@ -21,6 +21,7 @@
 #include "s_prng.h" // big random integers
 
 #include "SecudeTools.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -140,15 +141,13 @@ void CDlgAsymKeys::OnShowPubParamButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if (UserKeyId.GetLength() < 1)
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
 		return; // no selection
 	}
 
@@ -178,9 +177,7 @@ void CDlgAsymKeys::OnShowPubParamButton()
 		_tcscpy(string3, PubDataFile);		
 		char *toc_file = string3;
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_ERROR_LOADING_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, toc_file);
-		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_EC_ERROR_LOADING_KEYFILE, MB_ICONINFORMATION, toc_file);
 		delete string3;
 		free (curveParameter->pubKey);
 		free (curveParameter->G);
@@ -214,15 +211,13 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
 		return; // no selection
 	}
 
@@ -255,8 +250,7 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	if ( ret == -1)
 	{
 		// falsche PIN-Nummer zum öffnen der PSE benutzt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+		Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 		// Speicher freigeben
 		free (curveParameter->pubKey);
 		free (curveParameter->G);
@@ -267,8 +261,7 @@ void CDlgAsymKeys::OnShowAllParamButton()
 	else if ( ret == -2)
 	{
 		// sonstiger Fehler beim öffnen der PSE
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP);
 		// Speicher freigeben
 		free (curveParameter->pubKey);
 		free (curveParameter->G);
@@ -305,15 +298,13 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
 		return; // no selection
 	}
 
@@ -345,21 +336,13 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		if ( ret == -1 )
 		{
 			// falsche PIN-Nummer benutzt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+			Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 			return;
-			//
-			//LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATA_NOT_CHANGED,pc_str,STR_LAENGE_STRING_TABLE);
-			//AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
-			//return; // error: couldn't open inputfile
-			//
-
 		}
 		else if ( ret != 0)
 		{
 			// sonstiger Fehler beim öffnen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP);
 			return;
 		}
 
@@ -372,16 +355,14 @@ void CDlgAsymKeys::OnDeleteEntryButton()
 		if ( ret == -1 )
 		{
 			// falsche PIN-Nummer benutzt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+			Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 			return;
 
 		}
 		else if ( ret != 0)
 		{
 			// sonstiger Fehler beim öffnen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE,MB_ICONSTOP);
 			return;
 		}
 	}
@@ -397,15 +378,13 @@ void CDlgAsymKeys::OnButtonShowCert()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY,MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
 		return; // no selection
 	}
 
@@ -423,11 +402,7 @@ void CDlgAsymKeys::OnButtonShowCert()
 	if (PseHandle==NULL)
 	{
 		// Fehler beim öffnen der CA-Datenbank
-		char *Fehler=theApp.SecudeLib.LASTTEXT;
-		CString Fehler2=Fehler;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Fehler3=(CString)pc_str+(CString)Fehler2;
-		AfxMessageBox (Fehler3,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 		// Freigeben von dynamisch angelegtem Speicher
 		delete string1;
 		return;
@@ -478,15 +453,13 @@ void CDlgAsymKeys::OnButtonExportCert()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_EMPTY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION );
 		return; // no selection
 	}
 	else if ( UserKeyId.GetLength() < 1 )
 	{
 		// there is no selected string
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_SELECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
 		return; // no selection
 	}
 
@@ -523,11 +496,8 @@ void CDlgAsymKeys::OnButtonExportCert()
 
 	if (!PseHandle)
 	{	// report PSE open error 
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_PSEOPENERROR, pc_str,
-			STR_LAENGE_STRING_TABLE);
 
-		sprintf(pc_str1, pc_str, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
-		AfxMessageBox (((CString)pc_str1), MB_ICONSTOP);
+		Message(IDS_STRING_PSEOPENERROR, MB_ICONSTOP, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
 
 		delete [] passwd_str;
 		delete [] PSE_file_str;
@@ -560,12 +530,7 @@ void CDlgAsymKeys::OnButtonExportCert()
 	OctetString *P12_Obj = PKCS12_encode(PseHandle, export_passwd_ostr, 1, 1);
 	if (!P12_Obj)
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_P12_CREAT_FAILED, pc_str,
-		STR_LAENGE_STRING_TABLE);
-
-		sprintf(pc_str1, pc_str, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
-		AfxMessageBox (((CString)pc_str1), MB_ICONSTOP);
-
+		Message(IDS_STRING_P12_CREAT_FAILED, MB_ICONSTOP, PSE_file_strptr, theApp.SecudeLib.LASTTEXT);
 		return;
 	}
 

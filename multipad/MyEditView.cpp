@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CMyEditView, CRichEditView)
 	ON_WM_KILLFOCUS()
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
+	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETFOCUS()
 	//}}AFX_MSG_MAP
@@ -99,8 +100,6 @@ void CMyEditView::OnShowKey()
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 
 	CString Key = ((CMyDocument*)m_pDocument)->csSchluessel;
-	
-	int i;
 	CString Title;
 	Title=((CMyDocument*)m_pDocument)->GetTitle();
 
@@ -303,3 +302,24 @@ HRESULT CMyEditView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFor
 }
 
 
+
+BOOL CMyEditView::OnPreparePrinting(CPrintInfo* pInfo) 
+{
+	// TODO: DoPreparePrinting aufrufen, um das Dialogfeld Drucken zu öffnen
+	
+	return DoPreparePrinting(pInfo);
+}
+
+void CMyEditView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
+{
+	// TODO: Speziellen Code hier einfügen und/oder Basisklasse aufrufen
+	CFont font;
+//	pDC->SetMapMode(MM_TWIPS);
+	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
+		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
+					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
+					DEFAULT_PITCH | FF_MODERN, "Courier New");
+	CFont *pOldFont = (CFont*)(pDC->SelectObject(&font));
+	CRichEditView::OnPrint(pDC, pInfo);
+	pDC->SelectObject(pOldFont);
+}

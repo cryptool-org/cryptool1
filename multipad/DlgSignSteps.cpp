@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignSteps.h"
+#include "crypt.h"
 
 #include "fileutil.h"
 #include "s_prng.h"
@@ -298,8 +299,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (err > 0)
 		{
 			// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM,MB_ICONSTOP);
 			return -1;
 		}
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_DOMAIN_PARAMETER_TO_USE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -342,8 +342,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 		if (err > 0)
 		{
 			// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+			Message(IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,MB_ICONSTOP);
 			m_DataDisplayCtrl.LineScroll( nFirstVisibleLine );
 			return -1;
 		}
@@ -360,8 +359,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,MB_ICONSTOP);
 				return -1;
 			}
 		}
@@ -423,8 +421,7 @@ int CDlgSignSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,MB_ICONSTOP);
 				return -1;
 			}
 		}

@@ -12,6 +12,8 @@
 // DialogPlayfair.h : Header-Datei
 //
 
+#include "playfair.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDialogPlayfair 
 
@@ -108,7 +110,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	int size;
-	char digbuf[302];
+	char digbuf[MAXSHOWLETTER+2];
 	CString m_mat[6][6];
 	int m_use;
 	CString m_mytxt;

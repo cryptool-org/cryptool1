@@ -806,10 +806,7 @@ void CCryptDoc::OnAnalyzeSubst()
 	datei.Close();
 	if (! laenge_groesser_0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-	    char line[256];
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -1246,8 +1243,7 @@ void CCryptDoc::OnPeriod()
 
 void CCryptDoc::OnNotAvail() 
 {
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL,pc_str,STR_LAENGE_STRING_TABLE);
-	AfxMessageBox (pc_str);
+	Message(IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL, MB_ICONINFORMATION);
 }
 
 void CCryptDoc::OnHomophone() 
@@ -1300,15 +1296,13 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONEXCLAMATION);
 	}
 	else
 	{
 		if ((file.GetLength()*8) < 10000) 
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
+			Message(IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST, MB_ICONINFORMATION);
 		}
 		file.Close();
 		UpdateContent();
@@ -1337,8 +1331,7 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
 	}
 	else
 	{
@@ -1350,11 +1343,10 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		SERT.init(ContentName, GetTitle());
 		sprintf(SERT.tmpStr, "Serial Test");
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_SERIAL_TEST,pc_str,STR_LAENGE_STRING_TABLE);
-		char tmpStr[256];
-		sprintf( tmpStr, pc_str, GetTitle());
-		
-		SERT.SetAlternativeWindowText(tmpStr);
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_SERIAL_TEST, pc_str, STR_LAENGE_STRING_TABLE);
+		char tmpstr[127];
+		sprintf(tmpstr, pc_str, GetTitle());
+		SERT.SetAlternativeWindowText(tmpstr);
 		if ( SERT.LoadAlphaList() )
 			SERT.DoModal();
 	}
@@ -1369,8 +1361,7 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
 	}
 	else
 	{
@@ -1398,8 +1389,7 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 	if(file.GetLength() < 16) 
 	{
 		file.Close();
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TEST_KLEINE_DATEI, MB_ICONINFORMATION);
 	}
 	else
 	{
@@ -1431,15 +1421,13 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 	if(file.GetLength() < 2500) 
 	{
 		file.Close();
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONINFORMATION);
 	}
 	else
 	{
 		if (file.GetLength() > 2500)
 		{
-			LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FIPS_KLEINE_DATEI, pc_str, STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
+			Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI, MB_ICONINFORMATION);
 		}
 		file.Close();
 		Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1 FIPS;

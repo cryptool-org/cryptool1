@@ -80,8 +80,7 @@ void CDlgSubstAna::OnCheck2()
 	// wird.
 	UpdateData(TRUE);
 	if ((m_radio1==1)&&(m_check2==(int)true)){		// Englisch gew‰hlt
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY,pc_str,1000);
-		AfxMessageBox (pc_str);
+		Message(IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY, MB_ICONINFORMATION);
 		m_check2=false;
 	}
 	else{
@@ -108,8 +107,7 @@ void CDlgSubstAna::OnRadio2()
 	// Wird englischer Klartext gew‰hlt, so muﬂ die Option "erweiterte Analyse" abgeschaltet werden
 	UpdateData(TRUE);
 	if (m_check2==(int)true){
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY,pc_str,1000);
-		AfxMessageBox (pc_str);
+		Message(IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY, MB_ICONINFORMATION);
 		UpdateData(FALSE);
 		CheckRadioButton (IDC_RADIO1, IDC_RADIO2, IDC_RADIO1);
 	}

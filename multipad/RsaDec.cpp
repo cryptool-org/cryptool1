@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "RsaDec.h"
-
+#include "crypt.h"
 #include "KeyFileHandling.h"
 
 #ifdef _DEBUG
@@ -230,8 +230,7 @@ void CRsaDec::OnOK()
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
 		// there is no string selectable
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST,MB_ICONINFORMATION);
 		return; // no selection
 	}
 	else if (UserKeyId.GetLength() < 1)

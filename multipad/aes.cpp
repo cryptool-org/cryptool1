@@ -145,9 +145,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	datalen = ftell(fi);
 	fclose(fi);
 	if(datalen < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -273,9 +271,7 @@ UINT AESBrute(PVOID p)
 	
 	if(datalen < 1) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			theApp.DoWaitCursor(-1);
 		return 0;

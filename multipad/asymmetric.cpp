@@ -36,6 +36,7 @@
 #include "s_ecconv.h"
 #include "ecssa.h"
 #include "emsa1.h"
+#include "crypt.h"
 
 #include <time.h>
 
@@ -101,7 +102,7 @@ BOOL find( OctetString *in, int ID, int &start, int &end )
 	int strLen = strlen(pc_str);
 	if ( start < 0 )
 		return FALSE;
-	for (int k=start; k<in->noctets - strLen; k++)
+	for (unsigned int k=start; k<in->noctets - strLen; k++)
 	{
 		if ( !strncmp(in->octets + k, pc_str, strLen) )
 		{
@@ -177,8 +178,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		if (out.bits == NULL)
 		{
 			// Fehler. Speicher kann nicht allokiert werden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION, MB_ICONSTOP);
 			return;
 		}
 		
@@ -195,8 +195,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		PseHandle=theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
 		if (PseHandle==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.aux_free_OctetString(&in);
 			free(out.bits);
@@ -209,8 +208,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		Liste=theApp.SecudeLib.af_cadb_get_user (PseHandle, string4);
 		if (Liste==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP,theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close (PseHandle);
 			theApp.SecudeLib.aux_free_OctetString(&in);
@@ -225,8 +223,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		Zert=theApp.SecudeLib.af_cadb_get_Certificate (PseHandle, SNummer);
 		if (Zert==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP,theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
 			theApp.SecudeLib.af_close (PseHandle);
@@ -256,8 +253,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		{  
 			// Fehler bei der Entschlüsselung
 			// Ausgabe einer Fehlermeldung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ENCRYPTION_ERROR,MB_ICONSTOP,theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close (PseHandle);
 			theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
@@ -310,7 +306,7 @@ void RsaDec(char* infile, const char *OldTitle)
 {
 	char outfile[128], title[128];
     CMyDocument *NewDoc;
-	int i, blocklen;
+	unsigned int i, blocklen;
 	
 	clock_t sigStart;
 	clock_t sigFinish;
@@ -335,8 +331,7 @@ void RsaDec(char* infile, const char *OldTitle)
 		if (out.octets == NULL)
 		{
 			// Fehler. Speicher kann nicht allokiert werden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_RSA_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ERR_MEMORY_RSA_DECRYPTION,MB_ICONSTOP);
 			return;
 		}
 		
@@ -359,8 +354,7 @@ void RsaDec(char* infile, const char *OldTitle)
 			if (theApp.SecudeLib.LASTERROR==EPIN)
 			{
 				// falsche PIN-Nummer benutzt
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 				// Freigeben von dynamisch angelegtem Speicher
 				theApp.SecudeLib.aux_free_OctetString(&help);
 				free(out.octets);
@@ -368,8 +362,7 @@ void RsaDec(char* infile, const char *OldTitle)
 				delete string2;
 				return;
 			}
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.aux_free_OctetString(&help);
 			free(out.octets);
@@ -397,8 +390,7 @@ void RsaDec(char* infile, const char *OldTitle)
 		if (fret==-1)
 		{
 			// Fehler bei der Entschlüsselung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR_2,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ENCRYPTION_ERROR_2, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close (PseHandle);
 			theApp.SecudeLib.aux_free_OctetString(&help);
@@ -596,8 +588,7 @@ void Sign(char* infile, const char *OldTitle)
 				if (fret)
 				{
 					// Fehler beim Signieren
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
-					AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+					Message(IDS_STRING_ERR_EC_ON_SIGNATURE,MB_ICONSTOP);
 					theApp.SecudeLib.aux_free_OctetString(&in);
 					return;
 				}
@@ -613,8 +604,7 @@ void Sign(char* infile, const char *OldTitle)
 				if (fret)
 				{
 					// Fehler beim Signieren
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
-					AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+					Message(IDS_STRING_ERR_EC_ON_SIGNATURE,MB_ICONSTOP);
 					theApp.SecudeLib.aux_free_OctetString(&in);
 					return;
 				}
@@ -643,8 +633,7 @@ void Sign(char* infile, const char *OldTitle)
 				if (theApp.SecudeLib.LASTERROR==EPIN)
 				{
 					// falsche PIN-Nummer benutzt
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-					AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+					Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 					// Freigeben von dynamisch angelegtem Speicher
 					theApp.SecudeLib.aux_free_OctetString(&in);
 					delete string1;
@@ -652,8 +641,7 @@ void Sign(char* infile, const char *OldTitle)
 					return;
 				}
 				// sonstige Fehler beim öffnen der PSE
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+				Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 				// Freigeben von dynamisch angelegtem Speicher
 				theApp.SecudeLib.aux_free_OctetString(&in);
 				delete string1;
@@ -669,8 +657,7 @@ void Sign(char* infile, const char *OldTitle)
 			duration = (double)(sigFinish - sigStart) / CLOCKS_PER_SEC;
 			if (fret==-1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_SIGNING,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+				Message(IDS_STRING_ERR_ON_SIGNING,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 				// Freigeben von dynamisch angelegtem Speicher
 				theApp.SecudeLib.aux_free_OctetString(&in);
 				theApp.SecudeLib.af_close(PseHandle);
@@ -693,8 +680,7 @@ void Sign(char* infile, const char *OldTitle)
 		if (err < 0)
 		{
 			// Fehler. Speicherallokation ging schief
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION,MB_ICONSTOP);
 			theApp.SecudeLib.aux_free_OctetString(&in);
 			return;
 		}
@@ -703,9 +689,7 @@ void Sign(char* infile, const char *OldTitle)
 		{
 			// die signierte Nachricht in.octets war zu gross, um mit dem Hex-Editor von CrypTool
 			// angezeigt zu werden. Daher wurde Sie in eine temporäre Datei umgeleitet
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG,pc_str1,STR_LAENGE_STRING_TABLE);
-			sprintf(pc_str, pc_str1, infile);
-			AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
+			Message(IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG,MB_ICONINFORMATION|MB_OK,infile);
 		}
 		
 		theApp.SecudeLib.aux_free_OctetString(&in);
@@ -1262,8 +1246,7 @@ void Verify(char* infile, const char *OldTitle)
 	if ( (fret > 0) && (fret != EC_SIGN) && (fret != RSA_OR_DSA_SIGN) && (fret != UNKNOWN_SIGN) )
 	{
 		// Fehler beim auslesen der Daten (Nicht genügend Speicher vorhanden)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str, MB_ICONSTOP);
+		Message(IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION, MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 		return;
@@ -1271,8 +1254,7 @@ void Verify(char* infile, const char *OldTitle)
 	else if ((fret != EC_SIGN) && (fret != RSA_OR_DSA_SIGN) && (fret != UNKNOWN_SIGN))
 	{
 		// Fehler beim auslesen der Daten (Formatierung der Daten nicht korrekt)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION,MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 		return;
@@ -1330,7 +1312,7 @@ void Verify(char* infile, const char *OldTitle)
 			// CString ExtractedSig=(CString) pc_str + "\n\n" + "c = " + c_str + "\n" + "d = " + d_str;
 			// LoadString(AfxGetInstanceHandle(),IDS_STRING_EXTRACTED_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 			// CString ExtractedMesg=(CString) pc_str + "\n\n" + message_string;
-			// AfxMessageBox(ExtractedSig, MB_ICONINFORMATION);
+			// Message(IDS_STRING_XXX, MB_ICONINFORMATION, ExtractedSig);
 			
 			// Verify signature and display result
 			if (VerDialog.m_ShowSteps == TRUE)
@@ -1377,8 +1359,7 @@ void Verify(char* infile, const char *OldTitle)
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
+						Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL, MB_ICONEXCLAMATION);
 					}
 				}
 				else
@@ -1395,8 +1376,7 @@ void Verify(char* infile, const char *OldTitle)
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox (pc_str, MB_ICONINFORMATION);
+						Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT, MB_ICONINFORMATION);
 					}
 				}
 			}
@@ -1421,8 +1401,7 @@ void Verify(char* infile, const char *OldTitle)
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
+						Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL, MB_ICONEXCLAMATION);
 					}
 				}
 				else
@@ -1439,8 +1418,7 @@ void Verify(char* infile, const char *OldTitle)
 					}
 					else
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox (pc_str, MB_ICONINFORMATION);
+						Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT, MB_ICONINFORMATION);
 					}
 				}
 			}
@@ -1463,8 +1441,7 @@ void Verify(char* infile, const char *OldTitle)
 			if (theApp.SecudeLib.LASTERROR==EPIN)
 			{
 				// falsche PIN-Nummer benutzt
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 				// Freigeben von dynamisch angelegtem Speicher
 				delete temp_ptr;
 				delete temp_ptr2;
@@ -1473,8 +1450,7 @@ void Verify(char* infile, const char *OldTitle)
 				return;
 			}
 			// sonstige Fehler beim öffenen der PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			delete temp_ptr;
 			delete temp_ptr2;
@@ -1496,8 +1472,7 @@ void Verify(char* infile, const char *OldTitle)
 		Liste=theApp.SecudeLib.af_cadb_get_user (PseHandle, string4);
 		if (Liste==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP,theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher;
 			theApp.SecudeLib.af_close(PseHandle);
 			delete string3;
@@ -1514,8 +1489,7 @@ void Verify(char* infile, const char *OldTitle)
 		Zert=theApp.SecudeLib.af_cadb_get_Certificate (PseHandle, SNummer);
 		if (Zert==NULL)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close(PseHandle);
 			delete string3;
@@ -1547,8 +1521,7 @@ void Verify(char* infile, const char *OldTitle)
 		else
 		{
 			// Fehler beim Auslesen des Verfahrens
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE,MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close (PseHandle);
 			delete string3;
@@ -1574,8 +1547,7 @@ void Verify(char* infile, const char *OldTitle)
 		// Fall 1: RSA-Signatur, aber DSS-Schlüssel
 		if ( (keyinfo.key->subjectAI->objid->oid_nelem==6) && (RsaSig == TRUE) )
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1,MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close(PseHandle);
 			delete string3;
@@ -1589,8 +1561,7 @@ void Verify(char* infile, const char *OldTitle)
 		// Fall 2: DSS-Signature, aber RSA-Schlüssel
 		if ( (keyinfo.key->subjectAI->objid->oid_nelem==5) && (RsaSig == FALSE) )
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT2,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT2,MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
 			theApp.SecudeLib.af_close (PseHandle);
 			delete string3;
@@ -1621,8 +1592,7 @@ void Verify(char* infile, const char *OldTitle)
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
+				Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL, MB_ICONEXCLAMATION);
 			}
 		}
 		else
@@ -1639,8 +1609,7 @@ void Verify(char* infile, const char *OldTitle)
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (pc_str, MB_ICONINFORMATION);
+				Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT, MB_ICONINFORMATION);
 			}
 		}
 		

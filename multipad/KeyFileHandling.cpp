@@ -17,6 +17,7 @@
 #include "af.h"
 #include "fileutil.h"
 #include "pkcs.h"
+#include "crypt.h"
 
 #include <time.h>
 #include <algorithm>
@@ -81,9 +82,8 @@ int CKeyFile::DeleteUserKeyFiles(CString user_file, CString& passwd, int filetyp
 	CFile::GetStatus( PseDataFile, status );
 	if(status.m_attribute == readOnly)
 	{
-		// file has read only flag
-		// LoadString(AfxGetInstanceHandle(),IDS_STRING00000,pc_str,STR_LAENGE_STRING_TABLE);
-		// AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		// file has read only flag		
+		// Message(IDS_STRING_XXX,MB_ICONSTOP);
 		delete string1;
 		delete string2;
 		return -3;
@@ -95,8 +95,7 @@ int CKeyFile::DeleteUserKeyFiles(CString user_file, CString& passwd, int filetyp
 		if(status.m_attribute == readOnly)
 		{
 			// file has read only flag
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING00000,pc_str,STR_LAENGE_STRING_TABLE);
-			// AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			// Message(IDS_STRING_XXX,MB_ICONSTOP);
 			delete string1;
 			delete string2;
 			return -4;
@@ -113,7 +112,7 @@ int CKeyFile::DeleteUserKeyFiles(CString user_file, CString& passwd, int filetyp
 int CKeyFile::CreateEcKeyFiles(CString filename, CString& passwd, EcDomParam_ac_ptr userCurveParam, EcDomParamAcAsString *ecParamString)
 {
 	// filename ist der zu erzeugende Dateiname ohne Suffix PSE_FILE_SUFFIX
-	//AfxMessageBox(inputfile,MB_ICONINFORMATION, 0 );
+	//Message(IDS_STRING_XXX,MB_ICONINFORMATION, inputfile );
 
 	OctetString *privateKeyOct;
 	OctetString *ostr;
@@ -136,17 +135,13 @@ int CKeyFile::CreateEcKeyFiles(CString filename, CString& passwd, EcDomParam_ac_
 	if ( privfilename.GetLength() > _MAX_FNAME)
 	{
 		// privfilename is to long, choose a shorter filename
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_TO_LONG,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, privfilename);
-		AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+		Message(IDS_STRING_MSG_FILENAME_TO_LONG,MB_ICONSTOP, privfilename);
 		return -7;
 	}
 	if (privfilename_path.GetLength() > _MAX_PATH)
 	{
 		// Maximum length of full path is to long
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PATHNAME_TO_LONG,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, privfilename_path);
-		AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+		Message(IDS_STRING_MSG_PATHNAME_TO_LONG,MB_ICONSTOP, privfilename_path);
 		return -8;
 	}
  
@@ -377,9 +372,7 @@ int CKeyFile::GetEcAllParam(CString user_file, CString& passwd, EcDomParam_ac_pt
 		_tcscpy(string3, PubDataFile);		
 		char *toc_file = string3;
 
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_ERROR_LOADING_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, toc_file);
-		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_EC_ERROR_LOADING_KEYFILE,MB_ICONINFORMATION, toc_file);
 		delete string1;
 		delete string2;
 		delete string3;
@@ -492,8 +485,7 @@ int CKeyFile::GetEcPrivateKey(CString user_file, CString& passwd, L_NUMBER * pri
 		{
 			// falsche PIN-Nummer benutzt
 			/*
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIVKEY_WRONG_PIN,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+			Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
 			*/
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string1;
@@ -502,8 +494,7 @@ int CKeyFile::GetEcPrivateKey(CString user_file, CString& passwd, L_NUMBER * pri
 		}
 		// sonstiger Fehler beim öffnender PSE
 		/*
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, ,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 		*/
 		delete string1;
 		delete string2;

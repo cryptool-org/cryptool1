@@ -43,27 +43,16 @@ float Fortschritt=20.0;
 // Message Box Handling
 //
 
-void Message( int IDS_STRING_ID, int No1, int No2 )
+void Message( int IDS_STRING_ID, int FLAGS, int No1, int No2 )
 {
 	char line[IDS_STRINGLENGTH];
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
-	if ( 0 == No2 )
-	{
-		if ( 0 == No1 )
-		{
-			AfxMessageBox (pc_str);
-		}
-		sprintf( line, pc_str, No1 );
-		AfxMessageBox (line);
-	}
-	else
-	{
-		sprintf( line, pc_str, No1, No2 );
-	}
+	sprintf( line, pc_str, No1, No2);
+	AfxMessageBox(line, FLAGS);
 }
 
-void Message(int IDS_STRING_ID, int No, const char * str, bool transpose)
+void Message(int IDS_STRING_ID, int FLAGS, int No, const char * str, bool transpose)
 {
 	char line[IDS_STRINGLENGTH];
 
@@ -76,10 +65,10 @@ void Message(int IDS_STRING_ID, int No, const char * str, bool transpose)
 	{
 		sprintf( line, pc_str, No, str );
 	}
-	AfxMessageBox (line);
+	AfxMessageBox (line, FLAGS);
 }
 
-void Message(int IDS_STRING_ID, const char* str1, const char* str2)
+void Message(int IDS_STRING_ID, int FLAGS, const char* str1, const char* str2)
 {
 	char line[IDS_STRINGLENGTH];
 
@@ -92,7 +81,7 @@ void Message(int IDS_STRING_ID, const char* str1, const char* str2)
 	{
 		sprintf( line, pc_str, str1, str2 );
 	}
-	AfxMessageBox (line);
+	AfxMessageBox (line, FLAGS);
 }
 
 
@@ -259,10 +248,7 @@ BOOL CheckAlphabet( int minSize )
 {
 	if (theApp.TextOptions.m_alphabet.GetLength() < minSize )
 	{
-		char line[200];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf( line, pc_str, minSize );
-		AfxMessageBox (line);
+		Message(IDS_STRING_MSG_ON_ALPHABET, MB_ICONEXCLAMATION, minSize);
 		return FALSE;
 	}
 	return TRUE;
@@ -272,10 +258,7 @@ BOOL CheckTextSize( SymbolArray &text, int Threshold )
 {
 	if(text.GetSize() < Threshold ) 
 	{
-		char line[80];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str, Threshold );
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, Threshold);
 		return FALSE;
 	}
 	return TRUE;
@@ -595,7 +578,7 @@ void Hill(const char *infile, const char *OldTitle)
 	hill *hillklasse;
 	hillklasse = new hill(theApp.TextOptions.m_alphabet.GetBuffer(0));
 
-    char outfile[128], line[256];
+    char outfile[128];
 
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(infile, CFile::modeRead);
@@ -617,9 +600,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 	if (! infile_zeichen_anz)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -1116,15 +1097,13 @@ UINT Periode(PVOID p)
 		// Keine Periode gefunden
 		if (isPeriode == 0)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_PERIOD_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
+			Message(IDS_STRING_NO_PERIOD_FOUND, MB_ICONINFORMATION);
 		}
 
 		// Zu analysierende Textdatei zu kurz
 		if (isPeriode < 0)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str);
+			Message(IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH, MB_ICONEXCLAMATION);
 		}
 	}
 
@@ -1186,9 +1165,7 @@ UINT Autocorr(PVOID p)
 
 	fsize=text.GetSize();
 	if(n<1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		r=1;
 		goto cancel;
 	}
@@ -1313,9 +1290,7 @@ UINT FloatingEntropy(PVOID p)
 	fo = NULL;
 
 	if(l<winsize) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,winsize);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, winsize);
 		r=1;
 		goto cancel;
 	}
@@ -1526,10 +1501,7 @@ void Mono(const char *infile, const char *OldTitle){
 	datei.Close();
 	if (! laenge_groesser_0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-	    char line[256];
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -1994,8 +1966,8 @@ UINT AnaSubst(PVOID p) {
 			}
 		}
 		if (doppelt==true){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FREQ_ANALYSE_NOTE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (pc_str);}
+			Message(IDS_STRING_MSG_FREQ_ANALYSE_NOTE, MB_ICONINFORMATION);
+		}
 		else{
 			*Permu[oft]=69;
 		}
@@ -3296,9 +3268,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	theApp.TextOptions.m_alphabet.ReleaseBuffer();
 	b1[l2]=0;
 	if(l2<1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(title,pc_str, 1 );
-		AfxMessageBox (title);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		free(b1);
 		return;
 	}

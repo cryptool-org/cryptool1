@@ -79,9 +79,7 @@ UINT Brute(PVOID p)
 	lenght = ftell(fi);
 	fclose(fi);
 	if(lenght < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			theApp.DoWaitCursor(-1);
 		return r;
@@ -278,8 +276,7 @@ UINT Brute(PVOID p)
 	
 	if (emax == 0.0)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_VALID_KEYS_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str);
+		Message(IDS_STRING_NO_VALID_KEYS_FOUND, MB_ICONINFORMATION);
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
 		FreePar(par);
@@ -311,8 +308,7 @@ UINT Brute(PVOID p)
 	if (theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		free(out.octets);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ENCRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
 		FreePar(par);

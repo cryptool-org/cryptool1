@@ -6,6 +6,7 @@
 #include "Dlg_Tests.h"
 #include "Zufallsgenerator_Tests_Alles.h"
 #include "Read_Ini_File_2.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -170,8 +171,7 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
 		m_Ergebnis = pc_str;
 		UpdateData(FALSE);
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TESTS_FALSCHE_OFFSET, MB_ICONEXCLAMATION);
 	}
 	else
 	{
@@ -422,8 +422,7 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
 		m_Longrun_Ergebnis = pc_str;
 		UpdateData(FALSE);
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE, MB_ICONEXCLAMATION);
 	}
 	else
 	{
@@ -485,8 +484,7 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
 		m_Run_Ergebnis = pc_str;
 		UpdateData(FALSE);
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_OFFSET, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str);
+		Message(IDS_STRING_TESTS_FALSCHE_OFFSET, MB_ICONEXCLAMATION);
 	}
 	else
 	{

@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-
+#include "crypt.h"
 #include "PlotDoc.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -449,14 +449,12 @@ void plot_opt_dlg::OnChangeEdit2()
 	UpdateData(TRUE);
 	if(m_curve>10)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_UPPERBOUND_GRAPHWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
+		Message(IDS_STRING_UPPERBOUND_GRAPHWIDTH,MB_ICONEXCLAMATION|MB_OK);
 		m_curve=10;
 	}
 	else if (m_curve<1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_LOWERBOUND_GRAPHWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
+		Message(IDS_STRING_LOWERBOUND_GRAPHWIDTH,MB_ICONEXCLAMATION|MB_OK);
 		m_curve=1;
 	}
 	UpdateData(FALSE);
@@ -467,14 +465,12 @@ void plot_opt_dlg::OnChangeEdit1()
 	UpdateData(TRUE);
 	if(m_bar_width>10)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_UPPER_BOUND_LINEWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
+		Message(IDS_STRING_UPPER_BOUND_LINEWIDTH,MB_ICONEXCLAMATION|MB_OK);
 		m_bar_width=10;
 	}
 	else if (m_bar_width<1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_LOWER_BOUND_LINEWIDTH,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION|MB_OK);
+		Message(IDS_STRING_LOWER_BOUND_LINEWIDTH,MB_ICONEXCLAMATION|MB_OK);
 		m_bar_width=1;
 	}
 	UpdateData(FALSE);

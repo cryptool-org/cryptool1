@@ -61,12 +61,14 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 	m_Header3 = _T("");
 	m_Header4 = _T("");
 	m_edit13 = _T("");
-	//m_control_p.SetFocus();
+	m_EncryptTextOrNumbers = m_control_edit10.EncryptTextOrNumbers = 0;
 	//}}AFX_DATA_INIT
 
 	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
 	m_Header2 = _T("");
 	m_Header3 = _T("");
+
+	
 
 	DlgOptions   = new CDlgRSAwithSmallPrimesOptions();
 	DlgRSAPrimes = new DlgPrimesGenerator();
@@ -111,6 +113,7 @@ void RSA_mit_kleinenPZ::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_HEADER3, m_Header3);
 	DDX_Text(pDX, IDC_HEADER4, m_Header4);
 	DDX_Text(pDX, IDC_EDIT13, m_edit13);
+	DDX_Radio(pDX, IDC_RADIO1, m_EncryptTextOrNumbers);
 	//}}AFX_DATA_MAP
 }
 
@@ -176,7 +179,7 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 		}
 		else
 		{
-			Message(IDS_STRING_BIG_RSA_MODUL);
+			Message(IDS_STRING_BIG_RSA_MODUL, MB_ICONSTOP);
 			EnableEncryption(false);
 			m_ButtonOptionen.EnableWindow(false);
 			m_eingabe_p = _T("");
@@ -199,7 +202,6 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(true);
-	char line [IDS_STRINGLENGTH];
 	int RSAInitError;
 	int RSASetPublicKeyError;
 
@@ -213,7 +215,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_p.SetSel(err_ndx-1,m_eingabe_p.GetLength());
 		m_control_p.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 		return;
 	}
 
@@ -223,7 +225,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_q.SetSel(err_ndx-1,m_eingabe_q.GetLength());
 		m_control_q.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 		return;
 	}
 	error = CheckFormula(m_oeffentliche_schluessel_e,10,UpnFormula,err_ndx);
@@ -232,7 +234,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit5.SetSel(err_ndx-1,m_oeffentliche_schluessel_e.GetLength());
 		m_control_edit5.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 		return;
 	}
 
@@ -249,14 +251,14 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		else if (0 == RSASetPublicKeyError)
 		{
 			// Falls e nicht coprime zu phi(N) ist, wird man aufgefordert eine andere Zahl für e zu wählen
-			Message(IDS_STRING_RSATUT_WRONG_PUBLICKEY);
+			Message(IDS_STRING_RSATUT_WRONG_PUBLICKEY, MB_ICONINFORMATION);
 			m_geheime_schluessel_d = "";
 			m_control_edit5.SetFocus();
 			return;
 		}
 		else
 		{
-			Message(IDS_STRING_BIG_NUMBER);
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 			m_control_edit5.SetFocus();
 			m_control_edit5.SetSel(0,-1);
 			return;
@@ -268,34 +270,34 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 
 		if ( ERR_P_TO_BIG == RSAInitError )
 		{
-			Message(IDS_STRING_BIG_NUMBER);
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 			m_control_p.SetFocus();
 			m_control_p.SetSel(0,-1);
 			return;
 		}
 		if ( ERR_Q_TO_BIG == RSAInitError )
 		{
-			Message(IDS_STRING_BIG_NUMBER);
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 			m_control_q.SetFocus();
 			m_control_q.SetSel(0,-1);
 			return;
 		}
 		if ( ERR_P_NOT_PRIME == RSAInitError )
 		{
-			Message(IDS_STRING_RSADEMO_P_NOT_PRIME);
+			Message(IDS_STRING_RSADEMO_P_NOT_PRIME, MB_ICONINFORMATION);
 			m_control_p.SetFocus();
 			return;
 		}
 		if ( ERR_Q_NOT_PRIME == RSAInitError )
 		{
-			Message(IDS_STRING_RSADEMO_Q_NOT_PRIME);
+			Message(IDS_STRING_RSADEMO_Q_NOT_PRIME, MB_ICONINFORMATION);
 			m_control_q.SetFocus();
 			m_geheime_schluessel_d = "";
 			return;
 		}
 		if ( ERR_P_EQUALS_Q == RSAInitError )
 		{
-			Message(IDS_STRING_ERR_PRIME_ARE_EQUAL);
+			Message(IDS_STRING_ERR_PRIME_ARE_EQUAL, MB_ICONINFORMATION);
 			m_control_p.SetFocus();
 			m_geheime_schluessel_d = "";
 			return;
@@ -334,9 +336,8 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-				AfxMessageBox(line);
+				Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, 
+					    DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 				EnableEncryption(false);
 				m_ButtonOptionen.EnableWindow(true);
 			}
@@ -352,9 +353,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		{
 			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
 		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-		AfxMessageBox(line);
+		Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 		EnableEncryption(false);
 		m_ButtonOptionen.EnableWindow(true);		
 	}	
@@ -394,10 +393,8 @@ void RSA_mit_kleinenPZ::OnOptionen()
 	{
 		if ( DlgOptions->Anzahl_Zeichen > atoi(m_oeffentliche_parameter_pq))
 		{
-			char line[256];
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-			AfxMessageBox(line);
+			Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, 
+				DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 			EnableEncryption(false);
 		}
 	}
@@ -414,20 +411,15 @@ void RSA_mit_kleinenPZ::OnOptionen()
 void RSA_mit_kleinenPZ::OnButtonVerschluesseln() 
 {
 	theApp.DoWaitCursor(1);
-	UpdateData(FALSE);
-	if ( !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
+	UpdateData(TRUE);
+	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
 	{
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 	}
 	else 	
 	{
-		int NumberStreamFlag;
-		if ( !DlgOptions->m_RSAVariant )
-			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
-		else
-			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
-		if ( !NumberStreamFlag )
+		if ( 0 == m_EncryptTextOrNumbers )
 		{
 
 			if ( !DlgOptions->m_RSAVariant )
@@ -454,8 +446,18 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		}
 		else
 		{
-			HeadingEncryption( ENCRYPT_NUMBERS );
-			EncryptNumbers();
+			int NumberStreamFlag;
+			if ( !DlgOptions->m_RSAVariant )
+				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
+			else
+				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
+			if ( NumberStreamFlag )
+			{
+				HeadingEncryption( ENCRYPT_NUMBERS );
+				EncryptNumbers();
+			}
+			else
+				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
 		}
 	}
 	UpdateData(FALSE);
@@ -471,21 +473,15 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 void RSA_mit_kleinenPZ::OnButtonEntschluesseln() 
 {
 	theApp.DoWaitCursor(1);
-	UpdateData(FALSE);
-	if ( !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
+	UpdateData(TRUE);
+	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
 	{
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Decrypt( m_edit11, m_edit12, GetBase() );
 	}
 	else 
 	{
-		int NumberStreamFlag;
-		if ( !DlgOptions->m_RSAVariant )
-			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
-		else
-			NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
-
-		if ( !NumberStreamFlag )
+		if ( 0 == m_EncryptTextOrNumbers )
 		{
 			if ( !DlgOptions->m_RSAVariant )
 			{
@@ -511,8 +507,19 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 		}
 		else
 		{
-			HeadingDecryption( DECRYPT_NUMBERS );
-			DecryptNumbers();
+			int NumberStreamFlag;
+			if ( !DlgOptions->m_RSAVariant )
+				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
+			else
+				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
+
+			if ( NumberStreamFlag )
+			{
+				HeadingDecryption( DECRYPT_NUMBERS );
+				DecryptNumbers();
+			}
+			else
+				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
 		}
 	}
 	UpdateData(FALSE);
@@ -1003,6 +1010,7 @@ void CMyRSADemoEdit::OnMyPaste()
 	char *globBuff, *dataBuff;
 	long  dataLen;
 
+	EncryptTextOrNumbers = 0;
 	if ( mode == MODE_ASCII )
 	{
 		if( hndl = ::GetClipboardData(theApp.m_HexFormat)) 
@@ -1044,7 +1052,15 @@ void CMyRSADemoEdit::OnMyPaste()
 					P += ' ';
 				}
 			}
-
+			// *** Check the Pasted String if it is a stream of numbers
+			{
+				CString CheckNumber = P;
+				if ( IsNumberStream(CheckNumber, 16, "0") )
+				{
+					P = CheckNumber;
+					EncryptTextOrNumbers = 1;
+				}
+			}
 			int startc, endc;
 			GetSel(startc, endc );
 			ReplaceSel( P );
@@ -1078,6 +1094,15 @@ void CMyRSADemoEdit::OnMyPaste()
 					P += ' ';
 				}
 			}
+			// *** Check the Pasted String if it is a stream of numbers
+			{
+				CString CheckNumber = P;
+				if ( IsNumberStream(CheckNumber, 16, "0" ) )
+				{
+					P = CheckNumber;
+					EncryptTextOrNumbers = 1;
+				}
+			}
 			int startc, endc;
 			GetSel(startc, endc );
 			ReplaceSel( P );
@@ -1094,13 +1119,20 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen und/oder Standard aufrufen
 
+
 	long curp = GetSel();
 	if ( nChar == 22 && nFlags == 47 )
 	{
 		OnMyPaste();
 	}
 	else
+
 	{
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}
 }
+
+
+
+
+

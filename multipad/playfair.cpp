@@ -1011,6 +1011,11 @@ void Playfair::SetSize(int sechs)
 	my_cntdigrams=0;
 	my_digrams = new playfair_digramm [MAXDIGRAMMS];//(&myAlphabet);
 //	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
+	initDigrams();
+}
+
+void Playfair::initDigrams()
+{
 	assert (my_digrams);
 	for (int i=0; i<MAXDIGRAMMS; i++){
 		my_digrams[i].setAlphabet(myAlphabet);
@@ -1489,7 +1494,7 @@ Keine Änderung bei nicht gesetzter Vorgabe.
 Sobald des Entschlüsselungsergebnis von der Vorgabe
 abweicht, bricht die Routine mit false ab.
 */
-bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation, int stiplen)
+bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation, int stiplen, char *theinbuf, int theinbuflen)
 {
 	int  r1, r2, c1, c2,i,j,k;
 	char *CipherBufTemp;
@@ -1503,32 +1508,36 @@ bool Playfair::DoCipher( bool withConvert, bool Dec, int len, char *stipulation,
 	//  Xe eingefügt werden.)
 	CipherBufTemp = (char*)malloc(2*len);
 
+	if (theinbuf==NULL) {
+		theinbuf = inbuf;
+		theinbuflen = inbuflen;
+	}
 	outbuflen=0;
 
-	if (len>inbuflen)
-		len=inbuflen;
+	if (len>theinbuflen)
+		len=theinbuflen;
 	
 	for ( i=0; i<len; i++ ) 
 	{
 		char ib1,ib2;
 		
 		c1 = -1; r1 = -1; c2 = -1; r2 = -1;
-		if(withConvert && !myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, inbuf[i]);
-		while (!myisalpha2(inbuf[i])&&i<inbuflen)
+		if(withConvert && !myisalpha2(theinbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+			theinbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, theinbuf[i]);
+		while (!myisalpha2(theinbuf[i])&&i<len)
 			i++;
-		if(i<inbuflen)
+		if(i<len)
 		{
-			ib1=toupper(inbuf[i]);
+			ib1=toupper(theinbuf[i]);
 			i++;
-			if(withConvert && !myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-				inbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, inbuf[i]);
-			while(!myisalpha2(inbuf[i])&&i<inbuflen)
+			if(withConvert && !myisalpha2(theinbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+				theinbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, theinbuf[i]);
+			while(!myisalpha2(theinbuf[i])&&i<len)
 				i++;
-			if(i<inbuflen)
-				ib2=toupper(inbuf[i]);
+			if(i<len)
+				ib2=toupper(theinbuf[i]);
 			else
-				ib2=inbuf[inbuflen++]=theApp.TextOptions.m_trenn[0];
+				ib2=theinbuf[inbuflen++]=theApp.TextOptions.m_trenn[0];
 		}
 		else
 			break;
@@ -1698,7 +1707,7 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 // stipulation enthält die Klartextvorgabe. Sofern eine versuchte Entschlüsselung
 // der Vorlage entspricht, ist eine (erstmal) gültige Matrix gefunden.
 {
-	char tmp_inbuf [302];
+	char tmp_inbuf [MAXSHOWLETTER+2], tmp_stip [MAXSHOWLETTER+2];
 	int i, j;
 
 	playfair_backtrace trace (getSize());
@@ -1708,22 +1717,24 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 
 	// copy inbuf to tmp_inbuf, but only the valid chars
 	i=0; j=0;
-	while ((i<=301) && (i<len) && (inbuf[j]) && (i<inbuflen)) {
-		if (myisalpha2(toupper(inbuf[j]))) {
+	while ((i<=MAXSHOWLETTER+1) && (i<len) && (stipulation[j]) && (inbuf[j]) && (i<inbuflen)) {
+		if (myisalpha2(toupper(inbuf[j])) && myisalpha2(toupper(stipulation[j]))) {
 			tmp_inbuf [i] = toupper(inbuf[j]);
-			if (tmp_inbuf [i] == stipulation [i])
+			tmp_stip  [i] = toupper(stipulation[j]);
+			if (tmp_inbuf [i] == tmp_stip [i])
 				return false;
 			i++;
 		}
 		j++;
 	}
 	tmp_inbuf[i]='\0';
+	tmp_stip [i]='\0';
 
-	trace.memread(stipulation, tmp_inbuf, len, i);
+	trace.memread(tmp_stip, tmp_inbuf, i, i);
 	trace.analyse(my_matrix, myAlphabet);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (false, 1, 300, stipulation, len));
+	return (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len, tmp_inbuf));
 } // CreateMatrix
 
 
@@ -2594,7 +2605,7 @@ bool Playfair::AnaLg_RekLetter (int theIndex, char *stipulation, int len)
 		my_matrix->print (debugstr);
 //		DbgOutString (debugfile, debugstr);
 		fprintf (debugfile, debugstr);
-		if (DoCipher (false, 1, 300, stipulation, len)) {
+		if (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len)) {
 			fclose (debugfile);
 			return (true);
 		}
@@ -2786,7 +2797,7 @@ bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 	fclose (debugfile);
 
 	// jetzt sind alle Möglichkeiten durchprobiert
-	return (DoCipher (false, 1, 300, stipulation, len));
+	return (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len));
 } // CreateMatrixfromLettergraph
 
 

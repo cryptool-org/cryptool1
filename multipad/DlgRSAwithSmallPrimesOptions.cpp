@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgRSAwithSmallPrimesOptions.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -108,7 +109,7 @@ void CDlgRSAwithSmallPrimesOptions::MsgBlockLength()
 {
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_RSATUT_MAXBLOCKLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
 	char line[256];
-	int  bl = GetBlockLength();
+	unsigned int  bl = GetBlockLength();
 	sprintf( line, pc_str, bl );
 	m_MaxBlockLength = line;
 	if ( !m_BlockLength ) m_BlockLength = 1;
@@ -198,10 +199,8 @@ void CDlgRSAwithSmallPrimesOptions::OnSelectAlphabet()
 
 void CDlgRSAwithSmallPrimesOptions::OnOK() 
 {
-	char line[256];
-
 	UpdateData();
-	int blockLength = GetBlockLength();
+	unsigned int blockLength = GetBlockLength();
 	if (m_TextOptions==0)
 	{
 		Anzahl_Zeichen=256;	
@@ -217,32 +216,24 @@ void CDlgRSAwithSmallPrimesOptions::OnOK()
 		int_RSA_Modul=atoi(RSA_Modul);
 		if ( Anzahl_Zeichen > int_RSA_Modul)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
-			AfxMessageBox(line);
+			Message(IDS_STRING_ERR_ONBLOCKLENGTH_NULL, MB_ICONSTOP, Anzahl_Zeichen, RSA_Modul);
 			return;
 		}
 		
 	}
 	else if ( blockLength==0 ) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_NULL, pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str, Anzahl_Zeichen, RSA_Modul);
-		AfxMessageBox(line);
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH_NULL, MB_ICONSTOP, Anzahl_Zeichen, RSA_Modul);
 		return;
 	}
 	else if ( blockLength==1 && (m_BlockLength ==0 || m_BlockLength > 1) ) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH_1, pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str);
-		AfxMessageBox(line);
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH_1, MB_ICONSTOP);
 		return;
 	}
 	else if ( blockLength >2  && (m_BlockLength < 1 || m_BlockLength > blockLength )) 
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ONBLOCKLENGTH, pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str, blockLength);
-		AfxMessageBox(line);
+		Message(IDS_STRING_ERR_ONBLOCKLENGTH, MB_ICONSTOP, blockLength);
 		return;
 	}
 	UpdateData(false);
@@ -336,7 +327,7 @@ void CDlgRSAwithSmallPrimesOptions::OnCancel()
 {
 		// TODO: Zusätzliche Prüfung hier einfügen
 	UpdateData();
-	int blockLength = GetBlockLength();
+	unsigned int blockLength = GetBlockLength();
 
 	if ( m_BlockLength > blockLength ) 
 	{

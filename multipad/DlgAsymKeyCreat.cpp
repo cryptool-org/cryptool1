@@ -27,7 +27,7 @@
 #include "DLG_param.h"
 #include "PinAndNewPinDialog.h"
 #include "SecudeTools.h"
-
+#include "crypt.h"
 #include <time.h>
 
 
@@ -230,7 +230,6 @@ void CDlgAsymKeyCreat::OnOK()
 	if ((m_edit1.FindOneOf("\\/:*?\"<>|~$%&,;[]") > (-1)) ||
 		(m_edit2.FindOneOf("\\/:*?\"<>|~$%&,;[]") > (-1)) ||
 		(m_user_keyinfo.FindOneOf("\\/:*?\"<>|~$%&,;[]") > (-1)) ){
-		// AfxMessageBox("Sonderzeichen enthalten");
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_INPUT_FORMAT,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ILLEGAL_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
@@ -359,8 +358,7 @@ BOOL CDlgAsymKeyCreat::OnInitDialog()
 		if (error)
 		{
 			// error while converting curveParameter to Strings
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 			return TRUE;
 		}
 
@@ -475,8 +473,7 @@ void CDlgAsymKeyCreat::OnSelchangeEcCombo()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 
@@ -527,8 +524,7 @@ void CDlgAsymKeyCreat::OnDecimalRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, &ecParamString, curveID);
@@ -541,8 +537,7 @@ void CDlgAsymKeyCreat::OnOctalRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message( IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, &ecParamString, curveID);
@@ -555,8 +550,7 @@ void CDlgAsymKeyCreat::OnHexRadio()
 	if (error)
 	{
 		// error while converting curveParameter to Strings
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+		Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 		return;
 	}
 	UpdateEcListBox(curveParameter, &ecParamString, curveID);
@@ -665,16 +659,14 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			if (error)
 			{
 				// error while creating key pair
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
 				return;
 			}
 			error = EcDomParamAcToString(&ecParamString, curveParameter, 16);
 			if (error)
 			{
 				// error while converting curveParameter to Strings
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 				return;
 			}
 			theApp.DoWaitCursor(0);
@@ -697,24 +689,20 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (error == -1)
 		{
 			// irgendein Fehler beim erzeugen der PSE ist aufgetreten
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, MB_ICONSTOP);
 			return;
 		}
 		else if (error == -2)
 		{
 			// irgendein Fehler beim öffnen der PSE ist aufgetreten
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP);
 			return;
 		}
 		else if (error == -9)
 		{
 			// Fehler: die Dateien für die öffentlichen bzw. geheimen Parameter konnten nicht
 			// im Verzeichnis "Pfad" (siehe multipad.cpp) erzeugt werden
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(pc_str1, pc_str, Pfad);
-			AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+			Message(IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE, MB_ICONSTOP, Pfad);
 			return;
 		}
 		else if (error != 0)
@@ -764,8 +752,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		PseHandle=theApp.SecudeLib.af_create (string3  , NULL, string5, NULL, TRUE);
 		if (PseHandle==NULL)
 		{	// Fehler bei der PSE-Erzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string2;
 			delete string4;
@@ -787,8 +774,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (error == -1)
 		{
 			// Fehler bei der Schlüsselerzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_KEY_GENERATION,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ERR_ON_KEY_GENERATION, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -876,8 +862,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (Zert==NULL)
 		{
 			// Fehler bei der Zertifikatserzeugung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -919,8 +904,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (PseHandle2==NULL)
 		{
 			// Fehler beim Öffnen der CA-PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -937,8 +921,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (Zert2==NULL)
 		{
 			// Fehler bei der Zertifizierung
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -953,8 +936,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (fehler==-1)
 		{
 			// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -974,8 +956,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 			if (fehler==-1)
 			{
 				// Error writing certificate to the user PSE
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);  //FIXME: change error code
-				AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+				Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
 				// Lösche die neu angelegte PSE
 				remove(string3);
 				// Freigeben von dynamisch angelegtem Speicher
@@ -999,8 +980,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 		if (fehler==-1)
 		{
 			// Error writing certificate to the user PSE
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);  //FIXME: change error code
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -1032,7 +1012,7 @@ void CDlgAsymKeyCreat::CreateAsymKeys()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(pc_str1, pc_str, UserKeyId);
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_GENERATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
-	char temp[100];
+	char temp[256];
 	sprintf(temp, pc_str, duration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
 }
@@ -1063,8 +1043,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 	// check if PSE already exists
 	if (_access(PSEName, 0) != -1)
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_FILEEXISTS, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+		Message(IDS_STRING_FILEEXISTS, MB_ICONEXCLAMATION);
 		free(PSEName);
 		return;
 	}
@@ -1074,8 +1053,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 
 	if (!input) 
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_FILEOPENERROR, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+		Message(IDS_STRING_FILEOPENERROR, MB_ICONEXCLAMATION);
 		free(PSEName);
 		return; // no selection
 	}
@@ -1110,8 +1088,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 	if (!pse) 
 	{
 		theApp.SecudeLib.aux_free_OctetString(&input);
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_PSECREATIONERROR, pc_str, STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str, MB_ICONINFORMATION, 0);
+		Message(IDS_STRING_PSECREATIONERROR, MB_ICONINFORMATION);
 	    // aux_print_error(NULL, verbose);
 		free(PSEName);
 		theApp.SecudeLib.af_close(pse);
@@ -1152,8 +1129,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 	Certificate * cert = theApp.SecudeLib.af_pse_get_Certificate(pse, SIGNATURE, NULL, NULL);
  	if (!cert)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT );
 		// remove newly created PSE
 		remove(PSEName);
 		free(PSEName);
@@ -1256,8 +1232,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 				// this is not a CrypTool certificate - for now we cannot process these
 				// certificates because of the internal PSE handling.
 				// FIXME: find out what we can do about it.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_INCOMPATIBLE_CERT,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+				Message(IDS_STRING_INCOMPATIBLE_CERT, MB_ICONSTOP);
 
 				remove(PSEName);
 				free(PSEName);
@@ -1272,8 +1247,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 		else
 		{
 			// FIXME: error handling
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_CERT_DECODING_ERROR, pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			Message(IDS_STRING_CERT_DECODING_ERROR, MB_ICONSTOP);
 			remove(PSEName);
 			free(PSEName);
 			theApp.SecudeLib.aux_free(&issuer_name);
@@ -1288,8 +1262,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 	PSE capse = theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
 	if (!capse)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP);
 	
 		remove(PSEName);
 		free(PSEName);
@@ -1303,8 +1276,7 @@ void CDlgAsymKeyCreat::OnButtonP12import()
 	if (rc)
 	{
 		// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ADD_CERT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
 		// remove newly created PSE
 		remove(PSEName);
 		free(PSEName);

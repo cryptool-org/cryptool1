@@ -1429,7 +1429,7 @@ BEGIN
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
     PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
-                    IDC_OPTIONEN,176,187,156,16
+                    IDC_OPTIONEN,184,187,148,16
     EDITTEXT        IDC_EDIT10,20,219,313,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
@@ -1437,13 +1437,13 @@ BEGIN
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
     PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
-    EDITTEXT        IDC_HEADER1,20,207,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER1,20,207,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER4,20,238,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER4,20,238,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER2,20,268,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER2,20,268,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER3,20,300,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER3,20,300,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
                     IDC_STATIC,10,7,332,24
@@ -1465,6 +1465,11 @@ BEGIN
     LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
     GROUPBOX        "RSA-Verschlüsselung / Entschlüsselung",IDC_STATIC,10,
                     177,332,155
+    LTEXT           "Eingabe als",IDC_STATIC,19,193,39,8
+    CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    61,193,32,8
+    CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,96,193,
+                    37,8
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -3411,6 +3416,7 @@ BEGIN
         VERTGUIDE, 332
         VERTGUIDE, 342
         HORZGUIDE, 161
+        HORZGUIDE, 185
         HORZGUIDE, 314
         HORZGUIDE, 332
         HORZGUIDE, 357
@@ -3696,9 +3702,9 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Bitte wählen Sie eine PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Bitte geben Sie den PIN-Code ein."
     IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
-                            "Fehler beim Öffnen der CA-PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Öffnen der CA-PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
-                            "Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
                             "Bitte wählen Sie den Signaturersteller."
     IDS_STRING_ASYMKEY_MSG_DONOTCHANGE 
@@ -3921,17 +3927,17 @@ BEGIN
                             "Bitte wählen Sie die PSE, in der\nIhr geheimer Schlüssel liegt."
     IDS_STRING_ASYMKEY_MSG_SELECT_RECIEVER "Bitte wählen Sie einen Empfänger."
     IDS_STRING_ASYMKEY_ERR_GET_PSE 
-                            "Fehler beim Holen der Zertifikatsliste.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Holen der Zertifikatsliste.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_PSE 
-                            "Fehler beim Anlegen der neuen PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Anlegen der neuen PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_OPEN_PSE 
-                            "Fehler beim Öffnen der PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Öffnen der PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1 
-                            "Fehler bei der Zertifikatserstellung(1).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler bei der Zertifikatserstellung(1).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2 
-                            "Fehler bei der Zertifikatserstellung(2).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler bei der Zertifikatserstellung(2).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_ERR_ADD_CERT 
-                            "Fehler beim Einfügen des Zertifikates in die CA-Datenbank.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+                            "Fehler beim Einfügen des Zertifikates in die CA-Datenbank.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4214,21 +4220,21 @@ BEGIN
     IDS_STRING_MSG_PATHNAME_TO_LONG 
                             "Der vom Programm erzeugte Verzeichnis-Pfad\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
     IDS_STRING_MSG_SIGNATURE_GENERATION_TIME 
-                            "Zum Erzeugen der Signatur benötigte Zeit: %.5f Sekunden."
+                            "Zum Erzeugen der Signatur benötigte Zeit: %.3f Sekunden."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
-                            "Zum Verifizieren der Signatur benötigte Zeit: %.5f Sekunden."
+                            "Zum Verifizieren der Signatur benötigte Zeit: %.3f Sekunden."
     IDS_STRING_BAD_SIGNATURE "Signatur fehlerhaft!\n%s"
     IDS_STRING_CORRECT_SIGNATURE "Signatur korrekt!\n%s"
     IDS_STRING_MSG_KEY_GENERATION_TIME 
-                            "Zum Erzeugen des Schlüsselpaares benötigte Zeit: %.5f Sekunden."
+                            "Zum Erzeugen des Schlüsselpaares benötigte Zeit: %.3f Sekunden."
     IDS_STRING_RSA_ENCRYPTION_TIME 
-                            "Für die RSA-Verschlüsselung benötigte Zeit: %.5f Sekunden."
+                            "Für die RSA-Verschlüsselung benötigte Zeit: %.3f Sekunden."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_RSA_DECRYPTION_TIME 
-                            "Für die RSA-Entschlüsselung benötigte Zeit: %.5f Sekunden."
+                            "Für die RSA-Entschlüsselung benötigte Zeit: %.3f Sekunden."
     IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION 
                             "Fehler. Es steht nicht genügend Speicher zur Verfügung, um eine Signatur-Verifikation durchzuführen!"
     IDS_STRING_ERR_MEMORY_RSA_DECRYPTION 
@@ -4780,7 +4786,7 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müßen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
-    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.5f Sekunden"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.3f Sekunden"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED 
                             "PKCS#12 Struktur konnte nicht erzeugt werden."
@@ -4802,6 +4808,19 @@ BEGIN
                             "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
     IDS_STRING_ERROR        "Fehler"
+    IDS_STRING_PLAYFAIR_WARNMSG001 
+                            "Da 'J' oder Ziffern im Chiffrat auftreten, könnte es sich um eine 6x6 Verschlüsselungsmatrix handeln."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PLAYFAIR_WARNMSG002 
+                            "Das Chiffrat enthält auch ungültige Zeichen. Diese sind ausmaskiert."
+    IDS_STRING_PLAYFAIR_WARNMSG003 
+                            "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
+    IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5000 ein."
+    IDS_STRING_ERROR_NO_NUMBER_STREAM 
+                            "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder Verschlüsseln sie die Eingabe als Text."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4822,6 +4841,7 @@ BEGIN
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
+    IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6243,7 +6263,7 @@ BEGIN
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,246,148,86,19
     PUSHBUTTON      "&Options for alphabet and number system...",
-                    IDC_OPTIONEN,176,187,156,16
+                    IDC_OPTIONEN,184,187,148,16
     EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
@@ -6270,14 +6290,19 @@ BEGIN
     LTEXT           "(public)",IDC_STATIC,246,103,34,8
     LTEXT           "(secret)",IDC_STATIC,246,121,30,8
     GROUPBOX        "RSA encryption / decryption",IDC_STATIC,10,177,332,158
-    EDITTEXT        IDC_HEADER1,19,209,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER1,19,209,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER4,19,240,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER4,19,240,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER2,19,270,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER2,19,270,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER3,19,302,313,11,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER3,19,302,313,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
+    LTEXT           "Input as",IDC_STATIC,19,194,31,8
+    CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    53,194,32,8
+    CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,89,194,
+                    40,8
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -6298,12 +6323,11 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
     PUSHBUTTON      "&Generate random key",IDC_ERZEUGEN,14,332,109,17
-    PUSHBUTTON      "Load keys from the &clipboard",IDC_BUTTON2,147,332,149,
-                    17
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    147,332,149,17
     EDITTEXT        IDC_EDIT2,14,292,29,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
     GROUPBOX        "Total count and bit length of the homophones",
                     IDC_STATIC,14,4,162,42
     LTEXT           "Total number:",IDC_STATIC,27,17,40,8
@@ -6325,6 +6349,9 @@ BEGIN
     LTEXT           "List of homophones",IDC_STATIC,92,283,72,8
     EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
+    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | 
+                    WS_DISABLED,238,366,8,10
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
@@ -7848,12 +7875,15 @@ BEGIN
 
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
     BEGIN
+        HORZGUIDE, 203
         HORZGUIDE, 359
     END
 
     IDD_DIALOG_HOMOPHONE, DIALOG
     BEGIN
+        VERTGUIDE, 382
         HORZGUIDE, 304
+        HORZGUIDE, 376
     END
 
     IDD_RANDOM_PARAMETER_LCG, DIALOG
@@ -7983,9 +8013,9 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Please select a PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Please enter the PIN code."
     IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
-                            "An error occurred during opening of the CA PSE.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during opening of the CA PSE.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
-                            "An error occurred on retrieving the certificate.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred on retrieving the certificate.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
                             "Please choose the signature originator."
     IDS_STRING_ASYMKEY_MSG_DONOTCHANGE 
@@ -8205,17 +8235,17 @@ BEGIN
                             "Please select the PSE that contains your\nsecret key."
     IDS_STRING_ASYMKEY_MSG_SELECT_RECIEVER "Please select a recipient."
     IDS_STRING_ASYMKEY_ERR_GET_PSE 
-                            "An error occurred on retrieving the certificate list.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred on retrieving the certificate list.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_PSE 
-                            "An error occurred during creation of the new PSE.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during creation of the new PSE.\nPlease reinstall CrypTool.\nInternal error message:\n%"
     IDS_STRING_ASYMKEY_ERR_OPEN_PSE 
-                            "An error occurred during opening of the PSE.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during opening of the PSE.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1 
-                            "An error occurred during certificate creation(1).\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during certificate creation(1).\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2 
-                            "An error occurred during certificate creation(2).\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during certificate creation(2).\nPlease reinstall CrypTool.\nInternal error message:\n%s"
     IDS_STRING_ASYMKEY_ERR_ADD_CERT 
-                            "An error occurred during adding of the certificate to the CA database.\nPlease reinstall CrypTool.\nInternal error message:\n"
+                            "An error occurred during adding of the certificate to the CA database.\nPlease reinstall CrypTool.\nInternal error message:\n%s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8488,19 +8518,19 @@ BEGIN
     IDS_STRING_MSG_PATHNAME_TO_LONG 
                             "The directory path generated by the program\n%s\nis TOO LONG. You must choose a shorter last name, first name or key identifier."
     IDS_STRING_MSG_SIGNATURE_GENERATION_TIME 
-                            "Signature generation time: %.5f seconds."
+                            "Signature generation time: %.3f seconds."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
-                            "Duration of signature verification: %.5f seconds."
+                            "Duration of signature verification: %.3f seconds."
     IDS_STRING_BAD_SIGNATURE "Invalid signature!\\%s"
     IDS_STRING_CORRECT_SIGNATURE "Correct signature!\n%s"
     IDS_STRING_MSG_KEY_GENERATION_TIME 
-                            "Elapsed time while creating key pair: %.5f seconds."
-    IDS_STRING_RSA_ENCRYPTION_TIME "RSA encryption time: %.5f seconds."
+                            "Elapsed time while creating key pair: %.3f seconds."
+    IDS_STRING_RSA_ENCRYPTION_TIME "RSA encryption time: %.3f seconds."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_RSA_DECRYPTION_TIME "RSA decryption time:  %.5f seconds."
+    IDS_STRING_RSA_DECRYPTION_TIME "RSA decryption time:  %.3f seconds."
     IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION 
                             "Error. There is not enough memory available to carry out signature verification!"
     IDS_STRING_ERR_MEMORY_RSA_DECRYPTION 
@@ -9037,7 +9067,7 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
     IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
-    IDS_STRING_ANZAHL_ZEICHEN2 "Time required:   %.5f second"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Time required:   %.3f seconds"
     IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
     IDS_STRING_INPUT_PSEPIN "Please enter the PSE PIN."
@@ -9047,17 +9077,30 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_PLAYFAIR_ERRMSG001 
-                            "Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.\n Fehlernr=%d, Buchstabe=%c"
+                            "Please notice: the playfair cipher letter and plaintext letter are always different.\n Error no.=%d, letter=%c"
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
-                            "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Fehlernr=%d, Buchstabe=%c"
+                            "While the playfair analysis an error occured while the graph construction.\n Error no=%d, letter=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Fehlernr=%d, Buchstabe=%c"
+                            "Wrong assumption!\nAt least one of the tables is overflown.\n Error no.=%d, letter=%c."
     IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Annahme falsch!\nEine der Nachbarn war schon sicher.\n Fehlernr=%d, Buchstabe=%c"
+                            "Wrong assumption!\nAt least one of the neighbours was assumed as correct.\n Error no.=%d, letter=%c"
     IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Fehlernr=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
+                            "Wrong assumption!\nNeighbour matching error.\n Error no.=%d, letter=%c"
+    IDS_STRING_PLAYFAIR_NOMATRIX "No matching matrix was found."
     IDS_STRING_ERROR        "Error"
+    IDS_STRING_PLAYFAIR_WARNMSG001 
+                            "Due to the occurence of the letter 'J' within the ciphertext, it could be assumed, that the ciphertext was encrypted by a 6 x 6 playfair key matrix."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PLAYFAIR_WARNMSG002 
+                            "Das Chiffrat enthält auch ungültige Zeichen. Diese sind ausmaskiert."
+    IDS_STRING_PLAYFAIR_WARNMSG003 
+                            "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
+    IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5000!\nPlease enter a number between 1 and 5000."
+    IDS_STRING_ERROR_NO_NUMBER_STREAM 
+                            "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9073,11 +9116,12 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "The demostration does support only positive integers of bitlength smaller than 1024. These are decimal numbers with at most 308 digits."
     IDS_STRING_BIG_RSA_MODUL 
                             "The demonstartion dos support only positve integers of bitlength smaller than 1024.\nThe Bitlength of the actually generated RSA modul exceeds 1024.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^1024."
-    IDS_STRING_INPUT_FALSE
-							"Your input is no valid expression to compute a positive integer."
-    IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE
+    IDS_STRING_INPUT_FALSE  "Your input is no valid expression to compute a positive integer."
+    IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Please enter a positive integer greater than 1."
-    IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
+    IDS_STRING_MODUL_NOT_PRIME 
+                            "Your input for the modulus P is not a prime number."
+    IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
 END
 
 STRINGTABLE DISCARDABLE 

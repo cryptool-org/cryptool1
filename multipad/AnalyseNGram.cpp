@@ -22,7 +22,7 @@ AnalyseNGram::AnalyseNGram(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(AnalyseNGram)
 		m_N_NGram      = 0;
-	    m_ShowCntNGram = 20;
+	    m_ShowCntNGram = 26;
 		m_NrNGram      = 4;
 	//}}AFX_DATA_INIT
 	b_SaveNGramList = false;
@@ -40,11 +40,11 @@ void AnalyseNGram::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(AnalyseNGram)
+	DDX_Control(pDX, IDC_EDIT1, m_ShowCntNGramCtrl);
 	DDX_Control(pDX, IDC_EDIT2, m_NrNGramCtrl);
 		DDX_Control(pDX, IDC_LIST1,  m_ListView);
 	    DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
 	    DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
-	DDV_MinMaxLong(pDX, m_ShowCntNGram, 1, 240000);
 		DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
 	DDV_MinMaxLong(pDX, m_NrNGram, 3, 16);
 	//}}AFX_DATA_MAP
@@ -185,6 +185,8 @@ void AnalyseNGram::SetupListBox( int N )
 	
 	NGramPtr->resetIterator();
 	unsigned long ListSize = (m_ShowCntNGram<NGramPtr->getIndividuals()) ? m_ShowCntNGram : NGramPtr->getIndividuals();
+	if ( ListSize > 5000 ) 
+		ListSize = 5000;
 	for (i=0; (unsigned long)i<ListSize; i++)
 	{
 		NGramPtr->get( SubStr, cnt, rel );
@@ -258,18 +260,26 @@ void AnalyseNGram::OnEvalNGram()
 {
 	theApp.DoWaitCursor(1);
 	UpdateData(TRUE);
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-    if ( m_N_NGram > 2 )
-	{
-		if ( m_NrNGram > NGRAM_NMAX ) 
+	if ( m_ShowCntNGram <= 5000 )
+	{	
+		if ( m_N_NGram > 2 )
 		{
-			m_NrNGram = NGRAM_NMAX;
+			if ( m_NrNGram > NGRAM_NMAX ) 
+			{
+				m_NrNGram = NGRAM_NMAX;
+			}
+			SetupListBox( m_NrNGram );
 		}
-		SetupListBox( m_NrNGram );
+		else
+		{
+			SetupListBox( m_N_NGram+1 );
+		}
 	}
 	else
 	{
-		SetupListBox( m_N_NGram+1 );
+		Message( IDS_NGRAMLIST_TOLONG, MB_ICONEXCLAMATION );
+		m_ShowCntNGramCtrl.SetFocus();
+		m_ShowCntNGramCtrl.SetSel(0,-1);
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -284,6 +294,7 @@ void AnalyseNGram::OnSaveNGramList()
 	unsigned long cnt;
 	double        rel;
 	
+	UpdateData(TRUE);
 	theApp.DoWaitCursor(1);
 	b_SaveNGramList = true;
 	
@@ -331,6 +342,7 @@ void AnalyseNGram::OnSaveNGramList()
 
 	NGramPtr->resetIterator();
 	unsigned long ListSize = (m_ShowCntNGram<NGramPtr->getIndividuals()) ? m_ShowCntNGram : NGramPtr->getIndividuals();
+	UpdateData(FALSE);
 	for (int i=0; (unsigned long)i<ListSize; i++)
 	{
 		txt_NGram.width(5);
@@ -389,7 +401,6 @@ void AnalyseNGram::OnSaveNGramList()
 		txt_NGram.precision(4);
 		txt_NGram << rel*100.0 << "\n";
 	}
-
 	txt_NGram.close();
 	theApp.DoWaitCursor(-1);
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
@@ -439,6 +450,8 @@ CNGram::CNGram(const unsigned long fileSize, const unsigned short _N, const unsi
 	}
 	else
 		HashTableSize = Size+Size/8;
+	if ( 0 == (HashTableSize % 2) ) 
+		HashTableSize++;
 	NGramHashTable = new char[HashTableSize*(4+N)];
 	memset(NGramHashTable, 0, HashTableSize*(4+N));
 	individuals = 0;
@@ -451,11 +464,11 @@ void CNGram::add( const char *substring )
 	for (unsigned short i=0; i<N; i++) 
 	{
 		char chr = substring[i];
-		hashAddress = (hashAddress +(unsigned short)chr) % HashTableSize;
+		hashAddress = ((hashAddress<<6) +(unsigned short)chr) % HashTableSize;
 	}
 	hashEntry *hPtr; 
 	unsigned long qP = 1;
-	while ( qP < HashTableSize )  
+	while ( TRUE )  
 	{
 		hPtr = (hashEntry*)(NGramHashTable + ((4+N)*hashAddress) );
 		if ( !hPtr->count )
@@ -467,9 +480,15 @@ void CNGram::add( const char *substring )
 		}
 		// in case of free Table
 		if ( memcmp(hPtr->SubStr, substring, N) )
-		{
-			hashAddress = (hashAddress + qP*qP) % HashTableSize; 
+		{ // quadratic probing
+			hashAddress = (hashAddress + 17*qP + 7*qP*qP) % HashTableSize; 
 			qP++;
+			if (qP > HashTableSize)
+			{
+				AfxMessageBox("Not usable hash function", MB_ICONSTOP);
+				break;
+			}
+			if ( qP > 1000 ) AfxMessageBox("Bad hash function", MB_ICONSTOP);
 		}
 		else
 		{

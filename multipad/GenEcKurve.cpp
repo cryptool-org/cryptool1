@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "GenEcKurve.h"
-#include "Ber_Ell_Kurve.h"
+// #include "Ber_Ell_Kurve.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

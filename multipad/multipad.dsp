@@ -1811,14 +1811,6 @@ SOURCE=.\res\toolbar.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Tools.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Tools.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\trck4way.cur
 # End Source File
 # Begin Source File

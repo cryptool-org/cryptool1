@@ -115,12 +115,6 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-void DlgPrimesGenerator::ErrorMsg(const int IDS_STRING_ID)
-{
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-	AfxMessageBox(pc_str);
-}
-
 BOOL DlgPrimesGenerator::GetRandomPrime(CString &OutStr, GeneratePrimes &P)
 {
 	BOOL flag = FALSE;
@@ -159,7 +153,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	if(!((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
 		   (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty())) )
 	{
-		ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
+		Message( IDS_STRING_ENTER_UPPER_LOWER_BOUND, MB_ICONINFORMATION );
 		return;
 	}
 	
@@ -173,7 +167,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit1.SetSel(err_ndx-1,m_edit1.GetLength());
 		m_control_edit1.SetFocus();
-		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
@@ -182,7 +176,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit2.SetSel(err_ndx-1,m_edit2.GetLength());
 		m_control_edit2.SetFocus();
-		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
@@ -191,7 +185,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit3.SetSel(err_ndx-1,m_edit3.GetLength());
 		m_control_edit3.SetFocus();
-		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
@@ -200,7 +194,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit4.SetSel(err_ndx-1,m_edit4.GetLength());
 		m_control_edit4.SetFocus();
-		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
 	
@@ -214,51 +208,46 @@ void DlgPrimesGenerator::OnButtonGenerate()
 			if ( (PSet == 1) && (QSet ==1))
 			{
 				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
-				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
-				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
+				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
+				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
 				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)
 			{
 				m_control_edit1.SetFocus();
 				m_control_edit1.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if ( PSet == 2)
 			{
 				m_control_edit2.SetFocus();
 				m_control_edit2.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  QSet ==3)
 			{
 				m_control_edit3.SetFocus();
 				m_control_edit3.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  QSet ==2)
 			{
 				m_control_edit4.SetFocus();
 				m_control_edit4.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  PSet ==1 )
 			{
 				m_control_edit3.SetFocus();
 				m_control_edit3.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
 			}
 			else 
 			{
 				m_control_edit1.SetFocus();
 				m_control_edit1.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
 			}
-		//}
-		//else
-		//{
-		//	ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
-		//}
 	}
 	else
 	{
@@ -270,52 +259,46 @@ void DlgPrimesGenerator::OnButtonGenerate()
 			if ( PSet==1 && QSet==1 )
 			{
 				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
-				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
-				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
+				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
+				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
 				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)
 			{
 				m_control_edit1.SetFocus();
 				m_control_edit1.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if ( PSet == 2)
 			{
 				m_control_edit2.SetFocus();
 				m_control_edit2.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  QSet ==3)
 			{
 				m_control_edit3.SetFocus();
 				m_control_edit3.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  QSet ==2)
 			{
 				m_control_edit4.SetFocus();
 				m_control_edit4.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_BIG_NUMBER );
+				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 			}
 			else if (  PSet ==1 )
 			{
 				m_control_edit3.SetFocus();
 				m_control_edit3.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
 			}
 			else 
 			{
 				m_control_edit1.SetFocus();
 				m_control_edit1.SetSel(0,-1);
-				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
+				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
 			}
-		//}
-		//else
-		//{
-		//	ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
-		//}
-
 	}
 
 	if(("0"!=m_edit5)&&("0"!=m_edit6))

@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
-
+#include "crypt.h"
 #include "Read_Ini_File_2.h"
 
 extern char *Pfad; // Pfad contains the path of the directory there the mainprogram is executed
@@ -27,13 +27,11 @@ int CReadIniFile2::GetAlphaList(CStringList& AlphaList)
 
 	inputfile = (CString) Pfad + initializing_file_2; // this is the full path of the location of initializing_file
 
-	//AfxMessageBox(inputfile,MB_ICONINFORMATION, 0 );
+	//Message(IDS_STRING_XXX,MB_ICONINFORMATION, inputfile );
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND, MB_ICONINFORMATION, inputfile);
 		return -1; // error: couldn't open inputfile
 	}
 
@@ -42,7 +40,7 @@ int CReadIniFile2::GetAlphaList(CStringList& AlphaList)
 		if (Line.Find("\\begin{ALPHA_LIST}") > -1){
 			while (IniDataFile.ReadString(Line) && (Line.Find("\\end{ALPHA_LIST}")== -1)){
 				AlphaList.AddTail( Line );
-				//AfxMessageBox(Line,MB_ICONINFORMATION, 0 );
+				// Message(IDS_STRING_XXX,MB_ICONINFORMATION, Line );
 			}
 		}
 	}
@@ -61,9 +59,7 @@ int CReadIniFile2::GetDefaultAlpha(CString& alpha)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
+		Message(IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,MB_ICONSTOP, inputfile);
 		return -1; // error: couldn't open inputfile
 	}
 
@@ -97,9 +93,7 @@ double CReadIniFile2::GetAlphaParam(CString alpha, UINT def_id)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
+		Message(IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,MB_ICONSTOP,inputfile);
 		return -1.0; // error: couldn't open inputfile
 	}
 	IniDataFile.SeekToBegin(); // Start searching at begining of file

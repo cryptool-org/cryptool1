@@ -445,17 +445,20 @@ BOOL IsHexDump( CString &CStr )
 	CString fmt = _T("");
 	int twoStep = 0;
 	for (int i=0; i<CStr.GetLength(); i++ ) {
-		while ( Whitespace( CStr[i] ) ) i++;
-		if ( IsNumber( CStr[i], BASE_HEX ) )
+		if ( !Whitespace( CStr[i] ) )
 		{
-			fmt += CStr[i];
-			twoStep++;
-			if ( 2 == twoStep && i+1 < CStr.GetLength()) {
-				fmt += ' ';
-				twoStep = 0;
+			if ( IsNumber( CStr[i], BASE_HEX ) )
+			{
+				fmt += CStr[i];
+				twoStep++;
+				if ( 2 == twoStep && i+1 < CStr.GetLength()) {
+					fmt += ' ';
+					twoStep = 0;
+				}
 			}
+			else 
+				return FALSE;
 		}
-		else return FALSE;
 	}
 	return TRUE;
 }

@@ -288,19 +288,13 @@ void Dlg_homophone::OnActualizeNoOfHomophones()
 	UpdateData(TRUE);
 	if ( m_NoOfHomophones < range )
 	{
-		char Note[128];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_HOMOPHONE_LOWERBND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(Note, pc_str, range);
-		AfxMessageBox( Note );
+		Message(IDS_STRING_MSG_HOMOPHONE_LOWERBND, MB_ICONEXCLAMATION, range);
 		m_NoOfHomophones = range;
 	}
 
 	if ( m_NoOfHomophones > upper_range )
 	{
-		char Note[128];
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_HOMOPHONE_UPPERBND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(Note, pc_str, upper_range);
-		AfxMessageBox( Note );
+		Message(IDS_STRING_MSG_HOMOPHONE_LOWERBND, MB_ICONEXCLAMATION, upper_range);
 		m_NoOfHomophones = upper_range;
 	}
 

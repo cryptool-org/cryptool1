@@ -5,6 +5,7 @@
 #include "multipad.h"
 #include "DlgRandomParameterLCG.h"
 #include "CryptologyUsingMiracl.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -56,7 +57,6 @@ void DlgRandomParameterLCG::OnOK()
 	BOOL Modul_N_IsOK;
 	BOOL Multiplikator_a_IsOK;
 	BOOL Inkrement_b_IsOK;
-	char line[256];
 	int     ndx_a;
 	int     ndx_b;
 	int     ndx_N;
@@ -79,17 +79,13 @@ void DlgRandomParameterLCG::OnOK()
 		{
 			if (ndx_N == -1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 				m_control_LinParam_N.SetSel(0,-1);
 				m_control_LinParam_N.SetFocus();
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 				m_control_LinParam_N.SetSel(ndx_N-1,-1);
 				m_control_LinParam_N.SetFocus();
 			}
@@ -98,17 +94,13 @@ void DlgRandomParameterLCG::OnOK()
 		{
 			if (ndx_a == -1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 				m_control_LinParam_a.SetSel(0,-1);
 				m_control_LinParam_a.SetFocus();
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 				m_control_LinParam_a.SetSel(ndx_a-1,-1);
 				m_control_LinParam_a.SetFocus();
 			}
@@ -117,17 +109,13 @@ void DlgRandomParameterLCG::OnOK()
 		{
 			if (ndx_b == -1)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 				m_control_LinParam_b.SetSel(0,-1);
 				m_control_LinParam_b.SetFocus();
 			}
 			else
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 				m_control_LinParam_b.SetSel(ndx_b-1,-1);
 				m_control_LinParam_b.SetFocus();
 			}

@@ -5,6 +5,7 @@
 #include "multipad.h"
 #include "DlgRandParameter_x2_mod_N.h"
 #include "CryptologyUsingMiracl.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -57,7 +58,6 @@ void DlgRandParameter_x2_mod_N::OnOK()
 {
 	// TODO: Zusätzliche Prüfung hier einfügen
 	BOOL NumberIsOK;
-	char line[256];
 	int     ndx;
 	UpdateData(TRUE);
 	{ 
@@ -74,17 +74,13 @@ void DlgRandParameter_x2_mod_N::OnOK()
 		// ********* Fehlermeldung
 		if (ndx == -1)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 			m_Control_Edit_Modul_N.SetSel(0,-1);
 			m_Control_Edit_Modul_N.SetFocus();
 		}
 		else
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
 			m_Control_Edit_Modul_N.SetSel(ndx-1,-1);
 			m_Control_Edit_Modul_N.SetFocus();
 		}

@@ -31,6 +31,7 @@ public:
 // Operationen
 public:
 	int mode;
+	int EncryptTextOrNumbers;
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CMyRSADemoEdit)
@@ -92,6 +93,7 @@ public:
 	CString	m_Header3;
 	CString	m_Header4;
 	CString	m_edit13;
+	int		m_EncryptTextOrNumbers;
 	//}}AFX_DATA
 
 
@@ -128,7 +130,7 @@ private:
 	void HeadingDecryption(BOOL encryptText);
 	void HeadingEncryption(BOOL decryptText);
 	void EnableEncryption( BOOL mode = TRUE );
-	void RequestForInput( BOOL clearInput = TRUE );
+	void RequestForInput( BOOL clearInput = FALSE );
 	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );
 	int GetBase();
 	DlgPrimesGenerator            *DlgRSAPrimes;

@@ -10,7 +10,7 @@
 #include "multipad.h"
 
 #include "Read_Ini_File.h"
-
+#include "crypt.h"
 #include "s_ecconv.h"
 #include "arithmet.h"
 
@@ -29,13 +29,11 @@ int CReadIniFile::GetEcIDList(CStringList& ecIDlist)
 
 	inputfile = (CString) Pfad + initializing_file; // this is the full path of the location of initializing_file
 
-	//AfxMessageBox(inputfile,MB_ICONINFORMATION, 0 );
+	//Message(IDS_STRING_XXX,MB_ICONINFORMATION, inputfile);
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
+		Message(IDS_STRING_ERR_EC_FILE_NOT_FOUND, MB_ICONINFORMATION, inputfile);
 		return -1; // error: couldn't open inputfile
 	}
 
@@ -44,7 +42,7 @@ int CReadIniFile::GetEcIDList(CStringList& ecIDlist)
 		if (Line.Find("\\begin{CURVE_ID_LIST}") > -1){
 			while (IniDataFile.ReadString(Line) && (Line.Find("\\end{CURVE_ID_LIST}")== -1)){
 				ecIDlist.AddTail( Line );
-				//AfxMessageBox(Line,MB_ICONINFORMATION, 0 );
+				//Message(IDS_STRING_XXX,MB_ICONINFORMATION, Line );
 			}
 		}
 	}
@@ -63,9 +61,7 @@ int CReadIniFile::GetPreSelEcID(CString& curveID)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
+		Message(IDS_STRING_ERR_EC_FILE_NOT_FOUND, MB_ICONSTOP, inputfile);
 		return -1; // error: couldn't open inputfile
 	}
 
@@ -103,9 +99,7 @@ int CReadIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
+		Message(IDS_STRING_ERR_EC_FILE_NOT_FOUND, MB_ICONSTOP, inputfile);
 		return -1; // error: couldn't open inputfile
 	}
 	IniDataFile.SeekToBegin(); // Start searching at beginnig of file
@@ -171,9 +165,7 @@ int CReadIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	if (error > 0){
 		// error: curve E could not been initialized with parameters str_a, str_b, str_p
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_READING,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, curveID, inputfile);
-		AfxMessageBox(pc_str1,MB_ICONERROR, 0 );
+		Message(IDS_STRING_ERR_EC_FILE_READING,MB_ICONERROR, inputfile);
 		return -1; // error
 	}
 	else ecFp_X9_decompress_point_ac(ecParam->G,ecParam->E,G_compressed);

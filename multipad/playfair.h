@@ -42,6 +42,7 @@
 
 #define MAXDIM        6          /* maximum dimension of the matrix ..*/
 #define MAXDIGRAMMS  MAXDIM*MAXDIM*MAXDIM*MAXDIM /* maximum counts of digramms (36*36 = 1296) ..*/
+#define MAXSHOWLETTER	1000
 
 enum playfair_neighbour
 {
@@ -419,7 +420,8 @@ public:
 */
 public:
 	void CreateMatrixFromPass(); //used in DialogPlayfair.cpp
-	bool DoCipher( bool withConvert, bool Dec, int len, char *stipulation=NULL, int stiplen=0); //used in DialogPlayfair.cpp
+	bool DoCipher( bool withConvert, bool Dec, int len, char *stipulation=NULL, int stiplen=0, char *theinbuf=NULL, int theinbuflen=0); 
+	//used in DialogPlayfair.cpp
 //	BOOL myisalpha( char );  //used in DialogPlayfair.cpp
 	BOOL myisalpha2( char );  //used in DialogPlayfair.cpp
 private:
@@ -528,6 +530,7 @@ public:
 	{
 		return my_digrams;
 	}
+	void initDigrams();
 
 	void DeleteLetterGraph();
 	void AnalyseDigramme(playfair_digrammlist* dl);

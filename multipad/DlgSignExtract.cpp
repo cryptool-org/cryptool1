@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignExtract.h"
+#include "crypt.h"
 
 #include "asymmetric.h"
 #include "fileutil.h"
@@ -165,8 +166,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 		(SignatureType != RSA_OR_DSA_SIGN) && (SignatureType != UNKNOWN_SIGN) )
 	{
 		// Fehler beim auslesen der Daten (Nicht genügend Speicher vorhanden)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str, MB_ICONSTOP);
+		Message(IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION, MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 		EndDialog(-1);
@@ -176,8 +176,7 @@ BOOL CDlgSignExtract::OnInitDialog()
 		(SignatureType != UNKNOWN_SIGN))
 	{
 		// Fehler beim auslesen der Daten (Formatierung der Daten nicht korrekt)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE,MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 		EndDialog(-2);

@@ -6,6 +6,7 @@
 #include "DlgTutorialFactorisation.h"
 #include "CryptologyUsingMiracl.h"
 #include "DlgRuntime.h"
+#include "crypt.h"
 
 #include <time.h>
 
@@ -148,7 +149,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 	UpdateData(TRUE);
 	CString UpnFormula;
-	char line [256];
 	int err_ndx;
 	BOOL error;
 	error = CheckFormula(m_CompositeNoStr,10,UpnFormula,err_ndx);
@@ -157,9 +157,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_CompositeNoCtrl.SetSel(err_ndx-1,m_CompositeNoStr.GetLength());
 		m_CompositeNoCtrl.SetFocus();
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
-		AfxMessageBox(line);
+		Message(IDS_STRING_INPUT_FALSE, MB_ICONEXCLAMATION);
 		return;
 	}
 
@@ -191,9 +189,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			//Sie müssen eine ganze Zahl eingeben, die von 0 und 1 verschieden ist.
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE, MB_ICONEXCLAMATION);
 			return;
 
 		}
@@ -206,16 +202,12 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 			{
 				//Sie müssen mindestens ein Verfahren wählen!
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_FAKTORISATION_VERFAHREN, MB_ICONEXCLAMATION);
 				return;
 			}
 			if ( f.IsPrime(next_factor) )
 			{// Die eingegebene Zahl ist eine Primzahl
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_FAKTORISATION_PRIMZAHL, MB_ICONEXCLAMATION);
 				return;
 			}
 			
@@ -282,7 +274,8 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			}
 
 			dlg.m_totalThreads = started;
-			dlg.SetCaption("Faktorisierungstimer");
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FACTORISATION_TIMER,pc_str,STR_LAENGE_STRING_TABLE);
+			dlg.SetCaption(pc_str);
 			if ( IDOK != dlg.DoModal() )
 			{
 			}
@@ -306,9 +299,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			else
 			{
 				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
 				m_Name = "";
 			}
 			
@@ -329,19 +320,14 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_FAKTORISATION_FALSCHE_EINGABE, MB_ICONEXCLAMATION);			
 		}
 		else
 		{
 			// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
-		
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
 		}
 	}
 	
@@ -350,10 +336,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	{
 		m_weiter.EnableWindow(false);
 		m_vollstaendig.EnableWindow(false);	
-		
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
-		AfxMessageBox(line);
+		Message(IDS_STRING_FAKTORISATION_VOLLSTAENDIG, MB_ICONINFORMATION);
 	}
 }
 
@@ -563,7 +546,6 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 		UpdateData(TRUE);
 		theApp.DoWaitCursor(0);			// Aktiviert die Sanduhr
 		CString next_factor;
-		char line [256];
 		next_factor=Search_First_Composite_Factor();
 		
 		// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
@@ -583,16 +565,12 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 				if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 				{
 					//Sie müssen mindestens ein Verfahren wählen!
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
-					sprintf(line,pc_str);
-					AfxMessageBox(line);
+					Message(IDS_STRING_FAKTORISATION_VERFAHREN, MB_ICONEXCLAMATION);
 					return;
 				}
 				if ( f.IsPrime(next_factor) )
 				{// Die eingegebene Zahl ist eine Primzahl
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
-					sprintf(line,pc_str);
-					AfxMessageBox(line);
+					Message(IDS_STRING_FAKTORISATION_PRIMZAHL, MB_ICONINFORMATION);
 					return;
 				}
 				if ( !factorized && m_bruteForce )
@@ -633,11 +611,7 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 				else
 				{
 					// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-					
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
-					sprintf(line,pc_str);
-					AfxMessageBox(line);
-					
+					Message(IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG, MB_ICONINFORMATION);
 					return;
 				}
 		
@@ -649,17 +623,13 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 			else if (Out_SetN==1)
 			{
 				// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(IDS_STRING_FAKTORISATION_FALSCHE_EINGABE, MB_ICONEXCLAMATION);
 				return;
 			}
 			else
 			{
 				// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
+				Message(STR_LAENGE_STRING_TABLE, MB_ICONINFORMATION);
 				return;
 			}
 		}
@@ -668,10 +638,7 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 		{
 			m_weiter.EnableWindow(false);
 			m_vollstaendig.EnableWindow(false);	
-
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
+			Message(IDS_STRING_FAKTORISATION_VOLLSTAENDIG, MB_ICONINFORMATION);
 			return;
 		}
 		{

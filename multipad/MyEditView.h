@@ -26,6 +26,8 @@ public:
 	//{{AFX_VIRTUAL(CMyEditView)
 	protected:
 	virtual void OnDraw(CDC* pDC);      // Überschrieben zum Zeichnen dieser Ansicht
+	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
+	virtual void OnPrint(CDC* pDC, CPrintInfo* pInfo);
 	//}}AFX_VIRTUAL
 
 // Implementierung

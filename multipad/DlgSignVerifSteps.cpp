@@ -14,6 +14,7 @@
 #include "s_prng.h"
 #include "s_ecconv.h"
 #include "ECsecude.h"
+#include "crypt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -694,8 +695,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 		if (err > 0)
 		{
 			// Fehler. Umwandlung der Domain Parameter in String nicht möglich.
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_ON_CONVERT_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str),MB_ICONSTOP);
+			Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM,MB_ICONSTOP);
 			return -1;
 		}
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_DOMAIN_PARAMETER_TO_USE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -741,8 +741,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,MB_ICONSTOP);
 				UpdateData(FALSE);
 				return -1;
 			}
@@ -873,8 +872,7 @@ int CDlgSignVerifSteps::UpdateDataDisplay()
 			if (err > 0)
 			{
 				// Fehler. Umwandlung von L_NUMBER in String nicht möglich.
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,pc_str1,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox (((CString)pc_str1),MB_ICONSTOP);
+				Message(IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING,MB_ICONSTOP);
 				UpdateData(FALSE);
 				return -1;
 			}
@@ -1001,8 +999,7 @@ void CDlgSignVerifSteps::SignatureInvalid()
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
+		Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL, MB_ICONEXCLAMATION);
 	}
 	
 	return;
@@ -1028,8 +1025,7 @@ void CDlgSignVerifSteps::SignatureValid()
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str, MB_ICONINFORMATION);
+		Message(IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT, MB_ICONINFORMATION);
 	}
 
 	return;

@@ -61,9 +61,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 	lenght = ftell(fi);
 	fclose(fi);
 	if(lenght < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -163,8 +161,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 
 		// Entschlüsselung des Ciphertextes mit dem vom Benutzer eingegebenen Schlüssel.
 		if(theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR_2,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ENCRYPTION_ERROR_2,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			theApp.SecudeLib.aux_free_OctetString(&help);
 			free(out.octets);
 			return;}
@@ -198,8 +195,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		if (theApp.SecudeLib.sec_encrypt_all (in, &out, &keyinfo)==-1){
 			theApp.SecudeLib.aux_free_OctetString(&in);
 			free(out.bits);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			Message(IDS_STRING_ENCRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			return;}
 		theApp.SecudeLib.aux_free_OctetString(&in);
 		

@@ -11,6 +11,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgSignVerif.h"
+#include "crypt.h"
 
 //#include "secure.h"
 //#include "af.h"
@@ -349,9 +350,7 @@ gesuchten Schlüsselbezeichner nicht gibt. Siehe CDlgSignVerif::OnButtonSearchKey
 	if (keyrow == -1)
 	{
 		// Info: Schlüsselbezeichner nicht in Liste vorhanden
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str1, pc_str, signKey);
-		AfxMessageBox(pc_str1,MB_ICONEXCLAMATION | MB_OK );
+		Message(IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND,MB_ICONEXCLAMATION | MB_OK, signKey);
 	}
 
 */
@@ -846,9 +845,7 @@ void CDlgSignVerif::OnOK()
 			_tcscpy(string3, PubDataFile);		
 			char *key_file = string3;
 
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_ERROR_LOADING_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(pc_str1, pc_str, key_file);
-			AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
+			Message(IDS_STRING_EC_ERROR_LOADING_KEYFILE, MB_ICONINFORMATION, key_file);
 			// free memory
 			delete string3; // string3 ist nur in diesem Block initialisiert gewesen
 			return;
@@ -865,8 +862,7 @@ void CDlgSignVerif::OnOK()
 		{
 			// Benutzer will Zwischenschritte in projektiven Koordinaten sehen
 			// Zwischenschritte werden aber nur in affinen Koordinaten angezeigt
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES,pc_str,STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_ICONEXCLAMATION, 0);
+			Message(IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES, MB_ICONEXCLAMATION);
 		}
 	}
 	else FreeEcMemory(); // ellipt. Kurven werden nicht benutzt

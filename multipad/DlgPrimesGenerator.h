@@ -14,8 +14,6 @@
 
 class DlgPrimesGenerator : public CDialog
 {
-// Konstruktion
-	void ErrorMsg( const int IDS_STRING_ID );
 
 public:
 	DlgPrimesGenerator(CWnd* pParent = NULL);   // Standardkonstruktor

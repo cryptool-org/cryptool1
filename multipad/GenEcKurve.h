@@ -9,7 +9,7 @@
 // GenEcKurve.h : Header-Datei
 //
 
-#include "Ber_Ell_Kurve.h"
+// #include "Ber_Ell_Kurve.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld GenEcKurve 

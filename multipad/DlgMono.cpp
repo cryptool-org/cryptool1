@@ -92,7 +92,6 @@ void CDlgMono::OnChangeEdit1()
 				//fehlerhafte Zeichen stand.
 				m_edit.SetAt(i,' ');
 				m_edit=m_edit.SpanExcluding(" ")+m_edit.Right(lang-(i+1));
-				//AfxMessageBox(m_edit);
 				UpdateData(FALSE);
 				m_edit2.SetSel(i,i);
 				break;

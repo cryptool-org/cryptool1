@@ -47,9 +47,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	i = ftell(fi);
 	fclose(fi);
 	if(i < 1) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 
@@ -74,9 +72,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 // == additional condition: if the sieved ciphertext length is 0 ... exit the procedure
 	if (text.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return;	
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
@@ -195,9 +191,7 @@ UINT VigenereAuto(PVOID p)
 	// ## if the ciphertext-length is less than 4, abort procedure (added code Nov 2000)
 	if (text.GetSize() <= 3)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,4);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 4);
 		return 0;	
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
@@ -389,10 +383,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 	
 	if (! infile_zeichen_anz)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		char line[256];
-		sprintf(line,pc_str,1);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
 	// jetzt hat die Eingabedatei auf jeden Fall mehr als ein zu verschlüsselndes Zeichen
@@ -431,12 +422,9 @@ void HillPlain(const char *infile, const char *OldTitle)
 		str[laenge_str] = '\0';
 		
 		// Hat auch die andere Datei mindestens ein zu verschlüsselndes Zeichen ?
-		if (! laenge_str)
+		if (!laenge_str)
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-			char line[256];
-			sprintf(line,pc_str,1);
-			AfxMessageBox (line);
+			Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		}
 		else
 		{
@@ -512,8 +500,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 					// War einer der Texte kuerzer ?
 					if (hill_rc == HILL_OK_LAENGE_UNTERSCHIEDLICH)
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATALENGTH_MISMATCH,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox(pc_str,MB_ICONINFORMATION);
+						Message(IDS_STRING_MSG_DATALENGTH_MISMATCH,MB_ICONINFORMATION);
 					}
 					
 					// Jetzt muessen die Werte der Matrix in den Variablen der
@@ -534,8 +521,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 					// War einer der Texte kuerzer ?
 					if (hill_rc == HILL_OK_LAENGE_UNTERSCHIEDLICH)
 					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_DATALENGTH_MISMATCH,pc_str,STR_LAENGE_STRING_TABLE);
-						AfxMessageBox(pc_str,MB_ICONINFORMATION);
+						Message(IDS_STRING_MSG_DATALENGTH_MISMATCH,MB_ICONINFORMATION);
 					}
 					
 					// Jetzt muessen die Werte der Matrix in den Variablen der
@@ -553,13 +539,11 @@ void HillPlain(const char *infile, const char *OldTitle)
 			}
 			else if (hill_rc == HILL_NICHT_OK_NICHT_GEFUNDEN)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_SHORT_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONSTOP);
+				Message(IDS_STRING_MSG_KEY_NOT_FOUND_SHORT_TEXT, MB_ICONSTOP);
 			}
 			else if (hill_rc == HILL_NICHT_OK_WIDERSPRUCH)
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONSTOP);
+				Message(IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT, MB_ICONSTOP);
 			}
 			else if (hill_rc == HILL_UNDEF)
 			{
@@ -606,8 +590,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 			}
 			else // Das darf nicht passieren, wir geben aus: Der Schluessel wurde nicht gefunden
 			{
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str, MB_ICONSTOP);
+				Message(IDS_STRING_MSG_KEY_NOT_FOUND, MB_ICONSTOP);
 			}
 		}
 		
@@ -650,9 +633,7 @@ UINT XorAuto(PVOID p)
 	// für die Analyse zur Verfügung stehen
 	if (c.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return 0;	
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
@@ -804,9 +785,7 @@ UINT AddAuto(PVOID p)
 	// für die Analyse zur Verfügung stehen
 	if (c.GetSize() <= 1)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,2);
-		AfxMessageBox (line);
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
 		return 0;	
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	

@@ -11,6 +11,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "Dlg_SubstResult.h"
+#include "crypt.h"
 
 extern int *MaxPermu[26];
 extern char *Eingabedatei;
@@ -281,8 +282,7 @@ void CDlg_SubstResult::OnChangeEdit3()
 void CDlg_SubstResult::OnChangeEdit4() 
 {
 	// Überprüfen, ob der eingegebene Buchstabe nicht schon wo anders existiert
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_DONOTCHANGE,pc_str,STR_LAENGE_STRING_TABLE);
-	AfxMessageBox (pc_str);
+	Message(IDS_STRING_ASYMKEY_MSG_DONOTCHANGE, MB_ICONINFORMATION);
 	UpdateData(FALSE);
 }
 
@@ -583,7 +583,11 @@ void CDlg_SubstResult::OnChange(int Feldnummer){
 
 void CDlg_SubstResult::OnUndo() 
 {
-	if(GetPrevKey(Eingabe)) schreibeDaten();
+	if(GetPrevKey(Eingabe)) 
+	{
+		schreibeDaten();
+		OnButton1();
+	}
 	if(!m_ptrKeyList || !(m_ptrKeyList->next)) m_ButtonUndo.EnableWindow(FALSE);
 }
 
