@@ -1,5 +1,5 @@
-#if !defined(AFX_DLGKEYTUTORIAL_H__A7C71D2E_EA32_11D5_8A6C_000255320F1C__INCLUDED_)
-#define AFX_DLGKEYTUTORIAL_H__A7C71D2E_EA32_11D5_8A6C_000255320F1C__INCLUDED_
+#if !defined(AFX_DLGKEYTUTORIAL_H__73C6A6D7_05B6_11D6_8A83_000255320F1C__INCLUDED_)
+#define AFX_DLGKEYTUTORIAL_H__73C6A6D7_05B6_11D6_8A83_000255320F1C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
@@ -30,7 +30,7 @@ private:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyTutorial)
-	enum { IDD = IDD_DIALOG_KEY_TUTORIAL };
+	enum { IDD = IDD_KEY_TUTORIAL };
 	CStatic	m_BitLengthCtrl;
 	CStatic	m_CheckPrimeCtrl;
 	CStatic	m_CheckPublicCtrl;
@@ -75,4 +75,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
 
-#endif // AFX_DLGKEYTUTORIAL_H__A7C71D2E_EA32_11D5_8A6C_000255320F1C__INCLUDED_
+#endif // AFX_DLGKEYTUTORIAL_H__73C6A6D7_05B6_11D6_8A83_000255320F1C__INCLUDED_

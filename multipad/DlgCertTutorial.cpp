@@ -45,11 +45,13 @@ void CDlgCertTutorial::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgCertTutorial, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertTutorial)
+		// HINWEIS: Der Klassen-Assistent fügt hier Zuordnungsmakros für Nachrichten ein
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgCertTutorial 
+
 
 BOOL CDlgCertTutorial::OnInitDialog() 
 {

@@ -6,6 +6,7 @@
 #include "DlgKeyTutorial.h"
 #include "DlgPrimesGenerator.h"
 #include "crypt.h"
+#include "CryptologyUsingMiracl.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -240,3 +241,4 @@ void CDlgKeyTutorial::OnOK()
 		CDialog::OnOK();
 	}
 }
+

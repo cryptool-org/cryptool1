@@ -2,12 +2,14 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_)
-#define AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_
+//#if !defined(AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_)
+//#define AFX_TUTORIALCERT_H__7F7527A3_D4E5_11D5_8A53_000255320F1C__INCLUDED_
+#ifndef _MS_TUTORIALCERT_H_
+#define _MS_TUTORIALCERT_H_
 
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
+//#if _MSC_VER > 1000
+//#pragma once
+//#endif // _MSC_VER > 1000
 
 #include "CryptologyUsingMiracl.h"
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
