@@ -330,7 +330,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -549,7 +549,7 @@ END
 IDD_DIALOG_KEY_AVAILAB_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -4987,32 +4987,12 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müßen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
-    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Aphabet (hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
-    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.3f Sekunden"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %s"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED 
                             "PKCS#12 Struktur konnte nicht erzeugt werden."
     IDS_STRING_INPUT_PSEPIN "Bitte geben Sie die PSE-PIN ein."
     IDS_STRING_INPUT_P12PIN "Bitte geben Sie die PIN für die PKCS#12-Datei ein."
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_STRING_PLAYFAIR_ERRMSG001 
-                            "Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.\nPosition=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSGALLG 
-                            "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Position=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Position=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Annahme falsch!\nEiner der Nachbarn war schon sicher.\n Position=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Position=%d, Buchstabe=%c"
-    IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
-    IDS_STRING_ERROR        "Fehler"
-    IDS_STRING_PLAYFAIR_WARNMSG001 
-                            "Da 'J' oder Ziffern im Chiffrat auftreten, könnte es sich um eine 6x6 Verschlüsselungsmatrix handeln."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5035,6 +5015,26 @@ BEGIN
     IDS_STRING_FMT_MIN      " %02.2i:%02.2i Minuten."
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
     IDS_STRING_FMT_SEC      " %02.2i,%s Sekunden."
+    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Aphabet (hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PLAYFAIR_ERRMSG001 
+                            "Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.\nPosition=%d, Buchstabe=%c"
+    IDS_STRING_PLAYFAIR_ERRMSGALLG 
+                            "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Position=%d, Buchstabe=%c"
+    IDS_STRING_PLAYFAIR_ERRMSG100 
+                            "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Position=%d, Buchstabe=%c"
+    IDS_STRING_PLAYFAIR_ERRMSG200 
+                            "Annahme falsch!\nEiner der Nachbarn war schon sicher.\n Position=%d, Buchstabe=%c"
+    IDS_STRING_PLAYFAIR_ERRMSG110 
+                            "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Position=%d, Buchstabe=%c"
+    IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
+    IDS_STRING_ERROR        "Fehler"
+    IDS_STRING_PLAYFAIR_WARNMSG001 
+                            "Da 'J' oder Ziffern im Chiffrat auftreten, könnte es sich um eine 6x6 Verschlüsselungsmatrix handeln."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5400,7 +5400,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
@@ -9381,31 +9381,11 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
     IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
-    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
-    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Time required:   %.3f seconds"
+    IDS_STRING_BENOETIGTE_ZEIT_FAKT "Time required:   %s"
     IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
     IDS_STRING_INPUT_PSEPIN "Please enter the PSE PIN."
     IDS_STRING_INPUT_P12PIN "Please enter the PIN for the PKCS#12 file."
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_STRING_PLAYFAIR_ERRMSG001 
-                            "Please notice: the playfair cipher letter and plaintext letter are always different.\nPosition=%d, letter=%c"
-    IDS_STRING_PLAYFAIR_ERRMSGALLG 
-                            "While the playfair analysis an error occured while the graph construction.\nPosition=%d, letter=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Wrong assumption!\nAt least one of the tables is overflown.\nPosition=%d, letter=%c."
-    IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Wrong assumption!\nAt least one of the neighbours was assumed as correct.\nPosition=%d, letter=%c"
-    IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Wrong assumption!\nNeighbour matching error.\nPosition=%d, letter=%c"
-    IDS_STRING_PLAYFAIR_NOMATRIX "No matching matrix was found."
-    IDS_STRING_ERROR        "Error"
-    IDS_STRING_PLAYFAIR_WARNMSG001 
-                            "Due to the occurence of the letter 'J' within the ciphertext, it could be assumed, that the ciphertext was encrypted by a 6 x 6 playfair key matrix."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9428,6 +9408,26 @@ BEGIN
     IDS_STRING_FMT_MIN      " %02.2i:%02.2i minutes."
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
     IDS_STRING_FMT_SEC      " %02.2i,%s second."
+    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
+                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PLAYFAIR_ERRMSG001 
+                            "Please notice: the playfair cipher letter and plaintext letter are always different.\nPosition=%d, letter=%c"
+    IDS_STRING_PLAYFAIR_ERRMSGALLG 
+                            "While the playfair analysis an error occured while the graph construction.\nPosition=%d, letter=%c"
+    IDS_STRING_PLAYFAIR_ERRMSG100 
+                            "Wrong assumption!\nAt least one of the tables is overflown.\nPosition=%d, letter=%c."
+    IDS_STRING_PLAYFAIR_ERRMSG200 
+                            "Wrong assumption!\nAt least one of the neighbours was assumed as correct.\nPosition=%d, letter=%c"
+    IDS_STRING_PLAYFAIR_ERRMSG110 
+                            "Wrong assumption!\nNeighbour matching error.\nPosition=%d, letter=%c"
+    IDS_STRING_PLAYFAIR_NOMATRIX "No matching matrix was found."
+    IDS_STRING_ERROR        "Error"
+    IDS_STRING_PLAYFAIR_WARNMSG001 
+                            "Due to the occurence of the letter 'J' within the ciphertext, it could be assumed, that the ciphertext was encrypted by a 6 x 6 playfair key matrix."
 END
 
 STRINGTABLE DISCARDABLE 
