@@ -275,7 +275,32 @@ UINT SignatureAttack::Do_Floyd()
 			assert (i_Rand >= 0 && i_Rand <= 255);
 			HashValue_init[ii] = i_Rand;
 		}
+		// 11 C5 64 19 EF FF 3E FF AC 71 11 9C AD 6F B4 F0 05 74 F4 D5 //
+/*
+		HashValue_init[0] = 0x12;
+		HashValue_init[1] = 0x00;
+		HashValue_init[2] = 0x64;
+		HashValue_init[3] = 0x19;
+		HashValue_init[4] = 0xEF;
 
+		HashValue_init[5] = 0xFF;
+		HashValue_init[6] = 0x3E;
+		HashValue_init[7] = 0xFF;
+		HashValue_init[8] = 0xAC;
+		HashValue_init[9] = 0x71;
+
+		HashValue_init[10] = 0x11;
+		HashValue_init[11] = 0x9C;
+		HashValue_init[12] = 0xAD;
+		HashValue_init[13] = 0x6F;
+		HashValue_init[14] = 0xB4;
+
+		HashValue_init[15] = 0xF0;
+		HashValue_init[16] = 0x05;
+		HashValue_init[17] = 0x74;
+		HashValue_init[18] = 0xF4;
+		HashValue_init[19] = 0xD5;
+*/
 		memcpy(HashValue_single_step, HashValue_init, HashAlgorithmByteLength);
 		memcpy(HashValue_double_step, HashValue_init, HashAlgorithmByteLength);
 		
@@ -319,7 +344,7 @@ UINT SignatureAttack::Do_Floyd()
 		{
 			jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_init[ii]);
 		}
-		HashStore[jj - 1] = 0;
+		HashStore[jj] = 0;
 
 		fprintf(m_TestFile,	"\nRun_No=%2.2d\nHashInit=%s\nCollSteps=%I64i\nConfSteps=%I64i",
 			m_ResSigAtt->GetRuns(), HashStore, m_ResSigAtt->GetCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1),

@@ -47,6 +47,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnUpdateFileFake();
 	afx_msg void OnUpdateFileOriginal();
+	virtual void OnCancel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

@@ -100,15 +100,6 @@ HAFP[] =
 		"MD5"
 	},
 	{
-		(fp_Init_t) __SSL::RIPEMD160_Init,
-		(fp_Update_t) __SSL::RIPEMD160_Update,
-		(fp_Final_t) __SSL::RIPEMD160_Final,
-		NULL,
-		sizeof(__SSL::RIPEMD160_CTX),
-		160,
-		"RIPEMD-160"
-	},
-	{
 		(fp_Init_t) __SSL::SHA_Init,
 		(fp_Update_t) __SSL::SHA_Update,
 		(fp_Final_t) __SSL::SHA_Final,
@@ -125,6 +116,15 @@ HAFP[] =
 		sizeof(__SSL::SHA_CTX),
 		160,
 		"SHA-1"
+	},
+	{
+		(fp_Init_t) __SSL::RIPEMD160_Init,
+		(fp_Update_t) __SSL::RIPEMD160_Update,
+		(fp_Final_t) __SSL::RIPEMD160_Final,
+		NULL,
+		sizeof(__SSL::RIPEMD160_CTX),
+		160,
+		"RIPEMD-160"
 	}
 };
 

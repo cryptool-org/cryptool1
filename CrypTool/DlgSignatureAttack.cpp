@@ -36,8 +36,8 @@ CDlgSignatureAttack::CDlgSignatureAttack(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSignatureAttack::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgSignatureAttack)
-	m_file_harmless = _T("c:\\S1.txt");
-	m_file_dangerous = _T("c:\\S2.txt");
+	m_file_harmless = _T("");
+	m_file_dangerous = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -102,11 +102,6 @@ void CDlgSignatureAttack::OnCompute()
 
 	crypT.Format(IDS_STRING_SIG_ATT_CRYPTOOL);
 
-	// Fehler, wenn Pfade identisch sind?
-	// Datei zum LESEN öffnen
-
-	// Puffer
-
 #ifdef _SIG_ATT_TEST_MODE
 
 	SHOW_HOUR_GLASS
@@ -150,6 +145,44 @@ void CDlgSignatureAttack::OnCompute()
 
 				m_file_harmless = theApp.GetProfileString("SigAttTest", "HarmlessDocument", NULL);
 				m_file_dangerous = theApp.GetProfileString("SigAttTest", "DangerousDocument", NULL);
+
+#ifdef _SIG_ATT_PRE_RPE_MODIFY
+
+				ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
+				stat((const char *) m_file_harmless, & stat_object);
+				if (0 == stat_object.st_size)
+				{
+					GenerateMessageText(15);
+					return;
+				}
+				HarmlessDocLength = stat_object.st_size;
+				HarmlessText = new char[HarmlessDocLength];
+				ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
+				ifstr_Harmless.close();
+				ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
+				HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
+				ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
+				ofstr_Harmless.close();
+
+
+				ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
+				stat((const char *) m_file_dangerous, & stat_object);
+				if (0 == stat_object.st_size)
+				{
+					GenerateMessageText(15);
+					return;
+				}
+				DangerousDocLength = stat_object.st_size;
+				DangerousText = new char[DangerousDocLength];
+				ifstr_Dangerous.read(DangerousText, DangerousDocLength);
+				ifstr_Dangerous.close();
+				ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
+				DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
+				ofstr_Dangerous.write(DangerousText, DangerousDocLength);
+				ofstr_Dangerous.close();
+
+#endif
+
 				OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous);
 				if (0 != OFSA.GetErrorcode())
 				{
@@ -174,7 +207,7 @@ void CDlgSignatureAttack::OnCompute()
 					stat((const char *) m_file_harmless, & stat_object);
 					if (0 == stat_object.st_size)
 					{
-					GenerateMessageText(15);
+						GenerateMessageText(15);
 						return;
 					}
 					HarmlessDocLength = stat_object.st_size;
@@ -183,7 +216,7 @@ void CDlgSignatureAttack::OnCompute()
 					stat((const char *) m_file_dangerous, & stat_object);
 					if (0 == stat_object.st_size)
 					{
-					GenerateMessageText(15);
+						GenerateMessageText(15);
 						return;
 					}
 					DangerousDocLength = stat_object.st_size;
@@ -191,6 +224,7 @@ void CDlgSignatureAttack::OnCompute()
 
 					ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
 					ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
+
 					ifstr_Harmless.close();
 					ofstr_Harmless.close();
 
@@ -400,16 +434,13 @@ void CDlgSignatureAttack::OnCompute()
 
 BOOL CDlgSignatureAttack::OnInitDialog() 
 {
-	static bool srandcalled = 0;
-
 	CDialog::OnInitDialog();
 	
-	//m_control_compute.EnableWindow(FALSE);
-	/*if (!srandcalled) {
-		srandcalled = 1;
-		srand((unsigned)time(NULL));
-	}*/
-	
+	m_file_harmless = theApp.GetProfileString("Settings", "SignatureAttackHarmlessFile", "");
+	m_file_dangerous = theApp.GetProfileString("Settings", "SignatureAttackDangerousFile", "");
+
+	UpdateData(FALSE);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -488,4 +519,11 @@ void CDlgSignatureAttack::GenerateMessageText(int Errorcode, UINT MessageBoxStyl
 	}
 	
 	MessageBox(msg, "CrypTool", MessageBoxStyle | MB_APPLMODAL);
+}
+
+void CDlgSignatureAttack::OnCancel() 
+{
+	theApp.WriteProfileString("Settings", "SignatureAttackHarmlessFile", m_file_harmless);
+	theApp.WriteProfileString("Settings", "SignatureAttackDangerousFile", m_file_dangerous);
+	CDialog::OnCancel();
 }

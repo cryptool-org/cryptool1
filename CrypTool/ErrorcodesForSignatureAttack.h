@@ -4,8 +4,9 @@
 #define _MAX_HASH_BIT_LENGTH	160
 #define _MAX_HASH_BYTE_LENGTH	((_MAX_HASH_BIT_LENGTH - 1) / 8 + 1)
 
-#define _SIG_ATT_SPEED_INCREMENT
+//#define _SIG_ATT_SPEED_INCREMENT
 // wenn dieses #define einkommentiert ist, erhöht sich die Geschwindigkeit des Floyd-Algorithmus
+// u.a. Prämodifizierung
 
 //#define _SIG_ATT_TEST_MODE
 // wenn dieses #define einkommentiert ist, wird eine Testreihe mit dem Floyd-Algorithmus durchlaufen
@@ -44,6 +45,10 @@ enum _SIG_ATT_ERR { _SIG_ATT_OK,
 #define _SIG_ATT_HEADER		"_Header.txt"
 #define _SIG_ATT_HARMLESS	"_Harmless.txt"
 #define _SIG_ATT_DANGEROUS	"_Dangerous.txt"
+
+//#define _SIG_ATT_PRE_RPE_MODIFY
+// wenn dieses #define einkommentiert ist, werden die Dokumente in einer Versuchsreihe nicht nur vor jedem Run, sonden
+// auch vor jedem Try modifiziert - auf diese Weise durchläuft man immer wieder ein anderes Random Mapping
 
 #endif
 

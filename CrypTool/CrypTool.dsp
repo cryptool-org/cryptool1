@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib libeay32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -139,7 +139,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib libeay32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT LINK32 /map
 
 !ENDIF 
