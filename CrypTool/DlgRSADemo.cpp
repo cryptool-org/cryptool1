@@ -657,6 +657,8 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 				Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
 					DlgOptions->Anzahl_Zeichen, m_edit_N );
 		}	
+		m_control_RSA_input.SetFocus();
+		m_control_RSA_input.SetSel(100000, 100000);
 	}
 	RequestForInput(FALSE);
 	ButtonManagement();

@@ -1472,6 +1472,7 @@ BEGIN
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
     CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE | WS_GROUP,19,14,353,26
@@ -1483,7 +1484,6 @@ BEGIN
                     NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
     GROUPBOX        "RSA mit privatem und öffentlichem Schlüssel -- oder nur mit öffentlichem Schlüssel",
                     IDC_STATIC,10,3,371,67
     GROUPBOX        "Primzahleneingabe",IDC_FRAME_RSA_MODE,10,73,371,48
@@ -7161,6 +7161,7 @@ BEGIN
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
+    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,374,90,18
     CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE | WS_GROUP,19,15,353,26
@@ -7173,7 +7174,6 @@ BEGIN
                     NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,100,186,172,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,374,90,18
     EDITTEXT        IDC_HEADER1,19,240,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_HEADER4,19,271,353,10,ES_AUTOHSCROLL | ES_READONLY | 
