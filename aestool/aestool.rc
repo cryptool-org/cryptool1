@@ -88,23 +88,25 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Durchsuchen",IDC_BUTTON1,215,80,78,17
     PUSHBUTTON      "Durchsuchen",IDC_BUTTON2,215,145,78,17
     DEFPUSHBUTTON   "OK",IDOK,78,186,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,141,186,50,14
-    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL | ES_READONLY,
+                    WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
+                    WS_EX_ACCEPTFILES
     LTEXT           "Verschlüsseln einer Datei",IDC_STATIC4,17,14,80,8
     CONTROL         "Selbstextrahierendes Archiv",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,103,
                     10
     CONTROL         "Verschlüsselte Datei",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED,149,129,80,10
-    GROUPBOX        "Schlüssel (maximal 32 hexadezimale Zeichen)",IDC_STATIC,
-                    17,28,287,34
+    GROUPBOX        "Schlüssel (hexadezimale Eingabe)",IDC_STATIC,17,28,287,
+                    34
     GROUPBOX        "Eingabedatei",IDC_STATIC,17,69,287,35
     GROUPBOX        "Ausgabedatei",IDC_STATIC,17,117,287,54
     PUSHBUTTON      "Hilfe",IDC_BUTTON3,216,186,50,14
@@ -279,7 +281,11 @@ BEGIN
     IDS_ABOUTBOX            "Inf&o über aestool..."
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
     IDS_STRING_ENCRYPT      "Verschlüsseln einer Datei"
-    IDS_STRING_DECERROR     "Die Daten konnten mit dem gegebenen Schlüssel nicht entschlüsselt werden"
+    IDS_STRING_DECERROR     "Die Daten konnten mit dem eingegebenen Schlüssel nicht entschlüsselt werden"
+    IDS_STRING_DATEI_VERSCHLUESSELT 
+                            "Die Datei wurde erfolgreich verschlüsselt"
+    IDS_STRING_DATEI_ENTSCHLUESSELT 
+                            "Die Datei wurde erfolgreich entschlüsselt"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -317,22 +323,23 @@ IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Search",IDC_BUTTON1,215,80,78,17
     PUSHBUTTON      "Search",IDC_BUTTON2,215,145,78,17
     DEFPUSHBUTTON   "OK",IDOK,78,186,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,141,186,50,14
-    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL | ES_READONLY,
+                    WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
+                    WS_EX_ACCEPTFILES
     LTEXT           "Encrypt a file",IDC_STATIC4,17,15,42,8
     CONTROL         "Selfextracting archive",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,84,10
     CONTROL         "Encrypted file",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
                     WS_DISABLED,137,129,59,10
-    GROUPBOX        "Key (maximal 32 hexadecimal characters)",IDC_STATIC,17,
-                    28,287,34
+    GROUPBOX        "Key (hexadecimal input)",IDC_STATIC,17,28,287,34
     GROUPBOX        "Input file",IDC_STATIC,17,69,287,35
     GROUPBOX        "Output file",IDC_STATIC,17,117,287,54
     PUSHBUTTON      "Help",IDC_BUTTON3,216,186,50,14
@@ -464,6 +471,8 @@ BEGIN
     IDS_STRING_DECRYPT      "Decrypt a file"
     IDS_STRING_ENCRYPT      "Encrypt a file"
     IDS_STRING_DECERROR     "The data could not be decrypted using the given key!"
+    IDS_STRING_DATEI_VERSCHLUESSELT "The file was successfully encrypted"
+    IDS_STRING_DATEI_ENTSCHLUESSELT "The file was successfully decrypted"
 END
 
 #endif    // Englisch (GB) resources

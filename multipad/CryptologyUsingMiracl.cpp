@@ -451,16 +451,19 @@ BOOL IsHexDump( CString &CStr )
 			{
 				fmt += CStr[i];
 				twoStep++;
-				if ( 2 == twoStep && i+1 < CStr.GetLength()) {
+				if ( 2 == twoStep ) {
 					fmt += ' ';
 					twoStep = 0;
+					if ( i+1 < CStr.GetLength() && !Whitespace( CStr[i+1] ) )
+						return FALSE;
 				}
 			}
 			else 
 				return FALSE;
 		}
 	}
-	return TRUE;
+	if (twoStep != 0) return FALSE;
+	else              return TRUE;
 }
 
 char ToHex( const char ch )

@@ -459,6 +459,10 @@ SOURCE=.\res\DerEinstiegInCrypTool.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DerEinstiegInCrypTool_de.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DerEinstiegInCrypTool_deutsch.bmp
 # End Source File
 # Begin Source File

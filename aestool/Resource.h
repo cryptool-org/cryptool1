@@ -9,6 +9,8 @@
 #define IDS_STRING_DECRYPT              102
 #define IDS_STRING_ENCRYPT              103
 #define IDS_STRING_DECERROR             104
+#define IDS_STRING_DATEI_VERSCHLUESSELT 105
+#define IDS_STRING_DATEI_ENTSCHLUESSELT 106
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130

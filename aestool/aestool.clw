@@ -2,26 +2,27 @@
 
 [General Info]
 Version=1
-LastClass=CSplash
+LastClass=CAestoolDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "aestool.h"
 
-ClassCount=4
+ClassCount=5
 Class1=CAestoolApp
 Class2=CAestoolDlg
 Class3=CAboutDlg
 
 ResourceCount=9
-Resource1=IDD_AESTOOL_DIALOG
+Resource1=IDD_SPLASH (Englisch (GB))
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ABOUTBOX
-Resource4=IDD_SPLASH (Englisch (GB))
+Resource3=IDD_HELP (Englisch (GB))
+Resource4=IDD_HELP
 Class4=CSplash
-Resource5=IDD_HELP
-Resource6=IDD_SPLASH
-Resource7=IDD_AESTOOL_DIALOG (Englisch (GB))
-Resource8=IDD_HELP (Englisch (GB))
+Resource5=IDD_AESTOOL_DIALOG (Englisch (GB))
+Class5=CHelp
+Resource6=IDD_ABOUTBOX
+Resource7=IDD_AESTOOL_DIALOG
+Resource8=IDD_SPLASH
 Resource9=IDD_ABOUTBOX (Englisch (GB))
 
 [CLS:CAestoolApp]
@@ -35,7 +36,7 @@ Type=0
 HeaderFile=aestoolDlg.h
 ImplementationFile=aestoolDlg.cpp
 Filter=D
-LastObject=CAestoolDlg
+LastObject=IDC_EDIT1
 BaseClass=CDialog
 VirtualFilter=dWC
 
@@ -54,25 +55,6 @@ Control2=IDC_STATIC,static,1342308480
 Control3=IDC_STATIC,static,1342308352
 Control4=IDOK,button,1342373889
 
-[DLG:IDD_AESTOOL_DIALOG]
-Type=1
-Class=CAestoolDlg
-ControlCount=14
-Control1=IDC_EDIT1,edit,1350631552
-Control2=IDC_BUTTON1,button,1342242816
-Control3=IDC_BUTTON2,button,1342242816
-Control4=IDOK,button,1342242817
-Control5=IDCANCEL,button,1342242816
-Control6=IDC_EDIT2,edit,1350631552
-Control7=IDC_EDIT3,edit,1350631552
-Control8=IDC_STATIC4,static,1342308352
-Control9=IDC_RADIO1,button,1476526089
-Control10=IDC_RADIO2,button,1476395017
-Control11=IDC_STATIC,button,1342177287
-Control12=IDC_STATIC,button,1342177287
-Control13=IDC_STATIC,button,1342177287
-Control14=IDC_BUTTON3,button,1342242816
-
 [DLG:IDD_AESTOOL_DIALOG (Englisch (GB))]
 Type=1
 Class=CAestoolDlg
@@ -82,8 +64,8 @@ Control2=IDC_BUTTON1,button,1342242816
 Control3=IDC_BUTTON2,button,1342242816
 Control4=IDOK,button,1342242817
 Control5=IDCANCEL,button,1342242816
-Control6=IDC_EDIT2,edit,1350631552
-Control7=IDC_EDIT3,edit,1350631552
+Control6=IDC_EDIT2,edit,1350633600
+Control7=IDC_EDIT3,edit,1350633600
 Control8=IDC_STATIC4,static,1342308352
 Control9=IDC_RADIO1,button,1476526089
 Control10=IDC_RADIO2,button,1476395017
@@ -111,7 +93,7 @@ LastObject=CSplash
 
 [DLG:IDD_SPLASH (Englisch (GB))]
 Type=1
-Class=?
+Class=CSplash
 ControlCount=4
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -120,7 +102,7 @@ Control4=IDC_STATIC,static,1342308352
 
 [DLG:IDD_HELP]
 Type=1
-Class=?
+Class=CHelp
 ControlCount=18
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -140,6 +122,33 @@ Control15=IDC_STATIC,static,1342308352
 Control16=IDC_STATIC,static,1342308352
 Control17=IDC_STATIC,static,1342308352
 Control18=IDC_STATIC,static,1342308352
+
+[CLS:CHelp]
+Type=0
+HeaderFile=Help.h
+ImplementationFile=Help.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDCANCEL
+
+[DLG:IDD_AESTOOL_DIALOG]
+Type=1
+Class=?
+ControlCount=14
+Control1=IDC_EDIT1,edit,1350631552
+Control2=IDC_BUTTON1,button,1342242816
+Control3=IDC_BUTTON2,button,1342242816
+Control4=IDOK,button,1342242817
+Control5=IDCANCEL,button,1342242816
+Control6=IDC_EDIT2,edit,1350633600
+Control7=IDC_EDIT3,edit,1350633600
+Control8=IDC_STATIC4,static,1342308352
+Control9=IDC_RADIO1,button,1476526089
+Control10=IDC_RADIO2,button,1476395017
+Control11=IDC_STATIC,button,1342177287
+Control12=IDC_STATIC,button,1342177287
+Control13=IDC_STATIC,button,1342177287
+Control14=IDC_BUTTON3,button,1342242816
 
 [DLG:IDD_HELP (Englisch (GB))]
 Type=1

@@ -1380,7 +1380,7 @@ END
 
 IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 255
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Primzahlen Generieren"
+CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
@@ -1842,7 +1842,7 @@ BEGIN
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,52,370,169
-    LTEXT           "Jede Zeile der Ausgabe ist hier eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
+    LTEXT           "Jede Zeile der Ausgabe hier ist eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
                     -1,7,7,368,10
     LTEXT           "- die erste Position in der Datei, wo die Periodizität startet (Offset)",
                     -1,7,17,310,8
@@ -4594,7 +4594,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
     IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
     IDS_STRING_RSA_TUTORIAL_INPUT 
-                            "Eingabe: Als Text, oder als Zahlen im Format:  Zahl[1] # ... # Zahl[n]  (Zahlen zur Basis %i)"
+                            "Eingabe der zu ver- oder entschlüsselnden Nachricht als Text oder als Hex-Dump."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4856,6 +4856,9 @@ BEGIN
     IDS_PARAM_PERMUTATION   "Parameter PERMUTATION"
     IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
+    IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
+    IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
+                            "Eingabe der Nachricht als Zahlen im Format: Zahl(1) # Zahl(2) # ... # Zahl(n)   (Zahlen zur Basis %i)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4944,7 +4947,9 @@ BEGIN
     IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA-Demo: Geheime Parameter"
     IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 
-                            "Die verschlüsselte Nachricht ist kein Text!"
+                            "Die verschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden !"
+    IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
+                            "Die entschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden ! "
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9233,6 +9238,7 @@ BEGIN
     IDS_PARAM_PERMUTATION   "Parameter PERMUTATION"
     IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
+    IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9320,7 +9326,9 @@ BEGIN
     IDS_CRYPT_PRIMES        "Two primes p and q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA demonstration: Secret parameter"
     IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 
-                            "The encrypted message is not a textmessage!"
+                            "The encrypted message could not be decoded into a textmessage !"
+    IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
+                            "The decrypted message could not be decoded into a textmessage !"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -22,7 +22,8 @@ static char THIS_FILE[] = __FILE__;
 #define MODE_ALPHABET       1
 #define MODE_DLG_OF_SISTERS 2
 #define MODE_HEX_DUMP       3
-
+#define RSA_DEMO_DECRYPT    64
+#define RSA_DEMO_ENCRYPT    128
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -395,7 +396,8 @@ void RSA_mit_kleinenPZ::OnOptionen()
 		}
 	}
 
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
+	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
+	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
 	UpdateData(FALSE);
 }
 
@@ -410,6 +412,7 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 	UpdateData(TRUE);
 	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
 	{
+		HeadingEncryption( ENCRYPT_TEXT );
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Encrypt( m_edit11, m_edit12, GetBase() );
 	}
@@ -537,16 +540,16 @@ void RSA_mit_kleinenPZ::EncryptNumbers()
 				
 		if ( !DlgOptions->m_TextOptions )
 		{
-			ReSegmentation( MODE_ASCII );
+			ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
 		}
 		else
 		{
-			ReSegmentation( MODE_ALPHABET );
+			ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
 		}
 	}
 	else
 	{  
-		ReSegmentation( MODE_DLG_OF_SISTERS );
+		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
 	}
 
 }
@@ -561,16 +564,16 @@ void RSA_mit_kleinenPZ::DecryptNumbers()
 
 		if ( !DlgOptions->m_TextOptions )
 		{				
-			ReSegmentation( MODE_ASCII );
+			ReSegmentation( MODE_ASCII | RSA_DEMO_DECRYPT );
 		}
 		else
 		{
-			ReSegmentation( MODE_ALPHABET );
+			ReSegmentation( MODE_ALPHABET | RSA_DEMO_DECRYPT );
 		}
 	}
 	else
 	{
-		ReSegmentation( MODE_DLG_OF_SISTERS );
+		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_DECRYPT );
 	}
 
 }
@@ -583,6 +586,23 @@ void RSA_mit_kleinenPZ::DecryptNumbers()
  
 void RSA_mit_kleinenPZ::OnEndDialog() 
 {
+	{ // Copy RSA Demo Parameter
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
+		CString RSAOptions = "";
+		RSAOptions = CString("PUBLIC_KEY:") + m_oeffentliche_schluessel_e 
+					+CString(";PRIME_P:") + m_eingabe_p 
+					+CString(";PRIME_Q:") + m_eingabe_q 
+					+CString(";CRYPT_TEXT_OR_NUMBERS:") + char(m_EncryptTextOrNumbers+'0')
+					+CString(";TEXT_OPTIONS") + char(DlgOptions->m_TextOptions      +'0');
+		if ( DlgOptions->m_TextOptions == 1 ) 
+			 RSAOptions += CString(";ALPHABET:")+DlgOptions->m_alphabet;
+		RSAOptions += CString(";RSA_VARIANT:")   + char(DlgOptions->m_RSAVariant   + '0')
+					+CString(";BASEOFNUMBERS:")  + char(DlgOptions->m_numberBasis  + '0')
+					+CString(";CODING_METHOD:")  + char(DlgOptions->m_codingMethod + '0') + ';';
+		CopyKey ( pc_str, RSAOptions );
+	}
+	
+
 	CDialog::OnCancel();
 }
 
@@ -591,32 +611,72 @@ void RSA_mit_kleinenPZ::OnEndDialog()
 // O.K. start the RSA Demo
 //
 
+int load(CString &Src, const char *pattern, CString *Dest)
+{
+	int p1, p2;
+	if ( 0 > ( p1 = Src.Find(pattern)) ) return -1;
+	p1 += strlen(pattern);
+	p2 = Src.Find(';', p1);
+	if ( Dest ) 
+	{
+		*Dest = Src.Mid(p1,p2-p1);
+		return 0;
+	}
+	else if ( p2-p1 < 5 )
+	{
+		return atoi(Src.Mid(p1, p2-p1).GetBuffer(0));
+	}
+	return -1;
+}
+
 BOOL RSA_mit_kleinenPZ::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 
 	m_control_p.SetFocus();
 	EnableEncryption(false);
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes;
-	if ( PasteKey( pc_str, Primes ) )
+
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
+	CString RSAParam;
+	if ( PasteKey( pc_str, RSAParam ) )
 	{
-		UpdateData(true);
-		int d1 = Primes.Find(';', 0);
-		int d2 = Primes.Find(';', d1+1);
-		m_eingabe_p = Primes.Mid(0, d1);
-		m_eingabe_q = Primes.Mid(d1+1, ((d2-d1)-1));
-		m_oeffentliche_schluessel_e = Primes.Mid(d2+1);
-		UpdateData(false);
+		UpdateData(); 
+		load(RSAParam,"PUBLIC_KEY:",&m_oeffentliche_schluessel_e);
+		load(RSAParam,"PRIME_P:",&m_eingabe_p); 
+		load(RSAParam,"PRIME_Q:",&m_eingabe_q); 
+		m_EncryptTextOrNumbers    = load(RSAParam,"CRYPT_TEXT_OR_NUMBERS:", NULL);
+		DlgOptions->m_TextOptions = load(RSAParam,"TEXT_OPTIONS", NULL);
+		if ( DlgOptions->m_TextOptions )
+			load(RSAParam,"ALPHABET:",&DlgOptions->m_alphabet);
+		DlgOptions->m_RSAVariant = load(RSAParam,"RSA_VARIANT:", NULL);
+		DlgOptions->m_numberBasis = load(RSAParam,"BASEOFNUMBERS:", NULL);
+		DlgOptions->m_codingMethod = load(RSAParam,"CODING_METHOD:", NULL);
+		UpdateData(FALSE);
 		OnParameterAktualisieren();
 	}
 	else
 	{
-		m_ButtonOptionen.EnableWindow(false);
+		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+		CString Primes;
+		if ( PasteKey( pc_str, Primes ) )
+		{
+			UpdateData(true);
+			int d1 = Primes.Find(';', 0);
+			int d2 = Primes.Find(';', d1+1);
+			m_eingabe_p = Primes.Mid(0, d1);
+			m_eingabe_q = Primes.Mid(d1+1, ((d2-d1)-1));
+			m_oeffentliche_schluessel_e = Primes.Mid(d2+1);
+			UpdateData(false);
+			OnParameterAktualisieren();
+		}
+		else
+		{
+			m_ButtonOptionen.EnableWindow(false);
+		}
 	}
 	m_control_edit10.mode = DlgOptions->m_TextOptions;
-
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
+	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
+	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
 	return FALSE;  // return TRUE unless you set the focus to a control
  	               // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -765,7 +825,8 @@ void RSA_mit_kleinenPZ::RequestForInput( BOOL clearInput )
 	m_edit11.Empty();
 	m_edit12.Empty();
 	m_edit13.Empty();
-	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
+	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
+	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
 	m_Header2.Empty();
 	m_Header3.Empty();
 	m_Header4.Empty();
@@ -833,7 +894,7 @@ BOOL RSA_mit_kleinenPZ::SkipWS()
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_WARN_BEFOR_SKIPWS, pc_str,STR_LAENGE_STRING_TABLE);
 		int RetValue;
-		if ( 1 != (RetValue = MessageBox(pc_str, "RSA Demo", MB_OKCANCEL | MB_ICONINFORMATION )) )
+		if ( 1 != (RetValue = MessageBox(pc_str, "RSA-Demo", MB_OKCANCEL | MB_ICONINFORMATION )) )
 		{
 			return FALSE;
 		}
@@ -962,7 +1023,7 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 			else break;
 		}
 		tmp1 = m_edit13.Mid(i1, i2-i1);
-		switch ( mode ) {
+		switch ( mode & 15 ) {
 			case MODE_ASCII: 
 				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL )) )
 					flag = FALSE;
@@ -973,14 +1034,14 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 					flag = FALSE;
 				break;
 			case MODE_DLG_OF_SISTERS:
-				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength(), baseNumbers, -1 ); 
+				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, -1 ); 
 				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
 					flag = FALSE;
 				break;
 		}
 		if ( flag )
 		{
-			if ( mode == MODE_ASCII )
+			if ( (mode & 15)== MODE_ASCII )
 			{
 				for ( int i=0; i<blockSize; i++ ) if ( !IsPrint(_tmp2[i]) )
 					hexDumpFlag = TRUE;
@@ -993,7 +1054,10 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 		}
 		else
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+			if ( RSA_DEMO_DECRYPT == (mode & RSA_DEMO_DECRYPT) )
+				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_edit11  = pc_str; 
 			m_edit12  = "";
 			m_Header2 = "";

@@ -132,6 +132,7 @@ const int CryptMethods[] =  {
 		IDS_PARAM_PERMUTATION,
 		IDS_PARAM_HOMOPHONE,
 		IDS_PARAM_PLAYFAIR,
+		IDS_PARAM_RSA_DEMO,
 		0
 };
 

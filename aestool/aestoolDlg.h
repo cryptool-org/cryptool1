@@ -21,6 +21,10 @@ class CAestoolDlg : public CDialog
 {
 // Konstruktion
 public:
+	int EnableDest(int b, int mode);
+	int SetSource( CString src);
+	int SetDest( CString src );
+	int KeySet(int set);
 	int ChangeDestName( void );
 	int TestEncryptedFile( CString Filename);
 	int DoDecrypt();

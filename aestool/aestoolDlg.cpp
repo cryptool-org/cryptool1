@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "io.h"
 #include "aestool.h"
 #include "aestoolDlg.h"
 #include "rijndael-api-fst.h"
@@ -155,30 +156,27 @@ BOOL CAestoolDlg::OnInitDialog()
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
 	EXEName.ReleaseBuffer();
 
-	if(m_CMD_inName.IsEmpty() || !TestEncryptedFile(m_CMD_inName)) {
-		if (!TestEncryptedFile(EXEName)) { // create a new encrypted file
-			m_SucheSrc.EnableWindow(TRUE);
-			m_SucheDst.EnableWindow(FALSE);
-			if(!m_CMD_inName.IsEmpty()) {
-				FILE *ft;
-				m_NameSrc = m_CMD_inName;
-				if(ft = fopen(m_NameSrc, "r")) {
-					fclose(ft);
-					SetDestName();
-					if(!m_CMD_outName.IsEmpty()) m_NameDst = m_CMD_outName;
-					if(m_HexIn.BinLen > 0) { // do encryption and exit
-						DoEncrypt();
-						EndDialog( IDOK );
-					}
-				}
-			}
-		}
-		else {
+	if(SetSource(m_CMD_inName)) { // sourcefile aus CMD-Zeile ist nicht gültig
+		if (TestEncryptedFile(EXEName)) { // verschlüsseltes selbstextrahierendes Archiv
 			CSplash dia;
 			dia.DoModal();
 			if(m_HexIn.BinLen > 0) { // do decryption and exit
 				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
 			}
+		}
+		// else // create a new encrypted file
+	}
+	else {// Source aus der Komandozeile ist gültig
+		if(!m_CMD_outName.IsEmpty()) { // Ausgabedatei in der Komandozeile überschreibt default settings
+			m_NameDst = m_CMD_outName;
+		}
+		if(m_HexIn.BinLen > 0) { // Ver-Entschlüsselung anstoßen und beenden
+			if(m_direction == DIR_ENCRYPT) {
+				DoEncrypt();
+				EndDialog( IDOK );
+			}
+			else
+				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
 		}
 	}
 
@@ -250,25 +248,7 @@ void CAestoolDlg::OnSucheSrc()
 	CFileDialog Dlg(TRUE, NULL, m_NameSrc, OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY,
 		"All Files (*.*)|*.*|EXE Files (*.exe)|*.exe|AES Files (*.aes)|*.aes||", this);
 	if(IDCANCEL == Dlg.DoModal()) return;
-	m_NameSrc = Dlg.GetPathName();
-	m_direction = DIR_ENCRYPT;
-	if(TestEncryptedFile(m_NameSrc)) {// verschlüsselte Datei --> entschlüsseln
-		m_Radio1Ctl.EnableWindow(FALSE);
-		m_Radio2Ctl.EnableWindow(FALSE);
-	}
-	else { // neue Datei verschlüsseln
-		m_Radio1Ctl.EnableWindow(TRUE);
-		m_Radio2Ctl.EnableWindow(TRUE);
-		SetDestName();
-	}
-	if(m_HexString.IsEmpty()) m_HexIn.SetFocus();
-	else {
-		m_OK.EnableWindow(TRUE);
-		m_OK.SetFocus();
-	}
-	UpdateData(FALSE);
-	m_CNameSrc.SetSel(0,-1);
-	m_CNameDst.SetSel(0,-1);
+	SetSource(Dlg.GetPathName());
 }
 
 void CAestoolDlg::OnSucheDst() 
@@ -409,8 +389,6 @@ void CAestoolDlg::SetDestName()
 	else { // No name extension found
 		m_NameDst += ext1;
 	}
-	m_Radio1Ctl.EnableWindow(FALSE);
-	m_Radio2Ctl.EnableWindow(FALSE);
 	m_SucheDst.EnableWindow(TRUE);
 }
 
@@ -480,6 +458,8 @@ void CAestoolDlg::DoEncrypt()
 	OutFile.Write(&Magic, sizeof(long));
 
 	OutFile.Close();
+
+	AfxMessageBox(IDS_STRING_DATEI_VERSCHLUESSELT, MB_OK);
 }
 
 int CAestoolDlg::DoDecrypt()
@@ -539,12 +519,14 @@ int CAestoolDlg::DoDecrypt()
 
 	OutFile.Close();
 
+	AfxMessageBox(IDS_STRING_DATEI_ENTSCHLUESSELT, MB_OK);
 	return IDOK;
 }
 
 int CAestoolDlg::TestEncryptedFile(CString Filename)
 {
-	m_SrcFile.Open(Filename, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL);
+	if(!m_SrcFile.Open(Filename, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL))
+		return -1;
 	m_SrcFile.Seek(-12, CFile::end);
 	m_SrcFile.Read(& DataLen, sizeof(long));
 	m_SrcFile.Read(& NameLen, sizeof(long));
@@ -610,4 +592,68 @@ void CAestoolDlg::OnChangeEdit1()
 	if(!m_HexString.IsEmpty()) {
 		m_OK.EnableWindow(TRUE);
 	}
+}
+
+int CAestoolDlg::KeySet(int set)
+{
+	return 0;
+}
+
+int CAestoolDlg::SetSource(CString src)
+{
+	if(src.IsEmpty() || _access(src,2)) { // Datei existiert nicht oder ist nicht lesbar
+		EnableDest(FALSE, 0);
+		SetDest("");
+		m_NameSrc = "";
+		return 1;
+	}
+
+	m_NameSrc = src;
+	if(TestEncryptedFile(src)) // verschlüsselte Datei --> entschlüsseln
+		m_direction = DIR_DECRYPT;
+	else { // neue Datei verschlüsseln
+		m_direction = DIR_ENCRYPT;
+		SetDestName();
+	}
+	EnableDest(TRUE, m_direction);
+
+
+	return 0;
+}
+
+int CAestoolDlg::SetDest(CString dest)
+{
+	m_NameDst = dest;
+	if(dest.IsEmpty()) {
+		m_OK.EnableWindow(FALSE);
+		return 0;
+	}
+	return 0;
+}
+
+int CAestoolDlg::EnableDest(int b, int mode)
+{
+	if(b == FALSE) {
+		m_Radio1Ctl.EnableWindow(FALSE);
+		m_Radio2Ctl.EnableWindow(FALSE);
+		m_SucheDst.EnableWindow(FALSE);
+		m_OK.EnableWindow(FALSE);
+	}
+	else {
+		m_SucheDst.EnableWindow(TRUE);
+		if(mode == DIR_ENCRYPT) {
+			m_Radio1Ctl.EnableWindow(TRUE);
+			m_Radio2Ctl.EnableWindow(TRUE);
+			SetDestName();
+		}
+		if(m_HexString.IsEmpty())
+			m_HexIn.SetFocus();
+		else
+			m_OK.EnableWindow(TRUE);
+	}
+	UpdateData(FALSE);
+	if(!m_NameSrc.IsEmpty()) m_CNameSrc.SetSel(0,-1);
+	if(!m_NameDst.IsEmpty()) m_CNameDst.SetSel(0,-1);
+
+	return 0;
 }
