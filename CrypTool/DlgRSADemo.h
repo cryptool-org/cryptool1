@@ -163,16 +163,13 @@ protected:
 	afx_msg void OnButtonOptions();
 	afx_msg void OnButtonEncrypt();
 	afx_msg void OnButtonDecrypt();
-
 	virtual void OnEndDialog();
 	virtual BOOL OnInitDialog();
-	
 	afx_msg void OnUpdatePrimeP();
 	afx_msg void OnUpdatePrimeQ();
 	afx_msg void OnUpdateModulN();
 	afx_msg void OnUpdatePublicKeyE();
 	afx_msg void OnUpdateRSAInput();
-
 	afx_msg void OnRadioRSAText();
 	afx_msg void OnRadioRSANumbers();
 	afx_msg void OnRadioRSAComplete();

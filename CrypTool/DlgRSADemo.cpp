@@ -136,20 +136,20 @@ void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgRSADemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgRSADemo)
 	ON_BN_CLICKED(IDC_BUTTON_PZ_GENERIEREN, OnButtonGeneratePrimes)
-	ON_BN_CLICKED(IDC_OPTIONEN, OnButtonOptions)
 	ON_BN_CLICKED(IDC_BUTTON2, OnButtonUpdateRSAParameter)
+	ON_BN_CLICKED(IDC_OPTIONEN, OnButtonOptions)
 	ON_BN_CLICKED(IDC_BUTTON_VERSCHLUESSELN, OnButtonEncrypt)
 	ON_BN_CLICKED(IDC_BUTTON_ENTSCHLUESSELN, OnButtonDecrypt)
 	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdatePrimeP)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdatePrimeQ)
+	ON_EN_UPDATE(IDC_EDIT3, OnUpdateModulN)
 	ON_EN_UPDATE(IDC_EDIT5, OnUpdatePublicKeyE)
 	ON_EN_UPDATE(IDC_EDIT10, OnUpdateRSAInput)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadioRSANumbers)
 	ON_BN_CLICKED(IDC_RADIO1, OnRadioRSAText)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadioRSANumbers)
 	ON_BN_CLICKED(IDC_RADIO3, OnRadioRSAComplete)
 	ON_BN_CLICKED(IDC_RADIO4, OnRadioRSAPublicKey)
-	ON_EN_UPDATE(IDC_EDIT3, OnUpdateModulN)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -989,7 +989,8 @@ void CDlgRSADemo::ButtonManagement()
 			m_ButtonOptionen.EnableWindow(TRUE);
 			if ( KeyStatusKeyEValid() )
 			{
-				if ( KeyStatusInputValid() && KeyStatusOptionsValid() )
+				if ( KeyStatusInputValid() && KeyStatusOptionsValid() 
+					                       && m_edit_RSA_input.GetLength() )
 				{
 					m_ButtonDecrypt.EnableWindow(TRUE);		
 					m_ButtonEncrypt.EnableWindow(TRUE);
@@ -1018,7 +1019,8 @@ void CDlgRSADemo::ButtonManagement()
 			m_ButtonOptionen.EnableWindow(TRUE);
 			if ( KeyStatusKeyEValid() )
 			{
-				if ( KeyStatusInputValid() && KeyStatusOptionsValid() )
+				if ( KeyStatusInputValid() && KeyStatusOptionsValid() 
+					                       && m_edit_RSA_input.GetLength() )
 				{
 					m_ButtonEncrypt.EnableWindow(TRUE);
 				}

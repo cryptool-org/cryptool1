@@ -1171,15 +1171,15 @@ int CRSADemo::SetPublicKey ( Big &E )
 {
 	int ausgabe;
 	isInitialized_e = isInitialized_d = false;
-	ausgabe = 0;
 	if ( !isInitialized_N ) return 0;
+	if ( E <= 1 ) return 0;
+	ausgabe = 0;
 	if ( 1 == gcd( E, phiOfN ) )
 	{
 		e = E;
 		isInitialized_e = true;
 		ausgabe = 1;
 	}
-	//return isInitialized_e;
 	return ausgabe;
 }
 
@@ -1227,7 +1227,7 @@ int CRSADemo::SetPublicParameter( CString &NStr, CString &eStr )
 	e_ok = CStringFormulaToBig( e_str, loc_E );
 	N_ok = CStringFormulaToBig( N_str, loc_N );
 	if (e_ok == FALSE || N_ok == FALSE) return ERR_E_TO_BIG;
-	if ( loc_E > 0 && loc_N > 2 )
+	if ( loc_E > 1 && loc_N > 2 )
 	{
 		isInitialized_e = true;
 		isInitialized_N = true;
