@@ -32,6 +32,7 @@ class DlgDetailsFactorisation : public CDialog
 // Konstruktion
 	struct DFItem *List;
 public:
+	~DlgDetailsFactorisation();
 	char outfile[256];
 	bool b_SaveFactorList;
 	void ClearFactDetail();

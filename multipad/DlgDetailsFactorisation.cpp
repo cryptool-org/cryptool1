@@ -225,7 +225,7 @@ void DlgDetailsFactorisation::OnCancel()
 			f_Details << pc_str << Seek->Num << endl;
 			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
 				pc_str,STR_LAENGE_STRING_TABLE);
-			f_Details << pc_str << ": " << Seek->Method << ". ";
+			f_Details << pc_str << ": " << Seek->Method << ".  ";
 			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLTIME,
 				pc_str,STR_LAENGE_STRING_TABLE);
 			f_Details << pc_str << ": " << Seek->Time << endl << endl;
@@ -265,4 +265,9 @@ void DlgDetailsFactorisation::OnCancel()
 	}
 	f_Details.close();	
 	CDialog::OnCancel();
+}
+
+DlgDetailsFactorisation::~DlgDetailsFactorisation()
+{
+	ClearFactDetail();
 }

@@ -5182,11 +5182,11 @@ BEGIN
     IDS_DETFACTORISATION_FACTORCOMPOSITE 
                             "Bitlänge = %i,  zusammengesetzte Zahl ."
     IDS_DETFACTORISATION_HL_INPUT 
-                            "Details zur Faktorisierung der\nEingabe-Zahl: "
-    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Faktorisierte Zahl: "
-    IDS_DETFACTORISATION_HL_FACTOR1 "Erster Faktor: "
-    IDS_DETFACTORISATION_HL_FACTOR2 "Zweiter Faktor: "
-    IDS_DETFACTORISATION_HL_OUTPUT "Faktorisation der Zahl %s."
+                            "Details zur Faktorisierung der\nEingabezahl  "
+    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Faktorisierte Zahl = "
+    IDS_DETFACTORISATION_HL_FACTOR1 "Erster Faktor = "
+    IDS_DETFACTORISATION_HL_FACTOR2 "Zweiter Faktor = "
+    IDS_DETFACTORISATION_HL_OUTPUT "Faktorisierung der Zahl %s."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -9624,10 +9624,10 @@ BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bitlength = %i,  prime number."
     IDS_DETFACTORISATION_FACTORCOMPOSITE "Bitlength = %i,  composite number."
     IDS_DETFACTORISATION_HL_INPUT 
-                            "Details for the factorisation of the \nInput number: "
-    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Factorised number: "
-    IDS_DETFACTORISATION_HL_FACTOR1 "First factor: "
-    IDS_DETFACTORISATION_HL_FACTOR2 "Second factor: "
+                            "Details for the factorisation of the \nInput number = "
+    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Factorised number = "
+    IDS_DETFACTORISATION_HL_FACTOR1 "First factor = "
+    IDS_DETFACTORISATION_HL_FACTOR2 "Second factor = "
     IDS_DETFACTORISATION_HL_OUTPUT "Factorisation of the integer %s."
 END
 
