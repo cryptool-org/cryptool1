@@ -785,6 +785,10 @@ int CHillEncryption::angriff(int min, int max, CSquareMatrixModN** mat, int rc_a
 
 	min = (min >= 1) ? min : 1;
 	max = (max <= HILL_MAX_DIM_GROSS) ? max : HILL_MAX_DIM_GROSS;
+
+	// prevent the memory leak in funcion SucheSchluessel( ... ) (see below)
+	if ( max > laenge_plain  ) max = laenge_plain;
+	if ( max > laenge_cipher ) max = laenge_cipher;
 	
 	// nun ist min >= 1 und max <= HILL_MAX_DIM_GROSS
 	
