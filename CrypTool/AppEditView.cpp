@@ -154,19 +154,22 @@ void CAppEditView::OnShowKey()
 void CAppEditView::SerializeRaw(CArchive & ar)
 {
 	char *buffer;
-	int bufflen=20000, len;
+	int bufflen=20000, len, startl;
 	long start, end, textlen, pos;
+	CRichEditCtrl *RECtrl;
 
 	SetRedraw(FALSE);
-	GetRichEditCtrl().GetSel(start, end);
+	RECtrl = &(GetRichEditCtrl());
+	startl = RECtrl->GetFirstVisibleLine();
+	RECtrl->GetSel(start, end);
 	buffer = (char *) malloc(bufflen+3);
 
 	if (ar.IsStoring())
 	{
-		textlen = GetRichEditCtrl().GetTextLength();
+		textlen = RECtrl->GetTextLength();
 		for(pos = 0; pos < textlen; ) {
-			GetRichEditCtrl().SetSel(pos, pos+bufflen);
-			len = GetRichEditCtrl().GetSelText(buffer);
+			RECtrl->SetSel(pos, pos+bufflen);
+			len = RECtrl->GetSelText(buffer);
 			TRY
 			{
 				ar.Write(buffer, len);
@@ -189,16 +192,17 @@ void CAppEditView::SerializeRaw(CArchive & ar)
 		for(pos = 0; pos < nFileSize; ) {
 			len = ar.Read(buffer, bufflen);
 			buffer[len]=0;
-			GetRichEditCtrl().SetSel(pos,pos);
-			GetRichEditCtrl().ReplaceSel(buffer);
+			RECtrl->SetSel(pos,pos);
+			RECtrl->ReplaceSel(buffer);
 			pos += len;
 			if(!len) break;
 		}
-		GetRichEditCtrl().EmptyUndoBuffer();
+		RECtrl->EmptyUndoBuffer();
 		ASSERT_VALID(this);
 	}
 	free(buffer);
-	GetRichEditCtrl().SetSel(start, end);
+	RECtrl->SetSel(start, end);
+	RECtrl->LineScroll(startl - RECtrl->GetFirstVisibleLine());
 	SetRedraw(TRUE);
 	ASSERT_VALID(this);
 }

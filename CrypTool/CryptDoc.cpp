@@ -259,7 +259,8 @@ BOOL CCryptDoc::OnSaveDocument(LPCTSTR lpszPathName)
 
     if(IsModified()) CPadDoc::OnSaveDocument(ContentName);
     CPadDoc::OnSaveDocument(lpszPathName);
-	GetNextView(pos)->UpdateWindow();
+ 	GetNextView(pos)->Invalidate();
+ 	UpdateAllViews(NULL);
     return TRUE;
 }
 
