@@ -11,9 +11,9 @@ char *MyToLower(char *str);
 void MyToUpper(CString &str);
 void MyToLower(CString &str);
 
-BOOL Displayable(const char letter);
 int  encodeASCII( char *strOut, int &strOutPtr, const int strOutSize, const char chrIn, const char* filter);
 int  encodeASCII(      char *strOut,       int &strOutPtr, const int strOutSize, 
 	  		     const char *strIn,  const int  strInPtr,  const int length, const char* filter);
+int codedASCIIBlockLength( CString &StrIn, const int start, const int length );
 int  decodeASCII(      char *strOut, int &strOutPtr, const int strOutSize, 
 	  		     const char *strIn,  int strInPtr,  const int length );

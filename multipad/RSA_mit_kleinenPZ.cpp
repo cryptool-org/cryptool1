@@ -7,6 +7,7 @@
 #include "RSA_mit_kleinenPZ.h"
 #include "crypt.h"
 #include "ChrTools.h"
+#include "fileutil.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -17,8 +18,8 @@ static char THIS_FILE[] = __FILE__;
 #define ENCRYPT_NUMBERS  FALSE
 #define DECRYPT_TEXT     TRUE
 #define DECRYPT_NUMBERS  FALSE
-#define MODE_ASCII          1
-#define MODE_ALPHABET       0
+#define MODE_ASCII          0
+#define MODE_ALPHABET       1
 #define MODE_DLG_OF_SISTERS 2
 
 
@@ -31,6 +32,18 @@ void RSA_mit_kleinenPZ::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int bas
 	if ( base ) sprintf( line, pc_str, base );
 	else		sprintf( line, pc_str );
 	mHeader = line;
+}
+
+void MyMessage( int IDS_STRING_ID, ... )
+{
+	va_list ap;
+	va_start( ap, IDS_STRING_ID );
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID, pc_str,STR_LAENGE_STRING_TABLE);
+	char line[256];
+	sprintf(line, pc_str, ap );
+	AfxMessageBox (line);
+	va_end( ap );
 }
 
 void Message( int IDS_STRING_ID, int No = 0 )
@@ -256,11 +269,15 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			}
 			else
 			{
+				MyMessage( IDS_STRING_RSADEMO_MODUL_KLEIN, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
+/*
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 				AfxMessageBox(line);
+*/
 				EnableEncryption(false);
 				m_ButtonOptionen.EnableWindow(true);
+
 			}
 		}
 	}
@@ -274,9 +291,12 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		{
 			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
 		}
+		MyMessage( IDS_STRING_RSADEMO_MODUL_KLEIN, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
+/*
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_RSADEMO_MODUL_KLEIN, pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line, pc_str, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 		AfxMessageBox(line);
+*/
 		EnableEncryption(false);
 		m_ButtonOptionen.EnableWindow(true);		
 	}	
@@ -300,6 +320,7 @@ void RSA_mit_kleinenPZ::OnOptionen()
 	{
 		RequestForInput();
 		EnableEncryption();
+		m_control_edit10.mode = DlgOptions->m_TextOptions;
 	}	
 	else 
 	{
@@ -319,7 +340,7 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 	{
 		if ( !DlgOptions->m_RSAVariant )
 		{
-
+			HeadingEncryption( ENCRYPT_TEXT );
 			if ( !DlgOptions->m_TextOptions )
 			{
 				EncryptASCII();
@@ -329,19 +350,18 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 				SkipWS();
 				EncryptAlphabet();
 			}
-			HeadingEncryption( ENCRYPT_TEXT );
 		}
 		else
 		{
 			SkipWS();
-			EncryptDialogueOfSisters();
 			HeadingEncryption( ENCRYPT_TEXT );		
+			EncryptDialogueOfSisters();
 		}
 	}
 	else
 	{
-		EncryptNumbers();
 		HeadingEncryption( ENCRYPT_NUMBERS );
+		EncryptNumbers();
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -356,6 +376,7 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 	{
 		if ( !DlgOptions->m_RSAVariant )
 		{
+			HeadingDecryption( DECRYPT_TEXT );
 			if ( !DlgOptions->m_TextOptions )
 			{
 				DecryptASCII();
@@ -365,18 +386,17 @@ void RSA_mit_kleinenPZ::OnButtonEntschluesseln()
 				SkipWS();
 				DecryptAlphabet();
 			}
-			HeadingDecryption( DECRYPT_TEXT );
 		}
 		else
 		{
+			HeadingDecryption( DECRYPT_TEXT );		}
 			SkipWS();
 			DecryptDialogueOfSisters();
-			HeadingDecryption( DECRYPT_TEXT );		}
 	}
 	else
 	{
-		DecryptNumbers();
 		HeadingDecryption( DECRYPT_NUMBERS );
+		DecryptNumbers();
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
@@ -501,6 +521,7 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 	{
 		m_ButtonOptionen.EnableWindow(false);
 	}
+	m_control_edit10.mode = DlgOptions->m_TextOptions;
 	return FALSE;  // return TRUE unless you set the focus to a control
  	               // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -719,14 +740,33 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 
 	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
 	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		tmpStr    = m_edit10.Mid(i, blockSize);
+		int diff = 0;
+		if ( mode == MODE_ASCII )
+		{
+			int j = codedASCIIBlockLength( m_edit10, i, blockSize );
+			m_edit13 += m_edit10.Mid(i, j);
+			tmpStr    = m_edit10.Mid(i, j);
+			diff      = j-blockSize;
+
+		}
+		else
+		{
+			m_edit13 += m_edit10.Mid(i, blockSize);
+			tmpStr    = m_edit10.Mid(i, blockSize);
+		}
 		while ( tmpStr.GetLength() < blockSize ) { 
 			tmpStr += ' '; m_edit13 += ' '; 
 		}
 		switch ( mode ) {
 			case MODE_ASCII: 
-				CharToNumStr( tmpStr, NumStr, baseNumbers, (DlgOptions->m_codingMethod == 1));
+				{
+					char *strOut;
+					int ndx = 0;
+					strOut = new char[blockSize+1];
+					decodeASCII( strOut, ndx, blockSize+1, tmpStr.GetBuffer(blockSize+1), 0, blockSize+diff );
+					CharToNumStr( strOut, NumStr, blockSize, baseNumbers, 256 );
+					delete []strOut;
+				}
 				break;
 			case MODE_ALPHABET:
 				AlphabetToNumStr( tmpStr, NumStr, DlgOptions->m_alphabet, 
@@ -737,11 +777,12 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 				break;
 		}
 		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
+		if ( i+blockSize+diff < m_edit10.GetLength() ) 
 		{
 			m_edit11 += " # ";
 			m_edit13 += " # ";
 		}
+		i += diff;
 	}
 }
 
@@ -787,16 +828,155 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			m_edit11  = pc_str; 
 			m_edit12  = "";
+			m_Header2 = "";
+			m_Header3 = "";
 			break;
 		}
 		int outStrLength = 0;
-		encodeASCII(_tmp3, outStrLength, 512, _tmp2, 0, DlgOptions->m_BlockLength, NULL );
-		_tmp3[outStrLength] = '\0';
-		m_edit11 += _tmp3;
-		m_edit12 += _tmp3;
+		if ( mode == MODE_ASCII )
+		{
+			encodeASCII(_tmp3, outStrLength, 512, _tmp2, 0, DlgOptions->m_BlockLength, NULL );
+			_tmp3[outStrLength] = '\0';
+			m_edit11 += _tmp3;
+			m_edit12 += _tmp3;
+		}
+		else
+		{
+			m_edit11 += _tmp2;
+			m_edit12 += _tmp2;
+		}
 		while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
 		i1 = i2;
 		if ( i1 < m_edit13.GetLength() ) m_edit11 += " # ";
 	}
 	return flag;
+}
+/////////////////////////////////////////////////////////////////////////////
+// CMyRSADemoEdit
+
+CMyRSADemoEdit::CMyRSADemoEdit()
+{
+}
+
+CMyRSADemoEdit::~CMyRSADemoEdit()
+{
+}
+
+
+BEGIN_MESSAGE_MAP(CMyRSADemoEdit, CEdit)
+	//{{AFX_MSG_MAP(CMyRSADemoEdit)
+	ON_WM_CHAR()
+	ON_COMMAND(ID_EDIT_PASTE, OnMyPaste)
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// Behandlungsroutinen für Nachrichten CMyRSADemoEdit 
+
+void CMyRSADemoEdit::OnMyPaste() 
+{
+	OpenClipboard();
+	HANDLE hndl;
+	char *globBuff, *dataBuff;
+	long  dataLen;
+
+	if ( mode == MODE_ASCII )
+	{
+		if( hndl = ::GetClipboardData(theApp.m_HexFormat)) 
+		{
+			globBuff = (char *) GlobalLock(hndl);
+			dataLen = ((long *) globBuff)[0];
+			dataBuff = globBuff+sizeof(long);
+			char *tmpIn  = new char[dataLen+1];
+			char *tmpOut = new char[4*dataLen+1];
+			memcpy( tmpIn, dataBuff, dataLen);
+			int OutLength = 0;
+			encodeASCII( tmpOut, OutLength, 4*dataLen, tmpIn,  0, dataLen, NULL );
+			tmpOut[OutLength] = '\0';
+			CString P = tmpOut;
+			delete []tmpIn;
+			delete []tmpOut;
+
+			int startc, endc;
+			GetSel(startc, endc );
+			ReplaceSel( P );
+			startc += P.GetLength();
+			SetSel( startc, startc );
+			GlobalUnlock(hndl);
+			CloseClipboard();
+		}
+		else if ( hndl = ::GetClipboardData(CF_TEXT) )
+		{
+			globBuff = (char *) GlobalLock(hndl);
+			dataLen = strlen(globBuff);
+			dataBuff = globBuff;
+			char *tmpIn  = new char[dataLen+1];
+			char *tmpOut = new char[4*dataLen+1];
+			memcpy( tmpIn, dataBuff, dataLen);
+			tmpIn[dataLen] = '\0';
+			int OutLength = 0;
+			encodeASCII( tmpOut, OutLength, 4*dataLen, tmpIn,  0, dataLen, NULL );
+			tmpOut[OutLength] = '\0';
+			CString P = tmpOut;
+			delete []tmpIn;
+			delete []tmpOut;
+
+			int startc, endc;
+			GetSel(startc, endc );
+			ReplaceSel( P );
+			startc += P.GetLength();
+			SetSel( startc, startc );
+			GlobalUnlock(hndl);
+			CloseClipboard();
+		}
+	}
+	else
+	{
+		if ( hndl = ::GetClipboardData(CF_TEXT) )
+		{
+			globBuff = (char *) GlobalLock(hndl);
+			dataLen = strlen(globBuff);
+			dataBuff = globBuff;
+			char *tmpIn  = new char[dataLen+1];
+			char *tmpOut = new char[4*dataLen+1];
+			memcpy( tmpIn, dataBuff, dataLen);
+			tmpIn[dataLen] = '\0';
+			unsigned char *p = (unsigned char*)dataBuff;
+			CString P = _T("");
+			for ( int i=0; i<dataLen; i++ )
+			{
+				if ( p[i] >= 32 && IsPrint( (unsigned char)p[i] ) )
+				{
+					P += p[i];
+				}
+				else if ( p[i] == '\r' ) // Kodieren eines <CR> als <SPACE>
+				{
+					P += ' ';
+				}
+			}
+			int startc, endc;
+			GetSel(startc, endc );
+			ReplaceSel( P );
+			startc += P.GetLength();
+			SetSel( startc, startc );
+			GlobalUnlock(hndl);
+			CloseClipboard();
+		}
+	}
+
+}
+
+void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
+{
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen und/oder Standard aufrufen
+
+	long curp = GetSel();
+	if ( nChar == 22 && nFlags == 47 )
+	{
+		OnMyPaste();
+	}
+	else
+	{
+		CEdit::OnChar(nChar,nRepCnt,nFlags);
+	}
 }

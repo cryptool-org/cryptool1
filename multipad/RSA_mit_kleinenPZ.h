@@ -15,6 +15,42 @@
 // RSA_mit_kleinenPZ.h : Header-Datei
 //
 
+/////////////////////////////////////////////////////////////////////////////
+// Fenster CMyRSADemoEdit 
+
+class CMyRSADemoEdit : public CEdit
+{
+	BOOL pasteFlag;
+	// Konstruktion
+public:
+	CMyRSADemoEdit();
+	BOOL PasteKey() { return pasteFlag; }
+// Attribute
+public:
+
+// Operationen
+public:
+	int mode;
+// Überschreibungen
+	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
+	//{{AFX_VIRTUAL(CMyRSADemoEdit)
+	//}}AFX_VIRTUAL
+
+// Implementierung
+public:
+	virtual ~CMyRSADemoEdit();
+
+	// Generierte Nachrichtenzuordnungsfunktionen
+protected:
+	//{{AFX_MSG(CMyRSADemoEdit)
+	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnMyPaste();
+	//}}AFX_MSG
+
+	DECLARE_MESSAGE_MAP()
+};
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld RSA_mit_kleinenPZ 
@@ -45,7 +81,7 @@ public:
 	CButton	m_ButtonDecrypt;
 	CEdit	m_control_edit11;
 	CEdit	m_control_edit12;
-	CEdit	m_control_edit10;
+	CMyRSADemoEdit	m_control_edit10;
 	CEdit	m_control_q;
 	CEdit	m_control_p;
 	CString	m_eingabe_p;
@@ -106,6 +142,8 @@ private:
 	TutorialRSA                   *RSA;
 };
 
+
+/////////////////////////////////////////////////////////////////////////////
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
 

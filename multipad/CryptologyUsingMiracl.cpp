@@ -951,10 +951,14 @@ BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 					i2++;
 				}
 				else
-					if ( Input[i2] == ' ' || Input[i2] == '#'  )
+					if ( Input[i2] == ' ' || Input[i2] == '#' || Input[i2] == '\t' ||
+					     Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' )
 					{
-						if ( i2 > i1 && Input[i2] == '#' ) flag = true;
-						Input.Delete(i2);
+						// if ( i2 > i1 && Input[i2] == '#' ) flag = true;
+						while ( Input[i2] == ' ' || Input[i2] == '#' || Input[i2] == '\t' ||
+							    Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' ) 
+							Input.Delete(i2);
+						flag = true;
 					}
 					else 
 						if ( Input[i2] == 0 )
@@ -971,15 +975,8 @@ BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 		{
 			tmpStr = Input.Mid(i1, i2-i1);
 			CStringToBig( tmpStr, tmp, base );
-			if ( flag == true /* || tmp >= tmpN */ )
+			if ( flag == true )
 			{
-				// tmp = tmp % N;
-				// if ( tmp >= N )
-				// {
-				//	i2--;
-				//	tmpStr = Input.Mid(i1, i2-i1);
-				//	CStringToBig( tmpStr, tmp, base );
-				// }
 				if ( newInput.GetLength() > 0 ) 
 				{
 					newInput.Insert(newInput.GetLength(), " # "); // = newInput + " # ";

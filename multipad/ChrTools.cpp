@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include <ctype.h>
 #include "ChrTools.h"
+#include "fileutil.h"
 
 //static char lowercase[]="abcdefghijklmnopqrstuvwxyzäöüáàâéèêíìîóòôúùûı";
 //static char uppercase[]="ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛİ";
@@ -62,26 +63,6 @@ void MyToLower(CString &str)
 #define codeASCII_MARK_END   '}'
 
 
-BOOL Displayable(const char letter)
-{
-	if ( (unsigned char)letter < 32 ) return FALSE;
-	if ( (unsigned char)letter > 127)
-	{
-		switch ( letter ) {
-			case 'Ä':
-			case 'Ö':
-			case 'Ü':
-			case 'ä':
-			case 'ö':
-			case 'ü':
-			case 'ß': return TRUE; break;
-			default : return TRUE; break;
-		}
-	}
-	return TRUE;
-}
-
-
 int encodeASCII( char *strOut, int &strOutPtr, const int strOutSize, const char chrIn, const char* filter)
 {
 	if (filter) 
@@ -103,7 +84,7 @@ int encodeASCII( char *strOut, int &strOutPtr, const int strOutSize, const char 
 	}
 	else
 	{
-		if ( Displayable( chrIn ) ) {
+		if ( IsPrint( (unsigned char)chrIn ) ) {
 			if ( strOutPtr +1 < strOutSize ) {
 				strOut[ strOutPtr++ ] = chrIn;
 			}
@@ -150,6 +131,29 @@ int  encodeASCII(      char *strOut,       int &strOutPtr, const int strOutSize,
 
 	return done;
 }
+
+
+int codedASCIIBlockLength( CString &StrIn, const int start, const int length )
+{
+   int i = start;
+   for (int j=start; j<start+length && i < StrIn.GetLength(); j++)
+   {
+		if ( StrIn[i++] == codeASCII_MARK_BEGIN )
+		{
+			if ( i < StrIn.GetLength() && StrIn[i] != codeASCII_MARK_BEGIN )
+			{
+				if ( i+2 < StrIn.GetLength() && StrIn[i+2] == codeASCII_MARK_END ) 
+					i += 3;
+			}
+			else
+			{
+				i++;
+			}
+		}
+   }
+   return i-start;
+}
+
 
 int decodeASCII(      char *strOut, int &strOutPtr, const int strOutSize, 
 			    const char *strIn,  int strInPtr,  const int length )
