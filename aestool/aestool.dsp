@@ -185,6 +185,10 @@ SOURCE=.\aestool.rc
 # End Source File
 # Begin Source File
 
+SOURCE=.\aestoolcrypto.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\aestoolDlg.cpp
 # End Source File
 # Begin Source File
@@ -221,6 +225,10 @@ SOURCE=.\StdAfx.cpp
 # Begin Source File
 
 SOURCE=.\aestool.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\aestoolcrypto.h
 # End Source File
 # Begin Source File
 

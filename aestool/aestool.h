@@ -23,6 +23,12 @@ class CAestoolApp : public CWinApp
 {
 public:
 	CAestoolApp();
+	int findStr(CString *l); // used in ScanCMDLine
+	void ScanCMDLine( char * cmd );
+
+	CString m_CMD_inKey;
+	CString m_CMD_outName;
+	CString m_CMD_inName;
 
 // Überladungen
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen

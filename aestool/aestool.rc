@@ -79,40 +79,38 @@ CAPTION "Info über AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.1",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 230
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON1,215,105,78,17
-    EDITTEXT        IDC_EDIT3,28,172,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON2,215,170,78,17
-    DEFPUSHBUTTON   "Verschlüsseln",IDOK,15,206,62,17
-    PUSHBUTTON      "Beenden",IDCANCEL,152,206,50,17
-    PUSHBUTTON      "Hilfe",IDC_BUTTON3,255,206,50,17
-    CONTROL         "Passwort anzeigen",IDC_RADIO3,"Button",
+    EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
+                    WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,215,105,78,17
+    CONTROL         "Selbstextrahierend und verschlüsselt",IDC_RADIO_EXE,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,28,154,131,10
+    CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",
+                    BS_AUTORADIOBUTTON,169,154,57,10
+    DEFPUSHBUTTON   "Verschlüsseln",IDOK,15,183,62,17
+    PUSHBUTTON      "Beenden",IDCANCEL,152,183,50,17
+    PUSHBUTTON      "Hilfe",IDC_BUTTON3,255,183,50,17
+    CONTROL         "Passwort anzeigen",IDC_RADIO_PSHOW,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,28,41,75,10
-    CONTROL         "Passwort verbergen",IDC_RADIO4,"Button",
+    CONTROL         "Passwort verbergen",IDC_RADIO_PHIDE,"Button",
                     BS_AUTORADIOBUTTON,149,41,79,10
-    CONTROL         "Selbstextrahierend und verschlüsselt",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,154,131,
-                    10
-    CONTROL         "Verschlüsselt",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_DISABLED,169,154,57,10
-    LTEXT           "Verschlüsseln einer Datei",IDC_STATIC4,15,9,80,8
+    LTEXT           "Verschlüsseln einer Datei",IDC_STATIC_TITLE,15,9,80,8
     GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",
                     IDC_STATIC,15,28,290,54
     GROUPBOX        "Eingabedatei",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Ausgabedatei",IDC_STATIC,15,142,290,54
+    GROUPBOX        "Ausgabeformat",IDC_STATIC,15,142,290,29
 END
 
 IDD_SPLASH DIALOG DISCARDABLE  0, 0, 211, 122
@@ -251,12 +249,9 @@ BEGIN
         VERTGUIDE, 293
         VERTGUIDE, 305
         TOPMARGIN, 7
-        BOTTOMMARGIN, 223
         HORZGUIDE, 65
         HORZGUIDE, 88
-        HORZGUIDE, 164
         HORZGUIDE, 180
-        HORZGUIDE, 206
     END
 
     IDD_SPLASH, DIALOG
@@ -304,14 +299,21 @@ BEGIN
     IDS_ABOUTBOX            "Inf&o über AES-Tool..."
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
     IDS_STRING_ENCRYPT      "Verschlüsseln einer Datei"
-    IDS_STRING_DECERROR     "Die Daten konnten mit dem gegebenen Schluessel nicht entschluesselt werden.\n"
-    IDS_STRING_DATEI_VERSCHLUESSELT 
-                            "Die Datei wurde erfolgreich verschlüsselt."
-    IDS_STRING_DATEI_ENTSCHLUESSELT 
-                            "Die Datei wurde erfolgreich entschlüsselt."
+    IDS_STRING_DECERROR     "Fehler beim Entschlüsseln: %s"
+    IDS_STRING_ENCOK        "Die Datei wurde erfolgreich verschlüsselt."
+    IDS_STRING_DECOK        "Die Datei wurde erfolgreich entschlüsselt."
     IDS_STRING_VERSCHLUESSELN "Verschlüsseln"
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
     IDS_STRING_FILEERROR    "Fehler beim Oeffnen von %s: %s\n"
+    IDS_STRING_NOMEMORY     "Nicht genügend virueller Speicher vorhanden."
+    IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei beschädigt."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_ENCERROR     "Fehler beim Verschlüsseln: %s"
+    IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsslen."
+    IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -354,34 +356,32 @@ BEGIN
                     IDC_STATIC,7,45,197,40
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 233
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON1,215,105,78,17
-    EDITTEXT        IDC_EDIT3,28,172,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON2,215,170,78,17
-    DEFPUSHBUTTON   "En&crypt",IDOK,17,208,51,18
-    PUSHBUTTON      "E&xit",IDCANCEL,148,208,54,18
-    PUSHBUTTON      "&Help",IDC_BUTTON3,254,208,50,18
-    CONTROL         "Show password",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,28,41,75,10
-    CONTROL         "Hide password",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
-                    149,41,79,10
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,154,103,
-                    10
-    CONTROL         "Encrypted",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_DISABLED,149,154,80,10
-    LTEXT           "Encrypt a file",IDC_STATIC4,17,9,80,8
+    EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
+                    WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,215,105,78,17
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,28,154,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
+                    149,154,80,10
+    DEFPUSHBUTTON   "En&crypt",IDOK,17,182,51,18
+    PUSHBUTTON      "E&xit",IDCANCEL,148,182,54,18
+    PUSHBUTTON      "&Help",IDC_BUTTON3,254,182,50,18
+    CONTROL         "Show password",IDC_RADIO_PSHOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,28,41,75,10
+    CONTROL         "Hide password",IDC_RADIO_PHIDE,"Button",
+                    BS_AUTORADIOBUTTON,149,41,79,10
+    LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
     GROUPBOX        "Key [maximal 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
                     IDC_STATIC,17,28,287,54
     GROUPBOX        "Input file",IDC_STATIC,17,93,287,39
-    GROUPBOX        "Output file",IDC_STATIC,17,142,287,54
+    GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
 
 IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 253
@@ -438,7 +438,7 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 1.1",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 1.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
@@ -471,11 +471,9 @@ BEGIN
         VERTGUIDE, 293
         VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 226
         HORZGUIDE, 46
         HORZGUIDE, 88
         HORZGUIDE, 153
-        HORZGUIDE, 208
     END
 
     IDD_HELP, DIALOG
@@ -524,12 +522,21 @@ BEGIN
     IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "Decrypt a file"
     IDS_STRING_ENCRYPT      "Encrypt a file"
-    IDS_STRING_DECERROR     "The data could not be decrypted using the given key!\n"
-    IDS_STRING_DATEI_VERSCHLUESSELT "The file was successfully encrypted."
-    IDS_STRING_DATEI_ENTSCHLUESSELT "The file was successfully decrypted."
+    IDS_STRING_DECERROR     "File decryption error: %s"
+    IDS_STRING_ENCOK        "The file was successfully encrypted."
+    IDS_STRING_DECOK        "The file was successfully decrypted."
     IDS_STRING_VERSCHLUESSELN "Encrypt"
     IDS_STRING_ENTSCHLUESSELN "Decrypt"
     IDS_STRING_FILEERROR    "Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "Out of virtual memory."
+    IDS_STRING_KEYERROR     "Wrong key or file corrupt."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_ENCERROR     "File encryption error: %s"
+    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
 END
 
 #endif    // Englisch (GB) resources

@@ -10,28 +10,35 @@
 #define IDS_STRING_ENCRYPT              103
 #define IDS_STRING_DECERROR             104
 #define IDS_STRING_DATEI_VERSCHLUESSELT 105
+#define IDS_STRING_ENCOK                105
 #define IDS_STRING_DATEI_ENTSCHLUESSELT 106
+#define IDS_STRING_DECOK                106
 #define IDS_STRING_VERSCHLUESSELN       107
 #define IDS_STRING_ENTSCHLUESSELN       108
 #define IDS_STRING_FILEERROR            109
 #define IDS_STRING_DIRECTORY_MISSING    110
+#define IDS_STRING_NOMEMORY             110
+#define IDS_STRING_KEYERROR             111
+#define IDS_STRING_ENCERROR             112
+#define IDS_STRING_VERSION              113
+#define IDS_STRING_CORRUPT              115
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130
-#define IDC_EDIT1                       1000
+#define IDC_EDIT_KEY                    1000
 #define IDC_STATIC2                     1001
 #define IDC_STATIC3                     1002
 #define IDC_STATIC1                     1003
-#define IDC_EDIT2                       1004
+#define IDC_EDIT_SRC                    1004
 #define IDC_EDIT3                       1005
-#define IDC_BUTTON1                     1006
+#define IDC_BUTTON_SRC                  1006
 #define IDC_BUTTON2                     1007
-#define IDC_STATIC4                     1009
-#define IDC_RADIO1                      1011
-#define IDC_RADIO2                      1012
+#define IDC_STATIC_TITLE                1009
+#define IDC_RADIO_EXE                   1011
+#define IDC_RADIO_AES                   1012
 #define IDC_BUTTON3                     1013
-#define IDC_RADIO3                      1014
-#define IDC_RADIO4                      1015
+#define IDC_RADIO_PSHOW                 1014
+#define IDC_RADIO_PHIDE                 1015
 
 // Next default values for new objects
 // 
