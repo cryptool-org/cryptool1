@@ -19,6 +19,13 @@ struct NumFactor {
 	CString factorStr;
 	NumFactor *next;
 };
+struct zeit {
+	int day;
+	int hour;
+	int min;
+	int sec;
+	int msec;
+};
 
 class DlgTutorialFactorisation : public CDialog
 {
@@ -26,6 +33,7 @@ class DlgTutorialFactorisation : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	zeit zeit_condtruct;
 	double duration;
 	clock_t FactFinish;
 	clock_t FactStart;

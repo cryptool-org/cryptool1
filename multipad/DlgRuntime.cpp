@@ -42,6 +42,7 @@ CDlgRuntime::CDlgRuntime(CWnd* pParent /*=NULL*/)
 	m_VQSieve = 0;
 	m_VLenstra = 0;
 	m_VBrent = 0;
+	m_zahl = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -60,6 +61,7 @@ void CDlgRuntime::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT5, m_VQSieve);
 	DDX_Text(pDX, IDC_EDIT4, m_VLenstra);
 	DDX_Text(pDX, IDC_EDIT1, m_VBrent);
+	DDX_Text(pDX, IDC_EDIT6, m_zahl);
 	//}}AFX_DATA_MAP
 }
 

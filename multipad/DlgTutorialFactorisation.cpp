@@ -175,7 +175,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	
 
 	next_factor=Search_First_Composite_Factor();
-	
+		
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
 	{
@@ -223,6 +223,19 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor2Str( f2 );
 					name = "Brute Force";
 				}
+			}
+
+			if (next_factor.GetLength()>21)
+			{
+				dlg.m_zahl=_T("");
+				dlg.m_zahl.Insert(0, next_factor.Mid(0,9));
+				dlg.m_zahl += CString("...");
+				dlg.m_zahl += next_factor.Right(9);				
+			}
+			else
+			{
+				dlg.m_zahl=_T("");
+				dlg.m_zahl=next_factor;
 			}
 			dlg.m_curThread = 0;
 			dlg.m_numThreads = 0;
@@ -306,9 +319,43 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			FactFinish = clock();
 			duration =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration;
 			
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);
-			char line[256];
-			sprintf( line, pc_str, duration );
+			double temp;
+			modf(duration,&temp);
+			zeit_condtruct.day= (int) floor(temp/86400);
+			zeit_condtruct.hour= (int) floor((temp - zeit_condtruct.day*86400)/3600);
+			zeit_condtruct.min= (int) floor((temp - zeit_condtruct.day*86400- zeit_condtruct.hour*3600)/60);
+			zeit_condtruct.sec= (int) (temp - zeit_condtruct.day*86400- zeit_condtruct.hour*3600-zeit_condtruct.min*60);
+			zeit_condtruct.msec= (int) floor((duration-temp)*1000);
+			char msec[3];
+			
+			char line[256], timeStr[64];
+			
+			if ( zeit_condtruct.day >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr,pc_str, zeit_condtruct.day,zeit_condtruct.hour, zeit_condtruct.min,zeit_condtruct.sec);
+			}
+			else if (zeit_condtruct.hour >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_HRS,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr,pc_str, zeit_condtruct.hour, zeit_condtruct.min,zeit_condtruct.sec);
+			}
+			else if (zeit_condtruct.min >= 1)
+			{	
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_MIN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr,pc_str, zeit_condtruct.min,zeit_condtruct.sec);
+			}
+			else
+			{	
+				if (zeit_condtruct.msec<10) sprintf(msec, "00%i",zeit_condtruct.msec);
+				else if (zeit_condtruct.msec<100) sprintf(msec, "0%i",zeit_condtruct.msec);
+				else sprintf(msec, "%i",zeit_condtruct.msec);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr,pc_str, zeit_condtruct.sec, msec);
+			}
+			
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
+			sprintf( line, pc_str, timeStr );
 			m_benoetigte_zeit = line;	
 			
 			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr

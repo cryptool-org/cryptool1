@@ -57,6 +57,7 @@ public:
 	int		m_VQSieve;
 	int		m_VLenstra;
 	int		m_VBrent;
+	CString	m_zahl;
 	//}}AFX_DATA
 
 
