@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Poker-Test</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Poker-Test">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Zufallstest">
+</OBJECT>
+
+<P><A NAME="hid_analyse_zufallstests_pokertest"></A><B>Poker-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+
+<P>Für den Poker-Test muss die zu untersuchende Teilfolge <I>s</I> der Länge n mit s_i Elementen aus dem Wertebereich [0; 1]; 0 &lt;= i &lt;= n - 1, durch </P>
+
+<P><!--ZZZIND--> u_i = d * s_i; 0 &lt;= i &lt;= n - 1, </P>
+
+<P>in ganze Zahlen aus dem Bereich [0; d - 1] transformiert werden. Nun betrachtet man jeweils fünf ganzzahlige, aufeinanderfolgende, nicht – überlappende Zahlen aus u. Dabei treten - wie beim Pokerspiel - folgende Muster auf:</P>
+
+<PRE><CODE>    Bust:            abcde
+    One Pair:        aabcd
+    Two Pairs:       aabbc
+    Three of a Kind: aaabc
+    Full House:      aaabb
+    Four of a Kind:  aaaab
+    Five of a Kind:  aaaaa</CODE></PRE>
+
+<P>Man bestimmt, wie oft jedes dieser 5 Tupel in der Folge auftritt. Anschließend vergleicht man mit einem <A href="chi_2_verteilung.html">chi^2</A> -Test die ermittelten Werte mit den erwarteten Werten. Die Wahrscheinlichkeiten für die Muster bei einem Transformationsfaktor von d = 10 können wie folgt angegeben werden:</P>
+
+<PRE><CODE>    P("abcde") = 0.3024
+    P("aabcd") = 0.504
+    P("aabbc") = 0.108
+    P("aaabc") = 0.072
+    P("aaabb") = 0.009
+    P("aaaab") = 0.0045
+    P("aaaaa") = 0.0001</CODE></PRE>
+
+<P>Auf die Häufigkeitsverteilung der sieben Klassen kann bei d = 10 ein <A href="chi_2_verteilung.html">chi^2</A> -Test mit sechs Freiheitsgraden durchgeführt werden. Dabei wird lediglich die Anzahl der unterschiedlichen Werte ermittelt und damit die Anzahl der Klassen auf fünf Kategorien reduziert. Für die jeweiligen Klassen gelten folgende Wahrscheinlichkeiten:</P>
+
+<PRE><CODE>    P("5 verschieden") = 0.3024
+    P("4 verschieden") = 0.504
+    P("3 verschieden") = 0.180
+    P("2 verschieden") = 0.0135
+    P("1 verschieden") = 0.0001</CODE></PRE>
+
+<P>In Buch (Menezes Alfred J., Van Oorschot Paul C. und Vanstone Scott A. <I>Handbook of Applied Cryptography</I>. CRC Press, Boca Raton, New York, London, 1997) wird folgende Variante des klassischen Poker-Tests für Binärfolgen beschrieben. Für jede Zahl m gibt es 2^m unterschiedliche Möglichkeiten für eine Binärfolge der Länge m. Bei diesem Test wird die Folge <I>s</I> in Blöcke der Länge m unterteilt und danach die Häufigkeit jeder der 2^m möglichen Teilfolgen der Länge m in <I>s</I> bestimmt. Der Poker-Test überprüft nun, ob die 2^m möglichen Werte in einem akzeptablen Ausmaß in der Folge vorkommen. </P>
+
+<P>Sei m ein ganze, positive Zahl für die gilt (n / m) &gt;= 5 * 2^m , und sei k = (n / m). Nun zerlegt man die Folge <I>s</I> in k nicht - überlappende Teile, jeweils der Länge m. Danach zählt man das Auftreten der 2^m möglichen m – Bit-Werte in der Sequenz. Sei n_i die Anzahl des m – -Wertes i, 0 &lt;= i &lt;= 2^m - 1. Der Poker-Test bestimmt nun, ob alle Teilfolgen der Länge m annähernd gleich oft in <I>s</I> vorkommen.</P>
+
+<P>Die verwendete Teststatistik ist gegeben durch</P>
+
+<P><!--ZZZIND--> X3 = (2 ^ m / k) * (sum[i = 0; i = 2 ^ m – 1] n_i ^ 2) - k</P>
+
+<P>wobei X3 annähernd einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit 2 ^ m - 1 Freiheitsgraden gehorcht. Es wird empfohlen, den Test mehrmals mit unterschiedlichen Werten für m zu wiederholen.</P>
+
+<P><B>Ein Poker-Test Beispiel:</B></P>
+
+<P>Im folgenden werden beispielhaft an der kurzen Binärfolge</P>
+
+<PRE><CODE>s =
+00010111 01101101 01111101 11110011 00101111
+00001111 10100100 11001111 11000011 11010001
+11010001 00101110 11010100 11000011 01010001
+11010110 00110010 10001111 00000111 01000111</CODE></PRE>
+
+<P>mit der Länge n = 160 (20 Byte) klassischen Poker-Test durchgeführt. Das <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> wird mit ‘alpha‚ = 0.05 festgelegt.</P>
+
+<P>Wir wählen m = 3 (Tupelgröße). Die Analyse der k = 53 nicht-überlappenden Triple von s ergibt:</P>
+
+<PRE><CODE>N[000] = 4    N[100] = 9
+N[001] = 8    N[101] = 9
+N[010] = 3    N[110] = 4
+N[011] = 9    N[111] = 7</CODE></PRE>
+
+<P>Berechnen wir nun die Teststatistik für den Poker-Test:</P>
+
+<P><!--ZZZIND--> X3 = (8 / 53) * (4 ^ 2 +8 ^ 2 +3 ^ 2 +9 ^ 2 +9 ^ 2 +9 ^ 2 +4 ^ 2 +7 ^ 2) – 53 = 6.925</P>
+
+<P><A href="chi_2_verteilung.html">chi^2- Verteilung</A> Tabelle liefert uns bei einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von ‘alpha‚ = 0.05 bei einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit 2 ^ 3 - 1 = 7 Freiheitsgraden einen Grenzwert von 14.07. Mit X3 = 6.925 &lt;= 14.07 besteht die Folge <I>s</I> den Poker-Test.</P>
+
+<P><B>Literatur</B>: <!--ZZZUL-->
+
+<UL>
+	<LI>Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, Klagenfurt, 1999.<BR><BR></LI>
+
+	<LI>Menezes Alfred J., Van Oorschot Paul C. und Vanstone Scott A. <I>Handbook of Applied Cryptography.</I> CRC Press, Boca Raton, New York, London, 1997.</LI>
+</UL>
+
+</BODY>
+</HTML>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>DES (Data Encryption Standard)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="DES">
+</OBJECT>
+
+<P><A NAME="des_info"></A><B>DES (Data Encryption Standard) </B></P>
+
+<P>Der <A href="hid_crypt_des_desecb.html">DES</A> ist ein symmetrisches <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>, das auf Klartextblöcken der Länge 64 Bits (= 8 Bytes) operiert und Blöcke mit <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseltem</A> Text der Länge 64 Bits erzeugt. Die Länge des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> beträgt ebenfalls 64 Bits; effektiv jedoch werden nur 56 Bits benutzt, da 8 Bits als Paritätsbits verwendet werden. Da die amerikanische <!--ZZZPOPUP--><A href="nsa.html">NSA</A> bei der Entwicklung von DES beteiligt war, wurde seine Sicherheit lange Zeit in Frage gestellt, man hat jedoch bis heute keinen effektiven Angriff auf DES gefunden. Allerdings kann man heutzutage mittels einer vollständigen Schlüsselraumsuche mit einigem Aufwand eine mit DES verschlüsselte Nachricht in weniger als 25 Stunden knacken (Quelle: <CODE>http://www.eff.org/descracker/</CODE>). Aus diesem Grund ist der DES nicht mehr als sicher anzusehen.</P>
+
+<P>Durch das Hintereinanderausführen von drei DES-Verschlüsselungen unter Verwendung von zwei oder drei verschiedenen 56 Bit DES-Schlüsseln erhält man das sogenannte Triple-DES-Verfahren (zwei oder drei Schlüssel Triple-DES). Durch diesen Trick erhält man eine effektive Schlüssellänge von 112 oder 168 Bit. Triple-DES hat sich heute als quasi-Standard für die symmetrische Verschlüsselung durchgesetzt. </P>
+
+<P>Aufgrund seiner schlechten Performance gibt es Bestrebungen demnächst Triple-DES durch das moderne <A href="aes.html">AES</A>-Verfahren zu ersetzen.</P>
+
+<P><U>Bemerkung:</U></P>
+
+<P>Beim Verschlüsseln mit dem DES-Verschlüsselungsverfahren wird für die Ver-/Entschlüsselung von jedem Schlüssel-Byte das niederwertigste Bit nicht verwendet, da es als Paritätsbit genutzt wird. Dadurch kann es bei der Brute-Force-Analyse passieren, dass ein Schlüssel gefunden wird, der nicht mit dem Schlüssel, mit dem das Dokument verschlüsselt ist, identisch ist. Dennoch sind die beiden Schlüssel äquivalent, falls sie sich immer nur im niederwertigsten Bit jedes Bytes unterscheiden. Also sind die Bytes 00 und 01, 02 und 03, ..., 0C und 0D, 0E und 0F jeweils zueinander äquivalent. Dasselbe gilt auch, wenn statt der führenden 0 ein anderes hexadezimales Zeichen 1, 2, 3, ..., 9, A, B, ..., F vorhanden ist.</P>
+
+<P><B>Beispiel</B>: Die DES-Schlüssel</P>
+
+<P>00 22 44 66 88 AA CC EE  (hex) = </P>
+
+<P>0000000<B>0</B> 0010001<B>0</B> 0100010<B>0</B> 0110011<B>0</B> 1000100<B>0</B> 1010101<B>0</B> 1100110<B>0</B> 1110111<B>0</B>  (binär) und</P>
+
+<P>01 23 45 67 89 AB CD EF  (hex) =</P>
+
+<P>0000000<B>1</B> 0010001<B>1</B> 0100010<B>1</B> 0110011<B>1</B> 1000100<B>1</B> 1010101<B>1</B> 1100110<B>1</B> 1110111<B>1</B>  (binär)</P>
+
+<P>sind äquivalent.</P>
+
+</BODY>
+</HTML>

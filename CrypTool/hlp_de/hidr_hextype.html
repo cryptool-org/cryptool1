@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fenster für hexadezimale Ein-/Ausgaben</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Fenster">
+	<PARAM NAME="Keyword" VALUE="Hexadezimale Ein-/Ausgaben">
+</OBJECT>
+
+<P><A NAME="hidr_hextype"></A><B>Fenster für hexadezimale Ein-/Ausgaben</B></P>
+
+<P>Symbol des Menüs: <IMG SRC="images/cthex.gif" ALT="" BORDER=0></P>
+
+<P>In diesem Fenster wird ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> angezeigt, welches nicht-anzeigbare Sonderzeichen enthält.</P>
+
+<P>In diesem Typ von Dokumenten sind die Bearbeitungsmöglichkeiten (siehe Menü<A href="menu_edit.html"> <B>Bearbeiten</B></A>) etwas eingeschränkt: Die Länge des Textes muss erhalten bleiben. Zeichen können daher überschrieben werden, nicht jedoch entfernt oder eingefügt; somit funktioniert der Befehl <A href="hid_edit_cut.html">Ausschneiden</A> nicht. Die Befehle <A href="hid_edit_copy.html">Kopieren</A> und <A href="hid_edit_paste.html">Einfügen</A> sind möglich, es ist jedoch zu beachten, dass <A href="hid_edit_paste.html">Einfügen</A> Zeichen überschreibt und nicht nach hinten verschiebt.</P>
+
+<P><U>Das Fenster für hexadezimale Ein-/Ausgaben ist wie folgt aufgebaut:</U></P>
+
+<P>In der ersten Spalte befindet sich eine fortlaufende hexadezimale Nummerierung der Position der in den anderen beiden Spalten angezeigten Zeichen.</P>
+
+<P>In der zweiten Spalte werden die Zeichen hexadezimal (siehe <A href="ascii.html">ASCII-Tabelle</A>) dargestellt. Ein Zeichen wird durch zwei aufeinanderfolgende Zeichen (0, 1, ..., 9, A, B, ..., F) dargestellt.</P>
+
+<P>In der dritten Spalte werden die darstellbaren Zeichen gemäß ihrem ASCII-Code angezeigt. Nicht-anzeigbare Zeichen werden durch einen Punkt dargestellt.</P>
+
+<P>Wenn der hexadezimale Wert eines Zeichens geändert wird, erfolgt eine Anpassung der Darstellung des ASCII-Zeichens und umgekehrt.</P>
+
+<P><IMG SRC="images/fenster_hex.gif" ALT="" BORDER=0></P>
+
+<P>Dokumente, die nur aus Buchstaben bestehen, werden in einem <A href="hidr_asctype.html">Fenster für Buchstabenfolgen Ein-/Ausgaben</A> angezeigt. <!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> ohne Sonderzeichen hingegen werden in einem <A href="hidr_texttype.html">Fenster für Text Ein-/Ausgaben</A> angezeigt. </P>
+
+<P>Die Darstellung in einem <A href="hidr_texttype.html">Fenster für Text-Ein-/Ausgaben</A> kann durch den Menüeintrag <A href="menu_view.html"><B>Ansicht \ Als Text anzeigen</B></A> erzwungen werden (Achtung: Dabei gehen alle Zeichen, die hinter dem ersten ASCII-Zeichen 'NULL' [= Text-Formatzeichen für das Dateiende] stehen, verloren).</P>
+
+</BODY>
+</HTML>

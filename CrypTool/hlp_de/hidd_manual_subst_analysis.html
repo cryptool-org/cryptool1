@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Manuelle Nachbearbeitung (Monoalphabetische Substitution)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Manuelle Nachbearbeitung (Monoalphabetische Substitution)">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetische Substitution">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
+<P><A NAME="hidd_manual_subst_analysis"></A><B>Dialog Manuelle Nachbearbeitung</B></P>
+
+<P>In diesem Dialog kann die automatische Analyse für die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> durch <A href="hid_cryptmono.html">monoalphabetische Substitution</A> nachbearbeitet werden.</P>
+
+<P>Nachdem <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> seine <A href="hid_analyze_subst.html">automatische Analyse der monoalphabetischen Substitution</A> abgeschlossen hat, erscheint dieses Nachbearbeitungsfenster. Im oberen Teil des Dialoges befinden sich Buchstabenzuordnungen, die von CrypTool ermittelt wurden. Sie können diese durch Überschreiben ändern. Eine Zuordnung des Buchstabens A zum Buchstaben E bedeutet zum Beispiel, dass der Buchstabe A des verschlüsselten Textes dem Klartextbuchstaben E entspricht. CrypTool prüft, ob neue Zuordnungen nicht mit schon vorhandenen Zuordnungen kollidieren, das heißt ob zwei unterschiedliche Buchstaben ein und demselben Buchstaben zugeordnet werden (das ist bei monoalphabetischer Substitution unzulässig). Wird eine Kollision festgestellt, so erscheint ein Dialog, das sie auf diesen Umstand hinweist und fragt, ob sie die alte oder die neue Eingabe beibehalten möchten. Die jeweils andere Zuordnung wird auf unbestimmt (*) gesetzt. Handelt es sich um eine vorschriftsmäßige Eingabe, so wird diese Eingabe auf den zu analysierenden Text angewendet und das Ergebnis im unteren Teil des Dialoges dargestellt.</P>
+
+<P>Durch Betätigen des Knopfes <B>Ergebnis der automatischen Analyse wieder herstellen</B> werden die eigenen Eingaben rückgängig gemacht und im oberen Teil des Dialoges wird wieder die von CrypTool ermittelte (partielle) Substitution dargestellt. Mit dem Knopf <B>Zurück</B>, können Sie die jeweils letzte Änderung rückgängig machen.</P>
+
+<P>Durch Drücken des Knopfes <B>Aktuellen Zwischenstand ausgeben</B> wird der verschlüsselte Text mit der aktuell eingegebenen Substitution <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A> und in einem neuen <A href="hidr_texttype.html">Textfenster</A> ausgegeben.</P>
+
+</BODY>
+</HTML>

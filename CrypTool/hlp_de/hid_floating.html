@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Gleitende Häufigkeit</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Gleitende Häufigkeit">
+</OBJECT>
+
+<P><A NAME="hid_floating"></A><B>Gleitende Häufigkeit des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P>
+
+<P>Die gleitende Häufigkeit eines <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> ist eine Kennlinie für dessen lokalen Informationsgehalt an den einzelnen Stellen des Dokuments. Die gleitende Häufigkeit gibt an, wie viele unterschiedliche Zeichen sich in einem vorgegebenen Bereich von 64 Zeichen Länge des Dokuments befinden.</P>
+
+<P><U>Verteilung der Zeichenhäufigkeit</U></P>
+
+<P>Die Funktion betrachtet jeweils 64 Zeichen lange Folgen des Textes im aktuellen Fenster und zählt wie viele unterschiedliche Zeichen sich in diesem "Fenster" befinden. Danach wird das "Fenster" um ein Zeichen weiter geschoben und es wird erneut gezählt. Als Resultat erhält man einen Überblick über das Dokument, in dem verzeichnet ist, an welcher Stelle des Dokuments sich "viel tut" und an welcher Stelle des Dokuments sich "wenig tut".</P>
+
+<P>Je nach der Struktur und dem Inhalt der Daten im aktuellen Fenster ergeben sich dabei unterschiedliche Bilder:</P>
+
+<UL>
+	<LI>Bei <B>Bildern</B> (bmp-Dateien) sind übliche Werte im Bereich zwischen 5 und 20.<BR><BR></LI>
+
+	<LI>Bei <B>Text</B> kann man erwarten, dass die Werte etwa zwischen 18 und 30 schwanken.<BR><BR></LI>
+
+	<LI><B>Ausführbare Programme</B> haben im eigentlichen Programmteil Werte zwischen 30 und 40. Im <!--ZZZIND--> Datenteil schwanken sie um 20.<BR><BR></LI>
+
+	<LI><A href="hid_zip.html">Komprimierte</A> <A href="datei.html">Dateien</A> und <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> Daten bzw. <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> selbst haben <!--ZZZIND--> Werte knapp unter dem Maximalwert 64.</LI>
+</UL>
+
+<P><U>Interpretation der Kennlinie</U></P>
+
+<P>Die Kennlinie lässt weitgehende Rückschlüsse auf den Inhalt des Dokuments zu, da man einfach erkennt, ob es besondere Auffälligkeiten an bestimmten Stellen gibt. So lassen zum Beispiel "Ausreißer nach oben" in einer ausführbaren Datei darauf schließen, dass sich an dieser Stelle verschlüsselte Daten oder sogar kryptographische Schlüssel befinden. In Word-Dokumenten lässt sich feststellen, welcher Teil des Dokuments wirklich zur Speicherung von Texten eingesetzt wird und wo nur Verwaltungs- und Formatierungsdaten zu finden sind.</P>
+
+<P>In der Kryptographie wird der Mechanismus hauptsächlich zum Auffinden von Schlüsseln in großen Datenmengen eingesetzt. Ein Beispiel ist hier die Datei advapi32.dll, die sich im Verzeichnis System32 des Windows-Systems befindet. Sie enthält zwei kryptographische Schlüssel, deren Position einfach lokalisiert werden kann.</P>
+
+</BODY>
+</HTML>

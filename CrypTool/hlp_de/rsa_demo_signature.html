@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Die digitale Signatur einer Nachricht</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Digitale Signatur einer Nachricht">
+	<PARAM NAME="Keyword" VALUE="Signatur">
+</OBJECT>
+
+<P><A NAME="rsa_demo_signature"></A><B>Die digitale Signatur einer Nachricht</B></P>
+
+<P>a) <B>Einfache, naive Vorgehensweise</B>: Sie könnten einen Klartext mit dem geheimen Schlüssel (N,d) verschlüsseln. Jetzt hat sich die Situation grundlegend geändert:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P><B>Jeder kann mit den öffentlichen Schlüssel (N,e) die verschlüsselte Nachricht entschlüsseln. Aber nur Sie – als Besitzer des geheimen Schlüssels (N,d) – konnten die Nachricht verschlüsseln.</B></P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>Der Besitzer des geheimen Schlüssel verschlüsselt die Nachricht M mit dem geheimen Schlüssel: C(N,d;M). Die Verschlüsselung C(N,d;M) kann auch als <B>Unterschrift</B> der Nachricht M betrachtet werden, denn die Echtheit der Unterschrift kann jeder verifizieren, der C(N,d;M), den öffentlichen Schlüssel (N,e) und die Nachricht M erhält:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P><B>Die Unterschrift C(N,d;M) ist gültig, wenn die mit (N,e) entschlüsselte Unterschrift M‘ = E(N,e;C) mit der Nachricht M übereinstimmt.</B></P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>b) <B>Real</B> werden durch das Verwenden einer <A href="hashfunktion.html">Hashfunktion</A> H die folgenden Nachteile der reinen Unterschrift C(N,d;M) behoben: </P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>Wird die Nachricht M mit dem geheimen RSA-Schlüssel verschlüsselt, ist der Rechenaufwand für lange Nachrichten M sehr hoch. <BR><BR></LI>
+
+	<LI>Die Signatur C(N,d;M) ist mindestens genau so lang wie die unterschriebene Nachricht M selbst.<BR><BR></LI>
+
+	<LI>Ein mögliches Geheimhaltungsproblem, da die Nachricht aus der Signatur wiedergewonnen werden kann.</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Deshalb wird nur der Hashwert H = H(M) der Nachricht unterschrieben. Zur Verifikation der Unterschrift C = C(N,d;H) benötigt man jetzt noch zusätzlich die Information der verwendeten Hashfunktion H: </P>
+
+<P><!--ZZZINDN--></P>
+
+<P><B>Die Unterschrift C(N,d;H) ist gültig, wenn die mit (N,e) entschlüsselte Unterschrift H‘ = E(N,e;C) mit dem Hashwert H(M) der Nachricht M übereinstimmt.</B></P>
+
+</BODY>
+</HTML>

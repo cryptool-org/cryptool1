@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Diffie-Hellman-Schlüsselaustausch: Öffentlichen Teilschlüssel erzeugen</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_diffiehellman_createsharedkey"></A><B>Dialog Öffentliche Teilschlüssel erzeugen</B></P>
+
+<P>Nach einem Klick auf die Schaltfläche <B>OK</B> lassen sich die öffentlichen Teilschlüssel für Alice und Bob erzeugen.</P>
+
+<P>Beachten Sie, dass Sie den öffentlichen Teilschlüssel von Alice und Bob <U>ausschließlich</U> dann erzeugen lassen können, wenn Sie zuvor ein Geheimnis für die entsprechende Partei gewählt haben.</P>
+
+<P>Dieser Umstand lässt sich leicht nachvollziehen, wenn man die Gleichung für den öffentlichen Schlüssel von Alice betrachtet:</P>
+
+<P><!--ZZZIND--> <!--ZZZFORMEL--> <I>A</I> = <I>g</I><SUP>a</SUP>mod <I>p</I> </P>
+
+<P>Bobs öffentlicher Schlüssel B wird nach dem gleichen Muster berechnet, allerdings potenziert man nicht mit dem Geheimnis von Alice (a), sondern mit dem Geheimnis von Bob (b).</P>
+
+<P>Die Gleichung zeigt, dass zur Berechnung der öffentlichen Schlüssel unbedingt das Geheimnis der entsprechenden Partei nötig ist.</P>
+
+<P><B>Aus diesem Grund kann es möglich sein, dass Sie an dieser Stelle nur einen der beiden öffentlichen Schlüssel erzeugen können</B>! Bitte ergänzen Sie in diesem Fall Ihre Eingaben, indem Sie auch das noch offene Geheimnis festlegen.</P>
+
+</BODY>
+</HTML>

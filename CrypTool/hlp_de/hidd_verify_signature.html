@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Verifikation einer Signatur</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verifizieren">
+	<PARAM NAME="Keyword" VALUE="Signatur">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Verifikation einer Signatur">
+</OBJECT>
+
+<P><A NAME="hidd_verify_signature"></A><B>Dialog Verifizieren einer Signatur</B></P>
+
+<P>Über diesen Dialog kann eine <A href="hid_crypt_verify.html">Signatur überprüft</A> werden. Das aktive <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> muss die Ausgabe enthalten, die mit dem Befehl <!--ZZZPOPUP--><A href="hid_crypt_sign.html">Dokument signieren</A> oder <A href="menu_related_methods.html">Einzelverfahren</A> \ <A href="menu_tutorial_for_small_numbers.html">RSA-Demo</A> \ Signaturdemo (Signaturerzeugung) erzeugt wurde (ansonsten gibt es einen Hinweis).</P>
+
+<P>Aus der Liste der <B>verfügbaren Schlüsselbezeichner</B> (<!--ZZZPOPUP--><A href="schluesselbezeichner.html">Schlüssel-Bezeichner</A> bestehen unter anderem aus dem Namen des Erstellers) wählt man denjenigen Bezeichner aus, mit dem die <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> erstellt wurde.</P>
+
+<P>Ist unter dem Bezeichner ein RSA- oder DSA-<!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> abgespeichert, so ist lediglich die <B>Signatur Verifizieren </B>-Taste zu betätigen, um die Verifikation der Signatur zu veranlassen. Ein Dialog gibt das Resultat der Überprüfung bekannt.</P>
+
+<P>Ist unter dem Bezeichner ein <A href="ellipkurven.html">Elliptisches Kurven</A>-Schlüsselpaar abgespeichert, muss noch die richtige Auswahl in den beiden Gruppenfeldern <B>Benutztes Verfahren</B> und <B>Benutzte Hashfunktion</B> erfolgen (ansonsten wird die Signatur als inkorrekt erkannt). Siehe dazu auch die Erläuterungen zu dem Menüpunkt <B>Digitale Signaturen \ <A href="hid_crypt_verify.html">Signatur überprüfen</A></B>.</P>
+
+<P>Ferner ist es möglich, durch ein Häkchen in der Checkbox <B>Zwischenschritte anzeigen</B> die Zwischenschritte bei der Signaturverifikation auszugeben. Die Ausgabe erfolgt im Dialog <A href="hidd_verify_ecsignature_stepbystep.html"><B>Signaturverifikation – Schritt für Schritt</B></A>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Autokorrelation</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Autokorrelation">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+</OBJECT>
+
+<P><A NAME="hid_auto"></A><B>Autokorrelation des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P>
+
+<P>Die Autokorrelation eines <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> ist eine Kennzahl für die Ähnlichkeit von Teilen des Dokuments. Mit Hilfe der Autokorrelation kann unter Umständen die <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> eines <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Dokuments ermittelt werden.</P>
+
+<P><U>Korrelation</U></P>
+
+<P>Die folgenden Aussagen über Korrelation gelten hier für eine <B>unabhängige gleichverteilte Binärfolge</B>: <!--ZZZUL-->
+
+<UL>
+	<LI>"Binärfolge" heißt, dass die einzelnen Ereignisse der Zufallsfolge den Wert '1' oder '0' annehmen.<BR><BR></LI>
+
+	<LI>"Unabhängig" heißt, dass die Wahrscheinlichkeit für das Eintreffen des (n+1)-ten Ereignisses unabhängig von allen Werten der n vorherigen Ereignisse ist.<BR><BR></LI>
+
+	<LI>"<A href="gleichmaessig_verteilt.html">Gleichverteilt</A>" bedeutet für die Ereignisse der Zufallsfolge, dass die Wahrscheinlichkeit einer '0' gleich der Wahrscheinlichkeit einer '1' ist.</LI>
+</UL>
+
+<P>Die Ähnlichkeit zweier Folgen wird üblicherweise durch ihre Korrelation gemessen. Die Korrelation C zweier Folgenabschnitte der Länge n berechnet sich als die Zahl A der übereinstimmenden und der Zahl D der nicht übereinstimmenden Folgenglieder nach der Formel:</P>
+
+<P>C := (A-D) / n</P>
+
+<P>Der Erwartungswert für die Korrelation zweier unabhängiger Zufallsfolgen ist demnach also Null. Zwei Folgen, die häufiger übereinstimmen, haben dagegen einen positiven Korrelationswert. Im Grenzfall völliger Übereinstimmung ist A=n, D=0 und daher C=1. Umgekehrt erhält man bei weniger als n/2 Übereinstimmungen eine negative Korrelation. Der Betrag der Korrelation zweier Folgen ist daher ein Maß für deren Abhängigkeit.</P>
+
+<P><U>Autokorrelation</U></P>
+
+<P>Die Autokorrelationsfunktion C(t) misst die Ähnlichkeit einer Folge (s[i])=s[1] s[2] ... und der um t Stellen verschobenen Folge (s[i+t])=s[t] s[t+1] ... .</P>
+
+<P>Man betrachtet einen Folgenabschnitt der Länge n und definiert:</P>
+
+<P>A(t) := Anzahl der übereinstimmenden Glieder der Folgen (s[i]) und (s[i+t]) im betrachteten Abschnitt.</P>
+
+<P>D(t) := Anzahl der nicht übereinstimmenden Glieder der Folgen (s[i]) und (s[i+t]) im betrachteten Abschnitt.</P>
+
+<P>Die Autokorrelationsfunktion C(t) = (A(t)-D(t)) / n .</P>
+
+<P>Im Falle von endlichen Folgen wird die Folge s (azyklisch) um t Positionen verschoben, das heißt die Folge (s[i+t]) hat nur n-t Folgenglieder (wenn n die Länge der Folge (s[i]) ist). Zur Berechnung der Autokorrelation betrachtet man nun die Folgen s[1] s[2] ... s[n-t+1] und s[t] s[t+1] ... s[n] und berechnet deren Korrelation.</P>
+
+<P>Die Autokorrelationsfunktion wird unter anderem bei der Ermittlung der Periodenlänge zur automatischen Analyse des <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahrens</A> und Verschlüsselung durch <A href="hid_add_bin.html">byteweise Addition</A> und <A href="hid_xor_bin.html">exklusives Oder</A> benutzt. Siehe dazu das Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+</BODY>
+</HTML>

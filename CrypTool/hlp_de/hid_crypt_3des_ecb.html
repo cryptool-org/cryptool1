@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Triple DES (ECB)-Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Triple DES (ECB)-Verschlüsselungsverfahren">
+</OBJECT>
+
+<P><A NAME="hid_crypt_3des_ecb"></A><B>Triple DES-Verschlüsselungsverfahren im ECB-Modus (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch)</B></P>
+
+<P>Bei der hier verwendeten Version von Triple-DES kommt eine Dreifach<!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselung</A> mit zwei verschiedenen <A href="hid_crypt_des_desecb.html">DES</A>-<!--ZZZPOPUP--><A href="schluessel.html">Schlüsseln</A> zum Einsatz:</P>
+
+<P>Der Klartextblock wird mit dem ersten Schlüssel <!--ZZZPOPUP--><A href="des_info.html">DES</A>-verschlüsselt.</P>
+
+<P>Der resultierende Block wird mit dem zweiten Schlüssel DES-<!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>.</P>
+
+<P>Der daraus resultierende Block wird nun wiederum mit dem ersten Schlüssel DES-verschlüsselt.</P>
+
+<P>Die Entschlüsselung läuft bei Vertauschen von Verschlüsselung und Entschlüsselung in umgekehrter Reihenfolge ab. Dieses Verfahren bezeichnet man auch als Encrypt-Decrypt-Encrypt (EDE).</P>
+
+<P>Wie bei <!--ZZZPOPUP--><A href="des_info.html">DES</A> stellt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> auch hier neben dem <A href="ecbmodus.html">ECB-Modus</A> den <A href="cbcmodus.html">CBC-Modus</A> zur Verfügung.</P>
+
+<P>Die Eingabe des Schlüssels erfolgt im Dialog <A href="hidd_key.html">Schlüsseleingabe</A>.</P>
+
+<P>In CrypTool ist ein <A href="hid_analyse_tripledesecb.html">Brute-Force Angriff für das Triple DES-Verschlüsselungsverfahren im ECB-Modus</A> enthalten.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> gibt es ein <A href="szenarien_tripledescbc.html">Szenario</A> sowohl für die Ver- und Entschlüsselung mittels des Triple DES-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungserfahrens</A> im <!--ZZZPOPUP--><A href="cbcmodus.html">CBC-Modus</A> als auch für den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A>. Dieses Szenario kann gleichfalls für das Triple DES-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahrens</A> im <!--ZZZPOPUP--><A href="ecbmodus.html">ECB-Modus</A> durchgeführt werden, wobei sich natürlich die verschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> unterscheiden.</P>
+
+</BODY>
+</HTML>

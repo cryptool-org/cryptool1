@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Diffie-Hellman-Schlüsselaustausch: Öffentliche Parameter setzen</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_diffiehellman_publicparameters"></A><B>Dialog Öffentliche Parameter setzen</B></P>
+
+<P>Dieser Dialog fordert Sie auf, die öffentlichen Parameter für die am <A href="dh-verfahren.html">Schlüsselaustausch</A> beteiligten Parteien festzulegen.</P>
+
+<P><IMG SRC="images/dh_setpublicparameters.gif" ALT="" BORDER=0></P>
+
+<P>Geben Sie bitte zunächst den Primzahlmodul p ein, da die Verifikation des Generators g direkt von p abhängig ist.</P>
+
+<P>Beachten Sie, dass die Verwendung einer <U>nicht primen</U> Zahl die Sicherheit des Verfahrens unter gewissen Umständen negativ beeinflussen kann! </P>
+
+<P>Falls Sie keine verhältnismäßig großen Primzahlen kennen, so erzeugen Sie den Primzahlmodul p über die Schaltfläche <B>Primzahl erzeugen</B>. In der dadurch aufgerufenen Dialogbox <B>Primzahlen generieren</B> müssen Sie nach dem Generieren auf die Schaltfläche <B>Primzahlen übernehmen</B> klicken.</P>
+
+<P>Beachten Sie bitte, dass die Größe bzw. Bitlänge des Primzahlmoduls p ein wesentlicher Aspekt im Bezug auf die Sicherheit des <A href="dh-verfahren.html">Verfahrens</A> ist. Für Demonstrationszwecke können Sie natürlich auch Werte wählen, die in der Realität als unsicher gelten.</P>
+
+<P></P>
+
+<P>Analog zur Auswahl des Primzahlmoduls p können Sie auch den Wert für den Generator g vom Dialog wählen lassen; betätigen Sie dazu die Schaltfläche <B>Generator erzeugen</B>. Falls Sie selbst einen Generator auswählen wollen, so beachten Sie bitte, dass dem Generator nach Möglichkeit keiner der folgenden Werte</P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>Null<BR><BR></LI>
+
+	<LI>Eins<BR><BR></LI>
+
+	<LI>Primzahlmodul – 1<BR><BR></LI>
+
+	<LI>Vielfaches des Primzahlmoduls</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>zugewiesen werden sollte, da das Verfahren ansonsten nicht mehr sicher ist.</P>
+
+<P>Mit der Schaltfläche <B>Parameter übernehmen</B> schließen Sie den Dialog und gelangen zum nächsten Schritt des Diffie-Hellman-Verfahrens.</P>
+
+</BODY>
+</HTML>

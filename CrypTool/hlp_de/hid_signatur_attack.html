@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Angriff auf die digitale Signatur</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Hashkollision">
+	<PARAM NAME="Keyword" VALUE="Angriff auf die digitale Signatur">
+</OBJECT>
+
+<P><A NAME="hid_signatur_attack"></A><B>Angriff auf den Hashwert der digitalen Signatur</B></P>
+
+<P>Hier wird ein Verfahren vorgestellt, mit dem der <!--ZZZPOPUP--><A href="hashfunktion.html">Hashwert</A> der <!--ZZZPOPUP--><A href="signatur.html">digitalen Signatur</A> angegriffen werden kann (der Angriff ist unabhängig vom Hashverfahren).</P>
+
+<P>Dazu gehört der Dialog <A href="hidd_signature_attack.html">Angriff auf die digitale Signatur</A>, in dem die Parameter für den Angriff festgelegt werden können, und Dialoge, die den Status des Angriffs beschreiben. Zu allen Dialogen kann man mit <B>F1</B> kontextbezogene Hilfe erhalten.</P>
+
+<P>Wesentlich ist, dass man die Länge der übereinstimmenden Bits des Hashwertes variabel festlegen kann und dass man direkt sehen kann, wie die 2 veränderten Dokumente verschiedenen Inhalts, aber mit gleichem Hashwert aussehen.</P>
+
+<P>Literatur: <!--ZZZUL-->
+
+<UL>
+	<LI>Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone: <I>Handbook of Applied Cryptography</I>, CRC Press, 1997.<BR><BR></LI>
+
+	<LI>Jan Blumenstein: <I>Methoden und Werkzeuge für Angriffe auf die digitale Signatur</I>, Bachelor-Arbeit des Kooperativen Studiengangs Informatik an der Fachhochschule Darmstadt, 2003.<BR>
+In dieser Bachelor-Arbeit wird konkret beschrieben, wie der Angriff mit Hilfe des Floyd-Algorithmus implementiert wurde.</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Praktische Experimente mit Hilfe der Implementierung in CrypTool wurden durchgeführt, um Teilkollisionen zu finden (das bedeutet, dass man variabel die signifikante Bitlänge immer höher setzte, aber unterhalb der Länge des gesamten Hashwertes blieb): So konnten im Zeitraum von Tagen auf einem einzigen PC in der künstlich auf 72 Bit verkürzten MD5-Hashfunktion Teilkollisionen gefunden werden. In der Arbeit von Hr. Blumenstein wird erläutert, dass digitale Signaturen mit Hashverfahren bis zu 128 Bit Länge gegenüber massiv parallelen Verfahren heutzutage angreifbar sind!</P>
+
+<P>Dies bestätigt das vorsichtige Vorgehen des BSI (Bundesamt für Sicherheit in der Informationstechnik), für Hashverfahren wie RIPEMD oder SHA-1 schon frühzeitig einen genügend großen Sicherheitspuffer gegenüber den aktuellen Erkenntnissen zu fordern.</P>
+
+</BODY>
+</HTML>

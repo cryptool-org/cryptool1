@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dokument signieren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Signieren">
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="DSA">
+	<PARAM NAME="Keyword" VALUE="ECSP-DSA-Signatur">
+	<PARAM NAME="Keyword" VALUE="ECSP-NR-Signatur">
+</OBJECT>
+
+<P><A NAME="hid_crypt_sign"></A><B>Dokument signieren (Menü <A href="menu_sign.html">Digitale Signaturen</A></B> <B>\ Dokument signieren)</B></P>
+
+<P>Dokumente oder Nachrichten werden signiert, damit der Empfänger ihre Authentizität sicherstellen kann (inhaltliche Integrität, korrekter Absender).</P>
+
+<P>Weitere Informationen über digitale <!--ZZZPOPUP--><A href="signatur.html">Signaturen</A> finden Sie im Kapitel "Digitale Signaturen" im <!--ZZZLINK--><A href="script-de.pdf">Skript</A>. Insbesondere wird dort beschrieben, welche Bedeutung <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktionen</A> für digitale Signaturen haben.</P>
+
+<P>Mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> werden Signaturverfahren unterstützt, die auf folgenden kryptographisch relevanten Problemen basieren: <!--ZZZUL--></P>
+
+<UL>
+	<LI><B>Die Schwierigkeit, eine große ganze Zahl in ihre (beiden) Primfaktoren zu zerlegen (Problemklasse "Faktorisieren")</B>.<BR>
+Das RSA-Signaturverfahren basiert auf diesem Problem.<BR><BR></LI>
+
+	<LI><B>Das Problem, den diskreten Logarithmus in endlichen Gruppen zu bestimmen</B>.<BR>
+Das <A href="dsa.html">DSA-Signaturverfahren</A> basiert auf diesem Problem.<BR><BR></LI>
+
+	<LI><B>Das diskreter Logarithmus-Problem auf </B><A href="ellipkurven.html">Elliptischen Kurven</A><B> Gruppen</B>.<BR>
+In CrypTool gibt es die beiden folgenden Verfahren, die auf diesem Problem beruhen: Elliptische Kurven-<!--ZZZPOPUP--><A href="signatur.html">Signatur</A> nach Nyberg-Rueppel und DSA auf Elliptischen Kurven-Gruppen.</LI>
+</UL>
+
+<P>Die CrypTool-Implementierung der beiden eben angesprochenen Verfahren basiert auf dem vorläufigen Entwurf (Draft Version 8 – Oktober 1998) der Arbeitsgruppe IEEE P1363 Standard Specifications for Public Key Cryptography. In diesem Entwurf sind die benutzten Elliptischen Kurven Signaturverfahren - die in CrypTool implementiert sind - unter den folgenden Bezeichnungen zu finden:</P>
+
+<P><B>ECSP-DSA</B> (Elliptic Curve Signature Primitiv – DSA Variante) ist eine Variante des DSA, die sich das <!--ZZZIND--> Elliptische Kurven-Diskreter Logarithmus-Problem zunutze macht, ansonsten aber dem DSA sehr ähnlich ist. <!--ZZZINDE--></P>
+
+<P><B>ECSP-NR</B> (Elliptic Curve Signature Primitiv – Nyberg-Rueppel Variante) ist ein Signaturverfahren, <!--ZZZIND--> das nach seinen Erfindern (Nyberg und Rueppel) benannt ist.</P>
+
+<P>Wählt man den Befehl Dokument signieren, so wird der Inhalt des gerade in CrypTool aktiven <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> mit einem zu wählenden Verfahren und einer zu diesem Verfahren passend gewählten <A href="hashfunktion.html">Hashfunktion</A> <!--ZZZPOPUP--><A href="signatur.html">signiert</A>. Die Auswahl geschieht im Dialog <A href="hidd_signature.html">Signatur einer Nachricht erstellen</A>.</P>
+
+<P>Die Ausgabe dieses Befehls erscheint in <A href="hidr_hextype.html">hexadezimaler Darstellung</A> (siehe <A href="ascii.html">ASCII-Tabelle</A>). Darin findet man die Signatur der Nachricht, das benutzte Verfahren, die benutzte Hashfunktion, den Namen, unter dem das benutzte <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> bei der Erzeugung abgespeichert wurde, sowie die signierte Nachricht.</P>
+
+<P>Für ECSP-DSA und ECSP-NR besteht die Signatur einer Nachricht aus zwei Zahlen c und d. Diese Zahlen findet man im Ausgabefenster hinter der Zeichenkette "Signatur:". Dabei gibt [c=] den Beginn der Zahl c an, ebenso steht [d=] für den Beginn der Zahl d. Die beiden Zeichenketten [c=] und [d=] gehören eigentlich nicht zur Signatur – sie dienen lediglich dazu, die beiden Zahlen c und d in der Ausgabe voneinander zu unterscheiden.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> gibt es ein <A href="szenarien_rsa_signatur.html">Szenario</A> für die Signatur mittels RSA-Verfahren.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatische Analyse byteweise Addition</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Byteweise Addition">
+</OBJECT>
+
+<P><A NAME="hid_add_auto"></A><B>Automatische Analyse für byteweise Addition (Menü <A href="menu_analyze.html">Analyse</A> \ "ciphertext only")</B></P>
+
+<P>Für die <A href="hid_add_bin.html">byteweise Addition</A> steht ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>) in Form einer Analyse zur Verfügung, mit deren Hilfe bei längeren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> eventuell der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> und somit auch der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> ermittelt werden kann.</P>
+
+<P>Die Analyse operiert in zwei Schritten:</P>
+
+<P>Ermittlung der verwendeten <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A></P>
+
+<P>Ermittlung des eingesetzten Schlüssels</P>
+
+<P>Die Schlüssellänge wird über die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnet. Da bei den meisten <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> nicht alle Zeichen gleich häufig sind, ergibt sich der Effekt, dass die Wahrscheinlichkeit, dass zwei Zeichen gleich sind, relativ groß ist, wenn sie ein Vielfaches der Schlüssellänge auseinander liegen. Daher ergibt sich bei einer Autokorrelationsanalyse eine typische Kamm-Formation, bei der die einzelnen Zinken genau den Abstand der Schlüssellänge haben. Sollte die automatische Erkennung der Schlüssellänge ein falsches Ergebnis liefern, so besteht die Möglichkeit, die Schlüssellänge manuell festzulegen.</P>
+
+<P>Nach der Schlüssellänge wird der eigentlich verwendete Schlüssel ermittelt. Hierzu wird für jedes Zeichen des Schlüssels eine Häufigkeitsanalyse (siehe <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>) durchgeführt. . Dabei geht <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> davon aus, dass das am häufigsten vorkommende Zeichen die binäre Null ist. Wenn bekannt ist, dass ein anderes Zeichen häufiger auftritt, kann dies im Dialog <A href="hidd_bin_keylength.html">Automatische Analyse (Addition, exklusives Oder)</A> eingetragen werden. Eine nachträgliche Korrektur ist mittels der <A href="hid_add_bin.html">binären Addition</A> des entsprechenden Zeichens nach der Analyse möglich.</P>
+
+<P>Über den Dialog <A href="hidd_options_analysis.html">Optionen für automatische Analysen</A> kann eingestellt werden, welche und wie viele Zwischenergebnisse als eigene Fenster angezeigt werden. Wird eines dieser Zwischenergebnisse mit <B>Abbrechen</B> anstelle von <B>OK</B> bestätigt, so erfolgt danach keine weitere Anzeige dieser Fenster oder untergeordneter Fenster. (Für eine genauere Erklärung, siehe <A href="hid_vigenere_auto.html">automatischen Analyse des Vigènere Verschlüsselungsverfahrens</A>).</P>
+
+<P>Es kann durchaus passieren, dass ein oder mehrere Teile des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> nicht korrekt ermittelt werden konnten.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_addition.html">Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</P>
+
+<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
+
+<P>Der Schlüssel wird immer gefunden, falls im unverschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> das am häufigsten vorkommende Zeichen bekannt ist. Dabei ist die Länge des Dokuments unerheblich. Oft kennt man aber das am häufigsten vorkommende Zeichen eines Textes nicht. Siehe dazu das <A href="hid_hilfe_szenarien.html">Szenario</A> mit der Verschlüsselung durch <A href="szenarien_addition.html">byteweise Addition</A>.</P>
+
+</BODY>
+</HTML>

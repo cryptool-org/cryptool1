@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hash-Demonstration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Demonstration">
+	<PARAM NAME="Keyword" VALUE="Hashfunktion">
+	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
+</OBJECT>
+
+<P><A NAME="hid_einzelverfahren_hashwerte_hashdemo"></A><B>Hash-Demonstration (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashwerte)</B></P>
+
+<P>Der Dialog <A href="hidd_hash_demo.html">Hash-Demonstration</A> soll anschaulich folgende Sicherheitseigenschaft von kryptographischen <A href="hashfunktion.html">Hashfuktionen</A> demonstrieren: Es soll praktisch unmöglich sein, zwei Dateien mit gleichem Hashwert zu finden.</P>
+
+<P>In diesem Dialog können Sie die Ausgangsdatei beliebig editieren. Nach jeder Änderung im Textfenster wird der Hashwert der Datei aktualisiert und mit dem Hashwert der Originaldatei bit-weise verglichen.</P>
+
+<P>Eine kryptographische Hashfunktion verhält sich im Idealfall wie eine "Zufallsfunktion". Wenn jede der Änderungen verschieden von allen anderen ist, dann erscheinen die von der Hashfunktion berechneten Hashwerte wie eine Folge von zufälligen Zeichenketten. Dies muss auch dann gelten, wenn die Änderungen regulär sind, z.B. wenn jede Änderung aus dem Anhängen des Buchstabens "X" besteht.</P>
+
+<P><B>Ein Beispiel</B>:</P>
+
+<P>Für eine 128 Bit Hashfunktion erzeugt man mit 2^128 verschiedenen Dokumenten 2^128 <!--ZZZPOPUP--><A href="pseudozufalls_generatoren.html">pseudozufällige</A> Hashwerte, so dass mit Wahrscheinlichkeit 1-1/e (= 0.6931...; e ist die "Eulersche Zahl") eines der untersuchten Dokumente den gleichen Hashwert wie die Originaldatei hat. Diese Aussage gilt unter der Voraussetzung, dass sich die Hashfunktion tatsächlich wie eine Zufallsfunktion verhält.</P>
+
+<P><B>Bemerkung:</B></P>
+
+<P>Bitte beachten Sie, dass diese Demonstration nur für <B>Textdateien</B> zur Verfügung steht und dass maximal 16.000 Zeichen einer Datei geladen werden. D.h. in den "Hashwert Originaldatei" fließen auch nur die ersten 16.000 Bytes ein.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Frequency-Test</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Zufallstest">
+	<PARAM NAME="Keyword" VALUE="Frequency-Test">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+</OBJECT>
+
+<P><A NAME="hid_analyse_zufallstests_frequencytest"></A><B>Frequency-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</B></P>
+
+<P>Mit diesem statistischen Test wird für eine Bitfolge ein Merkmal der <A href="gleichver.html">Gleichverteilung</A> überprüft. Der Frequency-Test zählt in der Bitfolge die Anzahl der Nullen n0 und die Anzahl der Einsen n1 und vergleicht das Ergebnis mit dem Verhalten einer unabhängigen gleichverteilten Zufalls-Binärfolge. In der Literatur wird dieser Test auch als "Mono–Bit-Test" bezeichnet. Die Teststatistik ist gegeben durch</P>
+
+<P><!--ZZZIND--> X1 = (( n0<SUB> </SUB> - n1 ) ^ 2) / 2.</P>
+
+<P>Wenn die Zahlen n0 und n1 aus einem zufälligen Intervall einer unabhängigen gleichverteilten Zufalls-Binärfolge stammen, dann ist X1 eine <A href="chi_2_verteilung.html">chi^2 – verteilte</A> Zufallsvariable mit einem Freiheitsgrad.</P>
+
+<P>Die Tabelle für die <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit einem Freiheitsgrad liefert für das Signifikanzniveau 0.05 den Wert 3.8415. Das heißt, bei unabhängigen gleichverteilten Zufalls-Binärfolgen ist zu 95 Prozent der beobachtete Wert X1 kleiner als 3.8415. </P>
+
+<P>Wenn der Frequency-Test, mit Parameter alpha = 0.05 ein Wert kleiner als 3.8415 bestimmt, dann hat die Folge den Test bestanden, andernfalls fällt die Folge bei diesem Test durch. Eventuell wird man sich dazu entscheiden, die Sequenz für den Wert X1 = 0 ebenfalls abzulehnen, denn: "Perfekte Werte machen sich verdächtig".</P>
+
+<P>Für den praktischen Test wird eine Länge n größer als 10000 Bits empfohlen.</P>
+
+<P>Es genügt nicht, den Frequency-Test nur einmal auf eine Teilfolge des Generators anzuwenden, da beispielsweise bei einem Signifikanzniveau von 0.05 in 5 von 100 Fällen auch ein "guter" Generator den Test nicht besteht. Daher sollte der Test mehrmals auf unterschiedliche Teilsequenzen angewendet werden, um anschließend die Verteilung der ermittelten Prüfgrößen wieder mit Hilfe einer <A href="chi_2_verteilung.html">chi^2</A> -Teststatistik zu überprüfen.</P>
+
+<P>In dem <A href="dialog_frequency.html">Frequency-Test Dialogfenster</A> kann man <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>, <!--ZZZPOPUP--><A href="offset.html">Offset</A> und <!--ZZZPOPUP--><A href="testlen.html">Testlänge</A> bestimmen.</P>
+
+<P><B>Ein Frequency-Test Beispiel:</B></P>
+
+<P>Der Frequency-Test wird an der kurzen 160 Bit-(=20 Bytes-) Binärfolge</P>
+
+<PRE><CODE>s =
+00010111 01101101 01111101 11110011 00101111
+00001111 10100100 11001111 11000011 11010001
+11010001 00101110 11010100 11000011 01010001
+11010110 00110010 10001111 00000111 01000111</CODE></PRE>
+
+<P>mit <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> ‘alpha‚ = 0:05 ausgeführt:</P>
+
+<P>Die Anzahl von Nullen bzw. Einsen beträgt n0 = 74 bzw. n1 = 86. Die Teststatistik für</P>
+
+<P>den Frequency-Test bestimmt die Prüfgröße</P>
+
+<P><!--ZZZIND--> X1 = ( 74 – 86 ) ^ 2 / 160 = 0.9 .</P>
+
+<P>Der kritische Bereich für X1 liegt bei einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit einem Freiheitsgrad und einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von ‘alpha‚ = 0.05 über 3.814. </P>
+
+<P>Mit X1 = 0.9 &lt; 3.814 besteht die Folge den Frequency-Test.</P>
+
+<P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, Klagenfurt, 1999.</P>
+
+</BODY>
+</HTML>

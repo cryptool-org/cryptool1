@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>(Untitled)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_sidechannelattackvisualization_he"></A><B>Dialog zur Visualisierung eines Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll</B></P>
+
+<P>Mit diesem Dialog können Sie den <A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll</A> durchführen und verstehen.</P>
+
+<P><IMG SRC="images/bitmaps/sca_maindialogue.gif" ALT="" BORDER=0></P>
+
+<P>Zur besseren Bedienung gibt es sowohl <B>inaktive Schaltflächen</B> als auch <B>aktive Schaltflächen</B>: Die aktiven Schaltflächen erscheinen in einem kräftigen Farbton und lassen sich drücken. Inaktive Schaltflächen können nicht gedrückt werden und erscheinen deshalb in einem grauen, leicht verblassten Ton. Einige Buttons werden erst dann aktiv, wenn ein bestimmter Kontext erreicht ist. </P>
+
+<P>Das Dialogfenster ist vertikal unterteilt: Auf der linken Seite finden Sie die <B>Navigationsleiste</B>, mit der Sie den Seitenkanalangriff schrittweise steuern können, auf der rechten Seite die Infobuttons der drei Akteure und Bilder des Kommunikations- und Seitenkanals. Die Schaltflächen der <B>Navigationsleiste</B> erscheinen in den zwei Farben rot und grün. Eine rote Schaltfläche bedeutet, dass der korrespondierende Einzelschritt des Seitenkanalangriffs noch nicht ausgeführt wurde. Eine grüne Schaltfläche hingegen signalisiert, dass der Einzelschritt bereits ausgeführt wurde. </P>
+
+<P>In der Mitte des Dialogs befindet sich der <B>Kommunikationskanal</B>, über den Alice und Bob miteinander kommunizieren wollen. Der Kanal ist öffentlich, weshalb auch Trudy diesen zum Empfangen und Versenden von Informationen nutzen darf.</P>
+
+<P>Um den Kommunikationskanal herum befinden sich drei <B>Infobuttons</B>, die die drei Akteure Alice, Bob und Trudy darstellen. Bitte klicken Sie auf einen dieser Buttons, wenn Sie nähere Informationen über den momentanen Status einer einzelnen Partei wünschen.</P>
+
+<P>Weiterhin sehen Sie auf Bobs Seite eine <B>Ampel</B>, <B>die den eigentlichen Seitenkanal symbolisiert</B>. Über diesen gibt der Server von Bob Informationen preis, nachdem er von Trudy mit “ungeplanten„ Informationen gereizt wurde: Kann der Server eine empfangene Nachricht nicht korrekt entschlüsseln, so leuchtet die Ampel rot auf. Gelingt die Entschlüsselung hingegen, so leuchtet die Ampel grün auf.</P>
+
+<P>Der Ablauf des Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll ist in <B>sechs Einzelschritte</B> unterteilt, die Sie nacheinander durchführen können:</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=73%><B>Beschreibung des Einzelschritts</B></TD>
+<TD width=27%><B>Durchführender Akteur</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Einleitung in das Szenario</LI>
+</UL>
+</TD>
+<TD width=27%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Vorbereitungen durchführen (eine hybridverschlüsselte Datei auswählen oder eine beliebige Datei hybridverschlüsseln)</LI>
+</UL>
+</TD>
+<TD width=27%>Alice</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Nachricht übertragen</LI>
+</UL>
+</TD>
+<TD width=27%>Alice</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Nachricht abfangen</LI>
+</UL>
+</TD>
+<TD width=27%>Trudy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Angriffszyklus starten</LI>
+</UL>
+</TD>
+<TD width=27%>Trudy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=73%>
+<UL>
+	<LI>Zusammenfassung erstellen</LI>
+</UL>
+</TD>
+<TD width=27%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P>Sobald Sie durch Klicken des entsprechenden Navigationsbuttons einen Teilschritt des Angriffs einleiten, erscheint eine Dialogbox mit weiter führenden Informationen. Falls dennoch Fragen offen bleiben, so erhalten Sie mit einem Druck auf die Taste F1 eine kontextbezogene Hilfe zum Dialog.</P>
+
+</BODY>
+</HTML>

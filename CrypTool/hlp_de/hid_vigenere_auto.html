@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatische Analyse Vigenère-Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Vigenère-Analyse">
+</OBJECT>
+
+<P><A NAME="hid_vigenere_auto"></A><B>Automatische Analyse für Vigenère-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ "ciphertext only")</B></P>
+
+<P>Für das <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A> steht ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>) in Form einer Möglichkeit der automatisierten Schlüsselsuche zur Verfügung.</P>
+
+<P>Die Analyse operiert in zwei Schritten:</P>
+
+<P>Ermittlung der verwendeten <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A></P>
+
+<P>Ermittlung des eingesetzten <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A></P>
+
+<P>Die Schlüssellänge wird über die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnet. Da in natürlicher Sprache nicht alle Zeichen gleich häufig sind, ergibt sich der Effekt, dass die Wahrscheinlichkeit zweier gleicher Zeichen relativ groß ist, wenn sie ein Vielfaches der Schlüssellänge auseinander liegen. Daher ergibt sich bei einer Autokorrelationsanalyse eine typische Kamm-Formation, bei der die einzelnen Zinken genau den Abstand der Schlüssellänge haben. Sollte die automatische Erkennung der Schlüssellänge ein falsches Ergebnis liefern, so besteht die Möglichkeit, die Schlüssellänge manuell festzulegen.</P>
+
+<P>Nach der Schlüssellänge wird der eigentlich verwendete Schlüssel ermittelt. Hierzu wird für jedes Zeichen des Schlüssels eine <A href="hid_caesar_auto.html">automatisierte Caesar-Analyse</A> durchgeführt. Der ermittelte Schlüssel kann manuell überschrieben werden.</P>
+
+<P>Über den Dialog <A href="hidd_options_analysis.html">Optionen für automatische Analysen</A> kann eingestellt werden, welche und wie viele Zwischenergebnisse als eigene Fenster angezeigt werden. Im <A href="hidd_keylength.html">Dialog Automatische Vigenère Analyse</A> wird die Schlüssellänge ausgegeben und im <A href="hidd_show_key.html">Dialog Automatische Analyse</A> der Schlüssel. Wird eines dieser Zwischenergebnisse mit <B>Abbrechen</B> anstelle von <B>OK</B> bestätigt, so erfolgt danach keine weitere Anzeige dieser Fenster oder untergeordneter Fenster. Werden beispielsweise alle Punkte im Optionsfeld ausgewählt, so wird auch die Analyse der einzelnen <A href="hid_caesar_asc.html">Caesar-Verschlüsselungen</A> detailliert ausgeführt. Wird hingegen bei der zweiten Caesar-Verschlüsselung der Dialog Autokorrelation zwischen den Verteilungen mit <B>Abbrechen</B> quittiert, so wird dieses Fenster ab der dritten Caesar-Verschlüsselung nicht mehr angezeigt. Wird bei der vierten Caesar-Verschlüsselung nun das Fenster <A href="hidr_plottype.html">Histogramm</A> mit <B>Abbrechen</B> quittiert, so wird auch dieses bei den weiteren <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungen</A> nicht mehr angezeigt.</P>
+
+<P>Es kann durchaus passieren, dass ein oder mehrere Teile des Schlüssels nur inkorrekt ermittelt werden konnten.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_vigenere.html">Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das Verschlüsselungsverfahren.</P>
+
+<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
+
+<P>Der Schlüssel wird meistens gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A></P>
+
+<P>nicht zu kurz ist (ab ungefähr 20 Zeichen für jedes Zeichen des Schlüssels, also beispielsweise ab ungefähr 80 Zeichen für den Schlüssel TEST).</P>
+
+<P>deutschen Text enthält, in dem die Zeichenhäufigkeit normal ist.</P>
+
+<P>Wegen der zweiten Bedingung kann zum Beispiel bei einem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> <!--ZZZINDN--></P>
+
+<PRE><CODE>    qw yx as qw yx as qw yx as qw yx as qw yx as </CODE></PRE>
+
+<P></P>
+
+<P>der Schlüssel nicht ermittelt werden kann, obwohl genügend Zeichen vorhanden sind.</P>
+
+<P>Diese beiden oben angeführten Bedingungen sind normalerweise erfüllt, wenn der Klartext aus deutschen Wörtern besteht.</P>
+
+<P>Der Schlüssel kann unter Umständen dennoch gefunden werden, wenn ein sehr kurzer Text vorliegt.</P>
+
+</BODY>
+</HTML>

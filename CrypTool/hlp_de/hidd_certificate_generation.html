@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Zertifikat und PSE erzeugen</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Zertifikat und PSE erzeugen">
+	<PARAM NAME="Keyword" VALUE="Zertifikat">
+	<PARAM NAME="Keyword" VALUE="PSE">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
+<P><A NAME="hidd_certificate_generation"></A><B>Dialog Zertifikat und PSE erzeugen</B></P>
+
+<P>Dieser Dialog dient dazu, die für die Signaturerstellung notwendige PSE-Datei und das für die Signaturprüfung nötige Zertifikate im Kontext der <A href="hidd_signature_demo.html">RSA-Signaturdemo</A> zur Verfügung zu stellen (wenn Sie den Button<B> Zertifikat bereitstellen</B> drücken).</P>
+
+<P>Im Bereich <B>Öffentliche RSA-Parameter</B> erfolgt die Anzeige der Bitlänge und der öffentlichen Parameter des im Dialog <A href="hidd_demo_rsakey_generation.html">RSA-Schlüssel generieren</A> erzeugten bzw. des mit der Funktion <B>Zertifikat / Schlüssel importieren </B>importierten RSA-Schlüssels.</P>
+
+<P>Die Eingabe der <B>Benutzerdaten</B> für die Erzeugung eines neuen Zertifikates erfolgt wie im Dialog <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A>.</P>
+
+<P>Im Feld <B>User Key ID</B> wird der Name der zu erzeugenden bzw. gewählten PSE angezeigt.</P>
+
+<P>Unter dem im Feld <B>Distinguished Name</B> angegebenen Namen wird das Zertifikat in die CA-Datenbank geschrieben (CA = Certification Authority = Teil eines Trustcenters).</P>
+
+<P>Mit dem Button <B>Zertifikat / Schlüssel importieren</B> kann eine vorhandene PSE geöffnet werden, um den darin gespeicherten RSA-Schlüssel und das Zertifikat für die Signatur zu verwenden. Das Öffnen einer PSE-Datei geschieht in gleicher Weise wie im Dialog <A href="hid_crypt_rsadec.html">RSA-Entschlüsselung</A>.</P>
+
+<P>Wenn Sie auf diese Weise einen Schlüssel importiert haben, ist das Erzeugen eines neuen Schlüssels im Dialog <A href="hidd_demo_rsakey_generation.html">RSA-Schlüssel generieren</A> überflüssig.</P>
+
+<P>Der Button <B>Zertifikat und PSE erzeugen</B> erzeugt ein neues Zertifikat und legt es zusammen mit dem im Dialog <A href="hidd_demo_rsakey_generation.html">RSA-Schlüssel generieren</A> zuvor erzeugten Schlüsselpaar in einer PIN-geschützten und verschlüsselten PSE-Datei ab. Zusätzlich wird das Zertifikat in die CA-Datenbank eingetragen.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Optionen für den Geburtstagsangriff auf die digitale Signatur</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_options_signature_attack"></A><B>Dialog Optionen für den Geburtstagsangriff auf die digitale Signatur</B></P>
+
+<P>Zunächst kann eine von sechs verschiedenen <!--ZZZPOPUP--><A href="hashfunktion.html">Hashverfahren</A> ausgewählt werden, auf die der Angriff angewandt werden soll. Es stehen die 128-Bit-Hashfunktionen MD2, MD4 und MD5 sowie die 160-Bit-Hashfunktionen SHA, SHA-1 und RIPEMD-160 zur Verfügung.</P>
+
+<P>Von großer Bedeutung für die durchschnittliche Dauer der Nachrichtenpaarsuche ist die <B>Signifikante Bitlänge</B>: mit ihr legt man fest, wie viele der ersten Bits zweier Hashwerte übereinstimmen müssen, damit der Angriff als erfolgreich angesehen wird. Der Wertebereich für die signifikante Bitlänge ist 1 &lt;= x &lt;= n, wobei n die Bitlänge des eingestellten Hashverfahrens ist.</P>
+
+<P><IMG SRC="images/ads_options.gif" ALT="" BORDER=0></P>
+
+<P>In der zweiten Gruppierung <B>Optionen für die Nachrichtenmodifikation</B> wählt man das Verfahren, nach dem beide Nachrichten während des Angriffs in Abhängigkeit vom zuletzt berechneten Hashwert modifiziert werden sollen.</P>
+
+<P>Wird der Radiobutton <B>Leerzeichen einfügen</B> aktiviert, so muss mindestens eine der beiden Checkboxes <B>vor Zeilenende</B> bzw. <B>Leerzeichenverdoppelung</B> angekreuzt werden. Beginnend am Nachrichtenende wird beim Modifizieren vor einem Zeilenende und/oder einem bereits vorhandenen Leerzeichen ein Leerzeichen in die Nachricht eingefügt.</P>
+
+<P><B>Zeichen anhängen</B> ist das andere Modifikationsverfahren, bei dem pro angefangenen zwei Bits der signifikanten Bitlänge ein Zeichen an das Nachrichtenende angefügt wird. Zu Demonstrationszwecken besteht die Möglichkeit, <B>druckbare Zeichen</B> ("A", "B", "C" oder "D") zu verwenden, ansonsten werden <B>nicht druckbare Zeichen</B> (die Zeichen mit den ASCII-Codes 9, 10, 32 oder 160) angehängt.</P>
+
+<P>Mit <B>Standard wiederherstellen</B> werden die Einstellungen auf folgende Werte zurückgesetzt:</P>
+
+<TABLE cols=2 width=430>
+
+<TR VALIGN="top">
+<TD width=38%>Hashfunktion:</TD>
+<TD width=62%><B>MD2</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>Signifikante Bitlänge:</TD>
+<TD width=62%><B>16</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>Nachrichtenmodifikation:</TD>
+<TD width=62%><B>Leerzeichen einfügen/vor Zeilenende</B></TD>
+</TR>
+</TABLE><BR>
+
+<P>Mit <B>Übernehmen</B> wird die aktuelle Konfiguration in der Datei CrypTool.INI gespeichert und bei allen zukünftigen Angriffen verwendet, außerdem kehrt man zum <A href="hidd_signature_attack.html">Dialog Angriff auf den Hashwert der digitalen Signatur</A> zurück.</P>
+
+</BODY>
+</HTML>

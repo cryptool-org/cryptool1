@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Byteweise Addition</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Byteweise Addition">
+</OBJECT>
+
+<P><A NAME="hid_add_bin"></A><B>Byteweise Addition (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+
+<P>Bei diesem <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> wird der eingegebene <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zeichenweise (byteweise) auf die zu <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselnden</A> Daten addiert. Dabei wird die Addition <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 256 verwendet, das heißt eventuelle Überträge bleiben unberücksichtigt. Der Schlüssel wird dabei zyklisch verwendet (wie beim <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A> und bei <A href="hid_xor_bin.html">exklusivem Oder</A>), das heißt wenn alle Zeichen (Bytes) des Schlüssels benutzt worden sind, wird wieder mit dem ersten Zeichen begonnen, bis der Text vollständig verschlüsselt worden ist.</P>
+
+<P>Zur <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> müssen die Zeichen des Schlüssels vom verschlüsselten Text modulo 256 subtrahiert werden.</P>
+
+<P>Kennt man das am häufigsten vorkommende Zeichen im <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>, so ist die automatische Ermittlung des Schlüssels (und somit auch des Klartextes) möglich (siehe <A href="hid_add_auto.html">automatische Analyse für byteweise Addition</A>).</P>
+
+<P>Die Eingabe des Schlüssels für byteweise Addition erfolgt im <A href="hidd_key.html">Dialog Schlüsseleingabe</A>.</P>
+
+<P>Dieses Verschlüsselungsverfahren kann leicht mit einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gebrochen werden (siehe <A href="hid_add_auto.html">automatische Analyse für byteweise Addition</A>). Ein <A href="szenarien_addition.html">Beispiel</A> dazu befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+</BODY>
+</HTML>

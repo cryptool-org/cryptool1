@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Caesar-Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Caesar-Verschlüsselungsverfahren">
+</OBJECT>
+
+<P><A NAME="hid_caesar_asc"></A><B>Caesar-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+
+<P>Bei dem schon von Caesar eingesetzten <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> werden nur die Zeichen aus dem Alphabet <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>. (das Alphabet wird im Dialog <A href="hidd_text_options.html">Textoptionen</A> ausgewählt). </P>
+
+<P>Zeichen, die nicht zum Alphabet gehören, werden normalerweise im verschlüsselten Text weggelassen, so dass nach der <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> diese Zeichen aus dem Textzusammenhang eingefügt werden müssen. Dies gilt für Satz- und Sonderzeichen (insbesondere Leerzeichen als Trennung zwischen zwei Wörtern). Über das Untermenü <B>Textoptionen</B> im Menü<A href="menu_options.html"> <B>Optionen</B></A> wird eingestellt, ob Satz- und Sonderzeichen bei der Ver- bzw. Entschlüsselung erhalten bleiben.</P>
+
+<P>Beim Caesar-Verschlüsselungsverfahren wird ein Zeichen aus dem Alphabet als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> verwendet. Entsprechend der Position des Buchstabens werden die Buchstaben des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> zyklisch verschoben (im Dialog Textoptionen ist die Reihenfolge der Zeichen im Alphabet festgelegt). Falls das Alphabet nur die Großbuchstaben sind (das ist der klassische Fall), findet die zyklische Verschiebung um ein Zeichen für "A", zwei Zeichen für "B", ..., 26 Zeichen für "Z" statt. Zur Entschlüsselung wird der verschlüsselte Text einfach in die andere Richtung verschoben.</P>
+
+<P>Der Schlüssel für das Caesar-Verschlüsselungsverfahren muss im Dialog <A href="hidd_key.html">Schlüsseleingabe</A> eingegeben werden.</P>
+
+<P><U>Beispiel: (klassischer Fall)</U></P>
+
+<P>Bei dem Schlüssel "C" werden alle Buchstaben zyklisch um 3 Stellen verschoben:</P>
+
+<P><U>KlartextVerschlüsselter Text</U><!--ZZZINDN--></P>
+
+<TABLE cols=2 width=222>
+
+<TR VALIGN="top">
+<TD width=51%>A</TD>
+<TD width=49%>D</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>B</TD>
+<TD width=49%>E</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>C</TD>
+<TD width=49%>F</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>...</TD>
+<TD width=49%>...</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>W</TD>
+<TD width=49%>Z</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>X</TD>
+<TD width=49%>A</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>Y</TD>
+<TD width=49%>B</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>Z</TD>
+<TD width=49%>C</TD>
+</TR>
+</TABLE><BR>
+
+<P>Bemerkung: Der Schlüssel "Z" sollte nicht verwendet werden, da in diesem Fall der verschlüsselte Text mit dem Klartext übereinstimmt.</P>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="ROT13">
+</OBJECT>
+
+<P>Ein Sonderfall der Caesar-Verschlüsselung ist die manchmal in Chat-Rooms und Newsgroups verwendete ROT13-Verschlüsselung. Dabei werden die Buchstaben um 13 verschoben, bzw. mit dem Schlüssel "M" verschlüsselt, alle anderen Zeichen beibehalten. Zweimal hintereinander angewendet ergibt sich also wieder der Klartext.</P>
+
+<P>Das Caesar-Verschlüsselungsverfahren kann ohne großen Aufwand mit einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gebrochen werden (siehe <A href="hid_caesar_auto.html">automatische Analyse des Caesar-Verschlüsselungsverfahrens</A>). Ein <A href="szenarien_caesar.html">Beispiel</A> dazu befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+</BODY>
+</HTML>

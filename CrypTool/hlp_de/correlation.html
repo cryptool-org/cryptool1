@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Korrelation</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Korrelation">
+</OBJECT>
+
+<P><A NAME="correlation"></A><B>Korrelation</B></P>
+
+<P>Die Korrelation ist ein quantitatives Maß zur Beschreibung von "Zusammenhängen". Bei der Korrelationsanalyse betrachtet man sogenannte <B>Merkmale</B> (z.B. Messergebnisse einer Analyse) und misst - basierend auf einer <B>Hypothese</B> - deren Zusammenhang. </P>
+
+<P>Wie gut die gemessenen Merkmale zu einer aufgestellten Hypothese bestätigt werden, wird durch den <B>Korrelationskoeffizienten</B> charakterisiert. </P>
+
+<P></P>
+
+<P>Der Korrelationskoeffizient r kann Werte zwischen -1 und +1 annehmen. Bei einem Wert sehr nahe bei +1 oder -1 ist der Zusammenhang der Merkmale annähernd zur Hypothese bzw. annähernd zur "gegenläufigen" Hypothese. Liegt r nahe bei Null, so sagt man die Messwerte sind "unkorreliert" zur Hypothese.</P>
+
+<P>In der statistischen Kryptoanalyse sucht man nach einer Hypothese, die zu den Messergebnissen maximal korrelliert.</P>
+
+<P><B>Beispiel.</B> Korrelationsanalyse zur Bestimmung des Caesar-Schlüssels:</P>
+
+<P>Bei der Caesar-Analyse werden zunächst die Buchstabenverteilungen (Histogramme) des Chiffretextes und einer Referenzdatei (die Sie unter Menü <B>Optionen \ <A href="hid_opttext.html">Textoptionen</A></B> selbst festlegen können) bestimmt. Die Ausgangshypothese ist, dass die Buchstabenverteilungen des entschlüsselten Chiffretextes und der Referenzdatei gleich sind. </P>
+
+<P>Basierend auf dieser Hypothese werden die folgenden Schlüsselhypothesen abgeleitet: der Caesar-Schlüssel ist der Buchstabe "A", der Caesar-Schlüssel ist der Buchstabe "B", usw. </P>
+
+<P>Die Schlüsselhypothese mit der maximalen Korrelation ist die Ausgabe der Caesar-Analyse:</P>
+
+<P><IMG SRC="images/examplecorrelation.gif" ALT="" BORDER=0></P>
+
+<P>In diesem Beispiel wird der Buchstabe "J" als Ergebnis der Caesar-Analyse ausgegeben. </P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hashfunktion</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Hashfunktion">
+</OBJECT>
+
+<P><A NAME="hashfunktion"></A><B>Hashfunktion</B></P>
+
+<P>Eine <B>Hashfunktion</B> ist eine (mathematische) Funktion, die eine Eingabe beliebiger Länge erhält und einen Funktionswert (Hashwert) einer festen Länge (meist 128 oder 160 Bits) zurückliefert.</P>
+
+<P>Die Hashfunktionen, die in der Kryptographie zum Einsatz kommen, müssten eigentlich genauer <B>Einweg-Hashfunktionen</B> heißen.</P>
+
+<P>Die Hashfunktion selbst muss öffentlich sein, das heißt jeder ist in der Lage, zu einer gegebenen Eingabe (effektiv) den Hashwert zu berechnen. Umgekehrt muss jedoch sichergestellt sein, dass es (rechnerisch) unmöglich ist, zu einem vorgegebenen Hashwert eine Eingabe zu finden, die genau den vorgegebenen Wert als Hashwert besitzt (diese bezeichnet man als <B>Einweg-Eigenschaft</B>).</P>
+
+<P>In der kryptographischen Praxis stellt man meist eine noch strengere Anforderung an Hashfunktionen:</P>
+
+<P>Es soll unmöglich sein, zwei Eingaben zu finden, die von der Hashfunktion auf den gleichen Hashwert abgebildet werden (<B>Kollisionen</B>). Andernfalls ist es nämlich möglich, eine bereits signierte Nachricht nachträglich zu ersetzen. Hashfunktionen kommen vor allem bei digitalen <!--ZZZPOPUP--><A href="signatur.html">Signaturen</A> zum Einsatz. Hier wird aus Effizienzgründen der Hashwert einer Nachricht anstatt der Nachricht selbst signiert.</P>
+
+<P>Der Hashwert H = H(M) einer Original-Nachricht M dient zur Überprüfung, ob die empfangene Nachricht M' verändert wurde.</P>
+
+<P>Ein Beispiel: In manchen Computer-Zeitungen wurde früher der Quellcode von Beispielprogrammen Zeile für Zeile mit einer Checksumme versehen. So war es möglich, nach dem Abtippen des Quellcodes schnell Tippfehler zu entdecken, da man jetzt nur noch die Checksummen jeder Zeile miteinander vergleichen musste - anstatt Buchstabe für Buchstabe mit der Textquelle zu vergleichen (CDs und Download-Möglichkeiten gab es damals nicht).</P>
+
+<P>Jedoch ist bei diesen Checksummen-Verfahren leicht möglich, zwei verschiedene Zeilen R1, R2 mit der gleichen Checksumme zu finden - also H(R1) = H(R2) aber R1 != R2. So kann man böswillig Fehler in den Quellcode einbauen, ohne dass dies durch die Checksummen-Kontrolle angezeigt wird. Man nennt zwei Zeilen mit der gleichen Checksumme Kollision. In der Notation der Hashwerte schreibt man für eine Kollision:</P>
+
+<P>M != M' mit H(M) = H(M'). </P>
+
+<P>In der Kryptographie muss für das Hash-Verfahren H und eine beliebige Nachricht M gelten, dass es praktisch unmöglich ist, zu H und M eine Kollision zu berechnen, also eine gefälschte Nachricht M' != M zu berechnen, so dass (bei der Kontrolle) H(M) = H(M') gilt. </P>
+
+<P>Im Beispiel mit dem Quellcode in früheren Computer-Zeitschriften haben einfache Checksummen-Verfahren ausgereicht, da Nachrichten nicht absichtlich, sondern zufällig falsch abgetippt wurden.</P>
+
+<P>In CrypTool sind solche kryptographisch starken <B>Hashverfahren</B> über das Menü <B>Einzelverfahren \ <A href="menu_hash.html">Hashwerte</A></B> erreichbar. Diese Hashverfahren berechnen zu jedem Dokument eine Zeichenkette fester Länge, d.h. egal ob die Länge der Eingabedatei 1 Byte oder 10 MByte groß ist. Die Ausgabe ist immer - abhängig vom gewählten Hash-Verfahren - 16 oder 20 Bytes lang.</P>
+
+</BODY>
+</HTML>

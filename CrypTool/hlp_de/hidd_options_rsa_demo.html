@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Optionen für Alphabet und Zahlensystem</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Optionen für Alphabet und Zahlensystem">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Alphabet">
+	<PARAM NAME="Keyword" VALUE="Demonstration">
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Zahlensystem">
+</OBJECT>
+
+<P><A NAME="hidd_options_rsa_demo"></A><B>Dialog Optionen für Alphabet und Zahlensystem</B></P>
+
+<P>Bei diesem Dialog haben Sie die Möglichkeit, Optionen für die RSA-Ver/Entschlüsselung einzustellen:</P>
+
+<P><IMG SRC="images/rsa_demo_8.gif" ALT="" BORDER=0></P>
+
+<P><B>Textoptionen \ Alphabetoptionen:</B></P>
+
+<P>Bei der Demonstration für das RSA-Kryptosystem können Sie Texte mit dem <A href="ascii.html">ASCII</A>-Zeichensatz verschlüsseln oder ein eigenes Alphabet vorgeben. Dazu wählen Sie den entsprechenden Radiobutton und bestimmen das Alphabet im darunter liegenden Eingabefeld. </P>
+
+<P>Bei der RSA-Ver/Entschlüsselung werden einzelne Buchstaben zunächst in Zahlen kodiert.</P>
+
+<P>Die Kodierung des vordefinierten Alphabets "&lt;Leerzeichen&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ":</P>
+
+<TABLE border=1 cols=3 frame=box rules=all width=270>
+
+<TR VALIGN="top">
+<TD width=36%>&lt;Leerzeichen&gt;</TD>
+<TD width=30%>-&gt;</TD>
+<TD width=34%>0</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>A</TD>
+<TD width=30%>-&gt;</TD>
+<TD width=34%>1</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>B</TD>
+<TD width=30%>-&gt;</TD>
+<TD width=34%>2</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>&nbsp;</TD>
+<TD width=30%>....</TD>
+<TD width=34%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>Z</TD>
+<TD width=30%>-&gt;</TD>
+<TD width=34%>26</TD>
+</TR>
+</TABLE><BR>
+
+<P>Nehmen Sie das Leerzeichen raus, wird A mit 0 kodiert</P>
+
+<P><B>RSA-Variante:</B></P>
+
+<P>Wählen Sie zwischen der eigentlichen RSA-Verschlüsselung und dem in dem Artikel "<A href="rsa_demo_variant.html">Dialog der Schwestern</A>" beschriebenen Verfahren (siehe c't 25/99).</P>
+
+<P><B>Blocklänge und Kodieren der Nachricht in Zahlen:</B></P>
+
+<P>Abhängig von der Bitlänge des RSA-Moduls N und den gewählten Textoptionen können Sie bei der RSA-Verschlüsselung die Blocklänge bestimmen. Die maximal mögliche Blocklänge wird Ihnen angezeigt. </P>
+
+<P>Wenn Sie das Alphabet selber festgelegt haben, und die gewählte Blocklänge k größer als die 1 ist, werden nach der Kodierung der Buchstaben in Zahlen jeweils k dieser Zahlen in einer größeren Zahl kodiert. Die Kodierung kann <B>b-adisch</B> (wobei b die Anzahl der Buchstaben im Alphabet ist) oder zur <B>Zahlenbasis</B> erfolgen. Mögliche Zahlenbasen sind dezimal, binär, oktal und hexadezimal. Die Zahlenbasis kann weiter unten im Dialog eingestellt werden und ist auch für die Anzeige relevant.</P>
+
+<P><B>Beispiel</B>: Die Nachricht "ATTACK AT DAWN", zerlegt in Blöcke der Länge 2 ergibt: </P>
+
+<P><!--ZZZIND--> AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
+
+<P>Die Kodierung der Einzelbuchstaben der Nachricht in Zahlen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) ergibt erst mal: </P>
+
+<P><!--ZZZIND--> 01 20 20 01 03 00 01 20 00 04 01 23 14 00</P>
+
+<P>Wie man aus den Zahlen eines Blockes eine neue Zahl generiert, wird durch die beiden Kodierungsmethoden b-adisch und Basissystem festgelegt:</P>
+
+<P>(1) Kodierung der Zahlenblöcke der Länge k = 2 nach der b-adischen Formel (jeder Block besteht aus zwei Buchstaben):</P>
+
+<P><!--ZZZINDN--></P>
+
+<P>&lt;Buchstabe1&gt;*27^1 + &lt;Buchstabe2&gt;   liefert die Kodierung:</P>
+
+<P>047 # 541 # 081 # 047 # 004 # 050 # 378</P>
+
+<P>Diese Kodierung ist optimal (in dem Sinn, dass der Wertebereich möglichst klein bleibt).</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>(2) Kodierung der Zahlenblöcke der Länge k = 2 nach der Basissystem-Formel (Basis 10^k = 100):</P>
+
+<P><!--ZZZINDN--></P>
+
+<P>&lt;Buchstabe1&gt;*100^1 + &lt;Buchstabe2&gt;   liefert die Kodierung</P>
+
+<P>0120 # 2001 # 0300 # 0120 # 0004 # 0123 # 1400</P>
+
+<P>Bei dieser Kodierung können Sie die Kodierung der Einzelbuchstaben direkt ablesen.</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P><B>Bemerkung:</B></P>
+
+<P>Wenn die Blocklänge 1 ist (weil der RSA-Modul zu klein ist), liefern beide Kodierungsmethoden dieselben Werte.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario für die Verschlüsselung durch binäres exklusives Oder</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario">
+	<PARAM NAME="Keyword" VALUE="Verschlüsselung durch binäres exklusives Oder">
+	<PARAM NAME="Keyword" VALUE="Binäres exklusives Oder">
+</OBJECT>
+
+<P><A NAME="szenarien_xor"></A><SUP></SUP><B>Szenario für die Verschlüsselung durch binäres exklusives Oder</B></P>
+
+<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselung</A> durch <A href="hid_xor_bin.html">binäres exklusives Oder</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
+
+<P>Anhand eines binären <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wird die <A href="hid_xor_bin.html">Verschlüsselung durch exklusives Oder</A> und ein <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> auf dieses Verfahren veranschaulicht. Es wird gezeigt, dass es bei manchen <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> einfach ist, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> und somit auch den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> zu ermitteln. Wird der Klartext jedoch vor der Verschlüsselung <A href="hid_zip.html">gepackt</A>, so können der Schlüssel und der Klartext nicht ohne weiteres mit CrypTool ermittelt werden, da die <!--ZZZPOPUP--><A href="histogramm.html">Häufigkeiten</A> der einzelnen Zeichen vor der Verschlüsselung (aber nach dem Packen) nicht bekannt sind. Von nicht gepackten Dokumenten – wie beispielsweise Bildern – hingegen sind gewisse Eigenschaften bekannt, die man sich für die Analyse zunutze machen kann.</P>
+
+<P>Das hier gezeigte Szenario funktioniert in ähnlicher Weise mit einem Textdokument (im Gegensatz zu dem in diesem Beispiel genutzten binären Dokument). In einem <A href="szenarien_addition.html">Szenario für die Verschlüsselung durch binäre Addition</A> werden ähnliche Schritte wie hier durchgeführt; jedoch mit einem Textdokument.</P>
+
+<P>Wir starten mit einem <A href="cryptoolfoto.html">Bildschirmfoto</A> von CrypTool, welches sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool.bmp</CODE> befindet.</P>
+
+<P><IMG SRC="images/cryptool.gif" ALT="" BORDER=0></P>
+
+<P>Dieses Dokument wird in CrypTool (über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
+
+<P><IMG SRC="images/szenarioxor1.gif" ALT="" BORDER=0></P>
+
+<P>Bevor das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, werfen wir einen Blick auf die Häufigkeitsverteilung der Zeichen, das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>.</P>
+
+<P><IMG SRC="images/szenarioxor1a.gif" ALT="" BORDER=0></P>
+
+<P>An dem Histogramm kann man sehen, dass das am häufigsten vorkommende Zeichen den Wert<CODE> 255</CODE> hat. Das entspricht in hexadezimaler Schreibweise<CODE> FF</CODE>. Diese Information werden wir uns später beim Angriff zunutze machen.</P>
+
+<P>Jetzt geschieht eine <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> mittels <A href="hid_xor_bin.html">exklusivem Oder</A> (zu erreichen über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_xor_bin.html">XOR</A>). Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wählen wir<CODE> 12 34 56 78</CODE> und geben dies in den geöffneten Dialog ein.</P>
+
+<P><IMG SRC="images/szenarioxor2.gif" ALT="" BORDER=0></P>
+
+<P>Daraufhin öffnet sich ein Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
+
+<P><IMG SRC="images/szenarioxor3.gif" ALT="" BORDER=0></P>
+
+<P>Als nächstes soll ein <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> durchgeführt werden. Dazu muss das im letzten Schritt <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> aktiviert sein. Über das <A href="menu_analyze.html">Menü Analyse \ ciphertext only</A> \ <A href="hid_xor_auto.html">XOR</A> wird zuerst die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnet und angezeigt.</P>
+
+<P><IMG SRC="images/szenarioxor4.gif" ALT="" BORDER=0></P>
+
+<P>Nun wird ein Fenster Automatische Analyse geöffnet, in dem die ermittelte <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A><CODE> 4</CODE> ausgegeben wird. Wie wir am Anfang gesehen haben, ist das häufigste Zeichen<CODE> FF</CODE>. Dieses geben wir in das entsprechende Feld ein.</P>
+
+<P><IMG SRC="images/szenarioxor5.gif" ALT="" BORDER=0></P>
+
+<P>Mit dieser Information war <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> in der Lage, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu finden, wie in der nächsten Abbildung zu sehen ist.</P>
+
+<P><IMG SRC="images/szenarioxor6.gif" ALT="" BORDER=0></P>
+
+<P>Nach Betätigung des <B>OK</B>-Knopfes erscheint ein neues Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
+
+<P><IMG SRC="images/szenarioxor7.gif" ALT="" BORDER=0></P>
+
+<P>In diesem Fall war es also kein Problem für <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> und somit auch den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> eines <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> zu ermitteln, da wir wussten, dass die <!--ZZZPOPUP--><A href="datei.html">Datei</A> ein Bild enthält, bei dem das am häufigsten vorkommende Zeichen den hexadezimalen Wert<CODE> FF</CODE> hat. Bei gewissen Typen von Dokumenten treten einige Zeichen erfahrungsgemäß viel häufiger als andere auf. Bei einem Bild im Bitmap Format mit 16 Farben ist dies oft der Wert<CODE> FF</CODE>. Wenn wir also wissen, dass es sich bei dem Dokument um ein verschlüsseltes Bild im Bitmap Format mit 16 Farben handelt, so können wir annehmen, dass der am häufigsten vorkommende Wert<CODE> FF</CODE> ist.</P>
+
+<P>Wenn das Bild vor der Verschlüsselung aber gepackt wird, so können wir nicht von der Häufigkeitsverteilung der Zeichen im Bild auf die Häufigkeitsverteilung des <A href="hid_zip.html">gepackten</A> Bildes schließen, da durch den Vorgang des Packens neben der Verringerung der Größe die Häufigkeiten der einzelnen Zeichen nichts mehr mit der Häufigkeit der Zeichen im Format des Bildes zu tun haben. Damit kennen wir aber auch nicht das häufigste Zeichen und können CrypTool nicht bei der Analyse helfen.</P>
+
+<P>Zum <A href="hid_zip.html">Packen</A> des <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> muss es zuerst wieder aktiviert werden.</P>
+
+<P><IMG SRC="images/szenarioxor1.gif" ALT="" BORDER=0></P>
+
+<P>Nun kann es über das <A href="menu_compress.html">Menü Komprimieren</A> \ <A href="hid_zip.html">ZIP</A> gepackt werden.</P>
+
+<P><IMG SRC="images/szenarioxor7a.gif" ALT="" BORDER=0></P>
+
+<P>Nach der Anzeige des Kompressionsgrades (siehe Befehl <A href="hid_zip.html">Dokument Komprimieren (ZIP)</A>) wird das <A href="hid_zip.html">gepackte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> angezeigt.</P>
+
+<P><IMG SRC="images/szenarioxor8.gif" ALT="" BORDER=0></P>
+
+<P>Man erkennt sofort, dass sich das durch das <A href="hid_zip.html">Packen</A> eine ganz andere Charakteristik des <A href="histogramm.html">Histogrammes</A> ergibt als im vorherigen Histogramm für das unkomprimierte Bild im Bitmap Format mit 16 Farben. Die Zeichen sind viel gleichmäßiger verteilt als bei dem <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>.</P>
+
+<P><IMG SRC="images/szenarioxor9.gif" ALT="" BORDER=0></P>
+
+<P>Nun ist es zwar möglich, die Analyse zu versuchen, aber da wir keine Kenntnis des häufigsten Zeichens in einem komprimierten <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> haben, können wir <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> bei der Analyse nicht unterstützen und müssen später den Vorgabewert<CODE> 00</CODE> übernehmen.</P>
+
+<P>Zuerst verschlüsseln wir das Dokument, das vor dem Aufruf der Funktion zum Verschlüsseln erst wieder aktiviert werden muss, mit dem gleichen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wie vorher:<CODE> 12 34 56 78</CODE>.</P>
+
+<P><IMG SRC="images/szenarioxor2.gif" ALT="" BORDER=0></P>
+
+<P>Nach der Eingabe des Schlüssels und Betätigung des <B>OK</B>-Knopfes erscheint wie gewohnt das Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Dokument.</P>
+
+<P><IMG SRC="images/szenarioxor10.gif" ALT="" BORDER=0></P>
+
+<P>Nun rufen wir erneut die Analyse auf und sehen, dass mit der <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> die Länge des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> nicht – so wie mit dem nicht <A href="hid_zip.html">gepackten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> – bestimmt werden kann.</P>
+
+<P><IMG SRC="images/szenarioxor11.gif" ALT="" BORDER=0></P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> findet die falsche <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A><CODE> 12</CODE>.</P>
+
+<P><IMG SRC="images/szenarioxor12.gif" ALT="" BORDER=0></P>
+
+<P>Die falsche <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> könnte jetzt zwar geändert werden, aber wir wissen – wie oben erwähnt – nicht, welches das am häufigsten vorkommende Zeichen ist, somit hat es keinen Sinn, mit der Analyse fortzufahren.</P>
+
+<P>Wäre <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> in der Lage gewesen, den richtigen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu finden, so hätten wir nach der Analyse das <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> gehabt; dieses wäre noch <A href="hid_zip.html">gepackt</A> gewesen, so dass ein <A href="hid_unzip.html">Entpacken</A> (Entkomprimieren) (über das <A href="menu_compress.html">Menü Komprimieren</A> \ UNZIP) notwendig wäre, um das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wieder in der ursprünglichen (entpackten und <!--ZZZPOPUP--><A href="verschluesselung.html">unverschlüsselten</A>) Form zu haben.</P>
+
+</BODY>
+</HTML>

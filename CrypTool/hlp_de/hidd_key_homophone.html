@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Homophone Substitution</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Homophone Substitution">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+</OBJECT>
+
+<P><A NAME="hidd_key_homophone"></A><B>Dialog Schlüsseleingabe Homophone Substitution</B></P>
+
+<P>Dialog Schlüsseleingabe für das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> <A href="hid_homophone_asc.html">homophone Substitution</A>.</P>
+
+<P>In diesem Dialog wird für das Verschlüsselungsverfahren homophone Substitution ein zufälliger Schlüssel bestimmt. </P>
+
+<P>In der jetzigen Version von CrypTool können Sie keinen eigenen Schlüssel festlegen.</P>
+
+<P>Die Parameter für den Schlüssel zur homophonen Substitution sind:
+
+<UL>
+	<LI>das verwendete Alphabet.<BR><BR></LI>
+
+	<LI>die Referenzdatei, die für die Berechnung der Homophonen-Verteilung notwendig ist.<BR><BR></LI>
+
+	<LI>ob die Formatierungszeichen Zeilenvorschub &lt;NL&gt;, Wagenrücklauf &lt;CR&gt; und Tabulator &lt;TAB&gt; in das Schlüsselalphabet mit aufgenommen werden.<BR><BR></LI>
+
+	<LI>die Gesamtzahl der Homophonen.</LI>
+</UL>
+
+<P>Nachdem Sie das Alphabet und die Referenzdatei unter dem Menü <B>Optionen \ <A href="hid_opttext.html">Textoptionen</A></B> eingestellt haben, können Sie im oberen Abschnitt dieses Dialoges die Gesamtzahl der Homophone bestimmen und festlegen, ob die oben genannten Formatierungszeichen mit verschlüsselt werden. Zusätzlich können vor der Verschlüsselung die deutschen Umlaute Ää, Öö und Üü kodiert werden in A(a)e, O(o)e bzw. U(u)e.</P>
+
+<P>Die Anzahl der Homophone bestimmt die Bitlänge für jedes Chiffretextzeichen.</P>
+
+<P>Beispielsweise wird bei einem Schlüssel mit 1024 Homophonen jedes Klartext-Zeichen in eine Zahl aus dem Wertebereich 0, ..., 1023 verschlüsselt. Jede dieser Zahlen benötigt zur eindeutigen Darstellung 10 Bits. In diesem Fall wird ein 2000 Byte langer Text in einen Chiffretext der Länge 2000 x 10 Bit = 2500 Bytes expandiert. </P>
+
+<P>Mit dem Button <B>Aktualisieren</B> wird <!--ZZZUL--></P>
+
+<P>- die Gesamtzahl der Homophonen dem Wert des Eingabefeldes angeglichen,</P>
+
+<P>- die notwendige Bitlänge für die Verschlüsselung von einem Zeichen und schließlich</P>
+
+<P>- ein neuer zufälliger Homophonen-Schlüssel berechnet.</P>
+
+<P>Mit dem Button <B>Zufälliger Schlüssel erzeugen</B>, wird ein neuer zufälliger Homophonen-Schlüssel berechnet.</P>
+
+<P>Sie können das Dokument verschlüsseln, indem Sie auf den Knopf <B>Verschlüsseln</B> klicken oder die Eingabetaste betätigen. </P>
+
+<P>Das Ergebnis der Verschlüsselung ist ein binäres Dokument.</P>
+
+<P>Wenn Sie ein in verschlüsseltes Dokument entschlüsseln wollen, müssen Sie zuvor den Homophonen-Schlüssel im <A href="hid_show_key.html">Schlüsselspeicher</A> gesichert haben (wenn das verschlüsselte Dokument im CrypTool Desktop aktiv ist, dann können Sie den Homophonen-Schlüssel über das Menü <B>Bearbeiten \ <A href="hid_show_key.html">Schlüssel anzeigen</A></B> den Schlüssel in den Schlüsselspeicher kopieren: In der folgenden Dialogbox <B>Schlüssel kopieren</B> drücken). Den Schlüssel fügen Sie dann mit Hilfe des Knopfes <IMG SRC="images/iconinsertkey.gif" ALT="" BORDER=0> in den Dialog ein (falls der Knopf blass dargestellt ist, steht kein Schlüssel im Schlüsselspeicher). Zur Entschlüsselung wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario für das RSA-Verfahren zur Verschlüsselung</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario">
+	<PARAM NAME="Keyword" VALUE="RSA-Verfahren zur Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+</OBJECT>
+
+<P><A NAME="szenarien_rsa_verschluesselung"></A><B>Szenario für das RSA-Verfahren zur Verschlüsselung</B></P>
+
+<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mit dem <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
+
+<P>Anhand eines <!--ZZZPOPUP--><A href="dokument.html">Textdokuments</A> wird die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> und die <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mittels des <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A> vorgestellt.</P>
+
+<P>Zunächst muss (wie bei der <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> mit dem <A href="hid_crypt_sign.html">RSA-Verfahren</A>) ein asymmetrisches <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> erzeugt werden. Über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A> im Menü <A href="menu_key.html">Schlüsselverwaltung</A> öffnet sich der folgende Dialog.</P>
+
+<P><IMG SRC="images/szenariorsa_ver1.gif" ALT="" BORDER=0></P>
+
+<P>Als Namen haben wir<CODE> Max Müller</CODE> eingegeben, die optionale Schlüsselkennung wählten wir als<CODE> Müllers Schlüssel</CODE> und als Pin-Code (zweimal)<CODE> 1234</CODE>. Die Länge des Moduls soll<CODE> 768</CODE> Bit betragen. Nach der Betätigung der <B>Eingabetaste</B> oder einen Klick auf den <B>OK</B>-Knopf wird die Erzeugung des <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaars</A> gestartet. </P>
+
+<P>Im nächsten Fenster erscheinen die öffentlichen RSA–Parameter: der aus zwei Primzahlen zusammengesetzte Modul und der öffentliche Exponent (öffentlicher Schlüssel).</P>
+
+<P><IMG SRC="images/szenariorsaoeffentlicheparameter.gif" ALT="" BORDER=0></P>
+
+<P>Im Anschluss erscheint der für die Datenbank zugewiesene Schlüsselbezeichner und die zur Schlüsselerzeugung benötigte Rechenzeit.</P>
+
+<P><IMG SRC="images/szenariorsa_ver2.gif" ALT="" BORDER=0></P>
+
+<P>Nach dem Schließen dieses Dialoges wird auch der Dialog <A href="hidd_keyasym_generation.html">Erzeugung eines asymmetrischen Schlüsselpaares</A> durch <B>Abbrechen</B> geschlossen.</P>
+
+<P>Nun laden wir die <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool-de.txt.</CODE> Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
+
+<P><IMG SRC="images/szenariorsa_ver3.gif" ALT="" BORDER=0></P>
+
+<P>Die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> erfolgt über den Befehl <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselung</A> im Menü <A href="menu_crypt.html">Ver-/Entschlüsseln \ Asymmetrisch</A>.</P>
+
+<P><IMG SRC="images/szenariorsa_ver4.gif" ALT="" BORDER=0></P>
+
+<P>Die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> wird durch Auswahl des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> des Empfängers und Klick auf den <B>OK</B>-Knopf gestartet. Für die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> ist die Eingabe des Pin-Codes also nicht erforderlich.</P>
+
+<P><IMG SRC="images/szenariorsa_ver5.gif" ALT="" BORDER=0></P>
+
+<P>Die <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> darf im Gegensatz zur <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> nur durch eine autorisierte Person erfolgen, daher ist bei der Entschlüsselung die Eingabe des Pin-Codes erforderlich.</P>
+
+<P><IMG SRC="images/szenariorsa_ver6.gif" ALT="" BORDER=0></P>
+
+<P>Der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> erscheint dann im <A href="hidr_texttype.html">Fenster für Text Ein-/Ausgaben</A>, wovon Sie sich anhand der unten gezeigten Abbildung überzeugen können.</P>
+
+<P><IMG SRC="images/szenariorsa_ver7.gif" ALT="" BORDER=0></P>
+
+</BODY>
+</HTML>

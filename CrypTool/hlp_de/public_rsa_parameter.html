@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Öffentliche Parameter zur RSA-Verschlüsselung und RSA-Signaturverifikation</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Signaturverifikation">
+	<PARAM NAME="Keyword" VALUE="Öffentliche RSA-Parameter">
+	<PARAM NAME="Keyword" VALUE="RSA">
+</OBJECT>
+
+<P><A NAME="public_rsa_parameter"></A><B>Öffentliche Parameter zur RSA-Verschlüsselung und RSA-Signatur-Verifikation</B></P>
+
+<P>Im Gegensatz zu symmetrischen Verfahren ist der RSA-Schlüssel zur Verschlüsselung oder zur Verifikation einer Signatur jedem zugänglich.</P>
+
+<P>Für RSA-Operationen nur mit dem öffentlichen Schlüssel wählen Sie hierzu aus der oberen Gruppierung die zweite Radiobutton-Option: <B>RSA nur mit öffentlichem Schlüssel</B>. </P>
+
+<P><IMG SRC="images/rsapublickeyonly.gif" ALT="" BORDER=0></P>
+
+<P>Geben Sie den öffentlichen RSA-Schlüssel bestehend aus dem RSA-Modul N und dem öffentlichen Exponenten e ein. Sie können dann die folgenden drei Operationen durchführen:</P>
+
+<P><!--ZZZOL--></P>
+
+<P>1. <A href="rsa_demo_encryption.html">RSA-Verschlüsselung</A>, </P>
+
+<P>2. <A href="rsa_demo_verify_signature.html">RSA-Signatur verifizieren</A> und </P>
+
+<P>3. <A href="rsa_demo_factorisation_attack.html">RSA durch Faktorisierung angreifen</A>.</P>
+
+<P><!--ZZZOLE--></P>
+
+<P>Der bekannteste Angriff auf das RSA-Verfahren ist der Versuch, den RSA-Modul N (der ein Teil des öffentlichen RSA-Schlüssels ist) zu <A href="rsa_demo_factorisation_attack.html">faktorisieren</A>. Diesen Faktorisierungsangriff können Sie direkt aus dem Dialog starten. Bei erfolgreicher Faktorisierung werden automatisch alle geheimen Parameter des geknackten RSA-Systems in den Dialog eingetragen (dieser Angriff führt hier nur für RSA-Schlüssel kleiner Bitlänge zum Erfolg).</P>
+
+<P>Hiermit können Sie Erfahrungen sammeln, welche Schlüssellängen auf jedem Fall für den praktischen Einsatz zu kurz sind.</P>
+
+<P>Für den Fall der erfolgreichen Faktorisierung wechselt der Dialog in die Option <A href="rsa_demo_key_generation.html"><B>RSA mit privaten und öffentlichen Schlüssel</B></A>. In diesem Fall können Sie verschlüsselte Nachrichten lesen und Signaturen fälschen.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Square and Multiply Exponentiation</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Square and Multiply Exponentiation">
+	<PARAM NAME="Keyword" VALUE="Exponentiation">
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Schnelle Exponentiation">
+</OBJECT>
+
+<P><A NAME="rsa_demo_square_and_multiply"></A><B>Square and Multiply Exponentiation</B></P>
+
+<P>Die "Square and Multiply" Exponentiation ist eine schnelle Methode zur Exponentiation modulo N.</P>
+
+<P>Berechnung von y = m^x  (mod N) im Pseudocode:</P>
+
+<P>// betrachte die Binärdarstellung von x = x[0] x[1] ... x[n-1]</P>
+
+<PRE><CODE>1. y = 1
+2. for ( i = 0, ..., n-1 )
+    {
+    y = y*y (mod N)                          // Square
+    if (x[i] == 1) then y = y*m (mod N)      // Multiply
+    }</CODE></PRE>
+
+<P></P>
+
+<P>Dieser Algorithmus benötigt also höchstens Bitlänge(x) Multiplikationen und Quadrierungen</P>
+
+<P>Beispielsweise wird bei der Berechnung </P>
+
+<P><!--ZZZINDN--></P>
+
+<P>m^65537_10 = m^10000000000000001_2   (mod N)</P>
+
+<P>y = 1; y = y*y;  y = y*m (x[0]=1); y=y*y (x[1]=0); ....; y=y*y (x[15]=0); y=y*y; y*y*m (x[16]=1)</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>durch 1 Multiplikation und 16 Quadrierungen modulo N berechnet.</P>
+
+</BODY>
+</HTML>

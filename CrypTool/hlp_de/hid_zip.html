@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Komprimieren (ZIP)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Komprimieren">
+	<PARAM NAME="Keyword" VALUE="ZIP komprimieren">
+</OBJECT>
+
+<P><A NAME="hid_zip"></A><B>Dokument komprimieren (ZIP) (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Komprimieren)</B></P>
+
+<P>Die Funktion Komprimieren (ZIP) dient der Datenkompression. Bei Wahl der Funktion ZIP wird der Inhalt des aktuellen <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> komprimiert und das Ergebnis in einem neuen <A href="hidr_hextype.html">Fenster</A> dargestellt. Aus diesen Daten ist es mittels der Funktion <A href="hid_unzip.html">Entkomprimieren</A> wieder möglich, den ursprünglichen Text zu rekonstruieren.</P>
+
+<P>Es gibt verschiedene Algorithmen zur Datenkomprimierung. In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> wird der GnuZip-Algorithmus verwendet.</P>
+
+<P>Vor der Darstellung der Ergebnisses in einem neuen Fenster wird der Kompressionsgrad in Prozent angegeben. Der Kompressionsgrad sagt aus, um wieviel Prozent ein Dokument komprimiert (also verkleinert) werden konnte. Bei einem Kompressionsgrad von 10 % ist das komprimierte Dokument 10 % kürzer als das <A href="hid_unzip.html">nicht komprimierte</A>. Es kann bei kurzen oder schon komprimierten Dokumenten passieren, dass das komprimierte Dokument einige Zeichen länger wird. Dies wirkt sich in einem negativen Kompressionsgrad aus. Ein Kompressionsgrad von –10 % besagt, dass das komprimierte Dokument 10 % länger als das nicht komprimierte ist.</P>
+
+<P>Neben der geringeren Größe der Dokumente haben Komprimierungsverfahren bei natürlich-sprachlichen Texten die Eigenschaft, dass sie die Redundanz der Daten reduzieren, was einen Angriff in den meisten Fällen erschwert. Aus diesem Grund führt das Verschlüsselungsprogramm Pretty Good Privacy (<A href="pgp.html">PGP</A>) beispielsweise eine Komprimierung der Daten vor der eigentlichen <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> durch. Zum einen werden die Pakete mit verschlüsseltem Text in der Regel dadurch deutlich kleiner und zum anderen wird dadurch die Sicherheit erhöht, da <A href="angriffe.html">Angriffe</A> schwerer werden.</P>
+
+<P>Ein <A href="szenarien_xor.html">Beispiel</A>, in dem der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> in einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gefunden werden kann, wenn das Dokument mittels <A href="hid_xor_bin.html">exklusivem Oder</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, dies jedoch nicht gelingt, wenn das Dokument vorher komprimiert wird, befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+</BODY>
+</HTML>

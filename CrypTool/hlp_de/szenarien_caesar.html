@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario für das Caesar Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario">
+	<PARAM NAME="Keyword" VALUE="Caesar Verschlüsselung">
+</OBJECT>
+
+<P><A NAME="szenarien_caesar"></A><B>Szenario für das Caesar-Verschlüsselungsverfahren</B></P>
+
+<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
+
+<P>Wir wollen zunächst das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> kennenlernen, indem wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> öffnen, dieses <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A> und im Anschluss daran wieder <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>. Danach wird versucht, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem ein <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> verschlüsselt wurde, automatisch ermitteln zu lassen.</P>
+
+<P>Dazu öffnen wir die <!--ZZZPOPUP--><A href="datei.html">Datei</A> <CODE>CrypTool-de.txt</CODE>. Das Öffnen dieser Datei geschieht über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_open.html">Öffnen</A>.</P>
+
+<P><IMG SRC="images/szenariocaesar1.gif" ALT="" BORDER=0></P>
+
+<P>Nun wollen wir dieses Dokument mit dem <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>. Dazu öffnen wir über <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <U>Caesar</U> folgenden Dialog. Als Schlüssel wird der Buchstabe<CODE> A</CODE> eingetragen.</P>
+
+<P><IMG SRC="images/szenariocaesar2.gif" ALT="" BORDER=0></P>
+
+<P>Nach Betätigung des Buttons <B>Verschlüsseln</B> öffnet sich ein Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text. Bei genauerer Betrachtung kann man sehen, dass die Buchstaben um eine Position verschoben wurden, aus dem ersten Wort<CODE> CrypTool</CODE> wurde das Wort<CODE> DszqUppm</CODE>.</P>
+
+<P><IMG SRC="images/szenariocaesar3.gif" ALT="" BORDER=0></P>
+
+<P>Der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dieses <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> kann wieder über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_caesar_asc.html">Caesar</A> ermittelt werden. In dem Dialog geben wir den Schlüssel, mit dem das Dokument verschlüsselt worden ist (<CODE>A</CODE>), ein. Außerdem soll der Text nicht ein zweites Mal verschlüsselt, sondern <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A> werden. Aus diesem Grund muss der Button <B>Entschlüsseln</B> geklickt werden.</P>
+
+<P><IMG SRC="images/szenariocaesar4.gif" ALT="" BORDER=0></P>
+
+<P>Das Klicken auf <B>Entschlüsseln</B> ist die Aufforderung für <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, den Text zu <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>. Wir erhalten sofort den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
+
+<P><IMG SRC="images/szenariocaesar5.gif" ALT="" BORDER=0></P>
+
+<P>Wir haben gesehen, wie man einen Text mit dem <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> und wieder <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>.</P>
+
+<P>Im klassischen <U>Caesar-Verschlüsselungsverfahren</U> wurden nur die Buchstaben verschlüsselt. Bei der Verschlüsselung wurden die Kleinbuchstaben in Großbuchstaben umgewandelt und verschlüsselt, alle anderen Zeichen wie Satzzeichen und Formatierungen (Leerzeichen und Zeilenumbrüche) wurden weggelassen.</P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> behält bei den klassischen <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> standardmäßig die Formatierung bei. Dies kann jedoch über das <A href="menu_options.html">Menü Optionen</A> \ <A href="hid_opttext.html">Textoptionen</A> ausgeschaltet werden. Dazu müssen in dem dann geöffneten Dialog die Häkchen vor <B>Nicht im Alphabet vorhandene Zeichen unverändert beibehalten</B> und vor <B>Groß-/Kleinschreibung beachten</B> entfernt werden.</P>
+
+<P><IMG SRC="images/szenariocaesar6.gif" ALT="" BORDER=0></P>
+
+<P>Jetzt aktivieren wir wieder ein Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> (durch Anklicken mit der Maus) und <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A> dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> erneut mit dem <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> unter Benutzung des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A><CODE> A</CODE>. Sofort erkennt man, dass sich der verschlüsselte Text inhaltlich nicht von dem vorher verschlüsselten Text unterscheidet, außer dass er nur Großbuchstaben enthält und die Formatierung entfernt wurde. Zum Beispiel sind die ersten Zeichen im verschlüsselten Text wieder<CODE> DSZQUPPM</CODE> (das Chiffrat von<CODE> CrypTool</CODE>).</P>
+
+<P>Zur besseren Lesbarkeit wurde bei dieser Form der Ausgabe jedoch nach jedem fünften Buchstaben ein Leerzeichen eingefügt.</P>
+
+<P>Dieses Dokument wollen wir unter einem anderen Namen speichern. Über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_save_as.html">Speichern unter</A> wird der Dialog zum Speichern eines Dokuments unter einem neuen Namen geöffnet. Als <!--ZZZPOPUP--><A href="datei.html">Dateinamen</A> tragen wir<CODE> CrypTool.Caesar.txt</CODE> ein. </P>
+
+<P><IMG SRC="images/szenariocaesar7.gif" ALT="" BORDER=0></P>
+
+<P>Das <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsseln</A> funktioniert genauso wie oben schon durchgeführt. Wir entschlüsseln dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wieder und erhalten den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>. Dieser besteht jetzt natürlich nur noch aus einer Aneinanderreihung von Großbuchstaben. Wegen der nicht mehr vorhandenen Groß- / Kleinschreibung, aber vor allem auch wegen der fehlenden Formatierung ist dieser Text schwerer lesbar. Ein kurzer Vergleich mit dem Originaltext zeigt jedoch, dass es sich um den gleichen Text handelt. Der Originaltext beginnt mit den Worten: <B>CrypTool ist ein Programm, mit dessen Hilfe Sie ...</B>. Diese Worte befinden sich ebenfalls in der ersten Zeile des entschlüsselten Textes.</P>
+
+<P><IMG SRC="images/szenariocaesar8.gif" ALT="" BORDER=0></P>
+
+<P>Nachdem wir jetzt die Schritte zur <!--ZZZPOPUP--><A href="verschluesselung.html">Ver-</A> und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> eines <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> kennengelernt haben, wollen wir uns ein wenig mit der Sicherheit des <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahrens</A> beschäftigen. Dazu sollen alle Fenster mit Ausnahme der Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und dem verschlüsselten Text unter Beibehaltung der Formatierung geschlossen werden. Es sind also nur noch die beiden folgenden Fenster geöffnet.</P>
+
+<P><IMG SRC="images/szenariocaesar1.gif" ALT="" BORDER=0></P>
+
+<P><IMG SRC="images/szenariocaesar3.gif" ALT="" BORDER=0></P>
+
+<P>Durch einen Mausklick aktivieren wir das Fenster mit dem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und lassen die <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> (über das <A href="menu_analyze.html">Menü Analyse \ Allgemein</A> \ <A href="hid_entropy.html">Entropie</A>) und</P>
+
+<P><IMG SRC="images/szenariocaesar9.gif" ALT="" BORDER=0></P>
+
+<P>die Häufigkeitsverteilung der Buchstaben (über das <A href="menu_analyze.html">Menü Analyse \ Allgemein</A> \ <A href="hid_histogram.html">Histogramm</A>) berechnen.</P>
+
+<P><IMG SRC="images/szenariocaesar10.gif" ALT="" BORDER=0></P>
+
+<P>Die letzten beiden Punkte wiederholen wir, nachdem das andere Fenster aktiviert worden ist. Wir erkennen sofort, dass beide <!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> die gleiche <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> haben.</P>
+
+<P><IMG SRC="images/szenariocaesar11.gif" ALT="" BORDER=0></P>
+
+<P>Die Betrachtung des <!--ZZZPOPUP--><A href="histogramm.html">Histogramms</A> des <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> lässt uns erkennen, dass die Buchstabenhäufigkeiten nur um eine Position verschoben sind. Daher ist dieses alte <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> nicht sicher. (Außerdem gibt es lediglich 26 <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, von denen das<CODE> Z</CODE> den Text um 26 Stellen verschiebt, wodurch der verschlüsselte Text identisch mit dem unverschlüsselten ist. Also gibt es eigentlich nur 25 Schlüssel !)</P>
+
+<P>Das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> kann leicht durch einen <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gebrochen werden. Dazu wird wieder das Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text aktiviert und über das <A href="menu_analyze.html">Menü Analyse \ Ciphertext only</A> \ <A href="hid_caesar_auto.html">Caesar</A> die automatische Analyse gestartet.</P>
+
+<P><IMG SRC="images/szenariocaesar12.gif" ALT="" BORDER=0></P>
+
+<P>Anhand der Analyse der Überlagerungen kann man den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> finden, mit dem dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> ist; in diesem Fall das<CODE> A</CODE>.</P>
+
+<P><IMG SRC="images/szenariocaesar13.gif" ALT="" BORDER=0></P>
+
+<P>Nachdem dieses Meldungsfenster mit <B>Entschlüsseln</B> bestätigt worden ist, erscheint der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>, das heißt der mit dem gefundenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A><CODE> A</CODE> <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselte</A> Text.</P>
+
+<P><IMG SRC="images/szenariocaesar14.gif" ALT="" BORDER=0></P>
+
+<P>Es war <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> also möglich, den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <A href="verschluesselung.html">verschlüsselt</A> ist, zu finden. Dazu bedurfte es keiner weiteren Information außer dem <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Inverse Kongruenzgenerator (ICG)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Inverse Kongruenzgenerator (ICG)">
+	<PARAM NAME="Keyword" VALUE="Zufallsgenerator">
+	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
+</OBJECT>
+
+<P><A NAME="hidd_icg_randomparameter"></A><B>Dialog</B> <B>Der Inverse Kongruenzgenerator (ICG)</B></P>
+
+<P>Der Inverse Kongruenzgenerator (ICG) ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X_[i]) gemäß der rekursiven Rechenvorschrift:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P>X_[0] := Geheimer Saatwert</P>
+
+<P>X_[i+1] := inverse[a*(X_[0]+i) + c]  (mod P)   für i = 0, 1, 2, 3, ...</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>wobei X_[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., P-1 sind. Es ist üblich, die Zufallszahlen in den rationalen Wertebereich [0,1[ zu normieren, deshalb erfolgt die Ausgabe als rationale Zahlen Z[i] := X_[i]/P. </P>
+
+<P>Wir betrachten in CrypTool nur "Münzwürfe" (der Münzwurf "Kopf" wird auf die 0 und der Münzwurf "Zahl" wird auf die 1 abgebildet). Beim ICG bilden wir deshalb den Münzwurf 0 durch das Ereignis [Z_[i] &lt; 0,5] und der Münzwurf 1 durch das Ereignis [0,5 &lt;= Z_[i] &lt; 1] ab. Die Folge der Münzwürfe wird als Binärdatei (eine Folge von 8 Münzwürfen ergibt ein zufälliges ASCII Zeichen) abgespeichert.</P>
+
+<P>Parameter beim ICG sind die Zahlen P, a, c der modulo P Invertierung der Geraden-Gleichung y = ax+c: Der Modul P ist eine Primzahl, der Multiplikator a: 0&lt;a&lt;N und das additive Inkrement b: 1&lt;b&lt;N. Des weiteren wird der ICG durch den geheimen Initialwert oder Saat X_0 initialisiert.</P>
+
+<P>Nachdem Sie im Dialog <A href="menu_related_methods.html"><B>Einzelverfahren</B></A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton "Inverse Kongruenzgenerator (ICG)" gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameter des ICG festlegen:</P>
+
+<P><IMG SRC="images/icgoptions.gif" ALT="" BORDER=0></P>
+
+<P>Beachten Sie, dass die Qualität des ICG entscheidend von der Wahl der Parameter abhängt. Ein wichtiges Maß ist hierbei die <A href="periodenlänge.html">Periodenlänge</A> der Zufallsfolge, die durch die Parameter festgelegt wird. </P>
+
+<P>Die Qualität der von dem Zufallsgenerator erzeugten Ausgabe können Sie mit Hilfe der in CrypTool implementierten Zufallstests, der Periodenanalyse, der Komprimierbarkeit sowie der Vitany-Analyse überprüfen.</P>
+
+</BODY>
+</HTML>

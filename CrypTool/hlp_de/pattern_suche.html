@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Funktionsweise der Muster-(Pattern-)Suche</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Pattern-Suche">
+	<PARAM NAME="Keyword" VALUE="Muster-Suche">
+</OBJECT>
+
+<P><A NAME="pattern_suche"></A><B>Funktionsweise der Muster-(Pattern-)Suche</B></P>
+
+<P>Die hier verwendete Analysemethode funktioniert nur für Chiffrate von englischem oder deutschem Standardtext, bei dem die Leerzeichen im <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text erhalten sind (siehe Option <A href="hidd_text_options.html">Formatierung beibehalten</A>).</P>
+
+<P>Im folgenden wird die Analyse für englischen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> beschrieben. Für deutschen Klartext funktioniert die Analyse genauso. Hier ergibt sich aufgrund statistischer Eigenschaften der deutschen Sprache jedoch ein etwas anderes Zahlenmaterial. Um die Beschreibung des Analyseverfahrens nicht zu sehr zu abstrahieren, wird nun die Analyse basierend auf dem Zahlenmaterial für englischen Klartext beschrieben:</P>
+
+<P>Die Analyse für englische Klartexte basiert auf der Tatsache, dass ein aus einem englischen Standardtext beliebig herausgezogenes Wort mit einer Wahrscheinlichkeit von 0,5 in der Liste der 135 häufigsten englischen Wörter enthalten ist.</P>
+
+<P>Zu Beginn wird der zu analysierende Text in einzelne Wörter zerlegt. Jedes einzelne Wort wird darauf überprüft, ob es ein Wort in der Liste der 135 häufigsten Wörtern gibt, das dasselbe Muster (Pattern) aufweist.</P>
+
+<P>Mit Muster ist hierbei das Buchstabenmuster, zum Beispiel "erster und dritter Buchstabe sind gleich, alle anderen verschieden", gemeint. So haben die Wörter "der", "dem", "von" und "ein" alle das selbe Muster (jedes Wort besteht aus drei verschiedenen Buchstaben), die Wörter "alle" und "Fall" unterscheiden sich aber in ihren Mustern.</P>
+
+<P>Wörter, die kein passendes Gegenstück in der Liste haben, werden nicht betrachtet. Alle anderen Wörter werden nach Mustern sortiert und zu Mengen (mit gleichem Muster) zusammengefasst. Jeder dieser Menge wird jetzt die Menge von Wörtern der Liste zugeordnet, die dasselbe Muster aufweisen.</P>
+
+<P>Jedes Paar aus Wörtern aus einander zugeordneten Mengen induziert nun eine partielle Substitution. Partiell bedeutet hierbei, dass nicht unbedingt für jeden Buchstaben dabei die entsprechende Ersetzung gefunden werden muss. Vielmehr kann es passieren, dass man über die Zuordnung einzelner Buchstaben keine Aussage machen kann.</P>
+
+<P>Über einen Suchbaum, der durch Tiefensuche abgesucht wird, wird nun die (partielle) Substitution gesucht, die aus den meisten Einzel-Substitutionen zusammengebaut ist, ohne dass es dabei zu Kollisionen (d.h. Widersprüchen) kommt.</P>
+
+<P>Um einem exponentiellen Aufwand beim Durchsuchen des Baumes vorzubeugen, werden Äste, bei denen es im oberen Bereich zu Kollisionen kommt, nicht weiter abgesucht.</P>
+
+<P>Buchstaben, die nicht zugeordnet werden konnten, werden im Ergebnistext durch Kleinbuchstaben repräsentiert. Buchstaben, für die eine Ersetzung gefunden wurde, durch Großbuchstaben.</P>
+
+</BODY>
+</HTML>

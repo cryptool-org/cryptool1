@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hill-Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Hill-Verschlüsselungsverfahren">
+</OBJECT>
+
+<P><A NAME="hid_hill"></A><B>Hill-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P>
+
+<P>Das Hill-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> wurde 1929 von Lester Hill erfunden. Es war eines der ersten Verfahren, welche sich der Mathematik bedienten (lineare Abbildungen, die in Matrixform geschrieben werden können). Durch die Benutzung der Mathematik versprach man sich ein Mehr an Sicherheit.</P>
+
+<P>Das Hill-Verschlüsselungsverfahren benötigt einen aus den zu <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselnden</A> Zeichen bestehenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> (siehe Dialog <A href="hidd_text_options.html">Textoptionen</A>), der genauso viele Zeilen wie Spalten hat. Der Schlüssel muss im Dialog <A href="hidd_key_hill5x5.html">Schlüssel für Hill Verschlüsselungsverfahren</A> eingegeben werden.</P>
+
+<P>Der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>, der ebenfalls nur aus den zu verschlüsselnden Zeichen bestehen darf, wird in Blöcke gleicher Größe (ein Block besteht aus so vielen Zeichen, wie der Schlüssel Zeilen hat) unterteilt. Zur Verschlüsselung wird der Klartext blockweise verarbeitet. Ein Zeichen des verschlüsselten Textes hängt beim Hill-Verschlüsselungsverfahren nicht nur vom entsprechenden Klartextzeichen und dem Schlüssel ab (wie beim <A href="hid_caesar_asc.html">Caesar</A> und <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A>), sondern auch von den anderen Klartextzeichen des Blockes. Der letzte Block besteht unter Umständen aus zu wenigen Zeichen; in diesem Fall wird er mit dem Zeichen mit dem kleinsten <A href="ascii.html">ASCII</A>-Wert aufgefüllt.</P>
+
+<P>Mathematisch gesehen beruht das Hill-Verschlüsselungsverfahren auf der Matrizenmultiplikation mit der Matrix A=(a[i,j]) für i und j zwischen 1 und n. Dabei werden sowohl der Klartext und der verschlüsselte Text als auch der Schlüssel als Zahlen interpretiert (zum Beispiel A=0, B=1, C=2, ...); die Interpretation hängt von der Reihenfolge der zu verschlüsselnden Zeichen im Dialog <A href="hidd_text_options.html">Textoptionen</A> ab. Wenn der Schlüssel die Dimension n x n hat, so ergibt sich ein Block des verschlüsselten Textes v[1] ... v[n] aus einem Block des Klartextes k[1] ... k[n] durch die folgende Formel:</P>
+
+<P>v[j] = Summe für i von 1 bis n von k[i] * a[i,j], für j zwischen 1 und n.</P>
+
+<P>Ist ein Klartext mit der Matrix A verschlüsselt, so wird der verschlüsselte Text mit der inversen Matrix zur Verschlüsselungsmatrix A <!--ZZZPOPUP--><A href="modulo.html">modulo</A> Anzahl der zu verschlüsselnden Zeichen <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>. </P>
+
+<P>Daher sind auch nicht alle Kombinationen beliebiger Zeichen als Schlüssel zu verwenden. Es macht keinen Sinn, eine nicht invertierbare Matrix (eine Matrix, zu der die inverse Matrix nicht existiert) als Schlüssel zuzulassen, da eine Entschlüsselung dann nicht möglich ist. Daher weist das Programm einen solchen Schlüssel zurück. Da es speziell bei Schlüsseln größerer Dimension schwierig ist, einen Schlüssel zu erraten, der einer invertierbaren Matrix entspricht (siehe dazu die Tabelle unten), gibt es die Möglichkeit, über den Knopf <B>Zufälliger Schlüssel</B> im Dialog <A href="hidd_key_hill5x5.html">Schlüssel für Hill Verschlüsselungsverfahren</A> einen Schlüssel erzeugen zu lassen, der einer invertierbaren Matrix entspricht.</P>
+
+<P>Das Hill-Verschlüsselungsverfahren ist also eine lineare Transformation des Klartextes. Daher ist es möglich, den Schlüssel über einen <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A> zu ermitteln. In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> ist ein <A href="hid_hill_auto.html">Known-Plaintext-Angriff für das Hill Verschlüsselungsverfahren</A> enthalten. </P>
+
+<P>Ein <A href="szenarien_hill.html">Beispiel</A> zum Hill Verschlüsselungsverfahren und zum <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A> befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+<P>Empirische Ermittlung der Anzahl von invertierbaren Matrizen <!--ZZZPOPUP--><A href="modulo.html">modulo</A> verschiedener Zahlen:</P>
+
+<P>Beispiele für verschiedene Anzahl zu verschlüsselnder Zeichen:</P>
+
+<P>Modul 10: Es werden nur Ziffern verschlüsselt.</P>
+
+<P>Modul 26: Es werden nur Groß- oder Kleinbuchstaben verschlüsselt.</P>
+
+<P>Modul 52: Es werden nur Groß- und Kleinbuchstaben verschlüsselt.</P>
+
+<P>Modul 62: Es werden nur Groß-, Kleinbuchstaben und Ziffern verschlüsselt.</P>
+
+<P>Modul 71: Es werden nur Groß-, Kleinbuchstaben, Ziffern und Satzzeichen verschlüsselt.</P>
+
+<TABLE cols=11 width=565>
+
+<TR VALIGN="top">
+<TD width=16%>Dimension:</TD>
+<TD width=8%>1</TD>
+<TD width=9%>2</TD>
+<TD width=8%>3</TD>
+<TD width=8%>4</TD>
+<TD width=9%>5</TD>
+<TD width=8%>6</TD>
+<TD width=8%>7</TD>
+<TD width=9%>8</TD>
+<TD width=8%>9</TD>
+<TD width=9%>10</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 4:</TD>
+<TD width=8%>51 %</TD>
+<TD width=9%>38 %</TD>
+<TD width=8%>33 %</TD>
+<TD width=8%>31 %</TD>
+<TD width=9%>30 %</TD>
+<TD width=8%>30 %</TD>
+<TD width=8%>29 %</TD>
+<TD width=9%>29 %</TD>
+<TD width=8%>29 %</TD>
+<TD width=9%>28 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 5:</TD>
+<TD width=8%>81 %</TD>
+<TD width=9%>77 %</TD>
+<TD width=8%>76 %</TD>
+<TD width=8%>76 %</TD>
+<TD width=9%>76 %</TD>
+<TD width=8%>76 %</TD>
+<TD width=8%>76 %</TD>
+<TD width=9%>76 %</TD>
+<TD width=8%>76 %</TD>
+<TD width=9%>76 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 6:</TD>
+<TD width=8%>34 %</TD>
+<TD width=9%>22 %</TD>
+<TD width=8%>19 %</TD>
+<TD width=8%>17 %</TD>
+<TD width=9%>17 %</TD>
+<TD width=8%>17 %</TD>
+<TD width=8%>16 %</TD>
+<TD width=9%>16 %</TD>
+<TD width=8%>16 %</TD>
+<TD width=9%>16 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 7:</TD>
+<TD width=8%>86 %</TD>
+<TD width=9%>84 %</TD>
+<TD width=8%>84 %</TD>
+<TD width=8%>84 %</TD>
+<TD width=9%>84 %</TD>
+<TD width=8%>84 %</TD>
+<TD width=8%>84 %</TD>
+<TD width=9%>84 %</TD>
+<TD width=8%>84 %</TD>
+<TD width=9%>84 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 10:</TD>
+<TD width=8%>40 %</TD>
+<TD width=9%>29 %</TD>
+<TD width=8%>25 %</TD>
+<TD width=8%>24 %</TD>
+<TD width=9%>23 %</TD>
+<TD width=8%>23 %</TD>
+<TD width=8%>22 %</TD>
+<TD width=9%>22 %</TD>
+<TD width=8%>22 %</TD>
+<TD width=9%>22 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 26:</TD>
+<TD width=8%>46 %</TD>
+<TD width=9%>34 %</TD>
+<TD width=8%>30 %</TD>
+<TD width=8%>28 %</TD>
+<TD width=9%>27 %</TD>
+<TD width=8%>27 %</TD>
+<TD width=8%>27 %</TD>
+<TD width=9%>26 %</TD>
+<TD width=8%>26 %</TD>
+<TD width=9%>26 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 35:</TD>
+<TD width=8%>69 %</TD>
+<TD width=9%>64 %</TD>
+<TD width=8%>64 %</TD>
+<TD width=8%>64 %</TD>
+<TD width=9%>64 %</TD>
+<TD width=8%>64 %</TD>
+<TD width=8%>64 %</TD>
+<TD width=9%>64 %</TD>
+<TD width=8%>64 %</TD>
+<TD width=9%>64 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 36:</TD>
+<TD width=8%>33 %</TD>
+<TD width=9%>22 %</TD>
+<TD width=8%>19 %</TD>
+<TD width=8%>17 %</TD>
+<TD width=9%>16 %</TD>
+<TD width=8%>17 %</TD>
+<TD width=8%>16 %</TD>
+<TD width=9%>16 %</TD>
+<TD width=8%>16 %</TD>
+<TD width=9%>16 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 52:</TD>
+<TD width=8%>46 %</TD>
+<TD width=9%>35 %</TD>
+<TD width=8%>30 %</TD>
+<TD width=8%>29 %</TD>
+<TD width=9%>28 %</TD>
+<TD width=8%>27 %</TD>
+<TD width=8%>27 %</TD>
+<TD width=9%>27 %</TD>
+<TD width=8%>26 %</TD>
+<TD width=9%>27 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 62:</TD>
+<TD width=8%>49 %</TD>
+<TD width=9%>36 %</TD>
+<TD width=8%>32 %</TD>
+<TD width=8%>30 %</TD>
+<TD width=9%>29 %</TD>
+<TD width=8%>28 %</TD>
+<TD width=8%>28 %</TD>
+<TD width=9%>29 %</TD>
+<TD width=8%>27 %</TD>
+<TD width=9%>27 %</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modul: 71:</TD>
+<TD width=8%>99 %</TD>
+<TD width=9%>99 %</TD>
+<TD width=8%>99 %</TD>
+<TD width=8%>99 %</TD>
+<TD width=9%>99 %</TD>
+<TD width=8%>99 %</TD>
+<TD width=8%>99 %</TD>
+<TD width=9%>99 %</TD>
+<TD width=8%>99 %</TD>
+<TD width=9%>99 %</TD>
+</TR>
+</TABLE><BR>
+
+<P>Diese Werte lassen vermuten, dass die Anzahl der invertierbaren Matrizen von der Anzahl der Teiler des Moduls abzuhängen; <!--ZZZLINK--><A href="script-de.pdf">Primzahlen</A> haben nur zwei Teiler und ein hoher Prozentsatz der Matrizen ist invertierbar. Außerdem scheint die Anzahl der invertierbaren Matrizen mit zunehmender Dimension kleiner zu werden.</P>
+
+</BODY>
+</HTML>

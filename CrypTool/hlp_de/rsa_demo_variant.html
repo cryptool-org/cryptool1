@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog der Schwestern</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialog der Schwestern">
+	<PARAM NAME="Keyword" VALUE="Kurzgeschichte">
+	<PARAM NAME="Keyword" VALUE="RSA">
+</OBJECT>
+
+<P><A NAME="rsa_demo_variant"></A><B>Der Dialog der Schwestern</B></P>
+
+<P>In der Geschichte "<!--ZZZLINK--><A href="DialogSchwestern.pdf">Dialog der Schwestern</A>" wird das RSA-Verfahren vereinfacht dargestellt. Zunächst wird ein RSA-Modul N &gt; 27 aus 2 Primzahlen generiert. </P>
+
+<P>Beispiel N = 13*7 = 91 mit der Eulerschen phi-Funktion phi(N) = 12*6 = 72. Als öffentlichen Exponenten wählen wir e = 5. Daraus berechnet sich der geheime Schlüssel d = 29. </P>
+
+<P>Nachdem Sie die RSA-Parameter erzeugt haben, wählen Sie unter <A href="hidd_options_rsa_demo.html">Optionen für Alphabet und Zahlensystem</A> die Option "Dialog der Schwestern" mit dem Alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (das Leerzeichen gehört zum Alphabet).</P>
+
+<P>Die Kodierung der Buchstaben "A, B, C, ..., Z" sowie das Leerzeichen ' ' erfolgt in Zahlen:</P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE border=1 cols=2 frame=box rules=all width=175>
+
+<TR VALIGN="top">
+<TD width=50%>A ---&gt; 1</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>B ---&gt; 2  </TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>C ---&gt; 3</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%> . . . . . .</TD>
+<TD width=50%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>Z ---&gt; 26</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>' ' ---&gt; 27</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die Zahl r ist pro Buchstabe eine zufällig gewählte Zahl und 27 ist die Anzahl der Zeichen im Alphabet. Zum Beispiel sind die Zahlen m = 2, 29, 56, 83, .... gültige Kodierungen für den Buchstaben B. Die Verschlüsselung der kodierten Buchstaben m erfolgt dann nach der Rechenvorschrift</P>
+
+<P><!--ZZZIND--> c = c(m) = m^e  (mod 91)</P>
+
+<P>Die Entschlüsselung der verschlüsselten Nachricht erfolgt dementsprechend nach der Formel</P>
+
+<P><!--ZZZIND--> m = d(c) = c^d   (mod 91) (mod 27)</P>
+
+<P>Die anschließende Rechnung (mod 27) ist notwendig, um die Dekodierung 1 ---&gt; A, 2 ---&gt; B, ..., 27 ---&gt; ' ' auszuführen. </P>
+
+<P>Der Unterschied zum normalen RSA-Verfahren besteht darin, dass <!--ZZZINDN--></P>
+
+<P>- noch r*27 addiert wird (r ist zufällig) bei der Kodierung von Buchstaben in Zahlen,</P>
+
+<P>- die (modulo 27) Operation nach der Entschlüsselung durchgeführt wird,</P>
+
+<P>- das Alphabet genau 27 Zeichen lang ist,</P>
+
+<P>- die Blocklänge damit genau 1 Zeichen beträgt.</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>Ohne die zufällige Zahl r gäbe es nur 27 verschiedene Ciphertext-Zahlen und das Verfahren wäre wie eine monoalphabetische Substitution mit den 27 verschiedenen Werten über eine Häufigkeitsanalyse leicht anzugreifen.</P>
+
+<P>In dem folgenden Beispiel wird die Nachricht </P>
+
+<P><!--ZZZIND--> "DIES IST EINE VERTRAULICHE NACHRICHT"</P>
+
+<P>verschlüsselt:</P>
+
+<P><IMG SRC="images/rsa_demo_6.gif" ALT="" BORDER=0></P>
+
+<P>bzw. entschlüsselt:</P>
+
+<P><IMG SRC="images/rsa_demo_7.gif" ALT="" BORDER=0></P>
+
+<P><B>Bemerkung:</B></P>
+
+<P>Sie sehen hier eine andere Zahlenfolge als Chiffretext als im vorhergehenden Bild, obwohl beide zum selben Klartext gehören und beide mit demselben Schlüsselpaar erzeugt wurden. Dies liegt daran, dass das Chiffrat mit verschiedenen zufällig gewählten Werten von r erzeugt wurde.</P>
+
+</BODY>
+</HTML>

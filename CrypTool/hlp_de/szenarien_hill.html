@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario für das Hill Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario">
+	<PARAM NAME="Keyword" VALUE="Hill Verschlüsselung">
+</OBJECT>
+
+<P><A NAME="szenarien_hill"></A><B>Szenario für das Hill Verschlüsselungsverfahren</B></P>
+
+<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_hill.html">Hill Verschlüsselungsverfahren</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
+
+<P><U>Zuerst eine kurze Zusammenfassung über die durchzuführenden Schritte:</U></P>
+
+<P>Der Text<CODE> HILLCIPHER</CODE> soll mit dem <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>:<CODE> T E S T</CODE> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> werden.</P>
+
+<TABLE cols=6 width=283>
+
+<TR VALIGN="top">
+<TD width=25%>Schlüssel:</TD>
+<TD width=10%>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>E</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD width=32%>Entspricht:</TD>
+<TD width=11%>19</TD>
+<TD width=11%>4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>&nbsp;</TD>
+<TD width=10%>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD width=32%>&nbsp;</TD>
+<TD width=11%>18</TD>
+<TD width=11%>19</TD>
+</TR>
+</TABLE><BR>
+
+<P>Da der Schlüssel aus zwei Zeilen und Spalten besteht, muss der Text in Blöcke aus zwei Zeichen aufgeteilt werden.</P>
+
+<TABLE cols=14 width=378>
+
+<TR VALIGN="top">
+<TD width=8%>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>I</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>I</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>P</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=8%>7</TD>
+<TD width=8%>8</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>11</TD>
+<TD width=8%>11</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>2</TD>
+<TD width=8%>8</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>15</TD>
+<TD width=8%>7</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>4</TD>
+<TD width=8%>17</TD>
+</TR>
+</TABLE><BR>
+
+<P>Zur Verschlüsselung des ersten Blockes werden folgende Berechnungen durchgeführt:</P>
+
+<P>7 * 19 + 8 * 18 = 277 = 10 * 26 + 17 = 17 (<!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26) ,</P>
+
+<P>7 * 4 + 8 * 19 = 180 = 6 * 26 +24 = 24 (modulo 26) .</P>
+
+<P>Damit ergibt sich der erste Block des verschlüsselten Textes: 17 24 . Dies entspricht:<CODE> R Y</CODE> .</P>
+
+<P>Der gesamte verschlüsselte Text lautet:</P>
+
+<TABLE cols=14 width=378>
+
+<TR VALIGN="top">
+<TD width=8%>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>Y</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>A</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>V</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD width=8%>
+<PRE><CODE>B</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=8%>17</TD>
+<TD width=8%>24</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>17</TD>
+<TD width=8%>19</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>0</TD>
+<TD width=8%>4</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>21</TD>
+<TD width=8%>11</TD>
+<TD width=5%>&nbsp;</TD>
+<TD width=8%>18</TD>
+<TD width=8%>1</TD>
+</TR>
+</TABLE><BR>
+
+<P>Wenn <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> einen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und den entsprechenden verschlüsselten Text erhält, findet der <A href="hid_hill_auto.html">Angriff auf das Hill-Verschlüsselungsverfahren</A> den Schlüssel, wie im weiteren zu sehen ist.</P>
+
+<P><U>Nun die Betrachtung der einzelnen Schritte im Detail:</U></P>
+
+<P>Der Text<CODE> HILLCIPHER</CODE> soll mit dem Schlüssel:<CODE> T E S T</CODE> verschlüsselt werden. Dazu wird ein neues <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> erstellt (über das <A href="menu_file.html">Menü Datei</A> \ <A href="hid_file_new.html">Neu</A>) und der Text<CODE> HILLCIPHER</CODE> eingegeben. Bei den klassischen Verschlüsselungsverfahren werden Kleinbuchstaben immer durch die entsprechenden Großbuchstaben ersetzt; CrypTool stellt die Groß-/Kleinschreibung jedoch zur besseren Lesbarkeit wieder her. Diese beiden Punkte können unabhängig voneinander ausgeschaltet werden, siehe Punkte <B>Nicht im Alphabet vorhandene Zeichen unverändert beibehalten</B> und <B>Groß-/Kleinschreibung erhalten (wenn möglich)</B> im Dialog <A href="hid_opttext.html">Textoptionen</A>. Daher ist es unerheblich, ob der Text Kleinbuchstaben enthält. Zur Demonstration benutzen wir<CODE> Hillcipher</CODE> statt<CODE> HILLCIPHER</CODE>:</P>
+
+<P><IMG SRC="images/szenariohill1.gif" ALT="" BORDER=0></P>
+
+<P>Im Anschluss wird über das <A href="menu_crypt.html">Menü Ver-/Entschlüsseln \ Klassisch</A> \ <A href="hid_hill.html">Hill</A> folgendes Fenster geöffnet.</P>
+
+<P><IMG SRC="images/szenariohill2.gif" ALT="" BORDER=0></P>
+
+<P>Nach Eingabe des Schlüssels<CODE> T E S T</CODE> kann der Schlüssel mit dem <B>Kopieren</B>-Knopf in die Zwischenablage gespeichert werden (um ihn später bei der <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> nicht wieder eingeben zu müssen); Informationen über die Zwischenablage befinden sich in der <A href="afx_hidw_toolbar.html">Hilfe zur Symbolleiste</A>. Die Betätigung des <B>Verschlüsseln</B>-Knopfes erscheint folgendes Fenster mit dem verschlüsselten Text:</P>
+
+<P><IMG SRC="images/szenariohill3.gif" ALT="" BORDER=0></P>
+
+<P>Jetzt wird der <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> Text zur Kontrolle wieder <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>. Die Vorgehensweise ist identisch mit der Verschlüsselung, jedoch muss dieses Mal das Feld <B>Entschlüsseln</B> aktiviert sein, also ein Punkt in dem Kreis vor diesem Feld stehen. Dies geschieht durch Anklicken des Feldes mit der Maus. Der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> kann jetzt entweder wie vorher eingegeben werden oder aus der Zwischenablage mit dem <B>Einfügen</B>-Knopf eingefügt werden, sofern er sich dort befindet.</P>
+
+<P><IMG SRC="images/szenariohill4.gif" ALT="" BORDER=0></P>
+
+<P>Nach der Betätigung der Eingabetaste erscheint wieder der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>.</P>
+
+<P><IMG SRC="images/szenariohill5.gif" ALT="" BORDER=0></P>
+
+<P>Nun soll der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> mittels des in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> eingebauten <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriffes</A> ermittelt werden. Dazu wird sowohl der Klartext als auch der <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> Text benötigt. Am einfachsten ist es, den Klartext aus einem der beiden Fenster, die<CODE> Hillcipher</CODE> enthalten, <A href="hid_edit_copy.html">in die Zwischenablage zu kopieren (mit der Maus markieren und danach die Tastenkombination Strg+C betätigen)</A>; im Anschluss muss wieder das Fenster mit dem <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text (durch Anklicken mit der Maus) aktiviert werden und über des <A href="menu_analyze.html">Menü Analyse</A> \ known Plaintext <A href="hid_hill_auto.html">Hill</A> das Analysefenster geöffnet werden. In dieses Fenster wird der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> <A href="hid_edit_paste.html">aus der Zwischenablage (mittels der Tastenkombination Strg+V) eingefügt</A>.</P>
+
+<P><IMG SRC="images/szenariohill6.gif" ALT="" BORDER=0></P>
+
+<P>Durch Betätigen des <B>Weiter</B>-Knopfes wird die Analyse gestartet, und es erscheint das in der folgenden Abbildung gezeigte Fenster mit dem gefundenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A><CODE> T E S T</CODE>.</P>
+
+<P><IMG SRC="images/szenariohill7.gif" ALT="" BORDER=0></P>
+
+<P>Damit wurde der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> nur mit Kenntnis des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> und des entsprechenden <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Textes ermittelt.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>(Untitled)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_sigattmodificdemo"></A><B>Dialog Nachrichtenmodifikation durch einen Hashwert</B></P>
+
+<P>In der Gruppierung <B>Hashwert</B> ist zum einen der <!--ZZZPOPUP--><A href="hashfunktion.html">Hashwert</A> (in hexadezimaler Schreibweise) anzugeben, anhand dessen die aktuell geöffnete Nachricht (=Dokument) modifiziert werden soll, zum anderen die <B>Signifikante Bitlänge</B>, also die Anzahl der Bits des Hashwertes, die zur Modifikation verwendet werden sollen.</P>
+
+<P>In der zweiten Gruppierung <B>Optionen für die Nachrichtenmodifikation</B> wählt man das Verfahren, nach dem die Nachricht in Abhängigkeit vom angegebenen Hashwert modifiziert werden soll.</P>
+
+<P>Wird der Radiobutton <B>Leerzeichen einfügen</B> aktiviert, so muss mindestens eine der beiden Checkboxen <B>vor Zeilenende</B> bzw. <B>Leerzeichenverdoppelung</B> angekreuzt werden. Beginnend am Nachrichtenende wird beim Modifizieren vor einem Zeilenende und/oder einem bereits vorhandenen Leerzeichen ein Leerzeichen in die Nachricht eingefügt.</P>
+
+<P><B>Zeichen anhängen</B> ist das andere Modifikationsverfahren, bei dem pro angefangenen zwei Bits der signifikanten Bitlänge ein Zeichen an das Nachrichtenende angefügt wird. Zu Demonstrationszwecken besteht die Möglichkeit, <B>druckbare Zeichen</B> ("A", "B", "C" oder "D") zu verwenden, ansonsten werden <B>nicht druckbare Zeichen</B> (die Zeichen mit den ASCII-Codes 9, 10, 32 oder 160) angehängt.</P>
+
+<P>Mit der Wahl eines Werts aus der Liste <B>Run</B> werden der Nachricht zwei Zeichen angefügt, bevor die eigentliche Modifikation durch den Hashwert erfolgt.</P>
+
+<P><IMG SRC="images/ads_demo.gif" ALT="" BORDER=0></P>
+
+<P>Mit <B>Modifikation berechnen</B> wird die Modifikation der aktuellen Nachricht berechnet und in einem neuen Fenster ausgegeben.</P>
+
+</BODY>
+</HTML>

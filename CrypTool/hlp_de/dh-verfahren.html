@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>(Untitled)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Diffie-Hellman-Schlüsselaustausch">
+</OBJECT>
+
+<P><A NAME="dh-verfahren"></A><B>Diffie-Hellman-Schlüsselaustauschverfahren</B></P>
+
+<P>Das Diffie-Hellman-Schlüsselaustauschverfahren wurde 1976 von Whitfield Diffie, Martin E. Hellman und Ralph Merkle entwickelt.</P>
+
+<P>CrypTool enthält eine Visualisierung des Verfahrens, die Sie über das Menü <A href="menu_related_methods.html"><B>Einzelverfahren</B></A> \ <B>Diffie-Hellman-Demo </B>erreichen. Auch zum Dialog <A href="hidd_diffiehellmanvisualization.html">Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</A> gibt es eine Online-Hilfe.</P>
+
+<P>Weiterhin existiert eine <A href="diffie-hellman-beispiel.html"><B>beispielhafte Durchführung</B></A> des Schlüsselaustauschs, welche das Verständnis des Verfahrens erleichtern soll.</P>
+
+<P>Das Verfahren ermöglicht es zwei oder mehreren Parteien, sich auf einen gemeinsamen Schlüssel zu einigen, der ausschließlich den beteiligten Parteien bekannt ist -- obwohl sie über eine unsichere Leitung kommunizieren (über die unsichere Leitung werden nur "öffentliche" Parameter-Werte übertragen).</P>
+
+<P>Im folgenden werden die beiden Parteien zwecks besseren Verständnisses als Alice und Bob bezeichnet. Die nachstehende Skizze soll einen kurzen Überblick über den Verfahrensablauf geben:</P>
+
+<P><IMG SRC="images/dh_procedure.gif" ALT="" BORDER=0></P>
+
+<P>Der gemeinsame und geheime Schlüssel, den man auch als <I>Session Key</I> bezeichnet, hängt von folgenden Parametern ab:</P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>Öffentliche Parameter (p und g)<BR><BR></LI>
+
+	<LI>Geheimnis Alice<BR><BR></LI>
+
+	<LI>Geheimnis Bob<BR><BR></LI>
+
+	<LI>Öffentlicher Schlüssel Alice<BR><BR></LI>
+
+	<LI>Öffentlicher Schlüssel Bob</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Basis des Verfahrens ist das Problem des diskreten Logarithmus, d.h. man nutzt die Eigenschaft sogenannter Einwegfunktionen aus: Eine <B>Einwegfunktion</B> ist eine mathematische Funktion, die in eine Richtung einfach - das heißt ohne großen Aufwand - zu berechnen ist, deren Inverses zu berechnen jedoch extrem schwierig ist. </P>
+
+<P>Das Erzeugen des Geheimschlüssels am Ende des Verfahrens basiert auf einer solchen Einwegfunktion, d.h. selbst mit Kenntnis der öffentlichen Schlüssel von Alice und Bob und der öffentlichen Parameter ist es einem potentiellen Angreifer nur unter großem Aufwand oder ab einer bestimmten Schlüssellänge überhaupt nicht mehr möglich, den Geheimschlüssel zu errechnen.</P>
+
+<P>Wächst der Primzahlmodul p, so erhöht dies zwar den Aufwand für Alice und Bob, den gemeinsamen und geheimen Schlüssel zu berechnen; der Mehraufwand für die Berechnung der Exponentialfunktion ist aber tragbar.</P>
+
+<P>Ganz im Gegensatz dazu verhält sich der Rechenaufwand aus der Perspektive des potentiellen Angreifers: Er muss die <U>Umkehrung der Exponentialfunktion</U> bewältigen, d.h. den diskreten Logarithmus berechnen. Dieser Aufwand steigt viel stärker als der der beiden Kommunikationspartner.</P>
+
+<P>Die Sicherheit des Verfahrens hängt also im wesentlichen von der Größe von p ab. Zur Zeit gelten in der Praxis Zahlen der Größenordnung ab 1024 Bit als sicher, was in etwa einer 300-stelligen Dezimalzahl entspricht.</P>
+
+<P>Neben dem Primzahlmodul p sollte auch das Geheimnis von Alice oder Bob groß genug gewählt werden, damit das Ermitteln des Geheimnisses für einen Angreifer durch simples Ausprobieren nicht möglich ist. In der Praxis sollten deshalb keine Geheimnisse verwendet werden, die kürzer sind als 80 Bit; dies entspricht einer 25-stelligen Dezimalzahl.</P>
+
+<P><B>Bemerkung 1</B>:</P>
+
+<P>Der Schlüsselaustausch nach Diffie-Hellman ist <B>kein Verschlüsselungsverfahren</B>, er dient ausschließlich der Vereinbarung eines geheimen und gemeinsamen Schlüssels.</P>
+
+<P><B>Bemerkung 2</B>:</P>
+
+<P>Das einfache Diffie-Hellman Protokoll ist anfällig gegen Man-In-The-Middle-Angriffe:</P>
+
+<P>Wenn der Angreifer es fertig bringt, sich Alice gegenüber als Bob auszugeben und gleichzeitig Bob gegenüber als Alice (der Angreifer steht in der Mitte der Kommunikation zwischen Alice und Bob), dann bestimmt er mit Hilfe des Diffie-Hellman-Protokolls einen gemeinsamen geheimen Schlüssel mit Alice und einen weiteren geheimen Schlüssel mit Bob.</P>
+
+<P>Dieser Angriff kann durch die Identifizierung der Kommunikationspartner mit Hilfe von digitalen Zertifikaten abgewehrt werden.</P>
+
+<P><B>Bemerkung 3</B>:</P>
+
+<P>Weitere Details finden Sie <!--ZZZUL-->
+
+<UL>
+	<LI>im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> zu CrypTool und <BR><BR></LI>
+
+	<LI>in Kapitel 12.6 "Key agreement based on asymmetric techniques" (S. 515 ff.) in Menezes/Oorschot/Vanstone, Handbook of Applied Cryptography, CRC Press, © 1997, 5th printing 2001.</LI>
+</UL>
+
+</BODY>
+</HTML>

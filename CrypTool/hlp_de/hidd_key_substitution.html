@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Schlüsseleingabe für monoalphabetische Substitution</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Schlüsseleingabe">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetische Substitution">
+	<PARAM NAME="Keyword" VALUE="Schlüssel">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
+<P><A NAME="hidd_key_substitution"></A><B>Dialog Schlüssel für monoalphabetische Substitution</B></P>
+
+<P>In diesem Dialog wird der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für die <A href="hid_cryptmono.html">monoalphabetische Substitution</A> eingegeben.</P>
+
+<P>Bei der Eingabe des Schlüssels sind folgende Punkte zu beachten: <!--ZZZUL-->
+
+<UL>
+	<LI>Das Eingabefeld akzeptiert nur die 26 Buchstaben. Alle anderen Eingaben werden automatisch zurückgewiesen, das heißt nicht angezeigt.<BR><BR></LI>
+
+	<LI>Es wird nicht zwischen Groß- und Kleinschreibung unterschieden, das heißt Kleinbuchstaben werden in Großbuchstaben umgewandelt. </LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Es gibt zwei Möglichkeiten, den Schlüssel einzugeben: <!--ZZZUL-->
+
+<UL>
+	<LI>Sie können die gewünschte Permutation (eine Anordnung aller 26 Alphabetzeichen) direkt eingeben. In diesem Fall ist ein 26 Zeichen langer Text einzugeben. Das A wird dann auf den ersten Buchstaben des eingegebenen Textes abgebildet, das B auf den zweiten, und so fort. Hierbei ist zu beachten, dass im eingegebenen Text keine Buchstaben doppelt vorkommen.<BR><BR></LI>
+
+	<LI>Sie können aber auch ein Schlüsselwort eingeben, aus dem die Permutation abgeleitet wird. Ein Beispiel für diesen Fall: Es ist das Schlüsselwort "EISENBAHN" eingegeben. Die resultierende Permutation ermittelt sich daraus wie folgt: Das A wird auf den ersten Buchstaben (in diesem Falle das E abgebildet). Entsprechend wird das B auf I und das C auf S abgebildet. Da der vierte Buchstabe des Schlüsselwortes, das E, schon einmal aufgetaucht ist, wird es übersprungen (man erinnere sich daran, dass keine zwei (verschiedenen) Buchstaben auf den gleichen Buchstaben abgebildet werden dürfen). Das geht so lange weiter, bis alle Buchstaben des Schlüsselwortes abgearbeitet sind, das heißt es wird D auf N, E auf B, F auf A und G auf H abgebildet. Alle restlichen Buchstaben (H bis Z) werden auf die noch nicht benutzten Buchstaben in umgekehrter Reihenfolge abgebildet, das heißt H auf Z, I auf Y, ..., Z auf C.</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Falls Sie das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem eingegebenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A> wollen, klicken Sie den Knopf <B>Verschlüsseln</B>. Zum <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A> wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+
+<P>Die Formatierung (Beibehalten der Leerzeichen, Sonderzeichen und Groß- und Kleinschreibung) der Ausgabe des ver<U>-</U> bzw. entschlüsselten Dokuments kann im Dialog <A href="hid_opttext.html">Textoptionen</A> eingestellt werden.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Diffie-Hellman-Schlüsselaustauschverfahren (exemplarisch)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Diffie-Hellman-Schlüsselaustausch (exemplarisch)">
+</OBJECT>
+
+<P><A NAME="diffie-hellman-beispiel"></A><B>Diffie-Hellman-Schlüsselaustauschverfahren (exemplarisch)</B></P>
+
+<P>Im folgenden wird der Schlüsselaustausch nach Diffie-Hellman exemplarisch dargestellt. Die verwendeten Parameter sind bewusst klein gehalten, damit die Berechnungen möglichst verständlich und leicht nachzuvollziehen sind.</P>
+
+<P>Zu Beginn müssen die <I>öffentlichen Parameter</I> festgelegt werden. Alice und Bob einigen sich auf die folgenden <I>öffentlichen Parameter</I>: <!--ZZZINDN--></P>
+
+<P><!--ZZZFORMEL--> <I>g</I> = 4<BR>
+         <I>p</I> = 13 <!--ZZZINDNE--></P>
+
+<P>Nun wählen Alice und Bob jeweils eine Zahl, welche nur ihnen selbst bekannt ist. Alice wählt ihr <I>Geheimnis a</I>, Bob wiederum wählt sein <I>Geheimnis b</I>: <!--ZZZINDN--></P>
+
+<P><!--ZZZFORMEL--> <I>a</I> = 10</P>
+
+<P><!--ZZZFORMEL--> <I>b</I> = 8 <!--ZZZINDNE--></P>
+
+<P>Im nächsten Schritt berechnen Alice und Bob jeweils ihre <I>öffentlichen Teilschlüssel A</I> und <I>B</I>, die zur Erzeugung des gemeinsamen Schlüssels von Alice und Bob nötig sind. <!--ZZZINDN--></P>
+
+<P><!--ZZZFORMEL--> <I>A</I> = <I>g</I><SUP>a</SUP> mod <I>p</I> = 9</P>
+
+<P><I>B</I> = <I>g</I><SUP>b</SUP> mod <I>p</I> = 3 <!--ZZZINDNE--></P>
+
+<P>Um den <I>Session Key</I> erzeugen zu können, müssen vorerst die beiden Teilschlüssel ausgetauscht werden, d.h. Alice sendet ihren <I>Teilschlüssel A</I> an Bob und Bob wiederum sendet seinen <I>Teilschlüssel B</I> an Alice.</P>
+
+<P>Im letzten Schritt der Verfahrens berechnen Alice und Bob jeweils für sich allein den geheimen und gemeinsamen <I>Session Key S</I>: <!--ZZZINDN--></P>
+
+<P><!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> = <I>B</I><SUP>a</SUP> mod <I>p</I> = 3</P>
+
+<P><I>S<SUB>Bob</SUB></I> = <I>A</I><SUP>b</SUP> mod <I>p</I> = 3 <!--ZZZINDNE--></P>
+
+<P>Setzt man nun zusätzlich für die beiden <I>Teilschlüssel B</I> und <I>A</I> die entsprechenden Gleichungen aus dem vorangegangenen Abschnitt ein, so ergibt sich folgendes: <!--ZZZINDN--></P>
+
+<P><!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> = <I>B</I><SUP>a</SUP> mod <I>p</I> = (<I>g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I></P>
+
+<P><I>S<SUB>Bob</SUB></I> = <I>A</I><SUP>b</SUP> mod <I>p</I> = (<I>g</I><SUP>a</SUP>)<SUP>b</SUP> mod <I>p</I> <!--ZZZINDNE--></P>
+
+<P>Da man in Exponenten die Multiplikation kommutativ ausführen kann (auch wenn man modulo rechnet), gilt:</P>
+
+<P><!--ZZZIND--> <!--ZZZFORMEL--> (<I>g</I><SUP>a</SUP>)<SUP>b</SUP> = <I>g</I><SUP>a * b = </SUP><I>g</I><SUP>b * a = </SUP><I>(g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I><SUP> </SUP></P>
+
+<P>Die beiden von Alice und Bob errechneten <I>Session Keys</I> müssen deshalb identisch sein, denn es gilt:</P>
+
+<P><!--ZZZIND--> <!--ZZZFORMEL--> <I>(g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I><SUP> </SUP>= <I>(g</I><SUP>a</SUP>)<SUP>b</SUP> mod <I>p</I><SUP> </SUP></P>
+
+<P>und somit</P>
+
+<P><!--ZZZIND--> <!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> =<I><SUB> </SUB>S<SUB>Bob</SUB></I></P>
+
+<P>Ein weiteres Beispiel mit konkreten kleinen Zahlen finden Sie z.B. auf S. 234 in dem Buch "Computer Security. Art and Science", © 2003 von Matt Bishop.</P>
+
+</BODY>
+</HTML>

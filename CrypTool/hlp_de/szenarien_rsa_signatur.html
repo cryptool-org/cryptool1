@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Szenario für das RSA-Verfahren zur Signaturerstellung</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Szenario">
+	<PARAM NAME="Keyword" VALUE="Signatur">
+	<PARAM NAME="Keyword" VALUE="RSA-Verfahren zur Signaturerstellung">
+</OBJECT>
+
+<P><A NAME="szenarien_rsa_signatur"></A><B>Szenario für das RSA-Verfahren zur Signaturerstellung</B></P>
+
+<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für die <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> mit dem <A href="hid_crypt_sign.html">RSA-Verfahren</A> vorgestellt. Die Veranschaulichung durch viele Bildschirmfotos erleichtert das Nachvollziehen der mit <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> durchgeführten Schritte.</P>
+
+<P>Anhand eines binären <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wird die Signatur mittels des <A href="hid_crypt_sign.html">RSA-Verfahrens</A> vorgestellt.</P>
+
+<P>Zunächst muss (wie bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mit dem <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A>) ein asymmetrisches <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> erzeugt werden. Über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A> im Menü <A href="menu_key.html">Schlüsselverwaltung</A> öffnet sich der folgende Dialog.</P>
+
+<P><IMG SRC="images/szenariorsa_sig1.gif" ALT="" BORDER=0></P>
+
+<P>Als Namen haben wir<CODE> Lieschen Meier</CODE> als eingegeben, für die optionale Schlüsselkennung wählten wir als<CODE> Lieschens Schlüssel</CODE> und als Pin-Code (zweimal)<CODE> CrypTool</CODE>. Die Länge des Moduls soll<CODE> 512</CODE> Bit betragen. Nach der Betätigung der <B>Eingabetaste</B> oder einen Klick auf den <B>OK</B>-Knopf wird die Erzeugung des <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaars</A> gestartet.</P>
+
+<P>Im nächsten Fenster erscheinen die öffentlichen RSA–Parameter: der aus zwei Primzahlen zusammengesetzten Modul und der öffentliche Exponent (öffentlicher Schlüssel).</P>
+
+<P><IMG SRC="images/szenariorsa-sigparam.gif" ALT="" BORDER=0></P>
+
+<P>Im Anschluss erscheint der für die Datenbank zugewiesene Schlüsselbezeichner und die zur Schlüsselerzeugung benötigte Rechenzeit.</P>
+
+<P><IMG SRC="images/szenariorsa_sig2.gif" ALT="" BORDER=0></P>
+
+<P>Nach dem Schließen dieses Dialoges muss auch der Dialog <A href="hidd_keyasym_generation.html">Erzeugung eines asymmetrischen Schlüsselpaares</A> durch <B>Abbrechen</B> geschlossen werden.</P>
+
+<P>Bevor wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>, wollen wir das Zertifikat des erzeugten <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaares</A> anzeigen. Dazu wird über den Befehl <A href="hid_show_all_ec_keys.html">Schlüssel anzeigen</A> im Menü <A href="menu_key.html">Schlüsselverwaltung</A> der folgende Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> geöffnet und das vorher erzeugte Schlüsselpaar markiert.</P>
+
+<P><IMG SRC="images/szenariorsa_sig3.gif" ALT="" BORDER=0></P>
+
+<P>Durch Klick auf den <B>Zertifikat anzeigen</B>-Knopf wird das Zertifikat angezeigt.</P>
+
+<P><IMG SRC="images/szenariorsa_sig4.gif" ALT="" BORDER=0></P>
+
+<P>Nachdem dieser Dialog durch Betätigung des <B>Schließen</B>-Knopfes geschlossen wird (der Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> wird dadurch ebenfalls geschlossen), können wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>.</P>
+
+<P>Wir wollen das <A href="cryptoolfoto.html">Bildschirmfoto</A> von <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, welches sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool.bmp</CODE> befindet, <!--ZZZPOPUP--><A href="signatur.html">signieren</A>.</P>
+
+<P><IMG SRC="images/cryptool.gif" ALT="" BORDER=0></P>
+
+<P>Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> (über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
+
+<P><IMG SRC="images/szenariorsa_sig5.gif" ALT="" BORDER=0></P>
+
+<P>Die <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> wird über den Befehl <A href="hid_crypt_sign.html">Signieren</A> im Menü <A href="menu_sign.html">Digitale Signaturen </A> angestoßen.</P>
+
+<P><IMG SRC="images/szenariorsa_sig6.gif" ALT="" BORDER=0></P>
+
+<P>Wir wollen mit dem <A href="hid_crypt_sign.html">RSA-Verfahren</A> und der <!--ZZZPOPUP--><A href="hashwert.html">Hashfunktion</A> <A href="hid_crypt_hash_ripemd160.html">RIPEMD-160</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>. Nach Auswahl des <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaares</A> und Eingabe des Pin-Codes<CODE> CrypTool</CODE> kann das Signieren mit der <B>Eingabetaste</B> oder durch einen Klick auf den <B>Signieren</B>-Knopf gestartet werden.</P>
+
+<P><IMG SRC="images/szenariorsa_sig7.gif" ALT="" BORDER=0></P>
+
+<P>Nach dem Beenden des Dialoges wird das <!--ZZZPOPUP--><A href="signatur.html">signierte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> ausgegeben.</P>
+
+<P><IMG SRC="images/szenariorsa_sig8.gif" ALT="" BORDER=0></P>
+
+<P>Am Anfang des <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> befindet sich die <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> und am Ende das zu signierende Dokument, wie sich durch Vergleich mit dem ursprünglichen Dokument leicht feststellen lässt.</P>
+
+<P>Eine übersichtlichere Darstellung und Trennung der Signatur und des <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> erhält man über den Befehl <A href="hid_crypt_extract.html">Signatur extrahieren</A> aus dem Menü <A href="menu_sign.html">Digitale Signaturen</A>.</P>
+
+<P><IMG SRC="images/szenariorsa_sig11.gif" ALT="" BORDER=0></P>
+
+<P>Nun soll überprüft werden, ob das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> unverändert ist. Dazu wird aus dem Menü <A href="menu_sign.html">Digitale Signaturen</A> der Befehl <A href="hid_crypt_verify.html">Signatur überprüfen</A> ausgewählt.</P>
+
+<P><IMG SRC="images/szenariorsa_sig9.gif" ALT="" BORDER=0></P>
+
+<P>Nach Auswahl der Signaturerstellerin Lieschen Meier und Klick auf den <B>Signatur verifizieren</B>-Knopf wird folgender Dialog angezeigt.</P>
+
+<P><IMG SRC="images/szenariorsa_sig10.gif" ALT="" BORDER=0></P>
+
+<P>Die Nachricht wurde also nicht verändert.</P>
+
+<P>Jetzt werden wir die Nachricht ändern: Das erste Zeichen der Nachricht, das<CODE> B</CODE>, wird durch ein<CODE> A</CODE> ersetzt.</P>
+
+<P><IMG SRC="images/szenariorsa_sig12.gif" ALT="" BORDER=0></P>
+
+<P>Der Befehl <A href="hid_crypt_verify.html">Signatur überprüfen</A> aus dem Menü <A href="menu_sign.html">Digitale Signaturen</A> öffnet den folgenden Dialog.</P>
+
+<P><IMG SRC="images/szenariorsa_sig13.gif" ALT="" BORDER=0></P>
+
+<P>Also hat <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> erkannt, dass das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> verändert worden ist.</P>
+
+</BODY>
+</HTML>

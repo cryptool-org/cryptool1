@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA-Signatur einer Nachricht verifizieren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="RSA-Signatur">
+	<PARAM NAME="Keyword" VALUE="RSA-Signatur einer Nachricht verifizieren">
+	<PARAM NAME="Keyword" VALUE="Demonstration">
+	<PARAM NAME="Keyword" VALUE="Signatur">
+</OBJECT>
+
+<P><A NAME="rsa_demo_verify_signature"></A><B>RSA-Signatur einer Nachricht verifizieren</B></P>
+
+<P>Eine RSA-Signatur können Sie mit den öffentlichen <A href="public_rsa_parameter.html">RSA-Parametern</A> des Unterschreibers verifizieren.</P>
+
+<P>Erhält man eine Signatur, kann man diese verifizieren, indem man sich den öffentlichen Schlüssel des Absenders besorgt.</P>
+
+<P>Die zu verifizierende Signatur ist eine Zahl kleiner als der Modul N. Sie können die Signatur entweder als eine Folge von je 2 Hexadezimalzeichen getrennt durch Leerzeichen oder als eine Zahl der eingestellten Zahlenbasis eingeben. </P>
+
+<P>Nach dem Klick auf den Knopf <B>Entschlüsseln</B> wird die RSA-Exponentiation mit dem öffentlichen Schlüssel durchgeführt (wenn Sie auf diesen Dialog über Menü <B>Digitale Signaturen \ <A href="hid_crypt_verify.html">Verifizieren</A></B> gelangen, wird stattdessen der Knopf <B>Verifizieren</B> angezeigt).</P>
+
+<P>Das Ergebnis dieser RSA-Exponentiation ist ein Hashwert, der mit dem Hashwert des Dokuments verglichen werden muss. Stimmen beide Werte überein, dann gilt der Beweis erbracht, dass der Besitzer des geheimen RSA-Schlüssels das erhaltene Dokument unterschrieben hat.</P>
+
+<P>Wenn Sie im Menü <B>Digitale Signaturen \ <A href="hid_crypt_verify.html">Signatur überprüfen</A></B> eine RSA-Signatur überprüfen wollen, dann können Sie die Checkbox <B>Zwischenschritte anzeigen</B> ankreuzen. Nach dem Klick auf <B>Signatur verifizieren</B> wird Ihnen die folgende Ausgabe angezeigt:</P>
+
+<P><IMG SRC="images/rsademoverifysignature.gif" ALT="" BORDER=0></P>
+
+<P>Hier müssen Sie <B>Verifizieren</B> klicken. Wenn der Vergleich zwischen dem Wert der RSA-Exponentiation und dem Hashwert des Dokuments übereinstimmt, dann wird die Signatur als gültig anerkannt und es wird Ihnen ein Smile :-) angezeigt.</P>
+
+</BODY>
+</HTML>

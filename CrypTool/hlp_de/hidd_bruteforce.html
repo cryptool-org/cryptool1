@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Suchbereich für Schlüssel</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Brute-Force Analyse">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Suchbereich für Schlüssel">
+</OBJECT>
+
+<P><A NAME="hidd_bruteforce"></A><B>Dialog Brute-Force Analyse (Suchraum angeben)</B></P>
+
+<P>In diesem Dialog wird für die folgenden <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A></P>
+
+<P><A href="hid_analyse_idea.html">IDEA</A></P>
+
+<P><A href="hid_analyse_rc2.html">RC2</A></P>
+
+<P><A href="hid_analyse_rc4.html">RC4</A></P>
+
+<P><A href="hid_analyse_desecb.html">DES&nbsp;(ECB)</A></P>
+
+<P><A href="hid_analyse_descbc.html">DES&nbsp;(CBC)</A></P>
+
+<P><A href="hid_analyse_tripledesecb.html">Triple&nbsp;DES&nbsp;(ECB)</A></P>
+
+<P><A href="hid_analyse_tripledescbc.html">Triple&nbsp;DES&nbsp;(CBC)</A></P>
+
+<P><A href="hid_analyse_aes_mars.html">MARS</A></P>
+
+<P><A href="hid_analyse_aes_rc6.html">RC6</A></P>
+
+<P><A href="hid_analyse_aes_rijndael.html">Rijndael&nbsp;(AES)</A></P>
+
+<P><A href="hid_analyse_aes_serpent.html">Serpent</A></P>
+
+<P><A href="hid_analyse_aes_twofish.html">Twofish</A></P>
+
+<P>der Schlüsselbereich angegeben, der bei dem <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A> durchsucht wird.</P>
+
+<P>Nachdem Sie den Suchraum der Schlüsselsuche eingegeben haben, können Sie den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A> starten, indem Sie auf den Knopf <B>Starten</B> klicken oder die <B>Eingabetaste</B> betätigen. <B>Abbrechen</B> beendet die Analyse.</P>
+
+<P>Die Schlüssel werden in hexadezimaler Form eingegeben.</P>
+
+<P>Dabei schreibt man für unbekannte Stellen einfach ein *. So werden etwa bei der Eingabe "<B>10 ** 23 00 ... 00</B>" insgesamt (2^4)*(2^4) = 256 Schlüssel durchsucht. Diese sind "10 00 23 00 ... 00", "10 10 23 00 ... 00", "10 20 23 00 ... 00", ... "10 F0 23 00 ... 00" ... "10 FF 23 00 ... 00".  Fünf unbekannte Stellen bedeuten schon, dass maximal 2^(4*5) = 1.048.576 Schlüssel durchprobiert werden.</P>
+
+<P>Die Laufzeit der Analyse hängt hauptsächlich von der Anzahl der unbekannten Stellen ab. Jede zusätzliche unbekannte Stelle verlängert die Suchzeit um den Faktor 16. Außerdem variiert die Laufzeit für die unterschiedlichen Algorithmen und Schlüssellängen. Sie wird zusätzlich davon beeinflusst, wieviele Bytes des Dokuments im Entropietest berücksichtigt werden (siehe hierzu Dialog <A href="hidd_options_analysis.html">Analyseoptionen</A>).</P>
+
+<P><U>Bemerkung 1</U>:</P>
+
+<P>Bei der Analyse von DES (Triple-DES) wird eine Schlüssellänge von 64(128) Bit angezeigt. Da diese Verfahren pro Byte nur 7 Bit für den Schlüssel nutzen, besteht die effektive Schlüssellänge nur aus 56(112) Bit.</P>
+
+<P><U>Bemerkung 2</U>:</P>
+
+<P>Die Möglichkeit beliebig viele Sterne für den Schlüsselbereich anzugeben, also auch den Schlüsselraum vollständig absuchen zu lassen, bedeutet nicht, dass man CrypTool als Hackertool anwenden kann. Wie Sie im folgenden Dialog sehen, wird dadurch dem Benutzer nur erfahrbar gemacht, mit welchen riesigen Zeiträumen (z.B. 10^27 Jahre für einen ganzen 128-Bit-Schlüssel) zu rechnen ist, wenn die Schlüssel groß genug sind und das Verfahren gut genug funktioniert.</P>
+
+</BODY>
+</HTML>

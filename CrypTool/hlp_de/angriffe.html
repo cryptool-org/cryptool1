@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Angriffsszenarien</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Angriffsszenarien">
+</OBJECT>
+
+<P><A NAME="angriffe"></A><B>Angriffsszenarien</B></P>
+
+<P>Bei Angriffen auf kryptographische Systeme unterscheidet man unterschiedliche Fälle, die unterschiedliche Möglichkeiten des Angreifers voraussetzen. Als generelle Grundlage wird jedoch immer die Kenntnis des eingesetzten <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahrens</A> vorausgesetzt. Diese Annahme hat sich bewährt, da es sich als weitgehend unmöglich herausgestellt hat, Verschlüsselungsverfahren, die normalerweise in frei verfügbaren Programmen implementiert sind, langfristig geheim zu halten.</P>
+
+<P>Die geringsten Anforderungen (in Bezug auf das Wissen über den <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text und den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>) stellt ein <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> . Die Anforderungen erhöhen sich dann schrittweise über den <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A> bis zum <!--ZZZPOPUP--><A href="chosenplaintextangriff.html">Chosen-Plaintext-Angriff</A>.</P>
+
+<P>Im umgekehrten Verhältnis zu den Anforderungen steht der Aufwand für den Angriff: Bei einem Known-Plaintext-Angriff hat man ein Paar Klartext / verschlüsselter Text zur Verfügung, beim Ciphertext-only-Angriff jedoch nur den verschlüsselten Text. Daher ist ein Ciphertext-only-Angriff im Allgemeinen schwieriger als ein Known-Plaintext-Angriff. Bei einem Chosen-Plaintext-Angriff kann man sich beliebig viele Paare Klartext / verschlüsselter Text erzeugen, daher ist ein Chosen-Plaintext-Angriff weniger aufwendig als ein Known-Plaintext-Angriff.</P>
+
+<P>Eine andere Art von Angriffen sind <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriffe</A>. Bei dieser Art des Angriffs wird der Versuch unternommen, durch Ausprobieren aller möglichen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> (aus einem vorgegebenen Bereich) den richtigen zu finden. Eine Variation der Brute-Force Angriffe sind <A href="textboock_attack.html">Wörterbuchangriffe</A> auf Passwörter.</P>
+
+<P>In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> gibt es <A href="hid_hilfe_szenarien.html">Szenarien</A>, in denen auch die in CrypTool vorhandenen Angriffe auf Verschlüsselungsverfahrens beschrieben werden. </P>
+
+</BODY>
+</HTML>

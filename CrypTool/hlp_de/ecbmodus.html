@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ECB-Modus</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Symmetrische Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="ECB-Modus">
+	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+</OBJECT>
+
+<P><A NAME="ecbmodus"></A><B>ECB-Modus</B></P>
+
+<P>ECB steht für <B>E</B>lectronic <B>C</B>ode<B>b</B>ook.</P>
+
+<P>Ein Klartextblock nach dem anderen wird <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>. Da identische Klartextblöcke (bei gleichem <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>) auch immer auf identische Chiffretextblöcke abgebildet werden, könnte man (theoretisch) ein Codebuch mit Klartextblöcken und den dazugehörigen Blöcken verschlüsselten Textes anlegen (daher der Name ECB). Bei einer Blockgröße von 64 Bits hätte das Codebuch allerdings 2 hoch 64 = 2 * 2 * ... * 2 (64 Zweien) = 18.446.744.073.709.551.616 Einträge und damit viel zu viele, um sie im voraus zu berechnen und zu speichern. Ferner ergibt sich für jeden Schlüssel ein anderes Codebuch.</P>
+
+<P>Im <A href="cbcmodus.html">CBC-Modus</A> wird ein Block in Abhängigkeit von den vorherigen Blöcken <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>.</P>
+
+</BODY>
+</HTML>

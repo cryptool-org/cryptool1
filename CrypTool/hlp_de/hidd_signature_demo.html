@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA-Signaturerzeugung</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="RSA-Signaturerzeugung">
+	<PARAM NAME="Keyword" VALUE="Signatur">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
+<P><A NAME="hidd_signature_demo"></A><B>Dialog RSA-Signaturerzeugung</B></P>
+
+<P>Dieser Dialog bietet die Möglichkeit, jeden Schritt bei der Erzeugung der <A href="hid_crypt_sign.html">RSA-Signatur</A> selbst einzuleiten, und so das <A href="hid_einzelverfahren_sign_doc.html">Signieren anschaulich nachzuvollziehen</A>.</P>
+
+<P><IMG SRC="images/dlgrsasignaturedemo.gif" ALT="" BORDER=0></P>
+
+<P>Wenn Sie für einen "Benutzer" schon einen RSA-Schlüssel haben, brauchen Sie das Symbol "Schlüssel erzeugen" nicht zu drücken.</P>
+
+<P>Stattdessen drücken Sie bitte "Zertifikat bereitstellen" und dann in der folgenden Dialogbox den Button <A href="hidd_key_asym.html">Schlüssel und Zertifikat importieren</A>. In der dann angezeigten Liste können Sie ein Schlüsselpaar auswählen, indem Sie die entsprechenden Zeile selektieren.</P>
+
+<P>Um die Vorgänge der digitalen Signatur zu visualisieren, werden in einer graphischen Benutzeroberfläche Diagrammsymbole für die Darstellung des Datenflusses eingesetzt.</P>
+
+<P>Die Bedienung des Dialogs ist darauf ausgerichtet, dass in spielerischer Weise mit der digitalen Signatur experimentiert werden kann.</P>
+
+<P>Als Buttons dienen hierzu farbige <B>Symbole</B>:</P>
+
+<TABLE cols=2 width=600>
+
+<TR VALIGN="top">
+<TD width=25%><IMG SRC="images/sympre.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für vorbereitende Schritte (z.B. Hashverfahren auswählen).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><IMG SRC="images/sym_inp.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für manuelle Dateneingabe (z.B. Schlüssel generieren).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><IMG SRC="images/sym_dat.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für Daten allgemein (z.B. Hashwert).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><IMG SRC="images/sym_str.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für gespeicherte Daten (hier: Zertifikat).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><IMG SRC="images/sym_pro.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für eine Verarbeitungsfunktion (hier: Signatur generieren).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%> <IMG SRC="images/sym_trm.gif" ALT="" BORDER=0></TD>
+<TD width=75%>
+<P>Symbol für das Ende eines Programmablaufs (z.B. Signatur speichern).</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die <B>Farben</B> der Symbole geben Aufschluss über den Zustand des jeweiligen Arbeitsschritts bzw. des jeweiligen Datenelements:</P>
+
+<TABLE cols=2 width=601>
+
+<TR VALIGN="top">
+<TD width=25%><B>Rot</B></TD>
+<TD width=75%>Zu erledigender Arbeitsschritt (Vorbereitung / Eingabe / Prozess).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><B>Grün</B></TD>
+<TD width=75%>Bereits erledigter Arbeitsschritt (Vorbereitung / Eingabe / Prozess).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><B>Blau</B></TD>
+<TD width=75%>Vorhandene Daten (Anzeige und Weiterverarbeitung möglich).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><B>Grau</B></TD>
+<TD width=75%>Inaktiv (fehlende Daten / noch nicht ausführbarer Prozess).</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die Symbole sind untereinander mit Pfeilen verbunden, um ihre <B>Abhängigkeiten</B> anzuzeigen. Aktive Buttons (<B>rot</B> / <B>grün</B> / <B>blau</B>) können in beliebiger und wiederholter Reihenfolge angeklickt werden. Inaktive Buttons (<B>grau</B>) können nicht geklickt werden. Prozesse können erst ausgeführt werden, wenn alle dafür notwendigen Daten (<B>blau</B> gekennzeichnet) vorhanden sind.</P>
+
+<P>An ihrer linken unteren Ecke sind die Symbole zusätzlich mit jeweils einem <B>Icon</B> versehen. Dieses Icon symbolisiert den Typ des Datenelements, welches ausgewählt, erzeugt oder angezeigt werden kann:</P>
+
+<TABLE cols=2 width=619>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_doc.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Die zu signierende Datei.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_alg.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Informationen über die verwendete Hashfunktion.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_hsh.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Hashwert der zu signierenden Datei.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_key.gif" ALT="" BORDER=0></TD>
+<TD width=89%>RSA-Schlüssel zur Verschlüsselung des Hashwertes.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_enc.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Der mit dem privaten RSA-Schlüssel verschlüsselte Hashwert.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_crt.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Das gespeicherte Zertifikat.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%><IMG SRC="images/icn_sgn.gif" ALT="" BORDER=0></TD>
+<TD width=89%>Vollständige RSA-Signatur, an die später die ausgewählte Datei angehängt wird.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die <B>Gliederung</B> des Diagramms ist in fünf Reihen unterteilt:</P>
+
+<P>Die <B>erste Reihe</B> beinhaltet die Arbeitsschritte, die vor der eigentlichen Durchführung der Signatur ausgeführt werden. Dies kann in untergeordneten Dialogen nachvollzogen werden.</P>
+
+<P>In der <B>zweiten Reihe</B> befinden sich die Datenelemente, die für die Prozesse der RSA-Signatur im Vorfeld nötig sind.</P>
+
+<P>Mit den Buttons der <B>dritten Reihe</B> werden die eigentlichen Prozesse der Signatur angestoßen.</P>
+
+<P>In der <B>vierten Reihe</B> werden die Daten abgerufen, die während der Signatur erzeugt werden.</P>
+
+<P>Mit den Buttons der <B>fünften Reihe</B> wird der Signaturvorgang entweder abgebrochen oder die Signaturen im Hauptfenster ausgegeben.</P>
+
+<P>Durch Klicken auf ein aktives Daten-Symbol (zweite und vierte Reihe) werden die jeweiligen Informationen in dem großen <B>Anzeigefeld (</B>unterhalb des Datenflussdiagramms) ausgegeben.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog RSA-Schlüssel generieren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="RSA-Schlüssel generieren">
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Schlüssel (asymmetrisch)">
+</OBJECT>
+
+<P><A NAME="hidd_demo_rsakey_generation"></A><B>Dialog RSA-Schlüssel generieren</B></P>
+
+<P>In diesem Dialog wird schrittweise ein RSA-Schlüssel für die <A href="hidd_signature_demo.html">RSA-Signaturdemo</A> (siehe auch <A href="menu_tutorial_for_small_numbers.html">RSA-Demo</A>) erzeugt, wenn Sie den Button <B>Schlüssel erzeugen</B> drücken.</P>
+
+<P>Sie brauchen diesen Dialog nicht zu durchlaufen, wenn Sie zuvor im Dialog <A href="hidd_certificate_generation.html">Zertifikat und PSE erzeugen</A> mit der Funktion <B>Zertifikat / Schlüssel importieren</B> einen bereits erstellten RSA-Schlüssel importiert haben (Button <B>Zertifikat bereitstellen</B> in der Signaturdemo).</P>
+
+<P>Wie Sie in diesem Dialog einen RSA-Schlüssel erzeugen, ist auf der Hilfe-Seite <A href="rsa_demo_key_generation.html">RSA-Schlüssel generieren</A> beschrieben, die zum RSA-Kryptosystem gehört, welches eine ähnliche Funktion implementiert.</P>
+
+<P>Zusätzlich finden Sie in diesem Dialog ein Anzeigefeld für die Bitlänge des RSA-Moduls N.</P>
+
+<P>Beachten Sie auch die Statusanzeigen rechts neben den Eingabefeldern der Primzahl q und des öffentlichen Schlüssels e. Diese informieren Sie über die Gültigkeit der gewählten Primzahlen bzw. des öffentlichen Schlüssels. </P>
+
+<P>Bitte wählen sie die Primzahlen so, dass der Modulus mindestens 300 Bit lang ist. Andernfalls könnte der Hashwert des Dokuments ergänzt um Padding länger werden als der Modulus, was in diesem Signaturverfahren nicht unterstützt wird.</P>
+
+<P>Alle weiteren Parameter des RSA-Schlüssels werden automatisch berechnet, sobald Sie die Primzahlen p und q bzw. den öffentlichen Schlüssel e ändern.</P>
+
+<P>Sie beenden den Dialog mit <B>Schlüssel übernehmen, </B>sofern sie mit dem Ergebnis zufrieden sind, oder mit der Taste <B>Abbrechen.</B></P>
+
+</BODY>
+</HTML>

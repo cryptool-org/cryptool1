@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_diffiehellmanvisualization"></A><B>Dialog zur Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens</B></P>
+
+<P>Dieser Dialog gibt Ihnen die Möglichkeit, den Ablauf des <A href="dh-verfahren.html">Diffie-Hellman-Schlüsselaustauschverfahrens</A> nachzuvollziehen.</P>
+
+<P><IMG SRC="images/bitmaps/dh_maindialogue.gif" ALT="" BORDER=0></P>
+
+<P>Falls Sie bisher über keinerlei Erfahrungen mit dem genannten Verfahren verfügen, so vergewissern Sie sich bitte, dass das Kontrollkästchen <B>Informationsdialoge anzeigen</B> markiert ist. Auf diese Weise erhalten Sie neben der kontextabhängigen Hilfe zusätzliche Informationen zum Ablauf des Schlüsselaustauschverfahrens.</P>
+
+<P>Haben Sie das Kontrollkästchen <B>Informationsdialoge anzeigen</B> markiert, so wird nach jedem Druck auf eine beliebige Schaltfläche ein Dialog erzeugt, der Sie über den weiteren Verlauf des Schlüsselaustauschs informiert. Ist das Kontrollkästchen nicht markiert, so sind Sie selbst dafür verantwortlich, den Schlüsselaustausch in der vorgesehenen und korrekten Reihenfolge durchzuführen.</P>
+
+<P>Um Ihnen die Bedienung des Dialogs zu erleichtern, gibt es sowohl <B>inaktive Schaltflächen</B> als auch <B>aktive Schaltflächen</B>. Beachten Sie, dass Sie ausschließlich aktive Schaltflächen drücken können. Während inaktive Schaltflächen sich durch einen grauen, leicht verblassten Ton auszeichnen, besitzen aktive Schaltflächen kräftige Farben.</P>
+
+<P>Diese kräftigen Farben aktiver Schaltflächen sind <B>rot</B> und <B>grün</B>. Ist eine Schaltfläche rot gefärbt, bedeutet das, dass die Funktion hinter der Schaltfläche noch nicht ausgeführt wurde. Ist die Schaltfläche hingegen grün, so bedeutet das, dass der entsprechende Teilschritt bereits abgeschlossen wurde oder eventuell auch wiederholt werden kann.</P>
+
+<P>Auf der linken Seite des Dialogs befindet sich die <B>Navigationsleiste</B>, über die Sie die einzelnen Phasen des Schlüsselaustauschs nach Diffie-Hellman einleiten können.</P>
+
+<P>Die fünf Hauptschritte des Diffie-Hellman-Schlüsselaustauschverfahrens lauten wie folgt:</P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>Setzen der öffentlichen Parameter<BR><BR></LI>
+
+	<LI>Wählen der Geheimnisse<BR><BR></LI>
+
+	<LI>Erzeugen der Teilschlüssel<BR><BR></LI>
+
+	<LI>Austauschen der Teilschlüssel<BR><BR></LI>
+
+	<LI>Erzeugen des gemeinsamen und geheimen Schlüssels</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>Das <A href="hidd_diffiehellman_publicparameters.html">Setzen der öffentlichen Parameter</A> gilt für beide Parteien. Danach müssen alle weiteren Schritte des <A href="dh-verfahren.html">Schlüsselaustauschverfahrens</A> für Alice und Bob separat durchgeführt werden. Die Trennung von Alice und Bob wird durch zwei <B>Gruppenfelder</B> gekennzeichnet, die als Aufschrift <B>Alice</B> und <B>Bob</B> tragen. Die beiden Gruppenfelder symbolisieren die privaten Bereiche für Alice und Bob; in sie erhält niemand Einblick außer der autorisierten Partei selbst.</P>
+
+<P>Insofern bilden die öffentlichen Parameter eine Ausnahme, da "öffentliche Parameter" jedem frei zugänglich und somit nicht geheim sind. Dies wird durch das <B>Gruppenfeld „Öffentliche Parameter"</B> dargestellt, das sowohl den öffentlichen Bereich als auch den privaten Bereich von Alice und Bob schneidet. Als öffentlich gelten auch die übertragenen Daten (A, B) von Alice und Bob.</P>
+
+<P>Dies zeigt, dass nicht nur Alice und Bob über Kenntnisse im Bezug auf die öffentlichen Parameter verfügen: Jeder beliebige Dritte kann ebenso die öffentlichen Parameter einsehen.</P>
+
+<P>Haben Sie die öffentlichen Parameter gesetzt, so müssen Sie mit der Auswahl der Geheimnisse für Alice und Bob fortfahren.</P>
+
+<P>Bei der Wahl der Geheimnisse müssen Sie getrennt vorgehen, da Alice das Geheimnis von Bob nicht kennen darf. Dasselbe gilt natürlich im umgekehrten Sinn, d.h. Bob darf ebenso wenig das Geheimnis von Alice erfahren. </P>
+
+<P>Zunächst betätigen Sie die Schaltfläche <B>Geheimnisse wählen</B>. Dadurch wird für Alice und Bob jeweils eine Schaltfläche mit der Aufschrift <B>Geheimnis</B> aktiviert, die Sie für die Auswahl eines Geheimnisses drücken müssen. Umgehend erscheint der folgende <A href="hidd_diffiehellman_secretinput.html">Dialog</A>.</P>
+
+<P>Haben Sie die beiden Geheimnisse gewählt, so müssen Sie die Schaltfläche <B>Öffentliche Teilschlüssel erzeugen</B> betätigen. Parallel zum letzten Schritt werden zwei weitere Schaltflächen aktiviert, damit Sie für Alice und Bob je einen öffentlichen Schlüssel berechnen können. Drücken Sie dazu bitte auf die beiden soeben aktivierten Schaltflächen mit der Aufschrift <B>Berechnen</B>.</P>
+
+<P>Sind die beiden öffentlichen Teilschlüssel erzeugt worden, müssen sie ausgetauscht werden, d.h. Alice erhält den Teilschlüssel von Bob und Bob erhält den Teilschlüssel von Alice. Man bezeichnet diese Schlüssel als öffentlich, weil Sie öffentlich und ohne jegliche Verschlüsselung ausgetauscht werden. Betätigen Sie hierzu bitte die Schaltfläche mit der Aufschrift <B>Öffentliche Teilschlüssel austauschen</B>.</P>
+
+<P>Nun kann jede Partei den geheimen und gemeinsamen Schlüssel, den sogenannten Session Key, für sich selbst berechnen. Um die Berechnungen für Alice und Bob durchzuführen, drücken Sie zunächst die Schaltfläche <B>Geheimen Schlüssel generieren</B> und danach auf <B>Berechnen</B>.</P>
+
+<P>Wurde für beide Parteien der Session Key errechnet, so können Sie durch einen Klick auf das Schlüsselsymbol unten im Dialog weitere Informationen zum zuvor generierten Schlüssel einholen.</P>
+
+<P><B>Bemerkung</B>:</P>
+
+<P>Im <!--ZZZLINK--><A href="script-de.pdf">Skript</A> finden Sie im Kapitel 3.12.2 weitere Informationen zum Schlüsselaustauschverfahren nach Diffie-Hellman. Insbesondere erhalten Sie einen tieferen Einblick in die Mathematik, die sich hinter dem Verfahren verbirgt.</P>
+
+</BODY>
+</HTML>

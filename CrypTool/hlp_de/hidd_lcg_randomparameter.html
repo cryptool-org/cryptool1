@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Lineare Kongruenzgenerator</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Lineare Kongruenzgenerator">
+	<PARAM NAME="Keyword" VALUE="Zufallsgenerator">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
+</OBJECT>
+
+<P><A NAME="hidd_lcg_randomparameter"></A><B>Dialog Der Lineare Kongruenzgenerator</B></P>
+
+<P>Der lineare Kongruenzgenerator (LCG) ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X_[i]) gemäß der rekursiven Rechenvorschrift:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P>X_[0] := Geheimer Saatwert</P>
+
+<P>X_[i+1] := a*X_[i] +b  (mod N)   für i = 0, 1, 2, 3, ...</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>wobei X_[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., N-1 sind. Es ist üblich, die Zufallszahlen in den rationalen Wertebereich [0,1[ zu normieren, deshalb erfolgt die Ausgabe als rationale Zahlen Z[i] := X_[i]/N. </P>
+
+<P>Wir betrachten in CrypTool nur "Münzwürfe" (der Münzwurf "Kopf" wird auf die 0 und der Münzwurf "Zahl" wird auf die 1 abgebildet). Beim LCG bilden wir deshalb den Münzwurf 0 durch das Ereignis [Z_[i] &lt; 0,5] und den Münzwurf 1 durch das Ereignis [0,5 &lt;= Z_[i] &lt; 1] ab. Die Folge der Münzwürfe wird als Binärdatei (eine Folge von 8 Münzwürfen ergibt ein zufälliges ASCII Zeichen) abgespeichert.</P>
+
+<P>Parameter beim LCG sind die Zahlen N, a, b der Geraden-Gleichung y = a*x+b (mod N):</P>
+
+<P>Der Modul N, der Multiplikator a: 0&lt;a&lt;N und das additive Inkrement b: 1&lt;b&lt;N. Des weiteren wird der LCG durch den geheimen Initialwert oder Saat X_0 initialisiert.</P>
+
+<P>Nachdem Sie im Dialog <A href="menu_related_methods.html"><B>Einzelverfahren</B></A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton "Linearer Kongruenzgenerator (LCG)" gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameters des LCG festlegen:</P>
+
+<P><IMG SRC="images/lcgoptions.gif" ALT="" BORDER=0></P>
+
+<P>Beachten Sie, dass die Qualität des LCG entscheidend von der Wahl der Parameter abhängt. Ein wichtiges Maß ist hierbei die <A href="periodenlänge.html">Periodenlänge</A> der Zufallsfolge, die durch die Parameter festgelegt wird. </P>
+
+<P>Die LCG erfreuen sich eines hohen Bekanntheitsgrades, da ihre einfache Bauweise die Implementierbarkeit begünstigt und eine hohe Performance ermöglicht. Ein Großteil der Pseudozufallsfunktionen in Betriebssystemen (z.B. UNIX) und Programmiersprachen (wie ANSI C, Fortran, usw.) werden mit LCG realisiert. Aufgrund ihrer Popularität zählen LCG zu den best- und meist-analysierten Pseudozufallsgeneratoren.</P>
+
+<P>Die folgende Tabelle liefert einen Überblick über die Parameter einiger ausgewählter LCG.</P>
+
+<TABLE cols=4 width=624>
+
+<TR VALIGN="top">
+<TD width=18%>a</TD>
+<TD width=16%>b</TD>
+<TD width=18%>N</TD>
+<TD width=48%>Referenz</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>19496</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^15-19</TD>
+<TD width=48%>Chiang, Hwang, Kao</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>214013</TD>
+<TD width=16%>13523655</TD>
+<TD width=18%>2^24</TD>
+<TD width=48%>BASIC</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>16598013</TD>
+<TD width=16%>12820163</TD>
+<TD width=18%>2^24</TD>
+<TD width=48%>Qbasic</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>62605</TD>
+<TD width=16%>113218009</TD>
+<TD width=18%>2^29</TD>
+<TD width=48%>Berkeley UNIX Pascal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>452807053</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31</TD>
+<TD width=48%>URN12</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>16807</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>_Minimal Standard_ von Lewis, et al.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>41358</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>48271</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>Park &amp; Miller</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>51081</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>Härtel</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>69621</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>Park &amp; Miller</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>950706376</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>FISH von Fishman &amp; Moore</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>63060016</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>SIMSCRIPT II</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>397204094</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31-1</TD>
+<TD width=48%>SAS &amp; IMSL-Library von Hoaglin</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>65539</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^31</TD>
+<TD width=48%>IBM's RANDU</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>1103515245</TD>
+<TD width=16%>12345</TD>
+<TD width=18%>2^31</TD>
+<TD width=48%>UNIX rand [Rip90], ANSI C</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>129</TD>
+<TD width=16%>907633385</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>Turbo Pascal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>69069</TD>
+<TD width=16%>1</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>VAX VMS-Generator von Marsaglia</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>663608941</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>C-RAND von Ahrens</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>1099087573</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>Fishman</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>3141592653</TD>
+<TD width=16%>1</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>DERIVE</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>2147001325</TD>
+<TD width=16%>715136305</TD>
+<TD width=18%>2^32</TD>
+<TD width=48%>BCPL von Richards, Whitby-Strevens</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>5^15</TD>
+<TD width=16%>7261067085</TD>
+<TD width=18%>2^35</TD>
+<TD width=48%>Boeing Computer Services BCSLIB</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>71971110957370</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^47-115</TD>
+<TD width=48%>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>25214903917</TD>
+<TD width=16%>11</TD>
+<TD width=18%>2^48</TD>
+<TD width=48%>SUN-UNIX drand48</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>44485709377909</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^48</TD>
+<TD width=48%>Cray X-MP Library</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>68909602460261</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^48</TD>
+<TD width=48%>Fishman</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>13^13</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^59</TD>
+<TD width=48%>NAG Fortran Library</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>2307085864</TD>
+<TD width=16%>0</TD>
+<TD width=18%>2^63-25</TD>
+<TD width=48%>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>427419669081</TD>
+<TD width=16%>0</TD>
+<TD width=18%>10^12-11</TD>
+<TD width=48%>MAPLE</TD>
+</TR>
+</TABLE><BR>
+
+<P>Tabelle: Ausgewählte lineare Kongruenzgeneratoren </P>
+
+<P>Die Qualität der von dem Zufallsgenerator erzeugten Ausgabe können Sie mit Hilfe der in CrypTool implementierten Zufallstests, der Periodenanalyse, der Komprimierbarkeit sowie der Vitany-Analyse überprüfen.</P>
+
+</BODY>
+</HTML>

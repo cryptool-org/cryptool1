@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Periodizität ermitteln</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Periodenanalyse">
+</OBJECT>
+
+<P><A NAME="hid_analyse_period"></A><B>Periodizität ermitteln (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P>
+
+<P>Eine Periode ist die Wiederholung einer bestimmten Zeichenfolge der Länge k (k &gt;= 1) ab einer bestimmten Position in dem Dokument - dem Offset. Als Periode werden nur Zeichenfolgen bezeichnet, die sich bis zum Ende des Dokuments durchziehen. Ein Muster, das in einer Datei mehrfach auftaucht, ist noch keine Periode.</P>
+
+<P>Ausgegeben werden <B>alle</B> Perioden. Es kann mehrere Perioden nur dann geben, wenn sie ineinander verschachtelt sind.</P>
+
+<P>Ein Dokument mit k Perioden muss mindestens 2 ^ (k + 1) – 2 Byte groß sein. CrypTool kann höchstens 100 verschachtelte Perioden erkennen.</P>
+
+<P>Das erste Zeichen des Dokuments hat den Offsetwert 1.</P>
+
+<P>Die Periodenanalyse kann auf Text- und Binärdokumente angewandt werden.</P>
+
+<P>Beispiele: </P>
+
+<TABLE cols=2 width=601>
+
+<TR VALIGN="top">
+<TD width=24%>
+<PRE><CODE>bbbbaaaa     </CODE></PRE>
+</TD>
+<TD width=76%>die Periode <B><CODE>a</CODE></B> hat Offset 5 und die Länge 1.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=24%>
+<PRE><CODE>bbbazazaz    </CODE></PRE>
+</TD>
+<TD width=76%><B><CODE>az</CODE></B> hat Offset 4 und die Länge 2.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=24%>
+<PRE><CODE>bbbazazbazaz </CODE></PRE>
+</TD>
+<TD width=76%>enthält zwei verschachtelte Perioden: Zum einen die mit Offset 3 und der Länge 5 (<B><CODE>bazaz</CODE></B>), zum anderen die mit Offset 9 und der Länge 2 (<B><CODE>az</CODE></B>).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=24%>
+<PRE><CODE>axakaxal</CODE></PRE>
+</TD>
+<TD width=76%>ist keine Periode</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=24%>
+<PRE><CODE>axaxaxak</CODE></PRE>
+</TD>
+<TD width=76%>ist keine Periode</TD>
+</TR>
+</TABLE><BR>
+
+<P><IMG SRC="images/perioddlg.gif" ALT="" BORDER=0></P>
+
+<P>Die Periodenanalyse wird nur dann ausgeführt, wenn das Dokument mindestens 2 Bytes groß ist.</P>
+
+<P>Die Anzeige kann auf Wunsch in einer Textdatei gespeichert werden.</P>
+
+<P>Falls die Periode länger als 20 Zeichen ist, werden nur die ersten 20 Zeichen der Periode angezeigt.</P>
+
+</BODY>
+</HTML>

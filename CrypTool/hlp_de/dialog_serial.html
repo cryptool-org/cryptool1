@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Serial-Test</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Serial-Test">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Zufallstest">
+</OBJECT>
+
+<P><A NAME="dialog_serial"></A><B>Dialog für Serial-Test</B></P>
+
+<P>Das Dialogfenster des Serial-Tests zeigt das folgende Bild:</P>
+
+<P><IMG SRC="images/serial_test_dlg.gif" ALT="" BORDER=0></P>
+
+<P>In diesem Dialogfenster kann man verschiedene Parameter auswählen und bestimmen. Das <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau ‘alpha‚</A> kann zwischen 3 voreingestellten Werten ausgewählt werden: 0.01, 0.05 und 0.10. </P>
+
+<P>Beim Serial-Test kann die Tupelgröße nicht variiert werden.</P>
+
+<P>Mit der "<B>Default Offset und Testlänge</B>"-Checkbox entscheidet man sich für die Default-Werte (<!--ZZZPOPUP--><A href="offset.html">Offset</A> = 0 und <!--ZZZPOPUP--><A href="testlen.html">Testlänge</A> = Dateilänge). Alternativ können benutzerdefinierte Werte im Test benutzet werden.</P>
+
+<P>Sind diese Werte falsch gewählt, erscheint im Dialog eine Nachricht:</P>
+
+<P><IMG SRC="images/falsch_offset_dialog.gif" ALT="" BORDER=0></P>
+
+<P>und zusätzlich eine Messagebox:</P>
+
+<P><IMG SRC="images/falsch_offset_msgbox.gif" ALT="" BORDER=0></P>
+
+<P>Mit der <B>Zufällig gewählte Testblöcke verwenden</B>-Checkbox kann man sich Zufallswerte für Offset und Testlänge erzeugen lassen. Hat der Benutzer Werte für Offset und Testlänge eingegeben und <B>Zufällig gewählte Testblöcke verwenden</B> angekreuzt, werden trotzdem die vom Benutzer definierten Werte für Offset und Testlänge benutzt.</P>
+
+<P>Mit der <B>Test durchführen</B>-Taste führt man den Test durch.</P>
+
+<P>Nach der Betätigung der <B>Test durchführen</B> Taste sollte Ihr Dialogfenster so aussehen:</P>
+
+<P><IMG SRC="images/serial_beispiel_dlg.gif" ALT="" BORDER=0></P>
+
+<P>Der Maximale Testwert ist ein statistischer Wert, der vom Signifikanzniveau abhängig ist und nicht überschritten wird, wenn der Test bestanden wird.</P>
+
+<P>Das Testergebnis ist ein vom Test erzeugter statistischer Wert, der mit dem Maximalen Testwert verglichen wird.</P>
+
+<P>Wird der Test nicht bestanden, erscheint folgende Nachricht im Teststatus:</P>
+
+<P><IMG SRC="images/serial_beispiel2_dlg.gif" ALT="" BORDER=0></P>
+
+<P>Mit <B>Schließen</B> verlässt man das Dialogfenster und kehrt zurück zum CrypTool-Hauptfenster.</P>
+
+</BODY>
+</HTML>

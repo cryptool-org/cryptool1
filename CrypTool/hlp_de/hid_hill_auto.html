@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatische Analyse Hill-Verschlüsselungsverfahren</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Hill-Analyse">
+</OBJECT>
+
+<P><A NAME="hid_hill_auto"></A><B>Automatische Analyse für Hill-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ "known plaintext")</B></P>
+
+<P>Für das <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A> steht ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) zur Verfügung. Das heißt, man muss der Funktion sowohl einen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> als auch den mittels Hill-Verschlüsselungsverfahren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text eingeben. Daraufhin ermittelt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem der Klartext verschlüsselt worden ist. </P>
+
+<P>Wie oben erwähnt, muss der automatischen Analyse sowohl der Klartext als auch der verschlüsselte Text bekannt sein. Einer der Texte muss im aktiven Fenster vor dem Aufruf der Funktion zur automatischen Analyse des Hill-Verschlüsselungsverfahrens vorhanden sein, der andere Text muss im <A href="hidd_hill_analysis.html">Dialog Analyse Hill-Verschlüsselungsverfahren</A> eingegeben werden.</P>
+
+<P>Die Analyse funktioniert wie folgt: CrypTool nimmt an, dass der Schlüssel die Dimension n x n (aus dem im <A href="hidd_hill_analysis.html">Dialog Analyse Hill-Verschlüsselungsverfahren</A> gewählten Bereich) hat. Nun werden der Klartext und der verschlüsselte Text in Blöcke der Länge n unterteilt. Aus n Blöcken des Klartextes und den entsprechenden Blöcken des verschlüsselten Textes werden die Matrizen K (Klartext) und V (verschlüsselter Text) aufgebaut. Offensichtlich gilt: V = K * A, wobei A der Schlüssel ist. Falls K invertierbar ist, kann der Schlüssel durch einfache Matrizenmultiplikation <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26 (Anzahl der Buchstaben) berechnet werden: Inverse(K) * V = A. Ist K nicht invertierbar, so wird eine andere mögliche Kombination von Blöcken ausprobiert. </P>
+
+<P><U>Beispiel zum Suchen einer Kombination von Blöcken:</U></P>
+
+<TABLE cols=2 width=393>
+
+<TR VALIGN="top">
+<TD width=63%>Der Klartext lautet:</TD>
+<TD width=37%>ABCDXY.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>Der verschlüsselte Text ist:</TD>
+<TD width=37%>STONLC.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=63%>Die <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> beträgt:</TD>
+<TD width=37%>2.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Als erstes probiert CrypTool mit Hilfe der folgenden Matrizen den Schlüssel zu finden.</P>
+
+<TABLE cols=4 width=166>
+
+<TR VALIGN="top">
+<TD width=14%><U>K:</U></TD>
+<TD width=34%>AB</TD>
+<TD width=17%><U>V:</U></TD>
+<TD width=35%>ST</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>&nbsp;</TD>
+<TD width=34%>CD</TD>
+<TD width=17%>&nbsp;</TD>
+<TD width=35%>ON</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die Matrix K ist nicht invertierbar. Daher wäre es nicht möglich, den Schlüssel zu finden, wenn der Klartext ABCD und der verschlüsselte Text STON wäre. Da in dem Beispiel aber ein weiterer Block vorhanden ist, wird die nächste mögliche Kombination von Blöcken gebildet. Die Matrizen haben dann folgendes Aussehen:</P>
+
+<TABLE cols=4 width=166>
+
+<TR VALIGN="top">
+<TD width=14%><U>K:</U></TD>
+<TD width=34%>AB</TD>
+<TD width=17%><U>V:</U></TD>
+<TD width=35%>ST</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>&nbsp;</TD>
+<TD width=34%>XY</TD>
+<TD width=17%>&nbsp;</TD>
+<TD width=35%>LC</TD>
+</TR>
+</TABLE><BR>
+
+<P>Da diese Matrix K invertierbar ist, kann das Produkt der Inversen Matrix von K und der Matrix V berechnet werden und man erhält sofort den Schlüssel der Dimension 2 x 2:</P>
+
+<TABLE cols=2 width=81>
+
+<TR VALIGN="top">
+<TD width=29%><U>A:</U></TD>
+<TD width=71%>TE</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=29%>&nbsp;</TD>
+<TD width=71%>ST</TD>
+</TR>
+</TABLE><BR>
+
+<P>Damit erfolgt eine Ausgabe dieses Schlüssels im Dialog Schlüssel für Hill Verschlüsselungsverfahren.</P>
+
+<P>Die letzte mögliche Kombination von Blöcken wäre bei diesem Klartext und diesem verschlüsselten Text:</P>
+
+<TABLE cols=4 width=166>
+
+<TR VALIGN="top">
+<TD width=14%><U>K:</U></TD>
+<TD width=34%>CD</TD>
+<TD width=17%><U>V:</U></TD>
+<TD width=35%>ON</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>&nbsp;</TD>
+<TD width=34%>XY</TD>
+<TD width=17%>&nbsp;</TD>
+<TD width=35%>LC</TD>
+</TR>
+</TABLE><BR>
+
+<P>In diesem Beispiel war das Bilden dieser letzten Kombination nicht notwendig, da der Schlüssel schon mit der vorherigen Kombination von Blöcken gefunden worden ist.</P>
+
+<P>Falls alle möglichen Kombinationen von Blöcken nicht zum Finden des Schlüssels führen, wird die nächste Dimension ausprobiert. Wenn der Schlüssel nicht gefunden werden konnte, wird eine entsprechende Meldung ausgegeben.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_hill.html">Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das Verschlüsselungsverfahren.</P>
+
+<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
+
+<P>Der Schlüssel wird immer gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A></P>
+
+<P>nicht zu kurz ist (mindestens jedoch so viele Zeichen enthält, wie der Schlüssel Zeichen besitzt).</P>
+
+<P>nicht aus ein- und derselben Zeichenfolge (oder Zeichenfolgen, deren Zeichen den gleichen Abstand voneinander haben) besteht.</P>
+
+<P>Die zweite Bedingung besagt, dass zum Beispiel für Klartext ABAB der Schlüssel unter Umständen nicht ermittelt werden kann. Dies gilt auch für den Klartext ABCD, da der Abstand der Buchstaben des ersten Blockes (AB) genauso groß wie der Abstand der Buchstaben des zweiten Blockes (CD) ist, nämlich ein Zeichen.</P>
+
+<P>Diese beiden oben angeführten Bedingungen sind normalerweise erfüllt, wenn der Klartext aus Wörtern einer natürlichen Sprache besteht, zum Beispiel dem Wort "HILLCIPHER".</P>
+
+<P>Der Schlüssel kann unter Umständen dennoch gefunden werden, wenn ein kurzer Text, der die zweite Bedingung erfüllt, vorliegt.</P>
+
+</BODY>
+</HTML>

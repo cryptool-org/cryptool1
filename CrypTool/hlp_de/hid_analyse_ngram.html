@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>N-Gramm-Liste des Dokuments anzeigen</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="N-Gramm">
+	<PARAM NAME="Keyword" VALUE="Histogramm">
+	<PARAM NAME="Keyword" VALUE="Digramm">
+	<PARAM NAME="Keyword" VALUE="Trigramm">
+</OBJECT>
+
+<P><A NAME="hid_analyse_ngram"></A><B>N-Gramm-Liste des Dokuments anzeigen (Menü <A href="menu_analyze.html">Analyse</A> \ Allgemein)</B></P>
+
+<P>Ein N-Gramm ist eine Zeichenkette der Länge N, bei N=2 spricht man von Digrammen, bei N=3 von Trigrammen. </P>
+
+<P>Die N-Gramm-Liste eines Dokuments besteht aus allen N-Grammen des Dokuments zusammen mit ihrer Häufigkeit, üblicherweise absteigend geordnet nach der Häufigkeit. Für N=1 nennt man die N-Gramm-Liste Histogramm. CrypTool beschränkt die Länge der Liste auf die 5000 häufigsten N-Gramme.</P>
+
+<P>Wenn Sie ein Textdokument analysieren, werden nur die Buchstaben aus dem Alphabet berücksichtigt. Zeichen, die nicht zu dem unter Menü <B>Optionen \ <A href="hid_opttext.html">Textoptionen</A></B> eingestellten Alphabet gehören, "trennen" den Text. Wenn z.B. das Leerzeichen nicht zu dem aktuellen Alphabet gehört, dann hat der Text "ATTACK AT DAWN" die Trigramme ATT, TTA, TAC, ACK, DAW und AWN.</P>
+
+<P>Bei der N-Gramm-Analyse von Binärdateien werden alle 256 verschiedenen Bytes berücksichtigt.</P>
+
+<P><B>Beispiel: </B></P>
+
+<P>Die 5 häufigsten Trigramme in der Referenzdatei<CODE> genesis-de.txt</CODE> sind: <!--ZZZINDN--></P>
+
+<TABLE cols=2 width=128>
+
+<TR VALIGN="top">
+<TD width=37%>
+<PRE><CODE>UND</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>3,351 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>
+<PRE><CODE>EIN</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>2,315 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>
+<PRE><CODE>ICH</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>1,616 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>
+<PRE><CODE>INE</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>1,496 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>
+<PRE><CODE>DER</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>1,473 %</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Die N-Gramm-Analyse erfolgt im Dialog <A href="hidd_ngram_analysis.html">N-Gramm-Liste</A>.</P>
+
+<P>Diese Liste kann optional als Textdatei gesichert werden. </P>
+
+</BODY>
+</HTML>
