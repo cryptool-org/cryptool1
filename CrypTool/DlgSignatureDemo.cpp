@@ -119,9 +119,13 @@ BOOL CDlgSignatureDemo::OnInitDialog()
 
 	EnableButtons(); // Bitmap-Butttons ein/ausblenden
 
-	if(!m_sPathName.IsEmpty()) OnInfoDocument(); // Dokument anzeigen	
+	if(!m_sPathName.IsEmpty()) // Dokument anzeigen
+	{	
+		OnInfoDocument(); 
+		m_ButtonInfoDoc.SetFocus();
+	}
 	
-	return TRUE;  // return TRUE unless you set the focus to a control
+	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
@@ -157,6 +161,7 @@ void CDlgSignatureDemo::OnSelectDocument()
 			m_ButtonInfoDoc.SetFocus();
 		}
 	}	
+
 	delete doc;
 }
 
@@ -412,8 +417,6 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 void CDlgSignatureDemo::OnCompute() 
 {
 	if(!m_Message) return;
-
-	//free (m_osHash.octets);
 	m_Cert->HashAll(*m_Message, m_osHash);
 	if(!m_osHash.noctets) return;
 
@@ -443,7 +446,6 @@ void CDlgSignatureDemo::OnEncrypt()
 	Big C, N, p, D, e;
 	if(!m_Cert->GetParameter(N, p, e, D)) return;		
 	Big Hash = from_binary(m_osHashDER.noctets, m_osHashDER.octets);
-	//free (osHashDER.octets);
 	Hash %= N;
 	C = pow(Hash, D, N);
 
@@ -460,8 +462,7 @@ void CDlgSignatureDemo::OnEncrypt()
 		memset(m_osHashEnc.octets, 0, m_osHashEnc.noctets);
 	}
 	Add2OString(&m_osHashEnc, osC.octets, osC.noctets);
-	delete[] osC.octets;
-	
+	delete[] osC.octets;	
 	m_bUpdateEnc = FALSE; 
 	EnableButtons();
 	OnInfoHashEnc();
@@ -505,6 +506,7 @@ void CDlgSignatureDemo::OnInfoHashEnc()
 	Text.Format(IDS_BITLENGTH, m_osHashEnc.noctets*8);
 	m_DisplayInfo += Text+"\r\n";
 	UpdateData(FALSE);
+
 	delete[] DER_Encoding.octets;
 }
 
@@ -544,8 +546,7 @@ void CDlgSignatureDemo::OnInfoAlg()
 	OctetString DER_Encoding;
 	memset(&DER_Encoding, 0, sizeof(OctetString));
 	m_Cert->GetDER_Encoding(DER_Encoding);
-	dataToHexDump(DER_Encoding.octets, DER_Encoding.noctets, Encoding);
-	
+	dataToHexDump(DER_Encoding.octets, DER_Encoding.noctets, Encoding);	
 
 	UpdateData(TRUE);
 	m_DisplayInfo.Empty();
@@ -557,6 +558,7 @@ void CDlgSignatureDemo::OnInfoAlg()
 	Text.Format(IDS_DERCODE, Encoding);
 	m_DisplayInfo += Text;
 	UpdateData(FALSE);
+
 	delete[] DER_Encoding.octets;
 }
 
@@ -581,8 +583,7 @@ void CDlgSignatureDemo::OnOK()
 	if(m_Message && m_SignText.noctets)
 	{
 		char outfile[128];
-		CAppDocument* NewDoc;		
-
+		CAppDocument* NewDoc;
 		GetTmpName(outfile,"cry",".hex");
 		Add2OString(&m_SignText, m_Message->octets, m_Message->noctets);
 		theApp.SecudeLib.aux_OctetString2file(&m_SignText, outfile,2);
@@ -604,8 +605,6 @@ void CDlgSignatureDemo::ClearInfo()
 
 void CDlgSignatureDemo::OnInfoCert() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-
 	if(!m_Cert->PSEIsInitialized()) return;
 
 	UpdateData(TRUE);
@@ -616,7 +615,6 @@ void CDlgSignatureDemo::OnInfoCert()
 
 void CDlgSignatureDemo::OnInfoSign() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	int srcSize = m_SignText.noctets;
 	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
 	char *msgdata = new char[destSize+1];
