@@ -67,7 +67,7 @@ Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast all
 Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schl""ussel!privat} \index{Schl""ussel!""offentlich} Schl"ussel $ d_T $   und ein sogenannter "offentlicher Schl"ussel $ e_T $   zugeordnet. Dabei mu"s die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
 F"ur einen Gegner, der den "offentlichen Schl"ussel $ e_T $  kennt, ist es praktisch unm"oglich, den privaten Schl"ussel  $ d_T $ zu bestimmen.\par
 
-Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-Information. \par
+Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-In"-for"-ma"-tion. \par
 
 Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist. Wenn die L"ange der Eingabe $ n $ Bits betr"agt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, da"s die \index{Komplexit""at} Komplexit"at solcher Probleme $ O(n^{a}) $ betr"agt. 
 
@@ -97,7 +97,7 @@ Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man ka
 
 Es gab immer wieder die Aussage, jemand habe die "Aquivalenz bewiesen, z.B.
 
-{\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
+\href{http://www.geocities.com/st\_busygin/clipat.html}{\texttt{http://www.geocities.com/st\_busygin/clipat.html}}, 
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
@@ -192,7 +192,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 
-1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum Brechen des Systems in polynomialer Zeit an, ohne das allgemeine Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman \cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff} \cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahrens in polynomialer Zeit an. Ernst Brickell \index{Brickell Ernst} \cite{Brickell1985} gab schlie"slich einen Algorithmus zum Brechen des mehrfachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahren in polynomialer Zeit an. Damit war dieses Verfahren als Verschl"usselungsverfahren ungeeignet. Dieses Verfahren liefert also eine Einwegfunktion, deren Fallt"ur-Information (Verfremden des 0-1-Knapsackproblems) durch einen Gegner entdeckt werden k"onnte.
+1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum Brechen des Systems in polynomialer Zeit an, ohne das allgemeine Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman \cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff} \cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahrens in polynomialer Zeit an. Ernst Brickell \index{Brickell Ernst} \cite{Brickell1985} gab schlie"slich einen Algorithmus zum Brechen des mehrfachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahren in polynomialer Zeit an. Damit war dieses Verfahren als Verschl"usselungsverfahren ungeeignet. Dieses Verfahren liefert also eine Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des 0-1-Knapsackproblems) durch einen Gegner entdeckt werden k"onnte.
 
 
 %---------------------------------------------------------------------

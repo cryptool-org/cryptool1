@@ -261,9 +261,10 @@ sondern nur die Primzahlen, engt man den {\em Versuchsraum} deutlich ein.
 Die derzeit bekannten Mersenne--Primzahlen \index{Mersenne--Primzahlen} gibt es f"ur die Exponenten
 $$
 \begin{array}{c}
-2, ~ 3, ~ 5, ~ 7, ~ 13, ~ 17, ~ 19, ~ 31, ~ 61, ~ 89, ~ 107, ~ 127, ~ 521, ~ 607, ~ 1.279, ~ 2.203, ~ 2.281, ~ 3.217, ~ 4.253, ~ 4.423, \\
-9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049, ~ 216.091,\\
- 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593, ~13.466.917.
+2, ~ 3, ~ 5, ~ 7, ~ 13, ~ 17, ~ 19, ~ 31, ~ 61, ~ 89, ~ 107, ~ 127, ~ 521, ~ 607, ~ 1.279, ~ 2.203, ~ 2.281, ~ 3.217, ~ 4.253, \\
+4.423, ~9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049,\\
+216.091, ~ 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593,\\
+13.466.917.
 \end{array}
 $$
 Damit sind heute $39$ Mersenne--Primzahlen\index{Primzahlen!Mersenne} bekannt.
@@ -310,14 +311,15 @@ gefundenen Primzahl abgeschlossen.
 Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). Allein zu ihrer Darstellung
 ($924947738006701322247758 \cdots 1130073855470256259071$) br"auchte man in der FAZ knapp 200 Seiten.
 \subsubsection{GIMPS}\index{GIMPS}
-Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mersenne-Prime Search) bereits
+Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mer"-senne-Prime Search) bereits
 zum 5. Mal die gr"o"ste Mersenne-Zahl entdeckt, die erwiesenerma"sen prim ist.
 
 Am GIMPS-Projekt beteiligen sich z.Zt. rund 130.000 freiwillige Amateure und Experten, die ihre Rechner in das
 von der Firma entropia organisierte \glqq primenet\grqq~ einbinden, um mit verteilten Computerprogrammen solche Zahlen zu finden.
 \subsubsection{EFF}\index{EFF}
 
-Angefacht wird diese Suche noch zus"atzlich durch einen Wettbewerb, den die Non\-profit-Organisation
+Angefacht wird diese Suche noch zus"atzlich durch einen Wettbewerb, den die
+Non\-profit-Orga"-nisa"-tion
 EFF (Electronic Frontier Foundation) mit den Mitteln eines unbekannten Spenders gestartet hat. Den
 Teilnehmern winken Gewinne im Gesamtwert von 500.000 USD, wenn sie die l"angste Primzahl
 finden. Dabei sucht der unbekannte Spender nicht nach dem schnellsten Rechner, sondern er will auf
@@ -464,7 +466,7 @@ $$
   \item Carmichaelzahlen: s.o.
   \item Pseudoprimzahlen: s.o.
   \item starke Pseudoprimzahlen: s.o.
-  \item Idee aufgrund von \hyperlink{euclid}{Euklids Beweis} (unendlich viele Primzahlen)
+  \item Idee aufgrund von \hyperlink{thm-pz-euklid}{Euklids Beweis} (unendlich viele Primzahlen)
         $p_1 \cdot p_2 \cdots p_n +1$:
 $$
 \begin{array}{lll}
@@ -589,9 +591,11 @@ C_3 = 2^{C_2} - 1, \\
 C_4 = 2^{C_3} - 1, \cdots \\
 \end{array}
 $$
+\begin{sloppypar}
     (siehe
         {\href{http://www.utm.edu/research/primes/mersenne.shtml}{\tt http://www.utm.edu/research/primes/mersenne.shtml}}
         unter Conjectures and Unsolved Problems).
+\end{sloppypar}
 
     Diese Folge ist ebenfalls rekursiv definiert und w"achst sehr schnell. Besteht sie nur
     aus Primzahlen?
@@ -767,7 +771,7 @@ http://www.cerias.purdue.edu/homes/ssw/cun}}
 
 \begin{itemize}
   \item Der deutsche Mathematiker \index{Goldbach Christian} Christian Goldbach (1690-1764) vermutete:
-    Jede gerade nat"urliche Zahl gr"o"ser $2$ l"asst sich als die Summe zweier Primzahlen darstellen.
+    Jede gerade nat"ur"-liche Zahl gr"o"ser $2$ l"asst sich als die Summe zweier Primzahlen darstellen.
     Mit Computern ist die Goldbachsche Vermutung f"ur alle geraden Zahlen bis $4*10^{14}$ verifiziert\footnote{
     Da"s die Goldbachsche Vermutung wahr ist, d.h. f"ur alle geraden nat"urlichen Zahlen gr"o"ser als $2$ gilt, wird
     heute allgemein nicht mehr angezweifelt. Der Mathematiker J"org Richstein vom Institut f"ur Informatik der 
@@ -971,8 +975,8 @@ Berechnung zum Beispiel per GMP:
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-\bibitem[Bartholome1996]{Bartholome1996}  \index{Bartholome 1996}
-    A. Bartholomé, J. Rung, H. Kern, \\
+\bibitem[Bartholome1996]{2Bartholome1996}  \index{Bartholome 1996}
+    A. Bartholom\'e, J. Rung, H. Kern, \\
     Zahlentheorie f"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
 
 \bibitem[Blum1999]{Blum1999} \index{Blum 1999}
@@ -1014,7 +1018,7 @@ Berechnung zum Beispiel per GMP:
     J. Richstein, \\
     Verifying the Goldbach Conjecture up to $4*10^{14},$ Mathematics of Computation. 
 
-\bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996}
+\bibitem[Schneier1996]{2Schneier1996} \index{Schneier 1996}
     Bruce Schneier, \\
     Applied Cryptography, Wiley and Sons, 2nd edition, 1996.
 

@@ -947,7 +947,7 @@ Konstanten $C > 1$.
 \item[\bf b)] {\bf Wurzel-Berechnung (Bestimmen von $b$):}  
 
 "Ahnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
-Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist, berechnet man 
+Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist, findet man 
 leicht\footnote{
 Siehe \hyperlink{Appendix_A}{Anhang A}: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.
 } $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz \ref{thm-zth-pot} 
@@ -1418,7 +1418,8 @@ Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 {
 \subsubsection*{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 \textmd \small \label{SrcArith3c}
-\begin{tabular}{|p{16 pt}||p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|p{7 pt}|c|}
+\begin{center}
+\begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
 $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
 \hline
@@ -1435,7 +1436,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \hline
 6 & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & -- \\
 \hline
-7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  &{\bf 1}& 7 & 22 \\
+7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & 1  & 7 & 22 \\
 \hline
 8 & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & --  \\
 \hline
@@ -1470,6 +1471,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & -- \\
 \hline 
 \end{tabular}
+\end{center}
 }
 
 \vskip +10 pt
@@ -1719,6 +1721,7 @@ $$
 
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Zur Sicherheit des RSA-Verfahrens}
+\label{SecurityRSA}
 
 Gro"se Teile dieses Absatzes entstammen dem Artikel \glqq Vorz"uge und Grenzen des RSA-Verfahrens\grqq 
 \linebreak[4] von F. Bourseau / D. Fox / C. Thiel, {\em in Datenschutz und Datensicherheit} (DuD), 26/2002, S. 84-89.
@@ -1744,11 +1747,15 @@ Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden 
 
 \subsubsection{Komplexit"at}
 
-Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne Kenntnis des geheimen Schl"ussels --- erfordert, 
-die $e$-te Wurzel mod $n$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative Inverse zu $e$, kann mit Hilfe 
-der Eulerschen Funktion $J(n)$ bestimmt werden. $J(n)$ wiederum l"asst sich aus den Primfaktoren von $n$ berechnen.
-Das Brechen kann daher nicht schwieriger sein als das Faktorisieren des Moduls $n$.
-
+\begin{sloppypar}
+  Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne
+  Kenntnis des geheimen Schl"us"-sels --- erfordert, die $e$-te Wurzel mod
+  $n$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative
+  Inverse zu $e$, kann mit Hilfe der Eulerschen Funktion $J(n)$ bestimmt
+  werden. $J(n)$ wiederum l"asst sich aus den Primfaktoren von $n$
+  berechnen.  Das Brechen kann daher nicht schwieriger sein als das
+  Faktorisieren des Moduls $n$.
+\end{sloppypar}
 Das beste heute bekannte Verfahren ist eine Weiterentwicklung des urspr"unglich f"ur Zahlen mit einer bestimmten 
 Darstellung (z.B. Fermatzahlen) entwickelten General Number Field Sieve (GNFS). \index{General Number Field Sieve (GNFS)}
 Die L"osungskomplexit"at des Faktorisierungsproblems liegt damit asymptotisch bei 
@@ -1825,14 +1832,17 @@ Gr"o"sere Zahlen erfordern mit den heute bekannten Verfahren einen immer gr"o"se
 L"osungsmatrix. Dieser Speicherbedarf w"achst ca. quadratisch zur Modull"ange $l$.
 Deshalb d"urften gr"o"sere Fortschritte auch neue Algorithmen voraussetzen.
 
-In dem Artikel ``Vorz"uge und Grenzen des RSA-Verfahrens'' prognostiziert Dirk Fox einen ann"ahernd linearen Verlauf 
-der Faktorisierungserfolge unter Einbeziehung aller Faktoren: Pro Jahr kommen durchschnittlich 20 Bit dazu.
-
+\begin{sloppypar}
+  In dem Artikel ``Vorz"uge und Grenzen des RSA-Verfahrens'' prognostiziert
+  Dirk Fox einen ann"ahernd linearen Verlauf der Faktorisierungserfolge
+  unter Einbeziehung aller Faktoren: Pro Jahr kommen durchschnittlich 20
+  Bit dazu.
+\end{sloppypar}
 \noindent
 Die Firma Secorvo GmbH hat eine Stellungnahme zur Schl"ussell"angenempfehlung des BSI f"ur den Bundesanzeiger abgegeben. In Kapitel 2.3.1 geht sie sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch):
 
 \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
-     {\tt http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
+     {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
 
 
 
@@ -1851,7 +1861,7 @@ $p, q, n$ m"usste der verwendete Modul $n$ (z.Zt. 1024 bit) erheblich vergr"o"se
 Einsatz des RSA ganz verzichtet werden.
 
 Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer factorization: a proposal''
-(siehe \href{http://cr.yp.to/djb.html}{\tt http://cr.yp.to/djb.html} von D.J. Bernstein behandelt 
+(siehe \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}} von D.J. Bernstein behandelt 
 das Problem der Faktorisierung gro"ser Zahlen. 
 Die Kernaussage des Papers besteht darin, einen Faktorisierungsalgorithmus anzugeben, der mit gleichem Aufwand wie die 
 besten bisher bekannten Algorithmen Zahlen n mit 3-mal gr"o"serer Stellenzahl (Bit-L"ange) faktorisieren kann.
@@ -1895,18 +1905,18 @@ wieweit die Finanzierung seines Forschungsprojektes ist.
 Verweise:
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
-               {\tt http://cr.yp.to/djb.html}
+               {\texttt{http://cr.yp.to/djb.html}}
   \item[] \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
-               {\tt http://www.counterpane.com/crypto-gram-0203.html\#6}
+               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}}
   \item[] \href{http://www.math.uic.edu}
-               {\tt http://www.math.uic.edu}
+               {\texttt{http://www.math.uic.edu}}
 \end{itemize}
 
 \subsubsection{Anmerkungen zur Faktorisierung von Zahlen} \label{NoteFactorisation}
 
 Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
 mit unterschiedlichen Methoden findet sich auf der Webseite 
-\href{http://www.crypto-world.com}{\tt http://www.crypto-world.com}. Der aktuelle Rekord
+\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}. Der aktuelle Rekord
 (Stand Juni 2000) mit der GNFS--Methode (General Number Field Sieve) \index{General Number Field Sieve (GNFS)}
 liegt in der Zerlegung einer 158-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86 Dezimalstellen).
 
@@ -2088,8 +2098,8 @@ in an essentially non-algebraic way''. Mathematica meint also, keine
 algebraisch direkten Verfahren zu kennen, um die Gleichung zu l"osen.
 Doch mit der verallgemeinerten Funktion f"ur die multiplikative Ordnung kann
 es Mathematica (hier f"ur Alice): 
-{\tt MultiplicativeOrder[11, 347, 49]} liefert den Wert $67$. \\
-In Pari-GP lautet die Syntax: {\tt znlog(Mod(49,347),Mod(11,347))}
+{\texttt{MultiplicativeOrder[11, 347, 49]}} liefert den Wert $67$. \\
+In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}
 \\
 Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang URLs)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
@@ -2409,14 +2419,14 @@ Entschl"usselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
 % ..........................................................................................................................
 \subsubsection{Eine kleine RSA-Cipher-Challenge (1)}
 \index{RSA!Cipher-Challenge}
-Die Aufgabe stammt aus \cite[Exercise 4.6]{Stinson1995}: \index{Stinson 1995}
+Die Aufgabe stammt aus \cite[Exercise 4.6]{3Stinson1995}: \index{Stinson 1995}
 Die pure L"osung hat Prof. Stinson unter
 
 \href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}
-     {\tt http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}\footnote{
+     {\texttt{http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}}\footnote{
 oder
 \href{http://bibd.unl/~stinson/solns.html}
-     {\tt http://bibd.unl/\~{}stinson/solns.html}.
+     {\texttt{http://bibd.unl/\~{}stinson/solns.html}}.
 }
 
 ver"offentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der L"osung, 
@@ -2526,7 +2536,7 @@ RSA-Demonstration\grqq~ der CrypTool-Auslieferung.
 \index{RSA!Cipher-Challenge}
 
 Die folgende Aufgabe ist eine korrigierte Variante aus dem sehr guten Buch
-von Prof.Yan \cite[Example 3.3.7, S. 318]{Yan2000}. \index{Yan 2000}
+von Prof.~Yan \cite[Example 3.3.7, S. 318]{Yan2000}. \index{Yan 2000}
 Es geht aber nicht nur um das Ergebnis, sondern vor allem um die
 Einzelschritte der L"osung, also um die Darlegung der Kryptoanalyse\footnote{
 Im Szenario der Online-Hilfe zu CrypTool und in der Pr"asentation auf der
@@ -2589,7 +2599,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \bibitem[Bartholome1996]{Bartholome1996}  
-    A. Bartholome, J. Rung, H. Kern, \\
+    A. Bartholom\'e, J. Rung, H. Kern, \\
     {\em Zahlentheorie f"ur Einsteiger}, Vieweg 1995, 2. Auflage 1996.
 
 \bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
@@ -2637,7 +2647,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Robert Sedgewick,\\
     {\em Algorithms in C}, Addison-Wesley, 1990.
 
-\bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
+\bibitem[Stinson1995]{3Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
     {\em Cryptography - Theory and Practice}, CRC Press, 1995.
 
@@ -2662,46 +2672,46 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
    \item \hypertarget{knott}{} \index{Knott Ron}
           Fibonacci\index{Fibonacci} Seite von Ron Knott, \\
       Hier dreht sich alles um Fibonacci-Zahlen. \\
-          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\tt http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
+          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
    \item CrypTool Version 1.3, 2002, \\
           Freeware zur Veranschaulichung von Kryptographie, \\
-          \href{http://www.cryptool.de}{\tt http://www.cryptool.de}, \\
-          \href{http://www.cryptool.org}{\tt http://www.cryptool.org},\\ 
-          \href{http://www.cryptool.com}{\tt http://www.cryptool.com}
+          \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}}, \\
+          \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
+          \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
    \item Mathematica, \\
           Kommerzielles Mathematik-Paket \\
-          \href{http://www.wolfram.com}{\tt http://www.wolfram.com }
+          \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
    \item  LiDIA, \index{LiDIA}\\ 
           Umfangreiche Bibliothek mit zahlentheoretischen Funktionen und dem
           Interpreter LC \\
-          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\tt http://www.informatik.tu-darmstadt.de/TI/LiDIA}
+          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
    \item BC, \\
          Interpreter mit zahlentheoretischen Funktionen \\
-         \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\tt http://www.maths.uq.edu.au/\~{}krm/gnubc.html}
+         \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
    \item Pari--GP, \\
          Hervorragender, schneller Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.parigp-home.de}
-              {\tt http://www.parigp-home.de} und 
+              {\texttt{http://www.parigp-home.de}} und 
          \href{http://www.parigp-home.com}
-              {\tt http://www.parigp-home.com}
+              {\texttt{http://www.parigp-home.com}}
    \item Erst nach Vollendung dieses Artikels wurde mir eine Web-Seite bekannt, die
          interaktiv und didaktisch sehr ausgereift die grundlegenden Denkweisen der
          Mathematik anhand der elementaren Zahlentheorie nahebringt. Sie entstand f"ur
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasium (ist leider
          nur in Deutsch verf"ugbar): \\
          \href{http://www.hydrargyrum.de/kryptographie}
-              {\tt http://www.hydrargyrum.de/kryptographie}\index{Munchenbach@M""unchenbach}
+              {\texttt{http://www.hydrargyrum.de/kryptographie}}\index{Munchenbach@M""unchenbach}
    \item Ebenfalls erst nach Vollendung dieses Artikels wurde mir die Seite des Beauftragten f"ur die
          Lehrplanentwicklung des Fachs Informatik an der Oberstufe des Landes Saarland bekannt.
          Hier befindet sich eine Sammlung von Texten und Programmen (in Java), die aus didaktischen 
          "Uberlegungen entstand (ist leider nur in deutsch verf"ugbar). \\
          \href{http://www.hom.saar.de/~awa/kryptolo.htm}
-              {\tt http://www.hom.saar.de/\~{}awa/kryptolo.htm}
+              {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
    \item BSI, \index{BSI}\\ 
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
-         \href{http://www.bsi.bund.de}{\tt http://www.bsi.bund.de}
+         \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
    \item Bernsteins RSA--Aufsatz\\
-         \href{http://cr.yp.to/papers/nfscircuit.ps}{\tt http://cr.yp.to/papers/nfscircuit.ps}
+         \href{http://cr.yp.to/papers/nfscircuit.ps}{\texttt{http://cr.yp.to/papers/nfscircuit.ps}}
 \end{enumerate}
 
 
@@ -2733,11 +2743,11 @@ beschreiben:
 \begin{verbatim}
 INPUT: a,b != 0
 1. if ( a < b ) then  x = a; a = b; b = x; // Vertausche a und b (a > b)
-2. a = a - int(a/b) * b                    // a wird kleiner b, der ggT(a, b) 
-                                           // bleibt unveraendert 
-3. if ( a != 0 ) then goto 1.              // nach jedem Schritt faellt a, und 
-                                           // der Algorithmus endet, wenn a == 0.
-OUTPUT "ggT(a,b) = " b              // b ist der ggT vom urspruenglichen a und b.
+2. a = a - int(a/b) * b        // a wird kleiner b, der ggT(a, b) 
+                               // bleibt unveraendert 
+3. if ( a != 0 ) then goto 1.  // nach jedem Schritt faellt a, und 
+                               // der Algorithmus endet, wenn a == 0.
+OUTPUT "ggT(a,b) = " b         // b ist der ggT vom urspr"unglichen a und b
 \end{verbatim}
 \item Aus dem ggT lassen sich aber noch weitere Zusammenh"ange bestimmen:
 Dazu betrachtet man f"ur $a$ und $b$ das Gleichungssystem:

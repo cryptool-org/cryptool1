@@ -29,7 +29,7 @@ Setzt man den Trend, dass sich die
 Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore), in die Zukunft
 fort, so kann man von einer Entwicklung der ben"otigten Schl"ussell"angen wie in der folgenden Graphik ausgehen
 (Quelle: Arjen Lebstra und Eric Verheul: 
-\href{http://cryptosavvy.com/table.htm}{\tt http://cryptosavvy.com/table.htm}).
+\href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
 
 \vskip -40 pt
 % -> Figur 1
@@ -255,7 +255,7 @@ zu bezeichnen.
 Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist
 aber nicht die normale/"ubliche Addition\footnote{Eine Animation der Punktaddition auf elliptischen Kurven 
 findet man auf der Certicom\index{Certicom} Seite unter \\
-\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}.} in den reellen Zahlen)
+\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}.} in den reellen Zahlen)
 zweier Elemente aus ${\bf E}$ definieren, so dass diese
 Verkn"upfung ein Element ergibt, das wieder in ${\bf E}$ liegt.
 Die Menge ${\bf E}$ ist also unter der Verkn"upfung $+$
@@ -350,10 +350,14 @@ die Parameter von Kryptoverfahren, die auf dem ECDL-Problem basieren.
 % --------------------------------------------------------------------------------------------------------------------
 \subsubsection{Digitale-Signaturen mit Elliptischen Kurven}
 
-Das {\em Elliptische Kurven Diskreter Logarithmus Problem}\index{Logarithmusproblem} (ECDLP) \index{ECDLP} ist die Grundlage f"ur die
-Elliptische--Kurven--Kryptographie. Ausgehend von dieser Grundlage gibt es verschiedene Signaturverfahren.
-Sie haben gemeinsam, wie sie die folgenden "offentlichen Parameter benutzen und wie damit der geheime und
-der "offentliche Schl"ussel erzeugt werden:
+\begin{sloppypar}
+  Das {\em Elliptische Kurven Diskreter Logarithmus
+    Problem}\index{Logarithmusproblem} (ECDLP) \index{ECDLP} ist die
+  Grundlage f"ur die Elliptische--Kurven--Kryptographie. Ausgehend von
+  dieser Grundlage gibt es verschiedene Signaturverfahren.  Sie haben
+  gemeinsam, wie sie die folgenden "offentlichen Parameter benutzen und wie
+  damit der geheime und der "offentliche Schl"ussel erzeugt werden:
+\end{sloppypar}
 \begin{itemize}
     \item Die Parameter der Elliptischen Kurve {\bf E}, das hei"st eine Primzahl $p$, die festlegt,
           "uber welchem K"orper ${\mathbb Z}_p$ die Elliptische Kurve ${\bf E}$ definiert ist, sowie die beiden
@@ -428,7 +432,7 @@ Kurven und f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "ub
 K"orpern mit $p$ ($p$ prim) Elementen. Die Implementierung erfolgte in ANSI C und richtete sich
 nach dem Entwurf Nr.8 der Arbeitsgruppe IEEE P1363 {\em Standard Specifications for Public Key Cryptography}
 
-{\href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}}.
+{\href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}}.
 
 Implementiert sind die kryptographischen Primitive zur Signaturerzeugung und Signaturverifikation f"ur
 die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen
@@ -447,13 +451,13 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des SECUDE SDK.
 
 \begin{enumerate}
    \item Online-Tutorial "uber elliptische Kurven der Firma Certicom\index{Certicom}\\
-                \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}
+                \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
         \item Arbeitsgruppe IEEE P1363
 
-                \href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}
+                \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
         \item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit elliptischen Kurven
 
-        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\tt http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}
+        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
 
         Dort findet man Literatur zum Thema Faktorisieren mit elliptischen Kurven sowie Links
 zu anderen Seiten.
