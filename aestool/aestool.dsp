@@ -19,6 +19,8 @@ CFG=aestool - Win32 Debug
 !MESSAGE 
 !MESSAGE "aestool - Win32 Release" (basierend auf  "Win32 (x86) Application")
 !MESSAGE "aestool - Win32 Debug" (basierend auf  "Win32 (x86) Application")
+!MESSAGE "aestool - Win32 Release_aes_de" (basierend auf  "Win32 (x86) Application")
+!MESSAGE "aestool - Win32 Release_aes_en" (basierend auf  "Win32 (x86) Application")
 !MESSAGE 
 
 # Begin Project
@@ -81,12 +83,68 @@ LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # ADD LINK32 /nologo /subsystem:windows /debug /machine:I386 /out:"../CrypTool/Debug/aestool.exe" /pdbtype:sept
 
+!ELSEIF  "$(CFG)" == "aestool - Win32 Release_aes_de"
+
+# PROP BASE Use_MFC 5
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "aestool___Win32_Release_aes_de"
+# PROP BASE Intermediate_Dir "aestool___Win32_Release_aes_de"
+# PROP BASE Ignore_Export_Lib 0
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 5
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "..\Release_aes_de"
+# PROP Intermediate_Dir "..\Release_aes_de"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O1 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O1 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Yu"stdafx.h" /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x407 /d "NDEBUG"
+# ADD RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
+# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
+
+!ELSEIF  "$(CFG)" == "aestool - Win32 Release_aes_en"
+
+# PROP BASE Use_MFC 5
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "aestool___Win32_Release_aes_en"
+# PROP BASE Intermediate_Dir "aestool___Win32_Release_aes_en"
+# PROP BASE Ignore_Export_Lib 0
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 5
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "..\Release_aes_en"
+# PROP Intermediate_Dir "..\Release_aes_en"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O1 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O1 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Yu"stdafx.h" /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
+# ADD RSC /l 0x809 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_ENG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
+# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../CrypTool/Release/aestool.exe"
+
 !ENDIF 
 
 # Begin Target
 
 # Name "aestool - Win32 Release"
 # Name "aestool - Win32 Debug"
+# Name "aestool - Win32 Release_aes_de"
+# Name "aestool - Win32 Release_aes_en"
 # Begin Group "Quellcodedateien"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
