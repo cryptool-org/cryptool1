@@ -154,17 +154,18 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	// Falls ein Dokument vorliegt, wird es initial im Demo-Dialog angezeigt
 	if (!m_strPathSelDoc.IsEmpty())
 	{
-		DateiOeffnen(m_strPathSelDoc);
-		EnDisButtons();
-		ShowButtons();
-		OnButtonShowDocument();	
 		// Den Fokus _nur_ dann auf den Button "Dokument" legen (und deshalb FALSE zurückgeben),
-		// wenn auch wirklich ein Dokument vorliegt
-		m_ctrlBmpRaute1.SetFocus();
-		return FALSE;
-	}
+		// wenn auch wirklich ein Dokument vorliegt; für diesen Fall liefert DateiOeffnen(...) TRUE zurück!
+		if(DateiOeffnen(m_strPathSelDoc))
+		{
+			EnDisButtons();
+			ShowButtons();
+			OnButtonShowDocument();	
+			m_ctrlBmpRaute1.SetFocus();
+			return FALSE;
+		}
 
-	
+	}
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
