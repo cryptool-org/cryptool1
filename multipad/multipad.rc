@@ -4602,9 +4602,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Falsche Longrun Länge !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
-                            "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 10,000 Iterationen ! \nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
+                            "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 10.000 Iterationen ! \nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
-                            "Die Anzahl der Hash-Iterationen muß größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10,000."
+                            "Die Anzahl der Hash-Iterationen muß größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
                             "Die eingegebene Bytelänge der Ausgabe is kleiner als 1 !\nBitte geben Sie eine Zahl zwischen 1 und %i ein."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
@@ -8844,9 +8844,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Wrong Long Run length !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
-                            "The maximum count of hash-iterations is limited to 10.000 ! \nPlease select for 'Number of iterations' a smaller number."
+                            "The maximum count of hash-iterations is limited to 10,000 ! \nPlease select for 'Number of iterations' a smaller number."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
-                            "The count of hash iterations must be a positive number !\nPlease select for 'Number of iterations' a number between 1 and 10.000."
+                            "The count of hash iterations must be a positive number !\nPlease select for 'Number of iterations' a number between 1 and 10,000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
                             "The given byte length of output key is smaller than 1 !\nPlease eter a number between 1 and %i."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
