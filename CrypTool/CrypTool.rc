@@ -5181,7 +5181,8 @@ BEGIN
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
-    IDS_SECUDE_COULD_NOT_BE_LOADED "Secude Lib konnte nicht geladen werden!"
+    IDS_SECUDE_COULD_NOT_BE_LOADED 
+                            "Secude-Bibliothek konnte nicht geladen werden!\nMit Cryptool wird ""Secude.dll"" ausgeliefert.\nBitte überprüfen Sie, ob sich diese Datei im CrypTool-Verzeichnis befindet."
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
                             "Die jeweils nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
@@ -10672,7 +10673,8 @@ BEGIN
                             "The domain parameter of the selectet elliptic curve will be schown below."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "To choose this option, you must first deactivate the option below\n[+] ""Distinguish between uppercase and lowercase""!"
-    IDS_SECUDE_COULD_NOT_BE_LOADED "The Secude library could not be loaded !"
+    IDS_SECUDE_COULD_NOT_BE_LOADED 
+                            "The Secude library could not be loaded !\n""Secude.dll"" is deliverd with the CrypTool package.\nPlease check whether this file is available in your CrypTool directory."
     IDS_NGRAM_TITLE         "N-Gram List of %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
                             "The respective next composite number will be factorised into two factors:"
