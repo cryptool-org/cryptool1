@@ -2117,8 +2117,20 @@ BOOL TutorialFactorisation::Lenstra()
 	return false;
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////
+//
+// quadratic sieve
+//
+
+#define QS_INT_OVERFLOW     -114473
+#define QS_ALLOCATING_ERROR -314159
+#define QS_WARNING          -783264
+
 int TutorialFactorisation::initv()
 {
+    /* debug */
+	double memory_used = 0.0;
 	/* initialize */
     Big T;
     double dp;
@@ -2137,17 +2149,33 @@ int TutorialFactorisation::initv()
     T=NN;
     digits=1;                   /* digits in N */
     while ((T/=10)>0) digits++;
+	int bt = bits(NN);
 
     if (digits<10) mmm=digits;               
     else mmm=25;
-    if (digits>20) mmm=(digits*digits*digits*digits)/4096;
+	{
+		double d_mmm = (digits*digits*digits*digits)/4096.0;
+		double d = (double)(INT_MAX/2)/max(sizeof(Big), sizeof(int*));
+		if ( d_mmm > (double)(INT_MAX/2)/max(sizeof(Big), sizeof(int*)) )
+		{
+			return -1;
+		}
+	}
+    if (digits>20) mmm=(digits/4096)*digits*digits*digits;
 
     dp=(double)2*(mmm+100);          /* number of primes to generate */
 
     maxp=(int)(dp*(log(dp*log(dp)))); /* Rossers upper bound */
     gprime(maxp);
 
+    if ( mmm < 0 )         return QS_INT_OVERFLOW;
+    // if ( mmm > 268435456 ) return QS_WARNING; 
     epr=(int *)mr_alloc(mmm+1,sizeof(int));
+    if ( epr == NULL )
+    {
+        return QS_ALLOCATING_ERROR;
+    }	    
+	memory_used += double((mmm+1)*sizeof(int));
 
     k=knuth(mmm,epr,NN,DD);
 
@@ -2198,17 +2226,34 @@ int TutorialFactorisation::initv()
 
     sieve=(unsigned char *)mr_alloc(SSIZE+1,1);
 
+    if ( r1 == NULL || r2 == NULL || rp == NULL || bb == NULL || e == NULL 
+	  || logp == NULL || pr == NULL || hash == NULL || sieve == NULL )
+    {
+        return QS_ALLOCATING_ERROR;
+    }	    
+	memory_used += double(6*(mmm+1)*sizeof(int)+(3*mlf+1)*sizeof(int) + SSIZE+1);
+
     xx=new Big[mmm+1];
     yy=new Big[mmm+1];
     zz=new Big[mlf+1];
     ww=new Big[mlf+1];
+	memory_used += double(2*(mmm+mlf+4)*sizeof(Big));
+
+	if ( xx == NULL || yy == NULL || zz == NULL || ww == NULL )
+	{
+		return QS_ALLOCATING_ERROR;
+	}
 
 	EE=(unsigned int **)mr_alloc(mmm+1,sizeof(unsigned int *));
     G=(unsigned int **) mr_alloc(mlf+1,sizeof(unsigned int *));
-
+	if ( EE == NULL || G == NULL )
+    {
+        return QS_ALLOCATING_ERROR;
+    }
+	memory_used += double((mmm+mlf+2)*sizeof(int*));
 
     pak=1+mmm/(8*sizeof(int));
-
+	memory_used += double((mmm+mlf+2)*sizeof(int)*pak);
     for (i=0;i<=mmm;i++)
     { 
 		THREAD_CHECK;
@@ -2216,6 +2261,11 @@ int TutorialFactorisation::initv()
         yy[i]=0;
         bb[i]=(-1);
         EE[i]=(unsigned int *)mr_alloc(pak,sizeof(int)); //Roger
+		if ( EE[i] == NULL )
+		{
+			return QS_ALLOCATING_ERROR;
+		}
+
     }
     for (i=0;i<=mlf;i++)
     {
@@ -2223,8 +2273,11 @@ int TutorialFactorisation::initv()
         zz[i]=0;
         ww[i]=0;
         G[i]=(unsigned int *)mr_alloc(pak,sizeof(int)); //Roger
+		if ( G[i] == NULL )
+		{
+			return QS_ALLOCATING_ERROR;
+		}
     }
-
     return 1;
 }
 
@@ -2502,6 +2555,12 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	int result_initv;
 	result_initv=initv();
 
+	if ( result_initv == QS_ALLOCATING_ERROR || result_initv == QS_INT_OVERFLOW )
+	{
+               factorized = false;
+	       THREAD_END;
+	       return false;
+	}
 	if (result_initv==-1)
 	{
 		//this number is prime

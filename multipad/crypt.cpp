@@ -33,8 +33,10 @@
 #include "DialogPermutation.h"
 #include "SelctAHashfunction.h"
 #include "Secude.h"
-
+#include "Hashdemo.h"
 #include <fstream.h>
+
+#define MAX_LAENGE_STRTEXT 16000
 
 char *Eingabedatei;
 int *MaxPermu[26];
@@ -3386,5 +3388,130 @@ void HashOfAFile()
 	{
 		hash(fname, ftitle, Dlg.m_selectedHashFunction+1 );
 	}
+}
+
+
+//####################################
+//Myriam Zeuner, Projekt Hashdemo
+
+void Hashdemo(const char *infile,const char *OldTitle)
+{
+	CHashdemo HashDlg;
+	// Objekt (HashDlg) der Klasse CHashdemo wird erzeugt
+
+	ifstream test(infile,ios::in|ios::binary);
+	// Objekt (test) der Klasse ifstream wird erzeugt und der Pfad + Dateiname der
+	// temporären Datei zugewiesen. Die Datei wird geöffnet (nicht gelesen)
+	//test wird nur erzeugt wenn die Datei geöffnet werden kann bzw existiert
+
+	if (!test)
+	// wenn test die Datei nicht öffnen konnte,
+	// wird eine Fehlermeldung ausgegeben
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);		
+		return;
+	}
+
+	CString str1=" ' ";
+	CString zsp=str1 + OldTitle + str1;
+	
+	HashDlg.m_strTitel= zsp;
+	HashDlg.m_strTitel2=zsp;
+	//Setzen des Titelnamens der Datei in ein Textfeld (in Hashdemo)
+
+	char *t;
+	// ein Zeiger auf ein char-Array, in dem die temporäre Datei eingelesen werden soll) wird initialisiert
+
+	t = new char[MAX_LAENGE_STRTEXT+20];
+
+
+	test.read( t, MAX_LAENGE_STRTEXT);
+	//in test werden nur MAX_LAENGE_STRTEXT Zeichen der temporären
+	//Datei in eingelesen und in t gespeichert, die restlichen Zeichen werden ignoriert
+
+	int cnt = test.gcount();
+	//die Anzahl der Zeichen in der gekürzten Datei werden gezählt und in cnt gespeichert
+
+	t[cnt] = 0;
+	//am Ende der Datei soll ein EOF Zeichen ('0') stehen, um das Ende der Datei zu markieren
+
+	if(  false == test.eof() )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_DateilaengeZuLang,pc_str,100);
+		char tmpstr[128];
+		sprintf(tmpstr,pc_str,MAX_LAENGE_STRTEXT,MAX_LAENGE_STRTEXT);
+		AfxMessageBox(tmpstr,MB_ICONEXCLAMATION);	
+	}
+	// das Objekt test liest maximum 16000 Zeichen in das Array t ein
+	
+	test.close();
+	// Die temporäre Datei wird wieder geschlossen
+
+	HashDlg.m_strText="";
+	// Initialisierung (zur Sicherheit)
+
+	for (int i=0; t[i]!=0;i++)
+	{
+		/*if(t[i]=='\n')
+		{
+			HashDlg.m_strText += "\r\n";	
+			
+		}
+		else*/
+		{
+			HashDlg.m_strText += t[i];
+			//an HashDlg.m_strText wird t[i] drangehängt
+		}
+	}
+
+	if ( HashDlg.m_strText.GetLength() == 0 )
+	// Wenn die Länge des String 0 ist, dann wird eine Fehlermeldung ausgegeben
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_KeineWerteGefunden,pc_str,100);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		return;
+	}
+
+
+	OctetString *message,hashMD2, hashMD5, hashSHA;
+	//OctetString ist eine Struktur mit 2 Variablen, 1 Zeiger auf char (octets=der auf den zu hashenden
+	//text zeigt, bzw auf den Hashwert) und 1 Unsigned long das die Anzahl der chars angibt (noctets)
+	//message ist die Eingabe für die Hashfunktionen
+	//hashxxx sind die erzeugten Hashwerte der Eingabe und deren Länge
+
+	message = new OctetString;
+	message->octets=t;
+	//Zeiger auf den Text t (mit '\n')
+	//kein Adressoperator da t schon die Adresse angibt
+	//octets zeigt nun auf die Speicheradresse von t
+
+	message->noctets=cnt;
+	//Länge des Textes t
+
+	hashMD2.noctets=0;
+	hashMD5.noctets=0;
+	hashSHA.noctets=0;
+	//Länge des noch nicht berechneten Hashs =0
+	
+	theApp.SecudeLib.sec_hash_all(message,&hashMD2,theApp.SecudeLib.md2_aid,NULL);
+	//der Inhalt von message wird mit dem Hashalgorithmus MD2 gehasht
+	//Ihm wird die Struktur message übergeben, die den zu hashenden Text beinhaltet, und dessen Länge
+	//und die Adresse auf die Strukur hashMD2, in die der Hashwert und dessen Länge geschrieben wird.
+
+	theApp.SecudeLib.sec_hash_all(message,&hashMD5,theApp.SecudeLib.md5_aid,NULL);
+	theApp.SecudeLib.sec_hash_all(message,&hashSHA,theApp.SecudeLib.sha_aid,NULL);
+	//es werden die drei benötigten Hashwerte der Originaldatei gebildet und im Speicher gehalten
+	
+	HashDlg.SetHash(hashMD2,hashMD5,hashSHA);
+	//Übergabe von Referenzen auf die drei Hashwerte der Originaldatei
+
+	
+	HashDlg.DoModal();
+	// Die Instanz der Klasse (Der Dialog) wird modal aufgerufen
+
+	delete message;
+	delete []t;
+	//Speicher auf dem Heap freigeben
 }
 

@@ -89,12 +89,13 @@ void MakeNewName3(char *dest, unsigned int len, const char *format, const char *
 void Hill(const char *infile, const char *OldTitle);
 void Mono(const char *infile, const char *OldTitle);
 UINT  AnaSubst(PVOID p);	
-void AESCrypt (char* infile, const char *OldTitle, int AlgId);
+void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName = NULL, char* NewFileKey = NULL );
 void HomophoneAsc(const char *infile, const char *OldTitle);
 void HomophoneHex(const char *infile, const char *OldTitle);	
 void NGramAsc(const char *infile, const char *OldTitle);
 void NGramBin(const char *infile, const char *OldTitle);
 void PermutationAsc(const char *infile, const char *OldTitle);
+void Hashdemo(const char *infile,const char *OldTitle);
 void HashOfAFile();
 
 

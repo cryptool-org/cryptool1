@@ -127,7 +127,7 @@ die Daten ver-/entschlüsselt werden sollen:
 4 steht für Serpent
 5 steht für Twofish
 */
-void AESCrypt (char* infile, const char *OldTitle, int AlgId)
+void AESCrypt (char* infile, const char *OldTitle, int AlgId, char * NewFileName, char* NewFileKey )
 {
 	
     char outfile[128], line[256], keybuffhex[65],AlgTitel[128];
@@ -183,24 +183,34 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	
     hexdialog KeyDialog(32);
 	KeyDialog.SetAlternativeWindowText(line);
-	if (KeyDialog.Display() != IDOK) 
+	if( NewFileName == NULL )
 	{
-		return;
-	}
-	key = (unsigned char *) KeyDialog.GetData();
-	if ( 0 == (keylen = KeyDialog.GetLen()) ) return;
+		if (KeyDialog.Display() != IDOK) 
+		{
+			return;
+		}
+	
+	
+		key = (unsigned char *) KeyDialog.GetData();
+		if ( 0 == (keylen = KeyDialog.GetLen()) ) return;
 
-	for(i=0;i<32;i++) keybuffbin[i]=0;
-	for(i=0;i<keylen; i++) keybuffbin[i] = key[i];
-	
-	if(keylen <= 16) keylen = 16;
-	else if(keylen <= 24) keylen = 24;
-	else keylen = 32;
-	
-	for(i=0; i<keylen; i++) {
-		sprintf(keybuffhex+2*i,"%02.2X",keybuffbin[i]);
+		for(i=0;i<32;i++) keybuffbin[i]=0;
+		for(i=0;i<keylen; i++) keybuffbin[i] = key[i];
+		
+		if(keylen <= 16) keylen = 16;
+		else if(keylen <= 24) keylen = 24;
+		else keylen = 32;
+		
+		for(i=0; i<keylen; i++) 
+		{
+			sprintf(keybuffhex+2*i,"%02.2X",keybuffbin[i]);
+		}
 	}
-	
+	else
+	{
+		keylen=16;
+		strcpy(keybuffhex,NewFileKey);
+	}
 	borg = (unsigned char *) malloc(datalen+32);
 	bcip = (unsigned char *) malloc(datalen+64);
 	
@@ -218,8 +228,15 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 		for(; datalen %16; datalen++) borg[datalen]=0;
 	}
 	datalen <<= 3;                 // Länge in Bits
-	
-	GetTmpName(outfile,"cry",".tmp");
+
+	if ( NewFileName == NULL )
+	{
+		GetTmpName(outfile,"cry",".tmp");
+	}
+	else
+	{
+		strcpy( outfile, NewFileName );
+	}
 	
 	doaescrypt(AlgId,mode,keylen,keybuffhex,borg,datalen,bcip);
 	
@@ -234,10 +251,13 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	
 	fi = fopen(outfile,"wb");
 	fwrite(bcip, 1, datalen, fi);
-	free(bcip);
+        free (bcip);
 	fclose(fi);
 
-	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );
+	if ( NewFileName == NULL )
+	{
+		OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );
+	}
 }
 
 

@@ -102,6 +102,14 @@
 #define IDD_SEL_HASH                    278
 #define IDD_DIALOG_SELECT_HASHFUNCTION  279
 #define IDD_DIALOG_FACTORISATION_DETAILS 280
+#define IDD_DIALOG_HASHDEMO             281
+#define IDB_BITMAP6                     282
+#define IDD_DIALOG_HYBRID               283
+#define IDB_BITMAP_ARROW                284
+#define IDB_BITMAP_ARROW_DOWN           285
+#define IDB_BITMAP_ARROW_BEND           286
+#define IDB_BITMAP_ARRDOWN              287
+#define IDB_BITMAP_ARRLITTLE            288
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -489,6 +497,29 @@
 #define IDC_Hash                        1373
 #define IDC_CHECK_PUBLIC                1375
 #define IDC_CHECK_PRIME                 1376
+#define IDC_RADIO_DEC                   1377
+#define IDC_RADIO_HEX                   1378
+#define IDC_RADIO_BIN                   1379
+#define IDC_EDIT_TEXT                   1380
+#define IDC_EDIT_ORIGHASH               1381
+#define IDC_EDIT_AKTHASH                1382
+#define IDC_RICHEDIT_HASHDIFF           1383
+#define IDC_RADIO_MD2                   1385
+#define IDC_RADIO_MD5                   1386
+#define IDC_RADIO_SHA                   1387
+#define IDC_STATIC_TITEL                1388
+#define IDC_STATIC_TITEL2               1389
+#define IDC_BUTTON1_TXT_EINFUEGEN       1390
+#define IDC_EDIT_TXT                    1391
+#define IDC_BUTTON_GEN_SYM_KEY          1392
+#define IDC_BUTTON_ENC_TXT_SYM          1393
+#define IDC_BUTTON_GET_ASYM_KEY         1394
+#define IDC_BUTTON_ENC_KEY_ASYM         1395
+#define IDC_STATIC_TITLE                1396
+#define IDC_BUTTON_SHOW_SYM_KEY         1397
+#define IDC_BUTTON_SHOW_ASYM_KEY        1398
+#define IDC_BUTTON_SHOWTXT              1399
+#define IDC_EDIT_TITLE                  1400
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -633,6 +664,9 @@
 #define ID_AES_SELFEXTRACT              33152
 #define ID_P12IMPORT                    33153
 #define ID_HASH_OFAFILE                 33154
+#define ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 33155
+#define ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 33156
+#define ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 33157
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1034,6 +1068,11 @@
 #define IDS_DETFACTORISATION_HL_FACTOR1 37684
 #define IDS_DETFACTORISATION_HL_FACTOR2 37685
 #define IDS_DETFACTORISATION_HL_OUTPUT  37686
+#define IDS_FACTORISATION_OVERFLOW      37687
+#define IDS_FACTORISATION_MEMORY_REQUEST 37688
+#define IDS_STRING_Hashdemo_FileNotFound 37689
+#define IDS_STRING_Hashdemo_KeineWerteGefunden 37690
+#define IDS_STRING_Hashdemo_DateilaengeZuLang 37691
 #define IDS_STRING_REFERENCE_FILE       37700
 #define IDS_STRING_TESTS_ERGEBNIS_INFO  37701
 #define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 37702
@@ -1134,13 +1173,14 @@
 #define IDS_CREATE_DISNAME              37871
 #define IDS_CREATE_USER_KEY_ID2         37872
 
+
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        281
+#define _APS_NEXT_RESOURCE_VALUE        289
 #define _APS_NEXT_COMMAND_VALUE         33155
-#define _APS_NEXT_CONTROL_VALUE         1312
+#define _APS_NEXT_CONTROL_VALUE         1401
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

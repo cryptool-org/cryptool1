@@ -122,13 +122,13 @@ protected:
     afx_msg void OnPermutationAsc();
 	afx_msg void OnAesSelfextract();
 	afx_msg void OnUpdateAesSelfextract(CCmdUI* pCmdUI);
-
 	afx_msg void OnAnalyseZufallstestsFrequencytest();
 	afx_msg void OnAnalyseZufallstestsSerialtest();
 	afx_msg void OnAnalyseZufallstestsRuns();
 	afx_msg void OnAnalyseZufallstestsPokertest();
 	afx_msg void OnAnalyseZufallstestsFipspub1401();
-
+	afx_msg void OnEinzelverfahrenHashwerteHashdemo();
+	afx_msg void OnEinzelverfahrenHybridverfahrenHybridverschlsselung();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

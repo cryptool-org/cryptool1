@@ -185,10 +185,8 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	if (next_factor!="lolo")
 	{
 		int Out_SetN;
-//		{
-//			TutorialFactorisation f;
 			Out_SetN=f.SetN(next_factor);
-//		}
+		int bitlength_next_factor = f.bitlength();
 		if (Out_SetN==EVAL_NULL || Out_SetN==EVAL_EINS)
 		{
 			//Sie müssen eine ganze Zahl eingeben, die von 0 und 1 verschieden ist.
@@ -287,8 +285,33 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			
 			if ( !factorized && m_QSieve )
 			{
-				QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
-				started++;
+				if ( 132 < bitlength_next_factor*log(2.0)/log(10.0) )
+				{
+					Message(IDS_FACTORISATION_OVERFLOW, MB_ICONEXCLAMATION);
+					UpdateData();
+					m_QSieve = 0;
+					UpdateData(FALSE);
+				} 
+				else if ( 93 < bitlength_next_factor*log(2.0)/log(10.0) )
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_MEMORY_REQUEST,pc_str,STR_LAENGE_STRING_TABLE);
+					if ( IDOK != MessageBox(pc_str, NULL, MB_OKCANCEL) )
+					{
+						QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
+						started++;
+					}
+					else
+					{
+						UpdateData();
+						m_QSieve = 0;
+						UpdateData(FALSE);
+					}
+				}
+				else
+				{
+					QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
+					started++;
+				}
 			}
 
 			dlg.m_totalThreads = started;

@@ -215,6 +215,7 @@ public:
 	int status;
 	int m_iterations;
 	TutorialFactorisation(int ordinal, CString name);
+	int bitlength() { return bits(N); }
 	CWinThread *m_Thread;
 	CString m_Name;
 	int m_Ordinal;

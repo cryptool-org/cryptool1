@@ -362,6 +362,10 @@ SOURCE=.\res\bitmap6.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap7.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmapLetsStart.bmp
 # End Source File
 # Begin Source File
@@ -371,6 +375,18 @@ SOURCE=.\res\bmp00001.bmp
 # Begin Source File
 
 SOURCE=.\res\bmp00002.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00004.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00005.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00006.bmp
 # End Source File
 # Begin Source File
 
@@ -1079,6 +1095,14 @@ SOURCE=.\GenEcKurve.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Hashdemo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Hashdemo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\help.cur
 # End Source File
 # Begin Source File
@@ -1188,6 +1212,14 @@ SOURCE=.\Homophone_Ber.cpp
 # Begin Source File
 
 SOURCE=.\Homophone_Ber.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HybridEncr.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HybridEncr.h
 # End Source File
 # Begin Source File
 

@@ -2341,6 +2341,73 @@ BEGIN
     GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
 END
 
+IDD_DIALOG_HASHDEMO DIALOG DISCARDABLE  0, 0, 328, 350
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hashdemo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,20,10,95,62
+    CONTROL         "MD2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,33,25,31,10
+    CONTROL         "MD5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,31,
+                    10
+    CONTROL         "SHA",IDC_RADIO_SHA,"Button",BS_AUTORADIOBUTTON,33,57,31,
+                    10
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,209,9,94,63
+    CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,224,41,39,10
+    CONTROL         "hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
+                    224,26,55,10
+    CONTROL         "binär",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,58,
+                    31,10
+    LTEXT           "aktuelle Datei  ",IDC_STATIC,20,85,48,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,19,97,287,113,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    LTEXT           "Hash der Originaldatei",IDC_STATIC,20,219,70,8
+    EDITTEXT        IDC_EDIT_ORIGHASH,20,229,286,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Hash der aktuellen Datei",IDC_STATIC,20,252,79,8
+    EDITTEXT        IDC_EDIT_AKTHASH,20,262,286,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Unterschied zwischen dem Hash der Orignal- und dem Hash der aktuellen Datei",
+                    IDC_STATIC,20,284,252,8
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_BORDER | WS_TABSTOP,20,294,286,14
+    PUSHBUTTON      "Dialog beenden",IDCANCEL,247,320,59,14
+    LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
+    LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
+END
+
+IDD_DIALOG_HYBRID DIALOG DISCARDABLE  0, 0, 565, 346
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Visualisierung der Hybridverschlüsselung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Datei öffnen",IDC_BUTTON1_TXT_EINFUEGEN,18,21,89,14
+    PUSHBUTTON      "Text anzeigen",IDC_BUTTON_SHOWTXT,17,52,89,14
+    PUSHBUTTON      "Sessionkey generieren",IDC_BUTTON_GEN_SYM_KEY,202,21,93,
+                    14
+    PUSHBUTTON      "sym. Schlüssel anzeigen",IDC_BUTTON_SHOW_SYM_KEY,202,52,
+                    93,14
+    PUSHBUTTON      "asym. öff. Schlüssel wählen",IDC_BUTTON_GET_ASYM_KEY,
+                    376,20,92,14
+    PUSHBUTTON      "asym. Schlüssel anzeigen",IDC_BUTTON_SHOW_ASYM_KEY,375,
+                    53,93,14
+    PUSHBUTTON      "Text sym. verschlüsseln",IDC_BUTTON_ENC_TXT_SYM,202,102,
+                    93,14
+    PUSHBUTTON      "Sessionkey asym. verschlüsseln",IDC_BUTTON_ENC_KEY_ASYM,
+                    365,102,119,14
+    EDITTEXT        IDC_EDIT_TXT,26,142,497,142,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "&Dialog beenden",IDCANCEL,464,325,94,14
+    CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,138,50,32,30
+    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,232,69,32,30
+    CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,323,47,32,30
+    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,405,68,32,30
+    EDITTEXT        IDC_EDIT_TITLE,26,125,176,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2943,7 +3010,10 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
+            MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
+            MENUITEM SEPARATOR
+            MENUITEM "Hash &Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2963,6 +3033,13 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        POPUP "&Hybridverfahren"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybridentschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3117,6 +3194,10 @@ PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
 PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
 PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
 IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool_de.bmp"
+IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
+IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5187,6 +5268,16 @@ BEGIN
     IDS_DETFACTORISATION_HL_FACTOR1 "Erster Faktor = "
     IDS_DETFACTORISATION_HL_FACTOR2 "Zweiter Faktor = "
     IDS_DETFACTORISATION_HL_OUTPUT "Faktorisierung der Zahl %s."
+    IDS_FACTORISATION_OVERFLOW 
+                            "Das Quadratische Sieb kann nicht ausgeführt werden und wird deaktiviert (Speicherüberlauf)."
+    IDS_FACTORISATION_MEMORY_REQUEST 
+                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir Empfehlen diese Methode zu deakivieren."
+    IDS_STRING_Hashdemo_FileNotFound 
+                            "Es wurde keine temporäre Datei gefunden!"
+    IDS_STRING_Hashdemo_KeineWerteGefunden 
+                            "Die Eingabe muss mindestens 1 Zeichen enthalten!"
+    IDS_STRING_Hashdemo_DateilaengeZuLang 
+                            "Die Datei ist größer als %i Bytes und wird auf auf %i Bytes gekürzt"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -7122,7 +7213,7 @@ END
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "How to Start"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
     CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",
@@ -9629,6 +9720,10 @@ BEGIN
     IDS_DETFACTORISATION_HL_FACTOR1 "First factor = "
     IDS_DETFACTORISATION_HL_FACTOR2 "Second factor = "
     IDS_DETFACTORISATION_HL_OUTPUT "Factorisation of the integer %s."
+    IDS_FACTORISATION_OVERFLOW 
+                            "Due to memory overflow, the quadratic sieve method could not be executed."
+    IDS_FACTORISATION_MEMORY_REQUEST 
+                            "The quadratic sieve method requires more than 128 mega bytes of memory.\nWe recommend to deactivate this method."
 END
 
 #endif    // Englisch (GB) resources

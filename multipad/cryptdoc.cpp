@@ -6,6 +6,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
+#include <fstream.h>
 #include "fileutil.h"
 #include "CryptDoc.h"
 #include "crypt.h"
@@ -19,6 +20,9 @@
 #include "AnalyseNGram.h"
 #include "DlgSignExtract.h" // für OnCryptExtract
 #include "Dlg_Tests.h"
+#include "HybridEncr.h"
+#include <sys\stat.h>
+
 
 
 UINT AESBrute(PVOID p);
@@ -175,6 +179,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_POKERTEST, OnAnalyseZufallstestsPokertest)
 	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, OnAnalyseZufallstestsFipspub1401)
 
+	ON_COMMAND(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnEinzelverfahrenHashwerteHashdemo)
+	ON_COMMAND(ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1460,4 +1466,60 @@ void CCryptDoc::OnUpdateAesSelfextract(CCmdUI* pCmdUI)
 		pCmdUI->Enable(TRUE);
 	else
 		pCmdUI->Enable(FALSE);
+}
+
+
+
+void CCryptDoc::OnEinzelverfahrenHashwerteHashdemo() 
+{
+	UpdateContent();
+
+	//ContentName ist eine globale Variable, die den Dateinamen der Temp-Datei enthält
+	//GetTitle Titelüberschrift des aktuellen Dlgs (Bsp. "Unbenannt1")
+	Hashdemo(ContentName,GetTitle());
+}
+
+void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung() 
+{
+	CHybridEncr hyb;
+	UpdateContent();
+	ifstream ein(ContentName, ios::in|ios::binary);
+	hyb.m_strPathnameTxt = ContentName;
+	if(!ein)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);		
+		return;
+	}
+	
+	struct stat *obj;
+	obj = new (struct stat);
+	obj->st_size;
+	stat((const char*)ContentName,obj);
+	int DatGroesse = obj->st_size;
+	delete obj;
+
+	char* inhalt = new char[DatGroesse+20];
+	ein.read(inhalt,DatGroesse);
+	int anzZeichen=ein.gcount();
+	if(anzZeichen==0)
+	{
+		hyb.m_bAuswahlDat = true;
+		hyb.DoModal();
+		ein.close();
+		return;
+	}
+	else
+	{
+		hyb.m_bAuswahlDat = false;
+		inhalt[anzZeichen] = 0;
+	
+		for (int i=0;inhalt[i]!=0;i++)
+		{
+			hyb.m_strEdit+=inhalt[i];
+		}
+		hyb.DoModal();
+	}
+	
+	ein.close();
 }
