@@ -19,7 +19,7 @@ copy ..\release_%lang%\CrypTool-%lang%.hlp setup-%lang%
 copy ..\release_%lang%\CrypTool-%lang%.cnt setup-%lang%
 copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
-
+copy ..\OpenSSL\libeay32.dll setup-%lang%
 
 cd setup-%lang%
 rmdir /s/q CVS
