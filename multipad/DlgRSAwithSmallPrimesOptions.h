@@ -14,16 +14,20 @@ class CDlgRSAwithSmallPrimesOptions : public CDialog
 {
 // Konstruktion
 public:
+	void MsgBlockLength();
 	CDlgRSAwithSmallPrimesOptions(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSAwithSmallPrimesOptions)
 	enum { IDD = IDD_RSA_WITH_SMALL_PRIMES_OPTIONS };
+	CEdit	m_BlockLengthCtrl;
 	CEdit	m_alphabetControl;
 	CString	m_alphabet;
-	int		m_inputOption;
 	int		m_numberBasis;
 	int		m_TextOptions;
+	UINT	m_BlockLength;
+	int     m_Bitlength;
+	CString	m_MaxBlockLength;
 	//}}AFX_DATA
 
 
@@ -39,11 +43,10 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgRSAwithSmallPrimesOptions)
-	afx_msg void OnEncryptText();
-	afx_msg void OnEncryptNumbers();
 	afx_msg void OnTextOptionsASCII();
 	afx_msg void OnTextOptionsAlphabet();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnChangeAlphabet();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

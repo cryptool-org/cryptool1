@@ -25,15 +25,20 @@ class RSA_mit_kleinenPZ : public CDialog
 public:
 	void EncryptASCII();
 	void DecryptASCII();
-	~RSA_mit_kleinenPZ();
-	void Entschluesseln();
-	void Verschluesseln();
+	void EncryptAlphabet();
+	void DecryptAlphabet();
+	void EncryptNumbers();
+	void DecryptNumbers();
 	
 	RSA_mit_kleinenPZ(CWnd* pParent = NULL);   // Standardkonstruktor
+	~RSA_mit_kleinenPZ();
 
 // Dialogfelddaten
 	//{{AFX_DATA(RSA_mit_kleinenPZ)
 	enum { IDD = IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN };
+	CButton	m_ButtonOptionen;
+	CButton	m_ButtonEncrypt;
+	CButton	m_ButtonDecrypt;
 	CEdit	m_control_edit11;
 	CEdit	m_control_edit12;
 	CEdit	m_control_edit10;
@@ -66,19 +71,22 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(RSA_mit_kleinenPZ)
-	afx_msg void OnUpdateEdit1();
-	afx_msg void OnUpdateEdit2();
 	afx_msg void OnButtonPzGenerieren();
 	afx_msg void OnUpdateEdit10();
-	afx_msg void OnUpdateEdit11();
-	afx_msg void OnUpdateEdit12();
 	afx_msg void OnOptionen();
 	afx_msg void OnParameterAktualisieren();
 	afx_msg void OnButtonVerschluesseln();
 	afx_msg void OnButtonEntschluesseln();
+	virtual void OnEndDialog();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnUpdatePrimeP();
+	afx_msg void OnUpdatePrimeQ();
+	afx_msg void OnUpdatePublicKeyE();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );
+	int GetBase();
 	DlgPrimesGenerator            *DlgRSAPrimes;
 	CDlgRSAwithSmallPrimesOptions *DlgOptions;
 	TutorialRSA                   *RSA;

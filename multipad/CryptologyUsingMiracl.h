@@ -18,6 +18,8 @@
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 void CStringToBig(CString &CStrNumber, Big &t, int base );
 void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base );
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base );
+void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase );
 
 void BigToCString(const Big &t, CString &CStrNumber, int base = 10);
 void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase = 10, int Inbase = 256);
@@ -83,7 +85,10 @@ public:
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }
 	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10);
+	void EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10);
+	void DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
+	BOOL CheckInput( CString &Input, int base, int base2 = 0 );
 
 private:
 	BOOL SetPublicKey ( Big &e );

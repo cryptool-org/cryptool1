@@ -258,6 +258,10 @@ int zzahlanalyse::FindPeriod()
 				periodResults[cnt_periodResults].offset  = search+1;
 				periodResults[cnt_periodResults].length  = follow-search;
 				periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+				int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
+				for (int j=0; j<l; j++)
+					periodResults[cnt_periodResults].str[j] = data[search+1+j];
+				periodResults[cnt_periodResults].str[l] = '\0';
 				cnt_periodResults++;
 			}
 			follow = origlen-1;
@@ -271,6 +275,10 @@ int zzahlanalyse::FindPeriod()
 			periodResults[cnt_periodResults].offset  = search+1;
 			periodResults[cnt_periodResults].length  = follow-search;
 			periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+            int l=(PA_MAXPRINTLENGTH < (follow-search)) ? PA_MAXPRINTLENGTH : (follow-search);
+            for (int j=0; j<l; j++)
+				periodResults[cnt_periodResults].str[j] = data[search+1+j];
+			periodResults[cnt_periodResults].str[l] = '\0';
 			cnt_periodResults++;
 		}
 
@@ -287,126 +295,3 @@ int zzahlanalyse::FindPeriod(int &i_periodenOffset)
 	return (periodResults[cnt_periodResults-1].length);
 }
 
-/*
-int zzahlanalyse::FindPeriod()
-{
-	int i,j,len,s,p;
-
-	if (origlen<4)
-		return -1; // return;
-	// LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_ANALYSIS_D,pc_str,STR_LAENGE_STRING_TABLE);
-	// theApp.fs.Set(0,pc_str);
-	p=0;
-	for (s=0;s<origlen;s++)
-	{
-		if(p<s*100/origlen)
-		{
-			if(theApp.fs.m_canceled) {
-				theApp.fs.cancel();
-				return 0; // return;
-			}
-			theApp.fs.Set(p);
-			p++;
-		}
-		len=origlen-s;
-		for (i=2;i<len;i++)
-		{
-			j=0;
-			while(data[s+i+j]==data[s+j]&&j<len-i)
-				j++;
-			if (i+j==len&&j>=i)
-			{
-				theApp.fs.cancel();
-				// LoadString(AfxGetInstanceHandle(),IDS_STRING_PERIOD_FOUND,pc_str1,STR_LAENGE_STRING_TABLE);
-				// sprintf(pc_str,pc_str1,i,s);
-				// AfxMessageBox(pc_str);
-				// return;
-				return i;
-			}
-		}
-		len--;
-	}
-	// LoadString(AfxGetInstanceHandle(),IDS_STRING_NO_PERIOD_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
-	// AfxMessageBox(pc_str);
-	return 0;
-}
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Spezifikation der Periodenanalyse (Henrik Koy 23. Nov. 2000)
-// ------------------------------------------------------------
-// Eine Periode ist die Wiederholung einer bestimmten Zeichenfolge der
-// Länge k (k >= 1) ab einer bestimmten Position (den Offset = Variablenname
-// i_periodenOffset). Die Periode muß sich bis zum Ende des Dokuments 
-// durchziehen.
-// Ausgegeben wird Die Periode mit kleinsten Offset (höchste Priorität) und 
-// kleinster Länge Bsp.:
-// "bbbbaaaa" hat Periodenoffset 4 und die Periodenlänge 1.
-// Die PeriodenAnalyse wird nur dann ausgeführt, wenn die Länge des Dokuments
-// größer als 3 Byte ist.
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int zzahlanalyse::FindPeriod(int &i_periodenOffset)
-{
-	int PeriodeGefundenFlag = 0, i_periodenLaenge = 0;
-	int i_periodenSuche;
-
-	if (origlen<4)
-		return -1;
-
-	int p=0;
-	i_periodenOffset=0;
-
-	for (i_periodenSuche=0;i_periodenSuche<origlen-1;i_periodenSuche++)
-	{
-		// Fortschrittsanzeige...
-		if(p<i_periodenSuche*100/origlen)
-		{
-			if(theApp.fs.m_canceled)
-			{
-				theApp.fs.cancel();
-				i_periodenLaenge = -1;
-				break;
-			}
-			theApp.fs.Set(p);
-			p++;
-		}
-		if (i_periodenSuche % 0x2000 == 0)
-			int abc=100;
-		int i_remainderText = origlen-i_periodenSuche;
-		for (int len = 1; len <= i_remainderText/2; len++ )
-		{
-			if (!PeriodeGefundenFlag && (0 == i_remainderText % len))
-			{
-				int j = len;
-				while ( j < i_remainderText )
-				{
-					if (data[i_periodenSuche+j] != data[i_periodenSuche + (j % len)])
-						break;
-					j++;
-				}
-				if ( j >= i_remainderText)
-				{
-					i_periodenOffset = i_periodenSuche;
-					i_periodenLaenge = len;
-					PeriodeGefundenFlag = 1;
-				}
-			}
-		}
-		/* Alte Version Peter
-		if (!PeriodeGefundenFlag) for (i=1;i<=len;i++)
-		{
-			j=;
-			while(data[i_periodenSuche+i+j]==data[i_periodenSuche+j]&&j<len-i)
-				j++;
-			if (i+j==len&&j>=i)
-			{
-				i_periodenOffset = i_periodenSuche;
-				i_periodenLaenge = i;
-				PeriodeGefundenFlag = 1;
-			}
-		}
-		len++;
-		*
-	}
-	return i_periodenLaenge;
-}
-*/

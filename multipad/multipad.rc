@@ -1374,7 +1374,17 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,239,224,75,20
+    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
+                    19
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
+    LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
@@ -1388,17 +1398,6 @@ BEGIN
                     BS_AUTORADIOBUTTON,184,76,118,10
     GROUPBOX        "Primzahl p",IDC_STATIC,11,106,142,80
     GROUPBOX        "Primzahl q",IDC_STATIC,172,106,142,80
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
-    LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
-    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
-                    19
     GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
                     142,61
     LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
@@ -1411,6 +1410,7 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
                     IDC_STATIC,19,9,289,17
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
 END
 
 IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 338
@@ -1418,13 +1418,12 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA mit kleinen Primzahlen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,246,51,
+    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_PZ_GENERIEREN,246,51,
                     86,18
     EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,312,71,19
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,252,312,90,19
+    PUSHBUTTON      "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
     LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
     LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1441,28 +1440,29 @@ BEGIN
     EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     GROUPBOX        "RSA Parameter",IDC_STATIC,10,90,332,84
-    EDITTEXT        IDC_EDIT10,19,218,313,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT11,19,249,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,19,281,313,13,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
+                    IDC_OPTIONEN,176,187,156,16
+    EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,19,252,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,19,284,313,13,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
                     IDC_STATIC,10,7,332,24
-    GROUPBOX        "RSA-Verschlüsselung",IDC_STATIC,10,178,332,127
-    PUSHBUTTON      "Optionen ...",IDC_OPTIONEN,246,189,86,18
-    PUSHBUTTON      "Parameter aktualisieren",IDC_BUTTON2,246,148,86,19
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,131,312,68,19
-    LTEXT           "Alphabet- und Zahlensystem",IDC_STATIC,145,192,90,8
-    EDITTEXT        IDC_HEADER1,19,207,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+    GROUPBOX        "RSA-Verschlüsselung",IDC_STATIC,10,177,332,128
+    EDITTEXT        IDC_HEADER1,19,209,313,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER2,19,238,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+    EDITTEXT        IDC_HEADER2,19,240,313,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_HEADER3,19,270,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+    EDITTEXT        IDC_HEADER3,19,272,313,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,314,73,18
+    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,314,71,18
+    PUSHBUTTON      "Dialog &beenden",IDC_ENDDIALOG,252,314,90,18
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
@@ -1840,7 +1840,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,90,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
-    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andi?",
+    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andu?",
                     IDC_STATIC,24,150,318,32
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
                     IDC_STATIC,24,182,318,17
@@ -1848,40 +1848,56 @@ BEGIN
                     212,222,9
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 207
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 183
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,184,50,16
-    PUSHBUTTON      "Abbrechen",IDCANCEL,214,184,50,16
-    LTEXT           "Sie können auswählen zwischen der Verschlüsselung von Text oder der Verschlüsselung von Zahlen",
-                    IDC_STATIC,16,18,233,17
-    CONTROL         "Verschlüsselung von Text",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,16,40,97,8
-    CONTROL         "Verschlüsselung von Zahlen",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,127,40,105,8
-    GROUPBOX        "Eingabeoptionen",IDC_STATIC,7,7,257,49
-    EDITTEXT        IDC_EDIT1,147,91,111,14,ES_AUTOHSCROLL
-    LTEXT           "Alphabet:",IDC_STATIC,114,94,31,8
-    GROUPBOX        "Textoptionen",IDC_STATIC,7,61,257,56
+    DEFPUSHBUTTON   "&OK",IDOK,7,157,50,17
+    PUSHBUTTON      "Ab&brechen",IDCANCEL,214,157,50,17
+    EDITTEXT        IDC_EDIT1,53,47,198,14,ES_AUTOHSCROLL
+    LTEXT           "Alphabet:",IDC_STATIC,19,50,31,8
+    GROUPBOX        "Textoptionen",IDC_STATIC,7,5,257,86
     LTEXT           "Wählen Sie die Zeichen, die verschlüsselt werden können",
-                    IDC_STATIC,16,75,192,8
-    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,122,257,55
-    CONTROL         "Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,160,39,10
-    CONTROL         "Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,160,32,
-                    10
-    CONTROL         "Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,160,
+                    IDC_STATIC,16,19,192,8
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,96,257,53
+    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,132,39,10
+    CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,132,
+                    32,10
+    CONTROL         "&Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,132,
                     33,10
-    CONTROL         "Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,200,
-                    160,56,10
+    CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
+                    200,132,56,10
     LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
-                    IDC_STATIC,16,133,245,18
-    CONTROL         "Alle 256 ASCII-Zeichen",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,16,89,89,8
-    CONTROL         "Dialog der Schwestern",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,16,100,87,8
+                    IDC_STATIC,16,109,245,18
+    CONTROL         "Alle 256 &ASCII-Zeichen",IDC_RADIO7,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,16,33,89,8
+    CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,134,33,87,8
+    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,16,72,74,8
+    EDITTEXT        IDC_EDIT2,93,70,32,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,133,72,116,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+END
+
+IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Ausgabe der gefundenen Perioden"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Periodenausgabe speichern",IDOK,7,245,159,14
+    PUSHBUTTON      "Ende",IDCANCEL,307,245,68,14
+    LTEXT           "Jede Zeile der Ausgabe ist eine berechnete Periode, für die die folgenden Informationen ausgegeben werden:",
+                    -1,7,7,368,10
+    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,52,370,182
+    LTEXT           "- die erste Position in der Datei, wo die Periodizität startet (Offset)",
+                    -1,7,19,310,10
+    LTEXT           "- die Länge der Periode",-1,7,29,310,10
+    LTEXT           "- die maximal ersten 20 Bytes (ausgegeben im HEX-Format), mit der die Periode beginnt.",
+                    -1,7,39,310,10
 END
 
 
@@ -2066,9 +2082,9 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
+            , GRAYED
         END
-        MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2252,9 +2268,9 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
+            , GRAYED
         END
-        MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2371,9 +2387,9 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
+            , GRAYED
         END
-        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
+        MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
     POPUP "&Optionen"
     BEGIN
@@ -2499,9 +2515,9 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
+            , GRAYED
         END
-        MENUITEM "&Zufallszahlen generieren ...", ID_ZUFALL_GENERATOREN
+        MENUITEM "&Zufallsdaten erzeugen",      ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3138,8 +3154,8 @@ BEGIN
         VERTGUIDE, 332
         VERTGUIDE, 342
         HORZGUIDE, 161
-        HORZGUIDE, 308
-        HORZGUIDE, 331
+        HORZGUIDE, 314
+        HORZGUIDE, 332
     END
 
     IDD_DIALOG_GEN_EC_KURVE, DIALOG
@@ -3244,10 +3260,9 @@ BEGIN
         VERTGUIDE, 11
         VERTGUIDE, 16
         TOPMARGIN, 7
-        BOTTOMMARGIN, 200
-        HORZGUIDE, 48
-        HORZGUIDE, 170
-        HORZGUIDE, 184
+        BOTTOMMARGIN, 174
+        HORZGUIDE, 41
+        HORZGUIDE, 157
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -4025,6 +4040,7 @@ BEGIN
     IDS_STRING_PERIOD_ANALYSIS "Periodizitätsanalyse"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
+    IDS_STRING_PA_NO        "Nr"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4033,26 +4049,41 @@ BEGIN
                             "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
     IDS_RSA_MKPZ_CODING_PLAINTEXT "Kodierung m des Klartextes"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_RSA_MKPZ_ENCRYPTION "Verschlüsselte Kodierung c = m^e (mod N)"
-    IDS_RSA_MKPZ_CIPHERTEXT "Chiffretext c"
+    IDS_RSA_MKPZ_CIPHERTEXT "Chiffretext"
     IDS_RSA_MKPZ_ENCIPHERED_TEXT 
                             "Entschlüsselte Nachricht m = c^d (mod N)  (die Nachricht ist als Text dekodiert)"
     IDS_STRING_CHOOSE_REF_FILENAME "Wähle Referenzdatei"
-    IDS_STRING_REFERENCE_FILE "Referenzdatei"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
                             "Vergleiche Chiffre Text mit Referenz <%s>"
     IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Kandidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "%s-Schlüsseleingabe"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Rijndael-Schlüsseleingabe (AES)"
     IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_LENGTH 
+                            "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
+    IDS_STRING_KEY_INPUT_VIGENERE "Vigènere Schlüsseleingabe"
+    IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
+    IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
+    IDS_STRING_RSA_TUTORIAL_INPUT 
+                            "Eingabe: Als Text, oder als Zahlen im Format:  Zahl[1] # ... # Zahl[n]  (Zahlen zur Basis %i)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_REFERENCE_FILE "Referenzdatei"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Perioden Analyse"
-    IDS_STRING_PERIOD_ANALYSIS_OF "Perioden Analyse von %s:\n"
-    IDS_STRING_PERIOD_ANALYSIS_HEADER 
-                            "Nr\tOffset\tLänge\tPeriodenzahl\tPerioden Inhalt\n"
+    IDS_STRING_PA_TITLE     "Periodenanalyse von %s:\n"
+    IDS_STRING_PA_HEADER    "Nr\tOffset\tLänge\tPeriodenzahl\tPeriodeninhalt\n"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4061,6 +4092,37 @@ BEGIN
     IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
     IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma SECUDE benötigen Sie keine weiteren Parameter. Weitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
     IDS_SEEK_NEXT_PRIME     "Suche nächst größere Primzahl!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_RSA_TUTORIAL_CODING 
+                            "Zahlendarstellung der Eingabe zur Basis %i."
+    IDS_STRING_RSA_TUTORIAL_ENCRYPTION 
+                            "Verschlüsselung in den Chiffretext  c[i] = m[i]^e (mod N)."
+    IDS_STRING_RSA_TUTORIAL_DECRYPTION 
+                            "Entschlüsselung in den Klartext  m[i] = c[i]^d (mod N)"
+    IDS_STRING_RSATUT_MAXBLOCKLENGTH "Maximale Blocklänge %i Zeichen"
+    IDS_STRING_RSATUT_INPUTPLAINTEXT "Eingabe des Klartextes"
+    IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
+                            "Zahlendarstellung des Klartextes zur Basis %i"
+    IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
+                            "Klartext in Zahlendarstellung zur Basis %i."
+    IDS_STRING_RSATUT_CIPHERTEXTNUMBERS 
+                            "Chiffretext in Zahlendarstellung zur Basis %i."
+    IDS_STRING_PA_FILENAME  "PeriodenAnalyse.txt"
+    IDS_STRING_PA_OFFSET    "Offset"
+    IDS_STRING_PA_PCNT      "Periodenzahl"
+    IDS_STRING_PA_TXT       "Periodeninhalt"
+    IDS_STRING_PA_HEX       "Periodeninhalt (Hex)"
+    IDS_STRING_PA_FSBDTITLE "Ausgabe der Periodenanalyse in"
+    IDS_STRING_RSATUT_WRONG_PUBLICKEY 
+                            "Der Parameter e ist nicht Teilerfremd zu phi(N). Wählen sie einen neuen öffentlichen Schlüssel (Beispiel e =2^16+1)."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_PA_LENGTH    "Länge"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4216,12 +4278,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_KEY_INPUT_LENGTH 
-                            "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
-    IDS_STRING_KEY_INPUT_VIGENERE "Vigènere Schlüsseleingabe"
-    IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
-    IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
-    IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
+    IDS_STRING_RSATUT_NOPRIMES 
+                            "Mindestens eine der eingegebenen Zahlen (p oder q) ist nicht prim."
 END
 
 #endif    // Deutsch (Deutschland) resources

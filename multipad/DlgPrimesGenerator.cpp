@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(DlgPrimesGenerator, CDialog)
 	ON_BN_CLICKED(IDC_RADIO5, OnRadio5)
 	ON_BN_CLICKED(IDC_BUTTON_GENERATE, OnButtonGenerate)
 	ON_BN_CLICKED(IDC_BUTTON_ACCEPT, OnButtonAccept)
+	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -195,17 +196,6 @@ void DlgPrimesGenerator::OnButtonGenerate()
 }
 
 //===============================================================================================
-void DlgPrimesGenerator::OnCancel() 
-
-// wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
-
-{
-	UpdateData(true);
-	m_edit5=m_edit6="0";	
-	CDialog::OnCancel();
-	UpdateData(false);
-}
-
 void DlgPrimesGenerator::OnButtonAccept() 
 
 // wenn der Button "Übernehmen" gewählt wird, kann der Dialog nur verlassen werden,
@@ -222,3 +212,11 @@ void DlgPrimesGenerator::OnButtonAccept()
 
 
 
+
+void DlgPrimesGenerator::OnEndDialog() 
+{
+	UpdateData(true);
+	m_edit5=m_edit6="0";	
+	CDialog::OnCancel();
+	UpdateData(false);
+}

@@ -46,8 +46,8 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
 	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+1);
-	int len = bits(t);
-	len = bits(t) / 8 + (bits(t) % 8) ? 1 : 0;
+	int len = bits(t)/8;
+	if (bits(t) % 8) len++;
 	if (0 == len)
 	{
 		ASCIIStr = "";
@@ -58,11 +58,44 @@ void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
 		asciiStr[len--] = 0;
 		while ( t != 0 )
 		{
-			asciiStr[len--] = t % 256;
+			asciiStr[len--] = (char)(t % 256);
 			t /= 256;
 		}
 		ASCIIStr = asciiStr;
 	}
+}
+
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
+	if ( t != 0 ) t = t-1;
+	else          t = Alphabet.GetLength()-1;
+	int i = t % Alphabet.GetLength();
+	AlphabetStr = "";
+	AlphabetStr.Insert( 0, Alphabet[i] );
+/*
+	AlphabetStr = "";
+	int s = Alphabet.GetLength();
+	if ( !bits(t))
+	{
+		AlphabetStr = "";
+	}
+	else
+	{
+		while ( 0 != t )
+		{
+			if ( t % s )
+				AlphabetStr.Insert(0, Alphabet[(int)(t%s)]);
+			// else
+			// 	AlphabetStr.Insert(0,'#');
+			t = t/s;
+		}
+	}
+*/
 }
 
 void BigToCString(const Big &t, CString &CStrNumber, int base)
@@ -85,6 +118,21 @@ void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase, int InB
 	}
 	BigToCString( tmp, NumStr, OutBase );
 }
+
+void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase )
+{
+	Big tmp = 0;
+	int modulo = Alphabet.GetLength();
+
+	int j = 0;	
+	while ( j < modulo && in[0] != Alphabet[j] ) j++;
+	if ( j < modulo )
+	{
+		tmp = j +1 + (rand() % 32)*modulo;
+	}
+	BigToCString( tmp, NumStr, OutBase );
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Private Funktionen
@@ -355,9 +403,10 @@ BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 
 BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 {
-	if ( p <= 10 )
+	if ( p <= 40 )
 	{
-		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
+		if ( 2 == p || 3 == p  || 5 == p || 7 == p || 11 == p || 13 == p || 17 == p || 
+			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error = (Error & 0xFFFFFFFF) ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
 	else
@@ -504,11 +553,10 @@ BOOL TutorialRSA::InitParameter( Big &p, Big &q )
 {
 	isInitialized_N = isInitialized_e = isInitialized_d = false;
 	GeneratePrimes P; P.SetP( p );
-	if ( !P.SolvayStrassenTest() || !P.MillerRabinTest() ) return false;
+	if ( !P.SolvayStrassenTest() /* || !P.MillerRabinTest() */ ) return false;
 	GeneratePrimes Q; Q.SetP( q );
-	if ( !Q.SolvayStrassenTest() || !Q.MillerRabinTest() ) return false;
+	if ( !Q.SolvayStrassenTest() /* || !Q.MillerRabinTest() */ ) return false;
 	N = p*q;
-	// if ( 256 > N ) return false;
 	phiOfN = (p-1)*(q-1);
 	isInitialized_N = true;
 	return true;
@@ -573,7 +621,8 @@ int  TutorialRSA::GetBlockLength()
 
 BOOL TutorialRSA::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 {
-	if ( IsInitialized() && PlaintextBlock < N )
+	PlaintextBlock = PlaintextBlock % N;
+	if ( IsInitialized() /* && PlaintextBlock < N */ )
 	{
 		CiphertextBlock = pow(PlaintextBlock,e,N);
 		return true;
@@ -586,7 +635,8 @@ BOOL TutorialRSA::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 
 BOOL TutorialRSA::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 {
-	if ( IsInitialized() && CiphertextBlock < N )
+	CiphertextBlock = CiphertextBlock % N;
+	if ( IsInitialized() /* && CiphertextBlock < N */ )
 	{
 		PlaintextBlock = pow( CiphertextBlock, d, N);
 		return true;
@@ -597,6 +647,80 @@ BOOL TutorialRSA::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 	}
 }
 
+BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
+{	
+	int i1 = 0, i2 = 0;
+	CString newInput = "";
+	CString oldInput = Input;
+	Big tmp, tmpN=1;
+	CString tmpStr;
+	if (base2) while ( tmpN*base2 < N ) tmpN *= base2;
+	else tmpN = N;
+	Input.MakeUpper();
+
+	while ( i1 < Input.GetLength() )
+	{
+		bool flag = false;
+		if ( i2 >= Input.GetLength() )
+		{
+			flag = true;
+			if ( i2 == i1 )
+				break;
+		}
+		else
+			if ( Input[i2] >= '0' && Input[i2] <= '0' + (char)(min(10,base) -1) )
+			{
+				i2++; 
+			}
+			else 
+				if ( ( 10 < base ) && 
+				     ( Input[i2] >= 'A' && Input[i2] <= 'A' + (char)(base-11) ) )
+				{
+					i2++;
+				}
+				else
+					if ( Input[i2] == ' ' || Input[i2] == '#'  )
+					{
+						if ( i2 > i1 && Input[i2] == '#' ) flag = true;
+						Input.Delete(i2);
+					}
+					else 
+						if ( Input[i2] == 0 )
+						{
+							flag = true;
+						}
+						else
+						{
+							Input = oldInput;
+							return false;
+						}
+
+		if ( i2 > i1 )
+		{
+			tmpStr = Input.Mid(i1, i2-i1);
+			CStringToBig( tmpStr, tmp, base );
+			if ( flag == true /* || tmp >= tmpN */ )
+			{
+				// tmp = tmp % N;
+				// if ( tmp >= N )
+				// {
+				//	i2--;
+				//	tmpStr = Input.Mid(i1, i2-i1);
+				//	CStringToBig( tmpStr, tmp, base );
+				// }
+				if ( newInput.GetLength() > 0 ) 
+				{
+					newInput.Insert(newInput.GetLength(), " # "); // = newInput + " # ";
+				}
+				BigToCString( tmp, tmpStr, base );
+				newInput.Insert(newInput.GetLength(), tmpStr); //  = newInput + tmpStr;
+				i1 = i2;
+			}
+		}
+	}
+	Input = newInput;
+	return true;
+}
 
 void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 {
@@ -628,6 +752,73 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 			Ciphertext += " # ";
 	}
 }
+
+void TutorialRSA::EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
+{
+	Big plain, cipher;
+	CString plainStr, cipherStr;
+
+	int i1, i2; 
+	i1 = 0;
+	Ciphertext = "";
+
+	while (i1 < Plaintext.GetLength() && (Plaintext[i1] == ' ' || Plaintext[i1] == '#') ) i1++;
+		
+	while ( i1 < Plaintext.GetLength() )
+	{
+		i2 = Plaintext.Find(" ", i1);
+		if (i2 < 0) 
+		{
+			if ( i1 < Plaintext.GetLength() ) i2 = Plaintext.GetLength();
+			else break;
+		}
+		plainStr = Plaintext.Mid(i1, i2-i1);
+		CStringToBig( plainStr, plain, base );
+		plain = (plain-1) % Alphabet.GetLength()+1;
+		Encrypt( plain, cipher );
+		cipher = cipher + (rand() % 20)*N;
+		BigToCString( cipher, cipherStr, base );
+		while ((i2 < Plaintext.GetLength()) && (Plaintext[i2] == ' ' || Plaintext[i2] == '#')) i2++;
+		i1 = i2;
+		Ciphertext += cipherStr.GetBuffer(cipherStr.GetLength()+1);
+		if ( i1 < Plaintext.GetLength() )
+			Ciphertext += " # ";
+	}
+}
+
+void TutorialRSA::DecryptAlphabet( CString &Ciphertext, CString &Plaintext, CString &Alphabet, int base)
+{
+	Big plain, cipher;
+	CString plainStr, cipherStr;
+
+	int i1, i2; 
+	i1 = 0;
+	Plaintext = "";
+
+	while (i1 < Ciphertext.GetLength() && (Ciphertext[i1] == ' ' || Ciphertext[i1] == '#') ) i1++;
+		
+	while ( i1 < Ciphertext.GetLength() )
+	{
+		i2 = Ciphertext.Find(" ", i1);
+		if (i2 < 0) 
+		{
+			if ( i1 < Ciphertext.GetLength() ) i2 = Ciphertext.GetLength();
+			else break;
+		}
+		cipherStr = Ciphertext.Mid(i1, i2-i1);
+		CStringToBig( cipherStr, cipher, base );
+		cipher = (cipher-1) % Alphabet.GetLength()+1;
+		Decrypt( cipher, plain );
+		plain = plain + (rand() % 20)*N;
+		BigToCString( plain, plainStr, base );
+		while ((i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#')) i2++;
+		i1 = i2;
+		Plaintext += plainStr.GetBuffer(plainStr.GetLength()+1);
+		if ( i1 < Ciphertext.GetLength() )
+			Plaintext += " # ";
+	}
+}
+
 
 void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 {

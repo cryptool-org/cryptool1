@@ -14,13 +14,13 @@
 #define V_VARI 3
 #define DEFAULTNAME "Analyse"
 #define PA_MAXFOUND 10
+#define PA_MAXPRINTLENGTH 20
 
 class zzahlanalyse {
 
 public:
 	int FindPeriod(int &i_periodenOffset);
 	int FindPeriod();
-//	zzahlanalyse();
 	zzahlanalyse(char *);
 	zzahlanalyse(int, char *);
 	~zzahlanalyse();
@@ -42,6 +42,7 @@ public:
 
 	struct s_periodResult {
 		int offset, length, repeated;
+		char str [PA_MAXPRINTLENGTH];
 	};
 	s_periodResult periodResults[PA_MAXFOUND];
 	int cnt_periodResults;

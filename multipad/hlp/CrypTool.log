@@ -2,37 +2,43 @@ Microsoft (R) Help Compiler
 HCRTF 4.03.0002
 Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
 multipad.hpj
+    HC3037: Warning: C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\multipad.hm : 
+	The map value for "HIDD_BRUTEFORCE" is the same as the map value for "HIDD_DIALOG1".
     HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC3021: Warning: topic #24 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
-	Cannot find the bitmap "hlptbar.bmp."
-    HC3021: Warning: topic #26 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
-	Cannot find the bitmap "hlpsbar.bmp."
-    HC3021: Warning: topic #42 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
-	Cannot find the bitmap "curarw4.bmp."
-    HC3048: Warning: topic #34 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
+	A paragraph marker is formatted as a hidden character.
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
+	A paragraph marker is formatted as a hidden character.
+    HC3048: Warning: topic #37 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3048: Warning: topic #36 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #39 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3110: Warning: topic #45 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
-	A title has already been defined for this topic.
-    HC3110: Warning: topic #88 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
-	A title has already been defined for this topic.
-    HC3110: Warning: topic #91 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #49 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
     HC3110: Warning: topic #92 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC1012: Note: topic #117 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #95 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	A title has already been defined for this topic.
+    HC3110: Warning: topic #96 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	A title has already been defined for this topic.
+    HC1012: Note: topic #121 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC3111: Warning: topic #154 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #158 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #155 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #159 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #156 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #160 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #157 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #161 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC1012: Note: topic #160 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #163 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	A title has already been defined for this topic.
+    HC3110: Warning: topic #167 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	A title has already been defined for this topic.
+    HC3111: Warning: topic #168 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	This topic contains keywords but no title.
+    HC1012: Note: topic #170 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
     HC4010: Warning: 
 	There are more opening braces than closing braces.
@@ -40,6 +46,10 @@ multipad.hpj
 	A paragraph marker is formatted as a hidden character.
     HC1012: Note: topic #8 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
 	Table cell borders are not supported.
+    HC3026: Warning: topic #49 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	The Topic ID "HID_PERIODE" has already been defined in topic 163 in file C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
+    HC3026: Warning: topic #49 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	The Topic ID "HID_ANALYSE_PERIOD" has already been defined in topic 163 in file C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf.
     HC1010: Note: 
 	The following mapped Topic IDs were not used in any topic:
 	AFX_HIDP_UNREG_DONE
@@ -47,32 +57,36 @@ multipad.hpj
 	HIDD_PRIMES_GENERATOR
 	HID_HT_OBJECT
 	AFX_HIDP_SQL_BOOKMARKS_NOT_ENABLED
+	HIDD_DIALOG_ZAHL_FAKTORISIEREN
+	HIDD_DIALOG_RSA_KLEIN
+	HIDD_DIALOG_Faktorisieren
 	HID_HOMOPHONE
 	AFX_HIDP_UNREG_FAILURE
 	AFX_HIDP_SQL_BOOKMARKS_NOT_SUPPORTED
-	HIDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN
 	AFX_HIDP_SQL_FIELD_NOT_FOUND
-	HID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+	HIDD_RANDOM_PARAMETER_LCG
 	HIDD_DIALOG_KEY_SEARCH
 	HIDD_DIALOG_KEY_HOMOPHON
-	HID_ANALYSE_NGRAM
-	HIDD_DIALOG_PRIMES_GENERATOR
-	HIDD_DIALOG_HOMOPHONE
-	HIDD_DIALOG_ANALYSE_NGRAM
-	HID_HOMOPHONE_ASC
+	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 	AFX_HIDP_DLL_LOAD_FAILED
+	HIDD_RANDOM_PARAMETER_SECUDE
 	AFX_HIDP_DLL_BAD_VERSION
+	HIDD_DIALOG_GEN_EC_KURVE
+	HIDD_RANDOM_PARAMETER_X2_MOD_N
 	HID_HT_HELP
+	HIDD_DIALOG_KEY_PLAYFAIR
 	HID_HT_CLOSE
-	HID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-236	Topics
-2,092	Jumps
-287	Keywords
-165	Bitmaps
+	HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+248	Topics
+2,109	Jumps
+293	Keywords
+169	Bitmaps
 
 
-Created C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\CrypTool.HLP, 1,130,605 bytes
-Bitmaps: 916,676 bytes
-Hall+Zeck compression decreased help file by 202,957 bytes.
-Compile time: 1 minute, 42 seconds
-6 notes, 14 warnings
+Created C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\CrypTool.HLP, 1,161,182 bytes
+Bitmaps: 938,766 bytes
+Hall+Zeck compression decreased help file by 208,159 bytes.
+Compile time: 1 minute, 56 seconds
+8 notes, 17 warnings

@@ -670,6 +670,14 @@ SOURCE=.\DialogLaengeBin.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DialogPeriodeOutput.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DialogPeriodeOutput.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DialogPlayfair.cpp
 # End Source File
 # Begin Source File
