@@ -50,7 +50,9 @@
                                   /* max routine stack depth */
 /* big and flash variables consist of an array of mr_smalls */
 
+#ifndef BOOL
 typedef int BOOL;
+#endif
 typedef unsigned mr_utype mr_small;
 #ifdef mr_dltype
 typedef unsigned mr_dltype mr_large;
