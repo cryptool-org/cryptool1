@@ -1000,6 +1000,8 @@
 #define IDS_STRING_PSECREATIONERROR     37826
 #define IDS_STRING_INCOMPATIBLE_CERT    37827
 #define IDS_STRING_CERT_DECODING_ERROR  37828
+#define IDS_RAND_PROGRESS               37829
+#define IDS_RAND_GEN_PARAM              37830
 
 // Next default values for new objects
 // 
