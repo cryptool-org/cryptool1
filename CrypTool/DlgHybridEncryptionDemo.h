@@ -52,7 +52,6 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHybridEncryptionDemo)
 	enum { IDD = IDD_HYBRID_ENCRYPTION_DEMO };
-	CButton	m_ctrlDatenAusgabe;
 	CStatic	m_ctrlBG;
 	CString	m_strEdit;
 	CString	m_strTitle;
@@ -69,6 +68,7 @@ public:
 	CBitmapButton m_ctrlBmpViereck1;
 	CBitmapButton m_ctrlBmpViereck2;
 	CBitmapButton m_ctrlBmpOval1;
+	CBitmapButton m_ctrlBmpOval2;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen

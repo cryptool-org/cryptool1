@@ -44,6 +44,7 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	for(int i=0;i<11;i++)
 	{
 		m_barrSetCondition[i] = false;
+		m_arrSetButtons[i] = false;
 	}
 	
 	//Array mit den Voraussetzungen
@@ -80,7 +81,6 @@ void CDlgHybridEncryptionDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHybridEncryptionDemo)
-	DDX_Control(pDX, IDC_BUTTON_DATENAUSGABE, m_ctrlDatenAusgabe);
 	DDX_Text(pDX, IDC_EDIT_TXT, m_strEdit);
 	DDX_Text(pDX, IDC_EDIT_TITLE, m_strTitle);
 	//}}AFX_DATA_MAP
@@ -121,6 +121,7 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	m_ctrlBmpViereck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
 	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
 	m_ctrlBmpOval1.AutoLoad(IDCANCEL,this);
+	m_ctrlBmpOval2.AutoLoad(IDC_BUTTON_DATENAUSGABE,this);
 	//Laden der Bitmaps und als Steuerelemte anzeigen
 
 	if(!m_bAuswahlDat)
@@ -868,11 +869,16 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
    	   case 10:if(m_arrSetButtons[i])
 			   {
-					m_ctrlDatenAusgabe.EnableWindow(true);
+					m_ctrlBmpOval2.LoadBitmaps("OVAL2U","OVAL2D","OVAL2F",NULL);
+					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
+					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
 			   }
 			   else
 			   {
-				   m_ctrlDatenAusgabe.EnableWindow(false);
+					m_ctrlBmpOval2.LoadBitmaps("OVAL2X",NULL,NULL,NULL);
+					m_ctrlBmpOval2.ShowWindow(SW_HIDE);
+					m_ctrlBmpOval2.ShowWindow(SW_SHOW);
+			   
 			   };break;
 
 
@@ -951,6 +957,11 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 
 void CDlgHybridEncryptionDemo::OnButtonDatenausgabe() 
 {
+	if(!m_arrSetButtons[10])	
+	{
+		Message(IDS_STRING_HYB_SHOW_DATA, MB_ICONEXCLAMATION);
+		return;
+	}
 	char outfile[128], title[128];
 	CAppDocument *NewDoc;
 	GetTmpName(outfile,"cry",".hex");
