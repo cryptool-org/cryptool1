@@ -80,6 +80,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnRadio();
 	afx_msg void OnHelp();
+	afx_msg void OnChangeEdit1();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -99,14 +99,14 @@ BEGIN
                     WS_EX_ACCEPTFILES
     EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
                     WS_EX_ACCEPTFILES
-    LTEXT           "Verschlüsseln einer Datei",IDC_STATIC4,25,14,80,8
+    LTEXT           "Verschlüsseln einer Datei",IDC_STATIC4,17,14,80,8
     CONTROL         "Selbstextrahierendes Archiv",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,103,
                     10
     CONTROL         "Verschlüsselte Datei",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED,149,129,80,10
-    GROUPBOX        "Schlüssel (hexadezimale Eingabe)",IDC_STATIC,17,28,287,
-                    34
+    GROUPBOX        "Schlüssel (maximal 32 hexadezimale Zeichen)",IDC_STATIC,
+                    17,28,287,34
     GROUPBOX        "Eingabedatei",IDC_STATIC,17,69,287,35
     GROUPBOX        "Ausgabedatei",IDC_STATIC,17,117,287,54
     PUSHBUTTON      "Hilfe",IDC_BUTTON3,216,186,50,14
@@ -121,7 +121,7 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,113,101,50,14
     LTEXT           "Sie haben soeben eine ausführbare Datei gestartet, die Ihnen wahrscheinlich von einer dritten Person zugestellt wurde.\nIm Regelfall ist dieses Vorgehen NICHT RATSAM, da Sie damit eventuell aktiv schädlichen Code auf ihren Rechner importieren.",
                     IDC_STATIC,7,7,197,42
-    LTEXT           "Allgemein ist es angeraten bei von dritter Seite zur Verfügung gestelltem ausführbaren Code extreme Vorsicht walten zu lassen, um Schädingungen durch Viren etc. zu vermeiden.",
+    LTEXT           "Allgemein ist es angeraten, bei von dritter Seite zur Verfügung gestelltem ausführbaren Code extreme Vorsicht walten zu lassen, um Schädingungen durch Viren etc. zu vermeiden.",
                     IDC_STATIC,7,52,197,40
 END
 
@@ -330,12 +330,13 @@ BEGIN
                     WS_EX_ACCEPTFILES
     EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
                     WS_EX_ACCEPTFILES
-    LTEXT           "Encrypt a file",IDC_STATIC4,25,14,42,8
+    LTEXT           "Encrypt a file",IDC_STATIC4,17,15,42,8
     CONTROL         "Selfextracting archive",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,84,10
     CONTROL         "Encrypted file",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
                     WS_DISABLED,137,129,59,10
-    GROUPBOX        "Key (hexadecimal input)",IDC_STATIC,17,28,287,34
+    GROUPBOX        "Key (maximal 32 hexadecimal characters)",IDC_STATIC,17,
+                    28,287,34
     GROUPBOX        "Input file",IDC_STATIC,17,69,287,35
     GROUPBOX        "Output file",IDC_STATIC,17,117,287,54
     PUSHBUTTON      "Help",IDC_BUTTON3,216,186,50,14

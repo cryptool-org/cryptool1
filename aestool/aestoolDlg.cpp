@@ -108,8 +108,9 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnSucheSrc)
 	ON_BN_CLICKED(IDC_BUTTON2, OnSucheDst)
 	ON_BN_CLICKED(IDC_RADIO1, OnRadio)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
 	ON_BN_CLICKED(IDC_BUTTON3, OnHelp)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
+	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -260,9 +261,11 @@ void CAestoolDlg::OnSucheSrc()
 		m_Radio2Ctl.EnableWindow(TRUE);
 		SetDestName();
 	}
-	m_OK.EnableWindow(TRUE);
 	if(m_HexString.IsEmpty()) m_HexIn.SetFocus();
-	else m_OK.SetFocus();
+	else {
+		m_OK.EnableWindow(TRUE);
+		m_OK.SetFocus();
+	}
 	UpdateData(FALSE);
 	m_CNameSrc.SetSel(0,-1);
 	m_CNameDst.SetSel(0,-1);
@@ -284,7 +287,6 @@ void CAestoolDlg::OnSucheDst()
 
 	if(IDCANCEL == Dlg.DoModal()) return;
 	m_NameDst = Dlg.GetPathName();
-	m_OK.EnableWindow(TRUE);
 	if(m_HexString.IsEmpty()) m_HexIn.SetFocus();
 	else m_OK.SetFocus();
 	UpdateData(FALSE);
@@ -395,7 +397,7 @@ void CAestoolDlg::SetDestName()
 	p2 = m_NameDst.ReverseFind('\\');
 	l = m_NameDst.GetLength();
 	if(p1 > p2) { // name extension found
-		ext2 = m_NameDst.Right(l-p1-1);
+		ext2 = m_NameDst.Right(l-p1);
 		m_NameDst = m_NameDst.Left(p1);
 		if(ext1.CompareNoCase(ext2)) { // extension not .exe (or .aes)
 			m_NameDst += ext1;
@@ -407,6 +409,8 @@ void CAestoolDlg::SetDestName()
 	else { // No name extension found
 		m_NameDst += ext1;
 	}
+	m_Radio1Ctl.EnableWindow(FALSE);
+	m_Radio2Ctl.EnableWindow(FALSE);
 	m_SucheDst.EnableWindow(TRUE);
 }
 
@@ -575,6 +579,11 @@ int CAestoolDlg::ChangeDestName()
 	p1 = m_NameDst.ReverseFind('.');
 	m_NameDst = m_NameDst.Left(p1);
 	m_NameDst += ext;
+	if(!m_NameDst.CompareNoCase(m_NameSrc)) {
+		m_NameDst = m_NameDst.Left(p1);
+		m_NameDst += "x";
+		m_NameDst += ext;
+	}
 	m_SucheDst.EnableWindow(TRUE);
 	return 0;
 }
@@ -593,4 +602,12 @@ void CAestoolDlg::OnHelp()
 	CHelp dia;
 
 	dia.DoModal();
+}
+
+void CAestoolDlg::OnChangeEdit1() 
+{
+	UpdateData(TRUE);
+	if(!m_HexString.IsEmpty()) {
+		m_OK.EnableWindow(TRUE);
+	}
 }
