@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CryptoolApp.h"
 #include "DlgDiffieHellmanSecretInput.h"
+#include ".\dlgdiffiehellmansecretinput.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -104,6 +105,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanSecretInput, CDialog)
 	//{{AFX_MSG_MAP(CDlgDiffieHellmanSecretInput)
 	ON_BN_CLICKED(IDC_GENERATE_SECRET, OnGenerateSecret)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDOK, OnBnClickedOk)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -221,4 +223,10 @@ BOOL CDlgDiffieHellmanSecretInput::OnInitDialog()
 	return FALSE;	
 	//return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgDiffieHellmanSecretInput::OnBnClickedOk()
+{
+	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
+	OnOK();
 }

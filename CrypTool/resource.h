@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -777,6 +777,7 @@
 #define IDS_Message_AuthenticationOfClientSuccessful 11127
 #define IDS_Message_CannotMaskConnectionsMisconfiguration 11128
 #define IDS_Message_MaskBeforeProtocolStart 11129
+#define IDS_DH_PP_SECRET_PREDICTABLE    11130
 #define ID_CR_OVERVIEW                  11131
 #define ID_CR_USAGE                     11132
 #define ID_CR_SZ_PASSWORDS              11133
