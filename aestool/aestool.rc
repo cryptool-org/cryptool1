@@ -134,7 +134,7 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,261,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen Rijndael-Algorithmus (= AES) verschlüsselt werden können.",
                     IDC_STATIC,12,8,446,16
-    LTEXT           "Das Programm kann auf verschiedene Arten aufgerufen werden:",
+    LTEXT           "Das Programm kann auf drei verschiedene Arten aufgerufen werden:",
                     IDC_STATIC,12,29,446,12
     LTEXT           "Die Parameter sind:",IDC_STATIC,24,50,434,8
     LTEXT           "Schlüssel:",IDC_STATIC,24,59,48,17
@@ -144,7 +144,7 @@ BEGIN
                     IDC_STATIC,72,59,386,17
     LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",
                     IDC_STATIC,72,76,386,17
-    LTEXT           "Die Ausgabedatei für die ver- bzw. entschlüsselten Daten kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",
+    LTEXT           "Name und Verzeichnis der Ausgabedatei kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",
                     IDC_STATIC,72,93,386,17
     LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt eine Datei dar, die sowohl die Daten enthält als auch gleichzeitig ein Programm ist. Dieses Programm hat die gleiche Funktionalität wie AES-Tool und erlaubt es, die enthalten Daten zu entschlüsseln",
                     IDC_STATIC,80,110,378,16
@@ -169,9 +169,9 @@ BEGIN
                     IDC_STATIC,24,201,434,16
     LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",
                     IDC_STATIC,79,126,274,8
-    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, dann ist keine weitere Interaktion nötig. Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
+    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
                     IDC_STATIC,24,165,434,17
-    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK, 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",
+    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK; 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",
                     IDC_STATIC,24,218,407,8
 END
 
@@ -419,10 +419,10 @@ CAPTION "Help for AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,232,50,14
-    LTEXT           "AES-Tool is an encryption program that can be used to encrypt data files using the symmetric Rijndael algorithm (= AES).",
+    LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric Rijndael algorithm (= AES).",
                     IDC_STATIC,12,9,446,10
-    LTEXT           "The program can be invoked in three ways:",IDC_STATIC,
-                    12,21,446,11
+    LTEXT           "The program can be invoked in three different ways:",
+                    IDC_STATIC,12,21,446,11
     LTEXT           "These parameters are:",IDC_STATIC,24,42,434,10
     LTEXT           "Key:",IDC_STATIC,24,52,38,18
     LTEXT           "Input file:",IDC_STATIC,24,70,38,19
@@ -431,7 +431,7 @@ BEGIN
                     IDC_STATIC,62,52,396,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. ",
                     IDC_STATIC,62,70,396,19
-    LTEXT           "The output file for the encrypted or decrypted data can be determined after pressing the ""Encrypt"" or ""Decrypt"" button, resp. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
+    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
                     IDC_STATIC,62,89,396,19
     LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
                     IDC_STATIC,69,108,389,19
@@ -456,7 +456,7 @@ BEGIN
                     IDC_STATIC,24,180,434,8
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
                     IDC_STATIC,24,146,426,8
-    LTEXT           "The exit code reflects the program's success: 0: everything OK, 1: an error occurred; an error message is displayed on stderr.",
+    LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",
                     IDC_STATIC,24,196,391,8
     LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
                     IDC_STATIC,24,188,434,9
