@@ -4877,6 +4877,8 @@ BEGIN
                             "Die FIPS-PUB-140-1 Testbatterie kann nicht ausgeführt werden,\nda die Batterie für Dateien der Größe 2500 Bytes (= 20000 Bits)\nspezifiziert ist."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
+                            "Der Paramater der maximalen Run-Länge ist zu groß gewählt !\nBitte wählen Sie die maximale Run-Länge aus dem Wertebereich [1..%i]."
     IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s bestanden !"
     IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nicht bestanden !"
     IDS_STRING_TESTS_BATTERIE_BESTANDEN "Testbatterie bestanden !"
@@ -9264,6 +9266,8 @@ BEGIN
                             "The FIPS-PUB-140-1 test battery cold not be exeuted: This test is specified for random data of 2.500 bytes (= 20.000 bits).\nYour input file must be at least 2.500 bytes long."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + test length must be smaller than the file size !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
+                            "The selected paramater for the maxmial run length exceeds the  possible values !\nPlease select an integer between [1..%i]."
     IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s passed !"
     IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s failed !"
     IDS_STRING_TESTS_BATTERIE_BESTANDEN "Test battery passed !"

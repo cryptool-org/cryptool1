@@ -413,7 +413,8 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 	CStdioFile file;
 	file.Open(infile, CFile::modeRead);
 
-	if (((m_Longrunlang > file.GetLength()) && (m_Default_Longrun == FALSE)) || ((m_Longrunlang <= 0) && (m_Default_Longrun == FALSE)))
+	unsigned int l_filelength = file.GetLength();
+	if (((m_Longrunlang > l_filelength) && (m_Default_Longrun == FALSE)) || ((m_Longrunlang <= 0) && (m_Default_Longrun == FALSE)))
 	{
 		file.Close();
 		m_Longrun_Hak_Ctrl.ShowWindow(FALSE);
@@ -422,7 +423,7 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG, pc_str, STR_LAENGE_STRING_TABLE);
 		m_Longrun_Ergebnis = pc_str;
 		UpdateData(FALSE);
-		Message(IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE, MB_ICONEXCLAMATION);
+		Message(IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE, MB_ICONEXCLAMATION, l_filelength);
 	}
 	else
 	{
