@@ -433,11 +433,12 @@ int CDlgRSADemo::CheckRSAParameter()
 			SetStatusPrimePValid(TRUE);
 			SetStatusPrimeQValid(TRUE);
 			SetStatusModulNValid(TRUE);			
-			if (RSA->SetPublicKey( m_edit_e ) )
+			if ( 1 == RSA->SetPublicKey( m_edit_e ) )
 			{
 				RSA->SetPrivateKey();
+				CString l_e_str;
 				RSA->GetParameter( m_edit_N, m_edit_phi_of_N, 
-						   m_edit_e, m_edit_d );
+						   l_e_str, m_edit_d );
 				SetStatusKeyEValid(TRUE);
 				SetStatusOptionsValid(TRUE);
 			}

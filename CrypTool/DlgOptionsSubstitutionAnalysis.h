@@ -19,11 +19,13 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgOptionsSubstitutionAnalysis)
 	enum { IDD = IDD_OPTIONS_SUBSTITUTION_ANALYSIS };
+	CButton	m_ctrl_storedKey;
 	CButton	m_control2;
 	CButton	m_control1;
 	int		m_radio1;
 	BOOL	m_check1;
 	BOOL	m_check2;
+	int		m_storedKey;
 	//}}AFX_DATA
 
 
@@ -46,6 +48,7 @@ protected:
 	afx_msg void OnCheck3();
 	afx_msg void OnRadio1();
 	afx_msg void OnRadio3();
+	afx_msg void OnRadio4();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -83,7 +83,9 @@ BOOL CDlgNGramAnaylsis::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST2,pc_str,STR_LAENGE_STRING_TABLE);
 	m_ListView.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST3,pc_str,STR_LAENGE_STRING_TABLE);
-	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth+2000,3);						
+	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth-10,3);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_COLUMN_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
+	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth,3);
 	SetupListBox( m_N_NGram+1 );
 	m_NrNGramCtrl.EnableWindow(true);
 	return(TRUE);
@@ -246,6 +248,8 @@ void CDlgNGramAnaylsis::SetupListBox( int N )
 		m_ListView.SetItemText(j,1,string);
 		sprintf(string,"%2.3f", rel*100.0);
 		m_ListView.SetItemText(j,2,string);
+		sprintf(string,"%6i", cnt);
+		m_ListView.SetItemText(j,3,string);
 	}
 }
 
@@ -339,6 +343,9 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	txt_NGram.width(wd);
 	txt_NGram << pc_str << '\t';
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_RELFREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
+	txt_NGram.width(12);
+	txt_NGram << pc_str << '\t';
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_COLUMN_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
 	txt_NGram << pc_str << '\n';
 
 	if ( !NGramActualized ) 
@@ -402,8 +409,10 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 		}
 		txt_NGram.width(wd);
 		txt_NGram << string << "\t";
+		txt_NGram.width(22);
 		txt_NGram.precision(4);
-		txt_NGram << rel*100.0 << "\n";
+		txt_NGram << rel*100.0 << "\t";
+		txt_NGram << cnt << '\n';
 	}
 	txt_NGram.close();
 	HIDE_HOUR_GLASS

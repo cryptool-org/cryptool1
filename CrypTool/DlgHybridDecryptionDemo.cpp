@@ -440,10 +440,10 @@ void CDlgHybridDecryptionDemo::OnOK()
 	int AlgId=3;
 
 	GetTmpName(outfile,"cry",".hex");
-	if (message.noctets <= 204800)
-	{
+//	if (message.noctets <= 204800)
+//	{
 		theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
-	}
+//	}
 		
 	SHOW_HOUR_GLASS
 

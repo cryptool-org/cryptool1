@@ -71,9 +71,7 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_setMatrix[10][5]=true;
 	m_setMatrix[10][6]=true;
 
-	m_strBuffEditDoc = 0;
-
-	
+	PlainText = CipherText = 0;
 }
 
 
@@ -145,10 +143,6 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	//Objekt der Klasse CFont (m_font) wird gesetzt initialisiert
 	CWnd* pStatic=GetDlgItem(IDC_EDIT_TXT);
 	pStatic->SetFont(&m_font,false);
-
-
-	
-
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -165,19 +159,15 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 	
 	CFileDialog m_dlgFile( TRUE ); // TRUE = Datei öffnen,FALSE = Datei speichern 
 	if( m_dlgFile.DoModal() == IDOK ) 
+	{
 	//wenn auf den OK Button geklickt wird, wird der Pfadname und der Titel der gewählten Datei in 
 	//lokale Variablen geschrieben
 	//ausserdem wird die Dateigröße ermittelt und ebenfalls in eine Variable geschrieben
-	{ 
-		SHOW_HOUR_GLASS
-		//Sanduhr wird angezeigt
-
 		loc_filename = m_dlgFile.GetPathName();
 		m_strBuffTitle = m_dlgFile.GetFileName();
 		DateiOeffnen(loc_filename);
 		m_strPathSelDoc = loc_filename;
 		ShowButtons();
-		HIDE_HOUR_GLASS
  	} 
 	else
 	//wenn auf Abbrechen geklickt wurde, wird abgebrochen
@@ -257,29 +247,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	UpdateData(true);
 
 	int AlgId=3;
-
 	const char* path=m_strPathSelDoc.GetBuffer(0);
-	ifstream test(path,ios::in|ios::binary);
-	//normaler Text wird aus der ausgewählten Datei ausgelesen
-
-	if(!test)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
-		return;
-	}
-	//wenn beim Öffnen der Datei etwas schief läuft, wird eine Fehlermeldung ausgegeben
-	
-	{
-		struct stat *obj;
-		obj = new (struct stat);
-		obj->st_size;
-		stat((const char*)m_strPathSelDoc,obj);
-		m_iDocSizeForEnc = obj->st_size;
-		delete obj;
-	}
-	//Groesse der Datei die ausgelesen werden soll wird 
-	//ermittelt und in m_iDataGroesse geschrieben
 
 	// Henrik Koy, 19. April 2002,
 	// Programm unter Windows XP-abgestürzt: 20 Zeichen Speicher sind zu wenig
@@ -288,53 +256,35 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	//Name für eine temporäre Datei wird erzeugt, in der 
 	//der Verschluesselte Text geschrieben werden soll
 	//der Name wird in die Variable strPathEncDocument geschrieben
-
 	char key[100];
-	SHOW_HOUR_GLASS
 	strcpy(key,m_strSymKey.GetBuffer(0));
+
+	SHOW_HOUR_GLASS
+
 	AESCrypt((char*)path, "", AlgId,true,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
-	
-	unsigned char* cryDocument;
-	cryDocument=new unsigned char[m_iDocSizeForEnc+32];
-//***********************************************************
-	ifstream crypt(strPathEncDocument,ios::in|ios::binary);
-	crypt.read(cryDocument,m_iDocSizeForEnc+KEY_LEN);
-	int srcSize = crypt.gcount();
-	crypt.close();
-	
-	CipherText.noctets = srcSize;
-	CipherText.octets  = new char[srcSize];
-	memcpy( CipherText.octets, cryDocument, (size_t)srcSize );
 
-
-	int destSize; 	
+	if ( CipherText )
+		theApp.SecudeLib.aux_free_OctetString(&CipherText);
+	CipherText = theApp.SecudeLib.aux_file2OctetString(strPathEncDocument);
+	if (!CipherText)
 	{
-		int linelen;
-		int lines, rest;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		return;
+	}		
 
-		linelen = 11 + INFO_TEXT_COLUMNS * 4;
-		lines = (m_iDocSize+INFO_TEXT_COLUMNS-1) / INFO_TEXT_COLUMNS;
-		rest  = (m_iDocSize) % INFO_TEXT_COLUMNS;
-		destSize = lines * linelen; // - INFO_TEXT_COLUMNS + rest;
-	}
-	char *dest = new char [destSize+1];
-	char *strCryHex = new char [destSize+1];
-
-	int err = HexDumpMem(strCryHex,destSize,cryDocument,srcSize, INFO_TEXT_COLUMNS);
 	UpdateData();
 	m_strBuffEditEncDoc = "";
-	m_strBuffEditEncDoc = strCryHex;
 	m_strTitle = "";
 	m_strEdit = "";
+
 	HIDE_HOUR_GLASS
 
 	m_barrSetCondition[5] = true;
 	EnDisButtons();
 	ShowButtons();
 	UpdateData(false);
-	delete[] strCryHex;
-	delete[] cryDocument;
 }
 
 void CDlgHybridEncryptionDemo::OnButtonGetAsymKey() 
@@ -513,9 +463,8 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		theApp.SecudeLib.aux_free_Certificate (&Zert);
 		delete string3;	
 	}
-
-	
 }
+
 
 void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym() 
 {
@@ -545,8 +494,6 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 	HIDE_HOUR_GLASS
 	//Sanduhr durch einen Pfeil ersetzen
 }
-
-
 
 
 void CDlgHybridEncryptionDemo::OnButtonShowAsymKey() 
@@ -728,7 +675,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowDocument()
 	char *dest = new char [destSize+1];
 	SHOW_HOUR_GLASS
 	
-	int err = HexDumpMem(dest,destSize,(unsigned char*)m_strBuffEditDoc,m_iDocSize, INFO_TEXT_COLUMNS);
+	int err = HexDumpMem(dest,destSize,(unsigned char*)PlainText->octets,m_iDocSize, INFO_TEXT_COLUMNS);
 
 	m_strEdit = dest;
 	HIDE_HOUR_GLASS
@@ -744,11 +691,29 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
-	SHOW_HOUR_GLASS
-	m_strEdit = m_strBuffEditEncDoc;
+
 	m_strTitle.LoadString(IDS_STRING_HYBRID_ENC_SYM_ENC_DOC);
-	UpdateData(false);
+
+	int destSize; 
+	{
+		int linelen;
+		int lines, rest;
+
+		linelen = 11 + INFO_TEXT_COLUMNS * 4;
+		lines = (CipherText->noctets+INFO_TEXT_COLUMNS-1) / INFO_TEXT_COLUMNS;
+		rest  = (CipherText->noctets) % INFO_TEXT_COLUMNS;
+		destSize = lines * linelen; // - INFO_TEXT_COLUMNS + rest;
+	}
+	char *dest = new char [destSize+1];
+	SHOW_HOUR_GLASS
+	
+	int err = HexDumpMem(dest,destSize,(unsigned char*)CipherText->octets,m_iDocSize, INFO_TEXT_COLUMNS);
+
+	m_strEdit = dest;
 	HIDE_HOUR_GLASS
+	delete []dest;
+
+	UpdateData(false);
 }
 
 void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey() 
@@ -888,67 +853,38 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 
 CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
 {
-	if(m_strBuffEditDoc)
-	//wenn für m_strBuffEditDoc Speicher allokiert wurde, dann wird hier der Speicher wieder freigegeben
-	{
-		delete []m_strBuffEditDoc;
-	}
-
+	if(CipherText)
+		theApp.SecudeLib.aux_free_OctetString(&CipherText);
+	if(PlainText)
+		theApp.SecudeLib.aux_free_OctetString(&PlainText);
 }
 
 bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 {
-	
-	int DatGroesse=0;
-	CString loc_filename = DateiPfadName;
-	struct stat *obj;
-	obj = new (struct stat);
-	if(stat(loc_filename ,obj)==-1)
-	//Wenn es Probleme beim Öffnen der Datei gab, soll eine Fehlermeldung ausgegeben werden
+
+	SHOW_HOUR_GLASS
+
+	if ( PlainText )
+		theApp.SecudeLib.aux_free_OctetString(&PlainText);
+	PlainText = theApp.SecudeLib.aux_file2OctetString(DateiPfadName);
+	if (!PlainText)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
-		delete obj;
 		return false;
 	}
-	DatGroesse=obj->st_size;
-	//Groesse der Datei die ausgelesen werden soll wird 
-	//ermittelt und in DatGroesse geschrieben
-	delete obj;
-
-	if(DatGroesse == 0)
+	m_iDocSize=PlainText->noctets;
+	if(m_iDocSize == 0)
 	//wenn in der Datei nichts steht
 	{
 		return false;
 	}
 	m_bAuswahlDat = false;
-	//Schalter für EnDisButtons() siehe OnInitDialog()
+	m_strPathSelDoc = DateiPfadName;
 
-	m_strPathSelDoc = loc_filename;
-	ifstream test(loc_filename.GetBuffer(0),ios::in|ios::binary);
-
-	{ // neu Henrik Koy: 29. Mai 2002
-		char* in=new char[DatGroesse+1];  /* +1  ist neu */
-		test.read(in,DatGroesse);
-		//Datei wird gelesen
-		//und in der Variablen "in" gespeichert
-
-		m_iDocSize=test.gcount();
-		//tatsächliche Groesse der ausgelesenen Datei
-		test.close();
-		in[m_iDocSize]='\0';
-
-   
-		if ( m_strBuffEditDoc ) 
-		{
-			delete []m_strBuffEditDoc;
-		}
-		m_strBuffEditDoc=new char[m_iDocSize+1];
-		memcpy(m_strBuffEditDoc,in,m_iDocSize);
-		delete []in; // delete []in ist neu;
-	}
-	//"in" wird in "m_strBuffEditDoc" geschrieben
 	HIDE_HOUR_GLASS
+
+	//Schalter für EnDisButtons() siehe OnInitDialog()
 	m_barrSetCondition[0] = true;
 	EnDisButtons();
 	
@@ -1034,31 +970,7 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	Text.noctets=strlen(helptext);
 	Text.octets=helptext;
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
-	if (CipherText.noctets <= 204800)
-	{
-	//	zugross = false;
-		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
-	}
-	/*
-	else 
-	{
-		// Die verschlüsselte Nachricht ist zu gross, um in dem Editor von CrypTool
-		// angezeigt zu werden, daher wird sie in eine Datei ins Temp Verzeichnis geschrieben
-		// Statt der Nachricht steht im Editor von CrypTool der Pfad dieser Datei
-		
-		//zugross = true;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE,pc_str,100);
-		CString help_tmp=(CString)pc_str;
-		help_tmp+=(CString)infile;
-		CipherText.noctets=strlen(help_tmp);
-		for (i=0; i<help_tmp.GetLength(); i++)
-		{
-			CipherText.octets[i]=help_tmp[i];
-		}
-		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
-	}
-	*/
-	
+	theApp.SecudeLib.aux_OctetString2file(CipherText,outfile,3);
 	
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 	remove(outfile);

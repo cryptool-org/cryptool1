@@ -9,6 +9,7 @@
 #include "DlgOptionsSubstitutionAnalysis.h"
 #include "FileTools.h"
 #include "Cryptography.h"
+#include "KeyRepository.h"
 
 extern char *Eingabedatei;
 
@@ -29,6 +30,7 @@ CDlgOptionsSubstitutionAnalysis::CDlgOptionsSubstitutionAnalysis(CWnd* pParent /
 	m_radio1 = 0;
 	m_check1 = FALSE;
 	m_check2 = FALSE;
+	m_storedKey = -1;
 	//}}AFX_DATA_INIT
 }
 
@@ -37,11 +39,13 @@ void CDlgOptionsSubstitutionAnalysis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgOptionsSubstitutionAnalysis)
+	DDX_Control(pDX, IDC_RADIO4, m_ctrl_storedKey);
 	DDX_Control(pDX, IDC_CHECK2, m_control2);
 	DDX_Control(pDX, IDC_CHECK1, m_control1);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
 	DDX_Check(pDX, IDC_CHECK1, m_check1);
 	DDX_Check(pDX, IDC_CHECK2, m_check2);
+	DDX_Radio(pDX, IDC_RADIO4, m_storedKey);
 	//}}AFX_DATA_MAP
 }
 
@@ -53,6 +57,7 @@ BEGIN_MESSAGE_MAP(CDlgOptionsSubstitutionAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_RADIO2, OnRadio2)
 	ON_BN_CLICKED(IDC_RADIO1, OnRadio1)
 	ON_BN_CLICKED(IDC_RADIO3, OnRadio3)
+	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -67,6 +72,16 @@ BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog()
 	// Default-Einstellung ist englischer Klartext mit reiner Pattern Suche
 	CheckRadioButton (IDC_RADIO1, IDC_RADIO3, IDC_RADIO2);
 	m_control2.EnableWindow(FALSE);	
+	
+	LoadString(AfxGetInstanceHandle(),IDS_ANALYSIS_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+	if ( IsKeyEmpty( pc_str ))
+	{
+		m_ctrl_storedKey.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_ctrl_storedKey.EnableWindow(FALSE);
+	}
 	return TRUE;  
 }
 
@@ -100,6 +115,7 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio1()
 	UpdateData();
 	m_control1.EnableWindow();
 	m_control2.EnableWindow();
+	m_storedKey = -1;
 	UpdateData(FALSE);
 }
 
@@ -110,6 +126,7 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio2()
 	m_control1.EnableWindow();
 	m_check2 = false;
 	m_control2.EnableWindow(FALSE);
+	m_storedKey = -1;
 	UpdateData(FALSE);
 }
 
@@ -120,5 +137,19 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio3()
 	m_control1.EnableWindow(FALSE);
 	m_check2 = false;
 	m_control2.EnableWindow(FALSE);
+	m_storedKey = -1;
+	UpdateData(FALSE);
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnRadio4() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	UpdateData();
+	m_check1 = false;
+	m_control1.EnableWindow(FALSE);
+	m_check2 = false;
+	m_control2.EnableWindow(FALSE);
+	m_storedKey = 0;
+	m_radio1    = -1;
 	UpdateData(FALSE);
 }

@@ -1151,8 +1151,10 @@ int CRSADemo::InitParameter( CString &pStr, CString &qStr, int base )
 {
 	Big p, q;
 	BOOL p_ok,q_ok;
-	p_ok = CStringFormulaToBig( pStr, p );
-	q_ok = CStringFormulaToBig( qStr, q );
+	CString p_str = pStr;
+	CString q_str = qStr;
+	p_ok = CStringFormulaToBig( p_str, p );
+	q_ok = CStringFormulaToBig( q_str, q );
 	if (p_ok == false) return ERR_P_TO_BIG;
 	if (q_ok == false) return ERR_Q_TO_BIG;
 	return InitParameter( p, q );
@@ -1185,6 +1187,7 @@ int CRSADemo::SetPublicKey ( CString &eStr, int base )
 	Big E;
 	// Noch ...
 	BOOL e_ok;
+	CString e_str = eStr;
 	e_ok = CStringFormulaToBig( eStr, E );
 	if (e_ok == FALSE) return ERR_E_TO_BIG;
 	return SetPublicKey( E );
@@ -1217,8 +1220,11 @@ int CRSADemo::SetPublicParameter( CString &NStr, CString &eStr )
 {
 	Big loc_E, loc_N;
 	BOOL e_ok, N_ok;
-	e_ok = CStringFormulaToBig( eStr, loc_E );
-	N_ok = CStringFormulaToBig( NStr, loc_N );
+
+	CString e_str = eStr;
+	CString N_str = NStr;
+	e_ok = CStringFormulaToBig( e_str, loc_E );
+	N_ok = CStringFormulaToBig( N_str, loc_N );
 	if (e_ok == FALSE || N_ok == FALSE) return ERR_E_TO_BIG;
 	if ( loc_E > 0 && loc_N > 2 )
 	{

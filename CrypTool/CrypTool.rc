@@ -294,29 +294,32 @@ BEGIN
                     IDC_STATIC,13,11,219,8
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 191
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 199
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Starten",IDOK,10,163,50,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,158,163,50,17
+    DEFPUSHBUTTON   "&Starten",IDOK,10,175,50,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,158,175,50,17
     CONTROL         "Der erwartete Klartext ist Deutsch.",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
     CONTROL         "Der erwartete Klartext ist Englisch.",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,30,48,123,10
     CONTROL         "Manuelle Analyse.",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,30,60,71,9
+    CONTROL         "Schlüssel aus dem Zwischenspeicher benutzen.",
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,73,
+                    183,8
     CONTROL         "'e' als häufigstes Zeichen annehmen.",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,101,168,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,113,168,8
     CONTROL         "erweiterte Analyse (deutscher Klartext).",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,155,136,8
     LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",
                     IDC_STATIC,10,5,198,26
     LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",
-                    IDC_STATIC,10,79,198,18
+                    IDC_STATIC,10,91,198,18
     LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",
-                    IDC_STATIC,10,120,198,16
+                    IDC_STATIC,10,132,198,16
 END
 
 IDD_SHOW_CERTIFICATE DIALOG DISCARDABLE  0, 0, 382, 213
@@ -495,7 +498,7 @@ BEGIN
                     WS_TABSTOP,269,128,23,20
     EDITTEXT        IDC_EDIT4,13,167,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "Aktuellen &Zustand ausgeben",IDOK,13,291,121,21
+    DEFPUSHBUTTON   "Aktuellen &Zwischenstand ausgeben",IDOK,13,291,126,21
     PUSHBUTTON      "&Abbrechen",IDCANCEL,252,291,82,21
     LTEXT           "a:",IDC_STATIC,25,47,8,9
     LTEXT           "b:",IDC_STATIC,70,48,8,9
@@ -523,10 +526,10 @@ BEGIN
     LTEXT           "x:",IDC_STATIC,115,108,8,8
     LTEXT           "y:",IDC_STATIC,160,108,8,8
     LTEXT           "z:",IDC_STATIC,201,108,8,8
-    LTEXT           "Aktueller Zwischenstand",IDC_STATIC,15,155,307,8
+    LTEXT           "Aktueller Zwischenstand:",IDC_STATIC,15,155,307,8
     LTEXT           "In diesem Dialog sind Zeichen des Chiffretextes klein geschrieben und Zeichen des Klartextes groß geschrieben (Beispiel: a -->C bedeutet, dass das Zeichen 'a' in den Buchstaben 'C' entschlüsselt wird).",
                     IDC_STATIC,13,6,321,16
-    LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Sie können anhand der aktuellen Entschlüsselung weitere Substitutionen versuchen zu bestimmen.",
+    LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Der aktuelle Zwischenstand der Entschlüsselung hilft Ihnen weitere Substitutionen zu bestimmen.",
                     IDC_STATIC,13,23,321,17
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,149,291,80,21
     CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
@@ -605,28 +608,31 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 167, 289
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 300
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,271,50,14
-    CTEXT           "Details zu CrypTool",IDC_STATIC,6,6,154,11,
+    DEFPUSHBUTTON   "OK",IDOK,65,281,50,14
+    CTEXT           "Details zu CrypTool",IDC_STATIC,7,6,166,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Idee, Sponsoring, Challenges, QA:",IDC_STATIC,0,24,167,
-                    8
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Planung und Betreuung:",IDC_STATIC,1,53,166,8
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
-                    64,167,17
-    CTEXT           "Henrik Koy",IDC_STATIC,0,99,167,10,NOT WS_GROUP
-    CTEXT           "Entwicklung, Dokumentation:",IDC_STATIC,1,112,166,9
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,152,8
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
+                    59,152,16
+    CTEXT           "Henrik Koy",IDC_STATIC,14,93,152,9,NOT WS_GROUP
     CTEXT           "Ariane Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg",
-                    IDC_STATIC,0,225,167,42
-    CTEXT           "Kümmerer Version 1.3:",IDC_STATIC,1,88,166,8
-    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
-                    IDC_STATIC,1,123,166,88
-    CTEXT           "Review",IDC_STATIC,0,215,166,8
+                    IDC_STATIC,14,228,152,40
+    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,14,119,152,89
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA: ",IDC_STATIC,7,23,
+                    166,22,BS_CENTER
+    GROUPBOX        " Planung und Betreuung: ",IDC_STATIC,7,49,166,30,
+                    BS_CENTER
+    GROUPBOX        " Kümmerer Version 1.3: ",IDC_STATIC,7,83,166,22,
+                    BS_CENTER
+    GROUPBOX        " Entwicklung, Dokumentation: ",IDC_STATIC,7,109,166,104,
+                    BS_CENTER
+    GROUPBOX        " Review: ",IDC_STATIC,7,218,166,55,BS_CENTER
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -1630,10 +1636,10 @@ BEGIN
                     IDC_STATIC,8,185,295,70
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 317, 241
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gramm Liste"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
@@ -1650,7 +1656,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,61,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
-                    WS_TABSTOP,115,8,195,223
+                    WS_TABSTOP,115,8,228,223
     GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,118
     LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
     LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
@@ -4305,7 +4311,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.02 beta 1"
+    IDR_MAINFRAME           "CrypTool 1.3.02"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5610,6 +5616,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_RSADEMO_VERIFY      "Verifizieren"
     IDS_RSADEMO_NOT         "nicht "
+    IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5921,7 +5928,7 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
                     IDC_STATIC,0,152,242,17
-    CTEXT           "It based on the security library",IDC_STATIC,1,200,241,
+    CTEXT           "It is based on the security library",IDC_STATIC,1,200,241,
                     8
     EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
@@ -6103,7 +6110,7 @@ BEGIN
     LTEXT           "x:",IDC_STATIC,115,107,8,8
     LTEXT           "y:",IDC_STATIC,160,107,8,8
     LTEXT           "z:",IDC_STATIC,201,107,8,8
-    LTEXT           "Current intermediate status",IDC_STATIC,15,156,307,8
+    LTEXT           "Current intermediate status:",IDC_STATIC,15,156,307,8
     LTEXT           "In this dialogue ciphertext characters are schown in small letters and plaintext characters are schown in big letters (example: a --> C means that the letter 'a' is decrypted into 'C').",
                     IDC_STATIC,13,6,321,17
     LTEXT           "Each change of the substitution list below will result into a change of the intermediate status of decryption below. Using the actual state of decryption you may try out other substitutions. ",
@@ -6183,30 +6190,32 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 167, 285
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 300
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,58,264,50,14
-    CTEXT           "Detailed information on CrypTool",IDC_STATIC,6,6,154,11,
+    DEFPUSHBUTTON   "OK",IDOK,65,278,50,15
+    CTEXT           "Detailed information on CrypTool",IDC_STATIC,7,6,166,11,
                     SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Idea, sponsoring, challenges, QA:",IDC_STATIC,0,24,167,
-                    8
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,35,154,8
-    CTEXT           "Design, Support:",IDC_STATIC,1,50,166,10
-    CTEXT           "Henrik Koy",IDC_STATIC,7,93,153,10,NOT WS_GROUP
-    CTEXT           "Implementation, Documentation:",IDC_STATIC,1,106,166,9
-    CTEXT           "Review:",IDC_STATIC,1,209,166,8
-    CTEXT           "Main person taking overall care for version 1.3:",
-                    IDC_STATIC,1,82,166,10
-    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner Guerrier",
-                    IDC_STATIC,0,116,166,87
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,152,8
+    CTEXT           "Henrik Koy",IDC_STATIC,14,94,152,8,NOT WS_GROUP
+    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,14,121,152,89
     CTEXT           "Ariane Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg",
-                    IDC_STATIC,0,219,167,40
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,0,
-                    60,167,17
+                    IDC_STATIC,14,227,152,40
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
+                    59,152,17
+    GROUPBOX        " Idea, sponsoring, challenges, QA: ",IDC_STATIC,7,23,
+                    166,23,BS_CENTER
+    GROUPBOX        " Design, Support: ",IDC_STATIC,7,49,166,31,BS_CENTER
+    GROUPBOX        " Main person taking overall care for version 1.3: ",
+                    IDC_STATIC,7,83,166,24,BS_CENTER
+    GROUPBOX        " Implementation, Documentation: ",IDC_STATIC,7,110,166,
+                    104,BS_CENTER
+    GROUPBOX        " Review: ",IDC_STATIC,7,217,166,54,BS_CENTER
 END
+
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
@@ -7205,10 +7214,10 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 317, 241
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Determine list",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "&Save list",IDOK,7,163,99,24
@@ -7225,7 +7234,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,66,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
-                    WS_TABSTOP,115,7,195,224
+                    WS_TABSTOP,115,7,228,224
     GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
     LTEXT           "Display of the",IDC_STATIC,20,88,44,8
     LTEXT           "most common N-Grams",IDC_STATIC,20,101,80,8
@@ -7703,29 +7712,31 @@ BEGIN
     RTEXT           "Verification:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 191
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG DISCARDABLE  0, 0, 218, 199
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitution Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Start",IDOK,10,163,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,158,163,50,17
+    DEFPUSHBUTTON   "&Start",IDOK,10,174,50,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,158,174,50,17
     CONTROL         "The expected plaintext is German.",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,30,36,123,10
     CONTROL         "The expected plaintext is English.",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,30,48,121,10
     CONTROL         "Manual analysis.",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,30,60,71,9
+    CONTROL         "Use the stored key.",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,30,73,121,8
     CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,100,168,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,111,168,8
     CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
+                    BS_AUTOCHECKBOX | WS_TABSTOP,30,154,136,8
     LTEXT           "The automatic substitution analysis is just for german and for english plaintext implemented. For all other languages the manual analysis is recommended.",
                     IDC_STATIC,10,5,198,26
     LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",
-                    IDC_STATIC,10,79,198,18
+                    IDC_STATIC,10,90,198,18
     LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",
-                    IDC_STATIC,10,120,198,16
+                    IDC_STATIC,10,131,198,16
 END
 
 IDD_SELECT_HASHFUNCTION DIALOG DISCARDABLE  0, 0, 131, 118
@@ -8067,7 +8078,7 @@ BEGIN
 
             MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signature generation",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8212,7 +8223,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signature generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8396,7 +8407,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signature generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8538,7 +8549,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signature generation",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8683,7 +8694,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signature generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -9604,7 +9615,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.02 beta 1"
+    IDR_MAINFRAME           "CrypTool 1.3.02"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -10162,7 +10173,7 @@ BEGIN
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid decryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
     IDS_STRING_HYB_SHOW_DATA 
-                            "This button is currently inactive! Before encryption, the document must be encrypted symmetrically \nand the session key must be encrypted asymmetrically.\n\nThe F1 key will give you further informations on which sequence you can control the activities on the flowchart."
+                            "This button is currently inactive! Before saving, the document must be encrypted symmetrically \nand the session key must be encrypted asymmetrically.\n\nThe F1 key will give you further information on which sequence you can control the activities on the flowchart."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10855,24 +10866,25 @@ BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorise RSA modulus..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Alphabet to use (%i characters):"
     IDS_STRING_HYB_ENC_DOC_SYM 
-                            "This button is currently inactive.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
-    IDS_STRING_HYB_SHOW_DOC "This button is currently inactive.\nPlease select a file.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_DOC "This button is currently inactive.\nPlease select a file.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_SYM_KEY 
-                            "This button is currently inactive.\nPlease generate a session key at first.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nPlease generate a session key at first.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_SYM_KEY 
-                            "This button is currently inactive.\nPlease encrypt the session key at first.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nPlease encrypt the session key first.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_ENC_DOC 
-                            "This button is currently inactive.\nPlease encrypt the document with your session key.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nPlease encrypt the document with your session key.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_ASYM_KEY 
-                            "This button is currently inactive.\nPlease select the public key of the recipiant.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nPlease select the public key of the recipient.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_KEY_ASYM 
-                            "This button is currently inactive.\nPlease select the public key of the recipiant.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive.\nPlease select the public key of the recipient.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_RSADEMO_VERIFY      "Verification"
     IDS_RSADEMO_NOT         "not "
+    IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
 END
 
 STRINGTABLE DISCARDABLE 

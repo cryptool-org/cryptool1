@@ -1105,6 +1105,7 @@
 #define IDS_RSADEMO_COMPARE_HASHVALUES  37183
 #define IDS_RSADEMO_VERIFY              37184
 #define IDS_RSADEMO_NOT                 37185
+#define IDS_ANALYSIS_SUBSTITUTION       37186
 #define IDS_STRING_PA_LENGTH            37612
 #define IDS_RAND_OUTPUT                 37613
 #define IDS_RANDOM_GENERATOR            37614

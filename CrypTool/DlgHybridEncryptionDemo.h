@@ -28,7 +28,6 @@ public:
 	CString m_strBuffEditEncKeyAsym;
 	CString m_strBuffEditEncDoc;
 	CString Edit;
-	char* m_strBuffEditDoc;
 	int m_iDocSize;
 	bool m_bAuswahlDat;
 	CDlgRSAEncryption rsaDlg;
@@ -40,7 +39,9 @@ public:
 	CString m_strPathSelDoc;
 	CString	m_strBuffTitle;
 	CString UserKeyId;
-	OctetString CipherText;
+
+	OctetString *PlainText;
+	OctetString *CipherText;
 	
 	CDlgHybridEncryptionDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgHybridEncryptionDemo();

@@ -603,6 +603,7 @@ void CDlgManualSubstAnalysis::OnCopyKey()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	holeDaten();
+/*
     char KeyToStore[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char Reverse[27]    = "**************************";
 
@@ -635,8 +636,16 @@ void CDlgManualSubstAnalysis::OnCopyKey()
 			}
 		}
 	}
+*/
+    char KeyToStore[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	for (int i=0; i<26; i++)
+	{
+		if ((Eingabe[i]>='a')&&(Eingabe[i]<='z'))
+			Eingabe[i] -= 32;
+		KeyToStore[i] = Eingabe[i];
+	}
 
-	LoadString (AfxGetInstanceHandle(), IDS_CRYPT_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
+	LoadString (AfxGetInstanceHandle(), IDS_ANALYSIS_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, CString(KeyToStore)); 
 }
 
