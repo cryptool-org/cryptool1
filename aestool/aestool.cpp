@@ -120,6 +120,11 @@ BOOL CAestoolApp::InitInstance()
 		unsigned char key[256/8];
 		int keylen = 0;
 		memset(key,0,sizeof(key));
+		if (m_CMD_inKey.GetLength() > 256/8*2) {
+			msg.Format(IDS_STRING_KEY_TOO_LONG);
+			fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
+			exit(1);
+		}
 		if (!hex2bin(m_CMD_inKey,key,keylen)) {
 			msg.Format(IDS_STRING_INVALID_KEY);
 			fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));

@@ -315,6 +315,7 @@ BEGIN
     IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsslen."
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
+    IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -539,6 +540,7 @@ BEGIN
     IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
 END
 
 #endif    // Englisch (GB) resources
