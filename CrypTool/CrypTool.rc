@@ -3648,8 +3648,6 @@ BEGIN
 
         MENUITEM "&Angriff auf den Hashwert der digitalen Signatur ...", 
                                                 ID_SIGNATUR_ATTACK
-        MENUITEM "&Nachrichtenmodifikation durch einen Hashwert ...", 
-                                                ID_SIGATTMODIFICDEMO
     END
     POPUP "A&nalyse"
     BEGIN
@@ -9604,8 +9602,6 @@ BEGIN
 
         MENUITEM "&Attack on the hash value of the digital signature...", 
                                                 ID_SIGNATUR_ATTACK
-        MENUITEM "&Modification of a message by a hash value ...", 
-                                                ID_SIGATTMODIFICDEMO
     END
     POPUP "&Analysis"
     BEGIN
