@@ -3851,12 +3851,15 @@ BEGIN
     IDS_STRING_REQ_DEL_KEYDATA 
                             "WARNUNG: Sie sind gerade dabei die zu '%s' gehörenden Schlüsseldateien unwiderruflich zu löschen! Um fortzufahren geben Sie den entsprechenden PIN-Code ein."
     IDS_STRING_PLAYFAIR_ENCRYPTION "Playfair Verschlüsselung"
+    ID_PLAYFAIR_BIN         "Playfair Verschlüsselung"
     IDS_STRING_SWITCH_ASCII_MODE "zeigt aktuelles Fenster als ASCII Text an"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    ID_TOTXT                "Zeigt aktuelles Fenster als ASCII Text an"
     IDS_STRING_SWITCH_HEX_MODE "zeigt aktuelles Fenster als HexDump an"
+    ID_TOHEX                "Zeigt aktuelles Fenster als Hex Dump an"
     IDS_STRING_PLAYFAIR_ANALYSE "Einfache Playfair Analyse"
     IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
     IDS_STRING_KEY_GENERATION_DATE "Schlüssel erstellt am:"
