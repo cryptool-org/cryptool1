@@ -9387,7 +9387,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
+            MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Key Generation from Password...", 
                                                 ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -9411,13 +9411,13 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.&1 decoding of a file...", 
+        MENUITEM "ASN.&1 Decoding of a File...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman Demonstration...", 
                                                 ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
-        MENUITEM "&Attack on the hash value of the digital signature...", 
+        MENUITEM "&Attack on the Hash Value of the Digital Signature...", 
                                                 ID_SIGNATUR_ATTACK
     END
     POPUP "&Analysis"
