@@ -758,25 +758,57 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 	m_edit11 = ""; 
 	m_edit13 = ""; 
 
-	for (int i = 0; i<m_edit10.GetLength(); i+=blockSize )
+	for (int i = 0; i<m_edit10.GetLength(); )
 	{
-		m_edit13 += m_edit10.Mid(i, blockSize);
-		tmpStr    = m_edit10.Mid(i, blockSize);
-		while ( tmpStr.GetLength() < blockSize ) { 
-			tmpStr += ' '; m_edit13 += ' '; 
+		if ( mode == MODE_HEX_DUMP ) {
+			int j=i;
+			int cnt=0;
+			while (j < m_edit10.GetLength() && cnt < 2*blockSize )
+				if ( IsNumber( m_edit10[j++], BASE_HEX ) ) cnt++;
+			tmpStr    = m_edit10.Mid(i, j-i);
+			while ( cnt < 2*blockSize )
+			{
+				if ( cnt < 2*blockSize-1 && 0 == cnt % 2 ) tmpStr += ' ';
+				tmpStr += '0';				
+				cnt++;
+			}
+			m_edit13 += tmpStr;			
+			i = j;
+		}
+		else
+		{
+			m_edit13 += m_edit10.Mid(i, blockSize);
+			tmpStr    = m_edit10.Mid(i, blockSize);
+			while ( tmpStr.GetLength() < blockSize ) { 
+				tmpStr += ' '; m_edit13 += ' '; 
+			}
+			i += blockSize;
 		}
 		switch ( mode ) {
 			case MODE_HEX_DUMP:
+				{
+					char *data;
+					data = new char[blockSize];
+					if ( blockSize == HexDumpToData( tmpStr, data ) )
+					{
+						encode( data, NumStr, blockSize, baseNumbers, FALSE, NULL );
+					}
+					delete []data;
+				}
 				break;
 			case MODE_ASCII: 
+				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, FALSE, NULL );
 				break;
 			case MODE_ALPHABET:
+				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
 				break;
 			case MODE_DLG_OF_SISTERS:
+				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
+				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers );
 				break;
 		}
 		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i+blockSize < m_edit10.GetLength() ) 
+		if ( i < m_edit10.GetLength() ) 
 		{
 			m_edit11 += " # ";
 			m_edit13 += " # ";
@@ -795,11 +827,11 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 	BOOL flag = TRUE;
 	int i1, i2;
 	i1 = i2 = 0;
-	CString tmp1, tmp2;
-	char _tmp2[512];
-	char _tmp3[512];
-	while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
+	CString tmp1;
+	// *************  Hier noch richtige groesse finden ....
+	char _tmp2[512]; 
 
+	while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
 	while ( i1 < m_edit13.GetLength() )
 	{
 		i2 = m_edit13.Find(" ", i1);
@@ -811,6 +843,13 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 		tmp1 = m_edit13.Mid(i1, i2-i1);
 		switch ( mode ) {
 			case MODE_ASCII: 
+				if ( blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, NULL ) )
+				{
+				}
+				else
+				{
+					// ************ internal error !
+				}
 				break;
 			case MODE_ALPHABET:
 				break;
@@ -872,14 +911,11 @@ void CMyRSADemoEdit::OnMyPaste()
 			dataLen = ((long *) globBuff)[0];
 			dataBuff = globBuff+sizeof(long);
 			char *tmpIn  = new char[dataLen+1];
-			char *tmpOut = new char[4*dataLen+1];
 			memcpy( tmpIn, dataBuff, dataLen);
 			int OutLength = 0;
-			// encodeASCII( tmpOut, OutLength, 4*dataLen, tmpIn,  0, dataLen, NULL );
-			tmpOut[OutLength] = '\0';
-			CString P = tmpOut;
+			CString P;
+			dataToHexDump( tmpIn, dataLen, P);
 			delete []tmpIn;
-			delete []tmpOut;
 
 			int startc, endc;
 			GetSel(startc, endc );
@@ -895,15 +931,19 @@ void CMyRSADemoEdit::OnMyPaste()
 			dataLen = strlen(globBuff);
 			dataBuff = globBuff;
 			char *tmpIn  = new char[dataLen+1];
-			char *tmpOut = new char[4*dataLen+1];
-			memcpy( tmpIn, dataBuff, dataLen);
-			tmpIn[dataLen] = '\0';
-			int OutLength = 0;
-			// encodeASCII( tmpOut, OutLength, 4*dataLen, tmpIn,  0, dataLen, NULL );
-			tmpOut[OutLength] = '\0';
-			CString P = tmpOut;
-			delete []tmpIn;
-			delete []tmpOut;
+			CString P = _T("");
+			unsigned char *p = (unsigned char*)dataBuff;
+			for ( int i=0; i<dataLen; i++ )
+			{
+				if ( p[i] >= 32 && IsPrint( (unsigned char)p[i] ) )
+				{
+					P += p[i];
+				}
+				else if ( p[i] == '\r' ) // Kodieren eines <CR> als <SPACE>
+				{
+					P += ' ';
+				}
+			}
 
 			int startc, endc;
 			GetSel(startc, endc );

@@ -37,7 +37,7 @@ extern volatile long ExitFactorisationCode;
 #define SSIZE 1000000     /* Maximum sieve size            */
 
 #define INCREASE_THE_BASE     1
-#define SPLIT_NUMBERS_VSMODUL 2
+#define SPLIT_NUMBERS_VSMODUL 24
 #define SPLIT_NUMBERS_VSFLOOR 4
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +57,6 @@ extern volatile long ExitFactorisationCode;
 #define WHITESPACE    " \t\r\n"
 #define NUMBER_SEPARATOR " \r\n#,;:"
 #define SEPARATOR     " # "
-
 
 BOOL isCharOf( const char ch, const char *expr );
 BOOL Whitespace( char ch );
@@ -81,6 +80,7 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet );
 void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, int OutLength = 0);
 void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, int OutLength = 0);
+void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval = 20 ); 
  
 class evaluate  
 {
@@ -149,12 +149,9 @@ public:
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }
 	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10);
-	void EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10);
-	void DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void DecryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
-	// BOOL CheckInput( CString &Input, int base, int base2 = 0 );
 
 private:
 	BOOL SetPublicKey ( Big &e );

@@ -154,13 +154,14 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList 
 
 // ... the check and formatting the number Streams
 	while ( end < CStr.GetLength() && isCharOf(CStr[end], NUMBER_SEPARATOR) ) end++;
-    	while ( TRUE )
+   	while ( TRUE )
 	{
 		start = end;
 		while ( end < CStr.GetLength() )
 		{
 			if ( isCharOf(CStr[end], NUMBER_SEPARATOR) ) break;
 			if ( !IsNumber(CStr[end], newNumberBase) ) return FALSE;
+			end++;
 		}
 
 		tmp = CStr.Mid(start, end-start);
@@ -191,11 +192,11 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList 
 		{
 			fmt = fmt + tmp;
 		}
-		while ( end < CStr.GetLength() && Whitespace(CStr[end]) ) end++;
+		while ( end < CStr.GetLength() && isCharOf(CStr[end], NUMBER_SEPARATOR ) ) end++;
 		if ( end >= CStr.GetLength() ) break;
 		else                           fmt = fmt + SEPARATOR;
 	}
-	CStr = tmp;
+	CStr = fmt;
 	return newNumberBase;
 }
 
@@ -235,8 +236,8 @@ void dataToHexDump( const char* data, int len, char* hexDump )
 	int j=0;
     	for (int i=0; i<len; i++) 
 	{
-		hexDump[j++] = ToHex(data[i] >> 4);
-		hexDump[j++] = ToHex(data[i] % 16);
+		hexDump[j++] = ToHex(((unsigned char)data[i]) / 16);
+		hexDump[j++] = ToHex(((unsigned char)data[i]) % 16);
 		if ( i+1 < len ) hexDump[j++] = ' ';
 		else             hexDump[j++] = '\0';
 	}
@@ -282,7 +283,8 @@ int HexDumpToData( const char *hexDump, char *data )
 int HexDumpToData( CString &hexDump, char *data )
 {
 	char *tmp;
-	tmp = new char[hexDump.GetLength()];
+	tmp = new char[hexDump.GetLength()+1];
+	strcpy( tmp, hexDump.GetBuffer(0) );
 	int retVal = HexDumpToData( tmp, data );
 	hexDump = tmp;
 	delete []tmp;
@@ -297,11 +299,13 @@ int StringToBig( const char* StrNumber, Big &t, int base )
 {
 	char *tmp;
 	tmp = new char[strlen(StrNumber)+1];
-	int i,j;
-	for (i=j=0; StrNumber[i] != 0; i++) {
+	int i = 0,j;
+	while ( Whitespace(StrNumber[i]) && StrNumber[i] ) i++;
+	for ( j=0; StrNumber[i] != 0; i++) {
 		if ( IsNumber(StrNumber[i], base) ) tmp[j++] = StrNumber[i];
-		if (!Whitespace(StrNumber[i])) break;
+		else /* if (!Whitespace(StrNumber[i])) */ break;
 	}
+	tmp[j] = '\0';
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
@@ -396,21 +400,21 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
 
 	int i,j, modul, digits, alphabetLength;
 	alphabetLength = ( alphabet == NULL ) ? 256 : strlen(alphabet);
-    	digits = (int)ceil(log(alphabetLength)/log(numberBase));
-    	if ( basisSystem )
+   	digits = (int)ceil(log(alphabetLength)/log(numberBase));
+   	if ( basisSystem )
 	{
-	    	modul = numberBase;
-        	for (i=1; i<digits; i++) modul *= basisSystem;
+    	modul = numberBase;
+       	for (i=1; i<digits; i++) modul *= numberBase;
 	} 
-    	else    
-		modul = alphabetLength;
-    	for ( i=0; i<blockLength; i++ )
+   	else    
+	modul = alphabetLength;
+   	for ( i=0; i<blockLength; i++ )
 	{
-	    	if ( alphabet ) for ( j=0; j < modul && data[i] != alphabet[j]; ) j++;
-        	else            j = (unsigned char)data[i];
- 	    	tmp *=modul;
-        	tmp += j;
-    	}
+    	if ( alphabet ) for ( j=0; j < modul && data[i] != alphabet[j]; ) j++;
+       	else            j = (unsigned char)data[i];
+    	tmp *=modul;
+       	tmp += j;
+   	}
 	BigToString( tmp, numStr, numberBase );
 }
 
@@ -421,6 +425,14 @@ void encode( const char *data, CString &numCStr, int blockLength, int numberBase
     encode ( data, tmp, blockLength, numberBase, basisSystem, alphabet );
     numCStr = tmp;
     delete []tmp;
+}
+
+void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval )
+{
+	Big t;
+	CStringToBig( StrNum, t, numberBase );
+	t = t + ((rand() % randInterval)*Modul);
+	BigToCString( t, StrNum, numberBase );
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -434,8 +446,6 @@ void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 		r=rand(upper-(lower-1))+(lower-0);
 	}
 }
-
-
 
 
 //////////////////////////////////////////////////////////////////////
@@ -635,30 +645,8 @@ BOOL GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
 	return SetLimits( LowerLimit, UpperLimit );
 }
 
-
-/* 
-BOOL TemplatePrimeNumberTest(unsigned long probabilityThreshold)
-{
-	if ( p <= 10 )
-	{
-		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
-		else                                        Error |= GP_ERROR_NOPRIME;
-	}
-	else
-	{
-		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
-	
-		// PrimeNumberTest coding .....
-
-	}
-	return ( Error &= GP_ERROR_NOPRIME );
-}
-*/
-
-
 BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 {
-
 	if ( p <= 10 )
 	{
 		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
@@ -845,10 +833,8 @@ TutorialRSA::~TutorialRSA()
 int TutorialRSA::InitParameter( Big &p, Big &q )
 {
 	isInitialized_N = isInitialized_e = isInitialized_d = false;
-	GeneratePrimes P; P.SetP( p );
-	if ( !P.SolvayStrassenTest() ) return ERR_P_NOT_PRIME;
-	GeneratePrimes Q; Q.SetP( q );
-	if ( !Q.SolvayStrassenTest() ) return ERR_Q_NOT_PRIME;
+	if ( !prime( p ) ) return ERR_P_NOT_PRIME;
+	if ( !prime( q ) ) return ERR_Q_NOT_PRIME;
 	if (p==q) return ERR_P_EQUALS_Q;
 	N = p*q;
 	phiOfN = (p-1)*(q-1);
@@ -959,81 +945,6 @@ BOOL TutorialRSA::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 		return false;
 	}
 }
-/*
-BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
-{	
-	int i1 = 0, i2 = 0;
-	CString newInput = "";
-	CString oldInput = Input;
-	Big tmp, tmpN=1;
-	CString tmpStr;
-	if (base2) while ( tmpN*base2 < N ) tmpN *= base2;
-	else tmpN = N;
-	Input.MakeUpper();
-
-	while ( i1 < Input.GetLength() )
-	{
-		bool flag = false;
-		if ( i2 >= Input.GetLength() )
-		{
-			flag = true;
-			if ( i2 == i1 )
-				break;
-		}
-		else
-			if ( Input[i2] >= '0' && Input[i2] <= '0' + (char)(min(10,base) -1) )
-			{
-				i2++; 
-			}
-			else 
-				if ( ( 10 < base ) && 
-				     ( Input[i2] >= 'A' && Input[i2] <= 'A' + (char)(base-11) ) )
-				{
-					i2++;
-				}
-				else
-				{
-					while ( Input[i2] == ' ' || Input[i2] == '\t' )
-						Input.Delete(i2);
-					if ( Input[i2] == '#' || Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' )
-					{
-						// if ( i2 > i1 && Input[i2] == '#' ) flag = true;
-						while ( Input[i2] == ' ' || Input[i2] == '\t' || Input[i2] == '#' || 
-							    Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' ) 
-							Input.Delete(i2);
-						flag = true;
-					}
-					else 
-						if ( Input[i2] == 0 )
-						{
-							flag = true;
-						}
-						else
-						{
-							Input = oldInput;
-							return false;
-						}
-				}
-		if ( i2 > i1 )
-		{
-			tmpStr = Input.Mid(i1, i2-i1);
-			CStringToBig( tmpStr, tmp, base );
-			if ( flag == true )
-			{
-				if ( newInput.GetLength() > 0 ) 
-				{
-					newInput.Insert(newInput.GetLength(), " # "); // = newInput + " # ";
-				}
-				BigToCString( tmp, tmpStr, base );
-				newInput.Insert(newInput.GetLength(), tmpStr); //  = newInput + tmpStr;
-				i1 = i2;
-			}
-		}
-	}
-	Input = newInput;
-	return true;
-}
-*/
 
 void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 {
@@ -1066,15 +977,6 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 			Ciphertext += " # ";
 	}
 }
-
-void TutorialRSA::EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
-{
-}
-
-void TutorialRSA::DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
-{
-}
-
 
 void TutorialRSA::EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
 {
@@ -1276,11 +1178,6 @@ BOOL TutorialFactorisation::IsPrime(CString &Num)
 	set_mip(mip);
 	Big tmpN;
 	CStringFormulaToBig( Num, tmpN );
-	/*
-	GeneratePrimes P; P.SetP( tmpN );
-	if ( P.SolvayStrassenTest() ) return TRUE;
-	return FALSE;
-	*/
 	return ( prime( tmpN ) );
 }
 
