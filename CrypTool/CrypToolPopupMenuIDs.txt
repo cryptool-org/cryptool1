@@ -1,0 +1,102 @@
+# PURPOSE OF THIS FILE
+#
+# This file introduces some redundancy by storing the popup menu ids,
+# which are generated automatically during run-time when a user presses
+# F1 while a menu with sub menu is selected. Those popup menu ids (pmenuids)
+# must be present in the online help source (*.rtf) as A-footnotes (similar 
+# to K-footnotes that are used to introduce key words, see help compiler 
+# online help for details). 
+#
+# The redundancy was introduced to aid in maintaining the menus consitent 
+# with the online help: whenever someone adds/changes/removes a menu entry
+# with sub menu, this change is detected during compile time and an error is 
+# flagged (s. below for possible errors). This is done to make people aware 
+# that the online help has to be updated manually (drawback: this file also
+# has to be updated manually).
+#
+# BACKGOUND
+# 
+# F1 does not work in MFC for menus with sub menus. This is because the 
+# ressource file syntax for popup menus does not include the ID that is used
+# for all other menu items. This ID is normally used to invoke the online
+# help topic corresponding to a menu item. To make F1 work on menu items 
+# with sub menus we generated a new identifier derived from the menu label.
+#
+# FILE FORMAT
+#
+# lines starting with # are ignored. 
+# for each menu with sub menu (called popup menu in *.rc) there must 
+# exist a line of the following form:
+#
+# language[white space]pmenuid[white space]# menu labels from ressources
+#
+# where
+# - language is ENGLISH or GERMAN
+# - pmenuid is derived from the menu labels up to the root by removing all
+#		non alphanumerical characters and appending the labels separated by _ 
+# - #... has the unmodified menue lables separated by | for reference
+#
+# ERROR MESSAGES
+# error: CrypTool.rc:line#: This menu entry is the same as an earlier one (<menu label sequence>) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1
+#	this flags inconsistency between two copies of a menu item. Possible reason: inconsitent keyboard accelerators
+# error: CrypToolPopupMenuIDs.txt:line#: Menu text was changed in CrypTool.rc:line#? Please update CrypToolPopupMenuIDs.txt to # <menu label sequence>
+#   this means in most cases that a menu entry was changed in the resources, 
+#	so that online help and this files have to be updated
+# error: CrypToolPopupMenuIDs.txt:line#: Popup menu deleted from CrypTool.rc? Please check and possibly delete this line
+#	this means in most cases that a menu entry was deleted from the resources,
+#	so that the online help and this file have to be updated
+# error: CrypTool.rc:line#: New menu entry? Please update CrypToolPopupMenuIDs.txt: <language> <pmenuid> # <menu label sequence>
+#	this means in most cases that a new menu entry was introduced,
+#	so that the online help and this file have to be updated
+
+ENGLISH	Analysis	# &Analysis
+ENGLISH	Analysis_Algorithms	# &Analysis|A&lgorithms
+ENGLISH	Analysis_CiphertextOnly	# &Analysis|""&Ciphertext Only""
+ENGLISH	Analysis_General	# &Analysis|&General
+ENGLISH	Analysis_KnownPlaintext	# &Analysis|""&Known Plaintext""
+ENGLISH	Analysis_ManualAnalysis	# &Analysis|&Manual Analysis
+ENGLISH	Analysis_RandomTests	# &Analysis|&Random Tests
+ENGLISH	Crypt	# &Crypt
+ENGLISH	Crypt_Asymmetric	# &Crypt|&Asymmetric
+ENGLISH	Crypt_Classical	# &Crypt|&Classical
+ENGLISH	Crypt_Symmetric	# &Crypt|&Symmetric
+ENGLISH	DigitalSignatures	# Digital &Signatures
+ENGLISH	Edit	# &Edit
+ENGLISH	File	# &File
+ENGLISH	Help	# &Help
+ENGLISH	IndivProcedures	# &Indiv. Procedures
+ENGLISH	IndivProcedures_Compress	# &Indiv. Procedures|&Compress
+ENGLISH	IndivProcedures_Hash	# &Indiv. Procedures|&Hash
+ENGLISH	IndivProcedures_RSADemonstration	# &Indiv. Procedures|&RSA Demonstration
+ENGLISH	KeyManagement	# &Key Management
+ENGLISH	Options	# &Options
+ENGLISH	View	# &View
+ENGLISH	Window	# &Window
+GERMAN	Analyse	# A&nalyse
+GERMAN	Analyse_Algorithmen	# A&nalyse|A&lgorithmen
+GERMAN	Analyse_Allgemein	# A&nalyse|&Allgemein
+GERMAN	Analyse_Zufallstests	# A&nalyse|&Zufallstests
+GERMAN	Analyse_ciphertextonly	# A&nalyse|""&ciphertext only""
+GERMAN	Analyse_knownplaintext	# A&nalyse|""&known plaintext""
+GERMAN	Analyse_manuelleAnalyse	# A&nalyse|&manuelle Analyse
+GERMAN	Ansicht	# &Ansicht
+GERMAN	Bearbeiten	# &Bearbeiten
+GERMAN	Datei	# &Datei
+GERMAN	DigitaleSignaturen	# D&igitale Signaturen
+GERMAN	Einzelverfahren	# &Einzelverfahren
+GERMAN	Einzelverfahren_Hashwerte	# &Einzelverfahren|&Hashwerte
+GERMAN	Einzelverfahren_Hybridverfahren	# &Einzelverfahren|&Hybridverfahren
+GERMAN	Einzelverfahren_Komprimieren	# &Einzelverfahren|&Komprimieren
+GERMAN	Einzelverfahren_RSADemo	# &Einzelverfahren|&RSA-Demo
+GERMAN	Fenster	# &Fenster
+GERMAN	Hilfe	# &Hilfe
+GERMAN	Optionen	# &Optionen
+GERMAN	Schlsselverwaltung	# &Schlüsselverwaltung
+GERMAN	VerEntschlsseln	# &Ver-/Entschlüsseln
+GERMAN	VerEntschlsseln_Asymmetrisch	# &Ver-/Entschlüsseln|&Asymmetrisch
+GERMAN	VerEntschlsseln_Klassisch	# &Ver-/Entschlüsseln|&Klassisch
+GERMAN	VerEntschlsseln_Symmetrisch	# &Ver-/Entschlüsseln|&Symmetrisch
+
+
+
+

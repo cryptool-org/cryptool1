@@ -446,6 +446,35 @@ SOURCE=.\CrypToolApp.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\CrypToolPopupMenuIDs.txt
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+USERDEP__CRYPTO="CrypTool.rc"	
+# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
+InputPath=.\CrypToolPopupMenuIDs.txt
+
+"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckPopupMenuIDs.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+USERDEP__CRYPTO="CrypTool.rc"	
+# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
+InputPath=.\CrypToolPopupMenuIDs.txt
+
+"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckPopupMenuIDs.bat
+
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
 SOURCE=.\CrypToolTools.cpp
 # End Source File
 # Begin Source File
