@@ -156,7 +156,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnEinzelverfahrenHashwerteHashdemo)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridentschlsselung)
-	ON_COMMAND(IDD_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
+	ON_COMMAND(ID_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -1218,8 +1218,23 @@ void CCryptDoc::OnPlayfairAnalyse()
 
 void CCryptDoc::OnVitanyAnalyse()
 {
-	CryptPar *para;
+	{
+		struct stat *obj;
+		obj = new (struct stat);
+		obj->st_size;
+		stat((const char*)ContentName,obj);
+		int error = 0;
+		if ( 500 > obj->st_size )
+		{
+			Message( IDS_VITANY_ERR_FILESIZE, MB_ICONSTOP );
+			error = 1;
+		}
+		delete obj;
+		if ( error )
+			return;
+	}
 
+	CryptPar *para;
 	para = (CryptPar *) malloc(sizeof(CryptPar));
     UpdateContent();
 	memset(para,0,sizeof(CryptPar));
