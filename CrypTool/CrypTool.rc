@@ -1639,7 +1639,7 @@ END
 IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gramm Liste"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
@@ -5928,8 +5928,8 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
                     IDC_STATIC,0,152,242,17
-    CTEXT           "It is based on the security library",IDC_STATIC,1,200,241,
-                    8
+    CTEXT           "It is based on the security library",IDC_STATIC,1,200,
+                    241,8
     EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
@@ -6215,7 +6215,6 @@ BEGIN
                     104,BS_CENTER
     GROUPBOX        " Review: ",IDC_STATIC,7,217,166,54,BS_CENTER
 END
-
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
@@ -7217,7 +7216,7 @@ END
 IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Determine list",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "&Save list",IDOK,7,163,99,24
@@ -8078,7 +8077,7 @@ BEGIN
 
             MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8223,7 +8222,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8239,7 +8238,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP "&Ciphertext Only"
+        POPUP "&Ciphertext-Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -8407,7 +8406,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8424,7 +8423,7 @@ BEGIN
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP "&Ciphertext Only"
+        POPUP "&Ciphertext-Only"
         BEGIN
             MENUITEM "&Addition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -8549,7 +8548,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8694,7 +8693,7 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Generation",       ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8710,7 +8709,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP "&Ciphertext Only"
+        POPUP "&Ciphertext-Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
