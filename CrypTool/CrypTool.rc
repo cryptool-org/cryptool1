@@ -9111,7 +9111,7 @@ BEGIN
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
-        MENUITEM "Show &As Text",               ID_TOTXT
+        MENUITEM "Show &as Text",               ID_TOTXT
         MENUITEM "&As HexDump ",                ID_TOHEX
     END
     POPUP "&Crypt"
@@ -9133,8 +9133,8 @@ BEGIN
             MENUITEM "RC&4...",                     ID_CRYPT_RC4
             MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
-            MENUITEM "&Triple-DES (ECB)...",        ID_CRYPT_3DES_ECB
-            MENUITEM "T&riple-DES (CBC)...",        ID_CRYPT_3DES_CBC
+            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
+            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -9434,16 +9434,16 @@ BEGIN
         END
         POPUP "&Random Tests"
         BEGIN
-            MENUITEM "&Frequency test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 test battery", 
+            MENUITEM "F&IPS PUB-140-1 Test Battery", 
                                                     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
 
         END
@@ -9477,8 +9477,8 @@ BEGIN
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple-DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple-DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -9506,7 +9506,7 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
-        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -9587,7 +9587,7 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
-        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -9661,8 +9661,8 @@ BEGIN
             MENUITEM "RC&4...",                     ID_CRYPT_RC4
             MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
-            MENUITEM "&Triple-DES (ECB)...",        ID_CRYPT_3DES_ECB
-            MENUITEM "T&riple-DES (CBC)...",        ID_CRYPT_3DES_CBC
+            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
+            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -9800,7 +9800,7 @@ BEGIN
     BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM SEPARATOR
-        MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
+        MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -10990,16 +10990,16 @@ BEGIN
     ID_ANALYSE_RC4          "Automatic analysis of encryption using the RC4 algorithm"
     ID_ANALYSE_DESECB       "Automatic analysis of encryption using the DES ECB algorithm"
     ID_ANALYSE_DESCBC       "Automatic analysis of encryption using the DES CBC algorithm"
-    ID_ANALYSE_TRIPLEDESECB "Automatic analysis of encryption using the Triple-DES ECB algorithm"
-    ID_ANALYSE_TRIPLEDESCBC "Automatic analysis of encryption using the Triple-DES CBC algorithm"
+    ID_ANALYSE_TRIPLEDESECB "Automatic analysis of encryption using the Triple DES ECB algorithm"
+    ID_ANALYSE_TRIPLEDESCBC "Automatic analysis of encryption using the Triple DES CBC algorithm"
     ID_ANALYSE_AES_RC6      "Automatic analysis of encryption using the RC6 algorithm"
     ID_ANALYSE_AES_RIJNDAEL "Automatic analysis of encryption using the Rijndael (AES) algorithm"
     ID_ANALYSE_AES_SERPENT  "Automatic analysis of encryption using the Serpent algorithm"
     ID_ANALYSE_AES_TWOFISH  "Automatic analysis of encryption using the Twofish algorithm"
     ID_VERNAM_BIN           "Vernam encryption"
     ID_CRYPT_RC4            "Encryption / decryption with RC4"
-    ID_CRYPT_3DES_ECB       "Encryption / decryption with Triple-DES (ECB mode)"
-    ID_CRYPT_3DES_CBC       "Encryption / decryption with Triple-DES (CBC mode)"
+    ID_CRYPT_3DES_ECB       "Encryption / decryption with Triple DES (ECB mode)"
+    ID_CRYPT_3DES_CBC       "Encryption / decryption with Triple DES (CBC mode)"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11176,8 +11176,8 @@ BEGIN
     IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE "Maximum input %d bytes"
     IDS_STRING_DES_ECB      "DES (ECB)"
     IDS_STRING_DES_CBC      "DES (CBC)"
-    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC)"
-    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB)"
+    IDS_STRING_TRIPLE_DES_CBC "Triple DES (CBC)"
+    IDS_STRING_TRIPLE_DES_ECB "Triple DES (ECB)"
     IDS_STRING_DECRYPTION_OF "%s decryption of <%s>"
 END
 
@@ -12042,8 +12042,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CRYPT_DES_CBC       "DES (CBC)"
-    IDS_CRYPT_TRIPLE_DES_ECB "Triple-DES (ECB)"
-    IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
+    IDS_CRYPT_TRIPLE_DES_ECB "Triple DES (ECB)"
+    IDS_CRYPT_TRIPLE_DES_CBC "Triple DES (CBC)"
     IDS_CRYPT_MARS          "MARS"
     IDS_CRYPT_RC6           "RC6"
     IDS_CRYPT_RIJNDAEL      "Rijndael (AES)"
