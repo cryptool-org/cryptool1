@@ -335,7 +335,8 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
+    CTEXT           "CrypTool     (Version 1.3.00 - beta 10)",IDC_STATIC,0,
+                    51,242,8
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
     CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
@@ -3988,7 +3989,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 beta 9"
+    IDR_MAINFRAME           "CrypTool 1.3.00 beta 10"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5405,7 +5406,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
+    CTEXT           "CrypTool     (Version 1.3.00 - beta 10)",IDC_STATIC,0,
+                    51,242,8
     CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
                     242,8
     CTEXT           "for creating employee awareness on the subject of cryptography.",
@@ -6452,8 +6454,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
                     19
-    PUSHBUTTON      "C&opy primes to clipboard",IDC_BUTTON_ACCEPT,11,224,110,
-                    20
+    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,11,224,110,20
     EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
@@ -6496,7 +6497,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "The RSA Cryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key    d = e^(-1)  (mod  phi(N)) is calculated from this.",
+    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",
                     IDC_STATIC,10,7,332,24
     GROUPBOX        "Prime number entry",IDC_STATIC,10,39,332,48
     LTEXT           "Prime number p",IDC_STATIC,19,52,55,8
@@ -8413,7 +8414,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 beta 9"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 10"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -9275,7 +9276,7 @@ BEGIN
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
                             "The FIPS-PUB-140-1 test battery is specified for 2.500 Bytes. Therefore only the first 2.500 Bytes will be tested."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "The FIPS-PUB-140-1 test battery cold not be exeuted: This test is specified for random data of 2.500 bytes (= 20.000 bits).\nYour input file must be at least 2.500 bytes long"
+                            "The FIPS-PUB-140-1 test battery cold not be exeuted: This test is specified for random data of 2.500 bytes (= 20.000 bits).\nYour input file must be at least 2.500 bytes long."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + test length must be smaller than the file size !"
     IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s passed !"
