@@ -28,6 +28,7 @@ void CSchluesselAusgabeLinear::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSchluesselAusgabeLinear)
+	DDX_Control(pDX, IDC_EDIT1, m_CtrlKey);
 	DDX_Text(pDX, IDC_EDIT1, m_Key);
 	//}}AFX_DATA_MAP
 }
@@ -35,11 +36,33 @@ void CSchluesselAusgabeLinear::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSchluesselAusgabeLinear, CDialog)
 	//{{AFX_MSG_MAP(CSchluesselAusgabeLinear)
-		// HINWEIS: Der Klassen-Assistent fügt hier Zuordnungsmakros für Nachrichten ein
+	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CSchluesselAusgabeLinear 
-// Behandlungsroutinen für Nachrichten CSchluesselAusgabeLinear 
-// Behandlungsroutinen für Nachrichten CSchluesselAusgabeLinear 
+
+
+void CSchluesselAusgabeLinear::OnCopyKey() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_CtrlKey.SetSel(0,-1);
+	m_CtrlKey.Copy();	
+}
+
+BOOL CSchluesselAusgabeLinear::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	// TODO: Zusätzliche Initialisierung hier einfügen
+	return FALSE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+int CSchluesselAusgabeLinear::DoModal() 
+{
+	// TODO: Speziellen Code hier einfügen und/oder Basisklasse aufrufen
+	return CDialog::DoModal();
+}
+

@@ -129,63 +129,6 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 	theApp.DoWaitCursor(0);
 }
 
-/*
-UINT zzgenit(PVOID p)
-{
-	CryptPar *par;
-	
-	par = (CryptPar *) p;
-	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
-	
-	class zzgen zz;
-	zz.DoModal();
-	
-	if((par->flags & CRYPT_DO_PROGRESS ) && (theApp.fs.m_canceled == 0)) {
-		while(theApp.fs.Set(100)!=100) Sleep(100);
-		theApp.fs.cancel();
-	}
-	
-	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
-	
-	par->flags |= CRYPT_DONE;
-	FreePar(par);
-	
-	return 0;
-}
-
-void homophoncrypt(const char *infile, const char *OldTitle)
-{
-	FILE *in,*out;
-    CMyDocument *NewDoc;
-	char outfile[128],title[128];
-
-	GetTmpName(outfile,"cry",".tmp");
-	in=fopen(infile,"r");	
-	out=fopen(outfile,"w");	
-	class dlg_homophon hom(in,out);
-	hom.DoModal();
-	if(hom.m_verschl==0)
-		hom.homophone->encrypt_text();
-	else
-		hom.homophone->decrypt_text();
-	fclose(in);
-	fclose(out);
-
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,hom.homophone->GetPassphrase());
-	remove(outfile);
-	if(NewDoc) {
-		if(hom.m_verschl==0)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,hom.homophone->GetPassphrase());
-		NewDoc->SetTitle(title);
-    }
-}
-*/
 
 void VigenereAsc(const char *infile, const char *OldTitle)
 {
@@ -403,8 +346,8 @@ void VernamBin(const char *infile, const char *OldTitle)
     }
 
 	theApp.DoWaitCursor(0);
-
 }
+
 
 void PlayfairBin(const char *infile, const char *OldTitle)
 {
@@ -473,6 +416,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	theApp.DoWaitCursor(0);
 }
 
+
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
     char outfile[128], title[128];
@@ -499,8 +443,8 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
     }
 
 	theApp.DoWaitCursor(0);
-
 }
+
 
 void Hill(const char *infile, const char *OldTitle)
 {

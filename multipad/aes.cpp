@@ -150,8 +150,39 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 		AfxMessageBox (line);
 		return;
 	}
+
+	strcpy(AlgTitel,"");           // Name setzen
+	switch (AlgId)
+	{
+	case 1:                        // Mars
+		strcpy(AlgTitel,"Mars");
+		break;
+	case 2:                        // RC6
+		strcpy(AlgTitel,"RC6");
+		break;
+	case 3:                        // Rijndael
+		strcpy(AlgTitel,"Rijndael");
+		break;
+	case 4:                        // Serpent
+		strcpy(AlgTitel,"Serpent");
+		break;
+	case 5:                        // Twofish
+		strcpy(AlgTitel,"Twofish");
+		break;
+	}
+	if ( 3 == AlgId )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_RIJNDAEL,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line, pc_str);
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_CANDIDATE,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,AlgTitel);
+	}
 	
     hexdialog KeyDialog(32);
+	KeyDialog.SetAlternativeWindowText(line);
 	if (KeyDialog.Display() != IDOK) 
 	{
 		return;
@@ -193,26 +224,6 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	datalen <<= 3;                 // Länge in Bits
 	
 	GetTmpName(outfile,"cry",".tmp");
-	
-	strcpy(AlgTitel,"");           // Name setzen
-	switch (AlgId)
-	{
-	case 1:                        // Mars
-		strcpy(AlgTitel,"Mars");
-		break;
-	case 2:                        // RC6
-		strcpy(AlgTitel,"RC6");
-		break;
-	case 3:                        // Rijndael
-		strcpy(AlgTitel,"Rijndael");
-		break;
-	case 4:                        // Serpent
-		strcpy(AlgTitel,"Serpent");
-		break;
-	case 5:                        // Twofish
-		strcpy(AlgTitel,"Twofish");
-		break;
-	}
 	
 	doaescrypt(AlgId,mode,keylen,keybuffhex,borg,datalen,bcip);
 	

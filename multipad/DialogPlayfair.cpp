@@ -276,7 +276,7 @@ void CDialogPlayfair::OnAnalyse()
 	int i,n,j,s;
 
 	// erstmal von der Vorlage eine Häufigkeitsverteilung der Digramme fürs deutsche Alphabet erstellen.
-	plf = new class Playfair("",m_Alg->size==6?1:0,"deutsch.txt","tmp",m_Alg->ReFormat,m_Alg->ConvertCase,1);
+	plf = new class Playfair("",m_Alg->size==6?1:0,theApp.TextOptions.m_StrRefFile,"tmp",m_Alg->ReFormat,m_Alg->ConvertCase,1);
 	n=min(m_Alg->numdigrams,plf->numdigrams);
 
 	dig=(struct digram *)malloc(n*sizeof(struct digram));

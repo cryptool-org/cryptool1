@@ -23,7 +23,6 @@ CDialogLaenge::CDialogLaenge(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDialogLaenge)
 	m_laenge = 0;
-	m_Sprache = 0;
 	//}}AFX_DATA_INIT
 }
 
@@ -34,7 +33,6 @@ void CDialogLaenge::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDialogLaenge)
 	DDX_Text(pDX, IDC_EDIT1, m_laenge);
 	DDV_MinMaxUInt(pDX, m_laenge, 1, 200);
-	DDX_Radio(pDX, IDC_RADIO1, m_Sprache);
 	//}}AFX_DATA_MAP
 }
 

@@ -90,7 +90,16 @@ void Dlg_Schluessel_gen::OnBUTTONGenerieren()
 	theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 	if (0==SG.password_based_key_deriv_funct(m_passwort, m_salt,m_dkLen,m_radio1,m_zaehler))
 	{
-		m_schluessel= ((CString) SG.str);
+		int ndx = 0, md = 0;
+		if ( SG.str[0] == '0' && ( SG.str[1] == 'X' || SG.str[1] == 'x' ) ) ndx = 2;
+		m_schluessel = (CString)"";
+        while ( SG.str[ndx] != 0 )
+		{
+			m_schluessel += SG.str[ndx++]; 
+			md = (md+1) % 2;
+		    if (!md && SG.str[ndx]  != 0 ) m_schluessel += " ";
+		}
+		// m_schluessel= ((CString) SG.str);
 	}
 	theApp.DoWaitCursor(-1);				// deaktiviert die Sanduhr (statt des Mauszeigers)
 	UpdateData(false);
@@ -125,7 +134,10 @@ void Dlg_Schluessel_gen::OnBUTTONcancel()
 void Dlg_Schluessel_gen::OnBUTTONUebernehmen() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
+	UpdateData(TRUE);
+	m_control_schluessel.SetSel(0,-1);
+	m_control_schluessel.Copy();
+	UpdateData(FALSE);
 }
 
 void Dlg_Schluessel_gen::CheckEdit(CString &m_edit,int & sels, int & sele)

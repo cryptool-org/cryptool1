@@ -19,7 +19,6 @@
 #include "DialogKeyHex.h"
 #include "ChrTools.h"
 #include "MyDocument.h"
-
 #include <iostream.h>
 #include <stdio.h>
 
@@ -31,6 +30,8 @@ static char THIS_FILE[] = __FILE__;
 
 extern char *Pfad; // Directory Path of the main programm
 
+// ========================================================================================
+// Automatic Caesar "ciphertext-only" analysis
 void CaesarAuto(const char *infile, const char *OldTitle)
 {
 	char name[256], name2[256], line[256], key[256];
@@ -40,6 +41,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	FILE *fi;
 	int i;
 	
+// == Caesar analysis doesent make sence if the ciphertext has length 0
 	fi = fopen(infile,"rb");
 	fseek(fi,0,SEEK_END);
 	i = ftell(fi);
@@ -51,15 +53,14 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		return;
 	}
 
+// == in the first step, the histograms of the ciphertext and the reference text will be displayed
 	if (theApp.Options.m_CHist) {
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_GERMAN,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(line,"%s%s",Pfad,pc_str);
-		HistogramASCII(line,pc_str1);
+		HistogramASCII(theApp.TextOptions.m_StrRefFile,theApp.TextOptions.m_StrTitle);
 		HistogramASCII(infile, OldTitle);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CMP_CIPHER_GERMAN,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CMP_CIPHER_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line, pc_str, theApp.TextOptions.m_StrTitle);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
-		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
+		theApp.m_MainWnd->MessageBox(line, pc_str1, MB_OK);
 	}
 	
 	theApp.DoWaitCursor(1);
@@ -70,6 +71,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	// Henrik Koy November 2000 
 	// Automatische Analyse wird abgebrochen, wenn weinger als 2 Zeichen 
 	// für die Analyse zur Verfügung stehen
+// == additional condition: if the sieved ciphertext length is 0 ... exit the procedure
 	if (text.GetSize() <= 1)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
@@ -79,27 +81,26 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	
-	SymbolArray deutsch(AppConv);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,"%s%s",Pfad,pc_str);
-	deutsch.Read(line);
-	deutsch+=1;
+// == compare the ciphertext and the reference text
+	SymbolArray reference(AppConv);
+	reference.Read(theApp.TextOptions.m_StrRefFile);
+	reference+=1;
 	
 	NGram t(text);
-	NGram d(deutsch);
+	NGram d(reference);
 	
 	DCorrelation c(d,t);
 	
 	if (theApp.Options.m_CKorr) {
-		// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
+	// == plot the correlation between the ciphertext and the reference text
 		GetTmpName(name,"cry",".plt");
 		
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName(line,sizeof(line),pc_str,OldTitle);
+		MakeNewName2(line,sizeof(line),pc_str,theApp.TextOptions.m_StrTitle,OldTitle);
 		
 		c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 		
-		// get the tmp name without file extension
+		// == get the tmp name without file extension
 		strcpy(name2, name);
 		name2[strlen(name)-4] = 0x0;
 		
@@ -119,11 +120,9 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 			ar.Close(); f.Close();
 			
 		}
-		
-		NewDoc = theApp.OpenDocumentFileNoMRU(name);
-		
-		remove(name); remove(name2);    // delete temporary files
-		
+
+		NewDoc = theApp.OpenDocumentFileNoMRU(name);		
+		remove(name); remove(name2);    // delete temporary files		
 		if(NewDoc) {
 			NewDoc->SetTitle(line);
 		}
@@ -131,9 +130,11 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
-	
+
+// == seek for the assumed decryption key 
 	int shift=c.FindPeak();
 	
+// == the user may change the proposed decryption key via the dialog
 	if(theApp.Options.m_CKey) {
 		CDialoKeyCaesar dia;
 		
@@ -142,6 +143,8 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		if(dia.m_string.GetLength() == 1) shift = theApp.TextOptions.m_alphabet.Find(dia.m_string[0]);
 		else shift = 0;
 	}
+
+// == decrypt the ciphertext
 	text-=shift;
 	text-=1;
 	GetTmpName(name,"cry",".tmp");
@@ -161,6 +164,8 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	
 }
 
+// ======================================================================================
+// Automatic Vigenere "ciphertext-only" analysis
 UINT VigenereAuto(PVOID p)
 {
 	char name[256], name2[256], line[256], line2[256], key[256];
@@ -170,6 +175,7 @@ UINT VigenereAuto(PVOID p)
 	int av, mx, s, periode, r;
 	CryptPar para;
 	
+// == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		theApp.DoWaitCursor(1);
@@ -179,17 +185,14 @@ UINT VigenereAuto(PVOID p)
 		theApp.fs.Set(0,pc_str);
 	}
 	
-	Opt.m_VKey = theApp.Options.m_VKey;
+	Opt.m_VKey  = theApp.Options.m_VKey;
 	Opt.m_VKorr = theApp.Options.m_VKorr;
-	Opt.m_VLen = theApp.Options.m_VLen;
+	Opt.m_VLen  = theApp.Options.m_VLen;
 	Opt.m_VBase = theApp.Options.m_VBase;
 	
 	SymbolArray text(AppConv);
     text.Read(par->infile);
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// Henrik Koy November 2000 
-	// Automatische Analyse wird abgebrochen, wenn weinger als 2 Zeichen 
-	// für die Analyse zur Verfügung stehen
+	// ## if the ciphertext-length is less than 4, abort procedure (added code Nov 2000)
 	if (text.GetSize() <= 3)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
@@ -199,8 +202,7 @@ UINT VigenereAuto(PVOID p)
 	}
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
-
-	SCorrelation c(text,min(text.GetSize()/* /2 */,200));	// Auto-Korrelation 1..200 betrachten,*/
+	SCorrelation c(text,min(text.GetSize(), 200));	// Auto-correlation restricted to 1..200 
 	
 	memset(&para,0,sizeof(para));
 	para.infile = par->infile;
@@ -212,6 +214,7 @@ UINT VigenereAuto(PVOID p)
 		para.flags= (par->flags & CRYPT_DO_PROGRESS);
 	if(c.GetSize()<2)
 		para.flags&=!CRYPT_DISPLAY_BG;
+	// == execute and plot the autocorrelation
     r = Autocorr(&para);	
 	if(r) return r;
 	if (Opt.m_VKorr) 
@@ -221,6 +224,7 @@ UINT VigenereAuto(PVOID p)
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
 	}
 	
+// == compute the assumed key-length
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		theApp.DoWaitCursor(1);
 	
@@ -229,10 +233,7 @@ UINT VigenereAuto(PVOID p)
 	s = (av + mx) / 2;
 	for(periode=1;periode<c.GetSize();periode++) if(c[periode]>s) break;
 	
-// ==========================================================================
-// 2. Jan. 2001: Henrik Koy
-// Anpassen der automatischen Vigenere Analyse auf Mehrsprachigkeit
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// == Diplay (and edit) the assumed Key-Length
 	if(Opt.m_VLen) {
 		CDialogLaenge dia;
 		dia.m_laenge = periode;
@@ -242,28 +243,14 @@ UINT VigenereAuto(PVOID p)
 			return r;
 		}
 		periode = dia.m_laenge;
-	
-		switch ( dia.m_Sprache ) {
-		case(0):  // german
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,"%s%s",Pfad,pc_str);
-			break;
-		case(1):  // english
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ENGLISH,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,"%s%s",Pfad,pc_str);
-			break;
-		default: // is german
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,"%s%s",Pfad,pc_str);
-		}
 	}
 
-	SymbolArray language(AppConv);
-	language.Read(line);
-	language += 1;
-	NGram d(language);
-// ================ DAS WARS ====================================================
+	SymbolArray reference(AppConv);
+	reference.Read(theApp.TextOptions.m_StrRefFile);
+	reference += 1;
+	NGram d(reference);
 
+// == evaluate assumed key using the Caesar analysis for the partitioned ciphertext
 	if (Opt.m_VBase) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_GERMAN,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -271,10 +258,10 @@ UINT VigenereAuto(PVOID p)
 		HistogramASCII(line, pc_str1);
 	}
 	
-	// Einzelne Caesars Brechen	
+	// == Einzelne Caesars Brechen	
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
-		if (Opt.m_VBase) {
+		if (Opt.m_VBase) { // 
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
@@ -287,19 +274,17 @@ UINT VigenereAuto(PVOID p)
 		DCorrelation c(d,ng);
 		
 		int shift=c.FindPeak();
-		//		s-=shift;
-		//		text.Put(s,i,periode);
 		
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		// Henrik Koy 21.11.00 
-		// modulo c.GetSize() (Alphabet Größe) Rechnen! (um ein Arrayüberlauf zu verhindern).
+		// ## NEW CODE (Nov 00) 
+		// key evaluation is now modulo c.GetSize() (=alphabet-size). 
 		key[i] = theApp.TextOptions.m_alphabet[(shift+1) % c.GetSize()];
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		if (Opt.m_VBase) {
 			// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 			GetTmpName(name,"cry",".plt");
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CORRELATION_CAESAR_GERMAN,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,i+1);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CORRELATION_CAESAR_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str,i+1, theApp.TextOptions.m_StrTitle);
 			
 			c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 			
@@ -329,25 +314,25 @@ UINT VigenereAuto(PVOID p)
 			theApp.ThreadOpenDocumentFileNoMRU(name,line);
 			
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY_CHARACTER,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,i+1,theApp.TextOptions.m_alphabet[shift]);
+			// ## NEW CODE (Mai 01) '+1' insered: caused by difference Caesar <--> Vigenere-Caesar 
+			unsigned char CaesarKey = (theApp.TextOptions.m_alphabet[shift]+1 - 'A') % 26;
+			CaesarKey += 'A';		
+			sprintf(line,pc_str,i+1, CaesarKey ); 
+			// ## END NEW CODE
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
 			if(IDCANCEL==theApp.m_MainWnd->MessageBox(line,pc_str,MB_OKCANCEL)) Opt.m_VBase = FALSE;
 		}
 		
 	}
 	key[i]=0;
+
+// == display the ascertained key
 	SymbolArray KeyArray(AppConv);
 	if(Opt.m_VKey) {
 		CDialogVienereKey dia;
-		
 		dia.m_Str = key;
 		if(IDCANCEL == dia.DoModal()) return 0;
 		strcpy(key,dia.m_Str);
-		
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
-		//		sprintf(line,pc_str,key);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
-		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	periode = strlen(key); // check for iterated key
 	for(i=1;i<periode;i++) {
@@ -361,9 +346,10 @@ UINT VigenereAuto(PVOID p)
 			}
 		}
 	}
+
+// == decrypt the ciphertext
 	KeyArray.ReadString(key);
 	text -= KeyArray;
-	// und ausgeben
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
 	ForceReformat(par->infile,name, FALSE);
@@ -376,7 +362,8 @@ UINT VigenereAuto(PVOID p)
 	return 0;
 }
 
-// Plaintextangriff fuer Hill Cipher
+// ================================================================================================
+// "Known-plaintext" analysis for Hill-ciphers
 void HillPlain(const char *infile, const char *OldTitle)
 {
 	// Hill Klasse anlegen und Daten in Hill-Klasse fuellen
@@ -627,6 +614,10 @@ void HillPlain(const char *infile, const char *OldTitle)
 	}
 }
 
+
+
+// ========================================================================================================================
+// "Ciphertext-only" analysis for XOR-encryptions
 UINT XorAuto(PVOID p)
 {
 	char name[256], line[256], line2[256], MaxChar;
@@ -638,6 +629,7 @@ UINT XorAuto(PVOID p)
 	OptionsDialog Opt;
 	CryptPar para;
 	
+// == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		theApp.DoWaitCursor(1);
@@ -690,7 +682,8 @@ UINT XorAuto(PVOID p)
 	mx = (int) c.GetMax(1);
 	s = (av + mx) / 2;
 	for(periode=1;periode<c.GetSize()/*200*/;periode++) if(c[periode]>s) break;
-	
+
+// == Display (edit) the assumed key-length and enter the assumed most frequent plaintext-character
 	if(Opt.m_VLen) {
 		CDialogLaengeBin dia;
 		dia.m_laenge = periode;
@@ -703,7 +696,7 @@ UINT XorAuto(PVOID p)
 		MaxChar = dia.m_c;
 	}
 	
-	// Einzelne XORs Brechen	
+// == Partition the ciphertext and evaluete the assumed XOR-Key
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
@@ -725,12 +718,10 @@ UINT XorAuto(PVOID p)
 				m=ng[j];
 				shift=j;
 			}
-			//		s^=MaxChar^shift;
-			//		text.Put(s,i,periode);
-			
-			key[i] = shift ^ MaxChar;
-			
+		key[i] = shift ^ MaxChar;
 	}
+
+// == display the ascertained XOR-key
 	key[i]=0;
 	if(Opt.m_VKey) {
 		CDialogKeyHex dia;
@@ -743,10 +734,6 @@ UINT XorAuto(PVOID p)
 		
 		periode = dia.GetLen();
 		memcpy(key,dia.GetData(),periode);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
-		//		sprintf(line,pc_str,line2+1);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str,STR_LAENGE_STRING_TABLE);
-		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	for(i=1;i<periode;i++) { // check for repeated keys
 		if(periode%i == 0) {
@@ -760,7 +747,8 @@ UINT XorAuto(PVOID p)
 			}
 		}
 	}
-	// und ausgeben
+
+// == Decrypt the ciphertext 
 	for(i=0;i<periode;i++) sprintf(line2+(i*3)," %02.2X", key[i]);
 	SymbolArray KeyArray(IdConv,periode);
 	for(k=0;k<periode;k++) KeyArray[k]=key[k];
@@ -779,6 +767,9 @@ UINT XorAuto(PVOID p)
 	return r;
 }
 
+
+// ========================================================================================================================
+// "Ciphertext-only" analysis for ADD-encryptions
 UINT AddAuto(PVOID p)
 {
 	char name[256], line[256], line2[256], MaxChar;
@@ -791,6 +782,7 @@ UINT AddAuto(PVOID p)
 	CryptPar para;
 
 
+// == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		theApp.DoWaitCursor(1);
@@ -845,7 +837,8 @@ UINT AddAuto(PVOID p)
 	// ~~~~~~~~~ Henrik Koy 20. Nov 2000 
 	// Bug: 200 ==> Überlauf! wurde entfernt 
 	for(periode=1;periode<c.GetSize()/*200*/;periode++) if(c[periode]>s) break;
-	
+
+// == Display (edit) the assumed key-length and enter the assumed most frequent plaintext-character
 	if(Opt.m_VLen) {
 		CDialogLaengeBin dia;
 		dia.m_laenge = periode;
@@ -859,7 +852,7 @@ UINT AddAuto(PVOID p)
 	}
 	
 	
-	// Einzelne Adds Brechen	
+// == Partition the ciphertext and evaluete the assumed ADD-Key
 	for (int i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
@@ -889,7 +882,9 @@ UINT AddAuto(PVOID p)
 			key[i] = (shift+256-MaxChar) % 256;
 			
 	}
+
 	//	key[i]=0;
+// == display the ascertained XOR-key
 	key[periode]=0;
 	if(Opt.m_VKey) {
 		CDialogKeyHex dia;
@@ -902,11 +897,6 @@ UINT AddAuto(PVOID p)
 		
 		periode = dia.GetLen();
 		memcpy(key,dia.GetData(),periode);
-		
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY,pc_str,STR_LAENGE_STRING_TABLE);
-		//		sprintf(line,pc_str,line2+1);
-		//		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str,STR_LAENGE_STRING_TABLE);
-		//		theApp.m_MainWnd->MessageBox(line,pc_str,MB_OK);
 	}
 	for(i=1;i<periode;i++) { // check for repeated keys
 		if(periode%i == 0) {
@@ -920,7 +910,8 @@ UINT AddAuto(PVOID p)
 			}
 		}
 	}
-	// und ausgeben
+
+// == Decrypt the ciphertext 	
 	for(i=0;i<periode;i++) sprintf(line2+(i*3)," %02.2X", key[i]);
 	SymbolArray KeyArray(IdConv,periode);
 	for(i=0;i<periode;i++) KeyArray[i]=key[i];

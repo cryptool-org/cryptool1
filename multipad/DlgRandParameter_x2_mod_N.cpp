@@ -29,7 +29,7 @@ void DlgRandParameter_x2_mod_N::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgRandParameter_x2_mod_N)
 	DDX_Text(pDX, IDC_EDIT1, m_EditModul_N);
-	DDV_MinMaxLong(pDX, m_EditModul_N, 2, 2147483647);
+	DDV_MinMaxLong(pDX, m_EditModul_N, 2, 1000000000);
 	//}}AFX_DATA_MAP
 }
 

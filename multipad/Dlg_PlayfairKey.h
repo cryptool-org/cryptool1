@@ -28,7 +28,7 @@ public:
 	class Playfair *m_Alg;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlg_PlayfairKey)
-	enum { IDD = IDD_DIALOG_KEY_FAIRPLAY };
+	enum { IDD = IDD_DIALOG_KEY_PLAYFAIR };
 	int		m_Dec;
 	int		m_use;
 	int		m_sechs;

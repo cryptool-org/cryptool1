@@ -147,7 +147,7 @@ void DlgGenRandomData::OnGenRandomData()
 	UpdateData(TRUE);
 
 	GetTmpName(outfile,"rnd",".hex");
-	ofstream rndData(outfile);
+	ofstream rndData(outfile, ios::binary);
 	unsigned char	o;
 	long			i, j, l;
 

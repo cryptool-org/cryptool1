@@ -38,8 +38,7 @@ void Homophone_Ber::Make_enc_table()
 {
 	int i,last=0;
 
-
-	for(i=0;i<range;i++)
+	for(i=1;i<range;i++)
 	{
 		if(freq[i]>0.0)
 		{
@@ -51,29 +50,12 @@ void Homophone_Ber::Make_enc_table()
 				do_not_round_me[i]=true;
 			}
 		}
-/*
-		else
+		else if ( -1 != theApp.TextOptions.m_alphabet.Find(char(i)) )
 		{
 			enc_data[i][1]=1;
 			do_not_round_me[i]=true;
 		}
-*/
 	}
-
-/* 
-	if(FALSE==theApp.TextOptions.m_Case)
-	{
-		for(i='A';i<='Z';i++)
-		{
-			for(j=0;j<=1;j++)
-			{
-				enc_data[i][j] += enc_data[i+'a'-'A'][j];
-				freq[i]        += freq[i+'a'-'A'];
-				freq[i+'a'-'A'] =-1;
-			}
-		}
-	}
-*/
 
 	while(range!=Checksum())
 	{
@@ -317,7 +299,7 @@ const char* Homophone_Ber::GetKeyStr()
 void Homophone_Ber::load_enc_table(const char *keyStr)
 {
 	Init_Data();
-	long k, l, i, j = 0, Cnt = 0, Index;
+	long k, l, j = 0, Cnt = 0, Index;
 	bool LoadError = false;
 	while (keyStr[j] != 0)
 	{

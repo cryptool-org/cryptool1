@@ -20,7 +20,6 @@ public:
 	//{{AFX_DATA(CDialogLaenge)
 	enum { IDD = IDD_DIALOG_SCHLUESSELLAENGE };
 	UINT	m_laenge;
-	int		m_Sprache;
 	//}}AFX_DATA
 
 

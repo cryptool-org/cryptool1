@@ -16,6 +16,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CSchluesselAusgabeLinear)
 	enum { IDD = IDD_DIALOG_SCHLUESSEL_AUSGABE_LINEAR };
+	CEdit	m_CtrlKey;
 	CString	m_Key;
 	//}}AFX_DATA
 
@@ -23,6 +24,8 @@ public:
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CSchluesselAusgabeLinear)
+	public:
+	virtual int DoModal();
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
@@ -32,7 +35,8 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CSchluesselAusgabeLinear)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	afx_msg void OnCopyKey();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

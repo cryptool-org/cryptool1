@@ -61,6 +61,7 @@ void CMyDocument::Dump(CDumpContext& dc) const
 
 void CMyDocument::Serialize(CArchive& ar)
 {
+	CObject::Serialize( ar );
 	if (ar.IsStoring())
 	{
 		// ZU ERLEDIGEN: Code zum Speichern hier einfügen

@@ -57,6 +57,7 @@ hexdialog::hexdialog(int maxlen, CWnd* pParent /*=NULL*/)
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line,pc_str,len/3);
 	m_static_text = line;
+	s_alternativeWindowText[0] = 0;
 }
 
 int hexdialog::Display()
@@ -97,4 +98,22 @@ char * hexdialog::GetData( void )
 int hexdialog::GetLen( void )
 {
 	return min(i_maxlen, m_einfeld.BinLen);
+}
+
+BOOL hexdialog::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	// TODO: Zusätzliche Initialisierung hier einfügen	
+	if (s_alternativeWindowText[0])
+		SetWindowText(s_alternativeWindowText);
+	
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void hexdialog::SetAlternativeWindowText(LPCTSTR s_title)
+{
+    strncpy(s_alternativeWindowText, s_title, 126);
+	s_alternativeWindowText[126]=0;
 }

@@ -66,7 +66,53 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		return;
 	}
 
+// == Definition der Parameter
+	Key keyinfo;
+	KeyInfo info;
+	char AlgTitel[64];
+	switch (AlgId){
+	case 1://IDEA
+		info.subjectAI=theApp.SecudeLib.idea_aid;
+		sprintf(AlgTitel, "IDEA");
+		break;
+	case 2://DES-ECB
+		info.subjectAI=theApp.SecudeLib.desECB_aid;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(AlgTitel, pc_str);
+		break;
+	case 3://DES-CBC (Padding)
+		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(AlgTitel, pc_str);
+		break;
+	case 4://Triple-DES (CBC mode)
+		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(AlgTitel, pc_str);
+		break;
+	case 5://Triple-DES (ECB mode)
+		info.subjectAI=theApp.SecudeLib.desEDE_aid;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(AlgTitel, pc_str);
+		break;
+	case 6://RC4
+		info.subjectAI=theApp.SecudeLib.rc4_aid;
+		sprintf(AlgTitel, "RC4");
+		break;
+	case 7://RC2
+		info.subjectAI=theApp.SecudeLib.rc2CBC_aid;
+		sprintf(AlgTitel, "RC2");
+		break;
+	}
+
+
     hexdialog KeyDialog(KeyLength/8);
+	// ## NEW-CODE (Mai 01)
+	// key-input dialog gets now the approppriate title
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_SYMMETRIC,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(line,pc_str,AlgTitel);
+	KeyDialog.SetAlternativeWindowText(line);
+	// ## END NEW-CODE
 	// Aenderung Jens Liebehenschel, 18.02.00
 	// Bei Drücken von Escape oder Klicken auf Abbruch wird das Fenster 
 	// geschlossen, aber die Ver-/Entschluesselung wird trotzdem durchgefuehrt.
@@ -85,44 +131,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 
     GetTmpName(outfile,"cry",".tmp");
 
-	//Definition der Parameter
-	Key keyinfo;
-	KeyInfo info;
-	char *AlgTitel;
-	switch (AlgId){
-	case 1://IDEA
-		info.subjectAI=theApp.SecudeLib.idea_aid;
-		AlgTitel = "IDEA";
-		break;
-	case 2://DES-ECB
-		info.subjectAI=theApp.SecudeLib.desECB_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
-		AlgTitel = pc_str;
-		break;
-	case 3://DES-CBC (Padding)
-		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
-		AlgTitel = pc_str;
-		break;
-	case 4://Triple-DES (CBC mode)
-		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
-		AlgTitel = pc_str;
-		break;
-	case 5://Triple-DES (ECB mode)
-		info.subjectAI=theApp.SecudeLib.desEDE_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
-		AlgTitel = pc_str;
-		break;
-	case 6://RC4
-		info.subjectAI=theApp.SecudeLib.rc4_aid;
-		AlgTitel = "RC4";
-		break;
-	case 7://RC2
-		info.subjectAI=theApp.SecudeLib.rc2CBC_aid;
-		AlgTitel = "RC2";
-		break;
-	}
+
 	info.subjectkey.nbits=KeyLength;
 	info.subjectkey.bits=key;
 	keyinfo.key=&info;

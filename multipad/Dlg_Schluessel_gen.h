@@ -26,7 +26,7 @@ public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_Schluessel_gen)
-	enum { IDD = IDD_DIALOG_Schluessel_gen };
+	enum { IDD = IDD_DIALOG_SCHLUESSEL_GEN };
 	CEdit	m_control_zaehler;
 	CEdit	m_control_dkLen;
 	CEdit	m_control_schluessel;
