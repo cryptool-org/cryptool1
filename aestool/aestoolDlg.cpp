@@ -565,7 +565,7 @@ int CAestoolDlg::TestEncryptedFile(CString Filename)
 	m_SrcFile.Read(& DataLen, sizeof(long));
 	m_SrcFile.Read(& NameLen, sizeof(long));
 	m_SrcFile.Read(& Magic, sizeof(long));
-	if((l >= DataLen + NameLen + 12) && ( Magic == FILE_MAGIC )) { // restore encrypted data
+	if((l > DataLen + NameLen + 12) && ( Magic == FILE_MAGIC )) { // restore encrypted data
 		m_direction = DIR_DECRYPT;
 		tmp.LoadString(IDS_STRING_ENTSCHLUESSELN);
 		m_OK.SetWindowText(tmp);
