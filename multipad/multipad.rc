@@ -7563,7 +7563,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
-        POPUP "&Quality for random data"
+        POPUP "&Random Tests"
         BEGIN
             MENUITEM "&Frequency test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
@@ -7576,7 +7576,6 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 test battery", 
                                                     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
-
         END
     END
     POPUP "&Key Management"
