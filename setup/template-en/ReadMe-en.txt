@@ -38,8 +38,9 @@
 10. .... References / Hints
 10.1. .... Wirtschaftswoche special issue
 10.2. .... c't 14/2001, pp 204-208
-10.3. .... GISA citizen CD "Into the Internet - with Security"
-10.4. .... Freeware project Crank, CAP, CryptAid, etc
+10.3. .... DuD October 2002
+10.4. .... GISA citizen CD "Into the Internet - with Security"
+10.5. .... Freeware project Crank, CAP, CryptAid, etc
 11. .... Appendix
 11.1. .... Hints for using CrypTool on Linux with Wine
 
@@ -344,8 +345,8 @@ CrypTool.
 The package is distributed as compressed, self extracting archive
 in two language versions:
 
-SetupCrypTool_1-3-02_en.exe   English language support only.
-SetupCrypTool_1-3-02_de.exe   German language support only.
+SetupCrypTool_1-3-03_en.exe   English language support only.
+SetupCrypTool_1-3-03_de.exe   German language support only.
 
 The archives contain the following files:
 
@@ -371,8 +372,8 @@ script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
                    certain algorithms.
 script-de.pdf..... The German version of script-en.pdf.
-CrypToolPresentation_1_3_02_en.pdf.. Slides presentation
-CrypToolPresentation_1_3_02_de.pdf.. German version of presentation.
+CrypToolPresentation_1_3_03_en.pdf.. Slides presentation
+CrypToolPresentation_1_3_03_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf... German version of DialogueSisters.pdf.
@@ -821,7 +822,7 @@ CrypTool.
 In the special issue "Cryptography" of the magazine Wirtschaftswoche
 (Sept. 2000) there was a competition entitled "Crack the text!". 
 Please see http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
-cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html
+cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
 If you followed the tips provided, you could be able to crack the
 task using CrypTool in a few mouse clicks.
 
@@ -830,7 +831,16 @@ task using CrypTool in a few mouse clicks.
 A 5-page article on CrypTool was published in July 2001 in this
 renowned and widely circulated German computer magazine.
 
-10.3. GISA citizen CD "Into the Internet - with Security"
+10.3. DuD October 2002
+      ----------------
+A 4-page article on CrypTool will be published under the title
+"CrypTool - spielerischer Einstieg in klassische und moderne 
+Kryptographie...Neue Version - fundierte Awareness in Deutsch
+und Englisch" in the German technical journal "DuD Datenschutz
+und Datensicherheit" (Privacy and Data Protection), in the 
+issue 10/2002.
+
+10.4. GISA citizen CD "Into the Internet - with Security"
       ---------------------------------------------------
 The German Information Security Agency (GISA) and the German
 ministry for internal affairs published in spring 2002 a CD
@@ -840,7 +850,7 @@ CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
 
-10.4. Freeware project Crank, Griffon, CAP, CryptAid, etc
+10.5. Freeware project Crank, Griffon, CAP, CryptAid, etc
       ---------------------------------------------------
 http://freshmeat.net/projects/crank/
 Crank was initiated in January 2001 by Matthew Russell and is

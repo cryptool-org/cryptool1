@@ -38,8 +38,9 @@
 10. .... Verweise
 10.1. .... Wirtschaftswoche Spezial
 10.2. .... c't 14/2001, S. 204-208
-10.3. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
-10.4. .... Freeware-Projekt Crank, CAP, CryptAid,  etc.
+10.3. .... DuD Oktober 2002
+10.4. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
+10.5. .... Freeware-Projekt Crank, CAP, CryptAid,  etc.
 11. .... Anhang
 11.1. .... CrypTool unter Linux mit Wine
 
@@ -352,8 +353,8 @@ CrypTool bleibt.
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
 zwei Sprachversionen verteilt:
 
-SetupCrypTool_1-3-02_en.exe    Englische Sprachversion.
-SetupCrypTool_1-3-02_de.exe    Deutsche Sprachversion.
+SetupCrypTool_1-3-03_en.exe    Englische Sprachversion.
+SetupCrypTool_1-3-03_de.exe    Deutsche Sprachversion.
 
 Diese Archive enthalten die folgenden Dateien:
 
@@ -380,8 +381,8 @@ script-de.pdf..... Ein Skript (deutsch) über Kryptographie,
                    Primzahlen, Zahlentheorie und die Mathematik
                    hinter einigen Algorithmen.
 script-en.pdf..... Die englische Fassung von script-de.pdf.
-CrypToolPresentation_1_3_02_de.pdf... Folien-Präsentation
-CrypToolPresentation_1_3_02_en.pdf... Englische Fassung der Präs.
+CrypToolPresentation_1_3_03_de.pdf... Folien-Präsentation
+CrypToolPresentation_1_3_03_en.pdf... Englische Fassung der Präs.
 DialogSchwestern.pdf.. Fantasy-Geschichte von Dr. Elsner, in der
                        eine Variante des RSA-Kryptosystems
                        beschrieben wird.
@@ -840,10 +841,11 @@ CrypTool einsetzen.
     --------
 10.1. Wirtschaftswoche Spezial
       ------------------------
-Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche (Rubrik
-Netzwelt Sept. 2000) enthielt ein Preisausschreiben: "Knacken Sie den
-Text!" unter der URL http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/
-buildww/cn/cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html
+Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche 
+(Rubrik Netzwelt Sept. 2000) enthielt ein Preisausschreiben: 
+"Knacken Sie den Text!" unter der URL 
+http://www.wiwo.de/wiwowwwangebot/fn/ww/sfn/buildww/cn/
+cn_artikel/id/62633!100301/SH/0/depot/0/bt/1/index.html.
 Wenn man sich an die Tipps der Aufgabenstellung hielt, konnte man
 mit CrypTool die Aufgabe mit wenigen Mausklicks lösen.
 
@@ -853,7 +855,15 @@ In diesem renommierten und auflagenstarken deutsch-sprachigen
 Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
 CrypTool veröffentlicht.
 
-10.3. BSI Bürger-CD "Ins Internet - mit Sicherheit"
+10.3. DuD Oktober 2002
+      ----------------
+In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und 
+Datensicherheit", Ausgabe 10/2002 erscheint unter dem Titel 
+"CrypTool - spielerischer Einstieg in klassische und moderne 
+Kryptographie. Neue Version - fundierte Awareness in Deutsch
+und Englisch" ein 4-seitiger Artikel über CrypTool.
+
+10.4. BSI Bürger-CD "Ins Internet - mit Sicherheit"
       ---------------------------------------------
 Das Bundesamt für Sicherheit in der Informationstechnik (BSI) hat
 zusammen mit dem Deutschen Bundesinnenministerium zur CeBIT 2002
@@ -865,7 +875,7 @@ kryptographischen Sicherheitsfunktionen zu verbessern.
 Von dieser CD sind mehr als 600.000 Stück produziert und
 zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 
-10.4. Freeware-Projekt Crank, Griffon, CAP, CryptAid,  etc.
+10.5. Freeware-Projekt Crank, Griffon, CAP, CryptAid,  etc.
       -----------------------------------------------------
 http://freshmeat.net/projects/crank/
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
