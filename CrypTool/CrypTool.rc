@@ -4959,9 +4959,9 @@ BEGIN
     IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
                             "Chiffretext-Vektor C kodiert in Zahlen:"
     IDS_HILLEXAMPLE_ENCRYPTION 
-                            "Berechnung der Hill-Chiffrierung durch das Matrix-Vektorprodukt H[n]*K[n] (der Vektor K[n] ist ein Spaltenvektor):"
+                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrixprodukt K[n]*H[n] (der Vektor K[n] ist ein Zeilenvektor):"
     IDS_HILLEXAMPLE_DECRYPTION 
-                            "Berechnung der Hill-Dechiffrierung durch das Matrix-Vektorprodukt D[n]*C[n] (der Vektor C[n] ist ein Spaltenvektor):"
+                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrixprodukt C[n]*D[n] (der Vektor C[n] ist ein Zeilenvektor):"
     IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
     IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
