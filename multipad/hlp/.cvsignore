@@ -1,2 +1,5 @@
-CrypTool.log
-multipad.hm
+*.log
+*.hm
+*.tmp
+*.hlp
+*.HLP
