@@ -334,7 +334,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
@@ -346,18 +346,18 @@ BEGIN
     CTEXT           "haben die Universitäten \nTU Darmstadt, Universität Siegen und Universität Karlsruhe",
                     IDC_STATIC,0,136,242,17
     CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,158,241,11
-    CTEXT           "ein Demonstrationsprogramm für\nKryptographie und Mitarbeiter-Awareness entwickelt.",
-                    IDC_STATIC,1,173,241,16
-    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,201,241,
+    CTEXT           "entwickelt.\nEin Demonstrationsprogramm für\nKryptographie und Mitarbeiter-Awareness.",
+                    IDC_STATIC,1,173,241,24
+    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,204,241,
                     8
-    EDITTEXT        IDC_EDIT1,0,212,240,12,ES_CENTER | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT1,0,215,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
-    CTEXT           "Kontakt:",IDC_STATIC,0,231,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,234,241,10
     CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,289,242,17
     LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nwichmann@fzi.de",
-                    IDC_STATIC,70,241,145,35
+                    IDC_STATIC,70,244,145,35
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,18,222,116
     CTEXT           "Gemeinsam mit den Sponsoren",IDC_STATIC,1,8,241,8
@@ -5840,12 +5840,13 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
-    CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe",
+    CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
                     IDC_STATIC,0,152,242,17
-    CTEXT           "Based on the security library",IDC_STATIC,1,200,241,8
+    CTEXT           "It based on the security library",IDC_STATIC,1,200,241,
+                    8
     EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
@@ -5856,7 +5857,7 @@ BEGIN
                     IDC_STATIC,0,288,242,17
     CTEXT           "has been developed in a joint effort of the sponsors",
                     IDC_STATIC,1,21,241,8
-    CTEXT           "as a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
+    CTEXT           "CrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
                     IDC_STATIC,1,173,241,16
     CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,8,241,11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,36,105,37,
