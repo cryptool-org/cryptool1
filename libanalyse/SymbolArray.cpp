@@ -94,7 +94,7 @@ SymbolArray::SymbolArray(SymbolArray& s1, SymbolArray& s2, SymbolArray& s3) : ba
 {
 	TripleConverter* cnv=new TripleConverter(*s1.GetConverter(),*s2.GetConverter(),*s3.GetConverter()); 
 	Init(cnv);
-	int l=min(s1.GetSize(),s2.GetSize(),s3.GetSize());
+	int l=min(s1.GetSize(),min(s2.GetSize(),s3.GetSize()));
 	SetSize(l);
 	for (int i=0;i<l;i++) 
 		(*this)[i]=cnv->Combine(s1[i],s2[i],s3[i]);

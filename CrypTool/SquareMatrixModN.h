@@ -58,7 +58,7 @@ statement from your version.
 #ifndef SQUARE_MATRIX_INCLUDED
 #define SQUARE_MATRIX_INCLUDED
 
-#if defined(_MSC_VER) || _MSC_VER <= 1200
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #else
 #include <iostream>

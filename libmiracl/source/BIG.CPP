@@ -9,7 +9,7 @@
  *   Copyright (c) 1988-1997 Shamus Software Ltd.
  */
 
-#if defined(_MSC_VER) || _MSC_VER <= 1200
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #else
 #include <iostream>

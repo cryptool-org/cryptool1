@@ -57,7 +57,7 @@ statement from your version.
  * See Knuth The Art of Computer Programming Vol.2, Chapter 4.6 
  */
 
-#if defined(_MSC_VER) || _MSC_VER <= 1200
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #else
 #include <iostream>
