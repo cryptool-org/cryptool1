@@ -407,7 +407,7 @@ BEGIN
     CONTROL         "Hide password",IDC_RADIO_PHIDE,"Button",
                     BS_AUTORADIOBUTTON,149,41,79,10
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [maximal 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
                     IDC_STATIC,17,28,287,54
     GROUPBOX        "Input file",IDC_STATIC,17,93,287,39
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
