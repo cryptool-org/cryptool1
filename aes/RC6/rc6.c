@@ -158,6 +158,7 @@ void Rc6ComputeKeySchedule(BYTE* key, int keyLengthInBytes,
   *((unsigned long*) &(nextKeyDword[4])) = 0x08070605;
 
   count = 4;
+#pragma warning( disable : 4018)
   while ((count += 4) < c) {
     *((unsigned long*) &(nextKeyDword[count])) =
       (count*0x01010101UL)+0x04030201;

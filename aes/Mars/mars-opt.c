@@ -823,6 +823,7 @@ int blockEncryptMars(cipherInstanceMars *cipher, keyInstanceMars *key, BYTE *inp
             return(BAD_CIPHER_MODE);
 
         mars_encrypt(cipher->CIV, ECIV, key->E); 
+#pragma warning( disable : 4244)
         outBuffer[0] = (input[0] & 1)^(ECIV[0]>>31);
         cipher->CIV[0] = (cipher->CIV[0]<<1)|(cipher->CIV[1] & 0x80000000);
         cipher->CIV[1] = (cipher->CIV[1]<<1)|(cipher->CIV[2] & 0x80000000);

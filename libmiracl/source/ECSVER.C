@@ -37,6 +37,7 @@ static void hashing(FILE *fp,big hash)
 { /* compute hash function */
     char h[20];
     sha_r sh;
+#pragma warning( disable : 4101)
     int i,ch;
     shs_init(&sh);
     while ((ch=fgetc(fp))!=EOF) shs_process(&sh,ch);
