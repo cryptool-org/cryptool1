@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgHybridEncryptionDemo.h"
+#include "DialogeMessage.h"
 #include <fstream.h>
 #include "FileTools.h"
 #include <sys\stat.h>
@@ -223,8 +224,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 {
 	if(!m_arrSetButtons[2])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_SHOW_SYM_KEY,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message( IDS_STRING_HYB_SHOW_SYM_KEY, MB_ICONEXCLAMATION );
 		return;
 	}
 	
@@ -250,8 +250,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 {
 	if(!m_arrSetButtons[5])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_ENC_DOC_SYM,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_ENC_DOC_SYM, MB_ICONEXCLAMATION);
 		return;
 	}
 	UpdateData(true);
@@ -291,7 +290,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	char key[100];
 	theApp.DoWaitCursor(1);
 	strcpy(key,m_strSymKey.GetBuffer(0));
-	AESCrypt((char*)path, "", AlgId,strPathEncDocument,key);
+	AESCrypt((char*)path, "", AlgId,true,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
 	
 	unsigned char* cryDocument;
@@ -299,9 +298,12 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 //***********************************************************
 	ifstream crypt(strPathEncDocument,ios::in|ios::binary);
 	crypt.read(cryDocument,m_iDocSizeForEnc+KEY_LEN);
-
-
+	
 	int srcSize = crypt.gcount();
+	
+	CipherText.noctets= srcSize;
+	CipherText.octets = new char[srcSize];
+	memcpy( CipherText.octets, cryDocument, (size_t)srcSize );
 
 	int len = 20;
 	int destSize; 
@@ -337,11 +339,50 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 
 	if ( IDOK == rsaDlg.DoModal() ) 
 	{
+		CKeyFile KeyHandling;
+		CString caDB_entry_name = KeyHandling.CreateDistName(rsaDlg.Name, rsaDlg.Firstname, rsaDlg.CreatTime);
+		LPTSTR string1 = new TCHAR[caDB_entry_name.GetLength()+1];
+		_tcscpy(string1, caDB_entry_name);
+		char *Auswahl=string1; // Auswahl entspricht caDB_entry_name
+		PSE PseHandle;
+		PseHandle=theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
+		if (PseHandle==NULL)
+		{
+			// Fehler beim öffnen der CA-Datenbank
+			m_barrSetCondition[3] = false;
+			EnDisButtons();
+			ShowButtons();
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+			delete string1;
+			return;
+		}
+		
+		//Routine für das Holen von Zertifikaten aus der CA-Datenbank
+		SET_OF_IssuedCertificate *Zert;
+		Zert=theApp.SecudeLib.af_cadb_get_user(PseHandle, Auswahl);
+		if (Zert==NULL)
+		{
+			// Fehler beim lesen des Zertifikats
+			m_barrSetCondition[3] = false;
+			EnDisButtons();
+			ShowButtons();
+			char *Fehler=theApp.SecudeLib.LASTTEXT;
+			CString Fehler2=Fehler;
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_GET_PSE,pc_str,STR_LAENGE_STRING_TABLE);
+			CString Fehler3=(CString)pc_str+(CString)Fehler2;
+			AfxMessageBox (Fehler3,MB_ICONSTOP);
+			// Freigeben von dynamisch angelegtem Speicher
+			delete string1;
+			theApp.SecudeLib.af_close(PseHandle);
+			return;
+		}
+		theApp.SecudeLib.af_close(PseHandle);
+		
 		m_barrSetCondition[3] = true;
 		EnDisButtons();
 		ShowButtons();
 	}
-	
+	UserKeyId=rsaDlg.UserKeyId;
 	UpdateData(false);
 }
 
@@ -476,8 +517,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 {
 	if(!m_arrSetButtons[6])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_ENC_KEY_ASYM,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_ENC_KEY_ASYM,MB_ICONEXCLAMATION);
 		return;
 	}
 	theApp.DoWaitCursor(1);
@@ -510,8 +550,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 
 	if(!m_arrSetButtons[4])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_SHOW_ASYM_KEY,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_SHOW_ASYM_KEY, MB_ICONEXCLAMATION);
 		return;
 	}
 	UpdateData(true);
@@ -532,8 +571,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	if (out.bits == NULL)
 	{
 		// Fehler. Speicher kann nicht allokiert werden
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox (pc_str,MB_ICONSTOP);
+		Message(IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION,MB_ICONSTOP);
 		return;
 	}
 	
@@ -668,8 +706,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowDocument()
 {
 	if(!m_arrSetButtons[7])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_SHOW_DOC,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_SHOW_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
 	m_strTitle = m_strBuffTitle;
@@ -701,8 +738,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 {
 	if(!m_arrSetButtons[8])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_SHOW_ENC_DOC,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
 	theApp.DoWaitCursor(1);
@@ -716,8 +752,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey()
 {
 	if(!m_arrSetButtons[9])	
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYB_ENC_SYM_KEY,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+		Message(IDS_STRING_HYB_ENC_SYM_KEY, MB_ICONEXCLAMATION);
 		return;
 	}
 	theApp.DoWaitCursor(1);
@@ -905,5 +940,117 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 
 void CDlgHybridEncryptionDemo::OnButtonDatenausgabe() 
 {
+	char outfile[128], title[128];
+	CAppDocument *NewDoc;
+	GetTmpName(outfile,"cry",".hex");
+	//----------------------------------------------------------------------------------------------------------	
+	// Ausgabe von Reciever, Symmetriche- , asymmetrische Methode, verschl.Session Key und 
+	// Ciphertext in einem Fenster
+	//----------------------------------------------------------------------------------------------------------
+	OctetString Text;
+	char helptext[100];
+	// Ausgabe Empfänger
+		// Umwandeln von CString nach char*
+	LPTSTR string_tmp1 = new TCHAR[UserKeyId.GetLength()+1];
+	_tcscpy(string_tmp1, UserKeyId);
+	char *UserKeyId_tmp=string_tmp1;
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_RECIEVER,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,2);
+	Text.noctets=strlen(UserKeyId_tmp);
+	Text.octets=UserKeyId_tmp;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	// Ausgabe Encrypted Session key
+	// Umwandeln von CString nach char*
+//	LPTSTR string_tmp = new TCHAR[m_strBuffEditEncDoc.GetLength()+1];
+//	_tcscpy(string_tmp, m_strBuffEditEncDoc);
+//	char *EncSessionKey=string_tmp;
+	
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_LENGTH_ENC_KEY,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	int Keylength=8*(EncSymKey->noctets);
+	char Keylen_in_bits_str[20];
+	// schreibe die zahl Keylength im Dezimalsystem nach Keylen_in_bits_str
+	_itoa(Keylength, Keylen_in_bits_str, 10);
+	Text.noctets=strlen(Keylen_in_bits_str);
+	Text.octets=Keylen_in_bits_str;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ENC_KEY,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+//	Text.noctets=strlen(EncSessionKey);
+//	Text.octets=EncSessionKey;
+//	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	theApp.SecudeLib.aux_OctetString2file(EncSymKey,outfile,3);
+	
+	// Ausgabe Symmetric method
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_SYM_METHOD,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	Text.noctets=strlen("AES");
+	Text.octets="AES";
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+
+	// Ausgabe Asymmetric method
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ASYM_METHOD,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	Text.noctets=strlen("RSA");
+	Text.octets="RSA";
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+
+	// Ciphertext
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_CIPHERTEXT,helptext,100);
+	Text.noctets=strlen(helptext);
+	Text.octets=helptext;
+	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+	if (CipherText.noctets <= 204800)
+	{
+	//	zugross = false;
+		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
+	}
+	/*
+	else 
+	{
+		// Die verschlüsselte Nachricht ist zu gross, um in dem Editor von CrypTool
+		// angezeigt zu werden, daher wird sie in eine Datei ins Temp Verzeichnis geschrieben
+		// Statt der Nachricht steht im Editor von CrypTool der Pfad dieser Datei
+		
+		//zugross = true;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE,pc_str,100);
+		CString help_tmp=(CString)pc_str;
+		help_tmp+=(CString)infile;
+		CipherText.noctets=strlen(help_tmp);
+		for (i=0; i<help_tmp.GetLength(); i++)
+		{
+			CipherText.octets[i]=help_tmp[i];
+		}
+		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
+	}
+	*/
+	
+	
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+	remove(outfile);
+		
+	theApp.DoWaitCursor(0);
+		
+	if(NewDoc)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ENC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName(title,sizeof(title),pc_str,m_strBuffTitle);
+		NewDoc->SetTitle(title);
+	}
+	CDialog::OnOK();
 	
 }
+
+
