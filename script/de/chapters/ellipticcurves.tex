@@ -1,4 +1,3 @@
-% $Id$
 % .......................................................................................................
 %                                 E L L I P T I S C H E  K U R V E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,8 +51,8 @@ Abbildung~\ref{ThousandBitMultiplications} (Quelle: Dr. J.  Merkle,
 Elliptic Curve Cryptography Workshop, 2001). Betrachtet man die f"ur eine
 {\em Verifikation} durchzuf"uhrenden Rechenschritte, dreht sich dieses Bild
 jedoch zu Gunsten von RSA um. Der Grund liegt darin, dass es bei Verwendung
-des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu
-w"ahlen, solange der private Schl"ussel nur hinreichend lang ist.
+des RSA m"oglich ist, einen sehr kurzen Exponent f"ur den "offentlichen Schl"ussel zu
+w"ahlen, solange der private Exponent nur hinreichend lang ist.
 
 % -> Figur 2
 \begin{figure}[h]
@@ -83,7 +82,7 @@ eine Vielzahl von Implementierungen vorhalten, was den Effizienzvorteil gegen"ub
 zunichte macht.
 
 Deshalb bem"uhen sich internationale Organisationen hierzu um Standardisierung. Zu erw"ahnen sind
-Initiativen von IEEE (P1363), ASC (ANSI X9.62, X9.63), IOS/IEC sowie von RSA Laboratories\index{RSA Laboratories} und Certicom\index{Certicom}. Im
+Initiativen von IEEE (P1363), ASC (ANSI X9.62, X9.63), ISO/IEC sowie von RSA Laboratories\index{RSA Laboratories} und Certicom\index{Certicom}. Im
 Gegensatz zur IEEE, die bisher nur eine Beschreibung der verschiedenen Implementierungen vorgenommen hat,
 hat die ASC konkret 10 Kurven ausgew"ahlt und empfiehlt deren Verwendung. Der Vorteil des ASC-Ansatzes ist,
 dass ein einziges Byte ausreicht, um die verwendete Kurve zu spezifizieren. Zur Zeit ist jedoch nicht
@@ -91,7 +90,7 @@ absehbar, ob es der ASC gelingen wird, einen de-facto-Standard durchzusetzen.
 
 Obwohl aktuell kein Handlungsbedarf besteht\footnote{%
 Aktuelle Informationen zur Sicherheit des RSA-Verfahrens finden Sie in Kapitel \ref{SecurityRSA}}, laufende RSA-Anwendungen umzustellen, sollte man bei der
-Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptischen Kurven basieren.
+Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptschen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor handelt, die noch
 nach 2005\footnote{%
 BSI Empfehlung (GISA recommendation)} operativ sein sollen.
@@ -113,7 +112,7 @@ den sechziger Jahren des 20. Jahrhunderts von zwei Japanern aufgestellten --- Ve
 kurz und grob gesagt um den Zusammenhang zwischen Elliptischen Kurven und sogenannten Modulformen.
 Das f"ur die meisten eigentlich Interessante daran ist, dass Wiles mit seinen Arbeiten auch den ber"uhmten
 zweiten Satz von Fermat\index{Fermat!letzter Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
-(Fermat\index{Fermat} lebte von 1601 bis 1665) einem strengen Beweis durch die Mathematik entzogen. Dementsprechend
+(Fermat\index{Fermat} lebte von 1601 bis 1665) einem umfassenden Beweis durch die Mathematik entzogen. Dementsprechend
 gro"s war die Resonanz auf den Beweis durch Wiles. In der Formulierung von Fermat lautet der nach ihm
 benannte Satz so (Fermat hat folgende Worte an den Rand des 1621 von Bachet herausgegebenen Werks Diophants geschrieben):
 
@@ -143,12 +142,12 @@ einzusetzen. Damit haben die Elliptischen Kurven auch eine ganz konkrete praktis
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktorisierung von ganzen Zahlen
 (auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
 das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
-auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. Es gibt auch
-Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren.
+auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. 
+% Es gibt auch Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren. (s. Anmerkung U. Kuehn)
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Kryptographische Verfahren auf Basis von Elliptischen Kurven beruhen auf der
-Schwierigkeit eines als Elliptische Kurven Diskreter Logarithmus bekannten Problems.
+Schwierigkeit eines als Elliptische Kurven Diskreter Logrithmus bekannten Problems.
 Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, dass man f"ur eine nat"urliche,
 aus mehreren Primzahlen zusammengesetzte Zahl $n$ sehr viele verschiedene Elliptische
 Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n$ keine
@@ -168,11 +167,14 @@ kurz eingef"uhrt werden:
 \begin{itemize}
    \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verkn"upfung ``$\cdot$''. Die Menge $G$ ist unter der
          Verkn"upfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verkn"upfung $ab=a\cdot  b$ ein Element aus $G$.
-   \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$.
+   \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
    \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $\cdot$ neutral verh"alt´, d.h., f"ur alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
    \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element} $a^{-1}$(in $G$), so dass gilt: $aa^{-1} = a^{-1}a = e$.
 \end{itemize}
-Gilt zus"atzlich noch f"ur alle $a, b$ aus $G$, dass $ab = ba$, so nennt man die Gruppe $G$ eine {\em abelsche} Gruppe.
+Gilt zus"atzlich noch f"ur alle $a, b$ aus $G$, dass $ab = ba$ (Kommutativgesetz), so nennt man die Gruppe $G$ eine {\em abelsche} Gruppe.
+
+% 
+Da man auf der selben Menge mehrere Verkn"upfung erkl"aren kann, unterscheidet man diese durch verschiedene Namensgebungen und Zeichen (z.B. $+$ Addition oder $\cdot$ Multiplikation). 
 
 Als einfachstes Beispiel einer (abelschen) Gruppe sei die Gruppe der ganzen Zahlen mit der "ublichen
 Addition genannt. Die Menge der ganzen Zahlen wird mit ${\mathbb Z}$ bezeichnet. ${\mathbb Z}$ hat unendlich viele Elemente,
@@ -180,11 +182,8 @@ denn ${\mathbb Z} = \{ \cdots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \cdots\}$. Die Ver
 liegt in ${\mathbb Z}$, denn $1+2 = 3$ und $3$ liegt in ${\mathbb Z}$. Das neutrale Element der Gruppe
 ${\mathbb Z}$ ist $0$. Das Inverse Element von $3$ ist $-3$, denn $3+(-3) = 0$.
 
-Es gibt auch {\em endliche} Gruppen. Das hei"st es gibt eine Menge $\mathcal{M}$ mit einer endlichen Anzahl von
-Elementen und einer Verkn"upfung, so dass obige Bedingungen erf"ullt sind. Ein Beispiel hierf"ur ist
-jede Menge ${\mathbb Z}_n$ mit ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ eine positive ganze Zahl, und
-der Addition modulo $n$ als Verkn"upfung. $a$ und $b$ aus ${\mathbb Z}_n$ werden  also durch $a+b \;{\rm mod~} n$
-verkn"upft.
+F"ur unsere Zwecke besonders interssant sind sogenannte {\em endliche} Gruppen, bei denen die zugrundelegte Menge $G$ nur aus einer endlichen Anzahl von
+Elementen besteht. Beispiele sind die Gruppen ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ der Teilerreste bei der Division durch $n$ mit der Addition als Verkn"upfung.
 
 \paragraph{Zyklische Gruppen}\index{Gruppen!zyklische}
 Als {\it zyklische Gruppen}\footnote{Zyklische Gruppen sind Gruppen, die von einem Element erzeugt werden. Sie k"onnen grunds"atzlich auch unendlich sein wie z.B. die additive Gruppe der ganzen Zahlen. Wir betrachten hier jedoch nur endliche zyklische Gruppen.} bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
@@ -438,7 +437,7 @@ von "uber $200$ Bit f"ur den Parameter $p$ empfohlen. Hier wird deutlich, warum 
 interessant f"ur die Kryptographie sind. Denn die Parameter bestimmen auch den
 Signatur-/Verschl"usselungsaufwand, wenn mit Elliptischen Kurven
 Kryptographie betrieben wird. Die Dauer einer Schl"usselpaar-Erzeugung ist ebenfalls von den Parametern abh"angig. Daher sind kleine Werte (wenige Bits) w"unschenswert (m"oglichst schnelle Laufzeiten der Verfahren);
-allerdings muss die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
+allerdings mu"s die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
 f"ur $p$ ist eine {\em gute} Elliptische Kurve genau so sicher wie ein \index{RSA!Modul} RSA-Modul von "uber $1024$ Bit L"ange
 (zumindest nach dem heutigen Forschungstand). Der Grund daf"ur ist, dass die schnellsten Algorithmen zum
 L"osen des {\em Elliptische Kurven Diskreter Logarithmus} Problems eine exponentielle Laufzeit haben --- im
@@ -505,14 +504,13 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 \subsection{Faktorisieren mit Elliptischen Kurven}
 \hypertarget{faktell}{}
 
-Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven
-\index{Faktorisierung!Faktorisierungsalgorithmen}
+Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven \index{Faktorisierungsalgorithmen}
 basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
 einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
-(siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven faktorisierte Zahl\index{Faktorisierung!Faktorisierungsrekorde} ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}.
+(siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven faktorisierte Zahl\index{Faktorisierungsrekorde} ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}.
 Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
 Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
-Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben muss. Dies h"angt damit zusammen, dass es -- falls $n$ 
+Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, dass es -- falls $n$ 
 eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
 modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
@@ -558,13 +556,7 @@ Um Speicherplatz zu sparen, wird zuweilen nur die erste Komponente sowie ein wei
 
 Im allgemeinen Fall $GF(p^n)$ (aber auch f"ur $n=1$) werden oft sogenannte affine oder projektive Koordinaten eingesetzt, was je nach Anwendung zu Effizienzgewinnen f"uhrt.
 
-Eine vollst"andige Beschreibung aller Implementierungen unter Abw"agen ihrer
-Vor- und Nachteile w"urde an dieser Stelle zu weit f"uhren. Abschlie"send kann
-festgehalten werden, dass die Vielfalt m"oglicher Implementierungen bei
-Elliptischen Kurven z.B. im Vergleich zu RSA-Implementie"-rungen sehr gro"s ist.
-Aus diesem Grund gibt es Bestrebungen, sich auf wenige
-Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener
-Kurven zu beschr"anken (ASC-Ansatz).
+Eine vollst"andige Beschreibung aller Implementierungen unter Abw"agen ihrer Vor- und Nachteile w"urde an dieser Stelle zu weit f"uhren. Abschlie"send kann festgehalten werden, dass die Vielfalt m"oglicher Implementierungen bei Elliptischen Kurven z.B. im Vergleich zu RSA-Implementierungen sehr gro"s ist. Aus diesem Grund gibt es Bestrebungen, sich auf wenige Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener Kurven zu beschr"anken (ASC-Ansatz).
 
 Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Dies w"are aber eine Voraussetzung daf"ur, dass sich ECC dauerhaft als Alternative zu RSA etabliert.
 
