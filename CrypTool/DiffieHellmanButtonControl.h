@@ -44,7 +44,30 @@ statement from your version.
 
 // DiffieHellmanButtonControl.h
 
+#ifndef _DIFFIEHELLMANBUTTONCONTROL_
+#define _DIFFIEHELLMANBUTTONCONTROL_
+
 #include "ButtonControl.h"
+
+// DIFFIE-HELLMAN-VISUALISIERUNG
+const ButtonResourceStruct DH_BitmapResources[] = 
+{
+	{	IDC_SETPUBLICPARAMETERS,	"IDB_DH_BUTTON1_R_U",	"IDB_DH_BUTTON1_R_D",	"IDB_DH_BUTTON1_R_F",	"IDB_DH_BUTTON1_R_X",	"IDB_DH_BUTTON1_G_U",	"IDB_DH_BUTTON1_G_D",	"IDB_DH_BUTTON1_G_F",	"IDB_DH_BUTTON1_G_X" },
+	{	IDC_SETSECRETS,				"IDB_DH_BUTTON2_R_U",	"IDB_DH_BUTTON2_R_D",	"IDB_DH_BUTTON2_R_F",	"IDB_DH_BUTTON2_R_X",	"IDB_DH_BUTTON2_G_U",	"IDB_DH_BUTTON2_G_D",	"IDB_DH_BUTTON2_G_F",	"IDB_DH_BUTTON2_G_X" },
+	{	IDC_CREATESHAREDKEY,		"IDB_DH_BUTTON3_R_U",	"IDB_DH_BUTTON3_R_D",	"IDB_DH_BUTTON3_R_F",	"IDB_DH_BUTTON3_R_X",	"IDB_DH_BUTTON3_G_U",	"IDB_DH_BUTTON3_G_D",	"IDB_DH_BUTTON3_G_F",	"IDB_DH_BUTTON3_G_X" },
+	{	IDC_EXCHANGESHAREDKEYS,		"IDB_DH_BUTTON4_R_U",	"IDB_DH_BUTTON4_R_D",	"IDB_DH_BUTTON4_R_F",	"IDB_DH_BUTTON4_R_X",	"IDB_DH_BUTTON4_G_U",	"IDB_DH_BUTTON4_G_D",	"IDB_DH_BUTTON4_G_F",	"IDB_DH_BUTTON4_G_X" },
+	{	IDC_GENERATEFINALKEY,		"IDB_DH_BUTTON5_R_U",	"IDB_DH_BUTTON5_R_D",	"IDB_DH_BUTTON5_R_F",	"IDB_DH_BUTTON5_R_X",	"IDB_DH_BUTTON5_G_U",	"IDB_DH_BUTTON5_G_D",	"IDB_DH_BUTTON5_G_F",	"IDB_DH_BUTTON5_G_X" },
+	{	IDC_BUTTONALICE1,			"IDB_DH_SECRET_R_U",	"IDB_DH_SECRET_R_D",	"IDB_DH_SECRET_R_F",	"IDB_DH_SECRET_R_X",	"IDB_DH_SECRET_G_U",	"IDB_DH_SECRET_G_D",	"IDB_DH_SECRET_G_F",	"IDB_DH_SECRET_G_X"  },
+	{	IDC_BUTTONBOB1,				"IDB_DH_SECRET_R_U",	"IDB_DH_SECRET_R_D",	"IDB_DH_SECRET_R_F",	"IDB_DH_SECRET_R_X",	"IDB_DH_SECRET_G_U",	"IDB_DH_SECRET_G_D",	"IDB_DH_SECRET_G_F",	"IDB_DH_SECRET_G_X"  },
+	{	IDC_BUTTONALICE2,			"IDB_DH_CALCULATE_R_U",	"IDB_DH_CALCULATE_R_D",	"IDB_DH_CALCULATE_R_F",	"IDB_DH_CALCULATE_R_X",	"IDB_DH_CALCULATE_G_U",	"IDB_DH_CALCULATE_G_D",	"IDB_DH_CALCULATE_G_F",	"IDB_DH_CALCULATE_G_X" },
+	{	IDC_BUTTONBOB2,				"IDB_DH_CALCULATE_R_U",	"IDB_DH_CALCULATE_R_D",	"IDB_DH_CALCULATE_R_F",	"IDB_DH_CALCULATE_R_X",	"IDB_DH_CALCULATE_G_U",	"IDB_DH_CALCULATE_G_D",	"IDB_DH_CALCULATE_G_F",	"IDB_DH_CALCULATE_G_X" },
+	{	IDC_BUTTONALICE3,			"IDB_DH_CALCULATE_R_U",	"IDB_DH_CALCULATE_R_D",	"IDB_DH_CALCULATE_R_F",	"IDB_DH_CALCULATE_R_X", "IDB_DH_CALCULATE_G_U",	"IDB_DH_CALCULATE_G_D",	"IDB_DH_CALCULATE_G_F",	"IDB_DH_CALCULATE_G_X" },
+	{	IDC_BUTTONBOB3,				"IDB_DH_CALCULATE_R_U",	"IDB_DH_CALCULATE_R_D",	"IDB_DH_CALCULATE_R_F",	"IDB_DH_CALCULATE_R_X", "IDB_DH_CALCULATE_G_U",	"IDB_DH_CALCULATE_G_D",	"IDB_DH_CALCULATE_G_F",	"IDB_DH_CALCULATE_G_X" },
+	{	IDC_KEY,					"IDB_DH_KEY_U",			"IDB_DH_KEY_D",			"IDB_DH_KEY_F",			"IDB_DH_KEY_X",			"IDB_DH_KEY_U",			"IDB_DH_KEY_D",			"IDB_DH_KEY_F",			"IDB_DH_KEY_X" },
+	
+	// KENNZEICHNUNG DES STRUKTUR-ENDES, _NICHT_ MODIFIZIEREN!!!!
+	{0, "", "", "", "", "", "", "", "" }
+};
 
 class DiffieHellmanBitmapButtonControl : public BitmapButtonControl 
 {
@@ -58,13 +81,9 @@ private:
 	//
 	// Um dabei die Abhängigkeit von anderen Buttons zu implementieren, wird ein boolscher
 	// Wert übergeben, der den Zustand des jeweils anderen Buttons widerspiegelt.
-//bool forUpdate[12];
+
 	void Update()
 	{
-		// Die Button-Abhängigkeiten
-//for (int i=0; i<NumberOfButtons; i++ )
-//	forUpdate[i] = AllButtons[i].IsActive();
-		
 		AllButtons[0].SetActive(true);
 		AllButtons[1].SetActive( AllButtons[0].IsActionPerformed() );
 		AllButtons[2].SetActive( AllButtons[5].IsActionPerformed() || AllButtons[6].IsActionPerformed() );
@@ -78,16 +97,6 @@ private:
 		AllButtons[10].SetActive(AllButtons[4].IsActionPerformed() );
 		AllButtons[11].SetActive(AllButtons[9].IsActionPerformed() && AllButtons[10].IsActionPerformed() );
 			
-// Alle Buttons parsen und entsprechend aktivieren oder deaktivieren
-//for(i=0; i<NumberOfButtons; i++)
-//{
-//	if ( forUpdate[i] != AllButtons[i].IsActive() )
-//	{
-//		if(!AllButtons[i].IsActive()) AllButtons[i].Button.EnableWindow(false);
-//		else AllButtons[i].Button.EnableWindow(true);
-//		AllButtons[i].ShowBitmaps();
-//	}
-//}
 
 		//Die entsprechenden Bitmaps laden
 		for(int i=0; i<NumberOfButtons;i++)
@@ -197,3 +206,5 @@ public:
 	};
 
 };
+
+#endif

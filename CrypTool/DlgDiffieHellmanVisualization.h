@@ -52,7 +52,7 @@ statement from your version.
 //
 
 #include "DiffieHellmanParty.h"
-#include "ButtonControl.h"
+#include "DiffieHellmanButtonControl.h"
 #include "DiffieHellmanLogFile.h"
 // für animierte GIF-Pfeile
 #include "PictureEx.h"

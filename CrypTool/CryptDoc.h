@@ -179,6 +179,7 @@ protected:
 	afx_msg void OnEinzelverfahrenAsn1decodieren();
 	afx_msg void OnSigattmodificdemo();
 	afx_msg void OnSignaturAttack();
+	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

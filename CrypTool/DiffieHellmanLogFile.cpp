@@ -54,8 +54,6 @@ statement from your version.
 // Bereits im Konstruktor wird der später abrufbare Protokolltext für das Diffie-Hellman-
 // Verfahren erzeugt.
 
-// 25.12.2002, Florian Marchal
-//
 // Es handelt sich hierbei um eine "Quick-and-Dirty"-Implementierung, d.h. die 
 // übergebenen Eingabeparameter werden _NICHT_ geprüft. Man könnte theoretisch auch
 // in dieser Klasse die übergebenen Parameter im Hinblick auf das DH-Verfahren

@@ -100,4 +100,6 @@ int GetSignData(char* infile, bool& zugross, CString& filename, OctetString *mes
 int GenEcKeyPair(EcDomParam_ac_ptr ecParam);
 int EcDomParamAcToString(EcDomParamAcAsString *ecParamString, EcDomParam_ac_ptr ecParam, const int base);
 
+BOOL find(OctetString*, int, int&, int&);
+
 #endif // #ifndef _asymmetric_

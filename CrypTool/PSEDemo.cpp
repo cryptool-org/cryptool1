@@ -720,3 +720,11 @@ BOOL CPSEDemo::TestAccess()
 		theApp.SecudeLib.af_close (PseHandle);
 		return TRUE;
 }
+
+void CPSEDemo::getRSAPrivateKey(CString &privatekey)
+{
+	char temp[1000];
+
+	temp << d;
+	privatekey = temp;
+}

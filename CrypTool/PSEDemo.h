@@ -112,6 +112,7 @@ public:
 	CString CreateUserKeyID(){return CreateUserKeyID(m_sName, m_sFirstName, m_sKeyId, m_lTime);}
 	CString CreateDisName(const CString& sName, const CString& sFirstName, const long lTime);
 	CString CreateDisName(){return CreateDisName(m_sName, m_sFirstName, m_lTime);}
+	void getRSAPrivateKey(CString&);
 
 protected:
 	CString m_sKeyPublic;

@@ -65,6 +65,7 @@ statement from your version.
 #include "DlgShowKeyParameter.h"
 #include "s_ecconv.h"
 #include "IntegerArithmetic.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -81,6 +82,13 @@ int g_Status[NO_BUTTONS];
 CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHybridEncryptionDemo::IDD, pParent)
 {
+	this->scaCertInfo.firstname = "";
+	this->scaCertInfo.lastname = "";
+	this->scaCertInfo.keytype = "";
+	this->scaCertInfo.time = "";
+	this->isSCABehaviourActivated = false;
+	this->scaFile = "";
+
 	//{{AFX_DATA_INIT(CDlgHybridEncryptionDemo)
 	m_strEdit = _T("");
 	m_strTitle = _T("");
@@ -125,6 +133,14 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 
 	PlainText = CipherText = 0;
 	m_bAuswahlDat = true;
+
+	// Default-Länge für symmetrischen Schlüssel ermitteln
+	// Schlüssellänge in Bits ermitteln und...
+	int symKeyBitLength = theApp.GetProfileInt("Settings", "HybridEncryptionSymmetricKeyLength", 0);
+	// ...daraus Schlüssellänge in Bytes ableiten..
+	symKeyByteLength = (symKeyBitLength+7)/8;
+	// ...und Speicher für symmetrischen Schlüssel anfordern
+	SymKey = new char[symKeyByteLength];
 }
 
 
@@ -273,8 +289,8 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 	m_strEdit = "";
 	m_strTitle="";
 	unsigned char o;
-	
-	for ( int j=0; j<KEY_LEN; j++ )
+
+	for ( int j=0; j<symKeyByteLength; j++ )
 	{
 		o=0;
 		for(int i=0;i<8;i++)
@@ -286,7 +302,7 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 	//Zufallsgenerator
 	//SymKey beeinhaltet den symmetrischen Schlüssel
 
-	for (j=0;j<KEY_LEN;j++)
+	for (j=0;j<symKeyByteLength;j++)
 	{
 		
 			char array[3];
@@ -309,7 +325,10 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 	
 	CString SymKeyInHexDump = "";
 	
-	for (int i=0;i<32;i++)
+	
+	// Symmetrischer Schlüssel soll hexadezimal angezeigt werden
+	// (jeweils zwei Halb-Bytes durch Space getrennt)
+	for (int i=0;i<this->symKeyByteLength*2;i++)
 	{
 		SymKeyInHexDump += m_strSymKey[i];
 		if(i%2==1)
@@ -318,7 +337,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 		}
 		
 	}
-	//Symmetrischer Schlüssel soll hexadezimal angezeigt werden
+	
 
 	m_strEdit = SymKeyInHexDump;
 	m_strTitle.LoadString(IDS_STRING_HYBRID_ENC_SYM_KEY);
@@ -385,7 +404,11 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 	int ret = asymmKeys.GetKeyList( sortedAsymKeyList, RSA_KEY, BY_NAME);
 	if ( sortedAsymKeyList.IsEmpty() )
 	{
+		// Benutzer informieren, das KEINE RSA-Schlüssel gefunden wurden
 		Message( IDS_NORSAKEY_AVAILABLE, MB_ICONSTOP );
+		// RSA-Schlüsselerzeugungs-Dialog aufrufen
+		CDlgKeyAsymGeneration dlg;
+		dlg.DoModal();
 		return;
 	}
 
@@ -393,6 +416,18 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 
 	if ( IDOK == rsaDlg.DoModal() ) 
 	{
+		// Zunächst NACHNAME, VORNAME und ZEIT in einer Struktur ablegen, die später
+		// nach Schliessen des Dialogs verwendet wird
+		if(isSCABehaviourActivated)
+		{
+			this->scaCertInfo.firstname = rsaDlg.Firstname;
+			this->scaCertInfo.lastname = rsaDlg.Name;
+			
+			this->scaCertInfo.keytype = rsaDlg.KeyType;
+			
+			this->scaCertInfo.time = rsaDlg.CreatTime;
+		}
+
 		CKeyFile KeyHandling;
 		CString caDB_entry_name = KeyHandling.CreateDistName(rsaDlg.Name, rsaDlg.Firstname, rsaDlg.CreatTime);
 		LPTSTR string1 = new TCHAR[caDB_entry_name.GetLength()+1];
@@ -445,9 +480,9 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		// Initialisierung der Variablen
 		OctetString *in=new OctetString;
 		BitString out;
-		in->octets=new char[KEY_LEN];	
-		memcpy(in->octets,SymKey,KEY_LEN);
-		in->noctets=KEY_LEN;
+		in->octets=new char[symKeyByteLength];	
+		memcpy(in->octets,SymKey,symKeyByteLength);
+		in->noctets=symKeyByteLength;
 
 		int max_RSA_keysize_in_octs = ((MAX_RSA_MODULSIZE+1)+7)/8; // siehe DlgAsymKeyCreat.h for MAX_RSA_MODULSIZE
 		int number_outbits_in_wc = in->noctets + in->noctets/37 + max_RSA_keysize_in_octs; // Blocksize ~ 37
@@ -525,12 +560,36 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		Schluessel.add_object_type=NULL;
 		Schluessel.key_size=NULL;
 		Schluessel.private_key=NULL;
+
+		OctetString newIn;
+		// KeyType holen ("RSA-512" oder "DES-256"...)
+		CString strModulLength = rsaDlg.KeyType;
+		int index = strModulLength.Find("-",0);
+		// Bitlänge isolieren
+		strModulLength.Delete(0, index + 1);
+		int modulLengthInBits = atoi((const char*)(LPCTSTR)strModulLength);
+		int modulLengthInBytes = (modulLengthInBits - 1)/8;
+		// [BITLÄNGE_SESSIONKEY]/8 Bytes speicher allokieren
+		newIn.octets = new char[modulLengthInBytes];
+		// Null-Padding von links
+		for(int i=0;i<modulLengthInBytes;i++)
+			newIn.octets[i] = (unsigned char)0;
+		int start = modulLengthInBytes - in->noctets;
+		memcpy(newIn.octets + start, in->octets, in->noctets);
+		newIn.noctets = modulLengthInBytes;
+		delete in->octets;
+		in->octets = new char[modulLengthInBytes];
+		memcpy(in->octets, newIn.octets, newIn.noctets);
+		in->noctets = modulLengthInBytes;
+		// Speicher freigeben
+		delete newIn.octets;
 		
 		// Verschlüsselung der Daten
 		int fret = theApp.SecudeLib.af_encrypt_all(PseHandle, in, &out, &Schluessel, NULL);
+
 		if (fret==-1)
 		{  
-			// Fehler bei der Entschlüsselung
+			// Fehler bei der Verschlüsselung
 			// Ausgabe einer Fehlermeldung
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
@@ -549,8 +608,6 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		// Ausgabe der verschlüsselten Daten
 
 		EncSymKey = theApp.SecudeLib.aux_BString2OString(&out);
-		
-	
 		
 		theApp.SecudeLib.af_close (PseHandle);
 		theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
@@ -611,9 +668,9 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	UpdateData(false);
 	OctetString *in=new OctetString;
 	BitString out;
-	in->octets=new char[KEY_LEN];	
-	memcpy(in->octets,SymKey,KEY_LEN);
-	in->noctets=KEY_LEN;
+	in->octets=new char[symKeyByteLength];	
+	memcpy(in->octets,SymKey,symKeyByteLength);
+	in->noctets=symKeyByteLength;
 
 	int max_RSA_keysize_in_octs = ((MAX_RSA_MODULSIZE+1)+7)/8; // siehe DlgAsymKeyCreat.h for MAX_RSA_MODULSIZE
 	int number_outbits_in_wc = in->noctets + in->noctets/37 + max_RSA_keysize_in_octs; // Blocksize ~ 37
@@ -1043,6 +1100,9 @@ CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
 		theApp.SecudeLib.aux_free_OctetString(&CipherText);
 	if(PlainText)
 		theApp.SecudeLib.aux_free_OctetString(&PlainText);
+
+	// allokierten Speicher freigeben
+	if(SymKey) delete SymKey;
 }
 
 bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
@@ -1085,7 +1145,11 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	}
 	char outfile[128], title[128];
 	CAppDocument *NewDoc;
+	
 	GetTmpName(outfile,"cry",".hex");
+	// Falls SCA-Verhalten aktiviert ist, wird temporäre Datei in scaFile gespeichert.
+	if(isSCABehaviourActivated) scaFile = outfile;
+			
 	//----------------------------------------------------------------------------------------------------------	
 	// Ausgabe von Reciever, Symmetriche- , asymmetrische Methode, verschl.Session Key und 
 	// Ciphertext in einem Fenster
@@ -1105,11 +1169,6 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	Text.noctets=strlen(UserKeyId_tmp);
 	Text.octets=UserKeyId_tmp;
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
-	// Ausgabe Encrypted Session key
-	// Umwandeln von CString nach char*
-//	LPTSTR string_tmp = new TCHAR[m_strBuffEditEncDoc.GetLength()+1];
-//	_tcscpy(string_tmp, m_strBuffEditEncDoc);
-//	char *EncSessionKey=string_tmp;
 	
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_LENGTH_ENC_KEY,helptext,100);
 	Text.noctets=strlen(helptext);
@@ -1127,9 +1186,6 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	Text.noctets=strlen(helptext);
 	Text.octets=helptext;
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
-//	Text.noctets=strlen(EncSessionKey);
-//	Text.octets=EncSessionKey;
-//	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
 	theApp.SecudeLib.aux_OctetString2file(EncSymKey,outfile,3);
 	
 	// Ausgabe Symmetric method
@@ -1158,7 +1214,10 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	theApp.SecudeLib.aux_OctetString2file(CipherText,outfile,3);
 	
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-	remove(outfile);
+		
+	// temporäre Datei nur dann löschen, wenn sie nicht nochmal gebraucht wird;
+	// dies ist im Fall des SCA-Modus aber gegeben
+	if(!isSCABehaviourActivated) remove(outfile);
 		
 	HIDE_HOUR_GLASS
 		
@@ -1168,8 +1227,8 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 		MakeNewName(title,sizeof(title),pc_str,m_strBuffTitle);
 		NewDoc->SetTitle(title);
 	}
+
 	CDialog::OnOK();
-	
 }
 void CDlgHybridEncryptionDemo::OnPaint() 
 {
@@ -1196,4 +1255,23 @@ void CDlgHybridEncryptionDemo::OnPaint()
 	memdc.SelectObject( poldbmp );
 
 			 // Do not call CDialog::OnPaint() for painting messages
+}
+
+// Diese Funktion aktiviert das seitenkanalangriffsspezifische Verhalten des Dialogs
+// (sorry für dieses Unwort). Mit anderen Worten: wird diese Funktion ausgeführt,
+// so wird die temporär entstehende hybridverschlüsselte Datei nach Beenden des Dialogs
+// NICHT gelöscht, d.h. sie bleibt über ein bestimmtes Handle (scaFile) zugreifbar.
+void CDlgHybridEncryptionDemo::activateSCABehaviour()
+{
+	this->isSCABehaviourActivated = true;
+}
+
+CString CDlgHybridEncryptionDemo::getSCAFile()
+{
+	return this->scaFile;
+}
+
+SCACertificateInformation CDlgHybridEncryptionDemo::getCertInfo()
+{
+	return this->scaCertInfo;
 }

@@ -365,7 +365,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 void CDlgHybridDecryptionDemo::RsaDec()
 {
 	char outfile[128];
-    unsigned int i, blocklen;
 	
 	// Anzeigen der Dialogbox zur Auswahl des zu benutzenden (geheimen) Schlüssels
 	
@@ -444,13 +443,6 @@ void CDlgHybridDecryptionDemo::RsaDec()
 		return;
 	}
 		
-	// Abschneiden abschließender Nullen
-		blocklen = out.noctets / (in.nbits / 8 - out.noctets);
-		for(i=out.noctets-1;i>out.noctets-blocklen;i--)
-		if(out.octets[i]) break;
-		if(i>out.noctets-blocklen) out.noctets = i+1;
-
-	
 	//Ausgabe der verschluesselten Daten
 
 	for (unsigned int j=0;j<out.noctets;j++)
@@ -475,28 +467,24 @@ void CDlgHybridDecryptionDemo::RsaDec()
 void CDlgHybridDecryptionDemo::OnOK() 
 {
 	// Hybrid-Entschlüsselung + Ausgabe der Entschlüsselung 
-	char outfile[128];
-	char key[100];
+	char outfile[200];
+	char key[200];
 	strcpy(key,DecSessionKey.GetBuffer(0));
-
-	const char* path=m_strPathnameTxt.GetBuffer(0);
 
 	int AlgId=3;
 
 	GetTmpName(outfile,"cry",".hex");
-//	if (message.noctets <= 204800)
-//	{
-		theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
-//	}
+
+	theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
 		
 	SHOW_HOUR_GLASS
-
+	
 	AESCrypt(outfile, m_strTitle1, AlgId, false, outfile,key); // "true" steht für eine Verschlüsselung
 
 	remove(outfile);
-
 	
 	HIDE_HOUR_GLASS	
+
 	CDialog::OnOK();
 }
 

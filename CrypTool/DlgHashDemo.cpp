@@ -761,8 +761,6 @@ void CDlgHashDemo::SetRed()
 
 	int x=0;
 
-
-	// Florian Marchal, 06.08.2002
 	// offset:	Speichert das Offset der längsten unveränderten Bitfolge
 	// length:	Speichert die Länge der längsten unveränderten Bitfolge
 	int offset=0;

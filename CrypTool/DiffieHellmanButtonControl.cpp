@@ -57,7 +57,7 @@ DiffieHellmanBitmapButtonControl::DiffieHellmanBitmapButtonControl(CWnd *parent)
 {
 	// Anzahl der Buttons bestimmen
 	NumberOfButtons = 0;
-	while ( BitmapResources[NumberOfButtons++].BitmapName[0][0] );
+	while ( DH_BitmapResources[NumberOfButtons++].BitmapName[0][0] );
 	
 	NumberOfButtons--;
 	
@@ -65,7 +65,7 @@ DiffieHellmanBitmapButtonControl::DiffieHellmanBitmapButtonControl(CWnd *parent)
 	// Einzelen Buttons laden
 	for ( int i=0; i<NumberOfButtons; i++ )
 	{
-		AllButtons[i].Init( BitmapResources[i], parent );
+		AllButtons[i].Init( DH_BitmapResources[i], parent );
 	}
 
 	this->Update();

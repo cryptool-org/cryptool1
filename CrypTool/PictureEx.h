@@ -132,6 +132,11 @@ statement from your version.
 
 //#define GIF_TRACING  // uncomment it if you want detailed TRACEs
 
+
+// diese Zeile auskommentieren, um Animationen ENDLOS
+// abzuspielen und _NICHT_ NUR EIN EINZIGES MAL
+#define PLAY_ANIM_ONLY_ONCE
+
 class CPictureEx : public CStatic
 {
 public:

@@ -94,7 +94,7 @@ CDlgKeyHexAnalysis::CDlgKeyHexAnalysis(CWnd* pParent /*=NULL*/)
 	m_static_text = line;
 }
 
-int CDlgKeyHexAnalysis::Display(char *data, int len)
+int CDlgKeyHexAnalysis::Display(LPCTSTR title, char *data, int len, bool fixed/*=true*/)
 {
 	int res, i;
 	char buff[601];
@@ -105,13 +105,15 @@ int CDlgKeyHexAnalysis::Display(char *data, int len)
 	buff[len*3-1]=0;
 	m_einstr = buff;
 	m_einfeld.SetHex( data, len );
+	m_title = title;
+	m_fixed = fixed;
 
 	res=DoModal();
 
 	return res;
 }
 
-int CDlgKeyHexAnalysis::Display(CString c)
+int CDlgKeyHexAnalysis::Display(LPCTSTR title, CString c, bool fixed/*=true*/)
 {
 	int res, i,j;
 	char buff[600];
@@ -125,8 +127,10 @@ int CDlgKeyHexAnalysis::Display(CString c)
 	}
 
 	buff[j]=0;
+	m_title = title;
 	m_einstr = buff;
 	m_einfeld.SetAscii(c);
+	m_fixed = fixed;
 
 	res=DoModal();
 
@@ -178,9 +182,11 @@ BOOL CDlgKeyHexAnalysis::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	SetWindowText(m_title);	
 	m_font.CreatePointFont(100,"Courier New");
 	m_einfeld.SetFont(&m_font);
-	m_einfeld.SetFixedByteLength((m_einfeld.GetWindowTextLength()+1)/3);
+	if (m_fixed)
+		m_einfeld.SetFixedByteLength((m_einfeld.GetWindowTextLength()+1)/3);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

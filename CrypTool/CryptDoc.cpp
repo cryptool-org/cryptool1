@@ -73,6 +73,7 @@ statement from your version.
 #include "DlgASN1PSEPINPrompt.h"
 #include "DlgSigAttModificDemo.h"
 #include "DlgSignatureAttack.h"
+#include "DlgSideChannelAttackVisualizationHE.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -212,6 +213,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridentschlsselung)
 	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
+	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -240,7 +242,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
+	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1736,4 +1738,15 @@ void CCryptDoc::OnSignaturAttack()
 {
 	CDlgSignatureAttack S_A;
 	S_A.DoModal();
+}
+
+// Den Dialog "Visualisierung eines Seitenkanalangriffs auf das
+// Hybridverschlüsselungsverfahren" erstellen und anzeigen
+void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption() 
+{
+	UpdateContent();
+
+	CDlgSideChannelAttackVisualizationHE dlg;
+	dlg.setEncryptedFile(ContentName);
+	dlg.DoModal();
 }

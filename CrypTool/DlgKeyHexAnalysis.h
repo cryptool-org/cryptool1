@@ -66,8 +66,8 @@ public:
 	virtual char * GetData( void );
 	virtual int GetLen( void );
 	virtual int GetHexData(LPTSTR v, int len); // copy m_einstr, removing non-hex chars
-	virtual int Display(char *, int);
-	virtual int Display(CString);
+	virtual int Display(LPCTSTR title, char *, int, bool fixed=true);
+	virtual int Display(LPCTSTR title, CString, bool fixed=true);
 	int len;
 
 // Dialogfelddaten
@@ -89,6 +89,8 @@ public:
 // Implementierung
 protected:
 	CFont m_font; // font for key display
+	bool m_fixed; // fixed key length
+	CString m_title; // dialog title
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHexAnalysis)
 	virtual BOOL OnInitDialog();

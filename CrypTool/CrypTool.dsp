@@ -326,6 +326,14 @@ SOURCE=.\res\95check.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\gifs\ab_arrow_deactivated.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\ab_arrow_transmission.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\AESEncryption.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
@@ -495,7 +503,15 @@ SOURCE=.\res\bitmap10_2.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap11.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmap12.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap13.bmp
 # End Source File
 # Begin Source File
 
@@ -727,6 +743,230 @@ SOURCE=.\res\bmp00045.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bmp00046.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00047.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00048.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00049.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00050.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00051.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00052.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00053.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00054.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00055.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00056.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00057.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00058.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00059.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00060.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00061.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00062.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00063.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00064.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00065.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00066.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00067.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00068.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00069.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00070.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00071.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00072.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00073.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00074.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00075.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00076.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00077.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00078.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00079.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00080.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00081.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00082.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00083.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00084.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00085.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00086.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00087.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00088.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00089.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00090.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00091.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00092.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00093.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00094.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00095.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00096.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00097.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00098.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00099.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00100.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00101.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\BruteForceAnalysis.cpp
 # End Source File
 # Begin Source File
@@ -739,11 +979,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button1_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button1_G_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button1_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -755,11 +1011,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button1_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button1_G_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button1_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -771,11 +1043,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button1_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button1_R_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button1_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -787,11 +1075,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button1_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button1_R_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button1_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button1_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button1_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -803,11 +1107,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button2_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button2_G_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button2_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -819,11 +1139,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button2_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button2_G_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button2_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -835,11 +1171,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button2_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button2_R_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button2_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -851,11 +1203,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button2_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button2_R_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button2_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button2_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button2_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -867,11 +1235,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button3_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button3_G_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button3_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -883,11 +1267,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button3_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button3_G_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button3_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -899,11 +1299,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button3_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button3_R_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button3_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -915,11 +1331,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button3_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button3_R_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button3_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button3_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button3_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -931,11 +1363,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button4_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button4_G_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button4_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -947,11 +1395,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button4_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button4_G_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button4_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -963,11 +1427,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button4_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button4_R_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button4_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -979,11 +1459,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button4_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button4_R_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button4_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button4_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button4_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -995,11 +1491,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button5_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_G_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button5_G_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button5_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_G_F.bmp
 # End Source File
 # Begin Source File
 
@@ -1011,11 +1523,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button5_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button5_G_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button5_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_G_X.bmp
 # End Source File
 # Begin Source File
 
@@ -1027,11 +1555,27 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_D.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button5_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_R_D.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button5_R_F.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button5_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_R_F.bmp
 # End Source File
 # Begin Source File
 
@@ -1043,11 +1587,283 @@ SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_U.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\bmps\Button5_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DHBitmaps\bmps\Button5_R_X.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DHBitmaps_en\bmps\Button5_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button5_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button5_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button6_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button6_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button7_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button7_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button8_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button8_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\Button9_R_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\Button9_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -2635,6 +3451,102 @@ SOURCE=.\DlgShowPublicKeyEC.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgSideChannelAttackVisualizationHE.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHE.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEAlice.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEAlice.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEAttackCycle.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEAttackCycle.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEBob.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEBob.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEFinished.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEFinished.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEIntroduction.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEIntroduction.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEMessageInterception.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEMessageInterception.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEMessageTransmission.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEMessageTransmission.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparations.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparations.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPSEPINPrompt.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPSEPINPrompt.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEReport.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEReport.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHETrudy.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHETrudy.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgSigAttModificDemo.cpp
 # End Source File
 # Begin Source File
@@ -3172,6 +4084,10 @@ SOURCE=.\res\gif2.bin
 # Begin Source File
 
 SOURCE=.\res\gif3.bin
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\gif4.bin
 # End Source File
 # Begin Source File
 
@@ -4449,6 +5365,106 @@ SOURCE=.\res\sarrows.cur
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_failure.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_interception.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_static.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_success.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_transmission.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_ab_arrow_transmission_trudybob.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_alice_small.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_allremainingsteps_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_allremainingsteps_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_allremainingsteps_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_allremainingsteps_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_bob_small.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\sca_butt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_gapfiller.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\sca_green_success.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_lights.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_lights.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_lights_green.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\gifs\sca_lights_red.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_nextstep_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_nextstep_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_nextstep_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_nextstep_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\sca_red_error.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps\bmps\sca_trudy_small.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\sechseck.bmp
 # End Source File
 # Begin Source File
@@ -4813,6 +5829,22 @@ SOURCE=..\AES\Serpent\SERPENT.H
 # Begin Source File
 
 SOURCE=..\OpenSSL\sha.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SideChannelAttack.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SideChannelAttack.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SideChannelAttackButtonControl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SideChannelAttackButtonControl.h
 # End Source File
 # Begin Source File
 

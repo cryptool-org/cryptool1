@@ -3,748 +3,502 @@
 <pre>
 <h1>Erstellungsprotokoll</h1>
 <h3>
---------------------Konfiguration: LibAnalyse - Win32 Release--------------------
+--------------------Konfiguration: CrypTool - Win32 Debug--------------------
 </h3>
 <h3>Befehlszeilen</h3>
-Erstellen der temporären Datei  "C:\TEMP\RSP96.tmp" mit Inhalten
-[
-/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/LibAnalyse.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\Chi2.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\Cipher.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\Converter.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\Des.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\FreqTable.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\LFSR.CPP"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\NGram.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\OStream.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\Permutation.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\SBox.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\StaticObjects.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\String.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibAnalyse\SymbolArray.cpp"
-]
-Creating command line "cl.exe @C:\TEMP\RSP96.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSP97.tmp" mit Inhalten
-[
-/nologo /out:"Release\LibAnalyse.lib" 
-".\Release\Chi2.obj"
-".\Release\Cipher.obj"
-".\Release\Converter.obj"
-".\Release\Des.obj"
-".\Release\FFT.OBJ"
-".\Release\FreqTable.obj"
-".\Release\LFSR.OBJ"
-".\Release\MYMATH.OBJ"
-".\Release\NGram.obj"
-".\Release\OStream.obj"
-".\Release\Permutation.obj"
-".\Release\SBox.obj"
-".\Release\StaticObjects.obj"
-".\Release\String.obj"
-".\Release\Symbol.obj"
-".\Release\SymbolArray.obj"
-]
-Erstellen der Befehlzeile "link.exe -lib @C:\TEMP\RSP97.tmp"
-<h3>Ausgabefenster</h3>
-Kompilierung läuft...
-Chi2.cpp
-Cipher.cpp
-Converter.cpp
-Des.cpp
-FreqTable.cpp
-LFSR.CPP
-NGram.cpp
-OStream.cpp
-Permutation.cpp
-SBox.cpp
-StaticObjects.cpp
-String.cpp
-SymbolArray.cpp
-Bibliothek wird erstellt...
-<h3>
---------------------Konfiguration: LibEc - Win32 Release--------------------
-</h3>
-<h3>Befehlszeilen</h3>
-Erstellen der temporären Datei  "C:\TEMP\RSP98.tmp" mit Inhalten
-[
-/nologo /MT /W3 /GX /O2 /I "..\Secude" /I "include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/LibEc.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\ECsecude.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\Ecssa.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\EMSA1.C"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_bithdl.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecconv.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecDSA.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecmath.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecNR.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecpara.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecparp.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecpcur.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecppta.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecpptc.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecpptp.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecprpt.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecpX9c.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_ecvali.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_prng.c"
-]
-Creating command line "cl.exe @C:\TEMP\RSP98.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSP99.tmp" mit Inhalten
-[
-/nologo /out:"lib\EcBibV2.lib" 
-".\Release\ECsecude.obj"
-".\Release\Ecssa.obj"
-".\Release\EMSA1.OBJ"
-".\Release\s_bithdl.obj"
-".\Release\s_ecconv.obj"
-".\Release\s_ecDSA.obj"
-".\Release\s_ecmath.obj"
-".\Release\s_ecNR.obj"
-".\Release\s_ecpara.obj"
-".\Release\s_ecparp.obj"
-".\Release\s_ecpcur.obj"
-".\Release\s_ecppta.obj"
-".\Release\s_ecpptc.obj"
-".\Release\s_ecpptp.obj"
-".\Release\s_ecprpt.obj"
-".\Release\s_ecpX9c.obj"
-".\Release\s_ecvali.obj"
-".\Release\s_prng.obj"
-]
-Erstellen der Befehlzeile "link.exe -lib @C:\TEMP\RSP99.tmp"
-<h3>Ausgabefenster</h3>
-Kompilierung läuft...
-ECsecude.c
-Ecssa.c
-EMSA1.C
-s_bithdl.c
-s_ecconv.c
-s_ecDSA.c
-s_ecmath.c
-s_ecNR.c
-s_ecpara.c
-s_ecparp.c
-s_ecpcur.c
-s_ecppta.c
-s_ecpptc.c
-s_ecpptp.c
-s_ecprpt.c
-s_ecpX9c.c
-s_ecvali.c
-s_prng.c
-Bibliothek wird erstellt...
-<h3>
---------------------Konfiguration: LibMiracl - Win32 Release--------------------
-</h3>
-<h3>Befehlszeilen</h3>
-Erstellen der temporären Datei  "C:\TEMP\RSP9A.tmp" mit Inhalten
-[
-/nologo /ML /W3 /GX /O2 /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"Release/LibMiracl.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\BIG.CPP"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRAES.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRALLOC.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRARTH0.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRARTH1.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRARTH2.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRARTH3.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRBRICK.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRBUILD.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRCOMBA.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRCORE.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRCRT.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRCURVE.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRDOUBLE.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MREBRICK.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRECGF2M.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFAST.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFLASH.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFLSH1.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFLSH2.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFLSH3.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFLSH4.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRFRND.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRGCD.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRIO1.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRIO2.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRJACK.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRKCM.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRLUCAS.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRMONTY.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\mrmuldv.c"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRPI.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRPOWER.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRPRIME.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRRAND.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRROUND.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSCRT.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSHS.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSHS256.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSHS512.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSMALL.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRSTRONG.C"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\source\MRXGCD.C"
-]
-Creating command line "cl.exe @C:\TEMP\RSP9A.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSP9B.tmp" mit Inhalten
-[
-/nologo /out:"Release\LibMiracl.lib" 
-".\Release\BIG.OBJ"
-".\Release\MRAES.OBJ"
-".\Release\MRALLOC.OBJ"
-".\Release\MRARTH0.OBJ"
-".\Release\MRARTH1.OBJ"
-".\Release\MRARTH2.OBJ"
-".\Release\MRARTH3.OBJ"
-".\Release\MRBRICK.OBJ"
-".\Release\MRBUILD.OBJ"
-".\Release\MRCOMBA.OBJ"
-".\Release\MRCORE.OBJ"
-".\Release\MRCRT.OBJ"
-".\Release\MRCURVE.OBJ"
-".\Release\MRDOUBLE.OBJ"
-".\Release\MREBRICK.OBJ"
-".\Release\MRECGF2M.OBJ"
-".\Release\MRFAST.OBJ"
-".\Release\MRFLASH.OBJ"
-".\Release\MRFLSH1.OBJ"
-".\Release\MRFLSH2.OBJ"
-".\Release\MRFLSH3.OBJ"
-".\Release\MRFLSH4.OBJ"
-".\Release\MRFRND.OBJ"
-".\Release\MRGCD.OBJ"
-".\Release\MRIO1.OBJ"
-".\Release\MRIO2.OBJ"
-".\Release\MRJACK.OBJ"
-".\Release\MRKCM.OBJ"
-".\Release\MRLUCAS.OBJ"
-".\Release\MRMONTY.OBJ"
-".\Release\mrmuldv.obj"
-".\Release\MRPI.OBJ"
-".\Release\MRPOWER.OBJ"
-".\Release\MRPRIME.OBJ"
-".\Release\MRRAND.OBJ"
-".\Release\MRROUND.OBJ"
-".\Release\MRSCRT.OBJ"
-".\Release\MRSHS.OBJ"
-".\Release\MRSHS256.OBJ"
-".\Release\MRSHS512.OBJ"
-".\Release\MRSMALL.OBJ"
-".\Release\MRSTRONG.OBJ"
-".\Release\MRXGCD.OBJ"
-]
-Erstellen der Befehlzeile "link.exe -lib @C:\TEMP\RSP9B.tmp"
-<h3>Ausgabefenster</h3>
-Kompilierung läuft...
-BIG.CPP
-MRAES.C
-MRALLOC.C
-MRARTH0.C
-MRARTH1.C
-MRARTH2.C
-MRARTH3.C
-MRBRICK.C
-MRBUILD.C
-MRCOMBA.C
-MRCORE.C
-MRCRT.C
-MRCURVE.C
-MRDOUBLE.C
-MREBRICK.C
-MRECGF2M.C
-MRFAST.C
-MRFLASH.C
-MRFLSH1.C
-MRFLSH2.C
-MRFLSH3.C
-MRFLSH4.C
-MRFRND.C
-MRGCD.C
-MRIO1.C
-MRIO2.C
-MRJACK.C
-MRKCM.C
-MRLUCAS.C
-MRMONTY.C
-mrmuldv.c
-MRPI.C
-MRPOWER.C
-MRPRIME.C
-MRRAND.C
-MRROUND.C
-MRSCRT.C
-MRSHS.C
-MRSHS256.C
-MRSHS512.C
-MRSMALL.C
-MRSTRONG.C
-MRXGCD.C
-Bibliothek wird erstellt...
-<h3>
---------------------Konfiguration: CrypTool - Win32 Release_en--------------------
-</h3>
-<h3>Befehlszeilen</h3>
-Erstellen der temporären Datei  "C:\TEMP\RSP9C.bat" mit Inhalten
+Erstellen der temporären Datei  "C:\TEMP\RSP15C.bat" mit Inhalten
 [
 @echo off
 CheckResourceIDs.bat
 ]
-Erstellen der Befehlzeile "C:\TEMP\RSP9C.bat"
-Erstellen der temporären Datei  "C:\TEMP\RSP9D.bat" mit Inhalten
-[
-@echo off
-call ".\makehelp.bat" en
-]
-Erstellen der Befehlzeile "C:\TEMP\RSP9D.bat"
-Erstellen der temporären Datei  "C:\TEMP\RSP9E.bat" mit Inhalten
-[
-@echo off
-call ".\makehelp.bat" de
-]
-Erstellen der Befehlzeile "C:\TEMP\RSP9E.bat"
-Creating command line "rc.exe /l 0x809 /fo"..\Release_en/CrypTool.res" /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_ENG" "D:\data\src\CrypTool-DA-VS7\CrypTool\CrypTool.rc"" 
+Erstellen der Befehlzeile "C:\TEMP\RSP15C.bat"
+Creating command line "rc.exe /l 0x407 /fo"Debug/CrypTool.res" /d "_DEBUG" "D:\data\src\CrypTool-DA\CrypTool\CrypTool.rc"" 
 Checking CrypTool.rc and .\CrypToolPopupMenuIDs.txt (->CheckResourceIDs.*)
-Englische Hilfedatei wird erzeugt (".\hlp-en\CrypTool.hpj")...
-Setting environment for using Microsoft Visual C++ tools.
-Creating Win32 Help File...  (Create empty "makehelp.no" or "hlp-en\makehelp.no" to skip)
-
-
-
-Deutsche Hilfedatei wird erzeugt (".\hlp-de\CrypTool.hpj")...
-Setting environment for using Microsoft Visual C++ tools.
-Creating Win32 Help File...  (Create empty "makehelp.no" or "hlp-de\makehelp.no" to skip)
-
-
-
-Erstellen der temporären Datei  "C:\TEMP\RSPA5.tmp" mit Inhalten
+CrypTool.rc(4403) : warning: IDB_SCA_ALICE_SMALL is missing in english language ressources
+CrypTool.rc(4404) : warning: IDB_SCA_BOB_SMALL is missing in english language ressources
+CrypTool.rc(4405) : warning: IDB_SCA_GAPFILLER is missing in english language ressources
+CrypTool.rc(4402) : warning: IDB_SCA_TRUDY_SMALL is missing in english language ressources
+CrypTool.rc(3061) : warning: IDD_SIDECHANNALATTACKVISUALIZATION_HE_ATTACKCYCLE is missing in english language ressources
+CrypTool.rc(2957) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE is missing in english language ressources
+CrypTool.rc(3118) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE is missing in english language ressources
+CrypTool.rc(3134) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB is missing in english language ressources
+CrypTool.rc(3178) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED is missing in english language ressources
+CrypTool.rc(3011) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION is missing in english language ressources
+CrypTool.rc(3046) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION is missing in english language ressources
+CrypTool.rc(3091) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION is missing in english language ressources
+CrypTool.rc(3031) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS is missing in english language ressources
+CrypTool.rc(3104) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT is missing in english language ressources
+CrypTool.rc(3078) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_REPORT is missing in english language ressources
+CrypTool.rc(3151) : warning: IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY is missing in english language ressources
+CrypTool.rc(6565) : warning: IDS_SCA_ASKFORATTACKMODE is missing in english language ressources
+CrypTool.rc(6609) : warning: IDS_SCA_ATTACKER_HASEXTRACTEDDENCSESSIONKEY is missing in english language ressources
+CrypTool.rc(6607) : warning: IDS_SCA_ATTACKER_MESSAGEINTERCEPTED is missing in english language ressources
+CrypTool.rc(6601) : warning: IDS_SCA_ATTACKER_MESSAGENOTINTERCEPTEDYET is missing in english language ressources
+CrypTool.rc(6613) : warning: IDS_SCA_ATTACKER_MODIFICATIONSMADE is missing in english language ressources
+CrypTool.rc(6653) : warning: IDS_SCA_ATTACKER_MODIFICATIONSMADE_S is missing in english language ressources
+CrypTool.rc(6545) : warning: IDS_SCA_ATTACKER_MODIFIEDSESSIONKEY is missing in english language ressources
+CrypTool.rc(6611) : warning: IDS_SCA_ATTACKER_NOMODIFICATIONSYET is missing in english language ressources
+CrypTool.rc(6548) : warning: IDS_SCA_ATTACKER_SESSIONKEYNOTDETERMINEDYET is missing in english language ressources
+CrypTool.rc(6563) : warning: IDS_SCA_ATTACKER_SESSIONKEYNOTINTERCEPTEDYET is missing in english language ressources
+CrypTool.rc(6615) : warning: IDS_SCA_ATTACKER_SUCCESSRESPONSES is missing in english language ressources
+CrypTool.rc(6655) : warning: IDS_SCA_ATTACKER_SUCCESSRESPONSE_FALSE is missing in english language ressources
+CrypTool.rc(6657) : warning: IDS_SCA_ATTACKER_SUCCESSRESPONSE_TRUE is missing in english language ressources
+CrypTool.rc(6583) : warning: IDS_SCA_CLIENT_CHOSEEXISTINGHYBENCFILE is missing in english language ressources
+CrypTool.rc(6592) : warning: IDS_SCA_CLIENT_CHOSESESSIONKEY is missing in english language ressources
+CrypTool.rc(6585) : warning: IDS_SCA_CLIENT_CREATEDMESSAGE is missing in english language ressources
+CrypTool.rc(6588) : warning: IDS_SCA_CLIENT_ENCRYPTEDMESSAGE is missing in english language ressources
+CrypTool.rc(6594) : warning: IDS_SCA_CLIENT_ENCRYPTSESSIONKEY is missing in english language ressources
+CrypTool.rc(6586) : warning: IDS_SCA_CLIENT_GOTPUBLICKEY is missing in english language ressources
+CrypTool.rc(6581) : warning: IDS_SCA_CLIENT_NOHYBENCFILEDEFINED is missing in english language ressources
+CrypTool.rc(6561) : warning: IDS_SCA_CLIENT_SESSIONKEYUNKNOWN is missing in english language ressources
+CrypTool.rc(6590) : warning: IDS_SCA_CLIENT_TRANSMITTEDHYBENCFILE is missing in english language ressources
+CrypTool.rc(6571) : warning: IDS_SCA_E_ATTACK_CONDITIONS_NOT_MET is missing in english language ressources
+CrypTool.rc(6569) : warning: IDS_SCA_E_HYBENCFILE_EXTRACTION is missing in english language ressources
+CrypTool.rc(6567) : warning: IDS_SCA_E_INTERNAL_ERROR is missing in english language ressources
+CrypTool.rc(6568) : warning: IDS_SCA_E_MEMORY_ALLOCATION is missing in english language ressources
+CrypTool.rc(6573) : warning: IDS_SCA_E_MIRACL_ERROR is missing in english language ressources
+CrypTool.rc(6648) : warning: IDS_SCA_E_TIMER_NOT_AVAILABLE is missing in english language ressources
+CrypTool.rc(6575) : warning: IDS_SCA_E_UNKNOWN_ERROR is missing in english language ressources
+CrypTool.rc(6574) : warning: IDS_SCA_E_WRONG_PIN is missing in english language ressources
+CrypTool.rc(6530) : warning: IDS_SCA_HYBENCFILE_ALREADY_OPENED is missing in english language ressources
+CrypTool.rc(6580) : warning: IDS_SCA_KEYWORD is missing in english language ressources
+CrypTool.rc(6532) : warning: IDS_SCA_NO_KEYPAIRS_AVAILABLE is missing in english language ressources
+CrypTool.rc(6538) : warning: IDS_SCA_PSE_IS_NEEDED is missing in english language ressources
+CrypTool.rc(6539) : warning: IDS_SCA_PSE_OTHER_ERROR is missing in english language ressources
+CrypTool.rc(6536) : warning: IDS_SCA_PSE_PIN_EXTRACTION_ERROR is missing in english language ressources
+CrypTool.rc(6535) : warning: IDS_SCA_PSE_WRONG_PIN is missing in english language ressources
+CrypTool.rc(6617) : warning: IDS_SCA_REPORTGENERATED is missing in english language ressources
+CrypTool.rc(6651) : warning: IDS_SCA_REPORTNOTYETGENERATED is missing in english language ressources
+CrypTool.rc(6624) : warning: IDS_SCA_REPORT_ALICECHOSEPUBLICKEY is missing in english language ressources
+CrypTool.rc(6620) : warning: IDS_SCA_REPORT_ALICECHOSESESSIONKEY is missing in english language ressources
+CrypTool.rc(6618) : warning: IDS_SCA_REPORT_ALICECREATEDMESSAGE is missing in english language ressources
+CrypTool.rc(6622) : warning: IDS_SCA_REPORT_ALICEENCRYPTEDMESSAGE is missing in english language ressources
+CrypTool.rc(6626) : warning: IDS_SCA_REPORT_ALICEENCRYPTEDSESSIONKEY is missing in english language ressources
+CrypTool.rc(6628) : warning: IDS_SCA_REPORT_ALICETOOKEXISTINGFILE is missing in english language ressources
+CrypTool.rc(6630) : warning: IDS_SCA_REPORT_ALICETRANSMITTEDMESSAGE is missing in english language ressources
+CrypTool.rc(6645) : warning: IDS_SCA_REPORT_HEADINGATTACKCYCLE is missing in english language ressources
+CrypTool.rc(6643) : warning: IDS_SCA_REPORT_HEADINGMESSAGEINTERCEPTION is missing in english language ressources
+CrypTool.rc(6641) : warning: IDS_SCA_REPORT_HEADINGMESSAGETRANSMISSION is missing in english language ressources
+CrypTool.rc(6636) : warning: IDS_SCA_REPORT_HEADINGPREPARATIONS is missing in english language ressources
+CrypTool.rc(6632) : warning: IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE is missing in english language ressources
+CrypTool.rc(6634) : warning: IDS_SCA_REPORT_TRUDYMODIFIEDSESSIONKEYS is missing in english language ressources
+CrypTool.rc(6646) : warning: IDS_SCA_REPORT_TRUDYREPEATSMODIFICATION is missing in english language ressources
+CrypTool.rc(6540) : warning: IDS_SCA_SERVER_ANSWER is missing in english language ressources
+CrypTool.rc(6544) : warning: IDS_SCA_SERVER_ANSWER_FAILURE is missing in english language ressources
+CrypTool.rc(6543) : warning: IDS_SCA_SERVER_ANSWER_SUCCESS is missing in english language ressources
+CrypTool.rc(6659) : warning: IDS_SCA_SERVER_FAILURERESPONSE is missing in english language ressources
+CrypTool.rc(6663) : warning: IDS_SCA_SERVER_RECEIVEDMESSAGE is missing in english language ressources
+CrypTool.rc(6596) : warning: IDS_SCA_SERVER_RECEIVEDMESSAGES is missing in english language ressources
+CrypTool.rc(6597) : warning: IDS_SCA_SERVER_RECEIVEDNOMESSAGES is missing in english language ressources
+CrypTool.rc(6541) : warning: IDS_SCA_SERVER_RECEIVEDSESSIONKEYHEX is missing in english language ressources
+CrypTool.rc(6599) : warning: IDS_SCA_SERVER_SUCCESSRESPONSE is missing in english language ressources
+CrypTool.rc(6661) : warning: IDS_SCA_SERVER_SUCCESSRESPONSES is missing in english language ressources
+CrypTool.rc(6649) : warning: IDS_SCA_SESSIONKEYISNULL is missing in english language ressources
+CrypTool.rc(6547) : warning: IDS_SCA_SESSIONKEYNUMBER is missing in english language ressources
+CrypTool.rc(6534) : warning: IDS_SCA_TEXTFILE_OPENED is missing in english language ressources
+CrypTool.rc(6555) : warning: ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION is missing in english language ressources
+CrypTool.rc(2800) : warning: IDC_CHECK2 (dialog IDD_OPTIONS_FURTHEROPTIONS) is missing in english language ressources
+CrypTool.rc(2802) : warning: IDC_CHECK3 (dialog IDD_OPTIONS_FURTHEROPTIONS) is missing in english language ressources
+Erstellen der temporären Datei  "C:\TEMP\RSP15D.tmp" mit Inhalten
 [
-/nologo /MT /W3 /GX /O1 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR"..\Release_en/" /Fp"..\Release_en/CrypTool.pch" /YX /Fo"..\Release_en/" /Fd"..\Release_en/" /FD /c 
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AESEncryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AsymmetricEncryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AutomaticAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\CryptDoc.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\CryptDocTemplate.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\Cryptography.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\CrypToolApp.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DialogLaengeBin.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgAbout.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgAuthors.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgCaesarAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgECSignatureStepByStep.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgExtractSignature.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgHillAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKey.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyAsym.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyAsymGeneration.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHexAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHill10x10.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHill5x5.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyLength.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeySubstitution.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyVigenere.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgManualSubstAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgOptionsAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgOptionsSubstitutionAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgPINAccess.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgRSADecryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgRSAEncryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowCertificate.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowKey.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowKeyHill10x10.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowKeyHill5x5.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowParameterKeyEC.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowPrivateKeyEC.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowPublicKeyEC.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgSignature.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgTextOptions.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgVerifyECSignatureStepByStep.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgVerifySignature.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\KeyFileHandling.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ParseIniFile.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SecudeLib.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ValueList.cpp"
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\OpenSSL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"D:\data\src\CrypTool-DA\CrypTool\AESEncryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\AppDocument.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\AppEditView.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\AscEdit.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ASN1Decoder.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\AsymmetricEncryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\AutomaticAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\BitParity.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\BlockView.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\BruteForceAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ButtonControl.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ChrTools.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\CryptDoc.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\Cryptography.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\CrypToolApp.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\CrypToolTools.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DialogeMessage.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DialogLaengeBin.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DiffieHellmanButtonControl.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DiffieHellmanLogFile.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DiffieHellmanParty.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgAbout.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgASN1PSEPINPrompt.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgAuthors.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgBruteForceAES.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgCaesarAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgCertificateGeneration.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgChangePIN.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDemoRSAKeyGeneration.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanCreateSharedKey.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanExchangeSharedKeys.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanFinalInfo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanGenerateFinalKey.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanIntro.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanKeyInformation.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanPublicParameters.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanSecretInput.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanSetPublicParameters.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanSetSecrets.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgDiffieHellmanVisualization.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgECGeneration.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgECSignatureStepByStep.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgEntropyInfo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgExtractSignature.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgFactorisationDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgFactorisationList.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgFurtherOptions.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgGeneratePrime.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgHashDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgHillAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgHybridDecryptionDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgHybridEncryptionDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgICGRandomParamater.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKey.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyAsym.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyAsymGeneration.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyFromPassword.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHex.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHexAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHexFixedLen.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHill10x10.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHill5x5.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyHomophone.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyLength.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyPermutation.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyPermutationInfo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyPlayfair.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeySubstitution.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgKeyVigenere.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgLCGRandomParameter.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgManualSubstAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgNGramAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgOptionsAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgOptionsRSADemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgOptionsSignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgOptionsStartoptions.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgOptionsSubstitutionAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgPeriodicityAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgPINAccess.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgPlayfairAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgPrimesGeneratorDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgProgressFactorisation.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgRandomGenerator.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgRandomParameterSECUDE.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgRSADecryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgRSADemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgRSAEncryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSelectHashFunction.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowCertificate.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowHash.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowKey.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowKeyHill10x10.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowKeyHill5x5.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowKeyParameter.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowParameterKeyEC.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowPrivateKeyEC.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowProgress.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgShowPublicKeyEC.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHE.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEAlice.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEAttackCycle.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEBob.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEFinished.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEIntroduction.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEMessageInterception.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEMessageTransmission.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEPreparations.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEPSEPINPrompt.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHEReport.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSideChannelAttackVisualizationHETrudy.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSigAttModificDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSignature.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgSignatureDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgStatisticsSignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgStatRandTests.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgTextOptions.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgTipsAndTricks.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgVerifyECSignatureStepByStep.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgVerifySignature.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\DlgX2ModNRandomParamater.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\FileTools.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\HashingOperations.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\HexEdit.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\HexView.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\HillEncryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\HomophoneEncryption.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\IntegerArithmetic.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\KeyEdit.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\KeyFileHandling.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\KeyFromPasswordPKCS5.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\KeyParameterHomophone.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\KeyRepository.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\MakeZip.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ModifiedDocument_Attachments.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ModifiedDocument_Blanks.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ModifiedDocumentForHashing.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\OptionsForSignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ParseIniFile.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ParseIniFile2.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PictureEx.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PlayfairAnalysis.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PlayfairEdit.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PlayfairStructures.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PlotDocument.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PlotView.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\PSEDemo.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\RandomAnalysisTools.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\RandomTest.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ResultsOfSignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SecudeCryptography.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SecudeLib.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SecudeTools.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SideChannelAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SideChannelAttackButtonControl.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SignatureAttack.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SignatureAttackMFC.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\SquareMatrixModN.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\stdafx.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\TimeCalculation.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\ValueList.cpp"
+"D:\data\src\CrypTool-DA\CrypTool\zzgen.cpp"
 ]
-Creating command line "cl.exe @C:\TEMP\RSPA5.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSPA6.tmp" mit Inhalten
+Creating command line "cl.exe @C:\TEMP\RSP15D.tmp" 
+Erstellen der temporären Datei  "C:\TEMP\RSP15E.tmp" mit Inhalten
 [
-/nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR"..\Release_en/" /Fp"..\Release_en/CrypTool.pch" /YX /Fo"..\Release_en/" /Fd"..\Release_en/" /FD /c 
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AppDocument.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AppEditView.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\AscEdit.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ASN1Decoder.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\BitParity.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\BlockView.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\BruteForceAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ButtonControl.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ChrTools.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\COMFLASH.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\CrypToolTools.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DialogeMessage.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DiffieHellmanButtonControl.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DiffieHellmanLogFile.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DiffieHellmanParty.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgASN1PSEPINPrompt.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgBruteForceAES.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgCertificateGeneration.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgChangePIN.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDemoRSAKeyGeneration.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanCreateSharedKey.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanExchangeSharedKeys.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanFinalInfo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanGenerateFinalKey.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanIntro.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanKeyInformation.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanPublicParameters.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanSecretInput.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanSetPublicParameters.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanSetSecrets.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgDiffieHellmanVisualization.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgECGeneration.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgEntropyInfo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgFactorisationDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgFactorisationList.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgFurtherOptions.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgGeneratePrime.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgHashDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgHybridDecryptionDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgHybridEncryptionDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgICGRandomParamater.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyFromPassword.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHex.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHexFixedLen.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyHomophone.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyPermutation.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyPermutationInfo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgKeyPlayfair.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgLCGRandomParameter.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgNGramAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgOptionsRSADemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgOptionsSignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgOptionsStartoptions.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgPeriodicityAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgPlayfairAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgPrimesGeneratorDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgProgressFactorisation.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgRandomGenerator.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgRandomParameterSECUDE.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgRSADemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgSelectHashFunction.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowHash.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowKeyParameter.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgShowProgress.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgSigAttModificDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgSignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgSignatureDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgStatisticsSignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgStatRandTests.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgTipsAndTricks.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\DlgX2ModNRandomParamater.cpp"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\Ecssa.c"
-"D:\data\src\CrypTool-DA-VS7\LibMiracl\SOURCE\ECSVER.C"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ELLIPTIC.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\FileTools.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\FLASH.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\FPOLY.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\HashingOperations.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\HexEdit.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\HexView.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\HillEncryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\HomophoneEncryption.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\IntegerArithmetic.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\KeyEdit.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\KeyFromPasswordPKCS5.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\KeyParameterHomophone.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\KeyRepository.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\MakeNewName.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\MakeZip.cpp"
-"D:\data\src\CrypTool-DA-VS7\AES\Mars\mars-opt.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ModifiedDocument_Attachments.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ModifiedDocument_Blanks.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ModifiedDocumentForHashing.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\MONTY.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\OptionsForSignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ParseIniFile2.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PictureEx.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PlayfairAnalysis.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PlayfairEdit.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PlayfairStructures.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PlotDocument.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PlotView.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\POLY.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\POLYMOD.CPP"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\PSEDemo.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\RandomAnalysisTools.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\RandomTest.cpp"
-"D:\data\src\CrypTool-DA-VS7\AES\RC6\rc6.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\ResultsOfSignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\AES\Rijndael\rijndael-alg-fst.c"
-"D:\data\src\CrypTool-DA-VS7\AES\Rijndael\rijndael-api-fst.c"
-"D:\data\src\CrypTool-DA-VS7\LibEc\sources\s_prng.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SecudeCryptography.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SecudeTools.cpp"
-"D:\data\src\CrypTool-DA-VS7\AES\Serpent\SERPENT.C"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SignatureAttack.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SignatureAttackMFC.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\SquareMatrixModN.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\stdafx.cpp"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\TimeCalculation.cpp"
-"D:\data\src\CrypTool-DA-VS7\AES\Twofish\TWOFISH2.C"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zbits.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zdeflate.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zfile_io.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zglobals.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zinflate.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zip.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zipup.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\ztrees.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zip\zunzip.c"
-"D:\data\src\CrypTool-DA-VS7\CrypTool\zzgen.cpp"
+..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /map:"Debug/CrypTool.map" /debug /machine:I386 /nodefaultlib:"libcd" /out:"Debug/CrypTool.exe" 
+".\Debug\AESEncryption.obj"
+".\Debug\AppDocument.obj"
+".\Debug\AppEditView.obj"
+".\Debug\AscEdit.obj"
+".\Debug\ASN1Decoder.obj"
+".\Debug\AsymmetricEncryption.obj"
+".\Debug\AutomaticAnalysis.obj"
+".\Debug\BitParity.obj"
+".\Debug\BlockView.obj"
+".\Debug\BruteForceAnalysis.obj"
+".\Debug\ButtonControl.obj"
+".\Debug\ChrTools.obj"
+".\Debug\COMFLASH.OBJ"
+".\Debug\CryptDoc.obj"
+".\Debug\CryptDocTemplate.obj"
+".\Debug\Cryptography.obj"
+".\Debug\CrypToolApp.obj"
+".\Debug\CrypToolTools.obj"
+".\Debug\DialogeMessage.obj"
+".\Debug\DialogLaengeBin.obj"
+".\Debug\DiffieHellmanButtonControl.obj"
+".\Debug\DiffieHellmanLogFile.obj"
+".\Debug\DiffieHellmanParty.obj"
+".\Debug\DlgAbout.obj"
+".\Debug\DlgASN1PSEPINPrompt.obj"
+".\Debug\DlgAuthors.obj"
+".\Debug\DlgBruteForceAES.obj"
+".\Debug\DlgCaesarAnalysis.obj"
+".\Debug\DlgCertificateGeneration.obj"
+".\Debug\DlgChangePIN.obj"
+".\Debug\DlgDemoRSAKeyGeneration.obj"
+".\Debug\DlgDiffieHellmanCreateSharedKey.obj"
+".\Debug\DlgDiffieHellmanExchangeSharedKeys.obj"
+".\Debug\DlgDiffieHellmanFinalInfo.obj"
+".\Debug\DlgDiffieHellmanGenerateFinalKey.obj"
+".\Debug\DlgDiffieHellmanIntro.obj"
+".\Debug\DlgDiffieHellmanKeyInformation.obj"
+".\Debug\DlgDiffieHellmanPublicParameters.obj"
+".\Debug\DlgDiffieHellmanSecretInput.obj"
+".\Debug\DlgDiffieHellmanSetPublicParameters.obj"
+".\Debug\DlgDiffieHellmanSetSecrets.obj"
+".\Debug\DlgDiffieHellmanVisualization.obj"
+".\Debug\DlgECGeneration.obj"
+".\Debug\DlgECSignatureStepByStep.obj"
+".\Debug\DlgEntropyInfo.obj"
+".\Debug\DlgExtractSignature.obj"
+".\Debug\DlgFactorisationDemo.obj"
+".\Debug\DlgFactorisationList.obj"
+".\Debug\DlgFurtherOptions.obj"
+".\Debug\DlgGeneratePrime.obj"
+".\Debug\DlgHashDemo.obj"
+".\Debug\DlgHillAnalysis.obj"
+".\Debug\DlgHybridDecryptionDemo.obj"
+".\Debug\DlgHybridEncryptionDemo.obj"
+".\Debug\DlgICGRandomParamater.obj"
+".\Debug\DlgKey.obj"
+".\Debug\DlgKeyAsym.obj"
+".\Debug\DlgKeyAsymGeneration.obj"
+".\Debug\DlgKeyFromPassword.obj"
+".\Debug\DlgKeyHex.obj"
+".\Debug\DlgKeyHexAnalysis.obj"
+".\Debug\DlgKeyHexFixedLen.obj"
+".\Debug\DlgKeyHill10x10.obj"
+".\Debug\DlgKeyHill5x5.obj"
+".\Debug\DlgKeyHomophone.obj"
+".\Debug\DlgKeyLength.obj"
+".\Debug\DlgKeyPermutation.obj"
+".\Debug\DlgKeyPermutationInfo.obj"
+".\Debug\DlgKeyPlayfair.obj"
+".\Debug\DlgKeySubstitution.obj"
+".\Debug\DlgKeyVigenere.obj"
+".\Debug\DlgLCGRandomParameter.obj"
+".\Debug\DlgManualSubstAnalysis.obj"
+".\Debug\DlgNGramAnalysis.obj"
+".\Debug\DlgOptionsAnalysis.obj"
+".\Debug\DlgOptionsRSADemo.obj"
+".\Debug\DlgOptionsSignatureAttack.obj"
+".\Debug\DlgOptionsStartoptions.obj"
+".\Debug\DlgOptionsSubstitutionAnalysis.obj"
+".\Debug\DlgPeriodicityAnalysis.obj"
+".\Debug\DlgPINAccess.obj"
+".\Debug\DlgPlayfairAnalysis.obj"
+".\Debug\DlgPrimesGeneratorDemo.obj"
+".\Debug\DlgProgressFactorisation.obj"
+".\Debug\DlgRandomGenerator.obj"
+".\Debug\DlgRandomParameterSECUDE.obj"
+".\Debug\DlgRSADecryption.obj"
+".\Debug\DlgRSADemo.obj"
+".\Debug\DlgRSAEncryption.obj"
+".\Debug\DlgSelectHashFunction.obj"
+".\Debug\DlgShowCertificate.obj"
+".\Debug\DlgShowHash.obj"
+".\Debug\DlgShowKey.obj"
+".\Debug\DlgShowKeyHill10x10.obj"
+".\Debug\DlgShowKeyHill5x5.obj"
+".\Debug\DlgShowKeyParameter.obj"
+".\Debug\DlgShowParameterKeyEC.obj"
+".\Debug\DlgShowPrivateKeyEC.obj"
+".\Debug\DlgShowProgress.obj"
+".\Debug\DlgShowPublicKeyEC.obj"
+".\Debug\DlgSideChannelAttackVisualizationHE.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEAlice.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEAttackCycle.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEBob.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEFinished.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEIntroduction.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEMessageInterception.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEMessageTransmission.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEPreparations.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEPSEPINPrompt.obj"
+".\Debug\DlgSideChannelAttackVisualizationHEReport.obj"
+".\Debug\DlgSideChannelAttackVisualizationHETrudy.obj"
+".\Debug\DlgSigAttModificDemo.obj"
+".\Debug\DlgSignature.obj"
+".\Debug\DlgSignatureAttack.obj"
+".\Debug\DlgSignatureDemo.obj"
+".\Debug\DlgStatisticsSignatureAttack.obj"
+".\Debug\DlgStatRandTests.obj"
+".\Debug\DlgTextOptions.obj"
+".\Debug\DlgTipsAndTricks.obj"
+".\Debug\DlgVerifyECSignatureStepByStep.obj"
+".\Debug\DlgVerifySignature.obj"
+".\Debug\DlgX2ModNRandomParamater.obj"
+".\Debug\Ecssa.obj"
+".\Debug\ECSVER.OBJ"
+".\Debug\ELLIPTIC.OBJ"
+".\Debug\FileTools.obj"
+".\Debug\FLASH.OBJ"
+".\Debug\FPOLY.OBJ"
+".\Debug\HashingOperations.obj"
+".\Debug\HexEdit.obj"
+".\Debug\HexView.obj"
+".\Debug\HillEncryption.obj"
+".\Debug\HomophoneEncryption.obj"
+".\Debug\IntegerArithmetic.obj"
+".\Debug\KeyEdit.obj"
+".\Debug\KeyFileHandling.obj"
+".\Debug\KeyFromPasswordPKCS5.obj"
+".\Debug\KeyParameterHomophone.obj"
+".\Debug\KeyRepository.obj"
+".\Debug\MakeNewName.obj"
+".\Debug\MakeZip.obj"
+".\Debug\mars-opt.obj"
+".\Debug\ModifiedDocument_Attachments.obj"
+".\Debug\ModifiedDocument_Blanks.obj"
+".\Debug\ModifiedDocumentForHashing.obj"
+".\Debug\MONTY.OBJ"
+".\Debug\OptionsForSignatureAttack.obj"
+".\Debug\ParseIniFile.obj"
+".\Debug\ParseIniFile2.obj"
+".\Debug\PictureEx.obj"
+".\Debug\PlayfairAnalysis.obj"
+".\Debug\PlayfairEdit.obj"
+".\Debug\PlayfairStructures.obj"
+".\Debug\PlotDocument.obj"
+".\Debug\PlotView.obj"
+".\Debug\POLY.OBJ"
+".\Debug\POLYMOD.OBJ"
+".\Debug\PSEDemo.obj"
+".\Debug\RandomAnalysisTools.obj"
+".\Debug\RandomTest.obj"
+".\Debug\rc6.obj"
+".\Debug\ResultsOfSignatureAttack.obj"
+".\Debug\rijndael-alg-fst.obj"
+".\Debug\rijndael-api-fst.obj"
+".\Debug\s_prng.obj"
+".\Debug\SecudeCryptography.obj"
+".\Debug\SecudeLib.obj"
+".\Debug\SecudeTools.obj"
+".\Debug\SERPENT.OBJ"
+".\Debug\SideChannelAttack.obj"
+".\Debug\SideChannelAttackButtonControl.obj"
+".\Debug\SignatureAttack.obj"
+".\Debug\SignatureAttackMFC.obj"
+".\Debug\SquareMatrixModN.obj"
+".\Debug\stdafx.obj"
+".\Debug\TimeCalculation.obj"
+".\Debug\TWOFISH2.OBJ"
+".\Debug\ValueList.obj"
+".\Debug\zbits.obj"
+".\Debug\zdeflate.obj"
+".\Debug\zfile_io.obj"
+".\Debug\zglobals.obj"
+".\Debug\zinflate.obj"
+".\Debug\zip.obj"
+".\Debug\zipup.obj"
+".\Debug\ztrees.obj"
+".\Debug\zunzip.obj"
+".\Debug\zzgen.obj"
+".\Debug\CrypTool.res"
+"\data\src\CrypTool-DA\LibAnalyse\Debug\LibAnalyse.lib"
+"\data\src\CrypTool-DA\LibEc\lib\EcBibV2D.lib"
+"\data\src\CrypTool-DA\LibMiracl\Debug\LibMiracl.lib"
 ]
-Creating command line "cl.exe @C:\TEMP\RSPA6.tmp" 
-Erstellen der temporären Datei  "C:\TEMP\RSPA7.tmp" mit Inhalten
-[
-..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /incremental:no /pdb:"..\Release_en/CrypTool.pdb" /debug /machine:I386 /nodefaultlib:"libc" /out:"..\Release_en/CrypTool.exe" 
-"\data\src\CrypTool-DA-VS7\Release_en\AESEncryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\AppDocument.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\AppEditView.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\AscEdit.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ASN1Decoder.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\AsymmetricEncryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\AutomaticAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\BitParity.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\BlockView.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\BruteForceAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ButtonControl.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ChrTools.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\COMFLASH.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\CryptDoc.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\CryptDocTemplate.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\Cryptography.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\CrypToolApp.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\CrypToolTools.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DialogeMessage.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DialogLaengeBin.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DiffieHellmanButtonControl.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DiffieHellmanLogFile.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DiffieHellmanParty.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgAbout.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgASN1PSEPINPrompt.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgAuthors.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgBruteForceAES.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgCaesarAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgCertificateGeneration.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgChangePIN.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDemoRSAKeyGeneration.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanCreateSharedKey.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanExchangeSharedKeys.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanFinalInfo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanGenerateFinalKey.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanIntro.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanKeyInformation.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanPublicParameters.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanSecretInput.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanSetPublicParameters.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanSetSecrets.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgDiffieHellmanVisualization.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgECGeneration.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgECSignatureStepByStep.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgEntropyInfo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgExtractSignature.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgFactorisationDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgFactorisationList.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgFurtherOptions.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgGeneratePrime.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgHashDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgHillAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgHybridDecryptionDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgHybridEncryptionDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgICGRandomParamater.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKey.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyAsym.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyAsymGeneration.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyFromPassword.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHex.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHexAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHexFixedLen.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHill10x10.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHill5x5.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyHomophone.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyLength.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyPermutation.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyPermutationInfo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyPlayfair.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeySubstitution.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgKeyVigenere.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgLCGRandomParameter.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgManualSubstAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgNGramAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgOptionsAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgOptionsRSADemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgOptionsSignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgOptionsStartoptions.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgOptionsSubstitutionAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgPeriodicityAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgPINAccess.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgPlayfairAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgPrimesGeneratorDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgProgressFactorisation.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgRandomGenerator.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgRandomParameterSECUDE.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgRSADecryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgRSADemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgRSAEncryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgSelectHashFunction.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowCertificate.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowHash.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowKey.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowKeyHill10x10.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowKeyHill5x5.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowKeyParameter.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowParameterKeyEC.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowPrivateKeyEC.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowProgress.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgShowPublicKeyEC.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgSigAttModificDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgSignature.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgSignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgSignatureDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgStatisticsSignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgStatRandTests.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgTextOptions.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgTipsAndTricks.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgVerifyECSignatureStepByStep.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgVerifySignature.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\DlgX2ModNRandomParamater.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\Ecssa.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ECSVER.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\ELLIPTIC.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\FileTools.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\FLASH.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\FPOLY.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\HashingOperations.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\HexEdit.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\HexView.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\HillEncryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\HomophoneEncryption.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\IntegerArithmetic.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\KeyEdit.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\KeyFileHandling.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\KeyFromPasswordPKCS5.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\KeyParameterHomophone.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\KeyRepository.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\MakeNewName.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\MakeZip.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\mars-opt.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ModifiedDocument_Attachments.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ModifiedDocument_Blanks.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ModifiedDocumentForHashing.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\MONTY.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\OptionsForSignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ParseIniFile.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ParseIniFile2.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PictureEx.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PlayfairAnalysis.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PlayfairEdit.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PlayfairStructures.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PlotDocument.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\PlotView.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\POLY.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\POLYMOD.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\PSEDemo.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\RandomAnalysisTools.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\RandomTest.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\rc6.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ResultsOfSignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\rijndael-alg-fst.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\rijndael-api-fst.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\s_prng.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SecudeCryptography.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SecudeLib.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SecudeTools.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SERPENT.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\SignatureAttack.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SignatureAttackMFC.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\SquareMatrixModN.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\stdafx.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\TimeCalculation.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\TWOFISH2.OBJ"
-"\data\src\CrypTool-DA-VS7\Release_en\ValueList.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zbits.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zdeflate.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zfile_io.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zglobals.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zinflate.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zip.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zipup.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\ztrees.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zunzip.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\zzgen.obj"
-"\data\src\CrypTool-DA-VS7\Release_en\CrypTool.res"
-]
-Erstellen der Befehlzeile "link.exe @C:\TEMP\RSPA7.tmp"
+Erstellen der Befehlzeile "link.exe @C:\TEMP\RSP15E.tmp"
 <h3>Ausgabefenster</h3>
 Ressourcen werden kompiliert...
 Kompilierung läuft...
 AESEncryption.cpp
-AsymmetricEncryption.cpp
 AutomaticAnalysis.cpp
-CryptDoc.cpp
-CryptDocTemplate.cpp
-Cryptography.cpp
-CrypToolApp.cpp
+BruteForceAnalysis.cpp
 DialogLaengeBin.cpp
-DlgAbout.cpp
-DlgAuthors.cpp
-DlgCaesarAnalysis.cpp
-DlgECSignatureStepByStep.cpp
-DlgExtractSignature.cpp
-DlgHillAnalysis.cpp
-DlgKey.cpp
-DlgKeyAsym.cpp
-DlgKeyAsymGeneration.cpp
 DlgKeyHexAnalysis.cpp
-DlgKeyHill10x10.cpp
-DlgKeyHill5x5.cpp
-DlgKeyLength.cpp
-DlgKeySubstitution.cpp
-DlgKeyVigenere.cpp
-DlgManualSubstAnalysis.cpp
-DlgOptionsAnalysis.cpp
-DlgOptionsSubstitutionAnalysis.cpp
-DlgPINAccess.cpp
-DlgRSADecryption.cpp
-DlgRSAEncryption.cpp
-DlgShowCertificate.cpp
-DlgShowKey.cpp
-DlgShowKeyHill10x10.cpp
-DlgShowKeyHill5x5.cpp
-DlgShowParameterKeyEC.cpp
-DlgShowPrivateKeyEC.cpp
-DlgShowPublicKeyEC.cpp
-DlgSignature.cpp
-DlgTextOptions.cpp
-DlgVerifyECSignatureStepByStep.cpp
-DlgVerifySignature.cpp
-KeyFileHandling.cpp
-ParseIniFile.cpp
-SecudeLib.cpp
-ValueList.cpp
-Kompilierung läuft...
+HexEdit.cpp
+Generieren von Code...
+Kompilieren...
 AppDocument.cpp
 AppEditView.cpp
 AscEdit.cpp
 ASN1Decoder.cpp
+AsymmetricEncryption.cpp
 BitParity.cpp
 BlockView.cpp
-BruteForceAnalysis.cpp
 ButtonControl.cpp
 ChrTools.cpp
-COMFLASH.CPP
+CryptDoc.cpp
+Cryptography.cpp
+CrypToolApp.cpp
 CrypToolTools.cpp
 DialogeMessage.cpp
 DiffieHellmanButtonControl.cpp
 DiffieHellmanLogFile.cpp
 DiffieHellmanParty.cpp
+DlgAbout.cpp
 DlgASN1PSEPINPrompt.cpp
+DlgAuthors.cpp
+Generieren von Code...
+Kompilieren...
 DlgBruteForceAES.cpp
+DlgCaesarAnalysis.cpp
 DlgCertificateGeneration.cpp
 DlgChangePIN.cpp
 DlgDemoRSAKeyGeneration.cpp
@@ -760,69 +514,112 @@ DlgDiffieHellmanSetPublicParameters.cpp
 DlgDiffieHellmanSetSecrets.cpp
 DlgDiffieHellmanVisualization.cpp
 DlgECGeneration.cpp
+DlgECSignatureStepByStep.cpp
 DlgEntropyInfo.cpp
+DlgExtractSignature.cpp
+Generieren von Code...
+Kompilieren...
 DlgFactorisationDemo.cpp
 DlgFactorisationList.cpp
 DlgFurtherOptions.cpp
 DlgGeneratePrime.cpp
 DlgHashDemo.cpp
+DlgHillAnalysis.cpp
 DlgHybridDecryptionDemo.cpp
 DlgHybridEncryptionDemo.cpp
 DlgICGRandomParamater.cpp
+DlgKey.cpp
+DlgKeyAsym.cpp
+DlgKeyAsymGeneration.cpp
 DlgKeyFromPassword.cpp
 DlgKeyHex.cpp
 DlgKeyHexFixedLen.cpp
+DlgKeyHill10x10.cpp
+DlgKeyHill5x5.cpp
 DlgKeyHomophone.cpp
+DlgKeyLength.cpp
 DlgKeyPermutation.cpp
+Generieren von Code...
+Kompilieren...
 DlgKeyPermutationInfo.cpp
 DlgKeyPlayfair.cpp
+DlgKeySubstitution.cpp
+DlgKeyVigenere.cpp
 DlgLCGRandomParameter.cpp
+DlgManualSubstAnalysis.cpp
 DlgNGramAnalysis.cpp
+DlgOptionsAnalysis.cpp
 DlgOptionsRSADemo.cpp
 DlgOptionsSignatureAttack.cpp
 DlgOptionsStartoptions.cpp
+DlgOptionsSubstitutionAnalysis.cpp
 DlgPeriodicityAnalysis.cpp
+DlgPINAccess.cpp
 DlgPlayfairAnalysis.cpp
 DlgPrimesGeneratorDemo.cpp
 DlgProgressFactorisation.cpp
 DlgRandomGenerator.cpp
 DlgRandomParameterSECUDE.cpp
+DlgRSADecryption.cpp
+Generieren von Code...
+Kompilieren...
 DlgRSADemo.cpp
+DlgRSAEncryption.cpp
 DlgSelectHashFunction.cpp
+DlgShowCertificate.cpp
 DlgShowHash.cpp
+DlgShowKey.cpp
+DlgShowKeyHill10x10.cpp
+DlgShowKeyHill5x5.cpp
 DlgShowKeyParameter.cpp
+DlgShowParameterKeyEC.cpp
+DlgShowPrivateKeyEC.cpp
 DlgShowProgress.cpp
+DlgShowPublicKeyEC.cpp
+DlgSideChannelAttackVisualizationHE.cpp
+DlgSideChannelAttackVisualizationHEAlice.cpp
+DlgSideChannelAttackVisualizationHEAttackCycle.cpp
+DlgSideChannelAttackVisualizationHEBob.cpp
+DlgSideChannelAttackVisualizationHEFinished.cpp
+DlgSideChannelAttackVisualizationHEIntroduction.cpp
+DlgSideChannelAttackVisualizationHEMessageInterception.cpp
+Generieren von Code...
+Kompilieren...
+DlgSideChannelAttackVisualizationHEMessageTransmission.cpp
+DlgSideChannelAttackVisualizationHEPreparations.cpp
+DlgSideChannelAttackVisualizationHEPSEPINPrompt.cpp
+DlgSideChannelAttackVisualizationHEReport.cpp
+DlgSideChannelAttackVisualizationHETrudy.cpp
 DlgSigAttModificDemo.cpp
+DlgSignature.cpp
 DlgSignatureAttack.cpp
 DlgSignatureDemo.cpp
 DlgStatisticsSignatureAttack.cpp
 DlgStatRandTests.cpp
+DlgTextOptions.cpp
 DlgTipsAndTricks.cpp
+DlgVerifyECSignatureStepByStep.cpp
+DlgVerifySignature.cpp
 DlgX2ModNRandomParamater.cpp
-Ecssa.c
-ECSVER.C
-ELLIPTIC.CPP
 FileTools.cpp
-FLASH.CPP
-FPOLY.CPP
 HashingOperations.cpp
-HexEdit.cpp
 HexView.cpp
 HillEncryption.cpp
+Generieren von Code...
+Kompilieren...
 HomophoneEncryption.cpp
 IntegerArithmetic.cpp
 KeyEdit.cpp
+KeyFileHandling.cpp
 KeyFromPasswordPKCS5.cpp
 KeyParameterHomophone.cpp
 KeyRepository.cpp
-MakeNewName.cpp
 MakeZip.cpp
-mars-opt.c
 ModifiedDocument_Attachments.cpp
 ModifiedDocument_Blanks.cpp
 ModifiedDocumentForHashing.cpp
-MONTY.CPP
 OptionsForSignatureAttack.cpp
+ParseIniFile.cpp
 ParseIniFile2.cpp
 PictureEx.cpp
 PlayfairAnalysis.cpp
@@ -830,41 +627,31 @@ PlayfairEdit.cpp
 PlayfairStructures.cpp
 PlotDocument.cpp
 PlotView.cpp
-POLY.CPP
-POLYMOD.CPP
+Generieren von Code...
+Kompilieren...
 PSEDemo.cpp
 RandomAnalysisTools.cpp
 RandomTest.cpp
-rc6.c
 ResultsOfSignatureAttack.cpp
-rijndael-alg-fst.c
-rijndael-api-fst.c
-s_prng.c
 SecudeCryptography.cpp
+SecudeLib.cpp
 SecudeTools.cpp
-SERPENT.C
+SideChannelAttack.cpp
+SideChannelAttackButtonControl.cpp
 SignatureAttack.cpp
 SignatureAttackMFC.cpp
 SquareMatrixModN.cpp
 stdafx.cpp
 TimeCalculation.cpp
-TWOFISH2.C
-zbits.c
-zdeflate.c
-zfile_io.c
-zglobals.c
-zinflate.c
-zip.c
-zipup.c
-ztrees.c
-zunzip.c
+ValueList.cpp
 zzgen.cpp
+Generieren von Code...
 Linker-Vorgang läuft...
 
 
 
 <h3>Ergebnisse</h3>
-CrypTool.exe - 0 Fehler, 0 Warnung(en)
+CrypTool.exe - 0 Fehler, 85 Warnung(en)
 </pre>
 </body>
 </html>

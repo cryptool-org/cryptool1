@@ -70,6 +70,10 @@ public:
 	CString Name;
 	CString Firstname;
 	CString CreatTime;
+	
+	// formerly protected
+	CString KeyType;
+	CString KeyInfo;
 
 	CString UserKeyId; //roger???
 
@@ -97,9 +101,6 @@ protected:
 	int m_lastSelectedRow;
 	int sortBy;
 	unsigned nKeylistType;
-
-	CString KeyType;
-	CString KeyInfo;
 
 //	CString UserKeyId; //Roger???
 

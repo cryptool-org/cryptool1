@@ -90,6 +90,7 @@ statement from your version.
 #include "DlgFurtherOptions.h"
 #include "DlgDiffieHellmanVisualization.h"
 #include "DialogeMessage.h"
+#include "DlgSideChannelAttackVisualizationHE.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
@@ -145,6 +146,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
+	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -152,7 +154,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_SCRIPT, OnScript)
+	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -852,4 +854,12 @@ void CCrypToolApp::OnScript()
 
 	if ( reinterpret_cast<int>(hInst) <= 32 )
 		Message(IDS_ERROPEN_SCRIPT, MB_ICONSTOP);
+}
+
+// Den Dialog "Visualisierung eines Seitenkanalangriffs auf das
+// Hybridverschlüsselungsverfahren" erstellen und anzeigen
+void CCrypToolApp::OnEinzelverfahrenSidechannelattackOnHybridencryption() 
+{
+	CDlgSideChannelAttackVisualizationHE dlg;
+	dlg.DoModal();
 }

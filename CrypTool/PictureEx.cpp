@@ -981,6 +981,13 @@ void CPictureEx::ThreadAnimation()
 		m_nCurrFrame++;
 		if (m_nCurrFrame == m_arrFrames.size())
 		{
+
+// Animation nur ein einziges Mal abspielen?
+#ifdef PLAY_ANIM_ONLY_ONCE
+			m_bExitThread = TRUE;
+			break;
+#endif
+			
 			m_nCurrFrame
 				= 0; 
 		// init the screen for the first frame,

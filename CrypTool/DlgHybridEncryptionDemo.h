@@ -55,16 +55,34 @@ statement from your version.
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHybridEncryptionDemo 
 #define MAX_LEN_EDIT 30000
-#define KEY_LEN 16
+// Florian Marchal, 19.04.2004
+// entfernen???
+//#define KEY_LEN 16
 #define DIR_ENCRYPT 0 
 
 #define INFO_TEXT_COLUMNS 20 // Abhängig von der Fensterbreite in den Ressourcen !!!!!!
                              // Beim Editieren der Ressoucen bitte Größe anpassen
 
+
+// Falls der SCA-Modus aktiviert ist, werden in folgender Struktur Informationen
+// über das ausgewählte Zertifikat/RSA-Schlüsselpaar abgelegt:
+struct SCACertificateInformation
+{
+	CString firstname;
+	CString lastname;
+	CString keytype;
+	CString time;
+};
+
 class CDlgHybridEncryptionDemo : public CDialog
 {
 // Konstruktion
 public:
+
+	SCACertificateInformation getCertInfo();
+	CString getSCAFile();
+	void activateSCABehaviour();
+	
 	bool DateiOeffnen(const CString &DateiPfadName);
 	int m_ButtonStatus[11];					// Zustand des Buttons (deaktiviert / aktiviert, aber noch nicht
 											// gedrückt / aktiviert und schon gedrückt)
@@ -76,7 +94,7 @@ public:
 	int m_iDocSize;
 	bool m_bAuswahlDat;
 	CDlgRSAEncryption rsaDlg;
-	char SymKey[KEY_LEN];
+	char *SymKey;
 	OctetString* EncSymKey;
 	int m_iDocSizeForEnc;
 	CFont m_font;
@@ -149,7 +167,16 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
+
+	SCACertificateInformation scaCertInfo;
+	
+	CString scaFile;
+	bool isSCABehaviourActivated;
+	
 	enum ButtonStatus {inactive /* = 0*/, active_not_pressed /* = 1*/, active_pressed /* = 2*/};
+	// Default-Einstellung für die Länge des symmetrischen Schlüssels; wird
+	// im Konstruktor initialisiert (Lesen aus .ini-Datei)
+	int symKeyByteLength;
 };
 
 //{{AFX_INSERT_LOCATION}}

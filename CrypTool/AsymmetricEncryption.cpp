@@ -354,7 +354,6 @@ void RsaDec(char* infile, const char *OldTitle)
 {
 	char outfile[128], title[128];
     CAppDocument *NewDoc;
-	unsigned int i, blocklen;
 	
 	clock_t sigStart;
 	clock_t sigFinish;
@@ -448,11 +447,17 @@ void RsaDec(char* infile, const char *OldTitle)
 			return;
 		}
 		
+// TEST************		
+int test = 1234;
+/*
+		unsigned int i, blocklen;
 		// Abschneiden abschließender Nullen
 		blocklen = out.noctets / (in.nbits / 8 - out.noctets);
 		for(i=out.noctets-1;i>out.noctets-blocklen;i--)
 			if(out.octets[i]) break;
 		if(i>out.noctets-blocklen) out.noctets = i+1;
+*/
+		  
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		
 		//Ausgabe der verschluesselten Daten
