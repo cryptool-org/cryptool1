@@ -665,6 +665,12 @@ Funktionalität:
   möglich (dabei werden wie bei der Visualisierung der Hybrid-
   Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 + Einführung des Menüpunktes Startoptionen.
++ Klarere Aufstellung des Analyse-Menüs.
++ Speichert der Benutzer einen Fensterinhalt ab, wird nicht mehr 
+  ein temporärer Dateiname vorgeschlagen, sondern ein inhaltlich
+  passender Name: Cry-<Verfahren>-<Quelldateiname>.*
+  Bei bewusst abgespeicherten Dokumenten wird dann der Dateiname 
+  im Fenstertitel angezeigt (anstatt der Beschreibung).
 
 
 5.8. Geplante Änderungen nach Version 1.3.03
@@ -692,11 +698,16 @@ Funktionalität:
   Schlüsselspeicher aufgenommen werden.
 + Wörterbuch für alle Angriffe benutzen, nicht nur für die
   Substitution.
-+ Einbau von normierter Mustersuche.
++ Einbau einer erweiterten Mustersuche (mit vorgegebenen normierten
+  und regulären Mustern, Massen-Vergleich mit bekannten Mustern in
+  einer anderen Datei, Suche nach unbekannten, aber mehrfach
+  vorkommenden Mustern im Dokument, ...).
 + Analyse neu implementieren für
   - homophone Verschlüsselung.
 + Analyse verbessern (nicht performant und stark genug bisher) für
-  - monoalphabetische Substitution,
+  - monoalphabetische Substitution 
+    (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
+    und von Doppelzeichen wie "mm"),
   - Playfair-Verschlüsselung,
   - asymmetrische Kryptoverfahren.
 + Alle Anzeigemodule in einem konsistenten Klassenbaum
@@ -712,6 +723,12 @@ Funktionalität:
 + Anzeigen des zweit-, dritt-, ... -besten Treffers bei der
   XOR/ADD-Analyse (dies kann zu einer kürzeren Schlüssellänge
   führen).
++ Einzelne Dialogboxen (z.B. N-Gramm-Analyse, Manuelle Analysen,
+  Hybriddemo) als amodale Fenster erzeugen, so dass man beliebig
+  zwischen Hauptfenster und Auswertungsfenster springen kann
+  (aufwendigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
+  rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw. 
+  nach Änderung der Originaldaten im Hauptfenster, ...).
 + Autokorrelation: vor der Überlagerung noch Operationen auf den
   Blöcken ausführen (XOR, ADD, ...); macht das Sinn?
 + Editieren der Homophonen-Schlüssel (benötigt bei der Analyse
@@ -848,10 +865,9 @@ kryptographischen Sicherheitsfunktionen zu verbessern.
 Von dieser CD sind mehr als 600.000 Stück produziert und
 zum Beispiel mit der Zeitschrift PC-Welt 8/02 verteilt worden.
 
-10.4. Freeware-Projekt Crank, CAP, CryptAid,  etc.
-      --------------------------------------------
+10.4. Freeware-Projekt Crank, Griffon, CAP, CryptAid,  etc.
+      -----------------------------------------------------
 http://freshmeat.net/projects/crank/
-
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
 der GNU General Public Licence (GPL) freigegeben.
 Im Crank-Projekt soll unter Linux ein Programm mit grafischer
@@ -859,25 +875,36 @@ Oberfläche erstellt werden, das das möglichst automatisierte
 Brechen von klassischen Kryptoalgorithmen ermöglicht.
 Initial liegt der Fokus auf der Analyse monoalphabetischer
 Substitutions-Chiffren und der Entwicklung generischer und
-flexibler Analysetools.
-Auf dieser Seite gibt es auch einige sehr interessante Links zu
-klassischer Kryptoanalyse.
+flexibler Analysetools. 
+Das Tool liegt nur in englischer Sprache vor.
+Die aktuelle Version 0.2.1 wurde im August 2001 freigegeben. 
+Auf der Projekt-Webseite gibt es auch einige sehr interessante Links
+zu klassischer Kryptoanalyse.
+ 
+http://freshmeat.net/projects/griffon/
+Griffon wurde im Jahre 2000 von Adrian Mulvaney begonnen und unter
+der GNU General Public Licence (GPL) freigegeben.
+Griffon ist ein GTK+ GUI Kryptoanalyse-Paket für Pre-digital Ciphers.
+Es enthält monoalphabetische Transposistion, Substitution und Playfair.
+Das Tool liegt nur in englischer Sprache vor.
+Die aktuelle Version 1.0 wurde im November 2000 freigegeben.
 
 Die einzigen anderen uns bekannten brauchbaren Programme, die
 Kryptographie und Kryptoanalyse (unter einer graphischen
 Oberfläche) verbinden, sind:
 - CAP von Dr. Richard Spillman
+  (Sourcen wahrscheinlich nicht public)
   http://www.cs.plu.edu/courses/privacy/index.htm
 - CryptAid von David Lovelock
   (wahrscheinlich seit 1997 nicht mehr weitergepflegt)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
 
-Falls uns hier etwas entgangen ist, würden wir uns über eine
-Nachricht freuen - wir vervollständigen diese Liste gerne.
+Falls uns hier etwas entgangen ist, würden wir uns über eine Nachricht
+freuen - wir vervollständigen oder korrigieren diese Liste gerne.
 
 Außerdem wollen wir hier ausdrücklich das Angebot machen, die
 Anstrengungen für diese einzelnen Programme in ein einziges
-Programm zu integrieren.
+Programm zu integrieren. Wir freuen uns über jede Kooperation!!
 
 
 

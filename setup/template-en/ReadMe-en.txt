@@ -492,9 +492,9 @@ your computer is untouched.
 
 5. What's new in CrypTool till 1.3.03
    ----------------------------------
-The following enhancements and bug fixes (listed till 5.6) have been
-added for version 1.3.00 since CrypTool version 1.202 (Dec 2000).
-- CrypTool is now fully available in both German and English
+The following enhancements and bug fixes (listed till 5.6) have
+been added for version 1.3.00 since CrypTool version 1.202:
+- CrypTool is now fully available in both English and German
   language versions.
 - All dialogues has been reviewed for consistency and clarity.
 - The restrictions (maximum data volume 64 KB) which previously
@@ -652,6 +652,11 @@ Functionality:
   too (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
 + New menu item Starting Options.
++ Structure of Analysis became clearer. xxxx
++ When the user saves the window content to a file now a fitting
+  file name is suggested:  Cry-<Method>-<Sourcefilename>.*
+  For intentionally saved documents the window title contains
+  the filename (instead of the description). 
 
 
 5.8. Planned enhancements after version 1.3.03
@@ -678,11 +683,15 @@ Functionality:
   Then these additional customizations must become part of the
   format for the internal key storage.
 + Use dictionary for all attacks, not just for substitution.
-+ Implementation of standardized pattern searching.
++ Implementation of an enhanced pattern search (with pre-given 
+  standardized and regular patterns, mass comparison with known 
+  patterns from another file, search for unknown but repeated 
+  patterns in a document, ...).
 + Analysis newly to implement for
   - homophone encryption.
 + Analysis improvement (not sophisticated enough yet) of
-  - monoalphabetic substitution,
+  - monoalphabetic substitution (plus display of inverted digram
+                                 pairs and double characters),
   - Playfair encryption,
   - asymmetric crypto methods.
 + Summary of all display modules in a logical class tree.
@@ -694,6 +703,14 @@ Functionality:
   of XOR, ADD, Vigenere.
 + Display of second-, third-, etc. -best hit in XOR/ADD analysis
   (this could lead to a shorter key length).
++ Create single dialogue windows in an a-modal way (e.g. N-gram 
+  analysis, manual analysis, hybrid encryption demonstration).
+  This allows that one can switch between the main window and
+  the dialogue window without closing the dialogue window first
+  (the burdon is a more complex control mechanism, handling of
+  multiple calls to the same dialogue, update after change of
+  window focus or after changing the underlying original data
+  within the main window, ...).
 + Autocorrelation: execute more operations (XOR, ADD, ...) in the
   blocks prior to super imposition, if appropriate
 + Make it possible to edit the homophone key (necessary for
@@ -823,10 +840,9 @@ CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
 
-10.4. Freeware project Crank, CAP, CryptAid, etc
-      ------------------------------------------
+10.4. Freeware project Crank, Griffon, CAP, CryptAid, etc
+      ---------------------------------------------------
 http://freshmeat.net/projects/crank/
-
 Crank was initiated in January 2001 by Matthew Russell and is
 released under the GNU general public license, the GPL.
 In the Crank project the idea is that a program with a graphical
@@ -836,23 +852,33 @@ automatically.
 Initially the focus is on the analysis of monoalphabetic
 substitution ciphers and the development of generic and flexible
 analysis tools.
-On this page there are also some very interesting links on
-classical cryptanalysis.
+The current version 0.2.1 was released in August 2001. 
+On the project web page there are also some very interesting links
+on classical cryptanalysis.
 
-The only "useful" programs known to us, which combine cryptography
-and cryptanalysis (under a graphical user interface) are:
+http://freshmeat.net/projects/griffon/
+Griffon was started in 2000 by Adrian Mulvaney begonnen and is
+released under the GNU general public license, the GPL.
+Griffon is a GTK+ GUI cryptanalysis package for pre-digital ciphers.
+Monoalphabetic transposistion and substitution ciphers and Playfair
+are covered. The program includes a customizable frequency count.
+The current version 1.0 was released in November 2000.
+
+The only other "useful" programs known to us, which combine 
+cryptography and cryptanalysis (under a graphical user interface) are:
 - CAP from Dr. Richard Spillman
+  (the source code probably is not public)
   http://www.cs.plu.edu/courses/privacy/index.htm
 - CryptAid from David Lovelock
-  (probably development stop 1997)
+  (probably development stopped 1997)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
 
-If we are missing something here, please feel free to inform us,
-so that we can complete the list.
+If we are missing something here or are incorrect anyhow, please feel
+free to inform us, so that we can complete or correct the list.
 
 We explicitly want to state, that we would welcome if all the
 efforts made for these single programs could be combined into one
-new program.
+new program. We are very kean about any co-operation!!
 
 
 
