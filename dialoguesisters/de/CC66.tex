@@ -1,0 +1,122 @@
+\begin{center}
+{\bf VI.}
+\end{center}
+Trotz intensiven Nachdenkens scheitert Martin am Problem der Dechiffrierung
+von Biancas und Doris' Geheimsprache. Aber er gibt trotzdem nicht auf: Er
+nutzt einen freien Tag, f\"ahrt nach Heidelberg und trifft sich dort mit
+{\em Dr. Praetorius\/} im mathematischen Institut der Universit\"at. Martin
+hatte sich mit diesem Herrn, dessen Namen er im Personenverzeichnis
+der Hochschule ausfindig gemacht hatte, telefonisch in Verbindung gesetzt
+und diesen Termin vereinbart. Der akademische Rat empf\"angt ihn freundlich
+und h\"ort geduldig zu, als Martin ihm von seiner Arbeit, den Schwestern
+und ihrer Zahlensprache erz\"ahlt. Auch Dr. Praetorius ist von den
+F\"ahigkeiten der beiden Frauen fasziniert, hat aber auch keine Erkl\"arung
+f\"ur dieses eigenartige Ph\"anomen. Martin setzt ihm dann die
+Verschl\"usselungstechnik auseinander, soweit er sie bereits analysieren
+konnte. Sein eigentliches Ziel, von den Schwestern etwas \"uber gewisse
+Vorkommnisse im Sanatorium erfahren zu wollen, erw\"ahnt der Zivi dabei
+nat\"urlich nicht. \\ \\
+'Haben Sie eine solche Karte mit den Verschl\"usselungscodes mitgebracht?'
+fragt Dr. Praetorius. Martin reicht ihm die Spielkarte, die er im Bad der
+Schwestern hinter dem Spiegel gefunden hatte, und der Rat tippt einige Zahlen
+aus den Verschl\"usselungscodes in seinen Computer ein. Er l\"a{\ss}t die
+Maschine rechnen, nickt zufrieden und wendet sich wieder Martin zu. 'Sie
+wissen doch, was Primzahlen sind?' Martin ist um die Antwort nicht verlegen,
+solche Dinge hat er in der Schule bei Dr. Bruckner gelernt. 'Das sind Zahlen
+ohne Teiler' erwidert er. 'Richtig, genauer gesagt, ohne {\em echte\/} Teiler,
+denn {\em jede\/} Zahl ist immer durch 1 und sich selbst teilbar. Die ersten
+Primzahlen sind:
+\begin{center}
+2,\,3,\,5,\,7,\,11,\,13,\,17,\,19,\,23,\,29, \quad \dots
+\end{center}
+Ist ihnen schon aufgefallen, da{\ss} die erste Zahl eines jeden Codepaares
+stets aus {\em zwei\/} Primzahlen zusammengesetzt ist?' Martin sch\"uttelt
+den Kopf. 'Schauen Sie, hier!' Der Rat weist auf den Bildschirm des Computers:
+\[\begin{array}{rcc}
+4\,267 & = & 17\cdot 251 \\
+17\,819 & = & 103\cdot 173
+\end{array} \]
+'Die Zahlen 17, 251, 103 und 173 sind alle Primzahlen. Und gerade diese
+Primfaktorzerlegung der jeweils ersten Codezahl mu{\ss} man kennen, um
+dechiffrieren zu k\"onnen!' Martin sieht den Mathematiker bewundernd an. 'Sie
+fragten mich eben nach der M\"oglichkeit der Entschl\"usselung. Ich will sie
+Ihnen erkl\"aren. In der Kryptographie, der mathematischen Teildisziplin, in
+der man Verschl\"usselungstechniken untersucht und entwickelt, kennt man das
+Verfahren Ihrer beiden Schwestern aus dem Heim schon lange; es ist ein
+einfacheres Verfahren. Erschrecken Sie nicht! Es ist trotzdem sehr wirkungsvoll.
+Das Geheimnis bei der Entschl\"usselung beruht auf einer Erkenntnis, die wir
+dem alten {\em Fermat\/}\footnote{{\em Pierre de Fermat\/}, franz\"osischer
+Mathematiker, 1601 - 1665.} verdanken. Und so geht es!' Dr. Praetorius
+greift zu den Aufzeichnungen, die ihm Martin mitgebracht hat. 'Sie haben den
+Satz ICH BIN BIANCA mit dem Schl\"ussel {\bf 51,3} kodieren lassen, und
+beispielsweise f\"ur den Buchstaben {\bf H} von Bianca die Zahl 665 erhalten.
+Die erste Zahl aus dem Schl\"ussel, die 51, wollen wir den {\em Hauptmodul\/}
+nennen, die 3 haben Sie als {\em Verschl\"usselungsexponent\/} bezeichnet;
+das soll mir recht sein. Sicher wird es Sie jetzt \"uberraschen, da{\ss} man
+einen {\em Entschl\"usselungsexponenten\/} bestimmen kann. Und genau hierf\"ur
+ben\"otigen Sie die Primfaktorzerlegung des Hauptmoduls. Er ist hier 51. Sie
+haben die 51 damals willk\"urlich gew\"ahlt, und zuf\"allig ist das auch ein
+Produkt von zwei Primzahlen.' Dr. Praetorius schreibt auf ein Blatt:
+\begin{center}
+\(51\,\,=\,\,3\cdot 17 \)
+\end{center}
+'Jetzt verringern Sie die beiden Primfaktoren jeweils um 1 und multiplizieren
+die Resultate miteinander. Was dabei herauskommt, wollen wir den
+{\em Nebenmodul\/} nennen.'
+\begin{center}
+Nebenmodul \,=\,\((3-1)\cdot (17-1)\,=\,2\cdot 16 \,=\,32 \)
+\end{center}
+'K\"onnen Sie mir nun eine Zahl angeben, die folgende Eigenschaft hat: Wenn man
+sie mit dem Verschl\"usselungsexponenten 3 multipliziert und anschlie{\ss}end
+das Produkt durch den Nebenmodul 32 teilt, bleibt bei dieser Division mit 32 der
+Rest 1 \"ubrig \dots ?' Martin \"uberlegt kurz, dann hat er das Resultat: 'Elf.'
+'Sehr gut!' lobt ihn der Rat und schreibt:
+\[\frac{11\cdot 3}{32}\,=\,1 \,\,\,\mbox{Rest}\,\,1\,\,,\quad \mbox{oder}\,\,
+11\cdot 3\,=\,33\,=\,1\cdot 32 + \mbox{1}\,\,.\]
+'Woher kommt diese Eins, die bei der Division mit dem Nebenmodul als Rest
+\"ubrigbleiben soll?' fragt Martin. 'Egal, mit welchen Zahlen Sie auch
+hantieren, an dieser Stelle mu{\ss} bei der Division mit dem Nebenmodul
+{\em immer\/} der Rest~1 \"ubrigbleiben. Das hat mit der Erkenntnis des alten
+Fermat zu tun, die dieser Rechnung zugrundeliegt. Ja, und die Zahl 11, die Sie
+eben ermittelt haben, ist der gesuchte Entschl\"usselungsexponent.' Martin
+staunt. 'Soll ich jetzt die 665, die mir Bianca f\"ur den Buchstaben {\bf H}
+genannt hat, elfmal mit sich selbst multiplizieren?' fragt er ungl\"aubig.
+'Sie machen dabei nichts falsch. Aber diese Zahl wird ziemlich gro{\ss}. Da
+wir anschlie{\ss}end das Ergebnis wieder durch den {\em Hauptmodul\/} 51
+teilen und dabei den Rest bestimmen wollen, bietet es sich an, von der
+Verschl\"usselungszahl 665 bereits {\em vor\/} dem Potenzieren mit 11 den
+Rest bei der Division durch den Hauptmodul 51 zu ermitteln. Sie haben das in
+Ihren Aufzeichnungen ja schon getan:'
+\[665\,\,=\,\,13\cdot 51\,+\,{\bf 2} \]
+'Anstelle der 665 d\"urfen Sie auch die 2 potenzieren. Das ist viel bequemer.'
+Martin kommt aus dem Staunen nicht mehr heraus:
+\[2^{11}\,=\,2048\,=\,40\cdot 51\,+\,{\bf 8} \]
+Jetzt ist Martin richtig verbl\"ufft: Die 8 steht in seiner Tabelle f\"ur den
+Buchstaben {\bf H}!!! 'Und durch dieses Potenzieren mit 11 k\"onnen Sie die
+ganze von Bianca genannte Zahlenkolonne wieder in die Buchstaben
+zur\"uckverwandeln. \"Ubrigens: Dieses Kodierungsverfahren l\"a{\ss}t sich
+auch f\"ur Ihren Laptop leicht programmieren.' 'Darauf soll erst 'mal einer
+kommen!', meint Martin, 'kein Wunder, da{\ss} ich diese Nu{\ss} nicht geknackt
+habe!' Dr. Praetorius hat aber noch einen weiteren Trumph in der Hinterhand:
+'In der Praxis k\"onnen zwei Personen, die nach diesem Verfahren geheime
+Nachrichten austauschen, den Codeschl\"ussel - also den Hauptmodul samt
+Verschl\"usselungsexponent - sogar {\em \"offentlich\/} bekanntgeben,
+vorausgesetzt, der Hauptmodul ist sehr, sehr gro{\ss}.' Der junge Mann sieht
+den akademischen Rat ungl\"aubig an. Der aber l\"achelt und f\"ahrt fort: 'Das
+Problem bei Kodierungen sind weniger die Verfahren. Die sind vielen bekannt
+und beruhen meist auf recht elementaren mathematischen Prinzipien. Die Kunst
+der Dechiffrierung besteht n\"amlich zumeist in der Zerlegung sehr gro{\ss}er
+Zahlen in ein Produkt von Primzahlen, wie wir es hier bei unserem Hauptmodul
+\(51=3\cdot 17 \) auch getan haben. Bei so kleinen Zahlen, auch solchen, wie
+sie Bianca und Doris verwenden, ist das kein Problem. Mit Tabellen oder mit der
+Hilfe eines Taschenrechners findet man die Zerlegung rasch. Aber stellen Sie
+sich einen hundertstelligen Hauptmodul vor, dessen beide Primfaktoren etwa
+f\"unfzigstellig sind! Diese Primfaktoren bleiben nat\"urlich geheim. Auch mit
+gr\"o{\ss}eren Computern dauert es dann schon seine Zeit, bis ein Dritter diese
+Primfaktoren gefunden hat!' -  \\ \\
+Als Martin wieder den Bus besteigt, der ihn in den Odenwald zur\"uckbringt,
+brummt ihm der Sch\"adel. Aber er ist nun voller Zuversicht, mit Bianca und
+Doris k\"unftig unbegrenzt kommunizieren zu k\"onnen. Mit Hilfe des
+Diktierger\"ates, dem Laptop und seinem Wissen sollte das nun doch m\"oglich
+sein! - Auf den Einfall, hundertstellige Codeschl\"ussel zu verwenden, wird
+er die Schwestern aber nicht bringen. 
