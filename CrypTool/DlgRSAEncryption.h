@@ -20,6 +20,7 @@ class CDlgRSAEncryption : public CDialog
 // Konstruktion
 public:
 	bool disableButtons;
+	bool encryptButtonVisible;
 	CDlgRSAEncryption(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	CString Name;

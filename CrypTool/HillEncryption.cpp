@@ -16,6 +16,7 @@
 #include "stdafx.h"
 
 #include "HillEncryption.h"
+#include "CrypToolApp.h"
 #include <string.h>
 
 //////////////////////////////////////////////////////////////////
@@ -497,6 +498,269 @@ BOOL CHillEncryption::entschluesseln()
 		return FALSE;
 	}
 }
+
+
+// ==================================================================
+// 
+// ACHTUNG 
+// 
+void CHillEncryption::OutputHillmatrix(CString &MatOut)
+{
+	int i,j;
+    MatOut = _T("");
+	char num[3];
+
+	const char example[] = "CIPHERTEXT";
+	int  i_act_example[256];
+	char c_act_example[256];  
+	for (i=0; i<strlen(example); i++)
+	{
+		i_act_example[i] = (example[i] - 'A') % modul;
+		c_act_example[i] = (char)my_int_to_char(i_act_example[i]);
+	}
+	c_act_example[dim] = '\0';
+
+
+	if ( !dec_mat && !enc_mat ) 
+		return;
+
+	// Alphabet-Kodierung
+	int floor_rows = modul / 4;
+	int remainder = modul % 4;
+
+	LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_CODE_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
+	MatOut = MatOut + CString(pc_str) + '\n';
+	for (i=0; i<=floor_rows; i++)
+	{
+		int ndx = i;
+		if ( i == floor_rows && 0 == remainder ) break;
+		MatOut = MatOut +'\t';
+		for (j=0; j<4; j++)
+		{
+			MatOut = MatOut + (char)my_int_to_char(ndx) + ' ' + CString(" --> ")  + '\t';
+			if ( modul > 100 )
+				sprintf(num, "%03i", ndx);
+			else 
+				sprintf(num, "%02i", ndx);
+			MatOut = MatOut + CString(num) + ' ';
+		    MatOut = MatOut + '\t';
+			ndx += floor_rows;
+			if ( j<remainder ) ndx++;			
+			if (ndx >= modul) break;
+		}
+		MatOut = MatOut + '\n';
+	}
+
+	MatOut = MatOut + '\n' + '\n';
+
+	// Encryption matrix
+	if ( enc_mat )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTIONMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[t] =");
+		for (i=0; i<dim; i++)
+		{
+			MatOut = MatOut + CString("\t[\t");
+			for (j=0; j<dim; j++)
+			{
+				MatOut = MatOut + (char)my_int_to_char((*enc_mat)(i,j)) + '\t';
+			}
+			MatOut = MatOut + ']' + '\n';
+		} 
+
+
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[n] =");
+		for (i=0; i<dim; i++)
+		{
+			MatOut = MatOut + CString("\t[\t");
+			for (j=0; j<dim; j++)
+			{
+				if ( modul > 100 ) sprintf(num, "%03i", (*enc_mat)(i,j));	
+				else               sprintf(num, "%02i", (*enc_mat)(i,j));
+				MatOut = MatOut + num + '\t';
+			}
+			MatOut = MatOut + ']' + '\n';
+		} 
+
+		// HILL - Encryption
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_HLENCRYPT,pc_str,STR_LAENGE_STRING_TABLE);
+		{
+			char line[1024];
+			sprintf(line, pc_str, c_act_example);
+			MatOut = MatOut + '\n' + '\n' + CString(line) + '\n';
+		}
+
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nK[n] = \t[\t");
+		for (i=0; i<dim; i++)
+		{
+			if ( modul > 100 )
+				sprintf(num, "%03i", i_act_example[i]);
+			else 
+				sprintf(num, "%02i", i_act_example[i]);
+			MatOut = MatOut + num + '\t';
+		}
+		MatOut = MatOut + ']';
+
+		int  i_res_example[256];
+		char c_res_example[256];  
+
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
+		for (i=0; i<dim; i++)
+		{
+			int ciph = 0;
+			for (j=0; j<dim; j++)
+			{
+				ciph +=i_act_example[j]*(*enc_mat)(j,i);
+				ciph %= modul;
+			}
+			i_res_example[i] = ciph;
+			c_res_example[i] = (char)my_int_to_char(ciph);
+			
+			if ( modul > 100 )	sprintf(num, "%03i", ciph);
+			else 	            sprintf(num, "%02i", ciph);					
+
+			MatOut = MatOut + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
+			for (j=0; j<dim; j++)
+			{
+				char num2[3];
+				if ( modul > 100 )				
+				{
+					sprintf(num, "%03i", i_act_example[j]);
+					sprintf(num2, "%03i", (*enc_mat)(i,j));					
+				}
+				else 
+				{
+					sprintf(num, "%02i", i_act_example[j]);
+					sprintf(num2, "%02i", (*enc_mat)(i,j));
+				}
+				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ' + '+' + ' ';
+			}
+			if ( modul > 100 )	sprintf(num, "%03i", modul);
+			else 	            sprintf(num, "%02i", modul);					
+			MatOut = MatOut + CString(" (mod ") + CString(num) + ')' + '\n';
+		}
+
+		for (i=0; i<dim; i++)
+		{
+			i_act_example[i] = i_res_example[i];
+			c_act_example[i] = c_res_example[i];
+		}
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_RESULT_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		{
+			char line[1024];
+			sprintf(line, pc_str, c_act_example);
+			MatOut = MatOut + '\n' + CString(line) + '\n' +'\n' + '\n';
+		}		
+	}
+
+	// Decryption matrix
+	if ( dec_mat )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[t] =");
+		for (i=0; i<dim; i++)
+		{
+			MatOut = MatOut + CString("\t[\t");
+			for (j=0; j<dim; j++)
+			{
+				MatOut = MatOut + (char)my_int_to_char((*dec_mat)(i,j)) + '\t';
+			}
+			MatOut = MatOut + ']' + '\n';
+		}
+
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[n] =");
+		for (i=0; i<dim; i++)
+		{
+			MatOut = MatOut + CString("\t[\t");
+			for (j=0; j<dim; j++)
+			{
+				if ( modul > 100 ) sprintf(num, "%03i", (*dec_mat)(i,j));	
+				else               sprintf(num, "%02i", (*dec_mat)(i,j));
+				MatOut = MatOut + num + '\t';
+			}
+			MatOut = MatOut + ']' + '\n';
+		} 
+
+		// HILL - Decryption
+		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_HLDECRYPT,pc_str,STR_LAENGE_STRING_TABLE);
+		{
+			char line[1024];
+			sprintf(line, pc_str, c_act_example);
+			MatOut = MatOut + '\n' + '\n' + CString(line) + '\n';
+		}
+
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nC[n] = \t[\t");
+		for (i=0; i<dim; i++)
+		{
+			if ( modul > 100 )
+				sprintf(num, "%03i", i_act_example[i]);
+			else 
+				sprintf(num, "%02i", i_act_example[i]);
+			MatOut = MatOut + num + '\t';
+		}
+		MatOut = MatOut + ']';
+
+		int  i_res_example[256];
+		char c_res_example[256];  
+
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
+		for (i=0; i<dim; i++)
+		{
+			int ciph = 0;
+			for (j=0; j<dim; j++)
+			{
+				ciph +=i_act_example[j]*(*dec_mat)(j,i);
+				ciph %= modul;
+			}
+			i_res_example[i] = ciph;
+			c_res_example[i] = (char)my_int_to_char(ciph);
+			
+			if ( modul > 100 )	sprintf(num, "%03i", ciph);
+			else 	            sprintf(num, "%02i", ciph);					
+
+			MatOut = MatOut + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
+			for (j=0; j<dim; j++)
+			{
+				char num2[3];
+				if ( modul > 100 )				
+				{
+					sprintf(num, "%03i", i_act_example[j]);
+					sprintf(num2, "%03i", (*dec_mat)(i,j));					
+				}
+				else 
+				{
+					sprintf(num, "%02i", i_act_example[j]);
+					sprintf(num2, "%02i", (*dec_mat)(i,j));
+				}
+				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ' + '+' + ' ';
+			}
+			if ( modul > 100 )	sprintf(num, "%03i", modul);
+			else 	            sprintf(num, "%02i", modul);					
+			MatOut = MatOut + CString(" (mod ") + CString(num) + ')' + '\n';
+		}
+
+		for (i=0; i<dim; i++)
+		{
+			i_act_example[i] = i_res_example[i];
+			c_act_example[i] = c_res_example[i];
+		}
+        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_RESULT_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		{
+			char line[1024];
+			sprintf(line, pc_str, c_act_example);
+			MatOut = MatOut + '\n' + CString(line) + '\n' +'\n' + '\n';
+		}		
+
+	}   	
+}
+
+
 
 // Known-Plaintext-Angriff fuer die vorher gesetzten 
 // unverschluesselten und verschluesselten texte

@@ -170,6 +170,8 @@ public:
 	// Rueckgabewert HILL_UNDEF.
 	// Der vierte Parameter ist ein Integer Feld der Länge HILL_MAX_DIM_GROSS !!!
 	int angriff(int,int,CSquareMatrixModN**,int*);
+
+	void OutputHillmatrix(CString &MatOut);
 };
 
 #endif

@@ -106,6 +106,12 @@ BOOL CDlgRSAEncryption::OnInitDialog()
 	nKeylistType = RSA_KEY;
 	InitAsymKeyListBox(nKeylistType);
 
+	{  // ACHTUNG Aktiviert wird der Button, nachdem ein Zertifikat gewählt wurde. Die Aktivierung
+	   // des Encrypt-Buttons ist in der Funktion CDlgRSAEncryption::UpdateRowSel(int row) zu finden
+		encryptButtonVisible = FALSE;
+		m_ctrlOK.EnableWindow(FALSE);
+	}  
+
 	//disableButtons wird in CDlgHybridEncryptionDemo auf true gesetzt.
 	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
 	//Hybridverschlüsselung
@@ -186,10 +192,19 @@ void CDlgRSAEncryption::UpdateRowSel(int row)
 	if (row == -1)
 	{
 		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+		m_ctrlOK.EnableWindow(FALSE);
+		encryptButtonVisible = FALSE;
 		return;
 	}
 
 	m_lastSelectedRow = row; // m_lastSelectedRow neu setzen
+
+	if ( encryptButtonVisible == FALSE ) 	
+	{
+		encryptButtonVisible = TRUE;
+		m_ctrlOK.EnableWindow();		
+	}
+
 
 	// Farbliches hervorheben der Zeile row (highlighten) und gleichzeitig Werte auslesen
 	for (i=0; i<6; i++) // i durchläuft die Spalten 0,1,2,3,4 und 5 

@@ -2472,7 +2472,7 @@ BEGIN
     BEGIN
         MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "RSA-Demo"
+        POPUP "&RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -4803,10 +4803,30 @@ BEGIN
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
     IDS_STRING_PA_NO        "Nr."
+    IDS_HILLEXAMPLE_CODE_ALPHABET 
+                            "HILL-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
+                            "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
+    IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
+                            "\nHill-Entschlüsseluung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
+    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_HLENCRYPT 
+                            "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
+    IDS_HILLEXAMPLE_HLDECRYPT 
+                            "Beispiel: Entschlüsselung des Chiffretextes: ""%s"":"
+    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
+                            "Chiffretext-Vektor C kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCRYPTION 
+                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrizenprodukt K[n]*H[n]:"
+    IDS_HILLEXAMPLE_DECRYPTION 
+                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrizenprodukt C[n]*D[n]:"
+    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
+    IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
                             "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
@@ -8292,7 +8312,7 @@ BEGIN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
-    POPUP "A&nalysis"
+    POPUP "&Analysis"
     BEGIN
         POPUP "&General"
         BEGIN
@@ -9590,10 +9610,30 @@ BEGIN
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "The file to be analysed must be at least 4 bytes large!"
     IDS_STRING_PA_NO        "No."
+    IDS_HILLEXAMPLE_CODE_ALPHABET 
+                            "HILL-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
+                            "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
+    IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
+                            "\nHill-Entschlüsseluung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
+    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_HLENCRYPT 
+                            "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
+    IDS_HILLEXAMPLE_HLDECRYPT 
+                            "Beispiel: Entschlüsselung des Chiffretextes: ""%s"":"
+    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
+                            "Chiffretext-Vektor C kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCRYPTION 
+                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrizenprodukt K[n]*H[n]:"
+    IDS_HILLEXAMPLE_DECRYPTION 
+                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrizenprodukt C[n]*D[n]:"
+    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
+    IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
                             "Random data generated with the %s generator - length %i bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Plaintext"

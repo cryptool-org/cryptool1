@@ -681,6 +681,30 @@ void Hill(const char *infile, const char *OldTitle)
 
 	OpenNewDoc( outfile, schluessel, OldTitle, IDS_STRING_HILL, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 
+	{
+		GetTmpName(outfile,"hill",".txt");
+		ofstream verboseOut(outfile);
+		CString out;
+		hillklasse->OutputHillmatrix(out);
+		verboseOut << out.GetBuffer(0);
+		verboseOut.close();
+
+		CAppDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+		remove(outfile);
+		if (NewDoc) {
+			char title[128], method[20]; 
+			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			strcpy(title, "HillMatrix");
+			strcpy(method, "Dimesion");
+			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
+			NewDoc->SetTitle(title);
+		}
+
+
+	}
+
+
 	delete matrix;
 
 	if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
