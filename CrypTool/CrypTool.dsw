@@ -3,55 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "LibAnalyse"=..\LibAnalyse\LibAnalyse.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "LibEc"=..\LibEc\LibEc.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "LibMiracl"=..\LibMiracl\LibMiracl.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "aestool"=..\aestool\aestool.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "CrypTool"=.\CrypTool.dsp - Package Owner=<4>
+Project: "CrypTool"=".\CrypTool.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -60,14 +12,92 @@ Package=<5>
 Package=<4>
 {{{
     Begin Project Dependency
-    Project_Dep_Name LibAnalyse
+    Project_Dep_Name LibMiracl
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name LibEc
     End Project Dependency
     Begin Project Dependency
-    Project_Dep_Name LibMiracl
+    Project_Dep_Name LibAnalyse
     End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name hlp_de
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name hlp_en
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "LibAnalyse"="..\LibAnalyse\LibAnalyse.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LibEc"="..\LibEc\LibEc.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LibMiracl"="..\LibMiracl\LibMiracl.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aestool"="..\aestool\aestool.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "hlp_de"=".\hlp_de\hlp_de.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "hlp_en"=".\hlp_en\hlp_en.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
 }}}
 
 ###############################################################################

@@ -45,7 +45,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include C:\Program Files\HTML Help Workshop\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG"
@@ -55,7 +55,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib htmlhelp.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Program Files\HTML Help Workshop\lib"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
@@ -72,7 +72,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\OpenSSL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\OpenSSL" /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include C:\Program Files\HTML Help Workshop\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib htmlhelp.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Program Files\HTML Help Workshop\lib"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -99,7 +99,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include C:\Program Files\HTML Help Workshop\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x809 /d "NDEBUG"
@@ -110,7 +110,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib htmlhelp.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Program Files\HTML Help Workshop\lib"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
@@ -128,7 +128,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include C:\Program Files\HTML Help Workshop\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
@@ -139,7 +139,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib htmlhelp.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Program Files\HTML Help Workshop\lib"
 # SUBTRACT LINK32 /map
 
 !ENDIF 
@@ -150,172 +150,6 @@ LINK32=link.exe
 # Name "CrypTool - Win32 Debug"
 # Name "CrypTool - Win32 Release_de"
 # Name "CrypTool - Win32 Release_en"
-# Begin Group "hlp-de"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=".\hlp-de\AfxCore.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\AfxPrint.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\CrypTool.hpj"
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
-# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\Release
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-de\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
-# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\Debug
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-de\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
-# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\..\Release_de
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-de\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
-# Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\..\Release_en
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-de\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
-
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\CrypTool.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\szenarien.rtf"
-# End Source File
-# End Group
-# Begin Group "hlp-en"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=".\hlp-en\AfxCore.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-en\AfxPrint.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-en\CrypTool.hpj"
-
-!IF  "$(CFG)" == "CrypTool - Win32 Release"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
-# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\Release
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-en\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
-# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\Debug
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-en\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
-# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\..\Release_de
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-en\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
-
-USERDEP__CRYPT="$(ProjDir)\hlp-en\AfxCore.rtf"	"$(ProjDir)\hlp-en\AfxPrint.rtf"	"$(ProjDir)\hlp-en\CrypTool.rtf"	"$(ProjDir)\hlp-en\szenarien.rtf"	"$(ProjDir)\resource.h"	
-# Begin Custom Build - Englische Hilfedatei wird erzeugt ($(InputPath))...
-OutDir=.\..\Release_en
-ProjDir=.
-TargetName=CrypTool
-InputPath=".\hlp-en\CrypTool.hpj"
-
-"$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
-
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-en\CrypTool.rtf"
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-en\szenarien.rtf"
-# End Source File
-# End Group
 # Begin Source File
 
 SOURCE=.\res\3dcheck.bmp
@@ -2169,7 +2003,7 @@ SOURCE=.\CrypToolPopupMenuIDs.txt
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
-USERDEP__CRYPTO="CrypTool.rc"	
+USERDEP__CRYPT="CrypTool.rc"	
 # Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
@@ -2180,7 +2014,7 @@ InputPath=.\CrypToolPopupMenuIDs.txt
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
-USERDEP__CRYPTO="CrypTool.rc"	
+USERDEP__CRYPT="CrypTool.rc"	
 # Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
@@ -2191,7 +2025,7 @@ InputPath=.\CrypToolPopupMenuIDs.txt
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
-USERDEP__CRYPTO="CrypTool.rc"	
+USERDEP__CRYPT="CrypTool.rc"	
 # Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
@@ -2202,7 +2036,7 @@ InputPath=.\CrypToolPopupMenuIDs.txt
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
 
-USERDEP__CRYPTO="CrypTool.rc"	
+USERDEP__CRYPT="CrypTool.rc"	
 # Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
@@ -4446,11 +4280,7 @@ SOURCE=.\res\mainfram.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=".\MakeHelp-de.bat"
-# End Source File
-# Begin Source File
-
-SOURCE=.\MakeHelp.bat
+SOURCE=.\MakeHtmlHelp.bat
 # End Source File
 # Begin Source File
 
@@ -5194,10 +5024,6 @@ SOURCE=.\res\Bitmaps\Raute5_X_U.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps_en\Raute5_X_U.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=".\hlp-de\bitmaps\RauteDaten.bmp"
 # End Source File
 # Begin Source File
 
