@@ -43,12 +43,60 @@ private:
 	class CDialogPlayfair *m_Dia;
 };
 
+
+
+///////////////////////////////////////////////////////////////
+//
+//
+//
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Fenster CMyPlayFairEdit 
+
+class CMyPlayFairEdit : public CEdit
+{
+	class Playfair *m_Alg;
+// Konstruktion
+public:
+	CMyPlayFairEdit();
+	void SetAlg(class Playfair *alg) { m_Alg=alg; }
+// Attribute
+public:
+
+// Operationen
+public:
+
+// Überschreibungen
+	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
+	//{{AFX_VIRTUAL(CMyPlayFairEdit)
+	public:
+	//}}AFX_VIRTUAL
+
+// Implementierung
+public:
+	virtual ~CMyPlayFairEdit();
+
+	// Generierte Nachrichtenzuordnungsfunktionen
+protected:
+	//{{AFX_MSG(CMyPlayFairEdit)
+	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnEditPaste();
+	//}}AFX_MSG
+
+	DECLARE_MESSAGE_MAP()
+};
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
 class CMyEdit : public CEdit
 {
 // Konstruktion
 public:
 	CMyEdit();
-
 	void SetAlg(class Playfair *alg) { m_Alg=alg; }
 
 public:
@@ -66,6 +114,13 @@ private:
 
 class CDialogPlayfair : public CDialog
 {
+/******* Geändert Mark Santiago, Henrik Koy: Scroll Management */
+	UINT m_nSBCode;
+	int  m_nPos;
+	BOOL m_bHScroll;
+	int  m_iSMax;
+	CString m_mytxt_old;
+/***************************************************************/
 // Konstruktion
 public:
 	CDialogPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
@@ -88,6 +143,15 @@ public:
 	// Dialogfelddaten
 	//{{AFX_DATA(CDialogPlayfair)
 	enum { IDD = IDD_DIALOG_PLAYFAIR };
+	CScrollBar            m_ctrlScroll;
+	int                   m_iScroll;
+	CString               m_mytxt;
+	class CMyPlayFairEdit m_txtfeld;
+	CString               m_cipher;
+	CString               m_password;
+	CEdit                 m_ciphfeld;
+	CEdit                 m_pwfeld;
+	CListCtrl             m_listview;
 	//}}AFX_DATA
 
 
@@ -100,12 +164,16 @@ public:
 
 // Implementierung
 protected:
-
+	void ScrollRange( int length_in_characters = 0);
+	void ScrollPos(int iPos);
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDialogPlayfair)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnAnalyse();
 	afx_msg void OnManAnalyse();
+	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar *pScrollBar);
+	afx_msg void OnChangeEditPlaintext();
+	afx_msg void OnChangeHScrollEditPlaintext();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
@@ -113,23 +181,16 @@ private:
 	char digbuf[MAXSHOWLETTER+2];
 	CString m_mat[6][6];
 	int m_use;
-	CString m_mytxt;
-	CString m_cipher,m_password;
 	class Playfair *m_Alg;
 	class CChEdit	m_einfeld[6][6];
-	class CEdit m_ciphfeld,m_pwfeld;
-	class CMyEdit m_txtfeld;
-	CListCtrl m_listview;
-
 	int m_sechs,m_Dec;
 	CFont m_Font;
 
 	bool is6x6possible;
 	bool isinvalidoccured;
-
 };
 
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
 
 #endif // AFX_DIALOGPLAYFAIR_H__10147001_4D8C_11D4_A042_002035F23D41__INCLUDED_
+
+

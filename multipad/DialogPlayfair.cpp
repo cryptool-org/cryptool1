@@ -48,6 +48,7 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 	m_Dec=1;
 	m_sechs=0;
 	m_mytxt=_T("");
+	m_iScroll = 0;
 	//}}AFX_DATA_INIT
 }
 
@@ -56,9 +57,6 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDialogPlayfair)
-//	DDX_Radio(pDX, IDC_RADE, m_Dec);
-	DDX_Radio(pDX, IDC_RAD6, m_sechs);
-	DDX_Control(pDX, IDC_PLAYFAIR_LIST, m_listview);
 	DDX_Control(pDX, IDC_EDIT_1_1, m_einfeld[0][0]);
 	DDX_Control(pDX, IDC_EDIT_1_2, m_einfeld[0][1]);
 	DDX_Control(pDX, IDC_EDIT_1_3, m_einfeld[0][2]);
@@ -95,12 +93,6 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_6_4, m_einfeld[5][3]);
 	DDX_Control(pDX, IDC_EDIT_6_5, m_einfeld[5][4]);
 	DDX_Control(pDX, IDC_EDIT_6_6, m_einfeld[5][5]);
-	DDX_Control(pDX, IDC_LIST, m_ciphfeld);
-	DDX_Control(pDX, IDC_PASSWORD, m_pwfeld);
-	DDX_Control(pDX, IDC_MYTXT, m_txtfeld);
-	DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER);
-	DDX_Text(pDX, IDC_PASSWORD, m_password);
-	DDV_MaxChars(pDX, m_password, 36);
 	DDX_Text(pDX, IDC_EDIT_1_1, m_mat[0][0]);
 	DDV_MaxChars(pDX, m_mat[0][0], 1);
 	DDX_Text(pDX, IDC_EDIT_1_2, m_mat[0][1]);
@@ -173,11 +165,22 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_mat[5][4], 1);
 	DDX_Text(pDX, IDC_EDIT_6_6, m_mat[5][5]);
 	DDV_MaxChars(pDX, m_mat[5][5], 1);
+	DDX_Radio(pDX, IDC_RAD6, m_sechs);
+	DDX_Control(pDX, IDC_PLAYFAIR_LIST, m_listview);
+	DDX_Control(pDX, IDC_PASSWORD, m_pwfeld);
+	DDX_Control(pDX, IDC_MYTXT, m_txtfeld);
+	DDV_MaxChars(pDX, m_mytxt, MAXSHOWLETTER);
+	DDX_Text(pDX, IDC_PASSWORD, m_password);
+	DDV_MaxChars(pDX, m_password, 36);
+	DDX_Control(pDX, IDC_LIST, m_ciphfeld);
 	DDX_Text(pDX, IDC_LIST, m_cipher);
 	DDV_MaxChars(pDX, m_cipher, MAXSHOWLETTER*10);
-	//DDX_Text(pDX, IDC_NUMD, m_Alg->numdigrams);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
 	DDX_Text(pDX, IDC_MYTXT, m_mytxt);
+	DDX_Control(pDX, IDC_SCROLLBAR1, m_ctrlScroll);
+	DDX_Scroll(pDX, IDC_SCROLLBAR1, m_iScroll);
+//	DDX_Radio(pDX, IDC_RADE, m_Dec);
+//	DDX_Text(pDX, IDC_NUMD, m_Alg->numdigrams);
 	//}}AFX_DATA_MAP
 
 }
@@ -194,6 +197,9 @@ BEGIN_MESSAGE_MAP(CDialogPlayfair, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnAnalyse)
 	ON_EN_UPDATE(IDC_MYTXT, OnManAnalyse)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
+	ON_WM_HSCROLL()
+	ON_EN_HSCROLL(IDC_MYTXT, OnChangeHScrollEditPlaintext) 
+	ON_EN_CHANGE(IDC_MYTXT, OnChangeEditPlaintext)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -211,6 +217,10 @@ void CDialogPlayfair::OnManAnalyse()
 	int maxchars=MAXSHOWLETTER;
 	playfair_digrammlist* diglist;
 
+	/***************** H. Koy, M. Santiago ************/
+	// if ( m_mytxt == m_mytxt_old )
+	//	return;
+	/**************************************************/
 	UpdateData(TRUE);
 	
 	i=0; j=0;
@@ -296,6 +306,8 @@ void CDialogPlayfair::OnManAnalyse()
 
 	UpdateData(FALSE);
 	UpdateListBox();
+	/********** M. Santiago, H. Koy **********/
+	// m_mytxt_old = m_mytxt;
 }
 
 
@@ -437,7 +449,7 @@ void CDialogPlayfair::OnSechs()
 	}
 	else
 	{
-		m_Alg->SetSize(false);
+ 		m_Alg->SetSize(false);
 		for (i=0;i<6;i++)
 		{
 			m_einfeld[i][5].EnableWindow(FALSE);
@@ -468,6 +480,13 @@ void CDialogPlayfair::OnSechs()
 //	UpdateListBox();	macht schon OnManAnalyse
 } // void CDialogPlayfair::OnSechs()
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// ON INIT DIALOG
+//
+
 BOOL CDialogPlayfair::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -493,11 +512,122 @@ BOOL CDialogPlayfair::OnInitDialog()
 	m_listview.InsertColumn( 5, "row or col?", LVCFMT_LEFT, colWidth+60 , 3); // 
 	m_listview.InsertColumn( 6, "Metrik", LVCFMT_LEFT, colWidth , 3); // 
 
+/****** Mark Santiago, Henrik Koy *******/
+	m_bHScroll = FALSE;
+/****************************************/
+
 	InitListBox();
-	
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
+
+/****** Mark Santiago, Henrik Koy *******/
+const int iEditSize=69;
+
+/*
+#define SB_LINEUP           0
+#define SB_LINELEFT         0
+#define SB_LINEDOWN         1
+#define SB_LINERIGHT        1
+#define SB_PAGEUP           2
+#define SB_PAGELEFT         2
+#define SB_PAGEDOWN         3
+#define SB_PAGERIGHT        3
+#define SB_THUMBPOSITION    4
+#define SB_THUMBTRACK       5
+#define SB_TOP              6
+#define SB_LEFT             6
+#define SB_BOTTOM           7
+#define SB_RIGHT            7
+#define SB_ENDSCROLL        8
+*/
+
+void CDialogPlayfair::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
+{
+	m_bHScroll = !m_bHScroll;
+	
+	int iMin, iMax, iPos, iPrev;
+	pScrollBar->GetScrollRange(&iMin, &iMax);
+	iPos = pScrollBar->GetScrollPos();
+	if(m_bHScroll)
+	{
+		switch(nSBCode)
+		{
+		//case SB_LEFT:	                      //Scroll to far left.
+		//case SB_ENDSCROLL:                  //End scroll.
+		case SB_LINELEFT:	iPos = iPos-1; break;  //Scroll left.
+		case SB_LINERIGHT:	iPos = iPos+1; break;     //Scroll right.
+		case SB_PAGELEFT:	iPos = iPos-iEditSize/2; break;    //Scroll one page left.
+		case SB_PAGERIGHT:	iPos = iPos+iEditSize/2; break;    //Scroll one page right.
+		// case SB_RIGHT:                     //Scroll to far right.
+		//case SB_THUMBPOSITION:	          //Scroll to absolute position. The current position is specified by the nPos parameter.
+		case SB_THUMBTRACK:	iPos = (int)nPos; break;  //Drag scroll box to specified position. The current position is specified by the nPos parameter. 
+		}
+		iPos = min(max(0, iPos), iMax);
+		iPrev = m_ctrlScroll.SetScrollPos(iPos);
+		m_ciphfeld.LineScroll(0, iPos-iPrev);
+		m_txtfeld.LineScroll(0, iPos-iPrev);
+	}
+
+	CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
+	m_bHScroll = FALSE;
+}
+
+void CDialogPlayfair::ScrollRange(int length_in_characters)
+{
+	if ( length_in_characters )
+	{
+		m_iSMax = length_in_characters - iEditSize; 
+		if ( m_iSMax < 0 ) m_iSMax = 0;
+	}
+	m_ctrlScroll.SetScrollRange(0, m_iSMax);
+	m_txtfeld.SetScrollRange(SB_HORZ, 0, m_iSMax);
+	m_txtfeld.ShowScrollBar(SB_HORZ, FALSE);
+	m_ciphfeld.SetScrollRange(SB_HORZ, 0, m_iSMax);
+	m_ciphfeld.ShowScrollBar(SB_HORZ, FALSE);
+}
+
+void CDialogPlayfair::OnChangeEditPlaintext() 
+{
+	ScrollRange();
+}
+
+void CDialogPlayfair::OnChangeHScrollEditPlaintext() 
+{
+	int iMin, iMax, iPos;
+	m_ctrlScroll.GetScrollRange(&iMin, &iMax);
+	iPos = m_ctrlScroll.GetScrollPos();
+	
+	if(!m_bHScroll)
+	{
+		int iMax, iMin, iPos;
+		m_txtfeld.GetScrollRange(SB_HORZ, &iMin, &iMax);	
+		m_txtfeld.GetSel(iMin, iPos);
+		iPos = min(max(0, iPos-iEditSize/2), iMax);
+		
+		m_bHScroll = TRUE;
+		
+		int iPrev = m_ctrlScroll.SetScrollPos(iPos);
+		m_ciphfeld.LineScroll(0, iPos-iPrev);
+
+		m_txtfeld.ShowWindow(SW_HIDE);
+		m_txtfeld.LineScroll(0, -iMax);
+		m_txtfeld.LineScroll(0, iPos);	
+		m_txtfeld.ShowWindow(SW_SHOW);
+		m_txtfeld.SetFocus();
+		m_txtfeld.SetSel(iMin, iMin);
+
+		m_bHScroll = FALSE;
+	}
+}
+
+/****************************************************************************/
+
+
+
+
+
 
 void CDialogPlayfair::UpdateListBox()
 {
@@ -569,9 +699,8 @@ void CDialogPlayfair::UpdateListBox()
 	ibuf[i]=0;	dbuf[i]=0;	obuf[i]=0;
 //	*/
 	m_cipher.Format("%s\r\n%s\r\n%s\r\n",ibuf,dbuf,obuf);
+	ScrollRange( i );
 	UpdateData(FALSE);
-
-
 } // void CDialogPlayfair::UpdateListBox()
 
 void CDialogPlayfair::UpdatePassword()
@@ -743,6 +872,9 @@ BEGIN_MESSAGE_MAP(CChEdit, CEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+
+
+
 void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	char b1[2],b2[2];
@@ -843,12 +975,13 @@ BEGIN_MESSAGE_MAP(CMyEdit, CEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+
 void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	char b2[2];
 	int i,j,k, len;
 	char s[MAXSHOWLETTER+2];
-
+	
 	if((!m_Alg->myisalpha2(nChar)) && (nChar>32))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, nChar);
 	if (m_Alg->myisalpha2(nChar))
@@ -897,3 +1030,10 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		SetSel(j,j);
 	}
 } // void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Behandlungsroutinen für Nachrichten CPlayfairAnaEdit 

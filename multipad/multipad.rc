@@ -1252,11 +1252,11 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_6,118,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,43,278,151
+                    WS_TABSTOP,147,43,278,165
     DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,6,311,119,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,364,311,61,18
-    EDITTEXT        IDC_LIST,6,218,419,53,ES_MULTILINE | ES_UPPERCASE | 
-                    ES_READONLY | ES_WANTRETURN | WS_HSCROLL
+    EDITTEXT        IDC_LIST,6,224,419,36,ES_MULTILINE | ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,23,150,50,8
     CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,79,
@@ -1266,12 +1266,13 @@ BEGIN
     RTEXT           "Buchstabeninformationen",IDC_STATIC,147,31,81,8
     CONTROL         "Doppelte &ignorieren",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,33,132,80,8
-    EDITTEXT        IDC_MYTXT,6,285,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MYTXT,6,271,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
     PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,39,171,72,18
     LTEXT           "Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",
-                    IDC_STATIC,6,208,254,10
-    LTEXT           "Eingabe",IDC_STATIC,6,275,85,10
-    LTEXT           "Die folgenden Zeilen enthalten",IDC_STATIC,6,198,253,8
+                    IDC_STATIC,6,214,254,8
+    LTEXT           "Eingabe",IDC_STATIC,6,262,85,8
+    LTEXT           "Die folgenden Zeilen enthalten",IDC_STATIC,6,204,114,8
+    SCROLLBAR       IDC_SCROLLBAR1,6,284,419,11
 END
 
 IDD_DIALOG_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
@@ -3344,6 +3345,7 @@ BEGIN
 
     IDD_DIALOG_PLAYFAIR, DIALOG
     BEGIN
+        VERTGUIDE, 6
         VERTGUIDE, 261
         VERTGUIDE, 280
         VERTGUIDE, 425
@@ -6014,7 +6016,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_MYTXT,10,285,415,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MYTXT,7,271,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,16,135,50,8
     CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,81,
@@ -6022,8 +6024,8 @@ BEGIN
     CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,16,156,71,8
     EDITTEXT        IDC_PASSWORD,183,9,181,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Output results of analysis",IDOK,10,311,119,18
-    GROUPBOX        "Key matrix",IDC_STATIC,10,8,131,118
+    DEFPUSHBUTTON   "&Output results of analysis",IDOK,7,311,119,18
+    GROUPBOX        "Key matrix",IDC_STATIC,7,8,131,118
     EDITTEXT        IDC_EDIT_1_1,18,21,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_2,38,21,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_3,58,21,15,12,ES_AUTOHSCROLL
@@ -6062,17 +6064,18 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_6,118,106,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,43,278,151
+                    WS_TABSTOP,147,43,278,165
     PUSHBUTTON      "&Cancel",IDCANCEL,364,311,61,18
-    EDITTEXT        IDC_LIST,10,218,415,53,ES_MULTILINE | ES_UPPERCASE | 
-                    ES_READONLY | ES_WANTRETURN | WS_HSCROLL
+    EDITTEXT        IDC_LIST,7,224,418,36,ES_MULTILINE | ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
     LTEXT           "Password:",IDC_STATIC,147,10,32,10
     LTEXT           "Letter informations",IDC_STATIC,183,28,187,8
     PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,176,72,18
     LTEXT           "ciphertext, input or result of the frequency analysis, found plaintext",
-                    IDC_STATIC,10,208,270,10
-    LTEXT           "Input",IDC_STATIC,10,275,85,10
-    LTEXT           "The following rows contain",IDC_STATIC,10,199,253,8
+                    IDC_STATIC,7,214,270,8
+    LTEXT           "Input",IDC_STATIC,7,263,85,8
+    LTEXT           "The following rows contain",IDC_STATIC,7,205,103,8
+    SCROLLBAR       IDC_SCROLLBAR1,7,285,418,11
 END
 
 IDD_DIALOG_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
@@ -7863,7 +7866,7 @@ BEGIN
 
     IDD_DIALOG_PLAYFAIR, DIALOG
     BEGIN
-        VERTGUIDE, 10
+        VERTGUIDE, 7
         VERTGUIDE, 425
         HORZGUIDE, 143
         HORZGUIDE, 194
