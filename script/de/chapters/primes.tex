@@ -16,8 +16,7 @@
   deutscher Physiker und Nobelpreistr"ager, 14.03.1879$-$14.04.1955
 }
 
-\subsection*{Was sind Primzahlen?}
-\addcontentsline{toc}{subsection}{~~~~~~Was sind Primzahlen?}
+\subsection{Was sind Primzahlen?}
 \index{Primzahlen} \index{Zahlen!Primzahl} Primzahlen sind ganze,
 positive Zahlen gr"o"ser gleich $2$, die man nur durch 1 und durch
 sich selbst teilen kann. Alle anderen nat"urlichen Zahlen gr"o"ser
@@ -56,7 +55,7 @@ bestimmten Intervall) der Primzahlen bekannt ist oder wie Primzahltests funktion
 
 
 % -----------------------------------------------------------------------------------------------------------------------
-\subsection{Primzahlen in der Mathematik}
+\subsection{Primzahlen in der Mathematik}\label{primesinmath}
 
 Jede ganze Zahl hat Teiler. Die Zahl 1 hat nur einen, n"amlich
 sich selbst. Die Zahl $12$ hat die sechs Teiler $1, 2, 3, 4, 6,
@@ -137,7 +136,7 @@ W"ahrend es nur $92$ nat"urliche chemische Elemente gibt, ist die Anzahl der Pri
 Das wu"ste schon der Grieche \index{Euklid} Euklid\footnote{Euklid, griechischer Mathematiker des 4./3. Jahrhunderts vor Christus.
 Wirkte an der Akademie in Alexandria und verfa"ste mit den \glqq Elementen\grqq~ das bekannteste systematische Lehrbuch
 der griechischen Mathematik.} im dritten vorchristlichen Jahrhundert.
-\begin{satz}[Euklid]\label{thm-pz-euklid}\footnote{Die "ublich gewordene Benennung soll nicht sagen,
+\begin{satz}[Euklid]\label{thm-pz-euklid}\hypertarget{thm-pz-euklid}{}\footnote{Die "ublich gewordene Benennung soll nicht sagen,
 dass Euklid der Entdecker des Satzes ist, da dieser
 nicht bekannt ist. Der Satz wird bereits in Eulkids \glqq Elementen\grqq ~(Buch IX, Satz 20) 
 formuliert und bewiesen. Die dortige Formulierung ist insofern bemerkenswert,
@@ -183,7 +182,7 @@ $p_i$ teilt  $a - (a-1) = 1$. $p_i$ m"u"ste also $1$ teilen und
 das ist unm"oglich.\\*[4pt] 
 {\bf Wiederspruch}: \quad Unsere Annahme war falsch.\par
 Also gibt es {\em unendlich} viele Primzahlen
-\hyperlink{primhfk}{(Verweis: "Ubersicht unter 2.6.1 "uber die
+\hyperlink{primhfk}{(Verweis: "Ubersicht unter \ref{s:primhfk} "uber die
 Anzahl von Primzahlen in verschiedenen Intervallen).}\par \vskip + 3pt
 
 Wir erw"ahnen hier auch noch eine andere, auf den ersten Blick "uberraschende Tatsache, dass n"amlich in der
@@ -202,7 +201,7 @@ Die gr"o"sten heute bekannten Primzahlen haben mehrere
 hunderttausend Stellen. Das ist unvorstellbar gro"s. Die Anzahl
 der Elementarteilchen im Universum wird auf \glqq nur\grqq\ eine
 $80$-stellige Zahl gesch"atzt \hyperlink{grosord}{(Verweis:
-"Ubersicht unter 2.6.3 "uber verschiedene Gr"o"senordnungen /
+"Ubersicht unter \ref{s:grosord} "uber verschiedene Gr"o"senordnungen /
 Dimensionen)}.
 
 Nahezu alle bekannten riesig gro"sen Primzahlen sind spezielle Kandidaten, sogenannte \index{Mersenne Marine}
@@ -439,7 +438,7 @@ Ideen dazu finden sich in
 
 {\href{http://www.utm.edu/research/primes/notes/faq/p_n.html}{\tt http://www.utm.edu/research/primes/notes/faq/p\_n.html}}.
 
-Verweis: \hyperlink{ntePrimzahl}{Die Tabelle unter 2.6.2} enth"alt  die exakten Werte f"ur
+Verweis: \hyperlink{ntePrimzahl}{Die Tabelle unter \ref{s:ntePrimzahl}} enth"alt  die exakten Werte f"ur
 die $n$-ten Primzahlen f"ur ausgew"ahlte $ n.$
 
 Im folgenden einige der verbreitetsten Ans"atze f"ur
@@ -665,7 +664,7 @@ Dies ist der \index{Primzahlsatz} \textbf{Primzahlsatz} (prime
 number theorem). Er wurde von Legendre (1752-1833) \index{Legendre} und Gauss\index{Gauss}
 (1777-1855) aufgestellt und erst "uber 100 Jahre sp"ater bewiesen.
 
-\hyperlink{primhfk}{(Verweis: "Ubersicht unter 2.6.1 "uber die
+\hyperlink{primhfk}{(Verweis: "Ubersicht unter \ref{s:primhfk} "uber die
 Anzahl von Primzahlen in verschiedenen Intervallen).}
 
 Es gilt f"ur gro"se $n$, dass  $P(n)$  zwischen  $2n$  und  $n^2$  liegt.
@@ -859,7 +858,7 @@ Restesatz, Eulersche Phi-Funktion, perfekte Zahlen.
 
 \newpage
 \subsubsection{Anzahl von Primzahlen in verschiedenen Intervallen}
-\hypertarget{primhfk}{}
+\hypertarget{primhfk}{}\label{s:primhfk}
 
 \begin{tabular}{|l|l||l|l||l|l|}\hline
 \multicolumn{2}{|l||}{Zehnerintervall} & \multicolumn{2}{l||}{Hunderterintervall} & \multicolumn{2}{l|}{Tausenderintervall} \\ \hline
@@ -891,7 +890,7 @@ Intervall & Anzahl & Durchschnittl. Anzahl pro 1000 \\ \hline
 
 \newpage
 \subsubsection{Indizierung von Primzahlen ($n$-te Primzahl)}
-\hypertarget{ntePrimzahl}{}
+\hypertarget{ntePrimzahl}{}\label{s:ntePrimzahl}
 \begin{tabular}{|l|l|l|l|}\hline
 Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 \hline \hline
@@ -930,6 +929,7 @@ Vergleiche {\href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt htt
 
 \newpage
 \subsubsection{Gr"o"senordnungen / Dimensionen in der Realit"at}
+\label{s:grosord}
 Bei der Beschreibung kryptographischer Protokolle und Algorithmen
 treten Zahlen auf, die so gro"s bzw. so klein sind, dass sie einem
 intuitiven Verst"andnis nicht zug"anglich sind. Es kann daher

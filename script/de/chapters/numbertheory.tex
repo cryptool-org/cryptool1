@@ -220,12 +220,12 @@ Jahrzehnt waren drei Jahre prim: $1993, 1997$ und $1999$. W"aren sie selten,
 k"onnte die Kryptographie auch nicht so mit ihnen arbeiten, wie sie es tut.
 
 Primzahlen k"onnen nur auf eine einzige (\glqq triviale'') Weise zerlegt werden:
-\begin{eqnarray}
+\begin{eqnarray*}
 5 & = & 1 * 5 \nonumber \\
 17 & =  & 1 * 17 \nonumber \\
 1.013 &  = & 1 * 1.013 \nonumber \\
 1.296.409 & = & 1 * 1.296.409. \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 
 \index{Zahlen!zusammengesetzte}
 \begin{definition}\label{def-zth-composite} 
@@ -236,7 +236,7 @@ Faktoren.
 
 
 Beispiele f"ur die Primfaktorzerlegung solcher Zahlen:
-\begin{eqnarray}
+\begin{eqnarray*}
 4 & = & 2*2  \nonumber \\
 6 & = & 2*3  \nonumber \\
 91 & = & 7*13  \nonumber \\
@@ -244,7 +244,7 @@ Beispiele f"ur die Primfaktorzerlegung solcher Zahlen:
 767 & = & 13*59  \nonumber \\
 1.029 & = & 3 * 7^3  \nonumber \\
 5.324 & = & 22 * 11^3.  \nonumber 
-\end{eqnarray}
+\end{eqnarray*}
 
 \begin{satz}\label{thm-zth-cnum}
 Jede zusammengesetzte Zahl $a$ besitzt einen kleinsten Teiler gr"o"ser
@@ -283,7 +283,7 @@ Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich. Man kann viele andere
 Zahlenmengen\footnote{%
 Diese Mengen werden speziell aus der Menge der nat"urlichen Zahlen gebildet.
 Ein Beispiel findet sich in diesem \hyperlink{uniqueness}{Skript}
-auf Seite \pageref{remFundTheoOfArithm} am Ende von Kapitel 2.1.
+auf Seite~\pageref{remFundTheoOfArithm} am Ende von Kapitel~\ref{primesinmath}
 } konstruieren, bei denen eine multiplikative Zerlegung in die Primfaktoren
 dieser Mengen {\em nicht} eindeutig ist.
 
@@ -609,10 +609,10 @@ Allgemein: $x + y + (-y) \equiv x{\rm ~(mod~}m)$ [$(-y)$ = additive Inverse zu $
 ist das Gesamtergebnis gleich dem Ausgangswert.
 
 {\bf Beispiele:}
-\begin{eqnarray}
+\begin{eqnarray*}
 2 + 4 \equiv 6 \equiv 1 {\rm ~(mod~ } 5) ; \quad 1 + 1 \equiv 2 \equiv 2 {\rm ~(mod~ } 5)  \nonumber \\
 2 * 4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5) ; \quad 3 * 4 \equiv 12 \equiv 2 {\rm ~(mod~ } 5) \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 
 In der Menge $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$ f"ur die Addition und in der Menge $\mathbb{Z}_5 \setminus \{ 0\}$  f"ur
 die Multiplikation haben alle Zahlen eine {\bf eindeutige} Inverse
@@ -816,10 +816,10 @@ Inverse!
 \index{Potenzieren} Das Potenzieren ist in der modularen Arithmetik definiert als wiederholtes
 Multiplizieren -- wie "ublich, nur dass jetzt Multiplizieren etwas anderes ist.
 Es gelten mit kleinen Einschr"ankungen die "ublichen Rechenregeln wie
-\begin{eqnarray}
+\begin{eqnarray*}
 a^{b+c} & = & a^b * a^c,  \nonumber \\
 (a^b)^c & = & a^{b*c} = a^{c*b} = (a^c)^b. \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 
 
 Analog der modularen Addition und der modularen Multiplikation funktioniert
@@ -840,12 +840,12 @@ multipliziert werden m"ussen. Durch die Reduktion der Zwischenergebnisse
 werden die Zahlen deutlich kleiner.
 } rechnen, muss aber auch aufpassen, da sich dann nicht immer alles wie in der
 gew"ohnlichen Arithmetik verh"alt.
-\begin{eqnarray}
+\begin{eqnarray*}
 (4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
             & \equiv & (64{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
             & \equiv & 4^2{\rm ~(mod~}5) \nonumber \\
             & \equiv & 16 \equiv 1 {\rm ~(mod~}5). \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 
 (2) Aufeinanderfolgende Potenzierungen lassen sich in der gew"ohnlichen
 Arithmetik auf eine einfache Potenzierung zur"uckf"uhren, indem man die
@@ -876,9 +876,10 @@ $$
 3^{28} \equiv 3^{4*7} \equiv 3^{4*7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
 \vskip + 10 pt
-\subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} 
-\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} 
-\hypertarget{hohpot}{} \index{Potenzen}
+\subsubsection{Schnelles Berechnen hoher Potenzen} 
+%\subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} 
+%\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} 
+\hypertarget{hohpot}{}\label{hohpot} \index{Potenzen}
 Bei RSA-Ver- und Entschl"usselungen\footnote{%
 Siehe \hyperlink{RSABeweis}{Kapitel 3.10 Beweis des RSA-Verfahrens mit Euler-Fermat} und 
 \hyperlink{Kapitel_3_12}{Kapitel 3.13 Das RSA-Verfahren mit konkreten Zahlen}.
@@ -919,11 +920,11 @@ gilt\footnote{%
 In \hyperlink{AppArith2}{Appendix D} finden Sie den Beispielcode zum Nachrechnen der Square-and-Multiply Methode
 mit Mathematica und Pari-GP.
 }: \label{SrcArith2}
-\begin{eqnarray}
+\begin{eqnarray*}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
         & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
     & \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 Die Potenzen $(a^2)^k$ sind durch fortgesetztes Quadrieren leicht zu bestimmen.
 Solange sich $a$ nicht "andert, kann ein Computer sie vorab berechnen und --
 bei ausreichend Speicherplatz -- abspeichern. Um dann im Einzelfall $a^n$ zu
@@ -1084,12 +1085,12 @@ Jedes Element in $\mathbb{Z}_n^*$ hat eine multiplikative Inverse.
 \end{satz}
 
 Beispiel f"ur $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
-\begin{eqnarray}
+\begin{eqnarray*}
 3 & \equiv & 3 * 1{\rm ~(mod~}10), \nonumber \\
 9 & \equiv & 3 * 3{\rm ~(mod~}10), \nonumber \\
 1 & \equiv & 3 * 7{\rm ~(mod~}10), \nonumber \\
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
-\end{eqnarray}
+\end{eqnarray*}
 Die eindeutige Invertierung (Umkehrbarkeit)\index{Umkehrbarkeit} ist eine notwendige Bedingung f"ur die
 Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
 
@@ -1218,7 +1219,7 @@ F"ur unser Beispiel bedeutet das:
         $1579^{-1} \equiv 1579^{7349}$ (mod $p$).
 \end{itemize}       
 Durch geschicktes Zerlegen des Exponenten kann man diese Potenz relativ einfach berechnen 
-(siehe \hyperlink{hohpot}{Kapitel 3.6.3.1 Schnelles Berechnen hoher Potenzen)}:
+(siehe \hyperlink{hohpot}{Kapitel~\ref{hohpot} Schnelles Berechnen hoher Potenzen)}:
 
 \begin{itemize}
    \item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$ \\
@@ -1253,11 +1254,11 @@ gilt: $e*d \equiv 1$ (mod $J(26)$).
 
 F"ur alle $e$, die teilerfremd zu $J(n)$ sind, k"onnte man nach dem Satz von Euler-Fermat das $d$ 
 folgenderma"sen berechnen:
-\begin{eqnarray}
+\begin{eqnarray*}
  d & \equiv & e^{-1}      {\rm ~(mod~} J(n)) \nonumber \\
    & \equiv & e^{J(J(n))-1}  {\rm ~(mod~} J(n)), \quad  {\rm denn~}  a^{J(n)} \equiv 1 {\rm ~(mod~} n)
       \quad {\rm ~entspricht~~} a^{J(n)-1} \equiv a^{-1} {\rm ~(mod~} n). \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 
 
 Besteht die Zahl $n$ aus zwei verschiedenen Primfaktoren, so ist die Faktorisierung\index{Faktorisierungsproblem} von $n$ und das Finden von $J(n)$ 
@@ -1691,13 +1692,13 @@ $$M^{e * d} \equiv M{\rm ~(mod~}p).$$
 Dies ergibt sich aus den Voraussetzungen und dem Satz von Euler-Fermat (Satz \ref{thm-zth-fermateuler}).
 Da $n=p*q$ und $J(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gew"ahlt sind, dass $e*d \equiv 1 {\rm ~(mod~}J(n))$,
 gibt es eine ganze Zahl $k$, so dass gilt: $e*d = 1 + k*(p-1)*(q-1)$.
-\begin{eqnarray}
+\begin{eqnarray*}
 M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber \\
            & \equiv & M * (M^{p-1})^{k*(q-1)}{\rm ~(mod~}p) \quad {\rm ~aufgrund~des~kleinen~Fermat:~} 
                   M^{p-1} \equiv 1 {\rm~(mod~}p) \nonumber \\ 
            & \equiv & M * (1)^{k*(q-1)} {\rm~(mod~}p) \nonumber \\
        & \equiv & M {\rm ~(mod~}p). \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 Die Voraussetzung f"ur die Anwendung des vereinfachten Satzes von Euler-Fermat 
 (kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$ teilerfremd sind.
 
@@ -2857,10 +2858,10 @@ OUTPUT "ggT(a,b) = " b         // b ist der ggT vom urspr"unglichen a und b
 \end{verbatim}
 \item Aus dem ggT lassen sich aber noch weitere Zusammenh"ange bestimmen:
 Dazu betrachtet man f"ur $a$ und $b$ das Gleichungssystem:
-\begin{eqnarray}
+\begin{eqnarray*}
  a & = & 1*a + 0*b \nonumber \\
  b & = & 0*a + 1*b, \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 bzw. in Matrix-Schreibweise
 $$ \left(\begin{array}{c}a \\ b\end{array}\right) = 
    \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
@@ -2882,10 +2883,10 @@ zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erh"alt man den
 {\tt OUTPUT:} ''ggT$(a,b) = a*x +b*y$: '', ''ggT$(a,b) =$ '' $b$, ''$x = $'' $x_{2,1}$, ''$y = $'' $x_{2,2}.$
 
 Da dieser Algorithmus nur lineare Transformationen durchf"uhrt, gelten immer die Gleichungen
-\begin{eqnarray}
+\begin{eqnarray*}
  a & = & x_{1,1}*a + x_{1,2}*b, \nonumber \\
  b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
-\end{eqnarray}
+\end{eqnarray*}
 und es folgt am Ende des Algorithmus\footnote{%
 Wenn der ggT-Algorithmus endet, steht in den Programmvariablen $a$ und $b$:
 $a = 0$ und $b=ggT(a,b)$. Bitte beachten Sie, dass die Programmvariablen zu den Zahlen $a$ und $b$ verschieden sind

@@ -18,9 +18,7 @@
   German physicist and Nobel Prize winner, March 14, 1879 $-$ April 14, 1955
 }
 
-%\paragraph{What are prime numbers?}
-\subsection*{What are prime numbers?}
-\addcontentsline{toc}{subsection}{~~~~~~What are prime numbers?}
+\subsection{What are prime numbers?}
 \index{Prime number} \index{Number!prime}
 Prime numbers are whole, positive numbers greater than or equal to $2$ that can
 only be divided by 1 and themselves. All other natural numbers greater than or
@@ -57,7 +55,7 @@ comprehensible introduction to the basics of prime numbers. We will also explain
 what is known about the distribution (density, number of prime numbers in
 particular intervals) of prime numbers and how prime number tests work.
 
-\subsection{Prime numbers in mathematics}
+\subsection{Prime numbers in mathematics}\label{primesinmath}
 
 Every whole number has a factor. The number 1 only has one factor,
 itself, whereas the number $12$ has the six factors $1, 2, 3, 4,
@@ -185,7 +183,7 @@ it also divides the difference of these numbers. Thus: $p_i$ divides  $a - (a-1)
 Contradiction:} \quad Our assumption was false.
 
 Thus there is an {\em infinite} number of primes
-\hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
+\hyperlink{primhfk}{(Cross-reference: overview under \ref{s:primhfk} of the number of
 prime numbers in various intervals)}.\par \vskip + 3pt
 
 Here we may mention yet another fact which is initially somewhat surprising. 
@@ -204,7 +202,7 @@ $ n!= n*(n-1)*\cdots *2*1$).
 The largest prime numbers known today have several hundred
 thousand digits, which is too big for us to imagine. The number of
 elementary particles in the universe is ``only'' estimated to be a
-$80$-digit number \hyperlink{grosord}{(See: overview under 2.6.3
+$80$-digit number \hyperlink{grosord}{(See: overview under \ref{s:grosord}
 of various orders of magnitude / dimensions)}.
 
 Almost all known huge prime numbers are special candidates, called
@@ -443,7 +441,7 @@ Ideas for this can be found at
  {\tt http://www.utm.edu/research/primes/notes/faq/p\_n.html}}.
 
 
-Cross-reference:  \hyperlink{ntePrimzahl}{the table under 2.6.2} contains the precise values for the $n$th
+Cross-reference:  \hyperlink{ntePrimzahl}{the table under \ref{s:ntePrimzahl}} contains the precise values for the $n$th
 prime numbers for selected $ n.$
 
 The following are some of the most common ideas for prime number formulae:
@@ -695,7 +693,7 @@ This is the \index{Prime number!theorem} \textbf{prime number theorem}. It was
 put forward by Legendre \index{Legendre} (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
 over 100 years later.
 
-\hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
+\hyperlink{primhfk}{(Cross-reference: overview under \ref{s:primhfk} of the number of
 prime numbers in various intervals).}
 
 For large $n$, $P(n)$  lies between  $2n$  and  $n^2$. This means that there are
@@ -883,7 +881,7 @@ divisibility rules, modulus calculation, modular inverses, modular powers and
 roots, Chinese remainder theorem, Euler PHI function, perfect numbers.
 
 \newpage
-\subsubsection{Number of prime numbers in various intervals}
+\subsubsection{Number of prime numbers in various intervals}\label{s:primhfk}
 \hypertarget{primhfk}{}
 
 \begin{tabular}{|l|l||l|l||l|l|}\hline
@@ -918,7 +916,7 @@ Intervall & Number & Average number per 1000 \\ \hline
 \vskip +6 pt
 
 \newpage
-\subsubsection{Indexing prime numbers ($n$-th prime number)} \hypertarget{ntePrimzahl}{}
+\subsubsection{Indexing prime numbers ($n$-th prime number)} \hypertarget{ntePrimzahl}{}\label{s:ntePrimzahl}
 
 \begin{tabular}{|l|l|l|l|}\hline
 Index   &   Precise value  & Rounded value &
@@ -958,7 +956,7 @@ http://www.utm.edu/research/primes/notes/by\_year.html}.}
 
 
 \newpage
-\subsubsection{Orders of magnitude / dimensions in reality}
+\subsubsection{Orders of magnitude / dimensions in reality}\label{s:grosord}
 In the description of cryptographic protocols and algorithms, numbers occur that
 are so large or so small that they are inaccessible to our intuitive
 understanding. It may therefore be useful to provide comparative numbers from
