@@ -5434,6 +5434,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Permutationseingabe"
+    IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
+                            "Der Permutationsschlüssel darf keine Nullen enthalten. Bitte korrigieren Sie Ihre Eingabe im ersten Eingabefeld!"
     IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: benutzen Sie hierfür den Knopf Entschlüsseln."
     IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
     IDS_NUMBER_NOT_RSA_MODUL 
@@ -5451,6 +5453,8 @@ BEGIN
                             "Das analysierte Dokument enthält alle %i möglichen Bytes."
     IDS_ENTROPY_ALPHABET_MAX_INFO 
                             "Das analysierte Dokument enthält alle %i Zeichen des eingestellten Alphabets."
+    IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2 
+                            "Der Permutationsschlüssel darf keine Nullen enthalten. Bitte korrigieren Sie Ihre Eingabe im zweiten Eingabefeld!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10800,6 +10804,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
+    IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
+                            "The permutation key must not contain zeros. Please correct your input in the first input field!"
     IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just click the button Decrypt."
     IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
     IDS_NUMBER_NOT_RSA_MODUL 
@@ -10817,6 +10823,8 @@ BEGIN
                             "This document contains all %i possible byte values."
     IDS_ENTROPY_ALPHABET_MAX_INFO 
                             "This document contains all %i different characters of the selected alphabet."
+    IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2 
+                            "The permutation key must not contain zeros. Please correct your input in the first input field!"
 END
 
 STRINGTABLE DISCARDABLE 
