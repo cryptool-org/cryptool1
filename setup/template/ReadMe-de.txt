@@ -858,7 +858,7 @@ klassische Kryptoanalyse.
 
 Diese Hinweise basieren auf Tests mit Wine 2001-11-29. (XXXX)
 
-13.1.1. CrypTool installieren
+12.1.1. CrypTool installieren
         ---------------------
 Im letzten Schritt der Installation gibt es die Option,
 CrypTool gleich zu starten. Dies funktioniert unter Wine nicht.
