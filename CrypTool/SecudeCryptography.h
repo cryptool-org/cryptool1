@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////////////////////
 
 
-void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId);
+void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, int keylenstep, int AlgId);
 void hash (char* infile, const char *OldTitle, int AlgId);
 
 UINT Brute(PVOID p);

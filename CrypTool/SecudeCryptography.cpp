@@ -14,7 +14,7 @@
 #include "Cryptography.h"
 #include "FileTools.h"
 #include "CryptDoc.h"
-#include "DlgKeyHex.h"	// Dialog-Box für die Schlüsseleingabe
+#include "DlgKeyHexFixedLen.h"
 #include "secure.h" // Include-File von SECUDE
 #include "pkcs.h"   // Include-File von SECUDE
 #include "AppDocument.h"
@@ -45,10 +45,10 @@
 	Identifier des zu benutzenden Verfahrens übergeben werden. Alles weitere
 	macht das SECUDE-Toolkit.
 */
-void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
+void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, int keylenstep, int AlgId)
 {
 	
-    char outfile[CRYPTOOL_PATH_LENGTH], title[128], *key, line[256];
+    char outfile[CRYPTOOL_PATH_LENGTH], title[128];
     CAppDocument *NewDoc;
 
 	FILE *fi;
@@ -103,34 +103,20 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 	}
 
 
-    CDlgKeyHex KeyDialog(KeyLength/8);
-	// ## NEW-CODE (Mai 01)
-	// key-input dialog gets now the approppriate title
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_SYMMETRIC,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,pc_str,AlgTitel);
-	KeyDialog.SetAlternativeWindowText(line);
-	// ## END NEW-CODE
-	// Aenderung Jens Liebehenschel, 18.02.00
-	// Bei Drücken von Escape oder Klicken auf Abbruch wird das Fenster 
-	// geschlossen, aber die Ver-/Entschluesselung wird trotzdem durchgefuehrt.
-	// Es muss der Returnwert von DoModal in der Funktion Display überprüft werden.
-//	KeyDialog.Display();
-	if (KeyDialog.Display() != IDOK) 
-	{
+	CString Title;
+	Title.Format(IDS_STRING_KEYINPUT_SYMMETRIC,AlgTitel);
+    CDlgKeyHexFixedLen KeyDialog;
+	KeyDialog.Init(Title,keylenmin,keylenmax,keylenstep);
+	if (KeyDialog.DoModal() != IDOK) 
 		return;
-	}
-	// Ende der Aenderung
-	if(KeyDialog.GetLen() ==0) return;
-    if ((AlgId==6)||(AlgId==7)){
-		KeyLength=8*(KeyDialog.GetLen());
-	}
-	key = KeyDialog.GetData();
+	int keybytelen = KeyDialog.GetKeyByteLength();
+	char *key = KeyDialog.GetKeyBytes();
 
     GetTmpName(outfile,"cry",".tmp");
 
 
-	info.subjectkey.nbits=KeyLength;
-	info.subjectkey.bits=key;
+	info.subjectkey.nbits = keybytelen * 8;
+	info.subjectkey.bits = key;
 	keyinfo.key=&info;
 	keyinfo.pse_sel=NULL;
 	keyinfo.alg=NULL;
@@ -140,7 +126,7 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 	keyinfo.private_key=NULL;
 
 
-    if(KeyDialog.m_Decrypt){		// Entschlüsselung ausgewählt
+    if(KeyDialog.ModeIsDecrypt()){		// Entschlüsselung ausgewählt
 		  
 		// Initialisierung der Variablen
 		// in enthält den Ciphertext, out den ermittelten Plaintext
@@ -168,11 +154,11 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		//Datenausgabe:
 		theApp.SecudeLib.aux_OctetString2file(&out, outfile, 2);
 		free(out.octets);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
 		remove(outfile);
 		if(NewDoc) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
+			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.GetKeyFormatted());
 			NewDoc->SetTitle(title);
 		}
 	}
@@ -203,11 +189,11 @@ void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 		free(out.bits);
 		theApp.SecudeLib.aux_OctetString2file(outOctet,outfile,2);
 		theApp.SecudeLib.aux_free_OctetString(&outOctet);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.m_einstr);
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
 		remove(outfile);
 		if(NewDoc) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.m_einstr);
+			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.GetKeyFormatted());
 			NewDoc->SetTitle(title);
 		}
     }

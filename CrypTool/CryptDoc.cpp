@@ -523,20 +523,20 @@ void CHexDoc::OnHistogram()
 void CCryptDoc::OnCryptIdea() 
 {
     UpdateContent();
-	Crypt(ContentName, GetTitle(),128,1);
+	Crypt(ContentName, GetTitle(),128,128,1,1);
 }
 
 void CCryptDoc::OnCryptRc2() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,7);
+	Crypt(ContentName, GetTitle(),8,128,8,7);
 }
 
 
 void CCryptDoc::OnCryptDesDesecb() 
 {
     UpdateContent();
-	Crypt(ContentName, GetTitle(),64,2);
+	Crypt(ContentName, GetTitle(),64,64,1,2);
 }
 
 
@@ -692,25 +692,25 @@ BOOL CAscDoc::UpdateContent( void )
 void CCryptDoc::OnCrypt3desCbc() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,4);
+	Crypt(ContentName, GetTitle(),128,128,1,4);
 }
 
 void CCryptDoc::OnCrypt3desEcb() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,5);
+	Crypt(ContentName, GetTitle(),128,128,1,5);
 }
 
 void CCryptDoc::OnCryptRc4() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,6);
+	Crypt(ContentName, GetTitle(),8,128,8,6);
 }
 
 void CCryptDoc::OnCryptDesDescbc() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),64,3);
+	Crypt(ContentName, GetTitle(),64,64,1,3);
 }
 
 void CCryptDoc::OnCaesarAuto() 

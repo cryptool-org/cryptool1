@@ -42,7 +42,7 @@ private:
 //    char s_alternativeWindowText[127];
 
 protected:
-
+	CFont m_font; // font for key display
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgShowKey)
 	afx_msg void OnCopyKey();

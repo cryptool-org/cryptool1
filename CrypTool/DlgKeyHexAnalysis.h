@@ -43,8 +43,10 @@ public:
 
 // Implementierung
 protected:
+	CFont m_font; // font for key display
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHexAnalysis)
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

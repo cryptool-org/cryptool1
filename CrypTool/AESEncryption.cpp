@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "FileTools.h"
-#include "DlgKeyHex.h"	// Dialog-Box für die Schlüsseleingabe
+#include "DlgKeyHexFixedLen.h"
 #include "..\AES\mars\mars.h"
 #include "..\AES\RC6\RC6.h"
 #include "..\AES\Rijndael\Rijndael-api-fst.h"
@@ -131,12 +131,12 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
 {
 	
-    char outfile[CRYPTOOL_PATH_LENGTH], line[256], keybuffhex[65],AlgTitel[128], title[128];
+    char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[65],title[128];
+	CString AlgTitle,Title;
 	unsigned char keybuffbin[33];
 	unsigned char *borg, *bcip, *key;
 	char mode;
 	int keylen;
-	int titleID;
 
 	FILE *fi;
 	int i, datalen;
@@ -150,62 +150,38 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 		return;
 	}
 
-	strcpy(AlgTitel,"");           // Name setzen
-	switch (AlgId)
-	{
-	case 1:                        // Mars
-		titleID = IDS_CRYPT_MARS;
-		break;
-	case 2:                        // RC6
-		titleID = IDS_CRYPT_RC6;
-		break;
-	case 3:                        // Rijndael
-		titleID = IDS_CRYPT_RIJNDAEL;
-		break;
-	case 4:                        // Serpent
-		titleID = IDS_CRYPT_SERPENT;
-		break;
-	case 5:                        // Twofish
-		titleID = IDS_CRYPT_TWOFISH;
-		break;
-	}
-	LoadString(AfxGetInstanceHandle(),titleID,pc_str,STR_LAENGE_STRING_TABLE);
-	strcpy( AlgTitel, pc_str );
+	UINT AlgResIds[] = {
+		0, // dummy
+		IDS_CRYPT_MARS,
+		IDS_CRYPT_RC6,
+		IDS_CRYPT_RIJNDAEL,
+		IDS_CRYPT_SERPENT,
+		IDS_CRYPT_TWOFISH
+	};
+	ASSERT(AlgId < sizeof(AlgResIds)/sizeof(UINT));
+	AlgTitle.LoadString(AlgResIds[AlgId]);
 	if ( 3 == AlgId )
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_RIJNDAEL,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str);
-	}
+		Title.LoadString(IDS_STRING_KEYINPUT_AES_RIJNDAEL);
 	else
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_CANDIDATE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str,AlgTitel);
-	}
+		Title.Format(IDS_STRING_KEYINPUT_AES_CANDIDATE,AlgTitle);
 	int tag=0;
-    CDlgKeyHex KeyDialog(32);
-	KeyDialog.SetAlternativeWindowText(line);
+    CDlgKeyHexFixedLen KeyDialog;
+	KeyDialog.Init(Title,128,256,64);
 	if( NewFileName == NULL )
 	{
-		if (KeyDialog.Display() != IDOK) 
-		{
+		int res;
+		res = KeyDialog.DoModal();
+		if (res == IDCANCEL)
 			return;
-		}
-	
+		mode = (KeyDialog.ModeIsDecrypt()) ? DIR_DECRYPT : DIR_ENCRYPT;
 			
-		key = (unsigned char *) KeyDialog.GetData();
-		if ( 0 == (keylen = KeyDialog.GetLen()) ) return;
+		key = (unsigned char *) KeyDialog.GetKeyBytes();
+		keylen = KeyDialog.GetKeyByteLength();
 
-		for(i=0;i<32;i++) keybuffbin[i]=0;
 		for(i=0;i<keylen; i++) keybuffbin[i] = key[i];
-		
-		if(keylen <= 16) keylen = 16;
-		else if(keylen <= 24) keylen = 24;
-		else keylen = 32;
-		
+				
 		for(i=0; i<keylen; i++) 
-		{
 			sprintf(keybuffhex+2*i,"%02.2X",keybuffbin[i]);
-		}
 	}
 	else
 	{
@@ -223,12 +199,11 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	
 	if (tag==0)
 	{
-		if(KeyDialog.m_Decrypt)	{	   // Entschlüsselung ausgewählt
-			mode = DIR_DECRYPT;        // padden der Eingabe
+		if(mode == DIR_DECRYPT)	{	   // Entschlüsselung ausgewählt
+				        // padden der Eingabe
 			for(; datalen %16; datalen++) borg[datalen]=0;
 		}
 		else {
-			mode = DIR_ENCRYPT;        // padden der Eingabe
 			borg[datalen++]=1;
 			for(; datalen %16; datalen++) borg[datalen]=0;
 		}
@@ -267,7 +242,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	free(borg);
 	datalen >>= 3;                 // Länge wieder in Byte
 	
-    if( tag==0 && KeyDialog.m_Decrypt)
+    if( tag==0 && mode == DIR_DECRYPT)
 	{	                           // Entschlüsselung ausgewählt
 		// Padding entfernen
 		for(datalen--; 0 == bcip[datalen]; datalen--);
@@ -283,8 +258,8 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	fclose(fi);
 
 	if ( NewFileName == NULL )
-	{
-		OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );
+	{	
+		OpenNewDoc( outfile, KeyDialog.GetKeyFormatted(), OldTitle, AlgResIds[AlgId], mode == DIR_DECRYPT );
 	}
 	else if (tag==1 && !Enc_Or_Dec)//Entschlüsselung + Hybrid
 	{

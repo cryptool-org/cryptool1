@@ -1374,6 +1374,14 @@ SOURCE=.\DlgKeyHexAnalysis.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgKeyHexFixedLen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgKeyHexFixedLen.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgKeyHill10x10.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"

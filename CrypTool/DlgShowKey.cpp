@@ -63,6 +63,8 @@ BOOL CDlgShowKey::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	m_font.CreatePointFont(100,"Courier New");
+	m_CtrlKey.SetFont(&m_font);
 	if (strTitle[0])
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_METHOD_KEY,pc_str,STR_LAENGE_STRING_TABLE);

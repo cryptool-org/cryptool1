@@ -118,3 +118,15 @@ int CDlgKeyHexAnalysis::GetLen( void )
 {
 	return m_einfeld.BinLen;
 } 
+
+BOOL CDlgKeyHexAnalysis::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	m_font.CreatePointFont(100,"Courier New");
+	m_einfeld.SetFont(&m_font);
+	m_einfeld.SetFixedByteLength((m_einfeld.GetWindowTextLength()+1)/3);
+	
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}

@@ -462,15 +462,15 @@ BEGIN
                     117,8
 END
 
-IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 186, 82
+IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 277, 87
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,20,54,64,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,116,54,50,18
-    CTEXT           "Ermittelter Schlüssel:",IDC_STATIC,20,11,146,8
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,10,59,64,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,217,59,50,18
+    CTEXT           "Ermittelter Schlüssel:",IDC_STATIC,10,10,257,8
+    EDITTEXT        IDC_EDIT1,10,23,257,24,ES_MULTILINE
 END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOG DISCARDABLE  0, 0, 347, 319
@@ -985,15 +985,15 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,262,174,9
 END
 
-IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 186, 79
+IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 284, 87
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüssel"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,7,54,80,18
-    DEFPUSHBUTTON   "&Schließen",IDOK,117,54,62,18
-    EDITTEXT        IDC_EDIT1,7,25,172,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Schlüssel:",IDC_STATIC,7,12,48,8
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,10,62,80,15
+    DEFPUSHBUTTON   "&Schließen",IDOK,205,62,62,15
+    LTEXT           "Schlüssel:",IDC_STATIC,10,10,48,8
+    EDITTEXT        IDC_EDIT1,10,26,257,24,ES_MULTILINE | ES_READONLY
 END
 
 IDD_SIGNATURE DIALOG DISCARDABLE  0, 0, 388, 377
@@ -1375,26 +1375,26 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 288, 149
+IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 277, 159
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-force Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,69,69,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    COMBOBOX        IDC_KEY_LEN,69,82,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,15,88,257,24,ES_MULTILINE
-    DEFPUSHBUTTON   "&Starten",IDOK,15,123,68,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,205,123,68,17
-    LTEXT           "Geben Sie bekannte Teile des Schlüssels hexadezimal ein, unbekannte mit <*>.",
-                    IDC_STATIC,15,6,258,10
-    LTEXT           "Beispiel:",IDC_STATIC,15,20,29,8
-    LTEXT           "Schlüssellänge:",IDC_STATIC,15,73,50,8
-    LTEXT           "Tipp:",IDC_STATIC,15,48,22,8
+    EDITTEXT        IDC_EDIT1,10,100,257,24,ES_MULTILINE
+    DEFPUSHBUTTON   "&Starten",IDOK,10,133,68,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,199,133,68,17
+    LTEXT           "Sie könnnen den Suchraum einschränken, um die Suchzeit zu verkürzen. Geben Sie dazu bekannte Teile des Schlüssels hexadezimal ein, unbekannte mit <*>.",
+                    IDC_STATIC,10,10,257,17
+    LTEXT           "Beispiel:",IDC_STATIC,10,33,30,8
+    LTEXT           "Schlüssellänge:",IDC_STATIC,10,86,50,8
+    LTEXT           "Tipp:",IDC_STATIC,10,60,22,8
     LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn sie höchstens 6 Sterne <*> (= 24 Bit) verwenden.",
-                    IDC_STATIC,44,48,229,18
+                    IDC_STATIC,40,60,227,18
     LTEXT           "Mit der Eingabe <00 ** AB ** ... **>  durchsuchen Sie alle Schlüssel, die mit einem Nullbyte beginnen, gefolgt von einem unbekannten Byte, dem Byte <AB>, und einem unbekannten Rest.",
-                    IDC_STATIC,44,20,229,26
-    LTEXT           "Bit",IDC_STATIC,100,73,9,8
+                    IDC_STATIC,40,33,227,26
+    LTEXT           "Bit",IDC_STATIC,100,86,9,8
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOG DISCARDABLE  0, 0, 317, 156
@@ -2488,6 +2488,25 @@ BEGIN
     CONTROL         "Beispieldatei wird nach dem Start von CrypTool automatisch geöffnet",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,
                     232,10
+END
+
+IDD_KEY_HEX_FIXED_LEN DIALOG DISCARDABLE  0, 0, 307, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüsseleingabe"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_KEY,10,43,257,24,ES_MULTILINE
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    275,44,22,20
+    DEFPUSHBUTTON   "&Verschlüsseln",IDC_ENCRYPT,10,82,58,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_DECRYPT,126,82,57,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,242,82,55,19
+    COMBOBOX        IDC_KEY_LEN,64,24,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.",
+                    IDC_MESSAGE,10,10,287,9
+    LTEXT           "Schlüssellänge:",IDC_STATIC,10,28,50,8
+    LTEXT           "Bit",IDC_STATIC,96,28,9,8
 END
 
 
@@ -3587,6 +3606,17 @@ BEGIN
     0
 END
 
+IDD_KEY_HEX_FIXED_LEN DLGINIT
+BEGIN
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3532, 0x0036, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3809,10 +3839,10 @@ BEGIN
 
     IDD_KEY_ANALYSIS, DIALOG
     BEGIN
-        VERTGUIDE, 20
-        VERTGUIDE, 166
-        HORZGUIDE, 54
-        HORZGUIDE, 72
+        RIGHTMARGIN, 267
+        VERTGUIDE, 10
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 77
     END
 
     IDD_MANUAL_SUBST_ANALYSIS, DIALOG
@@ -3887,10 +3917,10 @@ BEGIN
 
     IDD_SHOW_KEY, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 179
-        HORZGUIDE, 54
-        HORZGUIDE, 72
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 267
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 77
     END
 
     IDD_SIGNATURE, DIALOG
@@ -3968,10 +3998,11 @@ BEGIN
 
     IDD_BRUTEFORCE, DIALOG
     BEGIN
-        VERTGUIDE, 15
-        VERTGUIDE, 44
-        VERTGUIDE, 273
-        BOTTOMMARGIN, 140
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 267
+        VERTGUIDE, 40
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 150
         HORZGUIDE, 20
         HORZGUIDE, 48
         HORZGUIDE, 81
@@ -4270,6 +4301,14 @@ BEGIN
         RIGHTMARGIN, 251
         TOPMARGIN, 7
         BOTTOMMARGIN, 98
+    END
+
+    IDD_KEY_HEX_FIXED_LEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 297
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 101
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5841,20 +5880,6 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 // Dialog
 //
 
-IDD_KEY DIALOG DISCARDABLE  0, 0, 251, 85
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Key Entry"
-FONT 8, "MS Sans Serif"
-BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,191,12,ES_AUTOHSCROLL
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    220,28,22,20
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,53,58,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,53,57,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,185,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
-END
-
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Drawing Parameters"
@@ -6240,15 +6265,15 @@ BEGIN
                     128,8
 END
 
-IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 186, 82
+IDD_KEY_ANALYSIS DIALOG DISCARDABLE  0, 0, 277, 87
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,20,22,146,15,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Decrypt",IDOK,20,54,64,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,116,54,50,18
-    CTEXT           "Derived key:",IDC_STATIC,20,11,146,8
+    DEFPUSHBUTTON   "&Decrypt",IDOK,10,59,64,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,217,59,50,18
+    CTEXT           "Derived key:",IDC_STATIC,10,10,257,8
+    EDITTEXT        IDC_EDIT1,10,23,257,24,ES_MULTILINE
 END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOG DISCARDABLE  0, 0, 347, 319
@@ -6760,15 +6785,15 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,23,259,174,9
 END
 
-IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 186, 79
+IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 277, 89
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Copy &key",IDC_BUTTON1,7,54,80,18
-    DEFPUSHBUTTON   "&Close",IDOK,117,54,62,18
-    EDITTEXT        IDC_EDIT1,7,25,172,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Key:",IDC_STATIC,7,12,48,8
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,10,61,80,18
+    DEFPUSHBUTTON   "&Close",IDOK,205,61,62,18
+    LTEXT           "Key:",IDC_STATIC,10,10,48,8
+    EDITTEXT        IDC_EDIT1,10,25,257,24,ES_MULTILINE | ES_READONLY
 END
 
 IDD_SIGNATURE DIALOG DISCARDABLE  0, 0, 388, 377
@@ -7147,26 +7172,26 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 286, 146
+IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 277, 158
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute Force Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,65,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,15,84,257,24,ES_MULTILINE
-    DEFPUSHBUTTON   "&Start",IDOK,15,121,68,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,204,121,68,17
-    LTEXT           "Enter known parts of the key in hexadecimal notation, unknown as <*>.",
-                    IDC_STATIC,15,6,258,10
-    LTEXT           "Example:",IDC_STATIC,15,20,29,8
-    LTEXT           "Key length:",IDC_STATIC,15,69,36,8
-    LTEXT           "Hint:",IDC_STATIC,15,44,22,8
+    EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
+    DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,199,131,68,17
+    LTEXT           "The search space can be limited in order to reduce the search time. To do this enter known parts of the key in hexadecimal notation, unknown as <*>.",
+                    IDC_STATIC,10,10,257,16
+    LTEXT           "Example:",IDC_STATIC,10,33,29,8
+    LTEXT           "Key length:",IDC_STATIC,10,82,36,8
+    LTEXT           "Hint:",IDC_STATIC,10,57,22,8
     LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisks <*> (= 24 bit).",
-                    IDC_STATIC,47,44,225,18
+                    IDC_STATIC,42,57,225,18
     LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",
-                    IDC_STATIC,47,20,225,18
-    LTEXT           "bit",IDC_STATIC,87,69,8,8
+                    IDC_STATIC,42,33,225,18
+    LTEXT           "bit",IDC_STATIC,87,82,8,8
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOG DISCARDABLE  0, 0, 317, 156
@@ -8283,6 +8308,39 @@ BEGIN
                     198,10
 END
 
+IDD_KEY DIALOG DISCARDABLE  0, 0, 251, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Key Entry"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,11,29,191,12,ES_AUTOHSCROLL
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    220,28,22,20
+    DEFPUSHBUTTON   "&Encrypt",IDOK,11,53,58,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,53,57,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,185,53,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
+END
+
+IDD_KEY_HEX_FIXED_LEN DIALOG DISCARDABLE  0, 0, 310, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Key Entry"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_KEY,10,43,257,24,ES_MULTILINE
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    278,44,22,20
+    DEFPUSHBUTTON   "&Encrypt",IDC_ENCRYPT,10,79,58,19
+    PUSHBUTTON      "&Decrypt",IDC_DECRYPT,126,79,57,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,245,79,55,19
+    COMBOBOX        IDC_KEY_LEN,51,24,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Enter the key using hexadecimal characters (0..9, A..F).",
+                    IDC_MESSAGE,10,10,290,9
+    LTEXT           "Key length:",IDC_STATIC,10,28,36,8
+    LTEXT           "bit",IDC_STATIC,83,28,8,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9389,6 +9447,17 @@ BEGIN
     0
 END
 
+IDD_KEY_HEX_FIXED_LEN DLGINIT
+BEGIN
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3231, 0x0038, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3931, 0x0032, 
+    IDC_KEY_LEN, 0x403, 4, 0
+0x3532, 0x0036, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9489,16 +9558,6 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
-    IDD_KEY, DIALOG
-    BEGIN
-        VERTGUIDE, 11
-        VERTGUIDE, 202
-        VERTGUIDE, 220
-        VERTGUIDE, 240
-        HORZGUIDE, 53
-        HORZGUIDE, 72
-    END
-
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         VERTGUIDE, 20
@@ -9543,6 +9602,14 @@ BEGIN
         VERTGUIDE, 264
     END
 
+    IDD_KEY_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 267
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 77
+    END
+
     IDD_MANUAL_SUBST_ANALYSIS, DIALOG
     BEGIN
         VERTGUIDE, 13
@@ -9565,6 +9632,14 @@ BEGIN
         HORZGUIDE, 296
     END
 
+    IDD_SHOW_KEY, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 267
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 79
+    END
+
     IDD_PLAYFAIR_ANALYSIS, DIALOG
     BEGIN
         HORZGUIDE, 34
@@ -9574,9 +9649,10 @@ BEGIN
 
     IDD_BRUTEFORCE, DIALOG
     BEGIN
-        LEFTMARGIN, 15
-        RIGHTMARGIN, 272
-        BOTTOMMARGIN, 138
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 267
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 148
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -9787,6 +9863,24 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 251
         TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_KEY, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        VERTGUIDE, 202
+        VERTGUIDE, 220
+        VERTGUIDE, 240
+        HORZGUIDE, 53
+        HORZGUIDE, 72
+    END
+
+    IDD_KEY_HEX_FIXED_LEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 300
+        TOPMARGIN, 10
         BOTTOMMARGIN, 98
     END
 END
