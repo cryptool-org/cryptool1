@@ -255,6 +255,8 @@ BOOL CCrypToolApp::InitInstance()
 	// initialize the application dependent Converter
 	AppConv.SetAlphabet(TextOptions.m_alphabet.GetBuffer(257), TextOptions.m_IgnoreCase);
 
+
+	SecudeStatus = SecudeLib.GetStatus();
 	if(SecudeStatus!=2) { // secude und Ticket verfuegbar ?
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_SECUDE_DLL,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);

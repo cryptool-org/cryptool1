@@ -2560,7 +2560,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -2654,7 +2654,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -2760,7 +2760,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -2849,7 +2849,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -2983,7 +2983,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3055,7 +3055,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3150,7 +3150,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -3255,7 +3255,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3295,8 +3295,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,3
- PRODUCTVERSION 1,3,0,3
+ FILEVERSION 1,3,0,4
+ PRODUCTVERSION 1,3,0,4
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -3314,14 +3314,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.03\0"
+            VALUE "FileVersion", "1.3.04 \0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.03\0"
+            VALUE "ProductVersion", "1.3.04\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -4443,7 +4443,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.03"
+    IDR_MAINFRAME           "CrypTool 1.3.04 - alpha"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4810,12 +4810,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_PERMUTATION_DECRYPT_INV 
-                            "Text mit der inversen Permutation entschlüsseln"
     IDS_PERMUTATION_CLEAR   "&Klartext anzeigen"
     IDS_PERMUTATION_CIPHER  "&Verschlüsselten Text anzeigen"
     IDS_STRING_DAYS         "Tage"
     IDS_STRING_YEARS        "Jahre"
+    IDS_PERMUTATION_DECRYPT_INV 
+                            "Text mit der inversen Permutation entschlüsseln"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5389,7 +5389,6 @@ BEGIN
     IDS_PERMUTATION_ENCRYPT_INV 
                             "Text mit der inversen Permutation verschlüsseln"
 END
-
 
 STRINGTABLE DISCARDABLE 
 BEGIN
@@ -8530,7 +8529,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -8753,7 +8752,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -9025,7 +9024,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -9088,8 +9087,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,3
- PRODUCTVERSION 1,3,0,3
+ FILEVERSION 1,3,0,4
+ PRODUCTVERSION 1,3,0,4
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -9107,14 +9106,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.03\0"
+            VALUE "FileVersion", "1.3.04\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.03\0"
+            VALUE "ProductVersion", "1.3.04\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -9961,7 +9960,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.03"
+    IDR_MAINFRAME           "CrypTool 1.3.04 - alpha"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -10318,11 +10317,11 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
     IDS_PERMUTATION_CLEAR   "&Display clear text"
     IDS_PERMUTATION_CIPHER  "&Display cipher text"
     IDS_STRING_DAYS         "days"
     IDS_STRING_YEARS        "years"
+    IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
 END
 
 STRINGTABLE DISCARDABLE 

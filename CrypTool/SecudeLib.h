@@ -201,6 +201,7 @@ class CSecudeLib
 public:
 	int CloseSecudeLib( void );
 	int OpenSecudeLib( void );
+	int GetStatus() { return Status; }
 	CSecudeLib();
 	virtual ~CSecudeLib();
 	DoAll
