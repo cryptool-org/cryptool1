@@ -2523,7 +2523,8 @@ BEGIN
 
             MENUITEM "&Faktorisieren (IFP)...",     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung...",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
+                                                    ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
@@ -2677,7 +2678,8 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung...",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -2868,7 +2870,8 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung...",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -3018,7 +3021,8 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung...",        ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
+                                                    ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
     END
@@ -3168,7 +3172,8 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Signaturerzeugung...",        ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -8082,7 +8087,7 @@ END
 
 IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hash demonstration"
+CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
@@ -8199,7 +8204,7 @@ END
 
 IDD_STARTOPTIONS DIALOG DISCARDABLE  0, 0, 258, 105
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Starting options"
+CAPTION "Starting Options"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,22,67,50,18
@@ -8258,7 +8263,8 @@ BEGIN
 
             MENUITEM "&Factorise (IFP)...",         ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation...",    ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Demonstration (Signature Generation)...", 
+                                                    ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8411,7 +8417,8 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation...",    ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Demonstration (Signature Generation)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8602,7 +8609,8 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation...",    ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Demonstration (Signature Generation)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
@@ -8752,7 +8760,8 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation...",    ID_EINZELVERFAHREN_SIGN
+            MENUITEM "&Signature Demonstration (Signature Generation)...", 
+                                                    ID_EINZELVERFAHREN_SIGN
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
     END
@@ -8902,7 +8911,8 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "&Signature Generation...",    ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Signature Demonstration (Signature Generation)...", 
+                                                    ID_EINZELVERFAHREN_SIGN_DOC
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
