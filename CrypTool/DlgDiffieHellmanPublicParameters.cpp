@@ -143,9 +143,7 @@ void CDlgDiffieHellmanPublicParameters::OnGeneratePrime()
 void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator() 
 {
 	UpdateData(true);
-	Big P = (char*)(LPCTSTR)m_Prime;
-	Big G = 0;
-	
+
 	if(!IsDecimalNumber(m_Prime))
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NON_DECIMAL_VALUE, pc_str, STR_LAENGE_STRING_TABLE);
@@ -161,6 +159,10 @@ void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator()
 		m_PrimeControl.SetFocus();
 		return;
 	}
+	
+	Big P = (char*)(LPCTSTR)m_Prime;
+	Big G;
+
 	irand((unsigned)time(NULL));
 	bigrand(P.getbig(), G.getbig());
 	char *s = new char[512];

@@ -2577,7 +2577,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
-    LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel berechnen können, müssen zunächst ihre öffentlichen Schlüssel ausgetauscht werden.",
+    LTEXT           "Damit Alice und Bob letztendlich ihren gemeinsamen Schlüssel berechnen können, müssen zunächst ihre öffentlichen Schlüssel A und B ausgetauscht werden.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         548,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
@@ -2589,7 +2589,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,80,50,14
-    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel berechnen.",
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel S berechnen.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     CONTROL         545,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
@@ -2604,7 +2604,7 @@ BEGIN
     DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
-    LTEXT           "Bitte achten Sie darauf, dass Sie sich für eine Zahl entscheiden, die nach Möglichkeit die Bedingung 1 < g  < p erfüllt, da das Verfahren sonst unter gewissen Umständen nicht sicher ist!",
+    LTEXT           "Bitte achten Sie darauf, dass Sie sich für eine Zahl entscheiden, die möglichst größer als Eins und kleiner als der zuvor gewählte Primzahl-Modul (p) ist.",
                     IDC_STATIC,15,22,358,16
     LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, welche die obige Bedingung erfüllt.",
                     IDC_STATIC,15,46,358,16
@@ -2782,10 +2782,10 @@ BEGIN
                     SS_CENTERIMAGE
     PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,274,72,14
     LTEXT           "Jede Partei (Alice und Bob) berechnete für sich aus den eigenen geheimen Informationen und aus den übertragenen Informationen das gemeinsame Geheimnis.",
-                    IDC_STATIC,20,209,384,16
+                    IDC_STATIC,20,198,384,16
     LTEXT           "Dieses Geheimnis bzw. den Session Key kann ein ""Lauscher"" nicht in Erfahrung bringen, wenn die gewählten Parameter groß genug sind. - Der Session Key kann nun z.B. für eine symmetrische Verschlüsselung zwischen Alice und Bob verwendet werden.",
-                    IDC_STATIC,20,233,384,24
-    GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,195,404,68
+                    IDC_STATIC,20,222,384,24
+    GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,404,68
 END
 
 IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
@@ -5858,24 +5858,24 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DH_PP_PRIME_INVALID "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte beachten Sie, dass das Verfahren mit dem gewählten Primzahlmodul nicht sicher ist!"
+    IDS_DH_PP_PRIME_INVALID "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte beachten Sie, dass das Verfahren mit dem gewählten Primzahlmodul unter Umständen nicht sicher ist!"
     IDS_DH_PP_GENERATOR_INVALID 
-                            "Sie wählten einen Generator (g), der entweder gleich Null, ein Vielfaches des Primzahl-Moduls (p) oder anderweitig kritisch ist.\nBeachten Sie, dass das Verfahren mit dem gewählten Generator nicht sicher ist!"
+                            "Sie wählten einen Generator (g), der entweder gleich Null, ein Vielfaches des Primzahl-Moduls (p) oder anderweitig kritisch ist.\nBeachten Sie, dass das Verfahren mit dem gewählten Generator unter Umständen nicht sicher ist!"
     IDS_DH_DATA_INCONSISTENCY "Ein interner Fehler ist aufgetreten!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Bitte geben Sie nur natürliche Zahlen in dezimaler Form ein (keine Buchstaben und/oder sonstige Sonderzeichen)."
     IDS_DH_CALCULATE_PUBLIC_KEY_ALICE 
-                            "Alice hat ihren öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+                            "Alice hat ihren öffentlichen Teilschlüssel A = g^a berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_CALCULATE_PUBLIC_KEY_BOB 
-                            "Bob hat seinen öffentlichen Teilschlüssel berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
+                            "Bob hat seinen öffentlichen Teilschlüssel B = g^b berechnet. Er wird nun im entsprechenden Textfeld ausgegeben."
     IDS_DH_SESSION_KEY_CALCULATED_BY_ALICE 
-                            "Alice hat ihrerseits den gemeinsamen Schlüssel berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
+                            "Alice hat ihrerseits den gemeinsamen Schlüssel S = B^a = g^a^b berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SESSION_KEY_CALCULATED_BY_BOB 
-                            "Bob hat seinerseits den gemeinsamen Schlüssel berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
+                            "Bob hat seinerseits den gemeinsamen Schlüssel S = A^b = g^a^b berechnet. Dieser Schlüssel wird nun im Textfeld unter dem Button angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
-                            "Alice hat ihr Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+                            "Alice hat ihr Geheimnis a gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
-                            "Bob hat sein Geheimnis gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+                            "Bob hat sein Geheimnis b gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
     IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
