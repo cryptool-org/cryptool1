@@ -1,0 +1,86 @@
+A. normal operation
+1 invertable
+aestool Cryptool-de.txt 0.aes 12abcd && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt -> equal
+exit code 0
+
+1a exe format
+exe format used iff dst name ends with .exe: repeat 1 with dst 0 (without extension) and 0.enc
+repeat 1 with .aes -> .exe, start 0.exe -> decrypt with gui to 1.txt, cmp
+
+2 same test with gui
+
+3 encrypts
+less 0.aes # nothing readable
+
+4 same clear text, different cipher texts
+aestool Cryptool-de.txt 0.aes 12abcd && aestool Cryptool-de.txt 1.aes 12abcd && cmp 0.aes 1.aes -> differ
+
+5 command line with key words
+aestool -i Cryptool-de.txt -o 0.aes -k 12abcd && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+aestool -i Cryptool-de.txt -k 12abcd -o 0.aes && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+aestool -k 12abcd -i Cryptool-de.txt -o 0.aes && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+aestool -k 12abcd -o 0.aes -i Cryptool-de.txt && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+aestool -o 0.aes -i Cryptool-de.txt -k 12abcd && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+aestool -o 0.aes -k 12abcd -i Cryptool-de.txt && aestool 0.aes 1.txt 12abcd && cmp Cryptool-de.txt 1.txt 
+
+6 partial command line
+aestool Cryptool-de.txt 0.aes -> input file predefined, format aes, dest file preset
+aestool Cryptool-de.txt 0.exe -> input file predefined, format exe, dest file preset
+aestool Cryptool-de.txt -> input file predefined
+aestool -i Cryptool-de.txt 
+aestool -o 0.aes 
+aestool -k 12abc
+aestool -o 0.aes -k 12abc
+aestool -i Cryptool-de.txt -k 12abc
+aestool -i Cryptool-de.txt -o 0.aes 
+
+7 gui (L: language dependend)
+
+hide/show password -> invertible, if shown while encrypting, hidden while decrypting
+OK button disabled unless source readable and key entered
+L OK button titled "encrypt"/"decrypt" depending contents of source file
+L Static text field at top changes to  "encrypt..."/"decrypt..." depending contents of source file
+output format deactivated iff input encrypted
+L Version 1.1 encrypted file: message: use old version
+all files closed after operation performed
+memory released to os(?) after operation performed -> with and without error ok
+L online help with F1 and help button
+F1 in online help does nothing
+L about box, release 1.3.03
+L warning on self decryting files
+output format determins default extension for output file
+L ask before overwriting files
+L message box title contains name of input file
+esc closes dialog box
+initial focus: key
+L tabbin order: key, input file, browse, format, ok, exit, help, show/hide pw
+show/hide password: defaults to show
+output format defaults to exe, unless commandline dst name without .exe extension is provided
+focus after input file select via button: key if empty, ok otherwise
+
+B. boundary cases
+
+0 byte file
+key size 1 16 17 24 25 32 bytes
+key 0
+key Abc == abc0 == abc00
+
+C. error conditions
+[ERROR: no detailed error messages in english version? hopfully ok on english language version!]
+for all cli invocations: error code 1
+
+wrong decryption key
+-i c:\pagefile.sys -> output file not overwritten
+-o c:\pagefile.sys
+malloc fails on encrypt 
+malloc fails on decrypt [not tested]
+disk full on encrypt -> output file removed
+disk full on decrypt -> output file removed
+Version 1.1 encrypted file: message: use old version, cmd-line 
+key size 33 byte 0123AB67890123AB67890123AB67890123AB67890123AB67890123AB6789012345
+key size 80 byte 0123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB67890123AB6789
+corrupt aes file: modified datalen [0,negative,longer: detected; shorter: first block of deciphered text corrupt, rest is a tail of the original text]
+corrupt aes file: modified infolen [detected]
+corrupt aes file: modified infoblock [not used when all parameter are provided on command line, gui detected]
+corrupt aes file: modified iv [first iv: no change, second iv: changed bits result in changed bits in the first block]
+corrupt aes file: modified first block [1 bit chang -> first block corrupt after decryption]
