@@ -1,0 +1,10 @@
+CrypTool 1.3.03
+
+Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
+
+Sie können diese Datei z.B. über die Menüs "Ver-/Entschlüsseln \ Klassisch" mit dem Caesar-Verfahren verschlüsseln.
+
+Wenn Sie in der Windows Online-Hilfe im Index den Begriff "Startseite" eingeben, erfahren Sie, was Sie noch alles mit CrypTool machen können.
+Von der Startseite aus können Sie alle wesentlichen Funktionen per Links erreichen.
+
+Insbesondere mit den Szenarien (Tutorials) in der Online-Hilfe finden Sie einen schnellen Einstieg.
