@@ -4,11 +4,11 @@
 ;compression is deactivated for Debug builds. see MakeHelp.bat for details
 COMPRESS=12 Hall Zeck
 ERRORLOG=CrypTool.log
-LCID=0x407 0x0 0x0 ; Deutsch (Deutschland)
+LCID=0x409 0x0 0x0 ; English (US)
 REPORT=Yes
 CONTENTS=main_index
 TITLE=CrypTool-Anwendungshilfe
-CNT=cryptool-de.cnt
+CNT=cryptool-en.cnt
 COPYRIGHT=Copyright (C) 1998-2001 Deutsche Bank AG, Frankfurt
 BMROOT=..
 BMROOT=.
