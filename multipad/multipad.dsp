@@ -375,6 +375,14 @@ SOURCE=.\hlp\tutorial.rtf
 # End Group
 # Begin Source File
 
+SOURCE=.\res\3dcheck.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\95check.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\About.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -1077,6 +1085,10 @@ SOURCE=.\GenEcKurve.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\help.cur
+# End Source File
+# Begin Source File
+
 SOURCE=.\hexdialog.cpp
 # End Source File
 # Begin Source File
@@ -1218,6 +1230,10 @@ SOURCE=.\KeyFileHandling.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\magnify.cur
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\mainfram.bmp
 # End Source File
 # Begin Source File
@@ -1230,11 +1246,19 @@ SOURCE=..\AES\Mars\mars.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\minifwnd.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\MONTY.CPP
 # End Source File
 # Begin Source File
 
 SOURCE=.\MONTY.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\move4way.cur
 # End Source File
 # Begin Source File
 
@@ -1307,6 +1331,14 @@ SOURCE=.\MyEditView.cpp
 # Begin Source File
 
 SOURCE=.\MyEditView.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\nodrop.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ntcheck.bmp
 # End Source File
 # Begin Source File
 
@@ -1523,6 +1555,10 @@ SOURCE=..\LibEc\include\s_prng.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\sarrows.cur
+# End Source File
+# Begin Source File
+
 SOURCE=.\Schluessel_gen.cpp
 # End Source File
 # Begin Source File
@@ -1585,6 +1621,14 @@ SOURCE=..\AES\Serpent\SERPENT.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\splith.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\splitv.cur
+# End Source File
+# Begin Source File
+
 SOURCE=.\sq_mat.cpp
 # End Source File
 # Begin Source File
@@ -1644,6 +1688,26 @@ SOURCE=.\TextOptions.h
 # Begin Source File
 
 SOURCE=.\res\toolbar.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trck4way.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trcknesw.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trckns.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trcknwse.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trckwe.cur
 # End Source File
 # Begin Source File
 

@@ -1,12 +1,14 @@
 //Microsoft Developer Studio generated resource script.
 //
-#include "resource.h"
+#include "resrc2.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
+#include "resrc1.h"
+#include "resource.h"
 #include "afxres.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1710,7 +1712,7 @@ END
 IDD_DIALOG_GEN_RANDOMDATA DIALOGEX 0, 0, 260, 239
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallszahlen generieren "
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Ausgabe erzeugen",IDOK,16,206,127,19
     PUSHBUTTON      "Abbrechen",IDCANCEL,176,206,68,19
@@ -1720,19 +1722,18 @@ BEGIN
                     165,10
     CONTROL         "x^2 (mod N)  Generator",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,16,40,89,10
-    CONTROL         "Generator nach der Formel (x*a)+b (mod c)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,16,55,149,10
-    CONTROL         "Generator mit zyklischen Shifts",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON,16,70,112,10
-    GROUPBOX        "Parameter ",IDC_STATIC,7,99,246,65
+    CONTROL         "Lineare Kongruenz Generator (LCG)",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,16,55,129,10
+    CONTROL         "Inverse Kongruenz Generator (ICG)",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,16,70,127,10
+    GROUPBOX        "Parameter ",IDC_STATIC,7,100,246,92
     LTEXT           "Saat:",IDC_STATIC,16,120,21,9
     EDITTEXT        IDC_EDIT1,37,119,207,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    PUSHBUTTON      "Generator-spezifische Parameter wählen",IDC_BUTTON1,37,
-                    138,155,18
-    GROUPBOX        "Zufallsdaten Erzeugen ",IDC_STATIC,7,172,246,60
-    LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,16,188,92,8
-    EDITTEXT        IDC_EDIT2,111,187,40,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    PUSHBUTTON      "Generator-spezifische Parameter wählen",IDC_BUTTON1,16,
+                    165,155,18
+    LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,16,144,92,8
+    EDITTEXT        IDC_EDIT2,110,143,40,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
 END
 
@@ -1749,602 +1750,61 @@ END
 IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 186, 95
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Zufallsgenerator"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,67,74,50,14
     EDITTEXT        IDC_EDIT1,90,51,48,14,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     LTEXT           "Modul N = ",IDC_STATIC,53,53,36,8
-    CTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Parameter natürlich den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
+    CTEXT           "Ein x^2 (mod N) Zufallsgenerator benötigt als Eingabeparameter den Modul N. Weitere Informationen erhalten Sie mit der Hilfe-Taste F1.",
                     IDC_STATIC,7,12,172,28
 END
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New"
+FONT 8, "MS Shell Dlg"
 BEGIN
-    IDD_DIALOG_KEY_INPUT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 175
-        VERTGUIDE, 23
-        VERTGUIDE, 37
-        VERTGUIDE, 87
-        VERTGUIDE, 102
-        VERTGUIDE, 161
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 91
-        HORZGUIDE, 37
-    END
-
-    IDD_DIALOG_PLOT_PARAM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 152
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 123
-    END
-
-    IDD_DIALOG_SCHLUESSEL_HILL_EINGABE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 214
-        VERTGUIDE, 21
-        VERTGUIDE, 46
-        VERTGUIDE, 71
-        VERTGUIDE, 96
-        VERTGUIDE, 121
-        VERTGUIDE, 161
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 243
-        HORZGUIDE, 59
-        HORZGUIDE, 84
-        HORZGUIDE, 109
-        HORZGUIDE, 134
-        HORZGUIDE, 159
-        HORZGUIDE, 190
-        HORZGUIDE, 215
-    END
-
-    IDD_DIALOG_ANALYSE_OPT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 251
-        VERTGUIDE, 30
-        VERTGUIDE, 75
-        VERTGUIDE, 95
-        VERTGUIDE, 138
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 176
-        HORZGUIDE, 42
-        HORZGUIDE, 72
-        HORZGUIDE, 97
-        HORZGUIDE, 122
-        HORZGUIDE, 147
-        HORZGUIDE, 172
-    END
-
-    IDD_DIALOG_TEXTEINGABE_HILL_ANGRIFF, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 294
-        VERTGUIDE, 294
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 207
-        HORZGUIDE, 187
-    END
-
-    IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 143
-        VERTGUIDE, 18
-        VERTGUIDE, 43
-        VERTGUIDE, 68
-        VERTGUIDE, 93
-        VERTGUIDE, 118
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 200
-        HORZGUIDE, 41
-        HORZGUIDE, 66
-        HORZGUIDE, 91
-        HORZGUIDE, 116
-        HORZGUIDE, 141
-    END
-
-    IDD_DIALOG_KEY_CREAT_ASYM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 390
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 327
-    END
-
-    IDD_DIALOG_RSAENC, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 383
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 263
-    END
-
-    IDD_DIALOG_KEY_INPUT_MONO, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        VERTGUIDE, 20
-        VERTGUIDE, 100
-        VERTGUIDE, 120
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 106
-    END
-
-    IDD_DIALOG_ANALYSE_OPT_MONO, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 164
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 187
-    END
-
-    IDD_DIALOG_CERT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 375
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 200
-        HORZGUIDE, 186
-        HORZGUIDE, 200
-    END
-
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        VERTGUIDE, 70
-        VERTGUIDE, 131
-    END
-
-    IDD_DIALOG_FORTSCHRITT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 91
-    END
-
-    IDD_DIALOG_TEXTOPTIONEN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 265
-        VERTGUIDE, 26
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 219
-        HORZGUIDE, 32
-        HORZGUIDE, 47
-        HORZGUIDE, 84
-        HORZGUIDE, 99
-        HORZGUIDE, 114
-        HORZGUIDE, 129
-    END
-
-    IDD_DIALOG_SCHLUESSELLAENGE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 88
-    END
-
-    IDD_DIALOG_SCHLUESSELLAENGE_BIN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 88
-    END
-
-    IDD_DIALOG_KEY_VIGENERE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 75
-    END
-
-    IDD_DIALOG_ERSETZEN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 340
-        VERTGUIDE, 25
-        VERTGUIDE, 40
-        VERTGUIDE, 70
-        VERTGUIDE, 85
-        VERTGUIDE, 115
-        VERTGUIDE, 130
-        VERTGUIDE, 160
-        VERTGUIDE, 175
-        VERTGUIDE, 205
-        VERTGUIDE, 220
-        VERTGUIDE, 250
-        VERTGUIDE, 265
-        VERTGUIDE, 295
-        VERTGUIDE, 310
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 278
-        HORZGUIDE, 19
-        HORZGUIDE, 39
-        HORZGUIDE, 59
-        HORZGUIDE, 79
-        HORZGUIDE, 120
-        HORZGUIDE, 273
-    END
-
-    IDD_DIALOG_KEY_CREATED_EC, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 390
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 304
-    END
-
-    IDD_DIALOG_KEY_AVAILAB_ASYM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 382
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 294
-    END
-
-    IDD_DIALOG_PINCODE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 185
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 149
-    END
-
-    IDD_DIALOG_EC_PUB_PARAM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 385
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 274
-    END
-
-    IDD_DIALOG_EC_PRIV_PARAM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 385
-        TOPMARGIN, 8
-        BOTTOMMARGIN, 314
-    END
-
-    IDD_DIALOG_KEY_CAESAR, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-    END
-
-    IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF_GROSS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 266
-        VERTGUIDE, 18
-        VERTGUIDE, 43
-        VERTGUIDE, 68
-        VERTGUIDE, 93
-        VERTGUIDE, 118
-        VERTGUIDE, 143
-        VERTGUIDE, 168
-        VERTGUIDE, 193
-        VERTGUIDE, 218
-        VERTGUIDE, 243
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 328
-        HORZGUIDE, 41
-        HORZGUIDE, 66
-        HORZGUIDE, 91
-        HORZGUIDE, 116
-        HORZGUIDE, 141
-        HORZGUIDE, 166
-        HORZGUIDE, 191
-        HORZGUIDE, 216
-        HORZGUIDE, 241
-        HORZGUIDE, 266
-    END
-
-    IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG
-    BEGIN
-        LEFTMARGIN, 20
-        RIGHTMARGIN, 356
-        VERTGUIDE, 21
-        VERTGUIDE, 46
-        VERTGUIDE, 71
-        VERTGUIDE, 96
-        VERTGUIDE, 121
-        VERTGUIDE, 146
-        VERTGUIDE, 171
-        VERTGUIDE, 196
-        VERTGUIDE, 221
-        VERTGUIDE, 246
-        VERTGUIDE, 303
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 347
-        HORZGUIDE, 59
-        HORZGUIDE, 84
-        HORZGUIDE, 109
-        HORZGUIDE, 134
-        HORZGUIDE, 159
-        HORZGUIDE, 184
-        HORZGUIDE, 209
-        HORZGUIDE, 234
-        HORZGUIDE, 259
-        HORZGUIDE, 284
-        HORZGUIDE, 310
-        HORZGUIDE, 335
-    END
-
-    IDD_DIALOG_SCHLUESSEL_AUSGABE_LINEAR, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 72
-    END
-
-    IDD_DIALOG_SIGN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 380
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 336
-        HORZGUIDE, 230
-    END
-
-    IDD_DIALOG_SIGN_VERIF, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 380
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 334
-    END
-
-    IDD_DIALOG_RSADEC, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 375
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 259
-    END
-
-    IDD_DIALOG_SHOW_SIGN_STEPS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 385
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 309
-    END
-
-    IDD_DIALOG_EXTRACT_SIGNATURE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 380
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 314
-    END
-
-    IDD_DIALOG_SHOW_VERIF_STEPS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 385
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 323
-    END
-
-    IDD_DIALOG_PLAYFAIR, DIALOG
-    BEGIN
-        LEFTMARGIN, 3
-        RIGHTMARGIN, 287
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 337
-    END
-
-    IDD_DIALOG_KEY_FAIRPLAY, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 233
-        VERTGUIDE, 16
-        VERTGUIDE, 25
-        VERTGUIDE, 50
-        VERTGUIDE, 70
-        VERTGUIDE, 90
-        VERTGUIDE, 110
-        VERTGUIDE, 130
-        VERTGUIDE, 150
-        VERTGUIDE, 161
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 267
-        HORZGUIDE, 120
-        HORZGUIDE, 135
-        HORZGUIDE, 150
-        HORZGUIDE, 165
-        HORZGUIDE, 180
-        HORZGUIDE, 195
-    END
-
-    IDD_DIALOG1, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 225
-        VERTGUIDE, 24
-        VERTGUIDE, 208
-        VERTGUIDE, 209
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 91
-    END
-
-    IDD_DIALOG_RSA_PUB_PARAM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 310
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 149
-    END
-
-    IDD_DIALOG_KEY_HOMOPHON, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 220
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 94
-    END
-
-    IDD_DIALOG_PRIMES_GENERATOR, DIALOG
-    BEGIN
-        LEFTMARGIN, 11
-        VERTGUIDE, 153
-        VERTGUIDE, 172
-        TOPMARGIN, 9
-        BOTTOMMARGIN, 296
-        HORZGUIDE, 76
-        HORZGUIDE, 115
-    END
-
-    IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 321
-        VERTGUIDE, 15
-        VERTGUIDE, 92
-        VERTGUIDE, 115
-        VERTGUIDE, 220
-        VERTGUIDE, 226
-        VERTGUIDE, 286
-        VERTGUIDE, 312
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 370
-        HORZGUIDE, 74
-    END
-
-    IDD_DIALOG_HOMOPHONE, DIALOG
-    BEGIN
-        VERTGUIDE, 14
-        VERTGUIDE, 54
-        VERTGUIDE, 92
-        VERTGUIDE, 382
-        HORZGUIDE, 46
-        HORZGUIDE, 292
-        HORZGUIDE, 306
-        HORZGUIDE, 350
-    END
-
-    IDD_DIALOG_GEN_EC_KURVE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 420
-        VERTGUIDE, 14
-        VERTGUIDE, 43
-        VERTGUIDE, 404
-        VERTGUIDE, 411
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 390
-    END
-
-    IDD_DIALOG_Faktorisieren, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 361
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 387
-    END
-
-    IDD_DIALOG_Schluessel_gen, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 303
-        VERTGUIDE, 33
-        VERTGUIDE, 41
-        VERTGUIDE, 87
-        VERTGUIDE, 163
-        VERTGUIDE, 272
-        VERTGUIDE, 278
-        VERTGUIDE, 304
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 287
-        HORZGUIDE, 61
-        HORZGUIDE, 77
-        HORZGUIDE, 96
-        HORZGUIDE, 113
-        HORZGUIDE, 130
-        HORZGUIDE, 142
-    END
-
-    IDD_DIALOG_RSA_KLEIN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 421
-        VERTGUIDE, 17
-        VERTGUIDE, 212
-        VERTGUIDE, 232
-        VERTGUIDE, 412
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 328
-        HORZGUIDE, 323
-    END
-
-    IDD_DIALOG_ANALYSE_NGRAM, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 310
-        VERTGUIDE, 20
-        VERTGUIDE, 73
-        VERTGUIDE, 115
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 231
-    END
-
-    IDD_DIALOG_GEN_RANDOMDATA, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 253
-        VERTGUIDE, 16
-        VERTGUIDE, 37
-        VERTGUIDE, 244
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 232
-        HORZGUIDE, 35
-        HORZGUIDE, 50
-        HORZGUIDE, 65
-        HORZGUIDE, 80
-        HORZGUIDE, 131
-        HORZGUIDE, 156
-        HORZGUIDE, 191
-        HORZGUIDE, 225
-    END
-
-    IDD_RANDOM_PARAMETER_SECUDE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 79
-    END
-
-    IDD_RANDOM_PARAMETER_X2_MOD_N, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 88
-    END
+    LTEXT           "&New ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,23,40,14
+    PUSHBUTTON      "&Help",ID_HELP,137,43,40,14
 END
-#endif    // APSTUDIO_INVOKED
+
+AFX_IDD_PRINTDLG DIALOG DISCARDABLE  6, 18, 133, 95
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION
+FONT 8, "MS Shell Dlg"
+BEGIN
+    CTEXT           "Printing",IDC_STATIC,0,9,133,8
+    CTEXT           "",AFX_IDC_PRINT_DOCNAME,0,19,133,8
+    CTEXT           "on the",IDC_STATIC,0,29,133,8
+    CTEXT           "",AFX_IDC_PRINT_PRINTERNAME,0,39,133,8
+    CTEXT           "",AFX_IDC_PRINT_PORTNAME,0,49,133,8
+    CTEXT           "",AFX_IDC_PRINT_PAGENUM,0,59,133,8
+    PUSHBUTTON      "Cancel",IDCANCEL,46,74,40,14
+END
+
+AFX_IDD_PREVIEW_TOOLBAR DIALOG PRELOAD DISCARDABLE  0, 0, 330, 16
+STYLE DS_3DLOOK | WS_CHILD
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "&Print...",AFX_ID_PREVIEW_PRINT,2,2,44,12
+    PUSHBUTTON      "&Next Page",AFX_ID_PREVIEW_NEXT,48,2,44,12
+    PUSHBUTTON      "Pre&v Page",AFX_ID_PREVIEW_PREV,94,2,44,12
+    PUSHBUTTON      "",AFX_ID_PREVIEW_NUMPAGE,140,2,44,12
+    PUSHBUTTON      "Zoom &In",AFX_ID_PREVIEW_ZOOMIN,186,2,44,12
+    PUSHBUTTON      "Zoom &Out",AFX_ID_PREVIEW_ZOOMOUT,232,2,44,12
+    PUSHBUTTON      "&Close",AFX_ID_PREVIEW_CLOSE,278,2,44,12
+END
+
+IDD_RANDOM_PARAMETER_ABC DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "(x*a)+b (mod c) Generator"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+END
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2379,6 +1839,27 @@ BEGIN
     BEGIN
         MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
         MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
+    END
+    POPUP "&Einzelverfahren"
+    BEGIN
+        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
+        POPUP "&Tutorial für kleine Zahlen"
+        BEGIN
+            MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+
+            MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+
+            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+
+            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
+
+        END
+        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
     POPUP "&Optionen"
     BEGIN
@@ -2463,7 +1944,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tAlt+R",         ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
         END
@@ -2492,16 +1973,26 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
         END
+        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
         POPUP "&Komprimieren"
         BEGIN
-            MENUITEM "&Zip",                        ID_ZIP
-            MENUITEM "&UnZip",                      ID_UNZIP
+            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         POPUP "&Tutorial für kleine Zahlen"
         BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+
+            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+
+            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
@@ -2644,7 +2135,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tAlt+R",         ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
         END
@@ -2673,16 +2164,26 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
         END
+        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
         POPUP "&Komprimieren"
         BEGIN
-            MENUITEM "&Zip",                        ID_ZIP
-            MENUITEM "&UnZip",                      ID_UNZIP
+            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         POPUP "&Tutorial für kleine Zahlen"
         BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+
+            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+
+            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
@@ -2791,6 +2292,27 @@ BEGIN
         MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
         MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
+    POPUP "&Einzelverfahren"
+    BEGIN
+        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
+        POPUP "&Tutorial für kleine Zahlen"
+        BEGIN
+            MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+
+            MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+
+            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
+
+            MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
+
+            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
+
+        END
+        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
+    END
     POPUP "&Optionen"
     BEGIN
         MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
@@ -2872,7 +2394,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...",                ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
         END
@@ -2901,12 +2423,12 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD160",                  ID_CRYPT_HASH_RIPEMD160
         END
-        MENUITEM "Schluessel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+        MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&Komprimieren"
         BEGIN
-            MENUITEM "&Zip",                        ID_ZIP
-            MENUITEM "&UnZip",                      ID_UNZIP
+            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         POPUP "&Tutorial für kleine Zahlen"
         BEGIN
@@ -2920,7 +2442,7 @@ BEGIN
 
             MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
 
-            MENUITEM "ECDLP",                       ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
+            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
@@ -3094,6 +2616,10 @@ END
 //
 
 IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
+26567                   BITMAP  MOVEABLE PURE   "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP  DISCARDABLE     "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP  DISCARDABLE     "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP  DISCARDABLE     "res\\95check.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3168,13 +2694,119 @@ IDR_ASCTYPE             ICON    DISCARDABLE     "res\\ico00001.ico"
 IDR_HEXTYPE             ICON    DISCARDABLE     "res\\idr_hext.ico"
 IDR_TEXTTYPE            ICON    DISCARDABLE     "res\\ico00002.ico"
 
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resrc2.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""resrc1.h""\r\n"
+    "#include ""resource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+AFX_IDC_CONTEXTHELP     CURSOR  DISCARDABLE     "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR  DISCARDABLE     "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR  DISCARDABLE     "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR  DISCARDABLE     "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR  DISCARDABLE     "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR  DISCARDABLE     "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR  DISCARDABLE     "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR  DISCARDABLE     "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR  DISCARDABLE     "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR  DISCARDABLE     "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR  DISCARDABLE     "res\\move4way.cur"
+AFX_IDC_MAGNIFY         CURSOR  DISCARDABLE     "res\\magnify.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_EDIT_REPEAT,         VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG_GEN_RANDOMDATA, DIALOG
+    BEGIN
+        VERTGUIDE, 16
+        HORZGUIDE, 155
+        HORZGUIDE, 225
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
 
-STRINGTABLE DISCARDABLE   
+STRINGTABLE DISCARDABLE 
 BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
@@ -3195,31 +2827,63 @@ BEGIN
     ID_FILE_PRINT           "Druckt das aktive Dokument\nDrucken"
 END
 
-//==== Playfair & Vitany
 STRINGTABLE DISCARDABLE 
 BEGIN
-    AFX_IDS_DESKACCESSORY   	"Öffnet das gewählte Objekt"
-//+     IDS_STRING61403         
-    IDS_PLAYFAIR	    	"Playfair"			
-//+    IDS_STRING61404         
-    IDS_REL_MATCH	    	"relative Übereinstimmung [%]"
-//+    IDS_STRING61405         
-    IDS_STRING_DIAGRAM_VITANY	"Vitany Diagramm von <%s>"
-//+    IDS_STRING61406         
-    IDS_STRING_ANALYZE_VITANY	"Vitany Analyse"
-//+    IDS_STRING61407         
-    IDS_STRING_END_ANALYZE_VITANY	"Vitany Analyse %d%% beendet"
+    AFX_IDS_DESKACCESSORY   "Öffnet das gewählte Objekt"
 END
 
-//===  HILL
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING41405         
-    IDS_HILL_BAD_KEY_INV	"Dieser Schlüssel ist nicht verwendbar !\r\n(Die Matrix ist nicht invertierbar.)"
-//+    IDS_STRING41406         
-    IDS_HILL_BAD_KEY		"Schlüssel nicht verwendbar"
-//+    IDS_STRING41407         
-    IDS_HILL_BAD_KEY_NONVALID_CHAR "Alle Felder des Schlüssels müssen ein erlaubtes Zeichen enthalten."
+    IDS_PLAYFAIR            "Playfair"
+    IDS_REL_MATCH           "relative Übereinstimmung [%]"
+    IDS_STRING_DIAGRAM_VITANY "Vitany Diagramm von <%s>"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_ANALYZE_VITANY "Vitany Analyse"
+    IDS_STRING_END_ANALYZE_VITANY "Vitany Analyse %d%% beendet"
+    IDS_STRING_REQUEST_FOR_PIN 
+                            "Um die öffentlichen und geheimen Parameter von '%s' einzusehen geben Sie bitte den entsprechenden PIN-Code ein."
+    IDS_STRING_SHOW_ALL_PARAM "Alle Parameter anzeigen"
+    IDS_STRING_REMOVE_ITEM  "Eintrag löschen"
+    IDS_STRING_KEY_OWNER    "Schlüsselbesitzer:"
+    IDS_STRING_KEY_TYPE     "Schlüsseltyp:"
+    IDS_STRING_BEFORE       "Vorher"
+    IDS_STRING_AFTER        "Nachher"
+    IDS_STRING_AVERAGE_VARIATION "Durchschnitt: %lf Variation: %lf"
+    IDS_STRING_VARIANCE     "Abweichung"
+    IDS_STRING_VERTICES     "Eckpunkte"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_HILL_BAD_KEY_INV    "Dieser Schlüssel ist nicht verwendbar !\r\n(Die Matrix ist nicht invertierbar.)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_HILL_BAD_KEY        "Schlüssel nicht verwendbar"
+    IDS_HILL_BAD_KEY_NONVALID_CHAR 
+                            "Alle Felder des Schlüssels müssen ein erlaubtes Zeichen enthalten."
+    IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED "Eingabe unvollständig"
+    IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Bitte wählen Sie eine PSE."
+    IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Bitte geben Sie den PIN-Code ein."
+    IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
+                            "Fehler beim Öffnen der CA-PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
+                            "Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
+                            "Bitte wählen Sie den Signaturersteller."
+    IDS_STRING_ASYMKEY_MSG_DONOTCHANGE 
+                            "Die Daten in diesem Feld bitte nicht ändern !"
+    IDS_STRING_ASYMKEY_MSG_YOURINPUT "Ihre Eingabe: "
+    IDS_STRING_ASYMKEY_MSG_ENTER_SURNAME 
+                            "Bitte geben Sie einen Nachnamen ein."
+    IDS_STRING_ASYMKEY_MSG_ENTER_PRENAME "Bitte geben Sie einen Vornamen ein."
+    IDS_STRING_ASYMKEY_MSG_ENTER_PIN2 "Bitte geben Sie einen PIN-Code ein."
+    IDS_STRING_ASYMKEY_MSG_ENTER_PINVERIFICATION 
+                            "Bitte geben Sie auch eine PIN-Verifikation ein."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -3310,11 +2974,16 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_CAESAR_ASC           "Caesar Verschlüsselung"
     ID_VIGENERE_ASC         "Vigenère Verschlüsselung"
+    ID_HILL                 "Hill Verschlüsselung"
     ID_ADD_BIN              "Byteweise Addition"
     ID_XOR_BIN              "Byteweise XOR-Operation"
     ID_ENTROPY              "Entropie des Dokumentes berechnen"
     ID_HISTOGRAM            "Häufigkeit der Zeichen im Dokument berechnen"
     ID_AUTO                 "Autokorrelation der Zeichen im Dokument berechnen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     ID_CRYPT_IDEA           "Ver-/Entschlüsseln mit IDEA"
     ID_ANALYSE_AES_MARS     "Automatische Analyse einer Mars Verschlüsselung"
     ID_CRYPT_AES_MARS       "Ver-/Entschlüsseln mit Mars"
@@ -3323,42 +2992,6 @@ BEGIN
     ID_CRYPT_AES_RIJNDAEL   "Ver-/Entschlüsseln mit Rijndael"
     ID_CRYPT_DES_DESECB     "Ver-/Entschlüsseln mit DES (ECB Modus)"
     ID_CRYPT_AES_SERPENT    "Ver-/Entschlüsseln mit Serpent"
-END
-
-// === 
-STRINGTABLE DISCARDABLE 
-BEGIN
-//+    IDS_STRING32864         
-	IDS_STRING_EC_ERROR_LOADING_KEYFILE 	"Fehler! Die Datei %s kann nicht geöffnet werden oder ist nicht vorhanden.\nOhne diese Datei können keine Schlüsselpaare für Elliptische Kurven angezeigt werden."
-//+     IDS_STRING32865         
-	IDS_STRING_TEXTOPTIONS_INFO		"Einstellungen zur Textanalyse/Textformatierung (Sonder-/Leerzeichen beachten oder ignorieren)"
-//+     IDS_STRING32867         
-	IDS_STRING_KEYLIST_ASYM_INFO		"Anzeigen oder löschen von asymmetrischen Schlüsseln; Anzeigen von Zertifikaten"
-//+     IDS_STRING32868         
-	IDS_STRING_KEYLIST_ASYM_SELECT		"Wählen Sie einen Schlüsselbezeichner aus der Liste."
-//+     IDS_STRING32869         
-	IDS_STRING_KEYLIST_ASYM_EMPTY		"Zur Zeit stehen keine asymmetrischen Schlüssel des gewünschten Typs zur Verfügung.\nWählen Sie einen anderen Schlüsseltyp oder erzeugen Sie neue Schlüssel."
-//+     IDS_STRING32870         
-	IDS_STRING_FLOATING_FREQ		"Gleitende Häufigkeit"
-//+     IDS_STRING32871         
-	IDS_STRING_FLOATING_FREQ_FINISHED	"Gleitende Häufigkeit erledigt: %d%%"
-    	ID_FLOATING             		"Gleitende Häufigkeit des Dokumentes berechnen"
-    	ID_SHOW_KEY             		"Zeigt den Schlüssel an\nSchlüssel anzeigen"
-    	ID_GOTO_VATER           		"Wechselt zum übergeordneten Fenster\nÜbergeordnetes Fenster"
-//+     IDS_STRING32875         
-	IDS_STRING_ASSURE_DEL_ASYM_KEY		"Sind Sie sicher das die zu dem Schlüsselbezeichner\n'%1'\ngehörenden Schlüsseldateien GELÖSCHT werden sollen?\n\nDrücken Sie OK um den Vorgang fortzusetzen."
-//+     IDS_STRING32876         
-	IDS_STRING_PRIVKEY_WRONG_PIN		"Falscher PIN-Code eingegeben."
-//+     IDS_STRING32877         
-	IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE	"Fehler.\nEine zu erzeugende Datei für die öffentlichen Parameter konnte nicht im Verzeichnis '%s' angelegt werden."
-//+     IDS_STRING32878         
-	IDS_STRING_HEADING_SIGNATURELENGTH	"                Signaturlänge:  "
-//+     IDS_STRING32879         
-	IDS_STRING_NAME				"Name"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     ID_CRYPT_AES_TWOFISH    "Ver-/Entschlüsseln mit Twofish"
     ID_CRYPT_HASH_MD5       "Hashalgorithmus MD5 anwenden"
     ID_ANALYSE_IDEA         "Automatische Analyse einer IDEA Verschlüsselung"
@@ -3367,6 +3000,52 @@ BEGIN
     ID_CRYPT_HASH_MD4       "Hashalgorithmus MD4 anwenden"
     ID_CRYPT_HASH_SHA       "Hashalgorithmus SHA anwenden"
     ID_CRYPT_HASH_SHA1      "Hashalgorithmus SHA-1 anwenden"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_CRYPT_VERIFY         "Signatur des aktiven Dokuments überprüfen"
+    ID_CRYPT_EXTRACT        "Extrahieren der eigentlichen Signatur aus der durch ""Dokument signieren"" erzeugten Ausgabe"
+    ID_ANALYZE_SUBST        "Automatische Analyse einer Verschlüsselung durch Substitution"
+    IDS_STRING_SECRETKEY_IS_NUMBER 
+                            "Der geheime Schlüssel besteht aus der folgenden Zahl:"
+    IDS_STRING_EC_ERROR_LOADING_KEYFILE 
+                            "Fehler! Die Datei %s kann nicht geöffnet werden oder ist nicht vorhanden.\nOhne diese Datei können keine Schlüsselpaare für Elliptische Kurven angezeigt werden."
+    IDS_STRING_TEXTOPTIONS_INFO 
+                            "Einstellungen zur Textanalyse/Textformatierung (Sonder-/Leerzeichen beachten oder ignorieren)"
+    IDS_STRING_KEYLIST_ASYM_INFO 
+                            "Anzeigen oder löschen von asymmetrischen Schlüsseln; Anzeigen von Zertifikaten"
+    IDS_STRING_KEYLIST_ASYM_SELECT 
+                            "Wählen Sie einen Schlüsselbezeichner aus der Liste."
+    IDS_STRING_KEYLIST_ASYM_EMPTY 
+                            "Zur Zeit stehen keine asymmetrischen Schlüssel des gewünschten Typs zur Verfügung.\nWählen Sie einen anderen Schlüsseltyp oder erzeugen Sie neue Schlüssel."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_FLOATING_FREQ "Gleitende Häufigkeit"
+    IDS_STRING_FLOATING_FREQ_FINISHED "Gleitende Häufigkeit erledigt: %d%%"
+    ID_FLOATING             "Gleitende Häufigkeit des Dokumentes berechnen"
+    ID_SHOW_KEY             "Zeigt den Schlüssel an\nSchlüssel anzeigen"
+    ID_GOTO_VATER           "Wechselt zum übergeordneten Fenster\nÜbergeordnetes Fenster"
+    IDS_STRING_ASSURE_DEL_ASYM_KEY 
+                            "Sind Sie sicher das die zu dem Schlüsselbezeichner\n'%1'\ngehörenden Schlüsseldateien GELÖSCHT werden sollen?\n\nDrücken Sie OK um den Vorgang fortzusetzen."
+    IDS_STRING_PRIVKEY_WRONG_PIN "Falscher PIN-Code eingegeben."
+    IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE 
+                            "Fehler.\nEine zu erzeugende Datei für die öffentlichen Parameter konnte nicht im Verzeichnis '%s' angelegt werden."
+    IDS_STRING_HEADING_SIGNATURELENGTH "                Signaturlänge:  "
+    IDS_STRING_NAME         "Name"
+    IDS_STRING_PRENAME      "Vorname"
+    IDS_STRING_KEYTYPE      "Schlüsseltyp"
+    IDS_STRING_KEY_IDENTIFIER "Schlüsselkennung"
+    IDS_STRING_CREATION_DATW "Erstellt am"
+    IDS_STRING_KEY_ID       "Interne ID-Nr."
+    IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND 
+                            "Es gibt keinen Schlüsselbezeichner der dem angeforderten Format\n'%s'\nentspricht !"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     ID_CRYPT_HASH_RIPEMD160 "Hashalgorithmus RIPEMD-160 anwenden"
     ID_ANALYSE_RC4          "Automatische Analyse einer RC4 Verschlüsselung"
     ID_ANALYSE_DESECB       "Automatische Analyse einer DES-ECB Verschlüsselung"
@@ -3375,777 +3054,699 @@ BEGIN
     ID_ANALYSE_TRIPLEDESCBC "Automatische Analyse einer Triple-DES-CBC Verschlüsselung"
     ID_ANALYSE_AES_RC6      "Automatische Analyse einer RC6 Verschlüsselung"
     ID_ANALYSE_AES_RIJNDAEL "Automatische Analyse einer Rijndael Verschlüsselung"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     ID_ANALYSE_AES_SERPENT  "Automatische Analyse einer Serpent Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Analyse einer Twofish Verschlüsselung"
     ID_VERNAM_BIN           "Vernam Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
+    ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
+    ID_CRYPT_3DES_CBC       "Ver-/Entschlüsseln mit Triple-DES (CBC Modus)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
-    ID_CRYPT_3DES_CBC       "Ver-/Entschlüsseln mit Triple-DES (CBC Modus)"
     ID_CRYPT_DES_DESCBC     "Ver-/Entschlüsseln mit DES (CBC Modus)"
     ID_CAESAR_AUTO          "Automatische Analyse einer Caesar Verschlüsselung"
     ID_VIGENERE_AUTO        "Automatische Analyse einer Vigenère Verschlüsselung"
     ID_XOR_AUTO             "Automatische Analyse einer  XOR Verschlüsselung"
     ID_ADD_AUTO             "Automatische Analyse einer Verschlüsselung durch Byteweise Addition"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     ID_OPTIONS_PLOT         "Einstellungen der grafischen Ausgabe ändern"
     ID_OPTIONS_ANALYSIS     "Einstellungen für automatische Analyse ändern"
-    ID_HILL                 "Hill Verschlüsselung"
     ID_ZIP                  "Komprimieren der Datei mit  ZIP-Verfahren"
     ID_UNZIP                "Entkomprimieren einer mit dem  ZIP-Verfahren komprimierten Datei"
     ID_WINDOW_CLOSE_ALL     "Schließt alle Fenster"
     ID_HILL_AUTO            "Klartext-Angriff auf eine Hill Verschlüsselung"
     ID_CRYPT_KeyGen         "Erzeugen eines Schlüsselpaares für verschiedene asymmetrische Verfahren"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     ID_CRYPT_RsaEnc         "Verschlüsselt Datei mit RSA-Algorithmus"
     ID_CRYPT_RsaDec         "Entschlüsselt eine mit dem RSA-Algorithmus verschlüsselte  Datei"
     ID_CryptMono            "Verschlüsseln durch Substitution"
     ID_CRYPT_SIGN           "Aktives Dokument signieren"
-    ID_CRYPT_VERIFY         "Signatur des aktiven Dokuments überprüfen"
-    ID_CRYPT_EXTRACT        "Extrahieren der eigentlichen Signatur aus der durch ""Dokument signieren"" erzeugten Ausgabe"
-    ID_ANALYZE_SUBST        "Automatische Analyse einer Verschlüsselung durch Substitution"
-//+     IDS_STRING32861         
-	IDS_STRING_SECRETKEY_IS_NUMBER				"Der geheime Schlüssel besteht aus der folgenden Zahl:"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41408         
-	IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED		"Eingabe unvollständig"
-//+     IDS_STRING41409         
-	IDS_STRING_ASYMKEY_MSG_SELECT_PSE			"Bitte wählen Sie eine PSE."
-//+     IDS_STRING41410         
-	IDS_STRING_ASYMKEY_MSG_ENTER_PIN			"Bitte geben Sie den PIN-Code ein."
-//+     IDS_STRING41411         
-	IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE			"Fehler beim Öffnen der CA-PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41412         
-	IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE		"Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41413         
-	IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR	"Bitte wählen Sie den Signaturersteller."
-//+     IDS_STRING41414         
-	IDS_STRING_ASYMKEY_MSG_DONOTCHANGE			"Die Daten in diesem Feld bitte nicht ändern !"
-//+     IDS_STRING41415         
-	IDS_STRING_ASYMKEY_MSG_YOURINPUT			"Ihre Eingabe: "
-//+     IDS_STRING41416         
-	IDS_STRING_ASYMKEY_MSG_ENTER_SURNAME			"Bitte geben Sie einen Nachnamen ein."
-//+     IDS_STRING41417         
-	IDS_STRING_ASYMKEY_MSG_ENTER_PRENAME			"Bitte geben Sie einen Vornamen ein."
-//+     IDS_STRING41418         
-	IDS_STRING_ASYMKEY_MSG_ENTER_PIN2			"Bitte geben Sie einen PIN-Code ein."
-//+     IDS_STRING41419         
-	IDS_STRING_ASYMKEY_MSG_ENTER_PINVERIFICATION		"Bitte geben Sie auch eine PIN-Verifikation ein."
-//+     IDS_STRING41420         
-	IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH	"PIN und PIN-Verifikation stimmen nicht überein.\nBitte nochmal eingeben."
-//+     IDS_STRING41421         
-	IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH		"Für die Bitlänge L des RSA-Moduls muß gelten:\n\n\t%d < L < %d.\n\nBitte nochmal eingeben."
-//+     IDS_STRING41422         
-	IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT			"Eingabe nicht korrekt"
-//+     IDS_STRING41423         
-	IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT		"\nkollidiert mit der Eingabe: "
+    IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH 
+                            "PIN und PIN-Verifikation stimmen nicht überein.\nBitte nochmal eingeben."
+    IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH 
+                            "Für die Bitlänge L des RSA-Moduls muß gelten:\n\n\t%d < L < %d.\n\nBitte nochmal eingeben."
+    IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT "Eingabe nicht korrekt"
+    IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT 
+                            "\nkollidiert mit der Eingabe: "
+    IDS_STRING_HISTOGRAM_XLABEL "xlabel"
+    IDS_STRING_HISTOGRAM_YLABEL "ylabel"
+    IDS_STRING_HISTOGRAM_HEADING "Überschrift"
+    IDS_STRING_ASYMKEY_MSG_SELECT_PSE2 
+                            "Bitte wählen Sie die PSE, in der\nIhr geheimer Schlüssel liegt."
+    IDS_STRING_ASYMKEY_MSG_SELECT_RECIEVER "Bitte wählen Sie einen Empfänger."
+    IDS_STRING_ASYMKEY_ERR_GET_PSE 
+                            "Fehler beim Holen der Zertifikatsliste.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_CREATE_PSE 
+                            "Fehler beim Anlegen der neuen PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_MSG_UNDER_DEVELOPMENT 
+                            "An der gewählten Funktion wird gearbeitet.\nSie steht daher zur Zeit nicht zur Verfügung."
+    IDS_STRING_ASYMKEY_ERR_OPEN_PSE 
+                            "Fehler beim Öffnen der PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1 
+                            "Fehler bei der Zertifikatserstellung(1).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2 
+                            "Fehler bei der Zertifikatserstellung(2).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_ADD_CERT 
+                            "Fehler beim Einfügen des Zertifikates in die CA-Datenbank.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41424        
-	IDS_STRING_HISTOGRAM_XLABEL 		"xlabel"
-//+     IDS_STRING41425        
-	IDS_STRING_HISTOGRAM_YLABEL	 	"ylabel"
-//+     IDS_STRING41426         
-	IDS_STRING_HISTOGRAM_HEADING		"Überschrift"
-//+     IDS_STRING41427        
-	IDS_STRING_ASYMKEY_MSG_SELECT_PSE2	"Bitte wählen Sie die PSE, in der\nIhr geheimer Schlüssel liegt."
-//+     IDS_STRING41428       
-	IDS_STRING_ASYMKEY_MSG_SELECT_RECIEVER  "Bitte wählen Sie einen Empfänger."
-//+     IDS_STRING41429   
-	IDS_STRING_ASYMKEY_ERR_GET_PSE      	"Fehler beim Holen der Zertifikatsliste.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41430         
-	IDS_STRING_ASYMKEY_ERR_CREATE_PSE	"Fehler beim Anlegen der neuen PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41431      
-	IDS_STRING_MSG_UNDER_DEVELOPMENT   	"An der gewählten Funktion wird gearbeitet.\nSie steht daher zur Zeit nicht zur Verfügung."
-//+     IDS_STRING41432        
-	IDS_STRING_ASYMKEY_ERR_OPEN_PSE 	"Fehler beim Öffnen der PSE.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41433        
-	IDS_STRING_ASYMKEY_ERR_CREATE_CERT_1 	"Fehler bei der Zertifikatserstellung(1).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41434       
- 	IDS_STRING_ASYMKEY_ERR_CREATE_CERT_2 	"Fehler bei der Zertifikatserstellung(2).\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41435       
-  	IDS_STRING_ASYMKEY_ERR_ADD_CERT		"Fehler beim Einfügen des Zertifikates in die CA-Datenbank.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41436        
-	IDS_STRING_ENCRYPTION_ERROR 		"Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n (bei IDEA kann dieser Fehler\nbei einem falschen Schlüssel zum\n entschlüsseln auftreten)\n"
-//+     IDS_STRING41437        
- 	IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF	"RSA Verschlüsselung von <%s>"
-//+     IDS_STRING41438         
-	IDS_STRING_ENCRYPTION_ERROR_2		"Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41439       
-  	IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF	"RSA Entschlüsselung von <%s>"
+    IDS_STRING_ENCRYPTION_ERROR 
+                            "Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n (bei IDEA kann dieser Fehler\nbei einem falschen Schlüssel zum\n entschlüsseln auftreten)\n"
+    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA Verschlüsselung von <%s>"
+    IDS_STRING_ENCRYPTION_ERROR_2 
+                            "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF "RSA Entschlüsselung von <%s>"
+    IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR 
+                            "Die von ihnen gewählten Parameter und das erzeugte\nSchlüsselpaar wurden erfolgreich abgespeichert.\nDer zugewiesene Schlüsselbezeichner ist:\n'%s'"
+    IDS_STRING_MSG_FLOATING_FREQ_OF "Gleitende Häufigkeit von <%s>"
+    IDS_STRING_FLOATING_ENTROPY_SEQUENCE_POSITION "Fensterposition"
+    IDS_STRING_TITLE_ENTROPY "Entropie"
+    IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE 
+                            "Der ausgewählte Text ist zu groß für das Anzeigemodul. Er wird am Ende Abgeschnitten. Die geänderte Länge wird bei weiteren Verarbeitungen erst wirksam, wenn der Text geändert wird."
+    IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
+                            "Fehler. Konnte temporäre Datei nicht erstellen!"
+    IDS_STRING_ERR_ON_SIGNING 
+                            "Fehler beim Signieren.\nInterne Fehlermeldung:\n"
+    IDS_STRING_MSG_SIGNATURE "Signatur:       "
+    IDS_STRING_ASYMKEY_METHOD "                Verfahren:      "
+    IDS_STRING_ASYMKEY_MESSAGE "                Nachricht:      "
+    IDS_STRING_ASYMKEY_SIGNATURE_OF " %s Signatur von <%s>"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41440         
-	IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR	"Die von ihnen gewählten Parameter und das erzeugte\nSchlüsselpaar wurden erfolgreich abgespeichert.\nDer zugewiesene Schlüsselbezeichner ist:\n'%s'"
-//+     IDS_STRING41441         
-	IDS_STRING_MSG_FLOATING_FREQ_OF		"Gleitende Häufigkeit von <%s>"
-//+     IDS_STRING41442         
-	IDS_STRING_FLOATING_ENTROPY_SEQUENCE_POSITION	"Fensterposition"
-//+     IDS_STRING41443         
-	IDS_STRING_TITLE_ENTROPY		"Entropie"
-//+     IDS_STRING41444         
-	IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE	"Der ausgewählte Text ist zu groß für das Anzeigemodul. Er wird am Ende Abgeschnitten. Die geänderte Länge wird bei weiteren Verarbeitungen erst wirksam, wenn der Text geändert wird."
-//+     IDS_STRING41445         
-	IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE	"Fehler. Konnte temporäre Datei nicht erstellen!"
-//+     IDS_STRING41447         
-	IDS_STRING_ERR_ON_SIGNING		"Fehler beim Signieren.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41448         
-	IDS_STRING_MSG_SIGNATURE		"Signatur:       "
-//+     IDS_STRING41449         
-	IDS_STRING_ASYMKEY_METHOD		"                Verfahren:      "
-//+     IDS_STRING41450         
-	IDS_STRING_ASYMKEY_MESSAGE		"                Nachricht:      "
-//+     IDS_STRING41451         
-	IDS_STRING_ASYMKEY_SIGNATURE_OF		" %s Signatur von <%s>"
-//+     IDS_STRING41452         
-	IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION	"Fehlerhafte Eingabedaten !\nVerifikation nicht möglich !"
-//+     IDS_STRING41453         
-	IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE	"Fehler beim Auslesen des Signatur- oder Hash-Verfahrens!\nVerifikation nicht möglich !"
-//+     IDS_STRING41454         
-	IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1	"Es liegt eine RSA-Signatur vor. In der von Ihnen\ngewählten PSE befindet sich jedoch ein DSA-Schlüssel !"
-//+     IDS_STRING41455         
-	IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT2	"Es liegt eine DSA-Signatur vor. In der von Ihnen\ngewählten PSE befindet sich jedoch ein RSA-Schlüssel !"
+    IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION 
+                            "Fehlerhafte Eingabedaten !\nVerifikation nicht möglich !"
+    IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE 
+                            "Fehler beim Auslesen des Signatur- oder Hash-Verfahrens!\nVerifikation nicht möglich !"
+    IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1 
+                            "Es liegt eine RSA-Signatur vor. In der von Ihnen\ngewählten PSE befindet sich jedoch ein DSA-Schlüssel !"
+    IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT2 
+                            "Es liegt eine DSA-Signatur vor. In der von Ihnen\ngewählten PSE befindet sich jedoch ein RSA-Schlüssel !"
+    IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL "Signatur fehlerhaft !"
+    IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT "Signatur korrekt !"
+    IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE 
+                            "Fehlerhafte Eingabedaten !\nExtraktion der Signatur nicht möglich !"
+    IDS_STRING_ASYMKEY_SIGNATURE_OF2 "(extrahierte) Signatur von <%s>"
+    IDS_STRING_ASYMKEY_ERR_ON_NONAME 
+                            "Sie haben weder Vor- noch Nachname eingegeben !"
+    IDS_STRING_ASYMKEY_ERR_ON_PIN 
+                            "Sie haben keine PIN-Nummer eingegeben:\nProgramm benutzt Voreinstellung"
+    IDS_STRING_ASYMKEY_ERR_ON_SELECT_METHOD 
+                            "Kein Verfahren gewählt !\nSchlüsselerzeugung wird abgrebrochen"
+    IDS_STRING_ASYMKEY_ERR_ON_CREATE_PSE 
+                            "Fehler beim Anlegen der PSE.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_SELECT_HASH_METHOD "                Hashfunktion:   "
+    IDS_STRING_ASYMKEY_ERR_ON_CREATE_CERTIFICATE 
+                            "Fehler bei der Zertifikatserstellung.\nInterne Fehlermeldung:\n"
+    IDS_STRING_ASYMKEY_ERR_ON_INSERT_CERTIFICATE 
+                            "Fehler beim Einfügen des Zertifikates in die CA-DB:\n"
+    IDS_STRING_ASYMKEY_ERR_ON_PIN2 "Sie haben keinen Pin-Code eingegeben."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41456        
-	IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL 		"Signatur fehlerhaft !"
-//+     IDS_STRING41457         
-	IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT	"Signatur korrekt !"
-//+     IDS_STRING41458         
-	IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE	"Fehlerhafte Eingabedaten !\nExtraktion der Signatur nicht möglich !"
-//+     IDS_STRING41459         
-	IDS_STRING_ASYMKEY_SIGNATURE_OF2		"(extrahierte) Signatur von <%s>"
-//+     IDS_STRING41460         
-	IDS_STRING_ASYMKEY_ERR_ON_NONAME		"Sie haben weder Vor- noch Nachname eingegeben !"
-//+     IDS_STRING41461         
-	IDS_STRING_ASYMKEY_ERR_ON_PIN			"Sie haben keine PIN-Nummer eingegeben:\nProgramm benutzt Voreinstellung"
-//+     IDS_STRING41462         
-	IDS_STRING_ASYMKEY_ERR_ON_SELECT_METHOD		"Kein Verfahren gewählt !\nSchlüsselerzeugung wird abgrebrochen"
-//+     IDS_STRING41463         
-	IDS_STRING_ASYMKEY_ERR_ON_CREATE_PSE		"Fehler beim Anlegen der PSE.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41464         
-	IDS_STRING_ASYMKEY_SELECT_HASH_METHOD		"                Hashfunktion:   "
-//+     IDS_STRING41465         
-	IDS_STRING_ASYMKEY_ERR_ON_CREATE_CERTIFICATE	"Fehler bei der Zertifikatserstellung.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41466         
-	IDS_STRING_ASYMKEY_ERR_ON_INSERT_CERTIFICATE	"Fehler beim Einfügen des Zertifikates in die CA-DB:\n"
-//+     IDS_STRING41467         
-	IDS_STRING_ASYMKEY_ERR_ON_PIN2			"Sie haben keinen Pin-Code eingegeben."
-//+     IDS_STRING41468         
-	IDS_STRING_ASYMKEY_ERR_ON_DISTINGUISHED_NAME	"Sie haben keinen Distinguished Name angegeben."
-//+     IDS_STRING41469         
-	IDS_STRING_ASYMKEY_SIGNATURECHECK		"Signaturtest"
-//+     IDS_STRING41470         
-	IDS_STRING_ASYMKEY_SIGNATURE_OF3		"Signatur von <%s>"
-//+     IDS_STRING41471         
-	IDS_STRING_STANDARD_REF_TEXT			"deutsch.txt"
+    IDS_STRING_ASYMKEY_ERR_ON_DISTINGUISHED_NAME 
+                            "Sie haben keinen Distinguished Name angegeben."
+    IDS_STRING_ASYMKEY_SIGNATURECHECK "Signaturtest"
+    IDS_STRING_ASYMKEY_SIGNATURE_OF3 "Signatur von <%s>"
+    IDS_STRING_STANDARD_REF_TEXT "deutsch.txt"
+    IDS_STRING_MSG_GERMAN   "Deutsch"
+    IDS_STRING_MSG_CMP_CIPHER_GERMAN 
+                            "Vergleich von Chiffrat und deutscher Sprache"
+    IDS_STRING_ANALYSE_CAESAR "Caesar-Analyse"
+    IDS_STRING_CORRELATION  "Korrelation der Verteilungen <%s> und <deutsch>"
+    IDS_STRING_SHIFT        "Verschiebung"
+    IDS_STRING_TITLE_CORRELATION "Korrelation"
+    IDS_STRING_ANALYSE_SUPERIMPOSITIONS "Analyse der Überlagerungen"
+    IDS_STRING_MSG_ENGLISH  "english.txt"
+    IDS_STRING_MSG_KEY      "Schlüssel: <%c>"
+    IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF 
+                            "Automatische Caesar-Analyse von <%s>, %s"
+    IDS_STRING_AUTOCORRELATION_COMPLETE "Autokorrelation erledigt: %d%%"
+    IDS_STRING_PROCEED      "Fortsetzen"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41472         
-	IDS_STRING_MSG_GERMAN			"Deutsch"
-//+     IDS_STRING41473         
-	IDS_STRING_MSG_CMP_CIPHER_GERMAN	"Vergleich von Chiffrat und deutscher Sprache"
-//+     IDS_STRING41474         
-	IDS_STRING_ANALYSE_CAESAR		"Caesar-Analyse"
-//+     IDS_STRING41475         
-	IDS_STRING_CORRELATION			"Korrelation der Verteilungen <%s> und <deutsch>"
-//+     IDS_STRING41476         
-	IDS_STRING_SHIFT			"Verschiebung"
-//+     IDS_STRING41477         
-	IDS_STRING_TITLE_CORRELATION		"Korrelation"
-//+     IDS_STRING41478         
-	IDS_STRING_ANALYSE_SUPERIMPOSITIONS	"Analyse der Überlagerungen"
-//+     IDS_STRING41479         
-	IDS_STRING_MSG_ENGLISH			"english.txt"
-//+     IDS_STRING41480         
-	IDS_STRING_MSG_KEY			"Schlüssel: <%c>"
-//+     IDS_STRING41481         
-	IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF	"Automatische Caesar-Analyse von <%s>, %s"
-//+     IDS_STRING41482         
-	IDS_STRING_AUTOCORRELATION_COMPLETE	"Autokorrelation erledigt: %d%%"
-//+     IDS_STRING41483         
-	IDS_STRING_PROCEED			"Fortsetzen"
-//+     IDS_STRING41484         
-	IDS_STRING_ANALYSE_VIGENERE		"Vigenère-Analyse"
-//+     IDS_STRING41485         
-	IDS_STRING_REQ_ON_INPUT			"\n\nWollen Sie an Ihrer Eingabe trotzdem festhalten?\n\n\nBei JA wird Ihre Eingabe übernommen und das \nkollidierende Feld auf unbestimmt gesetzt.\n\n\nBei NEIN wird ihre Eingabe ignoriert und das Feld \nauf seinen letzten gültigen Wert zurückgesetzt."
-//+     IDS_STRING41486         
-	IDS_STRING_MSG_ON_CAESAR		"Caesar %d von <%%s>"
-//+     IDS_STRING41487         
-	IDS_STRING_MSG_CORRELATION_CAESAR_GERMAN	"Korrelation der Verteilungen <Caesar %i> und <Deutsch>"
+    IDS_STRING_ANALYSE_VIGENERE "Vigenère-Analyse"
+    IDS_STRING_REQ_ON_INPUT "\n\nWollen Sie an Ihrer Eingabe trotzdem festhalten?\n\n\nBei JA wird Ihre Eingabe übernommen und das \nkollidierende Feld auf unbestimmt gesetzt.\n\n\nBei NEIN wird ihre Eingabe ignoriert und das Feld \nauf seinen letzten gültigen Wert zurückgesetzt."
+    IDS_STRING_MSG_ON_CAESAR "Caesar %d von <%%s>"
+    IDS_STRING_MSG_CORRELATION_CAESAR_GERMAN 
+                            "Korrelation der Verteilungen <Caesar %i> und <Deutsch>"
+    IDS_STRING_ASCERTAINED_KEY_CHARACTER 
+                            "Ermitteltes %d-tes Schlüsselzeichen: <%c>"
+    IDS_STRING_AUTOMATIC_VIGENERE_ANALYSE_OF 
+                            "Automatische Vigenère-Analyse von <%s>, Schlüssel: <%s>"
+    IDS_STRING_MSG_KEY_NOT_FOUND 
+                            "Der Schlüssel konnte nicht gefunden werden !"
+    IDS_STRING_ANALYSE_XOR  "XOR-Analyse"
+    IDS_STRING_XOR_MSG_OF   "XOR %d von <%%s>"
+    IDS_STRING_ASCERTAINED_KEY "Ermittelter Schlüssel: <%s>"
+    IDS_STRING_AUTOMATIC_XOR_ANALYSE_OF 
+                            "Automatische XOR-Analyse von <%s>, Schlüssel: <%s>"
+    IDS_STRING_ANALYSE_ADD  "Analyse der Byteweisen Addition"
+    IDS_STRING_ADD_MSG_OF   "Byteweise Addition %d von <%%s>"
+    IDS_STRING_AUTOMATIC_ADD_ANALYSE_OF 
+                            "Automatische Add-Analyse von <%s>, Schlüssel: <%s>"
+    IDS_STRING_CAESAR       "Caesar"
+    IDS_STRING_MSG_VIGENERE_IS_CAESAR 
+                            "Vigenère mit Schlüssellänge 1 ist äquivalent zu einer Caesar-Chiffre!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41488         
-	IDS_STRING_ASCERTAINED_KEY_CHARACTER	"Ermitteltes %d-tes Schlüsselzeichen: <%c>"
-//+     IDS_STRING41489         
-	IDS_STRING_AUTOMATIC_VIGENERE_ANALYSE_OF	"Automatische Vigenère-Analyse von <%s>, Schlüssel: <%s>"
-//+     IDS_STRING41490         
-	IDS_STRING_MSG_KEY_NOT_FOUND		"Der Schlüssel konnte nicht gefunden werden !"
-//+     IDS_STRING41491         
-	IDS_STRING_ANALYSE_XOR			"XOR-Analyse"
-//+     IDS_STRING41492         
-	IDS_STRING_XOR_MSG_OF			"XOR %d von <%%s>"
-//+     IDS_STRING41493         
-	IDS_STRING_ASCERTAINED_KEY		"Ermittelter Schlüssel: <%s>"
-//+     IDS_STRING41494         
-	IDS_STRING_AUTOMATIC_XOR_ANALYSE_OF	"Automatische XOR-Analyse von <%s>, Schlüssel: <%s>"
-//+     IDS_STRING41495         
-	IDS_STRING_ANALYSE_ADD			"Analyse der Byteweisen Addition"
-//+     IDS_STRING41496         
-	IDS_STRING_ADD_MSG_OF			"Byteweise Addition %d von <%%s>"
-//+     IDS_STRING41497         
-	IDS_STRING_AUTOMATIC_ADD_ANALYSE_OF	"Automatische Add-Analyse von <%s>, Schlüssel: <%s>"
-//+     IDS_STRING41498         
-	IDS_STRING_CAESAR			"Caesar"
-//+     IDS_STRING41499         
-	IDS_STRING_MSG_VIGENERE_IS_CAESAR	"Vigenère mit Schlüssellänge 1 ist äquivalent zu einer Caesar-Chiffre!"
-//+     IDS_STRING41500         
-	IDS_STRING_NOTE				"Hinweis"
-//+     IDS_STRING41501         
-	IDS_STRING_VIGENERE			"Vigenère"
-//+     IDS_STRING41502         
-	IDS_STRING_XOR				"XOR"
-//+     IDS_STRING41503         
-	IDS_STRING_ADD				"ADD"
+    IDS_STRING_NOTE         "Hinweis"
+    IDS_STRING_VIGENERE     "Vigenère"
+    IDS_STRING_XOR          "XOR"
+    IDS_STRING_ADD          "ADD"
+    IDS_STRING_VERNAM_KEYFILE "Schlüsseldatei"
+    IDS_STRING_VERNAM_ENCRYPTION_OF 
+                            "Vernam Verschlüsselung von <%%s> und <%s>"
+    IDS_STRING_HILL         "Hill"
+    IDS_STRING_ENTROPY_OF   "Entropie des Dokumentes ist %f bit/Zeichen"
+    IDS_STRING_AUTOCORRELATION "Autokorrelation"
+    IDS_STRING_AUTOCORRELATION_OF "Autokorrelation von <%s>"
+    IDS_STRING_MSG_MATCHING_CHARACTERS "Anzahl der übereinstimmenden Zeichen"
+    IDS_STRING_ASCII_HISTOGRAM_OF "ASCII Histogramm von <%s> (%s Zeichen)"
+    IDS_STRING_VALUE        "Wert"
+    IDS_STRING_FREQUENCY    "Häufigkeit (%)"
+    IDS_STRING_BINARY_HISTOGRAM_OF "Binäres Histogramm von <%s> (%s Zeichen)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41504         
-	IDS_STRING_VERNAM_KEYFILE		"Schlüsseldatei"
-//+     IDS_STRING41505         
-	IDS_STRING_VERNAM_ENCRYPTION_OF		"Vernam Verschlüsselung von <%%s> und <%s>"
-//+     IDS_STRING41506         
-	IDS_STRING_HILL				"Hill"
-//+     IDS_STRING41507         
-	IDS_STRING_ENTROPY_OF			"Entropie des Dokumentes ist %f bit/Zeichen"
-//+     IDS_STRING41508         
-//	IDS_STRING_TITLE_ENTROPY		"Entropie"
-//+     IDS_STRING41509         
-	IDS_STRING_AUTOCORRELATION		"Autokorrelation"
-//+     IDS_STRING41510         
-	IDS_STRING_AUTOCORRELATION_OF		"Autokorrelation von <%s>"
-//+     IDS_STRING41511         
-	IDS_STRING_MSG_MATCHING_CHARACTERS	"Anzahl der übereinstimmenden Zeichen"
-//+     IDS_STRING41512         
-	IDS_STRING_ASCII_HISTOGRAM_OF		"ASCII Histogramm von <%s> (%s Zeichen)"
-//+     IDS_STRING41513         
-	IDS_STRING_VALUE			"Wert"
-//+     IDS_STRING41514         
-	IDS_STRING_FREQUENCY			"Häufigkeit (%)"
-//+     IDS_STRING41515         
-	IDS_STRING_BINARY_HISTOGRAM_OF		"Binäres Histogramm von <%s> (%s Zeichen)"
-//+     IDS_STRING41516         
-	IDS_STRING_YOUR_KEYWORD			"Ihr Schlüsselwort lautet:\n"
-//+     IDS_STRING41517         
-	IDS_STRING_MSG_SUBSTITUTION		"\n\nDaraus ergibt sich folgende Substitution:\n"
-//+     IDS_STRING41518         
-	IDS_STRING_MONOALPHABETIC_SUBSTITUTION	"Monoalphabetische Substitution von <%s>"
-//+     IDS_STRING41519         
-	IDS_STRING_MSG_FREQ_ANALYSE_NOTE	"Mehrere Zeichen sind gleich häufig.\nHäufigstes Zeichen wird nicht berücksichtigt.\nDadurch ist auch keine erweiterte Analyse möglich."
+    IDS_STRING_YOUR_KEYWORD "Ihr Schlüsselwort lautet:\n"
+    IDS_STRING_MSG_SUBSTITUTION 
+                            "\n\nDaraus ergibt sich folgende Substitution:\n"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION 
+                            "Monoalphabetische Substitution von <%s>"
+    IDS_STRING_MSG_FREQ_ANALYSE_NOTE 
+                            "Mehrere Zeichen sind gleich häufig.\nHäufigstes Zeichen wird nicht berücksichtigt.\nDadurch ist auch keine erweiterte Analyse möglich."
+    IDS_STRING_POSSIBLE_PLAINTEXT_OF 
+                            "Möglicher Klartext von <%s>, Schlüssel: <%s>"
+    IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT "Eingabe maximal %d Zeichen !"
+    IDS_STRING_ERR_ZIP      "ZIP-Fehler"
+    IDS_STRING_MSG_ZIP_COMPRESSION_OF "ZIP-Kompression von <%s>"
+    IDS_STRING_ERR_ZIP_FILE "Fehler im ZIP-File"
+    IDS_STRING_MSG_ZIP_DECOMPRESSION_OF "ZIP-Dekompression von <%s>"
+    IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE "Eingabe maximal %d Bytes"
+    IDS_STRING_DES_ECB      "DES (ECB Modus)"
+    IDS_STRING_DES_CBC      "DES (CBC Modus)"
+    IDS_STRING_TRIPLE_DES_CBC "Triple-DES (CBC Modus)"
+    IDS_STRING_TRIPLE_DES_ECB "Triple-DES (ECB Modus)"
+    IDS_STRING_DECRYPTION_OF "%s Entschlüsselung von <%s>"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41520         
-	IDS_STRING_POSSIBLE_PLAINTEXT_OF 	"Möglicher Klartext von <%s>, Schlüssel: <%s>"
-//+     IDS_STRING41521         
-	IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT	"Eingabe maximal %d Zeichen !"
-//+     IDS_STRING41522         
-	IDS_STRING_ERR_ZIP			"ZIP-Fehler"
-//+     IDS_STRING41523        
-	IDS_STRING_MSG_ZIP_COMPRESSION_OF	"ZIP-Kompression von <%s>"
-//+     IDS_STRING41524        
-	IDS_STRING_ERR_ZIP_FILE 		"Fehler im ZIP-File"
-//+     IDS_STRING41525       
-  	IDS_STRING_MSG_ZIP_DECOMPRESSION_OF	"ZIP-Dekompression von <%s>"
-//+     IDS_STRING41526       
-	IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE  	"Eingabe maximal %d Bytes"
-//+     IDS_STRING41527       
-	IDS_STRING_DES_ECB 	 		"DES (ECB Modus)"
-//+     IDS_STRING41528       
-	IDS_STRING_DES_CBC  			"DES (CBC Modus)"
-//+     IDS_STRING41529        
- 	IDS_STRING_TRIPLE_DES_CBC		"Triple-DES (CBC Modus)"
-//+     IDS_STRING41530       
- 	IDS_STRING_TRIPLE_DES_ECB 		"Triple-DES (ECB Modus)"
-//+     IDS_STRING41531       
- 	IDS_STRING_DECRYPTION_OF 		"%s Entschlüsselung von <%s>"
-//+     IDS_STRING41532        
- 	IDS_STRING_ENCRYPTION_OF		"%s Verschlüsselung von <%s>"
-//+     IDS_STRING41533        
- 	IDS_STRING_HASH_VALUE_OF		"%s Hashwert von <%s>"
-//+     IDS_STRING41534        
- 	IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY	"Die erweiterte Analyse ist vorerst nur für deutsche Klartexte verfügbar."
-//+     IDS_STRING41535        
-//	IDS_STRING_ASCERTAINED_KEY 		"Ermittelter Schlüssel: <%s>"
+    IDS_STRING_ENCRYPTION_OF "%s Verschlüsselung von <%s>"
+    IDS_STRING_HASH_VALUE_OF "%s Hashwert von <%s>"
+    IDS_STRING_EXTENDED_ANALYSIS_GERMAN_ONLY 
+                            "Die erweiterte Analyse ist vorerst nur für deutsche Klartexte verfügbar."
+    IDS_STRING_ERR_EC_FILE_NOT_FOUND 
+                            "Die Datei %s kann nicht gefunden werden!\nOhne diese Datei können keine Schlüssel für Elliptische Kurven basierte Signaturverfahren erstellt werden!"
+    IDS_STRING_SUBSTITUTION_ANALYSE "Substitutionsanalyse"
+    IDS_STRING_SUBSTITUTION_ANALYSE_COMPLETE 
+                            "Substitutionsanalyse erledigt: %d%%"
+    IDS_STRING_ERR_EC_FILE_UNSPECIFIED_CURVE_ID 
+                            "In der Datei '%s' wird die Elliptische Kurve mit der Bezeichnung '%s' als Vorauswahl definiert.\nAllerdings ist eine Kurve mit dieser Bezeichnung nicht in der CURVE_ID_LIST spezifiziert!\nDaher gibt es keine Vorauswahl für den Elliptische Kurven ID."
+    IDS_STRING_ERR_EC_FILE_READING 
+                            "Die Parameter für die Elliptische Kurve mit der ID-Kennung '%s'\nwurden aus der Datei '%s' eingelesen.\nAllerdings trat ein Fehler beim umwandeln der Strings in die Langzahlrepräsenation auf.\nDie gewählte Kurve kann daher NICHT initialisiert werden."
+    IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR 
+                            "Fehler in der Methode CDlgEcKeysCreat::GenEcKeyPair().\nDer Aufruf von GenEcKeyPair() konnte nicht erfolgreich ausgeführt werden.\nEs kann kein Schlüsselpaar für die gewählte Kurve erzeugt werden."
+    IDS_STRING_ERR_ON_KEY_GENERATION 
+                            "Fehler bei der Schlüsselerzeugung.\nInterne Fehlermeldung:\n"
+    IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
+                            "Die signierte  Nachricht liegt in Datei:        "
+    IDS_STRING_ERR_INPUT_TEXT_LENGTH 
+                            "Die Eingabe muß mindestens %d Zeichen aus dem aktuellen Alphabet enthalten"
+    IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
+                            "Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
+    IDS_STRING_ERR_NO_ZIP_FILE "Keine ZIP-Datei (""Magic-Number""-Fehler)."
+    IDS_STRING_SUBSTITUTION "Substitution"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41536       
-	IDS_STRING_ERR_EC_FILE_NOT_FOUND  	"Die Datei %s kann nicht gefunden werden!\nOhne diese Datei können keine Schlüssel für Elliptische Kurven basierte Signaturverfahren erstellt werden!"
-//+     IDS_STRING41537      
-   	IDS_STRING_SUBSTITUTION_ANALYSE		"Substitutionsanalyse"
-//+     IDS_STRING41538      
-   	IDS_STRING_SUBSTITUTION_ANALYSE_COMPLETE	"Substitutionsanalyse erledigt: %d%%"
-//+     IDS_STRING41539       
-  	IDS_STRING_ERR_EC_FILE_UNSPECIFIED_CURVE_ID	"In der Datei '%s' wird die Elliptische Kurve mit der Bezeichnung '%s' als Vorauswahl definiert.\nAllerdings ist eine Kurve mit dieser Bezeichnung nicht in der CURVE_ID_LIST spezifiziert!\nDaher gibt es keine Vorauswahl für den Elliptische Kurven ID."
-//+     IDS_STRING41540        
- 	IDS_STRING_ERR_EC_FILE_READING		"Die Parameter für die Elliptische Kurve mit der ID-Kennung '%s'\nwurden aus der Datei '%s' eingelesen.\nAllerdings trat ein Fehler beim umwandeln der Strings in die Langzahlrepräsenation auf.\nDie gewählte Kurve kann daher NICHT initialisiert werden."
-//+     IDS_STRING41541         
-	IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR	"Fehler in der Methode CDlgEcKeysCreat::GenEcKeyPair().\nDer Aufruf von GenEcKeyPair() konnte nicht erfolgreich ausgeführt werden.\nEs kann kein Schlüsselpaar für die gewählte Kurve erzeugt werden."
-//+     IDS_STRING41542        
-	IDS_STRING_ERR_ON_KEY_GENERATION	"Fehler bei der Schlüsselerzeugung.\nInterne Fehlermeldung:\n"
-//+     IDS_STRING41543        
-	IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 	"Die signierte  Nachricht liegt in Datei:        "
-//+     IDS_STRING41544        
-	IDS_STRING_ERR_INPUT_TEXT_LENGTH 	"Die Eingabe muß mindestens %d Zeichen aus dem aktuellen Alphabet enthalten"
-//+     IDS_STRING41545        
-	IDS_STRING_ERR_EC_ON_CONVERT_PARAM 	"Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
-//+     IDS_STRING41546        
-	IDS_STRING_ERR_NO_ZIP_FILE 		"Keine ZIP-Datei (""Magic-Number""-Fehler)."
-//+     IDS_STRING41547       
-	IDS_STRING_SUBSTITUTION  		"Substitution"
-//+     IDS_STRING41548       
-	IDS_STRING_MSG_ON_CONVERT_KEY  		"Der Schlüssel weist Wiederholungen auf und wird durch den äquivalenten Schlüssel <%s> ersetzt!"
-//+     IDS_STRING41549      
-	IDS_STRING_MSG_ON_INPUT_FORMAT   	"Die Eingabefelder für den Namen, Vornamen und die Schlüsselkennung\ndürfen folgende Sonderzeichen NICHT enthalten:\n\\/:*?""<>|~$%&,;]["
-//+     IDS_STRING41550      
-	IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST   	"Zur Zeit gibt es keine RSA Schlüsselpaare !"
-//+     IDS_STRING41551      
-	IDS_STRING_KEY   			"                Schlüssel:      "
+    IDS_STRING_MSG_ON_CONVERT_KEY 
+                            "Der Schlüssel weist Wiederholungen auf und wird durch den äquivalenten Schlüssel <%s> ersetzt!"
+    IDS_STRING_MSG_ON_INPUT_FORMAT 
+                            "Die Eingabefelder für den Namen, Vornamen und die Schlüsselkennung\ndürfen folgende Sonderzeichen NICHT enthalten:\n\\/:*?""<>|~$%&,;]["
+    IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST 
+                            "Zur Zeit gibt es keine RSA Schlüsselpaare !"
+    IDS_STRING_KEY          "                Schlüssel:      "
+    IDS_STRING_DECRYPTION_OF_USING_KEY 
+                            "%s Entschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING_ENCRYPTION_OF_USING_KEY 
+                            "%s Verschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING_ERR_EC_ON_SIGNATURE 
+                            "Fehlerhafte Rückgabe der Funktion ecssa_sign_gen_op_ac() (in sign()).\nDie Signatur kann nicht erzeugt werden."
+    IDS_STRING_EXTRACTED_SIGNATURE "Extrahierte Signatur:"
+    IDS_STRING_EXTRACTED_MESSAGE "Extrahierte Nachricht:"
+    IDS_STRING_MSG_DATA_NOT_CHANGED 
+                            "Es wurden keine Veränderungen vorgenommen."
+    IDS_STRING_MSG_FORMAT_SUBSTR 
+                            "Das Teilwort '%s' darf NICHT Bestandteil eines\nNamens, Vornamens oder der Schlüsselkennung sein."
+    IDS_STRING_ERR_ILLEGAL_INPUT 
+                            "Unzulässige Zeichen bzw. Zeichenfolge benutzt"
+    IDS_STRING_MSG_KEY_NOT_FOUND_SHORT_TEXT 
+                            "Der Schlüssel konnte nicht gefunden werden (Text zu kurz) !"
+    IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT 
+                            "Der Schlüssel konnte nicht gefunden werden (Widerspruch) !"
+    IDS_STRING_MSG_DATALENGTH_MISMATCH 
+                            "Die Dokumente haben nicht die gleiche Länge !"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41552        
-	IDS_STRING_DECRYPTION_OF_USING_KEY 	"%s Entschlüsselung von <%s>, Schlüssel <%s>"
-//+     IDS_STRING41553        
-	IDS_STRING_ENCRYPTION_OF_USING_KEY 	"%s Verschlüsselung von <%s>, Schlüssel <%s>"
-//+     IDS_STRING41554       
-  	IDS_STRING_ERR_EC_ON_SIGNATURE		"Fehlerhafte Rückgabe der Funktion ecssa_sign_gen_op_ac() (in sign()).\nDie Signatur kann nicht erzeugt werden."
-//+     IDS_STRING41556      
-	IDS_STRING_EXTRACTED_SIGNATURE   	"Extrahierte Signatur:"
-//+     IDS_STRING41557      
-  	IDS_STRING_EXTRACTED_MESSAGE 		"Extrahierte Nachricht:"
-//+     IDS_STRING41558      
-	IDS_STRING_MSG_DATA_NOT_CHANGED   	"Es wurden keine Veränderungen vorgenommen."
-//+     IDS_STRING41559     
-    	IDS_STRING_MSG_FORMAT_SUBSTR		"Das Teilwort '%s' darf NICHT Bestandteil eines\nNamens, Vornamens oder der Schlüsselkennung sein."
-//+     IDS_STRING41560      
-	IDS_STRING_ERR_ILLEGAL_INPUT   		"Unzulässige Zeichen bzw. Zeichenfolge benutzt"
-//+     IDS_STRING41561      
-   	IDS_STRING_MSG_KEY_NOT_FOUND_SHORT_TEXT	"Der Schlüssel konnte nicht gefunden werden (Text zu kurz) !"
-//+     IDS_STRING41562    
-     	IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT	"Der Schlüssel konnte nicht gefunden werden (Widerspruch) !"
-//+     IDS_STRING41563      
-   	IDS_STRING_MSG_DATALENGTH_MISMATCH	"Die Dokumente haben nicht die gleiche Länge !"
-//+     IDS_STRING41564     
-    	IDS_STRING_MSG_KEY_NOT_FOUND_2		"Ein Schlüssel der Dimension %s konnte wegen des zu kurzen Textes nicht gefunden werden."
-//+     IDS_STRING41565     
-    	IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT_2 "Ein Schlüssel der Dimension %s konnte wegen eines Widerspruches nicht gefunden werden."
-//+     IDS_STRING41566     
-    	IDS_STRING_MSG_KOMPRESSION_FACTOR	"Kompressionsgrad: %d %%."
-//+     IDS_STRING41567     
-    	IDS_STRING_MSG_SWITCH_ALPHABET		"Sie haben Kleinbuchstaben eingegeben, obwohl Groß-/Klein-Schreibung ignoriert werden sollte. Es wird daher auf Beachtung von Groß-/Klein-Schreibung umgestellt."
+    IDS_STRING_MSG_KEY_NOT_FOUND_2 
+                            "Ein Schlüssel der Dimension %s konnte wegen des zu kurzen Textes nicht gefunden werden."
+    IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT_2 
+                            "Ein Schlüssel der Dimension %s konnte wegen eines Widerspruches nicht gefunden werden."
+    IDS_STRING_MSG_KOMPRESSION_FACTOR "Kompressionsgrad: %d %%."
+    IDS_STRING_MSG_SWITCH_ALPHABET 
+                            "Sie haben Kleinbuchstaben eingegeben, obwohl Groß-/Klein-Schreibung ignoriert werden sollte. Es wird daher auf Beachtung von Groß-/Klein-Schreibung umgestellt."
+    IDS_STRING_ERR_ON_WRONG_ALPHABET 
+                            "Für ein Alphabet mit nur einem Zeichen existiert kein Schlüssel."
+    IDS_STRING_MSG_ON_ALPHABET 
+                            "Das Alphabet muß mindestens zwei Zeichen enthalten."
+    IDS_STRING_ERR_ON_SECUDE_DLL 
+                            "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
+    IDS_STRING_ANALYSE_ON   "Analyse von %s"
+    IDS_STRING_MSG_SEARCHING_COMPLETE "Vollständige Suche zu %d%% erledigt"
+    IDS_STRING_MSG_ON_UPPER_BOUND 
+                            "Das Ende des Suchbereiches muß mindestens so groß sein wie der Anfang des Suchbereiches: Um 65536 Schlüssel zu durchsuchen kann beispielsweise\nStart: 00 00 12 34 und Ende: FF FF 12 34 angegeben werden."
+    IDS_STRING_MSG_ON_SEARCH_SPACE 
+                            "Es können maximal 1.000.000 Schlüssel durchsucht werden. Das Ende des Suchbereiches wurde entsprechend angepaßt."
+    IDS_STRING_AUTOMATIC_ANALYSE 
+                            "Automatische %s Analyse von <%s>, Schlüssel <%s>"
+    IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
+                            "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
+    IDS_STRING_SIGNATURE_ORIGINATOR "Signatur Erzeuger:"
+    IDS_STRING_SIGNATURE_DATE "%s; erzeugt am %s"
+    IDS_STRING_SIGNATURE_HASH_FUNCTION "%s mit Hashfunktion %s"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING41568      
-	IDS_STRING_ERR_ON_WRONG_ALPHABET   	"Für ein Alphabet mit nur einem Zeichen existiert kein Schlüssel."
-//+     IDS_STRING41569       
-  	IDS_STRING_MSG_ON_ALPHABET		"Das Alphabet muß mindestens zwei Zeichen enthalten."
-//+     IDS_STRING41570       
-  	IDS_STRING_ERR_ON_SECUDE_DLL		"Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
-//+     IDS_STRING41571  
-       	IDS_STRING_ANALYSE_ON			"Analyse von %s"
-//+     IDS_STRING41572   
-	IDS_STRING_MSG_SEARCHING_COMPLETE    	"Vollständige Suche zu %d%% erledigt"
-//+     IDS_STRING41573   
-	IDS_STRING_MSG_ON_UPPER_BOUND      	"Das Ende des Suchbereiches muß mindestens so groß sein wie der Anfang des Suchbereiches: Um 65536 Schlüssel zu durchsuchen kann beispielsweise\nStart: 00 00 12 34 und Ende: FF FF 12 34 angegeben werden."
-//+     IDS_STRING41574    
-	IDS_STRING_MSG_ON_SEARCH_SPACE     	"Es können maximal 1.000.000 Schlüssel durchsucht werden. Das Ende des Suchbereiches wurde entsprechend angepaßt."
-//+     IDS_STRING41575     
-	IDS_STRING_AUTOMATIC_ANALYSE  		"Automatische %s Analyse von <%s>, Schlüssel <%s>"
-//+     IDS_STRING41576     
-	IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG    "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
-//+     IDS_STRING41577       
-	IDS_STRING_SIGNATURE_ORIGINATOR  	"Signatur Erzeuger:"
-//+     IDS_STRING41578    
-	IDS_STRING_SIGNATURE_DATE     		"%s; erzeugt am %s"
-//+     IDS_STRING41579    
-	IDS_STRING_SIGNATURE_HASH_FUNCTION     	"%s mit Hashfunktion %s"
-//+     IDS_STRING41580    
-	IDS_STRING_SIGNATURE_UNKNOWN_KEY_IDENTIFIER     "Unbekannt - übermittelter Schlüsselbezeichner existiert nicht"
-//+     IDS_STRING41581    
-     	IDS_STRING_SIGNATURE_MESSAGE_LENGTH		"Länge der Nachricht: %s Byte."
-//+     IDS_STRING41582    
-     	IDS_STRING_SIGNATURE_LENGTH		"Länge der Signatur: %s Bit."
-//+     IDS_STRING41583    
-	IDS_STRING_SIGNATURE_USED_KEY     	"Benutzter Schlüssel:"
+    IDS_STRING_SIGNATURE_UNKNOWN_KEY_IDENTIFIER 
+                            "Unbekannt - übermittelter Schlüsselbezeichner existiert nicht"
+    IDS_STRING_SIGNATURE_MESSAGE_LENGTH "Länge der Nachricht: %s Byte."
+    IDS_STRING_SIGNATURE_LENGTH "Länge der Signatur: %s Bit."
+    IDS_STRING_SIGNATURE_USED_KEY "Benutzter Schlüssel:"
+    IDS_STRING_SIGNATURE_METHOD "Signaturverfahren:"
+    IDS_STRING_SIGNATURE    "Signatur:"
+    IDS_STRING_SIGNED_MESSAGE "Signierte Nachricht:"
+    IDS_STRING_SIGNED_MESSAGE_FIRST_PART 
+                            "Erster Teil der signierten Nachricht:"
+    IDS_STRING_MESSAGE_TO_SIGN "Zu signierende Nachricht M:"
+    IDS_STRING_SIGNATURE_STEP_BY_STEP "Schrittweise Signatur-Erzeugung:"
+    IDS_STRING_SIGNATURE_CREATOR "Signaturerzeuger:"
+    IDS_STRING_DOMAIN_PARAMETER_TO_USE "Zu benutzende Domain-Parameter '%s':"
+    IDS_STRING_SIGNATURE_SECRET_KEY 
+                            "Geheimer Schlüssel s des Signaturerzeugers:"
+    IDS_STRING_SEL_SIGNATURE_HASH_FUNCTION 
+                            "Gewähltes Signaturverfahren: %s mit Hashfunktion %s"
+    IDS_STRING_CONTINUE     "weiter ..."
+    IDS_STRING_SIGNATURE_MESSAGE_SIZE 
+                            "Grösse der zu signierenden Nachricht M: %d Byte"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING32880   
-      	IDS_STRING_PRENAME		"Vorname"
-//+     IDS_STRING32881   
-      	IDS_STRING_KEYTYPE		"Schlüsseltyp"
-//+     IDS_STRING32882   
-      	IDS_STRING_KEY_IDENTIFIER	"Schlüsselkennung"
-//+     IDS_STRING32883    
-     	IDS_STRING_CREATION_DATW	"Erstellt am"
-//+     IDS_STRING32884      
-   	IDS_STRING_KEY_ID		"Interne ID-Nr."
-//+     IDS_STRING32885      
-   	IDS_STRING_MSG_KEY_IDENTIFIER_NOT_FOUND	"Es gibt keinen Schlüsselbezeichner der dem angeforderten Format\n'%s'\nentspricht !"
-//+     IDS_STRING32886      
-	IDS_STRING_UNKNOWN   		"unbekannt !"
-//+     IDS_STRING32887      
-	IDS_STRING_PARAMETER   		"Parameter"
-//+     IDS_STRING32888      
-	IDS_STRING_PARAMETER_VALUE   	"Wert des Parameters"
-//+     IDS_STRING32889      
-	IDS_STRING_EC_DOMAIN_PARAMETER	"Domain-Parameter der durch '%s' spezifizierten Elliptischen Kurve:"
-//+     IDS_STRING32890     
-	IDS_STRING_EC_PARAM_X_COORD    	"x Koordinate von G"
-//+     IDS_STRING32891      
-	IDS_STRING_EC_PARAM_Y_COORD   	"y Koordinate von G"
-//+     IDS_STRING32892      
-	IDS_STRING_EC_PARAM_PUBLIC_KEY 	"Der öffentliche Schlüssel besteht aus den beiden folgenden Zahlen:"
-//+     IDS_STRING32893      
-	IDS_STRING_EC_PARAM_PRIVATE_KEY "Der geheime Schlüssel besteht aus der folgenden Zahl:"
-//+     IDS_STRING32894      
-	IDS_STRING_EC_PARAM_BITLENGTH   "Bitlänge"
-//+     IDS_STRING32895    
-	IDS_STRING_ERR_UNKNOWN_EC_SIGNATURE_ALGORITHM     "Das angegebene Elliptische Kurven Signatur-Verfahren ist unbekannt.\nBitte nehmen Sie eine manuelle Wahl vor, welches\nSignatur-Verfahren zur Verifikation benutzt werden soll."
+    IDS_STRING_UNKNOWN      "unbekannt !"
+    IDS_STRING_PARAMETER    "Parameter"
+    IDS_STRING_PARAMETER_VALUE "Wert des Parameters"
+    IDS_STRING_EC_DOMAIN_PARAMETER 
+                            "Domain-Parameter der durch '%s' spezifizierten Elliptischen Kurve:"
+    IDS_STRING_EC_PARAM_X_COORD "x Koordinate von G"
+    IDS_STRING_EC_PARAM_Y_COORD "y Koordinate von G"
+    IDS_STRING_EC_PARAM_PUBLIC_KEY 
+                            "Der öffentliche Schlüssel besteht aus den beiden folgenden Zahlen:"
+    IDS_STRING_EC_PARAM_PRIVATE_KEY 
+                            "Der geheime Schlüssel besteht aus der folgenden Zahl:"
+    IDS_STRING_EC_PARAM_BITLENGTH "Bitlänge"
+    IDS_STRING_ERR_UNKNOWN_EC_SIGNATURE_ALGORITHM 
+                            "Das angegebene Elliptische Kurven Signatur-Verfahren ist unbekannt.\nBitte nehmen Sie eine manuelle Wahl vor, welches\nSignatur-Verfahren zur Verifikation benutzt werden soll."
+    IDS_STRING_ERR_UNKNOWN_HASHFUNCTION 
+                            "Die angegebene Hashfunktion ist unbekannt.\nBitte nehmen Sie eine manuelle Wahl vor, welche\nHashfunktion zur Verifikation benutzt werden soll."
+    IDS_STRING_ERR_UNKNOWN_SIGNATURE "Unbekannter Signaturerzeuger"
+    IDS_STRING_REQ_DEL_KEYDATA 
+                            "WARNUNG: Sie sind gerade dabei die zu '%s' gehörenden Schlüsseldateien unwiderruflich zu löschen! Um fortzufahren geben Sie den entsprechenden PIN-Code ein."
+    IDS_STRING_PLAYFAIR_ENCRYPTION "Playfair Verschlüsselung"
+    IDS_STRING_SWITCH_ASCII_MODE "zeigt aktuelles Fenster als ASCII Text an"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING32896      
-   	IDS_STRING_ERR_UNKNOWN_HASHFUNCTION	"Die angegebene Hashfunktion ist unbekannt.\nBitte nehmen Sie eine manuelle Wahl vor, welche\nHashfunktion zur Verifikation benutzt werden soll."
-//+     IDS_STRING32897      
-	IDS_STRING_ERR_UNKNOWN_SIGNATURE   	"Unbekannter Signaturerzeuger"
-//+     IDS_STRING32898      
-	IDS_STRING_REQ_DEL_KEYDATA   		"WARNUNG: Sie sind gerade dabei die zu '%s' gehörenden Schlüsseldateien unwiderruflich zu löschen! Um fortzufahren geben Sie den entsprechenden PIN-Code ein."
-//+     IDS_STRING32899     
-	IDS_STRING_PLAYFAIR_ENCRYPTION    	"Playfair Verschlüsselung"
-//+     IDS_STRING32900     
-	IDS_STRING_SWITCH_ASCII_MODE    	"zeigt aktuelles Fenster als ASCII Text an"
-//+     IDS_STRING32901     
-	IDS_STRING_SWITCH_HEX_MODE    		"zeigt aktuelles Fenster als HexDump an"
-//+     IDS_STRING32902      
-	IDS_STRING_PLAYFAIR_ANALYSE   		"Einfache Playfair Analyse"
-//+     IDS_STRING32903      
-	IDS_STRING_VITANY_ANALYSE   		"Vitany Analyse"
-//+     IDS_STRING32904      
-	IDS_STRING_KEY_GENERATION_DATE   	"Schlüssel erstellt am:"
-//+     IDS_STRING32905      
-	IDS_STRING_MSG_FILENAME_TO_LONG   	"Der vom Programm erzeugte Dateiname\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
-//+     IDS_STRING32906      
-	IDS_STRING_MSG_PATHNAME_TO_LONG   	"Der vom Programm erzeugte Verzeichnis-Pfad\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
-//+     IDS_STRING32907     
-	IDS_STRING_MSG_SIGNATURE_GENERATION_TIME 	"Zum Erzeugen der Signatur benötigte Zeit: %.5f Sekunden."
-//+     IDS_STRING32908     
-	IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME  	"Zum Verifizieren der Signatur benötigte Zeit: %.5f Sekunden."
-//+     IDS_STRING32909  
-        IDS_STRING_BAD_SIGNATURE		"Signatur fehlerhaft!\n%s"
-//+     IDS_STRING32910    
-	IDS_STRING_CORRECT_SIGNATURE     	"Signatur korrekt!\n%s"
-//+     IDS_STRING32911    
-	IDS_STRING_MSG_KEY_GENERATION_TIME     "Zum Erzeugen des Schlüsselpaares benötigte Zeit: %.5f Sekunden."
+    IDS_STRING_SWITCH_HEX_MODE "zeigt aktuelles Fenster als HexDump an"
+    IDS_STRING_PLAYFAIR_ANALYSE "Einfache Playfair Analyse"
+    IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
+    IDS_STRING_KEY_GENERATION_DATE "Schlüssel erstellt am:"
+    IDS_STRING_MSG_FILENAME_TO_LONG 
+                            "Der vom Programm erzeugte Dateiname\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
+    IDS_STRING_MSG_PATHNAME_TO_LONG 
+                            "Der vom Programm erzeugte Verzeichnis-Pfad\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
+    IDS_STRING_MSG_SIGNATURE_GENERATION_TIME 
+                            "Zum Erzeugen der Signatur benötigte Zeit: %.5f Sekunden."
+    IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
+                            "Zum Verifizieren der Signatur benötigte Zeit: %.5f Sekunden."
+    IDS_STRING_BAD_SIGNATURE "Signatur fehlerhaft!\n%s"
+    IDS_STRING_CORRECT_SIGNATURE "Signatur korrekt!\n%s"
+    IDS_STRING_MSG_KEY_GENERATION_TIME 
+                            "Zum Erzeugen des Schlüsselpaares benötigte Zeit: %.5f Sekunden."
+    IDS_STRING_RSA_ENCRYPTION_TIME 
+                            "Für die RSA-Verschlüsselung benötigte Zeit: %.5f Sekunden."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+     IDS_STRING32912      
- 	IDS_STRING_RSA_ENCRYPTION_TIME  	"Für die RSA-Verschlüsselung benötigte Zeit: %.5f Sekunden."
-//+     IDS_STRING32913        
-	IDS_STRING_RSA_DECRYPTION_TIME 		"Für die RSA-Entschlüsselung benötigte Zeit: %.5f Sekunden."
-//+     IDS_STRING32914      
-	IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION   	"Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur-Verifikation durchzuführen!"
-//+     IDS_STRING32915     
-    	IDS_STRING_ERR_MEMORY_RSA_DECRYPTION	"Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Entschlüsselung durchzuführen!"
-//+     IDS_STRING32916     
-	IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION    "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Verschlüsselung durchzuführen!"
-//+     IDS_STRING32917     
-  	IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION  	"Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur zu erstellen!"
+    IDS_STRING_RSA_DECRYPTION_TIME 
+                            "Für die RSA-Entschlüsselung benötigte Zeit: %.5f Sekunden."
+    IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION 
+                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur-Verifikation durchzuführen!"
+    IDS_STRING_ERR_MEMORY_RSA_DECRYPTION 
+                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Entschlüsselung durchzuführen!"
+    IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION 
+                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Verschlüsselung durchzuführen!"
+    IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION 
+                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur zu erstellen!"
+    ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 
+                            "Generiert zwei Primzahlen"
+    ID_HOMOPHONE_ASC        "Homophone Verschlüsselung"
+    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 
+                            "Erzeugt ein Hex-Schlüssel aus ein Schlüsselwort"
+    ID_ANALYSE_NGRAM        "Berechnet N-Gramm Analyse"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING41584    
-	IDS_STRING_SIGNATURE_METHOD  	"Signaturverfahren:"
-//+    IDS_STRING41585        
-	IDS_STRING_SIGNATURE	 	"Signatur:"
-//+    IDS_STRING41586         
-	IDS_STRING_SIGNED_MESSAGE	"Signierte Nachricht:"
-//+    IDS_STRING41587         
-	IDS_STRING_SIGNED_MESSAGE_FIRST_PART	"Erster Teil der signierten Nachricht:"
-//+    IDS_STRING41588         
-	IDS_STRING_MESSAGE_TO_SIGN	"Zu signierende Nachricht M:"
-//+    IDS_STRING41589         
-	IDS_STRING_SIGNATURE_STEP_BY_STEP	"Schrittweise Signatur-Erzeugung:"
-//+    IDS_STRING41590         
-	IDS_STRING_SIGNATURE_CREATOR	"Signaturerzeuger:"
-//+    IDS_STRING41591         
-	IDS_STRING_DOMAIN_PARAMETER_TO_USE	"Zu benutzende Domain-Parameter '%s':"
-//+    IDS_STRING41592         
-	IDS_STRING_SIGNATURE_SECRET_KEY		"Geheimer Schlüssel s des Signaturerzeugers:"
-//+    IDS_STRING41593         
-	IDS_STRING_SEL_SIGNATURE_HASH_FUNCTION	"Gewähltes Signaturverfahren: %s mit Hashfunktion %s"
-//+    IDS_STRING41594         
-	IDS_STRING_CONTINUE	"weiter ..."
-//+    IDS_STRING41595         
-	IDS_STRING_SIGNATURE_MESSAGE_SIZE	"Grösse der zu signierenden Nachricht M: %d Byte"
-//+    IDS_STRING41596         
-	IDS_STRING_SIGNATURE_HASHING		"Berechne mit der gewählten Hashfunktion %s aus der Nachricht M einen 'Hashwert' f (message representative):"
-//+    IDS_STRING41597         
-	IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING	"Fehler. Umwandlung von L_NUMBER nach CString gescheitert."
-//+    IDS_STRING41598         
-	IDS_STRING_CREATE_RANDOM_ASYMKEY	"Erzeuge ein zufälliges one-time Schlüsselpaar (geheimer Schlüssel, öffentlicher Schlüssel) = (u,V)\r\nmit den Domain-Parametern von '%s' (V=(Vx,Vy) ist ein Punkt auf der Elliptischen Kurve):"
-//+    IDS_STRING41599         
-	IDS_STRING_EC_CONVERSION		"Konvertiere das Gruppenelement Vx (x Koordinate des Punktes V auf Elliptischer Kurve) in die Zahl i:"
+    IDS_STRING_SIGNATURE_HASHING 
+                            "Berechne mit der gewählten Hashfunktion %s aus der Nachricht M einen 'Hashwert' f (message representative):"
+    IDS_STRING_ERR_TRANSFORMATION_LNUMBER_TO_CSTRING 
+                            "Fehler. Umwandlung von L_NUMBER nach CString gescheitert."
+    IDS_STRING_CREATE_RANDOM_ASYMKEY 
+                            "Erzeuge ein zufälliges one-time Schlüsselpaar (geheimer Schlüssel, öffentlicher Schlüssel) = (u,V)\r\nmit den Domain-Parametern von '%s' (V=(Vx,Vy) ist ein Punkt auf der Elliptischen Kurve):"
+    IDS_STRING_EC_CONVERSION 
+                            "Konvertiere das Gruppenelement Vx (x Koordinate des Punktes V auf Elliptischer Kurve) in die Zahl i:"
+    IDS_STRING_MSG_DIV_REMAINDER 
+                            "Berechne die Zahl c = i mod r (c ungleich 0):"
+    IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY 
+                            "Berechne die Zahl d = u^(-1)*(f + s*c) mod r (d ungleich 0):"
+    IDS_STRING_MSG_SIGNATURE_COMPLETE 
+                            "Signaturerzeugung beendet.\r\nDie Signatur besteht aus den beiden Zahlen c und d."
+    IDS_STRING_MSG_DIV_REMAINDER_2 
+                            "Berechne die Zahl c = i + f (mod r) (c ungleich 0):"
+    IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY_2 
+                            "Berechne die Zahl d = u - s*c (mod r) (d ungleich 0):"
+    IDS_STRING_MSG_EC_AFFINE_PROJECTIVE_COORDINATES 
+                            "Die Berechnung ""auf"" der Elliptischen Kurve erfolgt bei der Darstellung der Signatur-Zwischenschritte in affinen Koordinaten. Eine Ausgabe der Zwischenwerte in projektiven Koordinaten (x, y, z Koordinaten) ist nicht vorgesehen, d.h. Punkte auf einer Elliptischen Kurve werden in x, y Koordinaten (affine Koordinaten) ausgegeben."
+    IDS_STRING_MSG_SIGNATURE_VERIFICATION_STEP_BY_STEP 
+                            "Schrittweise Signatur-Verifikation:"
+    IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES 
+                            "Die Berechnung ""auf"" der Elliptischen Kurve erfolgt bei der Darstellung der Verifikations-Zwischenschritte in affinen Koordinaten. Eine Ausgabe der Zwischenwerte in projektiven Koordinaten (x, y, z Koordinaten) ist nicht vorgesehen, d.h. Punkte auf einer Elliptischen Kurve werden in x, y Koordinaten (affine Koordinaten) ausgegeben."
+    IDS_STRING_PUBLIC_EC_KEY 
+                            "Öffentlicher Schlüssel W=(Wx,Wy) (W ist ein Punkt auf der Elliptischen Kurve) des Signaturerzeugers:"
+    IDS_STRING_SIGNATURE_MESSAGE_SIZE_2 
+                            "Grösse der signierenten Nachricht M: %d Byte"
+    IDS_STRING_EC_BITLENGTH_CD "Bitlänge von c + Bitlänge von d = %d Bit"
+    IDS_STRING_EC_SIGNATURE_VALIDITY_TEST 
+                            "Falls c oder d nicht im Intervall [1, r-1] ist die Signatur ungültig:"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING41600         
-	IDS_STRING_MSG_DIV_REMAINDER	"Berechne die Zahl c = i mod r (c ungleich 0):"
-//+    IDS_STRING41601         
-	IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY	"Berechne die Zahl d = u^(-1)*(f + s*c) mod r (d ungleich 0):"
-//+    IDS_STRING41602         
-	IDS_STRING_MSG_SIGNATURE_COMPLETE	"Signaturerzeugung beendet.\r\nDie Signatur besteht aus den beiden Zahlen c und d."
-//+    IDS_STRING41603         
-	IDS_STRING_MSG_DIV_REMAINDER_2		"Berechne die Zahl c = i + f (mod r) (c ungleich 0):"
-//+    IDS_STRING41604         
-	IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY_2	"Berechne die Zahl d = u - s*c (mod r) (d ungleich 0):"
-//+    IDS_STRING41605         
-	IDS_STRING_MSG_EC_AFFINE_PROJECTIVE_COORDINATES	"Die Berechnung ""auf"" der Elliptischen Kurve erfolgt bei der Darstellung der Signatur-Zwischenschritte in affinen Koordinaten. Eine Ausgabe der Zwischenwerte in projektiven Koordinaten (x, y, z Koordinaten) ist nicht vorgesehen, d.h. Punkte auf einer Elliptischen Kurve werden in x, y Koordinaten (affine Koordinaten) ausgegeben."
-//+    IDS_STRING41606         
-	IDS_STRING_MSG_SIGNATURE_VERIFICATION_STEP_BY_STEP	"Schrittweise Signatur-Verifikation:"
-//+    IDS_STRING41607         
-	IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES	"Die Berechnung ""auf"" der Elliptischen Kurve erfolgt bei der Darstellung der Verifikations-Zwischenschritte in affinen Koordinaten. Eine Ausgabe der Zwischenwerte in projektiven Koordinaten (x, y, z Koordinaten) ist nicht vorgesehen, d.h. Punkte auf einer Elliptischen Kurve werden in x, y Koordinaten (affine Koordinaten) ausgegeben."
-//+    IDS_STRING41608         
-	IDS_STRING_PUBLIC_EC_KEY	"Öffentlicher Schlüssel W=(Wx,Wy) (W ist ein Punkt auf der Elliptischen Kurve) des Signaturerzeugers:"
-//+    IDS_STRING41609         
-	IDS_STRING_SIGNATURE_MESSAGE_SIZE_2	"Grösse der signierenten Nachricht M: %d Byte"
-//+    IDS_STRING41610         
-	IDS_STRING_EC_BITLENGTH_CD		"Bitlänge von c + Bitlänge von d = %d Bit"
-//+    IDS_STRING41611         
-	IDS_STRING_EC_SIGNATURE_VALIDITY_TEST	"Falls c oder d nicht im Intervall [1, r-1] ist die Signatur ungültig:"
-//+    IDS_STRING41612         
-	IDS_STRING_EC_INVERT_D			"Berechne die Zahl h = d^(-1) mod r:"
-//+    IDS_STRING41613         
-	IDS_STRING_EC_H1		"Berechne die Zahl h1 = f*h mod r:"
-//+    IDS_STRING41614         
-	IDS_STRING_EC_H2		"Berechne die Zahl h2 = c*h mod r:"
-//+    IDS_STRING41615         
-	IDS_STRING_EC_CHECK_SIGNATURE	"Berechne den Elliptischen Kurven Punkt P = h1 G + h2 W \r\n(falls P = (Px, Py) = (inf, inf) ist die Signatur ungültig):"
+    IDS_STRING_EC_INVERT_D  "Berechne die Zahl h = d^(-1) mod r:"
+    IDS_STRING_EC_H1        "Berechne die Zahl h1 = f*h mod r:"
+    IDS_STRING_EC_H2        "Berechne die Zahl h2 = c*h mod r:"
+    IDS_STRING_EC_CHECK_SIGNATURE 
+                            "Berechne den Elliptischen Kurven Punkt P = h1 G + h2 W \r\n(falls P = (Px, Py) = (inf, inf) ist die Signatur ungültig):"
+    IDS_STRING_EC_MULT_CONVERT 
+                            "Konvertiere das Gruppenelement Px (x Koordinate des Punktes P auf Elliptischer Kurve) in die Zahl i:"
+    IDS_STRING_EC_DIV_REMAINDER "Berechne die Zahl c' = i mod r:"
+    IDS_STRING_EC_COMPARE   "Falls c' = c ist die Signatur korrekt; sonst ist Signatur fehlerhaft:"
+    IDS_STRING_EC_C_D_ERROR "c oder d liegt NICHT im geforderten Intervall [1, r-1]"
+    IDS_STRING_EC_C_D_CORRECT 
+                            "c und d liegen im geforderten Intervall [1, r-1]"
+    IDS_STRING_EC_SIGNATURE_INCORRECT 
+                            "Der Punkt P = (inf,inf) zeigt an, dass die Signatur fehlerhaft ist"
+    IDS_STRING_EC_CALC_P    "Berechne den Elliptischen Kurven Punkt P = d G + c W\r\n(falls P = (Px, Py) = (inf, inf) ist die Signatur ungültig):"
+    IDS_STRING_EC_CALC_MESSAGE_REPRESENTATIVE 
+                            "Berechne die Zahl f = c - i (mod r) (f ist ein 'message-representative'):"
+    IDS_STRING_EC_CALC_HASHFUNCTION 
+                            "Berechne mit der gewählten Hashfunktion %s aus der Nachricht M einen 'Hashwert' g (message representative):"
+    IDS_STRING_EC_COMPARE_F_G 
+                            "Falls f = g ist die Signatur korrekt; sonst ist Signatur fehlerhaft:"
+    IDS_STRING_EC_DISPLAY_STEPS "Schritt %d von maximal %d Schritten."
+    IDS_STRING_EC_MSG_COMPARE_C_CPRIME 
+                            "Verifiziere Ergebnis durch vergleichen der beiden Zahlen c' und c."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING41616         
-	IDS_STRING_EC_MULT_CONVERT	"Konvertiere das Gruppenelement Px (x Koordinate des Punktes P auf Elliptischer Kurve) in die Zahl i:"
-//+    IDS_STRING41617         
-	IDS_STRING_EC_DIV_REMAINDER	"Berechne die Zahl c' = i mod r:"
-//+    IDS_STRING41618         
-	IDS_STRING_EC_COMPARE		"Falls c' = c ist die Signatur korrekt; sonst ist Signatur fehlerhaft:"
-//+    IDS_STRING41619         
-	IDS_STRING_EC_C_D_ERROR		"c oder d liegt NICHT im geforderten Intervall [1, r-1]"
-//+    IDS_STRING41620         
-	IDS_STRING_EC_C_D_CORRECT	"c und d liegen im geforderten Intervall [1, r-1]"
-//+    IDS_STRING41621         
-	IDS_STRING_EC_SIGNATURE_INCORRECT	"Der Punkt P = (inf,inf) zeigt an, dass die Signatur fehlerhaft ist"
-//+    IDS_STRING41622         
-	IDS_STRING_EC_CALC_P		"Berechne den Elliptischen Kurven Punkt P = d G + c W\r\n(falls P = (Px, Py) = (inf, inf) ist die Signatur ungültig):"
-//+    IDS_STRING41623         
-	IDS_STRING_EC_CALC_MESSAGE_REPRESENTATIVE	"Berechne die Zahl f = c - i (mod r) (f ist ein 'message-representative'):"
-//+    IDS_STRING41624         
-	IDS_STRING_EC_CALC_HASHFUNCTION	"Berechne mit der gewählten Hashfunktion %s aus der Nachricht M einen 'Hashwert' g (message representative):"
-//+    IDS_STRING41625         
-	IDS_STRING_EC_COMPARE_F_G	"Falls f = g ist die Signatur korrekt; sonst ist Signatur fehlerhaft:"
-//+    IDS_STRING41626         
-	IDS_STRING_EC_DISPLAY_STEPS	"Schritt %d von maximal %d Schritten."
-//+    IDS_STRING41627         
-	IDS_STRING_EC_MSG_COMPARE_C_CPRIME	"Verifiziere Ergebnis durch vergleichen der beiden Zahlen c' und c."
-//+    IDS_STRING41628         
-	IDS_STRING_EC_MSG_COMPARE_F_G	"Verifiziere Ergebnis durch vergleichen der beiden Zahlen f und g."
-//+    IDS_STRING41629         
-	IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL	"Diese Funktion ist in der gegenwärtigen Version von CrypTool noch nicht realisiert!"
+    IDS_STRING_EC_MSG_COMPARE_F_G 
+                            "Verifiziere Ergebnis durch vergleichen der beiden Zahlen f und g."
+    IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL 
+                            "Diese Funktion ist in der gegenwärtigen Version von CrypTool noch nicht realisiert!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING42000         
-	IDS_STRING_ENTER_UPPER_LOWER_BOUND	"Geben Sie Ober- und Untergrenze ein!"
-//+    IDS_STRING42001         
-	IDS_STRING_MSG_LOWERBOUND_UPPERBOUND	"Die Untergrenze darf nicht größer als die Obergrenze sein!"
-//+    IDS_STRING42002         
-	IDS_STRING_MSG_LOWERBOUND		"Die Untergrenze muß kleiner als %d sein!"
-//+    IDS_STRING42003         
-	IDS_STRING_MSG_LOWERBOUND_LOWERBOUND	"Das Produkt der Untergrenzen muß kleiner als %d sein!"
-//+    IDS_STRING42004         
-	IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND	"Schlechte Wahl der Grenzen im linken Fenster, es wurde keine Primzahl gefunden !"
-//+    IDS_STRING42005         
-	IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND	"Schlechte Wahl der Grenzen im rechten Fenster, es wurde keine Primzahl gefunden !"
-//+    IDS_STRING42006         
-	IDS_STRING_MSG_RSA_MODUL_TO_LARGE	"Das Produkt der Primzahlen muß kleiner als %d sein !"
+    IDS_STRING_ENTER_UPPER_LOWER_BOUND "Geben Sie Ober- und Untergrenze ein!"
+    IDS_STRING_MSG_LOWERBOUND_UPPERBOUND 
+                            "Die Untergrenze darf nicht größer als die Obergrenze sein!"
+    IDS_STRING_MSG_LOWERBOUND "Die Untergrenze muß kleiner als %d sein!"
+    IDS_STRING_MSG_LOWERBOUND_LOWERBOUND 
+                            "Das Produkt der Untergrenzen muß kleiner als %d sein!"
+    IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND 
+                            "Schlechte Wahl der Grenzen im linken Fenster, es wurde keine Primzahl gefunden !"
+    IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND 
+                            "Schlechte Wahl der Grenzen im rechten Fenster, es wurde keine Primzahl gefunden !"
+    IDS_STRING_MSG_RSA_MODUL_TO_LARGE 
+                            "Das Produkt der Primzahlen muß kleiner als %d sein !"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING61408         
-	IDS_STRING_REQUEST_FOR_PIN		"Um die öffentlichen und geheimen Parameter von '%s' einzusehen geben Sie bitte den entsprechenden PIN-Code ein."
-//+    IDS_STRING61409         
-	IDS_STRING_SHOW_ALL_PARAM		"Alle Parameter anzeigen"
-//+    IDS_STRING61410         
-	IDS_STRING_REMOVE_ITEM			"Eintrag löschen"
-//+    IDS_STRING61411         
-	IDS_STRING_KEY_OWNER			"Schlüsselbesitzer:"
-//+    IDS_STRING61412         
-	IDS_STRING_KEY_TYPE			"Schlüsseltyp:"
-//+    IDS_STRING61413         
-	IDS_STRING_BEFORE			"Vorher"
-//+    IDS_STRING61414         
-	IDS_STRING_AFTER			"Nachher"
-//+    IDS_STRING61415         
-	IDS_STRING_QUANTITY			"Anzahl"
-//+    IDS_STRING61416         
-	IDS_STRING_AVERAGE_VARIATION		"Durchschnitt: %lf Variation: %lf"
-//+    IDS_STRING61417         
-	IDS_STRING_VARIANCE			"Abweichung"
-//+    IDS_STRING61418         
-	IDS_STRING_VERTICES			"Eckpunkte"
-//+    IDS_STRING61419         
-	IDS_STRING_RANGE_DSA_BITLENGTH		"Für die Bitlänge L der DSA-Primzahl muß gelten:\n\n\t L < %d.\n\nBitte nochmal eingeben."
-//+    IDS_STRING61420         
-	IDS_STRING_MODUL			"Modul"
-//+    IDS_STRING61421         
-	IDS_STRING_EXPONENT			"Exponent"
-//+    IDS_STRING61422         
-	IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER	"Öffentliche Parameter von %s anzeigen."
+    IDS_STRING_RANGE_DSA_BITLENGTH 
+                            "Für die Bitlänge L der DSA-Primzahl muß gelten:\n\n\t L < %d.\n\nBitte nochmal eingeben."
+    IDS_STRING_MODUL        "Modul"
+    IDS_STRING_EXPONENT     "Exponent"
+    IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER 
+                            "Öffentliche Parameter von %s anzeigen."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING61423         
-	IDS_STRING_VARIABLE			"Variable"
-//+    IDS_STRING61424         
-//	IDS_STRING_VALUE			"Wert"	
-//+    IDS_STRING61425         
-	IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE	"Secude.dll nicht verfügbar"
-//+    IDS_STRING61426         
-	IDS_STRING_PLAYFAIR_PREFORMAT		"Playfair Vorformatierung von <%s>"
-//+    IDS_STRING61427         
-	IDS_STRING_NO_VALID_KEYS_FOUND		"Im Suchbereich befinden sich keine gültigen Schlüssel für den verschlüsselten Text!"
-//+    IDS_STRING61428         
-	IDS_STRING_UPPER_BOUND_LINEWIDTH	"Balkenstärke muss kleiner als 11 sein.\n"
-//+    IDS_STRING61429         
-	IDS_STRING_LOWER_BOUND_LINEWIDTH	"Balkenstärke muss grösser als 0 sein.\n"
-//+    IDS_STRING61430         
-	IDS_STRING_UPPERBOUND_GRAPHWIDTH	"Kurvenstärke muss kleiner als 11 sein.\n"
-//+    IDS_STRING61431         
-	IDS_STRING_LOWERBOUND_GRAPHWIDTH	"Kurvenstärke muss grösser als 0 sein.\n"
-//+    IDS_STRING61432         
-	IDS_STRING_PERIOD_FOUND			"Periode der Länge %d wurde ab der  %d. Position in der Datei gefunden."
-//+    IDS_STRING61433         
-	IDS_STRING_NO_PERIOD_FOUND		"keine Periodizität gefunden"
-//+    IDS_STRING61434         
-	IDS_STRING_PERIOD_ANALYSIS_D		"Periodenalyse %d %%."
-//+    IDS_STRING61435         
-	IDS_STRING_PERIOD_ANALYSIS		"Periodizitätsanalyse"
-//+    IDS_STRING61437         
-	IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH	"Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
+    IDS_STRING_ERR_TEXT_OPTIONS 
+                            "Das in ""Optionen""->""Textoptionen einzustellende Alphabet muß mindestens 1 Zeichen enthalten!"
+    IDS_STRING_SIGN         "Zeichen"
+    IDS_STRING_QUANTITY     "Anzahl"
+    IDS_STRING_HOMOPHONE    "Homophone"
+    IDS_STRING_LIST_OF_HOMOPHONES "Liste der Homophone"
+    IDS_STRING_HOMOPHONE_NR "Nr."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_VARIABLE     "Variable"
+    IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll nicht verfügbar"
+    IDS_STRING_PLAYFAIR_PREFORMAT "Playfair Vorformatierung von <%s>"
+    IDS_STRING_NO_VALID_KEYS_FOUND 
+                            "Im Suchbereich befinden sich keine gültigen Schlüssel für den verschlüsselten Text!"
+    IDS_STRING_UPPER_BOUND_LINEWIDTH 
+                            "Balkenstärke muss kleiner als 11 sein.\n"
+    IDS_STRING_LOWER_BOUND_LINEWIDTH "Balkenstärke muss grösser als 0 sein.\n"
+    IDS_STRING_UPPERBOUND_GRAPHWIDTH 
+                            "Kurvenstärke muss kleiner als 11 sein.\n"
+    IDS_STRING_LOWERBOUND_GRAPHWIDTH "Kurvenstärke muss grösser als 0 sein.\n"
+    IDS_STRING_PERIOD_FOUND "Periode der Länge %d wurde ab der  %d. Position in der Datei gefunden."
+    IDS_STRING_NO_PERIOD_FOUND "keine Periodizität gefunden"
+    IDS_STRING_PERIOD_ANALYSIS_D "Periodenalyse %d %%."
+    IDS_STRING_PERIOD_ANALYSIS "Periodizitätsanalyse"
+    IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
+                            "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ANALYSE_PERIOD       "Perioden Analyse"
-//+    IDS_STRING36909         
-	IDS_STRING_PERIOD_ANALYSIS_OF		"Perioden Analyse von %s:\n"
-//+    IDS_STRING36910         
-	IDS_STRING_PERIOD_ANALYSIS_HEADER	"Nr\tOffset\tLänge\tPeriodenzahl\tPerioden Inhalt\n"
+    IDS_STRING_PERIOD_ANALYSIS_OF "Perioden Analyse von %s:\n"
+    IDS_STRING_PERIOD_ANALYSIS_HEADER 
+                            "Nr\tOffset\tLänge\tPeriodenzahl\tPerioden Inhalt\n"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-//+    IDS_STRING37000         
-	IDS_STRING_ERR_TEXT_OPTIONS		"Das in ""Optionen""->""Textoptionen einzustellende Alphabet muß mindestens 1 Zeichen enthalten!"
-//+    IDS_STRING37001         
-	IDS_STRING_SIGN				"Zeichen"
-//+    IDS_STRING37002         
-//	IDS_STRING_QUANTITY			"Anzahl"
-//+    IDS_STRING37003         
-//	IDS_STRING_ENCRYPTION_OF_USING_KEY	"%s Verschlüsselung von <%s>, Schlüssel <%s>"
-//+    IDS_STRING37004         
-//	IDS_STRING_DECRYPTION_OF_USING_KEY	"%s Entschlüsselung von <%s>, Schlüssel <%s>"
-//+    IDS_STRING37005         
-	IDS_STRING_HOMOPHONE			"Homophone"
-//+    IDS_STRING37006         
-	IDS_STRING_LIST_OF_HOMOPHONES		"Liste der Homophone"
-//+    IDS_STRING_NGRAM_LIST1  
-	IDS_STRING_HOMOPHONE_NR			"Nr."
+    IDS_STRING_NGRAM_LIST2  "Zeichenfolge"
+    IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
+    IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma SECUDE benötigen Sie keine weiteren Parameter. Weitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
+    IDS_SEEK_NEXT_PRIME     "Suche nächst größere Primzahl!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 	"Generiert zwei Primzahlen"
-    ID_HOMOPHONE_ASC        				"Homophone Verschlüsselung"
+    AFX_IDS_OPENFILE        "Open"
+    AFX_IDS_SAVEFILE        "Save As"
+    AFX_IDS_ALLFILTER       "All Files (*.*)"
+    AFX_IDS_UNTITLED        "Untitled"
+    AFX_IDS_UNNAMED_FILE    "an unnamed file"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_ANALYSE_NGRAM        				"Berechnet N-Gramm Analyse"
+    AFX_IDS_HIDE            "&Hide"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_NGRAM_LIST2  				"Zeichenfolge"
-    IDS_STRING_NGRAM_LIST3  				"Häufigkeit in %"
-    IDS_STRING_RAND_SECUDE  				"Für den Pseudo-Zufallsgenerator der Firma SECUDE benötigen Sie keine weiteren Parameter. Weitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
-    IDS_SEEK_NEXT_PRIME     				"Suche nächst größere Primzahl!"
+    AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
+    AFX_IDS_RESOURCE_EXCEPTION "A required resource was unavailable."
+    AFX_IDS_MEMORY_EXCEPTION "Out of memory."
+    AFX_IDS_USER_EXCEPTION  "An unknown error has occurred."
 END
 
-#endif // German (GER) resources
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_INVALID_FILENAME "Invalid filename."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Failed to save document."
+    AFX_IDP_ASK_TO_SAVE     "Save changes to %1?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Failed to create empty document."
+    AFX_IDP_FILE_TOO_LARGE  "The file is too large to open."
+    AFX_IDP_FAILED_TO_START_PRINT "Could not start print job."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Failed to launch help."
+    AFX_IDP_INTERNAL_FAILURE "Internal application error."
+    AFX_IDP_COMMAND_FAILURE "Command failed."
+    AFX_IDP_FAILED_MEMORY_ALLOC "Insufficient memory to perform operation."
+    AFX_IDP_UNREG_DONE      "System registry entries have been removed and the INI file (if any) was deleted."
+    AFX_IDP_UNREG_FAILURE   "Not all of the system registry entries (or INI file) were removed."
+    AFX_IDP_DLL_LOAD_FAILED "This program requires the file %s, which was not found on this system."
+    AFX_IDP_DLL_BAD_VERSION "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_NOT_DOCOBJECT   "The file is not supported by a Document Object server."
+    AFX_IDP_FAILED_TO_NOTIFY 
+                            "%1\nUnable to register document.\nThe document may already be open."
+    AFX_IDP_GET_NOT_SUPPORTED "Unable to read write-only property."
+    AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
+    AFX_IDP_FAILED_DISK_FULL "Destination disk drive is full."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Unable to read from %1, it is opened by someone else."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Unable to write to %1, it is read-only or opened by someone else."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "An unexpected error occurred while reading %1."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "An unexpected error occurred while writing %1."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_PARSE_INT       "Please enter an integer."
+    AFX_IDP_PARSE_REAL      "Please enter a number."
+    AFX_IDP_PARSE_INT_RANGE "Please enter an integer between %1 and %2."
+    AFX_IDP_PARSE_REAL_RANGE "Please enter a number between %1 and %2."
+    AFX_IDP_PARSE_STRING_SIZE "Please enter no more than %1 characters."
+    AFX_IDP_PARSE_RADIO_BUTTON "Please select a button."
+    AFX_IDP_PARSE_BYTE      "Please enter an integer between 0 and 255."
+    AFX_IDP_PARSE_UINT      "Please enter a positive integer."
+    AFX_IDP_PARSE_DATETIME  "Please enter a date and/or time."
+    AFX_IDP_PARSE_CURRENCY  "Please enter a currency."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PASTELINKEDTYPE "Linked %s"
+    AFX_IDS_UNKNOWNTYPE     "Unknown Type"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_FILE_NONE       "No error occurred."
+    AFX_IDP_FILE_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_FILE_NOT_FOUND  "%1 was not found."
+    AFX_IDP_FILE_BAD_PATH   "%1 contains an invalid path."
+    AFX_IDP_FILE_TOO_MANY_OPEN 
+                            "%1 could not be opened because there are too many open files."
+    AFX_IDP_FILE_ACCESS_DENIED "Access to %1 was denied."
+    AFX_IDP_FILE_INVALID_FILE "An invalid file handle was associated with %1."
+    AFX_IDP_FILE_REMOVE_CURRENT 
+                            "%1 could not be removed because it is the current directory."
+    AFX_IDP_FILE_DIR_FULL   "%1 could not be created because the directory is full."
+    AFX_IDP_FILE_BAD_SEEK   "Seek failed on %1"
+    AFX_IDP_FILE_HARD_IO    "A hardware I/O error was reported while accessing %1."
+    AFX_IDP_FILE_SHARING    "A sharing violation occurred while accessing %1."
+    AFX_IDP_FILE_LOCKING    "A locking violation occurred while accessing %1."
+    AFX_IDP_FILE_DISKFULL   "Disk full while accessing %1."
+    AFX_IDP_FILE_EOF        "An attempt was made to access %1 past its end."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_ARCH_NONE       "No error occurred."
+    AFX_IDP_ARCH_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_ARCH_READONLY   "An attempt was made to write to the reading %1."
+    AFX_IDP_ARCH_ENDOFFILE  "An attempt was made to access %1 past its end."
+    AFX_IDP_ARCH_WRITEONLY  "An attempt was made to read from the writing %1."
+    AFX_IDP_ARCH_BADINDEX   "%1 has a bad format."
+    AFX_IDP_ARCH_BADCLASS   "%1 contained an unexpected object."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 contains an incorrect schema."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_FAILED_MAPI_LOAD "Unable to load mail system support."
+    AFX_IDP_INVALID_MAPI_DLL "Mail system DLL is invalid."
+    AFX_IDP_FAILED_MAPI_SEND "Send Mail failed to send message."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PRINTONPORT     "on %1"
+    AFX_IDS_ONEPAGE         "&One Page"
+    AFX_IDS_TWOPAGE         "&Two Page"
+    AFX_IDS_PRINTPAGENUM    "Page %u"
+    AFX_IDS_PREVIEWPAGEDESC "Page %u\nPages %u-%u\n"
+    AFX_IDS_PRINTDEFAULTEXT "prn"
+    AFX_IDS_PRINTDEFAULT    "Output.prn"
+    AFX_IDS_PRINTFILTER     "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
+    AFX_IDS_PRINTCAPTION    "Print to File"
+    AFX_IDS_PRINTTOFILE     "to %1"
+END
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "afxres.rc"
-#include "afxprint.rc"
+
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
