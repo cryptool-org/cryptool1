@@ -697,8 +697,8 @@ Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{Kapitel 3.9 Multi
 
 
 Die folgenden drei Beispiele\footnote{
-In \hyperlink{AppArith1}{Anhang D} finden Sie den Quellcode zur Berechnung der Tabellen mit Mathematica
-oder Pari--GP.
+In \hyperlink{AppArith1}{Anhang D} finden Sie den Quellcode zur Berechnung der Tabellen mit Mathematica\index{Mathematica}
+oder Pari-GP.\index{Pari-GP}
 } veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht mehr 
 die vollst"andigen Multiplikationstabellen angegeben, sondern nur die Zeilen f"ur die Faktoren $5$ und $6$).
 
@@ -869,9 +869,9 @@ $$
 \subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} 
 \addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} 
 \hypertarget{hohpot}{} \index{Potenzen}
-Bei RSA--Ver- und Entschl"usselungen\footnote{
-Siehe \hyperlink{RSABeweis}{Kapitel 3.10 Beweis des RSA--Verfahrens mit Euler--Fermat} und 
-\hyperlink{Kapitel_3_12}{Kapitel 3.13 Das RSA--Verfahren mit konkreten Zahlen}.
+Bei RSA-Ver- und Entschl"usselungen\footnote{
+Siehe \hyperlink{RSABeweis}{Kapitel 3.10 Beweis des RSA-Verfahrens mit Euler-Fermat} und 
+\hyperlink{Kapitel_3_12}{Kapitel 3.13 Das RSA-Verfahren mit konkreten Zahlen}.
 } m"ussen hohe Potenzen modulo $m$ berechnet werden. Schon die Berechnung $(100^5)
 {\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
@@ -907,7 +907,7 @@ die Quadrate (mod $103$) vorab berechnet werden k"onnen \\
 \end{eqnarray*}
 gilt\footnote{
 In \hyperlink{AppArith2}{Appendix D} finden Sie den Besipielcode zum Nachrechnen der Square-and-Multiply Methode
-mit Mathematica und Pari--GP.
+mit Mathematica und Pari-GP.
 }: \label{SrcArith2}
 \begin{eqnarray}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
@@ -1102,7 +1102,7 @@ Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler}
 \index{Eulersche Phi-Funktion}
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{}
 Die Euler-Funktion\footnote{
-Wird oft auch als Eulersche Phi--Funktion $\Phi(n)$ geschrieben.
+Wird oft auch als Eulersche Phi-Funktion $\Phi(n)$ geschrieben.
 } $J(n)$ gibt die Anzahl der Elemente von $\mathbb{Z}_n^*$ an.
 \end{definition}
 
@@ -1290,7 +1290,7 @@ gleiche Ordnung haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 {\bf Beispiel 1:}\\
 Die folgende Tabelle\footnote{
 In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur bestimmung der Tabelle mit Mathematica und
-Pari--GP.
+Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}11$ f"ur die Exponenten $i = 1, 2, \cdots, 10$ und f"ur 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich f"ur jedes a daraus ergebenden Wert $ord_{11}(a)$:
 %\newpage
@@ -1348,7 +1348,7 @@ modulo $45$ und modulo $46$.
 
 {\bf Beispiel 2:} \\
 Die folgende Tabelle\footnote{
-In \hyperlink{AppArith3b}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari--GP.
+In \hyperlink{AppArith3b}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}45$
 f"ur die Exponenten $i = 1, 2, \cdots, 12$ und f"ur die Basen $a = 1, 2, \cdots, 12$
 sowie den sich f"ur jedes $a$ daraus ergebenden Wert $ord_{45}(a)$.
@@ -1411,7 +1411,7 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \newpage
 {\bf Beispiel 4:} \\
 Die folgende Tabelle\footnote{
-In \hyperlink{AppArith3c}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari--GP.
+In \hyperlink{AppArith3c}{Anhang D} Finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
 } beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 %\newpage                                                                           
@@ -1710,7 +1710,7 @@ $$
 {\bf 2. Bemerkung:} \\
 Beim Signieren werden die gleichen Operationen durchgef"uhrt, aber zuerst mit
 dem geheimen Schl"ussel $d$, und dann mit dem "offentlichen Schl"ussel $e$. Das
-RSA--Verfahren ist auch f"ur die Erstellung von digitalen
+RSA-Verfahren ist auch f"ur die Erstellung von digitalen
 Signaturen\index{Signatur!digitale}\index{Signatur!RSA}\index{RSA-Signatur}
 einsetzbar, weil gilt:
 $$
@@ -1796,8 +1796,8 @@ Bis jetzt ist es eine unbewiesene Annahme, dass f"ur das Faktorisierungsproblem 
 
 Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $N$ bestimmt.
 
-1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve--Algorithmus (QS) 
-\index{Quadratic Sieve--Algorithmus (QS)} nach knapp 8 Monaten der 1977 ver"offentlichte 129-stellige RSA-Modul 
+1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve-Algorithmus (QS) 
+\index{Quadratic Sieve-Algorithmus (QS)} nach knapp 8 Monaten der 1977 ver"offentlichte 129-stellige RSA-Modul 
 faktorisiert.
 
 \noindent
@@ -1917,7 +1917,7 @@ Verweise:
 Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
 mit unterschiedlichen Methoden findet sich auf der Webseite 
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}. Der aktuelle Rekord
-(Stand Juni 2000) mit der GNFS--Methode (General Number Field Sieve) \index{General Number Field Sieve (GNFS)}
+(Stand Juni 2000) mit der GNFS-Methode (General Number Field Sieve) \index{General Number Field Sieve (GNFS)}
 liegt in der Zerlegung einer 158-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86 Dezimalstellen).
 
 Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn, fand deutlich 
@@ -2242,8 +2242,8 @@ die Blockl"ange 2 betr"agt.\\
 
 \label{SrcArith4a}
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{
-In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel--Quelltext zur RSA-Verschl"usselung mit
-Mathematica und Pari--GP. \\
+In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel-Quelltext zur RSA-Verschl"usselung mit
+Mathematica und Pari-GP. \\
 Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen. 
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -2285,7 +2285,7 @@ Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam f"ur beide sind die Sc
 \vskip +10pt
 {\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\ \label{SrcArith4b}
 {\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{
-In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari--GP. \\
+In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari-GP. \\
 Mit CrypTool v1.3 k"onnen Sie dies per ``Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen.
 }. \\
 {\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. mu"s teilerfremd
@@ -2325,7 +2325,7 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 
 \label{SrcArith4c}
 Verschl"usselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{
-In \hyperlink{AppArith4c}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari--GP.
+In \hyperlink{AppArith4c}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }:
 
 {\tt
@@ -2379,7 +2379,7 @@ folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale
 
 \label{SrcArith4d}
 Verschl"usselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{
-In \hyperlink{AppArith4d}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari--GP.
+In \hyperlink{AppArith4d}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -2403,7 +2403,7 @@ da die ASCII-Bl"ocke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 
 \label{SrcArith4e}
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$ \footnote{
-In \hyperlink{AppArith4e}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari--GP.
+In \hyperlink{AppArith4e}{Anhang D} finden Sie den Quelltext zur RSA-Exponentiation mit Mathematica und Pari-GP.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
 
@@ -2550,7 +2550,7 @@ Gegeben ist jeweils der Ciphertext und der "offentliche Schl"ussel $(e,n)$:
 \begin{itemize}
 \item \index{Angriff!Known-Plaintext} Known-Plaintext: finde den geheimen Schl"ussel $d$ unter Benutzung der
 zus"atzlich bekannten Ursprungsnachricht.
-\item \index{Angriff!Ciphertext--only} Ciphertext--only: finde $d$ und den Cleartext.
+\item \index{Angriff!Ciphertext-only} Ciphertext-only: finde $d$ und den Cleartext.
 \item \index{Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
 \end{itemize}
 \newpage
@@ -2688,7 +2688,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
    \item BC, \\
          Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
-   \item Pari--GP, \\
+   \item Pari-GP, \\
          Hervorragender, schneller Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.parigp-home.de}
               {\texttt{http://www.parigp-home.de}} und 
@@ -2710,7 +2710,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
    \item BSI, \index{BSI}\\ 
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
-   \item Bernsteins RSA--Aufsatz\\
+   \item Bernsteins RSA-Aufsatz\\
          \href{http://cr.yp.to/papers/nfscircuit.ps}{\texttt{http://cr.yp.to/papers/nfscircuit.ps}}
 \end{enumerate}
 
@@ -2857,11 +2857,11 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \input{figures/line-de.latex}
 
 \newpage
-\subsection*{Anhang D: Beispiele mit Mathematica und Pari--GP} \hypertarget{AppendixD}{}
-\addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari--GP}
+\subsection*{Anhang D: Beispiele mit Mathematica und Pari-GP} \hypertarget{AppendixD}{}
+\addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari-GP}
 
 In diesem Anhang finden sie den Quellcode der berechneten Tabellen und Beispiele mit Mathematica 
-und dem freien Programm Pari--GP.
+und dem freien Programm Pari-GP.
 
 
 \subsubsection*{Multiplikationstabellen modulo $m$} \hypertarget{AppArith1}{}
@@ -2902,8 +2902,8 @@ entsprechenden Zahlenwert ({\tt m=13} bzw. {\tt m=12}) ersetzen.
 \subsubsection*{Schnelles Berechnen hoher Potenzen} \hypertarget{AppArith2}{}
 
 Das schnelle Potenzieren modulo $m$ geh"ort zu den Grundfunktionen von Mathematica und 
-Pari--GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der
-Square--and--Multiply--Methode nachvollziehen. In Mathematica bestimmen sie Sie die Einzelexponentiation des Beispiels auf 
+Pari-GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der
+Square-and-Multiply-Methode nachvollziehen. In Mathematica bestimmen sie Sie die Einzelexponentiation des Beispiels auf 
 Seite \pageref{SrcArith2} mit
 \begin{verbatim}
 Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.
@@ -2986,7 +2986,7 @@ matrix(23,24, x,y,
 \subsubsection*{RSA Beispiele}
 
 In diesem Abschnitt sind die Quelltexte f"ur die RSA-Beispiele im Abschnitt
-\hyperlink{RSAKonkret}{Das RSA-Verfahren mit konkreten Zahlen} in Mathematica und Pari--GP angegeben.   
+\hyperlink{RSAKonkret}{Das RSA-Verfahren mit konkreten Zahlen} in Mathematica und Pari-GP angegeben.   
 
 
 \vskip +10 pt \hypertarget{AppArith4a}
@@ -3013,7 +3013,7 @@ In Pari-GP lautet die Syntax: \\
                  Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537], 31)
 }
 
-{\bf Bemerkung zur Verwendung von {\tt Mod} in Pari--GP:} \\
+{\bf Bemerkung zur Verwendung von {\tt Mod} in Pari-GP:} \\
 {\tt Mod(82,256027)\^{}65537} ist wesentlich schneller als \\
 --  {\tt Mod(82\^{}65537, 256027)} oder \\
 --  {\tt (82\^{}65537) \% 256027}.

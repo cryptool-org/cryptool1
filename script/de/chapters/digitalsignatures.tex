@@ -46,7 +46,7 @@ F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
 
 Bisher konnte die Existenz von perfekt sicheren kryptographischen Hashfunktionen nicht
 formal bewiesen werden. Es gibt jedoch einige gute Kandidaten, die in der Praxis bislang keine
-Schw"achen gezeigt haben (zum Beispiel \index{SHA--1} SHA-­1 oder \index{RIPEMD--160} RIPEMD­-160).
+Schw"achen gezeigt haben (zum Beispiel \index{SHA-1} SHA-­1 oder \index{RIPEMD-160} RIPEMD­-160).
 
 Das Verfahren mit Hashfunktion sieht folgenderma"sen aus:\\
 Anstatt das eigentliche Dokument zu signieren, berechnet der Absender nun zuerst den Hashwert
@@ -149,7 +149,7 @@ $x < q$ (160bit Zahl)
 $m$ & zu signierende Nachricht\\
 $k$ & zuf"allig gew"ahlte Primzahl, kleiner als $q$\\
 $r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
-$s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
+$s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
 
 \emph{Bemerkung:}
@@ -157,13 +157,13 @@ $s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
 \item $(s,r)$ ist die Signatur.
 \item Die Sicherheit der Signatur h"angt nicht nur von der Mathematik ab,
 sondern auch von der Verf"ugbarkeit einer guten Zufallsquelle f"ur $k$.
-\item SHA--1 \index{SHA--1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
+\item SHA-1 \index{SHA-1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
 
 \end{itemize}
 \paragraph{Verifikation}\strut\\
 \begin{tabular}{l@{ }l}
 $w$ & $= s^{-1}  \mbox{ mod } q$\\
-$u_1$ & $= (\mbox{SHA--1}(m)w) \mbox{ mod } q$\\
+$u_1$ & $= (\mbox{SHA-1}(m)w) \mbox{ mod } q$\\
 $u_2$ & $= (rw)  \mbox{ mod } q$\\
 $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
@@ -184,7 +184,7 @@ sind, nach RSA bzw. ElGamal zu verschl"usseln.
 
 
 % ---------------------------------------------------------------------------------------------------------------
-\subsection{Public Key--Zertifizierung}
+\subsection{Public Key-Zertifizierung}
 \index{Zertifizierung!Public-Key}
 Ziel der Public Key-­Zertifizierung ist es, die Bindung eines "offentlichen Schl"ussel
 an einen Benutzers zu garantieren und nach au"sen nachvollziehbar zu machen. In F"allen, in denen nicht

@@ -50,7 +50,7 @@ points.
 
 So far, no formal proof has been found that perfectly secure cryptographic hash
 functions exist. However, there are several good candidates that have not yet
-shown any weak points in practice (e.g. \index{SHA--1} SHA--1 or \index{RIPEMD--160} RIPEMD-­160).
+shown any weak points in practice (e.g. \index{SHA-1} SHA-1 or \index{RIPEMD-160} RIPEMD-­160).
 
 The hash function procedure is as follows:\\ Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
@@ -140,7 +140,7 @@ $x < q$ (a 160-bit number)
 $m$ & the message to be signed\\
 $k$ & choose at random, less than $q$\\
 $r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
-$s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
+$s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
 
 \emph{Remark:}
@@ -148,12 +148,12 @@ $s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
 \item $(s,r)$ is the signature.
 \item The security of the signature depends not only on the mathematical
   properties, but also on using a good random source  for $k$.
-\item SHA--1 \index{SHA--1} is a 160-bit hash function specified in FIPS186.
+\item SHA-1 \index{SHA-1} is a 160-bit hash function specified in FIPS186.
 \end{itemize}
 \paragraph{Verifying}\strut\\
 \begin{tabular}{l@{ }l}
 $w$ & $= s^{-1}  \mbox{ mod } q$\\
-$u_1$ & $= (\mbox{SHA--1}(m)w) \mbox{ mod } q$\\
+$u_1$ & $= (\mbox{SHA-1}(m)w) \mbox{ mod } q$\\
 $u_2$ & $= (rw)  \mbox{ mod } q$\\
 $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
