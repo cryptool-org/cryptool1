@@ -2595,7 +2595,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "P&ermutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -3068,7 +3068,7 @@ BEGIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-            MENUITEM "P&ermutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -8031,7 +8031,7 @@ END
 
 IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hash-Demo"
+CAPTION "Hash demonstration"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
