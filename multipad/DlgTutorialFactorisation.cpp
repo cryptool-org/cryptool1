@@ -398,29 +398,29 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			if ( zeit_condtruct2.day >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr2,pc_str1, zeit_condtruct2.day,zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
+				sprintf(timeStr2,pc_str, zeit_condtruct2.day,zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
 			}
 			else if (zeit_condtruct2.hour >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_HRS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr2,pc_str1, zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
+				sprintf(timeStr2,pc_str, zeit_condtruct2.hour, zeit_condtruct2.min,zeit_condtruct2.sec);
 			}
 			else if (zeit_condtruct2.min >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_MIN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr2,pc_str1, zeit_condtruct2.min,zeit_condtruct2.sec);
+				sprintf(timeStr2,pc_str, zeit_condtruct2.min,zeit_condtruct2.sec);
 			}
 			else
 			{	
 				if (zeit_condtruct2.msec<10) sprintf(msec2, "00%i",zeit_condtruct2.msec);
 				else if (zeit_condtruct2.msec<100) sprintf(msec2, "0%i",zeit_condtruct2.msec);
 				else sprintf(msec2, "%i",zeit_condtruct2.msec);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str1,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr2,pc_str1, zeit_condtruct2.sec, msec2);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(timeStr2,pc_str, zeit_condtruct2.sec, msec2);
 			}
 			
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str1,STR_LAENGE_STRING_TABLE);		
-			sprintf( line2, pc_str1, timeStr2 );
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
+			sprintf( line2, pc_str, timeStr2 );
 			m_benoetigte_zeit_pro_factorisation=timeStr2;
 						
 			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr

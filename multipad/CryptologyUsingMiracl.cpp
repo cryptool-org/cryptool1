@@ -2153,8 +2153,7 @@ BOOL TutorialFactorisation::Lenstra()
 
 int TutorialFactorisation::initv()
 {
-    /* debug */
-	double memory_used = 0.0;
+
 	/* initialize */
     Big T;
     double dp;
@@ -2185,7 +2184,6 @@ int TutorialFactorisation::initv()
 			return -1;
 		}
 	}
-    if (digits>20) mmm=(digits/4096)*digits*digits*digits;
 
     dp=(double)2*(mmm+100);          /* number of primes to generate */
 
@@ -2199,7 +2197,6 @@ int TutorialFactorisation::initv()
     {
         return QS_ALLOCATING_ERROR;
     }	    
-	memory_used += double((mmm+1)*sizeof(int));
 
     k=knuth(mmm,epr,NN,DD);
 
@@ -2255,13 +2252,11 @@ int TutorialFactorisation::initv()
     {
         return QS_ALLOCATING_ERROR;
     }	    
-	memory_used += double(6*(mmm+1)*sizeof(int)+(3*mlf+1)*sizeof(int) + SSIZE+1);
 
     xx=new Big[mmm+1];
     yy=new Big[mmm+1];
     zz=new Big[mlf+1];
     ww=new Big[mlf+1];
-	memory_used += double(2*(mmm+mlf+4)*sizeof(Big));
 
 	if ( xx == NULL || yy == NULL || zz == NULL || ww == NULL )
 	{
@@ -2274,10 +2269,8 @@ int TutorialFactorisation::initv()
     {
         return QS_ALLOCATING_ERROR;
     }
-	memory_used += double((mmm+mlf+2)*sizeof(int*));
 
     pak=1+mmm/(8*sizeof(int));
-	memory_used += double((mmm+mlf+2)*sizeof(int)*pak);
     for (i=0;i<=mmm;i++)
     { 
 		THREAD_CHECK;
@@ -2285,10 +2278,6 @@ int TutorialFactorisation::initv()
         yy[i]=0;
         bb[i]=(-1);
         EE[i]=(unsigned int *)mr_alloc(pak,sizeof(int)); //Roger
-		if ( EE[i] == NULL )
-		{
-			return QS_ALLOCATING_ERROR;
-		}
     }
     for (i=0;i<=mlf;i++)
     {
@@ -2296,12 +2285,12 @@ int TutorialFactorisation::initv()
         zz[i]=0;
         ww[i]=0;
         G[i]=(unsigned int *)mr_alloc(pak,sizeof(int)); //Roger
-		if ( G[i] == NULL )
-		{
-			return QS_ALLOCATING_ERROR;
-		}
     }
-    return 1;
+	for (i=0; i<=mmm; i++) if ( EE[i] == NULL )
+		return QS_ALLOCATING_ERROR;
+	for (i=0; i<=mlf; i++) if ( G[i] == NULL )
+		return QS_ALLOCATING_ERROR;
+	return 1;
 }
 
 int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
@@ -2580,7 +2569,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
 	if ( result_initv == QS_ALLOCATING_ERROR || result_initv == QS_INT_OVERFLOW )
 	{
-               factorized = false;
+           factorized = false;
 	       THREAD_END;
 	       return false;
 	}
