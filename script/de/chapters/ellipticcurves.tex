@@ -91,7 +91,7 @@ absehbar, ob es der ASC gelingen wird, einen de-facto-Standard durchzusetzen.
 
 Obwohl aktuell kein Handlungsbedarf besteht\footnote{%
 Aktuelle Informationen zur Sicherheit des RSA-Verfahrens finden Sie in Kapitel \ref{SecurityRSA}}, laufende RSA-Anwendungen umzustellen, sollte man bei der
-Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptschen Kurven basieren.
+Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor handelt, die noch
 nach 2005\footnote{%
 BSI Empfehlung} operativ sein sollen.
@@ -148,7 +148,7 @@ Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren.
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Kryptographische Verfahren auf Basis von Elliptischen Kurven beruhen auf der
-Schwierigkeit eines als Elliptische Kurven Diskreter Logrithmus bekannten Problems.
+Schwierigkeit eines als Elliptische Kurven Diskreter Logarithmus bekannten Problems.
 Die Faktorisierung von ganzen Zahlen macht sich die Tatsache zunutze, dass man f"ur eine nat"urliche,
 aus mehreren Primzahlen zusammengesetzte Zahl $n$ sehr viele verschiedene Elliptische
 Kurven erzeugen kann; diese Kurven sind dann allerdings f"ur zusammengesetzte $n$ keine
@@ -388,7 +388,7 @@ von "uber $200$ Bit f"ur den Parameter $p$ empfohlen. Hier wird deutlich, warum 
 interessant f"ur die Kryptographie sind. Denn die Parameter bestimmen auch den
 Signatur-/Verschl"usselungsaufwand, wenn mit Elliptischen Kurven
 Kryptographie betrieben wird. Die Dauer einer Schl"usselpaar-Erzeugung ist ebenfalls von den Parametern abh"angig. Daher sind kleine Werte (wenige Bits) w"unschenswert (m"oglichst schnelle Laufzeiten der Verfahren);
-allerdings mu"s die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
+allerdings muss die geforderte Sicherheit dabei eingehalten werden. Mit einer L"ange von zum Beispiel $200$ Bit
 f"ur $p$ ist eine {\em gute} Elliptische Kurve genau so sicher wie ein \index{RSA!Modul} RSA-Modul von "uber $1024$ Bit L"ange
 (zumindest nach dem heutigen Forschungstand). Der Grund daf"ur ist, dass die schnellsten Algorithmen zum
 L"osen des {\em Elliptische Kurven Diskreter Logarithmus} Problems eine exponentielle Laufzeit haben --- im
@@ -451,7 +451,7 @@ einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert
 (siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven faktorisierte Zahl\index{Faktorisierungsrekorde} ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}.
 Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
 Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
-Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, dass es -- falls $n$ 
+Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben muss. Dies h"angt damit zusammen, dass es -- falls $n$ 
 eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
 modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
@@ -497,7 +497,13 @@ Um Speicherplatz zu sparen, wird zuweilen nur die erste Komponente sowie ein wei
 
 Im allgemeinen Fall $GF(p^n)$ (aber auch f"ur $n=1$) werden oft sogenannte affine oder projektive Koordinaten eingesetzt, was je nach Anwendung zu Effizienzgewinnen f"uhrt.
 
-Eine vollst"andige Beschreibung aller Implementierungen unter Abw"agen ihrer Vor- und Nachteile w"urde an dieser Stelle zu weit f"uhren. Abschlie"send kann festgehalten werden, dass die Vielfalt m"oglicher Implementierungen bei Elliptischen Kurven z.B. im Vergleich zu RSA-Implementierungen sehr gro"s ist. Aus diesem Grund gibt es Bestrebungen, sich auf wenige Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener Kurven zu beschr"anken (ASC-Ansatz).
+Eine vollst"andige Beschreibung aller Implementierungen unter Abw"agen ihrer
+Vor- und Nachteile w"urde an dieser Stelle zu weit f"uhren. Abschlie"send kann
+festgehalten werden, dass die Vielfalt m"oglicher Implementierungen bei
+Elliptischen Kurven z.B. im Vergleich zu RSA-Implementie"-rungen sehr gro"s ist.
+Aus diesem Grund gibt es Bestrebungen, sich auf wenige
+Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener
+Kurven zu beschr"anken (ASC-Ansatz).
 
 Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Dies w"are aber eine Voraussetzung daf"ur, dass sich ECC dauerhaft als Alternative zu RSA etablieren wird.
 
