@@ -40,25 +40,41 @@ CAestoolApp theApp;
 
 /////////////////////////////////////////////////////////////////////////////
 // CAestoolApp Initialisierung
-char hexdigit2bin(const char *p)
+static bool hex2bin(const char *hex, unsigned char *bin,int &binlen)
 {
-	char c = *p;
-	if (!p)
-		c = '0';
-	if (c >= 'a' && c <= 'f') 
-		c -= ('a' - 10);
-	else if (c >= 'A' && c <= 'F') 
-		c -= ('A' - 10);
-	else 
-		c -= '0';
-	if (c < 0 || c > 10)
-		c = 0;
-	return c;
+	char hexbyte[] = "00";
+	unsigned byte;
+	int n;
+	binlen = 0;
+	while (*hex) {
+		hexbyte[0] = *hex++;
+		hexbyte[1] = *hex ? *hex++ : '0'; // treat string ending in the middle of a byte by appending '0'
+		if (0 == sscanf(hexbyte,"%x%n",&byte,&n) || n != 2)
+			return 0;
+		bin[binlen++] = byte;
+	}
+	return 1;
+
 }
 
-char hexbyte2bin(const char *p)
+static CString umlauteweg(CString cs)
 {
-	return (hexdigit2bin(p) << 4) | hexdigit2bin(p+1);
+	LPCTSTR s = (LPCTSTR)cs;
+	CString res;
+	while (*s) {
+		switch (*s) {
+		case 'ä': res += "ae"; break;
+		case 'ö': res += "oe"; break;
+		case 'ü': res += "ue"; break;
+		case 'Ä': res += "Ae"; break;
+		case 'Ö': res += "Oe"; break;
+		case 'Ü': res += "Ue"; break;
+		case 'ß': res += "ss"; break;
+		default: res += *s;
+		}
+		s++;
+	}
+	return res;
 }
 
 BOOL CAestoolApp::InitInstance()
@@ -97,23 +113,23 @@ BOOL CAestoolApp::InitInstance()
 		}			
 		if (id) {
 			msg.Format(id);
-			fprintf(stderr,"%s\n",(LPCTSTR)msg);
+			fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
 			exit(1);
 		}
 		CString errormsg;
 		unsigned char key[256/8];
 		int keylen = 0;
 		memset(key,0,sizeof(key));
-		const char *p = (const char *)m_CMD_inKey;		
-		while (*p) {
-			key[keylen++] = hexbyte2bin(p);
-			p++; if (*p) p++;
+		if (!hex2bin(m_CMD_inKey,key,keylen)) {
+			msg.Format(IDS_STRING_INVALID_KEY);
+			fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
+			exit(1);
 		}
 		// FIXME key, keylen
 		if (srcinfo.isEncrypted()) {
 			if (!AesToolDecrypt(key,keylen,srcinfo,m_CMD_outName,errormsg)) {
 				msg.Format(IDS_STRING_DECERROR,errormsg);
-				fprintf(stderr,"%s\n",msg);
+				fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
 				exit(1);
 			}
 		} else { // src not encrypted -> encrypt it
@@ -123,13 +139,15 @@ BOOL CAestoolApp::InitInstance()
 			if (!AesToolEncrypt(key,keylen,srcinfo,m_CMD_outName,
 					(exe ? EXEName : 0),errormsg)) {
 				msg.Format(IDS_STRING_DECERROR,errormsg);
-				fprintf(stderr,"%s\n",msg);
+				fprintf(stderr,"%s\n",(LPCTSTR)umlauteweg(msg));
 				exit(1);
 			}
 		}
 		exit(0);
 	} else {
 		// gui mode
+		FreeConsole(); // close extra console window (does nothing if started from dos box)
+
 		CAestoolDlg dlg(m_CMD_inKey,m_CMD_inName);
 		m_pMainWnd = &dlg;
 		int nResponse = dlg.DoModal();

@@ -25,6 +25,7 @@ public:
 	CAestoolApp();
 	int findStr(CString *l); // used in ScanCMDLine
 	void ScanCMDLine( char * cmd );
+	void detachConsole();
 
 	CString m_CMD_inKey;
 	CString m_CMD_outName;

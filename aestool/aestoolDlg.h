@@ -33,10 +33,6 @@ public:
 	CString EXEName;
 	CAestoolDlg(CString key,CString in,CWnd* pParent = NULL);
 
-	int m_consoleDetached;
-	int consoleDetached();
-	void detachConsole();
-
 // Dialogfelddaten
 	//{{AFX_DATA(CAestoolDlg)
 	enum { IDD = IDD_AESTOOL_DIALOG };

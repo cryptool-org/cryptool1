@@ -127,8 +127,8 @@ BOOL CAestoolDlg::OnInitDialog()
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
-	m_consoleDetached = (INVALID_HANDLE_VALUE == GetStdHandle(STD_OUTPUT_HANDLE) ||
-						 _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),0) == -1);
+	//m_consoleDetached = (INVALID_HANDLE_VALUE == GetStdHandle(STD_OUTPUT_HANDLE) ||
+	//					 _open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE),0) == -1);
 
 	CMenu* pSysMenu = GetSystemMenu(FALSE);
 	if (pSysMenu != NULL)
@@ -160,8 +160,6 @@ BOOL CAestoolDlg::OnInitDialog()
 	m_CEditSrc.SetWindowText(m_CMD_inName);
 	OnChangeSrc();
 
-
-	detachConsole();
 	if (m_SrcInfo.isEncrypted() && m_SrcInfo.isEXE()) { // verschlüsseltes selbstextrahierendes Archiv
 		UpdateData(FALSE);
 		CSplash dia;
@@ -286,32 +284,9 @@ void CAestoolDlg::OnOK()
 	}
 	CString msg;
 	msg.Format(id,errormsg);
-	if(consoleDetached())
-		AfxMessageBox(msg,MB_OK);
-	else if (!success) 
-		fprintf(stderr,"%s",(LPCTSTR)msg);
+	AfxMessageBox(msg,MB_OK);
 }
 
-
-CString umlauteweg(CString cs)
-{
-	LPCTSTR s = (LPCTSTR)cs;
-	CString res;
-	while (*s) {
-		switch (*s) {
-		case 'ä': res += "ae"; break;
-		case 'ö': res += "oe"; break;
-		case 'ü': res += "ue"; break;
-		case 'Ä': res += "Ae"; break;
-		case 'Ö': res += "Oe"; break;
-		case 'Ü': res += "Ue"; break;
-		case 'ß': res += "ss"; break;
-		default: res += *s;
-		}
-		s++;
-	}
-	return res;
-}
 
 void CAestoolDlg::OnRadioFormat() 
 {
@@ -377,19 +352,6 @@ void CAestoolDlg::OnRadioPWHide()
 	m_CHEditKey.Invalidate();
 }
 
-void CAestoolDlg::detachConsole() 
-{
-	if (consoleDetached())
-		return;
-	FreeConsole();
-	m_consoleDetached = 1;
-}
-
-int CAestoolDlg::consoleDetached() 
-{	
-	return m_consoleDetached;
-}
-	
 
 CString CAestoolDlg::defaultDstName(SrcInfo *si, InfoBlock *ib,bool selfextracting /* = true*/)
 // ib has to be defined only if si->isEncrypted()

@@ -304,7 +304,7 @@ BEGIN
     IDS_STRING_DECOK        "Die Datei wurde erfolgreich entschlüsselt."
     IDS_STRING_VERSCHLUESSELN "Verschlüsseln"
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
-    IDS_STRING_FILEERROR    "Fehler beim Oeffnen von %s: %s\n"
+    IDS_STRING_FILEERROR    "Fehler beim Öffnen von %s: %s\n"
     IDS_STRING_NOMEMORY     "Nicht genügend virueller Speicher vorhanden."
     IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei beschädigt."
 END
@@ -314,6 +314,7 @@ BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlüsseln: %s"
     IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsslen."
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
+    IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -537,6 +538,7 @@ BEGIN
     IDS_STRING_ENCERROR     "File encryption error: %s"
     IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
 END
 
 #endif    // Englisch (GB) resources

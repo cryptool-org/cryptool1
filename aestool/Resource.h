@@ -22,6 +22,7 @@
 #define IDS_STRING_ENCERROR             112
 #define IDS_STRING_VERSION              113
 #define IDS_STRING_CORRUPT              115
+#define IDS_STRING_INVALID_KEY          116
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130

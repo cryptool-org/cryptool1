@@ -23,10 +23,10 @@ Class5=CHelp
 Resource6=IDD_HELP (Englisch (GB))
 Resource7=IDD_SPLASH (Englisch (GB))
 Resource8=IDD_SPLASH (Deutsch (Deutschland))
-Resource9=IDD_ABOUTBOX (Deutsch (Deutschland))
-Resource10=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
+Resource9=IDD_AESTOOL_DIALOG
+Resource10=IDD_ABOUTBOX (Deutsch (Deutschland))
 Resource11=IDD_HELP (Deutsch (Deutschland))
-Resource12=IDD_AESTOOL_DIALOG
+Resource12=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
 Resource13=IDD_ABOUTBOX
 
 [CLS:CAestoolApp]
