@@ -41,6 +41,10 @@ public:
 	CString	m_Perm2;
 	CString	m_P1out;
 	CString	m_P2out;
+	BOOL	m_P1Zin;
+	BOOL	m_P1Zout;
+	BOOL	m_P2Zin;
+	BOOL	m_P2Zout;
 	//}}AFX_DATA
 
 
@@ -58,10 +62,10 @@ protected:
 	//{{AFX_MSG(CDialogPermutation)
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	afx_msg void OnPasteKey();
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnChangeEdit2();
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

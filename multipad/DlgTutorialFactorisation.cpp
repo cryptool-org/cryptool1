@@ -21,13 +21,14 @@ DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
 {
 	//{{AFX_DATA_INIT(DlgTutorialFactorisation)
 	m_CompositeNoStr = _T("");
-	m_bruteForce = FALSE;
-	m_Brent = FALSE;
-	m_Pollard = FALSE;
-	m_Williams = FALSE;
-	m_Lenstra = FALSE;
-	m_QSieve = FALSE;
+	m_bruteForce = TRUE;
+	m_Brent = TRUE;
+	m_Pollard = TRUE;
+	m_Williams = TRUE;
+	m_Lenstra = TRUE;
+	m_QSieve = TRUE;
 	m_Factorisation = _T("");
+	m_Name = _T("");
 	//}}AFX_DATA_INIT
 	factorList = 0;
 }
@@ -60,6 +61,7 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK5, m_Lenstra);
 	DDX_Check(pDX, IDC_CHECK6, m_QSieve);
 	DDX_Text(pDX, IDC_RICHEDIT2, m_Factorisation);
+	DDX_Text(pDX, IDC_EDIT2, m_Name);
 	//}}AFX_DATA_MAP
 }
 
@@ -130,8 +132,9 @@ UINT singleThreadQuadraticSieve( PVOID x )
 void DlgTutorialFactorisation::OnButtonFactorisation() 
 {
 	int i, started;
+	CString name;
 	TutorialFactorisation Brent(0,"Brent"), Pollard(1,"Pollard"), 
-			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4,"Quadratic Sieve");;
+			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4,"Quadratic Sieve");
 
 	UpdateData(TRUE);
 	
@@ -150,7 +153,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	{
 		bool ja_nein;
 		{
-			TutorialFactorisation f;
+//			TutorialFactorisation f;
 			ja_nein=f.SetN(next_factor);
 		}
 		if (ja_nein==true)
@@ -167,7 +170,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 				return;
 			}
-			if ( TutorialFactorisation::IsPrime(next_factor) )
+			if ( f.IsPrime(next_factor) )
 			{// Die eingegebene Zahl ist eine Primzahl
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
@@ -182,6 +185,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				{
 					fact.GetFactor1Str( f1 );
 					fact.GetFactor2Str( f2 );
+					name = "Brute Force";
 				}
 			}
 			dlg.m_curThread = 0;
@@ -196,52 +200,42 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			dlg.m_Factorisations[3] = &Lenstra;
 			dlg.m_Factorisations[4] = &QSieve;
 
+			for(i=0;i<5;i++) {
+				dlg.m_Factorisations[i]->m_iterations = 0;
+				dlg.m_Factorisations[i]->factorized = 0;
+				dlg.m_Factorisations[i]->status = 0;
+				dlg.m_Factorisations[i]->SetN(next_factor);
+			}
+
 			started = 0;
 			if ( !factorized && m_Brent )
 			{
-				Brent.SetN(next_factor);
 				Brent.m_Thread = AfxBeginThread( singleThreadBrent, PVOID(&Brent) );
 				started++;
 			}
 			if ( !factorized && m_Pollard )
 			{
-				Pollard.SetN(next_factor);
 				Pollard.m_Thread = AfxBeginThread( singleThreadPollard, PVOID(&Pollard) );
 				started++;
 			}
 
 			if ( !factorized && m_Williams )
 			{
-				Williams.SetN(next_factor);
 				Williams.m_Thread = AfxBeginThread( singleThreadWilliams, PVOID(&Williams) );
 				started++;
 			}
 
 			if ( !factorized && m_Lenstra )
 			{
-				Lenstra.SetN(next_factor);
 				Lenstra.m_Thread = AfxBeginThread( singleThreadLenstra, PVOID(&Lenstra) );
 				started++;
 			}
 			
 			if ( !factorized && m_QSieve )
 			{
-				QSieve.SetN(next_factor);
 				QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
 				started++;
 			}
-			// starten der worker threads nachdem alle in den Suspend-mode gegangen sind
-			dlg.m_Factorisations[0] = &Brent;
-			dlg.m_Factorisations[1] = &Pollard;
-			dlg.m_Factorisations[2] = &Williams;
-			dlg.m_Factorisations[3] = &Lenstra;
-			dlg.m_Factorisations[4] = &QSieve;
-
-/*			if(m_Brent) while(0 != Brent.status) Sleep(10);
-			if(m_Pollard) while(0 != Pollard.status) Sleep(10);
-			if(m_Williams) while(0 != Williams.status) Sleep(10);
-			if(m_Lenstra) while(0 != Lenstra.status) Sleep(10);
-			if(m_QSieve) while(0 != QSieve.status) Sleep(10);*/
 
 			dlg.m_totalThreads = started;
 			dlg.SetCaption("Faktorisierungstimer");
@@ -249,34 +243,19 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			{
 			}
 
-			if(Brent.factorized) {
-				factorized = TRUE;
-				Brent.GetFactor1Str( f1 );
-				Brent.GetFactor2Str( f2 );
+			for(i=0;i<5;i++) {
+				if(dlg.m_Factorisations[i]->factorized) {
+					factorized = TRUE;
+					name = dlg.m_Factorisations[i]->m_Name;
+					dlg.m_Factorisations[i]->GetFactor1Str( f1 );
+					dlg.m_Factorisations[i]->GetFactor2Str( f2 );
+				}
 			}
-			if(Pollard.factorized) {
-				factorized = TRUE;
-				Pollard.GetFactor1Str( f1 );
-				Pollard.GetFactor2Str( f2 );
-			}
-			if(Williams.factorized) {
-				factorized = TRUE;
-				Williams.GetFactor1Str( f1 );
-				Williams.GetFactor2Str( f2 );
-			}
-			if(Lenstra.factorized) {
-				factorized = TRUE;
-				Lenstra.GetFactor1Str( f1 );
-				Lenstra.GetFactor2Str( f2 );
-			}
-			if(QSieve.factorized) {
-				factorized = TRUE;
-				QSieve.GetFactor1Str( f1 );
-				QSieve.GetFactor2Str( f2 );
-			}
+
 			if ( factorized )
 			{
 				expandFactorisation( next_factor, f1, f2 );
+				m_Name = name;
 			}
 			else
 			{
@@ -284,6 +263,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
+				m_Name = "";
 			}
 
 			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
@@ -350,7 +330,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 			factorList = new NumFactor;
 			factorList->exponent = expFactor;
 			factorList->factorStr = f1;
-			factorList->isPrime = TutorialFactorisation::IsPrime( f1 );
+			factorList->isPrime = f.IsPrime( f1 );
 			factorList->next = 0;
 		}
 		else
@@ -361,7 +341,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 				factorList = new NumFactor;
 				factorList->exponent = expFactor;
 				factorList->factorStr = f1;
-				factorList->isPrime = TutorialFactorisation::IsPrime( f1 );
+				factorList->isPrime = f.IsPrime( f1 );
 				factorList->next = ndx;
 			}
 			else if ( ndx->factorStr == f1 )
@@ -379,7 +359,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 					NumFactor * insFactor = new NumFactor;
 					insFactor->exponent = expFactor;
 					insFactor->factorStr = f1;
-					insFactor->isPrime = TutorialFactorisation::IsPrime( f1 );
+					insFactor->isPrime = f.IsPrime( f1 );
 					insFactor->next = ndx->next;
 					ndx->next = insFactor;
 				}
@@ -394,7 +374,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 			factorList = new NumFactor;
 			factorList->exponent = expFactor;
 			factorList->factorStr = f2;
-			factorList->isPrime = TutorialFactorisation::IsPrime( f2 );
+			factorList->isPrime = f.IsPrime( f2 );
 			factorList->next = ndx;
 		}
 		else if ( ndx->factorStr == f2 )
@@ -412,7 +392,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 				NumFactor * insFactor = new NumFactor;
 				insFactor->exponent = expFactor;
 				insFactor->factorStr = f2;
-				insFactor->isPrime = TutorialFactorisation::IsPrime( f2 );
+				insFactor->isPrime = f.IsPrime( f2 );
 				insFactor->next = ndx->next;
 				ndx->next = insFactor;
 			}
@@ -534,7 +514,7 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 					AfxMessageBox(line);
 					return;
 				}
-				if ( TutorialFactorisation::IsPrime(next_factor) )
+				if ( f.IsPrime(next_factor) )
 				{// Die eingegebene Zahl ist eine Primzahl
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
 					sprintf(line,pc_str);
@@ -676,6 +656,12 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 		m_vollstaendig.EnableWindow(false);	
 	}
 	m_Factorisation = "";
+	while ( factorList != 0 )
+	{
+		NumFactor *tmp = factorList;
+		factorList = factorList->next;
+		delete tmp;
+	}
 	factorList = 0;
 
 	UpdateData(FALSE);

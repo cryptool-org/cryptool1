@@ -24,6 +24,7 @@ public:
 // Operationen
 public:
 	int m_NoPrintChars;
+	int m_TrailBlanks;
 	HRESULT QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, DWORD dwReco, 
 		                    BOOL bReally, HGLOBAL hMetaFile);
 	virtual void SerializeRaw(CArchive& ar);
@@ -52,6 +53,7 @@ protected:
 	BOOL m_SizeActive;
 	int AdjustCursor(int direction);
 	int m_curlen;
+	int m_totlen;
 	int m_lineoffset;
 	int m_curline;
 	int m_hexwidth;
@@ -71,6 +73,8 @@ protected:
 	afx_msg void OnEditUndo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	char GetCharAt(int offset);
 };
 
 /////////////////////////////////////////////////////////////////////////////

@@ -3030,24 +3030,100 @@ void NGramBin(const char *infile, const char *OldTitle)
 // =============================================================
 // == permutation cryptology 
 // == Peer Wichmann July 2001
-void DoPerm(char *dest, char *src, int len, int *p, int plen)
+void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zout)
 {
 	int i, k, pt;
+	int Zeilenzahl, LetzteZLen;
+	int pres[26], sstart[26], slen[26];
 
-	for(pt=i=0;i<plen;i++) {
-		for(k=p[i];k<len;k+=plen)
-			dest[pt++]=src[k];
-	}
+	Zeilenzahl = len / plen;
+	LetzteZLen = len % plen;
+	for(i=0;i<LetzteZLen;i++) slen[i] = Zeilenzahl+1;
+	for(i=LetzteZLen;i<plen;i++) slen[i] = Zeilenzahl;
+	sstart[0]=0;
+	for(i=1;i<plen;i++) sstart[i] = sstart[i-1] + slen[i-1];
+
+	memcpy(pres, p, plen * sizeof(int));
+	for(i=k=0;i<plen;i++)
+		if(pres[k] >= LetzteZLen)
+			memcpy(pres+k, pres+k+1, sizeof(int) * (plen - i));
+		else
+			k++;
+
+
+	if(Zin == FALSE) // zeilenweise einlesen
+		if(Zout == TRUE) // zeilenweise einlesen, spaltenweise auslesen
+			for(pt=i=0;i<plen;i++)
+				for(k=p[i];k<len;k+=plen)
+					dest[pt++]=src[k];
+		else {//zeilenweise einlesen, zeilenweise auslesen
+			for(pt=i=0;i<Zeilenzahl;i++,pt+=plen) // ganze Zeilen
+				for(k=0;k<plen;k++)
+					dest[pt+p[k]]=src[pt+k];
+			for(i=0;i<LetzteZLen;i++) // letzte Zeile
+				dest[pt+pres[i]]=src[pt+i];
+		}
+	else	// spaltenweise einlesen
+		if(Zout == TRUE) // spaltenweise einlesen, spaltenweise auslesen
+			for(pt=i=0;i<plen;i++) {
+				memcpy(dest+pt, src+sstart[p[i]], slen[p[i]]);
+				pt += slen[p[i]];
+			}
+		else {//spaltenweise einlesen, zeilenweise auslesen 
+			for(pt=i=0;i<Zeilenzahl;i++)
+				for(k=0;k<plen;k++)
+					dest[pt++]=src[sstart[p[k]]+i];
+			for(i=0; i<LetzteZLen; i++) // letzte Zeile
+				dest[pt++]=src[sstart[pres[i]]+Zeilenzahl];
+		}
 }
 
-void DoInvPerm(char *dest, char *src, int len, int *p, int plen)
+void DoInvPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zout)
 {
 	int i, k, pt;
+	int Zeilenzahl, LetzteZLen;
+	int pres[26], sstart[26], slen[26];
 
-	for(pt=i=0;i<plen;i++) {
-		for(k=p[i];k<len;k+=plen)
-			dest[k]=src[pt++];
-	}
+	Zeilenzahl = len / plen;
+	LetzteZLen = len % plen;
+	for(i=0;i<LetzteZLen;i++) slen[i] = Zeilenzahl+1;
+	for(i=LetzteZLen;i<plen;i++) slen[i] = Zeilenzahl;
+	sstart[0]=0;
+	for(i=1;i<plen;i++) sstart[i] = sstart[i-1] + slen[i-1];
+
+	memcpy(pres, p, plen * sizeof(int));
+	for(i=k=0;i<plen;i++)
+		if(pres[k] >= LetzteZLen)
+			memcpy(pres+k, pres+k+1, sizeof(int) * (plen - i));
+		else
+			k++;
+
+
+	if(Zin == FALSE) // zeilenweise einlesen
+		if(Zout == TRUE) // zeilenweise einlesen, spaltenweise auslesen
+			for(pt=i=0;i<plen;i++)
+				for(k=p[i];k<len;k+=plen)
+					dest[k]=src[pt++];
+		else {//zeilenweise einlesen, zeilenweise auslesen
+			for(pt=i=0;i<Zeilenzahl;i++,pt+=plen) // ganze Zeilen
+				for(k=0;k<plen;k++)
+					dest[pt+k]=src[pt+p[k]];
+			for(i=0;i<LetzteZLen;i++) // letzte Zeile
+				dest[pt+i]=src[pt+pres[i]];
+		}
+	else	// spaltenweise einlesen
+		if(Zout == TRUE) // spaltenweise einlesen, spaltenweise auslesen
+			for(pt=i=0;i<plen;i++) {
+				memcpy(dest+sstart[p[i]], src+pt, slen[p[i]]);
+				pt += slen[p[i]];
+			}
+		else {//spaltenweise einlesen, zeilenweise auslesen // TBD
+			for(pt=i=0;i<Zeilenzahl;i++)
+				for(k=0;k<plen;k++)
+					dest[sstart[p[k]]+i]=src[pt++];
+			for(i=0; i<LetzteZLen; i++) // letzte Zeile
+				dest[sstart[pres[i]]+Zeilenzahl]=src[pt++];
+		}
 }
 
 void PermutationAsc(const char *infile, const char *OldTitle)
@@ -3091,20 +3167,20 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 
 		if(Perm.m_Dec) {
 			if(Perm.m_P2len) {
-				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len);
-				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len);
+				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2Zin, Perm.m_P2Zout);
+				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
 				b3 = b1;
 			}
 			else {
-				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len);
+				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
 				b3 = b2;
 			}
 		}
 		else {
-			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len);
+			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
 			if(Perm.m_P2len) {
 				b3 = b1;
-				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len);
+				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2Zin, Perm.m_P2Zout);
 			}
 			else b3 = b2;
 		}

@@ -985,26 +985,93 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 TutorialFactorisation::TutorialFactorisation()
 {
 //	mip = &g_precision;
+	ww = NULL;
+	zz = NULL;
+	yy = NULL;
+	xx = NULL;
+	pr = NULL;
+	e = NULL;
+	r2=NULL;
+	r1=NULL;
+	logp = NULL;
+	sieve = NULL;
+	epr = NULL;
+	rp = NULL;
+	hash = NULL;
+	bb = NULL; //roger
+	G = NULL;
+	EE = NULL;
+
 	status = 0;
 	factorized = false;
 }
+
 
 TutorialFactorisation::TutorialFactorisation(int ordinal, CString name)
 {
+	ww = NULL;
+	zz = NULL;
+	yy = NULL;
+	xx = NULL;
+	pr = NULL;
+	e = NULL;
+	r2=NULL;
+	r1=NULL;
+	logp = NULL;
+	sieve = NULL;
+	epr = NULL;
+	rp = NULL;
+	hash = NULL;
+	bb = NULL;
+	G = NULL;
+	EE = NULL;
+
 	m_Ordinal = ordinal;
 	m_Name = name;
-	mip = &g_precision;
+//	mip = &g_precision;
 	status = 0;
 	factorized = false;
 }
 
+
+
 TutorialFactorisation::~TutorialFactorisation()
 {
-
+	int i;
+#define FREE(x)	if(x) { mr_free(x); x = NULL; }
+	FREE(r1);
+	FREE(r2);
+	FREE(epr);
+	FREE(rp);
+	FREE(bb);
+	FREE(e);
+	FREE(logp);
+	FREE(pr);
+	FREE(hash);
+	FREE(sieve);
+	if(EE) {
+		for(i=0;i<=mmm;i++) mr_free(EE[i]);
+		FREE(EE);
+	}
+	if(G) {
+		for(i=0;i<=mlf;i++) mr_free(G[i]);
+		FREE(G);
+	}
+	set_mip(mip);
+	if(ww)
+		delete[mlf] ww;
+	if(xx)
+		delete[mmm] xx;
+	if(yy)
+		delete[mmm] yy;
+	if(zz)
+		delete[mlf] zz;
+	ww = xx = yy = zz = NULL;
 }
 
 BOOL TutorialFactorisation::IsPrime(CString &Num)
 {
+	set_mip(mip);
 	Big tmpN;
 	CStringFormulaToBig( Num, tmpN );
 	/*
@@ -1044,13 +1111,14 @@ BOOL TutorialFactorisation::Precheck()
 
 BOOL TutorialFactorisation::BruteForce()
 {    
+	set_mip(mip);
 	if ( Precheck() ) return true;
 
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
 	int n,p;
 //	miracl *
-	mip = &g_precision;
+//	mip = &g_precision;
 
 	n=0;
 	p=mip->PRIMES[0];
@@ -2188,6 +2256,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
 bool TutorialFactorisation::SetN(CString &NStr)
 {
 	bool output;
+	set_mip(mip);
 	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
 	if (N<0) return false; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
 	return output;
@@ -2196,12 +2265,14 @@ bool TutorialFactorisation::SetN(CString &NStr)
 
 void TutorialFactorisation::GetFactor1Str(CString &Factor1)
 {
+	set_mip(mip);
 	BigToCString( factor1, Factor1 );
 }
 
 
 void TutorialFactorisation::GetFactor2Str(CString &Factor2)
 {
+	set_mip(mip);
 	BigToCString( factor2, Factor2 );
 }
 
@@ -2337,3 +2408,26 @@ BOOL InverseCongruenceGenerator::SetCount( long n )
 	return ( count = n );
 }
 
+
+//////////////////////////////////////////////////////////////////////
+// CTutorialFactorisationBase Klasse
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+CTutorialFactorisationBase::CTutorialFactorisationBase()
+{
+	m_old_mip = get_mip();
+	mirsys(50,0);
+	mip = get_mip();
+	set_mip(m_old_mip);
+}
+
+CTutorialFactorisationBase::~CTutorialFactorisationBase()
+{
+	set_mip(mip);
+	mirexit();
+	set_mip(m_old_mip);
+}

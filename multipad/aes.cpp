@@ -236,6 +236,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	
 	fi = fopen(outfile,"wb");
 	fwrite(bcip, 1, datalen, fi);
+	free(bcip);
 	fclose(fi);
 
 	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );

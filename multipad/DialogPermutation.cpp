@@ -24,6 +24,10 @@ CDialogPermutation::CDialogPermutation(CWnd* pParent /*=NULL*/)
 	m_Perm2 = _T("");
 	m_P1out = _T("");
 	m_P2out = _T("");
+	m_P1Zin = FALSE;
+	m_P1Zout = TRUE;
+	m_P2Zin = FALSE;
+	m_P2Zout = TRUE;
 	//}}AFX_DATA_INIT
 }
 
@@ -42,6 +46,10 @@ void CDialogPermutation::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_Perm2, 32);
 	DDX_Text(pDX, IDC_EDIT3, m_P1out);
 	DDX_Text(pDX, IDC_EDIT4, m_P2out);
+	DDX_Check(pDX, IDC_CHECK1, m_P1Zin);
+	DDX_Check(pDX, IDC_CHECK2, m_P1Zout);
+	DDX_Check(pDX, IDC_CHECK3, m_P2Zin);
+	DDX_Check(pDX, IDC_CHECK4, m_P2Zout);
 	//}}AFX_DATA_MAP
 }
 
@@ -221,6 +229,7 @@ int CDialogPermutation::PrintPerm(char *dest, int *perm, int len)
 	return strlen(dest);
 }
 
+
 //DEL void CDialogPermutation::OnCopyKey() 
 //DEL {
 //DEL 	HANDLE hndl;
@@ -269,9 +278,6 @@ void CDialogPermutation::OnPasteKey()
 		OnChangeEdit2();
 	}
 }
-
-
-
 
 CString CDialogPermutation::makeASCII(CString &line)
 {

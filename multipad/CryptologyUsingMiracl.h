@@ -114,19 +114,32 @@ private:
 	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };
 
-class TutorialFactorisation  
+
+class CTutorialFactorisationBase  
+{
+public:
+	miracl *m_old_mip;
+	miracl *mip;
+	CTutorialFactorisationBase();
+	virtual ~CTutorialFactorisationBase();
+
+};
+
+
+class TutorialFactorisation : public CTutorialFactorisationBase
 {
 	Big N;
 	Big factor1;
 	Big factor2;
 public:
+	int status;
 	int m_iterations;
 	TutorialFactorisation(int ordinal, CString name);
+	CWinThread *m_Thread;
 	CString m_Name;
 	int m_Ordinal;
-	CWinThread *m_Thread;
 	bool factorized;
-	int status; // 0 = running, 1 = faktorisierung gefunden, -1 = abbrechen, -2 abgebrochen
+private:
 	bool gotcha(Big& NN, Big& P);
 	bool factored(long lptr, Big& T);
 	void new_poly();
@@ -192,7 +205,9 @@ public:
 
 	//Methoden
 	void marks(long start);
-	static BOOL IsPrime( CString & Num );
+public:
+//	static BOOL IsPrime( CString & Num );
+	BOOL IsPrime( CString & Num );
 	void GetFactor2Str( CString &Factor2 );
 	void GetFactor1Str( CString &Factor1 );
 	//void SetN( CString &NStr );
@@ -205,7 +220,7 @@ public:
 	BOOL Brent();
 	TutorialFactorisation();
 	virtual ~TutorialFactorisation();
-	miracl *mip;
+//	miracl *mip;
 private:
 	BOOL Precheck();
 };

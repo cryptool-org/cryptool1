@@ -1,6 +1,7 @@
 #if !defined(AFX_DLGTUTORIALFACTORISATION_H__7EFC6C44_6316_11D5_BB4A_000777640932__INCLUDED_)
 #define AFX_DLGTUTORIALFACTORISATION_H__7EFC6C44_6316_11D5_BB4A_000777640932__INCLUDED_
 
+#include "CryptologyUsingMiracl.h"	// Hinzugefügt von der Klassenansicht
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -47,6 +48,7 @@ public:
 	BOOL	m_Lenstra;
 	BOOL	m_QSieve;
 	CString	m_Factorisation;
+	CString	m_Name;
 	//}}AFX_DATA
 
 
@@ -69,6 +71,8 @@ protected:
 	afx_msg void OnUpdateEditEingabe();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	TutorialFactorisation f;
 };
 
 //{{AFX_INSERT_LOCATION}}

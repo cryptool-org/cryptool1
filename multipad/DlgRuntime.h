@@ -26,7 +26,7 @@ public:
 	int *m_iterVals[5];
 	CButton *m_AButton[5];
 	miracl *m_mip[5];
-	miracl *oldmip;
+//	miracl *oldmip;
 	int m_OldThread;
 	int m_totalThreads;
 	int m_registeredThreads;

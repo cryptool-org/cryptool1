@@ -512,6 +512,10 @@ SOURCE=.\res\bitmap4.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\bitmap6.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\bitmapLetsStart.bmp
 # End Source File
 # Begin Source File
@@ -1126,6 +1130,14 @@ SOURCE=..\LibEc\include\ECSSA.H
 # Begin Source File
 
 SOURCE=..\LibMiracl\SOURCE\ECSVER.C
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\EditPaste.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\EditPastebmp.bmp
 # End Source File
 # Begin Source File
 

@@ -2,7 +2,6 @@
 // Microsoft Developer Studio generated include file.
 // Used by multipad.rc
 //
-
 #define IDCANCEL2                       3
 #define IDCANCEL3                       4
 #define IDCANCEL4                       5
@@ -102,12 +101,14 @@
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
 #define IDC_EDIT_KEYTYPE                1018
+#define IDC_EDIT132                     1018
 #define IDC_EDIT3                       1019
 #define IDC_EDIT4                       1020
 #define IDC_EDIT5                       1021
 #define IDC_EDIT6                       1022
 #define IDC_EDIT7                       1023
 #define IDC_EDIT8                       1024
+#define IDC_CHECK10                     1024
 #define IDC_EDIT9                       1025
 #define IDC_EDIT_2_6                    1026
 #define IDC_EDIT_2_1                    1027

@@ -145,7 +145,7 @@ int CHexView::AdjustCursor(int direction)
 
 void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
-	int n, old_offset;
+	int n, old_offset, char_offset, i;
 	char new_c, buff[5], oldChar;
 	BOOL invalid;
 
@@ -162,6 +162,10 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 		if(IsHex(nChar)) { // hex character --> do the editing
 			n = (m_lineoffset-MAX_ADR_LEN)/3; // number of char to edit
+
+			// total offset of char to edit
+			char_offset = m_curline * m_hexwidth + n;
+
 			if(('a'<=nChar) && (nChar <= 'f')) nChar = nChar+'A'-'a';
 			oldChar = 16*HexVal(m_line[7+3*n]) + HexVal(m_line[8+3*n]);
 			if((!IsPrint(oldChar)) && (oldChar != 10) && (oldChar != 13))
@@ -183,6 +187,14 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			buff[0]=nChar;
 			GetRichEditCtrl().ReplaceSel( buff, TRUE );
 			AdjustCursor(0);
+			// adjust trailing blanks
+			if(m_totlen - char_offset - 1 < m_TrailBlanks) { // possibly reduce number of trailing nulls
+				if(new_c != 0) m_TrailBlanks = m_totlen - char_offset - 1;
+			}
+			if((m_totlen - char_offset - 1 == m_TrailBlanks) && (new_c == 0)){ // possibly increase number of trailing nulls
+				for(i = m_totlen-1; i>=0; i--) if( GetCharAt(i) != 0) break;
+				m_TrailBlanks = m_totlen - i - 1;
+			}
 			// check to wrap to next line
 			if(m_lineoffset >= 3*m_hexwidth+9) {
 				if(GetRichEditCtrl().GetLineCount() > m_curline+1) {
@@ -216,6 +228,11 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			return;
 		}
 		n = m_lineoffset - (3*m_hexwidth+9); // number of char to edit
+
+		// Adjust trailing blanks
+		char_offset = m_curline * m_hexwidth + n;
+		m_TrailBlanks = min(m_TrailBlanks, m_totlen - n - 1);
+
 		if(m_lineoffset >= m_curlen) { // end of line reached, jump to next line
 			if(m_curline < GetRichEditCtrl().GetLineCount()-1) { // jump to next line
 				n = GetRichEditCtrl().LineIndex(m_curline+1)+3*m_hexwidth+MAX_ADR_LEN+ASC_SEP;
@@ -238,7 +255,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		GetRichEditCtrl().GetSelText(buff);
 		oldChar = (char) strtol(buff, NULL, 16);
 		if((!IsPrint(oldChar)) && (oldChar != 10) && (oldChar != 13))
-			m_NoPrintChars = min(m_NoPrintChars-1,0);
+			m_NoPrintChars = max(m_NoPrintChars-1,0);
 		sprintf(buff,"%02.2X",nChar);
 		GetRichEditCtrl().SetSel(m_lineindex+3*n+7,m_lineindex+3*n+9);
 		GetRichEditCtrl().ReplaceSel( buff, TRUE );
@@ -488,7 +505,7 @@ void CHexView::SerializeRaw(CArchive & ar)
 {
 	char *buffer;
 	char *buffer2;
-	int bufflen = 20000, state, l, width, i;
+	int bufflen = 20000, state, l, width, i, t;
 	long start, end, textlen, pos, len, l1, buff2len, adr;
 
 	GetRichEditCtrl().GetSel(start, end);
@@ -532,9 +549,13 @@ void CHexView::SerializeRaw(CArchive & ar)
 
 		// ReadFromArchive takes the number of characters as argument
 
-		m_NoPrintChars = adr = pos = 0;
+		m_totlen = m_TrailBlanks = m_NoPrintChars = adr = pos = 0;
 		do {
 			l = ar.Read(buffer, l1);
+			m_totlen += l;
+			for(t=l; t>=0; t--) if(buffer[t] != 0) break;
+			if(t==-1) m_TrailBlanks += l;
+			else m_TrailBlanks = l-t;
 			if(l==0) break;
 			for(i=0;i<l;i++)
 				if((!IsPrint(buffer[i])) && (buffer[i] != 10) && (buffer[i] != 13))
@@ -565,7 +586,7 @@ HRESULT CHexView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat
 
 void CHexView::OnUpdateTotxt(CCmdUI* pCmdUI) 
 {
-	if(m_NoPrintChars > 0)
+	if(m_NoPrintChars > m_TrailBlanks)
 	{
         pCmdUI->Enable(FALSE);
 	}
@@ -573,4 +594,18 @@ void CHexView::OnUpdateTotxt(CCmdUI* pCmdUI)
 	{
         pCmdUI->Enable(TRUE);
 	}
+}
+
+char CHexView::GetCharAt(int offset)
+{
+	int line, n;
+	char buffer[1024], c;
+
+	line = offset / m_hexwidth;
+	GetRichEditCtrl().GetLine(line, buffer, sizeof(buffer) - 1);
+
+	n = offset % m_hexwidth;
+	c = 16*HexVal(buffer[7+3*n]) + HexVal(buffer[8+3*n]);
+
+	return c;
 }

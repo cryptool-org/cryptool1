@@ -11,7 +11,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgRuntime 
 
@@ -161,14 +160,14 @@ void CDlgRuntime::OnTimer(UINT nIDEvent)
 			m_registeredThreads = 0;
 			m_retcode = IDCANCEL;
 			m_displayed = 0;
-			for(i=0;i<5;i++) {
-				if(m_mip[i]) {
-					set_mip(m_mip[i]);
-					mirexit();
-					m_mip[i]=NULL;
-				}
-			}
-			set_mip(oldmip);
+//			for(i=0;i<5;i++) {
+//				if(m_mip[i]) {
+//					set_mip(m_mip[i]);
+//					mirexit();
+//					m_mip[i]=NULL;
+//				}
+//			}
+//			set_mip(oldmip);
 			EndDialog(t);
 		}
 		return;
@@ -198,7 +197,7 @@ int CDlgRuntime::EnterSchedule(int index)
 		m_Factorisations[index]->status |= THREAD_SUSPENDED | THREAD_RUNNING;
 	}
 	else { // first thread
-		oldmip = get_mip();
+//		oldmip = get_mip();
 		m_Factorisations[index]->status |= THREAD_RUNNING;
 		m_curThread = index;
 		SetTimer(49, -100, NULL); // next schedule
@@ -209,8 +208,10 @@ int CDlgRuntime::EnterSchedule(int index)
 		m_Factorisations[m_OldThread]->m_Thread->SuspendThread();
 		m_OldThread = -1;
 	}
-	mirsys(50,0);
-	m_Factorisations[index]->mip = m_mip[index] = get_mip();
+//	mirsys(50,0);
+//	m_Factorisations[index]->mip = m_mip[index] = get_mip();
+	m_mip[index] = m_Factorisations[index]->mip;
+	set_mip(m_mip[index]);
 	if(m_Factorisations[index]->status & THREAD_REQUEST_ABORT) return 1;
 	return 0;
 }
