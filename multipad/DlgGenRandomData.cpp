@@ -12,6 +12,7 @@
 #include "crypt.h"
 #include "cryptdoc.h"
 #include "DlgPrimesGenerator.h"
+#include "DlgFortschritt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,7 +20,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
+/*
 // später raus !
 long multmodn(long a, long b, long n)
 {
@@ -69,6 +70,129 @@ long inverse( long a, long b )
 	ExtEuclid Euclid(a, b);
 	return Euclid.get_u();
 }
+*/
+
+
+UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
+{
+	CString title;
+	CString progress;
+	char	outfile[128];
+	RandPar* par = static_cast<RandPar*>(pParam);
+	GetTmpName(outfile,"rnd",".hex");
+	ofstream rndData(outfile, ios::binary);
+	unsigned char	o;
+	long			i, j, k(0), l;
+	progress.LoadString(IDS_RAND_PROGRESS);
+
+
+	//LoadString(AfxGetInstanceHandle(),IDS_STRING_RAND_DATA_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
+	switch ( par->m_SelGenerator ) {
+	case 0:
+		title.Format(IDS_RAND_GEN_PARAM, "SECUDE", par->m_DataSize);
+		theApp.fs.Display(LPCTSTR(title));
+		for ( j=0; j<par->m_DataSize; j++ )
+		{
+			o=0;
+			for(i=0;i<8;i++) o|=(_rand_bit())<<i;
+			rndData << o;			
+			if(theApp.fs.m_canceled)
+			{
+				theApp.fs.cancel();
+				return 0;
+			}
+			if((l=(j*100)/par->m_DataSize)>k)            // nur einmal für jedes Prozent
+			{
+				theApp.fs.Set(k=l, "", progress);
+			}
+		}	
+		title.Format(IDS_STRING_RAND_DATA_PARAM, "SECUDE", par->m_DataSize);
+		break;
+	case 1:
+		{
+			title.Format(IDS_RAND_GEN_PARAM, "x^2 (mod N)", par->m_DataSize);
+			theApp.fs.Display(LPCTSTR(title));
+			par->rnd_x2modN.setSeed( par->m_seed );
+			for ( j=0; j<par->m_DataSize; j++ )
+			{
+				o=0;
+				for (i=0; i<8; i++) o |= par->rnd_x2modN.randBit() << (7-i);
+				rndData << o;
+				if(theApp.fs.m_canceled)
+				{
+					theApp.fs.cancel();
+					return 0;
+				}
+				if((l=(j*100)/par->m_DataSize)>k)            // nur einmal für jedes Prozent
+				{
+					theApp.fs.Set(k=l, "", progress);
+				}
+			}		
+		}
+		title.Format(IDS_STRING_RAND_DATA_PARAM, "x^2 (mod N)", par->m_DataSize);
+		break;
+	case 2:
+		{
+			title.Format(IDS_RAND_GEN_PARAM, "LCG", par->m_DataSize);
+			theApp.fs.Display(LPCTSTR(title));
+			par->DLCG.setSeed( par->m_seed );
+			for(j=0;j<par->m_DataSize;j++)
+			{
+				o = 0;
+				for (i=0; i<8; i++) o |= par->DLCG.randBit() << (7-i);
+				rndData << o;
+				if(theApp.fs.m_canceled)
+				{
+					theApp.fs.cancel();
+					return 0;
+				}
+				if((l=(j*100)/par->m_DataSize)>k)            // nur einmal für jedes Prozent
+				{
+					theApp.fs.Set(k=l, "", progress);
+				}
+			}
+		}
+		title.Format(IDS_STRING_RAND_DATA_PARAM, "LCG", par->m_DataSize);
+		break;
+	case 3:
+		{
+			title.Format(IDS_RAND_GEN_PARAM, "ICG", par->m_DataSize);
+			theApp.fs.Display(LPCTSTR(title));
+			par->DICG.setSeed( par->m_seed );
+			for(j=0;j<par->m_DataSize*9;j++)
+			{
+				o=0;
+				for (i=0; i<8 ; i++)
+				{
+					o |= par->DICG.randBit() << (7-i);
+					par->DICG.SetCount(j+i);
+				}
+				rndData << o;
+				j += i; //weil j+i als SetCount gestellt wird, und m_DataSize*9 genommen ist
+						//d.h. counter soll immer um 1 erhöht sein
+				if(theApp.fs.m_canceled)
+				{
+					theApp.fs.cancel();
+					return 0;
+				}
+				if((l=(j*100)/(par->m_DataSize*9))>k)            // nur einmal für jedes Prozent
+				{
+					theApp.fs.Set(k=l, "", progress);
+				}
+			}
+		}
+		title.Format(IDS_STRING_RAND_DATA_PARAM, "ICG", par->m_DataSize);
+		break;
+	}
+	rndData.close();
+    
+	delete par;
+	par = 0;
+
+	if(!theApp.fs.m_canceled) theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+	theApp.fs.cancel();
+	return 0;
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgGenRandomData 
@@ -82,12 +206,13 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	m_seed = _T("314159");
 	m_DataSize = 2500;
 	//}}AFX_DATA_INIT
-// x2modN-Generator
-	DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));
-// LCG-Parameter nach Lehmer
-    DLCG.SetParameter(CString("23"), CString("0"), CString("100000001"));
-// ICG-Parameter nach ???
-	DLCG.SetParameter(CString("22211"), CString("11926380"), CString("2147483053"));
+	m_pPara = new (RandPar);
+	// x2modN-Generator
+	m_pPara->DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));
+	// LCG-Parameter nach Lehmer
+    m_pPara->DLCG.SetParameter(CString("23"), CString("0"), CString("100000001"));
+	// ICG-Parameter nach ???
+	m_pPara->DLCG.SetParameter(CString("22211"), CString("11926380"), CString("2147483053"));
 }
 
 
@@ -116,7 +241,6 @@ END_MESSAGE_MAP()
 
 void DlgGenRandomData::OnSelGenParam() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(TRUE);
 	switch (m_SelGenerator) {
 	case 0: {
@@ -125,32 +249,32 @@ void DlgGenRandomData::OnSelGenParam()
 			}
 			break;
 	case 1: {
-				if (IDOK == DRPXN.DoModal() )
-					rnd_x2modN.setModul( DRPXN.GetModul() );
+				if (IDOK == m_pPara->DRPXN.DoModal() )
+					m_pPara->rnd_x2modN.setModul( m_pPara->DRPXN.GetModul() );
 			}
 		break;
 	case 2: {
-				if (IDOK == DRP_LCG.DoModal() )
+				if (IDOK == m_pPara->DRP_LCG.DoModal() )
 				{
-					DLCG.SetParameter(DRP_LCG.Get_a(), DRP_LCG.Get_b(), DRP_LCG.Get_N());
+					m_pPara->DLCG.SetParameter(m_pPara->DRP_LCG.Get_a(), m_pPara->DRP_LCG.Get_b(), m_pPara->DRP_LCG.Get_N());
 				}
 			}
 		break;
 	case 3: {
-				if (IDOK == DRP_ICG.DoModal() )
+				if (IDOK == m_pPara->DRP_ICG.DoModal() )
 				{
 					GeneratePrimes P;
-					P.SetP(DRP_ICG.Get_N());
+					P.SetP(m_pPara->DRP_ICG.Get_N());
 					BOOL test=FALSE;
 					test = P.MillerRabinTest(100);
 					test = P.SolvayStrassenTest(100);
 					test = P.FermatTest(100);
 
-					if (test) DICG.SetParameter(DRP_ICG.Get_a(), DRP_ICG.Get_b(), DRP_ICG.Get_N());
+					if (test) m_pPara->DICG.SetParameter(m_pPara->DRP_ICG.Get_a(), m_pPara->DRP_ICG.Get_b(), m_pPara->DRP_ICG.Get_N());
 					else 
 					{
 						AfxMessageBox("Keine Primzahl ist für P eingegeben, die Initialwerte werden aufgeruft !!!");
-						DRP_ICG.Set(CString("22211"), CString("11926380"),CString("2147483053"));
+						m_pPara->DRP_ICG.Set(CString("22211"), CString("11926380"),CString("2147483053"));
 					}
 				}
 
@@ -163,84 +287,20 @@ void DlgGenRandomData::OnSelGenParam()
 
 void DlgGenRandomData::OnGenRandomData() 
 {
-	theApp.DoWaitCursor(1);
 	UpdateData(TRUE);
-	GenRandomData();
+	m_pPara->m_DataSize = m_DataSize;
+	m_pPara->m_SelGenerator = m_SelGenerator;
+	m_pPara->m_seed = m_seed;
+	//theApp.OpenBGFlag = 1;
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
+	AfxBeginThread( GenRandomDataThread, PVOID(m_pPara) );
+	
 	CDialog::OnOK();
 }
 
-const char * DlgGenRandomData::GetRandInfo()
+void DlgGenRandomData::OnCancel() 
 {
-	return c_generated_by;
+	delete m_pPara;
+	
+	CDialog::OnCancel();
 }
-
-void DlgGenRandomData::GenRandomData()
-{
-
-	GetTmpName(outfile,"rnd",".hex");
-	ofstream rndData(outfile, ios::binary);
-	unsigned char	o;
-	long			i, j;
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_RAND_DATA_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
-	switch ( m_SelGenerator ) {
-	case 0:
-		for ( j=0; j<m_DataSize; j++ )
-		{
-			o=0;
-			for(i=0;i<8;i++)
-				o|=(_rand_bit())<<i;
-			rndData << o;
-		}	
-		sprintf(c_generated_by, pc_str, "SECUDE", m_DataSize);
-		break;
-	case 1:
-		{
-			rnd_x2modN.setSeed( m_seed );
-			for ( j=0; j<m_DataSize; j++ )
-			{
-				o=0;
-				for (i=0; i<8; i++) o |= rnd_x2modN.randBit() << (7-i);
-				rndData << o;
-			}
-		}
-		sprintf(c_generated_by, pc_str, "x^2 (mod N)", m_DataSize);
-		break;
-	case 2:
-		{
-			DLCG.setSeed( m_seed );
-			for(j=0;j<m_DataSize;j++)
-			{
-				o = 0;
-				for (i=0; i<8; i++) o |= DLCG.randBit() << (7-i);
-				rndData << o;
-			}
-		}
-		sprintf(c_generated_by, pc_str, "LCG", m_DataSize);
-		break;
-	case 3:
-		{
-			DICG.setSeed( m_seed );
-			for(j=0;j<m_DataSize*9;j++)
-			{
-				o=0;
-				for (i=0; i<8 ; i++)
-				{
-					o |= DICG.randBit() << (7-i);
-					DICG.SetCount(j+i);
-				}
-				rndData << o;
-				j += i; //weil j+i als SetCount gestellt wird, und m_DataSize*9 genommen ist
-						//d.h. counter soll immer um 1 erhöht sein
-			}
-		}
-		sprintf(c_generated_by, pc_str, "ICG", m_DataSize);
-		break;
-	}
-	rndData.close();
-
-}
-
-

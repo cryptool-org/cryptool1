@@ -11,33 +11,45 @@
 #include "DlgRandParameter_x2_mod_N.h"
 #include "DlgRandomParameterLCG.h"
 #include "DlgRandParamICG.h"
+#include "DlgFortschritt.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgGenRandomData 
 
+typedef struct
+{
+	int		m_SelGenerator;
+	long	m_DataSize;
+	CString m_seed;
+
+	// x^2 (mod N) Generator
+	x2modN_generator rnd_x2modN;
+	DlgRandParameter_x2_mod_N DRPXN;
+
+	// LCG Generator
+	LinearCongruenceGenerator DLCG;
+	DlgRandomParameterLCG DRP_LCG;
+
+	// EICG Generator
+	InverseCongruenceGenerator DICG;
+	DlgRandParamICG DRP_ICG;
+
+} RandPar;
+
 class DlgGenRandomData : public CDialog
 {
 // Konstruktion
 public:
-	void GenRandomData();
-	const char * GetRandInfo();
-// x^2 (mod N) Generator
-	x2modN_generator rnd_x2modN;
-	DlgRandParameter_x2_mod_N DRPXN;
 
-// LCG Generator
-	LinearCongruenceGenerator DLCG;
-	DlgRandomParameterLCG DRP_LCG;
-
-// EICG Generator
-	InverseCongruenceGenerator DICG;
-	DlgRandParamICG DRP_ICG;
 
 // ============================================
-	char outfile[128];
-	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
+	//char outfile[128];
 
+	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
+	
+
+	//friend UINT GenRandomDataThread( PVOID pParam ); // Thread-Version
 
 // Dialogfelddaten
 	//{{AFX_DATA(DlgGenRandomData)
@@ -58,15 +70,17 @@ public:
 
 // Implementierung
 protected:
+	RandPar* m_pPara;
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(DlgGenRandomData)
 	afx_msg void OnSelGenParam();
 	afx_msg void OnGenRandomData();
+	virtual void OnCancel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	char c_generated_by[128];
+
 };
 
 //{{AFX_INSERT_LOCATION}}
