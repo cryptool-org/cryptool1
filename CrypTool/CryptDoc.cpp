@@ -24,6 +24,11 @@
 #include "DlgHybridDecryptionDemo.h"
 #include <sys\stat.h>
 #include "DialogeMessage.h"
+#include "ASN1Decoder.h"
+#include "DlgDiffieHellmanVisualization.h"
+#include "DlgASN1PSEPINPrompt.h"
+
+extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
 
 UINT AESBrute(PVOID p);
@@ -187,6 +192,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
+	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -532,13 +539,11 @@ void CCryptDoc::OnCryptRc2()
 	Crypt(ContentName, GetTitle(),8,128,8,7);
 }
 
-
 void CCryptDoc::OnCryptDesDesecb() 
 {
     UpdateContent();
 	Crypt(ContentName, GetTitle(),64,64,1,2);
 }
-
 
 void CCryptDoc::OnCryptHashMd5() 
 {
@@ -688,7 +693,6 @@ BOOL CAscDoc::UpdateContent( void )
 	}
 }
 
-
 void CCryptDoc::OnCrypt3desCbc() 
 {
 	UpdateContent();
@@ -712,6 +716,7 @@ void CCryptDoc::OnCryptDesDescbc()
 	UpdateContent();
 	Crypt(ContentName, GetTitle(),64,64,1,3);
 }
+
 
 void CCryptDoc::OnCaesarAuto() 
 {
@@ -1569,3 +1574,112 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridentschlsselung()
 	UpdateContent();
 	DecHyb( ContentName, GetTitle() );
 }
+
+
+// Diese Funktion wird aufgerufen, wenn der Benutzer ein bereits gegebenes Dokument asn1-decodieren will.
+// Wird das Format erkannt, so wird sowohl ein asn1-dump als auch eine formatspezifische Ausgabe angezeigt.
+// Wird das Format nicht erkannt, bleibt es bei der Ausgabe des asn1-dumps
+void CCryptDoc::OnEinzelverfahrenAsn1decodieren() 
+{
+	// Dokumentinhalt aktualisieren
+	UpdateContent();
+
+	try
+	{
+		ASN1Decoder asndec( ContentName );
+		
+		// GÜLTIGE ASN1-STRUKTUR
+		if(asndec.IsASN1Structure())
+		{			
+			// ASN1-DUMP
+			char *filename = new char[CRYPTOOL_PATH_LENGTH];
+			GetTmpName(filename, "cry", ".txt");
+			asndec.StoreASN1Dump(filename);
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_VALID_ASN1_FILE, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONINFORMATION);
+			CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
+			
+			// ZERTIFIKAT
+			if(asndec.IsCertificate())
+			{
+				std::string pin = "NULL";
+				GetTmpName(filename, "cry", ".txt");
+
+				if(asndec.IsCertProtected())
+				{
+					CDlgASN1PSEPINPrompt dlg;
+					if( dlg.DoModal() == IDOK ) pin = dlg.m_PIN;
+					else return;
+				}
+
+				asndec.StoreCertDump(filename,pin);
+
+				LoadString(AfxGetInstanceHandle(), IDS_ASN1_READY_TO_PRINT_CERTIFICATE, pc_str, STR_LAENGE_STRING_TABLE);
+				MessageBox(NULL, pc_str, "CrypTool", MB_ICONINFORMATION);
+							
+				CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
+			}
+
+			// FORMAT NICHT ERKANNT (UNBEKANNTE BZW NICHT IMPLEMENTIERTE ASN1-STRUKTUR)
+			else
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_ASN1_NOT_PROPERLY_RECOGNIZED, pc_str, STR_LAENGE_STRING_TABLE);
+				MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+				return;
+			}
+	
+		}
+		// KEINE GÜLTIGE ASN1-STRUKTUR
+		else
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_NO_VALID_ASN1_FILE, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+	}
+	// *** FEHLERBEHANDLUNG ***
+	catch(ASN1Error e)
+	{
+		if(e.GetErrorCode() == E_INVALID_FILENAME)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_INVALID_FILENAME, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+
+		if(e.GetErrorCode() == E_FILE_NOT_EXISTING)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_FILE_NOT_EXISTING, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+
+		if(e.GetErrorCode() == E_CERT_WRONG_PIN)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_NO_VALID_PIN, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+		
+		if(e.GetErrorCode() == E_NO_VALID_ASN1_STRUCTURE || e.GetErrorCode() == E_IO_ERROR)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_INTERNAL_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_INTERNAL_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+	}
+}
+
+// Der Benutzer möchte die Visualisierung des Diffie-Hellman-Schlüsselaustausch-Verfahrens sehen
+void CCryptDoc::OnEinzelverfahrenDiffiehellmandemo() 
+{
+	CDlgDiffieHellmanVisualization dlg;
+	dlg.DoModal();
+}
+
