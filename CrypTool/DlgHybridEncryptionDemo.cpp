@@ -759,7 +759,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 		case 1:break;
 		case 2:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2U",NULL,NULL,NULL);
+					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2U","RAUTE2D","RAUTE2F",NULL);
 					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
 			   }
@@ -773,7 +773,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 		case 3:break;
 		case 4:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3U",NULL,NULL,NULL);
+					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3U","RAUTE3D","RAUTE3F",NULL);
 					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
 			   }
@@ -786,7 +786,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
 		case 5:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1U",NULL,NULL,NULL);
+					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1U","VIERECK1D","VIERECK1F",NULL);
 					m_ctrlBmpViereck1.ShowWindow(SW_HIDE);
 					m_ctrlBmpViereck1.ShowWindow(SW_SHOW);
 			   }
@@ -799,7 +799,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
 		case 6:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2U",NULL,NULL,NULL);
+					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2U","VIERECK2D","VIERECK2F",NULL);
 					m_ctrlBmpViereck2.ShowWindow(SW_HIDE);
 					m_ctrlBmpViereck2.ShowWindow(SW_SHOW);
 			   }
@@ -812,7 +812,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
 		case 7:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1U",NULL,NULL,NULL);
+					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1U","RAUTE1D","RAUTE1F",NULL);
 					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
 			   }
@@ -825,7 +825,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
 		case 8:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4U",NULL,NULL,NULL);
+					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4U","RAUTE4D","RAUTE4F",NULL);
 					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
 			   }
@@ -838,7 +838,7 @@ void CDlgHybridEncryptionDemo::ShowButtons()
 			   };break;
 		case 9:if(m_arrSetButtons[i])
 			   {
-					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5U",NULL,NULL,NULL);
+					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5U","RAUTE5D","RAUTE5F",NULL);
 					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
 					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
 			   }
