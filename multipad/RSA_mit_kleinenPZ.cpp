@@ -586,6 +586,7 @@ void RSA_mit_kleinenPZ::DecryptNumbers()
  
 void RSA_mit_kleinenPZ::OnEndDialog() 
 {
+	if(RSA->IsInitialized())
 	{ // Copy RSA Demo Parameter
 		LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
 		CString RSAOptions = "";
