@@ -1,6 +1,6 @@
 % $Id$
 % ...........................................................................
-%                             P R I M Z A H L E N
+%       K A P I T E L  2 :     P R I M Z A H L E N
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
@@ -442,8 +442,8 @@ sind. Diese Verfahren beantworten nur die Primalit"atseigenschaft einer Zahl,
 k"onnen aber nicht die Primfaktoren sehr gro"ser zusammengesetzter Zahlen
 bestimmen.
 
-\hypertarget{FermatNumbers01}{}
-Fermat\index{Fermat} hatte im 17. Jahrhundert an Mersenne \index{Mersenne Marin} geschrieben, dass er vermute, 
+\hypertarget{FermatNumbers01}{}%
+Fermat\index{Fermat Pierre} hatte im 17. Jahrhundert an Mersenne \index{Mersenne Marin} geschrieben, dass er vermute, 
 dass alle Zahlen der Form $$ F(n) = 2^{2^n} + 1 $$ f"ur alle ganzen Zahlen $n$ gr"o"ser 
 oder gleich $0$ prim seien (\hyperlink{FermatNumbers02}{siehe unten},
 Kapitel~\ref{spezialzahlentypen}).
@@ -494,7 +494,7 @@ Es gibt Zahlen, die den Fermat-Test mit allen Basen bestehen und doch nicht prim
 hei"sen \index{Zahlen!Carmichaelzahl} {\em Carmichaelzahlen}. Die erste ist
 $$ 561 = 3 \cdot 11 \cdot 17. $$
 
-Ein st"arkerer Test stammt von\index{Miller}\index{Rabin}
+Ein st"arkerer Test stammt von\index{Miller G.L.}\index{Rabin}
 Miller/Rabin: er wird nur von sogenannten {\em starken
 Pseudoprimzahlen} bestanden. Wiederum gibt es starke
 Pseudoprimzahlen, die keine Primzahlen sind, aber das passiert
@@ -576,7 +576,8 @@ f"ur ''Primzahlformeln'':
 \vskip +15 pt
 \hypertarget{FermatNumbers02}{}
 \item {\em Fermatzahlen}\footnote{Die Fermatschen Primzahlen spielen unter
-       anderem eine wichtige Rolle in der Kreisteilung. Wie Gauss \index{Gauss}
+       anderem eine wichtige Rolle in der Kreisteilung. 
+       Wie Gauss \index{Gauss Carl Friedrich}
        bewiesen hat, ist das regul"are $p$-Eck f"ur eine Primzahl $p>2$ dann
        und nur dann mit Zirkel und Lineal konstruierbar, wenn $p$ eine 
        Fermatsche Primzahl ist.}
@@ -818,7 +819,7 @@ f(27) = 197 & \mapsto {\rm ~prim} & & \\
 \end{array}
 $$
 
-\item Polynomfunktionen $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + 
+\item Polynomfunktionen\index{Polynom} $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + 
     a_1 x^1 + a_0$  ($a_i$ aus ${\mathbb Z}$, $n \geq 1$):
 
     Es existiert kein solches Polynom, das f"ur alle $x$ aus ${\mathbb Z}$ 
@@ -831,8 +832,13 @@ $$
 
     
 \pagebreak
-\item \index{Catalan} \index{Catalanzahlen} Catalan, nach dem auch die sog. {\em Catalanzahlen} $A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ benannt sind,
-    "au"serte die Vermutung, dass $C_4$ eine Primzahl ist:
+\item \index{Catalan Eugene} \index{Catalan-Zahlen} Eugene Charles Catalan\footnote{%
+Belgischer Mathematiker, 30.5.1814-14.2.1894. Nach ihm sind auch die 
+sogenannten {\em Catalan-Zahlen}
+$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2  =  1, 2, 5, 14, 42, 132, 429, 1430, 
+4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
+benannt.}
+"au"serte die Vermutung, dass $C_4$ eine Primzahl ist:
 $$
 \begin{array}{l}
 C_0 = 2, \\
@@ -902,8 +908,12 @@ $PI(x)$  ist asymptotisch zu  $x / ln(x)$.
 
 
 Dies ist der \index{Primzahlsatz} \textbf{Primzahlsatz} (prime
-number theorem). Er wurde von Legendre (1752-1833) \index{Legendre} und Gauss\index{Gauss}
-(1777-1855) aufgestellt und erst "uber 100 Jahre sp"ater bewiesen.
+number theorem). Er wurde von Legendre\footnote{%
+Adrien-Marie Legendre, Französischer Mathematiker, 18.9.1752$-$10.1.1833.
+}
+\index{Legendre Adrien-Marie}
+und Gauss\index{Gauss Carl Friedrich} (1777-1855) aufgestellt und 
+erst "uber 100 Jahre sp"ater bewiesen.
 
 \hyperlink{primhfk}{(Siehe "Ubersicht unter \ref{s:primhfk} "uber die
 Anzahl von Primzahlen in verschiedenen Intervallen).}
@@ -1099,11 +1109,15 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
     die Funktion auch von praktischem Interesse ist?
   \item Gibt es unendlich viele Mersenne-Primzahlen?\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
   \item Gibt es unendlich viele Fermatsche Primzahlen?
-  \item Gibt es einen Polynomialzeit-Algorithmus zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
+  \item Gibt es einen Polynomialzeit-Algorithmus\index{Polynom} zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
     \cite[S. 167]{Klee1997})?
     Diese Frage kann man auf die beiden folgenden Fragestellungen aufsplitten:
   \begin{itemize}
-        \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob eine Zahl prim ist?
+        \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob 
+	      eine Zahl prim ist?
+	      Diese Frage wurde durch den AKS-Algorithmus\index{AKS} 
+	      beantwortet (vgl.  Kapitel\ref{PrimesinP}, ``Primes in P'':
+	      Testen auf Primalit"at ist polynominal).
         \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
         nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"asst?\footnote{Vergleiche auch Kapitel \ref{RSABernstein} und Kapitel \ref{NoteFactorisation}.}
         \end{itemize}
@@ -1380,7 +1394,7 @@ Berechnung zum Beispiel per GMP:
 
 \item Den besten "Uberblick zu Primzahlen (weil sehr aktuell und vollst"andig)
       bieten m.E.  ~\glqq The Prime Pages\grqq~ von Chris Caldwell.
-      \index{Chris Caldwell} \\
+      \index{Caldwell Chris} \\
       \href{http://www.utm.edu/research/primes}
        {\tt http://www.utm.edu/research/primes }
 

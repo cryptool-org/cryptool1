@@ -129,7 +129,7 @@ functions are called {\bf trapdoor one way functions}. In the above case, $ d_T
 $ is the trapdoor information. \par
 
 In this process, we describe a problem as ``easy'' if it can be solved in 
-\index{Runtime!polynomial} polynomial time as a function of the length of the 
+\index{Runtime!polynomial} \index{Polynomial }polynomial time as a function of the length of the 
 input. If the length of the input is $ n $ bits, then the time for calculating 
 the function is proportional to $ n^{a}, $ where $ a $  is a constant. We say 
 that the \index{Complexity} complexity of such problems is $ O(n^{a}) $
@@ -149,7 +149,7 @@ quickly \
 The term ``practically impossible'' is slightly less precise. In 
 general, we can say that a problem cannot be solved \index{Runtime!efficient} 
 efficiently, if the time required to solve it increases more quickly than the 
-polynomial time as a function of the size of the input. If, for example, the 
+polynomial \index{Polynomial }time as a function of the size of the input. If, for example, the 
 length of the input is $ n $  bits and the time required for calculating the 
 function is proportional to $ 2^n $, then the following currently applies: the 
 function practically cannot be calculated for $n > 80$.
@@ -167,12 +167,12 @@ The most important complexity classes are the classes \textbf{P} and
 \begin{itemize}
 
     \item The class \textbf{P}: This class contains those problems that can be 
-solved in a polynomial amount of time.
+solved in a polynomial \index{Polynomial} amount of time.
     
 		\item The class \textbf{NP}: The definition of this class doesn't look at
 		the time required to solve a problem, but rather at the time required to
 		verify a given solution. The class \textbf{NP} consists of those problems
-		for which a given solution can be verified in a polynomial amount of time.
+		for which a given solution can be verified in a polynomial \index{Polynomial} amount of time.
 		Hereby, the term \textbf{NP} ``non-deterministic'' means polynomial and is
 		based on a calculation model, i.e. on a computer that only exists in theory
 		and can ``guess'' correct solutions non-deterministically then verify them
@@ -188,7 +188,7 @@ problems. These are problems that represent the
 class \textbf{NP} as follows: If a ``good'' algorithm for such a 
 problem exists, then ``good'' algorithms exist for all problems from 
 \textbf{NP}. In particular: if \textbf{P} only contained one complete problem, 
-i.e. if a polynomial solution algorithm existed for this problem, then 
+i.e. if a polynomial \index{Polynomial} solution algorithm existed for this problem, then 
 \textbf{P}would be equal to \textbf{NP}. In this sense, the \textbf{NP}-complete 
 problems are the most difficult problems in \textbf{NP}.
 
@@ -210,7 +210,7 @@ but so far the claims have always turned out to be false.
 
 A number of algorithms have been suggested for public key procedures\index{Cryptography!public key}. In many 
 cases - although they at first appeared promising - it was discovered that they 
-could be solved polynomially. The most famous failed applicant is the knapsack 
+could be solved polynomially\index{Polynomial}. The most famous failed applicant is the knapsack 
 with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 
 \newpage
@@ -228,7 +228,7 @@ possible in terms of value while restricted to an upper weight limit $ g $. You
 therefore need to find a subset of $ \{ G_1, \cdots,G_n\}, $ i.e. $ \{G_{i_1}, 
 \dots ,G_{i_k} \}, $ so that $ w_{i_1}+ \cdots +w_{i_k} $ is maximised under the 
 condition $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Such questions are called {\bf NP}-complete problems (not \index{Runtime!not polynomial NP} deterministically polynomial) that are difficult to 
+Such questions are called {\bf NP}-complete problems (not \index{Runtime!not polynomial NP} deterministically polynomial\index{Polynomial}) that are difficult to 
 calculate.\index{Knapsack}
 
 A special case of the knapsack problem is:\\
@@ -343,7 +343,7 @@ super-increasing sequence $ a_1, \dots,a_n $.
 
 
 In 1982, \index{Shamir Adi} Shamir \cite{Shamir1982} specified an algorithm for 
-breaking the system in polynomial time without solving the general knapsack 
+breaking the system in polynomial \index{Polynomial} time without solving the general knapsack 
 problem. Len \index{Adleman Leonard} Adleman \cite{Adleman1982} and Jeff 
 Lagarias \index{Lagarias Jeff} \cite{Lagarias1983} specified an algorithm for 
 breaking the twice iterated Merkle-Hellman knapsack encryption procedure in 

@@ -71,7 +71,7 @@ F"ur einen Gegner, der den "offentlichen Schl"ussel $ e_T $  kennt, ist es prakt
 
 Zur Konstruktion n"utzlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unm"oglich) zu berechnen ist, solange eine bestimmte zus"atzliche Information \index{Einwegfunktion!mit Fallt""ur} (Fallt"ur) nicht zur Verf"ugung steht. Mit der zus"atzlichen Information kann die Umkehrung effizient gel"ost werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Fallt"ur} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Fallt"ur-In"-for"-ma"-tion. \par
 
-Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist, d.h. wenn es so gel"ost werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abh"angigkeit der L"ange der Eingabe darstellen l"asst. 
+Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} \index{Polynom} polynomialer Zeit als Funktion der L"ange der Eingabe l"osbar ist, d.h. wenn es so gel"ost werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abh"angigkeit der L"ange der Eingabe darstellen l"asst. 
 Wenn die L"ange der Eingabe $ n $ Bits betr"agt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexit""at} Komplexit"at solcher Probleme $ O(n^{a}) $ betr"agt (Landau- oder Big-O-Notation). 
 
 Vergleicht man 2 Funktionen  $ 2^n $  und   $ n^{a} $, wobei $ a $  
@@ -90,7 +90,7 @@ schneller \
 Der Begriff \glqq praktisch unm"oglich\grqq {} ist etwas schwammiger. 
 Allgemein kann man sagen, ein Problem ist \index{Laufzeit!effizient}
 nicht effizient l"osbar, wenn der zu seiner L"osung ben"otigte Aufwand
-schneller w"achst als die polynomiale Zeit als Funktion der Gr"o"se der
+schneller w"achst als die polynomiale \index{Polynom} Zeit als Funktion der Gr"o"se der
 Eingabe. Wenn beispielsweise die L"ange der Eingabe $ n $  Bits betr"agt
 und die Zeit zur Berechnung der Funktion proportional zu $ 2^n $ ist, 
 so gilt gegenw"artig: die Funktion ist f"ur $n > 80$ praktisch nicht zu 
@@ -104,13 +104,13 @@ Die wichtigsten Komplexit"atsklassen  sind die Klassen \textbf{P} und \textbf{NP
 
 \begin{itemize}
 
-    \item Die Klasse \textbf{P}: Zu dieser Klasse geh"oren diejenigen Probleme, die mit polynomialem Zeitaufwand l"osbar sind.
+    \item Die Klasse \textbf{P}: Zu dieser Klasse geh"oren diejenigen Probleme, die mit polynomialem \index{Polynom} Zeitaufwand l"osbar sind.
     
-    \item Die Klasse \textbf{NP}: Bei der Definition dieser Klasse betrachten wir nicht den Aufwand zur L"osung eines Problems, sondern den Aufwand zur Verifizierung einer gegebenen L"osung. Die Klasse \textbf{NP} besteht aus denjenigen Problemen, bei denen die Verifizierung einer gegebenen L"osung mit polynomialem Zeitaufwand m"oglich ist. Dabei bedeutet der Begriff \textbf{NP} \glqq nichtdeterministisch\grqq {} polynomial und bezieht sich auf ein Berechnungsmodell, d.h. auf einen nur in der Theorie existierenden Computer, der richtige L"osungen nichtdeterministisch \glqq raten\grqq {} und dies dann in polynomialer Zeit verifizieren kann.
+    \item Die Klasse \textbf{NP}: Bei der Definition dieser Klasse betrachten wir nicht den Aufwand zur L"osung eines Problems, sondern den Aufwand zur Verifizierung einer gegebenen L"osung. Die Klasse \textbf{NP} besteht aus denjenigen Problemen, bei denen die Verifizierung einer gegebenen L"osung mit polynomialem Zeitaufwand m"oglich ist. Dabei bedeutet der Begriff \textbf{NP} \glqq nichtdeterministisch\grqq {} polynomial \index{Polynom} und bezieht sich auf ein Berechnungsmodell, d.h. auf einen nur in der Theorie existierenden Computer, der richtige L"osungen nichtdeterministisch \glqq raten\grqq {} und dies dann in polynomialer Zeit verifizieren kann.
 
 \end{itemize}
 
-Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein ber"uhmtes offenes Problem ist die Frage, ob $ \textbf{P} \neq \textbf{NP} $ gilt oder nicht, d.h. ob \textbf{P} eine echte Teilmenge ist oder nicht. Eine wichtige Eigenschaft der Klasse \textbf{NP} ist, dass sie auch sogenannte \glqq \textbf{NP}-vollst"andige\grqq {} Probleme enth"alt. Dies sind Probleme, welche die Klasse \textbf{NP} im folgenden Sinne vollst"andig repr"asentieren: Wenn es einen \glqq guten\grqq {} Algorithmus f"ur ein solches Problem gibt, dann existieren f"ur alle Probleme aus \textbf{NP} \glqq gute\grqq {} Algorithmen. Insbesondere gilt: wenn auch nur ein vollst"andiges Problem in \textbf{P} l"age, d.h. wenn es einen polynomialen L"osungsalgorithmus f"ur dieses Problem g"abe, so w"are \textbf{P}=\textbf{NP}. In diesem Sinn sind die \textbf{NP}-vollst"andigen Probleme die schwierigsten Probleme in \textbf{NP}.
+Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein ber"uhmtes offenes Problem ist die Frage, ob $ \textbf{P} \neq \textbf{NP} $ gilt oder nicht, d.h. ob \textbf{P} eine echte Teilmenge ist oder nicht. Eine wichtige Eigenschaft der Klasse \textbf{NP} ist, dass sie auch sogenannte \glqq \textbf{NP}-vollst"andige\grqq {} Probleme enth"alt. Dies sind Probleme, welche die Klasse \textbf{NP} im folgenden Sinne vollst"andig repr"asentieren: Wenn es einen \glqq guten\grqq {} Algorithmus f"ur ein solches Problem gibt, dann existieren f"ur alle Probleme aus \textbf{NP} \glqq gute\grqq {} Algorithmen. Insbesondere gilt: wenn auch nur ein vollst"andiges Problem in \textbf{P} l"age, d.h. wenn es einen polynomialen \index{Polynom} L"osungsalgorithmus f"ur dieses Problem g"abe, so w"are \textbf{P}=\textbf{NP}. In diesem Sinn sind die \textbf{NP}-vollst"andigen Probleme die schwierigsten Probleme in \textbf{NP}.
 
 Viele kryptographische Protokolle sind so gemacht, dass die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} l"osen m"ussen, w"ahrend sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
@@ -123,7 +123,7 @@ Es gab immer wieder die Aussage, jemand habe die "Aquivalenz bewiesen, z.B.
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen f"ur Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zun"achst vielversprechend erschienen, als polynomial l"osbar. Der ber"uhmteste durchgefallene Bewerber ist der Knapsack mit Fallt"ur, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
+Es wurden eine Reihe von Algorithmen f"ur Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zun"achst vielversprechend erschienen, als polynomial \index{Polynom} l"osbar. Der ber"uhmteste durchgefallene Bewerber ist der Knapsack mit Fallt"ur, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
 
 
 \newpage
@@ -136,7 +136,7 @@ Es wurden eine Reihe von Algorithmen f"ur Public Key-Verfahren vorgeschlagen. Ei
 %--------------------------------------------------------------------
 
 Gegeben $ n $ Gegenst"ande $ G_1, \dots, G_n $ mit den Gewichten $ g_1, \dots g_n $ und den Werten $w_1, \cdots, w_n. $ Man soll wertm"a"sig so viel wie m"oglich unter Beachtung einer oberen Gewichtsschranke $ g $ davontragen. Gesucht ist also eine Teilmenge von $ \{ G_1, \cdots,G_n\}, $ etwa $ \{G_{i_1}, \dots ,G_{i_k} \}, $ so dass  $ w_{i_1}+ \cdots +w_{i_k} $ maximal wird unter der Bedingung $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial), die aufwendig zu berechnen sind.\index{Knapsack}
+Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial\index{Polynom}), die aufwendig zu berechnen sind.\index{Knapsack}
 
 Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die nat"urlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
@@ -219,7 +219,7 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum
-Brechen des Systems in polynomialer Zeit an, ohne das allgemeine
+Brechen des Systems in polynomialer \index{Polynom} Zeit an, ohne das allgemeine
 Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman
 \cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff}
 \cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen

@@ -1,7 +1,7 @@
 % $Id$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% C H A P T E R   T W O
+% C H A P T E R   T W O:  P R I M E S
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -430,8 +430,8 @@ question, there are extremely highly developed procedures that are much quicker.
 These procedures can determine the primality attribute of a number, but they
 cannot determine the prime factors of a number, if it is compound.
 
-\hypertarget{FermatNumbers01}{}
-In the 17th century, Fermat wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
+\hypertarget{FermatNumbers01}{}%
+In the 17th century, Fermat\index{Fermat Pierre} wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
 of the form $$ F(n) = 2^{2^n} + 1 $$ are prime for all whole numbers $n$ greater
 than or equal to $0$ (\hyperlink{FermatNumbers02}{see below}) 
 \index{Number!Fermat}\index{Fermat!number}
@@ -478,7 +478,7 @@ There are numbers that pass the Fermat test with all bases and yet are not
 prime: these numbers are called \index{Number!Carmichael} {\em
 Carmichael numbers}. The first of these is $$ 561 = 3 \cdot 11 \cdot 17. $$
 
-A stronger test is provided by\index{Miller}\index{Rabin} Miller/Rabin: it is
+A stronger test is provided by\index{Miller G.L.}\index{Rabin} Miller/Rabin: it is
 only passed by so-called {\em strong pseudo prime numbers}. Again, there are
 strong pseudo prime numbers that are not primes, but this is much less often the
 case than for (simple) pseudo prime numbers. The smallest strong pseudo prime
@@ -504,7 +504,7 @@ can be found on Web sites such as:
 
 % --------------------------------------------------------------------------
 \vskip +20 pt
-\subsection{Further special number types and the search for a formula for primes}
+\subsection{Further special number types and the search for a formula for primes}\label{spezialzahlentypen}
 \index{Prime number!formula}
 There are currently no useful, open (i.e. not recursive) formulae known that
 only deliver prime numbers (recursive means that in order to calculate the
@@ -560,7 +560,7 @@ The following enumeration contains the most common ideas for
 \vskip +15 pt
 \hypertarget{FermatNumbers02}{}
 \item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in circle division.
-As proven by Gauss\index{Gauss}, a regular $p$-edge
+As proven by Gauss\index{Gauss Carl Friedrich}, a regular $p$-edge
 can only be constructed with the use of a pair of compasses and a ruler, when $p$ is a Fermat prime number.}
 \index{Number!Fermat}\index{Fermat!number}  $F(n) = 2^{2^n} + 1$:\\
 As mentioned \hyperlink{FermatNumbers01}{above}, Fermat wrote to Mersenne regarding his assumption, that all numbers of this type are primes.
@@ -798,7 +798,7 @@ f(27) = 197 & \mapsto {\rm ~prime} & & \\
 $$
 
 \newpage
-\item Polynomial functions $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 +
+\item Polynomial functions\index{Polynomial} $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 +
 a_0$  ($a_i$ in ${\mathbb Z}$, $n \geq 1$):
 
     There exists no such polynomial that for all $x$ in ${\mathbb Z}$ only
@@ -809,8 +809,14 @@ will also find further details about prime number formulae.
     This means there is no hope in looking for further formulae 
     similar to that of type 11. or 12.
 
-  \item  \index{Catalan number} Catalan, after whom the so-called
-{\em Catalan numbers} $A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ are named,
+  \item \index{Catalan Eugene} \index{Catalan number} Eugene Catalan\footnote{%
+Belgian mathematician, May 5, 1814 - Feb 14, 1894. 
+
+After him the so-called
+{\em Catalan numbers}
+$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2  =  1, 2, 5, 14, 42, 132, 429, 1430, 
+4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
+are named.}
 conjectured that $C_4$ is a prime:
 $$
  \begin{array}{l}
@@ -881,8 +887,12 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 \end{theorem}
 
 
-This is the \index{Prime number!theorem} \textbf{prime number theorem}. It was
-put forward by Legendre \index{Legendre} (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
+This is the \index{Prime number!theorem} \textbf{prime number theorem}. 
+It was put forward by Legendre\footnote{%
+Adrien-Marie Legendre, French mathematician, Sep 18, 1752$-$Jan 10, 1833.
+}
+\index{Legendre Adrien-Marie}
+and Gauss\index{Gauss Carl Friedrich} (1777-1855) but not proved until
 over 100 years later.
 
 \hyperlink{primhfk}{(Cross-reference: overview under \ref{s:primhfk} of the number of
@@ -1081,17 +1091,21 @@ some practical interest?
 \item Is there an infinite number of Mersenne prime numbers?\index{Prime number!Mersenne}\index{Mersenne!prime number}
 \item Is there an infinite number of Fermat prime numbers?
 
-  \item Does a polynomial time algorithm exist for calculating the prime factors of a number (see
+  \item Does a polynomial\index{Polynomial} time algorithm exist for calculating the prime factors of a number (see
     \cite[p. 167]{Klee1997})? 
     This question can be divided into the two following questions:
-\begin{itemize} 
- \item Does a polynomial time algorithm exist that decides whether a number is
-prime?
-\item Does a polynomial time algorithm exist that calculates for a
-  composite number $n$ a non-trivial (i.e. other than $1$ and $n$) factor
-  of $n$?\footnote{Please see chapters \ref{RSABernstein} and
-    \ref{NoteFactorisation}.}
-\end{itemize}
+   \begin{itemize} 
+      \item Does a polynomial time algorithm exist that decides whether a
+            number is prime?
+	    This question has been answered by the AKS algorithm\index{AKS} 
+	    (see chapter\ref{PrimesinP}, ``Primes in P'': 
+	    Primality testing is polynomial).
+
+      \item Does a polynomial time algorithm exist that calculates for a
+            composite number $n$ a non-trivial (i.e. other than $1$ and $n$)
+	    factor of $n$?\footnote{Please see chapters \ref{RSABernstein}
+	    and \ref{NoteFactorisation}.}
+   \end{itemize}
 \end{itemize}
 
 
@@ -1364,7 +1378,7 @@ Calculation using GMP, for example:
 
 \item The best overview about prime numbers is offered from my point of view 
       by ~``The Prime Pages'' from Chris Caldwell.
-      \index{Chris Caldwell} \\
+      \index{Caldwell Chris} \\
       \href{http://www.utm.edu/research/primes}
        {\tt http://www.utm.edu/research/primes }
 
