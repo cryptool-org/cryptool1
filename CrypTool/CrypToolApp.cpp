@@ -40,7 +40,7 @@
 #include "DlgHybridEncryptionDemo.h"
 #include "DlgOptionsStartoptions.h"
 #include "DlgSignatureAttack.h"
-//#include "DlgSigAttModificDemo.h"
+#include "DlgSigAttModificDemo.h"
 #include "DlgFurtherOptions.h"
 #include "DlgDiffieHellmanVisualization.h"
 
@@ -760,6 +760,6 @@ void CCrypToolApp::OnEinzelverfahrenDiffiehellmandemo()
 
 void CCrypToolApp::OnSigattmodificdemo() 
 {
-//	CDlgSigAttModificDemo SAMD;
-//	SAMD.DoModal();
+	CDlgSigAttModificDemo SAMD;
+	SAMD.DoModal();
 }
