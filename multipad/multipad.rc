@@ -610,7 +610,7 @@ BEGIN
     CTEXT           "Myriam Zeuner Guerrier",IDC_STATIC,1,187,166,9
     CTEXT           "Review:",IDC_STATIC,1,204,166,8
     CTEXT           "Thomas Gauweiler",IDC_STATIC,1,128,166,8
-    CTEXT           "Matej Matejiceck",IDC_STATIC,0,148,167,8
+    CTEXT           "Matej Matejicek",IDC_STATIC,0,148,167,8
 END
 
 IDD_DIALOG_EC_PUB_PARAM DIALOG DISCARDABLE  0, 0, 399, 287
@@ -1998,8 +1998,8 @@ BEGIN
     GROUPBOX        "Ergebnise der einzelnen FIPS-PUB-140-1 Tests",
                     IDC_STATIC,7,46,183,111
     GROUPBOX        "Entropiestatus",IDC_STATIC,7,7,183,33
-    GROUPBOX        "Test-Batterie Status",IDC_STATIC,7,163,183,42
-    PUSHBUTTON      "Test-Batterie starten",IDC_BATTERIETEST,7,212,84,19
+    GROUPBOX        "Testbatterie Status",IDC_STATIC,7,163,183,42
+    PUSHBUTTON      "Testbatterie starten",IDC_BATTERIETEST,7,212,84,19
     CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
     CONTROL         251,IDC_BMP_LONG_KRE,"Static",SS_BITMAP,163,59,18,16
     CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
@@ -2012,7 +2012,7 @@ BEGIN
     LTEXT           "Mono-Bit Test Ergebnis:",IDC_TEXT_MONO,17,87,123,13
     LTEXT           "Poker Test Ergebnis:",IDC_TEXT_POKER,17,112,123,13
     LTEXT           "Runs Test Ergebnis:",IDC_TEXT_RUN,17,137,123,13
-    LTEXT           "FIPS-PUB-140-1 Test-Batterie Status:",IDC_TEXT_BATTERIE,
+    LTEXT           "FIPS-PUB-140-1 Testbatterie Status:",IDC_TEXT_BATTERIE,
                     17,182,123,11
     CONTROL         251,IDC_BMP_FIPS_KRE,"Static",SS_BITMAP,163,177,18,16
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
@@ -2022,7 +2022,7 @@ END
 IDD_DIALOG_TIPPS_AND_TRICKS DIALOGEX 0, 0, 256, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wie Sie Starten"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Ende",IDOK,195,189,50,14
     CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",
@@ -4296,9 +4296,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_REFERENCE_FILE "Referenzdatei"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
-                            "Maximaler Testwert: %lf\nTest Ergebnis: %lf\n"
+                            "Maximaler Testwert: %lf\nTestergebnis: %lf\n"
     IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 
-                            "Maximaler Testwert: %d\nLongest Run: %d\n"
+                            "Maximaler Testwert: %d\nLängster Run: %d\n"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4536,15 +4536,15 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_CAPTATION_FREQUENCY_TEST "Frequency Test von %s"
     IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST 
-                            "Für den Frequency-Test wird eine Dateigröße von mindestens 1250 Bytes empfohlen."
+                            "Für den Frequency Test wird eine Dateigröße von mindestens 1250 Bytes empfohlen."
     IDS_STRING_TEST_KLEINE_DATEI 
                             "Die Datei muss gleich/grösser als 16 Byte sein !!!"
     IDS_STRING_CAPTATION_RUNS_TESTS "Runs Tests von %s"
     IDS_STRING_CAPTATION_POKER_TEST "Poker Test von %s"
-    IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Test-Batterie von %s"
+    IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Testbatterie von %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %lf bit/Zeichen"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "Für die FIPS-PUB-140-1 Test-Batterie muss die Datei genau\n2500 Byte gross sein. Deshalb werden nach OK nur die ersten\n2500 Byte der gesamten Datei getestet."
+                            "Für die FIPS-PUB-140-1 Testbatterie muss die Datei genau\n2500 Byte gross sein. Deshalb werden nach OK nur die ersten\n2500 Byte der gesamten Datei getestet."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
                             "Die FIPS-PUB-140-1 Testbatterie kann nicht ausgeführt werden,\nda die Batterie für Dateien der Größe 2500 Bytes (+/- 20000 Bits)\nspezifiziert ist."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
@@ -4553,9 +4553,8 @@ BEGIN
                             "Longrun Länge muss gleich/kleiner als Dateilänge\noder nicht gleich Null sein !"
     IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s bestanden !"
     IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nicht bestanden !"
-    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Test-Batterie bestanden !"
-    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN 
-                            "Test-Batterie nicht bestanden !"
+    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Testbatterie bestanden !"
+    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Testbatterie nicht bestanden !"
 END
 
 #endif    // Deutsch (Deutschland) resources

@@ -192,10 +192,6 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 		*/
 		UpdateData(FALSE);
 
-		char info_ergeb[128] = "Default Parameter: %lf\nTest Ergebnis:        %lf\n\nErgebnis Vergleich:  %lf %c %lf";
-		char kleiner = '<';
-		char groesser = '>';
-
 		if(!currentTest->GetResult())
 		{
 			m_Bitmap_Ctrl2.ShowWindow(FALSE);
@@ -682,7 +678,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Mono-Bit-Test");
+		sprintf(tmpStr, pc_str, "Mono-Bit Test");
 		m_Monobit_Static = tmpStr;
 		//sprintf(tmpStr, "Die Zahl x der Einsen : %d\n9654 < x=%d < 10346", FREQT.einsen, FREQT.einsen);
 		//m_Mono_Info = tmpStr;
@@ -696,7 +692,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Mono-Bit-Test");
+		sprintf(tmpStr, pc_str, "Mono-Bit Test");
 		m_Monobit_Static = tmpStr;
 		/*if (FREQT.einsen <= 9654)
 		{
@@ -727,7 +723,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Longrun-Test");
+		sprintf(tmpStr, pc_str, "Longrun Test");
 		m_Longrun_Static = tmpStr;
 		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d < 34", LRT.longest_run_final, LRT.longest_run_final);
 		//m_LongRun_Info = tmpStr;
@@ -741,7 +737,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Longrun-Test");
+		sprintf(tmpStr, pc_str, "Longrun Test");
 		m_Longrun_Static = tmpStr;
 		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d > 34", LRT.longest_run_final, LRT.longest_run_final);
 		//m_LongRun_Info = tmpStr;
@@ -771,7 +767,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Poker-Test");
+		sprintf(tmpStr, pc_str, "Poker Test");
 		m_Pokertest_Static = tmpStr;
 		//sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\n1.03 < x=%.4lf < 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
 		//m_Poker_Info = tmpStr;
@@ -785,7 +781,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Poker-Test");
+		sprintf(tmpStr, pc_str, "Poker Test");
 		m_Pokertest_Static = tmpStr;
 
 		/*if (POKT.GetResult() <= 1.03)
@@ -867,7 +863,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Runs-Test");
+		sprintf(tmpStr, pc_str, "Runs Test");
 		m_Runstest_Static = tmpStr;
 		UpdateData(FALSE);
 		tests++;
@@ -879,7 +875,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		UpdateData(TRUE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpStr[128];
-		sprintf(tmpStr, pc_str, "Runs-Test");
+		sprintf(tmpStr, pc_str, "Runs Test");
 		m_Runstest_Static = tmpStr;
 		UpdateData(FALSE);
 	}

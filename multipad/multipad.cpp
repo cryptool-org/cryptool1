@@ -254,7 +254,7 @@ BOOL CMultiPadApp::InitInstance()
 #undef DoOneData
 
 	// nach AES-Selfextractor suchen
-/*
+
 	n = SearchPath(NULL,"AESTool.exe", NULL, 1023, buffer, &p);
 	if(n>0) {
 		m_Selfextract_EXE = (char *) malloc(n+2);
@@ -262,7 +262,7 @@ BOOL CMultiPadApp::InitInstance()
 	}
 	else
 		m_Selfextract_EXE = NULL;
-*/
+
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.DoModal();

@@ -1295,7 +1295,7 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 		Dlg_Tests_Freq FREQT;
 		FREQT.SetCurrentTest( &test );
 		FREQT.init(ContentName, GetTitle());
-		sprintf(FREQT.tmpStr, "Frequency-Test");
+		sprintf(FREQT.tmpStr, "Frequency Test");
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_FREQUENCY_TEST, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpstr[127];
 		sprintf(tmpstr, pc_str, GetTitle());
@@ -1324,7 +1324,7 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		Dlg_Tests_Freq SERT;
 		SERT.SetCurrentTest( &test );
 		SERT.init(ContentName, GetTitle());
-		sprintf(SERT.tmpStr, "Serial-Test");
+		sprintf(SERT.tmpStr, "Serial Test");
 
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_SERIAL_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 		char tmpStr[256];
@@ -1384,7 +1384,7 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 		POKT.Set_Poker_Flag( TRUE );
 		POKT.SetCurrentTest( &test );
 		POKT.init(ContentName, GetTitle());
-		sprintf(POKT.tmpStr, "Poker-Test");
+		sprintf(POKT.tmpStr, "Poker Test");
 
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_POKER_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 		char tmpStr[256];
