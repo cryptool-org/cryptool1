@@ -1763,7 +1763,8 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "vollständig &faktorisieren",IDC_BUTTON1,249,156,93,16
+    PUSHBUTTON      "vollständig &faktorisieren",
+                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
     LTEXT           "Durch das Anklicken von [weiter] wird die nächste zusammengesetzte Zahl faktorisiert. Sie können auch die Eingabe in einen Schritt [vollständig faktorisieren] .",
                     IDC_STATIC,24,132,318,17
 END
@@ -4025,13 +4026,13 @@ BEGIN
     IDS_STRING_RSA_DECRYPTION_TIME 
                             "Für die RSA-Entschlüsselung benötigte Zeit: %.5f Sekunden."
     IDS_STRING_ERR_MEMORY_SIGNATURE_VERIFICATION 
-                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur-Verifikation durchzuführen!"
+                            "Fehler. Es steht nicht genügend Speicher zur Verfügung, um eine Signatur-Verifikation durchzuführen!"
     IDS_STRING_ERR_MEMORY_RSA_DECRYPTION 
-                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Entschlüsselung durchzuführen!"
+                            "Fehler. Es steht nicht genügend Speicher zur Verfügung, um eine RSA-Entschlüsselung durchzuführen!"
     IDS_STRING_ERR_MEMORY_RSA_ENCRYPTION 
-                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine RSA-Verschlüsselung durchzuführen!"
+                            "Fehler. Es steht nicht genügend Speicher zur Verfügung, um eine RSA-Verschlüsselung durchzuführen!"
     IDS_STRING_ERR_MEMORY_SIGNATURE_GENERATION 
-                            "Fehler. Es steht nicht genügend Speichr zur Verfügung, um eine Signatur zu erstellen!"
+                            "Fehler. Es steht nicht genügend Speicher zur Verfügung, um eine Signatur zu erstellen!"
     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 
                             "Generiert zwei Primzahlen"
     ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 
@@ -4478,6 +4479,13 @@ BEGIN
                             "Die eingegebene Bytelänge der Ausgabe is größer als %i !\nBitte geben Sie eine Zahl zwischen 1 und %i ein."
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertikal"
+    IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
+                            "Die jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor. Dieser Faktor konnte mit den von Ihnen ausgewählten Algorithmen nicht zerlegt werden. Versuchen Sie bitte eine anderes Verfahren."
+    IDS_STRING_FAKTORISATION_PRIMZAHL "Die Eingabe ist eine Primzahl."
+    IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
+                            "Die Eingabe ist jetzt vollständig in ihren Primfaktoren zerlegt."
+    IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
+                            "Die Eingabe konnte mit den von Ihnen ausgewählten Algorithmen nicht vollständig in ihren Primfaktoren zerlegt werden. Versuchen Sie bitte eine anderes Verfahren."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8904,6 +8912,13 @@ BEGIN
                             "The entered byte length of output length is bigger than %i !\nplease enter a number between 1 and %i."
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertical"
+    IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
+                            "The present factorisation still contains at least one composite factor, which could not be factorised further with the algorithms you selected. Please try one other procedure. "
+    IDS_STRING_FAKTORISATION_PRIMZAHL "The input is a prime number. "
+    IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
+                            "The input is now completely factorised."
+    IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
+                            "The input could not be completely factorised to its prime factors with the algorithms selected by you. Please try one other procedure. "
 END
 
 STRINGTABLE DISCARDABLE 

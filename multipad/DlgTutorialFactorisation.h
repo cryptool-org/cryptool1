@@ -33,6 +33,9 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgTutorialFactorisation)
 	enum { IDD = IDD_DIALOG_ZAHL_FAKTORISIEREN };
+	CEdit	m_CompositeNoCtrl;
+	CButton	m_vollstaendig;
+	CButton	m_weiter;
 	CRichEditCtrl	m_FactorisationCtrl;
 	CString	m_CompositeNoStr;
 	BOOL	m_bruteForce;
@@ -59,6 +62,9 @@ protected:
 	//{{AFX_MSG(DlgTutorialFactorisation)
 	afx_msg void OnButtonEnd();
 	afx_msg void OnButtonFactorisation();
+	afx_msg void OnButtonVollstaendigFaktorisation();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnUpdateEditEingabe();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -47,6 +47,9 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgTutorialFactorisation)
+	DDX_Control(pDX, IDC_EDIT1, m_CompositeNoCtrl);
+	DDX_Control(pDX, IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, m_vollstaendig);
+	DDX_Control(pDX, IDC_BUTTON_Faktorisieren, m_weiter);
 	DDX_Control(pDX, IDC_RICHEDIT2, m_FactorisationCtrl);
 	DDX_Text(pDX, IDC_EDIT1, m_CompositeNoStr);
 	DDX_Check(pDX, IDC_CHECK1, m_bruteForce);
@@ -64,6 +67,8 @@ BEGIN_MESSAGE_MAP(DlgTutorialFactorisation, CDialog)
 	//{{AFX_MSG_MAP(DlgTutorialFactorisation)
 	ON_BN_CLICKED(IDC_BUTTON_cancel, OnButtonEnd)
 	ON_BN_CLICKED(IDC_BUTTON_Faktorisieren, OnButtonFactorisation)
+	ON_BN_CLICKED(IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, OnButtonVollstaendigFaktorisation)
+	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEditEingabe)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -80,8 +85,14 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 {
 	UpdateData(TRUE);
 	
-	CString next_factor;
+	if ( m_CompositeNoStr.GetLength() )
+	{
+		m_weiter.EnableWindow(true);
+		m_vollstaendig.EnableWindow(true);	
+	}
 
+	CString next_factor;
+	char line [256];
 	next_factor=Search_First_Composite_Factor();
 	
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
@@ -93,6 +104,9 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 		if ( TutorialFactorisation::IsPrime(next_factor) )
 		{// Die eingegebene Zahl ist eine Primzahl
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
 			return;
 		}
 		BOOL factorized = FALSE; 
@@ -134,14 +148,23 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 		else
 		{
 			// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
 		}
 		
 		UpdateData(FALSE);
 		Set_NonPrime_Factor_Red();
 	}
+	// Die Zahl ist jetzt vollständig faktorisiert
 	else
 	{
-
+		m_weiter.EnableWindow(false);
+		m_vollstaendig.EnableWindow(false);	
+		
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox(line);
 	}
 }
 
@@ -333,4 +356,165 @@ CString DlgTutorialFactorisation::Search_First_Composite_Factor()
 		ndx = ndx->next;
 	}
 	return "lolo";
+}
+
+void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation() 
+{
+	NumFactor *ndx = factorList;
+	do
+		{
+		UpdateData(TRUE);
+		
+		CString next_factor;
+		char line [256];
+		next_factor=Search_First_Composite_Factor();
+		
+		// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
+		if (next_factor!="lolo")
+		{
+			TutorialFactorisation fact;
+
+			fact.SetN(next_factor);
+
+			if ( TutorialFactorisation::IsPrime(next_factor) )
+			{// Die eingegebene Zahl ist eine Primzahl
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
+			BOOL factorized = FALSE; 
+			if ( !factorized && m_bruteForce )
+			{
+				factorized = fact.BruteForce();
+			}
+			if ( !factorized && m_Brent )
+			{
+				factorized = fact.Brent();
+			}
+			if ( !factorized && m_Pollard )
+			{
+				factorized = fact.Pollard();
+			}
+
+			if ( !factorized && m_Williams )
+			{
+				factorized = fact.Williams();
+			}
+
+			if ( !factorized && m_Lenstra )
+			{
+				factorized = fact.Lenstra();
+			}
+			
+			if ( !factorized && m_QSieve )
+			{
+				factorized = fact.QuadraticSieve();
+			}		
+			if ( factorized )
+			{
+				CString f1, f2;
+				fact.GetFactor1Str( f1 );
+				fact.GetFactor2Str( f2 );
+				expandFactorisation( next_factor, f1, f2 );
+				// Zahl wurde Faktorisiert
+			}
+			else
+			{
+				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
+			
+			UpdateData(FALSE);
+			Set_NonPrime_Factor_Red();
+		}
+		// Die Zahl ist jetzt vollständig faktorisiert
+		else
+		{
+			m_weiter.EnableWindow(false);
+			m_vollstaendig.EnableWindow(false);	
+
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			return;
+		}
+		{
+			ndx = factorList;
+		}
+	}
+
+	while (ndx);
+}
+
+BOOL DlgTutorialFactorisation::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	m_weiter.EnableWindow(false);
+	// TODO: Zusätzliche Initialisierung hier einfügen
+	m_vollstaendig.EnableWindow(false);
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void DlgTutorialFactorisation::OnUpdateEditEingabe() 
+{
+	
+	int sels, sele, i, k;
+	char c;
+	CString res;
+
+	UpdateData(TRUE); // get the displayed value in m_text 
+	m_CompositeNoCtrl.GetSel(sels, sele);
+	res.Empty();
+
+	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
+
+	for(k=i=0;i<m_CompositeNoStr.GetLength();i++) {
+		c = m_CompositeNoStr[i];
+//		if(AppConv.IsInAlphabet(c)) { // valid character
+			res += c;
+			k++;
+//		}
+//		else { // invalid character
+		//	MessageBeep(MB_OK);
+		//	if(k<sels) sels--;
+		//	if(k<sele) sele--;
+//		}
+	}
+	m_CompositeNoStr = res;
+	if ( m_CompositeNoStr.GetLength() )
+	{
+		m_weiter.EnableWindow(true);
+		m_vollstaendig.EnableWindow(true);		
+	}
+	else
+	{
+		m_weiter.EnableWindow(false);
+		m_vollstaendig.EnableWindow(false);	
+	}
+	m_Factorisation = "";
+	factorList = 0;
+
+	UpdateData(FALSE);
+	m_CompositeNoCtrl.SetSel(sels,sele);
+
+/*
+	UpdateData(TRUE);
+
+	// TODO: Wenn es sich hierbei um ein RICHEDIT-Steuerelement handelt, sendet es
+	if ( m_CompositeNoStr.GetLength() )
+	{
+		m_weiter.EnableWindow(true);
+		m_vollstaendig.EnableWindow(true);	
+	}
+	m_Factorisation = "";
+	factorList = 0;
+	
+	UpdateData(FALSE);
+*/	
 }
