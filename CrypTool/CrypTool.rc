@@ -716,7 +716,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,13,47,58,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,111,47,53,17
-    EDITTEXT        IDC_EDIT1,124,17,16,12,ES_UPPERCASE
+    EDITTEXT        IDC_EDIT1,124,17,16,12
     LTEXT           "Ermittelter Caesar-Schlüssel:",IDC_STATIC,32,19,90,8
 END
 
@@ -6433,7 +6433,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Decrypt",IDOK,13,47,58,17
     PUSHBUTTON      "&Cancel",IDCANCEL,111,47,53,17
-    EDITTEXT        IDC_EDIT1,124,17,16,12,ES_UPPERCASE
+    EDITTEXT        IDC_EDIT1,124,17,16,12
     LTEXT           "Derived Caesar key:",IDC_STATIC,32,19,72,8
 END
 

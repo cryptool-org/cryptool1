@@ -58,7 +58,10 @@ void CDlgCaesarAnalysis::OnUpdateEdit1()
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
-	if(theApp.TextOptions.m_IgnoreCase) m_string.MakeUpper();
+	if(theApp.TextOptions.m_IgnoreCase)
+	{
+		m_string.MakeUpper();
+	}
 
 	for(k=i=0;i<m_string.GetLength();i++) {
 		c = m_string[i];
