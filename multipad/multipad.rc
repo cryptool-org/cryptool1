@@ -965,50 +965,50 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Signatur einer Nachricht Erstellen"
 FONT 8, "MS Sans Serif"
 BEGIN
+    DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,11,161,367,99
     EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,295,347,83,20
-    GROUPBOX        "Hashfunktion wählen:",IDC_STATIC,11,6,137,129
     LTEXT           "Verfahren:",IDC_STATIC,21,23,50,10
-    LTEXT           "Ausgabenlänge:",IDC_STATIC,86,23,55,10
     CONTROL         "MD&2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     21,42,31,10
-    LTEXT           "128 Bit",IDC_STATIC,86,42,35,10
     CONTROL         "MD&5",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,61,31,
                     10
-    LTEXT           "128 Bit",IDC_STATIC,86,61,35,8
     CONTROL         "RIPE&MD-160",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,21,
                     79,55,10
-    LTEXT           "160 Bit",IDC_STATIC,86,79,35,10
     CONTROL         "S&HA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,21,97,31,
                     10
-    LTEXT           "160 Bit",IDC_STATIC,86,97,35,10
     CONTROL         "SH&A-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,21,114,
                     37,10
-    LTEXT           "160 Bit",IDC_STATIC,86,114,35,10
-    GROUPBOX        "Signaturverfahren wählen:",IDC_STATIC,163,6,215,130
-    LTEXT           "Problemklasse ""Faktorisieren"":",IDC_STATIC,175,22,189,
-                    10
     CONTROL         "&RSA",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     190,35,31,10
-    LTEXT           "Problemklasse ""Diskreter Logarithmus"":",IDC_STATIC,
-                    175,49,189,10
     CONTROL         "&DSA",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,190,62,31,
                     10
-    LTEXT           "Problemklasse ""Elliptische Kurven Diskreter Logarithmus"":",
-                    IDC_STATIC,175,78,189,10
     CONTROL         "&ECSP-DSA",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,190,
                     93,51,10
     CONTROL         "ECSP-&NR",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,190,
                     109,47,10
-    GROUPBOX        "Punktrepresentation",IDC_STATIC,250,90,105,40,BS_CENTER
     CONTROL         "&Affine Koordinaten",IDC_RADIO10,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,258,101,92,10
     CONTROL         "&Projektive Koordinaten",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,258,114,92,10
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,295,347,83,20
+    GROUPBOX        "Hashfunktion wählen:",IDC_STATIC,11,6,137,129
+    LTEXT           "Ausgabenlänge:",IDC_STATIC,86,23,55,10
+    LTEXT           "128 Bit",IDC_STATIC,86,42,35,10
+    LTEXT           "128 Bit",IDC_STATIC,86,61,35,8
+    LTEXT           "160 Bit",IDC_STATIC,86,79,35,10
+    LTEXT           "160 Bit",IDC_STATIC,86,97,35,10
+    LTEXT           "160 Bit",IDC_STATIC,86,114,35,10
+    GROUPBOX        "Signaturverfahren wählen:",IDC_STATIC,163,6,215,130
+    LTEXT           "Problemklasse ""Faktorisieren"":",IDC_STATIC,175,22,189,
+                    10
+    LTEXT           "Problemklasse ""Diskreter Logarithmus"":",IDC_STATIC,
+                    175,49,189,10
+    LTEXT           "Problemklasse ""Elliptische Kurven Diskreter Logarithmus"":",
+                    IDC_STATIC,175,78,189,10
+    GROUPBOX        "Punktrepresentation",IDC_STATIC,250,90,105,40,BS_CENTER
     LTEXT           "Wählen Sie zum Signieren  Ihren privaten Schlüssel:",
                     IDC_STATIC,11,147,364,8
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,11,270,106,68
@@ -5680,50 +5680,50 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Sign a Message"
 FONT 8, "MS Sans Serif"
 BEGIN
+    DEFPUSHBUTTON   "&Sign",IDOK,11,347,93,20
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,11,161,367,99
     EDITTEXT        IDC_EDIT1,302,283,60,13,ES_PASSWORD | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Sign",IDOK,11,347,93,20
-    PUSHBUTTON      "&Cancel",IDCANCEL,295,347,83,20
-    GROUPBOX        "Choose hash function",IDC_STATIC,11,6,137,129
     LTEXT           "Algorithm:",IDC_STATIC,21,23,50,10
-    LTEXT           "Output length",IDC_STATIC,86,23,55,10
     CONTROL         "MD&2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     21,42,31,10
-    LTEXT           "128 bits",IDC_STATIC,86,42,35,10
     CONTROL         "MD&5",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,61,31,
                     10
-    LTEXT           "128 bits",IDC_STATIC,86,61,35,8
     CONTROL         "&RIPEMD-160",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,21,
                     79,55,10
-    LTEXT           "160 bits",IDC_STATIC,86,79,35,10
     CONTROL         "&SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,21,97,31,
                     10
-    LTEXT           "160 bits",IDC_STATIC,86,97,35,10
     CONTROL         "SH&A-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,21,114,
                     37,10
-    LTEXT           "160 bits",IDC_STATIC,86,114,35,10
-    GROUPBOX        "Choose signature algorithm",IDC_STATIC,163,6,215,130
-    LTEXT           "Factorisation based algorithms",IDC_STATIC,175,22,189,
-                    10
     CONTROL         "&RSA",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     190,35,31,10
-    LTEXT           "Discrete logarithm based algorithms",IDC_STATIC,175,49,
-                    189,10
     CONTROL         "&DSA",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,190,62,31,
-                    10
-    LTEXT           "Elliptic curve based algorithms",IDC_STATIC,175,78,189,
                     10
     CONTROL         "&ECSP-DSA",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,190,
                     93,51,10
     CONTROL         "ECSP-&NR",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,190,
                     109,47,10
-    GROUPBOX        "Presentation format",IDC_STATIC,250,90,105,40,BS_CENTER
     CONTROL         "&Affine coordinates",IDC_RADIO10,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,258,101,92,10
     CONTROL         "&Projective coordinates",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,258,114,92,10
+    PUSHBUTTON      "&Cancel",IDCANCEL,295,347,83,20
+    GROUPBOX        "Choose hash function",IDC_STATIC,11,6,137,129
+    LTEXT           "Output length",IDC_STATIC,86,23,55,10
+    LTEXT           "128 bits",IDC_STATIC,86,42,35,10
+    LTEXT           "128 bits",IDC_STATIC,86,61,35,8
+    LTEXT           "160 bits",IDC_STATIC,86,79,35,10
+    LTEXT           "160 bits",IDC_STATIC,86,97,35,10
+    LTEXT           "160 bits",IDC_STATIC,86,114,35,10
+    GROUPBOX        "Choose signature algorithm",IDC_STATIC,163,6,215,130
+    LTEXT           "Factorisation based algorithms",IDC_STATIC,175,22,189,
+                    10
+    LTEXT           "Discrete logarithm based algorithms",IDC_STATIC,175,49,
+                    189,10
+    LTEXT           "Elliptic curve based algorithms",IDC_STATIC,175,78,189,
+                    10
+    GROUPBOX        "Presentation format",IDC_STATIC,250,90,105,40,BS_CENTER
     LTEXT           "Choose a key/PSE to be used when signing",IDC_STATIC,11,
                     147,364,8
     GROUPBOX        "Listed key types:",IDC_STATIC,11,270,106,68
