@@ -2978,7 +2978,7 @@ BEGIN
     GROUPBOX        "Alice [Client]",IDC_STATIC,161,7,138,101
     GROUPBOX        "Bob [Server]",IDC_STATIC,512,7,130,101
     GROUPBOX        "Trudy [Angreifer]",IDC_STATIC,335,232,138,125
-    GROUPBOX        "Navigationsleiste:",IDC_STATIC,7,7,140,350
+    GROUPBOX        "Angriff Schritt für Schritt",IDC_STATIC,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
@@ -3086,17 +3086,19 @@ BEGIN
                     IDC_STATIC,7,39,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 70
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Nachricht übertragen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,49,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,49,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,65,50,14
     LTEXT           "Alice hat die an Bob adressierte Nachricht hybridverschlüsselt.",
                     IDC_STATIC,7,7,226,8
     LTEXT           "Mit einem Klick auf OK können Sie die hybridverschlüsselte Nachricht von Alice an Bob versenden.",
-                    IDC_STATIC,7,23,226,16
+                    IDC_STATIC,7,39,226,16
+    LTEXT           "Zum Entschlüsseln der Nachricht muss Bob seine PIN angeben.",
+                    IDC_STATIC,7,23,226,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 108
@@ -3114,7 +3116,7 @@ BEGIN
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG DISCARDABLE  0, 0, 375, 250
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Aktueller Status von Alice"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -3129,21 +3131,23 @@ BEGIN
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG DISCARDABLE  0, 0, 375, 250
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG DISCARDABLE  0, 0, 375, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Aktueller Status von Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,149,229,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
     CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",
                     LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,7,100,361,110
+                    WS_BORDER | WS_TABSTOP,7,120,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
     LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen:",
-                    IDC_STATIC,7,85,190,8
+                    IDC_STATIC,7,105,190,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | 
                     LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
+    LTEXT           "Bob kann nicht entscheiden, ob die empfangenen Nachrichten von Alice oder Bob gesendet wurden.",
+                    IDC_STATIC,7,79,361,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOG DISCARDABLE  0, 0, 375, 350
@@ -3157,14 +3161,15 @@ BEGIN
                     LVS_REPORT | WS_BORDER | WS_TABSTOP,7,140,361,55
     EDITTEXT        IDC_EDIT_DETERMINEDSESSIONKEY,7,225,361,14,
                     ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Durch den Angriff ermittelter, entschlüsselter Sessionkey:",
-                    IDC_STATIC,7,210,179,8
-    LTEXT           "Modifizierte Sessionkeys:",IDC_STATIC,7,125,80,8
+    LTEXT           "Entschlüsselter Sessionkey (berechnet von Trudy, basierend auf den Antworten von Bob):",
+                    IDC_STATIC,7,210,284,8
+    LTEXT           "Modifizierte und verschlüsselte Sessionkeys:",
+                    IDC_STATIC,7,125,140,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | 
                     LBS_NOINTEGRALHEIGHT | LBS_NOSEL
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
-    LTEXT           "Mit Hilfe des Sessionkeys berechnete Nachricht:",
-                    IDC_STATIC,7,250,154,8
+    LTEXT           "Nachricht (berechnet von Trudy anhand des entschlüsselten Sessionkeys):",
+                    IDC_STATIC,7,250,237,8
     EDITTEXT        IDC_EDIT_COMPUTEDMESSAGE,7,265,361,51,ES_MULTILINE | 
                     ES_READONLY | WS_VSCROLL
     EDITTEXT        IDC_EDIT_INTERCEPTEDENCRYPTEDSESSIONKEY,7,100,361,14,
@@ -3173,17 +3178,17 @@ BEGIN
                     85,136,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG DISCARDABLE  0, 0, 215, 90
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG DISCARDABLE  0, 0, 215, 98
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Seitenkanalangriff erfolgreich ausgeführt!"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,84,69,50,14
+    DEFPUSHBUTTON   "OK",IDOK,84,77,50,14
     CTEXT           "Sie haben erfolgreich einen Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll durchgeführt.",
                     IDC_STATIC,7,23,201,16
     LTEXT           "Herzlichen Glückwunsch!",IDC_STATIC,57,7,84,8
-    CTEXT           "Klicken Sie bitte auf das Symbol von Trudy, um zu überprüfen, ob Trudy die Nachricht korrekt entschlüsselt hat.",
-                    IDC_STATIC,7,47,201,16
+    CTEXT           "Klicken Sie bitte auf das Symbol von Trudy, um zu überprüfen, ob der erfolgreiche Seitenkanalangriff von Trudy die korrekte Entschlüsselung der Nachricht ermöglicht hat.",
+                    IDC_STATIC,7,47,201,24
 END
 
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
@@ -4808,7 +4813,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 63
+        BOTTOMMARGIN, 79
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT, DIALOG
@@ -4834,7 +4839,7 @@ BEGIN
         RIGHTMARGIN, 368
         VERTGUIDE, 80
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
+        BOTTOMMARGIN, 253
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY, DIALOG
@@ -4852,7 +4857,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 208
         TOPMARGIN, 7
-        BOTTOMMARGIN, 83
+        BOTTOMMARGIN, 91
     END
 
     IDD_CHALLENGERESPONSE_DIALOG, DIALOG
@@ -9821,7 +9826,7 @@ BEGIN
     GROUPBOX        "Alice [Client]",IDC_STATIC,161,7,138,101
     GROUPBOX        "Bob [Server]",IDC_STATIC,512,7,130,101
     GROUPBOX        "Trudy [Attacker]",IDC_STATIC,335,232,138,125
-    GROUPBOX        "Navigation bar:",IDC_STATIC,7,7,140,350
+    GROUPBOX        "Attack step by step",IDC_STATIC,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
@@ -9848,7 +9853,7 @@ BEGIN
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG DISCARDABLE  0, 0, 375, 250
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Current Status of Alice"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -9863,39 +9868,41 @@ BEGIN
     LTEXT           "Action log:",IDC_STATIC,80,7,34,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG DISCARDABLE  0, 0, 375, 250
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG DISCARDABLE  0, 0, 375, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Current Status of Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,149,229,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
     CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",
                     LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,7,100,361,110
+                    WS_BORDER | WS_TABSTOP,7,120,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
     LTEXT           "Received session keys and decryption results:",
-                    IDC_STATIC,7,85,146,8
+                    IDC_STATIC,7,105,146,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | 
                     LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Action log:",IDC_STATIC,80,7,34,8
+    LTEXT           "Bob cannot decide whether the messages he received were sent by Alice or Trudy.",
+                    IDC_STATIC,7,79,361,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG DISCARDABLE  0, 0, 215, 90
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG DISCARDABLE  0, 0, 215, 98
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Side-Channel Attack Successful"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,84,69,50,14
+    DEFPUSHBUTTON   "OK",IDOK,84,77,50,14
     CTEXT           "You have successfully executed a side-channel attack\nagainst the hybrid encryption protocol.",
                     IDC_STATIC,7,23,201,16
     LTEXT           "Congratulations!",IDC_STATIC,81,7,53,8
-    CTEXT           "Please click on Trudy's info button to make sure\nwhether Trudy has correctly decrypted the message.",
-                    IDC_STATIC,7,47,201,16
+    CTEXT           "Please click on Trudy's info button to make sure whether the\nsuccessful protocol attack really helped Trudy to decrypt the hybrid encrypted message.",
+                    IDC_STATIC,7,47,201,24
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION DIALOG DISCARDABLE  0, 0, 250, 198
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Introduction Side-Channel Attack Demonstration"
+CAPTION "Introduction Side-Channel Attack"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,99,177,50,14
@@ -9903,42 +9910,48 @@ BEGIN
                     IDC_STATIC,7,7,235,16
     LTEXT           "Alice wants to send a private message to her boy friend Bob. In order to protect the message from being listened in, Alice uses the hybrid encryption protocol.",
                     IDC_STATIC,7,55,235,24
-    LTEXT           "Bob's former girl friend Trudy intercepts the hybrid encrypted message. Afterwards she tries to decrypt the message with the help of a side-channel.",
+    LTEXT           "Bob's former girl friend Trudy intercepts the hybrid encrypted message. Afterwards she tries to decrypt the message using a side-channel.",
                     IDC_STATIC,7,87,235,24
-    LTEXT           "In the following interactive dialog you will alternately play the roles of Alice, Bob and Trudy. Therefore you have to enter certain user input in upcoming dialogs.",
+    LTEXT           "In the following interactive dialog you can play the roles of Alice, Bob and Trudy. Therefore you have to enter certain user input in the following dialogs.",
                     IDC_STATIC,7,118,235,24
     LTEXT           "In case there arise any questions, you can obtain context sensitive help by pressing the F1 key at any time",
                     IDC_STATIC,7,150,235,16
-    LTEXT           "A possible scenario will be designed and visualized to also let cryptographically less experienced persons follow the instructions during the side-channel attack:",
+    LTEXT           "A possible real-life scenario is shown in order to let even cryptographically less experienced persons follow the instructions during the side-channel attack:",
                     IDC_STATIC,7,31,235,24
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION DIALOG DISCARDABLE  0, 0, 240, 110
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION DIALOG DISCARDABLE  0, 0, 240, 158
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Message Interception"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,89,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,183,89,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,137,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,183,137,50,14
     LTEXT           "Completely trusting in the security of the hybrid encryption protocol, Alice has sent the hybrid encrypted message over an ""insecure"" (public) channel.",
                     IDC_STATIC,7,7,226,24
     LTEXT           "Trudy, who is eavesdropping the public channel, can easily intercept the hybrid encrypted message.",
                     IDC_STATIC,7,39,226,16
     LTEXT           "You can initiate the message interception in the role of Trudy with a click on the OK button.",
+                    IDC_STATIC,7,87,226,16
+    LTEXT           "Will Trudy be able to decrypt the transferred message whithout knowing Bob's private key?",
                     IDC_STATIC,7,63,226,16
+    LTEXT           "You can start the actual side-channel attack for Trudy by clicking the ""start attack cycle"" button.",
+                    IDC_STATIC,7,111,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 70
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG DISCARDABLE  0, 0, 240, 86
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Message Transmission"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,49,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,183,49,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,183,65,50,14
     LTEXT           "Alice has hybrid encrypted the message addressed to Bob.",
                     IDC_STATIC,7,7,226,8
+    LTEXT           "Bob will have to enter his PIN to decrypt the hybrid encrypted message.",
+                    IDC_STATIC,7,23,226,8
     LTEXT           "By clicking the OK button you can transmit the hybrid encrypted Message from Alice to Bob.",
-                    IDC_STATIC,7,23,226,16
+                    IDC_STATIC,7,39,226,16
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG DISCARDABLE  0, 0, 275, 118
@@ -9951,14 +9964,14 @@ BEGIN
     LTEXT           "Alice either has to hybrid encrypt a specific document or has to choose an already hybrid encrypted document, before she can send a hybrid encrypted message to Bob.",
                     IDC_STATIC,7,7,261,24
     LTEXT           "After clicking the OK button you will see an additional dialog allowing the execution of the hybrid encryption.",
-                    IDC_STATIC,7,71,261,16
+                    IDC_STATIC,7,63,261,16
     LTEXT           "Hybrid encryption is used e.g. in PGP and S/MIME and is the standard procedure joining the advantages of symmetric and asymmetric encryption.",
                     IDC_STATIC,7,39,261,24
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG DISCARDABLE  0, 0, 226, 108
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "PIN Prompt"
+CAPTION "PIN Prompt for Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_PIN,87,58,50,14,ES_PASSWORD | ES_AUTOHSCROLL
@@ -9966,7 +9979,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,169,87,50,14
     LTEXT           "Please enter the PIN for Bob's private key:",IDC_STATIC,
                     7,39,134,8
-    LTEXT           "Bob needs his private key to decrypt the received message. The private key is protected with a PIN to prevent misusage by a third party.",
+    LTEXT           "Bob needs his private key to decrypt the received message. The private key is protected with a PIN to prevent misuse by a third party.",
                     IDC_STATIC,7,7,212,24
 END
 
@@ -9977,10 +9990,10 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,69,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,183,69,50,14
-    LTEXT           "For better understanding of the side-channel attack, you can generate a report that includes all single steps of the execution.",
-                    IDC_STATIC,7,7,226,24
+    LTEXT           "For better understanding of the side-channel attack, you can generate a report that includes all single steps of this attack.",
+                    IDC_STATIC,7,7,226,16
     LTEXT           "You can generate the report within a new window by clicking the OK button.",
-                    IDC_STATIC,7,39,226,16
+                    IDC_STATIC,7,31,226,16
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOG DISCARDABLE  0, 0, 375, 350
@@ -9994,13 +10007,15 @@ BEGIN
                     LVS_REPORT | WS_BORDER | WS_TABSTOP,7,140,361,55
     EDITTEXT        IDC_EDIT_DETERMINEDSESSIONKEY,7,225,361,14,
                     ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Decrypted session key:",IDC_STATIC,7,210,74,8
-    LTEXT           "Modified session keys:",IDC_STATIC,7,125,72,8
+    LTEXT           "Decrypted session key (calculated by Trudy, based on Bob's responses):",
+                    IDC_STATIC,7,210,229,8
+    LTEXT           "Modified and encrypted session keys:",IDC_STATIC,7,125,
+                    119,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | 
                     LBS_NOINTEGRALHEIGHT | LBS_NOSEL
     LTEXT           "Action log:",IDC_STATIC,80,7,34,8
-    LTEXT           "Message (computed with the help of the decrypted session key):",
-                    IDC_STATIC,7,250,203,8
+    LTEXT           "Message (calculated by Trudy using the decrypted session key):",
+                    IDC_STATIC,7,250,202,8
     EDITTEXT        IDC_EDIT_COMPUTEDMESSAGE,7,265,361,51,ES_MULTILINE | 
                     ES_READONLY | WS_VSCROLL
     EDITTEXT        IDC_EDIT_INTERCEPTEDENCRYPTEDSESSIONKEY,7,100,361,14,
@@ -11896,7 +11911,7 @@ BEGIN
         RIGHTMARGIN, 368
         VERTGUIDE, 80
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
+        BOTTOMMARGIN, 253
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED, DIALOG
@@ -11904,7 +11919,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 208
         TOPMARGIN, 7
-        BOTTOMMARGIN, 83
+        BOTTOMMARGIN, 91
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION, DIALOG
@@ -11920,7 +11935,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 103
+        BOTTOMMARGIN, 151
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION, DIALOG
@@ -11928,7 +11943,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 63
+        BOTTOMMARGIN, 79
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
