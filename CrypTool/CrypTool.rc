@@ -7978,18 +7978,18 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,405,164,110,15
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,402,230,115,14
-    EDITTEXT        IDC_EDIT_TITLE,31,330,497,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TITLE,17,329,523,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_TXT,31,343,497,57,ES_MULTILINE | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TXT,17,343,523,74,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
     CONTROL         "OVAL2",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,304,278,50,14
+                    BS_BITMAP | WS_TABSTOP,304,287,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
-                    267,52,36
+                    273,52,36
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
-                    267,52,36
+                    273,52,36
 END
 
 IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 211, 90
@@ -8959,7 +8959,7 @@ IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down
 OVAL2U                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_U.bmp"
 OVAL2F                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_F.bmp"
 OVAL2D                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_D.bmp"
-OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps\\Bitmaps_en\\Oval2_X.bmp"
+OVAL2X                  BITMAP  DISCARDABLE     "res\\Bitmaps_en\\Oval2_X.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
@@ -9399,6 +9399,12 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
+    END
+
+    IDD_HYBRID_ENCRYPTION_DEMO, DIALOG
+    BEGIN
+        VERTGUIDE, 17
+        VERTGUIDE, 540
     END
 
     IDD_ENTROPY_INFO, DIALOG
