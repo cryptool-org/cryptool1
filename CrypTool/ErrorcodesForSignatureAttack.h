@@ -39,7 +39,7 @@ enum _SIG_ATT_ERR { _SIG_ATT_OK,
 #define _SIG_ATT_HARMLESS	"_Harmless.txt"
 #define _SIG_ATT_DANGEROUS	"_Dangerous.txt"
 
-//#define _SIG_ATT_PRE_RPE_MODIFY
+#define _SIG_ATT_PRE_RPE_MODIFY
 // wenn dieses #define einkommentiert ist, werden die Dokumente in einer Versuchsreihe nicht nur vor jedem Run, sonden
 // auch vor jedem Try modifiziert - auf diese Weise durchläuft man immer wieder ein anderes Random Mapping
 

@@ -209,8 +209,9 @@ UINT SignatureAttack::Do_Floyd()
 	struct _timeb time_start, time_finish;
 	int HashValueParity_single_step, HashValueParity_double_step;
 	__int64 ii, MAX_StepsPerRun;
-	
+
 	StartShowProgress();
+
 	int HashAlgorithmByteLength = 1 + (m_OptSigAtt->GetHashOp()->GetHashAlgorithmBitLength() - 1) / 8;
 	HashValue_init = new char[HashAlgorithmByteLength];
 	HashValue_single_step = new char[HashAlgorithmByteLength];

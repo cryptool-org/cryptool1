@@ -110,28 +110,33 @@ void CDlgSignatureAttack::OnCompute()
 		time_t StartTime;
 		UINT MessageID;
 
+
+		int l_SignificantBitLengthMIN = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMIN", 0);
+		int l_SignificantBitLengthMAX = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMAX", 0);
+		int l_SignificantBitLengthJump = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthJump", 1);
+		int l_HashAlgorithmIDMIN = theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMIN", 0);
+		int l_HashAlgorithmIDMAX = theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMAX", 0);
+		int l_Attempts = theApp.GetProfileInt("SigAttTest", "Attempts", 0);
+		int l_AttemptsMAX = theApp.GetProfileInt("SigAttTest", "AttemptsMAX", -1);
+
 		int SignificantBitLengthCounter, HashAlgorithmsCounter, AttemptsCounter, TotalAttemptsCounter = 0;
 
 		LogPath = theApp.GetProfileString("SigAttTest", "LogPath", "C:\\");
 		time(&StartTime);
 
-		for (SignificantBitLengthCounter = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMIN", 0);
-			SignificantBitLengthCounter <= theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMAX", 0);
-			SignificantBitLengthCounter += theApp.GetProfileInt("SigAttTest", "SignificantBitLengthJump", 1))
+		for (SignificantBitLengthCounter = l_SignificantBitLengthMIN; SignificantBitLengthCounter <= l_SignificantBitLengthMAX; 
+			SignificantBitLengthCounter += l_SignificantBitLengthJump)
 		{
 			theApp.WriteProfileInt("Settings", "SignatureAttackSignificantBitLength", SignificantBitLengthCounter);
 
-			for (HashAlgorithmsCounter = theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMIN", 0);
-				HashAlgorithmsCounter <= theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMAX", 0);
+			for (HashAlgorithmsCounter = l_HashAlgorithmIDMIN; HashAlgorithmsCounter <= l_HashAlgorithmIDMAX;
 				HashAlgorithmsCounter ++)
 			{
 				theApp.WriteProfileInt("Settings", "SignatureAttackHashAlgorithmID", HashAlgorithmsCounter);
 
-				for (AttemptsCounter = 0;
-					AttemptsCounter < theApp.GetProfileInt("SigAttTest", "Attempts", 0);
-					AttemptsCounter ++)
+				for (AttemptsCounter = 0; AttemptsCounter < l_Attempts; AttemptsCounter ++)
 				{
-					if (TotalAttemptsCounter == theApp.GetProfileInt("SigAttTest", "AttemptsMAX", 0))
+					if (TotalAttemptsCounter == l_AttemptsMAX)
 					{
 						return;
 					}
@@ -142,39 +147,41 @@ void CDlgSignatureAttack::OnCompute()
 
 	#ifdef _SIG_ATT_PRE_RPE_MODIFY
 
-					ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
-					stat((const char *) m_file_harmless, & stat_object);
-					if (0 == stat_object.st_size)
+					if ( SigAttTestMode ) // Für Statistische Unabhängigkeit, vor jedem Versuch Pre(Pre)Modifizieren
 					{
-						GenerateMessageText(15);
-						return;
+						ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
+						stat((const char *) m_file_harmless, & stat_object);
+						if (0 == stat_object.st_size)
+						{
+							GenerateMessageText(15);
+							return;
+						}
+						HarmlessDocLength = stat_object.st_size;
+						HarmlessText = new char[HarmlessDocLength];
+						ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
+						ifstr_Harmless.close();
+						ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
+						HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
+						ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
+						ofstr_Harmless.close();
+
+
+						ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
+						stat((const char *) m_file_dangerous, & stat_object);
+						if (0 == stat_object.st_size)
+						{
+							GenerateMessageText(15);
+							return;
+						}
+						DangerousDocLength = stat_object.st_size;
+						DangerousText = new char[DangerousDocLength];
+						ifstr_Dangerous.read(DangerousText, DangerousDocLength);
+						ifstr_Dangerous.close();
+						ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
+						DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
+						ofstr_Dangerous.write(DangerousText, DangerousDocLength);
+						ofstr_Dangerous.close();
 					}
-					HarmlessDocLength = stat_object.st_size;
-					HarmlessText = new char[HarmlessDocLength];
-					ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
-					ifstr_Harmless.close();
-					ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
-					HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
-					ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
-					ofstr_Harmless.close();
-
-
-					ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
-					stat((const char *) m_file_dangerous, & stat_object);
-					if (0 == stat_object.st_size)
-					{
-						GenerateMessageText(15);
-						return;
-					}
-					DangerousDocLength = stat_object.st_size;
-					DangerousText = new char[DangerousDocLength];
-					ifstr_Dangerous.read(DangerousText, DangerousDocLength);
-					ifstr_Dangerous.close();
-					ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
-					DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
-					ofstr_Dangerous.write(DangerousText, DangerousDocLength);
-					ofstr_Dangerous.close();
-
 	#endif
 
 					OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous, SigAttTestMode);
@@ -237,8 +244,25 @@ void CDlgSignatureAttack::OnCompute()
 							return;
 						}
 
+						fprintf(SigAttTest, "Birthday Attack on Digital Signatures -- Configuration\n\nThe File CrypTool.ini has set up the following Configuration:\n\n");
+						fprintf(SigAttTest, "SignificantBitLengthMIN=%d\n"
+								"SignificantBitLengthMAX=%d\n"
+								"SignificantBitLengthJump=%d\n"
+								"HashAlgorithmIDMIN=%d\n"
+								"HashAlgorithmIDMAX=%d\n"
+								"Attempts=%d\n"
+								"HarmlessDocument=%s\n"
+								"DangerousDocument=%s\n"
+								"LogPath=%s\n", 
+							l_SignificantBitLengthMIN , l_SignificantBitLengthMAX, l_SignificantBitLengthJump,
+						   l_HashAlgorithmIDMIN, l_HashAlgorithmIDMAX, l_Attempts,
+						   m_file_harmless, m_file_dangerous, LogPath);
+
+
+
+
 						fprintf(SigAttTest,
-							"ModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",
+							"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",
 							theApp.GetProfileInt("Settings", "SignatureAttackModificationMethod", 0),
 							LogPath, StartTime, _SIG_ATT_HARMLESS, HarmlessDocLength,
 							LogPath, StartTime,	_SIG_ATT_DANGEROUS, DangerousDocLength);
