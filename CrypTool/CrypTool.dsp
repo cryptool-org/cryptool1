@@ -114,7 +114,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-de.bat"
+	call "$(ProjDir)\makehelp.bat" de
 
 # End Custom Build
 
@@ -128,7 +128,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-de.bat"
+	call "$(ProjDir)\makehelp.bat" de
 
 # End Custom Build
 
@@ -169,7 +169,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-en.bat"
+	call "$(ProjDir)\makehelp.bat" en
 
 # End Custom Build
 
@@ -183,7 +183,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-en.bat"
+	call "$(ProjDir)\makehelp.bat" en
 
 # End Custom Build
 
@@ -519,22 +519,22 @@ SOURCE=.\CrypToolPopupMenuIDs.txt
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
 USERDEP__CRYPTO="CrypTool.rc"	
-# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
+# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckPopupMenuIDs.bat
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
 
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
 USERDEP__CRYPTO="CrypTool.rc"	
-# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
+# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckPopupMenuIDs.bat
+"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckResourceIDs.bat
 
 # End Custom Build
 
