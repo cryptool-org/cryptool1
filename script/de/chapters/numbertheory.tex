@@ -2029,8 +2029,22 @@ weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. O
 Forscher eine 155-stellige Zahl in ihre beiden 78-stellige Primfaktoren zerlegten (vergleiche Kapitel \ref{chptSecurityParam}).
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
-Primfaktoren der Zahl $2^{953}+1$ zu finden (s.~ ``Wanted List'' des
-Cunningham-Projekts \index{Cunningham-Projekt}\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
+Primfaktoren der Zahl $2^{953}+1$ zu finden (siehe~ ``Wanted List'' des
+Cunningham-Projekts \index{Cunningham-Projekt}\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). 
+
+Die 5 kleineren, schon vorher gefundenen Primfaktoren dieser Zahl waren:
+$3$, $1907$, $425796183929$, \\
+$1624700279478894385598779655842584377$, \\
+$3802306738549441324432139091271828121$ und \\
+$128064886830166671444802576129115872060027$.
+Wobei die drei kleinsten Faktoren leicht (z.B. mit CrypTool unter Menü {\bf Einzelverfahren / RSA-Demonstration / Faktorisieren}) bestimmt werden.
+Die Restlichen drei Faktoren wurden von P. Zimmerman
+(\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/~zimmerma/ecmnet}), 
+T. Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
+und R. Harley in den Jahren 1999 und 2000 mit der Methode der elliptischen
+Kurven gefunden.
+
+Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
 von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
 $$
 \begin{array}{c}
@@ -3013,12 +3027,15 @@ matrix(1,iBreite, x,y, Mod(iFaktor1*y, m))
  Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
 \end{verbatim}
 
-Aus dem {\tt Mod}-Objekt gewinnt man die einzelnen
-Komponent mit der \texttt{component}-Funktion zur"uck: 
+Aus dem {\tt Mod}-Objekt kann man die einzelnen
+Komponenten entweder mit der \texttt{component}- oder mit der \texttt{lift}-Funktion zur"uckgewinnen: 
 
 \texttt{%
-  component(Mod(5, 17),1) $\rightarrow$ 17 \\
-  component(Mod(5, 17),2) $\rightarrow$ 5
+  component(Mod(5,17), 1) $\rightarrow$ 17 \\
+  component(Mod(5,17), 2) $\rightarrow$ 5 \\
+  component(Mod(17,5), 1) $\rightarrow$ 5 \\
+  component(Mod(17,5), 2) $\rightarrow$ 2 \\
+  lift(Mod(17,5))         $\rightarrow$ 2  
 }
 
 Die weiteren Beispiele der Multiplikationstabelle modulo $13$ und modulo $12$ auf Seite 
@@ -3047,7 +3064,7 @@ Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 \hypertarget{AppArith3a}{}
 Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist die 
 kleinste ganze Zahl $i \ge 1$ f"ur die gilt $a^i \equiv 1$ mod $m$. F"ur das Beispiel auf
-Seite \pageref{SrcArith3a} k"onnen Sie mit Mathematica alle Exponentiationen $a^i$ mod $11$
+Seite \pageref{SrcArith3a} k"onnen Sie sich mit Mathematica alle Exponentiationen $a^i$ mod $11$
 durch die folgende Programmzeile ausgeben lassen. 
 \begin{verbatim}
 m=11;  Table[ Mod[a^i, m], {a, 1, m-1}, {i, 1, m-1} ]
@@ -3086,7 +3103,7 @@ Auch in Pari-GP kann man Schleifen erzeugen. Verzichtet man auf die Tabellenform
 \begin{verbatim}
 for( x=1,12, 
      for(y=1,12, print(Mod(x^y,m))); 
-     if(gcd(x,m)==1,print(znorder(Mod(x,m))),print("--"));
+     if(gcd(x,m)==1, print(znorder(Mod(x,m))), print("--"));
      print(eulerphi(m)))
 \end{verbatim}
 
@@ -3094,7 +3111,9 @@ for( x=1,12,
 \vskip +12 pt \hypertarget{AppArith3c}{}
 Im dritten Beispiel auf Seite \pageref{SrcArith3c} werden die Exponentiationen $a^i$ mod $46$
 sowie die Ordnungen $ord_{46}(a)$ ausgegeben.
+
 Mit Mathematica bestimmen Sie diese Tabelle durch die folgende Programmschleife.
+\vskip -10 pt
 \begin{verbatim}
 m = 46; 
 Do[ Print[ Table[ Mod[a^i, m], {i, 1, 23} ], 
@@ -3102,6 +3121,7 @@ Do[ Print[ Table[ Mod[a^i, m], {i, 1, 23} ],
 {a, 1, 23} ];
 \end{verbatim}
 In Pari-GP lautet die Syntax:
+\vskip -10 pt
 \begin{verbatim}
 m=46; 
 matrix(23,24, x,y, 
@@ -3138,9 +3158,10 @@ Mit Mathematica kann die RSA-Verschl"usselung durch den Befehl \\
 berechnet werden.  \\ 
 In Pari-GP lautet die Syntax: \\
 {\tt vecextract( [Mod(82,256027)\^{}65537, Mod(83,256027)\^{}65537, Mod(65,256027)\^{}65537, \\
-                 Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537], 31)
+                 Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537, ...] )
 }
 
+\vskip +10 pt \noindent
 {\bf Bemerkung zur Verwendung von {\tt Mod} in Pari-GP:} \\
 {\tt Mod(82,256027)\^{}65537} ist wesentlich schneller als \\
 --  {\tt Mod(82\^{}65537, 256027)} oder \\
