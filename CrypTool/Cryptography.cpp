@@ -331,7 +331,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
-    char outfile[128];
+	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
 	class CDlgPlayfairAnalysis KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
 
