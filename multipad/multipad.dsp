@@ -225,10 +225,6 @@ SOURCE=.\res\95check.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\aasb.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\About.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -339,14 +335,6 @@ SOURCE=.\res\background2.bmp
 # Begin Source File
 
 SOURCE=.\res\backgroundHybr.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\BIG.CPP
-# End Source File
-# Begin Source File
-
-SOURCE=..\LibMiracl\include\BIG.H
 # End Source File
 # Begin Source File
 
@@ -483,15 +471,19 @@ SOURCE=.\CryptologyUsingMiracl.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\CrypToolTools.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolTools.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\DerEinstiegInCrypTool.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\DerEinstiegInCrypTool_de.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\res\DerEinstiegInCrypTool_deutsch.bmp
 # End Source File
 # Begin Source File
 
@@ -577,6 +569,14 @@ SOURCE=.\DialogLaengeBin.cpp
 # Begin Source File
 
 SOURCE=.\DialogLaengeBin.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DialogMessage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DialogMessage.h
 # End Source File
 # Begin Source File
 
@@ -1075,14 +1075,6 @@ SOURCE=..\LibEc\include\EMSA1.H
 # End Source File
 # Begin Source File
 
-SOURCE=.\ExtEuclid.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\ExtEuclid.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\fileutil.cpp
 # End Source File
 # Begin Source File
@@ -1267,6 +1259,22 @@ SOURCE=.\res\idr_main.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\INFDOC_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFDOC_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFDOC_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFDOC_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\KeyEdit.cpp
 # End Source File
 # Begin Source File
@@ -1292,6 +1300,14 @@ SOURCE=.\KeyFileHandling.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\KeyRepository.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\KeyRepository.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\letter.cpp
 # End Source File
 # Begin Source File
@@ -1304,15 +1320,19 @@ SOURCE=.\res\magnify.cur
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\mainfram.bmp
-# End Source File
-# Begin Source File
-
 SOURCE=".\MakeHelp-de.bat"
 # End Source File
 # Begin Source File
 
 SOURCE=.\MakeHelp.bat
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeNewName.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeNewName.h
 # End Source File
 # Begin Source File
 
@@ -1386,6 +1406,30 @@ SOURCE=.\res\nodrop.cur
 # Begin Source File
 
 SOURCE=.\res\ntcheck.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_F_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_F_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_F_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_T_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_T_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPNDOC_T_U.bmp
 # End Source File
 # Begin Source File
 
@@ -1709,10 +1753,6 @@ SOURCE=.\SecudeTools.cpp
 # Begin Source File
 
 SOURCE=.\SecudeTools.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\secure.h
 # End Source File
 # Begin Source File
 

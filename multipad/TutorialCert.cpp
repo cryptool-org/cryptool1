@@ -10,7 +10,7 @@
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "multipad.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "secudetools.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
@@ -33,8 +33,6 @@ m_NameIsInitialized(FALSE),
 m_PSEIsInitialized(FALSE)
 {
 	memset (&m_Key, 0, sizeof(Key));
-	
-	//memset (&m_hPSE, 0, sizeof(PSE));
 }
 
 CTutorialCert::~CTutorialCert()
@@ -55,8 +53,6 @@ BOOL CTutorialCert::SetName( CString& sName, CString& sFirstName, CString& sKeyI
 	time(&m_lTime);
 	m_NameIsInitialized = TRUE;
 	m_PSEIsInitialized = FALSE;
-	//m_sUserKeyId.Format(IDS_CREATE_USER_KEY_ID2, m_sName, m_sFirstName, TUTORIAL_ALG_NAME, GetBitLength(), m_lTime, m_sKeyId);
-	//m_sDisName.Format(IDS_CREATE_DISNAME, m_sFirstName, m_sName, m_lTime);
 	
 	return TRUE;
 }

@@ -13,7 +13,7 @@
 #include "RsaEnc.h"
 #include "secure.h"
 #include "af.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 
 #include "KeyFileHandling.h"
 
