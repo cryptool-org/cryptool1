@@ -306,19 +306,18 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	CipherText.octets = new char[srcSize];
 	memcpy( CipherText.octets, cryDocument, (size_t)srcSize );
 
-	int len = 20;
 	int destSize; 
 	{
 		int linelen;
 		int lines, rest;
 
-		linelen = 11 + len * 4;
-		lines = (srcSize+len) / len;
-		rest = (srcSize+1) % len;
-		destSize = lines * linelen - len + rest;
+		linelen = 11 + INFO_TEXT_COLUMNS * 4;
+		lines = (srcSize+INFO_TEXT_COLUMNS) / INFO_TEXT_COLUMNS;
+		rest = (srcSize+1) % INFO_TEXT_COLUMNS;
+		destSize = lines * linelen - INFO_TEXT_COLUMNS + rest;
 	}
 	char *strCryHex = new char [destSize+1];
-	int err = HexDumpMem(strCryHex,destSize,cryDocument,srcSize, len);
+	int err = HexDumpMem(strCryHex,destSize,cryDocument,srcSize, INFO_TEXT_COLUMNS);
 	UpdateData();
 	m_strBuffEditEncDoc = "";
 	m_strBuffEditEncDoc = strCryHex;
@@ -712,26 +711,25 @@ void CDlgHybridEncryptionDemo::OnButtonShowDocument()
 	}
 	m_strTitle = m_strBuffTitle;
 
-
-	int len = 20;
 	int destSize; 
 	{
 		int linelen;
 		int lines, rest;
 
-		linelen = 11 + len * 4;
-		lines = (m_iDocSize+len) / len;
-		rest = (m_iDocSize+1) % len;
-		destSize = lines * linelen - len + rest;
+		linelen = 11 + INFO_TEXT_COLUMNS * 4;
+		lines = (m_iDocSize+INFO_TEXT_COLUMNS-1) / INFO_TEXT_COLUMNS;
+		rest  = (m_iDocSize) % INFO_TEXT_COLUMNS;
+		destSize = lines * linelen; // - INFO_TEXT_COLUMNS + rest;
 	}
 	char *dest = new char [destSize+1];
 	SHOW_HOUR_GLASS
 	
-	int err = HexDumpMem(dest,destSize,(unsigned char*)m_strBuffEditDoc,m_iDocSize, len);
-	
+	int err = HexDumpMem(dest,destSize,(unsigned char*)m_strBuffEditDoc,m_iDocSize, INFO_TEXT_COLUMNS);
+
 	m_strEdit = dest;
 	HIDE_HOUR_GLASS
-	
+	delete []dest;
+
 	UpdateData(false);
 }
 

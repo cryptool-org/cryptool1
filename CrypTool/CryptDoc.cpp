@@ -1502,7 +1502,6 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 	hyb.m_strBuffTitle=GetTitle();
 	hyb.DateiOeffnen(ContentName);
 	hyb.DoModal();
-	
 }
 
 

@@ -14,6 +14,9 @@
 #define KEY_LEN 16
 #define DIR_ENCRYPT 0 
 
+#define INFO_TEXT_COLUMNS 20 // Abhängig von der Fensterbreite in den Ressourcen !!!!!!
+                             // Beim Editieren der Ressoucen bitte Größe anpassen
+
 class CDlgHybridEncryptionDemo : public CDialog
 {
 // Konstruktion
