@@ -339,7 +339,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zertifikatsdaten"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Zurück",IDOK,152,186,78,17
+    DEFPUSHBUTTON   "Schließen",IDOK,152,186,78,17
     EDITTEXT        IDC_EDIT1,7,9,368,165,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
@@ -548,33 +548,33 @@ BEGIN
                     WS_TABSTOP,312,128,22,20
 END
 
-IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 311
+IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 330
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Asymmetrischen Schlüssel erzeugen (Elliptische Kurven)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,8,284,66,19
-    PUSHBUTTON      "&Neues Schlüsselpaar erzeugen",IDC_BUTTON1,135,284,125,
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,8,303,66,19
+    PUSHBUTTON      "&Neues Schlüsselpaar erzeugen",IDC_BUTTON1,135,303,125,
                     19
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,403,102
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,16,403,123
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,403,61
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,139,403,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,403,50
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,199,403,50
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,25,250,61,12
-    CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
-                    61,12
+                    WS_GROUP,20,269,37,12
+    CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,269,
+                    45,12
     CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
-                    169,250,61,12
-    PUSHBUTTON      "&Schließen",IDCANCEL,343,284,68,19
+                    137,269,53,12
+    PUSHBUTTON      "&Schließen",IDCANCEL,343,303,68,19
     EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
-    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,239,
-                    232,32
-    LTEXT           "Wenn Sie das angezeigte Schlüsselpaar verwenden möchten, klicken Sie auf ""Übernehmen"".   Möchten Sie ein anderes Schlüsselpaar, klicken Sie auf die Schaltfläche ""Neues Schlüsselpaar erzeugen"".",
-                    IDC_STATIC,271,236,140,41
+    GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,258,
+                    197,32
+    LTEXT           "Wenn Sie das angezeigte Schlüsselpaar verwenden möchten, klicken Sie auf ""Übernehmen"".\nMöchten Sie ein anderes Schlüsselpaar, klicken Sie auf die Schaltfläche ""Neues Schlüsselpaar erzeugen"".",
+                    IDC_STATIC,218,259,187,34
 END
 
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
@@ -2560,7 +2560,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -2654,7 +2654,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "&Signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -2717,7 +2717,6 @@ BEGIN
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
             MENUITEM "H&ill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
             MENUITEM SEPARATOR
         END
         POPUP "&Ciphertext only"
@@ -2761,7 +2760,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -2850,7 +2849,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "&Signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -2984,7 +2983,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3056,7 +3055,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3151,7 +3150,7 @@ BEGIN
     END
     POPUP "D&igitale Signaturen"
     BEGIN
-        MENUITEM "&Signieren...",               ID_CRYPT_SIGN
+        MENUITEM "Dokument &signieren...",               ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
@@ -3214,7 +3213,6 @@ BEGIN
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
             MENUITEM "H&ill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
         POPUP "&Ciphertext only"
         BEGIN
@@ -3257,7 +3255,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarien",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&zenarien (Tutorials)",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -4370,10 +4368,10 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_APP_ABOUT            "Zeigt Programminformationen und Urheberrechte an\nÜber"
-    ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffnteten Dateien gespeichert werden sollen."
+    ID_APP_ABOUT            "Zeigt Programminformationen (Sponsoren, Autoren, Kontakte, Urheberrechte...) zu CrypTool an"
+    ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffneten Dateien gespeichert werden sollen."
     ID_HELP_INDEX           "Zeigt Inhalt der Hilfe an."
-    ID_HELP_FINDER          "Öffnet WinHelp mit allen Hilfethemen"
+    ID_HELP_FINDER          "Öffnet WinHelp mit allen Hilfethemen zu CrypTool"
     ID_HELP_USING           "Gibt Hinweise wie die Hilfe zu benutzen ist"
     ID_CONTEXT_HELP         "Hilfe zu den Symbolen, Menüs und Fenstern\nHilfe"
     ID_HELP                 "Hilfe für den gewählten Task oder die gewählte Aktion"
@@ -4408,7 +4406,7 @@ BEGIN
     ID_EDIT_FIND            "Sucht den angegebenen Text im aktiven Dokument"
     ID_EDIT_PASTE           "Fügt den Inhalt der Zwischenablage an der Einfügemarke ein\nEinfügen"
     57640                   "Weitersuchen"
-    ID_EDIT_REPLACE         "Der angegeben Text wird durch einen anderen Text ersetzt"
+    ID_EDIT_REPLACE         "Der angegebene Text wird durch einen anderen Text ersetzt"
     ID_EDIT_SELECT_ALL      "Das ganze aktive Dokument wird markiert (ausgewählt)"
     ID_EDIT_UNDO            "Macht die letzte Aktion rückgängig"
 END
@@ -4913,7 +4911,7 @@ BEGIN
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
                             "Das Faktorisieren von Zahlen bricht RSA."
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 
-                            "Erzeugt ein Hex-Schlüssel aus ein Schlüsselwort"
+                            "Erzeugt ein Hex-Schlüssel aus einem Passwort"
     ID_ANALYSE_NGRAM        "Berechnet N-Gramm Analyse"
     ID_ANALYSE_NGRAM_BIN    "Berechnet N-Gramm Analyse"
 END
@@ -5381,9 +5379,9 @@ BEGIN
     IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
     IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
     IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich (%d von %d)."
-    IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo   MD2-Hash"
-    IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo   MD5-Hash"
-    IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
+    IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo: MD2-Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo: MD5-Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo: SHA-1-Hash"
     IDS_ENTROPY_TITLE       "Entropie <%s>"
     IDS_HASH_DEMO_SEQUENCE  "Längste unveränderte Bitfolge: Offset %d, Länge %d."
     IDS_PERMUTATION_ENCRYPT "Text mit der eingegebenen Permutation verschlüsseln"
@@ -5391,6 +5389,7 @@ BEGIN
     IDS_PERMUTATION_ENCRYPT_INV 
                             "Text mit der inversen Permutation verschlüsseln"
 END
+
 
 STRINGTABLE DISCARDABLE 
 BEGIN
@@ -5463,9 +5462,9 @@ BEGIN
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Testbatterie von %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %lf bit/Zeichen"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "Für die FIPS-PUB-140-1 Testbatterie muss die Datei genau\n2500 Byte gross sein. Deshalb werden nach OK nur die ersten\n2500 Byte der gesamten Datei getestet."
+                            "Für die FIPS-PUB-140-1 Testbatterie muss die Datei genau 2500 Byte groß sein.\nDa die Datei %s größer ist (%i Bytes)\nwerden nach OK nur die ersten 2500 Byte der gesamten Datei getestet."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "Die FIPS-PUB-140-1 Testbatterie kann nicht ausgeführt werden,\nda die Batterie für Dateien der Größe 2500 Bytes (= 20000 Bits)\nspezifiziert ist."
+                            "Die FIPS-PUB-140-1 Testbatterie kann nicht ausgeführt werden,\nda die Batterie nur für genau 2500 Bytes (= 20000 Bits) spezifiziert ist.\nIhre Datei %s enthält nur %i Bytes."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -5680,9 +5679,16 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    ID_AES_SELFEXTRACT      "Ruft das AES-Tool auf, was die Verschlüsselung der aktuellen Datei in ein selbstextrahierendes Archiv ermöglicht"
     ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstriert die ""Fingerabruck"" Eigenschaft von Kryptographie-Hashfunktionen"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
+                            "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
+                            "Zeigt Schritt für Schritt den Ablauf der Entschlüsselung einer Hybrid-verschlüsselten Datei"
+    ID_EINZELVERFAHREN_SIGN_DOC 
+                            "Visualisiert den Prozess der Signaturerzeugung"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5707,7 +5713,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CONTENT_HASH_ENC    "Mit dem privaten Schlüssel des Signierers verschlüsselter Hashwert"
-    IDS_CONTENT_KEY         "RSA-Schlüssel des Senders"
+    IDS_CONTENT_KEY         "RSA-Schlüssel des Signierers"
     IDS_PRIME_CHECK         "p und q sind Primzahlen."
     IDS_PRIME_NO_CHECK_Q    "q ist KEINE Primzahl !"
     IDS_PUBLIC_CHECK        "e ist teilerfremd zu phi (N) ."
@@ -5807,9 +5813,9 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_OPTIONS_STARTOPTIONS "Einstellungen für den Programmstart ändern"
-    ID_HILFE_STARTSEITE     "Zeigt die Startseite der Online-Hilfe an"
-    ID_HILFE_INDEX          "Zeigt den Hilfe-Index an"
-    ID_HILFE_SZENARIEN      "Zeigt die Hilfe zu den Szenarien an"
+    ID_HILFE_STARTSEITE     "Zeigt die Startseite der Online-Hilfe zu CrypTool an"
+    ID_HILFE_INDEX          "Zeigt den Index der Schlüsselworte in der Online-Hilfe zu CrypTool an"
+    ID_HILFE_SZENARIEN      "Zeigt die Übersichtsseite der Online-Hilfe für alle Szenarien in CrypTool"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6113,7 +6119,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Certificate Data"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Back",IDOK,152,186,78,17
+    DEFPUSHBUTTON   "Close",IDOK,152,186,78,17
     EDITTEXT        IDC_EDIT1,7,9,368,165,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
@@ -6321,32 +6327,32 @@ BEGIN
                     WS_TABSTOP,312,127,22,20
 END
 
-IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 311
+IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 330
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Asymmetric Key Generation (Elliptic Curves)"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,8,284,66,19
-    PUSHBUTTON      "Generate &new key pair",IDC_BUTTON1,135,284,125,19
+    DEFPUSHBUTTON   "&Apply",IDOK,8,304,66,19
+    PUSHBUTTON      "Generate &new key pair",IDC_BUTTON1,135,304,125,19
     CONTROL         "&Octal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,25,250,61,12
-    CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
-                    61,12
+                    WS_GROUP,17,272,37,12
+    CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,64,272,
+                    45,12
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
-                    169,250,61,12
+                    115,272,61,12
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,403,102
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,15,403,127
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,403,61
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,142,403,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,403,50
-    PUSHBUTTON      "&Close",IDCANCEL,343,284,68,19
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,202,403,50
+    PUSHBUTTON      "&Close",IDCANCEL,343,304,68,19
     EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
-    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,8,239,232,
+    GROUPBOX        "Base for presentation of numbers",IDC_STATIC,8,261,175,
                     32
-    LTEXT           "If you wish to use the displayed key pair, click on ""Apply"".   If you wish to use a different key pair, click on the ""Generate new key pair"" pushbutton.",
-                    IDC_STATIC,249,236,140,41
+    LTEXT           "If you wish to use the displayed key pair, click on ""Apply"".\nIf you wish to use a different key pair, click on the ""Generate new key pair"" pushbutton.",
+                    IDC_STATIC,205,265,201,26
 END
 
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
@@ -7295,7 +7301,7 @@ END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Key Entry: Homophone Substitution"
+CAPTION "Key Entry: Homophonic Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,14,358,84,18
@@ -7328,7 +7334,7 @@ BEGIN
     LTEXT           "with encryption",IDC_STATIC,308,27,54,8
     EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
-    LTEXT           "Key table for homophone substitution",IDC_STATIC,14,52,
+    LTEXT           "Key table for homophonic substitution",IDC_STATIC,14,52,
                     192,8
     LTEXT           "Show the list of homophones for individual characters:",
                     IDC_STATIC,14,270,172,9
@@ -8348,7 +8354,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -8504,7 +8510,6 @@ BEGIN
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
             MENUITEM "&Hill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
             MENUITEM SEPARATOR
         END
         POPUP "&Ciphertext-Only"
@@ -8525,7 +8530,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation......",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -8548,7 +8553,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -8748,7 +8753,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation......",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -8771,7 +8776,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -8843,7 +8848,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9001,7 +9006,6 @@ BEGIN
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
             MENUITEM "&Hill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
         POPUP "&Ciphertext-Only"
         BEGIN
@@ -9021,7 +9025,7 @@ BEGIN
     END
     POPUP "&Key Management"
     BEGIN
-        MENUITEM "&Key Generation......",       ID_CRYPT_KeyGen
+        MENUITEM "&Key Generation...",       ID_CRYPT_KeyGen
         MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
@@ -9044,7 +9048,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
-        MENUITEM "S&zenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9907,9 +9911,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_WINDOW_ARRANGE       "Arranges the icons at the bottom of the window"
-    ID_WINDOW_CASCADE       "Arranges the windows so that they overlap"
-    ID_WINDOW_TILE_HORZ     "Arranges the windows so that they do not overlap"
+    ID_WINDOW_ARRANGE       "Arrange the icons at the bottom of the window"
+    ID_WINDOW_CASCADE       "Arrange the windows so that they overlap"
+    ID_WINDOW_TILE_HORZ     "Arrange the windows so that they do not overlap"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10066,7 +10070,7 @@ BEGIN
     ID_WINDOW_CLOSE_ALL     "Closes all windows"
     ID_HILL_AUTO            "Plaintext attack on a text encrypted using the Hill algorithm"
     ID_CRYPT_KeyGen         "Generate (or import from PKCS#12) a key pair for different asymmetric algorithms"
-    ID_CRYPT_RsaEnc         "Encrypts file using the RSA algorithm"
+    ID_CRYPT_RsaEnc         "Encrypts a file using the RSA algorithm"
     ID_CRYPT_RsaDec         "Decrypts a file encrypted with the RSA algorithm"
     ID_CryptMono            "Encryption through substitution"
     ID_CRYPT_SIGN           "Sign active document"
@@ -10406,7 +10410,7 @@ BEGIN
                             "Generates two prime numbers"
     ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 
                             "Tutorial for the RSA cryptosystem: generating keys, encryption and decryption of data"
-    ID_HOMOPHONE_ASC        "Homophone encryption"
+    ID_HOMOPHONE_ASC        "Homophonic encryption"
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
                             "Factorising numbers breaks RSA."
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN "Creates a hex key from a keyword"
@@ -10492,7 +10496,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_STEP "Step-by-step hybrid decryption:"
     IDS_STRING_HYBRID_ENC_SYM_KEY "Symmetric session key, selected randomly:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "As step 1 please select your certificate from the PSE.\r\n"
+                            "As step 1 please select your certificate from the PSE and enter \r\nyour PIN, to be able to read your private RSA key from the PSE.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
                             "Document encrypted symmetrically with the session key:"
     IDS_STRING_HYBRID_DEC_MSG4 
@@ -10521,7 +10525,7 @@ BEGIN
     IDS_STRING_RSA_DLG_TITLE "RSA key for Hybrid decryption"
     IDS_STRING_HYBRID_DEC_MSG12 "Click Continue > ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
-                            "As step 2 your private RSA key is shown. It is used to decrypt the session key.\r\n"
+                            "As step 2 your private RSA key is shown. It is used to decrypt\r\nthe session key.\r\n"
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid encryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
     IDS_STRING_HYB_SHOW_DATA 
@@ -10861,9 +10865,9 @@ BEGIN
     IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file: %s. \r\n\r\n"
     IDS_RSASGN_ALG          "As the hash function you have selected %s. "
     IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ (%d of %d)."
-    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
-    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
-    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
+    IDS_HASH_DEMO_TITLE_MD2 "Hash Demonstration: MD2 Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash Demonstration: MD5 Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demonstration: SHA-1 Hash"
     IDS_ENTROPY_TITLE       "Entropy <%s>"
     IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: offset %d, length %d."
     IDS_PERMUTATION_ENCRYPT "Encrypt text with entered permutation"
@@ -10888,8 +10892,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators."
-    ID_HOMOPHONE_HEX        "Homophone encryption"
-    ID_PERMUTATION_ASC      "Encryption using a single permutation or two cocatenated permutations"
+    ID_HOMOPHONE_HEX        "Homophonic encryption"
+    ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Quality of random data: Autokorrelation test"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -10940,9 +10944,9 @@ BEGIN
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 test battery of %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropy: %lf bit/character"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "The FIPS-PUB-140-1 test battery is specified for 2.500 Bytes. Therefore only the first 2.500 Bytes will be tested."
+                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 Bytes.\nThe analyzed file %s has the length %i bytes.\nTherefore only the first 2.500 Bytes will be tested."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "The FIPS-PUB-140-1 test battery cold not be exeuted: This test is specified for random data of 2.500 bytes (= 20.000 bits).\nYour input file must be at least 2.500 bytes long."
+                            "The FIPS-PUB-140-1 test battery cold not be exeuted:\nThis test battery is specified for random data of exactly 2.500 bytes (= 20.000 bits).\nYour input file %s has the length of only %i bytes."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + test length must be smaller than the file size !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -11156,9 +11160,16 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    ID_AES_SELFEXTRACT      "Calls AES-Tool which offers to generate a self extracting encrypted file from the active document"
     ID_HASH_OFAFILE         "Displays the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstrates the ""finger print"" property of cryptographic hash functions"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
+                            "Visualize how hybrid encryption works"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
+                            "Show step-by-step the process of decrypting a hybrid encrypted document"
+    ID_EINZELVERFAHREN_SIGN_DOC 
+                            "Visualize the process of generating a digital signature"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11208,7 +11219,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CONTENT_HASH_ENC    "Hash value encrypted with the private key of the signer"
-    IDS_CONTENT_KEY         "RSA key"
+    IDS_CONTENT_KEY         "RSA key of signer"
     IDS_PRIME_CHECK         "p and q are prime numbers."
     IDS_PRIME_NO_CHECK_Q    "q is NOT a prime number !"
     IDS_PUBLIC_CHECK        "e does not devide phi (N) ."
@@ -11266,7 +11277,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_RSADEMO_VERIFY      "Verification"
+    IDS_RSADEMO_VERIFY      "Verify"
     IDS_RSADEMO_NOT         "not "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
@@ -11283,7 +11294,7 @@ BEGIN
     ID_OPTIONS_STARTOPTIONS "Change settings for program start"
     ID_HILFE_STARTSEITE     "Shows the online help's starting page"
     ID_HILFE_INDEX          "Shows the help index"
-    ID_HILFE_SZENARIEN      "Shows the help concerning scenarios"
+    ID_HILFE_SZENARIEN      "Show the overview page of the online help containing all scenarios within CrypTool"
 END
 
 STRINGTABLE DISCARDABLE 
