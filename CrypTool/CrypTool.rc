@@ -2536,7 +2536,7 @@ BEGIN
                     14
     DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",
+    LTEXT           "Als Generator (g) bezeichnet man eine natürliche Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",
                     IDC_STATIC,15,84,363,16
     LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahlmodul (p) - dürfen öffentlich bekannt sein.",
@@ -11353,6 +11353,9 @@ BEGIN
                             "Verification successful! - The keys of Alice and Bob are identical!"
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verification failed! The keys of Alice and Bob are NOT identical!"
+    IDS_DH_PP_SECRET_DANGEROUS 
+                            "The secret number you chose is either zero or otherwise considered critical!\nThus, the proceeding might not be safe!"
+    IDS_DH_PP_NO_USER_INPUT "Please fill all entry fields!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11833,9 +11836,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DH_PP_PRIME_INVALID "The number you chose is NOT a prime! Please correct your input or generate a prime by clicking the appropriate button."
+    IDS_DH_PP_PRIME_INVALID "The number you chose is NOT a prime!\nThus, the proceeding might not be safe!"
     IDS_DH_PP_GENERATOR_INVALID 
-                            "Please choose a Generator which is bigger than one but smaller than the previously defined prime module (1 < g < p)."
+                            "You chose a generator (g) which is either zero, a multiple of the prime module (p) or otherwise considered critical!\nThus, the following proceeding might not be safe!"
     IDS_DH_DATA_INCONSISTENCY "An internal error has occured!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Please use natural numbers in decimal format only (no special characters)!"
