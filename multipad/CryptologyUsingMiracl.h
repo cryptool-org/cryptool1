@@ -16,6 +16,15 @@ extern volatile long ExitFactorisationCode;
 #include "BIG.H"	// Hinzugefügt von der Klassenansicht
 #include <monty.h>
 
+#define BASE_BIN 2
+#define BASE_OCT 8
+#define BASE_DEC 10
+#define BASE_HEX 16
+
+#define MAX_8BIT_LENGTH 256
+#define MAX_BIT_LENGTH  2048
+
+
 #define TIMES '*'
 #define RAISE '^'
 #define BTRIES 1000
@@ -27,25 +36,51 @@ extern volatile long ExitFactorisationCode;
 #define NCURVES 20      /* number of curves to try */
 #define SSIZE 1000000     /* Maximum sieve size            */
 
+#define INCREASE_THE_BASE     1
+#define SPLIT_NUMBERS_VSMODUL 2
+#define SPLIT_NUMBERS_VSFLOOR 4
+
+////////////////////////////////////////////////////////////////////////////////
+// Nur temporär  definiert
+// 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// diese defines in eine globale HeaderDatei unterbringen
+//
+#define IDS_STRINGLENGTH 256
+#define VALID_FORMULA "0..9^+-*/()"
+#define VALID_BIN     "01"
+#define VALID_OCT     "0..7"
+#define VALID_DEC     "0..9"
+#define VALID_HEX     "0..9a..fA..F"
+#define WHITESPACE    " \t\r\n"
+#define NUMBER_SEPARATOR " \r\n#,;:"
+#define SEPARATOR     " # "
+
+
+BOOL isCharOf( const char ch, const char *expr );
+BOOL Whitespace( char ch );
+BOOL IsNumber( char ch, int base );
+int  NeededBase( char ch );
+char DigitToNum( char ch );
+int  IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList );
+BOOL IsHexDump( CString &CStr );
+char ToHex( const char ch );
+void dataToHexDump( const char* data, int len, char* hexDump );
+void dataToHexDump( const char* data, int len, CString& hexDump );
+int  HexDumpToData( const char *hexDump, char *data );
+int  HexDumpToData( CString &hexDump, char *data );
+
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
-void CStringToBig(CString &CStrNumber, Big &t, int base );
-
-void CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                                        int base );
-BOOL CStringToASCII   ( CString &CStringNumber, char *asciiStr, int maxLength,                            int base );
-BOOL CStringToASCII   ( CString &CStringNumber, CString &ASCIIStr,                       int BlockLength, int base,  bool CodingBasisSystem = false );
-BOOL CStringToASCII   ( CString &CStringNumber, char *asciiStr,                          int BlockLength, int base,  bool CodingBasisSystem = false );
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet,                  int base );
-BOOL CStringToAlphabet( CString &CStringNumber, char *AlphabetStr,
-					    CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem = false );
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int Bitlength,   int base,  bool CodingBasisSystem = false );
-
-void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase );
-void AlphabetToNumStr(CString    &in, CString &NumStr,          CString &Alphabet, int OutBase, bool CodingBasisSystem = false );
-void CharToNumStr    (const char *in, CString &NumStr, int len,                    int OutBase = 10, int Inbase = 256);
-void CharToNumStr    (CString    &in, CString &NumStr,                             int OutBase, bool CodingBasisSystem );
-
-
-void BigToCString(const Big &t, CString &CStrNumber, int base = 10, int OutLength = 0);
+int  StringToBig( const char* StrNumber, Big &t, int base );
+int  CStringToBig( CString &CStrNumber, Big &t, int base );
+int  decode( const char *StrNumber, char *data, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet );
+int  decode( CString &CStringNumber, char *data, int blockLength, int numberBase, BOOL BasisSystem, const char *alphabet );
+void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet );
+void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet );
+void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, int OutLength = 0);
+void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, int OutLength = 0);
  
 class evaluate  
 {
@@ -87,6 +122,11 @@ public:
 };
 
 
+//////////////////////////////////////////////////////////////////////////////////
+#define ERR_P_NOT_PRIME 1
+#define ERR_Q_NOT_PRIME 2
+#define ERR_P_EQUALS_Q  4
+
 class TutorialRSA  
 {
 	Big phiOfN;
@@ -114,7 +154,7 @@ public:
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10);
 	void DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void DecryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
-	BOOL CheckInput( CString &Input, int base, int base2 = 0 );
+	// BOOL CheckInput( CString &Input, int base, int base2 = 0 );
 
 private:
 	BOOL SetPublicKey ( Big &e );

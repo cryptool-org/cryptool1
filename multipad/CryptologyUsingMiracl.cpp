@@ -30,6 +30,24 @@ if ( Precheck() ) { dlg.ExitSchedule(m_Ordinal); return true;}
 	ExitFactorisationCode = 1; return false; }
 #endif
 
+/////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+
+BOOL isCharOf( const char ch, const char *expr )
+{
+	int len = strlen(expr);
+	for (int i=0; i<len; i++) 
+        if ( i+3 < len && expr[i+1] == '.' && expr[i+2] == '.' && expr[i] < expr[i+3] )
+		{
+			if ( ch >= expr[i] && ch <= expr[i+3] ) return TRUE;
+               i += 3;
+		}
+        else if ( ch == expr[i] ) return TRUE;
+	return FALSE;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
@@ -37,353 +55,372 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 	int i=0;
 	while ( i < CStrNumber.GetLength() ) 
 	{
-		if (CStrNumber[i] >= '0' && CStrNumber[i] <= '9' || CStrNumber[i] == '^' ||
-			CStrNumber[i] == '+' || CStrNumber[i] == '-' || CStrNumber[i] == '*' || 
-			CStrNumber[i] == ')' || CStrNumber[i] == '(') i++;
-		else
-			CStrNumber.Delete(i);
+		if ( isCharOf(CStrNumber[i], VALID_FORMULA) ) i++;
+		else CStrNumber.Delete(i);
 	}
 
 	t = 0;
-	char tmp[1000];
+	char *tmp;
+	tmp = new char[CStrNumber.GetLength()+1];
 	strcpy(tmp, CStrNumber.GetBuffer( CStrNumber.GetLength()+1));
-	if ( false==evaluate::eval(t, tmp /*CStrNumber.GetBuffer( CStrNumber.GetLength()+1) */ ) ) 
+	int success=evaluate::eval(t, tmp); 
+	if ( !success ) t = 0;	
+	delete []tmp;
+	return success;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Nur temporär & lokal definiert
+
+BOOL Whitespace( char ch )
+{
+	return isCharOf( ch, WHITESPACE);
+}
+
+BOOL IsNumber( char ch, int base )
+{
+	  switch (base) {
+	  case BASE_BIN: return isCharOf(ch, VALID_BIN);
+					break;
+	  case BASE_OCT: return isCharOf(ch, VALID_OCT);
+					break;
+	  case BASE_DEC: return isCharOf(ch, VALID_DEC);
+					break;
+	  case BASE_HEX: return isCharOf(ch, VALID_HEX); 
+					break;
+	  default: return isCharOf(ch, VALID_DEC);
+	  }
+}
+
+int NeededBase( char ch )
+{
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_BIN);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_OCT);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_DEC);
+	if ( IsNumber( ch, BASE_BIN ) ) return (BASE_HEX);
+	return 0;
+}
+
+char DigitToNum( char ch )
+{
+	if ( ch >= '0' && ch <= '9' ) return ch - '0';
+	if ( ch >= 'A' && ch <= 'F' ) return ch - 'A' + 10;
+	if ( ch >= 'a' && ch <= 'f' ) return ch - 'a' + 10;
+	return -1;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// return true if the INPUT is a stream of Numbers + formats the INPUT
+//
+
+int IsNumberStream( CString &CStr, int numberBase, CString Modul, BOOL flagList )
+{
+	Big modul;
+	Big myModul;
+	Big num;
+	int start, end = 0;
+
+// have to consider a modul ?
+	if (Modul.GetLength()) {
+		CStringToBig( Modul, modul, numberBase );
+		myModul = modul;
+		if ( flagList & SPLIT_NUMBERS_VSFLOOR )
+		{
+			myModul = 1;
+			myModul <<= (bits(modul) - (bits(modul)%8));
+		}
+	}
+	else // ... no!
+	{
+		modul = 0;
+	}
+
+// must we increase the base of numbers ?
+	int newNumberBase = numberBase;	
+	if ( flagList & INCREASE_THE_BASE )
 	{	
-		t = 0;
-		return false;
-	}
-	else 
-	{
-		return true;
-	}
-}
-
-void CStringToBig( CString &CStrNumber, Big &t, int base )
-{
-	int i=0;
-	while ( i < CStrNumber.GetLength() ) 
-	{
-		if (CStrNumber[i] >= '0' && CStrNumber[i] <= '9' || 
-			CStrNumber[i] >= 'A' && CStrNumber[i] <= 'F') i++;
-		else
-			CStrNumber.Delete(i);
-	}
-
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStrNumber.GetBuffer(CStrNumber.GetLength()+1);
-	mip->IOBASE = oldBase;
-}
-
-void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base )
-{
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+1);
-	int len = bits(t)/8;
-	if (bits(t) % 8) len++;
-	if (0 == len)
-	{
-		ASCIIStr = "";
-	}
-	else
-	{
-		char *asciiStr;
-		asciiStr = new char[len+1];
-		asciiStr[len--] = 0;
-		while ( t != 0 )
+		int b;
+		for (int i=0; i<CStr.GetLength(); i++ )
 		{
-			asciiStr[len--] = (char)(t % 256);
-			t /= 256;
+			b = NeededBase(CStr[end]);
+			if ( b > newNumberBase ) newNumberBase = b;
 		}
-		ASCIIStr = asciiStr;
-		delete []asciiStr;
 	}
+
+	CString fmt = _T("");
+	CString tmp;
+
+// ... the check and formatting the number Streams
+	while ( end < CStr.GetLength() && isCharOf(CStr[end], NUMBER_SEPARATOR) ) end++;
+    	while ( TRUE )
+	{
+		start = end;
+		while ( end < CStr.GetLength() )
+		{
+			if ( isCharOf(CStr[end], NUMBER_SEPARATOR) ) break;
+			if ( !IsNumber(CStr[end], newNumberBase) ) return FALSE;
+		}
+
+		tmp = CStr.Mid(start, end-start);
+		if ( 0 != modul ) CStringToBig( tmp, num, newNumberBase );
+		if ( 0 != modul && num > myModul )
+		{			
+			if ( flagList & (SPLIT_NUMBERS_VSFLOOR + SPLIT_NUMBERS_VSMODUL) )
+			{ // split the numbers (mod myModul)
+				Big t;
+				int ndx = fmt.GetLength();
+				while ( num != 0 ) 
+				{
+					t   %= myModul;
+					num /= myModul;
+					BigToCString( t, tmp, newNumberBase );					
+					if ( 0 != num ) fmt.Insert( ndx, tmp + SEPARATOR ); 
+					else            fmt.Insert( ndx, tmp );
+				}
+			}
+			else // just consider the numbers (mod modul)
+			{ 
+				num = num % myModul;
+				BigToCString( num, tmp, newNumberBase );
+				fmt = fmt + tmp;
+			}
+		}
+		else // no modulo or number < myModul
+		{
+			fmt = fmt + tmp;
+		}
+		while ( end < CStr.GetLength() && Whitespace(CStr[end]) ) end++;
+		if ( end >= CStr.GetLength() ) break;
+		else                           fmt = fmt + SEPARATOR;
+	}
+	CStr = tmp;
+	return newNumberBase;
 }
 
-BOOL CStringToASCII( CString &CStringNumber, char *asciiStr, int maxLength, int base )
+////////////////////////////////////////////////////////////////////////////////
+//
+// return true if the INPUT is a HEX-dump + formats the INPUT
+//
+
+BOOL IsHexDump( CString &CStr )
 {
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+1);
-	int len = bits(t)/8;
-	if (bits(t) % 8) len++;
-	if ( len >= maxLength ) 
-		return FALSE;
-	if (0 == len)
-	{
-		asciiStr[0] = '\0';
-	}
-	else
-	{
-		asciiStr[len--] = '\0';
-		while ( t != 0 )
+	CString fmt = _T("");
+	int twoStep = 0;
+	for (int i=0; i<CStr.GetLength(); i++ ) {
+		while ( Whitespace( CStr[i] ) ) i++;
+		if ( IsNumber( CStr[i], BASE_HEX ) )
 		{
-			asciiStr[len--] = (char)(t % 256);
-			t /= 256;
+			fmt += CStr[i];
+			twoStep++;
+			if ( 2 == twoStep && i+1 < CStr.GetLength()) {
+				fmt += ' ';
+				twoStep = 0;
+			}
 		}
+		else return FALSE;
 	}
 	return TRUE;
 }
 
+char ToHex( const char ch )
+{
+	if ( ch % BASE_HEX < BASE_DEC ) return ('0' + (ch % BASE_HEX));
+	else                            return ('A' + ((ch % BASE_HEX) -10));
+}
 
-BOOL CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int BlockLength, int base, bool CodingBasisSystem  )
+void dataToHexDump( const char* data, int len, char* hexDump )
+{
+	int j=0;
+    	for (int i=0; i<len; i++) 
+	{
+		hexDump[j++] = ToHex(data[i] >> 4);
+		hexDump[j++] = ToHex(data[i] % 16);
+		if ( i+1 < len ) hexDump[j++] = ' ';
+		else             hexDump[j++] = '\0';
+	}
+}
+
+void dataToHexDump( const char* data, int len, CString& hexDump )
+{
+	char *tmp;
+	tmp = new char[3*len];
+	dataToHexDump(data, len, tmp);
+	hexDump = tmp;
+	delete []tmp;
+}
+
+int HexDumpToData( const char *hexDump, char *data )
+{
+	int twoStep = 0;
+	char ch;
+    	int i,j = 0;
+    	for ( i=0; hexDump[i] != 0; i++ )
+	{
+		if ( IsNumber(hexDump[i], BASE_HEX) )
+		{
+			char res;
+			if (twoStep++)
+			{
+				res = ( ch << 4 ) + DigitToNum( hexDump[i] );
+				data[j++] = res;
+				twoStep = 0;
+			}
+			else
+				ch = DigitToNum( hexDump[i] );
+		}
+		else
+		{
+			if ( !Whitespace( hexDump[i] ) )
+				return -1; // error: no HEX-Dump
+		}
+	}
+	return j;
+}
+
+int HexDumpToData( CString &hexDump, char *data )
+{
+	char *tmp;
+	tmp = new char[hexDump.GetLength()];
+	int retVal = HexDumpToData( tmp, data );
+	hexDump = tmp;
+	delete []tmp;
+	return retVal;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 
+// converts DigitString to a Big Number
+// 
+int StringToBig( const char* StrNumber, Big &t, int base )
+{
+	char *tmp;
+	tmp = new char[strlen(StrNumber)+1];
+	int i,j;
+	for (i=j=0; StrNumber[i] != 0; i++) {
+		if ( IsNumber(StrNumber[i], base) ) tmp[j++] = StrNumber[i];
+		if (!Whitespace(StrNumber[i])) break;
+	}
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = tmp;
+	mip->IOBASE = oldBase;
+	delete []tmp;
+	return i;
+}
+
+int CStringToBig( CString &CStrNumber, Big &t, int base )
+{
+	return StringToBig( CStrNumber.GetBuffer( CStrNumber.GetLength()+1), t, base );
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// decodes a number to a block of ascii-characters / characters of an selected Alphabet
+// 
+
+int decode( const char *StrNumber, char *data, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet )
 {
 	Big t;
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
-	ASCIIStr = "";
-	if ( !CodingBasisSystem )
+	mip->IOBASE = numberBase;
+	StringToBig( StrNumber, t, numberBase);
+
+	char tmp[MAX_8BIT_LENGTH];
+	int i, modul, digits, alphabetLength;
+	alphabetLength = ( alphabet == NULL ) ? 256 : strlen(alphabet);
+    	digits = (int)ceil(log(alphabetLength)/log(numberBase));
+    	if ( basisSystem )
 	{
-		for (int k=0; k<BlockLength; k++) 
-		{
-			ASCIIStr.Insert( 0, char(t % 256) );
-			t = t / 256;
-		}
+        modul  = numberBase;
+        for (i=1; i<digits; i++) modul *= numberBase;
 	}
-	else
+        else   modul = alphabetLength;
+
+	for ( i=0; i < blockLength || t != 0; i++ )
 	{
-		int digits = (int)ceil(log(256)/log(base));
-		int modul = base;
-		for (int i=1; i<digits; i++) modul *= base;
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = (t % modul) % 256;
-			ASCIIStr.Insert( 0, char(i) );
-			t = t / modul;
-		}
+ 	    	char ch = (alphabet == NULL) ? t % alphabetLength : alphabet[t % alphabetLength];
+	    	t = t / modul;
+        	tmp[MAX_8BIT_LENGTH-(i+1)] = ch;
 	}
-	if ( t != 0 ) return FALSE;
-	else          return TRUE;
+	for (int j=MAX_8BIT_LENGTH-i; j<MAX_8BIT_LENGTH; j++ )
+	{
+	    data[j-(MAX_8BIT_LENGTH-i)] = tmp[j];
+	}
+    	data[j-(MAX_8BIT_LENGTH-i)] = '\0';
+	return i;
 }
 
-BOOL CStringToASCII( CString &CStringNumber, char *asciiStr, int BlockLength, int base, bool CodingBasisSystem  )
+int decode( CString &CStringNumber, char *data, int blockLength, int numberBase, BOOL BasisSystem, const char *alphabet )
 {
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
-	asciiStr[BlockLength] = '\0';
-	if ( !CodingBasisSystem )
-	{
-		for (int k=0; k<BlockLength; k++) 
-		{
-			asciiStr[BlockLength-1-k] = t % 256;
-			t = t / 256;
-		}
-	}
-	else
-	{
-		int digits = (int)ceil(log(256)/log(base));
-		int modul = base;
-		for (int i=1; i<digits; i++) modul *= base;
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = (t % modul) % 256;
-			asciiStr[BlockLength-1-k] = char(i);
-			t = t / modul;
-		}
-	}
-	if ( t != 0 ) return FALSE;
-	else          return TRUE;
+    return decode(CStringNumber.GetBuffer(CStringNumber.GetLength()+1), data, blockLength, numberBase, BasisSystem, alphabet );
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  converts a Big Number to a string 
+// 
 
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base )
-{
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
-	if ( t != 0 ) t = t-1;
-	else          t = (int)(Alphabet.GetLength()-1);
-	int i = t % Alphabet.GetLength();
-	AlphabetStr = "";
-	AlphabetStr.Insert( 0, Alphabet[i] );
-}
-
-BOOL CStringToAlphabet( CString &CStringNumber, char *AlphabetStr, 
-					    CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem )
-{
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
-	if ( !CodingBasisSystem )
-	{
-		AlphabetStr[BlockLength] = 0;
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = t % Alphabet.GetLength();
-			t = t / Alphabet.GetLength();
-			AlphabetStr[BlockLength-1-k] = Alphabet[i];
-		}
-	}
-	else
-	{
-		int digits = (int)ceil(log(Alphabet.GetLength())/log(base));
-		int modul = base;
-		for (int i=1; i<digits; i++) modul *= base;
-		AlphabetStr[BlockLength] = 0;
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = (t % modul) % Alphabet.GetLength();
-			t = t / modul;
-			AlphabetStr[BlockLength-1-k] = Alphabet[i];
-		}
-	}
-	if ( t != 0 ) return FALSE;
-	else          return TRUE;
-}
-
-void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem )
-{
-	Big t;
-	miracl *mip = &g_precision;
-	int oldBase = mip->IOBASE;
-	mip->IOBASE = base;
-	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
-	AlphabetStr = "";
-	if ( !CodingBasisSystem )
-	{
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = t % Alphabet.GetLength();
-			t = t / Alphabet.GetLength();
-			AlphabetStr.Insert( 0, Alphabet[i] );
-		}
-	}
-	else
-	{
-		int digits = (int)ceil(log(Alphabet.GetLength())/log(base));
-		int modul = base;
-		for (int i=1; i<digits; i++) modul *= base;
-		for (int k=0; k<BlockLength; k++) 
-		{
-			int i = (t % modul) % Alphabet.GetLength();
-			t = t / modul;
-			AlphabetStr.Insert( 0, Alphabet[i] );
-		}
-	}
-}
-
-void BigToCString(const Big &t, CString &CStrNumber, int base, int OutLength )
+void BigToString(const Big&t, char *NumStr, int base, int OutLength)
 {
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
-	char tmpStr[500];
+	char tmpStr[MAX_BIT_LENGTH];
 	tmpStr << t;
-	CStrNumber = tmpStr;
-	if ( OutLength )
-	{
-	    int x = CStrNumber.GetLength();
-		while (x++ < OutLength ) CStrNumber.Insert(0, '0');
-	}
-	
+	int i,diff;
+    	diff = ( OutLength > strlen(tmpStr) ) ? OutLength - strlen(tmpStr) : 0;
+    	if (diff > 0) for(i=0; i<diff; i++) NumStr[i] = '0';
+    	strcpy(NumStr+diff, tmpStr);
 	mip->IOBASE = oldBase;
 }
 
-
-void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase, int InBase)
+void BigToCString(const Big &t, CString &NumCStr, int base, int OutLength )
 {
-	Big tmp = 0;
-	for (int i=0; i<len && in[i] != 0; i++ )
-	{
-		tmp *= InBase;
-		tmp = tmp + (unsigned char)in[i];
-	}
-	BigToCString( tmp, NumStr, OutBase );
+    char tmpStr[MAX_BIT_LENGTH];
+    BigToString( t, tmpStr, base, OutLength );
+    NumCStr = tmpStr;
 }
 
-void CharToNumStr(CString &in, CString &NumStr, int OutBase, bool CodingBasisSystem )
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  encode an ASCII string of length "blockLength" into a Number represented as character string
+// 
+
+void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet )
 {
 	Big tmp = 0;
-	int OutLength;
-	if ( !CodingBasisSystem )
-	{
-		OutLength = (int)ceil(in.GetLength()*log(256)/log(OutBase));
-		int modulo = 256;
-		for (int i=0; i<in.GetLength(); i++ )
-		{
-			tmp *= modulo;
-			tmp  = tmp + (unsigned char)in[i];
-		}
-	}
-	else
-	{
-		int digits = (int)ceil(log(256)/log(OutBase));
-		OutLength = digits * in.GetLength();
-		int modulo = 256;
-		int i, modul = OutBase;
-		for (i=1; i<digits; i++) modul *= OutBase;
-		for (i=0; i<in.GetLength(); i++ )
-		{
-			tmp *= modul;
-			tmp  = tmp + (unsigned char)in[i];
-		}
-	}
 
-	BigToCString( tmp, NumStr, OutBase, OutLength );
+	int i,j, modul, digits, alphabetLength;
+	alphabetLength = ( alphabet == NULL ) ? 256 : strlen(alphabet);
+    	digits = (int)ceil(log(alphabetLength)/log(numberBase));
+    	if ( basisSystem )
+	{
+	    	modul = numberBase;
+        	for (i=1; i<digits; i++) modul *= basisSystem;
+	} 
+    	else    
+		modul = alphabetLength;
+    	for ( i=0; i<blockLength; i++ )
+	{
+	    	if ( alphabet ) for ( j=0; j < modul && data[i] != alphabet[j]; ) j++;
+        	else            j = (unsigned char)data[i];
+ 	    	tmp *=modul;
+        	tmp += j;
+    	}
+	BigToString( tmp, numStr, numberBase );
 }
 
-void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase )
+void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *alphabet )
 {
-	Big tmp = 0;
-	int modulo = Alphabet.GetLength();
-
-	int j = 0;	
-	while ( j < modulo && in[0] != Alphabet[j] ) j++;
-	if ( j < modulo )
-	{
-		tmp = j +1 + (rand() % 32)*modulo;
-	}
-	BigToCString( tmp, NumStr, OutBase );
-}
-
-void AlphabetToNumStr(CString &in, CString &NumStr, CString &Alphabet, int OutBase, bool CodingBasisSystem )
-{
-	Big tmp = 0;
-	int OutLength;
-	if ( !CodingBasisSystem )
-	{
-		OutLength = (int)ceil(in.GetLength()*log(Alphabet.GetLength())/log(OutBase));
-		int modulo = Alphabet.GetLength();
-		for (int i=0; i<in.GetLength(); i++ )
-		{
-			int j = 0;	
-			while ( j < modulo && in[i] != Alphabet[j] ) j++;
-			tmp *= modulo;
-			tmp += j;
-		}
-	}
-	else
-	{
-		int digits = (int)ceil(log(Alphabet.GetLength())/log(OutBase));
-		OutLength = digits * in.GetLength();
-		int modulo = Alphabet.GetLength();
-		int i, modul = OutBase;
-		for (i=1; i<digits; i++) modul *= OutBase;
-		for (i=0; i<in.GetLength(); i++ )
-		{
-			int j = 0;	
-			while ( j < modulo && in[i] != Alphabet[j] ) j++;
-			tmp *= modul;
-			tmp += j;
-		}
-	}
-
-	BigToCString( tmp, NumStr, OutBase, OutLength );
+    char *tmp;
+    tmp = new char[MAX_BIT_LENGTH];
+    encode ( data, tmp, blockLength, numberBase, basisSystem, alphabet );
+    numCStr = tmp;
+    delete []tmp;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -393,8 +430,13 @@ void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 {
 	r=lower;
 	if ( upper > lower )
+	{
 		r=rand(upper-(lower-1))+(lower-0);
+	}
 }
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // EVALUATE
@@ -406,7 +448,7 @@ BOOL evaluate::eval( Big& value, const char * Str )
 {
 	miracl *mip = &g_precision;
 	mip->IOBASE=10;
-    s = (char*)Str;
+     s = (char*)Str;
 	if ( eval() ) {
 		value = temp;
 		return TRUE;
@@ -450,42 +492,41 @@ void evaluate::eval_product(Big &oldn, Big &n, char op)
 BOOL evaluate::eval()
 {
 	Big oldn[3];
-    Big n;
-    int i;
-    char oldop[3];
-    char op;
-    char minus;
-    for (i=0;i<3;i++)
-    {
-        oldop[i]=0;
-    }
+    	Big n;
+    	int i;
+    	char oldop[3];
+    	char op;
+    	char minus;
+    	for (i=0;i<3;i++)
+    	{
+        	oldop[i]=0;
+    	}
 LOOP:
-    while (*s==' ')
+    	while (*s==' ')
 		s++;
-    if (*s=='-')    /* Unary minus */
-		{
+    	if (*s=='-')    /* Unary minus */
+	{
 		s++;
 		minus=1;
-		}
-    else
+	}
+    	else
 	    minus=0;
-    while (*s==' ')
+    	while (*s==' ')
 		s++;
-    if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
-		{
+    	if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
+	{
 		s++;
 		eval ();
 		n=temp;
-		}
-    else            /* Number is decimal value */
-    {
-	
-    for (i=0;s[i]>='0' && s[i]<='9';i++)
-           ;
+	}
+    	else            /* Number is decimal value */
+    	{
+    		for (i=0;s[i]>='0' && s[i]<='9';i++)
+           	;
 		if (!i)         /* No digits found */
 		{
-//				Error - invalid number
-				return(false);
+//			Error - invalid number
+			return(false);
 		}
 		op=s[i];
 		s[i]=0;
@@ -494,54 +535,54 @@ LOOP:
 		s+=i;
 		*s=op;
 	}
-    if (minus) n=-n;
-    do
+    	if (minus) n=-n;
+    	do
 		op=*s++;
 		while (op==' ');
-    if (op==0 || op==')' || op==']' || op=='}')
+    		if (op==0 || op==')' || op==']' || op=='}')
 		{
-		eval_power (oldn[2],n,oldop[2]);
-		eval_product (oldn[1],n,oldop[1]);
-		eval_sum (oldn[0],n,oldop[0]);
-		temp=n;
-		return(true);
+			eval_power (oldn[2],n,oldop[2]);
+			eval_product (oldn[1],n,oldop[1]);
+			eval_sum (oldn[0],n,oldop[0]);
+			temp=n;
+			return(true);
 		}
-    else
-    {
+    	else
+    	{
 		if (op==RAISE)
-			{
-					eval_power (oldn[2],n,oldop[2]);
-					oldn[2]=n;
-					oldop[2]=RAISE;
-			}
+		{
+			eval_power (oldn[2],n,oldop[2]);
+			oldn[2]=n;
+			oldop[2]=RAISE;
+		}
 		else
 		{
-				if (op==TIMES || op=='/' || op=='%')
-				{
+			if (op==TIMES || op=='/' || op=='%')
+			{
 				eval_power (oldn[2],n,oldop[2]);
 				oldop[2]=0;
 				eval_product (oldn[1],n,oldop[1]);
 				oldn[1]=n;
 				oldop[1]=op;
+			}
+			else
+			{
+				if (op=='+' || op=='-')
+				{
+					eval_power (oldn[2],n,oldop[2]);
+					oldop[2]=0;
+					eval_product (oldn[1],n,oldop[1]);
+					oldop[1]=0;
+					eval_sum (oldn[0],n,oldop[0]);
+					oldn[0]=n;
+					oldop[0]=op;
 				}
-				else
-					{
-					if (op=='+' || op=='-')
-						{
-								eval_power (oldn[2],n,oldop[2]);
-								oldop[2]=0;
-								eval_product (oldn[1],n,oldop[1]);
-								oldop[1]=0;
-								eval_sum (oldn[0],n,oldop[0]);
-								oldn[0]=n;
-								oldop[0]=op;
-						}
-					else    /* Error - invalid operator */
-						{
-//								Error - invalid operator
-								return(false);
-						}
-					}
+				else    /* Error - invalid operator */
+				{
+//					Error - invalid operator
+					return(false);
+				}
+			}
 		}
 	}
 	goto LOOP;
@@ -805,10 +846,10 @@ int TutorialRSA::InitParameter( Big &p, Big &q )
 {
 	isInitialized_N = isInitialized_e = isInitialized_d = false;
 	GeneratePrimes P; P.SetP( p );
-	if ( !P.SolvayStrassenTest() ) return -1;
+	if ( !P.SolvayStrassenTest() ) return ERR_P_NOT_PRIME;
 	GeneratePrimes Q; Q.SetP( q );
-	if ( !Q.SolvayStrassenTest() ) return -2;
-	if (p==q) return -3;
+	if ( !Q.SolvayStrassenTest() ) return ERR_Q_NOT_PRIME;
+	if (p==q) return ERR_P_EQUALS_Q;
 	N = p*q;
 	phiOfN = (p-1)*(q-1);
 	isInitialized_N = true;
@@ -918,7 +959,7 @@ BOOL TutorialRSA::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 		return false;
 	}
 }
-
+/*
 BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 {	
 	int i1 = 0, i2 = 0;
@@ -951,11 +992,13 @@ BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 					i2++;
 				}
 				else
-					if ( Input[i2] == ' ' || Input[i2] == '#' || Input[i2] == '\t' ||
-					     Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' )
+				{
+					while ( Input[i2] == ' ' || Input[i2] == '\t' )
+						Input.Delete(i2);
+					if ( Input[i2] == '#' || Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' )
 					{
 						// if ( i2 > i1 && Input[i2] == '#' ) flag = true;
-						while ( Input[i2] == ' ' || Input[i2] == '#' || Input[i2] == '\t' ||
+						while ( Input[i2] == ' ' || Input[i2] == '\t' || Input[i2] == '#' || 
 							    Input[i2] == ',' || Input[i2] == ':' || Input[i2] == ';' ) 
 							Input.Delete(i2);
 						flag = true;
@@ -970,7 +1013,7 @@ BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 							Input = oldInput;
 							return false;
 						}
-
+				}
 		if ( i2 > i1 )
 		{
 			tmpStr = Input.Mid(i1, i2-i1);
@@ -990,6 +1033,7 @@ BOOL TutorialRSA::CheckInput( CString &Input, int base, int base2 )
 	Input = newInput;
 	return true;
 }
+*/
 
 void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 {

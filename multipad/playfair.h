@@ -156,15 +156,17 @@ public:
         playfair_letter* addLetter(char let);
         playfair_letter* getLetter(char let);
         playfair_letter* getLetter(int letindex){
-                 return &my_pfletters[letindex];
+			assert (letindex >= 0);
+			assert (letindex < MAXDIM*MAXDIM +1);
+            return &my_pfletters[letindex];
 		}
         playfair_letter *getLetters() //const
         {
-                 return my_pfletters;
+            return my_pfletters;
         }
         playfair_letter *getNullElement() const
         {
-                 return my_nullElement;
+            return my_nullElement;
         }
 protected:
 private:
@@ -203,8 +205,8 @@ private:
 class playfair_digramm
 {
 public:
-        playfair_digramm(playfair_alphabet* ab, char letter1, char letter2, char chiffre1, char chiffre2);
-        playfair_digramm(playfair_alphabet* ab=NULL);
+        playfair_digramm(playfair_alphabet* ab, int msize, char letter1, char letter2, char chiffre1, char chiffre2);
+        playfair_digramm(playfair_alphabet* ab=NULL, int msize=MAXDIM);
         ~playfair_digramm();
         bool operator==(const playfair_digramm &other);
 
@@ -261,6 +263,7 @@ private:
         playfair_letter* my_chiffre2;
         int my_count; // Statistik
 		playfair_alphabet* my_alphabet;
+		int my_matrixsize;
 		bool my_visited; //nur um doppelte Analysen zu vermeiden
 }; // class playfair_digramm
 

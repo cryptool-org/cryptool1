@@ -24,10 +24,10 @@ CDialogPermutation::CDialogPermutation(CWnd* pParent /*=NULL*/)
 	m_Perm2 = _T("");
 	m_P1out = _T("");
 	m_P2out = _T("");
-	m_P1Zin = FALSE;
-	m_P1Zout = TRUE;
-	m_P2Zin = FALSE;
-	m_P2Zout = TRUE;
+	m_P1InSeq = 0;
+	m_P1OutSeq = 1;
+	m_P2InSeq = 0;
+	m_P2OutSeq = 1;
 	//}}AFX_DATA_INIT
 }
 
@@ -46,10 +46,10 @@ void CDialogPermutation::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_Perm2, 32);
 	DDX_Text(pDX, IDC_EDIT3, m_P1out);
 	DDX_Text(pDX, IDC_EDIT4, m_P2out);
-	DDX_Check(pDX, IDC_CHECK1, m_P1Zin);
-	DDX_Check(pDX, IDC_CHECK2, m_P1Zout);
-	DDX_Check(pDX, IDC_CHECK3, m_P2Zin);
-	DDX_Check(pDX, IDC_CHECK4, m_P2Zout);
+	DDX_Radio(pDX, IDC_RADIO1, m_P1InSeq);
+	DDX_Radio(pDX, IDC_RADIO3, m_P1OutSeq);
+	DDX_Radio(pDX, IDC_RADIO5, m_P2InSeq);
+	DDX_Radio(pDX, IDC_RADIO7, m_P2OutSeq);
 	//}}AFX_DATA_MAP
 }
 

@@ -454,7 +454,7 @@ void CDialogPlayfair::UpdateListBox()
 
 //TG	for (i=0;i<m_Alg->numdigrams;i++)
 //		m_listview.SetItemText( i, 1, m_Alg->digrams[i].ciphdi);
-	for (j=i=0; i <= m_Alg->getLetterlist()->getLen(); i++) {
+	for (j=i=0; i < m_Alg->getLetterlist()->getLen(); i++) {
 //		if (m_Alg->getAlphabet()->getValidOfLetter(i)) {
 //			let = &(m_Alg->getAlphabet()->getLetters()[i]);
 			let = (m_Alg->getLetterlist()->getLetter(i));
@@ -493,7 +493,7 @@ void CDialogPlayfair::UpdateListBox()
 	{
 		c=m_Alg->inbuf[j++];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			c = m_Alg->getAlphabet()->replaceInvalidLetter(c);
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
 		if(m_Alg->myisalpha2(c))
 			buf[i++]=toupper(c);
 	}
@@ -587,7 +587,7 @@ void CDialogPlayfair::OnUpdate()
 	for(k=i=0;i<m_password.GetLength();i++) {
 		c = m_password[i];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			c = m_Alg->getAlphabet()->replaceInvalidLetter(c);
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
 		if(m_Alg->myisalpha2(c)) { // valid character
 			res += c;
 			k++;
@@ -637,7 +637,7 @@ void CChEdit::SetAlg(class Playfair *alg,class CDialogPlayfair *dia)
 */
 
 BEGIN_MESSAGE_MAP(CChEdit, CEdit)
-	//{{AFX_MSG_MAP(CChEdit)
+	//{{AFX_MSG_MAP(CHexEdit)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
@@ -648,7 +648,7 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char b1[2],b2[2];
 
 	if(!m_Alg->myisalpha2(nChar))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-		nChar = m_Alg->getAlphabet()->replaceInvalidLetter(toupper(nChar));
+		nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, toupper(nChar));
 	if (m_Alg->myisalpha2(nChar))
 	{
 		int i,j,s,a,b,c,d;
@@ -661,7 +661,7 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		ReplaceSel(b2);
 		SetSel(0, 1);
 		if(!m_Alg->myisalpha2(b1[0])){  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			b1[0] = m_Alg->getAlphabet()->replaceInvalidLetter(b1[0]);
+			b1[0] = m_Alg->getAlphabet()->replaceInvalidLetter(true, b1[0]);
 			if (b1[0] == '\0')
 				b1[0] = m_Alg->getAlphabet()->getNullElement()->getValue();
 		}
@@ -738,7 +738,7 @@ void CMyEdit::SetAlg(class Playfair *alg)
 */
 
 BEGIN_MESSAGE_MAP(CMyEdit, CEdit)
-	//{{AFX_MSG_MAP(CMyEdit)
+	//{{AFX_MSG_MAP(CHexEdit)
 	ON_WM_CHAR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -749,7 +749,7 @@ void CMyEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	int i,j,k;
 
 	if((!m_Alg->myisalpha2(nChar)) && (nChar>32))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(nChar);
+			nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, nChar);
 	if (m_Alg->myisalpha2(nChar))
 	{
 		b2[1]=0;

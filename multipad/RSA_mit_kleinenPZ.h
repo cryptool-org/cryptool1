@@ -59,12 +59,6 @@ class RSA_mit_kleinenPZ : public CDialog
 	
 // Konstruktion
 public:
-	void EncryptASCII();
-	void DecryptASCII();
-	void EncryptDialogueOfSisters();
-	void DecryptDialogueOfSisters();
-	void EncryptAlphabet();
-	void DecryptAlphabet();
 	void EncryptNumbers();
 	void DecryptNumbers();
 	

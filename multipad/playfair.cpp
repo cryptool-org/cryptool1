@@ -33,6 +33,10 @@
 #define WEIGHT_colsure		0040	// Gewicht für sichere Zeile
 #define WEIGHT_col			0005	// Gewicht für mögliche Zeile
 
+#define	C2I(x)	((my_matrixsize==6)?((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1):(((x)>='J')?(x)-'A'-1:(x)-'A'))
+#define I2C(x)	((my_matrixsize==6)?(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1):(((x)<'J'-'A')?(x)+'A':(x)+'A'+1))
+
+
 playfair_letter::playfair_letter(char c)        : letter()/*,
                         my_row_sure(NULL),
                         my_col_sure(NULL),
@@ -548,6 +552,7 @@ playfair_letter* playfair_alphabet::addLetter(char let)
 
 playfair_letter* playfair_alphabet::getLetter(char let)
 {
+	assert (let>=0);
 	if (let=='\0') return &my_pfletters[0];
 	for (int i=0; i<=my_max_count; i++)
 		if ((my_validletters[i]) && ((my_pfletters[i].getValue()==let)||(my_pfletters[i].getValue()==toupper(let))))
@@ -658,6 +663,7 @@ void playfair_letterlist::copy (playfair_letterlist* dst, playfair_letterlist* s
 
 playfair_letter* playfair_letterlist::getLetter(int i)
 {
+	assert (i >= 0);
 	assert (i < my_maxLen);
 	assert (i <= my_len);
 	return my_pfletters[i];
@@ -706,18 +712,23 @@ void playfair_letterlist::sortViaWeight ()
 /*--------------------------------------------------------------------*/
 /* class playfair_digramm                                             */
 /*--------------------------------------------------------------------*/
-playfair_digramm::playfair_digramm(playfair_alphabet* ab, char letter1, char letter2, char chiffre1, char chiffre2)
+playfair_digramm::playfair_digramm(playfair_alphabet* ab, int msize, char letter1, char letter2, char chiffre1, char chiffre2)
 {
+	my_matrixsize = msize;
 	setLetters(letter1, letter2);
 	setChiffres(chiffre1, chiffre2);
 	my_count = 1;
 	my_alphabet = ab;
 }
 
-playfair_digramm::playfair_digramm(playfair_alphabet* ab)
+playfair_digramm::playfair_digramm(playfair_alphabet* ab, int msize)
 {
+	my_matrixsize = msize;
+	assert ((my_matrixsize==5) || (my_matrixsize==6));
+	my_visited = false;
+	my_count = 0;
 	if (ab)
-		playfair_digramm(ab, '\0','\0','\0','\0');
+		playfair_digramm(ab, msize, '\0','\0','\0','\0');
 }
 
 playfair_digramm::~playfair_digramm()
@@ -768,22 +779,27 @@ inline void playfair_digramm::setChiffres(playfair_letter* c1, playfair_letter* 
 
 int playfair_digramm::getIndex()
 {
-	int ret = (my_chiffre1->getValue()-'A')*MAXDIM*MAXDIM + my_chiffre2->getValue()-'A';
+	assert ((my_matrixsize==5) || (my_matrixsize==6));
+	int ret = (C2I(my_chiffre1->getValue()))*MAXDIM*MAXDIM + C2I(my_chiffre2->getValue());
 	assert ((ret>=0) && (ret<MAXDIGRAMMS));
 	return ret;
 }
 
 int playfair_digramm::getIndex(char chiffre1, char chiffre2)
 {
-	int ret = (chiffre1-'A')*MAXDIM*MAXDIM + chiffre2-'A';
+	assert ((my_matrixsize==5) || (my_matrixsize==6));
+	int ret = (C2I(chiffre1))*MAXDIM*MAXDIM + C2I(chiffre2);
+	int a = (C2I(chiffre1))*MAXDIM*MAXDIM;
+	int b = C2I(chiffre2);
 	assert ((ret>=0) && (ret<MAXDIGRAMMS));
 	return ret;
 }
 
 int playfair_digramm::getIndex(playfair_letter* c1, playfair_letter* c2)
 {
+	assert ((my_matrixsize==5) || (my_matrixsize==6));
 //	int i=((c1->getValue()-'A')*MAXDIM*MAXDIM + c2->getValue()-'A');
-	int ret ((c1->getValue()-'A')*MAXDIM*MAXDIM + c2->getValue()-'A');
+	int ret (C2I(c1->getValue())*MAXDIM*MAXDIM + C2I(c2->getValue()));
 	assert ((ret>=0) && (ret<MAXDIGRAMMS));
 	return ret;
 }
@@ -794,7 +810,7 @@ int playfair_digramm::getIndex(playfair_letter* c1, playfair_letter* c2)
 playfair_digrammlist::playfair_digrammlist(playfair_alphabet* the_alphabet, playfair_digramm* digramsbase, char *plain, char *chiffre, int charlen, int the_maxDigLen)
 {
 	int j, iseol = 0;
-	playfair_digramm* dig;
+	playfair_digramm* dig=digramsbase;
 	my_alphabet = the_alphabet;
 	my_maxLen = max (the_maxDigLen, charlen/2);
 	my_digramms = (playfair_digramm**) malloc(my_maxLen*sizeof(playfair_digramm*));
@@ -898,7 +914,7 @@ Playfair::Playfair(void)
 	SetSize(1);
 	my_cntdigrams=0;
 	my_digrams = new playfair_digramm [MAXDIGRAMMS];//(&myAlphabet);
-	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
+//	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
 
 }
 
@@ -980,7 +996,7 @@ void Playfair::SetSize(int sechs)
 
 	my_cntdigrams=0;
 	my_digrams = new playfair_digramm [MAXDIGRAMMS];//(&myAlphabet);
-	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
+//	memset(my_digrams,0,MAXDIGRAMMS * sizeof(playfair_digramm));
 	assert (my_digrams);
 	for (int i=0; i<MAXDIGRAMMS; i++){
 		my_digrams[i].setAlphabet(myAlphabet);
@@ -1098,7 +1114,7 @@ Playfair::Playfair(char *p,int sechs,const char *in,const char *out,int r,int c,
 	outbuf[0]=0;
 	if(infp)
 	{
-		fread(inbuf, 1, inbuflen, infp);
+		inbuflen = fread(inbuf, 1, inbuflen, infp);
 		fclose(infp);
 	}
 	//GetDiGrams();
@@ -1375,7 +1391,7 @@ void Playfair::ApplyPlayfairPreformat( int DecEnc,char *prename,char *o)
 /*		if (mysize==5&&(c=='J'||c=='j'))           // bei 5x5 Matrix 
 			c='I';                               // wird J zu I*/
 		if(!myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			c = myAlphabet->replaceInvalidLetter(c);
+			c = myAlphabet->replaceInvalidLetter(true, c);
 		/* white spaces oder sonstige Buchstaben werden durch obige Routine nicht ersetzt.
 		Daher können immer noch  falsche Buchstaben erscheinen */
 		if(myisalpha2(c))
@@ -1427,7 +1443,7 @@ void Playfair::ApplyPlayfairToInput( int DecEnc)
 	for(i=j=0;i<inbuflen;i++)
 	{
 		if(!myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = myAlphabet->replaceInvalidLetter(inbuf[i]);
+			inbuf[i] = myAlphabet->replaceInvalidLetter(true, inbuf[i]);
 		if(myisalpha2(inbuf[i]))
 		{
 			if(islower(inbuf[i])&&ConvertCase)
@@ -1481,7 +1497,7 @@ bool Playfair::DoCipher( int Dec, int len, char *stipulation, int stiplen)
 		
 		c1 = -1; r1 = -1; c2 = -1; r2 = -1;
 		if(!myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = getAlphabet()->replaceInvalidLetter(inbuf[i]);
+			inbuf[i] = getAlphabet()->replaceInvalidLetter(true, inbuf[i]);
 		while (!myisalpha2(inbuf[i])&&i<inbuflen)
 			i++;
 		if(i<inbuflen)
@@ -1681,8 +1697,6 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 
 #define MAXINT	0x07ffff
 #define R(x)	((x + ALEN) % ALEN)
-#define	C2I(x)	((my_matrixsize==6)?((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1):(((x)>='J')?(x)-'A'-1:(x)-'A'))
-#define I2C(x)	((my_matrixsize==6)?(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1):(((x)<'J'-'A')?(x)+'A':(x)+'A'+1))
 
 //#define C2I(x)	((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1)
 //#define I2C(x)	(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1)

@@ -47,7 +47,7 @@ alphabet::alphabet(char lower_letter/* = A*/, char upper_letter/* = Z*/, int the
 letter alphabet::addLetter(char let)
 {
 	letter ret_let;
-	if ((int)&(ret_let = getLetter(let)) != NULL)
+	if ((int)&(ret_let = getLetter(let, true)) != NULL)
 		return ret_let;
 
 	if (my_count<my_max_count) {
@@ -78,9 +78,9 @@ void alphabet::delLetter(letter let)
 		}
 }
 
-letter alphabet::getLetter(char let, int isDigitsOk, int isPlayfairTypical)
+letter alphabet::getLetter(char let, bool isConvert, bool isDigitsOk, bool isPlayfairTypical)
 {
-	let = replaceInvalidLetter (let, isDigitsOk, isPlayfairTypical);
+	let = replaceInvalidLetter (isConvert, let, isDigitsOk, isPlayfairTypical);
 	if (let=='\0') 	return NULL;
 	for (int i=0; i<my_max_count; i++)
 		if ((my_validletters[i]) && ((my_letters[i].getValue()==let)||(my_letters[i].getValue()==toupper(let))))
@@ -88,12 +88,14 @@ letter alphabet::getLetter(char let, int isDigitsOk, int isPlayfairTypical)
 	return NULL;
 }
 
-char alphabet::replaceInvalidLetter(char let, int isDigitsOk, int isPlayfairTypical)
+char alphabet::replaceInvalidLetter(bool isConvert, char let, bool isDigitsOk, bool isPlayfairTypical)
 {
 	if ((let>='a') && (let<='z')) let = let - 'a' + 'A';  // a-z in Großbuchstaben wandeln;
 	if ((let == 'J') && isPlayfairTypical) return ('I');
 	if ((let>='A') && (let<='Z')) return (let);
 	if ((let>='0') && (let<='9') && isDigitsOk && !isPlayfairTypical) return (let);
+
+	if (!isConvert) return (let);
 
 	if ((let>='à') && (let<='ý')) let = let - 'à' + 'À';  // in Großbuchstaben wandeln;
 	switch (let) { // jetzt Sonderzeichen wandeln

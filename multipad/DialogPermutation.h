@@ -41,10 +41,10 @@ public:
 	CString	m_Perm2;
 	CString	m_P1out;
 	CString	m_P2out;
-	BOOL	m_P1Zin;
-	BOOL	m_P1Zout;
-	BOOL	m_P2Zin;
-	BOOL	m_P2Zout;
+	int		m_P1InSeq;
+	int		m_P1OutSeq;
+	int		m_P2InSeq;
+	int		m_P2OutSeq;
 	//}}AFX_DATA
 
 

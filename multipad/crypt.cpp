@@ -3114,7 +3114,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 // =============================================================
 // == permutation cryptology 
 // == Peer Wichmann July 2001
-void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zout)
+void DoPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zout)
 {		
 	int i, k, pt;
 	int Zeilenzahl, LetzteZLen;
@@ -3135,8 +3135,8 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zou
 			k++;
 
 
-	if(Zin == FALSE) // zeilenweise einlesen
-		if(Zout == TRUE) // zeilenweise einlesen, spaltenweise auslesen
+	if(Zin == 0) // zeilenweise einlesen
+		if(Zout == 1) // zeilenweise einlesen, spaltenweise auslesen
 			for(pt=i=0;i<plen;i++)
 				for(k=p[i];k<len;k+=plen)
 					dest[pt++]=src[k];
@@ -3148,7 +3148,7 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zou
 				dest[pt+pres[i]]=src[pt+i];
 		}
 	else	// spaltenweise einlesen
-		if(Zout == TRUE) // spaltenweise einlesen, spaltenweise auslesen
+		if(Zout == 1) // spaltenweise einlesen, spaltenweise auslesen
 			for(pt=i=0;i<plen;i++) {
 				memcpy(dest+pt, src+sstart[p[i]], slen[p[i]]);
 				pt += slen[p[i]];
@@ -3162,7 +3162,7 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zou
 		}
 }
 
-void DoInvPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL Zout)
+void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zout)
 {
 	int i, k, pt;
 	int Zeilenzahl, LetzteZLen;
@@ -3183,8 +3183,8 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL 
 			k++;
 
 
-	if(Zin == FALSE) // zeilenweise einlesen
-		if(Zout == TRUE) // zeilenweise einlesen, spaltenweise auslesen
+	if(Zin == 0) // zeilenweise einlesen
+		if(Zout == 1) // zeilenweise einlesen, spaltenweise auslesen
 			for(pt=i=0;i<plen;i++)
 				for(k=p[i];k<len;k+=plen)
 					dest[k]=src[pt++];
@@ -3196,7 +3196,7 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, BOOL Zin, BOOL 
 				dest[pt+i]=src[pt+pres[i]];
 		}
 	else	// spaltenweise einlesen
-		if(Zout == TRUE) // spaltenweise einlesen, spaltenweise auslesen
+		if(Zout == 1) // spaltenweise einlesen, spaltenweise auslesen
 			for(pt=i=0;i<plen;i++) {
 				memcpy(dest+sstart[p[i]], src+pt, slen[p[i]]);
 				pt += slen[p[i]];
@@ -3251,20 +3251,20 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 
 		if(Perm.m_Dec) {
 			if(Perm.m_P2len) {
-				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2Zin, Perm.m_P2Zout);
-				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
+				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq, Perm.m_P2OutSeq);
+				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
 				b3 = b1;
 			}
 			else {
-				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
+				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
 				b3 = b2;
 			}
 		}
 		else {
-			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1Zin, Perm.m_P1Zout);
+			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
 			if(Perm.m_P2len) {
 				b3 = b1;
-				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2Zin, Perm.m_P2Zout);
+				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq, Perm.m_P2OutSeq);
 			}
 			else b3 = b2;
 		}

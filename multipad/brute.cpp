@@ -215,10 +215,13 @@ UINT Brute(PVOID p)
 		KeyDialog.GetDataInt(key); // Schlüssel besorgen
 		
 		out.noctets=0;
+		int decryptionError = 0;
 		if (theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1)
 		{
 			struct ErrStack *err;
 			err = theApp.SecudeLib.th_remove_last_error();
+			if ( err->e_number == 1792 ) decryptionError = 0;
+			else                         decryptionError = err->e_number;
 			if(err->e_text) theApp.SecudeLib.aux_free(err->e_text);
 			if(err->e_proc) theApp.SecudeLib.aux_free(err->e_proc);
 			if(err->e_addr)
@@ -252,8 +255,9 @@ UINT Brute(PVOID p)
 			}
 			theApp.SecudeLib.aux_free(err);
 		}
-		else                 // Falls kein Fehler Entropie berechenen
-		{
+
+		// else                 // Falls kein Fehler Entropie berechenen
+		if ( !decryptionError ) {
 			for(i=0;i<256;i++) distr[i]=0;
 			for(i=0;i<l;i++) distr[(unsigned char) out.octets[i]]++;
 			for(entr = i = 0; i<256; i++)

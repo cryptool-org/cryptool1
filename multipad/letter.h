@@ -53,7 +53,7 @@ class alphabet
 {
 public:
 //        alphabet();
-	alphabet(char lower_letter = 'A', char upper_letter = 'Z', int the_max_count = 128);
+		alphabet(char lower_letter = 'A', char upper_letter = 'Z', int the_max_count = 128);
         ~alphabet();
 
         letter *getLetters() const
@@ -95,8 +95,8 @@ public:
         letter addLetter(char let);
         void delLetter(char let);
         void delLetter(letter let);
-        letter getLetter(char let, int isDigitsOk=1, int isPlayfairTypical=0);
-		char replaceInvalidLetter(char let, int isDigitsOk=1, int isPlayfairTypical=0);
+        letter getLetter(char let, bool isConvert, bool isDigitsOk=1, bool isPlayfairTypical=0);
+		char replaceInvalidLetter(bool isConvert, char let, bool isDigitsOk=1, bool isPlayfairTypical=0);
 		bool getValidOfLetter(int no){
 			return my_validletters[no];
 		}
