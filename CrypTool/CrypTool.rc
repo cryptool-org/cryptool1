@@ -349,7 +349,7 @@ END
 
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "CrypTool"
+CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
@@ -370,10 +370,10 @@ BEGIN
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
     CTEXT           "Kontakt:",IDC_STATIC,0,234,241,10
-    CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
+    CTEXT           "Copyright (C) 1998-2003 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,289,242,17
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com",
-                    IDC_STATIC,70,244,145,35
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
+                    IDC_STATIC,63,243,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,18,222,116
     CTEXT           "Gemeinsam mit den Sponsoren",IDC_STATIC,1,8,241,8
@@ -620,31 +620,33 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 306
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 303
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,65,287,50,14
-    CTEXT           "Details zu CrypTool",IDC_STATIC,7,6,166,11,
-                    SS_CENTERIMAGE | WS_BORDER
+    DEFPUSHBUTTON   "OK",IDOK,65,278,50,14
+    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,166,
+                    11,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,152,8
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
                     59,152,16
     CTEXT           "Henrik Koy",IDC_STATIC,14,93,152,9,NOT WS_GROUP
-    CTEXT           "Ariane Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg",
-                    IDC_STATIC,14,234,152,40
-    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nFlorian Marchal\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,14,119,152,96
-    GROUPBOX        " Idee, Sponsoring, Challenges, QA: ",IDC_STATIC,7,23,
-                    166,22,BS_CENTER
-    GROUPBOX        " Planung und Betreuung: ",IDC_STATIC,7,49,166,30,
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
+                    22,BS_CENTER
+    GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,166,30,
                     BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3: ",IDC_STATIC,7,83,166,22,
+    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,166,22,
                     BS_CENTER
-    GROUPBOX        " Entwicklung, Dokumentation: ",IDC_STATIC,7,109,166,110,
-                    BS_CENTER
-    GROUPBOX        " Review: ",IDC_STATIC,7,224,166,55,BS_CENTER
+    GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
+                    109,166,86,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,198,166,71,BS_CENTER
+    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
+                    IDC_STATIC,18,122,150,40
+    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,18,162,150,27
+    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...und viele andere.",
+                    IDC_STATIC,14,208,152,57
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -2974,6 +2976,8 @@ BEGIN
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
@@ -3178,6 +3182,8 @@ BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3411,6 +3417,8 @@ BEGIN
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
@@ -3487,6 +3495,8 @@ BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3698,6 +3708,8 @@ BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -4013,7 +4025,7 @@ IDB_DH_KEY_F            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_F.bmp
 IDB_DH_KEY_U            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_U.bmp"
 IDB_DH_KEY_D            BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\Key_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\MainBackground.bmp"
-IDB_HYBRID_BACK			BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
+IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4240,6 +4252,11 @@ BEGIN
         HORZGUIDE, 96
     END
 
+    IDD_AUTHORS, DIALOG
+    BEGIN
+        HORZGUIDE, 292
+    END
+
     IDD_STARTOPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 12
@@ -4444,7 +4461,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 - beta 2"
+    IDR_MAINFRAME           "CrypTool 1.3.04-medida"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5456,7 +5473,6 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
-    ID_EINZELVERFAHREN_SIGN "Visualisierung der Erzeugung digitaler Signaturen"
     ID_HOMOPHONE_HEX        "Homophone Verschlüsselung"
     ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
@@ -5470,6 +5486,21 @@ BEGIN
                             "Serial-Test des Dokumentes durchführen"
     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
                             "FIPS-PUB-140-1 Test-Batterie an dem Dokument durchführen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_AES_SELFEXTRACT      "Ruft das AES-Tool auf, was die Verschlüsselung der aktuellen Datei in ein selbstextrahierendes Archiv ermöglicht"
+    ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
+    ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
+                            "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
+                            "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
+                            "Zeigt Schritt für Schritt den Ablauf der Entschlüsselung einer Hybrid-verschlüsselten Datei"
+    ID_EINZELVERFAHREN_SIGN "Visualisierung der Erzeugung digitaler Signaturen"
+    ID_EINZELVERFAHREN_SIGN_DOC 
+                            "Visualisiert den Prozess der Signaturerzeugung"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5739,6 +5770,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmlose Nachricht: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Run %d\nKollisionssuche\nFortschritt: %%d%%%%  Restzeit: %%s"
+    ID_LOAD_README          "Öffnet die CrypTool Readme-Datei"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5762,20 +5794,6 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    ID_AES_SELFEXTRACT      "Ruft das AES-Tool auf, was die Verschlüsselung der aktuellen Datei in ein selbstextrahierendes Archiv ermöglicht"
-    ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
-    ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
-                            "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
-    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
-                            "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
-    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
-                            "Zeigt Schritt für Schritt den Ablauf der Entschlüsselung einer Hybrid-verschlüsselten Datei"
-    ID_EINZELVERFAHREN_SIGN_DOC 
-                            "Visualisiert den Prozess der Signaturerzeugung"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5890,6 +5908,7 @@ BEGIN
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-Exponentiation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
+    IDS_NORSAKEY_AVAILABLE  "Es steht kein RSA-Schlüssel zur Verfügung!\nSie erzeugen sich Ihren eigenen RSA-Schlüssel unter Menü: ""Schlüsselverwaltung\\Schlüssel erzeugen""."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5907,12 +5926,6 @@ BEGIN
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens"
     ID_SIGNATUR_ATTACK      "Angriff auf die digitale Signatur über die Hashfunktion basierend auf dem Geburtstagsparadoxon"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_KEYHEX_INPUT_LENGTH_TXT 
-                            "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge genau %d Hexadezimalzeichen (= %d Bytes)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5963,6 +5976,14 @@ BEGIN
     IDS_DH_STEP4            "Schritt 4"
     IDS_DH_STEP5            "Schritt 5"
     IDS_STRING_GE_2         "Bitte geben Sie eine ganz Zahl >= 2 ein!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_KEYHEX_INPUT_LENGTH_TXT 
+                            "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge genau %d Hexadezimalzeichen (= %d Bytes)."
+    IDS_READMEPATH          "%sReadMe-de.txt"
+    IDS_ERR_ONOPENREADME    "Die Readme-Datei konnte nicht geöffnet werden!\nBitte überprüfen Sie, ob die Datei ""Readme-de.txt"" sich im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6044,7 +6065,7 @@ BEGIN
                     SS_CENTERIMAGE
     GROUPBOX        "Public parameters:",IDC_PUBLICFRAME,152,10,361,50
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,152,280,50,14
+                    WS_TABSTOP,244,284,50,14
     LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
     LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
     LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
@@ -6056,7 +6077,7 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,71,8,5
-    CONTROL         "",IDC_ANIMGIF,"Static",SS_BLACKRECT,281,159,20,20
+    CONTROL         "",IDC_ANIMGIF,"Static",SS_GRAYRECT,281,159,20,20
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -6332,7 +6353,7 @@ END
 
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "CrypTool"
+CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
@@ -6344,9 +6365,9 @@ BEGIN
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
     CTEXT           "Contact:",IDC_STATIC,0,230,241,10
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com",
-                    IDC_STATIC,70,240,145,35
-    CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
+                    IDC_STATIC,67,239,145,40
+    CTEXT           "Copyright (C) 1998-2003 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,288,242,17
     CTEXT           "has been developed in a joint effort of the sponsors",
                     IDC_STATIC,1,21,241,8
@@ -6600,30 +6621,32 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 306
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 180, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,65,284,50,15
-    CTEXT           "Detailed information on CrypTool",IDC_STATIC,7,6,166,11,
+    DEFPUSHBUTTON   "OK",IDOK,65,276,50,15
+    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,166,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,152,8
     CTEXT           "Henrik Koy",IDC_STATIC,14,94,152,8,NOT WS_GROUP
-    CTEXT           "Martin Bartosch\nJan Blumenstein\nBartol Filipovic\nThomas Gauweiler\nPeter Gruber\nFlorian Marchal\nMatej Matejicek\nJens Liebehenschel\nRoger Oyono\nMark Santiago\nChristian Tobias\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,14,120,152,96
-    CTEXT           "Ariane Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg",
-                    IDC_STATIC,14,233,152,40
+    CTEXT           "Ariane Büger\nMatthias Büger\nWolfgang Patzewitz\nKarsten Schaar\nWolfgang Scondo\nGary Tagg\n...and many more.",
+                    IDC_STATIC,14,205,152,57
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
                     59,152,17
-    GROUPBOX        " Idea, sponsoring, challenges, QA: ",IDC_STATIC,7,23,
-                    166,23,BS_CENTER
-    GROUPBOX        " Design, Support: ",IDC_STATIC,7,49,166,31,BS_CENTER
-    GROUPBOX        " Main person taking overall care for version 1.3: ",
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,166,
+                    23,BS_CENTER
+    GROUPBOX        " Design, Support ",IDC_STATIC,7,49,166,31,BS_CENTER
+    GROUPBOX        " Main person taking overall care for version 1.3 ",
                     IDC_STATIC,7,83,166,24,BS_CENTER
-    GROUPBOX        " Implementation, Documentation: ",IDC_STATIC,7,110,166,
-                    110,BS_CENTER
-    GROUPBOX        " Review: ",IDC_STATIC,7,223,166,54,BS_CENTER
+    GROUPBOX        " Implementation, Documentation, Translation ",
+                    IDC_STATIC,7,110,166,82,BS_CENTER
+    GROUPBOX        " Review ",IDC_STATIC,7,195,166,70,BS_CENTER
+    LTEXT           "Martin Bartosch,             Jan Blumenstein,\nRichard Christensen       Klaus Esslinger\nBartol Filipovic,               Thomas Gauweiler,\nPeter Gruber,                  Florian Marchal,\nMatej Matejicek,             Jens Liebehenschel,",
+                    IDC_STATIC,17,122,150,40
+    LTEXT           "Roger Oyono,                 Daniel Saffran,\nMark Santiago,               Christian Tobias,\nMyriam Zeuner-Guerrier",
+                    IDC_STATIC,17,162,150,27
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG DISCARDABLE  0, 0, 399, 287
@@ -8905,6 +8928,8 @@ BEGIN
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
@@ -9110,6 +9135,8 @@ BEGIN
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9344,6 +9371,8 @@ BEGIN
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
@@ -9421,6 +9450,8 @@ BEGIN
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9633,6 +9664,8 @@ BEGIN
         MENUITEM "&Starting page",              ID_HILFE_STARTSEITE
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9948,8 +9981,7 @@ IDB_DH_SECRET_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret
 IDB_DH_SECRET_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_R_U.bmp"
 IDB_DH_SECRET_G_D       BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\Secret_G_D.bmp"
 IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\MainBackground.bmp"
-IDB_HYBRID_BACK			BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
-
+IDB_HYBRID_BACK         BITMAP  DISCARDABLE     "res\\hybrid_b.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10240,7 +10272,7 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 284
+        BOTTOMMARGIN, 291
         HORZGUIDE, 277
     END
 
@@ -10548,6 +10580,13 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// GIF
+//
+
+IDR_GIF1                GIF     DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsAnimation.gif"
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
@@ -10713,7 +10752,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 - beta 2"
+    IDR_MAINFRAME           "CrypTool 1.3.04-medida"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -11690,7 +11729,6 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators"
-    ID_EINZELVERFAHREN_SIGN "Visualization of digital signature generation"
     ID_HOMOPHONE_HEX        "Homophonic encryption"
     ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
@@ -11703,6 +11741,21 @@ BEGIN
     ID_ANALYSE_ZUFALLSTESTS_SERIALTEST "Quality of random data: Serial Test"
     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
                             "Quality of random data: FIPS-PUB-140-1 test battery"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_AES_SELFEXTRACT      "Calls AES-Tool which offers to generate a self extracting encrypted file from the active document"
+    ID_HASH_OFAFILE         "Displays the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
+    ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
+                            "Demonstrates the ""finger print"" property of cryptographic hash functions"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
+                            "Visualize how hybrid encryption works"
+    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
+                            "Show step-by-step the process of decrypting a hybrid encrypted document"
+    ID_EINZELVERFAHREN_SIGN "Visualization of digital signature generation"
+    ID_EINZELVERFAHREN_SIGN_DOC 
+                            "Visualize the process of generating a digital signature"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -11959,20 +12012,6 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_AES_SELFEXTRACT      "Calls AES-Tool which offers to generate a self extracting encrypted file from the active document"
-    ID_HASH_OFAFILE         "Displays the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
-    ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
-                            "Demonstrates the ""finger print"" property of cryptographic hash functions"
-    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
-                            "Visualize how hybrid encryption works"
-    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
-                            "Show step-by-step the process of decrypting a hybrid encrypted document"
-    ID_EINZELVERFAHREN_SIGN_DOC 
-                            "Visualize the process of generating a digital signature"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bit length = %i,  prime number."
     IDS_DETFACTORISATION_FACTORCOMPOSITE "Bit length = %i,  composite number."
     IDS_DETFACTORISATION_HL_INPUT 
@@ -12081,6 +12120,7 @@ BEGIN
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "At least one number of the input is bigger than the RSA modulus N\n(the RSA exponentation is for a number bigger than N not invertible)!\n\nPlease correct your input."
+    IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own RSA key via the menu: ""Key Management\\Key Generation."""
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12104,6 +12144,8 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_KEYHEX_INPUT_LENGTH_TXT 
                             "Enter the key using hex characters (0..9, A..F).\nKey length exactly  %d hex characters (= %d bytes)."
+    IDS_READMEPATH          "%sReadMe-en.txt"
+    IDS_ERR_ONOPENREADME    "The readme file could not be opened!\nPlease check if the file ""Readme-en.txt"" is in the same directory as ""CrypTool.exe""."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12190,6 +12232,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Run %d\nCollision search\nProgress: %%d%%%%  remaining time: %%s"
+    ID_LOAD_README          "Opens the CrypTool readme file"
 END
 
 #endif    // Englisch (GB) resources

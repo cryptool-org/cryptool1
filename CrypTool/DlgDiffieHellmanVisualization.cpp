@@ -26,6 +26,9 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+// fixme
+bool GifLoaded = false;
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanVisualization 
 
@@ -210,6 +213,11 @@ void CDlgDiffieHellmanVisualization::OnExchangesharedkeys()
 	}
 
 	// GIF Animation starten
+	if (!GifLoaded)
+	{ // fixme
+		m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
+		GifLoaded = true;
+	}
 	m_AnimGif.Draw();
 
 	// Button mit Index 3 gedrückt
@@ -439,10 +447,8 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	
 
 	// GIF Bild "vor"laden
-	m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
-	
+	// m_AnimGif.Load(MAKEINTRESOURCE(IDR_GIF1), _T("GIF"));
 	UpdateData(false);
-
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

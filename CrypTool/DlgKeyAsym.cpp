@@ -1101,3 +1101,8 @@ void CDlgKeyAsym::OnCheckRsaKey()
 
 	UpdateRowSel( FindRow(UserKeyId) ); // Zeile die UserKeyId enthält unterlegen, falls vorhanden
 }
+
+bool CDlgKeyAsym::AreThereRSAKeys()
+{
+    return (KeyType.Find(RSA_KEYFILE_IDSTRING) > -1);
+}

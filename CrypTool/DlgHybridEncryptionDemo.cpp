@@ -330,6 +330,17 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 
 void CDlgHybridEncryptionDemo::OnButtonGetAsymKey() 
 {	
+
+	CSortAsymKeyList sortedAsymKeyList;
+	CAvailabAsymmKeys asymmKeys;
+	// ermittele alle vorhandenen RSA Schlüsselbezeichner die im PseVerzeichnis liegen
+	int ret = asymmKeys.GetKeyList( sortedAsymKeyList, RSA_KEY, BY_NAME);
+	if ( sortedAsymKeyList.IsEmpty() )
+	{
+		Message( IDS_NORSAKEY_AVAILABLE, MB_ICONSTOP );
+		return;
+	}
+
 	rsaDlg.disableButtons = true;
 
 	if ( IDOK == rsaDlg.DoModal() ) 

@@ -132,7 +132,8 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 void CDlgDiffieHellmanPublicParameters::OnGeneratePrime() 
 {
 	UpdateData(true);
-	CDlgPrimesGeneratorDemo dlg("2^800","2^1000");
+	CDlgPrimesGeneratorDemo dlg("2^255+2^254","2^256");
+	dlg.m_radio4 = 1;
 	if(!(dlg.DoModal() == IDCANCEL)) m_Prime = dlg.m_edit5;
 
 	// Falls zuvor bereits ein Generator eingegeben wurde und dieser GROESSER oder gleich dem

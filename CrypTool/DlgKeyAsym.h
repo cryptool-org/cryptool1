@@ -20,6 +20,7 @@ class CDlgKeyAsym : public CDialog
 {
 // Konstruktion
 public:
+	bool AreThereRSAKeys();
 	CDlgKeyAsym(CWnd* pParent = NULL);   // Standardkonstruktor
 	//~CDlgKeyAsym(); // Destruktor
 

@@ -43,7 +43,7 @@
 #include "DlgSigAttModificDemo.h"
 #include "DlgFurtherOptions.h"
 #include "DlgDiffieHellmanVisualization.h"
-
+#include "DialogeMessage.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
@@ -97,6 +97,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_COMMAND(ID_OPTIONS_FURTHEROPTIONS, OnOptionsFurtheroptions)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
+	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -104,7 +105,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
+	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -762,4 +763,22 @@ void CCrypToolApp::OnSigattmodificdemo()
 {
 	CDlgSigAttModificDemo SAMD;
 	SAMD.DoModal();
+}
+
+void CCrypToolApp::OnLoadReadme() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	char readmePath[1024];
+	LoadString(AfxGetInstanceHandle(),IDS_READMEPATH,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(readmePath, pc_str, Pfad);
+
+	CFile datei;
+	if ( !datei.Open(readmePath, CFile::modeRead) )
+	{
+		Message(IDS_ERR_ONOPENREADME, MB_ICONSTOP);
+		return;
+	}
+	datei.Close();
+	CAppDocument *NewDoc;
+	NewDoc = theApp.OpenDocumentFileNoMRU(readmePath,"ReadMe");
 }
