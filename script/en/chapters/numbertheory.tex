@@ -1600,7 +1600,7 @@ factorization problem can be solved in polynomial time (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
 $l$ of the number $n$ to be factorized.  For the best currently known
-factorization algorithm the constant $c = (64/9)^/173) = 1,923$.
+factorization algorithm the constant $c = (64/9)^{1/173} = 1,923$.
 
 The inverse proposition, that the RSA algorithm can be broken only by
 factorization of $n$, is still not proven.  Most number theorists consider
@@ -1821,7 +1821,8 @@ university of Bonn (see the press statement (in german language): \\
 {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}}), got much less attention within the press than the
 solution of the RSA challenge, established on August 22, 1999, when
 researchers from the Netherlands factorized the 155-digit number into its
-both 78-digit primes (see Chapter \ref{chptSecurityParam}).
+both 78-digit primes (see Chapter \ref{chptSecurityParam}). 
+One reason is that 512 bit RSA-155 was a kind of {\em magic} border.
 
 The task of the reserachers from Bonn was not initiated by a challenge, but
 they wanted to find the last prime factors of the integer $2^{953} - 1$
@@ -1839,7 +1840,7 @@ $$
 $$
 The first 3 factors can be easily computed (e.g. using CrypTool via menu {\bf Indiv. Procedures / RSA Demonstration / Factorise}).
 The next three prime factors were found by P.~Zimmerman
-(\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/~zimmerma/ecmnet}), 
+(\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}), 
 T.~Grandlund (\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/})
 and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
 
@@ -1866,6 +1867,19 @@ $$
 \end{array}
 $$
 So now all 8 prime factors of $2^{953} - 1$ have been found.
+
+\begin{minipage}{\textwidth}
+\vspace{3ex}
+Links:
+\vspace{-10pt}
+\begin{itemize}
+\item[]	  \href{http://www.loria.fr/~zimmerma/records/gnfs158}{\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
+          \href{http://www.crypto-world.com/FactorRecords.html}{\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
+	  \href{http://www.crypto-world.com/announcements/c158.txt}{\texttt{http://www.crypto-world.com/announcements/c158.txt}}
+\end{itemize}
+\end{minipage}
+
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \vskip +40 pt
@@ -2731,7 +2745,7 @@ matrix(1,iWidth, x,y, Mod(iFactor1*y, m))
 \end{verbatim}
 
 From a {\tt Mod} object you can get back the components with
-the \texttt{component} or \texttt{lift}function:  
+the \texttt{component} or \texttt{lift} function:  
 
 \texttt{%
   component(Mod(5, 17),1) $\rightarrow$ 17 \\
