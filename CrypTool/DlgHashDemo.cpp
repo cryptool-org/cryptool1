@@ -133,32 +133,37 @@ void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetStr
 			switch(m_rb_DarstHW)
 		   {
 			case 1:showNewHashHex(m_newHashSHA1);
-				   showDiffNewHashBin(m_newHashSHA1);break;
+				   break;
 			case 0:showNewHashDec(m_newHashSHA1);
-				   showDiffNewHashBin(m_newHashSHA1);break;
+				   break;
 			case 2:showNewHashBin(m_newHashSHA1);
-				   showDiffNewHashBin(m_newHashSHA1);break;
+				   break;
 		   }
+		   showDiffNewHashBin(m_newHashSHA1);
+           break;
 	case 1:
 			switch(m_rb_DarstHW)
 		   {
 			case 1:showNewHashHex(m_newHashMD5);
-				showDiffNewHashBin(m_newHashMD5);break;
+				break;
 			case 0:showNewHashDec(m_newHashMD5);
-				showDiffNewHashBin(m_newHashMD5);break;
-			case 2:showNewHashBin(m_newHashMD5);break;
+				break;
+			case 2:showNewHashBin(m_newHashMD5);
+				break;
 		   }
+           showDiffNewHashBin(m_newHashMD5);
+	       break;
 	case 0:
 			switch(m_rb_DarstHW)
 		   {
 			case 1:showNewHashHex(m_newHashMD2);
-				showDiffNewHashBin(m_newHashMD2);break;
+				break;
 			case 0:showNewHashDec(m_newHashMD2);
-				showDiffNewHashBin(m_newHashMD2);break;
+				break;
 			case 2:showNewHashBin(m_newHashMD2);
-				showDiffNewHashBin(m_newHashMD2);break;
+				break;
 		   }
-			
+		   showDiffNewHashBin(m_newHashMD2);
 	}
 }
 
