@@ -8673,7 +8673,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash &demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash &Demonstration",         ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
