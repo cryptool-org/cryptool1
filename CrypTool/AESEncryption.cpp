@@ -175,7 +175,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
 {
 	
-    char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[65],title[128];
+    char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[200],title[200];
 	CString AlgTitle,Title;
 	unsigned char keybuffbin[33];
 	unsigned char *borg, *bcip, *key;
@@ -280,6 +280,13 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	{
 		strcpy( outfile, NewFileName );
 	}
+	
+	// nur niederwertigsten 128 Bit (16 Byte = 32 Hex-Halb-Bytes) betrachten
+	int length = strlen(keybuffhex);
+	char *temp = new char[length];
+	memcpy(temp, keybuffhex + (length - 32), 32);
+	memcpy(keybuffhex, temp, 32);
+	memcpy(keybuffhex + 32, "\0", 1);
 	
 	doaescrypt(AlgId,mode,keylen,keybuffhex,borg,datalen,bcip);
 	
@@ -409,10 +416,10 @@ UINT AESBrute(PVOID p)
 		return 0;
 	}
 	
+	CString title;
+	title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
 	if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		CString title;
-		title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
 		CString message;
 		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
 		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
@@ -463,7 +470,7 @@ UINT AESBrute(PVOID p)
 	
 	CDlgKeyHexAnalysis dia;
 	
-	if(IDCANCEL == dia.Display(kfound))
+	if(IDCANCEL == dia.Display((LPCTSTR)title,kfound))
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
