@@ -1874,25 +1874,25 @@ FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,22,39,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,21,161,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,254,58,19,WS_DISABLED
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,23,254,58,19,WS_DISABLED
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,83,254,57,19,WS_DISABLED
     PUSHBUTTON      "&Abbrechen",IDCANCEL,183,254,55,19
-    CONTROL         "Zeilenweise einlesen",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,86,110,10
-    CONTROL         "Spaltenweise einlesen",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,22,103,110,10
-    CONTROL         "Zeilenweise auslesen",IDC_RADIO3,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,132,86,95,10
-    CONTROL         "Spaltenweise auslesen",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON,132,103,95,10
-    CONTROL         "Zeilenweise einlesen",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,211,110,10
-    CONTROL         "Spaltenweise einlesen",IDC_RADIO6,"Button",
-                    BS_AUTORADIOBUTTON,22,226,110,10
-    CONTROL         "Zeilenweise auslesen",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,132,211,95,10
-    CONTROL         "Spaltenweise auslesen",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,132,226,95,10
+    CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,71,86,49,10
+    CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,71,103,
+                    49,10
+    CONTROL         "auslesen",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,180,86,47,10
+    CONTROL         "auslesen",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,180,
+                    103,47,10
+    CONTROL         "einlesen",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,71,211,49,10
+    CONTROL         "einlesen",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,71,226,
+                    49,10
+    CONTROL         "auslesen",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,180,211,47,10
+    CONTROL         "auslesen",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,
+                    226,47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     151,254,22,20
     EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
@@ -1909,6 +1909,18 @@ BEGIN
                     IDC_STATIC,21,151,205,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,21,180,205,8
+    CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,120,87,60,10
+    CONTROL         "permutieren",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,
+                    120,103,60,10
+    LTEXT           "Zeilenweise",IDC_STATIC,23,88,48,8
+    LTEXT           "Spaltenweise",IDC_STATIC,23,104,48,8
+    CONTROL         "permutieren",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,120,211,60,10
+    CONTROL         "permutieren",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,
+                    120,226,60,10
+    LTEXT           "Zeilenweise",IDC_STATIC,23,212,48,8
+    LTEXT           "Spaltenweise",IDC_STATIC,23,227,48,8
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -7328,24 +7340,16 @@ BEGIN
     EDITTEXT        IDC_EDIT1,22,39,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,21,161,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Encrypt",IDOK,11,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,83,254,57,19,WS_DISABLED
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,69,254,57,19,WS_DISABLED
     PUSHBUTTON      "&Cancel",IDCANCEL,183,254,55,19
-    CONTROL         "Read in line by line",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,86,110,10
-    CONTROL         "Read in column by column",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,22,103,110,10
-    CONTROL         "Readout line by line",IDC_RADIO3,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,132,86,95,10
-    CONTROL         "Readout column by column",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON,132,103,95,10
-    CONTROL         "Read in line by line",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,211,110,10
-    CONTROL         "Read in column by column",IDC_RADIO6,"Button",
-                    BS_AUTORADIOBUTTON,22,226,110,10
-    CONTROL         "Readout line by line",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,132,211,95,10
-    CONTROL         "Readout column by column",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,132,226,95,10
+    CONTROL         "Read in",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,22,211,50,10
+    CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,22,226,
+                    50,10
+    CONTROL         "Readout",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,126,211,58,10
+    CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,126,226,
+                    58,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     151,254,22,20
     EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
@@ -7362,6 +7366,26 @@ BEGIN
                     IDC_STATIC,21,151,205,8
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,21,180,205,8
+    CONTROL         "Read in",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,21,86,51,10
+    CONTROL         "Read in",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,103,
+                    51,10
+    CONTROL         "Readout",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,126,86,58,10
+    CONTROL         "Readout",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,126,103,
+                    58,10
+    CONTROL         "Permute",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,72,86,54,10
+    CONTROL         "Permute",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,72,103,
+                    54,10
+    LTEXT           "line by line",IDC_STATIC,184,87,54,8
+    LTEXT           "column by column",IDC_STATIC,184,104,54,8
+    CONTROL         "Permute",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,72,211,54,10
+    CONTROL         "Permute",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,72,226,
+                    54,10
+    LTEXT           "line by line",IDC_STATIC,184,212,54,8
+    LTEXT           "column by column",IDC_STATIC,184,227,54,8
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -8843,115 +8867,6 @@ SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
 SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
 SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\bmp00029.bmp"
 SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
-
-
-
-/*
-IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
-IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
-IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
-IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
-IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
-PASTEU                  BITMAP  DISCARDABLE     "res\\EditPaste.bmp"
-PASTED                  BITMAP  DISCARDABLE     "res\\EditPastebmp.bmp"
-PASTEX                  BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
-PASTEF                  BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
-PASTETEST               BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
-IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\DerEinstiegInCrypTool.bmp"
-IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
-IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
-IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
-IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
-IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
-CANCEL_G_U              BITMAP  DISCARDABLE     "res\\cancel_g.bmp"
-CANCEL_G_F              BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
-CANCEL_G_D              BITMAP  DISCARDABLE     "res\\bmp00007.bmp"
-COMBINE_R_X             BITMAP  DISCARDABLE     "res\\bmp00013.bmp"
-COMBINE_G_F             BITMAP  DISCARDABLE     "res\\bmp00008.bmp"
-COMBINE_G_U             BITMAP  DISCARDABLE     "res\\bmp00009.bmp"
-COMBINE_R_D             BITMAP  DISCARDABLE     "res\\bmp00010.bmp"
-COMBINE_R_F             BITMAP  DISCARDABLE     "res\\bmp00011.bmp"
-COMBINE_R_U             BITMAP  DISCARDABLE     "res\\bmp00012.bmp"
-COMBINE_G_D             BITMAP  DISCARDABLE     "res\\combine_.bmp"
-COMPUTE_R_X             BITMAP  DISCARDABLE     "res\\bmp00018.bmp"
-COMPUTE_G_F             BITMAP  DISCARDABLE     "res\\bmp00014.bmp"
-COMPUTE_G_U             BITMAP  DISCARDABLE     "res\\bmp00015.bmp"
-COMPUTE_R_D             BITMAP  DISCARDABLE     "res\\bitmap12.bmp"
-COMPUTE_R_F             BITMAP  DISCARDABLE     "res\\bmp00016.bmp"
-COMPUTE_R_U             BITMAP  DISCARDABLE     "res\\bmp00017.bmp"
-COMPUTE_G_D             BITMAP  DISCARDABLE     "res\\compute_.bmp"
-ENCRYPT_R_X             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_X.bmp"
-ENCRYPT_G_F             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_F.bmp"
-ENCRYPT_G_U             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_U.bmp"
-ENCRYPT_R_D             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_D.bmp"
-ENCRYPT_R_F             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_F.bmp"
-ENCRYPT_R_U             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_U.bmp"
-ENCRYPT_G_D             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_D.bmp"
-GENCERT_R_U             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_U.bmp"
-GENCERT_G_F             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_F.bmp"
-GENCERT_G_U             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_U.bmp"
-GENCERT_R_D             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_D.bmp"
-GENCERT_R_F             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_F.bmp"
-GENCERT_G_D             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_D.bmp"
-GENKEY_R_F              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_F.bmp"
-GENKEY_G_F              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_F.bmp"
-GENKEY_G_U              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_U.bmp"
-GENKEY_R_D              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_D.bmp"
-GENKEY_G_D              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_D.bmp"
-GENKEY_R_U              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_U.bmp"
-INFOALG_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_X.bmp"
-INFOALG_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_F.bmp"
-INFOALG_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_U.bmp"
-INFOALG_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_D.bmp"
-INFOCERT_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_X.bmp"
-INFOCERT_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_F.bmp"
-INFOCERT_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_U.bmp"
-INFOCERT_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_D.bmp"
-INFODOC_B_X             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_X.bmp"
-INFODOC_B_F             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_F.bmp"
-INFODOC_B_U             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_U.bmp"
-INFODOC_B_D             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_D.bmp"
-INFOENC_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_X.bmp"
-INFOENC_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_F.bmp"
-INFOENC_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_U.bmp"
-INFOENC_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_D.bmp"
-INFOHASH_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_X.bmp"
-INFOHASH_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_F.bmp"
-INFOHASH_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_U.bmp"
-INFOHASH_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_D.bmp"
-INFOKEY_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_X.bmp"
-INFOKEY_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_F.bmp"
-INFOKEY_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_U.bmp"
-INFOKEY_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_D.bmp"
-INFOSIGN_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_X.bmp"
-INFOSIGN_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_F.bmp"
-INFOSIGN_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_U.bmp"
-INFOSIGN_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_D.bmp"
-OK_G_F                  BITMAP  DISCARDABLE     "res\\bmp00020.bmp"
-OK_G_U                  BITMAP  DISCARDABLE     "res\\bmp00021.bmp"
-OK_G_X                  BITMAP  DISCARDABLE     "res\\bmp00019.bmp"
-OK_G_D                  BITMAP  DISCARDABLE     "res\\bmp00022.bmp"
-OPENDOC_R_U             BITMAP  DISCARDABLE     "res\\bmp00027.bmp"
-OPENDOC_G_F             BITMAP  DISCARDABLE     "res\\opendoc_.bmp"
-OPENDOC_G_U             BITMAP  DISCARDABLE     "res\\bmp00024.bmp"
-OPENDOC_R_D             BITMAP  DISCARDABLE     "res\\bmp00023.bmp"
-OPENDOC_R_F             BITMAP  DISCARDABLE     "res\\bmp00026.bmp"
-OPENDOC_G_D             BITMAP  DISCARDABLE     "res\\bmp00025.bmp"
-SELECTALG_R_U           BITMAP  DISCARDABLE     "res\\bmp00032.bmp"
-SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\bmp00029.bmp"
-SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
-SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
-SELECTALG_R_F           BITMAP  DISCARDABLE     "res\\bmp00031.bmp"
-SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
-CANCEL_Y_U              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_U.bmp"
-CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_F.bmp"
-CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\GB_CANCEL_Y_D.bmp"
-IDB_EMPTY1              BITMAP  DISCARDABLE     "res\\bmp00033.bmp"
-IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\bmp00034.bmp"
-IDB_EMPTY2              BITMAP  DISCARDABLE     "res\\bmp00035.bmp"
-IDB_EMPTY2B             BITMAP  DISCARDABLE     "res\\bmp00036.bmp"
-IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\bmp00037.bmp"
-*/
 
 
 /////////////////////////////////////////////////////////////////////////////

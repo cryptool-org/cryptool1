@@ -3013,36 +3013,38 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 
 		if(Perm.m_Dec) {
 			if(Perm.m_P2len) {
-				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq, Perm.m_P2OutSeq);
-				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
+				DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+				DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
 				b3 = b1;
 			}
 			else {
-				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
+				DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
 				b3 = b2;
 			}
 		}
 		else {
-			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq, Perm.m_P1OutSeq);
+			DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
 			if(Perm.m_P2len) {
 				b3 = b1;
-				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq, Perm.m_P2OutSeq);
+				DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
 			}
 			else b3 = b2;
 		}
 
-		GetTmpName(outfile,"cry",".txt");
+		GetTmpName(outfile,"cry",".tmp");
 		
 		CFile outf(outfile,CFile::modeWrite | CFile::modeCreate);
 		outf.Write(b3,l2);
 		outf.Close();
 		Reformat(infile,outfile, FALSE);
 		if(Perm.m_P2len)
-			sprintf(key,"%s;%s PARAMETER: %i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, 
-			        Perm.m_P1InSeq, Perm.m_P1OutSeq, Perm.m_P2InSeq, Perm.m_P2OutSeq);
+			sprintf(key,"%s;%s PARAMETER: %i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, 
+			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
+					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		else
-			sprintf(key,"%s PARAMETER: %i,%i,%i,%i", Perm.m_Perm1, 
-			        Perm.m_P1InSeq, Perm.m_P1OutSeq, Perm.m_P2InSeq, Perm.m_P2OutSeq);
+			sprintf(key,"%s PARAMETER: %i,%i,%i,%i,%i,%i", Perm.m_Perm1, 
+			        Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
+					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 		CAppDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,key);
 		remove(outfile);	
@@ -3062,7 +3064,9 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 }
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Hashwert einer Datei berechnen, ohne dass die Datei selbst in den Dialog geöffnet werden 
+// muß. (Henrik Koy: Maerz. 2002)
 
 void HashOfAFile()
 {

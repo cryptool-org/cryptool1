@@ -31,6 +31,8 @@ CDlgKeyPermutation::CDlgKeyPermutation(CWnd* pParent /*=NULL*/)
 	m_P1OutSeq = 1;
 	m_P2InSeq = 0;
 	m_P2OutSeq = 1;
+	m_P1Perm = -1;
+	m_P2Perm = -1;
 	//}}AFX_DATA_INIT
 }
 
@@ -53,6 +55,8 @@ void CDlgKeyPermutation::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO3, m_P1OutSeq);
 	DDX_Radio(pDX, IDC_RADIO5, m_P2InSeq);
 	DDX_Radio(pDX, IDC_RADIO7, m_P2OutSeq);
+	DDX_Radio(pDX, IDC_RADIO10, m_P1Perm);
+	DDX_Radio(pDX, IDC_RADIO12, m_P2Perm);
 	//}}AFX_DATA_MAP
 }
 
@@ -61,9 +65,9 @@ BEGIN_MESSAGE_MAP(CDlgKeyPermutation, CDialog)
 	//{{AFX_MSG_MAP(CDlgKeyPermutation)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_EN_CHANGE(IDC_EDIT2, OnChangeEdit2)
-	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -86,8 +90,8 @@ void CDlgKeyPermutation::OnDecrypt()
 	m_Dec = 1;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1OutSeq + '0') +
-	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2OutSeq + '0');
+	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') +
+	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
 
 	OnOK();
@@ -109,8 +113,8 @@ void CDlgKeyPermutation::OnEncrypt()
 	m_Dec = 0;
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1OutSeq + '0') +
-	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2OutSeq + '0');
+	CString Primes = CString("PARAMETER: ") + char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') +
+	                                    ' ' + char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 	CopyKey ( pc_str, Primes );
 
 	OnOK();
@@ -213,9 +217,11 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 		UpdateData(true);
 		int d = strlen("PARAMETER: ");
 		m_P1InSeq  = (int)(Primes[d]   - '0');
-		m_P1OutSeq = (int)(Primes[d+2] - '0');
-		m_P2InSeq  = (int)(Primes[d+4] - '0');
-		m_P2OutSeq = (int)(Primes[d+6] - '0');
+		m_P1Perm = (int)(Primes[d+2] - '0');
+		m_P1OutSeq = (int)(Primes[d+4] - '0');
+		m_P2InSeq  = (int)(Primes[d+6] - '0');
+		m_P2Perm = (int)(Primes[d+8] - '0');
+		m_P2OutSeq = (int)(Primes[d+10] - '0');
 		UpdateData(false);
 	}
 	else
@@ -223,8 +229,10 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 		UpdateData(true);
 		int d = Primes.Find("PARAMETER: ", 0);
 		m_P1InSeq  = 0;
+		m_P1Perm = 1;
 		m_P1OutSeq = 1;
 		m_P2InSeq  = 0;
+		m_P2Perm = 1;
 		m_P2OutSeq = 1;
 		UpdateData(false);
 	}
@@ -286,9 +294,11 @@ void CDlgKeyPermutation::OnPasteKey()
 				m_Perm1 = makeASCII(buffer.Left(k));
 				k += strlen("PARAMETER: ");
 				m_P1InSeq  = (int)(buffer[k]   - '0');
-				m_P1OutSeq = (int)(buffer[k+2] - '0');
-				m_P2InSeq  = (int)(buffer[k+4] - '0');
-				m_P2OutSeq = (int)(buffer[k+6] - '0');
+				m_P1Perm = (int)(buffer[k+2] - '0');
+				m_P1OutSeq = (int)(buffer[k+4] - '0');
+				m_P2InSeq  = (int)(buffer[k+6] - '0');
+				m_P2Perm = (int)(buffer[k+8] - '0');
+				m_P2OutSeq = (int)(buffer[k+10] - '0');
 			}
 			else
 			{
@@ -305,9 +315,11 @@ void CDlgKeyPermutation::OnPasteKey()
 				m_Perm2 = makeASCII(buffer.Mid(k+1,(d-k)-1));
 				d += strlen("PARAMETER: ");
 				m_P1InSeq  = (int)(buffer[d]   - '0');
-				m_P1OutSeq = (int)(buffer[d+2] - '0');
-				m_P2InSeq  = (int)(buffer[d+4] - '0');
-				m_P2OutSeq = (int)(buffer[d+6] - '0');
+				m_P1Perm = (int)(buffer[d+2] - '0');
+				m_P1OutSeq = (int)(buffer[d+4] - '0');
+				m_P2InSeq  = (int)(buffer[d+6] - '0');
+				m_P2Perm = (int)(buffer[d+8] - '0');
+				m_P2OutSeq = (int)(buffer[d+10] - '0');
 			}
 			else
 			{

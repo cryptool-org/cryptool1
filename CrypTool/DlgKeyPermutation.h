@@ -20,7 +20,7 @@ public:
 	int MakePermInt(CString *Pin, int p[], int pinv[]);
 	CString makeASCII( CString &line);
 	int PrintPerm(char *dest, int *perm, int len);
-	bool m_Dec;
+	int m_Dec;
 	int MakePerm(CString *Pin, int p[26], int pinv[26]);
 	int m_P1[26];
 	int m_P1inv[26];
@@ -45,6 +45,8 @@ public:
 	int		m_P1OutSeq;
 	int		m_P2InSeq;
 	int		m_P2OutSeq;
+	int		m_P1Perm;
+	int		m_P2Perm;
 	//}}AFX_DATA
 
 
