@@ -862,7 +862,7 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 
 TutorialFactorisation::TutorialFactorisation()
 {
-
+	mip = &g_precision;
 }
 
 TutorialFactorisation::~TutorialFactorisation()
@@ -909,11 +909,9 @@ BOOL TutorialFactorisation::BruteForce()
 
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
-	int index;
 	int n,p;
-	miracl *mip = &g_precision;
+//	miracl *mip = &g_precision;
 
-	index=0;
 	n=0;
 	p=mip->PRIMES[0];
     forever
@@ -989,26 +987,513 @@ BOOL TutorialFactorisation::Brent()
 	return true;
 }
 
+void TutorialFactorisation::marks(long start)
+{
+	/* mark non-primes in this interval. Note    *
+   * that those < NEXT are dealt with already  */
+    int i,pr,j,k;
+    for (j=1;j<=MULT/2;j+=2) plus[j]=minus[j]=TRUE;
+    for (i=0;;i++)
+    { /* mark in both directions */
+        pr=mip->PRIMES[i];
+        if (pr<NEXT) continue;
+        if ((long)pr*pr>start) break;
+        k=pr-start%pr;
+        for (j=k;j<=MULT/2;j+=pr)
+            plus[j]=FALSE;
+        k=start%pr;
+        for (j=k;j<=MULT/2;j+=pr)
+            minus[j]=FALSE;
+    } 
+}
+
+void TutorialFactorisation::next_phase_pollard()
+{
+	/* now changing gear */
+    ZZn bp,t;
+    long interval;
+    bw=pow(b,8);
+    t=1;
+    bp=bu[1]=b;
+    for (int m=3;m<=MULT/2;m+=2)
+    { /* store bu[m] = b^(m*m) */
+        t*=bw;
+        bp*=t;
+        if (cp[m]) bu[m]=bp;
+    }
+    t=pow(b,MULT);
+    t=pow(t,MULT);
+    bd=t*t;            /* bd = b^(2*MULT*MULT) */
+    iv=p/MULT;
+    if (p%MULT>MULT/2) iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    marks(interval);
+    bw=pow(t,(2*iv-1));
+    bvw=pow(t,iv);
+    bvw=pow(bvw,iv);   /* bvw = b^(MULT*MULT*iv*iv) */
+    q=bvw-bu[p%MULT];
+}
+
+
+int TutorialFactorisation::giant_step_pollard()
+{
+	/* increment giant step */
+    long interval;
+    iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    marks(interval);
+    bw*=bd;
+    bvw*=bw;
+    return 1;
+}
+
 
 BOOL TutorialFactorisation::Pollard()
 {
 	if ( Precheck() ) return true;
 
-	return false;
+	
+	/*  factoring program using Pollards (p-1) method */
+    int phase,m,pos,btch;
+    long i,pa;
+    Big t;
+	//Big n;
+    //mip=&precision;
+    gprime(LIMIT1);
+    for (m=1;m<=MULT/2;m+=2)
+        if (igcd(MULT,m)==1) cp[m]=TRUE;
+        else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(N))
+    //{
+        //cout << "this number is prime!\n";
+        //return true;
+    //}
+    modulo(N);                    /* do all arithmetic mod n */
+    phase=1;
+    p=0;
+    btch=50;
+    i=0;
+    b=2;
+    //cout << "phase 1 - trying all primes less than " << LIMIT1;
+    //cout << "\nprime= " << setw(8) << p;
+    forever
+    { /* main loop */
+        if (phase==1)
+        { /* looking for all factors of (p-1) < LIMIT1 */
+            p=mip->PRIMES[i];
+            if (mip->PRIMES[i+1]==0)
+            {
+                phase=2;
+                //cout << "\nphase 2 - trying last prime less than ";
+                //cout  << LIMIT2 << "\nprime= " << setw(8) << p;
+                next_phase_pollard();
+                btch*=100;
+                i++;
+                continue;
+            }
+            pa=p;
+            while ((LIMIT1/p) > pa) pa*=p;
+            b=pow(b,(int)pa);      /* b = b^pa mod n */
+            q=b-1;
+        }
+        else
+        { /* looking for last prime factor of (p-1) < LIMIT2 */
+            p+=2;
+            pos=p%MULT;
+            if (pos>MULT/2) pos=giant_step_pollard();
+
+        /* if neither interval+/-pos is prime, don't bother */
+                if (!plus[pos] && !minus[pos]) continue;
+            if (!cp[pos]) continue;
+            q*=(bvw-bu[pos]);        /* batch gcd's in q */
+        }
+        if (i++%btch==0)
+        { /* try for a solution */
+            cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
+            t=gcd((Big)q,N);
+            if (t==1)
+            {
+                if (p>LIMIT2) break;
+                else continue;
+            }
+            if (t==N)
+            {
+                //cout << "\ndegenerate case";
+                break;
+            }
+            //if (prime(t))   cout << "\nprime factor      " << t;
+            //else            cout << "\ncomposite factor  " << t;
+            N/=t;
+			factor1=t;
+			factor2=N;
+            //if (prime(N)) cout << "\nprime factor      " << n;
+            //else          cout << "\ncomposite factor  " << n;
+            return true;
+        }
+    } 
+    //"\nfailed to factor\n";
+    return false;
 }
+
+
+void TutorialFactorisation::next_phase_williams()
+{
+	/* now change gear */
+    ZZn t;
+    long interval;
+    fp=fu[1]=b;
+    fd=b*b-2;
+    fn=fd*b-b;
+    for (int m=5;m<=MULT/2;m+=2)
+    { /* store fu[m] = Vm(b) */
+        t=fn*fd-fp;
+        fp=fn;
+        fn=t;
+        if (!cp[m]) continue;
+        fu[m]=t;
+    }
+    fd=luc(b,MULT);
+    iv=p/MULT;
+    if (p%MULT>MULT/2) iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    marks(interval);
+    fvw=luc(fd,iv,&fp);
+    q=fvw-fu[p%MULT];
+}
+
+
+int TutorialFactorisation::giant_step_williams()
+{
+	/* increment giant step */
+    long interval;
+    ZZn t;
+    iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    marks(interval);
+    t=fvw;
+    fvw=fvw*fd-fp;
+    fp=t;
+    return 1;
+}
+
 
 BOOL TutorialFactorisation::Williams()
 {
 	if ( Precheck() ) return true;
 
+	 /*  factoring program using Williams (p+1) method */
+    int k,phase,m,nt,pos,btch;
+    long i,pa;
+    Big t;
+	//Big n;
+    //mip=&precision;
+    gprime(LIMIT1);
+    for (m=1;m<=MULT/2;m+=2)
+        if (igcd(MULT,m)==1) cp[m]=TRUE;
+        else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(n))
+    //{
+        //cout << "this number is prime!\n";
+        //return 0;
+    //}
+    modulo(N);                     /* do all arithmetic mod N */
+    for (nt=0,k=3;k<10;k++)
+    { /* try more than once for p+1 condition (may be p-1) */
+        b=k;                       /* try b=3,4,5..        */
+        nt++;
+        phase=1;
+        p=0;
+        btch=50;
+        i=0;
+        //cout << "phase 1 - trying all primes less than " << LIMIT1;
+        //cout << "\nprime= " << setw(8) << p;
+        forever
+        { /* main loop */
+            if (phase==1)
+            { /* looking for all factors of p+1 < LIMIT1 */
+                p=mip->PRIMES[i];
+                if (mip->PRIMES[i+1]==0)
+                { /* now change gear */
+                    phase=2;
+                    //cout << "\nphase 2 - trying last prime less than ";
+                    //cout << LIMIT2 << "\nprime= " << setw(8) << p;
+                    next_phase_williams();
+                    btch*=100;
+                    i++;
+                    continue;
+                }
+                pa=p;
+                while ((LIMIT1/p) > pa) pa*=p;
+                q=luc(b,(int)pa);
+                b=q;
+                q-=2;
+            }
+            else
+            { /* looking for last large prime factor of (p+1) */
+                p+=2;
+                pos=p%MULT;
+                if (pos>MULT/2) pos=giant_step_williams();
+                if (!cp[pos]) continue;
+
+        /* if neither interval+/-pos is prime, don't bother */
+
+                if (!plus[pos] && !minus[pos]) continue;
+                q*=(fvw-fu[pos]);  /* batching gcds */
+            }
+            if (i++%btch==0)
+            { /* try for a solution */
+                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
+                t=gcd(q,N);
+                if (t==1)
+                {
+                    if (p>LIMIT2) break;
+                    else continue;
+                }
+                if (t==N)
+                {
+                    //cout << "\ndegenerate case";
+                    break;
+                }
+                //if (prime(t)) cout << "\nprime factor     " << t;
+                //else          cout << "\ncomposite factor " << t;
+                N/=t;
+                //if (prime(n)) cout << "\nprime factor     " << n;
+                //else          cout << "\ncomposite factor " << n;
+				factor1=t;
+				factor2=N;
+                return true;
+            }
+        } 
+        if (nt>=NTRYS) break;
+        //cout << "\ntrying again\n";
+    }
+    //cout << "\nfailed to factor\n";
+    //return 0;
+
 	return false;
+}
+
+
+void TutorialFactorisation::duplication(ZZn sum, ZZn diff, ZZn &x, ZZn &z)
+{
+	/* double a point on the curve P(x,z)=2.P(x1,z1) */
+    ZZn t;
+    t=sum*sum;
+    z=diff*diff;
+    x=z*t;        /* x = sum^2.diff^2 */
+    t-=z;         /* t = sum^2-diff^2 */
+    z+=ak*t;      /* z = ak*t +diff^2 */
+    z*=t;	
+}
+
+
+void TutorialFactorisation::addition(ZZn xd, ZZn zd, ZZn sm1, ZZn df1, ZZn sm2, ZZn df2, ZZn &x, ZZn &z)
+{
+	/* add two points on the curve P(x,z)=P(x1,z1)+P(x2,z2) */
+    /* given their difference P(xd,zd)                      */
+    ZZn t;
+    x=df2*sm1;
+    z=df1*sm2;
+    t=z+x;
+    z-=x;
+    x=t*t;
+    x*=zd;   /* x = zd.[df1.sm2+sm1.df2]^2 */
+    z*=z;
+    z*=xd;   /* z = xd.[df1.sm2-sm1.df2]^2 */
+}
+
+
+
+void TutorialFactorisation::ellipse(ZZn x, ZZn z, int r, ZZn &x1, ZZn &z1, ZZn &x2, ZZn &z2)
+{
+	/* calculate point r.P(x,z) on curve */ 
+    int k,rr;
+    k=1;
+    rr=r;
+    x1=x;
+    z1=z;
+    duplication(x1+z1,x1-z1,x2,z2);  /* generate 2.P */
+    while ((rr/=2)>1) k*=2;
+    while (k>0)
+    { /* use binary method */
+        if ((r&k)==0)
+        { /* double P(x1,z1) mP to 2mP */
+            addition(x,z,x1+z1,x1-z1,x2+z2,x2-z2,x2,z2);
+            duplication(x1+z1,x1-z1,x1,z1);
+        }
+        else
+        { /* double P(x2,z2) (m+1)P to (2m+2)P */
+            addition(x,z,x1+z1,x1-z1,x2+z2,x2-z2,x1,z1);
+            duplication(x2+z2,x2-z2,x2,z2);
+        }    
+        k/=2;
+    }
+}
+
+
+void TutorialFactorisation::next_phase_lenstra()
+{
+	/* now change gear */
+    ZZn s1,d1,s2,d2;
+    long interval;
+    xt=x;
+    zt=z;
+    s2=x+z;
+    d2=x-z;                    /* P = (s2,d2) */
+    duplication(s2,d2,x,z);
+    s1=x+z;
+    d1=x-z;                    /* 2.P = (s1,d1) */
+    fu[1]=x1/z1;
+    addition(x1,z1,s1,d1,s2,d2,x2,z2);  /* 3.P = (x2,z2) */
+    for (int m=5;m<=MULT/2;m+=2)
+    { /* calculate m.P = (x,z) and store fu[m] = x/z */ 
+        addition(x1,z1,x2+z2,x2-z2,s1,d1,x,z);
+        x1=x2;
+        z1=z2;
+        x2=x;
+        z2=z;
+        if (!cp[m]) continue;
+        fu[m]=x2/z2;        
+    }
+    ellipse(xt,zt,MULT,x,z,x2,z2);
+    xt=x+z;
+    zt=x-z;                           /* MULT.P = (xt,zt) */
+    iv=p/MULT;
+    if (p%MULT>MULT/2) iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    ellipse(x,z,iv,x1,z1,x2,z2);      /* (x1,z1) = iv.MULT.P */
+    fvw=x1/z1;
+    marks(interval);
+    q=fvw-fu[p%MULT];  
+}
+
+
+int TutorialFactorisation::giant_step_lenstra()
+{
+	/* increment giant step */
+    long interval;
+    iv++;
+    interval=(long)iv*MULT;
+    p=interval+1;
+    marks(interval);
+    fvw=x2/z2;
+    addition(x1,z1,x2+z2,x2-z2,xt,zt,x,z);
+    x1=x2;
+    z1=z2;
+    x2=x;
+    z2=z;
+    return 1;   
 }
 
 
 BOOL TutorialFactorisation::Lenstra()
 {
-	if ( Precheck() ) return true;
+	 /*  factoring program using Lenstras Elliptic Curve method */
 
+	if ( Precheck() ) return true;
+	
+    int phase,m,k,nc,pos,btch;
+    long i,pa;
+    Big t;
+	//Big n;
+    ZZn tt,u,v;
+    //mip=&precision;
+    gprime(LIMIT1);
+    for (m=1;m<=MULT/2;m+=2) 
+        if (igcd(MULT,m)==1) cp[m]=TRUE;
+        else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(N))
+    //{
+        //cout << "this number is prime!\n";
+        //return 0;
+    //}
+    modulo(N);                 /* do all arithmetic mod n */
+    for (nc=1,k=6;k<100;k++)
+    { /* try a new curve */
+        u=k*k-5;
+        v=4*k;
+        x=u*u*u;
+        z=v*v*v;
+
+        ak=((v-u)*(v-u)*(v-u)*(3*u+v))/(16*u*u*u*v);
+
+        phase=1;
+        p=0;
+        i=0;
+        btch=50;
+        //cout << "phase 1 - trying all primes less than " << LIMIT1;
+        //cout << "\nprime= " << setw(8) << p;
+        forever
+        { /* main loop */
+            if (phase==1)
+            {
+                p=mip->PRIMES[i];
+                if (mip->PRIMES[i+1]==0)
+                { /* now change gear */
+                    phase=2;
+                    //cout << "\nphase 2 - trying last prime less than ";
+                    //cout << LIMIT2 << "\nprime= " << setw(8) << p;
+                    next_phase_lenstra();
+                    btch*=100;
+                    i++;
+                    continue;
+                }
+                pa=p;
+                while ((LIMIT1/p) > pa) pa*=p;
+                ellipse(x,z,(int)pa,x1,z1,x2,z2);
+                x=x1;
+                q=z=z1;
+            }
+            else
+            { /* looking for last large prime factor of (p+1+d) */
+                p+=2;
+                pos=p%MULT;
+                if (pos>MULT/2) pos=giant_step_lenstra();
+                if (!cp[pos]) continue;
+        /* if neither interval +/- pos is prime, don't bother */
+                if (!plus[pos] && !minus[pos]) continue;
+                q*=(fvw-fu[pos]);        /* batch gcds */
+            }
+            if (i++%btch==0)
+            { /* try for a solution */
+                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
+                t=gcd(q,N);
+                if (t==1)
+                {
+                    if (p>LIMIT2) break;
+                    else continue;
+                }
+                if (t==N)
+                {
+                    //cout << "\ndegenerate case";
+                    break;
+                }
+                //if (prime(t)) cout << "\nprime factor     " << t;
+                //else          cout << "\ncomposite factor " << t;
+                N/=t;
+                //if (prime(N)) cout << "\nprime factor     " << N;
+                //else          cout << "\ncomposite factor " << N;
+				factor1=t;
+				factor2=N;
+                return true;
+            }
+        }
+        if (nc>NCURVES) break;
+        //cout << "\ntrying a different curve " << nc << "\n";
+    } 
+    //cout << "\nfailed to factor\n";
+    
 	return false;
 }
 

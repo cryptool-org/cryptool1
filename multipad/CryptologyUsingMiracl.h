@@ -10,10 +10,17 @@
 #endif // _MSC_VER > 1000
 
 #include "BIG.H"	// Hinzugefügt von der Klassenansicht
+#include <monty.h>
 
 #define TIMES '*'
 #define RAISE '^'
-#define LIMIT1 10000
+#define LIMIT1 10000   /* must be int, and > MULT/2 */
+#define LIMIT2 2000000L /* may be long */
+#define MULT   2310     /* must be int, product of small primes 2.3.. */
+#define NEXT   13           /* next small prime */
+#define NTRYS  3         /* number for attempts */
+#define NCURVES 20      /* number of curves to try */
+#define SSIZE 1000000     /* Maximum sieve size            */
 
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 void CStringToBig(CString &CStrNumber, Big &t, int base );
@@ -103,6 +110,27 @@ class TutorialFactorisation
 	Big factor1;
 	Big factor2;
 public:
+	int giant_step_lenstra();
+	void next_phase_lenstra();
+	void ellipse(ZZn x,ZZn z,int r,ZZn& x1,ZZn& z1,ZZn& x2,ZZn& z2);
+	void addition(ZZn xd,ZZn zd,ZZn sm1,ZZn df1,ZZn sm2,ZZn df2,ZZn& x,ZZn& z);
+	void duplication(ZZn sum, ZZn diff, ZZn& x, ZZn& z);
+	int giant_step_williams();
+	void next_phase_williams();
+	int giant_step_pollard();
+	void next_phase_pollard();
+
+	// Variablen für Pollard und Williams
+	long p;
+	int iv;
+	ZZn b,bw,bvw,bd,q,bu[1+MULT/2];//Pollard
+	ZZn fvw, fd, fp, fn, fu[1+MULT/2]; //Williams
+	BOOL cp[1+MULT/2],plus[1+MULT/2],minus[1+MULT/2];
+	ZZn ak, x, y, z, x1,x2, z1, z2, xt, zt;
+	
+	//
+	//Methoden
+	void marks(long start);
 	static BOOL IsPrime( CString & Num );
 	void GetFactor2Str( CString &Factor2 );
 	void GetFactor1Str( CString &Factor1 );
@@ -116,6 +144,7 @@ public:
 	TutorialFactorisation();
 	virtual ~TutorialFactorisation();
 private:
+	miracl *mip;
 	BOOL Precheck();
 };
 

@@ -94,6 +94,20 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	{
 		factorized = fact.Brent();
 	}
+	if ( !factorized && m_Pollard )
+	{
+		factorized = fact.Pollard();
+	}
+
+	if ( !factorized && m_Williams )
+	{
+		factorized = fact.Williams();
+	}
+
+	if ( !factorized && m_Lenstra )
+	{
+		factorized = fact.Lenstra();
+	}
 
 	if ( factorized )
 	{
