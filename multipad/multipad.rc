@@ -1712,7 +1712,7 @@ END
 IDD_DIALOG_GEN_RANDOMDATA DIALOGEX 0, 0, 260, 239
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallszahlen generieren "
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Ausgabe erzeugen",IDOK,16,206,127,19
     PUSHBUTTON      "Abbrechen",IDCANCEL,176,206,68,19
@@ -1750,7 +1750,7 @@ END
 IDD_RANDOM_PARAMETER_X2_MOD_N DIALOGEX 0, 0, 186, 95
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "x^2 (mod N) Zufallsgenerator"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,67,74,50,14
     EDITTEXT        IDC_EDIT1,90,51,48,14,ES_AUTOHSCROLL | NOT WS_BORDER,
@@ -1798,12 +1798,26 @@ BEGIN
     PUSHBUTTON      "&Close",AFX_ID_PREVIEW_CLOSE,278,2,44,12
 END
 
-IDD_RANDOM_PARAMETER_ABC DIALOG DISCARDABLE  0, 0, 186, 95
+IDD_RANDOM_PARAMETER_LCG DIALOGEX 0, 0, 200, 111
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "(x*a)+b (mod c) Generator"
-FONT 8, "MS Sans Serif"
+CAPTION "Linearer Kongruenz Generator (LCG)"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    DEFPUSHBUTTON   "OK",IDOK,137,85,50,14
+    CTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
+                    IDC_STATIC,13,9,174,28
+    LTEXT           "Geraden Parameter:",IDC_STATIC,21,44,64,10
+    EDITTEXT        IDC_EDIT1,101,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT2,155,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    LTEXT           "a=",IDC_STATIC,91,44,9,8
+    LTEXT           "b=",IDC_STATIC,145,44,10,8
+    LTEXT           "Modul:",IDC_STATIC,21,63,27,8
+    EDITTEXT        IDC_EDIT3,101,62,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    LTEXT           "N=",IDC_STATIC,90,63,10,8
+    PUSHBUTTON      "Abbruch",IDCANCEL,13,85,50,14
 END
 
 
@@ -2797,6 +2811,14 @@ BEGIN
         HORZGUIDE, 155
         HORZGUIDE, 225
     END
+
+    IDD_RANDOM_PARAMETER_LCG, DIALOG
+    BEGIN
+        VERTGUIDE, 13
+        VERTGUIDE, 187
+        BOTTOMMARGIN, 99
+        HORZGUIDE, 9
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -3572,6 +3594,12 @@ BEGIN
     IDS_STRING_PERIOD_ANALYSIS "Periodizit‰tsanalyse"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muﬂ mindestens 4 Bytes groﬂ sein!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_RAND_DATA_PARAM 
+                            "Zufallsdaten erzeugt mit dem %s Generator - L‰nge %i Bytes"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -109,7 +109,7 @@ void Dlg_homophone::Init_ListBox()
 	int i,j,k,m,number;
 	
 	m_listview.DeleteAllItems(); 
-	TA.Analyse();
+	TA.Analyse( /* c_SourceFile */ );
 	for(i=0;i<range;i++)
 	{
 		HB.freq[i]=TA.freq[i];

@@ -16,6 +16,10 @@ class DlgGenRandomData : public CDialog
 {
 // Konstruktion
 public:
+	const char * GetRandInfo();
+	long l_Modul_N_LCG;
+	long l_LinParam_b_LCG;
+	long l_LinParam_a_LCG;
 	long l_modul_x2_mod_N;
 	char outfile[128];
 	DlgGenRandomData(CWnd* pParent = NULL);   // Standardkonstruktor
@@ -46,6 +50,8 @@ protected:
 	afx_msg void OnGenRandomData();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	char c_generated_by[128];
 };
 
 //{{AFX_INSERT_LOCATION}}

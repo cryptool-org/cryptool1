@@ -869,6 +869,14 @@ SOURCE=.\DlgPrimesGenerator.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgRandomParameterLCG.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandomParameterLCG.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgRandParameter_x2_mod_N.cpp
 # End Source File
 # Begin Source File

@@ -38,18 +38,42 @@ void Homophone_Ber::Make_enc_table()
 {
 	int i,j,last=0;
 
+
 	for(i=0;i<range;i++)
 	{
 		if(freq[i]>0.0)
 		{
 			enc_data[i][1]=int(floor(range*freq[i]));
-			if(0==enc_data[i][1])
+// Eingefügt 24. April 2001 -- Henrik Koy
+			if ( (0==enc_data[i][1]) )
 			{
 				enc_data[i][1]=1;
 				do_not_round_me[i]=true;
 			}
 		}
+/*
+		else
+		{
+			enc_data[i][1]=1;
+			do_not_round_me[i]=true;
+		}
+*/
 	}
+
+/* 
+	if(FALSE==theApp.TextOptions.m_Case)
+	{
+		for(i='A';i<='Z';i++)
+		{
+			for(j=0;j<=1;j++)
+			{
+				enc_data[i][j] += enc_data[i+'a'-'A'][j];
+				freq[i]        += freq[i+'a'-'A'];
+				freq[i+'a'-'A'] =-1;
+			}
+		}
+	}
+*/
 
 	while(range!=Checksum())
 	{
@@ -72,18 +96,8 @@ void Homophone_Ber::Make_enc_table()
 			last+=enc_data[i][1];
 		}
 	}
-	if(FALSE==theApp.TextOptions.m_Case)
-	{
-		for(i=65;i<=90;i++)
-		{
-			for(j=0;j<=1;j++)
-			{
-				enc_data[i+32][j]=enc_data[i][j];
-				freq[i+32]=-1;
-			}
-		}
-	}
 }
+
 
 int Homophone_Ber::Checksum()
 
@@ -227,6 +241,8 @@ int Homophone_Ber::Encrypt(int value)
 // liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
 
 {
+	if (FALSE == theApp.TextOptions.m_Case)	value += 'A'-'a';
+
 	if(enc_data[value][1]>0)
 	{
 		return(key[enc_data[value][0]+Get_random_number(enc_data[value][1])]);

@@ -15,6 +15,7 @@
 class TextAnalyse  
 {
 public:
+	void Analyse( const char * f_toAnalyse );
 	double freq[range];
 	long count[range];
 	void Analyse();

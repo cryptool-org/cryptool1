@@ -9,6 +9,7 @@
 #include "DlgGenRandomData.h"
 #include "DlgParamRandSECUDE.h"
 #include "DlgRandParameter_x2_mod_N.h"
+#include "DlgRandomParameterLCG.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -76,6 +77,10 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	m_DataSize = 1024;
 	//}}AFX_DATA_INIT
 	l_modul_x2_mod_N = 718335467;
+// LCG-Parameter nach Lehmer
+	l_LinParam_a_LCG = 23;
+	l_LinParam_b_LCG = 0;
+	l_Modul_N_LCG    = 100000001;
 }
 
 
@@ -119,7 +124,16 @@ void DlgGenRandomData::OnSelGenParam()
 				l_modul_x2_mod_N = DRPXN.GetModul();
 			}
 		break;
-	case 2:
+	case 2: {
+				DlgRandomParameterLCG DRP_LCG;
+				DRP_LCG.Set(l_LinParam_a_LCG, l_LinParam_b_LCG, l_Modul_N_LCG);			
+				if (IDOK == DRP_LCG.DoModal() )
+				{
+					l_LinParam_a_LCG = DRP_LCG.Get_a();
+					l_LinParam_b_LCG = DRP_LCG.Get_a();
+					l_Modul_N_LCG    = DRP_LCG.Get_N();
+				}
+			}
 		break;
 	case 3:
 		break;
@@ -137,6 +151,7 @@ void DlgGenRandomData::OnGenRandomData()
 	unsigned char	o;
 	long			i, j, l;
 
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_RAND_DATA_PARAM,pc_str,STR_LAENGE_STRING_TABLE);
 	switch ( m_SelGenerator ) {
 	case 0:
 		for ( j=0; j<m_DataSize; j++ )
@@ -146,6 +161,7 @@ void DlgGenRandomData::OnGenRandomData()
 				o|=(_rand_bit())<<i;
 			rndData << o;
 		}	
+		sprintf(c_generated_by, pc_str, "SECUDE", m_DataSize);
 		break;
 	case 1:
 		{
@@ -164,14 +180,37 @@ void DlgGenRandomData::OnGenRandomData()
 			}
 			l_seed = l_s;
 		}
+		sprintf(c_generated_by, pc_str, "x^2 (mod N)", m_DataSize);
 		break;
 	case 2:
+		{
+			long l_seed = 47594118;
+			long l_s = l_seed;
+			for(j=0;j<m_DataSize;j++)
+			{
+				o = 0;
+				for (i=0; i<8; i++)
+				{
+					l_s = multmodn(l_LinParam_a_LCG, l_s, l_Modul_N_LCG);
+					l_s = (l_s + l_LinParam_b_LCG) % l_Modul_N_LCG;
+					o |= (l_s %2) << (7-i);
+				}
+				rndData << o;
+			}
+		}
+		sprintf(c_generated_by, pc_str, "LCG", m_DataSize);
 		break;
 	case 3:
+		sprintf(c_generated_by, pc_str, "ICG", m_DataSize);
 		break;
 	}
 	rndData.close();
 
 	UpdateData(FALSE);
 	CDialog::OnOK();
+}
+
+const char * DlgGenRandomData::GetRandInfo()
+{
+	return c_generated_by;
 }

@@ -2840,10 +2840,15 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	WCursor.Restore();	
 	char inbuffer[buffsize];
 
+	Dlg_homophone DH;
+	for (int i=0; ; i++ ) {
+		DH.c_SourceFile[i] = infile[i];
+		if (infile[i] == 0) break;
+	}
+
 	ifstream in(infile);	
 	in.read(inbuffer,buffsize);
 
-	Dlg_homophone DH;
 	CMyDocument *NewDoc;
 
 	if(IDOK!=DH.DoModal()) 
@@ -2857,7 +2862,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	char outfile[128],title[128];
 	int value;
 	GetTmpName(outfile,"cry",".hex");
-	ofstream out(outfile);
+	ofstream out(outfile, ios::binary | ios::out );
 
 	if(true==DH.Get_crypt())			// Verschlüsselung
 	{
@@ -2964,7 +2969,7 @@ void NGramAsc(const char *infile, const char *OldTitle)
 			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
 			NewDoc->SetTitle(title);
 */
-			NewDoc->SetTitle("hallo");
+			NewDoc->SetTitle("N-Gramm Analyse von");
 		}
 	}
 
@@ -3010,7 +3015,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
 			NewDoc->SetTitle(title);
 */
-			NewDoc->SetTitle("hallo");
+			NewDoc->SetTitle("N-Gramm Analyse von X ");
 		}
 	}
 

@@ -130,3 +130,31 @@ bool TextAnalyse::Checksum()
 	}
 	return(false);
 }
+
+void TextAnalyse::Analyse(const char *f_toAnalyse)
+{
+	char buffer[buffsize];
+	int i,value;
+
+	ifstream f(f_toAnalyse);
+	f.read(buffer,buffsize);
+
+	while(f.gcount())
+	{
+		for(i=0;i<f.gcount();i++)
+		{
+			value=buffer[i];
+			if(0<=value&&value<range)
+			{
+				count[value]++;
+				total_count++;
+			}
+		}
+		f.read(buffer,buffsize);
+	}
+	f.close();
+	Correct_count_table();
+	Make_freq_table();
+	assert(true==Checksum());
+
+}

@@ -25,7 +25,7 @@ public:
 	Dlg_homophone(CWnd* pParent = NULL);   // Standardkonstruktor
 	Homophone_Ber HB;
 	TextAnalyse TA;
-
+	char c_SourceFile[128];
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
 	enum { IDD = IDD_DIALOG_HOMOPHONE };

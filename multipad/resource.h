@@ -72,6 +72,7 @@
 #define IDD_DIALOG_RSA_KLEIN                                235
 #define IDD_DIALOG_ANALYSE_NGRAM                            237
 #define IDD_RANDOM_PARAMETER_X2_MOD_N                       238
+#define IDD_RANDOM_PARAMETER_LCG                            239
 #define IDD_ABOUTBOX                                        512
 #define IDD_DIALOG_KEY_CREAT_ASYM                           515
 #define IDD_DIALOG_KEY_CAESAR                               516
@@ -782,12 +783,14 @@
 #define IDS_STRING61440                                   37120
 #define IDS_STRING61441                                   37121
 #define IDS_STRING61442                                   37122
+#define IDS_STRING_RAND_DATA_PARAM                        37123
+
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        239
+#define _APS_NEXT_RESOURCE_VALUE        240
 #define _APS_NEXT_COMMAND_VALUE         33137
 #define _APS_NEXT_CONTROL_VALUE         1220
 #define _APS_NEXT_SYMED_VALUE           101

@@ -1279,7 +1279,7 @@ void CCryptDoc::OnGenRandomData()
 		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
 		remove(DGR.outfile);
 		if(NewDoc) {
-			NewDoc->SetTitle("hallo");
+			NewDoc->SetTitle(DGR.GetRandInfo());
 		}
 	}
 }
