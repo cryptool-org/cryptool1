@@ -2346,7 +2346,7 @@ BEGIN
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
 END
 
-IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 474
+IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
 
@@ -2384,13 +2384,13 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,405,164,110,15
     CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,402,230,115,14
-    EDITTEXT        IDC_EDIT_TITLE,31,284,497,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_TITLE,31,281,497,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_TXT,31,302,497,142,ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT_TXT,31,299,497,98,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
-    PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,485,454,50,14
+    PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,478,407,50,14
 END
 
 IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 316
@@ -5522,6 +5522,19 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "RSA-Modul faktorisieren..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Zu verwendendes Alphabet (%i Zeichen):"
+    IDS_STRING_HYB_ENC_DOC_SYM 
+                            "Dieser Button ist im Moment inaktiv!\n\nMit F1 erhalten Sie Informationen darüber,in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYB_SHOW_DOC "Dieser Button ist im Moment inaktiv, sie müssen vorher eine Datei auswählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYB_SHOW_SYM_KEY 
+                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher einen Schlüssel generieren!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die Aktivitäten im Datenflussplan steuern können."
+    IDS_STRING_HYB_ENC_SYM_KEY 
+                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher den symmetrischen Schlüssel\nasymmetrisch verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYB_SHOW_ENC_DOC 
+                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher die Datei mit dem symmetrischen Schlüssel verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYB_SHOW_ASYM_KEY 
+                            "Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+    IDS_STRING_HYB_ENC_KEY_ASYM 
+                            "Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7834,6 +7847,51 @@ BEGIN
                     NOT WS_BORDER
 END
 
+IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hybrid Encryption - Visualisation with a Flow Chart"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,65,29,20,52
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,237,28,20,58
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,28,20,58
+    CONTROL         385,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,56,
+                    124,135,69
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,237,
+                    108,20,58
+    CONTROL         387,IDC_STATIC,"Static",SS_BITMAP,302,94,87,98
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,438,
+                    107,20,58
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,236,178,20,52
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,438,177,20,58
+    CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,33,17,89,14
+    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,31,81,89,14
+    CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,209,17,93,14
+    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,205,81,93,14
+    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,208,165,102,14
+    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,202,230,92,14
+    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,409,17,92,14
+    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,405,81,93,14
+    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,405,164,110,15
+    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,402,230,115,14
+    EDITTEXT        IDC_EDIT_TITLE,31,284,497,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_TXT,31,302,497,98,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,12,224,94,14
+    PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,478,407,50,14
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10533,6 +10591,19 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorise RSA modulus..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Alphabet to use (%i characters):"
+    IDS_STRING_HYB_ENC_DOC_SYM 
+                            "This button is currently inactive.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_DOC "This button is currently inactive.\nPlease select a file.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_SYM_KEY 
+                            "This button is currently inactive.\nPlease generate a session key at first.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_ENC_SYM_KEY 
+                            "This button is currently inactive.\nPlease encrypt the session key at first.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_ENC_DOC 
+                            "This button is currently inactive.\nPlease encrypt the document with your session key.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_ASYM_KEY 
+                            "This button is currently inactive.\nPlease select the public key of the recipiant.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_ENC_KEY_ASYM 
+                            "This button is currently inactive.\nPlease select the public key of the recipiant.\nUse F1 to get informations about the sequence you\nshould follow to activate this button."
 END
 
 STRINGTABLE DISCARDABLE 
