@@ -2917,3 +2917,15 @@ CTutorialFactorisationBase::~CTutorialFactorisationBase()
 	mirexit();
 	set_mip(m_old_mip);
 }
+
+
+// Gibt TRUE zurück, sofern der übergebene Ausdruck eine dezimale Zahl ist
+bool IsDecimalNumber(CString expression)
+{
+	for(int i=0; i<expression.GetLength(); i++)
+	{
+		if(expression[i] < '0' || expression[i] > '9') return false;
+	}
+
+	return true;
+}

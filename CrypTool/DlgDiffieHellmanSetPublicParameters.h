@@ -1,0 +1,46 @@
+#if !defined(AFX_DLGDIFFIEHELLMANSETPUBLICPARAMETERS_H__216F5BDD_06A8_11D7_A8B6_00025532117A__INCLUDED_)
+#define AFX_DLGDIFFIEHELLMANSETPUBLICPARAMETERS_H__216F5BDD_06A8_11D7_A8B6_00025532117A__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+// DlgDiffieHellmanSetPublicParameters.h : Header-Datei
+//
+
+/////////////////////////////////////////////////////////////////////////////
+// Dialogfeld CDlgDiffieHellmanSetPublicParameters 
+
+class CDlgDiffieHellmanSetPublicParameters : public CDialog
+{
+// Konstruktion
+public:
+	CDlgDiffieHellmanSetPublicParameters(CWnd* pParent = NULL);   // Standardkonstruktor
+
+// Dialogfelddaten
+	//{{AFX_DATA(CDlgDiffieHellmanSetPublicParameters)
+	enum { IDD = IDD_DIFFIEHELLMAN_SETPUBLIC };
+		// HINWEIS: Der Klassen-Assistent fügt hier Datenelemente ein
+	//}}AFX_DATA
+
+
+// Überschreibungen
+	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
+	//{{AFX_VIRTUAL(CDlgDiffieHellmanSetPublicParameters)
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	//}}AFX_VIRTUAL
+
+// Implementierung
+protected:
+
+	// Generierte Nachrichtenzuordnungsfunktionen
+	//{{AFX_MSG(CDlgDiffieHellmanSetPublicParameters)
+		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
+
+#endif // AFX_DLGDIFFIEHELLMANSETPUBLICPARAMETERS_H__216F5BDD_06A8_11D7_A8B6_00025532117A__INCLUDED_

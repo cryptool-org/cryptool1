@@ -100,7 +100,7 @@ void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterv
 void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs = 0 ); 
 void ModRepr ( CString &StrNum, int        Modul, int numberBase, int ofs = 0 ); 
 void BaseRepr( CString &StrNum, int baseFrom, int baseTo); 
-
+bool IsDecimalNumber(CString expression);
 
 class eval_err { // CEvalIntExpr errror class
 	int err;
