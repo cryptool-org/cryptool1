@@ -3031,9 +3031,9 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "H&ill...",                    ID_HILL
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
@@ -3073,6 +3073,11 @@ BEGIN
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
+    END
+    POPUP "&Schlüsselverwaltung"
+    BEGIN
+        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
+        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Einzelverfahren"
     BEGIN
@@ -3154,11 +3159,6 @@ BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
-    END
-    POPUP "&Schlüsselverwaltung"
-    BEGIN
-        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
-        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Optionen"
     BEGIN
@@ -3277,6 +3277,11 @@ BEGIN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
     END
+    POPUP "&Schlüsselverwaltung"
+    BEGIN
+        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
+        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
+    END
     POPUP "&Einzelverfahren"
     BEGIN
         POPUP "&Hashwerte"
@@ -3388,11 +3393,6 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
-    END
-    POPUP "&Schlüsselverwaltung"
-    BEGIN
-        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
-        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Optionen"
     BEGIN
@@ -3550,12 +3550,12 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "H&ill...",                    ID_HILL
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
@@ -3595,6 +3595,11 @@ BEGIN
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
         MENUITEM "Signatur &überprüfen...",     ID_CRYPT_VERIFY
         MENUITEM "Signatur e&xtrahieren",       ID_CRYPT_EXTRACT
+    END
+    POPUP "&Schlüsselverwaltung"
+    BEGIN
+        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
+        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Einzelverfahren"
     BEGIN
@@ -3680,11 +3685,6 @@ BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
-    END
-    POPUP "&Schlüsselverwaltung"
-    BEGIN
-        MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
-        MENUITEM "Schlüssel &anzeigen...",      ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Optionen"
     BEGIN
@@ -8983,9 +8983,9 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "&Hill...",                    ID_HILL
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetric"
@@ -9025,6 +9025,11 @@ BEGIN
         MENUITEM "&Sign Message...",            ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
+    END
+    POPUP "&Key Management"
+    BEGIN
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
+        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Indiv. Procedures"
     BEGIN
@@ -9107,11 +9112,6 @@ BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
-    END
-    POPUP "&Key Management"
-    BEGIN
-        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
-        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
     BEGIN
@@ -9230,6 +9230,11 @@ BEGIN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
     END
+    POPUP "&Key Management"
+    BEGIN
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
+        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
+    END
     POPUP "&Indiv. Procedures"
     BEGIN
         POPUP "&Hash"
@@ -9342,11 +9347,6 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_ANALYSE_AES_TWOFISH
         END
-    END
-    POPUP "&Key Management"
-    BEGIN
-        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
-        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
     BEGIN
@@ -9505,12 +9505,12 @@ BEGIN
             MENUITEM "&Caesar...",                  ID_CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "&Hill...",                    ID_HILL
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "&Addition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetric"
@@ -9550,6 +9550,11 @@ BEGIN
         MENUITEM "&Sign Message...",            ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
+    END
+    POPUP "&Key Management"
+    BEGIN
+        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
+        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Indiv. Procedures"
     BEGIN
@@ -9636,11 +9641,6 @@ BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
-    END
-    POPUP "&Key Management"
-    BEGIN
-        MENUITEM "&Key Generation...",          ID_CRYPT_KeyGen
-        MENUITEM "&Display Keys...",            ID_SHOW_ALL_EC_KEYS
     END
     POPUP "&Options"
     BEGIN
