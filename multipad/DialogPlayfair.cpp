@@ -637,7 +637,7 @@ void CChEdit::SetAlg(class Playfair *alg,class CDialogPlayfair *dia)
 */
 
 BEGIN_MESSAGE_MAP(CChEdit, CEdit)
-	//{{AFX_MSG_MAP(CHexEdit)
+	//{{AFX_MSG_MAP(CChEdit)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
@@ -738,7 +738,7 @@ void CMyEdit::SetAlg(class Playfair *alg)
 */
 
 BEGIN_MESSAGE_MAP(CMyEdit, CEdit)
-	//{{AFX_MSG_MAP(CHexEdit)
+	//{{AFX_MSG_MAP(CMyEdit)
 	ON_WM_CHAR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()

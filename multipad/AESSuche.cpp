@@ -21,16 +21,6 @@ AESSuche::AESSuche(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-AESSuche::AESSuche(char *titel,int max,CWnd* pParent /*=NULL*/)
-	: CDialog(AESSuche::IDD, pParent)
-{
-	//{{AFX_DATA_INIT(AESSuche)
-	m_text = _T("");
-	m_text_len=(max*3)-1;
-	m_len=0;
-	//}}AFX_DATA_INIT
-}
-
 void AESSuche::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);

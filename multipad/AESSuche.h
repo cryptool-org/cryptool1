@@ -25,7 +25,6 @@ class AESSuche : public CDialog
 // Konstruktion
 public:
 	AESSuche(CWnd* pParent = NULL);   // Standardkonstruktor
-	AESSuche(char *,int,CWnd* pParent = NULL);   // Standardkonstruktor
 
 	char m_data[65];
 	int m_mask[STARS];
@@ -44,7 +43,7 @@ public:
 	//{{AFX_DATA(AESSuche)
 	enum { IDD = IDD_DIALOG1 };
 	CString	m_text;
-	class CMyHexEdit m_text_ctl;
+	CMyHexEdit m_text_ctl;
 	//}}AFX_DATA
 
 

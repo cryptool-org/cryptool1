@@ -53,7 +53,7 @@ public:
 	virtual ~CMyEdit();
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
-	//{{AFX_MSG(CChEdit)
+	//{{AFX_MSG(CMyEdit)
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	//}}AFX_MSG
 
