@@ -92,6 +92,13 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	Big p = (char*)(LPCTSTR)m_Prime;
 
 	// Überprüfungen für Primzahl (p)
+	if (p == Big(0)) 
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_ZERO, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str,"CrypTool",MB_ICONERROR | MB_OK);
+		m_PrimeControl.SetFocus();
+		return;
+	}
 	if( !prime(p) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
@@ -103,7 +110,7 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	}
 
 	// Überprüfung für Generator (g)
-	if( g < 0 ||  (g%p)==0 || g==(p-1))
+	if( g < 0 ||  (g%p)==0 || g==1 || g==(p-1))
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_GENERATOR_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )

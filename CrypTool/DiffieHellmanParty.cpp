@@ -39,7 +39,7 @@ std::string DiffieHellmanParty::GetPublicKey()throw(DHError)
 {
 	this->ErrorCode = 0;
 	if(!this->bHasSecret) this->ErrorCode |= E_SECRET_INVALID;
-	PublicKey = pow(Generator, Secret, Prime);
+	PublicKey = (Prime == 1) ? Big(0) : pow(Generator, Secret, Prime);
 	// Wert der Big-Variablen PublicKey einem String zuweisen (dazu dynamischen Speicher verwenden)
 	char *tempkey = new char[MAX_KEY_LENGTH_IN_BYTE];
 	tempkey << PublicKey;
@@ -59,7 +59,7 @@ std::string DiffieHellmanParty::GetSessionKey(std::string k)throw(DHError)
 	if(!this->bHasSecret) this->ErrorCode |= E_SECRET_INVALID;	
 	if(k.length() > MAX_KEY_LENGTH_IN_BYTE) this->ErrorCode |= E_OTHERS_PUBLIC_KEY_INVALID;
 	Big OthersPublicKey = (char*)k.c_str();
-	SessionKey = pow(OthersPublicKey, Secret, Prime);
+	SessionKey = (Prime == 1) ? Big(0) : pow(OthersPublicKey, Secret, Prime);
 	// Session Key in String-Variablen ablegen
 	char *tempkey = new char[MAX_KEY_LENGTH_IN_BYTE];
 	tempkey << SessionKey;
