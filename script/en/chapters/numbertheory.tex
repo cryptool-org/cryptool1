@@ -630,14 +630,11 @@ certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutatio
 also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicative order and primitive roots}.}.
 \end{theorem}
 \vskip +10 pt
-The following three examples\footnote{Mathematica can be used to calculated the tables for these examples as follows: \\
-{\tt m = 17; iWidth = 18; iFactor1 = 5; iFactor2 = 6; \\
-Print[ ``i'', Table[ i, \{i, 1, iWidth \} ] ]; \\
-Print[ iFactor1, ``*i'', Table[ iFactor1*i, \{i, 1, iWidth \} ] ]; \\
-Print[ ``remainder'', Table[ Mod[iFactor1*i, m], \{i, 1, iWidth \} ] ]; \\
-Print[ iFactor2, ``*i'', Table[ iFactor2*i, \{i, 1, iWidth \} ] ];  \\
-Print[ ``remainder'', Table[ Mod[iFactor2*i, m], \{i, 1, iWidth \} ] ]; 
-} } illustrate the properties of multiplicative inverses.
+The following three examples\footnote{%
+See \hyperlink{AppArith1}{Appendix D} for the source code to compute the tables using Mathematica\index{Mathematica}
+or Pari-GP.\index{Pari-GP}
+}
+illustrate the properties of multiplicative inverses.
 
 In the multiplication table mod $17$, the following was calculated for $i = 1, 2, \cdots, 18$:
 \begin{itemize}
@@ -648,7 +645,7 @@ We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
 with $a=5$ or $a=6$ has the value $1$. 
 
 {
-\begin{table}[h]
+\begin{table}[h] \label{SrcArith1a}
 \subsubsection*{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}
 \begin{center}
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
@@ -675,7 +672,7 @@ also relatively prime\index{Relatively prime} to the modulus $m=17$.
 
 \vskip +20 pt
 
-\begin{table}[h]
+\begin{table}[h] \label{SrcArith1b}
 \subsubsection*{Multiplication table modulo $13$ (for $a=5$ and $a=6$)}
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
@@ -823,12 +820,11 @@ and the squares (mod $103$) can be calculated beforehand
 87^{16} & \equiv & 63^2 \equiv 55 {\rm ~(mod~}103),\\
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
-we have\footnote{Using Mathematica this is calculated in less than 
-a second on a Pentium 3: \\
-{\tt Mod[{${\rm 87}^\wedge$43, ${\rm 87}^\wedge$2, ${\rm 87}^\wedge$4, ${\rm 87}^\wedge$8, ${\rm 87}^\wedge$16, ${\rm 87}^\wedge$32}, 103]
- = \{85, 50, 28, 63, 55, 38\}.
-} % \tt
-}:
+we have\footnote{%
+  See \hyperlink{AppArith2}{Appendix D} for source code implementing the
+  square and multiply method in Mathematica and Pari-GP, which can be used
+  to reproduce the calculations above. }:
+\label{SrcArith2}
 \begin{eqnarray}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
         & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
@@ -1166,12 +1162,14 @@ $10$ and we notice that:
 \end{enumerate}
 
 {\bf Example 1:} \\
-The following table\footnote{Mathematica can be used to calculate this as follows: \\
-{\tt m=11;  Table[ Mod[${\rm a}^\wedge$i, m], \{a, 1, m-1\}, {i, 1, m-1} ].} } shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
+The following table\footnote{%
+See \hyperlink{AppArith3a}{Appendix D} for the source code to generate the table using Mathematica or Pari-GP.
+} 
+shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
 
 {
-\begin{table}[h]
+\begin{table}[h]  \label{SrcArith3a}
 \subsubsection*{Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1217,20 +1215,13 @@ Using the primitive roots, we can clearly establish the conditions for which pow
 The following two tables show the multiplicative orders and primitive roots modulo $45$ and modulo $46$.
 
 {\bf Example 2:} \\
-The following table\footnote{Mathematica can be used to calculate this as follows (no Do loop can be used in Print and each
-Print command outputs a new line at the end):\\
-{\tt 
-m = 45; \\
-Do[ Print[ Table[ Mod[${\rm a}^\wedge$i, m], \{i, 1, 12\} ], \\
-'', '', MultiplicativeOrder[a, m, 1], \\
-'', '', EulerPhi[m] ], \\
-\{a, 1, 12\} \\
-]; } % \tt 
+The following table\footnote{%
+See \hyperlink{AppArith3b}{Appendix D} for the source code to generate the table using Mathematica or Pari-GP.
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
 
 { % \small
-\begin{table}[h]
+\begin{table}[h] \label{SrcArith3b}
 \subsubsection*{Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1281,20 +1272,16 @@ The requirement/condition $gcd(7,45)=1$ is fulfilled.
 The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
 
 {\bf Example 4:} \\
-The following table\footnote{Mathematica can be used to calculate this as follows: \\
-{\tt
-m = 46; Do[ Print[ Table[ Mod[${\rm a}^\wedge$i, m], \{i, 1, 23\} ], \\
-'', '', MultiplicativeOrder[a, m, 1], \\
-'', '', EulerPhi[m] ], \\
-\{a, 1, 23\} ];
-} % \tt
+The following table\footnote{%
+See \hyperlink{AppArith3c}{Appendix D} for the source code to generate the table using Mathematica
+or Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 %\newpage
 
 \subsubsection*{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 { \textmd \small
-\begin{center}
+\begin{center}  \label{SrcArith3c}
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
 $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
@@ -1358,7 +1345,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 i < 11$. Please note that this theorem is not applicable to the above tabel
 mod 46.}$^,$\footnote{Exhausting all possible values of the set is an
 important cryptographic proposition (compare theorem
-\ref{thm-zth-exhperm}). This determines a permutation $\pi(p-1).}
+\ref{thm-zth-exhperm}). This determines a permutation $\pi(p-1)$.}
 For a modulus $p$ and $a < p$:
 $a^i \mbox{mod} p, i = 1, \cdots, p-1$ assumes all $J(p) = p-1$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
 \end{theorem}
@@ -2103,10 +2090,11 @@ This $28$-digit number is divided into $4$-digit parts
 (because $2,626$ is still smaller than $n=3,713$):\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
-All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{Using Mathematica, for example,
-this can be calculated usung {\tt PowerMod[120, 37, 3713]}.\\
-Using CrypTool v1.3 you can solve this with the 
-``Indiv. Procedures/RSA Demonstration/Factorise (IFP)''.}: \\
+\label{SrcArith4a}
+All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3,713)$\footnote{%
+See \hyperlink{AppArith4a}{Appendix D} for source code to do RSA
+  encryption using Mathematica or Pari-GP.  You can also encrypt
+  the message with CrypTool v1.3 ``Indiv. Procedures/RSA Demonstration/Factorise (IFP)''.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 {\bf 5. Decryption}: \\
@@ -2137,9 +2125,10 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 
 
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
-{\bf Key generation (steps 1 to 3)}:\\
-{\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{Mathematica delivers 
-this result, for example, with {\tt FactorInteger[255016]=\{\{2,3\}, \{127,1\}, \{251,1\}\}}.\\
+{\bf Key generation (steps 1 to 3)}:\\ \label{SrcArith4b}
+{\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
+See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise the number $J(n)$ using Mathematica
+or Pari-GP.
 Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/Factorise (IFP)''.}. \\
 {\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
 therefore, be $2, 127$ or $251$. In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
@@ -2166,8 +2155,10 @@ When the numbers are combined, the leading zeros are kept in binary notation (ju
 digits in decimal notation above and were then to obtain the sequence 
 {\tt 082 083,  065 032, 119 111,  114 107,  115 033)}.}!
 
-Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{Using Mathematica this can be 
-calculated using {\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027].}
+\label{SrcArith4c}
+Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
+See \hyperlink{AppArith4c}{Appendix D} for the source code for RSA exponentation using Mathematica
+or Pari-GP.
 }: \\
 {\tt
 \begin{tabular}{lllll}
@@ -2217,9 +2208,9 @@ Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{lll}
 Demonstration/RSA Cryptosystem'' 
 with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
 
-Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{Using Mathematica this can
-be calculated using {\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\},
-65537, 256027]. }
+\label{SrcArith4d}
+Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
+See \hyperlink{AppArith4d}{Appendix D} for the source code for RSA exponentation using Mathematica or Pari-GP.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -2239,10 +2230,12 @@ Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
 Blocks are formed: (each ASCII character is encoded into a 3 digit decimal number below):\\
  {\tt 82083 65032 119111 114107 115033}\footnote{The RSA encryption works correctly with the
 modulus $n=256.027$ because each ASCII block of two characters will be encoded into a number that is smaller or equal than
-the number $255,255$.  } \\
-Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{Using Mathematica this can be calculated using 
-{\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256,027].}
-}: \\ 
+the number $255,255$.  } 
+
+\label{SrcArith4e}
+Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
+See \hyperlink{AppArith4e}{Appendix D} for the source code for RSA exponentation using Mathematica or Pari-GP.
+}: \\
 {\tt 198967 051405 254571 115318 014251}
 
 {\bf 5'. Decryption:} \\
@@ -2648,8 +2641,77 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 \vskip +10 pt
 \input{figures/line-en.latex}
 
-\subsection*{Appendix D: List of the formulated definitions and theorems} \hypertarget{Appendix_D}{}
-\addcontentsline{toc}{subsection}{Appendix D: List of the formulated definitions and theorems}
+
+\newpage
+\subsection*{Appendix D: Examples using Mathematica and Pari-GP} \hypertarget{AppendixD}{}
+\addcontentsline{toc}{subsection}{Appendix D: Examples using Mathematica and Pari-GP}
+\index{Mathematica}\index{Pari-GP}
+
+This appendix gives you the source code to compute the tables and examples using Mathematica or the free 
+software Pari-GP.
+% In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
+% Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP berrechnet werden k"onnen.
+
+\subsubsection*{Multiplikation table modulus $m$} \hypertarget{AppArith1}{}
+
+The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page \pageref{SrcArith1a} 
+can be computed in Mathematica with the following commands: 
+\begin{verbatim}
+m = 17; iWidth = 18; iFactor1 = 5; iFactor2 = 6; 
+Print[ ''i '', Table[ i, {i, 1, iWidth} ] ]; 
+Print[ iFactor1, ''*i '', Table[ iFactor1*i, {i, 1, iWidth } ] ]; 
+Print[ ''Remainder '', Table[ Mod[iFaktor1*i, m], {i, 1, iWidth } ] ]; 
+Print[ iFactor2, ''*i '', Table[ iFactor2*i, {i, 1, iWidth } ] ]; 
+Print[ ''Remainder '', Table[ Mod[iFactor2*i, m], {i, 1, iWidth } ] ]; 
+\end{verbatim}
+Pari-GP computes the tables via:
+
+{\tt m=17; iWidth=18; iFactor1=5; iFactor2=6;}
+
+{\tt matrix(1,iWidth, x,y, iFactor1*y)} yields \\
+{\tt [5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90]}
+
+{\tt matrix(1,iWidth, x,y, (iFactor1*y)\%m )} yields \\
+{\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
+
+Note: Pari-GP generates when using {\tt Mod} a compound {\tt Mod} objekt,
+which is displayed as shown below: \vspace{-2ex}
+\begin{verbatim}
+matrix(1,iWith, x,y, Mod(iFactor1*y, m))
+[Mod(5, 17) Mod(10, 17) Mod(15, 17) Mod(3, 17) Mod(8, 17) Mod(13, 17) Mod(1, 17)
+ Mod(6, 17) Mod(11, 17) Mod(16, 17) Mod(4, 17) Mod(9, 17) Mod(14, 17) Mod(2, 17)
+ Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
+\end{verbatim}
+
+From the composite {\tt Mod} objekt you can get back the components with \texttt{component}-function: 
+
+\texttt{%
+  component(Mod(5, 17),1) $\rightarrow$ 17 \\
+  component(Mod(5, 17),2) $\rightarrow$ 5
+}
+
+The other multiplication table examples modulo $13$ and modulo $12$ on page 
+\pageref{SrcArith1b} can computed by replacing {\tt m=17} with {\tt m=13}
+and {\tt m=12} respectively.
+
+\subsubsection*{Fast exponentation} \hypertarget{AppArith2}{}
+
+The fast exponentation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
+Using those programs you can comprehend the idea of the square and multiply method. With mathematica
+you can compute the exponentations of the example on page \pageref{SrcArith2}
+as follows:
+\begin{verbatim}
+Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.
+\end{verbatim}
+and in Pari-GP the syntax is:
+\begin{verbatim}
+Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
+\end{verbatim}
+
+
+
+\subsection*{Appendix E: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
+\addcontentsline{toc}{subsection}{Appendix E: List of the formulated definitions and theorems}
 \vskip +8 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
