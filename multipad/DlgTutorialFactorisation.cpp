@@ -147,8 +147,21 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 //	double duration;
 
 	UpdateData(TRUE);
-	
+	CString UpnFormula;
 	char line [256];
+	int err_ndx;
+	bool error;
+	error = CheckFormula(m_CompositeNoStr,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_CompositeNoCtrl.SetSel(err_ndx-1,m_CompositeNoStr.GetLength());
+		m_CompositeNoCtrl.SetFocus();
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox(line);
+		return;
+	}
 
 	int laenge_eingabe;
 	laenge_eingabe = m_CompositeNoStr.GetLength();
@@ -173,7 +186,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 //			TutorialFactorisation f;
 			Out_SetN=f.SetN(next_factor);
 //		}
-		if (Out_SetN==2 || Out_SetN==3)
+		if (Out_SetN==EVAL_NULL || Out_SetN==EVAL_EINS)
 		{
 			//Sie müssen eine ganze Zahl eingeben, die von 0 und 1 verschieden ist.
 			m_CompositeNoCtrl.SetSel(0,-1);
@@ -184,7 +197,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			return;
 
 		}
-		if (Out_SetN==4)
+		if (Out_SetN==EVAL_OK)
 		{
 			BOOL factorized = FALSE;
 			CString f1, f2;

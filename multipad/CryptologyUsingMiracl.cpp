@@ -55,6 +55,200 @@ double approxLog2(Big &N)
 //
 //
 
+BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx )
+{
+	int i=ndx, flag = 0;
+	while (i<Formula.GetLength() && !flag)
+	{
+		switch (base)
+		{
+			case 2: if (Formula[i] >= '0' && Formula[i] <= '1') i++; else flag = 1;
+			break;
+			case 8: if (Formula[i] >= '0' && Formula[i] <= '7') i++; else flag = 1;
+			break;
+			case 10: if (Formula[i] >= '0' && Formula[i] <= '9') i++; else flag = 1;
+			break;
+			case 16: if (Formula[i] >= '0' && Formula[i] <= '9' || 
+						 Formula[i] >= 'A' && Formula[i] <= 'F' ||
+						 Formula[i] >= 'a' && Formula[i] <= 'f'   ) i++; else flag = 1;
+			break;
+			default: return FALSE;
+		}
+	}
+	if (i>ndx) number = Formula.Mid(ndx, i-ndx);
+	if ( i == ndx ) return FALSE;
+	else
+	{
+		ndx = i;
+		return TRUE;
+	}
+}
+
+
+BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
+{
+	char stack[1024];
+	long stack_i;
+	BOOL NumFlag = FALSE;
+	ndx     = 0; 
+	stack_i = -1;
+	CString f_formula, number;
+	f_formula = UpnFormula = _T("");
+	while (ndx < Formula.GetLength())
+	{
+		if ( Formula[ndx] == ' ' || Formula[ndx] == '\t' ) ndx++;
+		else 
+		{
+			if ( GetNumber(number, Formula, base, ndx) )
+			{
+				if ( NumFlag ) return FALSE;
+				f_formula += number;
+				UpnFormula = UpnFormula + ' ' + number;			  
+				NumFlag = TRUE;
+			}
+			else 
+			{
+				switch ( Formula[ndx++] )
+				{
+					case '+':
+						if (!NumFlag)
+						{
+							if (stack_i != -1 || stack[stack_i] != '+' || stack[stack_i] != '-' || stack[stack_i] != '(' ) 
+							return FALSE;
+						}
+						else
+						{
+							while (stack_i > -1 && 
+							stack[stack_i] == '*' || stack[stack_i] == '/' ||
+							stack[stack_i] == '^' || stack[stack_i] == '!' ) 
+							{
+								UpnFormula += stack[stack_i--];
+							}
+							stack[++stack_i] = '+';
+							f_formula += '+';
+							NumFlag = FALSE;
+						}
+					break;
+					case '-': 
+						if (!NumFlag) 
+						{
+							if (stack_i == -1 || stack[stack_i] == '(' || stack[stack_i] == '*' /* ||  stack[stack_i] == '/' */) 
+							{ 
+								stack[++stack_i] = '!'; 
+								f_formula += '-'; 
+							}
+							else if (stack[stack_i] == '+') 
+							{ 
+								stack[stack_i] = '-'; 
+								f_formula.SetAt(f_formula.GetLength()-1,'-'); 
+							}
+							else if (stack[stack_i] == '-') 
+							{ 
+								stack[stack_i]   = '+'; 
+								f_formula.SetAt(f_formula.GetLength()-1,'+'); 
+							}
+							else if (stack[stack_i] == '!') 
+							{ 
+								stack_i--;  
+								f_formula.Delete(f_formula.GetLength()-1);
+							} // TODO 
+							else return FALSE;
+  						}
+						else 
+						{
+							while (stack_i > -1 && 
+							stack[stack_i] == '*' || stack[stack_i] == '/' ||
+							stack[stack_i] == '^' || stack[stack_i] == '!' ) 
+							{
+								UpnFormula += stack[stack_i--];						
+							}
+							stack[++stack_i] = '-'; 
+							f_formula += '-';
+							NumFlag = FALSE;
+						}
+					break;
+					case '*':
+						if (!NumFlag) return FALSE;
+						else 
+						{
+							while (stack_i > -1 && 
+								   stack[stack_i] == '^' || stack[stack_i] == '!') 
+							{
+								UpnFormula += stack[stack_i--];
+							}
+							stack[++stack_i] = '*';
+							f_formula += '*';
+							NumFlag = FALSE;
+						}	  
+					break;
+		//	        case '/': if (!NumFlag) return FALSE;
+		//	                  else {
+		//                           stack[++stack_i] = '/';
+		//		 	     f_formula += '/';
+		//		          }	  
+		//	        break;
+					case '^':
+						if (!NumFlag) return FALSE;
+						else 
+						{
+							stack[++stack_i] = '^';
+							f_formula += '^';
+							NumFlag = FALSE;
+						}	  
+					break;
+					case '(':
+						if (!NumFlag) 
+						{
+							stack[++stack_i] = '('; f_formula += '('; 
+						}
+						else
+						{
+							return FALSE;
+						}	  
+					break;
+					case ')':
+						if (!NumFlag) 
+						{
+							if (f_formula[f_formula.GetLength()-1] == '(') 
+							{
+								return FALSE;							   							  
+							}
+							else return FALSE;
+						}
+						else
+						{
+							while (stack_i > -1 && stack[stack_i] != '(') 
+							{
+		  						UpnFormula += stack[stack_i--];
+							}
+							f_formula += ')';
+							if (stack_i == -1) return FALSE;
+							stack_i--;
+							NumFlag = TRUE;
+						}
+					break;
+					default: 
+					return FALSE;
+				}
+			}
+		}
+	}
+	if ( NumFlag == FALSE ) return FALSE;
+	while (stack_i > -1) 
+	{
+		if ( stack[stack_i] != '(' )
+			UpnFormula += stack[stack_i--];
+		else
+		{
+			f_formula += ')';
+			stack_i--;
+		}
+	}
+	if ( stack_i > -1 ) return FALSE;
+	Formula = f_formula;
+	return TRUE;
+}
+
 BOOL isCharOf( const char ch, const char *expr )
 {
 	int len = strlen(expr);
@@ -1896,6 +2090,7 @@ int TutorialFactorisation::initv()
 		//this number is prime
         return (-1);
     }
+	
 
     T=NN;
     digits=1;                   /* digits in N */
@@ -1973,6 +2168,7 @@ int TutorialFactorisation::initv()
 
     for (i=0;i<=mmm;i++)
     { 
+		THREAD_CHECK;
         xx[i]=0;
         yy[i]=0;
         bb[i]=(-1);
@@ -1980,6 +2176,7 @@ int TutorialFactorisation::initv()
     }
     for (i=0;i<=mlf;i++)
     {
+		THREAD_CHECK;
         zz[i]=0;
         ww[i]=0;
         G[i]=(unsigned int *)mr_alloc(pak,sizeof(int)); //Roger
@@ -2260,6 +2457,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	
 	int result_initv;
 	result_initv=initv();
+
 	if (result_initv==-1)
 	{
 		//this number is prime
@@ -2408,11 +2606,11 @@ int TutorialFactorisation::SetN(CString &NStr)
 	bool output;
 	set_mip(mip);
 	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
-	if (output==false)  return 0; // Zahl mit Bitlänge >= 1024, oder sonstige Miracl-Fehler
-	else if ( N < 0 ) return 1; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
-	else if ( N == 0 ) return 2;
-	else if ( N == 1 ) return 3;
-	else return 4; 
+	if (output==false)  return EVAL_ERR; // Zahl mit Bitlänge >= 1024, oder sonstige Miracl-Fehler
+	else if ( N < 0 ) return EVAL_NEG; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
+	else if ( N == 0 ) return EVAL_NULL;
+	else if ( N == 1 ) return EVAL_EINS;
+	else return EVAL_OK; 
 }
 
 

@@ -30,6 +30,11 @@ extern volatile long ExitFactorisationCode;
 #define EVAL_ERR_POW 1
 #define EVAL_ERR_MUL 2
 #define EVAL_ERR_SUM 3
+#define EVAL_ERR 0
+#define EVAL_NEG 1
+#define EVAL_NULL 2
+#define EVAL_EINS 3
+#define EVAL_OK 4
 
 
 #define TIMES '*'
@@ -65,6 +70,9 @@ extern volatile long ExitFactorisationCode;
 #define WHITESPACE    " \t\r\n"
 #define NUMBER_SEPARATOR " \r\n#,;:"
 #define SEPARATOR     " # "
+
+BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx );
+BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx);
 
 BOOL isCharOf( const char ch, const char *expr );
 BOOL Whitespace( char ch );

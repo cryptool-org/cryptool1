@@ -4740,7 +4740,7 @@ BEGIN
     IDS_STRING_BIG_RSA_MODUL 
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
     IDS_STRING_FAKTORISATION_OPERATOR 
-                            "Die Eingabe ist unvollständig: das letzte Zeichen der Eingabe ist ein Operator."
+                            "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnet läßt."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
 END
@@ -8993,8 +8993,7 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
     IDS_STRING_BIG_RSA_MODUL 
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 1024. \nBitte wählen Sie die Primzahlen p und q so, daß der RSA-Modul N=p*q kleiner ist als 2^1024."
-    IDS_STRING_FAKTORISATION_OPERATOR 
-                            "Die Eingabe ist unvollständig: das letzte Zeichen der Eingabe ist ein Operator."
+    IDS_STRING_INPUT_FALSE  "Die Eingabe ist kein gültiger Ausdruck aus der sich eine natürliche Zahl berechnet läßt."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Geben Sie bitte eine positive ganze Zahl verschieden von 0 und 1."
 END

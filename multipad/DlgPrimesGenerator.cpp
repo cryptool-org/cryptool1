@@ -155,13 +155,60 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	GeneratePrimes P;
 	GeneratePrimes Q;
 	int PSet,QSet;
-
-
+	
+	if(!((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
+		   (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty())) )
+	{
+		ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
+		return;
+	}
+	
+	CString UpnFormula;
+	int err_ndx;
+	bool error;
+	
+	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_edit1.SetSel(err_ndx-1,m_edit1.GetLength());
+		m_control_edit1.SetFocus();
+		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_edit2.SetSel(err_ndx-1,m_edit2.GetLength());
+		m_control_edit2.SetFocus();
+		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_edit3.SetSel(err_ndx-1,m_edit3.GetLength());
+		m_control_edit3.SetFocus();
+		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_edit4.SetSel(err_ndx-1,m_edit4.GetLength());
+		m_control_edit4.SetFocus();
+		ErrorMsg( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+	
 	if(0==m_radio4)
 	{
-		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
-		   (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty()) )
-		{
+		//if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
+		//	(0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty()) )
+		//	{
 			PSet=P.SetLimits( m_edit1, m_edit2 );
 			QSet=Q.SetLimits( m_edit3, m_edit4 );
 			if ( (PSet == 1) && (QSet ==1))
@@ -207,16 +254,16 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				m_control_edit1.SetSel(0,-1);
 				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
 			}
-		}
-		else
-		{
-			ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
-		}
+		//}
+		//else
+		//{
+		//	ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
+		//}
 	}
 	else
 	{
-		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
-		{
+		//if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
+		//{
 			PSet=P.SetLimits( m_edit1, m_edit2 );
 			QSet=Q.SetLimits( m_edit1, m_edit2 );
 
@@ -263,11 +310,11 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				m_control_edit1.SetSel(0,-1);
 				ErrorMsg( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND );
 			}
-		}
-		else
-		{
-			ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
-		}
+		//}
+		//else
+		//{
+		//	ErrorMsg( IDS_STRING_ENTER_UPPER_LOWER_BOUND );
+		//}
 
 	}
 
