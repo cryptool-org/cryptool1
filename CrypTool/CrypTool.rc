@@ -3015,19 +3015,19 @@ BEGIN
                     IDC_STATIC,7,31,235,24
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG DISCARDABLE  0, 0, 275, 118
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG DISCARDABLE  0, 0, 275, 126
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Vorbereitungen durchführen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,97,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,97,50,14
-    LTEXT           "Bevor Alice eine verschlüsselte Nachricht an Bob versenden kann, muss sie entweder ein bestimmtes Dokument hybridverschlüsseln oder eine bereits hybridverschlüsselte Datei auswählen.",
-                    IDC_STATIC,7,7,261,24
+    DEFPUSHBUTTON   "&OK",IDOK,7,105,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,105,50,14
+    LTEXT           "Bevor Alice eine verschlüsselte Nachricht an Bob versenden kann, muss sie entweder ein bestimmtes Dokument hybridverschlüsseln oder eine bereits hybridverschlüsselte Datei auswählen. Dazu braucht sie Bobs öffentlichen Schlüssel.",
+                    IDC_STATIC,7,7,261,32
     LTEXT           "Nach einem Klick auf OK öffnet sich ein weiterer Dialog, mit dem Sie die Hybridverschlüsselung einer Datei durchführen können.",
-                    IDC_STATIC,7,71,261,16
+                    IDC_STATIC,7,79,261,16
     LTEXT           "Die Hybridverschlüsselung ist das z.B. in PGP und S/MIME eingesetzte Standardverfahren, das die Vorteile von symmetrischer und asymmetrischer Verschlüsselung verknüpft.",
-                    IDC_STATIC,7,39,261,24
+                    IDC_STATIC,7,47,261,24
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION DIALOG DISCARDABLE  0, 0, 240, 110
@@ -4778,7 +4778,7 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 260
         TOPMARGIN, 7
-        BOTTOMMARGIN, 111
+        BOTTOMMARGIN, 119
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION, DIALOG
@@ -9945,7 +9945,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,97,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,218,97,50,14
-    LTEXT           "Alice either has to hybrid encrypt a specific document or has to choose an already hybrid encrypted document, before she can send a hybrid encrypted message to Bob.",
+    LTEXT           "Alice either has to hybrid encrypt a specific document or has to choose an already hybrid encrypted document, before she can send a hybrid encrypted message to Bob. Thus Alice needs Bob's public key in the former case.",
                     IDC_STATIC,7,7,261,24
     LTEXT           "After clicking the OK button you will see an additional dialog allowing the execution of the hybrid encryption.",
                     IDC_STATIC,7,63,261,16
