@@ -90,7 +90,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	TutorialFactorisation f;
-	CDlgDetailsFactorisation DetailsFactorisation;
+	DlgDetailsFactorisation DetailsFactorisation;
 };
 
 //{{AFX_INSERT_LOCATION}}

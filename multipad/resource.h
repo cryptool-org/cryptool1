@@ -100,7 +100,8 @@
 #define IDD_KEY_TUTORIAL                276
 #define IDD_CERT_TUTORIAL               277
 #define IDD_SEL_HASH                    278
-#define IDD_DIALOG_FACTORISATION_DETAILS 279
+#define IDD_DIALOG_SELECT_HASHFUNCTION  279
+#define IDD_DIALOG_FACTORISATION_DETAILS 280
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -631,6 +632,7 @@
 #define ID_COPY_KEY                     33151
 #define ID_AES_SELFEXTRACT              33152
 #define ID_P12IMPORT                    33153
+#define ID_HASH_OFAFILE                 33154
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1131,8 +1133,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        280
-#define _APS_NEXT_COMMAND_VALUE         33154
+#define _APS_NEXT_RESOURCE_VALUE        281
+#define _APS_NEXT_COMMAND_VALUE         33155
 #define _APS_NEXT_CONTROL_VALUE         1311
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -22,7 +22,10 @@ struct DFItem {
 };
 
 
-class CDlgDetailsFactorisation : public CDialog
+/////////////////////////////////////////////////////////////////////////////
+// Dialogfeld DlgDetailsFactorisation 
+
+class DlgDetailsFactorisation : public CDialog
 {
 // Konstruktion
 	struct DFItem *List;
@@ -31,10 +34,10 @@ public:
 	void InsertFactDetail( CString & Num, CString &Factor1, 
 		                   CString &Factor2, CString &Method, CString &Time, int PrimeMask);
 	void Init_ListBox();
-	CDlgDetailsFactorisation(CWnd* pParent = NULL);   // Standardkonstruktor
+	DlgDetailsFactorisation(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
-	//{{AFX_DATA(CDlgDetailsFactorisation)
+	//{{AFX_DATA(DlgDetailsFactorisation)
 	enum { IDD = IDD_DIALOG_FACTORISATION_DETAILS };
 	CListCtrl	m_FactorisationDetails;
 	CString	m_orignNumber;
@@ -48,7 +51,7 @@ public:
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CDlgDetailsFactorisation)
+	//{{AFX_VIRTUAL(DlgDetailsFactorisation)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
@@ -56,7 +59,7 @@ public:
 // Implementierung
 protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
-	//{{AFX_MSG(CDlgDetailsFactorisation)
+	//{{AFX_MSG(DlgDetailsFactorisation)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
@@ -64,7 +67,6 @@ protected:
 
 private:
 };
-
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
 

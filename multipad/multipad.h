@@ -55,13 +55,12 @@ class CMultiPadApp : public CWinApp
 	afx_msg void OnUpdateNeedSecudeTicket(CCmdUI* pCmdUI);
 	afx_msg void OnShowKeys();
 	afx_msg void OnKeyGen();
-
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
 	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
 	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren();
 	afx_msg void OnEinzelverfahrenSchluesselgenerieren();
 	afx_msg void OnGenRandomData();
-
+	afx_msg void OnHashOfAFile();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

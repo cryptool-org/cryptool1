@@ -75,14 +75,14 @@ BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_SHOW_ALL_EC_KEYS, OnShowKeys)
 	ON_COMMAND(ID_CRYPT_KeyGen, OnKeyGen)
-	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
-
-	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
-	//}}AFX_MSG_MAP	
+	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_HASH_OFAFILE, OnHashOfAFile)
+	//}}AFX_MSG_MAP
 
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)     // file commands...
 	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
@@ -554,3 +554,9 @@ void CMultiPadApp::OnGenRandomData()
 }
 
 
+
+void CMultiPadApp::OnHashOfAFile() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	HashOfAFile();	
+}

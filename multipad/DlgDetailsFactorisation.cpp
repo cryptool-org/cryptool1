@@ -12,13 +12,13 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// Dialogfeld CDlgDetailsFactorisation 
+// Dialogfeld DlgDetailsFactorisation 
 
 
-CDlgDetailsFactorisation::CDlgDetailsFactorisation(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgDetailsFactorisation::IDD, pParent)
+DlgDetailsFactorisation::DlgDetailsFactorisation(CWnd* pParent /*=NULL*/)
+	: CDialog(DlgDetailsFactorisation::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CDlgDetailsFactorisation)
+	//{{AFX_DATA_INIT(DlgDetailsFactorisation)
 	m_orignNumber = _T("");
 	m_factorisedNumber = _T("");
 	m_Factor1isPrime = _T("");
@@ -30,10 +30,10 @@ CDlgDetailsFactorisation::CDlgDetailsFactorisation(CWnd* pParent /*=NULL*/)
 }
 
 
-void CDlgDetailsFactorisation::DoDataExchange(CDataExchange* pDX)
+void DlgDetailsFactorisation::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CDlgDetailsFactorisation)
+	//{{AFX_DATA_MAP(DlgDetailsFactorisation)
 	DDX_Control(pDX, IDC_LIST1, m_FactorisationDetails);
 	DDX_Text(pDX, IDC_EDIT1, m_orignNumber);
 	DDX_Text(pDX, IDC_EDIT2, m_factorisedNumber);
@@ -45,16 +45,16 @@ void CDlgDetailsFactorisation::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CDlgDetailsFactorisation, CDialog)
-	//{{AFX_MSG_MAP(CDlgDetailsFactorisation)
+BEGIN_MESSAGE_MAP(DlgDetailsFactorisation, CDialog)
+	//{{AFX_MSG_MAP(DlgDetailsFactorisation)
 	ON_NOTIFY(NM_DBLCLK, IDC_LIST1, OnDblclkSelect)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// Behandlungsroutinen für Nachrichten CDlgDetailsFactorisation 
+// Behandlungsroutinen für Nachrichten DlgDetailsFactorisation 
 
-BOOL CDlgDetailsFactorisation::OnInitDialog() 
+BOOL DlgDetailsFactorisation::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 	
@@ -64,7 +64,7 @@ BOOL CDlgDetailsFactorisation::OnInitDialog()
 }
 
 
-void CDlgDetailsFactorisation::Init_ListBox()
+void DlgDetailsFactorisation::Init_ListBox()
 // füllt die Liste auf mit
 //	1.	den im Alphabet (Textoptionen) eingestellten Zeichen
 //	2.	der Anzahl der ciphers, mit denen jedes Zeichen verschlüsselt werden kann
@@ -100,7 +100,7 @@ void CDlgDetailsFactorisation::Init_ListBox()
 	UpdateData(FALSE);
 }
 
-void CDlgDetailsFactorisation::InsertFactDetail(CString &Num, CString &Factor1, 
+void DlgDetailsFactorisation::InsertFactDetail(CString &Num, CString &Factor1, 
 		                                        CString &Factor2, CString &Method , CString &Time,
 												int PrimeMask)
 {
@@ -126,7 +126,7 @@ void CDlgDetailsFactorisation::InsertFactDetail(CString &Num, CString &Factor1,
 	}
 }
 
-void CDlgDetailsFactorisation::ClearFactDetail()
+void DlgDetailsFactorisation::ClearFactDetail()
 {
 	struct DFItem *Seek = List;	
 	while ( Seek != NULL )
@@ -139,7 +139,7 @@ void CDlgDetailsFactorisation::ClearFactDetail()
 }
 
 
-void CDlgDetailsFactorisation::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult) 
+void DlgDetailsFactorisation::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	int selRow;
 	int j = 0;

@@ -95,6 +95,8 @@ void HomophoneHex(const char *infile, const char *OldTitle);
 void NGramAsc(const char *infile, const char *OldTitle);
 void NGramBin(const char *infile, const char *OldTitle);
 void PermutationAsc(const char *infile, const char *OldTitle);
+void HashOfAFile();
+
 
 BOOL CheckAlphabet( int minSize = 1);
 BOOL CheckTextSize( SymbolArray &text, int Threshold = 1 );

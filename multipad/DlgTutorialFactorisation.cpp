@@ -773,23 +773,13 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 	CheckEdit(m_CompositeNoStr,sels,sele);
 
 	res.Empty();
-	
-
-	
 
 	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
 
 	for(k=i=0;i<m_CompositeNoStr.GetLength();i++) {
 		c = m_CompositeNoStr[i];
-//		if(AppConv.IsInAlphabet(c)) { // valid character
-			res += c;
-			k++;
-//		}
-//		else { // invalid character
-		//	MessageBeep(MB_OK);
-		//	if(k<sels) sels--;
-		//	if(k<sele) sele--;
-//		}
+		res += c;
+		k++;
 	}
 	m_CompositeNoStr = res;
 	if ( m_CompositeNoStr.GetLength() )
@@ -813,14 +803,14 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 		factorList = factorList->next;
 		delete tmp;
 	}
-	factorList = 0;
-	DetailsFactorisation.ClearFactDetail();	
-	m_DialogeDetails.EnableWindow(FALSE);
-	m_Name = ""; 
+	{ // reset !
+		factorList = 0;
+		DetailsFactorisation.ClearFactDetail();	
+		m_DialogeDetails.EnableWindow(FALSE);
+		m_Name = ""; 
+	}
 	UpdateData(FALSE);
 	m_CompositeNoCtrl.SetSel(sels,sele);
-
-
 }
 
 void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
@@ -878,6 +868,12 @@ void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
 void DlgTutorialFactorisation::OnShowFactorisationDetails() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	DetailsFactorisation.m_factorisedNumber = "";
+	DetailsFactorisation.m_Factor1isPrime   = "";
+	DetailsFactorisation.m_Factor2isPrime   = "";
+	DetailsFactorisation.m_factor2          = "";
+	DetailsFactorisation.m_factor1          = "";
 
 	DetailsFactorisation.m_orignNumber = m_CompositeNoStr;
 	if ( DetailsFactorisation.DoModal() == IDCANCEL )

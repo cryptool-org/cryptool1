@@ -31,6 +31,8 @@
 #include "DlgGenRandomData.h"
 #include "DialogPeriodeOutput.h"
 #include "DialogPermutation.h"
+#include "SelctAHashfunction.h"
+#include "Secude.h"
 
 #include <fstream.h>
 
@@ -3346,3 +3348,43 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	if(b1) free(b1);
 	if(b2) free(b2);
 }
+
+
+
+
+void HashOfAFile()
+{
+	char fname[257], ftitle[128];
+ 
+// == load INPUT
+	{		
+		// Initialisierung des File-Dialogs:
+		CString sFileFilter;
+		CString sDefName("*.*");
+		CString sTitle;
+		DWORD   dwFlags(OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
+		sFileFilter.LoadString(IDS_OPEN_DOCUMENT_FILTER);
+		sTitle.LoadString(IDS_STRING_VERNAM_KEYFILE);
+		CFileDialog* doc;
+		doc = new CFileDialog(TRUE, NULL, sDefName, dwFlags, sFileFilter);
+		doc->m_ofn.lpstrTitle = sTitle;
+
+		if(doc->DoModal()==IDOK)// Aufruf des File-Dialogs
+		{			
+			strcpy(ftitle, LPCTSTR (doc->GetFileName()));
+			strcpy(fname, LPCTSTR (doc->GetPathName()));
+			delete doc;
+		}
+		else
+		{
+			delete doc;
+			return;
+		}
+	}
+	SelctAHashfunction Dlg;
+	if ( Dlg.DoModal() == IDOK )
+	{
+		hash(fname, ftitle, Dlg.m_selectedHashFunction+1 );
+	}
+}
+
