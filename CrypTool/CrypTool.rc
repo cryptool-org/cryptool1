@@ -2317,7 +2317,7 @@ END
 
 IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 339, 382
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hashdemo"
+CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,20,10,95,62
@@ -2334,7 +2334,8 @@ BEGIN
                     224,26,55,10
     CONTROL         "binär",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,58,
                     31,10
-    LTEXT           "Aktuelle Datei",IDC_STATIC,20,85,45,8,NOT WS_GROUP
+    LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
+                    IDC_STATIC,20,85,216,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     LTEXT           "Hashwert der Originaldatei",IDC_STATIC,20,219,84,8
@@ -2349,8 +2350,7 @@ BEGIN
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
                     294,294,53
     PUSHBUTTON      "Dialog beenden",IDCANCEL,247,359,59,14
-    LTEXT           "",IDC_STATIC_TITEL,110,219,54,9
-    LTEXT           "Bearbeiten",IDC_STATIC_TITEL2,71,85,61,10
+    LTEXT           "",IDC_STATIC_TITEL,109,219,209,9
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 445
@@ -2607,7 +2607,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash &Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash-&Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -3078,7 +3078,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash &Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash-&Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -5587,9 +5587,9 @@ BEGIN
     IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
     IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
     IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich."
-    IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2-Hash"
-    IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5-Hash"
-    IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1-Hash"
+    IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo   MD2-Hash"
+    IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo   MD5-Hash"
+    IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
     IDS_ENTROPY_TITLE       "Entropie <%s>"
 END
 
@@ -7934,7 +7934,7 @@ END
 
 IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 378
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hash Demo"
+CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
@@ -7944,27 +7944,27 @@ BEGIN
                     10
     CONTROL         "SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,57,
                     34,10
-    GROUPBOX        "Base of numbers",IDC_STATIC,217,9,93,63
-    CONTROL         "dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,232,41,39,10
+    GROUPBOX        "Base of hash values",IDC_STATIC,217,9,93,63
+    CONTROL         "decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,232,41,40,10
     CONTROL         "hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
                     232,26,55,10
     CONTROL         "binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
-    LTEXT           "Actual file",IDC_STATIC,16,85,32,8,NOT WS_GROUP
+    LTEXT           "Actual file (this copy of the original file can be modified here)",
+                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Original hash value",IDC_STATIC,16,219,70,8
+    LTEXT           "Hash value of the original file",IDC_STATIC,16,219,94,8
     EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Actual hash value",IDC_STATIC,16,252,79,8
+    LTEXT           "Hash value of the actual file",IDC_STATIC,16,252,89,8
     EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Difference between original / actual file",IDC_STATIC,
-                    16,284,252,8
+    LTEXT           "Difference between hash values of the original and actual file",
+                    IDC_STATIC,16,284,252,8
     PUSHBUTTON      "E&xit",IDCANCEL,251,356,59,14
-    LTEXT           "",IDC_STATIC_TITEL,90,219,54,9
-    LTEXT           "Bearbeiten",IDC_STATIC_TITEL2,52,85,61,10
+    LTEXT           "",IDC_STATIC_TITEL,113,219,197,9
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
                     296,294,53

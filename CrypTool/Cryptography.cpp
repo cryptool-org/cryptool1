@@ -3149,7 +3149,6 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	CString zsp=str1 + OldTitle + str1;
 	
 	HashDlg.m_strTitel= zsp;
-	HashDlg.m_strTitel2=zsp;
 	//Setzen des Titelnamens der Datei in ein Textfeld (in Hashdemo)
 
 	char *t;
@@ -3171,7 +3170,7 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	{
 		CString msg;
 		msg.Format(IDS_STRING_Hashdemo_DateilaengeZuLang,MAX_LAENGE_STRTEXT);
-		AfxMessageBox((LPCTSTR)msg,MB_ICONEXCLAMATION);	
+		AfxMessageBox((LPCTSTR)msg,MB_ICONEXCLAMATION,IDD_HASH_DEMO + 0x20000UL - 0x30000);	
 	}
 	// das Objekt test liest maximum 16000 Zeichen in das Array t ein
 	

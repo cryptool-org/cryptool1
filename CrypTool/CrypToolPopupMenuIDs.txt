@@ -51,7 +51,7 @@
 
 ENGLISH	Analysis	# &Analysis
 ENGLISH	Analysis_Algorithms	# &Analysis|A&lgorithms
-ENGLISH	Analysis_CiphertextOnly	# &Analysis|&Ciphertext Only
+ENGLISH	Analysis_CiphertextOnly	# &Analysis|&Ciphertext-Only
 ENGLISH	Analysis_General	# &Analysis|&General
 ENGLISH	Analysis_KnownPlaintext	# &Analysis|&Known Plaintext
 ENGLISH	Analysis_ManualAnalysis	# &Analysis|&Manual Analysis

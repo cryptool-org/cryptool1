@@ -52,7 +52,6 @@ public:
 	CString	m_strNewHash;
 	CString m_strHash;
 	CString	m_strTitel;
-	CString	m_strTitel2;
 	CString	m_strDiffHash;
 	//}}AFX_DATA
 	

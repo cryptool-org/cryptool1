@@ -24,7 +24,6 @@ CDlgHashDemo::CDlgHashDemo(CWnd* pParent /*=NULL*/)
 	m_strOrigHash = _T("");
 	m_strNewHash = _T("");
 	m_strTitel = _T("");
-	m_strTitel2 = _T("");
 	m_strHashDiffRE = _T("");
 	//}}AFX_DATA_INIT
 }
@@ -43,7 +42,6 @@ void CDlgHashDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_ORIGHASH, m_strOrigHash);
 	DDX_Text(pDX, IDC_EDIT_AKTHASH, m_strNewHash);
 	DDX_Text(pDX, IDC_STATIC_TITEL, m_strTitel);
-	DDX_Text(pDX, IDC_STATIC_TITEL2, m_strTitel2);
 	//}}AFX_DATA_MAP
 }
 
@@ -95,10 +93,8 @@ BOOL CDlgHashDemo::OnInitDialog()
 
 	m_ctrlText.SetWindowText(m_strText);
 	OnChangeEditText();
-	// SetRed();
-	//farbige Darstellung der Differenz 
-
-
+	
+	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -416,7 +412,6 @@ void CDlgHashDemo::showHashBin(OctetString &hash)
 void CDlgHashDemo::OnChangeEditText() 
 {
 	UpdateData(true);
-	m_strTitel2=" ";
 	/***************************************************
 	MAX_LAENGE als extern deklarieren!!!!
 	***************************************************/
