@@ -715,6 +715,7 @@ UINT XorAuto(PVOID p)
 	if(Opt.m_VLen) {
 		CDlgBinKeyLength dia;
 		dia.m_laenge = periode;
+		dia.m_title = pc_str1;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
 				HIDE_HOUR_GLASS
@@ -754,7 +755,9 @@ UINT XorAuto(PVOID p)
 	if(Opt.m_VKey) {
 		CDlgKeyHexAnalysis dia;
 		
-		if(IDCANCEL == dia.Display((char *) key,periode)) {
+		CString title;
+		title.LoadString(IDS_STRING_ANALYSE_XOR);		
+		if(IDCANCEL == dia.Display((LPCTSTR)title,(char *) key,periode,false)) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
 				HIDE_HOUR_GLASS
 			return r;
@@ -865,6 +868,7 @@ UINT AddAuto(PVOID p)
 	if(Opt.m_VLen) {
 		CDlgBinKeyLength dia;
 		dia.m_laenge = periode;
+		dia.m_title = pc_str1;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
 				HIDE_HOUR_GLASS
@@ -912,7 +916,9 @@ UINT AddAuto(PVOID p)
 	if(Opt.m_VKey) {
 		CDlgKeyHexAnalysis dia;
 		
-		if(IDCANCEL == dia.Display((char *) key,periode)) {
+		CString title;
+		title.LoadString(IDS_STRING_ANALYSE_ADD);
+		if(IDCANCEL == dia.Display((LPCTSTR)title,(char *) key,periode,false)) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
 				HIDE_HOUR_GLASS
 			return r;

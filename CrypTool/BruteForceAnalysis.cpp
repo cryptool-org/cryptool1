@@ -187,10 +187,10 @@ UINT Brute(PVOID p)
     //if ((AlgId==6)||(AlgId==7))
 	//	par->keylen=8*keylen;
 	
+	CString title;
+	title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
     if(par->flags & CRYPT_DO_PROGRESS)
 	{
-		CString title;
-		title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
 		CString message;
 		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
 		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
@@ -322,7 +322,7 @@ UINT Brute(PVOID p)
 	
 	CDlgKeyHexAnalysis dia;
 	
-	if(IDCANCEL == dia.Display(kfound,keybits / 8))
+	if(IDCANCEL == dia.Display((LPCTSTR)title,kfound,keybits / 8))
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
