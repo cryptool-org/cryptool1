@@ -18,6 +18,7 @@
 #include "secure.h" // Include-File von SECUDE
 #include "pkcs.h"   // Include-File von SECUDE
 #include "MyDocument.h"
+#include "DlgShowHash.h"
 
 void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
 
@@ -268,18 +269,24 @@ void hash (char* infile, const char *OldTitle, int AlgId)
 			AlgTitel="RIPEMD160";
 			break;
 	}
+	CDlgShowHash HashDlg;
+	HashDlg.SetHash( hash, AlgTitel );
+	if ( IDOK == HashDlg.DoModal() )
+	{
+		theApp.SecudeLib.aux_free_OctetString(&message);
+		//Datenausgabe:
+		theApp.SecudeLib.aux_OctetString2file(&hash,outfile,2);
+		theApp.SecudeLib.aux_free(hash.octets);
 
-	theApp.SecudeLib.aux_free_OctetString(&message);
-	//Datenausgabe:
-	theApp.SecudeLib.aux_OctetString2file(&hash,outfile,2);
-	theApp.SecudeLib.aux_free(hash.octets);
-    NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-	remove(outfile);
-    if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
-			NewDoc->SetTitle(title);
-		}
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+		remove(outfile);
+		if(NewDoc) {
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+				NewDoc->SetTitle(title);
+			}
+
+	}
 }
 
 

@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "DlgPrimesGenerator.h"
-
+#include "crypt.h"
 
 
 #ifdef _DEBUG
@@ -97,8 +97,20 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 {
 	CDialog::OnInitDialog();	
 	// TODO: Zusätzliche Initialisierung hier einfügen
-	m_control_button_accept.EnableWindow(false);
-
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PRIMES,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes;
+	if ( PasteKey( pc_str, Primes ) )
+	{
+		UpdateData(true);
+		int d = Primes.Find(';', 0);
+		m_edit5 = Primes.Mid(0, d);
+		m_edit6 = Primes.Mid(d+1);
+		UpdateData(false);
+	}
+	else
+	{
+		m_control_button_accept.EnableWindow(false);
+	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -169,7 +181,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	{
 		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
 		{
-			if ( P.SetLimits( m_edit1, m_edit2 ) && Q.SetLimits( m_edit3, m_edit4 ) )
+			if ( P.SetLimits( m_edit1, m_edit2 ) && Q.SetLimits( m_edit1, m_edit2 ) )
 			{
 				theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
@@ -205,6 +217,9 @@ void DlgPrimesGenerator::OnButtonAccept()
 	UpdateData(true);
 	if ( m_edit5 != "0" && m_edit6 != "0" )
 	{
+		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PRIMES,pc_str,STR_LAENGE_STRING_TABLE);
+		CString Primes = m_edit5 + ";" + m_edit6;
+		CopyKey ( pc_str, Primes );
 		CDialog::OnOK();
 	}
 	UpdateData(false);

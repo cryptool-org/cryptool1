@@ -1738,7 +1738,7 @@ BEGIN
     GROUPBOX        "Eingabe",IDC_STATIC,166,6,187,107
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,187,340,84
-    DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
+    DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,159,77,16
     PUSHBUTTON      "Dialog &beenden",IDC_BUTTON_cancel,259,278,94,18
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,34,165,8
@@ -1762,9 +1762,9 @@ BEGIN
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
     PUSHBUTTON      "Vollst‰ndig &faktorisieren",
-                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
-    LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die n‰chste zusammengesetzte Zahl in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollst‰ndig faktorisiert.",
-                    IDC_STATIC,24,132,318,17
+                    IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,159,93,16
+    LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die Eingabe oder die n‰chste zusammengesetzte Zahl im Feld ""Produktdarstellung der Faktorisierung"" in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollst‰ndig faktorisiert.",
+                    IDC_STATIC,24,130,318,24
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 262
@@ -1991,14 +1991,44 @@ BEGIN
                     8,239,173,WS_EX_TRANSPARENT
 END
 
-IDD_TEST DIALOG DISCARDABLE  0, 0, 157, 62
+IDD_TEST DIALOG DISCARDABLE  0, 0, 206, 177
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Abbrechen",IDCANCEL,53,41,50,14
-    EDITTEXT        IDC_EDIT1,7,7,143,15,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
+    PUSHBUTTON      "Abbrechen",IDCANCEL,78,156,50,14
+    LTEXT           "Algorithmus",IDC_STATIC,16,19,37,8
+    LTEXT           "Brent",IDC_STATIC,16,41,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL2,133,38,50,14,WS_DISABLED
+    LTEXT           "Iterationen",IDC_STATIC,86,19,34,8
+    EDITTEXT        IDC_EDIT1,87,38,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Pollard",IDC_STATIC,16,63,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL3,133,60,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT2,87,60,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Williams",IDC_STATIC,16,85,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL4,133,82,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT3,87,82,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Lenstra",IDC_STATIC,16,107,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL5,133,104,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT4,87,104,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Quadatisches Sieb",IDC_STATIC,16,129,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL6,133,126,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT5,87,126,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+END
+
+IDD_SHOW_HASH DIALOG DISCARDABLE  0, 0, 241, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "&Schlieﬂen",IDCANCEL,144,46,90,18
+    PUSHBUTTON      "&Hashwert im Desktop anzeigen",IDOK,7,46,108,18
 END
 
 
@@ -3342,7 +3372,7 @@ BEGIN
         VERTGUIDE, 353
         HORZGUIDE, 6
         HORZGUIDE, 113
-        HORZGUIDE, 172
+        HORZGUIDE, 175
         HORZGUIDE, 278
         HORZGUIDE, 296
     END
@@ -3438,6 +3468,15 @@ BEGIN
         HORZGUIDE, 8
         HORZGUIDE, 181
         HORZGUIDE, 203
+    END
+
+    IDD_SHOW_HASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+        HORZGUIDE, 46
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -4556,6 +4595,8 @@ BEGIN
     IDS_CRYPT_RIJNDAEL      "Rijndael"
     IDS_CRYPT_SERPENT       "Serpent"
     IDS_CRYPT_TWOFISH       "Twofish"
+    IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
+    IDS_CRYPT_RSADEMO_PARAMETER "RSA-Demo: Geheime Parameter"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6528,14 +6569,44 @@ BEGIN
                     8,239,173,WS_EX_TRANSPARENT
 END
 
-IDD_TEST DIALOG DISCARDABLE  0, 0, 157, 62
+IDD_TEST DIALOG DISCARDABLE  0, 0, 206, 177
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Abbrechen",IDCANCEL,53,41,50,14
-    EDITTEXT        IDC_EDIT1,7,7,143,15,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
+    PUSHBUTTON      "Abbrechen",IDCANCEL,78,156,50,14
+    LTEXT           "Algorithmus",IDC_STATIC,16,19,37,8
+    LTEXT           "Brent",IDC_STATIC,16,41,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL2,133,38,50,14,WS_DISABLED
+    LTEXT           "Iterationen",IDC_STATIC,86,19,34,8
+    EDITTEXT        IDC_EDIT1,87,38,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Pollard",IDC_STATIC,16,63,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL3,133,60,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT2,87,60,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Williams",IDC_STATIC,16,85,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL4,133,82,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT3,87,82,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Lenstra",IDC_STATIC,16,107,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL5,133,104,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT4,87,104,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    LTEXT           "Quadatisches Sieb",IDC_STATIC,16,129,60,8
+    PUSHBUTTON      "Abbrechen",IDCANCEL6,133,126,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT5,87,126,32,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+END
+
+IDD_SHOW_HASH DIALOG DISCARDABLE  0, 0, 241, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "&Close",IDCANCEL,147,46,87,18
+    PUSHBUTTON      "Show hashvalue in &Desktop",IDOK,7,46,97,18
 END
 
 
@@ -7507,6 +7578,15 @@ BEGIN
         VERTGUIDE, 12
         VERTGUIDE, 238
         HORZGUIDE, 212
+    END
+
+    IDD_SHOW_HASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+        HORZGUIDE, 46
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -8600,6 +8680,8 @@ BEGIN
     IDS_CRYPT_RIJNDAEL      "Rijndael"
     IDS_CRYPT_SERPENT       "Serpent"
     IDS_CRYPT_TWOFISH       "Twofish"
+    IDS_CRYPT_PRIMES        "Two primes p and q"
+    IDS_CRYPT_RSADEMO_PARAMETER "RSA demonstration: Secret parameter"
 END
 
 #endif    // Englisch (GB) resources

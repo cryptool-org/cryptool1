@@ -15,8 +15,6 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld DlgTutorialFactorisation 
-volatile long ExitFactorisationCode;
-
 
 DlgTutorialFactorisation::DlgTutorialFactorisation(CWnd* pParent)
 	: CDialog(DlgTutorialFactorisation::IDD, pParent)
@@ -93,7 +91,6 @@ UINT singleThreadBrent( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Brent();
-	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -102,7 +99,6 @@ UINT singleThreadPollard( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Pollard();
-	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -111,7 +107,6 @@ UINT singleThreadWilliams( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Williams();
-	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -120,7 +115,6 @@ UINT singleThreadLenstra( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->Lenstra();
-	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
@@ -129,13 +123,16 @@ UINT singleThreadQuadraticSieve( PVOID x )
 	TutorialFactorisation *f;
 	f = (TutorialFactorisation*)x;
 	BOOL ret = f->QuadraticSieve();
-	if ( 1 == ExitFactorisationCode ) dlg.PostMessage(WM_TIMER,47,NULL);
 	return 0;
 }
 
 
 void DlgTutorialFactorisation::OnButtonFactorisation() 
 {
+	int i, started;
+	TutorialFactorisation Brent(0,"Brent"), Pollard(1,"Pollard"), 
+			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4,"Quadratic Sieve");;
+
 	UpdateData(TRUE);
 	
 	if ( m_CompositeNoStr.GetLength() )
@@ -147,7 +144,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	CString next_factor;
 	char line [256];
 	next_factor=Search_First_Composite_Factor();
-	theApp.DoWaitCursor(0);			// aktiviert die Sanduhr
 	
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
@@ -162,6 +158,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			BOOL factorized = FALSE;
 			CString f1, f2;
 
+			theApp.DoWaitCursor(1);			// aktiviert die Sanduhr
 			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 			{
 				//Sie müssen mindestens ein Verfahren wählen!
@@ -177,7 +174,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 				return;
 			}
-// == call factorisation algorithms serial
 			if ( !factorized && m_bruteForce )
 			{
 				TutorialFactorisation fact;
@@ -188,122 +184,96 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 					fact.GetFactor2Str( f2 );
 				}
 			}
+			dlg.m_curThread = 0;
+			dlg.m_numThreads = 0;
+			dlg.m_displayed = 0;
+			dlg.m_OldThread = -1;
+			dlg.m_registeredThreads = 0;
+			dlg.m_retcode = IDCANCEL;
+			dlg.m_Factorisations[0] = &Brent;
+			dlg.m_Factorisations[1] = &Pollard;
+			dlg.m_Factorisations[2] = &Williams;
+			dlg.m_Factorisations[3] = &Lenstra;
+			dlg.m_Factorisations[4] = &QSieve;
 
+			started = 0;
 			if ( !factorized && m_Brent )
 			{
-				ExitFactorisationCode = 0;
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				AfxBeginThread( singleThreadBrent, PVOID(&fact) );
-				dlg.SetCaption("Brent");
-				if ( IDOK != dlg.DoModal() )
-				{
-					if ( 0 == ExitFactorisationCode )
-					{
-						ExitFactorisationCode = 2;
-						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
-					}
-				}
-				factorized = fact.isItFactorized();
-				if ( TRUE == factorized )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
+				Brent.SetN(next_factor);
+				Brent.m_Thread = AfxBeginThread( singleThreadBrent, PVOID(&Brent) );
+				started++;
 			}
-
 			if ( !factorized && m_Pollard )
 			{
-				ExitFactorisationCode = 0;
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				AfxBeginThread( singleThreadPollard, PVOID(&fact) );
-				dlg.SetCaption("Pollard");
-				if ( IDOK != dlg.DoModal() )
-				{
-					if ( 0 == ExitFactorisationCode )
-					{
-						ExitFactorisationCode = 2;
-						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
-					}
-				}
-				factorized = fact.isItFactorized();
-				if ( TRUE == factorized )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
-
+				Pollard.SetN(next_factor);
+				Pollard.m_Thread = AfxBeginThread( singleThreadPollard, PVOID(&Pollard) );
+				started++;
 			}
 
 			if ( !factorized && m_Williams )
 			{
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				ExitFactorisationCode = 0;
-				AfxBeginThread( singleThreadWilliams, PVOID(&fact) );
-				dlg.SetCaption("Williams");
-				if ( IDOK != dlg.DoModal() )
-				{
-					if ( 0 == ExitFactorisationCode )
-					{
-						ExitFactorisationCode = 2;
-						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
-					}
-				}
-				factorized = fact.isItFactorized();
-				if ( TRUE == factorized )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
+				Williams.SetN(next_factor);
+				Williams.m_Thread = AfxBeginThread( singleThreadWilliams, PVOID(&Williams) );
+				started++;
 			}
 
 			if ( !factorized && m_Lenstra )
 			{
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				ExitFactorisationCode = 0;
-				AfxBeginThread( singleThreadLenstra, PVOID(&fact) );
-				dlg.SetCaption("Lenstra");
-				if ( IDOK != dlg.DoModal() )
-				{
-					if ( 0 == ExitFactorisationCode )
-					{
-						ExitFactorisationCode = 2;
-						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
-					}
-				}
-				factorized = fact.isItFactorized();
-				if ( TRUE == factorized )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
+				Lenstra.SetN(next_factor);
+				Lenstra.m_Thread = AfxBeginThread( singleThreadLenstra, PVOID(&Lenstra) );
+				started++;
 			}
 			
 			if ( !factorized && m_QSieve )
 			{
-				TutorialFactorisation fact;
-				fact.SetN(next_factor);
-				ExitFactorisationCode = 0;
-				AfxBeginThread( singleThreadQuadraticSieve, PVOID(&fact) );
-				dlg.SetCaption("Quadratic Sieve");
-				if ( IDOK != dlg.DoModal() )
-				{
-					if ( 0 == ExitFactorisationCode )
-					{
-						ExitFactorisationCode = 2;
-						while ( 2 == ExitFactorisationCode ) Sleep( 20 );
-					}
-				}
-				factorized = fact.isItFactorized();
-				if ( TRUE == factorized )
-				{
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-				}
-			}		
+				QSieve.SetN(next_factor);
+				QSieve.m_Thread = AfxBeginThread( singleThreadQuadraticSieve, PVOID(&QSieve) );
+				started++;
+			}
+			// starten der worker threads nachdem alle in den Suspend-mode gegangen sind
+			dlg.m_Factorisations[0] = &Brent;
+			dlg.m_Factorisations[1] = &Pollard;
+			dlg.m_Factorisations[2] = &Williams;
+			dlg.m_Factorisations[3] = &Lenstra;
+			dlg.m_Factorisations[4] = &QSieve;
+
+/*			if(m_Brent) while(0 != Brent.status) Sleep(10);
+			if(m_Pollard) while(0 != Pollard.status) Sleep(10);
+			if(m_Williams) while(0 != Williams.status) Sleep(10);
+			if(m_Lenstra) while(0 != Lenstra.status) Sleep(10);
+			if(m_QSieve) while(0 != QSieve.status) Sleep(10);*/
+
+			dlg.m_totalThreads = started;
+			dlg.SetCaption("Faktorisierungstimer");
+			if ( IDOK != dlg.DoModal() )
+			{
+			}
+
+			if(Brent.factorized) {
+				factorized = TRUE;
+				Brent.GetFactor1Str( f1 );
+				Brent.GetFactor2Str( f2 );
+			}
+			if(Pollard.factorized) {
+				factorized = TRUE;
+				Pollard.GetFactor1Str( f1 );
+				Pollard.GetFactor2Str( f2 );
+			}
+			if(Williams.factorized) {
+				factorized = TRUE;
+				Williams.GetFactor1Str( f1 );
+				Williams.GetFactor2Str( f2 );
+			}
+			if(Lenstra.factorized) {
+				factorized = TRUE;
+				Lenstra.GetFactor1Str( f1 );
+				Lenstra.GetFactor2Str( f2 );
+			}
+			if(QSieve.factorized) {
+				factorized = TRUE;
+				QSieve.GetFactor1Str( f1 );
+				QSieve.GetFactor2Str( f2 );
+			}
 			if ( factorized )
 			{
 				expandFactorisation( next_factor, f1, f2 );
@@ -316,7 +286,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 				AfxMessageBox(line);
 			}
 
-			theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
+			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
 		}

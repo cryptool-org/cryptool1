@@ -119,22 +119,14 @@ class TutorialFactorisation
 	Big N;
 	Big factor1;
 	Big factor2;
-	bool isFactorized;
-	BOOL SUCCESS() { 
-		isFactorized = true;
-		ExitFactorisationCode = 1;
-		return true;
-	}
-	BOOL ABORT() {
-		ExitFactorisationCode = -1;
-        return false;
-	}
-	BOOL END_METHOD() {
-		ExitFactorisationCode = 1;
-        return false;
-	}
 public:
-	bool isItFactorized() { return isFactorized; }
+	int m_iterations;
+	TutorialFactorisation(int ordinal, CString name);
+	CString m_Name;
+	int m_Ordinal;
+	CWinThread *m_Thread;
+	bool factorized;
+	int status; // 0 = running, 1 = faktorisierung gefunden, -1 = abbrechen, -2 abgebrochen
 	bool gotcha(Big& NN, Big& P);
 	bool factored(long lptr, Big& T);
 	void new_poly();
@@ -213,8 +205,8 @@ public:
 	BOOL Brent();
 	TutorialFactorisation();
 	virtual ~TutorialFactorisation();
-private:
 	miracl *mip;
+private:
 	BOOL Precheck();
 };
 

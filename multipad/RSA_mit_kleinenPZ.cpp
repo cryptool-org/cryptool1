@@ -5,6 +5,7 @@
 #include "multipad.h"
 #include "DlgRSAwithSmallPrimesOptions.h"
 #include "RSA_mit_kleinenPZ.h"
+#include "crypt.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -217,6 +218,9 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 	}
 	if ( RSA->IsInitialized() )
 	{
+		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+		CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
+		CopyKey ( pc_str, Primes );
 		m_ButtonDecrypt.EnableWindow(true);
 		m_ButtonEncrypt.EnableWindow(true);
 		m_ButtonOptionen.EnableWindow(true);
@@ -775,7 +779,23 @@ BOOL RSA_mit_kleinenPZ::OnInitDialog()
 	
 	m_ButtonDecrypt.EnableWindow(false);
 	m_ButtonEncrypt.EnableWindow(false);
-	m_ButtonOptionen.EnableWindow(false);
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes;
+	if ( PasteKey( pc_str, Primes ) )
+	{
+		UpdateData(true);
+		int d1 = Primes.Find(';', 0);
+		int d2 = Primes.Find(';', d1+1);
+		m_eingabe_p = Primes.Mid(0, d1);
+		m_eingabe_q = Primes.Mid(d1+1, ((d2-d1)-1));
+		m_oeffentliche_schluessel_e = Primes.Mid(d2+1);
+		UpdateData(false);
+		OnParameterAktualisieren();
+	}
+	else
+	{
+		m_ButtonOptionen.EnableWindow(false);
+	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

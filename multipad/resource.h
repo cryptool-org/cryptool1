@@ -2,6 +2,12 @@
 // Microsoft Developer Studio generated include file.
 // Used by multipad.rc
 //
+
+#define IDCANCEL2                       3
+#define IDCANCEL3                       4
+#define IDCANCEL4                       5
+#define IDCANCEL5                       6
+#define IDCANCEL6                       7
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -88,6 +94,7 @@
 #define IDD_DIALOG_TIPPS_AND_TRICKS     257
 #define IDB_BITMAP5                     259
 #define IDD_TEST                        260
+#define IDD_SHOW_HASH                   268
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -940,6 +947,8 @@
 #define IDS_CRYPT_RIJNDAEL              37669
 #define IDS_CRYPT_SERPENT               37670
 #define IDS_CRYPT_TWOFISH               37671
+#define IDS_CRYPT_PRIMES                37672
+#define IDS_CRYPT_RSADEMO_PARAMETER     37673
 #define IDS_STRING_REFERENCE_FILE       37700
 #define IDS_STRING_TESTS_ERGEBNIS_INFO  37701
 #define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 37702
@@ -953,7 +962,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        268
+#define _APS_NEXT_RESOURCE_VALUE        269
 #define _APS_NEXT_COMMAND_VALUE         33153
 #define _APS_NEXT_CONTROL_VALUE         1307
 #define _APS_NEXT_SYMED_VALUE           101

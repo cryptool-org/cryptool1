@@ -4,8 +4,10 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+#include "resource.h"
 #include "CryptologyUsingMiracl.h"
 #include <monty.h>
+#include "DlgRuntime.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -15,7 +17,21 @@ static char THIS_FILE[]=__FILE__;
 
 static Miracl g_precision=50;
 
+#ifndef MULTITHREAD
+extern CDlgRuntime dlg;
+#define THREAD_START 	if(dlg.EnterSchedule(m_Ordinal)) {dlg.ExitSchedule(m_Ordinal); return false; }\
+if ( Precheck() ) { dlg.ExitSchedule(m_Ordinal); return true;}
+#define THREAD_CHECK if(dlg.Schedule(m_Ordinal)) {dlg.ExitSchedule(m_Ordinal);return false;}
+#define THREAD_END dlg.ExitSchedule(m_Ordinal);
+#else
+#define THREAD_DEFINE
+#define THREAD_START
+#define THREAD_CHECK if ( ExitFactorisationCode ) { \
+	ExitFactorisationCode = 1; return false; }
+#endif
 
+
+////////////////////////////////////////////////////////////////////////////////
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 {
 	int i=0;
@@ -968,7 +984,18 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 
 TutorialFactorisation::TutorialFactorisation()
 {
+//	mip = &g_precision;
+	status = 0;
+	factorized = false;
+}
+
+TutorialFactorisation::TutorialFactorisation(int ordinal, CString name)
+{
+	m_Ordinal = ordinal;
+	m_Name = name;
 	mip = &g_precision;
+	status = 0;
+	factorized = false;
 }
 
 TutorialFactorisation::~TutorialFactorisation()
@@ -990,7 +1017,6 @@ BOOL TutorialFactorisation::IsPrime(CString &Num)
 
 BOOL TutorialFactorisation::Precheck()
 {
-	isFactorized = false;
 	factor1 = 0;
 	factor2 = 0;
 
@@ -1001,6 +1027,7 @@ BOOL TutorialFactorisation::Precheck()
 
     if ( prime( N ) )
 	{
+		status |= THREAD_FACTORIZED;
 		return true;
 	}
 
@@ -1008,7 +1035,8 @@ BOOL TutorialFactorisation::Precheck()
 	{
 		factor1 = 2;
 		factor2 = N / 2;
-		isFactorized = true;
+		status |= THREAD_FACTORIZED;
+		factorized = true;
 		return true;
 	}
 	return false;
@@ -1021,7 +1049,8 @@ BOOL TutorialFactorisation::BruteForce()
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
 	int n,p;
-//	miracl *mip = &g_precision;
+//	miracl *
+	mip = &g_precision;
 
 	n=0;
 	p=mip->PRIMES[0];
@@ -1031,12 +1060,14 @@ BOOL TutorialFactorisation::BruteForce()
         { // factor found 
             factor1 = p;
 			factor2 = N/p;
-			isFactorized = true;
+			status |= THREAD_FACTORIZED;
+			factorized = true;
 			return true;
         }
         if ((N/p)<=p)
         { // must be prime 
-			isFactorized = true;
+			factorized = true;
+			status |= THREAD_FACTORIZED;
 			return true;
         }
 		p=mip->PRIMES[++n];
@@ -1049,16 +1080,14 @@ BOOL TutorialFactorisation::BruteForce()
 
 BOOL TutorialFactorisation::Brent()
 {
-	if ( Precheck() ) 
-		return SUCCESS();
+	THREAD_START;
 
-    long k,r,i,m,iter;
+    long k,r,i,m;
     Big z;
     ZZn x,y,q,ys;
 
     m=10L;
     r=1L;
-    iter=0L;
     z=0;
 	modulo(N);    // ZZn arithmetic done mod n 
 	y=z;          // convert back to ZZn (n has changed!) 
@@ -1073,9 +1102,8 @@ BOOL TutorialFactorisation::Brent()
 		k=0;
 		do
 		{
-			iter++;
-			if ( ExitFactorisationCode )
-				return ABORT();
+			m_iterations++;
+			THREAD_CHECK;
 			ys=y;
 			for (i=1L;i<=min(m,r-k);i++)
 			{   
@@ -1095,13 +1123,17 @@ BOOL TutorialFactorisation::Brent()
 
 	if (z==N) 
 	{
-		return END_METHOD();
+		THREAD_END;
+		return false;
 	}
 
 	factor1 = z;
 	factor2 = N/z;
 
-	return SUCCESS();
+	status |= THREAD_FACTORIZED;
+	factorized = TRUE;
+	THREAD_END;
+	return true;
 }
 
 void TutorialFactorisation::marks(long start)
@@ -1169,8 +1201,7 @@ int TutorialFactorisation::giant_step_pollard()
 
 BOOL TutorialFactorisation::Pollard()
 {
-	if ( Precheck() ) 
-		return SUCCESS();
+	THREAD_START;
 	
 	/*  factoring program using Pollards (p-1) method */
     int phase,m,pos,btch;
@@ -1182,16 +1213,25 @@ BOOL TutorialFactorisation::Pollard()
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(N))
+    //{
+        //cout << "this number is prime!\n";
+        //return true;
+    //}
     modulo(N);                    /* do all arithmetic mod n */
     phase=1;
     p=0;
     btch=50;
     i=0;
     b=2;
+    //cout << "phase 1 - trying all primes less than " << LIMIT1;
+    //cout << "\nprime= " << setw(8) << p;
     forever
     { /* main loop */
-        if ( ExitFactorisationCode )
-            return ABORT();
+		m_iterations++;
+		THREAD_CHECK;
 
         if (phase==1)
         { /* looking for all factors of (p-1) < LIMIT1 */
@@ -1199,6 +1239,8 @@ BOOL TutorialFactorisation::Pollard()
             if (mip->PRIMES[i+1]==0)
             {
                 phase=2;
+                //cout << "\nphase 2 - trying last prime less than ";
+                //cout  << LIMIT2 << "\nprime= " << setw(8) << p;
                 next_phase_pollard();
                 btch*=100;
                 i++;
@@ -1231,15 +1273,25 @@ BOOL TutorialFactorisation::Pollard()
             }
             if (t==N)
             {
+                //cout << "\ndegenerate case";
                 break;
             }
+            //if (prime(t))   cout << "\nprime factor      " << t;
+            //else            cout << "\ncomposite factor  " << t;
             N/=t;
 			factor1=t;
 			factor2=N;
-            return SUCCESS();
+            //if (prime(N)) cout << "\nprime factor      " << n;
+            //else          cout << "\ncomposite factor  " << n;
+			factorized = true;
+			status |= THREAD_FACTORIZED;
+			THREAD_END;
+            return true;
         }
     } 
-    return END_METHOD();
+    //"\nfailed to factor\n";
+	THREAD_END;
+    return false;
 }
 
 
@@ -1288,10 +1340,9 @@ int TutorialFactorisation::giant_step_williams()
 
 BOOL TutorialFactorisation::Williams()
 {
-	if ( Precheck() ) 
-		return SUCCESS();
+	THREAD_START;
 
-	 /*  factoring program using Williams (p+1) method */
+	/*  factoring program using Williams (p+1) method */
     int k,phase,m,nt,pos,btch;
     long i,pa;
     Big t;
@@ -1301,6 +1352,13 @@ BOOL TutorialFactorisation::Williams()
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(n))
+    //{
+        //cout << "this number is prime!\n";
+        //return 0;
+    //}
     modulo(N);                     /* do all arithmetic mod N */
     for (nt=0,k=3;k<10;k++)
     { /* try more than once for p+1 condition (may be p-1) */
@@ -1310,10 +1368,12 @@ BOOL TutorialFactorisation::Williams()
         p=0;
         btch=50;
         i=0;
+        //cout << "phase 1 - trying all primes less than " << LIMIT1;
+        //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
-			if ( ExitFactorisationCode )
-				return ABORT();
+			m_iterations++;
+			THREAD_CHECK;
 
             if (phase==1)
             { /* looking for all factors of p+1 < LIMIT1 */
@@ -1321,6 +1381,8 @@ BOOL TutorialFactorisation::Williams()
                 if (mip->PRIMES[i+1]==0)
                 { /* now change gear */
                     phase=2;
+                    //cout << "\nphase 2 - trying last prime less than ";
+                    //cout << LIMIT2 << "\nprime= " << setw(8) << p;
                     next_phase_williams();
                     btch*=100;
                     i++;
@@ -1346,6 +1408,7 @@ BOOL TutorialFactorisation::Williams()
             }
             if (i++%btch==0)
             { /* try for a solution */
+                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
                 t=gcd(q,N);
                 if (t==1)
                 {
@@ -1354,17 +1417,29 @@ BOOL TutorialFactorisation::Williams()
                 }
                 if (t==N)
                 {
+                    //cout << "\ndegenerate case";
                     break;
                 }
+                //if (prime(t)) cout << "\nprime factor     " << t;
+                //else          cout << "\ncomposite factor " << t;
                 N/=t;
+                //if (prime(n)) cout << "\nprime factor     " << n;
+                //else          cout << "\ncomposite factor " << n;
 				factor1=t;
 				factor2=N;
-                return SUCCESS();
+				factorized = true;
+				status |= THREAD_FACTORIZED;
+				THREAD_END;
+                return true;
             }
         } 
         if (nt>=NTRYS) break;
+        //cout << "\ntrying again\n";
     }
-	return END_METHOD();
+    //cout << "\nfailed to factor\n";
+    //return 0;
+	THREAD_END;
+	return false;
 }
 
 
@@ -1484,9 +1559,7 @@ int TutorialFactorisation::giant_step_lenstra()
 BOOL TutorialFactorisation::Lenstra()
 {
 	 /*  factoring program using Lenstras Elliptic Curve method */
-
-	if ( Precheck() ) 
-		return SUCCESS();
+	THREAD_START;
 	
     int phase,m,k,nc,pos,btch;
     long i,pa;
@@ -1498,6 +1571,13 @@ BOOL TutorialFactorisation::Lenstra()
     for (m=1;m<=MULT/2;m+=2) 
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
+    //cout << "input number to be factored\n";
+    //cin >> n;
+    //if (prime(N))
+    //{
+        //cout << "this number is prime!\n";
+        //return 0;
+    //}
     modulo(N);                 /* do all arithmetic mod n */
     for (nc=1,k=6;k<100;k++)
     { /* try a new curve */
@@ -1512,10 +1592,12 @@ BOOL TutorialFactorisation::Lenstra()
         p=0;
         i=0;
         btch=50;
+        //cout << "phase 1 - trying all primes less than " << LIMIT1;
+        //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
-			if ( ExitFactorisationCode )
-				return ABORT();
+			m_iterations++;
+			THREAD_CHECK;
 
             if (phase==1)
             {
@@ -1548,6 +1630,7 @@ BOOL TutorialFactorisation::Lenstra()
             }
             if (i++%btch==0)
             { /* try for a solution */
+                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
                 t=gcd(q,N);
                 if (t==1)
                 {
@@ -1556,17 +1639,28 @@ BOOL TutorialFactorisation::Lenstra()
                 }
                 if (t==N)
                 {
+                    //cout << "\ndegenerate case";
                     break;
                 }
+                //if (prime(t)) cout << "\nprime factor     " << t;
+                //else          cout << "\ncomposite factor " << t;
                 N/=t;
+                //if (prime(N)) cout << "\nprime factor     " << N;
+                //else          cout << "\ncomposite factor " << N;
 				factor1=t;
 				factor2=N;
-                return SUCCESS();
+				factorized = true;
+				status |= THREAD_FACTORIZED;
+				THREAD_END;
+                return true;
             }
         }
         if (nc>NCURVES) break;
+        //cout << "\ntrying a different curve " << nc << "\n";
     } 
-	return END_METHOD();
+    //cout << "\nfailed to factor\n";
+	THREAD_END;
+	return false;
 }
 
 int TutorialFactorisation::initv()
@@ -1600,8 +1694,6 @@ int TutorialFactorisation::initv()
     epr=(int *)mr_alloc(mmm+1,sizeof(int));
 
     k=knuth(mmm,epr,NN,DD);
-	if ( ExitFactorisationCode )
-		return ABORT();
 
     RR=sqrt(DD);
 
@@ -1697,8 +1789,7 @@ int TutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
 
     do
     { /* search for best Knuth-Schroepel multiplier */
-		if ( ExitFactorisationCode )
-			return ABORT();
+//		THREAD_CHECK;
         
 		kk=pk[++nk];
         if (kk==0)
@@ -1780,8 +1871,6 @@ bool TutorialFactorisation::factored(long lptr, Big &T)
     facted=false;
     for (j=1;j<=mmm;j++)
     { /* now attempt complete factorisation of T */
-		if ( ExitFactorisationCode )
-			return ABORT();
         r=lptr%epr[j];
         if (r<0) r+=epr[j];
         if (r!=r1[j] && r!=r2[j]) continue;
@@ -1939,12 +2028,7 @@ bool TutorialFactorisation::gotcha(Big &NN, Big &P)
 
 BOOL TutorialFactorisation::QuadraticSieve()
 {
-	if ( Precheck() ) 
-	{
-		isFactorized = true;
-		ExitFactorisationCode = 1;
-		return true;
-	}
+	THREAD_START;
 
 	/* factoring via quadratic sieve */
 	
@@ -1961,8 +2045,9 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	if (result_initv==-1)
 	{
 		//this number is prime
-		isFactorized = true;
-		ExitFactorisationCode = 1;
+		factorized = true;
+		status |= THREAD_FACTORIZED;
+		THREAD_END;
 		return true;
 	}
 
@@ -1971,8 +2056,9 @@ BOOL TutorialFactorisation::QuadraticSieve()
 		//this number is a perfect square!
 		factor1=NN;
 		factor2=NN;
-		isFactorized = true;
-		ExitFactorisationCode = 1;
+		factorized = true;
+		status |= THREAD_FACTORIZED;
+		THREAD_END;
 		return true;
 	}
 
@@ -1995,11 +2081,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
 	logp[0]=0;
     for (i=1;i<=mmm;i++)
     { /* find root mod each prime, and approx log of each prime */
-		if ( ExitFactorisationCode )
-		{
-			ExitFactorisationCode = 1;
-			return false;
-		}
+		THREAD_CHECK;
 
         r=DD%epr[i];
         rp[i]=sqrmp(r,epr[i]);     /* = square root of r mod epr[i] */
@@ -2024,20 +2106,20 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
     forever
     { /* try a new polynomial  */
-		if ( ExitFactorisationCode )
-			return ABORT();
+		m_iterations++;
+		THREAD_CHECK;
+
         new_poly();
 
         for (ptr=(-NS);ptr<NS;ptr++)
         { /* sieve over next period */
+			THREAD_CHECK;
+
             la=(long)ptr*SSIZE;
             SV=(unsigned int *)sieve;
             for (i=0;i<SSIZE/sizeof(int);i++) *SV++=0;
             for (i=1;i<=mmm;i++)
             { /* sieving with each prime */
-				if ( ExitFactorisationCode )
-					return ABORT();
-
                 epri=epr[i];
                 logpi=logp[i];
                 r=la%epri;
@@ -2052,8 +2134,6 @@ BOOL TutorialFactorisation::QuadraticSieve()
 
             for (a=0;a<SSIZE;a++)
             {  /* main loop - look for fully factored residues */
-				if ( ExitFactorisationCode )
-					return ABORT();
                 if (sieve[a]<threshold) continue;
                 lptr=la+a;
                 S=0;
@@ -2091,12 +2171,16 @@ BOOL TutorialFactorisation::QuadraticSieve()
                     					
 					factor1=PP;
 					factor2=NN;
-					return SUCCESS();
+					factorized = true;
+					status |= THREAD_FACTORIZED;
+					THREAD_END;
+					return true;
                 }
             }
         }
     }
-	return END_METHOD();
+	THREAD_END;
+	return false;
 }
 
 
@@ -2120,6 +2204,8 @@ void TutorialFactorisation::GetFactor2Str(CString &Factor2)
 {
 	BigToCString( factor2, Factor2 );
 }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // PseudoRandomGenerator Klasse
