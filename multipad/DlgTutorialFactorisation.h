@@ -25,6 +25,8 @@ class DlgTutorialFactorisation : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	CString Search_First_Composite_Factor();
+	void Set_NonPrime_Factor_Red();
 	DlgTutorialFactorisation(CWnd* pParent = NULL);   // Standardkonstruktor
 	~DlgTutorialFactorisation();
 

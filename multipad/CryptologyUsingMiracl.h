@@ -110,6 +110,11 @@ class TutorialFactorisation
 	Big factor1;
 	Big factor2;
 public:
+	bool gotcha(Big& NN, Big& P);
+	bool factored(long lptr, Big& T);
+	void new_poly();
+	int knuth(int mmm, int *epr, Big& N, Big& D);
+	int initv();
 	int giant_step_lenstra();
 	void next_phase_lenstra();
 	void ellipse(ZZn x,ZZn z,int r,ZZn& x1,ZZn& z1,ZZn& x2,ZZn& z2);
@@ -128,7 +133,46 @@ public:
 	BOOL cp[1+MULT/2],plus[1+MULT/2],minus[1+MULT/2];
 	ZZn ak, x, y, z, x1,x2, z1, z2, xt, zt;
 	
-	//
+	//Variablen für QSieve
+
+	int lp;
+	Big *ww;
+	Big *zz;
+	Big *yy;
+	Big *xx;
+	int *pr;
+	int nbts;
+	int *e;
+	Big VV;
+	Big IG;
+	Big PP;
+	Big BB;
+	Big AA;
+	int *r2;
+	int *r1;
+	unsigned char *logp;
+	unsigned char *sieve;
+	Big DG;
+	Big RR;
+	int nlp;
+	int jj;
+	int *epr;
+	Big DD;
+	int *rp;
+	int mmm;
+	int *hash;
+	int hmod2;
+	Big TT;
+	int mlf;
+	int hmod;
+	Big NN;
+	int *bb; //roger
+	unsigned int **G;
+	unsigned int **EE;
+	bool partial;
+	
+	// Ende QSieve relevante Variablen
+
 	//Methoden
 	void marks(long start);
 	static BOOL IsPrime( CString & Num );

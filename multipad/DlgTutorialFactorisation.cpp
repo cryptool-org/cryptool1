@@ -78,46 +78,76 @@ void DlgTutorialFactorisation::OnButtonEnd()
 
 void DlgTutorialFactorisation::OnButtonFactorisation() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(TRUE);
-	TutorialFactorisation fact;
-	fact.SetN( m_CompositeNoStr );
+	
+	CString next_factor;
 
-	if ( TutorialFactorisation::IsPrime(m_CompositeNoStr) )
-		return;
-	BOOL factorized = FALSE; 
-	if ( !factorized && m_bruteForce )
+	next_factor=Search_First_Composite_Factor();
+	
+	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
+	if (next_factor!="lolo")
 	{
-		factorized = fact.BruteForce();
-	}
-	if ( !factorized && m_Brent )
-	{
-		factorized = fact.Brent();
-	}
-	if ( !factorized && m_Pollard )
-	{
-		factorized = fact.Pollard();
-	}
+		TutorialFactorisation fact;
 
-	if ( !factorized && m_Williams )
-	{
-		factorized = fact.Williams();
-	}
+		fact.SetN(next_factor);
 
-	if ( !factorized && m_Lenstra )
-	{
-		factorized = fact.Lenstra();
-	}
+		if ( TutorialFactorisation::IsPrime(next_factor) )
+		{// Die eingegebene Zahl ist eine Primzahl
+			return;
+		}
+		BOOL factorized = FALSE; 
+		if ( !factorized && m_bruteForce )
+		{
+			factorized = fact.BruteForce();
+		}
+		if ( !factorized && m_Brent )
+		{
+			factorized = fact.Brent();
+		}
+		if ( !factorized && m_Pollard )
+		{
+			factorized = fact.Pollard();
+		}
 
-	if ( factorized )
-	{
-		CString f1, f2;
-		fact.GetFactor1Str( f1 );
-		fact.GetFactor2Str( f2 );
-		expandFactorisation( m_CompositeNoStr, f1, f2 );
-	}
+		if ( !factorized && m_Williams )
+		{
+			factorized = fact.Williams();
+		}
 
-	UpdateData(FALSE);
+		if ( !factorized && m_Lenstra )
+		{
+			factorized = fact.Lenstra();
+		}
+		
+		if ( !factorized && m_QSieve )
+		{
+			factorized = fact.QuadraticSieve();
+		}
+
+		
+		if ( factorized )
+		{
+			CString f1, f2;
+			fact.GetFactor1Str( f1 );
+			fact.GetFactor2Str( f2 );
+			expandFactorisation( next_factor, f1, f2 );
+
+		}
+		else
+		{
+			// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+
+		}
+		
+		UpdateData(FALSE);
+
+		Set_NonPrime_Factor_Red();
+	}
+	// Zahl wurde vollständig faktorisiert!!!
+	else
+	{
+		//Zahl wurde vollständig faktorisiret!
+	}
 }
 
 /*
@@ -228,7 +258,7 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 		}
 	}
 	{ // 4. Print actual factorisation
-		m_Factorisation = _T("");	
+		m_Factorisation = _T("");
 		NumFactor * ndx = factorList;
 		while ( ndx )
 		{
@@ -245,4 +275,67 @@ void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &
 			ndx = ndx->next;
 		}
 	}
+
+}
+
+
+
+
+
+
+void DlgTutorialFactorisation::Set_NonPrime_Factor_Red()
+{
+
+	CHARFORMAT cf; 
+	// Reset the old coloring
+	cf.cbSize = sizeof (CHARFORMAT);
+	cf.dwMask= CFM_COLOR;//
+	cf.crTextColor =RGB(0,0,0);
+	m_FactorisationCtrl.SetSel(0,-1);
+	m_FactorisationCtrl.SetSelectionCharFormat(cf);
+	
+	NumFactor *ndx = factorList;
+	if ( !ndx ) return;
+	int anfang = 0, ende = 0, expLen; 
+	while ( ndx )
+	{
+		if ( ndx->exponent > 1 ) 
+		{
+			expLen = (long)ceil( log(double(ndx->exponent))/log(10.0))+1;
+		}
+		else
+			expLen = 0;
+		ende = anfang + strlen(ndx->factorStr.GetBuffer(128));
+		// Markiere Text ....
+		if ( !ndx->isPrime )
+		{
+			cf.cbSize = sizeof (CHARFORMAT);
+			cf.dwMask= CFM_COLOR;
+			cf.crTextColor =RGB(250,0,0);
+			m_FactorisationCtrl.SetSel(anfang, ende);
+			m_FactorisationCtrl.SetSelectionCharFormat(cf);
+		}
+		ndx = ndx->next;
+		anfang = ende + 3 + expLen;
+	}
+	
+	// remove the selection 
+	m_FactorisationCtrl.SetSel(0,0);	
+
+
+}
+
+CString DlgTutorialFactorisation::Search_First_Composite_Factor()
+{
+	NumFactor *ndx = factorList;
+	if ( !ndx ) return m_CompositeNoStr;
+	while ( ndx )
+	{
+		if ( !ndx->isPrime )
+		{
+			return ndx->factorStr;
+		}
+		ndx = ndx->next;
+	}
+	return "lolo";
 }
