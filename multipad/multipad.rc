@@ -1377,45 +1377,43 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen Generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
-                    19
     PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,11,224,110,20
     PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
-    GROUPBOX        "",IDC_STATIC,11,0,303,32
-    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
-                    IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
-    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
-                    142,61
     CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
-    LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
     CONTROL         "Beide Wertebereiche sind gleich",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,11,0,303,32
+    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
+                    IDC_STATIC,19,9,289,17
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
+    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
+                    142,61
     GROUPBOX        "Primzahl p",IDC_STATIC,11,106,142,80
     LTEXT           "Untergrenze",IDC_STATIC,17,128,40,9
     LTEXT           "Obergrenze",IDC_STATIC,18,147,44,8
     LTEXT           "Ergebnis",IDC_STATIC,18,168,37,10
-    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    GROUPBOX        "Primzahl q",IDC_STATIC,172,106,142,80
     LTEXT           "Untergrenze",IDC_STATIC,178,128,40,9
     LTEXT           "Obergrenze",IDC_STATIC,178,147,44,8
     LTEXT           "Ergebnis",IDC_STATIC,179,168,35,10
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,11,196,110,
+                    19
+    LTEXT           "einzugeben",IDC_STATIC,196,64,53,8
+    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    GROUPBOX        "Primzahl q",IDC_STATIC,172,106,142,80
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    CONTROL         "Check1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,243,193,41,10
 END
 
 IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 366
@@ -6084,45 +6082,45 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
-                    19
     PUSHBUTTON      "C&opy primes to clipboard",IDC_BUTTON_ACCEPT,11,224,110,
                     20
     PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
-    GROUPBOX        "",IDC_STATIC,11,0,303,32
-    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
-                    IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,
-                    39,142,61
     CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
                     84,53,10
-    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,172,39,
-                    142,61
     CONTROL         "&To be entered independently",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
-    LTEXT           "of each other",IDC_STATIC,196,64,53,8
     CONTROL         "&Both value ranges are equal",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
-    GROUPBOX        "Prime number p",IDC_STATIC,11,106,142,80
+    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,11,0,303,32
+    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
+                    IDC_STATIC,19,9,289,17
+    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,
+                    39,142,61
+    GROUPBOX        "Value range of the two prime numbers",IDC_STATIC,172,39,
+                    142,61
     LTEXT           "Lower limit",IDC_STATIC,17,128,40,9
     LTEXT           "Upper limit",IDC_STATIC,18,147,44,8
     LTEXT           "Result",IDC_STATIC,18,168,37,10
+    PUSHBUTTON      "&Generate prime numbers",IDC_BUTTON_GENERATE,11,196,110,
+                    19
+    LTEXT           "of each other",IDC_STATIC,196,64,53,8
+    GROUPBOX        "Prime number p",IDC_STATIC,11,106,142,80
     GROUPBOX        "Prime number q",IDC_STATIC,172,106,142,80
     LTEXT           "Lower limit",IDC_STATIC,178,128,40,9
     LTEXT           "Upper limit",IDC_STATIC,178,147,44,8
     LTEXT           "Result",IDC_STATIC,179,168,35,10
-    EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
 END
 
 IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 367
