@@ -2,6 +2,9 @@
 // Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 
+#ifndef __FILETOOLS_H
+#define __FILETOOLS_H
+
 #include "secure.h"
 
 // Erstellen eines eindeutigen Namens für eine temporäre Datei.
@@ -104,3 +107,5 @@ int filesize( const char *name );
 // Nach den Hexdaten sind ASC_SEP blanks vorgesehen
 #define ASC_SEP	2
 // eine Zeile ist demnach MAX_ADR_LEN + 4*<hexzeichen> + ASC_SEP  Zeichen lang (ohne abschließende CR LF)
+
+#endif

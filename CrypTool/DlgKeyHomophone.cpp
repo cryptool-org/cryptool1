@@ -157,6 +157,15 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 		m_NoOfHomophones          = (int)atoi( HParam.GetBuffer(0) +(d+6) );
 		UpdateData(false);
 
+		{ // Error-Precheck
+			int l_alphabetLength = theApp.TextOptions.m_alphabet.GetLength();
+			if (m_NoOfHomophones < l_alphabetLength) {
+				UpdateData();
+				m_NoOfHomophones = l_alphabetLength;
+				UpdateData(FALSE);
+			}
+		}
+
 		int ReInitFlag = 0;
 		if ( m_EncryptFormatCharacters )
 		{	
@@ -190,7 +199,6 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 		if ( ReInitFlag )
 			HB.Init_Data();
 	}
-
 
 	m_listview.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_SIGN,pc_str,STR_LAENGE_STRING_TABLE);
@@ -266,14 +274,30 @@ void CDlgKeyHomophone::OnLoadKey()
 	m_listview.DeleteAllItems(); 
 	LoadListBox();	
 	int Flag = 0;
+
+	CString newAlphabet = _T("");
 	for(int i=0;i<range;i++)
 	{
-		if(HB.GetEncryptionData1(i)>0 && ( char(i) == '\n' || char(i) == '\t' || char(i) == '\r' ) )
+		if(HB.GetEncryptionData1(i)>0) 			
 		{
-			Flag = 1;
+			if ( char(i) == '\n' || char(i) == '\t' || char(i) == '\r' )  
+			{
+				Flag |= 1;
+			}
+			newAlphabet += char(i);
+			if ( 0 > theApp.TextOptions.m_alphabet.Find(char(i)) ) 
+			{
+				Flag |= 2;
+			}
 		}
 	}
-	if ( Flag ) m_EncryptFormatCharacters = 1;
+	if ( Flag & 1 ) m_EncryptFormatCharacters = 1;
+	if ( Flag & 2 || newAlphabet.GetLength() != theApp.TextOptions.m_alphabet.GetLength() ) {
+		Message( IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET, MB_ICONINFORMATION,
+			 theApp.TextOptions.m_alphabet, newAlphabet );
+		theApp.TextOptions.m_alphabet = newAlphabet;
+	}
+
 	UpdateData(FALSE);
 
 	theApp.DoWaitCursor(-1);
@@ -365,10 +389,11 @@ void CDlgKeyHomophone::OnDecimal()
 void CDlgKeyHomophone::OnActualizeNoOfHomophones() 
 {
 	UpdateData(TRUE);
-	if ( m_NoOfHomophones < range )
+	int lng = theApp.TextOptions.m_alphabet.GetLength();
+	if ( m_NoOfHomophones <  lng /* range */ )
 	{
-		Message(IDS_STRING_MSG_HOMOPHONE_LOWERBND, MB_ICONEXCLAMATION, range);
-		m_NoOfHomophones = range;
+		Message(IDS_STRING_MSG_HOMOPHONE_LOWERBND, MB_ICONEXCLAMATION, lng /*range*/);
+		m_NoOfHomophones = lng /*range */;
 	}
 
 	if ( m_NoOfHomophones > upper_range )
@@ -556,6 +581,16 @@ void CDlgKeyHomophone::OnSelectEncryptFormatCharacters()
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	if ( !m_EncryptFormatCharacters )
 	{	
+		if (theApp.TextOptions.m_alphabet.GetLength()+3 > m_NoOfHomophones)
+		{
+			Message(IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR, MB_ICONEXCLAMATION, 
+				    theApp.TextOptions.m_alphabet.GetLength()+3);
+			UpdateData();
+		    m_EncryptFormatCharacters = FALSE;
+			UpdateData(FALSE);
+			return;
+		}
+
 		m_EncryptFormatCharacters = TRUE;
 		if ( 0 > theApp.TextOptions.m_alphabet.Find("\n", 0) ) 
 			theApp.TextOptions.m_alphabet.Insert(0, "\n"); 

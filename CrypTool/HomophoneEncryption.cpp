@@ -200,13 +200,6 @@ int CHomophoneEncryption::Get_free_position()
 	while(-1!=value)
 	{	
 		char *p_index = (char*)&index;
-/*
-		p_index[0] = zz.zzgen4();
-		p_index[1] = zz.zzgen4();
-		p_index[2] = zz.zzgen4();
-		p_index[3] = zz.zzgen4();
-		if (index < 0) index = -index;
-*/	
 		index = rand() % 2147483648;
 		index=index % data.SizeHomophoneKey;
 		value=data.key[index];
@@ -366,7 +359,7 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 			else
 				if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) Index += keyStr[j]-'A'+10;
 				else { LoadError= true; break; }
-			if (Index>data.SizeHomophoneKey) { LoadError=true; break; }
+			if (Index>/*data.SizeHomophoneKey*/range) { LoadError=true; break; }
 			j++;
 		}
 		if (keyStr[j] == 0) 

@@ -74,9 +74,11 @@ CAestoolDlg::CAestoolDlg(CWnd* pParent /*=NULL*/)
 	m_NameDst = _T("");
 	m_HexString = _T("");
 	m_Radio = -1;
+	m_Radio3 = 0;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_SrcOpen = 0;
 }
 
 void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
@@ -97,6 +99,7 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_HexString);
 	DDV_MaxChars(pDX, m_HexString, 95);
 	DDX_Radio(pDX, IDC_RADIO1, m_Radio);
+	DDX_Radio(pDX, IDC_RADIO3, m_Radio3);
 	//}}AFX_DATA_MAP
 }
 
@@ -110,8 +113,12 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, OnSucheDst)
 	ON_BN_CLICKED(IDC_RADIO1, OnRadio)
 	ON_BN_CLICKED(IDC_BUTTON3, OnHelp)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
+	ON_EN_CHANGE(IDC_EDIT2, OnChangeEdit2)
+	ON_EN_KILLFOCUS(IDC_EDIT3, OnKillfocusEdit3)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadio)
+	ON_BN_CLICKED(IDC_RADIO3, OnRadio3)
+	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -121,6 +128,8 @@ END_MESSAGE_MAP()
 BOOL CAestoolDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
+
+	// __asm int 3
 
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 
@@ -159,7 +168,7 @@ BOOL CAestoolDlg::OnInitDialog()
 	if(SetSource(m_CMD_inName)) { // sourcefile aus CMD-Zeile ist nicht gültig
 		if (TestEncryptedFile(EXEName)) { // verschlüsseltes selbstextrahierendes Archiv
 			CSplash dia;
-			dia.DoModal();
+			if(IDCANCEL == dia.DoModal()) EndDialog( IDCANCEL );
 			if(m_HexIn.BinLen > 0) { // do decryption and exit
 				if(IDRETRY != DoDecrypt()) EndDialog( IDOK );
 			}
@@ -303,19 +312,19 @@ void CAestoolDlg::ScanCMDLine(char * cmd)
 			l.TrimLeft();
 			switch(c) {
 			case ('i'):
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_inName = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
 				break;
 			case ('o'):
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_outName = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
 				break;
 			case ('k'):
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_inKey = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
@@ -324,19 +333,19 @@ void CAestoolDlg::ScanCMDLine(char * cmd)
 		}
 		else { // positional argument
 			if(m_CMD_inName.IsEmpty()) { // set in name
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_inName = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
 			}
 			else if(m_CMD_outName.IsEmpty()) { // set out name
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_outName = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
 			}
 			else if(m_CMD_inKey.IsEmpty()) { // set key
-				len = findStr(l);
+				len = findStr(&l);
 				m_CMD_inKey = l.Left(len);
 				l.Delete(0, len);
 				l.TrimLeft();
@@ -346,19 +355,21 @@ void CAestoolDlg::ScanCMDLine(char * cmd)
 
 }
 
-int CAestoolDlg::findStr(CString l)
+int CAestoolDlg::findStr(CString *l)
 {
 	int i, f;
 
-	for(f=i=0; i<l.GetLength(); i++) {
-		if(l.GetAt(i) == '\"') { // toggle "-mode
+	for(f=i=0; i<l->GetLength(); i++) {
+		if(l->GetAt(i) == '\"') { // toggle "-mode
+			l->Delete(i,1);
+			i--;
 			f = 1 - f;
 		}
 		else if(f) { // "-mode, skip all
 			continue;
 		}
 		else { // normal mode
-			if(strchr(" \r\n\t", l.GetAt(i)))
+			if(strchr(" \r\n\t", l->GetAt(i)))
 				break;
 		}
 	}
@@ -399,16 +410,18 @@ void CAestoolDlg::DoEncrypt()
 	CFileException e;
 	char *buffer, keybuffhex[64],keybuffbin[32];
 	int bufflen, i, keylen;
-
-	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary, &e);
-
 	CFile SrcFile;
-	SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary, NULL);
+
+	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) {
+		AfxMessageBox(IDS_STRING_FILEERROR, MB_RETRYCANCEL );
+		return;
+	}
 	DataLen = SrcFile.GetLength();
 	bufflen = max(DataLen+16, 4096);
 	buffer = (char *) malloc(bufflen);
+	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite, &e);
 	if(m_Radio == 0) { // copy EXE-File first
-		EXEFile.Open(EXEName, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary, NULL);
+		EXEFile.Open(EXEName, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL);
 		while(i=EXEFile.ReadHuge(buffer, bufflen))
 			OutFile.WriteHuge(buffer, bufflen);
 		EXEFile.Close();
@@ -475,7 +488,9 @@ int CAestoolDlg::DoDecrypt()
 	buffer2 = (char *) malloc(bufflen);
 
 	// Load Sourcedata
-	SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::shareDenyWrite | CFile::typeBinary, NULL);
+	if(!SrcFile.Open(m_NameSrc, CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone, NULL)) { // Datei konnte nicht geöffnet werden
+		return AfxMessageBox(IDS_STRING_FILEERROR, MB_RETRYCANCEL );
+	}
 	SrcFile.Seek( - 12 - DataLen - NameLen, CFile::end);
 	SrcFile.ReadHuge(buffer1, DataLen);
 	SrcFile.Close();
@@ -511,7 +526,7 @@ int CAestoolDlg::DoDecrypt()
 	DataLen = i;
 
 	// store data
-	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary, &e);
+	OutFile.Open(m_NameDst, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite, &e);
 	if(DataLen > 0)
 		OutFile.WriteHuge(buffer2, DataLen);
 
@@ -529,8 +544,12 @@ int CAestoolDlg::TestEncryptedFile(CString Filename)
 	CString tmp;
 	int l;
 
+	if(m_SrcOpen != 0)
+		m_SrcFile.Close();
+	m_SrcOpen = 0;
 	if(!m_SrcFile.Open(Filename, CFile::modeRead | CFile::shareDenyNone | CFile::typeBinary, NULL))
 		return -1;
+	m_SrcOpen = 1;
 	l = m_SrcFile.GetLength();
 	if(l<12) return 0;
 	m_SrcFile.Seek(-12, CFile::end);
@@ -677,4 +696,37 @@ int CAestoolDlg::EnableDest(int b, int mode)
 	if(!m_NameDst.IsEmpty()) m_CNameDst.SetSel(0,-1);
 
 	return 0;
+}
+
+void CAestoolDlg::OnChangeEdit2()	// wird aufgerufen, wenn der Benutzer die Quelldatei von Hand
+									//ändert
+{
+	CString bak;
+	int sstart, send;
+
+	UpdateData(TRUE);
+	bak = m_NameSrc;
+	m_CNameSrc.GetSel(sstart, send);
+	SetSource(m_NameSrc);
+	m_NameSrc = bak;
+	m_CNameSrc.SetSel(sstart, send);
+	UpdateData(FALSE);
+}
+
+void CAestoolDlg::OnKillfocusEdit3() // wir daufgerufen, wenn der Benutzer versucht das
+									//Selektionsfeld für die Ausgabedatei zu verlassen
+{
+
+}
+
+void CAestoolDlg::OnRadio3() 
+{
+	m_HexIn.SetPasswordChar(0);
+	m_HexIn.Invalidate();
+}
+
+void CAestoolDlg::OnRadio4() 
+{
+	m_HexIn.SetPasswordChar('*');
+	m_HexIn.Invalidate();
 }

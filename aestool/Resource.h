@@ -13,6 +13,7 @@
 #define IDS_STRING_DATEI_ENTSCHLUESSELT 106
 #define IDS_STRING_VERSCHLUESSELN       107
 #define IDS_STRING_ENTSCHLUESSELN       108
+#define IDS_STRING_FILEERROR            109
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130
@@ -28,6 +29,8 @@
 #define IDC_RADIO1                      1011
 #define IDC_RADIO2                      1012
 #define IDC_BUTTON3                     1013
+#define IDC_RADIO3                      1014
+#define IDC_RADIO4                      1015
 
 // Next default values for new objects
 // 

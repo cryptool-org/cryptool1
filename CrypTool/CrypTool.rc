@@ -203,16 +203,16 @@ BEGIN
     EDITTEXT        IDC_EDIT55,109,131,11,12,ES_READONLY
 END
 
-IDD_KEYASYM_GENERATION DIALOG DISCARDABLE  0, 0, 397, 338
+IDD_KEYASYM_GENERATION DIALOG DISCARDABLE  0, 0, 420, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,89,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,112,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,131,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,48,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,66,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,88,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,110,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,
@@ -232,29 +232,30 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,400,100
     DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
     PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,284,
                     144,10
-    PUSHBUTTON      "&Schließen",IDCANCEL,318,310,72,19
-    GROUPBOX        "Verfahren",IDC_STATIC,10,10,205,135
+    PUSHBUTTON      "&Schließen",IDCANCEL,338,310,72,19
+    GROUPBOX        "Verfahren",IDC_STATIC,10,6,205,143
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
     LTEXT           "Bitlänge der DSA-Primzahl:",IDC_STATIC,33,74,103,8
-    LTEXT           "Bezeichner: (Bitlänge und Kurvenparameter):",IDC_STATIC,
+    LTEXT           "Bezeichner (Bitlänge und Kurvenparameter):",IDC_STATIC,
                     33,110,87,17,NOT WS_GROUP
     LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
-                    IDC_STATIC,237,15,152,26
+                    IDC_STATIC,237,17,152,26
     LTEXT           "Name:",IDC_STATIC,240,48,50,8
     LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
-    LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,90,64,20
-    LTEXT           "PIN-Code:",IDC_STATIC,240,112,50,8
-    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,131,50,8
-    EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,89,64,20
+    LTEXT           "PIN-Code:",IDC_STATIC,240,110,50,8
+    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,129,50,8
+    EDITTEXT        IDC_EDIT6,10,153,400,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
                     271,231,32
+    GROUPBOX        "Benutzerdaten",IDC_STATIC,225,6,185,143
 END
 
 IDD_RSA_ENCRYPTION DIALOG DISCARDABLE  0, 0, 392, 271
@@ -550,7 +551,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -563,15 +564,15 @@ BEGIN
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,8,31,372,193,WS_EX_NOPARENTNOTIFY
-    CONTROL         "RSA Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "RSA-Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,246,76,8
-    CONTROL         "DSA Schlüssel",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "DSA-Schlüssel",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,260,76,8
-    CONTROL         "EC Schlüssel",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "EC-Schlüssel",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,274,76,8
     LTEXT           "Die folgende Liste zeigt die verfügbaren asymmetrischen Schlüsselpaare an.",
                     IDC_STATIC,8,5,375,8,SS_CENTERIMAGE
-    LTEXT           "Klicken Sie mit der linken Maustaste auf den entsprechenden Namen, um eine Auswahl vorzunehmen.",
+    LTEXT           "Klicken Sie auf den Eintrag in der Spalte Name, um eine Zeile zu selektieren.",
                     IDC_STATIC,8,14,375,8
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,8,232,105,58
 END
@@ -1476,7 +1477,7 @@ END
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
@@ -1516,7 +1517,7 @@ BEGIN
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
                     IDC_STATIC,14,52,192,8
-    LTEXT           "Editieren der Homophonen Liste für einzelne Zeichen:",
+    LTEXT           "Editieren der Homophonen-Liste für einzelne Zeichen:",
                     IDC_STATIC,14,270,172,9
     LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
     LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
@@ -2471,7 +2472,7 @@ BEGIN
     POPUP "&Optionen"
     BEGIN
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR
-        MENUITEM "&Grafik Optionen...",         ID_BARWIDTH
+        MENUITEM "&Grafikoptionen...",          ID_BARWIDTH
     END
     POPUP "&Fenster"
     BEGIN
@@ -2853,9 +2854,9 @@ BEGIN
     END
     POPUP "&Optionen"
     BEGIN
-        MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
-        MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
-        MENUITEM "&Text Optionen...",           ID_OPTTEXT
+        MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
+        MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
+        MENUITEM "&Textoptionen...",            ID_OPTTEXT
     END
     POPUP "&Fenster"
     BEGIN
@@ -2916,9 +2917,9 @@ BEGIN
     END
     POPUP "&Optionen"
     BEGIN
-        MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
-        MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
-        MENUITEM "&Text Optionen...",           ID_OPTTEXT
+        MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
+        MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
+        MENUITEM "&Textoptionen...",            ID_OPTTEXT
     END
     POPUP "&Hilfe"
     BEGIN
@@ -3101,9 +3102,9 @@ BEGIN
     END
     POPUP "&Optionen"
     BEGIN
-        MENUITEM "&Grafik Optionen...",         ID_OPTIONS_PLOT
-        MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
-        MENUITEM "&Text Optionen...",           ID_OPTTEXT
+        MENUITEM "&Grafikoptionen...",          ID_OPTIONS_PLOT
+        MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
+        MENUITEM "&Textoptionen...",            ID_OPTTEXT
     END
     POPUP "&Fenster"
     BEGIN
@@ -3223,26 +3224,26 @@ INFDOC_X                BITMAP  DISCARDABLE     "res\\INFDOC_X.bmp"
 INFDOC_F                BITMAP  DISCARDABLE     "res\\INFDOC_F.bmp"
 INFDOC_U                BITMAP  DISCARDABLE     "res\\INFDOC_U.bmp"
 INFDOC_D                BITMAP  DISCARDABLE     "res\\INFDOC_D.bmp"
-Raute1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
-Raute1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
-Sechseck1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
-Sechseck1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
-Raute2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
-Raute2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
-Raute3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
-Raute3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
-Sechseck2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
-Sechseck2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
-Sechseck3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
-Sechseck3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
-Viereck1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
-Viereck1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
-Viereck2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
-Viereck2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
-Raute4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
-Raute4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
-Raute5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
-Raute5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
+RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
+RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
+SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
+SECHSECK1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
+RAUTE2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
+RAUTE2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
+RAUTE3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
+RAUTE3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
+SECHSECK2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
+SECHSECK2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
+SECHSECK3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
+SECHSECK3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
+VIERECK1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
+VIERECK1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
+VIERECK2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
+VIERECK2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
+RAUTE4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
+RAUTE4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
+RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
+RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
 
@@ -3462,10 +3463,14 @@ BEGIN
 
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
+        RIGHTMARGIN, 397
         VERTGUIDE, 10
         VERTGUIDE, 240
         VERTGUIDE, 306
-        VERTGUIDE, 390
+        VERTGUIDE, 396
+        VERTGUIDE, 410
+        HORZGUIDE, 6
+        HORZGUIDE, 149
         HORZGUIDE, 310
         HORZGUIDE, 329
     END
@@ -4733,6 +4738,8 @@ BEGIN
                             "Schlechte Wahl der Grenzen im rechten Fenster, es wurde keine Primzahl gefunden !"
     IDS_STRING_MSG_RSA_MODUL_TO_LARGE 
                             "Das Produkt der Primzahlen muß kleiner als %d sein !"
+    IDS_ERRON_OPEN_REFERENCE_FILE 
+                            "Fehler beim Öffnen der Referenzdatei !\nBitte wählen Sie unter dem Menü Optionen / Textoptionen eine geeignete Datei."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4787,7 +4794,7 @@ BEGIN
     IDS_RSA_MKPZ_CIPHERTEXT "Chiffretext"
     IDS_STRING_CHOOSE_REF_FILENAME "Wähle Referenzdatei"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
-                            "Vergleiche Chiffre Text mit Referenz <%s>"
+                            "Vergleiche Chiffretext mit der Referenzdatei %s."
     IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Kandidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "%s-Schlüsseleingabe"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Rijndael-Schlüsseleingabe (AES)"
@@ -4811,7 +4818,7 @@ BEGIN
                             "Maximaler Testwert: %d\nLängster Run: %d\n"
     IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 
                             "Die Datei %s kann nicht gefunden werden!\nDer Test kann deshalb nicht ausgeführt werden!"
-    IDS_METHOD_KEY          "%s Schlüssel"
+    IDS_METHOD_KEY          "%s-Schlüssel"
     IDS_STRING_ERR_ONBLOCKLENGTH 
                             "Die Blocklänge muß aus dem Zahlenbereich 1, ...,  %i sein !"
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
@@ -5179,9 +5186,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Teilstring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i heraufgesetzt !"
+                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [Alphabet-Größe ... 4096].\nDeshalb wird die Anzahl der Homophone auf %i heraufgesetzt !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
-                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i herabgesetzt !"
+                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [Alphabet-Größe ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i herabgesetzt !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
@@ -5312,6 +5319,10 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
+                            "Fehler: Die neue Alphabet-Größe übertrifft die Gesamtzahl der Homophonen !\nBitte erhöhen Sie die Gesamtzahl der Homophonen auf mindestens %i Zeichen."
+    IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
+                            "Das Homophonen-Alphabet wurde geändert:\nAltes Alphabet: %s\nNeues Alphabet: %s."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5338,6 +5349,12 @@ BEGIN
     IDS_BITLENGTH           "Modullänge in Bit:      %i\r\n"
     IDS_CONTENT_CERT        "Zertifikat"
     IDS_CONTENT_SIGN        " %s Signatur von <%s>"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERRON_OPEN_REFERENCE_FILE2 
+                            "Fehler beim Öffnen der Referenzdatei !\nBitte wählen Sie unter dem Menü Optionen / Textoptionen eine geeignete Datei."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -5532,16 +5549,16 @@ BEGIN
     EDITTEXT        IDC_EDIT55,109,131,11,12,ES_READONLY
 END
 
-IDD_KEYASYM_GENERATION DIALOG DISCARDABLE  0, 0, 397, 338
+IDD_KEYASYM_GENERATION DIALOG DISCARDABLE  0, 0, 419, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Asymmetric Key Pair"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,89,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,112,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,131,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,88,75,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,110,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,75,12,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Generate &new key pair...",IDOK,10,310,128,19
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     20,28,81,10
@@ -5556,7 +5573,7 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,380,100
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,399,100
     CONTROL         "&Octal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,26,283,61,12
     CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,
@@ -5564,25 +5581,26 @@ BEGIN
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     170,283,61,12
     CONTROL         "Display generated key pair",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,246,284,144,10
+                    BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,265,284,144,10
     PUSHBUTTON      "PKCS#12 &import",IDC_BUTTON_P12IMPORT,154,310,86,19
-    PUSHBUTTON      "&Close",IDCANCEL,318,310,72,19
-    GROUPBOX        "Algorithm",IDC_STATIC,10,10,205,135
+    PUSHBUTTON      "&Close",IDCANCEL,337,310,72,19
+    GROUPBOX        "Algorithm",IDC_STATIC,10,4,205,145
     LTEXT           "Bit length of RSA modulus:",IDC_STATIC,33,40,108,8
     LTEXT           "Bit length of DSA prime number:",IDC_STATIC,33,74,103,8
     LTEXT           "Identifier (bit length and curve parameter):",
                     IDC_STATIC,33,110,87,17,NOT WS_GROUP
     LTEXT           "The key pair will be put in an encrypted PSE with the name shown below. The key pair will be protected by your PIN code.",
-                    IDC_STATIC,237,15,152,26
+                    IDC_STATIC,237,16,162,24
     LTEXT           "Last name:",IDC_STATIC,240,48,50,8
     LTEXT           "First name:",IDC_STATIC,240,66,50,8
-    LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,90,64,20
-    LTEXT           "PIN code:",IDC_STATIC,240,112,50,8
-    LTEXT           "PIN confirmation:",IDC_STATIC,240,131,50,8
+    LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,89,64,20
+    LTEXT           "PIN code:",IDC_STATIC,240,110,50,8
+    LTEXT           "PIN confirmation:",IDC_STATIC,240,129,50,8
     EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,
                     32
+    GROUPBOX        "User data",IDC_STATIC,224,4,185,145
 END
 
 IDD_RSA_ENCRYPTION DIALOG DISCARDABLE  0, 0, 392, 271
@@ -8413,6 +8431,16 @@ BEGIN
         HORZGUIDE, 180
     END
 
+    IDD_KEYASYM_GENERATION, DIALOG
+    BEGIN
+        RIGHTMARGIN, 397
+        VERTGUIDE, 409
+        HORZGUIDE, 4
+        HORZGUIDE, 149
+        HORZGUIDE, 294
+        HORZGUIDE, 329
+    END
+
     IDD_AUTHORS, DIALOG
     BEGIN
         BOTTOMMARGIN, 278
@@ -9246,6 +9274,8 @@ BEGIN
                             "Bad choice of limits in the right-hand window. No prime numbers were found!"
     IDS_STRING_MSG_RSA_MODUL_TO_LARGE 
                             "The product of the chosen primes must be lower than  %d!"
+    IDS_ERRON_OPEN_REFERENCE_FILE 
+                            "Error on open the reference file !nPlease select via the menu Options / Textooptins a proper reference file."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9297,7 +9327,7 @@ BEGIN
     IDS_RSA_MKPZ_CIPHERTEXT "Ciphertext"
     IDS_STRING_CHOOSE_REF_FILENAME "Choose Reference File"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
-                            "Compare ciphertext with reference <%s>"
+                            "Compare ciphertext with reference file %s"
     IDS_STRING_KEYINPUT_AES_CANDIDATE "Key Entry: %s (AES candidate)"
     IDS_STRING_KEYINPUT_SYMMETRIC "Key Entry: %s"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Key Entry: Rijndael (AES)"

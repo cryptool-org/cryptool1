@@ -12,13 +12,8 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
-#define  __switch_de
-#define  __switch_en
-
 /////////////////////////////////////////////////////////////////////////////
 // Deutsch (Deutschland) resources
-
-#if defined(__switch_de) || defined(__switch_both)
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -86,36 +81,38 @@ BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 1.0",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2001",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 230
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Durchsuchen",IDC_BUTTON1,215,80,78,17
-    PUSHBUTTON      "Durchsuchen",IDC_BUTTON2,215,145,78,17
-    DEFPUSHBUTTON   "Verschlüsseln",IDOK,78,186,50,14
-    PUSHBUTTON      "Beenden",IDCANCEL,141,186,50,14
-    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_ACCEPTFILES
-    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Durchsuchen",IDC_BUTTON1,215,105,78,17
+    PUSHBUTTON      "Durchsuchen",IDC_BUTTON2,215,170,78,17
+    DEFPUSHBUTTON   "Verschlüsseln",IDOK,66,209,62,14
+    PUSHBUTTON      "Beenden",IDCANCEL,141,209,50,14
+    EDITTEXT        IDC_EDIT2,28,107,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT3,28,172,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
     LTEXT           "Verschlüsseln einer Datei",IDC_STATIC4,17,14,80,8
     CONTROL         "Selbstextrahierendes Archiv",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,103,
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,154,103,
                     10
     CONTROL         "Verschlüsselte Datei",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON | WS_DISABLED,149,129,80,10
+                    BS_AUTORADIOBUTTON | WS_DISABLED,149,154,80,10
     GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",
-                    IDC_STATIC,17,28,287,34
-    GROUPBOX        "Eingabedatei",IDC_STATIC,17,69,287,35
-    GROUPBOX        "Ausgabedatei",IDC_STATIC,17,117,287,54
-    PUSHBUTTON      "Hilfe",IDC_BUTTON3,216,186,50,14
+                    IDC_STATIC,17,28,287,54
+    GROUPBOX        "Eingabedatei",IDC_STATIC,17,94,287,35
+    GROUPBOX        "Ausgabedatei",IDC_STATIC,17,142,287,54
+    PUSHBUTTON      "Hilfe",IDC_BUTTON3,216,209,50,14
+    CONTROL         "Passwort anzeigen",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,28,41,75,10
+    CONTROL         "Passwort verbergen",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,149,41,79,10
 END
 
 IDD_SPLASH DIALOG DISCARDABLE  0, 0, 211, 122
@@ -139,9 +136,9 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,181,213,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,255,213,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen Rijndael-Algorithmus (=AES) verschlüsselt werden können.",
-                    IDC_STATIC,12,13,446,18
+                    IDC_STATIC,12,13,446,16
     LTEXT           "Das Programm kann auf mehrere verschiedenen Arten aufgerufen werden:",
-                    IDC_STATIC,12,31,446,10
+                    IDC_STATIC,12,29,446,12
     LTEXT           "Die Parameter sind im Einzelnen:",IDC_STATIC,24,50,434,
                     8
     LTEXT           "Schlüssel:",IDC_STATIC,24,59,48,17
@@ -149,29 +146,31 @@ BEGIN
     LTEXT           "Ausgabedatei:",IDC_STATIC,24,93,48,17
     LTEXT           "Der Schlüssel wird in hexadezimaler Form (Zeichen '0' bis '9' und 'A' bis 'F') eingegeben. Die maximale Schlüssellänge beträgt 256 Bit. Das entspricht 64 hexadezimalen Zeichen. Die gegenwärtig empfohlene Mindestlänge liegt bei 20 Zeichen.",
                     IDC_STATIC,72,59,386,17
-    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",
+    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Prgramm verschlüsselte Daten enthält) so wird das Programm automatisch auf Entschlüsseln eingestellt.",
                     IDC_STATIC,72,76,386,17
     LTEXT           "Die Ausgabedatei bestimmt das Ziel der Ver- bzw. Entschlüsselung.\nBei Verschlüsselung wird über ""Radiobuttons"" zwischen zwei Formaten unterschieden:",
                     IDC_STATIC,72,93,386,17
     LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt ein Programm dar, das nach dem Start die komplette Eingabemaske von AES-Tool anzeigt und nach einer Schlüsseleingabe die Daten entschlüsselt und in einer Datei ablegt.",
-                    IDC_STATIC,72,110,386,16
+                    IDC_STATIC,80,110,378,16
     LTEXT           "Für die Entschlüsselung einer ""Verschlüsselten Datei"" wird dieses Programm benötigt.",
-                    IDC_STATIC,72,126,386,10
+                    IDC_STATIC,80,126,378,14
     LTEXT           "Die zweite Möglichkeit des Aufrufs ist mit Kommandozeilenparametern. Diese können entweder über die Position oder über Schlüsselworte angegeben werden. Die Angabe eines Parameters bewirkt, dass das entsprechende Feld der Eingabemaske vorbelegt wird.",
-                    IDC_STATIC,24,136,434,19
+                    IDC_STATIC,24,140,434,17
     LTEXT           "Sind alle Felder vorbelegt, so wird die Ver- bzw. Entschlüsselungsfunktion sofort angestossen. Es ergeben sich zwei Aufrufmuster:",
-                    IDC_STATIC,24,161,434,10
+                    IDC_STATIC,24,157,434,10
     LTEXT           "AESTool <Quelldatei> <Zeildatei> <Schlüssel>",
-                    IDC_STATIC,72,171,386,9
+                    IDC_STATIC,72,167,386,9
     LTEXT           "AESTool -i <Quelldatei> -o <Zeildatei> -k <Schlüssel>",
-                    IDC_STATIC,72,180,386,10
-    LTEXT           "Die dritte Aufrufform ist über das oben angesprochene selbstextrahierende Archiv. Hierbei wird die Ausgagsdatei durch das selbstextrahierendes Archiv vorbelegt.",
+                    IDC_STATIC,72,176,386,14
+    LTEXT           "Die dritte Aufrufform ist über das oben angesprochene selbstextrahierende Archiv. Hierbei ist die Ausgangsdatei durch den Inhalt des selbstextrahierenden Archivs vorbestimmt.",
                     IDC_STATIC,24,190,434,20
     LTEXT           "Beim normalen Start durch ""Anklicken"" können die benötigten Parameter direkt auf einer Bildschirmmaske eingegeben werden.",
                     IDC_STATIC,24,41,434,9
-    LTEXT           "2.:",IDC_STATIC,12,136,12,14
+    LTEXT           "2.:",IDC_STATIC,12,140,12,14
     LTEXT           "1.:",IDC_STATIC,12,41,12,9
     LTEXT           "3.:",IDC_STATIC,12,190,12,14
+    LTEXT           "-",IDC_STATIC,72,110,8,16
+    LTEXT           "-",IDC_STATIC,72,126,8,14
 END
 
 
@@ -244,10 +243,10 @@ BEGIN
         VERTGUIDE, 293
         VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 200
-        HORZGUIDE, 46
+        BOTTOMMARGIN, 223
+        HORZGUIDE, 65
         HORZGUIDE, 88
-        HORZGUIDE, 153
+        HORZGUIDE, 180
     END
 
     IDD_SPLASH, DIALOG
@@ -264,9 +263,10 @@ BEGIN
         RIGHTMARGIN, 458
         VERTGUIDE, 24
         VERTGUIDE, 72
+        VERTGUIDE, 80
         TOPMARGIN, 13
         BOTTOMMARGIN, 227
-        HORZGUIDE, 31
+        HORZGUIDE, 29
         HORZGUIDE, 41
         HORZGUIDE, 50
         HORZGUIDE, 59
@@ -274,10 +274,10 @@ BEGIN
         HORZGUIDE, 93
         HORZGUIDE, 110
         HORZGUIDE, 126
-        HORZGUIDE, 136
-        HORZGUIDE, 161
-        HORZGUIDE, 171
-        HORZGUIDE, 180
+        HORZGUIDE, 140
+        HORZGUIDE, 157
+        HORZGUIDE, 167
+        HORZGUIDE, 176
         HORZGUIDE, 190
     END
 END
@@ -291,7 +291,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&o über aestool..."
+    IDS_ABOUTBOX            "Inf&o über AES-Tool..."
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
     IDS_STRING_ENCRYPT      "Verschlüsseln einer Datei"
     IDS_STRING_DECERROR     "Die Daten konnten mit dem gegebenen Schlüssel nicht entschlüsselt werden."
@@ -301,31 +301,21 @@ BEGIN
                             "Die Datei wurde erfolgreich entschlüsselt."
     IDS_STRING_VERSCHLUESSELN "Verschlüsseln"
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
+    IDS_STRING_FILEERROR    "Die Quelldatei konnte nicht geöffnet werden!"
 END
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
+
 /////////////////////////////////////////////////////////////////////////////
 // Englisch (GB) resources
-
-#endif //  __switch_de 
-#if defined(__switch_en) || defined(__switch_both)
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\aestool.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -345,31 +335,34 @@ BEGIN
                     IDC_STATIC,7,45,197,40
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 207
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 230
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,28,40,266,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Search",IDC_BUTTON1,215,80,78,17
-    PUSHBUTTON      "Search",IDC_BUTTON2,215,145,78,17
-    DEFPUSHBUTTON   "Encrypt",IDOK,78,186,50,14
-    PUSHBUTTON      "Exit",IDCANCEL,141,186,50,14
-    EDITTEXT        IDC_EDIT2,28,82,138,12,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_ACCEPTFILES
-    EDITTEXT        IDC_EDIT3,28,147,138,12,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_ACCEPTFILES
-    LTEXT           "Encrypt a file",IDC_STATIC4,17,15,42,8
+    EDITTEXT        IDC_EDIT1,28,59,266,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Search",IDC_BUTTON1,215,105,78,17
+    PUSHBUTTON      "Search",IDC_BUTTON2,215,170,78,17
+    DEFPUSHBUTTON   "Encrypt",IDOK,83,209,45,14
+    PUSHBUTTON      "Exit",IDCANCEL,141,209,50,14
+    EDITTEXT        IDC_EDIT2,28,107,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    EDITTEXT        IDC_EDIT3,28,172,138,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    LTEXT           "Encrypt a file",IDC_STATIC4,17,14,80,8
     CONTROL         "Selfextracting archive",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,128,84,10
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,28,154,103,
+                    10
     CONTROL         "Encrypted file",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_DISABLED,137,129,59,10
+                    WS_DISABLED,149,154,80,10
     GROUPBOX        "Key [maximal 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
-                    IDC_STATIC,17,28,287,34
-    GROUPBOX        "Input file",IDC_STATIC,17,69,287,35
-    GROUPBOX        "Output file",IDC_STATIC,17,117,287,54
-    PUSHBUTTON      "Help",IDC_BUTTON3,216,186,50,14
+                    IDC_STATIC,17,28,287,54
+    GROUPBOX        "Input file",IDC_STATIC,17,94,287,35
+    GROUPBOX        "Output file",IDC_STATIC,17,142,287,54
+    PUSHBUTTON      "Help",IDC_BUTTON3,216,209,50,14
+    CONTROL         "Show password",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,28,41,75,10
+    CONTROL         "Hide password",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
+                    149,41,79,10
 END
 
 IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 234
@@ -380,9 +373,9 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,181,213,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,255,213,50,14
     LTEXT           "AES-Tool is an encryption program that can be used to encrypt data files using the Rijndael algorithm (=AES)",
-                    IDC_STATIC,12,12,446,12
+                    IDC_STATIC,12,12,446,10
     LTEXT           "The program can be invoked in three ways:",IDC_STATIC,
-                    12,24,446,9
+                    12,22,446,11
     LTEXT           "These parameters are:",IDC_STATIC,24,42,434,10
     LTEXT           "Key:",IDC_STATIC,24,52,38,18
     LTEXT           "Input file:",IDC_STATIC,24,70,38,19
@@ -394,11 +387,11 @@ BEGIN
     LTEXT           "The output file specifies the destination of encrypted or decrypted data. With encryption a selection between two formats can be made with ""radio buttons"".",
                     IDC_STATIC,62,89,396,19
     LTEXT           "A 'self extracting archive ' is aprogram which presents the input masks of AES-Tool and decrypts the data in the archive into a file (after the correct password has been entered).",
-                    IDC_STATIC,62,108,396,19
+                    IDC_STATIC,69,108,389,19
     LTEXT           "The decryption of a 'encrypted file' requires this program.",
-                    IDC_STATIC,62,127,396,10
+                    IDC_STATIC,69,127,389,11
     LTEXT           "The second possibility to invoke the program is with comand line parameters. THese can be specified either by position or by key word. The specification of a comand line parameter results in the corresponding input field being preset.",
-                    IDC_STATIC,24,137,434,18
+                    IDC_STATIC,24,138,434,17
     LTEXT           "If all fields are preset the encryption or decryption will be started automatically. There are two syntaxes for command line invocation:",
                     IDC_STATIC,24,155,434,10
     LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,
@@ -406,13 +399,15 @@ BEGIN
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
                     IDC_STATIC,62,175,396,10
     LTEXT           "The third possibility for program invocation is the self extracting archive. The input file is here being preset by the self extracting archive.",
-                    IDC_STATIC,24,186,434,15
+                    IDC_STATIC,24,188,434,15
     LTEXT           "Static",IDC_STATIC,415,12,19,8
     LTEXT           "With a normal start by clicking the icon all necessary parameters can be entered into a dialogue box.",
                     IDC_STATIC,24,33,434,9
     LTEXT           "1.:",IDC_STATIC,12,33,12,9
-    LTEXT           "2.:",IDC_STATIC,12,137,12,11
+    LTEXT           "2.:",IDC_STATIC,12,138,12,11
     LTEXT           "3.:",IDC_STATIC,12,185,12,11
+    LTEXT           "-",IDC_STATIC,62,108,8,19
+    LTEXT           "-",IDC_STATIC,62,127,8,11
 END
 
 IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
@@ -423,7 +418,7 @@ BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 1.0",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2001",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -466,10 +461,11 @@ BEGIN
         RIGHTMARGIN, 458
         VERTGUIDE, 24
         VERTGUIDE, 62
+        VERTGUIDE, 69
         VERTGUIDE, 268
         TOPMARGIN, 12
         BOTTOMMARGIN, 227
-        HORZGUIDE, 24
+        HORZGUIDE, 22
         HORZGUIDE, 33
         HORZGUIDE, 42
         HORZGUIDE, 52
@@ -477,7 +473,7 @@ BEGIN
         HORZGUIDE, 89
         HORZGUIDE, 108
         HORZGUIDE, 127
-        HORZGUIDE, 137
+        HORZGUIDE, 138
         HORZGUIDE, 155
         HORZGUIDE, 165
         HORZGUIDE, 175
@@ -502,7 +498,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&ormation about aestool..."
+    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "Decrypt a file"
     IDS_STRING_ENCRYPT      "Encrypt a file"
     IDS_STRING_DECERROR     "The data could not be decrypted using the given key!"
@@ -510,13 +506,12 @@ BEGIN
     IDS_STRING_DATEI_ENTSCHLUESSELT "The file was successfully decrypted."
     IDS_STRING_VERSCHLUESSELN "Encrypt"
     IDS_STRING_ENTSCHLUESSELN "Decrypt"
+    IDS_STRING_FILEERROR    "The source file could not be opened!"
 END
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
-
-#endif // __switch_en
 
 
 #ifndef APSTUDIO_INVOKED

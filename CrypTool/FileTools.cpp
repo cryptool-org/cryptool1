@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "FileTools.h"
 #include "CrypToolApp.h"
+#include <sys/stat.h>
 
 int cnt=0;
 
@@ -407,16 +408,17 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 
 int filesize( const char *name )
 {
-	FILE *f;
-	int l;
+   struct _stat buf;
+   int result;
 
-	f = fopen(name,"rb");
-	if(!f) return 0;
+   /* Get data associated with "stat.c": */
+   result = _stat( name, &buf );
+   /* Check if statistics are valid: */
+   if( result != 0 )
+      return -1;
+   else
+	  return buf.st_size;
 
-	fseek(f, 0, SEEK_END);
-	l = ftell(f);
-	fclose(f);
-	return l;
 }
 
 

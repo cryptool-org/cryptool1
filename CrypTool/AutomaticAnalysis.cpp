@@ -22,6 +22,7 @@
 #include <iostream.h>
 #include <stdio.h>
 #include "DialogeMessage.h"
+#include "FileTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -75,6 +76,12 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	
 // == compare the ciphertext and the reference text
 	SymbolArray reference(AppConv);
+	
+	if ( 1 > filesize(theApp.TextOptions.m_StrRefFile.GetBuffer(0)) )
+	{
+		Message(IDS_ERRON_OPEN_REFERENCE_FILE, MB_ICONEXCLAMATION);
+		return;
+	}
 	reference.Read(theApp.TextOptions.m_StrRefFile);
 	reference+=1;
 	

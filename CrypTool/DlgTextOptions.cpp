@@ -41,6 +41,8 @@ CDlgTextOptions::CDlgTextOptions(CWnd* pParent /*=NULL*/)
 	m_addx = TRUE;
 	if(n>0) {
 		m_StrRefFile=buffer;	
+		int pos = m_StrRefFile.ReverseFind('\\');
+		m_StrTitle= m_StrRefFile.Mid(pos+1);
 	}
 	else
 		m_StrRefFile=_T("");

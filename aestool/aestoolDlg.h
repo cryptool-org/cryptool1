@@ -21,6 +21,7 @@ class CAestoolDlg : public CDialog
 {
 // Konstruktion
 public:
+	int m_SrcOpen;
 	int EnableDest(int b, int mode);
 	int SetSource( CString src);
 	int SetDest( CString src );
@@ -30,7 +31,7 @@ public:
 	int DoDecrypt();
 	void DoEncrypt ( void );
 	void SetDestName( void );
-	int findStr(CString l);
+	int findStr(CString *l);
 	void ScanCMDLine( char * cmd );
 	CString m_CMD_inKey;
 	CString m_CMD_outName;
@@ -60,6 +61,7 @@ public:
 	CString	m_NameDst;
 	CString	m_HexString;
 	int		m_Radio;
+	int		m_Radio3;
 	//}}AFX_DATA
 
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
@@ -85,6 +87,10 @@ protected:
 	afx_msg void OnRadio();
 	afx_msg void OnHelp();
 	afx_msg void OnChangeEdit1();
+	afx_msg void OnChangeEdit2();
+	afx_msg void OnKillfocusEdit3();
+	afx_msg void OnRadio3();
+	afx_msg void OnRadio4();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
