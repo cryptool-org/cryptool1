@@ -915,7 +915,7 @@ UINT Periode(PVOID p)
 				s[len]='\0';
 
 				fprintf(out,"%s\t", s);
-				for (int j= (maxtxtlen - analyse.periodResults[i].length) / 8; j>0; j--) fprintf(out,"\t");
+				for (int j= (maxtxtlen - analyse.periodResults[i].length+7) / 8; j>0; j--) fprintf(out,"\t");
 				fprintf(out,"%s\n", pc_str1);
 			}
 			fclose(out);
