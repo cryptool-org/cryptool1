@@ -92,6 +92,7 @@ statement from your version.
 #include "DialogeMessage.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
 
+
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
 char pc_str[STR_LAENGE_STRING_TABLE];
@@ -146,7 +147,6 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
-	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -154,6 +154,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	//}}AFX_MSG_MAP
 
@@ -724,18 +725,54 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 			alinkid[sizeof(alinkid) - 1] = '\0';
 		}
 		// perpare help macro string
-		TCHAR formstr[] = "AL(\"%s\",1)"; // AL = ALink = jump to A footnote; 1 means: jump to topic if match was unique
+		TCHAR formstr[] = "%s"; // mletzko:vorher >> ... = "AL(\"%s\",1)" <<; AL = ALink = jump to A footnote; 1 means: jump to topic if match was unique
 		TCHAR cmd[sizeof(formstr) + sizeof(alinkid)];
 		_snprintf(cmd,sizeof(cmd),formstr,alinkid);
 		cmd[sizeof(cmd)-1] = '\0';
-		// WinHelp displays an error popup if we try to jump via ALink to a page that is already displayed.
-		// As we cannot find out which page is currently displayed (controlled by user),
-		// we make sure that another page is displayed.  
-		CWinApp::WinHelp(ID_WIE_SIE_STARTEN+0x10000);
-		// invoke help macro: jump to the key word derived from m_CurrentPopupMenu
-		CWinApp::WinHelp((DWORD)cmd,HELP_COMMAND);
+
+		
+		// creating the path to the help
+		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
+		
+		// to ensure that the help window is created before an Alink is looked up, this command is called 
+		HtmlHelp(
+				GetDesktopWindow(),				
+				html_help_path,
+				HH_DISPLAY_TOPIC,
+				NULL) ;		
+		
+		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE_TITLE,pc_str1,STR_LAENGE_STRING_TABLE);
+
+		HH_AKLINK link;		// structure needed to call an Alink
+		link.cbStruct =     sizeof(HH_AKLINK) ;
+		link.fReserved =    FALSE ;
+		link.pszKeywords =  cmd ; 
+		link.pszUrl =       NULL; 
+		link.pszMsgText =   pc_str ; 
+		link.pszMsgTitle =  pc_str1 ; 
+		link.pszWindow =    NULL;
+		link.fIndexOnFail = FALSE ;
+
+		// looking up the Alink
+		HtmlHelp(
+				GetDesktopWindow(),				
+				m_pszHelpFilePath,
+				HH_ALINK_LOOKUP,
+				(DWORD) &link) ;
 	} else
-		CWinApp::WinHelp(dwData,nCmd);
+	{	
+		// creating the path to the help
+		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
+		
+		// calling the help by turning an ID over to the htmlhelp
+		HtmlHelp(
+					GetDesktopWindow(),					
+					html_help_path,
+					HH_HELP_CONTEXT,
+					dwData) ;
+	}	
+
 }
 
 void CCrypToolApp::updateMenuItemStack(HMENU hmenu,INT index) { 
@@ -855,6 +892,7 @@ void CCrypToolApp::OnScript()
 	if ( reinterpret_cast<int>(hInst) <= 32 )
 		Message(IDS_ERROPEN_SCRIPT, MB_ICONSTOP);
 }
+
 
 // Den Dialog "Visualisierung eines Seitenkanalangriffs auf das
 // Hybridverschlüsselungsverfahren" erstellen und anzeigen
