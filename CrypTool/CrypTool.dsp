@@ -462,7 +462,7 @@ InputPath=.\CrypToolPopupMenuIDs.txt
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
 USERDEP__CRYPTO="CrypTool.rc"	
-# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
+# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
 "CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"

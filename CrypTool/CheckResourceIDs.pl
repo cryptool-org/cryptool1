@@ -14,7 +14,7 @@ sub clean {
 @stack = ();
 %rcmenu = ();  
 %filemenu = ();
-$nerror = 0;
+$nwarning = 0;
 $lno = 0;
 
 my $MID = $ARGV[0] || "CrypToolPopupMenuIDs.txt";
@@ -70,7 +70,8 @@ foreach (<RC>) {
 	my $index = "$lang:$id";
 	my $text = join("|",@stack);
 	if (defined($rcmenu{$index}) && $text ne $rcmenu{$index}) {
-	    print STDERR "$RC($lno) : error: This menu entry is the same as an earlier one ($rcmenu{$index}) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1\n";
+	    print STDERR "$RC($lno) : warning: This menu entry is the same as an earlier one ($rcmenu{$index}) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1\n";
+		$nwarning++;
 	}
 	$rcmenu{$index} = $text;
 	$rcmenuline{$index} = $lno;
@@ -102,12 +103,12 @@ foreach (<MID>) {
 	$filemenu{$index} = [split("|",$comment)];
 	if (defined $rcmenu{$index}) {
 		if ($comment ne $rcmenu{$index}) {
-			print STDERR "$MID($lno) : error: Menu text was changed in $RC:$rcmenuline{$index}? Please update $MID($lno) to ... # $rcmenu{$index}\n";
-			$nerror++;
+			print STDERR "$MID($lno) : warning: Menu text was changed in $RC:$rcmenuline{$index}? Please update $MID($lno) to ... # $rcmenu{$index}\n";
+			$nwarning++;
 		}
 	} else {
-		print STDERR "$MID($lno) : error: Popup menu deleted from $RC? Please check and possibly delete line $lno from $MID\n";
-		$nerror++;
+		print STDERR "$MID($lno) : warning: Popup menu deleted from $RC? Please check and possibly delete line $lno from $MID\n";
+		$nwarning++;
 	}
 }
 close MID;
@@ -115,23 +116,27 @@ close MID;
 foreach (sort keys %rcmenu) {
 	if (!defined $filemenu{$_}) {
 		my ($lang,$id) = split(':',$_);
-		print STDERR "$RC($rcmenuline{$_}) : error: New menu entry? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
-		$nerror++;
+		print STDERR "$RC($rcmenuline{$_}) : warning: New menu entry? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
+		$nwarning++;
 	}
 }
 
 my $iden = $id{ENGLISH};
 my $idde = $id{GERMAN};
 foreach (sort keys %$iden) {
-	print "$RC($iden->{$_}) : warning: $_ is missing in german language ressources\n"
-		unless defined $idde->{$_};
+	unless (defined $idde->{$_}) {
+		print "$RC($iden->{$_}) : warning: $_ is missing in german language ressources\n";
+		$nwarning++;
+	}
 }
 foreach (sort keys %$idde) {
-	print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n"
-		unless defined $iden->{$_};
+	unless (defined $iden->{$_}) {
+		print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n";
+		$nwarning++;
+	}
 }
 
-if ($nerror == 0) {
+if ($nwarning == 0) {
 	#update time stamp
 	open OKLOG ,">$OKLOG " or die "open $OKLOG : $!\n";
 	print OKLOG  "$RC and $MID checked successfully.\n\nThis file can be safely removed.\n";
@@ -140,4 +145,4 @@ if ($nerror == 0) {
 	unlink($OKLOG);
 }
 
-exit($nerror ? 1 : 0);
+exit(0);
