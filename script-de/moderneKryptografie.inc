@@ -132,7 +132,9 @@ Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein ber"uhmtes of
 
 Viele kryptographische Protokolle sind so gemacht, da"s die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} l"osen m"ussen, w"ahrend sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
-Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man kann aber zeigen, da"s Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.\\
+Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man kann aber zeigen, da"s Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.
+\vskip +5pt
+
 Es gab immer wieder die Aussage, jemand habe die "Aquivalenz bewiesen, z.B.
 
 {\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
@@ -190,7 +192,7 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 \>{\bf if} $ T=0 $ {\bf then} \\
 \>\> $ X:=(x_1, \dots, x_n) $ ist die L"osung. \\
 \>{\bf else} \\
-\>\> Es gibt keine L"osung
+\>\> Es gibt keine L"osung.
 \end{tabbing}
 }}
 \end{center}
@@ -202,7 +204,7 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 %--------------------------------------------------------------------
     \subsubsection{Merkle-Hellman Knapsack Verschl"usselung}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public-Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen n Bit langen Klartext chiffiert.
+\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public-Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffiert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
 
@@ -250,10 +252,9 @@ asymmetrische Kryptographie-Verfahren vor.  \par
 \index{Eulersche Phi-Funktion}
 \begin{center}
 \fbox{\parbox{12cm}{        
-\underline{Schl"usselgenerierung:} \vskip + 5pt$ e $ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahlen!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so da"s gilt
+\underline{Schl"usselgenerierung:} \vskip + 5pt
+Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$ Sei $e$ eine frei w"ahlbare, zu $ \phi (N) $ \index{Primzahlen!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die nat"urliche Zahl  $ d < \phi (N), $ so da"s gilt
 
-
-Seien $ p $ und $ q $ zwei verschiedene Primzahlen und $ N = pq$. Sei 
 \[ ed \equiv 1 \mod \phi (N). \]
 Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}. 
 
@@ -288,8 +289,8 @@ Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
 
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
 \cdots \, (1-\frac{1}{p_k})\footnote{
-Weitere Formel finden sich in den Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrnung in die elementare Zahlentheorie
-mit Beipielen\grqq, Kap. 3.8}
+Weitere Formeln finden sich in den Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrung in die elementare Zahlentheorie
+mit Beispielen\grqq, Kap. 3.8}
 .} $.
 
 Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
@@ -355,7 +356,7 @@ Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ un
 \underline{Verschl"usselung:}
 \[ y= e_{T} (x) = x(x+B) \mod n.\]
 \underline{Entschl"usselung:}
-\[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n \]
+\[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n. \]
 }}
 \end{center}
 
@@ -376,8 +377,7 @@ Hintert"ur-Information ist die Primfaktorzerlegung von $ n = pq. $
 %--------------------------------------------------------------------
        \subsection{Der diskrete Logarithmus als Basis f"ur Public-Key-Verfahren}
 %--------------------------------------------------------------------
-Diskrete Logarithmen sind  Grundlagen f"ur eine gro"se Anzahl von Algorithmen von Public-Key-Verfahren.
-\index{Logarithmusproblem!diskret}
+Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind  Grundlagen f"ur eine gro"se Anzahl von Algorithmen von Public-Key-Verfahren.
 
 
 
@@ -391,7 +391,7 @@ Sei $ p $ eine Primzahl, und sei $g$ ein Erzeuger der zyklische multiplikative G
 Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
 \[ \log_g (g^k) =k. \]
 \index{Exponentialfunktion!diskrete} Unter dem Problem des diskreten Logarithmus (in $ \Z_p^\ast$) versteht man das folgende:
-\[ \text{Gegeben } p,g \text{(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, da"s } y=g^k \mod p \text{ gilt.}\]
+\[ \text{Gegeben } p,g \text{~(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, da"s } y=g^k \mod p \text{ gilt.}\]
 Die Berechnung des diskreten Logarithmus ist viel schwieriger als die Auswertung der diskreten Exponentialfunktion (siehe 3.4.4).
 Es gibt viele Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson1995}:
 \vskip + 5pt
@@ -453,11 +453,11 @@ Sei $ k \in \Z_{p-1} $ eine zuf"allige Zahl und $ x \in \Z_p^{\ast} $ der Klarte
 \underline{Verschl"usselung:}
 \[ e_T(x,k)=(y_1,y_2), \]
 wobei
-\[ y_1=\alpha^k \mod p\]
+\[ y_1=\alpha^k \mod p,\]
 und
 \[ y_2 = x\beta^k \mod p.\]
 \underline{Entschl"usselung:}
-\[ d_T(y_1,y_2)= y_2 (y_1^{a})^{-1} \mod p \]
+\[ d_T(y_1,y_2)= y_2 (y_1^{a})^{-1} \mod p. \]
 }}
 \end{center}
 
@@ -483,7 +483,9 @@ Dabei definiert man
 Die Exponentialfunktion ist leicht zu berechnen:
 % \begin{lemma}
 \vskip +20 pt \noindent
-{\bf Lemma.}{\em
+{\bf Lemma.}
+
+{\em
   Die Potenz $ g^k $ kann in h"ochstens $ 2 \log_2 k $ Gruppenoperationen berechnet werden.
 }
 % \end{lemma}
@@ -549,11 +551,11 @@ Sei $ k \in \Z_{|H|} $ eine zuf"allige Zahl und $ x \in G $ ein Klartext. \\
 \underline{Verschl"usselung:}
 \[ e_T(x,k)=(y_1,y_2), \]
 wobei
-\[ y_1=\alpha^k \]
+\[ y_1=\alpha^k, \]
 und
 \[ y_2 = x\circ \beta^k .\]
 \underline{Entschl"usselung:}
-\[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}  \]
+\[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}.  \]
 }}
 \end{center}
 
@@ -565,6 +567,7 @@ und
 \hyperlink{ellcurve}{Elliptische Kurven} {} liefern n"utzliche Gruppen f"ur Public-Key-Verschl"usselungsverfahren.
 
 \newpage
+\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99}
            
            \bibitem[Adleman1982]{Adleman1982} Adleman L.: \index{Adleman Leonard}
@@ -600,6 +603,7 @@ und
            \emph{Cryptography.}  \index{Stinson 1995} \\
            CRC Press, Boca Raton, London, Tokyo, 1995.
 \end{thebibliography}
+\addcontentsline{toc}{subsection}{URLs}
 \section*{URLs}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }

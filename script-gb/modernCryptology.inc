@@ -141,8 +141,8 @@ length of the input is $ n $  bits and the time required for calculating the
 function is proportional to $ 2^n $, then the following currently applies: the 
 function practically cannot be calculated for $n > 80$ (for $ a=5 $ the 
 following applies: from the length $ n=23 $, $ 2^n$ is greater than $n^5 $, after 
-which $ 2^n $ clearly increases more quickly ($ 2^{23}=8.388.608, $ $ 23^5= 
-6.436.343 $)).\par 
+which $ 2^n $ clearly increases more quickly ($ 2^{23}=8,388,608, $ $ 23^5= 
+6,436,343 $)).\par 
 
 In order to develop a public-key procedure that can be implemented in practice, 
 it is therefore necessary to discover a suitable trapdoor one-way function.\par
@@ -189,6 +189,8 @@ perpetrator is faced with problems from \textbf{NP}.
 Unfortunately, we do not yet know whether one-way functions actually exist. 
 However, we can prove that one-way functions exist if and only if $ \textbf{P} 
 \neq \textbf{NP} $ \cite[S.63]{Balcazar1988}.\\
+
+\vskip +3pt
 Mathematicians have again and again claimed to have proven the equivalence, e.g.
 
 {\href{http://www.geocities.com/st_busygin/clipat.html}{
@@ -201,6 +203,7 @@ cases - although they at first appeared promising - it was discovered that they
 could be solved polynomially. The most famous failed applicant is the knapsack 
 with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 
+\newpage
 \subsection{Knapsack problem as a basis for public-key procedures}
 \index{Knapsack}
 \subsubsection{Knapsack problem}
@@ -247,7 +250,7 @@ e.g. for $ a_i = 2^{i-1}. $  The binary representation of $ g $ immediately
 delivers $ x_1, \dots, x_n$. In general, the a 0-1 knapsack problem can be 
 solved easily if a \index{Permutation} permutation\footnote{A permutation $\pi$ 
 of the numbers $1, \dots, n$ is a change in the order in which these numbers are 
-listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$, i.e. 
+listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. 
 $\pi(1) = 3$, $\pi(2) =1$ 
 and $\pi(3) = 2$.} 
 $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1} 
@@ -270,7 +273,7 @@ sequence in the timeframe of $ O(n). $
 \>{\bf if} $ T=0 $ {\bf then} \\
 \>\> $ X:=(x_1, \dots, x_n) $ is the solution. \\
 \>{\bf else} \\
-\>\> No solution exists
+\>\> No solution exists.
 \end{tabbing}
 }}
 \end{center}
@@ -284,7 +287,7 @@ sequence in the timeframe of $ O(n). $
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public-key 
 encryption procedure that is based on ''defamiliarising'' the easy 0-1 
 knapsack problem with a superincreasing sequence into a congruent one with a 
-superincreasing sequence. It is a block ciphering that ciphers an n-bit 
+superincreasing sequence. It is a block ciphering that ciphers an $n$-bit 
 plaintext each time it runs.
 \index{Knapsack!Merkle-Hellman}
 More precisely:
@@ -370,7 +373,7 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \underline{Encryption:}
 \[ y= e_{T} (x) = x^{e} \mod N.\]
 \underline{Decryption:}
-\[ d_{T} (y) = y^d \mod N \]
+\[ d_{T} (y) = y^d \mod N. \]
 }} % \fbox
 
 \end{center}
@@ -393,9 +396,11 @@ $|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
 
 If  $ p $ is a prime number, then $ \phi (p)= p-1. $
 
-If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $, then $ \phi 
+If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then $ \phi 
 (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $.
+\cdots \, (1-\frac{1}{p_k}) $\footnote{
+Further formulas for the Euler phi function are in the article \hyperlink{Kap_3_8}{''Introduction to Elementary Number Theory with Examples, chapter 3.8}.
+}.
 
 In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
 1)(q-1). $
@@ -425,7 +430,7 @@ At the moment, no algorithm is known that can factorise two prime numbers
 sufficiently quickly for extremely large values (e.g. for several hundred 
 decimal places). The quickest algorithms known today \cite{Stinson1995} 
 factorise a compound whole number $ N $ in a time period proportional to $ L(N)= 
-e^{\sqrt{\ln (N) \ln (\ln (N))}} $ 
+e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ 
 \vskip +5 pt
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|l|l|}\hline
@@ -473,7 +478,7 @@ and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
 \underline{Encryption:}
 \[ y= e_{T} (x) = x(x+B) \mod n.\]
 \underline{Decryption:}
-\[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n \]
+\[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n. \]
 }}
 \end{center}
 
@@ -497,7 +502,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
 
 
        \subsection{The discrete logarithm as a basis for public-key procedures}
-Discrete logarithms form the basis for a large number of algorithms for public-
+Discrete logarithms \index{discrete logarithm} form the basis for a large number of algorithms for public-
 key procedures.
 \index{Logarithm problem!discrete}
 
@@ -626,7 +631,9 @@ where
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k {\rm ~times}}.\]
 The exponential function is easy to calculate:
 \vskip +20 pt \noindent
-{\bf Lemma.}{\em
+{\bf Lemma.}
+
+{\em
   The power $ g^k $ can be calculated in at most $ 2 \log_2 k $ group 
 operations.
 }

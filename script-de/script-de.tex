@@ -29,7 +29,7 @@
 
 
 \author{
-(c) Die Autoren, 1998-2001 \\
+(c) Die Autoren, 1998-2002 \\
 Frankfurt am Main \\*[8pt]
 }
 
@@ -152,16 +152,16 @@ in der Lage ist,
 den Klartext zu rekonstruieren. Das hat den Vorteil, da"s verschl"usselte Daten offen "ubertragen werden
 k"onnen und trotzdem keine Gefahr besteht, da"s ein Angreifer die Daten unberechtigterweise lesen kann. Der
 autorisierte Empf"anger ist im Besitz einer geheimen Information, des sogenannten Schl"ussels, die
-es ihm erlaubt, die Daten zu entschl"usseln, w"ahrend sie jedem anderen verborgen bleiben.
+es ihm erlaubt, die Daten zu entschl"usseln, w"ahrend sie jedem anderen verborgen bleiben.\par \vskip + 3pt
 
-Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, das {\em One-Time-Pad} \index{One­Time­Pad}. Dieses weist allerdings einige
+Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, das \index{One­Time­Pad} {\em One-Time-Pad}. Dieses weist allerdings einige
 praktische Nachteile auf (der verwendete Schl"ussel mu"s zuf"allig gew"ahlt werden und genauso lang wie die zu
 sch"utzende Nachricht sein), so da"s es au"ser in geschlossenen Umgebungen, zum Beispiel beim hei"sen Draht
-zwischen Moskau und Washington, kaum eine Rolle spielt.
+zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
 
 F"ur alle anderen Verfahren gibt es (theoretische) M"oglichkeiten, sie zu brechen. Bei guten Verfahren sind
 diese jedoch so aufwendig, da"s sie praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
-sicher angesehen werden k"onnen.
+sicher angesehen werden k"onnen.\par \vskip + 3pt
 
 Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfahren zur Verschl"usselung.
 
@@ -170,7 +170,7 @@ Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfa
 Bei der {\em symmetrischen} Verschl"usselung \index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger "uber einen
 gemeinsamen (geheimen)
 Schl"ussel verf"ugen, den sie vor Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
-benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der Empf"anger, um diese zu entschl"usseln.
+benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der Empf"anger, um diese zu entschl"usseln.\par \vskip + 3pt
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschl"usselt werden.
@@ -183,7 +183,7 @@ sind, scheint so nahezu unm"oglich. Soll in einem Netz mit $ n $
 Teilnehmern jeder mit jedem zu jeder Zeit spontan kommunizieren
 k"onnen, so mu"s jeder Teilnehmer vorher mit jedem anderen der
 $n-­ 1$ Teilnehmer einen Schl"ussel ausgetauscht haben. Insgesamt
-m"ussen also $n(n - 1)/2$ Schl"ussel ausgetauscht werden.
+m"ussen also $n(n - 1)/2$ Schl"ussel ausgetauscht werden.\par \vskip + 3pt
 
 Das bekannteste symmetrische Verschl"usselungsverfahren ist der \index{DES} DES--Algorithmus.
 Der DES--Algorithmus ist eine Entwicklung von IBM in Zusammenarbeit mit der National Security Agency \index{NSA} (NSA). Er
@@ -193,7 +193,7 @@ Schl"ussel, bis der richtige gefunden wird ({\em brute--force--attack})\index{An
 Schl"ussell"ange von effektiv 56 Bits (64 Bits, die allerdings 8 Parit"atsbits enthalten),
 sind in der Vergangenheit schon mehrfach mit dem DES verschl"usselte Nachrichten gebrochen worden, so da"s
 er heute als nur noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind zum Beispiel die Algorithmen
-IDEA \index{IDEA} oder Triple--DES.
+IDEA \index{IDEA} oder Triple--DES.\par \vskip + 3pt
 
 Hohe Aktualit"at besitzen die symmetrischen AES-Verfahren. Das
 dazu geh"orende Rijndael Verfahren wurde am 2. Oktober 2000 zum
@@ -205,7 +205,7 @@ des DES-Verfahrens.
 Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl""usselung!asymmetrisch} hat jeder Teilnehmer ein
 pers"onliches Schl"us\-selpaar, das aus einem
 {\em geheimen} \index{Schl""ussel!geheim} und einem {\em "offentlichen} Schl"ussel \index{Schl""ussel!""offentlich} besteht. Der "offentliche Schl"ussel wird, der Name deutet es an,
-"offentlich bekanntgemacht, zum Beispiel in einem Schl"usselverzeichnis im Internet.
+"offentlich bekanntgemacht, zum Beispiel in einem Schl"usselverzeichnis im Internet.\par \vskip + 3pt
 
 M"ochte Alice mit Bob kommunizieren, so sucht sie Bobs "offentlichen Schl"ussel aus dem Verzeichnis und benutzt
 ihn, um ihre Nachricht an ihn zu verschl"usseln. Diesen verschl"usselten Text schickt sie dann an Bob, der mit
@@ -213,7 +213,7 @@ Hilfe seines geheimen Schl"ussels den Text wieder entschl"usseln kann. Da einzig
 geheimen Schl"ussel hat, ist auch nur er in der Lage, an ihn adressierte Nachrichten zu entschl"usseln.
 Selbst Alice als Absenderin der Nachricht kann aus der von ihr versandten (verschl"usselten) Nachricht den
 Klartext nicht wieder herstellen. Nat"urlich mu"s sichergestellt sein, da"s man aus dem "offentlichen
-Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen kann.
+Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen kann.\par \vskip + 3pt
 
 Veranschaulichen kann man sich ein solches Verfahren mit einer
 Reihe von einbruchssicheren Briefk"asten. Wenn ich eine Nachricht
@@ -221,7 +221,7 @@ verfa"st habe, so suche ich den Briefkasten mit dem Namensschild
 des Empf"angers und werfe den Brief dort ein. Danach kann ich die
 Nachricht selbst nicht mehr lesen oder ver"andern, da nur der
 legitime Empf"anger im Besitz des Schl"ussels f"ur den Briefkasten
-ist.
+ist.\par \vskip + 3pt
 
 Vorteil von asymmetrischen Verfahren ist das einfache
 \index{Schl""usselmanagement} Schl"usselmanagement. Betrachten wir
@@ -236,9 +236,9 @@ einer vertraulichen Kommunikation notwendig sind, offen
 Unverf"alschtheit (Integrit"at und Authentizit"at)
 \index{Authentizit""at} des "offentlichen Schl"ussels zu achten.
 Nachteil: Im Vergleich zu symmetrischen Verfahren sind reine
-asymmetrische Verfahren jedoch um ein Vielfaches langsamer.
+asymmetrische Verfahren jedoch um ein Vielfaches langsamer.\par \vskip + 3pt
 
-Das bekannteste asymmetrische Verfahren ist der \index{RSA} RSA -- Algorithmus,
+Das bekannteste asymmetrische Verfahren ist der \index{RSA} RSA--Algorithmus,
 der nach seinen Entwicklern Ronald \index{Rivest Ronald} Rivest, Adi \index{Shamir Adi} Shamir und Leonard \index{Adleman Leonard} Adleman benannt wurde. Der
 RSA--Algorithmus wurde 1978 ver"offentlicht. Das Konzept der asymmetrischen Verschl"usselung wurde erstmals
 von Whitfield Diffie \index{Diffie Whitfield}  und Martin \index{Hellman Martin} Hellman in Jahre 1976 vorgestellt. Heute spielen auch die Verfahren nach
@@ -247,7 +247,7 @@ ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die \index{Schnorr} Sch
 \subsubsection{Hybridverfahren}
 \index{Hybridverfahren}
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam nutzen zu k"onnen, werden
-(zur Verschl"usselung) in der Praxis meist Hybridverfahren verwendet.
+(zur Verschl"usselung) in der Praxis meist Hybridverfahren verwendet.\par \vskip + 3pt
 
 Hier werden die Daten mittels symmetrischer Verfahren
 verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig
@@ -267,10 +267,12 @@ symmetrischen Verfahren verschl"usseln.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \newpage
 \section{Primzahlen}
-(Bernhard Esslinger, besslinger@web.de, Mai 1999, Update Nov. 2000, Dezember 2001)
+(Bernhard Esslinger, besslinger@web.de, Mai 1999, Updates Nov. 2000, Dezember 2001)
 \hypertarget{Kapitel_2}{}
 
-\paragraph{Was sind Primzahlen ?}
+%\paragraph{Was sind Primzahlen?}
+\subsection*{Was sind Primzahlen?}
+\addcontentsline{toc}{subsection}{~~~~~~Was sind Primzahlen?}
 \index{Primzahlen} \index{Zahlen!Primzahl} Primzahlen sind ganze,
 positive Zahlen gr"o"ser gleich $2$, die man nur durch 1 und durch
 sich selbst teilen kann. Alle anderen nat"urlichen Zahlen gr"o"ser
@@ -314,7 +316,7 @@ Jede ganze Zahl hat Teiler. Die Zahl 1 hat nur einen, n"amlich
 sich selbst. Die Zahl $12$ hat die sechs Teiler $1, 2, 3, 4, 6,
 12$. Viele Zahlen sind nur teilbar durch sich selbst und durch
 $1$. Bez"uglich der Multiplikation sind dies die \glqq Atome\grqq
-{} im Bereich der Zahlen. Diese Zahlen nennt man Primzahlen.
+~ im Bereich der Zahlen. Diese Zahlen nennt man Primzahlen.
 
 In der Mathematik ist eine etwas andere (aber "aquivalente) Definition "ublich.
 
@@ -331,14 +333,14 @@ Teiler $\pm 1$ und $\pm p$ besitzt.
 Per definitionem ist die Zahl $1$ keine Primzahl. Im weiteren bezeichnet der Buchstabe $p$ stets eine Primzahl.
 
 Die Primzahlenfolge startet mit
-$$ 2,{} 3,{} 5,{} 7, {} 11, {} 13, {} 17, {} 19, {} 23, {} 29, {} 31, {} 37, {} 41, {} 43, {} 47, {} 53, {} 59, {} 61, {} 67, {} 71, {} 73, {} 79, {} 83, {} 89, {} 97, ... $$
+$$ 2,~ 3,~ 5,~ 7, ~ 11, ~ 13, ~ 17, ~ 19, ~ 23, ~ 29, ~ 31, ~ 37, ~ 41, ~ 43, ~ 47, ~ 53, ~ 59, ~ 61, ~ 67, ~ 71, ~ 73, ~ 79, ~ 83, ~ 89, ~ 97, \cdots .$$
 Unter den ersten 100 Zahlen gibt es genau 25 Primzahlen. Danach nimmt ihr prozentualer Anteil stets
 ab. Primzahlen k"onnen nur auf eine einzige {\em triviale} Weise zerlegt werden:
 $$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1013 = 1 \cdot 1.013,  \quad 1.296.409 = 1 \cdot 1.296.409.$$
 Alle Zahlen, die $2$ und mehr Faktoren haben, nennt man \index{Zahlen!zusammengesetzte} {\em zusammengesetzte}. Dazu geh"oren
 $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$
 aber auch Zahlen, die {\em wie Primzahlen aussehen}, aber doch keine sind:
-$$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59 $$
+$$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
 \begin{satz}
 Jede ganze Zahl $m$ gr"o"ser als $1$ besitzt einen kleinsten Teiler gr"o"ser als $1$.
@@ -369,13 +371,13 @@ zerlegen. Wenn man nicht nur Primzahlen als Faktoren zul"a"st,
 gibt es mehrere M"oglichkeiten der Zerlegung in Faktoren und die
 Eindeutigkeit (uniqueness) geht verloren: \hypertarget{uniqueness}{}
 $$ 60 = 1 \cdot 60 = 2 \cdot 30 = 4 \cdot 15 = 5 \cdot 12 =6 \cdot 10 = 2 \cdot 3 \cdot 10 =
-        2 \cdot 5 \cdot 6 = 3 \cdot 4 \cdot 5 = ... $$
+        2 \cdot 5 \cdot 6 = 3 \cdot 4 \cdot 5 = \cdots . $$
 
 Der folgende Absatz wendet sich eher an die mit der mathematischen Logik vertrauteren Menschen:
 Der 1. Hauptsatz ist nur scheinbar selbstverst"andlich\label{remFundTheoOfArithm}. Man kann viele andere Zahlenmengen
 (ungleich der positiven ganzen Zahlen gr"o"ser als 1) konstruieren, bei denen selbst eine Zerlegung in
 die Primfaktoren dieser Mengen nicht eindeutig ist:
-In der Menge $M = \{1, 5, 10, 15, 20, ...\}$ gibt es unter der Multiplikation kein Analogon zum Hauptsatz.
+In der Menge $M = \{1, 5, 10, 15, 20, \cdots\}$ gibt es unter der Multiplikation kein Analogon zum Hauptsatz.
 Die ersten f"unf Primzahlen dieser Folge sind $5, 10, 15, 20, 30$ (beachte: $10$ ist prim, da innerhalb
 dieser Menge $5$ kein Teiler von $10$ ist --- das Ergebnis $2$ ist kein Element der gegebenen Grundmenge
 $M$). Da in $M$ gilt:
@@ -392,8 +394,27 @@ den Elementarteilchen in der Physik (vgl. \cite[S. 22]{Blum1999}).
 W"ahrend es nur $92$ nat"urliche chemische Elemente gibt, ist die Anzahl der Primzahlen unbegrenzt.
 Das wu"ste schon der Grieche \index{Euklid} Euklid\footnote{
 Euklid, griechischer Mathematiker des 4./3. Jahrhunderts vor Christus.
-Werkte an der Akademie in Alexandria und verfa"ste mit den \glqq Elementen\grqq~ das bekannteste systematische Lehrbuch
-der griechischen Mathematik.} im dritten vorchristlichen Jahrhundert. Sein Beweis, da"s es
+Wirkte an der Akademie in Alexandria und verfa"ste mit den \glqq Elementen\grqq~ das bekannteste systematische Lehrbuch
+der griechischen Mathematik.} im dritten vorchristlichen Jahrhundert.
+\begin{satz}[Euklid]\footnote{
+Die "ublich gewordene Benennung soll nicht sagen, da"s Euklid der Entdecker des Satzes ist, dieser ist viel mehr
+nicht bekannt. Dieser Satz wird bereits in Eulkids \glqq Elementen\grqq ~(Buch IX, Satz 20) 
+ausgesprochen und bewiesen. Die dortige Formulierung ist insofern bemerkenswert,
+als sie das Wort unendlich nicht verwendet; sie lautet
+$$
+O\acute{\iota}~\pi\varrho\tilde{\omega}\tau o \iota~\grave{\alpha}\varrho\iota\vartheta\mu o\grave{\iota}~
+\pi\lambda\varepsilon\acute{\iota}o \upsilon\varsigma~\varepsilon\grave{\iota}\sigma\grave{\iota}~
+\pi\alpha\nu\tau\grave{o}\varsigma~\tau o \tilde{\upsilon}~
+\pi\varrho o \tau\varepsilon\vartheta\acute{\varepsilon}\nu\tau o \varsigma~
+\pi\lambda\acute{\eta}\vartheta\ o \upsilon\varsigma~
+\pi\varrho\acute{\omega}\tau\omega\nu~
+\grave{\alpha}\varrho\iota\vartheta\mu\tilde{\omega}\nu,
+$$
+zu deutsch: Die Primzahlen sind mehr als jede vorgegebene Menge von Primzahlen.}
+Die Folge der Primzahlen bricht nicht ab, es gibt also unendlich viele Primzahlen.
+\end{satz}
+
+Sein Beweis, da"s es
 unendlich viele Primzahlen gibt, gilt bis heute als ein Glanzst"uck mathematischer "Uberlegung und
 Schlu"sfolgerung (Widerspruchsbeweis). Er nahm an, es gebe nur endlich viele Primzahlen und damit
 eine gr"o"ste Primzahl. Daraus zog er solange logische Schl"usse, bis er auf einen offensichtlichen
@@ -421,26 +442,32 @@ $p_i$ teilt  $a - (a-1) = 1$. $p_i$ m"u"ste also $1$ teilen und
 das ist unm"oglich.
 \\*[4pt] {\bf Wiederspruch}: \quad Unsere Annahme war falsch.
 
-Also gibt es {\em unendlich} viele Primzahlen.
+Also gibt es {\em unendlich} viele Primzahlen
 \hyperlink{primhfk}{(Verweis: "Ubersicht unter 2.6.1 "uber die
-Anzahl von Primzahlen in verschiedenen Intervallen).}
+Anzahl von Primzahlen in verschiedenen Intervallen).}\par \vskip + 3pt
 
-
+Wir erw"ahnen hier auch noch eine andere, auf den ersten Blick "uberraschende Tatsache, da"s n"amlich in der
+Folge aller Primzahlen $p_1, p_2, \cdots $ L"ucken von beliebig gro"ser L"ange $n$ auftreten. In der Tat ist unter den $n$ aufeinanderfolgenden
+ nat"urlichen Zahlen
+$$ (n+1)!+2, \cdots, (n+1)!+(n+1),
+$$
+keine eine Primzahl, da ja in ihnen der Reihe nach die Zahlen $2,\cdots, n+1$ als echter Teiler enthalten sind.
+Dabei bedeutet $n!$ das Produkt der ersten $n$ nat"urlichen Zahlen, also 
+$n!=n*(n-1)* \cdots *3*2*1. $
 % ---------------------------------------------------------------------------------------------------------------------
 \subsection{Die Suche nach sehr gro"sen Primzahlen}
 
 Die gr"o"sten heute bekannten Primzahlen haben mehrere
 hunderttausend Stellen. Das ist unvorstellbar gro"s. Die Anzahl
 der Elementarteilchen im Universum wird auf \glqq nur\grqq\ eine
-$80$-stellige Zahl gesch"atzt. \hyperlink{grosord}{(Verweis:
+$80$-stellige Zahl gesch"atzt \hyperlink{grosord}{(Verweis:
 "Ubersicht unter 2.6.3 "uber verschiedene Gr"o"senordnungen /
-Dimensionen.)}
+Dimensionen)}.
 
 Nahezu alle bekannten riesig gro"sen Primzahlen sind spezielle Kandidaten, sogenannte \index{Mersenne Marine}
 {\em Mersennezahlen} der Form $2^p -1,$
 wobei $p$ eine Primzahl ist. Marin Mersenne (1588-1648) war ein franz"osicher Priester und
 Mathematiker. Nicht alle Mersennezahlen sind prim:
-
 $$
 \begin{array}{cl}
 2^2 - 1 = 3 & \Rightarrow {\rm prim} \\
@@ -493,7 +520,7 @@ Edouard Lucas (1842-1891) bewies, da"s diese Zahl zusammengesetzt
 ist. Er argumentierte aber indirekt und kannte keinen der
 Faktoren. Dann zeigte Frank Nelson 1903, aus welchen Faktoren,
 diese Primzahl besteht:
-$$ 2^{67} -1 =147. 573. 952. 588. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287 $$
+$$ 2^{67} -1 =147. 573. 952. 588. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
 Er gestand, 20 Jahre an der Faktorisierung (Zerlegung in Faktoren)
 dieser 21-stelligen Dezimalzahl gearbeitet zu haben!
 
@@ -502,9 +529,9 @@ sondern nur die Primzahlen, engt man den {\em Versuchsraum} deutlich ein.
 Die derzeit bekannten Mersenne Primzahlen gibt es f"ur die Exponenten
 $$
 \begin{array}{c}
-2, {} 3, {} 5, {} 7, {} 13, {} 17, {} 19, {} 31, {} 61, {} 89, {} 107, {} 127, {} 521, {} 607, {} 1.279, {} 2.203, {} 2.281, {} 3.217, {} 4.253, {} 4.423, \\
-9.689, {} 9.941, {} 11.213, {} 19.937, {} 21.701, {} 23.207, {} 44.497, {} 86.243, {} 110.503, {} 132.049, {} 216.091,\\
- 756.839, {} 859.433, {} 1.257.787, {} 1.398.269, {} 2.976.221, {} 3.021.377, {} 6.972.593, ~13.466.917.
+2, ~ 3, ~ 5, ~ 7, ~ 13, ~ 17, ~ 19, ~ 31, ~ 61, ~ 89, ~ 107, ~ 127, ~ 521, ~ 607, ~ 1.279, ~ 2.203, ~ 2.281, ~ 3.217, ~ 4.253, ~ 4.423, \\
+9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049, ~ 216.091,\\
+ 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593, ~13.466.917.
 \end{array}
 $$
 Damit sind heute $39$ Mersenne-Primzahlen bekannt.
@@ -528,26 +555,27 @@ Man findet diese Zahlen unter den URLs
 
 {\href{http://reality.sgi.com/chongo/prime/prime_press.html}{\tt
 http://reality.sgi.com/chongo/prime/prime\_press.html}}
-
+\vskip - 4pt \noindent
 \begin{quote}
 (Der Supercomputerhersteller SGI Cray Research besch"aftigte nicht
 nur hervorragende Mathematiker, sondern benutzte die Primzahltests
 auch als Benchmarks f"ur seine Maschinen.)
 \end{quote}
 {\href{http://www.utm.edu/}{\tt http://www.utm.edu/}}
+\vskip - 4pt \noindent
 \begin{quote}
 (An der Universit"at von Tennessee findet man umfangreiche Forschungsergebnisse "uber Primzahlen.)
 \end{quote}
 
 \subsubsection{M-38 -- Juni 1999} \index{Mersenne Marine!M-38}
-Die 38. Mersenne Primzahl$$ 2^{6.972.593} - 1 $$
+Die 38. Mersenne Primzahl, genannt M-38, $$ 2^{6.972.593} - 1 $$
 wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
 Zehnersystem (das entspricht rund 77 Seiten in der FAZ).
-\subsubsection{M-39 -- 6. Dezember 2001}\index{Mersenne Marine!M-39}
-Die 39. Mersenne Primzahl, genannt M-39, ($=2^{13.466.917}-1$),  wurde am 6.12.2001 gefunden -- genau
+\subsubsection{M-39 -- Dezember 2001}\index{Mersenne Marine!M-39}
+Die 39. Mersenne Primzahl, genannt M-39, $$2^{13.466.917}-1$$  wurde am 6.12.2001 gefunden -- genau
 genommen war am 6.12.2001 die Verifikation der am 14.11.2001 von dem kanadischen Studenten Michael Cameron gefundenen Primzahl abgeschlossen.
 Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). Allein zu ihrer Darstellung
-(924947738006701322247758 ... 1130073855470256259071) br"auchte man in der FAZ knapp 200 Seiten.
+($924947738006701322247758 \cdots 1130073855470256259071$) br"auchte man in der FAZ knapp 200 Seiten.
 \subsubsection{GIMPS}\index{GIMPS}
 Mit der 39. Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mersenne Prime Search) bereits
 zum 5. Mal die gr"o"ste Mersenne-Zahl entdeckt, die erwiesenerma"sen prim ist.
@@ -585,7 +613,7 @@ unten) ist mit heutigen Computern anwendbar f"ur Zahlen mit bis zu circa $20$ St
 
 Ist aber etwas "uber die {\em Bauart} der fraglichen Zahl bekannt, gibt es sehr hochentwickelte Verfahren,
 die deutlich schneller sind.
-Fermat hatte im 17. Jahrhundert an Mersenne geschrieben, da"s er vermute, da"s alle Zahlen der Form
+Fermat\index{Fermat} hatte im 17. Jahrhundert an Mersenne geschrieben, da"s er vermute, da"s alle Zahlen der Form
 $$ F(n) = 2^{2^n} + 1 $$
 f"ur alle ganzen Zahlen $n$ gr"o"ser oder gleich $0$ prim seien (siehe unten).
 
@@ -595,14 +623,14 @@ keine Primzahl ist. Aber erst 1970 fanden Morrison/Billhart ihre Zerlegung.
 \begin{eqnarray*}
 F(7) & = & 34.279.974.696.877.740.253.374.607.431.768.211.457 \\
 & = & 59. 649. 589. 127. 497. 217 \cdot  574. 689. 200. 685.
-129.054. 721
+129.054. 721.
 \end{eqnarray*}
 Der Ausgangspunkt vieler schneller Primzahltests ist der (kleine)
 Fermatsche Satz, den Fermat im Jahr 1640 aufstellte.
 \index{Fermat!kleiner Fermat}
 \begin{satz}[\glqq kleiner\grqq\ Fermat]
 Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt f"ur alle $a$
-$$a^p \equiv a \; {\rm mod} \; p$$
+$$a^p \equiv a \; {\rm mod} \; p.$$
 Eine alternative Formulierung lautet: \\
 Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist (also $a \not\equiv 0 \; {\rm mod} \; p$),
@@ -667,7 +695,7 @@ Ideen dazu finden sich in
 
 {\href{http://www.utm.edu/research/primes/notes/faq/p_n.html}{\tt http://www.utm.edu/research/primes/notes/faq/p\_n.html}}.
 
-Verweis: Die Tabelle unter 2.6.2 enth"alt  die exakten Werte f"ur
+Verweis: \hyperlink{ntePrimzahl}{Die Tabelle unter 2.6.2} enth"alt  die exakten Werte f"ur
 die $n$-ten Primzahlen f"ur ausgew"ahlte $ n.$
 %Es gibt eine Tabelle mit exakten Werten f"ur die n-ten Primzahlen f"ur bestimmte $n$.
 
@@ -684,11 +712,16 @@ Primzahlformeln:
 
     ({\href{http://www.prothsearch.net/index.html}
           {\tt http://www.prothsearch.net/index.html}}).
-  \item {\em Fermatzahlen} \index{Zahlen!Fermatzahlen}\index{Fermat!Fermatzahl}  $F(n) = 2^{2^n} + 1$:\\
+  \item {\em Fermatzahlen}\footnote{
+Die Fermatschen Primzahlen spielen eine wichtige Rolle in der Kreisteilung. Wie Gau"s
+bewiesen hat, ist der regul"are $p$-Eck f"ur eine Primzahl $p>2$ dann nur und nur dann mit Zirkel und
+Lineal konstruierbar, wenn $p$ eine Fermatsche Primzahl ist.}
+\index{Zahlen!Fermatzahlen}\index{Fermat!Fermatzahl}  $F(n) = 2^{2^n} + 1$:\\
     Wie oben erw"ahnt, schrieb Fermat diese Vermutung an Mersenne. Erstaunlicherweise w"are es f"ur
     ihn m"oglich gewesen, mit dem auf seinem kleinen Satz beruhenden negativen Primzahltest f"ur
     $n=5$  ein positives Ergebnis zu erhalten.
-$$ \begin{array}{lll}
+$$
+\begin{array}{lll}
 F(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prim}  \\
 F(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prim}  \\
 F(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prim}  \\
@@ -696,35 +729,40 @@ F(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prim}  \\
 F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = 65.537 &  \mapsto {\rm ~prim}  \\
 F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4 .294. 967. 297 = 641 \cdot
 6.700.417 &  \mapsto {\rm ~NICHT~prim} !
-   \end{array} $$
+\end{array}
+$$
   \item Carmichaelzahlen: s.o.
   \item Pseudoprimzahlen: s.o.
   \item starke Pseudoprimzahlen: s.o.
   \item Idee aufgrund von \hyperlink{euclid}{Euklids Beweis} (unendlich viele Primzahlen)
         $p_1 \cdot p_2 \cdots p_n +1$:
-
-$$ \begin{array}{lll}
+$$
+\begin{array}{lll}
 2{\cdot}3 +1 &      = 7 &          \mapsto {\rm ~prim} \\
 2{\cdot}3{\cdot}5 +1 &      = 31    &      \mapsto {\rm ~prim} \\
 2{\cdot}3{\cdot}5{\cdot}7 +1 &      = 211   &      \mapsto {\rm ~prim} \\
 2{\cdot}3{\cdots}11 +1 &        = 2311  &      \mapsto {\rm ~prim} \\
 2\cdot3 \cdots 13 +1 &  = 59 \cdot 509 &    \mapsto {\rm ~NICHT~prim} ! \\
 2\cdot3 \cdots 17 +1 &  = 19 \cdot 97 \cdot 277 &   \mapsto {\rm ~NICHT~prim} ! \\
-\end{array} $$
+\end{array} 
+$$
   \item Wie oben, nur statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$
-$$ \begin{array}{lll}
+$$
+ \begin{array}{lll}
 2\cdot 3 -1     &   = 5 &   \mapsto {\rm ~prim} \\
 2\cdot 3 \cdot  5  -1   &   = 29 &  \mapsto {\rm ~prim} \\
 2\cdot 3 \cdots 7  -1   &   = 11 \cdot 19 & \mapsto {\rm ~NICHT~prim} ! \\
 2\cdot 3 \cdots 11 -1   &   = 2309 &    \mapsto {\rm ~prim} \\
 2\cdot 3 \cdots 13 -1  &    = 30029 &   \mapsto {\rm ~prim} \\
 2\cdot 3 \cdots 17 -1    &  = 61 \cdot 8369 &   \mapsto {\rm ~NICHT~prim!}
-\end{array} $$
+\end{array}
+$$
   \item \index{Euklidzahlen} {\em Euklidzahlen} $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$  mit $n$ gr"o"ser oder gleich $1$ und $e_0 := 1$.
         $e_{n-1}$ ist nicht die $(n-1)$-te Primzahl, sondern die zuvor hier gefundene Zahl.
     Diese Formel ist leider nicht offen, sondern rekursiv.
     Die Folge startet mit
-$$ \small\begin{array}{lll}
+$$
+\small\begin{array}{lll}
 e_1 = 1 + 1 &   = 2 &   \mapsto {\rm ~prim} \\
 e_2 = e_1 + 1   &   = 3 &   \mapsto {\rm ~prim} \\
 e_3 = e_1 \cdot e_2 + 1 &   = 7 &   \mapsto {\rm ~prim} \\
@@ -733,8 +771,9 @@ e_5 = e_1 \cdot e_2 \cdots e_4 + 1 &    = 13 \cdot 139 &    \mapsto {\rm ~NICHT~
 e_6 = e_1 \cdot e_2 \cdots e_5 + 1 &    = 3.263.443 &   \mapsto {\rm ~prim} \\
 e_7 = e_1 \cdot e_2 \cdots e_6 + 1 &    = 547 \cdot 607 \cdot 1.033 \cdot 31.051 & \mapsto {\rm ~NICHT~prim} ! \\
 e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29.881\cdot 67.003 \cdot 9.119.521 \cdot 6.212.157.481 & \mapsto {\rm ~NICHT~prim} !
-\end{array} $$
-Auch $e_9, ..., e_{17}$ sind zusammengesetzt, so da"s dies auch
+\end{array}
+$$
+Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so da"s dies auch
 keine brauchbare Formel ist. Bemerkung: Das Besondere an allen
 diesen Zahlen ist aber, da"s sie jeweils paarweise keinen
 gemeinsamen Teiler au"ser $1$ haben, sie sind also
@@ -742,7 +781,8 @@ gemeinsamen Teiler au"ser $1$ haben, sie sind also
   \item $f(n) = n^2 + n + 41$:\\
   Diese Folge hat einen sehr {\em erfolgversprechenden} Anfang,
   aber das ist noch lange kein Beweis.
-$$ \begin{array}{ll}
+$$
+\begin{array}{ll}
 f(0) = 41 & \mapsto {\rm ~prim} \\
 f(1) = 43 & \mapsto {\rm ~prim} \\
 f(2) = 47 & \mapsto {\rm ~prim} \\
@@ -755,7 +795,8 @@ f(7) = 97 & \mapsto {\rm ~prim} \\
 f(39) = 1.601 & \mapsto {\rm ~prim} \\
 f(40) = 11 \cdot 151 &  \mapsto {\rm ~NICHT~prim}! \\
 f(41) = 41 \cdot 43 &   \mapsto {\rm ~NICHT~prim}! \\
-\end{array} $$
+\end{array}
+$$
         Die ersten $40$ Werte sind Primzahlen (diese haben die auffallende Regelm"a"sigkeit, da"s ihr
     Abstand beginnend mit dem Abstand $2$ jeweils um $2$ w"achst), aber der $41$. und der $42$. Wert
     sind keine Primzahlen.
@@ -766,7 +807,8 @@ f(41) = 41 \cdot 43 &   \mapsto {\rm ~NICHT~prim}! \\
         $f(80) = 1.681 = 11 \cdot 151$ keine Primzahl. Bis heute kennt man keine Funktion, die mehr aufeinanderfolgende
     Primzahlen annimmt. Andererseits kommt jede Primzahl doppelt vor (erst in der absteigenden,
     dann in der aufsteigenden Folge), so da"s sie insgesamt 40 verschiedene Primzahlwerte liefert (dieselben wie die Funktion aus den Punkt 10).
-$$\begin{array}{|ll||ll|}
+$$
+\begin{array}{|ll||ll|}
 \hline
 f(0) = 1.601    & \mapsto {\rm ~prim} &  f(28) = 173    & \mapsto {\rm ~prim} \\
 f(1) = 1.523    & \mapsto {\rm ~prim} &  f(29) = 151    & \mapsto {\rm ~prim} \\
@@ -799,34 +841,39 @@ f(25) = 251 & \mapsto {\rm ~prim} & & \\
 f(26) = 223 & \mapsto {\rm ~prim} & & \\
 f(27) = 197 & \mapsto {\rm ~prim} & & \\
 \hline
-\end{array} $$
-  \item Polynomfunktionen $f(x) = a_n x^n + a_{n-1}x^{n-1} + ... + a_1 x^1 + a_0$  ($a_i$ aus ${\mathbb Z}$, $n \geq 1$):
+\end{array}
+$$
+  \item Polynomfunktionen $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$  ($a_i$ aus ${\mathbb Z}$, $n \geq 1$):
 
     Es existiert kein solches Polynom, das f"ur alle $x$ aus ${\mathbb Z}$ ausschlie"slich Primzahlwerte annimmt.
     Zum Beweis sei auf \cite[S. 83 f.]{Padberg1996}, verwiesen, wo sich auch weitere Details zu
     Primzahlformeln finden.
   \item \index{Catalan} \index{Catalanzahlen} Catalan, nach dem auch die sog. {\em Catalanzahlen} $A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ benannt sind,
     "au"serte die Vermutung, da"s $C_4$ eine Primzahl ist:
-$$ \begin{array}{l}
+$$
+\begin{array}{l}
 C_0 = 2, \\
 C_1 = 2^{C_0} - 1,  \\
 C_2 = 2^{C_1} - 1,  \\
 C_3 = 2^{C_2} - 1, \\
 C_4 = 2^{C_3} - 1, \cdots \\
-\end{array} $$
+\end{array}
+$$
     (siehe
         {\href{http://www.utm.edu/research/primes/mersenne.shtml}{\tt http://www.utm.edu/research/primes/mersenne.shtml}}
         unter Conjectures and Unsolved Problems).
 
     Diese Folge ist ebenfalls rekursiv definiert und w"achst sehr schnell. Besteht sie nur
     aus Primzahlen?
-$$ \begin{array}{lll}
+$$
+\begin{array}{lll}
 C(0) = 2 & & \mapsto {\rm ~prim}\\
 C(1) = 2^2 - 1 &    = 3 & \mapsto {\rm ~prim}\\
 C(2) = 2^3 - 1 &    = 7 & \mapsto {\rm ~prim} \\
 C(3) = 2^7 - 1 &    = 127& \mapsto {\rm ~prim} \\
 C(4) = 2^{127} - 1 &      = 170. 141. 183. 460. 469. 231. 731. 687. 303. 715. 884. 105. 727 & \mapsto {\rm ~prim} \\
-\end{array} $$
+\end{array}
+$$
 Ob $C_5$ bzw.\ h"ohere Elemente prim sind, ist (noch) nicht bekannt, aber auch nicht wahrscheinlich.
 Bewiesen ist jedenfalls nicht, da"s diese Formel nur Primzahlen liefert.
 \end{enumerate}
@@ -853,7 +900,7 @@ Nach folgenden Gesichtspunkten gibt es mehr gerade Zahlen als quadratische:
 \end{itemize}
 \vskip +3 pt
 \begin{satz}
-F"ur gro"se n gilt: Der Wert der $n$-ten Primzahl $P(n)$ ist
+F"ur gro"se $n$ gilt: Der Wert der $n$-ten Primzahl $P(n)$ ist
 asymptotisch zu $n \cdot ln(n)$, d.h. der Grenzwert des
 Verh"altnisses  $P(n)/(n\cdot \ln n)$ ist gleich $1$, wenn $n$
 gegen unendlich geht.
@@ -879,7 +926,7 @@ Es gilt f"ur gro"se $n$, da"s  $P(n)$  zwischen  $2n$  und  $n^2$  liegt.
 Somit gibt es also weniger Primzahlen als gerade nat"urliche Zahlen, aber es gibt mehr Primzahlen als
 Quadratzahlen.
 
-Diese Formeln, die nur f"ur n gegen unendlich gelten, k"onnen durch pr"azisere Formeln ersetzt werden.
+Diese Formeln, die nur f"ur $n$ gegen unendlich gelten, k"onnen durch pr"azisere Formeln ersetzt werden.
 F"ur $x \geq 67$ gilt:
 $$ ln(x) - 1,5 < x / PI(x) < ln(x) - 0,5 $$
 Im Bewu"stsein, da"s $PI(x)  =  x / \ln x$ nur f"ur sehr gro"se $x$ ($x$ gegen unendlich) gilt, kann man
@@ -917,7 +964,7 @@ viele weitere Details.
 $PI(x)$ l"a"st sich leicht per
 
 {\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{\tt
-http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}}
+http://www.math.Princeton.EDU/\~~arbooker/nthprime.html}}
 
 bestimmen.
 
@@ -934,8 +981,8 @@ und $907$ keine Primzahlen) (Details siehe.
 {\href{http://www.utm.edu/research/primes/notes/gaps.html}{\tt http://www.utm.edu/research/primes/notes/gaps.html}}).
 
 Gerade dies macht einen Teil des Ehrgeizes aus, ihre Geheimnisse herauszufinden.
-\index{Eratosthenes!Sieb}
-\paragraph{Sieb des Eratosthenes}
+
+\paragraph{Sieb des Eratosthenes\index{Eratosthenes!Sieb}}
 Ein einfacher Weg, alle $PI(x)$ Primzahlen kleiner oder gleich $x$
 zu berechnen, ist das Sieb des Erathostenes. Er fand schon im 3.
 Jahrhundert vor Christus einen sehr einfach automatisierbaren Weg,
@@ -989,8 +1036,37 @@ http://www.cerias.purdue.edu/homes/ssw/cun}}
 \begin{itemize}
   \item Der deutsche Mathematiker \index{Goldbach Christian} Christian Goldbach (1690-1764) vermutete:
     Jede gerade nat"urliche Zahl gr"o"ser $2$ l"a"st sich als die Summe zweier Primzahlen darstellen.
-    Mit Computern ist die Goldbachsche Vermutung f"ur alle geraden Zahlen bis $10^8$ verifiziert, aber
-    allgemein noch nicht bewiesen.
+    Mit Computern ist die Goldbachsche Vermutung f"ur alle geraden Zahlen bis $4*10^{14}$ verifiziert\footnote{
+Da"s die Goldbachsche Vermutung wahr, d.h. g"ultig f"ur alle nat"urlichen Zahlen ist, wird heute allgemein nicht mehr angezweifelt.
+Der Mathematiker J"org Richstein vom Institut f"ur Informatik der Universit"at Gie"sen hat 1999 die geraden Zahlen bis
+400 Billionen untersucht und kein Gegenbeispiel gefunden (Siehe 
+\href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).\index{Richstein 1999}
+Trotzdem ist das kein allgemeiner Beweis.
+
+Da"s die Goldbach’sche Vermutung trotz aller Anstrengungen bis heute nicht bewiesen wurde, f"ordert allerdings einen Verdacht:
+Seit den bahnbrechenden Arbeiten des "osterreichischen Mathematikers Kurt G"odel\index{G"odel Kurt}
+ist bekannt, da"s nicht jeder wahre Satz in der Mathematik auch beweisbar ist
+(Siehe \href{http://www.mathematik.ch/mathematiker/goedel.html}{http://www.mathematik.ch/mathematiker/goedel.html}).
+M"oglicherweise hat Goldbach also Recht,
+und trotzdem wird nie ein Beweis gefunden werden. Das wiederum l"asst sich aber vermutlich auch nicht beweisen. 
+}, aber
+    allgemein noch nicht bewiesen\footnote{
+	Der englische Verlag {\em Faber} und die amerikanische Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmal
+	ver"offentlichte Buch \glqq Onkel Petros und die Goldbachsche Vermutung\grqq~ von Apostolos Doxiadis. Es ist die Geschichte
+	eines Mathematikprofessors, der daran scheitert, ein mehr als 250 Jahre altes R"atsel zu l"osen.
+
+Um die Verkaufszahlen zu f"ordern schreiben die beiden  Verlage einen Preis von 1 Million USD aus, wenn jemand die Vermutung
+beweist -- ver"offentlicht in einer angesehenen mathematischen Fachzeitschrift bis 2004 (Siehe 
+\href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}{\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).
+
+Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker davon teilnehmen.
+
+Der Beweis, der der Goldbach Vermutung bisher am n"achsten kommt, wurde 1966 von Chen Jing-Run
+bewiesen -- in ein schwer nachvollziehbar Art und Weise: Jede Gerade Zahl gr"o"ser 2 ist die Summe einer Primzahl und des Produkts zweier
+Primzahlen. Z.B. $20=5+3*5.$
+
+Die wichtigsten Forschungsergebnisse zur Goldbachsche Vermutung sind zusammengefa"st in dem von Wang Yuan herausgegebenen Band: \glqq Goldbach Conjectures\grqq, 1984, 
+World Scientific Series in Pure Maths, Vol. 4.}.
   \item Der deutsche \index{Riemann Bernhard} Mathematiker Bernhard Riemann (1826-1866) stellte eine bisher unbewiesene, aber auch nicht widerlegte (?)
 Formel f"ur die Verteilung von
     Primzahlen auf, die die Absch"atzung weiter verbessern w"urde.
@@ -1007,8 +1083,10 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
   $1.693.965 \cdot 2^{66.443} \pm 1.$
   \item Gibt es eine Formel f"ur die Anzahl der Primzahlzwillinge pro Intervall?
   \item Der Beweis oben zu der Funktion  $f: N \rightarrow Z$ mit $n \mapsto a^{3^n}$  garantiert nur die Existenz einer
-    solchen Zahl a.  Wie kann diese Zahl a bestimmt werden, und wird sie einen Wert haben, so da"s
+    solchen Zahl $a$.  Wie kann diese Zahl $a$ bestimmt werden, und wird sie einen Wert haben, so da"s
     die Funktion auch von praktischem Interesse ist?
+  \item Gibt es unendlich viele Mersennsche Primzahlen?
+  \item Gibt es unendlich viele Fermatsche Primzahlen?
   \item Gibt es einen Polynomialzeit-Algorithmus zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
     \cite[S. 167]{Klee1997})?
     Diese Frage kann man auf die beiden folgenden Fragestellungen aufsplitten:
@@ -1031,23 +1109,23 @@ Restesatz, Eulersche Phi-Funktion, perfekte Zahlen.
 \begin{tabular}{|l|l||l|l||l|l|}\hline
 \multicolumn{2}{|l||}{Zehnerintervall} & \multicolumn{2}{l||}{Hunderterintervall} & \multicolumn{2}{l|}{Tausenderintervall} \\ \hline
 Intervall  &     Anzahl &    Intervall  &  Anzahl &  Intervall  &    Anzahl\\ \hline \hline
-1-10     &       4     &     1-100   &     25  &     1-1000     &    168 \\
-11-20    &       4     &     101-200 &     21  &     1001-2000  &    135 \\
-21-30    &       2     &     201-300 &     16  &     2001-3000  &    127  \\
-31-40    &       2     &     301-400 &     16  &     3001-4000  &    120 \\
-41-50    &       3     &     401-500 &     17  &     4001-5000  &    119 \\
-51-60    &       2     &     501-600 &     14  &     5001-6000  &    114 \\
-61-70    &       2     &     601-700 &     16  &     6001-7000  &    117 \\
-71-80    &       3     &     701-800 &     14  &     7001-8000  &    107 \\
-81-90    &       2     &     801-900 &     15  &     8001-9000  &    110 \\
-91-100   &       1     &     901-1000 &     14 &      9001-10000 &    112 \\ \hline
+1-10     &       4     &     1-100   &     25  &     1-1.000     &    168 \\
+11-20    &       4     &     101-200 &     21  &     1.001-2.000  &    135 \\
+21-30    &       2     &     201-300 &     16  &     2.001-3.000  &    127  \\
+31-40    &       2     &     301-400 &     16  &     3.001-4.000  &    120 \\
+41-50    &       3     &     401-500 &     17  &     4.001-5.000  &    119 \\
+51-60    &       2     &     501-600 &     14  &     5.001-6.000  &    114 \\
+61-70    &       2     &     601-700 &     16  &     6.001-7.000  &    117 \\
+71-80    &       3     &     701-800 &     14  &     7.001-8.000  &    107 \\
+81-90    &       2     &     801-900 &     15  &     8.001-9.000  &    110 \\
+91-100   &       1     &     901-1.000 &     14 &     9.001-10.000 &    112 \\ \hline
 \end{tabular} \\ \vskip +10 pt
 Weitere Intervalle: \vskip +10 pt
 
 \begin{tabular}{|l|l|l|}\hline
 Intervall & Anzahl & Durchschnittl. Anzahl pro 1000 \\ \hline
-1 - 10.000          &    1229        &    122,900 \\
-1 - 100.000         &    9592        &    95,920 \\
+1 - 10.000          &    1.229        &    122,900 \\
+1 - 100.000         &    9.592        &    95,920 \\
 1 - 1.000.000       &    78.498      &    78,498 \\
 1 - 10.000.000       &   664.579     &    66,458 \\
 1 - 100.000.000      &   5.761.455   &    57,615 \\
@@ -1057,8 +1135,8 @@ Intervall & Anzahl & Durchschnittl. Anzahl pro 1000 \\ \hline
 \vskip +6 pt
 
 \newpage
-\subsubsection{Indizierung von Primzahlen (n-te Primzahl)}
-
+\subsubsection{Indizierung von Primzahlen ($n$-te Primzahl)}
+\hypertarget{ntePrimzahl}{}
 \begin{tabular}{|l|l|l|l|}\hline
 Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 \hline \hline
@@ -1074,13 +1152,10 @@ Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 10      &   29            &     29 & \\
 100     &   541           &     541 & \\
 1000    &   7917          &     7917 & \\
-664.559  &  9.999.991     &     9,99999E+06 &   Alle Primzahlen bis zu ~~~~~~~~~~~~~~~~~~\\
-        &                &                  &   1E+07 waren am Beginn \\
-        &                 &                 &  des 20. Jahrhunderts \\
-        &                 &                  &  bekannt. \\
+664.559  &  9.999.991     &     9,99999E+06 &   Alle Primzahlen bis zu 1E+07 waren am\\
+        &                 &                 &   Beginn des 20. Jahrhunderts bekannt.\\
 1E+06  &    15.485.863   &      1,54859E+07 & \\
-6E+06  &    104.395.301    &    1,04395E+08  & Diese Primzahl wurde 1959 \\
-       &                    &                 &  entdeckt \\
+6E+06  &    104.395.301    &    1,04395E+08  & Diese Primzahl wurde 1959 entdeckt.\\
 1E+07  &    179.424.673     &    1,79425E+08 & \\
 1E+09  &    22.801.763.489  &    2,28018E+10 & \\
 1E+12  &    29.996.224.275.833 & 2,99962E+13 & \\ \hline
@@ -1090,11 +1165,11 @@ Primzahlen
 entdeckt.  \\
 \vskip +10pt Quell-URLs:
 
-{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}}
+{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}.}
 
 \vskip +12 pt Ausgabe der $n$-ten Primzahl
 
-Vergleiche {\href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt http://www.utm.edu/research/primes/notes/by\_year.html}}
+Vergleiche {\href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt http://www.utm.edu/research/primes/notes/by\_year.html}.}
 \vskip +7 pt
 
 
@@ -1133,7 +1208,7 @@ Volumen des Universums (in $cm^3$)     \> $10^{84}$ \> $(2^{280})$
 \begin{tabbing}
 DualSystem~~~ \= \kill
 Dualsystem \> Zehnersystem \\*[4pt]
-$2^{10}$ \> $1024$ \\
+$2^{10}$ \> $1.024$ \\
 $2^{40}$ \> $1,09951\cdot 10^{12}$ \\
 $2^{56}$ \> $7,20576\cdot 10^{16}$ \\
 $2^{64}$ \> $1,84467\cdot 10^{19}$ \\
@@ -1155,7 +1230,7 @@ $2^{2048}$ \>   $3,23170\cdot 10^{616}$ \\
 \vskip -20 pt
 
 Berechnung zum Beispiel per GMP:
-{\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}
+{\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}.
 
 \newpage
 %\addcontentsline{toc}{subsection}{Literaturverzeichnis}
@@ -1195,6 +1270,10 @@ Berechnung zum Beispiel per GMP:
     H. Pieper, \\
     Zahlen aus Primzahlen, Verlag Harri Deutsch, 1974, 3. Auflage 1983.
 
+\bibitem[Richstein1999]{Richstein1999} \index{Richstein 1999}
+    J. Richstein, \\
+    Verifying the Goldbach Conjecture up to $4*10^{14},$ Mathematics of Computation. 
+
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996}
     Bruce Schneier, \\
     Applied Cryptography, Wiley and Sons, 2nd edition, 1996.
@@ -1225,6 +1304,8 @@ Berechnung zum Beispiel per GMP:
    \item \href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
    \item \href{http://www.utm.edu/research/primes/notes/by_year.html}{\tt http://www.utm.edu/research/primes/notes/by\_year.html }
    \item \href{http://www.cerias.purdue.edu/homes/ssw/cun}{\tt http://www.cerias.purdue.edu/homes/ssw/cun }
+   \item \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+   \item \href{http://www.mathematik.ch/mathematiker/goedel.html}{http://www.mathematik.ch/mathematiker/goedel.html}
 \end{enumerate}
 
 % --------------------------------------------------------------------------------------------------------------
@@ -1270,20 +1351,20 @@ erweist.
 Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hilfe des "offentlichen
 Schl"ussels des Absenders, des Dokuments und der Signatur feststellen, ob die Signatur korrekt ist.
 In der Praxis hat das gerade beschriebene Verfahren jedoch einen entscheidenden Nachteil. Die Signatur ist ungef"ahr
-genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus Performance
-Gr"unden benutzt man eine kryptographische Hashfunktion.
+genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus 
+Performance-Gr"unden benutzt man eine kryptographische Hashfunktion.
 
 Eine kryptographische \index{Hashfunktion} {\em Hashfunktion} bildet eine Nachricht beliebiger L"ange auf eine Zeichenfolge mit
 konstanter Gr"o"se (meistens 128 oder 160 Bits), den \index{Hashwert} Hashwert, ab. Es sollte praktisch unm"oglich
-sein, zu einer gegebenen Zahl eine Nachricht zu finden, die genau diese Zahl als Hashwert hat. Ferner
+sein, zu einer gegebenen Zahl eine Nachricht zu finden, die genau diese Zahl als Hash\-wert hat. Ferner
 sollte es praktisch unm"oglich sein, zwei Nachrichten mit dem selben Hashwert zu finden. In beiden
-F"allen w"urde das endg"ultige Signaturverfahren Schw"achen aufweisen.
+F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
 
-Bisher konnte die Existenz von perfekt sicheren kryptographischen Hashfunktionen noch nicht
+Bisher konnte die Existenz von perfekt sicheren kryptographischen Hashfunktionen nicht
 formal bewiesen werden. Es gibt jedoch einige gute Kandidaten, die in der Praxis bislang keine
-Schw"achen gezeigt haben (zum Beispiel \index{SHA-1} SHA­1 oder \index{RIPEMD-160} RIPEMD­160).
+Schw"achen gezeigt haben (zum Beispiel \index{SHA--1} SHA-­1 oder \index{RIPEMD--160} RIPEMD­-160).
 
-Das Verfahren mit Hashfunkltion sieht folgenderma"sen aus:\\
+Das Verfahren mit Hashfunktion sieht folgenderma"sen aus:\\
 Anstatt das eigentliche Dokument zu signieren, berechnet der Absender nun zuerst den Hashwert
 der Nachricht und signiert diesen. Der Empf"anger bildet ebenfalls den Hashwert der Nachricht (der benutzte
 Algorithmus mu"s bekannt sein). Er "uberpr"uft dann, ob die mitgeschickte Signatur eine korrekte Signatur des
@@ -1343,7 +1424,7 @@ Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob abzuh"oren 
 Nachrichten zu ver"andern, ohne da"s dies von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
 auch, wenn Charlie nur ein Schl"usselpaar hat.
 
-Ein anderer Name f"ur diese Art von Angriffenangriffe ist \index{man-in-the-middle-attack} \glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
+Ein anderer Name f"ur diese Art von Angriffen ist \index{man-in-the-middle-attack} \glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
 von Angriffen verspricht die Public-­Key­-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
 garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
 
@@ -1380,7 +1461,7 @@ gesichert werden.
 \section{Elliptische Kurven}
 \index{elliptische Kurven}
 \hypertarget{ellcurve}{}
-(Bartol Filipovics / B. Esslinger / R. Oyono , April 2000, Update Dez. 2001)
+(Filipovics B./ Esslinger B. / Oyono R., April 2000, Update Dez. 2001)
 \subsection{Elliptische Kurven --- Historisches}
 
 Auf dem Gebiet der Elliptischen Kurven wird seit "uber 100 Jahren geforscht. Im Laufe der Zeit hat man
@@ -1395,7 +1476,7 @@ hinaus auf gro"se Begeisterung gesto"sen sind. In diesen Arbeiten bewies er die 
 den sechziger Jahren dieses Jahrhunderts von zwei Japanern aufgestellten --- Vermutung. Dabei geht es
 kurz und grob gesagt um den Zusammenhang zwischen Elliptischen Kurven und sogenannten Modulformen.
 Das f"ur die meisten eigentlich Interessante daran ist, da"s Wiles mit seinen Arbeiten auch den ber"uhmten
-zweiten Satz von Fermat\index{Fermat!letzer Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
+zweiten Satz von Fermat\index{Fermat!letzter Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
 (Fermat lebte von 1601 bis 1665) einem strengen Beweis durch die Mathematik entzogen. Dementsprechend
 gro"s war die Resonanz auf den Beweis durch Wiles. In der Formulierung von Fermat lautet der nach ihm
 benannte Satz so (Fermat hat folgende Worte an den Rand eines Buches geschrieben):
@@ -1408,7 +1489,7 @@ exiguitas non caperet.
 } \end{quote}
 
 Frei "ubersetzt und mit der Schreibweise der heutigen Mathematik bedeutet dies: \\
-Es gibt keine positiven ganzen Zahlen x, y und z gr"o"ser als Null, so da"s
+Es gibt keine positiven ganzen Zahlen $x, y$ und $z$ gr"o"ser als Null, so da"s
 $x^n + y^n = z^n$ f"ur $n>2$ gilt.
 Ich habe einen bemerkenswerten Beweis f"ur diese Tatsache gefunden, aber es ist
 nicht genug Platz am Rand [des Buches], um ihn niederzuschreiben.
@@ -1449,7 +1530,7 @@ Da der Begriff der {\em Gruppe} umgangssprachlich anders als in der Mathematik e
 Vollst"andigkeit halber an dieser Stelle die wesentliche Aussage der formalen Definition einer Gruppe
 kurz eingef"uhrt werden:
 \begin{itemize}
-   \item Eine Gruppe ist eine nichtleere Menge $G$ und eine Verkn"upfung $+$ . Die Menge $G$ ist unter der
+   \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verkn"upfung $+$ . Die Menge $G$ ist unter der
          Verkn"upfung $+$ abgeschlossen. Egal welche beiden Elemente $a, b$ aus $G$ miteinander verkn"upft
           werden, so ist das Resultat der Verkn"upfung ein Element aus $G$ (also $a+b=c$, und $c$ liegt in $G$).
    \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(a+b)+c = a+(b+c)$.
@@ -1463,13 +1544,13 @@ schreibt man die Verkn"upfung als $\cdot$, spricht man auch von {\em multiplikat
 
 Als einfachstes Beispiel einer (abelschen) Gruppe sei die Gruppe der ganzen Zahlen mit der "ublichen
 Addition genannt. Die Menge der ganzen Zahlen wird mit ${\mathbb Z}$ bezeichnet. ${\mathbb Z}$ hat unendlich viele Elemente,
-denn ${\mathbb Z} = \{ ..., -4, -3, -2, -1, 0, 1, 2, 3, 4, ...\}$. Die Verkn"upfung von zum Beispiel $1+2$
+denn ${\mathbb Z} = \{ \cdots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \cdots\}$. Die Verkn"upfung von zum Beispiel $1+2$
 liegt in ${\mathbb Z}$, denn $1+2 = 3$ und $3$ liegt in ${\mathbb Z}$. Das neutrale Element der Gruppe
 ${\mathbb Z}$ ist $0$. Das Inverse Element von $3$ ist $-3$, denn $3+(-3) = 0$.
 
 Es gibt auch {\em endliche} Gruppen. Das hei"st es gibt eine Menge $\mathcal{M}$ mit einer festen Anzahl von
 Elementen und eine Verkn"upfung $+$, so da"s obige Bedingungen erf"ullt sind. Ein Beispiel hierf"ur ist
-jede Menge ${\mathbb Z}_n$ mit ${\mathbb Z}_n = \{0, 1, 2, 3, ..., n-1\}, n$ eine positive ganze Zahl, und
+jede Menge ${\mathbb Z}_n$ mit ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ eine positive ganze Zahl, und
 der Addition modulo $n$ als Verkn"upfung. $a$ und $b$ aus ${\mathbb Z}_n$ werden  also durch $a+b \;{\rm mod~} n$
 verkn"upft.
 
@@ -1477,13 +1558,13 @@ verkn"upft.
 Als zyklische Gruppen bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
 mittels der Gruppen-Verkn"upfung alle anderen Elemente der Gruppe erzeugen kann. Es gibt also f"ur jedes
 Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so da"s die $i$-fache Verkn"upfung von $g$ mit sich
-selbst (also \glqq$g \cdot i$\grqq) $g+g+...+g = a$ ist (additive Gruppe) bzw.\ $g^i = g\cdot g \cdots g = a$
+selbst (also \glqq$g \cdot i$\grqq) $g+g+\cdots+g = a$ ist (additive Gruppe) bzw.\ $g^i = g\cdot g \cdots g = a$
 (multiplikative Gruppe). Das Element $g$ ist der {\em Generator} der zyklischen Gruppe --- jedes Element
 in $G´$ l"a"st sich mittels $g$ und der Verkn"upfung erzeugen.
 
 Nun zur Ordnung eines Elements der Gruppe: Sei $a$ aus $G$. Die kleinste positive ganze Zahl $r$ f"ur
 die gilt, da"s $r$ mal $a$ mit sich selbst verkn"upft das neutrale Element der Gruppe $G´$ ist
-(also: $r \cdot a = a+a+...+a = e$ bzw.\ $a^r = e$), nennt man {\em Ordnung} von $a$.
+(also: $r \cdot a = a+a+\cdots+a = e$ bzw.\ $a^r = e$), nennt man {\em Ordnung} von $a$.
 
 Die Ordnung der Gruppe ist die Anzahl der Elemente in der Menge $G$.
 
@@ -1503,12 +1584,12 @@ Unter einem K"orper versteht man in der Mathematik eine Menge $K$ mit zwei Verkn
 
 Es gibt {\em unendliche} K"orper, das hei"st die dem K"orper zugrundeliegende Menge hat unendlich viele Elemente
 (Beispiel: K"orper der reellen Zahlen). Es gibt auch endliche K"orper, zum Beispiel
-${\mathbb Z}_p = \{0, 1, 2, 3, ..., p-1\}$ , wobei $p$ eine Primzahl ist.
+${\mathbb Z}_p = \{0, 1, 2, 3, \cdots, p-1\}$ , wobei $p$ eine Primzahl ist.
 ${\mathbb Z}_p$ ist mit der Addition modulo $p$ und der Multiplikation modulo $p$ ein endlicher K"orper.
 \index{K""orper!Charakteristik}
 \paragraph{Charakteristik eines K"orpers}
 Sei $K$ ein K"orper, und $1$ das neutrale Element von $K$ bez"uglich der multiplikativen Verkn"upfung
-\glqq$\cdot$\grqq. F"ur positive nat"urliche Zahlen $n$ werde $n_1$ als $n_1 = 1 + 1 + ... + 1$ ($n$ Summanden
+\glqq$\cdot$\grqq. F"ur positive nat"urliche Zahlen $n$ werde $n_1$ als $n_1 = 1 + 1 + \cdots + 1$ ($n$ Summanden
 und $n_1$ ist ein Element aus $K$)  verstanden. Gilt dann $n_1$ ungleich $0$ f"ur alle $n>0$, so nennt man $K$ einen
 K"orper der Charakteristik Null. Im anderen Fall ist die Charakteristik von $K$ definiert als die
 kleinste positive nat"urliche Zahl $p$ f"ur die $p_1 = 0$ gilt (Anmerkung: dann ist $p$ eine Primzahl).
@@ -1519,7 +1600,7 @@ Charakteristik $p$.
 \subsection{Elliptische Kurven in der Kryptographie}
 
 Eine Elliptische Kurve wird durch eine Gleichung beschrieben. Um es einfach zu halten, beschr"anken
-wir unsere Erl"auterung auf Elliptische Kurven "uber $${\mathbb Z}_p = \{0, 1, 2, 3, ..., p-1\}$$ wobei
+wir unsere Erl"auterung auf Elliptische Kurven "uber $${\mathbb Z}_p = \{0, 1, 2, 3, \cdots, p-1\},$$ wobei
 $p$ eine Primzahl gr"o"ser als $3$ ist. ${\mathbb Z}_p$ ist mit der Addition modulo $p$ und der
 Multiplikation modulo $p$ ein endlicher K"orper. Erw"ahnt sei allerdings, da"s man Elliptische Kurven
 "uber jedem (endlichen) K"orper definieren kann. Insbesondere Elliptische Kurven "uber K"orpern der
@@ -1546,7 +1627,7 @@ zu bezeichnen.
 
 Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist
 aber nicht die normale/"ubliche Addition\footnote{
-Eine Animation der Punktaddition auf elliptischen Kurven findet man auf der Certicom Seite
+Eine Animation der Punktaddition auf elliptischen Kurven findet man auf der Certicom\index{Certicom} Seite
 unter 
 
 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}.} in den reellen Zahlen)
@@ -1565,13 +1646,8 @@ E}$ die Rede ist, so ist damit gemeint, da"s $P = (x,y)$ ist und
 $(x,y)$ in der Menge ${\bf E}$ liegt. Je zwei Punkte auf einer
 durch $a, b$ und $p$ spezifizierten Elliptischen Kurve k"onnen
 also addiert werden und das Resultat ist ein Punkt, der ebenfalls
-auf derselben Elliptischen Kurve liegt. Zu beachten ist, da"s man
-${\bf E}$ folgende Bedeutungen zuordnen kann:
-\begin{itemize}
-   \item die Menge ${\bf E}$ der L"osungspaare $(x,y)$ einer Gleichung inklusive dem Punkt $O$ %\\[-20 pt]
-   \item die Gruppe ${\bf E}$ (mit der Verkn"upfung \glqq Addition von $(x_1,y_1)$ und $(x_2,y_2)$\grqq) %\\[-20 pt]
-   \item die Elliptische Kurve ${\bf E}$ (die eigentlich dasselbe wie die Gruppe ${\bf E}$ ist) %\\[-20pt]
- \end{itemize}
+auf derselben Elliptischen Kurve liegt.
+
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.5]{ELL1_50.eps}
@@ -1580,6 +1656,15 @@ ${\bf E}$ folgende Bedeutungen zuordnen kann:
 \caption{Addition zweier verschiedenen Punkten}
 \end{center}
 \end{figure}
+
+Zu beachten ist, da"s man
+${\bf E}$ folgende Bedeutungen zuordnen kann:
+\begin{itemize}
+   \item die Menge ${\bf E}$ der L"osungspaare $(x,y)$ einer Gleichung inklusive dem Punkt $O$ %\\[-20 pt]
+   \item die Gruppe ${\bf E}$ (mit der Verkn"upfung \glqq Addition von $(x_1,y_1)$ und $(x_2,y_2)$\grqq) %\\[-20 pt]
+   \item die Elliptische Kurve ${\bf E}$ (die eigentlich dasselbe wie die Gruppe ${\bf E}$ ist) %\\[-20pt]
+ \end{itemize}
+
 Da diese Bezeichnungen eigentlich alle dasselbe meinen, ist eine Unterscheidung "uber die genaue Bedeutung nur
 selten n"otig.
 
@@ -1590,12 +1675,13 @@ Punkte addiert werden m"ussen, um $Q$ zu erhalten.
 F"ur gro"se Zahlen $a, b$ und $p$ ($p$ ist zum Beispiel
 mehr als $160$ Bit lang) ist der Computer ohne weiteres in der Lage, sehr schnell (in wenigen
 Bruchteilen einer Sekunden) den Punkt $P$  $m$ mal hintereinander zu addieren, also den Punkt
-$P + P + ... + P = Q$ ($m$ Summanden $P$) zu bestimmen. Statt $P + P + ... + P = Q$ ($m$ Summanden $P$)
+$P + P + \cdots + P = Q$ ($m$ Summanden $P$) zu bestimmen. Statt $P + P + \cdots + P = Q$ ($m$ Summanden $P$)
 schreibt man auch $mP = Q$. Hat man einen Punkt $P$ und einen Punkt $Q$, die beide auf der gleichen
 Elliptischen Kurve liegen, ist allerdings kein Verfahren bekannt, das es erm"oglicht --- in
 akzeptabler Zeit --- diejenige Zahl $m$ zu bestimmen (falls es diese "uberhaupt gibt), mit der $mP = Q$ gilt.
 Dies wird als das \glqq Diskrete Logarithmus Problem "uber Elliptischen Kurven\grqq\ bezeichnet
-(auch ECDLP - Elliptic Curve Discrete Logarithm Problem - abgek"urzt).
+(auch ECDLP\index{ECDLP} - Elliptic Curve Discrete Logarithm Problem - abgek"urzt).
+\vskip +5 pt
 
 Es ist zu beachten, da"s nicht alle Elliptischen Kurven gleich sicher sind. Das bedeutet, da"s man bei der
 Definition einer Kurve auf die Wahl der Parameter $a$ und $b$ achten mu"s. Denn f"ur bestimmte Klassen von
@@ -1608,6 +1694,7 @@ kann man f"ur gegebene Parameter $a$ und $b$ mit etwas Aufwand feststellen, ob d
 Kurve kryptographisch brauchbar ist oder nicht. Die in der Kryptographie eingesetzten Kurven werden meist
 von Fachleuten zur Verf"ugung gestellt. Sie gew"ahrleisten, da"s die von ihnen als sicher eingestuften
 Elliptischen Kurven den aktuellen Sicherheitsanforderungen gen"ugen.
+\vskip +5 pt
 
 Bei sicheren Kurven wird haupts"achlich
 durch den Parameter $p$ bestimmt, wie lange es dauert, das ECLDP auf dieser Kurve zu l"osen. Je gr"o"ser der
@@ -1671,13 +1758,13 @@ Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bek
 \hypertarget{faktell}{}
 
 Es gibt Faktorisierungalgorithmen, die auf Elliptischen Kurven basieren\footnote{
-Im Jahr 1987 stellte H.W. Lentra\index{Lenstra 1987} einen Faktorisierungsalgorithmus vor, der auf elliptischen Kurven basiert 
+Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987} einen Faktorisierungsalgorithmus vor, der auf elliptischen Kurven basiert 
 (Siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit elliptischen Kurven faktorisierte Zahl  
-ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).} 
+ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}. 
 Genauer gesagt, machen sich diese Verfahren zunutze, da"s man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
 Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
-Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, da"s es - falls $n$ 
-eine zusammengesetzte Zahl ist - in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
+Punkt auf solchen Elliptischen Kurven einen inversen Punkt geben mu"s. Dies h"angt damit zusammen, da"s es -- falls $n$ 
+eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die kein Inverses bez"uglich der Multiplikation
 modulo $n$ haben. Um zwei Punkte auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven "uber ${\mathbb Z}_p$. Eine Addition von zwei
 Punkten (auf einer Elliptischen Kurve "uber ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen Teiler
@@ -1718,26 +1805,24 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des SECUDE SDK.
 %\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-	\bibitem[Lenstra1987]{Lenstra1987}  \index{Lenstra 1987}
-		Factoring integers with elliptic curves.
-
-		Annals of Mathematics 126, pp. 649-673, 1987.
+	\bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
+		Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
 \end{thebibliography}
 \newpage
 
 \section*{URLs}\addcontentsline{toc}{subsection}{URLs}
 
 \begin{enumerate}
-   \item Online-Tutorial "uber elliptische Kurven der Firma CERTICOM\index{Certicom}\\
-		\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}
+   \item Online-Tutorial "uber elliptische Kurven der Firma Certicom\index{Certicom}\\
+		\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}
 	\item Arbeitsgruppe IEEE P1363
 
 		\href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}
 	\item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit elliptischen Kurven
 
-		\href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\tt http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}
+	\href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\tt http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}
 
-		Dort findet man Literatur zum Thema Faktorisieren mit elliptischen Kurven sowie Links
+	Dort findet man Literatur zum Thema Faktorisieren mit elliptischen Kurven sowie Links
 zu anderen Seiten.
 
 \end{enumerate}
