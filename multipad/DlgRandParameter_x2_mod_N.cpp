@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgRandParameter_x2_mod_N.h"
+#include "CryptologyUsingMiracl.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -28,6 +29,7 @@ void DlgRandParameter_x2_mod_N::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgRandParameter_x2_mod_N)
+	DDX_Control(pDX, IDC_EDIT1, m_Control_Edit_Modul_N);
 	DDX_Text(pDX, IDC_EDIT1, m_EditModul_N);
 	//}}AFX_DATA_MAP
 }
@@ -35,7 +37,6 @@ void DlgRandParameter_x2_mod_N::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DlgRandParameter_x2_mod_N, CDialog)
 	//{{AFX_MSG_MAP(DlgRandParameter_x2_mod_N)
-		// HINWEIS: Der Klassen-Assistent fügt hier Zuordnungsmakros für Nachrichten ein
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -50,4 +51,42 @@ void DlgRandParameter_x2_mod_N::SetModul(CString &NStr)
 CString DlgRandParameter_x2_mod_N::GetModul()
 {
 	return m_EditModul_N;
+}
+
+void DlgRandParameter_x2_mod_N::OnOK() 
+{
+	// TODO: Zusätzliche Prüfung hier einfügen
+	BOOL NumberIsOK;
+	char line[256];
+	int     ndx;
+	UpdateData(TRUE);
+	{ 
+		CString upnStr;
+		NumberIsOK = EvalFormula(m_EditModul_N, ndx);
+	}
+	UpdateData(FALSE);
+	if ( NumberIsOK )
+	{
+		CDialog::OnOK();
+	}
+	else
+	{
+		// ********* Fehlermeldung
+		if (ndx == -1)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			m_Control_Edit_Modul_N.SetSel(0,-1);
+			m_Control_Edit_Modul_N.SetFocus();
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			m_Control_Edit_Modul_N.SetSel(ndx-1,-1);
+			m_Control_Edit_Modul_N.SetFocus();
+		}
+	}
 }

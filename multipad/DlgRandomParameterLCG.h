@@ -19,6 +19,9 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgRandomParameterLCG)
 	enum { IDD = IDD_RANDOM_PARAMETER_LCG };
+	CEdit	m_control_LinParam_N;
+	CEdit	m_control_LinParam_b;
+	CEdit	m_control_LinParam_a;
 	CString	m_LinParam_a;
 	CString	m_LinParam_b;
 	CString	m_LinParam_N;
@@ -40,7 +43,7 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(DlgRandomParameterLCG)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

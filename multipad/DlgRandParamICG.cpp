@@ -123,3 +123,107 @@ void DlgRandParamICG::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	CDialog::OnKeyDown(nChar, nRepCnt, nFlags);
 }
+
+void DlgRandParamICG::OnOK() 
+{
+	// TODO: Zusätzliche Prüfung hier einfügen
+	
+	BOOL Modul_N_IsOK;
+	BOOL Multiplikator_a_IsOK;
+	BOOL Inkrement_b_IsOK;
+	char line[256];
+	int     ndx_a;
+	int     ndx_b;
+	int     ndx_N;
+	UpdateData(TRUE);
+	{ 
+		CString upnStr;
+		Modul_N_IsOK = EvalFormula(m_Param_N, ndx_N);
+		Multiplikator_a_IsOK = EvalFormula(m_Param_a, ndx_a);
+		Inkrement_b_IsOK = EvalFormula(m_Param_b, ndx_b);
+	}
+	UpdateData(FALSE);
+	if ( Modul_N_IsOK  && Multiplikator_a_IsOK && Inkrement_b_IsOK)
+	{
+		GeneratePrimes P;
+		P.SetP(Get_N());
+		BOOL test=FALSE;
+		test = P.MillerRabinTest(100);
+		test = P.SolvayStrassenTest(100);
+		test = P.FermatTest(100);
+
+		if ( !test ) 
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL_NOT_PRIME,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			m_Param_NCtrl.SetSel(0,-1);
+			m_Param_NCtrl.SetFocus();
+		}
+		else
+		{
+			CDialog::OnOK();
+		}
+	}
+	else
+	{
+		// ********* Fehlermeldung
+		if ( !Modul_N_IsOK )
+		{
+			if (ndx_N == -1)
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_NCtrl.SetSel(0,-1);
+				m_Param_NCtrl.SetFocus();
+			}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_NCtrl.SetSel(ndx_N-1,-1);
+				m_Param_NCtrl.SetFocus();
+			}
+		}
+		else if ( !Multiplikator_a_IsOK )
+		{
+			if (ndx_a == -1)
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_aCtrl.SetSel(0,-1);
+				m_Param_aCtrl.SetFocus();
+			}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_aCtrl.SetSel(ndx_a-1,-1);
+				m_Param_aCtrl.SetFocus();
+			}
+		}
+		else
+		{
+			if (ndx_b == -1)
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_BIG_NUMBER,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_bCtrl.SetSel(0,-1);
+				m_Param_bCtrl.SetFocus();
+			}
+			else
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_INPUT_FALSE,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				m_Param_bCtrl.SetSel(ndx_b-1,-1);
+				m_Param_bCtrl.SetFocus();
+			}
+		}
+	}
+}

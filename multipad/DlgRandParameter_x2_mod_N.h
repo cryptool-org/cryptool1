@@ -21,6 +21,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgRandParameter_x2_mod_N)
 	enum { IDD = IDD_RANDOM_PARAMETER_X2_MOD_N };
+	CEdit	m_Control_Edit_Modul_N;
 	CString	m_EditModul_N;
 	//}}AFX_DATA
 
@@ -37,7 +38,7 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(DlgRandParameter_x2_mod_N)
-		// HINWEIS: Der Klassen-Assistent fügt hier Member-Funktionen ein
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -57,6 +57,7 @@ protected:
 	afx_msg void OnStaticGpp();
 	afx_msg void OnStaticGpl();
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
