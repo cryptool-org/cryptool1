@@ -114,7 +114,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-de.bat"
+	call "$(ProjDir)\makehelp.bat" de
 
 # End Custom Build
 
@@ -128,7 +128,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-de.bat"
+	call "$(ProjDir)\makehelp.bat" de
 
 # End Custom Build
 
@@ -169,7 +169,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-en.bat"
+	call "$(ProjDir)\makehelp.bat" en
 
 # End Custom Build
 
@@ -183,7 +183,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp-en.bat"
+	call "$(ProjDir)\makehelp.bat" en
 
 # End Custom Build
 

@@ -2,7 +2,10 @@
 if not x%1==x set LANG=%1
 if x%LANG%==x set LANG=de
 
-if x%OUTDIR%==x set OUTDIR=Debug
+if x%OUTDIR%==x set OUTDIR=.\Debug
+
+rem if MSVCdir is not set call vcvars32 to fix
+if x%MSVCdir%==x call vcvars32
 
 set HLP=hlp-%LANG%
 set HM=%HLP%\CrypTool.hm
@@ -29,11 +32,15 @@ echo // Rahmen-Steuerelemente (IDW_*) >>%HM%
 makehm IDW_,HIDW_,0x50000 resource.h >>%HM%
 REM -- Hilfe erstellen fr Projekt CrypTool
 
+REM deactivate compression for Debug builds
+type "%HLP%\CrypTool.hpj" >"%HLP%\CrypTool.tm1"
+if x%OUTDIR%==x.\Debug find /V "COMPRESS=" <"%HLP%\CrypTool.hpj" >"%HLP%\CrypTool.tm1"
 REM replace relative path with absolute one
-find /V "mfc\include\Afxhelp.hm" <"%HLP%\CrypTool.hpj" >"%HLP%\CrypTool.tmp"
-echo "#include %MSVCDir%\mfc\include\Afxhelp.hm" >>"%HLP%\CrypTool.tmp"
+find /V "mfc\include\Afxhelp.hm" <"%HLP%\CrypTool.tm1" >"%HLP%\CrypTool.tmp"
+del "%HLP%\CrypTool.tm1" >nul:
+echo #include %MSVCDir%\mfc\include\Afxhelp.hm >>"%HLP%\CrypTool.tmp"
 
-echo Creating Win32 Help File... Create empty "makehelp.no" or "%HLP%\makehelp.no" to skip
+echo Creating Win32 Help File...  (Create empty "makehelp.no" or "%HLP%\makehelp.no" to skip)
 
 start /wait hcw /C /E /M "%HLP%\CrypTool.tmp"
 if errorlevel 1 goto :Error
