@@ -2650,7 +2650,7 @@ END
 
 IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Angriff auf die digitale Signatur"
+CAPTION "Angriff auf den Hashwert der digitalen Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Nachrichtenpaar suchen",IDC_COMPUTE,28,280,108,17
@@ -2721,36 +2721,39 @@ BEGIN
                     BS_AUTORADIOBUTTON,115,213,103,10
 END
 
-IDD_STATISTICS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 338, 298
+IDD_STATISTICS_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 338, 329
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Statistische Auswertung des Angriffs"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Dialog beenden",IDCANCEL,225,274,91,17
+    PUSHBUTTON      "&Dialog beenden",IDCANCEL,225,304,91,17
     GROUPBOX        "Abschätzung des Aufwands zum Finden eines Dokumentenpaares",
-                    IDC_STATIC,11,11,318,66
-    GROUPBOX        "Tatsächlich geleisteter Aufwand",IDC_STATIC,11,89,318,
-                    174
-    LTEXT           "Rechenzeit",IDC_STATIC,24,28,37,8
-    LTEXT           "Benötigte Schritte",IDC_STATIC,24,52,57,8
-    EDITTEXT        IDC_EXPECTED_TIME,92,26,224,14,ES_AUTOHSCROLL | 
+                    IDC_STATIC,11,4,318,66
+    GROUPBOX        "Tatsächlich geleisteter Aufwand",IDC_STATIC,11,74,318,
+                    177
+    LTEXT           "Rechenzeit",IDC_STATIC,24,21,37,8
+    LTEXT           "Benötigte Schritte",IDC_STATIC,24,45,57,8
+    EDITTEXT        IDC_EXPECTED_TIME,92,19,224,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EXPECTED_STEPS,92,50,94,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EXPECTED_STEPS,92,43,94,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Rechenzeit",IDC_STATIC,24,106,37,8
-    EDITTEXT        IDC_EFFECTIVE_TIME,92,104,224,14,ES_AUTOHSCROLL | 
+    LTEXT           "Rechenzeit",IDC_STATIC,24,91,37,8
+    EDITTEXT        IDC_EFFECTIVE_TIME,92,89,224,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Benötigte Schritte",IDC_STATIC,24,128,57,12
-    EDITTEXT        IDC_TOTAL_STEPS,92,126,94,14,ES_AUTOHSCROLL | 
+    LTEXT           "Benötigte Schritte",IDC_STATIC,24,113,57,12
+    EDITTEXT        IDC_TOTAL_STEPS,92,111,94,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     CONTROL         "List2",IDC_LIST_OF_RUNS,"SysListView32",LVS_REPORT | 
-                    WS_BORDER | WS_TABSTOP,24,192,292,69
-    LTEXT           "Aufschlüsselung der Einzelschritte",IDC_STATIC,24,174,
+                    WS_BORDER | WS_TABSTOP,24,173,292,69
+    LTEXT           "Aufschlüsselung der Einzelschritte",IDC_STATIC,24,162,
                     200,8
-    LTEXT           "Ausgeführte\nHash-Operationen",IDC_STATIC,25,147,61,19
-    EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,148,94,14,
+    LTEXT           "Ausgeführte\nHash-Operationen",IDC_STATIC,25,132,61,19
+    EDITTEXT        IDC_HASH_OPERATIONS_PERFORMED,92,133,94,14,
                     ES_AUTOHSCROLL | ES_READONLY
-    DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,274,91,17
+    DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,304,91,17
+    GROUPBOX        "Hinzugefügte Bytes",IDC_STATIC,11,255,318,40
+    LTEXT           "Static",IDC_STATIC_HARMLESS,24,267,297,8
+    LTEXT           "Static",IDC_STATIC_DANGEROUS,24,281,297,8
 END
 
 IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 295
@@ -2875,34 +2878,37 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
 END
 
-IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 186
+IDD_SIGATTMODIFICDEMO DIALOG DISCARDABLE  0, 0, 293, 210
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Nachrichtenmodifikation anhand eines Hashwerts"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "&Modifikation berechnen",IDOK,18,161,107,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,231,162,50,14
+    PUSHBUTTON      "&Modifikation berechnen",IDOK,18,183,107,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,231,184,50,14
     LTEXT           "Hashwert",IDC_STATIC,29,22,31,8
     EDITTEXT        IDC_HASHVALUE,79,20,191,14,ES_AUTOHSCROLL
-    LTEXT           "Signifikante\nBitlänge",IDC_STATIC,29,46,43,18
+    LTEXT           "Signifikante\nBitlänge",IDC_STATIC,29,43,43,18
     EDITTEXT        IDC_SIGBIT,79,44,40,14,ES_AUTOHSCROLL
     CONTROL         "&Leerzeichen einfügen",IDC_METHOD,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,29,88,84,10
     CONTROL         "&Zeichen anhängen",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,29,121,76,10
+                    BS_AUTORADIOBUTTON,29,123,76,10
     CONTROL         "&vor Zeilenende",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,135,88,63,10
     CONTROL         "Leerzeichenver&doppelung",IDC_CHECK2,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,135,102,98,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,104,98,10
     CONTROL         "&Druckbare Zeichen (zur Demonstration)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,135,121,140,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,135,123,140,10
     CONTROL         "&Nicht druckbare Zeichen",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON,135,135,95,10
+                    BS_AUTORADIOBUTTON,135,139,95,10
     GROUPBOX        "Optionen für die Nachrichtenmodifikation",IDC_STATIC,17,
-                    74,264,78
+                    74,264,101
     GROUPBOX        "Hashwert",IDC_STATIC,18,8,263,59
     LTEXT           "Parität des Hashwerts",IDC_STATIC,151,46,74,8
     EDITTEXT        IDC_PARITY,230,44,40,14,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO1,136,153,28,111,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Run",IDC_STATIC,171,155,14,8
 END
 
 
@@ -4115,6 +4121,31 @@ BEGIN
     0
 END
 
+IDD_SIGATTMODIFICDEMO DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 4, 0
+0x3130, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3230, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3330, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3430, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3530, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3630, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3730, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3830, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3930, 0x002e, 
+    IDC_COMBO1, 0x403, 4, 0
+0x3031, 0x002e, 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4220,16 +4251,23 @@ BEGIN
         BOTTOMMARGIN, 96
     END
 
+    IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        VERTGUIDE, 329
+    END
+
     IDD_SIGATTMODIFICDEMO, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 286
         VERTGUIDE, 18
         VERTGUIDE, 29
+        VERTGUIDE, 136
         VERTGUIDE, 270
         VERTGUIDE, 281
         TOPMARGIN, 7
-        BOTTOMMARGIN, 179
+        BOTTOMMARGIN, 203
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5338,6 +5376,14 @@ BEGIN
     IDS_DH_PP_SECRET_DANGEROUS 
                             "Das von Ihnen eingegebene Geheimnis S ist entweder gleich Null oder gleich einem weiteren, kritischen Wert.\nBeachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist!"
     IDS_DH_PP_NO_USER_INPUT "Bitte lassen Sie die Eingabefelder nicht leer!"
+    IDS_STRING_SIG_ATT_STA_HARMLESS 
+                            "Die harmlose Nachricht wurde um %d Bytes modifiziert."
+    IDS_STRING_SIG_ATT_STA_DANGEROUS 
+                            "Die gefährliche Nachricht wurde um %d Bytes modifiziert."
+    IDS_STRING_SIG_ATT_STA_TIME 
+                            "%I64i Jahr(e), %i Tag(e), %i Stunde(n), %i Minute(n) und %.2f Sekunde(n)"
+    IDS_STRING_SIG_ATT_STA_CYCLE "Schritte bis Kollision"
+    IDS_STRING_SIG_ATT_STA_ENTRY "Überprüfung der Kollision"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5894,6 +5940,20 @@ BEGIN
     IDS_DH_PP_SECRET_INVALID 
                             "Das gewählte Geheimnis S sollte größer als 1 sein.\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
     IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis, d.h. dem Session Key S von Alice und Bob."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_SIG_ATT_STA_SUM "Gesamtschritte"
+    IDS_STRING_SIG_ATT_STA_EXPENSE "VERMUTETER AUFWAND"
+    IDS_STRING_SIG_ATT_STA_STEPS "Benötigte Schritte"
+    IDS_STRING_SIG_ATT_STA_CALCTIME "Rechenzeit"
+    IDS_STRING_SIG_ATT_STA_EFFEXPENSE "TATSÄCHLICH GELEISTETER AUFWAND"
+    IDS_STRING_SIG_ATT_STA_PERFORMED "Ausgeführte Hash-Operationen"
+    IDS_STRING_SIG_ATT_STA_TITLE 
+                            "RunNr.     Schritte bis Kollision     Überprüfung der Kollision     Gesamtschritte\n\n"
+    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "Hinzugefügte Bytes:"
+    IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistik des Angriffs"
 END
 
 #endif    // Deutsch (Deutschland) resources

@@ -32,7 +32,14 @@ void ModifiedDocument_Attachments::SetData(const char *OriginalDocument, const i
 	ModifiedDocumentForHashing::SetData(OriginalDocument, OriginalDocumentLength, SignificantBitLength);
 	m_ModifiablePositions = SignificantBitLength;
 
-	m_DocumentLength = OriginalDocumentLength + (m_ModifiablePositions - 1) / 2 + 1;
+	m_DocumentLength = OriginalDocumentLength + (m_ModifiablePositions + 1) / 2;
+	m_ModifiedBytes = (m_ModifiablePositions + 1) / 2;
+
+#ifdef _SIG_ATT_SPEED_INCREMENT
+
+	m_ModifiedBytes += 2;
+
+#endif
 
 	if (0 == AttMethod)	// druckbare Zeichen ('A', 'B', 'C', 'D') werden angehängt
 	{
@@ -104,7 +111,7 @@ void ModifiedDocument_Attachments::ModifyDocument(const char *HashValue)
 	unsigned int ii;
 	long *l_dest, *l_src;
 
-	// zunächst werden die "komplette" Bytes der signifikanten Bitlänge zum Modifizieren benutzt...
+	// zunächst werden die "kompletten" Bytes der signifikanten Bitlänge zum Modifizieren benutzt...
 
 #ifdef _SIG_ATT_MODIFYING_OPTIMIZER
 

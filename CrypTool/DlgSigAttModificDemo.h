@@ -20,6 +20,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSigAttModificDemo)
 	enum { IDD = IDD_SIGATTMODIFICDEMO };
+	CComboBox	m_control_run;
 	CButton	m_control_method;
 	CButton	m_control_unprintable;
 	CButton	m_control_printable;
@@ -31,6 +32,7 @@ public:
 	int		m_method;
 	int		m_printable;
 	int		m_parity;
+	CString	m_run;
 	//}}AFX_DATA
 
 
@@ -52,9 +54,12 @@ protected:
 	afx_msg void OnPrintable();
 	afx_msg void OnUnprintable();
 	afx_msg void OnUpdateHashvalue();
+	afx_msg void OnUpdateSigbit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	void CalculateParity();
+	int HexCharToInt(const char C) const;
 
 	CString m_Path;
 	CString m_Title;

@@ -42,12 +42,14 @@ public:
 	virtual int GetErrorcode() const = 0;
 	virtual void ModifyOriginalDocument(const int RunNo) = 0;
 	DocumentForHashing *GetOriginalDocument() const { return m_OriginalDocument; }
+	int GetModifiedBytes() const { return m_ModifiedBytes; }
 
 protected:
 	DocumentForHashing *m_OriginalDocument;
 	int m_Errorcode;
 	int m_GeneralPositionsTable [_MAX_HASH_BIT_LENGTH];
 	int m_ModifiablePositions;
+	int m_ModifiedBytes;
 
 	void SetData(const char *OriginalDocument, const int OriginalDocumentLength, const int SignificantBitLength);
 	

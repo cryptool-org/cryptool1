@@ -32,4 +32,5 @@ void ModifiedDocumentForHashing::SetData(const char *OriginalDocument, const int
 	m_DocumentLength = OriginalDocumentLength + SignificantBitLength;
 	m_DocumentData = new char[m_DocumentLength];
 	m_OriginalDocument = new DocumentForHashing(OriginalDocument, OriginalDocumentLength);
+	m_ModifiedBytes = 0;
 }

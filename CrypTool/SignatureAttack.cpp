@@ -10,6 +10,7 @@
 #include "s_prng.h"
 #include "ErrorcodesForSignatureAttack.h"
 #include <time.h>
+#include <sys/timeb.h>
 #include "assert.h"
 
 #ifdef _DEBUG
@@ -208,7 +209,7 @@ UINT SignatureAttack::Do_Floyd()
 	Big RandomMax = "256", RandomResult = "0";
 	bool DocumentsFound = false;
 	char *HashValue_single_step, *HashValue_double_step, *HashValue_init, *HashValue_confirm_step;
-	clock_t time_start, time_finish;
+	struct _timeb time_start, time_finish;
 	int HashValueParity_single_step, HashValueParity_double_step;
 	__int64 ii, MAX_StepsPerRun;
 	
@@ -232,7 +233,7 @@ UINT SignatureAttack::Do_Floyd()
 
 #endif
 	
-	time_start = clock();	// Zeitmessung beginnt
+	_ftime(&time_start);	// Zeitmessung beginnt
 
 #ifdef _SIG_ATT_HASH_ONLY
 
@@ -245,7 +246,7 @@ UINT SignatureAttack::Do_Floyd()
 		hop->DoHash(buf, len, HashValue_single_step);
 		m_ResSigAtt->IncreaseHashOperationsPerformed();
 	}
-	time_finish = clock();
+	_ftime(&time_finish);
 	goto HASHTOKEN;
 
 #endif
@@ -299,7 +300,7 @@ UINT SignatureAttack::Do_Floyd()
 				memcpy(HashValue_confirm_step, HashValue_init, HashAlgorithmByteLength);
 				if (true == CollisionConfirmation(HashValue_single_step, HashValue_confirm_step))
 				{
-					time_finish = clock();	// Zeitmessung endet
+					_ftime(&time_finish);	// Zeitmessung endet
 					DocumentsFound = true;	// aüßere while-Schleife wird verlassen
 				}
 				
@@ -335,15 +336,22 @@ UINT SignatureAttack::Do_Floyd()
 		{
 			if (false == DocumentsFound)
 			{
-				time_finish = clock();	// Zeitmessung endet
+				_ftime(&time_finish);	// Zeitmessung endet
 			}
 
 			break;	// es wurden 10 Runs durchlaufen und kein Dokumentenpaar gefunden -> Suche beenden
 		}
 	}
 
-	m_ResSigAtt->SetEffectiveTime((double)(time_finish - time_start) / CLOCKS_PER_SEC);
+	long Seconds = time_finish.time - time_start.time, Milliseconds = time_finish.millitm - time_start.millitm;
 	// Dauer der Floyd-Suche wird aus der Differenz der Start- und Endzeit ermittelt
+
+	if (Milliseconds < 0)
+	{
+		Seconds -= 1;			// bei z.B. time_start=13.9 und time_finish=14.2 müssten diese Rechnungen
+		Milliseconds += 1000;	// durchgeführt werden!
+	}
+	m_ResSigAtt->SetEffectiveTime(CalculateTimeSpan(time_start, time_finish));
 
 	if (true == DocumentsFound)
 	{
@@ -367,8 +375,8 @@ UINT SignatureAttack::Do_Floyd()
 
 HASHTOKEN:
 	m_ResSigAtt->SetFloydResult(_SIG_ATT_DOCUMENTS_FOUND);
-	m_ResSigAtt->SetEffectiveTime((double)(time_finish - time_start) / CLOCKS_PER_SEC);
-	m_ResSigAtt->SetExpectedTime(_SA_HOPS / ((double)(time_finish - time_start) / CLOCKS_PER_SEC));
+	m_ResSigAtt->SetEffectiveTime(CalculateTimeSpan(time_start, time_finish));
+	m_ResSigAtt->SetExpectedTime(_SA_HOPS / (CalculateTimeSpan(time_start, time_finish) / CLOCKS_PER_SEC));
 
 #endif
 
@@ -381,4 +389,18 @@ HASHTOKEN:
 
 	SignalEnd();
 	return 0;
+}
+
+double SignatureAttack::CalculateTimeSpan(const struct _timeb Start, const struct _timeb Finish) const
+{
+	long Seconds = Finish.time - Start.time, Milliseconds = Finish.millitm - Start.millitm;
+	// Dauer der Floyd-Suche wird aus der Differenz der Start- und Endzeit ermittelt
+
+	if (Milliseconds < 0)
+	{
+		Seconds -= 1;			// bei z.B. Start=13.9 und Finish=14.2 müssten diese Rechnungen
+		Milliseconds += 1000;	// durchgeführt werden!
+	}
+	
+	return ((double)Seconds + (double)Milliseconds / 1000);
 }

@@ -35,6 +35,7 @@ protected:
 	ResultsOfSignatureAttack *m_ResSigAtt;
 
 private:
+	double CalculateTimeSpan(const struct _timeb Start, const struct _timeb Finish) const;
 	bool CollisionConfirmation(char *HashValue_single_step, char *HashValue_init);
 	bool HashEqual(const char *HashValue_single_step, const char *HashValue_double_step) const;
 	void InternalStep(int &HashValueParity, char *HashValue);

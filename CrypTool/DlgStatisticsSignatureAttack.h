@@ -14,15 +14,18 @@ class CDlgStatisticsSignatureAttack : public CDialog
 {
 // Konstruktion
 public:
-	bool GetPrintStatistics();
+	bool GetPrintStatistics() const;
 	void PrintStatistics();
-	void SetData(ResultsOfSignatureAttack *);
+	void SetData(ResultsOfSignatureAttack *ResSigAtt,
+		const int ModifiedBytesHarmless, const int ModifiedBytesDangerous);
 	CDlgStatisticsSignatureAttack(CWnd* pParent = NULL);   // Standardkonstruktor
 	/*CDlgStatisticsSignatureAttack(CWnd* pParent = NULL, ResultsOfSignatureAttack *ResSigAtt = NULL);*/
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgStatisticsSignatureAttack)
 	enum { IDD = IDD_STATISTICS_SIGNATURE_ATTACK };
+	CStatic	m_control_dangerous;
+	CStatic	m_control_harmless;
 	CListCtrl	m_control_ListOfRuns;
 	CString	m_ExpectedSteps;
 	CString	m_ExpectedTime;
@@ -51,6 +54,8 @@ protected:
 private:
 	bool m_PrintStatistics;
 	ResultsOfSignatureAttack *m_ResSigAtt;
+	int m_ModifiedBytesHarmless;
+	int m_ModifiedBytesDangerous;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -89,6 +89,8 @@ void ModifiedDocument_Blanks::ModifyDocument(const char *HashValue)
 			MaxPositions ++;
 		}
 	}
+
+	m_ModifiedBytes = MaxPositions;
 	
 	for (ii = 0; ii < MaxPositions; ii ++)
 	{

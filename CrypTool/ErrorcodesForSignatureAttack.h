@@ -13,7 +13,7 @@
 // wenn dieses #define einkommentiert ist, erscheint während der Dokumentenpaarsuche keine Fortschrittsanzeige
 #endif
 
-//#define _SIG_ATT_SPEED_INCREMENT
+#define _SIG_ATT_SPEED_INCREMENT
 // wenn dieses #define einkommentiert ist, erhöht sich die Geschwindigkeit des Floyd-Algorithmus
 // u.a. Prämodifizierung
 

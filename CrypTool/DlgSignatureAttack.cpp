@@ -425,7 +425,8 @@ void CDlgSignatureAttack::OnCompute()
 	HIDE_HOUR_GLASS
 	
 	CDlgStatisticsSignatureAttack DlgSSA;
-	DlgSSA.SetData(S_A->GetResults());
+	DlgSSA.SetData(S_A->GetResults(),
+		OFSA.GetHarmlessDocument()->GetModifiedBytes(), OFSA.GetDangerousDocument()->GetModifiedBytes());
 	DlgSSA.DoModal();
 	if (true == DlgSSA.GetPrintStatistics())
 	{

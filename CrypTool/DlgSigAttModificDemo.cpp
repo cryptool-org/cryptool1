@@ -8,6 +8,7 @@
 #include "ModifiedDocumentForHashing.h"
 #include "ModifiedDocument_Blanks.h"
 #include "ModifiedDocument_Attachments.h"
+#include "BitParity.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -23,11 +24,12 @@ CDlgSigAttModificDemo::CDlgSigAttModificDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSigAttModificDemo::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgSigAttModificDemo)
-	m_hashvalue = _T("FF");
+	m_hashvalue = _T("012");
 	m_sigbit = 8;
 	m_method = 0;
 	m_printable = 0;
 	m_parity = 0;
+	m_run = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -36,6 +38,7 @@ void CDlgSigAttModificDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgSigAttModificDemo)
+	DDX_Control(pDX, IDC_COMBO1, m_control_run);
 	DDX_Control(pDX, IDC_METHOD, m_control_method);
 	DDX_Control(pDX, IDC_RADIO4, m_control_unprintable);
 	DDX_Control(pDX, IDC_RADIO3, m_control_printable);
@@ -48,6 +51,7 @@ void CDlgSigAttModificDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO3, m_printable);
 	DDX_Text(pDX, IDC_PARITY, m_parity);
 	DDV_MinMaxInt(pDX, m_parity, 0, 1);
+	DDX_CBString(pDX, IDC_COMBO1, m_run);
 	//}}AFX_DATA_MAP
 }
 
@@ -60,6 +64,7 @@ BEGIN_MESSAGE_MAP(CDlgSigAttModificDemo, CDialog)
 	ON_BN_CLICKED(IDC_RADIO3, OnPrintable)
 	ON_BN_CLICKED(IDC_RADIO4, OnUnprintable)
 	ON_EN_UPDATE(IDC_HASHVALUE, OnUpdateHashvalue)
+	ON_EN_UPDATE(IDC_SIGBIT, OnUpdateSigbit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -75,19 +80,18 @@ void CDlgSigAttModificDemo::OnModify()
 	CString msg;
 	ifstream ifstr_Document;
 	ofstream ofstr_Document;
-	int ii, jj, DocumentLength;
+	int ii, DocumentLength, HashValueHexLength, HashValueByteLength, RunNo, temp;
 	struct stat stat_object;
 
 	if (FALSE == m_hashvalue.IsEmpty())
 	{
-		m_hashvalue.MakeLower();
 		for (ii = 0; ii < m_hashvalue.GetLength(); ii ++)
 		{
 			if (!(m_hashvalue[ii] >= '0' && m_hashvalue[ii] <= '9'
-				|| m_hashvalue[ii] >= 'a' && m_hashvalue[ii] <= 'f'))
+				|| m_hashvalue[ii] >= 'a' && m_hashvalue[ii] <= 'f'
+				|| m_hashvalue[ii] >= 'A' && m_hashvalue[ii] <= 'F'))
 			{
-				m_control_hashvalue.SetSel(0, -1, 0);
-				//UpdateData(FALSE);
+				m_hashvalue.Delete(ii, 1);
 				return;
 			}
 		}
@@ -139,36 +143,40 @@ void CDlgSigAttModificDemo::OnModify()
 	}
 	else
 	{
-		m_Document = new ModifiedDocument_Attachments(Text, DocumentLength, m_sigbit, m_printable);
+		m_Document = new ModifiedDocument_Attachments(Text, DocumentLength + 2, m_sigbit, m_printable);
 	}
 
-	char *HashValue = new char[(m_hashvalue.GetLength() + 1) / 2];
-	char temp, value;
-	
+	HashValueHexLength = m_hashvalue.GetLength();
+	HashValueByteLength = (HashValueHexLength + 1) / 2;	
+	char *HashValue = new char[HashValueByteLength];
 
-	for (ii = jj = 0; ii < m_hashvalue.GetLength(); ii ++)
+	for (ii = 0; ii < HashValueHexLength; ii ++)
 	{
-		if (m_hashvalue[ii] >= '0' && m_hashvalue[ii] <= '9')
+		if (0 == ii % 2)
 		{
-			temp = m_hashvalue[ii] - 48;
+			temp = 16 * HexCharToInt(m_hashvalue[ii]);
 		}
 		else
 		{
-			temp = m_hashvalue[ii] - 87;
+			temp += HexCharToInt(m_hashvalue[ii]);
+			HashValue[(ii - 1) / 2] = temp;
 		}
-
-		if (!(ii % 2))
-		{
-			value = 16 * temp;
-		}
-		else
-		{
-			value += temp;
-			HashValue[jj] = value;
-			jj ++;
-		}		
 	}
 
+	if (0 != HashValueHexLength % 2)
+	{
+		HashValue[HashValueByteLength - 1] = 16 * HexCharToInt(m_hashvalue[HashValueHexLength - 1]);
+	}
+
+
+	if (TRUE == m_run.IsEmpty())
+	{
+		return;
+	}
+
+	m_run.Delete(2,1);
+	RunNo = atoi(m_run) - 1;
+	m_Document->ModifyOriginalDocument(RunNo);
 	m_Document->ModifyDocument(HashValue);
 
 	GetTmpName(outfile,"cry",".tmp");
@@ -197,6 +205,7 @@ void CDlgSigAttModificDemo::OnAttachment()
 	m_control_double.EnableWindow(FALSE);
 	m_control_printable.EnableWindow(TRUE);
 	m_control_unprintable.EnableWindow(TRUE);
+	m_control_run.EnableWindow(TRUE);
 
 	UpdateData(FALSE);
 }
@@ -209,6 +218,7 @@ void CDlgSigAttModificDemo::OnMethod()
 	m_control_double.EnableWindow(TRUE);
 	m_control_printable.EnableWindow(FALSE);
 	m_control_unprintable.EnableWindow(FALSE);
+	m_control_run.EnableWindow(FALSE);
 	
 	UpdateData(FALSE);	
 }
@@ -225,24 +235,8 @@ void CDlgSigAttModificDemo::OnUnprintable()
 
 void CDlgSigAttModificDemo::OnUpdateHashvalue() 
 {
-	char temp;
-	int ii, parity = 0, table[16] = {0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0}; // quick and dirty
-
 	UpdateData(TRUE);
-	for (ii = 0; ii < m_hashvalue.GetLength(); ii ++)
-	{
-		if (m_hashvalue[ii] >= '0' && m_hashvalue[ii] <= '9')
-		{
-			temp = m_hashvalue[ii] - 48;
-		}
-		else
-		{
-			temp = m_hashvalue[ii] - 87;
-		}
-
-		parity += table[temp];
-	}
-	m_parity = parity % 2;
+	CalculateParity();
 	UpdateData(FALSE);
 }
 
@@ -250,4 +244,68 @@ void CDlgSigAttModificDemo::SetData(char *Path, const CString &Title)
 {
 	m_Path = Path;
 	m_Title = Title;
+}
+
+int CDlgSigAttModificDemo::HexCharToInt(const char C) const
+{
+	if (C >= '0' && C <= '9')
+	{
+		return (C - 48);
+	}
+
+	else if (C >= 'A' && C <= 'F')
+	{
+		return (C - 55);
+	}
+
+	else if (C >= 'a' && C <= 'f')
+	{
+		return (C - 87);
+	}
+
+	return 0;
+}
+
+void CDlgSigAttModificDemo::OnUpdateSigbit() 
+{
+	UpdateData(TRUE);
+	CalculateParity();
+	UpdateData(FALSE);
+}
+
+void CDlgSigAttModificDemo::CalculateParity()
+{
+	char *String;
+	int ii, temp, HashValueByteLength, HashValueHexLength;
+
+	HashValueHexLength = m_hashvalue.GetLength();
+	HashValueByteLength = (HashValueHexLength + 1) / 2;	
+
+	if (HashValueHexLength * 4 < m_sigbit || 0 == HashValueByteLength)
+	{
+		return;
+	}
+
+	String = new char[HashValueByteLength];
+
+	for (ii = 0; ii < HashValueHexLength; ii ++)
+	{
+		if (0 == ii % 2)
+		{
+			temp = 16 * HexCharToInt(m_hashvalue[ii]);
+		}
+		else
+		{
+			temp += HexCharToInt(m_hashvalue[ii]);
+			String[(ii - 1) / 2] = temp;
+		}
+	}
+
+	if (0 != HashValueHexLength % 2)
+	{
+		String[HashValueByteLength - 1] = 16 * HexCharToInt(m_hashvalue[HashValueHexLength - 1]);
+	}
+
+	BitParity BP;
+	m_parity = BP.GetParity(String, m_sigbit);
 }
