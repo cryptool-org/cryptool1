@@ -43,7 +43,7 @@ END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Grafikparameter"
+CAPTION "Grafikoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,14,91,69,18
@@ -1147,28 +1147,29 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 321
+IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 345
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Extrahierte Signatur"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Schließen",IDOK,159,296,70,17
-    CONTROL         "&Oktal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,171,168,
-                    33,10
-    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,214,
-                    168,41,10
-    CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
-                    265,168,56,10
-    CONTROL         "O&ctets",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,331,168,37,10
+    DEFPUSHBUTTON   "&Schließen",IDOK,159,318,70,17
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
+    CONTROL         "Hex-Dump (hexadezimal und Ascii):",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,238,179,121,
+                    8
+    CONTROL         "&Oktal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,80,179,
+                    33,8
+    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,117,
+                    179,41,8
+    CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
+                    161,179,56,8
+    EDITTEXT        IDC_EDIT6,10,216,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    GROUPBOX        "Signaturdarstellung:",IDC_STATIC,160,159,218,22,
-                    BS_CENTER
+    GROUPBOX        "Optionen der Darstellung der Signatur:",IDC_STATIC,10,
+                    167,368,26,BS_LEFT
     EDITTEXT        IDC_EDIT10,10,3,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT3,110,3,272,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1185,10 +1186,11 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT5,10,152,128,15,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT9,10,178,150,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT9,10,200,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT7,10,284,125,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT7,10,306,125,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
+    LTEXT           "Zahlendarstellung:",IDC_STATIC,17,179,58,8
 END
 
 IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG DISCARDABLE  0, 0, 392, 330
@@ -1641,29 +1643,30 @@ END
 
 IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 242
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "N-Gramm Liste"
+CAPTION "N-Gramm-Liste"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Liste bestimmen",IDC_BUTTON2,7,134,99,23
+    DEFPUSHBUTTON   "&Liste berechnen",IDC_BUTTON2,7,134,99,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,163,99,24
     PUSHBUTTON      "&Schließen",IDCANCEL,7,207,99,24
     CONTROL         "&Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,20,22,53,10
-    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,
+                    WS_GROUP,18,22,53,10
+    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,
                     56,10
-    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,
+    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,49,
                     45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
-    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
+    EDITTEXT        IDC_EDIT2,29,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,61,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+    EDITTEXT        IDC_EDIT1,59,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
                     WS_TABSTOP,115,8,228,223
-    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,118
-    LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
-    LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
-    LTEXT           "-Gramm",IDC_STATIC,45,64,25,8
+    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,120
+    LTEXT           "Anzeige der",IDC_STATIC,18,88,39,8
+    LTEXT           "häufigsten N-Gramme (erlaubte Werte: 1-5000).",
+                    IDC_STATIC,18,101,84,17
+    LTEXT           "-Gramm",IDC_STATIC,43,64,25,8
 END
 
 IDD_RANDOM_GENERATOR DIALOG DISCARDABLE  0, 0, 301, 255
@@ -4687,7 +4690,7 @@ BEGIN
                             "Automatische %s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
-    IDS_STRING_SIGNATURE_ORIGINATOR "Signatur Erzeuger:"
+    IDS_STRING_SIGNATURE_ORIGINATOR "Signaturerzeuger:"
     IDS_STRING_SIGNATURE_DATE "%s; erzeugt am %s"
     IDS_STRING_SIGNATURE_HASH_FUNCTION "%s mit Hashfunktion %s"
 END
@@ -5425,12 +5428,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_NGRAM_ANALYSIS_OF "%sAnalyse von %s"
+    IDS_STRING_NGRAM_ANALYSIS_OF "%sAnalyse von <%s>. Dateigröße: %i Bytes."
     IDS_STRING_NGRAM_HISTOGRAM "Histogramm-"
     IDS_STRING_NGRAM_DIGRAM "Digramm-"
     IDS_STRING_NGRAM_TRIGRAM "Trigramm-"
     IDS_STRING_NGRAM_NGRAM  "%i-Gramm-"
-    IDS_STRING_NGRAM_DESCRIPTION "absteigend sortiert nach der Häufigkeit"
+    IDS_STRING_NGRAM_DESCRIPTION "Absteigend sortiert nach der Häufigkeit."
     IDS_STRING_NGRAM_NO     "Nr."
     IDS_STRING_NGRAM_RELFREQUENCY "Häufigkeit (in %)"
 END
@@ -6769,23 +6772,24 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 321
+IDD_EXTRACT_SIGNATURE DIALOG DISCARDABLE  0, 0, 387, 335
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Extracted Signature"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Close",IDOK,159,296,70,17
+    DEFPUSHBUTTON   "&Close",IDOK,159,313,70,17
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    CONTROL         "&Octal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,171,168,
-                    33,10
-    CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,214,
-                    168,41,10
+    CONTROL         "Hex dump (hexadecimal and ascii):",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,
+                    11
+    CONTROL         "&Octal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,
+                    33,8
+    CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,91,177,
+                    41,8
     CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,
-                    265,168,56,10
-    CONTROL         "O&ctets",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,331,168,37,10
+                    136,177,56,8
     EDITTEXT        IDC_EDIT10,10,3,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT11,10,18,100,14,ES_AUTOHSCROLL | ES_READONLY | 
@@ -6802,15 +6806,16 @@ BEGIN
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT5,10,152,128,15,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT9,10,178,150,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT9,10,198,150,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    GROUPBOX        "Base for presentation of signature",IDC_STATIC,160,159,
-                    218,22,BS_CENTER
-    EDITTEXT        IDC_EDIT7,10,284,125,12,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Options for presentation of signature",IDC_STATIC,10,
+                    166,368,25,BS_LEFT
+    EDITTEXT        IDC_EDIT7,10,304,125,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,10,194,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
+    EDITTEXT        IDC_EDIT6,10,214,368,87,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Numbers:",IDC_STATIC,16,177,36,8
 END
 
 IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG DISCARDABLE  0, 0, 392, 330
@@ -7283,7 +7288,8 @@ BEGIN
                     WS_TABSTOP,115,7,228,224
     GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
     LTEXT           "Display of the",IDC_STATIC,20,88,44,8
-    LTEXT           "most common N-Grams",IDC_STATIC,20,101,80,8
+    LTEXT           "most common N-Grams (allowed values: 1-5000)",
+                    IDC_STATIC,20,101,80,20
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
 END
 
@@ -10749,12 +10755,12 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analysis of %s"
+    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analysis of <%s>. File size %i bytes."
     IDS_STRING_NGRAM_HISTOGRAM "Histogram"
     IDS_STRING_NGRAM_DIGRAM "Digram"
     IDS_STRING_NGRAM_TRIGRAM "Trigram"
     IDS_STRING_NGRAM_NGRAM  "%i Gram"
-    IDS_STRING_NGRAM_DESCRIPTION "descending sorted on frequency"
+    IDS_STRING_NGRAM_DESCRIPTION "Descending sorted on frequency."
     IDS_STRING_NGRAM_NO     "No."
     IDS_STRING_NGRAM_RELFREQUENCY "Frequency (in %)"
 END
