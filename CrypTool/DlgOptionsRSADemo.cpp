@@ -216,7 +216,7 @@ void CDlgOptionsRSADemo::OnOK()
 {
 	UpdateData();
 	unsigned int blockLength = GetBlockLength();
-	if (m_TextOptions==0)
+	if (m_TextOptions == 0)
 	{
 		Anzahl_Zeichen=256;	
 	}
@@ -228,7 +228,8 @@ void CDlgOptionsRSADemo::OnOK()
 	if ( m_RSAVariant == 1  )
 	{
 		int int_RSA_Modul;
-		int_RSA_Modul=atoi(RSA_Modul);
+		if ( RSA_Modul.GetLength() > 3 ) int_RSA_Modul = 1000;
+		else                             int_RSA_Modul = atoi(RSA_Modul);
 		if ( Anzahl_Zeichen > int_RSA_Modul)
 		{
 			Message(IDS_STRING_ERR_ONBLOCKLENGTH_NULL, MB_ICONSTOP, Anzahl_Zeichen, RSA_Modul);
@@ -253,6 +254,15 @@ void CDlgOptionsRSADemo::OnOK()
 	}
 	UpdateData(FALSE);
 	CDialog::OnOK();
+}
+
+
+bool CDlgOptionsRSADemo::CompareModulAlphabetSize(CString N_str)
+{
+	int int_RSA_Modul;
+	if    ( N_str.GetLength() > 3 ) int_RSA_Modul = 1000;
+	else   int_RSA_Modul = atoi(RSA_Modul);
+	return ( Anzahl_Zeichen < int_RSA_Modul );
 }
 
 void CDlgOptionsRSADemo::OnCodingNumberSystem() 

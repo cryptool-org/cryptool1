@@ -17,6 +17,7 @@ public:
 	void MsgAnzahlZeichen();
 	void ReInitBlockLength(BOOL setMaxBlockLength = FALSE);
 	void MsgBlockLength();
+	bool CompareModulAlphabetSize(CString N_str);
 	CDlgOptionsRSADemo(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten

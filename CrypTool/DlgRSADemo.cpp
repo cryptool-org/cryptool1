@@ -42,6 +42,7 @@ BOOL g_pre_dialogue = TRUE;
 CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 : CDialog(CDlgRSADemo::IDD, pParent) 
 {
+
 	//{{AFX_DATA_INIT(CDlgRSADemo)
 	m_edit_p = _T("");
 	m_edit_q = _T("");
@@ -59,7 +60,8 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	m_Header_RSA_step_1 = _T("");
 	m_EncryptTextOrNumbers = m_control_RSA_input.EncryptTextOrNumbers = 0;
 	m_RSAPublicKeyOnly = 0;
-	//}}AFX_DATA_INIT
+    //}}AFX_DATA_INIT
+
 
 	// Sub-Dialoge werden zu Beginn dynamisch erzeugt ...
 	DlgOptions			= new CDlgOptionsRSADemo();
@@ -67,7 +69,7 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	RSA					= new CRSADemo;
 	DlgFactorisation	= new CDlgFactorisationDemo;
 	DlgFactorisation->m_inputReadOnly = TRUE; // Don't edit the input for factorisation
-	m_RSAKeyStatus = 0;
+//	m_RSAKeyStatus = 0;
 
 // == RSA-Signatur, Schritt Für Schritt verifizieren
     CheckRSASignature = false;
@@ -416,7 +418,7 @@ int CDlgRSADemo::CheckRSAParameter()
 		{
 			SetStatusKeyEValid(TRUE);
 			SetStatusModulNValid(TRUE);
-			SetStatusOptionsValid(TRUE);
+			SetStatusOptionsValid(DlgOptions->CompareModulAlphabetSize(m_edit_N));
 		}
 	}
 	else
@@ -440,7 +442,7 @@ int CDlgRSADemo::CheckRSAParameter()
 				RSA->GetParameter( m_edit_N, m_edit_phi_of_N, 
 						   l_e_str, m_edit_d );
 				SetStatusKeyEValid(TRUE);
-				SetStatusOptionsValid(TRUE);
+				SetStatusOptionsValid( DlgOptions->CompareModulAlphabetSize(m_edit_N) );
 			}
 			else
 			{
@@ -1046,6 +1048,7 @@ void CDlgRSADemo::ButtonManagement()
 
 void CDlgRSADemo::OnUpdateRSAInput() 
 {
+	SetStatusOptionsValid(DlgOptions->CompareModulAlphabetSize(m_edit_N));
 	RequestForInput(FALSE);
 	if ( m_edit_RSA_input.GetLength() == 0 )
 		SetStatusInputValid(FALSE);
