@@ -1427,54 +1427,54 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Das RSA-Kryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,246,
-                    51,86,18
-    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
-    PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
-                    IDC_OPTIONEN,184,187,148,16
-    EDITTEXT        IDC_EDIT10,20,219,313,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,20,311,313,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
-    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
-    EDITTEXT        IDC_HEADER1,20,207,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER4,20,238,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER2,20,268,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER3,20,300,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
                     IDC_STATIC,10,7,332,24
     GROUPBOX        "Primzahleneingabe",IDC_STATIC,10,39,332,48
     LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
+    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
     LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
+    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,246,
+                    51,86,18
     GROUPBOX        "RSA Parameter",IDC_STATIC,10,90,332,84
     LTEXT           "RSA-Modul N",IDC_STATIC,19,102,52,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,139,75,8
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,157,73,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
+    LTEXT           "(öffentlich)",IDC_STATIC,246,103,34,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
     EDITTEXT        IDC_EDIT4,100,118,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
+    LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,139,75,8
+    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,157,73,8
     EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(öffentlich)",IDC_STATIC,246,103,34,8
-    LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
+    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,246,148,86,19
     GROUPBOX        "RSA-Verschlüsselung / Entschlüsselung",IDC_STATIC,10,
                     177,332,155
     LTEXT           "Eingabe als",IDC_STATIC,19,193,39,8
-    CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    61,193,32,8
-    CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,96,193,
-                    37,8
+    CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,61,193,32,8
+    CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,96,193,37,8
+    PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
+                    IDC_OPTIONEN,184,187,148,16
+    EDITTEXT        IDC_HEADER1,20,207,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT10,20,219,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEADER4,20,238,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT13,20,249,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER2,20,268,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT11,20,279,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER3,20,300,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT12,20,311,313,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,339,71,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,339,73,18
+    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,252,339,90,18
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -6251,53 +6251,53 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "The RSA Cryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
-                    243,51,89,18
-    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,246,148,86,19
-    PUSHBUTTON      "&Options for alphabet and number system...",
-                    IDC_OPTIONEN,184,187,148,16
-    EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,19,314,313,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,341,71,18
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,341,73,18
-    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,341,90,18
     LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key    d = e^(-1)  (mod  phi(N)) is calculated from this.",
                     IDC_STATIC,10,7,332,24
     GROUPBOX        "Prime number entry",IDC_STATIC,10,39,332,48
     LTEXT           "Prime number p",IDC_STATIC,19,52,55,8
+    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
     LTEXT           "Prime number q",IDC_STATIC,19,70,59,8
+    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
+                    243,51,89,18
     GROUPBOX        "RSA parameters",IDC_STATIC,10,90,332,84
     LTEXT           "RSA modulus N",IDC_STATIC,19,102,52,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
-    LTEXT           "Public key e",IDC_STATIC,19,139,75,8
-    LTEXT           "Private key  d",IDC_STATIC,19,157,73,8
     EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
+    LTEXT           "(public)",IDC_STATIC,246,103,34,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
     EDITTEXT        IDC_EDIT4,100,118,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
+    LTEXT           "(secret)",IDC_STATIC,246,121,30,8
+    LTEXT           "Public key e",IDC_STATIC,19,139,75,8
+    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
+    LTEXT           "Private key  d",IDC_STATIC,19,157,73,8
     EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(public)",IDC_STATIC,246,103,34,8
-    LTEXT           "(secret)",IDC_STATIC,246,121,30,8
+    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,246,148,86,19
     GROUPBOX        "RSA encryption / decryption",IDC_STATIC,10,177,332,158
-    EDITTEXT        IDC_HEADER1,19,209,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER4,19,240,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER2,19,270,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_HEADER3,19,302,313,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
     LTEXT           "Input as",IDC_STATIC,19,194,31,8
-    CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    53,194,32,8
-    CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,89,194,
-                    40,8
+    CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,53,194,32,8
+    CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,89,194,40,8
+    PUSHBUTTON      "&Options for alphabet and number system...",
+                    IDC_OPTIONEN,184,187,148,16
+    EDITTEXT        IDC_HEADER1,19,209,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEADER4,19,240,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER2,19,270,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_HEADER3,19,302,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT12,19,314,313,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,341,71,18
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,341,73,18
+    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,341,90,18
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
