@@ -91,7 +91,7 @@ CDocTemplate::Confidence CCryptDocTemplate::MatchDocType(LPCTSTR lpszPathName,
 	// read file
 
 	FILE *fi;
-	char buffer[4096];
+	unsigned char buffer[4096];
 	signed char c;
 	int l,i;
 	int ok;
