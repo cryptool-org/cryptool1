@@ -299,16 +299,23 @@ int CRandomAnalysisTools::FindPeriod()
 				}
 				periodResults[cnt_periodResults].str[l] = '\0';
 				cnt_periodResults++;
-			}
 
-			// Jan Blumenstein (JB) Bugfix Beginn
-			// war notwendig, da in "zezrzrzzezrzrz" die Periode "zezrzrz" nicht erkannt wurde
+				// Jan Blumenstein (JB) Bugfix 08-08-02 Beginn
+				// war notwendig, da z.B. in "zezrzrzzezrzrz" die Periode "zezrzrz" nicht erkannt wurde
+				
+				search = follow;
+
+				// search wird auf Position von follow zurückgesetzt, wenn eine Periode gefunden wurde
+			}				
 			
 			else	// hier kommt man hin, wenn bei search zwar eine gleiche Zeichenfolge wie am Ende
 					// gefunden wurde, diese aber nicht bis search durchgehend auftritt und damit ausscheidet
 			{
-				search++;	// auf diese Weise geht das Zeichen, bei dem sich search gerade befindet,
-							// nicht "verloren", es könnte schliesslich der Anfang einer langen Periode sein
+				search += (origlen - 1 - follow);
+							
+				// auf diese Weise gehen die letzten (origlen-1-follow) Zeichen, rechts von der aktuellen
+				// search-Position, nicht "verloren" - sie könnten schließlich der Anfang einer langen
+				// Periode sein
 			}
 			// JB Bugfix Ende
 
