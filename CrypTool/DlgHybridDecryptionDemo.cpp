@@ -249,7 +249,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			m_Cert->GetParameter(sModN, sPhiN,sKeyPublic,sKeyPrivate);
 
 			// Hier werden die Certifikate-Daten ausgegeben
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG3,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG12,pc_str,STR_LAENGE_STRING_TABLE);
 			cont1 = (CString) pc_str; 
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG13,pc_str,STR_LAENGE_STRING_TABLE);
 			cont2 = (CString) pc_str; 
@@ -279,6 +279,11 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG5,pc_str,STR_LAENGE_STRING_TABLE);
 		cont2 = (CString) pc_str; 
 		m_DisplayData += ( cont1 + sKeyPrivate  + nl + nl + cont2 + nl );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG12,pc_str,STR_LAENGE_STRING_TABLE);
+		cont1 = (CString) pc_str; 
+		m_DisplayData += cont1;
+
+		// Fussnote: "Schritt 2 von 3"
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DISPLAY_STEPS,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, step, maxsteps);
 		m_Step = (CString) pc_str1;
