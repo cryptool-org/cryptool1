@@ -655,7 +655,7 @@ Cryptographically not only the uniqueness of the inverse is important, but also 
 set of possible values is exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then takes the product $a*i {\rm ~mod ~} m $ for a 
-certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the Length $m-1$)\footnote{See
+certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
 also theorem \ref{thm-zth-ordp} in \hyperlink{Kap_3_9}{chapter 3.9 Multiplicative order and primitive roots}.}.
 \end{theorem}
 \vskip +10 pt
@@ -1414,10 +1414,10 @@ $J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22
 The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 \begin{theorem}\label{thm-zth-ordp}\footnote{%
-    For prime moduli $p$ all $0 < a < p$ are of order $J(p) = p - 1$.
+    For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
     Compare table 5 for an example. In this case $a^i (\mbox{mod }n)$ goes
-    through the values $1,\dots,p-1$. Exhausting all possible values of the
-    set is an important cryptographic proposition (compare theorem
+    through all the values $1,\dots,p-1$. Exhausting all possible values of
+    the set is an important cryptographic proposition (compare theorem
     \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
     $\pi(p-1)$.}$^,$\footnote{%
     Table 6 demonstrates that for composite moduli $n$ not all $a$ are of
