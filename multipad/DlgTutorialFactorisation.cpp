@@ -407,7 +407,8 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			{
 				DetailsFactorisation.InsertFactDetail(next_factor, f1, f2, 
 					                                  m_Name, m_benoetigte_zeit_pro_factorisation, 
-													  (int)f.IsPrime( f1 ) + ((int)f.IsPrime(f2))*2);
+													  (int)f.IsPrime( f1 ) + ((int)f.IsPrime(f2))*2,
+													  (int)ceil(BitLength(f1)), (int)ceil(BitLength(f2)));
 				m_DialogeDetails.EnableWindow();
 			}
 		}

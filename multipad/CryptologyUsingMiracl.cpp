@@ -50,6 +50,14 @@ double approxLog2(Big &N)
 	return ret_val;
 }
 
+
+double  BitLength( CString &number, int base )
+{
+	Big t;
+	CStringToBig( number, t, base );
+	return approxLog2(t);
+}
+
 /////////////////////////////////////////////////////////////////////////////////
 //
 //

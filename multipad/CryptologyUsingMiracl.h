@@ -74,6 +74,7 @@ extern volatile long ExitFactorisationCode;
 BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx );
 BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx);
 BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber = FALSE);
+double BitLength(CString &number, int base = 10);
 
 BOOL isCharOf( const char ch, const char *expr );
 BOOL Whitespace( char ch );

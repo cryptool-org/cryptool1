@@ -335,7 +335,8 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
+    CTEXT           "CrypTool     (Version 1.3.01 - beta)",IDC_STATIC,0,51,
+                    242,8
     CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
                     242,8
     CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
@@ -2296,28 +2297,28 @@ BEGIN
                     BS_CENTER,45,82,61,10
 END
 
-IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 322
+IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 348
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Details zur Faktorisierung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "S&chließen",IDOK,326,295,50,20
-    PUSHBUTTON      "&Speichere Liste",IDCANCEL,225,295,63,20
-    LTEXT           "Faktorisierte Zahl:",IDC_STATIC,7,7,57,10
-    EDITTEXT        IDC_EDIT1,75,7,301,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,38,368,166
+    DEFPUSHBUTTON   "S&chließen",IDOK,326,321,50,20
+    PUSHBUTTON      "&Speichere Liste",IDCANCEL,225,321,63,20
+    LTEXT           "Eingabe-Zahl:",IDC_STATIC,7,7,57,10
     GROUPBOX        "Informationen zur gewählten Faktorisierung",IDC_STATIC,
-                    7,209,369,75
-    LTEXT           "Faktorisierte Zahl:",IDC_STATIC,16,224,57,9
-    EDITTEXT        IDC_EDIT2,78,223,283,12,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Erster Faktor:",IDC_STATIC,16,245,57,9
-    EDITTEXT        IDC_EDIT6,78,243,210,12,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Zweiter Faktor:",IDC_STATIC,16,261,57,9
-    EDITTEXT        IDC_EDIT4,78,260,210,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,296,246,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    7,202,369,112
+    LTEXT           "Faktorisierte Zahl:",IDC_STATIC,19,218,57,8
+    LTEXT           "Erster Faktor:",IDC_STATIC,19,249,57,8
+    LTEXT           "Zweiter Faktor:",IDC_STATIC,19,280,57,8
+    EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
+    EDITTEXT        IDC_EDIT2,18,230,348,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT6,18,261,348,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT4,18,292,348,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,80,249,286,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT5,296,263,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT5,80,280,286,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
 
@@ -2483,6 +2484,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2656,6 +2659,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -2791,6 +2796,7 @@ BEGIN
     END
     POPUP "&Einzelverfahren"
     BEGIN
+        MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
         MENUITEM "&Schlüssel generieren...",    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA-Demo"
@@ -2917,6 +2923,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -3031,8 +3039,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,0
- PRODUCTVERSION 1,3,0,0
+ FILEVERSION 1,3,0,1
+ PRODUCTVERSION 1,3,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -3050,14 +3058,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.00\0"
+            VALUE "FileVersion", "1.3.01 - beta\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.00\0"
+            VALUE "ProductVersion", "1.3.01 - beta\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -3842,17 +3850,6 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 123
     END
-
-    IDD_DIALOG_FACTORISATION_DETAILS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 376
-        VERTGUIDE, 16
-        VERTGUIDE, 288
-        VERTGUIDE, 361
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 315
-    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -4024,7 +4021,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta-1"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -5106,6 +5103,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_P12IMPORT            "Import von Zertifikaten und privaten Schlüsseln im PKCS#12 Format"
+    ID_HASH_OFAFILE         "Displays the hash value of the selected file"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5152,8 +5150,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DETFACTORISATION_FACTORPRIME "Primzahl"
-    IDS_DETFACTORISATION_FACTORCOMPOSITE "Zusammengesetzt"
+    IDS_DETFACTORISATION_FACTORPRIME "Bitlänge = %i,  Primzahl."
+    IDS_DETFACTORISATION_FACTORCOMPOSITE 
+                            "Bitlänge = %i,  zusammengesetzte Zahl ."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -5454,7 +5453,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
     CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
                     16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
+    CTEXT           "CrypTool     (Version 1.3.01 - beta)",IDC_STATIC,0,51,
+                    242,8
     CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
                     242,8
     CTEXT           "for creating employee awareness on the subject of cryptography.",
@@ -7246,28 +7246,28 @@ BEGIN
     GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
 END
 
-IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 322
+IDD_DIALOG_FACTORISATION_DETAILS DIALOG DISCARDABLE  0, 0, 383, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Details for the current Factorisation"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Close",IDOK,326,295,50,20
-    PUSHBUTTON      "&Save List",IDCANCEL,238,295,50,20
-    LTEXT           "Factorised number:",IDC_STATIC,7,7,64,10
-    EDITTEXT        IDC_EDIT1,75,7,301,12,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "&Close",IDOK,326,319,50,20
+    PUSHBUTTON      "&Save list",IDCANCEL,238,319,50,20
+    LTEXT           "Input number:",IDC_STATIC,7,7,47,10
+    EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,38,368,166
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
     GROUPBOX        "Information to the selected factorisation",IDC_STATIC,7,
-                    209,369,75
-    LTEXT           "Factorised number:",IDC_STATIC,16,224,64,9
-    EDITTEXT        IDC_EDIT2,80,223,281,12,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "First factor",IDC_STATIC,16,245,57,9
-    EDITTEXT        IDC_EDIT6,80,243,208,12,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Second factor",IDC_STATIC,16,261,57,9
-    EDITTEXT        IDC_EDIT4,80,260,208,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,296,246,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    205,369,108
+    LTEXT           "Factorised number:",IDC_STATIC,18,218,73,8
+    EDITTEXT        IDC_EDIT2,18,229,348,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "First factor:",IDC_STATIC,18,248,57,8
+    EDITTEXT        IDC_EDIT6,18,261,348,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Second factor:",IDC_STATIC,18,280,57,8
+    EDITTEXT        IDC_EDIT4,18,292,348,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,75,248,291,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT5,296,263,65,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT5,75,280,291,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
 
@@ -7432,6 +7432,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7605,6 +7607,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7740,7 +7744,7 @@ BEGIN
     END
     POPUP "&Indiv. Procedures"
     BEGIN
-        MENUITEM "Hash value ...",              ID_HASH_OFAFILE
+        MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
         POPUP "&RSA Demonstration"
@@ -7867,6 +7871,8 @@ BEGIN
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             MENUITEM SEPARATOR
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM SEPARATOR
+            MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
@@ -7981,8 +7987,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,0
- PRODUCTVERSION 1,3,0,0
+ FILEVERSION 1,3,0,1
+ PRODUCTVERSION 1,3,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -8000,14 +8006,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.00\0"
+            VALUE "FileVersion", "1.3.01 - beta \0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.00\0"
+            VALUE "ProductVersion", "1.3.01 - beta\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -8345,16 +8351,17 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 111
     END
+
     IDD_DIALOG_FACTORISATION_DETAILS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 376
-        VERTGUIDE, 16
-        VERTGUIDE, 80
+        VERTGUIDE, 18
+        VERTGUIDE, 75
         VERTGUIDE, 288
-        VERTGUIDE, 361
+        VERTGUIDE, 366
         TOPMARGIN, 7
-        BOTTOMMARGIN, 315
+        BOTTOMMARGIN, 339
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -8526,7 +8533,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00"
+    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-1"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -9578,11 +9585,10 @@ BEGIN
     ID_HASH_OFAFILE         "Displays the hash value of the selected file"
 END
 
-
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DETFACTORISATION_FACTORPRIME "Prime number"
-    IDS_DETFACTORISATION_FACTORCOMPOSITE "Composite number"
+    IDS_DETFACTORISATION_FACTORPRIME "Bitlength = %i,  prime number."
+    IDS_DETFACTORISATION_FACTORCOMPOSITE "Bitlength = %i,  composite number."
 END
 
 #endif    // Englisch (GB) resources
