@@ -366,7 +366,7 @@ EC-Param.ini...... Initialization file for public key procedures
 secude.dll........ Library of cryptographic functions provided by
                    Secude GmbH.
 ticket............ License for the Secude library.
-libeay32.dll...... Library from OpenSSL 0.96.  xxxxxxxxxxx
+libeay32.dll...... Library from OpenSSL 0.96.
 irunin.*.......... These files are necessary for installation and
                    deinstallation.
 
@@ -506,7 +506,6 @@ been added for version 1.3.00 since CrypTool version 1.202:
 - The restrictions (maximum data volume 64 KB) which previously
   applied to Windows versions Win95 and Win98 are no longer
   applicable.
-  xxxxxxxxxxxxxxxxx 
   Because of performance reasons CrypTool is customized in a way, that
   - from text files only 4 MB and
   - from binary files only 1 MB can be loaded.
@@ -654,7 +653,7 @@ Functionality:
   - There is a customization suggesting the file type (exe or aes).
   - Please note, that the output of the AES-Tool (even with file type
     "aes") is not completely identical with the output you get via the
-    menu item Crypt \ Symmetric \ Rijndael (AES). xxxxxxxxxxxx
+    menu item Crypt \ Symmetric \ Rijndael (AES).
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (choosen with Options / Text Options)
@@ -736,6 +735,39 @@ Functionality:
   see RFC2040).
   Then these additional customizations must become part of the
   format for the internal key storage.
++ Within CrypTool the keys of modern encryption methods intentionally
+  must be typed in using the hex format. 
+  We pedagogically did it by will, that everybody sees what type of
+  key the different methods expect: classical methods expect a key
+  built from the used alphabet, modern methods expect binary data of
+  keylength 56 bit till 256 bit.
+  On the other hand people normally are used to type their input using
+  all ASCII-keyboard-buttons. Within a productive application the key
+  should NOT be built of ASCII-letters. If it is wished to use a ASCII
+  password then it is better to generate a good key from the password. 
+  Within CrypTool both requirements (key input via ASCII and showing,
+  that good hex-keys are necessary) could be combined in the
+  following way:
+  Within the hexadecimal key input dialogs a button is added, calling
+  the dialog "Indiv. Procedures \ Key Generation from Password". 
+  The called dialog is already customized with the right key length
+  and after pushing "Back" the generated key will be used as hex 
+  input for the encryption method. In order to make this also work
+  for AES-256, the hash function SHA-256 must be added to the 
+  "Key Generation from Password"-dialog.
++ There are several dialogs within CrypTool where special input fields
+  expect a special number format (decimal, hexadecimal, ...).
+  The dialog "The RSA Cryptosystem" e.g. allows to enter the message
+  as text (with an alphabet defined by you) or as a number (with 4
+  different base numbers); compared with that the primes here can 
+  only be entered as decimal numbers or as terms of decimal numbers.
+  It would be useful if a calculator can be be called from within 
+  CrypTool as an a-modal window: it should accept terms with numbers 
+  of any basis as input and it should show the result in several
+  fields in parallel with different number bases. 
+  The right output number repraesentation could be transferred into
+  the clipboard via button, or the mouse could drag the field content
+  directly into the entry field in the CrypTool dialog box.
 + Use dictionary for all attacks, not just for substitution.
 + Implementation of an enhanced pattern search (with pre-given
   standardized and regular patterns and unknown but repeated
@@ -887,7 +919,8 @@ Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
 1.3.03    many minor bug fixes and documentation improvements.
 1.3.04    minor bug fixes (crash in analysis of Playfair, N-gram, RSA),
-          some new functionality and documentation improvements.
+          some new functionality (see chap. 5.2) and 
+          documentation improvements.
 
 
 

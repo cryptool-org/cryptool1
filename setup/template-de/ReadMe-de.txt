@@ -374,7 +374,7 @@ EC-Param.ini...... Initialisierungsdatei für auf Elliptischen
 secude.dll........ Bibliothek kryptographischer Funktionen von der
                    Secude GmbH.
 ticket............ Lizenz für die Secude-Bibliothek.
-libeay32.dll...... Bibliothek aus OpenSSL 0.96.  xxxxxxxxxxxx
+libeay32.dll...... Bibliothek aus OpenSSL 0.96.
 irunin.*.......... Diese Dateien sind nötig für Installation und
                    Deinstallation von CrypTool.
 
@@ -515,7 +515,6 @@ Bugfixes in Version 1.3.00 hinzugefügt (aufgelistet bis 5.1.6):
   Verständlichkeit überarbeitet.
 - Die bisherigen Einschränkungen (maximale Datengröße 64 KB) für
   die Windows-Versionen Win95 und Win98 wurden aufgehoben.
-  xxxxxxxxxxxxxxxxx
   Aus Performancegründen wurde festgelegt, dass CrypTool
   - von Textdateien nur 4 MB und
   - von Binärdateien nur 1 MB lädt.
@@ -666,7 +665,7 @@ Funktionalität:
   - Bitte beachten Sie, dass die Ausgabe des AES-Tools auch bei der
     Dateiendung "Aes" nicht vollkommen identisch ist mit dem Ausgabe,
     die Sie erhalten mit der Menüfolge
-    Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES). xxxxxxxxxxxx
+    Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES).
 + Bei der Hill-Verschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
@@ -751,6 +750,39 @@ Funktionalität:
   RFC 2040).
   Diese Parameter müssen dann auch in das Format für den internen
   Schlüsselspeicher aufgenommen werden.
++ Ganz bewusst sind bei CrypTool die Schlüssel für die modernen
+  Verschlüsselungsverfahren in Hex-Zeichen einzugeben. 
+  Es ist Absicht, dass man in CrypTool zunächst sieht, welche Art
+  Schlüssel die verschiedenen Algorithmen erwarten: bei den 
+  klassischen Verfahren besteht der Schluessel aus dem zugrunde
+  liegenden Alphabet, bei den modernen Verfahren sind es 
+  Binärdaten von 56 Bit bis 256 Bit Länge.
+  Andererseits sind Benutzer gewohnt, ihre Eingaben per ASCII-Zeichen
+  zu machen. Da in einer produktiven Anwendung der Schlüssel nicht
+  aus ASCII-Zeichen bestehen sollte, ist es besser, wenn man schon
+  ein ASCII-Passwort als Grundlage verwendet, daraus mit einem 
+  vernünftigen Verfahren einen Schlüssel herzuleiten. 
+  In CrypTool könnte man die Anforderung "ASCII-Schlüsseleingabe" und
+  Zeigen, dass gute Hex-Keys zu verwenden sind, folgendermaßen 
+  miteinander verbinden:
+  In dem HEX-Schlüsseleingabe-Dialog sollte man per Button die Funktion 
+  "Einzelverfahren \ Schlüssel aus Passwort erzeugen" aufrufen können. 
+  Der Dialog ist dann mit der richtigen Schlüssellänge parametrisiert 
+  und der generierte Schlüssel wird in die HEX-Schlüsseleingabe übernommen. 
+  Damit dies auch für AES-256 funktioniert, müsste noch die SHA-256-
+  Hashfunktion eingebaut werden.
++ In den Dialogen in CrypTool können Zahlen nicht immer in allen
+  Darstellungsarten eingegeben werden (z.B. kann im Dialog RSA-Kryptosystem
+  die zu verschlüsselnde Nachricht als Text mit frei einzustellendem 
+  Alphabet und als Zahl mit 4 verschiedenen Basen) eingegeben werden,
+  die Primzahlen dagegen kann man "nur" als Zahl im Zehnersystem bzw. als
+  Ausdrücke mit Zahlen im Zehnersystem eingegeben).
+  Nützlich wäre es, wenn man aus CrypTool heraus einen Taschenrechner
+  als a-modales Fenster aufmachen könnte, der Terme mit Zahlen beliebiger
+  Basis als Eingabe nimmt und die Ausgabe in mehreren Feldern in 
+  verschiedenen Zahlensystemen parallel anzeigt. Von hier aus sollte
+  man dan die Zahlen per Knopfdruck ins Clipboard bringen können oder
+  per Maus in die Eingabefelder der CrypTool-Dialogboxen ziehen können.
 + Wörterbuch für alle Angriffe benutzen, nicht nur für die
   Substitution.
 + Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen normierten
@@ -913,7 +945,8 @@ Bemerkung zu den aktuellen Versionen:
 1.3.03    viele kleine Bugfixes und Verbesserungen der
           Dokumentation.
 1.3.04    kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
-          einige neue Funktionalität und Verbesserung der Dokumentation.
+          einige neue Funktionalität (siehe Kapitel 5.2) und 
+          Verbesserung der Dokumentation.
 
 
 
