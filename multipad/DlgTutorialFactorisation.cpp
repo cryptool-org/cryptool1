@@ -101,71 +101,80 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	if (next_factor!="lolo")
 	{
 		TutorialFactorisation fact;
+		bool ja_nein;
+		ja_nein=fact.SetN(next_factor);
+		if (ja_nein==true)
+		{
+			BOOL factorized = FALSE;
+			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
+			{
+				//Sie müssen mindestens ein Verfahren wählen!
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
+			if ( TutorialFactorisation::IsPrime(next_factor) )
+			{// Die eingegebene Zahl ist eine Primzahl
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
+			if ( !factorized && m_bruteForce )
+			{
+				factorized = fact.BruteForce();
+			}
+			if ( !factorized && m_Brent )
+			{
+				factorized = fact.Brent();
+			}
+			if ( !factorized && m_Pollard )
+			{
+				factorized = fact.Pollard();
+			}
 
-		fact.SetN(next_factor);
+			if ( !factorized && m_Williams )
+			{
+				factorized = fact.Williams();
+			}
 
-		BOOL factorized = FALSE;
-		if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
-		{
-			//Sie müssen mindestens ein Verfahren wählen!
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
-			return;
-		}
-		if ( TutorialFactorisation::IsPrime(next_factor) )
-		{// Die eingegebene Zahl ist eine Primzahl
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str);
-			AfxMessageBox(line);
-			return;
-		}
-		if ( !factorized && m_bruteForce )
-		{
-			factorized = fact.BruteForce();
-		}
-		if ( !factorized && m_Brent )
-		{
-			factorized = fact.Brent();
-		}
-		if ( !factorized && m_Pollard )
-		{
-			factorized = fact.Pollard();
-		}
+			if ( !factorized && m_Lenstra )
+			{
+				factorized = fact.Lenstra();
+			}
+			
+			if ( !factorized && m_QSieve )
+			{
+				factorized = fact.QuadraticSieve();
+			}		
+			if ( factorized )
+			{
+				CString f1, f2;
+				fact.GetFactor1Str( f1 );
+				fact.GetFactor2Str( f2 );
+				expandFactorisation( next_factor, f1, f2 );
+				// Zahl wurde Faktorisiert
+			}
+			else
+			{
+				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+			}
 
-		if ( !factorized && m_Williams )
-		{
-			factorized = fact.Williams();
-		}
-
-		if ( !factorized && m_Lenstra )
-		{
-			factorized = fact.Lenstra();
-		}
-		
-		if ( !factorized && m_QSieve )
-		{
-			factorized = fact.QuadraticSieve();
-		}		
-		if ( factorized )
-		{
-			CString f1, f2;
-			fact.GetFactor1Str( f1 );
-			fact.GetFactor2Str( f2 );
-			expandFactorisation( next_factor, f1, f2 );
-			// Zahl wurde Faktorisiert
+			theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
+			UpdateData(FALSE);
+			Set_NonPrime_Factor_Red();
 		}
 		else
 		{
-			// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
+			// Falsche Eingabe
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line,pc_str);
 			AfxMessageBox(line);
 		}
-
-		theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
-		UpdateData(FALSE);
-		Set_NonPrime_Factor_Red();
 	}
 	
 	// Die Zahl ist jetzt vollständig faktorisiert
@@ -386,74 +395,88 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 		{
 			TutorialFactorisation fact;
 
-			fact.SetN(next_factor);
+			//fact.SetN(next_factor);
+			
+			bool ja_nein;
+			ja_nein=fact.SetN(next_factor);
+			if (ja_nein==true)
+			{
 
 			
-			BOOL factorized = FALSE; 
-			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
-			{
-				//Sie müssen mindestens ein Verfahren wählen!
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
-				return;
-			}
-			if ( TutorialFactorisation::IsPrime(next_factor) )
-			{// Die eingegebene Zahl ist eine Primzahl
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(line,pc_str);
-				AfxMessageBox(line);
-				return;
-			}
-			if ( !factorized && m_bruteForce )
-			{
-				factorized = fact.BruteForce();
-			}
-			if ( !factorized && m_Brent )
-			{
-				factorized = fact.Brent();
-			}
-			if ( !factorized && m_Pollard )
-			{
-				factorized = fact.Pollard();
-			}
+				BOOL factorized = FALSE; 
+				if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
+				{
+					//Sie müssen mindestens ein Verfahren wählen!
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
+					sprintf(line,pc_str);
+					AfxMessageBox(line);
+					return;
+				}
+				if ( TutorialFactorisation::IsPrime(next_factor) )
+				{// Die eingegebene Zahl ist eine Primzahl
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
+					sprintf(line,pc_str);
+					AfxMessageBox(line);
+					return;
+				}
+				if ( !factorized && m_bruteForce )
+				{
+					factorized = fact.BruteForce();
+				}
+				if ( !factorized && m_Brent )
+				{
+					factorized = fact.Brent();
+				}
+				if ( !factorized && m_Pollard )
+				{
+					factorized = fact.Pollard();
+				}
 
-			if ( !factorized && m_Williams )
-			{
-				factorized = fact.Williams();
-			}
+				if ( !factorized && m_Williams )
+				{
+					factorized = fact.Williams();
+				}
 
-			if ( !factorized && m_Lenstra )
-			{
-				factorized = fact.Lenstra();
-			}
-			
-			if ( !factorized && m_QSieve )
-			{
-				factorized = fact.QuadraticSieve();
-			}		
-			if ( factorized )
-			{
-				CString f1, f2;
-				fact.GetFactor1Str( f1 );
-				fact.GetFactor2Str( f2 );
-				expandFactorisation( next_factor, f1, f2 );
-				// Zahl wurde Faktorisiert
+				if ( !factorized && m_Lenstra )
+				{
+					factorized = fact.Lenstra();
+				}
+				
+				if ( !factorized && m_QSieve )
+				{
+					factorized = fact.QuadraticSieve();
+				}		
+				if ( factorized )
+				{
+					CString f1, f2;
+					fact.GetFactor1Str( f1 );
+					fact.GetFactor2Str( f2 );
+					expandFactorisation( next_factor, f1, f2 );
+					// Zahl wurde Faktorisiert
+				}
+				else
+				{
+					// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
+					
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
+					sprintf(line,pc_str);
+					AfxMessageBox(line);
+					
+					return;
+				}
+		
+				theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
+				UpdateData(FALSE);
+				Set_NonPrime_Factor_Red();
 			}
 			else
 			{
-				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-				
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
+				// Falsche Eingabe
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_FALSCHE_EINGABE,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
-				
 				return;
 			}
-	
-			theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
-			UpdateData(FALSE);
-			Set_NonPrime_Factor_Red();
 		}
 		// Die Zahl ist jetzt vollständig faktorisiert
 		else
@@ -562,11 +585,17 @@ void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
 		for(int i=0;i<m_edit.GetLength();i++)
 		{
 			char ch=m_edit.GetAt(i);
+			char ch2;
+			if (i>=1) ch2=m_edit.GetAt(i-1);
 			//* GetAt=holt sich das Zeichen an der i. Stelle
-			if(((ch>='0')&&(ch<='9'))||ch=='^'||ch=='+'||ch=='-'||ch=='('||ch==')'||ch=='['||ch==']'||ch=='{'||ch=='}'||ch=='/')
+			if(((ch>='0')&&(ch<='9'))
+				||((ch=='^'||ch=='+'||ch=='-' ||ch=='*') && (ch2!='^' && ch2!='+' && ch2!='-'  && ch2!='*') && i>=1 )
+				//||((ch=='^'||ch=='+'||ch=='-' ||ch=='/') && i==0)
+				||ch=='('||ch==')'||ch=='['||ch==']'||ch=='{'||ch=='}')
 			{
 				
 			}
+			
 			else
 			{
 				m_edit=m_edit.Left(i)+m_edit.Right(m_edit.GetLength()-i-1);	
@@ -581,5 +610,6 @@ void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
 				i--;
 			}
 		}
+		
 	}
 }

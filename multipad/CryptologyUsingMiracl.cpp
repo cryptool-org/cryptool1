@@ -2009,9 +2009,13 @@ BOOL TutorialFactorisation::QuadraticSieve()
 }
 
 
-void TutorialFactorisation::SetN(CString &NStr)
+//void TutorialFactorisation::SetN(CString &NStr)
+bool TutorialFactorisation::SetN(CString &NStr)
 {
-	evaluate::eval( N, NStr.GetBuffer( 256 ) );
+	bool output;
+	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
+	if (N<0) return false; //Da wir nur mit positiven ganzen Zahlen arbeiten!! (oder villeicht nicht??!!)
+	return output;
 }
 
 

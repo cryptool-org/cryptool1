@@ -4483,11 +4483,13 @@ BEGIN
                             "Die jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor.\nDieser Faktor konnte mit den von Ihnen ausgewählten Algorithmen nicht zerlegt werden.\nVersuchen Sie bitte ein anderes Verfahren."
     IDS_STRING_FAKTORISATION_PRIMZAHL "Die Eingabe ist eine Primzahl."
     IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
-                            "Die Eingabe ist jetzt vollständig in ihren Primfaktoren zerlegt."
+                            "Die Eingabe ist jetzt vollständig in ihre Primfaktoren zerlegt."
     IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
-                            "Die Eingabe konnte mit den von Ihnen ausgewählten Algorithmen nicht vollständig in ihren Primfaktoren zerlegt werden.\nVersuchen Sie bitte ein anderes Verfahren."
+                            "Die Eingabe konnte mit den von Ihnen ausgewählten Algorithmen nicht vollständig in ihre Primfaktoren zerlegt werden.\nVersuchen Sie bitte ein anderes Verfahren."
     IDS_STRING_FAKTORISATION_VERFAHREN 
                             "Sie müssen mindestens einen Faktorisierungsalgorithmus wählen."
+    IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
+                            "Die Eingabe ist keine positve ganze Zahl."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8924,6 +8926,8 @@ BEGIN
                             "The input could not be completely factorised into its prime factors using the selected algorithms.\nPlease try one other procedure. "
     IDS_STRING_FAKTORISATION_VERFAHREN 
                             "Please select at least one factorization algorithm. "
+    IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
+                            "The input is not a positiv integer."
 END
 
 STRINGTABLE DISCARDABLE 
