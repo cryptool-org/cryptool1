@@ -80,7 +80,6 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	m_SelGenerator = 0;
 	m_seed = _T("314159");
 	m_DataSize = 1024;
-	m_TestCheck = FALSE;
 	//}}AFX_DATA_INIT
 // x2modN-Generator
 	DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));
@@ -100,7 +99,6 @@ void DlgGenRandomData::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_seed);
 	DDX_Text(pDX, IDC_EDIT2, m_DataSize);
 	DDV_MinMaxLong(pDX, m_DataSize, 1, 1048576);
-	DDX_Check(pDX, IDC_TESTCHECK, m_TestCheck);
 	//}}AFX_DATA_MAP
 }
 
@@ -172,7 +170,6 @@ void DlgGenRandomData::OnGenRandomData()
 	UpdateData(FALSE);
 	CDialog::OnOK();
 	theApp.DoWaitCursor(-1);
-	if( m_TestCheck ) AfxMessageBox(" Erfolg !!! ");
 }
 
 const char * DlgGenRandomData::GetRandInfo()

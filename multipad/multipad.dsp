@@ -785,6 +785,14 @@ SOURCE=.\Dlg_SubstResult.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Dlg_Tests.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_Tests.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgAsymKeyCreat.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -1513,6 +1521,14 @@ SOURCE=.\Read_Ini_File.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Read_Ini_File_2.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Read_Ini_File_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\resource.h
 # End Source File
 # Begin Source File
@@ -1793,6 +1809,14 @@ SOURCE=.\zip\zipup.c
 # Begin Source File
 
 SOURCE=.\zip\ztrees.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Zufallsgenerator_Tests_Alles.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Zufallsgenerator_Tests_Alles.h
 # End Source File
 # Begin Source File
 

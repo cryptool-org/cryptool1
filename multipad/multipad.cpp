@@ -44,6 +44,7 @@ char pc_str1[STR_LAENGE_STRING_TABLE];
 
 // Globale Variablen fuer Zugriff auf Initialisierunsdatei
 char *initializing_file="EC-Param.ini"; // This is the filename of the file, which contains the initializing values for assymmetric key generation
+char *initializing_file_2="TEST-Param.ini";
 
 // Globale Variablen fuer wichtige Pfade und Dateien
 char *Pfad; // Verzeichnis in dem CrypTool zur Laufzeit liegt
@@ -528,7 +529,3 @@ void CMultiPadApp::OnGenRandomData()
 }
 
 
-//DEL BOOL CMultiPadApp::InitApplication()
-//DEL {
-//DEL 	return TRUE;
-//DEL }

@@ -46,7 +46,6 @@ public:
 	int		m_SelGenerator;
 	CString m_seed;
 	long	m_DataSize;
-	BOOL	m_TestCheck;
 	//}}AFX_DATA
 
 
