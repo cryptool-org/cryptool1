@@ -2678,7 +2678,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
           \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}}, \\
           \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
           \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
-   \item Mathematica, \\
+   \item Mathematica, \index{Mathematica}\\
           Kommerzielles Mathematik-Paket \\
           \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
    \item  LiDIA, \index{LiDIA}\\ 
@@ -2688,7 +2688,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
    \item BC, \\
          Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
-   \item Pari-GP, \\
+   \item Pari-GP, \index{Pari-GP}\\
          Hervorragender, schneller Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.parigp-home.de}
               {\texttt{http://www.parigp-home.de}} und 
@@ -2859,6 +2859,7 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \newpage
 \subsection*{Anhang D: Beispiele mit Mathematica und Pari-GP} \hypertarget{AppendixD}{}
 \addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari-GP}
+\index{Mathematica}\index{Pari-GP}
 
 In diesem Anhang finden sie den Quellcode der berechneten Tabellen und Beispiele mit Mathematica 
 und dem freien Programm Pari-GP.
@@ -2953,7 +2954,7 @@ matrix(12,14, x,y,
 \end{verbatim}
 
 {\tt znorder(Mod(x,m))} kann nur berechnet werden, wenn $x$ teilerfremd zu $m$ ist, was mit {\tt gcd(x,m)} "uberpr"uft wird.
-Bessere Performance erreicht man mit {\tt Mod(x,m)${}^\wedge$y} statt mit {\tt (x${}^\wedge$y)\%m}.
+Bessere Performance\index{Performance} erreicht man mit {\tt Mod(x,m)${}^\wedge$y} statt mit {\tt (x${}^\wedge$y)\%m}.
 
 Auch in Pari-GP kann man Schleifen erzeugen. Verzichtet man auf die Tabellenform, sieht das so aus:
 \begin{verbatim}
