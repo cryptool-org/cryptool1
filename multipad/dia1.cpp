@@ -198,5 +198,3 @@ void dia1::OnPasteKey()
 	}
 	UpdateData(FALSE);
 }
-
-
