@@ -3,7 +3,9 @@
 % ....................................................................................
 \newpage
 \section{Digitale Signaturen}
-\index{Signaturen!digitale}
+\index{Signatur!digitale}
+(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Update: Juni 2002)
+
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
 \begin{itemize}
  \item Benutzerauthentizit"at: \\
@@ -72,53 +74,57 @@ und zeigen, wie basierend auf der elektronischen Unterschrift das digitael
 Pendent zum Personalausweis entwickelt wurde. Dies Verfahren nennt man
 Public Key Zertifizierung.
 
-\subsection{RSA Signatur}
-\index{Signatur!digital} \index{RSA--Signatur}
+\subsection{RSA-Signatur}
+\index{Signatur!digitale}
+\index{Signatur!RSA}
+\index{RSA-Signatur}
 
 \def\Mod#1{\ (\mbox{mod }#1)}
 
 Wie im Kommentar am Ende von \hyperlink{RSAproof}{Abschnitt
-\ref{RSAproof}} bemerkt, ist es m"oglich, die RSA Operationen mit dem
+\ref{RSAproof}} bemerkt, ist es m"oglich, die RSA-Operationen mit dem
 privaten und "offentlichen Schl"ussel in umgekehrter Reihenfolge auszuf"uhren,
 d.~h.\ $M$ hoch $d$ hoch $e \Mod{N}$ ergibt wieder $M$. Wegen dieser
-simplen Tatsache ist es m"oglich, RSA als Signaturverferfahren zu
+simplen Tatsache ist es m"oglich, RSA als Signaturverfahren zu
 verwenden. 
 
-Eine RSA Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
+Eine RSA-Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
 mit dem privaten Schl"ussel erzeugt:
 $$ S \equiv M^d \Mod{N} $$
-Zur Verifikation wird die korrespondierende Public-Key-Operation auf der
+Zur Verifikation wird die korrespondierende Public Key-Operation auf der
 Signatur $S$ ausgef"uhrt und das Ergebnis mit der Nachricht $M$ verglichen:
 $$
 S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
 Wenn das Ergebnis
 $S^e$ mit der Nachricht $M$ "ubereinstimmt, dann akzeptiert der Pr"ufer die
-Signatur, andernfalls ist die Nachrricht entweder ver"andert worden, oder
-sie wurde nie vom Inhaber von $d$ unterschrieben.
+Sig"-natur, andernfalls ist die Nachrricht entweder ver"andert worden, oder
+sie wurde nicht vom Inhaber von $d$ unterschrieben.
 
 Wie weiter oben erkl"art, werden Signaturen in der Praxis nie direkt auf der
 Nachricht ausf"uhrt, sondern auf einem kryptograhischen Hashwert davon. Um
-verschiedene Attacken auf das Signaturverfahren (und seine Kombination mit
-Verschl"usselung) auszuschliessen, ist es n"otig, den Hashwert vor der
+verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
+Verschl"usselung) auszuschlie"sen, ist es n"otig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
 Key Cryptography Standard \#1 \cite{PKCS1}) beschrieben. Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
 als Beispiel daf"ur dienen, wie schwer es ist, kryptographische Details
-richtig hinzubekommen.
+richtig zu definieren.
 
-\subsection{DSA Signatur}
-\index{Signaturen!digitale}
-\index{DSA Signatur}
+\subsection{DSA-Signatur}
+\index{Signatur!digitale}
+\index{Signatur!DSA}
+\index{DSA-Signatur}
 
 Im August 1991 hat das U.S. National Institute of Standards and Technology
-(NIST) einen digitalen Signaturalgorithmus (DSA, Digital Signature
+(NIST)\index{NIST} einen digitalen Signaturalgorithmus (DSA, Digital Signature
 Algorithm) vorgestellt, der sp"ater zum U.S. Federal Information Processing
 Standard (FIPS 186 \cite{FIPS186}) wurde.
 
-Der Algorithmus ist eine Variante des ElGamal Verfahrens. Seine Sicherheit
-beruhrt auf dem Diskreten Logarithmus Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten und "offentlichen DSA
-Schl"ussels, sowie die Verfahren zur Signatur und Verifikation, sind im
-Folgenden zusammengefasst.
+Der Algorithmus ist eine Variante des ElGamal-Verfahrens. Seine Sicherheit
+beruhrt auf dem Diskreten Logarithmus
+Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten
+und "offentlichen DSA-Schl"ussels, sowie die Verfahren zur Signatur und
+Verifikation sind im Folgenden zusammengefasst.
 
 
 \paragraph{"Offentlicher Schl"ussel}\strut\\
@@ -148,7 +154,7 @@ $s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
 
 \emph{Bemerkung:}
 \begin{itemize}
-\item $(s,r)$ ist die Signtur.
+\item $(s,r)$ ist die Signatur.
 \item Die Sicherheit der Signatur h"angt nicht nur von der Mathematik ab,
 sondern auch von der Verf"ugbarkeit einer guten Zufallsquelle f"ur $k$.
 \item SHA--1 \index{SHA--1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
@@ -256,7 +262,7 @@ gesichert werden.
 
 \bibitem[FIPS186]{FIPS186} U.S. Departement of
     Commerce/N.I.S.T.\\\index{FIPS186}
-    Entity authentication using public key cryptography. February 18 1997.
+    Entity authentication using public key cryptography. February 18, 1997.
 \end{thebibliography}
-							  
+                                                          
 

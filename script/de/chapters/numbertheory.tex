@@ -621,7 +621,7 @@ Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
 Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
-\item $a_1,a_2, \cdots, a_n$ hei"sen {\em relativ prim}	\index{relativ prim}, wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
+\item $a_1,a_2, \cdots, a_n$ hei"sen {\em relativ prim} \index{relativ prim}, wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
 \item F"ur mehr als $2$ Zahlen  ist eine noch st"arkere Anforderung:\\
       $a_1, \cdots , a_n$ hei"sen {\em paarweise relativ prim}, wenn f"ur alle $i=1, \cdots, n$ und 
       $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm~ggT} (a_i, a_j) =1. $
@@ -1601,9 +1601,9 @@ In CrypTool wird der RSA-Modul mit einem gro"sen \glqq N'' bezeichnet.
                 hat. Damit ist eine schnelle Exponentiation bei der Verschl"usselung m"oglich. Als besonders
                 praktisch haben sich hierf"ur die Primzahlen $3, 17$ und $65537$ erwiesen, da
                 diese im Vergleich zum Modul $n$ sehr kleine Bitl"angen haben und in ihrer Bin"ardarstellung 
-		nur wenige Einsen aufweisen. H"aufig verwendet
-	  	wird die Zahl $65537 = 2^{16}+1$, also bin"ar: $10\cdots 0\cdots 01$ (diese
-		Zahl ist prim und deshalb zu sehr vielen Zahlen teilerfremd).
+                nur wenige Einsen aufweisen. H"aufig verwendet
+                wird die Zahl $65537 = 2^{16}+1$, also bin"ar: $10\cdots 0\cdots 01$ (diese
+                Zahl ist prim und deshalb zu sehr vielen Zahlen teilerfremd).
                 }. Danach kann man $p$ und $q$ \glqq wegwerfen''.
 \item[{\bf 3.}] W"ahle $d \in \{1, \cdots, n-1\}$  mit  $e*d = 1$  mod $J(n)$,
                 d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$ \footnote{
@@ -1708,7 +1708,8 @@ $$
 {\bf 2. Bemerkung:} \\
 Beim Signieren werden die gleichen Operationen durchgef"uhrt, aber zuerst mit
 dem geheimen Schl"ussel $d$, und dann mit dem "offentlichen Schl"ussel $e$. Das
-RSA--Verfahren ist auch f"ur die Erstellung von digitalen Signaturen\index{Signaturen!digitale}
+RSA--Verfahren ist auch f"ur die Erstellung von digitalen
+Signaturen\index{Signatur!digitale}\index{Signatur!RSA}\index{RSA-Signatur}
 einsetzbar, weil gilt:
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).

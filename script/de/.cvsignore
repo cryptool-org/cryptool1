@@ -1,0 +1,10 @@
+script*.log
+script*.idx
+script*.aux
+script*.dvi
+script*.toc
+auto
+script*.ind
+script*.ilg
+
+
