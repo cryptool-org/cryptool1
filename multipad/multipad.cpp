@@ -23,12 +23,20 @@
 #include "crypt.h"
 #include "CryptDocTemplate.h"
 #include "OptionsDialog.h"
-#include "ECsecude.h"
+// #include "ECsecude.h"
 #include <locale.h>
 #include "About.h"
 
 #include "asymmetric.h" // für KeyGen() in OnCRYPTKeyGen()
 #include "DlgAsymKeys.h" // für OnShowKeys()
+
+#include "RSA_mit_kleinenPZ.h"
+#include "zzahlanalyse.h"
+#include "DlgPrimesGenerator.h"
+#include "GenEcKurve.h"
+#include "Dlg_Faktorisieren.h"
+#include "Dlg_Schluessel_gen.h"
+#include "DlgGenRandomData.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in multipad.h
@@ -66,6 +74,16 @@ BEGIN_MESSAGE_MAP(CMultiPadApp, CWinApp)
 	ON_COMMAND(ID_SHOW_ALL_EC_KEYS, OnShowKeys)
 	ON_COMMAND(ID_CRYPT_KeyGen, OnKeyGen)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
+
+	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN, OnEinzelverfahrenTutorialfrkleinezahlenEckurven)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS, OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP, OnEinzelverfahrenTutorialfrkleinezahlenEcdlp)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
+	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
+	
 	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)     // file commands...
 	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
@@ -469,3 +487,60 @@ void CMultiPadApp::OnKeyGen()
 {
 	KeyGen();
 }
+
+void CMultiPadApp::OnEinzelverfahrenTutorialPrimzahlengenerieren() 
+{
+	DlgPrimesGenerator DPG;
+	DPG.DoModal();
+}
+
+void CMultiPadApp::OnEinzelverfahrenTutorialRsaalgorithmus() 
+{
+	RSA_mit_kleinenPZ objekt;
+	objekt.DoModal();
+}
+
+void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenEckurven() 
+{
+	GenEcKurve GECK;
+	GECK.DoModal();
+}
+
+void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	
+}
+
+void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenEcdlp() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	
+}
+
+void CMultiPadApp::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
+{
+	Dlg_Faktorisieren FAKT;
+	FAKT.DoModal();
+}
+
+void CMultiPadApp::OnEinzelverfahrenSchluesselgenerieren() 
+{
+	Dlg_Schluessel_gen SG;
+	SG.DoModal();
+}
+
+void CMultiPadApp::OnGenRandomData()
+{
+	DlgGenRandomData DGR;
+	if ( IDOK == DGR.DoModal() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
+		remove(DGR.outfile);
+		if(NewDoc) {
+			NewDoc->SetTitle(DGR.GetRandInfo());
+		}
+	}
+}
+

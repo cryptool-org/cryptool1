@@ -21,12 +21,10 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CTextOptions 
 
-
-
-
 CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(CTextOptions::IDD, pParent)
 {
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 
 	//{{AFX_DATA_INIT(CTextOptions)
 	m_Format = TRUE;
@@ -40,7 +38,6 @@ CTextOptions::CTextOptions(CWnd* pParent /*=NULL*/)
 	m_ConvertCase = FALSE;
 	m_trenn = _T("X");
 	m_addx = TRUE;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 	m_StrRefFile=pc_str;
 	//}}AFX_DATA_INIT
 

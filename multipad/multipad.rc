@@ -171,7 +171,7 @@ BEGIN
     CONTROL         "Hill-Schlüsselmatrix (Verschlüsseln)",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,10,5,132,8
     CONTROL         "Inverse Hill-Schlüsselmatrix",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,10,17,124,8
+                    BS_AUTORADIOBUTTON,10,15,124,8
     PUSHBUTTON      "In die Zwischanablage kopieren",IDC_BUTTON1,17,161,114,
                     19
     DEFPUSHBUTTON   "Ende",IDOK,50,189,50,18
@@ -1463,7 +1463,7 @@ END
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Homophone Substitution"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,14,358,84,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
@@ -1471,7 +1471,7 @@ BEGIN
                     17
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
-    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Gesamtzahl und Bitlänge der Homophonen",IDC_STATIC,14,4,
                     162,42
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
@@ -1485,11 +1485,11 @@ BEGIN
     LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
     LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
                     IDC_STATIC,14,52,192,8
-    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,14,292,11,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_STATICEDGE
     LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
-    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Liste der Homophonen",IDC_STATIC,92,283,72,8
     LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
     PUSHBUTTON      "Schlüssel aus der Zwischenablage laden",IDC_BUTTON2,147,
@@ -1497,9 +1497,11 @@ BEGIN
     EDITTEXT        IDC_EDIT6,327,20,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Bitlänge:",IDC_STATIC,27,32,30,8
-    EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
     LTEXT           "Bit",IDC_STATIC,98,33,18,9
     PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,147,358,79,18
+    PUSHBUTTON      "Aktualisieren",IDC_BUTTON3,109,15,53,12
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 404, 353
@@ -1835,7 +1837,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,90,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
-    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andu?",
+    LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andi?",
                     IDC_STATIC,24,150,318,32
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
                     IDC_STATIC,24,182,318,17

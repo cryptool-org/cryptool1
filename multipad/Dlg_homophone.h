@@ -20,20 +20,34 @@ class Dlg_homophone : public CDialog
 {
 // Konstruktion
 public:
+	int GetSpecificRow(UINT mask);
+	int m_lastSelectedRow;
+	void UpdateSelectedRow(int newRow);
+	BOOL DeactivateDecryptionButton;
+	void LoadListBox();
 	bool Get_crypt();
 	int Display();
 	Dlg_homophone(CWnd* pParent = NULL);   // Standardkonstruktor
-	Homophone_Ber HB;
+	HomophoneEncryption HB;
 	TextAnalyse TA;
 	char c_SourceFile[128];
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
 	enum { IDD = IDD_DIALOG_HOMOPHONE };
+	CEdit	m_EditNoOfHomophonesCtrl;
+	CEdit	m_NoOfHomophonesCtrl;
+	CButton	m_ButtonDecryption;
+	CEdit	m_BitlengthCtrl;
 	CEdit	m_KeyCtrl;
 	CListCtrl	m_listview;
 	CEdit       m_dummyCtrl;
 	CString	m_KeyCStr;
 	int		m_BaseHomophones;
+	int		m_Bitlength;
+	int		m_NoOfHomophones;
+	int		m_EditNoOfHomophones;
+	CString	m_RowHomophonesList;
+	CString	m_HomophonesList;
 	//}}AFX_DATA
 	int m_crypt;
 
@@ -54,6 +68,13 @@ protected:
 	afx_msg void OnLoadKey();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	afx_msg void OnHex();
+	afx_msg void OnDecimal();
+	afx_msg void OnActualizeNoOfHomophones();
+	afx_msg void OnSelectList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnKeySelectList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

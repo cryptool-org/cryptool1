@@ -15,30 +15,44 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld Dlg_homophone 
-
-
 Dlg_homophone::Dlg_homophone(CWnd* pParent /*=NULL*/)
 	: CDialog(Dlg_homophone::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(Dlg_homophone)
 	m_KeyCStr = _T("");
 	m_BaseHomophones = 0;
+	m_Bitlength = 8;
+	m_NoOfHomophones = range;
+	m_EditNoOfHomophones = 0;
+	m_RowHomophonesList = _T("");
+	m_HomophonesList = _T("");
 	//}}AFX_DATA_INIT
 	m_crypt = 0;
+	m_lastSelectedRow = -1;
+	DeactivateDecryptionButton = FALSE;
 }
-
 
 void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(Dlg_homophone)
+	DDX_Control(pDX, IDC_EDIT3, m_EditNoOfHomophonesCtrl);
+	DDX_Control(pDX, IDC_EDIT1, m_NoOfHomophonesCtrl);
+	DDX_Control(pDX, IDC_BUTTON1, m_ButtonDecryption);
+	DDX_Control(pDX, IDC_EDIT5, m_BitlengthCtrl);
 	DDX_Control(pDX, IDC_EDIT6, m_KeyCtrl);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
 	DDX_Text(pDX, IDC_EDIT6, m_KeyCStr);
 	DDX_Radio(pDX, IDC_RADIO4, m_BaseHomophones);
+	DDX_Text(pDX, IDC_EDIT5, m_Bitlength);
+	DDX_Text(pDX, IDC_EDIT1, m_NoOfHomophones);
+	DDV_MinMaxInt(pDX, m_NoOfHomophones, 256, 4096);
+	DDX_Text(pDX, IDC_EDIT3, m_EditNoOfHomophones);
+	DDV_MinMaxInt(pDX, m_EditNoOfHomophones, 0, 4096);
+	DDX_Text(pDX, IDC_EDIT2, m_RowHomophonesList);
+	DDX_Text(pDX, IDC_ROW, m_HomophonesList);
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	//{{AFX_MSG_MAP(Dlg_homophone)
@@ -46,12 +60,18 @@ BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, OnLoadKey)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_RADIO4, OnHex)
+	ON_BN_CLICKED(IDC_RADIO5, OnDecimal)
+	ON_BN_CLICKED(IDC_BUTTON3, OnActualizeNoOfHomophones)
+	ON_NOTIFY(NM_CLICK, IDC_LIST1, OnSelectList)
+	ON_NOTIFY(LVN_KEYDOWN, IDC_LIST1, OnKeySelectList)
+	ON_NOTIFY(NM_DBLCLK, IDC_LIST1, OnDblclkSelect)
+	ON_NOTIFY(NM_RETURN, IDC_LIST1, OnReturnSelect)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten Dlg_homophone 
-
 void Dlg_homophone::OnErzeugen() 
 {
 	UpdateData(true);
@@ -68,9 +88,7 @@ int Dlg_homophone::Display()
 }
 
 bool Dlg_homophone::Get_crypt()
-
 // liefert true zurück, wenn Verschlüsseln und false, wenn Entschlüsseln eingestellt ist
-
 {
 	if(0==m_crypt)
 	{
@@ -114,92 +132,322 @@ BOOL Dlg_homophone::OnInitDialog()
 	m_listview.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth+2000,3);							// Verschlüsselung
 	Init_ListBox();
 
+	if ( DeactivateDecryptionButton )
+		m_ButtonDecryption.EnableWindow(FALSE);
 	return(TRUE);
 }
 
 void Dlg_homophone::Init_ListBox()
 // füllt die Liste auf mit
-
 //	1.	den im Alphabet (Textoptionen) eingestellten Zeichen
 //	2.	der Anzahl der ciphers, mit denen jedes Zeichen verschlüsselt werden kann
 //	3.	den ciphers selbst
-
 {
 	theApp.DoWaitCursor(0);
-	char string[1300];
-	int i,j,k,m,number;
+	int i;
 	
 	m_listview.DeleteAllItems(); 
 	TA.Analyse( /* c_SourceFile */ );
 	for(i=0;i<range;i++)
 	{
-		HB.freq[i]=TA.freq[i];
+		HB.SetFrequency(i, TA.freq[i]);
 	}
 	HB.Make_enc_table();
 	HB.Generate_key();
-	for(i=m=0;i<range;i++)
-	{
-		if(HB.enc_data[i][1]>0)
-		{
-			string[0]=i;
-			string[1]=0;
-			j=m_listview.InsertItem(i,string);
-			number=HB.enc_data[i][1];
-			assert(number>0);
-			sprintf(string,"%2i",number);
-			m_listview.SetItemText(j,1,string);
-			for(k=0;k<HB.enc_data[i][1];k++)
-			{
-				sprintf(string+k*5,"%3x",HB.key[m]);
-				if(k<HB.enc_data[i][1]-1)
-				{
-					sprintf(string+k*5+3,", ",HB.key[m]);
-				}
-				m++;
-			}
-			m_listview.SetItemText(j,2,string);
-		}
-	}
+	LoadListBox();
 	theApp.DoWaitCursor(-1);
 }
 
 void Dlg_homophone::OnLoadKey() 
 {
-	char string[1300];
-	int i,j,k,m,number;
-
 	theApp.DoWaitCursor(0);
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	UpdateData(TRUE);
 	m_KeyCtrl.SetSel(0,-1);
 	m_KeyCtrl.Paste();
 	m_KeyCtrl.GetWindowText(m_KeyCStr);
-	HB.load_enc_table(m_KeyCStr.GetBuffer(10000));
-	
+	HB.load_enc_table(m_KeyCStr.GetBuffer(16000));	
+	m_NoOfHomophones = HB.GetKeySize();
+	m_Bitlength = HB.LogKeySize( 2 );
 	m_listview.DeleteAllItems(); 
+	LoadListBox();	
+	UpdateData(FALSE);
+
+	theApp.DoWaitCursor(-1);
+}
+
+void Dlg_homophone::LoadListBox()
+{
+	int		i,j,k,m,number;
+	char	string[16000];
 
 	for(i=m=0;i<range;i++)
 	{
-		if(HB.enc_data[i][1]>0)
+		if(HB.GetEncryptionData1(i)>0)
 		{
 			string[0]=i;
-			string[1]=0;
+			for (k =1; k<=6; k++) string[k] =' '; 
+			string[k] = 0;
 			j=m_listview.InsertItem(i,string);
-			number=HB.enc_data[i][1];
+			number=HB.GetEncryptionData1(i);
 			assert(number>0);
-			sprintf(string,"%2i",number);
+			sprintf(string,"%4i  ",number);
 			m_listview.SetItemText(j,1,string);
-			for(k=0;k<HB.enc_data[i][1];k++)
+
+			int		l = ( !m_BaseHomophones ) ? HB.LogKeySize( 16 ) : HB.LogKeySize( 10 );
+			char	num[64];
+
+			for(k=0;k<HB.GetEncryptionData1(i);k++)
 			{
-				sprintf(string+k*5,"%3x",HB.key[m]);
-				if(k<HB.enc_data[i][1]-1)
+				number = HB.GetKey( m );
+				num[l] = 0;
+				if ( !m_BaseHomophones ) 
 				{
-					sprintf(string+k*5+3,", ",HB.key[m]);
+					for ( int g = l-1; g >= 0; g-- )
+					{
+						char h = number % 16;
+						number /= 16;
+						if ( h < 10 ) num[g] = '0'+ h;
+						else          num[g] = 'A'+(h-10);
+					}
 				}
+				else
+				{
+					for ( int g = l-1; g >= 0; g-- )
+					{
+						char h = number % 10;
+						number /= 10;
+						num[g] = '0'+ h;
+					}
+				}
+				sprintf( string+k*(l+2), "%s", num );
+				if(k<HB.GetEncryptionData1(i)-1) 
+					sprintf(string+k*(l+2)+l,", ");
 				m++;
 			}
+
 			m_listview.SetItemText(j,2,string);
 		}
 	}
+}
 
-	theApp.DoWaitCursor(-1);
+void Dlg_homophone::OnHex() 
+{
+	UpdateData(TRUE);
+	m_listview.DeleteAllItems(); 
+	LoadListBox();	
+	UpdateData(FALSE);
+}
+
+void Dlg_homophone::OnDecimal() 
+{
+	UpdateData(TRUE);
+	m_listview.DeleteAllItems(); 
+	LoadListBox();
+	UpdateData(FALSE);
+}
+
+void Dlg_homophone::OnActualizeNoOfHomophones() 
+{
+	UpdateData(TRUE);
+	if ( m_NoOfHomophones != HB.GetKeySize() )
+	{
+		theApp.DoWaitCursor(0);
+		HB.Resize( m_NoOfHomophones );
+		m_Bitlength = HB.LogKeySize( 2 );
+		HB.Init_Data();
+		Init_ListBox();
+		theApp.DoWaitCursor(-1);
+	}
+	UpdateData(FALSE);
+}
+
+void Dlg_homophone::OnSelectList(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	HD_NOTIFY *phdn = (HD_NOTIFY *) pNMHDR;
+	int row = phdn->iItem; // int, gibt an in welcher Zeile in IDC_LIST3 das Item angeklickt wurde
+
+	if (row == -1)
+	{
+		UpdateSelectedRow(-1); // letzte Selektion rückgängig machen
+		return;
+	}
+
+	UpdateSelectedRow(row) ;
+	
+	*pResult = 0;
+}
+
+void Dlg_homophone::UpdateSelectedRow(int newRow)
+{
+	int i;
+	CString Text;
+
+	if (m_lastSelectedRow != -1)
+	{
+		// Status der m_lastSelectedRow Zeile auf normal setzen (Highlighten rückgängig machen);
+		for (i=0; i<3; i++) // i durchläuft die Spalten 0,1,2,3,4 und 5 
+		{
+			m_listview.SetItem(m_lastSelectedRow, i, LVIF_STATE, NULL, 0, NULL, LVIS_SELECTED, m_lastSelectedRow);
+		}
+		UpdateWindow();
+	}
+
+	if (newRow == -1)
+	{
+		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+		return;
+	}
+
+	m_lastSelectedRow = newRow; // m_lastSelectedRow neu setzen
+
+	// Farbliches hervorheben der Zeile row (highlighten) und gleichzeitig Werte auslesen
+	for (i=0; i<3; i++) // i durchläuft die Spalten 0,1,2,3,4 und 5 
+	{
+		Text = m_listview.GetItemText( newRow, i );
+
+		if (Text.GetLength() == 0)
+		{
+			continue; // Falls in der aktuellen Spalte kein Text vorhanden ist, gehe zur nächsten Spalte
+		}
+		m_listview.SetItem( newRow, i, LVIF_TEXT | LVIF_STATE, Text, 0, LVIS_SELECTED, LVIS_SELECTED, newRow);
+		m_listview.SetItemText( newRow, i, Text );
+	}
+
+	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
+}
+
+void Dlg_homophone::OnKeySelectList(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
+
+	int keycode = pLVKeyDow->wVKey; // welche Taste wurde gedrückt?
+	int selRow;
+
+	if ( (keycode == VK_UP) && (m_lastSelectedRow > 0) )
+	{
+		// UP-Arrow key pressed
+		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+		UpdateSelectedRow(selRow-1);
+	}
+	else if ( (keycode == VK_DOWN) && (m_lastSelectedRow < m_listview.GetItemCount()-1) )
+	{
+		// DOWN-Arrow key pressed
+		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+		UpdateSelectedRow(selRow+1);
+	}
+	else if ( (keycode == VK_RIGHT) || (keycode == VK_LEFT) || (keycode == VK_SPACE) )
+	{
+		// RIGHT- OR LEFT-Arrow or SPACEBAR pressed
+		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+		UpdateSelectedRow(selRow); // Select row
+	}
+	else
+	{
+		// andere Taste gedrückt
+		selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+		UpdateSelectedRow(selRow); // letzte selektion rückgängig machen
+	}
+
+	*pResult = 0;
+}
+
+int Dlg_homophone::GetSpecificRow(UINT mask)
+{
+// liefert die erste Zeile von m_lisview in der
+// das Item in der ersten Spalte den Status mask hat
+	int i;
+	UINT itemState;
+
+	// Überprüfe welches Item der Maske "mask" entspricht
+	for (i=0; i < m_listview.GetItemCount(); i++)
+	{
+		itemState = m_listview.GetItemState( i, mask);
+		if ( (itemState & mask) == mask )
+		{
+			// das i-te item entspricht mask
+			return i; // gefunden
+		}
+	}
+
+	return -1;
+}
+
+void Dlg_homophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	int selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+	UpdateSelectedRow(selRow); // letzte selektion rückgängig machen
+
+	CString Text;
+	UpdateData(TRUE);
+	Text = m_listview.GetItemText( selRow, 0 );
+	m_RowHomophonesList = Text;
+
+	Text = m_listview.GetItemText( selRow, 1 );
+	m_EditNoOfHomophones = atoi(Text);
+
+	int		l = ( !m_BaseHomophones ) ? HB.LogKeySize( 16 ) : HB.LogKeySize( 10 );
+	char	num[64];
+	int		m = HB.GetEncryptionData0( (int)m_RowHomophonesList[0] );
+
+	{
+		char string[16000];
+
+		for(int k=0;k<m_EditNoOfHomophones;k++)
+		{
+			int number = HB.GetKey( m );
+			num[l] = 0;
+			if ( !m_BaseHomophones ) 
+			{
+				for ( int g = l-1; g >= 0; g-- )
+				{
+					char h = number % 16;
+					number /= 16;
+					if ( h < 10 ) num[g] = '0'+ h;
+					else          num[g] = 'A'+(h-10);
+				}
+			}
+			else
+			{
+				for ( int g = l-1; g >= 0; g-- )
+				{
+					char h = number % 10;
+					number /= 10;
+					num[g] = '0'+ h;
+				}
+			}
+			sprintf( string+k*(l+2), "%s", num );
+			if(k<m_EditNoOfHomophones-1) 
+				sprintf( string+k*(l+2)+l,", ");
+			m++;
+		}
+		m_HomophonesList = string;
+
+	}
+	UpdateData(FALSE);
+	*pResult = 0;
+}
+
+void Dlg_homophone::OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	int selRow = GetSpecificRow( LVIS_FOCUSED ); // Welche Zeile hat Focus
+	UpdateSelectedRow(selRow); // letzte selektion rückgängig machen
+
+	CString Text;
+	UpdateData(TRUE);
+	for (int i=0; i<2; i++) // i durchläuft die Spalten 0,1,2,3,4 und 5 
+	{
+		Text = m_listview.GetItemText( selRow, i );
+
+		if (Text.GetLength() == 0)
+		{
+			continue; // Falls in der aktuellen Spalte kein Text vorhanden ist, gehe zur nächsten Spalte
+		}
+	}
+	UpdateData(FALSE);
+
+	
+
+	*pResult = 0;
 }

@@ -2791,6 +2791,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	char inbuffer[buffsize];
 
 	Dlg_homophone DH;
+	DH.DeactivateDecryptionButton = TRUE;
 	for (int i=0; ; i++ ) {
 		DH.c_SourceFile[i] = infile[i];
 		if (infile[i] == 0) break;
@@ -2807,31 +2808,55 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		return;
 	}
 // Routine zur Homophonen Verschlüsselung
-	char outbuffer[4096];
+	char outbuffer[17000];
 	long outbuffsize;
 	char outfile[128],title[128];
 	int value;
 	GetTmpName(outfile,"cry",".hex");
 	ofstream out(outfile, ios::binary | ios::out );
 
+	unsigned char	* p_value = (unsigned char*)&value;
+    char		      residuum = 0;
+	unsigned char     offsetResiduum = 0;
+	int               bitLength = DH.HB.LogKeySize( 2 );
+
 	if(true==DH.Get_crypt())			// Verschlüsselung
 	{
 		while(in.gcount())
 		{
 			outbuffsize=0;
-			for(int i=0;i<in.gcount();i++)
+			for (int i=0;i<in.gcount();i++)
 			{
-				value=DH.HB.Encrypt(inbuffer[i]);
-				if(value>=0)
+				value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
+				if ( value >= 0 )
 				{
-					outbuffer[outbuffsize]=value;
-					outbuffsize++;				
+					value <<= offsetResiduum;
+					value |= residuum;
+					offsetResiduum += bitLength;
+					for (int i=0; offsetResiduum >= 8; i++ )
+					{
+						outbuffer[outbuffsize]= p_value[i];
+						outbuffsize++;
+						offsetResiduum -= 8;
+					}
+					if ( offsetResiduum ) 
+					{
+						residuum = p_value[i];
+					}
+					else
+					{
+						residuum = 0;
+					}
 				}
 			}
 			out.write(outbuffer,outbuffsize);
 			in.read(inbuffer,buffsize);
 		}
+		if ( residuum ) 
+			out << residuum; 
 	}
+
+/*
 	else								// Entschlüsselung
 	{
 		DH.HB.Make_dec_table();
@@ -2840,13 +2865,15 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			outbuffsize=0;
 			for(int i=0;i<in.gcount();i++)
 			{
-				outbuffer[outbuffsize]=DH.HB.dec_data[inbuffer[i]];
+				outbuffer[outbuffsize]=DH.HB.Decrypt(inbuffer[i]);
 				outbuffsize++;
 			}
 			out.write(outbuffer,outbuffsize);
 			in.read(inbuffer,buffsize);
 		}
 	}
+*/
+
 	in.close();
  	out.close();
 
@@ -2927,6 +2954,11 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 	GetTmpName(outfile,"cry",".hex");
 	ofstream out(outfile, ios::binary | ios::out );
 
+	unsigned char	* p_value = (unsigned char*)&value;
+    char		      residuum = 0;
+	unsigned char     offsetResiduum = 0;
+	int               bitLength = DH.HB.LogKeySize( 2 );
+
 	if(true==DH.Get_crypt())			// Verschlüsselung
 	{
 		while(in.gcount())
@@ -2934,7 +2966,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 			outbuffsize=0;
 			for(int i=0;i<in.gcount();i++)
 			{
-				value=DH.HB.Encrypt(inbuffer[i]);
+				value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
 				if(value>=0)
 				{
 					outbuffer[outbuffsize]=value;
@@ -2948,18 +2980,48 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 	else								// Entschlüsselung
 	{
 		DH.HB.Make_dec_table();
+
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for (int i=0;i<in.gcount();)
+			{
+				value = 0;
+				unsigned char offsetResiduumPrev = offsetResiduum;
+				for ( int j=0; offsetResiduum < bitLength; )
+				{
+					p_value[j] = inbuffer[i];
+					i++; j++; offsetResiduum += 8;
+				}
+				value = (value << offsetResiduumPrev) + residuum;
+				int val = value % (1 << bitLength);
+				outbuffer[outbuffsize]=DH.HB.Decrypt( val );
+				outbuffsize++;
+				offsetResiduum -= bitLength;
+				residuum = value >> bitLength;
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+/*
+	{
+		DH.HB.Make_dec_table();
+
+		
 		while(in.gcount())
 		{
 			outbuffsize=0;
 			for(int i=0;i<in.gcount();i++)
 			{
-				outbuffer[outbuffsize]=DH.HB.dec_data[inbuffer[i]];
+				outbuffer[outbuffsize]=DH.HB.Decrypt(inbuffer[i]);
 				outbuffsize++;
 			}
 			out.write(outbuffer,outbuffsize);
 			in.read(inbuffer,buffsize);
 		}
 	}
+*/
 	in.close();
  	out.close();
 

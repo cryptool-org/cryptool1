@@ -17,49 +17,86 @@ static char THIS_FILE[]=__FILE__;
 #endif
 
 //////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
+// 
+BOOL HomophoneData::Init( const int Size )
+{
+	if ( !(key             = new int[Size]) )		return FALSE;
+	if ( !(decryptionData  = new char[Size]) )		return FALSE;
+	SizeHomophoneKey = Size;
+	Init_Data();
+	return TRUE;
+}
+
+void HomophoneData::Init_Data()
+// setzt die Daten der Klasse auf vernünftige Eingangswerte
+{
+	for(int i=0;i<SizeHomophoneKey;i++)
+	{
+		decryptionData[i]	= 32;
+		key[i]				= -1;
+	}
+	for ( i=0; i<range; i++ )
+	{
+		encryptionData1[i]	= -1;
+		encryptionData0[i]	= -1;
+		doNotRoundMe[i]		= false;
+		frequency[i]		= 0.0;
+	}
+}
+
+void HomophoneData::Release( )
+{
+	if ( key )             delete []key;        
+	if ( decryptionData )  delete []decryptionData;
+}
+
+BOOL HomophoneData::Resize( const int Size )
+{
+	Release();
+	return Init( Size );
+}
+
+//////////////////////////////////////////////////////////////////////
+// constructor / destructor
+HomophoneEncryption::HomophoneEncryption()
+{
+	data.Init( range );
+}
+
+HomophoneEncryption::~HomophoneEncryption()
+{
+	data.Release();
+}
 //////////////////////////////////////////////////////////////////////
 
-Homophone_Ber::Homophone_Ber()
-{
-	Init_Data();
-}
-
-Homophone_Ber::~Homophone_Ber()
-{
-
-}
-
-void Homophone_Ber::Make_enc_table()	
-
-	// ordnet jedem plaintext-Zeichen "seine" Anzahl an ciphertext-Zeichen zu und füllt enc_data,
-	// so daß verschlüsselt werden kann
-
+void HomophoneEncryption::Make_enc_table()	
+// ordnet jedem plaintext-Zeichen "seine" Anzahl an ciphertext-Zeichen zu und füllt enc_data,
+// so daß verschlüsselt werden kann
 {
 	int i,last=0;
 
 	for(i=1;i<range;i++)
 	{
-		if(freq[i]>0.0)
+		if(data.frequency[i]>0.0)
 		{
-			enc_data[i][1]=int(floor(range*freq[i]));
-// Eingefügt 24. April 2001 -- Henrik Koy
-			if ( (0==enc_data[i][1]) )
+			data.encryptionData1[i]=int(floor(data.SizeHomophoneKey*data.frequency[i]));
+			// Eingefügt 24. April 2001 -- Henrik Koy
+			if ( (0==data.encryptionData1[i]) )
 			{
-				enc_data[i][1]=1;
-				do_not_round_me[i]=true;
+				data.encryptionData1[i]=1;
+				data.doNotRoundMe[i]=true;
 			}
 		}
 		else if ( -1 != theApp.TextOptions.m_alphabet.Find(char(i)) )
 		{
-			enc_data[i][1]=1;
-			do_not_round_me[i]=true;
+			data.encryptionData1[i]=1;
+			data.doNotRoundMe[i]=true;
 		}
 	}
 
-	while(range!=Checksum())
+	while(data.SizeHomophoneKey!=Checksum())
 	{
-		if(Checksum()<range)
+		if(Checksum()<data.SizeHomophoneKey)
 		{
 			Increase_ciphers();
 		}
@@ -68,124 +105,128 @@ void Homophone_Ber::Make_enc_table()
 			Decrease_ciphers();
 		}
 	}
-	assert(range==Checksum());
+	assert(data.SizeHomophoneKey==Checksum());
 
+// build the index-list
 	for(i=0;i<range;i++)
 	{
-		if(enc_data[i][1]>0)
+		if(data.encryptionData1[i]>0)
 		{
-			enc_data[i][0]=last;
-			last+=enc_data[i][1];
+			data.encryptionData0[i]=last;
+			last+=data.encryptionData1[i];
 		}
 	}
 }
 
 
-int Homophone_Ber::Checksum()
-
+int HomophoneEncryption::Checksum()
 // prüft, ob die Summe der ciphertext-Zeichen gleich range ist
-
 {
 	int i,sum=0;
 
 	for(i=0;i<range;i++)
 	{
-		if(enc_data[i][1]>=0)
+		if(data.encryptionData1[i]>=0)
 		{
-			sum+=enc_data[i][1];
+			sum+=data.encryptionData1[i];
 		}
 	}
 	return(sum);
 }
 
-void Homophone_Ber::Increase_ciphers()
-
+void HomophoneEncryption::Increase_ciphers()
 // erhöht die Anzahl der ciphertext-Zeichen, wenn deren Summe kleiner als range ist
-
 {
 	int i,index=0;
 	double value=0.01;
 
 	for(i=0;i<range;i++)
 	{
-		if(freq[i]>0.0&&false==do_not_round_me[i]&&freq[i]*range/enc_data[i][1]>value)
+		if( data.frequency[i]>0.0  &&
+			false==data.doNotRoundMe[i] &&
+			data.frequency[i]*data.SizeHomophoneKey/data.encryptionData1[i]>value)
 		{
-			value=freq[i]*range/enc_data[i][1];
+			value=data.frequency[i]*data.SizeHomophoneKey/data.encryptionData1[i];
 			index=i;
 		}
 	}
-	enc_data[index][1]++;
+	data.encryptionData1[index]++;
 }
 
-void Homophone_Ber::Decrease_ciphers()
-
+void HomophoneEncryption::Decrease_ciphers()
 // verringert die Anzahl der ciphertext-Zeichen, wenn deren Summe größer als range ist
-
 {
 	int i,index=0;
 	double value=100;
 
 	for(i=0;i<range;i++)
 	{
-		if(freq[i]>0.0&&false==do_not_round_me[i]&&freq[i]*range/enc_data[i][1]<value)
+		if( data.frequency[i]>0.0 && 
+			false==data.doNotRoundMe[i] && 
+			data.encryptionData1[i] > 1 && 
+			data.frequency[i]*data.SizeHomophoneKey/data.encryptionData1[i] < value)
 		{
-			value=freq[i]*range/enc_data[i][1];
+			value=data.frequency[i]*data.SizeHomophoneKey/data.encryptionData1[i];
 			index=i;
 		}
 	}
-	enc_data[index][1]--;   
+	data.encryptionData1[index]--;   
 }
 
-void Homophone_Ber::Generate_key()
-
+void HomophoneEncryption::Generate_key()
 // füllt key mit den Zahlen von 0 bis range in zufälliger Reihenfolge auf
-
 {
 	int i;
 
-	for(i=0;i<range;i++)
+	for(i=0;i<data.SizeHomophoneKey;i++)
 	{
-		key[Get_free_position()]=i;
+		data.key[Get_free_position()]=i;
 	}
 	assert(true==Check_key());
 }
 
-int Homophone_Ber::Get_free_position()
-
+int HomophoneEncryption::Get_free_position()
 // wird von Generate_key() aufgerufen und sucht für die Zahlen von 0 bis range einen freien Platz in key
-
 {
 	int index,value=0;
 
 	while(-1!=value)
-	{
-		index=zz.zzgen4()%range;
-		value=key[index];
+	{	
+		char *p_index = (char*)&index;
+/*
+		p_index[0] = zz.zzgen4();
+		p_index[1] = zz.zzgen4();
+		p_index[2] = zz.zzgen4();
+		p_index[3] = zz.zzgen4();
+		if (index < 0) index = -index;
+*/	
+		index = rand() % 2147483648;
+		index=index % data.SizeHomophoneKey;
+		value=data.key[index];
 	}
 	return(index);
 }
 
-int Homophone_Ber::Get_random_number(int number)
-
+int HomophoneEncryption::Get_random_number(int number)
 // gibt eine Zufallszahl zwischen 0 und (number-1) zurück
-
 {
-	return(zz.zzgen4()%number);
+	// return(zz.zzgen4()%number);
+	int r = rand() % number;
+	if ( r < 0 ) r = -r;
+	return r;
 }
 
-bool Homophone_Ber::Check_key()		
-
-// prüft, ob jede Zahl zwischen 0 und range genau einmal in key[] vorhanden ist
-
+bool HomophoneEncryption::Check_key()		
+// prüft, ob jede Zahl zwischen 0 und data.SizeHomophoneKey genau einmal in key[] vorhanden ist
 {									
 	int i,j,sum;
 
-	for(i=0;i<range;i++)
+	for(i=0;i<data.SizeHomophoneKey;i++)
 	{
 		sum=0;
-		for(j=0;j<range;j++)
+		for(j=0;j<data.SizeHomophoneKey;j++)
 		{
-			if(key[j]==i)
+			if(data.key[j]==i)
 			{
 				sum++;
 			}
@@ -198,72 +239,49 @@ bool Homophone_Ber::Check_key()
 	return(true);
 }
 
-void Homophone_Ber::Init_Data()
-
-// setzt die Daten der Klasse auf vernünftige Eingangswerte
-
-{
-	int i,j;
-
-	for(i=0;i<range;i++)
-	{
-		dec_data[i]=32;
-		do_not_round_me[i]=false;
-		freq[i]=0.0;
-		key[i]=-1;
-		for(j=0;j<=1;j++)
-		{
-			enc_data[i][j]=-1;
-		}
-	}
-}
-
-int Homophone_Ber::Encrypt(int value)
-
+int HomophoneEncryption::Encrypt(int value)
 // liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
-
 {
 	if (FALSE == theApp.TextOptions.m_Case && (value >= 'a' && value<='z'))	
 	{
 		value += 'A'-'a';
 	}
-	if(enc_data[value][1]>0)
+	if(data.encryptionData1[value]>0)
 	{
-		return(key[enc_data[value][0]+Get_random_number(enc_data[value][1])]);
+		return(data.key[data.encryptionData0[value] + Get_random_number(data.encryptionData1[value])]);
 	}
 	return(-1);
 }
 
-void Homophone_Ber::Make_dec_table()
-
-// füllt dec_data, so daß entschlüsselt werden kann
-
+char	HomophoneEncryption::Decrypt( const int i)
 {
-	int i;
+	return data.decryptionData[i];
+}
 
-	for(i=0;i<range;i++)
+void HomophoneEncryption::Make_dec_table()
+// füllt data.decryptionData, so daß entschlüsselt werden kann
+{
+	for(int i=0;i<data.SizeHomophoneKey;i++)
 	{
-		dec_data[i]=Get_index(i);
+		data.decryptionData[i]=GetIndex(i);
 	}
 }
 
-int Homophone_Ber::Get_index(int value)
-
+char HomophoneEncryption::GetIndex(const int value)
 // liefert zu dem ASCII-Wert eines ciphertext-Zeichens dessen Position in key zurück
-
 {
-	int i,index;
+	int index;
 
-	for(i=0;i<range;i++)
+	for(int i=0;i<data.SizeHomophoneKey;i++)
 	{
-		if(value==key[i])
+		if(value==data.key[i])
 		{
 			index=i;
 		}
 	}
 	for(i=range-1;i>=0;i--)
 	{
-		if(enc_data[i][1]>0&&enc_data[i][0]<=index)
+		if( data.encryptionData1[i]>0 && data.encryptionData0[i]<=index ) 
 		{
 			return(i);
 		}
@@ -271,24 +289,33 @@ int Homophone_Ber::Get_index(int value)
 	return(0);
 }
 
-const char* Homophone_Ber::GetKeyStr()
+const char* HomophoneEncryption::GetKeyStr()
 {
-	char *keyStr = new char[6*range]; // ACHTUNG NOCH ABZUÄNDERN
-	long k, l, i, j = 0;
-	for ( i=0; i<range; i++ )
+	char *keyStr = new char[data.SizeHomophoneKey*(3+LogKeySize(16)*2)+80]; 
+	int k, l, j = 0;
+	char hexStr[10];
+
+	sprintf(hexStr, "%X", data.SizeHomophoneKey);
+	for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
+	keyStr[j++] = '#';
+	keyStr[j++] = '#';
+	keyStr[j++] = '#';
+
+	for (int i=0; i<range; i++ )
 	{
-		if(enc_data[i][1]>0)
+		if(data.encryptionData1[i]>0)
 		{
-			char hexStr[10];
 			sprintf(hexStr, "%X", i);
-			for ( k=0; hexStr[k]!=0; k) keyStr[j++] = hexStr[k++];
+			for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
 			keyStr[j++] = ':';
-			for ( l=0; l<enc_data[i][1]; l++)
+			for ( l=0; l<data.encryptionData1[i]; l++)
 			{
-				sprintf(hexStr, "%X", key[enc_data[i][0]+l]);
-				for ( k=0; hexStr[k]!=0; k) keyStr[j++] = hexStr[k++];
-				if (l+1<enc_data[i][1]) keyStr[j++] = ',';
+				sprintf(hexStr, "%X", data.key[data.encryptionData0[i]+l]);
+				for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
+				if (l+1<data.encryptionData1[i]) keyStr[j++] = ',';
 			}
+			keyStr[j++] = ' ';
+			keyStr[j++] = '#';
 			keyStr[j++] = ' ';
 		}
 	}
@@ -296,29 +323,50 @@ const char* Homophone_Ber::GetKeyStr()
 	return keyStr;
 }
 
-void Homophone_Ber::load_enc_table(const char *keyStr)
+void HomophoneEncryption::load_enc_table(const char *keyStr)
 {
 	Init_Data();
 	long k, l, j = 0, Cnt = 0, Index;
 	bool LoadError = false;
+	
+// == Die Groesse des Schluessels laden ....
+	Index = 0;
+	while (keyStr[j] != '#') {
+		Index *= 16;
+		if ( keyStr[j] >= '0' && keyStr[j] <= '9' ) Index += keyStr[j]-'0';
+		else
+			if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) Index += keyStr[j]-'A'+10;
+			else { LoadError= true; break; }
+		if (j++ > 8) 
+		{ 
+			LoadError = true;
+			break;
+		}
+	}
+	if ( LoadError ) 
+		return;
+	
+	if ( Index != data.SizeHomophoneKey )
+		Resize( Index );
+
 	while (keyStr[j] != 0)
 	{
 		Index = 0;
-		while (keyStr[j] == ' ') j++;
+		while (keyStr[j] == ' ' || keyStr[j] == '#') j++;
 		while (keyStr[j] != ':') {
 			Index *= 16;
 			if ( keyStr[j] >= '0' && keyStr[j] <= '9' ) Index += keyStr[j]-'0';
 			else
 				if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) Index += keyStr[j]-'A'+10;
 				else { LoadError= true; break; }
-			if (Index>range) { LoadError=true; break; }
+			if (Index>data.SizeHomophoneKey) { LoadError=true; break; }
 			j++;
 		}
 		if (keyStr[j] == 0) 
 			LoadError=true;;
 		if (LoadError) break;
 		j++;
-		enc_data[Index][0]=Cnt;
+		data.encryptionData0[Index]=Cnt;
 		l = 0;
 		while (1) {
 			k = 0;
@@ -328,19 +376,19 @@ void Homophone_Ber::load_enc_table(const char *keyStr)
 				else
 					if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) k += keyStr[j]-'A'+10;
 					else { LoadError= true; break; }
-				if (k>range) { LoadError=true; break; }
+				if (k>data.SizeHomophoneKey) { LoadError=true; break; }
 				j++;
 			}
 			if (LoadError) break;
 			l++;
-			key[Cnt++]=k;
+			data.key[Cnt++]=k;
 			if (keyStr[j] == 0) 
 				break;
 			if (keyStr[j] == ' ') 
 				break;
 			j++;
 		}
-		enc_data[Index][1] = l;
+		data.encryptionData1[Index] = l;
 		if (LoadError) break;
 	}
 }

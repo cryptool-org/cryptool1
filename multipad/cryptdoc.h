@@ -36,8 +36,6 @@ public:
 
 // Implementation
 public:
-	void OnHomophoneHex();
-	void OnGenRandomData();
 	virtual ~CCryptDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -111,6 +109,7 @@ protected:
 	afx_msg void OnVitanyAnalyse();
 	afx_msg void OnPeriod();
 	afx_msg void OnHomophon();
+	afx_msg void OnHomophoneHex();
 	afx_msg void OnZZGen();
 	afx_msg void OnNotAvail();
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
@@ -121,6 +120,7 @@ protected:
 	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenEcdlp();
 	afx_msg void OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren();
 	afx_msg void OnEinzelverfahrenSchluesselgenerieren();
+	afx_msg void OnGenRandomData();
 	afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
 	//}}AFX_MSG
