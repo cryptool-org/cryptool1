@@ -2624,12 +2624,12 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
-        POPUP """&ciphertext only"""
+        POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
         END
-        POPUP """&known plaintext"""
+        POPUP "&Known plaintext"
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
@@ -2812,7 +2812,7 @@ BEGIN
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
-        POPUP """&ciphertext only"""
+        POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -3098,12 +3098,12 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
-        POPUP """&ciphertext only"""
+        POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
         END
-        POPUP """&known plaintext"""
+        POPUP "&Known plaintext"
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
@@ -8171,12 +8171,12 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP """&Ciphertext Only"""
+        POPUP "&Ciphertext Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
         END
-        POPUP """&Known Plaintext"""
+        POPUP "&Known Plaintext"
         BEGIN
             MENUITEM "&Hill...",                    ID_HILL_AUTO
         END
@@ -8359,7 +8359,7 @@ BEGIN
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP """&Ciphertext Only"""
+        POPUP "&Ciphertext Only"
         BEGIN
             MENUITEM "&Addition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -8645,12 +8645,12 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP """&Ciphertext Only"""
+        POPUP "&Ciphertext Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
         END
-        POPUP """&Known Plaintext"""
+        POPUP "&Known Plaintext"
         BEGIN
             MENUITEM "&Hill...",                    ID_HILL_AUTO
         END
