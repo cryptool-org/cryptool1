@@ -135,7 +135,7 @@ Viele kryptographische Protokolle sind so gemacht, da"s die \glqq guten\grqq {} 
 Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man kann aber zeigen, da"s Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.\\
 Es gab immer wieder Aussage, da"s jemand die "Aquivalenz bewiesen hatte, z.B.
 
-{\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
+{\href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
@@ -171,7 +171,7 @@ Kongruente 0-1-Knapsackprobleme haben dieselben L"osungen.
 Ein schneller Algorithmus zur Kl"arung der Frage, ob zwei 0-1-Knapsackprobleme kongruent sind, ist nicht bekannt.
 
 Das L"osen eines 0-1-Knapsackproblems kann durch Probieren der $ 2^n $   M"oglichkeiten f"ur $ x_1, \dots, x_n $   erfolgen. Die beste Methode erfordert $ O(2^{n/2}) $  Operationen, was f"ur $ n=100 $  mit $ 2^{100} \approx 1,27 \cdot 10^{30} $  und  $ 2^{n/2} \approx 1,13 \cdot 10^{15} $ f"ur Computer eine un"uberwindbare H"urde darstellt.
-Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
+Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{ Eine Permutation $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
 diese Zahlen aufgez"ahlt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ 
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zus"atzlich $ \pi $ die Identit"at, d.h. $ \pi(i)=i $ f"ur $ i=1,2,\dots,n, $ so hei"st die Folge $ a_1, \dots , a_n $ superwachsend.
@@ -560,8 +560,9 @@ und
 \hyperlink{ellcurve}{Elliptische Kurven} {} liefern n"utzliche Gruppen f"ur Public-Key-Verschl"usselungsverfahren.
 
 \newpage
+%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \begin{thebibliography}{99}
-           
+ \addcontentsline{toc}{subsection}{Literaturverzeichnis}          
            \bibitem[Adleman1982]{Adleman1982} Adleman L.: 
            \emph{On breaking the iterated Merkle-Hellman public key Cryptosystem.} \\ 
            Advances in Cryptologie, Proceedings of Crypto 82, Plenum Press 1983, 303-308.
@@ -595,7 +596,7 @@ und
            \emph{Cryptography.}  \index{Stinson 1995} \\
            CRC Press, Boca Raton, London, Tokyo, 1995.
 \end{thebibliography}
-\section*{URLs}
+\section*{URLs} \addcontentsline{toc}{subsection}{URLs}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}

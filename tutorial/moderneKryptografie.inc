@@ -135,7 +135,7 @@ Viele kryptographische Protokolle sind so gemacht, da"s die \glqq guten\grqq {} 
 Man wei"s leider bis heute nicht, ob es Einwegfunktionen "uberhaupt gibt. Man kann aber zeigen, da"s Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.\\
 Es gab immer wieder Aussage, da"s jemand die "Aquivalenz bewiesen hatte, z.B.
 
-{\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
+{\href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html}), 
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 

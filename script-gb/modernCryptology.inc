@@ -1,4 +1,5 @@
-
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
 
 \newcommand{\NT}{\vspace*{0.2\baselineskip}\\}
 %\newcommand{\VT2}{\vspace*{0.1\baselineskip}\\}
@@ -89,7 +90,7 @@
 \section{The Mathematical Ideas Behind Modern Cryptography}
  (Oyono R./ Esslinger B., September 2000, Update Nov. 2000)
 \subsection{One-way functions with trapdoor and complexity classes}
-\index{Cryptography!modern} \index{One-way function}
+\index{Cryptography!modern} \index{One-way function} \hypertarget{Einwegfunktionen1}{}
 A {\bf one-way function} is a (one-to-one) function that can be calculated 
 efficiently, but whose inverse is extremely complicated and practically 
 impossible to calculate.\par
@@ -117,7 +118,7 @@ For an opponent who knows the public key $ e_T $, it is practically impossible
 to determine the private key  $ d_T $.\par
 
 In order to construct useful public-key procedures, therefore, we look for a 
-one-way function that is \glqq easy\grqq to calculate in one direction {}, but 
+one-way function that is \glqq easy\grqq {} to calculate in one direction {}, but 
 is \glqq difficult\grqq {} (practically impossible) to calculate in the other 
 direction, provided that a particular piece of additional information 
 \index{One-way function!with trapdoor } (trapdoor) is not available. This 
@@ -125,7 +126,7 @@ additional piece of information allows the inverse to be found efficiently. Such
 functions are called {\bf trapdoor one-way functions}. In the above case, $ d_T 
 $ is the trapdoor information. \par
 
-In this process, we describe a problem as \glqq easy\grqq if it can be solved in 
+In this process, we describe a problem as \glqq easy\grqq ~if it can be solved in 
 \index{Runtime!polynomial} polynomial time as a function of the length of the 
 input. If the length of the input is $ n $ bits, then the time for calculating 
 the function is proportional to $ n^{a}, $ where $ a $  is a constant. We say 
@@ -139,7 +140,7 @@ polynomial time as a function of the size of the input. If, for example, the
 length of the input is $ n $  bits and the time required for calculating the 
 function is proportional to $ 2^n $, then the following currently applies: the 
 function practically cannot be calculated for $n > 80$ (for $ a=5 $ the 
-following applies: from the length $ n=23 $, $ 2^n is greater than n^5 $, after 
+following applies: from the length $ n=23 $, $ 2^n$ is greater than $n^5 $, after 
 which $ 2^n $ clearly increases more quickly ($ 2^{23}=8.388.608, $ $ 23^5= 
 6.436.343 $)).\par 
 
@@ -190,8 +191,8 @@ However, we can prove that one-way functions exist if and only if $ \textbf{P}
 \neq \textbf{NP} $ \cite[S.63]{Balcazar1988}.\\
 Mathematicians have again and again claimed to have proven the equivalence, e.g.
 
-{\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.co
-m/st\_busygin/clipat.html}), 
+{\href{http://www.geocities.com/st_busygin/clipat.html}{
+http://www.geocities.com/st\_busygin/clipat.html}), 
 
 but so far the claims have always turned out to be false.
 
@@ -281,7 +282,7 @@ sequence in the timeframe of $ O(n). $
 \subsubsection{Merkle-Hellman knapsack encryption}
 \index{Hellman Martin} \index{Merkle} In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public-key 
-encryption procedure that is based on \glqq defamiliarising\grqq the easy 0-1 
+encryption procedure that is based on \glqq defamiliarising\grqq {} the easy 0-1 
 knapsack problem with a superincreasing sequence into a congruent one with a 
 superincreasing sequence. It is a block ciphering that ciphers an n-bit 
 plaintext each time it runs.
@@ -343,7 +344,7 @@ procedures}
 
 
 \subsubsection{The RSA procedure}
-\index{RSA} As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir 
+\index{RSA} \hypertarget{RSAVerfahren}{} As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir 
 Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
@@ -381,8 +382,8 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \index{Euler phi function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
-numbers that do not have a common factor with $ N $ \index{coprime} {}
-$ x \leq N. $ Two natural numbers $ a $ and $ b $ \index{coprime} are coprime if 
+numbers that do not have a common factor with $ N $ \index{Coprime} {}
+$ x \leq N. $ Two natural numbers $ a $ and $ b $ are coprime if 
 $ \ggt (a,b)=1. $ 
 
 For the Euler phi function: $ \phi (1)=1, \phi(2)=1,
@@ -738,7 +739,7 @@ encryption procedures.
 
 \newpage
 \begin{thebibliography}{99}
-           
+\addcontentsline{toc}{subsection}{Bibliography}
            \bibitem[Adleman1982]{Adleman1982} Adleman L.: 
            \emph{On breaking the iterated Merkle-Hellman public key 
 Cryptosystem.} \\ 
@@ -778,7 +779,7 @@ Hellman Cryptosystem.}\\
            \emph{Cryptography.}  \index{Stinson 1995} \\
            CRC Press, Boca Raton, London, Tokyo, 1995.
 \end{thebibliography}
-\section*{URLs}
+\section*{URLs} \addcontentsline{toc}{subsection}{URLs}
 \begin{enumerate}
    \item 
 \href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com

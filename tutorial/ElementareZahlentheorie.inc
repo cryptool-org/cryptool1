@@ -1,4 +1,4 @@
-\def\QM {{,\kern -0.9 pt ,}}
+%\def\QM {{,\kern -0.9 pt ,}}
 \setcounter{satz}{0}
 \setcounter{definition}{0}
 
@@ -7,7 +7,7 @@
 (Bernhard Esslinger, Juli 2001, besslinger@web.de)
 
 \begin{quote} 
-{\em Eric Berne\footnote{ Eric Berne, \QM Spiele der Erwachsenen'', rororo, (c) 1964, S. 235}:}\newline
+{\em Eric Berne\footnote{ Eric Berne, \glqq Spiele der Erwachsenen'', rororo, (c) 1964, S. 235}:}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
 Die transaktionale Spielanalyse dagegen befa"st sich mit Spielen, die
 unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.
@@ -17,7 +17,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Mathematik und Kryptographie}
 Ein gro"ser Teil der modernen, asymmetrischen Kryptographie beruht auf mathematischen 
-Erkenntnissen -- auf den Eigenschaften (\QM Gesetzen'') ganzer 
+Erkenntnissen -- auf den Eigenschaften (\glqq Gesetzen'') ganzer 
 Zahlen, die in der elementaren \index{Zahlentheorie!elementare} Zahlentheorie untersucht werden. Elementar bedeutet hier, 
 da"s die zahlentheoretischen Fragestellungen im wesentlichen
 in der Menge der nat"urlichen und der ganzen Zahlen durchgef"uhrt werden.
@@ -44,7 +44,7 @@ multiplikative Verkn"upfung.
 
 Lange Zeit galt gerade die Zahlentheorie als Forschung pur, als
 Paradebeispiel f"ur die Forschung im Elfenbeinturm. Sie erforschte die
-\QM geheimnisvollen Gesetze im Reich der Zahlen'' und gab Anla"s zu
+\glqq geheimnisvollen Gesetze im Reich der Zahlen'' und gab Anla"s zu
 philosophischen Er"orterungen, ob sie beschreibt, was "uberall in der Natur
 schon da ist, oder ob sie ihre Elemente (Zahlen, Operatoren, Eigenschaften)
 nicht k"unstlich konstruiert.
@@ -53,7 +53,7 @@ Inzwischen wei"s man, da"s sich zahlentheoretische Muster "uberall in der Natur
 finden. Zum Beispiel verhalten sich die Anzahl der links- und der
 rechtsdrehenden Spiralen einer Sonnenblume zueinander wie zwei
 aufeinanderfolgende Fibonacci-Zahlen\footnote{
-Die Folge der Fibonacci-Zahlen $(a_i)_{i \in \mathbb{N}}$ ist definiert durch die\QM rekursive'' 
+Die Folge der Fibonacci-Zahlen $(a_i)_{i \in \mathbb{N}}$ ist definiert durch die\glqq rekursive'' 
 Vorschrift $a_1 := a_2 := 1$ und f"ur alle Zahlen  $n=1,2,3,...$ definiert man 
 $a_{n+2} := a_{n+1}+a_n$.  Zu dieser historischen Folge gibt es viele interessante 
 Anwendungen in der Natur (siehe z.B. \cite[S. 290 ff]{Graham1994} oder die Web Seite 
@@ -69,7 +69,7 @@ eine hohe Nachfrage auf dem Arbeitsmarkt besteht.
 
 Anwendungen der (Computer-)Sicherheit bedienen sich heute der Kryptographie,
 weil Kryptographie als mathematische Disziplin einfach besser und
-beweisbarer ist als alle im Laufe der Jahrhunderte erfundenen \QM kreativen''
+beweisbarer ist als alle im Laufe der Jahrhunderte erfundenen \glqq kreativen''
 Verfahren der Substitution und besser als alle ausgefeilten physischen
 Techniken wie beispielsweise beim Banknotendruck [Beutelspacher1996, S. 4].
 
@@ -164,8 +164,8 @@ sind die {\em nat"urlichen} und die {\em ganzen} Zahlen.
 \newpage
 
 \begin{quote}
-{\em Joanne K. Rowling\footnote{ Joanne K. Rowling,~\QM Harry Potter und der Stein der Weisen'', Carlsen, (c)
-1997, Kapitel ~ \QM Durch die Fallt"ur'', S. 310.}:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
+{\em Joanne K. Rowling\footnote{ Joanne K. Rowling,~\glqq Harry Potter und der Stein der Weisen'', Carlsen, (c)
+1997, Kapitel ~ \glqq Durch die Fallt"ur'', S. 310.}:}\newline Das ist nicht Zauberei, das ist Logik, ein R"atsel.
 Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.
 \end{quote}
 
@@ -182,7 +182,7 @@ Die 12 Stunden-Skala der Uhr, die 60 Minuten einer Stunde, die 360 Grad-Skala de
 diese Skalen in Bruchteile auf, so ergeben sich in vielen F"allen die Br"uche als ganze Zahlen. Mit diesen kann 
 man im Kopf einfacher arbeiten wie mit gebrochenen Zahlen.}. Viele
 Zahlen sind nur teilbar durch sich selbst und durch 1. Bez"uglich der
-Multiplikation sind dies die \QM Atome'' im Bereich der Zahlen.
+Multiplikation sind dies die \glqq Atome'' im Bereich der Zahlen.
 
 \begin{definition} \index{Primzahlen}
 {\bf Primzahlen} sind nat"urliche Zahlen gr"o"ser als $1$, die nur durch $1$ und sich
@@ -203,7 +203,7 @@ Primzahlen treten als ganze Zahlen nicht selten auf. Allein im letzten
 Jahrzehnt waren drei Jahre prim: $1993, 1997$ und $1999$. W"aren sie selten,
 k"onnte die Kryptographie auch nicht so mit ihnen arbeiten, wie sie es tut.
 
-Primzahlen k"onnen nur auf eine einzige (\QM triviale'') Weise zerlegt werden:
+Primzahlen k"onnen nur auf eine einzige (\glqq triviale'') Weise zerlegt werden:
 \begin{eqnarray}
 5 & = & 1 * 5 \nonumber \\
 17 & =  & 1 * 17 \nonumber \\
@@ -251,7 +251,7 @@ gilt nach eventuellem Umsortieren $n = m$ und f"ur alle $i$: $p_i = q_i$.
 
 In anderen Worten: Jede nat"urliche Zahl au"ser der $1$ l"a"st sich auf genau eine
 Weise als Produkt von Primzahlen schreiben, wenn man von der Reihenfolge der
-Faktoren absieht. Die Faktoren sind also eindeutig (die \QM Expansion in
+Faktoren absieht. Die Faktoren sind also eindeutig (die \glqq Expansion in
 Faktoren'' ist eindeutig)!
 
 Zum Beispiel ist $60 = 2*2*3*5 = 2^2*3*5$. Und das ist --- bis auf eine
@@ -274,7 +274,7 @@ F"ur eine mathematische Aussage ist es deshalb nicht nur wichtig, f"ur welche
 Operation sie definiert wird, sondern auch auf welcher Grundmenge diese
 Operation definiert wird.
 
-Weitere Details zu den Primzahlen (z.B. wie der \QM Kleine Satz von Fermat'' zum
+Weitere Details zu den Primzahlen (z.B. wie der \glqq Kleine Satz von Fermat'' zum
 Testen sehr gro"ser Zahlen auf ihre Primzahleigenschaft benutzt werden kann)
 finden sich in diesem Skript in dem Artikel "uber Primzahlen.
 
@@ -300,7 +300,7 @@ eine ganze Zahl $c$ ist, so da"s $n = c * d$.
 Die Zahl $n$ wird Vielfaches von $d$ genannt; $d$ wird {\em Teiler, Divisor} \index{Teiler} \index{Divisor} oder {\em Faktor} von $n$
 genannt.
 
-Mathematisch schreibt man das: $d | n$ (gelesen: \QM  $d$ teilt $n$'').
+Mathematisch schreibt man das: $d | n$ (gelesen: \glqq  $d$ teilt $n$'').
 Die Schreibweise $d \not| n$ bedeutet, da"s $d$ die Zahl $n$ nicht teilt.
 
 Also gilt in unserem obigen Beispiel: $10 \not| 158$, aber $2 | 158$.
@@ -313,7 +313,7 @@ Teilt man eine Zahl $n$ durch $m$, so benutzt man oft die folgende Schreibweise:
 $$\frac{n}{m} = c + \frac{r}{m} ,$$
 wobei $c$ eine ganze Zahl ist und $r$ eine Zahl mit den Werten $0,1,..., m-1$.
 Diese Schreibweise hei"st Division mit Rest. Dabei hei"st $c$ der ganzzahlige 
-\QM Quotient'' und $r$ der \QM Rest'' der Division.
+\glqq Quotient'' und $r$ der \glqq Rest'' der Division.
 
 {\bf Beispiel:} \\
 $$\frac{19}{7} = 2 + \frac{5}{7} \quad (c = 2, r = 5)$$
@@ -324,8 +324,8 @@ Bei der Division durch $7$ sind nur die folgenden Reste m"oglich:
 $$r = 0, 1, 2, .., 6.$$
 
 Wir fassen bei der Division durch $7$ die Zahlen, die den gleichen Rest $r$
-ergeben, in die \QM Restklasse $r$ modulo $7$'' zusammen. Zwei Zahlen $a$ und $b$, die
-zur gleichen Restklasse modulo $7$ geh"oren, bezeichnen wir als \QM kongruent
+ergeben, in die \glqq Restklasse $r$ modulo $7$'' zusammen. Zwei Zahlen $a$ und $b$, die
+zur gleichen Restklasse modulo $7$ geh"oren, bezeichnen wir als \glqq kongruent
 modulo 7''. Oder ganz allgemein:
 
 \begin{definition} \index{Restklasse}
@@ -349,7 +349,7 @@ wenn beim Teilen durch $m$ der gleiche Rest bleibt.
 
 Man schreibt: $a \equiv b {\rm ~(mod~} m)$. Und sagt:  {\em $a$ ist kongruent $b$ modulo $m$}. Das bedeutet, 
 da"s $a$ und $b$ zur gleichen Restklasse geh"oren. Der Modul ist also der Teiler. Diese Schreibweise wurde von 
-Gauss eingef"uhrt. Gew"ohnlich ist der Teiler positiv, aber a und b k"onnen auch beliebige ganze Zahlen sein.
+Gauss eingef"uhrt. Gew"ohnlich ist der Teiler positiv, aber $a$ und $b$ k"onnen auch beliebige ganze Zahlen sein.
 
 {\bf Beispiele:}
 \begin{itemize}
@@ -398,13 +398,13 @@ $2, ..., 12$ repr"asentiert. Die Stunden nach $12:00$ mittags erh"alt man als
 Reste einer Division durch 12. Wir wissen sofort, da"s $2$ Uhr nachmittags
 dasselbe wie $14:00$ ist.
 
-Diese \QM modulare'', also auf die Divisionsreste bezogene Arithmetik ist die
+Diese \glqq modulare'', also auf die Divisionsreste bezogene Arithmetik ist die
 Basis der asymmetrischen Verschl"usselungsverfahren.
 Kryptographische Berechnungen spielen sich also nicht wie das Schulrechnen
 unter den reellen Zahlen ab, sondern unter Zeichenketten begrenzter L"ange,
 das hei"st unter positiven ganzen Zahlen, die einen gewissen Wert nicht
 "uberschreiten d"urfen.
-Aus diesem und anderen Gr"unden w"ahlt man sich eine gro"se Zahl $m$ und \QM rechnet
+Aus diesem und anderen Gr"unden w"ahlt man sich eine gro"se Zahl $m$ und \glqq rechnet
 modulo $m$'', das hei"st, man ignoriert ganzzahlige Vielfache von $m$ und rechnet
 statt mit einer Zahl nur mit dem Rest bei Division dieser Zahl durch $m$.
 Dadurch bleiben alle Ergebnisse im Bereich von $0$ bis $m-1$.
@@ -473,7 +473,7 @@ In der modularen Arithmetik gibt es nur eine eingeschr"ankte Menge
 nicht-negativer Zahlen. Deren Anzahl wird durch einen Modul $m$ vorgegeben.
 Ist der Modul $m = 5$, werden nur die 5 Zahlen der Menge $\{ 0, 1, 2, 3, 4\}$ benutzt.
 
-Ein Rechenergebnis gr"o"ser als $4$ wird dann \QM modulo'' $5$ umgeformt, d.h. es ist
+Ein Rechenergebnis gr"o"ser als $4$ wird dann \glqq modulo'' $5$ umgeformt, d.h. es ist
 der Rest, der sich bei der Division des Ergebnisses durch $5$ ergibt. So ist
 etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist, wenn man $8$ durch $5$ teilt.
 
@@ -572,7 +572,7 @@ Bei der modularen Addition ist das f"ur jeden Modul (also nicht nur f"ur $5$)
 so. Bei der modularen Multiplikation dagegen ist das nicht so: hier gibt es
 f"ur eine nat"urliche Zahl $a$ aus der Menge $\{1, ..., m-1\}$ genau dann eine
 Inverse, wenn sie mit dem Modul $m$ teilerfremd\footnote{
-Weitere Bezeichnungen f"ur teilerfremd:~''relativ prim'' oder \QM paarweise
+Weitere Bezeichnungen f"ur teilerfremd:~''relativ prim'' oder \glqq paarweise
 prim''. Es gilt auch: Zwei ganze Zahlen $a$ und $b$ sind genau dann teilerfremd, wenn
 ${\rm ggT}(a, b) = 1$. Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.
@@ -836,7 +836,7 @@ Potenzieren (zu einer Zahl $x$ berechne $x^a$ mit festem $a$) und Exponentiation
 \subsection{Gruppen und modulare Arithmetik}
 
 In der Zahlentheorie und in der Kryptographie spielen mathematische 
-\QM Gruppen'' eine entscheidende Rolle. Von Gruppen spricht man nur, wenn f"ur
+\glqq Gruppen'' eine entscheidende Rolle. Von Gruppen spricht man nur, wenn f"ur
 eine definierte Menge und eine definierte Relation (eine Operation wie
 Addition oder Multiplikation) die folgenden Eigenschaften erf"ullt sind:
 \begin{itemize}
@@ -873,7 +873,7 @@ gelten die folgenden Eigenschaften einer Gruppe f"ur alle Elemente von $\mathbb{
                 (denn es gilt: $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
 Da die Operation kommutativ ist, d.h. es gilt $(a {\rm ~mod+~} b) = (b {\rm ~mod+~} a)$, ist diese Struktur sogar 
-eine \QM kommutative Gruppe''.
+eine \glqq kommutative Gruppe''.
 % ..............................................................................................
 \subsubsection{Multiplikation in einer Gruppe}\index{Multiplikation}
 
@@ -925,7 +925,7 @@ $a, b \in \mathbb{Z}_n^* \Rightarrow  [{\rm ggT}(a, n) = 1, {\rm ggT}(b, n) = 1]
 \Rightarrow  [{\rm ggT}(a*b, n) = 1] \Rightarrow  (a * b) {\rm ~(mod~} n) \in \mathbb{Z}_n^*$.
 } alle wieder in $\mathbb{Z}_n^*$ und au"serdem 
 sind die Ergebnisse eine eindeutige Permutation der Elemente von $\mathbb{Z}_n^*$ . Da die $1$ immer 
-Element von $\mathbb{Z}_n^*$ ist, gibt es in dieser Menge eindeutig einen \QM Partner'', so da"s das 
+Element von $\mathbb{Z}_n^*$ ist, gibt es in dieser Menge eindeutig einen \glqq Partner'', so da"s das 
 Produkt $1$ ergibt. Mit anderen Worten:
 
 \begin{satz}
@@ -948,7 +948,7 @@ Kryptographie (siehe Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahre
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, ..., n-1\}$,
 die zu $n$ teilerfremd sind, gleich dem Wert der Euler-Funktion $J(n)$.
 \index{Eulersche Phi-Funktion}
-\begin{definition} \hypertarget{EulerFunction}{}\footnote{ Leonard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783}
+\begin{definition} \hypertarget{EulerFunction}{}\footnote{ Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783}
 Die Euler-Funktion\footnote{ Wird oft als Phi--Funktion $\Phi(n)$ geschrieben} $J(n)$ gibt die Anzahl der Elemente von $\mathbb{Z}_n^*$ an.
 \end{definition}
 
@@ -1122,7 +1122,7 @@ Exponenten handhabbar sind.
 Laut Satz 4 werden die arithmetischen Operationen von modularen Ausdr"ucken in den Exponenten modulo $J(n)$ 
 und nicht modulo $n$ durchgef"uhrt\footnote{
 F"ur das folgende Beispiel wird der Modul wie beim RSA-Verfahren "ublich mit 
-\QM n'' statt mit \QM m'' bezeichnet.
+\glqq n'' statt mit \glqq m'' bezeichnet.
 }. Wenn man in $a^{e*d} \equiv a^1$ mod $n$ die Inverse z.B. f"ur den Faktor $e$ 
 im Exponenten bestimmen will, mu"s man modulo $J(n)$ rechnen.
 
@@ -1312,14 +1312,14 @@ $1, ..., p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
 Das RSA-Verfahren ist das verbreitetste asymmetrische Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschl"usseln eingesetzt werden.
-Kryptographen assoziieren mit der Abk"urzung \QM RSA'' immer dieses Verfahren -
+Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses Verfahren -
 die folgende Anmerkung soll eher humorvoll zeigen, da"s man jede
 Buchstabenkombination mehrfach belegen kann: in Deutschland gibt es sehr
-Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit \QM RSA''
-der vom Gesundheitsministerium geregelte \QM {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der
+Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit \glqq RSA''
+der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der
 gesetzlichen Krankenversicherung mit einem j"ahrlichen Volumen von "uber 24
 Milliarden DM bezeichnet.
-}-Verfahren \QM beweisen''.
+}-Verfahren \glqq beweisen''.
 
 % ...............................................................................................................................
 \subsubsection{Grundidee der Public Key-Kryptographie} 
@@ -1352,7 +1352,7 @@ Forderungen erf"ullt sein:
 Die 1. Forderung ist eine generelle Bedingung f"ur alle kryptographischen
 Verschl"usselungsalgorithmen.
 
-Die 2. Forderung kann leicht sichergestellt werden, weil es \QM sehr'' viele
+Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele
 Primzahlen gibt\footnote{
 Nach dem Primzahlsatz (prime number theorem) von Legendre und Gauss gibt es
 bis zur Zahl $n$ asymptotisch $n/{\rm ln}(n)$ Primzahlen. Dies bedeutet
@@ -1388,17 +1388,17 @@ $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Die Primfaktoren werden unter Beacht
 Nebenbedingung zuf"allig und unabh"angig voneinander erzeugt 
 (Siehe \href{http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}{\tt http://www.bsi.de/aufgaben/projekte/pbdigsig/download/kryptalg.pdf}).}.
  Der Wert $n$ wird als RSA-Modul 
-bezeichnet\footnote{ In CrypTool wird der RSA-Modul mit einem gro"sen \QM N'' bezeichnet.}. 
+bezeichnet\footnote{ In CrypTool wird der RSA-Modul mit einem gro"sen \glqq N'' bezeichnet.}. 
 
 \item[{\bf 2.}] W"ahle zuf"allig $e \in \{2, ..., n-1\}$, so da"s gilt: \\
                 $e$ ist teilerfremd zu $J(n) = (p-1)*(q-1)$.
-                Zum Beispiel kann man $e$ so w"ahlen, da"s gilt:  $\max(p,q) < e < J(n) - 1.27$ \footnote{
+                Zum Beispiel kann man $e$ so w"ahlen, da"s gilt:  $\max(p,q) < e < J(n) - 1$ \footnote{
                 Das Verfahren erlaubt es auch, $d$ frei zu w"ahlen und dann $e$ zu berechnen.
                 Dies hat aber praktische Nachteile.
-                Normalerweise will man \QM schnell'' verschl"usseln k"onnen und w"ahlt deshalb
+                Normalerweise will man \glqq schnell'' verschl"usseln k"onnen und w"ahlt deshalb
                 einen "offentlichen Exponenten $e$ so, da"s er m"oglichst wenige bin"are Einsen
                 hat. H"aufig verwendet wird die Zahl $65537 = 2^{16}+1$, also bin"ar: $10...0...01$.
-            }. Danach kann man $p$ und $q$ \QM wegwerfen''.
+            }. Danach kann man $p$ und $q$ \glqq wegwerfen''.
 \item[{\bf 3.}] W"ahle $d \in \{1, ..., n-1\}$  mit  $e*d = 1$  mod $J(n)$,
                 d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$ \footnote{
         Aus Sicherheitsgr"unden darf $d$ nicht zu klein sein. Andererseits m"ochte man
@@ -1408,7 +1408,7 @@ bezeichnet\footnote{ In CrypTool wird der RSA-Modul mit einem gro"sen \QM N'' be
                 diese in ihrer Bin"ardarstellung nur wenige Einsen aufweisen.} 
                 \footnote{ Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt. Eigentlich
                 sollte f"ur die Verschl"usselung $e$ zuf"allig gew"ahlt werden.
-                }. Danach kann man $J(n)$ \QM wegwerfen''.
+                }. Danach kann man $J(n)$ \glqq wegwerfen''.
                 \begin{itemize}
                    \item[$\rightarrow$] $(n, e)$ ist der "offentliche Schl"ussel $P$.
                    \item[$\rightarrow$] $(n, d)$ ist der geheime Schl"ussel $S$ (es ist nur $d$ geheim zu halten).
@@ -1538,13 +1538,13 @@ bei ausreichend Speicherplatz -- abspeichern. Um dann im Einzelfall $a^n$ zu
 finden, mu"s er nur noch genau diejenigen $(a^2)^k$ miteinander multiplizieren,
 f"ur die an der $k$-ten Stelle der Bin"ardarstellung von n eine Eins steht. Der
 typische Aufwand sinkt dadurch von $2^{600}$ auf $2*600$ Multiplikationen!
-Dieser h"aufig verwendete Algorithmus hei"st \QM Square and Multiply''.
+Dieser h"aufig verwendete Algorithmus hei"st \glqq Square and Multiply''.
 
 \vskip +40 pt
 
 \begin{quote}
-{\em Joanne K. Rowling\footnote{ Joanne K. Rowling, \QM Harry Potter und die Kammer des Schreckens'', Carlsen,
-(c) 1998, letztes Kapitel \QM Dobbys Belohnung'', S. 343}:}\newline
+{\em Joanne K. Rowling\footnote{ Joanne K. Rowling, \glqq Harry Potter und die Kammer des Schreckens'', Carlsen,
+(c) 1998, letztes Kapitel \glqq Dobbys Belohnung'', S. 343}:}\newline
 Viel mehr als unsere F"ahigkeiten sind es 
 unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.
 \end{quote}
@@ -1554,7 +1554,7 @@ unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.
 \subsection{Beispiele f"ur zahlentheoretische Anwendungen in der Kryptographie}
 In der modernen Kryptographie werden die Ergebnisse der modularen Arithmetik
 extensiv angewandt. Hier werden exemplarisch einige wenige Beispiele aus der
-Kryptographie mit kleinen\footnote{ \QM Klein'' bedeutet beim RSA-Verfahren, da"s die 
+Kryptographie mit kleinen\footnote{ \glqq Klein'' bedeutet beim RSA-Verfahren, da"s die 
 Bitl"angen der Zahlen sehr viel kleiner sind als $1024$ Bit (das sind $305$ Dezimalstellen). 
 $1024$ Bit gilt im Moment in der Praxis als Mindestl"ange f"ur einen sicheren Certification
 Authority-RSA-Modul.
@@ -1735,7 +1735,7 @@ Schritte hier mit konkreten, aber kleinen Zahlen durchgef"uhrt werden.
 
 \subsubsection{RSA mit kleinen Primzahlen und mit einer Zahl als Message}
 Bevor wir RSA auf einen Text anwenden, wollen wir es erst direkt mit einer
-Zahl zeigen\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.}.
+Zahl zeigen\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.}.
 \begin{itemize}
   \item[\bf 1.] Die gew"ahlten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)(q-1)=40$.
@@ -1756,9 +1756,9 @@ ASCII-Zeichensatz als Bausteine f"ur die Nachrichten.
 
 % ..............................................................................................................
 \subsubsection{RSA mit etwas gr"o"seren Primzahlen und einem Text aus Gro"sbuchstaben}
-Gegeben ist der Text \QM ATTACK AT DAWN'' und die Zeichen werden auf folgende
+Gegeben ist der Text \glqq ATTACK AT DAWN'' und die Zeichen werden auf folgende
 einfache Weise codiert\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per 
-\QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.
+\glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.
 Dies ist auch im Tutorial/Szenario der Online-Hilfe zu CrypTool beschrieben [Option Alphabet vorgeben, Basissystem, Blockl"ange 2
 und Dezimaldarstellung].}:
 
@@ -1807,7 +1807,7 @@ die Blockl"ange 2 betr"agt.\\
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}3713)$ \footnote{
 Mit Mathematica kann das z.B. per {\tt PowerMod[120, 37, 3713]} berechnet werden.
 Mit CrypTool v1.3 k"onnen Sie dies per 
-\QM Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen. }: \\
+\glqq Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen. }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 
@@ -1832,10 +1832,10 @@ Real wird das ASCII-Alphabet benutzt, um die Einzelzeichen der Nachricht in
 8-Bit lange Zahlen zu codieren. 
 
 Diese Aufgabe\footnote{ Mit CrypTool v1.3 k"onnen Sie dies per 
-\QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.
+\glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen.
 } ist angeregt durch das Beispiel aus \cite[S. 215]{Eckert2001}.
 
-Der Text \QM RSA works!'' bedeutet in Dezimalschreibweise codiert: 
+Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert: 
 
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
@@ -1932,7 +1932,7 @@ Blockbildung\footnote{
 \end{tabular} }
 } (die ASCII-Zeichen werden als 8-stellige Bin"arzahlen hintereinander geschrieben):\\
 {\tt 21075 16672 30575 29291 29473}\footnote{
-Mit CrypTool v1.3 k"onnen Sie dies per \QM Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' mit den 
+Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' mit den 
 folgenden Optionen l"osen: alle $256$ Zeichen, b-adisch, Blockl"ange 2, dezimale Darstellung.}
 
 Verschl"usselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}67519)$ \footnote{
@@ -1973,7 +1973,7 @@ Entschl"usselung pro Block per: $M \equiv C^{2473}{\rm ~(mod~}67519)$: \\
 \index{RSA!Cipher-Challenge}
 Die Aufgabe stammt aus \cite[Exercise 4.6]{Stinson1995}: 
 Die pure L"osung hat Prof. Stinson unter 
-\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}
+\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{http://www.cacr.math.uwaterloo.ca/\~dstinson/solns.html}
 ver"offentlicht. Es geht aber 
 nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der L"osung, 
 also um die Darlegung der Kryptoanalyse\footnote{
@@ -2215,13 +2215,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
           \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\tt http://www.informatik.tu-darmstadt.de/TI/LiDIA}
    \item BC, \\
           Interpreter mit zahlentheoretischen Funktionen \\
-          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\tt http://www.maths.uq.edu.au/~krm/gnubc.html}
+          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\tt http://www.maths.uq.edu.au/\~krm/gnubc.html}
    \item Erst nach Vollendung dieses Artikels wurde mir eine Webseite bekannt, die
          interaktiv und didaktisch sehr ausgereift die grundlegenden Denkweisen der
          Mathematik anhand der einfachen Zahlentheorie nahebringt. Sie entstand f"ur
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasium (ist leider
          nur in Deutsch verf"ugbar): \\
-         \href{http://www.djh-freeweb.de/~muenchenbach}{\tt http://www.djh-freeweb.de/~muenchenbach}
+         \href{http://www.djh-freeweb.de/~muenchenbach}{\tt http://www.djh-freeweb.de/\~muenchenbach}
     \item BSI, \\
           Bundesamt f"ur Sicherheit und Informationstechnik \\
           \href{http://www.bsi.bund.de}{\tt http://www.bsi.bund.de}
@@ -2326,7 +2326,7 @@ Die Eigenschaft der Abgeschlossenheit wird innerhalb einer Menge immer
 bez"uglich einer Operation definiert.
 Im folgenden wird gezeigt, wie man f"ur eine gegebene Ausgangsmenge $G_0$ die
 abgeschlossene Menge G bez"uglich der Operation ‚$+ {\rm ~(mod~} 8)$ konstruiert
-(\QM Abschlu"sbildung''):
+(\glqq Abschlu"sbildung''):
 \begin{eqnarray}
 G_0 & = & \{ 2, 3 \} {\rm ~die~Addition~der~Zahlen~in~} G_0 {\rm ~bestimmt~weitere~Zahlen:} \nonumber \\
     & &    2 + 3 \equiv 5{\rm ~(mod~}8) = 5 \nonumber \\
