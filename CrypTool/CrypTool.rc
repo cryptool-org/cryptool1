@@ -8666,7 +8666,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,367,274,50,14
-    LTEXT           "Independent from each other Alice and Bob computed their Session Key:",
+    LTEXT           "Alice and Bob have computed their Session Key independently from each other:",
                     IDC_STATIC,7,17,230,8
     LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
                     SS_CENTERIMAGE
