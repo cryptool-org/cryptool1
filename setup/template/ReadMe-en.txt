@@ -426,10 +426,12 @@ CrypTool.GID...... The help system generates and manages this
                    file.
 cry*.*............ CrypTool writes temporary files to the Temp
                    directory which has a name beginning cry*.*
-                   (extensions: tmp, txt, org).
+                   (extensions: asc, hex, org, plt, tmp, txt).
 CrypTool.ini...... This file is located in the Windows
-                   directory and contains the file names of the
-                   most recently processed files.
+                   directory and contains the setting for 
+                   showing/not showing the welcome screen and
+                   the file names of the most recently opened 
+                   files.
 
 
 

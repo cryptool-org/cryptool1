@@ -438,10 +438,12 @@ CrypTool.GID...... Das Hilfesystem erzeugt und verwaltet diese
                    Datei.
 cry*.*............ CrypTool schreibt temporäre Dateien mit dem
                    Namensmuster cry*.* in das Temp-Verzeichnis
-                   (Endungen: tmp, txt, org).
+                   (Endungen: asc, hex, org, plt, tmp, txt).
 CrypTool.ini...... Diese Datei befindet sich im Windows-
-                   Verzeichnis und enthält die Dateinamen der
-                   zuletzt bearbeiteten Dateien.
+                   Verzeichnis und enthält neben der Einstellung,
+                   ob Begrüßungsfenster angezeigt werden soll,
+                   die Dateinamen der zuletzt bearbeiteten 
+                   Dateien. 
 
 
 4.1. Überprüfen der Integrität der heruntergeladenen Dateien
