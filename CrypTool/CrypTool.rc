@@ -2072,26 +2072,26 @@ BEGIN
     LTEXT           "Iterationen",IDC_STATIC,82,24,34,8
     LTEXT           "Brent",IDC_STATIC,14,41,60,8
     EDITTEXT        IDC_EDIT1,82,38,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+                    ES_NUMBER | ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL2,156,38,50,14,WS_DISABLED
     LTEXT           "Pollard",IDC_STATIC,14,63,60,8
     EDITTEXT        IDC_EDIT2,82,60,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+                    ES_NUMBER | ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL3,156,60,50,14,WS_DISABLED
     LTEXT           "Williams",IDC_STATIC,14,85,60,8
     EDITTEXT        IDC_EDIT3,82,82,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+                    ES_NUMBER | ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL4,156,82,50,14,WS_DISABLED
     LTEXT           "Lenstra",IDC_STATIC,14,107,60,8
     EDITTEXT        IDC_EDIT4,82,104,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+                    ES_NUMBER | ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL5,156,104,50,14,WS_DISABLED
     LTEXT           "Quadratisches Sieb",IDC_STATIC,14,129,65,8
     EDITTEXT        IDC_EDIT5,82,126,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+                    ES_NUMBER | ES_READONLY
     PUSHBUTTON      "Abbrechen",IDCANCEL6,156,126,50,14,WS_DISABLED
     LTEXT           "Zu faktorisierende Zahl",IDC_STATIC,15,7,82,12
-    EDITTEXT        IDC_EDIT6,109,6,97,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT6,109,6,97,14,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SHOW_HASH DIALOG DISCARDABLE  0, 0, 241, 71
@@ -5518,7 +5518,7 @@ BEGIN
     IDS_FACTORISATION_OVERFLOW 
                             "Das Quadratische Sieb kann nicht ausgeführt werden und wird deaktiviert (Speicherüberlauf)."
     IDS_FACTORISATION_MEMORY_REQUEST 
-                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir Empfehlen diese Methode zu deakivieren."
+                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir empfehlen diese Methode zu deakivieren."
     IDS_STRING_Hashdemo_FileNotFound 
                             "Es wurde keine temporäre Datei gefunden!"
     IDS_STRING_Hashdemo_KeineWerteGefunden 
