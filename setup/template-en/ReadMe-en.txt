@@ -652,7 +652,7 @@ Functionality:
   too (here the already existing masks are reused - similar as at
   the visualization of the hybrid decryption).
 + New menu item Starting Options.
-+ Structure of Analysis became clearer. xxxx
++ Structure of Analysis became clearer.
 + When the user saves the window content to a file now a fitting
   file name is suggested:  Cry-<Method>-<Sourcefilename>.*
   For intentionally saved documents the window title contains
