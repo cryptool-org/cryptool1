@@ -968,7 +968,7 @@ UINT Autocorr(PVOID p)
 	}
 
 	fsize=text.GetSize();
-	if(text.GetSize()<4) {
+	if(/* text.GetSize() */ tx->GetSize()<4) {
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 4);
 		r=1;
 		goto cancel;
