@@ -1272,7 +1272,7 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 	}
 	else
 	{
-		if ((file.GetLength()*8) <= 10000) 
+		if ((file.GetLength()*8) < 10000) 
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str);
