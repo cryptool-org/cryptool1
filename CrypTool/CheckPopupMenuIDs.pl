@@ -1,6 +1,7 @@
 # Documentation: see CrypToolPopupIDs.txt
 # usage: perl CheckPopupMenuIDs.pl CrypToolPopupIDs.txt CrypToolPopupIDs.log
 # called CheckPopupMenuIDs.pl which is invoked by the custom build step of CrypToolPopupIDs.txt
+# Any questions -> ask Jörg js@joergschneider.com
 
 sub clean {
   local($_) = shift;
@@ -13,6 +14,7 @@ sub clean {
 %filemenu = ();
 %filemenuline = ();
 %nerror = 0;
+$lno = 0;
 
 my $MID = $ARGV[0] || "CrypToolPopupMenuIDs.txt";
 my $RC = "CrypTool.rc";
@@ -25,6 +27,7 @@ if (!defined $OKLOG) {
 open RC,"<$RC" or die "open $RC: $!\n";
 
 foreach (<RC>) {
+	$lno++;
 	if (m{LANGUAGE LANG_(\w*)}) {
 		die "$0: menu stack not empty on language change" 
 			if (@stack);
@@ -44,13 +47,13 @@ foreach (<RC>) {
 	my $index = "$lang:$id";
 	my $text = join("|",@stack);
 	if (defined($rcmenu{$index}) && $text ne $rcmenu{$index}) {
-	    print STDERR "error: $RC:$.: This menu entry is the same as an earlier one ($rcmenu{$index}) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1\n";
+	    print STDERR "$RC($lno) : error: This menu entry is the same as an earlier one ($rcmenu{$index}) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1\n";
 	}
 	$rcmenu{$index} = $text;
-	$rcmenuline{$index} = $.;
+	$rcmenuline{$index} = $lno;
 }
 close RC;
-
+$lno = 0;
 
 if (0) {
 foreach (sort keys %rcmenu) {
@@ -63,9 +66,10 @@ foreach (sort keys %rcmenu) {
 open MID,"<$MID" or die "open $MID: $!\n";
 
 foreach (<MID>) {
+	$lno++;
 	next if m{^\s*#} || m{^\s*$};
 	chomp;
-	die "$MID:$.: malformed line ($_)\n" 
+	die "$MID($lno) : error: malformed line ($_)\n" 
 		unless m{^\s*(\w+)\s+(\w+)\s+#\s?(.*)};
 
 	my $lang = $1;
@@ -75,11 +79,11 @@ foreach (<MID>) {
 	$filemenu{$index} = [split("|",$comment)];
 	if (defined $rcmenu{$index}) {
 		if ($comment ne $rcmenu{$index}) {
-			print STDERR "error: $MID:$.: Menu text was changed in $RC:$rcmenuline{$index}? Please update $MID to # $rcmenu{$index}\n";
+			print STDERR "$MID($lno) : error: Menu text was changed in $RC:$rcmenuline{$index}? Please update $MID($lno) to ... # $rcmenu{$index}\n";
 			$nerror++;
 		}
 	} else {
-		print STDERR "error: $MID:$.: Popup menu deleted from $RC? Please check and possibly delete this line\n";
+		print STDERR "$MID($lno) : error: Popup menu deleted from $RC? Please check and possibly delete line $lno from $MID\n";
 		$nerror++;
 	}
 }
@@ -88,7 +92,7 @@ close MID;
 foreach (sort keys %rcmenu) {
 	if (!defined $filemenu{$_}) {
 		my ($lang,$id) = split(':',$_);
-		print STDERR "error: $RC:$rcmenuline{$_}: New menu entry? Please update $MID: $lang\t$id # $rcmenu{$_}\n";
+		print STDERR "$RC($rcmenuline{$_}) : error: New menu entry? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
 		$nerror++;
 	}
 }
