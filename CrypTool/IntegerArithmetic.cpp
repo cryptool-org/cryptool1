@@ -498,6 +498,13 @@ void BigToCString(const Big &t, CString &NumCStr, int base, size_t OutLength )
     NumCStr = tmpStr;
 }
 
+void BaseRepr( CString &StrNum, int baseFrom, int baseTo)
+{
+	Big t;
+	CStringToBig(StrNum, t, baseFrom );
+	BigToCString(t, StrNum, baseTo);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  encode an ASCII string of length "blockLength" into a Number represented as character string
@@ -1118,6 +1125,35 @@ int CRSADemo::SetPublicKey ( CString &eStr, int base )
 	return SetPublicKey( E );
 }
 
+int CRSADemo::SetPublicParameter( CString &NStr, CString &eStr )
+{
+	Big loc_E, loc_N;
+	BOOL e_ok, N_ok;
+	e_ok = CStringFormulaToBig( eStr, loc_E );
+	N_ok = CStringFormulaToBig( NStr, loc_N );
+	if (e_ok == FALSE || N_ok == FALSE) return ERR_E_TO_BIG;
+	if ( loc_E > 0 && loc_N > 2 )
+	{
+		isInitialized_e = true;
+		isInitialized_N = true;
+		N = loc_N;
+		e = loc_E;
+	}
+	else
+	{
+		return ERR_E_TO_BIG;
+	}
+	isInitialized_d = false;
+	return 0;
+}
+
+BOOL CRSADemo::GetPublicParameter( CString &NStr, CString &eStr )
+{
+	BigToCString( N, NStr );
+	BigToCString( e, eStr );
+	return IsInitializedPublicParameter();
+}
+
 BOOL CRSADemo::GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr, CString &dStr, int base )
 {
 	BigToCString( N, NStr, base );
@@ -1164,8 +1200,8 @@ double CRSADemo::GetLog2RSAModul()
 
 BOOL CRSADemo::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 {
-	PlaintextBlock = PlaintextBlock % N;
-	if ( IsInitialized() /* && PlaintextBlock < N */ )
+	// PlaintextBlock = PlaintextBlock % N;
+	if ( (IsInitialized() || IsInitializedPublicParameter()) && PlaintextBlock < N )
 	{
 		CiphertextBlock = pow(PlaintextBlock,e,N);
 		return true;
@@ -1176,10 +1212,10 @@ BOOL CRSADemo::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 	}
 }
 
-BOOL CRSADemo::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
+int  CRSADemo::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 {
-	CiphertextBlock = CiphertextBlock % N;
-	if ( IsInitialized() /* && CiphertextBlock < N */ )
+	// CiphertextBlock = CiphertextBlock % N;
+	if ( IsInitialized() && CiphertextBlock < N )
 	{
 		PlaintextBlock = pow( CiphertextBlock, d, N);
 		return true;
@@ -1190,11 +1226,11 @@ BOOL CRSADemo::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
 	}
 }
 
-void CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL DlgOfSisters )
+int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL DlgOfSisters )
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	size_t OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -1212,7 +1248,14 @@ void CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 		}
 		plainStr = Plaintext.Mid(i1, i2-i1);
 		CStringToBig( plainStr, plain, base );
-		Encrypt( plain, cipher );
+		if ( !Encrypt( plain, cipher ) )
+		{
+			Ciphertext ="";
+			if ( plain >= N )
+				return 2;
+			else 
+				return 1;
+		}
 		// Besonderheit: Dialog der Schwestern
 		if ( DlgOfSisters ) cipher = cipher + (rand() % 20 )*N;
 		BigToCString( cipher, cipherStr, base, OutLength );
@@ -1222,42 +1265,39 @@ void CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 		if ( i1 < Plaintext.GetLength() )
 			Ciphertext += " # ";
 	}
+	return 0;
 }
 
-void CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL DlgOfSisters)
+BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	size_t OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;
-	Plaintext = "";
 
-	while ( (i1 < Ciphertext.GetLength()) && (Ciphertext[i1] == ' ' || Ciphertext[i1] == '#')) i1++;
+	while (i1 < Input.GetLength() && (Input[i1] == ' ' || Input[i1] == '#') ) i1++;
 		
-	while ( i1 < Ciphertext.GetLength() )
+	while ( i1 < Input.GetLength() )
 	{
-		i2 = Ciphertext.Find(" ", i1);
+		i2 = Input.Find(" ", i1);
 		if (i2 < 0) 
 		{
-			if ( i1 < Ciphertext.GetLength() ) i2 = Ciphertext.GetLength();
+			if ( i1 < Input.GetLength() ) i2 = Input.GetLength();
 			else break;
 		}
-		cipherStr = Ciphertext.Mid(i1, i2-i1);
-		CStringToBig( cipherStr, cipher, base );
-		Decrypt( cipher, plain );
+		plainStr = Input.Mid(i1, i2-i1);
+		CStringToBig( plainStr, plain, base );
+		if ( !DlgOfSisters )
+		{
+			if ( plain >= N )
+				return 2;
+		}
 		// Besonderheit: Dialog der Schwestern
-		if ( DlgOfSisters ) plain = plain + (rand() % 20 )*N;
-		BigToCString( plain, plainStr, base, OutLength );
-		while ( (i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#') ) i2++;
-		i1 = i2;
-		Plaintext += plainStr.GetBuffer(plainStr.GetLength()+1);
-		if ( i1 < Ciphertext.GetLength() )
-			Plaintext += " # ";
 	}
+	return 0;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 // CTutorialFactorisation Klasse

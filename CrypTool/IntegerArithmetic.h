@@ -63,8 +63,12 @@ extern volatile long ExitFactorisationCode;
 #define ERR_MAX_BIT_LENGTH 8
 #define ERR_P_LESS_THAN_TWO 16
 #define ERR_Q_LESS_THAN_TWO 32
-
 #define ERR_PQ_NOT_PRIME 3
+
+#define ERR_ON_MODUL_N 64
+#define ERR_ON_PUBLIC_KEY 65
+#define ERR_ON_INITIALIZE_E 66
+
 /***********************************/
 
 
@@ -95,6 +99,7 @@ void RandRepr( CString &StrNum,         int Modul, int numberBase, int randInter
 void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval = 20, int ofs = 0 );
 void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs = 0 ); 
 void ModRepr ( CString &StrNum, int        Modul, int numberBase, int ofs = 0 ); 
+void BaseRepr( CString &StrNum, int baseFrom, int baseTo); 
 
 
 class eval_err { // CEvalIntExpr errror class
@@ -167,25 +172,35 @@ protected: //private: // geändert für abgeleitete Klasse CPSEDemo
 public:
 	CRSADemo();
 	virtual ~CRSADemo();
-	int  InitParameter( CString &pStr, CString &qStr, int base = 10 );
-	int SetPublicKey ( CString &eStr, int base = 10 );
-	BOOL SetPrivateKey();
 	int  GetBlockLength();
 	double GetLog2RSAModul();
+
+// Public and private key Parameter
+	int  InitParameter( CString &pStr, CString &qStr, int base = 10 );
+	int  SetPublicKey ( CString &eStr, int base = 10 );
+	BOOL SetPrivateKey();	
 	BOOL GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr, CString &dStr, int base = 10 );
 	BOOL GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig );
 
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }
-	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10, BOOL DlgOfSisters = FALSE);
-	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10, BOOL DlgOfSisters = FALSE);
+
+// Only public key parameter ...
+	BOOL IsInitializedPublicParameter()
+		{	return ( isInitialized_N && isInitialized_e ); }
+	int  SetPublicParameter( CString &NStr, CString &eStr );
+	BOOL GetPublicParameter( CString &NStr, CString &eStr );
+
+	BOOL Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10, BOOL DlgOfSisters = FALSE);
+	BOOL Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10, BOOL DlgOfSisters = FALSE);
+	BOOL PreCheckInput( CString &Input, int base = 10, BOOL DlgOfSisters = FALSE );
 
 protected: //private: // geändert für abgeleitete Klasse CPSEDemo
 	int InitParameter( Big &p, Big &q );
 	int SetPublicKey ( Big &e );
 private:
-	BOOL Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock );
-	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
+	int  Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock );
+	int  Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };
 
 
