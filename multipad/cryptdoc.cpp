@@ -18,7 +18,14 @@
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
 #include "Dlg_homophone.h"
+<<<<<<< cryptdoc.cpp
+#include "GenEcKurve.h"
+#include "Dlg_Faktorisieren.h"
+#include "Dlg_Schluessel_gen.h"
+
+=======
 #include "AnalyseNGram.h"
+>>>>>>> 1.6
 #include "DlgSignExtract.h" // für OnCryptExtract
 #include "DlgGenRandomData.h"
 
@@ -109,6 +116,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_CRYPT_SIGN, OnCryptSign)
 	ON_COMMAND(ID_CRYPT_VERIFY, OnCryptVerify)
 	ON_COMMAND(ID_CRYPT_EXTRACT, OnCryptExtract)
+	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
+
 	ON_COMMAND(ID_ANALYZE_SUBST, OnAnalyzeSubst)
 	ON_COMMAND(ID_FLOATING, OnFloating)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_CBC, OnUpdateNeedSecude)
@@ -130,14 +139,14 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_AES_RIJNDAEL, OnAnalyseAesRijndael)
 	ON_COMMAND(ID_ANALYSE_AES_SERPENT, OnAnalyseAesSerpent)
 	ON_COMMAND(ID_ANALYSE_AES_TWOFISH, OnAnalyseAesTwofish)
-	ON_COMMAND(ID_TOTXT, OnToTxt) 
-	ON_COMMAND(ID_TOHEX, OnToHex) 
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
-	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
+	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
 	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
+
+	ON_COMMAND(ID_TOTXT, OnToTxt) 
+	ON_COMMAND(ID_TOHEX, OnToHex) 
+
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -161,7 +170,14 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
+
+	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN, OnEinzelverfahrenTutorialfrkleinezahlenEckurven)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS, OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP, OnEinzelverfahrenTutorialfrkleinezahlenEcdlp)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -1216,6 +1232,36 @@ void CCryptDoc::OnHomophone()
     HomophoneAsc(ContentName, GetTitle());
 }
 
+void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenEckurven() 
+{
+	GenEcKurve GECK;
+	GECK.DoModal();
+}
+
+void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenDiskreterlogarithmus() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	
+}
+
+void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenEcdlp() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	
+}
+
+void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren() 
+{
+	Dlg_Faktorisieren FAKT;
+	FAKT.DoModal();
+}
+
+void CCryptDoc::OnEinzelverfahrenSchluesselgenerieren() 
+{
+	Dlg_Schluessel_gen SG;
+	SG.DoModal();
+}
+
 void CCryptDoc::OnAnalyseNGram()
 {
 	UpdateContent();
@@ -1238,8 +1284,6 @@ void CCryptDoc::OnGenRandomData()
 		remove(DGR.outfile);
 		if(NewDoc) {
 			NewDoc->SetTitle("hallo");
+		}
 	}
-
-	}
-
 }
