@@ -41,8 +41,7 @@
  6.5. .... Adding number theoretic functions
  6.6. .... Porting to Linux
  6.7. .... Meaningful tasks to make the new maintainer familiar with
- 7. .... Brief history of the released main versions of CrypTool
- 8. .... Feedback on errors
+ 7. .... Brief history of the released main versions of CrypTool 8. .... Feedback on errors
  9. .... Contact addresses
 10. .... References / hints
 10.1. .... Articles
@@ -190,7 +189,6 @@ securely communicate.
 
 All the single files included in the package are listed within
 chapter 4 (see below in this README file).
-
 
 
 1.3. Acknowledgements
@@ -359,7 +357,6 @@ To install CrypTool on your PC, copy the CrypTool setup executable
 to a suitable place in your file system and double-click on it.
 The default installation directory is C:\Program Files\CrypTool.
 The target directory can be altered in the installation routine.
-
 If you already possess an earlier version of CrypTool, it is
 recommended uninstalling the old version of CrypTool before
 installing the new one, as otherwise it is possible that some
@@ -419,8 +416,7 @@ irunin.*.......... These files are necessary for installation and
 script-en.pdf..... A script on cryptography, prime numbers,
                    number theory and the mathematics behind
                    certain algorithms.
-script-de.pdf..... The German version of script-en.pdf.
-CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
+script-de.pdf..... The German version of script-en.pdf.CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
 CrypToolPresentation_1_3_04_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
@@ -577,8 +573,7 @@ been added for version 1.3.00 since CrypTool version 1.202:
   The N-gram analysis is restricted for binary files to 64 kB and
   for text files to 256 kB (longer inputs are truncated to the
   maximum input length).
-+ Errors in Vigenere and Caesar algorithms have been eliminated
-  (any text files)
++ Errors in Vigenere and Caesar algorithms have been eliminated  (any text files)
 + Improved Playfair analysis.
 
 5.1.2. Symmetric methods
