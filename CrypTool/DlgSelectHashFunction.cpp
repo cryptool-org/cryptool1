@@ -19,11 +19,14 @@ CDlgSelectHashFunction::CDlgSelectHashFunction(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSelectHashFunction::IDD, pParent)
 {
 	m_deactivateMD4 = false;
-	m_selectedHashFunction = 0;
+	m_sHashAlg = "MD2";
 	//{{AFX_DATA_INIT(CDlgSelectHashFunction)
-	m_selectedHashFunctionMD2 = 0;
+	m_selectedHashFunctionMD2 = -1;
 	m_selectedHashFunctionMD4 = -1;
 	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = -1;
 	//}}AFX_DATA_INIT
 }
 
@@ -36,6 +39,9 @@ void CDlgSelectHashFunction::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO1, m_selectedHashFunctionMD2);
 	DDX_Radio(pDX, IDC_RADIO2, m_selectedHashFunctionMD4);
 	DDX_Radio(pDX, IDC_RADIO3, m_selectedHashFunctionMD5);
+	DDX_Radio(pDX, IDC_RADIO4, m_selectedHashFunctionSHA);
+	DDX_Radio(pDX, IDC_RADIO5, m_selectedHashFunctionSHA_1);
+	DDX_Radio(pDX, IDC_RADIO6, m_selectedHashFunctionRIPEMD_160);
 	//}}AFX_DATA_MAP
 }
 
@@ -57,9 +63,12 @@ END_MESSAGE_MAP()
 void CDlgSelectHashFunction::OnSelectedMD2() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData();
+	m_selectedHashFunctionMD2 = 0;
 	m_selectedHashFunctionMD4 = -1;
 	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = -1;
 	m_selectedHashFunction = 0;
 	UpdateData(FALSE);	
 }
@@ -67,9 +76,12 @@ void CDlgSelectHashFunction::OnSelectedMD2()
 void CDlgSelectHashFunction::OnSelectedMD4() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData();
 	m_selectedHashFunctionMD2 = -1;
+	m_selectedHashFunctionMD4 = 0;
 	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = -1;
 	m_selectedHashFunction = 1;
 	UpdateData(FALSE);		
 }
@@ -77,29 +89,52 @@ void CDlgSelectHashFunction::OnSelectedMD4()
 void CDlgSelectHashFunction::OnSelectedMD5() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData();
 	m_selectedHashFunctionMD2 = -1;
-	m_selectedHashFunctionMD4 = -1;	
+	m_selectedHashFunctionMD4 = -1;
+	m_selectedHashFunctionMD5 = 0;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = -1;
 	UpdateData(FALSE);		
-	m_selectedHashFunction = 2 + m_selectedHashFunctionMD5;
+	m_selectedHashFunction = 2;
 }
 
 void CDlgSelectHashFunction::OnSelectSHA() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	OnSelectedMD5();
+	m_selectedHashFunctionMD2 = -1;
+	m_selectedHashFunctionMD4 = -1;
+	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = 0;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = -1;
+	UpdateData(FALSE);		
+	m_selectedHashFunction = 3;
 }
 
 void CDlgSelectHashFunction::OnSelectedSHA_1() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	OnSelectedMD5();	
+	// TODO: Code fü	m_selectedHashFunctionMD2 = -1;
+	m_selectedHashFunctionMD4 = -1;
+	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = 0;
+	m_selectedHashFunctionRIPEMD_160 = -1;
+	UpdateData(FALSE);		
+	m_selectedHashFunction = 4;
 }
 
 void CDlgSelectHashFunction::OnSelectedRIPEMD_160() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	OnSelectedMD5();	
+	m_selectedHashFunctionMD2 = -1;
+	m_selectedHashFunctionMD4 = -1;
+	m_selectedHashFunctionMD5 = -1;
+	m_selectedHashFunctionSHA = -1;
+	m_selectedHashFunctionSHA_1 = -1;
+	m_selectedHashFunctionRIPEMD_160 = 0;
+	UpdateData(FALSE);		
+	m_selectedHashFunction = 5;	
 }
 
 BOOL CDlgSelectHashFunction::OnInitDialog() 
@@ -110,8 +145,30 @@ BOOL CDlgSelectHashFunction::OnInitDialog()
 	if ( m_deactivateMD4 )
 	{
 		m_selectedHashFunctionMD4Ctrl.EnableWindow(false);		
-	}
+	}	
+	if(m_sHashAlg=="MD2")			OnSelectedMD2();
+	if(m_sHashAlg=="MD4")			OnSelectedMD4(); 
+	if(m_sHashAlg=="MD5")			OnSelectedMD5(); 	
+	if(m_sHashAlg=="SHA")			OnSelectSHA();
+	if(m_sHashAlg=="SHA-1")			OnSelectedSHA_1(); 
+	if(m_sHashAlg=="RIPEMD-160")	OnSelectedRIPEMD_160(); 
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+
+void CDlgSelectHashFunction::OnOK() 
+{
+	switch(m_selectedHashFunction)
+	{
+		case 0: m_sHashAlg = "MD2"; break;
+		case 1: m_sHashAlg = "MD4"; break;
+		case 2: m_sHashAlg = "MD5"; break;
+		case 3: m_sHashAlg = "SHA"; break;
+		case 4: m_sHashAlg = "SHA-1"; break;
+		case 5: m_sHashAlg = "RIPEMD-160"; break;
+		default: m_sHashAlg.Empty();
+	}
+	CDialog::OnOK();
+}

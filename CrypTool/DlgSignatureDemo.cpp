@@ -8,7 +8,7 @@
 #include "DlgSignature.h"
 #include "DlgDemoRSAKeyGeneration.h"
 #include "DlgCertificateGeneration.h"
-#include "DlgSelHash.h"
+#include "DlgSelectHashFunction.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -157,8 +157,9 @@ void CDlgSignatureDemo::OnSelectDocument()
 			theApp.SecudeLib.aux_free_OctetString(&m_Message);
 			m_Message = theApp.SecudeLib.aux_file2OctetString(m_sPathName);
 			EnableButtons();
-			OnInfoDocument();
+			//OnInfoDocument();
 			m_ButtonInfoDoc.SetFocus();
+			ClearInfo();
 		}
 	}	
 
@@ -207,8 +208,9 @@ void CDlgSignatureDemo::OnSelectKey()
 		m_bUpdateSgn = TRUE;
 		m_bUpdateCrt = TRUE;
 		EnableButtons();
-		OnInfoKey();
-		m_ButtonInfoKey.SetFocus();		
+		//OnInfoKey();
+		m_ButtonInfoKey.SetFocus();	
+		ClearInfo();
 	}
 	delete KeyDialog;			
 }
@@ -394,10 +396,11 @@ void CDlgSignatureDemo::EnableButtons()
 
 void CDlgSignatureDemo::OnSelectHashAlg() 
 {	
-	CDlgSelHash* HashDialog;
-	HashDialog = new CDlgSelHash(this);
+	CDlgSelectHashFunction* HashDialog;
+	HashDialog = new CDlgSelectHashFunction(this);
 
 	HashDialog->m_sHashAlg = m_Cert->GetHashAlg();
+	HashDialog->m_deactivateMD4 = TRUE;
 	HashDialog->DoModal();
 	if(m_Cert->GetHashAlg() != HashDialog->m_sHashAlg)
 	{
@@ -406,8 +409,9 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 		m_bUpdateSgn = TRUE;
 		m_Cert->SetHashAlg(HashDialog->m_sHashAlg);
 		EnableButtons();
-		OnInfoAlg();
-		m_ButtonInfoHashAlg.SetFocus();			
+		//OnInfoAlg();
+		m_ButtonInfoHashAlg.SetFocus();	
+		ClearInfo();
 	}	
 	delete HashDialog;
 }
@@ -422,7 +426,7 @@ void CDlgSignatureDemo::OnCompute()
 
 	m_bUpdateHsh = FALSE;		
 	EnableButtons();
-	OnInfoHash();
+	//OnInfoHash();
 	m_ButtonInfoHash.SetFocus();
 }
 
@@ -465,7 +469,7 @@ void CDlgSignatureDemo::OnEncrypt()
 	delete[] osC.octets;	
 	m_bUpdateEnc = FALSE; 
 	EnableButtons();
-	OnInfoHashEnc();
+	//OnInfoHashEnc();
 	m_ButtonInfoHashEnc.SetFocus();
 }
 
@@ -529,8 +533,9 @@ void CDlgSignatureDemo::OnSelectCert()
 			m_bUpdateCrt=FALSE;
 		}
 		EnableButtons();
-		OnInfoCert();
-		m_ButtonInfoCert.SetFocus();		
+		//OnInfoCert();
+		m_ButtonInfoCert.SetFocus();	
+		ClearInfo();
 	}
 	m_bPSEIsExtern = CertDialog->m_PSEIsExtern;
 
@@ -574,7 +579,7 @@ void CDlgSignatureDemo::OnCombine()
 		m_bUpdateSgn = FALSE;
 	}
 	EnableButtons();
-	OnInfoSign();
+	//OnInfoSign();
 	m_ButtonInfoSign.SetFocus();
 }
 
@@ -591,6 +596,17 @@ void CDlgSignatureDemo::OnOK()
 		remove(outfile);
 		m_sFileNameNew.Format(IDS_RSA_SIGNATURE_OF, m_Cert->GetHashAlg(), m_sFileName);
 		NewDoc->SetTitle(m_sFileNameNew);
+
+		CString Text;
+		CString Msg;
+		Msg.LoadString(IDS_CONGRATULATIONS);
+		Text.Format(IDS_RSASGN_DOCNAME, m_sFileName);
+		Msg += Text;		
+		Text.Format(m_bPSEIsExtern? IDS_RSASGN_PSE_IMP: IDS_RSASGN_PSE, m_Cert->CreateUserKeyID());
+		Msg += Text;
+		Text.Format(IDS_RSASGN_ALG, m_Cert->GetHashAlg());
+		Msg += Text;
+		AfxMessageBox(Msg, MB_OK | MB_ICONINFORMATION);
 	}	
 	CDialog::OnOK();
 }

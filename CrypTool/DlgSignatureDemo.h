@@ -35,13 +35,13 @@ protected:
 	OctetString 	m_osHash;
 	OctetString		m_osHashDER;
 	OctetString		m_osHashEnc;
-	OctetString		m_SignText;
+	OctetString		m_SignText;		// OctetString
 
 	// Zeiger	
-	OctetString*    m_Message;
-	CPSEDemo*		m_Cert;
-	CAppDocument*	m_NewDoc;
-	CWnd*			m_hFocus;
+	OctetString*    m_Message;		// Zeiger auf OctetString
+	CPSEDemo*		m_Cert;			// Zeiger auf CPSEDemo
+	CAppDocument*	m_NewDoc;		// Zeiger auf CAppDocument
+	CWnd*			m_hFocus;		// Zeiger auf CWnd
 
 	// Buttons
 	CBitmapButton m_ButtonSelectDoc;

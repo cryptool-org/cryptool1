@@ -2297,7 +2297,7 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,7,248,60,14
     DEFPUSHBUTTON   "Zertifikat / Schlüssel importieren",ID_PSE_IMPORT,97,
                     248,112,14
-    DEFPUSHBUTTON   "Zertifkat und PSE Erzeugen",IDOK,244,248,103,14
+    DEFPUSHBUTTON   "Zertifkat und PSE erzeugen",IDOK,244,248,103,14
 END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 123, 119
@@ -2358,11 +2358,12 @@ BEGIN
                     25,29,64,8
     CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     25,42,64,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,55,64,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,25,68,64,
-                    8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,25,
-                    81,64,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,55,64,8
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,68,64,8
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,81,64,8
     GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,93
 END
 
@@ -5412,6 +5413,11 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_ACCESS_PSE          "Schlüssel und Zertifkat Importieren"
     IDS_IMPORT              "Importieren"
+    IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
+    IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
+    IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
+    IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -7502,13 +7508,16 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,74,97,50,14
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     25,15,82,10
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,27,64,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,25,38,64,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,25,52,64,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,25,62,64,
-                    8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,25,
-                    76,64,8
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,27,64,8
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,38,64,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,52,64,8
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,62,64,8
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,76,64,8
     GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
 END
 
@@ -10196,6 +10205,11 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_ACCESS_PSE          "Import key and certificate"
     IDS_IMPORT              "Import"
+    IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
+    IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
+    IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
+    IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
 END
 
 #endif    // Englisch (GB) resources

@@ -18,6 +18,7 @@ public:
 
 	bool    m_deactivateMD4;
 	int		m_selectedHashFunction;
+	CString m_sHashAlg;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgSelectHashFunction)
 	enum { IDD = IDD_SELECT_HASHFUNCTION };
@@ -25,6 +26,9 @@ public:
 	int		m_selectedHashFunctionMD2;
 	int		m_selectedHashFunctionMD4;
 	int		m_selectedHashFunctionMD5;
+	int		m_selectedHashFunctionSHA;
+	int		m_selectedHashFunctionSHA_1;
+	int		m_selectedHashFunctionRIPEMD_160;
 	//}}AFX_DATA
 
 
@@ -47,6 +51,7 @@ protected:
 	afx_msg void OnSelectSHA();
 	afx_msg void OnSelectedSHA_1();
 	afx_msg void OnSelectedRIPEMD_160();
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -1221,6 +1221,11 @@
 #define IDS_CANCEL                      37887
 #define IDS_ACCESS_PSE                  37888
 #define IDS_IMPORT                      37889
+#define IDS_CONGRATULATIONS             37890
+#define IDS_RSASGN_DOCNAME              37891
+#define IDS_RSASGN_PSE                  37892
+#define IDS_RSASGN_PSE_IMP              37893
+#define IDS_RSASGN_ALG                  37894
 
 // Next default values for new objects
 // 
