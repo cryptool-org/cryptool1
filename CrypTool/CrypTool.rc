@@ -2717,7 +2717,6 @@ IDD_SIGNATURE_ATTACK DIALOG DISCARDABLE  0, 0, 328, 319
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Angriff auf die digitale Signatur basierend auf dem Geburtstagsparadoxon"
-MENU IDR_MAINFRAME
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Dokumentenpaar suchen",IDC_COMPUTE,28,280,108,17
@@ -6149,6 +6148,24 @@ BEGIN
                             "Es läuft Run Nr. %d.\nDie Suche nach einem Zyklus in diesem Run ist zu %d %%%% abgeschlossen."
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
                             "Die ""gefährliche"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
+    IDS_STRING_SIG_ATT_UNKNOWN_ERROR 
+                            "Ein unbekannter Fehler ist aufgetreten !"
+    IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
+                            "Es trat ein Fehler beim Anwenden der Hash-Funktion auf !"
+    IDS_STRING_SIG_ATT_BAD_MODIFIABILITY 
+                            "Mindestens ein Dokument enthält weniger modifizierbare Stellen, als signifikante bits in den Optionen eingestellt wurden."
+    IDS_STRING_SIG_ATT_FLOYD_CANCELED 
+                            "Die Dokumentenpaarsuche wurde abgebrochen."
+    IDS_STRING_SIG_ATT_FLOYD_RUNNING "Ein Dokumentenpaar wird gesucht ..."
+    IDS_STRING_SIG_ATT_TOO_LITTLE_MODIFICATIONS 
+                            "Die signifikante Bitlänge darf nicht größer sein als die maximale Anzahl der Modifikationen."
+    IDS_STRING_SIG_ATT_TOO_MANY_MODIFICATIONS 
+                            "Die maximale Anzahl der Modifikationen ist größer als die eingestellte Bitlänge.\nAlle überschüssigen Modifikationsstellen werden im weiteren Verlauf ignoriert."
+    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Wertebereich: 1 - %d)"
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliches Dokument: "
+    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmloses Dokument: "
+    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
+                            "Es läuft Run Nr. %d.\nDie Suche nach dem Beginn des in diesem Run gefundenen Zyklus ist zu %d %%%% abgeschlossen."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6347,30 +6364,6 @@ BEGIN
                             "Bitte achten Sie darauf, dass das gewählte Geheimnis kleiner als der Primzahlmodul p ist, dennoch aber größer als Eins (1 < g < p)."
     IDS_DH_RESULT_MESSAGE   "Das gemeinsam ausgehandelte Geheimnis, das jede Partei (Alice und Bob) für sich selbst berechnet hat, erscheint nun im Textfeld 'Session Key'."
 END
-
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_STRING_SIG_ATT_UNKNOWN_ERROR 
-                            "Ein unbekannter Fehler ist aufgetreten !"
-    IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
-                            "Es trat ein Fehler beim Anwenden der Hash-Funktion auf !"
-    IDS_STRING_SIG_ATT_BAD_MODIFIABILITY 
-                            "Mindestens ein Dokument enthält weniger modifizierbare Stellen, als signifikante bits in den Optionen eingestellt wurden."
-    IDS_STRING_SIG_ATT_FLOYD_CANCELED 
-                            "Die Dokumentenpaarsuche wurde abgebrochen."
-    IDS_STRING_SIG_ATT_FLOYD_RUNNING "Ein Dokumentenpaar wird gesucht ..."
-    IDS_STRING_SIG_ATT_TOO_LITTLE_MODIFICATIONS 
-                            "Die signifikante Bitlänge darf nicht größer sein als die maximale Anzahl der Modifikationen."
-    IDS_STRING_SIG_ATT_TOO_MANY_MODIFICATIONS 
-                            "Die maximale Anzahl der Modifikationen ist größer als die eingestellte Bitlänge.\nAlle überschüssigen Modifikationsstellen werden im weiteren Verlauf ignoriert."
-    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Wertebereich: 1 - %d)"
-    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliches Dokument: "
-    IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmloses Dokument: "
-    IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Es läuft Run Nr. %d.\nDie Suche nach dem Beginn des in diesem Run gefundenen Zyklus ist zu %d %%%% abgeschlossen."
-END
-
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
