@@ -419,7 +419,7 @@ CAPTION "Help for AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,232,50,14
-    LTEXT           "AES-Tool is an encryption program that can be used to encrypt data files using the symmetric Rijndael algorithm (= AES)",
+    LTEXT           "AES-Tool is an encryption program that can be used to encrypt data files using the symmetric Rijndael algorithm (= AES).",
                     IDC_STATIC,12,9,446,10
     LTEXT           "The program can be invoked in three ways:",IDC_STATIC,
                     12,21,446,11
@@ -427,15 +427,15 @@ BEGIN
     LTEXT           "Key:",IDC_STATIC,24,52,38,18
     LTEXT           "Input file:",IDC_STATIC,24,70,38,19
     LTEXT           "Output file:",IDC_STATIC,24,89,38,19
-    LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 digits. The recommended minimum key length is 20 digits",
+    LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 digits. The recommended minimum key length is 20 digits.",
                     IDC_STATIC,62,52,396,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. ",
                     IDC_STATIC,62,70,396,19
-    LTEXT           "The output file for the encrypted or decrypted data can be determined after pressing the ""encrypt"" or ""decrypt"" button, resp. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
+    LTEXT           "The output file for the encrypted or decrypted data can be determined after pressing the ""Encrypt"" or ""Decrypt"" button, resp. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
                     IDC_STATIC,62,89,396,19
     LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
                     IDC_STATIC,69,108,389,19
-    LTEXT           "An 'encrypted file' contains the data only. This program is required for decryption.",
+    LTEXT           "An 'encrypted file' contains the data only. Then this program is required for decryption.",
                     IDC_STATIC,69,127,389,11
     LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",
                     IDC_STATIC,24,138,425,8
@@ -443,7 +443,7 @@ BEGIN
                     159,396,10
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
                     IDC_STATIC,62,169,396,10
-    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file here is being preset by the self extracting archive.",
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",
                     IDC_STATIC,24,210,434,15
     LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialogue box.",
                     IDC_STATIC,24,33,434,9
@@ -452,7 +452,7 @@ BEGIN
     LTEXT           "3.",IDC_STATIC,12,210,12,11
     RTEXT           "-",IDC_STATIC,56,108,8,19
     RTEXT           "-",IDC_STATIC,56,127,8,11
-    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts or encrypts accordingly.\nThe output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.\nThe output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
                     IDC_STATIC,24,180,434,16
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
                     IDC_STATIC,24,146,426,8
@@ -756,8 +756,8 @@ BEGIN
     IDS_STRING_DECRYPT      "Decrypt a file"
     IDS_STRING_ENCRYPT      "Encrypt a file"
     IDS_STRING_DECERROR     "File decryption error: %s"
-    IDS_STRING_ENCOK        "The file encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "The file decrypted file %s has been successfully created."
+    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
     IDS_STRING_VERSCHLUESSELN "Encrypt"
     IDS_STRING_ENTSCHLUESSELN "Decrypt"
     IDS_STRING_FILEERROR    "Error opening %s: %s\n"
