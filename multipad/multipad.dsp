@@ -225,6 +225,10 @@ SOURCE=.\res\95check.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\aasb.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\About.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -693,6 +697,14 @@ SOURCE=.\DlgAsymKeys.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgCertTutorial.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCertTutorial.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgEcKeysCreat.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -796,6 +808,14 @@ SOURCE=.\DlgRuntime.cpp
 # Begin Source File
 
 SOURCE=.\DlgRuntime.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSelHash.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSelHash.h
 # End Source File
 # Begin Source File
 
@@ -1651,6 +1671,14 @@ SOURCE=.\res\trcknwse.cur
 # Begin Source File
 
 SOURCE=.\res\trckwe.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\TutorialCert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TutorialCert.h
 # End Source File
 # Begin Source File
 

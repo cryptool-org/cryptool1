@@ -1786,47 +1786,50 @@ BEGIN
                     WS_BORDER | WS_TABSTOP,24,265,318,16
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 262
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 292, 300
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,233,50,18
+    DEFPUSHBUTTON   "&OK",IDOK,7,274,50,18
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,19,65,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,18,65,10
     CONTROL         "Alphabet vorgeben:",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,22,32,77,8
-    EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
+                    BS_AUTORADIOBUTTON,18,31,77,8
+    EDITTEXT        IDC_EDIT1,28,46,248,14,ES_AUTOHSCROLL
     CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,23,89,51,8
+                    WS_GROUP,18,89,51,8
     CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,100,89,87,8
+                    BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-adisch",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,100,128,43,8
+                    WS_GROUP,89,128,43,8
     CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
-                    148,128,69,8
-    EDITTEXT        IDC_EDIT2,100,145,19,13,ES_AUTOHSCROLL
+                    153,128,69,8
+    EDITTEXT        IDC_EDIT2,101,190,19,13,ES_AUTOHSCROLL
     CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,208,39,10
-    CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,208,
+                    WS_GROUP,18,249,39,10
+    CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,89,249,
                     32,10
-    CONTROL         "&Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,208,
+    CONTROL         "&Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,153,249,
                     33,10
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
-                    200,208,56,10
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,214,233,50,18
-    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,257,65
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
-    GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,257,31
-    GROUPBOX        "Verfahren und Blocklänge bei der Kodierung der Nachricht in Zahlen ",
-                    IDC_STATIC,7,113,257,53
-    LTEXT           "Methode:",IDC_STATIC,23,128,51,8
-    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,23,147,74,8
-    EDITTEXT        IDC_EDIT3,127,147,116,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    218,250,56,10
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,274,50,18
+    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,277,65
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,101,31,175,11
+    GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,277,31
+    GROUPBOX        "Verfahren bei der Kodierung der Nachricht in Zahlen ",
+                    IDC_STATIC,7,113,277,30
+    LTEXT           "Methode:",IDC_STATIC,18,128,51,8
+    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,18,192,74,8
+    EDITTEXT        IDC_EDIT3,127,192,149,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,172,257,53
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,213,277,53
     LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt.",
-                    IDC_STATIC,19,185,233,18
+                    IDC_STATIC,19,226,233,18
+    GROUPBOX        "Blocklänge",IDC_STATIC,7,149,277,59
+    LTEXT           "Die Anzahl der Zeichen, die pro RSA-Operation verschlüsselt werden.\r\nDie maximale Anzahl ist abhängig von der Bitlänge des RSA Moduls N, der Anzahl der Zeichen im Alphabet und der Kodierungsmethode der Nachricht.",
+                    IDC_STATIC,18,161,258,29
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -2333,7 +2336,7 @@ BEGIN
     BEGIN
         MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "RSA Demo"
+        POPUP "RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2465,7 +2468,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Demo"
+        POPUP "&RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2638,7 +2641,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Demo"
+        POPUP "&RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2767,7 +2770,7 @@ BEGIN
     BEGIN
         MENUITEM "&Schlüssel generieren...",    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "&RSA Demo"
+        POPUP "&RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2899,7 +2902,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Demo"
+        POPUP "&RSA-Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -3654,8 +3657,13 @@ BEGIN
 
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
-        VERTGUIDE, 23
-        VERTGUIDE, 100
+        VERTGUIDE, 7
+        VERTGUIDE, 18
+        VERTGUIDE, 89
+        VERTGUIDE, 101
+        VERTGUIDE, 153
+        VERTGUIDE, 276
+        VERTGUIDE, 284
         HORZGUIDE, 136
     END
 
@@ -4845,9 +4853,6 @@ BEGIN
                             "G hat die prime Ordnung r und den Kofaktor k (r*k sind die Anzahl der Punkte auf E):"
     IDS_STRING_EC_SEPERATOR " "
     IDS_STRING_PERMUTATION  "Permutation"
-    IDS_PARAM_PERMUTATION   "Paramater PERMUTATION"
-    IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
-    IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4955,9 +4960,9 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Teilstring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i heraufgesetzt !"
+                            "Die Anzahl der Homophone wird auf %i gesetzt !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
-                            "Die Gesamtzahl der Homophone ist eingeschränkt auf das Intervall [256 ... 4096].\nDeshalb wird die Anzahl der Homophone wird auf %i herabgesetzt !"
+                            "Die Anzahl der Homophone wird auf %i herabgesetzt !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
@@ -4968,6 +4973,8 @@ BEGIN
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müßen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
+    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Aphabet (hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größeren Primzahlen."
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Benötigte Zeit:   %.3f Sekunden"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED 
@@ -5004,7 +5011,7 @@ BEGIN
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
                             "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder Verschlüsseln sie die Eingabe als Text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
-                            "Die Eingabe enthält buchstaben, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen Verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
+                            "Die Eingabe enthält Buchstaben, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
     IDS_STRING_HELPNAME     "cryptool-de.hlp"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "Bei der Playfairverschlüsselung mit Vorforamtierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren"
@@ -5321,7 +5328,7 @@ BEGIN
     LTEXT           "First name:",IDC_STATIC,240,66,50,8
     LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,90,64,20
     LTEXT           "PIN code:",IDC_STATIC,240,112,50,8
-    LTEXT           "PIN confirmation:",IDC_STATIC,240,131,54,8
+    LTEXT           "PIN confirmation:",IDC_STATIC,240,131,50,8
     EDITTEXT        IDC_EDIT6,10,153,380,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,
@@ -6781,47 +6788,50 @@ BEGIN
     LTEXT           "Modulus  N =",IDC_STATIC,49,72,44,8
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 268
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 291, 298
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Options for RSA Encryption"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,238,50,17
+    DEFPUSHBUTTON   "&OK",IDOK,7,274,50,18
     CONTROL         "All 256 &ASCII characters",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,22,19,120,10
-    CONTROL         "S&pecify alphabet",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,22,32,77,8
-    EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,18,92,10
+    CONTROL         "S&pecify alphabet:",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,18,31,77,8
+    EDITTEXT        IDC_EDIT1,28,46,248,14,ES_AUTOHSCROLL
     CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,22,93,89,8
+                    WS_GROUP,18,89,51,8
     CONTROL         "Dialouge of &sisters",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,111,93,87,8
-    CONTROL         "b ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,110,134,43,8
+                    BS_AUTORADIOBUTTON,89,89,87,8
+    CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,89,128,43,8
     CONTROL         "N&umber system",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
-                    159,134,69,8
-    EDITTEXT        IDC_EDIT2,111,148,17,13,ES_AUTOHSCROLL
+                    153,128,69,8
+    EDITTEXT        IDC_EDIT2,109,190,19,13,ES_AUTOHSCROLL
     CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,211,39,10
-    CONTROL         "&Binary",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,211,
-                    32,10
-    CONTROL         "&Octal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,211,
+                    WS_GROUP,18,249,39,10
+    CONTROL         "&Binary",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,89,249,
+                    35,10
+    CONTROL         "&Octal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,153,249,
                     33,10
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
-                    200,211,56,10
-    PUSHBUTTON      "&Cancel",IDCANCEL,214,238,50,17
-    GROUPBOX        "Text options ",IDC_STATIC,7,5,257,65
-    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,130,31,127,11
-    GROUPBOX        "RSA variant ",IDC_STATIC,7,77,257,34
-    GROUPBOX        "Method and block length for the coding of text into numbers ",
-                    IDC_STATIC,7,117,257,51
-    LTEXT           "Method:",IDC_STATIC,24,134,27,10
-    LTEXT           "Block length in characters:",IDC_STATIC,24,150,86,8
-    EDITTEXT        IDC_EDIT3,135,150,121,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    218,250,57,10
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,274,50,18
+    GROUPBOX        "Text options",IDC_STATIC,7,5,277,65
+    LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,101,31,175,11
+    GROUPBOX        "RSA variant",IDC_STATIC,7,76,277,31
+    GROUPBOX        "Method for the coding of text into numbers",IDC_STATIC,
+                    7,113,277,30
+    LTEXT           "&Method:",IDC_STATIC,18,128,51,8
+    LTEXT           "Blocklength in characters:",IDC_STATIC,18,192,83,8
+    EDITTEXT        IDC_EDIT3,135,192,141,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    GROUPBOX        "Number system ",IDC_STATIC,7,175,257,53
+    GROUPBOX        "Number system",IDC_STATIC,7,213,277,53
     LTEXT           "The numbers for RSA encryption and decryption will be represented in the following number system",
-                    IDC_STATIC,16,188,237,18
+                    IDC_STATIC,19,226,233,18
+    GROUPBOX        "Block length",IDC_STATIC,7,149,277,59
+    LTEXT           "The number of characters that are encrypted with each RSA operation.\r\nThe maximum size is subject to the length of the RSA modul N in bit, the number of characters in the alphabet and the method used for the coding.",
+                    IDC_STATIC,18,161,258,29
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -7553,7 +7563,7 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
-        POPUP "&Quality for Random data"
+        POPUP "&Quality for random data"
         BEGIN
             MENUITEM "&Frequency test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
@@ -8151,6 +8161,7 @@ BEGIN
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
         VERTGUIDE, 110
+        VERTGUIDE, 276
         HORZGUIDE, 142
     END
 
@@ -9216,9 +9227,6 @@ BEGIN
                             "G has the prime order r and the cofactor k (r*k is the number of points on E):"
     IDS_STRING_EC_SEPERATOR " "
     IDS_STRING_PERMUTATION  "Permutation"
-    IDS_PARAM_PERMUTATION   "Paramater PERMUTATION"
-    IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
-    IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -9325,19 +9333,21 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_SUBSTR "Substring"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
-                            "The absolut number of homophones is restricted within the interval [256 ... 4096].\nFor that, number of homophones will be increased to %i !"
+                            "The number of homophones will be increased to %i !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
-                            "The absolut number of homophones is restricted within the interval [256 ... 4096].\nFor that, the number of homophones will be decreased to %i !"
+                            "The number of homophones will be decreased to %i !"
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "The number of characters in the alphabet (here %i letters) must be smaller than the RSA-Modul (here N= %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The number of characters in the alphabet (here %i letters) must be smaller than the RSA Modul (here N= %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul (here N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
     IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
+    IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
+                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Time required:   %.3f seconds"
     IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
