@@ -91,16 +91,18 @@ void CDlgSignatureAttack::OnBrowseFake()
 
 void CDlgSignatureAttack::OnCompute() 
 {
+
+#ifndef _SIG_ATT_TEST_MODE
+
 	CAppDocument *NewHarmlessDocument, *NewDangerousDocument;
 	char *hashasci, hashhex [128], outfile[1024], doctitle[1024];
 	CString crypT, msg;
-	CWinThread *CWThread;
 	int Errorcode, ii, SignificantBitLength, strlen = 0;
-	MSG FloydMessage;
 	ofstream ModifiedHarmlessFile, ModifiedDangerousFile;
-	UINT MessageID;
 
 	crypT.Format(IDS_STRING_SIG_ATT_CRYPTOOL);
+
+#endif
 
 #ifdef _SIG_ATT_TEST_MODE
 
@@ -319,6 +321,10 @@ void CDlgSignatureAttack::OnCompute()
 	}
 
 #ifndef _SIG_ATT_NO_MULTITHREAD
+
+	CWinThread *CWThread;
+	MSG FloydMessage;
+	UINT MessageID;
 
 	MessageID = RegisterWindowMessage("Floyd_Terminated");
 

@@ -2876,6 +2876,37 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
 END
 
+IDD_SIGATT_MODDEMO DIALOG DISCARDABLE  0, 0, 333, 314
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nachrichtenmodifikation anhand eines Hashwerts"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Modifikation berechnen",IDOK,71,274,91,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,215,274,50,14
+    EDITTEXT        IDC_EDIT1,85,26,40,14,ES_AUTOHSCROLL
+    LTEXT           "Nachricht",IDC_STATIC,27,29,32,8
+    EDITTEXT        IDC_EDIT2,62,60,40,14,ES_AUTOHSCROLL
+    LTEXT           "Hashwert",IDC_STATIC,15,64,31,8
+    EDITTEXT        IDC_EDIT3,65,88,40,14,ES_AUTOHSCROLL
+    LTEXT           "SigBit",IDC_STATIC,28,90,19,8
+    CONTROL         "&Leerzeichen einfügen",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON,26,128,84,10
+    CONTROL         "&Zeichen anhängen",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,27,175,76,10
+    CONTROL         "Check1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,141,128,41,10
+    CONTROL         "Check2",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,139,146,41,10
+    CONTROL         "Radio3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,133,178,
+                    39,10
+    CONTROL         "Radio4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,131,192,
+                    39,10
+    GROUPBOX        "Static",IDC_STATIC,7,120,267,107
+    GROUPBOX        "Static",IDC_STATIC,7,19,284,25
+    GROUPBOX        "Static",IDC_STATIC,7,51,274,58
+    PUSHBUTTON      "&Suche ...",IDC_BUTTON1,211,26,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3441,6 +3472,7 @@ BEGIN
         MENUITEM "&Angriff auf die digitale Signatur...", ID_SIGNATUR_ATTACK
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
+        MENUITEM "&Nachrichtenmodifikation",    ID_SIGATT_MODDEMO
     END
     POPUP "&Optionen"
     BEGIN
@@ -4803,6 +4835,14 @@ BEGIN
         VERTGUIDE, 20
         TOPMARGIN, 7
         BOTTOMMARGIN, 72
+    END
+
+    IDD_SIGATT_MODDEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 307
     END
 END
 #endif    // APSTUDIO_INVOKED

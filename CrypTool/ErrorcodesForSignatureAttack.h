@@ -4,15 +4,18 @@
 #define _MAX_HASH_BIT_LENGTH	160
 #define _MAX_HASH_BYTE_LENGTH	((_MAX_HASH_BIT_LENGTH - 1) / 8 + 1)
 
+
+#define _SIG_ATT_TEST_MODE
+// wenn dieses #define einkommentiert ist, wird eine Testreihe mit dem Floyd-Algorithmus durchlaufen
+
+#ifndef _SIG_ATT_TEST_MODE
+//#define _SIG_ATT_NO_MULTITHREAD
+// wenn dieses #define einkommentiert ist, erscheint während der Dokumentenpaarsuche keine Fortschrittsanzeige
+#endif
+
 //#define _SIG_ATT_SPEED_INCREMENT
 // wenn dieses #define einkommentiert ist, erhöht sich die Geschwindigkeit des Floyd-Algorithmus
 // u.a. Prämodifizierung
-
-//#define _SIG_ATT_TEST_MODE
-// wenn dieses #define einkommentiert ist, wird eine Testreihe mit dem Floyd-Algorithmus durchlaufen
-
-//#define _SIG_ATT_NO_MULTITHREAD
-// wenn dieses #define einkommentiert ist, erscheint während der Dokumentenpaarsuche keine Fortschrittsanzeige
 
 //#define _SIG_ATT_HASH_ONLY
 // wenn dieses #define einkommentiert ist, wird nur gehasht, nicht modifiziert

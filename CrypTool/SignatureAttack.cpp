@@ -145,28 +145,28 @@ bool SignatureAttack::CollisionConfirmation(char *HashValue_single_step, char *H
 				{
 					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_confirm_step[ii]);
 				}
-				HashStore[jj - 1] = 0;
+				HashStore[jj] = 0;
 				fprintf(m_TestFile,	"\nHashSuccess1=%s", HashStore);
 
 				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
 				{
 					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_single_step[ii]);
 				}
-				HashStore[jj - 1] = 0;
+				HashStore[jj] = 0;
 				fprintf(m_TestFile,	"\nHashSuccess2=%s", HashStore);
 
 				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
 				{
 					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success1[ii]);
 				}
-				HashStore[jj - 1] = 0;
+				HashStore[jj] = 0;
 				fprintf(m_TestFile,	"\nHashPreSuccess1=%s", HashStore);
 
 				for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
 				{
 					jj += _snprintf(HashStore + jj, 2, "%2.2X", (unsigned char) HashValue_pre_success2[ii]);
 				}
-				HashStore[jj - 1] = 0;
+				HashStore[jj] = 0;
 				fprintf(m_TestFile,	"\nHashPreSuccess2=%s", HashStore);
 
 				delete []HashStore;
@@ -207,10 +207,10 @@ UINT SignatureAttack::Do_Floyd()
 {
 	Big RandomMax = "256", RandomResult = "0";
 	bool DocumentsFound = false;
-	char *HashValue_single_step, *HashValue_double_step, *HashValue_init, *HashValue_confirm_step, *Random;
+	char *HashValue_single_step, *HashValue_double_step, *HashValue_init, *HashValue_confirm_step;
 	clock_t time_start, time_finish;
-	int HashValueParity_single_step, HashValueParity_double_step, firstrand;
-	__int64 ii, jj, MAX_StepsPerRun;
+	int HashValueParity_single_step, HashValueParity_double_step;
+	__int64 ii, MAX_StepsPerRun;
 	
 	StartShowProgress();
 	int HashAlgorithmByteLength = 1 + (m_OptSigAtt->GetHashOp()->GetHashAlgorithmBitLength() - 1) / 8;
@@ -221,7 +221,7 @@ UINT SignatureAttack::Do_Floyd()
 	HashValue_confirm_step = new char[HashAlgorithmByteLength];
 	// für die 4 Hashwerte werden jeweils - in Abhängigkeit vom Hash-Algorithmus - 16 oder 20 Bytes Speicher reserviert
 
-	HashValueParity_single_step = HashValueParity_double_step = 0;	// -> Floyd-Algorithmus beginnt mit Original-Dokument
+	HashValueParity_single_step = HashValueParity_double_step = 0;	// -> Floyd-Algorithmus beginnt mit harmlosem Dokument
 	MAX_StepsPerRun = (m_ResSigAtt->GetExpectedSteps() * m_OptSigAtt->GetSignificantBitLength());
 	
 #ifdef _SIG_ATT_TEST_MODE
@@ -240,7 +240,7 @@ UINT SignatureAttack::Do_Floyd()
 	char *buf = m_OptSigAtt->GetHarmlessDocument()->GetOriginalDocument()->GetDocumentData();
 	int len = m_OptSigAtt->GetHarmlessDocument()->GetOriginalDocument()->GetDocumentLength();
 	HashingOperations *hop = m_OptSigAtt->GetHashOp();
-	for(ii=0; ii<_SA_HOPS; ii++)
+	for(ii = 0; ii < _SA_HOPS; ii ++)
 	{   
 		hop->DoHash(buf, len, HashValue_single_step);
 		m_ResSigAtt->IncreaseHashOperationsPerformed();
@@ -275,32 +275,7 @@ UINT SignatureAttack::Do_Floyd()
 			assert (i_Rand >= 0 && i_Rand <= 255);
 			HashValue_init[ii] = i_Rand;
 		}
-		// 11 C5 64 19 EF FF 3E FF AC 71 11 9C AD 6F B4 F0 05 74 F4 D5 //
-/*
-		HashValue_init[0] = 0x12;
-		HashValue_init[1] = 0x00;
-		HashValue_init[2] = 0x64;
-		HashValue_init[3] = 0x19;
-		HashValue_init[4] = 0xEF;
 
-		HashValue_init[5] = 0xFF;
-		HashValue_init[6] = 0x3E;
-		HashValue_init[7] = 0xFF;
-		HashValue_init[8] = 0xAC;
-		HashValue_init[9] = 0x71;
-
-		HashValue_init[10] = 0x11;
-		HashValue_init[11] = 0x9C;
-		HashValue_init[12] = 0xAD;
-		HashValue_init[13] = 0x6F;
-		HashValue_init[14] = 0xB4;
-
-		HashValue_init[15] = 0xF0;
-		HashValue_init[16] = 0x05;
-		HashValue_init[17] = 0x74;
-		HashValue_init[18] = 0xF4;
-		HashValue_init[19] = 0xD5;
-*/
 		memcpy(HashValue_single_step, HashValue_init, HashAlgorithmByteLength);
 		memcpy(HashValue_double_step, HashValue_init, HashAlgorithmByteLength);
 		
@@ -338,6 +313,8 @@ UINT SignatureAttack::Do_Floyd()
 		}
 
 #ifdef _SIG_ATT_TEST_MODE
+
+		__int64 jj;
 	
 		char *HashStore = new char[HashAlgorithmByteLength * 2 + 1];
 		for (jj = ii = 0; ii < HashAlgorithmByteLength; ii ++)
