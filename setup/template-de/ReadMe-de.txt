@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, August 2003
+    CrypTool, Version 1.3.05, August 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
     Bernhard Esslinger
@@ -25,7 +25,7 @@
  3.2. .... Betrieb in Mehrbenutzersystemen
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Neuerungen in CrypTool bis 1.3.04
+ 5. .... Neuerungen in CrypTool bis 1.3.05
  5.1. .... Änderungen von Version 1.2.02 zu Version 1.3.00
  5.1.1. .... Klassische Verfahren
  5.1.2. .... Symmetrische Verfahren
@@ -33,8 +33,8 @@
  5.1.4. .... Formatierung / Anzeige / Navigation
  5.1.5. .... Hilfe / PDF-Skript
  5.1.6. .... Sonstiges
- 5.2. .... Änderungen von Version 1.3.00 zu Version 1.3.04
- 5.3. .... Geplante Änderungen nach Version 1.3.04
+ 5.2. .... Änderungen von Version 1.3.00 zu Version 1.3.05
+ 5.3. .... Geplante Änderungen nach Version 1.3.05
  6. .... Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
  6.1. .... Analyse
  6.2. .... Algorithmen / Verfahren
@@ -233,7 +233,7 @@ Wie geplant hat CrypTool ein akademisches Zuhause erhalten, wo
 es in Zukunft als Open Source weitergepflegt wird.
 
 Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank AG,
-Secude GmbH und FZI Karlsruhe. 1.3.04 ist voraussichtlich die letzte
+Secude GmbH und FZI Karlsruhe. 1.3.05 ist voraussichtlich die letzte
 Version, die die Deutsche Bank als Maintainer herausbringt.
 
 Ab Oktober 2002 hat der Lehrstuhl Sicherheit in der Informations-
@@ -456,8 +456,8 @@ Explizit nötig sind Schreibrechte auf:
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
 zwei verschiedenen Sprachversionen verteilt:
 
-SetupCrypTool_1-3-04_en.exe    Englische Sprachversion.
-SetupCrypTool_1-3-04_de.exe    Deutsche Sprachversion.
+SetupCrypTool_1_3_05_en.exe    Englische Sprachversion.
+SetupCrypTool_1_3_05_de.exe    Deutsche Sprachversion.
 
 Diese Archive enthalten die folgenden Dateien:
 
@@ -485,8 +485,8 @@ script-de.pdf..... Ein Skript (deutsch) über Kryptographie,
                    Primzahlen, elementare Zahlentheorie und die 
                    Mathematik hinter einigen Algorithmen.
 script-en.pdf..... Die englische Fassung von script-de.pdf.
-CrypToolPresentation_1_3_04_de.pdf... Folien-Präsentation
-CrypToolPresentation_1_3_04_en.pdf... Englische Fassung der Präs.
+CrypToolPresentation_1_3_05_de.pdf... Folien-Präsentation
+CrypToolPresentation_1_3_05_en.pdf... Englische Fassung der Präs.
 DialogSchwestern.pdf.. Fantasy-Geschichte von Dr. Elsner, in der
                        eine Variante des RSA-Kryptosystems
                        beschrieben wird.
@@ -609,7 +609,7 @@ sind, dass Ihr Rechner unberührt ist.
 
 
 
-5. Neuerungen in CrypTool bis 1.3.04
+5. Neuerungen in CrypTool bis 1.3.05
    ---------------------------------
  
 5.1. Änderungen von Version 1.2.02 zu Version 1.3.00
@@ -701,7 +701,7 @@ CrypTool 1.3.00 seit CrypTool 1.202 (Dez. 2000) hinzugefügt wurden:
   - zusätzliche Infos: Präsentation auf deutsch und englisch.
 
 
-5.2. Änderungen von Version 1.3.00 zu Version 1.3.04
+5.2. Änderungen von Version 1.3.00 zu Version 1.3.05
      -----------------------------------------------
 Zu folgenden Themen gab es Verbesserungen/Erweiterungen:
 
@@ -813,8 +813,8 @@ Funktionalität:
   Bei bewusst abgespeicherten Dokumenten wird dann der Dateiname
   im Fenstertitel angezeigt (anstatt der Beschreibung).
 
-Ganz neu in 1.3.04 sind:
-------------------------
+Neu in 1.3.04 sind:
+-------------------
 + Das Menü zu CrypTool im Windows Start\Programme-Menü enthält
   nun auch einen Verweis auf die Readme-Datei.
 + In den Visualisierungsdialogen wurde der Hintergrund anders
@@ -831,7 +831,7 @@ Ganz neu in 1.3.04 sind:
 + Visualisierung des Diffie-Hellman Schlüsselaustausch-Verfahrens.
 
 
-5.3. Geplante Änderungen nach Version 1.3.04
+5.3. Geplante Änderungen nach Version 1.3.05
      ---------------------------------------
 Funktionalität:
 + Eine hoch performante Mustersuche, um entweder mehrfach vorkommende
@@ -1151,16 +1151,17 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Aug. 2003	8,6 MB		8,1 MB		DB
+1.3.04    Juli 2003	8,6 MB		8,1 MB		DB
+1.3.05    Aug. 2003	8,6 MB		8,1 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
-1.3.02    Viele neue Funktionen gegenüber 1.3.00
+1.3.02    Viele neue Funktionen gegenüber 1.3.00.
 1.3.03    Viele kleine Bugfixes und Verbesserungen der Dokumentation.
 1.3.04    Etliche neue Funktionalität (siehe Kapitel 5.2), einige
           kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
           und umfangreiche Verbesserung und Erweiterung der 
           Dokumentation (Online-Hilfe, Skript).
-
+1.3.05    Kleine Bugfixes.
 
 
 8. Feedback bei Fehlern

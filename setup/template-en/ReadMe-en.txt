@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, August 2003
+    CrypTool, Version 1.3.05, August 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
     (c) University of Siegen and Darmstadt
     Bernhard Esslinger
@@ -25,7 +25,7 @@
  3.2. .... Operating under multi-user operating systems
  4. .... List of files
  4.1. .... Checking the integrity of downloaded files
- 5. .... What's new in CrypTool till 1.3.04
+ 5. .... What's new in CrypTool till 1.3.05
  5.1. .... Enhancements from version 1.2.02 to 1.3.00
  5.1.1. .... Classical methods
  5.1.2. .... Symmetric methods
@@ -33,8 +33,8 @@
  5.1.4. .... Formatting / display / navigation
  5.1.5. .... Help / PDF script
  5.1.6. .... Miscellaneous
- 5.2. .... Enhancements from version 1.3.00 to 1.3.04
- 5.3. .... Planned enhancements after version 1.3.04
+ 5.2. .... Enhancements from version 1.3.00 to 1.3.05
+ 5.3. .... Planned enhancements after version 1.3.05
  6. .... Possible areas for further development -- ideas, requests
  6.1. .... Analysis
  6.2. .... Algorithms / methods
@@ -231,7 +231,7 @@ CrypTool got an academic home as planned. There the further
 development as open source is co-ordinated.
 
 The current sponsors of CrypTool have been Deutsche Bank AG,
-Secude Ltd. and FZI Karlsruhe. 1.3.04 is probably the last version,
+Secude Ltd. and FZI Karlsruhe. 1.3.05 is probably the last version,
 released by Deutsche Bank as maintainer.
 
 From October 2002 the rights on CrypTool moved to the chair 
@@ -442,8 +442,8 @@ Writing access is explicitly necessary for:
 The package is distributed as compressed, self extracting archive
 in two different language versions:
 
-SetupCrypTool_1-3-04_en.exe   English language support only.
-SetupCrypTool_1-3-04_de.exe   German language support only.
+SetupCrypTool_1_3_05_en.exe   English language support only.
+SetupCrypTool_1_3_05_de.exe   German language support only.
 
 The archives contain the following files:
 
@@ -470,8 +470,8 @@ script-en.pdf..... A script on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms.
 script-de.pdf..... The German version of script-en.pdf.
-CrypToolPresentation_1_3_04_en.pdf.. Slides presentation
-CrypToolPresentation_1_3_04_de.pdf.. German version of presentation.
+CrypToolPresentation_1_3_05_en.pdf.. Slides presentation
+CrypToolPresentation_1_3_05_de.pdf.. German version of presentation.
 DialogueSisters.pdf.... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf... German version of DialogueSisters.pdf.
@@ -592,7 +592,7 @@ your computer is untouched.
 
 
 
-5. What's new in CrypTool till 1.3.04
+5. What's new in CrypTool till 1.3.05
    ----------------------------------
 
 5.1. Enhancements from version 1.2.02 to 1.3.00
@@ -683,7 +683,7 @@ been added for version 1.3.00 since CrypTool version 1.202:
   - Additional information: presentation in German and English.
 
 
-5.2. Enhancements from version 1.3.00 to 1.3.04
+5.2. Enhancements from version 1.3.00 to 1.3.05
      ------------------------------------------
 The following topics have been improved/enhanced:
 
@@ -809,7 +809,7 @@ Completely new in 1.3.04 are:
 
 
 
-5.3. Planned enhancements after version 1.3.04
+5.3. Planned enhancements after version 1.3.05
      -----------------------------------------
 Functionality:
 + A high performance pattern search to find either multiple patterns of
@@ -1111,16 +1111,17 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    Aug. 2003	8.6 MB	    8,1 MB	DB
+1.3.04    July 2003	8.6 MB	    8,1 MB	DB
+1.3.05    Aug. 2003	8.6 MB	    8,1 MB	DB
 
 Remark about the current versions:
-1.3.02    Many new functions compared to 1.3.00
+1.3.02    Many new functions compared to 1.3.00.
 1.3.03    Many minor bug fixes and documentation improvements.
 1.3.04    Some new functionality (see chap. 5.2), some minor bug
           fixes (crash in analysis of Playfair, N-gram, RSA), and
           major documentation improvements and enhancements (Online
           help, script).
-
+1.3.05    Some minor bug fixes.
 
 
 8. Feedback on errors (bugs)
