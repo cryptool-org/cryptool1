@@ -108,6 +108,7 @@
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_Certificate, SEC_PROTOTYPE_1(Certificate *, certificate))\
 	DoOneFn(AlgEnc SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_ObjId2AlgEnc, SEC_PROTOTYPE_1(ObjId *, given_objid))\
 	DoOneFn(RSAPrivateKey SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, d_RSAPrivateKey, SEC_PROTOTYPE_1(OctetString *, asn1_string))\
+	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_RSAPrivateKey, SEC_PROTOTYPE_1(RSAPrivateKey **	, privkey))\
 	DoOneFn(BitString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_KeyBits, SEC_PROTOTYPE_1(KeyBits *, kb))\
 	DoOneFn(AlgId SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_cpy_AlgId, SEC_PROTOTYPE_1(AlgId *, aid))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_KeyInfo, SEC_PROTOTYPE_1(KeyInfo *, ki))\
