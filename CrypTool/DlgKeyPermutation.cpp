@@ -122,7 +122,7 @@ void CDlgKeyPermutation::OnEncrypt()
 
 int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 {
-	int i, j, k, id[26], plen;
+	int i, j, k, id[MAX_PERM_LENGTH], plen;
 
 	if(Pin->GetLength() == 0) return 0;
 	if(isdigit((*Pin)[0])) return MakePermInt( Pin, p, pinv);
@@ -133,7 +133,7 @@ int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 		else
 			Pin->Delete(i);
 	}
-	plen = min(Pin->GetLength(), 26);
+	plen = min(Pin->GetLength(), MAX_PERM_LENGTH);
 	if(plen == 0) return 0;
 	for(i=0;i<plen;i++) id[i]=i;
 	for(i=0;i<plen;i++) {
@@ -261,7 +261,7 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 int CDlgKeyPermutation::PrintPerm(char *dest, int *perm, int len)
 {
 	int i;
-	char buffer[32];
+	char buffer[MAX_PERM_LENGTH];
 
 	if(len < 2) {
 		strcpy(dest,"( 1 )");
@@ -375,7 +375,7 @@ int CDlgKeyPermutation::MakePermInt(CString *Pin, int p[], int pinv[])
 			e = j-i;
 		k = atoi(Pin->Mid(i,e))-1;
 		i = j+1;
-		if(k>=32) { // Fehler: zu groﬂer Wert
+		if(k>=MAX_PERM_LENGTH) { // Fehler: zu groﬂer Wert
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM ,pc_str,STR_LAENGE_STRING_TABLE);
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM_NUM_2_BIG,pc_str1,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str1,pc_str,MB_ICONWARNING|MB_OK);

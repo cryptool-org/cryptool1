@@ -54,6 +54,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRandomGenerator)
 	enum { IDD = IDD_RANDOM_GENERATOR };
+	CButton	m_CtrlSecudeGenerator;
 	CHexEdit	m_seed_ctrl;
 	int		m_SelGenerator;
 	CString m_seed;
@@ -77,6 +78,7 @@ protected:
 	afx_msg void OnSelGenParam();
 	afx_msg void OnGenRandomData();
 	virtual void OnCancel();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

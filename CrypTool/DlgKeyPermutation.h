@@ -12,6 +12,8 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPermutation 
 
+// #define MAX_PERM_LENGTH <Innerhalb der Datei AscEdit.h defniert>
+
 class CDlgKeyPermutation : public CDialog
 {
 	CBitmapButton m_Paste;
@@ -21,12 +23,12 @@ public:
 	CString makeASCII( CString &line);
 	int PrintPerm(char *dest, int *perm, int len);
 	int m_Dec;
-	int MakePerm(CString *Pin, int p[26], int pinv[26]);
-	int m_P1[26];
-	int m_P1inv[26];
+	int MakePerm(CString *Pin, int p[MAX_PERM_LENGTH], int pinv[MAX_PERM_LENGTH]);
+	int m_P1[MAX_PERM_LENGTH];
+	int m_P1inv[MAX_PERM_LENGTH];
 	int m_P1len;
-	int m_P2[26];
-	int m_P2inv[26];
+	int m_P2[MAX_PERM_LENGTH];
+	int m_P2inv[MAX_PERM_LENGTH];
 	int m_P2len;
 	CDlgKeyPermutation(CWnd* pParent = NULL);   // Standardkonstruktor
 

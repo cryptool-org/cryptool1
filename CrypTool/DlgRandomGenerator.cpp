@@ -166,6 +166,7 @@ void CDlgRandomGenerator::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRandomGenerator)
+	DDX_Control(pDX, IDC_RADIO1, m_CtrlSecudeGenerator);
 	DDX_Control(pDX, IDC_EDIT1, m_seed_ctrl);
 	DDX_Radio(pDX, IDC_RADIO1, m_SelGenerator);
 	DDX_Text(pDX, IDC_EDIT1, m_seed);
@@ -246,4 +247,26 @@ void CDlgRandomGenerator::OnCancel()
 	delete m_pPara;
 	
 	CDialog::OnCancel();
+}
+
+BOOL CDlgRandomGenerator::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+    if(theApp.SecudeStatus == 2) 
+	{
+		m_CtrlSecudeGenerator.EnableWindow(TRUE);
+		UpdateData();
+		m_SelGenerator = 0;
+		UpdateData(FALSE);
+	}
+	else 
+	{
+		m_CtrlSecudeGenerator.EnableWindow(FALSE);
+		UpdateData();
+		m_SelGenerator = 1;
+		UpdateData(FALSE);
+	}
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

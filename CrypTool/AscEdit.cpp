@@ -14,6 +14,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+
 /////////////////////////////////////////////////////////////////////////////
 // CAscEdit
 
@@ -58,9 +59,9 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 	}
 	else if(m_mode == 1) { // Alpha Mode
-		if ( 32 < LineLength() )
+		if ( MAX_PERM_LENGTH < LineLength() )
 		{
-			LimitText(32);
+			LimitText(MAX_PERM_LENGTH);
 			if(isalpha(nChar))
 				CEdit::OnChar(nChar, nRepCnt, nFlags);
 			LimitText(0);
