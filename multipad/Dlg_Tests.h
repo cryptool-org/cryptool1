@@ -176,10 +176,6 @@ public:
 	CString	m_Pokertest_Static;
 	CString	m_Runstest_Static;
 	CString	m_Batterie_Static;
-	CString	m_LongRun_Info;
-	CString	m_Mono_Info;
-	CString	m_Poker_Info;
-	CString	m_Runs_Info;
 	//}}AFX_DATA
 
 	const char *infile;

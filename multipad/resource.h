@@ -414,10 +414,6 @@
 #define IDC_INFO_STATIC                 1295
 #define IDC_INFO_STATIC_RUN             1296
 #define IDC_INFO_STATIC_LONGRUN         1297
-#define IDC_LONGRUN_INFO                1298
-#define IDC_MONO_INFO                   1299
-#define IDC_POKER_INFO                  1300
-#define IDC_RUNS_INFO                   1301
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -927,6 +923,8 @@
 #define IDS_STRING_TESTS_BATTERIE_BESTANDEN 37629
 #define IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN 37630
 #define IDS_STRING_REFERENCE_FILE       43660
+#define IDS_STRING_TESTS_ERGEBNIS_INFO  43661
+#define IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 43662
 
 // Next default values for new objects
 // 

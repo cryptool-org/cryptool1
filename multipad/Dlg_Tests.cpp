@@ -204,7 +204,8 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 			char tmpStr_2[128];
 			sprintf(tmpStr_2, pc_str, tmpStr);
 			m_Ergebnis = tmpStr_2;
-			sprintf(tmpStr_2, info_ergeb, currentTest->Get_DefParam(), currentTest->Get_test_ergeb(), currentTest->Get_DefParam(), kleiner, currentTest->Get_test_ergeb());
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr_2, pc_str, currentTest->Get_DefParam(), currentTest->Get_test_ergeb());
 			m_Info_Static = tmpStr_2;
 			UpdateData(FALSE);
 		}
@@ -217,7 +218,8 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 			char tmpStr_2[128];
 			sprintf(tmpStr_2, pc_str, tmpStr);
 			m_Ergebnis = tmpStr_2;
-			sprintf(tmpStr_2, info_ergeb, currentTest->Get_DefParam(), currentTest->Get_test_ergeb(), currentTest->Get_DefParam(), groesser, currentTest->Get_test_ergeb());
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr_2, pc_str, currentTest->Get_DefParam(), currentTest->Get_test_ergeb());
 			m_Info_Static = tmpStr_2;
 			UpdateData(FALSE);
 		}
@@ -428,7 +430,7 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 	{
 		file.Close();
 
-		char tmpStrInfo[128] = "Default Run: %d\nLongest Run: %d\n\nErgebnis-Vergleich: %d %c %d";
+		//char tmpStrInfo[128] = "Maximaler Testwert: %d\nLongest Run: %d\n";
 
 		LR_test.Set_infile(infile);
 		LR_test.Set_oldtitle(oldTitle);
@@ -444,9 +446,10 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 			m_Longrun_Kre_Ctrl.ShowWindow(FALSE);
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 			char tmpStr[128];
-			sprintf(tmpStr, pc_str, "Longrun");
+			sprintf(tmpStr, pc_str, "Longrun Test");
 			m_Longrun_Ergebnis = tmpStr;
-			sprintf(tmpStr, tmpStrInfo, LR_test.longrun_lang, LR_test.longest_run_final, LR_test.longrun_lang, '>', LR_test.longest_run_final);
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr, pc_str, m_Longrunlang, LR_test.longest_run_final);
 			m_InfoStatic_LongRun = tmpStr;
 			UpdateData(FALSE);
 		}
@@ -458,9 +461,10 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 			m_Longrun_Kre_Ctrl.ShowWindow(TRUE);
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN, pc_str, STR_LAENGE_STRING_TABLE);
 			char tmpStr[128];
-			sprintf(tmpStr, pc_str, "Longrun");
+			sprintf(tmpStr, pc_str, "Longrun Test");
 			m_Longrun_Ergebnis = tmpStr;
-			sprintf(tmpStr, tmpStrInfo, m_Longrunlang, LR_test.longest_run_final, m_Longrunlang, '<', LR_test.longest_run_final);
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr, pc_str, m_Longrunlang, LR_test.longest_run_final);
 			m_InfoStatic_LongRun = tmpStr;
 			UpdateData(FALSE);
 		}
@@ -493,9 +497,9 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 
 		RT_test.test();
 
-		char info_ergeb[128] = "Default Parameter: %lf\nTest Ergebnis:        %lf\n\nErgebnis Vergleich:  %lf %c %lf";
-		char kleiner = '<';
-		char groesser = '>';
+		//char info_ergeb[128] = "Maximaler Testwert: %lf\nTest Ergebnis: %lf\n";
+		/*char kleiner = '<';
+		char groesser = '>';*/
 
 		if(!RT_test.GetResult())
 		{
@@ -505,7 +509,8 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 			char tmpStr[128];
 			sprintf(tmpStr, pc_str, "Run Test");
 			m_Run_Ergebnis = tmpStr;
-			sprintf(tmpStr, info_ergeb, RT_test.Get_DefParam(), RT_test.Get_test_ergeb(), RT_test.Get_DefParam(), kleiner, RT_test.Get_test_ergeb());
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr, pc_str, RT_test.Get_DefParam(), RT_test.Get_test_ergeb());
 			m_InfoStatic_Run = tmpStr;
 			UpdateData(FALSE);
 		}
@@ -518,7 +523,8 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 			char tmpStr[128];
 			sprintf(tmpStr, pc_str, "Run Test");
 			m_Run_Ergebnis = tmpStr;
-			sprintf(tmpStr, info_ergeb, RT_test.Get_DefParam(), RT_test.Get_test_ergeb(), RT_test.Get_DefParam(), groesser, RT_test.Get_test_ergeb());
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_ERGEBNIS_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+			sprintf(tmpStr, pc_str, RT_test.Get_DefParam(), RT_test.Get_test_ergeb());
 			m_InfoStatic_Run = tmpStr;
 			UpdateData(FALSE);
 		}
@@ -609,10 +615,6 @@ Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::Dlg_Zufallsgenerator_Tests_FIPS_PUB_1
 	m_Pokertest_Static = _T("");
 	m_Runstest_Static = _T("");
 	m_Batterie_Static = _T("");
-	m_LongRun_Info = _T("");
-	m_Mono_Info = _T("");
-	m_Poker_Info = _T("");
-	m_Runs_Info = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -638,10 +640,6 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::DoDataExchange(CDataExchange* pD
 	DDX_Text(pDX, IDC_TEXT_POKER, m_Pokertest_Static);
 	DDX_Text(pDX, IDC_TEXT_RUN, m_Runstest_Static);
 	DDX_Text(pDX, IDC_TEXT_BATTERIE, m_Batterie_Static);
-	DDX_Text(pDX, IDC_LONGRUN_INFO, m_LongRun_Info);
-	DDX_Text(pDX, IDC_MONO_INFO, m_Mono_Info);
-	DDX_Text(pDX, IDC_POKER_INFO, m_Poker_Info);
-	DDX_Text(pDX, IDC_RUNS_INFO, m_Runs_Info);
 	//}}AFX_DATA_MAP
 }
 
@@ -686,8 +684,8 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Mono-Bit-Test");
 		m_Monobit_Static = tmpStr;
-		sprintf(tmpStr, "Die Zahl x der Einsen : %d\n9654 < x=%d < 10346", FREQT.einsen, FREQT.einsen);
-		m_Mono_Info = tmpStr;
+		//sprintf(tmpStr, "Die Zahl x der Einsen : %d\n9654 < x=%d < 10346", FREQT.einsen, FREQT.einsen);
+		//m_Mono_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -700,7 +698,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Mono-Bit-Test");
 		m_Monobit_Static = tmpStr;
-		if (FREQT.einsen <= 9654)
+		/*if (FREQT.einsen <= 9654)
 		{
 			sprintf(tmpStr, "Die Zahl x der Einsen: %d\n%d < 9654", FREQT.einsen, FREQT.einsen);
 			m_Mono_Info = tmpStr;
@@ -709,7 +707,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		{
 			sprintf(tmpStr, "Die Zahl x der Einsen: %d\n10346 < %d", FREQT.einsen, FREQT.einsen);
 			m_Mono_Info = tmpStr;
-		}
+		}*/
 		UpdateData(FALSE);
 	}
 
@@ -731,8 +729,8 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Longrun-Test");
 		m_Longrun_Static = tmpStr;
-		sprintf(tmpStr, "Der längste Run x: %d\nx=%d < 34", LRT.longest_run_final, LRT.longest_run_final);
-		m_LongRun_Info = tmpStr;
+		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d < 34", LRT.longest_run_final, LRT.longest_run_final);
+		//m_LongRun_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -745,8 +743,8 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Longrun-Test");
 		m_Longrun_Static = tmpStr;
-		sprintf(tmpStr, "Der längste Run x: %d\nx=%d > 34", LRT.longest_run_final, LRT.longest_run_final);
-		m_LongRun_Info = tmpStr;
+		//sprintf(tmpStr, "Der längste Run x: %d\nx=%d > 34", LRT.longest_run_final, LRT.longest_run_final);
+		//m_LongRun_Info = tmpStr;
 		UpdateData(FALSE);
 	}
 
@@ -775,8 +773,8 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		char tmpStr[128];
 		sprintf(tmpStr, pc_str, "Poker-Test");
 		m_Pokertest_Static = tmpStr;
-		sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\n1.03 < x=%.4lf < 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
-		m_Poker_Info = tmpStr;
+		//sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\n1.03 < x=%.4lf < 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
+		//m_Poker_Info = tmpStr;
 		UpdateData(FALSE);
 		tests++;
 	}
@@ -790,7 +788,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		sprintf(tmpStr, pc_str, "Poker-Test");
 		m_Pokertest_Static = tmpStr;
 
-		if (POKT.GetResult() <= 1.03)
+		/*if (POKT.GetResult() <= 1.03)
 		{
 			sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\nx=%.4lf < 1.03", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
 			m_Poker_Info = tmpStr;
@@ -799,7 +797,7 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::OnBatterietest()
 		{
 			sprintf(tmpStr, "Das Test Ergebnis x: %.4lf\nx=%.4lf > 57.4", POKT.Get_test_ergeb(), POKT.Get_test_ergeb());
 			m_Poker_Info = tmpStr;
-		}
+		}*/
 
 		UpdateData(FALSE);
 	}
