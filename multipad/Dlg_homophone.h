@@ -29,9 +29,11 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_homophone)
 	enum { IDD = IDD_DIALOG_HOMOPHONE };
+	CEdit	m_KeyCtrl;
 	CListCtrl	m_listview;
 	int		    m_crypt;
 	CEdit       m_dummyCtrl;
+	CString	m_KeyCStr;
 	//}}AFX_DATA
 
 
@@ -49,6 +51,7 @@ protected:
 	//{{AFX_MSG(Dlg_homophone)
 	afx_msg void OnErzeugen();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnLoadKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

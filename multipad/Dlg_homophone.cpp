@@ -22,6 +22,7 @@ Dlg_homophone::Dlg_homophone(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(Dlg_homophone)
 	m_crypt = 0;
+	m_KeyCStr = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -30,8 +31,10 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(Dlg_homophone)
+	DDX_Control(pDX, IDC_EDIT6, m_KeyCtrl);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
 	DDX_Radio(pDX, IDC_RADIO1, m_crypt);
+	DDX_Text(pDX, IDC_EDIT6, m_KeyCStr);
 	//}}AFX_DATA_MAP
 }
 
@@ -39,6 +42,7 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	//{{AFX_MSG_MAP(Dlg_homophone)
 	ON_BN_CLICKED(IDC_ERZEUGEN, OnErzeugen)
+	ON_BN_CLICKED(IDC_BUTTON2, OnLoadKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -129,7 +133,7 @@ void Dlg_homophone::Init_ListBox()
 			m_listview.SetItemText(j,1,string);
 			for(k=0;k<HB.enc_data[i][1];k++)
 			{
-				sprintf(string+k*5,"%3i",HB.key[m]);
+				sprintf(string+k*5,"%3x",HB.key[m]);
 				if(k<HB.enc_data[i][1]-1)
 				{
 					sprintf(string+k*5+3,", ",HB.key[m]);
@@ -139,5 +143,46 @@ void Dlg_homophone::Init_ListBox()
 			m_listview.SetItemText(j,2,string);
 		}
 	}
+	theApp.DoWaitCursor(-1);
+}
+
+void Dlg_homophone::OnLoadKey() 
+{
+	char string[1300];
+	int i,j,k,m,number;
+
+	theApp.DoWaitCursor(0);
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_KeyCtrl.SetSel(0,-1);
+	m_KeyCtrl.Paste();
+	m_KeyCtrl.GetWindowText(m_KeyCStr);
+	HB.load_enc_table(m_KeyCStr.GetBuffer(10000));
+	
+	m_listview.DeleteAllItems(); 
+
+	for(i=m=0;i<range;i++)
+	{
+		if(HB.enc_data[i][1]>0)
+		{
+			string[0]=i;
+			string[1]=0;
+			j=m_listview.InsertItem(i,string);
+			number=HB.enc_data[i][1];
+			assert(number>0);
+			sprintf(string,"%2i",number);
+			m_listview.SetItemText(j,1,string);
+			for(k=0;k<HB.enc_data[i][1];k++)
+			{
+				sprintf(string+k*5,"%3x",HB.key[m]);
+				if(k<HB.enc_data[i][1]-1)
+				{
+					sprintf(string+k*5+3,", ",HB.key[m]);
+				}
+				m++;
+			}
+			m_listview.SetItemText(j,2,string);
+		}
+	}
+
 	theApp.DoWaitCursor(-1);
 }

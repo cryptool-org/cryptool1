@@ -2882,7 +2882,6 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			in.read(inbuffer,buffsize);
 		}
 	}
-	
 	else								// Entschlüsselung
 	{
 		DH.HB.Make_dec_table();
@@ -2901,7 +2900,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	in.close();
  	out.close();
 
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,"Key");
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,DH.HB.GetKeyStr());
 	remove(outfile);
 	if(NewDoc) 
 	{
@@ -2920,6 +2919,119 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	theApp.DoWaitCursor(0);
 } // end Hompohone Asc
+
+// ======================================================================================
+
+void HomophoneHex(const char *infile, const char *OldTitle)
+{
+	char line[100];
+	CWaitCursor WCursor;
+
+// first precondition:
+// the alphabet for encryption must NOT be empty
+	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TEXT_OPTIONS,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox(line);		
+		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
+	}
+
+// second precondition:
+// the text for encryption must NOT be empty
+    SymbolArray text(IdConv);
+	text.Read(infile);
+	if(0==text.GetSize())
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox(line);		
+		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
+	}
+	
+
+	WCursor.Restore();	
+	unsigned char inbuffer[buffsize];
+
+	Dlg_homophone DH;
+	for (int i=0; ; i++ ) {
+		DH.c_SourceFile[i] = infile[i];
+		if (infile[i] == 0) break;
+	}
+
+	ifstream in(infile, ios::binary | ios::in );	
+	in.read(inbuffer,buffsize);
+
+	CMyDocument *NewDoc;
+
+	if(IDOK!=DH.DoModal()) 
+	{
+		in.close();
+		return;
+	}
+// Routine zur Homophonen Verschlüsselung
+	char outbuffer[4096];
+	long outbuffsize;
+	char outfile[128],title[128];
+	int value;
+	GetTmpName(outfile,"cry",".hex");
+	ofstream out(outfile, ios::binary | ios::out );
+
+	if(true==DH.Get_crypt())			// Verschlüsselung
+	{
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				value=DH.HB.Encrypt(inbuffer[i]);
+				if(value>=0)
+				{
+					outbuffer[outbuffsize]=value;
+					outbuffsize++;				
+				}
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+	else								// Entschlüsselung
+	{
+		DH.HB.Make_dec_table();
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				outbuffer[outbuffsize]=DH.HB.dec_data[inbuffer[i]];
+				outbuffsize++;
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+	in.close();
+ 	out.close();
+
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,DH.HB.GetKeyStr());
+	remove(outfile);
+	if(NewDoc) 
+	{
+		if(true==DH.Get_crypt())
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,"");
+		NewDoc->SetTitle(title);
+	}
+
+	theApp.DoWaitCursor(0);
+} // end Hompohone Hex
 
 
 // =====================================================================================

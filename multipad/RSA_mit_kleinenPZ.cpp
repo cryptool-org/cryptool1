@@ -28,9 +28,19 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 	m_edit10 = _T("");
 	m_edit11 = _T("");
 	m_edit12 = _T("");
-	//m_edit13 = 0;
+	m_Encryption = _T("");
+	m_HeaderPlainCipherText = _T("");
+	m_CodingDecryption = _T("");
+	m_TextOptions = 0;
+	m_CryptMode = 0;
 	//}}AFX_DATA_INIT
 
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_HeaderPlainCipherText = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_CODING_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_CodingDecryption = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+	m_Encryption = pc_str;
 }
 
 
@@ -52,7 +62,11 @@ void RSA_mit_kleinenPZ::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT10, m_edit10);
 	DDX_Text(pDX, IDC_EDIT11, m_edit11);
 	DDX_Text(pDX, IDC_EDIT12, m_edit12);
-//	DDX_Text(pDX, IDC_EDIT13, m_edit13);
+	DDX_Text(pDX, IDC_ENCRYPTION, m_Encryption);
+	DDX_Text(pDX, IDC_HEADER_PLAIN_CIPHER_TEXT, m_HeaderPlainCipherText);
+	DDX_Text(pDX, IDC_CODING_DECRYPTION, m_CodingDecryption);
+	DDX_Radio(pDX, IDC_STANDARD_ALPHABET, m_TextOptions);
+	DDX_Radio(pDX, IDC_VERSCHLUESSELN, m_CryptMode);
 	//}}AFX_DATA_MAP
 }
 //******************************************************************************
@@ -108,16 +122,17 @@ void RSA_mit_kleinenPZ::CheckEdit_Input(CString & m_edit, int & sels, int & sele
 
 BEGIN_MESSAGE_MAP(RSA_mit_kleinenPZ, CDialog)
 	//{{AFX_MSG_MAP(RSA_mit_kleinenPZ)
-	ON_BN_CLICKED(IDC_BUTTON_VERSCHLUESSELN, OnButtonVerschluesseln)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdateEdit2)
 	ON_BN_CLICKED(IDC_BUTTON_PZ_GENERIEREN, OnButtonPzGenerieren)
 	ON_BN_CLICKED(IDC_BUTTON1, OnButtonParameterGenerieren)
 	ON_BN_CLICKED(IDC_BUTTON2, OnButtonSchluesselGenerieren)
-	ON_BN_CLICKED(IDC_BUTTON_ENTSCHLUESSELN, OnButtonEntschluesseln)
 	ON_EN_UPDATE(IDC_EDIT10, OnUpdateEdit10)
 	ON_EN_UPDATE(IDC_EDIT11, OnUpdateEdit11)
 	ON_EN_UPDATE(IDC_EDIT12, OnUpdateEdit12)
+	ON_BN_CLICKED(IDC_BUTTON_VER_ENT_SCHLUESSELN, OnButtonEnDeCrypt)
+	ON_BN_CLICKED(IDC_VERSCHLUESSELN, OnSelectVerschluesseln)
+	ON_BN_CLICKED(IDC_ENTSCHLUESSELN, OnSelectEntschluesseln)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -128,7 +143,7 @@ END_MESSAGE_MAP()
 
 
 
-void RSA_mit_kleinenPZ::OnButtonVerschluesseln() 
+void RSA_mit_kleinenPZ::Verschluesseln() 
 {
 	UpdateData(true);
 
@@ -525,8 +540,6 @@ void RSA_mit_kleinenPZ::OnButtonParameterGenerieren()
 void RSA_mit_kleinenPZ::OnButtonSchluesselGenerieren() 
 {
 	UpdateData(true);
-	UpdateData(true);
-
 	Big eingabe_p=RSAB.konvertiere_CString_Big(m_eingabe_p);
 	Big eingabe_q=RSAB.konvertiere_CString_Big(m_eingabe_q);
 	Big geheime_parameter=(eingabe_p-1)*(eingabe_q -1);
@@ -606,13 +619,10 @@ void RSA_mit_kleinenPZ::OnButtonSchluesselGenerieren()
 		}
 
 	end:
-	UpdateData(false);
-	UpdateData(false);
-
-	
+	UpdateData(false);	
 }
 
-void RSA_mit_kleinenPZ::OnButtonEntschluesseln() 
+void RSA_mit_kleinenPZ::Entschluesseln() 
 {
 	UpdateData(true);
 
@@ -969,4 +979,41 @@ void RSA_mit_kleinenPZ::OnUpdateEdit12()
 	//CheckEdit_Input(m_edit12,sels,sele);
 	UpdateData(false);
 	m_control_edit12.SetSel(sels,sele);
+}
+
+void RSA_mit_kleinenPZ::OnButtonEnDeCrypt() 
+{
+	UpdateData(true);
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	if ( m_CryptMode == 0 ) Verschluesseln();
+	else					Entschluesseln();
+	UpdateData(false);
+}
+
+
+void RSA_mit_kleinenPZ::OnSelectVerschluesseln() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	UpdateData(true);
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_HeaderPlainCipherText = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_CODING_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_CodingDecryption = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+	m_Encryption = pc_str;
+	UpdateData(false);
+}
+
+void RSA_mit_kleinenPZ::OnSelectEntschluesseln() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	UpdateData(true);
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_CIPHERTEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_HeaderPlainCipherText = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_ENCIPHERED_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_CodingDecryption = pc_str;
+	// LoadString(AfxGetInstanceHandle(),IDS_RSA_MKPZ_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+	m_Encryption = "";
+	m_edit12 = "";
+	UpdateData(false);	
 }

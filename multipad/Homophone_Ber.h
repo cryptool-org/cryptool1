@@ -15,6 +15,8 @@
 class Homophone_Ber 
 {
 public:
+	void load_enc_table(const char* keyStr);
+	const char * GetKeyStr();
 	void Make_dec_table();
 	char dec_data[257];
 	int Encrypt(int);

@@ -36,6 +36,7 @@ public:
 
 // Implementation
 public:
+	void OnHomophoneHex();
 	void OnGenRandomData();
 	virtual ~CCryptDoc();
 #ifdef _DEBUG

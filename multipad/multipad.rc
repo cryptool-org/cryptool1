@@ -6,6 +6,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
+
 #include "resource.h"
 #include "afxres.h"
 
@@ -1431,50 +1432,68 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA mit kleinen Primzahlen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,15,29,
+    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,15,51,
                     77,14
-    EDITTEXT        IDC_EDIT1,220,23,66,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,220,40,66,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,220,144,66,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,173,356,50,14
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,240,356,50,14
+    EDITTEXT        IDC_EDIT1,162,46,66,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,162,64,66,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,198,150,66,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Ver-/Entschlüsseln",IDC_BUTTON_VER_ENT_SCHLUESSELN,82,
+                    223,80,21
     DEFPUSHBUTTON   "OK",IDOK,71,356,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,7,356,50,14
-    LTEXT           "Primzahl p",IDC_STATIC,125,26,32,8
-    LTEXT           "Primzahl q",IDC_STATIC,126,41,32,8
-    EDITTEXT        IDC_EDIT3,159,79,61,14,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "Primzahl p",IDC_STATIC,120,47,32,8
+    LTEXT           "Primzahl q",IDC_STATIC,120,64,32,8
+    EDITTEXT        IDC_EDIT3,182,97,61,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "RSA-Modul",IDC_STATIC,119,82,36,8
-    LTEXT           "(p-1)(q-1)",IDC_STATIC,120,98,28,8
-    EDITTEXT        IDC_EDIT4,159,97,61,14,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "RSA-Modul N",IDC_STATIC,120,100,52,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,120,119,55,8
+    EDITTEXT        IDC_EDIT4,182,115,61,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "Primzahleneingabe",IDC_STATIC,115,13,197,48
-    GROUPBOX        "RSA Schlüssel erzeugen",IDC_STATIC,7,6,314,188
-    LTEXT           "(öffentliche Parameter)",IDC_STATIC,226,83,74,8
-    LTEXT           "(geheime Parameter)",IDC_STATIC,226,98,75,8
-    GROUPBOX        "RSA Schlüssel",IDC_STATIC,115,133,197,55
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,129,148,69,8
-    LTEXT           "geheimer Schlüssel d",IDC_STATIC,130,164,66,8
-    EDITTEXT        IDC_EDIT6,220,162,66,14,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC,115,35,197,47
+    GROUPBOX        "RSA Schlüssel erzeugen",IDC_STATIC,7,6,314,186
+    LTEXT           "(öffentlich)",IDC_STATIC,252,101,34,8
+    LTEXT           "(geheim)",IDC_STATIC,252,117,30,8
+    GROUPBOX        "RSA Schlüssel",IDC_STATIC,115,138,197,48
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,120,152,78,8
+    LTEXT           "geheimer Schlüssel d",IDC_STATIC,120,170,70,8
+    EDITTEXT        IDC_EDIT6,198,168,66,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "RSA Parameter",IDC_STATIC,115,67,197,50
-    LTEXT           "Klartext",IDC_STATIC,7,200,39,8
-    LTEXT           "Kodierung des Klartextes",IDC_STATIC,7,239,249,8
-    LTEXT           "Verschlüsselter Text",IDC_STATIC,7,277,68,8
-    PUSHBUTTON      "Parameter generieren",IDC_BUTTON1,15,80,77,15
-    PUSHBUTTON      "Schlüssel generieren",IDC_BUTTON2,15,140,77,14
-    EDITTEXT        IDC_EDIT10,7,214,314,19,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT11,7,253,314,19,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,7,288,314,19,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "RSA Parameter",IDC_STATIC,115,86,197,47
+    PUSHBUTTON      "Parameter generieren",IDC_BUTTON1,15,99,77,15
+    PUSHBUTTON      "Schlüssel generieren",IDC_BUTTON2,15,145,77,14
+    EDITTEXT        IDC_EDIT10,15,264,297,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,15,297,297,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,15,331,297,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Wähle 2 Primzahlen p und q und e,d mit",IDC_STATIC,19,
+                    20,131,8
+    LTEXT           "ed = 1 mod (p-1)(q-1)    und    N = pq (Modulus)",
+                    IDC_STATIC,158,20,154,8
+    EDITTEXT        IDC_HEADER_PLAIN_CIPHER_TEXT,15,251,297,12,
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_CODING_DECRYPTION,15,285,297,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_ENCRYPTION,15,319,297,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    GROUPBOX        "RSA-Verschlüsselung",IDC_STATIC,9,198,312,154
+    CONTROL         "Verschlüsseln",IDC_VERSCHLUESSELN,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,15,220,59,10
+    CONTROL         "Entschlüsseln",IDC_ENTSCHLUESSELN,"Button",
+                    BS_AUTORADIOBUTTON,15,230,59,14
+    CONTROL         "Dialog der Kleinen Schwestern",
+                    IDC_DIALOG_LITTLE_SISTERS,"Button",BS_AUTORADIOBUTTON,
+                    198,230,113,14
+    CONTROL         "Standard Alphabet",IDC_STANDARD_ALPHABET,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,198,220,75,10
+    GROUPBOX        "Text Optionen",IDC_STATIC,191,208,121,40
 END
 
-IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 362
+IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 383
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Homophone Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Ver-/Ent&schlüsseln",IDOK,137,336,116,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,332,336,50,14
+    DEFPUSHBUTTON   "Ver-/Ent&schlüsseln",IDOK,14,362,109,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,332,362,50,14
     PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,336,109,
                     14
     CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
@@ -1513,6 +1532,10 @@ BEGIN
                     32,52,10
     CONTROL         "Bit-Weise",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,202,
                     32,46,10
+    PUSHBUTTON      "Schlüssel aus der Zwischenablage Laden",IDC_BUTTON2,147,
+                    336,149,14
+    EDITTEXT        IDC_EDIT6,327,21,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
 END
 
 IDD_DIALOG_GEN_EC_KURVE DIALOG DISCARDABLE  0, 0, 427, 397
@@ -1682,7 +1705,7 @@ BEGIN
     PUSHBUTTON      "Entschlüsseln",IDC_BUTTON6,335,309,50,14
 END
 
-IDD_DIALOG_ANALYSE_NGRAM DIALOG DISCARDABLE  0, 0, 317, 238
+IDD_DIALOG_ANALYSE_NGRAM DIALOG DISCARDABLE  0, 0, 317, 241
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyse N-Gramme"
 FONT 8, "MS Sans Serif"
@@ -1703,7 +1726,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,60,86,32,12,ES_AUTOHSCROLL
     LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
     PUSHBUTTON      "Ende",IDCANCEL,7,207,99,24
-    EDITTEXT        IDC_EDIT2,31,57,13,11,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,31,57,13,12,ES_AUTOHSCROLL
     LTEXT           "-Gramm",IDC_STATIC,45,59,25,8
 END
 
@@ -1801,10 +1824,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Linearer Kongruenz Generator (LCG)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,137,85,50,14
+    DEFPUSHBUTTON   "OK",IDOK,13,85,50,14
     CTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N. Weitere Informationen erhalten Sie mit der Taste ""F1""",
                     IDC_STATIC,13,9,174,28
-    LTEXT           "Geraden Parameter:",IDC_STATIC,21,44,64,10
+    LTEXT           "Geraden-Parameter:",IDC_STATIC,21,44,64,10
     EDITTEXT        IDC_EDIT1,101,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT2,155,43,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
@@ -1815,7 +1838,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,101,62,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,
                     WS_EX_STATICEDGE
     LTEXT           "N=",IDC_STATIC,90,63,10,8
-    PUSHBUTTON      "Abbruch",IDCANCEL,13,85,50,14
+    PUSHBUTTON      "Abbruch",IDCANCEL,137,85,50,14
 END
 
 
@@ -1956,7 +1979,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
         END
@@ -2131,6 +2155,7 @@ BEGIN
         POPUP "&Klassisch"
         BEGIN
             MENUITEM "&Substitution...",            ID_CryptMono
+            MENUITEM "H&omophone",                  ID_HOMOPHONE_HEX
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
@@ -2771,6 +2796,7 @@ IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE
 BEGIN
     "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
@@ -2803,6 +2829,28 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
+    IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
+    BEGIN
+        VERTGUIDE, 9
+        VERTGUIDE, 15
+        VERTGUIDE, 120
+        VERTGUIDE, 162
+        VERTGUIDE, 182
+        VERTGUIDE, 198
+        VERTGUIDE, 252
+        VERTGUIDE, 312
+        HORZGUIDE, 230
+        HORZGUIDE, 244
+    END
+
+    IDD_DIALOG_HOMOPHONE, DIALOG
+    BEGIN
+        VERTGUIDE, 14
+        VERTGUIDE, 382
+        HORZGUIDE, 350
+        HORZGUIDE, 376
+    END
+
     IDD_DIALOG_GEN_RANDOMDATA, DIALOG
     BEGIN
         VERTGUIDE, 16
@@ -3598,6 +3646,12 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_RAND_DATA_PARAM 
                             "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
+    IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
+    IDS_RSA_MKPZ_CODING_PLAINTEXT "Kodierung m des Klartextes"
+    IDS_RSA_MKPZ_ENCRYPTION "Verschlüsselte Kodierung c = m^e (mod N)"
+    IDS_RSA_MKPZ_CIPHERTEXT "Chiffretext c"
+    IDS_RSA_MKPZ_ENCIPHERED_TEXT 
+                            "Entschlüsselte Nachricht m = c^d (mod N)  (die Nachricht ist als Text dekodiert)"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -3760,6 +3814,11 @@ BEGIN
     AFX_IDS_PRINTFILTER     "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
     AFX_IDS_PRINTCAPTION    "Print to File"
     AFX_IDS_PRINTTOFILE     "to %1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_HOMOPHONE_HEX        "Homophone Ver-/Entschlüsselung"
 END
 
 #endif    // Deutsch (Deutschland) resources

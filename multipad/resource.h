@@ -344,6 +344,14 @@
 #define IDC_BUTTON_Primzahlen_generieren                   1217
 #define IDC_BUTTON_Schluessel_generieren                   1218
 #define IDC_ROW                                            1219
+#define	IDC_ENCRYPTION                                     1220
+#define IDC_HEADER_PLAIN_CIPHER_TEXT                       1221
+#define IDC_CODING_DECRYPTION                              1222
+#define IDC_STANDARD_ALPHABET                              1223
+#define IDC_DIALOG_LITTLE_SISTERS                          1224
+#define IDC_VERSCHLUESSELN                                 1225
+#define IDC_ENTSCHLUESSELN                                 1226
+#define IDC_BUTTON_VER_ENT_SCHLUESSELN                     1227
 #define ID_CAESAR_ASC                                     33000
 #define ID_VIGENERE_ASC                                   33001
 #define ID_HILL                                           33002
@@ -481,6 +489,7 @@
 #define ID_ANALYSE_NGRAM                                  33134
 #define ID_ANALYSE_NGRAM_BIN                              33135
 #define ID_ZUFALL_GENERATOREN                             33136
+#define ID_HOMOPHONE_HEX                                  33137
 #define ID_ANALYSE_PERIOD                                 36500
 #define IDS_STRING_PERIOD_ANALYSIS_OF                     36501
 #define IDS_STRING_PERIOD_ANALYSIS_HEADER                 36502
@@ -784,6 +793,11 @@
 #define IDS_STRING61441                                   37121
 #define IDS_STRING61442                                   37122
 #define IDS_STRING_RAND_DATA_PARAM                        37123
+#define IDS_RSA_MKPZ_PLAINTEXT                            37124
+#define IDS_RSA_MKPZ_CODING_PLAINTEXT                     37125
+#define IDS_RSA_MKPZ_ENCRYPTION                           37126
+#define IDS_RSA_MKPZ_CIPHERTEXT                           37127
+#define IDS_RSA_MKPZ_ENCIPHERED_TEXT                      37128
 
 
 // Next default values for new objects
@@ -792,7 +806,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        240
 #define _APS_NEXT_COMMAND_VALUE         33137
-#define _APS_NEXT_CONTROL_VALUE         1220
+#define _APS_NEXT_CONTROL_VALUE         1228
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -31,6 +31,8 @@ class RSA_mit_kleinenPZ : public CDialog
 	
 // Konstruktion
 public:
+	void Entschluesseln();
+	void Verschluesseln();
 	
 	void CheckEdit_Input(CString &,int&,int&);
 	RSA_mit_kleinenPZ(CWnd* pParent = NULL);   // Standardkonstruktor
@@ -52,7 +54,11 @@ public:
 	CString	m_edit10;
 	CString	m_edit11;
 	CString	m_edit12;
-//	int		m_edit13;
+	CString	m_Encryption;
+	CString	m_HeaderPlainCipherText;
+	CString	m_CodingDecryption;
+	int		m_TextOptions;
+	int		m_CryptMode;
 	//}}AFX_DATA
 
 
@@ -68,16 +74,17 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(RSA_mit_kleinenPZ)
-	afx_msg void OnButtonVerschluesseln();
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnUpdateEdit2();
 	afx_msg void OnButtonPzGenerieren();
 	afx_msg void OnButtonParameterGenerieren();
 	afx_msg void OnButtonSchluesselGenerieren();
-	afx_msg void OnButtonEntschluesseln();
 	afx_msg void OnUpdateEdit10();
 	afx_msg void OnUpdateEdit11();
 	afx_msg void OnUpdateEdit12();
+	afx_msg void OnButtonEnDeCrypt();
+	afx_msg void OnSelectVerschluesseln();
+	afx_msg void OnSelectEntschluesseln();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

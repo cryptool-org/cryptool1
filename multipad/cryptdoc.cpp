@@ -113,6 +113,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_CRYPT_VERIFY, OnCryptVerify)
 	ON_COMMAND(ID_CRYPT_EXTRACT, OnCryptExtract)
 	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
+	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
 
 	ON_COMMAND(ID_ANALYZE_SUBST, OnAnalyzeSubst)
 	ON_COMMAND(ID_FLOATING, OnFloating)
@@ -1228,6 +1229,13 @@ void CCryptDoc::OnHomophone()
     HomophoneAsc(ContentName, GetTitle());
 }
 
+void CCryptDoc::OnHomophoneHex()
+{
+    UpdateContent();
+    HomophoneHex(ContentName, GetTitle());
+}
+
+
 void CCryptDoc::OnEinzelverfahrenTutorialfrkleinezahlenEckurven() 
 {
 	GenEcKurve GECK;
@@ -1283,3 +1291,4 @@ void CCryptDoc::OnGenRandomData()
 		}
 	}
 }
+

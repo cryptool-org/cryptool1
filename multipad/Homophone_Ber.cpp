@@ -36,7 +36,7 @@ void Homophone_Ber::Make_enc_table()
 	// so daß verschlüsselt werden kann
 
 {
-	int i,j,last=0;
+	int i,last=0;
 
 
 	for(i=0;i<range;i++)
@@ -241,8 +241,10 @@ int Homophone_Ber::Encrypt(int value)
 // liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
 
 {
-	if (FALSE == theApp.TextOptions.m_Case)	value += 'A'-'a';
-
+	if (FALSE == theApp.TextOptions.m_Case && (value >= 'a' && value<='z'))	
+	{
+		value += 'A'-'a';
+	}
 	if(enc_data[value][1]>0)
 	{
 		return(key[enc_data[value][0]+Get_random_number(enc_data[value][1])]);
@@ -285,4 +287,78 @@ int Homophone_Ber::Get_index(int value)
 		}
 	}
 	return(0);
+}
+
+const char* Homophone_Ber::GetKeyStr()
+{
+	char *keyStr = new char[6*range]; // ACHTUNG NOCH ABZUÄNDERN
+	long k, l, i, j = 0;
+	for ( i=0; i<range; i++ )
+	{
+		if(enc_data[i][1]>0)
+		{
+			char hexStr[10];
+			sprintf(hexStr, "%X", i);
+			for ( k=0; hexStr[k]!=0; k) keyStr[j++] = hexStr[k++];
+			keyStr[j++] = ':';
+			for ( l=0; l<enc_data[i][1]; l++)
+			{
+				sprintf(hexStr, "%X", key[enc_data[i][0]+l]);
+				for ( k=0; hexStr[k]!=0; k) keyStr[j++] = hexStr[k++];
+				if (l+1<enc_data[i][1]) keyStr[j++] = ',';
+			}
+			keyStr[j++] = ' ';
+		}
+	}
+	keyStr[j] = 0;
+	return keyStr;
+}
+
+void Homophone_Ber::load_enc_table(const char *keyStr)
+{
+	Init_Data();
+	long k, l, i, j = 0, Cnt = 0, Index;
+	bool LoadError = false;
+	while (keyStr[j] != 0)
+	{
+		Index = 0;
+		while (keyStr[j] == ' ') j++;
+		while (keyStr[j] != ':') {
+			Index *= 16;
+			if ( keyStr[j] >= '0' && keyStr[j] <= '9' ) Index += keyStr[j]-'0';
+			else
+				if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) Index += keyStr[j]-'A'+10;
+				else { LoadError= true; break; }
+			if (Index>range) { LoadError=true; break; }
+			j++;
+		}
+		if (keyStr[j] == 0) 
+			LoadError=true;;
+		if (LoadError) break;
+		j++;
+		enc_data[Index][0]=Cnt;
+		l = 0;
+		while (1) {
+			k = 0;
+			while (keyStr[j] != ',' && keyStr[j] != ' ' && keyStr[j] != 0) {
+				k *= 16;
+				if ( keyStr[j] >= '0' && keyStr[j] <= '9' ) k += keyStr[j]-'0';
+				else
+					if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) k += keyStr[j]-'A'+10;
+					else { LoadError= true; break; }
+				if (k>range) { LoadError=true; break; }
+				j++;
+			}
+			if (LoadError) break;
+			l++;
+			key[Cnt++]=k;
+			if (keyStr[j] == 0) 
+				break;
+			if (keyStr[j] == ' ') 
+				break;
+			j++;
+		}
+		enc_data[Index][1] = l;
+		if (LoadError) break;
+	}
 }
