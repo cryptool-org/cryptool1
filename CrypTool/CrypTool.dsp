@@ -1546,6 +1546,14 @@ SOURCE=.\DlgFactorisationList.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgFurtherOptions.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFurtherOptions.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgHashDemo.cpp
 # End Source File
 # Begin Source File

@@ -40,6 +40,7 @@
 #include "DlgHybridEncryptionDemo.h"
 #include "DlgOptionsStartoptions.h"
 #include "DlgSignatureAttack.h"
+#include "DlgFurtherOptions.h"
 
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -88,6 +89,10 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIGN, OnEinzelverfahrenTutorialSignaturerzeugung)
 	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
 	ON_COMMAND(ID_OPTIONS_STARTOPTIONS, OnOptionsStartoptions)
+	ON_COMMAND(ID_HILFE_INDEX, OnHilfeIndex)
+	ON_COMMAND(ID_HILFE_STARTSEITE, OnHilfeStartseite)
+	ON_COMMAND(ID_HILFE_SZENARIEN, OnHilfeSzenarien)
+	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -95,10 +100,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_HILFE_INDEX, OnHilfeIndex)
-	ON_COMMAND(ID_HILFE_STARTSEITE, OnHilfeStartseite)
-	ON_COMMAND(ID_HILFE_SZENARIEN, OnHilfeSzenarien)
-	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
+	ON_COMMAND(ID_OPTIONS_FURTHEROPTIONS, OnOptionsFurtheroptions)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -738,4 +740,10 @@ void CCrypToolApp::OnSignaturAttack()
 {
 	CDlgSignatureAttack DlgSA;
 	DlgSA.DoModal();
+}
+
+void CCrypToolApp::OnOptionsFurtheroptions() 
+{
+	CDlgFurtherOptions dlg;
+	dlg.DoModal();
 }

@@ -2846,6 +2846,18 @@ BEGIN
     PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,175,72,14
 END
 
+IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Weitere Optionen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,58,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,58,50,14
+    CONTROL         "Einleitungsdialog beim &Start anzeigen",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,133,10
+    GROUPBOX        "Optionen für Diffie-Hellman-Demo",IDC_STATIC,7,7,277,40
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3106,6 +3118,7 @@ BEGIN
         MENUITEM "&Analyse Optionen...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Optionen...",           ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -3334,6 +3347,7 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -3416,6 +3430,7 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Hilfe"
     BEGIN
@@ -3614,6 +3629,7 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -4754,6 +4770,15 @@ BEGIN
         VERTGUIDE, 180
         TOPMARGIN, 7
         BOTTOMMARGIN, 189
+    END
+
+    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        VERTGUIDE, 20
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -9127,6 +9152,19 @@ BEGIN
     PUSHBUTTON      "Show &log text",IDC_SHOWLOGTEXT,180,175,72,14
 END
 
+IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Further Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,58,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,58,50,14
+    CONTROL         "&Show introduction dialogue on startup",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
+    GROUPBOX        "Options for Diffie-Hellman Demonstration",IDC_STATIC,7,
+                    7,277,40
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9388,6 +9426,7 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting options...",        ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -9617,6 +9656,7 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -9699,6 +9739,7 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Help"
     BEGIN
@@ -9898,6 +9939,7 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -10768,6 +10810,15 @@ BEGIN
         VERTGUIDE, 180
         TOPMARGIN, 7
         BOTTOMMARGIN, 189
+    END
+
+    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        VERTGUIDE, 20
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
     END
 END
 #endif    // APSTUDIO_INVOKED
