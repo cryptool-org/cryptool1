@@ -95,6 +95,7 @@
 #define IDD_TEST                        260
 #define IDD_SHOW_HASH                   268
 #define IDD_DIALOG_PIN_VERIFICATION     270
+#define IDD_PLAYFAIR_TEST               271
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -1006,14 +1007,14 @@
 #define IDS_STRING_BIG_NUMBER           37831
 #define IDS_STRING_BIG_RSA_MODUL        37832
 #define IDS_STRING_FAKTORISATION_OPERATOR 37833
-#define IDS_STRING_INPUT_FALSE          37833
-#define IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 37834
+#define IDS_STRING_INPUT_FALSE          37834
+#define IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 37835
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        271
+#define _APS_NEXT_RESOURCE_VALUE        272
 #define _APS_NEXT_COMMAND_VALUE         33154
 #define _APS_NEXT_CONTROL_VALUE         1309
 #define _APS_NEXT_SYMED_VALUE           101
