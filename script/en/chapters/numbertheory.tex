@@ -1442,15 +1442,14 @@ secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
 Men'' by Arthur Conan  Doyle \index{Arthur Conan Doyle}), but also modern schemes. 
 Examples are
 % hier die items nicht einrücken ! xxxxxxxxxxxxxxx
-\begin{itemize}
+\begin{list}{\textbullet}{\leftmargin10pt}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
 \item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner
   \index{Elsner 1999}, 1999
   (included in the CrypTool package\index{CrypTool} as PDF file), where the sisters
   communicate confidentially using a variant of RSA.
-\end{itemize}
-} 
+\end{list}\vspace{-\baselineskip}\vspace{-\parskip}}
 procedure in the group $\mathbb{Z}_n^*$.
 
 
@@ -1528,7 +1527,7 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
                 $e$ is relatively prime to $J(n) = (p-1)*(q-1)$.
                 For example, we can select $e$ such that:  
                 $\max(p,q)  <  e <  J(n) - 1$\footnote{The 
-		procedure also allows us to select $d$ freely and then 
+                procedure also allows us to select $d$ freely and then 
                 calculate $e$. However, this has practical disadvantages.
                 We usually want to be able to encrypt messages ``quickly'', which 
                 is why we choose a public exponent $e$ such that it has a short 
@@ -1543,8 +1542,8 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
                 We can then ``throw away'' $p$ and $q$.
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
                 {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
-		of $e$ modulo $J(n)$\footnote{For reasons of security, 
-		$d$ should not be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending 
+                of $e$ modulo $J(n)$\footnote{For reasons of security, 
+                $d$ should not be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending 
                 on the implementation.}. We can then ``throw away'' $J(n)$.
 \begin{itemize}
     \item[] $\rightarrow (n, e)$ is the public key $P$.
