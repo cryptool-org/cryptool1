@@ -159,6 +159,7 @@ Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die nat"urlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
 Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gew"ahlt ist).
 Dieses Problem hei"st auch  {\bf 0-1-Knapsackproblem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
+
 Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und  $ K(a'_1, \dots, a'_n;g') $  hei"sen kongruent, falls es zwei \index{teilerfremd} teilerfremde Zahlen $ w $ und $ m $ gibt, so da"s
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
@@ -179,6 +180,7 @@ diese Zahlen aufgez"ahlt werden. Beispielsweise ist eine Permutation $\pi$ von $
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zus"atzlich $ \pi $ die Identit"at, d.h. $ \pi(i)=i $ f"ur $ i=1,2,\dots,n, $ so hei"st die Folge $ a_1, \dots , a_n $ superwachsend.
 Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im Zeitraum von $ O(n). $
+\newpage
 \begin{center}
 
 \fbox{\parbox{12cm}{        
@@ -208,6 +210,7 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 \index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffiert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
+\newpage
 
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -420,8 +423,9 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 
 \index{Schl""usselvereinbarung!Diffie-Hellman} \index{Diffie Whitfield} Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann, wenn die Teilnehmer bereits den geheimen Schl"ussel ausgetauscht haben. Im Rahmen der klassischen Kryptographie  f"uhrt kein Weg daran vorbei, da"s geheimnisse kryptographisch ungesichert ausgetauscht werden m"ussen. Die Sicherheit der "Ubertragung mu"s hier durch nicht-kryptographische Methoden erreicht werden. Man sagt dazu, da"s man zum Austausch der Geheimnisse einen geheimen Kanal braucht; dieser kann physikalisch oder organisatorisch realisiert sein. \\
 Das revolution"are der modernen Kryptographie ist unter anderem, da"s man keine geheimen Kan"ale mehr braucht: Man kann geheime Schl"ussel "uber nicht-geheime, also "offentliche Kan"ale vereinbaren. \\
-Ein Protokoll, das dieser Problem l"ost, ist das von Diffie und Hellman \\
+Ein Protokoll, das dieser Problem l"ost, ist das von Diffie und Hellman \\ %\enlargethispage{+20pt}
 
+\newpage
 \begin{center}
 \fbox{\parbox{12cm}{   
 Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schl"ussel vereinbaren. \par    
