@@ -1191,6 +1191,12 @@
 #define IDS_CREATE_USER_KEY_ID2         37872
 #define IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 37873
 #define IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 37874
+#define IDS_PADDING                     37875
+#define IDS_DERCODE                     37876
+#define IDS_HASHVALUE                   37877
+#define IDS_HASHDER                     37878
+#define IDS_HASHENC                     37879
+#define ID_PSE_IMPORT                   37880
 
 // Next default values for new objects
 // 
