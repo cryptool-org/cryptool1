@@ -14,4 +14,5 @@
 #define mr_unsign64 unsigned __int64
 #define MR_FLASH 52
 // #define MR_GENERIC_MT
+// #define MR_WINDOWS_MT
 #define MR_NO_STANDARD_IO

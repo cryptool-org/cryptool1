@@ -64,6 +64,11 @@ miracl *get_mip()
 {
     return (miracl *)mr_mip; 
 }
+
+void set_mip(miracl *n_mip)
+{
+	mr_mip = n_mip;
+}
 #endif
 #endif
 
@@ -610,6 +615,9 @@ void set_user_function(_MIPD_ BOOL (*user)(void))
 void set_io_buffer_size(_MIPD_ int len)
 {
     int i;
+#ifndef MR_GENERIC_MT
+    miracl *mr_mip=get_mip();
+#endif
     if (len<0) return;
     MR_IN(142)
     for (i=0;i<mr_mip->IOBSIZ;i++) mr_mip->IOBUFF[i]=0;

@@ -430,6 +430,7 @@ extern void  mirkill(_MIPT_ big);
 extern void  mr_init_threading(void);
 extern void  mr_end_threading(void);
 extern miracl *get_mip(_MIPTO_ );
+void set_mip(miracl *n_mip);
 extern miracl *mirsys(int,mr_small);
 extern void  mirexit(_MIPTO_ );
 extern int   exsign(flash);
