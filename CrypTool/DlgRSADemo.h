@@ -187,6 +187,7 @@ private:
 	CDlgOptionsRSADemo		*DlgOptions;
 	CRSADemo                *RSA;
 	long					 m_RSAKeyStatus;
+	int                      errorRSA;
 
 	PreCheckNumExpression( CEdit &editCtrl, CString &editStr, const char *expr );
 	void ButtonManagement();

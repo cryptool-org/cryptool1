@@ -498,10 +498,10 @@ BOOL CDlgRSADemo::CheckIntegerInput( CString &NumStr, CEdit &EditCtrl )
 void CDlgRSADemo::MessageIntegerRSAError( CEdit &EditCtrl, int id_IDS, BOOL select )
 {
 	Message(id_IDS, MB_ICONINFORMATION);
-	m_control_edit_p.SetFocus();
+	EditCtrl.SetFocus();
 	if ( select )
 	{
-		m_control_edit_p.SetSel(0,-1);
+		EditCtrl.SetSel(0,-1);
 	}
 }
 
@@ -632,7 +632,7 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 	if ( KeyStatusModulNValid() ) 
 	{
 		if ( DlgOptions->m_BlockLength!=0 && !( m_edit_N.GetLength() <= 3 && 
-					                DlgOptions->Anzahl_Zeichen<=atoi(m_edit_N)) )
+					                DlgOptions->Anzahl_Zeichen>=atoi(m_edit_N.GetBuffer(0))) )
 		{ // Save Actual Primes
 			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 			CString Primes = m_edit_p + ";" + m_edit_q + ";"+m_edit_e;
@@ -1433,7 +1433,13 @@ void CDlgRSADemo::EncryptNumbers()
 	{
 		IsNumberStream( tmpStr, GetBase(), m_edit_N, FORMAT_MODULO );
 	}
-	RSA->Encrypt( tmpStr, m_edit_RSA_step_1, GetBase() );
+
+	errorRSA = RSA->Encrypt( tmpStr, m_edit_RSA_step_1, GetBase() );
+	if ( errorRSA == 2 )
+	{
+		Message( IDS_RSADEMO_NUMBERS_BIGGER_THAN_N, MB_ICONEXCLAMATION );
+		return;
+	}
 
 	if ( !CheckIfSignature() )
 	{
@@ -1516,13 +1522,13 @@ void CDlgRSADemo::OnButtonEncrypt()
 			{
 				int NumberStreamFlag;
 				if ( !DlgOptions->m_RSAVariant )
-					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N /*, SPLIT_NUMBERS_VSMODUL */ );
 				else
 					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
 				if ( NumberStreamFlag )
 				{
-					HeadingEncryption( ENCRYPT_NUMBERS );
 					EncryptNumbers();
+					if ( !errorRSA ) HeadingEncryption( ENCRYPT_NUMBERS );
 				}
 				else
 					Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
@@ -1554,7 +1560,13 @@ void CDlgRSADemo::DecryptNumbers()
 	{
 		IsNumberStream( tmpStr, GetBase(), m_edit_N, FORMAT_MODULO );
 	}
-	RSA->Decrypt( tmpStr, m_edit_RSA_step_1, GetBase());
+
+	errorRSA = RSA->Decrypt( tmpStr, m_edit_RSA_step_1, GetBase());
+	if ( errorRSA == 2 )
+	{
+		Message( IDS_RSADEMO_NUMBERS_BIGGER_THAN_N, MB_ICONEXCLAMATION );
+		return;
+	}
 
 	if ( !DlgOptions->m_RSAVariant )
 	{
@@ -1632,14 +1644,14 @@ void CDlgRSADemo::OnButtonDecrypt()
 			{
 				int NumberStreamFlag;
 				if ( !DlgOptions->m_RSAVariant )
-					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N /*, SPLIT_NUMBERS_VSMODUL */ );
 				else
 					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
 
 				if ( NumberStreamFlag )
 				{
-					HeadingDecryption( DECRYPT_NUMBERS );
 					DecryptNumbers();
+					if ( !errorRSA ) HeadingDecryption( DECRYPT_NUMBERS );
 				}
 				else
 					Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );

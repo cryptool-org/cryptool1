@@ -1450,35 +1450,35 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Das RSA-Kryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",
-                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
-                    BS_MULTILINE | WS_GROUP,19,14,353,26
-    CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die öffentlichen RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
-                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
-                    BS_MULTILINE,19,42,353,23
-    EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,100,102,176,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,285,
                     85,87,18
-    EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT4,100,152,176,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,102,176,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,100,171,176,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,285,182,87,19
+    PUSHBUTTON      "Parameter &aktualisieren",IDC_BUTTON2,285,182,87,19
     PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
                     IDC_OPTIONEN,224,221,148,16
     CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
                     WS_TABSTOP,61,227,32,8
     CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
                     WS_TABSTOP,96,227,37,8
-    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
     EDITTEXT        IDC_EDIT10,19,253,353,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE | WS_GROUP,19,14,353,26
+    CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die öffentlichen RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE,19,42,353,23
+    EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT4,100,152,176,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
     PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
     GROUPBOX        "RSA mit privatem und öffentlichem Schlüssel -- oder nur mit öffentlichem Schlüssel",
                     IDC_STATIC,10,3,371,67
@@ -1923,7 +1923,7 @@ BEGIN
     LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,151,205,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
-                    IDC_STATIC,23,179,205,8
+                    IDC_STATIC,23,180,205,8
     CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,124,88,56,8
     CONTROL         "permutieren",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,
@@ -4871,7 +4871,7 @@ BEGIN
     IDS_STRING_HYBRID_STEP_BY_STEP 
                             "Ausgeführt: Schritt %d von maximal %d Schritten."
     IDS_STRING_HYB_SHOW_DATA 
-                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher das Dokument symmetrisch verschlüsseln\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher das Dokument symmetrisch verschlüsseln\nund den Session Key asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Wähle den Empfängerschlüssel von der Liste."
 END
@@ -5397,7 +5397,7 @@ BEGIN
     IDS_STRING_RSADEMO_MODUL_KLEIN 
                             "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muss kleiner als der RSA-Modul (hier N= %s) sein.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
-                            "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) höchstens so groß wie der RSA-Modul (hier N = %s) ist."
+                            "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) kleiner als der RSA-Modul (hier N = %s) ist."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müssen verschieden sein!"
@@ -5418,9 +5418,9 @@ BEGIN
                             "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
     IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5000 ein."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
-                            "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder Verschlüsseln sie die Eingabe als Text."
+                            "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder verschlüsseln sie die Eingabe als Text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
-                            "Die Eingabe enthält Buchstaben, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
+                            "Die Eingabe enthält Zeichen, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
     IDS_STRING_HELPNAME     "cryptool-de.hlp"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "Bei der Playfairverschlüsselung mit Vorforamtierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren"
@@ -5431,7 +5431,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
     IDS_STRING_FMT_SEC      " %2i,%03.3i Sekunden."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für das Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Primzahleingabe"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Primzahlen generieren..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Faktorisierungsangriff"
@@ -5556,7 +5556,7 @@ BEGIN
     IDS_FACTORISATION_OVERFLOW 
                             "Das Quadratische Sieb kann nicht ausgeführt werden und wird deaktiviert (Speicherüberlauf)."
     IDS_FACTORISATION_MEMORY_REQUEST 
-                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir empfehlen diese Methode zu deakivieren."
+                            "Das Quadratische Sieb benötigt mehr als 128 MB Speicher.\nWir empfehlen diese Methode zu deakivieren.\n\nOK deaktiviert das Quadratische Sieb,\nAbbrechen führt die Methode aus."
     IDS_STRING_Hashdemo_FileNotFound 
                             "Es wurde keine temporäre Datei gefunden!"
     IDS_STRING_Hashdemo_KeineWerteGefunden 
@@ -5590,18 +5590,18 @@ BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "RSA-Modul faktorisieren..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Zu verwendendes Alphabet (%i Zeichen):"
     IDS_STRING_HYB_ENC_DOC_SYM 
-                            "Dieser Button ist im Moment inaktiv!\n\nMit F1 erhalten Sie Informationen darüber,in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
-    IDS_STRING_HYB_SHOW_DOC "Dieser Button ist im Moment inaktiv, sie müssen vorher eine Datei auswählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\n\nMit F1 erhalten Sie Informationen darüber,in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
+    IDS_STRING_HYB_SHOW_DOC "Dieser Button ist im Moment inaktiv!\nSie müssen vorher eine Datei auswählen.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_SHOW_SYM_KEY 
-                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher einen Schlüssel generieren!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die Aktivitäten im Datenflussplan steuern können."
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel generieren.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_ENC_SYM_KEY 
-                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher den symmetrischen Schlüssel\nasymmetrisch verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher den symmetrischen Schlüssel asymmetrisch verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_SHOW_ENC_DOC 
-                            "Dieser Button ist im Moment inaktiv! Sie müssen vorher die Datei mit dem symmetrischen Schlüssel verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher die Datei mit dem symmetrischen Schlüssel verschlüsseln.\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_SHOW_ASYM_KEY 
-                            "Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
     IDS_STRING_HYB_ENC_KEY_ASYM 
-                            "Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können"
+                            "Dieser Button ist im Moment inaktiv!\nSie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5609,6 +5609,8 @@ BEGIN
     IDS_RSADEMO_VERIFY      "Verifizieren"
     IDS_RSADEMO_NOT         "nicht "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
+    IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
+                            "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-exponentation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7019,36 +7021,36 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "The RSA Cryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",
-                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
-                    BS_MULTILINE | WS_GROUP,19,15,353,26
-    CONTROL         "For the purpose of data encryption or certificate checking it is sufficient to enter the public RSA parameters: the RSA modulus N and the public key e.",
-                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
-                    BS_MULTILINE,19,43,353,19
-    EDITTEXT        IDC_EDIT1,100,82,172,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,100,99,172,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
                     284,82,88,18
-    EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT4,100,149,172,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,100,82,172,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,99,172,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,100,168,172,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,100,186,172,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,284,179,88,19
+    PUSHBUTTON      "&Update parameters",IDC_BUTTON2,284,179,88,19
     PUSHBUTTON      "&Options for alphabet and number system...",
                     IDC_OPTIONEN,224,218,148,16
     CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
                     WS_TABSTOP,53,225,32,8
     CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
                     WS_TABSTOP,89,225,40,8
-    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
     EDITTEXT        IDC_EDIT10,19,252,353,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT13,19,282,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
+    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE | WS_GROUP,19,15,353,26
+    CONTROL         "For the purpose of data encryption or certificate checking it is sufficient to enter the public RSA parameters: the RSA modulus N and the public key e.",
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE,19,43,353,19
+    EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT4,100,149,172,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,100,186,172,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
     PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,374,90,18
     EDITTEXT        IDC_HEADER1,19,240,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
@@ -7416,12 +7418,12 @@ BEGIN
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,254,57,19,WS_DISABLED
     PUSHBUTTON      "&Cancel",IDCANCEL,213,254,55,19
     CONTROL         "Read in",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,87,210,43,10
-    CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,87,226,
+                    WS_GROUP,94,210,43,10
+    CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,94,226,
                     40,10
     CONTROL         "Readout",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,180,210,47,10
-    CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,226,
+                    WS_GROUP,187,210,47,10
+    CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,
                     47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     162,254,22,20
@@ -7440,25 +7442,25 @@ BEGIN
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,23,180,234,8
     CONTROL         "Read in",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,87,86,44,10
-    CONTROL         "Read in",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,87,103,
+                    WS_GROUP,94,86,44,10
+    CONTROL         "Read in",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,
                     44,10
     CONTROL         "Readout",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,180,86,42,10
-    CONTROL         "Readout",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,180,103,
+                    WS_GROUP,187,86,42,10
+    CONTROL         "Readout",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,187,103,
                     43,10
     CONTROL         "Permute",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,131,86,42,10
-    CONTROL         "Permute",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,131,
+                    WS_GROUP,138,86,42,10
+    CONTROL         "Permute",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,138,
                     103,42,10
     CONTROL         "Permute",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,131,210,42,10
-    CONTROL         "Permute",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,131,
+                    WS_GROUP,138,210,42,10
+    CONTROL         "Permute",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,138,
                     226,42,10
-    RTEXT           "line by line:",IDC_STATIC,19,210,59,8
-    RTEXT           "column by column:",IDC_STATIC,19,226,59,8
-    RTEXT           "line by line:",IDC_STATIC,19,87,59,8
-    RTEXT           "column by column:",IDC_STATIC,19,103,59,8
+    RTEXT           "line by line:",IDC_STATIC,26,210,59,8
+    RTEXT           "column by column:",IDC_STATIC,26,226,59,8
+    RTEXT           "line by line:",IDC_STATIC,26,87,59,8
+    RTEXT           "column by column:",IDC_STATIC,26,103,59,8
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -10156,7 +10158,7 @@ BEGIN
     IDS_STRING_HYBRID_ENC_DLG "RSA key for the hybrid encryption"
     IDS_STRING_HYBRID_STEP_BY_STEP "Step %d out of a maximum of %d steps."
     IDS_STRING_HYB_SHOW_DATA 
-                            "This button is currently inactive! Before saving, the document must be encrypted symmetrically \nand the session key must be encrypted asymmetrically.\n\nThe F1 key will give you further information on which sequence you can control the activities on the flowchart."
+                            "This button is currently inactive!\nBefore saving, the document must be encrypted symmetric\nand the session key must be encrypted asymmetric.\n\nThe F1 key will give you further information on which sequence you can control the activities on the flowchart."
     IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
                             "Select the receiver key from the list."
 END
@@ -10767,7 +10769,7 @@ BEGIN
     IDS_FACTORISATION_OVERFLOW 
                             "Due to memory overflow, the quadratic sieve method could not be executed."
     IDS_FACTORISATION_MEMORY_REQUEST 
-                            "The quadratic sieve method requires more than 128 mega bytes of memory.\nWe recommend to deactivate this method."
+                            "The quadratic sieve method requires more than 128 mega bytes of memory.\nWe recommend to deactivate this method.\n\nOK deactivates the quadratic sieve,\nCancel executes this method."
     IDS_STRING_Hashdemo_FileNotFound "No temporary file was found!"
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "The file size must be at least one character!"
@@ -10856,18 +10858,18 @@ BEGIN
     IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorise RSA modulus..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Alphabet to use (%i characters):"
     IDS_STRING_HYB_ENC_DOC_SYM 
-                            "This button is currently inactive.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
-    IDS_STRING_HYB_SHOW_DOC "This button is currently inactive.\nPlease select a file.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+    IDS_STRING_HYB_SHOW_DOC "This button is currently inactive!\nPlease select a file.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_SYM_KEY 
-                            "This button is currently inactive.\nPlease generate a session key at first.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\nPlease generate a session key first.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_SYM_KEY 
-                            "This button is currently inactive.\nPlease encrypt the session key first.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\nPlease encrypt the session key first.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_ENC_DOC 
-                            "This button is currently inactive.\nPlease encrypt the document with your session key.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\nPlease encrypt the document with your session key.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_SHOW_ASYM_KEY 
-                            "This button is currently inactive.\nPlease select the public key of the recipient.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_HYB_ENC_KEY_ASYM 
-                            "This button is currently inactive.\nPlease select the public key of the recipient.\nUse F1 to get information about the sequence you\nshould follow to activate this button."
+                            "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10875,6 +10877,8 @@ BEGIN
     IDS_RSADEMO_VERIFY      "Verification"
     IDS_RSADEMO_NOT         "not "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
+    IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
+                            "At least one number of the input is bigger than the RSA modulus N\n(the RSA exponentation is for a number bigger than N not invertible)!\n\nPlease correct your input."
 END
 
 STRINGTABLE DISCARDABLE 

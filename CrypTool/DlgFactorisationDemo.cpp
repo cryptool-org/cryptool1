@@ -316,13 +316,14 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			}
 
 			bool l_factorisation_aborted = false;
+			int  l_dlg_return;
 
 			dlg.m_totalThreads = started;
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_FACTORISATION_TIMER,pc_str,STR_LAENGE_STRING_TABLE);
 			dlg.SetCaption(pc_str);
-			if ( IDOK != dlg.DoModal() )
+			if ( IDOK != (l_dlg_return = dlg.DoModal()) )
 			{
-				l_factorisation_aborted = true;
+				if (l_dlg_return == IDCANCEL) l_factorisation_aborted = true;
 			}
 
 			for(i=0;i<5;i++) {
@@ -610,10 +611,6 @@ void CDlgFactorisationDemo::expandFactorisation(CString &composite, CString &f1,
 	}
 
 }
-
-
-
-
 
 
 void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()

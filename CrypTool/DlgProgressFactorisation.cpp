@@ -11,6 +11,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#define MY_IDNOSUCCESS 4
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgProgressFactorisation 
 
@@ -112,6 +113,7 @@ BOOL CDlgProgressFactorisation::OnInitDialog()
 		EndDialog(m_retcode);
 		return TRUE;
 	}
+	m_retcode = MY_IDNOSUCCESS;
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -125,6 +127,7 @@ void CDlgProgressFactorisation::OnCancel()
 		if(m_Factorisations[i]->status & THREAD_RUNNING)
 			m_Factorisations[i]->status |= THREAD_REQUEST_ABORT;
 	Lock.Unlock();
+	m_retcode = IDCANCEL;
 }
 
 
@@ -162,7 +165,7 @@ void CDlgProgressFactorisation::OnTimer(UINT nIDEvent)
 			m_displayed = 0;
 			m_OldThread = -1;
 			m_registeredThreads = 0;
-			m_retcode = IDCANCEL;
+			// m_retcode = IDCANCEL;
 			m_displayed = 0;
 			EndDialog(t);
 		}
@@ -282,24 +285,29 @@ int CDlgProgressFactorisation::ExitSchedule(int index)
 void CDlgProgressFactorisation::OnCancel2() //Brent
 {
 	m_Factorisations[0]->status |= THREAD_REQUEST_ABORT;
+	if ( m_numThreads <= 1 ) m_retcode = IDCANCEL;
 }
 
 void CDlgProgressFactorisation::OnCancel3() // Pollard
 {
 	m_Factorisations[1]->status |= THREAD_REQUEST_ABORT;
+	if ( m_numThreads <= 1 ) m_retcode = IDCANCEL;
 }
 
 void CDlgProgressFactorisation::OnCancel4() // Williams
 {
 	m_Factorisations[2]->status |= THREAD_REQUEST_ABORT;
+	if ( m_numThreads <= 1 ) m_retcode = IDCANCEL;
 }
 
 void CDlgProgressFactorisation::OnCancel5() // Lensta
 {
 	m_Factorisations[3]->status |= THREAD_REQUEST_ABORT;
+	if ( m_numThreads <= 1 ) m_retcode = IDCANCEL;
 }
 
 void CDlgProgressFactorisation::OnCancel6() // QSieve
 {
 	m_Factorisations[4]->status |= THREAD_REQUEST_ABORT;
+	if ( m_numThreads <= 1 ) m_retcode = IDCANCEL;
 }
