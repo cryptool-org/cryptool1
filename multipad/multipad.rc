@@ -9115,7 +9115,7 @@ BEGIN
     IDS_STRING_RSADEMO_MODUL_KLEIN 
                             "The number of characters in the alphabet (here %i letters) must be smaller than the RSA-Modul (here N= %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
-                            "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul (here N= %s)."
+                            "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul (here N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
