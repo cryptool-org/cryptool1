@@ -1292,6 +1292,7 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 {
 	CStdioFile file;
 	theApp.DoWaitCursor(1);
+	UpdateContent();
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
 	{
@@ -1305,7 +1306,6 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 			Message(IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST, MB_ICONINFORMATION);
 		}
 		file.Close();
-		UpdateContent();
 		Freq_Test test;
 		Dlg_Tests_Freq FREQT;
 		FREQT.SetCurrentTest( &test );
@@ -1326,6 +1326,7 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 {
 	CStdioFile file;
 	theApp.DoWaitCursor(1);
+	UpdateContent();
 	file.Open(ContentName, CFile::modeRead);
 
 	if(file.GetLength() < 16) 
@@ -1336,7 +1337,6 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 	else
 	{
 		file.Close();
-		UpdateContent();
 		Serial_Test test;
 		Dlg_Tests_Freq SERT;
 		SERT.SetCurrentTest( &test );
@@ -1356,6 +1356,7 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 void CCryptDoc::OnAnalyseZufallstestsRuns() 
 {
 	theApp.DoWaitCursor(1);
+	UpdateContent();
 	CStdioFile file;
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
@@ -1366,7 +1367,6 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 	else
 	{
 		file.Close();
-		UpdateContent();
 		Dlg_Zufallsgenerator_Tests_Runs LRT;
 		LRT.init(ContentName, GetTitle());
 
@@ -1385,6 +1385,7 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 {
 	CStdioFile file;
 	theApp.DoWaitCursor(1);
+	UpdateContent();
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 16) 
 	{
@@ -1394,7 +1395,6 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 	else
 	{
 		file.Close();
-		UpdateContent();
 		Poker_Test test;
 		Dlg_Tests_Freq POKT;
 		POKT.Set_Poker_Flag( TRUE );
@@ -1417,6 +1417,8 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 void CCryptDoc::OnAnalyseZufallstestsFipspub1401() 
 {
 	CStdioFile file;
+	theApp.DoWaitCursor(1);
+	UpdateContent();
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 2500) 
 	{
