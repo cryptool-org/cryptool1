@@ -2161,34 +2161,50 @@ BEGIN
     LTEXT           "Eingabe",IDC_STATIC,6,297,85,10
 END
 
-IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 423, 310
+IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 467, 412
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schrittweise Signaturerzeugung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "OPNDOC_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,13,17,50,28
-    PUSHBUTTON      "SELHSH",IDC_SELECT_HASHALG,121,17,50,28,BS_MULTILINE
-    PUSHBUTTON      "SELKEY",IDC_SELECT_KEY,229,17,50,28,BS_MULTILINE
-    PUSHBUTTON      "SELCRT",IDC_SELECT_CERT,339,17,50,28,BS_MULTILINE
-    CONTROL         "INFDOC_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,13,56,50,14
-    PUSHBUTTON      "INFALG",IDC_INFO_ALG,121,56,50,14
-    PUSHBUTTON      "INFKEY",IDC_INFO_KEY,229,56,50,14
-    PUSHBUTTON      "INFCRT",IDC_INFO_CERT,339,56,50,14
-    PUSHBUTTON      "COMPUTE",IDC_COMPUTE,121,91,50,28,BS_MULTILINE
-    PUSHBUTTON      "ENCRYPT",IDC_ENCRYPT,229,91,50,28,BS_MULTILINE
-    PUSHBUTTON      "COMBINE",IDC_COMBINE,339,91,50,28,BS_MULTILINE
-    PUSHBUTTON      "INFHSH",IDC_INFO_HASH,121,141,50,14
-    PUSHBUTTON      "INFENC",IDC_INFO_HASH_ENC,229,141,50,14
-    PUSHBUTTON      "INFSGN",IDC_INFO_SIGN,339,141,50,14
-    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,165,409,10,SS_SUNKEN | 
+    CONTROL         "TEST_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,233,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,7,50,28
+    CONTROL         "TEST_T_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,233,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,69,50,14
+    CONTROL         "TEST_F_",IDC_COMPUTE,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,121,130,50,28
+    CONTROL         "TEST_F_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    BS_MULTILINE | WS_TABSTOP,233,130,50,28
+    CONTROL         "TEST_F_",IDC_COMBINE,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    BS_MULTILINE | WS_TABSTOP,347,130,50,28
+    CONTROL         "TEST_T_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,191,50,14
+    CONTROL         "TEST_T_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,233,191,50,14
+    CONTROL         "TEST_T_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,191,50,14
+    CONTROL         "TEST_T_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,233,252,50,14
+    CONTROL         "TEST_T_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,347,252,50,14
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,288,453,10,SS_SUNKEN | 
                     NOT WS_GROUP
-    EDITTEXT        IDC_DISPLAY_INFO,7,175,409,106,ES_MULTILINE | 
+    EDITTEXT        IDC_DISPLAY_INFO,7,298,453,106,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
-    PUSHBUTTON      "Abbrechen",IDCANCEL,280,288,50,14
-    DEFPUSHBUTTON   "OK",IDOK,339,288,50,14
+    CONTROL         335,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,7,7,
+                    453,283
 END
 
 IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
@@ -2277,24 +2293,23 @@ BEGIN
     DEFPUSHBUTTON   "Vorhandene PSE Öffnen",ID_PSE_IMPORT,97,248,103,14
 END
 
-IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 148, 130
+IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hashverfahren auswählen"
+CAPTION "Select a hash function"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,52,109,46,14,WS_GROUP
-    CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_CENTER | 
-                    WS_GROUP | WS_TABSTOP,45,7,61,10
-    CONTROL         "MD4",IDC_MD4,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
-                    22,61,10
-    CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
-                    37,61,10
-    CONTROL         "SHA",IDC_SHA,"Button",BS_AUTORADIOBUTTON | BS_CENTER,45,
-                    52,61,10
-    CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | 
-                    BS_CENTER,45,67,61,10
+    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
+    CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
+                    WS_GROUP | WS_TABSTOP,25,15,61,10
+    CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
+                    31,61,10
+    CONTROL         "SHA",IDC_SHA,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
+                    45,61,10
+    CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT,
+                    25,61,61,10
     CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
-                    BS_CENTER,45,82,61,10
+                    BS_LEFT,25,76,61,10
+    GROUPBOX        "Hash function",IDC_STATIC,7,3,117,87
 END
 
 IDD_FACTORISATION_LIST DIALOG DISCARDABLE  0, 0, 383, 348
@@ -3247,6 +3262,15 @@ RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
+TEST_T_X                BITMAP  DISCARDABLE     "res\\TEST_X.bmp"
+TEST_F_F                BITMAP  DISCARDABLE     "res\\TEST_F_F.bmp"
+TEST_F_U                BITMAP  DISCARDABLE     "res\\TEST_F_U.bmp"
+TEST_T_D                BITMAP  DISCARDABLE     "res\\TEST_T_D.bmp"
+TEST_T_F                BITMAP  DISCARDABLE     "res\\TEST_T_F.bmp"
+TEST_T_U                BITMAP  DISCARDABLE     "res\\TEST_T_U.bmp"
+TEST_F_D                BITMAP  DISCARDABLE     "res\\TEST_F_D.bmp"
+TEST_F_X                BITMAP  DISCARDABLE     "res\\test_f_x.bmp"
+IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\Layout.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5325,11 +5349,14 @@ BEGIN
                             "Fehler: Die neue Alphabet-Größe übertrifft die Gesamtzahl der Homophonen !\nBitte erhöhen Sie die Gesamtzahl der Homophonen auf mindestens %i Zeichen."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
                             "Das Homophonen-Alphabet wurde geändert:\nAltes Alphabet: %s\nNeues Alphabet: %s."
+    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
     IDS_PADDING             "Padding-String:         %s\r\n"
     IDS_DERCODE             "Algorithmus-ID:         %s\r\n"
     IDS_HASHVALUE           "Hashwert:               %s\r\n"
     IDS_HASHDER             "ASN-1 Hashwert:         %s\r\n"
     IDS_HASHENC             "Verschl. Hashwert:      %s\r\n"
+    IDS_CONV_LONG           "%l"
+    IDS_CANCEL              "Abbrechen"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5353,15 +5380,22 @@ BEGIN
                             "Die Eingabe muss mindestens 1 Zeichen enthalten!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
                             "Die Datei ist größer als %i Bytes und wird auf auf %i Bytes gekürzt"
-    IDS_BITLENGTH           "Modullänge in Bit:      %i\r\n"
+    IDS_BITLENGTH           "Länge in Bit:           %i\r\n"
     IDS_CONTENT_CERT        "Zertifikat"
     IDS_CONTENT_SIGN        " %s Signatur von <%s>"
+    IDS_BITLENGTH_MODN      "Modullänge in Bit:      %i\r\n"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_ERRON_OPEN_REFERENCE_FILE2 
                             "Fehler beim Öffnen der Referenzdatei !\nBitte wählen Sie unter dem Menü Optionen / Textoptionen eine geeignete Datei."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ACCESS_PSE          "Schlüssel und Zertifkat Importieren"
+    IDS_IMPORT              "Importieren"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -7481,6 +7515,113 @@ BEGIN
                     NOT WS_BORDER
 END
 
+IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 467, 412
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schrittweise Signaturerzeugung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "TEST_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,233,7,50,28
+    CONTROL         "TEST_F_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,7,50,28
+    CONTROL         "TEST_T_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,7,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,233,69,50,14
+    CONTROL         "TEST_T_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,69,50,14
+    CONTROL         "TEST_F_",IDC_COMPUTE,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,121,130,50,28
+    CONTROL         "TEST_F_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    BS_MULTILINE | WS_TABSTOP,233,130,50,28
+    CONTROL         "TEST_F_",IDC_COMBINE,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    BS_MULTILINE | WS_TABSTOP,347,130,50,28
+    CONTROL         "TEST_T_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,121,191,50,14
+    CONTROL         "TEST_T_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,233,191,50,14
+    CONTROL         "TEST_T_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,347,191,50,14
+    CONTROL         "TEST_T_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,233,252,50,14
+    CONTROL         "TEST_T_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,347,252,50,14
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,288,453,10,SS_SUNKEN | 
+                    NOT WS_GROUP
+    EDITTEXT        IDC_DISPLAY_INFO,7,298,453,106,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+    CONTROL         335,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,7,7,
+                    453,283
+END
+
+IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hashverfahren auswählen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,41,93,46,14,WS_GROUP
+    CONTROL         "MD2",IDC_MD2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
+                    WS_GROUP | WS_TABSTOP,25,15,61,10
+    CONTROL         "MD5",IDC_MD5,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
+                    31,61,10
+    CONTROL         "SHA",IDC_SHA,"Button",BS_AUTORADIOBUTTON | BS_LEFT,25,
+                    45,61,10
+    CONTROL         "SHA-1",IDC_SHA_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT,
+                    25,61,61,10
+    CONTROL         "RIPEMD-160",IDC_RIPEMD160,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFT,25,76,61,10
+    GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,87
+END
+
+IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RSA-Schlüssel generieren"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",
+                    IDC_STATIC_TEXT,7,7,296,24
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,7,36,337,48
+    LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
+    EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
+    LTEXT           "Primzahl q",IDC_STATIC_PRIME2,19,66,75,8
+    EDITTEXT        IDC_EDIT_PRIME_Q,100,64,128,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_GENERATE_PRIME,238,48,98,
+                    14
+    GROUPBOX        "RSA-Schlüssel-Parameter für Empfänger",IDC_STATIC_RSA,7,
+                    87,337,101
+    LTEXT           "RSA-Modul N",IDC_STATIC_RSA1,19,118,75,8
+    EDITTEXT        IDC_EDIT_RSA_MODUL_N,100,117,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "(öffentlich)",IDC_STATIC_RSA5,238,119,34,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC_RSA2,19,135,75,8,NOT 
+                    WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_PHI_N,100,134,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "(geheim)",IDC_STATIC_RSA6,238,136,30,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,152,75,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,
+                    NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "Abbrechen",IDCANCEL,19,197,50,14
+    DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,238,197,106,14,WS_DISABLED
+    LTEXT           "Static",IDC_CHECK_PRIME,238,66,98,8
+    LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
+    LTEXT           "Bitlänge",IDC_STATIC_RSA0,19,101,75,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_RSA_BITLENGTH,100,99,128,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8621,6 +8762,37 @@ BEGIN
         VERTGUIDE, 366
         TOPMARGIN, 7
         BOTTOMMARGIN, 339
+    END
+
+    IDD_SIGNATURE_DEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 460
+        VERTGUIDE, 121
+        VERTGUIDE, 233
+        VERTGUIDE, 347
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 405
+        HORZGUIDE, 69
+        HORZGUIDE, 130
+        HORZGUIDE, 191
+        HORZGUIDE, 252
+    END
+
+    IDD_SEL_HASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        VERTGUIDE, 25
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_DEMO_RSAKEY_GENERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 344
+        TOPMARGIN, 7
     END
 END
 #endif    // APSTUDIO_INVOKED
