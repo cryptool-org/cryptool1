@@ -314,12 +314,13 @@ Eine besondere Rolle spielen die K"orper $GF(p)$, deren Ordnung eine Primzahl is
 % -----------------------------------------------------------------------------
 \subsection{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
-In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung. Es hat sich bei Untersuchungen gezeigt, dass die durch eine Kurve vom Grad drei\footnote{D.h. die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.} der Form
+In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als L"osungen einer Gleichung der Form\footnote{Die hier verwendete Kurve erh"alt man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdr"ucke der Form
+$P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ "uber dem K"orper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht.}
 \begin{equation}
- F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
+ F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0.
 \label{eccbasisgleichung}
 \end{equation}
-wobei die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"or"-pers $K$ sind, der eine f"ur die Kryptographie interessante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
+Dabei sind die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen K"or"pers $K$. K"orper und Parameter m"ussen so gew"ahlt werden, dass die Kurve bestimmte, f"ur die Kryptographie relevante Eigenschaften besitzt. Der zugrunde liegende K"orper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher K"orper sein (vgl. letzter Abschnitt).
 Damit sich eine sinnvolle Kurve ergibt, m"ussen die Parameter so gew"ahlt sein, dass die folgenden Nebenbedingungen gelten
 $$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0, \quad
 {\partial F\over\partial x_3}\ne 0 .
@@ -507,7 +508,7 @@ Signaturverfahren eingesetzt  wurde.
 
 Mit Hilfe Elliptischer Kurven kann ein sicherer Schl"usselaustausch nach dem \hyperlink{Diffie-Hellman Protokoll}{DH-KeyExch} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schl"ussel kann dann f"ur eine anschlie"sende symmetrische Verschl"usselung verwendet werden. Ein Schl"usselpaar mit privatem und "offentlichem Schl"ussel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt.
 
-In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und ein Element $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt $r_Ar_B G$ erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
+In der Schreibweise der Elliptischen Kurven lie"st sich das Diffie-Hellman Verfahren wie folgt: Zun"achst einigen sich beide Partner (A und B) "offentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach w"ahlen sie zuf"allig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (n"amlich $r_Ar_B G$) erh"alt auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuf"uhren; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufw"andig.
 \\ F"ur einen Dritten ist es nach heutigen Kenntnisstand nicht m"oglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP l"ost.
 
 Um einen ``Man-in-the-middle"{}~Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die "ubertragenen Werte $G,q,R_A,R_B$ digital signieren.
@@ -598,6 +599,14 @@ Eine vollst"andige Beschreibung aller Implementierungen unter Abw"agung ihrer Vo
 
 Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Dies w"are aber eine Voraussetzung daf"ur, dass sich ECC dauerhaft als Alternative zu RSA etabliert.
 
+% -----------------------------------------------------------------------------
+\subsection{Elliptische Kurven im praktischen Einsatz}
+
+Bereits heute werden Elliptische Kurven in der Praxis eingesetzt. Als prominentes Beispiel ist hier der Informationsverbund Bonn-Berlin (IVBB) zu nennen, bei dem streng vertrauliche Dokumente der deutschen Bundesregierung zwischen Regierungsstellen mit Sitz in Berlin und Bonn ausgetauscht werden. Durch den Einsatz von ECC konnte eine Hochsicherheitsl"osung realisiert werden. Fragen der Interoperabilit"at spielten hingegen eine untergeordnete Rolle.
+
+Nach Auskunft des Projektleiters e-Government in "Osterreich, Prof.\ Posch, ist in K"urze auch mit einer Massenanwendung auf Basis von ECC zu rechnen: Die Bankkarte mit Signaturanwendung, die ab 2004 in "Osterreich herausgegeben werden soll, setzt auf elliptische Kurven.
+
+Beide Beispiele zeigen gut die typischen Einsatzgebiete elliptischer Kurven: Als Hochsicherheitsl"osungen und bei Implementierungen auf Smartcards, bei denen der Schl"ussell"ange (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
 
 \newpage
