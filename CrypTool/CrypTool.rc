@@ -5812,6 +5812,8 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
                             "Die ""harmlose"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
+    IDS_DH_SECRET_EXCEEDS_PRIME 
+                            "Das Geheimnis ist größer als der Primzahlmodul und wird deshalb verkürzt auf eine Zahl kleiner als diese Primzahl!"
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "Sie müssen mindestens eine Checkbox ankreuzen."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
@@ -12370,6 +12372,8 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
                             "The ""harmless"" file could not be openend or is of size 0 !"
+    IDS_DH_SECRET_EXCEEDS_PRIME 
+                            "The secret exceeds the prime modulus and therefor it is shortened to a number smaller than this prime!"
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "You have to mark at least one of the ckeck boxes."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 

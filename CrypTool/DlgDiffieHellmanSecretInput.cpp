@@ -22,6 +22,7 @@ CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput(CWnd* pParent /*=NULL
 	m_Secret = _T("");
 	m_PartyHeader = _T("");
 	//}}AFX_DATA_INIT
+	m_SecretExceedsPrime = false;
 }
 
 CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, Big& prime, CWnd* pParent /*=NULL*/)
@@ -30,6 +31,7 @@ CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, B
 	m_Party = party;
 	m_Prime = prime;
 	m_Secret = _T("");
+	m_SecretExceedsPrime = false;
 }
 
 CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, std::string prev_secret,Big& prime, CWnd* pParent /*=NULL*/)
@@ -38,6 +40,7 @@ CDlgDiffieHellmanSecretInput::CDlgDiffieHellmanSecretInput( std::string party, s
 	m_Party = party;
 	m_Prime = prime;
 	m_Secret = prev_secret.c_str();
+	m_SecretExceedsPrime = false;
 }
 
 void CDlgDiffieHellmanSecretInput::DoDataExchange(CDataExchange* pDX)
@@ -102,6 +105,10 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 		return;
 	}
 
+	if ( S >= this->m_Prime )
+	{
+		m_SecretExceedsPrime = true;
+	}
 	// Warnmeldung ausgeben, wenn das Geheimnis gleich p-1 ist oder 0, da das Verfahren dann
 	// u.U. unsicher ist.
 	if( S == (m_Prime-1) || S == 0 )

@@ -15,13 +15,14 @@ class CDlgDiffieHellmanSecretInput : public CDialog
 private:
 	Big m_Prime;
 	std::string m_Party;
+	bool m_SecretExceedsPrime;
 
 // Konstruktion
 public:
 	CDlgDiffieHellmanSecretInput(CWnd* pParent = NULL);			// Standardkonstruktor
 	CDlgDiffieHellmanSecretInput(std::string,Big&,CWnd* pParent = NULL);				// Zusätzlicher Konstruktor
 	CDlgDiffieHellmanSecretInput(std::string,std::string,Big&,CWnd* pParent = NULL);	// Zusätzlicher Konstruktor
-
+	bool SecretExceedsPrime() { return m_SecretExceedsPrime; }
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanSecretInput)
 	enum { IDD = IDD_DIFFIEHELLMAN_SECRETINPUT };
