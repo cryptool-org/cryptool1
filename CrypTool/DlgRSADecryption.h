@@ -1,0 +1,77 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+// Programmiert von Bartol Filipovic 1999-2000
+//////////////////////////////////////////////////////////////////
+
+#ifndef AFX_RSADEC_H__11C1DEFD_F5DB_11D3_8798_00C04F795E36__INCLUDED_
+#define AFX_RSADEC_H__11C1DEFD_F5DB_11D3_8798_00C04F795E36__INCLUDED_
+
+// RsaDec.h : Header-Datei
+//
+
+/////////////////////////////////////////////////////////////////////////////
+// Dialogfeld CDlgRSADecryption 
+
+#include "KeyFileHandling.h"
+
+class CDlgRSADecryption : public CDialog
+{
+// Konstruktion
+public:
+	CDlgRSADecryption(CWnd* pParent = NULL);   // Standardkonstruktor
+
+	CString UserKeyId;
+
+// Dialogfelddaten
+	//{{AFX_DATA(CDlgRSADecryption)
+	enum { IDD = IDD_RSA_DECRYPTION };
+	CListCtrl	m_listview;
+	CEdit	m_PinCodeEditctrl;
+	CString	m_PinCode;
+	BOOL	m_ShowDuration;
+	//}}AFX_DATA
+
+
+// Überschreibungen
+	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
+	//{{AFX_VIRTUAL(CDlgRSADecryption)
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);
+	//}}AFX_VIRTUAL
+
+// Implementierung
+protected:
+
+	int m_lastSelectedRow;
+	int sortBy;
+	unsigned nKeylistType;
+
+	CString KeyType;
+	CString KeyInfo;
+	CString Name;
+	CString Firstname;
+	CString CreatTime;
+
+	void InitAsymKeyListBox(unsigned nLocalKeylistType);
+	void UpdateRowSel(int row);
+	int GetSpecifRow(UINT mask);
+
+	CSortAsymKeyList sortedAsymKeyList;
+
+	// Generierte Nachrichtenzuordnungsfunktionen
+	//{{AFX_MSG(CDlgRSADecryption)
+	virtual BOOL OnInitDialog();
+	virtual void OnOK();
+	afx_msg void OnClickListKeys(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnItemclickListKeys(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnColumnclickListKeys(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnKeydownListKeys(NMHDR* pNMHDR, LRESULT* pResult);
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Developer Studio fügt zusätzliche Deklarationen unmittelbar vor der vorhergehenden Zeile ein.
+
+#endif // AFX_RSADEC_H__11C1DEFD_F5DB_11D3_8798_00C04F795E36__INCLUDED_
