@@ -2693,6 +2693,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
+        MENUITEM SEPARATOR
         POPUP "A&lgorithmen (automatische Analyse)"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -2702,7 +2703,6 @@ BEGIN
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
             MENUITEM SEPARATOR
         END
-        MENUITEM SEPARATOR
         POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -2900,7 +2900,7 @@ BEGIN
                                                     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
 
         END
-        MENUITEM "",                            1
+        MENUITEM SEPARATOR
         POPUP "A&lgorithmen (automatische Analyse)"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO

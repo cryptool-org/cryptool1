@@ -728,5 +728,4 @@ void CCrypToolApp::OnHilfeSzenarien()
 {
 	// Hilfe zu den Szenarien aufrufen
 	CWinApp::WinHelp(ID_HILFE_SZENARIEN+0x10000);
-	
 }
