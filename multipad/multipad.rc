@@ -329,7 +329,7 @@ END
 IDD_ABOUTBOX DIALOGEX 34, 22, 242, 321
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CTEXT           "CrypTool     (Version 1.3.00)",IDC_STATIC,0,51,242,8
     CTEXT           "Copyright (C) 1998-2001 Deutsche Bank AG\nFrankfurt am Main",
@@ -1470,21 +1470,51 @@ BEGIN
     LTEXT           "Verschlüsselter Text",IDC_STATIC,7,247,62,8
 END
 
-IDD_DIALOG_HOMOPHONE DIALOG DISCARDABLE  0, 0, 337, 349
+IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 362
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Homophoner Algorithmus"
+CAPTION "Homophone Substitution"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,170,318,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,259,318,50,14
-    PUSHBUTTON      "Schlüsse&l erzeugen",IDC_ERZEUGEN,17,316,80,14
+    DEFPUSHBUTTON   "Ver-/Ent&schlüsseln",IDOK,137,336,116,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,332,336,50,14
+    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,336,109,
+                    14
     CONTROL         "&Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,5,6,59,10
+                    WS_GROUP,20,18,59,10
     CONTROL         "&Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    6,27,59,10
+                    20,32,59,10
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,54,294,157
-    EDITTEXT        IDC_ROW,30,237,277,14,ES_AUTOHSCROLL
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
+    EDITTEXT        IDC_ROW,92,292,290,14,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "Ver-/Entschlüsseln",IDC_STATIC,14,4,78,42
+    GROUPBOX        "Homophone Anzahl und Einteilung",IDC_STATIC,99,4,168,42
+    EDITTEXT        IDC_EDIT1,188,16,24,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,272,4,110,42
+    CONTROL         "Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,278,
+                    19,56,10
+    CONTROL         "Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,278,33,
+                    63,10
+    LTEXT           "Editieren der Homophonen Liste für einzelne Zeichen:",
+                    IDC_STATIC,14,269,172,9
+    LTEXT           "Zeichen:",IDC_STATIC,14,282,28,8
+    LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
+                    IDC_STATIC,14,52,192,8
+    EDITTEXT        IDC_EDIT2,14,292,11,14,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Anzahl",IDC_STATIC,54,282,22,8
+    EDITTEXT        IDC_EDIT3,54,292,32,14,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    LTEXT           "Liste der Homophonen",IDC_STATIC,92,282,72,8
+    LTEXT           "Gesamtzahl Homophone:",IDC_STATIC,106,17,80,8
+    LTEXT           "Einteilung:",IDC_STATIC,106,32,34,8
+    CONTROL         "Byte-Weise",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,146,
+                    32,52,10
+    CONTROL         "Bit-Weise",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,202,
+                    32,46,10
 END
 
 IDD_DIALOG_ANALYSE_NGRAM DIALOG DISCARDABLE  0, 0, 317, 238
@@ -1492,7 +1522,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyse N-Gramme"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Ende",IDOK,7,207,99,24
+    DEFPUSHBUTTON   "NGramme bestimmen",IDC_BUTTON2,7,134,99,23
     GROUPBOX        "Auswahl",IDC_STATIC,7,7,99,118
     CONTROL         "Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,20,17,53,10
@@ -1503,13 +1533,52 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
                     WS_TABSTOP,115,7,195,224
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,59,8,8
-    PUSHBUTTON      "Ergebnis Speichern",IDC_BUTTON1,7,167,99,24
+    PUSHBUTTON      "Ergebnis Speichern",IDOK,7,167,99,24
     LTEXT           "Anzeige der",IDC_STATIC,20,88,39,8
     EDITTEXT        IDC_EDIT1,60,86,32,12,ES_AUTOHSCROLL
     LTEXT           "häufigsten N-Gramme",IDC_STATIC,20,101,69,8
-    PUSHBUTTON      "NGramme bestimmen",IDC_BUTTON2,7,134,99,23
+    PUSHBUTTON      "Ende",IDCANCEL,7,207,99,24
     EDITTEXT        IDC_EDIT2,31,57,13,11,ES_AUTOHSCROLL
     LTEXT           "-Gramm",IDC_STATIC,45,59,25,8
+END
+
+IDD_DIALOG_GEN_RANDOMDATA DIALOGEX 0, 0, 260, 239
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Zufallszahlen generieren "
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ausgabe erzeugen",IDOK,16,206,127,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,176,206,68,19
+    GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,7,7,246,83
+    CONTROL         "Pseudozufallsgenerator der SECUDE Bibliothek",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,25,
+                    165,10
+    CONTROL         "Blum-Blum-Shub Generator mit kleinen Zahlen",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,16,40,160,10
+    CONTROL         "Generator nach der Formel (x*a)+b (mod c)",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON,16,55,149,10
+    CONTROL         "Generator mit zyklischen Shifts",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,16,70,112,10
+    GROUPBOX        "Parameter ",IDC_STATIC,7,99,246,65
+    LTEXT           "Saat:",IDC_STATIC,16,120,21,9
+    EDITTEXT        IDC_EDIT1,37,119,207,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Generator-spezifische Parameter wählen",IDC_BUTTON1,37,
+                    138,155,18
+    GROUPBOX        "Zufallsdaten Erzeugen ",IDC_STATIC,7,172,246,60
+    LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,16,188,92,8
+    EDITTEXT        IDC_EDIT2,111,187,40,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+END
+
+IDD_RANDOM_PARAMETER_SECUDE DIALOG DISCARDABLE  0, 0, 186, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SECUDE Zufallsgenerator"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,67,65,50,14
+    EDITTEXT        IDC_EDIT1,7,14,172,36,ES_MULTILINE | ES_READONLY | NOT 
+                    WS_BORDER | NOT WS_TABSTOP
 END
 
 
@@ -1976,6 +2045,18 @@ BEGIN
         BOTTOMMARGIN, 298
     END
 
+    IDD_DIALOG_HOMOPHONE, DIALOG
+    BEGIN
+        VERTGUIDE, 14
+        VERTGUIDE, 54
+        VERTGUIDE, 92
+        VERTGUIDE, 382
+        HORZGUIDE, 46
+        HORZGUIDE, 292
+        HORZGUIDE, 306
+        HORZGUIDE, 350
+    END
+
     IDD_DIALOG_ANALYSE_NGRAM, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -1985,6 +2066,33 @@ BEGIN
         VERTGUIDE, 115
         TOPMARGIN, 7
         BOTTOMMARGIN, 231
+    END
+
+    IDD_DIALOG_GEN_RANDOMDATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        VERTGUIDE, 16
+        VERTGUIDE, 37
+        VERTGUIDE, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+        HORZGUIDE, 35
+        HORZGUIDE, 50
+        HORZGUIDE, 65
+        HORZGUIDE, 80
+        HORZGUIDE, 131
+        HORZGUIDE, 156
+        HORZGUIDE, 191
+        HORZGUIDE, 225
+    END
+
+    IDD_RANDOM_PARAMETER_SECUDE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -2147,6 +2255,7 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
+        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2327,6 +2436,7 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
+        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -2554,6 +2664,7 @@ BEGIN
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
+        MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3415,7 +3526,7 @@ BEGIN
     IDS_STRING37003         "%s Verschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING37004         "%s Entschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING37005         "Homophone"
-    IDS_STRING37006         "Verschlüsselung"
+    IDS_STRING37006         "Liste der Homophone"
     IDS_STRING_NGRAM_LIST1  "Nr."
 END
 
@@ -3431,6 +3542,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_NGRAM_LIST2  "Zeichenfolge"
     IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
+    IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma SECUDE benötigen Sie keine weiteren Parameter. Weitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
 END
 
 #endif    // Deutsch (Deutschland) resources

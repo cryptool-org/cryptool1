@@ -779,6 +779,14 @@ SOURCE=.\DlgFortschritt.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgGenRandomData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgGenRandomData.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgMono.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -793,6 +801,14 @@ SOURCE=.\DlgMono.cpp
 # Begin Source File
 
 SOURCE=.\DlgMono.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgParamRandSECUDE.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgParamRandSECUDE.h
 # End Source File
 # Begin Source File
 

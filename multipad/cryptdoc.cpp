@@ -20,6 +20,7 @@
 #include "Dlg_homophone.h"
 #include "AnalyseNGram.h"
 #include "DlgSignExtract.h" // für OnCryptExtract
+#include "DlgGenRandomData.h"
 
 UINT AESBrute(PVOID p);
 
@@ -161,6 +162,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
+	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1222,7 +1224,22 @@ void CCryptDoc::OnAnalyseNGram()
 
 void CCryptDoc::OnAnalyseNGramBin() 
 {
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 	UpdateContent();
 	NGramBin( ContentName, GetTitle());
+}
+
+void CCryptDoc::OnGenRandomData()
+{
+	DlgGenRandomData DGR;
+	if ( IDOK == DGR.DoModal() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
+		remove(DGR.outfile);
+		if(NewDoc) {
+			NewDoc->SetTitle("hallo");
+	}
+
+	}
+
 }

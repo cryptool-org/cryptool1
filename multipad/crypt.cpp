@@ -27,6 +27,7 @@
 #include "zzahlanalyse.h"
 #include "Dlg_homophone.h"
 #include "AnalyseNGram.h"
+#include "DlgGenRandomData.h"
 
 #include <fstream.h>
 
@@ -2948,6 +2949,26 @@ void NGramAsc(const char *infile, const char *OldTitle)
 	DiaNGram.LoadText(text, 0);
     DiaNGram.DoModal();
 
+    if ( DiaNGram.b_saveNGramList() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
+		remove(DiaNGram.outfile);
+		if(NewDoc) {
+/*
+			if(KeyDialog.m_Decrypt)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+			NewDoc->SetTitle(title);
+*/
+			NewDoc->SetTitle("hallo");
+		}
+	}
+
+
 	theApp.DoWaitCursor(0);
 }
 
@@ -2972,7 +2993,26 @@ void NGramBin(const char *infile, const char *OldTitle)
 
 	AnalyseNGram DiaNGram;
 	DiaNGram.LoadText(text, 1);
-    DiaNGram.DoModal();
+
+	DiaNGram.DoModal();
+    if ( DiaNGram.b_saveNGramList() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
+		remove(DiaNGram.outfile);
+		if(NewDoc) {
+/*
+			if(KeyDialog.m_Decrypt)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+			NewDoc->SetTitle(title);
+*/
+			NewDoc->SetTitle("hallo");
+		}
+	}
 
 	theApp.DoWaitCursor(0);
 }

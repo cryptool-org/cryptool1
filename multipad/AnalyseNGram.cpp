@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "multipad.h"
+#include "fileutil.h"
 #include "AnalyseNGram.h"
 
 #ifdef _DEBUG
@@ -23,6 +24,7 @@ AnalyseNGram::AnalyseNGram(CWnd* pParent /*=NULL*/)
 	    m_ShowCntNGram = 20;
 		m_NrNGram      = 4;
 	//}}AFX_DATA_INIT
+	b_SaveNGramList = false;
 }
 
 
@@ -34,15 +36,18 @@ void AnalyseNGram::DoDataExchange(CDataExchange* pDX)
 	    DDX_Radio  (pDX, IDC_RADIO1, m_N_NGram);
 	    DDX_Text(pDX, IDC_EDIT1, m_ShowCntNGram);
 	    DDV_MinMaxLong(pDX, m_ShowCntNGram, 0, 2147483647);
-	DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
-	DDV_MinMaxLong(pDX, m_NrNGram, 4, 99);
+		DDX_Text(pDX, IDC_EDIT2, m_NrNGram);
+		DDV_MinMaxLong(pDX, m_NrNGram, 4, 99);
 	//}}AFX_DATA_MAP
+	toAnalyze = 0;
+	SA = 0;
 }
 
 
 BEGIN_MESSAGE_MAP(AnalyseNGram, CDialog)
 	//{{AFX_MSG_MAP(AnalyseNGram)
 		ON_BN_CLICKED(IDC_BUTTON2, OnEvalNGram)
+		ON_BN_CLICKED(IDOK, OnSaveNGramList)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -85,17 +90,25 @@ void AnalyseNGram::SetupListBox( int N )
 {
 	theApp.DoWaitCursor(0);
 	char string[100];
-	int i,j;
+	int  i,j;
+	l_N = N;
 
-	NGram toAnalyze( *textRef, N );
-	SortedArray<double> SA( toAnalyze );
+	if ( toAnalyze ) delete toAnalyze;
+	toAnalyze = new NGram( *textRef, N );
+
+	if ( SA ) delete SA;
+	SA = new SortedArray<double>( *toAnalyze );
+	l_DispNGrams = (m_ShowCntNGram < toAnalyze->GetSize()) ? m_ShowCntNGram : toAnalyze->GetSize();
+
 	m_ListView.DeleteAllItems(); 
 
-    for (i=0; i<toAnalyze.GetSize() && i<m_ShowCntNGram; i++)
+	for (i=0; i<l_DispNGrams; i++)
 	{
 		sprintf(string, "%3i", i+1);
 		j=m_ListView.InsertItem(i,string);
-		int nr = SA[i];
+
+		int i_Ndx = SA->GetIndex(i);
+		int nr = i_Ndx;
 		if ( isBinary )
 		{
 			for (int k=0; k<N; k++)	
@@ -146,7 +159,7 @@ void AnalyseNGram::SetupListBox( int N )
 			string[N] = 0;
 		}
 		m_ListView.SetItemText(j,1,string);
-		sprintf(string,"%2.3f", toAnalyze.GetFrequency(SA[i])*100.0);
+		sprintf(string,"%2.3f", toAnalyze->GetFrequency(i_Ndx)*100.0);
 		m_ListView.SetItemText(j,2,string);
 	}
 	theApp.DoWaitCursor(-1);
@@ -171,4 +184,93 @@ void AnalyseNGram::OnEvalNGram()
 		SetupListBox( m_NrNGram );
 	}
 	UpdateData(FALSE);
+}
+
+void AnalyseNGram::OnSaveNGramList() 
+{
+	b_SaveNGramList = true;
+	
+	GetTmpName(outfile,"NGram",".tmp");
+	ofstream txt_NGram(outfile);
+	txt_NGram << " " << l_N << "-Gramm Analyse von .... \n\n";
+	char string[100];
+
+	if ( toAnalyze ) delete toAnalyze;
+	toAnalyze = new NGram( *textRef, l_N );
+	if ( SA ) delete SA;
+	SA = new SortedArray<double>( *toAnalyze );
+
+	for ( int i=0; i<l_DispNGrams; i++ )
+	{
+		txt_NGram << i+1 << "\t";
+
+		int i_Ndx = SA->GetIndex(i);
+		int nr = i_Ndx;
+		if ( isBinary )
+		{
+			for (int k=0; k<l_N; k++)	
+			{
+				char ch; 
+				long c = nr % 16;
+
+				nr /= 16;
+				if (c<10)
+				{
+					ch = '0'+(char)c;
+				}
+				else
+				{
+					c-= 10; 
+					ch = 'A'+(char)c;
+				} 
+				string[4*k+1] = ch;
+
+				c = nr % 16;
+				nr /= 16;
+				if (c<10)
+				{
+					ch = '0'+(char)c;
+				}
+				else
+				{
+					c-= 10; 
+					ch = 'A'+(char)c;
+				} 
+				string[4*k] = ch;
+
+				if (k+1<l_N) 
+				{
+					string[4*k+2] = ',';
+					string[4*k+3] = ' ';
+				}
+			}
+			string[4*l_N-2] = 0;
+		}
+		else
+		{
+			for (int k=0; k<l_N; k++)
+			{
+				string[l_N-(k+1)] = AppConv.Conv(nr % AppConv.GetModulus());
+				nr /= AppConv.GetModulus();
+			}
+			string[l_N] = 0;
+		}
+		txt_NGram << string << "\t";
+		txt_NGram << toAnalyze->GetFrequency(i_Ndx)*100.0 << "\n";
+	}
+
+	txt_NGram.close();
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	CDialog::OnOK();
+}
+
+AnalyseNGram::~AnalyseNGram()
+{
+	if ( toAnalyze ) delete toAnalyze;
+	if ( SA ) delete SA;
+}
+
+bool AnalyseNGram::b_saveNGramList()
+{
+	return b_SaveNGramList;
 }

@@ -14,6 +14,9 @@ class AnalyseNGram : public CDialog
 {
 // Konstruktion
 public:
+	bool b_saveNGramList();
+	char outfile[128];
+	~AnalyseNGram();
 	int GetN();
 	void LoadText(SymbolArray &, BOOL BinaryFile = FALSE );
 	BOOL OnInitDialog();
@@ -44,12 +47,20 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(AnalyseNGram)
 	afx_msg void OnEvalNGram();
+	afx_msg void OnSaveNGramList();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
+	bool b_SaveNGramList;
+	long l_N;
 	void SetupListBox( int N = 1 );
 	SymbolArray *textRef;
     BOOL isBinary;
+
+// NGramm-Daten
+	long				 l_DispNGrams;
+	NGram				*toAnalyze;
+	SortedArray<double> *SA;
 };
 
 //{{AFX_INSERT_LOCATION}}

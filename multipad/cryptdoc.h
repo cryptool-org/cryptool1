@@ -36,6 +36,7 @@ public:
 
 // Implementation
 public:
+	void OnGenRandomData();
 	virtual ~CCryptDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
