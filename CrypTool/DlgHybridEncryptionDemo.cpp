@@ -1018,8 +1018,25 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	//	zugross = false;
 		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
 	}
-
-	
+	/*
+	else 
+	{
+		// Die verschlüsselte Nachricht ist zu gross, um in dem Editor von CrypTool
+		// angezeigt zu werden, daher wird sie in eine Datei ins Temp Verzeichnis geschrieben
+		// Statt der Nachricht steht im Editor von CrypTool der Pfad dieser Datei
+		
+		//zugross = true;
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE,pc_str,100);
+		CString help_tmp=(CString)pc_str;
+		help_tmp+=(CString)infile;
+		CipherText.noctets=strlen(help_tmp);
+		for (i=0; i<help_tmp.GetLength(); i++)
+		{
+			CipherText.octets[i]=help_tmp[i];
+		}
+		theApp.SecudeLib.aux_OctetString2file(&CipherText,outfile,3);
+	}
+	*/
 	
 	
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
