@@ -7956,7 +7956,7 @@ END
 
 IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 211, 90
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Entropie"
+CAPTION "Entropy"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,81,66,50,17
@@ -10429,7 +10429,7 @@ BEGIN
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
-                            "Input of the message in the following format:  Zahl(1) # Zahl(2) # ... # Zahl(n)   (number of basis %i)."
+                            "Input of the message in the following format:  number(1) # number(2) # ... # number(n)   (number of basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "The decryption (RSA exponentation with the public key e) obtains the following %s hash value:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
