@@ -47,7 +47,7 @@ CDlgKeyHex::CDlgKeyHex(int maxlen, CWnd* pParent /*=NULL*/)
 	: CDlgKey( maxlen, pParent)
 {
     i_maxlen = min(MAX_ANZ_HEX_BLOECKE,maxlen);
-	len = i_maxlen*3;
+	len = i_maxlen*3 - 1;
 	//{{AFX_DATA_INIT(CDlgKeyHex)
 	m_einstr = _T(INIT_STRING);
 	m_Decrypt = 0;

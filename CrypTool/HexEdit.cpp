@@ -142,9 +142,9 @@ void CHexEdit:: preproc( char **oldstring, int *start, int *end, char ch )
 		}
 	}
 	b2[j]=0;
-	//SetSel(0, l);
-	//ReplaceSel(b2);
-	SetWindowText(b2);
+	SetSel(0, l);
+	ReplaceSel(b2);
+	//SetWindowText(b2);
 	int sstart = shrink(*start);
 	int send = shrink(*end);
 	if (!m_insert && sstart == send && send < j && strchr(m_validchars,ch))
@@ -198,9 +198,9 @@ void CHexEdit::postproc( char *oldstring, int start, int end )
 	}
 	ASSERT(j == ltspace);
 	b2[j]=0;
-	//SetSel(0, l);
-	//ReplaceSel(b2);
-	SetWindowText(b2);
+	SetSel(0, la);
+	ReplaceSel(b2);
+	//SetWindowText(b2);
 	SetSel(extend(s2,lt),extend(e2,lt));
 	SetRedraw(TRUE);
 	if(strcmp(b1,b2) || (start != extend(s2,lt)) || (end != extend(e2,lt)))

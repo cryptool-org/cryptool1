@@ -61,7 +61,7 @@ UINT Brute(PVOID p)
 	int windowlen = theApp.Options.m_BFEntropyWindow;
     char outfile[CRYPTOOL_PATH_LENGTH], key[128], line[256],kfound[128];
 	int i, l, lorg, r, AlgId, pos,lenght;
-	int distr[256],keylen;
+	int distr[256],keybits;
 	double entr, emax, f;
 	double *xlogx = new double[windowlen + 1];
 	if (!xlogx) return 0;
@@ -139,7 +139,7 @@ UINT Brute(PVOID p)
 		return 0;
 	}
 	
-	if((keylen=KeyDialog.GetBinlen()) ==0) return r;
+	if((keybits=KeyDialog.GetBinlen()) ==0) return r;
     //if ((AlgId==6)||(AlgId==7))
 	//	par->keylen=8*keylen;
 	
@@ -170,7 +170,7 @@ UINT Brute(PVOID p)
 	out.noctets=0;
 	out.octets=(char*)malloc(in.nbits/8+16);   // genug Speicher !!
 	
-	info.subjectkey.nbits= keylen;
+	info.subjectkey.nbits= keybits;
 	info.subjectkey.bits=(char *)&key;
 	keyinfo.key=&info;
 	keyinfo.pse_sel=NULL;
@@ -262,7 +262,7 @@ UINT Brute(PVOID p)
 			if(entr > emax)
 			{
 				emax = entr;
-				memcpy(kfound,key,keylen);
+				memcpy(kfound,key,keybits / 8);
 			}
 		}
 	}
@@ -278,7 +278,7 @@ UINT Brute(PVOID p)
 	
 	CDlgKeyHexAnalysis dia;
 	
-	if(IDCANCEL == dia.Display(kfound,keylen))
+	if(IDCANCEL == dia.Display(kfound,keybits / 8))
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
@@ -289,12 +289,9 @@ UINT Brute(PVOID p)
 	}
 	
 	for(i=0; i<sizeof(key); i++) key[i]=0;
-	//keylen = 8 * dia.GetLen();
-	memcpy(key,dia.GetData(),keylen / 8);
-	//if ((AlgId==6)||(AlgId==7))
-	//	par->keylen=8*i;
+	memcpy(key,dia.GetData(),keybits / 8);
 	info.subjectkey.bits = (char *)key;
-	info.subjectkey.nbits = keylen;
+	info.subjectkey.nbits = keybits;
 	
 	in.nbits = lorg;
 	out.noctets=0;
