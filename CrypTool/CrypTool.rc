@@ -570,7 +570,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Verfügbare asymmetrische Schlüsselpaare"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Öffentliche Parameter anzeigen...",IDC_BUTTON1,127,238,
                     120,14
@@ -2687,6 +2687,16 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
+        POPUP "A&lgorithmen"
+        BEGIN
+            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
+            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+            MENUITEM "H&ill...",                    ID_HILL_AUTO
+            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+            MENUITEM SEPARATOR
+        END
+        MENUITEM SEPARATOR
         POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -2696,19 +2706,11 @@ BEGIN
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
+        MENUITEM SEPARATOR
         POPUP "&Manuelle Analyse"
         BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-        END
-        POPUP "A&lgorithmen"
-        BEGIN
-            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-            MENUITEM "H&ill...",                    ID_HILL_AUTO
-            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-            MENUITEM SEPARATOR
         END
     END
     POPUP "&Schlüsselverwaltung"
@@ -2873,6 +2875,40 @@ BEGIN
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
+        POPUP "&Zufallstests"
+        BEGIN
+            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+
+            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+
+            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+
+            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+
+            MENUITEM SEPARATOR
+            MENUITEM "F&IPS PUB-140-1 Testbatterie", 
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+
+        END
+        MENUITEM "",                            1
+        POPUP "A&lgorithmen"
+        BEGIN
+            MENUITEM "A&ddition",                   ID_ADD_AUTO
+            MENUITEM "&XOR",                        ID_XOR_AUTO
+            MENUITEM SEPARATOR
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
+            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+        END
         POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -2889,40 +2925,6 @@ BEGIN
             MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-        END
-        POPUP "A&lgorithmen"
-        BEGIN
-            MENUITEM "A&ddition",                   ID_ADD_AUTO
-            MENUITEM "&XOR",                        ID_XOR_AUTO
-            MENUITEM SEPARATOR
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-        END
-        POPUP "&Zufallstests"
-        BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
-
-            MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 Testbatterie", 
-                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
-
         END
     END
     POPUP "&Schlüsselverwaltung"
@@ -3161,6 +3163,15 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
+        MENUITEM SEPARATOR
+        POPUP "A&lgorithmen"
+        BEGIN
+            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
+            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+            MENUITEM "H&ill...",                    ID_HILL_AUTO
+            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+        END
         POPUP "&Ciphertext only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -3170,16 +3181,9 @@ BEGIN
         BEGIN
             MENUITEM "H&ill...",                    ID_HILL_AUTO
         END
+        MENUITEM SEPARATOR
         POPUP "&Manuelle Analyse"
         BEGIN
-            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-        END
-        POPUP "A&lgorithmen"
-        BEGIN
-            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-            MENUITEM "H&ill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
@@ -6246,7 +6250,7 @@ END
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Available Asymmetric Key Pairs"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Show &public parameters...",IDC_BUTTON1,127,238,120,14
     PUSHBUTTON      "Show &all parameters...",IDC_BUTTON2,259,238,120,14
@@ -8376,6 +8380,16 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
+        MENUITEM SEPARATOR
+        POPUP "A&lgorithms"
+        BEGIN
+            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
+            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+            MENUITEM "&Hill...",                    ID_HILL_AUTO
+            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+            MENUITEM SEPARATOR
+        END
         POPUP "&Ciphertext-Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -8385,19 +8399,11 @@ BEGIN
         BEGIN
             MENUITEM "&Hill...",                    ID_HILL_AUTO
         END
+        MENUITEM SEPARATOR
         POPUP "&Manual Analysis"
         BEGIN
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-        END
-        POPUP "A&lgorithms"
-        BEGIN
-            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-            MENUITEM "&Hill...",                    ID_HILL_AUTO
-            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-            MENUITEM SEPARATOR
         END
     END
     POPUP "&Key Management"
@@ -8562,23 +8568,22 @@ BEGIN
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
-        POPUP "&Ciphertext-Only"
+        POPUP "&Random Tests"
         BEGIN
-            MENUITEM "&Addition",                   ID_ADD_AUTO
-            MENUITEM "&XOR",                        ID_XOR_AUTO
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple-DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple-DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "T&wofish...",                 ID_ANALYSE_AES_TWOFISH
+            MENUITEM "&Frequency test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+
+            MENUITEM "&Poker test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+
+            MENUITEM "&Runs test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+
+            MENUITEM "&Serial test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+
+            MENUITEM SEPARATOR
+            MENUITEM "F&IPS PUB-140-1 test battery", 
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+
         END
+        MENUITEM SEPARATOR
         POPUP "A&lgorithms"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -8598,20 +8603,22 @@ BEGIN
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
-        POPUP "&Random Tests"
+        POPUP "&Ciphertext-Only"
         BEGIN
-            MENUITEM "&Frequency test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-
-            MENUITEM "&Poker test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-
-            MENUITEM "&Runs test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-
-            MENUITEM "&Serial test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
-
-            MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 test battery", 
-                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
-
+            MENUITEM "&Addition",                   ID_ADD_AUTO
+            MENUITEM "&XOR",                        ID_XOR_AUTO
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
+            MENUITEM "&Triple-DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "T&riple-DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+            MENUITEM "T&wofish...",                 ID_ANALYSE_AES_TWOFISH
         END
     END
     POPUP "&Key Management"
@@ -8850,6 +8857,15 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
+        MENUITEM SEPARATOR
+        POPUP "A&lgorithms"
+        BEGIN
+            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
+            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+            MENUITEM "&Hill...",                    ID_HILL_AUTO
+            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+        END
         POPUP "&Ciphertext-Only"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
@@ -8859,16 +8875,9 @@ BEGIN
         BEGIN
             MENUITEM "&Hill...",                    ID_HILL_AUTO
         END
+        MENUITEM SEPARATOR
         POPUP "&Manual Analysis"
         BEGIN
-            MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-        END
-        POPUP "A&lgorithms"
-        BEGIN
-            MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-            MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-            MENUITEM "&Hill...",                    ID_HILL_AUTO
             MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
             MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
         END
