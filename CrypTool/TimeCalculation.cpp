@@ -23,19 +23,19 @@ TimeCalculation::TimeCalculation(double Seconds)
 		return;
 	}
 
-	m_Years = Seconds / _TC_YEARS;
+	m_Years  = (__int64)(Seconds / _TC_YEARS);
 	Seconds -= (m_Years * _TC_YEARS);
 
-	m_Days = Seconds / _TC_DAYS;
+	m_Days   = (int)(Seconds / _TC_DAYS);
 	Seconds -= (m_Days * _TC_DAYS);
 
-	m_Hours = Seconds / _TC_HOURS;
+	m_Hours  = (int)(Seconds / _TC_HOURS);
 	Seconds -= (m_Hours * _TC_HOURS);
 	
-	m_Minutes = Seconds / _TC_MINUTES;
+	m_Minutes= (int)Seconds / _TC_MINUTES;
 	Seconds -= (m_Minutes * _TC_MINUTES);
 
-	m_Seconds = Seconds;
+	m_Seconds= Seconds;
 }
 
 TimeCalculation::~TimeCalculation()
