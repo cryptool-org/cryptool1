@@ -5203,9 +5203,9 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
                             "Eingabe der Nachricht als Zahlen im Format: Zahl(1) # Zahl(2) # ... # Zahl(n)   (Zahlen zur Basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
-                            "Die RSA-Exponentation mit dem öffentlichen Schlüssel e bistimmte den folgenden %s-Hashwert:"
+                            "Die Entschlüsselung (RSA-Exponentation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
-                            "Vergleiche den entschlüsselten Hashwert mit dem Hashwert der Datei:"
+                            "Der Hashwert der Datei selbst ist (und entspricht %sdem entschlüsselten Hashwert oben):    %s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5486,7 +5486,7 @@ BEGIN
     IDS_DETFACTORISATION_FACTORCOMPOSITE 
                             "Bitlänge = %i, zusammengesetzte Zahl."
     IDS_DETFACTORISATION_HL_INPUT 
-                            "Details zur Faktorisierung der\nEingabezahl  "
+                            "Details zur Faktorisierung der Eingabezahl\n"
     IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Faktorisierte Zahl = "
     IDS_DETFACTORISATION_HL_FACTOR1 "Erster Faktor = "
     IDS_DETFACTORISATION_HL_FACTOR2 "Zweiter Faktor = "
@@ -5526,7 +5526,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_RSADEMO_VERIFY      "Verifiziere"
+    IDS_RSADEMO_VERIFY      "Verifizieren"
+    IDS_RSADEMO_NOT         "nicht "
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -10222,9 +10223,9 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
                             "Input of the message in the following format:  Zahl(1) # Zahl(2) # ... # Zahl(n)   (number of basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
-                            "The RSA exponentation with the public key e obtained the following %s hash value:"
+                            "The decryption (RSA exponentation with the public key e) obtains the following %s hash value:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
-                            "Compare the decrypted hash value with the obtained hash value of the file:"
+                            "The hash value of the file is (and does %smatch with the obtained hash value above):    %s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10536,7 +10537,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_RSADEMO_VERIFY      "Verify"
+    IDS_RSADEMO_VERIFY      "Verification"
+    IDS_RSADEMO_NOT         "not "
 END
 
 #endif    // Englisch (GB) resources

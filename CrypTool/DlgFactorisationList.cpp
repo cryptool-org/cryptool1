@@ -224,6 +224,9 @@ void CDlgFactorisationList::OnCancel()
 			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTORISEDNUMBER,
 				pc_str,STR_LAENGE_STRING_TABLE);
 			f_Details << pc_str << Seek->Num << endl;
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,
+				pc_str,STR_LAENGE_STRING_TABLE);
+			f_Details << pc_str << " = " << Seek->BitlengthF1+Seek->BitlengthF2 << endl;
 			LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
 				pc_str,STR_LAENGE_STRING_TABLE);
 			f_Details << pc_str << ": " << Seek->Method << ".  ";

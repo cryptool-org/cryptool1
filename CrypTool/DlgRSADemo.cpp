@@ -92,6 +92,7 @@ void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRSADemo)
+	DDX_Control(pDX, IDC_HEADER3, m_control_Header_RSA_step_3);
 	DDX_Control(pDX, IDC_RADIO3, m_control_RSA_with_own_parameter);
 	DDX_Control(pDX, IDC_RSA_MODE_FACTORISATION, m_RSA_mode_factorisation);
 	DDX_Control(pDX, IDC_RSA_CAPTION_PRIME_Q, m_RSA_caption_prime_q);
@@ -1061,11 +1062,14 @@ void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base, int
 	mHeader = line;
 }
 
-void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, CString &Str)
+void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, CString &Str, const char *str2)
 {
 	char line[IDS_STRINGLENGTH];
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf( line, pc_str, Str );
+	if ( !str2 )
+		sprintf( line, pc_str, Str );
+	else
+		sprintf( line, pc_str, Str, str2 );
 	mHeader = line;
 }
 
@@ -1386,11 +1390,20 @@ bool CDlgRSADemo::CheckIfSignature()
 	{
 		dataToHexDump( buffer+i, size-i, m_edit_RSA_step_2); 
 		if ( message && message->noctets )
-		{		   
-			SetHeadLine( m_Header_RSA_step_3, IDS_RSADEMO_COMPARE_HASHVALUES);
+		{		   			
 			dataToHexDump( hash.octets, hash.noctets, m_edit_RSA_step_3);
+			if ( memcmp(hash.octets, buffer+i, hash.noctets) )
+			{
+				LoadString(AfxGetInstanceHandle(),IDS_RSADEMO_NOT, pc_str,STR_LAENGE_STRING_TABLE);
+				SetHeadLine( m_Header_RSA_step_3, IDS_RSADEMO_COMPARE_HASHVALUES, CString(pc_str), ":-(");
+			}
+			else
+			{
+				SetHeadLine( m_Header_RSA_step_3, IDS_RSADEMO_COMPARE_HASHVALUES, CString(""), ":-)");
+			}
 			theApp.SecudeLib.aux_free(hash.octets);
 		}
+		m_ButtonEncrypt.EnableWindow(FALSE);
 		return true;
 	}
 	else        

@@ -140,6 +140,7 @@ public:
 	CString	m_Header_RSA_step_1;
 	CString	m_Header_RSA_step_2;
 	CString	m_Header_RSA_step_3;
+	CEdit	m_control_Header_RSA_step_3;
 	int	m_EncryptTextOrNumbers;
 	int	m_RSAPublicKeyOnly;
 	//}}AFX_DATA
@@ -207,7 +208,7 @@ private:
 	void HeadingEncryption(BOOL decryptText);
 	void RequestForInput( BOOL clearInput = FALSE );
 	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0, int BlockLength = 0 );	
-	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, CString &Str);	
+	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, CString &Str, const char *str2 = 0);	
 	int  GetBase();
 
 	bool KeyStatusPublicKeyOnly() { return (s_publicKeyOnly == (m_RSAKeyStatus & s_publicKeyOnly) ); }
