@@ -22,7 +22,7 @@ public:
 	int m_gc;
 	void GetCertificateData(Certificate* Zert);
 	CString m_strPfadEditorDat;
-	bool m_barrSetCondition[8];
+	bool m_barrSetCondition[10];
 	void EnDisButtons();
 	bool m_bAuswahlDat;
 	CRsaEnc RsaDialog1;
@@ -44,17 +44,22 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CHybridEncr)
 	enum { IDD = IDD_DIALOG_HYBRID };
-	CButton	m_ctrlShowTxt;
-	CButton	m_ctrlShowAsymKey;
-	CButton	m_ctrlShowSymKey;
-	CButton	m_ctrlEncKeyAsym;
-	CButton	m_ctrlGetAsymKey;
-	CButton	m_ctrlEncTxtSym;
-	CButton	m_ctrlGenSymKey;
+	
 	CString	m_strEdit;
 	CString	m_strTitle;
+	//CButton m_ctrlShowTxt;
 	//}}AFX_DATA
 
+	CBitmapButton m_ctrlBmpRaute1;
+	CBitmapButton m_ctrlBmpRaute2;
+	CBitmapButton m_ctrlBmpRaute3;
+	CBitmapButton m_ctrlBmpRaute4;
+	CBitmapButton m_ctrlBmpRaute5;
+	CBitmapButton m_ctrlBmpSechseck1;
+	CBitmapButton m_ctrlBmpSechseck2;
+	CBitmapButton m_ctrlBmpSechseck3;
+	CBitmapButton m_ctrlBmpViereck1;
+	CBitmapButton m_ctrlBmpViereck2;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -77,6 +82,8 @@ protected:
 	afx_msg void OnButtonShowSymKey();
 	afx_msg void OnButtonShowAsymKey();
 	afx_msg void OnButtonShowtxt();
+	afx_msg void OnShowEncTxt();
+	afx_msg void OnShowEncSymKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

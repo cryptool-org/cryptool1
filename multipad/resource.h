@@ -1184,14 +1184,13 @@
 #define IDS_CREATE_DISNAME              37871
 #define IDS_CREATE_USER_KEY_ID2         37872
 
-
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        289
+#define _APS_NEXT_RESOURCE_VALUE        320
 #define _APS_NEXT_COMMAND_VALUE         33155
-#define _APS_NEXT_CONTROL_VALUE         1401
+#define _APS_NEXT_CONTROL_VALUE         1403
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

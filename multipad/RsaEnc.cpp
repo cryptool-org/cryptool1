@@ -42,6 +42,7 @@ CRsaEnc::CRsaEnc(CWnd* pParent /*=NULL*/)
 	KeyType = "";
 	KeyInfo = "";
 	CreatTime = "";
+	disableButtons = false;
 
 	m_lastSelectedRow = -1; //  Änderung in Member-Funktion CRsaEnc::OnClickList1()
 }
@@ -51,6 +52,8 @@ void CRsaEnc::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRsaEnc)
+	DDX_Control(pDX, IDC_CHECK1, m_ctrlTime);
+	DDX_Control(pDX, IDOK, m_ctrlOK);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
 	DDX_Check(pDX, IDC_CHECK1, m_ShowDuration);
 	//}}AFX_DATA_MAP
@@ -101,6 +104,14 @@ BOOL CRsaEnc::OnInitDialog()
 	// Initialisiere die Schlüsselliste mit allen verfügbaren RSA Schlüsseln
 	nKeylistType = RSA_KEY;
 	InitAsymKeyListBox(nKeylistType);
+	if(disableButtons)
+	{
+		SetWindowText("RSA Schlüssel für die Hybridverschlüsselung");
+		m_ctrlOK.ShowWindow(false);
+		m_ctrlTime.ShowWindow(false);
+		disableButtons = false;
+	}
+
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

@@ -2376,34 +2376,40 @@ BEGIN
     LTEXT           "",IDC_STATIC_TITEL2,64,85,61,10
 END
 
-IDD_DIALOG_HYBRID DIALOG DISCARDABLE  0, 0, 565, 346
+IDD_DIALOG_HYBRID DIALOG DISCARDABLE  0, 0, 565, 474
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Visualisierung der Hybridverschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Datei öffnen",IDC_BUTTON1_TXT_EINFUEGEN,18,21,89,14
-    PUSHBUTTON      "Text anzeigen",IDC_BUTTON_SHOWTXT,17,52,89,14
-    PUSHBUTTON      "Sessionkey generieren",IDC_BUTTON_GEN_SYM_KEY,202,21,93,
-                    14
-    PUSHBUTTON      "sym. Schlüssel anzeigen",IDC_BUTTON_SHOW_SYM_KEY,202,52,
-                    93,14
-    PUSHBUTTON      "asym. öff. Schlüssel wählen",IDC_BUTTON_GET_ASYM_KEY,
-                    376,20,92,14
-    PUSHBUTTON      "asym. Schlüssel anzeigen",IDC_BUTTON_SHOW_ASYM_KEY,375,
-                    53,93,14
-    PUSHBUTTON      "Text sym. verschlüsseln",IDC_BUTTON_ENC_TXT_SYM,202,102,
-                    93,14
-    PUSHBUTTON      "Sessionkey asym. verschlüsseln",IDC_BUTTON_ENC_KEY_ASYM,
-                    365,102,119,14
-    EDITTEXT        IDC_EDIT_TXT,26,142,497,142,ES_MULTILINE | 
+    CONTROL         "Sechseck1",IDC_BUTTON1_TXT_EINFUEGEN,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,18,21,89,14
+    CONTROL         "Raute1",IDC_BUTTON_SHOWTXT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,17,78,89,14
+    CONTROL         "Sechseck2",IDC_BUTTON_GEN_SYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,202,21,93,14
+    CONTROL         "Raute2",IDC_BUTTON_SHOW_SYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,205,81,93,14
+    CONTROL         "Sechseck3",IDC_BUTTON_GET_ASYM_KEY,"Button",
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,376,20,92,14
+    CONTROL         "Raute3",IDC_BUTTON_SHOW_ASYM_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,367,82,93,14
+    CONTROL         "Viereck1",IDC_BUTTON_ENC_TXT_SYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,203,165,93,14
+    CONTROL         "Viereck2",IDC_BUTTON_ENC_KEY_ASYM,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,359,168,119,14
+    EDITTEXT        IDC_EDIT_TXT,49,302,497,142,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
-    PUSHBUTTON      "&Dialog beenden",IDCANCEL,464,325,94,14
+    PUSHBUTTON      "&Dialog beenden",IDCANCEL,461,453,94,14
     CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,138,50,32,30
-    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,232,69,32,30
+    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,232,126,21,22
     CONTROL         287,IDC_STATIC,"Static",SS_BITMAP,323,47,32,30
-    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,405,68,32,30
-    EDITTEXT        IDC_EDIT_TITLE,26,125,176,14,ES_AUTOHSCROLL | 
+    CONTROL         285,IDC_STATIC,"Static",SS_BITMAP,399,132,21,22
+    EDITTEXT        IDC_EDIT_TITLE,47,284,176,14,ES_AUTOHSCROLL | 
                     ES_READONLY
+    CONTROL         "Raute4",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,207,223,92,14
+    CONTROL         "Raute5",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,362,220,115,14
 END
 
 
@@ -3216,6 +3222,26 @@ INFDOC_X                BITMAP  DISCARDABLE     "res\\INFDOC_X.bmp"
 INFDOC_F                BITMAP  DISCARDABLE     "res\\INFDOC_F.bmp"
 INFDOC_U                BITMAP  DISCARDABLE     "res\\INFDOC_U.bmp"
 INFDOC_D                BITMAP  DISCARDABLE     "res\\INFDOC_D.bmp"
+Raute1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
+Raute1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
+Sechseck1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
+Sechseck1X              BITMAP  DISCARDABLE     "res\\Sechseck1InAkt.bmp"
+Raute2U                 BITMAP  DISCARDABLE     "res\\Raute2Akt.bmp"
+Raute2X                 BITMAP  DISCARDABLE     "res\\Raute2InAkt.bmp"
+Raute3U                 BITMAP  DISCARDABLE     "res\\Raute3Akt.bmp"
+Raute3X                 BITMAP  DISCARDABLE     "res\\Raute3InAkt.bmp"
+Sechseck2U              BITMAP  DISCARDABLE     "res\\Sechseck2Akt.bmp"
+Sechseck2X              BITMAP  DISCARDABLE     "res\\Sechseck2InAkt.bmp"
+Sechseck3U              BITMAP  DISCARDABLE     "res\\Sechseck3Akt.bmp"
+Sechseck3X              BITMAP  DISCARDABLE     "res\\Sechseck3InAkt.bmp"
+Viereck1U               BITMAP  DISCARDABLE     "res\\Viereck1Akt.bmp"
+Viereck1X               BITMAP  DISCARDABLE     "res\\Viereck1InAkt.bmp"
+Viereck2U               BITMAP  DISCARDABLE     "res\\Viereck2Akt.bmp"
+Viereck2X               BITMAP  DISCARDABLE     "res\\Viereck2InAkt.bmp"
+Raute4U                 BITMAP  DISCARDABLE     "res\\Raute4Akt.bmp"
+Raute4X                 BITMAP  DISCARDABLE     "res\\Raute4InAkt.bmp"
+Raute5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
+Raute5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -19,6 +19,7 @@ class CRsaEnc : public CDialog
 {
 // Konstruktion
 public:
+	bool disableButtons;
 	CRsaEnc(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	CString Name;
@@ -28,6 +29,8 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CRsaEnc)
 	enum { IDD = IDD_DIALOG_RSAENC };
+	CButton	m_ctrlTime;
+	CButton	m_ctrlOK;
 	CListCtrl	m_listview;
 	BOOL	m_ShowDuration;
 	//}}AFX_DATA

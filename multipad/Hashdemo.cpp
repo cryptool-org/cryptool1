@@ -101,6 +101,7 @@ BOOL CHashdemo::OnInitDialog()
 	SetRed();
 	//farbige Darstellung der Differenz 
 
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

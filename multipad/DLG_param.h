@@ -20,6 +20,7 @@ class DLG_param : public CDialog
 {
 // Konstruktion
 public:
+	bool disableOkButton;
 	DLG_param(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	int m_entries;
@@ -30,6 +31,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DLG_param)
 	enum { IDD = IDD_DIALOG_RSA_PUB_PARAM };
+	CButton	m_ctrlOK;
 	CListCtrl	m_listctrl;
 	int		m_radio;
 	CString	m_titel;

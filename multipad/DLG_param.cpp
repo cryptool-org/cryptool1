@@ -18,6 +18,7 @@ DLG_param::DLG_param(CWnd* pParent /*=NULL*/)
 	m_radio = 1;
 	m_titel = _T("");
 	//}}AFX_DATA_INIT
+	disableOkButton = false;
 }
 
 
@@ -25,6 +26,7 @@ void DLG_param::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DLG_param)
+	DDX_Control(pDX, IDOK, m_ctrlOK);
 	DDX_Control(pDX, IDC_LIST, m_listctrl);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio);
 	DDX_Text(pDX, IDC_TITEL, m_titel);
@@ -99,9 +101,14 @@ BOOL DLG_param::OnInitDialog()
 	m_listctrl.InsertColumn(0,pc_str,LVCFMT_RIGHT,50,0);
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_VALUE,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listctrl.InsertColumn(1,pc_str,LVCFMT_LEFT,375,1);
+    if(disableOkButton)
+	{
+		m_ctrlOK.ShowWindow(false);
+	}
 
 	for (i=0;i<m_entries;i++)
 		m_listctrl.InsertItem(i,m_data[i].titel);
+	disableOkButton = false;
 	UpdateListBox();
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

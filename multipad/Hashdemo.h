@@ -53,6 +53,7 @@ public:
 	CString	m_strDiffHash;
 	CString	m_strHashDiffRE;
 	//}}AFX_DATA
+	
 
 
 // Überschreibungen

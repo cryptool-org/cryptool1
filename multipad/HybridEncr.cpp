@@ -19,6 +19,7 @@
 #include "DlgAsymKeyCreat.h"
 #include "DLG_param.h"
 #include "s_ecconv.h"
+#include "CryptologyUsingMiracl.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -43,7 +44,7 @@ CHybridEncr::CHybridEncr(CWnd* pParent /*=NULL*/)
 	m_iIsGenAsymKey = false;
 	CString m_strPfadEditorDat="";
 
-	for(int i=0;i<7;i++)
+	for(int i=0;i<10;i++)
 	{
 		m_barrSetCondition[i] = false;
 	}
@@ -55,13 +56,6 @@ void CHybridEncr::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CHybridEncr)
-	DDX_Control(pDX, IDC_BUTTON_SHOWTXT, m_ctrlShowTxt);
-	DDX_Control(pDX, IDC_BUTTON_SHOW_ASYM_KEY, m_ctrlShowAsymKey);
-	DDX_Control(pDX, IDC_BUTTON_SHOW_SYM_KEY, m_ctrlShowSymKey);
-	DDX_Control(pDX, IDC_BUTTON_ENC_KEY_ASYM, m_ctrlEncKeyAsym);
-	DDX_Control(pDX, IDC_BUTTON_GET_ASYM_KEY, m_ctrlGetAsymKey);
-	DDX_Control(pDX, IDC_BUTTON_ENC_TXT_SYM, m_ctrlEncTxtSym);
-	DDX_Control(pDX, IDC_BUTTON_GEN_SYM_KEY, m_ctrlGenSymKey);
 	DDX_Text(pDX, IDC_EDIT_TXT, m_strEdit);
 	DDX_Text(pDX, IDC_EDIT_TITLE, m_strTitle);
 	//}}AFX_DATA_MAP
@@ -78,6 +72,8 @@ BEGIN_MESSAGE_MAP(CHybridEncr, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SHOW_SYM_KEY, OnButtonShowSymKey)
 	ON_BN_CLICKED(IDC_BUTTON_SHOW_ASYM_KEY, OnButtonShowAsymKey)
 	ON_BN_CLICKED(IDC_BUTTON_SHOWTXT, OnButtonShowtxt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnShowEncTxt)
+	ON_BN_CLICKED(IDC_BUTTON3, OnShowEncSymKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -87,11 +83,31 @@ BOOL CHybridEncr::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	m_ctrlEncTxtSym.EnableWindow(false);
-	m_ctrlEncKeyAsym.EnableWindow(false);
-	m_ctrlShowSymKey.EnableWindow(false);
-	m_ctrlShowAsymKey.EnableWindow(false);
-	m_ctrlShowTxt.EnableWindow(false);
+	m_ctrlBmpSechseck1.AutoLoad(IDC_BUTTON1_TXT_EINFUEGEN,this);
+	m_ctrlBmpSechseck2.AutoLoad(IDC_BUTTON_GEN_SYM_KEY,this);
+	m_ctrlBmpSechseck3.AutoLoad(IDC_BUTTON_GET_ASYM_KEY,this);
+
+
+	m_ctrlBmpRaute1.AutoLoad(IDC_BUTTON_SHOWTXT,this);
+	m_ctrlBmpRaute1.EnableWindow(false);
+
+	m_ctrlBmpRaute2.AutoLoad(IDC_BUTTON_SHOW_SYM_KEY,this);
+	m_ctrlBmpRaute2.EnableWindow(false);
+
+	m_ctrlBmpRaute3.AutoLoad(IDC_BUTTON_SHOW_ASYM_KEY,this);
+	m_ctrlBmpRaute3.EnableWindow(false);
+
+	m_ctrlBmpRaute4.AutoLoad(IDC_BUTTON2,this);
+	m_ctrlBmpRaute4.EnableWindow(false);
+
+	m_ctrlBmpRaute5.AutoLoad(IDC_BUTTON3,this);
+	m_ctrlBmpRaute5.EnableWindow(false);
+
+	m_ctrlBmpViereck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
+	m_ctrlBmpViereck1.EnableWindow(false);
+
+	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
+	m_ctrlBmpViereck2.EnableWindow(false);
 
 	
 	EnDisButtons();
@@ -111,6 +127,8 @@ BOOL CHybridEncr::OnInitDialog()
 	}
 	// Schriftart im Textfeld "aktuelle Datei", Felder in denen die Hashwerte und die Differenz angezeigt 
 	// werden, "Courier" definieren
+
+
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -177,6 +195,7 @@ void CHybridEncr::OnButtonGenSymKey()
 	UpdateData(true);
 	m_strSymKey="";
 	m_strEdit = "";
+	m_strTitle="";
 	unsigned char o;
 	
 	for ( int j=0; j<KEY_LEN; j++ )
@@ -197,19 +216,6 @@ void CHybridEncr::OnButtonGenSymKey()
 			_snprintf(array,3,"%02.2X",(unsigned char) SymKey[j]);
 			m_strSymKey+=array;					
 	}
-	//EnDisButtons();
-	/*if (m_iIsTxtAlreadySel)
-	{
-		m_ctrlEncTxtSym.EnableWindow(true);
-	}
-	
-
-	if(m_iIsGenAsymKey)
-	{
-		m_ctrlEncKeyAsym.EnableWindow(true);
-	}
-	m_ctrlShowSymKey.EnableWindow(true);
-*/
 	m_barrSetCondition[1] = true; 
 	EnDisButtons();
 	UpdateData(false);
@@ -217,9 +223,20 @@ void CHybridEncr::OnButtonGenSymKey()
 
 void CHybridEncr::OnButtonShowSymKey() 
 {
-	m_strEdit = m_strSymKey;
-	m_strTitle = "symmetrischer Schlüssel:";
+	CString SymKeyInHexDump = "";
+	//dataToHexDump(m_strSymKey,16,SymKeyInHexDump);
 
+	for (int i=0;i<32;i++)
+	{
+		SymKeyInHexDump += m_strSymKey[i];
+		if(i%2==1)
+		{
+			SymKeyInHexDump += ' ';
+		}
+		
+	}
+	m_strEdit = SymKeyInHexDump;
+	m_strTitle = "symmetrischer Schlüssel:";
 	UpdateData(false);
 }
 
@@ -292,6 +309,8 @@ void CHybridEncr::OnButtonEncTxtSym()
 		UpdateData();
 		m_strEdit = strCryHex;
 		m_strTitle = "symmetrisch verschlüsselter Text: ";
+		m_barrSetCondition[8] = true;
+		EnDisButtons();
 		UpdateData(false);
 		delete[] strCryHex;
 		delete[] cryTxt;
@@ -299,14 +318,17 @@ void CHybridEncr::OnButtonEncTxtSym()
 
 void CHybridEncr::OnButtonGetAsymKey() 
 {	
+	RsaDialog1.disableButtons = true;
 
 	if ( IDOK == RsaDialog1.DoModal() ) 
 	{
 		m_iIsGenAsymKey = true;
+		m_barrSetCondition[3] = true;
+		EnDisButtons();
 	}
 	
-	m_barrSetCondition[3] = true;
-	EnDisButtons();
+
+
 	UpdateData(false);
 }
 
@@ -450,6 +472,8 @@ void CHybridEncr::OnButtonEncKeyAsym()
 			m_strEdit+=array;					
 	}
 	m_strTitle = "asymmetrisch verschlüsselter symmetrischer Schlüssel :";
+	m_barrSetCondition[9] = true;
+	EnDisButtons();
 	UpdateData(false);
 }
 
@@ -546,6 +570,7 @@ void CHybridEncr::OnButtonShowAsymKey()
 	Schluessel.private_key=NULL;
 
 	DLG_param dlg;
+	dlg.disableOkButton = true;
 	KeyBits *ki;
 	ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
 	int mlen = ki->part1.noctets;
@@ -580,12 +605,12 @@ void CHybridEncr::OnButtonShowAsymKey()
 
 void CHybridEncr::EnDisButtons()
 {
-	bool check[8][8];
+	bool check[10][10];
 	//Array mit den Voraussetzungen
 
-	for(int i=0;i<8;i++)
+	for(int i=0;i<10;i++)
 	{
-		for(int j=0;j<8;j++)
+		for(int j=0;j<10;j++)
 		{
 			check[i][j]=false;
 		}
@@ -597,15 +622,17 @@ void CHybridEncr::EnDisButtons()
 	check[6][1]=true;
 	check[6][3]=true;
 	check[7][0]=true;
+	check[8][5]=true;
+	check[9][6]=true;
 	//füllen der Tabelle
 	//mit den Voraussetzungen
 
-	bool arrSetButtons[8];
+	bool arrSetButtons[10];
 
-	for(i=0;i<8;i++)
+	for(i=0;i<10;i++)
 	{
 		arrSetButtons[i]=true;
-		for(int j=0;j<8;j++)
+		for(int j=0;j<10;j++)
 		{
 			if(check[i][j])
 			{
@@ -620,19 +647,21 @@ void CHybridEncr::EnDisButtons()
 	}
 
 
-	for(i=0;i<8;i++)
+	for(i=0;i<10;i++)
 	{
 	
 			switch(i)
 			{
 			case 0:break;
 			case 1:break;
-			case 2:	m_ctrlShowSymKey.EnableWindow(arrSetButtons[i]);break;
+			case 2:m_ctrlBmpRaute2.EnableWindow(arrSetButtons[i]);break;
 			case 3:break;
-			case 4:m_ctrlShowAsymKey.EnableWindow(arrSetButtons[i]);break;
-			case 5:	m_ctrlEncTxtSym.EnableWindow(arrSetButtons[i]);break;
-			case 6:	m_ctrlEncKeyAsym.EnableWindow(arrSetButtons[i]);break;
-			case 7:	m_ctrlShowTxt.EnableWindow(arrSetButtons[i]);break;
+			case 4:m_ctrlBmpRaute3.EnableWindow(arrSetButtons[i]);break;
+			case 5:m_ctrlBmpViereck1.EnableWindow(arrSetButtons[i]);break;
+			case 6:m_ctrlBmpViereck2.EnableWindow(arrSetButtons[i]);break;
+			case 7:m_ctrlBmpRaute1.EnableWindow(arrSetButtons[i]);break;
+			case 8:m_ctrlBmpRaute4.EnableWindow(arrSetButtons[i]);break;
+			case 9:m_ctrlBmpRaute5.EnableWindow(arrSetButtons[i]);break;
 
 			}
 	}
@@ -665,4 +694,14 @@ void CHybridEncr::OnButtonShowtxt()
 	m_strEdit = dest;
 	
 	UpdateData(false);
+}
+
+void CHybridEncr::OnShowEncTxt() 
+{
+	
+}
+
+void CHybridEncr::OnShowEncSymKey() 
+{
+	
 }
