@@ -10832,7 +10832,7 @@ BEGIN
     IDS_ENTROPY_ALPHABET_MAX_INFO 
                             "This document contains all %i different characters of the selected alphabet."
     IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2 
-                            "The permutation key must not contain zeros. Please correct your input in the first input field!"
+                            "The permutation key must not contain zeros. Please correct your input in the second input field!"
 END
 
 STRINGTABLE DISCARDABLE 
