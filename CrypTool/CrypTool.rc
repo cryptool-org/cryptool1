@@ -531,7 +531,7 @@ BEGIN
     LTEXT           "Aktueller Zwischenstand:",IDC_STATIC,15,155,307,8
     LTEXT           "In diesem Dialog sind Zeichen des Chiffretextes klein geschrieben und Zeichen des Klartextes groß geschrieben (Beispiel: a -->C bedeutet, dass das Zeichen 'a' in den Buchstaben 'C' entschlüsselt wird).",
                     IDC_STATIC,13,6,321,16
-    LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Der aktuelle Zwischenstand der Entschlüsselung hilft Ihnen weitere Substitutionen zu bestimmen.",
+    LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Der aktuelle Zwischenstand der Entschlüsselung hilft Ihnen, weitere Substitutionen zu bestimmen.",
                     IDC_STATIC,13,23,321,17
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,149,291,80,21
     CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | 
@@ -1228,12 +1228,12 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_PLAYFAIR_ANALYSIS DIALOG DISCARDABLE  0, 0, 432, 348
+IDD_PLAYFAIR_ANALYSIS DIALOG DISCARDABLE  0, 0, 432, 354
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfairanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,32,134,188
+    GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,32,134,196
     EDITTEXT        IDC_EDIT_1_1,15,84,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_2,35,84,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_3,55,84,15,12,ES_AUTOHSCROLL
@@ -1272,32 +1272,33 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_6,115,169,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,13,278,199
-    DEFPUSHBUTTON   "&Ergebnis der Analyse ausgeben",IDOK,6,315,110,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,378,319,47,19
-    EDITTEXT        IDC_LIST,6,234,419,36,ES_MULTILINE | ES_UPPERCASE | 
+                    WS_TABSTOP,147,14,278,214
+    DEFPUSHBUTTON   "&Ergebnis der Analyse ausgeben",IDOK,7,328,110,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,378,328,47,19
+    EDITTEXT        IDC_LIST,6,243,419,36,ES_MULTILINE | ES_UPPERCASE | 
                     ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,15,70,50,8
     CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,71,70,
                     50,8
-    EDITTEXT        IDC_PASSWORD,6,13,134,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,6,14,134,14,ES_AUTOHSCROLL
     LTEXT           "Passwort",IDC_STATIC,6,1,32,10
     RTEXT           "Buchstabeninformationen",IDC_STATIC,147,2,81,9
     CONTROL         "Doppelte wurden ignoriert",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,56,111,8
-    EDITTEXT        IDC_MYTXT,6,295,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    PUSHBUTTON      "Erzeuge &Matrix",IDC_BUTTON5,38,199,72,15
+    EDITTEXT        IDC_MYTXT,6,304,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Erzeuge &Matrix",IDC_BUTTON5,38,206,72,15
     LTEXT           "Analyseergebnis: Die folgenden Zeilen enthalten Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",
-                    IDC_STATIC,6,224,419,8
-    LTEXT           "Vermuteter Klartext:",IDC_STATIC,6,286,63,8
-    SCROLLBAR       IDC_SCROLLBAR1,6,270,419,11
+                    IDC_STATIC,6,233,419,8
+    LTEXT           "Vermuteter Klartext:",IDC_STATIC,6,295,63,8
+    SCROLLBAR       IDC_SCROLLBAR1,6,279,419,11
     CONTROL         "Text wurde vorformatiert",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,43,92,10
     PUSHBUTTON      "&Synchronisiere  Analyseergebnis / Vermuteter Klartext",
-                    IDC_BUTTON6,132,319,182,19
-    CONTROL         "Vermuteter Klartext aktualisieren",IDC_CHECK4,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,186,115,10
+                    IDC_BUTTON6,132,328,182,19
+    CONTROL         "Vermuteten Klartext anhand der Matrix aktualisieren",
+                    IDC_CHECK4,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,15,186,115,17
 END
 
 IDD_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
@@ -1881,16 +1882,16 @@ BEGIN
                     -1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 253, 286
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Doppelwürfel Verschlüsselung: Permutationseingabe "
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,22,39,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,21,161,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,70,254,57,19,WS_DISABLED
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,254,55,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,254,57,19,WS_DISABLED
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,213,254,55,19
     CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,76,88,48,8
     CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,104,
@@ -1908,21 +1909,21 @@ BEGIN
     CONTROL         "auslesen",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,
                     227,47,8
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    151,254,22,20
-    EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    165,254,22,20
+    EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,108
+    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,256,108
     LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
-                    IDC_STATIC,22,30,205,8
+                    IDC_STATIC,23,29,205,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
-                    IDC_STATIC,22,59,205,8
-    EDITTEXT        IDC_EDIT4,21,190,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    IDC_STATIC,23,58,205,8
+    EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation",IDC_STATIC,11,134,226,109
+    GROUPBOX        "2. Permutation",IDC_STATIC,12,132,256,111
     LTEXT           "Eingabe (Buchstaben oder durch Kommas separierte Zahlen)",
-                    IDC_STATIC,21,151,205,8
+                    IDC_STATIC,23,151,205,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
-                    IDC_STATIC,21,180,205,8
+                    IDC_STATIC,23,179,205,8
     CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,124,88,56,8
     CONTROL         "permutieren",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,
@@ -3812,15 +3813,8 @@ BEGIN
 
     IDD_PLAYFAIR_ANALYSIS, DIALOG
     BEGIN
-        VERTGUIDE, 6
-        VERTGUIDE, 15
-        VERTGUIDE, 140
-        VERTGUIDE, 147
-        VERTGUIDE, 261
-        VERTGUIDE, 280
-        VERTGUIDE, 425
-        HORZGUIDE, 9
-        HORZGUIDE, 334
+        HORZGUIDE, 14
+        HORZGUIDE, 228
     END
 
     IDD_KEY_PLAYFAIR, DIALOG
@@ -3997,19 +3991,8 @@ BEGIN
     BEGIN
         VERTGUIDE, 12
         VERTGUIDE, 23
-        VERTGUIDE, 70
-        VERTGUIDE, 76
-        VERTGUIDE, 124
-        VERTGUIDE, 180
-        VERTGUIDE, 227
-        VERTGUIDE, 238
-        HORZGUIDE, 20
-        HORZGUIDE, 23
-        HORZGUIDE, 52
-        HORZGUIDE, 96
-        HORZGUIDE, 112
-        HORZGUIDE, 219
-        HORZGUIDE, 235
+        VERTGUIDE, 257
+        VERTGUIDE, 268
         HORZGUIDE, 254
         HORZGUIDE, 273
     END
@@ -4198,11 +4181,12 @@ BEGIN
     IDS_STRING_AVERAGE_VARIATION "Durchschnitt: %lf Variation: %lf"
     IDS_STRING_VARIANCE     "Abweichung"
     IDS_STRING_VERTICES     "Eckpunkte"
-    IDS_STRING_MSG_PERM_NUM_2_BIG "Der maximal zulässige Wert ist %i!"
+    IDS_STRING_MSG_PERM_NUM_2_BIG 
+                            "Die Permutation kann maximal %i Zeichen lang sein."
     IDS_STRING_MSG_PERM_DUPLICATE 
                             "Der Wert %d ist doppelt. Bitte korrigieren!"
     IDS_STRING_MSG_PERM_MISSING 
-                            "Der Wert %d fehlt in der Permutation. Bitte Korrigieren!"
+                            "Der Wert %d fehlt in der Permutation. Bitte korrigieren!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4612,7 +4596,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "Die signierte Nachricht liegt in Datei:         "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "Die Eingabe muss mindestens %d Zeichen aus dem aktuellen Alphabet enthalten."
+                            "Die Eingabe muss mindestens %d Zeichen (nicht unbedingt\nverschiedene) Zeichen des Eingestellten Alphabets enthalten."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
     IDS_STRING_ERR_NO_ZIP_FILE "Keine ZIP-Datei (""Magic-Number""-Fehler)."
@@ -5343,7 +5327,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_MSG_PERM     "Permuationseingabe"
+    IDS_STRING_MSG_PERM     "Permutationseingabe"
     IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: benutzen Sie hierfür den Knopf Entschlüsseln."
     IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
     IDS_NUMBER_NOT_RSA_MODUL 
@@ -6808,12 +6792,12 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_PLAYFAIR_ANALYSIS DIALOG DISCARDABLE  0, 0, 432, 348
+IDD_PLAYFAIR_ANALYSIS DIALOG DISCARDABLE  0, 0, 432, 356
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_MYTXT,7,295,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,16,73,50,8
     CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,81,73,
@@ -6821,8 +6805,8 @@ BEGIN
     CONTROL         "&Duplicates are ignored",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,59,92,8
     EDITTEXT        IDC_PASSWORD,7,13,131,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Output results of analysis",IDOK,7,320,113,18
-    GROUPBOX        "Key matrix",IDC_STATIC,7,34,131,188
+    DEFPUSHBUTTON   "&Output results of analysis",IDOK,7,330,113,18
+    GROUPBOX        "Key matrix",IDC_STATIC,7,34,131,197
     EDITTEXT        IDC_EDIT_1_1,16,85,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_2,36,85,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_1_3,56,85,15,12,ES_AUTOHSCROLL
@@ -6861,23 +6845,24 @@ BEGIN
     EDITTEXT        IDC_EDIT_6_6,116,170,15,12,ES_AUTOHSCROLL | WS_DISABLED
     CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,13,278,199
-    PUSHBUTTON      "&Cancel",IDCANCEL,364,320,61,18
-    EDITTEXT        IDC_LIST,7,235,418,36,ES_MULTILINE | ES_UPPERCASE | 
+                    WS_TABSTOP,147,13,278,218
+    PUSHBUTTON      "&Cancel",IDCANCEL,364,330,61,18
+    EDITTEXT        IDC_LIST,7,245,418,36,ES_MULTILINE | ES_UPPERCASE | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
     LTEXT           "Password:",IDC_STATIC,7,2,32,9
     LTEXT           "Letter information",IDC_STATIC,147,2,187,9
-    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,199,72,17
+    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,208,72,16
     LTEXT           "Analysis result: The following rows contains Ciphertext, input or result of the frequency analysis, found plaintext",
-                    IDC_STATIC,7,225,407,8
-    LTEXT           "Expected plaintext:",IDC_STATIC,7,287,85,8
-    SCROLLBAR       IDC_SCROLLBAR1,7,271,418,11
+                    IDC_STATIC,7,235,407,8
+    LTEXT           "Expected plaintext:",IDC_STATIC,7,297,85,8
+    SCROLLBAR       IDC_SCROLLBAR1,7,281,418,11
     CONTROL         "&Text was preformatted",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,47,111,8
     PUSHBUTTON      "&Synchronise  Analysis result / Expected plaintext",
-                    IDC_BUTTON6,138,320,170,18
-    CONTROL         "Update expected plaintext",IDC_CHECK4,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,16,187,105,8
+                    IDC_BUTTON6,138,330,170,18
+    CONTROL         "Update expected plaintext using the key matrix",
+                    IDC_CHECK4,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,16,188,105,16
 END
 
 IDD_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
@@ -7416,16 +7401,16 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 253, 286
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 287
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Double Column Transposition: Permutation Key Input"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,22,39,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,21,161,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Encrypt",IDOK,11,254,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,69,254,57,19,WS_DISABLED
-    PUSHBUTTON      "&Cancel",IDCANCEL,183,254,55,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,254,57,19,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,213,254,55,19
     CONTROL         "Read in",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,87,210,43,10
     CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,87,226,
@@ -7435,21 +7420,21 @@ BEGIN
     CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,180,226,
                     47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    151,254,22,20
-    EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    162,254,22,20
+    EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,108
-    LTEXT           "Key input (letters or permutation via comma seperated numbers)",
-                    IDC_STATIC,22,30,205,8
+    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,256,108
+    LTEXT           "Key input (via letters or via comma seperated numbers)",
+                    IDC_STATIC,23,29,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
-                    IDC_STATIC,22,59,205,8
-    EDITTEXT        IDC_EDIT4,21,190,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    IDC_STATIC,23,59,234,8
+    EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation",IDC_STATIC,11,134,226,109
-    LTEXT           "Key input (letters or permutation via comma seperated numbers)",
-                    IDC_STATIC,21,151,205,8
+    GROUPBOX        "2. Permutation",IDC_STATIC,12,134,256,109
+    LTEXT           "Key input (via letters or via comma seperated numbers)",
+                    IDC_STATIC,23,151,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
-                    IDC_STATIC,21,180,205,8
+                    IDC_STATIC,23,180,234,8
     CONTROL         "Read in",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,87,86,44,10
     CONTROL         "Read in",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,87,103,
@@ -9235,14 +9220,9 @@ BEGIN
 
     IDD_PLAYFAIR_ANALYSIS, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 16
-        VERTGUIDE, 138
-        VERTGUIDE, 425
-        HORZGUIDE, 9
-        HORZGUIDE, 79
-        HORZGUIDE, 199
-        HORZGUIDE, 334
+        HORZGUIDE, 34
+        HORZGUIDE, 231
+        HORZGUIDE, 348
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -9291,16 +9271,11 @@ BEGIN
     IDD_KEY_PERMUTATION, DIALOG
     BEGIN
         VERTGUIDE, 12
-        VERTGUIDE, 78
-        VERTGUIDE, 87
-        VERTGUIDE, 131
-        VERTGUIDE, 173
-        VERTGUIDE, 180
-        VERTGUIDE, 238
-        HORZGUIDE, 96
-        HORZGUIDE, 113
-        HORZGUIDE, 221
-        HORZGUIDE, 235
+        VERTGUIDE, 23
+        VERTGUIDE, 257
+        VERTGUIDE, 268
+        HORZGUIDE, 254
+        HORZGUIDE, 273
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -9505,7 +9480,8 @@ BEGIN
     IDS_STRING_AVERAGE_VARIATION "Mean: %lf, Variation: %lf"
     IDS_STRING_VARIANCE     "Deviation"
     IDS_STRING_VERTICES     "Vertices"
-    IDS_STRING_MSG_PERM_NUM_2_BIG "The maximal value is bounded by %i!"
+    IDS_STRING_MSG_PERM_NUM_2_BIG 
+                            "The maximum number of elements of this permutation is %i!"
     IDS_STRING_MSG_PERM_DUPLICATE 
                             "The value %d is a doublette. Please correct!"
     IDS_STRING_MSG_PERM_MISSING 
@@ -10281,7 +10257,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_XOR "Key Entry: XOR"
     IDS_STRING_KEY_INPUT_ADD "Key Entry: ADD"
     IDS_STRING_RSA_TUTORIAL_INPUT 
-                            "Enter either as text or as numbers in the format  number[1] # ... # number[n]  (numbers of base %i)"
+                            "Enter the message for encryption or decryption either as text or as hex dump."
 END
 
 STRINGTABLE DISCARDABLE 

@@ -373,7 +373,8 @@ int CDlgKeyPermutation::MakePermInt(CString *Pin, int p[], int pinv[])
 			e = Pin->GetLength() - i;
 		else
 			e = j-i;
-		k = atoi(Pin->Mid(i,e))-1;
+		if ( e > 6 ) k = MAX_PERM_LENGTH+1;
+		else         k = atoi(Pin->Mid(i,e))-1;
 		i = j+1;
 		if(k>=MAX_PERM_LENGTH) { // Fehler: zu groﬂer Wert
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_PERM ,pc_str,STR_LAENGE_STRING_TABLE);

@@ -32,7 +32,7 @@ static char THIS_FILE[] = __FILE__;
 int load(CString &Src, const char *pattern, CString *Dest);
 
 
-
+BOOL g_pre_dialogue = TRUE;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -479,7 +479,7 @@ BOOL CDlgRSADemo::CheckIntegerInput( CString &NumStr, CEdit &EditCtrl )
 	CString UpnFormula;
 	int error, err_ndx;
 	error = CheckFormula(NumStr, 10, UpnFormula, err_ndx);
-	if (error==0)
+	if (error==0 && !g_pre_dialogue)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
 		EditCtrl.SetSel(err_ndx-1,m_edit_p.GetLength());
@@ -530,7 +530,7 @@ void CDlgRSADemo::InitPrivateRSAParameter()
 	// Check & ggf. Initialisierung der eignen RSA-Parameter
 	RSAInitError = CheckRSAParameter();
 	
-	if ( 0 != RSAInitError ) 
+	if ( 0 != RSAInitError && !g_pre_dialogue ) 
 	{
 		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
 		if ( ERR_P_TO_BIG == RSAInitError )
@@ -592,7 +592,7 @@ void CDlgRSADemo::InitPublicRSAParameter()
 	RSAInitError = CheckRSAParameter();
 
 	
-	if ( 0 != RSAInitError ) 
+	if ( 0 != RSAInitError && !g_pre_dialogue ) 
 	{
 		if ( ERR_ON_MODUL_N == RSAInitError )
 		{
@@ -645,8 +645,9 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 		else 
 		{
 			SetStatusInputValid(FALSE);
-			Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
-				DlgOptions->Anzahl_Zeichen, m_edit_N );
+			if ( !g_pre_dialogue )
+				Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
+					DlgOptions->Anzahl_Zeichen, m_edit_N );
 		}	
 	}
 	RequestForInput(FALSE);
@@ -674,6 +675,8 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 BOOL CDlgRSADemo::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+
+	g_pre_dialogue = TRUE;
 
 	m_control_edit_p.SetFocus();
 
@@ -755,6 +758,9 @@ BOOL CDlgRSADemo::OnInitDialog()
 	{
 		RequestForInput(TRUE);
 	}
+
+	g_pre_dialogue = FALSE;
+
 	return TRUE;
 }
 
@@ -1982,7 +1988,6 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		OnMyPaste();
 	}
 	else
-
 	{
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}

@@ -968,8 +968,8 @@ UINT Autocorr(PVOID p)
 	}
 
 	fsize=text.GetSize();
-	if(/* text.GetSize() */ tx->GetSize()<4) {
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 4);
+	if(text.GetSize() < 8) { // Mindestlänge 8 Zeichen
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 8);
 		r=1;
 		goto cancel;
 	}
