@@ -43,51 +43,36 @@ SignatureAttackMFC::~SignatureAttackMFC()
 
 void SignatureAttackMFC::StartShowProgress()
 {
-	CString msg;
 
-	m_OldProgressPercentage = 0;
 	m_SearchMode = IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH;
-	msg.LoadString(IDS_STRING_SIG_ATT_FLOYD_RUNNING);
-	theApp.fs.Display(LPCTSTR(msg));
+	theApp.fs.setModelTitleFormat(this,IDS_STRING_SIG_ATT_FLOYD_RUNNING,"");
+	theApp.fs.Display();
+
 }
 
-void SignatureAttackMFC::UpdateShowProgress()
+double SignatureAttackMFC::getProgress()
 {
-	if (0 != m_ResSigAtt->GetTotalSteps() % 5000)
-	{
-		return;		// nur alle 5000 Schritte Fortschrittsanzeige aktualisieren
-	}
-
+	double res;
+	int run = m_ResSigAtt->GetRuns() - 1;
 	if (IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH == m_SearchMode)
 	{
-		if ((m_NewProgressPercentage =
-			(m_ResSigAtt->GetCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1) * 100) / m_ResSigAtt->GetExpectedSteps())
-			> m_OldProgressPercentage)	// wenn sich Prozentangabe geändert hat...
-		{
-			if (100 < m_NewProgressPercentage)
-			{
-				m_NewProgressPercentage = 100;	// mehr als 100% sind nicht möglich!
-			}
-			_snprintf(m_Text, sizeof(m_Text) - 1, m_ProgressText, m_ResSigAtt->GetRuns(), m_NewProgressPercentage);
-		}
+		res =  m_ResSigAtt->GetCollisionStepsOfRun(run);
+		res /= m_ResSigAtt->GetExpectedSteps();
 	}
 	else
 	{
-		if ((m_NewProgressPercentage =
-			(m_ResSigAtt->GetConfirmationStepsOfRun(m_ResSigAtt->GetRuns() - 1) * 100) /
-			m_ResSigAtt->GetCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1))
-			> m_OldProgressPercentage&& m_NewProgressPercentage <= 100)
-		{
-			if (100 < m_NewProgressPercentage)
-			{
-				m_NewProgressPercentage = 100;
-			}
-			_snprintf(m_Text, sizeof(m_Text) - 1, m_ProgressText, m_ResSigAtt->GetRuns(), m_NewProgressPercentage);
-		}
+		res =  m_ResSigAtt->GetConfirmationStepsOfRun(run);
+		res /= m_ResSigAtt->GetCollisionStepsOfRun(run);
 	}
-	
-	theApp.fs.Set(m_OldProgressPercentage = m_NewProgressPercentage, "", m_Text);
+	CString f;
+	f.Format(m_ProgressText,run+1);
+	theApp.fs.setFormat(f);
+	if (res > 1.0)
+		res = 1.0;
+	return res;
 }
+
+
 
 bool SignatureAttackMFC::CheckCanceledProgress()
 {

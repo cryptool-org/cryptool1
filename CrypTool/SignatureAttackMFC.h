@@ -12,7 +12,7 @@
 #include "SignatureAttack.h"
 
 
-class SignatureAttackMFC : public SignatureAttack  
+class SignatureAttackMFC : public SignatureAttack, public CProgressModel
 {
 public:
 	SignatureAttackMFC();
@@ -37,7 +37,7 @@ private:
 
 	virtual bool CheckCanceledProgress();
 	virtual void StartShowProgress();
-	virtual void UpdateShowProgress();
+	virtual double getProgress();
 	virtual void SignalEnd();
 	virtual void SetProgressTextNewRun(const bool IsNewRun);
 

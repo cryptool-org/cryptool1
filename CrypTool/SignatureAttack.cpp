@@ -128,7 +128,6 @@ bool SignatureAttack::CollisionConfirmation(char *HashValue_single_step, char *H
 			memcpy(HashValue_pre_success2, HashValue_confirm_step, HashAlgorithmByteLength);
 		}
 
-		UpdateShowProgress();
 		m_ResSigAtt->IncreaseConfirmationStepsOfRun(RunID);
 		InternalStep(HashValueParity_single_step, HashValue_single_step);
 		InternalStep(HashValueParity_confirm_step, HashValue_confirm_step);
@@ -282,7 +281,6 @@ UINT SignatureAttack::Do_Floyd()
 			{
 				return 0;
 			}
-			UpdateShowProgress();
 
 			m_ResSigAtt->IncreaseCollisionStepsOfRun(m_ResSigAtt->GetRuns() - 1);
 

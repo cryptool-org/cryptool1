@@ -27,7 +27,6 @@ public:
 protected:
 	virtual void SignalEnd() { ; }
 	virtual bool CheckCanceledProgress() { return false; }
-	virtual void UpdateShowProgress() { ; }
 	virtual void StartShowProgress() { ; }
 	virtual void SetProgressTextNewRun(const bool IsNewRun) { ; }
 	BitParity m_BitPar;

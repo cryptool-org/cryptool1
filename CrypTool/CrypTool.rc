@@ -5718,7 +5718,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
-                            "Es läuft Run Nr. %d.\nDie Suche nach einem Zyklus in diesem Run ist zu %d%%%% abgeschlossen."
+                            "Run %d\nZyklussuche\nFortschritt: %%d%%%%  Restzeit: %%s"
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
                             "Die ""gefährliche"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
     IDS_STRING_SIG_ATT_UNKNOWN_ERROR 
@@ -5734,7 +5734,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Gefährliche Nachricht: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmlose Nachricht: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Es läuft Run Nr. %d.\nDie Suche nach dem Beginn des in diesem Run gefundenen Zyklus ist zu %d%%%% abgeschlossen."
+                            "Run %d\nKollisionssuche\nFortschritt: %%d%%%%  Restzeit: %%s"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12164,7 +12164,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
-                            "Performing run no. %d.The search for a cycle in this run is completed by %d%%%%."
+                            "Run %d\nCycle search\nProgress: %%d%%%%  remaining time: %%s"
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
                             "The ""dangerous"" file could not be openend or is of size 0 !"
     IDS_STRING_SIG_ATT_UNKNOWN_ERROR "An unknown error has occured !"
@@ -12179,7 +12179,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Dangerous message: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Performing run no. %d. The search for the start of the cycle found in this run is completed by %d%%%%."
+                            "Run %d\nCycle search\nProgress: %%d%%%%  remaining time: %%s"
 END
 
 #endif    // Englisch (GB) resources
