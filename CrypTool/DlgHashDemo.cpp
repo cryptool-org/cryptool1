@@ -167,6 +167,7 @@ void CDlgHashDemo::OnRadioMd2()
 {
 	OnChangeEditText();
 	hashTextWithMd2();
+	UpdateData(false);
 }
 
 void CDlgHashDemo::hashTextWithMd2()
@@ -204,6 +205,7 @@ void CDlgHashDemo::OnRadioMd5()
 {
 	OnChangeEditText();
 	hashTextWithMd5();
+	UpdateData(false);
 }
 
 void CDlgHashDemo::hashTextWithMd5()
@@ -688,6 +690,7 @@ static DWORD CALLBACK EditStreamCallBack(DWORD dwCookie, LPBYTE pbBuff, LONG cb,
 
 void CDlgHashDemo::SetRed()
 {
+	
 
 	CString rtfPrefix, rtfPostfix;
 	rtfPrefix = "{\\rtf1\\ansi\\deff0\\deftab720{\\fonttbl{\\f0\\froman "
@@ -709,28 +712,75 @@ void CDlgHashDemo::SetRed()
 
 	int x=0;
 
+
+	// Florian Marchal, 06.08.2002
+	// offset:	Speichert das Offset der längsten unveränderten Bitfolge
+	// length:	Speichert die Länge der längsten unveränderten Bitfolge
+	int offset=0;
+	int length=0;
+	// o:		Speichert das Offset der aktuellen Bitfolge
+	// l:		Speichert die Länge der aktuellen Bitfolge
+	int o=0;
+	int l=0;
+	// y:		Gibt die Anzahl der gezählten Bits wieder, d.h. lässt die automatisch
+	//			eingefügten Trennzeichen (#) zwischen den 8er-Bitblöcken aus
+	int y=0;
+
 	CString b = "";
 	int zero = 0, one = 0;
 	if(m_ctrlHashDiff.m_hWnd!=0)
 	{	
 		for( x=0;x<laenge;x++)
 		{
+			// ...hier unterscheidet sich ein Bit.
 			if(m_strHashDiffRE[x]=='1')
-			{	one++;
-				b += "{\\cf2 1}";
-			}
-			else
 			{	
-				if (m_strHashDiffRE[x]=='0')
+				one++;
+				b += "{\\cf2 1}";
+
+				// Variablen sollen ausschliesslich dann neu gesetzt werden, wenn
+				// es sich NICHT um ein Trennzeichen (#) handelt.
+				if( (x+1)%9 != 0)
+				{
+					l = 0;
+					y++;
+				}
+			}
+			// ...hier ist das entsprechende Bit gleich.
+			else
+			{
+				if(m_strHashDiffRE[x]=='0')
 					zero++;
 				b += m_strHashDiffRE[x];
+
+				// Variablen sollen ausschliesslich dann neu gesetzt werden, wenn
+				// es sich NICHT um ein Trennzeichen (#) handelt.
+				if( (x+1)%9 != 0)
+				{
+
+					if(l==0) o = y;
+					l++;
+					if(l>length)
+					{
+						length = l;
+						offset = o;
+					}
+					y++;
+				}
 			}
-		
 		}
+
 		b += "\n\\par ";
 		CString ratio;
-		ratio.Format(IDS_HASH_DEMO_PERCENT,(100.0*one)/(one+zero));
+		ratio.Format(IDS_HASH_DEMO_PERCENT,(100.0*one)/(one+zero), one, (one+zero));
 		b += ratio;
+				
+		CString sequence;
+		sequence.Format(IDS_HASH_DEMO_SEQUENCE, offset, length);
+
+		// Neue Zeile beginnen und Angaben über Offset/Länge ausgeben
+		b += "\n\\par ";
+		b += sequence;
 	}
 
 	m_ctrlHashDiff.ShowWindow(SW_SHOW);

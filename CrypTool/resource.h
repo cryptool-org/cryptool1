@@ -1338,6 +1338,7 @@
 #define IDS_HASH_DEMO_TITLE_MD5         37897
 #define IDS_HASH_DEMO_TITLE_SHA1        37898
 #define IDS_ENTROPY_TITLE               37899
+#define IDS_HASH_DEMO_SEQUENCE          37900
 
 // Next default values for new objects
 // 

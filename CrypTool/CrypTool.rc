@@ -2320,44 +2320,6 @@ BEGIN
     GROUPBOX        "Hashfunktion",IDC_STATIC,7,3,117,93
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 339, 382
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hash-Demo"
-FONT 8, "MS Sans Serif"
-BEGIN
-    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,20,10,95,62
-    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,33,25,31,10
-    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
-                    31,10
-    CONTROL         "&SHA-1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
-                    57,31,10
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,209,10,94,61
-    CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,224,41,39,10
-    CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    224,25,55,10
-    CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,224,
-                    57,31,10
-    LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
-                    IDC_STATIC,20,85,216,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,19,97,301,113,ES_MULTILINE | ES_WANTRETURN | 
-                    WS_VSCROLL
-    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,20,219,184,
-                    8
-    EDITTEXT        IDC_EDIT_ORIGHASH,20,229,300,14,ES_AUTOHSCROLL | 
-                    ES_READONLY
-    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,20,252,92,8
-    EDITTEXT        IDC_EDIT_AKTHASH,20,262,300,14,ES_AUTOHSCROLL | 
-                    ES_READONLY
-    LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
-                    IDC_STATIC,20,284,278,8
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
-                    ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,20,
-                    294,294,53
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,247,359,59,14
-END
-
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 445
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
@@ -2437,6 +2399,44 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,82,67,50,16
     LTEXT           "Static",IDC_ALPHABET_INFO,7,7,195,22
     CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
+END
+
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hash-Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,10,95,62
+    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,33,25,31,10
+    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
+                    31,10
+    CONTROL         "SHA-&1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
+                    57,34,10
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,217,9,93,63
+    CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,232,41,39,10
+    CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
+                    232,26,55,10
+    CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
+                    58,31,10
+    LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
+                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,219,194,
+                    8
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,252,92,8
+    EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
+                    IDC_STATIC,16,284,285,8
+    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,366,59,14
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
+                    ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
+                    296,294,64
 END
 
 
@@ -4132,6 +4132,12 @@ BEGIN
         BOTTOMMARGIN, 83
         HORZGUIDE, 67
     END
+
+    IDD_HASH_DEMO, DIALOG
+    BEGIN
+        VERTGUIDE, 16
+        VERTGUIDE, 310
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -5597,11 +5603,12 @@ BEGIN
     IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
     IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
     IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
-    IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich."
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% der Bits unterscheiden sich (%d von %d)."
     IDS_HASH_DEMO_TITLE_MD2 "Hash-Demo   MD2-Hash"
     IDS_HASH_DEMO_TITLE_MD5 "Hash-Demo   MD5-Hash"
     IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
     IDS_ENTROPY_TITLE       "Entropie <%s>"
+    IDS_HASH_DEMO_SEQUENCE  "Längste unveränderte Bitfolge: Offset %d, Länge %d."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7950,7 +7957,7 @@ BEGIN
     PUSHBUTTON      "&Show certificate",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 378
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
@@ -7965,7 +7972,7 @@ BEGIN
     GROUPBOX        "Base of hash values",IDC_STATIC,217,9,93,63
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,232,41,40,10
-    CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
                     232,26,55,10
     CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
@@ -7982,10 +7989,10 @@ BEGIN
                     ES_READONLY
     LTEXT           "Difference between hash values of the original and actual file",
                     IDC_STATIC,16,284,252,8
-    PUSHBUTTON      "E&xit",IDCANCEL,251,356,59,14
+    PUSHBUTTON      "E&xit",IDCANCEL,251,366,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
-                    296,294,53
+                    296,294,64
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 426
@@ -10896,11 +10903,12 @@ BEGIN
     IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
     IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file: %s. \r\n\r\n"
     IDS_RSASGN_ALG          "As the hash function you have selected %s. "
-    IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ."
+    IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ (%d of %d)."
     IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
     IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
     IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
     IDS_ENTROPY_TITLE       "Entropy <%s>"
+    IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: Offset %d, length %d."
 END
 
 STRINGTABLE DISCARDABLE 
