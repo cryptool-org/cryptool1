@@ -20,7 +20,7 @@ public:
 	int MakePermInt(CString *Pin, int p[], int pinv[]);
 	CString makeASCII( CString &line);
 	int PrintPerm(char *dest, int *perm, int len);
-	int m_Dec;
+	bool m_Dec;
 	int MakePerm(CString *Pin, int p[26], int pinv[26]);
 	int m_P1[26];
 	int m_P1inv[26];

@@ -23,13 +23,13 @@ class CDlgKeyPlayfair : public CDialog
 public:
 	~CDlgKeyPlayfair();
 	CDlgKeyPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
-	bool getDec()  { return ((bool) m_Dec); }
+	bool getDec()  { return ( m_Dec ); }
 	char *GetData();
 	int Display();
 
 	class CPlayfairAnalysis *m_Alg;
 private:
-	int m_Dec;
+	bool m_Dec;
 public:
 
 // Dialogfelddaten

@@ -109,7 +109,7 @@ public:
 	void UpdatePassword();
 	char *GetData();
 	class CPlayfairAnalysis *getAlg() const { return m_Alg; }
-	bool getDec() { return ((bool) m_Dec); }
+	bool getDec() { return (m_Dec); }
 	class CChEdit *getEinfeld(int i, int j) { return &m_einfeld[i][j]; }
 
 	void InitListBox();
@@ -165,7 +165,8 @@ private:
 	CString m_mat[6][6];
 	class CPlayfairAnalysis *m_Alg;
 	class CChEdit	m_einfeld[6][6];
-	int m_sechs,m_Dec;
+	int m_sechs;
+	bool m_Dec;
 	CFont m_Font;
 
 	bool is6x6possible;

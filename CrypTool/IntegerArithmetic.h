@@ -89,8 +89,8 @@ int  decode( const char *StrNumber, char *data, int blockLength, int numberBase,
 int  decode( CString &CStringNumber, char *data, int blockLength, int numberBase, BOOL BasisSystem, const char *CPlayfairAlphabet );
 void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
-void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, int OutLength = 0);
-void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, int OutLength = 0);
+void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, size_t OutLength = 0);
+void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, size_t OutLength = 0);
 void RandRepr( CString &StrNum,         int Modul, int numberBase, int randInterval = 20, int ofs = 0 ); 
 void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval = 20, int ofs = 0 );
 void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs = 0 ); 

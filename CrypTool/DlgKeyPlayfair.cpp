@@ -228,6 +228,7 @@ void CDlgKeyPlayfair::OnUpdateEdit1()
 	for(k=i=0;i<m_text.GetLength();i++) {
 		c = m_text[i];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
+#pragma warning( disable : 4800 )
 			c = m_Alg->getAlphabet()->replaceInvalidLetter(m_preformat, c);
 		if(m_Alg->myisalpha2(c)) { // valid character
 			res += c;

@@ -476,21 +476,22 @@ int decode( CString &CStringNumber, char *data, int blockLength, int numberBase,
 //  converts a Big Number to a string 
 // 
 
-void BigToString(const Big&t, char *NumStr, int base, int OutLength)
+void BigToString(const Big&t, char *NumStr, int base, size_t OutLength)
 {
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
 	char tmpStr[MAX_BIT_LENGTH];
 	tmpStr << t;
-	int i,diff;
+	size_t i;
+	size_t diff;
     	diff = ( OutLength > strlen(tmpStr) ) ? OutLength - strlen(tmpStr) : 0;
     	if (diff > 0) for(i=0; i<diff; i++) NumStr[i] = '0';
     	strcpy(NumStr+diff, tmpStr);
 	mip->IOBASE = oldBase;
 }
 
-void BigToCString(const Big &t, CString &NumCStr, int base, int OutLength )
+void BigToCString(const Big &t, CString &NumCStr, int base, size_t OutLength )
 {
     char tmpStr[MAX_BIT_LENGTH];
     BigToString( t, tmpStr, base, OutLength );
@@ -505,7 +506,7 @@ void BigToCString(const Big &t, CString &NumCStr, int base, int OutLength )
 void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
 {
 	Big tmp = 0;
-	int outLength = 0;
+	size_t outLength = 0;
 
 	int i,j, modul, digits, alphabetLength;
 	alphabetLength = ( CPlayfairAlphabet == NULL ) ? 256 : strlen(CPlayfairAlphabet);
@@ -1193,7 +1194,7 @@ void CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	size_t OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -1227,7 +1228,7 @@ void CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL 
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
-	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+	size_t OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;

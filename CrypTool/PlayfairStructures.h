@@ -95,9 +95,9 @@ public:
         CPlayfairLetter addLetter(char let);
         void delLetter(char let);
         void delLetter(CPlayfairLetter let);
-        CPlayfairLetter getLetter(char let, bool withConvert, bool isDigitsOk=1, bool isPlayfairTypical=0);
+        CPlayfairLetter getLetter(char let, bool withConvert, bool isDigitsOk=true, bool isPlayfairTypical=false);
 		bool myisalpha( char ch );
-		char replaceInvalidLetter(bool withConvert, char let, bool isDigitsOk=1, bool isPlayfairTypical=0);
+		char replaceInvalidLetter(bool withConvert, char let, bool isDigitsOk=true, bool isPlayfairTypical=false);
 		bool getValidOfLetter(int no){
 			return my_validletters[no];
 		}
