@@ -222,7 +222,8 @@ long RSA_Berechnungen::RSA_BlockLaengeBerechnung(Big x, long a)
 		l=l+1;
 	}
 
-	return (l);
+	//was ist wenn blocklänge =0 ist?
+	return (l-1);
 }
 
 Big RSA_Berechnungen::potenz(Big x, Big n)
@@ -254,6 +255,8 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 	for (i=blocklaenge-1;i>=0;i--)
 	{
 		ausgabe=ausgabe+Block[i]*potenz(anzahl_buchstaben,blocklaenge-1-i);
+		char ausgabe_char[100];
+		ausgabe_char<<ausgabe;
 	}
 
 	char ausgabe_char[100];
@@ -263,16 +266,19 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 	
 	ausgabe_char<<ausgabe;
 	// Ergebnis-Zahl ausgabe wieder als Block darstellen
+	/*
 	i=blocklaenge-1;
 	Big temp;
 	do
 	{
 		temp=ausgabe;
 		Block[i]=ausgabe%anzahl_buchstaben;
+		ausgabe_char<<ausgabe;
 		ausgabe_char<<Block[i];
 		ausgabe=ausgabe/anzahl_buchstaben;
+		ausgabe_char<<ausgabe;
 		i=i-1;
-	}while (ausgabe>=anzahl_buchstaben);
+	}while (ausgabe>=anzahl_buchstaben && i >=1);
 	if (i!=0)
 	{
 		Block[i]=ausgabe;
@@ -283,8 +289,10 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 			ausgabe_char<<Block[i];
 		}
 	}
+	*/
 	Block[0]=ausgabe;
 	ausgabe_char<<Block[0];
+
 }
 
 

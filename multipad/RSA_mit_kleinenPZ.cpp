@@ -152,8 +152,8 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 	Big eingabe_q=RSAB.konvertiere_CString_Big(m_eingabe_q);
 	Big geheime_parameter=RSAB.konvertiere_CString_Big(m_geheime_parameter);
 	Big geheime_schluessel_d=RSAB.konvertiere_CString_Big(m_geheime_schluessel_d);
-	Big oeffentliche_schluessel_e;
-	Big oeffentliche_parameter_pq;
+	Big oeffentliche_schluessel_e=3;
+	Big oeffentliche_parameter_pq=eingabe_p * eingabe_q;
 
 
 
@@ -203,14 +203,16 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		long anzahl_bloecke ;
 		long laenge_last_block;
 		if (text_laenge % block_laenge==0)
-		{
+		{	
 			anzahl_bloecke=text_laenge / block_laenge;
 			laenge_last_block= block_laenge;
 		}
 		else
 		{
+			
 			anzahl_bloecke = (text_laenge / block_laenge)+1;
 			laenge_last_block = text_laenge % block_laenge; // beachte, dass  Falls der Text eine Block-Vielfache ist, so ist laenge_last_block=0
+			text_laenge=text_laenge -laenge_last_block + block_laenge; // neu von Roger
 		}	
 		//
 	
@@ -218,9 +220,32 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 		char *text_char2;
 		//long *text;
 		Big *text;
-		text_char=(char *) calloc(text_laenge,sizeof(char)); 
-		text_char2=(char *) calloc(text_laenge,sizeof(char)); 
+		
+		char anschauen[100]; // Wir verwenden nur Zahlen mit höchstens 100 Dezimalstellen!!!!!
+		anschauen<<oeffentliche_parameter_pq;
 
+
+		int neu_text_laenge;
+		for (int i=0;i<=100;i++)
+		{
+			if (anschauen[i]>='0' && anschauen[i]<='9')
+			{
+				neu_text_laenge=i+1;
+			}
+			else 
+			{
+				neu_text_laenge=neu_text_laenge+1;
+				goto arret;
+			}
+		}
+arret:
+		
+		//neu_text_laenge=numdig(oeffentliche_parameter_pq);
+
+		text_char=(char *) calloc(text_laenge,sizeof(char)); 
+		//text_char=(char *) calloc(neu_text_laenge*anzahl_bloecke,sizeof(char)); 
+		//text_char2=(char *) calloc(text_laenge,sizeof(char)); 
+		text_char2=(char *) calloc(neu_text_laenge*anzahl_bloecke,sizeof(char)); 
 
 		text = new Big[text_laenge];
 
@@ -229,7 +254,7 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 	
 		werte = new Big*[anzahl_bloecke];
 
-		for (int i=0;i<=anzahl_bloecke-1;i++)
+		for (i=0;i<=anzahl_bloecke-1;i++)
 		{
 			werte[i] = new Big[block_laenge];
 		}
@@ -237,13 +262,17 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 
 		
 		
-		for (i=0;i<=text_laenge-1;i++)
+		for (i=0;i<=m_edit10.GetLength()-1;i++)
 		{
 			text_char[i]=m_edit10.GetAt(i);
 		}
-		
+		for (i=m_edit10.GetLength();i<=text_laenge-1;i++)
+		{
+			text_char[i]=' ';
+		}
 
-		for (i=0;i<=text_laenge-1;i++)
+		int zaehler=0;
+		for (i=0;i<=text_laenge-1;i++) //text_laenge-1
 		{
 			// konvertiere Ascii-Zeichen in Big-Werte.
 			char ptr[1];
@@ -254,17 +283,54 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 						
 			long l_test;
 			l_test = text[i].get(1);
-			char tmp[3];
-			sprintf(tmp, "%2X", l_test);
-			if ( ' ' == tmp[0] ) tmp[0] = '0';
-			text_char2[3*i] = tmp[0];
-			text_char2[3*i+1] = tmp[1];
-			if ( i<text_laenge-1 ) text_char2[3*i+2] = ' ';
+
+			char anschauen2[100]; // Wir verwenden nur Zahlen mit höchstens 100 Dezimalstellen!!!!!
+			anschauen2<<z;
+
+
+			int neu_text_laenge_block;
+			
+			
+			for (int j=0;j<=100;j++)
+			{
+				
+				if (anschauen2[j]>='0' && anschauen2[j]<='9')
+				{
+					neu_text_laenge_block=j+1;
+					text_char2[zaehler+j]=anschauen2[j];
+				}
+				else 
+				{
+
+					neu_text_laenge_block=neu_text_laenge_block+1;
+					if (i!= text_laenge-1) text_char2[zaehler+j]=' ';
+					goto arret2;
+				}
+			}
+arret2:;
+		zaehler=zaehler+neu_text_laenge_block;
+			//char *tmp;
+			
+			//tmp=(char *) calloc(neu_text_laenge_block,sizeof(char));
+			//sprintf(tmp, "%li", l_test);
+//			char tmp[3];
+//			sprintf(tmp, "%2X", l_test);
+//			if ( ' ' == tmp[0] ) tmp[0] = '0';
+//			text_char2[3*i] = tmp[0];
+//			text_char2[3*i+1] = tmp[1];
+			//text_char2[i+j]=anschauen2[j];
+//			if ( i<text_laenge-1 ) text_char2[3*i+2] = ' ';
 		} 
-		text_char2[3*text_laenge-1] = 0;	
+//		text_char2[3*text_laenge-1] = 0;	
 
 		//
-		m_edit11.GetBufferSetLength(3*m_edit10.GetLength());
+
+//	long i;
+//	long j;
+
+
+
+		m_edit11.GetBufferSetLength(neu_text_laenge*anzahl_bloecke); //m_edit10.GetLength()
 		for (i=0;i<m_edit11.GetLength();i++)
 		{
 			
@@ -275,31 +341,34 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 
 
 		
-		for (i=0;i<=text_laenge-1;i++)
+		for (i=0;i<=m_edit10.GetLength()-1;i++)
 		{
 			text_char[i]=m_edit10.GetAt(i);
 		}
-
-		long faktor=0;
-		for (i=0; i<=anzahl_bloecke-1;i++)  
+		for (i=m_edit10.GetLength();i<=text_laenge-1;i++)
 		{
-			for (int j=0; j<=block_laenge-1;j++) 
-			{
-				werte[i][j]=text[j+faktor];
-			}
-			faktor=faktor + block_laenge;
-		
+			text_char[i]=' ';
 		}
-		
+		long faktor=0;
+
+			for (i=0; i<=anzahl_bloecke-1;i++)  
+			{
+				for (int j=0; j<=block_laenge-1;j++) 
+				{
+					werte[i][j]=text[j+faktor];
+				}
+				faktor=faktor + block_laenge;
+			
+			}
+			
 		long ausgabe;
 		ausgabe=0;
 		
 		// Blockweisen-Verschlüsselung
-		if (laenge_last_block=block_laenge)
-		{
-			for (i=0;i<=anzahl_bloecke-1;i++)
+
+		for (i=0;i<=anzahl_bloecke-1;i++)
 			{
-				RSAB.encrypt_block(werte[i], block_laenge, anzahl_buchstaben, ausgabe,atol(m_oeffentliche_parameter_pq),atol(m_oeffentliche_schluessel_e));
+				RSAB.encrypt_block(werte[i], block_laenge, anzahl_buchstaben, ausgabe,oeffentliche_parameter_pq,oeffentliche_schluessel_e);
 			}
 		
 			faktor=0;
@@ -314,47 +383,58 @@ void RSA_mit_kleinenPZ::OnButtonVerschluesseln()
 			}
 
   
-		
-			for (i=0;i<=text_laenge-1;i++)
+			zaehler=0;	
+			faktor=0;
+			for (i=0;i<=anzahl_bloecke-1;i++) //text_laenge-1
 			{
 				// konvertiere Big in ASCII-Zeichen.
+				
 				Big z;
-				z=text[i];
+				z=text[faktor]; //i
 				long l_test;
 				l_test = z.get(1);
-				char tmp[3];
-				sprintf(tmp, "%2X", l_test);
-				if ( ' ' == tmp[0] ) tmp[0] = '0';
-				text_char[3*i] = tmp[0];
-				text_char[3*i+1] = tmp[1];
-				if ( i<text_laenge-1 ) text_char[3*i+2] = ' ';
-			}
-			text_char[3*text_laenge-1] = 0;	
-			//
-			
-			m_edit12.GetBufferSetLength(3*m_edit10.GetLength());
+				
+				char anschauen3[100]; // Wir verwenden nur Zahlen mit höchstens 100 Dezimalstellen!!!!!
+				anschauen3<<z;
+
+
+				int neu_text_laenge_block;
+				
+				for (int j=0;j<=100;j++)
+				{
+					
+					if (anschauen3[j]>='0' && anschauen3[j]<='9')
+					{
+						neu_text_laenge_block=j+1;
+						text_char2[zaehler+j]=anschauen3[j];
+					}
+					else 
+					{
+						neu_text_laenge_block=neu_text_laenge_block+1;
+						if (i!= text_laenge-1) text_char2[zaehler+j]=' ';
+						goto arret3;
+					}
+				}
+arret3:;
+				zaehler=zaehler+neu_text_laenge_block;
+			faktor =faktor +block_laenge;
+			} 
+
+			m_edit12.GetBufferSetLength(neu_text_laenge*anzahl_bloecke); //m_edit10.GetLength()
 			for (i=0;i<m_edit12.GetLength();i++)
 			{
 				
 				char trans;
-				trans=text_char[i];
+				trans=text_char2[i];
 				m_edit12.SetAt(i,trans);
 			}
 		
-		}
-		delete []text;
-		for (i=0;i<=anzahl_bloecke-1;i++)
-		{
-			delete []werte[i];		
-		}
-		delete []werte;
 		
 	}
 	else
 	{
 		return;		
 	}
-	//CString
 	UpdateData(false);	
 	
 }
@@ -573,35 +653,321 @@ fin:
 void RSA_mit_kleinenPZ::OnButtonEntschluesseln() 
 {
 	UpdateData(true);
-/*
+
+	m_edit11=m_edit10;
+	m_eingabe_p=_T("101");//101
+	
+	m_eingabe_q=_T("113");//113
+
+	m_geheime_parameter=_T("11200");//11200
+	//m_geheime_parameter=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1));
+
+	m_oeffentliche_parameter_pq=_T("11416");//11413
+	//m_oeffentliche_parameter_pq=RSAB.konvertiere_Big_CString((RSAB.konvertiere_CString_Big(m_eingabe_p))*(RSAB.konvertiere_CString_Big(m_eingabe_q)));
+
+	
+	//m_oeffentliche_schluessel_e=_T("3");//3
+	
+	m_geheime_schluessel_d =_T("7467");//7467
+	
+
+	Big eingabe_p=RSAB.konvertiere_CString_Big(m_eingabe_p);
+	Big eingabe_q=RSAB.konvertiere_CString_Big(m_eingabe_q);
+	Big geheime_parameter=RSAB.konvertiere_CString_Big(m_geheime_parameter);
+	Big geheime_schluessel_d=RSAB.konvertiere_CString_Big(m_geheime_schluessel_d);
+	Big oeffentliche_schluessel_e=3; ///////////////////////77
+	Big oeffentliche_parameter_pq=eingabe_p * eingabe_q;
+
+
+
 	if (0==m_eingabe_p.IsEmpty() && 0==m_eingabe_q.IsEmpty() && m_eingabe_p!=_T("0") && m_eingabe_q!=_T("0"))
 	{
-		if ((-1)!=RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)))
+		if ((-1)!=RSAB.extended_euclidian_algorithm((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1),RSAB.konvertiere_CString_Big(m_oeffentliche_schluessel_e)))
 		{
-			ltoa(RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)),m_geheime_schluessel_d.GetBuffer(20),10);
+			m_geheime_schluessel_d=RSAB.konvertiere_Big_CString(RSAB.extended_euclidian_algorithm((RSAB.konvertiere_CString_Big(m_eingabe_p)-1)*(RSAB.konvertiere_CString_Big(m_eingabe_q)-1),RSAB.konvertiere_CString_Big(m_oeffentliche_schluessel_e)));
 		}
 		else
 		{
 			//Fehler Meldung
 			// Der angegene öffentliche Parameter ist nicht geeignet. Es wird ein zufälliger öffentlicher Parameter erzeugt.
 			
-			//oeffentliche Schluessel ausrechnen
-			ltoa(RSAB.erzeuge_oeffentliche_Schluessel_e(atol(m_geheime_parameter)),m_oeffentliche_schluessel_e.GetBuffer(20),10);
+			//oeffentliche Schluessel ausrechnen 
+
+			oeffentliche_schluessel_e=RSAB.erzeuge_oeffentliche_Schluessel_e(geheime_parameter);
+			m_oeffentliche_schluessel_e.GetBuffer(500)<<oeffentliche_schluessel_e;
+			
 			
 			//geheime Schuessel ausrechnen
-			ltoa(RSAB.extended_euclidian_algorithm((atol(m_eingabe_p)-1)*(atol(m_eingabe_q)-1),atol(m_oeffentliche_schluessel_e)),m_geheime_schluessel_d.GetBuffer(20),10);
+			
+			geheime_schluessel_d=RSAB.extended_euclidian_algorithm((eingabe_p -1) * (eingabe_q -1), oeffentliche_schluessel_e);
+			m_geheime_schluessel_d.GetBuffer(500)<<geheime_schluessel_d;
+			
+		}
+	
+		long anzahl_buchstaben;
+		anzahl_buchstaben=256; // Dies sollte auch als option eingestellt werden.
 
+		// Blocklänge - Berechnung
+
+		long block_laenge;
+		block_laenge=RSAB.RSA_BlockLaengeBerechnung(eingabe_p * eingabe_q,anzahl_buchstaben); // Hier verwenden wir alle 256 ASCII-Zeichen
+		m_edit12=m_edit10; 
+
+		//was ist wenn Block_laenge > Text_laenge?????? Noch zu bearbeiten.
+		// Dann sollte Meldung Zahl zu gross angezeigt werden
+		// und Blocklänge =textlaenge
+		// oder auch Buchstabenweise verschlüsseln?????????????????ß
+
+		long text_laenge;//=(m_edit10.GetLength()+1)/3;
+		int leer_zeichen=0;
+		for (int i=0;i<=m_edit10.GetLength()-1;i++)
+		{
+			if (m_edit10.GetAt(i)==' ') leer_zeichen=leer_zeichen+1;
+		}
+		text_laenge=block_laenge*(leer_zeichen+1);
+		long anzahl_bloecke ;
+		long laenge_last_block;
+		if (text_laenge % block_laenge==0)
+		{	
+			anzahl_bloecke=text_laenge / block_laenge;
+			laenge_last_block= block_laenge;
+		}
+		else
+		{
+			
+			anzahl_bloecke = (text_laenge / block_laenge)+1;
+			laenge_last_block = text_laenge % block_laenge; // beachte, dass  Falls der Text eine Block-Vielfache ist, so ist laenge_last_block=0
+			text_laenge=text_laenge -laenge_last_block + block_laenge; // neu von Roger
+		}	
+		//
+	
+		char *text_char;
+		char *text_char2;
+		//long *text;
+		Big *text;
+		text_char=(char *) calloc(text_laenge,sizeof(char)); 
+		text_char2=(char *) calloc(m_edit10.GetLength()+1,sizeof(char)); 
+
+		long big_text_laenge=leer_zeichen+1;
+		text = new Big[big_text_laenge];
+
+		Big **werte;
+
+	
+		werte = new Big*[anzahl_bloecke];
+
+		for (i=0;i<=anzahl_bloecke-1;i++)
+		{
+			werte[i] = new Big[block_laenge];
 		}
 
-		//Entschlüsselung
-		ltoa(RSAB.square_und_multiply(atol(m_edit8), atol(m_geheime_schluessel_d),atol(m_oeffentliche_parameter_pq)) ,m_edit7.GetBuffer(20),10);
+
+
+		long newlaenge;
+		m_edit10.GetBufferSetLength(m_edit10.GetLength()+1); //m_edit10.GetLength()
+		//newlaenge=
+			
+		for (i=0;i<=m_edit10.GetLength()-2;i++)
+		{
+			text_char2[i]=m_edit10.GetAt(i);
 		}
-	else
-	{
+		text_char2[m_edit10.GetLength()-1]=' ';
+		
+		int count;
+		count=0;
+		int count2;
+		count2=0;
+		int count3;
+		count3=0;
+		Big wert;
+		for (i=0;i<=m_edit10.GetLength()-1;)
+		{
+			if (text_char2[i] !=' ') 
+			{
+				count++;
+				count2++;
+			}
+			else
+			{
+					char output[100];
+					char ptr[100];
+					char ausgabe_char[100];
+					output[count]='\0';
+					ptr[count]='\0';
+					ausgabe_char[count]='\0';
+					for (int j=0;j<=count-1;j++)
+					{
+						
+						output[j]=text_char2[j+count2-count];
+						ptr[j]=output[j];
+					}
+					
+					wert=ptr;
+					
+					ausgabe_char<<wert;
+					text[count3]=wert;
+					count3++;
+					
+			count2++;
+			count=0;
+			}
+			i++;
+		}
+		
+		m_edit11.GetBufferSetLength(m_edit10.GetLength()); //m_edit10.GetLength()
+		for (i=0;i<m_edit11.GetLength();i++)
+		{
+			
+			char trans;
+			trans=text_char2[i];
+			m_edit11.SetAt(i,trans);
+		}
+
+
+		long faktor=0;
+		if (laenge_last_block==block_laenge)
+		{
+			for (i=0; i<=anzahl_bloecke-1;i++)  
+			{
+				for (int j=0; j<=block_laenge-1;j++) 
+				{
+					werte[i][j]=text[j+faktor];
+					char z[100];
+					z<<werte[i][j];
+				}
+				faktor=faktor + block_laenge;
+			
+			}
+		}
+		else
+		{
+			for (i=0; i<=anzahl_bloecke-1;i++)   //-2
+			{
+				for (int j=0; j<=block_laenge-1;j++) 
+				{
+					werte[i][j]=text[j+faktor];
+				}
+				faktor=faktor + block_laenge;
+			}
+		}
+		long ausgabe;
+		ausgabe=0;
+		
+		// Blockweisen-Verschlüsselung
+		if (laenge_last_block==block_laenge)
+		{
+			for (i=0;i<=anzahl_bloecke-1;i++)
+			{
+				RSAB.encrypt_block(werte[i], block_laenge, anzahl_buchstaben, ausgabe,oeffentliche_parameter_pq,geheime_schluessel_d);
+			}
+		
+			faktor=0;
+			for (i=0; i<=anzahl_bloecke-1;i++)
+			{
+				for (int j=0; j<=block_laenge-1;j++)
+				{
+					text[j+faktor]=werte[i][j];
+				}
+				faktor=faktor + block_laenge;
+			
+			}
+
+  
+		
+			for (i=0;i<=leer_zeichen;i++) //text_laenge-1
+			{
+				// konvertiere Big in ASCII-Zeichen.
+				Big z;
+				z=text[i];
+				long l_test;
+				l_test = z.get(1);
+				text_char[i]=l_test;
+			}
+			
+			m_edit12.GetBufferSetLength(leer_zeichen+1);//m_edit10.GetLength()/3
+			for (i=0;i<m_edit12.GetLength();i++)
+			{
+				
+				char trans;
+				trans=text_char[i];
+				m_edit12.SetAt(i,trans);
+			}
+			for (i=0;i<m_edit12.GetLength();i++)
+			{
+				
+				char trans;
+				trans=text_char[i];
+				m_edit12.SetAt(i,trans);
+			}
+		
+		}
+		else
+		{
+			for (i=0;i<=anzahl_bloecke-1;i++) //-2
+			{
+				RSAB.encrypt_block(werte[i], block_laenge, anzahl_buchstaben, ausgabe,atol(m_oeffentliche_parameter_pq),atol(m_oeffentliche_schluessel_e));
+			}
+			
+			//RSAB.encrypt_block(werte[anzahl_bloecke-1], block_laenge, anzahl_buchstaben, ausgabe,atol(m_oeffentliche_parameter_pq),atol(m_oeffentliche_schluessel_e));
+
+			faktor=0;
+			for (i=0; i<=anzahl_bloecke-1;i++)//-2
+			{
+				for (int j=0; j<=block_laenge-1;j++)
+				{
+					text[j+faktor]=werte[i][j];
+				}
+				faktor=faktor + block_laenge;
+			}
+			//
+			//for (int j=0; j<=block_laenge-1;j++)
+			//{
+			//	text[j+faktor]=werte[anzahl_bloecke-1][j];
+			//}
+			//
+		
+			for (i=0;i<=text_laenge-1;i++)
+			{
+				// konvertiere Big in ASCII-Zeichen.
+				Big z;
+				z=text[i];
+				long l_test;
+				l_test = z.get(1);
+				char tmp[3];
+				sprintf(tmp, "%2X", l_test);
+				if ( ' ' == tmp[0] ) tmp[0] = '0';
+				text_char[3*i] = tmp[0];
+				text_char[3*i+1] = tmp[1];
+				if ( i<text_laenge-1 ) text_char[3*i+2] = ' ';
+			}
+			text_char[3*text_laenge-1] = 0;	
+			//
+			
+			m_edit12.GetBufferSetLength(text_laenge);
+			for (i=0;i<m_edit12.GetLength();i++)
+			{
+				
+				char trans;
+				trans=text_char[i];
+				m_edit12.SetAt(i,trans);
+			}
+		
+		}
+		delete []text;
+		for (i=0;i<=anzahl_bloecke-1;i++)
+		{
+			delete []werte[i];		
+		}
+		delete []werte;
 		
 	}
-	*/
-	UpdateData(false);
+	else
+	{
+		return;		
+	}
+	//CString
+
+	UpdateData(false);	
 }
 
 void RSA_mit_kleinenPZ::OnUpdateEdit10() 
