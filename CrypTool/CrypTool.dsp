@@ -106,7 +106,7 @@ SOURCE=".\hlp-de\CrypTool.hpj"
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
 
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Release
 ProjDir=.
@@ -120,7 +120,7 @@ InputPath=".\hlp-de\CrypTool.hpj"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
-USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\Primzahlen.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	"$(ProjDir)\hlp-de\tutorial.rtf"	
+USERDEP__CRYPT="$(ProjDir)\hlp-de\AfxCore.rtf"	"$(ProjDir)\hlp-de\AfxPrint.rtf"	"$(ProjDir)\hlp-de\CrypTool.rtf"	"$(ProjDir)\hlp-de\szenarien.rtf"	
 # Begin Custom Build - Deutsche Hilfedatei wird erzeugt ($(InputPath))...
 OutDir=.\Debug
 ProjDir=.
