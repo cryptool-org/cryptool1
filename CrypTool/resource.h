@@ -118,6 +118,7 @@
 #define IDB_HYBRID_DOWN_RIGHT           525
 #define IDB_HYBRID_RIGHT_DOWN_RIGHT     526
 #define IDB_HYBRID_BACKGROUND           527
+#define IDD_ENTROPY_INFO                528
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -541,6 +542,8 @@
 #define IDC_TEXTOPTIONS_ALPHABET        1410
 #define IDC_BUTTON_DATENAUSGABE         1411
 #define IDC_ABOUTBOX_CRYPTOOL           1412
+#define IDC_ALPHABET_INFO               1413
+#define IDC_ENTROPY_INFO                1414
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -996,6 +999,9 @@
 #define IDS_NUMBER_NOT_RSA_MODUL        37076
 #define IDS_RSA_HEXNOTINVERTIBLE        37077
 #define IDS_RSADEMO_REQUEST_FORNUMMBERS 37078
+#define IDS_ENTROPY_ALPHABET_INFO       37079
+#define IDS_ENTROPY_INFO                37080
+#define IDS_BINARY_ENTROPY_ALPHABET_INFO 37081
 #define IDS_STRING_RANGE_DSA_BITLENGTH  37100
 #define IDS_STRING_MODUL                37101
 #define IDS_STRING_EXPONENT             37102
@@ -1295,9 +1301,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        528
+#define _APS_NEXT_RESOURCE_VALUE        530
 #define _APS_NEXT_COMMAND_VALUE         33170
-#define _APS_NEXT_CONTROL_VALUE         1413
+#define _APS_NEXT_CONTROL_VALUE         1415
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

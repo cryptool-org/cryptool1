@@ -168,7 +168,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 	//lokale Variablen geschrieben
 	//ausserdem wird die Dateigröße ermittelt und ebenfalls in eine Variable geschrieben
 	{ 
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		//Sanduhr wird angezeigt
 
 		loc_filename = m_dlgFile.GetPathName();
@@ -176,7 +176,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 		DateiOeffnen(loc_filename);
 		m_strPathSelDoc = loc_filename;
 		ShowButtons();
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
  	} 
 	else
 	//wenn auf Abbrechen geklickt wurde, wird abgebrochen
@@ -289,7 +289,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	//der Name wird in die Variable strPathEncDocument geschrieben
 
 	char key[100];
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	strcpy(key,m_strSymKey.GetBuffer(0));
 	AESCrypt((char*)path, "", AlgId,true,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
@@ -324,7 +324,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	m_strBuffEditEncDoc = strCryHex;
 	m_strTitle = "";
 	m_strEdit = "";
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 
 	m_barrSetCondition[5] = true;
 	EnDisButtons();
@@ -521,7 +521,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 		Message(IDS_STRING_HYB_ENC_KEY_ASYM,MB_ICONEXCLAMATION);
 		return;
 	}
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	//Sanduhr als Cursor
 
 	RSAEncrypt();
@@ -539,7 +539,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 	EnDisButtons();
 	ShowButtons();
 	UpdateData(false);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	//Sanduhr durch einen Pfeil ersetzen
 }
 
@@ -725,12 +725,12 @@ void CDlgHybridEncryptionDemo::OnButtonShowDocument()
 		destSize = lines * linelen - len + rest;
 	}
 	char *dest = new char [destSize+1];
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	
 	int err = HexDumpMem(dest,destSize,(unsigned char*)m_strBuffEditDoc,m_iDocSize, len);
 	
 	m_strEdit = dest;
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	
 	UpdateData(false);
 }
@@ -742,11 +742,11 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 		Message(IDS_STRING_HYB_SHOW_ENC_DOC, MB_ICONEXCLAMATION);
 		return;
 	}
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	m_strEdit = m_strBuffEditEncDoc;
 	m_strTitle = "Symmetrisch verschlüsseltes Dokument: ";
 	UpdateData(false);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey() 
@@ -756,11 +756,11 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncSymKey()
 		Message(IDS_STRING_HYB_ENC_SYM_KEY, MB_ICONEXCLAMATION);
 		return;
 	}
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	m_strTitle = "Asymmetrisch verschlüsselter symmetrischer Schlüssel:";
 	m_strEdit = m_strBuffEditEncKeyAsym;
 	UpdateData(false);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgHybridEncryptionDemo::ShowButtons()
@@ -932,7 +932,7 @@ bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
 	m_strBuffEditDoc=new char[m_iDocSize+1];
 	memcpy(m_strBuffEditDoc,in,m_iDocSize);
 	//"in" wird in "m_strBuffEditDoc" geschrieben
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	m_barrSetCondition[0] = true;
 	EnDisButtons();
 	
@@ -1042,7 +1042,7 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 	remove(outfile);
 		
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 		
 	if(NewDoc)
 	{

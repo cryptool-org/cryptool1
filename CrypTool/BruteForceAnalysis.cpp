@@ -69,7 +69,7 @@ UINT Brute(PVOID p)
 	
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	r=0;
 	
 	FILE *fi;
@@ -81,7 +81,7 @@ UINT Brute(PVOID p)
 	if(lenght < 1) {
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		return r;
 	}
 	
@@ -132,7 +132,7 @@ UINT Brute(PVOID p)
 	if(KeyDialog.Display(AlgTitel,par->keylen/8)!=IDOK||KeyDialog.GetLen() ==0)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		return 0;
 	}
 	
@@ -288,7 +288,7 @@ UINT Brute(PVOID p)
 	if(IDCANCEL == dia.Display(kfound,keylen))
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
 		FreePar(par);

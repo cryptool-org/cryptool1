@@ -990,7 +990,7 @@ double Entropy_mod( const char* infile, SymbolArray &text )
 	CWaitCursor WCursor;
 	NGram distr(text);
 	return distr.Entropie();
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 // Modifizierte binäre Entropie Funktion (aus der crypt.h und crypt.cpp)

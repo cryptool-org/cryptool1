@@ -36,8 +36,6 @@ CDlgHybridDecryptionDemo::CDlgHybridDecryptionDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHybridDecryptionDemo::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgHybridDecryptionDemo)
-	m_TextMessage = _T("");
-	m_MsgHexDump = _T("");
 	m_TextSignSteps = _T("");
 	m_Step = _T("");
 	m_DisplayData = _T("");
@@ -57,12 +55,8 @@ void CDlgHybridDecryptionDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_SHOW_STEPS, m_DisplayDataCtrl);
 	DDX_Control(pDX, IDC_EDIT4, m_StepCtrl);
 	DDX_Control(pDX, IDC_EDIT3, m_TextSignStepsCtrl);
-	DDX_Control(pDX, IDC_EDIT2, m_MsgHexDumpCtrl);
-	DDX_Control(pDX, IDC_EDIT1, m_TextMessageCtrl);
 	DDX_Control(pDX, IDOK, m_FlushDecDataCtrl);
 	DDX_Control(pDX, IDC_BUTTON_CONTINUE, m_ContinueButtonCtrl);
-	DDX_Text(pDX, IDC_EDIT1, m_TextMessage);
-	DDX_Text(pDX, IDC_EDIT2, m_MsgHexDump);
 	DDX_Text(pDX, IDC_EDIT3, m_TextSignSteps);
 	DDX_Text(pDX, IDC_EDIT4, m_Step);
 	DDX_Text(pDX, IDC_EDIT_SHOW_STEPS, m_DisplayData);
@@ -94,14 +88,12 @@ BOOL CDlgHybridDecryptionDemo::OnInitDialog()
 	defaultFontWeight = LogFont.lfWeight; // Default Wert sichern
 	LogFont.lfWeight = FW_BOLD; // Auf Fettdruck umstellen
 	m_Font.CreateFontIndirect( &LogFont ); // Font initialisieren
-	m_TextMessageCtrl.SetFont(&m_Font);
 	m_TextSignStepsCtrl.SetFont(&m_Font);
 	m_StepCtrl.SetFont(&m_Font);
 	LogFont.lfWeight = defaultFontWeight; // Auf default Wert zurückstellen
 	strncpy(LogFont.lfFaceName, "Courier", 32); // Auf Courier umstellen	
 	m_Font2.CreateFontIndirect( &LogFont ); // Font2 initialisieren
 
-	m_MsgHexDumpCtrl.SetFont(&m_Font2);
 	m_DisplayDataCtrl.SetFont(&m_Font2);
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_STEP,pc_str,STR_LAENGE_STRING_TABLE);
@@ -110,7 +102,7 @@ BOOL CDlgHybridDecryptionDemo::OnInitDialog()
 
 	UpdateDataDisplay();
 	
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	
 	UpdateData(false);	
 	
@@ -145,7 +137,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 	if (step == 0)
 
 	{
-		SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN );
 		// Hier wird man angefordert die Taste <Weiter> zu drücken
 		if (m_DisplayData="")
 		{
@@ -197,7 +188,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 				// Fehler beim öffnen der CA-Datenbank
 				RsaDialog1.m_PinCode=_T("");
 				Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
-				SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN );
 				delete string1;
 				return 0;
 			}
@@ -214,7 +204,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 				CString Fehler3=(CString)pc_str+(CString)Fehler2;
 				AfxMessageBox (Fehler3,MB_ICONSTOP);
 				RsaDialog1.m_PinCode=_T("");
-				SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN );
 				// Freigeben von dynamisch angelegtem Speicher
 				delete string1;
 				theApp.SecudeLib.af_close(PseHandle);
@@ -223,7 +212,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			if (UserKeyId!=UserKeyId_Datei)
 			{
 				RsaDialog1.m_PinCode=_T("");
-				SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN );
 				Message(IDS_STRING_HYBRID_DEC_MSG10, MB_ICONEXCLAMATION);
 				return 0;
 			}
@@ -234,7 +222,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			SNummer=Zert->element->serial;
 			Zert2=theApp.SecudeLib.af_cadb_get_Certificate(PseHandle, SNummer);
 			CString Zertifikat=theApp.SecudeLib.aux_sprint_Certificate(PseHandle,NULL,Zert2);
-			m_MsgHexDump = Zertifikat;
+ //			m_DisplayData += (Zertifikat +nl +nl);
 			
 			theApp.SecudeLib.af_close(PseHandle);
 
@@ -254,7 +242,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG13,pc_str,STR_LAENGE_STRING_TABLE);
 			cont2 = (CString) pc_str; 
 			m_DisplayData += ( cont2 +nl + nl + cont1 + nl +nl);	
-			SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN2 );
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_STEP_BY_STEP,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, step, maxsteps);
 			m_Step = (CString) pc_str1;
@@ -268,7 +255,6 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		else
 		{
 			RsaDialog1.m_PinCode=_T("");
-			SetHeadLine( m_TextMessage, IDS_STRING_ZERT_DATEN );
 			return 0;
 		}
 	}
@@ -295,7 +281,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 	}
 	if (step == 3)
 	{
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 		RsaDec();
 		CString DecSessionKey_tmp="";
 		for (int k=0;k<DecSessionKey.GetLength();k++)
@@ -393,7 +379,7 @@ void CDlgHybridDecryptionDemo::RsaDec()
 	Schluessel.key_size=NULL;
 	Schluessel.private_key=NULL;
 	
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	//Entschlüsseln der Daten mittels af_decrypt_all
 	int fret = theApp.SecudeLib.af_decrypt_all (PseHandle, &in, &out, &Schluessel);
 	if (fret==-1)
@@ -428,7 +414,7 @@ void CDlgHybridDecryptionDemo::RsaDec()
 	
 	remove(outfile);
 	
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	
 	theApp.SecudeLib.af_close (PseHandle);
 	// Freigeben von dynamisch angelegtem Speicher
@@ -453,14 +439,14 @@ void CDlgHybridDecryptionDemo::OnOK()
 		theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
 	}
 		
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
 	AESCrypt(outfile, m_strTitle1, AlgId, false, outfile,key); // "true" steht für eine Verschlüsselung
 
 	remove(outfile);
 
 	
-	theApp.DoWaitCursor(0);	
+	HIDE_HOUR_GLASS	
 	CDialog::OnOK();
 }
 

@@ -294,7 +294,6 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
 		
-		theApp.DoWaitCursor(0);
 		
 		if(NewDoc)
 		{
@@ -302,8 +301,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 			MakeNewName(title,sizeof(title),pc_str,OldTitle);
 			NewDoc->SetTitle(title);
 		}
-
-		
+		HIDE_HOUR_GLASS		
 	}
 }
 
@@ -328,7 +326,7 @@ UINT AESBrute(PVOID p)
 	mode = DIR_DECRYPT;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	fi = fopen(par->infile,"rb");
 	fseek(fi,0,SEEK_END);
@@ -339,7 +337,7 @@ UINT AESBrute(PVOID p)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		return 0;
 	}
 	borg = (unsigned char *) malloc(datalen+32);
@@ -385,7 +383,7 @@ UINT AESBrute(PVOID p)
 	if(KeyDialog.Display(AlgTitel)!=IDOK||KeyDialog.GetLen() ==0)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		return 0;
 	}
 	
@@ -477,7 +475,7 @@ UINT AESBrute(PVOID p)
 	if(IDCANCEL == dia.Display(kfound))
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 		if(par->flags & CRYPT_DO_PROGRESS)
 			theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;

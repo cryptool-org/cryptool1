@@ -1459,7 +1459,7 @@ void CDlgRSADemo::OnButtonEncrypt()
 {
 	CheckIfNumberStream();
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
 	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
 	{
@@ -1523,7 +1523,7 @@ void CDlgRSADemo::OnButtonEncrypt()
 		}
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -1577,7 +1577,7 @@ void CDlgRSADemo::OnButtonDecrypt()
 {
 	CheckIfNumberStream();
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
 	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
 	{
@@ -1640,7 +1640,7 @@ void CDlgRSADemo::OnButtonDecrypt()
 		}
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 

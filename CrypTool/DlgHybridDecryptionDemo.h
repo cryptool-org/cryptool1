@@ -53,12 +53,8 @@ public:
 	CEdit	m_DisplayDataCtrl;
 	CEdit	m_StepCtrl;
 	CEdit	m_TextSignStepsCtrl;
-	CEdit	m_MsgHexDumpCtrl;
-	CEdit	m_TextMessageCtrl;
 	CButton	m_FlushDecDataCtrl;
 	CButton	m_ContinueButtonCtrl;
-	CString	m_TextMessage;
-	CString	m_MsgHexDump;
 	CString	m_TextSignSteps;
 	CString	m_Step;
 	CString	m_DisplayData;

@@ -116,7 +116,7 @@ BOOL CDlgECGeneration::OnInitDialog()
 void CDlgECGeneration::OnButtonGen() 
 {
 	UpdateData(true);
-	theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
+	SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
 	if(-1==BEK.GetInitPrime(m_edit1,m_edit_random_seed))
 	{
 		Liste_leeren();
@@ -196,7 +196,7 @@ void CDlgECGeneration::OnButtonGen()
 
 		m_control_button_accept.EnableWindow(true);
 	}
-	theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+	HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 	UpdateData(false);
 }
 

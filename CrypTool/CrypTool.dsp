@@ -1128,6 +1128,14 @@ SOURCE=.\DlgECSignatureStepByStep.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgEntropyInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgEntropyInfo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgExtractSignature.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"

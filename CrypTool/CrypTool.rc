@@ -334,7 +334,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
@@ -493,7 +493,7 @@ BEGIN
     PUSHBUTTON      "&Zurück",IDC_UNDO,271,128,63,20,WS_DISABLED
     EDITTEXT        IDC_EDIT4,13,167,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "Aktuellen &Zustand ausgeben",IDOK,13,291,145,21
+    DEFPUSHBUTTON   "Aktuellen &Zustand ausgeben",IDOK,13,291,121,21
     PUSHBUTTON      "&Abbrechen",IDCANCEL,252,291,82,21
     LTEXT           "a:",IDC_STATIC,25,47,8,9
     LTEXT           "b:",IDC_STATIC,70,48,8,9
@@ -526,6 +526,7 @@ BEGIN
                     IDC_STATIC,13,6,321,16
     LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Sie können anhand der aktuellen Entschlüsselung weitere Substitutionen versuchen zu bestimmen.",
                     IDC_STATIC,13,23,321,17
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,149,291,80,21
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
@@ -2389,26 +2390,31 @@ BEGIN
     PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,478,407,50,14
 END
 
-IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 316
+IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 254
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybridentschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,290,93,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,166,290,91,18
-    PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,313,290,61,18
-    EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,224,93,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,166,224,91,18
+    PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,313,224,61,18
+    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,17,380,182,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+    EDITTEXT        IDC_EDIT3,5,4,240,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
-    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT4,5,209,205,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
+END
+
+IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 209, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Entropie"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,82,67,50,16
+    LTEXT           "Static",IDC_ALPHABET_INFO,7,7,195,22
+    CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
 END
 
 
@@ -4084,6 +4090,15 @@ BEGIN
         HORZGUIDE, 212
         HORZGUIDE, 273
     END
+
+    IDD_ENTROPY_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+        HORZGUIDE, 67
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -5282,6 +5297,11 @@ BEGIN
                             "Der eigegebene hex-dump lässt sich nicht RSA-Invertieren!\nbitte wählen Sie Eingabe als Text."
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
                             "Die Eingabe wurde als Folge von Zahlen erkannt!\n\nWollen Sie die Eingabe als Folge von Zahlen betrachten [ja/nein]?"
+    IDS_ENTROPY_ALPHABET_INFO 
+                            "Das analysierte Dokument enthält %i der %i Zeichen des eingestellten Alphabets."
+    IDS_ENTROPY_INFO        "Seine Entropie beträgt %2.2f\n(maximal mögliche Entropie %2.2f)."
+    IDS_BINARY_ENTROPY_ALPHABET_INFO 
+                            "Die anzahl der verschiedenen ASCII-Zeichen in diesem Dokument sind %i (es gibt 256 verschieden ASCII-Zeichen)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5840,7 +5860,7 @@ END
 IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
     CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
@@ -5998,7 +6018,7 @@ BEGIN
     PUSHBUTTON      "&Back",IDC_UNDO,271,127,63,20,WS_DISABLED
     EDITTEXT        IDC_EDIT4,13,168,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "Output current &status",IDOK,13,291,145,21
+    DEFPUSHBUTTON   "Output current &status",IDOK,13,291,120,21
     PUSHBUTTON      "&Cancel",IDCANCEL,252,291,82,21
     LTEXT           "a:",IDC_STATIC,25,46,8,9
     LTEXT           "b:",IDC_STATIC,70,47,8,9
@@ -6031,6 +6051,7 @@ BEGIN
                     IDC_STATIC,13,6,321,17
     LTEXT           "Each change of the substitution list below will result into a change of the intermediate status of decryption below. Using the actual state of decryption you may try out other substitutions. ",
                     IDC_STATIC,13,23,321,17
+    PUSHBUTTON      "&Copy key",IDC_BUTTON1,149,291,80,21
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
@@ -7825,25 +7846,20 @@ BEGIN
     DEFPUSHBUTTON   "Create Certificate and PSE",IDOK,244,248,103,14
 END
 
-IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 316
+IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 254
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hybrid decryption"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Decrypt",IDOK,9,290,93,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,166,290,91,18
-    PUSHBUTTON      "&C&ontinue >",IDC_BUTTON_CONTINUE,313,290,61,18
-    EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
-                    WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
+    DEFPUSHBUTTON   "&Decrypt",IDOK,9,227,93,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,166,227,91,18
+    PUSHBUTTON      "&C&ontinue >",IDC_BUTTON_CONTINUE,313,227,61,18
+    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,21,380,182,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+    EDITTEXT        IDC_EDIT3,5,6,240,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
-    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT4,5,212,205,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
 END
 
@@ -7928,6 +7944,16 @@ BEGIN
     CONTROL         "Oval1",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
     PUSHBUTTON      "Data &output",IDC_BUTTON_DATENAUSGABE,450,407,78,14
+END
+
+IDD_ENTROPY_INFO DIALOG DISCARDABLE  0, 0, 211, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Entropie"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,81,66,50,17
+    LTEXT           "Static",IDC_ALPHABET_INFO,7,7,197,21
+    CTEXT           "Static",IDC_ENTROPY_INFO,7,34,197,23
 END
 
 
@@ -9298,6 +9324,15 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 262
     END
+
+    IDD_ENTROPY_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+        HORZGUIDE, 66
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -10463,6 +10498,11 @@ BEGIN
                             "The entered hex dump colud not be inverted via the RSA operation!\nPlease select the radio button ""Input as text"""
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
                             "The input has been indicated as a sequnce of numbers!\n\nDo you wish to consider it as a sequence of numbers [jes/no]?"
+    IDS_ENTROPY_ALPHABET_INFO 
+                            "The document contains %i different characters compared to the %i characters of the pre selected alphabet."
+    IDS_ENTROPY_INFO        "The entropy of the document is %2.2f\n(maximum possible entropy %2.2f)."
+    IDS_BINARY_ENTROPY_ALPHABET_INFO 
+                            "The count of different ascii characters of this document is %i (there are 256 different ascii characters)."
 END
 
 STRINGTABLE DISCARDABLE 

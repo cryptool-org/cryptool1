@@ -109,9 +109,9 @@ BOOL CDlgShowParameterKeyEC::OnInitDialog()
 	m_privKey_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, 50 , 1); // Bitlänge
 
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	int error = GenEcKeyPair(curveParameter);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 	if (error)
 	{
 		Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
@@ -225,9 +225,9 @@ void CDlgShowParameterKeyEC::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, E
 
 void CDlgShowParameterKeyEC::OnNewKeyPair() 
 {
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	int error = GenEcKeyPair(curveParameter);
-	theApp.DoWaitCursor(0);
+	SHOW_HOUR_GLASS
 	if (error)
 	{
 		Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);

@@ -247,7 +247,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		Schluessel.key_size=NULL;
 		Schluessel.private_key=NULL;
 		
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		sigStart = clock();
 		// Verschlüsselung der Daten
 		int fret = theApp.SecudeLib.af_encrypt_all(PseHandle, in, &out, &Schluessel, NULL);
@@ -279,7 +279,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
 		
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS // theApp.DoWaitCursor(0);
 		
 		if(NewDoc)
 		{
@@ -385,7 +385,7 @@ void RsaDec(char* infile, const char *OldTitle)
 		Schluessel.key_size=NULL;
 		Schluessel.private_key=NULL;
 		
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		sigStart = clock();
 		//Entschlüsseln der Daten mittels af_decrypt_all
 		int fret = theApp.SecudeLib.af_decrypt_all (PseHandle, &in, &out, &Schluessel);
@@ -421,7 +421,7 @@ void RsaDec(char* infile, const char *OldTitle)
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
 		
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS // theApp.DoWaitCursor(0);
 		
 		if(NewDoc) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF,pc_str,STR_LAENGE_STRING_TABLE);
@@ -560,13 +560,13 @@ void Sign(char* infile, const char *OldTitle)
 			{
 				// Zwischenschritte der Signaturerzeugung anzeigen
 				
-				theApp.DoWaitCursor(1);
+				SHOW_HOUR_GLASS
 				CDlgECSignatureStepByStep dlgSignSteps(in, Verfahren, hash_id,\
 					SigDialog.DomParamAc, SigDialog.DomParamPc,\
 					SigDialog.UserKeyId,\
 					SigDialog.Name, SigDialog.Firstname,\
 					SigDialog.KeyType);
-				theApp.DoWaitCursor(0);
+				HIDE_HOUR_GLASS
 				
 				sigStart = clock();
 				fret = dlgSignSteps.DoModal();
@@ -1368,14 +1368,14 @@ void Verify(char* infile, const char *OldTitle)
 			{
 				// Zwischenschritte der Signaturverifikation anzeigen
 				
-				theApp.DoWaitCursor(1);
+				SHOW_HOUR_GLASS
 				CDlgVerifyECSignatureStepByStep verifSteps(&message, messagefromfile, filename,\
 					VerDialog.DomParamAc, c, d, SignLength,\
 					sig_verfahren, hash_verfahren,\
 					VerDialog.UserKeyId, VerDialog.Firstname, VerDialog.Name,\
 					VerDialog.KeyType, VerDialog.KeyInfo,\
 					VerDialog.m_ShowDuration);
-				theApp.DoWaitCursor(0);
+				HIDE_HOUR_GLASS
 				
 				verifSteps.DoModal();
 				
@@ -1386,7 +1386,7 @@ void Verify(char* infile, const char *OldTitle)
 				return;
 			}
 			
-			theApp.DoWaitCursor(1);
+			SHOW_HOUR_GLASS
 			if (VerDialog.use_affine_coord == true)
 			{
 				// verifizieren unter Benutzung affiner Koordinaten
@@ -1397,7 +1397,7 @@ void Verify(char* infile, const char *OldTitle)
 				if (fret)
 				{
 					// signature fehlerhaft
-					theApp.DoWaitCursor(-1);
+					HIDE_HOUR_GLASS
 					if (VerDialog.m_ShowDuration==TRUE)
 					{
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1414,7 +1414,7 @@ void Verify(char* infile, const char *OldTitle)
 				else
 				{
 					// signature correct
-					theApp.DoWaitCursor(-1);					
+					HIDE_HOUR_GLASS					
 					if (VerDialog.m_ShowDuration==TRUE)
 					{
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1439,7 +1439,7 @@ void Verify(char* infile, const char *OldTitle)
 				if (fret)
 				{
 					// signature fehlerhaft
-					theApp.DoWaitCursor(-1);
+					HIDE_HOUR_GLASS
 					if (VerDialog.m_ShowDuration==TRUE)
 					{
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1456,7 +1456,7 @@ void Verify(char* infile, const char *OldTitle)
 				else
 				{
 					// signature correct
-					theApp.DoWaitCursor(-1);					
+					HIDE_HOUR_GLASS					
 					if (VerDialog.m_ShowDuration==TRUE)
 					{
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1471,7 +1471,7 @@ void Verify(char* infile, const char *OldTitle)
 					}
 				}
 			}
-			theApp.DoWaitCursor(0);
+			HIDE_HOUR_GLASS
 			
 			delete temp_ptr;
 			delete temp_ptr2;
@@ -1647,7 +1647,7 @@ void Verify(char* infile, const char *OldTitle)
 		if(fret==-1)
 		{
 			// signature fehlerhaft
-			theApp.DoWaitCursor(-1);
+			HIDE_HOUR_GLASS
 			if (VerDialog.m_ShowDuration==TRUE)
 			{
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1664,7 +1664,7 @@ void Verify(char* infile, const char *OldTitle)
 		else
 		{
 			// signature correct
-			theApp.DoWaitCursor(-1);					
+			HIDE_HOUR_GLASS					
 			if (VerDialog.m_ShowDuration==TRUE)
 			{
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);

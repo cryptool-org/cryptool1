@@ -123,10 +123,10 @@ void CDlgShowProgress::OnTimer(UINT nIDEvent)
 		}
 		m_old_pos = m_pos;
 		m_Progress.SetPos(m_pos);
-		theApp.DoWaitCursor(0);
+		SHOW_HOUR_GLASS
 		sprintf(line, Format, m_pos);
 		m_text_ctl.SetWindowText(line);
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 		Lock.Unlock();
 		return;
 	}

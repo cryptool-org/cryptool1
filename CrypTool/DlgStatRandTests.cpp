@@ -140,7 +140,7 @@ END_MESSAGE_MAP()
 
 void CDlgFreqTest::OnButtonFreqtest() 
 {
-	theApp.DoWaitCursor(-1);
+	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
 	
 	CParseIniFile2 iniFile;
@@ -216,7 +216,7 @@ void CDlgFreqTest::OnButtonFreqtest()
 			UpdateData(FALSE);
 		}
 	}
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgFreqTest::OnSelchangeComboAlpha() 
@@ -461,7 +461,7 @@ void CDlgRunsTest::OnTestbutton()
 		}
 	}
 
-	theApp.DoWaitCursor(0);
+	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
 	
 	CParseIniFile2 iniFile;
@@ -517,7 +517,7 @@ void CDlgRunsTest::OnTestbutton()
 			UpdateData(FALSE);
 		}
 	}
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgRunsTest::init(const char *Infile_, const char *OldTitle_)

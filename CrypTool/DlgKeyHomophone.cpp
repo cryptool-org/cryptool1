@@ -81,10 +81,10 @@ END_MESSAGE_MAP()
 void CDlgKeyHomophone::OnErzeugen() 
 {
 	UpdateData(true);
-	theApp.DoWaitCursor(0);
+	SHOW_HOUR_GLASS
 	HB.Init_Data();
 	Init_ListBox();
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 	UpdateData(false);
 }
 
@@ -240,7 +240,7 @@ void CDlgKeyHomophone::Init_ListBox()
 //	2.	der Anzahl der ciphers, mit denen jedes Zeichen verschlüsselt werden kann
 //	3.	den ciphers selbst
 {
-	theApp.DoWaitCursor(0);
+	SHOW_HOUR_GLASS
 	int i;
 	
 	m_listview.DeleteAllItems(); 
@@ -252,12 +252,12 @@ void CDlgKeyHomophone::Init_ListBox()
 	HB.Make_enc_table();
 	HB.Generate_key();
 	LoadListBox();
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgKeyHomophone::OnLoadKey() 
 {
-	theApp.DoWaitCursor(0);
+	SHOW_HOUR_GLASS
 
 	UpdateData(TRUE);
 	
@@ -300,7 +300,7 @@ void CDlgKeyHomophone::OnLoadKey()
 
 	UpdateData(FALSE);
 
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 void CDlgKeyHomophone::LoadListBox()
@@ -404,12 +404,12 @@ void CDlgKeyHomophone::OnActualizeNoOfHomophones()
 
 	if ( m_NoOfHomophones != HB.GetKeySize() )
 	{
-		theApp.DoWaitCursor(0);
+		SHOW_HOUR_GLASS
 		HB.Resize( m_NoOfHomophones );
 		m_Bitlength = HB.LogKeySize( 2 );
 		HB.Init_Data();
 		Init_ListBox();
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 	}
 	UpdateData(FALSE);
 }

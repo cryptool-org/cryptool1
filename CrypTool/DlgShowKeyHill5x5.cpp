@@ -163,7 +163,7 @@ void CDlgShowKeyHill5x5::OnDecrypt()
 
 	if (m_decrypt != decrypt_vorher)
 	{
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 
 		decrypt_vorher = m_decrypt;
 
@@ -233,7 +233,7 @@ void CDlgShowKeyHill5x5::OnDecrypt()
 			}
 		}
 
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 	}
 }
 

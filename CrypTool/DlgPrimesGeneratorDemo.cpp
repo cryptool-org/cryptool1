@@ -211,10 +211,10 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 			QSet=Q.SetLimits( m_edit3, m_edit4 );
 			if ( (PSet == 1) && (QSet ==1))
 			{
-				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
+				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
 				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
-				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)
 			{
@@ -262,10 +262,10 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 
 			if ( PSet==1 && QSet==1 )
 			{
-				theApp.DoWaitCursor(1);				// aktiviert die Sanduhr (statt des Mauszeigers)
+				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
 				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
-				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)
 			{

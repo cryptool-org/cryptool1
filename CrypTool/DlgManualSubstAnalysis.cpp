@@ -12,6 +12,7 @@
 #include "CrypToolApp.h"
 #include "DlgManualSubstAnalysis.h"
 #include "DialogeMessage.h"
+#include "KeyRepository.h"
 
 extern int *MaxPermu[26];
 extern char *Eingabedatei;
@@ -69,6 +70,7 @@ void CDlgManualSubstAnalysis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgManualSubstAnalysis)
+	DDX_Control(pDX, IDC_BUTTON1, m_ButtonCopyKey);
 	DDX_Control(pDX, IDC_UNDO, m_ButtonUndo);
 	DDX_Text(pDX, IDC_EDIT2, m_edit2);
 	DDV_MaxChars(pDX, m_edit2, 1);
@@ -158,6 +160,7 @@ BEGIN_MESSAGE_MAP(CDlgManualSubstAnalysis, CDialog)
 	ON_EN_CHANGE(IDC_EDIT26, OnChangeEdit26)
 	ON_EN_CHANGE(IDC_EDIT27, OnChangeEdit27)
 	ON_BN_CLICKED(IDC_UNDO, OnUndo)
+	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -639,4 +642,45 @@ BOOL CDlgManualSubstAnalysis::UpdateKeyList()
 		m_ptrKeyList->next = 0;
 		return TRUE;
 	}
+}
+
+void CDlgManualSubstAnalysis::OnCopyKey() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	holeDaten();
+    char KeyToStore[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char Reverse[27]    = "**************************";
+
+
+	int i,j;
+
+	for (i=0; i<26; i++)
+	{
+		if ((Eingabe[i]>='a')&&(Eingabe[i]<='z'))
+			Eingabe[i] -= 32;
+		if ( Eingabe[i] != '*' )
+			Reverse[int(Eingabe[i]-'A')] = char(i)+'A';
+	}
+
+	for (i=0; i<26; i++)
+	{
+		if ( Reverse[i] != '*' )
+		{
+			for (j=0; j<26; j++)
+			{
+				if (KeyToStore[j] == Reverse[i])
+				{
+					if ( j != i )
+					{
+						char ch = KeyToStore[i];
+						KeyToStore[i] = KeyToStore[j];
+						KeyToStore[j] = ch;
+					}
+				}
+			}
+		}
+	}
+
+	LoadString (AfxGetInstanceHandle(), IDS_CRYPT_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
+	CopyKey(pc_str, CString(KeyToStore)); 
 }

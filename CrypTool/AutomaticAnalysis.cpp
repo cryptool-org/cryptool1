@@ -63,7 +63,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		theApp.m_MainWnd->MessageBox(line, pc_str1, MB_OK);
 	}
 	
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	
 	SymbolArray text(AppConv);
     text.Read(infile);
@@ -160,7 +160,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		MakeNewName2(line,sizeof(line),pc_str,key,OldTitle);
 		NewDoc->SetTitle(line);
     }
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 // ======================================================================================
@@ -177,7 +177,7 @@ UINT VigenereAuto(PVOID p)
 // == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	if(par->flags | CRYPT_DO_PROGRESS) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOCORRELATION_COMPLETE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -224,7 +224,7 @@ UINT VigenereAuto(PVOID p)
 	
 // == compute the assumed key-length
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	av = (int) c.GetAverage(1);
 	mx = (int) c.GetMax(1);
@@ -237,7 +237,7 @@ UINT VigenereAuto(PVOID p)
 		dia.m_laenge = periode;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
-				theApp.DoWaitCursor(-1);
+				HIDE_HOUR_GLASS
 			return r;
 		}
 		periode = dia.m_laenge;
@@ -351,7 +351,7 @@ UINT VigenereAuto(PVOID p)
 	MakeNewName2(line,sizeof(line),pc_str,key,par->OldTitle);
     theApp.ThreadOpenDocumentFileNoMRU(name,line,key);
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	return 0;
 }
@@ -392,7 +392,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 	
 	if (EingabeDialog.DoModal() == IDOK)
 	{
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		
 		// Falls Gross-/Kleinschreibung ignoriert werden soll:
 		// Es werden alle Kleinbuchstaben in Grossbuchstaben umgewandelt
@@ -593,7 +593,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 			}
 		}
 		
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 	}
 }
 
@@ -615,7 +615,7 @@ UINT XorAuto(PVOID p)
 // == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	r=0;
 	
 	Opt.m_VKey = theApp.Options.m_VKey;
@@ -654,7 +654,7 @@ UINT XorAuto(PVOID p)
 	}
 	
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	av = (int) c.GetAverage();
 	mx = (int) c.GetMax(1);
@@ -667,7 +667,7 @@ UINT XorAuto(PVOID p)
 		dia.m_laenge = periode;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
-				theApp.DoWaitCursor(-1);
+				HIDE_HOUR_GLASS
 			return r;
 		}
 		periode = dia.m_laenge;
@@ -706,7 +706,7 @@ UINT XorAuto(PVOID p)
 		
 		if(IDCANCEL == dia.Display((char *) key,periode)) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
-				theApp.DoWaitCursor(-1);
+				HIDE_HOUR_GLASS
 			return r;
 		}
 		
@@ -740,7 +740,7 @@ UINT XorAuto(PVOID p)
 	MakeNewName2(line,sizeof(line),pc_str,line2+1,par->OldTitle);
     theApp.ThreadOpenDocumentFileNoMRU(name,line, line2+1);
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 	
 	return r;
 }
@@ -763,7 +763,7 @@ UINT AddAuto(PVOID p)
 // == auto-correlation analysis for the ciphertext
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	r=0;
 	
 	Opt.m_VKey = theApp.Options.m_VKey;
@@ -802,7 +802,7 @@ UINT AddAuto(PVOID p)
 	}
 	
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 	
 	av = (int) c.GetAverage();
 	mx = (int) c.GetMax(1);
@@ -817,7 +817,7 @@ UINT AddAuto(PVOID p)
 		dia.m_laenge = periode;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
-				theApp.DoWaitCursor(-1);
+				HIDE_HOUR_GLASS
 			return r;
 		}
 		periode = dia.m_laenge;
@@ -864,7 +864,7 @@ UINT AddAuto(PVOID p)
 		
 		if(IDCANCEL == dia.Display((char *) key,periode)) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
-				theApp.DoWaitCursor(-1);
+				HIDE_HOUR_GLASS
 			return r;
 		}
 		
@@ -899,7 +899,7 @@ UINT AddAuto(PVOID p)
 	MakeNewName2(line,sizeof(line),pc_str,line2+1,par->OldTitle);
     theApp.ThreadOpenDocumentFileNoMRU(name,line, line2+1);
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 	
 	return r;
 }

@@ -262,7 +262,7 @@ int CDlgNGramAnaylsis::GetN()
 
 void CDlgNGramAnaylsis::OnEvalNGram() 
 {
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
 	if ( m_ShowCntNGram <= 5000 )
 	{	
@@ -286,7 +286,7 @@ void CDlgNGramAnaylsis::OnEvalNGram()
 		m_ShowCntNGramCtrl.SetSel(0,-1);
 	}
 	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -299,7 +299,7 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	double        rel;
 	
 	UpdateData(TRUE);
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	b_SaveNGramList = true;
 	
 	GetTmpName(outfile,"NGram",".tmp");
@@ -406,7 +406,7 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 		txt_NGram << rel*100.0 << "\n";
 	}
 	txt_NGram.close();
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	CDialog::OnOK();
 }

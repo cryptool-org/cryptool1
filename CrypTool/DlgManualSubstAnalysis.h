@@ -23,6 +23,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgManualSubstAnalysis)
 	enum { IDD = IDD_MANUAL_SUBST_ANALYSIS };
+	CButton	m_ButtonCopyKey;
 	CButton	m_ButtonUndo;
 	CString	m_edit2;
 	CString	m_edit3;
@@ -103,6 +104,7 @@ protected:
 	afx_msg void OnChangeEdit27();
 	afx_msg void OnUndo();
 	virtual void OnOK();
+	afx_msg void OnCopyKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

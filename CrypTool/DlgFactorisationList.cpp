@@ -207,7 +207,7 @@ void CDlgFactorisationList::OnCancel()
 {
 	
 	UpdateData(TRUE);
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	b_SaveFactorList = true;
 	
 	GetTmpName(outfile,"DetFct",".tmp");

@@ -93,7 +93,6 @@ void CDlgICGRandomParamater::OnPrimbutton()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(TRUE);
-	// m_Param_N = CString("0");
 	GeneratePrimes P;
 	CDlgPrimesGeneratorDemo Gen;
 	if(8 >= m_PrimLang) m_PrimLang = 128;
@@ -103,9 +102,11 @@ void CDlgICGRandomParamater::OnPrimbutton()
 	sprintf(tmpStr, "%i", m_PrimLang);
 	CString upperBound = CString("2^") + CString(tmpStr);
 	P.SetLimits( lowerBound, upperBound );
-	theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
-		Gen.GetRandomPrime( m_Param_N, P );
-	theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+
+	SHOW_HOUR_GLASS;		// aktiviert die Sanduhr (statt des Mauszeigers)
+	Gen.GetRandomPrime( m_Param_N, P );
+	HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
+
 	UpdateData(FALSE);
 }
 

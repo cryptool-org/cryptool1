@@ -34,6 +34,7 @@
 #include "SecudeCryptography.h"
 #include "DlgHashDemo.h"
 #include "DlgSignatureDemo.h"
+#include "DlgEntropyInfo.h"
 
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
@@ -103,7 +104,7 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 	Key += 1;
 
 // == Encryption / Decryption
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	GetTmpName(outfile,"cry",".txt");
 	if(KeyDialog.m_Decrypt)
 		text -= Key;
@@ -115,7 +116,7 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 // == Open the new document
 	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_CAESAR, KeyDialog.m_Decrypt );
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void VigenereAsc(const char *infile, const char *OldTitle)
@@ -134,7 +135,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 	if(KeyDialog.Display()!=IDOK) return;
 
 // == Encryption / Decryption
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 	GetTmpName(outfile,"cry",".txt");
 	SymbolArray Key(AppConv);
 	Key.ReadString(KeyDialog.GetData());
@@ -148,7 +149,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 // == Open the new document
 	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_STRING_VIGENERE, KeyDialog.m_Decrypt );
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void XorBin(const char *infile, const char *OldTitle)
@@ -166,7 +167,7 @@ void XorBin(const char *infile, const char *OldTitle)
 	if(KeyDialog.Display()!=IDOK) return;
 
 // == Encryption / Decryption
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
     GetTmpName(outfile,"cry",".tmp");
 	SymbolArray Key(IdConv,KeyDialog.GetLen());
 	buffer = KeyDialog.GetData();
@@ -177,7 +178,7 @@ void XorBin(const char *infile, const char *OldTitle)
 // == Open the new document
 	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_XOR, KeyDialog.m_Decrypt );
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void AddBin(const char *infile, const char *OldTitle)
@@ -195,7 +196,7 @@ void AddBin(const char *infile, const char *OldTitle)
 	if(KeyDialog.Display()!=IDOK) return;
 
 // == Encryption / Decryption
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
     GetTmpName(outfile,"cry",".tmp");
 	SymbolArray Key(IdConv,KeyDialog.GetLen());
 	buffer = KeyDialog.GetData();
@@ -209,7 +210,7 @@ void AddBin(const char *infile, const char *OldTitle)
 // == Open the new document
 	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_ADD, KeyDialog.m_Decrypt );
 
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 void VernamBin(const char *infile, const char *OldTitle)
@@ -250,7 +251,7 @@ void VernamBin(const char *infile, const char *OldTitle)
 	}
 
 // == Encryption / Decryption
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
     GetTmpName(outfile,"cry",".tmp");
 	SymbolArray Key(IdConv);
 	Key.Read( fname );
@@ -268,7 +269,7 @@ void VernamBin(const char *infile, const char *OldTitle)
         MakeNewName(title,sizeof(title),line,OldTitle);
         NewDoc->SetTitle(title);
     }
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -325,7 +326,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.getDec());
 		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
 	}
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
@@ -338,7 +339,7 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 	KeyDialog.getAlg()->ApplyPlayfairToInput(KeyDialog.getDec());
 	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -478,7 +479,7 @@ void Hill(const char *infile, const char *OldTitle)
 		return;
 	}
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
 	// Falls nicht abgebrochen, ist eine invertierbare Matrix 
 	// als Schluessel eingegeben worden -> Verschluesseln bzw. Entschluesseln
@@ -736,37 +737,29 @@ void Hill(const char *infile, const char *OldTitle)
 	fclose(fp);
 	free(csEingabeDatei);
 	
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 
 void Entropy( const char* infile, SymbolArray &text )
 {
-/*
-Das eingestellte Alphabet:
-- enthält %d verschiedene Zeichen.
-- die maximale Entropie dafür beträgt  %f Bit/Zeichen.
-Das analysierte Dokument:
-- enthält x verschiedene Zeichen.
-- die Entropie des Dokuments beträgt  %f Bit/Zeichen.
-*/
 	LoadText( infile, text );
 	if ( !CheckTextSize( text ) ) return;
 	int nalph = text.GetModulus();
 	int nsymbol = 0;
 
-    char line[STR_LAENGE_STRING_TABLE + 4*20];
-	CWaitCursor WCursor;
+	SHOW_HOUR_GLASS
+
 	NGram distr(text);
 	for (int i = 0; i < nalph; i++) 
 		if (distr[i])
 			nsymbol++;
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ENTROPY_OF,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,pc_str,nalph,log2(nalph),nsymbol,distr.Entropie());
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_TITLE_ENTROPY,pc_str,STR_LAENGE_STRING_TABLE);
-    theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
 
-	theApp.DoWaitCursor(0);
+	CDlgEntropyInfo entropyInfo;
+	entropyInfo.SetParameter( nalph, nsymbol, log2(nalph), distr.Entropie());
+	entropyInfo.DoModal();	
+
+	HIDE_HOUR_GLASS
 }
 
 void EntropyASCII(const char *infile, const char *OldTitle)
@@ -797,7 +790,7 @@ UINT Vitanycorr(PVOID p)
 		theApp.fs.Set(0,pc_str);
 	}
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	class CRandomAnalysisTools analyse((char *)par->infile);
 	analyse.WriteAnalyse(outfile,par->OldTitle);
@@ -808,7 +801,7 @@ UINT Vitanycorr(PVOID p)
 	}
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	par->flags |= CRYPT_DONE;
 	FreePar(par);
@@ -835,7 +828,7 @@ UINT Periode(PVOID p)
 		theApp.fs.Set(0,pc_str);
 	}
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	{
 		// Initialisierung des Fortschrittbalkens
@@ -925,7 +918,7 @@ UINT Periode(PVOID p)
 	}
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	par->flags |= CRYPT_DONE;
 	FreePar(par);
@@ -947,7 +940,7 @@ UINT Autocorr(PVOID p)
 	r=0;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 
     SymbolArray text(IdConv);
 	if(par->flags & CRYPT_ASCII)
@@ -961,7 +954,7 @@ UINT Autocorr(PVOID p)
 		theApp.fs.Set(0,pc_str);
 	}
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
    	SCorrelation *tx;
 	if(par->result) {
@@ -975,8 +968,8 @@ UINT Autocorr(PVOID p)
 	}
 
 	fsize=text.GetSize();
-	if(n<1) {
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
+	if(text.GetSize()<4) {
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 4);
 		r=1;
 		goto cancel;
 	}
@@ -1057,7 +1050,7 @@ cancel:
 	}
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	par->flags |= CRYPT_DONE;
 	FreePar(par);
@@ -1084,7 +1077,7 @@ UINT FloatingEntropy(PVOID p)
 	winsize = 64;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 
 	if(par->flags & CRYPT_DO_PROGRESS) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_FLOATING_FREQ,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1094,7 +1087,7 @@ UINT FloatingEntropy(PVOID p)
 	}
 	n = filesize(par->infile);
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 
 	fi = fopen(par->infile,"rb");
 	l = fread(buffer, 1, sizeof(buffer), fi);
@@ -1197,7 +1190,7 @@ cancel:
 	}
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	par->flags |= CRYPT_DONE;
 	FreePar(par);
@@ -1210,7 +1203,7 @@ void HistogramASCII(const char *infile, const char *OldTitle)
     char line[256], name[128], name2[128], numbuff[20];
 	CFile f;
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
     SymbolArray text(AppConv);
 
@@ -1245,7 +1238,7 @@ void HistogramASCII(const char *infile, const char *OldTitle)
 	}
 
     theApp.ThreadOpenDocumentFileNoMRU(name,line);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -1255,7 +1248,7 @@ void HistogramBin(const char *infile, const char *OldTitle)
     char line[256],name[128], name2[128], numbuff[20];
 	CFile f;
 
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
     SymbolArray text(IdConv);
     text.Read(infile);
@@ -1290,7 +1283,7 @@ void HistogramBin(const char *infile, const char *OldTitle)
 	}
 
     theApp.ThreadOpenDocumentFileNoMRU(name,line);
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 
@@ -1600,7 +1593,7 @@ UINT AnaSubst(PVOID p) {
 			Sleep(1);
 		}
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
-			theApp.DoWaitCursor(1);
+			SHOW_HOUR_GLASS
 	}
 
 
@@ -2401,7 +2394,7 @@ UINT AnaSubst(PVOID p) {
 	}
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
-		theApp.DoWaitCursor(-1);
+		HIDE_HOUR_GLASS
 
 	return 0;
 }
@@ -2672,7 +2665,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		NewDoc->SetTitle(title);
 	}
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 } // end Hompohone Asc
 
 // ======================================================================================
@@ -2786,7 +2779,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 		NewDoc->SetTitle(title);
 	}
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 } // end Hompohone Hex
 
 
@@ -2801,7 +2794,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 void NGramAsc(const char *infile, const char *OldTitle)
 {
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
     char      * buffer;
 	CFile f( infile, CFile::modeRead );
@@ -2840,12 +2833,12 @@ void NGramAsc(const char *infile, const char *OldTitle)
 		}
 	}
 
-	theApp.DoWaitCursor(-1);
+	HIDE_HOUR_GLASS
 }
 
 void NGramBin(const char *infile, const char *OldTitle)
 {
-	theApp.DoWaitCursor(1);
+	SHOW_HOUR_GLASS
 
     char      * buffer;	
 	CFile f( infile, CFile::modeRead );
@@ -2885,7 +2878,7 @@ void NGramBin(const char *infile, const char *OldTitle)
 		}
 	}
 
-	theApp.DoWaitCursor(0);
+	HIDE_HOUR_GLASS
 }
 
 // =============================================================

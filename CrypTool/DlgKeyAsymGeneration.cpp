@@ -668,7 +668,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		else
 		{
 			// User didn't want to see the generated keypair; there is no keypair generated yet
-			theApp.DoWaitCursor(1);
+			SHOW_HOUR_GLASS
 			start = clock();
 			error = GenEcKeyPair(curveParameter); // create key pairs
 			finish = clock();
@@ -686,10 +686,10 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 				Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
 				return;
 			}
-			theApp.DoWaitCursor(0);
+			HIDE_HOUR_GLASS
 		}
 		
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		// Datum und Zeitpunkt der Schlüsselerzeugung
 		char buffer[20];
 		time_t aclock;
@@ -727,7 +727,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 			return; // sonstige Fehler
 		}
 
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 	}
 
 	if (use_secude_api)
@@ -783,7 +783,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		keyinfo.add_object_type=NULL;
 		keyinfo.private_key=NULL;
 
-		theApp.DoWaitCursor(1);
+		SHOW_HOUR_GLASS
 		start = clock();
 		error = theApp.SecudeLib.af_gen_key (PseHandle, &keyinfo, SIGNATURE, 1); // create key pairs
 		finish = clock();
@@ -797,7 +797,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string2;
 			delete string4;
-			theApp.DoWaitCursor(0);
+			HIDE_HOUR_GLASS
 			return;
 		}
 		else                         // Secude Api ???
@@ -837,13 +837,13 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 					// Freigeben von dynamisch angelegtem Speicher
 					delete string2;
 					delete string4;
-					theApp.DoWaitCursor(0);
+					HIDE_HOUR_GLASS
 					return;
 				}
 
 			}
 		}
-		theApp.DoWaitCursor(0);
+		HIDE_HOUR_GLASS
 
 		// Initialisierung der Variablen, die zur Zertifizierung notwendig sind
 		OctetString SNummer;

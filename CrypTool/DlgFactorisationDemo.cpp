@@ -202,7 +202,7 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			BOOL factorized = FALSE;
 			CString f1, f2;
 
-			theApp.DoWaitCursor(1);			// aktiviert die Sanduhr
+			SHOW_HOUR_GLASS			// aktiviert die Sanduhr
 			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 			{
 				//Sie müssen mindestens ein Verfahren wählen!
@@ -416,7 +416,7 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			sprintf( line2, pc_str, timeStr2 );
 			m_benoetigte_zeit_pro_factorisation=timeStr2;
 						
-			theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+			HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
 			if ( factorized )
@@ -657,7 +657,7 @@ void CDlgFactorisationDemo::OnButtonVollstaendigFaktorisation()
 	do
 		{
 		UpdateData(TRUE);
-		theApp.DoWaitCursor(0);			// Aktiviert die Sanduhr
+		SHOW_HOUR_GLASS			// Aktiviert die Sanduhr
 		CString next_factor;
 		next_factor=Search_First_Composite_Factor();
 		
@@ -728,7 +728,7 @@ void CDlgFactorisationDemo::OnButtonVollstaendigFaktorisation()
 					return;
 				}
 		
-				theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
+				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 				UpdateData(FALSE);
 				Set_NonPrime_Factor_Red();
 			}

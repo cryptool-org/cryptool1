@@ -136,4 +136,25 @@ class CPadDoc : public CAppDocument
 /////////////////////////////////////////////////////////////////////////////
 extern CCrypToolApp NEAR theApp;
 
+/* *************************************************** 
+   Die folgende Klasse wird im Quellcode bisher nicht verwendet,
+   soll aber eine Alternative Für die Implementierung der Anzeige 
+   der Sanduhr, während rechenaufwendiger Operationen in CrypTool
+   aufzeigen:
+
+   {  // in diesem Frame wird die Sanduhr angezeigt
+      CHourGlass hourglass;
+
+      // hier den Quellcode, während dessen die Sanduhr angezeigt wird.
+   }
+
+   *************************************************** */
+class CHourGlass {
+	 CHourGlass() { theApp.DoWaitCursor( 1); }
+	~CHourGlass() { theApp.DoWaitCursor(-1); }
+};
+
+#define SHOW_HOUR_GLASS theApp.DoWaitCursor( 1);
+#define HIDE_HOUR_GLASS theApp.DoWaitCursor(-1);
+
 #endif
