@@ -6,7 +6,86 @@
 \section{Elliptische Kurven}
 \index{Elliptische Kurven}
 \hypertarget{ellcurve}{}
-(Filipovics B. / Esslinger B. / Oyono R., April 2000, Update Dez. 2001)
+(Filipovics B. / Esslinger B. / Oyono R. / B"uger M., April 2000, Updates: Dez. 2001, Juni 2002)
+
+\subsection{Elliptische Kurven --- ein effizienter Ersatz f"ur RSA?}
+
+In der Fianzwirtschaft sind Sicherheit und Effizienz von Daten"ubertragungen von gro"ser
+Wichtigkeit. Viele Anwedungen verwenden den RSA-Algorithmus als asymmetrisches Verschl"usselungsverfahren.
+Solange die verwendeten Schl"ussel hinreichend lang sind, bestehen keinerlei Bedenken gegen die
+Sicherheit des RSA. Allerdings hat die Entwicklung der Rechnerleistungen in der vergangenen Jahren dazu
+geführt, dass die ben"otigten Schl"ussell"angen mehrfach angehoben werden mussten. Aktuell werden
+standardm"a"sig noch 1024-bit-Schl"ussel verwendet. Das BSI (Bundesamt f"ur Sicheheit in der
+Informationstechnologie) empfiehlt jedoch sp"atestens ab dem Jahr 2006 eine Mindestl"ange von 2048 bit.
+Bedenkt man, dass die meisten Chips auf Smart Cards nicht in der Lange sind, l"angere Schl"ussel als
+1024 bit zu verarbeiten, so zeigt dies den Bedarf f"ur Alternativen zum RSA. Elliptische Kurven
+k"onnen eine solche Alternative bieten.
+
+Die Effizienz eines kryptographischen Algorithmus h"angt wesentlich von der ben"otigten Schl"ussell"ange
+und dem Rechenaufwand ab, die notwendig sind, um ein vorgeschriebenes Sicherheitsniveau zu erreichen.
+Der entscheidende Vorteil Elliptischer Kurven im Vergleich zum RSA-Algorithmus liegt in der Tatsache,
+dass die ben"otigten Schl"ussell"angen erheblich k"urzer sind. Setzt man den Trend, dass sich die
+Leistung der verf"ugbaren Rechner im Schnitt alle 18 Monate verdoppelt (Gesetz von Moore), in die Zukunft
+fort, so muss man von einer Entwicklung der ben"otigten Schl"ussell"angen wie in der folgenden Graphik ausgehen.
+
+\vskip -20 pt
+% -> Figur 1
+\begin{center}
+\begin{figure}[h]
+\includegraphics[scale=0.5]{figures/RSAKeylength}
+% \caption{} 
+\end{figure}
+\end{center}
+\vskip -30 pt
+
+\newpage
+
+Betrachtet man ferner den Rechenaufwand, die f"ur die Erstellung einer digitalen Signatur notwendig ist,
+so stellt man fest, dass auf Elliptischen Kurven basierende Verfahren im Vergleich zu RSA nur gut ein
+Zehntel des Rechenaufwandes ben"otigen. Betrachtet man die f"ur eine Verifikation durchzuf"uhrenden
+Rechenschritte, dreht sich dieses Bild jedoch zu Gunsten des RSA um. Der Grund liegt darin, dass es bei
+Verwendung des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu w"ahlen, solange der
+private Schl"ussel nur hinreichend lang ist.
+
+% -> Figur 2
+\begin{center}
+\begin{figure}[h]
+\includegraphics[scale=0.5]{figures/ThousandBitMultiplications}
+% \caption{} 
+\end{figure}
+\end{center}
+\vskip -20 pt
+
+Da bei Smart Card basierten Systemen stets der lange private Schl"ussel auf der Karte gespeichert werden
+muss und die digitale Signatur, nicht aber die Verifikation auf der Karte stattfindet, treten hier deutlich
+die Vorteile Elliptischer Kurven zu Tage. Unter Effizientgesichtspunkten sind Verfahren, die auf Elliptischen
+Kurven basieren, daher RSA--Anwendungen vorzuziehen.
+\par
+\smallskip
+Das gr"o"sste Problem bei der Implementierung von Verfahren, die auf Elliptischen Kurven beruhen, ist bislang die
+mangelnde Standardisierung. Es gibt nur eine RSA-Implementierung, aber viele Arten, Elliptische Kurven einzusetzen.
+So k"onnen verschiedene Zahlk"orper zugrunde gelegt, eine Vielzahl von (elliptischen) Kurven --- durch
+6 Parameter beschrieben --- eingesetzt und unterschiedliche Darstellungen der Kurvenpunkte verwendet werden.
+Jede Wahl hat ihre Vorz"uge, so dass f"ur jede Anwendung eine andere Implementierung optimal sein kann. Dies
+hat jedoch zur Konsequenz, dass Systeme, die auf Elliptischen Kurven beruhen, oftmals nicht interoperabel
+sind. Um mit einer beliebige auf Elliptischen Kurven basierenden Anwendung kommunizieren zu k"onnen, m"ussete man
+eine Vielzahl von Implementierungen vorhalten, was den Effizientvorteil gegen"uber der Verwendung von RSA
+zunichte macht.
+
+Um dies zu vermeiden, bem"uhen sich internationale Organisationen um Standardisierung. Zu erw"ahnen sind
+Initiativen vonn IEEE (P1363), ASC (ANSI X9.62, X9.63), IOS/IEC sowie der RSA labs und von Certicom. Im
+Gegensatz zur IEEE, die bisher nur eine Beschreibung der verschiedenen Implementierungen vorgenommen hat,
+hat die ASC konkret 10 Kurven ausgew"ahlt und empfiehlt deren Verwendung. Der Vorteil des ASC-Ansatzes ist,
+dass ein einziges Byte ausreicht, um die verwendete Kurve zu spezifizieren. Zur Zeit ist jedoch nicht
+absehbar, ob es der ASC gelingen wird, einen de facto Standard durchzusetzen.
+
+Obwohl aktuell kein Handlungsbedarf besteht, laufende RSA-Anwendungen umzustellen, sollte man bei der
+Neuimplementierung ernsthaft den Einsatz von Verfahren erw"agen, die auf Elliptschen Kurven basieren.
+Dies gilt insbesondere, wenn es sich um Anwendung im Finanzsektor handelt, die voraussichtlich noch
+nach 2005 operativ sein sollen.
+
+
+
 \subsection{Elliptische Kurven --- Historisches}
 
 Auf dem Gebiet der Elliptischen Kurven wird seit "uber 100 Jahren geforscht. Im Laufe der Zeit hat man
@@ -309,7 +388,8 @@ Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bek
 \subsubsection{Faktorisieren mit Elliptischen Kurven}
 \hypertarget{faktell}{}
 
-Es gibt Faktorisierungalgorithmen, die auf Elliptischen Kurven basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
+Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven \index{Faktorisierungsalgorithmen}
+basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
 einen Faktorisierungsalgorithmus vor, der auf elliptischen Kurven basiert 
 (Siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit elliptischen Kurven faktorisierte Zahl  
 ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}. 

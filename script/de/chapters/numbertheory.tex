@@ -5,7 +5,7 @@
 \newpage
 \hypertarget{Kapitel_3}{}
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
-(Bernhard Esslinger, besslinger@web.de, Juli 2001, Updates Nov. 2001, Mai 2002)
+(Bernhard Esslinger, besslinger@web.de, Juli 2001, Updates: Nov. 2001, Juni/ 2002)
 \begin{center}
 \fbox{\parbox{15cm}{{\em \index{Berne} Eric Berne\footnotemark\ :}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
@@ -359,7 +359,7 @@ Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ m"oglich sind, rechnet die mo
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
 
 \begin{definition}\label{def-zth-congruence} \index{Kongruenz}
-Zwei Zahlen $a, b \in \mathbb{N}$  hei"sen \index{restgleich} \index{kongruent}
+Zwei Zahlen $a, b \in \mathbb{N}$  hei"sen \index{restgleich} \index{Kongruent}
 {\bf restgleich oder kongruent bez"uglich $m \in \mathbb{N}$}  genau dann, 
 wenn beim Teilen durch $m$ der gleiche Rest bleibt.
 \end{definition}
@@ -436,7 +436,7 @@ Aus S"atzen der Algebra folgt, dass wesentliche Teile der "ublichen
 Rechenregeln beim "Ubergang zum modularen Rechnen "uber der Grundmenge $\mathbb{Z}$
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt f"ur die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{
-\label{ftn-res-divmodn}Die Division modulo $m$ ist nur f"ur Zahlen die teilerfremd zu $m$ sind definiert. 
+\label{ftn-res-divmodn}Die Division modulo $m$ ist nur f"ur Zahlen, die teilerfremd zu $m$ sind definiert. 
 Vergleiche Kapitel \ref{multmodn}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
@@ -729,9 +729,10 @@ Rest                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15 
 \end{center} 
 \end{table}
 }
+\vskip - 12 pt
 Da sowohl $5$ als auch $6$ jeweils teilerfremd\index{teilerfremd} zum Modul $m=17$ sind, kommen zwischen
 $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vor (vollst"andige $m$-Permutation\index{Permutation}).
-\enlargethispage{0.5cm}
+% \enlargethispage{0.5cm}
 
 {
     {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
@@ -757,35 +758,38 @@ $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vor (vollst
     \end{table}
 }   
 
-    Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils teilerfremd sind, kommen
-    zwischen $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vor.
+\vskip -12 pt
+Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils teilerfremd sind, kommen
+zwischen $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vor.
 
-{
-    {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
-		\vskip +15 pt
 
-		Die folgende Tabelle enth"alt ein Beipiel daf"ur, wo der Modul $m$ und die Zahl $(a=6)$
-	{\em nicht} teilerfremd sind.
-    \vskip +15 pt
+{\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
+\vskip +15 pt
 
-    \begin{table}[h]
-    \subsubsection*{Multiplikationstabelle modulo $12$ (f"ur $a=5$ und $a=6$)}
-    \begin{center}                                                                          
-    \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
-    \hline 
-    i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
-    \hline 
-    \hline 
-    5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
-    Rest                 & 5 & 10  & 3  & 8  & {\bf 1}  & 6 & 11  & 4  & 9  & 2  & 7  & 0  & 5 & 10  & 3  & 8   & 1   & 6 \\
-    \hline 
-    6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
-    Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0   & 6   & 0 \\
-    \hline 
-    \end{tabular}
-    \end{center} 
-    \end{table}
-}
+Die folgende Tabelle enth"alt ein Beipiel daf"ur, wo der Modul $m$ und die Zahl $(a=6)$
+{\em nicht} teilerfremd sind.
+\vskip +15 pt
+
+\newpage
+\begin{table}[h]
+\subsubsection*{Multiplikationstabelle modulo $12$ (f"ur $a=5$ und $a=6$)}
+\begin{center}                                                                          
+\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
+\hline 
+i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+\hline 
+\hline 
+5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
+Rest                 & 5 & 10  & 3  & 8  & {\bf 1}  & 6 & 11  & 4  & 9  & 2  & 7  & 0  & 5 & 10  & 3  & 8   & 1   & 6 \\
+\hline 
+6*i                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0   & 6   & 0 \\
+\hline 
+\end{tabular}
+\end{center} 
+\end{table}
+
+\vskip -12 pt
 Berechnet wurde $(5 * i)$ (mod $12$) und $(6*i)$ (mod $12$).
 Da $6$ und der Modul $m=12$ nicht teilerfremd\index{teilerfremd} sind, kommen zwischen $i=1, \cdots, m$
 nicht alle Werte zwischen $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine
@@ -867,7 +871,7 @@ $$
 \hypertarget{hohpot}{} \index{Potenzen}
 Bei RSA--Ver- und Entschl"usselungen\footnote{
 Siehe \hyperlink{RSABeweis}{Kapitel 3.10 Beweis des RSA--Verfahrens mit Euler--Fermat} und 
-\hyperlink{Kapitel_3_12}{Kapitel 3.12 Das RSA--Verfahren mit konkreten Zahlen}.
+\hyperlink{Kapitel_3_12}{Kapitel 3.13 Das RSA--Verfahren mit konkreten Zahlen}.
 } m"ussen hohe Potenzen modulo $m$ berechnet werden. Schon die Berechnung $(100^5)
 {\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
@@ -1338,7 +1342,7 @@ wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar} und di
 Exponenten handhabbar sind.
 
 
-
+\newpage
 Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel
 modulo $45$ und modulo $46$.
 
@@ -1474,7 +1478,7 @@ Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{
 Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1 \le a, i < 11$.
-} \footnote{
+}${}^,$ \footnote{
 Das Aussch"opfen des Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische Eigenschaft 
 (vergleiche Satz \ref{thm-zth-exhperm}).
 } F"ur einen Modul $p$ und $a < p$ nimmt $a^i, i = 1, \cdots, p-1$ alle $J(p)$ Werte 
@@ -1501,7 +1505,7 @@ Milliarden DM bezeichnet.
 
 
 % .......................................................................................................................
-\subsubsection{Grundidee der Public Key-Kryptographie}\index{Kryptographie!Public-Key}
+\subsubsection{Grundidee der Public Key-Kryptographie}\index{Kryptographie!Public Key}
 \hypertarget{Kapitel_3_10_1}{}
 Die Grundidee bei der Public Key-Kryptographie besteht darin, dass alle
 Teilnehmer ein unterschiedliches Paar von Schl"usseln ($P$ und $S$) besitzen und
@@ -1722,12 +1726,12 @@ Die Eignung des RSA-Verfahrens f"ur digitale Signaturen und Verschl"usselung ger
 z.B. im Zusammenhang mit der Ver"offentlichung aktueller Faktorisierungserfolge. Ungeachtet dessen ist das RSA-Verfahren 
 seit seiner Ver"offentlichung vor mehr als 20 Jahren unangefochtener De-facto-Standard.
 
-Die Sicherheit des RSA-Verfahrens basiert - wie die aller kryptographischen Verfahren - auf der den folgenden 4 zentralen
+Die Sicherheit des RSA-Verfahrens basiert - wie die aller kryptographischen Verfahren - auf den folgenden 4 zentralen
 S"aulen:
 \begin{itemize}
 \item der Komplexit"at des dem Problem zugrunde liegenden zahlentheoretischen Problems (hier der Faktorisierung
-      gro"ser Zahlen),
-\item der Wahl geeigneter Sicherheitsparameter (hier der L"ange des Moduls $N$),
+      \index{Faktorisierungsproblem} gro"ser Zahlen),
+\item der Wahl geeigneter Sicherheitsparameter (hier der L"ange des Moduls $n$),
 \item der geeigneten Anwendung des Verfahrens sowie der Schl"usselerzeugung und
 \item der korrekten Implementierung des Algorithmus.
 \end{itemize}
@@ -1740,42 +1744,42 @@ Grunds"atzliche Kenngr"o"sen eines bestimmten Verfahrens sind die ersten beiden 
 \subsubsection{Komplexit"at}
 
 Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne Kenntnis des geheimen Schl"ussels --- erfordert, 
-die $e$-te Wurzel mod $N$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative Inverse zu $e$, kann mit Hilfe 
-der Eulerschen Funktion $J(N)$ bestimmt werden. $J(N)$ wiederum l"asst sich aus den Primfaktoren von $N$ berechnen.
-Das Brechen kann daher nicht schwieriger sein als das Faktorisieren des Moduls $N$.
+die $e$-te Wurzel mod $n$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative Inverse zu $e$, kann mit Hilfe 
+der Eulerschen Funktion $J(n)$ bestimmt werden. $J(n)$ wiederum l"asst sich aus den Primfaktoren von $n$ berechnen.
+Das Brechen kann daher nicht schwieriger sein als das Faktorisieren des Moduls $n$.
 
 Das beste heute bekannte Verfahren ist eine Weiterentwicklung des urspr"unglich f"ur Zahlen mit einer bestimmten 
-Darstellung (z.B. Fermatzahlen) entwickelten General Number Field Sieve (GNFS).
+Darstellung (z.B. Fermatzahlen) entwickelten General Number Field Sieve (GNFS). \index{General Number Field Sieve (GNFS)}
 Die L"osungskomplexit"at des Faktorisierungsproblems liegt damit asymptotisch bei 
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
-Siehe:
-\begin{itemize}
+Siehe: 
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
   \item[] A. Lenstra / H. Lenstra: \\ {\em The development of the Number Field Sieve.} 
           Lecture Notes in Mathematics 1554, Springer, New York 1993
   \item[] Robert D. Silverman: \\ {\em A Cost-Based Security Analysis of Symmetric and Asymmetric Key Lengths.} 
           In: RSA Laboratories Bulletin, No. 13, April 2000, S. 1-22
-\end{itemize}
+\end{list} \vskip +12 pt
 
 Die Formel zeigt, dass das Faktorisierungsproblem zur Komplexit"atsklasse der Probleme mit subexponentieller 
 Berechnungskomplexit"at geh"ort (d.h. xxxx). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
 jedoch nicht, dass das Faktorisierungsproblem m"oglicherweise nicht auch polynominell gel"ost werden kann.
 
 $O(l)$ gibt die Zahl der durchschnittlich erforderlichen Prozessor-Operationen abh"angig von der L"ange $l$ der zu 
-faktorisierenden Zahl $N$ an. F"ur den besten allgemeinen Faktorisierungsalgorithmus ist die Konstante 
+faktorisierenden Zahl $n$ an. F"ur den besten allgemeinen Faktorisierungsalgorithmus ist die Konstante 
 $c = (64/9)^{1/173} = 1,923$.
 
 Die umgekehrte Aussage, dass das RSA-Verfahren ausschlie"slich durch eine Faktorisierung von N gebrochen werden kann, 
-ist bis heute nicht bewiesen. Zahlentheoretiker halten das "RSA-Problem" und das Faktorisierungsproblem f"ur 
+ist bis heute nicht bewiesen. Zahlentheoretiker halten das ``RSA-Problem'' und das Faktorisierungsproblem f"ur 
 komplexit"atstheoretisch "aquivalent.
 
 \noindent
 Siehe:
-\begin{itemize}
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
    \item[] A.J. Menezes / van Oorschot / P.C. Vanstone: \\
            {\em Handbook of Applied Cryptography}, CRC Press, 1996
-\end{itemize}
+\end{list}\vskip +12 pt
 Bis jetzt ist es eine unbewiesene Annahme, dass f"ur das Faktorisierungsproblem kein L"osungsalgorithmus mit 
 (asymptotisch) polynominellem Aufwand besteht (s. 3.11.3).
 
@@ -1784,34 +1788,35 @@ Bis jetzt ist es eine unbewiesene Annahme, dass f"ur das Faktorisierungsproblem 
 
 Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $N$ bestimmt.
 
-1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve-Algorithmus (QS) 
-nach knapp 8 Monaten der 1977 ver"offentlichte 129-stellige RSA-Modul faktorisiert.
+1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve--Algorithmus (QS) 
+\index{Quadratic Sieve--Algorithmus (QS)} nach knapp 8 Monaten der 1977 ver"offentlichte 129-stellige RSA-Modul 
+faktorisiert.
 
 \noindent
 Siehe:
-\begin{itemize}
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
    \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
            In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
-\end{itemize}
+\end{list}\vskip +12 pt
 1999 wurde mit dem von Buhler, Lenstra und Pomerance entwickelten General Number Field Sieve-Algorithmus (GNFS), 
 der ab ca. 116 Dezimalstellen effizienter ist als QS, nach knapp 5 Monaten ein 154-stelliger Modul (512 Bit) faktorisiert.
 
 
 \noindent
 Siehe:
-\begin{itemize}
+\begin{list}{}{\setlength{\topsep}{-7 pt}}
    \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
            {\em Factoring integers with the number field sieve.} 
            In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
            in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50-94
-\end{itemize}
+\end{list}\vskip +12 pt
 Damit wurde klar, dass eine Modull"ange von $512$ Bit keinen Schutz mehr vor Angreifern darstellt.
 
 In den letzten 20 Jahren wurden also erhebliche Fortschritte gemacht. Absch"atzungen "uber die zuk"unftige Entwicklung 
 der Sicherheit unterschiedlicher RSA-Modull"angen differieren und h"angen von verschiedenen Annahmen ab:
 \begin{itemize}
    \item Entwicklung der Rechnergeschwindigkeit (Gesetz von Moore: Verdopplung der Rechnerleistung alle 18 Monate) 
-         und des Grid-Computing
+         und des Grid-Computing. \index{Gesetz von Moore}
    \item Entwicklung neuer Algorithmen.
 \end{itemize}
 Selbst ohne neue Algorithmen wurden in den letzten Jahren durchschnittlich ca. 10 Bit mehr Jahr berechenbar.
@@ -1819,35 +1824,34 @@ Gr"o"sere Zahlen erfordern mit den heute bekannten Verfahren einen immer gr"o"se
 L"osungsmatrix. Dieser Speicherbedarf w"achst ca. quadratisch zur Modull"ange $l$.
 Deshalb d"urften gr"o"sere Fortschritte auch neue Algorithmen voraussetzen.
 
-In dem Artikel "Vorz"uge und Grenzen des RSA-Verfahrens" prognostiziert Dirk Fox einen ann"ahernd linearen Verlauf 
+In dem Artikel ``Vorz"uge und Grenzen des RSA-Verfahrens'' prognostiziert Dirk Fox einen ann"ahernd linearen Verlauf 
 der Faktorisierungserfolge unter Einbeziehung aller Faktoren: Pro Jahr kommen durchschnittlich 20 Bit dazu.
 
 \noindent
-Siehe: 
-\begin{itemize}
-   \item[] DuD, 26/2002, S. 84-89, F. Bourseau / D. Fox / C. Thiel
-\end{itemize}
 Die Firma Secorvo GmbH hat eine Stellungnahme zur Schl"ussell"angenempfehlung des BSI f"ur den Bundesanzeiger abgegeben. In Kapitel 2.3.1 geht sie sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch):
 
 \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
      {\tt http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
 
 
-\subsubsection{Das Papier von D.J. Bernstein und seine Auswirkungen auf die Sicherheit des RSA-Algorithmus}
 
-Die Sicherheit des RSA-Algorithmus basiert auf der empirischen Beobachtung, dass die Faktorisierung gro"ser (ganzer) 
+\subsubsection{Das Papier von D.J. Bernstein und seine Auswirkungen auf die Sicherheit des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierungsproblem}
+
+Die Sicherheit des RSA-Algorithmus basiert auf der empirischen Beobachtung, dass die Faktorisierung gro"ser ganzer 
 Zahlen ein schwieriges Problem ist. Besteht wie beim RSA-Algorithmus der zugrunde liegende Modul $n$ aus dem Produkt 
-zweier gro"ser Primzahlen $p, q$ (typische L"angen: $p, q$  $500-600$ bit, $n$ $1024$ bit), so lassen sich $p, q$ und damit 
-$n=pq$ leicht bestimmen, jedoch ist es mit den bisher bekannten Faktorisierungsalgorithmen nicht m"oglich, $p, q$ aus 
-$n$ zu gewinnen. Nur mit Kenntnis von $p$ und $q$ l"asst sich jedoch der private aus dem "offentlichen Schl"ussel ermitteln.
+zweier gro"ser Primzahlen $p, q$ (typische L"angen: $p, q$  $500-600$ bit, $n$ $1024$ bit), so l"asst sich 
+$n=pq$ aus $p$ und $q$ leicht bestimmen, jedoch ist es mit den bisher bekannten Faktorisierungsalgorithmen nicht
+m"oglich, $p, q$ aus $n$ zu gewinnen. Nur mit Kenntnis von $p$ und $q$ l"asst sich jedoch der private aus dem 
+"offentlichen Schl"ussel ermitteln.
 
 Die Entdeckung eines Algorithmus zur effizienten Faktorisierung von Produkten $n=pq$ gro"ser Primzahlen w"urde daher 
 den RSA-Algorithmus wesentlich beeintr"achtigen. Je nach Effizienz der Faktorisierung im Vergleich zur Erzeugung von 
 $p, q, n$ m"usste der verwendete Modul $n$ (z.Zt. 1024 bit) erheblich vergr"o"sert oder --- im Extremfall --- auf den 
 Einsatz des RSA ganz verzichtet werden.
 
-Die im November 2001 ver"offentlichte Arbeit "Circuits for integer factorization: a proposal" von D.J.Bernstein behandelt 
-das Problem der Faktorisierung gro"ser Zahlen und daher eine Fragestellung, die f"ur die Sicherheit des RSA relevant ist. 
+Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer factorization: a proposal''
+(siehe \href{http://cr.yp.to/djb.html}{\tt http://cr.yp.to/djb.html} von D.J. Bernstein behandelt 
+das Problem der Faktorisierung gro"ser Zahlen. 
 Die Kernaussage des Papers besteht darin, einen Faktorisierungsalgorithmus anzugeben, der mit gleichem Aufwand wie die 
 besten bisher bekannten Algorithmen Zahlen n mit 3-mal gr"o"serer Stellenzahl (Bit-L"ange) faktorisieren kann.
 
@@ -1863,7 +1867,7 @@ Speicherplatz Zeit proportional $m^2$ ben"otigt. Verringert man daher den verwen
 insgesamt gleich bleibenden Kosten --- die Anzahl der Prozessoren entsprechend, verringert sich die ben"otigte Zeit um 
 die Gr"o"senordnung $1/m$. In Abschnitt 5 wird ferner angef"uhrt, dass der massive Einsatz der parallelisierten Elliptic 
 Curve-Methode von Lenstra die Kosten der Faktorisierung ebenfalls um eine Gr"o"senordnung verringert (ein Suchalgorithmus 
-hat dann quadratische statt kubischer Kosten).
+hat dann quadratische statt kubische Kosten).
 Alle Ergebnisse von Bernstein gelten nur asymptotisch f"ur gro"se Zahlen $n$. Leider liegen keine Absch"atzungen "uber 
 den Fehlerterm, d.h. die Abweichung der tats"achlichen Zeit von dem asymptotischen Wert, vor --- ein Mangel, den auch 
 Bernstein in seinem Papier erw"ahnt. Daher kann zur Zeit keine Aussage getroffen werden, ob die Kosten (im Sinne der 
@@ -1876,13 +1880,12 @@ Frage nach der praktischen Relevanz. Auch wenn formal der Einsatz von einem Rech
 f"ur je 1/1.000.000 sec dieselben Kosten erzeugen mag, ist die Parallelschaltung von 1.000.000 Rechnern praktisch nicht 
 (oder nur unter immensen Fixkosten, insbesondere f"ur die Vernetzung der Prozessoren) zu realisieren. Solche Fixkosten 
 werden aber nicht in Ansatz gebracht.
-Die Verwendung von distributed computing "uber ein gro"ses Netzwerk k"onnte einen Ausweg bieten. Hier m"ussten allerdings 
-Zeiten/Kosten f"ur Daten"ubertragung in einem Ma"se einkalkuliert werden, wie dies bisher noch nicht geschehen ist.
+Die Verwendung von distributed computing "uber ein gro"ses Netzwerk k"onnte einen Ausweg bieten. Auch hier m"ussten  
+Zeiten und Kosten f"ur Daten"ubertragung einkalkuliert werden.
 
 Solange noch keine (kosteng"unstige) Hardware oder verteilte Ans"atze (distributed computing) entwickelt wurden, die auf 
 dem Bernsteinschen Prinzip basieren, besteht noch keine akute Gef"ahrdung des RSA. Es bleibt zu kl"aren, ab welchen 
-Gr"o"senordnungen von n die Asymptotik greift. Es ist zu empfehlen, Entwicklungen auf Basis der Bernsteinschen Ergebnisse 
-aufmerksam zu verfolgen, um gegebenenfalls zeitnah reagieren zu k"onnen.
+Gr"o"senordnungen von n die Asymptotik greift. 
 
 Zum Zeitpunkt der Erstellung dieses Kapitels (Mai 2002) war mir nichts dar"uber bekannt,
 inwieweit die im Bernstein-Papier vorgeschlagenen theoretischen Ansatzes realisiert wurden oder
@@ -1898,6 +1901,42 @@ Verweise:
                {\tt http://www.math.uic.edu}
 \end{itemize}
 
+\subsubsection{Anmerkungen zur Faktorisierung von Zahlen} \label{NoteFactorisation}
+
+Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren zusammengesetzter Zahlen \index{Faktorisierungsrekorde}
+mit unterschiedlichen Methoden findet sich auf der Webseite 
+\href{http://www.crypto-world.com}{\tt http://www.crypto-world.com}. Der aktuelle Rekord
+(Stand Juni 2000) mit der GNFS--Methode (General Number Field Sieve) \index{General Number Field Sieve (GNFS)}
+liegt in der Zerlegung einer 158-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86 Dezimalstellen).
+
+Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn, fand deutlich 
+weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
+Forscher die 155-stellige Zahl in ihre beiden 78--stellige Primfaktoren zerlegten.
+
+Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
+Primfaktoren der Zahl $2^{953}+1$ zu finden. Als letzter Faktor blieb der sogenannte Teiler  ''C158'',
+von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
+$$
+\begin{array}{c}
+39505874583265144526419767800614481996020776460304936 \\
+45413937605157935562652945068360972784246821953509354 \\
+4305870490251995655335710209799226484977949442955603
+\end{array}
+$$
+Die Faktorisierung ergab die beiden Primfaktoren:
+$$
+\begin{array}{c}
+3388495837466721394368393204672181522 \\
+815830368604993048084925840555281177
+\end{array}
+$$
+und
+$$
+\begin{array}{c}
+1165882340667125990314837655838327081813101 \\
+2258146392600439520994131344334162924536139.
+\end{array}
+$$
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
@@ -2048,14 +2087,14 @@ in an essentially non-algebraic way''. Mathematica meint also, keine
 algebraisch direkten Verfahren zu kennen, um die Gleichung zu l"osen.
 Doch mit der verallgemeinerten Funktion f"ur die multiplikative Ordnung kann
 es Mathematica (hier f"ur Alice): 
-{\tt MultiplicativeOrder[11, 347, 49]} liefert den Wert $67$.
+{\tt MultiplicativeOrder[11, 347, 49]} liefert den Wert $67$. \\
 In Pari-GP lautet die Syntax: {\tt znlog(Mod(49,347),Mod(11,347))}
 \\
 Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang URLs)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
 Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
 ebenfalls den Wert $67$.
-} \footnote{
+}${}^,$ \footnote{
 Warum haben die Funktionen bei dem DL-Problem f"ur Alice den Wert $67$ und nicht den Wert 240 geliefert?
 Der diskrete Logarithmus ist der kleinste nat"urliche Exponent, der die
 Gleichung $11^x \equiv 49{\rm ~(mod~}347)$ l"ost. Sowohl $x=67$ als auch $x=240$ (die im Beispiel
@@ -2072,9 +2111,9 @@ kann es f"ur einen bestimmten Rest mehr als einen oder auch gar keinen
 Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung erf"ullt. \\
 {\tt 
 PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
-MultiplicativeOrder[11, 347] = 173}
+MultiplicativeOrder[11, 347] = 173} \\
 In Pari-GP lautet die Syntax:\\
-{\tt isprime(347)\\ eulerphi(347)\\ gcd(11,347)\\ znorder(Mod(11,347))}
+{\tt isprime(347); eulerphi(347); gcd(11,347); znorder(Mod(11,347))}
 \vskip +10 pt
 \begin{tabular}{|c|c|l|}
 \hline
@@ -2192,8 +2231,8 @@ die Blockl"ange 2 betr"agt.\\
 
 \label{SrcArith4a}
 Verschl"usselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{
-In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel Quelltext zur RSA-Verschl"usselung mit
-Mathematica und Pari--GP. 
+In \hyperlink{AppArith4a}{Anhang D} finden Sie den Beispiel--Quelltext zur RSA-Verschl"usselung mit
+Mathematica und Pari--GP. \\
 Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahren/RSA-Demo/RSA-Kryptosystem'' l"osen. 
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -2235,9 +2274,8 @@ Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam f"ur beide sind die Sc
 \vskip +10pt
 {\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\ \label{SrcArith4b}
 {\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{
-In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari--GP.
-Mit CrypTool v1.3 k"onnen Sie dies per
-''Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen.
+In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari--GP. \\
+Mit CrypTool v1.3 k"onnen Sie dies per ``Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen.
 }. \\
 {\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. mu"s teilerfremd
 zu $255.016$ sein)\footnote{
@@ -2544,42 +2582,6 @@ Wir betonen das, weil in der Implementierung und Standardisierung die Art
 des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 
-\subsubsection{Anmerkungen zur Faktorisierung von Zahlen}
-
-Eine hervorragende "Ubersicht "uber die Rekorde im Faktorisieren zusammengesetzter Zahlen
-mit unterschiedlichen Methoden findet sich auf der Webseite 
-\href{http://www.crypto-world.com}{\tt http://www.crypto-world.com}. Der aktuelle Rekord
-(Stand Juni 2000) mit der GNFS--Methode (General Number Field Sieve) liegt in der Zerlegung
-einer 158-stelligen Zahl in ihre beiden Primfaktoren (diese haben 73 und 86 Dezimalstellen).
-
-Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn, fand deutlich 
-weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
-Forscher die 155-stellige Zahl in ihre beiden 78--stellige Primfaktoren zerlegten.
-
-Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sonder die Aufgabe, die letzten
-Primfaktoren der Zahl $2^{953}+1$ zu finden. Als letzter Faktor blieb der sogenannte Teiler  ''C158'',
-von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
-$$
-\begin{array}{c}
-39505874583265144526419767800614481996020776460304936 \\
-45413937605157935562652945068360972784246821953509354 \\
-4305870490251995655335710209799226484977949442955603
-\end{array}
-$$
-Die Faktorisierung ergab die beiden Primfaktoren:
-$$
-\begin{array}{c}
-3388495837466721394368393204672181522 \\
-815830368604993048084925840555281177
-\end{array}
-$$
-und
-$$
-\begin{array}{c}
-1165882340667125990314837655838327081813101 \\
-2258146392600439520994131344334162924536139.
-\end{array}
-$$
 
 \newpage
 %\addcontentsline{toc}{subsection}{Literaturverzeichnis}
@@ -2587,66 +2589,69 @@ $$
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
 \bibitem[Bartholome1996]{Bartholome1996}  
     A. Bartholome, J. Rung, H. Kern, \\
-    Zahlentheorie f"ur Einsteiger, Vieweg 1995, 2. Auflage 1996.
+    {\em Zahlentheorie f"ur Einsteiger}, Vieweg 1995, 2. Auflage 1996.
 
 \bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
     Friedrich L. Bauer, \\
-    Entzifferte Geheimnisse, Springer, 1995.
+    {\em Entzifferte Geheimnisse}, Springer, 1995.
 
 \bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
     Friedrich L. Bauer, \\
-    Decrypted Secrets, Springer, 2nd edition, 2000.
+    {\em Decrypted Secrets}, Springer, 2nd edition, 2000.
 
+\bibitem[Bourseau2002]{Bourseau2002}
+    F. Bourseau / D. Fox / C. Thiel, \\
+    {\em Vorz"uge und Grenzen des RSA-Verfahrens}, in Datenschutz und Datensicherheit (DuD), 26/2002, S. 84-89.
 \bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
-    Kryptologie, Vieweg, 5. Auflage 1996.
+    {\em Kryptologie}, Vieweg, 5. Auflage 1996.
 
 \bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
     Johannes Buchmann, \\
-    Einf"uhrung in die Kryptographie, Springer, 1999.
+    {\em Einf"uhrung in die Kryptographie}, Springer, 1999.
 
 \bibitem[Eckert2001]{Eckert2001} \index{Eckert 2001} 
     Claudia Eckert, \\
-    IT-Sicherheit: Konzepte-Verfahren-Protokolle, Oldenbourg, 2001.
+    {\em IT-Sicherheit: Konzepte-Verfahren-Protokolle}, Oldenbourg, 2001.
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
      Graham, Knuth, Patashnik, \\
-     Concrete Mathemathics, a Foundation of Computer Science, 2nd edition, Addison Wesley, 1994.
+     {\em Concrete Mathemathics, a Foundation of Computer Science}, 2nd edition, Addison Wesley, 1994.
 
 \bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
-    The Art of Computer Programming, vol 2: 
-    Seminumerical Algorithms, Addison-Wesley, 2nd edition, 1998.
+    {\em The Art of Computer Programming, vol 2: 
+    Seminumerical Algorithms}, Addison-Wesley, 2nd edition, 1998.
 
 \bibitem[Pfleger1997]{Pfleger1997} \index{Pfleger 1997}
     Charles P. Pfleger, \\
-    Security in Computing, Prentice-Hall, 2nd edition, 1997.
+    {\em Security in Computing}, Prentice-Hall, 2nd edition, 1997.
 
 \bibitem[Schneier1996]{Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
-    Applied Cryptography, Protocols, Algorithms,
-    and Source Code in C, Wiley, 2nd edition, 1996.
+    {\em Applied Cryptography, Protocols, Algorithms,
+    and Source Code in C}, Wiley, 2nd edition, 1996.
 
 \bibitem[Sedgewick1990]{Sedgewick1990} \index{Sedgewick 1990}
     Robert Sedgewick,\\
-    Algorithms in C, Addison-Wesley, 1990.
+    {\em Algorithms in C}, Addison-Wesley, 1990.
 
 \bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
-    Cryptography - Theory and Practice, CRC Press, 1995.
+    {\em Cryptography - Theory and Practice}, CRC Press, 1995.
 
 \bibitem[Wiles1994]{Wiles1994}\index{Wiles}
     Wiles, Andrew, \\
-    Modular elliptic curves and Fermat's Last Theorem, in Annals of
+    {\em Modular elliptic curves and Fermat's Last Theorem}, in Annals of
     Mathematics 141 (1995).
 
 \bibitem[Wolffenstetter1998]{Wolffenstetter1998} \index{Wolffenstetter 1998}
     Albrecht Beutelspacher, J"org Schwenk, Klaus-Dieter Wolfenstetter, \\
-    Moderne Verfahren in der Kryptographie, Vieweg, 2. Auflage, 1998.
+    {\em Moderne Verfahren in der Kryptographie}, Vieweg, 2. Auflage, 1998.
 
 \bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
-    Number Theory for Computing, Springer, 2000.
+    {\em Number Theory for Computing}, Springer, 2000.
 \end{thebibliography}
 
 \newpage
@@ -2675,30 +2680,32 @@ $$
    \item Pari--GP, \\
          Hervorragender, schneller Interpreter mit zahlentheoretischen Funktionen \\
          \href{http://www.parigp-home.de}
-              {\tt http://www.parigp-home.de}
+              {\tt http://www.parigp-home.de} und 
+         \href{http://www.parigp-home.com}
+              {\tt http://www.parigp-home.com}
    \item Erst nach Vollendung dieses Artikels wurde mir eine Web-Seite bekannt, die
          interaktiv und didaktisch sehr ausgereift die grundlegenden Denkweisen der
          Mathematik anhand der elementaren Zahlentheorie nahebringt. Sie entstand f"ur
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasium (ist leider
          nur in Deutsch verf"ugbar): \\
          \href{http://www.hydrargyrum.de/kryptographie}
-              {\tt http://www.hydrargyrum.de/kryptographie}\index{Muenchenbach}
-   \item Ebenfalls erst nach Vollendung dieses Artikels wurden uns die Seiten des Beauftragten f"ur die
-         Lehrplanentwicklung des Fachs Informatikan den Gymnasium Oberstufe des Landes Saarland bekannt.
+              {\tt http://www.hydrargyrum.de/kryptographie}\index{Munchenbach@M""unchenbach}
+   \item Ebenfalls erst nach Vollendung dieses Artikels wurde mir die Seite des Beauftragten f"ur die
+         Lehrplanentwicklung des Fachs Informatik an der Oberstufe des Landes Saarland bekannt.
          Hier befindet sich eine Sammlung von Texten und Programmen (in Java), die aus didaktischen 
-         "Uberlegungen entstand. \\
-         \href{http://www.hom.saar.de/~awa/krypto.htm}
-              {\tt http://www.hom.saar.de/\~{}awa/krypto.htm}
+         "Uberlegungen entstand (ist leider nur in deutsch verf"ugbar). \\
+         \href{http://www.hom.saar.de/~awa/kryptolo.htm}
+              {\tt http://www.hom.saar.de/\~{}awa/kryptolo.htm}
    \item BSI, \index{BSI}\\ 
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
          \href{http://www.bsi.bund.de}{\tt http://www.bsi.bund.de}
-   \item Bernstein's RSA--Aufsatz\\
+   \item Bernsteins RSA--Aufsatz\\
          \href{http://cr.yp.to/papers/nfscircuit.ps}{\tt http://cr.yp.to/papers/nfscircuit.ps}
 \end{enumerate}
 
 
 \subsection*{Dank} \addcontentsline{toc}{subsection}{Dank}
-F"ur das anregende und konstruktive Korrekturlesen dieses Artikels: Hr.
+F"ur das anregende und konstruktive Korrekturlesen und viele Verbesserungen dieses Artikels: Hr.
 Henrik Koy.
 
 
@@ -2859,15 +2866,14 @@ Print[ iFaktor2, ''*i '', Table[ iFaktor2*i, {i, 1, iBreite } ] ];
 Print[ ''Rest '', Table[ Mod[iFaktor2*i, m], {i, 1, iBreite } ] ]; 
 \end{verbatim}
 Mit Pari-GP k"onnen Sie die Tabellenwerte folgenderma"sen berechnen:
-\begin{verbatim}
-m=17; iBreite=18; iFaktor1=5; iFaktor2=6;
 
-matrix(1,iBreite, x,y, iFaktor1*y)
-[5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90]
+{\tt m=17; iBreite=18; iFaktor1=5; iFaktor2=6;}
 
-matrix(1,iBreite, x,y, (iFaktor1*y)%m )
-[5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]
-\end{verbatim}
+{\tt matrix(1,iBreite, x,y, iFaktor1*y)} ergibt \\
+{\tt [5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90]}
+
+{\tt matrix(1,iBreite, x,y, (iFaktor1*y)\%m )} ergibt \\
+{\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
 
 Beachte: Pari-GP erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod} und gibt es auch aus:
 \begin{verbatim}
@@ -2885,8 +2891,8 @@ entsprechenden Zahlenwert ({\tt m=13} bzw. {\tt m=12}) ersetzen.
 \subsubsection*{Schnelles Berechnen hoher Potenzen} \hypertarget{AppArith2}{}
 
 Das schnelle Potenzieren modulo $m$ geh"ort zu den Grundfunktionen von Mathematica und 
-Pari--GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der Square-and-Multiply 
-Methode nachvollziehen. In Mathematica bestimmen sie Sie die Einzelexponentiation des Beispiels auf 
+Pari--GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der
+Square--and--Multiply--Methode nachvollziehen. In Mathematica bestimmen sie Sie die Einzelexponentiation des Beispiels auf 
 Seite \pageref{SrcArith2} mit
 \begin{verbatim}
 Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.
@@ -2915,7 +2921,7 @@ m=11; matrix(10,10, x,y, (x^y)%m )
 
 
 \vskip +12 pt \hypertarget{AppArith3b}{}
-Im Beispiel auf Seite \pageref{SrcArith3b} wird zus"atzlich auch die Ordnung $ord_{45}(a)$ 
+Im Beispiel auf Seite \pageref{SrcArith3b} wird die Ordnung $ord_{45}(a)$ 
 sowie die Eulersche Zahl $J(45)$ ausgegeben.
 Mit Mathematica bestimmen Sie diese Tabelle durch die folgende Programmschleife (innerhalb von
 Print kann man keine Do-Schleife verwenden und jedes Print gibt am Ende ein Newline aus). 
@@ -2975,25 +2981,28 @@ In diesem Abschnitt sind die Quelltexte f"ur die RSA-Beispiele im Abschnitt
 \vskip +10 pt \hypertarget{AppArith4a}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4a}. \\
 Die RSA-Exponentiation $M^{37}$ mod $3713$ f"ur die Nachricht $M = 120$ kann mit Mathematica per 
-{\tt PowerMod[120, 37, 3713]} berechnet werden. In Pari-GP lautet die Syntax 
+{\tt PowerMod[120, 37, 3713]} berechnet werden.\\
+In Pari-GP lautet die Syntax  \\
 {\tt Mod(120,3713)\^{}37 oder Mod(120\^{}37,3713)}.
 
 \vskip +10 pt \hypertarget{AppArith4b}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4b}. \\
 Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ bestimmt Mathematica mit 
-{\tt FactorInteger[255.016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}.
-In Pari-GP lautet die Syntax: {\tt factor(255016)}.
+{\tt FactorInteger[255.016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
+In Pari-GP lautet die Syntax: \\
+{\tt factor(255016)}.
 
 \vskip +10 pt \hypertarget{AppArith4c}{}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4c}. \\ 
 Mit Mathematica kann die RSA-Verschl"usselung durch den Befehl \\
 {\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256.027]\}}  \\
-berechnet werden. In Pari-GP lautet die Syntax:
-\begin{verbatim}
-vecextract( [Mod(82,256027)^65537, Mod(83,256027)^65537, Mod(65,256027)^65537, 
-             Mod(32,256027)^65537, Mod(119,256027)^65537], 31)
-\end{verbatim}
-{\bf Bemerkung:} \\
+berechnet werden.  \\ 
+In Pari-GP lautet die Syntax: \\
+{\tt vecextract( [Mod(82,256027)\^{}65537, Mod(83,256027)\^{}65537, Mod(65,256027)\^{}65537, \\
+                 Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537], 31)
+}
+
+{\bf Bemerkung zur Verwendung von {\tt Mod} in Pari--GP:} \\
 {\tt Mod(82,256027)\^{}65537} ist wesentlich schneller als \\
 --  {\tt Mod(82\^{}65537, 256027)} oder \\
 --  {\tt (82\^{}65537) \% 256027}.
@@ -3002,23 +3011,23 @@ vecextract( [Mod(82,256027)^65537, Mod(83,256027)^65537, Mod(65,256027)^65537,
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4d}.  \\
 Die RSA-Verschl"usselung kann mit Mathematica per \\
 {\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\}, 65537, 256027]}  \\
-berechnet werden. In Pari-GP lautet die Syntax:
-\begin{verbatim}
-vecextract( [Mod(21075,256027)^65537, Mod(16672,256027)^65537, 
-             Mod(30575,256027)^65537, Mod(29291,256027)^65537, 
-             Mod(29473,256027)^65537], 31)
-\end{verbatim}
+berechnet werden.\\
+In Pari-GP lautet die Syntax: \\
+{\tt vecextract( [Mod(21075,256027)\^{}65537, Mod(16672,256027)\^{}65537, \\
+             Mod(30575,256027)\^{}65537, Mod(29291,256027)\^{}65537, \\
+             Mod(29473,256027)\^{}65537], 31) 
+}
 
 \vskip +10 pt \hypertarget{AppArith4e}{}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4e}. \\
 Die RSA-Verschl"usselung kann mit Mathematica per \\
 {\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256027]} \\
-berechnet werden. In Pari-GP lautet die Syntax:
-\begin{verbatim}
-vecextract( [Mod(82083,256027)^65537, Mod(65032,256027)^65537, 
-             Mod(119111,256027)^65537, Mod(114107,256027)^65537, 
-             Mod(115033,256027)^65537], 31)
-\end{verbatim}
+berechnet werden. \\
+In Pari-GP lautet die Syntax: \\
+{\tt vecextract( [Mod(82083,256027)\^{}65537, Mod(65032,256027)\^{}65537, \\
+             Mod(119111,256027)\^{}65537, Mod(114107,256027)\^{}65537, \\
+             Mod(115033,256027)\^{}65537], 31)
+}
 
 
 % -----------------------------------------------------------------------------------------------------------------
