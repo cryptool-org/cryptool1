@@ -312,40 +312,16 @@ BOOL CMyEditView::OnPreparePrinting(CPrintInfo* pInfo)
 
 void CMyEditView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
 {
-	CSize size;
-
-	size = pDC->GetWindowOrg();
-	size = pDC->GetWindowExt();
-	size = pDC->GetViewportOrg();
-	size = pDC->GetViewportExt();
 	CRichEditView::OnPrint(pDC, pInfo);
 }
 
 void CMyEditView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 {
 	CSize size;
-//	LOGFONT lf;
-//	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
-//		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
-//					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
-//					DEFAULT_PITCH | FF_MODERN, "Courier New");
-//	font.CreateFont(-280, 0,0,0, 400, FALSE, FALSE,
-//		            0, ANSI_CHARSET, OUT_DEFAULT_PRECIS, 
-//					CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, 
-//					FIXED_PITCH, "Courier New");
-//    font.CreatePointFont(800, "Courier", NULL);
-//	font.GetLogFont(&lf);
-//	pDC->SelectObject(&font);
-	size = pDC->GetWindowOrg();
-	size = pDC->GetWindowExt();
-	size = pDC->GetViewportOrg();
-	size = pDC->GetViewportExt();
 	pDC->SetWindowOrg(-200,-200);
-	pDC->SetWindowExt(100,100);
 	size = pDC->GetWindowExt();
 	size.cx -= 200;
 	size.cy -= 200;
 	pDC->SetWindowExt(size);
 	CRichEditView::OnBeginPrinting( pDC, pInfo);
-//	pDC->SelectObject(&font);
 }
