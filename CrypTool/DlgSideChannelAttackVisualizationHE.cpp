@@ -177,7 +177,8 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 
 		// Fortschrittsanzeige für den Angriff initialisieren
 		// Obergrenze: [signifikante Bits] + 2
-		int significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 0);
+		// DEFAULT-WERT: 128 Bit
+		int significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
 		if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 		m_ControlAttackProgress.SetRange(0,significantBits+2);
 		m_ControlAttackProgress.SetStep(1);

@@ -72,7 +72,8 @@ CDlgSideChannelAttackVisualizationHETrudy::CDlgSideChannelAttackVisualizationHET
 	this->parent = pParent;
 
 	// die signifikante Bitzahl ermitteln
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 0);
+	// DEFAULT-WERT: 128 Bit
+	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 }
 
@@ -240,9 +241,8 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 		OctetString originalCipherText = alice->getHybEncFile().cipherText;
 		// Text entschlüsseln
 		OctetString clearText;
-		// Florian Marchal, 06.01.2004
-		// TODO: Speicher DYNAMISCH allokieren
-		clearText.octets = new char[50000+1];
+		// dynamisch Speicher für entschlüsselten Text allokieren
+		clearText.octets = new char[originalCipherText.noctets + 256];
 		clearText.noctets = 0;
 		decryptMessageAES(&originalCipherText, &o, &clearText, significantBits);
 		// Anzeige aktualisieren

@@ -55,9 +55,6 @@ statement from your version.
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHybridEncryptionDemo 
 #define MAX_LEN_EDIT 30000
-// Florian Marchal, 19.04.2004
-// entfernen???
-//#define KEY_LEN 16
 #define DIR_ENCRYPT 0 
 
 #define INFO_TEXT_COLUMNS 20 // Abhängig von der Fensterbreite in den Ressourcen !!!!!!

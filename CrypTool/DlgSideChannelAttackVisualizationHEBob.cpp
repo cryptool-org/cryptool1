@@ -138,7 +138,7 @@ void CDlgSideChannelAttackVisualizationHEBob::updateDisplay()
 			LoadString(AfxGetInstanceHandle(), IDS_SCA_SERVER_SUCCESSRESPONSE, pc_str, STR_LAENGE_STRING_TABLE);
 			m_ControlTasks.AddString(pc_str);
 		}
-		else if(bob->getNumberOfReceptions() == 1 && bob->getNumberOfPositiveResponses == 0)
+		else if(bob->getNumberOfReceptions() == 1 && bob->getNumberOfPositiveResponses() == 0)
 		{
 			LoadString(AfxGetInstanceHandle(), IDS_SCA_SERVER_FAILURERESPONSE, pc_str, STR_LAENGE_STRING_TABLE);
 			m_ControlTasks.AddString(pc_str);
