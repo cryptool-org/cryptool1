@@ -154,15 +154,27 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 		m_SecretExceedsPrime = true;
 	}
 	// Warnmeldung ausgeben, wenn das Geheimnis gleich p-1 ist oder 0, da das Verfahren dann
-	// u.U. unsicher ist.
+	// unsicher ist, weil der Sessionkey deshalb zu 1 wird
 	if( S == (m_Prime-1) || S == 0 )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_DANGEROUS, pc_str, STR_LAENGE_STRING_TABLE);
-		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
+		if( MessageBox(pc_str,"CrypTool", MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
 		{
 			this->m_SecretControl.SetFocus();
 			return;
 		}
+	}
+	// auch eine Warnmeldung ausgeben, falls das Geheimnis gleich 1 ist, denn dann
+	// kann der errechnete Sessionkey u.U. gleich dem ÖFFENTLICHEN Generator sein!
+	else if( S == 1 )
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_PREDICTABLE, pc_str, STR_LAENGE_STRING_TABLE);
+		if( MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
+		{
+			this->m_SecretControl.SetFocus();
+			return;
+		}
+		
 	}
 
 	UpdateData(false);

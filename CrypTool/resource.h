@@ -1710,6 +1710,7 @@
 #define IDS_DH_LOG_7                    61997
 #define IDS_DH_LOG_VALUE_A              61998
 #define IDS_DH_LOG_VALUE_B              61999
+#define IDS_DH_PP_SECRET_PREDICTABLE    62000
 
 // Next default values for new objects
 // 

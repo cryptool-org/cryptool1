@@ -5940,7 +5940,7 @@ BEGIN
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verifikation fehlgeschlagen! - Die Schlüssel von Alice und Bob sind nicht identisch!"
     IDS_DH_PP_SECRET_DANGEROUS 
-                            "Das von Ihnen eingegebene Geheimnis S ist entweder gleich Null oder gleich einem weiteren, kritischen Wert.\nBeachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist!"
+                            "Das von Ihnen eingegebene Geheimnis S ist entweder gleich 0 oder gleich p-1. Bitte beachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist, da der Sessionkey dann zu 1 wird!"
     IDS_DH_PP_NO_USER_INPUT "Bitte lassen Sie die Eingabefelder nicht leer!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "Der harmlosen Nachricht wurden %d Bytes hinzugefügt."
@@ -6678,6 +6678,12 @@ BEGIN
     IDS_DH_LOG_7            "Falls die gewählten Geheimnisse a und b größer oder gleich dem Primzahlmodul p sind, werden sie Modulo p reduziert. Nachfolgend sind die tatsächlich verwendeten Werte angegeben:"
     IDS_DH_LOG_VALUE_A      "a (reduziert mod p):\n"
     IDS_DH_LOG_VALUE_B      "b (reduziert mod p):\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_PP_SECRET_PREDICTABLE 
+                            "Sie haben den Wert 1 als Geheimnis gewählt. Bitte beachten Sie, dass das Verfahren mit dieser Wahl unter Umständen nicht sicher ist, weil der zu ermittelnde Sessionkey den Wert des öffentlichen Generators annehmen könnte!"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -12509,7 +12515,7 @@ BEGIN
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verification failed! The keys of Alice and Bob are NOT identical!"
     IDS_DH_PP_SECRET_DANGEROUS 
-                            "The secret number you chose is either zero or otherwise considered critical!\nThus, the proceeding might not be safe!"
+                            "The secret number S you chose is either 0 or p-1. Please note that the proceeding will not be safe because the Session Key, which is to be determined, will turn out to be 1!"
     IDS_DH_PP_NO_USER_INPUT "Please fill all entry fields!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "%d bytes were added to the harmless message."
@@ -13011,7 +13017,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_DH_PP_PRIME_INVALID "The number you chose is NOT a prime!\nThus, the proceeding might not be safe!"
     IDS_DH_PP_GENERATOR_INVALID 
-                            "You chose a generator (g) which is either zero, a multiple of the prime module (p) or otherwise considered critical!\nThus, the following proceeding might not be safe!"
+                            "You chose a generator (g) which is either 0 or a multiple of the prime module (p) or otherwise considered critical!\nThus, the following proceeding might not be safe!"
     IDS_DH_DATA_INCONSISTENCY "An internal error has occured!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Please use natural numbers in decimal format only (no special characters)!"
@@ -13112,6 +13118,12 @@ BEGIN
     IDS_DH_LOG_7            "If the chosen secret values a and b are greater or equal the prime module p, then they need to be reduced modulo p. The actual values are given below:"
     IDS_DH_LOG_VALUE_A      "a (reduced mod p):\n"
     IDS_DH_LOG_VALUE_B      "b (reduced mod p):\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_PP_SECRET_PREDICTABLE 
+                            "You chose 1 as the secret number S. Please note that the proceeding might not be safe because the Session Key, which is to be determined, might equal the public generator!"
 END
 
 #endif    // Englisch (GB) resources
