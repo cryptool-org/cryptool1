@@ -22,13 +22,13 @@ REM -- Hilfe erstellen fÅr Projekt multipad
 echo Win32 Hilfedateien werden erstellt...
 start /wait hcw /C /E /M "hlp\multipad.hpj"
 if errorlevel 1 goto :Error
-if not exist "hlp\CrypTool.hlp" goto :ErrorDatei
-if not exist "hlp\CrypTool.cnt" goto :ErrorDatei
+if not exist "hlp\CrypTool-de.hlp" goto :ErrorDatei
+if not exist "hlp\CrypTool-de.cnt" goto :ErrorDatei
 echo.
-if exist Debug\nul copy "hlp\CrypTool.hlp" Debug
-if exist Debug\nul copy "hlp\CrypTool.cnt" Debug
-if exist Release\nul copy "hlp\CrypTool.hlp" Release
-if exist Release\nul copy "hlp\CrypTool.cnt" Release
+if exist Debug\nul copy "hlp\CrypTool-de.hlp" Debug
+if exist Debug\nul copy "hlp\CrypTool-de.cnt" Debug
+if exist Release\nul copy "hlp\CrypTool-de.hlp" Release
+if exist Release\nul copy "hlp\CrypTool-de.cnt" Release
 echo.
 goto :done
 
