@@ -9,7 +9,7 @@
 \begin{center}
 \fbox{\parbox{15cm}{{\em \index{Berne} Eric Berne\footnotemark\ :}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
-Die transaktionale Spielanalyse dagegen befa"st sich mit Spielen, die
+Die transaktionale Spielanalyse dagegen befasst sich mit Spielen, die
 unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{Eric Berne, \glqq Spiele der Erwachsenen'', rororo, (c) 1964, S. 235.}\vskip +4pt
@@ -712,6 +712,7 @@ oder Pari-GP.\index{Pari-GP}
 } veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht mehr 
 die vollst"andigen Multiplikationstabellen angegeben, sondern nur die Zeilen f"ur die Faktoren $5$ und $6$).
 
+\pagebreak
 In der Multiplikationstabelle mod $17$ wurde f"ur $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
@@ -722,7 +723,7 @@ den Wert $1$ hat.
 
 {
 \begin{table}[h] \label{SrcArith1a}
-\subsubsection*{Multiplikationstabelle modulo $17$ (f"ur $a=5$ und $a=6$)}
+\subsubsection*{Tabelle 1: Multiplikationstabelle modulo $17$ (f"ur $a=5$ und $a=6$)}
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
 \hline 
@@ -750,7 +751,7 @@ $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vor (vollst
     \vskip +20 pt
 
     \begin{table}[h] \label{SrcArith1b}
-    \subsubsection*{Multiplikationstabelle modulo $13$ (f"ur $a=5$ und $a=6$)}
+    \subsubsection*{Tabelle 2: Multiplikationstabelle modulo $13$ (f"ur $a=5$ und $a=6$)}
     \begin{center}                                                                          
     \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
     \hline 
@@ -775,14 +776,13 @@ zwischen $i=1, \cdots, m$ f"ur die Reste alle Werte zwischen $0, \cdots, m-1$ vo
 
 {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 \vskip +15 pt
-
+\pagebreak
 Die folgende Tabelle enth"alt ein Beipiel daf"ur, wo der Modul $m$ und die Zahl $(a=6)$
 {\em nicht} teilerfremd sind.
 \vskip +15 pt
 
-\newpage
 \begin{table}[h]
-\subsubsection*{Multiplikationstabelle modulo $12$ (f"ur $a=5$ und $a=6$)}
+\subsubsection*{Tabelle 3: Multiplikationstabelle modulo $12$ (f"ur $a=5$ und $a=6$)}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
 \hline 
@@ -838,7 +838,7 @@ L"ange der Zahlen ab. Dies sieht man, wenn man nach der Schulmethode z.B.
 $474*228$ berechnet: Der Aufwand steigt quadratisch, da $3*3$ Ziffern
 multipliziert werden m"ussen. Durch die Reduktion der Zwischenergebnisse
 werden die Zahlen deutlich kleiner.
-} rechnen, mu"s aber auch aufpassen, da sich dann nicht immer alles wie in der
+} rechnen, muss aber auch aufpassen, da sich dann nicht immer alles wie in der
 gew"ohnlichen Arithmetik verh"alt.
 \begin{eqnarray}
 (4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
@@ -927,7 +927,7 @@ mit Mathematica und Pari-GP.
 Die Potenzen $(a^2)^k$ sind durch fortgesetztes Quadrieren leicht zu bestimmen.
 Solange sich $a$ nicht "andert, kann ein Computer sie vorab berechnen und --
 bei ausreichend Speicherplatz -- abspeichern. Um dann im Einzelfall $a^n$ zu
-finden, mu"s er nur noch genau diejenigen $(a^2)^k$ miteinander multiplizieren,
+finden, muss er nur noch genau diejenigen $(a^2)^k$ miteinander multiplizieren,
 f"ur die an der $k$-ten Stelle der Bin"ardarstellung von n eine Eins steht. Der
 typische Aufwand f"ur $n=600$ sinkt dadurch von $2^{600}$ auf $2*600$ Multiplikationen!
 Dieser h"aufig verwendete Algorithmus hei"st \glqq Square and Multiply''. \index{Square and multiply}
@@ -978,7 +978,7 @@ Kapitel 3.10: \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat})
 Dagegen ist der Aufwand f"ur die Umkehrung von Addition und Multiplikation
 nur proportional zu $\log m$ beziehungsweise $(\log m)^2$.
 Potenzieren (zu einer Zahl $x$ berechne $x^a$ mit festem $a$) und Exponentiation
-(zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische Einwegfunktionen
+(zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische Einwegfunktionen\index{Einwegfunktion}
 (siehe "Ubersicht "uber Einwegfunktionen im \hyperlink{Einwegfunktionen1}{Skript} oder in diesem 
 \hyperlink{Einwegfunktionen2}{Artikel}).
 
@@ -998,9 +998,9 @@ Addition oder Multiplikation) die folgenden Eigenschaften erf"ullt sind:
 Die abgek"urzte mathematische Schreibweise lautet: $(G, +)$ oder $(G,*)$.
 \begin{definition}\label{def-zth-zn}
 $\mathbb{Z}_n$ :\index{Z@$\mathbb{Z}_n$}
-$$\mathbb{Z}_n \text{ umfa"st alle ganzen Zahlen von } 0 \text{ bis } n-1: \mathbb{Z}_n = \{0, 1, 2,\cdots, n-2, n-1\}.$$
+$$\mathbb{Z}_n \text{ umfasst alle ganzen Zahlen von } 0 \text{ bis } n-1: \mathbb{Z}_n = \{0, 1, 2,\cdots, n-2, n-1\}.$$
 \end{definition}
-$\mathbb{Z}_n$ ist eine haufig verwendete endliche Gruppe aus den nat"urlichen Zahlen. Sie 
+$\mathbb{Z}_n$ ist eine h"aufig verwendete endliche Gruppe aus den nat"urlichen Zahlen. Sie 
 wird manchmal auch als Restemenge $R$ modulo $n$ bezeichnet.
 
 Beispielsweise rechnen 32 Bit-Computer ("ubliche PCs) mit ganzen Zahlen
@@ -1192,7 +1192,7 @@ berechnen. Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 \begin{itemize}
    \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim; $J(6) = 2$, da nur $1$
          und $5$ zu $6$ teilerfremd sind folgt $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~}6)$,
-         ohne dass man die Potenz berechnen mu"ste.
+         ohne dass man die Potenz berechnen musste.
    \item Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils prim folgt \\
          $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~}851)$.
 \end{itemize}
@@ -1234,7 +1234,7 @@ F"ur das folgende Beispiel wird der Modul wie beim RSA-Verfahren "ublich mit
 }.
 
 Wenn man in $a^{e*d} \equiv a^1$ (mod $n$) die Inverse z.B. f"ur den Faktor $e$ 
-im Exponenten bestimmen will, mu"s man modulo $J(n)$ rechnen.
+im Exponenten bestimmen will, muss man modulo $J(n)$ rechnen.
 
 {\bf Beispiel (mit Bezug zum RSA-Algorithmus):}\index{RSA}
 
@@ -1300,13 +1300,13 @@ gleiche Ordnung haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 {\bf Beispiel 1:}\\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur bestimmung der Tabelle mit Mathematica und
+In \hyperlink{AppArith3a}{Anhang D} finden Sie den Quelltext zur Bestimmung der Tabelle mit Mathematica und
 Pari-GP.
 } zeigt die Werte $a^i{\rm ~mod~}11$ f"ur die Exponenten $i = 1, 2, \cdots, 10$ und f"ur 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich f"ur jedes a daraus ergebenden Wert $ord_{11}(a)$:
 %\newpage
 {
-\subsubsection*{Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugeh"orige Ordnung von $a$ modulo $m.$}
+\subsubsection*{Tabelle 4: Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugeh"orige Ordnung von $a$ modulo $m.$}
 \begin{center} \label{SrcArith3a}
 %\begin{table}[h]
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1365,7 +1365,7 @@ f"ur die Exponenten $i = 1, 2, \cdots, 12$ und f"ur die Basen $a = 1, 2, \cdots,
 sowie den sich f"ur jedes $a$ daraus ergebenden Wert $ord_{45}(a)$.
 %\newpage
 { % \small
-\subsubsection*{Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
+\subsubsection*{Tabelle 5: Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
 \begin{center} \label{SrcArith3b}
 %\begin{table}[h]
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1427,7 +1427,7 @@ In \hyperlink{AppArith3c}{Anhang D} Finden Sie den Quelltext zur Berechnung der 
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erf"ullt.
 %\newpage                                                                           
 {
-\subsubsection*{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+\subsubsection*{Tabelle 6: Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 \textmd \small \label{SrcArith3c}
 \begin{center}
 \vspace{-5ex}
@@ -1491,15 +1491,18 @@ $J(46)$ berechnet sich nach Satz \ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{%
-Vergleiche die obige Tabelle mit den Werten von $a^i$ (mod $11$), mit $1
-\le a, i < 11$. Die vorige Tabelle mod 46 passt nicht zu diesem Satz.
+    F"ur Primmoduli $p$ haben alle $0 < a < p$ die Ordnung $J(p) = p - 1$.
+    Vergleiche dazu Tabelle~5. In diesem Fall nimmt $a^i (\mbox{mod }n)$
+    die Werte $1,\dots,p-1$ an. Dieses Aussch"opfen des
+    Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische
+    Eigenschaft (vergleiche Satz \ref{thm-zth-exhperm}). Hiermit wird eine
+    Permutation\index{Permutation} $\pi(p-1)$ festgelegt.
 }${}^,$ \footnote{%
-Das Aussch"opfen des Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische Eigenschaft 
-(vergleiche Satz \ref{thm-zth-exhperm}). Hiermit wird eine Permutation
-$\pi(p-1)$ festgelegt.
-} F"ur einen Modul $p$ und $a < p$ nimmt $a^i$ (mod $p$), $i = 1, \cdots,
-p-1$ alle $J(p) = p - 1$ Werte 
-$1, \cdots, p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
+Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
+maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,21$
+die Ordnung 22.
+} F"ur einen Modul $n$ und $a$ teilerfremd zu $n$ gilt: $\{ a^i (\mbox{mod }n) | i =
+1,\dots,J(n)\}$ ist gleich der multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
 \end{satz}
 
 
@@ -1508,7 +1511,7 @@ $1, \cdots, p-1$ genau dann einmal an, wenn $ord_p(a) = J(p)$.
 \subsection{Beweis des RSA-Verfahrens mit Euler-Fermat}
 \hypertarget{RSABeweis}{} Mit dem Satz von Euler-Fermat kann man in der Gruppe $\mathbb{Z}_n^*$ das 
 RSA\footnote{%
-Das RSA-Verfahren ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
+Das RSA-Verfahren\index{RSA-Verfahren} ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschl"usseln eingesetzt werden.
 Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses Verfahren -
@@ -1519,13 +1522,13 @@ der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}truktur{\bf A}
 gesetzlichen Krankenversicherung mit einem j"ahrlichen Volumen von "uber 24
 Milliarden DM bezeichnet.
 }$^,$\footnote{%
-In der Literatur und Filmen werden nicht nur klassische Verfahren benutzt
-(wie z.~B. die geheime Nachricht, die Sherlock Holmes in der Geschichte
-"`Die tanzenden M"annchen"' von Arthur Conan Doyle l"ost), sondern auch
-moderne Verfahren: z.~B. in
+In der Literatur und in Filmen werden nicht nur klassische Verfahren
+benutzt (wie z.~B. die geheime Nachricht, die Sherlock Holmes in der
+Geschichte "`Die tanzenden M"annchen"' von Arthur Conan Doyle l"ost),
+sondern auch moderne Verfahren: z.~B. in
 \begin{itemize}
-\item dem Film "`Das Kartenhaus"', wo sich die Autisten mit Hilfe von 5-
-  und 6-stelligen Primzahlen unterhalten,
+\item dem Film "`Das Kartenhaus"', 1992, wo sich die Autisten mit Hilfe von
+  5- und 6-stelligen Primzahlen unterhalten,
 \item der Geschichte "`Der Dialog der Schwestern"' von Dr.~C.~Elsner, 1999
   (als PDF dem CrypTool-Paket beigelegt),
   wo die Heldinnen sich vertraulich mit einer Variante des RSA-Verfahrens
@@ -1558,7 +1561,7 @@ Forderungen erf"ullt sein:
 \begin{itemize}
     \item[\bf 1.] $D ( S; E (P; M) ) = M$ f"ur jedes $M$ (Umkehrbarkeit) und $M$ nimmt
 \glqq sehr viele\grqq~ verschiedene Werte an.
-    \item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden (d.h. es mu"s viele davon geben).
+    \item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden (d.h. es muss viele davon geben).
     \item[\bf 3.] Der Aufwand, $S$ aus $P$ herzuleiten, ist mindestens so hoch, wie das Entschl"usseln
                                von $M$ ohne Kenntnis von $S$.
     \item[\bf 4.] Sowohl $C$ als auch $M$ lassen sich relativ einfach berechnen.
@@ -1673,7 +1676,7 @@ Beim RSA-Verfahren bedeutet dies, dass
 \subsubsection{Beweis der Forderung 1 (Umkehrbarkeit)} \hypertarget{RSAproof}{}\label{RSAproof}
 
 F"ur Schl"usselpaare $(n, e)$ und $(n, d)$, die die in den Schritten 1 bis 3 des RSA-Verfahrens 
-festgelegten Eigenschaften besitzen, mu"s f"ur alle $M < n$ gelten:
+festgelegten Eigenschaften besitzen, muss f"ur alle $M < n$ gelten:
 $$M  \equiv  (M^e)^d  {\rm ~(mod~} n) \quad {\rm wobei} \quad  (M^e)^d  =  M^{e * d}.$$
 Das hei"st, der oben angegebene Dechiffrieralgorithmus arbeitet korrekt.
 
@@ -1699,7 +1702,7 @@ Die Voraussetzung f"ur die Anwendung des vereinfachten Satzes von Euler-Fermat
 (kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$ teilerfremd sind.
 
 Da das im allgemeinen nicht gilt, m"ussen wir noch betrachten, was ist, wenn
-$M$ und $p$ nicht teilerfremd sind: da $p$ eine Primzahl ist, mu"s dann
+$M$ und $p$ nicht teilerfremd sind: da $p$ eine Primzahl ist, muss dann
 notwendigerweise $p$ ein Teiler von $M$ sein. Das hei"st aber: 
 $$  M \equiv 0 {\rm ~(mod~}p) $$
 Wenn $p$ die Zahl $M$ teilt, so teilt $p$ erst recht $M^{e * d}$. Also ist auch:
@@ -1719,7 +1722,7 @@ zu zeigen:
 $$ M^{e * d} \equiv M{\rm ~(mod~}n) {\rm ~f"ur~alle~} M < n. $$
 Nach (a) und (b) gilt $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ und $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$,
 also teilen $p$ und $q$ jeweils dieselbe Zahl $z = (M^{e * d} - M)$.
-Da $p$ und $q$ {\bf verschiedenen} Primzahlen sind, mu"s dann auch ihr Produkt diese Zahl $z$ teilen. Also gilt:
+Da $p$ und $q$ {\bf verschiedenen} Primzahlen sind, muss dann auch ihr Produkt diese Zahl $z$ teilen. Also gilt:
 $$
 (M^{e * d} - M) \equiv 0 {\rm ~(mod~}p*q) {\rm ~~oder~~ } M^{e * d} \equiv M {\rm ~(mod~}p*q) {\rm ~~oder~~} 
  M^{e * d} \equiv M {\rm ~(mod~}n).
@@ -1751,8 +1754,10 @@ $$
 \subsection{Zur Sicherheit des RSA-Verfahrens}
 \label{SecurityRSA}
 
-Gro"se Teile dieses Absatzes entstammen dem Artikel \glqq Vorz"uge und Grenzen des RSA-Verfahrens\grqq 
-\linebreak[4] von F. Bourseau / D. Fox / C. Thiel, {\em in Datenschutz und Datensicherheit} (DuD), 26/2002, S. 84-89.
+Gro"se Teile dieses Absatzes sind angelehnt an den Artikel \glqq Vorz"uge
+und Grenzen des RSA-Verfahrens\grqq von F. Bourseau / D. Fox
+/ C. Thiel, {\em in Datenschutz und Datensicherheit} (DuD) 26/2002, S.
+84-89.
 
 Die Eignung des RSA-Verfahrens f"ur digitale Signaturen und Verschl"usselung ger"at immer wieder in die Diskussion, 
 z.B. im Zusammenhang mit der Ver"offentlichung aktueller Faktorisierungserfolge. Ungeachtet dessen ist das RSA-Verfahren 
@@ -1779,7 +1784,7 @@ In den folgenden Abnschnitten werden die ersten beiden Punkte n"aher untersucht.
   Ein erfolgreiches Entschl"usseln oder eine Signaturf"alschung --- ohne
   Kenntnis des geheimen Schl"us"-sels --- erfordert, die $e$-te Wurzel mod
   $n$ zu ziehen.  Der geheime Schl"ussel, n"amlich die multiplikative
-  Inverse zu $e$ mod $J(N)$, kann leicht bestimmt werden, wenn die
+  Inverse zu $e$ mod $J(n)$, kann leicht bestimmt werden, wenn die
   Eulersche Funktion $J(n)$ bekannt ist. $J(n)$ wiederum l"asst sich aus
   den Primfaktoren von $n$ berechnen.  Das Brechen des RSA-Verfahrens kann
   daher nicht schwieriger sein als das Faktorisieren des Moduls $n$.
@@ -1798,18 +1803,19 @@ Siehe:
           In: RSA Laboratories Bulletin, No. 13, April 2000, S. 1-22
 \end{list} \vskip +12 pt
 
-Die Formel zeigt, dass das Faktorisierungsproblem zur Komplexit"atsklasse der Probleme mit subexponentieller 
-Berechnungskomplexit"at geh"ort (d.h. der L"osungsaufwand w"achst
+Die Formel zeigt, dass das Faktorisierungsproblem zur Komplexit"atsklasse\index{Komplexit"atsklasse} der Probleme mit subexponentieller 
+Berechnungskomplexit"at\index{Komplexit""at!subexponentielle} geh"ort (d.h. der L"osungsaufwand w"achst
 asymptotisch nicht so stark wie $e^l$ oder $2^l$, sondern echt schw"acher,
 z.~B. wie $e^{\sqrt{l}}$). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
 jedoch nicht, dass das Faktorisierungsproblem m"oglicherweise nicht auch
-polynominell gel"ost werden kann (s. \ref{RSABernstein}).
+mit (asymptotisch) 
+polynominellem Aufwand gel"ost werden kann (s. \ref{RSABernstein}).
 
 $O(l)$ gibt die Zahl der durchschnittlich erforderlichen Prozessor-Operationen abh"angig von der Bitl"ange $l$ der zu 
 faktorisierenden Zahl $n$ an. F"ur den besten allgemeinen Faktorisierungsalgorithmus ist die Konstante 
 $c = (64/9)^{1/173} = 1,923$.
 
-Die umgekehrte Aussage, dass das RSA-Verfahren ausschlie"slich durch eine Faktorisierung von N gebrochen werden kann, 
+Die umgekehrte Aussage, dass das RSA-Verfahren ausschlie"slich durch eine Faktorisierung von $n$ gebrochen werden kann, 
 ist bis heute nicht bewiesen. Zahlentheoretiker halten das ``RSA-Problem'' und das Faktorisierungsproblem f"ur 
 komplexit"atstheoretisch "aquivalent.
 
@@ -1857,10 +1863,13 @@ der Sicherheit unterschiedlicher RSA-Modull"angen differieren und h"angen von ve
          und des Grid-Computing. \index{Gesetz von Moore}
    \item Entwicklung neuer Algorithmen.
 \end{itemize}
-Selbst ohne neue Algorithmen wurden in den letzten Jahren durchschnittlich ca. 10 Bit mehr Jahr berechenbar.
-Gr"o"sere Zahlen erfordern mit den heute bekannten Verfahren einen immer gr"o"seren Arbeitsspeicher f"ur die 
-L"osungsmatrix. Dieser Speicherbedarf w"achst ca. quadratisch zur Modull"ange $l$.
-Deshalb d"urften gr"o"sere Fortschritte auch neue Algorithmen voraussetzen.
+Selbst ohne neue Algorithmen wurden in den letzten Jahren durchschnittlich
+ca. 10 Bit mehr pro Jahr berechenbar.  Gr"o"sere Zahlen erfordern mit den
+heute bekannten Verfahren einen immer gr"o"seren Arbeitsspeicher f"ur die
+L"osungsmatrix. Dieser Speicherbedarf w"achst mit der Wurzel des
+Rechenzeitbedarfs, also ebenfalls subexponentiell. Da in den letzten Jahren
+der verf"ugbare Haupspeicher wie die Rechengeschwindigkeit exponentiell
+gewachsen ist, d"urfte hierdurch kein zus"atzlicher Engpass entstehen.
 
 \begin{sloppypar}
   In dem Artikel ``Vorz"uge und Grenzen des RSA-Verfahrens'' prognostiziert
@@ -1896,7 +1905,7 @@ Die im November 2001 ver"offentlichte Arbeit ``Circuits for integer
 factorization: a proposal'' (siehe
 \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}) von
 D.J. Bernstein behandelt das Problem der Faktorisierung gro"ser Zahlen.
-Die Kernaussage des Papers besteht darin, dass es m"oglich ist die
+Die Kernaussage des Papers besteht darin, dass es m"oglich ist, die
 Implementierung des General Number Field Sieve-Algorithmus (GNFS) so zu
 verbessern, so dass mit gleichem Aufwand wie bisher Zahlen mit 3-mal
 gr"o"serer Stellenzahl (Bit-L"ange) faktorisiert werden k"onnen.
@@ -1963,13 +1972,20 @@ We conclude that from a practical standpoint, the security of RSA relies
 exclusively on the hardness of the relation collection step of the number
 field sieve.''
 
-Auch \href{http://www.rsasecurity.com/}{RSA Security} kommt in ihrer Analyse der Bernstein Arbeit (Titel
+Auch \href{http://www.rsasecurity.com/}{RSA Security} kommt in ihrer Analyse der Bernstein-Arbeit (Titel
 {\em Has the RSA algorithm been compromised as a result of Bernstein's Paper?}) vom 8. April 2002 
 zu dem Ergebnis, dass RSA weiterhin als ungebrochen betrachtet werden kann (siehe
 \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}).
 
+Zum Zeitpunkt der Erstellung dieses Kapitels (Juni 2002) war nichts
+dar"uber bekannt, inwieweit die im Bernstein-Papier vorgeschlagenen
+theoretischen Ans"atze realisiert wurden oder wieweit die Finanzierung
+seines Forschungsprojektes ist.
+
 \begin{minipage}{\textwidth}
+\vspace{3ex}
 Verweise:
+
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
                {\texttt{http://cr.yp.to/djb.html}}
@@ -2005,7 +2021,7 @@ Forscher die 155-stellige Zahl in ihre beiden 78-stellige Primfaktoren zerlegten
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
 Primfaktoren der Zahl $2^{953}+1$ zu finden (s.~ ``Wanted List'' des
-Cunningham Projekts \href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
+Cunningham-Projekts \index{Cunningham-Projekt}\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}). Als letzter Faktor blieb der sogenannte Teiler  "`C158"',
 von dem man bis dahin wusste, dass er zusammengesetzt ist, aber man kannte seine Primfaktoren nicht:
 $$
 \begin{array}{c}
@@ -2082,7 +2098,7 @@ unberechenbar sein.
 Was sind denkbare Kandidaten f"ur eine solche \index{Einwegfunktion} {\bf Einwegfunktion}? Man k"onnte an
 die Stelle der Addition die Multiplikation setzen; aber schon Grundsch"uler
 wissen, dass deren Umkehrung, die Division, nur geringf"ugig m"uhsamer ist als
-die Multiplikation selbst. Man mu"s noch eine Stufe h"oher in der Hierarchie
+die Multiplikation selbst. Man muss noch eine Stufe h"oher in der Hierarchie
 der Rechenarten gehen: Potenzieren ist immer noch eine relativ einfache
 Operation; aber ihre beiden Umkehrungen {\em Wurzelziehen} (finde $b$ in der
 Gleichung $a = b^c$ , wenn $a$ und $c$ bekannt sind) und {\em Logarithmieren} (in
@@ -2096,7 +2112,7 @@ wild durcheinander: Wenn man einige wenige Funktionswerte kennt, wei"s man
 Funktion im ganzen.
 
 % ......................................................................................
-\subsubsection{Das Diffie-Hellman Schl"usselaustausch-Protokoll (Key Exchange-Protokoll)} \index{Diffie-Hellman Key Exchange}
+\subsubsection{Das Diffie-Hellman Schl"usselaustausch-Protokoll (Key Exchange-Protokoll)} 
 \index{Diffie Whitfield} \index{Hellman Martin} Das DH-Schl"usselaustauschprotokoll wurde 1976 in Stanford von Whitfield
 Diffie, Martin E. Hellman und Ralph Merkle erdacht. \index{Schl""usselaustausch!Diffie-Hellman}
 
@@ -2179,7 +2195,7 @@ algebraisch direkten Verfahren zu kennen, um die Gleichung zu l"osen.
 Doch mit der verallgemeinerten Funktion f"ur die multiplikative Ordnung kann
 es Mathematica (hier f"ur Alice): 
 {\texttt{MultiplicativeOrder[11, 347, 49]}} liefert den Wert $67$. \\
-In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}
+In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}.
 \\
 Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang Web-Links)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
@@ -2204,7 +2220,7 @@ Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung erf"ul
 PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
 MultiplicativeOrder[11, 347] = 173} \\
 In Pari-GP lautet die Syntax:\\
-{\tt isprime(347); eulerphi(347); gcd(11,347); znorder(Mod(11,347))}
+{\tt isprime(347); eulerphi(347); gcd(11,347); znorder(Mod(11,347))}.
 \vskip +10 pt
 \begin{tabular}{|c|c|l|}
 \hline
@@ -2247,7 +2263,7 @@ Mit CrypTool v1.3 k"onnen Sie dies per \glqq Einzelverfahren/RSA-Demo/RSA-Krypto
 \begin{itemize}
   \item[\bf 1.] Die gew"ahlten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)*(q-1)=40$.
-  \item[\bf 2.] $e = 7$ (sollte zwischen $11$ und $40$ liegen und mu"s teilerfremd zu $40$ sein).
+  \item[\bf 2.] $e = 7$ (sollte zwischen $11$ und $40$ liegen und muss teilerfremd zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
      \item[] $\rightarrow$ Public Key des Senders: $(55, 7),$
@@ -2271,6 +2287,8 @@ Mit CrypTool v1.3 k"onnen Sie dies per
 zu CrypTool beschrieben [Optionen, Alphabet vorgeben, Basissystem, Blockl"ange 2 und Dezimaldarstellung].
 }:
 \vskip +5 pt
+\hypertarget{Grossbuchstaben-Alphabet}{}
+{\bf Tabelle 7: Gro"sbuchstabenalphabet}\index{Gro""sbuchstabenalphabet}\\[1ex]
 \begin{tabular}{|c|l||c|l|}
 \hline
 Zeichen & Zahlenwert & Zeichen & Zahlenwert \\
@@ -2292,16 +2310,13 @@ L       & 12   & Y    & 25 \\
 &              & Z    & 26 \\
 \hline
 \end{tabular}  
-\hypertarget{Grossbuchstaben-Alphabet}{}
-
-{\bf Tabelle Gro"sbuchstabenalphabet}\index{Gro""sbuchstabenalphabet}
 
 \vskip +20 pt
 
 {\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
 {\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3.588).$ \\
-{\bf 2.} $e=37$ (sollte zwischen 79 und 3588 liegen und mu"s teilerfremd zu $3588$ sein). \\
+{\bf 2.} $e=37$ (sollte zwischen 79 und 3588 liegen und muss teilerfremd zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3.589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
 Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet wird im \hyperlink{Appendix_A}{Anhang A} gezeigt.
@@ -2363,14 +2378,14 @@ Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert:
 
 Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam f"ur beide sind die Schritte $1$ bis $3$.
 \vskip +10pt
-{\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\ \label{SrcArith4b}
+{\bf Schl"usselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
 In \hyperlink{AppArith4b}{Anhang D} finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Mathematica und Pari-GP. \\
 Mit CrypTool v1.3 k"onnen Sie dies per ``Einzelverfahren/RSA-Demo/Faktorisieren'' l"osen.
 }. \\
-{\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. mu"s teilerfremd
+{\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. muss teilerfremd
 zu $255.016$ sein)\footnote{%
-$e$ soll also nicht $2, 127$ oder $251$ sein.\\
+$e$ soll also nicht $2, 127$ oder $251$ sein ($65537 = 2^{16}+1$).\\
 Real wird $J(n)$ nicht faktorisiert, sondern f"ur das gew"ahlte $e$ wird mit dem Euklidschen Algorithmus
 sichergestellt, dass ggT$(d,J(n))=1$.
 }.\\
@@ -2394,8 +2409,8 @@ F"ur sichere Verfahren braucht man gro"se Zahlen, die m"oglichst alle Werte bis
 $n-1$ annehmen. Wenn die m"ogliche Wertemenge der Zahlen in der Nachricht zu
 klein ist, nutzen auch gro"se Primzahlen nichts f"ur die Sicherheit.
 Ein ASCII-Zeichen ist durch $8$ Bits repr"asentiert. Will man gr"o"sere Werte,
-mu"s man mehrere Zeichen zusammenfassen. Zwei Zeichen ben"otigen 16 Bit, womit
-maximal der Wert 65.536 darstellbar ist; dann mu"s der Modul $n$ gr"o"ser sein als
+muss man mehrere Zeichen zusammenfassen. Zwei Zeichen ben"otigen 16 Bit, womit
+maximal der Wert 65.536 darstellbar ist; dann muss der Modul $n$ gr"o"ser sein als
 $2^{16} = 65.536$. Dies wird in Variante 2 angewandt.
 Beim Zusammenfassen bleiben in der Bin"ar-Schreibweise die f"uhrenden Nullen
 erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
@@ -2690,12 +2705,14 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Friedrich L. Bauer, \\
     {\em Decrypted Secrets}, Springer, 2nd edition, 2000.
 
-\bibitem[Bourseau2002]{Bourseau2002}
-    F. Bourseau / D. Fox / C. Thiel, \\
-    {\em Vorz"uge und Grenzen des RSA-Verfahrens}, in Datenschutz und Datensicherheit (DuD), 26/2002, S. 84-89.
 \bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
     {\em Kryptologie}, Vieweg, 5. Auflage 1996.
+
+\bibitem[Bourseau2002]{Bourseau2002}
+    F. Bourseau / D. Fox / C. Thiel, \\
+    {\em Vorz"uge und Grenzen des RSA-Verfahrens}, in Datenschutz und
+    Datensicherheit (DuD) 26/2002, S. 84-89.
 
 \bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
     Johannes Buchmann, \\
@@ -2713,6 +2730,11 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Donald E. Knuth, \\
     {\em The Art of Computer Programming, vol 2: 
     Seminumerical Algorithms}, Addison-Wesley, 2nd edition, 1998.
+
+\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
+    Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
+    {\em Analysis of Bernstein’s Factorization Circuit},\\
+    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 
 \bibitem[Pfleeger1997]{Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\
@@ -2736,17 +2758,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     {\em Modular elliptic curves and Fermat's Last Theorem}, in Annals of
     Mathematics 141 (1995).
 
-\bibitem[Wolffenstetter1998]{Wolffenstetter1998} \index{Wolffenstetter 1998}
+\bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J"org Schwenk, Klaus-Dieter Wolfenstetter, \\
     {\em Moderne Verfahren in der Kryptographie}, Vieweg, 2. Auflage, 1998.
 
 \bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
     {\em Number Theory for Computing}, Springer, 2000.
-\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
-    Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
-    {\em Analysis of Bernstein’s Factorization Circuit},\\
-    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 \end{thebibliography}
 
 \newpage
@@ -2788,7 +2806,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          \href{http://www.hydrargyrum.de/kryptographie}
               {\texttt{http://www.hydrargyrum.de/kryptographie}}\index{Munchenbach@M""unchenbach}
    \item Ebenfalls erst nach Vollendung dieses Artikels wurde mir die Seite des Beauftragten f"ur die
-         Lehrplanentwicklung des Fachs Informatik an der Oberstufe des Landes Saarland bekannt.
+         Lehrplanentwicklung des Fachs Informatik an der gymnasialen Oberstufe des Landes Saarland bekannt.
          Hier befindet sich eine Sammlung von Texten und Programmen (in Java), die aus didaktischen 
          "Uberlegungen entstand (ist leider nur in deutsch verf"ugbar). \\
          \href{http://www.hom.saar.de/~awa/kryptolo.htm}
@@ -2796,8 +2814,10 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
    \item BSI, \index{BSI}\\ 
          Bundesamt f"ur Sicherheit in der Informationstechnik \\
          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
-   \item Bernsteins RSA-Aufsatz\\
+   \item Bernsteins RSA-Aufsatz,\\
          \href{http://cr.yp.to/papers/nfscircuit.ps}{\texttt{http://cr.yp.to/papers/nfscircuit.ps}}
+   \item Faktorisierungsrekorde\index{Faktorisierungsrekorde},\\
+         \href{http://www.crypto-world.com/}{\texttt{http://www.crypto-world.com/}}
 \end{enumerate}
 
 
@@ -2947,9 +2967,9 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \addcontentsline{toc}{subsection}{Anhang D: Beispiele mit Mathematica und Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
-In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
+In diesem Anhang finden Sie den Quellcode, um die Tabellen und
 Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP
-berrechnet werden k"onnen.
+zu berechnen.
 
 \subsubsection*{Multiplikationstabellen modulo $m$} \hypertarget{AppArith1}{}
 
@@ -2973,6 +2993,7 @@ Mit Pari-GP k"onnen Sie die Tabellenwerte folgenderma"sen berechnen:
 {\tt matrix(1,iBreite, x,y, (iFaktor1*y)\%m )} ergibt \\
 {\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
 
+\vspace{3ex}
 Beachte: Pari-GP erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod}
 und gibt es auch aus:
 \vspace{-2ex}
@@ -2983,7 +3004,7 @@ matrix(1,iBreite, x,y, Mod(iFaktor1*y, m))
  Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
 \end{verbatim}
 
-Aus dem zusammengesetzten {\tt Mod} Objekt gewinnt man die einzelnen
+Aus dem {\tt Mod}-Objekt gewinnt man die einzelnen
 Komponent mit der \texttt{component}-Funktion zur"uck: 
 
 \texttt{%
@@ -3015,7 +3036,7 @@ Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 \subsubsection*{Multiplikative Ordnung und Primitivwurzel}
 
 \hypertarget{AppArith3a}{}
-Die Ordnung $ord_m(a)$ einer Zahl in der multiplikativen Gruppe $Z_m^*$ modulo $m$ ist die 
+Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist die 
 kleinste ganze Zahl $i \ge 1$ f"ur die gilt $a^i \equiv 1$ mod $m$. F"ur das Beispiel auf
 Seite \pageref{SrcArith3a} k"onnen Sie mit Mathematica alle Exponentiationen $a^i$ mod $11$
 durch die folgende Programmzeile ausgeben lassen. 
@@ -3097,14 +3118,14 @@ In Pari-GP lautet die Syntax  \\
 \vskip +10 pt \hypertarget{AppArith4b}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4b}. \\
 Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ bestimmt Mathematica mit 
-{\tt FactorInteger[255.016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
+{\tt FactorInteger[255016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
 In Pari-GP lautet die Syntax: \\
 {\tt factor(255016)}.
 
 \vskip +10 pt \hypertarget{AppArith4c}{}
 {{\bf Beispiel auf Seite}} \pageref{SrcArith4c}. \\ 
 Mit Mathematica kann die RSA-Verschl"usselung durch den Befehl \\
-{\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256.027]\}}  \\
+{\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027]\}}  \\
 berechnet werden.  \\ 
 In Pari-GP lautet die Syntax: \\
 {\tt vecextract( [Mod(82,256027)\^{}65537, Mod(83,256027)\^{}65537, Mod(65,256027)\^{}65537, \\

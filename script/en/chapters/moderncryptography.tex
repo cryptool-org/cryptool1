@@ -215,8 +215,7 @@ possible in terms of value while restricted to an upper weight limit $ g $. You
 therefore need to find a subset of $ \{ G_1, \cdots,G_n\}, $ i.e. $ \{G_{i_1}, 
 \dots ,G_{i_k} \}, $ so that $ w_{i_1}+ \cdots +w_{i_k} $ is maximised under the 
 condition $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Such questions are called {\bf NP}-complete problems (not \index{Runtime!not 
-polynomial NP} deterministically polynomial) that are difficult to 
+Such questions are called {\bf NP}-complete problems (not \index{Runtime!not polynomial NP} deterministically polynomial) that are difficult to 
 calculate.\index{Knapsack}
 
 A special case of the knapsack problem is:\\
@@ -249,7 +248,7 @@ for $ n=100 $  with $ 2^{100} \approx 1.27 \cdot 10^{30} $  and  $ 2^{n/2}
 However, for special $ a_1, \dots, a_n $   the solution is quite easy to find, 
 e.g. for $ a_i = 2^{i-1}. $  The binary representation of $ g $ immediately 
 delivers $ x_1, \dots, x_n$. In general, the a 0-1 knapsack problem can be 
-solved easily if a \index{Permutation} permutation\footnote{A permutation $\pi$ 
+solved easily if a \index{Permutation} permutation\footnote{A permutation\index{Permutation} $\pi$ 
 of the numbers $1, \dots, n$ is a change in the order in which these numbers are 
 listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. 
 $\pi(1) = 3$, $\pi(2) =1$ 
@@ -348,8 +347,7 @@ procedures}
 
 
 \subsubsection{The RSA procedure}
-\index{RSA} \hypertarget{RSAVerfahren}{} As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir 
-Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
+\index{RSA} \hypertarget{RSAVerfahren}{} As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
 
@@ -358,8 +356,7 @@ the most important asymmetric cryptography procedure to date.  \par
 \underline{Key generation:} \vskip + 5pt
 
 Let $ p $ and $ q $ be two different prime numbers and $ N = pq$. Let 
-$ e $ be any prime number relative to $ \phi (N) $ \index{Prime 
-number!relative}, i.e. $ \ggt (e,\phi (N))=1. $\index{Gcd}
+$ e $ be any prime number relative to $ \phi (N) $ \index{Prime number!relative}, i.e. $ \ggt (e,\phi (N))=1. $\index{Gcd}
 Using the Euclidean algorithm, 
 we calculate the natural number  $ d < \phi (N), $ such that
 \[ ed \equiv 1 \mod \phi (N). \]
@@ -454,7 +451,7 @@ should remain impossible to factorise for a long time to come, unless there is a
 mathematical breakthrough. For example, it would take about 1000 years to 
 decompose a 200-digit number into prime factors using the existing algorithms; 
 this applies even if $ 10^{12} $  operations can be performed per second, which 
-is beyond the performance of current technology and would cost billions of 
+is beyond the performance\index{Performance} of current technology and would cost billions of 
 dollars in development costs. However, you can never be sure that there won't be 
 a mathematical breakthrough tomorrow.
 
@@ -546,7 +543,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 
     \subsubsection{Diffie-Hellman key agreement}
 
-\index{Key agreement!Diffie-Hellman} \index{Diffie Whitfield} The mechanisms and 
+\index{Key agreement (key exchange)!Diffie-Hellman} \index{Diffie Whitfield} The mechanisms and 
 algorithms of classical cryptography only take effect when the subscribers have 
 already exchanged the secret key. In classical cryptography, you cannot avoid 
 exchanging secrets without encrypting them. Transmission safety here must be 
@@ -575,7 +572,7 @@ Thus
 \end{center}
 
 \vskip +10 pt
-{\bf Diffie Hellman} (Key agreement).
+{\bf Diffie Hellman key agreement.}
 \vskip +20 pt
 
 
@@ -586,8 +583,7 @@ problems are equivalent.
 
     \subsubsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
 \index{ElGamal!public key}
-By varying the Diffie-Hellman key agreement protocol \index{Encryption!El Gamal 
-public key} slightly, you can obtain an asymmetric encryption algorithm. This 
+By varying the Diffie-Hellman key agreement protocol \index{Encryption!El Gamal public key} slightly, you can obtain an asymmetric encryption algorithm. This 
 observation was made by Taher ElGamal.
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -793,3 +789,7 @@ Hellman Cryptosystem.}\\
    \item 
 \href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}
+
+% Local Variables:
+% TeX-master: "../script-en.tex"
+% End:

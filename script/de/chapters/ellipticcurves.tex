@@ -32,54 +32,54 @@ wie in Abbildung~\ref{RSAKeylength} ausgehen
 (Quelle: Arjen Lenstra und Eric Verheul: 
 \href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
 
-\vskip -40 pt
 % -> Figur 1
 \begin{figure}[h]
 \begin{center}
-\vspace{1.5cm}\includegraphics[scale=0.75]{figures/RSAKeylength}
-\caption{Gegenüberstellung des Aufwands der Operationen Sign und Verify bei
-  RSA und Elliptischen Kurven} 
+\includegraphics[scale=0.75]{figures/RSAKeylength}
+\caption{Prognose f"ur die Entwicklung der als sicher betrachteten
+  Schl"ussell"ange f"ur RSA und Elliptische Kurven\vspace{1ex}} 
 \label{RSAKeylength}
 \end{center}
-\end{figure}
 \vskip -30 pt
+\end{figure}
 
 \newpage
 
 Bei der digitalen Signatur muss man differenzieren: f"ur die {\em
-  Erstellung} einer digitalen Signatur ben"otigen bei auf Elliptischen
+  Erstellung} einer digitalen Signatur ben"otigen auf Elliptischen
 Kurven basierende Verfahren im Vergleich zu RSA nur gut ein Zehntel des
 Rechenaufwandes (66 zu 515 Multiplikationen). Siehe hierzu
 Abbildung~\ref{ThousandBitMultiplications} (Quelle: Dr. J.  Merkle,
-Elliptic Curve Cryptography Workshop, 2001) Betrachtet man die f"ur eine
+Elliptic Curve Cryptography Workshop, 2001). Betrachtet man die f"ur eine
 {\em Verifikation} durchzuf"uhrenden Rechenschritte, dreht sich dieses Bild
-jedoch zu Gunsten des RSA um. Der Grund liegt darin, dass es bei Verwendung
+jedoch zu Gunsten von RSA um. Der Grund liegt darin, dass es bei Verwendung
 des RSA m"oglich ist, einen sehr kurzen "offentlichen Schl"ussel zu
 w"ahlen, solange der private Schl"ussel nur hinreichend lang ist.
 
 % -> Figur 2
 \begin{figure}[h]
+\vskip -40 pt
 \begin{center}
-\includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
-\caption{Prognose f"ur die Entwicklung der als sicher betrachteten
-  Schl"ussell"ange f"ur RSA und Elliptische Kurven\vspace{1ex}} 
+\vspace{1.5cm}\includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
+\caption{Gegenüberstellung des Aufwands der Operationen Sign und Verify bei
+  RSA und Elliptischen Kurven} 
 \label{ThousandBitMultiplications}
 \end{center}
-\end{figure}
 \vskip -20 pt
+\end{figure}
 
-Da bei Smartcard basierten Systemen stets der lange private Schl"ussel auf der Karte gespeichert werden
+Da bei smartcard-basierten Systemen stets der lange private Schl"ussel auf der Karte gespeichert werden
 muss und die Erstellung der digitalen Signatur, nicht aber die Verifikation, auf der Karte stattfindet, treten hier deutlich
 die Vorteile Elliptischer Kurven zu Tage. 
 \par
 \smallskip
-Das gr"o"sste Problem bei der Implementierung von Verfahren, die auf Elliptischen Kurven beruhen, ist bislang die
+Das gr"o"ste Problem bei der Implementierung von Verfahren, die auf Elliptischen Kurven beruhen, ist bislang die
 mangelnde {\em Standardisierung\index{Standardisierung}}. Es gibt nur eine RSA-Implementierung, aber viele Arten, Elliptische Kurven einzusetzen.
-So k"onnen verschiedene Zahlk"orper zugrunde gelegt, eine Vielzahl von (elliptischen) Kurven --- durch
+So k"onnen verschiedene Zahlk"orper zugrunde gelegt, eine Vielzahl von (Elliptischen) Kurven --- durch
 6 Parameter beschrieben --- eingesetzt und unterschiedliche Darstellungen der Kurvenpunkte verwendet werden.
 Jede Wahl hat ihre Vorz"uge, so dass f"ur jede Anwendung eine andere Implementierung optimal sein kann. Dies
 hat jedoch zur Konsequenz, dass Systeme, die auf Elliptischen Kurven beruhen, oftmals nicht interoperabel
-sind. Um mit einer beliebigen auf Elliptischen Kurven basierenden Anwendung kommunizieren zu k"onnen, m"ussete man
+sind. Um mit einer beliebigen auf Elliptischen Kurven basierenden Anwendung kommunizieren zu k"onnen, m"usste man
 eine Vielzahl von Implementierungen vorhalten, was den Effizienzvorteil gegen"uber der Verwendung von RSA
 zunichte macht.
 
@@ -143,7 +143,7 @@ Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die Faktori
 (auf der \index{Komplexit""at} Schwierigkeit/Komplexit"at, die Primfaktoren einer sehr gro"sen Zahl zu finden, beruht
 zum Beispiel das RSA-Kryptosystem). In diesem Bereich werden seit 1987 (eine Arbeit von H.W. Lenstra)
 auf Elliptischen Kurven basierende Verfahren untersucht und zum Teil eingesetzt. Es gibt auch
-Primzahltests, die auf Elliptischen Kurven basieren.
+Primzahltests\index{Primzahltest}, die auf Elliptischen Kurven basieren.
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich eingesetzt.
 Verschl"usselungsverfahren auf Basis von Elliptischen Kurven beruhen auf der
@@ -261,7 +261,7 @@ aus ${\bf E}$ nennt man Punkte auf der Elliptischen Kurve. Zus"atzlich hat ${\bf
 zu bezeichnen.
 
 Man kann nun eine Verkn"upfung (wird auch mit $+$ bezeichnet, ist
-aber nicht die normale/"ubliche Addition\footnote{Eine Animation der Punktaddition auf elliptischen Kurven 
+aber nicht die normale/"ubliche Addition\footnote{Eine Animation der Punktaddition auf Elliptischen Kurven 
 findet man auf der Certicom\index{Certicom} Seite unter \\
 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}.} in den reellen Zahlen)
 zweier Elemente aus ${\bf E}$ definieren, so dass diese
@@ -283,8 +283,8 @@ auf derselben Elliptischen Kurve liegt.
 
 % \newpage
 \begin{figure}[htbp]
-\subsubsection*{Addieren von Punkten auf einer elliptischen Kurve}
-Die zwei folgenden Abbildungen zeigen, wie bei einer elliptischen Kurve in affinen Koordinaten
+\subsubsection*{Addieren von Punkten auf einer Elliptischen Kurve}
+Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve in affinen Koordinaten
 zwei Punkte addiert werden. Der unendlich ferne Punkt $O$ kann nicht in der affinen 
 Ebene dargestellt werden.  
 \begin{center}
@@ -405,8 +405,8 @@ Um eine Signatur zu verifizieren, mu"s dem Empf"anger der Signatur folgendes bek
 
 Es gibt Faktorisierungsalgorithmen, die auf Elliptischen Kurven \index{Faktorisierungsalgorithmen}
 basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
-einen Faktorisierungsalgorithmus vor, der auf elliptischen Kurven basiert 
-(Siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit elliptischen Kurven faktorisierte Zahl  
+einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
+(Siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven faktorisierte Zahl  
 ist die 55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 von M. Izumi gefunden (Siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).}. 
 Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch "uber ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl)
 Elliptische Kurven definieren kann. Elliptische Kurven "uber ${\mathbb Z}_n$ bilden keine Gruppe, da es nicht zu jedem 
@@ -458,18 +458,20 @@ GmbH --- und unter Benutzung der obigen Bibliothek und des Secude SDK.
 \section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
 
 \begin{enumerate}
-   \item Online-Tutorial "uber elliptische Kurven der Firma Certicom\index{Certicom}\\
+   \item Online-Tutorial "uber Elliptische Kurven der Firma Certicom\index{Certicom}\\
                 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
         \item Arbeitsgruppe IEEE P1363
 
                 \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
-        \item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit elliptischen Kurven
+        \item  \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit Elliptischen Kurven
 
         \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
 
-        Dort findet man Literatur zum Thema Faktorisieren mit elliptischen Kurven sowie Links
+        Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen Kurven sowie Links
 zu anderen Seiten.
 
 \end{enumerate}
 
-
+% Local Variables:
+% TeX-master: "../script-de.tex"
+% End:

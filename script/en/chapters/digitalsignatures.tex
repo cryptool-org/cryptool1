@@ -2,7 +2,7 @@
 \newpage
 \section{Digital signatures}
 \index{Signatures!digital}
-(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Update: Juni 2002)
+(Esslinger B. / Filipovics B. / Schneider J. / Koy H., Update: June 2002)
 
 The aim of digital signatures is to guarantee the following two points:
 \begin{itemize}
@@ -37,7 +37,7 @@ can then use the sender's public key, the document and the signature to
 establish whether or not the signature is correct. In practice, however, the
 procedure we have just described has a decisive disadvantage. The signature is
 approximately as long as the document itself. To prevent an unnecessary increase
-in data traffic, and also for reasons of performance, we use a cryptographic
+in data traffic, and also for reasons of performance\index{Performance}, we use a cryptographic
 hash function.
 
 A cryptographic \index{Hash function} {\em hash function} maps a message of any
@@ -201,8 +201,7 @@ Charlie can thus listen in on communication between Alice and Bob and change the
 exchanged messages without them noticing. The attack also works if Charlie only
 has one pair of keys.
 
-Another name for this type of attack is \index{Man-in-the-middle
-attack} ``man-­in-­the-­middle attack''. Users are promised
+Another name for this type of attack is \index{Man-in-the-middle attack} ``man-­in-­the-­middle attack''. Users are promised
 protection against this type of attack by public­key
 certification, which is intended to guarantee the
 \index{Authenticity} authenticity of public keys. The most common
@@ -210,9 +209,9 @@ certification method is the X.509 standard.
 
 \subsubsection{X.509}
 
-All participants who want to \index{X.509}  have X.509 verify that their public
-key belongs to a real person consult what is known as a \index{Certification
-authority (CA)} certification authority (CA). They prove their identity to this
+All participants who want to \index{X.509} have a X.509 certificate verifying that their public
+key belongs to a real person consult what is known as a
+\index{Certification authority (CA)} certification authority (CA). They prove their identity to this
 CA (for example by showing their ID). The CA then issues them an electronic
 document (certificate) which essentially contains the names of the certificate-holder
 and the CA, the certificate-holder's public key and the validity period
@@ -249,4 +248,6 @@ the root entity, can also be secured by means of making them available publicly.
           Entity authentication using public key cryptography. February 18, 1997.
 \end{thebibliography}
 
-
+% Local Variables:
+% TeX-master: "../script-en.tex"
+% End:

@@ -2,10 +2,10 @@
 \section{Elliptic Curves}
 \index{Elliptic curves}
 \hypertarget{ellcurve}{}
-(Filipovics B. / Esslinger B. / Oyono R., April 2000, Update Dec. 2001,
+(Filipovics B. / Esslinger B. / Oyono R., April 2000, Updates: Dec. 2001,
 June 2002)
 
-\subsection{Elliptic curce cryptography --- a high-performance substitute for RSA?}
+\subsection{Elliptic curce cryptography --- a high-performance substitute for RSA?}\index{Performance}
 
 In the financial business secure and efficient data transfer is essential.
 In particular, the RSA algorithm is used in many applications. Although the
@@ -24,7 +24,7 @@ security. The major advantage of ECC compared to RSA is that it requires
 much shorter key lengths. If we assume that the computing power increases
 by Moore’s law (i.~e.\ it doubles every 18 months), then the evolution of
 the key lengths for secure communication will be as
-figure~\ref{ThousandBitMultiplications} (source: Arjen Lenstra und Eric
+figure~\ref{RSAKeylength} (source: Arjen Lenstra und Eric
 Verheul:
 \href{http://cryptosavvy.com/table.htm}{\texttt{http://cryptosavvy.com/table.htm}}).
 
@@ -32,7 +32,8 @@ Verheul:
 \begin{figure}[h]
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.75]{figures/RSAKeylength}
-\caption{Comparison of signing and verification time for RSA and Elliptic Curves} 
+\caption{Prognose of the key lengths to be regarded safe for RSA and
+  Elliptic Curves\vspace{1ex}} 
 \label{RSAKeylength}
 \end{center}
 \end{figure}
@@ -49,8 +50,7 @@ sufficiently long.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.75]{figures/ThousandBitMultiplications}
-\caption{Prognose of the key lengths to be regarded safe for RSA and
-  Elliptic Curves\vspace{1ex}} 
+\caption{Comparison of signing and verification time for RSA and Elliptic Curves} 
 \label{ThousandBitMultiplications}
 \end{center}
 \end{figure}
@@ -132,7 +132,7 @@ factorising whole numbers. (For example the RSA cryptography system is based on
 the \index{Complexity} difficulty/complexity of finding prime factors of an
 extremely large number.) In this area, procedures based on elliptic curves have
 been investigated and partially used since 1987 (a study by H.W. Lenstra). There
-are also prime number tests based on elliptic curves.
+are also prime number tests\index{Prime number!test} based on elliptic curves.
 
 Elliptic curves are used differently in the various areas. Encryption procedures
 based on elliptic curves are based on the difficulty of a problem known as
@@ -442,8 +442,8 @@ The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
 \index{DSA} DAS signatures based on elliptic curves (in accordance with draft
 no. 8 of the IEEE P1363 work group). This was done in collaboration with the
-SECUDE GmbH --- using the above library and the SECUDE SDK.
-\index{SECUDE GmbH}
+Secude GmbH --- using the above library and the Secude SDK.
+\index{Secude}
 
 \newpage
 %\addcontentsline{toc}{subsection}{Literaturverzeichnis}
@@ -463,11 +463,15 @@ SECUDE GmbH --- using the above library and the SECUDE SDK.
 
                 \href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}
         \item  \hypertarget{Lenstra2}{}
-An informative web page to the factorisation with elliptic curves.
+An informative web page about factorisation with elliptic curves.
 
 \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}}
 
-There, one finds literature to the topic factorisation with elliptic curves as well as link to other web page. 
+There, one finds literature to the topic factorisation with elliptic curves as well as links to other web page. 
 
 \end{enumerate}
 
+
+% Local Variables:
+% TeX-master: "../script-en.tex"
+% End:

@@ -11,20 +11,19 @@ pdf: $(PDF)
 dvi: $(DVI)
 
 $(PDF): $(SRC) style.ist
-	pdflatex $(TEX) | tail
-	pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
 	makeindex -s style.ist $(IDX)
-	pdflatex $(TEX) | tail
-	pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail
 
 script-$(LANG).ind: script-$(LANG).idx style.ist
 	makeindex -s style.ist script-$(LANG).idx
 
 script-$(LANG).idx: $(SRC) 
-	latex $(TEX) | tail
+	echo q | latex $(TEX) | tail
 
 $(DVI): $(TEX) figures/* chapters/* script-$(LANG).ind
-	latex $(TEX) | tail
+	echo q | latex $(TEX) | tail
 
 cleantmp: 
 	-rm -rf $(TMP)

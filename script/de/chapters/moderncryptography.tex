@@ -134,7 +134,7 @@ Kongruente 0-1-Knapsackprobleme haben dieselben L"osungen.
 Ein schneller Algorithmus zur Kl"arung der Frage, ob zwei 0-1-Knapsackprobleme kongruent sind, ist nicht bekannt.
 
 Das L"osen eines 0-1-Knapsackproblems kann durch Probieren der $ 2^n $   M"oglichkeiten f"ur $ x_1, \dots, x_n $   erfolgen. Die beste Methode erfordert $ O(2^{n/2}) $  Operationen, was f"ur $ n=100 $  mit $ 2^{100} \approx 1,27 \cdot 10^{30} $  und  $ 2^{n/2} \approx 1,13 \cdot 10^{15} $ f"ur Computer eine un"uberwindbare H"urde darstellt.
-Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
+Allerdings ist die L"osung f"ur spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa f"ur $ a_i = 2^{i-1}. $  Die bin"are Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die L"osung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation\index{Permutation} $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
 diese Zahlen aufgez"ahlt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ 
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zus"atzlich $ \pi $ die Identit"at, d.h. $ \pi(i)=i $ f"ur $ i=1,2,\dots,n, $ so hei"st die Folge $ a_1, \dots , a_n $ superwachsend.
@@ -164,9 +164,9 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 
 
 %--------------------------------------------------------------------
-\subsubsection{Merkle-Hellman Knapsack Verschl"usselung}
+\subsubsection{Merkle-Hellman Knapsack-Verschl"usselung}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffiert.
+\index{Hellman Martin} \index{Merkle} 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
 \newpage
@@ -192,7 +192,19 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 
-1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum Brechen des Systems in polynomialer Zeit an, ohne das allgemeine Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman \cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff} \cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahrens in polynomialer Zeit an. Ernst Brickell \index{Brickell Ernst} \cite{Brickell1985} gab schlie"slich einen Algorithmus zum Brechen des mehrfachen iterierten Merkle-Hellman-Knapsack Verschl"usselungsverfahren in polynomialer Zeit an. Damit war dieses Verfahren als Verschl"usselungsverfahren ungeeignet. Dieses Verfahren liefert also eine Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des 0-1-Knapsackproblems) durch einen Gegner entdeckt werden k"onnte.
+1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum
+Brechen des Systems in polynomialer Zeit an, ohne das allgemeine
+Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman
+\cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff}
+\cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen
+iterierten Merkle-Hellman Knapsack-Verschl"usselungsverfahrens in
+polynomialer Zeit an. Ernst Brickell \index{Brickell Ernst}
+\cite{Brickell1985} gab schlie"slich einen Algorithmus zum Brechen des
+mehrfachen iterierten Merkle-Hellman Knapsack-Verschl"usselungsverfahren in
+polynomialer Zeit an. Damit war dieses Verfahren als
+Verschl"usselungsverfahren ungeeignet. Dieses Verfahren liefert also eine
+Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des
+0-1-Knapsackproblems) durch einen Gegner entdeckt werden k"onnte.
 
 
 %---------------------------------------------------------------------
@@ -363,7 +375,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 
 \index{Schl""usselaustausch!Diffie-Hellman} \index{Diffie Whitfield} Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann, wenn die Teilnehmer bereits den geheimen Schl"ussel ausgetauscht haben. Im Rahmen der klassischen Kryptographie  f"uhrt kein Weg daran vorbei, da"s geheimnisse kryptographisch ungesichert ausgetauscht werden m"ussen. Die Sicherheit der "Ubertragung mu"s hier durch nicht-kryptographische Methoden erreicht werden. Man sagt dazu, da"s man zum Austausch der Geheimnisse einen geheimen Kanal braucht; dieser kann physikalisch oder organisatorisch realisiert sein. \\
 Das revolution"are der modernen Kryptographie ist unter anderem, da"s man keine geheimen Kan"ale mehr braucht: Man kann geheime Schl"ussel "uber nicht-geheime, also "offentliche Kan"ale vereinbaren. \\
-Ein Protokoll, das dieser Problem l"ost, ist das von Diffie und Hellman \\ %\enlargethispage{+20pt}
+Ein Protokoll, das dieses Problem l"ost, ist das von Diffie und Hellman.\\ %\enlargethispage{+20pt}
 
 \newpage
 \begin{center}
@@ -377,7 +389,7 @@ Damit gilt
 \end{center}
 
 \vskip +10 pt
-{\bf Diffie Hellman} (Schl"usselvereinbarung).
+{\bf Diffie-Hellman-Schl"usselvereinbarung}.
 \vskip +20 pt
 
 
@@ -549,3 +561,7 @@ und
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}
+
+% Local Variables:
+% TeX-master: "../script-de.tex"
+% End:

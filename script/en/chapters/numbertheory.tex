@@ -5,7 +5,7 @@
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Update Dec. 2001, June 2002)
+(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002)
 
 \begin{center}
 \fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne}}\newline
@@ -63,7 +63,8 @@ ratio of laevorotary and dextrorotary spirals in a sunflower is equal to two con
 Fibonacci\index{Fibonacci} numbers\footnote{The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined by the 
 ``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ we define $a_{n+2} := a_{n+1}+a_n$.  
 This historical sequence can be found in many interesting forms in nature (for example, see \cite[p. 290 
-ff]{Graham1994}\index{Graham 1994} or the website of \hyperlink{knott}{Ron Knott}\index{Knott!Ron}, which is devoted to Fibonacci\index{Fibonacci} numbers). A 
+ff]{Graham1994}\index{Graham 1994} or the website of \hyperlink{knott}{Ron
+  Knott}\index{Knott, Ron}, which is devoted to Fibonacci\index{Fibonacci} numbers). A 
 lot is known about the Fibonacci sequence and it is used today as an important tool in mathematics.}, for 
 example $21 : 34$.
 
@@ -101,7 +102,7 @@ Mathematics is the queen of sciences and number theory is the queen of mathemati
 \subsection{Introduction to number theory} \index{Number theory!introduction} 
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
-\index{Numbers!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
+\index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
 used by human civilisation. According to Kronecker, they are a creation of God. 
 In Dedekind's opinion, they are a creation of the human intellect. Dependent upon one's ideology,
 this is an unsolvable contradiction or one and the same thing.
@@ -211,7 +212,7 @@ Prime numbers can be factorised in a unique (``{\em trivial}'') way:
 1,296,409 & = & 1 * 1,296,409. \nonumber
 \end{eqnarray}
 
-\begin{definition}\label{def-zth-composite} \index{Numbers!composite}
+\begin{definition}\label{def-zth-composite} \index{Number!composite}
 Natural numbers greater than $1$ that are not prime are called {\bf composite numbers}. These have at least two 
 factors other than $1$.
 \end{definition}
@@ -456,7 +457,7 @@ $x$ is the inverse of $a$ regarding this operation.
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  Lucius Annaeus Seneca, philosophical writer and poet, 4 B.~C. $-$ 65 A.~D.
+  Lucius Annaeus Seneca, philosophical writer and poet, 4 B.\:C. $-$ 65 A.\:D.
 }
 
 As we have already seen:
@@ -644,9 +645,7 @@ In the multiplication table mod $17$, the following was calculated for $i = 1, 2
 We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
 with $a=5$ or $a=6$ has the value $1$. 
 
-{
-\begin{table}[h] \label{SrcArith1a}
-\subsubsection*{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}
+\subsubsection*{Table 1: Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}
 \begin{center}
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -661,19 +660,15 @@ remainder                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 
 \hline
 \end{tabular}
 \end{center} 
-\end{table}
-}
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and $6$ are 
 also relatively prime\index{Relatively prime} to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
-{
 {\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
 
 \vskip +20 pt
 
-\begin{table}[h] \label{SrcArith1b}
-\subsubsection*{Multiplication table modulo $13$ (for $a=5$ and $a=6$)}
+\subsubsection*{Table 2: Multiplication table modulo $13$ (for $a=5$ and $a=6$)}\label{SrcArith1b}
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -688,21 +683,17 @@ remainder                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  &
 \hline 
 \end{tabular}
 \end{center} 
-\end{table}
-}   
 
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and 
 $6$ are relatively prime to the modulus $m=13$.
 
-{
 {\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
 
 \vskip +20 pt
 
 The following table contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
 
-\begin{table}[h]
-\subsubsection*{Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
+\subsubsection*{Table 3: Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -717,8 +708,6 @@ remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6 
 \hline 
 \end{tabular}
 \end{center} 
-\end{table}
-}
 We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
 because $6$ and the modulus $m=12$ are not coprime.
@@ -788,7 +777,7 @@ $$
 $$
 \vskip +5pt
 
-\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Powers}
+\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 \addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
 RSA encryption and decryption\footnote{See \hyperlink{Kapitel_3_10}{chapter 3.10 Proof of the RSA procedure with Euler-Fermat} \index{RSA}
 and \hyperlink{Kapitel_3_12}{chapter 3.12 The RSA procedure with actual numbers}.} entails calculating high powers modulo $m$. 
@@ -838,7 +827,7 @@ representation of $n$. The typical effort is then reduced from $2^{600}$ to $2*6
 This frequently used algorithm is called ``Square and Multiply''\index{Square and multiply}.
 
 % ..............................................................................................................
-\subsubsection{Roots and logarithms} \index{Roots} \index{Logarithm}
+\subsubsection{Roots and logarithms} \index{Root} \index{Logarithm}
 
 The inverses of the powers are also defined. The roots and logarithms are again whole numbers. Yet in contrast 
 to the usual situation, they are not only difficult to calculate but, in the case of large numbers, cannot be 
@@ -1168,9 +1157,7 @@ See \hyperlink{AppArith3a}{Appendix D} for the source code to generate the table
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
 
-{
-\begin{table}[h]  \label{SrcArith3a}
-\subsubsection*{Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}
+\subsubsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1199,8 +1186,6 @@ $a=10$         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 
 \hline
 \end{tabular}
 \end{center}
-\end{table}
-}
 
 The table shows, for example, that the order of $3$ modulo $11$ has the value $5$.
 
@@ -1220,9 +1205,8 @@ See \hyperlink{AppArith3b}{Appendix D} for the source code to generate the table
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
 
-{ % \small
-\begin{table}[h] \label{SrcArith3b}
-\subsubsection*{Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
+
+\subsubsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1255,15 +1239,13 @@ $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a
 \hline
 \end{tabular}
 \end{center}
-\end{table}
-} % \small
 
 \vskip +10 pt
 
 
 $J(45)$ is calculated using theorem \ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^1*2 * 4 = 24$.
 
-Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (e.g. for the numbers that are not 
+Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (e.~g.\ for the numbers that are not 
 relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
 
 {\bf Example 3:} \\
@@ -1278,10 +1260,11 @@ or Pari-GP.
 } answers the question as to whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 %\newpage
+\pagebreak
 
-\subsubsection*{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+\subsubsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}\label{SrcArith3c}
 { \textmd \small
-\begin{center}  \label{SrcArith3c}
+\begin{center}  
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
 $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
@@ -1341,13 +1324,20 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 $J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
 The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
-\begin{theorem}\label{thm-zth-ordp}\footnote{Compare the above table with the values for $a^i$ mod 11, with $ 1 \le a,
-i < 11$. Please note that this theorem is not applicable to the above tabel
-mod 46.}$^,$\footnote{Exhausting all possible values of the set is an
-important cryptographic proposition (compare theorem
-\ref{thm-zth-exhperm}). This determines a permutation $\pi(p-1)$.}
-For a modulus $p$ and $a < p$:
-$a^i \mbox{mod} p, i = 1, \cdots, p-1$ assumes all $J(p) = p-1$ values $1, \cdots, p-1$ once if and only if $ord_p(a) = J(p)$.
+\begin{theorem}\label{thm-zth-ordp}\footnote{%
+    For prime moduli $p$ all $0 < a < p$ are of order $J(p) = p - 1$.
+    Compare table 5 for an example. In this case $a^i (\mbox{mod }n)$ goes
+    through the values $1,\dots,p-1$. Exhausting all possible values of the
+    set is an important cryptographic proposition (compare theorem
+    \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
+    $\pi(p-1)$.}$^,$\footnote{%
+    Table 6 demonstrates that for composite moduli $n$ not all $a$ are of
+    maximal order $J(n)$. In this example only $5,7,11,15,17,21$ are of
+    order 22.
+  } For a modulus $n$ and $a$ relative prime to
+  $n$ the following holds: \\
+  $\{ a^i (\mbox{mod }n) | i = 1,\dots,J(n)\}$ equals the multiplicative
+  group $Z_n^*$ if and only if $ord_n(a) = J(n)$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1361,13 +1351,13 @@ please note that the abbreviation may be used in other fields to mean
 something completely different.}$^,$\footnote{%
 Within literature and movies not only cassical methods are used (like the
 secret message solved by Sherlock Holmes in ``The Adventure of the Dancing
-Men'' by Arthur Conan  Doyle), but also the RSA scheme. Examples are
+Men'' by Arthur Conan  Doyle), but also modern schemes. Examples are
 \begin{itemize}
 \item the movie ``House of Cards'', 1992, where autistic children
   communicate via primes,
 \item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner, 1999
   (included in the CrypTool package as PDF file), where the sisters
-  privately communicate using a variant of RSA.
+  communicate confidentially using a variant of RSA.
 \end{itemize}
 } 
 procedure in the group $\mathbb{Z}_n^*$.
@@ -1455,7 +1445,7 @@ The value $n$ is called the RSA modulus\footnote{In CrypTool the RSA modulo is d
 \item[{\bf 7.}] Decryption of the ciphertext (or the parts of it) $C \in \{1, \cdots, n-1\}$:
                 $$M = D ( (n, d); C ) := C^d {\rm ~(mod~} n).$$
 \end{itemize}
-The numbers $d, e$ and $n$ are usually extremely large (e.g. $d$ and $e$ $300$ bits, $n$ $600$ bits).
+The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and $e$ $300$ bits, $n$ $600$ bits).
 
 {\bf Comment:}\par
 
@@ -1489,7 +1479,7 @@ Since $n=p*q$ and $J(p*q)=(p-1)*(q-1)$ and since $e$ and $d$ are selected in suc
 there is a whole number $k$ such that: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray}
 M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber \\
-           & \equiv & M * (M^{p-1})^{k*(q-1)}{\rm ~(mod~}p) \quad {\rm ~based~on~small-Fermat:~} 
+           & \equiv & M * (M^{p-1})^{k*(q-1)}{\rm ~(mod~}p) \quad {\rm ~based~on~little~Fermat:~} 
                   M^{p-1} \equiv 1 {\rm~(mod~}p) \nonumber \\ 
            & \equiv & M * (1)^{k*(q-1)} {\rm~(mod~}p) \nonumber \\
        & \equiv & M {\rm ~(mod~}p) \nonumber
@@ -1540,9 +1530,9 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Considerations regarding the security of the RSA algorithm}\label{SecurityRSA}
 
-Major parts of this chapter come from the article ``Vorz\"uge und Grenzen des
+Major parts of this chapter follow the article ``Vorz\"uge und Grenzen des
 RSA-Verfahrens'' written by F.~Bourseau / D.~Fox / C.~Thiel, and published
-in \emph{Datenschutz und Datensicherheit} (DuD), 26/2002, pp. 84$-$89.
+in \emph{Datenschutz und Datensicherheit} (DuD) 26/2002, pp. 84$-$89.
 
 There have always been discussions about the suitability of the RSA
 algorithm for digital signatures and encryption, e.~g.\ after publications of
@@ -1597,8 +1587,7 @@ problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
 but stricly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
 all that is currently known; it does not preclude the possiblity that the
-factorization problem can be solved in polynomial time (s.
-\ref{RSABernstein}).
+factorization problem can be solved in polynomial time (s.~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
 $l$ of the number $n$ to be factored.  For the best currently known
@@ -1649,16 +1638,18 @@ Within the last 20 years a lot of progress has been made. Estimations about
 the future development of the ability to factor RSA modules vary and depend
 on some assumptions:
 \begin{itemize}
-\item progression in computing performance (Moore's law: every 18 month the
+\item progression in computing performance\index{Performance} (Moore's law: every 18 month the
   computing power will double) and in grid computing 
 \item development of new algorithms.
 \end{itemize}
 Within the last years the module bit length feasible for factorization
 increased --- even without new algorithms --- by 10 bit per year. Larger
-numbers require not only more time to be factored, but also more RAM
-storage for the solutions matrix being used by best algorithms known today.
-This need for storage grows quadratically with the length of the module
-$l$.  Therefor bigger breakthroughs probably require totally new algorithms.
+numbers require not only more time to be factored, but also huge RAM
+storage for the solutions matrix being used by the best algorithms known
+today.  This need for storage grows like the square root of the computation
+time, i.\:e.\ also sub-exponentially. Because RAM availability increased
+exponentially in the recent decades, it seems that this should not be the
+limiting factor.
 
 Within the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' Dirk Fox
 prognosticates an almost linear progression with the factorization, if all
@@ -1772,6 +1763,7 @@ paper (title {\em Has the RSA algorithm been compromised as a result of
   Bernstein's Paper?}, April, 8 2002) also concludes, that RSA is still not
 compromised (s.\ 
 \href{http://www.rsasecurity.com/}{\texttt{http://www.rsasecurity.com/}}).
+\vskip +12 pt
 
 \begin{minipage}{\textwidth}
 Links:
@@ -1796,7 +1788,7 @@ Links:
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  German/Swiss writer and Nobel prize winner, July 2, 1877 $-$ August 9, 1962.}
+  German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
 
 The web page
 \href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
@@ -1814,7 +1806,7 @@ both 78-digit primes.
 
 The task of the reserachers from Bonn was not initiated by a challenge, but
 they wanted to find the last prime factors of the integer $2^{953} - 1$
-(s.~ ``Wanted List'' des Cunningham Projekts
+(see ``Wanted List'' of the Cunningham Project\index{Cunningham project}
 \href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}).
 The last remaining factor, called ``C158'', was known to be composite by
 then, but its factors where not known:
@@ -1898,7 +1890,8 @@ another or calculating exponentials totally mixes up all the numbers. Knowing a 
 us much about the function as a whole (in contrast to addition and multiplication).
 
 
-\subsubsection{The Diffie-Hellman key exchange protocol} \index{Diffie-Hellman key exchange}
+\subsubsection{The Diffie-Hellman key exchange protocol}
+\index{Key agreement (key exchange)!Diffie-Hellman}
 
 Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key exchange protocol in Stanford in 1976.
 
@@ -1970,6 +1963,7 @@ Mathematica by means of Solve, you obtain the {em tdep message} ``The equations 
 in an essentially non-algebraic way''. Mathematica therefore claims not to know a direct algebraic procedure for solving the equation.
 Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice):
 {\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
+The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
 Such number-theory tasks can also be solved using other tools such as the
 LiDIA\index{LiDIA} or BC package (see web links in appendix).
 The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.}
@@ -1985,7 +1979,10 @@ Since the number $11$ selected for $g$ in the example is not a primitive root of
 values from the set $\{1, 2, \cdots, 346\}$. Thus, for a particular remainder there may be more than one exponent or 
 even no exponent at all in the set $\{0, 1, \cdots, 345\}$ that satisfies the equation.\\
 {\tt 
-PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1; MultiplicativeOrder[11, 347] = 173}
+PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
+MultiplicativeOrder[11, 347] = 173}\\
+The syntax with Pari-GP is: \texttt{isprime(347); eulerphi(347);
+  gcd(11,347); znorder(Mod(11,347))}.
 \vskip +10 pt
 \begin{tabular}{|c|c|l|}
 \hline
@@ -2046,6 +2043,8 @@ We have the text ``ATTACK AT DAWN'' and the characters are coded in the followin
 CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/RSA Cryptosystem''.
 This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
 
+\hypertarget{Grossbuchstaben-Alphabet}{}    
+{\bf Table 7: capital letters alphabet\index{Capital letters alphabet}}\\
 \begin{tabular}{|c|l||c|l|}
 \hline
 Character & Numerical value & Character & Numerical value \\
@@ -2067,9 +2066,6 @@ L       & 12   & Y    & 25 \\
 &              & Z    & 26 \\
 \hline
 \end{tabular}
-\hypertarget{Grossbuchstaben-Alphabet}{}    
-
-{\bf Table: capital letters alphabet\index{Capital letters alphabet}}
 
 \vskip +20 pt
 
@@ -2131,7 +2127,8 @@ See \hyperlink{AppArith4b}{Appendix D} for the source code to factorise the numb
 or Pari-GP.
 Using CrypTool v1.3 you can solve this with the ``Indiv.Procedures/RSA Demonstration/Factorise (IFP)''.}. \\
 {\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
-therefore, be $2, 127$ or $251$. In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
+therefore, be $2, 127$ or $251$ ($65537 = 2^{16}+1$).\\
+In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
 is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
 {\bf 3.} $d=231,953$ \\\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
 {\rm ~(mod~}67,000)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
@@ -2415,6 +2412,11 @@ This needs to be stressed because the type of padding is extremely important dur
     Albrecht Beutelspacher, \\
     Kryptologie, Vieweg, 5. Auflage 1996.
 
+\bibitem[Bourseau2002]{Bourseau2002}
+    F. Bourseau / D. Fox / C. Thiel, \\
+    {\em Vorz\"uge und Grenzen des RSA-Verfahrens}, in Datenschutz und
+    Datensicherheit (DuD) 26/2002, pp.~84-89.
+
 \bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
     Johannes Buchmann, \\
     Einf\"uhrung in die Kryptographie, Springer, 1999.
@@ -2431,6 +2433,11 @@ This needs to be stressed because the type of padding is extremely important dur
     Donald E. Knuth, \\
     The Art of Computer Programming, vol 2: 
     Seminumerical Algorithms, Addison-Wesley, 2nd edition, 1998.
+
+\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
+    Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
+    {\em Analysis of Bernstein’s Factorization Circuit},\\
+    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 
 \bibitem[Pfleeger1997]{Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\
@@ -2454,17 +2461,13 @@ This needs to be stressed because the type of padding is extremely important dur
     Modular elliptic curves and Fermat's Last Theorem\index{Fermat!last theorem}, in Annals of
     Mathematics 141 (1995).
 
-\bibitem[Wolffenstetter1998]{Wolfenstetter1998}\index{Wolfenstetter 1998}
+\bibitem[Wolfenstetter1998]{Wolfenstetter1998}\index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
     Moderne Verfahren in der Kryptographie, Vieweg, 2. Auflage, 1998.
 
 \bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
     Number Theory for Computing, Springer, 2000.
-\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
-    Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
-    {\em Analysis of Bernstein’s Factorization Circuit},\\
-    \href{http://www.cryptosavvy.com/mesh.pdf}{\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 \end{thebibliography}
 
 
@@ -2474,14 +2477,12 @@ This needs to be stressed because the type of padding is extremely important dur
 \begin{enumerate}
    \item \hypertarget{knott}{} 
           Ron Knott's Fibonacci\index{Fibonacci} page, \\
-      Here, everything revolves around Fibonacci numbers. \index{Knott!Ron}\\
+      Here, everything revolves around Fibonacci numbers. \index{Knott, Ron}\\
           \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}{\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
    \item CrypTool Version 1.3, 2002, \\
      Freeware to illustrate cryptography \\
-          \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},
-
-          \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}}, 
-
+          \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},\\
+          \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
           \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
    \item Mathematica, \\
     Commercial mathematics package \\
@@ -2493,28 +2494,38 @@ This needs to be stressed because the type of padding is extremely important dur
      Interpreter with number-theory functions \\
           \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
    \item Pari-GP, \index{Pari-GP}\\
-         Excellent fast open source interpreter with number theoretical functions\\
+         Excellent, fast, free interpreter with number theoretical functions\\
          \href{http://www.parigp-home.de}
               {\texttt{http://www.parigp-home.de}} and
          \href{http://www.parigp-home.com}
               {\texttt{http://www.parigp-home.com}}
-   \item Only after I had completed this article I did come across the
+   \item Only after I had completed this article, I did come across the
      website of Mr.\ M\"unchenbach, which interactively and 
      didactically uses elementary number theory to provide an extremely sophisticated description of the
      fundamental mathematical thought processes. It was created for a teaching project in the 11th grade 
-     of the technical grammar school (unfortunately only available in German):\index{Muenchenbach} \\
-         \href{http://www.djh-freeweb.de/~muenchenbach}{\texttt{http://www.djh-freeweb.de/\~{}muenchenbach}}
+     of the technical grammar school (unfortunately only available in German):\index{Munchenbach@M\"unchenbach} \\
+         \href{http://www.hydrargyrum.de/kryptographie}
+              {\texttt{http://www.hydrargyrum.de/kryptographie}}\index{Munchenbach@M\"unchenbach}
+    \item Also only after I had completed this article, I did come across
+      the web site of Mr.~Wagner, who is responsible for the development of
+      the curriculum of computer science in a German federal state. Here
+      you can get (but only in German) a collection of texts and
+      (Java-)\discretionary{}{}{}programms:\\
+      \href{http://www.hom.saar.de/~awa/kryptolo.htm}
+              {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
     \item GISA,\index{GISA} \\
           German Information Security Agency \\
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}} 
+   \item Bernstein's RSA paper\\
+         \href{http://cr.yp.to/papers/nfscircuit.ps}{\texttt{http://cr.yp.to/papers/nfscircuit.ps}}
+   \item Factorisation records\index{Factorisation records}\\
+         \href{http://www.crypto-world.com/}{\texttt{http://www.crypto-world.com/}}
 \end{enumerate}
-
-
-
 
 \subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
 
-I would like to take this opportunity to thank Mr. Henrik Koy for making suggestions and very constructively proof-reading this article.
+I would like to take this opportunity to thank Mr. Henrik Koy for making
+many suggestions and for very constructively proof-reading this article.
 
 \newpage
 \subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
@@ -2631,6 +2642,7 @@ G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~addition~of~the~numbers~in~} G_2 {
 G_3 & = & G_2 {\rm ~~we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
 \end{eqnarray}
 End of forming a closed set.
+\vskip +12pt
 
 \subsection*{Appendix C: Comments on modulo subtraction} \hypertarget{Appendix_C}{}
 \addcontentsline{toc}{subsection}{Appendix C: Comments on modulo subtraction}
@@ -2673,17 +2685,19 @@ Pari-GP computes the tables via:
 
 {\tt matrix(1,iWidth, x,y, (iFactor1*y)\%m )} yields \\
 {\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
+\vskip +12pt
 
-Note: Pari-GP generates when using {\tt Mod} a compound {\tt Mod} objekt,
-which is displayed as shown below: \vspace{-2ex}
+Note: Pari-GP generates when using the {\tt Mod} function compound {\tt
+  Mod} objecs, which are displayed as shown below: \vspace{-2ex}
 \begin{verbatim}
-matrix(1,iWith, x,y, Mod(iFactor1*y, m))
+matrix(1,iWidth, x,y, Mod(iFactor1*y, m))
 [Mod(5, 17) Mod(10, 17) Mod(15, 17) Mod(3, 17) Mod(8, 17) Mod(13, 17) Mod(1, 17)
  Mod(6, 17) Mod(11, 17) Mod(16, 17) Mod(4, 17) Mod(9, 17) Mod(14, 17) Mod(2, 17)
  Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
 \end{verbatim}
 
-From the composite {\tt Mod} objekt you can get back the components with \texttt{component}-function: 
+From a {\tt Mod} object you can get back the components with
+\texttt{component}-function:  
 
 \texttt{%
   component(Mod(5, 17),1) $\rightarrow$ 17 \\
@@ -2697,7 +2711,7 @@ and {\tt m=12} respectively.
 \subsubsection*{Fast exponentation} \hypertarget{AppArith2}{}
 
 The fast exponentation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
-Using those programs you can comprehend the idea of the square and multiply method. With mathematica
+Using those programs you can comprehend the idea of the square and multiply method. With Mathematica
 you can compute the exponentations of the example on page \pageref{SrcArith2}
 as follows:
 \begin{verbatim}
@@ -2708,8 +2722,136 @@ and in Pari-GP the syntax is:
 Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 \end{verbatim}
 
+\subsubsection*{Multiplicative order and primitve roots}
+
+\hypertarget{AppArith3a}{} The order $ord_m(a)$ of a number $a$ in the
+multiplicative group $Z_m^*$ is the smallest number $i \ge 1$, for with
+$a^i \equiv 1$ mod $m$ holds. For the example on page~\pageref{SrcArith3a}
+you can make Mathematica print all exponentiations $a^i$ mod $11$ using the
+following syntax:
+\begin{verbatim}
+m=11;  Table[ Mod[a^i, m], {a, 1, m-1}, {i, 1, m-1} ]
+\end{verbatim}
+Equivalent Pari-GP syntax:
+\begin{verbatim}
+m=11; matrix(10,10, x,y, (x^y)%m )
+\end{verbatim}
+\hypertarget{AppArith3b}{}
+The table on page~\pageref{SrcArith3b} gives examples for the order modulo
+45 $ord_{45}(a)$ and the Euler number $J(45)$. Mathematica can be used to
+create this table with the following program (please note that Print cannot
+be used inside of Do-loops and each Print outputs a newline).
+
+\begin{verbatim}
+m = 45; 
+Do[ Print[ Table[ Mod[a^i, m], {i, 1, 12} ],
+'', '', MultiplicativeOrder[a, m, 1],
+'', '', EulerPhi[m] ], 
+{a, 1, 12} ]; 
+\end{verbatim}
+Here is the corresponding Pari-GP syntax:
+\begin{verbatim}
+m=45; 
+matrix(12,14, x,y, 
+       if( y<=12, (x^y)%m, 
+       if( y==13, if( gcd(x,m)==1, znorder(Mod(x,m)), "--"), 
+       eulerphi(m))))
+\end{verbatim}
+
+{\tt znorder(Mod(x,m))} can only be calculated if $x$ is relatively prime
+to $m$, which can be checked with {\tt gcd(x,m)}.
+
+Performance can be improved by using \index{Performance} {\tt
+  Mod(x,m)${}^\wedge$y} instead of {\tt (x${}^\wedge$y)\%m}.
+
+Loops are also supported by Pari-GP. Dispensing with the table formatting
+the result looks like this:
+\begin{verbatim}
+for( x=1,12, 
+     for(y=1,12, print(Mod(x^y,m))); 
+     if(gcd(x,m)==1,print(znorder(Mod(x,m))),print("--"));
+     print(eulerphi(m)))
+\end{verbatim}
 
 
+\vskip +12 pt \hypertarget{AppArith3c}{}
+The third example on page~\pageref{SrcArith3c} displays exponentiations
+$a^i$ mod $46$ as well as the order $ord_{46}(a)$.
+Mathematica can create this table with the following loop:
+\begin{verbatim}
+m = 46; 
+Do[ Print[ Table[ Mod[a^i, m], {i, 1, 23} ], 
+'', '', MultiplicativeOrder[a, m, 1]
+{a, 1, 23} ] ];
+\end{verbatim}
+In Pari-GP the syntax looks like this:
+\begin{verbatim}
+m=46; 
+matrix(23,24, x,y, 
+       if( y<=23, (x^y)%m,
+       if( y==24, if( gcd(x,m)==1, znorder(Mod(x,m)), "--"))))
+\end{verbatim}
+
+
+
+\subsubsection*{RSA examples}
+
+This section list the source code of the RSA examples in section
+\hyperlink{Kapitel_3_12}{``The RSA procedure with actual numbers''} using
+Mathematica and Pari-GP syntax.
+
+\vskip +10 pt \hypertarget{AppArith4a}{%
+\textbf{Example on page~\pageref{SrcArith4a}.}} \\
+The RSA exponentiation $M^{37}$ mod $3713$ on message $M = 120$ can be
+calculated in Mathematica like this: {\tt PowerMod[120, 37, 3713]}.\\
+Here is the corresponding Pari-GP syntax:  \\
+{\tt Mod(120,3713)\^{}37 or Mod(120\^{}37,3713)}.
+
+\vskip +10 pt \hypertarget{AppArith4b}{%
+{\bf Example on page~\pageref{SrcArith4b}.}} \\
+The factorisation of $J(256,027) = 255,016 = 2^3 * 127 * 251$ can be
+calculated with Mathematica like this: 
+{\tt FactorInteger[255016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
+Pari-GP does the same with: \\
+{\tt factor(255016)}.
+
+\vskip +10 pt \hypertarget{AppArith4c}{%
+{\bf Example on page~\pageref{SrcArith4c}.}} \\
+Mathematica can do RSA encryption with the command:\\
+{\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027]\}}  \\
+Pari-GP needs the following syntax:\\
+{\tt vecextract( [Mod(82,256027)\^{}65537, Mod(83,256027)\^{}65537, Mod(65,256027)\^{}65537, \\
+                 Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537], 31)
+}
+
+{\bf Remarks on using {\tt Mod} in Pari-GP:} \\
+{\tt Mod(82,256027)\^{}65537} is much faster than \\
+--  {\tt Mod(82\^{}65537, 256027)} and \\
+--  {\tt (82\^{}65537) \% 256027}.
+
+\vskip +10 pt \hypertarget{AppArith4d}{%
+{\bf Example on page~\pageref{SrcArith4d}.}} \\
+Mathematica can do RSA encryption with the following command:\\
+{\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\}, 65537, 256027]}  \\
+The same calculation with Pari-GP: \\
+{\tt vecextract( [Mod(21075,256027)\^{}65537, Mod(16672,256027)\^{}65537, \\
+             Mod(30575,256027)\^{}65537, Mod(29291,256027)\^{}65537, \\
+             Mod(29473,256027)\^{}65537], 31) 
+}
+
+\vskip +10 pt \hypertarget{AppArith4e}{%
+{\bf Example on page~\pageref{SrcArith4e}.}} \\
+RSA encryption using Mathematica:\\
+{\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256027]} \\
+RSA encryption with Pari-GP: \\
+{\tt vecextract( [Mod(82083,256027)\^{}65537, Mod(65032,256027)\^{}65537, \\
+             Mod(119111,256027)\^{}65537, Mod(114107,256027)\^{}65537, \\
+             Mod(115033,256027)\^{}65537], 31)
+}
+
+
+
+\vskip +12pt
 \subsection*{Appendix E: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
 \addcontentsline{toc}{subsection}{Appendix E: List of the formulated definitions and theorems}
 \vskip +8 pt
@@ -2735,7 +2877,7 @@ Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
 Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
 Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
 Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
-Theorem \ref{thm-zth-fermat1} & small Fermat  &  \pageref{thm-zth-fermat1}\\
+Theorem \ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
 Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
 Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
 Definition \ref{def-zth-primitiveroot} & primitive root von $m$ &  \pageref{def-zth-primitiveroot}\\
