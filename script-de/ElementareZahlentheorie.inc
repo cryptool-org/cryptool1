@@ -1973,7 +1973,7 @@ Entschl"usselung pro Block per: $M \equiv C^{2473}{\rm ~(mod~}67519)$: \\
 \index{RSA!Cipher-Challenge}
 Die Aufgabe stammt aus \cite[Exercise 4.6]{Stinson1995}: 
 Die pure L"osung hat Prof. Stinson unter 
-\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{http://www.cacr.math.uwaterloo.ca/\~dstinson/solns.html}
+\href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}
 ver"offentlicht. Es geht aber 
 nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der L"osung, 
 also um die Darlegung der Kryptoanalyse\footnote{
@@ -2215,13 +2215,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
           \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}{\tt http://www.informatik.tu-darmstadt.de/TI/LiDIA}
    \item BC, \\
           Interpreter mit zahlentheoretischen Funktionen \\
-          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\tt http://www.maths.uq.edu.au/\~krm/gnubc.html}
+          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}{\tt http://www.maths.uq.edu.au/\~{}krm/gnubc.html}
    \item Erst nach Vollendung dieses Artikels wurde mir eine Webseite bekannt, die
          interaktiv und didaktisch sehr ausgereift die grundlegenden Denkweisen der
          Mathematik anhand der einfachen Zahlentheorie nahebringt. Sie entstand f"ur
          ein Unterrichtsprojekt der 11. Klasse des Technischen Gymnasium (ist leider
          nur in Deutsch verf"ugbar): \\
-         \href{http://www.djh-freeweb.de/~muenchenbach}{\tt http://www.djh-freeweb.de/\~muenchenbach}
+         \href{http://www.djh-freeweb.de/~muenchenbach}{\tt http://www.djh-freeweb.de/\~{}muenchenbach}
     \item BSI, \\
           Bundesamt f"ur Sicherheit und Informationstechnik \\
           \href{http://www.bsi.bund.de}{\tt http://www.bsi.bund.de}

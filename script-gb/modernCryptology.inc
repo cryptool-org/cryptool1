@@ -118,22 +118,22 @@ For an opponent who knows the public key $ e_T $, it is practically impossible
 to determine the private key  $ d_T $.\par
 
 In order to construct useful public-key procedures, therefore, we look for a 
-one-way function that is \glqq easy\grqq {} to calculate in one direction {}, but 
-is \glqq difficult\grqq {} (practically impossible) to calculate in the other 
+one-way function that is ''easy'' to calculate in one direction {}, but 
+is ''difficult'' (practically impossible) to calculate in the other 
 direction, provided that a particular piece of additional information 
 \index{One-way function!with trapdoor } (trapdoor) is not available. This 
 additional piece of information allows the inverse to be found efficiently. Such 
 functions are called {\bf trapdoor one-way functions}. In the above case, $ d_T 
 $ is the trapdoor information. \par
 
-In this process, we describe a problem as \glqq easy\grqq ~if it can be solved in 
+In this process, we describe a problem as ''easy'' if it can be solved in 
 \index{Runtime!polynomial} polynomial time as a function of the length of the 
 input. If the length of the input is $ n $ bits, then the time for calculating 
 the function is proportional to $ n^{a}, $ where $ a $  is a constant. We say 
 that the \index{Complexity} complexity of such problems is $ O(n^{a}) $. 
 
 
-The term \glqq practically impossible\grqq {} is slightly less precise. In 
+The term ''practically impossible'' is slightly less precise. In 
 general, we can say that a problem cannot be solved \index{Runtime!efficient} 
 efficiently, if the time required to solve it increases more quickly than the 
 polynomial time as a function of the size of the input. If, for example, the 
@@ -163,9 +163,9 @@ solved in a polynomial amount of time.
 time required to solve a problem, but rather at the time required to verify a 
 given solution. The class \textbf{NP} consists of those problems for which a 
 given solution can be verified in a polynomial amount of time. Hereby, the term 
-\textbf{NP} \glqq non-deterministic\grqq {} means polynomial and is based on a 
-calculation model, i.e. on a computer that only exists in theory and can \glqq 
-guess\grqq {} correct solutions non-deterministically then verify them in 
+\textbf{NP} ''non-deterministic'' means polynomial and is based on a 
+calculation model, i.e. on a computer that only exists in theory and can 
+''guess'' correct solutions non-deterministically then verify them in 
 polynomial time.
 
 \end{itemize}
@@ -173,17 +173,17 @@ polynomial time.
 The class \textbf{P} is contained in the class \textbf{NP}. A well-known 
 unsolved problem is the question whether or not $ \textbf{P} \neq \textbf{NP} $ 
 is true, i.e. whether or not \textbf{P} is a true subset. An important property 
-of the class \textbf{NP} is that it also contains what are known as \glqq 
-\textbf{NP}-complete\grqq {} problems. These are problems that represent the 
-class \textbf{NP} as follows: If a \glqq good\grqq {} algorithm for such a 
-problem exists, then \glqq good\grqq {}algorithms exist for all problems from 
+of the class \textbf{NP} is that it also contains what are known as ''\textbf{NP}-complete''
+problems. These are problems that represent the 
+class \textbf{NP} as follows: If a ''good'' algorithm for such a 
+problem exists, then ''good'' algorithms exist for all problems from 
 \textbf{NP}. In particular: if \textbf{P} only contained one complete problem, 
 i.e. if a polynomial solution algorithm existed for this problem, then 
 \textbf{P}would be equal to \textbf{NP}. In this sense, the \textbf{NP}-complete 
 problems are the most difficult problems in \textbf{NP}.
 
-Many cryptographic protocols are formed in such a way that the \glqq good\grqq 
-{} subscribers only have to solve problems from \textbf{P}, whereas a 
+Many cryptographic protocols are formed in such a way that the ''good''
+subscribers only have to solve problems from \textbf{P}, whereas a 
 perpetrator is faced with problems from \textbf{NP}.
 
 Unfortunately, we do not yet know whether one-way functions actually exist. 
@@ -282,7 +282,7 @@ sequence in the timeframe of $ O(n). $
 \subsubsection{Merkle-Hellman knapsack encryption}
 \index{Hellman Martin} \index{Merkle} In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public-key 
-encryption procedure that is based on \glqq defamiliarising\grqq {} the easy 0-1 
+encryption procedure that is based on ''defamiliarising'' the easy 0-1 
 knapsack problem with a superincreasing sequence into a congruent one with a 
 superincreasing sequence. It is a block ciphering that ciphers an n-bit 
 plaintext each time it runs.
@@ -453,8 +453,7 @@ a mathematical breakthrough tomorrow.
 
 To this date, it has not been proved that the problem of breaking RSA is 
 equivalent to the factorisation problem. Nevertheless, it is clear that the RSA 
-procedure will no longer be safe if the factorisation problem is \glqq 
-solved\grqq {}.
+procedure will no longer be safe if the factorisation problem is ''solved''.
 
 
 \subsubsection{Rabin public-key procedure (1979)}
@@ -696,7 +695,7 @@ Let $ G $ be a finite abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots
 solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
 \end{theorem}
 
-If $ |G| $ contains a \glqq dominant\grqq {} prime factor $ p ,$ then the 
+If $ |G| $ contains a ''dominant'' prime factor $ p ,$ then the 
 complexity \index{ complexity} of the logarithm problem is approximately
 \[ O(\sqrt{p}). \]
 Therefore, if the logarithm problem is to be made difficult, the order of the 
@@ -782,6 +781,5 @@ Hellman Cryptosystem.}\\
 \section*{URLs} \addcontentsline{toc}{subsection}{URLs}
 \begin{enumerate}
    \item 
-\href{http://www.geocities.com/st\_busygin/clipat.html}{http://www.geocities.com
-/st\_busygin/clipat.html }
+\href{http://www.geocities.com/st_busygin/clipat.html}{http://www.geocities.com/st\_busygin/clipat.html }
 \end{enumerate}
