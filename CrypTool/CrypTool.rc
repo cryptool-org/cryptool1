@@ -2390,6 +2390,27 @@ BEGIN
     PUSHBUTTON      "Datenausgabe",IDC_BUTTON_DATENAUSGABE,485,454,50,14
 END
 
+IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 316
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hybrid-Entschlüsselung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,290,93,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,166,290,91,18
+    PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,313,290,61,18
+    EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4798,6 +4819,34 @@ BEGIN
                             "Verifiziere Ergebnis durch vergleichen der beiden Zahlen f und g."
     IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL 
                             "Diese Funktion ist in der gegenwärtigen Version von CrypTool noch nicht realisiert!"
+    IDS_STRING_HYBRID_RECIEVER "Receiver:    "
+    IDS_STRING_HYBRID_ENC_KEY "    Encrypted session key:    "
+    IDS_STRING_HYBRID_SYM_METHOD "    Symmetric method:    "
+    IDS_STRING_HYBRID_ASYM_METHOD "    Asymmetric method:    "
+    IDS_STRING_HYBRID_CIPHERTEXT "    Ciphertext:    "
+    IDS_STRING_ZERT_DATEN   "Hier werden Ihre Zertifikatsdaten angezeigt."
+    IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybrid-Entschlüsselung:"
+    IDS_STRING_HYBRID_DEC_MSG1 
+                            "Informationen über von Ihnen gewählte Zertifikat wird im \r\noberen Textfeld angezeigt.\r\n"
+    IDS_STRING_HYBRID_DEC_MSG2 
+                            "Zum Entschlüsseln wählen Sie ihr Zertifkat aus der PSE...\r\n\r\n"
+    IDS_STRING_HYBRID_DEC_MSG3 
+                            "Klicken Sie auf Weiter> um Informationen zum geheimen RSA-Schlüssel\r\nanzuzeigen ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG4 
+                            "Ihr privater RSA-Schlüssel d ist die Zahl: \r\n\r\nd ="
+    IDS_STRING_HYBRID_DEC_MSG5 
+                            "Klicken Sie auf Weiter> um den Session-Key durch die RSA-Entschlüsselung\r\nzu berechnen ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG6 
+                            "Der Session Key ist die folgende 128 Bit lange Nachricht\r\n\r\nSession-Key:"
+    IDS_STRING_HYBRID_DEC_MSG7 
+                            "Klicken Sie auf Entschlüsseln um mit dem Session-Key die Nachricht\r\nzu entschlüsseln ..."
+    IDS_STRING_HYBRID_DEC_MSG8 
+                            "Ihre Nachricht wurde erfolgreich entschlüsselt. \r\n\r\n\nKlicken Sie auf Entschlüsseln um die entschlüsselte Nachricht \r\n\r\nauszugeben.\r\n"
+    IDS_STRING_HYBRID_DEC_MSG9 
+                            "Die Eingabe ist keine Hybrid-Verschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
+    IDS_STRING_HYBRID_DEC_MSG10 "Sie haben den falschen Schlüssel gewählt!"
+    IDS_STRING_HYBRID_DEC_MSG11 "Sie haben keinen Schlüssel gewählt!"
+    IDS_STRING_ZERT_DATEN2  "Ihre Zertifikatsdaten:"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7768,6 +7817,27 @@ BEGIN
     DEFPUSHBUTTON   "Create Certificate and PSE",IDOK,244,248,103,14
 END
 
+IDD_HYBRID_DECRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 392, 316
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hybrid-Entschlüsselung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,290,93,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,166,290,91,18
+    PUSHBUTTON      "&Weiter >",IDC_BUTTON_CONTINUE,313,290,61,18
+    EDITTEXT        IDC_EDIT2,5,19,380,85,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT_SHOW_STEPS,5,128,380,138,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT3,5,115,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9706,6 +9776,34 @@ BEGIN
                             "Verify results by comparing the two numbers f and g."
     IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL 
                             "This function is not yet implemented in the current version of CrypTool!"
+    IDS_STRING_HYBRID_RECIEVER "Receiver:    "
+    IDS_STRING_HYBRID_ENC_KEY "    Encrypted session key:    "
+    IDS_STRING_HYBRID_SYM_METHOD "    Symmetric method:    "
+    IDS_STRING_HYBRID_ASYM_METHOD "    Asymmetric method:    "
+    IDS_STRING_HYBRID_CIPHERTEXT "    Ciphertext:    "
+    IDS_STRING_ZERT_DATEN   "Die Zertifikatsdaten des Empfängers der Nachricht:"
+    IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybrid-Entschlüsselung:"
+    IDS_STRING_HYBRID_DEC_MSG1 
+                            "Informations about your choosen certificate is displayed into\r\nthe above text field. \r\n"
+    IDS_STRING_HYBRID_DEC_MSG2 
+                            "Please select your secret RSA key from the PSE ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG3 
+                            "Click Continue> to show your private RSA key ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG4 
+                            "Your private RSA key d is the integer number \r\n\r\nd = "
+    IDS_STRING_HYBRID_DEC_MSG5 
+                            "Click Continue> to compute the session key via RSA\r\ndecryption ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG6 
+                            "The session key is the following 128 bit message\r\n\r\nSession key:"
+    IDS_STRING_HYBRID_DEC_MSG7 
+                            "Click Encrypt to decrypt the cipher text with the\r\nsession key ... \r\n"
+    IDS_STRING_HYBRID_DEC_MSG8 
+                            "The message has been successfully decrypted.\r\n\r\nChoose Encrypt to show the decrypted message.\r\n"
+    IDS_STRING_HYBRID_DEC_MSG9 
+                            "Your Input is not valid a hybrid encrypted file!\r\nIt could not be decrypted.\r\n"
+    IDS_STRING_HYBRID_DEC_MSG10 "Sie haben den falschen Schlüssel gewählt!"
+    IDS_STRING_HYBRID_DEC_MSG11 "Sie haben keinen Schlüssel gewählt!"
+    IDS_STRING_ZERT_DATEN2  "Sie haben keinen Schlüssel gewählt!"
 END
 
 STRINGTABLE DISCARDABLE 
