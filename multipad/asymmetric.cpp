@@ -41,7 +41,7 @@
 #include <time.h>
 
 #include "asymmetric.h"
-#include "crypt.h" // ## Später Ersetzen durch Tools.h
+#include "DialogMessage.h" // ## Später Ersetzen durch Tools.h
 
 // the extern (global) Variables are from multipad.cpp
 extern char *Pfad; // Directory Path of the main programm

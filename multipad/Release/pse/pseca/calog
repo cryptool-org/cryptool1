@@ -7,3 +7,12 @@
 10/24/01 11:32:26 : SIGN CERTIFICATE ISSUED FOR <CN=Test Test [1003915944], L=Frankfurt, O=DB, C=DE>
                     Validity Wed Oct 24 11:32:26 2001 - Thu Oct 24 11:32:26 2002
                     SerialNo: 03
+02/12/02 20:07:25 : SIGN CERTIFICATE ISSUED FOR <CN=Henrik Koy [1013540836], L=Frankfurt, O=DB, C=DE>
+                    Validity Tue Feb 12 20:07:25 2002 - Wed Feb 12 20:07:25 2003
+                    SerialNo: 04
+02/13/02 10:33:07 : SIGN CERTIFICATE ISSUED FOR <CN=Henrik Koy [1013592780], L=Frankfurt, O=DB, C=DE>
+                    Validity Wed Feb 13 10:33:07 2002 - Thu Feb 13 10:33:07 2003
+                    SerialNo: 05
+02/26/02 16:26:13 : SIGN CERTIFICATE ISSUED FOR <CN=Henrik Koy [1014737167], L=Frankfurt, O=DB, C=DE>
+                    Validity Tue Feb 26 16:26:13 2002 - Wed Feb 26 16:26:13 2003
+                    SerialNo: 06

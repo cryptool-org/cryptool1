@@ -10,7 +10,7 @@
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "multipad.h"
-#include "crypt.h"
+#include "DialogMessage.h"
 #include "secudetools.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp
