@@ -1043,7 +1043,7 @@ BEGIN
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,7,17,373,173
-    DEFPUSHBUTTON   "Signatur &Verifizieren",IDOK,11,340,90,19
+    DEFPUSHBUTTON   "Signatur &verifizieren",IDOK,11,340,90,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,309,340,71,19
     PUSHBUTTON      "&Suche Schlüssel",IDC_BUTTON1,308,235,72,18
     LTEXT           "Wählen Sie aus der folgenden Liste den Signaturersteller:",
@@ -2168,50 +2168,50 @@ BEGIN
     LTEXT           "Eingabe",IDC_STATIC,6,297,85,10
 END
 
-IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 467, 412
+IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 504, 423
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schrittweise Signaturerzeugung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "TEST_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,7,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,233,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,7,50,28
-    CONTROL         "TEST_T_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,7,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,233,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,69,50,14
-    CONTROL         "TEST_F_",IDC_COMPUTE,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,121,130,50,28
-    CONTROL         "TEST_F_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    BS_MULTILINE | WS_TABSTOP,233,130,50,28
-    CONTROL         "TEST_F_",IDC_COMBINE,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    BS_MULTILINE | WS_TABSTOP,347,130,50,28
-    CONTROL         "TEST_T_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,191,50,14
-    CONTROL         "TEST_T_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,233,191,50,14
-    CONTROL         "TEST_T_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,191,50,14
-    CONTROL         "TEST_T_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,233,252,50,14
-    CONTROL         "TEST_T_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,347,252,50,14
-    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,288,453,10,SS_SUNKEN | 
+    CONTROL         "OPENDOC_R_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,17,15,50,28
+    CONTROL         "SELECTALG_R_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,15,50,28
+    CONTROL         "GENKEY_R_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,15,50,28
+    CONTROL         "GENCERT_R_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,15,50,28
+    CONTROL         "INFODOC_B_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,17,76,50,28
+    CONTROL         "INFOALG_B_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,76,50,28
+    CONTROL         "INFOKEY_B_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,76,50,28
+    CONTROL         "INFOCERT_B_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,76,50,28
+    CONTROL         "COMPUTE_R_",IDC_COMPUTE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,138,50,28
+    CONTROL         "ENCRYPT_R_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | BS_MULTILINE | WS_TABSTOP,242,138,50,28
+    CONTROL         "COMBINE_R_",IDC_COMBINE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | BS_MULTILINE | WS_TABSTOP,354,138,50,28
+    CONTROL         "INFOHASH_B_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,199,50,28
+    CONTROL         "INFOENC_B_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,199,50,28
+    CONTROL         "INFOSIGN_B_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,199,50,28
+    CONTROL         "CANCEL_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,242,260,50,28
+    CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,354,260,50,28
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,300,490,10,SS_SUNKEN | 
                     NOT WS_GROUP
-    EDITTEXT        IDC_DISPLAY_INFO,7,298,453,106,ES_MULTILINE | 
+    EDITTEXT        IDC_DISPLAY_INFO,7,310,490,106,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
-    CONTROL         335,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,7,7,
-                    453,283
+    CONTROL         345,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,160
+    CONTROL         344,IDC_EMPTY2,"Static",SS_BITMAP,129,260,113,37
 END
 
 IDD_DEMO_RSAKEY_GENERATION DIALOG DISCARDABLE  0, 0, 351, 218
@@ -2258,7 +2258,7 @@ END
 
 IDD_CERTIFICATE_GENERATION DIALOG DISCARDABLE  0, 0, 354, 269
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Zertifkat und PSE Erzeugen"
+CAPTION "Zertifkat und PSE erzeugen"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Öffentliche RSA-Parameter",IDC_STATIC_RSA,7,7,340,64
@@ -2406,8 +2406,7 @@ END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 565, 474
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
-
+CAPTION "Visualisierung der Hybridverschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         324,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,259,
@@ -2591,13 +2590,6 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
-        POPUP "&Hybrid-Demo"
-        BEGIN
-            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -2775,13 +2767,6 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
-        POPUP "&Hybrid-Demo"
-        BEGIN
-            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -2933,16 +2918,6 @@ BEGIN
         MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
         MENUITEM "S&tatusleiste",               ID_VIEW_STATUS_BAR
     END
-    POPUP "Ver-/Entschlüsseln"
-    BEGIN
-        POPUP "&Hybrid-Demo"
-        BEGIN
-            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
-    END
     POPUP "&Schlüsselverwaltung"
     BEGIN
         MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
@@ -2979,7 +2954,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
-    MENUITEM "",                            65535
 END
 
 IDR_TEXTTYPE MENU DISCARDABLE 
@@ -3061,13 +3035,6 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
-        POPUP "&Hybrid-Demo"
-        BEGIN
-            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -3113,6 +3080,13 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        POPUP "&Hybridverfahren"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybridentschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -3267,16 +3241,6 @@ IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
 IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
 IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
-OPNDOC_F_U              BITMAP  DISCARDABLE     "res\\OPNDOC_F_U.bmp"
-OPNDOC_F_F              BITMAP  DISCARDABLE     "res\\OPNDOC_F_F.bmp"
-OPNDOC_F_D              BITMAP  DISCARDABLE     "res\\OPNDOC_F_D.bmp"
-OPNDOC_T_U              BITMAP  DISCARDABLE     "res\\OPNDOC_T_U.bmp"
-OPNDOC_T_F              BITMAP  DISCARDABLE     "res\\OPNDOC_T_F.bmp"
-OPNDOC_T_D              BITMAP  DISCARDABLE     "res\\OPNDOC_T_D.bmp"
-INFDOC_X                BITMAP  DISCARDABLE     "res\\INFDOC_X.bmp"
-INFDOC_F                BITMAP  DISCARDABLE     "res\\INFDOC_F.bmp"
-INFDOC_U                BITMAP  DISCARDABLE     "res\\INFDOC_U.bmp"
-INFDOC_D                BITMAP  DISCARDABLE     "res\\INFDOC_D.bmp"
 RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
 RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
 SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
@@ -3299,15 +3263,89 @@ RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
-TEST_T_X                BITMAP  DISCARDABLE     "res\\TEST_X.bmp"
-TEST_F_F                BITMAP  DISCARDABLE     "res\\TEST_F_F.bmp"
-TEST_F_U                BITMAP  DISCARDABLE     "res\\TEST_F_U.bmp"
-TEST_T_D                BITMAP  DISCARDABLE     "res\\TEST_T_D.bmp"
-TEST_T_F                BITMAP  DISCARDABLE     "res\\TEST_T_F.bmp"
-TEST_T_U                BITMAP  DISCARDABLE     "res\\TEST_T_U.bmp"
-TEST_F_D                BITMAP  DISCARDABLE     "res\\TEST_F_D.bmp"
-TEST_F_X                BITMAP  DISCARDABLE     "res\\test_f_x.bmp"
 IDB_LAYOUT              BITMAP  DISCARDABLE     "res\\Layout.bmp"
+OK_G_X                  BITMAP  DISCARDABLE     "res\\OK_G_X.bmp"
+IDB_EMPTY2              BITMAP  DISCARDABLE     "res\\EMPTY2.bmp"
+IDB_EMPTY1              BITMAP  DISCARDABLE     "res\\EMPTY1.bmp"
+OPENDOC_R_U             BITMAP  DISCARDABLE     "res\\OPENDOC_R_U.bmp"
+OPENDOC_G_F             BITMAP  DISCARDABLE     "res\\OPENDOC_G_F.bmp"
+OPENDOC_G_U             BITMAP  DISCARDABLE     "res\\OPENDOC_G_U.bmp"
+OPENDOC_R_D             BITMAP  DISCARDABLE     "res\\OPENDOC_R_D.bmp"
+OPENDOC_R_F             BITMAP  DISCARDABLE     "res\\OPENDOC_R_F.bmp"
+OPENDOC_G_D             BITMAP  DISCARDABLE     "res\\OPENDOC_G_D.bmp"
+INFODOC_B_X             BITMAP  DISCARDABLE     "res\\INFODOC_B_X.bmp"
+GENCERT_G_F             BITMAP  DISCARDABLE     "res\\GENCERT_G_F.bmp"
+GENCERT_G_U             BITMAP  DISCARDABLE     "res\\GENCERT_G_U.bmp"
+GENCERT_G_D             BITMAP  DISCARDABLE     "res\\GENCERT_G_D.bmp"
+INFOCERT_B_X            BITMAP  DISCARDABLE     "res\\INFOCERT_B_X.bmp"
+SELECTALG_R_U           BITMAP  DISCARDABLE     "res\\SELECTALG_R_U.bmp"
+SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\SELECTALG_G_F.bmp"
+SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\SELECTALG_G_U.bmp"
+SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\SELECTALG_R_D.bmp"
+SELECTALG_R_F           BITMAP  DISCARDABLE     "res\\SELECTALG_R_F.bmp"
+SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\SELECTALG_G_D.bmp"
+INFOALG_B_X             BITMAP  DISCARDABLE     "res\\INFOALG_B_X.bmp"
+COMPUTE_R_X             BITMAP  DISCARDABLE     "res\\COMPUTE_R_X.bmp"
+COMPUTE_G_F             BITMAP  DISCARDABLE     "res\\COMPUTE_G_F.bmp"
+COMPUTE_G_U             BITMAP  DISCARDABLE     "res\\COMPUTE_G_U.bmp"
+COMPUTE_R_D             BITMAP  DISCARDABLE     "res\\COMPUTE_R_D.bmp"
+COMPUTE_R_F             BITMAP  DISCARDABLE     "res\\COMPUTE_R_F.bmp"
+COMPUTE_R_U             BITMAP  DISCARDABLE     "res\\COMPUTE_R_U.bmp"
+COMPUTE_G_D             BITMAP  DISCARDABLE     "res\\COMPUTE_G_D.bmp"
+INFODOC_B_U             BITMAP  DISCARDABLE     "res\\INFODOC_B_U.bmp"
+INFOALG_B_F             BITMAP  DISCARDABLE     "res\\INFOALG_B_F.bmp"
+INFODOC_B_D             BITMAP  DISCARDABLE     "res\\INFODOC_B_D.bmp"
+INFODOC_B_F             BITMAP  DISCARDABLE     "res\\INFODOC_B_F.bmp"
+INFOALG_B_D             BITMAP  DISCARDABLE     "res\\INFOALG_B_D.bmp"
+INFOALG_B_U             BITMAP  DISCARDABLE     "res\\infoalg_.bmp"
+INFOHASH_B_X            BITMAP  DISCARDABLE     "res\\INFOHASH_B_X.bmp"
+INFOHASH_B_F            BITMAP  DISCARDABLE     "res\\INFOHASH_B_F.bmp"
+INFOHASH_B_U            BITMAP  DISCARDABLE     "res\\INFOHASH_B_U.bmp"
+INFOHASH_B_D            BITMAP  DISCARDABLE     "res\\INFOHASH_B_D.bmp"
+ENCRYPT_G_F             BITMAP  DISCARDABLE     "res\\ENCRYPT_G_F.bmp"
+ENCRYPT_G_U             BITMAP  DISCARDABLE     "res\\ENCRYPT_G_U.bmp"
+ENCRYPT_R_D             BITMAP  DISCARDABLE     "res\\ENCRYPT_R_D.bmp"
+ENCRYPT_R_F             BITMAP  DISCARDABLE     "res\\ENCRYPT_R_F.bmp"
+ENCRYPT_R_U             BITMAP  DISCARDABLE     "res\\ENCRYPT_R_U.bmp"
+ENCRYPT_G_D             BITMAP  DISCARDABLE     "res\\ENCRYPT_G_D.bmp"
+INFOENC_B_X             BITMAP  DISCARDABLE     "res\\INFOENC_B_X.bmp"
+INFOENC_B_F             BITMAP  DISCARDABLE     "res\\INFOENC_B_F.bmp"
+INFOENC_B_U             BITMAP  DISCARDABLE     "res\\INFOENC_B_U.bmp"
+INFOENC_B_D             BITMAP  DISCARDABLE     "res\\INFOENC_B_D.bmp"
+GENCERT_R_U             BITMAP  DISCARDABLE     "res\\GENCERT_R_U.bmp"
+GENCERT_R_D             BITMAP  DISCARDABLE     "res\\GENCERT_R_D.bmp"
+GENCERT_R_F             BITMAP  DISCARDABLE     "res\\GENCERT_R_F.bmp"
+ENCRYPT_R_X             BITMAP  DISCARDABLE     "res\\ENCRYPT_R_X.bmp"
+INFOCERT_B_U            BITMAP  DISCARDABLE     "res\\INFOCERT_B_U.bmp"
+COMBINE_R_X             BITMAP  DISCARDABLE     "res\\COMBINE_R_X.bmp"
+COMBINE_G_F             BITMAP  DISCARDABLE     "res\\COMBINE_G_F.bmp"
+COMBINE_G_U             BITMAP  DISCARDABLE     "res\\COMBINE_G_U.bmp"
+COMBINE_R_D             BITMAP  DISCARDABLE     "res\\COMBINE_R_D.bmp"
+COMBINE_R_F             BITMAP  DISCARDABLE     "res\\COMBINE_R_F.bmp"
+COMBINE_R_U             BITMAP  DISCARDABLE     "res\\COMBINE_R_U.bmp"
+COMBINE_G_D             BITMAP  DISCARDABLE     "res\\COMBINE_G_D.bmp"
+INFOSIGN_B_X            BITMAP  DISCARDABLE     "res\\INFOSIGN_B_X.bmp"
+INFOSIGN_B_F            BITMAP  DISCARDABLE     "res\\INFOSIGN_B_F.bmp"
+INFOSIGN_B_U            BITMAP  DISCARDABLE     "res\\INFOSIGN_B_U.bmp"
+INFOSIGN_B_D            BITMAP  DISCARDABLE     "res\\INFOSIGN_B_D.bmp"
+INFOCERT_B_F            BITMAP  DISCARDABLE     "res\\INFOCERT_B_F.bmp"
+INFOCERT_B_D            BITMAP  DISCARDABLE     "res\\INFOCERT_B_D.bmp"
+GENKEY_R_U              BITMAP  DISCARDABLE     "res\\GENKEY_R_U.bmp"
+GENKEY_G_F              BITMAP  DISCARDABLE     "res\\GENKEY_G_F.bmp"
+GENKEY_G_U              BITMAP  DISCARDABLE     "res\\GENKEY_G_U.bmp"
+GENKEY_R_D              BITMAP  DISCARDABLE     "res\\GENKEY_R_D.bmp"
+GENKEY_R_F              BITMAP  DISCARDABLE     "res\\GENKEY_R_F.bmp"
+GENKEY_G_D              BITMAP  DISCARDABLE     "res\\GENKEY_G_D.bmp"
+INFOKEY_B_X             BITMAP  DISCARDABLE     "res\\INFOKEY_B_X.bmp"
+INFOKEY_B_F             BITMAP  DISCARDABLE     "res\\INFOKEY_B_F.bmp"
+INFOKEY_B_U             BITMAP  DISCARDABLE     "res\\INFOKEY_B_U.bmp"
+INFOKEY_B_D             BITMAP  DISCARDABLE     "res\\INFOKEY_B_D.bmp"
+OK_G_U                  BITMAP  DISCARDABLE     "res\\OK_G_U.bmp"
+CANCEL_G_F              BITMAP  DISCARDABLE     "res\\CANCEL_G_F.bmp"
+CANCEL_G_U              BITMAP  DISCARDABLE     "res\\CANCEL_G_U.bmp"
+OK_G_D                  BITMAP  DISCARDABLE     "res\\OK_G_D.bmp"
+OK_G_F                  BITMAP  DISCARDABLE     "res\\OK_G_F.bmp"
+CANCEL_G_D              BITMAP  DISCARDABLE     "res\\CANCEL_G_D.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4038,9 +4076,10 @@ BEGIN
     IDD_SIGNATURE_DEMO, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 416
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 303
+        RIGHTMARGIN, 497
+        VERTGUIDE, 121
+        HORZGUIDE, 8
+        HORZGUIDE, 252
     END
 
     IDD_DEMO_RSAKEY_GENERATION, DIALOG
@@ -5362,13 +5401,14 @@ BEGIN
     IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code  ein."
     IDS_NOTIFY_PIN_V        "Bitte bestätigen Sie den PIN-Code."
     IDS_CONTENT_ALG         "Hashverfahren"
-    IDS_RSA_SIGNATURE_OF    "RSA (%s) Signatur von <%s>"
+    IDS_RSA_SIGNATURE_OF    "RSA Signatur mit %s von <%s>"
     IDS_NOTIFY_FIRST_NAME   "Bitte geben Sie Ihren Vornamen ein."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_CONTENT_KEY         "RSA-Schlüssel"
+    IDS_CONTENT_HASH_ENC    "Verschlüsselter Hashwert"
+    IDS_CONTENT_KEY         "RSA-Schlüssel des Senders"
     IDS_PRIME_CHECK         "p und q sind Primzahlen."
     IDS_PRIME_NO_CHECK_Q    "q ist KEINE Primzahl !"
     IDS_PUBLIC_CHECK        "e ist teilerfremd zu phi (N) ."
@@ -7572,50 +7612,50 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 467, 412
+IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 496, 428
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schrittweise Signaturerzeugung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "TEST_F_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,7,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,233,7,50,28
-    CONTROL         "TEST_F_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,7,50,28
-    CONTROL         "TEST_T_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,7,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,233,69,50,14
-    CONTROL         "TEST_T_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,69,50,14
-    CONTROL         "TEST_F_",IDC_COMPUTE,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,121,130,50,28
-    CONTROL         "TEST_F_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    BS_MULTILINE | WS_TABSTOP,233,130,50,28
-    CONTROL         "TEST_F_",IDC_COMBINE,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    BS_MULTILINE | WS_TABSTOP,347,130,50,28
-    CONTROL         "TEST_T_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,121,191,50,14
-    CONTROL         "TEST_T_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,233,191,50,14
-    CONTROL         "TEST_T_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,347,191,50,14
-    CONTROL         "TEST_T_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,233,252,50,14
-    CONTROL         "TEST_T_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
-                    WS_TABSTOP,347,252,50,14
-    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,288,453,10,SS_SUNKEN | 
+    CONTROL         "OPENDOC_R_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,17,15,50,28
+    CONTROL         "SELECTALG_R_",IDC_SELECT_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,15,50,28
+    CONTROL         "GENKEY_R_",IDC_SELECT_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,15,50,28
+    CONTROL         "GENCERT_R_",IDC_SELECT_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,15,50,28
+    CONTROL         "INFODOC_B_",IDC_INFO_DOCUMENT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,17,76,50,28
+    CONTROL         "INFOALG_B_",IDC_INFO_HASHALG,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,76,50,28
+    CONTROL         "INFOKEY_B_",IDC_INFO_KEY,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,76,50,28
+    CONTROL         "INFOCERT_B_",IDC_INFO_CERT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,76,50,28
+    CONTROL         "COMPUTE_R_",IDC_COMPUTE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,138,50,28
+    CONTROL         "ENCRYPT_R_",IDC_ENCRYPT,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | BS_MULTILINE | WS_TABSTOP,242,138,50,28
+    CONTROL         "COMBINE_R_",IDC_COMBINE,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | BS_MULTILINE | WS_TABSTOP,354,138,50,28
+    CONTROL         "INFOHASH_B_",IDC_INFO_HASH,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,129,199,50,28
+    CONTROL         "INFOENC_B_",IDC_INFO_HASH_ENC,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,242,199,50,28
+    CONTROL         "INFOSIGN_B_",IDC_INFO_SIGN,"Button",BS_OWNERDRAW | 
+                    BS_BITMAP | WS_TABSTOP,354,199,50,28
+    CONTROL         "CANCEL_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,242,260,50,28
+    CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | 
+                    WS_TABSTOP,354,260,50,28
+    LTEXT           "Static",IDC_DISPLAY_CONTENT,7,300,482,10,SS_SUNKEN | 
                     NOT WS_GROUP
-    EDITTEXT        IDC_DISPLAY_INFO,7,298,453,106,ES_MULTILINE | 
+    EDITTEXT        IDC_DISPLAY_INFO,7,310,482,106,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
                     ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
-    CONTROL         335,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,7,7,
-                    453,283
+    CONTROL         345,IDC_EMPTY1,"Static",SS_BITMAP,17,137,113,160
+    CONTROL         344,IDC_EMPTY2,"Static",SS_BITMAP,129,260,113,37
 END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 131, 114
@@ -8504,16 +8544,6 @@ IDB_BITMAP_ARROW        BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
 IDB_BITMAP_ARROW_DOWN   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
 IDB_BITMAP_ARROW_BEND   BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
-OPNDOC_F_U              BITMAP  DISCARDABLE     "res\\OPNDOC_F_U.bmp"
-OPNDOC_F_F              BITMAP  DISCARDABLE     "res\\OPNDOC_F_F.bmp"
-OPNDOC_F_D              BITMAP  DISCARDABLE     "res\\OPNDOC_F_D.bmp"
-OPNDOC_T_U              BITMAP  DISCARDABLE     "res\\OPNDOC_T_U.bmp"
-OPNDOC_T_F              BITMAP  DISCARDABLE     "res\\OPNDOC_T_F.bmp"
-OPNDOC_T_D              BITMAP  DISCARDABLE     "res\\OPNDOC_T_D.bmp"
-INFDOC_X                BITMAP  DISCARDABLE     "res\\INFDOC_X.bmp"
-INFDOC_F                BITMAP  DISCARDABLE     "res\\INFDOC_F.bmp"
-INFDOC_U                BITMAP  DISCARDABLE     "res\\INFDOC_U.bmp"
-INFDOC_D                BITMAP  DISCARDABLE     "res\\INFDOC_D.bmp"
 RAUTE1U                 BITMAP  DISCARDABLE     "res\\Raute1Akt.bmp"
 RAUTE1X                 BITMAP  DISCARDABLE     "res\\Raute1InAkt.bmp"
 SECHSECK1U              BITMAP  DISCARDABLE     "res\\Sechseck1Akt.bmp"
@@ -8536,6 +8566,86 @@ RAUTE5U                 BITMAP  DISCARDABLE     "res\\Raute5Akt.bmp"
 RAUTE5X                 BITMAP  DISCARDABLE     "res\\Raute5InAkt.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP  DISCARDABLE     "res\\PfeilUnten.bmp"
 IDB_BITMAP8             BITMAP  DISCARDABLE     "res\\PfeilUntenKlein.bmp"
+CANCEL_G_U              BITMAP  DISCARDABLE     "res\\cancel_g.bmp"
+CANCEL_G_F              BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+CANCEL_G_D              BITMAP  DISCARDABLE     "res\\bmp00007.bmp"
+COMBINE_R_X             BITMAP  DISCARDABLE     "res\\bmp00013.bmp"
+COMBINE_G_F             BITMAP  DISCARDABLE     "res\\bmp00008.bmp"
+COMBINE_G_U             BITMAP  DISCARDABLE     "res\\bmp00009.bmp"
+COMBINE_R_D             BITMAP  DISCARDABLE     "res\\bmp00010.bmp"
+COMBINE_R_F             BITMAP  DISCARDABLE     "res\\bmp00011.bmp"
+COMBINE_R_U             BITMAP  DISCARDABLE     "res\\bmp00012.bmp"
+COMBINE_G_D             BITMAP  DISCARDABLE     "res\\combine_.bmp"
+COMPUTE_R_X             BITMAP  DISCARDABLE     "res\\bmp00018.bmp"
+COMPUTE_G_F             BITMAP  DISCARDABLE     "res\\bmp00014.bmp"
+COMPUTE_G_U             BITMAP  DISCARDABLE     "res\\bmp00015.bmp"
+COMPUTE_R_D             BITMAP  DISCARDABLE     "res\\bitmap12.bmp"
+COMPUTE_R_F             BITMAP  DISCARDABLE     "res\\bmp00016.bmp"
+COMPUTE_R_U             BITMAP  DISCARDABLE     "res\\bmp00017.bmp"
+COMPUTE_G_D             BITMAP  DISCARDABLE     "res\\compute_.bmp"
+ENCRYPT_R_X             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_X.bmp"
+ENCRYPT_G_F             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_F.bmp"
+ENCRYPT_G_U             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_U.bmp"
+ENCRYPT_R_D             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_D.bmp"
+ENCRYPT_R_F             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_F.bmp"
+ENCRYPT_R_U             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_R_U.bmp"
+ENCRYPT_G_D             BITMAP  DISCARDABLE     "res\\GB_ENCRYPT_G_D.bmp"
+GENCERT_R_U             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_U.bmp"
+GENCERT_G_F             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_F.bmp"
+GENCERT_G_U             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_U.bmp"
+GENCERT_R_D             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_D.bmp"
+GENCERT_R_F             BITMAP  DISCARDABLE     "res\\GB_GENCERT_R_F.bmp"
+GENCERT_G_D             BITMAP  DISCARDABLE     "res\\GB_GENCERT_G_D.bmp"
+GENKEY_R_F              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_F.bmp"
+GENKEY_G_F              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_F.bmp"
+GENKEY_G_U              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_U.bmp"
+GENKEY_R_D              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_D.bmp"
+GENKEY_G_D              BITMAP  DISCARDABLE     "res\\GB_GENKEY_G_D.bmp"
+GENKEY_R_U              BITMAP  DISCARDABLE     "res\\GB_GENKEY_R_U.bmp"
+INFOALG_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_X.bmp"
+INFOALG_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_F.bmp"
+INFOALG_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_U.bmp"
+INFOALG_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOALG_B_D.bmp"
+INFOCERT_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_X.bmp"
+INFOCERT_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_F.bmp"
+INFOCERT_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_U.bmp"
+INFOCERT_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOCERT_B_D.bmp"
+INFODOC_B_X             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_X.bmp"
+INFODOC_B_F             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_F.bmp"
+INFODOC_B_U             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_U.bmp"
+INFODOC_B_D             BITMAP  DISCARDABLE     "res\\GB_INFODOC_B_D.bmp"
+INFOENC_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_X.bmp"
+INFOENC_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_F.bmp"
+INFOENC_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_U.bmp"
+INFOENC_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOENC_B_D.bmp"
+INFOHASH_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_X.bmp"
+INFOHASH_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_F.bmp"
+INFOHASH_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_U.bmp"
+INFOHASH_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOHASH_B_D.bmp"
+INFOKEY_B_X             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_X.bmp"
+INFOKEY_B_F             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_F.bmp"
+INFOKEY_B_U             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_U.bmp"
+INFOKEY_B_D             BITMAP  DISCARDABLE     "res\\GB_INFOKEY_B_D.bmp"
+INFOSIGN_B_X            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_X.bmp"
+INFOSIGN_B_F            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_F.bmp"
+INFOSIGN_B_U            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_U.bmp"
+INFOSIGN_B_D            BITMAP  DISCARDABLE     "res\\GB_INFOSIGN_B_D.bmp"
+OK_G_F                  BITMAP  DISCARDABLE     "res\\bmp00020.bmp"
+OK_G_U                  BITMAP  DISCARDABLE     "res\\bmp00021.bmp"
+OK_G_X                  BITMAP  DISCARDABLE     "res\\bmp00019.bmp"
+OK_G_D                  BITMAP  DISCARDABLE     "res\\bmp00022.bmp"
+OPENDOC_R_U             BITMAP  DISCARDABLE     "res\\bmp00027.bmp"
+OPENDOC_G_F             BITMAP  DISCARDABLE     "res\\opendoc_.bmp"
+OPENDOC_G_U             BITMAP  DISCARDABLE     "res\\bmp00024.bmp"
+OPENDOC_R_D             BITMAP  DISCARDABLE     "res\\bmp00023.bmp"
+OPENDOC_R_F             BITMAP  DISCARDABLE     "res\\bmp00026.bmp"
+OPENDOC_G_D             BITMAP  DISCARDABLE     "res\\bmp00025.bmp"
+SELECTALG_R_U           BITMAP  DISCARDABLE     "res\\bmp00032.bmp"
+SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\bmp00029.bmp"
+SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
+SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
+SELECTALG_R_F           BITMAP  DISCARDABLE     "res\\bmp00031.bmp"
+SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8873,12 +8983,12 @@ BEGIN
     IDD_SIGNATURE_DEMO, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 460
+        RIGHTMARGIN, 489
         VERTGUIDE, 121
         VERTGUIDE, 233
         VERTGUIDE, 347
         TOPMARGIN, 7
-        BOTTOMMARGIN, 405
+        BOTTOMMARGIN, 421
         HORZGUIDE, 69
         HORZGUIDE, 130
         HORZGUIDE, 191
@@ -10197,6 +10307,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_CONTENT_HASH_ENC    "Encryptded hash value"
     IDS_CONTENT_KEY         "RSA key"
     IDS_PRIME_CHECK         "p and q are prime numbers."
     IDS_PRIME_NO_CHECK_Q    "q is NOT a prime number !"
@@ -10231,11 +10342,11 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_ACCESS_PSE          "Import key and certificate"
     IDS_IMPORT              "Import"
-    IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
-    IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
-    IDS_RSASGN_PSE          "Den dazu von Ihnen erzeugten RSA-Schlüssel haben Sie in der PSE-Datei <%s.pse> zusammen mit einem Zertifikat gespeichert.\r\n\r\n"
-    IDS_RSASGN_PSE_IMP      "Den dazu verwendeten RSA-Schlüssel haben Sie aus der PSE-Datei <%s.pse> zusammen mit einem Zertifikat importiert.\r\n\r\n"
-    IDS_RSASGN_ALG          "Als Hashverfahren wählten Sie <%s>."
+    IDS_CONGRATULATIONS     "Congratulations! \r\n\r\n"
+    IDS_RSASGN_DOCNAME      "You have sucsessfully created a RSA signature of the document %s. \r\n\r\n"
+    IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file %s. \r\n\r\n"
+    IDS_RSASGN_ALG          "As the hash function you have selected %s. "
 END
 
 #endif    // Englisch (GB) resources

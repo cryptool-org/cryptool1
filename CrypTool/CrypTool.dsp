@@ -114,7 +114,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
+	call "$(ProjDir)\makehelp-de.bat"
 
 # End Custom Build
 
@@ -128,7 +128,7 @@ TargetName=CrypTool
 InputPath=".\hlp-de\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-de.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" de
+	call "$(ProjDir)\makehelp-de.bat"
 
 # End Custom Build
 
@@ -169,7 +169,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
+	call "$(ProjDir)\makehelp-en.bat"
 
 # End Custom Build
 
@@ -183,7 +183,7 @@ TargetName=CrypTool
 InputPath=".\hlp-en\CrypTool.hpj"
 
 "$(OutDir)\$(TargetName)-en.hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	call "$(ProjDir)\makehelp.bat" en
+	call "$(ProjDir)\makehelp-en.bat"
 
 # End Custom Build
 
@@ -352,6 +352,18 @@ SOURCE=.\BruteForceAnalysis.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\CANCEL_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CANCEL_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CANCEL_G_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\ChrTools.cpp
 # End Source File
 # Begin Source File
@@ -360,11 +372,67 @@ SOURCE=.\ChrTools.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\COMBINE_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMBINE_R_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\COMFLASH.CPP
 # End Source File
 # Begin Source File
 
 SOURCE=.\COMFLASH.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\COMPUTE_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -454,19 +522,19 @@ USERDEP__CRYPTO="CrypTool.rc"
 # Begin Custom Build - Checking Popup Menu IDs $(InputPath)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckResourceIDs.bat
+"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckPopupMenuIDs.bat
 
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
 
 USERDEP__CRYPTO="CrypTool.rc"	
-# Begin Custom Build - Checking CrypTool.rc and $(InputPath) (->CheckResourceIDs.*)
+# Begin Custom Build - Checking Popup Menu IDs $(InputPath)
 InputPath=.\CrypToolPopupMenuIDs.txt
 
-"CheckResourceIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	CheckResourceIDs.bat
+"CrypToolPopupMenuIDs.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckPopupMenuIDs.bat
 
 # End Custom Build
 
@@ -1360,7 +1428,43 @@ SOURCE=.\ELLIPTIC.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\EMPTY1.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\EMPTY2.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=..\LibEc\include\EMSA1.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ENCRYPT_R_X.bmp
 # End Source File
 # Begin Source File
 
@@ -1385,6 +1489,54 @@ SOURCE=.\FPOLY.CPP
 # Begin Source File
 
 SOURCE=.\FPOLY.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENCERT_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\GENKEY_R_U.bmp
 # End Source File
 # Begin Source File
 
@@ -1456,6 +1608,122 @@ SOURCE=.\res\INFDOC_X.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\infoalg_.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOALG_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOALG_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOALG_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOALG_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOCERT_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOCERT_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOCERT_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOCERT_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFODOC_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFODOC_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFODOC_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFODOC_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOENC_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOENC_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOENC_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOENC_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOHASH_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOHASH_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOHASH_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOHASH_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOKEY_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOKEY_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOKEY_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOKEY_B_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOSIGN_B_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOSIGN_B_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOSIGN_B_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\INFOSIGN_B_X.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\IntegerArithmetic.cpp
 # End Source File
 # Begin Source File
@@ -1510,6 +1778,10 @@ SOURCE=.\KeyRepository.cpp
 # Begin Source File
 
 SOURCE=.\KeyRepository.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Layout.bmp
 # End Source File
 # Begin Source File
 
@@ -1573,6 +1845,46 @@ SOURCE=.\res\ntcheck.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\OK_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OK_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OK_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OK_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\OPENDOC_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\OPNDOC_F_D.bmp
 # End Source File
 # Begin Source File
@@ -1627,6 +1939,10 @@ SOURCE=.\ParseIniFile2.h
 # Begin Source File
 
 SOURCE=.\res\PfeilUnten.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\PfeilUntenKlein.bmp
 # End Source File
 # Begin Source File
 
@@ -1843,6 +2159,30 @@ SOURCE=.\SecudeTools.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SELECTALG_G_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SELECTALG_G_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SELECTALG_G_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SELECTALG_R_D.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SELECTALG_R_F.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SELECTALG_R_U.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=..\AES\Serpent\SERPENT.C
 # End Source File
 # Begin Source File
@@ -1872,6 +2212,10 @@ SOURCE=.\stdafx.cpp
 # Begin Source File
 
 SOURCE=.\stdafx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\TEST_F_D.bmp
 # End Source File
 # Begin Source File
 

@@ -116,6 +116,8 @@
 #define IDB_BITMAP8                     325
 #define IDB_BITMAP_ARR_DOWN_KL          326
 #define IDB_LAYOUT                      335
+#define IDB_EMPTY2                      344
+#define IDB_EMPTY1                      345
 #define IDD_ABOUT                       512
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
@@ -532,6 +534,8 @@
 #define IDC_BUTTON_SHOW_ASYM_KEY        1398
 #define IDC_BUTTON_SHOWTXT              1399
 #define IDC_EDIT_TITLE                  1400
+#define IDC_EMPTY1                      1404
+#define IDC_EMPTY2                      1405
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -677,8 +681,8 @@
 #define ID_P12IMPORT                    33153
 #define ID_HASH_OFAFILE                 33154
 #define ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 33155
-#define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 33156
-#define ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 33157
+#define ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 33156
+#define ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 33157
 #define IDD_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG 33158
 #define IDD_EINZELVERFAHREN_SIGN_DOC    33159
 #define ID_ANALYSE_PERIOD               36500
@@ -1193,6 +1197,7 @@
 #define IDS_CONTENT_ALG                 37853
 #define IDS_RSA_SIGNATURE_OF            37854
 #define IDS_NOTIFY_FIRST_NAME           37855
+#define IDS_CONTENT_HASH_ENC            37856
 #define IDS_CONTENT_KEY                 37857
 #define IDS_PRIME_CHECK                 37858
 #define IDS_PRIME_NO_CHECK_Q            37859
@@ -1231,9 +1236,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        337
-#define _APS_NEXT_COMMAND_VALUE         33162
-#define _APS_NEXT_CONTROL_VALUE         1404
+#define _APS_NEXT_RESOURCE_VALUE        536
+#define _APS_NEXT_COMMAND_VALUE         33155
+#define _APS_NEXT_CONTROL_VALUE         1406
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
