@@ -2615,6 +2615,8 @@ BEGIN
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM SEPARATOR
+            MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetrisch"
         BEGIN
@@ -8302,6 +8304,8 @@ BEGIN
             MENUITEM "&Rijndael...\tShift + Ctrl + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM SEPARATOR
+            MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN
