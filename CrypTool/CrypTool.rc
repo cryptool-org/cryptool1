@@ -2536,12 +2536,12 @@ BEGIN
                     14
     DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die größer als Eins und gleichzeitig kleiner als der gewählte Primzahl-Modul (p) sein sollte (1 < g < p).",
+    LTEXT           "Als Generator (g) bezeichnet man eine Zahl, die nicht Null und kein Vielfaches des Primzahlmoduls (p) sein sollte. Über den Button 'Generator erzeugen' können Sie von CrypTool einen geeigneten Wert erzeugen lassen.",
                     IDC_STATIC,15,84,363,16
     LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahl-Modul (p) - dürfen öffentlich bekannt sein.",
                     IDC_STATIC,15,7,363,8
-    LTEXT           "Der Primzahlmodul (p) muss eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
+    LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Falls Sie keine ausreichend große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",
                     IDC_STATIC,15,28,363,16
     LTEXT           "Primzahlmodul:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
 END
@@ -2604,7 +2604,7 @@ BEGIN
     DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
-    LTEXT           "Achten Sie dabei jedoch darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
+    LTEXT           "Achten Sie bitte darauf, dass Sie sich für eine Zufallszahl entscheiden, die kleiner ist als der zuvor festgelegte Primzahl-Modul (p).",
                     IDC_STATIC,15,22,358,16
     LTEXT           "Falls Sie selbst kein Geheimnis eingeben wollen, so klicken Sie bitte auf den Button 'Geheimnis erzeugen' und lassen somit eine Zufallszahl erzeugen, die kleiner als der Primzahl-Modul (p) ist.",
                     IDC_STATIC,15,46,358,16
@@ -2808,7 +2808,7 @@ CAPTION
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
-                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,30,108,31
+                    BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,11,108,31
     CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,7,80,108,31
     CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONALICE1,"Button",
@@ -2830,17 +2830,17 @@ BEGIN
     CONTROL         "IDB_DH_SECRET_R_",IDC_BUTTONBOB3,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,410,230,50,14
     PUSHBUTTON      "&Beenden",IDOK,16,323,50,14
-    EDITTEXT        IDC_SECRETALICE,160,107,110,14,ES_PASSWORD | 
+    EDITTEXT        IDC_SECRETALICE,170,107,100,14,ES_PASSWORD | 
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SECRETBOB,395,107,110,14,ES_PASSWORD | 
+    EDITTEXT        IDC_SECRETBOB,405,107,100,14,ES_PASSWORD | 
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SHAREDALICE,160,157,110,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_SHAREDALICE,170,157,100,14,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_SHAREDBOB,395,157,110,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_SHAREDBOB,405,157,100,14,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_FINALALICE,160,257,110,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_FINALALICE,170,257,100,14,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_FINALBOB,395,257,110,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_FINALBOB,405,257,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
     CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
@@ -2849,21 +2849,31 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,76,8,5
-    GROUPBOX        "Alice",IDC_STATIC,152,7,126,272
-    GROUPBOX        "Bob",IDC_STATIC,387,7,126,272
-    EDITTEXT        IDC_GENERATOR,245,33,252,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    EDITTEXT        IDC_PRIME,245,53,252,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    LTEXT           "Generator g:",IDC_STATIC,175,33,70,14,SS_CENTERIMAGE
-    LTEXT           "Primzahlmodul p:",IDC_STATIC,175,53,70,14,
-                    SS_CENTERIMAGE
-    GROUPBOX        "Von beiden benutzte öffentliche Parameter",IDC_STATIC,
-                    160,23,345,50
+    GROUPBOX        "Alice",IDC_STATIC,152,69,126,210
+    GROUPBOX        "Bob",IDC_STATIC,387,69,126,210
     CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,152,280,50,14
     CONTROL         "IDB_DH_ARROWS_R_",IDC_EXCHANGEARROWS,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,281,159,50,14
+    LTEXT           "a:",IDC_STATIC,160,107,10,14,SS_CENTERIMAGE
+    LTEXT           "b:",IDC_STATIC,395,107,10,14,SS_CENTERIMAGE
+    LTEXT           "A:",IDC_STATIC,160,157,10,14,SS_CENTERIMAGE
+    LTEXT           "B:",IDC_STATIC,395,157,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_STATIC,160,257,10,14,SS_CENTERIMAGE
+    LTEXT           "S:",IDC_STATIC,395,257,10,14,SS_CENTERIMAGE
+    LTEXT           "Generator g:",IDC_STATIC,175,40,70,14,SS_CENTERIMAGE
+    LTEXT           "Primzahlmodul p:",IDC_STATIC,175,20,70,14,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Von beiden benutzte öffentliche Parameter",IDC_STATIC,
+                    160,10,345,50
+    EDITTEXT        IDC_GENERATOR,245,40,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_PRIME,245,20,252,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,72,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,62,8,5
+    CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
 END
 
 
@@ -5898,6 +5908,8 @@ BEGIN
                             "Verifikation erfolgreich! - Die Schlüssel von Alice und Bob sind identisch."
     IDS_DH_KEY_VERIFICATION_NO 
                             "Verifikation fehlgeschlagen! - Die Schlüssel von Alice und Bob sind nicht identisch!"
+    IDS_DH_PP_SECRET_DANGEROUS 
+                            "Das von Ihnen eingegebene Geheimnis S ist entweder gleich Null oder gleich einem weiteren, kritischen Wert.\nBeachten Sie, dass das Verfahren mit dieser Wahl nicht sicher ist!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6431,9 +6443,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_DH_PP_PRIME_INVALID "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte korrigieren Sie Ihre Eingabe oder klicken Sie den Button 'Primzahl erzeugen'."
+    IDS_DH_PP_PRIME_INVALID "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte beachten Sie, dass das Verfahren mit dem gewählten Primzahlmodul nicht sicher ist!"
     IDS_DH_PP_GENERATOR_INVALID 
-                            "Bitte wählen Sie einen Generator (g), der die Bedingung 1 < g < p erfüllt,\nd.h. er muß größer als Eins und kleiner als der Primzahl-Modul (p) sein."
+                            "Sie wählten einen Generator (g), der entweder gleich Null oder ein Vielfaches des Primzahl-Moduls (p) ist.\nBeachten Sie, dass das Verfahren mit dem gewählten Generator nicht sicher ist!"
     IDS_DH_DATA_INCONSISTENCY "Ein interner Fehler ist aufgetreten!"
     IDS_DH_PP_NON_DECIMAL_VALUE 
                             "Bitte geben Sie nur natürliche Zahlen in dezimaler Form ein (keine Buchstaben und/oder sonstige Sonderzeichen)."
@@ -6452,7 +6464,7 @@ BEGIN
     IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
-                            "Das gewählte Geheimnis s muss kleiner als der Primzahlmodul p und größer als 1 sein (1 < s < p).\n\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
+                            "Das gewählte Geheimnis S sollte größer als 1 sein.\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
     IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis von Alice und Bob."
 END
 

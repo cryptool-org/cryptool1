@@ -78,18 +78,20 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	if( m_Prime.IsEmpty() || !prime(p) )
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_PrimeControl.SetFocus();
-		return;
+		/*MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
+		m_PrimeControl.SetFocus();*/
+		MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION);
+		/*return;*/
 	}
 
 	// Überprüfung für Generator (g)
-	if( m_Generator.IsEmpty() || g <= 1 || g >= p )
+	if( m_Generator.IsEmpty() || g <= 1 ||  (g%p)==0)
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_GENERATOR_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_GeneratorControl.SetFocus();
-		return;
+		/*MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
+		m_GeneratorControl.SetFocus();*/
+		MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION);
+		/*return;*/
 	}
 
 	UpdateData(false);
@@ -132,7 +134,7 @@ void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator()
 		return;
 	}
 
-	if(m_Prime.IsEmpty() || !prime(P))
+	if(m_Prime.IsEmpty() /*|| !prime(P)*/)
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);

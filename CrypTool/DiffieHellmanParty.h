@@ -3,6 +3,13 @@
 #ifndef _DIFFIEHELLMANPARTY_
 #define _DIFFIEHELLMANPARTY_
 
+/*****************************************************************/
+// Sollen NUR ECHTE PRIMZAHLEN als Primzahlmodul zugelassen werden?
+#define B_VALID_PRIMES_ONLY			false
+// Dürfen NUR Geheimnisse KLEINER dem Primzahlmodul gewählt werden?
+#define B_SMALL_SECRETS_ONLY		false
+/*****************************************************************/
+
 // Miracl-Bibliothek (für große Zahlen)
 #include "../libmiracl/include/BIG.H"
 
@@ -26,7 +33,7 @@ private:
 	// Interne Statusflags
 	bool bHasSecret;
 	long ErrorCode;
-
+	
 	// Hilfsvariablen (keine Big-Objekte sondern std::string)
 	std::string strGenerator;
 	std::string strPrime;

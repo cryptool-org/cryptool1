@@ -1506,6 +1506,7 @@
 #define IDS_DH_LOG_6                    61894
 #define IDS_DH_KEY_VERIFICATION_YES     61895
 #define IDS_DH_KEY_VERIFICATION_NO      61896
+#define IDS_DH_PP_SECRET_DANGEROUS      61897
 
 // Next default values for new objects
 // 

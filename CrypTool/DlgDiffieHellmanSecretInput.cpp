@@ -75,14 +75,21 @@ void CDlgDiffieHellmanSecretInput::OnOK()
 
 	Big S = (char*)(LPCTSTR)this->m_Secret;
 	
-	// Fehlermeldung ausgeben, wenn das Geheimnis gleich oder größer dem Primzahlmodul ist
-	// oder wenn das Geheimnis kleiner oder gleich Eins ist.
-	if(S >= this->m_Prime || S <= 1)
+	// Fehlermeldung ausgeben, wenn das Geheimnis kleiner oder gleich Eins ist.
+	if(/*S >= this->m_Prime ||*/ S <= 1)
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
 		m_SecretControl.SetFocus();
 		return;
+	}
+
+	// Warnmeldung ausgeben, wenn das Geheimnis gleich p-1 ist oder 0, da das Verfahren dann
+	// u.U. unsicher ist.
+	if( S == (m_Prime-1) || S == 0 )
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_SECRET_DANGEROUS, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str,"CrypTool",MB_ICONWARNING);
 	}
 
 	CDialog::OnOK();
