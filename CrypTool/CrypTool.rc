@@ -220,11 +220,11 @@ BEGIN
     CONTROL         "&Elliptische Kurven",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,20,98,103,10
     CONTROL         "&Oktal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,26,283,61,12
-    CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,
+                    WS_GROUP,26,285,61,12
+    CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,285,
                     61,12
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
-                    170,283,61,12
+                    170,285,61,12
     COMBOBOX        IDC_COMBO1,141,38,63,60,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWNLIST | WS_VSCROLL | 
@@ -232,13 +232,13 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,166,400,100
-    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,310,128,19
-    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,10,169,400,100
+    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,312,128,19
+    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,312,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,284,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,286,
                     144,10
-    PUSHBUTTON      "&Schließen",IDCANCEL,338,310,72,19
+    PUSHBUTTON      "&Schließen",IDCANCEL,338,312,72,19
     GROUPBOX        "Verfahren",IDC_STATIC,10,6,205,143
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
     LTEXT           "Bitlänge der DSA-Primzahl:",IDC_STATIC,33,74,103,8
@@ -254,7 +254,7 @@ BEGIN
     EDITTEXT        IDC_EDIT6,10,153,400,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,
-                    271,231,32
+                    273,231,32
     GROUPBOX        "Benutzerdaten",IDC_STATIC,225,6,185,143
 END
 
@@ -3496,8 +3496,7 @@ BEGIN
         VERTGUIDE, 410
         HORZGUIDE, 6
         HORZGUIDE, 149
-        HORZGUIDE, 310
-        HORZGUIDE, 329
+        HORZGUIDE, 269
     END
 
     IDD_RSA_ENCRYPTION, DIALOG
