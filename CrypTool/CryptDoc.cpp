@@ -1484,45 +1484,9 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 {
 	CDlgHybridEncryptionDemo hyb;
 	UpdateContent();
-	ifstream ein(ContentName, ios::in|ios::binary);
-	hyb.m_strPathnameTxt = ContentName;
-	if(!ein)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);		
-		return;
-	}
+	hyb.DateiOeffnen(ContentName);
+	hyb.DoModal();
 	
-	struct stat *obj;
-	obj = new (struct stat);
-	obj->st_size;
-	stat((const char*)ContentName,obj);
-	int DatGroesse = obj->st_size;
-	delete obj;
-
-	char* inhalt = new char[DatGroesse+20];
-	ein.read(inhalt,DatGroesse);
-	int anzZeichen=ein.gcount();
-	if(anzZeichen==0)
-	{
-		hyb.m_bAuswahlDat = true;
-		hyb.DoModal();
-		ein.close();
-		return;
-	}
-	else
-	{
-		hyb.m_bAuswahlDat = false;
-		inhalt[anzZeichen] = 0;
-	
-		for (int i=0;inhalt[i]!=0;i++)
-		{
-			hyb.m_strEdit+=inhalt[i];
-		}
-		hyb.DoModal();
-	}
-	
-	ein.close();
 }
 
 void CCryptDoc::OnEinzelverfahrenSignDoc() 
