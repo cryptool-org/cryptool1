@@ -1,6 +1,7 @@
 #if !defined(AFX_DLGPRIMESGENERATOR_H__0F161EA1_E56B_11D4_80D9_000629C93170__INCLUDED_)
 #define AFX_DLGPRIMESGENERATOR_H__0F161EA1_E56B_11D4_80D9_000629C93170__INCLUDED_
 
+#include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -21,6 +22,7 @@ class DlgPrimesGenerator : public CDialog
 	
 	// Konstruktion
 public:
+	long Get_Random_Value(CString,CString);
 	long Get_Prime2();
 	long Get_Prime1();
 	char line[256];
@@ -72,9 +74,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	long Random_with_limits(long,long);
-	bool Prime_test_Miller_Rabin(long,long);
-	long Get_Random_Value(CString,CString);
+	Primes_and_random_numbers Parn;
 	void CheckEdit_Input(CString &, int &, int &);
 };
 
