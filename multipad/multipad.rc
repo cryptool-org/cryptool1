@@ -1745,7 +1745,7 @@ BEGIN
     LTEXT           "Modul  N =",IDC_STATIC,57,74,35,8
 END
 
-IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
+IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Faktorisieren einer Zahl"
 FONT 8, "MS Sans Serif"
@@ -1755,7 +1755,7 @@ BEGIN
     PUSHBUTTON      "Vollständig &faktorisieren",
                     IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT 
                     WS_VISIBLE | WS_DISABLED
-    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,295,94,18
+    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,307,94,18
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,140,107
     CONTROL         "Brute-force Methode",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,23,81,10
@@ -1775,17 +1775,18 @@ BEGIN
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
     LTEXT           "Durch das Anklicken des Buttons ""Weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt.",
                     IDC_STATIC,24,132,318,17
-    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,96
+    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,105
     LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.\nZusammengesetzte Zahlen sind rot markiert.",
                     IDC_STATIC,24,208,318,19
     LTEXT           "Letzte Faktorisierung durch:",IDC_STATIC,24,230,89,14
     EDITTEXT        IDC_EDIT2,117,229,77,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,203,230,139,
+    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,24,246,211,
                     14
     LTEXT           "Produktdarstellung der Faktorisierung:",IDC_STATIC,24,
-                    250,219,9
+                    262,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
-                    WS_BORDER | WS_TABSTOP,24,265,318,16
+                    WS_BORDER | WS_TABSTOP,24,274,318,16
+    PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 292, 300
@@ -2039,8 +2040,8 @@ CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,82,151,59,17
-    LTEXT           "Algorithmus",IDC_STATIC,14,19,37,8
-    LTEXT           "Iterationen",IDC_STATIC,86,19,34,8
+    LTEXT           "Algorithmus",IDC_STATIC,14,24,37,8
+    LTEXT           "Iterationen",IDC_STATIC,86,24,34,8
     LTEXT           "Brent",IDC_STATIC,14,41,60,8
     EDITTEXT        IDC_EDIT1,82,38,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
@@ -2061,6 +2062,8 @@ BEGIN
     EDITTEXT        IDC_EDIT5,82,126,59,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Abbrechen",IDCANCEL6,156,126,50,14,WS_DISABLED
+    LTEXT           "Zu faktorisierende Zahl",IDC_STATIC,15,7,82,12
+    EDITTEXT        IDC_EDIT6,109,6,97,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
 IDD_SHOW_HASH DIALOG DISCARDABLE  0, 0, 241, 71
@@ -5028,6 +5031,10 @@ BEGIN
                             "Bei der Playfairverschlüsselung mit Vorforamtierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren"
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "Das Zeichen gehört nicht zum Alphabet der Playfairverschlüsselung.\nBitte korrigieren."
+    IDS_STRING_FMT_HRS      " %02.2i:%02.2i:%02.2i Stunden."
+    IDS_STRING_FMT_MIN      " %02.2i:%02.2i Minuten."
+    IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
+    IDS_STRING_FMT_SEC      " %02.2i,%s Sekunden."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7054,28 +7061,30 @@ CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,75,152,58,18
-    LTEXT           "Algorithm",IDC_STATIC,16,19,30,8
-    LTEXT           "Iterations",IDC_STATIC,75,19,30,8
-    LTEXT           "Brent",IDC_STATIC,16,41,60,8
+    LTEXT           "Algorithm",IDC_STATIC,11,25,30,8
+    LTEXT           "Iterations",IDC_STATIC,75,24,30,8
+    LTEXT           "Brent",IDC_STATIC,11,41,60,8
     EDITTEXT        IDC_EDIT1,75,38,58,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL2,152,38,50,14,WS_DISABLED
-    LTEXT           "Pollard",IDC_STATIC,16,63,60,8
+    LTEXT           "Pollard",IDC_STATIC,11,63,60,8
     EDITTEXT        IDC_EDIT2,75,60,58,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL3,152,60,50,14,WS_DISABLED
-    LTEXT           "Williams",IDC_STATIC,16,85,60,8
+    LTEXT           "Williams",IDC_STATIC,11,84,60,8
     EDITTEXT        IDC_EDIT3,75,82,58,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL4,152,82,50,14,WS_DISABLED
-    LTEXT           "Lenstra",IDC_STATIC,16,107,60,8
+    LTEXT           "Lenstra",IDC_STATIC,11,107,60,8
     EDITTEXT        IDC_EDIT4,75,104,58,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL5,152,104,50,14,WS_DISABLED
-    LTEXT           "Quadratic sieve",IDC_STATIC,16,129,60,8
+    LTEXT           "Quadratic sieve",IDC_STATIC,11,129,60,8
     EDITTEXT        IDC_EDIT5,75,126,58,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL6,152,126,50,14,WS_DISABLED
+    LTEXT           "Input for factorisation",IDC_STATIC,11,7,79,12
+    EDITTEXT        IDC_EDIT6,114,5,88,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
 IDD_SHOW_HASH DIALOG DISCARDABLE  0, 0, 241, 71
@@ -7088,7 +7097,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 319
+IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Factorisation of a Number"
 FONT 8, "MS Sans Serif"
@@ -7098,7 +7107,7 @@ BEGIN
     PUSHBUTTON      "Complete &factorisation into primes",
                     IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT 
                     WS_VISIBLE | WS_DISABLED
-    PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,295,94,18
+    PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algorithms for factorisation",-1,13,6,140,107
     CONTROL         "Brute-force method",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,24,23,76,10
@@ -7117,16 +7126,17 @@ BEGIN
     GROUPBOX        "Factorisation (stepwise)",-1,13,118,340,64
     LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.",
                     -1,24,132,318,17
-    GROUPBOX        "Factorisation",-1,13,192,340,96
+    GROUPBOX        "Factorisation",-1,13,192,340,109
     LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",
                     -1,24,208,318,19
     LTEXT           "Last Factorisation trough:",-1,24,230,89,14
     EDITTEXT        IDC_EDIT2,114,229,77,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,197,230,145,
+    LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,24,248,221,
                     14
-    LTEXT           "Factorisation result:",-1,24,250,219,9
+    LTEXT           "Factorisation result:",-1,24,265,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
-                    WS_BORDER | WS_TABSTOP,24,265,318,16
+                    WS_BORDER | WS_TABSTOP,24,277,318,16
+    PUSHBUTTON      "&details",IDC_BUTTON1,266,244,76,16
 END
 
 IDD_DIALOG_PIN_VERIFICATION DIALOG DISCARDABLE  0, 0, 173, 209
@@ -9414,6 +9424,10 @@ BEGIN
                             "In case of preformat, duplicate letters are seperated by the letter 'X'.\nPlease correct."
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "The character is not an element of the Playfair alphabet.\nPlease correct."
+    IDS_STRING_FMT_HRS      " %02.2i:%02.2i:%02.2i hours."
+    IDS_STRING_FMT_MIN      " %02.2i:%02.2i minutes."
+    IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
+    IDS_STRING_FMT_SEC      " %02.2i,%s second."
 END
 
 STRINGTABLE DISCARDABLE 
