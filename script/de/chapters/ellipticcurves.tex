@@ -330,8 +330,8 @@ $$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1
 $$
 vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. 
 Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gew"ahlt, dass sich auf
-diese Weise die sogenannten Weierstrass-Glei"-chung\footnote{%
-Karl Weierstrass, 31.10.1815$-$19.12.1897, dt. Mathematiker, 
+diese Weise die sogenannte Weierstrass-Glei"-chung\footnote{%
+Karl Weierstrass\index{Weierstrass, Karl}, 31.10.1815$-$19.12.1897, deutscher Mathematiker, 
 Verfechter der streng formalen Ausrichtung der Mathematik.
 }
 \begin{equation}
@@ -352,8 +352,7 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \end{center}
 \vskip -10 pt
 \end{figure}
-
-Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$, also nicht wie in Abbildung \ref{ExampleEllipticCurve} die zu einer stetigen Kurve f"uhrenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und "Ubertragung von Nachrichten stets nur endlich viele Zust"ande zur Verf"ugung haben (aufgrund der Arbeitsweise moderner Computer), K"orper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollst"andig darstellen k"onnen.
+Als zugrunde liegenden K"orper f"ur eine Elliptische Kurve verwendet man in der Kryptographie stets endliche K"orper $K=GF(p^n)$, also nicht wie in Abblidung \ref{ExampleEllipticCurve} die zu einer stetigen Kurve f"uhrenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und "Ubertragung von Nachrichten stets nur endlich viele Zust"ande zur Verf"ugung haben (aufgrund der Arbeitsweise moderner Computer), K"orper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollst"andig darstellen k"onnen.
 
 In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer gro"sen Primzahl $p$ oder $GF(2^n)$ mit einer (gro"sen) nat"urlichen Zahl $n$ zu betrachten. Der Grund f"ur die Verwendung des Primk"orpers $GF(p)$ liegt in seiner einfachen Arithmetik; andererseits kommt $GF(2^n)$ der bin"aren Darstellung in Computersystemen entgegen. Andere K"orper wie z.B. $GF(7^n)$ bieten keiner dieser beiden Vorteile und werden daher in der Praxis nicht verwendet, ohne dass dies theoretische Gr"unde h"atte.
 
@@ -604,24 +603,29 @@ Der Erfolg dieser Standardisierungsbem"uhungen ist heute noch nicht absehbar. Di
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
+        \bibitem[Cassels1991]{} J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
+	\bibitem[Koblitz1984]{}N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
+	\bibitem[Menezes1993]{}A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
         \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra \index{Lenstra 1987} \\
                 Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
 	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul  \index{Lenstra/Verheul 1999} \\
          	Selecting Cryptographic Key Sizes (1999), Journal of Cryptology: the journal of the International Association for Cryptologic Research \\
-		\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}
+		\href{http://www.cryptosavvy.com/cryptosizes.pdf}\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}
 	\bibitem[Silverman1986]{Silverman1986} J. Silverman \\ The Arithmetic of Elliptic Curves, Springer-Verlag, 1986. \index{Silverman 1986}
+	\bibitem[Silverman1992]{}J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+	\bibitem[SivermanTate1992]{}J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
 \end{thebibliography}
 
 
-\section*{B"ucher "uber Elliptische Kurven (Auswahl)}\addcontentsline{toc}{subsection}{B"ucher "uber Elliptische Kurven (Auswahl)}
-\begin{itemize}
-    \item[]\hskip -25 pt [{\sc Cas}] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
-    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Algebraic aspects of Cryptography. With an appendix on Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert J. Zuccherato}, Springer, 1998, 206 Seiten.
-    \item[]\hskip -25 pt  [{\sc Men}] A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
-    \item[]\hskip -25 pt  [{\sc Sil}] J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-    \item[]\hskip -25 pt  [{\sc ST}] J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
-\end{itemize}
+% \section*{B"ucher "uber Elliptische Kurven (Auswahl)}\addcontentsline{toc}{subsection}{B"ucher "uber Elliptische Kurven (Auswahl)}
+% \begin{itemize}
+%    \item[]\hskip -25 pt [{\sc Cas}] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
+%    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
+%    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Algebraic aspects of Cryptography. With an appendix on Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert J. Zuccherato}, Springer, 1998, 206 Seiten.
+%    \item[]\hskip -25 pt  [{\sc Men}] A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
+%    \item[]\hskip -25 pt  [{\sc Sil}] J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+%    \item[]\hskip -25 pt  [{\sc ST}] J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
+% \end{itemize}
 
 
 \section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
