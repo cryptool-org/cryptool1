@@ -111,6 +111,9 @@
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
 #define IDD_HYBRID_DECRYPTION_DEMO      517
+#define IDB_LOGO_DB                     520
+#define IDB_LOGO_FZI                    522
+#define IDB_LOGO_SECUDE                 523
 #define IDB_EMPTY2B                     542
 #define IDB_EMPTY1B                     543
 #define IDC_EDIT1                       1016
@@ -533,6 +536,7 @@
 #define IDC_RSA_MODE_FACTORISATION      1409
 #define IDC_TEXTOPTIONS_ALPHABET        1410
 #define IDC_BUTTON_DATENAUSGABE         1411
+#define IDC_ABOUTBOX_CRYPTOOL           1412
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -1287,9 +1291,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        519
+#define _APS_NEXT_RESOURCE_VALUE        524
 #define _APS_NEXT_COMMAND_VALUE         33170
-#define _APS_NEXT_CONTROL_VALUE         1412
+#define _APS_NEXT_CONTROL_VALUE         1413
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

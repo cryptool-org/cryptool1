@@ -400,7 +400,7 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 	CDlgSelectHashFunction* HashDialog;
 	HashDialog = new CDlgSelectHashFunction(this);
 
-	HashDialog->m_sHashAlg = m_Cert->GetHashAlg();
+	HashDialog->m_sHashAlg = CString("SHA-1"); /* m_Cert->GetHashAlg(); */
 	HashDialog->m_deactivateMD4 = TRUE;
 	HashDialog->DoModal();
 	if(m_Cert->GetHashAlg() != HashDialog->m_sHashAlg)

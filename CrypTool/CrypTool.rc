@@ -331,35 +331,36 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 321
+IDD_ABOUT DIALOGEX 34, 22, 242, 349
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,281,90,14,WS_GROUP
-    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
-                    16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.01x)",IDC_STATIC,0,51,242,8
-    CTEXT           "Demonstrations- und Referenzprogramm",IDC_STATIC,0,71,
-                    242,8
-    CTEXT           "für Kryptographie und Mitarbeiter-Awareness.",
-                    IDC_STATIC,0,81,242,8
-    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,104,241,
+    DEFPUSHBUTTON   "OK",IDOK,70,317,90,19,WS_GROUP
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
+                    WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,54,143,37,
+                    WS_EX_TRANSPARENT
+    CONTROL         522,IDC_STATIC,"Static",SS_BITMAP,40,87,170,37,
+                    WS_EX_TRANSPARENT
+    CTEXT           "haben die Universitäten \nTU Darmstadt, Universität Siegen und Universität Karlsruhe",
+                    IDC_STATIC,0,136,242,17
+    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,158,241,11
+    CTEXT           "ein Demonstrationsprogramm für\nKryptographie und Mitarbeiter-Awareness entwickelt.",
+                    IDC_STATIC,1,173,241,16
+    CTEXT           "Mit der Sicherheitsbibliothek von",IDC_STATIC,1,201,241,
                     8
-    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
-                    121,200,40,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT1,0,161,240,12,ES_CENTER | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT1,0,212,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
-    CTEXT           "Kontakt:",IDC_STATIC,0,178,241,10
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de",
-                    IDC_STATIC,70,188,145,17
-    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,70,206,128,
-                    8
-    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,216,172,9
-    LTEXT           "support@secude.com",IDC_STATIC,69,226,172,8
+    CTEXT           "Kontakt:",IDC_STATIC,0,231,241,10
     CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,253,242,19
+                    IDC_STATIC,0,289,242,17
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nwichmann@fzi.de",
+                    IDC_STATIC,70,241,145,35
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
+                    WS_BORDER,10,18,222,116
+    CTEXT           "Gemeinsam mit den Sponsoren",IDC_STATIC,1,8,241,8
 END
 
 IDD_SHOW_PROGRESS DIALOG DISCARDABLE  0, 0, 187, 98
@@ -1107,8 +1108,8 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,319,242,56,19
     LTEXT           "Wählen Sie Ihren geheimen Schlüssel aus der Liste aus:",
                     IDC_STATIC,9,6,366,10
-    LTEXT           "Bemerkung: Es werden nur Namen angezeigt, die einen RSA Schlüssel enthalten.",
-                    IDC_STATIC,8,214,255,8
+    LTEXT           "Bemerkung: Es werden nur Namen mit einem RSA Schlüssel angezeigt.",
+                    IDC_STATIC,8,214,265,8
     RTEXT           "PIN-Code:",IDC_STATIC,273,214,39,15
 END
 
@@ -3353,6 +3354,9 @@ CANCEL_Y_F              BITMAP  DISCARDABLE     "res\\CANCEL_Y_F.bmp"
 CANCEL_Y_D              BITMAP  DISCARDABLE     "res\\CANCEL_Y_D.bmp"
 IDB_EMPTY2B             BITMAP  DISCARDABLE     "res\\EMPTY2b.bmp"
 IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\EMPTY1b.bmp"
+IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
+IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
+IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3599,7 +3603,14 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        VERTGUIDE, 10
+        VERTGUIDE, 15
+        VERTGUIDE, 38
         VERTGUIDE, 70
+        VERTGUIDE, 232
+        HORZGUIDE, 8
+        HORZGUIDE, 291
+        HORZGUIDE, 310
     END
 
     IDD_TEXT_OPTIONS, DIALOG
@@ -5477,7 +5488,7 @@ BEGIN
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "Die Eingabe muss mindestens 1 Zeichen enthalten!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
-                            "Die Datei ist größer als %i Bytes und wird auf auf %i Bytes gekürzt"
+                            "Die Datei ist größer als %i Bytes und wird auf %i Bytes gekürzt"
     IDS_BITLENGTH           "Länge in Bit:           %i\r\n"
     IDS_CONTENT_CERT        "Zertifikat"
     IDS_CONTENT_SIGN        " %s-Signatur von <%s>"
@@ -5486,7 +5497,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ACCESS_PSE          "Schlüssel und Zertifkat Importieren"
+    IDS_ACCESS_PSE          "Schlüssel und Zertifikat importieren"
     IDS_IMPORT              "Importieren"
     IDS_CONGRATULATIONS     "Herzlichen Glückwunsch!\r\n\r\n"
     IDS_RSASGN_DOCNAME      "Sie haben erfolgreich eine RSA-Signatur des Dokumentes <%s> erzeugt.\r\n\r\n"
@@ -5819,34 +5830,36 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 321
+IDD_ABOUT DIALOGEX 34, 22, 242, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,70,281,90,14,WS_GROUP
-    CONTROL         218,IDB_BITMAP1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,18,
-                    16,205,23,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool     (Version 1.3.01x)",IDC_STATIC,0,51,242,8
-    CTEXT           "Demonstration and reference program",IDC_STATIC,0,71,
-                    242,8
-    CTEXT           "for creating employee awareness on the subject of cryptography.",
-                    IDC_STATIC,0,81,242,8
-    CTEXT           "With the security library of",IDC_STATIC,1,104,241,8
-    CONTROL         217,IDB_BITMAP2,"Static",SS_BITMAP | SS_REALSIZEIMAGE,28,
-                    121,185,33,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT1,0,161,240,10,ES_CENTER | ES_AUTOHSCROLL | 
+    DEFPUSHBUTTON   "OK",IDOK,70,316,90,19,WS_GROUP
+    CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe",
+                    IDC_STATIC,0,152,242,17
+    CTEXT           "Based on the security library",IDC_STATIC,1,200,241,8
+    EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
                     WS_EX_TRANSPARENT
-    CTEXT           "Contact:",IDC_STATIC,0,178,241,10
-    CTEXT           "Copyright (c) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,253,242,19
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de",
-                    IDC_STATIC,70,189,145,17
-    LTEXT           "joerg-cornelius.schneider@db.com",IDC_STATIC,70,207,128,
-                    8
-    LTEXT           "wichmann@fzi.de",IDC_STATIC,69,217,172,9
-    LTEXT           "support@secude.com",IDC_STATIC,69,227,172,8
+    CTEXT           "Contact:",IDC_STATIC,0,230,241,10
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nwichmann@fzi.de",
+                    IDC_STATIC,70,240,145,35
+    CTEXT           "Copyright (C) 1998-2002 Deutsche Bank AG\nFrankfurt am Main",
+                    IDC_STATIC,0,288,242,17
+    CTEXT           "has been developed in a joint effort of the sponsors",
+                    IDC_STATIC,1,21,241,8
+    CTEXT           "as a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
+                    IDC_STATIC,1,173,241,16
+    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,8,241,11
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,36,105,37,
+                    WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,68,143,37,
+                    WS_EX_TRANSPARENT
+    CONTROL         522,IDC_STATIC,"Static",SS_BITMAP,40,101,170,37,
+                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
+                    WS_BORDER,10,32,222,116
 END
 
 IDD_SHOW_PROGRESS DIALOG DISCARDABLE  0, 0, 187, 98
@@ -8851,6 +8864,9 @@ SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
 SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
 SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\bmp00029.bmp"
 SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
+IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_sec.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9050,6 +9066,11 @@ BEGIN
         HORZGUIDE, 149
         HORZGUIDE, 294
         HORZGUIDE, 329
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 343
     END
 
     IDD_TEXT_OPTIONS, DIALOG

@@ -19,7 +19,9 @@ public:
 	// Dialogfelddaten
 	//{{AFX_DATA(CDlgAbout)
 	enum { IDD = IDD_ABOUT };
+	CStatic	m_cryptoolTxt_ctrl;
 	CString	m_secude;               // Versionsstring der SecudeLib
+	CString	m_cryptoolTxt;
 	//}}AFX_DATA
 	
 	
@@ -36,6 +38,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgAbout)
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -2719,6 +2719,22 @@ SOURCE=.\res\Layout.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\logo_db.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\logo_fzi.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\logo_sec.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\logo_secude.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\magnify.cur
 # End Source File
 # Begin Source File
