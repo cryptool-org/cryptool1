@@ -1356,6 +1356,7 @@
 #define IDS_PERMUTATION_CLEAR           37905
 #define IDS_PERMUTATION_CIPHER          37906
 #define IDS_STRING_SAMPLE_FILE          61889
+#define IDS_DLG_KEY_ASYM_TITLE          61890
 
 // Next default values for new objects
 // 

@@ -540,7 +540,7 @@ BEGIN
                     WS_TABSTOP,312,128,22,20
 END
 
-IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
+IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Asymmetrischen Schlüssel erzeugen (Elliptische Kurven)"
 FONT 8, "MS Sans Serif"
@@ -549,24 +549,24 @@ BEGIN
     PUSHBUTTON      "&Neues Schlüsselpaar erzeugen",IDC_BUTTON1,135,284,125,
                     19
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,380,102
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,403,102
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,380,61
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,403,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,380,50
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,403,50
     CONTROL         "&Oktal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,25,250,61,12
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,250,
                     61,12
     CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     169,250,61,12
-    PUSHBUTTON      "&Schließen",IDCANCEL,321,284,68,19
+    PUSHBUTTON      "&Schließen",IDCANCEL,343,284,68,19
     EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,8,239,
                     232,32
     LTEXT           "Wenn Sie das angezeigte Schlüsselpaar verwenden möchten, klicken Sie auf ""Übernehmen"".   Möchten Sie ein anderes Schlüsselpaar, klicken Sie auf die Schaltfläche ""Neues Schlüsselpaar erzeugen"".",
-                    IDC_STATIC,249,236,140,41
+                    IDC_STATIC,271,236,140,41
 END
 
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
@@ -3790,7 +3790,7 @@ BEGIN
     IDD_SHOW_PARAMETER_KEY_EC, DIALOG
     BEGIN
         VERTGUIDE, 8
-        VERTGUIDE, 389
+        VERTGUIDE, 411
         HORZGUIDE, 284
         HORZGUIDE, 303
     END
@@ -5315,6 +5315,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "Pixel"
     IDS_STRING_SAMPLE_FILE  "/examples/startbeispiel-de.txt"
+    IDS_DLG_KEY_ASYM_TITLE  "Öffentlicher Parameter von: "
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6268,7 +6269,7 @@ BEGIN
                     WS_TABSTOP,312,127,22,20
 END
 
-IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 397, 311
+IDD_SHOW_PARAMETER_KEY_EC DIALOG DISCARDABLE  0, 0, 419, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Asymmetric Key Generation (Elliptic Curves)"
 FONT 8, "MS Sans Serif"
@@ -6282,12 +6283,12 @@ BEGIN
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
                     169,250,61,12
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,380,102
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,18,403,102
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,380,61
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,120,403,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,380,50
-    PUSHBUTTON      "&Close",IDCANCEL,321,284,68,19
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,180,403,50
+    PUSHBUTTON      "&Close",IDCANCEL,343,284,68,19
     EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,8,239,232,
@@ -10747,6 +10748,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
     IDS_STRING_SAMPLE_FILE  "/examples/startingexample-en.txt"
+    IDS_DLG_KEY_ASYM_TITLE  "Public parameter of: "
 END
 
 STRINGTABLE DISCARDABLE 

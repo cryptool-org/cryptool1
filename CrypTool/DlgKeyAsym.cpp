@@ -300,7 +300,9 @@ void CDlgKeyAsym::OnShowPubParamButton()
 		Schluessel.private_key=NULL;
 
 		CDlgShowKeyParameter dlg;
-		dlg.m_Title = "Öffentlicher Schlüssel von: ";
+
+		LoadString(AfxGetInstanceHandle(), IDS_DLG_KEY_ASYM_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
+		dlg.m_Title = pc_str;
 		dlg.m_Title+= Firstname;
 		dlg.m_Title+= " ";
 		dlg.m_Title+= Name;
