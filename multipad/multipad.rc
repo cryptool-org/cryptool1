@@ -4860,12 +4860,55 @@ BEGIN
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
-                            "Text-Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
+                            "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
+    IDS_STRING_RSADEMO_Q_NOT_PRIME2 "Die Eingabe für q ist keine Primzahl !"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_P12IMPORT            "Import von Zertifikaten und privaten Schlüsseln im PKCS#12 Format"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_OPEN_DOCUMENT       "Dokument öffnen"
+    IDS_CONTENT_DOCUMENT    "Dokument: "
+    IDS_DEPENDENCY          "Abhängigkeiten"
+    IDS_NAME2               "Name:                   %s %s\r\n"
+    IDS_KEY_IDENTIFIER2     "Schlüsselkennung:       %s\r\n"
+    IDS_MOD_N               "RSA-Modul N:            %s\r\n"
+    IDS_PHI_N               "phi(N) = (p-1)(q-1):    %s\r\n"
+    IDS_KEY_PUBLIC          "Öffentlicher Schlüssel: %s\r\n"
+    IDS_KEY_PRIVATE         "Privater Schlüssel:     %s\r\n"
+    IDS_NOTIFY_NAME         "Bitte geben Sie den vollständigen Namen an."
+    IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code  ein."
+    IDS_NOTIFY_PIN_V        "Bitte stellen Sie sicher, daß die PIN-Verifikation mit dem Pin-Code übereinstimmt."
+    IDS_CONTENT_ALG         "Hashverfahren"
+    IDS_RSA_SIGNATURE_OF    "RSA (%s) Signatur von <%s>"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONTENT_KEY         "RSA Schlüssel"
+    IDS_PRIME_CHECK         "p und q sind Primzahlen."
+    IDS_PRIME_NO_CHECK_Q    "q ist KEINE Primzahl !"
+    IDS_PUBLIC_CHECK        "e ist teilerfremd zu phi (N) ."
+    IDS_PUBLIC_NO_CHECK     "e teilt phi (N) !"
+    IDS_PRIME_NO_CHECK_P    "p ist KEINE Primzahl."
+    IDS_PRIME_NO_CHECK_PQ   "p und q sind NICHT prim !"
+    IDS_PRIME_P_EQUALS_Q    "p und q sind gleich !"
+    IDS_PRIME_BIT_LENGTH    "Länge größer als 1024 bit !"
+    IDS_PRIME_LESS_THAN_TWO_P "p ist kleiner als 2 !"
+    IDS_PRIME_LESS_THAN_TWO_Q "q ist kleiner als 2 !"
+    IDS_CREATE_USER_KEY_ID3 "[%s][%s][%s-%i][%i]"
+    IDS_CREATE_PSE          "%s/%s.pse"
+    IDS_BIT                 "%i bit"
+    IDS_CREATE_DISNAME      "CN=%s %s [%i], L=Frankfurt, O=DB, C=DE"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -9182,6 +9225,8 @@ BEGIN
     IDS_STRING_MODUL_NOT_PRIME 
                             "Your input for the modulus P is not a prime number."
     IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
+    IDS_OPEN_DOCUMENT_FILTER 
+                            "TEXT files (*.txt) |*.txt|ASCII files (*.asc)|*.asc|all files (*.*) |*.*||"
 END
 
 STRINGTABLE DISCARDABLE 
