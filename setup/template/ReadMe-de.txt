@@ -858,15 +858,15 @@ klassische Kryptoanalyse.
 
 Diese Hinweise basieren auf Tests mit Wine 2001-11-29. (XXXX)
 
-13.1.1 CrypTool installieren
-       ---------------------
+13.1.1. CrypTool installieren
+        ---------------------
 Im letzten Schritt der Installation gibt es die Option,
 CrypTool gleich zu starten. Dies funktioniert unter Wine nicht.
 Bitte starten Sie CrypTool wie unten beschrieben.
 
 
-12.1.2 Wine-Konfiguration
-       ------------------
+12.1.2. Wine-Konfiguration
+        ------------------
 CrypTool funktioniert nicht mit der in Wine eingebauten Version
 von riched32.dll. Wenn Sie unter CrypTool eine Datei öffnen und
 die falsche Version von riched32.dll benutzt wird, erscheint ein
@@ -888,11 +888,11 @@ folgenden Schritten lösen:
    "riched32" = "native,builtin"
 
 
-12.1.3 CrypTool ausführen
-       ------------------
+12.1.3. CrypTool ausführen
+        ------------------
 
-12.1.3.1 Starten
-         -------
+12.1.3.1. Starten
+          -------
 Um CrypTool zu starten, wechseln Sie in das Verzeichnis, in das
 es installiert wurde, und starten es mit:
 
@@ -903,8 +903,8 @@ von CrypTool wechseln, findet CrypTool einige wichtige Dateien
 nicht.
 
 
-12.1.3.2 Bugs und Work-arounds
-         ---------------------
+12.1.3.2. Bugs und Work-arounds
+          ---------------------
 * Die Online-Hilfe kann nicht mit F1 aus CrypTool heraus
   aufgerufen werden.
   Mit der folgenden Kommandozeile können Sie die Online-Hilfe

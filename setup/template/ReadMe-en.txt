@@ -836,15 +836,15 @@ classical cryptoanalysis.
 
 This file is based on tests with wine 2001-11-29. (XXXX)
 
-12.1.1 Installing CrypTool
-       -------------------
+12.1.1. Installing CrypTool
+        -------------------
 In the last step of the installation wizard the user has the
 option to start CrypTool. This does not work under wine. Please
 start CrypTool as described below.
 
 
-12.1.2 Wine configuration
-       ------------------
+12.1.2. Wine configuration
+        ------------------
 CrypTool does not work with the version of riched32.dll built into
 wine. Try to open a file. It will show up empty if the wrong
 version of riched32.dll is used. The problem will probably not
@@ -863,11 +863,11 @@ the problem:
    "riched32" = "native,builtin"
 
 
-12.1.3 Running CrypTool
-       ----------------
+12.1.3. Running CrypTool
+        ----------------
 
-12.1.3.1 Starting
-         --------
+12.1.3.1. Starting
+          --------
 To start CrypTool change to the directory where it was installed
 and start it with:
 
@@ -877,8 +877,8 @@ If you do not change to the installation directory CrypTool will
 not find some important files.
 
 
-12.1.3.2 Bugs and workarounds
-         --------------------
+12.1.3.2. Bugs and workarounds
+          --------------------
 * The Online help cannot be invoked with F1.
   Use the following line to display the Online help:
 
