@@ -678,6 +678,14 @@ SOURCE=.\DialogPeriodeOutput.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DialogPermutation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DialogPermutation.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DialogPlayfair.cpp
 # End Source File
 # Begin Source File

@@ -723,7 +723,7 @@ void CHillEingabe::OnGroessereSchluessel()
 }
 
 BEGIN_MESSAGE_MAP(CHiEdit, CEdit)
-	//{{AFX_MSG_MAP(CHexEdit)
+	//{{AFX_MSG_MAP(CHiEdit)
 	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()

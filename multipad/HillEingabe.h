@@ -17,7 +17,7 @@
 class CHiEdit : public CEdit
 {
 protected:
-	//{{AFX_MSG(CChEdit)
+	//{{AFX_MSG(CHiEdit)
 	afx_msg void OnLButtonUp(UINT, CPoint);
 	//}}AFX_MSG
 

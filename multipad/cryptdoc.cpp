@@ -108,6 +108,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_CRYPT_EXTRACT, OnCryptExtract)
 	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
 	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
+	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 
 	ON_COMMAND(ID_ANALYZE_SUBST, OnAnalyzeSubst)
 	ON_COMMAND(ID_FLOATING, OnFloating)
@@ -1231,3 +1232,11 @@ void CCryptDoc::SetModifiedFlag(BOOL bModified)
 	((CMyEditView*)m_viewList.GetHead())->GetRichEditCtrl().SetModify(bModified);
 }
 //
+
+void CCryptDoc::OnPermutationAsc() 
+{
+    UpdateContent();
+    PermutationAsc(ContentName, GetTitle());
+}
+
+

@@ -29,6 +29,7 @@
 #include "AnalyseNGram.h"
 #include "DlgGenRandomData.h"
 #include "DialogPeriodeOutput.h"
+#include "DialogPermutation.h"
 
 #include <fstream.h>
 
@@ -2893,3 +2894,117 @@ void NGramBin(const char *infile, const char *OldTitle)
 	theApp.DoWaitCursor(0);
 }
 
+// =============================================================
+// == permutation cryptology 
+// == Peer Wichmann July 2001
+void DoPerm(char *dest, char *src, int len, int *p, int plen)
+{
+	int i, k, pt;
+
+	for(pt=i=0;i<plen;i++) {
+		for(k=i;k<len;k+=plen)
+			dest[pt++]=src[k];
+	}
+}
+
+void DoInvPerm(char *dest, char *src, int len, int *p, int plen)
+{
+	int i, k, pt;
+
+	for(pt=i=0;i<plen;i++) {
+		for(k=i;k<len;k+=plen)
+			dest[k]=src[pt++];
+	}
+}
+
+void PermutationAsc(const char *infile, const char *OldTitle)
+{
+    char outfile[128], key[128], title[128];
+	CFile datei(infile, CFile::modeRead);
+	bool laenge_groesser_0 = FALSE;
+	char c;
+	char *b1=NULL, *b2=NULL, *b3, *alphabet;
+	int l1, l2, i, ignoreCase;;
+
+	l1 = datei.GetLength();
+	b1 = (char *) malloc(l1+1);
+	l1 = datei.Read(b1, l1);
+	datei.Close();
+	b1[l1]=0;
+	alphabet = theApp.TextOptions.m_alphabet.GetBuffer(0);
+	ignoreCase = theApp.TextOptions.m_IgnoreCase;
+	for(l2=i=0;i<l1;i++) {
+		c = b1[i];
+		if(ignoreCase && 'a'<=c && c<='z')
+			c += 'A' - 'a';
+		if(strchr(alphabet, c))
+			b1[l2++] = c;
+	}
+	theApp.TextOptions.m_alphabet.ReleaseBuffer();
+	b1[l2]=0;
+	if(l2<1) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_INPUT_TEXT_LENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(title,pc_str, 1 );
+		AfxMessageBox (title);
+		free(b1);
+		return;
+	}
+			
+	// Dialogbox zur Schlüsseleingabe anzeigen
+	CDialogPermutation Perm;
+	if (Perm.DoModal()==IDOK){
+
+		b2 = (char *) malloc(l2+1);
+
+		if(Perm.m_Dec) {
+			if(Perm.m_P2len) {
+				DoInvPerm(b2, b1, l2, Perm.m_P2, Perm.m_P2len);
+				DoInvPerm(b1, b2, l2, Perm.m_P1, Perm.m_P1len);
+				b3 = b1;
+			}
+			else {
+				DoInvPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len);
+				b3 = b2;
+			}
+		}
+		else {
+			DoPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len);
+			if(Perm.m_P2len) {
+				b3 = b1;
+				DoPerm(b1, b2, l2, Perm.m_P2, Perm.m_P2len);
+			}
+			else b3 = b2;
+		}
+
+		GetTmpName(outfile,"cry",".tmp");
+		
+		CFile outf(outfile,CFile::modeWrite | CFile::modeCreate);
+		outf.Write(b3,l2);
+		outf.Close();
+		Reformat(infile,outfile, FALSE);
+		if(Perm.m_P2len)
+			sprintf(key,"%s;%s",Perm.m_Perm1, Perm.m_Perm2);
+		else
+			sprintf(key,"%s",Perm.m_Perm1);
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,key);
+		remove(outfile);	
+		if(NewDoc) 
+		{
+/* Ohne Ausgabe des Schlüssels in der Titelleiste:
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_MONOALPHABETIC_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName(title,sizeof(title),pc_str,OldTitle);
+			NewDoc->SetTitle(title);
+*/
+			if(Perm.m_Dec)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
+			NewDoc->SetTitle(title);
+		}
+	}
+	if(b1) free(b1);
+	if(b2) free(b2);
+}

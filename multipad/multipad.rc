@@ -1907,6 +1907,20 @@ BEGIN
                     -1,7,39,310,10
 END
 
+IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 249, 129
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Permutationseingabe"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,19,33,197,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,19,74,197,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,23,103,58,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,97,103,57,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,170,103,55,19
+    LTEXT           "1. Permutation",IDC_STATIC_TEXT,19,14,197,9
+    LTEXT           "2. Permutation",IDC_STATIC,19,55,197,9
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2032,6 +2046,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
+            MENUITEM "P&ermutation",                ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -2466,6 +2481,7 @@ BEGIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "P&ermutation",                ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -4298,7 +4314,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
-    ID_HOMOPHONE_HEX        "Homophone Ver-/Entschlüsselung"
+    ID_HOMOPHONE_HEX        "Verschlüsseln mit ein- oder zweifacher Permutation"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4315,6 +4331,7 @@ BEGIN
     IDS_STRING_KF_ORD_DESCRIPTION 
                             "G hat die prime Ordnung r und den Kofaktor k (r*k sind die Anzahl der Punkte auf E):"
     IDS_STRING_EC_SEPERATOR " "
+    IDS_STRING_PERMUTATION  "Permutation"
 END
 
 #endif    // Deutsch (Deutschland) resources

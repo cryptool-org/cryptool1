@@ -77,6 +77,7 @@
 #define IDD_DIALOG_ZAHL_FAKTORISIEREN   240
 #define IDD_RSA_WITH_SMALL_PRIMES_OPTIONS 241
 #define IDD_DIALOG_PERIOD_OUTPUT        242
+#define IDD_DIALOG_PERMUTATION          243
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -501,6 +502,7 @@
 #define ID_ANALYSE_NGRAM_BIN            33135
 #define ID_ZUFALL_GENERATOREN           33136
 #define ID_HOMOPHONE_HEX                33137
+#define ID_PERMUTATION_ASC              33138
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -841,6 +843,7 @@
 #define IDS_STRING_KF_ORD               37173
 #define IDS_STRING_KF_ORD_DESCRIPTION   37174
 #define IDS_STRING_EC_SEPERATOR         37175
+#define IDS_STRING_PERMUTATION          37176
 #define IDS_STRING_PA_LENGTH            37612
 #define IDS_STRING_REFERENCE_FILE       43660
 
@@ -848,8 +851,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        243
-#define _APS_NEXT_COMMAND_VALUE         33137
+#define _APS_NEXT_RESOURCE_VALUE        244
+#define _APS_NEXT_COMMAND_VALUE         33139
 #define _APS_NEXT_CONTROL_VALUE         1238
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -119,6 +119,7 @@ protected:
 	afx_msg void OnHomophone();
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
+    afx_msg void OnPermutationAsc();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
