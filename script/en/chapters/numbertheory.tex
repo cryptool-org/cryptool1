@@ -12,7 +12,7 @@
 \newpage
 %\hypertarget{Kap_3}
 \section{Introduction to Elementary Number Theory with Examples}
-(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, Feb. 2003) \\
+(Bernhard Esslinger, besslinger@web.de, July 2001, Updates: Dec. 2001, June 2002, May 2003) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -814,12 +814,16 @@ $$
 \subsubsection{Fast calculation of high powers} \hypertarget{hohpot}{} \label{hohpot}\index{Power}
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
-RSA encryption and decryption\footnote{See \hyperlink{Kapitel_3_10}{chapter 3.10 Proof of the RSA procedure with Euler-Fermat} \index{RSA}
-and \hyperlink{Kapitel_3_12}{chapter 3.13 The RSA procedure with actual numbers}.} entails calculating high powers modulo $m$. 
-For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit long integer\index{Long integer} number range provided we calculate $a^n$ 
-by actually multiplying a with itself $n$ times in line with the definition. In the case of extremely large numbers, even 
-a fast computer chip would take longer than the age of the universe to calculate a single exponential. Luckily, there is 
-an extremely effective shortcut for calculating exponentials (but not for calculating logarithms).
+RSA encryption and decryption\footnote{See chapter \ref{rsaproof} (Proof of the
+RSA procedure with Euler-Fermat) \index{RSA} and chapter~\ref{rsaconcrete} (The
+RSA procedure with actual numbers).} entails calculating high powers modulo
+$m$.  For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit
+long integer\index{Long integer} number range provided we calculate $a^n$ by
+actually multiplying a with itself $n$ times in line with the definition. In
+the case of extremely large numbers, even a fast computer chip would take
+longer than the age of the universe to calculate a single exponential. Luckily,
+there is an extremely effective shortcut for calculating exponentials (but not
+for calculating logarithms).
 
 If the expression is divided differently using the rules of modular arithmetic, then the calculation does not even exceed the 
 16-bit short integer number range:\index{Short integer}
@@ -1008,7 +1012,7 @@ Example for $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
 
-The unique inverse is an essential condition for cryptography (see Section 3.10: \hyperlink{RSABeweis}{Proof of the RSA procedure with Euler-Fermat}).
+The unique inverse is an essential condition for cryptography (see section~\ref{rsaproof}).
 
 
 
@@ -1041,7 +1045,7 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 
 % --------------------------------------------------------------------------
 \subsubsection{Patterns and structures}
-\hypertarget{Kap_3_8}{}
+\hypertarget{Kap_3_8}{}\label{patternsandstructures}
 
 As mathematicians investigate the structure \index{Structure} $a *x \equiv b$ mod $m$ (see \hyperlink{kap_3_5_2}{chapter 3.5.2}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
@@ -1434,7 +1438,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Proof of the RSA procedure with Euler-Fermat}
-\hypertarget{Kapitel_3_10}{}\index{RSA}
+\hypertarget{Kapitel_3_10}{}\index{RSA}\label{rsaproof}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most common asymmetric 
@@ -1989,6 +1993,7 @@ Current research results on this topic can be found at:
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
   German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
+
 % --------------------------------------------------------------------------
 \subsubsection{Status regarding factorisation of concrete large numbers}
 \label{NoteFactorisation}
@@ -1998,20 +2003,38 @@ The web page
 contains an excellent overview about the factoring 
 records\index{Factorisation!factoring records} of composed
 integers using different methods.
-\hypertarget{C158-chap3}{}
-The current record (as of June 2002) obtained using the GNFS method
-(General Number Field Sieve) factorised a 158-digit into its both prime
-factors (these are build with 73 and 86 decimal digits).
 
-This record, established on January 18, 2002 by researchers of the German
-University of Bonn\footnote{%
+The current record (as of May 2003) obtained using the GNFS method
+(General Number Field Sieve) factorised a 160-digit into its both prime
+factors (these are build with each 80 decimal digits).
+
+The last records with factorisation algorithms for general numbers are:
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{RSA-155} \label{RSA-155} \index{RSA-155}\mbox{}
+
+On August 22, 1999 researchers from the Netherlands found the solution of the
+RSA challenge\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
+         {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}}. They factorised a 155-digit number into its both 78-digit primes
+(see chapter \ref{chptSecurityParam}). 
+
+This 512 bit RSA-155 meant to reach a kind of {\em magic} border.
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{C158} \label{C158} \index{C158}\mbox{}
+\hypertarget{C158-chap3}{}
+
+On January 18, 2002 researchers of the German University of Bonn\footnote{%
 \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
-{\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}, got much less attention within the press than the
-solution of the RSA challenge\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
-         {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}}, established on August 22, 1999, when
-researchers from the Netherlands factorised the 155-digit number into its
-both 78-digit primes (see chapter \ref{chptSecurityParam}). 
-One reason is that 512 bit RSA-155 was a kind of {\em magic} border.
+{\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}
+factorised a 158-digit number into its both prime factors (these are build
+with 73 and 86 decimal digits) using the GNFS method (General Number Field
+Sieve).
+
+This record got much less attention within the press than the solution of
+RSA-155.
 
 The task of the researchers from Bonn was not initiated by a challenge, but
 they wanted to find the last prime factors of the integer $2^{953} - 1$
@@ -2066,17 +2089,90 @@ So now all 8 prime factors of $2^{953} - 1$ have been found.
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}{\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
-          \href{http://www.crypto-world.com/FactorRecords.html}{\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
-          \href{http://www.crypto-world.com/announcements/c158.txt}{\texttt{http://www.crypto-world.com/announcements/c158.txt}}
+\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}
+       {\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
+          \href{http://www.crypto-world.com/FactorRecords.html}
+       {\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
+          \href{http://www.crypto-world.com/announcements/c158.txt}
+       {\texttt{http://www.crypto-world.com/announcements/c158.txt}}
 \end{itemize}
 \end{minipage}
 \vspace{12pt}
 
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{RSA-160} \label{RSA-160} \index{RSA-160}\mbox{}
+
+On January 18, 2002 researchers of the German University of Bonn\footnote{%
+   \href{http://www.loria.fr/~zimmerma/records/rsa160}
+{\texttt{http://www.loria.fr/~zimmerma/records/rsa160}}} 
+factorised a 160-digit number into its both prime factors (these are build
+with each 80 decimal digits) using the GNFS method (General Number Field
+Sieve).
+
+The  computations for the factorization of RSA160 took place at the 
+German Information Security Agency (GISA) in Bonn\footnote{%
+Every year the GISA\index{GISA} creates a paper to describe which 
+crypto algorithms are feasible to generate digital signatures according
+to the German signature law -- under participation of experts from
+economy and science. To review signature methods based on the
+factorisation problem the GISA also co-operates with researchers of the
+University of Bonn.
+Further information about crypto algorithms on the web page of GISA:
+   \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
+{\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}}.
+}.
+
+-----------
+The composite number called ``RSA-160'' is (the following 3 lines contain
+one number):
+$$
+\begin{array}{c}
+215274110271888970189601520131282542925777358884567598017049 \\
+767677813314521885913567301105977349105960249790711158521430 \\
+2079314665202840140619946994927570407753
+\end{array}
+$$
+The factorisation of RSA-160 resulted in the following two prime factors:
+$$
+\begin{array}{c}
+p = 45427892858481394071686190649738831 \\         
+    656137145778469793250959984709250004157335359
+\end{array}
+$$
+and
+$$
+\begin{array}{c}
+q = 47388090603832016196633832303788951 \\
+    973268922921040957944741354648812028493909367
+\end{array}
+$$
+
+The calculations took place between December 2002 and April 2003.
+
+\begin{minipage}{\textwidth}
+\vspace{3ex}
+Links:
+\vspace{-10pt}
+\begin{itemize}
+\item[]   \href{http://www.loria.fr/~zimmerma/records/rsa160}
+       {\texttt{http://www.loria.fr/~zimmerma/records/rsa160}} \\
+          \href{http://www.loria.fr/~zimmerma/records/factor.html}
+       {\texttt{http://www.loria.fr/~zimmerma/records/factor.html}} \\
+          \href{http://www.crypto-world.com/FactorWorld.html}
+       {\texttt{http://www.crypto-world.com/FactorWorld.html}}
+\end{itemize}
+\end{minipage}
+\vspace{12pt}
+
+
+% --------------------------------------------------------------------------
 As you notice the factorised compound numbers built of 2 prime factors are
 much smaller than the especially structured numbers, for which primality 
 tests\index{Primality testing} are able to decide whether they are prime 
 or not (see chapters 2.4 and 2.5).
+
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2273,7 +2369,7 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{The RSA procedure with actual numbers}\hypertarget{Kapitel_3_12}{}
-\index{RSA}
+\index{RSA}\label{rsaconcrete}
 
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
 
@@ -2305,7 +2401,8 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 
 
 % --------------------------------------------------------------------------
-\subsubsection{RSA with slightly larger primes and a text of upper case letters}
+\subsubsection[RSA with slightly larger primes]{RSA with slightly larger primes and a text of upper case letters}
+\label{rsaex2}
 
 We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
 CrypTool\index{CrypTool} v1.3 you can solve this with the {\bf Indiv.Procedures \textbackslash{} RSA Demonstration \textbackslash{} RSA Cryptosystem}.
@@ -2375,7 +2472,7 @@ If $n$ is a $768$-bit number, there is, according to present knowledge, little c
 
 
 % --------------------------------------------------------------------------
-\subsubsection{ RSA with slightly more larger primes and a text made up of ASCII characters}
+\subsubsection{RSA with even larger primes and a text made up of ASCII characters}
 
 In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
 
@@ -2667,10 +2764,11 @@ $n = 63978486879527143858831415041, ~e = 17579$
 
 
 {\bf Comments:} \\
-The original message consisted of a sentence containing $31$ characters (coded with the \hyperlink{Grossbuchstaben-Alphabet}{capital letters alphabet}
-\index{Capital letters alphabet} from section 3.12.2). 
-Each group of $16$ decimal numbers is then combined to form one number (the last number is filled with zeros). These 
-numbers are raised to the power of $e$.
+The original message consisted of a sentence containing $31$ characters (coded
+with the capital letters alphabet \index{Capital letters alphabet} from
+section~\ref{rsaex2}).  Each group of $16$ decimal numbers is then combined to
+form one number (the last number is filled with zeros). These numbers are
+raised to the power of $e$.
 
 When you decrypt the message you must fill the calculated numbers with leading zeros in order to obtain plaintext.
 
@@ -2749,8 +2847,9 @@ This needs to be stressed because the type of padding is extremely important dur
     {\tt http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
     A statement on these recommendations: \\
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
-    {\texttt{http://www.secorvo.de/publikat/\\
-    \vspace*{1cm}stellungnahme-algorithmenempfehlung-020307.pdf}}
+    {\texttt{http://www.secorvo.de/publikat/}}\\
+    \vspace*{1cm}\href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
+    {\texttt{stellungnahme-algorithmenempfehlung-020307.pdf}}
 
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
     Graham, Knuth, Patashnik, \\
@@ -2919,16 +3018,26 @@ This needs to be stressed because the type of padding is extremely important dur
           German Information Security Agency \\
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
          
+	 
    \item Factorisation records and challenges \index{Factorisation!factorisation records}\\
          \href{http://www.crypto-world.com/}
          {\texttt{http://www.crypto-world.com/}} \\
+         \href{http://www.crypto-world.com/FactorWorld.html}
+         {\texttt{http://www.crypto-world.com/FactorWorld.html, page by Scott Contini}} \\
+         \href{http://www.loria.fr/~zimmerma/records/factor.html}
+         {\texttt{http://www.loria.fr/~zimmerma/records/factor.html}} \\
+
          \href{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
          {\texttt{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}} \\
          \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
          {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}} \\
+         \href{http://www.loria.fr/~zimmerma/records/rsa160}
+         {\texttt{http://www.loria.fr/~zimmerma/records/rsa160}} \\
+
          \href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
          {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}
          
+	 
    \item The Cunningham Project, \index{Cunningham project}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
          {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
@@ -2959,7 +3068,7 @@ I would like to take this opportunity to thank
 \newpage
 \subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
 Algorithms of Euclid} \hypertarget{Appendix_A}{}
-\addcontentsline{toc}{subsection}{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
+\addcontentsline{toc}{subsection}{Appendix A: gcd of whole numbers and the two
 Algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 
 \begin{enumerate}
@@ -3236,8 +3345,8 @@ matrix(23,24, x,y,
 
 \subsubsection*{RSA examples}
 
-This section list the source code of the RSA examples in section
-\hyperlink{Kapitel_3_12}{``The RSA procedure with actual numbers''} using
+This section list the source code of the RSA examples in
+section~\ref{rsaconcrete} (``The RSA procedure with actual numbers'') using
 Mathematica and Pari-GP syntax.
 
 \vskip +10 pt \hypertarget{AppArith4a}{%
