@@ -34,14 +34,14 @@ void aescbc(const void *key,int keylen,const void *iv,char direction,const void 
 	
 	keyInstanceRijndael keyin;
 	cipherInstanceRijndael cipher;
-	ASSERT(makeKeyRijndael(&keyin,direction,keylen*8,keyhex));
-	ASSERT(cipherInitRijndael(&cipher,MODE_CBC,ivhex));
+	VERIFY(makeKeyRijndael(&keyin,direction,keylen*8,keyhex));
+	VERIFY(cipherInitRijndael(&cipher,MODE_CBC,ivhex));
 	long ret;
 	if (direction == DIR_DECRYPT)
 		ret = blockDecryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen*8, (unsigned char *)dataout);
 	else
 		ret = blockEncryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen*8, (unsigned char *)dataout);
-	ASSERT(ret == datalen*8);
+	VERIFY(ret == datalen*8);
 }
 
 void AesGetErrorMessage(CFileException &e,CString &errormsg)
@@ -162,7 +162,7 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		return 0;
 	}
 	if(exename) { // copy EXE-File first
-		while(i = EXEFile.ReadHuge(buffer, bufflen))
+		while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
 			OutFile.WriteHuge(buffer,i);
 		EXEFile.Close();
 	}
@@ -173,7 +173,7 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 	// generate random IV
 	srand((unsigned)time(0));
 	for (i = 0; i < sizeof(iv); i++) 
-		iv[i] = rand() & 0xFF;
+		iv[i] = (unsigned char)(rand() & 0xFF);
 	// output IV
 	OutFile.Write(iv,sizeof(iv));
 
@@ -260,7 +260,7 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 
 InfoBlock::ReturnCode InfoBlock::decrypt(const SrcInfo &srcinfo,void *key,int keylen)
 {
-	ASSERT(srcinfo.isEncrypted());
+	VERIFY(srcinfo.isEncrypted());
 	unsigned char *buffer = new unsigned char[srcinfo.getInfoBlockLength()];
 	if (!buffer)
 		return NOMEM;

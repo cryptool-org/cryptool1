@@ -51,7 +51,7 @@ static bool hex2bin(const char *hex, unsigned char *bin,int &binlen)
 		hexbyte[1] = *hex ? *hex++ : '0'; // treat string ending in the middle of a byte by appending '0'
 		if (0 == sscanf(hexbyte,"%x%n",&byte,&n) || n != 2)
 			return 0;
-		bin[binlen++] = byte;
+		bin[binlen++] = (unsigned char)byte;
 	}
 	return 1;
 
@@ -155,7 +155,7 @@ BOOL CAestoolApp::InitInstance()
 
 		CAestoolDlg dlg(m_CMD_inKey,m_CMD_inName);
 		m_pMainWnd = &dlg;
-		int nResponse = dlg.DoModal();
+		dlg.DoModal();
 	}
 	// Da das Dialogfeld geschlossen wurde, FALSE zurückliefern, so dass wir die
 	//  Anwendung verlassen, anstatt das Nachrichtensystem der Anwendung zu starten.
@@ -173,7 +173,7 @@ void CAestoolApp::ScanCMDLine(char * cmd)
 {
 	CString l;
 	char c;
-	int state = 0, len;
+	int len;
 
 	l = cmd;
 	l.TrimLeft();
