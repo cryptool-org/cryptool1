@@ -458,7 +458,7 @@ The parameters mentioned are often called \index{Domain-Parameter} {\em Domain}-
 %{\bf Encryption:}
 \subsubsection{Encryption}
 
-Using elliptic curves one can construct a key exchange protocol based on the Diffie-Hellman protokoll \index{Diffie-Hellman} (see chapter \ref{DH-KeyExch}). The key exchanged can be used for a subsequent symmetric encryption. We note that in contrast to RSA there is no pair of private and public key that can be used for encryption and decryption!
+Using elliptic curves one can construct a key exchange protocol based on the Diffie-Hellman protocol \index{Diffie-Hellman} (see chapter \ref{DH-KeyExch}). The key exchanged can be used for a subsequent symmetric encryption. We note that in contrast to RSA there is no pair of private and public key that can be used for encryption and decryption!
 
 In the notation of elliptic curves, the Diffie-Hellman protocol reads as follows: First both partners (A und B) agree on a group $G$ and an integer $q$. Then they choose $r_A,r_B\in\{1,2,\dots,q-1\}$ at random, derive the points $R_A=r_AG$, $R_B=r_BG$ on the elliptic curve and exchange them (using an insecure channel). After that A easily obtains $R=r_AR_B$; B gets the same point ($R=r_Ar_B G$) by calculating $r_BR_A=r_Br_AG=r_Ar_BG=R$. We note that $R_A,R_B$ are easy to derive as long as $r_A$ respectively $r_B$ are known $G$. However, the inverse operation, to get $R_A$ respectively $R_B$ from $r_A$ respectively $r_B$ is hard.
 \\ Using the best algorithms known so far, it is impossible for any attacker to obtain $R$ without knowing either $r_A$ or $r_B$ --- otherwise he would have to solve the ECDLP.

@@ -216,6 +216,7 @@ $ n!= n*(n-1)*\cdots *2*1$).
 
 % --------------------------------------------------------------------------
 \subsection{The search for extremely large primes}
+\label{search_for_very_big_primes}   % chap. 2.4
 
 The largest prime numbers known today have several hundred
 thousand digits, which is too big for us to imagine. The number of
@@ -466,7 +467,9 @@ No new record is likely to last that long.
 
 % --------------------------------------------------------------------------
 \subsection{Prime number tests}
+\label{primality_tests}   % chap. 2.5
 \index{Prime number!test}
+
 In order to implement secure encryption procedures we need extremely large prime
 numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
 decimal system!).
@@ -486,7 +489,7 @@ question, there are extremely highly developed procedures that are much quicker.
 These procedures can determine the primality attribute of a number, but they
 cannot determine the prime factors of a number, if it is compound.
 
-\hypertarget{FermatNumbers01}{}%
+\hypertarget{FermatNumbers01}{}\label{FermatNumbers01}%
 In the 17th century, Fermat\index{Fermat Pierre} wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
 of the form $$ F(n) = 2^{2^n} + 1 $$ are prime for all whole numbers $n$ greater
 than or equal to $0$ (\hyperlink{FermatNumbers02}{see below}) 
@@ -621,13 +624,17 @@ The following enumeration contains the most common ideas for
 
 \vskip +15 pt
 \hypertarget{FermatNumbers02}{}
-\item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in circle division.
-As proven by Gauss\index{Gauss Carl Friedrich}, a regular $p$-edge
-can only be constructed with the use of a pair of compasses and a ruler, when $p$ is a Fermat prime number.}
-\index{Number!Fermat}\index{Fermat!number}  $F(n) = 2^{2^n} + 1$:\\
-As mentioned \hyperlink{FermatNumbers01}{above}, Fermat wrote to Mersenne regarding his assumption, that all numbers of this type are primes.
-Surprisingly he would have been able obtain a positive result using the negative
-prime number test for $n=5$ based on his small theorem.
+\item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in
+       circle division.
+       As proven by Gauss\index{Gauss Carl Friedrich}, a regular $p$-edge
+       can only be constructed with the use of a pair of compasses and a 
+       ruler, when $p$ is a Fermat prime number.}
+       \index{Number!Fermat}\index{Fermat!number}  $F(n) = 2^{2^n} + 1$:\\
+       As mentioned \hyperlink{FermatNumbers01}{above} in 
+       chapter~\ref{FermatNumbers01}, Fermat wrote to Mersenne regarding 
+       his assumption, that all numbers of this type are primes.
+       Surprisingly he would have been able obtain a positive result using
+       the negative prime number test for $n=5$ based on his small theorem.
 $$
 \begin{array}{lll}
 F(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prime}  \\
@@ -655,7 +662,8 @@ $$
     On February 22, 2003 John Cosgrave discovered 
     \begin{itemize} 
      \item the largest composite Fermat number to date and
-     \item the largest prime non-Mersenne number so far with 645,817 digits.
+     \item the largest prime non-simple Mersenne number so far with
+           645,817 decimal digits.
     \end{itemize}
     
     The Fermat number
@@ -663,15 +671,16 @@ $$
     is divisible by the prime
     $$ p = 3*2^{2,145,353} + 1 $$ \\
     This prime p is the largest known prime generalized Mersenne 
-    number\index{Mersenne!number!generalized}. 
+    number\index{Mersenne!number!generalized} and the
+    5th largest known prime number today. 
     It was discovered only a few days after Michael Angel has come across the 
     largest generalized Fermat number (\hyperlink{generalizedFermatprimes}
     {see below}).  This moved GIMPS' \index{GIMPS} first prime discovery,
     M-35 = M1398269, into 7th place.
 
     This work was done using NewPGen from Paul Jobling's, PRP from 
-    George Woltman's, Proth from Yves Gallot's programs\index{Gallot Yves} and also the
-    Proth-Gallot group at St. Patrick's College, Dublin.
+    George Woltman's, Proth from Yves Gallot's programs\index{Gallot Yves} and
+    also the Proth-Gallot group at St. Patrick's College, Dublin.
 
     More details are in
     \vspace{-10pt}
@@ -699,8 +708,8 @@ The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
     representation is not limited to the base 2, can be tested at almost
     the same speed than a Mersenne number.
     
-    Yves Gallot\index{Gallot Yves} wrote the program Proth.exe to investigate generalized
-    Fermat numbers.
+    Yves Gallot\index{Gallot Yves} wrote the program Proth.exe to investigate
+    generalized Fermat numbers.
     
     Using this program at February 16, 2003 Michael Angel discovered the
     largest of them till then with 628,808 digits, which so became the
@@ -708,6 +717,9 @@ The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
     $$ b^{2^{17}} + 1  =  62,722^{131,072} + 1. $$ 
     This moved GIMPS' \index{GIMPS} first prime discovery, M-35 = M1398269,
     into 6th place.
+
+    Today (date June 2003) this generalized Fermat number is the 6th largest
+    known prime number.
 
     More details are in
     \vspace{-10pt}
@@ -1154,9 +1166,9 @@ some practical interest?
 \item Is there an infinite number of Mersenne prime numbers?\index{Prime number!Mersenne}\index{Mersenne!prime number}
 \item Is there an infinite number of Fermat prime numbers?
 
-  \item Does a polynomial\index{Polynomial} time algorithm exist for calculating the prime factors of a number (see
-    \cite[p. 167]{Klee1997})? 
-    This question can be divided into the two following questions:
+  \item Does a polynomial\index{Polynomial} time algorithm exist for 
+        calculating the prime factors of a number (see \cite[p. 167]{Klee1997})?
+	This question can be divided into the two following questions:
    \begin{itemize} 
       \item Does a polynomial time algorithm exist that decides whether a
             number is prime? \\
@@ -1164,12 +1176,22 @@ some practical interest?
 	    (see chapter \ref{PrimesinP}, ``Primes in P'': 
 	    Primality testing is polynomial).
 
+      \item Does a polynomial time algorithm exist  that calculates for a
+            composite number fom how many prime factors it is made up 
+	    (without calculating these factors)?
+
       \item Does a polynomial time algorithm exist that calculates for a
             composite number $n$ a non-trivial (i.e. other than $1$ and $n$)
 	    factor of $n$?\footnote{Please compare chapters \ref{RSABernstein}
 	    and \ref{NoteFactorisation}.}
    \end{itemize}
 \end{itemize}
+
+
+At the end of chapter \ref{NoteFactorisation} \hyperlink{RSA-160-chap3}{RSA-160}
+you can see the dimensions for which numbers current algorithms deliver
+results (test for primality\index{Primality testing}, 
+factorization\index{Factorisation!factoring records}).
 
 
 \paragraph{Further interesting topics regarding prime numbers}

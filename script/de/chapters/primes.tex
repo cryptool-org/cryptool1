@@ -206,6 +206,7 @@ Zahlen, also $n!=n*(n-1)* \cdots *3*2*1$).
 
 % --------------------------------------------------------------------------
 \subsection{Die Suche nach sehr gro"sen Primzahlen}
+\label{search_for_very_big_primes}   % chap. 2.4
 
 Die gr"o"sten heute bekannten Primzahlen haben mehrere
 hunderttausend Stellen. Das ist unvorstellbar gro"s. Die Anzahl
@@ -484,7 +485,9 @@ $2^{127}-1$ prim ist. Solange wird wohl kein neuer Rekord mehr Bestand haben.
 
 % --------------------------------------------------------------------------
 \subsection{Primzahltests}
+\label{primality_tests}   % chap. 2.5
 \index{Primzahltest}
+
 F"ur die Anwendung sicherer Verschl"usselungsverfahren braucht man sehr gro"se
 Primzahlen (im Bereich von $2^{2.048}$, das sind Zahlen im Zehnersystem mit
 "uber $600$ Stellen!).
@@ -505,7 +508,7 @@ sind. Diese Verfahren beantworten nur die Primalit"atseigenschaft einer Zahl,
 k"onnen aber nicht die Primfaktoren sehr gro"ser zusammengesetzter Zahlen
 bestimmen.
 
-\hypertarget{FermatNumbers01}{}%
+\hypertarget{FermatNumbers01}{}\label{FermatNumbers01}%
 Fermat\index{Fermat Pierre} hatte im 17. Jahrhundert an Mersenne \index{Mersenne Marin} geschrieben, dass er vermute, 
 dass alle Zahlen der Form $$ F(n) = 2^{2^n} + 1 $$ f"ur alle ganzen Zahlen $n$ gr"o"ser 
 oder gleich $0$ prim seien (\hyperlink{FermatNumbers02}{siehe unten},
@@ -593,7 +596,7 @@ prim ist, finden sich zum Beispiel unter:
 % --------------------------------------------------------------------------
 \vskip +20 pt
 \subsection{Weitere Spezial-Zahlentypen und die Suche nach einer Formel f"ur
-Primzahlen}\label{spezialzahlentypen}
+Primzahlen}\label{spezialzahlentypen} % chap. 2.6.
 \index{Primzahl!Formel}
 Derzeit sind keine brauchbaren, offenen (also nicht rekursiven) Formeln bekannt, die nur Primzahlen
 liefern (rekursiv bedeutet, dass zur Berechnung der Funktion auf dieselbe Funktion in Abh"angigkeit
@@ -653,7 +656,8 @@ f"ur ''Primzahlformeln'':
        und nur dann mit Zirkel und Lineal konstruierbar, wenn $p$ eine 
        Fermatsche Primzahl ist.}
    \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}  $F(m) = 2^{2^m} + 1$:\\
-    Wie \hyperlink{FermatNumbers01}{oben} erw"ahnt, schrieb Fermat an 
+    Wie \hyperlink{FermatNumbers01}{oben} in Kapitel~\ref{FermatNumbers01}
+    erw"ahnt, schrieb Fermat an 
     Mersenne, dass er vermutet, dass alle Zahlen dieser Form prim seien. 
     Erstaunlicherweise w"are es f"ur ihn m"oglich gewesen, mit dem auf 
     seinem kleinen Satz beruhenden negativen Primzahltest f"ur $n=5$ ein 
@@ -690,8 +694,8 @@ $$
     Am 22. Februar 2003 entdeckte John Cosgrave
     \begin{itemize} 
      \item die gr"o"ste bis dahin bekannte zusammengesetzte Fermatzahl und
-     \item die gr"o"ste bis dahin bekannte prime Nicht-Mersennezahl mit 
-           645.817 Dezimalstellen.
+     \item die gr"o"ste bis dahin bekannte prime nicht-einfache Mersennezahl
+           mit 645.817 Dezimalstellen.
     \end{itemize}
 
 
@@ -700,7 +704,8 @@ $$
     ist teilbar durch die Primzahl
     $$ p = 3*2^{2.145.353} + 1 $$ \\
     Diese Primzahl p ist die gr"o"ste bis dahin bekannte prime verallgemeinerte
-    Mersennezahl\index{Mersenne!Mersennezahl!verallgemeinerte}. 
+    Mersennezahl\index{Mersenne!Mersennezahl!verallgemeinerte} und die 
+    5.-gr"o"ste derzeit bekannte Primzahl "uberhaupt. 
     Sie wurde nur ein paar Tage sp"ater entdeckt, nachdem Michael Angel die
     gr"o"ste bis dahin bekannte prime verallgemeinerte Fermatzahl 
     (\hyperlink{generalizedFermatprimes}{siehe unten}) entdeckte. Dadurch 
@@ -708,8 +713,8 @@ $$
     Mersenne-Primzahl M-35 = M1398269 auf den 7. Platz verwiesen.
 
     Zu diesem Erfolg trugen bei: NewPGen von Paul Jobling's, PRP von 
-    George Woltman's, Proth von Yves Gallot's Programm\index{Gallot Yves} und die 
-    Proth-Gallot-Gruppe am St. Patrick's College, Dublin.
+    George Woltman's, Proth von Yves Gallot's Programm\index{Gallot Yves} und
+    die Proth-Gallot-Gruppe am St. Patrick's College, Dublin.
 
     Weitere Details finden sich unter
     \vspace{-10pt}
@@ -741,8 +746,8 @@ Hier ist die Basis b nicht notwendigerweise 2 !}  $F(b,m) = b^{2^m} + 1$ :
     nun mit fast der gleichen Geschwindigkeit wie Mersennezahlen getestet
     werden k"onnen.
     
-    Yves Gallot\index{Gallot Yves} schrieb das Programm Proth.exe f"ur die Untersuchung
-    verallgemeinerter Fermatzahlen.
+    Yves Gallot\index{Gallot Yves} schrieb das Programm Proth.exe f"ur die 
+    Untersuchung verallgemeinerter Fermatzahlen.
     
     Mit diesem Programm fand Michael Angel am 16. Februar 2003 eine
     prime verallgemeinerte Fermatzahl mit 628.808 Dezimalstellen, 
@@ -751,6 +756,9 @@ Hier ist die Basis b nicht notwendigerweise 2 !}  $F(b,m) = b^{2^m} + 1$ :
     $$ b^{2^{17}} + 1  =  62.722^{131.072} + 1. $$ 
     Dadurch wurde die erste im GIMPS-Projekt\index{GIMPS} gefundene
     Mersenne-Primzahl $$\mbox{M-35 = M1398269}$$ auf den 6. Platz verwiesen.
+
+    Heutzutage (Stand Juni 2003) ist diese verallgemeinerte Fermatzahl
+    die 6.-gr"o"ste bekannte Primzahl.
 
     Weitere Details finden sich unter
     \vspace{-10pt}
@@ -1182,19 +1190,31 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
     die Funktion auch von praktischem Interesse ist?
   \item Gibt es unendlich viele Mersenne-Primzahlen?\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
   \item Gibt es unendlich viele Fermatsche Primzahlen?
-  \item Gibt es einen Polynomialzeit-Algorithmus\index{Polynom} zur Zerlegung einer Zahl in ihre Primfaktoren (vgl.
-    \cite[S. 167]{Klee1997})?
-    Diese Frage kann man auf die beiden folgenden Fragestellungen aufsplitten:
+  \item Gibt es einen Polynomialzeit-Algorithmus\index{Polynom} zur 
+       Zerlegung einer Zahl in ihre Primfaktoren (vgl. \cite[S. 167]{Klee1997})?
+       Diese Frage kann man auf die beiden folgenden Fragestellungen
+       aufsplitten:
   \begin{itemize}
         \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob 
 	      eine Zahl prim ist? \\
 	      Diese Frage wurde durch den AKS-Algorithmus\index{AKS} 
 	      beantwortet (vgl.  Kapitel \ref{PrimesinP}, ``Primes in P'':
 	      Testen auf Primalit"at ist polynominal).
-        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur eine zusammengesetzte Zahl $n$ ein
-        nicht-trivialer (d.h. von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen l"asst?\footnote{Vergleiche auch Kapitel \ref{RSABernstein} und Kapitel \ref{NoteFactorisation}.}
+        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem man feststellen
+	      kann, aus wievielen Primfaktoren eine zusammengesetzte Zahl
+	      besteht (ohne diese Primfaktoren zu berechnen)?
+        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur 
+	      eine zusammengesetzte Zahl $n$ ein nicht-trivialer (d.h. 
+	      von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen 
+	      l"asst?\footnote{Vergleiche auch Kapitel \ref{RSABernstein} 
+	      und Kapitel \ref{NoteFactorisation}.}
         \end{itemize}
 \end{itemize}
+
+Am Ende von Kapitel \ref{NoteFactorisation} \hyperlink{RSA-160-chap3}{RSA-160}
+k"onnen Sie die Gr"o"ßenordnungen ersehen, f"ur die heutige Algorithmen
+Ergebnisse liefern (Primzahltests\index{Primzahltest}, 
+Faktorisierung\index{Faktorisierung!Faktorisierungsrekorde}).
 
 
 \paragraph{Weitere interessante Themen rund um Primzahlen}
