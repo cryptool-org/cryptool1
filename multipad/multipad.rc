@@ -2395,7 +2395,7 @@ BEGIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-            MENUITEM "&Homophon",                   ID_HOMOPHONE
+//            MENUITEM "&Homophon",                   ID_HOMOPHONE
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -2574,8 +2574,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,1,0,2
- PRODUCTVERSION 1,1,0,2
+ FILEVERSION 1,3,0,0
+ PRODUCTVERSION 1,3,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -2593,14 +2593,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.1.02\0"
+            VALUE "FileVersion", "1.3.00\0"
             VALUE "InternalName", "CrypTool\0"
-            VALUE "LegalCopyright", "Copyright © 1999-2000\0"
+            VALUE "LegalCopyright", "Copyright © 1999-2001\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.1.02\0"
+            VALUE "ProductVersion", "1.3.00\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -2813,7 +2813,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.2.02"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -3293,8 +3293,6 @@ BEGIN
     IDS_STRING61434         "Periodenalyse %d %%."
     IDS_STRING61435         "Periodizit‰tsanalyse"
     IDS_STRING61437         "Die zu analysierende Datei muﬂ mindestens 4 Bytes groﬂ sein!"
-    IDS_STRING61438         "Geben Sie Ober- und Untergrenze ein!"
-    IDS_STRING61439         "Die Untergrenze darf nicht grˆﬂer als die Obergrenze sein!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -3302,13 +3300,6 @@ BEGIN
     ID_ANALYSE_PERIOD       "Perioden Analyse"
     IDS_STRING36909         "Perioden Analyse von %s:\n"
     IDS_STRING36910         "Nr\tOffset\tL‰nge\tPeriodenzahl\tPerioden Inhalt\n"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_STRING61440         "Die Untergrenze muﬂ kleiner als sein!"
-    IDS_STRING61441         "Das Produkt der Untergrenzen muﬂ kleiner als ... sein!"
-    IDS_STRING61442         "Die Untergrenze muﬂ kleiner sein als XXX!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5798,8 +5789,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,1,0,2
- PRODUCTVERSION 1,1,0,2
+ FILEVERSION 1,3,0,0
+ PRODUCTVERSION 1,3,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -5817,14 +5808,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.1.02\0"
+            VALUE "FileVersion", "1.3.00\0"
             VALUE "InternalName", "CrypTool\0"
-            VALUE "LegalCopyright", "Copyright © 1999-2000\0"
+            VALUE "LegalCopyright", "Copyright © 1999-2001\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.1.02\0"
+            VALUE "ProductVersion", "1.3.00\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -6055,7 +6046,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.2.02"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta"
     IDR_TEXTTYPE            "\nUntitled\nTEXT Document\nText Files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Files (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -6497,6 +6488,17 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
+    IDS_STRING42000         "Enter upper- and lower range!"
+    IDS_STRING42001         "The lower range can't be bigger than the upper range! "
+    IDS_STRING42002         "The lower range must be smaller as %d !"
+    IDS_STRING42003         "The product of the lowoer ranges must be smaller as %d !"
+    IDS_STRING42004         "Bad range selection in the left window -- no primes found! "
+    IDS_STRING42005         "Bad range selection in the right Window -- no primes found!"
+    IDS_STRING42006         "The product af the primes must be smaller than %d !"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
     IDS_STRING61408         "You want to see the public and private parameters of '%s'. Enter the PIN-Code to continue."
     IDS_STRING61409         "Show all parameters!"
     IDS_STRING61410         "Delete entry!"
@@ -6533,6 +6535,7 @@ END
 /////////////////////////////////////////////////////////////////////////////
 
 
+/*
 /////////////////////////////////////////////////////////////////////////////
 // Englisch (GB) resources
 
@@ -6583,8 +6586,7 @@ END
 
 #endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
-
-
+*/
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
