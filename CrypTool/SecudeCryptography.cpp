@@ -145,7 +145,7 @@ void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, in
 
 		// Entschlüsselung des Ciphertextes mit dem vom Benutzer eingegebenen Schlüssel.
 		if(theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
-			Message(IDS_STRING_ENCRYPTION_ERROR_2,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+			Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			theApp.SecudeLib.aux_free_OctetString(&help);
 			free(out.octets);
 			return;}

@@ -298,7 +298,7 @@ UINT Brute(PVOID p)
 	if (theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
 		theApp.SecudeLib.aux_free_OctetString(&help);
 		free(out.octets);
-		Message(IDS_STRING_ENCRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+		Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 		if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 		par->flags |= CRYPT_DONE;
 		FreePar(par);

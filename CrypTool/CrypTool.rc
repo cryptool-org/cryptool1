@@ -114,13 +114,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,179,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 288, 270
+IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 306, 271
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,13,242,65,18
-    PUSHBUTTON      "Abbrechen",IDCANCEL,207,242,66,18
+    PUSHBUTTON      "Abbrechen",IDCANCEL,228,242,66,18
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,50,76,10
     CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
@@ -136,17 +136,17 @@ BEGIN
     CONTROL         "Basischiffre anzeigen",IDC_CHECK4,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,155,125,80,10
     GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,120,109
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
     GROUPBOX        "Optionen für Brute-Force Angriffe",IDC_STATIC,13,155,
-                    260,74
+                    281,74
     LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,196,
                     109,8
     EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,193,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",
-                    IDC_STATIC,13,16,260,132
-    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael, Serpent, Twofish",
-                    IDC_STATIC,20,173,247,50
+                    IDC_STATIC,13,15,281,132
+    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
+                    IDC_STATIC,20,173,267,50
 END
 
 IDD_HILL_ANALYSIS DIALOG DISCARDABLE  0, 0, 301, 221
@@ -2459,13 +2459,13 @@ BEGIN
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
 END
 
-IDD_STARTOPTIONS DIALOG DISCARDABLE  0, 0, 258, 105
+IDD_STARTOPTIONS DIALOG DISCARDABLE  0, 0, 258, 94
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Startoptionen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,22,67,50,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,193,67,50,18
+    DEFPUSHBUTTON   "&OK",IDOK,12,64,50,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,197,64,50,18
     CONTROL         """Wie Sie starten""-Dialog beim Programmstart von CrypTool anzeigen",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
                     231,10
@@ -3245,7 +3245,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
@@ -3307,7 +3308,7 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.1-decodieren einer Datei...", 
+        MENUITEM "ASN.&1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
@@ -3358,7 +3359,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
@@ -3377,7 +3378,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
@@ -3559,7 +3560,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
@@ -3624,7 +3626,7 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.1-decodieren einer Datei...", 
+        MENUITEM "ASN.&1-decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
@@ -3940,8 +3942,6 @@ IDB_EMPTY1B             BITMAP  DISCARDABLE     "res\\EMPTY1b.bmp"
 IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
 IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
 IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
-IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
-IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
 OVAL2_G_U               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_U.bmp"
 OVAL2_G_F               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_F.bmp"
 OVAL2_G_D               BITMAP  DISCARDABLE     "res\\Bitmaps\\Oval2_G_D.bmp"
@@ -4225,11 +4225,27 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
+    IDD_OPTIONS_ANALYSIS, DIALOG
+    BEGIN
+        VERTGUIDE, 13
+        VERTGUIDE, 20
+        VERTGUIDE, 147
+        VERTGUIDE, 287
+        VERTGUIDE, 294
+    END
+
     IDD_SHOW_PROGRESS, DIALOG
     BEGIN
         BOTTOMMARGIN, 96
         HORZGUIDE, 50
         HORZGUIDE, 96
+    END
+
+    IDD_STARTOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 247
+        BOTTOMMARGIN, 82
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -4355,8 +4371,8 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_APP_ABOUT            "Zeigt Programminformationen (Sponsoren, Autoren, Kontakte, Urheberrechte...) zu CrypTool an"
-    ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffneten Dateien gespeichert werden sollen."
-    ID_HELP_INDEX           "Zeigt Inhalt der Hilfe an."
+    ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffneten Dateien gespeichert werden sollen"
+    ID_HELP_INDEX           "Zeigt Inhalt der Hilfe an"
     ID_HELP_FINDER          "Öffnet WinHelp mit allen Hilfethemen zu CrypTool"
     ID_HELP_USING           "Gibt Hinweise wie die Hilfe zu benutzen ist"
     ID_CONTEXT_HELP         "Hilfe zu den Symbolen, Menüs und Fenstern\nHilfe"
@@ -4379,7 +4395,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_WINDOW_ARRANGE       "Ordnet die Icons am Grund des Fensters an"
+    ID_WINDOW_ARRANGE       "Ordnet die Icons am Grund des Hauptfensters an"
     ID_WINDOW_CASCADE       "Ordnet die Fenster überlappend an"
     ID_WINDOW_TILE_HORZ     "Ordnet die Fenster nicht überlappend an"
 END
@@ -4455,7 +4471,7 @@ BEGIN
     ID_CRYPT_AES_MARS       "Ver-/Entschlüsseln mit MARS"
     ID_CRYPT_RC2            "Ver-/Entschlüsseln mit RC2"
     ID_CRYPT_AES_RC6        "Ver-/Entschlüsseln mit RC6"
-    ID_CRYPT_AES_RIJNDAEL   "Ver-/Entschlüsseln mit Rijndael"
+    ID_CRYPT_AES_RIJNDAEL   "Ver-/Entschlüsseln mit Rijndael (AES)"
     ID_CRYPT_DES_DESECB     "Ver-/Entschlüsseln mit DES (ECB Modus)"
     ID_CRYPT_AES_SERPENT    "Ver-/Entschlüsseln mit Serpent"
     ID_CRYPT_AES_TWOFISH    "Ver-/Entschlüsseln mit Twofish"
@@ -4516,7 +4532,7 @@ BEGIN
     ID_ANALYSE_TRIPLEDESECB "Automatische Analyse einer Triple-DES-ECB-Verschlüsselung"
     ID_ANALYSE_TRIPLEDESCBC "Automatische Analyse einer Triple-DES-CBC-Verschlüsselung"
     ID_ANALYSE_AES_RC6      "Automatische Analyse einer RC6-Verschlüsselung"
-    ID_ANALYSE_AES_RIJNDAEL "Automatische Analyse einer Rijndael-Verschlüsselung"
+    ID_ANALYSE_AES_RIJNDAEL "Automatische Analyse einer Rijndael(AES)-Verschlüsselung"
     ID_ANALYSE_AES_SERPENT  "Automatische Analyse einer Serpent-Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Analyse einer Twofish-Verschlüsselung"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
@@ -4577,7 +4593,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_ENCRYPTION_ERROR 
-                            "Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n (bei IDEA kann dieser Fehler\nbei einem falschen Schlüssel zum\n entschlüsseln auftreten)\n"
+                            "Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n"
     IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA-Verschlüsselung von <%s>"
     IDS_STRING_ENCRYPTION_ERROR_2 
                             "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n"
@@ -4591,6 +4607,8 @@ BEGIN
                             "Der ausgewählte Text ist zu groß für das Anzeigemodul. Es können maximal 1 Megabyte\nDaten angezeigt werden. Die Datei wird deshalb in der Anzeige abgeschnitten."
     IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
                             "Fehler. Konnte temporäre Datei nicht erstellen!"
+    IDS_STRING_DECRYPTION_ERROR 
+                            "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n(dieser Fehler kann\nbei einem falschen Schlüssel zum\nEntschlüsseln auftreten)\n"
     IDS_STRING_ERR_ON_SIGNING 
                             "Fehler beim Signieren.\nInterne Fehlermeldung:\n"
     IDS_STRING_MSG_SIGNATURE "Signatur:       "
@@ -4784,7 +4802,7 @@ BEGIN
                             "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
     IDS_STRING_ANALYSE_ON   "Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
-                            "Vollständige %d Bit Suche zu %%d%%%% erledigt\nRestzeit: %%s"
+                            "Vollständige %d Bit Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE 
                             "Automatische %s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
@@ -4892,12 +4910,12 @@ BEGIN
     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 
                             "Generiert zwei Primzahlen"
     ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 
-                            "Tuturial für das RSA-Kryptosystem: Schlüssel generieren, Ver- und Entschlüsseln von Daten"
+                            "Tutorial für das RSA-Kryptosystem: Schlüssel generieren, Ver- und Entschlüsseln von Daten"
     ID_HOMOPHONE_ASC        "Homophone Verschlüsselung"
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
-                            "Das Faktorisieren von Zahlen bricht RSA."
+                            "Zerlegt eine Zahl in ihre Primfaktoren"
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN 
-                            "Erzeugt ein Hex-Schlüssel aus einem Passwort"
+                            "Leitet einen Schlüssel aus einem Passwort ab"
     ID_ANALYSE_NGRAM        "Berechnet N-Gramm Analyse"
     ID_ANALYSE_NGRAM_BIN    "Berechnet N-Gramm Analyse"
 END
@@ -5439,6 +5457,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
+    ID_EINZELVERFAHREN_SIGN "Visualisierung der Erzeugung digitaler Signaturen"
     ID_HOMOPHONE_HEX        "Homophone Verschlüsselung"
     ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
@@ -5515,7 +5534,7 @@ BEGIN
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "Die Anzahl der Hash-Iterationen muss größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
-                            "Bitte geben Sie die Länge des Ausgabelüssels an!"
+                            "Die eingegebenen Länge des Ausgabeschlüssels ist kleiner als 1!\nBitte geben Sie eine Zahl zwischen 1 und %i ein!"
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
                             "Schlüssellänge zu groß!\nDer aus dem Passwort generierte Schlüssel ist mindestens 1 Byte lang und ist höchstens\nso lange wie die Ausgabelänge der gewählten Hashfunktion (hier %i Bytes).\n\nBitte geben Sie die korrekte Länge des Ausgabeschlüssels ein."
     IDS_STRING_HORIZ        "Horizontal"
@@ -5588,7 +5607,7 @@ BEGIN
     IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
     IDS_CRYPT_MARS          "MARS"
     IDS_CRYPT_RC6           "RC6"
-    IDS_CRYPT_RIJNDAEL      "Rijndael"
+    IDS_CRYPT_RIJNDAEL      "Rijndael (AES)"
     IDS_CRYPT_SERPENT       "Serpent"
     IDS_CRYPT_TWOFISH       "Twofish"
     IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
@@ -5751,7 +5770,7 @@ BEGIN
     ID_AES_SELFEXTRACT      "Ruft das AES-Tool auf, was die Verschlüsselung der aktuellen Datei in ein selbstextrahierendes Archiv ermöglicht"
     ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
-                            "Demonstriert die ""Fingerabruck"" Eigenschaft von Kryptographie-Hashfunktionen"
+                            "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
                             "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
@@ -5888,6 +5907,7 @@ BEGIN
     ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodiert eine ASN.1-Datei"
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens"
+    ID_SIGNATUR_ATTACK      "Angriff auf die digitale Signatur über die Hashfunktion basierend auf dem Geburtstagsparadoxon"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5915,12 +5935,13 @@ BEGIN
     IDS_DH_SECRET_SUCCESSFULLY_SET_ALICE 
                             "Alice hat ihr Geheimnis a gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
     IDS_DH_SECRET_SUCCESSFULLY_SET_BOB 
-                            "Bob hat sein Geheimnis b gewählt. Da dies aber niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
+                            "Bob hat sein Geheimnis b gewählt. Da dies niemandem bekannt sein darf, werden im entsprechenden Textfeld nur Wildcards angezeigt."
     IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
                             "Das gewählte Geheimnis S sollte größer als 1 sein.\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
     IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis, d.h. dem Session Key S von Alice und Bob."
+    IDS_DH_PP_PRIME_ZERO    "Die von Ihnen eingegebene Zahl ist keine Primzahl!\nBitte wählen Sie eine von 0 verschiedene Zahl,\nda das Verfahren sonst nicht funktioniert!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5942,6 +5963,7 @@ BEGIN
     IDS_DH_STEP3            "Schritt 3"
     IDS_DH_STEP4            "Schritt 4"
     IDS_DH_STEP5            "Schritt 5"
+    IDS_STRING_GE_2         "Bitte geben Sie eine ganz Zahl >= 2 ein!"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6111,13 +6133,13 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,181,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 286, 270
+IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 306, 271
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,13,242,65,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,207,242,66,18
+    DEFPUSHBUTTON   "&Apply",IDOK,13,243,65,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,227,243,66,18
     CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,55,76,10
     CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
@@ -6133,16 +6155,16 @@ BEGIN
     CONTROL         "Show base ciphers",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,156,122,80,10
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,35,118,105
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,35,139,105
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,
-                    260,132
-    GROUPBOX        "Options for brute force attacks",IDC_STATIC,13,155,260,
+                    280,132
+    GROUPBOX        "Options for brute-force attacks",IDC_STATIC,13,155,280,
                     75
     LTEXT           "Bytes for the entropy test:",IDC_STATIC,29,196,80,8
     EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,113,193,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
-    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael, Serpent, Twofish",
-                    IDC_STATIC,20,173,245,50
+    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
+                    IDC_STATIC,20,173,266,50
 END
 
 IDD_HILL_ANALYSIS DIALOG DISCARDABLE  0, 0, 301, 221
@@ -7259,7 +7281,7 @@ BEGIN
                     IDC_STATIC,7,235,407,8
     LTEXT           "Expected plaintext:",IDC_STATIC,7,297,85,8
     SCROLLBAR       IDC_SCROLLBAR1,7,281,418,11
-    CONTROL         "&Text was preformatted",IDC_CHECK2,"Button",
+    CONTROL         "&Text was pre-formatted",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,47,111,8
     PUSHBUTTON      "&Synchronise  Analysis result / Expected plaintext",
                     IDC_BUTTON6,138,330,170,18
@@ -7279,7 +7301,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,10,236,66,20
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,93,236,66,20
     PUSHBUTTON      "&Cancel",IDCANCEL,176,236,52,20
-    CONTROL         "&Preformat text",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "&Pre-format text",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,17,78,8
     CONTROL         "&Ignore duplicates within the key phrase",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,30,161,8
@@ -7332,7 +7354,7 @@ END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 277, 158
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Brute Force Analysis"
+CAPTION "Brute-Force Analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
     COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
@@ -8440,8 +8462,8 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Starting Options"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,22,67,50,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,193,67,50,18
+    DEFPUSHBUTTON   "&OK",IDOK,12,75,50,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,196,75,50,18
     CONTROL         "Show dialogue ""How to start"" when starting CrypTool",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
                     183,10
@@ -8954,7 +8976,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Ctrl + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
@@ -9155,7 +9178,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
@@ -9217,7 +9241,7 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.1 decryption of a file...", 
+        MENUITEM "ASN.&1 decoding of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman Demonstration...", 
@@ -9269,7 +9293,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
         END
@@ -9288,7 +9312,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_ANALYSE_AES_TWOFISH
         END
@@ -9471,7 +9495,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
             MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael...\tShift + Ctrl + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+                                                    ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             MENUITEM SEPARATOR
@@ -9536,7 +9561,7 @@ BEGIN
 
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.1 decryption of a file...", 
+        MENUITEM "ASN.&1 decoding of a file...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman Demonstration...", 
@@ -9857,9 +9882,6 @@ SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
 IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
 IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
 IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
-IDB_HYBRID_DOWN         BITMAP  DISCARDABLE     "res\\link-hybrid-down.bmp"
-IDB_HYBRID_DOWN_RIGHT   BITMAP  DISCARDABLE     "res\\link-hybrid-down-right.bmp"
-IDB_HYBRID_RIGHT_DOWN_RIGHT BITMAP  DISCARDABLE     "res\\link-hybrid-right-down-right.bmp"
 UNDO_U                  BITMAP  DISCARDABLE     "res\\backward.bmp"
 UNDO_X                  BITMAP  DISCARDABLE     "res\\backward-grey.bmp"
 REDO_U                  BITMAP  DISCARDABLE     "res\\foreward.bmp"
@@ -10159,8 +10181,11 @@ BEGIN
     IDD_OPTIONS_ANALYSIS, DIALOG
     BEGIN
         LEFTMARGIN, 13
-        RIGHTMARGIN, 273
-        BOTTOMMARGIN, 260
+        RIGHTMARGIN, 293
+        VERTGUIDE, 20
+        VERTGUIDE, 147
+        VERTGUIDE, 286
+        BOTTOMMARGIN, 261
         HORZGUIDE, 87
         HORZGUIDE, 110
     END
@@ -10456,10 +10481,10 @@ BEGIN
 
     IDD_STARTOPTIONS, DIALOG
     BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 251
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 246
         TOPMARGIN, 7
-        BOTTOMMARGIN, 98
+        BOTTOMMARGIN, 93
     END
 
     IDD_KEY, DIALOG
@@ -10615,10 +10640,10 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_APP_ABOUT            "Displays program and copyright information\nAbout"
-    ID_APP_EXIT             "Exits the application after asking whether the opened files should be saved."
+    ID_APP_EXIT             "Exits the application after asking whether the opened files should be saved"
     ID_HELP_INDEX           "Shows the content of the WinHelp"
     ID_HELP_FINDER          "Opens WinHelp with all the help topics"
-    ID_HELP_USING           "Give hints, how to use the WinHelp."
+    ID_HELP_USING           "Give hints, how to use the WinHelp"
     ID_CONTEXT_HELP         "Help on the icons, menus and windows\nHelp"
     ID_HELP                 "Help on the selected task or the selected action"
 END
@@ -10639,9 +10664,9 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_WINDOW_ARRANGE       "Arrange the icons at the bottom of the window"
-    ID_WINDOW_CASCADE       "Arrange the windows so that they overlap"
-    ID_WINDOW_TILE_HORZ     "Arrange the windows so that they do not overlap"
+    ID_WINDOW_ARRANGE       "Arranges the icons at the bottom of the main window"
+    ID_WINDOW_CASCADE       "Arranges the windows so that they overlap"
+    ID_WINDOW_TILE_HORZ     "Arranges the windows so that they do not overlap"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10703,8 +10728,8 @@ BEGIN
     ID_HILL                 "Hill encryption"
     ID_ADD_BIN              "Byte-by-byte addition"
     ID_XOR_BIN              "Byte-by-byte XOR operation"
-    ID_ENTROPY              "Calculate document entropy"
-    ID_HISTOGRAM            "Calculate the character frequency in the document"
+    ID_ENTROPY              "Calculates the document entropy"
+    ID_HISTOGRAM            "Calculates the character frequency in the document"
     ID_AUTO                 "Performs autocorrelation on the characters in the document"
 END
 
@@ -10715,7 +10740,7 @@ BEGIN
     ID_CRYPT_AES_MARS       "Encryption / decryption with MARS"
     ID_CRYPT_RC2            "Encryption / decryption with RC2"
     ID_CRYPT_AES_RC6        "Encryption / decryption with RC6"
-    ID_CRYPT_AES_RIJNDAEL   "Encryption / decryption with Rijndael"
+    ID_CRYPT_AES_RIJNDAEL   "Encryption / decryption with Rijndael (AES)"
     ID_CRYPT_DES_DESECB     "Encryption / decryption with DES (ECB mode)"
     ID_CRYPT_AES_SERPENT    "Encryption / decryption with Serpent"
     ID_CRYPT_AES_TWOFISH    "Encryption / decryption with Twofish"
@@ -10747,7 +10772,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_FLOATING_FREQ "Floating frequency"
     IDS_STRING_FLOATING_FREQ_FINISHED "Floating frequency completed: %d%%."
-    ID_FLOATING             "Calculate floating frequency of the document"
+    ID_FLOATING             "Calculates the floating frequency of the document"
     ID_SHOW_KEY             "Shows the key\nShow Key"
     ID_GOTO_VATER           "Takes you to the parent window\nParent Window"
     IDS_STRING_ASSURE_DEL_ASYM_KEY 
@@ -10775,7 +10800,7 @@ BEGIN
     ID_ANALYSE_TRIPLEDESECB "Automatic analysis of encryption using the Triple-DES ECB algorithm"
     ID_ANALYSE_TRIPLEDESCBC "Automatic analysis of encryption using the Triple-DES CBC algorithm"
     ID_ANALYSE_AES_RC6      "Automatic analysis of encryption using the RC6 algorithm"
-    ID_ANALYSE_AES_RIJNDAEL "Automatic analysis of encryption using the Rijndael algorithm"
+    ID_ANALYSE_AES_RIJNDAEL "Automatic analysis of encryption using the Rijndael (AES) algorithm"
     ID_ANALYSE_AES_SERPENT  "Automatic analysis of encryption using the Serpent algorithm"
     ID_ANALYSE_AES_TWOFISH  "Automatic analysis of encryption using the Twofish algorithm"
     ID_VERNAM_BIN           "Vernam encryption"
@@ -10835,7 +10860,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_ENCRYPTION_ERROR 
-                            "An error occurred during encryption of the data.\nInternal error message:\n (Under IDEA, this error can occur\nduring decryption if the key is invalid\n"
+                            "An error occurred during encryption of the data.\nInternal error message:\n"
     IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA encryption of <%s>"
     IDS_STRING_ENCRYPTION_ERROR_2 
                             "An error occurred during decryption of the data.\nInternal error message:\n"
@@ -10849,6 +10874,8 @@ BEGIN
                             "The selected text is too big for the display module. It will be truncated at the end. The altered length will only manifest itself during further processing when the text is changed."
     IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
                             "Error. Could not create temporary file!"
+    IDS_STRING_DECRYPTION_ERROR 
+                            "An error occurred during decryption of the data.\nInternal error message:\n(This error can occur\nduring decryption if the key is invalid)\n"
     IDS_STRING_ERR_ON_SIGNING 
                             "An error occurred during signing.\nInternal error message:\n"
     IDS_STRING_MSG_SIGNATURE "Signature:       "
@@ -11035,7 +11062,7 @@ BEGIN
                             "The Secude library could not be loaded.\nSome of the functions are therefore not available."
     IDS_STRING_ANALYSE_ON   "Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
-                            "%d bit bute force search %%d%%%% completed\nRemaining time: %%s"
+                            "%d bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "The signed message is very large. It cannot be displayed in the CrypTool hex editor.\nThe message has therefore been provisionally stored in the temporary file '%s'."
@@ -11140,8 +11167,8 @@ BEGIN
                             "Tutorial for the RSA cryptosystem: generating keys, encryption and decryption of data"
     ID_HOMOPHONE_ASC        "Homophonic encryption"
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
-                            "Factorising numbers breaks RSA."
-    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN "Creates a hex key from a keyword"
+                            "Factorises an integer into its prime factors"
+    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN "Derives a key from a password"
     ID_ANALYSE_NGRAM        "Performs an N-Gram analysis"
     ID_ANALYSE_NGRAM_BIN    "Performs an N-Gram analysis"
 END
@@ -11305,7 +11332,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_STRING_VARIABLE     "Variable"
     IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE "Secude.dll not available"
-    IDS_STRING_PLAYFAIR_PREFORMAT "Playfair preformatting of <%s>"
+    IDS_STRING_PLAYFAIR_PREFORMAT "Playfair pre-formatting of <%s>"
     IDS_STRING_NO_VALID_KEYS_FOUND 
                             "There are no valid keys for the encrypted text in the search range!"
     IDS_STRING_UPPER_BOUND_LINEWIDTH "Bar width must be less than 11.\n"
@@ -11390,7 +11417,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_ANALYSE_PERIOD       "Periodicity analysis"
+    ID_ANALYSE_PERIOD       "Performs periodicity analysis"
     IDS_STRING_PA_TITLE     "Periodicity analysis of %s:"
     IDS_STRING_PA_HEADER    "No.\tOffset\tLength\tNumber of cycles\tCycle content\n"
 END
@@ -11663,7 +11690,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators."
+    ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators"
+    ID_EINZELVERFAHREN_SIGN "Visualization of digital signature generation"
     ID_HOMOPHONE_HEX        "Homophonic encryption"
     ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
@@ -11738,7 +11766,7 @@ BEGIN
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "The count of hash iterations must be a positive number !\nPlease select for 'Number of iterations' a number between 1 and 10,000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
-                            "The given byte length of output key is smaller than 1 !\nPlease eter a number between 1 and %i."
+                            "The given byte length of the output key is smaller than 1 !\nPlease enter a number between 1 and %i."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED 
                             "The entered byte length of output length is bigger than %i !\nplease enter a number between 1 and %i."
     IDS_STRING_HORIZ        "Horizontal"
@@ -11811,7 +11839,7 @@ BEGIN
     IDS_CRYPT_TRIPLE_DES_CBC "Triple-DES (CBC)"
     IDS_CRYPT_MARS          "MARS"
     IDS_CRYPT_RC6           "RC6"
-    IDS_CRYPT_RIJNDAEL      "Rijndael"
+    IDS_CRYPT_RIJNDAEL      "Rijndael (AES)"
     IDS_CRYPT_SERPENT       "Serpent"
     IDS_CRYPT_TWOFISH       "Twofish"
     IDS_CRYPT_PRIMES        "Two primes p and q"
@@ -11875,7 +11903,7 @@ BEGIN
                             "The input does contain characters which are not in the alphabet set!\nIf you click OK, only characters of the alphabet will be encrypted (the other characters will be erased from the input)."
     IDS_STRING_HELPNAME     "cryptool-en.hlp"
     IDS_STRING_PLAYFAIR_ERRMSG121 
-                            "In case of preformat, duplicate letters are seperated by the letter 'X'.\nPlease correct."
+                            "In case of pre-format, duplicate letters are seperated by the letter 'X'.\nPlease correct."
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "The character is not an element of the Playfair alphabet.\nPlease correct."
     IDS_STRING_FMT_HRS      " %2i:%02.2i:%02.2i hours."
@@ -11972,7 +12000,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_OPEN_DOC            "Open document"
-    IDS_CONTENT_DOCUMENT    "Document:"
+    IDS_CONTENT_DOCUMENT    "Document: "
     IDS_DEPENDENCY          "Dependency"
     IDS_NAME2               "Name:                   %s %s\r\n"
     IDS_KEY_IDENTIFIER2     "Key identifier:         %s\r\n"
@@ -12070,6 +12098,7 @@ BEGIN
     ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodes an ASN1 encoded file"
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualization of the Diffie-Hellman procedure"
+    ID_SIGNATUR_ATTACK      "Attack on the hash value of the digital signature based on the birthday-paradox"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12103,6 +12132,7 @@ BEGIN
     IDS_DH_PP_SECRET_INVALID 
                             "Please choose a secret number (s) which is bigger than one but smaller than the prime module p (1 < s < p)."
     IDS_DH_RESULT_MESSAGE   "Alice and Bob finally agreed on a secret and common key.\n\nPush the key icon on the lower left to view more details concerning the key."
+    IDS_DH_PP_PRIME_ZERO    "The number you chose is NOT a prime!\nThus, the proceeding might not be safe!\nPlease enter an other number than 0, because the proceeding will not work in this case."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12123,6 +12153,7 @@ BEGIN
     IDS_DH_STEP3            "Step 3"
     IDS_DH_STEP4            "Step 4"
     IDS_DH_STEP5            "Step 5"
+    IDS_STRING_GE_2         "Please enter a whole number >= 2!"
 END
 
 STRINGTABLE DISCARDABLE 

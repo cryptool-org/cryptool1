@@ -842,6 +842,7 @@
 #define IDS_DH_SECRET_DIALOGUEHEADER    33227
 #define IDS_DH_PP_SECRET_INVALID        33228
 #define IDS_DH_RESULT_MESSAGE           33229
+#define IDS_DH_PP_PRIME_ZERO            33230
 #define IDS_STRING_FILE_NOT_OPEN        33231
 #define IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 33232
 #define IDS_STRING_TIME_ELAPSED         33233
@@ -953,6 +954,7 @@
 #define IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE 36744
 #define IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 36745
 #define IDS_STRING41446                 36746
+#define IDS_STRING_DECRYPTION_ERROR     36746
 #define IDS_STRING_ERR_ON_SIGNING       36747
 #define IDS_STRING_MSG_SIGNATURE        36748
 #define IDS_STRING_ASYMKEY_METHOD       36749
@@ -1555,6 +1557,7 @@
 #define IDS_DH_STEP3                    61916
 #define IDS_DH_STEP4                    61917
 #define IDS_DH_STEP5                    61918
+#define IDS_STRING_GE_2                 61919
 
 // Next default values for new objects
 // 
