@@ -2158,7 +2158,7 @@ int TutorialFactorisation::initv()
     Big T;
     double dp;
     int i,k,digits,pak,maxp;
-	//int j;
+	
     nbts=8*sizeof(int);
 
     if (prime(NN))
@@ -2172,10 +2172,10 @@ int TutorialFactorisation::initv()
     T=NN;
     digits=1;                   /* digits in N */
     while ((T/=10)>0) digits++;
-	int bt = bits(NN);
-
+	
     if (digits<10) mmm=digits;               
     else mmm=25;
+	if (digits>20) mmm=(digits*digits*digits*digits)/4096;
 	{
 		double d_mmm = (digits*digits*digits*digits)/4096.0;
 		double d = (double)(INT_MAX/2)/max(sizeof(Big), sizeof(int*));
