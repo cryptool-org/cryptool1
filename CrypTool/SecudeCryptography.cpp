@@ -48,7 +48,7 @@
 void Crypt (char* infile, const char *OldTitle, int KeyLength, int AlgId)
 {
 	
-    char outfile[128], title[128], *key, line[256];
+    char outfile[CRYPTOOL_PATH_LENGTH], title[128], *key, line[256];
     CAppDocument *NewDoc;
 
 	FILE *fi;

@@ -26,8 +26,8 @@ CDlgTextOptions::CDlgTextOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgTextOptions::IDD, pParent)
 {
 	LoadString(/*AfxGetInstanceHandle()*/ NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-	char buffer[1024];
-	int n = SearchPath(NULL, pc_str, NULL, 1023, buffer, NULL);
+	char buffer[CRYPTOOL_PATH_LENGTH];
+	int n = SearchPath(NULL, pc_str, NULL, CRYPTOOL_PATH_LENGTH - 1, buffer, NULL);
 	//{{AFX_DATA_INIT(CDlgTextOptions)
 	m_Format = TRUE;
 	m_alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");

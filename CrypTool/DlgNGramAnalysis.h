@@ -37,7 +37,7 @@ class CDlgNGramAnaylsis : public CDialog
 public:
 	void Register( int N );
 	bool b_saveNGramList();
-	char outfile[256];
+	char outfile[CRYPTOOL_PATH_LENGTH];
 	int  GetN();
 	void LoadText( char *buffer, const unsigned long Size, const char *OldTitle, 
 		           BOOL BinaryFile = FALSE );

@@ -33,7 +33,7 @@ class CDlgFactorisationList : public CDialog
 	struct DFItem *List;
 public:
 	~CDlgFactorisationList();
-	char outfile[256];
+	char outfile[CRYPTOOL_PATH_LENGTH];
 	bool b_SaveFactorList;
 	void ClearFactDetail();
 	void InsertFactDetail( CString & Num, CString &Factor1, 

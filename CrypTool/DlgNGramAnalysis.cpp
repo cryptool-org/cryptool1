@@ -90,7 +90,7 @@ BOOL CDlgNGramAnaylsis::OnInitDialog()
 	SetupListBox( m_N_NGram+1 );
 	m_NrNGramCtrl.EnableWindow(true);
 
-	char line[1024];
+	char line[CRYPTOOL_PATH_LENGTH];
 	LoadString(AfxGetInstanceHandle(),IDS_NGRAM_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line, pc_str, Title);
 	SetWindowText(CString(line));
@@ -316,7 +316,7 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	ofstream txt_NGram(outfile);
 	// TODO Title via Ressourcen String Einfügen
 	char string[100];
-	char title[1024], method[20]; 
+	char title[CRYPTOOL_PATH_LENGTH], method[20]; 
 	switch ( m_N_NGram )  {
 	case 0: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy( method, pc_str );

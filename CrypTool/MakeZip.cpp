@@ -17,7 +17,7 @@ const char MagicZipNumber[4] = "CTZ";
 
 void dozip(const char *infile, const char *OldTitle)
 {
-	char outfile[128], title[256];
+	char outfile[CRYPTOOL_PATH_LENGTH], title[256];
     CAppDocument *NewDoc;
 	FILE *fi, *fo;
 	int res;
@@ -69,7 +69,7 @@ void dozip(const char *infile, const char *OldTitle)
 
 void dounzip(const char *infile, const char *OldTitle)
 {
-	char outfile[128], title[256];
+	char outfile[CRYPTOOL_PATH_LENGTH], title[256];
     CAppDocument *NewDoc;
 	FILE *fi, *fo;
 	int res;

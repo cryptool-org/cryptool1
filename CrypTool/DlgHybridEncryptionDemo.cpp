@@ -279,7 +279,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	
 	// Henrik Koy, 19. April 2002,
 	// Programm unter Windows XP-abgestürzt: 20 Zeichen Speicher sind zu wenig
-	char strPathEncDocument[1024];
+	char strPathEncDocument[CRYPTOOL_PATH_LENGTH];
 	GetTmpName(strPathEncDocument,"cry",".tmp");
 	//Name für eine temporäre Datei wird erzeugt, in der 
 	//der Verschluesselte Text geschrieben werden soll

@@ -61,7 +61,7 @@ int KLen(unsigned __int64 *k)
 UINT Brute(PVOID p)
 {
 	
-    char outfile[128], key[128], line[256],kfound[128];
+    char outfile[CRYPTOOL_PATH_LENGTH], key[128], line[256],kfound[128];
 	int i, l, lorg, r, AlgId, cntr,pos,lenght;
 	int distr[256],keylen;
 	double entr, emax, f;

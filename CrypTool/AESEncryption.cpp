@@ -131,7 +131,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
 {
 	
-    char outfile[128], line[256], keybuffhex[65],AlgTitel[128], title[128];
+    char outfile[CRYPTOOL_PATH_LENGTH], line[256], keybuffhex[65],AlgTitel[128], title[128];
 	unsigned char keybuffbin[33];
 	unsigned char *borg, *bcip, *key;
 	char mode;
@@ -311,7 +311,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	enthalten. */
 UINT AESBrute(PVOID p)
 {
-    char outfile[128], line[256], AlgTitel[128];
+    char outfile[CRYPTOOL_PATH_LENGTH], line[256], AlgTitel[128];
     char mode, *keyhex, kfound[65];
 	unsigned char key[128], *borg, *bcip;
 	int i,pos, AlgId, cntr, keylen, datalen;

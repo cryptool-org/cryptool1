@@ -27,7 +27,7 @@ public:
 	~CDlgPeriodicityAnalysis(); 
 	CRandomAnalysisTools *zahlenanalyse;
 
-	char outfile[1024];
+	char outfile[CRYPTOOL_PATH_LENGTH];
 	char *OldTitle;
 		
 // Dialogfelddaten
