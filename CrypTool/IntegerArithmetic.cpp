@@ -2328,6 +2328,7 @@ int CTutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
     do
     { /* search for best Knuth-Schroepel multiplier */
 	//	THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
+		//FIXME: funktioniert nur wenn QuadraticSieve sich beendet, falls THREAD_CHECK false liefert
         
 		kk=pk[++nk];
         if (kk==0)
@@ -2347,6 +2348,7 @@ int CTutorialFactorisation::knuth(int mmm, int *epr, Big &N, Big &D)
         while (j<mmm)
         { /* select small primes */
 			//THREAD_CHECK; //Roger:05.12.2001 -- wegen Speicherplatz des QSieb
+			//FIXME: funktioniert nur wenn QuadraticSieve sich beendet, falls THREAD_CHECK false liefert
             p=mip->PRIMES[++i];
             rem=D%p;
             if (spmd(rem,(p-1)/2,p)<=1) /* x = spmd(a,b,c) = a^b mod c */
@@ -2579,7 +2581,8 @@ BOOL CTutorialFactorisation::QuadraticSieve()
 	
 	int result_initv;
 	result_initv=initv();
-
+	if (result_initv == false)
+		return false;
 	if ( result_initv == QS_ALLOCATING_ERROR || result_initv == QS_INT_OVERFLOW )
 	{
            factorized = false;
