@@ -39,6 +39,7 @@ public:
 	int GetBitLength();
 	BOOL NameIsInitialized(){return m_NameIsInitialized;}
 	BOOL PSEIsInitialized(){return m_PSEIsInitialized;}
+	BOOL Sign(OctetString* hash, OctetString** sign);
 
 
 

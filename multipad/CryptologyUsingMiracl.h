@@ -197,6 +197,7 @@ public:
 	int  GetBlockLength();
 	double GetLog2RSAModul();
 	BOOL GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr, CString &dStr, int base = 10 );
+	BOOL GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig );
 
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }

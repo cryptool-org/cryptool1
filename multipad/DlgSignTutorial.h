@@ -30,8 +30,8 @@ protected:
 	int				m_nIDHash;
 	int				m_nCols;
 	CFont			m_Font1;	
-	OctetString		m_osHash;
-	OctetString		m_osHashEnc;
+	OctetString*	m_osHash;
+	OctetString*	m_osHashEnc;
 	BOOL			m_bUpdateHsh;
 	BOOL			m_bUpdateEnc;
 	BOOL			m_bUpdateSgn;

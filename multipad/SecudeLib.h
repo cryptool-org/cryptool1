@@ -135,9 +135,12 @@
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_cpy2_ObjId, SEC_PROTOTYPE_2(ObjId *, dup_oid, ObjId *, oid))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free2_BitString, SEC_PROTOTYPE_1(BitString *, bstr))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_free_PSESel, SEC_PROTOTYPE_1(PSESel **, pse_sel))\
+	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_AlgId, SEC_PROTOTYPE_1(AlgId *, algid))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, rsa_sign_all, SEC_PROTOTYPE_3(OctetString *, hash,	BitString *, sign, KeyBits *, key))\
 	DoOneData(AlgId, ripemd160WithRSASignature_aid)\
 	DoOneData(AlgId, shaWithRSASignature_aid)\
 	DoOneData(AlgId, md2WithRsaEncryption_aid)\
+	DoOneData(AlgId, md2WithRSASignature_aid)\
 	DoOneData(AlgId, dsa_aid)\
 	DoOneData(AlgId, rc2CBC_aid)\
 	DoOneData(AlgId, rc4_aid)\

@@ -453,3 +453,68 @@ CString CTutorialCert::GetCert()
 	
 	return m_sCert;
 }
+
+
+BOOL CTutorialCert::Sign(OctetString* hash, OctetString** sign)
+{
+	/*
+	memset (&keybits, 0, sizeof(KeyBits));
+	keybits.part1.noctets = (bits(m_bigPrime_p)+7)/8;
+	keybits.part1.octets = new char[keybits.part1.noctets];
+	keybits.part2.noctets = (bits(m_bigPrime_q)+7)/8;
+	keybits.part2.octets = new char[keybits.part2.noctets];
+	to_binary(m_bigPrime_p, keybits.part1.noctets, keybits.part1.octets);
+	to_binary(m_bigPrime_q, keybits.part2.noctets, keybits.part2.octets);
+	m_Key.private_key->subjectkey = *theApp.SecudeLib.e_KeyBits(&keybits);	
+	m_Key.private_key->subjectAI = theApp.SecudeLib.aux_cpy_AlgId (theApp.SecudeLib.rsa_aid);
+	keysize = (keybits.part1.noctets + keybits.part2.noctets)*8;
+	*reinterpret_cast<int*>(m_Key.private_key->subjectAI->param) = keysize;
+	delete[] keybits.part1.octets;
+	delete[] keybits.part2.octets;
+	*/
+	
+	
+
+	if(!IsInitialized()) return FALSE;
+	KeyBits	keybits;
+	BitString	bitstring;
+	//if(!(keybits)) return FALSE;
+	
+	memset (&bitstring, 0, sizeof(BitString));
+	memset (&keybits, 0, sizeof(KeyBits));
+	keybits.part1.noctets = (bits(m_bigPrime_p)+7)/8;
+	keybits.part1.octets = new char[keybits.part1.noctets];
+	keybits.part2.noctets = (bits(m_bigPrime_q)+7)/8;
+	keybits.part2.octets = new char[keybits.part2.noctets];
+	keybits.choice = 2;
+	to_binary(m_bigPrime_p, keybits.part1.noctets, keybits.part1.octets);
+	to_binary(m_bigPrime_q, keybits.part2.noctets, keybits.part2.octets);
+
+	bitstring.nbits = (keybits.part1.noctets + keybits.part2.noctets)* 8;
+	bitstring.bits = new char[bitstring.nbits];
+
+	if(theApp.SecudeLib.rsa_sign_all(hash, &bitstring, &keybits))
+	{
+		//delete keybits; 
+
+		return FALSE;
+	}
+	//delete keybits; 
+	if(!(*sign = theApp.SecudeLib.aux_BString2OString(&bitstring)))
+	{
+
+		return FALSE;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	return TRUE;
+}

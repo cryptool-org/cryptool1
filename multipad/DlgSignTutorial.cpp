@@ -37,11 +37,8 @@ CDlgSignTutorial::CDlgSignTutorial(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 
 	m_Cert = new CTutorialCert;
-	m_osHash.noctets = 0;
-	m_osHash.octets = 0;
-	m_osHashEnc.noctets = 0;
-	m_osHashEnc.octets = 0;	
-
+	m_osHash=0;
+	m_osHashEnc = 0;
 	m_bUpdateHsh = TRUE;
 	m_bUpdateEnc = TRUE;
 	m_bUpdateSgn = TRUE;
@@ -52,7 +49,7 @@ CDlgSignTutorial::~CDlgSignTutorial()
 {
 	if(m_Cert) delete m_Cert;
 
-	if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
+	//if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
 	theApp.SecudeLib.aux_free_OctetString(&m_Message);
 	if(m_SignText) delete[] m_SignText->octets;
 	delete   m_SignText;
@@ -180,6 +177,23 @@ void CDlgSignTutorial::OnInfoDocument()
 	UpdateData(FALSE);	
 	
 	delete[] msgdata;
+
+
+
+	const char DER_MD2[]	   = {0x30, 0x20, 0x30, 0x0c, 0x06, 0x08, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x02, 0x02, 0x05, 0x00, 0x04, 0x10};
+	const char DER_MD5[]	   = {0x30, 0x20, 0x30, 0x0c, 0x06, 0x08, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x02, 0x05, 0x05, 0x00, 0x04, 0x10};
+	const char DER_SHA1[]	   = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x0e, 0x03, 0x02, 0x1a, 0x05, 0x00, 0x04, 0x14};
+	const char DER_RIPEMD160[] = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x24, 0x03, 0x02, 0x01, 0x05, 0x00, 0x04, 0x14};
+	const int  DER_MD2_SIZE = 18;
+	const int  DER_MD5_SIZE = 18;
+	const int  DER_SHA1_SIZE = 15;
+	const int  DER_RIPEMD160_SIZE = 15;
+
+	CString hexDump;
+	dataToHexDump(DER_MD2, DER_MD2_SIZE, hexDump);
+
+	char* data2 = new char[50];
+	HexDumpToData(hexDump, data2);
 }
 
 
@@ -279,13 +293,13 @@ void CDlgSignTutorial::EnableButtons()
 	{}
 
 	// Info Hashwert
-	if( m_osHash.noctets && !m_bUpdateHsh )
+	if( m_osHash && !m_bUpdateHsh )
 	{}
 	else
 	{}
 
 	// Info  verschlüsselter Hashwert
-	if( m_osHashEnc.noctets && !m_bUpdateEnc )
+	if( m_osHashEnc && !m_bUpdateEnc )
 	{}
 	else
 	{}
@@ -305,7 +319,7 @@ void CDlgSignTutorial::EnableButtons()
 	{}
 
 	// Hashwert verschlüsseln
-	if( m_Cert->IsInitialized() && m_osHash.noctets && !m_bUpdateHsh )
+	if( m_Cert->IsInitialized() && m_osHash && !m_bUpdateHsh )
 	{}
 	else
 	{}
@@ -353,27 +367,28 @@ void CDlgSignTutorial::OnCompute()
 {
 	if(m_sPathName.IsEmpty()) return;
 
-	m_osHash.noctets = 0;
+	if(!(m_osHash = new OctetString)) return;
+	
    
 	switch (m_nIDHash)
 	{
 		case IDC_MD2:
-			theApp.SecudeLib.sec_hash_all(m_Message, &m_osHash, theApp.SecudeLib.md2_aid, NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash, theApp.SecudeLib.md2_aid, NULL);
 			break;
 		case IDC_MD4:
-			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md4_aid,NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.md4_aid,NULL);
 			break;
 		case IDC_MD5:
-			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.md5_aid,NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.md5_aid,NULL);
 			break;
 		case IDC_SHA:
-			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha_aid,NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.sha_aid,NULL);
 			break;
 		case IDC_SHA_1:
-			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.sha1_aid,NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.sha1_aid,NULL);
 			break;
 		case IDC_RIPEMD160:
-			theApp.SecudeLib.sec_hash_all(m_Message,&m_osHash,theApp.SecudeLib.ripemd160_aid,NULL);
+			theApp.SecudeLib.sec_hash_all(m_Message, m_osHash,theApp.SecudeLib.ripemd160_aid,NULL);
 			break;
 	}
 	m_bUpdateHsh = FALSE;		
@@ -382,63 +397,66 @@ void CDlgSignTutorial::OnCompute()
 
 void CDlgSignTutorial::OnInfoHash() 
 {
-	if (!m_osHash.noctets || m_bUpdateHsh) return;
+	if (!m_osHash || m_bUpdateHsh) return;
 	
-	int srcSize = m_osHash.noctets;
+	int srcSize = m_osHash->noctets;
 	OctetString msgdata;
 
-	if (!HexDumpOct(msgdata, m_osHash, m_nCols))
+	/*if (!HexDumpOct(msgdata, m_osHash, m_nCols))
 	{
 		//FEHLER
 		return;
-	}
+	}*/
 
 	
 	UpdateData(TRUE);
-	dataToHexDump(msgdata.octets, msgdata.noctets, m_DisplayInfo); /*FIXME*/
+	dataToHexDump(m_osHash->octets, m_osHash->noctets, m_DisplayInfo); /*FIXME*/
 	//m_DisplayInfo = static_cast<CString>(msgdata);
 	m_DisplayContent.Format(IDS_STRING_HASH_VALUE_OF, m_Cert->GetHashAlg(), m_sFileName);
 	UpdateData(FALSE);
 
-	delete[] msgdata.octets;
+	//delete[] msgdata.octets;
 	
 }
 
 void CDlgSignTutorial::OnEncrypt() 
 {
-	if(!m_osHash.noctets || !m_Cert->IsInitialized()) return;
+	if(!m_osHash) return;
+	Big C, N, p, D, e;
+	if(!m_Cert->GetParameter(N, p, e, D)) return;		
+	Big Hash = from_binary(m_osHash->noctets, m_osHash->octets);
 
-	CString sN, sD, sC, sp, se, test;
-	m_Cert->GetParameter(sN, sp, se, sD);
-	Big Hash = from_binary(m_osHash.noctets, m_osHash.octets);
-	Big C, N, D;
-	CStringToBig (sN, N, 10);
-	CStringToBig (sD, D, 10);
+	OctetString* osHashAlg;
+	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2_aid);
+	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRSASignature_aid);
+	//osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRsa_aid);
+	osHashAlg = theApp.SecudeLib.e_AlgId(theApp.SecudeLib.md2WithRsaEncryption_aid);	
 	
-	if(m_Cert->IsInitialized())
-	{
-		Hash %= N;
-		C = pow(Hash, D, N);
-		m_osHashEnc.noctets = (bits(N)/8)+1;
-		if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
-		m_osHashEnc.octets = new char[m_osHashEnc.noctets];
-		to_binary(C, m_osHashEnc.noctets, m_osHashEnc.octets);
-	}
+	/*
+	Hash %= N;
+	C = pow(Hash, D, N);
+	m_osHashEnc.noctets = (bits(N)+7)/8;
+	if(m_osHashEnc.octets) delete[] m_osHashEnc.octets;
+	m_osHashEnc.octets = new char[m_osHashEnc.noctets];
+	to_binary(C, m_osHashEnc.noctets, m_osHashEnc.octets);
+	*/
+	if(!m_Cert->Sign(m_osHash, &m_osHashEnc)) return;
+	
 	m_bUpdateEnc = FALSE;
 	EnableButtons();
 }
 
 void CDlgSignTutorial::OnInfoHashEnc() 
 {
-	if (!m_osHashEnc.noctets || m_bUpdateEnc) return;
+	if (!m_osHashEnc || m_bUpdateEnc) return;
 	
-	int srcSize = m_osHashEnc.noctets;
+	int srcSize = m_osHashEnc->noctets;
 	int destSize = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
 
 
 	char *msgdata = new char[destSize+1];
 
-	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc.octets), srcSize, m_nCols))
+	if (!HexDumpMem(msgdata, destSize, reinterpret_cast<unsigned char*>(m_osHashEnc->octets), srcSize, m_nCols))
 	{
 		//FEHLER
 		return;
@@ -495,7 +513,7 @@ void CDlgSignTutorial::OnCombine()
 		
 	CString UserKeyId, Buffer;
 	m_Cert->GetKeyId(UserKeyId, Buffer);
-	m_SignText = PrintSignature(m_osHashEnc, "RSA", m_Cert->GetHashAlg(),UserKeyId);
+	m_SignText = PrintSignature(*m_osHashEnc, "RSA", m_Cert->GetHashAlg(),UserKeyId);
 }
 
 void CDlgSignTutorial::OnOK() 

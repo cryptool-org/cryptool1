@@ -1267,6 +1267,16 @@ BOOL TutorialRSA::GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr
 	return IsInitialized();
 }
 
+BOOL TutorialRSA::GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig )
+{
+	NBig = N;
+	phiOfNBig = phiOfN;
+	eBig = e;
+	dBig = d;
+	return IsInitialized();
+}
+
+
 BOOL TutorialRSA::SetPrivateKey()
 {
 	isInitialized_d = false;
