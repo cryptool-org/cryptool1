@@ -3114,7 +3114,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		Reformat(infile,outfile, FALSE);
 
 		char *Invert=new char[];
-		Invert = (Perm.m_Invert) ? "INV, \0" : "\0";
+		Invert = (Perm.m_Invert) ? "INV, " : "";
 
 
 		if(Perm.m_P2len)

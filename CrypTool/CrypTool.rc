@@ -5500,7 +5500,6 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
-    IDS_RSA_DEMO_ERR_PQ_NOT_PRIME "Weder p noch q ist eine Primzahl!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10802,7 +10801,6 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT files (*.txt) |*.txt|ASCII files (*.asc)|*.asc|all files (*.*) |*.*||"
-    IDS_RSA_DEMO_ERR_PQ_NOT_PRIME "Neither p nor q is a prime!"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -162,9 +162,8 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 			m_sPhiN.Empty();		
 			m_sModN.Empty();	
 			if ( ePrime & ERR_P_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_P );
-			else if ((ePrime & ERR_P_NOT_PRIME) && (ePrime & ERR_Q_NOT_PRIME)) m_sCheckPrime.LoadString( IDS_RSA_DEMO_ERR_PQ_NOT_PRIME );
+			else if( (ePrime & ERR_P_NOT_PRIME) && (ePrime & ERR_Q_NOT_PRIME) ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_PQ );
 			else if ( ePrime & ERR_Q_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_Q );
-			else if ( (ePrime & ERR_PQ_NOT_PRIME) == ERR_PQ_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_PQ );
 			else if ( ePrime & ERR_P_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_P );
 			else if ( ePrime & ERR_Q_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_Q );
 			else if ( ePrime & ERR_P_EQUALS_Q ) m_sCheckPrime.LoadString( IDS_PRIME_P_EQUALS_Q );
