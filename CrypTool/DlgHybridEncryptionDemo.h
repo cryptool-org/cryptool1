@@ -18,36 +18,35 @@ class CDlgHybridEncryptionDemo : public CDialog
 {
 // Konstruktion
 public:
-	CString m_fn;
-	bool m_bCursor;
-	void ShowButtons();
+	bool DateiOeffnen(const CString &DateiPfadName);
 	bool m_arrSetButtons[10];
-	bool m_check[10][10];
-	CString m_strEdit4;
-	CString m_strEdit3;
-	CString m_strEdit2;
-	char* m_strEdit1;
-	int m_gc;
-	void GetCertificateData(Certificate* Zert);
-	CString m_strPfadEditorDat;
 	bool m_barrSetCondition[10];
-	void EnDisButtons();
+	bool m_setMatrix[10][10];
+	CString m_strBuffEditEncKeyAsym;
+	CString m_strBuffEditEncDoc;
+	CString Edit;
+	char* m_strBuffEditDoc;
+	int m_iDocSize;
 	bool m_bAuswahlDat;
-	CDlgRSAEncryption RsaDialog1;
+	CDlgRSAEncryption rsaDlg;
 	char SymKey[KEY_LEN];
 	OctetString* EncSymKey;
-	void RSAEncrypt();
-	bool m_iIsGenAsymKey;
-	bool m_iIsTxtAlreadySel;
-	int m_iDatGroesse1;
-	bool m_iIsGenSymKey;
+	//bool m_iIsGenAsymKey;
+	//bool m_iIsTxtAlreadySel;
+
+	int m_iDocSizeForEnc;
 	CFont m_font;
 	CString m_strSymKey;
-	CString m_strPathnameTxt;
-	CString	m_strTitle1;
+	CString m_strPathSelDoc;
+	CString	m_strBuffTitle;
 
 	CDlgHybridEncryptionDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgHybridEncryptionDemo();
+	void ShowButtons();
+	void EnDisButtons();
+	void RSAEncrypt();
+
+
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHybridEncryptionDemo)
 	enum { IDD = IDD_HYBRID_ENCRYPTION_DEMO };
@@ -91,7 +90,6 @@ protected:
 	afx_msg void OnButtonShowtxt();
 	afx_msg void OnShowEncTxt();
 	afx_msg void OnShowEncSymKey();
-//	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
