@@ -25,6 +25,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgDiffieHellmanSecretInput)
 	enum { IDD = IDD_DIFFIEHELLMAN_SECRETINPUT };
+	CButton	m_ButtonGenSec;
 	CEdit	m_SecretControl;
 	CString	m_Secret;
 	CString	m_PartyHeader;

@@ -100,4 +100,9 @@ void CDlgDiffieHellmanKeyInformation::OnShowlogtext()
 	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
 
 	delete filename;
+
+	// Message-Box über erfolgreichen Verlauf der Logtexterzeugung einblenden
+	LoadString(AfxGetInstanceHandle(), IDS_DH_KEY_LOGTEXT_CREATED, pc_str, STR_LAENGE_STRING_TABLE);
+	MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+	
 }

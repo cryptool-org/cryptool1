@@ -44,6 +44,7 @@ void CDlgDiffieHellmanSecretInput::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgDiffieHellmanSecretInput)
+	DDX_Control(pDX, IDC_GENERATE_SECRET, m_ButtonGenSec);
 	DDX_Control(pDX, IDC_SECRET, m_SecretControl);
 	DDX_Text(pDX, IDC_SECRET, m_Secret);
 	DDX_Text(pDX, IDC_PARTY, m_PartyHeader);
@@ -139,8 +140,12 @@ BOOL CDlgDiffieHellmanSecretInput::OnInitDialog()
 	temp2.Format((LPCTSTR)temp1, (LPCTSTR)this->m_Party.c_str());
 	this->m_PartyHeader = (LPCTSTR)temp2;
 
+	// Initial den Focus auf "geheimnis erzeugen" legen
+	this->m_ButtonGenSec.SetFocus();
+
 	UpdateData(false);
-	
-	return TRUE;  // return TRUE unless you set the focus to a control
+
+	return FALSE;	
+	//return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

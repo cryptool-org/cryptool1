@@ -20,6 +20,8 @@
 
 #include "DiffieHellmanButtonControl.h"
 
+#include "DlgDiffieHellmanFinalInfo.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -588,11 +590,9 @@ void CDlgDiffieHellmanVisualization::UpdateGUI(int b)
 	// im untersten Textfeld des Dialogs ausgegeben.
 	if(this->pButtonControl->AllButtons[9].IsActionPerformed() && this->pButtonControl->AllButtons[10].IsActionPerformed())
 	{
-		if(this->m_bShowInfoDialogues)
-		{
-			LoadString(AfxGetInstanceHandle(), IDS_DH_RESULT_MESSAGE, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		}
+		// Dialog über erfolgreichen Abschluss des Verfahrens anzeigen
+		CDlgDiffieHellmanFinalInfo dlg;
+		dlg.DoModal();
 
 		// Log-Datei erzeugen
 		this->pDiffieHellmanLogFile = new DiffieHellmanLogFile(

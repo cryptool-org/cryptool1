@@ -1616,6 +1616,14 @@ SOURCE=.\DlgDiffieHellmanExchangeSharedKeys.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgDiffieHellmanFinalInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgDiffieHellmanFinalInfo.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgDiffieHellmanGenerateFinalKey.cpp
 # End Source File
 # Begin Source File

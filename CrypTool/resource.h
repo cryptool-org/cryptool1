@@ -158,6 +158,7 @@
 #define IDB_DH_MAINBACKGROUND           637
 #define IDB_HYBRID_BACK                 640
 #define IDR_GIF1                        644
+#define IDD_DIFFIEHELLMAN_FINALINFO     645
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -1563,12 +1564,13 @@
 #define IDS_DH_STEP4                    61917
 #define IDS_DH_STEP5                    61918
 #define IDS_STRING_GE_2                 61919
+#define IDS_DH_KEY_LOGTEXT_CREATED      61920
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        645
+#define _APS_NEXT_RESOURCE_VALUE        646
 #define _APS_NEXT_COMMAND_VALUE         33264
 #define _APS_NEXT_CONTROL_VALUE         1502
 #define _APS_NEXT_SYMED_VALUE           101

@@ -2577,7 +2577,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
-    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können sie getrennt voneinander für Alice und Bob den geheimen und den gemeinsamen Schlüssel S berechnen.",
+    LTEXT           "Nachdem Sie auf die Schaltfläche 'OK' gedrückt haben, können Sie getrennt voneinander für Alice und Bob den geheimen und gemeinsamen Schlüssel S berechnen.",
                     IDC_STATIC,7,37,186,24,NOT WS_GROUP
     LTEXT           "Dieser gemeinsame Session Key S wird berechnet als (g^a)^b mod p und als (g^b)^a mod p.",
                     IDC_STATIC,7,69,186,17
@@ -2591,7 +2591,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_SECRET,70,79,200,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Geheimnis &erzeugen",IDC_GENERATE_SECRET,273,79,100,14
-    DEFPUSHBUTTON   "&Geheimnis übernehmen",IDOK,15,111,100,20
+    PUSHBUTTON      "&Geheimnis übernehmen",IDOK,15,111,100,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,273,111,100,20
     LTEXT           "TEXT WIRD DYNAMISCH ERSTELLT",IDC_PARTY,15,6,358,8
     LTEXT           "Bitte achten Sie darauf, dass Sie sich für eine natürliche Zahl entscheiden, die möglichst größer als Eins und kleiner als der zuvor gewählte Primzahlmodul (p) ist.",
@@ -2900,6 +2900,20 @@ BEGIN
     COMBOBOX        IDC_COMBO1,136,153,28,111,CBS_DROPDOWN | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Run",IDC_STATIC,171,155,14,8
+END
+
+IDD_DIFFIEHELLMAN_FINALINFO DIALOG DISCARDABLE  0, 0, 260, 145
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Diffie-Hellman-Schlüsselaustausch erfolgreich"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,105,113,50,14
+    LTEXT           "Mit dem Diffie-Hellman-Verfahren wurde erfolgreich ein gemeinsamer und geheimer Schlüssel erzeugt.",
+                    IDC_STATIC,14,14,232,24
+    LTEXT           "Dieser geheime Schlüssel kann nun als Sessionkey für eine folgende symmetrische Verschlüsselung verwendet werden.",
+                    IDC_STATIC,14,50,232,16
+    LTEXT           "Durch Drücken des Schlüsselsymbols erhalten Sie Details zum Verfahren mit den von Ihnen gewählten Zahlen.",
+                    IDC_STATIC,14,78,232,16
 END
 
 
@@ -4279,6 +4293,14 @@ BEGIN
         VERTGUIDE, 281
         TOPMARGIN, 7
         BOTTOMMARGIN, 208
+    END
+
+    IDD_DIFFIEHELLMAN_FINALINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -5984,6 +6006,12 @@ BEGIN
     IDS_ERR_ONOPENREADME    "Die Readme-Datei konnte nicht geöffnet werden!\nBitte überprüfen Sie, ob die Datei ""Readme-de.txt"" sich im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet."
     IDS_SIGATT_HARMLESS     "Original.txt"
     IDS_SIGATT_DANGEROUS    "Faelschung.txt"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_KEY_LOGTEXT_CREATED 
+                            "Der Protokollverlauf mit Ihren Zahlen wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -8853,6 +8881,20 @@ BEGIN
     LTEXT           "Run",IDC_STATIC,171,155,14,8
 END
 
+IDD_DIFFIEHELLMAN_FINALINFO DIALOG DISCARDABLE  0, 0, 260, 145
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Diffie-Hellman Key Exchange Succesful"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,105,113,50,14
+    LTEXT           "Using Diffie-Hellman key exchange a common and secret key was established.",
+                    IDC_STATIC,14,14,232,16
+    LTEXT           "This secret key can now be used as a session key in order to do symmetric encryption.",
+                    IDC_STATIC,14,50,232,16
+    LTEXT           "You can get the details how this protocol worked with the numbers you chose by hitting the key symbol.",
+                    IDC_STATIC,14,78,232,16
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10572,6 +10614,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
     END
+
+    IDD_DIFFIEHELLMAN_FINALINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -12233,6 +12283,12 @@ BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Run %d\nCollision search\nProgress: %%d%%%%  remaining time: %%s"
     ID_LOAD_README          "Opens the CrypTool readme file"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DH_KEY_LOGTEXT_CREATED 
+                            "The log text of the procedure was succesfully written into a main window of the CrypTool application."
 END
 
 #endif    // Englisch (GB) resources
