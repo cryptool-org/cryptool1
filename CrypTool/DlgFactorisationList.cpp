@@ -205,7 +205,8 @@ void CDlgFactorisationList::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 }
 
 
-#define _FACTORISATION_LIST_INDENT "        "
+#define _FACTORISATION_LIST_INDENT_BULLET "      - "
+#define _FACTORISATION_LIST_INDENT        "        "
 
 void CDlgFactorisationList::OnCancel() 
 {
@@ -228,7 +229,7 @@ void CDlgFactorisationList::OnCancel()
 	{
 		char line[128];
 		i_No++;
-		f_Details << i_No << ".) ";
+		f_Details << i_No << ". ";
 
 		if ( Seek->Factor1.GetLength() > 0 )
 		{
@@ -244,12 +245,12 @@ void CDlgFactorisationList::OnCancel()
 				f_Details << pc_str << ": " << Seek->Method << ".  ";
 				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLTIME,
 					pc_str,STR_LAENGE_STRING_TABLE);
-				f_Details << pc_str << ": " << Seek->Time << endl << endl;
+				f_Details << pc_str << ": " << Seek->Time << endl;
 			}
 			{ // Factor 1
 				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR1,
 					pc_str,STR_LAENGE_STRING_TABLE);
-				f_Details << _FACTORISATION_LIST_INDENT << pc_str  << Seek->Factor1 << endl;
+				f_Details << _FACTORISATION_LIST_INDENT_BULLET << pc_str  << Seek->Factor1 << endl;
 				if ( Seek->PrimeMask & 1 )
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -259,12 +260,12 @@ void CDlgFactorisationList::OnCancel()
 					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
 				}
 				sprintf(line, pc_str, Seek->BitlengthF1);
-				f_Details << _FACTORISATION_LIST_INDENT << line << endl << endl;
+				f_Details << _FACTORISATION_LIST_INDENT << line << endl;
 			}
 			{ // Factor 2
 				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_FACTOR2,
 					pc_str,STR_LAENGE_STRING_TABLE);
-				f_Details << _FACTORISATION_LIST_INDENT << pc_str  << Seek->Factor2 << endl;
+				f_Details << _FACTORISATION_LIST_INDENT_BULLET << pc_str  << Seek->Factor2 << endl;
 				if ( Seek->PrimeMask & 2 )
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORPRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -274,7 +275,7 @@ void CDlgFactorisationList::OnCancel()
 					LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_FACTORCOMPOSITE,pc_str,STR_LAENGE_STRING_TABLE);
 				}
 				sprintf(line, pc_str, Seek->BitlengthF2);
-				f_Details << _FACTORISATION_LIST_INDENT << line << endl << endl << endl;		
+				f_Details << _FACTORISATION_LIST_INDENT << line << endl << endl;		
 			}
 		}
 		else

@@ -26,6 +26,7 @@ public:
 	//{{AFX_DATA(CDlgDiffieHellmanSecretInput)
 	enum { IDD = IDD_DIFFIEHELLMAN_SECRETINPUT };
 	CButton	m_ButtonGenSec;
+	CButton m_CtrlOKButton;
 	CEdit	m_SecretControl;
 	CString	m_Secret;
 	CString	m_PartyHeader;

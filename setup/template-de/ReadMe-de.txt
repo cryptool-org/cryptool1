@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, Mai 2003
+    CrypTool, Version 1.3.04, Juni 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
     (c) Universität Siegen und Darmstadt
     Bernhard Esslinger
@@ -120,6 +120,10 @@ Einen schnellen Einstieg in CrypTool finden Sie, wenn Sie einige
 Szenarien (Tutorials) der Online-Hilfe durchspielen (die Szenarien
 stehen im Inhaltsverzeichnis der Hilfe unter "Beginn der Arbeit
 mit CrypTool").
+
+Wenn Ihnen ein Menüpunkt nichts sagt oder Sie in einem Dialogfenster
+nicht recht weiter wissen, sollte die Hilfe über F1 Ihnen jeweils
+weiterhelfen (wenn nicht, geben Sie uns bitte Feedback).
 
 Wir wünschen viel Spaß beim Ausprobieren der Funktionen von
 CrypTool.
@@ -468,7 +472,7 @@ examples\CrypTool.bmp
         \psion-enc.hex
         \vernam.txt
         \Startbeispiel-de.txt
-        \Startingsample-en.txt
+        \Startingexample-en.txt
 
 pse\.............. In diesem Verzeichnis und seinem
                    Unterverzeichnis pseca\ werden erzeugte
@@ -762,7 +766,7 @@ Ganz neu in 1.3.04 sind:
   nun mehr als 5 Jokerzeichen (bisher 20 Bit) zugelassen und die
   erwartete Zeit wird ausgegeben. Außerdem kann man die Breite für
   das hierbei genutzte Entropiefenster per Analyseoptionen einstellen.
-+ Hochperformante Implementierung zum Suchen von Hash-Kollisionen 
++ Hoch performante Implementierung zum Suchen von Hash-Kollisionen 
   (Anwendung des Geburtstagsparadoxons). Damit kann man einen
   eingeschränkten Angriff auf Hash- bzw. Signatur-Verfahren 
   praktisch und für konkrete Dateien zeigen.
@@ -772,10 +776,10 @@ Ganz neu in 1.3.04 sind:
 5.3. Geplante Änderungen nach Version 1.3.04
      ---------------------------------------
 Funktionalität:
-+ Eine hochperformante Mustersuche, um entweder mehrfach vorkommende
++ Eine hoch performante Mustersuche, um entweder mehrfach vorkommende
   Muster beliebiger Länge in einer Datei zu finden oder um alle Patterns
   in einer Datei zu finden, die auch in einer anderen (vorzugebenden)
-  Datei vorkommen.
+  Datei vorkommen (Massensuche).
 + Eine pure Kommandozeilenversion des AES-Tools auch für die
   Betriebssysteme OS/2 und Linux (aestool-os2; aestool-linux).
 + Visualisierung von Challenge-Response-Verfahren.
@@ -797,6 +801,9 @@ Funktionalität:
     (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
     und von Doppelzeichen wie "mm"),
   - Playfair-Verschlüsselung.
+    Playfair: Reine C-Sourcen (Gunnar-Andresson) liegen uns vor. 
+              Diese sind aus Zeitmangel noch nicht in CrypTool
+              integriert.
 + Korrekturmöglichkeit einzelner Zeichen bei der Analyse von XOR,
   ADD, Vigenere.
 + Anzeigen des zweit-, dritt-, ... -besten Treffers bei der
@@ -836,9 +843,13 @@ Funktionalität:
        - RC5 und Ghost bei den symmetrischen Verfahren oder
        - Rabin bei den Public Key-Verfahren.
     - Hashverfahren
-       - SHA-xxx
-       - Tiger
+       - SHA-xxx (http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf)
+       - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
     - Protokolle / Protokollschwächen
+  Bem.: 
+  ADFGVX: Sourcen in Basic mit Oberfläche liegen uns vor. Diese sind
+          aus Zeitmangel noch nicht nach C übertragen und in CrypTool
+          integriert.
 + Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen normierten
   und regulären Mustern und Suche nach unbekannten, aber mehrfach
   vorkommenden Mustern im Dokument, ...), indem der Dialog zum
@@ -1060,15 +1071,14 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    Mai  2003	7,5 MB		7,6 MB		DB
+1.3.04    Juni 2003	8,1 MB		7,6 MB		DB
 
 Bemerkung zu den aktuellen Versionen:
-1.3.02    viele neue Funktionen gegenüber 1.3.00
-1.3.03    viele kleine Bugfixes und Verbesserungen der
-          Dokumentation.
-1.3.04    einige neue Funktionalität (siehe Kapitel 5.2), einige
+1.3.02    Viele neue Funktionen gegenüber 1.3.00
+1.3.03    Viele kleine Bugfixes und Verbesserungen der Dokumentation.
+1.3.04    Etliche neue Funktionalität (siehe Kapitel 5.2), einige
           kleine Bugfixes (Absturz bei Playfair-, N-Gramm-Analyse, RSA),
-          und Verbesserung und Erweiterung der Dokumentation.
+          und größere Verbesserung und Erweiterung der Dokumentation.
 
 
 
@@ -1125,6 +1135,11 @@ Informations-Sicherheit", Ausgabe 2/2003 erschien unter dem Titel
 "(Ver)Schlüsselerlebnisse - CrypTool unterstützt Verständnis für
 die Grundlagen der Internetsicherheit" ein 6-seitiger Artikel
 über CrypTool.
+Diesen Artikel finden Sie im HTML-Format auch auf der KES-Homepage
+http://www.kes.info/index.html per Suchbegriff "CrypTool" unter
+"Artikel aus der Maiausgabe 2003": "VerSchlüsselerlebnisse: CrypTool
+unterstützt Verständnis für die Grundlagen der Internetsicherheit".
+
 
 10.1.4. Tagungsband 8. Deutscher IT-Sicherheitskongress des BSI (Mai 2003)
         ------------------------------------------------------------------

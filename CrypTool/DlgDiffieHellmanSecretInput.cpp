@@ -44,6 +44,7 @@ void CDlgDiffieHellmanSecretInput::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgDiffieHellmanSecretInput)
+	DDX_Control(pDX, IDOK, m_CtrlOKButton);
 	DDX_Control(pDX, IDC_GENERATE_SECRET, m_ButtonGenSec);
 	DDX_Control(pDX, IDC_SECRET, m_SecretControl);
 	DDX_Text(pDX, IDC_SECRET, m_Secret);
@@ -129,6 +130,7 @@ void CDlgDiffieHellmanSecretInput::OnGenerateSecret()
 	this->m_Secret = s;
 	delete s;
 	UpdateData(false);
+	m_CtrlOKButton.SetFocus();
 }
 
 BOOL CDlgDiffieHellmanSecretInput::OnInitDialog() 

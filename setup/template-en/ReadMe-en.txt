@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.3.04, May 2003
+    CrypTool, Version 1.3.04, June 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
     (c) University of Siegen and Darmstadt
     Bernhard Esslinger
@@ -44,7 +44,7 @@
  7. .... Brief history of the released main versions of CrypTool
  8. .... Feedback on errors
  9. .... Contact addresses
-10. .... References / Hints
+10. .... References / hints
 10.1. .... Articles
 10.1.1. .... c't 14/2001, pp 204-208
 10.1.2. .... DuD October 2002
@@ -107,7 +107,7 @@ When you start up CrypTool, the CrypTool work area starts up
 along with a small welcome screen which appears in the
 foreground. If you press F1 here, the starting page of the Online
 help comes up.
-This starting page is a good starting point, to become aquainted
+This starting page is a good starting point, to become acquainted
 with all essential features of CrypTool (using the links on this
 starting page).
 
@@ -120,6 +120,10 @@ To quickly get up to speed on CrypTool, we recommend that you
 work through some of the examples (tutorials) provided within the
 Online help facility (the examples are shown in the Help contents
 overview under "Starting work with CrypTool").
+
+If a menu item has no meaning to you or you don't know exactly what
+to do within a dialogue window, please press F1. If the according
+Online help isn't satisfactory please give us feedback.
 
 We hope you enjoy trying out all the functionality within
 CrypTool.
@@ -453,7 +457,7 @@ examples\CrypTool.bmp
         \psion-enc.hex
         \vernam.txt
         \Startbeispiel-de.txt
-        \Startingsample-en.txt
+        \Startingexample-en.txt
 
 
 pse\.............. This directory and its subdirectory pseca\ are
@@ -643,7 +647,7 @@ Web page:
   computer is ok.
 + Added for 1.3.04:
   + Frame item, which points to a page with Web links
-  + Frame item, which directly leads to the CrypTool praesentation.
+  + Frame item, which directly leads to the CrypTool presentation.
 
 
 Documentation:
@@ -756,7 +760,7 @@ Completely new in 1.3.04 are:
 Functionality:
 + A high performance pattern search to find either multiple patterns of
   any length within one file or to find any patterns in one file which
-  also appear in another given file.
+  also appear in another given file (mass search).
 + A pure command line version of AES-Tool to be also available for
   the operating systems OS/2 and Linux (aestool-os2; aestool-linux).
 + Visualize of challenge response methods.
@@ -774,9 +778,12 @@ Functionality:
 + Implement analysis newly for
   - homophone encryption.
 + Analysis improvement (not sophisticated enough yet) of
-   - monoalphabetic substitution (plus display of inverted digram
-                                 pairs and double characters),
-   - Playfair encryption.
+  - monoalphabetic substitution (plus display of inverted digram
+                                pairs and double characters),
+  - Playfair encryption.
+    Playfair: Pure C sources (Gunnar-Andresson) are available. 
+              Because of restricted time these are not yet
+              integrated into CrypTool.
 + Facilities for correcting individual characters in the analysis
   of XOR, ADD, Vigenere.
 + Display of second-, third-, etc. -best hit in XOR/ADD analysis
@@ -793,13 +800,13 @@ Functionality:
     dialog for each length the statistically most appropriate
     key. Clicking at the displayed key proceeds the according
     decryption. Clicking an additional button performs the
-    descryptions for all displayed keys.
+    decryptions for all displayed keys.
   - the Analysis Option "Show base ciphers" currently shows for
     each "column Caesar" the graphics correlation and histogram.
     Additionally the text for each column Caesar could be
     displayed.
 + Substitution analysis: the replaced letters in the dialog box
-  are currently shown in capital letters: additionally diplay
+  are currently shown in capital letters: additionally display
   them in red to enhance readability.
 + Offer a view for any text files to show them in any given
   fixed block length: e.g. xxx xxx xxx or xxxxx xxxxx xxxxx ...
@@ -813,9 +820,13 @@ Functionality:
        - the RC5 and Ghost as symmetric procedures or
        - Rabin for the public key methods.
     - Hashes
-       - SHA-xxx
-       - Tiger
+       - SHA-xxx (http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf)
+       - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
     - Protocols / weaknesses in protocols.
+  Remark: 
+  ADFGVX: Sources in Basic including a user interface are available.
+          Because of restricted time these are not yet transferred
+          in C and integrated into CrypTool.
 + Implementation of an enhanced pattern search (with pre-given
   standardized and regular patterns and unknown but repeated
   patterns in a document, ...) by enhancing the dialogue used for
@@ -863,8 +874,8 @@ Functionality:
   generate good passwords.
 + Link to PGP:
   - Use PGP key within CrypTool:
-    Idee: Open private key ring via password, analyse its structure,
-    get the provate key (PGP sources are available) and use this key,
+    Idea: Open private key ring via password, analyse its structure,
+    get the private key (PGP sources are available) and use this key,
     to decrypt PGP files with the algorithms implemented in CrypTool.
     This shows, that PGP only uses standard algorithms.
 
@@ -985,7 +996,7 @@ Functionality:
    - a Secude and Miracl library is available.
    - Divide the complete task in meaningful parts:
        - graphical user interface
-       - functionality implmented in pure C/C++
+       - functionality implemented in pure C/C++
        - online help from Winhelp to HTML.
 + Porting to Java (a Secude library is available for this).
 
@@ -1026,14 +1037,14 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    May  2003	7.5 MB	    7.6 MB	DB
+1.3.04    June 2003	7.6 MB	    8,1 MB	DB
 
 Remark about the current versions:
-1.3.02    many new functions compared to 1.3.00
-1.3.03    many minor bug fixes and documentation improvements.
-1.3.04    some new functionality (see chap. 5.2), some minor bug
+1.3.02    Many new functions compared to 1.3.00
+1.3.03    Many minor bug fixes and documentation improvements.
+1.3.04    Some new functionality (see chap. 5.2), some minor bug
           fixes (crash in analysis of Playfair, N-gram, RSA), and
-          documentation improvements and enhancements.
+          major documentation improvements and enhancements.
 
 
 
@@ -1064,7 +1075,7 @@ CrypTool.
 
 
 
-10. References / Hints
+10. References / hints
     ------------------
 
 10.1. Articles
@@ -1122,7 +1133,7 @@ CrypTool is included on this CD to raise the knowledge about
 cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
 The content of this CD is the basic for the GISA security portal
-"for unexperienced Internet users" (http://www.bsi-fuer-buerger.de).
+"for inexperienced Internet users" (http://www.bsi-fuer-buerger.de).
 
 10.2.3. Freeware projects Crank, Griffon, CAP, CryptAid, etc
         ----------------------------------------------------
