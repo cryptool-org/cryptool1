@@ -122,7 +122,7 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,113,101,50,14
     LTEXT           "Sie haben soeben eine ausführbare Datei gestartet, die Ihnen wahrscheinlich von einer dritten Person zugestellt wurde.\nIm Regelfall ist dieses Vorgehen NICHT RATSAM, da Sie damit eventuell aktiv schädlichen Code auf ihren Rechner importieren.",
                     IDC_STATIC,7,7,197,42
-    LTEXT           "Allgemein ist es angeraten, bei von dritter Seite zur Verfügung gestelltem ausführbaren Code extreme Vorsicht walten zu lassen, um Schädingungen durch Viren etc. zu vermeiden.",
+    LTEXT           "Allgemein ist es angeraten, bei von dritter Seite zur Verfügung gestelltem ausführbaren Code extreme Vorsicht walten zu lassen, um Schädigungen durch Viren etc. zu vermeiden.",
                     IDC_STATIC,7,52,197,40
 END
 
@@ -381,7 +381,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,113,101,50,14
     LTEXT           "You just started executable code that was probably presented to you by a third party.\nThis procedure is usually NOT ADVISABLE as you could import harmful code to your computer.",
                     IDC_STATIC,7,7,197,35
-    LTEXT           "Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses trojans etc. can not be completely ruled out.",
+    LTEXT           "Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses, trojans etc. can not be completely ruled out.",
                     IDC_STATIC,7,45,197,40
 END
 

@@ -247,7 +247,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 			cont1 = (CString) pc_str; 
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG13,pc_str,STR_LAENGE_STRING_TABLE);
 			cont2 = (CString) pc_str; 
-			m_DisplayData += ( cont2 +nl + nl + cont1 + nl +nl);	
+			m_DisplayData += ( cont2 +nl + cont1 + nl);	
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_STEP_BY_STEP,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(pc_str1, pc_str, step, maxsteps);
 			m_Step = (CString) pc_str1;
@@ -270,7 +270,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		cont1 = (CString) pc_str; 
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG5,pc_str,STR_LAENGE_STRING_TABLE);
 		cont2 = (CString) pc_str; 
-		m_DisplayData += ( cont1 + sKeyPrivate  + nl + nl + cont2 + nl );
+		m_DisplayData += ( cont1 + sKeyPrivate  + nl + nl +nl + cont2 + nl );
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_MSG12,pc_str,STR_LAENGE_STRING_TABLE);
 		cont1 = (CString) pc_str; 
 		m_DisplayData += cont1;

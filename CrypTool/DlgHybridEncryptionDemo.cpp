@@ -175,12 +175,16 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 {
 	m_ButtonStatus[0]=active_pressed;
 
-	int DatGroesse=0;
-	CString loc_filename = "";
+	// Attributwerte sichern
+	CString s_strBuffTitle, s_strEdit, s_strTitle;
+	s_strBuffTitle = m_strBuffTitle;
+	s_strEdit = m_strEdit;
+	s_strTitle = m_strTitle;
+
 	m_strBuffTitle = "";
 	m_strEdit = "";
 	m_strTitle = "";
-	UpdateData(false);
+
 	
 	CFileDialog m_dlgFile( TRUE ); // TRUE = Datei öffnen,FALSE = Datei speichern 
 	if( m_dlgFile.DoModal() == IDOK ) 
@@ -188,6 +192,8 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 	//wenn auf den OK Button geklickt wird, wird der Pfadname und der Titel der gewählten Datei in 
 	//lokale Variablen geschrieben
 	//ausserdem wird die Dateigröße ermittelt und ebenfalls in eine Variable geschrieben
+		CString loc_filename = "";
+		UpdateData(false);
 		loc_filename = m_dlgFile.GetPathName();
 		m_strBuffTitle = m_dlgFile.GetFileName();
 		DateiOeffnen(loc_filename);
@@ -197,6 +203,13 @@ void CDlgHybridEncryptionDemo::OnButtonGetDocument()
 	else
 	//wenn auf Abbrechen geklickt wurde, wird abgebrochen
 	{
+		// Attribute zurücksetzen (siehe oben)
+		m_strBuffTitle = s_strBuffTitle;
+		m_strEdit = s_strEdit;
+		m_strTitle = s_strTitle;
+
+		UpdateData(false);
+
 		return;
 	}
 }

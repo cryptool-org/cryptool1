@@ -1889,7 +1889,7 @@ END
 
 IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Doppelwürfel Verschlüsselung: Permutationseingabe "
+CAPTION "Doppelwürfel-Verschlüsselung: Permutationsschlüssel-Eingabe "
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -2392,7 +2392,7 @@ BEGIN
                     WS_BORDER
     EDITTEXT        IDC_EDIT4,5,209,205,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "Zertifikat &Anzeigen",IDC_SHOW_CERTIFICATE,226,224,78,
+    PUSHBUTTON      "Zertifikat &anzeigen",IDC_SHOW_CERTIFICATE,226,224,78,
                     18
 END
 
@@ -2654,7 +2654,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hashwert einer Datei...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash-&Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -2689,7 +2689,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
-        POPUP "A&lgorithmen"
+        POPUP "A&lgorithmen (automatische Analyse)"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -2893,7 +2893,7 @@ BEGIN
 
         END
         MENUITEM "",                            1
-        POPUP "A&lgorithmen"
+        POPUP "A&lgorithmen (automatische Analyse)"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -2905,6 +2905,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
@@ -2915,6 +2916,7 @@ BEGIN
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
+            MENUITEM SEPARATOR
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4
@@ -2922,6 +2924,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
@@ -3130,7 +3133,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash-&Demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Schlüssel generieren ...",   ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -3166,7 +3169,7 @@ BEGIN
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "A&lgorithmen"
+        POPUP "A&lgorithmen (automatische Analyse)"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -4914,7 +4917,7 @@ BEGIN
     IDS_STRING_HYBRID_ENC_SYM_KEY 
                             "Zufällig gewählter symmetrischer Session Key:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n\r\n"
+                            "Im 1. Schritt wählen Sie Ihr Zertifikat und geben Ihre PIN ein,\r\num Ihren privaten RSA-Schlüssel aus der PSE lesen zu können.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
                             "Dokument, symmetrisch verschlüsselt mit dem Session Key:"
     IDS_STRING_HYBRID_DEC_MSG4 
@@ -4922,9 +4925,9 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG5 
                             "Im 3. Schritt wird der Session-Key entschlüsselt und angezeigt.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\n\r\nDer-Session Key ist die folgende 128 Bit lange Zahl:\r\nSession-Key: "
+                            "\r\nDer Session-Key ist die folgende 128 Bit lange Zahl:\r\nSession-Key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session-Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\ndieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
+                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session-Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\n  dieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5301,7 +5304,7 @@ BEGIN
     IDS_HASH_DEMO_TITLE_SHA1 "Hash-Demo   SHA-1-Hash"
     IDS_ENTROPY_TITLE       "Entropie <%s>"
     IDS_HASH_DEMO_SEQUENCE  "Längste unveränderte Bitfolge: Offset %d, Länge %d."
-    IDS_PERMUTATION_ENCRYPT "Text mit der Permutation verschlüsseln"
+    IDS_PERMUTATION_ENCRYPT "Text mit der eingegebenen Permutation verschlüsseln"
     IDS_PERMUTATION_DECRYPT "Text mit der Permutation entschlüsseln"
     IDS_PERMUTATION_ENCRYPT_INV 
                             "Text mit der inversen Permutation verschlüsseln"
@@ -5441,7 +5444,7 @@ BEGIN
     IDS_CRYPT_ADDITION      "ADD"
     IDS_CRYPT_XOR           "XOR"
     IDS_CRYPT_VERNAM        "Vernam"
-    IDS_CRYPT_PERMUTATION   "Permutation"
+    IDS_CRYPT_PERMUTATION   "Permutations"
     IDS_CRYPT_IDEA          "IDEA"
     IDS_CRYPT_RC2           "RC2"
     IDS_CRYPT_RC4           "RC4"
@@ -5629,7 +5632,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_CONTENT_HASH_ENC    "Verschlüsselter Hashwert"
+    IDS_CONTENT_HASH_ENC    "Mit dem privaten Schlüssel des Signierers verschlüsselter Hashwert"
     IDS_CONTENT_KEY         "RSA-Schlüssel des Senders"
     IDS_PRIME_CHECK         "p und q sind Primzahlen."
     IDS_PRIME_NO_CHECK_Q    "q ist KEINE Primzahl !"
@@ -5686,7 +5689,7 @@ BEGIN
     IDS_STRING_Hashdemo_DateilaengeZuLang 
                             "Die Dateigrösse ist in dieser Demonstration auf %d Bytes begrenzt.\nDer Rest der Datei wird ignoriert."
     IDS_BITLENGTH           "Länge in Bit:           %i\r\n"
-    IDS_CONTENT_CERT        "Zertifikat"
+    IDS_CONTENT_CERT        "Zertifikat des Signierers (wird der Signatur zur Prüfung beigefügt)"
     IDS_CONTENT_SIGN        " %s-Signatur von <%s>"
     IDS_BITLENGTH_MODN      "Modullänge in Bit:      %i\r\n"
 END
@@ -8362,7 +8365,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash &demo",                  ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -8398,7 +8401,7 @@ BEGIN
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "A&lgorithms"
+        POPUP "A&lgorithms (automatic analysis)"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -8601,7 +8604,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        POPUP "A&lgorithms"
+        POPUP "A&lgorithms (automatic analysis)"
         BEGIN
             MENUITEM "A&ddition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -8624,6 +8627,7 @@ BEGIN
         BEGIN
             MENUITEM "&Addition",                   ID_ADD_AUTO
             MENUITEM "&XOR",                        ID_XOR_AUTO
+            MENUITEM SEPARATOR
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4
@@ -8631,6 +8635,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple-DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple-DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM SEPARATOR
             MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael...",                ID_ANALYSE_AES_RIJNDAEL
@@ -8839,7 +8844,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Hash value of a file...",     ID_HASH_OFAFILE
             MENUITEM SEPARATOR
-            MENUITEM "Hash &Demonstration",         ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
         END
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
@@ -8875,7 +8880,7 @@ BEGIN
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "A&lgorithms"
+        POPUP "A&lgorithms (automatic analysis)"
         BEGIN
             MENUITEM "&Caesar",                     ID_CAESAR_AUTO
             MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -10329,15 +10334,15 @@ BEGIN
     IDS_STRING_HYBRID_DEC_STEP "Step-by-step hybrid decryption:"
     IDS_STRING_HYBRID_ENC_SYM_KEY "Symmetric session key, selected randomly:"
     IDS_STRING_HYBRID_DEC_MSG2 
-                            "Please select for encrytion your certificate from the PSE.\r\n\r\n"
+                            "Please select for encrytion your certificate from the PSE.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
                             "Document encrypted symmetrically with the session key:"
     IDS_STRING_HYBRID_DEC_MSG4 
                             "Your private RSA key d is the integer number \r\n\r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
-                            "The next step will decrypt and display the session key.\r\n\r\n"
+                            "The next step will decrypt and display the session key.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
-                            "\r\n\r\nThe session key is the following 128 bit number\r\n\r\nSession key: "
+                            "\r\nThe session key is the following 128 bit number\r\n\r\nSession key: "
     IDS_STRING_HYBRID_DEC_MSG7 
                             "With the session key you are now able to decrypt the message.\r\n\r\nClick Decrypt."
 END
@@ -10417,7 +10422,7 @@ BEGIN
     IDS_STRING_LOWER_BOUND_LINEWIDTH "Bar width must be greater than 0.\n"
     IDS_STRING_UPPERBOUND_GRAPHWIDTH "Curve width must be less than 11.\n"
     IDS_STRING_LOWERBOUND_GRAPHWIDTH "Curve width must be greater than 0.\n"
-    IDS_STRING_NO_PERIOD_FOUND "No periodicity found"
+    IDS_STRING_NO_PERIOD_FOUND "No periodicity found."
     IDS_STRING_PERIOD_ANALYSIS_D "Periodicity analysis %d %%."
     IDS_STRING_PERIOD_ANALYSIS "Periodicity analysis"
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
@@ -10701,7 +10706,7 @@ BEGIN
     IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
     IDS_ENTROPY_TITLE       "Entropy <%s>"
     IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: offset %d, length %d."
-    IDS_PERMUTATION_ENCRYPT "Encrypt text with permutation"
+    IDS_PERMUTATION_ENCRYPT "Encrypt text with entered permutation"
     IDS_PERMUTATION_DECRYPT "Decrypt text with permutation"
     IDS_PERMUTATION_ENCRYPT_INV "Encrypt text with inverse permutation"
 END

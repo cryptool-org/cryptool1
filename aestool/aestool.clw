@@ -16,19 +16,19 @@ ResourceCount=15
 Resource1=AFX_IDD_NEWTYPEDLG
 Resource2=IDR_MAINFRAME
 Resource3=IDD_HELP (Deutsch (Deutschland))
-Resource4=IDD_SPLASH
+Resource4=IDD_SPLASH (Englisch (GB))
 Class4=CSplash
-Resource5=IDD_HELP (Englisch (GB))
+Resource5=IDD_SPLASH
 Class5=CHelp
-Resource6=IDD_AESTOOL_DIALOG
-Resource7=IDD_SPLASH (Englisch (GB))
-Resource8=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource6=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource7=IDD_AESTOOL_DIALOG
+Resource8=IDD_HELP
 Resource9=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
 Resource10=IDD_ABOUTBOX (Deutsch (Deutschland))
 Resource11=IDD_SPLASH (Deutsch (Deutschland))
 Resource12=AFX_IDD_NEWTYPEDLG (Englisch (GB))
-Resource13=IDD_HELP
-Resource14=IDD_ABOUTBOX
+Resource13=IDD_ABOUTBOX
+Resource14=IDD_HELP (Englisch (GB))
 Resource15=IDD_ABOUTBOX (Englisch (GB))
 
 [CLS:CAestoolApp]
