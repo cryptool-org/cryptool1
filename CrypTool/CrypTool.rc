@@ -1937,9 +1937,8 @@ BEGIN
     RTEXT           "Zeilenweise",IDC_STATIC,23,211,47,8
     RTEXT           "Spaltenweise",IDC_STATIC,23,227,47,8
     GROUPBOX        "Optionen",IDC_STATIC,12,254,256,33
-    CONTROL         "Für jede Permutation den inversen Schlüssel anwenden",
-                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,
-                    191,10
+    CONTROL         "Jeweils die inverse Permutation anwenden",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,149,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
@@ -7484,8 +7483,8 @@ BEGIN
     RTEXT           "line by line:",IDC_STATIC,26,87,59,8
     RTEXT           "column by column:",IDC_STATIC,26,103,59,8
     GROUPBOX        "Options",IDC_STATIC,12,254,256,33
-    CONTROL         "Use for each permutation the inverse key",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,268,145,10
+    CONTROL         "Apply the respective inverse permuation",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,234,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG DISCARDABLE  0, 0, 294, 150
