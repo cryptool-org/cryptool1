@@ -27,6 +27,7 @@ CHexView::CHexView()
 	m_SizeActive = FALSE;
 	m_NewSize = 0;
 	m_nWordWrap = WrapNone;
+	m_EOF = 0; // EndOfFile = false
 }
 
 CHexView::~CHexView()
@@ -149,6 +150,8 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char new_c, buff[5], oldChar;
 	BOOL invalid;
 
+	m_EOF = false;
+
 	SetRedraw(FALSE);
 	invalid = AdjustCursor(0);
 	if(m_lineoffset < 3*m_hexwidth+9) { // edit hexadecimal area
@@ -205,6 +208,7 @@ void CHexView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 				else {
 					GetRichEditCtrl().SetSel(old_offset, old_offset);
 					MessageBeep(MB_ICONHAND); // end of file reached
+					m_EOF = true;
 				}
 			}
 			invalid = TRUE;
@@ -410,8 +414,17 @@ void CHexView::OnEditPaste()
 	p = (unsigned char*) dataBuff;
 	startc = GetRichEditCtrl().LineIndex(startl) + 7 + 3 * startind;
 	GetRichEditCtrl().SetSel(startc, startc);
-	for(i=0;i<dataLen;i++) {
-		if(*p<16) {
+
+	for(i=0;i<dataLen;i++)
+	{
+		if(m_EOF)
+		{
+			m_EOF = false;
+			break;
+		}
+
+		if(*p<16)
+		{
 			buff[0]='0';
 			_itoa(*p,buff+1,16);
 		}

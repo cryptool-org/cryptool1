@@ -60,6 +60,7 @@ protected:
 	int m_charoffset;
 	int m_lineindex;
 	char m_line[1024];
+	bool m_EOF; // indicates the attempt to attach a character at the end of file
 	CFont m_Font;
 	//{{AFX_MSG(CHexView)
 	afx_msg void OnUpdateFalse(CCmdUI* pCmdUI);
