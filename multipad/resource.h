@@ -75,6 +75,7 @@
 #define IDD_RANDOM_PARAMETER_X2_MOD_N   238
 #define IDD_RANDOM_PARAMETER_LCG        239
 #define IDD_DIALOG_ZAHL_FAKTORISIEREN   240
+#define IDD_RSA_WITH_SMALL_PRIMES_OPTIONS 241
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -356,6 +357,10 @@
 #define IDC_BUTTON_VER_ENT_SCHLUESSELN  1227
 #define IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI 1228
 #define IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI 1229
+#define IDC_HEADER1                     1233
+#define IDC_HEADER2                     1234
+#define IDC_HEADER3                     1235
+#define IDC_OPTIONEN                    1236
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -811,9 +816,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        241
+#define _APS_NEXT_RESOURCE_VALUE        242
 #define _APS_NEXT_COMMAND_VALUE         33137
-#define _APS_NEXT_CONTROL_VALUE         1230
+#define _APS_NEXT_CONTROL_VALUE         1237
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

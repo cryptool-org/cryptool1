@@ -59,7 +59,7 @@ END_MESSAGE_MAP()
 void CDlgMono::OnChangeEdit1() 
 {
 	// TODO: Wenn es sich hierbei um ein RICHEDIT-Steuerelement handelt, sendet es
-	// sendet diese Benachrichtigung nur, wenn die Funktion CDialog::OnInitDialog()
+	// diese Benachrichtigung nur, wenn die Funktion CDialog::OnInitDialog()
 	// überschrieben wird, um die EM_SETEVENTMASK-Nachricht an das Steuerelement
 	// mit dem ENM_CHANGE-Attribut ORed in die Maske lParam zu senden.
 	

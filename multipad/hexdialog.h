@@ -10,6 +10,7 @@
 #include "HexEdit1.h"
 
 #define MAX_ANZ_HEX_BLOECKE MAX_VIGENERE
+
 // hexdialog.h : Header-Datei
 //
 /////////////////////////////////////////////////////////////////////////////
@@ -20,9 +21,7 @@ class hexdialog : public dia1
     int i_maxlen;
 // Konstruktion
 public:
-	void SetAlternativeWindowText(LPCTSTR s_title);
 	hexdialog(int maxlen, CWnd* pParent = NULL);   // Standardkonstruktor
-
 	virtual char * GetData( void );
 	virtual int GetLen( void );
 	virtual int Display();
@@ -31,8 +30,7 @@ public:
 	//{{AFX_DATA(hexdialog)
 	enum { IDD = IDD_DIALOG_KEY_INPUT };
 	CHexEdit	m_einfeld;
-	CString	m_einstr;
-	CString	m_static_text;
+	CString		m_einstr;
 	//}}AFX_DATA
 
 
@@ -47,11 +45,8 @@ public:
 protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(hexdialog)
-	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-private:
-	char s_alternativeWindowText[127];
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -7,6 +7,8 @@
 #include "RSA_Berechnungen.h"	// Hinzugefügt von der Klassenansicht
 #include "DlgPrimesGenerator.h"	// Hinzugefügt von der Klassenansicht
 #include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
+#include "DlgRSAwithSmallPrimesOptions.h"
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -31,6 +33,7 @@ class RSA_mit_kleinenPZ : public CDialog
 	
 // Konstruktion
 public:
+	~RSA_mit_kleinenPZ();
 	void CheckEdit_Input3(CString &, int &, int &);
 	void CheckEdit_Input2 (CString &, int &, int &);
 	void Entschluesseln();
@@ -56,11 +59,9 @@ public:
 	CString	m_edit10;
 	CString	m_edit11;
 	CString	m_edit12;
-	CString	m_Encryption;
-	CString	m_HeaderPlainCipherText;
-	CString	m_CodingDecryption;
-	int		m_TextOptions;
-	int		m_CryptMode;
+	CString	m_Header1;
+	CString	m_Header2;
+	CString	m_Header3;
 	//}}AFX_DATA
 
 
@@ -79,19 +80,18 @@ protected:
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnUpdateEdit2();
 	afx_msg void OnButtonPzGenerieren();
-	afx_msg void OnButtonParameterGenerieren();
-	afx_msg void OnButtonSchluesselGenerieren();
 	afx_msg void OnUpdateEdit10();
 	afx_msg void OnUpdateEdit11();
 	afx_msg void OnUpdateEdit12();
-	afx_msg void OnButtonEnDeCrypt();
-	afx_msg void OnSelectVerschluesseln();
-	afx_msg void OnSelectEntschluesseln();
-	afx_msg void OnClickDialogLittleSisters();
+	afx_msg void OnOptionen();
+	afx_msg void OnParameterAktualisieren();
+	afx_msg void OnButtonVerschluesseln();
+	afx_msg void OnButtonEntschluesseln();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 	RSA_Berechnungen RSAB;
+	CDlgRSAwithSmallPrimesOptions *Options;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -1418,50 +1418,50 @@ BEGIN
                     IDC_STATIC,19,9,289,17
 END
 
-IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 330, 335
+IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN DIALOG DISCARDABLE  0, 0, 351, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA mit kleinen Primzahlen"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,223,45,
-                    84,18
-    EDITTEXT        IDC_EDIT1,110,45,98,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,110,62,98,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,110,131,98,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VER_ENT_SCHLUESSELN,10,308,71,
-                    19
-    PUSHBUTTON      "Dialog beenden",IDCANCEL,228,308,94,19
-    LTEXT           "Primzahl p",IDC_STATIC,27,46,32,8
-    LTEXT           "Primzahl q",IDC_STATIC,27,64,32,8
-    EDITTEXT        IDC_EDIT3,110,95,98,12,ES_AUTOHSCROLL | ES_READONLY | 
+    PUSHBUTTON      "Primzahlen generieren",IDC_BUTTON_PZ_GENERIEREN,246,51,
+                    86,18
+    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,312,71,19
+    PUSHBUTTON      "Dialog beenden",IDCANCEL,248,312,94,19
+    LTEXT           "Primzahl p",IDC_STATIC,19,52,32,8
+    LTEXT           "Primzahl q",IDC_STATIC,19,70,32,8
+    EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "RSA-Modul N",IDC_STATIC,27,97,52,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,27,113,55,8
-    EDITTEXT        IDC_EDIT4,110,112,98,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "RSA-Modul N",IDC_STATIC,19,102,52,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
+    EDITTEXT        IDC_EDIT4,100,118,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "Primzahleneingabe",IDC_STATIC,10,34,312,47
-    LTEXT           "(öffentlich)",IDC_STATIC,213,97,34,8
-    LTEXT           "(geheim)",IDC_STATIC,213,113,30,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,27,133,75,8
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,27,150,73,8
-    EDITTEXT        IDC_EDIT6,110,149,98,12,ES_AUTOHSCROLL | ES_READONLY | 
+    GROUPBOX        "Primzahleneingabe",IDC_STATIC,10,39,332,48
+    LTEXT           "(öffentlich)",IDC_STATIC,246,103,34,8
+    LTEXT           "(geheim)",IDC_STATIC,246,121,30,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,139,75,8
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,157,73,8
+    EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    GROUPBOX        "RSA Parameter",IDC_STATIC,10,84,312,84
-    EDITTEXT        IDC_EDIT10,20,216,293,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT11,20,247,293,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT12,20,279,293,13,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel d = e^(-1)  (mod  phi(N)) berechnet.",
-                    IDC_STATIC,9,7,313,24
-    EDITTEXT        IDC_HEADER_PLAIN_CIPHER_TEXT,20,204,291,12,
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_CODING_DECRYPTION,21,235,293,12,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_ENCRYPTION,20,267,291,12,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER
-    GROUPBOX        "RSA-Verschlüsselung",IDC_STATIC,9,172,313,127
-    PUSHBUTTON      "Optionen ...",IDC_BUTTON1,223,183,84,18
-    PUSHBUTTON      "Parameter aktualisieren",IDC_BUTTON2,224,142,83,19
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON3,110,308,68,19
+    GROUPBOX        "RSA Parameter",IDC_STATIC,10,90,332,84
+    EDITTEXT        IDC_EDIT10,19,218,313,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,19,249,313,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,19,281,313,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel    d = e^(-1)  (mod  phi(N)) berechnet.",
+                    IDC_STATIC,10,7,332,24
+    GROUPBOX        "RSA-Verschlüsselung",IDC_STATIC,10,178,332,127
+    PUSHBUTTON      "Optionen ...",IDC_OPTIONEN,246,189,86,18
+    PUSHBUTTON      "Parameter aktualisieren",IDC_BUTTON2,246,148,86,19
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,131,312,68,19
+    LTEXT           "Alphabet- und Zahlensystem",IDC_STATIC,145,192,90,8
+    EDITTEXT        IDC_HEADER1,19,207,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_HEADER2,19,238,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_HEADER3,19,270,313,7,ES_AUTOHSCROLL | WS_DISABLED | 
+                    NOT WS_BORDER
 END
 
 IDD_DIALOG_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -1845,6 +1845,40 @@ BEGIN
                     IDC_STATIC,24,191,318,17
     LTEXT           "Produktdarstellung der Faktorisierung",IDC_STATIC,24,
                     223,222,9
+END
+
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 268, 207
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,186,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,211,186,50,14
+    LTEXT           "Sie können auswählen zwischen der Verschlüsselung von Text oder der Verschlüsselung von Zahlen",
+                    IDC_STATIC,11,18,233,17
+    CONTROL         "Verschlüsselung von Text",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,11,40,97,10
+    CONTROL         "Verschlüsselung von Zahlen",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,11,55,105,10
+    GROUPBOX        "Eingabeoptionen",IDC_STATIC,7,7,254,63
+    EDITTEXT        IDC_EDIT1,46,98,111,14,ES_AUTOHSCROLL
+    LTEXT           "Alphabet",IDC_STATIC,11,101,29,8
+    GROUPBOX        "Textoptionen",IDC_STATIC,7,71,254,49
+    LTEXT           "Wählen Sie die Zeichen, die verschlüsselt werden können",
+                    IDC_STATIC,12,81,192,8
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,122,254,55
+    CONTROL         "Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,160,39,10
+    CONTROL         "Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,160,32,
+                    10
+    CONTROL         "Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,160,
+                    33,10
+    CONTROL         "Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,200,
+                    160,56,10
+    LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
+                    IDC_STATIC,11,135,245,18
+    CONTROL         """Dialog der Schwestern""",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,169,100,94,10
 END
 
 
@@ -3121,14 +3155,15 @@ BEGIN
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
     BEGIN
         VERTGUIDE, 10
-        VERTGUIDE, 110
-        VERTGUIDE, 208
-        VERTGUIDE, 223
-        VERTGUIDE, 307
-        VERTGUIDE, 322
+        VERTGUIDE, 19
+        VERTGUIDE, 100
+        VERTGUIDE, 234
+        VERTGUIDE, 246
+        VERTGUIDE, 332
+        VERTGUIDE, 342
         HORZGUIDE, 161
         HORZGUIDE, 308
-        HORZGUIDE, 327
+        HORZGUIDE, 331
     END
 
     IDD_DIALOG_HOMOPHONE, DIALOG
@@ -3266,6 +3301,16 @@ BEGIN
         HORZGUIDE, 266
         HORZGUIDE, 283
         HORZGUIDE, 304
+    END
+
+    IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        VERTGUIDE, 11
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+        HORZGUIDE, 170
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -46,26 +46,18 @@ static char THIS_FILE[] = __FILE__;
 hexdialog::hexdialog(int maxlen, CWnd* pParent /*=NULL*/)
 	: dia1( maxlen, pParent)
 {
-	char line[80];
     i_maxlen = min(MAX_ANZ_HEX_BLOECKE,maxlen);
 	len = i_maxlen*3;
 	//{{AFX_DATA_INIT(hexdialog)
 	m_einstr = _T(INIT_STRING);
-	m_static_text = _T("");
 	m_Decrypt = 0;
 	//}}AFX_DATA_INIT
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line,pc_str,len/3);
-	m_static_text = line;
-	s_alternativeWindowText[0] = 0;
 }
 
 int hexdialog::Display()
 {
 	int res;
-
 	res=DoModal();
-
 	return res;
 }
 
@@ -77,13 +69,14 @@ void hexdialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_einstr);
 	DDV_MaxChars(pDX, m_einstr, len);
 	DDX_Text(pDX, IDC_STATIC_TEXT, m_static_text);
-// 	DDX_Radio(pDX, IDC_RADIO1, m_Decrypt);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(hexdialog, CDialog)
 	//{{AFX_MSG_MAP(hexdialog)
+	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
+	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -98,22 +91,4 @@ char * hexdialog::GetData( void )
 int hexdialog::GetLen( void )
 {
 	return min(i_maxlen, m_einfeld.BinLen);
-}
-
-BOOL hexdialog::OnInitDialog() 
-{
-	CDialog::OnInitDialog();
-
-	// TODO: Zusätzliche Initialisierung hier einfügen	
-	if (s_alternativeWindowText[0])
-		SetWindowText(s_alternativeWindowText);
-	
-	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
-}
-
-void hexdialog::SetAlternativeWindowText(LPCTSTR s_title)
-{
-    strncpy(s_alternativeWindowText, s_title, 126);
-	s_alternativeWindowText[126]=0;
 }
