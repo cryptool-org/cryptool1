@@ -4,8 +4,12 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgPrimesGenerator.h"
-#include "zzgen.h"
+
+//#include "zzgen.h"
 #include "Primes_and_random_numbers.h"
+
+//#include "RSA_Berechnungen.h"
+
 #include <stdlib.h>
 
 #ifdef _DEBUG
@@ -76,6 +80,8 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten DlgPrimesGenerator 
 
+
+//=========================================================================================================
 void DlgPrimesGenerator::OnRadio4() 
 {
 	UpdateData(true);
@@ -105,6 +111,7 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+//==============================================================================================================
 void DlgPrimesGenerator::OnButtonGenerate() 
 
 // erzeugt zwei Zufalls-Primzahlen innerhalb der angegebenen Grenzen
@@ -117,15 +124,16 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	{
 		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty())&&(0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty()))
 		{
-			if((Get_Value(m_edit1)<=Get_Value(m_edit2))&&(Get_Value(m_edit3)<=Get_Value(m_edit4)))
+			if((RSAB.konvertiere_CString_Big(m_edit1)<=RSAB.konvertiere_CString_Big(m_edit2))&&(RSAB.konvertiere_CString_Big(m_edit3)<=RSAB.konvertiere_CString_Big(m_edit4)))
 			{
-				if((Get_Value(m_edit1)*Get_Value(m_edit3))<(c_MaxPrime_low))
-				{
+				//if((RSAB.konvertiere_CString_Big(m_edit1)*RSAB.konvertiere_CString_Big(m_edit3))<(c_MaxPrime_low))
+				//{
 					theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
-					long prime1=Get_Random_Value(m_edit1,m_edit2);
+					Big prime1=Get_Random_Value(m_edit1,m_edit2);
 					if(0!=prime1)
 					{
-						itoa(prime1,m_edit5.GetBuffer(20),10);						
+						//itoa(prime1,m_edit5.GetBuffer(20),10);						
+						m_edit5=RSAB.konvertiere_Big_CString(prime1);
 					}
 					else
 					{
@@ -134,10 +142,11 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						AfxMessageBox(line);
 					}
 
-					long prime2=Get_Random_Value(m_edit3,m_edit4);
+					Big prime2=Get_Random_Value(m_edit3,m_edit4);
 					if(0!=prime2)
 					{
-						itoa(prime2,m_edit6.GetBuffer(20),10);
+						//itoa(prime2,m_edit6.GetBuffer(20),10);
+						m_edit6=RSAB.konvertiere_Big_CString(prime2);
 					}
 					else
 					{
@@ -146,13 +155,16 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						AfxMessageBox(line);
 					}
 					theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
-				}
+				//}
+				
+				/*
 				else
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND_LOWERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 					sprintf(line,pc_str,c_MaxPrime_low);
 					AfxMessageBox(line);
 				}
+				*/
 			}
 			else
 			{
@@ -173,15 +185,16 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	{
 		if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
 		{
-			if(Get_Value(m_edit1)<=Get_Value(m_edit2))
+			if(RSAB.konvertiere_CString_Big(m_edit1)<=RSAB.konvertiere_CString_Big(m_edit2))
 			{
-				if((Get_Value(m_edit1)*Get_Value(m_edit1))<(c_MaxPrime_low))
-				{
+				//if((RSAB.konvertiere_CString_Big(m_edit1)*RSAB.konvertiere_CString_Big(m_edit1))<(c_MaxPrime_low))
+				//{
 					theApp.DoWaitCursor(0);
-					long prime1=Get_Random_Value(m_edit1,m_edit2);
+					Big prime1=Get_Random_Value(m_edit1,m_edit2);
 					if(0!=prime1)
 					{
-						itoa(prime1,m_edit5.GetBuffer(20),10);						
+						//itoa(prime1,m_edit5.GetBuffer(20),10);						
+						m_edit5=RSAB.konvertiere_Big_CString(prime1);
 					}
 					else
 					{
@@ -190,10 +203,11 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						AfxMessageBox(line);
 					}
 
-					long prime2=Get_Random_Value(m_edit1,m_edit2);
+					Big prime2=Get_Random_Value(m_edit1,m_edit2);
 					if(0!=prime2)
 					{
-						itoa(prime2,m_edit6.GetBuffer(20),10);
+						//itoa(prime2,m_edit6.GetBuffer(20),10);
+						m_edit6=RSAB.konvertiere_Big_CString(prime2);
 					}
 					else
 					{
@@ -202,13 +216,15 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						AfxMessageBox(line);
 					}
 					theApp.DoWaitCursor(-1);
-				}
+				//}
+				/*
 				else
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_LOWERBOUND,pc_str,STR_LAENGE_STRING_TABLE);
 					sprintf(line,pc_str,long(sqrt(c_MaxPrime_low)));
 					AfxMessageBox(line);
 				}
+				*/
 			}
 			else
 			{
@@ -233,29 +249,22 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	UpdateData(false);
 }
 
-void DlgPrimesGenerator::OnUpdateEdit1() 
-{
-	UpdateData(true);
-	int sels,sele;
-	m_control_edit1.GetSel(sels,sele);
-	CheckEdit_Input(m_edit1,sels,sele);
-	UpdateData(false);
-	m_control_edit1.SetSel(sels,sele);
-}
-
+//======================================================================================================
 double DlgPrimesGenerator::Get_Value(CString m_edit)
 
 // liefert den double-Wert eines CString unter Berücksichtigung des '^'-Zeichens zurück
 
 {
-	int exp_pos=m_edit.Find('^');
-	if((exp_pos<0)||('^'==m_edit[m_edit.GetLength()-1]))
-	{
-		return(double(atof(m_edit)));
-	}
-	return(pow(double(atof(m_edit.Left(exp_pos))),double(atof(m_edit.Right(m_edit.GetLength()-exp_pos-1)))));
+//	int exp_pos=m_edit.Find('^');
+//	if((exp_pos<0)||('^'==m_edit[m_edit.GetLength()-1]))
+//	{
+//		return(double(atof(m_edit)));
+//	}
+//	return(pow(double(atof(m_edit.Left(exp_pos))),double(atof(m_edit.Right(m_edit.GetLength()-exp_pos-1)))));
+	return 0;
 }
 
+//======================================================================================================
 void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sele)
 
 // sorgt dafür, daß keine syntaktisch falsche Eingabe in die Ober- und Untergrenze-Eingabefelder
@@ -263,7 +272,7 @@ void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sel
 // Formatierung
 
 {
-	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
+/*	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
 	{
 		m_edit=m_edit.Right(m_edit.GetLength()-1);
 		sels=sele=0;								
@@ -311,11 +320,11 @@ void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sel
 		}
 	}
 
-	if(Get_Value(m_edit)>LONG_MAX)
+	if(RSAB.konvertiere_CString_Big(m_edit)>LONG_MAX)
 	{
 		if(0==exp_counter)
 		{
-			while(Get_Value(m_edit)>LONG_MAX)
+			while(RSAB.konvertiere_CString_Big(m_edit)>LONG_MAX)
 			{
 				m_edit=m_edit.Left(m_edit.GetLength()-1);
 			}
@@ -326,6 +335,19 @@ void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sel
 			sels=sele=20;
 		}
 	}
+*/
+}
+
+//=======================================================================================
+
+void DlgPrimesGenerator::OnUpdateEdit1() 
+{
+	UpdateData(true);
+	int sels,sele;
+	m_control_edit1.GetSel(sels,sele);
+	CheckEdit_Input(m_edit1,sels,sele);
+	UpdateData(false);
+	m_control_edit1.SetSel(sels,sele);
 }
 
 void DlgPrimesGenerator::OnUpdateEdit2() 
@@ -358,6 +380,7 @@ void DlgPrimesGenerator::OnUpdateEdit4()
 	m_control_edit4.SetSel(sels,sele);
 }
 
+//==============================================================================================
 long DlgPrimesGenerator::Get_Prime1()
 
 // diese und die nächste Funktion können aus anderen Klassen aufgerufen werden, um sich dorthin
@@ -372,6 +395,7 @@ long DlgPrimesGenerator::Get_Prime2()
 	return(atol(m_edit6));
 }
 
+//===============================================================================================
 void DlgPrimesGenerator::OnCancel() 
 
 // wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
@@ -390,31 +414,38 @@ void DlgPrimesGenerator::OnButtonAccept()
 
 {
 	UpdateData(true);
-	double product=(Get_Value(m_edit5)*Get_Value(m_edit6));
-	if(product<c_MaxPrime_high)
-	{
+	//double product=(Get_Value(m_edit5)*Get_Value(m_edit6));
+	//if(product<c_MaxPrime_high)
+	//{
 		CDialog::OnCancel();
-	}
+	//}
+	/*
 	else
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_RSA_MODUL_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str,c_MaxPrime_high);
 		AfxMessageBox(line);
 	}
+	*/
 	UpdateData(false);
 }
 
-long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_limit)
+//================================================================================================
+Big DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_limit)
 
 // ruft den Algorithmus zur Erzeugung einer Zufallszahl und danach den Test-Algorithmus auf, den
 // der Anwender benutzen möchte
 
 {
-	long lower=long(Get_Value(lower_limit)),upper=long(Get_Value(upper_limit));
-	long range=upper-lower,rand_val;
+	Big lower = RSAB.konvertiere_CString_Big(lower_limit);
+	Big upper = RSAB.konvertiere_CString_Big(upper_limit);
+	Big range=upper-lower;
+	Big rand_val;
 	int i,loop_counter;
 
-	for(i=1;i<=500;i++)			
+	//irand(123456789); // Einstellbar!
+
+	for(i=1;i<=500;i++)			 // 
 	{
 		loop_counter=0;
 		do 
@@ -424,7 +455,10 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 				return(0);
 			}
 			loop_counter++;
-			rand_val=Parn.Random_with_limits(lower,upper);
+			//rand_val=RSAB.Random_with_limits(lower,upper);
+
+			rand_val=rand(upper-lower+1)+lower-1;
+			
 			if((2==rand_val)||(3==rand_val))		// die Primzahlen 2 und 3 werden hier schon
 			{										// abgefangen, da manche Algorithmen bei diesen
 				return(rand_val);					// (kleinen) Zahlen Abstürze verursachen
@@ -433,17 +467,17 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 		while((0==(rand_val%2))||(1==rand_val));	// sucht solange eine Zufallszahl, bis diese
 													// ungleich 1 und nicht teilbar durch 2 ist
 		
-		if((0==m_radio1)&&(true==Parn.Prime_test_Miller_Rabin(rand_val,100)))
+		if((0==m_radio1)&&(true==RSAB.Prime_test_Miller_Rabin(rand_val,100)))
 		{
 			return(rand_val);						// Aufruf von Miller-Rabin-Test
 		}
 
-		if((1==m_radio1)&&(true==Parn.Prime_test_Solovay_Strassen(rand_val,100)))
+		if((1==m_radio1)&&(true==RSAB.Prime_test_Solovay_Strassen(rand_val,100)))
 		{
 			return(rand_val);						// Aufruf von Solovay-Strassen-Test		
 		}
 
-		if((2==m_radio1)&&(true==Parn.Prime_test_Fermat(rand_val,100)))
+		if((2==m_radio1)&&(true==RSAB.Prime_test_Fermat(rand_val,100)))
 		{
 			return(rand_val);						// Aufruf von Fermat-Test
 		}

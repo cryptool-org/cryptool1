@@ -2,6 +2,8 @@
 #define AFX_DLGPRIMESGENERATOR_H__0F161EA1_E56B_11D4_80D9_000629C93170__INCLUDED_
 
 #include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
+//#include "RSA_Berechnungen.h"
+#include "monty.h"
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -22,7 +24,7 @@ class DlgPrimesGenerator : public CDialog
 	
 	// Konstruktion
 public:
-	long Get_Random_Value(CString,CString);
+	Big Get_Random_Value(CString,CString);
 	long Get_Prime2();
 	long Get_Prime1();
 	char line[256];
@@ -74,7 +76,9 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	Primes_and_random_numbers Parn;
+	Primes_and_random_numbers RSAB;
+	//RSA_Berechnungen RSAB;
+
 	void CheckEdit_Input(CString &, int &, int &);
 };
 

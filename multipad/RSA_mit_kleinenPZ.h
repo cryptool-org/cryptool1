@@ -6,7 +6,7 @@
 //#include "..\LIBMIRACL\INCLUDE\BIG.H"	// Hinzugefügt von der Klassenansicht
 #include "RSA_Berechnungen.h"	// Hinzugefügt von der Klassenansicht
 #include "DlgPrimesGenerator.h"	// Hinzugefügt von der Klassenansicht
-#include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
+//#include "Primes_and_random_numbers.h"	// Hinzugefügt von der Klassenansicht
 #include "DlgRSAwithSmallPrimesOptions.h"
 
 #if _MSC_VER > 1000

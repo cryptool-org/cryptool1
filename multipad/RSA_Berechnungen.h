@@ -38,14 +38,16 @@
 
 class RSA_Berechnungen  
 {
-	Miracl precision3;
+	Miracl g_precision;
 public:
 	CString konvertiere_Big_CString (Big Eingabe);
 	Big konvertiere_CString_Big (CString Eingabe);
-	miracl *mip3;
 	Big t;
-	char *s;
+	miracl *mip3;
+//	Big ausgabe;
+// 	char *str;
 	bool eval ();
+	void eval_product(Big &oldn, Big &n, char op);
 	void eval_sum (Big &oldn, Big &n, char op);
 	void eval_power (Big &oldn, Big &n, char op);
 	void encrypt_block(Big *Block, long blocklaenge,long anzahl_buchstaben, Big ausgabe,Big n, Big e);
@@ -61,6 +63,11 @@ public:
 	//CString GetCString (long, CString);
 	//long GetLong(CString);
 	//long oeff_param_pq(CString, CString);
+	bool Prime_test_Fermat(Big n, long t);
+	Big jacobi(Big a, Big n);
+	Big Random_with_limits(Big lower, Big upper);
+	bool Prime_test_Miller_Rabin(Big n, long t);
+	bool Prime_test_Solovay_Strassen(Big n, long t);
 	RSA_Berechnungen();
 	virtual ~RSA_Berechnungen();
 private:

@@ -43,7 +43,7 @@ public:
 	Big x_par;
 	Big b_par;
 	Big a_par;
-	char* s;
+//	char* s;
 	char line[256];
 	int GetInitPrime (CString Input, int saat);
 

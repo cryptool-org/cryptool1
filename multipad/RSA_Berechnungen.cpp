@@ -12,13 +12,23 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+// WICHTIG: Die Miracl Variable ist nur für den Speicherbereich
+// von RSA_Berechnungen.obj definiert.
+
+//Miracl	g_precision=25;
+//Big		t;
+Big		ausgabe;
+//miracl *mip3=&g_precision;
+
+
+
 //////////////////////////////////////////////////////////////////////
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-RSA_Berechnungen::RSA_Berechnungen() : precision3(25)
+RSA_Berechnungen::RSA_Berechnungen(): g_precision(25)
 {
-	s=new char[100];
+	mip3=&g_precision;
 }
 
 RSA_Berechnungen::~RSA_Berechnungen()
@@ -73,12 +83,24 @@ Big RSA_Berechnungen::extended_euclidian_algorithm(Big n, Big e)
 
 Big RSA_Berechnungen::square_und_multiply(Big x, Big b, Big n)
 {//BERECHNET X^B MOD N
+	
+	
+	ZZn X,Y;
+	modulo(n);
+	X= (ZZn) x;
+	Y =pow(X,b);
+	Big ausgabe;
+	ausgabe= (Big) Y;
+	return ausgabe;
+
+ 
+	/*
 	long i;
 	Big z=1;
 	Big *b_i;
 	
-	//b_i=(Big *) calloc(1700,sizeof(Big)); 
-	b_i = new Big[1700];	
+	//b_i=(Big *) calloc(256,sizeof(Big)); 
+	b_i = new Big[256];	
 	//In b_i[0] sollte die Länge des Vektors gespeichert werden. 
 
 	long temp=Bitlaenge(b,b_i);
@@ -92,9 +114,11 @@ Big RSA_Berechnungen::square_und_multiply(Big x, Big b, Big n)
 		}
 	}
 	//b_i[0]=temp-1;
+	delete [] b_i;
 	return z;
-
+	*/
 }
+// Eigentlich könnte man auch die Funktion Bitlaenge löschen: sollte nur achten, daß dies nicht mehr verwendet wird!!!!
 
 long RSA_Berechnungen::Bitlaenge(Big x,Big *bi)
 {
@@ -133,7 +157,7 @@ Big RSA_Berechnungen::random_with_limits(Big upper)
 	Big ausgabe;
 	ausgabe=1;
 	// erzeugt eine Zufallszahl rand_val, wobei gilt: 1< rand_val < upper
-	irand(123456789); // Einstellbar!
+	//irand(123456789); // Einstellbar!
 	ausgabe=rand(upper);
 	return ausgabe;
 
@@ -297,8 +321,9 @@ void RSA_Berechnungen::encrypt_block(Big *Block, long blocklaenge,long anzahl_bu
 
 
 
+static char *s; //Roger 11.06.01
 
-void eval_product(Big &oldn, Big &n, char op)
+void RSA_Berechnungen::eval_product(Big &oldn, Big &n, char op)
 {
 	switch (op)
         {
@@ -333,7 +358,10 @@ void RSA_Berechnungen::eval_sum(Big &oldn, Big &n, char op)
 
 bool RSA_Berechnungen::eval()
 {
-	mip3=&precision3;
+//	char *s = str;  // Roger 11.06.01
+
+//	miracl *mip3=&g_precision;
+//	miracl *mip3=&precision3; // Roger 11.06.01
 	Big oldn[3];
         Big n;
         int i;
@@ -383,9 +411,9 @@ LOOP:
 			*s=op;
 		}
         if (minus) n=-n;
-			char z[100];
-			mip3->IOBASE=10;
-			z << n;
+		//	char z[100];
+		//	mip3->IOBASE=10;
+		//	z << n;
         do
 			op=*s++;
 			while (op==' ');
@@ -395,9 +423,9 @@ LOOP:
 			eval_product (oldn[1],n,oldop[1]);
 			eval_sum (oldn[0],n,oldop[0]);
 			t=n;
-			char z[100];
-			mip3->IOBASE=10;
-			z << t;
+//			char z[100];
+//			mip3->IOBASE=10;
+//			z << t;   Roger 11.06.01
 			return(true);
 			}
         else
@@ -441,25 +469,30 @@ LOOP:
 						}
 			}
 		}
+
 	goto LOOP;
+
+
 }
 
 Big RSA_Berechnungen::konvertiere_CString_Big(CString Eingabe)
 {
 
-//	mip3=&precision3;
-	Big ausgabe;
-	s=Eingabe.GetBuffer(500);
+//	miracl *mip3=&precision3;
+//	miracl *mip3=&g_precision;
+	char *str =Eingabe.GetBuffer(100);
+	s = &str[0];
+	//char *strTmp=Eingabe.GetBuffer(250); //Roger 11.06.01
+	//strcpy( str, strTmp );               //Roger 11.06.01
 
-	//t=0;
-	//eval();
-	//if (false==eval()) 
-	//	return -1;
-	ausgabe=t;
-	//mip3->IOBASE=10
-	ausgabe=s;
-   
+	t=0;
+	
+	if (false==eval()) 
+		return -1;//
+	ausgabe=t;//
+	
 	return ausgabe;
+	
 }
 
 CString RSA_Berechnungen::konvertiere_Big_CString(Big Eingabe)
@@ -474,6 +507,195 @@ CString RSA_Berechnungen::konvertiere_Big_CString(Big Eingabe)
 	return ausgabe;
 }
 
+////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////
+
+//================================================================================================
+bool RSA_Berechnungen::Prime_test_Solovay_Strassen(Big n, long t)
+
+		// Solovay-Strassen-Test, gibt true zurück, wenn n Primzahl ist
+{
+	Big a;
+	Big r;
+	Big s;
+	for(int i=1;i<=t;i++)
+	{
+		a=Random_with_limits(2,n-2);
+		r=square_und_multiply(a,(n-1)/2,n);
+		if((1!=r)&&((n-1)!=r))
+		{
+			return(false);
+		}
+		s=jacobi(a,n);
+		if(s<0)
+		{
+			s=n-1;				// Achtung für negative Zahlen ist der Operator "%" kein Modulo !
+		}						
+		if((s%n)!=r)
+		{
+			return(false);
+		}
+	}
+	return(true);
+}
+
+//==================================================================================================
+bool RSA_Berechnungen::Prime_test_Miller_Rabin(Big n, long t)		
+
+		// Miller-Rabin-Test, gibt true zurück, wenn n Primzahl ist
+{
+	long i;
+	long j;
+	Big a;
+	Big b;
+	if(2==n)
+	{
+		return true;
+	}
+	long v=0;
+	Big w=n-1;
+	while(0==w%2)
+	{
+		v++;
+		w/=2;
+	}
+	for(j=1;j<=t;)
+	{
+		a=Random_with_limits(1,n-1);
+		b=square_und_multiply(a,w,n);
+		if((1==b)||((n-1)==b))
+		{
+			goto nextj;
+		}
+		for(i=1;i<=v-1;)
+		{
+			b=square_und_multiply(b,2,n);
+			if((n-1)==b)
+			{
+				goto nextj;
+			}
+			if(1==b)
+			{
+				return false;
+			}
+			i++;
+		}
+		return false;
+nextj: j++;
+	}
+	return true;
+}
+
+//===============================================================================================
+Big RSA_Berechnungen::Random_with_limits(Big lower, Big upper)
+	
+		// erzeugt eine Zufallszahl rand_val, wobei gilt: lower < rand_val < upper
+{
+	Big ausgabe;
+	ausgabe=1;
+	// erzeugt eine Zufallszahl rand_val, wobei gilt: lower < rand_val < upper
+	//irand(123456789); // Einstellbar!
+	ausgabe=rand(upper-lower+1)+lower-1;
+	return ausgabe;
+
+}
+
+
+//================================================================================================
+Big RSA_Berechnungen::jacobi(Big a, Big n)
+
+// jacobi.cpp : Definiert den Einsprungpunkt für die Konsolenanwendung.
+// ========================================================
+// Henrik Koy Januar 2000
+//
+//               / a \
+// Jacobisymbol | --- | berechnen
+//               \ n /
+//
+// INPUT:  n >= 0 ungerade, a ganzzahlig
+//
+// OUTPUT: Jacobisymbol "a über n"
+//         Aussage über die nicht Lösbarkeit der Kongruenz
+//
+//         x^2 = a mod n
+//
+//         (nicht Lösbar, falls jacobi(a,n) = -1)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Quelle: Johannes Blömer, Skript zur Vorlesung
+//         Algorithmen in der Zahlentheorie (WS 1997/98)
+//         Seite 27-33.
+//
+//         Siehe www.mi.informatik.uni-frankfurt.de
+//         Link über "Vorlesungen"
+// ---------------------------------------------------------
+{
+   // FEHLER SITUATIONEN
+   if((n<0)||(0==n%2))
+   {  // hier kann evtl. eine Fehlerbehandlung implementiert
+      // Werden: Das Jacobisymbol ist für diese Eingaben nicht
+      // definiert !
+      return(0);
+   }
+   Big t=1;
+   if(a<0)
+   {
+      if(1==((n-1)/2)%2) 
+	  {
+		  t=-1;
+	  }
+	  a=-a;
+   }
+   while(0!=a)
+   {
+      while(0==(a%2))
+      {
+          //  jacobi(2,n) heraus Multiplizieren!
+          //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          //  jacobi(2,n) = -1 <==> n == {3,5} mod 8
+          //  (Siehe Satz 5.5 im Blömer Skript
+          a>>=1;
+          if((3==n%8)||(5==n%8))
+		  {
+             t=-t;
+		  }
+      }
+      // jetzt sind a und n ungerade! Es gilt
+      // jacobi(a,n) == jacobi(n,a) ausser
+      // n == 3 mod 4 und a == 3 mod 4 (Satz 5.5 Skript)
+      if((3==n%4)&&(3==a%4))
+	  {
+         t=-t;
+	  }
+      Big b=a;
+	  a=n%b;
+	  n=b; // ggt - Schritt
+   }
+   if(1==n)
+   {
+	   return(t);
+   }
+   return 0;
+}
+
+//===================================================================================================
+bool RSA_Berechnungen::Prime_test_Fermat(Big n, long t)
+
+		// Fermat-Test, gibt true zurück, wenn n Primzahl ist
+{
+	Big a;
+	Big r;
+	for(int i=1;i<=t;i++)
+	{
+		a=Random_with_limits(2,n-2);
+		r=square_und_multiply(a,n-1,n);
+		if(1!=r)
+		{
+			return(false);
+		}
+	}
+	return(true);
+}
 
 
 

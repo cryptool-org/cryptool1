@@ -132,31 +132,31 @@ void GenEcKurve::OnButtonGen()
 		m_listview.InsertItem(8,"D");
 
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.a_par;
 		m_listview.SetItemText(1,1,string);
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.b_par;
 		m_listview.SetItemText(2,1,string);
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.p_par;
 		m_listview.SetItemText(3,1,string);
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.x_par;
 		m_listview.SetItemText(4,1,string);
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.y_par;
 		m_listview.SetItemText(5,1,string);
 		
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.k_par;
 		m_listview.SetItemText(6,1,string);
 
-		BEK.mip->IOBASE=10;
+//		BEK.mip->IOBASE=10;
 		string << BEK.r_par;
 		m_listview.SetItemText(7,1,string);
 

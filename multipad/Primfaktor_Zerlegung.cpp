@@ -17,10 +17,14 @@ static char THIS_FILE[]=__FILE__;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
+//Miracl precision2=50;
+//miracl *mip2=&precision2;
 
-Primfaktor_Zerlegung::Primfaktor_Zerlegung() : precision2(50)
+
+Primfaktor_Zerlegung::Primfaktor_Zerlegung(): precision2(25)
 {
-	s=new char[100];
+	mip2=&precision2;
+//	s=new char[100];
 }
 
 Primfaktor_Zerlegung::~Primfaktor_Zerlegung()
@@ -34,6 +38,7 @@ Primfaktor_Zerlegung::~Primfaktor_Zerlegung()
 
 void Primfaktor_Zerlegung::marks(long start)
 {
+	
 	// mark non-primes in this interval. Note    
     // that those < NEXT are dealt with already  
     int i,pr,j,k;
@@ -163,6 +168,9 @@ int Primfaktor_Zerlegung::giant_step()
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+
+static char *s;
 
 void Primfaktor_Zerlegung::eval_power(Big& oldn,Big& n,char op)
 {
@@ -323,7 +331,7 @@ int Primfaktor_Zerlegung::lenstra_fakt(CString Eingabe)
     long i,pa;
     Big n,t;
     ZZn tt,u,v;
-    mip2=&precision2;
+
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2) 
         if (igcd(MULT,m)==1) cp[m]=TRUE;
@@ -334,7 +342,11 @@ int Primfaktor_Zerlegung::lenstra_fakt(CString Eingabe)
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -503,14 +515,18 @@ int Primfaktor_Zerlegung::brent(CString Eingabe)
     long k,r,i,m,iter;
     Big n,z;
     ZZn x,y,q,ys;
-	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
+//	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
 
 //    cout << "input number to be factored\n";
 //    cin >> n;
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -624,14 +640,18 @@ int Primfaktor_Zerlegung::brute(CString Eingabe)
 	int index, co_index;
 	int n,p;
     Big x;
-	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
+//	mip2=&precision2; //wird zwar nicht benutzt, aber scheinbar hat Zusammenhang mit Absturz!
     
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -721,7 +741,7 @@ int Primfaktor_Zerlegung::Pollard(CString Eingabe)
     int phase,m,pos,btch;
     long i,pa;
     Big n,t;
-    mip2=&precision2;
+//    mip2=&precision2;
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
@@ -730,7 +750,11 @@ int Primfaktor_Zerlegung::Pollard(CString Eingabe)
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -984,7 +1008,7 @@ int Primfaktor_Zerlegung::Williams(CString Eingabe)
     int k,phase,m,nt,pos,btch;
     long i,pa;
     Big n,t;
-    mip2=&precision2;
+//  mip2=&precision2;
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
@@ -993,7 +1017,11 @@ int Primfaktor_Zerlegung::Williams(CString Eingabe)
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -1135,12 +1163,17 @@ int Primfaktor_Zerlegung::QSieve(CString Eingabe)
     unsigned char logpi;
     int S,r,s1,s2,NS,logm,ptr,threshold,epri;
     long M,la,lptr;
-    mip2=&precision2;
+	
+//  mip2=&precision2;
 
 	index=0;
 	co_index=0;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);
+
+//	s=Eingabe.GetBuffer(100);
+
+	s=&str[0];
 
 	temp=0;
 
@@ -1415,7 +1448,7 @@ int Primfaktor_Zerlegung::knuth(int mmm, int *epr, Big& N, Big& D)
         j=1;
         while (j<mmm)
         { /* select small primes */
-            p=mip2->PRIMES[++i];
+			p=mip2->PRIMES[++i];
             rem=D%p;
             if (spmd(rem,(p-1)/2,p)<=1) /* x = spmd(a,b,c) = a^b mod c */
             { /* use only if Jacobi symbol = 0 or 1 */

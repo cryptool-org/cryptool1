@@ -14,21 +14,31 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+
+
 //////////////////////////////////////////////////////////////////////
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-Ber_Ell_Kurve::Ber_Ell_Kurve() : precision(25)
+//Miracl precision=25;
+//miracl *mip=&precision;
+static char *s; //Roger 11.06.01
+
+
+Ber_Ell_Kurve::Ber_Ell_Kurve(): precision(25)
 {
-	s=new char[100];
+	mip=&precision;
+//	s=new char[100]; 
 }
 
 Ber_Ell_Kurve::~Ber_Ell_Kurve()
 {
-
+//	delete []s;
 }
 
 // F(z) Function A.13.3
+
+
 
 Complex Ber_Ell_Kurve::Fz(Complex z)
 {
@@ -312,9 +322,10 @@ bool Ber_Ell_Kurve::isacm(Big p,int D,Big &W,Big &V)
 // Constructing a Curve and Point
 // A.14.4
 
-
+// miracl *mip=&precision;
 bool Ber_Ell_Kurve::get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big W, int saat)
 {
+//	miracl *mip=&precision;
 	Poly polly;
 	Big A0,B0,k;
     BOOL unstable;
@@ -561,6 +572,8 @@ bool Ber_Ell_Kurve::get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big
 	return TRUE;
 }
 
+
+
 void Ber_Ell_Kurve::eval_power(Big& oldn,Big& n,char op)
 {
 	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
@@ -598,6 +611,8 @@ void Ber_Ell_Kurve::eval_product(Big &oldn, Big &n, char op)
 bool Ber_Ell_Kurve::eval()
 
 {
+	
+	//miracl *mip=&precision;
 	Big oldn[3];
         Big n;
         int i;
@@ -718,7 +733,7 @@ int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
     Big p,rmin;
     BOOL good,dir;
     int i,ip,k,K,D;
-    mip=&precision;
+//    mip=&precision;
 
     irand(0L);
 //    Program finds Elliptic Curve mod a prime P and point of prime order
@@ -737,7 +752,11 @@ int Ber_Ell_Kurve::GetInitPrime(CString Eingabe, int saat)
     fout=FALSE;
 	dir=FALSE;
 
-	s=Eingabe.GetBuffer(100);
+	char *str=Eingabe.GetBuffer(100);//neu
+
+	//s=Eingabe.GetBuffer(100);//alte
+
+	s=&str[0];//neu
 
 	t=0;
 

@@ -91,7 +91,7 @@ public:// Für QSieve notwendige Variablen
 	unsigned int **G;
 	unsigned int **EE;
 	bool partial;
-	
+
 	// Ende QSieve relevante Variablen
 
 	void new_poly(); //QSieve
