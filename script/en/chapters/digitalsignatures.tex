@@ -256,7 +256,7 @@ particular person, many protocols are no longer secure, even if the individual
 cryptographic modules cannot be broken.
 
 % --------------------------------------------------------------------------
-\subsubsection{Impersonation attacks}
+\subsubsection{Impersonation attacks}\label{Impersonalisierungsattacke}
 \index{Impersonation attack}
 Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
 the secret key and PK the public key. Further assume that he manages to palm off
@@ -290,13 +290,14 @@ certification method is the X.509 standard.
 
 % --------------------------------------------------------------------------
 \subsubsection{X.509}
-All participants who want to \index{X.509} have a X.509 certificate verifying that their public
-key belongs to a real person consult what is known as a
-\index{Certification authority (CA)} certification authority (CA). They prove their identity to this
-CA (for example by showing their ID). The CA then issues them an electronic
-document (certificate) which essentially contains the names of the certificate-holder
-and the CA, the certificate-holder's public key and the validity period
-of the certificate. The CA then signs the certificate using its secret key.
+All participants who want to \index{X.509} have a X.509 certificate
+\cite{X.509} verifying that their public key belongs to a real person consult
+what is known as a \index{Certification authority (CA)} certification authority
+(CA). They prove their identity to this CA (for example by showing their ID).
+The CA then issues them an electronic document (certificate) which essentially
+contains the names of the certificate-holder and the CA, the
+certificate-holder's public key and the validity period of the certificate. The
+CA then signs the certificate using its secret key.
 
 
 Anyone can now use the CA's public key to verify whether a certificate is
@@ -343,6 +344,10 @@ the root entity, can also be secured by means of making them available publicly.
     Digital Signature Standard (DSS), January 27, 2000.\\
     Change Note: October 5, 2001.\\
     http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
+\bibitem[X.509]{X.509}
+    \index{X.509}
+    ITU-T Recommendation X.509 (1997 E): Information Technology -- 
+    Open Systems Interconnection -- The Directory: Authentication Framework, June 1997.
 
 \end{thebibliography}
 

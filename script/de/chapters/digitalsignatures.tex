@@ -312,13 +312,16 @@ garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.
 % --------------------------------------------------------------------------
 \subsubsection{X.509}
 
-Jeder Teilnehmer, der sich per \index{X.509} X.509-Zertifikat die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner
-realen Person best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification Authority (CA)} Certification Authority (CA). Dieser
-beweist er seine Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt die CA ihm ein
-elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen die Namen des Zertifikatnehmers und
-der CA, der "offentliche Schl"ussel des Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt
-sind. Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen Schl"ussel.
-
+Jeder Teilnehmer, der sich per \index{X.509} X.509-Zertifikat \cite{X.509} die
+Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner realen Person
+best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification
+Authority (CA)} Certification Authority (CA). Dieser beweist er seine
+Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt
+die CA ihm ein elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen
+die Namen des Zertifikatnehmers und der CA, der "offentliche Schl"ussel des
+Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt sind.
+Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen
+Schl"ussel.
 
 Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob das Zertifikat unverf"alscht ist. Die
 CA garantiert also die Zugeh"origkeit von Benutzer und "offentlichem Schl"ussel.
@@ -364,6 +367,11 @@ gesichert "ubermittelt werden.
     Digital Signature Standard (DSS), January 27, 2000.\\
     Change Note: October 5, 2001.\\
     http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
+\bibitem[X.509]{X.509}
+    \index{X.509}
+    ITU-T Recommendation X.509 (1997 E): Information Technology -- 
+    Open Systems Interconnection -- The Directory: Authentication Framework, June 1997.
+
 
 \end{thebibliography}
                                                           
