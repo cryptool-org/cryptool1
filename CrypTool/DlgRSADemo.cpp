@@ -429,6 +429,8 @@ int CDlgRSADemo::CheckRSAParameter()
 		SetStatusPrimeQValid(FALSE);
 		SetStatusOptionsValid(FALSE);
 
+	
+
 		ret = RSA->InitParameter( m_edit_p, m_edit_q );
 		if ( ret == 0 )
 		{	
@@ -477,7 +479,7 @@ int CDlgRSADemo::CheckRSAParameter()
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 BOOL CDlgRSADemo::CheckIntegerInput( CString &NumStr, CEdit &EditCtrl )
-{
+{	
 	CString UpnFormula;
 	int error, err_ndx;
 	error = CheckFormula(NumStr, 10, UpnFormula, err_ndx);
@@ -535,23 +537,27 @@ void CDlgRSADemo::InitPrivateRSAParameter()
 	if ( 0 != RSAInitError && !g_pre_dialogue ) 
 	{
 		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
-		if ( ERR_P_TO_BIG == RSAInitError )
+		if ( ERR_P_TO_BIG & RSAInitError )
 		{
 			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_BIG_NUMBER, TRUE );
 		}
-		else if ( ERR_Q_TO_BIG == RSAInitError )
+		else if ( ERR_Q_TO_BIG & RSAInitError )
 		{
 			MessageIntegerRSAError( m_control_edit_q, IDS_STRING_BIG_NUMBER, TRUE );
 		}
-		else if ( ERR_P_NOT_PRIME == RSAInitError )
+		else if ( RSAInitError & NO_PRIMES_AT_ALL )
+		{
+			MessageIntegerRSAError( m_control_edit_p, IDS_RSA_DEMO_ERR_PQ_NOT_PRIME, TRUE );
+		}
+		else if ( ERR_P_NOT_PRIME & RSAInitError )
 		{
 			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_RSADEMO_P_NOT_PRIME, FALSE );
 		}
-		else if ( ERR_Q_NOT_PRIME == RSAInitError )
+		else if ( ERR_Q_NOT_PRIME & RSAInitError )
 		{
 			MessageIntegerRSAError( m_control_edit_q, IDS_STRING_RSADEMO_Q_NOT_PRIME, FALSE );
 		}
-		else if ( ERR_P_EQUALS_Q == RSAInitError )
+		else if ( ERR_P_EQUALS_Q & RSAInitError )
 		{
 			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_ERR_PRIME_ARE_EQUAL, FALSE );
 		}

@@ -53,21 +53,23 @@ extern volatile long ExitFactorisationCode;
 
 
 /* Mark Santiago --- Signatur-Demo */
-#define ERR_P_NOT_PRIME 1
-#define ERR_Q_NOT_PRIME 2
-#define ERR_E_TO_BIG 3
-#define ERR_P_EQUALS_Q  4
-#define ERR_P_TO_BIG 5
-#define ERR_Q_TO_BIG 6
+/* modifiziert am 31.07.2002, Florian Marchal */
+#define ERR_P_NOT_PRIME			1
+#define ERR_Q_NOT_PRIME			2
+#define ERR_E_TO_BIG			4
+#define ERR_P_EQUALS_Q			8
+#define ERR_P_TO_BIG			16
+#define ERR_Q_TO_BIG			32
 
-#define ERR_MAX_BIT_LENGTH 8
-#define ERR_P_LESS_THAN_TWO 16
-#define ERR_Q_LESS_THAN_TWO 32
-#define ERR_PQ_NOT_PRIME 3
+#define ERR_MAX_BIT_LENGTH		64
+#define ERR_P_LESS_THAN_TWO		128
+#define ERR_Q_LESS_THAN_TWO		256
+#define ERR_PQ_NOT_PRIME		512
 
-#define ERR_ON_MODUL_N 64
-#define ERR_ON_PUBLIC_KEY 65
-#define ERR_ON_INITIALIZE_E 66
+#define ERR_ON_MODUL_N			1024
+#define ERR_ON_PUBLIC_KEY		2048
+#define ERR_ON_INITIALIZE_E		4096
+#define NO_PRIMES_AT_ALL		8192
 
 /***********************************/
 
@@ -152,12 +154,6 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////////////////
-#define ERR_P_NOT_PRIME 1
-#define ERR_Q_NOT_PRIME 2
-#define ERR_E_TO_BIG 3
-#define ERR_P_EQUALS_Q  4
-#define ERR_P_TO_BIG 5
-#define ERR_Q_TO_BIG 6
 
 class CRSADemo  
 {

@@ -141,7 +141,7 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 	int		iBitLength = m_Cert->GetBitLength();
 	if(iBitLength) m_sBitLength.Format(IDS_BIT, iBitLength);
 		else m_sBitLength.Empty();
-	
+
 	if( bIsEmpty )
 	{
 		m_CheckPrimeCtrl.ShowWindow( SW_HIDE );
@@ -160,8 +160,9 @@ void CDlgDemoRSAKeyGeneration::OnUpdateParameter()
 			m_KeyPublicCtrl.EnableWindow( FALSE ); 
 			m_sKeyPrivate.Empty();	
 			m_sPhiN.Empty();		
-			m_sModN.Empty();		
+			m_sModN.Empty();	
 			if ( ePrime & ERR_P_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_P );
+			else if ( ePrime & NO_PRIMES_AT_ALL ) m_sCheckPrime.LoadString( IDS_RSA_DEMO_ERR_PQ_NOT_PRIME );
 			else if ( ePrime & ERR_Q_LESS_THAN_TWO ) m_sCheckPrime.LoadString( IDS_PRIME_LESS_THAN_TWO_Q );
 			else if ( (ePrime & ERR_PQ_NOT_PRIME) == ERR_PQ_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_PQ );
 			else if ( ePrime & ERR_P_NOT_PRIME ) m_sCheckPrime.LoadString( IDS_PRIME_NO_CHECK_P );
