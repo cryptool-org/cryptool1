@@ -114,10 +114,21 @@ char * CDlgKeyHexAnalysis::GetData( void )
 	return m_einfeld.BinData;
 }
 
+
 int CDlgKeyHexAnalysis::GetLen( void )
 {
 	return m_einfeld.BinLen;
 } 
+
+int CDlgKeyHexAnalysis::GetHexData(LPTSTR v, int len) {
+	// copy m_einstr, removing non-hex chars
+	int i,j;
+	for (i = j = 0; i < m_einstr.GetLength() && j < len - 1; i++)
+		if (isxdigit(m_einstr[i]))
+			v[j++] = m_einstr[i];
+	v[j] = '\0';
+	return j; 
+}
 
 BOOL CDlgKeyHexAnalysis::OnInitDialog() 
 {

@@ -118,9 +118,6 @@ BOOL CDlgSignatureDemo::OnInitDialog()
 	m_ButtonCancel.AutoLoad(IDCANCEL, this);
 	m_ButtonOK.AutoLoad(IDOK, this);
 
-
-	EnableButtons(); // Bitmap-Butttons ein/ausblenden
-
 	if(!m_sPathName.IsEmpty()) // Dokument anzeigen
 	{	
 		OnInfoDocument(); 
@@ -130,7 +127,7 @@ BOOL CDlgSignatureDemo::OnInitDialog()
 	else
 		button1 = 0;
 	button2 = button3 = button4;
-	
+	EnableButtons(); // Bitmap-Butttons ein/ausblenden	
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -227,6 +224,7 @@ void CDlgSignatureDemo::OnSelectKey()
 		m_bUpdateSgn = TRUE;
 		m_bUpdateCrt = TRUE;
 		button3 = -1;
+		button4 = -1;
 		EnableButtons();
 		//OnInfoKey();
 		m_ButtonInfoKey.SetFocus();	
@@ -597,7 +595,7 @@ void CDlgSignatureDemo::OnSelectCert()
 		{
 			m_bUpdateCrt=FALSE;
 		}
-		button4 = -1;
+		button4 = button3 = -1;
 		EnableButtons();
 		//OnInfoCert();
 		m_ButtonInfoCert.SetFocus();	

@@ -21,6 +21,7 @@ public:
 
 	virtual char * GetData( void );
 	virtual int GetLen( void );
+	virtual int GetHexData(LPTSTR v, int len); // copy m_einstr, removing non-hex chars
 	virtual int Display(char *, int);
 	virtual int Display(CString);
 	int len;

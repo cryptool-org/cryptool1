@@ -429,9 +429,11 @@ UINT AESBrute(PVOID p)
 		FreePar(par);
 		return 0;
 	}
-
+	
 	if(par->flags & CRYPT_DO_PROGRESS)
 		theApp.fs.cancel();
+
+	dia.GetHexData(kfound,sizeof(kfound));
 
 	fi = fopen(par->infile,"rb");
 	fseek(fi,0,SEEK_END);
