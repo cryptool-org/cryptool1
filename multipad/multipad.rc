@@ -1372,6 +1372,48 @@ BEGIN
     LTEXT           "erzeugtes Passwort:",IDC_STATIC,20,25,65,10
 END
 
+IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 303
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION 
+"Generierung von Primzahlen innerhalb eines vorgegebenen Zahlenbereiches"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,206,275,50,14
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,14,142,61
+    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,23,30,69,10
+    CONTROL         "Algo &2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,45,
+                    36,10
+    CONTROL         "Algo 3 ",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,60,
+                    38,10
+    CONTROL         "unabhängig voneinander",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,184,30,95,10
+    CONTROL         "Bereich 2 gleich Bereich 1",IDC_RADIO5,"Button",
+                    BS_AUTORADIOBUTTON,184,60,99,10
+    GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,11,122,142,61
+    GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,172,122,142,61
+    EDITTEXT        IDC_EDIT1,63,142,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,161,81,12,ES_AUTOHSCROLL
+    LTEXT           "Untergrenze",IDC_STATIC,17,144,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,163,44,8
+    LTEXT           "Untergrenze",IDC_STATIC,178,144,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,178,163,44,8
+    EDITTEXT        IDC_EDIT3,224,142,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,161,81,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,68,275,110,14
+    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,107,228,110,
+                    14
+    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,14,
+                    142,61
+    LTEXT           "Primzahl 1",IDC_STATIC,16,104,38,8
+    LTEXT           "Primzahl 2",IDC_STATIC,177,104,38,8
+    LTEXT           "einzugeben",IDC_STATIC,196,42,53,10
+    LTEXT           "Ergebnis",IDC_STATIC,18,198,37,12
+    LTEXT           "Ergebnis",IDC_STATIC,179,198,35,12
+    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1798,6 +1840,15 @@ BEGIN
         RIGHTMARGIN, 220
         TOPMARGIN, 7
         BOTTOMMARGIN, 94
+    END
+
+    IDD_DIALOG_PRIMES_GENERATOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 11
+        VERTGUIDE, 153
+        VERTGUIDE, 172
+        TOPMARGIN, 9
+        BOTTOMMARGIN, 296
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -6417,86 +6468,6 @@ BEGIN
 END
 
 #endif    // Englisch (USA) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_DIALOG_PRIMES_GENERATOR DIALOG DISCARDABLE  0, 0, 326, 303
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION 
-"Generierung von Primzahlen innerhalb eines vorgegebenen Zahlenbereiches"
-FONT 8, "MS Sans Serif"
-BEGIN
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,206,275,50,14
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,14,142,61
-    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,23,30,69,10
-    CONTROL         "Algo &2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,45,
-                    36,10
-    CONTROL         "Algo 3 ",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,60,
-                    38,10
-    CONTROL         "unabhängig voneinander",IDC_RADIO4,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,184,30,95,10
-    CONTROL         "Bereich 2 gleich Bereich 1",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON,184,60,99,10
-    GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,11,122,142,61
-    GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,172,122,142,61
-    EDITTEXT        IDC_EDIT1,63,142,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,161,81,12,ES_AUTOHSCROLL
-    LTEXT           "Untergrenze",IDC_STATIC,17,144,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,163,44,8
-    LTEXT           "Untergrenze",IDC_STATIC,178,144,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,178,163,44,8
-    EDITTEXT        IDC_EDIT3,224,142,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,161,81,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,68,275,110,14
-    PUSHBUTTON      "Primzahlen &generieren",IDC_BUTTON_GENERATE,107,228,110,
-                    14
-    GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,14,
-                    142,61
-    LTEXT           "Primzahl 1",IDC_STATIC,16,104,38,8
-    LTEXT           "Primzahl 2",IDC_STATIC,177,104,38,8
-    LTEXT           "einzugeben",IDC_STATIC,196,42,53,10
-    LTEXT           "Ergebnis",IDC_STATIC,18,198,37,12
-    LTEXT           "Ergebnis",IDC_STATIC,179,198,35,12
-    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
-BEGIN
-    IDD_DIALOG_PRIMES_GENERATOR, DIALOG
-    BEGIN
-        LEFTMARGIN, 11
-        VERTGUIDE, 153
-        VERTGUIDE, 172
-        TOPMARGIN, 9
-        BOTTOMMARGIN, 296
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
