@@ -129,7 +129,7 @@ BOOL IsHexDump( CString &CStr )
 		{
 			if ( IsNumber( CStr[i], BASE_HEX ) )
 			{
-				fmt += CStr[i];
+				fmt += MyToUpper(CStr[i]);
 				twoStep++;
 				if ( 2 == twoStep ) {
 					fmt += ' ';
@@ -143,7 +143,11 @@ BOOL IsHexDump( CString &CStr )
 		}
 	}
 	if (twoStep != 0) return FALSE;
-	else              return TRUE;
+	else              
+	{
+		CStr = fmt; 
+		return TRUE;
+	}
 }
 
 char ToHex( const char ch )

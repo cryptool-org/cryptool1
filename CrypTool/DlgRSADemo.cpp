@@ -9,6 +9,9 @@
 #include "KeyRepository.h"
 #include "ChrTools.h"
 #include "FileTools.h"
+
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -26,90 +29,93 @@ static char THIS_FILE[] = __FILE__;
 #define RSA_DEMO_DECRYPT    64
 #define RSA_DEMO_ENCRYPT    128
 
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialogfeld CDlgRSADemo 
-//
-
-void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base)
-{
-	char line[IDS_STRINGLENGTH];
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-	if ( base ) sprintf( line, pc_str, base );
-	else	    sprintf( line, pc_str );
-	mHeader = line;
-}
+int load(CString &Src, const char *pattern, CString *Dest);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Constructor/Destructor + MFC Source
+// Konstruktor / Destructor
 // 
 
 CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 : CDialog(CDlgRSADemo::IDD, pParent) 
 {
 	//{{AFX_DATA_INIT(CDlgRSADemo)
-	m_eingabe_p = _T("");
-	m_eingabe_q = _T("");
-	m_geheime_parameter = _T("");
-	m_oeffentliche_parameter_pq = _T("");
-	m_oeffentliche_schluessel_e = _T("2^16+1");
-	m_geheime_schluessel_d = _T("");
-	m_edit10 = _T("");
-	m_edit11 = _T("");
-	m_edit12 = _T("");
-	m_Header1 = _T("");
-	m_Header2 = _T("");
-	m_Header3 = _T("");
-	m_Header4 = _T("");
-	m_edit13 = _T("");
-	m_EncryptTextOrNumbers = m_control_edit10.EncryptTextOrNumbers = 0;
+	m_edit_p = _T("");
+	m_edit_q = _T("");
+	m_edit_N = _T("");
+	m_edit_phi_of_N = _T("");
+	m_edit_e = _T("2^16+1");  // in der Praxis immer relativ Prim zu "phi(N)"
+	m_edit_d = _T("");
+	m_edit_RSA_input = _T("");
+	m_edit_RSA_step_1 = _T("");
+	m_edit_RSA_step_2 = _T("");
+	m_edit_RSA_step_3 = _T("");
+	m_Header_RSA_input = _T("");
+	m_Header_RSA_step_2 = _T("");
+	m_Header_RSA_step_3 = _T("");
+	m_Header_RSA_step_1 = _T("");
+	m_EncryptTextOrNumbers = m_control_RSA_input.EncryptTextOrNumbers = 0;
+	m_RSAPublicKeyOnly = 0;
 	//}}AFX_DATA_INIT
 
-	DlgOptions   = new CDlgOptionsRSADemo();
-	DlgRSAPrimes = new CDlgPrimesGeneratorDemo();
-	RSA          = new CRSADemo;
+	// Sub-Dialoge werden zu Beginn dynamisch erzeugt ...
+	DlgOptions			= new CDlgOptionsRSADemo();
+	DlgRSAPrimes		= new CDlgPrimesGeneratorDemo();
+	RSA					= new CRSADemo;
+	DlgFactorisation	= new CDlgFactorisationDemo;
+	m_RSAKeyStatus = 0;
 }
 
 CDlgRSADemo::~CDlgRSADemo()
 {
+	// Dynamisch allokierte Sub-Dialoge freigeben.
 	delete DlgOptions;
 	delete DlgRSAPrimes;
+	delete DlgFactorisation;
 	delete RSA;
 }
 
-
-
+///////////////////////////////////////////////////////////////////
+//
+// Ressourcen in das Programm einbinden
+//
 
 void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRSADemo)
-	DDX_Control(pDX, IDC_EDIT5, m_control_edit5);
-	DDX_Control(pDX, IDC_EDIT13, m_control_edit13);
+	DDX_Control(pDX, IDC_RSA_MODE_FACTORISATION, m_RSA_mode_factorisation);
+	DDX_Control(pDX, IDC_RSA_CAPTION_PRIME_Q, m_RSA_caption_prime_q);
+	DDX_Control(pDX, IDC_RSA_CAPTION_PRIME_P, m_RSA_caption_prime_p);
+	DDX_Control(pDX, IDC_FRAME_RSA_MODE, m_frame_rsa_mode);
+	DDX_Control(pDX, IDC_BUTTON_PZ_GENERIEREN, m_GeneratePrimes);
 	DDX_Control(pDX, IDC_OPTIONEN, m_ButtonOptionen);
 	DDX_Control(pDX, IDC_BUTTON_VERSCHLUESSELN, m_ButtonEncrypt);
 	DDX_Control(pDX, IDC_BUTTON_ENTSCHLUESSELN, m_ButtonDecrypt);
-	DDX_Control(pDX, IDC_EDIT11, m_control_edit11);
-	DDX_Control(pDX, IDC_EDIT12, m_control_edit12);
-	DDX_Control(pDX, IDC_EDIT10, m_control_edit10);
-	DDX_Control(pDX, IDC_EDIT2, m_control_q);
-	DDX_Control(pDX, IDC_EDIT1, m_control_p);
-	DDX_Text(pDX, IDC_EDIT1, m_eingabe_p);
-	DDX_Text(pDX, IDC_EDIT2, m_eingabe_q);
-	DDX_Text(pDX, IDC_EDIT4, m_geheime_parameter);
-	DDX_Text(pDX, IDC_EDIT3, m_oeffentliche_parameter_pq);
-	DDX_Text(pDX, IDC_EDIT5, m_oeffentliche_schluessel_e);
-	DDX_Text(pDX, IDC_EDIT6, m_geheime_schluessel_d);
-	DDX_Text(pDX, IDC_EDIT10, m_edit10);
-	DDX_Text(pDX, IDC_EDIT11, m_edit11);
-	DDX_Text(pDX, IDC_EDIT12, m_edit12);
-	DDX_Text(pDX, IDC_HEADER1, m_Header1);
-	DDX_Text(pDX, IDC_HEADER2, m_Header2);
-	DDX_Text(pDX, IDC_HEADER3, m_Header3);
-	DDX_Text(pDX, IDC_HEADER4, m_Header4);
-	DDX_Text(pDX, IDC_EDIT13, m_edit13);
+	DDX_Control(pDX, IDC_EDIT1, m_control_edit_p);
+	DDX_Text(pDX, IDC_EDIT1, m_edit_p);
+	DDX_Control(pDX, IDC_EDIT2, m_control_edit_q);
+	DDX_Text(pDX, IDC_EDIT2, m_edit_q);
+	DDX_Control(pDX, IDC_EDIT3, m_control_edit_N);
+	DDX_Text(pDX, IDC_EDIT3, m_edit_N);
+	DDX_Text(pDX, IDC_EDIT4, m_edit_phi_of_N);
+	DDX_Control(pDX, IDC_EDIT5, m_control_edit_e);
+	DDX_Text(pDX, IDC_EDIT5, m_edit_e);
+	DDX_Text(pDX, IDC_EDIT6, m_edit_d);
+	DDX_Control(pDX, IDC_EDIT10, m_control_RSA_input);
+	DDX_Control(pDX, IDC_EDIT13, m_control_edit_RSA_step_1);
+	DDX_Control(pDX, IDC_EDIT11, m_control_edit_RSA_step_2);
+	DDX_Control(pDX, IDC_EDIT12, m_control_edit_RSA_step_3);
+	DDX_Text(pDX, IDC_EDIT10, m_edit_RSA_input);
+	DDX_Text(pDX, IDC_EDIT13, m_edit_RSA_step_1);
+	DDX_Text(pDX, IDC_EDIT11, m_edit_RSA_step_2);
+	DDX_Text(pDX, IDC_EDIT12, m_edit_RSA_step_3);
+	DDX_Text(pDX, IDC_HEADER1, m_Header_RSA_input);
+	DDX_Text(pDX, IDC_HEADER4, m_Header_RSA_step_1);
+	DDX_Text(pDX, IDC_HEADER2, m_Header_RSA_step_2);
+	DDX_Text(pDX, IDC_HEADER3, m_Header_RSA_step_3);
 	DDX_Radio(pDX, IDC_RADIO1, m_EncryptTextOrNumbers);
+	DDX_Radio(pDX, IDC_RADIO3, m_RSAPublicKeyOnly);
 	//}}AFX_DATA_MAP
 }
 
@@ -117,502 +123,225 @@ void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 //******************************************************************************
 BEGIN_MESSAGE_MAP(CDlgRSADemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgRSADemo)
-	ON_BN_CLICKED(IDC_BUTTON_PZ_GENERIEREN, OnButtonPzGenerieren)
-	ON_EN_UPDATE(IDC_EDIT10, OnUpdateEdit10)
-	ON_BN_CLICKED(IDC_OPTIONEN, OnOptionen)
-	ON_BN_CLICKED(IDC_BUTTON2, OnParameterAktualisieren)
-	ON_BN_CLICKED(IDC_BUTTON_VERSCHLUESSELN, OnButtonVerschluesseln)
-	ON_BN_CLICKED(IDC_BUTTON_ENTSCHLUESSELN, OnButtonEntschluesseln)
+	ON_BN_CLICKED(IDC_BUTTON_PZ_GENERIEREN, OnButtonGeneratePrimes)
+	ON_BN_CLICKED(IDC_OPTIONEN, OnButtonOptions)
+	ON_BN_CLICKED(IDC_BUTTON2, OnButtonUpdateRSAParameter)
+	ON_BN_CLICKED(IDC_BUTTON_VERSCHLUESSELN, OnButtonEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON_ENTSCHLUESSELN, OnButtonDecrypt)
 	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdatePrimeP)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdatePrimeQ)
 	ON_EN_UPDATE(IDC_EDIT5, OnUpdatePublicKeyE)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadio2)
-	ON_BN_CLICKED(IDC_RADIO1, OnRadio1)
+	ON_EN_UPDATE(IDC_EDIT10, OnUpdateRSAInput)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadioRSANumbers)
+	ON_BN_CLICKED(IDC_RADIO1, OnRadioRSAText)
+	ON_BN_CLICKED(IDC_RADIO3, OnRadioRSAComplete)
+	ON_BN_CLICKED(IDC_RADIO4, OnRadioRSAPublicKey)
+	ON_EN_UPDATE(IDC_EDIT3, OnUpdateModulN)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-
-/////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//                      I M P L E M E N T I E R U N G 
+///////////////////////////////////////////////////////////////////////////////
+//  
+// AUSWAHL: 
+// ~~~~~~~~
+// - RSA mit eigenen Parametern oder 
+// - RSA mit veröffentlichten RSA-Parametern N und e
 // 
-// The Primes P & Q may generated external
-// 
 
-void CDlgRSADemo::OnButtonPzGenerieren() 
+///////////////////////////////////////////////////////////////////////////////
+//
+// RSA mit eigenen Parametern:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Wähle zwei Primzahlen p und q sowie den öffentlichen Schlüssel e:
+// Nur diese Edit-Felder werden dementsprechend editierbar gemacht.
+// Danach wird der Focus entsprechend gesetzt
+
+void CDlgRSADemo::OnRadioRSAComplete() 
 {
-	UpdateData(true);
-	
-	if ( IDOK == DlgRSAPrimes->DoModal() )
+
+	UpdateData();
+	m_edit_N = _T("");
+	UpdateData(FALSE);
+
+	m_control_edit_p.EnableWindow();
+	m_control_edit_q.EnableWindow();
+	m_control_edit_N.SetReadOnly(TRUE);
+	m_GeneratePrimes.EnableWindow();
+
+	SetStatusPrivateKey(TRUE);
+
+	// RESSOURCEN
+	m_frame_rsa_mode.SetWindowText("Primzaheingabe");
+	m_RSA_caption_prime_p.ShowWindow(TRUE);
+	m_RSA_caption_prime_q.ShowWindow(TRUE);
+	m_control_edit_p.ShowWindow(TRUE);
+	m_control_edit_q.ShowWindow(TRUE);
+	m_RSA_mode_factorisation.ShowWindow(FALSE);
+	m_GeneratePrimes.SetWindowText("Primzahlen generieren...");
+
+	CheckRSAParameter();
+	if ( !KeyStatusPrimePValid() ) 
 	{
-		int Parameter_N_zu_gross;
-		m_eingabe_p = DlgRSAPrimes->m_edit5;
-		m_eingabe_q = DlgRSAPrimes->m_edit6;
-		Parameter_N_zu_gross = RSA->InitParameter( m_eingabe_p, m_eingabe_q );
-		if (Parameter_N_zu_gross==0)
-		{
-			if (RSA->SetPublicKey( m_oeffentliche_schluessel_e ) )
-			{
-				RSA->SetPrivateKey();
-				RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, 
-								   m_oeffentliche_schluessel_e, m_geheime_schluessel_d );
-			}
-			else
-			{
-				CString t1, t2;
-				RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, t1, t2 );
-				m_geheime_schluessel_d = "";
-			}
-			if ( RSA->IsInitialized() )
-			{
-				EnableEncryption();
-				m_ButtonOptionen.EnableWindow(true);
-				SetDlgOptions();
-				RequestForInput(FALSE);
-			}
-			else
-			{
-				EnableEncryption(false);
-				m_ButtonOptionen.EnableWindow(false);
-			}
-		}
-		else
-		{
-			Message(IDS_STRING_BIG_RSA_MODUL, MB_ICONSTOP);
-			EnableEncryption(false);
-			m_ButtonOptionen.EnableWindow(false);
-			m_eingabe_p = _T("");
-			m_eingabe_q = _T("");
-			m_geheime_parameter = _T("");
-			m_oeffentliche_parameter_pq = _T("");
-			m_geheime_schluessel_d = _T("");
-			m_control_p.SetFocus();
-		}
+		m_control_edit_p.SetSel(0,-1);
+		m_control_edit_p.SetFocus();	
 	}
-	UpdateData(false);
+	else if ( !KeyStatusPrimeQValid() )
+	{
+		m_control_edit_q.SetSel(0,-1);
+		m_control_edit_q.SetFocus();
+	}
+	else if ( !KeyStatusKeyDValid() )
+	{
+		m_control_edit_e.SetSel(0,-1);
+		m_control_edit_e.SetFocus();
+	}
+	else 
+	{
+		m_control_RSA_input.SetSel(0,-1);
+		m_control_RSA_input.SetFocus();
+	}	
+	
+	ButtonManagement();
 }
 
-///////////////////////////////////////////////////////////////////////////
-//
-// This Button will be later obsolete
-//
+////////////////////////////////////////////////////////////////////////////
+// 
+// RSA mit veröffentlichten Parametern N und e:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Hier ist es möglich veröffentlichte RSA-Parameter in die Editierbaren 
+// Felder "Modul-N" und "öffentlicher Schlüssel e" einzutragen.
+// Zusätzlich wird das Feld für die Primzahleingabe durch die Funktionalität
+// Faktorisieren ersetzt, um die Bedienung des Angriffs auf RSA möglichst 
+// einfach zu gestalten
 
-void CDlgRSADemo::OnParameterAktualisieren() 
+void CDlgRSADemo::OnRadioRSAPublicKey() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData(true);
-	int RSAInitError;
-	int RSASetPublicKeyError;
-
-	CString UpnFormula;
-	int err_ndx;
-	BOOL error;
-	
-	error = CheckFormula(m_eingabe_p,10,UpnFormula,err_ndx);
-	if (error==0)
-	{
-		//Fehler in der Eingabe, von Parser abgefangen
-		m_control_p.SetSel(err_ndx-1,m_eingabe_p.GetLength());
-		m_control_p.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
-		return;
-	}
-
-	error = CheckFormula(m_eingabe_q,10,UpnFormula,err_ndx);
-	if (error==0)
-	{
-		//Fehler in der Eingabe, von Parser abgefangen
-		m_control_q.SetSel(err_ndx-1,m_eingabe_q.GetLength());
-		m_control_q.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
-		return;
-	}
-	error = CheckFormula(m_oeffentliche_schluessel_e,10,UpnFormula,err_ndx);
-	if (error==0)
-	{
-		//Fehler in der Eingabe, von Parser abgefangen
-		m_control_edit5.SetSel(err_ndx-1,m_oeffentliche_schluessel_e.GetLength());
-		m_control_edit5.SetFocus();
-		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
-		return;
-	}
-
-
-	if ( 0 == (RSAInitError = RSA->InitParameter( m_eingabe_p, m_eingabe_q )) )
-	{
-		RSASetPublicKeyError = RSA->SetPublicKey( m_oeffentliche_schluessel_e );
-		if (1 == RSASetPublicKeyError )
-		{
-			RSA->SetPrivateKey();
-			RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, 
-					   m_oeffentliche_schluessel_e, m_geheime_schluessel_d );
-		}
-		else if (0 == RSASetPublicKeyError)
-		{
-			// Falls e nicht coprime zu phi(N) ist, wird man aufgefordert eine andere Zahl für e zu wählen
-			Message(IDS_STRING_RSATUT_WRONG_PUBLICKEY, MB_ICONINFORMATION);
-			m_geheime_schluessel_d = "";
-			m_control_edit5.SetFocus();
-			return;
-		}
-		else
-		{
-			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
-			m_control_edit5.SetFocus();
-			m_control_edit5.SetSel(0,-1);
-			return;
-		}
-	}
-	else 
-	{
-		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
-
-		if ( ERR_P_TO_BIG == RSAInitError )
-		{
-			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
-			m_control_p.SetFocus();
-			m_control_p.SetSel(0,-1);
-			return;
-		}
-		if ( ERR_Q_TO_BIG == RSAInitError )
-		{
-			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
-			m_control_q.SetFocus();
-			m_control_q.SetSel(0,-1);
-			return;
-		}
-		if ( ERR_P_NOT_PRIME == RSAInitError )
-		{
-			Message(IDS_STRING_RSADEMO_P_NOT_PRIME, MB_ICONINFORMATION);
-			m_control_p.SetFocus();
-			return;
-		}
-		if ( ERR_Q_NOT_PRIME == RSAInitError )
-		{
-			Message(IDS_STRING_RSADEMO_Q_NOT_PRIME, MB_ICONINFORMATION);
-			m_control_q.SetFocus();
-			m_geheime_schluessel_d = "";
-			return;
-		}
-		if ( ERR_P_EQUALS_Q == RSAInitError )
-		{
-			Message(IDS_STRING_ERR_PRIME_ARE_EQUAL, MB_ICONINFORMATION);
-			m_control_p.SetFocus();
-			m_geheime_schluessel_d = "";
-			return;
-		}
-	}
-
-	SetDlgOptions();
-	
-	if ( RSA->IsInitialized() && DlgOptions->m_BlockLength!=0 && DlgOptions->m_alphabet.GetLength()<m_oeffentliche_schluessel_e)
-	{
-		if (DlgOptions->m_RSAVariant==0)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-			CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
-			CopyKey ( pc_str, Primes );
-			EnableEncryption(true);
-			m_ButtonOptionen.EnableWindow(true);
-		}
-		else
-		{
-			if (DlgOptions->m_TextOptions==0)
-			{
-				DlgOptions->Anzahl_Zeichen=256;	
-			}
-			else
-			{
-				DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
-			}
-			if ( DlgOptions->Anzahl_Zeichen <= atoi(m_oeffentliche_parameter_pq))
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-				CString Primes = m_eingabe_p + ";" + m_eingabe_q + ";"+m_oeffentliche_schluessel_e;
-				CopyKey ( pc_str, Primes );
-				EnableEncryption(true);
-				m_ButtonOptionen.EnableWindow(true);	
-			}
-			else
-			{
-				Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
-					    DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-				EnableEncryption(false);
-				m_ButtonOptionen.EnableWindow(true);
-			}
-		}
-	}
-	else 
-	{
-		if (DlgOptions->m_TextOptions==0)
-		{
-			DlgOptions->Anzahl_Zeichen=256;	
-		}
-		else
-		{
-			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
-		}
-		Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-		EnableEncryption(false);
-		m_ButtonOptionen.EnableWindow(true);		
-	}	
-	RequestForInput(FALSE);
-	UpdateData(false);		
-}
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Delete the En/Decryption output if the input is changed
-//
-
-void CDlgRSADemo::OnUpdateEdit10() 
-{
-	UpdateData(true);
-	RequestForInput( FALSE );
-	UpdateData(false);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Set the RSA Encryption/Decryption Options via external Dialouge
-//
-
-void CDlgRSADemo::OnOptionen() 
-{
-	UpdateData(TRUE);
-	SetDlgOptions();	
-	if ( IDOK == DlgOptions->DoModal()) 
-	{
-		RequestForInput();
-		EnableEncryption();
-		m_control_edit10.mode = DlgOptions->m_TextOptions;
-	}	
-	else 
-	{
-		if ( DlgOptions->Anzahl_Zeichen > atoi(m_oeffentliche_parameter_pq))
-		{
-			Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
-				DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
-			EnableEncryption(false);
-		}
-	}
-
-	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
-	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
+	UpdateData();
+	m_edit_p = m_edit_q = m_edit_phi_of_N = m_edit_d = "";
 	UpdateData(FALSE);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// the RSA Encryption/Decryption depends on the type of INPUT 
-//
-
-void CDlgRSADemo::OnButtonVerschluesseln() 
-{
-	theApp.DoWaitCursor(1);
-	UpdateData(TRUE);
-	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
-	{
-		HeadingEncryption( ENCRYPT_TEXT );
-		Segmentation( MODE_HEX_DUMP );
-		RSA->Encrypt( m_edit11, m_edit12, GetBase() );
-	}
-	else 	
-	{
-		if ( 0 == m_EncryptTextOrNumbers )
-		{
-
-			if ( !DlgOptions->m_RSAVariant )
-			{
-				HeadingEncryption( ENCRYPT_TEXT );
-				if ( !DlgOptions->m_TextOptions )
-				{
-					Segmentation( MODE_ASCII );
-				}
-				else
-				{
-					if ( FALSE == SkipWS() ) return;
-					Segmentation( MODE_ALPHABET );
-				}
-				RSA->Encrypt( m_edit11, m_edit12, GetBase() );
-			}
-			else
-			{
-				if ( FALSE == SkipWS() ) return;
-				HeadingEncryption( ENCRYPT_TEXT );		
-				Segmentation( MODE_DLG_OF_SISTERS );
-				RSA->Encrypt( m_edit11, m_edit12, GetBase(), TRUE );
-			}
-		}
-		else
-		{
-			int NumberStreamFlag;
-			if ( !DlgOptions->m_RSAVariant )
-				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
-			else
-				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
-			if ( NumberStreamFlag )
-			{
-				HeadingEncryption( ENCRYPT_NUMBERS );
-				EncryptNumbers();
-			}
-			else
-				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
-		}
-	}
-	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
-}
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Decryption Button Clicked ...
-//
-
-void CDlgRSADemo::OnButtonEntschluesseln() 
-{
-	theApp.DoWaitCursor(1);
-	UpdateData(TRUE);
-	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit10 ) )
-	{
-		Segmentation( MODE_HEX_DUMP );
-		RSA->Decrypt( m_edit11, m_edit12, GetBase() );
-	}
-	else 
-	{
-		if ( 0 == m_EncryptTextOrNumbers )
-		{
-			if ( !DlgOptions->m_RSAVariant )
-			{
-				HeadingDecryption( DECRYPT_TEXT );
-				if ( !DlgOptions->m_TextOptions )
-				{
-					Segmentation( MODE_ASCII );
-				}
-				else
-				{
-					if ( FALSE == SkipWS() ) return;
-					Segmentation( MODE_ALPHABET );
-				}
-				RSA->Decrypt( m_edit11, m_edit12, GetBase() );
-			}
-			else
-			{
-				HeadingDecryption( DECRYPT_TEXT );		
-				if ( FALSE == SkipWS() ) return;
-				Segmentation( MODE_DLG_OF_SISTERS );
-				RSA->Decrypt( m_edit11, m_edit12, GetBase(), TRUE );
-			}
-		}
-		else
-		{
-			int NumberStreamFlag;
-			if ( !DlgOptions->m_RSAVariant )
-				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq, SPLIT_NUMBERS_VSMODUL );
-			else
-				NumberStreamFlag = IsNumberStream( m_edit10, GetBase(), m_oeffentliche_parameter_pq );
-
-			if ( NumberStreamFlag )
-			{
-				HeadingDecryption( DECRYPT_NUMBERS );
-				DecryptNumbers();
-			}
-			else
-				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
-		}
-	}
-	UpdateData(FALSE);
-	theApp.DoWaitCursor(-1);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// The RSA Encryption/Decryption of numbers results in a Message or into a stream of numbers
-// 
-
-void CDlgRSADemo::EncryptNumbers()
-{
 	
-	RSA->Encrypt( m_edit10, m_edit13, GetBase() );
+	SetStatusPublicKeyOnly(TRUE);
+	// unbekannte Felder deaktivieren
+	m_GeneratePrimes.EnableWindow(FALSE);
+	m_control_edit_p.EnableWindow(FALSE);
+	m_control_edit_q.EnableWindow(FALSE);
+	// Öffentlicher RSA-Modul N editierbar
+	m_control_edit_N.SetReadOnly(FALSE);
+	m_GeneratePrimes.SetWindowText("RSA-Modul faktorisieren...");
 
-	if ( !DlgOptions->m_RSAVariant )
+	// RESSOURCEN
+	m_frame_rsa_mode.SetWindowText("Faktorisierungsangriff");
+	m_RSA_caption_prime_p.ShowWindow(FALSE);
+	m_RSA_caption_prime_q.ShowWindow(FALSE);
+	m_control_edit_p.ShowWindow(FALSE);
+	m_control_edit_q.ShowWindow(FALSE);
+	m_RSA_mode_factorisation.ShowWindow(TRUE);
+	
+	CheckRSAParameter();	
+	// fokus setzen
+	if ( !KeyStatusModulNValid() )
 	{
-				
-		if ( !DlgOptions->m_TextOptions )
-		{
-			ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
-		}
-		else
-		{
-			ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
-		}
+		m_control_edit_N.SetSel(0, -1);
+		m_control_edit_N.SetFocus();
+	}
+	else if ( !KeyStatusKeyEValid() )
+	{
+		m_control_edit_e.SetSel(0, -1);
+		m_control_edit_e.SetFocus();
 	}
 	else
-	{  
-		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
+	{
+		m_control_RSA_input.SetFocus();
 	}
-
+	ButtonManagement();
 }
 
-void CDlgRSADemo::DecryptNumbers()
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Primzahlen für den RSA-Modul genereieren (RSA mit eigenen Parametern):
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Bei der Erzeugung von Primzahlen kann man selbst gewählte Primzahlen eingeben, oder
+// wie im folgenden implementiert: Zufällige Primzahlen über den gleichen Dialog wie unter
+// Menü -> Einzelverfahren -> RSA-Demo
+
+void CDlgRSADemo::OnButtonGeneratePrimes() 
 {
-	
-	RSA->Decrypt( m_edit10, m_edit13, GetBase() );
-
-	if ( !DlgOptions->m_RSAVariant )
+	if ( KeyStatusPrivateKey() )
 	{
-
-		if ( !DlgOptions->m_TextOptions )
-		{				
-			ReSegmentation( MODE_ASCII | RSA_DEMO_DECRYPT );
-		}
-		else
+		if ( IDOK == DlgRSAPrimes->DoModal() )
 		{
-			ReSegmentation( MODE_ALPHABET | RSA_DEMO_DECRYPT );
+			UpdateData();
+			m_edit_p = DlgRSAPrimes->m_edit5;
+			m_edit_q = DlgRSAPrimes->m_edit6;
+			UpdateData(FALSE);
+			int Parameter_N_zu_gross;
+			Parameter_N_zu_gross = RSA->InitParameter( m_edit_p, m_edit_q );
+			if (Parameter_N_zu_gross==0)
+			{
+				CheckRSAParameter() ;
+			}
+			else
+			{
+				UpdateData();
+				Message(IDS_STRING_BIG_RSA_MODUL, MB_ICONSTOP);
+				m_ButtonOptionen.EnableWindow(false);
+				m_edit_p = _T("");
+				m_edit_q = _T("");
+				m_edit_phi_of_N = _T("");
+				m_edit_N = _T("");
+				m_edit_d = _T("");
+				m_control_edit_p.SetFocus();
+				UpdateData(FALSE);
+			}
 		}
 	}
 	else
 	{
-		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_DECRYPT );
-	}
+		if ( m_edit_N.GetLength() )
+		{
+			if ( DlgFactorisation->m_CompositeNoStr != m_edit_N )
+			{
+				DlgFactorisation->InitialiseFactorList();
+				DlgFactorisation->m_CompositeNoStr = m_edit_N;
+			}
+			AfxInitRichEdit();
+			DlgFactorisation->DoModal();
+			CString tmp_p, tmp_q;
+			int l_result = DlgFactorisation->GetRSAFactorisation( tmp_p, tmp_q );
+			if ( l_result == NUMBER_RSA_MODUL )
+			{
+				Message( IDS_NUMBER_RSA_MODUL, MB_ICONINFORMATION);
+				UpdateData();
+				m_RSAPublicKeyOnly = 0;
+				m_edit_p = tmp_p;
+				m_edit_q = tmp_q;
+				UpdateData(FALSE);
+				OnRadioRSAComplete();			
+			}
+			else if ( l_result == NUMBER_NOT_FACTORISED )
+			{
+				Message( IDS_NUMBER_NOT_FACTORIZED, MB_ICONINFORMATION);
+			}
+			else if ( l_result == NUMBER_NOT_RSA_MODUL )
+			{
+				Message( IDS_NUMBER_NOT_RSA_MODUL, MB_ICONINFORMATION);
+				UpdateData();
+				m_control_edit_N.SetSel(0,-1);
+				m_control_edit_N.SetFocus();
+			}
 
+		}
+	}
+	ButtonManagement();
 }
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// O.K. kill the RSA - Demo
-//
- 
-void CDlgRSADemo::OnEndDialog() 
-{
-	if(RSA->IsInitialized())
-	{ // Copy RSA Demo Parameter
-		char tmp[20];
-		sprintf(tmp, "%i", DlgOptions->m_BlockLength);
-		LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
-		CString RSAOptions = "";
-		RSAOptions = CString("PUBLIC_KEY:") + m_oeffentliche_schluessel_e 
-					+CString(";PRIME_P:") + m_eingabe_p 
-					+CString(";PRIME_Q:") + m_eingabe_q 
-					+CString(";CRYPT_TEXT_OR_NUMBERS:") + char(m_EncryptTextOrNumbers+'0')
-					+CString(";TEXT_OPTIONS") + char(DlgOptions->m_TextOptions      +'0');
-		if ( DlgOptions->m_TextOptions == 1 ) 
-			 RSAOptions += CString(";ALPHABET:")+DlgOptions->m_alphabet;
-		RSAOptions += CString(";RSA_VARIANT:")   + char(DlgOptions->m_RSAVariant   + '0')
-					+CString(";BASEOFNUMBERS:")  + char(DlgOptions->m_numberBasis  + '0')
-					+CString(";CODING_METHOD:")  + char(DlgOptions->m_codingMethod + '0')  
-					+CString(";BLOCK_LENGTH:")   + CString(tmp) + ';';
-		CopyKey ( pc_str, RSAOptions );
-	}
-	
-	CDialog::OnCancel();
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// O.K. start the RSA Demo
+//////////////////////////////////////////////////////////////////////////////
+// Inhalt aus dem Zwischenspeicher laden:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
 int load(CString &Src, const char *pattern, CString *Dest)
@@ -633,21 +362,318 @@ int load(CString &Src, const char *pattern, CString *Dest)
 	return -1;
 }
 
+
+//////////////////////////////////////////////////////////////////////////////
+// Check RSA-Parameter:
+// ~~~~~~~~~~~~~~~~~~~~
+// 
+// Überprüft die aktuelle Eingabe, ob diese einen gültigen "RSA-Schlüssel" beschreibt: 
+// Dabei unterscheiden wir zwischen RSA mit eigenen Parametern und öffentliche 
+// RSA-Parameter:
+// 
+// 1. Öffentliche RSA-Parameter:
+//    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+//    Die Funktion RSA->SetPublicParameter überprüft, ob die Zahleneingabe für 
+//    N ganze Zahlen grösser als 2 sind.
+//
+// 2. RSA mit eigenen Parametern:
+//    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//    Hier überprüft die Funktion RSA->InitParameter( m_edit_p, m_edit_q ); zum
+//    einen, ob p und q Primzahlen sind und bei Erfolg wird zum anderen mit der
+//    Funktion RSA->SetPublicKey( m_edit_e ) zunächst überprüft, ob e teiler-
+//    fremd zu Phi(N) ist. 
+//
+//    Wenn e Phi(N) nicht teilt, wird der Private Schlüssel d berechnet, und 
+//    alle Parameter werden mit der Funktion RSA->GetParameter(..) in den 
+//    Dialog übertragen.
+
+int CDlgRSADemo::CheckRSAParameter()
+{
+	UpdateData();	
+	int ret;
+	if ( KeyStatusPublicKeyOnly() )
+	{ // Öffentliche RSA-Parameter ...
+		SetStatusKeyEValid(FALSE);
+		SetStatusModulNValid(FALSE);
+		SetStatusOptionsValid(FALSE);
+		ret = RSA->SetPublicParameter(m_edit_N, m_edit_e);
+		if ( ret == 0 )
+		{
+			SetStatusKeyEValid(TRUE);
+			SetStatusModulNValid(TRUE);
+			SetStatusOptionsValid(TRUE);
+		}
+	}
+	else
+	{
+		SetStatusModulNValid(FALSE);			
+		SetStatusKeyEValid(FALSE);
+		SetStatusPrimePValid(FALSE);
+		SetStatusPrimeQValid(FALSE);
+		SetStatusOptionsValid(FALSE);
+
+		ret = RSA->InitParameter( m_edit_p, m_edit_q );
+		if ( ret == 0 )
+		{	
+			SetStatusPrimePValid(TRUE);
+			SetStatusPrimeQValid(TRUE);
+			SetStatusModulNValid(TRUE);			
+			if (RSA->SetPublicKey( m_edit_e ) )
+			{
+				RSA->SetPrivateKey();
+				RSA->GetParameter( m_edit_N, m_edit_phi_of_N, 
+						   m_edit_e, m_edit_d );
+				SetStatusKeyEValid(TRUE);
+				SetStatusOptionsValid(TRUE);
+			}
+			else
+			{
+				ret = ERR_ON_INITIALIZE_E;
+			}
+		}
+		else
+		{
+			m_edit_d = "";
+		}
+	}
+	
+	SetDlgOptions();
+
+	UpdateData(FALSE);
+	return ret;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// InitPrivateRSAParameter:
+// ~~~~~~~~~~~~~~~~~~~~~~~~
+// Bevor die Funktion CheckRSAParameter() (siehe oben) aufgerufen wird, überprüft
+// die Funktion zunächst, ob die eingegebenen Zahlen (oder deren Formeldarstellung
+// wie "2^16+1" korrekt sind -- andernfalls wird eine Fehlermeldung ausgegeben, und  
+// Der Fokus geht zur Fehlerhaften Eingabe über.
+//
+// Danach erfolgt ggf. eine Fehlerbehandlung von CheckRSAParameter(). 
+
+///////////////////////////////////////////////////////////////////////////////
+// Fehlerbehandlung für falsche - oder zu grosse Zahlen:  
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+BOOL CDlgRSADemo::CheckIntegerInput( CString &NumStr, CEdit &EditCtrl )
+{
+	CString UpnFormula;
+	int error, err_ndx;
+	error = CheckFormula(NumStr, 10, UpnFormula, err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		EditCtrl.SetSel(err_ndx-1,m_edit_p.GetLength());
+		EditCtrl.SetFocus();
+		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// Fehlerausgabe für falsche - oder zu grosse Zahlen:  
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+
+void CDlgRSADemo::MessageIntegerRSAError( CEdit &EditCtrl, int id_IDS, BOOL select )
+{
+	Message(id_IDS, MB_ICONINFORMATION);
+	m_control_edit_p.SetFocus();
+	if ( select )
+	{
+		m_control_edit_p.SetSel(0,-1);
+	}
+}
+
+
+void CDlgRSADemo::InitPrivateRSAParameter()
+{
+	int RSAInitError;
+
+	
+	if ( !CheckIntegerInput(m_edit_p, m_control_edit_p) ) 
+	{
+		SetStatusPrimePValid(FALSE);
+		return;
+	}
+	if ( !CheckIntegerInput(m_edit_q, m_control_edit_q) ) 
+	{
+		SetStatusPrimeQValid(FALSE);
+		return;
+	}
+	if ( !CheckIntegerInput(m_edit_e, m_control_edit_e) ) 
+	{
+		SetStatusKeyEValid(FALSE);
+		return;
+	}
+
+	// Check & ggf. Initialisierung der eignen RSA-Parameter
+	RSAInitError = CheckRSAParameter();
+	
+	if ( 0 != RSAInitError ) 
+	{
+		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
+		if ( ERR_P_TO_BIG == RSAInitError )
+		{
+			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_BIG_NUMBER, TRUE );
+		}
+		else if ( ERR_Q_TO_BIG == RSAInitError )
+		{
+			MessageIntegerRSAError( m_control_edit_q, IDS_STRING_BIG_NUMBER, TRUE );
+		}
+		else if ( ERR_P_NOT_PRIME == RSAInitError )
+		{
+			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_RSADEMO_P_NOT_PRIME, FALSE );
+		}
+		else if ( ERR_Q_NOT_PRIME == RSAInitError )
+		{
+			MessageIntegerRSAError( m_control_edit_q, IDS_STRING_RSADEMO_Q_NOT_PRIME, FALSE );
+		}
+		else if ( ERR_P_EQUALS_Q == RSAInitError )
+		{
+			MessageIntegerRSAError( m_control_edit_p, IDS_STRING_ERR_PRIME_ARE_EQUAL, FALSE );
+		}
+		else if ( ERR_ON_INITIALIZE_E )
+		{
+			MessageIntegerRSAError( m_control_edit_e,IDS_STRING_RSATUT_WRONG_PUBLICKEY, FALSE );
+		}
+		return;
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// InitPublicRSAParameter:
+// ~~~~~~~~~~~~~~~~~~~~~~~~
+// Bevor die Funktion CheckRSAParameter() (siehe oben) aufgerufen wird, überprüft
+// die Funktion zunächst, ob die eingegebenen Zahlen (oder deren Formeldarstellung
+// wie "2^16+1" korrekt sind -- andernfalls wird eine Fehlermeldung ausgegeben, und  
+// Der Fokus geht zur Fehlerhaften Eingabe über.
+//
+// Danach erfolgt ggf. eine Fehlerbehandlung von CheckRSAParameter(). 
+
+void CDlgRSADemo::InitPublicRSAParameter()
+{
+	int RSAInitError;
+
+	if ( !CheckIntegerInput(m_edit_N, m_control_edit_N) ) 
+	{
+		SetStatusModulNValid(FALSE);			
+		return;
+	}
+	
+	if ( !CheckIntegerInput(m_edit_e,  m_control_edit_e) ) 
+	{
+		SetStatusKeyEValid(FALSE);
+		return;
+	}
+	
+	// Check & ggf. Initialisierung der Public RSA-Parameter
+	RSAInitError = CheckRSAParameter();
+
+	
+	if ( 0 != RSAInitError ) 
+	{
+		if ( ERR_ON_MODUL_N == RSAInitError )
+		{
+			SetStatusModulNValid(FALSE);
+		}
+		if ( ERR_ON_PUBLIC_KEY == RSAInitError )
+		{
+			SetStatusKeyEValid(FALSE);
+		}
+	}
+	else
+	{
+		SetStatusKeyEValid(TRUE);
+		SetStatusModulNValid(TRUE);
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+//
+// Knopf: "Parameter aktualisieren:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Dieser Knopf wird demnächst ersetzt ...
+// 
+
+void CDlgRSADemo::OnButtonUpdateRSAParameter() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	if ( !m_RSAPublicKeyOnly )
+	{
+		InitPrivateRSAParameter();
+	}
+	else
+	{
+		InitPublicRSAParameter();
+	}
+		
+	if ( KeyStatusModulNValid() ) 
+	{
+		if ( DlgOptions->m_BlockLength!=0 && !( m_edit_N.GetLength() <= 3 && 
+					                DlgOptions->Anzahl_Zeichen<=atoi(m_edit_N)) )
+		{ // Save Actual Primes
+			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+			CString Primes = m_edit_p + ";" + m_edit_q + ";"+m_edit_e;
+			CopyKey ( pc_str, Primes );
+			if ( m_edit_RSA_input.GetLength() > 0 )
+			{
+				SetStatusInputValid(TRUE);
+			}
+		}
+		else 
+		{
+			SetStatusInputValid(FALSE);
+			Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
+				DlgOptions->Anzahl_Zeichen, m_edit_N );
+		}	
+	}
+	RequestForInput(FALSE);
+	ButtonManagement();
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// RSA-Demo: Dialog Initialisieren:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Wenn mit diesem Dialog bereits zuvor gearbeitet wurde, werden die bisherigen
+// Dialogdaten aus dem Zwischenspeicher in den Dialog geladen
+//
+// Möglichkeiten:
+// ~~~~~~~~~~~~~~
+//
+// 1. Nur zwei Primzahlen wurden gewählt
+// 2.a) RSA mit eigenen Parametern
+// 2.b) RSA nur mit Öffentlichen Schlüssel
+
 BOOL CDlgRSADemo::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 
-	m_control_p.SetFocus();
-	EnableEncryption(false);
+	m_control_edit_p.SetFocus();
 
 	LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
 	CString RSAParam;
+	
+	// Paste into the dialouge the old RSA status
 	if ( PasteKey( pc_str, RSAParam ) )
 	{
 		UpdateData(); 
-		load(RSAParam,"PUBLIC_KEY:",&m_oeffentliche_schluessel_e);
-		load(RSAParam,"PRIME_P:",&m_eingabe_p); 
-		load(RSAParam,"PRIME_Q:",&m_eingabe_q); 
+		m_RSAPublicKeyOnly = load(RSAParam,"PUBLIC_KEY_ONLY:", NULL);
+		load(RSAParam,"PUBLIC_KEY:",&m_edit_e);
+		load(RSAParam,"PRIME_P:",&m_edit_p); 
+		load(RSAParam,"PRIME_Q:",&m_edit_q); 
+		load(RSAParam,"MODUL_N:",&m_edit_N);
 		m_EncryptTextOrNumbers    = load(RSAParam,"CRYPT_TEXT_OR_NUMBERS:", NULL);
 		DlgOptions->m_TextOptions = load(RSAParam,"TEXT_OPTIONS", NULL);
 		if ( DlgOptions->m_TextOptions )
@@ -657,10 +683,19 @@ BOOL CDlgRSADemo::OnInitDialog()
 		DlgOptions->m_codingMethod = load(RSAParam,"CODING_METHOD:", NULL);
 		DlgOptions->m_BlockLength = load(RSAParam, "BLOCK_LENGTH:", NULL);
 		UpdateData(FALSE);
-		OnParameterAktualisieren();
+		if ( !m_RSAPublicKeyOnly )
+		{
+			OnButtonUpdateRSAParameter();
+			OnRadioRSAComplete();	
+		}
+		else
+		{
+			OnButtonUpdateRSAParameter();
+			OnRadioRSAPublicKey();				
+		}
 	}
-	else
-	{
+	else 
+	{	
 		LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 		CString Primes;
 		if ( PasteKey( pc_str, Primes ) )
@@ -668,138 +703,394 @@ BOOL CDlgRSADemo::OnInitDialog()
 			UpdateData(true);
 			int d1 = Primes.Find(';', 0);
 			int d2 = Primes.Find(';', d1+1);
-			m_eingabe_p = Primes.Mid(0, d1);
-			m_eingabe_q = Primes.Mid(d1+1, ((d2-d1)-1));
-			m_oeffentliche_schluessel_e = Primes.Mid(d2+1);
+			m_edit_p = Primes.Mid(0, d1);
+			m_edit_q = Primes.Mid(d1+1, ((d2-d1)-1));
+			m_edit_e = Primes.Mid(d2+1);
 			UpdateData(false);
-			OnParameterAktualisieren();
-		}
-		else
-		{
-			m_ButtonOptionen.EnableWindow(false);
+			OnButtonUpdateRSAParameter();
+			OnRadioRSAComplete();	
 		}
 	}
-	m_control_edit10.mode = DlgOptions->m_TextOptions;
-	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
-	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
-	return FALSE;  // return TRUE unless you set the focus to a control
- 	               // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+	// End of paste ...
+
+	ButtonManagement();	
+	m_control_RSA_input.mode = DlgOptions->m_TextOptions;
+	RequestForInput(TRUE);
+
+	return TRUE;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Schliessen des RSA-Dialoges:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Ggf. wird der letzte Stand des RSA-Kryptosystems in den Speicher gesichtert.
+// 
+ 
+void CDlgRSADemo::OnEndDialog() 
+{
+	if ( (!m_RSAPublicKeyOnly && RSA->IsInitialized()) ||
+		 (m_RSAPublicKeyOnly && RSA->IsInitializedPublicParameter()) )
+	{ // Copy RSA Demo Parameter
+		CString Store_N = _T("");
+		if ( m_RSAPublicKeyOnly ) Store_N = m_edit_N;
+		char tmp[20];
+		sprintf(tmp, "%i", DlgOptions->m_BlockLength);
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_RSA_DEMO,pc_str,STR_LAENGE_STRING_TABLE);
+		CString RSAOptions = "";
+		RSAOptions = CString("PUBLIC_KEY_ONLY:") + char(m_RSAPublicKeyOnly+'0')
+		            +CString(";PUBLIC_KEY:") + m_edit_e 
+					+CString(";PRIME_P:") + m_edit_p 
+					+CString(";PRIME_Q:") + m_edit_q 
+					+CString(";MODUL_N:") + Store_N
+					+CString(";CRYPT_TEXT_OR_NUMBERS:") + char(m_EncryptTextOrNumbers+'0')
+					+CString(";TEXT_OPTIONS") + char(DlgOptions->m_TextOptions      +'0');
+		if ( DlgOptions->m_TextOptions == 1 ) 
+			 RSAOptions += CString(";ALPHABET:")+DlgOptions->m_alphabet;
+		RSAOptions += CString(";RSA_VARIANT:")   + char(DlgOptions->m_RSAVariant   + '0')
+					+CString(";BASEOFNUMBERS:")  + char(DlgOptions->m_numberBasis  + '0')
+					+CString(";CODING_METHOD:")  + char(DlgOptions->m_codingMethod + '0')  
+					+CString(";BLOCK_LENGTH:")   + CString(tmp) + ';';
+		CopyKey ( pc_str, RSAOptions );
+	}
+	
+	CDialog::OnCancel();
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// You may enter the Primes ... e.g. P = 2^4+1, Q = 2^3-1
+// Die nächste Funktion unterdrückt bei der Eingabe alle Zeichen ausser die in "expr"
+// (Beispiel expr = "0, 1, .., 9, +-*^")
+// 
+
+BOOL CDlgRSADemo::PreCheckNumExpression( CEdit &editCtrl, CString &editStr, const char *expr )
+{
+	CString res = editStr;
+	UpdateData();
+	int sele, sels;
+
+	editCtrl.GetSel(sels, sele);	
+	for (int i=0; i<editStr.GetLength(); )
+	{
+		if ( !isCharOf(editStr[i], expr ) )
+		{
+			if (i < sels) sels--;
+			if (i < sele) sele--;
+			editStr.Delete(i); 
+		}
+		else			
+		{
+			i++;
+		}
+	}
+	editCtrl.SetSel(sels, sele);
+	UpdateData(FALSE);
+	return ( res == editStr );
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Eingabe-Check für die Primzahl P
 //
 
 void CDlgRSADemo::OnUpdatePrimeP() 
 {
-	int sels, sele, i, k;
-	char c;
-	CString res;
-
-	RequestForInput(FALSE);
-
-	UpdateData(TRUE); // get the displayed value in m_text 
-	m_control_p.GetSel(sels, sele);
-
-	res.Empty();
-	
-	for(k=i=0;i<m_eingabe_p.GetLength();i++) {
-		c = m_eingabe_p[i];
-		res += c;
-		k++;
-	}
-
-	m_eingabe_p = res;
-	if ( m_eingabe_p.GetLength() )
+	if ( !PreCheckNumExpression( m_control_edit_p, m_edit_p, "0..9+-*^()") )
 	{
-		m_geheime_parameter = _T("");
-		m_oeffentliche_parameter_pq = _T("");
-		m_geheime_schluessel_d = _T("");
+		UpdateData();
+		m_edit_phi_of_N = _T("");
+		m_edit_N = _T("");
+		m_edit_d = _T("");
+		UpdateData(FALSE);
 		RequestForInput(FALSE);
-		EnableEncryption(false);
+		SetStatusPrimePValid(false);
+		SetStatusKeyDValid(false);
 	}
-	
-	UpdateData(FALSE);
-	m_control_p.SetSel(sels,sele);
-
+	ButtonManagement();
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Eingabe-Check für die Primzahl Q
+//
 
 void CDlgRSADemo::OnUpdatePrimeQ() 
 {
-	int sels, sele, i, k;
-	char c;
-	CString res;
-
-	RequestForInput(FALSE);
-
-	UpdateData(TRUE); // get the displayed value in m_text 
-	m_control_q.GetSel(sels, sele);
-	
-	res.Empty();
-
-	for(k=i=0;i<m_eingabe_q.GetLength();i++) {
-		c = m_eingabe_q[i];
-		res += c;
-		k++;
-	}
-	m_eingabe_q = res;
-	if ( m_eingabe_q.GetLength() )
+	if ( !PreCheckNumExpression( m_control_edit_q, m_edit_q, "0..9+-*^()") )
 	{
-		m_geheime_parameter = _T("");
-		m_oeffentliche_parameter_pq = _T("");
-		m_geheime_schluessel_d = _T("");
+		UpdateData();
+		m_edit_phi_of_N = _T("");
+		m_edit_N = _T("");
+		m_edit_d = _T("");
+		UpdateData(FALSE);
 		RequestForInput(FALSE);
-		EnableEncryption(false);
+		SetStatusPrimeQValid(false);
+		SetStatusKeyDValid(false);
 	}
-	
-	UpdateData(FALSE);
-	m_control_q.SetSel(sels,sele);
+	ButtonManagement();
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 //
-//
+// Eingabe-Check für den öffentlichen Schlüssel e
 //
 
 void CDlgRSADemo::OnUpdatePublicKeyE() 
 {
-	int sels, sele, i, k;
-	char c;
-	CString res;
-
-	RequestForInput(FALSE);
-
-	UpdateData(TRUE); // get the displayed value in m_text 
-	m_control_edit5.GetSel(sels, sele);
-	
-	res.Empty();
-
-	for(k=i=0;i<m_oeffentliche_schluessel_e.GetLength();i++) {
-		c = m_oeffentliche_schluessel_e[i];
-		res += c;
-		k++;
-	}
-
-	m_oeffentliche_schluessel_e = res;
-	if ( m_oeffentliche_schluessel_e.GetLength() )
+	if ( !PreCheckNumExpression( m_control_edit_e, m_edit_e, "0..9+-*^()") )
 	{
-		m_geheime_parameter = _T("");
-		m_oeffentliche_parameter_pq = _T("");
-		m_geheime_schluessel_d = _T("");
-		m_edit10 = _T("");
-		EnableEncryption(false);
+		UpdateData();
+		m_edit_d = _T("");
+		UpdateData(FALSE);
+		RequestForInput(FALSE);
+		SetStatusKeyEValid(FALSE);
 	}
-	
-	UpdateData(FALSE);
-	m_control_edit5.SetSel(sels,sele);
+	CheckRSAParameter();
+	ButtonManagement();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Eingabe-Check für den öffentlichen Modul N
+// 
+
+void CDlgRSADemo::OnUpdateModulN() 
+{
+	if ( !PreCheckNumExpression( m_control_edit_N, m_edit_N, "0..9+-*^()") )
+	{
+		RequestForInput(FALSE);
+		SetStatusModulNValid(FALSE);
+	}
+	CheckRSAParameter();
+	ButtonManagement();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// RSA-Alphabet- und Zahlenoptionen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// In diesem Dialog (Siehe Datei DlgRSADemoOptions.{h|cpp} wird 
+// - das Alphabet für das RSA-Kryptosystem eingestellt
+// - als Option das Kryptosystem "Dialog der Schwestern" von Dr. C. Elsner eingestellt
+// - die Zahlenbasis für das Rechnen mit dem RSA-Kryptosystem eingestellt.
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Übertragung von Parametern an den Optionen-Dialog:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+void CDlgRSADemo::SetDlgOptions()
+{
+	if (DlgOptions->m_TextOptions==0) 	DlgOptions->Anzahl_Zeichen=256;	
+	else 					DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
+        if ( KeyStatusModulNValid() )
+	{
+		DlgOptions->m_Bitlength = RSA->GetBlockLength();
+		DlgOptions->m_log2N     = RSA->GetLog2RSAModul();
+		DlgOptions->RSA_Modul   = m_edit_N;
+		DlgOptions->ReInitBlockLength();
+	}
+}
+
+void CDlgRSADemo::OnButtonOptions() 
+{
+	SetDlgOptions();	
+	if ( IDOK == DlgOptions->DoModal() ) 
+	{
+		RequestForInput();
+		UpdateData(TRUE);
+		m_control_RSA_input.mode = DlgOptions->m_TextOptions;
+		UpdateData(FALSE);
+	}	
+	else 
+	{
+		if ( m_edit_N.GetLength() <= 3 &&
+			 DlgOptions->Anzahl_Zeichen > atoi(m_edit_N))
+		{
+			Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
+				DlgOptions->Anzahl_Zeichen, m_edit_N );
+			
+		}
+	}
+
+	ButtonManagement();
+
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
+// Button - Management:
+// ~~~~~~~~~~~~~~~~~~~~  
+// Je nachdem, in welchen Zustand sich der RSA-Demo-Dialog befindet, werden
+// die Buttons aktiviert oder deaktiviert. 
+
+void CDlgRSADemo::ButtonManagement()
+{
+	if ( KeyStatusPrivateKey() )
+	{
+		if ( KeyStatusPrimePValid() && KeyStatusPrimeQValid() )
+		{	
+			m_ButtonOptionen.EnableWindow(TRUE);
+			if ( KeyStatusKeyEValid() )
+			{
+				if ( KeyStatusInputValid() && KeyStatusOptionsValid() )
+				{
+					m_ButtonDecrypt.EnableWindow(TRUE);		
+					m_ButtonEncrypt.EnableWindow(TRUE);
+				}
+				else
+				{
+					m_ButtonDecrypt.EnableWindow(FALSE);		
+					m_ButtonEncrypt.EnableWindow(FALSE);
+				}
+			}
+		}
+		else
+		{
+			m_ButtonOptionen.EnableWindow(FALSE);
+			m_ButtonDecrypt.EnableWindow(FALSE);		
+			m_ButtonEncrypt.EnableWindow(FALSE);
+		}
+	}
+	else
+	{
+		m_ButtonDecrypt.EnableWindow(FALSE);		
+		m_GeneratePrimes.EnableWindow(FALSE);
+		if ( KeyStatusModulNValid() )
+		{
+			m_GeneratePrimes.EnableWindow(TRUE);
+			m_ButtonOptionen.EnableWindow(TRUE);
+			if ( KeyStatusKeyEValid() )
+			{
+				if ( KeyStatusInputValid() && KeyStatusOptionsValid() )
+				{
+					m_ButtonEncrypt.EnableWindow(TRUE);
+				}
+				else
+				{
+					m_ButtonEncrypt.EnableWindow(FALSE);
+				}
+			}			
+		}
+		else
+		{	
+			m_ButtonOptionen.EnableWindow(FALSE);
+			m_ButtonEncrypt.EnableWindow(FALSE);		
+		}
+	}
+}
+
+
+
+
+///////////////////////////////////////////////////////////
+//                                                       // 
+//   R S A  V E R - / E N T S C H L U E S S E L U N G    //
+//                                                       //
+///////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Ändern der RSA-Eingabe:
+// ~~~~~~~~~~~~~~~~~~~~~~~
+// Bei jeder Änderun im EingabeText, wird die "Ausgabe der RSA Ver-/Entschlüsselung gelöscht
 //
-//  Small Tools
+
+void CDlgRSADemo::OnUpdateRSAInput() 
+{
+	RequestForInput(FALSE);
+	if ( m_edit_RSA_input.GetLength() == 0 )
+		SetStatusInputValid(FALSE);
+	else
+		SetStatusInputValid(TRUE);
+	ButtonManagement();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Überschriften für die RSA-Ver-/Entschlüsselung setzen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+// 
+
+void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base)
+{
+	char line[IDS_STRINGLENGTH];
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+	if ( base ) sprintf( line, pc_str, base );
+	else	    sprintf( line, pc_str );
+	mHeader = line;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Alte Ausgaben und Überschriften der RSA-Ver-/Entschlüsselung löschen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
+
+void CDlgRSADemo::RequestForInput( BOOL clearInput )
+{
+
+	UpdateData();
+	if ( clearInput ) m_edit_RSA_input.Empty();
+	m_edit_RSA_step_2.Empty();
+	m_edit_RSA_step_3.Empty();
+	m_edit_RSA_step_1.Empty();
+	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header_RSA_input, IDS_STRING_RSA_TUTORIAL_INPUT );
+	else						  SetHeadLine( m_Header_RSA_input, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
+	m_Header_RSA_step_2.Empty();
+	m_Header_RSA_step_3.Empty();
+	m_Header_RSA_step_1.Empty();
+	UpdateData(FALSE);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Überschriften RSA-Verschlüsselung:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ... für die Eingabe von Text oder von Zahlen.
+
+void CDlgRSADemo::HeadingEncryption( BOOL encryptText )
+{
+	if ( encryptText ) 
+	{
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_INPUTPLAINTEXT );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
+		SetHeadLine( m_Header_RSA_step_3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+	}
+	else
+	{
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_3, IDS_RSA_MKPZ_CIPHERTEXT );
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//Überschriften RSA-Entschlüsselung:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ... für die Eingabe von Text oder von Zahlen.
+
+void CDlgRSADemo::HeadingDecryption( BOOL decryptText )
+{
+	if ( decryptText ) 
+	{
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_INPUTPLAINTEXT );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
+		SetHeadLine( m_Header_RSA_step_3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
+	}
+	else
+	{
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_3, IDS_RSA_MKPZ_PLAINTEXT );
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Die im Optionendialog festgelegte Zahlenbasis bestimmen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
 
 int CDlgRSADemo::GetBase()
 {
@@ -823,71 +1114,30 @@ int CDlgRSADemo::GetBase()
 	return baseNumbers;
 }
 
-void CDlgRSADemo::RequestForInput( BOOL clearInput )
+/////////////////////////////////////////////////////////////////////////////////////////////
+// OnRadioRSA{Text|Numbers}: 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~
+// Manuelle auswahl, ob "Text" oder Gleich Zahlen in die RSA-Berechnung eingehen
+// 
+
+void CDlgRSADemo::OnRadioRSANumbers() 
 {
-
-	if ( clearInput ) m_edit10.Empty();
-	m_edit11.Empty();
-	m_edit12.Empty();
-	m_edit13.Empty();
-	if ( !m_EncryptTextOrNumbers) SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT );
-	else						  SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS, GetBase() );
-	m_Header2.Empty();
-	m_Header3.Empty();
-	m_Header4.Empty();
-
+	RequestForInput(FALSE);
 }
 
-
-void CDlgRSADemo::EnableEncryption(BOOL mode)
+void CDlgRSADemo::OnRadioRSAText() 
 {
-	m_ButtonDecrypt.EnableWindow(mode);		
-	m_ButtonEncrypt.EnableWindow(mode);	
-
-	
+	RequestForInput(FALSE);
 }
 
-
-void CDlgRSADemo::HeadingEncryption( BOOL encryptText )
-{
-	if ( encryptText ) 
-	{
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-		SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
-	}
-	else
-	{
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase() );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header3, IDS_RSA_MKPZ_CIPHERTEXT );
-	}
-}
-
-void CDlgRSADemo::HeadingDecryption( BOOL decryptText )
-{
-	if ( decryptText ) 
-	{
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
-		SetHeadLine( m_Header3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
-	}
-	else
-	{
-		SetHeadLine( m_Header1, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase() );
-		SetHeadLine( m_Header4, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
-		SetHeadLine( m_Header2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
-		SetHeadLine( m_Header3, IDS_RSA_MKPZ_PLAINTEXT );
-	}
-}
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+// Dienst für OnButton{Encrypt|Decrypt} (siehe unten):
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 
 BOOL CDlgRSADemo::SkipWS()
 {
-	CString cleanStr = m_edit10;
+	CString cleanStr = m_edit_RSA_input;
 	for (int i=0 ;i<cleanStr.GetLength();)
 	{
 		if ( !isCharOf(cleanStr[i], DlgOptions->m_alphabet.GetBuffer(0)) )
@@ -895,7 +1145,7 @@ BOOL CDlgRSADemo::SkipWS()
 		else
 			i++;
 	}
-	if ( m_edit10.GetLength() != cleanStr.GetLength() )
+	if ( m_edit_RSA_input.GetLength() != cleanStr.GetLength() )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_WARN_BEFOR_SKIPWS, pc_str,STR_LAENGE_STRING_TABLE);
 		int RetValue;
@@ -904,19 +1154,349 @@ BOOL CDlgRSADemo::SkipWS()
 			return FALSE;
 		}
 	}
-	m_edit10 = cleanStr;
+	m_edit_RSA_input = cleanStr;
 	return TRUE;
 }
 
 
-void CDlgRSADemo::SetDlgOptions()
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Wenn ein HEX-String eingefügt wurde, dann besteht die Möglichkeit, dass es such um einen 
+// bereits RSA-Verschlüsselten Text Handelt....
+
+int CDlgRSADemo::CheckInversion()
 {
-	DlgOptions->m_Bitlength = RSA->GetBlockLength();
-	DlgOptions->m_log2N     = RSA->GetLog2RSAModul();
-	DlgOptions->RSA_Modul   = m_oeffentliche_parameter_pq;
-	DlgOptions->ReInitBlockLength();
+	if (!DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
+	{
+		int i=0;
+		int l_byteLength = RSA->GetBlockLength()/8+1;
+		CString plain  = m_edit_RSA_input;
+		CString plain2 = "";
+		CString number = "";
+
+// Segmentierung der HEX-Eingabe
+		while ( 1 )
+		{					
+			if (  i < plain.GetLength() && ' ' == plain[i] ) 
+			{
+				plain.Delete(i);
+			}
+			else 
+			{
+				if ( (i > 0 && 0 == (i % (2*l_byteLength))) || i == plain.GetLength() )
+				{
+					number = plain.Mid(0, i);
+					BaseRepr(number, 16, GetBase());
+					if ( i < plain.GetLength() ) 
+						plain2 = plain2 + number + CString(" # ");
+					else
+					{
+						plain2 = plain2 + number;
+						break;
+					}
+					plain.Delete(0, i);
+					i = 0;
+				}
+				if ( i < plain.GetLength() ) i++;
+			}
+		}
+
+		if ( !RSA->PreCheckInput( plain2, 16, DlgOptions->m_RSAVariant ) )
+		{
+			UpdateData();
+			m_edit_RSA_input = plain2;
+			UpdateData(FALSE);
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	return 0;
 }
 
+
+/////////////////////////////////////////////////////////////////////////////
+// Test, ob bei der Eingabe es sich um Zahlen handelt:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Wenn Ja: Rückfrage, ob die RSA-Invertierungsoperation durchgeführt werden
+// Soll
+BOOL CDlgRSADemo::CheckIfNumberStream()
+{
+	if ( 0 == m_EncryptTextOrNumbers )
+	{
+		int NumberStreamFlag;
+		if ( !DlgOptions->m_RSAVariant )
+			NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+		else
+			NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
+		if ( NumberStreamFlag )
+		{
+			if ( IDYES == Message( IDS_RSADEMO_REQUEST_FORNUMMBERS, MB_ICONEXCLAMATION | MB_YESNO ) )
+			{
+				UpdateData();
+				m_EncryptTextOrNumbers = 1;
+				UpdateData(FALSE);
+			}
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Das RSA-Verschlüsseln von Zahlen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+
+void CDlgRSADemo::EncryptNumbers()
+{
+
+	int ret = CheckInversion();
+
+	if ( ret == -1 )
+	{
+		Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
+		return;
+	}
+
+	RSA->Encrypt( m_edit_RSA_input, m_edit_RSA_step_1, GetBase() );
+
+	if ( !DlgOptions->m_RSAVariant )
+	{
+				
+		if ( !DlgOptions->m_TextOptions )
+		{
+			ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
+		}
+		else
+		{
+			ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
+		}
+	}
+	else
+	{  
+		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
+	}
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Button RSA-Verschlüsselung:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+//
+
+void CDlgRSADemo::OnButtonEncrypt() 
+{
+	CheckIfNumberStream();
+
+	theApp.DoWaitCursor(1);
+	UpdateData(TRUE);
+	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
+	{
+		HeadingEncryption( ENCRYPT_TEXT );
+		Segmentation( MODE_HEX_DUMP );
+		RSA->Encrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase() );
+	}
+	else 	
+	{
+		if ( 0 == m_EncryptTextOrNumbers )
+		{
+
+			if ( !DlgOptions->m_RSAVariant )
+			{
+				HeadingEncryption( ENCRYPT_TEXT );
+				if ( !DlgOptions->m_TextOptions )
+				{
+					Segmentation( MODE_ASCII );
+				}
+				else
+				{
+					if ( FALSE == SkipWS() ) return;
+					Segmentation( MODE_ALPHABET );
+				}
+				RSA->Encrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase() );
+			}
+			else
+			{
+				if ( FALSE == SkipWS() ) return;
+				HeadingEncryption( ENCRYPT_TEXT );		
+				Segmentation( MODE_DLG_OF_SISTERS );
+				RSA->Encrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase(), TRUE );
+			}
+		}
+		else
+		{						
+			int NumberStreamFlag;
+			if ( !DlgOptions->m_RSAVariant )
+				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+			else
+				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
+			if ( NumberStreamFlag )
+			{
+				HeadingEncryption( ENCRYPT_NUMBERS );
+				EncryptNumbers();
+			}
+			else
+				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
+		}
+	}
+	UpdateData(FALSE);
+	theApp.DoWaitCursor(-1);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Das RSA-Entschlüsseln von Zahlen:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+
+void CDlgRSADemo::DecryptNumbers()
+{
+	int ret = CheckInversion();
+
+	if ( ret == -1 )
+	{
+		Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
+		return;
+	}
+	
+	RSA->Decrypt( m_edit_RSA_input, m_edit_RSA_step_1, GetBase() );
+
+	if ( !DlgOptions->m_RSAVariant )
+	{
+
+		if ( !DlgOptions->m_TextOptions )
+		{				
+			ReSegmentation( MODE_ASCII | RSA_DEMO_DECRYPT );
+		}
+		else
+		{
+			ReSegmentation( MODE_ALPHABET | RSA_DEMO_DECRYPT );
+		}
+	}
+	else
+	{
+		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_DECRYPT );
+	}
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Button RSA-Entschlüsselung:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+
+void CDlgRSADemo::OnButtonDecrypt() 
+{
+	CheckIfNumberStream();
+
+	theApp.DoWaitCursor(1);
+	UpdateData(TRUE);
+	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
+	{
+		Segmentation( MODE_HEX_DUMP );
+		RSA->Decrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase() );
+	}
+	else 
+	{
+		if ( 0 == m_EncryptTextOrNumbers )
+		{
+			if ( !DlgOptions->m_RSAVariant )
+			{
+				HeadingDecryption( DECRYPT_TEXT );
+				if ( !DlgOptions->m_TextOptions )
+				{
+					Segmentation( MODE_ASCII );
+				}
+				else
+				{
+					if ( FALSE == SkipWS() ) return;
+					Segmentation( MODE_ALPHABET );
+				}
+				RSA->Decrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase() );
+			}
+			else
+			{
+				HeadingDecryption( DECRYPT_TEXT );		
+				if ( FALSE == SkipWS() ) return;
+				Segmentation( MODE_DLG_OF_SISTERS );
+				RSA->Decrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase(), TRUE );
+			}
+		}
+		else
+		{
+			if (!DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
+			{
+				int l_byteLength = RSA->GetBlockLength()/8+1;
+				CString cipher  = m_edit_RSA_input;
+				CString cipher2 = "";
+				CString number = "";
+				int i=0;
+				while ( 1 )
+				{					
+					if (  i < cipher.GetLength() && ' ' == cipher[i] ) cipher.Delete(i);
+					else {
+						if (i < cipher.GetLength()) i++;
+						if ( 0 == (i % (2*l_byteLength)) || i == cipher.GetLength() )
+						{	
+							number = cipher.Mid(0, i);
+							BaseRepr(number, 16, 10);
+							if ( i < cipher.GetLength() ) 
+								cipher2 = cipher2 + number + CString(" # ");
+							else
+							{
+								cipher2 = cipher2 + number;
+								break;
+							}
+							cipher.Delete(0, i);
+							i = 0;
+						}
+					}
+				}
+				if ( 0 == RSA->Encrypt( cipher2, cipher, GetBase() ) )
+				{
+					m_edit_RSA_input = cipher2;
+				}
+				else
+				{
+
+				}
+			}
+
+			int NumberStreamFlag;
+			if ( !DlgOptions->m_RSAVariant )
+				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+			else
+				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
+
+			if ( NumberStreamFlag )
+			{
+				HeadingDecryption( DECRYPT_NUMBERS );
+				DecryptNumbers();
+			}
+			else
+				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
+		}
+	}
+	UpdateData(FALSE);
+	theApp.DoWaitCursor(-1);
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+// RSA - Kodierung von Text & RSA-Operation:
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 1. Aufteilung des Textes In Blöken
+// 2. Kodieren dieser Text-Blöcke in Zahlen < N
+// 3. RSA-Verschlüsseln dieser Zahlen
 
 void CDlgRSADemo::Segmentation( int mode )
 {
@@ -925,32 +1505,32 @@ void CDlgRSADemo::Segmentation( int mode )
 	CString NumStr;
 
 	int baseNumbers = GetBase();
-	m_edit11 = ""; 
-	m_edit13 = ""; 
+	m_edit_RSA_step_2 = ""; 
+	m_edit_RSA_step_1 = ""; 
 
-	for (int i = 0; i<m_edit10.GetLength(); )
+	for (int i = 0; i<m_edit_RSA_input.GetLength(); )
 	{
 		if ( mode == MODE_HEX_DUMP ) {
 			int j=i;
 			int cnt=0;
-			while (j < m_edit10.GetLength() && cnt < 2*blockSize )
-				if ( IsNumber( m_edit10[j++], BASE_HEX ) ) cnt++;
-			tmpStr    = m_edit10.Mid(i, j-i);
+			while (j < m_edit_RSA_input.GetLength() && cnt < 2*blockSize )
+				if ( IsNumber( m_edit_RSA_input[j++], BASE_HEX ) ) cnt++;
+			tmpStr    = m_edit_RSA_input.Mid(i, j-i);
 			while ( cnt < 2*blockSize )
 			{
 				if ( cnt < 2*blockSize-1 && 0 == cnt % 2 ) tmpStr += ' ';
 				tmpStr += '0';				
 				cnt++;
 			}
-			m_edit13 += tmpStr;			
+			m_edit_RSA_step_1 += tmpStr;			
 			i = j;
 		}
 		else
 		{
-			m_edit13 += m_edit10.Mid(i, blockSize);
-			tmpStr    = m_edit10.Mid(i, blockSize);
+			m_edit_RSA_step_1 += m_edit_RSA_input.Mid(i, blockSize);
+			tmpStr    = m_edit_RSA_input.Mid(i, blockSize);
 			while ( tmpStr.GetLength() < blockSize ) { 
-				tmpStr += ' '; m_edit13 += ' '; 
+				tmpStr += ' '; m_edit_RSA_step_1 += ' '; 
 			}
 			i += blockSize;
 		}
@@ -974,60 +1554,51 @@ void CDlgRSADemo::Segmentation( int mode )
 				break;
 			case MODE_DLG_OF_SISTERS:
 				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
-				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers, 1, 1 );				
+				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers, 1, 0 );				
 				break;
 		}
-		m_edit11 += NumStr.GetBuffer( NumStr.GetLength()+1);
-		if ( i < m_edit10.GetLength() ) 
+		m_edit_RSA_step_2 += NumStr.GetBuffer( NumStr.GetLength()+1);
+		if ( i < m_edit_RSA_input.GetLength() ) 
 		{
-			m_edit11 += " # ";
-			m_edit13 += " # ";
+			m_edit_RSA_step_2 += " # ";
+			m_edit_RSA_step_1 += " # ";
 		}
 	}
 }
 
-void CDlgRSADemo::OnRadio2() 
-{
-	UpdateData(TRUE);
-	RequestForInput(FALSE);
-	UpdateData(FALSE);
-}
-
-void CDlgRSADemo::OnRadio1() 
-{
-	UpdateData(TRUE);
-	RequestForInput(FALSE);
-	UpdateData(FALSE);
-}
-
-
+/////////////////////////////////////////////////////////////////////////////////////////
+// RSA-Operation & folgende Dekodierung der Zahlen in Text (wenn möglich): 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 1. RSA-Entschlüsselung der Zahlenblöcke
+// 2. Dekodieren der ZahlenBlöcke in Text (Wenn möglich)
+// 3. Entfernen der Segmentierung
 
 BOOL CDlgRSADemo::ReSegmentation( int mode )
 {
 	int blockSize   = DlgOptions->m_BlockLength;
 	int baseNumbers = GetBase();
 
-	m_edit11 = "";
-	m_edit12 = "";
+	m_edit_RSA_step_2 = "";
+	m_edit_RSA_step_3 = "";
 	BOOL flag = TRUE, hexDumpFlag = FALSE;
 	int i1, i2;
 	i1 = i2 = 0;
 	CString tmp1;
 	CString hexDump1 = "";
-    CString hexDump2 = "";
+ 	CString hexDump2 = "";
 	// *************  Hier noch richtige groesse finden ....
 	char _tmp2[512]; 
 
-	while (i1 < m_edit13.GetLength() && (m_edit13[i1] == ' ' || m_edit13[i1] == '#') ) i1++;
-	while ( i1 < m_edit13.GetLength() )
+	while (i1 < m_edit_RSA_step_1.GetLength() && (m_edit_RSA_step_1[i1] == ' ' || m_edit_RSA_step_1[i1] == '#') ) i1++;
+	while ( i1 < m_edit_RSA_step_1.GetLength() )
 	{
-		i2 = m_edit13.Find(" ", i1);
+		i2 = m_edit_RSA_step_1.Find(" ", i1);
 		if (i2 < 0) 
 		{
-			if ( i1 < m_edit13.GetLength() ) i2 = m_edit13.GetLength();
+			if ( i1 < m_edit_RSA_step_1.GetLength() ) i2 = m_edit_RSA_step_1.GetLength();
 			else break;
 		}
-		tmp1 = m_edit13.Mid(i1, i2-i1);
+		tmp1 = m_edit_RSA_step_1.Mid(i1, i2-i1);
 		switch ( mode & 15 ) {
 			case MODE_ASCII: 
 				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL )) )
@@ -1039,7 +1610,7 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 					flag = FALSE;
 				break;
 			case MODE_DLG_OF_SISTERS:
-				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, -1 ); 
+				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, 0 ); 
 				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
 					flag = FALSE;
 				break;
@@ -1054,8 +1625,8 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 				hexDump1 += tmp1; 
 				hexDump2 += tmp1;
 			}
-			m_edit11 += _tmp2;
-			m_edit12 += _tmp2;
+			m_edit_RSA_step_2 += _tmp2;
+			m_edit_RSA_step_3 += _tmp2;
 		}
 		else
 		{
@@ -1063,27 +1634,33 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT,pc_str,STR_LAENGE_STRING_TABLE);
-			m_edit11  = pc_str; 
-			m_edit12  = "";
-			m_Header2 = "";
-			m_Header3 = "";
+			m_edit_RSA_step_2  = pc_str; 
+			m_edit_RSA_step_3  = "";
+			m_Header_RSA_step_2 = "";
+			m_Header_RSA_step_3 = "";
 			break;
 		}
 		
-		while ((i2 < m_edit13.GetLength()) && (m_edit13[i2] == ' ' || m_edit13[i2] == '#')) i2++;
+		while ((i2 < m_edit_RSA_step_1.GetLength()) && (m_edit_RSA_step_1[i2] == ' ' || m_edit_RSA_step_1[i2] == '#')) i2++;
 		i1 = i2;
-		if ( i1 < m_edit13.GetLength() ) {
+		if ( i1 < m_edit_RSA_step_1.GetLength() ) {
 			if ( mode == MODE_ASCII ) hexDump1 += " # ";
-			m_edit11 += " # ";
+			m_edit_RSA_step_2 += " # ";
 		}
 	}
 	if ( mode == MODE_ASCII && hexDumpFlag )
 	{
-		m_edit11 = hexDump1;
-		m_edit12 = hexDump2;
+		m_edit_RSA_step_2 = hexDump1;
+		m_edit_RSA_step_3 = hexDump2;
 	}
 	return flag;
 }
+
+/////////////////////////////////////////////////////////////////////////////
+//                                                                         //
+//  P A S T E  -  F I L T E R    F Ü R   D I E   R S A  -  E I N G A B E   //
+//                                                                         // 
+/////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1106,7 +1683,9 @@ BEGIN_MESSAGE_MAP(CMyRSADemoEdit, CEdit)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
+//
 // Behandlungsroutinen für Nachrichten CMyRSADemoEdit 
+//
 
 void CMyRSADemoEdit::OnMyPaste() 
 {
@@ -1157,12 +1736,19 @@ void CMyRSADemoEdit::OnMyPaste()
 					P += ' ';
 				}
 			}
-			// *** Check the Pasted String if it is a stream of numbers
-			{
-				CString CheckNumber = P;
-				if ( IsNumberStream(CheckNumber, 16, "0") )
+			
+			
+			
+			{  // *** Check the Pasted String if it is a stream of numbers
+				CString CheckStr = P;
+				if ( IsHexDump(CheckStr) )
 				{
-					P = CheckNumber;
+					P = CheckStr;
+					EncryptTextOrNumbers = 1;
+				}
+				else if ( IsNumberStream(CheckStr, 16, "0") )
+				{
+					P = CheckStr;
 					EncryptTextOrNumbers = 1;
 				}
 			}
@@ -1201,10 +1787,15 @@ void CMyRSADemoEdit::OnMyPaste()
 			}
 			// *** Check the Pasted String if it is a stream of numbers
 			{
-				CString CheckNumber = P;
-				if ( IsNumberStream(CheckNumber, 16, "0" ) )
+				CString CheckStr = P;
+				if ( IsHexDump(CheckStr) )
 				{
-					P = CheckNumber;
+					P = CheckStr;
+					EncryptTextOrNumbers = 1;
+				}
+				else if ( IsNumberStream(CheckStr, 16, "0") )
+				{
+					P = CheckStr;
 					EncryptTextOrNumbers = 1;
 				}
 			}
@@ -1219,6 +1810,12 @@ void CMyRSADemoEdit::OnMyPaste()
 	}
 
 }
+
+
+/////////////////////////////////////////////////////////////////////////
+//
+// 
+//
 
 void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
@@ -1236,7 +1833,5 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}
 }
-
-
 
 

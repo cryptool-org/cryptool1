@@ -10,6 +10,11 @@
 
 #include "DlgFactorisationList.h"
 
+
+#define NUMBER_NOT_FACTORISED 0
+#define NUMBER_RSA_MODUL 1
+#define NUMBER_NOT_RSA_MODUL 2
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgFactorisationDemo 
 
@@ -35,6 +40,8 @@ class CDlgFactorisationDemo : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	void InitialiseFactorList();
+	int GetRSAFactorisation(CString &str_p, CString &str_q);
 	zeit zeit_condtruct1, zeit_condtruct2;
 	double duration1, duration2;
 	clock_t FactFinish;

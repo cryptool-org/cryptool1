@@ -771,9 +771,35 @@ BOOL CDlgFactorisationDemo::OnInitDialog()
 	m_vollstaendig.EnableWindow(false);
 		// Initialisiere die Schlüsselliste mit allen verfügbaren asymmetrischen Schlüsseln
 	m_bruteForceCtrl.SetCheck(1);
-	m_DialogeDetails.EnableWindow(FALSE);
+	if ( m_CompositeNoStr.GetLength() )
+	{
+		m_weiter.EnableWindow(true);
+		m_weiter.SetFocus();
+	}
+	if ( !factorList )
+	{
+		m_DialogeDetails.EnableWindow(FALSE);
+	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgFactorisationDemo::InitialiseFactorList()
+{
+	m_Factorisation = "";
+	m_benoetigte_zeit_global="";
+	m_benoetigte_zeit_pro_factorisation="";
+	duration1=0;
+	duration2=0;
+	while ( factorList != 0 )
+	{
+		NumFactor *tmp = factorList;
+		factorList = factorList->next;
+		delete tmp;
+	}
+	factorList = 0;
+	DetailsFactorisation.ClearFactDetail();	
+	m_Name = ""; 
 }
 
 void CDlgFactorisationDemo::OnUpdateEditEingabe() 
@@ -808,23 +834,10 @@ void CDlgFactorisationDemo::OnUpdateEditEingabe()
 		m_weiter.EnableWindow(false);
 		m_vollstaendig.EnableWindow(false);	
 	}
-	m_Factorisation = "";
-	m_benoetigte_zeit_global="";
-	m_benoetigte_zeit_pro_factorisation="";
-	duration1=0;
-	duration2=0;
-	while ( factorList != 0 )
-	{
-		NumFactor *tmp = factorList;
-		factorList = factorList->next;
-		delete tmp;
-	}
-	{ // reset !
-		factorList = 0;
-		DetailsFactorisation.ClearFactDetail();	
-		m_DialogeDetails.EnableWindow(FALSE);
-		m_Name = ""; 
-	}
+
+	InitialiseFactorList();
+	m_DialogeDetails.EnableWindow(FALSE);
+
 	UpdateData(FALSE);
 	m_CompositeNoCtrl.SetSel(sels,sele);
 }
@@ -915,3 +928,45 @@ void CDlgFactorisationDemo::OnShowFactorisationDetails()
 		// Message(STR_LAENGE_STRING_TABLE, MB_ICONINFORMATION);
 	}
 }
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+//
+//
+
+int CDlgFactorisationDemo::GetRSAFactorisation(CString &str_p, CString &str_q)
+{
+	int factorCounter = 0;
+	NumFactor *ndx = factorList;
+	if ( !ndx ) return NUMBER_NOT_FACTORISED;
+	while ( ndx )
+	{
+		if ( ndx->exponent > 1 || !ndx->isPrime ) 
+		{
+			return NUMBER_NOT_RSA_MODUL;
+		}
+		factorCounter++;
+		if ( 1 == factorCounter )
+		{
+			str_p = ndx->factorStr;
+		}
+		else if ( 2 == factorCounter )
+		{
+			str_q = ndx->factorStr;
+		}
+		else
+		{
+			break;
+		}
+		ndx = ndx->next;		
+	}
+	if ( factorCounter == 2 )
+	{
+		return NUMBER_RSA_MODUL;
+	}
+	else
+	{
+		return NUMBER_NOT_RSA_MODUL;
+	}
+}
+
