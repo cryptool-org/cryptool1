@@ -33,8 +33,14 @@
  5.1.6. .... Miscellaneous
  5.2. .... Enhancements from version 1.3.00 to 1.3.04
  5.3. .... Planned enhancements after version 1.3.04
- 6. .... Possible areas for further development
- 6.1. .... Meaningful tasks to make the new maintainer familiar with
+ 6. .... Possible areas for further development -- ideas, requests
+ 6.1. .... Analysis
+ 6.2. .... Algorithms / methods
+ 6.3. .... Internal interfaces
+ 6.4. .... User interfaces / visualizations
+ 6.5. .... Adding number theoretic functions
+ 6.6. .... Porting to Linux
+ 6.7. .... Meaningful tasks to make the new maintainer familiar with
  7. .... Brief history of the released main versions of CrypTool
  8. .... Feedback on errors
  9. .... Contact addresses
@@ -758,21 +764,174 @@ Functionality:
 
 
 
-6. Possible areas for further development
-   --------------------------------------
-+ Additional algorithms on every aspect of encryption or analysis,
-  e.g.
-  - ADFGVX as a classic procedure,
-  - the RC5 and Ghost as symmetric procedures or
-  - Rabin for the public key methods.
+6. Possible areas for further development -- ideas, requests
+   ---------------------------------------------------------
+
+6.1. Analysis
+     --------
++ Offer a (good) analysis method for all encryption algorithms
+  (at least for the classical one better than brute-force).
++ Implement analysis newly for
+  - homophone encryption.
++ Analysis improvement (not sophisticated enough yet) of
+   - monoalphabetic substitution (plus display of inverted digram
+                                 pairs and double characters),
+   - Playfair encryption.
++ Facilities for correcting individual characters in the analysis
+  of XOR, ADD, Vigenere.
++ Display of second-, third-, etc. -best hit in XOR/ADD analysis
+  (this could lead to a shorter key length).
++ Autocorrelation: execute more operations (XOR, ADD, ...) in the
+  blocks prior to super imposition, if appropriate.
++ Make it possible to edit the homophone key (necessary for
+  analysis of homophone encryption).
++ Floating entropy: automatic display of relevant places with
+  high entropy.
++ Illustrate the Vigenere analysis more deeply:
+  - enable to enter not only a fixed value for the key length,
+    but also a range of values (e.g. "2-9"). Then show in the next
+    dialog for each length the statistically most appropriate
+    key. Clicking at the displayed key proceeds the according
+    decryption. Clicking an additional button performs the
+    descryptions for all displayed keys.
+  - the Analysis Option "Show base ciphers" currently shows for
+    each "column Caesar" the graphics correlation and histogram.
+    Additionally the text for each column Caesar could be
+    displayed.
++ Substitution analysis: the replaced letters in the dialog box
+  are currently shown in capital letters: additionally diplay
+  them in red to enhance readability.
++ Offer a view for any text files to show them in any given
+  fixed block length: e.g. xxx xxx xxx or xxxxx xxxxx xxxxx ...
+
+
+6.2. Algorithms / methods
+     --------------------
++ Implement additional algorithms on each topic:
+    - Encryption
+       - ADFGVX as a classic procedure,
+       - the RC5 and Ghost as symmetric procedures or
+       - Rabin for the public key methods.
+    - Hashes
+       - SHA-xxx
+       - Tiger
+    - Protocols / weaknesses in protocols.
++ Implementation of an enhanced pattern search (with pre-given
+  standardized and regular patterns and unknown but repeated
+  patterns in a document, ...) by enhancing the dialogue used for
+  mass comparison with known patterns from another file.
+  The search could be enhanced by replacing.
++ Hill cipher
+   - enable to transpose the key matrix
+   - allow not only letters but also integers as input for the key matrix.
++ Generate cryptographically strong elliptic curves and use these
+  to implement a cryptosystem based on elliptic curves.
+  Here, one could take the cryptosystem developed by Menezes and
+  Vanstone that was proposed by the authors in 1993:
+  A. Menezes and S. Vanstone,
+  "Elliptic curve cryptosystems and their implementation",
+  Journal of Cryptology, 6 (1993), pp 209-224.
++ Because cryptographic structures and formats are often ASN.1
+  encoded: integration of an ASN.1 decoding tool.
++ Random numbers:
+  - Till now CrypTool concentrates on cryptographically strong
+    pseudo number generators. Only the integrated Secude generator
+    involves a "pure" random source. 
+    Adding further "pure" random sources e.g. via mouse moves
+    would be a good enhancement for CrypTool (Yarrow, PGP, ...). 
+  - In Germany evaluations of deterministic random number generators
+    are based on AIS 20 (since December 1999; AIS = Application
+    Notes and Interpretation of the Scheme) and evaluations of 
+    physical random number generators are based on AIS 31 (since
+    September 2001). Especially AIS 31 has achieved great interest
+    outside of Germany: this scheme evaluates not only the quality
+    of the output like FIPS-140, but also the design of the generator
+    itself !
+    The documents AIS 20 and AIS 31 are both in English and German
+    available at the web page of the German GISA:
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
+    It would be a meaningful enhancement of CrypTool, to implement
+    these requirements on evaluating random number generators 
+    and also to visualize them.
++ Implement further standards and refer to all places, where
+  they (e.g. PKCS#5) are used, from a menu and from the Online
+  help (main task here is user interface and documentation).
++ Similar as CrypTool generates good keys from passwords (via PKCS#5)
+  there should be a DOCUMENTED way on different methods how to
+  generate good passwords.
++ Link to PGP:
+  - Use PGP key within CrypTool:
+    Idee: Open private key ring via password, analyse its structure,
+    get the provate key (PGP sources are available) and use this key,
+    to decrypt PGP files with the algorithms implemented in CrypTool.
+    This shows, that PGP only uses standard algorithms.
+
+
+6.3. Internal interfaces
+     -------------------
++ Summary of all display modules in a logical class tree.
++ According the default MFC procedure for different window types
+  there are different menu trees in CrypTool for text and binary
+  files. Because these 2 types are not very different, one could
+  consider this only as a view of the same file and use the
+  according functions for all window types (e.g. when encrypting
+  a non-text file with Playfair one could ignore all letters 
+  outside the alphabet) or one could dynamically enable/disable
+  the menu items within a common menu structure. 
++ Rearrange the source to facilitate a separation of cryptographic
+  functions and user interface (make ports and debugging easier).
 + Customisation wherever possible:
   option to set e.g. initial vector, number of rounds, key length,
   word size or the kind of padding (e.g. for the RC5-Algorithm
   see RFC2040).
   Then these additional customisations must become part of the
   format for the internal key storage.
-+ Within CrypTool the keys of modern encryption methods intentionally
-  must be typed in using the hex format. 
++ Use dictionary for all attacks, not just for substitution.
++ Libraries:
+   - Support further libraries (Gnu, LiDIA, FLINT/C, ...)
+   - Update the Miracl library to a newer version than 4.4.3., 
+     if this improves the performance.
+   - Update the Secude library to a newer version than 5.4.15C,
+     if this improves the performance or if further methods are
+     needed.
+
+
+6.4. User interfaces / visualizations
+     --------------------------------
++ There are several dialogs within CrypTool where special input fields
+  expect a special number format (decimal, hexadecimal, ...).
+  The dialog "The RSA Cryptosystem" e.g. allows to enter the message
+  as text (with an alphabet defined by you) or as a number (with 4
+  different base numbers); compared with that the primes here can 
+  only be entered as decimal numbers or as terms of decimal numbers.
+  It would be useful if a calculator can be called from within 
+  CrypTool as an a-modal window: it should accept terms with numbers 
+  of any basis as input and it should show the result in several
+  fields in parallel with different number bases. 
+  The right output number representation could be transferred into
+  the clipboard via button, or the mouse could drag the field content
+  directly into the entry field in the CrypTool dialog box.
++ Offer a customizing feature to user, so that he can choose that
+  all new windows appear within the main windows (as right now) or
+  as "free" windows outside the main window.
+  E.g. show single dialogue windows in an a-modal way (e.g. N-gram
+  analysis, manual analysis, hybrid encryption demonstration).
+  This allows that one can switch between the main window and
+  the dialogue window without closing the dialogue window first
+  (the burden is a more complex control mechanism, handling of
+  multiple calls to the same dialogue, update after change of
+  window focus or after changing the underlying original data
+  within the main window, ...).
++ AES-Tool:
+  - Porting it to Linux, ...
+  - Integrate the PKCS#5 dialog to let the user enter letters in
+    his used way: then set random values for salt and iteration
+    counter and ask the user, to remember the generated hex value
+    or store it securely. 
+  Generally within CrypTool the keys of modern encryption methods
+  intentionally must be typed in using the hex format. 
   We pedagogically did it by will, that everybody sees what type of
   key the different methods expect: classical methods expect a key
   built from the used alphabet, modern methods expect binary data of
@@ -796,85 +955,10 @@ Functionality:
   Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem Aufruf,
   der nur eine ASCII-Passwort eingibt, voreinstellen, und den User
   auffordern, sich den Hexwert zu merken und/oder sicher aufzubewahren.
-+ There are several dialogs within CrypTool where special input fields
-  expect a special number format (decimal, hexadecimal, ...).
-  The dialog "The RSA Cryptosystem" e.g. allows to enter the message
-  as text (with an alphabet defined by you) or as a number (with 4
-  different base numbers); compared with that the primes here can 
-  only be entered as decimal numbers or as terms of decimal numbers.
-  It would be useful if a calculator can be called from within 
-  CrypTool as an a-modal window: it should accept terms with numbers 
-  of any basis as input and it should show the result in several
-  fields in parallel with different number bases. 
-  The right output number representation could be transferred into
-  the clipboard via button, or the mouse could drag the field content
-  directly into the entry field in the CrypTool dialog box.
-+ Use dictionary for all attacks, not just for substitution.
-+ Implementation of an enhanced pattern search (with pre-given
-  standardized and regular patterns and unknown but repeated
-  patterns in a document, ...) by enhancing the dialogue used for
-  mass comparison with known patterns from another file.
-  The search could be enhanced by replacing.
-+ Analysis newly to implement for
-  - homophone encryption.
-+ Analysis improvement (not sophisticated enough yet) of
-  - monoalphabetic substitution (plus display of inverted digram
-                                 pairs and double characters),
-  - Playfair encryption,
-  - asymmetric crypto methods.
-+ Summary of all display modules in a logical class tree.
-+ According the default MFC procedure for different window types
-  there are different menu trees in CrypTool for text and binary
-  files. Because these 2 types are not very different, one could
-  consider this only as a view of the same file and use the
-  according functions for all window types (e.g. when encrypting
-  a non-text file with Playfair one could ignore all letters 
-  outside the alphabet) or one could dynamically enable/disable
-  the menu items within a common menu structure. 
-+ Rearrange the source to facilitate a separation of cryptographic
-  functions and user interface (make ports and debugging easier).
-+ Offer a customizing feature to user, so that he can choose that
-  all new windows appear within the main windows (as right now) or
-  as "free" windows outside the main window.
 + Make customizable by user how big the text and binary files can
   be loaded by CrypTool.
 + New magnification function in the display for graphics and/or
   display of co-ordinates of the current mouse pointer position.
-+ Facilities for correcting individual characters in the analysis
-  of XOR, ADD, Vigenere.
-+ Display of second-, third-, etc. -best hit in XOR/ADD analysis
-  (this could lead to a shorter key length).
-+ Create single dialogue windows in an a-modal way (e.g. N-gram
-  analysis, manual analysis, hybrid encryption demonstration).
-  This allows that one can switch between the main window and
-  the dialogue window without closing the dialogue window first
-  (the burden is a more complex control mechanism, handling of
-  multiple calls to the same dialogue, update after change of
-  window focus or after changing the underlying original data
-  within the main window, ...).
-+ Autocorrelation: execute more operations (XOR, ADD, ...) in the
-  blocks prior to super imposition, if appropriate
-+ Make it possible to edit the homophone key (necessary for
-  analysis of homophone encryption)
-+ Floating entropy: automatic display of relevant places with
-  high entropy
-+ Hill cipher: enable to transpose the key matrix .
-+ Hill cipher: allow not only letters but also integers as
-  input for the key matrix.
-+ Update the Miracl lib to a newer version than 4.4.3., if this
-  improves the performance.
-+ Porting to Linux (Secude or Miracl library available) - here
-  a great demand is noticed.
-+ Porting to Java (a Secude library is available for this).
-+ Generate cryptographically strong elliptic curves and use these
-  to implement a cryptosystem based on elliptic curves.
-  Here, one could take the cryptosystem developed by Menezes and
-  Vanstone that was proposed by the authors in 1993:
-  A. Menezes and S. Vanstone,
-  "Elliptic curve cryptosystems and their implementation",
-  Journal of Cryptology, 6 (1993), pp 209-224.
-+ Because cryptographic structures and formats are often ASN.1
-  encoded: integration of an ASN.1 decoding tool.
 + Visualization:
   - Visualization of dependencies and workflows in protocols 
     (not only "simple" algorithms) is a meaningful enhancement.
@@ -887,38 +971,26 @@ Functionality:
     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
     has to calculate "discrete logarithms". After implementing
     this also could be visualized.
-+ Random numbers:
-  - Till now CrypTool concentrates on cryptographically strong
-    pseudo number generators. Only the integrated Secude generator
-    involves a "pure" random source. 
-    Adding further "pure" random sources e.g. via mouse moves
-    would be a good enhancement for CrypTool (Yarrow, PGP, ...). 
-  - In Germany evaluations of deterministic random number generators
-    are based on AIS 20 (since December 1999; AIS = Application
-    Notes and Interpretation of the Scheme) and evaluations of 
-    physical random number generators are based on AIS 31 (since
-    September 2001). Especially AIS 31 has achieved great interest
-    outside of Germany.
-    The documents AIS 20 and AIS 31 are both in English and German
-    available at the web page of the German GISA:
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
-    It would be a meaningful enhancement of CrypTool, to implement
-    these requirements on evaluating random number generators 
-    and also to visualize them.
-+ Implement further standards and refer to all places, where
-  they (e.g. PKCS#5) are used, from a menu and from the Online
-  help (main task here is user interface and documentation).
-+ Similar as CrypTool generates good keys from passwords (via PKCS#5)
-  there should be a DOCUMENTED way on different methods how to
-  generate good passwords.
+
+
+6.5. Adding number theoretic functions
+     ---------------------------------
 + Enhance CrypTool as a front-end for number theoretic functions
   and values.
 
 
+6.6. Porting to Linux
+     ----------------
++ Porting to Linux - here a great demand is noticed.
+   - a Secude and Miracl library is available.
+   - Divide the complete task in meaningful parts:
+       - graphical user interface
+       - functionality implmented in pure C/C++
+       - online help from Winhelp to HTML.
++ Porting to Java (a Secude library is available for this).
 
-6.1. Meaningful tasks to make the new maintainer familiar with
+
+6.7. Meaningful tasks to make the new maintainer familiar with
      ---------------------------------------------------------
 + Integrate the RC5 algorithms as described above, in order to
   see all places where to enhance the sources.

@@ -33,8 +33,14 @@
  5.1.6. .... Sonstiges
  5.2. .... Änderungen von Version 1.3.00 zu Version 1.3.04
  5.3. .... Geplante Änderungen nach Version 1.3.04
- 6. .... Mögliche Punkte für eine Weiterentwicklung
- 6.1. .... Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
+ 6. .... Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
+ 6.1. .... Analyse
+ 6.2. .... Algorithmen / Verfahren
+ 6.3. .... Interne Schnittstellen
+ 6.4. .... User-Interface / Visualisierungen
+ 6.5. .... Erweiterung um zahlentheoretische Funktionen
+ 6.6. .... Portierung nach Linux
+ 6.7. .... Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
  7. .... Kurze Historie der freigegebenen Hauptversionen
  8. .... Feedback bei Fehlern
  9. .... Kontaktadressen
@@ -776,13 +782,135 @@ Funktionalität:
 + Visualisierung von Man-in-the-Middle-Attacks.
 
 
-6. Mögliche Punkte für eine Weiterentwicklung
-   ------------------------------------------
-+ Weitere Algorithmen zu jedem Thema der Verschlüsselung oder
-  Analyse hinzufügen, z.B.
-  - ADFGVX bei den klassischen Verfahren,
-  - RC5 und Ghost bei den symmetrischen Verfahren oder
-  - Rabin bei den Public Key-Verfahren.
+
+6. Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
+   -------------------------------------------------------------
+
+6.1. Analyse
+     -------
++ zu allen Verschlüsselungsverfahren eine (gute) Analyse anbieten
+  (zumindest für die klassischen Verfahren mehr als Brute-Force).
++ Analyse neu implementieren für
+  - homophone Verschlüsselung.
++ Analyse verbessern (nicht performant und korrekt genug bisher) für
+  - monoalphabetische Substitution
+    (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
+    und von Doppelzeichen wie "mm"),
+  - Playfair-Verschlüsselung.
++ Korrekturmöglichkeit einzelner Zeichen bei der Analyse von XOR,
+  ADD, Vigenere.
++ Anzeigen des zweit-, dritt-, ... -besten Treffers bei der
+  XOR/ADD-Analyse (dies kann zu einer kürzeren Schlüssellänge
+  führen).
++ Autokorrelation: vor der Überlagerung noch Operationen auf den
+  Blöcken ausführen (XOR, ADD, ...); macht das Sinn?
++ Editieren der Homophonen-Schlüssel (benötigt bei der Analyse
+  der Homophonen Verschlüsselung).
++ Bei gleitender Entropie: Automatische Anzeige der
+  entsprechenden Stellen mit hoher Entropie.
++ Vigenere-Analyse noch weiter veranschaulichen:
+  - bei den Keylängen die Eingabe eines Ranges statt eines Einzel-
+    wertes ermöglichen (z.B. "2-9") und dann in der Folgemaske auch
+    für jede Länge den statistisch wahrscheinlichen Schlüssel ausgeben.
+    Per Klick auf einen der angezeigten Keys erhält man die jeweilige
+    Entschlüsselung. Per Klick auf weiteren Button werden für alle 
+    Keys die Entschlüsselungen angeboten.
+  - mit der Analyseoption "Basischiffre anzeigen" werden z.Zt. pro
+    Spaltencaesar (d.h. bei einer ermittelten Schlüssellänge von
+    n wird das Caesarverfahren für jeden Wert von i jeweils auf die
+    Zeichenmenge m[i+k*n] mit 1<=i<=n und k>=0 angwandt) die
+    Grafiken Korrelation und ASCII-Histogramm ermittelt.
+    Zusätzlich könnte man noch den Text des jeweiligen Spalten-
+    Caesars ausgeben.
++ Substitutionsanalyse: ersetzte Buchstaben in der Dialogbox nicht nur
+  groß, sondern auch in roter Schrift anzeigen.
++ Beliebige Textdateien in Blöcken einstellbarer Breite darstellen:
+  xxx xxx xxx oder xxxxx xxxxx xxxxx ...
+
+
+6.2. Algorithmen / Verfahren
+     -----------------------
++ Weitere Algorithmen zu jedem Thema implementieren:
+    - Verschlüsselung
+       - ADFGVX bei den klassischen Verfahren,
+       - RC5 und Ghost bei den symmetrischen Verfahren oder
+       - Rabin bei den Public Key-Verfahren.
+    - Hashverfahren
+       - SHA-xxx
+       - Tiger
+    - Protokolle / Protokollschwächen
++ Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen normierten
+  und regulären Mustern und Suche nach unbekannten, aber mehrfach
+  vorkommenden Mustern im Dokument, ...), indem der Dialog zum
+  Massen-Vergleich mit bekannten Mustern in einer anderen Datei
+  entsprechend erweitert wird.
+  Zur Suche könnte man auch Ersetzen ergänzen.
++ Hillverfahren
+   - Schlüsselmatrix transponieren
+   - Eingabe von Zahlen statt Buchstaben in die Schlüsselmatrix.
++ Kryptographisch starke elliptische Kurven erzeugen und damit
+  Implementierung eines auf Elliptischen Kurven basierenden
+  Kryptosystems. Dazu könnte man das Kryptosystem von Menezes
+  und Vanstone nehmen, das 1993 von diesen Autoren vorgeschlagen
+  wurde: A. Menezes and S. Vanstone,
+         "Elliptic curve cryptosystems and their implementation",
+         Journal of Cryptology, 6 (1993), Seiten 209-224.
++ Weil kryptographische Strukturen und Formate häufig ASN.1-
+  kodiert sind: Integration eines ASN.1 Dekodier-Tools.
++ Zufallszahlen:
+  - Bisher konzentriert sich CrypTool auf kryptographisch starke 
+    Pseudozufallzahlengeneratoren. Nur im Secude-Generators wird
+    eine "echte" Zufallsquelle einbezogen. 
+    Die Gewinnung "echter" Zufallsdaten über Mausbewegungen etc.
+    wäre eine gute Ergänzung für CrypTool (Yarrow, PGP, ...). 
+  - In Deutschland wird die Evaluierung von deterministischen 
+    Zufallszahlengeneratoren durch die AIS 20 (seit Dezember 1999;
+    AIS = Anwendungshinweise und Interpretationen zum Schema) und 
+    die Evaluierung von physikalischen Zufallszahlengeneratoren 
+    durch die AIS 31 (seit September 2001) geregelt. 
+    Vor allem die AIS 31 ist auch außerhalb Deutschlands auf 
+    großes Interesse gestoßen: darin wird nicht nur wie in FIPS-140
+    die Güte des Outputs untersucht, sondern auch das Design des
+    Generators selbst!
+    Die AIS 20 und AIS 31 befinden sich in deutscher und englischer
+    Sprache auf der BSI-Website:
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/trngkr31.pdf
+    Es wäre eine gute Ergänzung für CrypTool, diese Standard-
+    anforderungen zur Evaluierung von Zufallszahlen  
+    einzubauen und dies auch zu visualisieren.
++ Weitere Standards implementieren und direkt über die Menüs
+  bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
+  Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit
+  dabei sind nur User Interface und Dokumentation).
++ Ähnlich wie CrypTool "gute" Schlüssel aus Passworten generiert (PKCS#5),
+  sollte eine DOKUMENTIERTE Schnittstelle da sein zu den verschiedenen
+  Verfahren, die gute Passworte generieren.
++ Verbindung zu PGP
+  - PGP-Key in CrypTool verwenden:
+    Per Passwort-Eingabe öffnet man seinen privaten Keyring, analysiert
+    die Struktur, holt den Key heraus (PGP-Sourcen sind gegeben) und
+    nutzt diesen, um mit den in CrypTool implementierten Verfahren 
+    PGP-Files zu entschlüsseln oder zu signieren. 
+    Damit klar, dass PGP nur mit Standard-Algorithmen arbeitet.
+
+
+6.3. Interne Schnittstellen
+     ----------------------
++ Alle Anzeigemodule in einem konsistenten Klassenbaum
+  zusammenfassen.
++ Entsprechend der MFC-Vorgehensweise für verschiedene Fenstertypen
+  gibt es für Text- und Binärdateien verschiedene Menübäume.
+  Da diese Typen nicht so sehr unterschiedlich sind, könnte
+  man die Anzeigeform als View betrachten und die entsprechenden
+  Funktionen auf beide anwenden (und z.B. beim Versuch der Playfair-
+  Verschlüsselung mit einem Nicht-Textfile alle Buchstaben außerhalb
+  des Alphabets ignorieren) oder in einer gemeinsamen Menüstruktur
+  die Menüeinträge dynamisch ein-/ausblenden. 
++ Die Sourcen so umstellen, dass die Ausgabe/Anzeige komplett von
+  den Kryptomodulen getrennt ist (erleichtert Portierungen und
+  Fehlersuche).
 + Parametrisierung, wo immer das möglich ist:
   Anbieten einer Option, um z.B. den Initialisierungsvektor,
   die Anzahl von Runden, die Schlüssel- oder Wortlänge oder
@@ -790,8 +918,48 @@ Funktionalität:
   RFC 2040).
   Diese Parameter müssen dann auch in das Format für den internen
   Schlüsselspeicher aufgenommen werden.
-+ Ganz bewusst sind bei CrypTool die Schlüssel für die modernen
-  Verschlüsselungsverfahren in Hex-Zeichen einzugeben. 
++ Wörterbuch für alle Angriffe benutzen, nicht nur für die
+  Substitution.
++ Libraries:
+   - Unterstützung weiterer Libraries (Gnu, LiDIA, FLINT/C, ...)
+   - Update der Miracl-Lib auf eine neuere Version als 4.4.3.,
+     sofern dies eine Performance-Verbesserung bringt.
+   - Update der Secude-Lib auf eine neuere Version als 5.4.15C,
+     sofern dies eine Performance-Verbesserung bringt oder
+     weitere Verfahren benötigt werden.
+
+
+6.4. User-Interface / Visualisierungen
+     ---------------------------------
++ In den Dialogen in CrypTool können Zahlen nicht immer in allen
+  Darstellungsarten eingegeben werden (z.B. kann im Dialog RSA-Kryptosystem
+  die zu verschlüsselnde Nachricht als Text mit frei einzustellendem 
+  Alphabet und als Zahl mit 4 verschiedenen Basen) eingegeben werden,
+  die Primzahlen dagegen kann man "nur" als Zahl im Zehnersystem bzw. als
+  Ausdrücke mit Zahlen im Zehnersystem eingegeben).
+  Nützlich wäre es, wenn man aus CrypTool heraus einen Taschenrechner
+  als a-modales Fenster aufmachen könnte, der Terme mit Zahlen beliebiger
+  Basis als Eingabe nimmt und die Ausgabe in mehreren Feldern in 
+  verschiedenen Zahlensystemen parallel anzeigt. Von hier aus sollte
+  man dann die Zahlen per Knopfdruck ins Clipboard bringen können oder
+  per Maus in die Eingabefelder der CrypTool-Dialogboxen ziehen können.
++ Für den Benutzer konfigurierbar einstellbar machen, ob neue Fenster
+  wie bisher innerhalb des Hauptfensters erscheinen oder als "freie"
+  Fenster danebenstehen.
+  Z.B. einzelne Dialogboxen (z.B. N-Gramm-Analyse, Manuelle Analysen,
+  Hybriddemo) als amodale Fenster erzeugen, so dass man beliebig
+  zwischen Hauptfenster und Auswertungsfenster springen kann
+  (aufwendigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
+  rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw.
+  nach Änderung der Originaldaten im Hauptfenster, ...).
++ AES-Tool:
+  - Portierung nach Linux, ...
+  - Einbinden des PKCS#5-Dialog, um dem Benutzer seine gewohnte
+    Eingabeweise zu bieten: dann zufällige Werte für Salz und 
+    Iterationszahl voreinstellen und den User auffordern, sich
+    den Hexwert zu merken oder sicher aufzubewahren.
+  Generell sind bei CrypTool die Schlüssel ganz bewusst für die
+  modernen Verschlüsselungsverfahren in Hex-Zeichen einzugeben. 
   Es ist Absicht, dass man in CrypTool zunächst sieht, welche Art
   Schlüssel die verschiedenen Algorithmen erwarten: bei den 
   klassischen Verfahren besteht der Schlüssel aus dem zugrunde
@@ -816,89 +984,11 @@ Funktionalität:
   Dann z.B. zufällige Werte für Salz und Iterationszahl bei jedem Aufruf,
   der nur eine ASCII-Passwort eingibt, voreinstellen, und den User
   auffordern, sich den Hexwert zu merken und/oder sicher aufzubewahren.
-+ In den Dialogen in CrypTool können Zahlen nicht immer in allen
-  Darstellungsarten eingegeben werden (z.B. kann im Dialog RSA-Kryptosystem
-  die zu verschlüsselnde Nachricht als Text mit frei einzustellendem 
-  Alphabet und als Zahl mit 4 verschiedenen Basen) eingegeben werden,
-  die Primzahlen dagegen kann man "nur" als Zahl im Zehnersystem bzw. als
-  Ausdrücke mit Zahlen im Zehnersystem eingegeben).
-  Nützlich wäre es, wenn man aus CrypTool heraus einen Taschenrechner
-  als a-modales Fenster aufmachen könnte, der Terme mit Zahlen beliebiger
-  Basis als Eingabe nimmt und die Ausgabe in mehreren Feldern in 
-  verschiedenen Zahlensystemen parallel anzeigt. Von hier aus sollte
-  man dann die Zahlen per Knopfdruck ins Clipboard bringen können oder
-  per Maus in die Eingabefelder der CrypTool-Dialogboxen ziehen können.
-+ Wörterbuch für alle Angriffe benutzen, nicht nur für die
-  Substitution.
-+ Einbau einer erweiterten Mustersuche (Suche mit vorgegebenen normierten
-  und regulären Mustern und Suche nach unbekannten, aber mehrfach
-  vorkommenden Mustern im Dokument, ...), indem der Dialog zum
-  Massen-Vergleich mit bekannten Mustern in einer anderen Datei
-  entsprechend erweitert wird.
-  Zur Suche könnte man auch Ersetzen ergänzen.
-+ Analyse neu implementieren für
-  - homophone Verschlüsselung.
-+ Analyse verbessern (nicht performant und korrekt genug bisher) für
-  - monoalphabetische Substitution
-    (plus explizite Anzeige von vertauschten Digrammen wie "ie"/"ei"
-    und von Doppelzeichen wie "mm"),
-  - Playfair-Verschlüsselung,
-  - asymmetrische Kryptoverfahren.
-+ Alle Anzeigemodule in einem konsistenten Klassenbaum
-  zusammenfassen.
-+ Entsprechend der MFC-Vorgehensweise für verschiedene Fenstertypen
-  gibt es für Text- und Binärdateien verschiedene Menübäume.
-  Da diese Typen nicht so sehr unterschiedlich sind, könnte
-  man die Anzeigeform als View betrachten und die entsprechenden
-  Funktionen auf beide anwenden (und z.B. beim Versuch der Playfair-
-  Verschlüsselung mit einem Nicht-Textfile alle Buchstaben außerhalb
-  des Alphabets ignorieren) oder in einer gemeinsamen Menüstruktur
-  die Menüeinträge dynamisch ein-/ausblenden. 
-+ Die Sourcen so umstellen, dass die Ausgabe/Anzeige komplett von
-  den Kryptomodulen getrennt ist (erleichtert Portierungen und
-  Fehlersuche).
-+ Für den Benutzer konfigurierbar einstellbar machen, ob neue Fenster
-  wie bisher innerhalb des Hauptfensters erscheinen oder als "freie"
-  Fenster danebenstehen.
 + Für den Benutzer konfigurierbar einstellbar machen, wie groß die
   Text- und Binärdateien sein können, die CrypTool laden kann.
 + In der Anzeige für Grafiken eine Vergrößerungsfunktion einbauen
   und / oder die Koordinaten anzeigen, an denen sich die Maus
   befindet.
-+ Korrekturmöglichkeit einzelner Zeichen bei der Analyse von XOR,
-  ADD, Vigenere.
-+ Anzeigen des zweit-, dritt-, ... -besten Treffers bei der
-  XOR/ADD-Analyse (dies kann zu einer kürzeren Schlüssellänge
-  führen).
-+ Einzelne Dialogboxen (z.B. N-Gramm-Analyse, Manuelle Analysen,
-  Hybriddemo) als amodale Fenster erzeugen, so dass man beliebig
-  zwischen Hauptfenster und Auswertungsfenster springen kann
-  (aufwendigere Steuerung, Erlauben oder Abfangen von Mehrfachauf-
-  rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw.
-  nach Änderung der Originaldaten im Hauptfenster, ...).
-+ Autokorrelation: vor der Überlagerung noch Operationen auf den
-  Blöcken ausführen (XOR, ADD, ...); macht das Sinn?
-+ Editieren der Homophonen-Schlüssel (benötigt bei der Analyse
-  der Homophonen Verschlüsselung).
-+ Bei gleitender Entropie: Automatische Anzeige der
-  entsprechenden Stellen mit hoher Entropie.
-+ Hillverfahren: Schlüsselmatrix transponieren.
-+ Hillverfahren: Eingabe von Zahlen in die Schlüsselmatrix.
-+ Update der Miracl-Lib auf eine neuere Version als 4.4.3.,
-  sofern dies eine Performance-Verbesserung bringt.
-+ Portierung nach Linux (eine Secude-Lib bzw. Miracl-Lib stehen
-  zur Verfügung). Danach besteht eine große Nachfrage.
-+ Portierung nach Java (eine Secude-Lib dafür steht zur
-  Verfügung).
-+ Kryptographisch starke elliptische Kurven erzeugen und damit
-  Implementierung eines auf Elliptischen Kurven basierenden
-  Kryptosystems. Dazu könnte man das Kryptosystem von Menezes
-  und Vanstone nehmen, das 1993 von diesen Autoren vorgeschlagen
-  wurde: A. Menezes and S. Vanstone,
-         "Elliptic curve cryptosystems and their implementation",
-         Journal of Cryptology, 6 (1993), Seiten 209-224.
-+ Weil kryptographische Strukturen und Formate häufig ASN.1-
-  kodiert sind: Integration eines ASN.1 Dekodier-Tools.
 + Visualisierung:
   - Generell ist die Visualisierung der Abhängigkeiten und Abläufe
     bei Protokollen (nicht nur bei "einfachen" Algorithmen) eine
@@ -910,42 +1000,29 @@ Funktionalität:
     Dies ist auch implementiert, aber noch nicht visualisiert.
   - Angriffe auf andere asymmetrische Verfahren sind in CrypTool
     bisher noch gar nicht behandelt. Um Diffie-Hellman, DSA oder
-    EC-DSA anzugreifen, muss "diskrete Logarithmen" berechnen.
+    EC-DSA anzugreifen, muss man "diskrete Logarithmen" berechnen.
     Auch dies könnte man nach dem Implementieren wieder 
     visualisieren.
-+ Zufallszahlen:
-  - Bisher konzentriert sich CrypTool auf kryptographisch starke 
-    Pseudozufallzahlgeneratoren. Nur im Secude-Generators wird
-    eine "echte" Zufallsquelle einbezogen. 
-    Die Gewinnung "echter" Zufallsdaten über Mausbewegungen etc.
-    wäre eine gute Ergänzung für CrypTool (Yarrow, PGP, ...). 
-  - In Deutschland wird die Evaluierung von deterministischen 
-    Zufallszahlengeneratoren durch die AIS 20 (seit Dezember 1999;
-    AIS = Anwendungshinweise und Interpretationen zum Schema) und 
-    die Evaluierung von physikalischen Zufallszahlengeneratoren 
-    durch die AIS 31 (seit September 2001) geregelt. 
-    Vor allem die AIS 31 ist auch außerhalb Deutschlands auf 
-    großes Interesse gestoßen.
-    Die AIS 20 und AIS 31 befinden sich in deutscher und englischer
-    Sprache auf der BSI-Website:
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/trngkr31.pdf
-    Es wäre eine gute Ergänzung für CrypTool, diese Standard-
-    anforderungen zur Evaluierung von Zufallszahlen  
-    einzubauen und dies auch zu visualisieren.
-+ Weitere Standards implementieren und direkt über die Menüs
-  bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
-  Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit
-  dabei sind nur User Interface und Dokumentation).
-+ Ähnlich wie CrypTool "gute" Schlüssel aus Passworten generiert (PKCS#5),
-  sollte eine DOKUMENTIERTE Schnittstelle da sein zu den verschiedenen
-  Verfahren, die gute Passworte generieren.
+
+
+6.5. Erweiterung um zahlentheoretische Funktionen
+     --------------------------------------------
 + CrypTool als Frontend für zahlentheoretische Funktionen und
   Werte erweitern.
 
 
-6.1. Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
+6.6. Portierung nach Linux
+     ---------------------
++ Portierung nach Linux: Danach besteht eine sehr große Nachfrage.
+   - eine Secude-Lib bzw. Miracl-Lib stehen zur Verfügung. 
+   - Trennung der Gesamtaufgabe in sinnvolle Teile:
+       - Oberfläche
+       - Funktionalität, implementiert in purem C/C++
+       - Online-Hilfe von Winhelp nach HTML.
++ Portierung nach Java (eine Secude-Lib dafür steht zur Verfügung).
+
+
+6.7. Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
      ------------------------------------------------------------
 + Einbau des RC5-Algorithmus wie oben beschrieben, um zu sehen,
   an welchen Stellen überall die Sourcen dafür zu ergänzen sind.
