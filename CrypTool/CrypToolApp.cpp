@@ -634,9 +634,10 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 		TCHAR cmd[sizeof(formstr) + sizeof(alinkid)];
 		_snprintf(cmd,sizeof(cmd),formstr,alinkid);
 		cmd[sizeof(cmd)-1] = '\0';
-		// make sure the correct file is loaded
-		//CWinApp::WinHelp(dwData,(DWORD)(0x20000 + IDR_MAINFRAME));
-		CWinApp::WinHelp(dwData,nCmd);
+		// WinHelp displays an error popup if we try to jump via ALink to a page that is already displayed.
+		// As we cannot find out which page is currently displayed (controlled by user),
+		// we make sure that another page is displayed.  
+		CWinApp::WinHelp(ID_WIE_SIE_STARTEN+0x10000);
 		// invoke help macro: jump to the key word derived from m_CurrentPopupMenu
 		CWinApp::WinHelp((DWORD)cmd,HELP_COMMAND);
 	} else
