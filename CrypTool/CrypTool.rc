@@ -1418,8 +1418,8 @@ BEGIN
                     84,53,10
     CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
-    CONTROL         "Beide Wertebereiche sind gleich",IDC_RADIO5,"Button",
-                    BS_AUTORADIOBUTTON,184,76,118,10
+    CONTROL         "beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",
+                    BS_AUTORADIOBUTTON,184,76,121,10
     PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,239,224,75,20
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
@@ -1831,9 +1831,9 @@ BEGIN
     CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-adisch",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,89,128,43,8
-    CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
-                    153,128,69,8
+                    WS_GROUP,18,128,43,8
+    CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,89,
+                    128,69,8
     EDITTEXT        IDC_EDIT2,101,190,19,13,ES_AUTOHSCROLL
     CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,249,39,10
@@ -1844,12 +1844,11 @@ BEGIN
     CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     218,250,56,10
     PUSHBUTTON      "&Abbrechen",IDCANCEL,234,274,50,18
-    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,277,65
+    GROUPBOX        "Alphabetoptionen",IDC_STATIC,7,5,277,65
     LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,122,24,132,11
     GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,277,31
-    GROUPBOX        "Verfahren bei der Kodierung der Nachricht in Zahlen ",
+    GROUPBOX        "Methode, wie ein Block als Zahl kodiert wird",
                     IDC_STATIC,7,113,277,30
-    LTEXT           "Methode:",IDC_STATIC,18,128,51,8
     LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,18,192,74,8
     EDITTEXT        IDC_EDIT3,127,192,149,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
@@ -5031,6 +5030,7 @@ BEGIN
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
+    IDS_SECUDE_COULD_NOT_BE_LOADED "SECUDE Lib konnte nicht geladen werden!"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6996,7 +6996,7 @@ BEGIN
                     84,53,10
     CONTROL         "&To be entered independently",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
-    CONTROL         "&Both value ranges are equal",IDC_RADIO5,"Button",
+    CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,76,118,10
     PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,239,224,75,20
     EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -7364,9 +7364,9 @@ BEGIN
     CONTROL         "Dialogue of &sisters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,89,128,43,8
+                    WS_GROUP,19,128,43,8
     CONTROL         "N&umber system",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
-                    153,128,69,8
+                    89,128,69,8
     EDITTEXT        IDC_EDIT2,109,190,19,13,ES_AUTOHSCROLL
     CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,249,39,10
@@ -7377,12 +7377,11 @@ BEGIN
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
                     218,250,57,10
     PUSHBUTTON      "&Cancel",IDCANCEL,234,274,50,18
-    GROUPBOX        "Text options",IDC_STATIC,7,5,277,65
+    GROUPBOX        "Alphabet options",IDC_STATIC,7,5,277,65
     LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,145,25,121,11
     GROUPBOX        "RSA variant",IDC_STATIC,7,76,277,31
-    GROUPBOX        "Method for coding of text into numbers",IDC_STATIC,7,
+    GROUPBOX        "Method for coding a block into numbers",IDC_STATIC,7,
                     113,277,30
-    LTEXT           "&Method:",IDC_STATIC,18,128,51,8
     LTEXT           "Block length in characters:",IDC_STATIC,18,192,86,8
     EDITTEXT        IDC_EDIT3,135,192,141,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
@@ -9279,9 +9278,10 @@ BEGIN
 
     IDD_OPTIONS_RSA_DEMO, DIALOG
     BEGIN
-        VERTGUIDE, 110
+        VERTGUIDE, 19
+        VERTGUIDE, 89
         VERTGUIDE, 276
-        HORZGUIDE, 142
+        HORZGUIDE, 136
     END
 
     IDD_KEY_PERMUTATION, DIALOG
@@ -10315,6 +10315,7 @@ BEGIN
                             "The domain parameter of the selectet elliptic curve will be schown below."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "To choose this option, you must first deactivate the option below\n[+] ""Distinguish between uppercase and lowercase""!"
+    IDS_SECUDE_COULD_NOT_BE_LOADED "The SECUDE library could not be loaded !"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -6,6 +6,7 @@
 //#include "afxdll_.h"
 #include "CrypToolApp.h"
 #include "SecudeLib.h"
+#include "DialogeMessage.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -40,7 +41,8 @@ int CSecudeLib::OpenSecudeLib()
 		hDLL = LoadLibrary("SECUDE.DLL");
 
 		if(hDLL == NULL) {
-			MessageBox(NULL,"SECUDE Lib konnte nicht gefunden werden!","Test", MB_OK);
+			Message(IDS_SECUDE_COULD_NOT_BE_LOADED, MB_ICONEXCLAMATION);
+			// MessageBox(NULL,"SECUDE Lib konnte nicht gefunden werden!","Test", MB_OK);
 			Status = 0;
 			return Status;
 		}
@@ -77,7 +79,8 @@ int CSecudeLib::OpenSecudeLib()
 
 #ifdef DYNAMICSECUDE
 		if(errcnt > 0) {
-			MessageBox(NULL,"SECUDE Lib konnte nicht geladen werden!","Test", MB_OK);
+			// MessageBox(NULL,"SECUDE Lib konnte nicht geladen werden!","Test", MB_OK);
+			Message(IDS_SECUDE_COULD_NOT_BE_LOADED, MB_ICONEXCLAMATION);
 			CloseSecudeLib();
 			Status = 0;
 			return Status;
