@@ -80,6 +80,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnGenRandomData();
 	afx_msg void OnHashOfAFile();
 	afx_msg void OnEinzelverfahrenTutorialSignaturerzeugung();
+	afx_msg void OnVerentschlsselnHybridverfahrenHybridverschlsselung();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

@@ -85,7 +85,6 @@ GERMAN	Datei	# &Datei
 GERMAN	DigitaleSignaturen	# D&igitale Signaturen
 GERMAN	Einzelverfahren	# &Einzelverfahren
 GERMAN	Einzelverfahren_Hashwerte	# &Einzelverfahren|&Hashwerte
-GERMAN	Einzelverfahren_Hybridverfahren	# &Einzelverfahren|&Hybridverfahren
 GERMAN	Einzelverfahren_Komprimieren	# &Einzelverfahren|&Komprimieren
 GERMAN	Einzelverfahren_RSADemo	# &Einzelverfahren|&RSA-Demo
 GERMAN	Fenster	# &Fenster
@@ -96,6 +95,7 @@ GERMAN	VerEntschlsseln	# &Ver-/Entschlüsseln
 GERMAN	VerEntschlsseln_Asymmetrisch	# &Ver-/Entschlüsseln|&Asymmetrisch
 GERMAN	VerEntschlsseln_Klassisch	# &Ver-/Entschlüsseln|&Klassisch
 GERMAN	VerEntschlsseln_Symmetrisch	# &Ver-/Entschlüsseln|&Symmetrisch
+GERMAN  VerEntschlsseln_HybridDemo # &Ver-/Entschlüsseln|&Hybrid-Demo
 
 
 

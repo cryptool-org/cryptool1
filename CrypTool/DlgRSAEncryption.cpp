@@ -118,9 +118,8 @@ BOOL CDlgRSAEncryption::OnInitDialog()
 	if(disableButtons)
 	{
 		SetWindowText("RSA Schlüssel für die Hybridverschlüsselung");
-		m_ctrlOK.ShowWindow(false);
+		m_ctrlOK.SetWindowText("OK");
 		m_ctrlTime.ShowWindow(false);
-		m_ctrlCancel.SetWindowText("OK");
 		disableButtons = false;
 	}
 

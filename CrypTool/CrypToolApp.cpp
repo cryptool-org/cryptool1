@@ -37,7 +37,7 @@
 #include "DlgKeyFromPassword.h"
 #include "DlgRandomGenerator.h"
 #include "DlgTipsAndTricks.h"
-
+#include "DlgHybridEncryptionDemo.h"
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
 char pc_str[STR_LAENGE_STRING_TABLE];
@@ -80,9 +80,10 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP, OnEinzelverfahrenTutorialfrkleinezahlenFaktorisieren)
 	ON_COMMAND(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnEinzelverfahrenSchluesselgenerieren)
 	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
-	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_HASH_OFAFILE, OnHashOfAFile)
 	ON_COMMAND(IDD_EINZELVERFAHREN_TUTORIAL_SIGNATURERZEUGUNG, OnEinzelverfahrenTutorialSignaturerzeugung)
+	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
 	//}}AFX_MSG_MAP
 
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)     // file commands...
@@ -663,4 +664,11 @@ BOOL CCrypToolApp::ProcessMessageFilter(int code, LPMSG lpMsg)
 		}
 	}
 	return CWinThread::ProcessMessageFilter(code,lpMsg);
+}
+
+void CCrypToolApp::OnVerentschlsselnHybridverfahrenHybridverschlsselung() 
+{
+	CDlgHybridEncryptionDemo hyb;
+	hyb.DoModal();
+	
 }

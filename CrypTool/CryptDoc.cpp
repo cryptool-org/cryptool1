@@ -180,7 +180,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, OnAnalyseZufallstestsFipspub1401)
 
 	ON_COMMAND(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnEinzelverfahrenHashwerteHashdemo)
-	ON_COMMAND(ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
+	ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnEinzelverfahrenHybridverfahrenHybridverschlsselung)
 	ON_COMMAND(IDD_EINZELVERFAHREN_SIGN_DOC, OnEinzelverfahrenSignDoc)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -1484,7 +1484,10 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 {
 	CDlgHybridEncryptionDemo hyb;
 	UpdateContent();
+	
 	ifstream ein(ContentName, ios::in|ios::binary);
+	//ContentName ist eine globale Variable, die den Dateinamen der Temp-Datei enthält
+	//GetTitle Titelüberschrift des aktuellen Dlgs (Bsp. "Unbenannt1")
 	hyb.m_strPathnameTxt = ContentName;
 	if(!ein)
 	{
@@ -1512,13 +1515,13 @@ void CCryptDoc::OnEinzelverfahrenHybridverfahrenHybridverschlsselung()
 	}
 	else
 	{
+		hyb.m_strTitle1 = GetTitle();
+		hyb.m_strEdit1 = new char[anzZeichen];
 		hyb.m_bAuswahlDat = false;
 		inhalt[anzZeichen] = 0;
-	
-		for (int i=0;inhalt[i]!=0;i++)
-		{
-			hyb.m_strEdit+=inhalt[i];
-		}
+		hyb.m_gc = anzZeichen;
+		memcpy(hyb.m_strEdit1, inhalt, anzZeichen);
+		hyb.m_barrSetCondition[0] = true;
 		hyb.DoModal();
 	}
 	

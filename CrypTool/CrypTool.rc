@@ -2406,7 +2406,8 @@ END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 565, 474
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Visualisierung der Hybridverschlüsselung"
+CAPTION "Hybridverschlüsselung - Visualisierung anhand eines Datenflussplans"
+
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         324,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,259,
@@ -2590,6 +2591,13 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -2767,6 +2775,13 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -2918,6 +2933,16 @@ BEGIN
         MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
         MENUITEM "S&tatusleiste",               ID_VIEW_STATUS_BAR
     END
+    POPUP "Ver-/Entschlüsseln"
+    BEGIN
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybrid&verschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybrid&entschlüsselung",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
+    END
     POPUP "&Schlüsselverwaltung"
     BEGIN
         MENUITEM "Schlüssel &erzeugen...",      ID_CRYPT_KeyGen
@@ -2954,6 +2979,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
+    MENUITEM "",                            65535
 END
 
 IDR_TEXTTYPE MENU DISCARDABLE 
@@ -3035,6 +3061,13 @@ BEGIN
             MENUITEM "RSA &Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA E&ntschlüsselung...",     ID_CRYPT_RsaDec
         END
+        POPUP "&Hybrid-Demo"
+        BEGIN
+            MENUITEM "Hybridverschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
+
+            MENUITEM "Hybridentschlüsselung",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
+        END
     END
     POPUP "D&igitale Signaturen"
     BEGIN
@@ -3080,13 +3113,6 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        POPUP "&Hybridverfahren"
-        BEGIN
-            MENUITEM "Hybridverschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-
-            MENUITEM "Hybridentschlüsselung",       ID_EINZELVERFAHREN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
-
-        END
     END
     POPUP "A&nalyse"
     BEGIN

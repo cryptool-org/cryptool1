@@ -42,12 +42,33 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_iIsTxtAlreadySel = false;
 	m_iIsGenSymKey = false;
 	m_iIsGenAsymKey = false;
-	CString m_strPfadEditorDat="";
+	CString m_strPfadEditorDat = "";
 
 	for(int i=0;i<10;i++)
 	{
 		m_barrSetCondition[i] = false;
 	}
+	
+	//Array mit den Voraussetzungen
+
+	for(i=0;i<10;i++)
+	{
+		for(int j=0;j<10;j++)
+		{
+			m_check[i][j]=false;
+		}
+	}
+	m_check[2][1]=true;
+	m_check[4][3]=true;
+	m_check[5][0]=true;
+	m_check[5][1]=true;
+	m_check[6][1]=true;
+	m_check[6][3]=true;
+	m_check[7][0]=true;
+	m_check[8][5]=true;
+	m_check[9][6]=true;
+	m_strEdit1 = 0;
+
 	
 }
 
@@ -75,6 +96,7 @@ BEGIN_MESSAGE_MAP(CDlgHybridEncryptionDemo, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SHOWTXT, OnButtonShowtxt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnShowEncTxt)
 	ON_BN_CLICKED(IDC_BUTTON3, OnShowEncSymKey)
+	ON_WM_SETCURSOR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -84,50 +106,40 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	m_bCursor = false;
 	
 	m_ctrlBmpSechseck1.AutoLoad(IDC_BUTTON1_TXT_EINFUEGEN,this);
 	m_ctrlBmpSechseck2.AutoLoad(IDC_BUTTON_GEN_SYM_KEY,this);
 	m_ctrlBmpSechseck3.AutoLoad(IDC_BUTTON_GET_ASYM_KEY,this);
-
 	m_ctrlBmpRaute1.AutoLoad(IDC_BUTTON_SHOWTXT,this);
-	m_ctrlBmpRaute1.EnableWindow(false);	
-
 	m_ctrlBmpRaute2.AutoLoad(IDC_BUTTON_SHOW_SYM_KEY,this);
-	m_ctrlBmpRaute2.EnableWindow(false);
-
 	m_ctrlBmpRaute3.AutoLoad(IDC_BUTTON_SHOW_ASYM_KEY,this);
-	m_ctrlBmpRaute3.EnableWindow(false);
-
 	m_ctrlBmpRaute4.AutoLoad(IDC_BUTTON2,this);
-	m_ctrlBmpRaute4.EnableWindow(false);
-
 	m_ctrlBmpRaute5.AutoLoad(IDC_BUTTON3,this);
-	m_ctrlBmpRaute5.EnableWindow(false);
-
 	m_ctrlBmpViereck1.AutoLoad(IDC_BUTTON_ENC_TXT_SYM,this);
-	m_ctrlBmpViereck1.EnableWindow(false);
-
 	m_ctrlBmpViereck2.AutoLoad(IDC_BUTTON_ENC_KEY_ASYM,this);
-	m_ctrlBmpViereck2.EnableWindow(false);
-
-	EnDisButtons();
-	
-		LOGFONT lf={14,0,0,0,FW_NORMAL,false,false,false,DEFAULT_CHARSET,OUT_CHARACTER_PRECIS,CLIP_CHARACTER_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH|FF_DONTCARE,"Courier"};
-	//Struktur lf wird deklariert und initialisiert
-
-	m_font.CreateFontIndirect(&lf);
-	//Objekt der Klasse CFont (m_font) wird gesetzt initialisiert
-
-	CWnd* pStatic=GetDlgItem(IDC_EDIT_TXT);
-	pStatic->SetFont(&m_font,false);
-
 	if(!m_bAuswahlDat)
 	{
 		m_barrSetCondition[0]=true;
 	}
+	//wenn m_bAuswahlDat auf false gesetzt ist, wurde Text aus dem CrypTool-Editor in das Editfeld des 
+	//HybridverfahrenDialogs geladen, d.h. es muss keine Datei mehr ausgewählt werden.
+	//Der Button um den Text anzuzeigen wird aktiviert indem m_barrSetCondition[0]auf true gesetzt wird
+	EnDisButtons();
+	ShowButtons();
+	
+
 	// Schriftart im Textfeld "aktuelle Datei", Felder in denen die Hashwerte und die Differenz angezeigt 
 	// werden, "Courier" definieren
+	LOGFONT lf={14,0,0,0,FW_NORMAL,false,false,false,DEFAULT_CHARSET,OUT_CHARACTER_PRECIS,CLIP_CHARACTER_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH|FF_DONTCARE,"Courier"};
+	//Struktur lf wird deklariert und initialisiert
+	m_font.CreateFontIndirect(&lf);
+	//Objekt der Klasse CFont (m_font) wird gesetzt initialisiert
+	CWnd* pStatic=GetDlgItem(IDC_EDIT_TXT);
+	pStatic->SetFont(&m_font,false);
 
+
+	
 
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -136,55 +148,72 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 
 void CDlgHybridEncryptionDemo::OnButton1TxtEinfuegen() 
 {
+	
 	int DatGroesse=0;
+	CString loc_filename = "";
+	CString loc_title = "";
 	m_strEdit = "";
 	m_strTitle = "";
-	
 	UpdateData(false);
+	
 	CFileDialog m_dlgFile( TRUE ); // TRUE = Datei öffnen,FALSE = Datei speichern 
 	if( m_dlgFile.DoModal() == IDOK ) 
+	//wenn auf den OK Button geklickt wird, wird der Pfadname und der Titel der gewählten Datei in 
+	//lokale Variablen geschrieben
+	//ausserdem wird die Dateigröße ermittelt und ebenfalls in eine Variable geschrieben
 	{ 
-		 m_strPathnameTxt = m_dlgFile.GetPathName(); 
-		 
-		 m_strTitle1=m_dlgFile.GetFileName();
-		 UpdateData(false);
-	} 
-	
-	const char* path=m_strPathnameTxt.GetBuffer(0);
-	ifstream test(path,ios::in|ios::binary);
-
-
-
-	if(!test)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
-		return;
-	}
-	{
+		theApp.DoWaitCursor(1);
+		loc_filename = m_dlgFile.GetPathName();
+		loc_title = m_dlgFile.GetFileName();
 		struct stat *obj;
 		obj = new (struct stat);
+		//Groesse der Datei die ausgelesen werden soll wird 
+		//ermittelt und in m_iDataGroesse geschrieben
+		//und ob die Datei vorhanden ist 
 		obj->st_size;
-		stat((const char*)m_strPathnameTxt,obj);
-		DatGroesse = obj->st_size;
-		delete obj;
-	}
-	//Groesse der Datei die ausgelesen werden soll wird 
-	//ermittelt und in m_iDataGroesse geschrieben
+	    if ( 0 != stat((const char*)loc_filename,obj))
+		//Get status information on a file
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_FileNotFound,pc_str,100);
+			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+			delete obj;
+			return;
+		}
 
+		DatGroesse = obj->st_size;
+		
+		delete obj;
+ 	} 
+	else
+	//wenn auf Abbrechen geklickt wurde, wird abgebrochen
+	{
+		return;
+	}
+	
+	m_strTitle1 = loc_title;
+	m_strPathnameTxt = loc_filename;
+
+	ifstream test(loc_filename.GetBuffer(0),ios::in|ios::binary);
 	char* in=new char[DatGroesse];
 	test.read(in,DatGroesse);
+	//Datei wird gelesen
+	//und in der Variablen "in" gespeichert
+
 	m_gc=test.gcount();
-	in[m_gc]='\0';
-	m_in=new char[m_gc+1];
-	memcpy(m_in,in,m_gc);
-	m_strEdit1=in;
-	
-	
-	m_iIsTxtAlreadySel=true;
 	test.close();
+
+	in[m_gc]='\0';
+	m_strEdit1=new char[m_gc+1];
+	memcpy(m_strEdit1,in,m_gc);
+	//"in" wird in "m_strEdit1" geschrieben
+
+	UpdateData();
+	//m_strEdit1=in;
+	theApp.DoWaitCursor(0);
+	m_iIsTxtAlreadySel=true;
 	m_barrSetCondition[0] = true;
 	EnDisButtons();
+	ShowButtons();
 	UpdateData(false); // Variablen ---> Felder 	
 	
 }
@@ -218,11 +247,18 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 	}
 	m_barrSetCondition[1] = true; 
 	EnDisButtons();
+	ShowButtons();
 	UpdateData(false);
 }
 
 void CDlgHybridEncryptionDemo::OnButtonShowSymKey() 
 {
+	if(!m_arrSetButtons[2])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv! Sie müssen vorher einen Schlüssel generieren!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge Sie die Aktivitäten im Datenflussplan steuern können.",MB_ICONEXCLAMATION);
+		return;
+	}
+	
 	CString SymKeyInHexDump = "";
 	//dataToHexDump(m_strSymKey,16,SymKeyInHexDump);
 
@@ -242,6 +278,11 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 
 void CDlgHybridEncryptionDemo::OnButtonEncTxtSym() 
 {
+	if(!m_arrSetButtons[5])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv!\n\nMit F1 erhalten Sie Informationen darüber,in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
 		UpdateData(true);
 	
 		char* strPathEncTxt;
@@ -280,8 +321,8 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 		//Name für eine temporäre Datei wird erzeugt, in der 
 		//der Verschluesselte Text geschrieben werden soll
 
-		//m_strEdit=in;
 		char key[100];
+		theApp.DoWaitCursor(1);
 		strcpy(key,m_strSymKey.GetBuffer(0));
 		AESCrypt((char*)path, "", AlgId,strPathEncTxt,key);
 		
@@ -295,7 +336,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 		int srcSize = crypt.gcount();
 
 		int len = 20;
-		int destSize; // = (srcSize+m_nCols-1)/m_nCols * (11+m_nCols*4) - (srcSize % m_nCols? m_nCols - srcSize % m_nCols: 0);
+		int destSize; 
 		{
 			int linelen;
 			int lines, rest;
@@ -312,9 +353,11 @@ void CDlgHybridEncryptionDemo::OnButtonEncTxtSym()
 		m_strEdit3 = strCryHex;
 		m_strTitle = "";
 		m_strEdit = "";
-		
+		theApp.DoWaitCursor(0);
+
 		m_barrSetCondition[5] = true;
 		EnDisButtons();
+		ShowButtons();
 		UpdateData(false);
 		delete[] strCryHex;
 		delete[] cryTxt;
@@ -324,11 +367,12 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 {	
 	RsaDialog1.disableButtons = true;
 
-	if ( IDCANCEL == RsaDialog1.DoModal() ) 
+	if ( IDOK == RsaDialog1.DoModal() ) 
 	{
 		m_iIsGenAsymKey = true;
 		m_barrSetCondition[3] = true;
 		EnDisButtons();
+		ShowButtons();
 	}
 	
 	UpdateData(false);
@@ -464,6 +508,12 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 
 void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym() 
 {
+	if(!m_arrSetButtons[6])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
+	theApp.DoWaitCursor(1);
 	RSAEncrypt();
 	UpdateData();
 	m_strEdit4 = "";
@@ -477,7 +527,9 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 	m_strTitle = "";
 	m_barrSetCondition[6] = true;
 	EnDisButtons();
+	ShowButtons();
 	UpdateData(false);
+	theApp.DoWaitCursor(0);
 }
 
 
@@ -485,6 +537,11 @@ void CDlgHybridEncryptionDemo::OnButtonEncKeyAsym()
 
 void CDlgHybridEncryptionDemo::OnButtonShowAsymKey() 
 {
+	if(!m_arrSetButtons[4])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv, sie müssen vorher einen Schlüssel wählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
 	UpdateData(true);
 	m_strEdit = "";
 	m_strTitle = "";
@@ -608,40 +665,16 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 
 void CDlgHybridEncryptionDemo::EnDisButtons()
 {
-	bool check[10][10];
-	//Array mit den Voraussetzungen
-
 	for(int i=0;i<10;i++)
 	{
+		m_arrSetButtons[i]=true;
 		for(int j=0;j<10;j++)
 		{
-			check[i][j]=false;
-		}
-	}
-	check[2][1]=true;
-	check[4][3]=true;
-	check[5][0]=true;
-	check[5][1]=true;
-	check[6][1]=true;
-	check[6][3]=true;
-	check[7][0]=true;
-	check[8][5]=true;
-	check[9][6]=true;
-	//füllen der Tabelle
-	//mit den Voraussetzungen
-
-	bool arrSetButtons[10];
-
-	for(i=0;i<10;i++)
-	{
-		arrSetButtons[i]=true;
-		for(int j=0;j<10;j++)
-		{
-			if(check[i][j])
+			if(m_check[i][j])
 			{
 				if(!m_barrSetCondition[j])
 				{
-					arrSetButtons[i]=false;
+					m_arrSetButtons[i]=false;
 					break;
 				}
 				
@@ -649,25 +682,6 @@ void CDlgHybridEncryptionDemo::EnDisButtons()
 		}
 	}
 
-
-	for(i=0;i<10;i++)
-	{
-	
-			switch(i)
-			{
-			case 0:break;
-			case 1:break;
-			case 2:m_ctrlBmpRaute2.EnableWindow(arrSetButtons[i]);break;
-			case 3:break;
-			case 4:m_ctrlBmpRaute3.EnableWindow(arrSetButtons[i]);break;
-			case 5:m_ctrlBmpViereck1.EnableWindow(arrSetButtons[i]);break;
-			case 6:m_ctrlBmpViereck2.EnableWindow(arrSetButtons[i]);break;
-			case 7:m_ctrlBmpRaute1.EnableWindow(arrSetButtons[i]);break;
-			case 8:m_ctrlBmpRaute4.EnableWindow(arrSetButtons[i]);break;
-			case 9:m_ctrlBmpRaute5.EnableWindow(arrSetButtons[i]);break;
-
-			}
-	}
 }
 
 void CDlgHybridEncryptionDemo::GetCertificateData(Certificate *Zert)
@@ -677,7 +691,11 @@ void CDlgHybridEncryptionDemo::GetCertificateData(Certificate *Zert)
 
 void CDlgHybridEncryptionDemo::OnButtonShowtxt() 
 {
-	m_strEdit = m_strEdit1;	
+	if(!m_arrSetButtons[7])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv, sie müssen vorher eine Datei auswählen!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
 	m_strTitle = m_strTitle1;
 
 
@@ -693,23 +711,163 @@ void CDlgHybridEncryptionDemo::OnButtonShowtxt()
 		destSize = lines * linelen - len + rest;
 	}
 	char *dest = new char [destSize+1];
-	int err = HexDumpMem(dest,destSize,(unsigned char*)m_in,m_gc, len);
+	theApp.DoWaitCursor(1);
+	int err = HexDumpMem(dest,destSize,(unsigned char*)m_strEdit1,m_gc, len);
 	m_strEdit = dest;
+	theApp.DoWaitCursor(0);
 	
 	UpdateData(false);
 }
 
 void CDlgHybridEncryptionDemo::OnShowEncTxt() 
 {
+	if(!m_arrSetButtons[8])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv! Sie müssen vorher die Datei mit dem symmetrischen Schlüssel verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
+	theApp.DoWaitCursor(1);
 	m_strEdit = m_strEdit3;
 	m_strTitle = "symmetrisch verschlüsselter Text: ";
 	UpdateData(false);
+	theApp.DoWaitCursor(0);
 }
 
 void CDlgHybridEncryptionDemo::OnShowEncSymKey() 
 {
+	if(!m_arrSetButtons[9])	
+	{
+		AfxMessageBox("Dieser Button ist im Moment inaktiv! Sie müssen vorher den symmetrischen Schlüssel\nasymmetrisch verschlüsseln!\n\nMit F1 erhalten Sie Informationen darüber, in welcher Reihenfolge\nSie die Aktivitäten im Datenflussplan steuern können",MB_ICONEXCLAMATION);
+		return;
+	}
+	theApp.DoWaitCursor(1);
 	m_strTitle = "asymmetrisch verschlüsselter symmetrischer Schlüssel :";
 	m_strEdit = m_strEdit4;
 	UpdateData(false);
+	theApp.DoWaitCursor(0);
+}
+
+void CDlgHybridEncryptionDemo::ShowButtons()
+{
+
+	for(int i=0;i<10;i++)
+	{
+	
+		switch(i)
+		{
+		case 0:break;
+		case 1:break;
+		case 2:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2U",NULL,NULL,NULL);
+					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpRaute2.LoadBitmaps("RAUTE2X",NULL,NULL,NULL);
+					m_ctrlBmpRaute2.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute2.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 3:break;
+		case 4:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3U",NULL,NULL,NULL);
+					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpRaute3.LoadBitmaps("RAUTE3X",NULL,NULL,NULL);
+					m_ctrlBmpRaute3.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute3.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 5:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1U",NULL,NULL,NULL);
+					m_ctrlBmpViereck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpViereck1.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpViereck1.LoadBitmaps("VIERECK1X",NULL,NULL,NULL);
+					m_ctrlBmpViereck1.ShowWindow(SW_HIDE);
+					m_ctrlBmpViereck1.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 6:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2U",NULL,NULL,NULL);
+					m_ctrlBmpViereck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpViereck2.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpViereck2.LoadBitmaps("VIERECK2X",NULL,NULL,NULL);
+					m_ctrlBmpViereck2.ShowWindow(SW_HIDE);
+					m_ctrlBmpViereck2.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 7:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1U",NULL,NULL,NULL);
+					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpRaute1.LoadBitmaps("RAUTE1X",NULL,NULL,NULL);
+					m_ctrlBmpRaute1.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute1.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 8:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4U",NULL,NULL,NULL);
+					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpRaute4.LoadBitmaps("RAUTE4X",NULL,NULL,NULL);
+					m_ctrlBmpRaute4.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute4.ShowWindow(SW_SHOW);
+			   
+			   };break;
+		case 9:if(m_arrSetButtons[i])
+			   {
+					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5U",NULL,NULL,NULL);
+					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
+			   }
+			   else
+			   {
+					m_ctrlBmpRaute5.LoadBitmaps("RAUTE5X",NULL,NULL,NULL);
+					m_ctrlBmpRaute5.ShowWindow(SW_HIDE);
+					m_ctrlBmpRaute5.ShowWindow(SW_SHOW);
+			   
+			   };break;
+
+		}
+	}
+}
+
+BOOL CDlgHybridEncryptionDemo::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
+{
+	 if (m_bCursor)
+	 return TRUE;
+	 else	
+	return CDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
+{
+	if(m_strEdit1)
+	//wenn für m_strEdit1 Speicher allokiert wurde, dann wird hier der Speicher wieder freigegeben
+	{
+		delete []m_strEdit1;
+	}
 
 }

@@ -18,10 +18,14 @@ class CDlgHybridEncryptionDemo : public CDialog
 {
 // Konstruktion
 public:
+	bool m_bCursor;
+	void ShowButtons();
+	bool m_arrSetButtons[10];
+	bool m_check[10][10];
 	CString m_strEdit4;
 	CString m_strEdit3;
 	CString m_strEdit2;
-	char* m_in;
+	char* m_strEdit1;
 	int m_gc;
 	void GetCertificateData(Certificate* Zert);
 	CString m_strPfadEditorDat;
@@ -39,11 +43,10 @@ public:
 	CFont m_font;
 	CString m_strSymKey;
 	CString m_strPathnameTxt;
-	CString m_strEdit1;
 	CString	m_strTitle1;
 
 	CDlgHybridEncryptionDemo(CWnd* pParent = NULL);   // Standardkonstruktor
-
+	~CDlgHybridEncryptionDemo();
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHybridEncryptionDemo)
 	enum { IDD = IDD_HYBRID_ENCRYPTION_DEMO };
@@ -86,6 +89,7 @@ protected:
 	afx_msg void OnButtonShowtxt();
 	afx_msg void OnShowEncTxt();
 	afx_msg void OnShowEncSymKey();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
