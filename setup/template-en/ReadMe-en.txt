@@ -78,7 +78,7 @@ manner.
 
 CrypTool is used
 - within companies to help raising the sensitivity for IT security
-  (Awareness) and for educational purposes,
+  (awareness) and for educational purposes,
 - within school lessons and
 - within lectures at several universities.
 
@@ -187,7 +187,7 @@ The German version of this story was published in the computer
 magazine c't, 25/1999. While c't published a slidely shortened
 version you here get the original version.
 The author owns all rights at this story. The maintainer of
-CrypTool is allowed by author only to distribute this story
+CrypTool is allowed by the author only to distribute this story
 together with the CrypTool package.
 
 
