@@ -133,8 +133,8 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,155,75,91,10
     CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,155,100,61,10
-    CONTROL         "Basischiffre anzeigen",IDC_CHECK4,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,155,125,80,10
+    CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,155,125,132,10
     GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
     GROUPBOX        "Optionen für Brute-Force Angriffe",IDC_STATIC,13,155,
@@ -1379,7 +1379,7 @@ END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 277, 159
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Brute-force Analyse"
+CAPTION "Brute-Force Analyse"
 FONT 8, "MS Sans Serif"
 BEGIN
     COMBOBOX        IDC_KEY_LEN,69,82,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
@@ -1524,6 +1524,7 @@ BEGIN
                     NOT WS_BORDER | NOT WS_TABSTOP
     LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
                     IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -2915,6 +2916,35 @@ BEGIN
                     IDC_STATIC,14,78,232,16
 END
 
+IDD_GENERATEPRIME DIALOG DISCARDABLE  0, 0, 321, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Primzahl generieren"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,7,164,101,
+                    20
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,135,164,95,20
+    EDITTEXT        IDC_EDIT1,59,95,245,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,59,114,245,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,15,54,69,10
+    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,105,54,87,10
+    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
+                    220,54,53,10
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,164,59,20
+    GROUPBOX        "",IDC_STATIC,7,0,307,32
+    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
+                    IDC_STATIC,15,9,289,17
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,7,39,307,32
+    GROUPBOX        "Primzahl p",IDC_STATIC,7,75,307,80
+    LTEXT           "Untergrenze",IDC_STATIC,17,97,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,116,38,8
+    LTEXT           "Ergebnis",IDC_STATIC,18,137,37,10
+    EDITTEXT        IDC_EDIT5,59,135,245,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2990,6 +3020,7 @@ BEGIN
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3197,6 +3228,7 @@ BEGIN
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3332,7 +3364,7 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.&1-decodieren einer Datei...", 
+        MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
@@ -3431,6 +3463,7 @@ BEGIN
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3510,6 +3543,7 @@ BEGIN
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -3654,7 +3688,7 @@ BEGIN
 
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-        MENUITEM "ASN.&1-decodieren einer Datei...", 
+        MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                 ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
@@ -3721,6 +3755,7 @@ BEGIN
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
@@ -4301,6 +4336,17 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 138
     END
+
+    IDD_GENERATEPRIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        VERTGUIDE, 15
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+        HORZGUIDE, 64
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -4481,7 +4527,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 beta - 5"
+    IDR_MAINFRAME           "CrypTool 1.3.04 beta 6"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4644,7 +4690,7 @@ BEGIN
     IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
                             "Fehler. Konnte temporäre Datei nicht erstellen!"
     IDS_STRING_DECRYPTION_ERROR 
-                            "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n(dieser Fehler kann\nbei einem falschen Schlüssel zum\nEntschlüsseln auftreten)\n"
+                            "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n(dieser Fehler kann bei einem falschen\nSchlüssel zum Entschlüsseln auftreten)\n"
     IDS_STRING_ERR_ON_SIGNING 
                             "Fehler beim Signieren.\nInterne Fehlermeldung:\n"
     IDS_STRING_MSG_SIGNATURE "Signatur:       "
@@ -4722,7 +4768,7 @@ BEGIN
     IDS_STRING_VIGENERE     "Vigenère"
     IDS_STRING_XOR          "XOR"
     IDS_STRING_ADD          "ADD"
-    IDS_STRING_VERNAM_KEYFILE "Schlüsseldatei"
+    IDS_STRING_VERNAM_KEYFILE "Vernam-Schlüsseldatei für <%s>"
     IDS_STRING_VERNAM_ENCRYPTION_OF 
                             "Vernam-Verschlüsselung von <%%s> und <%s>"
     IDS_STRING_HILL         "Hill"
@@ -6006,12 +6052,20 @@ BEGIN
     IDS_ERR_ONOPENREADME    "Die Readme-Datei konnte nicht geöffnet werden!\nBitte überprüfen Sie, ob die Datei ""Readme-de.txt"" sich im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet."
     IDS_SIGATT_HARMLESS     "Original.txt"
     IDS_SIGATT_DANGEROUS    "Faelschung.txt"
+    IDS_SCRIPTPATH          "%sScript-de.pdf"
+    IDS_ERROPEN_SCRIPT      "Das Skript konnte nicht geöffnet werden!\nBitte überprüfen Sie:\nob sich die Datei ""Script-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\nob Sie den Acrobat Reader installiert haben (www.adobe.com)."
+    IDS_OPENHASHOFAFILE     "Hashwert einer Datei"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "Der Protokollverlauf mit Ihren Zahlen wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SCRIPT               "Zeigt das CrypTool Script an (Acrobat Reader erforderlich)"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -6200,16 +6254,17 @@ BEGIN
                     WS_TABSTOP,155,77,91,10
     CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,155,100,61,10
-    CONTROL         "Show base ciphers",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,156,122,80,10
+    CONTROL         "Show base ciphers analysis",IDC_CHECK4,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,35,139,105
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,150,35,136,105
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,
                     280,132
     GROUPBOX        "Options for brute-force attacks",IDC_STATIC,13,155,280,
                     75
-    LTEXT           "Bytes for the entropy test:",IDC_STATIC,29,196,80,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,113,193,30,14,ES_AUTOHSCROLL | 
+    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,
+                    196,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,193,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
     GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
                     IDC_STATIC,20,173,266,50
@@ -7551,6 +7606,7 @@ BEGIN
     LTEXT           "Input as",IDC_STATIC,19,225,31,8
     LTEXT           "You may try to factorise the public RSA modulus N into its primes p and q.",
                     IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -7894,29 +7950,29 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,213,295,55,19
     CONTROL         "Apply the respective inverse permutation",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,234,10
-    CONTROL         "Read in",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "Input",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,94,86,44,10
-    CONTROL         "Read in",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,
-                    44,10
+    CONTROL         "Input",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,
+                    10
     CONTROL         "Permute",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,138,86,42,10
     CONTROL         "Permute",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,138,
                     103,42,10
-    CONTROL         "Readout",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "Output",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,187,86,42,10
-    CONTROL         "Readout",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,187,103,
-                    43,10
-    CONTROL         "Read in",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "Output",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,187,103,
+                    37,10
+    CONTROL         "Input",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,94,210,43,10
-    CONTROL         "Read in",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,94,226,
-                    40,10
+    CONTROL         "Input",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,94,226,32,
+                    10
     CONTROL         "Permute",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,138,210,42,10
     CONTROL         "Permute",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,138,
                     226,42,10
-    CONTROL         "Readout",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "Output",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,187,210,47,10
-    CONTROL         "Readout",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,
+    CONTROL         "Output",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,
                     47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     162,295,22,20
@@ -8895,6 +8951,36 @@ BEGIN
                     IDC_STATIC,14,78,232,16
 END
 
+IDD_GENERATEPRIME DIALOG DISCARDABLE  0, 0, 321, 194
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Prime Number Generation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,7,166,101,
+                    20
+    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,129,166,83,20
+    EDITTEXT        IDC_EDIT1,63,97,240,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,116,240,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,16,54,69,10
+    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,104,54,87,10
+    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,
+                    208,54,53,10
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,242,166,72,20
+    EDITTEXT        IDC_EDIT5,63,137,240,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,0,307,32
+    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
+                    IDC_STATIC,16,9,289,17
+    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,7,39,
+                    307,33
+    LTEXT           "Lower limit",IDC_STATIC,17,99,40,9
+    LTEXT           "Upper limit",IDC_STATIC,18,118,44,8
+    LTEXT           "Result",IDC_STATIC,18,139,37,10
+    GROUPBOX        "Prime number p",IDC_STATIC,7,77,307,80
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8971,6 +9057,7 @@ BEGIN
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9179,6 +9266,7 @@ BEGIN
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9414,6 +9502,7 @@ BEGIN
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9494,6 +9583,7 @@ BEGIN
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -9706,6 +9796,7 @@ BEGIN
         MENUITEM "S&cenarios",                  ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
+        MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
@@ -10254,11 +10345,12 @@ BEGIN
         LEFTMARGIN, 13
         RIGHTMARGIN, 293
         VERTGUIDE, 20
-        VERTGUIDE, 147
+        VERTGUIDE, 150
         VERTGUIDE, 286
         BOTTOMMARGIN, 261
         HORZGUIDE, 87
         HORZGUIDE, 110
+        HORZGUIDE, 207
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
@@ -10622,6 +10714,17 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 138
     END
+
+    IDD_GENERATEPRIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        VERTGUIDE, 16
+        VERTGUIDE, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+        HORZGUIDE, 64
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -10793,7 +10896,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.04 beta - 5"
+    IDR_MAINFRAME           "CrypTool 1.3.04 beta 6"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -10954,7 +11057,7 @@ BEGIN
     IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
                             "Error. Could not create temporary file!"
     IDS_STRING_DECRYPTION_ERROR 
-                            "An error occurred during decryption of the data.\nInternal error message:\n(This error can occur\nduring decryption if the key is invalid)\n"
+                            "An error occurred during decryption of the data.\nInternal error message:\n(This error can occur during decryption if the key is invalid)\n"
     IDS_STRING_ERR_ON_SIGNING 
                             "An error occurred during signing.\nInternal error message:\n"
     IDS_STRING_MSG_SIGNATURE "Signature:       "
@@ -11030,7 +11133,7 @@ BEGIN
     IDS_STRING_VIGENERE     "Vigenère"
     IDS_STRING_XOR          "XOR"
     IDS_STRING_ADD          "ADD"
-    IDS_STRING_VERNAM_KEYFILE "Key file"
+    IDS_STRING_VERNAM_KEYFILE "Vernam key file for <%s>"
     IDS_STRING_VERNAM_ENCRYPTION_OF "Vernam encryption of <%%s> and <%s>"
     IDS_STRING_HILL         "Hill"
     IDS_STRING_ENTROPY_OF   "The current alphabet\n- contains %d characters,\n- resulting in a maximum entropy of %.3f bit/char.\nThe document being analysed\n- contains %d distinct characters,\n- its entropy amounts to %.3f bit/char."
@@ -12189,6 +12292,9 @@ BEGIN
     IDS_ERR_ONOPENREADME    "The readme file could not be opened!\nPlease check if the file ""Readme-en.txt"" is in the same directory as ""CrypTool.exe""."
     IDS_SIGATT_HARMLESS     "Original.txt"
     IDS_SIGATT_DANGEROUS    "Fake.txt"
+    IDS_SCRIPTPATH          "%sScript-en.pdf"
+    IDS_ERROPEN_SCRIPT      "The script file could not be opened!\nPlease check\nif the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\nif the Acrobat reader is installed (www.adobe.com)."
+    IDS_OPENHASHOFAFILE     "Hash of a file"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -12282,6 +12388,11 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "The log text of the procedure was succesfully written into a main window of the CrypTool application."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SCRIPT               "Opens the CrypTool script (Acrobat Reader required)"
 END
 
 #endif    // Englisch (GB) resources

@@ -13,6 +13,8 @@
 // See these sources for detailed information regarding the
 // Microsoft Foundation Classes product.
 
+#include "process.h"
+
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "CryptDoc.h"
@@ -98,6 +100,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_OPTIONS_FURTHEROPTIONS, OnOptionsFurtheroptions)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
+	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -105,7 +108,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
+	ON_COMMAND(ID_SCRIPT, OnScript)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -792,4 +795,17 @@ void CCrypToolApp::OnLoadReadme()
 	datei.Close();
 	CAppDocument *NewDoc;
 	NewDoc = theApp.OpenDocumentFileNoMRU(readmePath,"ReadMe");
+}
+
+void CCrypToolApp::OnScript() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	char readmePath[1024];
+	LoadString(AfxGetInstanceHandle(),IDS_SCRIPTPATH,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf(readmePath, pc_str, Pfad);
+
+	HINSTANCE hInst = ShellExecute(0, "open", readmePath, NULL, 0, SW_SHOW );
+
+	if ( reinterpret_cast<int>(hInst) <= 32 )
+		Message(IDS_ERROPEN_SCRIPT, MB_ICONSTOP);
 }

@@ -174,6 +174,7 @@ protected:
 	afx_msg void OnRadioRSANumbers();
 	afx_msg void OnRadioRSAComplete();
 	afx_msg void OnRadioRSAPublicKey();
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

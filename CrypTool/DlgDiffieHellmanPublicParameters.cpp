@@ -5,7 +5,7 @@
 #include "CryptoolApp.h"
 #include "DlgDiffieHellmanPublicParameters.h"
 
-#include "DlgPrimesGeneratorDemo.h"
+#include "DlgGeneratePrime.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -132,8 +132,9 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 void CDlgDiffieHellmanPublicParameters::OnGeneratePrime() 
 {
 	UpdateData(true);
-	CDlgPrimesGeneratorDemo dlg("2^255+2^254","2^256");
-	dlg.m_radio4 = 1;
+	CDlgGeneratePrime dlg;
+	dlg.m_edit1 = _T("2^255+2^254");
+	dlg.m_edit2 = _T("2^256");
 	if(!(dlg.DoModal() == IDCANCEL)) m_Prime = dlg.m_edit5;
 
 	// Falls zuvor bereits ein Generator eingegeben wurde und dieser GROESSER oder gleich dem

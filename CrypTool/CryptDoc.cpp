@@ -1069,7 +1069,7 @@ void CCryptDoc::OnAnalyseTripledesecb()
 	para->key = (char *) malloc(sizeof(int));
 	*(int *)para->key = 5;
 	para->keylenstep = 1; 
-	para->keylenmin = para->keylenmax = 64;
+	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( Brute, ((void *) para) );

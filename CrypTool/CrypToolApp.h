@@ -92,6 +92,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnEinzelverfahrenDiffiehellmandemo();
 	afx_msg void OnSigattmodificdemo();
 	afx_msg void OnLoadReadme();
+	afx_msg void OnScript();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

@@ -1786,6 +1786,14 @@ SOURCE=.\DlgFurtherOptions.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgGeneratePrime.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgGeneratePrime.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgHashDemo.cpp
 # End Source File
 # Begin Source File

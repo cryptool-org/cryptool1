@@ -2033,3 +2033,11 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 
 
+
+void CDlgRSADemo::OnOK() 
+{
+	// TODO: Zusätzliche Prüfung hier einfügen
+	int i = 0;
+  	i = i*2;
+	// CDialog::OnOK();
+}

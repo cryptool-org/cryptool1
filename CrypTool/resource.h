@@ -160,6 +160,7 @@
 #define IDR_GIF1                        644
 #define IDD_DIFFIEHELLMAN_FINALINFO     645
 #define IDR_GIF2                        646
+#define IDD_GENERATEPRIME               647
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
 #define IDC_CHECK1                      1018
@@ -877,6 +878,7 @@
 #define ID_OPTIONS_FURTHEROPTIONS       33261
 #define ID_SIGATTMODIFICDEMO            33262
 #define ID_LOAD_README                  33263
+#define ID_SCRIPT                       33264
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1176,6 +1178,9 @@
 #define IDS_ERR_ONOPENREADME            36962
 #define IDS_SIGATT_HARMLESS             36963
 #define IDS_SIGATT_DANGEROUS            36964
+#define IDS_SCRIPTPATH                  36965
+#define IDS_ERROPEN_SCRIPT              36966
+#define IDS_OPENHASHOFAFILE             36967
 #define IDS_STRING_ENTER_UPPER_LOWER_BOUND 37000
 #define IDS_STRING_MSG_LOWERBOUND_UPPERBOUND 37001
 #define IDS_STRING_MSG_LOWERBOUND       37002
@@ -1571,8 +1576,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        647
-#define _APS_NEXT_COMMAND_VALUE         33264
+#define _APS_NEXT_RESOURCE_VALUE        648
+#define _APS_NEXT_COMMAND_VALUE         33265
 #define _APS_NEXT_CONTROL_VALUE         1502
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

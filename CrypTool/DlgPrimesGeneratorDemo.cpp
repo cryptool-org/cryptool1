@@ -194,7 +194,7 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
-	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	error = CheckFormula(m_edit2,10,UpnFormula,err_ndx);
 	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
@@ -203,7 +203,7 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
-	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	error = CheckFormula(m_edit3,10,UpnFormula,err_ndx);
 	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
@@ -212,7 +212,7 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		return;
 	}
-	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
+	error = CheckFormula(m_edit4,10,UpnFormula,err_ndx);
 	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen

@@ -216,8 +216,8 @@ void AddBin(const char *infile, const char *OldTitle)
 
 void VernamBin(const char *infile, const char *OldTitle)
 {
-	char fname[257], line[256], ftitle[128];
-    char outfile[128], title[128];
+	char fname[1024], line[1024], ftitle[1024];
+    char outfile[1024], title[1024];
     CAppDocument *NewDoc;
 	SymbolArray text(IdConv);
 
@@ -233,7 +233,15 @@ void VernamBin(const char *infile, const char *OldTitle)
 		CString sTitle;
 		DWORD   dwFlags(OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
 		sFileFilter.LoadString(IDS_OPEN_DOCUMENT_FILTER);
-		sTitle.LoadString(IDS_STRING_VERNAM_KEYFILE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_VERNAM_KEYFILE,pc_str,STR_LAENGE_STRING_TABLE);
+		strcpy(title, OldTitle);
+		if ( strlen(title) > 32 )
+		{
+			strcpy(title+29, "...");
+		}
+		sprintf(line, pc_str, title);
+		sTitle = line;
+		// sTitle.LoadString(IDS_STRING_VERNAM_KEYFILE);
 		CFileDialog* doc;
 		doc = new CFileDialog(TRUE, NULL, sDefName, dwFlags, sFileFilter);
 		doc->m_ofn.lpstrTitle = sTitle;
@@ -3243,7 +3251,7 @@ void HashOfAFile()
 		CString sTitle;
 		DWORD   dwFlags(OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
 		sFileFilter.LoadString(IDS_OPEN_DOCUMENT_FILTER);
-		sTitle.LoadString(IDS_STRING_VERNAM_KEYFILE);
+		sTitle.LoadString(IDS_OPENHASHOFAFILE);
 		CFileDialog* doc;
 		doc = new CFileDialog(TRUE, NULL, sDefName, dwFlags, sFileFilter);
 		doc->m_ofn.lpstrTitle = sTitle;
