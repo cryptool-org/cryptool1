@@ -12,22 +12,23 @@ Class1=CAestoolApp
 Class2=CAestoolDlg
 Class3=CAboutDlg
 
-ResourceCount=13
-Resource1=IDD_AESTOOL_DIALOG
+ResourceCount=14
+Resource1=IDD_HELP (Englisch (GB))
 Resource2=IDR_MAINFRAME
-Resource3=IDD_AESTOOL_DIALOG (Englisch (GB))
-Resource4=IDD_HELP (Englisch (GB))
+Resource3=AFX_IDD_NEWTYPEDLG (Englisch (GB))
+Resource4=IDD_SPLASH (Englisch (GB))
 Class4=CSplash
 Resource5=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
 Class5=CHelp
-Resource6=IDD_HELP
-Resource7=IDD_ABOUTBOX (Englisch (GB))
+Resource6=IDD_AESTOOL_DIALOG
+Resource7=IDD_AESTOOL_DIALOG (Englisch (GB))
 Resource8=IDD_ABOUTBOX (Deutsch (Deutschland))
 Resource9=IDD_HELP (Deutsch (Deutschland))
 Resource10=IDD_SPLASH (Deutsch (Deutschland))
-Resource11=IDD_SPLASH
-Resource12=IDD_SPLASH (Englisch (GB))
-Resource13=IDD_ABOUTBOX
+Resource11=IDD_ABOUTBOX
+Resource12=IDD_HELP
+Resource13=IDD_SPLASH
+Resource14=IDD_ABOUTBOX (Englisch (GB))
 
 [CLS:CAestoolApp]
 Type=0
@@ -110,7 +111,7 @@ Control4=IDC_STATIC,static,1342308352
 [DLG:IDD_HELP]
 Type=1
 Class=CHelp
-ControlCount=25
+ControlCount=26
 Control1=IDOK,button,1342242817
 Control2=IDC_STATIC,static,1342308352
 Control3=IDC_STATIC,static,1342308352
@@ -131,11 +132,12 @@ Control17=IDC_STATIC,static,1342308352
 Control18=IDC_STATIC,static,1342308352
 Control19=IDC_STATIC,static,1342308352
 Control20=IDC_STATIC,static,1342308352
-Control21=IDC_STATIC,static,1342308354
-Control22=IDC_STATIC,static,1342308354
+Control21=IDC_STATIC,static,1342308352
+Control22=IDC_STATIC,static,1342308352
 Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
+Control26=IDC_STATIC,static,1342308352
 
 [CLS:CHelp]
 Type=0
@@ -271,4 +273,14 @@ Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
 Control26=IDC_STATIC,static,1342308352
+
+[DLG:AFX_IDD_NEWTYPEDLG (Englisch (GB))]
+Type=1
+Class=?
+ControlCount=5
+Control1=IDC_STATIC,static,1342177280
+Control2=AFX_IDC_LISTBOX,listbox,1352728577
+Control3=IDOK,button,1342242817
+Control4=IDCANCEL,button,1342242816
+Control5=ID_HELP,button,1342242816
 

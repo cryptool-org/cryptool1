@@ -268,11 +268,71 @@ SOURCE=.\StdAfx.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
+SOURCE=.\res\3dcheck.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\95check.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\aestool.ico
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\aestool.rc2
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\help.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\minifwnd.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\move4way.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\nodrop.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ntcheck.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\sarrows.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\splith.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\splitv.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trck4way.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trcknesw.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trckns.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trcknwse.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\trckwe.cur
 # End Source File
 # End Group
 # Begin Source File
