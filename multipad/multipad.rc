@@ -1382,13 +1382,13 @@ BEGIN
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,14,142,61
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,30,69,10
-    CONTROL         "Algo &2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,45,
-                    36,10
-    CONTROL         "Algo 3 ",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,60,
-                    38,10
-    CONTROL         "unabhängig voneinander",IDC_RADIO4,"Button",
+    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,23,45,87,10
+    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
+                    60,53,10
+    CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,30,95,10
-    CONTROL         "Bereich 2 gleich Bereich 1",IDC_RADIO5,"Button",
+    CONTROL         "&Bereich 2 gleich Bereich 1",IDC_RADIO5,"Button",
                     BS_AUTORADIOBUTTON,184,60,99,10
     GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,11,122,142,61
     GROUPBOX        "Wertebereich max. 2147483647",IDC_STATIC,172,122,142,61
@@ -1410,8 +1410,10 @@ BEGIN
     LTEXT           "einzugeben",IDC_STATIC,196,42,53,10
     LTEXT           "Ergebnis",IDC_STATIC,18,198,37,12
     LTEXT           "Ergebnis",IDC_STATIC,179,198,35,12
-    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
 END
 
 
@@ -4603,10 +4605,10 @@ BEGIN
     GROUPBOX        "Algorithms for generation of primes",-1,11,14,142,61
     CONTROL         "&Miller-Rabin test",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,23,30,66,10
-    CONTROL         "Algo &2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,45,
-                    36,10
-    CONTROL         "Algo 3 ",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,60,
-                    38,10
+    CONTROL         "&Solovay-Strassen test",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,23,45,84,10
+    CONTROL         "&Fermat test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,
+                    60,51,10
     CONTROL         "&to be entered seperately",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,184,30,92,10
     CONTROL         "&both the same",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,
@@ -4628,8 +4630,10 @@ BEGIN
     LTEXT           "Prime 2",-1,177,104,38,8
     LTEXT           "Result",-1,18,198,37,12
     LTEXT           "Result",-1,179,198,35,12
-    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT5,63,196,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,224,196,81,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
 END
 
 

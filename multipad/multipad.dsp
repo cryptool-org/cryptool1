@@ -1243,6 +1243,14 @@ SOURCE=.\PlotView.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Primes_and_random_numbers.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Primes_and_random_numbers.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\AES\RC6\rc6.c
 # End Source File
 # Begin Source File

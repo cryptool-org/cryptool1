@@ -3,112 +3,14 @@
 <pre>
 <h1>Erstellungsprotokoll</h1>
 <h3>
---------------------Konfiguration: multipad - Win32 Release--------------------
+--------------------Konfiguration: multipad - Win32 Debug--------------------
 </h3>
 <h3>Befehlszeilen</h3>
-Creating command line "rc.exe /l 0x407 /fo"Release/MultiPad.res" /d "NDEBUG" "C:\CrypTool-Entwicklung\CrypTool\source\multipad\MultiPad.rc"" 
-Erstellen der temporären Datei  "C:\TEMP\RSP37.tmp" mit Inhalten
-[
-..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/CrypTool.pdb" /debug /machine:I386 /out:"release\CrypTool.exe" 
-".\Release\About.obj"
-".\Release\aes.obj"
-".\Release\AESSuche.obj"
-".\Release\asymmetric.obj"
-".\Release\automatic.obj"
-".\Release\Autoren.obj"
-".\Release\brute.obj"
-".\Release\ChrTools.obj"
-".\Release\crypt.obj"
-".\Release\cryptdoc.obj"
-".\Release\CryptDocTemplate.obj"
-".\Release\dia1.obj"
-".\Release\DialogCert.obj"
-".\Release\DialogKeyHex.obj"
-".\Release\DialogLaenge.obj"
-".\Release\DialogLaengeBin.obj"
-".\Release\DialogPlayfair.obj"
-".\Release\DialogVienereKey.obj"
-".\Release\DialoKeyCaesar.obj"
-".\Release\DLG_param.obj"
-".\Release\Dlg_PlayfairKey.obj"
-".\Release\Dlg_SubstResult.obj"
-".\Release\DlgAsymKeyCreat.obj"
-".\Release\DlgAsymKeys.obj"
-".\Release\DlgEcKeysCreat.obj"
-".\Release\DlgFortschritt.obj"
-".\Release\DlgMono.obj"
-".\Release\DlgPrimesGenerator.obj"
-".\Release\DlgShowPrivEcKeys.obj"
-".\Release\DlgShowPubEcKeys.obj"
-".\Release\DlgSign.obj"
-".\Release\DlgSignExtract.obj"
-".\Release\DlgSignSteps.obj"
-".\Release\DlgSignVerif.obj"
-".\Release\DlgSignVerifSteps.obj"
-".\Release\DlgSubstAna.obj"
-".\Release\dozip.obj"
-".\Release\Ecssa.obj"
-".\Release\fileutil.obj"
-".\Release\fixedview.obj"
-".\Release\hexdialog.obj"
-".\Release\HexEdit1.obj"
-".\Release\HexView.obj"
-".\Release\hill.obj"
-".\Release\HillEingabe.obj"
-".\Release\HillEingabeGross.obj"
-".\Release\HillSchluesselAusgabe.obj"
-".\Release\HillSchluesselAusgabeGross.obj"
-".\Release\KeyFileHandling.obj"
-".\Release\mars-opt.obj"
-".\Release\multipad.obj"
-".\Release\MyDocument.obj"
-".\Release\MyEditView.obj"
-".\Release\OptionsDialog.obj"
-".\Release\PinCodeDialog.obj"
-".\Release\playfair.obj"
-".\Release\PlotDoc.obj"
-".\Release\PlotView.obj"
-".\Release\rc6.obj"
-".\Release\Read_Ini_File.obj"
-".\Release\rijndael-alg-fst.obj"
-".\Release\rijndael-api-fst.obj"
-".\Release\RsaDec.obj"
-".\Release\RsaEnc.obj"
-".\Release\s_prng.obj"
-".\Release\SchluesselAusgabeLinear.obj"
-".\Release\secude.obj"
-".\Release\SecudeLib.obj"
-".\Release\SERPENT.OBJ"
-".\Release\sq_mat.obj"
-".\Release\stdafx.obj"
-".\Release\TextEingabeHillAngriff.obj"
-".\Release\TextOptions.obj"
-".\Release\TWOFISH2.OBJ"
-".\Release\ValueList.obj"
-".\Release\zbits.obj"
-".\Release\zdeflate.obj"
-".\Release\zfile_io.obj"
-".\Release\zglobals.obj"
-".\Release\zinflate.obj"
-".\Release\zip.obj"
-".\Release\zipup.obj"
-".\Release\ztrees.obj"
-".\Release\zunzip.obj"
-".\Release\zzahlanalyes.obj"
-".\Release\zzgen.obj"
-".\Release\MultiPad.res"
-"\CrypTool-Entwicklung\CrypTool\source\LibAnalyse\Release\LibAnalyse.lib"
-"\CrypTool-Entwicklung\CrypTool\source\LibEc\lib\EcBibV2.lib"
-]
-Erstellen der Befehlzeile "link.exe @C:\TEMP\RSP37.tmp"
-<h3>Ausgabefenster</h3>
-Ressourcen werden kompiliert...
-Linker-Vorgang läuft...
 
 
 
 <h3>Ergebnisse</h3>
-CrypTool.exe - 0 Fehler, 0 Warnung(en)
+cryptool.exe - 0 Fehler, 0 Warnung(en)
 </pre>
 </body>
 </html>
