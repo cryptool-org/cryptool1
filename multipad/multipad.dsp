@@ -605,6 +605,10 @@ SOURCE=.\CryptologyUsingMiracl.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\DerEinstiegInCrypTool.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\dia1.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"

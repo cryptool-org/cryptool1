@@ -120,6 +120,13 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	UpdateData(FALSE);
 }
 
+/*
+BOOL IsSmallerNumStr( CString &NumStr1, CString &NumStr2 )
+{
+	
+}
+*/
+
 void DlgTutorialFactorisation::expandFactorisation(CString &composite, CString &f1, CString &f2)
 {
 	long expFactor = 1;
