@@ -10906,7 +10906,7 @@ BEGIN
     IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
     IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
     IDS_ENTROPY_TITLE       "Entropy <%s>"
-    IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: Offset %d, length %d."
+    IDS_HASH_DEMO_SEQUENCE  "Longest identical bit sequence: offset %d, length %d."
 END
 
 STRINGTABLE DISCARDABLE 
