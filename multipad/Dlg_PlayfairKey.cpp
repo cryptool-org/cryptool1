@@ -1,4 +1,10 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+
 // Dlg_PlayfairKey.cpp: Implementierungsdatei
+//
+// Menüfolge: Ver-/entschlüsseln -> Klassisch -> Playfair...
 //
 
 #include "stdafx.h"
@@ -110,6 +116,7 @@ END_MESSAGE_MAP()
 // Behandlungsroutinen für Nachrichten CDlg_PlayfairKey 
 
 void CDlg_PlayfairKey::OnDec()
+// ver- oder entschlüsseln
 {
 	UpdateData(TRUE);
 	if (m_Dec)
@@ -120,6 +127,7 @@ void CDlg_PlayfairKey::OnDec()
 }
 
 void CDlg_PlayfairKey::OnCheck() 
+// Doppelte Zeichen ignorieren oder nicht
 {
 	UpdateData(TRUE);
 	m_Alg->PassUse(m_use);
@@ -128,6 +136,7 @@ void CDlg_PlayfairKey::OnCheck()
 }
 
 void CDlg_PlayfairKey::OnSechs() 
+// statt 5x5 wurde 6x6 oder umgekehrt ausgewählt
 {
 	int i;
 
@@ -207,7 +216,7 @@ void CDlg_PlayfairKey::OnUpdateEdit1()
 			MessageBeep(MB_OK);
 			if(k<sels) sels--;
 			if(k<sele) sele--;
-		}
+		} 
 	}
 
 	m_text = res;

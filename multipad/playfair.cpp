@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+
 /*--------------------------------------------------------------------*/
 /* Playfair-Algorithmus                                               */
 /* - fuer 5x5 und 6x6 Quadrate                                        */
@@ -25,6 +29,7 @@ Playfair::Playfair(void)
 }
 
 BOOL Playfair::myisalpha( char ch )
+// prüft auf korrekte Zeichen
 {
 	if (size == 6)
 	{
@@ -63,6 +68,7 @@ void Playfair::PassUse(int use)
 }
 
 void Playfair::SetSize(int sechs)
+// 5x5 oder 6x6 Matrix verwenden
 {
 	if(sechs)
 	{
@@ -121,7 +127,7 @@ int Playfair::keyval(char a)
 			return a-'B';
 	}
 	return -1;
-}
+} 
 
 char Playfair::valkey(int a)
 {
@@ -190,12 +196,12 @@ Playfair::Playfair(char *p,int sechs,const char *in,const char *out,int r,int c,
 
 void Playfair::GetDiGrams()
 {
-	int dgt[36*36],i,j,n;
+	int dgt[36*36],i,j;
 	
 	for (i=0;i<36*36;i++)
 		dgt[i]=0;
 	i=0;
-	while (i<inbuflen)
+	while (i<inbuflen) // zähle, wie oft jedes Digramm vorkommt
 	{
 		char a,b;
 		a=inbuf[i];
@@ -214,30 +220,27 @@ void Playfair::GetDiGrams()
 		else
 			break;
 	}
-	for (i=0,n=0;i<36*36;i++)
+	numdigrams=0;
+	for (i=0;i<36*36;i++) // zähle Anzahl der unterschiedlichen Digramme
 	{
 		if ( dgt[i] )
-			n++;
+			numdigrams++;
 	}
-	digrams=(struct digram *)malloc((numdigrams=n)*sizeof(struct digram));
+	digrams=(struct digram *)malloc((numdigrams)*sizeof(struct digram));
 	i=j=0;
-	while (i<36*36)
+	while (i<36*36) // übertrage die lokalen Daten der Digramme in die Objektvariablen
 	{
 		if (dgt[i])
 		{
-			char l,m;
-			
 			digrams[j].anz=dgt[i];
 			digrams[j].di[2]=0;
 			digrams[j].ciphdi[2]=0;
-			l=i%36;
-			m=i/36;
-			sprintf(digrams[j].di,"%c%c",valkey(l),valkey(m));
+			sprintf(digrams[j].di,"%c%c",valkey(i%36),valkey(i/36));
 			j++;
 		}
 		i++;
 	}
-	qsort(digrams,n,sizeof(struct digram),(int (__cdecl *)(const void *,const void *))compdigram);
+	qsort(digrams,numdigrams,sizeof(struct digram),(int (__cdecl *)(const void *,const void *))compdigram);
 }
 
 void Playfair::UpdateDigrams(int Dec)
@@ -350,7 +353,7 @@ void Playfair::CreateMatrixFromPass()
 		{
 			if ( IsElement((char *)tmp, passphrase[i]) )
 			{
-				ka=(keyval(passphrase[i])+1)%iLenA;
+				ka=(keyval(passphrase[i])+1)%iLenA; // die Suche nach noch nicht verwendeten Buchstaben
 				while(IsElement((char *)tmp,valkey(ka)))
 					ka=(ka+1)%iLenA;
 				tmp[i]=valkey(ka);
@@ -363,7 +366,7 @@ void Playfair::CreateMatrixFromPass()
 	tmp[36]=0;
 	
 	char ordered_alph[36+1];
-	char marked[36]; /* 1 if letter in pass; 0 else */
+	char marked[36]; /* '1' if letter in pass; '0' else */
 	
 	/*    initialisiere marked .........................................*/
 	for ( i=0; i<36; i++ )
@@ -519,10 +522,13 @@ void Playfair::DoCipher( int Dec, int len)
 	// Die Größe des Ausgabepuffers (outbuf) steht erst
 	// nach der Verschlüsselung fest, deswegen wird der 
 	// Ciphertext zunächst in CipherBufTemp geschrieben
+	// (durch Wiederholungen im Klartext müssen zusätzliche
+	//  Xe eingefügt werden.)
 	CipherBufTemp = (char*)malloc(2*len);
-	free(outbuf);
 
+	free(outbuf);
 	outbuflen=0;
+
 	if (len>inbuflen)
 		len=inbuflen;
 	
@@ -631,77 +637,84 @@ void Playfair::PlayfairCipher (int dec_enc, int r1, int r2, int c1, int c2, char
 
 void Playfair::AnalyseDigramme(int *num,struct digram *di)
 {
-	int i,j,d,t,q,s,res;
+	int i,j,
+		d,t,q, // Anzahl der gefundenen Doubles, Tripel, Quadrupel
+		s,
+		res;
 	char a[4],b[4];
 	anadigramme *m;
 
+	// hole mir auf einen Schlag gleich den ganzen benötigten Speicher
 	if(!(m=(anadigramme *)malloc(s=sizeof(anadigramme)+(*num)*(sizeof(doub)+sizeof(tripel)+sizeof(quads)))))
 		return;
+	// jetzt wird der Speicher verteilt
 	m->data=((char *)m+sizeof(anadigramme));
 	m->dou=(doubs *)(m->data);
 	m->tri=(tripel *)((char *)(m->dou)+(*num)*sizeof(doub));
 	m->qua=(quads *)((char *)(m->tri)+(*num)*sizeof(tripel));
 
-	do
+	do // solange genliste (s.u.) noch nicht zufrieden ist
 	{
-		for(i=d=t=q=0;i<(*num);i++)
+		for(i=d=t=q=0;i<(*num);i++) // mach mal für jedes Digramm
 		{
 			a[0]=di[i].di[0];
 			a[1]=di[i].ciphdi[0];
 			a[2]=di[i].di[1];
 			a[3]=di[i].ciphdi[1];
 			
-			if(a[0]==a[2])
+			if(a[0]==a[2]) // gleicher Buchstabe des Klartextes
 			{
 				m->dou[d].d[0]=a[0];
-				m->dou[d].d[1]=a[1];
+				m->dou[d].d[1]=a[1]; // dann merke nur die Klartextzeichen
 				m->dou[d++].flag=WAAG;
 			}
-			else if (a[0]==a[3])
+			else if (a[0]==a[3]) // erster Buchstabe Klartext == zweiter Buchstabe Chiffrat
 			{
-				m->tri[t].d[0]=a[2];
-				m->tri[t].d[1]=a[0];
-				m->tri[t].d[2]=a[1];
+				m->tri[t].d[0]=a[2]; // merke 2.Klarbuchstaben
+				m->tri[t].d[1]=a[0]; // merke 1.Klarbuchstaben
+				m->tri[t].d[2]=a[1]; // merke 1.Chiffrezeichen
 				m->tri[t++].flag=WAAG|SENK|ECK;
 			}
-			else if (a[1]==a[2])
+			else if (a[1]==a[2]) // zweiter Buchstabe Klartext == erster Buchstabe Chiffrat
 			{
-				m->tri[t].d[0]=a[0];
-				m->tri[t].d[1]=a[1];
-				m->tri[t].d[2]=a[3];
+				m->tri[t].d[0]=a[0]; // merke 1.Klarbuchstaben
+				m->tri[t].d[1]=a[1]; // merke 1.Chiffrezeichen
+				m->tri[t].d[2]=a[3]; // merke 2.Chiffrezeichen
 				m->tri[t++].flag=WAAG|SENK|ECK;
 			}
 			else
 			{
-				strncpy(m->qua[q].d,a,4);
+				strncpy(m->qua[q].d,a,4); // merke alles vor
 				m->qua[q++].flag=WAAG|SENK|ECK;
 			}
 		}
-		for(i=0;i<t;i++)
+		for(i=0;i<t;i++)  // für jedes identifizierte Trippel
 		{
-			for(j=0;j<d;j++)
+			for(j=0;j<d;j++) // durchlaufe für jedes Trippel alle Doubles
 			{
-				if (2==str_in(m->dou[j].d,2,m->tri[i].d,3))
+				if (2==str_in(m->dou[j].d,2,m->tri[i].d,3)) // wenn beide Zeichen aus dem Double im Trippel vorkommen
 					m->tri[i].flag=WAAG;
 			}
-			for(j=0;j<q;j++)
+			for(j=0;j<q;j++) // durchlaufe für jedes Trippel alle Quadrupel
 			{
-				a[0]=m->qua[j].d[0];
-				a[1]=m->qua[j].d[2];
-				b[0]=m->qua[j].d[1];
-				b[1]=m->qua[j].d[3];
+				a[0]=m->qua[j].d[0];  // 1.Klarbuchstaben
+				a[1]=m->qua[j].d[2];  // 2.Klarbuchstaben
+				b[0]=m->qua[j].d[1];  // 1.Chiffrezeichen
+				b[1]=m->qua[j].d[3];  // 2.Chiffrezeichen
+				// wenn entweder beide Klarbuchstaben oder beide Chiffrezeichen im aktuellen Trippel vorkommen
 				if(2==str_in(a,2,m->tri[i].d,3)||2==str_in(b,2,m->tri[i].d,3))
 					m->qua[j].flag&=WAAG|SENK;
 			}
 		}
-		for(i=0;i<q;i++)
+		for(i=0;i<q;i++) // für jedes gefundene Quadrupel
 		{
 			for(j=0;j<d;j++)
 			{
-				a[0]=m->qua[i].d[0];
-				a[1]=m->qua[i].d[2];
-				b[0]=m->qua[i].d[1];
-				b[1]=m->qua[i].d[3];
+				a[0]=m->qua[i].d[0];  // 1.Klarbuchstaben
+				a[1]=m->qua[i].d[2];  // 2.Klarbuchstaben
+				b[0]=m->qua[i].d[1];  // 1.Chiffrezeichen
+				b[1]=m->qua[i].d[3];  // 2.Chiffrezeichen
+				// wenn beide Buchstaben eines Doubles in den beiden Klarbuchstaben oder in den beiden Chiffrezeichen eines Quadrupels vorkommen
 				if (2==str_in(m->dou[j].d,2,a,2)||2==str_in(m->dou[j].d,2,b,2))
 					m->qua[i].flag=WAAG;
 			}
@@ -1006,6 +1019,7 @@ int Playfair::matlen(char b[6][6],int z)
 }
 
 int Playfair::genliste(anadigramme *oldm)
+// an Peter Gruber: was macht das Ding hier?
 {
 	char nebr[36],nebc[36],zeilen[36][37],spalten[36][37],zmat[6][6],tmat[6][6],outa[100],tmp[37];
 	int i,s,f,pa,tnum;
@@ -1598,6 +1612,7 @@ int Playfair::navmatrix(int pos,int x,int y)
 }
 	
 int Playfair::str_in(char *in,int s,char *str,int l)
+// wieviele Buchstaben von in tauchen mindestens einmal in str auf
 {
 	int i,j,ret;
 	
