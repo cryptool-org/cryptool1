@@ -5205,7 +5205,7 @@ BEGIN
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "Die Entschlüsselung (RSA-Exponentation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
-                            "Der Hashwert der Datei selbst ist (und entspricht %sdem entschlüsselten Hashwert oben):    %s"
+                            "Die Nachricht hat den folgenden Hashwert. Dies entspricht %sdem entschlüsselten Hashwert oben.   %s"
 END
 
 STRINGTABLE DISCARDABLE 
