@@ -293,7 +293,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		}
 	}
 	datei.Close();
-	
+
 	if (infile_zeichen_anz < 2)
 	{
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 2);
@@ -3093,7 +3093,8 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		Reformat(infile,outfile, FALSE);
 
 		char *Invert=new char[];
-		(Perm.m_Invert) ? Invert="INV, \0" : Invert="\0";
+		Invert = (Perm.m_Invert) ? "INV, \0" : "\0";
+
 
 		if(Perm.m_P2len)
 			sprintf(key,"%s;%s PARAMETER: %s%i, %i, %i, %i, %i, %i",Perm.m_Perm1, Perm.m_Perm2, Invert,

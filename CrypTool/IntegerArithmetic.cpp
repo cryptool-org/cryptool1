@@ -1136,7 +1136,6 @@ int CRSADemo::InitParameter( Big &p, Big &q )
 	if ( !prime( p ) ) ePrime |= ERR_P_NOT_PRIME;
 	if ( !prime( q ) ) ePrime |= ERR_Q_NOT_PRIME;
 	if ( p==q ) ePrime |= ERR_P_EQUALS_Q;
-	if ( !prime(p) && !prime(q)  ) ePrime |= NO_PRIMES_AT_ALL;
 	int l1,l2;
 	l1=bits( p );
 	l2=bits( q );

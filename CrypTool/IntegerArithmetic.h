@@ -53,7 +53,6 @@ extern volatile long ExitFactorisationCode;
 
 
 /* Mark Santiago --- Signatur-Demo */
-/* modifiziert am 31.07.2002, Florian Marchal */
 #define ERR_P_NOT_PRIME			1
 #define ERR_Q_NOT_PRIME			2
 #define ERR_E_TO_BIG			4
@@ -69,7 +68,6 @@ extern volatile long ExitFactorisationCode;
 #define ERR_ON_MODUL_N			1024
 #define ERR_ON_PUBLIC_KEY		2048
 #define ERR_ON_INITIALIZE_E		4096
-#define NO_PRIMES_AT_ALL		8192
 
 /***********************************/
 

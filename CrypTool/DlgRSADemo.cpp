@@ -545,7 +545,7 @@ void CDlgRSADemo::InitPrivateRSAParameter()
 		{
 			MessageIntegerRSAError( m_control_edit_q, IDS_STRING_BIG_NUMBER, TRUE );
 		}
-		else if ( RSAInitError & NO_PRIMES_AT_ALL )
+		else if ( RSAInitError & ERR_P_NOT_PRIME && RSAInitError & ERR_Q_NOT_PRIME )
 		{
 			MessageIntegerRSAError( m_control_edit_p, IDS_RSA_DEMO_ERR_PQ_NOT_PRIME, TRUE );
 		}

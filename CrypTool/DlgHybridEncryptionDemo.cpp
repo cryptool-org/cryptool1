@@ -155,7 +155,6 @@ BOOL CDlgHybridEncryptionDemo::OnInitDialog()
 	if (!m_strPathSelDoc.IsEmpty())
 	{
 		DateiOeffnen(m_strPathSelDoc);
-		m_ActionPerformed[0] = true;
 		EnDisButtons();
 		ShowButtons();
 		OnButtonShowDocument();	
