@@ -8864,9 +8864,9 @@ SELECTALG_R_D           BITMAP  DISCARDABLE     "res\\bmp00028.bmp"
 SELECTALG_G_U           BITMAP  DISCARDABLE     "res\\bmp00030.bmp"
 SELECTALG_G_F           BITMAP  DISCARDABLE     "res\\bmp00029.bmp"
 SELECTALG_G_D           BITMAP  DISCARDABLE     "res\\selectal.bmp"
-IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
-IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
-IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_sec.bmp"
+IDB_LOGO_DB             BITMAP  DISCARDABLE     "res\\logo_db.bmp"
+IDB_LOGO_FZI            BITMAP  DISCARDABLE     "res\\logo_fzi.bmp"
+IDB_LOGO_SECUDE         BITMAP  DISCARDABLE     "res\\logo_secude.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
