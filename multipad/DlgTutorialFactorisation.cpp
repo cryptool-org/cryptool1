@@ -47,6 +47,7 @@ void DlgTutorialFactorisation::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(DlgTutorialFactorisation)
+	DDX_Control(pDX, IDC_CHECK1, m_bruteForceCtrl);
 	DDX_Control(pDX, IDC_EDIT1, m_CompositeNoCtrl);
 	DDX_Control(pDX, IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, m_vollstaendig);
 	DDX_Control(pDX, IDC_BUTTON_Faktorisieren, m_weiter);
@@ -94,6 +95,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	CString next_factor;
 	char line [256];
 	next_factor=Search_First_Composite_Factor();
+	theApp.DoWaitCursor(0);			// aktiviert die Sanduhr
 	
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
@@ -102,6 +104,15 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 
 		fact.SetN(next_factor);
 
+		BOOL factorized = FALSE;
+		if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
+		{
+			//Sie müssen mindestens ein Verfahren wählen!
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
+			sprintf(line,pc_str);
+			AfxMessageBox(line);
+			return;
+		}
 		if ( TutorialFactorisation::IsPrime(next_factor) )
 		{// Die eingegebene Zahl ist eine Primzahl
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
@@ -109,7 +120,6 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			AfxMessageBox(line);
 			return;
 		}
-		BOOL factorized = FALSE; 
 		if ( !factorized && m_bruteForce )
 		{
 			factorized = fact.BruteForce();
@@ -152,10 +162,12 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 			sprintf(line,pc_str);
 			AfxMessageBox(line);
 		}
-		
+
+		theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
 		UpdateData(FALSE);
 		Set_NonPrime_Factor_Red();
 	}
+	
 	// Die Zahl ist jetzt vollständig faktorisiert
 	else
 	{
@@ -364,7 +376,7 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 	do
 		{
 		UpdateData(TRUE);
-		
+		theApp.DoWaitCursor(0);			// Aktiviert die Sanduhr
 		CString next_factor;
 		char line [256];
 		next_factor=Search_First_Composite_Factor();
@@ -376,6 +388,16 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 
 			fact.SetN(next_factor);
 
+			
+			BOOL factorized = FALSE; 
+			if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
+			{
+				//Sie müssen mindestens ein Verfahren wählen!
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_VERFAHREN,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(line,pc_str);
+				AfxMessageBox(line);
+				return;
+			}
 			if ( TutorialFactorisation::IsPrime(next_factor) )
 			{// Die eingegebene Zahl ist eine Primzahl
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_PRIMZAHL,pc_str,STR_LAENGE_STRING_TABLE);
@@ -383,7 +405,6 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 				AfxMessageBox(line);
 				return;
 			}
-			BOOL factorized = FALSE; 
 			if ( !factorized && m_bruteForce )
 			{
 				factorized = fact.BruteForce();
@@ -422,12 +443,15 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 			else
 			{
 				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NEU_WAEHLEN,pc_str,STR_LAENGE_STRING_TABLE);
+				
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
+				
 				return;
 			}
-			
+	
+			theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
 			UpdateData(FALSE);
 			Set_NonPrime_Factor_Red();
 		}
@@ -448,6 +472,7 @@ void DlgTutorialFactorisation::OnButtonVollstaendigFaktorisation()
 	}
 
 	while (ndx);
+	
 }
 
 BOOL DlgTutorialFactorisation::OnInitDialog() 
@@ -457,6 +482,8 @@ BOOL DlgTutorialFactorisation::OnInitDialog()
 	m_weiter.EnableWindow(false);
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	m_vollstaendig.EnableWindow(false);
+		// Initialisiere die Schlüsselliste mit allen verfügbaren asymmetrischen Schlüsseln
+	m_bruteForceCtrl.SetCheck(1);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -470,7 +497,13 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_CompositeNoCtrl.GetSel(sels, sele);
+	
+	CheckEdit(m_CompositeNoStr,sels,sele);
+
 	res.Empty();
+	
+
+	
 
 	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
 
@@ -503,18 +536,50 @@ void DlgTutorialFactorisation::OnUpdateEditEingabe()
 	UpdateData(FALSE);
 	m_CompositeNoCtrl.SetSel(sels,sele);
 
-/*
-	UpdateData(TRUE);
 
-	// TODO: Wenn es sich hierbei um ein RICHEDIT-Steuerelement handelt, sendet es
-	if ( m_CompositeNoStr.GetLength() )
+}
+
+void DlgTutorialFactorisation::CheckEdit(CString &m_edit, int &sels, int &sele)
+{
+			// sorgt dafür, daß keine syntaktisch falsche Eingabe in die Eingabefelder
+		// möglich ist, führende Nullen werden entfernt, die Variablen sels und sele dienen der
+		// Formatierung
 	{
-		m_weiter.EnableWindow(true);
-		m_vollstaendig.EnableWindow(true);	
+		while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
+			//Ruft Funktion IsEmpty auf. Diese gibt 0 zurück, wenn der CString nicht leer ist
+			//GetAt(a) gibt Zeichen zurück, das an der a. Position steht
+			//in diesem Fall, wenn dieses Zeichen 0 ist, dann geht er in die Schleife
+			//Diese Funktionen gelten für die übergebenen Wert aus dem Dialog.
+			//* Überprüfung, ob überhaupt was in dem Eingabefeld steht, UND ob das erste Zeichen 0 ist.
+		{
+			m_edit=m_edit.Right(m_edit.GetLength()-1);
+			//* Var. m_edit ist Beispielsweise 0567. Der Rückgabe der Funktion Right gibt dir letzten x
+			//* Stellen eines CStrings zurück, in diesem Fall gibt er mir 3 Stllen zurück (length-1), so dass die 0 gelöscht wird
+			sels=sele=0;								
+		}
+
+		int exp_counter=0;
+		for(int i=0;i<m_edit.GetLength();i++)
+		{
+			char ch=m_edit.GetAt(i);
+			//* GetAt=holt sich das Zeichen an der i. Stelle
+			if(((ch>='0')&&(ch<='9'))||ch=='^'||ch=='+'||ch=='-'||ch=='('||ch==')'||ch=='['||ch==']'||ch=='{'||ch=='}'||ch=='/')
+			{
+				
+			}
+			else
+			{
+				m_edit=m_edit.Left(i)+m_edit.Right(m_edit.GetLength()-i-1);	
+				//* die ersten i Stellen von links werden mit den Stellen rechts vom ungültigen Zeichen verbunden
+				//* -1 damit das Zeichen an der Position i von m_edit gelöscht wird.
+
+				if(i<=sele)
+				{
+					sele--;
+					sels--;
+				}
+				i--;
+			}
+		}
 	}
-	m_Factorisation = "";
-	factorList = 0;
-	
-	UpdateData(FALSE);
-*/	
 }

@@ -25,6 +25,7 @@ class DlgTutorialFactorisation : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	void CheckEdit(CString &m_edit, int & sels, int & sele);
 	CString Search_First_Composite_Factor();
 	void Set_NonPrime_Factor_Red();
 	DlgTutorialFactorisation(CWnd* pParent = NULL);   // Standardkonstruktor
@@ -33,6 +34,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(DlgTutorialFactorisation)
 	enum { IDD = IDD_DIALOG_ZAHL_FAKTORISIEREN };
+	CButton	m_bruteForceCtrl;
 	CEdit	m_CompositeNoCtrl;
 	CButton	m_vollstaendig;
 	CButton	m_weiter;

@@ -1756,7 +1756,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,83,95,10
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,98,104,10
-    LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. In der dargestellten Faktorisierung werden zusammengesetzte Zahlen rot dargestellt.",
+    LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.\nZusammengesetzte Zahlen sind rot markiert.",
                     IDC_STATIC,24,204,318,19
     LTEXT           "Produktdarstellung der Faktorisierung",IDC_STATIC,24,
                     233,222,9
@@ -1765,7 +1765,7 @@ BEGIN
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
     PUSHBUTTON      "vollständig &faktorisieren",
                     IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
-    LTEXT           "Durch das Anklicken von [weiter] wird die nächste zusammengesetzte Zahl faktorisiert. Sie können auch die Eingabe in einen Schritt [vollständig faktorisieren] .",
+    LTEXT           "Durch das Anklicken des Buttons ""weiter"" wird die nächste zusammengesetzte Zahl in zwei Faktoren zerlegt. Mit dem zweiten Button wird die Eingabe in einem Schritt vollständig faktorisiert.",
                     IDC_STATIC,24,132,318,17
 END
 
@@ -4480,12 +4480,14 @@ BEGIN
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertikal"
     IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
-                            "Die jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor. Dieser Faktor konnte mit den von Ihnen ausgewählten Algorithmen nicht zerlegt werden. Versuchen Sie bitte eine anderes Verfahren."
+                            "Die jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor.\nDieser Faktor konnte mit den von Ihnen ausgewählten Algorithmen nicht zerlegt werden.\nVersuchen Sie bitte ein anderes Verfahren."
     IDS_STRING_FAKTORISATION_PRIMZAHL "Die Eingabe ist eine Primzahl."
     IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
                             "Die Eingabe ist jetzt vollständig in ihren Primfaktoren zerlegt."
     IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
-                            "Die Eingabe konnte mit den von Ihnen ausgewählten Algorithmen nicht vollständig in ihren Primfaktoren zerlegt werden. Versuchen Sie bitte eine anderes Verfahren."
+                            "Die Eingabe konnte mit den von Ihnen ausgewählten Algorithmen nicht vollständig in ihren Primfaktoren zerlegt werden.\nVersuchen Sie bitte ein anderes Verfahren."
+    IDS_STRING_FAKTORISATION_VERFAHREN 
+                            "Sie müssen mindestens einen Faktorisierungsalgorithmus wählen."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6208,7 +6210,7 @@ BEGIN
     GROUPBOX        "Input",IDC_STATIC,166,6,187,107
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     GROUPBOX        "Factorisation",IDC_STATIC,13,187,340,84
-    DEFPUSHBUTTON   "&continue",IDC_BUTTON_Faktorisieren,24,156,77,16
+    DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
     PUSHBUTTON      "&Exit dialoge",IDC_BUTTON_cancel,259,278,94,18
     LTEXT           "Enter the number to be factorised:",IDC_STATIC,177,34,
                     165,8
@@ -6224,14 +6226,15 @@ BEGIN
                     WS_TABSTOP,24,83,95,10
     CONTROL         "Quadratic sieve method",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,98,104,10
-    LTEXT           "The factorisation is presented in the format   <z1^a1 * z2^a2 * .... * zn^an>. If the number  zi  is a composite number, then the factor  zi^ai  will appear in red.",
+    LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",
                     IDC_STATIC,24,204,318,19
-    LTEXT           "Factorisation product",IDC_STATIC,24,233,222,9
+    LTEXT           "Factorisation result",IDC_STATIC,24,233,222,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",ES_AUTOHSCROLL | ES_READONLY | 
                     WS_BORDER | WS_TABSTOP,24,245,318,16
     GROUPBOX        "Faktorisation (stepwise)",IDC_STATIC,13,118,340,64
-    PUSHBUTTON      "&factorisation into primes",IDC_BUTTON1,249,156,93,16
-    LTEXT           "On selecting [continue] the next composite number will be factorisedwird. You may finalise the factorisation on clicking [factorisation into primes].",
+    PUSHBUTTON      "Complete &factorisation into primes",IDC_BUTTON1,224,
+                    156,118,16
+    LTEXT           "On clicking the button ""continue"" the next composite number will be factorised into two factors.\nWith the second button, the factorisation of the input will be completed.",
                     IDC_STATIC,24,132,318,17
 END
 
@@ -8913,12 +8916,14 @@ BEGIN
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertical"
     IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
-                            "The present factorisation still contains at least one composite factor, which could not be factorised further with the algorithms you selected. Please try one other procedure. "
+                            "The present factorisation still contains at least one composite factor, which could not be factorised further with the algorithms you selected.\n Please try one other procedure. "
     IDS_STRING_FAKTORISATION_PRIMZAHL "The input is a prime number. "
     IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
                             "The input is now completely factorised."
     IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
-                            "The input could not be completely factorised to its prime factors with the algorithms selected by you. Please try one other procedure. "
+                            "The input could not be completely factorised into its prime factors using the selected algorithms.\nPlease try one other procedure. "
+    IDS_STRING_FAKTORISATION_VERFAHREN 
+                            "Please select at least one factorization algorithm. "
 END
 
 STRINGTABLE DISCARDABLE 

@@ -153,7 +153,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
 				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
-				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+				theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
 			}
 			else
 			{
@@ -174,7 +174,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 				theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) ErrorMsg( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND );
 				if ( !GetRandomPrime( m_edit6, Q ) ) ErrorMsg( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND );
-				theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
+				theApp.DoWaitCursor(1);			// deaktiviert die Sanduhr
 			}
 			else
 			{

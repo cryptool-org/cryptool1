@@ -105,7 +105,7 @@ void Dlg_Schluessel_gen::OnBUTTONGenerieren()
 		}
 		// m_schluessel= ((CString) SG.str);
 	}
-	theApp.DoWaitCursor(-1);				// deaktiviert die Sanduhr (statt des Mauszeigers)
+	theApp.DoWaitCursor(1);				// deaktiviert die Sanduhr (statt des Mauszeigers)
 	UpdateData(false);
 }
 
