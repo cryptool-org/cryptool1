@@ -31,7 +31,7 @@ int CReadIniFile2::GetAlphaList(CStringList& AlphaList)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONINFORMATION, 0 );
 		return -1; // error: couldn't open inputfile
@@ -61,7 +61,7 @@ int CReadIniFile2::GetDefaultAlpha(CString& alpha)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
 		return -1; // error: couldn't open inputfile
@@ -97,10 +97,10 @@ double CReadIniFile2::GetAlphaParam(CString alpha, UINT def_id)
 
 	if (!IniDataFile.Open(inputfile, CFile::modeRead)){
 		// file opening (read-only mode) error
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_EC_FILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(pc_str1, pc_str, inputfile);
 		AfxMessageBox(pc_str1,MB_ICONSTOP, 0 );
-		return -1; // error: couldn't open inputfile
+		return -1.0; // error: couldn't open inputfile
 	}
 	IniDataFile.SeekToBegin(); // Start searching at begining of file
 	while (IniDataFile.ReadString(Line)){

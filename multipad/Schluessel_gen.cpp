@@ -43,39 +43,45 @@ int Schluessel_gen::password_based_key_deriv_funct(CString Passwort, CString Sal
 	
 	if (atoi(zaehler) < 0)
 	{// Der Zahler muß positiv sein
-		LoadString(AfxGetInstanceHandle(),IDS_STRING37114,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str);
 		AfxMessageBox(line);
+		return -1;
 	}
 	else if (atoi(dkLen) <=0 )
 	{// Byte-Länge darf nicht negativ sein!
-		LoadString(AfxGetInstanceHandle(),IDS_STRING37115,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
+		if (AlgId < 2)
+			sprintf(line,pc_str, 16);
+		if (AlgId == 2)
+			sprintf(line,pc_str, 20);
 		AfxMessageBox(line);
+		return -1;
 	}
 	// dkLen <=16 für MD2 u. MD5, dkLen <=20 für SHA-1.
 	else if (atoi(dkLen) >16 && AlgId<2)
 	{// Byte-Länge ist zu groß (für D2 bzw MD5).
-		LoadString(AfxGetInstanceHandle(),IDS_STRING37112,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str, 16, 16);
 		AfxMessageBox(line);
+		return -1;
 	}
 	else if (atoi(dkLen) >20 && AlgId ==2)
 	{// Byte-Länge ist zu groß (für SHA-1)
-		LoadString(AfxGetInstanceHandle(),IDS_STRING37113,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str, 20, 20);
 		AfxMessageBox(line);
+		return -1;
 	}
 	else if (atoi(zaehler) >10000)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING37116,pc_str,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf(line,pc_str);
 		AfxMessageBox(line);
+		return -1;
 	}
 	else
-	
-	{
-	
+	{	
 		hash.noctets=0;
 
 		/* 

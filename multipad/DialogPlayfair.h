@@ -20,11 +20,14 @@ class CChEdit : public CEdit
 // Konstruktion
 public:
 	CChEdit();
-	void SetAlg(class Playfair *alg,class CDialogPlayfair *dia);
+	void SetAlg(class Playfair *alg,class CDialogPlayfair *dia)
+	{
+		m_Alg=alg;
+		m_Dia=dia;
+	}
+
 public:
 	virtual ~CChEdit();
-	class Playfair *m_Alg;
-	class CDialogPlayfair *m_Dia;
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
 	//{{AFX_MSG(CChEdit)
@@ -34,6 +37,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
+	class Playfair *m_Alg;
+	class CDialogPlayfair *m_Dia;
 };
 
 class CMyEdit : public CEdit
@@ -41,11 +46,11 @@ class CMyEdit : public CEdit
 // Konstruktion
 public:
 	CMyEdit();
-	void SetAlg(class Playfair *alg);
+
+	void SetAlg(class Playfair *alg) { m_Alg=alg; }
 
 public:
 	virtual ~CMyEdit();
-	class Playfair *m_Alg;
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:
 	//{{AFX_MSG(CChEdit)
@@ -54,6 +59,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
+	class Playfair *m_Alg;
 };
 
 class CDialogPlayfair : public CDialog
@@ -61,29 +67,19 @@ class CDialogPlayfair : public CDialog
 // Konstruktion
 public:
 	CDialogPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
-	int Display();
-	void OnSechs();
-	void OnDec();
-	void OnCheck();
-	void OnUpdate();
+	int Display();		// zeigt Dialog an
+	void OnSechs();		// auf 5x5 oder 6x6 Matrix einstellen
+	void OnDec();		// Ver- oder Entschlüsseln
+	void OnCheck();		// Doppelte ignorieren oder nicht
+	void OnUpdate();	// sobald ein neues Zeichen eingegeben wurde (Passwort, Matrix, oder Klartextvorgabe)
 	void UpdatePassword();
 	char *GetData();
-	int size;
-	char digbuf[302];
-	CString m_mat[6][6];
-	int m_use;
-	CString m_mytxt;
-	CString m_cipher,m_password;
-	class Playfair *m_Alg;
-	class CChEdit	m_einfeld[6][6];
-	class CEdit m_ciphfeld,m_pwfeld;
-	class CMyEdit m_txtfeld;
-	CListCtrl m_listview;
+	class Playfair *getAlg() const { return m_Alg; }
+	int getDec() const { return m_Dec; }
+	class CChEdit *getEinfeld(int i, int j) { return &m_einfeld[i][j]; }
+
 	void InitListBox();
 	void UpdateListBox();
-
-	int m_sechs,m_Dec;
-	CFont m_Font;
 
 	// Dialogfelddaten
 	//{{AFX_DATA(CDialogPlayfair)
@@ -104,10 +100,27 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDialogPlayfair)
 	virtual BOOL OnInitDialog();
-	void OnAnalyse();
+	void OnAnalyse();	// Schalter Häufigkeitsanalyse [abgeschaltet TG]
 	void OnManAnalyse();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+private:
+	int size;
+	char digbuf[302];
+	CString m_mat[6][6];
+	int m_use;
+	CString m_mytxt;
+	CString m_cipher,m_password;
+	class Playfair *m_Alg;
+	class CChEdit	m_einfeld[6][6];
+	class CEdit m_ciphfeld,m_pwfeld;
+	class CMyEdit m_txtfeld;
+	CListCtrl m_listview;
+
+	int m_sechs,m_Dec;
+	CFont m_Font;
+
+
 };
 
 //{{AFX_INSERT_LOCATION}}

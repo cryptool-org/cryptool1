@@ -1,5 +1,3 @@
-
-
 /******************************************************************************************************/
 /*            Dlg_Schluessel_gen.cpp: Implementierungsdatei der Klasse Dlg_Schluessel_gen.            */
 /*                         Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main                    */
@@ -122,18 +120,15 @@ void Dlg_Schluessel_gen::OnUpdateEdit1()
 
 void Dlg_Schluessel_gen::OnUpdateEdit2() 
 {
-	
 	UpdateData(true);
 	int sels,sele;
 	m_control_schluessel.GetSel(sels,sele);
 	UpdateData(false);
 	m_control_schluessel.SetSel(sels,sele);
-	
 }
 
 void Dlg_Schluessel_gen::OnBUTTONcancel() 
 {
-	
 	CDialog::OnOK();	
 }
 
@@ -147,7 +142,6 @@ void Dlg_Schluessel_gen::OnBUTTONUebernehmen()
 }
 
 void Dlg_Schluessel_gen::CheckEdit(CString &m_edit,int & sels, int & sele)
-
 		// sorgt dafür, daß keine syntaktisch falsche Eingabe in die Eingabefelder
 		// möglich ist, führende Nullen werden entfernt, die Variablen sels und sele dienen der
 		// Formatierung
@@ -208,5 +202,4 @@ void Dlg_Schluessel_gen::OnUpdateEdit5()
 	CheckEdit(m_dkLen,sels,sele);
 	UpdateData(false);
 	m_control_dkLen.SetSel(sels,sele);
-
 }

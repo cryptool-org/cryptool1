@@ -7,6 +7,7 @@
 // Menüfolge: Ver-/entschlüsseln -> Klassisch -> Playfair...
 //
 
+#include "assert.h"
 #include "stdafx.h"
 #include "multipad.h"
 #include "Dlg_PlayfairKey.h"
@@ -30,7 +31,7 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 	{
 		for (j=0;j<m_Alg->size;j++)
 		{
-			m_mat[i][j]=m_Alg->matrix[i][j];
+			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
 	}
 	//}}AFX_DATA_INIT
@@ -40,9 +41,9 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 
 CDlg_PlayfairKey::~CDlg_PlayfairKey()
 {
-
+	assert (m_Alg);
 /*	//{{AFX_DATA_INIT(CDlg_PlayfairKey) */
-    delete m_Alg;
+    delete m_Alg; m_Alg = NULL;
 /*	//}}AFX_DATA_INIT */
 }
 
@@ -172,7 +173,7 @@ void CDlg_PlayfairKey::OnChange()
 	{
 		for (j=0;j<m_Alg->size;j++)
 		{
-			m_mat[i][j]=m_Alg->matrix[i][j];
+			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
 	}
 	UpdateData(FALSE);

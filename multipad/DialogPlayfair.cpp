@@ -21,7 +21,9 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 {
 	int i,j;
 
-	m_Alg = new Playfair("",0,infile,outfile,r,c,1);
+	m_Alg = new Playfair("",01,infile,outfile,r,c,1);
+	m_Alg->SetSize(false);
+//	m_Alg->GetDiGrams();
 
 	for (i=0;i<6;i++)
 	{
@@ -29,7 +31,7 @@ CDialogPlayfair::CDialogPlayfair(const char *infile,const char *outfile,int r,in
 		{
 			char p[2];
 			p[1]=0;
-  		    p[0]=m_Alg->matrix[i][j];
+  		    p[0]=m_Alg->getCharOfMatrix(i,j);
 			m_einfeld[i][j].SetAlg(m_Alg,this);
 
 			if (i<5&&j<5)
@@ -171,7 +173,7 @@ void CDialogPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_mat[5][5], 1);
 	DDX_Text(pDX, IDC_LIST, m_cipher);
 	DDV_MaxChars(pDX, m_cipher, 3000);
-	DDX_Text(pDX, IDC_NUMD, m_Alg->numdigrams);
+	//DDX_Text(pDX, IDC_NUMD, m_Alg->numdigrams);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
 	DDX_Text(pDX, IDC_MYTXT, m_mytxt);
 	//}}AFX_DATA_MAP
@@ -202,74 +204,42 @@ char *CDialogPlayfair::GetData()
 
 void CDialogPlayfair::OnManAnalyse()
 {
-	char buf[302],c;
-	struct digram *dig;
-	int i,n,j,s;
+	char buf[302];
+	//struct digram *dig;
+	int i,n;
+	int maxchars=300;
+	playfair_digrammlist* diglist;
 
 	UpdateData(TRUE);
-	n=min(m_mytxt.GetLength()/2,m_Alg->inbuflen/2);
+	
+	i=0;
+	while ((i<maxchars)&&(i<m_mytxt.GetLength())) {
+		buf[i] = m_mytxt[i]; i++;
+	}
+	diglist = new playfair_digrammlist(m_Alg->getAlphabet(), m_Alg->getDigrams(), buf, m_Alg->inbuf, min (maxchars, m_Alg->inbuflen));
+	// in der Initialisierung läuft die eigentliche Arbeit ab:
+	// für jedes Pärchen des Klartextes, wird das passende Digramm gesucht, das durch das Chiffrat festgelegt ist.
 
-	i=j=0;
-	while(i<300&&j<m_Alg->inbuflen)
-	{
-		c=m_Alg->inbuf[j++];
-		if(m_Alg->myisalpha(c))
-			buf[i++]=toupper(c);
-	}
-	buf[i]=0;
-	m_txtfeld.SetLimitText(i);
-	s=i/2;
-	n=min(n,s);
-	dig=(struct digram *)malloc(s*sizeof(struct digram));
-	for(i=0,j=0;i<n;i++)
-	{
-		char a[3];
+	n = 2*diglist->getLen();
+	m_txtfeld.SetLimitText (n); // limitiere Ausgabe
+	//diglist->getChiffreString(buf, n); // belege Ausgabevariable buf (1.Zeile)mit Chiffrat
+	diglist->getPlainString(digbuf, n); // lege Ausgabe des Klartextes fest (2.Zeile)
 
-		a[2]=0;
-		a[0]=m_mytxt[i*2];
-		a[1]=m_mytxt[(i*2)+1];
-		if(m_Alg->myisalpha(a[0])&&m_Alg->myisalpha(a[1]))
-		{
-			strncpy(dig[j].di,a,3);
-			a[0]=buf[i*2];
-			a[1]=buf[(i*2)+1];
-			strncpy(dig[j].ciphdi,a,3);
-			j++;
-		}
-	}
-	n=j;
-	m_Alg->AnalyseDigramme(&n,dig);
-	for(i=0;i<s;i++)
-	{
-		char d[2],e[2];
+//	m_Alg->AnalyseDigramme(&n,dig);  //ursprünglicher Entschlüsselungsversuch
 
-		d[0]=d[1]='*';
-		strncpy(e,buf+(i*2),2);
-		for(j=0;j<n;j++)
-		{
-			if(strncmp(e,dig[j].ciphdi,2)==0)
-				strncpy(d,dig[j].di,2);
-		}
-		strncpy(digbuf+(i*2),d,2);
-	}
-	*(digbuf+(i*2))=0;
-	free(dig);
-	m_Alg->GetDiGrams();
-	m_Alg->UpdateDigrams(m_Dec);
-	for (i=0;i<m_Alg->size;i++)
-	{
-		for (j=0;j<m_Alg->size;j++)
-			m_mat[i][j]=m_Alg->matrix[i][j];
-	}
-	m_password=m_Alg->CreatePassfromMatrix();
+
+//	m_password=m_Alg->CreatePassfromMatrix();
+	delete (diglist);
+
 	UpdateData(FALSE);
 	UpdateListBox();	
 }
 
 
 void CDialogPlayfair::OnAnalyse()
-// Schalter Häufigkeitsanalyse
+// Schalter "erzeuge Matrix", war "Häufigkeitsanalyse"
 {
+/*
 	char buf[302],c;
 	struct digram *dig;
 	class Playfair *plf;
@@ -301,7 +271,7 @@ void CDialogPlayfair::OnAnalyse()
 		char d[2],e[2];
 
 		d[0]=d[1]='*';
-		strncpy(e,buf+(i*2),2);
+		strncpy(e,buf+(i*2),2); 
 		for(j=0;j<n;j++)
 		{
 			if(strncmp(e,dig[j].ciphdi,2)==0)
@@ -325,6 +295,7 @@ void CDialogPlayfair::OnAnalyse()
 	m_password=m_Alg->CreatePassfromMatrix();
 	UpdateData(FALSE); // schiebe Daten aus den Variablen ins Formular
 	UpdateListBox(); // akualisiere die unteren drei Zeilen (Code,Vorgabe,Klartext)
+*/
 }
 
 
@@ -381,13 +352,13 @@ void CDialogPlayfair::OnSechs()
 	}
 	m_password="";
 	m_Alg->SetPass("");
-	m_Alg->GetDiGrams();
+//	m_Alg->GetDiGrams();
 	m_Alg->UpdateDigrams(m_Dec);
 	for (i=0;i<m_Alg->size;i++)
 	{
 		for (j=0;j<m_Alg->size;j++)
 		{
-			m_mat[i][j]=m_Alg->matrix[i][j];
+			m_mat[i][j]=m_Alg->getCharOfMatrix(i,j);
 		}
 	}
 	UpdateData(FALSE);
@@ -405,14 +376,17 @@ BOOL CDialogPlayfair::OnInitDialog()
 
 	int colWidth = 55;  // Spaltenbreite in Pixel
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_BEFORE,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth , 0); // Name
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_AFTER,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth , 1); // Vorname
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_QUANTITY,pc_str,STR_LAENGE_STRING_TABLE);
-	m_listview.InsertColumn( 2, pc_str, LVCFMT_RIGHT, colWidth , 2); // Vorname
+//	LoadString(AfxGetInstanceHandle(),IDS_STRING_BEFORE,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn( 0, " ", LVCFMT_LEFT, colWidth-30 , 0); // Buchstabe
+//	Wie schaltet man Wingdins ein?
+//	m_listview.InsertColumn( 1, "ïðñò", LVCFMT_LEFT, colWidth-20 , 3); // 
+	m_listview.InsertColumn( 1, "LROU", LVCFMT_LEFT, colWidth-20 , 3); // 
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HORIZ,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth+30 , 1); // 
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_VERT,pc_str,STR_LAENGE_STRING_TABLE);
+	m_listview.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth+30 , 2); // 
 
-	//InitListBox();
+	InitListBox();
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -421,14 +395,30 @@ BOOL CDialogPlayfair::OnInitDialog()
 void CDialogPlayfair::UpdateListBox()
 {
 	int i,j;
-	char buf[302],c;
+	char buf[302],c,s[100];
+	playfair_letter *let;
 
-	for (i=0;i<m_Alg->numdigrams;i++)
-		m_listview.SetItemText( i, 1, m_Alg->digrams[i].ciphdi);
+	m_listview.DeleteAllItems( );
+
+//TG	for (i=0;i<m_Alg->numdigrams;i++)
+//		m_listview.SetItemText( i, 1, m_Alg->digrams[i].ciphdi);
+	for (j=i=0; i <= m_Alg->getAlphabet()->getCount(); i++)
+		if (m_Alg->getAlphabet()->getValidOfLetter(i)) {
+			let = &(m_Alg->getAlphabet()->getLetters()[i]);
+			s[0] = let->getValue();	s[1] = '\0';
+			j = m_listview.InsertItem(i,s);
+			let->getNeighboursString (s, 100);
+			m_listview.SetItemText( j, 1, s);
+			let->getRowString (s, 100);
+			m_listview.SetItemText( j, 2, s);
+			let->getColString (s, 100);
+			m_listview.SetItemText( j, 3, s);
+		}
 
 //	m_ciphfeld.SetSel(0,m_ciphfeld.LineLength());
 //	m_ciphfeld.ReplaceSel(m_Alg->outbuf);
 //	m_ciphfeld.SetSel(0,0);
+
 	m_Alg->DoCipher(m_Dec,300);
 	UpdateData(TRUE);
 	i=j=0;
@@ -470,9 +460,9 @@ void CDialogPlayfair::UpdatePassword()
 
 void CDialogPlayfair::InitListBox()
 {
-	int i; // Zeile
+//	int i; // Zeile
 
-	m_listview.DeleteAllItems( );
+/*	m_listview.DeleteAllItems( );
 
 	for (i=0;i<m_Alg->numdigrams;i++)
 	{
@@ -483,6 +473,7 @@ void CDialogPlayfair::InitListBox()
 		m_listview.SetItemText( i, 1, m_Alg->digrams[i].ciphdi);
 		m_listview.SetItemText( i, 2, c );
 	}
+*/
 	m_Alg->DoCipher(m_Dec,300);
 
 	UpdateData(TRUE);
@@ -538,16 +529,17 @@ void CDialogPlayfair::OnUpdate()
 
 	m_password = res;
 	m_Alg->SetPass(m_password.GetBuffer(25));
-	m_Alg->CreateMatrixFromPass();
-	m_Alg->GetDiGrams();
-	m_Alg->UpdateDigrams(m_Dec);
+/*	//m_Alg->CreateMatrixFromPass();
+	//m_Alg->GetDiGrams();
+	//m_Alg->UpdateDigrams(m_Dec);
 	for (i=0;i<m_Alg->size;i++)
 	{
 		for (k=0;k<m_Alg->size;k++)
 		{
-			m_mat[i][k]=m_Alg->matrix[i][k];
+			m_mat[i][k]=m_Alg->getCharOfMatrix(i,k);
 		}
 	}
+*/
 	UpdateData(FALSE);
 	UpdateListBox();
 	m_pwfeld.SetSel(sels,sele);
@@ -562,14 +554,16 @@ CChEdit::~CChEdit()
 {
 }
 
+/* jetzt als Inline-Funktion in Header-Datei [TG]
 void CChEdit::SetAlg(class Playfair *alg,class CDialogPlayfair *dia)
 {
 	m_Alg=alg;
 	m_Dia=dia;
 }
+*/
 
 BEGIN_MESSAGE_MAP(CChEdit, CEdit)
-	//{{AFX_MSG_MAP(CChEdit)
+	//{{AFX_MSG_MAP(CHexEdit)
 	ON_WM_CHAR()
 	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
@@ -596,23 +590,25 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		{
 			for (j=0;j<s;j++)
 			{
-				if (m_Alg->matrix[i][j]==b1[0])
+				m_Alg->setElMatrix (b1[0], i,j);
+				if (b1[0])
 				{
 					a=i;
 					b=j;
 				}
-				if (m_Alg->matrix[i][j]==b2[0])
+				m_Alg->setElMatrix (b2[0], i,j);
+				if (b2[0])
 				{
 					c=i;
 					d=j;
 				}
 			}
 		}
-		m_Dia->m_einfeld[c][d].SetWindowText(b1);
-		m_Alg->matrix[a][b]=b2[0];
-		m_Alg->matrix[c][d]=b1[0];
-		m_Alg->UpdateDigrams(m_Dia->m_Dec);
-		m_Alg->DoCipher(m_Dia->m_Dec,300);
+		m_Dia->getEinfeld(c,d)->SetWindowText(b1);
+		m_Alg->setElMatrix (b2[0], a, b);
+		m_Alg->setElMatrix (b1[0], c, d);
+		m_Alg->UpdateDigrams(m_Dia->getDec());
+		m_Alg->DoCipher(m_Dia->getDec(),300);
 		m_Dia->UpdateListBox();
 		m_Dia->UpdatePassword();
 	}
@@ -632,13 +628,15 @@ CMyEdit::~CMyEdit()
 {
 }
 
+/* jetzt als Inline-Fkt in Header-Datei [TG]
 void CMyEdit::SetAlg(class Playfair *alg)
 {
 	m_Alg=alg;
 }
+*/
 
 BEGIN_MESSAGE_MAP(CMyEdit, CEdit)
-	//{{AFX_MSG_MAP(CMyEdit)
+	//{{AFX_MSG_MAP(CHexEdit)
 	ON_WM_CHAR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()

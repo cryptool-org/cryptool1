@@ -1301,7 +1301,8 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 		sprintf(tmpstr, pc_str, GetTitle());
 
 		FREQT.SetAlternativeWindowText( tmpstr );
-		FREQT.DoModal();
+		if ( FREQT.LoadAlphaList() )
+			FREQT.DoModal();
 	}
 }
 
@@ -1331,7 +1332,8 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		sprintf( tmpStr, pc_str, GetTitle());
 		
 		SERT.SetAlternativeWindowText(tmpStr);
-		SERT.DoModal();
+		if ( SERT.LoadAlphaList() )
+			SERT.DoModal();
 	}
 
 }
@@ -1359,8 +1361,8 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 		sprintf(tmpstr, pc_str, GetTitle());
 
 		LRT.SetAlternativeWindowText( tmpstr );
-
-		LRT.DoModal();
+		if ( LRT.LoadAlphaList() )
+			LRT.DoModal();
 	}
 	theApp.DoWaitCursor(0);
 }
@@ -1391,7 +1393,8 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 		sprintf( tmpStr, pc_str, GetTitle());
 		
 		POKT.SetAlternativeWindowText(tmpStr);
-		POKT.DoModal();
+		if ( POKT.LoadAlphaList() )
+			POKT.DoModal();
 	}
 }
 

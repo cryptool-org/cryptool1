@@ -122,31 +122,26 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 		if ( !factorized && m_QSieve )
 		{
 			factorized = fact.QuadraticSieve();
-		}
-
-		
+		}		
 		if ( factorized )
 		{
 			CString f1, f2;
 			fact.GetFactor1Str( f1 );
 			fact.GetFactor2Str( f2 );
 			expandFactorisation( next_factor, f1, f2 );
-
+			// Zahl wurde Faktorisiert
 		}
 		else
 		{
 			// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-
 		}
 		
 		UpdateData(FALSE);
-
 		Set_NonPrime_Factor_Red();
 	}
-	// Zahl wurde vollständig faktorisiert!!!
 	else
 	{
-		//Zahl wurde vollständig faktorisiret!
+
 	}
 }
 

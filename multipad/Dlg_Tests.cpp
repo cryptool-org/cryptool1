@@ -175,9 +175,9 @@ void Dlg_Tests_Freq::OnButtonFreqtest()
 	}
 	else
 	{
-		currentTest->Set_DefParam(iniFile.GetAlphaParam(alpha, currentTest->Get_degr()));
-
-		// currentTest->def_param = iniFile.GetAlphaParam(alpha, currentTest->Get_degr());
+		double parameter = iniFile.GetAlphaParam(alpha, currentTest->Get_degr());
+		if ( 0 > parameter) return;
+		currentTest->Set_DefParam(parameter);
 		if (m_Default == TRUE) currentTest->def=TRUE;
 		else if (m_Default == FALSE) currentTest->def=FALSE;
 
@@ -491,8 +491,9 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnTestbutton()
 	else
 	{
 		RT_test.Set_degr( m_Runlang );
-		RT_test.Set_DefParam(iniFile.GetAlphaParam(alpha, RT_test.Get_degr()));
-
+		double parameter = iniFile.GetAlphaParam(alpha, RT_test.Get_degr());
+		if ( 0 > parameter) return;
+		RT_test.Set_DefParam(parameter);
 		RT_test.test();
 
 		//char info_ergeb[128] = "Maximaler Testwert: %lf\nTest Ergebnis: %lf\n";
@@ -598,6 +599,19 @@ void Dlg_Zufallsgenerator_Tests_Runs::OnCheck1()
 		m_Default_Longrun = TRUE;
 	}
 }
+
+BOOL Dlg_Zufallsgenerator_Tests_Runs::LoadAlphaList()
+{
+	CReadIniFile2 iniFile;
+	CReadIniFile2::CStringList AlphaList;
+
+	if (iniFile.GetAlphaList(AlphaList) == -1) return FALSE;
+	else									   return TRUE;
+}
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1 
@@ -945,3 +959,12 @@ void Dlg_Zufallsgenerator_Tests_FIPS_PUB_140_1::SetAlternativeWindowText(LPCTSTR
 	s_alternativeWindowText[126]=0;
 }
 
+
+BOOL Dlg_Tests_Freq::LoadAlphaList()
+{
+	CReadIniFile2 iniFile;
+	CReadIniFile2::CStringList AlphaList;
+
+	if (iniFile.GetAlphaList(AlphaList) == -1) return FALSE;
+	else									   return TRUE;
+}

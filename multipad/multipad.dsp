@@ -47,7 +47,7 @@ RSC=rc.exe
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG"
-# ADD RSC /l 0x407 /d "NDEBUG"
+# ADD RSC /l 0x809 /d "NDEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
@@ -1323,6 +1323,14 @@ SOURCE=.\KeyFileHandling.cpp
 # Begin Source File
 
 SOURCE=.\KeyFileHandling.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\letter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\letter.h
 # End Source File
 # Begin Source File
 

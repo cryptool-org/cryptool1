@@ -80,7 +80,7 @@ DlgGenRandomData::DlgGenRandomData(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(DlgGenRandomData)
 	m_SelGenerator = 0;
 	m_seed = _T("314159");
-	m_DataSize = 1024;
+	m_DataSize = 2500;
 	//}}AFX_DATA_INIT
 // x2modN-Generator
 	DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));

@@ -16,6 +16,7 @@ class Dlg_Tests_Freq : public CDialog
 {
 // Konstruktion
 public:
+	BOOL LoadAlphaList();
 	char tmpStr[128];
 	UINT tupel;
 	void Set_Poker_Flag ( BOOL n);
@@ -90,7 +91,7 @@ public:
 	void init( const char *infile_, const char *OldTitle_);
 	Dlg_Zufallsgenerator_Tests_Runs(CWnd* pParent = NULL);   // Standardkonstruktor
 	void SetAlternativeWindowText(LPCTSTR s_title);
-
+    BOOL LoadAlphaList();
 // Dialogfelddaten
 	//{{AFX_DATA(Dlg_Zufallsgenerator_Tests_Runs)
 	enum { IDD = IDD_DIALOG_CLASSICAL_TESTS_OF_RANDOMNESS_RUN_TESTS };

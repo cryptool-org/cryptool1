@@ -108,6 +108,7 @@ void BigToCString(const Big &t, CString &CStrNumber, int base)
 	char tmpStr[500];
 	tmpStr << t;
 	CStrNumber = tmpStr;
+	int x = CStrNumber.GetLength();
 	mip->IOBASE = oldBase;
 }
 
