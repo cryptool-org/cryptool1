@@ -304,15 +304,15 @@ SOURCE=.\res\bitmap1.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\bitmap12.bmp
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\bitmap10.bmp
 # End Source File
 # Begin Source File
 
 SOURCE=.\res\bitmap10_2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap12.bmp
 # End Source File
 # Begin Source File
 
@@ -1880,7 +1880,6 @@ SOURCE=.\res\GENCERT_G_D.bmp
 # End Source File
 # Begin Source File
 
-
 SOURCE=.\res\GENCERT_G_F.bmp
 # End Source File
 # Begin Source File
@@ -2247,6 +2246,10 @@ SOURCE=.\res\OK_G_U.bmp
 # Begin Source File
 
 SOURCE=.\res\OK_G_X.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\opendoc_.bmp
 # End Source File
 # Begin Source File
 

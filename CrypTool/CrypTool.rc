@@ -1430,60 +1430,60 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Das RSA-Kryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Primzahleneingabe",IDC_FRAME_RSA_MODE,10,73,371,48
-    LTEXT           "Primzahl p",IDC_RSA_CAPTION_PRIME_P,19,86,32,8
-    EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
-    LTEXT           "Primzahl q",IDC_RSA_CAPTION_PRIME_Q,19,104,32,8
-    EDITTEXT        IDC_EDIT2,100,102,176,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,285,
-                    85,87,18
-    GROUPBOX        "RSA Parameter",IDC_STATIC,10,124,371,84
-    LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
-    EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
-    LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,153,55,8
-    EDITTEXT        IDC_EDIT4,100,152,176,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
-    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
-    EDITTEXT        IDC_EDIT5,100,171,176,12,ES_AUTOHSCROLL
-    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
-    EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_TABSTOP
-    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,285,182,87,19
-    GROUPBOX        "RSA-Verschlüsselung mit e / Entschlüsselung mit d",
-                    IDC_STATIC,10,211,371,155
-    LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
-    CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
-                    WS_TABSTOP,61,227,32,8
-    CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_TABSTOP,96,227,37,8
-    PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
-                    IDC_OPTIONEN,224,221,148,16
-    EDITTEXT        IDC_HEADER1,19,241,353,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT10,19,253,353,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
-    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
-    GROUPBOX        "RSA mit privaten und öffentlichen Schlüssel -- oder nur mit öffentlichen Schlüssel",
-                    IDC_STATIC,10,1,371,67
-    CONTROL         "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1)  (mod  phi(N)) berechnet.",
+    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE | WS_GROUP,19,14,353,26
     CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die veröffentlichten RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
                     BS_MULTILINE,19,42,353,23
-    LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
+    EDITTEXT        IDC_EDIT1,100,85,176,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,102,176,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,285,
+                    85,87,18
+    EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT4,100,152,176,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT5,100,171,176,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,100,189,176,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Parameter &aktualisieren",IDC_BUTTON2,285,182,87,19
+    PUSHBUTTON      "&Optionen für Alphabet und Zahlensystem...",
+                    IDC_OPTIONEN,224,221,148,16
+    CONTROL         "Text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,61,227,32,8
+    CONTROL         "Zahlen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,96,227,37,8
+    PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    EDITTEXT        IDC_EDIT10,19,253,353,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
+    GROUPBOX        "RSA mit privatem und öffentlichem Schlüssel -- oder nur mit öffentlichem Schlüssel",
+                    IDC_STATIC,10,3,371,67
+    GROUPBOX        "Primzahleneingabe",IDC_FRAME_RSA_MODE,10,73,371,48
+    GROUPBOX        "RSA-Parameter",IDC_STATIC,10,124,371,84
+    GROUPBOX        "RSA-Verschlüsselung mit e / Entschlüsselung mit d",
+                    IDC_STATIC,10,211,371,155
+    LTEXT           "Primzahl p",IDC_RSA_CAPTION_PRIME_P,19,86,32,8
+    LTEXT           "Primzahl q",IDC_RSA_CAPTION_PRIME_Q,19,104,32,8
+    LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,153,55,8
+    LTEXT           "öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
+    LTEXT           "geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
+    LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
+    LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
+    LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
+    EDITTEXT        IDC_HEADER1,19,241,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
                     IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
 END
 
@@ -2104,75 +2104,6 @@ BEGIN
                     ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
     RTEXT           "PIN:",-1,15,133,37,12
     RTEXT           "Verifikation:",-1,15,157,37,12
-END
-
-IDD_PLAYFAIR_TEST DIALOG DISCARDABLE  0, 0, 432, 330
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Manuelle Playfair Analyse"
-FONT 8, "MS Sans Serif"
-BEGIN
-    EDITTEXT        IDC_MYTXT,6,307,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    CONTROL         "&Verschlüsseln",IDC_RADE,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,7,32,64,10
-    CONTROL         "&Entschlüsseln",IDC_RADV,"Button",BS_AUTORADIOBUTTON,7,
-                    43,64,8
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,86,32,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,86,43,
-                    50,8
-    EDITTEXT        IDC_PASSWORD,7,16,130,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ergebnis der Analyse ausgeben",IDOK,7,189,119,18
-    PUSHBUTTON      "erzeuge &Matrix",IDC_BUTTON5,7,215,59,18
-    GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,68,134,118
-    EDITTEXT        IDC_EDIT_1_1,18,81,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_2,38,81,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_3,58,81,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_4,78,81,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_5,98,81,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_1_6,118,81,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_2_1,18,98,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_2,38,98,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_3,58,98,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_4,78,98,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_5,98,98,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_2_6,118,98,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_3_1,18,115,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_2,38,115,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_3,58,115,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_4,78,115,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_5,98,115,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_3_6,118,115,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_4_1,18,132,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_2,38,132,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_3,58,132,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_4,78,132,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_5,98,132,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_4_6,118,132,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_5_1,18,149,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_2,38,149,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_3,58,149,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_4,78,149,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_5,98,149,15,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_5_6,118,149,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_1,18,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_2,38,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_3,58,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_4,78,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_5,98,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_6_6,118,166,15,12,ES_AUTOHSCROLL | WS_DISABLED
-    CONTROL         "List3",IDC_PLAYFAIR_LIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,147,16,278,217
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,75,215,61,18
-    EDITTEXT        IDC_LIST,7,249,419,43,ES_MULTILINE | ES_UPPERCASE | 
-                    ES_READONLY | ES_WANTRETURN
-    LTEXT           "Passwort",IDC_STATIC,7,7,32,8
-    RTEXT           "Buchstabeninformationen",IDC_STATIC,147,7,81,8
-    CONTROL         "Doppelte &ignorieren",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,58,80,8
-    LTEXT           "Die folgenden Zeilen enthalten: Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",
-                    IDC_STATIC,6,240,419,10
-    LTEXT           "Eingabe",IDC_STATIC,6,297,85,10
 END
 
 IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 495, 423
@@ -3238,14 +3169,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.01 - beta 1\0"
+            VALUE "FileVersion", "1.3.01 - beta-2\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.01 - beta 1\0"
+            VALUE "ProductVersion", "1.3.01 - beta-2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -3921,6 +3852,7 @@ BEGIN
         VERTGUIDE, 246
         VERTGUIDE, 332
         VERTGUIDE, 342
+        VERTGUIDE, 381
         HORZGUIDE, 161
         HORZGUIDE, 185
         HORZGUIDE, 314
@@ -4130,7 +4062,7 @@ BEGIN
         HORZGUIDE, 46
     END
 
-    IDD_PLAYFAIR_TEST, DIALOG
+    "IDD_PLAYFAIR_TEST", DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 425
@@ -4345,7 +4277,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-1"
+    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-2"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4995,9 +4927,11 @@ BEGIN
     IDS_STRING_ERR_ONBLOCKLENGTH 
                             "Die Blocklänge muß aus dem Zahlenbereich 1, ...,  %i sein !"
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
-                            "Der Eingabetext wird in Blöcke aufgeteilt (das Symbol '#' dient als Trennzeichen)."
+                            "Der Eingabetext wird in Blöcke der Länge %i aufgeteilt (das Symbol '#' dient als Trennzeichen)."
     IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
-                            "Der Ausgabetext aus der Verschlüsselung in Blöcken (das Symbol '#' dient als Trennzeichen)."
+                            "Ausgabetext aus der Verschlüsselung (in Blöcken der Länge %i; das Symbol '#' dient nur als Trennzeichen)."
+    IDS_STRING_RSA_OUTPUT_DECRYPTION_TEXTSEGMENTATION 
+                            "Ausgabetext aus der Entschlüsselung (in Blöcken der Länge %i; das Symbol '#' dient nur als Trennzeichen)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5028,9 +4962,9 @@ BEGIN
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
                             "Zahlendarstellung des Klartextes zur Basis %i"
     IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
-                            "Zahlendarstellung des Klartextes zur Basis %i"
+                            "Zahlendarstellung des Klartextes zur Basis %i ."
     IDS_STRING_RSATUT_CIPHERTEXTNUMBERS 
-                            "Chiffretext in Zahlendarstellung zur Basis %i."
+                            "Chiffretext in Zahlendarstellung zur Basis %i . "
     IDS_STRING_PA_FILENAME  "PeriodenAnalyse.txt"
     IDS_STRING_PA_OFFSET    "Offset"
     IDS_STRING_PA_PCNT      "Periodenzahl"
@@ -5319,11 +5253,10 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Permuationseingabe"
-    IDS_CRYPT_RSADEMO_MAINPARAMETER "RSA-MitEigenenParametern:"
-    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen (benutzen Sie hierfür den Knopf Entschlüsseln)."
+    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: benutzen Sie hierfür den Knopf Entschlüsseln."
     IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
     IDS_NUMBER_NOT_RSA_MODUL 
-                            "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
+                            "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei Faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
     IDS_RSA_HEXNOTINVERTIBLE 
                             "Der eigegebene hex-dump lässt sich nicht RSA-Invertieren!\nbitte wählen Sie Eingabe als Text."
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
@@ -5541,12 +5474,6 @@ BEGIN
     IDS_CONTENT_CERT        "Zertifikat"
     IDS_CONTENT_SIGN        " %s Signatur von <%s>"
     IDS_BITLENGTH_MODN      "Modullänge in Bit:      %i\r\n"
-END
-
-STRINGTABLE DISCARDABLE 
-BEGIN
-    IDS_ERRON_OPEN_REFERENCE_FILE2 
-                            "Fehler beim Öffnen der Referenzdatei !\nBitte wählen Sie unter dem Menü Optionen / Textoptionen eine geeignete Datei."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6944,59 +6871,67 @@ BEGIN
     LTEXT           "Result",IDC_STATIC,179,168,35,10
 END
 
-IDD_RSA_DEMO DIALOG DISCARDABLE  0, 0, 351, 367
+IDD_RSA_DEMO DIALOG DISCARDABLE  0, 0, 391, 399
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "The RSA Cryptosystem"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",
-                    IDC_STATIC,10,7,332,24
-    GROUPBOX        "Prime number entry",IDC_STATIC,10,39,332,48
-    LTEXT           "Prime number p",IDC_STATIC,19,52,55,8
-    EDITTEXT        IDC_EDIT1,100,51,134,12,ES_AUTOHSCROLL
-    LTEXT           "Prime number q",IDC_STATIC,19,70,59,8
-    EDITTEXT        IDC_EDIT2,100,68,134,12,ES_AUTOHSCROLL
+    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE | WS_GROUP,19,15,353,26
+    CONTROL         "For the purpose of data encryption or certificate checking it will do with the published RSA parameter: the RSA modulus N and the public key e.",
+                    IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | 
+                    BS_MULTILINE,19,43,353,19
+    EDITTEXT        IDC_EDIT1,100,82,172,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,99,172,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
-                    243,51,89,18
-    GROUPBOX        "RSA parameters",IDC_STATIC,10,90,332,84
-    LTEXT           "RSA modulus N",IDC_STATIC,19,102,52,8
-    EDITTEXT        IDC_EDIT3,100,101,134,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    284,82,88,18
+    EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(public)",IDC_STATIC,246,103,34,8
-    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,119,55,8
-    EDITTEXT        IDC_EDIT4,100,118,134,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT4,100,149,172,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    LTEXT           "(secret)",IDC_STATIC,246,121,30,8
-    LTEXT           "Public key e",IDC_STATIC,19,139,75,8
-    EDITTEXT        IDC_EDIT5,100,137,134,12,ES_AUTOHSCROLL
-    LTEXT           "Private key  d",IDC_STATIC,19,157,73,8
-    EDITTEXT        IDC_EDIT6,100,155,134,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT5,100,168,172,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,100,186,172,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,246,148,86,19
-    GROUPBOX        "RSA encryption using e / decryption using d",IDC_STATIC,
-                    10,177,332,158
-    LTEXT           "Input as",IDC_STATIC,19,194,31,8
-    CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
-                    WS_TABSTOP,53,194,32,8
-    CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_TABSTOP,89,194,40,8
+    DEFPUSHBUTTON   "&Update parameters",IDC_BUTTON2,284,179,88,19
     PUSHBUTTON      "&Options for alphabet and number system...",
-                    IDC_OPTIONEN,184,187,148,16
-    EDITTEXT        IDC_HEADER1,19,209,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_OPTIONEN,224,218,148,16
+    CONTROL         "text",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,53,225,32,8
+    CONTROL         "numbers",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,89,225,40,8
+    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
+    EDITTEXT        IDC_EDIT10,19,252,353,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT13,19,282,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,374,90,18
+    EDITTEXT        IDC_HEADER1,19,240,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT10,19,221,313,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_HEADER4,19,240,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER4,19,271,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT13,19,251,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER2,19,270,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER2,19,301,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT11,19,282,313,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_HEADER3,19,302,313,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER3,19,333,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT12,19,314,313,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,341,71,18
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,341,73,18
-    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,341,90,18
+    GROUPBOX        "RSA using the private and public key -- or using only the public key",
+                    IDC_STATIC,10,4,371,62
+    GROUPBOX        "Prime number entry",IDC_STATIC,10,70,371,48
+    GROUPBOX        "RSA parameters",IDC_STATIC,10,121,371,84
+    GROUPBOX        "RSA encryption using e / decryption using d",IDC_STATIC,
+                    10,208,371,158
+    LTEXT           "Prime number p",IDC_STATIC,19,83,55,8
+    LTEXT           "Prime number q",IDC_STATIC,19,101,59,8
+    LTEXT           "RSA modulus N",IDC_STATIC,19,133,52,8
+    LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,150,55,8
+    LTEXT           "Public key e",IDC_STATIC,19,170,75,8
+    LTEXT           "Private key  d",IDC_STATIC,19,188,73,8
+    LTEXT           "(public)",IDC_STATIC,284,134,34,8
+    LTEXT           "(secret)",IDC_STATIC,284,152,30,8
+    LTEXT           "Input as",IDC_STATIC,19,225,31,8
+    LTEXT           "You may try to foctorise the public RSA modulus N into its prime factors p and q.",
+                    IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
@@ -8578,14 +8513,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "IT/O (Z) S Deutsche Bank AG\0"
             VALUE "FileDescription", "Crypto Toolkit\0"
-            VALUE "FileVersion", "1.3.01 - beta 1\0"
+            VALUE "FileVersion", "1.3.01 - beta-2\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2002\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "IT/O (Z) S Deutsche Bank AG Crypto Toolkit\0"
-            VALUE "ProductVersion", "1.3.01 - beta 1\0"
+            VALUE "ProductVersion", "1.3.01 - beta-2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -8936,8 +8871,14 @@ BEGIN
 
     IDD_RSA_DEMO, DIALOG
     BEGIN
-        HORZGUIDE, 203
-        HORZGUIDE, 359
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 381
+        VERTGUIDE, 19
+        VERTGUIDE, 100
+        VERTGUIDE, 272
+        VERTGUIDE, 284
+        VERTGUIDE, 372
+        HORZGUIDE, 392
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -9250,7 +9191,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-1"
+    IDR_MAINFRAME           "CrypTool 1.3.01 - beta-2"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -9883,9 +9824,11 @@ BEGIN
     IDS_STRING_ERR_ONBLOCKLENGTH 
                             "The block length must be a value out of  1, ..., %i !"
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
-                            "The Input text will be seperated into Segments (the symbol '#' is used as separator)."
+                            "The Input text will be seperated into segments of Size %i (the symbol '#' is used as separator)."
     IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
-                            "Output text from the encryption of the segments (the symbol '#' is used as separator)."
+                            "Output text from the encryption (into segments of size %i; the symbol '#' is used as separator)."
+    IDS_STRING_RSA_OUTPUT_DECRYPTION_TEXTSEGMENTATION 
+                            "Output text from the decryption (into segments of size %i; the symbol '#' is used as seperator)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10119,6 +10062,8 @@ BEGIN
     IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
+    IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
+                            "Input of the message in the following format:  Zahl(1) # Zahl(2) # ... # Zahl(n)   (number of basis %i)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10193,6 +10138,14 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
+    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou are now be able to operate the RSA operation with the secret key d:\nFor this purpose just klick the button Decrypt."
+    IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
+    IDS_NUMBER_NOT_RSA_MODUL 
+                            "The integer N is not an RSA modulus:\n- either N has been factorized into mor than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
+    IDS_RSA_HEXNOTINVERTIBLE 
+                            "The entered hex dump colud not be inverted via the RSA operation!\nPlease select the radio button ""Input as text"""
+    IDS_RSADEMO_REQUEST_FORNUMMBERS 
+                            "The input has been indicated as a sequnce of numbers!\n\nDo you wish to consider it as a sequence of numbers [jes/no]?"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10316,8 +10269,6 @@ BEGIN
     IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT files (*.txt) |*.txt|ASCII files (*.asc)|*.asc|all files (*.*) |*.*||"
-    IDS_OPEN_DOCUMENT_FILTER2 
-                            "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10348,7 +10299,6 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_RSADEMO_Q_NOT_PRIME3 "Die Eingabe für q ist keine Primzahl !"
     IDS_OPEN_DOC            "Open document"
     IDS_CONTENT_DOCUMENT    "Document:"
     IDS_DEPENDENCY          "Dependency"
@@ -10389,6 +10339,10 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
+                            "Error: The new alphabet size exceeds the number of homophones!\nPlease raise the number of homophones up to at least %i characters."
+    IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
+                            "The Homophonic alphabet has been changed:\nold alphabet: %s\nnew alphabet: %s."
     IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
     IDS_PADDING             "Padding string:         %s\r\n"
     IDS_DERCODE             "Algorithm ID:           %s\r\n"

@@ -381,7 +381,7 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList )
 			}
 			else // just consider the numbers (mod modul)
 			{ 
-				if ( FORMAT_MODULO )
+				if ( FORMAT_MODULO == (FORMAT_MODULO & flagList) )
 					num = num % myModul;
 				BigToCString( num, tmp, newNumberBase );
 				fmt = fmt + tmp;
@@ -1248,6 +1248,8 @@ int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 		}
 		plainStr = Plaintext.Mid(i1, i2-i1);
 		CStringToBig( plainStr, plain, base );
+		if ( DlgOfSisters ) 
+			plain %= N;
 		if ( !Encrypt( plain, cipher ) )
 		{
 			Ciphertext ="";
@@ -1267,6 +1269,53 @@ int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 	}
 	return 0;
 }
+
+BOOL CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL DlgOfSisters)
+{
+	Big plain, cipher;
+	CString plainStr, cipherStr;
+	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
+
+	int i1, i2; 
+	i1 = 0;
+	Plaintext = "";
+
+	while ( (i1 < Ciphertext.GetLength()) && (Ciphertext[i1] == ' ' || Ciphertext[i1] == '#')) i1++;
+		
+	while ( i1 < Ciphertext.GetLength() )
+	{
+		i2 = Ciphertext.Find(" ", i1);
+		if (i2 < 0) 
+		{
+			if ( i1 < Ciphertext.GetLength() ) i2 = Ciphertext.GetLength();
+			else break;
+		}
+		cipherStr = Ciphertext.Mid(i1, i2-i1);
+		CStringToBig( cipherStr, cipher, base );
+
+		if ( DlgOfSisters ) 
+			cipher %= N;
+
+		if ( !Decrypt( cipher, plain ) )
+		{
+			Plaintext = "";
+			if ( cipher >= N )
+				return 2;
+			else
+				return 1;
+		}
+		// Besonderheit: Dialog der Schwestern
+		if ( DlgOfSisters ) plain = plain + (rand() % 20 )*N;
+		BigToCString( plain, plainStr, base, OutLength );
+		while ( (i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#') ) i2++;
+		i1 = i2;
+		Plaintext += plainStr.GetBuffer(plainStr.GetLength()+1);
+		if ( i1 < Ciphertext.GetLength() )
+			Plaintext += " # ";
+	}
+	return 0;
+}
+
 
 BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 {

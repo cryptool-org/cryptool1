@@ -184,7 +184,7 @@ private:
 	void HeadingDecryption(BOOL encryptText);
 	void HeadingEncryption(BOOL decryptText);
 	void RequestForInput( BOOL clearInput = FALSE );
-	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );	
+	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0, int BlockLength = 0 );	
 	int GetBase();
 
 	bool KeyStatusPublicKeyOnly() { return (s_publicKeyOnly == (m_RSAKeyStatus & s_publicKeyOnly) ); }

@@ -39,6 +39,7 @@ CDlgFactorisationDemo::CDlgFactorisationDemo(CWnd* pParent)
 	factorList = 0;
 	duration1 = 0;
 	duration2 = 0;
+	m_inputReadOnly = 0;
 }
 
 CDlgFactorisationDemo::~CDlgFactorisationDemo()
@@ -779,6 +780,11 @@ BOOL CDlgFactorisationDemo::OnInitDialog()
 	if ( !factorList )
 	{
 		m_DialogeDetails.EnableWindow(FALSE);
+	}
+	if ( m_inputReadOnly )
+	{
+		m_CompositeNoCtrl.SetReadOnly(TRUE);
+		m_weiter.SetFocus();
 	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

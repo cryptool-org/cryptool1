@@ -63,6 +63,7 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	DlgRSAPrimes		= new CDlgPrimesGeneratorDemo();
 	RSA					= new CRSADemo;
 	DlgFactorisation	= new CDlgFactorisationDemo;
+	DlgFactorisation->m_inputReadOnly = TRUE; // Don't edit the input for factorisation
 	m_RSAKeyStatus = 0;
 }
 
@@ -183,6 +184,7 @@ void CDlgRSADemo::OnRadioRSAComplete()
 	m_GeneratePrimes.SetWindowText("Primzahlen generieren...");
 
 	CheckRSAParameter();
+
 	if ( !KeyStatusPrimePValid() ) 
 	{
 		m_control_edit_p.SetSel(0,-1);
@@ -193,7 +195,7 @@ void CDlgRSADemo::OnRadioRSAComplete()
 		m_control_edit_q.SetSel(0,-1);
 		m_control_edit_q.SetFocus();
 	}
-	else if ( !KeyStatusKeyDValid() )
+	else if ( !KeyStatusKeyEValid() )
 	{
 		m_control_edit_e.SetSel(0,-1);
 		m_control_edit_e.SetFocus();
@@ -710,6 +712,10 @@ BOOL CDlgRSADemo::OnInitDialog()
 			OnButtonUpdateRSAParameter();
 			OnRadioRSAComplete();	
 		}
+		else
+		{
+			OnRadioRSAComplete();	
+		}
 	}
 	// End of paste ...
 
@@ -1009,12 +1015,13 @@ void CDlgRSADemo::OnUpdateRSAInput()
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 // 
 
-void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base)
+void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base, int BlockLength )
 {
 	char line[IDS_STRINGLENGTH];
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-	if ( base ) sprintf( line, pc_str, base );
-	else	    sprintf( line, pc_str );
+	if ( BlockLength ) sprintf( line, pc_str, base, BlockLength );       
+	else if ( base )   sprintf( line, pc_str, base );
+	     else	       sprintf( line, pc_str );
 	mHeader = line;
 }
 
@@ -1050,15 +1057,15 @@ void CDlgRSADemo::HeadingEncryption( BOOL encryptText )
 	if ( encryptText ) 
 	{
 		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION, DlgOptions->m_BlockLength );
 		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
 		SetHeadLine( m_Header_RSA_step_3, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
 	}
 	else
 	{
-		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_PLAINTEXTNUMBERS, GetBase());
 		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUTORIAL_ENCRYPTION );
-		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION, DlgOptions->m_BlockLength );
 		SetHeadLine( m_Header_RSA_step_3, IDS_RSA_MKPZ_CIPHERTEXT );
 	}
 }
@@ -1074,15 +1081,15 @@ void CDlgRSADemo::HeadingDecryption( BOOL decryptText )
 	if ( decryptText ) 
 	{
 		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_INPUTPLAINTEXT );
-		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUT_TEXTSEGMENTATION, DlgOptions->m_BlockLength );
 		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_TUTORIAL_CODING, GetBase() );
 		SetHeadLine( m_Header_RSA_step_3, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
 	}
 	else
 	{
-		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase() );
+		SetHeadLine( m_Header_RSA_input, IDS_STRING_RSATUT_CIPHERTEXTNUMBERS, GetBase());
 		SetHeadLine( m_Header_RSA_step_1, IDS_STRING_RSA_TUTORIAL_DECRYPTION );
-		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION );
+		SetHeadLine( m_Header_RSA_step_2, IDS_STRING_RSA_OUTPUT_DECRYPTION_TEXTSEGMENTATION, DlgOptions->m_BlockLength );
 		SetHeadLine( m_Header_RSA_step_3, IDS_RSA_MKPZ_PLAINTEXT );
 	}
 }
@@ -1265,7 +1272,12 @@ void CDlgRSADemo::EncryptNumbers()
 		return;
 	}
 
-	RSA->Encrypt( m_edit_RSA_input, m_edit_RSA_step_1, GetBase() );
+	CString tmpStr = m_edit_RSA_input;
+	if (DlgOptions->m_RSAVariant)
+	{
+		IsNumberStream( tmpStr, GetBase(), m_edit_N, FORMAT_MODULO );
+	}
+	RSA->Encrypt( tmpStr, m_edit_RSA_step_1, GetBase() );
 
 	if ( !DlgOptions->m_RSAVariant )
 	{
@@ -1367,7 +1379,12 @@ void CDlgRSADemo::DecryptNumbers()
 		return;
 	}
 	
-	RSA->Decrypt( m_edit_RSA_input, m_edit_RSA_step_1, GetBase() );
+	CString tmpStr = m_edit_RSA_input;
+	if (DlgOptions->m_RSAVariant)
+	{
+		IsNumberStream( tmpStr, GetBase(), m_edit_N, FORMAT_MODULO );
+	}
+	RSA->Decrypt( tmpStr, m_edit_RSA_step_1, GetBase());
 
 	if ( !DlgOptions->m_RSAVariant )
 	{
@@ -1554,7 +1571,7 @@ void CDlgRSADemo::Segmentation( int mode )
 				break;
 			case MODE_DLG_OF_SISTERS:
 				encode( tmpStr.GetBuffer(0), NumStr, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet );
-				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers, 1, 0 );				
+				RandRepr( NumStr, DlgOptions->m_alphabet.GetLength(), baseNumbers, 1, 1 );				
 				break;
 		}
 		m_edit_RSA_step_2 += NumStr.GetBuffer( NumStr.GetLength()+1);
@@ -1610,7 +1627,7 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 					flag = FALSE;
 				break;
 			case MODE_DLG_OF_SISTERS:
-				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, 0 ); 
+				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, -1 ); 
 				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
 					flag = FALSE;
 				break;

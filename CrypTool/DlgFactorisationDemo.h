@@ -40,6 +40,7 @@ class CDlgFactorisationDemo : public CDialog
 	NumFactor *factorList;
 	void expandFactorisation( CString &, CString &, CString &);
 public:
+	BOOL m_inputReadOnly;
 	void InitialiseFactorList();
 	int GetRSAFactorisation(CString &str_p, CString &str_q);
 	zeit zeit_condtruct1, zeit_condtruct2;
