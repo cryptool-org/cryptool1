@@ -120,10 +120,16 @@ BOOL CAppDocument::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 		if (bReplace && newName.IsEmpty())
 		{
 			newName = m_strTitle;
-			int i1, i2;
-			i2 = newName.FindOneOf(_T(".>"));
+			int i1, i3, i2;
+			i2 = newName.FindOneOf(_T(">"));
 			newName.ReleaseBuffer(i2);
 			i1 = newName.ReverseFind('<');
+			i3 = newName.ReverseFind('.');
+			if (i3 >= i1) 
+			{
+				newName.ReleaseBuffer(i3);
+				i2 = i3;
+			}
 			
 			CString descr = _T("");
 			if ( i1 >= 0 && i2 > i1 )
@@ -135,7 +141,8 @@ BOOL CAppDocument::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 			if (iBad != -1)
 				newName.ReleaseBuffer(iBad);
 
-			newName = CString("cry-") + newName + CString("-") + descr;
+			newName = CString("Cry-") + newName;
+			if (descr.GetLength()) newName += CString("-") + descr;
 			// append the default suffix if there is one
 			CString strExt;
 			if (pTemplate->GetDocString(strExt, CDocTemplate::filterExt) &&
