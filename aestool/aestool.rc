@@ -452,12 +452,14 @@ BEGIN
     LTEXT           "3.",IDC_STATIC,12,210,12,11
     RTEXT           "-",IDC_STATIC,56,108,8,19
     RTEXT           "-",IDC_STATIC,56,127,8,11
-    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.\nThe output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
-                    IDC_STATIC,24,180,434,16
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",
+                    IDC_STATIC,24,180,434,8
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
                     IDC_STATIC,24,146,426,8
     LTEXT           "The exit code reflects the program's success: 0: everything OK, 1: an error occurred; an error message is displayed on stderr.",
-                    IDC_STATIC,24,197,391,8
+                    IDC_STATIC,24,196,391,8
+    LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
+                    IDC_STATIC,24,188,434,9
 END
 
 IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55

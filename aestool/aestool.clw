@@ -13,23 +13,23 @@ Class2=CAestoolDlg
 Class3=CAboutDlg
 
 ResourceCount=15
-Resource1=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource1=AFX_IDD_NEWTYPEDLG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_HELP
+Resource3=IDD_HELP (Deutsch (Deutschland))
 Resource4=IDD_SPLASH
 Class4=CSplash
-Resource5=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
+Resource5=IDD_HELP
 Class5=CHelp
-Resource6=IDD_HELP (Englisch (GB))
+Resource6=IDD_AESTOOL_DIALOG
 Resource7=IDD_SPLASH (Englisch (GB))
-Resource8=IDD_ABOUTBOX (Deutsch (Deutschland))
-Resource9=IDD_HELP (Deutsch (Deutschland))
-Resource10=IDD_SPLASH (Deutsch (Deutschland))
-Resource11=AFX_IDD_NEWTYPEDLG
-Resource12=IDD_ABOUTBOX
-Resource13=AFX_IDD_NEWTYPEDLG (Englisch (GB))
-Resource14=IDD_AESTOOL_DIALOG
-Resource15=IDD_ABOUTBOX (Englisch (GB))
+Resource8=IDD_ABOUTBOX (Englisch (GB))
+Resource9=IDD_AESTOOL_DIALOG (Deutsch (Deutschland))
+Resource10=IDD_ABOUTBOX (Deutsch (Deutschland))
+Resource11=IDD_SPLASH (Deutsch (Deutschland))
+Resource12=IDD_AESTOOL_DIALOG (Englisch (GB))
+Resource13=IDD_HELP (Englisch (GB))
+Resource14=AFX_IDD_NEWTYPEDLG (Englisch (GB))
+Resource15=IDD_ABOUTBOX
 
 [CLS:CAestoolApp]
 Type=0
@@ -133,8 +133,8 @@ Control17=IDC_STATIC,static,1342308352
 Control18=IDC_STATIC,static,1342308352
 Control19=IDC_STATIC,static,1342308352
 Control20=IDC_STATIC,static,1342308352
-Control21=IDC_STATIC,static,1342308352
-Control22=IDC_STATIC,static,1342308352
+Control21=IDC_STATIC,static,1342308354
+Control22=IDC_STATIC,static,1342308354
 Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
@@ -171,7 +171,7 @@ Control14=IDC_STATIC,button,1342177287
 [DLG:IDD_HELP (Englisch (GB))]
 Type=1
 Class=?
-ControlCount=25
+ControlCount=26
 Control1=IDOK,button,1342242817
 Control2=IDC_STATIC,static,1342308352
 Control3=IDC_STATIC,static,1342308352
@@ -197,6 +197,7 @@ Control22=IDC_STATIC,static,1342308354
 Control23=IDC_STATIC,static,1342308352
 Control24=IDC_STATIC,static,1342308352
 Control25=IDC_STATIC,static,1342308352
+Control26=IDC_STATIC,static,1342308352
 
 [DLG:IDD_ABOUTBOX (Englisch (GB))]
 Type=1
