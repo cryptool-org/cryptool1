@@ -488,26 +488,47 @@ void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 static char *s;
 static Big  temp;
 
+
+
 BOOL evaluate::eval( Big& value, const char * Str )
 {
 	miracl *mip = &g_precision;
 	mip->IOBASE=10;
-     s = (char*)Str;
-	if ( eval() ) {
-		value = temp;
-		return TRUE;
+    s = (char*)Str;
+	try {
+		if ( eval() ) {
+			value = temp;
+			return TRUE;
+		}
+		else
+		{
+			value = 0;
+			return FALSE;
+		}
 	}
-	value = 0;
+	catch ( ... )
+	{
+		value = 0;
+		// throw;
+	}
 	return FALSE;
 }
 
 void evaluate::eval_power(Big &oldn, Big &n, char op)
 {
-	if (op) n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
+	if (op) {
+		int i_n = toint(n);
+		if ( bits(oldn)*n > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_POW );
+		n=pow(oldn,toint(n));    // power(oldn,size(n),n,n);
+	}
 }
 
 void evaluate::eval_sum(Big &oldn, Big &n, char op)
 {
+	int l1, l2;
+	l1 = bits(oldn);
+	l2 = bits(n);
+	if ( l1+1 > MAX_BIT_LENGTH || l2+1 > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_SUM );
 	switch (op)
         {
         case '+':
@@ -523,7 +544,13 @@ void evaluate::eval_product(Big &oldn, Big &n, char op)
 	switch (op)
         {
         case TIMES:
-                n*=oldn; 
+				{
+					int l1, l2;
+					l1 = bits(oldn);
+					l2 = bits(n);
+					if (l1 + l2 > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_MUL );
+					n*=oldn; 
+				}
                 break;
         case '/':
                 n=oldn/n;
@@ -536,63 +563,65 @@ void evaluate::eval_product(Big &oldn, Big &n, char op)
 BOOL evaluate::eval()
 {
 	Big oldn[3];
-  	Big n;
-  	int i;
-   	char oldop[3];
-   	char op;
-   	char minus;
-    for (i=0;i<3;i++)
-    {
-        oldop[i]=0;
-    }
+    	Big n;
+    	int i;
+    	char oldop[3];
+    	char op;
+    	char minus;
+    	for (i=0;i<3;i++)
+    	{
+        	oldop[i]=0;
+    	}
 LOOP:
-    while (*s==' ')
-	s++;
-    if (*s=='-')    /* Unary minus */
+    	while (*s==' ')
+		s++;
+    	if (*s=='-')    /* Unary minus */
 	{
 		s++;
 		minus=1;
 	}
-    else
-	minus=0;
-    while (*s==' ')
-	s++;
-    if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
+    	else
+	    minus=0;
+    	while (*s==' ')
+		s++;
+    	if (*s=='(' || *s=='[' || *s=='{')    /* Number is subexpression */
 	{
 		s++;
 		eval ();
 		n=temp;
 	}
-    else            /* Number is decimal value */
-    {
-    	for (i=0;s[i]>='0' && s[i]<='9';i++)
-        ;
+    	else            /* Number is decimal value */
+    	{
+    		for (i=0;s[i]>='0' && s[i]<='9';i++)
+           	;
 		if (!i)         /* No digits found */
 		{
-	//			Error - invalid number
-				return(false);
+//			Error - invalid number
+			return(false);
 		}
 		op=s[i];
 		s[i]=0;
+
+		if ( log(10.0)/log(2.0)*i > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_STR_NUMBER );
 		n=s;
 
 		s+=i;
 		*s=op;
 	}
-    if (minus) n=-n;
-    do
-	op=*s++;
-	while (op==' ');
-    	if (op==0 || op==')' || op==']' || op=='}')
-	{
-		eval_power (oldn[2],n,oldop[2]);
-		eval_product (oldn[1],n,oldop[1]);
-		eval_sum (oldn[0],n,oldop[0]);
-		temp=n;
-		return(true);
-	}
-    else
-    {
+    	if (minus) n=-n;
+    	do
+		op=*s++;
+		while (op==' ');
+    		if (op==0 || op==')' || op==']' || op=='}')
+		{
+			eval_power (oldn[2],n,oldop[2]);
+			eval_product (oldn[1],n,oldop[1]);
+			eval_sum (oldn[0],n,oldop[0]);
+			temp=n;
+			return(true);
+		}
+    	else
+    	{
 		if (op==RAISE)
 		{
 			eval_power (oldn[2],n,oldop[2]);

@@ -22,7 +22,12 @@ extern volatile long ExitFactorisationCode;
 #define BASE_HEX 16
 
 #define MAX_8BIT_LENGTH 256
-#define MAX_BIT_LENGTH  2048
+#define MAX_BIT_LENGTH  1024
+
+#define EVAL_ERR_STR_NUMBER  4
+#define EVAL_ERR_POW 1
+#define EVAL_ERR_MUL 2
+#define EVAL_ERR_SUM 3
 
 
 #define TIMES '*'
@@ -85,6 +90,14 @@ void RandRepr( CString &StrNum,         int Modul, int numberBase, int randInter
 void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval = 20, int ofs = 0 );
 void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs = 0 ); 
 void ModRepr ( CString &StrNum, int        Modul, int numberBase, int ofs = 0 ); 
+
+
+class eval_err { // eval errror class
+	int err;
+public:
+	eval_err(int e) { err = e; }
+	int get() { return err; }
+};
 
 class evaluate  
 {
