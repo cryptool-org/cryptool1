@@ -48,7 +48,10 @@ END_MESSAGE_MAP()
 BOOL CDlgEntropyInfo::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	char line[1024];
+
+	CString title;
+	title.Format(IDS_ENTROPY_TITLE,m_oldtitle);
+	SetWindowText((LPCTSTR)title);
 
 	LOGFONT logFont;
 	CFont   m_font;
@@ -59,19 +62,21 @@ BOOL CDlgEntropyInfo::OnInitDialog()
 	UpdateData();
 	if ( i_countAlphabet < 256 )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_ENTROPY_ALPHABET_INFO,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str, i_characters, i_countAlphabet);
+		if (i_characters < i_countAlphabet)
+			m_alphabet_info.Format(IDS_ENTROPY_ALPHABET_INFO,i_characters, i_countAlphabet);
+		else
+			m_alphabet_info.Format(IDS_ENTROPY_ALPHABET_MAX_INFO, i_countAlphabet);
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_BINARY_ENTROPY_ALPHABET_INFO,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line,pc_str, i_characters);
+		if (i_characters < i_countAlphabet)
+			m_alphabet_info.Format(IDS_BINARY_ENTROPY_ALPHABET_INFO,i_characters, i_countAlphabet);
+		else
+			m_alphabet_info.Format(IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO, i_countAlphabet);
+		
 	}
-	m_alphabet_info = CString(line);
-
-	LoadString(AfxGetInstanceHandle(),IDS_ENTROPY_INFO,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(line, pc_str, d_entropy, d_maxEntropy);
-	m_entropy_info = CString(line);
+	
+	m_entropy_info.Format(IDS_ENTROPY_INFO,d_entropy, d_maxEntropy);
 	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control

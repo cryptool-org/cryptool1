@@ -16,7 +16,8 @@ class CDlgEntropyInfo : public CDialog
 public:
 	CDlgEntropyInfo(CWnd* pParent = NULL);   // Standardkonstruktor
 
-// Dialogfelddaten
+	CString m_oldtitle;
+	// Dialogfelddaten
 	//{{AFX_DATA(CDlgEntropyInfo)
 	enum { IDD = IDD_ENTROPY_INFO };
 	CStatic	m_ctrl_entropy_info;
@@ -27,9 +28,11 @@ public:
 
 	int    i_countAlphabet, i_characters;
 	double d_maxEntropy, d_entropy;
-	void   SetParameter( int countAlphabet, int Characters,
+	void   SetParameter( const char *oldtitle, 
+						 int countAlphabet, int Characters,
 		                 double maxEntropy, double Entropy )
 	{
+		m_oldtitle = oldtitle;
 		i_countAlphabet = countAlphabet; i_characters = Characters;
 		d_maxEntropy    = maxEntropy;    d_entropy    = Entropy;
 	}

@@ -5345,7 +5345,11 @@ BEGIN
                             "Das analysierte Dokument enthält %i der %i Zeichen des eingestellten Alphabets."
     IDS_ENTROPY_INFO        "Seine Entropie beträgt %2.2f\n(maximal mögliche Entropie %2.2f)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
-                            "Die anzahl der verschiedenen ASCII-Zeichen in diesem Dokument sind %i (es gibt 256 verschieden ASCII-Zeichen)."
+                            "Das analysierte Dokument enthält %i unterschiedliche Bytes von %i möglichen."
+    IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
+                            "Das analysierte Dokument enthält alle %i möglichen Bytes."
+    IDS_ENTROPY_ALPHABET_MAX_INFO 
+                            "Das analysierte Dokument enthält alle %i Zeichen des eingestellten Alphabets."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -5579,6 +5583,7 @@ BEGIN
     IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2-Hash"
     IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5-Hash"
     IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1-Hash"
+    IDS_ENTROPY_TITLE       "Entropie <%s>"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10601,10 +10606,14 @@ BEGIN
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
                             "The input looks like a sequence of numbers!\n\nDo you wish to consider it as a sequence of numbers [yes/no]?"
     IDS_ENTROPY_ALPHABET_INFO 
-                            "The document contains %i different characters compared to the %i characters of the pre selected alphabet."
+                            "This document contains %i different characters compared to the %i characters of the selected alphabet."
     IDS_ENTROPY_INFO        "The entropy of the document is %2.2f\n(maximum possible entropy %2.2f)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
-                            "The count of different ascii characters of this document is %i (there are 256 different ascii characters)."
+                            "This document contains %i different bytes (there are %i different bytes)."
+    IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
+                            "This document contains all %i bytes."
+    IDS_ENTROPY_ALPHABET_MAX_INFO 
+                            "This document contains all %i different characters of the selected alphabet."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -10827,14 +10836,15 @@ BEGIN
     IDS_ACCESS_PSE          "Import key and certificate"
     IDS_IMPORT              "Import"
     IDS_CONGRATULATIONS     "Congratulations! \r\n\r\n"
-    IDS_RSASGN_DOCNAME      "You have sucsessfully created a RSA signature of the document %s. \r\n\r\n"
+    IDS_RSASGN_DOCNAME      "You have succsessfully created an RSA signature of the document %s. \r\n\r\n"
     IDS_RSASGN_PSE          "For this purpose you have generated a new RSA key and stored it together with a certificate in the PSE file %s. \r\n\r\n"
-    IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file %s. \r\n\r\n"
+    IDS_RSASGN_PSE_IMP      "For this purpose you have imported the RSA key together with a certificate from the PSE file: %s. \r\n\r\n"
     IDS_RSASGN_ALG          "As the hash function you have selected %s. "
     IDS_HASH_DEMO_PERCENT   "%2.1f%% of the bits differ."
     IDS_HASH_DEMO_TITLE_MD2 "Hash Demo   MD2 Hash"
     IDS_HASH_DEMO_TITLE_MD5 "Hash Demo   MD5 Hash"
     IDS_HASH_DEMO_TITLE_SHA1 "Hash Demo   SHA-1 Hash"
+    IDS_ENTROPY_TITLE       "Entropy <%s>"
 END
 
 STRINGTABLE DISCARDABLE 

@@ -741,7 +741,7 @@ void Hill(const char *infile, const char *OldTitle)
 }
 
 
-void Entropy( const char* infile, SymbolArray &text )
+void Entropy( const char* infile, SymbolArray &text, const char* oldtitle)
 {
 	LoadText( infile, text );
 	if ( !CheckTextSize( text ) ) return;
@@ -756,7 +756,7 @@ void Entropy( const char* infile, SymbolArray &text )
 			nsymbol++;
 
 	CDlgEntropyInfo entropyInfo;
-	entropyInfo.SetParameter( nalph, nsymbol, log2(nalph), distr.Entropie());
+	entropyInfo.SetParameter( oldtitle, nalph, nsymbol, log2(nalph), distr.Entropie());
 	entropyInfo.DoModal();	
 
 	HIDE_HOUR_GLASS
@@ -765,13 +765,13 @@ void Entropy( const char* infile, SymbolArray &text )
 void EntropyASCII(const char *infile, const char *OldTitle)
 {
     SymbolArray text(AppConv);
-	Entropy( infile, text );
+	Entropy( infile, text, OldTitle );
 }
 
 void EntropyBin(const char *infile, const char *OldTitle)
 {
     SymbolArray text(IdConv);
-	Entropy( infile, text );
+	Entropy( infile, text, OldTitle );
 }
 
 
