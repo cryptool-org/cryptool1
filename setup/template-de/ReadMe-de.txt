@@ -807,10 +807,39 @@ Funktionalität:
          Journal of Cryptology, 6 (1993), Seiten 209-224.
 + Weil kryptographische Strukturen und Formate häufig ASN.1-
   kodiert sind: Integration eines ASN.1 Dekodier-Tools.
-+ Generell Visualisierung der Abhängigkeiten und Abläufe bei
-  Protokollen (nicht nur bei "einfachen" Algorithmen).
-+ Erweiterung um die deutschen Standardanforderungen zur Validierung
-  von Zufallszahlen.
++ Visualisierung:
+  - Generell ist die Visualisierung der Abhängigkeiten und Abläufe
+    bei Protokollen (nicht nur bei "einfachen" Algorithmen) eine
+    sinnvolle Erweiterung.
+  - Angriffe auf schwache RSA-Schlüssel werden in der Online-Hilfe 
+    per Hilfe\Szenarien\RSA-Kryptosystem (Demonstration), unter 
+    "3.) Der Angriff auf das RSA-Verfahren" beschrieben: durch
+    Faktorisieren des Moduls kann man das Verfahren knacken.
+    Dies ist auch implementiert, aber noch nicht visualisiert.
+  - Angriffe auf andere asymmetrische Verfahen sind in CrypTool
+    bisher noch gar nicht behandelt. Um Diffie-Hellman, DSA oder
+    EC-DSA anzugreifen, muss "diskrete Logarithmen" berechnen.
+    Auch dies könnte man nach dem Implementieren wieder 
+    visualisieren.
++ Zufallszahlen:
+  - Bisher konzentriert sich CrypTool auf kryptographisch starke 
+    Pseudozufallzahlgeneratoren. Nur im Secude-Generators wird
+    eine "echte" Zufallsquelle einbezogen. 
+    Die Gewinnung "echter" Zufallsdaten über Mausbewegungen etc.
+    wäre eine gute Ergänzung für CrypTool (Yarrow, PGP, ...). 
+  - In Deutschland wird die Evaluierung von deterministischen 
+    Zufallszahlengeneratoren durch die AIS 20 (seit Dezember 1999;
+    AIS = Anwendungshinweise und Interpretationen zum Schema) und 
+    die Evaluierung von physikalischen Zufallszahlengeneratoren 
+    durch die AIS 31 (seit September 2001) geregelt. 
+    Vor allem die AIS 31 ist auch außerhalb Deutschlands auf 
+    großes Interesse gestoßen.
+    Die AIS 20 und AIS 31 befinden sich in deutscher und englischer
+    Sprache auf der BSI-Website 
+    (http://www.bsi.bund.de/zertifiz/zert/interpr).
+    Es wäre eine gute Ergänzung für CrypTool, die deutschen 
+    Standardanforderungen zur Evaluierung von Zufallszahlen  
+    einzubauen und dies auch zu visualisieren.
 + Weitere Standards implementieren und direkt über die Menüs
   bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
   Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit

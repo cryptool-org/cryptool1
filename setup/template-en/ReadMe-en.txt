@@ -788,10 +788,36 @@ Functionality:
   Journal of Cryptology, 6 (1993), pp 209-224.
 + Because cryptographic structures and formats are often ASN.1
   encoded: integration of an ASN.1 decoding tool.
-+ In general visualization of dependencies and workflows in
-  protocols (not only "simple" algorithms).
-+ Add the German requirements for standards for validation of
-  random numbers.
++ Visualization:
+  - Visualization of dependencies and workflows in protocols 
+    (not only "simple" algorithms) is a senseful enhancement.
+  - Attacks on weak RSA keys are described in CrypTool's 
+    online help at Help \ Szenarios \ RSA cryptosystem (demonstration), 
+    under "3.) Attack on the RSA algorithm" beschrieben: 
+    factorisation of the moduls can break the method.
+    This is implemented, but not visualized.
+  - Attacks on other asymmetric methods are not implmented in
+    CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
+    has to calculate "discrete logarithms". After implementing
+    this also could be visualzed.
++ Random numbers:
+  - Till now CrypTool concentrates on cryptographically strong
+    pseudo number generators. Only the integrated Secude generator
+    involves a "pure" random source. 
+    Adding further "pure" random sources e.g. via mouse moves
+    would be a good enhancement for CrypTool (Yarrow, PGP, ...). 
+  - In Germany evaluations of deterministic random number generators
+    are based on AIS 20 (since Dezember 1999; AIS = Application
+    Notes and Interpretation of the Scheme) and evaluations of 
+    physical random number generators are based on AIS 31 (since
+    September 2001). Especially AIS 31 has achieved great interest
+    outside of Germany.
+    The documents AIS 20 and AIS 31 are both in English and German
+    available at the web page of the German GISA  
+    (http://www.bsi.bund.de/zertifiz/zert/interpr).
+    It would be a senseful enhancement of CrypTool, to implement
+    the German requirements on evaluating random number generators 
+    and also to visualize them.
 + Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the Online
   help (main task here is user interface and documentation).
