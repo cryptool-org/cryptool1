@@ -374,6 +374,7 @@
 #define IDC_HEADER3                     1235
 #define IDC_OPTIONEN                    1236
 #define IDC_ENDDIALOG                   1237
+#define IDC_HEADER4                     1238
 #define IDC_STATIC_GPA                  1239
 #define IDC_PRIMBUTTON                  1240
 #define IDC_STATIC_GPC                  1241
