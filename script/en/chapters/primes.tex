@@ -1,15 +1,16 @@
 % $Id$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% C H A P T E R   T W O:  P R I M E S
+% C H A P T E R   T W O :  P R I M E S
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\section{Prime Numbers}
 \hypertarget{Kapitel_2}{}
-(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, June 2003)
+
+\section{Prime Numbers}
 \label{Label_Kapitel_2}
+(Bernhard Esslinger, May 1999, Updates Nov. 2000, Dec. 2001, June 2003)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -18,7 +19,8 @@
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  Albert Einstein, German physicist and Nobel Prize winner, Mar 14, 1879 $-$ Apr 14, 1955.
+  Albert Einstein, German physicist and Nobel Prize winner, 
+  Mar 14, 1879 $-$ Apr 14, 1955.
 }
 
 % --------------------------------------------------------------------------
@@ -238,9 +240,12 @@ of various orders of magnitude / dimensions)}.
 \label{zahlentyp_mersenne}
 
 Almost all known huge prime numbers are special candidates, called
-\index{Mersenne Marin} {\em Mersenne numbers} of the form $2^p -1,$ where $p$ is
-a prime. Marin Mersenne (1588-1648) was a French priest and mathematician. Not
-all Mersenne numbers are prime:
+\index{Mersenne Marin} {\em Mersenne numbers}\footnote{%
+Marin Mersenne, French priest and mathematician, Sep 08, 1588 -- Sep 01, 1648.
+\index{Mersenne Marin}
+}
+of the form $2^p -1,$ where $p$ is
+a prime. Not all Mersenne numbers are prime:
 
 $$
 \begin{array}{cl}
@@ -248,7 +253,7 @@ $$
 2^3 - 1 = 7 & \Rightarrow {\rm prime} \\
 2^5 - 1 = 31    & \Rightarrow {\rm prime} \\
 2^7 - 1 = 127    & \Rightarrow {\rm prime} \\
-2^{11} - 1 = 2.047 = 23 \cdot 89    & \Rightarrow  {\rm NOT~prime} !
+2^{11} - 1 = 2,047 = 23 \cdot 89    & \Rightarrow  {\rm NOT~prime} !
 \end{array}
 $$
 
@@ -270,7 +275,8 @@ of the form $2^n-1$ cannot be a prime number if $n$ is a composite number:
 The theorem of Mersenne can be proved by contradiction%
 \index{Proof by contradiction}.  We therefore assume that
 there exists a composite natural number $ n $ (with real factorisation)  
-$ n=n_1 \cdot n_2 $, with the property that $ 2^n -1 $ is a prime number.
+$ n=n_1 \cdot n_2 $
+, with the property that $ 2^n -1 $ is a prime number.
 
 From \begin{eqnarray*} (x^r-1)((x^r)^{s-1} + (x^r)^{s-2} + \cdots + x^r +1) & =
 &  ((x^r)^s + (x^r)^{s-1} + (x^r)^{s-2} + \cdots + x^r) \\ &  & -((x^r)^{s-1} +
@@ -498,18 +504,25 @@ These procedures can determine the primality attribute of a number, but they
 cannot determine the prime factors of a number, if it is compound.
 
 \hypertarget{FermatNumbers01}{}\label{FermatNumbers01}%
-In the 17th century, Fermat\index{Fermat Pierre} wrote to Mersenne \index{Mersenne Marin} that he presumed that all numbers
-of the form $$ F(n) = 2^{2^n} + 1 $$ are prime for all whole numbers $n$ greater
-than or equal to $0$ (\hyperlink{FermatNumbers02}{see below}) 
+In the 17th century, Fermat\footnote{%
+Pierre de Fermat, French mathematician, Aug 17, 1601 -- Jan 12, 1665.
+\index{Fermat Pierre}
+}
+\index{Fermat Pierre} wrote to Mersenne \index{Mersenne Marin} that he 
+presumed that all numbers of the form 
+$$ f(n) = 2^{2^n} + 1 $$ 
+are prime for all whole numbers $ n \geq 0$ 
+(\hyperlink{FermatNumbers02}{see below}, chapter~\ref{L-FermatNumbers02}).
 \index{Number!Fermat}\index{Fermat!number}
 
 As early as in the 19th century, it was discovered that the $29$-digit number $$
-F(7) = 2^{2^7} + 1 $$ is not prime. However, it was not until 1970 that
+f(7) = 2^{2^7} + 1 $$ is not prime. However, it was not until 1970 that
 Morrison/Billhart managed to factorise it.
 \begin{eqnarray*}
-F(7) & = & 340,282,366,920,938,463,463,374,607,431,768,211,457 \\
+f(7) & = & 340,282,366,920,938,463,463,374,607,431,768,211,457 \\
 & = & 59, 649, 589, 127, 497, 217 \cdot  5,704,689,200,685,129,054,721
-\end{eqnarray*}
+\end{eqnarray*}\label{f7}
+
 
 \vspace{12pt}
 Despite Fermat was wrong with this supposition, he is the originator of
@@ -541,26 +554,44 @@ proof that a number $a$ is prime. Unfortunately Fermat's theorem does not apply
 --- otherwise we would have a simple proof of the prime number property (or to
 put it in other words, we would have a simple prime number criterion).
 
-Comment: Numbers n that have the property $$ 2^n \equiv 2 \;{\rm mod}\; n $$
+\vskip +15 pt
+\paragraph{Pseudo prime numbers}%
+\index{Prime number!pseudo prime} \index{Number!pseudo prime}%
+\hypertarget{HT-Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
+\mbox{}
+\vskip +10 pt
+Numbers n that have the property $$ 2^n \equiv 2 \;{\rm mod}\; n $$
 but are not prime are called {\em pseudo prime numbers}
-\index{Prime number!pseudo prime}\index{Number!pseudo prime}(i.e. the 
-exponent is not a prime). 
-The first pseudo prime number is $$ 341 = 11 \cdot 31 $$.
-There are numbers that pass the Fermat test with all bases and yet are not
-prime: these numbers are called \index{Number!Carmichael} {\em
-Carmichael numbers}. The first of these is $$ 561 = 3 \cdot 11 \cdot 17 $$.
+(i.e. the exponent is not a prime). 
+The first pseudo prime number is $$ 341 = 11 \cdot 31 .$$
 
+\vskip +15 pt
+\paragraph{Carmichael numbers}%
+\index{Number!Carmichael}%
+\hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
+\mbox{}
+\vskip +10 pt
+There are numbers that pass the Fermat test with all bases and yet are not
+prime: these numbers are called {\em Carmichael numbers}. The first of these is
+$$ 561 = 3 \cdot 11 \cdot 17 .$$
+
+\vskip +15 pt
+\paragraph{Strong pseudo prime numbers}%
+\index{Prime number!strong pseudo prime}\index{Number!strong pseudo prime}%
+\hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
+\mbox{}
+\vskip +10 pt
 A stronger test is provided by\index{Miller Gary L.}\index{Rabin Michael O.}
 Miller/Rabin\footnote{
 In 1976 an efficient probabilistic primality test was published by Prof. Rabin, based on a number theoretic result of Prof. Miller from the year before. \\
 Prof. Miller worked at the Carnegie-Mellon University, School of Computer
 Science. Prof. Rabin, born in 1931, worked at the Harvard and Hebrew University.
 }%
-: it is
-only passed by so-called {\em strong pseudo prime numbers}. Again, there are
-strong pseudo prime numbers that are not primes, but this is much less often the
-case than for (simple) pseudo prime numbers. The smallest strong pseudo prime
-number base $2$ is $$ 15,841 = 7 \cdot 31 \cdot 73. $$
+: it is only passed by so-called {\em strong pseudo prime numbers}. 
+Again, there are strong pseudo prime numbers that are not primes, but this is
+much less often the case than for (simple) pseudo prime numbers or for 
+Carmichael numbers. The smallest strong pseudo prime number base $2$ is 
+$$ 15,841 = 7 \cdot 31 \cdot 73. $$
 If you test all 4 bases, $2, 3, 5$ and $7$, you will find only one strong
 pseudo prime number up to $25 \cdot 10^9$, i.e. a number that passes the 
 test and yet is not a prime number.
@@ -582,7 +613,7 @@ can be found on Web sites such as:
 
 % --------------------------------------------------------------------------
 \vskip +20 pt
-\subsection{Further special number types and the search for a formula for primes}\label{spezialzahlentypen}
+\subsection{Overview special number types and the search for a formula for primes}\label{spezialzahlentypen}
 \index{Prime number!formula}
 There are currently no useful, open (i.e. not recursive) formulae known that
 only deliver prime numbers (recursive means that in order to calculate the
@@ -610,10 +641,10 @@ The following enumeration contains the most common ideas for
 ``prime number formulae'' and what the status is for big special number types,
 trying to either prove primality or determine the prime factors:
 
-%\begin{enumerate}
 
+% --------------------------------------------------------------------------
 \subsubsection{Mersenne numbers $f(n) = 2^n - 1$  \quad for $ n $ prime}
-%\item {\em Mersenne numbers}  $f(n) = 2^n - 1$  \quad for $ n $ prime: \\
+    \index{Prime number!Mersenne} \index{Mersenne!prime number}
     As shown \hyperlink{MersenneNumbers01}{above}, this formula seems
     to deliver relatively large prime numbers but - as for $n=11$ 
     [$f(n)=2,047$] - it is repeatedly the case that the result even with
@@ -627,11 +658,12 @@ trying to either prove primality or determine the prime factors:
 \end{itemize}
 
 
-\subsubsection[Generalisation of the Mersenne numbers
-   $F(k,n) = k \cdot 2^n \pm 1$]{Generalisation of the Mersenne numbers
-   $F(k,n) = k \cdot 2^n \pm 1$  for $ n $ prime and $ k $ small prime}
-%\item $F(k,n) = k \cdot 2^n \pm 1$  for $ n $ prime and $ k $ small prime:\\
-   For this generalisation of the Mersenne 
+% --------------------------------------------------------------------------
+\subsubsection
+   [Generalized Mersenne numbers $f(k,n) = k \cdot 2^n \pm 1$]
+   {Generalized Mersenne numbers
+   $f(k,n) = k \cdot 2^n \pm 1 $  for $ n $ prime and $ k $ small prime}
+   For this first generalisation of the Mersenne 
    numbers\index{Mersenne!number!generalized}
    there are (for small $k$)
    also extremely quick prime number tests (see \cite{Knuth1981}). This can
@@ -644,15 +676,17 @@ trying to either prove primality or determine the prime factors:
 \end{itemize}
 
 
-
-\subsubsection{2nd generalisation of the Mersenne numbers
-    $ f(n) = b^n \pm 1 $}
+% --------------------------------------------------------------------------
+\subsubsection
+   [Generalized Mersenne numbers $ f(b,n) = b^n \pm 1 $ / Cunningham project]
+   {Generalized Mersenne numbers 
+   $ f(b,n) = b^n \pm 1 $ / The Cunningham project}
 
    This is a another possible generalisation of the Mersenne 
    numbers\index{Mersenne!number!generalized}.
    The \index{Cunningham project} \textbf{Cunningham project} determines
    the factors of all composite numbers that are formed as follows:
-   $$ f(n) = b^n \pm 1  \quad {\rm for~} b = 2, 3, 5, 6, 7, 10, 11, 12 $$
+   $$ f(b,n) = b^n \pm 1  \quad {\rm for~} b = 2, 3, 5, 6, 7, 10, 11, 12 $$
    ($b$ is not equal to multiples of bases already used, such as $4, 8, 9$).
 
    Details of this can be found at:
@@ -663,41 +697,37 @@ trying to either prove primality or determine the prime factors:
 \end{itemize}
 
 
-
-%\vskip +15 pt
+% --------------------------------------------------------------------------
 \hypertarget{FermatNumbers02}{}
-\subsubsection[Fermat numbers]{Fermat numbers\footnotemark}
+\subsubsection[Fermat numbers $f(n) = 2^{2^n} + 1$]
+              {Fermat numbers\footnotemark~$f(n) = 2^{2^n} + 1$} 
     \footnotetext{%
        The Fermat prime numbers play a role in circle division.
        As proven by Gauss\index{Gauss Carl Friedrich} a regular $p$-edge
        can only be constructed with the use of a pair of compasses and a 
        ruler, when $p$ is a Fermat prime number.
-       \index{Number!Fermat}\index{Fermat!number}
     }
-    $F(n) = 2^{2^n} + 1$
-
-%\item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in
-%       circle division.
-%       As proven by Gauss\index{Gauss Carl Friedrich}, a regular $p$-edge
-%       can only be constructed with the use of a pair of compasses and a 
-%       ruler, when $p$ is a Fermat prime number.}
-%       \index{Number!Fermat}\index{Fermat!number}  $F(n) = 2^{2^n} + 1$:\\
-       
-       As mentioned \hyperlink{FermatNumbers01}{above} in 
-       chapter~\ref{FermatNumbers01}, Fermat wrote to Mersenne regarding 
-       his assumption, that all numbers of this type are primes.
-       Surprisingly he would have been able obtain a positive result using
-       the negative prime number test for $n=5$ based on his small theorem.
+    \label{L-FermatNumbers02}
+    \index{Number!Fermat}\index{Fermat!number}
+    \index{Prime number!Fermat} \index{Fermat!prime number}       
+    As mentioned \hyperlink{FermatNumbers01}{above} in 
+    chapter~\ref{FermatNumbers01}, Fermat wrote to Mersenne regarding 
+    his assumption, that all numbers of this type are primes.
+    Surprisingly he would have been able obtain a positive result using
+    the negative prime number test for $n=5$ based on his small theorem.
 $$
 \begin{array}{lll}
-F(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prime}  \\
-F(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prime}  \\
-F(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prime}  \\
-F(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prime}  \\
-F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = \mbox{65,537} &  \mapsto {\rm ~prime}  \\
-F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = \mbox{4,294,967,297} = 641 \cdot \mbox{6,700,417} &  \mapsto {\rm ~NOT~prime} ! \\
-F(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = \mbox{18,446,744,073,709,551,617} \\
-                                 &  = \mbox{274,177} \cdot \mbox{67,280,421,310,721} & \mapsto {\rm ~NOT~prime} !
+f(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prime}  \\
+f(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prime}  \\
+f(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prime}  \\
+f(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prime}  \\
+f(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = \mbox{65,537} &  \mapsto {\rm ~prime}  \\
+f(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = \mbox{4,294,967,297} = 641 \cdot \mbox{6,700,417} &  \mapsto {\rm ~NOT~prime} ! \\
+f(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = \mbox{18,446,744,073,709,551,617} \\
+                                 &  = \mbox{274,177} \cdot \mbox{67,280,421,310,721} & \mapsto {\rm ~NOT~prime} !\\
+f(7) = 2^{2^7} + 1  = 2^{128} + 1 & = \mbox{(see page~\pageref{f7})}  
+																 & \mapsto {\rm ~NOT~prime} !
+
 \end{array} 
 $$
 
@@ -720,7 +750,7 @@ $$
     \end{itemize}
     
     The Fermat number
-    $$ F[2,145,351] = 2^{(2^{2,145,351})} + 1 $$ 
+    $$ f(2,145,351) = 2^{(2^{2,145,351})} + 1 $$ 
     is divisible by the prime
     $$ p = 3*2^{2,145,353} + 1 $$ \\
     This prime p is the largest known prime generalized Mersenne 
@@ -750,17 +780,15 @@ $$
 
 
 
-\subsubsection[Verallgemeinerte Fermatzahlen]
-              {Verallgemeinerte Fermatzahlen\footnotemark}
+% --------------------------------------------------------------------------
+\subsubsection[Generalized Fermat numbers $f(b,n) = b^{2^n} + 1$]
+              {Generalized Fermat numbers\footnotemark~$f(b,n) = b^{2^n} + 1$}
     \footnotetext{%
       The base of this power is no longer restricted to 2 . \\
-      Even more generic would be:  $F(b,c,n) = b^{c^n} + 1$
+      Even more generic would be:  $f(b,c,n) = b^{c^n} \pm 1$
     }
 \hypertarget{generalizedFermatprimes}{}
 \index{Fermat!number!generalized} 
-%\vskip +15 pt
-%\item {\em Generalized Fermat numbers}\footnote{%
-%The base of this power is no longer restricted to 2 !}  $F(b,m) = b^{2^m} + 1$:
     Generalized Fermat numbers are more numerous than Mersenne numbers at
     equal size and many of them are waiting to be discovered to fill the
     big gaps between the Mersenne primes already found or still undiscovered.
@@ -792,25 +820,35 @@ $$
 
 
 
+% --------------------------------------------------------------------------
+\subsubsection{Carmichael numbers\index{Number!Carmichael}}
+As mentioned \hyperlink{HT-Carmichael-number01}{above} in
+chapter~\ref{L-Carmichael-number01} not all Carmichael numbers are prime.
 
-\subsubsection{Carmichael numbers\index{Numbers!Carmichael}: see above.}
-%  \vskip +15 pt
-%  \item Carmichael numbers: see above.
+
+% --------------------------------------------------------------------------
+\subsubsection{Pseudo prime numbers%
+\index{Prime number!pseudo prime}\index{Number!pseudo prime}%
+}
+See \hyperlink{HT-Pseudoprimenumber01}{above} in
+chapter~\ref{L-Pseudoprimenumber01}.
 
 
-\subsubsection{Pseudo prime numbers: see above}
-%  \item Pseudo prime numbers: see above.
-  
+% --------------------------------------------------------------------------
+\subsubsection{Strong pseudo prime numbers%
+\index{Prime number!strong pseudo prime}\index{Number!strong pseudo prime}%
+}
+See \hyperlink{HT-Strongpseudoprimenumber01}{above} in
+chapter~\ref{L-Strongpseudoprimenumber01}.
 
-\subsubsection{Strong pseudo prime numbers: see above}
-%  \item Strong pseudo prime numbers: see above.
-  
 
-\subsubsection[Idea based on Euclid's proof $p_1 \cdot p_2 \cdots p_n +1$]
-{Idea based on Euclid's proof (infinite many prime numbers) $p_1 \cdot p_2 \cdots p_n +1$}
-%  \item Idea based on \hyperlink{euclid}{Euclid's proof} (infinite many prime
-% numbers) $p_1 \cdot p_2 \cdots p_n +1$:
 
+% --------------------------------------------------------------------------
+\subsubsection
+    [Idea based on Euclid's proof $p_1 \cdot p_2 \cdots p_n +1$]
+    {Idea based on Euclid's proof $p_1 \cdot p_2 \cdots p_n +1$}
+This idea is based on \hyperlink{euclid}{Euclid's proof} that there are
+infinite many prime numbers.
 $$
 \begin{array}{lll}
 2{\cdot}3 +1 &      = 7 &          \mapsto {\rm ~prime} \\
@@ -824,10 +862,8 @@ $$
 $$
 
 
-
-\subsubsection{As above but except $+1$: $p_1 \cdot p_2 \cdots p_n -1$}
-%  \item As above but except $+1$: $p_1 \cdot p_2 \cdots p_n -1$
-
+% --------------------------------------------------------------------------
+\subsubsection{As above but $-1$ except $+1$: $p_1 \cdot p_2 \cdots p_n -1$}
 $$
 \begin{array}{lll}
 2\cdot 3 -1     &   = 5 &   \mapsto {\rm ~prime} \\
@@ -840,13 +876,12 @@ $$
 $$
 
 
+% --------------------------------------------------------------------------
 \subsubsection[Euclidean numbers $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$]
-    {Euclidean numbers $e_n = e_0 
-    \cdot e_1 \cdots e_{n-1} + 1$  with $n$ greater than or equal to 
-    $1$ and $e_0 := 1$}\index{Euclidean number}
-%  \item \index{Euclidean number} {\em Euclidean numbers} $e_n = e_0 
-%    \cdot e_1 \cdots e_{n-1} + 1$  with $n$ greater than or equal to 
-%    $1$ and $e_0 := 1$. \\
+              {Euclidean numbers $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$
+	       with $ n \geq 1 $ and $ e_0 := 1 $}
+%	       with $n$ greater than or equal to $1$ and $e_0 := 1$}
+    \index{Euclidean number}
     $e_{n-1}$ is not the $(n-1)$th prime number, but the number 
     previously found here.
     Unfortunately this formula is not open but recursive.
@@ -869,16 +904,21 @@ e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29,881\cdot 67,003 \cdot 9,119,521
 $$
 
 $e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
-particularly useful. Comment: However, what is special about these numbers
-is that any pair of them does not have a common factor other than $1$. They are
-therefore\index{Prime number!relative prime}\index{Relatively prime} {\em relatively prime}.
+particularly useful. 
+
+Remark: However, what is special about these numbers is that any pair of 
+them does not have a common factor other than $1$. They are therefore%
+\index{Prime number!relative prime}\index{Relatively prime}
+{\em relatively prime}.
 
 
 
+\pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------------------------
 \subsubsection{$f(n) = n^2 + n + 41$}
-%  \item $f(n) = n^2 + n + 41$:\\
-  This sequence starts off very {\em promisingly},  
-  but is far from being a proof.
+\label{L-Polynomfunktion01-41}
+   This sequence starts off very {\em promisingly},  
+   but is far from being a proof.
 
 $$
  \begin{array}{ll}
@@ -904,14 +944,18 @@ It is easy to see that $f(41)$ cannot be a prime number:
     $f(41) = 41^2 + 41 + 41 = 41 (41 + 1 + 1) = 41 \cdot 43$.
 
 
+
+\pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------------------------
 \subsubsection{$f(n) = n^2 - 79 \cdot n + 1,601$}
-%  \item $f(n) = n^2 - 79 \cdot n + 1,601$: \\
+\label{L-Polynomfunktion02-1601}
     This function delivers prime numbers for all values from $n=0$ to $n=79$.
 Unfortunately $f(80) = 1,681 = 11 \cdot 151$ is not a prime number. To this
 date, no function has been found that delivers more prime numbers in a row. On
 the other hand, each prime occurs twice (first in the decreasing then in the
 increasing sequence), which means that the algorithm delivers a total of 40
-difference prime values (the same ones as the function from point 11).
+difference prime values (the same ones as delivered by the function in 
+chapter~\ref{L-Polynomfunktion01-41}).
 $$
 \begin{array}{|ll||ll|}
 \hline
@@ -952,22 +996,26 @@ f(27) = 197 & \mapsto {\rm ~prime} & & \\
 $$
 
 
-\subsubsection[Polynomial functions $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$]
-{Polynomial functions $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$ ~  ($a_i$ in ${\mathbb Z}$, $n \geq 1$)}\index{Polynomial}
-%\newpage
-%\item Polynomial functions\index{Polynomial} $f(x) = a_n x^n + a_{n-1}x^{n-1}
-%+ \cdots + a_1 x^1 + a_0$  ($a_i$ in ${\mathbb Z}$, $n \geq 1$):
+% --------------------------------------------------------------------------
+\subsubsection[Polynomial functions 
+    $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$]
+    {Polynomial functions\index{Polynomial} 
+    $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$ ~ 
+    ($a_i$ in ${\mathbb Z}$, $n \geq 1$)}\index{Polynomial}
 
     There exists no such polynomial that for all $x$ in ${\mathbb Z}$ only
-delivers prime values.
-    For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where you
-will also find further details about prime number formulae.
+    delivers prime values.
+    For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where
+    you will also find further details about prime number formulae.
 
-    This means there is no hope in looking for further formulae 
-    similar to that of type 11. or 12.
+    This means there is no hope in looking for further formulae (functions) 
+    similar to that in chap.~\ref{L-Polynomfunktion01-41} or 
+    chap.~\ref{L-Polynomfunktion02-1601}.
 
 
 
+
+% --------------------------------------------------------------------------
 \subsubsection[Catalan's conjecture]{Catalan's conjecture\footnotemark}
     \footnotetext{%
 Eugene Charles Catalan, Belgian mathematician, May 5, 1814$-$Feb 14, 1894.\\
@@ -977,17 +1025,8 @@ $=  1, 2, 5, 14, 42, 132, 429, 1430,
 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
 are named.
     }
-Catalan \index{Catalan Eugene}
-%\item \index{Catalan Eugene} \index{Catalan number} Eugene Cahrles 
-%  Catalan\footnote{%
-%Eugene Charles Catalan, Belgian mathematician, May 5, 1814$-$Feb 14, 1894.\\
-%After him the so-called {\em Catalan numbers}
-%$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2 $ \\
-%$=  1, 2, 5, 14, 42, 132, 429, 1430, 
-%4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
-%are named.
-%}
-conjectured that $C_4$ is a prime:
+Catalan \index{Catalan Eugene}  \index{Number!Catalan}
+conjectured that $ C_4 $ is a prime:
 $$
  \begin{array}{l}
 C_0 = 2, \\
@@ -1042,7 +1081,13 @@ for large $x$ the value $x/2$ is much greater than the square root of $2$, we
 can again say that there are more even numbers.
 \end{itemize}
 
-\vskip +3 pt
+
+\vskip +15 pt
+\paragraph{The value of the $n$-th prime $P(n)$}%
+\index{P(n)}%
+\mbox{}
+\vskip +10 pt
+
 \begin{theorem}\label{thm-pz-density}
 For large n: The value of the $n$-th prime $P(n)$ is asymptotic to $n \cdot
 ln(n)$, i.e. the limit of the relation  $P(n)/(n\cdot \ln n)$ is equal to $1$ if
@@ -1052,10 +1097,16 @@ $n$ tends to infinity.
 For large $n$, $P(n)$  lies between  $2n$  and  $n^2$. This means that there are
 fewer prime numbers than even natural numbers but more prime numbers than
 square numbers.
+
 This already is true from the 5th prime, as you can see in 
 \hyperlink{ntePrimzahl}{the table \ref{s:ntePrimzahl}}: $P(5) = 11$.
 
 
+\vskip +15 pt
+\paragraph{The number of prime numbers $PI(x)$}%
+\index{PI(x)}%
+\mbox{}
+\vskip +10 pt
 The definition is similar for the number of prime numbers $PI(x)$
 that do not exceed the maximum value $x$:
 
@@ -1094,9 +1145,14 @@ x     &  ln(x)  &  x / ln(x) & PI(x)(counted) &       PI(x) / (x/ln(x)) \\
 \end{array}
 $$
 
-For a binary number (number in the binary system) x of the length $250$ bits
-($2^{250}$ is approximately = $1.809 251 * 10^{75}$): 
-$$ PI(x) = 2^{250} / (250 \cdot \ln 2) \; {\rm is~approximately} \; =  2^{250} /173.28677 = 1.045 810 \cdot 10^{73}. $$
+For a binary number\footnote{%
+Number written in the binary system consists only of the digits 0 and 1.
+}  
+$ x $ of the length of $250$ bits
+($2^{250}$ is approximately = $1.809 251 * 10^{75}$)
+it is: 
+$$ PI(x) = 2^{250} / (250 \cdot \ln 2)  \;\;  {\rm is~approximately}
+\; = 2^{250} / 173.28677 = 1.045 810 \cdot 10^{73}. $$
 We can therefore expect that the set of numbers with a bit length of less than
 250 contains approximately $10^{73}$ primes (a reassuring result?!).
 
@@ -1175,7 +1231,7 @@ number of primes or the factorisation of numerous composite numbers.
       A proof of this can be found in \cite[p. 79]{Padberg1996}.
       
   \item Paul Erd\"os\footnote{%
-           Paul Erd"os\index{Paul Erd""os}, Hungarian mathematician,
+           Paul Erd\"os\index{Erd\"os Paul}, Hungarian mathematician,
            Mar 26, 1913$-$Sep 20, 1996.
            }
       proved:
@@ -1238,7 +1294,8 @@ the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World scientific
 Series in Pure Maths, Vol. 4.\\
 Especially this conjecture makes it clear, that even today we do not
 have a complete understanding of the deeper connections between addition and
-multiplication of natural numbers.}.
+multiplication of natural numbers.
+}.
 
   \item Bernhard Riemann\footnote{%
         Bernhard Riemann\index{Riemann Bernhard}, German mathematician,
@@ -1404,19 +1461,17 @@ the real world around us so that we can develop a feeling for the
 security of cryptographic algorithms. Some of the numbers listed below originate
 from \cite{Schwenk1996} and \cite[p.18]{Schneier1996p}.  \hypertarget{grosord}{}
 \begin{tabbing}
-Probability that you will be hijacked on your next flight:~~ \= abcdefhijk \=
-\kill
-Probability that you will be hijacked on your next flight \> $ 5.5 \cdot 10^{-6}
-$\> \\
+Probability that you will be hijacked on your next flight:~~ \= abcdefhijk \= \kill
+Probability that you will be hijacked on your next flight \> $ 5.5 \cdot 10^{-6} $\> \\
 Annual probability of being hit by lightning \> $ 10^{-7} $\> \\
 Probability of 6 correct numbers in the lottery \> $ 7.1 \cdot 10^{-8} $\> \\
 Risk of being hit by a meteorite \> $ 1.6 \cdot 10^{-12} $ \> \\
------------------------------------------------------------------------\\
+----------------------------------------------------------------------- \\
 Time until the next ice age (in years) \> $14,000 $ \> $ (2^{14})$ \\
 Time until the sun dies (in years)   \> $10^{9} $ \> $(2^{30})$ \\
-Age of the Earth (in years)\> $ 10^9 $ \> $(2^{30}) $  \\
+Age of the earth (in years)\> $ 10^9 $ \> $(2^{30}) $  \\
 Age of the universe (in years) \> $ 10^{10} $ \> $(2^{34}) $ \\
-Number of the Earth's atoms            \> $10^{51} $ \> $ (2^{170}) $ \\
+Number of the earth's atoms            \> $10^{51} $ \> $ (2^{170}) $ \\
 Number of the sun's atoms              \> $10^{57}$ \> $ (2^{190})$ \\
 Number of atoms in the universe (without dark material)        \> $10^{77}$  \>
 $ (2^{265})$ \\

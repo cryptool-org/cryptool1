@@ -107,14 +107,15 @@ For these hash algorithms there are also validation tests defined in the
 test suite FIPS 140-2.
 
 The output length of the SHA algorithms was enhanced because of the
-possibility of birthday attacks\index{Birthday attack}\index{collisions}:
+possibility of birthday attacks\index{Attack!birthday}\index{Collision}:
+% \index{Birthday attack}
 these make n-bit AES and a 2n-bit hash roughly equivalent: \\
 - 128-bit AES -- SHA-256 \\
 - 192-bit AES -- SHA-384 \\
 - 256-bit AES -- SHA-512.
 
 With CrypTool\index{CrypTool} v1.3.04 you can comprehend the birthday attack
-\index{Birthday attack} on digital signatures: \\
+\index{Attack!birthday} on digital signatures: \\
 using menu {\bf Indiv. Procedures \textbackslash{} 
 Attack on the hashvalue of the digital signature}.
 
@@ -287,7 +288,9 @@ In this way Charlie can listen in on communication between Alice and Bob and
 change the exchanged messages without them noticing. The attack will also work
 if Charlie only has one pair of keys.
 
-Another name for this type of attack is \index{Man-in-the-middle attack} ``man-­in-­the-­middle attack''. Users are promised
+Another name for this type of attack is \index{Attack!man-in-the-middle}
+% \index{Man-in-the-middle attack}
+``man-­in-­the-­middle attack''. Users are promised
 protection against this type of attack by public­key
 certification, which is intended to guarantee the
 \index{Authenticity} authenticity of public keys. The most common
@@ -332,39 +335,41 @@ the root entity, can also be secured by means of making them available publicly.
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley, 2nd edition, 1996.
 
-
-\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ 
+\bibitem[PKCS1]{PKCS1} RSA Laboratories,\\ 
     \index{PKCS\#1} \index{RSA Laboratories}
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, April 19, 2002.
+    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
+    April 19, 2002.
 
-
-\bibitem[X.509v3]{X.509v3} ITU-T \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
+\bibitem[X.509v3]{X.509v3} ITU-T, \\
+    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
     {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
     Authentication Framework},\\ 
     International Telecommunication Union, Geneva, Switzerland, July 1995\\
     (equivalent to Amendment 1 to ISO/IEC 9594-8).
 
-
-\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. 
-    \index{FIPS180-2} \\
-    {\em Secure Hash Standard (SHS)}, August 1, 2002.\\
-    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
-
-
-\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T.
-    \index{FIPS186} \\
-    {\em Entity authentication using public key cryptography}, February 18, 1997.\\
-    No more valid.
-    
-\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. 
-    \index{FIPS186-2} \\
-    {\em Digital Signature Standard (DSS)}, January 27, 2000.\\
-    Change Note: October 5, 2001.\\
-    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
-\bibitem[X.509]{X.509}
+\bibitem[X.509]{X.509} ITU-T, \\
     \index{X.509}
     {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework}, June 1997.
+    Open Systems Interconnection -- The Directory: Authentication Framework},\\
+    June 1997.
+    
+\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS180-2} \\
+    {\em Secure Hash Standard (SHS)}, \\
+    August 1, 2002.\\
+    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
+
+\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS186} \\
+    {\em Entity authentication using public key cryptography}, \\
+    February 18, 1997.\\
+    No more valid.
+    
+\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS186-2} \\
+    {\em Digital Signature Standard (DSS)}, \\
+    January 27, 2000. Change Note: October 5, 2001.\\
+    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
 
 \end{thebibliography}
 

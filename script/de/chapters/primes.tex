@@ -4,10 +4,11 @@
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
-\section{Primzahlen}
 \hypertarget{Kapitel_2}{}
-(Bernhard Esslinger, Mai 1999, Updates: Nov. 2000, Dez. 2001, Juni 2003)
+
+\section{Primzahlen}
 \label{Label_Kapitel_2}
+(Bernhard Esslinger, Mai 1999, Updates: Nov. 2000, Dez. 2001, Juni 2003)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -16,7 +17,8 @@
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  Albert Einstein, deutscher Physiker und Nobelpreistr"ager, 14.03.1879$-$14.04.1955.
+  Albert Einstein, deutscher Physiker und Nobelpreistr"ager, 
+  14.03.1879$-$14.04.1955.
 }
 
 % --------------------------------------------------------------------------
@@ -234,9 +236,12 @@ Dimensionen)}.
 \label{zahlentyp_mersenne}
 
 Nahezu alle bekannten riesig gro"sen Primzahlen sind spezielle 
-Kandidaten, sogenannte \index{Mersenne Marin}{\em Mersennezahlen} 
-der Form $2^p -1,$ wobei $p$ eine Primzahl ist. Marin Mersenne 
-(1588-1648) war ein franz"osischer Priester und Mathematiker. 
+Kandidaten, sogenannte \index{Mersenne Marin}{\em Mersennezahlen}\footnote{%
+Marin Mersenne, franz"osischer Priester und Mathematiker,
+08.09.1588 -- 01.09.1648.
+\index{Mersenne Marin}
+}
+der Form $2^p -1,$ wobei $p$ eine Primzahl ist.
 Nicht alle Mersennezahlen sind prim:
 $$
 \begin{array}{cl}
@@ -256,6 +261,7 @@ Dass Mersennezahlen nicht immer Primzahlen (Mersenne-Primzahlen) sind,
 wusste auch schon Mersenne (siehe Exponent $p = 11$).
 Eine Mersennezahl, die prim ist, wird Mersenne-Primzahl
 \index{Mersenne!Mersenne-Primzahl} genannt.  \\
+
 Dennoch ist ihm der interessante Zusammenhang zu verdanken, dass eine 
 Zahl der Form $2^n-1$ keine Primzahl sein kann, wenn $n$ eine 
 zusammengesetzte Zahl ist:
@@ -271,7 +277,8 @@ Der Beweis des Satzes von Mersenne kann durch Widerspruch
 \index{Widerspruchsbeweis}
 durchgef"uhrt werden. Wir nehmen also an, dass es eine
 zusammengesetzte nat"urliche Zahl $ n $ mit echter Zerlegung
-$ n=n_1 \cdot n_2 $ gibt, mit der Eigenschaft, dass $ 2^n -1 $ eine
+$ n=n_1 \cdot n_2 $
+gibt, mit der Eigenschaft, dass $ 2^n -1 $ eine
 Primzahl ist.
 
 Wegen
@@ -521,17 +528,22 @@ k"onnen aber nicht die Primfaktoren sehr gro"ser zusammengesetzter Zahlen
 bestimmen.
 
 \hypertarget{FermatNumbers01}{}\label{FermatNumbers01}%
-Fermat\index{Fermat Pierre} hatte im 17. Jahrhundert an Mersenne \index{Mersenne Marin} geschrieben, dass er vermute, 
-dass alle Zahlen der Form $$ F(n) = 2^{2^n} + 1 $$ f"ur alle ganzen Zahlen $n$ gr"o"ser 
-oder gleich $0$ prim seien (\hyperlink{FermatNumbers02}{siehe unten},
-Kapitel~\ref{spezialzahlentypen}).
+Fermat\footnote{%
+Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665.
+\index{Fermat Pierre}
+}
+\index{Fermat Pierre} hatte im 17. Jahrhundert an Mersenne
+\index{Mersenne Marin} geschrieben, dass er vermute, 
+dass alle Zahlen der Form $$ f(n) = 2^{2^n} + 1 $$ 
+f"ur alle ganzen Zahlen $ n \geq 0 $ prim seien 
+(\hyperlink{FermatNumbers02}{siehe unten}, Kapitel~\ref{L-FermatNumbers02}).
 \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}
 
 Schon im 19. Jahrhundert wusste man, dass die $29$-stellige Zahl
-$$ F(7) = 2^{2^7} + 1 $$
+$$ f(7) = 2^{2^7} + 1 $$
 keine Primzahl ist. Aber erst 1970 fanden Morrison/Billhart ihre Zerlegung.
 \begin{eqnarray*}
-F(7) & = & 340.282.366.920.938.463.463.374.607.431.768.211.457 \\
+f(7) & = & 340.282.366.920.938.463.463.374.607.431.768.211.457 \\
 & = & 59. 649. 589. 127. 497. 217 \cdot  5.704.689.200.685.129.054.721
 \end{eqnarray*}\label{f7}
 
@@ -566,16 +578,35 @@ Beweis, dass eine Zahl $a$ prim ist.
 Leider gilt die Umkehrung zum Fermatschen Satz nicht, sonst h"atten wir einen einfachen Beweis f"ur
 die Primzahleigenschaft (man sagt auch, man h"atte dann ein einfaches Primzahlkriterium).
 
-Anmerkung: Zahlen n, die die Eigenschaft
-$$ 2^n \equiv 2 \;{\rm mod}\; n $$
-erf"ullen, aber nicht prim sind, bezeichnet man als {\em Pseudoprimzahlen}
-\index{Primzahl!Pseudoprimzahlen}\index{Zahlen!Pseudoprimzahl} (der Exponent n
-ist also keine Primzahl).
-Die erste Pseudoprimzahl ist $$ 341 = 11 \cdot 31 $$.
-Es gibt Zahlen, die den Fermat-Test mit allen Basen bestehen und doch nicht prim sind: diese Zahlen
-hei"sen \index{Zahlen!Carmichaelzahl} {\em Carmichaelzahlen}. Die erste ist
-$$ 561 = 3 \cdot 11 \cdot 17 $$.
 
+\vskip +15 pt
+\paragraph{Pseudoprimzahlen}%
+\index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
+\hypertarget{HT--Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
+\mbox{}
+\vskip +10 pt
+Zahlen n, die die Eigenschaft
+$$ 2^n \equiv 2 \;{\rm mod}\; n $$
+erf"ullen, aber nicht prim sind, bezeichnet man als {\em Pseudoprimzahlen} 
+(der Exponent n ist also keine Primzahl).
+Die erste Pseudoprimzahl ist $$ 341 = 11 \cdot 31 .$$
+
+\vskip +15 pt
+\paragraph{Carmichaelzahlen}%
+\index{Zahlen!Carmichaelzahl}%
+\hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
+\mbox{}
+\vskip +10 pt
+Es gibt Zahlen, die den Fermat-Test mit allen Basen bestehen und doch nicht
+prim sind: diese Zahlen hei"sen {\em Carmichaelzahlen}. Die erste ist
+$$ 561 = 3 \cdot 11 \cdot 17 .$$
+
+\vskip +15 pt
+\paragraph{Starke Pseudoprimzahlen}%
+\index{Primzahl!starke Pseudoprimzahlen} \index{Zahlen!starke Pseudoprimzahl}%
+\hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
+\mbox{}
+\vskip +10 pt
 Ein st"arkerer Test stammt von\index{Miller Gary L.}\index{Rabin Michael O.}
 Miller/Rabin\footnote{
 1976 ver"offentlichte Prof. Rabin einen effizienten probabilistischen
@@ -585,11 +616,10 @@ Prof. Miller arbeitete an der Carnegie-Mellon Universit"at, School of Computer
 Science. Prof. Rabin, geboren 1931, arbeitete an der Harvard und Hebrew
 Universit"at.
 }%
-: er wird nur von sogenannten {\em starken
-Pseudoprimzahlen} bestanden. Wiederum gibt es starke
-Pseudoprimzahlen, die keine Primzahlen sind, aber das passiert
-deutlich seltener als bei den (einfachen) Pseudoprimzahlen. Die
-kleinste starke Pseudoprimzahl zur Basis $2$ ist
+: er wird nur von sogenannten {\em starken Pseudoprimzahlen} bestanden. 
+Wiederum gibt es starke Pseudoprimzahlen, die keine Primzahlen sind, aber
+das passiert deutlich seltener als bei den (einfachen) Pseudoprimzahlen oder
+bei den Carmichaelzahlen. Die kleinste starke Pseudoprimzahl zur Basis $2$ ist
 $$ 15.841 = 7 \cdot 31 \cdot 73. $$
 Testet man alle 4 Basen $2, 3, 5$ und $7$, so findet man bis $25 \cdot 10^9$
 nur eine starke Pseudoprimzahl, also eine Zahl, die den Test besteht und doch keine Primzahl ist.
@@ -611,7 +641,7 @@ prim ist, finden sich zum Beispiel unter:
 
 % --------------------------------------------------------------------------
 \vskip +20 pt
-\subsection{Weitere Spezial-Zahlentypen und die Suche nach einer Formel f"ur
+\subsection{"Ubersicht Spezial-Zahlentypen und die Suche nach einer Formel f"ur
 Primzahlen}\label{spezialzahlentypen} % chap. 2.6.
 \index{Primzahl!Formel}
 Derzeit sind keine brauchbaren, offenen (also nicht rekursiven) Formeln bekannt, die nur Primzahlen
@@ -640,10 +670,10 @@ f"ur \glqq Primzahlformeln\grqq und wie f"ur spezielle Zahlentypen bei
 sehr großen Folgegliedern versucht wird, entweder ihre Primalit"at zu
 beweisen oder die Primfaktoren zu bestimmen:
 
-%\begin{enumerate}
 
+% --------------------------------------------------------------------------
 \subsubsection{Mersennezahlen $f(n) = 2^n - 1$ f"ur $ n $ prim}
-%\item {\em Mersennezahlen}  $f(n) = 2^n - 1$  \quad f"ur $ n $ prim: \\
+    \index{Primzahl!Mersenne} \index{Mersenne!Mersenne-Primzahl}
     Wie \hyperlink{MersenneNumbers01}{oben} gesehen, liefert diese 
     Formel wohl relativ viele gro"se Primzahlen, aber es kommt -- wie 
     f"ur $n=11$ [$f(n)=2.047$] -- immer wieder vor, dass das Ergebnis 
@@ -655,12 +685,12 @@ beweisen oder die Primfaktoren zu bestimmen:
            {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
 
 
-\subsubsection[Verallgemeinerung der Mersennezahlen 
-    $F(k,n) = k \cdot 2^n \pm 1$]{Verallgemeinerung der Mersennezahlen 
-    $F(k,n) = k \cdot 2^n \pm 1$  \quad f"ur $ n $ prim und $ k $ 
-    kleine Primzahlen}
-%\item $F(k,n) = k \cdot 2^n \pm 1$  \quad f"ur $ n $ prim und $ k $ 
-%    kleine Primzahlen:\\
+% --------------------------------------------------------------------------
+\subsubsection
+    [Verallgemeinerte Mersennezahlen $f(k,n) = k \cdot 2^n \pm 1$]
+    {Verallgemeinerte Mersennezahlen 
+    $f(k,n) = k \cdot 2^n \pm 1 $ f"ur $ n $ prim und $ k $ kleine Primzahlen}
+% \quad f"ur
     F"ur diese 1. Verallgemeinerung der 
     Mersennezahlen\index{Mersenne!Mersennezahl!verallgemeinerte} 
     gibt es (f"ur kleine $k$) 
@@ -671,16 +701,18 @@ beweisen oder die Primfaktoren zu bestimmen:
            {\tt http://www.prothsearch.net/index.html}}).
 
 
+% --------------------------------------------------------------------------
+\subsubsection
+    [Verallgemeinerte Mersennezahlen $ f(b,n) = b^n \pm 1$ / Cunningham-Projekt]
+    {Verallgemeinerte Mersennezahlen
+    $ f(b,n) = b^n \pm 1$ / Cunningham-Projekt}
 
-\subsubsection[2. Verallgemeinerung der Mersennezahlen 
-    $ f(n) = b^n \pm 1$]{2. Verallgemeinerung der Mersennezahlen 
-    $ f(n) = b^n \pm 1$ / Cunningham-Projekt}
-    Dies ist eine 2. m"ogliche Verallgemeinerung der 
+Dies ist eine 2. m"ogliche Verallgemeinerung der 
     Mersennezahlen\index{Mersenne!Mersennezahl!verallgemeinerte}.
     Im \index{Cunningham-Projekt} \textbf{Cunningham-Projekt} werden die
     Faktoren aller zusammengesetzten Zahlen bestimmt, die sich in folgender
     Weise bilden:
-    $$ f(n) = b^n \pm 1  \quad {\rm f"ur~} b = 2, 3, 5, 6, 7, 10, 11, 12 $$
+    $$ f(b,n) = b^n \pm 1  \quad {\rm f"ur~} b = 2, 3, 5, 6, 7, 10, 11, 12 $$
     ($b$ ist ungleich der Vielfachen von schon benutzten Basen wie $4, 8, 9$).
 
     Details hierzu finden sich unter:
@@ -691,10 +723,10 @@ beweisen oder die Primfaktoren zu bestimmen:
 \end{itemize}
 
 
-
-%\vskip +15 pt
+% --------------------------------------------------------------------------
 \hypertarget{FermatNumbers02}{}
-\subsubsection[Fermatzahlen]{Fermatzahlen\footnotemark}
+\subsubsection[Fermatzahlen $f(n) = 2^{2^n} + 1$]
+              {Fermatzahlen\footnotemark~$f(n) = 2^{2^n} + 1$}
     \footnotetext{%
        Die Fermatschen Primzahlen spielen unter
        anderem eine wichtige Rolle in der Kreisteilung. 
@@ -702,18 +734,10 @@ beweisen oder die Primfaktoren zu bestimmen:
        bewiesen hat, ist das regul"are $p$-Eck f"ur eine Primzahl $p>2$ dann
        und nur dann mit Zirkel und Lineal konstruierbar, wenn $p$ eine 
        Fermatsche Primzahl ist.
-       \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}
     }
-    $F(n) = 2^{2^n} + 1$
-%\item {\em Fermatzahlen}\footnote{
-%       Die Fermatschen Primzahlen spielen unter
-%       anderem eine wichtige Rolle in der Kreisteilung. 
-%       Wie Gauss \index{Gauss Carl Friedrich}
-%       bewiesen hat, ist das regul"are $p$-Eck f"ur eine Primzahl $p>2$ dann
-%       und nur dann mit Zirkel und Lineal konstruierbar, wenn $p$ eine 
-%       Fermatsche Primzahl ist.}
-%   \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}  $F(m) = 2^{2^m} + 1$:\\
-
+    \label{L-FermatNumbers02}
+    \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}
+    \index{Primzahl!Fermat} \index{Fermat!Fermat-Primzahl}
     Wie \hyperlink{FermatNumbers01}{oben} in Kapitel~\ref{FermatNumbers01}
     erw"ahnt, schrieb Fermat an 
     Mersenne, dass er vermutet, dass alle Zahlen dieser Form prim seien. 
@@ -722,17 +746,17 @@ beweisen oder die Primfaktoren zu bestimmen:
     positives Ergebnis zu erhalten.
 $$
 \begin{array}{lll}
-F(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prim}  \\
-F(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prim}  \\
-F(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prim}  \\
-F(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prim}  \\
-F(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = 65.537 &  \mapsto {\rm ~prim}  \\
-F(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4.294.967.297 = 641 \cdot
+f(0) = 2^{2^0} + 1  = 2^1 + 1 & = 3 &   \mapsto {\rm ~prim}  \\
+f(1) = 2^{2^1} + 1  = 2^2 + 1 & = 5 &   \mapsto {\rm ~prim}  \\
+f(2) = 2^{2^2} + 1  = 2^4 + 1 & = 17 &  \mapsto {\rm ~prim}  \\
+f(3) = 2^{2^3} + 1  = 2^8 + 1 & = 257 & \mapsto {\rm ~prim}  \\
+f(4) = 2^{2^4} + 1  = 2^{16} + 1 &  = 65.537 &  \mapsto {\rm ~prim}  \\
+f(5) = 2^{2^5} + 1  = 2^{32} + 1 &  = 4.294.967.297 = 641 \cdot
 6.700.417 &  \mapsto {\rm ~NICHT~prim} !\\
-F(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = 18.446.744.073.709.551.617 \\
+f(6) = 2^{2^6} + 1  = 2^{64} + 1 &  = 18.446.744.073.709.551.617 \\
                                  &  = 274.177 \cdot 67.280.421.310.721  
 																 & \mapsto {\rm ~NICHT~prim} ! \\
-F(7) = 2^{2^7} + 1  = 2^{128} + 1 & = \mbox{(siehe S.~\pageref{f7})}  
+f(7) = 2^{2^7} + 1  = 2^{128} + 1 & = \mbox{(siehe S.~\pageref{f7})}  
 																 & \mapsto {\rm ~NICHT~prim} !
 															
 \end{array}
@@ -758,7 +782,7 @@ $$
 
 
     Die Fermatzahl
-    $$ F[2.145.351] = 2^{(2^{2.145.351})} + 1 $$ 
+    $$ f(2.145.351) = 2^{(2^{2.145.351})} + 1 $$ 
     ist teilbar durch die Primzahl
     $$ p = 3*2^{2.145.353} + 1 $$ \\
     Diese Primzahl p ist die gr"o"ste bis dahin bekannte prime verallgemeinerte
@@ -791,18 +815,16 @@ $$
 
 
 
-\subsubsection[Verallgemeinerte Fermatzahlen]
-              {Verallgemeinerte Fermatzahlen\footnotemark}
+% --------------------------------------------------------------------------
+\subsubsection
+    [Verallgemeinerte Fermatzahlen $f(b,n) = b^{2^n} + 1$]
+    {Verallgemeinerte Fermatzahlen\footnotemark~$f(b,n) = b^{2^n} + 1$}
     \footnotetext{%
       Hier ist die Basis b nicht notwendigerweise 2 . \\
-      Noch allgemeiner w"are:  $F(b,c,n) = b^{c^n} + 1$
+      Noch allgemeiner w"are:  $f(b,c,n) = b^{c^n} \pm 1$
     }
-    $F(b,n) = b^{2^n} + 1$
 \hypertarget{generalizedFermatprimes}{}
 \index{Fermat!Fermatzahl!verallgemeinerte}
-%\vskip +15 pt
-%\item {\em Verallgemeinerte Fermatzahlen}\footnote{%
-%Hier ist die Basis b nicht notwendigerweise 2 !}  $F(b,m) = b^{2^m} + 1$ : 
     Verallgemeinerte Fermatzahlen kommen h"aufiger vor als Mersennezahlen
     gleicher Gr"o"se, so dass wahrscheinlich noch viele gefunden werden 
     k"onnen, die die gro"sen L"ucken zwischen den Mersenne-Primzahlen 
@@ -812,7 +834,7 @@ $$
     nun mit fast der gleichen Geschwindigkeit wie Mersennezahlen getestet
     werden k"onnen.
     
-    Yves Gallot\index{Gallot Yves} schrieb das Programm Proth.exe f"ur die 
+    Yves Gallot\index{Gallot Yves} schrieb das Programm Proth.exe zur 
     Untersuchung verallgemeinerter Fermatzahlen.
     
     Mit diesem Programm fand Michael Angel am 16. Februar 2003 eine
@@ -838,22 +860,36 @@ $$
 
 
 
-\subsubsection{Carmichaelzahlen\index{Zahlen!Carmichaelzahl}: s.o.}
-%\vskip +15 pt
-%\item Carmichaelzahlen\index{Zahlen!Carmichaelzahl}: s.o.
+% --------------------------------------------------------------------------
+\subsubsection{Carmichaelzahlen\index{Zahlen!Carmichaelzahl}}
+Wie \hyperlink{HT-Carmichael-number01}{oben} in
+Kapitel~\ref{L-Carmichael-number01} erw"ahnt,
+sind nicht alle Carmichaelzahlen prim.
 
 
-\subsubsection{Pseudoprimzahlen: s.o.}
-%\item Pseudoprimzahlen: s.o.
+% --------------------------------------------------------------------------
+\subsubsection{Pseudoprimzahlen%
+\index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
+}
+Siehe \hyperlink{HT-Pseudoprimenumber01}{oben} in
+Kapitel~\ref{L-Pseudoprimenumber01}.
 
 
-\subsubsection{Starke Pseudoprimzahlen: s.o.}
-%\item starke Pseudoprimzahlen: s.o.
+% --------------------------------------------------------------------------
+\subsubsection{Starke Pseudoprimzahlen%
+\index{Primzahl!starke Pseudoprimzahlen} \index{Zahlen!starke Pseudoprimzahl}%
+}
+Siehe \hyperlink{HT-Strongpseudoprimenumber01}{oben} in
+Kapitel~\ref{L-Strongpseudoprimenumber01}.
 
 
-\subsubsection[Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$]{Idee aufgrund von Euklids Beweis (unendlich viele Primzahlen)  $p_1 \cdot p_2 \cdots p_n +1$}
-%\item Idee aufgrund von \hyperlink{thm-pz-euklid}{Euklids Beweis} 
-%      (unendlich viele Primzahlen)  $p_1 \cdot p_2 \cdots p_n +1$:
+
+% --------------------------------------------------------------------------
+\subsubsection
+    [Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$]
+    {Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$}
+Diese Idee entstammt \hyperlink{thm-pz-euklid}{Euklids Beweis}, dass es
+unendlich viele Primzahlen gibt.
 $$
 \begin{array}{lll}
 2{\cdot}3 +1 &      = 7 &          \mapsto {\rm ~prim} \\
@@ -866,8 +902,8 @@ $$
 $$
 
 
-\subsubsection{Wie zuvor, nur statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$}
-%\item Wie zuvor, nur statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$:
+% --------------------------------------------------------------------------
+\subsubsection{Wie zuvor, nur $-1$ statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$}
 $$
  \begin{array}{lll}
 2\cdot 3 -1     &   = 5 &   \mapsto {\rm ~prim} \\
@@ -880,10 +916,12 @@ $$
 $$
 
 
-\subsubsection{Euklidzahlen $e_n = e_0 \cdot e_1 \cdots 
-    e_{n-1} + 1$  mit $n$ gr"o"ser oder gleich $1$ und $e_0 := 1$}
-%\item \index{Euklidzahlen} {\em Euklidzahlen} $e_n = e_0 \cdot e_1 \cdots 
-%    e_{n-1} + 1$  mit $n$ gr"o"ser oder gleich $1$ und $e_0 := 1$. \\
+% --------------------------------------------------------------------------
+\subsubsection[Euklidzahlen $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$]
+              {Euklidzahlen $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$  
+	       mit $ n \geq 1 $ und $ e_0 := 1 $}
+%	       mit $n$ gr"o"ser oder gleich $1$ und $e_0 := 1$}
+    \index{Euklidzahlen}
     $e_{n-1}$ ist nicht die $(n-1)$-te Primzahl, sondern die zuvor hier 
     gefundene Zahl.
     Diese Formel ist leider nicht offen, sondern rekursiv.
@@ -900,18 +938,21 @@ e_7 = e_1 \cdot e_2 \cdots e_6 + 1 &    = 547 \cdot 607 \cdot 1.033 \cdot 31.051
 e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29.881\cdot 67.003 \cdot 9.119.521 \cdot 6.212.157.481 & \mapsto {\rm ~NICHT~prim} !
 \end{array}
 $$
+
 Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so dass dies auch
-keine brauchbare Formel ist. Bemerkung: Das Besondere an 
-diesen Zahlen ist, dass sie jeweils paarweise keinen
-gemeinsamen Teiler au"ser $1$ haben, sie sind also%
+keine brauchbare Primzahlformel ist.
+
+Bemerkung: Das Besondere an diesen Zahlen ist, dass sie jeweils paarweise
+keinen gemeinsamen Teiler au"ser $1$ haben, sie sind also%
 \index{Primzahl!relative}\index{relativ prim} {\em relativ zueinander prim}.
 
 
-% \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% be_24.503 raus
+% --------------------------------------------------------------------------
+% \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% be_24.503 raus in D
 \subsubsection{$f(n) = n^2 + n + 41$}
-%  \item $f(n) = n^2 + n + 41$:\\
-  Diese Folge hat einen sehr {\em erfolgversprechenden} Anfang,
-  aber das ist noch lange kein Beweis.
+\label{L-Polynomfunktion01-41}
+   Diese Folge hat einen sehr {\em erfolgversprechenden} Anfang,
+   aber das ist noch lange kein Beweis.
 $$
 \begin{array}{ll}
 f(0) = 41 & \mapsto {\rm ~prim} \\
@@ -934,15 +975,20 @@ $$
         sind keine Primzahlen.
         Dass $f(41)$ keine Primzahl sein kann, l"asst sich leicht "uberlegen:
         $f(41) = 41^2 + 41 + 41 = 41 (41 + 1 + 1) = 41 \cdot 43$.
+
+
+
 \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+% --------------------------------------------------------------------------
 \subsubsection{$f(n) = n^2 - 79 \cdot n + 1.601$}
-%\item $f(n) = n^2 - 79 \cdot n + 1.601$: \\
-    Diese Funktion liefert f"ur die Werte $n=0$ bis $n=79$ stets Primzahlwerte. Leider ergibt
-        $f(80) = 1.681 = 11 \cdot 151$ keine Primzahl. Bis heute kennt man keine Funktion, die mehr aufeinanderfolgende
-    Primzahlen annimmt. Andererseits kommt jede Primzahl doppelt vor (erst in der absteigenden,
-    dann in der aufsteigenden Folge), so dass sie insgesamt 40 verschiedene Primzahlwerte liefert (dieselben wie die Funktion aus Punkt 11).
+\label{L-Polynomfunktion02-1601}
+   Diese Funktion liefert f"ur die Werte $n=0$ bis $n=79$ stets Primzahlwerte.
+   Leider ergibt $f(80) = 1.681 = 11 \cdot 151$ keine Primzahl. Bis heute
+   kennt man keine Funktion, die mehr aufeinanderfolgende Primzahlen annimmt.
+   Andererseits kommt jede Primzahl doppelt vor (erst in der absteigenden,
+   dann in der aufsteigenden Folge), so dass sie insgesamt genau 40 
+   verschiedene Primzahlwerte liefert (dieselben wie die, die die Funktion
+   aus Kapitel~\ref{L-Polynomfunktion01-41} liefert).
 $$
 \begin{array}{|ll||ll|}
 \hline
@@ -982,12 +1028,13 @@ $$
 
 
 
+% --------------------------------------------------------------------------
 \subsubsection[Polynomfunktionen
     $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$]
     {Polynomfunktionen
     $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$  
     ($a_i$ aus ${\mathbb Z}$, $n \geq 1$)}\index{Polynom}
-%\item Polynomfunktionen\index{Polynom} $f(x) = a_n x^n + a_{n-1}x^{n-1} + 
+%\item Polynomfunktionen} $f(x) = a_n x^n + a_{n-1}x^{n-1} + 
 %\cdots + a_1 x^1 + a_0$  ($a_i$ aus ${\mathbb Z}$, $n \geq 1$):
 
     Es existiert kein solches Polynom, das f"ur alle $x$ aus ${\mathbb Z}$ 
@@ -995,11 +1042,13 @@ $$
     Zum Beweis sei auf \cite[S. 83 f.]{Padberg1996}, verwiesen, wo sich auch
     weitere Details zu Primzahlformeln finden.
 
-    Damit ist es hoffnungslos, weiter nach Formeln vom Typ 11. und 
-    12. zu suchen.
+    Damit ist es hoffnungslos, weiter nach Formeln (Funktionen) wie in
+    Kapitel~\ref{L-Polynomfunktion01-41} oder 
+    Kapitel~\ref{L-Polynomfunktion02-1601} zu suchen.
 
     
 
+% --------------------------------------------------------------------------
 \subsubsection[Vermutung von Catalan]{Vermutung von Catalan\footnotemark}
     \footnotetext{%
 Eugene Charles Catalan, belgischer Mathematiker, 30.5.1814$-$14.2.1894.\\
@@ -1009,18 +1058,8 @@ $=  1, 2, 5, 14, 42, 132, 429, 1.430,
 4.862, 16.796, 58.786, 208.012, 742.900, 2.674.440, 9.694.845, ... $
 benannt.
     }
-Catalan \index{Catalan Eugene}
-%\pagebreak
-%\item \index{Catalan Eugene} \index{Catalan-Zahlen} Eugene Charles 
-%Catalan\footnote{%
-%Eugene Charles Catalan, belgischer Mathematiker, 30.5.1814$-$14.2.1894.\\
-%Nach ihm sind auch die sogenannten {\em Catalan-Zahlen}
-%$A(n) = (1 / (n+1) ) * (2n)! / (n!)^2$ \\
-%$=  1, 2, 5, 14, 42, 132, 429, 1.430, 
-%4.862, 16.796, 58.786, 208.012, 742.900, 2.674.440, 9.694.845, ... $
-%benannt.
-%}
-"au"serte die Vermutung, dass $C_4$ eine Primzahl ist:
+Catalan \index{Catalan Eugene} \index{Zahlen!Catalan-Zahl}
+"au"serte die Vermutung, dass $ C_4 $ eine Primzahl ist:
 $$
 \begin{array}{l}
 C_0 = 2, \\
@@ -1075,7 +1114,12 @@ Nach folgenden Gesichtspunkten gibt es mehr gerade Zahlen als quadratische:
     gerade Zahlen.
 \end{itemize}
 
-\vskip +3 pt
+
+\vskip +15 pt
+\paragraph{Der Wert der $n$-ten Primzahl $P(n)$}%
+\index{P(n)}%
+\mbox{}
+\vskip +10 pt
 \begin{satz}\label{thm-pz-density}
 F"ur gro"se $n$ gilt: Der Wert der $n$-ten Primzahl $P(n)$ ist
 asymptotisch zu $n \cdot ln(n)$, d.h. der Grenzwert des
@@ -1086,11 +1130,17 @@ gegen unendlich geht.
 Es gilt f"ur gro"se $n$, dass  $P(n)$  zwischen  $2n$  und  $n^2$  liegt.
 Somit gibt es also weniger Primzahlen als gerade nat"urliche Zahlen, aber 
 es gibt mehr Primzahlen als Quadratzahlen. 
+
 Dies gilt schon ab der 5. Primzahl, wie man in 
 \hyperlink{ntePrimzahl}{der Tabelle \ref{s:ntePrimzahl}} 
 sehen kann: $P(5) = 11$.
 
 
+\vskip +15 pt
+\paragraph{Die Anzahl der Primzahlen $PI(x)$}%
+\index{PI(x)}%
+\mbox{}
+\vskip +10 pt
 "Ahnlich wird die Anzahl der Primzahlen $PI(x)$ definiert, die den
 Dachwert $x$ nicht "ubersteigen:
 
@@ -1129,10 +1179,14 @@ x     &  ln(x)  &  x / ln(x) & PI(x)(gez"ahlt) &       PI(x) / (x/ln(x)) \\
 \end{array}
 $$
 
-F"ur eine Bin"arzahl (Zahl im Zweiersystem) x der L"ange $250$ Bit ($2^{250}$ ist ungef"ahr = $1,809 251 * 10^{75}$)
+F"ur eine Bin"arzahl\footnote{%
+Eine Zahl im Zweiersystem besteht nur aus den Ziffern 0 und 1.
+} 
+$ x $ der L"ange $250$ Bit 
+($2^{250}$ ist ungef"ahr = $1,809 251 * 10^{75}$)  
 gilt:
-$$ PI(x) = 2^{250} / (250 \cdot \ln 2) \; {\rm ist~ungef"ahr} \; =
- 2^{250} /173,28677 = 1,045 810 \cdot 10^{73}. $$
+$$ PI(x) = 2^{250} / (250 \cdot \ln 2) \; \;  {\rm ist~ungef"ahr} 
+\; = 2^{250} / 173,28677 = 1,045 810 \cdot 10^{73}. $$
 Es ist also zu erwarten, dass sich innerhalb der Zahlen der
 Bitl"ange kleiner als 250 ungef"ahr $10^{73}$ Primzahlen
 befinden (ein beruhigendes Ergebnis?!).
@@ -1216,7 +1270,7 @@ Zahlen enthalten.
       Ein Beweis findet sich in \cite[S. 79]{Padberg1996}.
 
   \item Paul Erd"os\footnote{%
-           Paul Erd"os\index{Paul Erd""os}, ungarischer Mathematiker,
+           Paul Erd"os\index{Erd""os Paul}, ungarischer Mathematiker,
            26.03.1913$-$20.09.1996.
            }
       bewies:
@@ -1268,16 +1322,19 @@ Der englische Verlag {\em Faber} und die amerikanische
     jemand die Vermutung beweist -- ver"offentlicht in einer angesehenen mathematischen Fachzeitschrift bis 2004 (siehe 
     \href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}
          {\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).\\
-    Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker daran teilnehmen.\\
+    Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker
+    daran teilnehmen.\\
     Die Aussage, die der Goldbach-Vermutung bisher am n"achsten kommt, wurde
     1966 von Chen Jing-Run bewiesen -- in einer schwer nachvollziehbaren Art
-    und Weise: Jede gerade Zahl gr"o"ser 2 ist die Summe einer 
-    Primzahl und des Produkts zweier Primzahlen. Z.B. $20=5+3*5.$\\ 
-    Die wichtigsten Forschungsergebnisse zur Goldbachschen Vermutung sind zusammengefasst in dem von Wang Yuan 
-    herausgegebenen Band: \glqq Goldbach Conjecture\grqq, 1984, 
-    World Scientific Series in Pure Maths, Vol. 4.\\
-    Gerade diese Vermutung legt nahe, dass wir auch heute noch nicht in aller Tiefe den Zusammenhang zwischen
-    der Addition und der Multiplikation der nat"urlichen Zahlen verstanden haben. \\
+    und Weise: Jede gerade Zahl gr"o"ser 2 ist die Summe einer Primzahl und
+    des Produkts zweier Primzahlen. Z.B. $20=5+3*5.$\\ 
+    Die wichtigsten Forschungsergebnisse zur Goldbachschen Vermutung sind
+    zusammengefasst in dem von Wang Yuan herausgegebenen Band: 
+    \glqq Goldbach Conjecture\grqq, 1984, World Scientific Series in Pure
+    Maths, Vol. 4.\\
+    Gerade diese Vermutung legt nahe, dass wir auch heute noch nicht in 
+    aller Tiefe den Zusammenhang zwischen der Addition und der Multiplikation
+    der nat"urlichen Zahlen verstanden haben.
     }.   % footnote
     
 \item Bernhard Riemann\footnote{%
@@ -1443,13 +1500,12 @@ kryptographischer Algorithmen entwickeln kann. Die angegebenen
 Werte stammen teilweise aus \cite{Schwenk1996} und
 \cite[S.18]{Schneier1996p}.  \hypertarget{grosord}{}
 \begin{tabbing}
-Wahrscheinlichkeit, dass Sie  auf ihrem n"achsten Flug entf"uhrt
-werden:~~ \= abcdefhijk \= \kill
-Wahrscheinlichkeit f"ur 6 Richtige im Lotto \> $ 7,1 \cdot 10^{-8} $\> \\
+Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden:~~ \= abcdefhijk \= \kill
+Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden \> $ 5,5 \cdot 10^{-6} $\> \\
 J"ahrliche Wahrscheinlichkeit, von einem Blitz getroffen zu werden \> $ 10^{-7} $\> \\
-Wahrscheinlichkeit, dass Sie  auf ihrem n"achsten Flug entf"uhrt werden \> $ 5,5 \cdot 10^{-6} $\> \\
+Wahrscheinlichkeit f"ur 6 Richtige im Lotto \> $ 7,1 \cdot 10^{-8} $\> \\
 Risiko, von einem Meteoriten erschlagen zu werden \> $ 1,6 \cdot 10^{-12} $ \> \\
-----------------------------------------------------------------------------\\
+---------------------------------------------------------------------------- \\
 Zeit bis zur n"achsten Eiszeit (in Jahren) \> $14.000 $ \> $ (2^{14})$ \\
 Zeit bis die Sonne vergl"uht (in Jahren)   \> $10^{9} $ \> $(2^{30})$ \\
 Alter der Erde (in Jahren)\> $ 10^9 $ \> $(2^{30}) $  \\

@@ -473,7 +473,7 @@ In order to prohibit a ``Man-in-the-middle"{}~attack, one may sign the values $G
 %{\bf Signing:}
 \subsubsection{Signing}
 
-Using the DSA signature scheme, one can proceed as follows: The signing party chooses a (non-trivial) number $s\in{\mathbb Z}_q$, which will be the private key, and publishes $q$, $G$ and $R=sG$. We note that $s$ cannot be obtained from $G$ and $R$ are not sufficient --- a fact on which the security of the signature scheme is based.
+Using the \index{DSA} DSA signature scheme, one can proceed as follows: The signing party chooses a (non-trivial) number $s\in{\mathbb Z}_q$, which will be the private key, and publishes $q$, $G$ and $R=sG$. We note that $s$ cannot be obtained from $G$ and $R$ are not sufficient --- a fact on which the security of the signature scheme is based.
 
 Given the message $m$, which should be signed, one first constructs a digital finger print using a hash-algorithm $h$ such that $h(m)$ has its values in $\{0,1,2,\dots, q-1\}$. Thus, $h(m)$ can be considered as an Element of ${\mathbb Z}_q$. Then the signing party chooses a random number $r\in{\mathbb Z}_q$ and derives $R=(r_1,r_2)=rG$. We note that the first component $r_1$ of $R$ is an element of $GF(p^n)$. This component will then be projected onto ${\mathbb Z}_q$, i.e. in case of $n=1$ it is interpreted as the remainder of an element of $\{0,1,\dots,p-1\}$ divided by $q$. This projection of $r_1$ onto ${\mathbb Z}_q$ is denoted by $\bar r_1$. Then one determines $x\in {\mathbb Z}_q$ such that
 $$ rx-s\bar r_1-h(m)=0 .
@@ -562,7 +562,7 @@ http://grouper.ieee.org/groups/1363}}.
 
 The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
-\index{DSA} DAS signatures based on elliptic curves (in accordance with draft
+\index{DSA} DSA signatures based on elliptic curves (in accordance with draft
 no. 8 of the IEEE P1363 work group). This was done in collaboration with the
 Secude GmbH --- using the above library and the Secude SDK.
 \index{Secude}
@@ -601,22 +601,47 @@ Both examples show the typical range of application for elliptic curve cryptogra
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
 
-        \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 pages.
-	\bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-	\bibitem[Koblitz1998]{Koblitz1998}N. Koblitz, 
+    \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels,
+	\index{Cassels 1991} \\
+        {\em Lectures on elliptic curves},\\
+	Cambridge University Press, 1991, 143 pages.
+    \bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, 
+	\index{Koblitz 1984} \\
+        {\em Introduction to elliptic curves and modular forms},\\
+	Graduate Texts in Mathemathics, Springer-Verlag, 1984.
+    \bibitem[Koblitz1998]{Koblitz1998}N. Koblitz,  
+	\index{Koblitz 1998}\\
 	{\em Algebraic aspects of Cryptography. With an appendix on 
 	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
-	J. Zuccherato}, Springer-Verlag, 1998, 206 pages.
-	\bibitem[Menezes1993]{Menezes1993}A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
-        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra \index{Lenstra 1987} \\
-                {\em Factoring integers with elliptic curves}, Annals of Mathematics 126, pp. 649-673, 1987.
-	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul  \index{Lenstra/Verheul 1999} \\
-         	{\em Selecting Cryptographic Key Sizes (1999)}, Journal of Cryptology: the journal of the International Association for Cryptologic Research \\
-		\href{http://www.cryptosavvy.com/cryptosizes.pdf}{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
-	\bibitem[Silverman1986]{Silverman1986} J. Silverman \\ {\em The Arithmetic of Elliptic Curves}, Springer-Verlag, 1986. \index{Silverman 1986}
-	\bibitem[Silverman1992]{Silverman1992}J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-	\bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
-
+	J. Zuccherato}, \\
+	Springer-Verlag, 1998, 206 pages.
+    \bibitem[Menezes1993]{Menezes1993}A. J., Menezes, 
+	\index{Menezes 1993} \\
+        {\em Elliptic curve public key cryptosystems},\\
+	Kluwer Academic Publishers, 1993.
+    \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra, 
+        \index{Lenstra 1987} \\
+        {\em Factoring integers with elliptic curves}, \\
+	Annals of Mathematics 126, pp. 649-673, 1987.
+    \bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
+        \index{Lenstra/Verheul 1999} \\
+        {\em Selecting Cryptographic Key Sizes (1999)},\\
+	Journal of Cryptology: the journal of the International 
+	Association for Cryptologic Research \\
+	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
+	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+    \bibitem[Silverman1986]{Silverman1986} J. Silverman, 
+        \index{Silverman 1986}\\
+        {\em The Arithmetic of Elliptic Curves},\\
+	Springer-Verlag, 1986.
+    \bibitem[Silverman1992]{Silverman1992}J. Silverman,
+	\index{Silverman 1992} \\
+        {\em The arithmetic of elliptc curves},\\
+	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+    \bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate,
+	\index{Siverman/Tate 1992} \\
+        {\em Rational points on elliptic curves},\\
+	Springer-Verlag, 1992.
 
 \end{thebibliography}
 

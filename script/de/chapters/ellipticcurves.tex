@@ -534,7 +534,7 @@ Um einen ``Man-in-the-middle''-Angriff zu verhindern, kann man auch hier wie sch
 %{\bf Signatur-Erstellung:}
 \subsubsection{Signatur-Erstellung}
 
-"Ubertr"agt man den DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man w"ahlt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schl"ussel. Hingegen werden $q$, $G$ und $R=sG$ ver"offentlicht. Aus $G$ und $R$ l"asst sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
+"Ubertr"agt man den \index{DSA} DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man w"ahlt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schl"ussel. Hingegen werden $q$, $G$ und $R=sG$ ver"offentlicht. Aus $G$ und $R$ l"asst sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
 
 F"ur eine Nachricht $m$ wird zun"achst mit Hilfe eines Hash-Verfahrens $h$ ein digitaler Fingerabdruck erstellt, wobei $h(m)$ im Wertebereich $\{0,1,2,\dots, q-1\}$ liegt und $h(m)$ somit als Element von ${\mathbb Z}_q$ interpretiert werden kann. Dann wird ein zuf"alliges $r\in{\mathbb Z}_q$ gew"ahlt und $R=(r_1,r_2)=rG$ berechnet. Die erste Komponente $r_1$ von $R$ ist ein Element von $GF(p^n)$. Diese wird auf ${\mathbb Z}_q$ abgebildet, z.B. im Fall $n=1$ als Element von $\{0,1,\dots,p-1\}$ interpretiert und dann der Teilerrest modulo $q$ gebildet. Das so erhaltene Element von ${\mathbb Z}_q$ bezeichnen wir mit $\bar r_1$. Nun bestimmt man $x\in {\mathbb Z}_q$ mit
 $$ rx-s\bar r_1-h(m)=0 .
@@ -655,37 +655,47 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-        \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels, 
-	{\em Lectures on elliptic curves}, Cambridge University Press, 
-	1991, 143 Seiten.
-	\bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, 
-	{\em Introduction to elliptic curves and modular forms}, 
+    \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels,
+	\index{Cassels 1991} \\ 
+	{\em Lectures on elliptic curves}, \\
+	Cambridge University Press, 1991, 143 Seiten.
+    \bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, 
+	\index{Koblitz 1984} \\
+	{\em Introduction to elliptic curves and modular forms}, \\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-	\bibitem[Koblitz1998]{Koblitz1998}N. Koblitz, 
+    \bibitem[Koblitz1998]{Koblitz1998}N. Koblitz, 
+	\index{Koblitz 1998} \\
 	{\em Algebraic aspects of Cryptography. With an appendix on 
 	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
-	J. Zuccherato}, Springer-Verlag, 1998, 206 Seiten.
-        \bibitem[Menezes1993]{Menezes1993}A. J, Menezes, 
-	{\em Elliptic curve public key cryptosystems}, 
+	J. Zuccherato}, \\
+	Springer-Verlag, 1998, 206 Seiten.
+    \bibitem[Menezes1993]{Menezes1993}A. J., Menezes, 
+	\index{Menezes 1993} \\ 
+	{\em Elliptic curve public key cryptosystems}, \\
 	Kluwer Academic Publishers, 1993.
-        \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra \index{Lenstra 1987} \\
-                {\em Factoring integers with elliptic curves}, Annals of Mathematics
-		126, pp. 649-673, 1987.
-	\bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
-	        \index{Lenstra/Verheul 1999} \\
-         	{\em Selecting Cryptographic Key Sizes (1999)}, Journal of 
-		Cryptology: the journal of the International Association for
-		Cryptologic Research \\
-		\href{http://www.cryptosavvy.com/cryptosizes.pdf}
-		{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
-	\bibitem[Silverman1986]{Silverman1986} J. Silverman \\ 
-	        {\em The Arithmetic of Elliptic Curves}, Springer-Verlag, 1986.
-		\index{Silverman 1986}
-	\bibitem[Silverman1992]{Silverman1992}J. Silverman, 
-	        {\em The arithmetic of elliptc curves}, 
-		Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-	\bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate, 
-	        {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
+    \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra, 
+        \index{Lenstra 1987} \\
+        {\em Factoring integers with elliptic curves}, \\
+	Annals of Mathematics 126, pp. 649-673, 1987.
+    \bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
+	\index{Lenstra/Verheul 1999} \\
+        {\em Selecting Cryptographic Key Sizes (1999)}, \\
+	Journal of Cryptology: the journal of the International 
+	Association for Cryptologic Research \\
+	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
+	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+    \bibitem[Silverman1986]{Silverman1986} J. Silverman,
+	\index{Silverman 1986} \\
+	{\em The Arithmetic of Elliptic Curves},\\
+	Springer-Verlag, 1986.
+    \bibitem[Silverman1992]{Silverman1992}J. Silverman,
+	\index{Silverman 1992} \\
+	{\em The arithmetic of elliptc curves}, \\
+	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+    \bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate,
+	\index{Siverman/Tate 1992} \\
+	{\em Rational points on elliptic curves}, \\
+	Springer-Verlag, 1992.
 \end{thebibliography}
 
 

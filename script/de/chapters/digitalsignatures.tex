@@ -112,8 +112,9 @@ F"ur diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
 Validierungstests definiert.
 
 Die Ausgabel"ange der SHA-Algorithmen wurde vergr"o"sert aufgrund der
-M"oglichkeit von Geburtstagsangriffen:\index{Geburtstagsangriff}
-\index{Kollision}
+M"oglichkeit von Geburtstagsangriffen:
+\index{Angriff!Geburtstagsangriff} \index{Kollision}
+% \index{Geburtstagsangriff}
 diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
 Hashverfahren "aquivalent: \\
 - 128-bit AES -- SHA-256 \\
@@ -121,7 +122,7 @@ Hashverfahren "aquivalent: \\
 - 256-bit AES -- SHA-512.
 
 Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie den Geburtstagsangriff
-\index{Geburtstagsangriff} auf digitale Signaturen nachvollziehen: \\
+\index{Angriff!Geburtstagsangriff} auf digitale Signaturen nachvollziehen: \\
 per {\bf Einzelverfahren \textbackslash{} 
 Angriff auf den Hashwert der digitalen Signatur}.
 } 
@@ -243,7 +244,7 @@ $x < q$ (160-Bit Zahl)
 \begin{tabular}{l@{ }l}
 $m$ & zu signierende Nachricht\\
 $k$ & zuf"allig\index{Zufall} gew"ahlte Primzahl, kleiner als $q$\\
-$r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
+$r$ & $= (g^k \; \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
 
@@ -258,7 +259,7 @@ f"ur $k$.
 \end{itemize}
 \paragraph{Verifikation}\strut\\
 \begin{tabular}{l@{ }l}
-$w$ & $= s^{-1}  \mbox{ mod } q$\\
+$w$ & $= s^{-1} \;  \mbox{ mod } q$\\
 $u_1$ & $= (\mbox{SHA-1}(m)w) \mbox{ mod } q$\\
 $u_2$ & $= (rw)  \mbox{ mod } q$\\
 $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
@@ -318,7 +319,10 @@ Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob abzuh"oren 
 Nachrichten zu ver"andern, ohne dass dies von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
 auch, wenn Charlie nur ein Schl"usselpaar hat.
 
-Ein anderer Name f"ur diese Art von Angriffen ist \index{Man-in-the-middle-attack} \glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
+Ein anderer Name f"ur diese Art von Angriffen ist 
+\index{Angriff!Man-in-the-middle-attack}
+% \index{Man-in-the-middle-attack}
+\glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
 von Angriffen verspricht die Public Key­-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
 garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
 
@@ -329,7 +333,8 @@ Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
 die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner realen Person
 best"atigen lassen m"ochte, wendet sich an eine sogenannte
 \index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
-Oft auch Trustcenter oder im Gesetz \glqq Zertifizierungsdiensteanbieter\grqq
+Oft auch Trustcenter oder im deutschen Signaturgesetz
+\glqq Zertifizierungsdiensteanbieter\grqq 
 genannt, wenn die Zertifikate nicht nur einer geschlossenen Benutzergruppe
 angeboten werden.
 }.
@@ -364,41 +369,41 @@ gesichert "ubermittelt werden.
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley, 2nd edition, 1996.
 
-
-\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ 
+\bibitem[PKCS1]{PKCS1} RSA Laboratories, \\ 
     \index{PKCS\#1} \index{RSA Laboratories}
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, April 19, 2002.
+    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
+    April 19, 2002.
 
-
-\bibitem[X.509v3]{X.509v3} ITU-T\\ 
+\bibitem[X.509v3]{X.509v3} ITU-T, \\ 
     \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
     {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
     Authentication Framework},\\ 
     International Telecommunication Union, Geneva, Switzerland, July 1995\\
     (equivalent to Amendment 1 to ISO/IEC 9594-8).
 
-
-\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. 
-    \index{FIPS180-2} \\
-    {\em Secure Hash Standard (SHS)}, August 1, 2002.\\
-    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
-
-
-\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. 
-    \index{FIPS186} \\
-    {\em Entity authentication using public key cryptography}, February 18, 1997.\\
-    Nicht mehr g"ultig.
-
-\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. 
-    \index{FIPS186-2} \\
-    {\em Digital Signature Standard (DSS)}, January 27, 2000.\\
-    Change Note: October 5, 2001.\\
-    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
-\bibitem[X.509]{X.509}
+\bibitem[X.509]{X.509} ITU-T, 
     \index{X.509}
     {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework}, June 1997.
+    Open Systems Interconnection -- The Directory: Authentication Framework},\\
+    June 1997.
 
+\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS180-2} \\
+    {\em Secure Hash Standard (SHS)}, \\
+    August 1, 2002.\\
+    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
+
+\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS186} \\
+    {\em Entity authentication using public key cryptography}, \\
+    February 18, 1997.\\
+    Nicht mehr g"ultig.
+
+\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS186-2} \\
+    {\em Digital Signature Standard (DSS)}, \\
+    January 27, 2000. Change Note: October 5, 2001.\\
+    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
 
 \end{thebibliography}
                                                           

@@ -6,15 +6,15 @@
 % ..........................................................................
 % --------------------------------------------------------------------------
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%                 E l e m e n t a r e  Z a h l e n t h e o r i e
+%              E l e m e n t a r e  Z a h l e n t h e o r i e
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
 \hypertarget{Kapitel_3}{}
 
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
-(Bernhard Esslinger, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003) \\
 \label{Kapitel_3}
+(Bernhard Esslinger, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003) \\
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -324,9 +324,9 @@ Operation sie definiert wird, sondern auch auf welcher Grundmenge diese
 Operation definiert wird.
 
 Weitere Details zu den Primzahlen (z.B. wie der \glqq Kleine Satz von 
-Fermat'' zum Testen sehr gro"ser Zahlen auf ihre Primzahleigenschaft benutzt
-werden kann) finden sich in diesem Skript in dem Artikel "uber 
-\hyperlink{Kapitel_2}{\ref{Label_Kapitel_2}, Primzahlen}.
+Fermat'' zum Testen von sehr gro"sen Zahlen auf ihre Primzahleigenschaft
+benutzt werden kann) finden sich in diesem Skript in dem Artikel "uber 
+\hyperlink{Kapitel_2}{Primzahlen, \ref{Label_Kapitel_2}}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1036,12 +1036,11 @@ Dagegen ist der Aufwand f"ur die Umkehrung von Addition und Multiplikation
 nur proportional zu $\log m$ beziehungsweise $(\log m)^2$.
 Potenzieren (zu einer Zahl $x$ berechne $x^a$ mit festem $a$) und Exponentiation
 (zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische Einwegfunktionen\index{Einwegfunktion}
-(siehe "Ubersicht "uber Einwegfunktionen im \hyperlink{Einwegfunktionen1}{Skript} oder in diesem 
-\hyperlink{Einwegfunktionen2}{Artikel}).
+(siehe "Ubersicht "uber Einwegfunktionen im \hyperlink{OneWayFunktion1}{Skript} oder in diesem \hyperlink{OneWayFunktion2}{Artikel}).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Gruppen und modulare Arithmetik "uber $\mathbb{Z}_n $ und $\mathbb{Z}^*_n $}
+\subsection{Gruppen und modulare Arithmetik "uber $\mathbb{Z}_n$ und $\mathbb{Z}^*_n$}
 \index{Gruppen}
 In der Zahlentheorie und in der Kryptographie spielen mathematische 
 \glqq {\em Gruppen}'' eine entscheidende Rolle. Von Gruppen spricht man nur, wenn f"ur
@@ -1729,7 +1728,7 @@ obwohl das Patent f"ur den allgemeinen Fall schon fast abgelaufen ist.
 }$^,$\footnote{%
 F"ur Primzahlen $p$ und $q$ mit $p=q$, und $e,d$ mit $ed\equiv 1 \mod J(n)$
 gilt i.a. nicht $ (m^{e})^d \equiv m \mod n \text{ f"ur alle } m <n.$
-Seien z.B. $n=5^2$ berechnet sich $J(n)$ nach Satz \ref{thm-zth-exhperm}:
+Sei z.B. $n=5^2$, berechnet sich $J(n)$ nach Satz \ref{thm-zth-exhperm}:
 $~J(n)=5*4=20,~e=3,~d=7,~ed\equiv 21\equiv 1\mod~J(n).$ Dann gilt $ (5^3)^7 \equiv 0 \mod 25.$
 } $p$ und $q$ und berechne $n = p*q$\footnote{%
 Das BSI \index{BSI} (Bundesamt f"ur Sicherheit in der Informationstechnik) empfiehlt, die Primfaktoren $p$ 
@@ -2293,9 +2292,11 @@ Dieser Rekord fand deutlich weniger Aufmerksamkeit in der Presse als die
 L"osung von RSA-155.
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge,
-sondern die Aufgabe war, die letzten
-Primfaktoren der Zahl $2^{953}+1$ zu finden (siehe~ ``Wanted List'' des
-Cunningham-Projekts\index{Cunningham-Projekt}\footnote{\href{http://www.cerias.purdue.edu/homes/ssw/cun/}{\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}}). 
+sondern die Aufgabe war, die letzten Primfaktoren der Zahl $2^{953}+1$ 
+zu finden (siehe~ ``Wanted List'' des Cunningham-Projekts
+\index{Cunningham-Projekt}\footnote{%
+Cunningham-Projekt: \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
+                 {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}}). 
 
 Die 6 kleineren, schon vorher gefundenen Primfaktoren dieser Zahl waren:
 $$
@@ -2492,7 +2493,7 @@ ist wie Addieren.
 
 % --------------------------------------------------------------------------
 \subsubsection{Einwegfunktionen}
-\hypertarget{Einwegfunktionen2}{}%    %%% be_24.5.03 Ohne das % bg. die ff. Zeile ("Wenn der ...") mit einem Blank
+\hypertarget{OneWayFunktion2}{}%    %%% be_24.5.03 Ohne das % bg. die ff. Zeile ("Wenn der ...") mit einem Blank
 Wenn der Schl"ussel auch bei gleichzeitiger Kenntnis von
 Klar- und Chiffretext nicht ermittelbar sein soll, braucht man eine
 Funktion, die einerseits relativ einfach berechenbar ist - man will ja
@@ -2821,7 +2822,8 @@ $e$ soll also nicht $2, 127$ oder $251$ sein ($65537 = 2^{16}+1$).\\
 Real wird $J(n)$ nicht faktorisiert, sondern f"ur das gew"ahlte $e$ wird mit dem Euklidschen Algorithmus
 sichergestellt, dass ggT$(d,J(n))=1$.
 }.\\
-{\bf 3.} $d=231.953$ (denn $e \equiv d^{-1}{\rm ~mod~}J(n); ~65.537*231.953 \equiv 15.201.503.761 \equiv 1
+{\bf 3.} $d=231.953$ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$\\
+\mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
 {\rm ~(mod~}255.016))$\footnote{%
 Andere m"ogliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), (7, 36.431).
 }.
@@ -3175,7 +3177,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
 \bibitem[BSI2002]{BSI2002} \index{BSI 2002}
-    BSI (Bundesamt f"ur Sicherheit in der Informationstechnik) \\
+    BSI (Bundesamt f"ur Sicherheit in der Informationstechnik), \\
     {\em Empfehlungen zur Wahl der Schl"ussell"angen}, Bonn, 9.9.2002, \\
     (Geeignete Kryptoalgorithmen zur Erf"ullung der Anforderungen
     nach \S 17 (1) SigG vom 22. Mai 2001 in Verbindung mit Anlage 1, 
@@ -3308,7 +3310,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Wiles, Andrew, \\
     {\em Modular elliptic curves and Fermat's Last Theorem}%
     \index{Fermat!letzter Satz}, \\
-    in Annals of Mathematics 141 (1995).
+    In: Annals of Mathematics 141 (1995).
 
 \bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J"org Schwenk, Klaus-Dieter Wolfenstetter, \\
@@ -3425,6 +3427,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 Ich m"ochte hier die Gelegenheit nutzen, den folgenden Personen ganz 
 herzlich zu danken: 
 \begin{itemize}
+
   \item {Hr. Henrik Koy f"ur das anregende und sehr konstruktive 
          Korrekturlesen, f"ur die vielen Verbesserungen dieses Artikels
          und f"ur die Hilfen bei TeX, ohne die dieser Artikel nie in 
@@ -3434,10 +3437,13 @@ herzlich zu danken:
 %	 RSA-Krypto"-system   (TRENNUNG erzwingen)
 	 designed und die dahinterliegende Logik entwickelt, mit der die
 	 RSA-Beispiele dieses Artikels nachvollzogen werden k"onnen.}
+
   \item {J"org Cornelius Schneider f"ur die Unterst"utzung bei TeX und
          die mannigfaltigen Hilfen bei allen Arten von Programmier- und
 	 Design-Problemen.}
+
   \item {Dr. Illies f"ur den Hinweis auf Pari-GP \index{Pari-GP}.}
+
 \end{itemize}
 
 
