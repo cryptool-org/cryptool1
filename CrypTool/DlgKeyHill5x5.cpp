@@ -700,7 +700,7 @@ void CDlgKeyHill5x5::OnPasteKey()
  					// Wir starten in der naechsten Zeile wieder vorne,
  					// sofern wir nicht schon am Anfang einer Zeile stehen...
 					if (keyDim == 0) keyDim = j+1;
-					else if ( j+1 != keyDim ) {
+					else if ( j >= 0 && j+1 != keyDim ) {
 						/* ToDo: Fehler Meldung */
 						return; 
 					}
@@ -722,28 +722,34 @@ void CDlgKeyHill5x5::OnPasteKey()
 			dim = keyDim;
 			iHillSchluesselDim = dim;
 
-			switch (i)
+			switch (iHillSchluesselDim)
 			{
 			case 1:	
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO1);
+				OnDimension1();
 				break;
 			case 2:	
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+				OnDimension2();
 				break;
 			case 3:	
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO3);
+				OnDimension3();
 				break;
 			case 4:	
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO4);
+				OnDimension4();
 				break;
 			case 5:	
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO5);
+				OnDimension5();
 				break;
 			default:
 				// Default Dimension = 2
 				dim = 2;
 				iHillSchluesselDim = dim;
 				CheckRadioButton(IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+				OnDimension2();
 				break;
 			}
 			AnzeigeDimensionSetzen(i);
@@ -777,7 +783,10 @@ void CDlgKeyHill5x5::OnCopyKey()
 				cs += ' ';
 			}
 		}
-		cs += '\n';
+		if ( i+1 < HILL_MAX_DIM )
+		{
+			cs += '\n';
+		}
 	}
     LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, cs); 

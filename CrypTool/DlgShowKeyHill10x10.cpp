@@ -721,7 +721,7 @@ void CDlgShowKeyHill10x10::OnKopieren()
 				cs += ' ';
 			}
 		}
-		cs += '\n';
+		if ( i+1 < HILL_MAX_DIM_GROSS ) cs += '\n';
 	}
     LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, cs); 

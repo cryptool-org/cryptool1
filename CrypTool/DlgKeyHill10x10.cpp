@@ -1273,23 +1273,21 @@ void CDlgKeyHill10x10::OnPasteKey()
  			}
  			else if (hilf[0] == '\n')
  			{
- 				// Wir starten in der naechsten Zeile wieder vorne,
- 				// sofern wir nicht schon am Anfang einer Zeile stehen...
- 				i++;
+				// Wir starten in der naechsten Zeile wieder vorne,
+				// sofern wir nicht schon am Anfang einer Zeile stehen...
 				if (keyDim == 0) keyDim = j+1;
-				else if ( j+1 != keyDim ) {
+				else if ( j >= 0 && j+1 != keyDim ) {
 					/* ToDo: Fehler Meldung */
 					return; 
 				}
-
- 				j = -1;
- 				// ... sofern es noch eine weitere gibt.
- 				if (i == HILL_MAX_DIM_GROSS)
- 				{
+				i++;
+				j = -1;
+				// ... sofern es noch eine weitere gibt.
+				if (i == HILL_MAX_DIM)
+				{
  					// Es gibt keine weitere Zeile
-					j = 0;
  					l = laenge;
- 				}
+				}
  			}
  
  			l++;
@@ -1303,33 +1301,43 @@ void CDlgKeyHill10x10::OnPasteKey()
 		{
 		case 1:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO1);
+			OnDimension1();
 			break;
 		case 2:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO2);
+			OnDimension2();
 			break;
 		case 3:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO3);
+			OnDimension3();
 			break;
 		case 4:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO4);
+			OnDimension4();
 			break;
 		case 5:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO5);
+			OnDimension5();
 			break;
 		case 6:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO6);
+			OnDimension6();
 			break;
 		case 7:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO7);
+			OnDimension7();
 			break;
 		case 8:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO8);
+			OnDimension8();
 			break;
 		case 9:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO9);
+			OnDimension9();
 			break;
 		case 10:	
 			CheckRadioButton(IDC_RADIO1, IDC_RADIO10, IDC_RADIO10);
+			OnDimension10();
 			break;
 		default:
 			// Default Dimension = 2
@@ -1349,9 +1357,9 @@ void CDlgKeyHill10x10::OnCopyKey()
 {
 	CString cs, hilf;
 
-	for (int i=0; i<HILL_MAX_DIM; i++)
+	for (int i=0; i<HILL_MAX_DIM_GROSS; i++)
 	{
-		for (int j=0; j<HILL_MAX_DIM; j++)
+		for (int j=0; j<HILL_MAX_DIM_GROSS; j++)
 		{
 			m_pFelder[i][j]->GetWindowText(hilf);			
 			if (i < dim && j < dim)
@@ -1363,7 +1371,7 @@ void CDlgKeyHill10x10::OnCopyKey()
 				cs += ' ';
 			}
 		}
-		cs += '\n';
+		if ( i+1 < HILL_MAX_DIM_GROSS ) cs += '\n';
 	}
     LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, cs); 
