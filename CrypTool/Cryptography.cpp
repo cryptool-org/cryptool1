@@ -600,18 +600,21 @@ void Hill(const char *infile, const char *OldTitle)
 	// Variable zur Ausgabe des Schlüssels in der Titelleiste
 	char schluessel[(HILL_MAX_DIM_GROSS+1)*HILL_MAX_DIM_GROSS+1];
 	
-	int i_m_decrypt;
+	int  i_m_decrypt;
+	BOOL i_m_Verbose;
 	CSquareMatrixModN *matrix;
 
 	if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
 	{
 		i_m_decrypt = hilleingross->m_decrypt;
+		i_m_Verbose = hilleingross->m_Verbose;
 		matrix = new CSquareMatrixModN(hilleingross->mat->get_dim(),hillklasse->get_modul());
 		(*matrix) = (*(hilleingross->mat));
 	}
 	else
 	{
 		i_m_decrypt = hillein->m_decrypt;
+		i_m_Verbose = hillein->m_Verbose;
 		matrix = new CSquareMatrixModN(hillein->mat->get_dim(),hillklasse->get_modul());
 		(*matrix) = (*(hillein->mat));
 	}
@@ -678,9 +681,9 @@ void Hill(const char *infile, const char *OldTitle)
 	// Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
     // und danach die temporaere Datei wieder loeschen
 	Reformat(infile, outfile, FALSE);
-
 	OpenNewDoc( outfile, schluessel, OldTitle, IDS_STRING_HILL, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 
+	if ( i_m_Verbose )
 	{
 		GetTmpName(outfile,"hill",".txt");
 		ofstream verboseOut(outfile);
@@ -693,11 +696,9 @@ void Hill(const char *infile, const char *OldTitle)
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
 		if (NewDoc) {
-			char title[128], method[20]; 
+			char title[128]; 
 			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			strcpy(title, "HillMatrix");
-			strcpy(method, "Dimesion");
-			MakeNewName2(title,sizeof(title),pc_str,OldTitle,method);
+			GetNewDocTitle(outfile, schluessel, OldTitle, IDS_STRING_HILL, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 			NewDoc->SetTitle(title);
 		}
 

@@ -58,15 +58,15 @@ BEGIN
     LTEXT           "Kurvenstärke  (1, ..., 10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOG DISCARDABLE  0, 0, 217, 183
+IDD_KEY_HILL5X5 DIALOG DISCARDABLE  0, 0, 217, 223
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,155,63,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,155,60,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,155,53,19
-    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,7,8,117,138
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,193,63,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,193,60,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,193,53,19
+    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,7,8,117,164
     EDITTEXT        IDC_EDIT11,20,21,11,12
     EDITTEXT        IDC_EDIT12,40,21,11,12
     EDITTEXT        IDC_EDIT13,60,21,11,12
@@ -106,9 +106,12 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     98,122,22,20
     PUSHBUTTON      "&Größerer Schlüssel",IDC_BUTTON4,135,121,70,18
-    GROUPBOX        "Dimension",IDC_STATIC,131,8,78,138
+    GROUPBOX        "Dimension",IDC_STATIC,131,8,78,164
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,20,146,73,18
+    CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,179,174,9
 END
 
 IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 256, 183
@@ -812,14 +815,14 @@ BEGIN
     EDITTEXT        IDC_EDIT1010,211,235,11,12,ES_READONLY
 END
 
-IDD_KEY_HILL_10X10 DIALOG DISCARDABLE  0, 0, 329, 293
+IDD_KEY_HILL_10X10 DIALOG DISCARDABLE  0, 0, 329, 309
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,262,80,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,109,262,74,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,263,262,56,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,22,276,80,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,120,276,74,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,263,279,56,19
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,10,12,220,240
     EDITTEXT        IDC_EDIT11,23,27,11,12
     EDITTEXT        IDC_EDIT12,43,27,11,12
@@ -942,12 +945,15 @@ BEGIN
                     BS_CENTER,259,190,36,10
     CONTROL         "1&0 x 10",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,259,210,36,10
-    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,23,227,79,18
+    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,23,227,73,18
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     193,228,22,20
     PUSHBUTTON      "K&leinerer Schlüssel",IDC_BUTTON4,241,227,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,109,227,70,18
+    CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,262,174,9
 END
 
 IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 186, 79
@@ -3462,7 +3468,9 @@ BEGIN
     BEGIN
         VERTGUIDE, 20
         HORZGUIDE, 139
-        HORZGUIDE, 174
+        HORZGUIDE, 147
+        HORZGUIDE, 164
+        HORZGUIDE, 212
     END
 
     IDD_OPTIONS_ANALYSIS, DIALOG
@@ -3644,6 +3652,8 @@ BEGIN
     IDD_KEY_HILL_10X10, DIALOG
     BEGIN
         VERTGUIDE, 23
+        BOTTOMMARGIN, 303
+        HORZGUIDE, 227
         HORZGUIDE, 245
         HORZGUIDE, 281
     END
@@ -4804,7 +4814,7 @@ BEGIN
                             "Die zu analysierende Datei muß mindestens 4 Bytes groß sein!"
     IDS_STRING_PA_NO        "Nr."
     IDS_HILLEXAMPLE_CODE_ALPHABET 
-                            "HILL-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
+                            "Hill-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4822,9 +4832,9 @@ BEGIN
     IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
                             "Chiffretext-Vektor C kodiert in Zahlen:"
     IDS_HILLEXAMPLE_ENCRYPTION 
-                            "Berechnung der Hill-Chiffrierung durch das Matrix-Vektorprodukt H[n]*K[n] (der Vektor K[n] ist hier ein Spaltenvektor):"
+                            "Berechnung der Hill-Chiffrierung durch das Matrix-Vektorprodukt H[n]*K[n] (der Vektor K[n] ist ein Spaltenvektor):"
     IDS_HILLEXAMPLE_DECRYPTION 
-                            "Berechnung der Hill-Dechiffrierung durch das Matrix-Vektorprodukt D[n]*C[n] (der Vektor C[n] ist hier ein Spaltenvektor):"
+                            "Berechnung der Hill-Dechiffrierung durch das Matrix-Vektorprodukt D[n]*C[n] (der Vektor C[n] ist ein Spaltenvektor):"
     IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
     IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
@@ -5465,15 +5475,15 @@ BEGIN
     LTEXT           "Curve width   (1-10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOG DISCARDABLE  0, 0, 217, 186
+IDD_KEY_HILL5X5 DIALOG DISCARDABLE  0, 0, 217, 223
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Encrypt",IDOK,7,156,63,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,156,60,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,151,156,58,19
-    GROUPBOX        "Hill key matrix",IDC_STATIC,7,8,117,138
+    DEFPUSHBUTTON   "&Encrypt",IDOK,7,195,63,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,195,60,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,151,195,58,19
+    GROUPBOX        "Hill key matrix",IDC_STATIC,7,8,118,164
     EDITTEXT        IDC_EDIT11,20,21,11,12
     EDITTEXT        IDC_EDIT12,40,21,11,12
     EDITTEXT        IDC_EDIT13,60,21,11,12
@@ -5499,7 +5509,7 @@ BEGIN
     EDITTEXT        IDC_EDIT53,60,101,11,12
     EDITTEXT        IDC_EDIT54,80,101,11,12
     EDITTEXT        IDC_EDIT55,100,101,11,12
-    GROUPBOX        "Size",IDC_STATIC,131,8,78,138
+    GROUPBOX        "Size",IDC_STATIC,131,8,78,164
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,154,23,31,10
     CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,154,43,
@@ -5516,6 +5526,9 @@ BEGIN
     PUSHBUTTON      "&Larger key",IDC_BUTTON4,141,121,59,18
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    PUSHBUTTON      "&Copy key",IDC_BUTTON1,20,146,73,18
+    CONTROL         "Output details of the Hill keymatrix",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,181,174,9
 END
 
 IDD_OPTIONS_ANALYSIS DIALOG DISCARDABLE  0, 0, 256, 183
@@ -6189,14 +6202,14 @@ BEGIN
     EDITTEXT        IDC_EDIT1010,211,235,11,12,ES_READONLY
 END
 
-IDD_KEY_HILL_10X10 DIALOG DISCARDABLE  0, 0, 329, 289
+IDD_KEY_HILL_10X10 DIALOG DISCARDABLE  0, 0, 329, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,259,80,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,109,259,74,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,263,259,56,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,23,277,80,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,121,277,74,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,263,277,56,19
     GROUPBOX        "Hill key matrix",IDC_STATIC,10,9,220,240
     EDITTEXT        IDC_EDIT11,23,24,11,12
     EDITTEXT        IDC_EDIT12,43,24,11,12
@@ -6319,12 +6332,15 @@ BEGIN
                     BS_CENTER,259,187,36,10
     CONTROL         "1&0 x 10",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,259,207,36,10
-    PUSHBUTTON      "&Random key",IDC_BUTTON3,23,224,79,18
+    PUSHBUTTON      "&Random key",IDC_BUTTON3,23,224,73,18
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     193,225,22,20
     PUSHBUTTON      "&Shorter key",IDC_BUTTON4,241,224,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    PUSHBUTTON      "&Copy key",IDC_BUTTON1,109,224,66,18
+    CONTROL         "Output details of the Hill keymatrix",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,23,259,174,9
 END
 
 IDD_SHOW_KEY DIALOG DISCARDABLE  0, 0, 186, 79
@@ -8679,7 +8695,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 20
         HORZGUIDE, 139
-        HORZGUIDE, 175
+        HORZGUIDE, 214
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
@@ -8707,8 +8723,9 @@ BEGIN
     IDD_KEY_HILL_10X10, DIALOG
     BEGIN
         VERTGUIDE, 23
+        BOTTOMMARGIN, 305
         HORZGUIDE, 242
-        HORZGUIDE, 278
+        HORZGUIDE, 296
     END
 
     IDD_PLAYFAIR_ANALYSIS, DIALOG

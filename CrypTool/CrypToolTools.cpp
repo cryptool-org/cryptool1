@@ -37,6 +37,17 @@ void LoadText( const char *infile, SymbolArray &text )
 }
 
 
+void GetNewDocTitle(const char *outfile, const char* keyStr, const char* OldTitle, 
+					int IDS_STRING_ID, char* title, long titleLength, BOOL Decrypt, int KeyType )
+{
+	if(Decrypt)
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+	else
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+    MakeNewName3(title,titleLength,pc_str1,pc_str,OldTitle,keyStr);
+}
+
 void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, int IDS_STRING_ID, 
 				 BOOL Decrypt, int KeyType )
 {
@@ -44,13 +55,9 @@ void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, 
 	CAppDocument *NewDoc;
 	NewDoc = theApp.OpenDocumentFileNoMRU( outfile, keyStr, KeyType );
     remove(outfile);
-    if(NewDoc) {
-	    if(Decrypt)
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
-        MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,keyStr);
-        NewDoc->SetTitle(title);
-    }
+    if(NewDoc) 
+	{
+		GetNewDocTitle(outfile, keyStr, OldTitle, IDS_STRING_ID, title, 128, Decrypt, KeyType);
+	    NewDoc->SetTitle(title);
+	}
 }

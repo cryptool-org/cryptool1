@@ -30,6 +30,7 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent /*=NUL
 	hillklasse = hillkl;
 	m_decrypt = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill10x10)
+	m_Verbose = FALSE;
 	//}}AFX_DATA_INIT
 }
 
@@ -46,6 +47,7 @@ void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgKeyHill10x10)
+	DDX_Check(pDX, IDC_CHECK1, m_Verbose);
 	DDX_Control(pDX, IDC_EDIT1, m_FeldUnsichtbar);
 	DDX_Control(pDX, IDC_EDIT11, m_Feld11);
 	DDX_Control(pDX, IDC_EDIT12, m_Feld12);
@@ -267,6 +269,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON4, OnKleinereSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
+	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1341,6 +1344,32 @@ void CDlgKeyHill10x10::OnPasteKey()
  		m_pFelder[0][0]->SetSel(0,-1);
 	}
 }
+
+void CDlgKeyHill10x10::OnCopyKey()
+{
+	CString cs, hilf;
+
+	for (int i=0; i<HILL_MAX_DIM; i++)
+	{
+		for (int j=0; j<HILL_MAX_DIM; j++)
+		{
+			m_pFelder[i][j]->GetWindowText(hilf);			
+			if (i < dim && j < dim)
+			{
+				cs += hilf;
+			}
+			else
+			{
+				cs += ' ';
+			}
+		}
+		cs += '\n';
+	}
+    LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
+	CopyKey(pc_str, cs); 
+	m_Paste.EnableWindow(TRUE);
+}
+
 
 void CDlgKeyHill10x10::OnZufaelligerSchluessel() 
 {

@@ -37,6 +37,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyHill10x10)
 	enum { IDD = IDD_KEY_HILL_10X10 };
+	BOOL	m_Verbose;
 	CEdit	m_FeldUnsichtbar;
 	class CHiEdit	m_Feld11;
 	class CHiEdit	m_Feld12;
@@ -159,6 +160,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnDecrypt();
 	afx_msg void OnPasteKey();
+	afx_msg void OnCopyKey();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();
