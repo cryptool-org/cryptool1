@@ -15,6 +15,7 @@ $(PDF): $(SRC) style.ist
 	pdflatex $(TEX) | tail
 	makeindex -s style.ist $(IDX)
 	pdflatex $(TEX) | tail
+	pdflatex $(TEX) | tail
 
 script-$(LANG).ind: script-$(LANG).idx style.ist
 	makeindex -s style.ist script-$(LANG).idx
