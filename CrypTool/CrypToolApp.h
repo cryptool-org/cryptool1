@@ -100,7 +100,7 @@ class CCrypToolApp : public CWinApp
 {
 	BOOL InitInstance();
 	
-	BOOL m_menuItemWithSubMenuSelected; // true iff a menu item with sub menu is selected
+	BOOL m_menuItemWithSubMenuSelected; // true if a menu item with sub menu is selected
 	struct menuitem {
 		HMENU hmenu;
 		UINT index;
@@ -108,7 +108,11 @@ class CCrypToolApp : public CWinApp
 	deque<menuitem> m_menuItemStack; // updated by PrecessMessageFilter,
 									 // used by WinHelp to create unique IDs for menu items with sub menus
 	virtual void updateMenuItemStack(HMENU hmenu,INT index); // utility for updating m_menuItemStack
-	virtual void WinHelp( DWORD dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus
+	#if !defined(_MSC_VER) || _MSC_VER <= 1200  // HTML Help for VC++ 6.0
+	virtual void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd = HELP_CONTEXT);
+	#else										// HTML Help for VC++ .NET
+	virtual void WinHelpInternal( DWORD_PTR dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus
+	#endif
 	virtual BOOL ProcessMessageFilter(int code, LPMSG lpMsg); // overridden for tracking menu selection and updating m_menuItemStack
 	
 	//{{AFX_MSG(CCrypToolApp)

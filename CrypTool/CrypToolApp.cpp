@@ -179,6 +179,12 @@ BOOL CCrypToolApp::InitInstance()
 	char buffer[1024], *p;
 	int n;
 
+	#if !defined(_MSC_VER) || _MSC_VER <= 1200  // HTML Help for VC++ 6.0
+// ...
+	#else
+	EnableHtmlHelp( );
+	#endif
+
 	//Initialisierung der globalen Variablen
 	m_HexFormat = RegisterClipboardFormat("HexFormat");
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
@@ -348,7 +354,7 @@ BOOL CCrypToolApp::InitInstance()
 	HlpTmp += pc_str;
 	m_pszHelpFilePath=_tcsdup(HlpTmp);
 
-
+	
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
@@ -697,7 +703,11 @@ void CCrypToolApp::OnEinzelverfahrenTutorialSignaturerzeugung()
 }
 
 
+#if !defined(_MSC_VER) || _MSC_VER <= 1200		// HTML Help for VC++ 6.0
 void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
+#else											// HTML Help for VC++ .NET
+void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
+#endif
 {
 	if (m_menuItemWithSubMenuSelected && !m_menuItemStack.empty()) {
 
@@ -735,7 +745,7 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 		
 		// to ensure that the help window is created before an Alink is looked up, this command is called 
-		HtmlHelp(
+		::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_DISPLAY_TOPIC,
@@ -755,9 +765,9 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 		link.fIndexOnFail = FALSE ;
 
 		// looking up the Alink
-		HtmlHelp(
+		::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				m_pszHelpFilePath,
+				m_pszHelpFilePath,				
 				HH_ALINK_LOOKUP,
 				(DWORD) &link) ;
 	} else
@@ -768,15 +778,15 @@ void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
 		// calling the help by turning an ID over to the htmlhelp
 		switch (nCmd)
 		{
-			case HELP_CONTEXT:	HtmlHelp(
+			case HELP_CONTEXT:	::HtmlHelp(
 										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */					
-										html_help_path,
+										html_help_path,										
 										HH_HELP_CONTEXT,
 										dwData) ;
 			break;
-			case HELP_FINDER:	HtmlHelp(
+			case HELP_FINDER:	::HtmlHelp(
 										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */				
-										html_help_path,
+										html_help_path,										
 										HH_DISPLAY_TOPIC,
 										NULL) ;			
 			break;	
@@ -835,7 +845,7 @@ void CCrypToolApp::OnHilfeIndex()
 {
 	// Hilfe-Index zu CrypTool aufrufen
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	HtmlHelp(
+	::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_HELP_CONTEXT,
@@ -848,7 +858,7 @@ void CCrypToolApp::OnHilfeStartseite()
 {
 	// Startseite der Online-Hilfe aufrufen
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	HtmlHelp(
+	::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_HELP_CONTEXT,
@@ -862,7 +872,7 @@ void CCrypToolApp::OnHilfeSzenarien()
 {
 	// Startseite der Online-Hilfe aufrufen
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	HtmlHelp(
+	::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_HELP_CONTEXT,

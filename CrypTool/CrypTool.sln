@@ -17,9 +17,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aestool", "..\aestool\aesto
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrypTool", "CrypTool.vcproj", "{69DC472B-0478-4027-B331-B85CF457392E}"
 	ProjectSection(ProjectDependencies) = postProject
-		{F286CFE4-BAB4-4D08-81B0-7CBB555E728E} = {F286CFE4-BAB4-4D08-81B0-7CBB555E728E}
+		{B835E875-5E34-46B9-B507-D0462C92D87A} = {B835E875-5E34-46B9-B507-D0462C92D87A}
 		{5EAE4FD1-DCD7-4CE8-A988-1700249BBF04} = {5EAE4FD1-DCD7-4CE8-A988-1700249BBF04}
+		{F286CFE4-BAB4-4D08-81B0-7CBB555E728E} = {F286CFE4-BAB4-4D08-81B0-7CBB555E728E}
 		{8C1D5DE7-80B6-4510-BB64-9F271F0E3C37} = {8C1D5DE7-80B6-4510-BB64-9F271F0E3C37}
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8} = {9CED13EA-5C57-4CF0-AE58-AB590D533AD8}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlp_de", "hlp_de\hlp_de.vcproj", "{B835E875-5E34-46B9-B507-D0462C92D87A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlp_en", "hlp_en\hlp_en.vcproj", "{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}"
+	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
 Global
@@ -92,6 +102,30 @@ Global
 		{69DC472B-0478-4027-B331-B85CF457392E}.Release_de.Build.0 = Release_de|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Release_en.ActiveCfg = Release_en|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Release_en.Build.0 = Release_en|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Debug.ActiveCfg = Debug|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Debug.Build.0 = Debug|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release.ActiveCfg = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release.Build.0 = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_aes_de.ActiveCfg = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_aes_de.Build.0 = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_aes_en.ActiveCfg = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_aes_en.Build.0 = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_de.ActiveCfg = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_de.Build.0 = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_en.ActiveCfg = Release_de|Win32
+		{B835E875-5E34-46B9-B507-D0462C92D87A}.Release_en.Build.0 = Release_de|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Debug.ActiveCfg = Debug|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Debug.Build.0 = Debug|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release.ActiveCfg = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release.Build.0 = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_aes_de.ActiveCfg = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_aes_de.Build.0 = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_aes_en.ActiveCfg = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_aes_en.Build.0 = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_de.ActiveCfg = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_de.Build.0 = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_en.ActiveCfg = Release_en|Win32
+		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_en.Build.0 = Release_en|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
