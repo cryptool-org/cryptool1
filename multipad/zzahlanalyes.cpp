@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+
 // Implementierung des Dreieckeverfahrens um
 // die Qualität von Zufallszahlen zu testen
 
@@ -170,13 +174,11 @@ void zzahlanalyse::WriteAnalyse(char *name,const char *titel)
 	theApp.ThreadOpenDocumentFileNoMRU(name,line);
 }
 
-void zzahlanalyse::SetData(int len,char *d)
+void zzahlanalyse::SetData(int len)
 {
 	origlen=len;
 	len=(len>8192) ? 8192 : len;
 	datalen=(len-1)&(~7);
-	data=(char *)malloc(origlen);
-	memcpy(data,d,len);
 	resultlen=(datalen/4)-2;
     if ( resultlen < 1 ) 
 		resultlen = 1;
@@ -184,26 +186,28 @@ void zzahlanalyse::SetData(int len,char *d)
 	isValid=V_NONE;
 }
 
-
 zzahlanalyse::zzahlanalyse(int len, char *d)
 {
-	SetData(len,d);
+	cnt_periodResults=0;
+
+	SetData(len);
+	data=(char *)malloc(origlen);
+	memcpy(data,d,origlen); // len -> origlen, damit auch die ganzen Daten in das Feld geschrieben werden. [TG]
 }
 
 zzahlanalyse::zzahlanalyse(char *infile)
 {
 	int len;
-	char *d;
 	FILE *fp;
 
+	cnt_periodResults=0;
 	len=filesize(infile);
 	if(fp=fopen(infile,"rb"))
 	{
-		d=(char *)malloc(len);
-		fread(d,1,len,fp);
+		data=(char *)malloc(len);
+		fread(data,1,len,fp);
 		fclose(fp);
-		SetData(len,d);
-		free(d);
+		SetData(len);
 	}
 }
 
@@ -214,6 +218,76 @@ zzahlanalyse::~zzahlanalyse()
 }
 
 
+int zzahlanalyse::FindPeriod()
+// jetzt die Version von Peer Wichmann (Algorithmus) und Thomas Gauweiler (Algorithmus, Implementierung)
+// Idee:
+// Man beginnt von hinten mit zwei Zeigern zu suchen.
+// Man hat ferner drei Zustände zu beachten: keine Periode, Periodenverdacht und Periode bestätigt.
+// Initialzustand ist 'keine Periode', beide Zeiger auf das Ende gesetzt.
+// Der suchende Zeiger tastet sich vor und sucht dasselbe Zeichen, das der folgende Zeiger hat.
+// Trifft dies zu kommen wir zum Periodenverdacht. Jetzt folgt der folgende Zeiger im gleichbleibendem
+// Abstand. Überquert der folgende Zeiger den Offset, den der suchende Zeiger zu Beginn des
+// Periodenverdacht hatte, ist die Periode bestätigt. Dann wird nur noch nach dem Beginn der Periode
+// gesucht. Sobald zwischen beiden Zeigern wieder ungleiche Werte entstehen, ist der Periodenanfang
+// gefunden. Der Status wechselt wieder zu 'keine Periode', der folgende Zeiger springt wieder ans
+// Ende und es wird eine übergeordnete Periode gesucht.
+{
+	int p=0;
+	int search, follow=origlen-1;
+
+	for (search=origlen-2; search>=0; search--){
+		// Fortschrittsanzeige... - aber nur wenn's auch etwas mehr zu tun gibt.
+		if ((origlen > 1000))
+			if(p<(origlen-search)/(origlen/100))
+			{
+				if(theApp.fs.m_canceled)
+				{
+					theApp.fs.cancel();
+					break;
+				}
+				p=(origlen-search)/(origlen/100);
+				theApp.fs.Set(p);
+			}
+
+		if (data[follow] == data[search]) { // wohl innerhalb einer Periode
+			follow--;
+		} else if (follow < origlen-1) { // zumindest im Periodenverdacht
+			if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
+				if (PA_MAXFOUND <= cnt_periodResults)
+					return cnt_periodResults;
+				periodResults[cnt_periodResults].offset  = search+1;
+				periodResults[cnt_periodResults].length  = follow-search;
+				periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+				cnt_periodResults++;
+			}
+			follow = origlen-1;
+		}
+	}
+	// falls nur Perioden vorliegen (z.B. "ababab"), dann gibt es noch die übergeordnete einzutragen
+	if (follow < origlen-1)  // zumindest im Periodenverdacht
+		if (origlen-1 - follow >= follow-search) { // mindestens eine volle Periode
+			if (PA_MAXFOUND <= cnt_periodResults)
+				return cnt_periodResults;
+			periodResults[cnt_periodResults].offset  = search+1;
+			periodResults[cnt_periodResults].length  = follow-search;
+			periodResults[cnt_periodResults].repeated= (origlen-1 - follow) / (follow-search);
+			cnt_periodResults++;
+		}
+
+	return cnt_periodResults;
+}
+
+int zzahlanalyse::FindPeriod(int &i_periodenOffset)
+// nur um den Schein der alten Schnittstelle zu wahren
+{
+	int ret=FindPeriod();
+	if (ret<=0)
+		return (ret);
+	i_periodenOffset = periodResults[cnt_periodResults-1].offset;
+	return (periodResults[cnt_periodResults-1].length);
+}
+
+/*
 int zzahlanalyse::FindPeriod()
 {
 	int i,j,len,s,p;
@@ -295,6 +369,8 @@ int zzahlanalyse::FindPeriod(int &i_periodenOffset)
 			theApp.fs.Set(p);
 			p++;
 		}
+		if (i_periodenSuche % 0x2000 == 0)
+			int abc=100;
 		int i_remainderText = origlen-i_periodenSuche;
 		for (int len = 1; len <= i_remainderText/2; len++ )
 		{
@@ -329,7 +405,8 @@ int zzahlanalyse::FindPeriod(int &i_periodenOffset)
 			}
 		}
 		len++;
-		*/
+		*
 	}
 	return i_periodenLaenge;
 }
+*/

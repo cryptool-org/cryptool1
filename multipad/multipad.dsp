@@ -412,6 +412,14 @@ SOURCE=.\AESSuche.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\AnalyseNGram.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AnalyseNGram.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\asymmetric.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -671,6 +679,14 @@ SOURCE=.\DialoKeyCaesar.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Dlg_homophone.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Dlg_homophone.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLG_param.cpp
 # End Source File
 # Begin Source File
@@ -763,6 +779,14 @@ SOURCE=.\DlgFortschritt.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgGenRandomData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgGenRandomData.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgMono.cpp
 
 !IF  "$(CFG)" == "multipad - Win32 Release"
@@ -780,11 +804,27 @@ SOURCE=.\DlgMono.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgParamRandSECUDE.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgParamRandSECUDE.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgPrimesGenerator.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\DlgPrimesGenerator.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandParameter_x2_mod_N.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRandParameter_x2_mod_N.h
 # End Source File
 # Begin Source File
 
@@ -1060,6 +1100,14 @@ SOURCE=.\HillSchluesselAusgabeGross.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Homophone_Ber.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Homophone_Ber.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\ico00001.ico
 # End Source File
 # Begin Source File
@@ -1243,6 +1291,14 @@ SOURCE=.\PlotView.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Primes_and_random_numbers.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Primes_and_random_numbers.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\AES\RC6\rc6.c
 # End Source File
 # Begin Source File
@@ -1285,6 +1341,26 @@ SOURCE="..\AES\Rijndael\rijndael-api-fst.c"
 # Begin Source File
 
 SOURCE="..\AES\Rijndael\rijndael-api-fst.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_Berechnungen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_Berechnungen.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinen_PZ.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinenPZ.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\RSA_mit_kleinenPZ.h
 # End Source File
 # Begin Source File
 
@@ -1397,6 +1473,14 @@ SOURCE=.\stdafx.cpp
 # Begin Source File
 
 SOURCE=.\stdafx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TextAnalyse.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\TextAnalyse.h
 # End Source File
 # Begin Source File
 

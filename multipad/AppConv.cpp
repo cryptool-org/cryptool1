@@ -31,5 +31,3 @@ void AppConverter::SetAlphabet(CString NewAlphabet)
 }
 
 const AppConverter AppConv;
-const AppConverter AppConv;
-const AppConverter AppConv;

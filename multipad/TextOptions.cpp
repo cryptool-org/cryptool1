@@ -149,7 +149,7 @@ END_MESSAGE_MAP()
 
 
 
-#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890ÄÖÜäöü-.,_:;+*!\"§$%&/()=?ß"
+#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890-.,_:;+*!\"§$%&/()=?"
 
 
 

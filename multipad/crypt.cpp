@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+// Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "commdlg.h"
@@ -25,8 +25,11 @@
 #include "Dlg_PlayfairKey.h"
 #include "DialogPlayfair.h"
 #include "zzahlanalyse.h"
-// #include "zzgen.h"
-// #include "dlg_homophon.h"
+#include "Dlg_homophone.h"
+#include "AnalyseNGram.h"
+#include "DlgGenRandomData.h"
+
+#include <fstream.h>
 
 char *Eingabedatei;
 int *MaxPermu[26];
@@ -918,6 +921,7 @@ void EntropyASCII(const char *infile, const char *OldTitle)
     theApp.m_MainWnd->MessageBox(line, pc_str, MB_OK);
 }
 
+
 void EntropyBin(const char *infile, const char *OldTitle)
 {
     char line[256];
@@ -985,6 +989,7 @@ UINT Vitanycorr(PVOID p)
 // === PERIODENANALYSE
 // September 2000 - Peter Gruber Entwurf
 // Oktober 2000 - Henrik Koy Fehlerbeseitigung
+// Januar 2001 - Thomas Gauweiler: Fehlerbeseitigung & linearer Algorithmus
 // 
 UINT Periode(PVOID p)
 {
@@ -1000,15 +1005,57 @@ UINT Periode(PVOID p)
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		theApp.DoWaitCursor(-1);
 
-	{   // Henrik Koy Oktober 2000
-	    // neu Defnition der Schnittstelle für Periodenanalyse:
-		// i_periodenLaenge: länge der gefundenen Periode
-		// i_periodenOffset: Start der Periode im Dokument
-
+	{
 		// Initialisierung des Fortschrittbalkens
 		LoadString(AfxGetInstanceHandle(),IDS_STRING61434,pc_str,STR_LAENGE_STRING_TABLE);
 		theApp.fs.Set(0,pc_str);
-		
+
+		// Thomas' Variante
+		// eigentliche Periodenanalyse
+		class zzahlanalyse analyse((char *)par->infile);
+		int isPeriode = analyse.FindPeriod();
+
+		// Vollständigkeit des Fortschrittbalkens anzeigen
+		theApp.fs.Set(100,pc_str);
+	
+		// Ausgabe der Periodenlänge
+		if (isPeriode > 0)
+		{
+
+			LoadString(AfxGetInstanceHandle(),IDS_STRING61432,pc_str,STR_LAENGE_STRING_TABLE);
+				sprintf(pc_str1,"Periodenanzahl = %d", analyse.cnt_periodResults);
+				int xx = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
+			for (int i=0; i<analyse.cnt_periodResults; i++) {
+				sprintf(pc_str1,"%d: Länge = %d Offset = %d Wdh = %d", i, analyse.periodResults[i].length, analyse.periodResults[i].offset+1, analyse.periodResults[i].repeated);
+				int x = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
+			}
+/*			for (int i=0; i<analyse.cnt_periodResults; i++) {
+				sprintf(pc_str1,pc_str, analyse.periodResults[i].length, analyse.periodResults[i].offset+1);
+				strcpy (pc_str, pc_str1);
+			}
+			int x = AfxMessageBox(pc_str1, MB_OK | MB_ICONINFORMATION);
+*/
+		}
+
+		// Keine Periode gefunden
+		if (isPeriode == 0)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING61433,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+
+		// Zu analysierende Textdatei zu kurz
+		if (isPeriode < 0)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING61437,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+
+/* Hendriks Variante
+        // Henrik Koy Oktober 2000
+	    // neu Defnition der Schnittstelle für Periodenanalyse:
+		// i_periodenLaenge: länge der gefundenen Periode
+		// i_periodenOffset: Start der Periode im Dokument
 		// eigentliche Periodenanalyse
 		class zzahlanalyse analyse((char *)par->infile);
 		int i_periodenOffset;
@@ -1035,6 +1082,7 @@ UINT Periode(PVOID p)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING61437,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str);
 		}
+*/
 
 	
 	}
@@ -1391,6 +1439,8 @@ void HistogramASCII(const char *infile, const char *OldTitle)
 
 }
 
+
+
 void HistogramBin(const char *infile, const char *OldTitle)
 {
     char line[256],name[128], name2[128], numbuff[20];
@@ -1444,6 +1494,10 @@ void HistogramBin(const char *infile, const char *OldTitle)
 	theApp.DoWaitCursor(0);
 
 }
+
+
+
+
 
 /* Funktion zur monoalphabetischen Ver- und Entschlüsselung			*/
 void Mono(const char *infile, const char *OldTitle){
@@ -2744,4 +2798,222 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 		}
 	}
 }
- 
+
+
+// =====================================================================================
+// Homophone encryption:
+// 
+// Jan Blumenstein & Henrik Koy (March 2001)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Description:
+//
+// -------------------------------------------------------------------------------------
+
+void HomophoneAsc(const char *infile, const char *OldTitle)
+{
+	char line[100];
+	CWaitCursor WCursor;
+
+// first precondition:
+// the alphabet for encryption must NOT be empty
+	if(TRUE==theApp.TextOptions.m_alphabet.IsEmpty())
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING37000,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str);
+		AfxMessageBox(line);		
+		return;				// wenn das Alphabet in Textoptionen kein Zeichen enthält, brich ab
+	}
+
+// second precondition:
+// the text for encryption must NOT be empty
+	SymbolArray text(AppConv);
+	text.Read(infile);
+	if(0==text.GetSize())
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox(line);		
+		return;				// wenn der Text kein Zeichen aus dem Alphabet in Textoptionen enthält, brich ab
+	}
+	
+
+	WCursor.Restore();	
+	char inbuffer[buffsize];
+
+	ifstream in(infile);	
+	in.read(inbuffer,buffsize);
+
+	Dlg_homophone DH;
+	CMyDocument *NewDoc;
+
+	if(IDOK!=DH.DoModal()) 
+	{
+		in.close();
+		return;
+	}
+// Routine zur Homophonen Verschlüsselung
+	char outbuffer[4096];
+	long outbuffsize;
+	char outfile[128],title[128];
+	int value;
+	GetTmpName(outfile,"cry",".hex");
+	ofstream out(outfile);
+
+	if(true==DH.Get_crypt())			// Verschlüsselung
+	{
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				value=DH.HB.Encrypt(inbuffer[i]);
+				if(value>=0)
+				{
+					outbuffer[outbuffsize]=value;
+					outbuffsize++;				
+				}
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+	
+	else								// Entschlüsselung
+	{
+		DH.HB.Make_dec_table();
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for(int i=0;i<in.gcount();i++)
+			{
+				outbuffer[outbuffsize]=DH.HB.dec_data[inbuffer[i]];
+				outbuffsize++;
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read(inbuffer,buffsize);
+		}
+	}
+	in.close();
+ 	out.close();
+
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,"Key");
+	remove(outfile);
+	if(NewDoc) 
+	{
+		if(true==DH.Get_crypt())
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING37003,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING37004,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		LoadString(AfxGetInstanceHandle(),IDS_STRING37005,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,"");
+		NewDoc->SetTitle(title);
+	}
+
+	theApp.DoWaitCursor(0);
+} // end Hompohone Asc
+
+
+// =====================================================================================
+// NGram Analyse:
+// 
+// Henrik Koy (March 2001)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Description:
+//
+// -------------------------------------------------------------------------------------
+
+void NGramAsc(const char *infile, const char *OldTitle)
+{
+    char line[256];
+	CFile f;
+	int len;
+
+	theApp.DoWaitCursor(1);
+
+    SymbolArray text(AppConv);
+
+    text.Read(infile);
+	len = text.GetSize();
+	if(len < 1) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox (line);
+		return;
+	}
+
+	AnalyseNGram DiaNGram;
+	DiaNGram.LoadText(text, 0);
+    DiaNGram.DoModal();
+
+    if ( DiaNGram.b_saveNGramList() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
+		remove(DiaNGram.outfile);
+		if(NewDoc) {
+/*
+			if(KeyDialog.m_Decrypt)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+			NewDoc->SetTitle(title);
+*/
+			NewDoc->SetTitle("hallo");
+		}
+	}
+
+
+	theApp.DoWaitCursor(0);
+}
+
+void NGramBin(const char *infile, const char *OldTitle)
+{
+    char line[256];
+	CFile f;
+	int len;
+
+	theApp.DoWaitCursor(1);
+
+    SymbolArray text(IdConv);
+
+    text.Read(infile);
+	len = text.GetSize();
+	if(len < 1) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING41544,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(line,pc_str,1);
+		AfxMessageBox (line);
+		return;
+	}
+
+	AnalyseNGram DiaNGram;
+	DiaNGram.LoadText(text, 1);
+
+	DiaNGram.DoModal();
+    if ( DiaNGram.b_saveNGramList() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DiaNGram.outfile);
+		remove(DiaNGram.outfile);
+		if(NewDoc) {
+/*
+			if(KeyDialog.m_Decrypt)
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41552,pc_str1,STR_LAENGE_STRING_TABLE);
+			else
+				LoadString(AfxGetInstanceHandle(),IDS_STRING41553,pc_str1,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING41498,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+			NewDoc->SetTitle(title);
+*/
+			NewDoc->SetTitle("hallo");
+		}
+	}
+
+	theApp.DoWaitCursor(0);
+}
+

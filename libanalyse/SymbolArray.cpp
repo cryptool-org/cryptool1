@@ -529,3 +529,18 @@ void SymbolArray::Apply(Cipher& cipher, CryptMode mode /*=Encrypt*/)
 		cipher(v,mode);
 	}
 }
+
+void SymbolArray::Homophone(SymbolArray key, bool decrypt,int value)
+{
+	if(true==decrypt)
+	{
+		for(int i=0;i<GetSize();i++)
+		{
+			Set(i,value);
+		}
+	}
+	else
+	{
+		// Entschlüsselung
+	}
+}

@@ -10,14 +10,17 @@
 #include "CryptDoc.h"
 #include "crypt.h"
 #include "automatic.h"
+#include "RSA_mit_kleinenPZ.h"
 #include "secude.h"
 #include "dozip.h"
 #include "asymmetric.h"
 #include "About.h"
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
-
+#include "Dlg_homophone.h"
+#include "AnalyseNGram.h"
 #include "DlgSignExtract.h" // für OnCryptExtract
+#include "DlgGenRandomData.h"
 
 UINT AESBrute(PVOID p);
 
@@ -131,6 +134,10 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_TOHEX, OnToHex) 
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
+	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS, OnEinzelverfahrenTutorialRsaalgorithmus)
+	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
+	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -154,7 +161,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN, OnEinzelverfahrenTutorialPrimzahlengenerieren)
+	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
+	ON_COMMAND(ID_ZUFALL_GENERATOREN, OnGenRandomData)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1194,6 +1202,44 @@ void CCryptDoc::OnEinzelverfahrenTutorialPrimzahlengenerieren()
 {
 	DlgPrimesGenerator DPG;
 	DPG.DoModal();
+}
 
-	
+void CCryptDoc::OnEinzelverfahrenTutorialRsaalgorithmus() 
+{
+	RSA_mit_kleinenPZ objekt;
+	objekt.DoModal();
+}
+
+void CCryptDoc::OnHomophone() 
+{
+    UpdateContent();
+    HomophoneAsc(ContentName, GetTitle());
+}
+
+void CCryptDoc::OnAnalyseNGram()
+{
+	UpdateContent();
+	NGramAsc( ContentName, GetTitle());
+}
+
+void CCryptDoc::OnAnalyseNGramBin() 
+{
+	UpdateContent();
+	NGramBin( ContentName, GetTitle());
+}
+
+void CCryptDoc::OnGenRandomData()
+{
+	DlgGenRandomData DGR;
+	if ( IDOK == DGR.DoModal() )
+	{
+		CMyDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(DGR.outfile);
+		remove(DGR.outfile);
+		if(NewDoc) {
+			NewDoc->SetTitle("hallo");
+	}
+
+	}
+
 }

@@ -36,6 +36,7 @@ public:
 
 // Implementation
 public:
+	void OnGenRandomData();
 	virtual ~CCryptDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -112,6 +113,10 @@ protected:
 	afx_msg void OnZZGen();
 	afx_msg void OnNotAvail();
 	afx_msg void OnEinzelverfahrenTutorialPrimzahlengenerieren();
+	afx_msg void OnEinzelverfahrenTutorialRsaalgorithmus();
+	afx_msg void OnHomophone();
+	afx_msg void OnAnalyseNGram();
+	afx_msg void OnAnalyseNGramBin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

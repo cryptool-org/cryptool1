@@ -62,6 +62,12 @@
 #define IDD_DIALOG_KEY_HOMOPHON         221
 #define IDD_PRIMES_GENERATOR            222
 #define IDD_DIALOG_PRIMES_GENERATOR     223
+#define IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN 226
+#define IDD_DIALOG_HOMOPHONE            227
+#define IDD_DIALOG_ANALYSE_NGRAM        228
+#define IDD_DIALOG_GEN_RANDOMDATA       229
+#define IDD_RANDOM_PARAMETER_SECUDE     230
+#define IDD_RANDOM_PARAMETER_X2_MOD_N   231
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
 #define IDD_DIALOG_KEY_CAESAR           516
@@ -306,8 +312,23 @@
 #define IDC_CHECK9                      1184
 #define IDC_MYTXT                       1185
 #define IDC_BUTTON5                     1186
+#define IDC_BUTTON_PZ_GENERIEREN        1187
+#define IDC_BUTTON_PZ_EINGEBEN          1188
+#define IDC_EINGABE_PZ_p                1189
 #define IDC_BUTTON_ACCEPT               1190
+#define IDC_EINGABE_PZ_q                1190
 #define IDC_BUTTON_GENERATE             1191
+#define IDC_BUTTON_ENTSCHLUESSELN       1193
+#define IDC_BUTTON_VERSCHLUESSELN       1194
+#define IDC_LIST_LOCHERUNG              1195
+#define IDC_LIST_VERSCHLUESSELTER_TEXT  1196
+#define IDC_LIST_TEXTEINGABE            1197
+#define IDC_EDIT_OEFFENTLICHE_PARAM     1198
+#define IDC_EDIT_GEHEIME_PARAM          1199
+#define IDC_EDIT_OEFF_SCHLUESSEL_e      1200
+#define IDC_EDIT_GEHEIMER_SCHLUESSEL_d  1201
+#define IDC_ERZEUGEN                    1202
+#define IDC_ROW                         1213
 #define ID_CAESAR_ASC                   32769
 #define ID_VIGENERE_ASC                 32770
 #define ID_ADD_BIN                      32771
@@ -435,7 +456,25 @@
 #define IDS_STRING32917                 32917
 #define ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN 32934
 #define ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS 32935
+#define ID_HOMOPHONE                    32936
+#define ID_HOMOPHONE_ASC                32937
+#define ID_ANALYSE_NGRAM                32938
+#define ID_ANALYSE_NGRAM_BIN            32943
+#define ID_ZUFALL_GENERATOREN           32944
 #define ID_ANALYSE_PERIOD               36908
+#define IDS_STRING36909                 36909
+#define IDS_STRING36910                 36910
+#define IDS_STRING37000                 37000
+#define IDS_STRING37001                 37001
+#define IDS_STRING37002                 37002
+#define IDS_STRING37003                 37003
+#define IDS_STRING37004                 37004
+#define IDS_STRING37005                 37005
+#define IDS_STRING37006                 37006
+#define IDS_STRING_NGRAM_LIST1          37007
+#define IDS_STRING_NGRAM_LIST2          37008
+#define IDS_STRING_NGRAM_LIST3          37009
+#define IDS_STRING_RAND_SECUDE          37010
 #define IDS_STRING41405                 41405
 #define IDS_STRING41406                 41406
 #define IDS_STRING41407                 41407
@@ -711,9 +750,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        226
-#define _APS_NEXT_COMMAND_VALUE         32936
-#define _APS_NEXT_CONTROL_VALUE         1187
+#define _APS_NEXT_RESOURCE_VALUE        232
+#define _APS_NEXT_COMMAND_VALUE         32945
+#define _APS_NEXT_CONTROL_VALUE         1214
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

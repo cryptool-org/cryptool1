@@ -2,73 +2,77 @@ Microsoft (R) Help Compiler
 HCRTF 4.03.0002
 Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
 multipad.hpj
-    HC1003: Note: topic #1 of C:\koy-lokal\CrypTool\multipad\hlp\.\afxcore.rtf : 
+    HC1003: Note: topic #1 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC3021: Warning: topic #24 of C:\koy-lokal\CrypTool\multipad\hlp\.\afxcore.rtf : 
+    HC3021: Warning: topic #24 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	Cannot find the bitmap "hlptbar.bmp."
-    HC3021: Warning: topic #26 of C:\koy-lokal\CrypTool\multipad\hlp\.\afxcore.rtf : 
+    HC3021: Warning: topic #26 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	Cannot find the bitmap "hlpsbar.bmp."
-    HC3021: Warning: topic #42 of C:\koy-lokal\CrypTool\multipad\hlp\.\afxcore.rtf : 
+    HC3021: Warning: topic #42 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\afxcore.rtf : 
 	Cannot find the bitmap "curarw4.bmp."
-    HC3048: Warning: topic #34 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #34 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3048: Warning: topic #36 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3048: Warning: topic #36 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Nonscrolling region defined after scrolling region.
-    HC3110: Warning: topic #45 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #45 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #88 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #88 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #91 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #91 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC3110: Warning: topic #92 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3110: Warning: topic #92 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	A title has already been defined for this topic.
-    HC1012: Note: topic #117 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC1012: Note: topic #117 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	Table cell borders are not supported.
-    HC3111: Warning: topic #154 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #154 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #155 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #155 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #156 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #156 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
-    HC3111: Warning: topic #157 of C:\koy-lokal\CrypTool\multipad\hlp\.\cryptool.rtf : 
+    HC3111: Warning: topic #157 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
 	This topic contains keywords but no title.
+    HC1012: Note: topic #160 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\cryptool.rtf : 
+	Table cell borders are not supported.
     HC4010: Warning: 
 	There are more opening braces than closing braces.
-    HC1003: Note: topic #3 of C:\koy-lokal\CrypTool\multipad\hlp\.\szenarien.rtf : 
+    HC1003: Note: topic #3 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
 	A paragraph marker is formatted as a hidden character.
-    HC1012: Note: topic #8 of C:\koy-lokal\CrypTool\multipad\hlp\.\szenarien.rtf : 
+    HC1012: Note: topic #8 of C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\.\szenarien.rtf : 
 	Table cell borders are not supported.
     HC1010: Note: 
 	The following mapped Topic IDs were not used in any topic:
 	AFX_HIDP_UNREG_DONE
+	HID_ANALYSE_NGRAM_BIN
 	HIDD_PRIMES_GENERATOR
 	HID_HT_OBJECT
 	AFX_HIDP_SQL_BOOKMARKS_NOT_ENABLED
+	HID_HOMOPHONE
 	AFX_HIDP_UNREG_FAILURE
 	AFX_HIDP_SQL_BOOKMARKS_NOT_SUPPORTED
+	HIDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN
 	AFX_HIDP_SQL_FIELD_NOT_FOUND
 	HID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 	HIDD_DIALOG_KEY_SEARCH
 	HIDD_DIALOG_KEY_HOMOPHON
+	HID_ANALYSE_NGRAM
 	HIDD_DIALOG_PRIMES_GENERATOR
+	HIDD_DIALOG_HOMOPHONE
+	HIDD_DIALOG_ANALYSE_NGRAM
+	HID_HOMOPHONE_ASC
 	AFX_HIDP_DLL_LOAD_FAILED
 	AFX_HIDP_DLL_BAD_VERSION
 	HID_HT_HELP
 	HID_HT_CLOSE
 	HID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\FILECLOSE.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\EDITCUT.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\EDITCOPY.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\EDITPAST.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\SHOWKEY.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\GOTOVATER.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\HELP.BMP.
-    HC3031: Warning: 
-	Help Workshop does not support compressed BMP files: C:\KOY-LOKAL\CRYPTOOL\MULTIPAD\HLP\BITMAPS\CURHEL
+236	Topics
+2,092	Jumps
+287	Keywords
+165	Bitmaps
+
+
+Created C:\CrypTool-Entwicklung\CrypTool\source\multipad\hlp\CrypTool.HLP, 1,130,605 bytes
+Bitmaps: 916,676 bytes
+Hall+Zeck compression decreased help file by 202,957 bytes.
+Compile time: 1 minute, 42 seconds
+6 notes, 14 warnings

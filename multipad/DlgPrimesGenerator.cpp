@@ -5,6 +5,8 @@
 #include "multipad.h"
 #include "DlgPrimesGenerator.h"
 #include "zzgen.h"
+#include "Primes_and_random_numbers.h"
+#include <stdlib.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -104,6 +106,10 @@ BOOL DlgPrimesGenerator::OnInitDialog()
 }
 
 void DlgPrimesGenerator::OnButtonGenerate() 
+
+// erzeugt zwei Zufalls-Primzahlen innerhalb der angegebenen Grenzen
+// Fehler werden mit entsprechenden Messages behandelt
+
 {
 	UpdateData(true);
 
@@ -115,7 +121,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 			{
 				if((Get_Value(m_edit1)*Get_Value(m_edit3))<(c_MaxPrime_low))
 				{
-					theApp.DoWaitCursor(0);
+					theApp.DoWaitCursor(0);				// aktiviert die Sanduhr (statt des Mauszeigers)
 					long prime1=Get_Random_Value(m_edit1,m_edit2);
 					if(0!=prime1)
 					{
@@ -139,7 +145,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 						sprintf(line,pc_str);
 						AfxMessageBox(line);
 					}
-					theApp.DoWaitCursor(-1);
+					theApp.DoWaitCursor(-1);			// deaktiviert die Sanduhr
 				}
 				else
 				{
@@ -238,6 +244,9 @@ void DlgPrimesGenerator::OnUpdateEdit1()
 }
 
 double DlgPrimesGenerator::Get_Value(CString m_edit)
+
+// liefert den double-Wert eines CString unter Berücksichtigung des '^'-Zeichens zurück
+
 {
 	int exp_pos=m_edit.Find('^');
 	if((exp_pos<0)||('^'==m_edit[m_edit.GetLength()-1]))
@@ -248,23 +257,25 @@ double DlgPrimesGenerator::Get_Value(CString m_edit)
 }
 
 void DlgPrimesGenerator::CheckEdit_Input(CString & m_edit, int & sels, int & sele)
+
+// sorgt dafür, daß keine syntaktisch falsche Eingabe in die Ober- und Untergrenze-Eingabefelder
+// möglich ist, führende Nullen werden entfernt, die Variablen sels und sele dienen der
+// Formatierung
+
 {
-	///////////////////////////////////////////////////////////////////
 	while((0==m_edit.IsEmpty())&&('0'==m_edit.GetAt(0)))
 	{
 		m_edit=m_edit.Right(m_edit.GetLength()-1);
-		sels=sele=0;								// Formatierung
+		sels=sele=0;								
 	}
-	//									Führende Nullen werden entfernt
-	///////////////////////////////////////////////////////////////////
 
-	int exp_counter=0;
+	int exp_counter=0;			//  '^' darf höchstens einmal im Eingabefeld erscheinen !
 	for(int i=0;i<m_edit.GetLength();i++)
 	{
 		char ch=m_edit.GetAt(i);
 		if((ch>='0')&&(ch<='9'))
 		{
-			
+								// Zeichen von '0' bis '9' werden akzeptiert
 		}
 		else if('^'==ch)
 		{
@@ -348,6 +359,10 @@ void DlgPrimesGenerator::OnUpdateEdit4()
 }
 
 long DlgPrimesGenerator::Get_Prime1()
+
+// diese und die nächste Funktion können aus anderen Klassen aufgerufen werden, um sich dorthin
+// zwei Primzahlen zu holen
+
 {
 	return(atol(m_edit5));
 }
@@ -358,13 +373,23 @@ long DlgPrimesGenerator::Get_Prime2()
 }
 
 void DlgPrimesGenerator::OnCancel() 
+
+// wenn der Button "Abbrechen" gewählt wird, werden die Primzahlen auf 0 gesetzt
+
 {
+	UpdateData(true);
 	m_edit5=m_edit6="0";	
 	CDialog::OnCancel();
+	UpdateData(false);
 }
 
 void DlgPrimesGenerator::OnButtonAccept() 
+
+// wenn der Button "Übernehmen" gewählt wird, kann der Dialog nur verlassen werden,
+// wenn das Produkt der beiden Primzahlen kleiner als c_MaxPrime_high ist
+
 {
+	UpdateData(true);
 	double product=(Get_Value(m_edit5)*Get_Value(m_edit6));
 	if(product<c_MaxPrime_high)
 	{
@@ -376,14 +401,20 @@ void DlgPrimesGenerator::OnButtonAccept()
 		sprintf(line,pc_str,c_MaxPrime_high);
 		AfxMessageBox(line);
 	}
+	UpdateData(false);
 }
 
 long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_limit)
+
+// ruft den Algorithmus zur Erzeugung einer Zufallszahl und danach den Test-Algorithmus auf, den
+// der Anwender benutzen möchte
+
 {
 	long lower=long(Get_Value(lower_limit)),upper=long(Get_Value(upper_limit));
 	long range=upper-lower,rand_val;
-	int loop_counter;
-	for(int i=1;i<=500;i++)			
+	int i,loop_counter;
+
+	for(i=1;i<=500;i++)			
 	{
 		loop_counter=0;
 		do 
@@ -393,74 +424,31 @@ long DlgPrimesGenerator::Get_Random_Value(CString lower_limit, CString upper_lim
 				return(0);
 			}
 			loop_counter++;
-			rand_val=Random_with_limits(lower,upper);
-			if(2==rand_val)
-			{
-				return(2);
+			rand_val=Parn.Random_with_limits(lower,upper);
+			if((2==rand_val)||(3==rand_val))		// die Primzahlen 2 und 3 werden hier schon
+			{										// abgefangen, da manche Algorithmen bei diesen
+				return(rand_val);					// (kleinen) Zahlen Abstürze verursachen
 			}
 		}		
-		while((0==(rand_val%2))||(1==rand_val));
+		while((0==(rand_val%2))||(1==rand_val));	// sucht solange eine Zufallszahl, bis diese
+													// ungleich 1 und nicht teilbar durch 2 ist
 		
-		if((0==m_radio1)&&(true==Prime_test_Miller_Rabin(rand_val,100)))
+		if((0==m_radio1)&&(true==Parn.Prime_test_Miller_Rabin(rand_val,100)))
 		{
-			return(rand_val);
+			return(rand_val);						// Aufruf von Miller-Rabin-Test
+		}
+
+		if((1==m_radio1)&&(true==Parn.Prime_test_Solovay_Strassen(rand_val,100)))
+		{
+			return(rand_val);						// Aufruf von Solovay-Strassen-Test		
+		}
+
+		if((2==m_radio1)&&(true==Parn.Prime_test_Fermat(rand_val,100)))
+		{
+			return(rand_val);						// Aufruf von Fermat-Test
 		}
 	}
 
-	return(0);	
-}
-
-bool DlgPrimesGenerator::Prime_test_Miller_Rabin(long n, long t)
-{
-	long i,j;
-	zzgen zz;
-	if(2==n)
-	{
-		return true;
-	}
-	long v=0,w=n-1;
-	while(0==w%2)
-	{
-		v++;
-		w/=2;
-	}
-	for(j=1;j<=t;)
-	{
-		long a=Random_with_limits(1,n-1);
-		long b=long(zz.powermod(unsigned long(a),unsigned long(w),unsigned long(n)));
-		if((1==b)||((n-1)==b))
-		{
-			goto nextj;
-		}
-		for(i=1;i<=v-1;)
-		{
-			b=long(zz.powermod(unsigned long(b),2,unsigned long(n)));
-			if((n-1)==b)
-			{
-				goto nextj;
-			}
-			if(1==b)
-			{
-				return false;
-			}
-			i++;
-		}
-		return false;
-nextj: j++;
-	}
-	return true;
-}
-
-long DlgPrimesGenerator::Random_with_limits(long lower, long upper)
-{
-	zzgen zz;
-	long rand_val=zz.zzgen4();
-	rand_val*=256;
-	rand_val+=zz.zzgen4();
-	rand_val*=256;
-	rand_val+=zz.zzgen4();
-	rand_val*=128;
-	rand_val+=((zz.zzgen4()-1)/2);
-	rand_val%=(upper-lower+1);
-	return(rand_val+lower);
+	return(0);			// wenn keine Primzahl innerhalb der Grenzen gefunden wurde, erfolgt eine
+						// entsprechende Fehlermeldung
 }
