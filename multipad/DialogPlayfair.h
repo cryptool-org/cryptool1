@@ -15,7 +15,9 @@
 #include "playfair.h"
 
 /////////////////////////////////////////////////////////////////////////////
+//
 // Dialogfeld CDialogPlayfair 
+//
 
 class CChEdit : public CEdit
 {
@@ -44,27 +46,22 @@ private:
 };
 
 
-
-///////////////////////////////////////////////////////////////
-//
-//
-//
-//
-
-
 /////////////////////////////////////////////////////////////////////////////
+//
 // Fenster CMyPlayFairEdit 
+//
 
 class CMyPlayFairEdit : public CEdit
 {
 	class Playfair *m_Alg;
+	BOOL			m_mode_ovr;
 // Konstruktion
 public:
 	CMyPlayFairEdit();
 	void SetAlg(class Playfair *alg) { m_Alg=alg; }
 // Attribute
 public:
-
+	int				m_TextWasPreformatted;
 // Operationen
 public:
 
@@ -89,28 +86,9 @@ protected:
 };
 
 /////////////////////////////////////////////////////////////////////////////
-
-
-
-class CMyEdit : public CEdit
-{
-// Konstruktion
-public:
-	CMyEdit();
-	void SetAlg(class Playfair *alg) { m_Alg=alg; }
-
-public:
-	virtual ~CMyEdit();
-	// Generierte Nachrichtenzuordnungsfunktionen
-protected:
-	//{{AFX_MSG(CMyEdit)
-	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
-	//}}AFX_MSG
-
-	DECLARE_MESSAGE_MAP()
-private:
-	class Playfair *m_Alg;
-};
+//
+//
+//
 
 class CDialogPlayfair : public CDialog
 {
@@ -119,7 +97,7 @@ class CDialogPlayfair : public CDialog
 	int  m_nPos;
 	BOOL m_bHScroll;
 	int  m_iSMax;
-	CString m_mytxt_old;
+	int  m_iPos;
 /***************************************************************/
 // Konstruktion
 public:
@@ -143,15 +121,17 @@ public:
 	// Dialogfelddaten
 	//{{AFX_DATA(CDialogPlayfair)
 	enum { IDD = IDD_DIALOG_PLAYFAIR };
-	CScrollBar            m_ctrlScroll;
-	int                   m_iScroll;
-	CString               m_mytxt;
-	class CMyPlayFairEdit m_txtfeld;
-	CString               m_cipher;
-	CString               m_password;
-	CEdit                 m_ciphfeld;
-	CEdit                 m_pwfeld;
-	CListCtrl             m_listview;
+	CScrollBar          m_ctrlScroll;
+	int                 m_iScroll;
+	CString             m_mytxt;
+	CMyPlayFairEdit		m_txtfeld;
+	CString             m_cipher;
+	CString             m_password;
+	CEdit               m_ciphfeld;
+	CEdit               m_pwfeld;
+	CListCtrl           m_listview;
+	int					m_use;
+	int					m_TextWasPreformatted;
 	//}}AFX_DATA
 
 
@@ -174,13 +154,14 @@ protected:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar *pScrollBar);
 	afx_msg void OnChangeEditPlaintext();
 	afx_msg void OnChangeHScrollEditPlaintext();
+	afx_msg void OnCheckTextWasPreformatted();
+	afx_msg void OnSynchronise();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 	int size;
 	char digbuf[MAXSHOWLETTER+2];
 	CString m_mat[6][6];
-	int m_use;
 	class Playfair *m_Alg;
 	class CChEdit	m_einfeld[6][6];
 	int m_sechs,m_Dec;

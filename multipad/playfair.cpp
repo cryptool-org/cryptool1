@@ -33,7 +33,11 @@
 #define WEIGHT_colsure		0040	// Gewicht für sichere Zeile
 #define WEIGHT_col			0005	// Gewicht für mögliche Zeile
 
-#define	C2I(x)	((my_matrixsize==6)?((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1):(((x)>='J')?(x)-'A'-1:(x)-'A'))
+#define ALEN	my_matrixsize
+#define ASIZE	(ALEN*ALEN)
+#define WILDCARD        ASIZE        //*********
+
+#define	C2I(x)	(((x)=='*')?WILDCARD:((my_matrixsize==6)?((((x)>='A')&&((x)<='Z'))?(x)-'A':(x)-'0'+'Z'-'A'+1):(((x)>='J')?(x)-'A'-1:(x)-'A')))
 #define I2C(x)	((char) (my_matrixsize==6)?(((x)<=('Z'-'A'))?(x)+'A':(x)+'0'+'A'-'Z'-1):(((x)<'J'-'A')?(x)+'A':(x)+'A'+1))
 #define L2U(x)	((char) (((x)>='a')&&((x)<='z'))?(x)-'a'+'A':(x))
 
@@ -147,7 +151,7 @@ bool playfair_letter::isinset(playfair_set set, playfair_letter* s)
 }
 */
 
-void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
+void playfair_letter::insert2set(playfair_set set, playfair_letter* s, int pos)
 {
         assert (s);
         int i=0;
@@ -156,7 +160,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case row_sure:
 			if (!isinset(row_sure, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_row_sure > my_maxsetsize-1) // und die Liste noch nicht voll ist,
-					throw playfair_error(101, this);
+					throw playfair_error(101, pos, this);
 				my_row_sure[my_cnt_row_sure++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_rowsure);
 				// im folgenden werden implizite Regeln angewandt.
@@ -176,22 +180,22 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 					//dann kann das Element in der Schnittmenge roworabove mit not rowsure nur drüber liegen.
 					for (i=0; my_cnt_row_sure > i; i++)
 						if (!isinset(row_sure, my_roworabove[i]))
-							setNeighbour (above, my_roworabove[i]);
+							setNeighbour (above, my_roworabove[i], pos);
 					//analog mit roworbelow
 					for (i=0; my_cnt_row_sure > i; i++)
 						if (!isinset(row_sure, my_roworbelow[i]))
-							setNeighbour (below, my_roworbelow[i]);
+							setNeighbour (below, my_roworbelow[i], pos);
 					//analog mit roworcol
 					for (i=0; my_cnt_roworcol > i; i++)
 						if (!isinset(row_sure, my_roworcol[i]))
-							insert2set (col_sure, my_roworcol[i]);
+							insert2set (col_sure, my_roworcol[i], pos);
 				}
 			}
 			break;
         case col_sure:
 			if (!isinset(col_sure, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_col_sure > my_maxsetsize-1) // und die Liste noch nicht voll ist,
-					throw playfair_error(102, this);
+					throw playfair_error(102, pos, this);
 				my_col_sure[my_cnt_col_sure++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_colsure);
 				// im folgenden werden implizite Regeln angewandt.
@@ -209,7 +213,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case rightorbelow:
 			if (!isinset(rightorbelow, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_rightorbelow > 1) // und die Liste noch nicht voll ist,
-					throw playfair_error(103, this);
+					throw playfair_error(103, pos, this);
 				my_rightorbelow[my_cnt_rightorbelow++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_neighbour);
 				// im folgenden werden implizite Regeln angewandt.
@@ -218,20 +222,20 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 				// explizite Regeln
 				// wenn row_sure schon voll ist, dann liegt s sicher drunter
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
-					setNeighbour (below, s);
+					setNeighbour (below, s, pos);
 				//rechts | drunter und Reihe sicher in der Spalte -> drunter
 				if (isinset(col_sure, s)) {
-					setNeighbour (below, s);
+					setNeighbour (below, s, pos);
 					if (my_cnt_rightorbelow > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist rechts
-						setNeighbour(right, my_rightorbelow[0]);
+						setNeighbour(right, my_rightorbelow[0], pos);
 					}
-					if (isinset(roworabove, s)) throw playfair_error(113, this);
+					if (isinset(roworabove, s)) throw playfair_error(113, pos, this);
 				} else
 				//rechts | drunter und Reihe | drüber -> rechts
 				if (isinset(roworabove, s)) {
-					setNeighbour (right, s);
+					setNeighbour (right, s, pos);
 					if (my_cnt_rightorbelow > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist drunter
-						setNeighbour(below, my_rightorbelow[0]);
+						setNeighbour(below, my_rightorbelow[0], pos);
 					}
 				}
 			}
@@ -239,7 +243,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case leftorabove:
 			if (!isinset(leftorabove, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_leftorabove > 1) // und die Liste noch nicht voll ist,
-					throw playfair_error(104, this);
+					throw playfair_error(104, pos, this);
 				my_leftorabove[my_cnt_leftorabove++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_neighbour);
 				// im folgenden werden implizite Regeln angewandt.
@@ -248,18 +252,18 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 				// explizite Regeln
 				// wenn row_sure schon voll ist, dann liegt s sicher drüber
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
-					setNeighbour (above, s);
+					setNeighbour (above, s, pos);
 				if (isinset(col_sure, s)) { //links | drüber und Reihe sicher in der Spalte -> drüber
-					setNeighbour (above, s);
+					setNeighbour (above, s, pos);
 					if (my_cnt_leftorabove > 1) { // gibt's schon einen rechts oder drunter Kandidaten? -> dieser ist rechts
-						setNeighbour(left, my_leftorabove[0]);
+						setNeighbour(left, my_leftorabove[0], pos);
 					}
-					if (isinset(roworbelow, s)) throw playfair_error(114, this);
+					if (isinset(roworbelow, s)) throw playfair_error(114, pos, this);
 				} else
 				if (isinset(roworbelow, s)) { //links | drüber und Reihe | drunter -> links
-					setNeighbour (left, s);
+					setNeighbour (left, s, pos);
 					if (my_cnt_leftorabove > 1) { // gibt's schon einen links oder drüber Kandidaten? -> dieser ist drüber
-						setNeighbour(above, my_leftorabove[0]);
+						setNeighbour(above, my_leftorabove[0], pos);
 					}
 				}
 			}
@@ -267,7 +271,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case roworabove:
 			if (!isinset(roworabove, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_roworabove > my_maxsetsize-1) // und die Liste noch nicht voll ist,
-					throw playfair_error(105, this);
+					throw playfair_error(105, pos, this);
 				my_roworabove[my_cnt_roworabove++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_row);
 				// im folgenden werden implizite Regeln angewandt.
@@ -276,9 +280,9 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 				// explizite Regeln
 				// wenn row_sure schon voll ist, dann liegt s sicher drüber
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
-					setNeighbour (above, s);
+					setNeighbour (above, s, pos);
 				if (isinset(rightorbelow, s)) { //rechts | drunter und Reihe | drüber -> rechts
-					setNeighbour (right, s);
+					setNeighbour (right, s, pos);
 				}
 				if (isinset(roworbelow, s)) { //Reihe | drüber und Reihe | drunter -> sicher in Reihe
 					insert2set (row_sure, s);
@@ -293,7 +297,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case roworbelow:
 			if (!isinset(roworbelow, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_roworbelow > my_maxsetsize-1) // und die Liste noch nicht voll ist,
-					throw playfair_error(106, this);
+					throw playfair_error(106, pos, this);
 				my_roworbelow[my_cnt_roworbelow++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_row);
 				// im folgenden werden implizite Regeln angewandt.
@@ -302,9 +306,9 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 				// explizite Regeln
 				// wenn row_sure schon voll ist, dann liegt s sicher drunter
 				if ((my_cnt_row_sure == my_maxsetsize-1) && (!isinset(row_sure, s)))
-					setNeighbour (below, s);
+					setNeighbour (below, s, pos);
 				if (isinset(leftorabove, s)) { //links | drüber und Reihe | drunter -> links
-					setNeighbour (left, s);
+					setNeighbour (left, s, pos);
 				}
 				if (isinset(roworabove, s)) { //Reihe | drüber und Reihe | drunter -> sicher in Reihe
 					insert2set (row_sure, s);
@@ -314,7 +318,7 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         case roworcol:
 			if (!isinset(roworcol, s)) { // falls der Eintrag nicht schon erfolgte,
 				if (my_cnt_roworcol > 2*my_maxsetsize-1) // und die Liste noch nicht voll ist,
-					throw playfair_error(107, this);
+					throw playfair_error(107, pos, this);
 				my_roworcol[my_cnt_roworcol++] = s;  //dann erfolgt er jetzt
 				incWeight (WEIGHT_col);
 				// im folgenden werden implizite Regeln angewandt.
@@ -330,47 +334,47 @@ void playfair_letter::insert2set(playfair_set set, playfair_letter* s)
         }
 } // playfair_letter::insert2set(playfair_set set, playfair_letter* s)
 
-void playfair_letter::setNeighbour(playfair_neighbour pos, playfair_letter* s)
+void playfair_letter::setNeighbour(playfair_neighbour pos, playfair_letter* s, int lpos)
 {
         assert (s);
         switch (pos)
         {
         case above:
-			if ((my_above) && (*my_above != *s)) throw playfair_error(201, this);
+			if ((my_above) && (*my_above != *s)) throw playfair_error(201, lpos, this);
 			if ((my_above) && (*my_above == *s)) return;
 			else {
                 my_above = s;
-                s->setNeighbour (below, this);
+                s->setNeighbour (below, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (col_sure, s);
 			}
 			break;
         case below:
-			if ((my_below) && (*my_below != *s)) throw playfair_error(202, this);
+			if ((my_below) && (*my_below != *s)) throw playfair_error(202, lpos, this);
 			if ((my_below) && (*my_below == *s)) return;
 			else {
                 my_below = s;
-                s->setNeighbour (above, this);
+                s->setNeighbour (above, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (col_sure, s);
 			}
 			break;
         case left:
-			if ((my_left) && (*my_left != *s)) throw playfair_error(203, this);
+			if ((my_left) && (*my_left != *s)) throw playfair_error(203, lpos, this);
 			if ((my_left) && (*my_left == *s)) return;
 			else {
                 my_left = s;
-                s->setNeighbour (right, this);
+                s->setNeighbour (right, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (row_sure, s);
 			}
 			break;
         case right:
-			if ((my_right) && (*my_right != *s)) throw playfair_error(204, this);
+			if ((my_right) && (*my_right != *s)) throw playfair_error(204, lpos, this);
 			if ((my_right) && (*my_right == *s)) return;
 			else {
                 my_right = s;
-                s->setNeighbour (left, this);
+                s->setNeighbour (left, this, pos);
 				incWeight (WEIGHT_neighbour);
 				insert2set (row_sure, s);
 			}
@@ -1451,7 +1455,7 @@ abgeschaltet ist.
 */
 void Playfair::ApplyPlayfairToInput( bool DecEnc)
 {
-	int i,j,k;
+	int i,j;
 	
 	DoCipher(false, DecEnc,inbuflen);
 	
@@ -1473,7 +1477,6 @@ void Playfair::ApplyPlayfairToInput( bool DecEnc)
 			else
 				inbuf[i] = outbuf[j];
 			j++;
-			k++;
 			if(j>=outbuflen)
 				break;
 		}
@@ -1674,21 +1677,21 @@ void Playfair::AnalyseDigramme(playfair_digrammlist* dl)
 		// Jetzt folgt der trivialste Teil der Erstellung der Graphen:
 		// Ein Klarschrift-Buchstabe stimmt mit einem der Codebuchstaben überein
 		if (dig->getLetter1() == dig->getChiffre1())
-			throw playfair_error(1, dig->getLetter1());
+			throw playfair_error(1, 2*i, dig->getLetter1());
 
 		if (dig->getLetter2() == dig->getChiffre2())
-			throw playfair_error(1, dig->getLetter2());
+			throw playfair_error(1, 2*i+1, dig->getLetter2());
 
 		if (dig->getLetter1() == dig->getChiffre2()) { // Bei ABC: BA->CB
 			dig->getLetter1()->insert2set (rightorbelow, dig->getChiffre1());
 			dig->getLetter2()->insert2set (rightorbelow, dig->getChiffre2());
 			if (dig->getLetter2() == dig->getChiffre1())
-				throw playfair_error(2, dig->getLetter2());
+				throw playfair_error(2, 2*i, dig->getLetter2());
 		} else if (dig->getLetter2() == dig->getChiffre1()) { // Bei ABC: AB->BC
 			dig->getLetter1()->insert2set (rightorbelow, dig->getChiffre1());
 			dig->getLetter2()->insert2set (rightorbelow, dig->getChiffre2());
 			if (dig->getLetter1() == dig->getChiffre2())
-				throw playfair_error(2, dig->getLetter1());
+				throw playfair_error(2, 2*i, dig->getLetter1());
 		} else {
 			dig->getLetter1()->insert2set (roworbelow, dig->getChiffre1());
 			dig->getLetter2()->insert2set (roworbelow, dig->getChiffre2());
@@ -1710,6 +1713,7 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 {
 	char tmp_inbuf [MAXSHOWLETTER+2], tmp_stip [MAXSHOWLETTER+2];
 	int i, j;
+	bool flag;
 
 	playfair_backtrace trace (getSize());
 
@@ -1717,13 +1721,34 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 	my_matrix->clear(myAlphabet->getNullElement());
 
 	// copy inbuf to tmp_inbuf, but only the valid chars
-	i=0; j=0;
+	i=0; j=0; flag=false;
 	while ((i<=MAXSHOWLETTER+1) && (i<len) && (stipulation[j]) && (inbuf[j]) && (i<inbuflen)) {
-		if (myisalpha2(toupper(inbuf[j])) && myisalpha2(toupper(stipulation[j]))) {
+		if (myisalpha2(toupper(inbuf[j]))) {
+			if (flag) {  // gehört zum Workaround (s.u.)
+				flag = false; j++; continue;
+			}
 			tmp_inbuf [i] = toupper(inbuf[j]);
-			tmp_stip  [i] = toupper(stipulation[j]);
-			if (tmp_inbuf [i] == tmp_stip [i])
-				return false;
+			if (myisalpha2(toupper(stipulation[j]))) {
+				tmp_stip  [i] = toupper(stipulation[j]);
+				if (tmp_inbuf [i] == tmp_stip [i])  // ist Vorgabe = Chiffre, dann kann es keine Matrix geben
+					return false;
+			} else {
+				if (false) {
+					// so sollte es eigentlich sein, wenn die Analyse 'halbe' Pärchen verarbeiten könnte
+					tmp_stip  [i] = myAlphabet->getNullElement()->getValue();
+					if ((i%2==1) && (tmp_stip[i-1]==myAlphabet->getNullElement()->getValue()))
+						// akzeptiere Nullelement nicht, wenn beide Buchstaben das Nullelement sind.
+						i -=2;
+				}else{
+					// jetzt beginnt ein Workaround
+					if (i%2==1) // es handelt sich um den zweiten Buchstaben eines Pärchens
+						i -=2;
+					else {
+						i--; flag = true;
+					}
+					// Ende vom Workaround
+				}
+			}
 			i++;
 		}
 		j++;
@@ -1739,8 +1764,6 @@ bool Playfair::CreateMatrixStandalone (char *stipulation, int len)
 } // CreateMatrix
 
 
-#define ALEN	my_matrixsize
-#define ASIZE	(ALEN*ALEN)
 
 #define MAXINT	0x07ffff
 #define R(x)	((x + ALEN) % ALEN)
@@ -1814,6 +1837,8 @@ int playfair_arrinfo::disable( char ch, int x, int y )
 {
         int i;
 
+        if(ch == WILDCARD) 
+			return 0; //****************
         if(c[ch].p[x][y]) { // ein Datum löschen
                 c[ch].p[x][y] = 0;
                 c[ch].possible--;
@@ -1885,6 +1910,8 @@ int playfair_arrinfo::set(char ch, int x1, int y1)
 {
         int i, x, y;
 
+        if(ch == WILDCARD) 
+			return 0; //*******
         if(!c[ch].p[x1][y1])
                 throw playfair_backthrow(); // Widerspruch!
         if(m[x1][y1] == ch) return 0;
@@ -2540,6 +2567,9 @@ bool Playfair::AnaLg_InsertLetter (playfair_letter *theLetter, int theIndex, int
 
 	return true;
 }
+
+
+
 bool Playfair::AnaLg_RemoveLetter (playfair_letter *theLetter, int theIndex, int x, int y)
 {
 	assert (getLetterOfMatrix(x,y) == myLetterlist->getLetter(theIndex));
@@ -2548,26 +2578,11 @@ bool Playfair::AnaLg_RemoveLetter (playfair_letter *theLetter, int theIndex, int
 	return false;
 }
 
-/*
-  forall buchstaben
-    setze die Nachbarn -> evtl. Konflikte falls schon andere Nachbarn gesetzt
-	setze potentielle Nachbarn
-		-> Konflikte falls andere Nachbarn eingesetzt, 
-		-> backtracking (Nachbarn tauschen)
-	forall sicher in der Zeile
-	  suche eine freie Position und setze ein
-		-> Konflikt, wenn kein Platz frei
-		-> backtracking (nächste Platz suchen)
-	forall in Zeile oder drüber, bzw drunter
-	  analog
-	forall in der Spalte oder ZeileoderSpalte
-	  analog
-*/
+
 
 bool Playfair::AnaLg_RekLetter (int theIndex, char *stipulation, int len)
 {
-	playfair_letter *pflet;
-	bool isLsgFound = false;
+ 	bool isLsgFound = false;
 	bool isInserted = false;
 	int x=0, y=0;
 	int *xp=&x;
@@ -2614,52 +2629,6 @@ bool Playfair::AnaLg_RekLetter (int theIndex, char *stipulation, int len)
 	}
 } // Playfair::AnaLg_RekLetter
 
-
-/*	for (j=0; j < myLetterlist-> getLen(); j++) {
-	  for (i=j; i < myLetterlist-> getLen(); i++) {
-		// durchlaufe alle Buchstaben der Liste
-		if (!myLetterlist->getVisited(i) && myLetterlist->getLetter(i)->getWeight()) {
-			// falls Buchstabe noch nicht i.d. Matrix eingetragen
-			if (AnaLg_LookPlaceFirst(AnaLg_matrix, x, y))
-				do {
-					pflet = myLetterlist->getLetter(i);
-					//einsetzen
-					//ausprobieren
-					//löschen
-					isok = (AnaLg_InsertLetter (pflet, i, x, y));
-					my_matrix->print (debugstr);
-//					DbgOutString (debugfile, debugstr);
-					fprintf (debugfile, debugstr);
-			if (DoCipher (1, 300, stipulation, len)) {
-				fclose (debugfile);
-				return (true);
-			} else {
-//				setElMatrix (myAlphabet->getNullElement(), x, y);
-//				myLetterlist->setVisited(i, false);
-			}
-
-				} while (!isok && (AnaLg_LookPlaceNext(AnaLg_matrix, x, y)));
-			else {// kein Platz mehr in der Matrix frei
-//				fclose (debugfile);
-//				return false;
-			}
-			// zum Ende ein Check, ob schon alles stimmt
-//			if (DoCipher (1, 300, stipulation, len)) {
-//				fclose (debugfile);
-//				return (true);
-//			}
-		}
-		my_matrix->findElement(myLetterlist->getLetter(i), x, y);
-		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		setElMatrix (myAlphabet->getNullElement(), x, y);
-		myLetterlist->setVisited(i, false);
-	  }
-//		my_matrix->findElement(myLetterlist->getLetter(j), x, y);
-//		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		myLetterlist->setVisited(j, false);
-	}
-	*/
-
 bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 // stipulation enthält die Klartextvorgabe. Sofern eine versuchte Entschlüsselung
 // der Vorlage entspricht, ist eine (erstmal) gültige Matrix gefunden.
@@ -2668,132 +2637,10 @@ bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 //	int i, j, k;
 	int x=0,y=0;
 	bool isok = false;
-	char debugstr[6*40];
-/*
-	debugfile = fopen( "debugplayfair.txt", "w" );
-*/
 	myLetterlist->sortViaWeight();
 	my_matrix->clear(myAlphabet->getNullElement());
 	myLetterlist->reset_visited();
-/*
-	myLetterlist->print(debugstr);
-	fprintf (debugfile, debugstr);
-*/
 	AnaLg_RekLetter (0, stipulation, len);
-
-/*	for (j=0; j < myLetterlist-> getLen(); j++) {
-	  for (i=j; i < myLetterlist-> getLen(); i++) {
-		// durchlaufe alle Buchstaben der Liste
-		if (!myLetterlist->getVisited(i) && myLetterlist->getLetter(i)->getWeight()) {
-			// falls Buchstabe noch nicht i.d. Matrix eingetragen
-			if (AnaLg_LookPlaceFirst(AnaLg_matrix, x, y))
-				do {
-					pflet = myLetterlist->getLetter(i);
-					//einsetzen
-					//ausprobieren
-					//löschen
-					isok = (AnaLg_InsertLetter (pflet, i, x, y));
-					my_matrix->print (debugstr);
-//					DbgOutString (debugfile, debugstr);
-					fprintf (debugfile, debugstr);
-			if (DoCipher (1, 300, stipulation, len)) {
-				fclose (debugfile);
-				return (true);
-			} else {
-//				setElMatrix (myAlphabet->getNullElement(), x, y);
-//				myLetterlist->setVisited(i, false);
-			}
-
-				} while (!isok && (AnaLg_LookPlaceNext(AnaLg_matrix, x, y)));
-			else {// kein Platz mehr in der Matrix frei
-//				fclose (debugfile);
-//				return false;
-			}
-			// zum Ende ein Check, ob schon alles stimmt
-//			if (DoCipher (1, 300, stipulation, len)) {
-//				fclose (debugfile);
-//				return (true);
-//			}
-		}
-		my_matrix->findElement(myLetterlist->getLetter(i), x, y);
-		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		setElMatrix (myAlphabet->getNullElement(), x, y);
-		myLetterlist->setVisited(i, false);
-	  }
-//		my_matrix->findElement(myLetterlist->getLetter(j), x, y);
-//		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		myLetterlist->setVisited(j, false);
-	}
-	*/
-/*	for (i=0; i < myLetterlist-> getLen(); i++) {
-		// durchlaufe alle Buchstaben der Liste
-		if (!myLetterlist->getVisited(i) && myLetterlist->getLetter(i)->getWeight()) {
-			// falls Buchstabe noch nicht i.d. Matrix eingetragen
-			if (AnaLg_LookPlaceFirst(AnaLg_matrix, x, y))
-				do {
-					pflet = myLetterlist->getLetter(i);
-					isok = (AnaLg_InsertLetter (pflet, i, x, y));
-				} while (!isok && (AnaLg_LookPlaceNext(AnaLg_matrix, x, y)));
-					my_matrix->print (debugstr);
-//					DbgOutString (debugfile, debugstr);
-					fprintf (debugfile, debugstr);
-			else {// kein Platz mehr in der Matrix frei
-//				fclose (debugfile);
-//				return false;
-			}
-			// zum Ende ein Check, ob beim ersten Einsetzen schon alles stimmt
-			if (DoCipher (1, 300, stipulation, len)) {
-				fclose (debugfile);
-				return (true);
-			}
-		}
-	}
-	// jetzt werden alle folgenden Matrix-Möglichkeiten ausgelotet.
-	//for (j=0; j < myLetterlist-> getLen(); j++) {
-	  for (i=myLetterlist->getLen()-1; i>0; i--) {
-		// durchlaufe alle Buchstaben der Liste, aber jetzt von hinten
-		if (myLetterlist->getLetter(i)->getWeight()) {
-			// zum verschieben, erstmal löschen
-			my_matrix->findElement(myLetterlist->getLetter(i), x, y);
-			setElMatrix (myAlphabet->getNullElement(), x, y);
-			myLetterlist->setVisited(i, false);
-			// zum verschieben, neuen freien Platz suchen
-			isok = false;
-			while (!isok && (AnaLg_LookPlaceNext(AnaLg_matrix, x, y))) {
-				pflet = myLetterlist->getLetter(i);
-				isok = (AnaLg_InsertLetter (pflet, i, x, y));
-			}
-			// Test, ob Bedingung erfüllt
-
-			if (!isok) {// kein Platz mehr in der Matrix frei
-				assert (0);
-//				fclose (debugfile);
-//				return false;
-			}
-
-			/*			for (k=i+1; k < myLetterlist-> getLen(); k++) {
-				//lösche alle untergebenen Buchst., d.h. alle mit kleinerm Gewicht
-				my_matrix->findElement(myLetterlist->getLetter(k), x, y);
-				if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-				myLetterlist->setVisited(k, false);
-			}
-**
-			// zum Ende ein Check, ob schon alles stimmt
-//			if (DoCipher (1, 300, stipulation, len)) {
-//				fclose (debugfile);
-//				return (true);
-//			}
-		}
-		my_matrix->findElement(myLetterlist->getLetter(i), x, y);
-		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		setElMatrix (myAlphabet->getNullElement(), x, y);
-		myLetterlist->setVisited(i, false);
-	  }
-//		my_matrix->findElement(myLetterlist->getLetter(j), x, y);
-//		if (x>=0)	setElMatrix (myAlphabet->getNullElement(), x, y);
-//		myLetterlist->setVisited(j, false);
-	}
-*/
 
 	fclose (debugfile);
 
@@ -2801,1001 +2648,3 @@ bool Playfair::CreateMatrixfromLettergraph(char *stipulation, int len)
 	return (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len));
 } // CreateMatrixfromLettergraph
 
-
-/* ab hier ist alles veraltet
-void Playfair::AnalyseDigramme(int *num,struct digram *di)
-{
-	int i,j,
-		d,t,q, // Anzahl der gefundenen Doubles, Tripel, Quadrupel
-		s,
-		res;
-	char a[4],b[4];
-	anadigramme *m;
-
-	// hole mir auf einen Schlag gleich den ganzen benötigten Speicher
-	if(!(m=(anadigramme *)malloc(s=sizeof(anadigramme)+(*num)*(sizeof(doub)+sizeof(tripel)+sizeof(quads)))))
-		return;
-	// jetzt wird der Speicher verteilt
-	m->data=((char *)m+sizeof(anadigramme));
-	m->dou=(doubs *)(m->data);
-	m->tri=(tripel *)((char *)(m->dou)+(*num)*sizeof(doub));
-	m->qua=(quads *)((char *)(m->tri)+(*num)*sizeof(tripel));
-
-	do // solange genliste (s.u.) noch nicht zufrieden ist
-	{
-		for(i=d=t=q=0;i<(*num);i++) // mach mal für jedes Digramm
-		{
-			a[0]=di[i].di[0];
-			a[1]=di[i].ciphdi[0];
-			a[2]=di[i].di[1];
-			a[3]=di[i].ciphdi[1];
-			
-			if(a[0]==a[2]) // gleicher Buchstabe des Klartextes
-			{
-				m->dou[d].d[0]=a[0];
-				m->dou[d].d[1]=a[1]; // dann merke nur die Klartextzeichen
-				m->dou[d++].flag=WAAG;
-			}
-			else if (a[0]==a[3]) // erster Buchstabe Klartext == zweiter Buchstabe Chiffrat
-			{
-				m->tri[t].d[0]=a[2]; // merke 2.Klarbuchstaben
-				m->tri[t].d[1]=a[0]; // merke 1.Klarbuchstaben
-				m->tri[t].d[2]=a[1]; // merke 1.Chiffrezeichen
-				m->tri[t++].flag=WAAG|SENK|ECK;
-			}
-			else if (a[1]==a[2]) // zweiter Buchstabe Klartext == erster Buchstabe Chiffrat
-			{
-				m->tri[t].d[0]=a[0]; // merke 1.Klarbuchstaben
-				m->tri[t].d[1]=a[1]; // merke 1.Chiffrezeichen
-				m->tri[t].d[2]=a[3]; // merke 2.Chiffrezeichen
-				m->tri[t++].flag=WAAG|SENK|ECK;
-			}
-			else
-			{
-				strncpy(m->qua[q].d,a,4); // merke alles vor
-				m->qua[q++].flag=WAAG|SENK|ECK;
-			}
-		}
-		for(i=0;i<t;i++)  // für jedes identifizierte Trippel
-		{
-			for(j=0;j<d;j++) // durchlaufe für jedes Trippel alle Doubles
-			{
-				if (2==str_in(m->dou[j].d,2,m->tri[i].d,3)) // wenn beide Zeichen aus dem Double im Trippel vorkommen
-					m->tri[i].flag=WAAG;
-			}
-			for(j=0;j<q;j++) // durchlaufe für jedes Trippel alle Quadrupel
-			{
-				a[0]=m->qua[j].d[0];  // 1.Klarbuchstaben
-				a[1]=m->qua[j].d[2];  // 2.Klarbuchstaben
-				b[0]=m->qua[j].d[1];  // 1.Chiffrezeichen
-				b[1]=m->qua[j].d[3];  // 2.Chiffrezeichen
-				// wenn entweder beide Klarbuchstaben oder beide Chiffrezeichen im aktuellen Trippel vorkommen
-				if(2==str_in(a,2,m->tri[i].d,3)||2==str_in(b,2,m->tri[i].d,3))
-					m->qua[j].flag&=WAAG|SENK;
-			}
-		}
-		for(i=0;i<q;i++) // für jedes gefundene Quadrupel
-		{
-			for(j=0;j<d;j++)
-			{
-				a[0]=m->qua[i].d[0];  // 1.Klarbuchstaben
-				a[1]=m->qua[i].d[2];  // 2.Klarbuchstaben
-				b[0]=m->qua[i].d[1];  // 1.Chiffrezeichen
-				b[1]=m->qua[i].d[3];  // 2.Chiffrezeichen
-				// wenn beide Buchstaben eines Doubles in den beiden Klarbuchstaben oder in den beiden Chiffrezeichen eines Quadrupels vorkommen
-				if (2==str_in(m->dou[j].d,2,a,2)||2==str_in(m->dou[j].d,2,b,2))
-					m->qua[i].flag=WAAG;
-			}
-		}
-		
-		for(i=0;i<36;i++)
-			m->matrix[i]=0;
-		m->d=d;
-		m->t=t;
-		m->q=q;
-		m->size=s;
-		
-		res=genliste(m);
-		(*num)--;
-	}while(res!=0);
-
-	(*num)++;
-	for(i=0;i<36;i++)
-		setElMatrix (m->matrix[i], i/6, i%6);
-		
-	free(m);
-}
-
-void Playfair::ana_addqua(quads *qua,int q,char mat[6][6],bool flag)
-{
-	int i,j,k,l,m,n;
-
-	for(i=0;i<q;i++)
-	{
-		j=str_in(qua[i].d,4,(char *)mat,36);
-		if(j==3)
-		{
-			k=findrow(qua[i].d[0],mat);
-			l=findrow(qua[i].d[1],mat);
-			m=findrow(qua[i].d[2],mat);
-			n=findrow(qua[i].d[3],mat);
-			if(n==-1&&k==l)
-				addmat(mat,m,qua[i].d[3]);
-			else if(m==-1&&k==l)
-				addmat(mat,n,qua[i].d[2]);
-			else if(l==-1&&m==n)
-				addmat(mat,k,qua[i].d[1]);
-			else if(k==-1&&m==n)
-				addmat(mat,l,qua[i].d[0]);
-		}
-		else if(j==2)
-		{
-			k=findrow(qua[i].d[0],mat);
-			l=findrow(qua[i].d[1],mat);
-			m=findrow(qua[i].d[2],mat);
-			n=findrow(qua[i].d[3],mat);
-			if(k==-1&&n==-1)
-			{
-				addmat(mat,l,qua[i].d[0]);
-				addmat(mat,m,qua[i].d[3]);
-			}
-			else if(l==-1&&m==-1)
-			{
-				addmat(mat,k,qua[i].d[1]);
-				addmat(mat,n,qua[i].d[2]);
-			}
-			else if(k==-1&&l==-1&&flag)
-			{
-				bool run;
-
-				run=true;
-				for(j=0;j<size&&run;j++)
-				{
-					if(matlen(mat,j)==0)
-					{
-						addmat(mat,j,qua[i].d[0]);
-						addmat(mat,j,qua[i].d[1]);
-						run=false;
-					}
-				}
-				for(j=0;j<size&&run;j++)
-				{
-					if(matlen(mat,j)<size-1)
-					{
-						addmat(mat,j,qua[i].d[0]);
-						addmat(mat,j,qua[i].d[1]);
-						run=false;
-					}
-				}
-			}
-			else if(m==-1&&n==-1&&flag)
-			{
-				bool run;
-
-				run=true;
-				for(j=0;j<size&&run;j++)
-				{
-					if(matlen(mat,j)<size-2)
-					{
-						addmat(mat,j,qua[i].d[2]);
-						addmat(mat,j,qua[i].d[3]);
-						run=false;
-					}
-				}
-				for(j=0;j<size&&run;j++)
-				{
-					if(matlen(mat,j)<size-2)
-					{
-						addmat(mat,j,qua[i].d[2]);
-						addmat(mat,j,qua[i].d[3]);
-						run=false;
-					}
-				}
-			}
-		}
-	}
-}
-
-void Playfair::ana_addtri(tripel *tri,int t,char mat[6][6],bool flag)
-{
-	int i,j,f,zx,zy,k,l;
-
-	for(i=0;i<t;i++)                   //halbe einträge einfügen - DER EINZIGE ORIGINAL KOMMENTAR
-	{
-		k=str_in(tri[i].d,3,(char *)mat,36);
-		if(k==2)
-		{
-			zx=zy=-1;
-			for(f=0;f<size;f++)
-			{
-				zx=str_in(tri[i].d,3,mat[f],size);
-				if(zx==2)
-				{
-					if(matlen(mat,f)<size)
-					{
-						zx=0;
-						while(str_in(tri[i].d+zx,1,mat[f],size)==1)
-							zx++;
-						addmat(mat,f,tri[i].d[zx]);
-					}
-					f=6;
-				}
-				else if(zx==1)
-				{
-					if(zy==-1)
-						zy=f;
-					else
-					{
-						zx=0;
-						while(str_in(tri[i].d+zx,1,(char *)mat,36)==1)
-							zx++;
-						switch(zx)
-						{
-						case 0:
-							j=str_in(tri[i].d+1,1,mat[f],6);
-							if((zy-f+size)%size==1&&j==1)
-								addmat(mat,(f+size-1)%size,tri[i].d[zx]);
-							if((f-zy+size)%size==1&&j==0)
-								addmat(mat,(f+size-2)%size,tri[i].d[zx]);
-							break;
-						case 1:
-							j=str_in(tri[i].d,1,mat[f],6);
-							if((zy-f+size)%size==2&&j==1)
-								addmat(mat,(f+1)%size,tri[i].d[zx]);
-							if((f-zy+size)%size==2&&j==0)
-								addmat(mat,(f+size-1)%size,tri[i].d[zx]);
-							break;
-						case 2:
-							j=str_in(tri[i].d,1,mat[f],6);
-							if((zy-f+size)%size==1&&j==1)
-								addmat(mat,(f+2)%size,tri[i].d[zx]);
-							if((f-zy+size)%size==1&&j==0)
-								addmat(mat,(f+1)%size,tri[i].d[zx]);
-							break;
-						}
-					}
-				}
-			}
-		}
-		else if (k==1)
-		{
-			j=findrow(tri[i].d[0],mat);
-			k=findrow(tri[i].d[1],mat);
-			l=findrow(tri[i].d[2],mat);
-			if(j!=-1)
-			{
-				if(matlen(mat,j)+2>size&&flag)
-				{
-					mat[(j+1)%size][strlen(mat[(j+1)%size])]=tri[i].d[1];
-					mat[(j+2)%size][strlen(mat[(j+2)%size])]=tri[i].d[2];
-				}
-				if((matlen(mat,(j+1)%size)==size||matlen(mat,(j+2)%size)==size))
-				{
-					addmat(mat,j,tri[i].d[1]);
-					addmat(mat,j,tri[i].d[2]);
-				}
-			}
-			else if(k!=-1)
-			{
-				if(matlen(mat,k)+2>size&&flag)
-				{
-					mat[(k+size-1)%size][strlen(mat[(k+size-1)%size])]=tri[i].d[0];
-					mat[(k+1)%size][strlen(mat[(k+1)%size])]=tri[i].d[2];
-				}
-				if((matlen(mat,(k+1)%size)==size||matlen(mat,(k-1+size)%size)==size))
-				{
-					addmat(mat,k,tri[i].d[0]);
-					addmat(mat,k,tri[i].d[2]);
-				}
-			}
-			else
-			{
-				if(matlen(mat,l)+2>size&&flag)
-				{
-					mat[(l+size-2)%size][strlen(mat[(l+size-2)%size])]=tri[i].d[0];
-					mat[(l+size-1)%size][strlen(mat[(l+size-1)%size])]=tri[i].d[1];
-				}
-				if((matlen(mat,(l+size-2)%size)==size||matlen(mat,(l+size-1)%size)==size))
-				{
-					addmat(mat,l,tri[i].d[0]);
-					addmat(mat,l,tri[i].d[1]);
-				}
-			}
-		}
-	}
-}
-
-void Playfair::ana_sortrowtri(tripel *tri,int t,char mat[6][6])
-{
-	int i,j,k,zx,zy,f;
-
-	for(i=0;i<t;i++)                              //zeilen anpassen - UPS, NOCH EINER
-	{
-		if(str_in(tri[i].d,3,(char *)mat,36)==3)
-		{
-			k=0;
-			for(j=0;j<size;j++)
-			{
-				if(str_in(tri[i].d,3,mat[j],size)>1)
-					k++;
-			}
-			if(k==0)
-			{
-				j=findrow(tri[i].d[0],mat);
-				f=findrow(tri[i].d[1],mat);
-				zy=(f+size-j)%size;
-				if(zy!=1)
-				{
-					char trow[6];
-
-					strncpy(trow,mat[f],size);
-					for(zx=zy;zx>1;zx--)
-						strncpy(mat[(j+zx)%size],mat[(j+zx-1)%size],size);
-					strncpy(mat[(j+1)%size],trow,size);
-				}
-				f=findrow(tri[i].d[2],mat);
-				zy=(f+size-j)%size;
-				if(zy!=2)
-				{
-					char trow[6];
-
-					strncpy(trow,mat[f],size);
-					for(zx=zy;zx>2;zx--)
-						strncpy(mat[(j+zx)%size],mat[(j+zx-1)%size],size);
-					strncpy(mat[(j+2)%size],trow,size);
-				}
-			}
-		}
-	}
-}
-
-void Playfair::addchar(char *z,char a)
-{
-	if(str_in(&a,1,z+1,z[0])==0&&a!=-1)
-		z[++z[0]]=a;
-}
-
-void Playfair::addmat(char b[6][6],int z,char a)
-{
-	int i;
-
-	if(str_in(&a,1,b[z],size)!=0)
-		return;
-	i=0;
-	while(i<size)
-	{
-		if(b[z][i]==0)
-		{
-			b[z][i]=a;
-			return;
-		}
-		i++;
-	}
-}
-
-int Playfair::matlen(char b[6][6],int z)
-{
-	int i,j;
-
-	i=0;
-	for(j=0;j<size;j++)
-	{
-		if(b[z][j]!=0)
-			i++;
-	}
-	return i;
-}
-
-int Playfair::genliste(anadigramme *oldm)
-// an Peter Gruber: was macht das Ding hier?
-{
-	char nebr[36],nebc[36],zeilen[36][37],spalten[36][37],zmat[6][6],tmat[6][6],outa[100],tmp[37];
-	int i,s,f,pa,tnum;
-	char j,k,zx,zy;
-
-	for(i=0;i<36;i++)
-	{
-		zeilen[i][0]=0;
-		zmat[i/6][i%6]=0;
-		tmat[i/6][i%6]=0;
-		nebr[i]=-1;
-		nebc[i]=-1;
-	}
-	for(i=0;i<oldm->d;i++)                          //eintragen welche zeichen in der gleichen Zeilen stehen könnten - DOCH SCHON DREI
-	{
-		j=keyval(oldm->dou[i].d[0]);
-		k=keyval(oldm->dou[i].d[1]);
-		addchar(zeilen[j],k);
-		addchar(zeilen[k],j);
-	}
-	for(i=0;i<oldm->q;i++)
-	{
-		j=keyval(oldm->qua[i].d[0]);
-		k=keyval(oldm->qua[i].d[1]);
-		addchar(zeilen[j],k);
-		j=keyval(oldm->qua[i].d[2]);
-		k=keyval(oldm->qua[i].d[3]);
-		addchar(zeilen[j],k);
-	}
-	for(i=0;i<oldm->t;i++)
-	{
-		j=keyval(oldm->tri[i].d[0]);
-		k=keyval(oldm->tri[i].d[1]);
-		addchar(zeilen[j],k);
-		j=keyval(oldm->tri[i].d[1]);
-		k=keyval(oldm->tri[i].d[2]);
-		addchar(zeilen[j],k);
-	}
-	s=0;
-	for(i=0;i<36;i++)
-	{
-		pa=0;
-		for(f=i+1;f<36;f++)                        // sammeln der Zeileninfo - NOCH EINER
-		{
-			char tp,op;
-
-			for(j=0;j<36;j++)
-				tmp[j]=0;
-			for(j=0;j<zeilen[i][0];j++)
-			{
-				k=zeilen[i][j+1];
-				if(k!=i)
-					tmp[k]++;
-			}
-			for(j=0;j<zeilen[f][0];j++)
-			{
-				k=zeilen[f][j+1];
-				if(k!=f)
-					tmp[k]++;
-			}
-			tmp[i]++;
-			tmp[f]++;
-			tp=0;
-			op=pa;
-			for(j=0;j<36;j++)
-			{
-				k=valkey(j);
-				if(tmp[j]==2)
-				{
-					tp++;
-					if(0==str_in(&k,1,outa,pa))
-						*(outa+(pa++))=k;
-				}
-			}
-			if(tp==1)                                //nichts falls nur ein Zeichen gleich - NR 6
-				pa=op;
-		}
-		outa[pa]=0;
-		zx=-1;
-		f=0;
-		while(f<size&&(j=str_in(outa,pa,zmat[f],size))==0)
-			f++;
-		if(0<j&&j<pa)
-		{
-			if(pa-j+matlen(zmat,f)>size)
-				return 2;
-			for(j=0;j<pa;j++)
-				addmat(zmat,f,outa[j]);
-			zx=f;
-			for(j=0;j<size;j++)
-			{
-				if(j!=f&&str_in(outa,pa,zmat[j],size)>0)
-				{
-					if(matlen(zmat,f)+matlen(zmat,j)-str_in(zmat[j],size,zmat[f],size)<=size)
-					{
-						for(zy=0;zy<size;zy++)
-						{
-							addmat(zmat,f,zmat[j][zy]);
-							zmat[j][zy]=0;
-						}
-					}
-				}
-			}
-		}
-		else if(j==pa)
-			zx=f;
-		if(zx==-1)
-		{
-			pa=min(pa,size);
-			f=0;
-			while(f<size&&matlen(zmat,f)!=0)
-				f++;
-			if(f<size)
-				strncpy(zmat[f],outa,min(pa,size));
-			else
-			{
-				f=0;
-				while(f<size&&matlen(zmat,f)>=size-pa)
-					f++;
-				if(f<size)
-				{
-					for(j=0;j<pa;j++)
-						addmat(zmat,f,outa[j]);
-				}
-			}
-		}
-		ana_addtri(oldm->tri,oldm->t,zmat);
-	}
-
-	f=0;
-	for(i=0;i<size;i++)
-		f+=matlen(zmat,i);
-	if(f==0&&oldm->q>0)
-	{
-		addmat(zmat,0,oldm->qua[0].d[0]);
-		addmat(zmat,0,oldm->qua[0].d[1]);
-		addmat(zmat,1,oldm->qua[0].d[3]);
-		addmat(zmat,1,oldm->qua[0].d[2]);
-	}
-	ana_addqua(oldm->qua,oldm->q,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat);
-	ana_addtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat);
-	ana_addtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat,true);
-	ana_addtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_sortrowtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat,true);
-	ana_addtri(oldm->tri,oldm->t,zmat);
-	ana_addqua(oldm->qua,oldm->q,zmat);
-
-	for(i=0;i<36;i++)
-	{
-		char c[36];
-		bool run;
-
-		run=false;
-
-		for(f=0;f<zeilen[i][0];f++)
-			c[f]=findrow(valkey(zeilen[i][f+1]),zmat);
-		j=findrow(valkey(i),zmat);
-		if(j!=-1)
-		{
-			for(f=0;f<zeilen[i][0];f++)
-			{
-				if(c[f]!=-1&&j!=c[f])
-					run=true;
-			}
-			if(run)
-			{
-				for(f=0;f<zeilen[i][0];f++)
-				{
-					if(c[f]==-1)
-						addmat(zmat,j,zeilen[i][f+1]);
-				}
-			}
-		}
-	}
-	
-	tnum=0;
-	do
-	{
-		memcpy((char *)tmat,(char *)zmat,36);
-		for(i=0;i<36;i++)
-		{
-			zeilen[i][0]=0;
-			spalten[i][0]=0;
-		}
-		for(i=0;i<size*size;i++)
-		{
-			j=keyval(zmat[i/size][i%size]);
-			if(j!=-1)
-			{
-				for(f=0;f<min((int)strlen(zmat[i/size]),size);f++)
-				{
-					addchar(zeilen[j],keyval(zmat[i/size][f]));
-					if(zeilen[j][0]>size)
-						return 2;
-				}
-			}
-		}
-		for(i=0;i<oldm->q;i++)
-		{
-			if(str_in(oldm->qua[i].d,4,(char *)zmat,36)>1)
-			{
-				f=0;
-				while((zy=str_in(oldm->qua[i].d,4,zmat[f],6))==0)
-					f++;
-				switch (zy)
-				{
-				case 1:
-					for(f=0;f<4;f++)
-					{
-						addchar(spalten[keyval(oldm->qua[i].d[0])],keyval(oldm->qua[i].d[(0+f)%4]));
-						addchar(spalten[keyval(oldm->qua[i].d[1])],keyval(oldm->qua[i].d[(1+f)%4]));
-						addchar(spalten[keyval(oldm->qua[i].d[2])],keyval(oldm->qua[i].d[(2+f)%4]));
-						addchar(spalten[keyval(oldm->qua[i].d[3])],keyval(oldm->qua[i].d[(3+f)%4]));
-					}
-					nebc[keyval(oldm->qua[i].d[0])]=keyval(oldm->qua[i].d[1]);
-					nebc[keyval(oldm->qua[i].d[2])]=keyval(oldm->qua[i].d[3]);
-					break;
-				case 2:
-					addchar(spalten[keyval(oldm->qua[i].d[0])],keyval(oldm->qua[i].d[3]));
-					addchar(spalten[keyval(oldm->qua[i].d[3])],keyval(oldm->qua[i].d[0]));
-					addchar(spalten[keyval(oldm->qua[i].d[1])],keyval(oldm->qua[i].d[2]));
-					addchar(spalten[keyval(oldm->qua[i].d[2])],keyval(oldm->qua[i].d[1]));
-					break;
-				case 4:
-					nebr[keyval(oldm->qua[i].d[0])]=keyval(oldm->qua[i].d[1]);
-					nebr[keyval(oldm->qua[i].d[2])]=keyval(oldm->qua[i].d[3]);
-					break;
-				}
-			}
-		}
-		for(i=0;i<oldm->t;i++)
-		{
-			if(str_in(oldm->tri[i].d,3,(char *)zmat,36)>1)
-			{
-				f=0;
-				while((zy=str_in(oldm->tri[i].d,3,zmat[f],6))==0)
-					f++;
-				if(zy==1)
-				{
-					for(f=0;f<3;f++)
-					{
-						addchar(spalten[keyval(oldm->tri[i].d[0])],keyval(oldm->tri[i].d[f]));
-						addchar(spalten[keyval(oldm->tri[i].d[1])],keyval(oldm->tri[i].d[(f+1)%3]));
-						addchar(spalten[keyval(oldm->tri[i].d[2])],keyval(oldm->tri[i].d[(f+2)%3]));
-					}
-					nebc[keyval(oldm->tri[i].d[0])]=keyval(oldm->tri[i].d[1]);
-					nebc[keyval(oldm->tri[i].d[1])]=keyval(oldm->tri[i].d[2]);
-				}
-				else if(zy==3)
-				{
-					nebr[keyval(oldm->tri[i].d[0])]=keyval(oldm->tri[i].d[1]);
-					nebr[keyval(oldm->tri[i].d[1])]=keyval(oldm->tri[i].d[2]);
-				}
-			}
-		}
-		for(j=0;j<36;j++)
-		{
-			for(f=1;f<36;f++)
-			{
-				if(str_in(&j,1,spalten[f]+1,spalten[f][0])==1)
-				{
-					for(i=0;i<spalten[f][0];i++)
-						addchar(spalten[j],spalten[f][i+1]);
-				}
-			}
-		}
-		
-		for(i=0;i<36;i++)
-			zmat[i/6][i%6]=0;
-		for(i=f=0;i<36;i++)
-		{
-			char a[36];
-			int p;
-
-			p=min((int)zeilen[i][0],size);			
-			for(j=0;j<p;j++)
-				a[j]=valkey(zeilen[i][j+1]);
-			
-			if(str_in(a,p,(char *)zmat,36)==0&&p>0&&f<size)
-			{
-				strncpy(zmat[f],a,p);
-				f++;
-			}
-		}
-		k=0;
-		while(nebc[k]==-1&&k<36)
-			k++;
-		if(k<36)
-		{
-			char a,b,c;
-			
-			a=findrow(valkey(k),zmat);
-			b=findrow(valkey(nebc[k]),zmat);
-			if(a!=-1&&b!=-1)
-			{
-				switchrows(0,a,zmat);
-				switchrows(1,b==0?a:b,zmat);
-			}
-			else if(b!=-1)
-			{
-				i=0;
-				while(matlen(zmat,i)==size&&i<size)
-					i++;
-				switchrows(0,i,zmat);
-				switchrows(1,b==0?i:b,zmat);
-				addmat(zmat,0,valkey(k));
-			}
-			else if(a!=-1)
-			{
-				i=1;
-				while(matlen(zmat,i)==size&&i<size)
-					i++;
-				switchrows(0,a,zmat);
-				switchrows(1,i==0?a:i,zmat);
-				addmat(zmat,1,valkey(nebc[k]));
-			}
-			nebc[k]=-1;
-			i=2;
-			while(i<size)
-			{
-				bool run;
-				
-				run=true;
-				for(c=0;c<size;c++)
-				{
-					b=keyval(zmat[i-1][c]);
-					if(b!=-1&&nebc[b]!=-1)
-					{
-						a=findrow(valkey(nebc[b]),zmat);
-						if(a!=-1&&a>=i)
-						{
-							switchrows(a,i,zmat);
-							run=false;
-						}
-						nebc[b]=-1;
-					}
-				}
-				if(run&&i<size-1)
-				{
-					k=0;
-					while(nebc[k]==-1&&k<36)
-						k++;
-					a=findrow(valkey(k),zmat);
-					b=findrow(valkey(nebc[k]),zmat);
-					if(a!=-1&&b!=-1)
-					{
-						switchrows(i,a,zmat);
-						switchrows(i+1,b==i?a:b,zmat);
-					}
-					else if(b!=-1)
-					{
-						j=i;
-						while(matlen(zmat,j)==size&&j<size)
-							j++;
-						switchrows(i,j,zmat);
-						switchrows(i+1,b==i?j:b,zmat);
-						addmat(zmat,i,valkey(k));
-					}
-					else if(a!=-1)
-					{
-						j=i+1;
-						while(matlen(zmat,j)==size&&j<size)
-							j++;
-						switchrows(i,a,zmat);
-						switchrows(i+1,j==i?a:j,zmat);
-						addmat(zmat,i+1,valkey(nebc[k]));
-					}
-					if(k==36)
-						nebc[k]=-1;
-					for(k=0;k<oldm->t;k++)
-					{
-						if(str_in(oldm->tri[k].d+1,1,zmat[i],size)&&!str_in(oldm->tri[k].d,1,zmat[i-1],size)&&matlen(zmat,i-1)==size)
-						{
-							for(f=i+2;f<size;f++)
-							{
-								if(matlen(zmat,f)<size)
-								{
-									switchrows(i,f,zmat);
-									switchrows(i+1,f,zmat);
-									switchrows(i+2,f,zmat);
-									i++;
-									f=size;
-								}
-							}
-						}
-					}
-					i++;
-				}
-				i++;
-			}
-		}
-		for(j=0;j<size-1;j++)
-		{
-			for(i=0;i<size;i++)
-			{
-				if(zmat[j][i]!=0)
-				{
-					for(f=j+1;f<size;f++)
-					{
-						int a,b;
-						
-						for(a=0;a<size;a++)
-						{
-							for(b=0;b<spalten[keyval(zmat[j][i])][0];b++)
-							{
-								if(spalten[keyval(zmat[j][i])][b+1]==keyval(zmat[f][a]))
-								{
-									char c;	
-									
-									c=zmat[f][i];
-									zmat[f][i]=zmat[f][a];
-									zmat[f][a]=c;
-									a=b=100;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		k=0;
-		while(nebr[k]==-1&&k<36)
-			k++;
-		if(k<36)
-		{
-			char a,b,c;
-			
-			a=findcol(valkey(k),zmat);
-			b=findcol(valkey(nebr[k]),zmat);
-			if(a!=-1&&b!=-1)
-			{
-				switchcols(0,a,zmat);
-				switchcols(1,b==0?a:b,zmat);
-			}
-			nebr[k]=-1;
-			i=2;
-			while(i<size)
-			{
-				bool run;
-				
-				run=true;
-				for(c=0;c<size;c++)
-				{
-					b=keyval(zmat[c][i-1]);
-					if(nebr[b]!=-1&&b!=-1)
-					{
-						a=findcol(valkey(nebr[b]),zmat);
-						if(a!=-1&&a>=i)
-						{
-							switchcols(a,i,zmat);
-							run=false;
-						}
-						nebr[b]=-1;
-					}
-				}
-				if(run&&i<size-1)
-				{
-					k=0;
-					while(nebr[k]==-1&&k<36)
-						k++;
-					a=findcol(valkey(k),zmat);
-					b=findcol(valkey(nebr[k]),zmat);
-					if(a!=-1&&b!=-1)
-					{
-						switchcols(i,a,zmat);
-						switchcols(i+1,b==i?a:b,zmat);
-					}
-					if(k<36)
-						nebr[k]=-1;
-					i++;
-				}
-				i++;
-			}
-		}
-		ana_addtri(oldm->tri,oldm->t,zmat,true);
-		ana_addqua(oldm->qua,oldm->q,zmat);
-		ana_addtri(oldm->tri,oldm->t,zmat,true);
-		ana_addqua(oldm->qua,oldm->q,zmat,true);
-		for(i=0;i<37;i++)
-			tmp[i]=0;
-		for(i=0;i<size*size;i++)
-			tmp[keyval(zmat[i/size][i%size])+1]++;
-		f=0;
-		
-		for(i=0;i<size*size;i++)
-		{
-			if(zmat[i/size][i%size]==0)
-			{
-				while(tmp[f+1]!=0)
-					f++;
-				zmat[i/size][i%size]=valkey(f++);
-			}
-		}
-		for(i=0;i<size;i++)
-		{
-			for(f=0;f<size;f++)
-			{
-				oldm->matrix[(i*6)+f]=zmat[i][f];
-			}
-		}
-	}
-	while(tnum++<10&&memcmp(tmat,zmat,36)!=0);
-	return 0;
-}
-
-void Playfair::movechar(int i,char *a)
-{
-	char tmp[6];
-	int j;
-
-	for (j=0;j<size;j++)
-		tmp[(j+i+size)%size]=a[j];
-	for (j=0;j<size;j++)
-		a[j]=tmp[j];
-}
-
-int Playfair::findcol(char a,char b[6][6])
-{
-	int i;
-
-	if(a==0)
-		return -1;
-	for(i=0;i<36;i++)
-	{
-		if(a==b[i/6][i%6])
-			return i%6;
-	}
-	return -1;
-}
-
-void Playfair::switchrows(int k,int l,char b[6][6])
-{
-	char a[6];
-
-	if(l==k)
-		return;
-	strncpy(a,b[k],6);
-	strncpy(b[k],b[l],6);
-	strncpy(b[l],a,6);
-}
-
-void Playfair::switchcols(int k,int l,char b[6][6])
-{
-	char c;
-	int i;
-
-	if(l==k)
-		return;
-	for(i=0;i<6;i++)
-	{
-		c=b[i][k];
-		b[i][k]=b[i][l];
-		b[i][l]=c;
-	}
-}
-
-int Playfair::findrow(char a,char b[6][6])
-{
-	int i;
-
-	if(a==0)
-		return -1;
-	for(i=0;i<36;i++)
-	{
-		if(a==b[i/6][i%6])
-			return i/6;
-	}
-	return -1;
-}
-
-int Playfair::navmatrix(int pos,int x,int y)
-{
-	int i,j;
-
-	j=pos/size;
-	i=pos%size;
-	return ((i+x)%size)+((j+y)%size)*6;
-}
-	
-int Playfair::str_in(char *in,int s,char *str,int l)
-// wieviele Buchstaben von in tauchen mindestens einmal in str auf
-{
-	int i,j,ret;
-	
-	ret=0;
-	for (i=0;i<s;i++)
-	{
-		for (j=0;j<l;j++)
-		{
-			if(in[i]==str[j])
-			{
-				ret++;
-				break;
-			}
-		}
-	}
-	return ret;
-}
-*/

@@ -110,8 +110,8 @@ public:
 */
         bool isinset(playfair_set set, playfair_letter *s);
         //bool forall_row(<nicht spezifiziert> callroutine);
-        void insert2set(playfair_set set, playfair_letter *s);
-        void setNeighbour(playfair_neighbour pos, playfair_letter *s);
+        void insert2set(playfair_set set, playfair_letter *s, int pos=-1);
+        void setNeighbour(playfair_neighbour pos, playfair_letter *s, int lpos);
         void printdata(char *buffer);
 		void getNeighboursString(char *s, int slen);
 		void getRowString(char *s, int slen);
@@ -329,7 +329,7 @@ class playfair_arrinfo {
 public:
         int missing;
         int test_rule(playfair_data d);
-        playfair_charinfo c[MAXDIM*MAXDIM];
+        playfair_charinfo c[MAXDIM*MAXDIM+1];
         char possible[MAXDIM][MAXDIM];
         char m[MAXDIM][MAXDIM];
         char dirty;
@@ -567,11 +567,12 @@ private:
 class playfair_error
 {
 public:
-	playfair_error(int i, playfair_letter* thisletter=NULL) : my_code(i), my_letter(thisletter) {}
+	playfair_error(int code, int pos, playfair_letter* thisletter=NULL) : my_code(code), my_position(pos), my_letter(thisletter) {}
 	int getCode () { return my_code; }
+	int getPosition () { return my_position; }
 	playfair_letter* getLetter () { return my_letter; }
 private:
-	int my_code;
+	int my_code, my_position;
 	playfair_letter* my_letter;
 };
 
