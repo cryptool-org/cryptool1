@@ -3154,9 +3154,8 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	//die Anzahl der Zeichen in der gekürzten Datei werden gezählt und in cnt gespeichert
 
 	t[cnt] = 0;
-	//am Ende der Datei soll ein EOF Zeichen ('0') stehen, um das Ende der Datei zu markieren
 
-	if(  false == test.eof() )
+	if(  !test.eof() )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_DateilaengeZuLang,pc_str,100);
 		char tmpstr[128];
@@ -3168,24 +3167,9 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	test.close();
 	// Die temporäre Datei wird wieder geschlossen
 
-	HashDlg.m_strText="";
-	// Initialisierung (zur Sicherheit)
-
-	for (int i=0; t[i]!=0;i++)
-	{
-		/*if(t[i]=='\n')
-		{
-			HashDlg.m_strText += "\r\n";	
-			
-		}
-		else*/
-		{
-			HashDlg.m_strText += t[i];
-			//an HashDlg.m_strText wird t[i] drangehängt
-		}
-	}
-
-	if ( HashDlg.m_strText.GetLength() == 0 )
+	HashDlg.m_strText = t;
+	
+	if ( strlen(t)  == 0 )
 	// Wenn die Länge des String 0 ist, dann wird eine Fehlermeldung ausgegeben
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_Hashdemo_KeineWerteGefunden,pc_str,100);

@@ -19,7 +19,6 @@ CDlgHashDemo::CDlgHashDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHashDemo::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgHashDemo)
-	m_strText = _T("");
 	m_rb_DarstHW = 1;
 	m_Auswahl_HW = 0;
 	m_strOrigHash = _T("");
@@ -35,10 +34,10 @@ void CDlgHashDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHashDemo)
+	DDX_Control(pDX, IDC_EDIT_TEXT, m_ctrlText);
 	DDX_Control(pDX, IDC_RICHEDIT_HASHDIFF, m_ctrlHashDiff);
 	DDX_Control(pDX, IDC_EDIT_ORIGHASH, m_ctrlOrigHash);
 	DDX_Control(pDX, IDC_EDIT_AKTHASH, m_ctrlNewHash);
-	DDX_Text(pDX, IDC_EDIT_TEXT, m_strText);
 	DDX_Radio(pDX, IDC_RADIO_DEC, m_rb_DarstHW);
 	DDX_Radio(pDX, IDC_RADIO_MD2, m_Auswahl_HW);
 	DDX_Text(pDX, IDC_EDIT_ORIGHASH, m_strOrigHash);
@@ -97,6 +96,7 @@ BOOL CDlgHashDemo::OnInitDialog()
 	//GetWindowText(leisteText);
 	//gibt den Titel des Editfenstern zurück, leiste Text würd per Referenzübergabe übergeben
 		
+	m_ctrlText.SetWindowText(m_strText);
 	OnChangeEditText();
 	// SetRed();
 	//farbige Darstellung der Differenz 
@@ -420,15 +420,13 @@ void CDlgHashDemo::OnChangeEditText()
 	***************************************************/
 	long MAX_LAENGE_STRTEXT=16000;
     //m_strNewHash
+	CString text;
+	m_ctrlText.GetWindowText(text);
 	m_Messg=new OctetString;
 
-	LPTSTR m_LPTText = new TCHAR[m_strText.GetLength()+1];
-	_tcscpy(m_LPTText, m_strText);
-	//Umkonvertieren des Inhalts vom CString m_strText in ein LPTSTR (m_LPTText)
-
-	m_Messg->octets=m_LPTText;
-	int strlaenge=m_strText.GetLength ();
-	m_Messg->noctets=strlaenge;
+	m_Messg->octets = (LPTSTR)(LPCTSTR)text;
+	int strlaenge = text.GetLength();
+	m_Messg->noctets = strlaenge;
 
 	/*************************************
 	bearbeiten
@@ -462,7 +460,6 @@ void CDlgHashDemo::OnChangeEditText()
 	}
 
 	delete m_Messg;
-	delete m_LPTText;
 	UpdateData(false);	
 	SetRed();
 

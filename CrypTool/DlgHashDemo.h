@@ -34,16 +34,17 @@ public:
 	OctetString m_sndHashMD2;
 	OctetString m_hashMD2,m_hashMD5, m_hashSHA;
 	OctetString *msg;
+	CString m_strText; // initial content of m_ctrlText;
 	void SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA);
 	CDlgHashDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHashDemo)
 	enum { IDD = IDD_HASH_DEMO };
+	CEdit	m_ctrlText;
 	CRichEditCtrl	m_ctrlHashDiff;
 	CEdit	m_ctrlOrigHash;
 	CEdit	m_ctrlNewHash;
-	CString	m_strText;
 	CFont m_font;
 	int		m_rb_DarstHW;
 	int		m_Auswahl_HW;
