@@ -499,7 +499,7 @@ bool Ber_Ell_Kurve::get_curve(ofstream& ofile, Big r, Big ord, int D, Big p, Big
             {
 //				Failed MOV condition
 //				finding a nearly prime order
-                LoadString(AfxGetInstanceHandle(),IDS_STRING37108,pc_str,STR_LAENGE_STRING_TABLE);
+                LoadString(AfxGetInstanceHandle(),IDS_SEEK_NEXT_PRIME,pc_str,STR_LAENGE_STRING_TABLE);
 				sprintf(line,pc_str);
 				AfxMessageBox(line);
 				return FALSE;

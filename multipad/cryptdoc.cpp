@@ -18,14 +18,10 @@
 #include "zzahlanalyse.h"
 #include "DlgPrimesGenerator.h"
 #include "Dlg_homophone.h"
-<<<<<<< cryptdoc.cpp
 #include "GenEcKurve.h"
 #include "Dlg_Faktorisieren.h"
 #include "Dlg_Schluessel_gen.h"
-
-=======
 #include "AnalyseNGram.h"
->>>>>>> 1.6
 #include "DlgSignExtract.h" // für OnCryptExtract
 #include "DlgGenRandomData.h"
 

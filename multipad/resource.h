@@ -65,13 +65,12 @@
 #define IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN 226
 #define IDD_DIALOG_HOMOPHONE            227
 #define IDD_DIALOG_GEN_EC_KURVE         228
+#define IDD_DIALOG_GEN_RANDOMDATA       229
+#define IDD_RANDOM_PARAMETER_SECUDE     230
 #define IDD_DIALOG_Faktorisieren        231
 #define IDD_DIALOG_Schluessel_gen       232
 #define IDD_DIALOG_RSA_KLEIN            235
-
 #define IDD_DIALOG_ANALYSE_NGRAM        237
-#define IDD_DIALOG_GEN_RANDOMDATA       229
-#define IDD_RANDOM_PARAMETER_SECUDE     230
 #define IDD_RANDOM_PARAMETER_X2_MOD_N   238
 #define IDD_ABOUTBOX                    512
 #define IDD_DIALOG_KEY_CREAT_ASYM       515
@@ -488,6 +487,14 @@
 #define IDS_STRING37001                 37001
 #define IDS_STRING37002                 37002
 #define IDS_STRING37003                 37003
+#define IDS_STRING37004                 37004
+#define IDS_STRING37005                 37005
+#define IDS_STRING37006                 37006
+#define IDS_STRING_NGRAM_LIST1          37007
+#define IDS_STRING_NGRAM_LIST2          37008
+#define IDS_STRING_NGRAM_LIST3          37009
+#define IDS_STRING_RAND_SECUDE          37010
+#define IDS_SEEK_NEXT_PRIME             37011
 #define IDS_STRING37100                 37100
 #define IDS_STRING37101                 37101
 #define IDS_STRING37102                 37102
@@ -505,15 +512,6 @@
 #define IDS_STRING37114                 37114
 #define IDS_STRING37115                 37115
 #define IDS_STRING37116                 37116
-=======
-#define IDS_STRING37004                 37004
-#define IDS_STRING37005                 37005
-#define IDS_STRING37006                 37006
-#define IDS_STRING_NGRAM_LIST1          37007
-#define IDS_STRING_NGRAM_LIST2          37008
-#define IDS_STRING_NGRAM_LIST3          37009
-#define IDS_STRING_RAND_SECUDE          37010
->>>>>>> 1.10
 #define IDS_STRING41405                 41405
 #define IDS_STRING41406                 41406
 #define IDS_STRING41407                 41407
@@ -792,7 +790,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        239
 #define _APS_NEXT_COMMAND_VALUE         32944
 #define _APS_NEXT_CONTROL_VALUE         1220
-
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
