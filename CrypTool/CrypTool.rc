@@ -2400,7 +2400,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_TXT,26,338,503,94,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Oval2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,306,279,50,14
+                    BS_BITMAP | WS_TABSTOP,298,279,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
                     268,52,39
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
@@ -4870,7 +4870,7 @@ BEGIN
     IDS_STRING_HYBRID_ENC_ASYM_ENC_KEY 
                             "Session Key, asymmetrisch verschlüsselt mit dem Public-Key des Empfängers::"
     IDS_STRING_HYBRID_DEC_MSG9 
-                            "Die Eingabe ist keine Hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
+                            "Die Eingabe ist keine hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
     IDS_STRING_HYBRID_DEC_MSG10 "Sie haben das falsche Zertifikat gewählt!"
     IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Öffentlicher Schlüssel von:"
     IDS_STRING_ZERT_DATEN2  "Ihre Zertifikatsdaten:"
@@ -8025,7 +8025,7 @@ BEGIN
     CONTROL         "Oval1_G_",IDCANCEL,"Button",BS_OWNERDRAW | BS_BITMAP | 
                     WS_TABSTOP,12,224,94,14
     CONTROL         "OVAL2_X_",IDC_BUTTON_DATENAUSGABE,"Button",BS_OWNERDRAW | 
-                    BS_BITMAP | WS_TABSTOP,308,287,50,14
+                    BS_BITMAP | WS_TABSTOP,300,287,50,14
     CONTROL         534,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,245,
                     273,52,39
     CONTROL         535,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,399,
