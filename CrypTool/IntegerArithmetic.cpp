@@ -31,6 +31,11 @@ if ( Precheck() ) { dlg.ExitSchedule(m_Ordinal); return true;}
 #endif
 
 
+//////////////////////////////////////////////////////////////////////
+// Approximiert den Logarithmus zur Basis 2 der Zahl N mit Hilfe der 
+// Bitlängen-Funktion bits(N) 
+//
+
 double approxLog2(Big &N)
 {
 	int b = bits(N);
@@ -51,6 +56,11 @@ double approxLog2(Big &N)
 }
 
 
+/////////////////////////////////////////////////////////////////////////
+// Logarithmus zur Basis 2 für eine als String repräsentierte Zahl
+// Siehe obige Funktion approxLog2()
+//
+
 double  BitLength( CString &number, int base )
 {
 	Big t;
@@ -58,10 +68,12 @@ double  BitLength( CString &number, int base )
 	return approxLog2(t);
 }
 
+
 /////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
+// GetNumber extrahiert aus dem CString Formula ab dem Index "ndx" einen 
+// Zahlenstring zur Basis base. Danach wird der Index "ndx" um die Anzahl der
+// ausgewerteten Ziffern erhöht. Der Zahlenstring wird im CString number 
+// zurückgegeben
 
 BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx )
 {
@@ -92,6 +104,15 @@ BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx )
 	}
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+// CheckFormula überprüft die Formeldarstellung für eine Zahl auf syntaktische 
+// Korrektheit und vereinfacht ausdrücke wie "++-" nach "-". Wenn sich aus der 
+// Formel eine Zahl berechnen lässt, wird der neu formatierte String in der 
+// variablen Formula mit dem Funktionswert TRUE zurückgegeben. 
+// Andernfalls ist der Funktionswert FALSE, und die Poition, wo der Fehler 
+// bei der Auswertung aufgetreten ist, wird in der Variablen ndx (Fehlerindex)
+// übergeben. 
 
 BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
 {
@@ -260,6 +281,9 @@ BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// Wandelt eine als CString repräsentierte Zahl in eine Big-Zahl um.
+// 
+
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 {
 	int i=0;
@@ -278,6 +302,11 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 	delete []tmp;
 	return success;
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// Berechnet den Formelausdruck für eine Zahl (Variable CStrExpr) und speichert 
+// diese Zahl als CString in der Variablen CStrExpr. 
 
 BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber)
 {
@@ -298,7 +327,7 @@ BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber)
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Nur temporär & lokal definiert
+// Nur temporär & lokal definiert, check auf ch \in {<SPACE>, <TAB>, <NL>, <CR>}
 
 inline
 BOOL NewLineTabSpace( char ch )
@@ -308,9 +337,12 @@ BOOL NewLineTabSpace( char ch )
 
 
 /////////////////////////////////////////////////////////////////////////////////
+// Rückgabe ist TRUE, wenn die Eingabe eine Folge (getrennt durch <Space>, "," 
+// oder "#") von Zahlen ist. Die Eingabe CStr wird formatiert:
+// "Zahl_1 # Zahl_1 # .... # Zahl_n" 
 //
-// return true if the INPUT is a stream of Numbers + formats the INPUT
-//
+// Beipiel: Eingabe "32DFE4 4EA5,445 67EF45a", 16
+//          Ausgabe "32DFE4 # 4EA5 # 445 # 67EF45A"
 
 int IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList )
 {
@@ -399,10 +431,11 @@ int IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList )
 	return newNumberBase;
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////
+// Konvertiert eine char* repräsentierte Zahl in eine Big-Zahl
 // 
-// converts DigitString to a Big Number
-// 
+
 int StringToBig( const char* StrNumber, Big &t, int base )
 {
 	char *tmp;
@@ -429,8 +462,10 @@ int CStringToBig( CString &CStrNumber, Big &t, int base )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
-//
-// decodes a number to a block of ascii-characters / characters of an selected Alphabet
+// Dekodiert eine als char* repräsentierte Zahl in eine Folge von Zeichen aus dem Buchstaben-
+// Vorrat des des übergebenen Alphabetes und speichert das bestimmte Wort in der Variablen
+// Data ab. Da bei der Kodierung auch in die Zahl Null kodiert wird, ist für die korrekte 
+// Dekodierung die Variable blockLength nötig.
 // 
 
 int decode( const char *StrNumber, char *data, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
@@ -472,8 +507,8 @@ int decode( CString &CStringNumber, char *data, int blockLength, int numberBase,
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//  converts a Big Number to a string 
+// Konvertiert eine Big-Zahl in die char* Darstellung (Zahlen zur Basis base).
+// Die Ausgabe wird mit Nullen bis zur Länge OutLength aufgefüllt
 // 
 
 void BigToString(const Big&t, char *NumStr, int base, size_t OutLength)
@@ -498,6 +533,10 @@ void BigToCString(const Big &t, CString &NumCStr, int base, size_t OutLength )
     NumCStr = tmpStr;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// Wechselt die Basisdarstellung der Zahlen von baseFrom nach baseTo
+//
+
 void BaseRepr( CString &StrNum, int baseFrom, int baseTo)
 {
 	Big t;
@@ -506,11 +545,12 @@ void BaseRepr( CString &StrNum, int baseFrom, int baseTo)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//  encode an ASCII string of length "blockLength" into a Number represented as character string
-// 
+// Kodiert die Eingabe data: ein Octet-String oder einen Text mit Zeichen aus 
+// CPlayfairAlphabet in eine Zahlenfolge ("Zahl_1 # Zahl_2 # ... # Zahl_n"). 
+// Die Eingabe wird dabei Zunächst in Segmenten der Länge blockLength aufgeteilt.
 
-void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
+void encode( const char *data, char *numStr, int blockLength, int numberBase, 
+			 BOOL basisSystem, const char *CPlayfairAlphabet )
 {
 	Big tmp = 0;
 	size_t outLength = 0;
@@ -531,15 +571,22 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase, BO
 	}
    	for ( i=0; i<blockLength; i++ )
 	{
-    	if ( CPlayfairAlphabet ) for ( j=0; j < modul && data[i] != CPlayfairAlphabet[j]; ) j++;
-       	else            j = (unsigned char)data[i];
+    	if ( CPlayfairAlphabet )
+		{
+			for ( j=0; j < modul && data[i] != CPlayfairAlphabet[j]; ) j++;
+		}
+       	else            
+		{
+			j = (unsigned char)data[i];
+		}
     	tmp *=modul;
        	tmp += j;
    	}
 	BigToString( tmp, numStr, numberBase, outLength );
 }
 
-void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
+void encode( const char *data, CString &numCStr, int blockLength, int numberBase, 
+			 BOOL basisSystem, const char *CPlayfairAlphabet )
 {
     char *tmp;
     tmp = new char[MAX_BIT_LENGTH];
@@ -547,6 +594,10 @@ void encode( const char *data, CString &numCStr, int blockLength, int numberBase
     numCStr = tmp;
     delete []tmp;
 }
+
+////////////////////////////////////////////////////////////////////////////////////
+// Wählt randomisiert eine zu StrNum (mod Modul) äquivalente Zahl. 
+//
 
 void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval, int ofs )
 {
@@ -556,7 +607,6 @@ void RandRepr( CString &StrNum, int Modul, int numberBase, int randInterval, int
 	BigToCString( t, StrNum, numberBase );
 }
 
-
 void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval, int ofs )
 {
 	Big t, Modul;
@@ -565,6 +615,10 @@ void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterv
 	t = t + ofs + ((rand() % randInterval)*Modul);
 	BigToCString( t, StrNum, numberBase );
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+// Umkehrung von RandRepr(..)
+// 
 
 void ModRepr ( CString &StrNum, CString StrModul, int numberBase, int ofs )
 {
@@ -583,9 +637,11 @@ void ModRepr ( CString &StrNum, int Modul, int numberBase, int ofs )
 	BigToCString( t, StrNum, numberBase );
 }
 
+
 //////////////////////////////////////////////////////////////////////
-// Private Funktionen
-//////////////////////////////////////////////////////////////////////
+// Berechnet eine Zufallszahl aus dem Bereich [lower, upper]
+//
+
 void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 {
 	r=lower;
@@ -597,12 +653,11 @@ void RandomWithLimits(Big &r, const Big &lower, const Big &upper)
 
 
 //////////////////////////////////////////////////////////////////////
-// EVALUATE
-//////////////////////////////////////////////////////////////////////
+// Berechnet die Zahl zur Formeldarstellung Str
+//
+
 static char *s;
 static Big  temp;
-
-
 
 BOOL evaluate::CEvalIntExpr( Big& value, const char * Str )
 {
@@ -715,7 +770,6 @@ LOOP:
 		{
 //			Error - invalid number
 			throw eval_err( EVAL_ERR_NUMBER_INVALID );
-			//return(false);
 		}
 		op=s[i];
 		s[i]=0;
@@ -772,7 +826,6 @@ LOOP:
 				{
 //					Error - invalid operator
 					throw eval_err( EVAL_ERR_OPERATOR_INVALID );
-					//return(false);
 				}
 			}
 		}
@@ -785,10 +838,10 @@ LOOP:
 //////////////////////////////////////////////////////////////////////
 // GeneratePrimes Klasse
 //////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// Primzahlen mit Hilfe von Zufallstests bestimmen ...
+// 
+// Die Klaesse GeneratePrimes hat verschiedene randomisierte Tests 
+// für Primzahelen implementiert
 
 GeneratePrimes::GeneratePrimes()
 {
@@ -802,6 +855,9 @@ GeneratePrimes::~GeneratePrimes()
 {
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Setzt den Wertebereich, wo Primzahlen gefunden werden 
+//
 
 BOOL GeneratePrimes::SetLimits(const Big &LowerLimit, const Big &UpperLimit )
 {
@@ -834,21 +890,24 @@ int GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
 	BOOL Out_Set_Lim;
 	Out_Set_Lim = SetLimits( LowerLimit, UpperLimit );
 		
-	//Eingabe sind OK
 	if (Out_Set_Lim) return 1;
 	//UpperLimit>LowerLimit
-	else return 0;
+	else return 0;  //Eingabe sind OK
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Solvay-Strassen Test
 
 BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 {
 	if ( p <= 10 )
-	{
+	{  // Für Zahlen <= 10 erfolgt die Auswertung über die PZ-Tabelle
 		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
 	else
-	{
+	{  // Pre-Computing ...
 		if ( 0 == p % 2 || 0 == p % 3 ||
 			 0 == p % 5 || 0 == p % 7 ||
 			 0 == p % 11 || 0 == p % 13 ||
@@ -883,16 +942,20 @@ BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 }
 
 
+///////////////////////////////////////////////////////////////////////////////
+// Miller-Rabin Test
+//
+
 BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 {
 	if ( p <= 40 )
-	{
+	{ // Für Zahlen <= 40 erfolgt die Auswertung über die PZ-Tabelle
 		if ( 2 == p || 3 == p  || 5 == p || 7 == p || 11 == p || 13 == p || 17 == p || 
 			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
 	else
-	{
+	{  // pre-computing ....
 		if ( 0 == p % 2 || 0 == p % 3 ||
 			 0 == p % 5 || 0 == p % 7 ||
 			 0 == p % 11 || 0 == p % 13 ||
@@ -938,15 +1001,19 @@ BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////
+// Fermat Test
+//
+
 BOOL GeneratePrimes::FermatTest(unsigned long probabilityThreshold)
 {
 	if ( p <= 10 )
-	{
+	{ // Für Zahlen <= 10 erfolgt die Auswertung über die PZ-Tabelle
 		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
 		else                                        Error |= GP_ERROR_NOPRIME;
 	}
 	else
-	{
+	{  // pre computing ....
 		if ( 0 == p % 2 || 0 == p % 3 ||
 			 0 == p % 5 || 0 == p % 7 ||
 			 0 == p % 11 || 0 == p % 13 ||
@@ -969,6 +1036,11 @@ BOOL GeneratePrimes::FermatTest(unsigned long probabilityThreshold)
 	return ( 0 == (Error &= GP_ERROR_NOPRIME) );
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////
+// Rückgabe der gefundenen Primzahl (FALSE, wenn keine PZ bestimmte werden konnte.
+//
+
 BOOL GeneratePrimes::GetPrime(Big &prime)
 {
 	if (! Error ) prime = p;
@@ -983,6 +1055,10 @@ BOOL GeneratePrimes::GetPrime(CString &primeStr)
 	return ( 0 == Error );
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////
+// Zahlenwert P (von aussen/randomisiert) Setzen (für PZ-Test)
+//
 
 void GeneratePrimes::SetP(Big &Number)
 {
@@ -1011,6 +1087,10 @@ BOOL GeneratePrimes::RandP()
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////
+// Test ob P eine Blum-Zahl ist.
+//
+
 BOOL GeneratePrimes::IsBlumNumber()
 {
 	if (Error &= GP_ERROR_NOPRIME )
@@ -1028,10 +1108,9 @@ BOOL GeneratePrimes::IsBlumNumber()
 //////////////////////////////////////////////////////////////////////
 // CRSADemo Klasse
 //////////////////////////////////////////////////////////////////////
+// RSA-Berechnungen mit integer-Zahlen ausführen
+//
 
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
 
 CRSADemo::CRSADemo()
 {
@@ -1043,27 +1122,10 @@ CRSADemo::~CRSADemo()
 
 }
 
-/*
-int CRSADemo::InitParameter( Big &p, Big &q )
-{
-	isInitialized_N = isInitialized_e = isInitialized_d = false;
-	if ( !prime( p ) ) return ERR_P_NOT_PRIME;
-	if ( !prime( q ) ) return ERR_Q_NOT_PRIME;
-	if (p==q) return ERR_P_EQUALS_Q;
-	int l1,l2;
-	l1=bits(p);
-	l2=bits(q);
-	if (l1+l2-1 > MAX_BIT_LENGTH) 
-	{
-	//	IsInitialised_N=false
-		return 1;
-	}
-	N = p*q;
-	phiOfN = (p-1)*(q-1);
-	isInitialized_N = true;
-	return 0;
-}
-*/
+/////////////////////////////////////////////////////////////////////////////////////
+// RSA mit eigenen Parametern: 
+// Das Kryptosystem mit den Primzahlen p und q unitialisieren
+// ACHTUNG entsprechende Fehlerrückgabe
 
 int CRSADemo::InitParameter( Big &p, Big &q )
 {
@@ -1085,8 +1147,6 @@ int CRSADemo::InitParameter( Big &p, Big &q )
 	return 0;
 }
 
-
-
 int CRSADemo::InitParameter( CString &pStr, CString &qStr, int base )
 {
 	Big p, q;
@@ -1099,6 +1159,11 @@ int CRSADemo::InitParameter( CString &pStr, CString &qStr, int base )
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////
+// Nachdem da RSA-ystem mit dem Primzahlen p und q initialisert wurde fehlt
+// noch der öffentliche Schlüssel, der Teilerfremd zu Phi(N) = (p-1)*(q-1) sein 
+// muss.
+// 
 int CRSADemo::SetPublicKey ( Big &E )
 {
 	int ausgabe;
@@ -1125,6 +1190,29 @@ int CRSADemo::SetPublicKey ( CString &eStr, int base )
 	return SetPublicKey( E );
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////
+// Berechnen des geheimen RSA-Schlüssels aus phi(N) und e
+//
+BOOL CRSADemo::SetPrivateKey()
+{
+	isInitialized_d = false;
+	if ( isInitialized_N && isInitialized_e )
+	{
+		d = inverse( e, phiOfN );
+		isInitialized_d = true;
+	}
+	else
+	{
+		d = 0;
+	}
+	return isInitialized_d;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// RSA mit dem veröffentlichten öffentlichen Schlüssel
+//
+
 int CRSADemo::SetPublicParameter( CString &NStr, CString &eStr )
 {
 	Big loc_E, loc_N;
@@ -1146,6 +1234,11 @@ int CRSADemo::SetPublicParameter( CString &NStr, CString &eStr )
 	isInitialized_d = false;
 	return 0;
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Parameter zu dem aktuell gewählten RSA-Schlüsel
+//
 
 BOOL CRSADemo::GetPublicParameter( CString &NStr, CString &eStr )
 {
@@ -1173,21 +1266,6 @@ BOOL CRSADemo::GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig )
 }
 
 
-BOOL CRSADemo::SetPrivateKey()
-{
-	isInitialized_d = false;
-	if ( isInitialized_N && isInitialized_e )
-	{
-		d = inverse( e, phiOfN );
-		isInitialized_d = true;
-	}
-	else
-	{
-		d = 0;
-	}
-	return isInitialized_d;
-}
-
 int  CRSADemo::GetBlockLength()
 {
 	return bits(N)-1;
@@ -1197,6 +1275,11 @@ double CRSADemo::GetLog2RSAModul()
 {
 	return approxLog2(N);
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// RSA-Verschlüsseln mit den Öffentlichen Parametern e und N
+//
 
 BOOL CRSADemo::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 {
@@ -1212,19 +1295,10 @@ BOOL CRSADemo::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 	}
 }
 
-int  CRSADemo::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
-{
-	// CiphertextBlock = CiphertextBlock % N;
-	if ( IsInitialized() && CiphertextBlock < N )
-	{
-		PlaintextBlock = pow( CiphertextBlock, d, N);
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
+
+///////////////////////////////////////////////////////////////////////////////////////
+// RSA-Verschlüsselung von einer Sequenz von Zahlen
+//
 
 int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL DlgOfSisters )
 {
@@ -1269,6 +1343,29 @@ int  CRSADemo::Encrypt( CString &Plaintext,  CString &Ciphertext, int base, BOOL
 	}
 	return 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+// RSA Entschlüsseln mit dem Modul N und dem geheimen Schlüssel d
+//
+
+int  CRSADemo::Decrypt( Big &CiphertextBlock, Big &PlaintextBlock )
+{
+	// CiphertextBlock = CiphertextBlock % N;
+	if ( IsInitialized() && CiphertextBlock < N )
+	{
+		PlaintextBlock = pow( CiphertextBlock, d, N);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// RSA-Entschlüsselung von einer Sequenz von Zahlen
+//
 
 BOOL CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL DlgOfSisters)
 {
@@ -1316,6 +1413,10 @@ BOOL CRSADemo::Decrypt( CString &Ciphertext, CString &Plaintext, int base, BOOL 
 	return 0;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+// Wenn nicht die RSA-Variante "Dialog der Schwestern" benutzt wird, dann
+// müssen alle Zahlen die mit RSA ver- oder entschlüsselt werden kleiner als
+// der RSA-Modul N sein.
 
 BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 {
@@ -1343,6 +1444,8 @@ BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 			if ( plain >= N )
 				return 2;
 		}
+		i1 = i2;
+		while (i1 < Input.GetLength() && (Input[i1] == ' ' || Input[i1] == '#') ) i1++;
 		// Besonderheit: Dialog der Schwestern
 	}
 	return 0;
@@ -1351,14 +1454,15 @@ BOOL CRSADemo::PreCheckInput( CString &Input, int base, BOOL DlgOfSisters  )
 //////////////////////////////////////////////////////////////////////
 // CTutorialFactorisation Klasse
 //////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// Algorithmen zur Faktorisierung von Zahlen. Die Algorithmen wurden
+// von den Beispielimplementierungen der MIRACL Bibliothek übernommen
+// und für die MFC CrypTool-Implementierung angepasst.
+// Die Klasse ist "multithread"-implementiert. Wobei manuell ein
+// Zeitscheibenmanagement implementiert wurde (siehe 
+// DlgProgressFactorisation.{cpp|h}).
 
 CTutorialFactorisation::CTutorialFactorisation()
 {
-//	mip = &g_precision;
 	ww = NULL;
 	zz = NULL;
 	yy = NULL;
@@ -1402,11 +1506,9 @@ CTutorialFactorisation::CTutorialFactorisation(int ordinal, CString name)
 
 	m_Ordinal = ordinal;
 	m_Name = name;
-//	mip = &g_precision;
 	status = 0;
 	factorized = false;
 }
-
 
 
 CTutorialFactorisation::~CTutorialFactorisation()
@@ -1443,6 +1545,11 @@ CTutorialFactorisation::~CTutorialFactorisation()
 	ww = xx = yy = zz = NULL;
 }
 
+
+////////////////////////////////////////////////////////////////////////
+// Test, ob die als String (Zahl zur Basis 10) repräsentierte Zahl prim 
+// ist.
+
 BOOL CTutorialFactorisation::IsPrime(CString &Num)
 {
 	set_mip(mip);
@@ -1450,6 +1557,11 @@ BOOL CTutorialFactorisation::IsPrime(CString &Num)
 	CStringFormulaToBig( Num, tmpN );
 	return ( prime( tmpN ) );
 }
+
+
+//////////////////////////////////////////////////////////////////////////
+// Rückgabe ist TRUE, wenn N aus {0,1, {Primzahlen}, {gerade Zahlen}}
+// Im Fall gerader Zahlen wird die Faktorisierung N = (N/2)*2 berechnet.
 
 BOOL CTutorialFactorisation::Precheck()
 {
@@ -1478,6 +1590,10 @@ BOOL CTutorialFactorisation::Precheck()
 	return false;
 }
 
+
+//////////////////////////////////////////////////////////////////////
+// Brute-Force auf Primzahlen kleiner als LIMIT. 
+
 BOOL CTutorialFactorisation::BruteForce()
 {    
 	set_mip(mip);
@@ -1486,8 +1602,6 @@ BOOL CTutorialFactorisation::BruteForce()
 	gprime(LIMIT1); /* generate all primes < LIMIT */
 
 	int n,p;
-//	miracl *
-//	mip = &g_precision;
 
 	n=0;
 	p=mip->PRIMES[0];
@@ -1514,6 +1628,10 @@ BOOL CTutorialFactorisation::BruteForce()
 	return false;	
 }
 
+
+//////////////////////////////////////////////////////////////
+// Faktorisierung nach dem Brent-Verfahren
+//
 
 BOOL CTutorialFactorisation::Brent()
 {
@@ -1573,10 +1691,14 @@ BOOL CTutorialFactorisation::Brent()
 	return true;
 }
 
+
+////////////////////////////////////////////////////////////////////////
+// Faktorisierung nach Pollard
+
 void CTutorialFactorisation::marks(long start)
 {
 	/* mark non-primes in this interval. Note    *
-   * that those < NEXT are dealt with already  */
+     * that those < NEXT are dealt with already  */
     int i,pr,j,k;
     for (j=1;j<=MULT/2;j+=2) plus[j]=minus[j]=TRUE;
     for (i=0;;i++)
@@ -1644,27 +1766,16 @@ BOOL CTutorialFactorisation::Pollard()
     int phase,m,pos,btch;
     long i,pa;
     Big t;
-	//Big n;
-    //mip=&precision;
     gprime(LIMIT1);
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
-    //cout << "input number to be factored\n";
-    //cin >> n;
-    //if (prime(N))
-    //{
-        //cout << "this number is prime!\n";
-        //return true;
-    //}
     modulo(N);                    /* do all arithmetic mod n */
     phase=1;
     p=0;
     btch=50;
     i=0;
     b=2;
-    //cout << "phase 1 - trying all primes less than " << LIMIT1;
-    //cout << "\nprime= " << setw(8) << p;
     forever
     { /* main loop */
 		m_iterations++;
@@ -1676,8 +1787,6 @@ BOOL CTutorialFactorisation::Pollard()
             if (mip->PRIMES[i+1]==0)
             {
                 phase=2;
-                //cout << "\nphase 2 - trying last prime less than ";
-                //cout  << LIMIT2 << "\nprime= " << setw(8) << p;
                 next_phase_pollard();
                 btch*=100;
                 i++;
@@ -1701,7 +1810,6 @@ BOOL CTutorialFactorisation::Pollard()
         }
         if (i++%btch==0)
         { /* try for a solution */
-            cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
             t=gcd((Big)q,N);
             if (t==1)
             {
@@ -1710,27 +1818,24 @@ BOOL CTutorialFactorisation::Pollard()
             }
             if (t==N)
             {
-                //cout << "\ndegenerate case";
                 break;
             }
-            //if (prime(t))   cout << "\nprime factor      " << t;
-            //else            cout << "\ncomposite factor  " << t;
             N/=t;
 			factor1=t;
 			factor2=N;
-            //if (prime(N)) cout << "\nprime factor      " << n;
-            //else          cout << "\ncomposite factor  " << n;
 			factorized = true;
 			status |= THREAD_FACTORIZED;
 			THREAD_END;
             return true;
         }
     } 
-    //"\nfailed to factor\n";
 	THREAD_END;
     return false;
 }
 
+
+///////////////////////////////////////////////////////////////////
+// Faktorisierung nach der Williams-Methode
 
 void CTutorialFactorisation::next_phase_williams()
 {
@@ -1789,13 +1894,6 @@ BOOL CTutorialFactorisation::Williams()
     for (m=1;m<=MULT/2;m+=2)
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
-    //cout << "input number to be factored\n";
-    //cin >> n;
-    //if (prime(n))
-    //{
-        //cout << "this number is prime!\n";
-        //return 0;
-    //}
     modulo(N);                     /* do all arithmetic mod N */
     for (nt=0,k=3;k<10;k++)
     { /* try more than once for p+1 condition (may be p-1) */
@@ -1805,8 +1903,6 @@ BOOL CTutorialFactorisation::Williams()
         p=0;
         btch=50;
         i=0;
-        //cout << "phase 1 - trying all primes less than " << LIMIT1;
-        //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
 			m_iterations++;
@@ -1818,8 +1914,6 @@ BOOL CTutorialFactorisation::Williams()
                 if (mip->PRIMES[i+1]==0)
                 { /* now change gear */
                     phase=2;
-                    //cout << "\nphase 2 - trying last prime less than ";
-                    //cout << LIMIT2 << "\nprime= " << setw(8) << p;
                     next_phase_williams();
                     btch*=100;
                     i++;
@@ -1845,7 +1939,6 @@ BOOL CTutorialFactorisation::Williams()
             }
             if (i++%btch==0)
             { /* try for a solution */
-                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
                 t=gcd(q,N);
                 if (t==1)
                 {
@@ -1854,14 +1947,9 @@ BOOL CTutorialFactorisation::Williams()
                 }
                 if (t==N)
                 {
-                    //cout << "\ndegenerate case";
                     break;
                 }
-                //if (prime(t)) cout << "\nprime factor     " << t;
-                //else          cout << "\ncomposite factor " << t;
                 N/=t;
-                //if (prime(n)) cout << "\nprime factor     " << n;
-                //else          cout << "\ncomposite factor " << n;
 				factor1=t;
 				factor2=N;
 				factorized = true;
@@ -1871,14 +1959,15 @@ BOOL CTutorialFactorisation::Williams()
             }
         } 
         if (nt>=NTRYS) break;
-        //cout << "\ntrying again\n";
     }
-    //cout << "\nfailed to factor\n";
-    //return 0;
 	THREAD_END;
 	return false;
 }
 
+
+//////////////////////////////////////////////////////////////////////////
+// Faktorisierungsmethode nach Lenstra
+//
 
 void CTutorialFactorisation::duplication(ZZn sum, ZZn diff, ZZn &x, ZZn &z)
 {
@@ -2008,13 +2097,6 @@ BOOL CTutorialFactorisation::Lenstra()
     for (m=1;m<=MULT/2;m+=2) 
         if (igcd(MULT,m)==1) cp[m]=TRUE;
         else                 cp[m]=FALSE;
-    //cout << "input number to be factored\n";
-    //cin >> n;
-    //if (prime(N))
-    //{
-        //cout << "this number is prime!\n";
-        //return 0;
-    //}
     modulo(N);                 /* do all arithmetic mod n */
     for (nc=1,k=6;k<100;k++)
     { /* try a new curve */
@@ -2029,8 +2111,6 @@ BOOL CTutorialFactorisation::Lenstra()
         p=0;
         i=0;
         btch=50;
-        //cout << "phase 1 - trying all primes less than " << LIMIT1;
-        //cout << "\nprime= " << setw(8) << p;
         forever
         { /* main loop */
 			m_iterations++;
@@ -2042,8 +2122,6 @@ BOOL CTutorialFactorisation::Lenstra()
                 if (mip->PRIMES[i+1]==0)
                 { /* now change gear */
                     phase=2;
-                    //cout << "\nphase 2 - trying last prime less than ";
-                    //cout << LIMIT2 << "\nprime= " << setw(8) << p;
                     next_phase_lenstra();
                     btch*=100;
                     i++;
@@ -2067,7 +2145,6 @@ BOOL CTutorialFactorisation::Lenstra()
             }
             if (i++%btch==0)
             { /* try for a solution */
-                //cout << "\b\b\b\b\b\b\b\b" << setw(8) << p << flush;
                 t=gcd(q,N);
                 if (t==1)
                 {
@@ -2076,14 +2153,9 @@ BOOL CTutorialFactorisation::Lenstra()
                 }
                 if (t==N)
                 {
-                    //cout << "\ndegenerate case";
                     break;
                 }
-                //if (prime(t)) cout << "\nprime factor     " << t;
-                //else          cout << "\ncomposite factor " << t;
                 N/=t;
-                //if (prime(N)) cout << "\nprime factor     " << N;
-                //else          cout << "\ncomposite factor " << N;
 				factor1=t;
 				factor2=N;
 				factorized = true;
@@ -2093,17 +2165,14 @@ BOOL CTutorialFactorisation::Lenstra()
             }
         }
         if (nc>NCURVES) break;
-        //cout << "\ntrying a different curve " << nc << "\n";
     } 
-    //cout << "\nfailed to factor\n";
 	THREAD_END;
 	return false;
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////
-//
-// quadratic sieve
+// Faktorisierung nach der Methode Quadratisches Sieb
 //
 
 #define QS_INT_OVERFLOW     -114473
@@ -2488,9 +2557,7 @@ bool CTutorialFactorisation::gotcha(Big &NN, Big &P)
     if (found)
     { /* check for false alarm */
         P=XX+YY;
-//        cout << "\ntrying...\n";
         if (XX==YY || P==NN) found=false;
-//        if (!found) cout << "working... " << setw(4) << jj << flush;
     }
     return found;
 }
@@ -2693,10 +2760,8 @@ void CTutorialFactorisation::GetFactor2Str(CString &Factor2)
 //////////////////////////////////////////////////////////////////////
 // CRandomGenerator Klasse
 //////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// Pseudo-Zufalls Generatoren
+//
 
 CRandomGenerator::CRandomGenerator()
 {
@@ -2717,12 +2782,8 @@ BOOL CRandomGenerator::setSeed(CString &SeetStr)
 
 
 //////////////////////////////////////////////////////////////////////
-// CX2ModNGenerator Klasse
-//////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// X^2 (mod N) Generator
+//
 
 CX2ModNGenerator::CX2ModNGenerator()
 {
@@ -2732,7 +2793,6 @@ CX2ModNGenerator::CX2ModNGenerator()
 
 CX2ModNGenerator::~CX2ModNGenerator()
 {
-
 }
 
 BOOL CX2ModNGenerator::setModul( CString &NStr )
@@ -2747,7 +2807,6 @@ void CX2ModNGenerator::randomize()
 	RandNo  = pow( tmp, two, Modul_N );
 }
 
-
 long CX2ModNGenerator::randBit()
 {
 	randomize();
@@ -2756,12 +2815,8 @@ long CX2ModNGenerator::randBit()
 
 
 //////////////////////////////////////////////////////////////////////
-// LlinearCongruenceGenerator Klasse
-//////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// Linear Kongruenz Generator 
+//
 
 LinearCongruenceGenerator::LinearCongruenceGenerator()
 {
@@ -2793,12 +2848,8 @@ long LinearCongruenceGenerator::randBit()
 
 
 //////////////////////////////////////////////////////////////////////
-// InverseCongruenceGenerator Klasse
-//////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+// Inverse Kongruenz Generator
+//
 
 InverseCongruenceGenerator::InverseCongruenceGenerator()
 {
@@ -2835,13 +2886,9 @@ long InverseCongruenceGenerator::randBit()
 }
 
 
-//////////////////////////////////////////////////////////////////////
-// CTutorialFactorisationBase Klasse
-//////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-// Konstruktion/Destruktion
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// Rahmen für die Klasse CTutorialFactorisation (Lösung zur Realsierung
+// der Faktorisierung multithreaded).
 
 CTutorialFactorisationBase::CTutorialFactorisationBase()
 {

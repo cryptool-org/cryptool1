@@ -538,7 +538,14 @@ void CDlgVerifySignature::UpdateRowSel(int row)
 		m_ecdsaRadioButton.EnableWindow(FALSE);
 		m_acRadioButton.EnableWindow(FALSE);
 		m_pcRadioButton.EnableWindow(FALSE);
-		m_CheckSteps.EnableWindow(FALSE);
+		if ( KeyType.Find(RSA_KEYFILE_IDSTRING ) > -1)
+		{
+			m_CheckSteps.EnableWindow(TRUE);
+		}
+		else
+		{
+			m_CheckSteps.EnableWindow(FALSE);
+		}
 	}	
 
 	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
@@ -553,19 +560,6 @@ void CDlgVerifySignature::OnClickList2(NMHDR* pNMHDR, LRESULT* pResult)
 
 	if (row == -1)
 	{
-		/*
-		// Der linksklick erfolgte nicht in (gültige Zeile und erste Spalte)
-		m_ripemdRadioButton.EnableWindow(TRUE);
-		m_sha1RadioButton.EnableWindow(TRUE);
-		m_nrRadioButton.EnableWindow(TRUE);
-		m_ecdsaRadioButton.EnableWindow(TRUE);
-		*/
-
-		/*
-		UpdateRowSel( FindRow(UserKeyId) ); // Zeile die UserKeyId enthält unterlegen, falls vorhanden
-		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
-		*/
-
 		UserKeyId = "";
 		UpdateRowSel(-1); // letzte Selektion rückgängig machen
 		return;
@@ -655,16 +649,6 @@ void CDlgVerifySignature::OnColumnclickList2(NMHDR* pNMHDR, LRESULT* pResult)
 	// Zur Zeit ist hier nichts implementiert
 	// Vielleicht kommt später eine Sortierfunktion für die Zeilen hinzu.
 
-	/*
-	// Einstellung setzen: enable all RadioButtons
-	m_ripemdRadioButton.EnableWindow(TRUE);
-	m_sha1RadioButton.EnableWindow(TRUE);
-	m_nrRadioButton.EnableWindow(TRUE);
-	m_ecdsaRadioButton.EnableWindow(TRUE);
-	*/
-
-	// pNMListView->iSubItem; // zeigt an welche Spalte angeclickt wurde
-
 	if (pNMListView->iSubItem == 0) sortBy = BY_NAME;
 	else if (pNMListView->iSubItem == 1) sortBy = BY_FIRSTNAME;
 	else if (pNMListView->iSubItem == 2) sortBy = BY_KEYTYPE;
@@ -672,23 +656,6 @@ void CDlgVerifySignature::OnColumnclickList2(NMHDR* pNMHDR, LRESULT* pResult)
 	else if (pNMListView->iSubItem == 4) sortBy = BY_CREATTIME;
 	else if (pNMListView->iSubItem == 5) sortBy = BY_CREATTIME;
 
-	//CAvailabAsymmKeys asymmKeys;
-	//int ret = asymmKeys.GetKeyList( sortedAsymKeyList, sortBy);
-	//InitAsymKeyListBox(nKeylistType); // m_listview mit neu sortierten Werten initialisieren
-	//m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
-
-	/*
-	UpdateRowSel( FindRow(UserKeyId) ); // Zeile die UserKeyId enthält unterlegen, falls vorhanden
-	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt anwählte Zeile soll sichtbar sein
-	*/
-	/* Verfügbare Flags für CAvailabAsymmKeys::GetKeyList()
-		BY_NAME 
-		BY_FIRSTNAME 
-		BY_KEYTYPE 
-		BY_CREATTIME 
-		BY_PERS_KEYID 
-	*/
-	
 	UserKeyId = "";
 	UpdateRowSel(-1); // letzte Selektion rückgängig machen
 
@@ -976,7 +943,6 @@ void CDlgVerifySignature::OnRadioECDSA()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(TRUE);
-	
 }
 
 void CDlgVerifySignature::OnRadioECNR() 

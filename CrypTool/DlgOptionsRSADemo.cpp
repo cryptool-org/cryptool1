@@ -76,6 +76,17 @@ BOOL CDlgOptionsRSADemo::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	{ // Für Cancel Button alte Werte retten
+		s_alphabet        = m_alphabet;
+		s_numberBasis     = m_numberBasis;
+		s_TextOptions     = m_TextOptions;
+		s_RSAVariant      = m_RSAVariant;
+		s_BlockLength     = m_BlockLength;
+		s_MaxBlockLength  = m_MaxBlockLength;
+		s_codingMethod    = m_codingMethod;
+		s_AnzahlZeichen   = m_AnzahlZeichen;
+	}
+
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	unsigned long blockLength = GetBlockLength();
 	UpdateData(true);
@@ -147,10 +158,10 @@ void CDlgOptionsRSADemo::OnChangeAlphabet()
 
 }
 
-void CDlgOptionsRSADemo::ReInitBlockLength()
+void CDlgOptionsRSADemo::ReInitBlockLength(BOOL setMaxBlockLength)
 {
 	unsigned long blockLength = GetBlockLength();
-	if ( m_BlockLength <= 0 || m_BlockLength > blockLength )
+	if (setMaxBlockLength || m_BlockLength <= 0 || m_BlockLength > blockLength )
 		m_BlockLength = blockLength;
 }
 
@@ -329,15 +340,20 @@ int CDlgOptionsRSADemo::GetBlockLength()
 
 void CDlgOptionsRSADemo::OnCancel() 
 {
-		// TODO: Zusätzliche Prüfung hier einfügen
 	UpdateData();
-	unsigned int blockLength = GetBlockLength();
-
-	if ( m_BlockLength > blockLength ) 
-	{
-		m_BlockLength=blockLength;
+	{ // Alte Werte zurückholen
+		m_alphabet        = s_alphabet;
+		m_numberBasis     = s_numberBasis;
+		m_TextOptions     = s_TextOptions;
+		m_RSAVariant      = s_RSAVariant;
+		m_BlockLength     = s_BlockLength;
+		m_MaxBlockLength  = s_MaxBlockLength;
+		m_codingMethod    = s_codingMethod;
+		m_AnzahlZeichen   = s_AnzahlZeichen;
 	}
 	UpdateData(false);
+
+
 	CDialog::OnCancel();
 }
 

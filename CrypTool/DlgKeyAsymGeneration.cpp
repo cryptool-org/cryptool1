@@ -371,7 +371,7 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 			return TRUE;
 		}
 
-		UpdateEcListBox(curveParameter, &ecParamString, curveID);
+		UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 	}
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -379,84 +379,95 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 }
 
 
-void CDlgKeyAsymGeneration::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomParamAcAsString *ecParamString, CString curveID)
+void CDlgKeyAsymGeneration::UpdateEcListBox(EcDomParam_ac_ptr curveParameter, EcDomParamAcAsString *ecParamString, 
+											CString curveID, BOOL WindowActive)
 {	
 	unsigned int bitlength;
-
-	UpdateData(TRUE);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DOMAIN_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-	sprintf(pc_str1, pc_str, curveID);
-	m_ec_dom_par_editbox = (CString) pc_str1;
-	UpdateData(FALSE);
 
 	m_dom_param_listview.DeleteAllItems(); // Delete all data in the listview
 	// m_dom_param_listview.InsertItem( 0, " " );
 
-// == EC curve parameter a, b, p
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.InsertItem( 0, pc_str );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.SetItemText( 0, 1, pc_str );
+	if ( WindowActive )
+	{
+		UpdateData(TRUE);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DOMAIN_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
+		sprintf(pc_str1, pc_str, curveID);
+		m_ec_dom_par_editbox = (CString) pc_str1;
+		UpdateData(FALSE);
+		
+	// == EC curve parameter a, b, p
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.InsertItem( 0, pc_str );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.SetItemText( 0, 1, pc_str );
 
-	m_dom_param_listview.InsertItem( 1, "a" );
-	m_dom_param_listview.SetItemText( 1, 1, ecParamString->a );
-	// l = lngtouse(L_NUMBER r); /* l+1 == (length of r in bits) */
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->a);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 2, 2, pc_str ); // Bitlänge von a
+		m_dom_param_listview.InsertItem( 1, "a" );
+		m_dom_param_listview.SetItemText( 1, 1, ecParamString->a );
+		// l = lngtouse(L_NUMBER r); /* l+1 == (length of r in bits) */
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->a);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 2, 2, pc_str ); // Bitlänge von a
 
-	m_dom_param_listview.InsertItem( 2, "b" );
-	m_dom_param_listview.SetItemText( 2, 1, ecParamString->b );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->b);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 2, 2, pc_str ); // Bitlänge von b
+		m_dom_param_listview.InsertItem( 2, "b" );
+		m_dom_param_listview.SetItemText( 2, 1, ecParamString->b );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->b);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 2, 2, pc_str ); // Bitlänge von b
 
-	m_dom_param_listview.InsertItem( 3, "p" );
-	m_dom_param_listview.SetItemText( 3, 1, ecParamString->p );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->p);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 3, 2, pc_str ); // Bitlänge von p
+		m_dom_param_listview.InsertItem( 3, "p" );
+		m_dom_param_listview.SetItemText( 3, 1, ecParamString->p );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->E->p);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 3, 2, pc_str ); // Bitlänge von p
 
-// == EC curve point G = (x,y)
-	m_dom_param_listview.InsertItem( 4, " " );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.InsertItem( 5, pc_str );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_POINT_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.SetItemText( 5, 1, pc_str );
+	// == EC curve point G = (x,y)
+		m_dom_param_listview.InsertItem( 4, " " );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.InsertItem( 5, pc_str );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_POINT_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.SetItemText( 5, 1, pc_str );
 
-	m_dom_param_listview.InsertItem( 6, "x" );
-	m_dom_param_listview.SetItemText( 6, 1, ecParamString->G_xcoord );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->x);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 6, 2, pc_str ); // Bitlänge von x coord of G
+		m_dom_param_listview.InsertItem( 6, "x" );
+		m_dom_param_listview.SetItemText( 6, 1, ecParamString->G_xcoord );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->x);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 6, 2, pc_str ); // Bitlänge von x coord of G
 
-	m_dom_param_listview.InsertItem( 7, "y" );
-	m_dom_param_listview.SetItemText( 7, 1, ecParamString->G_ycoord );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->y);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 7, 2, pc_str ); // Bitlänge von y coord of G
+		m_dom_param_listview.InsertItem( 7, "y" );
+		m_dom_param_listview.SetItemText( 7, 1, ecParamString->G_ycoord );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->G->y);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 7, 2, pc_str ); // Bitlänge von y coord of G
 
-// == EC kofactor k, the prime number r is the order of G
-	m_dom_param_listview.InsertItem( 8, " " );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.InsertItem( 9, pc_str );
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_KF_ORD_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
-	m_dom_param_listview.SetItemText( 9, 1, pc_str );
+	// == EC kofactor k, the prime number r is the order of G
+		m_dom_param_listview.InsertItem( 8, " " );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_SEPERATOR,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.InsertItem( 9, pc_str );
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_KF_ORD_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		m_dom_param_listview.SetItemText( 9, 1, pc_str );
 
-	m_dom_param_listview.InsertItem( 10, "k" );
-	m_dom_param_listview.SetItemText( 10, 1, ecParamString->k );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->k);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 10, 2, pc_str ); // Bitlänge von k
+		m_dom_param_listview.InsertItem( 10, "k" );
+		m_dom_param_listview.SetItemText( 10, 1, ecParamString->k );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->k);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 10, 2, pc_str ); // Bitlänge von k
 
-	m_dom_param_listview.InsertItem( 11, "r" );
-	m_dom_param_listview.SetItemText( 11, 1, ecParamString->r );
-	bitlength = theApp.SecudeLib.lngtouse(curveParameter->r);
-	_itoa(bitlength+1, pc_str, 10);
-	m_dom_param_listview.SetItemText( 11, 2, pc_str ); // Bitlänge von r
+		m_dom_param_listview.InsertItem( 11, "r" );
+		m_dom_param_listview.SetItemText( 11, 1, ecParamString->r );
+		bitlength = theApp.SecudeLib.lngtouse(curveParameter->r);
+		_itoa(bitlength+1, pc_str, 10);
+		m_dom_param_listview.SetItemText( 11, 2, pc_str ); // Bitlänge von r
 
-	m_dom_param_listview.InsertItem( 12, " " );
-
+		m_dom_param_listview.InsertItem( 12, " " );
+	}
+	else
+	{
+		UpdateData(TRUE);
+		LoadString(AfxGetInstanceHandle(),IDS_HEADING_EMPTY_ECDOMAINPARAMETER,
+			       pc_str,STR_LAENGE_STRING_TABLE);
+		m_ec_dom_par_editbox = (CString) pc_str;
+		UpdateData(FALSE);
+	}
 }
 
 
@@ -494,6 +505,7 @@ void CDlgKeyAsymGeneration::OnRSARadio()
 	m_decimal_radio.EnableWindow(FALSE);
 	m_hexadecimal_radio.EnableWindow(FALSE);
 	m_ShowKeypairButton.EnableWindow(TRUE);
+	UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 }
 
 void CDlgKeyAsymGeneration::OnDSARadio() 
@@ -506,6 +518,7 @@ void CDlgKeyAsymGeneration::OnDSARadio()
 	m_decimal_radio.EnableWindow(FALSE);
 	m_hexadecimal_radio.EnableWindow(FALSE);
 	m_ShowKeypairButton.EnableWindow(FALSE);
+	UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 }
 
 void CDlgKeyAsymGeneration::OnECRadio() 
@@ -518,6 +531,7 @@ void CDlgKeyAsymGeneration::OnECRadio()
 	m_decimal_radio.EnableWindow(TRUE);
 	m_hexadecimal_radio.EnableWindow(TRUE);
 	m_ShowKeypairButton.EnableWindow(TRUE);
+	UpdateEcListBox(curveParameter, &ecParamString, curveID);
 }
 
 void CDlgKeyAsymGeneration::OnDecimalRadio() 

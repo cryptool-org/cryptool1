@@ -26,6 +26,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyAsym)
 	enum { IDD = IDD_KEY_ASYM };
+	CButton	m_RemoveItem;
 	CButton	m_CheckEC;
 	CButton	m_CheckDSA;
 	CButton	m_CheckRSA;

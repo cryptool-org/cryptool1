@@ -31,6 +31,9 @@ static char THIS_FILE[] = __FILE__;
 
 int load(CString &Src, const char *pattern, CString *Dest);
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Konstruktor / Destructor
@@ -65,6 +68,7 @@ CDlgRSADemo::CDlgRSADemo(CWnd* pParent /*=NULL*/)
 	DlgFactorisation	= new CDlgFactorisationDemo;
 	DlgFactorisation->m_inputReadOnly = TRUE; // Don't edit the input for factorisation
 	m_RSAKeyStatus = 0;
+    CheckRSASignature = false;
 }
 
 CDlgRSADemo::~CDlgRSADemo()
@@ -443,8 +447,7 @@ int CDlgRSADemo::CheckRSAParameter()
 		}
 	}
 	
-	SetDlgOptions();
-
+	SetDlgOptions(TRUE);
 	UpdateData(FALSE);
 	return ret;
 }
@@ -672,7 +675,18 @@ BOOL CDlgRSADemo::OnInitDialog()
 	CString RSAParam;
 	
 	// Paste into the dialouge the old RSA status
-	if ( PasteKey( pc_str, RSAParam ) )
+	if ( CheckRSASignature ) 
+	{ // Wenn vorher Signaturdaten überliefert wurden ....
+		UpdateData();
+		m_EncryptTextOrNumbers = 1;
+		m_RSAPublicKeyOnly = 1;
+		DlgOptions->m_numberBasis = 3;
+		UpdateData(FALSE);
+		OnRadioRSAPublicKey();
+		OnButtonUpdateRSAParameter();
+		// m_ButtonEncrypt.EnableWindow();
+	}
+	else if ( PasteKey( pc_str, RSAParam ) )
 	{
 		UpdateData(); 
 		m_RSAPublicKeyOnly = load(RSAParam,"PUBLIC_KEY_ONLY:", NULL);
@@ -725,8 +739,14 @@ BOOL CDlgRSADemo::OnInitDialog()
 
 	ButtonManagement();	
 	m_control_RSA_input.mode = DlgOptions->m_TextOptions;
-	RequestForInput(TRUE);
-
+	if ( CheckRSASignature ) 
+	{ // Wenn vorher Signaturdaten überliefert wurden ....
+		RequestForInput(FALSE);
+	}
+	else
+	{
+		RequestForInput(TRUE);
+	}
 	return TRUE;
 }
 
@@ -887,16 +907,22 @@ void CDlgRSADemo::OnUpdateModulN()
 // Übertragung von Parametern an den Optionen-Dialog:
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-void CDlgRSADemo::SetDlgOptions()
+void CDlgRSADemo::SetDlgOptions(BOOL reinitBlockLength)
 {
-	if (DlgOptions->m_TextOptions==0) 	DlgOptions->Anzahl_Zeichen=256;	
-	else 					DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
-        if ( KeyStatusModulNValid() )
+	if (DlgOptions->m_TextOptions==0)
+	{	
+		DlgOptions->Anzahl_Zeichen=256;
+	}
+	else
+	{
+		DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
+	}
+    if ( KeyStatusModulNValid() )
 	{
 		DlgOptions->m_Bitlength = RSA->GetBlockLength();
 		DlgOptions->m_log2N     = RSA->GetLog2RSAModul();
 		DlgOptions->RSA_Modul   = m_edit_N;
-		DlgOptions->ReInitBlockLength();
+		DlgOptions->ReInitBlockLength(reinitBlockLength);
 	}
 }
 
@@ -1028,6 +1054,15 @@ void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, int base, int
 	     else	       sprintf( line, pc_str );
 	mHeader = line;
 }
+
+void CDlgRSADemo::SetHeadLine(CString &mHeader, int IDS_STRING_ID, CString &Str)
+{
+	char line[IDS_STRINGLENGTH];
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
+	sprintf( line, pc_str, Str );
+	mHeader = line;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Alte Ausgaben und Überschriften der RSA-Ver-/Entschlüsselung löschen:
@@ -1170,8 +1205,6 @@ BOOL CDlgRSADemo::SkipWS()
 }
 
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Wenn ein HEX-String eingefügt wurde, dann besteht die Möglichkeit, dass es such um einen 
@@ -1214,7 +1247,7 @@ int CDlgRSADemo::CheckInversion()
 			}
 		}
 
-		if ( !RSA->PreCheckInput( plain2, 16, DlgOptions->m_RSAVariant ) )
+		if ( !RSA->PreCheckInput( plain2, GetBase(), DlgOptions->m_RSAVariant ) )
 		{
 			UpdateData();
 			m_edit_RSA_input = plain2;
@@ -1259,22 +1292,87 @@ BOOL CDlgRSADemo::CheckIfNumberStream()
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool CDlgRSADemo::CheckIfSignature()
+{
+	char buffer[1024];
+	int size = decode(m_edit_RSA_step_1, buffer, 0, GetBase(), 0, NULL);
+	int i, flag = 0;
+
+	if ( 0 > m_edit_RSA_step_1.Find('#') && size > 30 ) 
+	{
+        for ( i=0; i<=size - 20; i++ ) 
+		{
+		   if      ( !memcmp(buffer+i, DER_MD2, DER_MD2_SIZE) )
+		   {
+			   SetHeadLine( m_Header_RSA_step_2, 
+				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("MD2"));
+			   i += (DER_MD2_SIZE);
+			   flag = 1;
+			   break;
+		   }
+		   else if ( !memcmp(buffer+i, DER_MD5, DER_MD5_SIZE) )
+		   {
+
+			   SetHeadLine( m_Header_RSA_step_2, 
+				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("MD5"));
+			   i += (DER_MD5_SIZE);
+			   flag = 1;
+			   break;
+		   }
+		   else if ( !memcmp(buffer+i, DER_SHA, DER_SHA_SIZE) )
+		   {
+
+			   SetHeadLine( m_Header_RSA_step_2, 
+				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("SHA"));
+			   i += (DER_SHA_SIZE);
+			   flag = 1;
+			   break;
+		   }
+		   else if ( !memcmp(buffer+i, DER_SHA1, DER_SHA1_SIZE) )
+		   {
+
+			   SetHeadLine( m_Header_RSA_step_2, 
+				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("SHA-1"));
+			   i += (DER_SHA1_SIZE);
+			   flag = 1;
+			   break;
+		   }
+		   else if ( !memcmp(buffer+i, DER_RIPEMD160, DER_RIPEMD160_SIZE) )
+		   {
+
+			   SetHeadLine( m_Header_RSA_step_2, 
+				            IDS_RSADEMO_OBTAINED_SIGNATURE, CString("RIPEMD160"));
+			   i += (DER_RIPEMD160_SIZE);
+			   flag = 1;
+			   break;
+		   }
+		}
+	}
+	if ( flag ) 
+	{
+		dataToHexDump( buffer+i, size-i, m_edit_RSA_step_2);
+		m_Header_RSA_step_3 = _T(""); 
+		return true;
+	}
+	else        
+	{
+		return false;
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 // Das RSA-Verschlüsseln von Zahlen:
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 
 
 void CDlgRSADemo::EncryptNumbers()
 {
-
-	int ret = CheckInversion();
-
-	if ( ret == -1 )
-	{
-		Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
-		return;
-	}
 
 	CString tmpStr = m_edit_RSA_input;
 	if (DlgOptions->m_RSAVariant)
@@ -1283,23 +1381,25 @@ void CDlgRSADemo::EncryptNumbers()
 	}
 	RSA->Encrypt( tmpStr, m_edit_RSA_step_1, GetBase() );
 
-	if ( !DlgOptions->m_RSAVariant )
+	if ( !CheckIfSignature() )
 	{
-				
-		if ( !DlgOptions->m_TextOptions )
+		if ( !DlgOptions->m_RSAVariant )
 		{
-			ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
+					
+			if ( !DlgOptions->m_TextOptions )
+			{
+				ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
+			}
+			else
+			{
+				ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
+			}
 		}
 		else
-		{
-			ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
+		{  
+			ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
 		}
 	}
-	else
-	{  
-		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
-	}
-
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1348,19 +1448,31 @@ void CDlgRSADemo::OnButtonEncrypt()
 			}
 		}
 		else
-		{						
-			int NumberStreamFlag;
-			if ( !DlgOptions->m_RSAVariant )
-				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
-			else
-				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
-			if ( NumberStreamFlag )
+		{	
+			if ( 1 == CheckInversion() )
 			{
 				HeadingEncryption( ENCRYPT_NUMBERS );
 				EncryptNumbers();
 			}
+			else if ( -1 == CheckInversion() )
+			{
+				Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
+			}
 			else
-				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
+			{
+				int NumberStreamFlag;
+				if ( !DlgOptions->m_RSAVariant )
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+				else
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
+				if ( NumberStreamFlag )
+				{
+					HeadingEncryption( ENCRYPT_NUMBERS );
+					EncryptNumbers();
+				}
+				else
+					Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
+				}
 		}
 	}
 	UpdateData(FALSE);
@@ -1453,63 +1565,36 @@ void CDlgRSADemo::OnButtonDecrypt()
 		}
 		else
 		{
-			if (!DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
+			if ( 1 == CheckInversion() )
 			{
-				int l_byteLength = RSA->GetBlockLength()/8+1;
-				CString cipher  = m_edit_RSA_input;
-				CString cipher2 = "";
-				CString number = "";
-				int i=0;
-				while ( 1 )
-				{					
-					if (  i < cipher.GetLength() && ' ' == cipher[i] ) cipher.Delete(i);
-					else {
-						if (i < cipher.GetLength()) i++;
-						if ( 0 == (i % (2*l_byteLength)) || i == cipher.GetLength() )
-						{	
-							number = cipher.Mid(0, i);
-							BaseRepr(number, 16, 10);
-							if ( i < cipher.GetLength() ) 
-								cipher2 = cipher2 + number + CString(" # ");
-							else
-							{
-								cipher2 = cipher2 + number;
-								break;
-							}
-							cipher.Delete(0, i);
-							i = 0;
-						}
-					}
-				}
-				if ( 0 == RSA->Encrypt( cipher2, cipher, GetBase() ) )
+				HeadingEncryption( ENCRYPT_NUMBERS );
+				EncryptNumbers();
+			}
+			else if ( -1 == CheckInversion() )
+			{
+				Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
+			}
+			else
+			{
+				int NumberStreamFlag;
+				if ( !DlgOptions->m_RSAVariant )
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
+				else
+					NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
+
+				if ( NumberStreamFlag )
 				{
-					m_edit_RSA_input = cipher2;
+					HeadingDecryption( DECRYPT_NUMBERS );
+					DecryptNumbers();
 				}
 				else
-				{
-
-				}
+					Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
 			}
-
-			int NumberStreamFlag;
-			if ( !DlgOptions->m_RSAVariant )
-				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N, SPLIT_NUMBERS_VSMODUL );
-			else
-				NumberStreamFlag = IsNumberStream( m_edit_RSA_input, GetBase(), m_edit_N );
-
-			if ( NumberStreamFlag )
-			{
-				HeadingDecryption( DECRYPT_NUMBERS );
-				DecryptNumbers();
-			}
-			else
-				Message( IDS_STRING_ERROR_NO_NUMBER_STREAM, MB_ICONEXCLAMATION, GetBase() );
 		}
 	}
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(-1);
 }
-
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1854,5 +1939,6 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}
 }
+
 
 

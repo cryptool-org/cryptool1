@@ -16,7 +16,8 @@
 #include "DlgShowPublicKeyEC.h"
 #include "DlgShowPrivateKeyEC.h"
 #include "DlgShowCertificate.h"
-
+#include "DlgShowKeyParameter.h"
+#include "s_ecconv.h"
 #include "s_ecFp.h" // elliptic curve stuff
 #include "s_prng.h" // big random integers
 
@@ -63,6 +64,7 @@ void CDlgKeyAsym::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgKeyAsym)
+	DDX_Control(pDX, IDC_BUTTON3, m_RemoveItem);
 	DDX_Control(pDX, IDC_CHECK3, m_CheckEC);
 	DDX_Control(pDX, IDC_CHECK2, m_CheckDSA);
 	DDX_Control(pDX, IDC_CHECK1, m_CheckRSA);
@@ -132,76 +134,202 @@ BOOL CDlgKeyAsym::OnInitDialog()
 	nKeylistType = ASYM_KEY;
 	InitAsymKeyListBox(nKeylistType);
 	
+	m_RemoveItem.EnableWindow(FALSE);
+	m_secret_param_button.EnableWindow(FALSE); // Button einblenden
+	m_pub_param_button.EnableWindow(FALSE); // Button einblenden
+	m_show_cert_button.EnableWindow(FALSE); // Button ausblenden
+	m_export_cert_button.EnableWindow(FALSE); // Button ausblenden
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Öffentliche Schlüsselparameter anzeigen für
+// - EC-Schlüssel
+// - RSA-Schlüssel
+
 void CDlgKeyAsym::OnShowPubParamButton() 
 {
-	if ( sortedAsymKeyList.IsEmpty() )
+	if ( KeyType.Find(EC_KEYFILE_IDSTRING) > -1 ) 
 	{
-		// there is no string selectable
-		Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
-		return; // no selection
-	}
-	else if (UserKeyId.GetLength() < 1)
-	{
-		// there is no selected string
-		Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
-		return; // no selection
-	}
+		if ( sortedAsymKeyList.IsEmpty() )
+		{
+			// there is no string selectable
+			Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION);
+			return; // no selection
+		}
+		else if (UserKeyId.GetLength() < 1)
+		{
+			// there is no selected string
+			Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
+			return; // no selection
+		}
 
-	m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
 
-	EcDomParam_ac_ptr curveParameter;
-	
-	curveParameter = (EcDomParam_ac_ptr) malloc(sizeof(__DomParamAc_struct)); // Allocate memory. !! DELETE with destruktor!!
-	if (curveParameter == NULL) return; // error. keine Speicherallokation
-	curveParameter->E = (ecFp_curve_t) malloc(sizeof(__CurveFp_struct));
-	if (curveParameter->E == NULL) return; // error. keine Speicherallokation
-	curveParameter->G = (ecFp_point_ac_t) malloc(sizeof(__PointAc_struct));
-	if (curveParameter->G == NULL) return; // error. keine Speicherallokation
-	curveParameter->pubKey = (ecFp_point_ac_t) malloc(sizeof(__PointAc_struct));
-	if (curveParameter->pubKey == NULL) return; // error. keine Speicherallokation
-	curveParameter->pubKey->infinity=1; // pubKey is not defined yet
-	inttoln(0, curveParameter->privKey); // initialize privKey = 0 (not defined yet)
+		EcDomParam_ac_ptr curveParameter;
+		
+		curveParameter = (EcDomParam_ac_ptr) malloc(sizeof(__DomParamAc_struct)); // Allocate memory. !! DELETE with destruktor!!
+		if (curveParameter == NULL) return; // error. keine Speicherallokation
+		curveParameter->E = (ecFp_curve_t) malloc(sizeof(__CurveFp_struct));
+		if (curveParameter->E == NULL) return; // error. keine Speicherallokation
+		curveParameter->G = (ecFp_point_ac_t) malloc(sizeof(__PointAc_struct));
+		if (curveParameter->G == NULL) return; // error. keine Speicherallokation
+		curveParameter->pubKey = (ecFp_point_ac_t) malloc(sizeof(__PointAc_struct));
+		if (curveParameter->pubKey == NULL) return; // error. keine Speicherallokation
+		curveParameter->pubKey->infinity=1; // pubKey is not defined yet
+		inttoln(0, curveParameter->privKey); // initialize privKey = 0 (not defined yet)
 
-	CKeyFile KeyFileHandling;
-	int ret;
-	ret = KeyFileHandling.GetEcPublicParam(UserKeyId, curveParameter);
-	if ( ret == -1 )
-	{
-		// error. Die Datei "UserKeyId" konnte nicht geöffnet werden
-		CString PubDataFile = (CString) PseVerzeichnis + ((CString)"/") + (CString) UserKeyId;
-		LPTSTR string3 = new TCHAR[PubDataFile.GetLength()+1];
-		_tcscpy(string3, PubDataFile);		
-		char *toc_file = string3;
+		CKeyFile KeyFileHandling;
+		int ret;
+		ret = KeyFileHandling.GetEcPublicParam(UserKeyId, curveParameter);
+		if ( ret == -1 )
+		{
+			// error. Die Datei "UserKeyId" konnte nicht geöffnet werden
+			CString PubDataFile = (CString) PseVerzeichnis + ((CString)"/") + (CString) UserKeyId;
+			{
+				LPTSTR string3 = new TCHAR[PubDataFile.GetLength()+1];
+				_tcscpy(string3, PubDataFile);		
+				char *toc_file = string3;
 
-		Message(IDS_STRING_EC_ERROR_LOADING_KEYFILE, MB_ICONINFORMATION, toc_file);
-		delete string3;
+				Message(IDS_STRING_EC_ERROR_LOADING_KEYFILE, MB_ICONINFORMATION, toc_file);
+				delete string3;
+			}
+			free (curveParameter->pubKey);
+			free (curveParameter->G);
+			free (curveParameter->E);
+			free (curveParameter);		
+			return;
+		}
+		else if ( ret != 0)
+		{
+			// error. sonstige Fehler in der Methode CKeyFile::GetEcPublicParam()
+			free (curveParameter->pubKey);
+			free (curveParameter->G);
+			free (curveParameter->E);
+			free (curveParameter);		
+			return;
+		}
+
+		CDlgShowPublicKeyEC PubParamDlg(UserKeyId, Name, Firstname, CreatTime, KeyType, curveParameter);
+		if (PubParamDlg.DoModal()==IDCANCEL) CDialog::OnCancel();
+
 		free (curveParameter->pubKey);
 		free (curveParameter->G);
 		free (curveParameter->E);
-		free (curveParameter);		
-		return;
+		free (curveParameter);
 	}
-	else if ( ret != 0)
+	else if ( KeyType.Find(RSA_KEYFILE_IDSTRING) > -1 )
 	{
-		// error. sonstige Fehler in der Methode CKeyFile::GetEcPublicParam()
-		free (curveParameter->pubKey);
-		free (curveParameter->G);
-		free (curveParameter->E);
-		free (curveParameter);		
-		return;
+
+		if ( sortedAsymKeyList.IsEmpty() )
+		{
+			// there is no string selectable
+			Message(IDS_STRING_KEYLIST_ASYM_EMPTY, MB_ICONINFORMATION );
+			return; // no selection
+		}
+		else if ( UserKeyId.GetLength() < 1 )
+		{
+			// there is no selected string
+			Message(IDS_STRING_KEYLIST_ASYM_SELECT, MB_ICONINFORMATION);
+			return; // no selection
+		}
+
+		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+
+		CKeyFile KeyHandling;
+		CString caDB_keyid_name = KeyHandling.CreateDistName(Name, Firstname, CreatTimeUTC);
+		// cDB_keyid_name: unter diesem Bezeichner/Namen wurde das Zertifikat in die CA-Datenbank geschrieben
+
+		// Öffnen der CA-PSE
+		PSE PseHandle;
+		PseHandle=theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
+		if (PseHandle==NULL)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			return;
+		}
+		
+		// Besorgen des Zertifikates der Adressaten
+		SET_OF_IssuedCertificate *Liste;
+		{
+			LPTSTR string3 = new TCHAR[caDB_keyid_name.GetLength()+1];
+			_tcscpy(string3, caDB_keyid_name);
+			char *string4=string3; // string4 wird benutzt, um in der CA-Datenbank die Parameter abzufragen 
+			Liste=theApp.SecudeLib.af_cadb_get_user (PseHandle, string4);
+			delete [] string3;
+		}
+
+		if (Liste==NULL)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			// Freigeben von dynamisch angelegtem Speicher
+			theApp.SecudeLib.af_close (PseHandle);
+			return;
+		}
+		
+		Certificate *Zert;
+		OctetString *SNummer;
+		SNummer=Liste->element->serial;
+		Zert=theApp.SecudeLib.af_cadb_get_Certificate (PseHandle, SNummer);
+		if (Zert==NULL)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
+			// Freigeben von dynamisch angelegtem Speicher
+			theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
+			theApp.SecudeLib.af_close (PseHandle);
+			return;
+		}
+		
+		// Besorgen des öffentlichen Schlüssels des Adressaten aus seinem Zertifikat
+		Key Schluessel;
+		Schluessel.key=Zert->tbs->subjectPK;
+		Schluessel.pse_sel=NULL;
+		Schluessel.alg=theApp.SecudeLib.rsa_aid;
+		Schluessel.add_object=NULL;
+		Schluessel.add_object_type=NULL;
+		Schluessel.key_size=NULL;
+		Schluessel.private_key=NULL;
+
+		CDlgShowKeyParameter dlg;
+		dlg.m_Title = "Öffentlicher Schlüssel von: ";
+		dlg.m_Title+= Firstname;
+		dlg.m_Title+= " ";
+		dlg.m_Title+= Name;
+		dlg.disableOkButton = true;
+		KeyBits *ki;
+		ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
+		int mlen = ki->part1.noctets;
+		unsigned char* buf = (unsigned char*) ki->part1.octets;
+		L_NUMBER temp[MAXLGTH];
+		sprintf(pc_str,"0x");
+		for (int i=0;i<mlen;i++)
+		{
+			sprintf(pc_str+2+(2*i),"%02X",buf[i]);	
+		}
+		string_to_ln(pc_str,temp);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
+		dlg.addentry(pc_str,temp);
+
+		int mlen2 = ki->part2.noctets;
+		unsigned char* buf2 = (unsigned char*) ki->part2.octets;
+		sprintf(pc_str,"0x");
+		for (i=0;i<mlen2;i++)
+		{
+			sprintf(pc_str+2+(2*i),"%02X",buf2[i]);
+		}
+		string_to_ln(pc_str,temp);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
+		dlg.addentry(pc_str,temp);
+		
+		dlg.DoModal();
+		UpdateData(false);	
 	}
-
-	CDlgShowPublicKeyEC PubParamDlg(UserKeyId, Name, Firstname, CreatTime, KeyType, curveParameter);
-	if (PubParamDlg.DoModal()==IDCANCEL) CDialog::OnCancel();
-
-	free (curveParameter->pubKey);
-	free (curveParameter->G);
-	free (curveParameter->E);
-	free (curveParameter);
 }
 
 void CDlgKeyAsym::OnShowAllParamButton() 
@@ -613,8 +741,14 @@ void CDlgKeyAsym::UpdateRowSel(int row)
 	if (row == -1)
 	{
 		m_listview.EnsureVisible( m_lastSelectedRow, FALSE ); // Die zuletzt angewählte Zeile soll sichtbar sein
+		m_RemoveItem.EnableWindow(FALSE);
+		m_secret_param_button.EnableWindow(FALSE); // Button einblenden
+		m_pub_param_button.EnableWindow(FALSE); // Button einblenden
+		m_show_cert_button.EnableWindow(FALSE); // Button ausblenden
+		m_export_cert_button.EnableWindow(FALSE); // Button ausblenden
 		return;
 	}
+	m_RemoveItem.EnableWindow();
 
 	m_lastSelectedRow = row; // m_lastSelectedRow neu setzen
 
@@ -650,11 +784,18 @@ void CDlgKeyAsym::UpdateRowSel(int row)
 		m_show_cert_button.EnableWindow(FALSE); // Button ausblenden
 		m_export_cert_button.EnableWindow(FALSE); // Button ausblenden
 	}
-	else
+	else 
 	{
 		// DSA oder RSA Schlüsselbezeichner
 		m_secret_param_button.EnableWindow(FALSE); // Button ausblenden
-		m_pub_param_button.EnableWindow(FALSE); // Button ausblenden
+		if ( KeyType.Find(RSA_KEYFILE_IDSTRING ) > -1 )
+		{
+			m_pub_param_button.EnableWindow(TRUE); //  RSA Button einblenden
+		}
+		else
+		{
+			m_pub_param_button.EnableWindow(FALSE); // DSA Button einblenden
+		}
 		m_show_cert_button.EnableWindow(TRUE); // Button einblenden
 		m_export_cert_button.EnableWindow(TRUE); // Button einblenden
 	}

@@ -1,10 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // 
 // RSA-Demonstration: (c) Deutsche Bank AG 1998 - 2002
-// ~~~~~~~~~~~~~~~~~~
-//
-// Dialog für die Durchführung des RSA-Kryptosystems im Detail
-//
+// ~
 //
 
 
@@ -15,9 +12,30 @@
 #include "DlgOptionsRSADemo.h"
 #include "DlgFactorisationDemo.h"
 
+/////////////////////////////////////////////////////////////////////////////
+extern const char DER_MD2[];
+extern const char DER_MD5[];
+extern const char DER_SHA[];
+extern const char DER_SHA1[];
+extern const char DER_RIPEMD160[];
+extern const int  DER_MD2_SIZE;
+extern const int  DER_MD5_SIZE;
+extern const int  DER_SHA_SIZE;
+extern const int  DER_SHA1_SIZE;
+extern const int  DER_RIPEMD160_SIZE;
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog für die Durchführung des RSA-Kryptosystems im Detail
+
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
+
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -81,10 +99,12 @@ class CDlgRSADemo : public CDialog
 
 // Konstruktion
 public:
+	bool CheckIfSignature();
 	
 	CDlgRSADemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgRSADemo();
 
+	bool CheckRSASignature;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSADemo)
 	enum { IDD = IDD_RSA_DEMO };
@@ -179,13 +199,14 @@ private:
 	BOOL CheckRSAParameter();
 	BOOL ReSegmentation( int mode );
 	void Segmentation  ( int mode );
-	void SetDlgOptions();
+	void SetDlgOptions(BOOL reinitBlockLength = FALSE);
 	BOOL SkipWS();
 	void HeadingDecryption(BOOL encryptText);
 	void HeadingEncryption(BOOL decryptText);
 	void RequestForInput( BOOL clearInput = FALSE );
 	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0, int BlockLength = 0 );	
-	int GetBase();
+	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, CString &Str);	
+	int  GetBase();
 
 	bool KeyStatusPublicKeyOnly() { return (s_publicKeyOnly == (m_RSAKeyStatus & s_publicKeyOnly) ); }
 	bool KeyStatusPrivateKey()    { return !(s_publicKeyOnly == (m_RSAKeyStatus & s_publicKeyOnly) ); }

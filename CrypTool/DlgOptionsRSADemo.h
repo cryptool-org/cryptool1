@@ -15,7 +15,7 @@ class CDlgOptionsRSADemo : public CDialog
 // Konstruktion
 public:
 	void MsgAnzahlZeichen();
-	void ReInitBlockLength();
+	void ReInitBlockLength(BOOL setMaxBlockLength = FALSE);
 	void MsgBlockLength();
 	CDlgOptionsRSADemo(CWnd* pParent = NULL);   // Standardkonstruktor
 
@@ -71,6 +71,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	int GetBlockLength();
+
+	CString s_alphabet;
+	int     s_numberBasis;
+	int     s_TextOptions;
+	int     s_RSAVariant;
+	int     s_BlockLength;
+	CString s_MaxBlockLength;
+	int     s_codingMethod;
+	CString s_AnzahlZeichen;
 };
 
 //{{AFX_INSERT_LOCATION}}

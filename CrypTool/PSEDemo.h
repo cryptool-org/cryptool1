@@ -15,6 +15,20 @@
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 
 
+/////////////////////////////////////////////////////////////////////////////
+extern const char DER_MD2[];
+extern const char DER_MD5[];
+extern const char DER_SHA[];
+extern const char DER_SHA1[];
+extern const char DER_RIPEMD160[];
+extern const int  DER_MD2_SIZE;
+extern const int  DER_MD5_SIZE;
+extern const int  DER_SHA_SIZE;
+extern const int  DER_SHA1_SIZE;
+extern const int  DER_RIPEMD160_SIZE;
+/////////////////////////////////////////////////////////////////////////////
+
+
 class CPSEDemo : public CRSADemo  
 {
 public:

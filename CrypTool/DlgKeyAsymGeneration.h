@@ -107,7 +107,8 @@ protected:
 
 	// eigene Methoden
 
-	void UpdateEcListBox(EcDomParam_ac_ptr curveParameterPtr, EcDomParamAcAsString *ecParamString, CString curveID);
+	void UpdateEcListBox(EcDomParam_ac_ptr curveParameterPtr, EcDomParamAcAsString *ecParamString, 
+	                     CString curveID, BOOL WindowActive = TRUE);
 	void CreateAsymKeys(); // Create asymmetric keypair
 
 };

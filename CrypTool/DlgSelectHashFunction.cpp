@@ -115,6 +115,7 @@ void CDlgSelectHashFunction::OnSelectSHA()
 void CDlgSelectHashFunction::OnSelectedSHA_1() 
 {
 	// TODO: Code fü	m_selectedHashFunctionMD2 = -1;
+	m_selectedHashFunctionMD2 = -1;
 	m_selectedHashFunctionMD4 = -1;
 	m_selectedHashFunctionMD5 = -1;
 	m_selectedHashFunctionSHA = -1;

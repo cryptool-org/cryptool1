@@ -31,6 +31,7 @@
 #include "DlgECSignatureStepByStep.h"
 #include "DlgVerifyECSignatureStepByStep.h"
 #include "DlgHybridDecryptionDemo.h"
+#include "DlgRSADemo.h"
 
 #include "s_ecFp.h" // elliptic curve stuff
 #include "s_prng.h" // big random integers
@@ -1332,6 +1333,7 @@ void Verify(char* infile, const char *OldTitle)
 	
 	if (VerDialog.DoModal()==IDOK)
 	{
+// == Elliptiche Kurven Signatur verifizieren
 		if (VerDialog.UserKeyId.Find(EC_KEYFILE_IDSTRING ) > -1)
 		{
 			// In VerDialog wurde ein EC Schlüsselpaar Eintrag gewählt,
@@ -1360,14 +1362,6 @@ void Verify(char* infile, const char *OldTitle)
 				// RIPEMD 160
 				hash_verfahren = "RIPEMD-160";break;
 			}
-			
-			// MessageBox mit der extrahierten Signatur ausgeben
-			// (dies dient nur zu Informationszwecken)
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING_EXTRACTED_SIGNATURE,pc_str,STR_LAENGE_STRING_TABLE);
-			// CString ExtractedSig=(CString) pc_str + "\n\n" + "c = " + c_str + "\n" + "d = " + d_str;
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING_EXTRACTED_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
-			// CString ExtractedMesg=(CString) pc_str + "\n\n" + message_string;
-			// Message(IDS_STRING_XXX, MB_ICONINFORMATION, ExtractedSig);
 			
 			// Verify signature and display result
 			if (VerDialog.m_ShowSteps == TRUE)
@@ -1486,7 +1480,7 @@ void Verify(char* infile, const char *OldTitle)
 			return;
 		}
 		
-		// RSA oder DSA Signatur überprüfen
+// == RSA oder DSA Signatur überprüfen
 		
 		//Öffnen der CA-PSE
 		PSE PseHandle;
@@ -1626,7 +1620,21 @@ void Verify(char* infile, const char *OldTitle)
 			if (message.octets) free(message.octets);
 			return;
 		}
-		
+	
+// == RSA-Signatur Schritt für Schritt anzeigen
+		if ( VerDialog.m_ShowSteps == TRUE )
+		{
+			KeyBits *ki;
+			ki=theApp.SecudeLib.d_KeyBits(&(keyinfo.key->subjectkey));
+			CDlgRSADemo RSASigDemo;
+			encode( ki->part1.octets, RSASigDemo.m_edit_N, ki->part1.noctets, 10, FALSE, NULL );
+			encode( ki->part2.octets, RSASigDemo.m_edit_e, ki->part2.noctets, 10, FALSE, NULL );
+			dataToHexDump( Signatur.signature.bits, (Signatur.signature.nbits+7)/8, RSASigDemo.m_edit_RSA_input); 
+			RSASigDemo.CheckRSASignature = true;
+			RSASigDemo.DoModal();
+			// return;
+		}
+
 		// Verifikation starten
 		
 		verifStart = clock();

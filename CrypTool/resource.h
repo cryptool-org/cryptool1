@@ -710,6 +710,7 @@
 #define IDS_STRING_NGRAM_LIST3          36609
 #define IDS_STRING_RAND_SECUDE          36610
 #define IDS_SEEK_NEXT_PRIME             36611
+#define IDS_HEADING_EMPTY_ECDOMAINPARAMETER 36612
 #define IDS_STRING37100                 36650
 #define IDS_STRING37101                 36651
 #define IDS_STRING37102                 36652
@@ -1087,6 +1088,7 @@
 #define IDS_PARAM_HOMOPHONE             37179
 #define IDS_PARAM_RSA_DEMO              37180
 #define IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 37181
+#define IDS_RSADEMO_OBTAINED_SIGNATURE  37182
 #define IDS_STRING_PA_LENGTH            37612
 #define IDS_RAND_OUTPUT                 37613
 #define IDS_RANDOM_GENERATOR            37614
