@@ -21,9 +21,10 @@ Dlg_homophone::Dlg_homophone(CWnd* pParent /*=NULL*/)
 	: CDialog(Dlg_homophone::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(Dlg_homophone)
-	m_crypt = 0;
 	m_KeyCStr = _T("");
+	m_BaseHomophones = 0;
 	//}}AFX_DATA_INIT
+	m_crypt = 0;
 }
 
 
@@ -33,8 +34,8 @@ void Dlg_homophone::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(Dlg_homophone)
 	DDX_Control(pDX, IDC_EDIT6, m_KeyCtrl);
 	DDX_Control(pDX, IDC_LIST1, m_listview);
-	DDX_Radio(pDX, IDC_RADIO1, m_crypt);
 	DDX_Text(pDX, IDC_EDIT6, m_KeyCStr);
+	DDX_Radio(pDX, IDC_RADIO4, m_BaseHomophones);
 	//}}AFX_DATA_MAP
 }
 
@@ -43,6 +44,8 @@ BEGIN_MESSAGE_MAP(Dlg_homophone, CDialog)
 	//{{AFX_MSG_MAP(Dlg_homophone)
 	ON_BN_CLICKED(IDC_ERZEUGEN, OnErzeugen)
 	ON_BN_CLICKED(IDC_BUTTON2, OnLoadKey)
+	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
+	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -74,6 +77,20 @@ bool Dlg_homophone::Get_crypt()
 		return(true);
 	}
 	return(false);
+}
+
+void Dlg_homophone::OnDecrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_crypt = 1;
+	OnOK();
+}
+
+void Dlg_homophone::OnEncrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_crypt = 0;
+	OnOK();
 }
 
 BOOL Dlg_homophone::OnInitDialog() 

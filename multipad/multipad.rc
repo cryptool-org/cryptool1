@@ -275,21 +275,17 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
 END
 
-IDD_DIALOG_KEY_INPUT_MONO DIALOG DISCARDABLE  0, 0, 203, 114
+IDD_DIALOG_KEY_INPUT_MONO DIALOG DISCARDABLE  0, 0, 245, 79
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe"
+CAPTION "Monoalphabetische Substitution Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,14,59,176,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ver-/Entschlüsseln",IDOK,14,84,71,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL,140,84,50,19
-    LTEXT           "Schlüssel eingeben (max.26 Zeichen):",IDC_STATIC,20,49,
+    EDITTEXT        IDC_EDIT1,13,24,219,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Verschlüsseln",IDOK,13,48,61,20
+    PUSHBUTTON      "Abbrechen",IDCANCEL,177,48,55,20
+    LTEXT           "Schlüssel eingeben (max.26 Zeichen):",IDC_STATIC,13,11,
                     160,8
-    CONTROL         "Verschlüsseln",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,14,19,59,8
-    CONTROL         "Entschlüsseln",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    14,33,59,8
-    CTEXT           "Monoalphabetische Substitution",IDC_STATIC,14,3,176,8
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON1,94,48,63,20
 END
 
 IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 171, 183
@@ -1480,8 +1476,8 @@ BEGIN
                     162,42
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,199,42
-    CONTROL         "Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,192,
-                    19,56,8
+    CONTROL         "Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,192,19,56,8
     CONTROL         "Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
                     63,9
     LTEXT           "Editieren der Homophonen Liste für einzelne Zeichen:",
@@ -1812,7 +1808,7 @@ BEGIN
     LTEXT           "N=",IDC_STATIC,90,63,10,8
 END
 
-IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 368, 316
+IDD_DIALOG_ZAHL_FAKTORISIEREN DIALOG DISCARDABLE  0, 0, 366, 303
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Faktorisierungsalgorithmen"
 FONT 8, "MS Sans Serif"
@@ -1821,10 +1817,10 @@ BEGIN
                     112
     GROUPBOX        "Eingabe",IDC_STATIC,166,13,187,112
     EDITTEXT        IDC_EDIT1,177,56,165,14,ES_AUTOHSCROLL
-    GROUPBOX        "Faktorisierung",IDC_STATIC,13,140,340,126
-    EDITTEXT        IDC_EDIT2,24,238,318,16,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Faktorisierung",IDC_STATIC,13,133,340,126
+    EDITTEXT        IDC_EDIT2,24,227,318,16,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "Faktorisieren",IDC_BUTTON_Faktorisieren,226,92,116,23
-    PUSHBUTTON      "Dialog beenden",IDC_BUTTON_cancel,250,283,103,21
+    PUSHBUTTON      "Dialog beenden",IDC_BUTTON_cancel,250,272,103,21
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,
                     177,41,165,8
     CONTROL         "&Brute-force Methode",IDC_CHECK1,"Button",
@@ -1840,11 +1836,11 @@ BEGIN
     CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,24,105,104,10
     LTEXT           "Pro Faktorisierung wird die zusammengesetzte Zahl in zwei Faktoren zerlegt. Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt. Wenn die Zahl  zi  eine Primzahl ist, dann wird der Faktor  zi^ai  schwarz dargestellt - im andu?",
-                    IDC_STATIC,24,157,318,32
+                    IDC_STATIC,24,150,318,32
     LTEXT           "Ein Doppelklick auf eine rote Zahl kopiert diese in das Eingabefeld. Sie können so die ursprüngliche Eingabe vollständig Faktorisieren.",
-                    IDC_STATIC,24,191,318,17
+                    IDC_STATIC,24,182,318,17
     LTEXT           "Produktdarstellung der Faktorisierung",IDC_STATIC,24,
-                    223,222,9
+                    212,222,9
 END
 
 IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 268, 207
@@ -2915,12 +2911,10 @@ BEGIN
 
     IDD_DIALOG_KEY_INPUT_MONO, DIALOG
     BEGIN
-        VERTGUIDE, 14
-        VERTGUIDE, 190
-        HORZGUIDE, 20
-        HORZGUIDE, 31
-        HORZGUIDE, 84
-        HORZGUIDE, 103
+        VERTGUIDE, 13
+        VERTGUIDE, 232
+        HORZGUIDE, 48
+        HORZGUIDE, 68
     END
 
     IDD_DIALOG_ANALYSE_OPT_MONO, DIALOG
@@ -3166,21 +3160,6 @@ BEGIN
         HORZGUIDE, 331
     END
 
-    IDD_DIALOG_HOMOPHONE, DIALOG
-    BEGIN
-        VERTGUIDE, 14
-        VERTGUIDE, 147
-        VERTGUIDE, 176
-        VERTGUIDE, 382
-        HORZGUIDE, 27
-        HORZGUIDE, 42
-        HORZGUIDE, 291
-        HORZGUIDE, 332
-        HORZGUIDE, 349
-        HORZGUIDE, 358
-        HORZGUIDE, 376
-    END
-
     IDD_DIALOG_GEN_EC_KURVE, DIALOG
     BEGIN
         VERTGUIDE, 14
@@ -3274,33 +3253,6 @@ BEGIN
         BOTTOMMARGIN, 99
         HORZGUIDE, 9
         HORZGUIDE, 82
-    END
-
-    IDD_DIALOG_ZAHL_FAKTORISIEREN, DIALOG
-    BEGIN
-        VERTGUIDE, 13
-        VERTGUIDE, 24
-        VERTGUIDE, 88
-        VERTGUIDE, 177
-        VERTGUIDE, 279
-        VERTGUIDE, 342
-        VERTGUIDE, 353
-        HORZGUIDE, 13
-        HORZGUIDE, 40
-        HORZGUIDE, 55
-        HORZGUIDE, 70
-        HORZGUIDE, 85
-        HORZGUIDE, 100
-        HORZGUIDE, 115
-        HORZGUIDE, 125
-        HORZGUIDE, 140
-        HORZGUIDE, 176
-        HORZGUIDE, 206
-        HORZGUIDE, 232
-        HORZGUIDE, 254
-        HORZGUIDE, 266
-        HORZGUIDE, 283
-        HORZGUIDE, 304
     END
 
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
@@ -4104,7 +4056,7 @@ BEGIN
     IDS_STRING_REFERENCE_FILE "Referenzdatei"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
                             "Vergleiche Chiffre Text mit Referenz <%s>"
-    IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Knadidat)"
+    IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Kandidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "%s-Schlüsseleingabe"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Rijndael-Schlüsseleingabe (AES)"
     IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"

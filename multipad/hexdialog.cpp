@@ -65,6 +65,8 @@ void hexdialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(hexdialog)
+	DDX_Control(pDX, IDOK, m_EncryptionButton);
+	DDX_Control(pDX, IDC_BUTTON1, m_DecryptionButton);
 	DDX_Control(pDX, IDC_EDIT1, m_einfeld);
 	DDX_Text(pDX, IDC_EDIT1, m_einstr);
 	DDV_MaxChars(pDX, m_einstr, len);
@@ -77,6 +79,7 @@ BEGIN_MESSAGE_MAP(hexdialog, CDialog)
 	//{{AFX_MSG_MAP(hexdialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_EN_UPDATE(IDC_EDIT1, OnUpdateKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -91,4 +94,20 @@ char * hexdialog::GetData( void )
 int hexdialog::GetLen( void )
 {
 	return min(i_maxlen, m_einfeld.BinLen);
+}
+
+void hexdialog::OnUpdateKey() 
+{
+	UpdateData(TRUE);	
+	if ( m_einstr.GetLength() )
+	{
+		m_EncryptionButton.EnableWindow(TRUE);
+		m_DecryptionButton.EnableWindow(TRUE);	
+	}
+	else
+	{
+		m_EncryptionButton.EnableWindow(FALSE);
+		m_DecryptionButton.EnableWindow(FALSE);	
+	}
+	UpdateData(FALSE);
 }

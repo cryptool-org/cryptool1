@@ -24,11 +24,10 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgMono)
 	enum { IDD = IDD_DIALOG_KEY_INPUT_MONO };
-//	CMyCEdit	m_edit2;
 	CEdit	m_edit2;
 	CString	m_edit;
-	int		m_check;
 	//}}AFX_DATA
+	int m_check;
 
 
 // Überschreibungen
@@ -44,6 +43,8 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgMono)
 	afx_msg void OnChangeEdit1();
+	afx_msg void OnDecrypt();
+	afx_msg void OnEncrypt();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -6,8 +6,6 @@
 // dia1.h : header file
 //
 
-//#include "MyCEdit.h"
-
 #define MAX_VIGENERE	1024
 
 /////////////////////////////////////////////////////////////////////////////
@@ -21,14 +19,16 @@ public:
 	long m_Decrypt;
 	int len;
 
-	dia1(int maxlen, CWnd* pParent = NULL);   // standard constructor
+	dia1( int maxlen, CWnd* pParent = NULL);   // standard constructor
 
-	virtual char * GetData( void );
-	virtual int GetLen( void );
-	virtual int Display();
+	virtual char *	GetData( void );
+	virtual int		GetLen( void );
+	virtual int		Display();
 // Dialog Data
 	//{{AFX_DATA(dia1)
 	enum { IDD = IDD_DIALOG_KEY_INPUT };
+	CButton	m_EncryptionButton;
+	CButton	m_DecryptionButton;
 	CEdit	m_text_ctl;
 	CString	m_text;
 	CString	m_static_text;

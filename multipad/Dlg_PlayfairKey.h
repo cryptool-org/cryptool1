@@ -26,18 +26,19 @@ public:
 	int Display();
 
 	class Playfair *m_Alg;
+	int m_Dec;
+
 // Dialogfelddaten
 	//{{AFX_DATA(CDlg_PlayfairKey)
 	enum { IDD = IDD_DIALOG_KEY_PLAYFAIR };
-	int		m_Dec;
 	int		m_use;
 	int		m_sechs;
 	CString m_text;
 	CEdit	m_text_ctl;
-	CString m_mat[6][6];
-	CButton m_matc[11];
 	int		m_preformat;
 	CButton m_prec;
+	CString m_mat[6][6];
+	CButton m_matc[11];
 	//}}AFX_DATA
 
 
@@ -50,14 +51,14 @@ public:
 
 // Implementierung
 protected:
-
-	// Generierte Nachrichtenzuordnungsfunktionen
+// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlg_PlayfairKey)
 	afx_msg void OnSechs();
 	afx_msg void OnCheck();
-	afx_msg void OnDec();
 	afx_msg void OnChange();
 	afx_msg void OnUpdateEdit1();
+	afx_msg void OnDecrypt();
+	afx_msg void OnEncrypt();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

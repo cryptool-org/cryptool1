@@ -43,22 +43,6 @@ dia1::dia1(int maxlen, CWnd* pParent /*=NULL*/)
 	s_alternativeWindowText[0]=0;
 }
 
-
-//DEL dia1::dia1(int maxlen, const long StringID, CWnd *pParent)
-//DEL {
-//DEL 	char line[80];
-//DEL 
-//DEL 	len = maxlen;
-//DEL 	//{{AFX_DATA_INIT(dia1)
-//DEL 	m_text = _T("");
-//DEL 	m_static_text = _T("");
-//DEL 	//}}AFX_DATA_INIT
-//DEL 	LoadString(AfxGetInstanceHandle(),StringID,pc_str,STR_LAENGE_STRING_TABLE);
-//DEL 	sprintf(line,pc_str,len);
-//DEL 	m_static_text = line;
-//DEL 	s_alternativeWindowText[0]=0;
-//DEL }
-
 int dia1::Display()
 {
 	int res;
@@ -71,6 +55,8 @@ void dia1::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(dia1)
+	DDX_Control(pDX, IDOK, m_EncryptionButton);
+	DDX_Control(pDX, IDC_BUTTON1, m_DecryptionButton);
 	DDX_Control(pDX, IDC_EDIT1, m_text_ctl);
 	DDX_Text(pDX, IDC_EDIT1, m_text);
 	DDV_MaxChars(pDX, m_text, len);
@@ -127,6 +113,16 @@ void dia1::OnUpdateEdit1()
 	}
 
 	m_text = res;
+	if ( m_text.GetLength() )
+	{
+		m_EncryptionButton.EnableWindow(TRUE);
+		m_DecryptionButton.EnableWindow(TRUE);	
+	}
+	else
+	{
+		m_EncryptionButton.EnableWindow(FALSE);
+		m_DecryptionButton.EnableWindow(FALSE);	
+	}
 	UpdateData(FALSE);
 	m_text_ctl.SetSel(sels,sele);
 } 
@@ -158,7 +154,8 @@ BOOL dia1::OnInitDialog()
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	if (s_alternativeWindowText[0])
 		SetWindowText(s_alternativeWindowText);
-	
+	m_EncryptionButton.EnableWindow(FALSE);
+	m_DecryptionButton.EnableWindow(FALSE);	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

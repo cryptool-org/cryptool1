@@ -31,11 +31,11 @@ public:
 	enum { IDD = IDD_DIALOG_HOMOPHONE };
 	CEdit	m_KeyCtrl;
 	CListCtrl	m_listview;
-	int		    m_crypt;
 	CEdit       m_dummyCtrl;
 	CString	m_KeyCStr;
+	int		m_BaseHomophones;
 	//}}AFX_DATA
-
+	int m_crypt;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -52,6 +52,8 @@ protected:
 	afx_msg void OnErzeugen();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnLoadKey();
+	afx_msg void OnDecrypt();
+	afx_msg void OnEncrypt();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

@@ -16,7 +16,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlg_PlayfairKey 
 
-
 CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,int c,CWnd* pParent /*=NULL*/)
 	: CDialog(CDlg_PlayfairKey::IDD, pParent)
 {
@@ -24,7 +23,6 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 
 	//{{AFX_DATA_INIT(CDlg_PlayfairKey)
 	m_Alg = new Playfair("",0,infile,outfile,r,c,1);
-	m_Dec = 0;
 	m_sechs = 0;
 	m_preformat=1;
 	m_use=1;
@@ -36,8 +34,20 @@ CDlg_PlayfairKey::CDlg_PlayfairKey(const char *infile,const char *outfile,int r,
 		}
 	}
 	//}}AFX_DATA_INIT
+
+	m_Dec = 0;
 }
 
+CDlg_PlayfairKey::~CDlg_PlayfairKey()
+{
+
+/*	//{{AFX_DATA_INIT(CDlg_PlayfairKey) */
+    delete m_Alg;
+/*	//}}AFX_DATA_INIT */
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
 void CDlg_PlayfairKey::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -45,7 +55,6 @@ void CDlg_PlayfairKey::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_KEYENTER, m_text_ctl);
 	DDX_Text(pDX, IDC_KEYENTER, m_text);
 	DDV_MaxChars(pDX, m_text, 36);
-	DDX_Radio(pDX, IDC_RADIO1, m_Dec);
 	DDX_Radio(pDX, IDC_RADIO3, m_sechs);
 	DDX_Text(pDX, IDC_EDIT11, m_mat[0][0]);
 	DDX_Text(pDX, IDC_EDIT12, m_mat[0][1]);
@@ -104,27 +113,16 @@ void CDlg_PlayfairKey::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlg_PlayfairKey, CDialog)
 	//{{AFX_MSG_MAP(CDlg_PlayfairKey)
 	ON_EN_UPDATE(IDC_KEYENTER, OnUpdateEdit1)
-	ON_BN_CLICKED(IDC_RADIO1, OnDec)
-	ON_BN_CLICKED(IDC_RADIO2, OnDec)
 	ON_BN_CLICKED(IDC_RADIO3, OnSechs)
 	ON_BN_CLICKED(IDC_RADIO4, OnSechs)
 	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
+	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
+	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlg_PlayfairKey 
-
-void CDlg_PlayfairKey::OnDec()
-// ver- oder entschlüsseln
-{
-	UpdateData(TRUE);
-	if (m_Dec)
-		m_prec.EnableWindow(FALSE);
-	else
-		m_prec.EnableWindow(TRUE);
-	UpdateData(FALSE);
-}
 
 void CDlg_PlayfairKey::OnCheck() 
 // Doppelte Zeichen ignorieren oder nicht
@@ -188,9 +186,7 @@ char *CDlg_PlayfairKey::GetData()
 int CDlg_PlayfairKey::Display()
 {
 	int res;
-
 	res=DoModal();
-
 	return res;
 }
 
@@ -225,9 +221,16 @@ void CDlg_PlayfairKey::OnUpdateEdit1()
 	OnChange();
 } 
 
-CDlg_PlayfairKey::~CDlg_PlayfairKey()
+void CDlg_PlayfairKey::OnDecrypt() 
 {
-	//{{AFX_DATA_INIT(CDlg_PlayfairKey)
-    delete m_Alg;
-	//}}AFX_DATA_INIT
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_Dec = 1;
+	OnOK();
+}
+
+void CDlg_PlayfairKey::OnEncrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_Dec = 0;
+	OnOK();
 }

@@ -30,7 +30,6 @@ CDlgMono::CDlgMono(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgMono)
 	m_edit = _T("");
-	m_check = 0;
 	//}}AFX_DATA_INIT
 }
 
@@ -41,7 +40,6 @@ void CDlgMono::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgMono)
 	DDX_Control(pDX, IDC_EDIT1, m_edit2);
 	DDX_Text(pDX, IDC_EDIT1, m_edit);
-	DDX_Radio(pDX, IDC_RADIO1, m_check);
 	//}}AFX_DATA_MAP
 }
 
@@ -49,12 +47,27 @@ void CDlgMono::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgMono, CDialog)
 	//{{AFX_MSG_MAP(CDlgMono)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
+	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
+	ON_BN_CLICKED(IDOK, OnEncrypt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgMono 
 
+void CDlgMono::OnDecrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_check = 1;
+	OnOK();
+}
+
+void CDlgMono::OnEncrypt() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	m_check = 0;
+	OnOK();
+}
 
 void CDlgMono::OnChangeEdit1() 
 {
