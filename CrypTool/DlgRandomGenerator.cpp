@@ -27,7 +27,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 	CString progress;
 	char	outfile[128];
 	RandPar* par = static_cast<RandPar*>(pParam);
-	GetTmpName(outfile,"rnd",".hex");
+	GetTmpName(outfile,"cry",".hex");
 	ofstream rndData(outfile, ios::binary);
 	unsigned char	o;
 	long			i, j, k(0), l;

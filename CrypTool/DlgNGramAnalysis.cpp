@@ -312,7 +312,7 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	SHOW_HOUR_GLASS
 	b_SaveNGramList = true;
 	
-	GetTmpName(outfile,"NGram",".tmp");
+	GetTmpName(outfile,"cry",".tmp");
 	ofstream txt_NGram(outfile);
 	// TODO Title via Ressourcen String Einfügen
 	char string[100];

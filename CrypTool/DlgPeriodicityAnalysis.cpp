@@ -120,7 +120,7 @@ void CDlgPeriodicityAnalysis::OnSaveList()
 	SHOW_HOUR_GLASS
 	// b_SaveFactorList = true;
 	
-	GetTmpName(outfile,"DetFct",".tmp");
+	GetTmpName(outfile,"cry",".tmp");
 	ofstream f_details(outfile);
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_PA_TITLE,pc_str,STR_LAENGE_STRING_TABLE);

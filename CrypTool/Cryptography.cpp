@@ -686,7 +686,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 	if ( i_m_Verbose )
 	{
-		GetTmpName(outfile,"hill",".txt");
+		GetTmpName(outfile,"cry",".txt");
 		ofstream verboseOut(outfile);
 		CString out;
 		hillklasse->OutputHillmatrix(out);

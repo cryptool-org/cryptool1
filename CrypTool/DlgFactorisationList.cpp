@@ -210,7 +210,7 @@ void CDlgFactorisationList::OnCancel()
 	SHOW_HOUR_GLASS
 	b_SaveFactorList = true;
 	
-	GetTmpName(outfile,"DetFct",".tmp");
+	GetTmpName(outfile,"cry",".tmp");
 	ofstream f_Details(outfile);
 
 	LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_INPUT,pc_str,STR_LAENGE_STRING_TABLE);
