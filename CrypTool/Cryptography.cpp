@@ -104,7 +104,7 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 
 // == Encryption / Decryption
 	theApp.DoWaitCursor(1);
-	GetTmpName(outfile,"cry",".tmp");
+	GetTmpName(outfile,"cry",".txt");
 	if(KeyDialog.m_Decrypt)
 		text -= Key;
 	else
@@ -135,7 +135,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 
 // == Encryption / Decryption
 	theApp.DoWaitCursor(1);
-	GetTmpName(outfile,"cry",".tmp");
+	GetTmpName(outfile,"cry",".txt");
 	SymbolArray Key(AppConv);
 	Key.ReadString(KeyDialog.GetData());
 	if(KeyDialog.m_Decrypt)
@@ -669,7 +669,7 @@ void Hill(const char *infile, const char *OldTitle)
 	}
 	
 	// Ver- bzw. Entschluesselten Text in temporaere Datei schreiben
-	GetTmpName(outfile,"cry",".tmp");
+	GetTmpName(outfile,"cry",".txt");
     ofstream out(outfile);
 	out << str;
 	out.close();
@@ -1332,11 +1332,11 @@ void Mono(const char *infile, const char *OldTitle){
 		char outfile[128], title[128];
 		CAppDocument *NewDoc;
 
-		// Umlaute und Zeilenumbrueche umwandeln
 		char outfile2[128];
-		GetTmpName(outfile2,"cry",".tmp");
+		GetTmpName(outfile2,"cry",".txt");
 		FILE *stream, *stream2;
-		
+
+		// Umlaute und Zeilenumbrueche umwandeln		
 		int ch;
 		if( (stream = fopen( infile, "rt" )) == NULL )
 			exit( 0 );
@@ -1402,7 +1402,7 @@ void Mono(const char *infile, const char *OldTitle){
 
 		//text.Read(infile);
 		text.Read(outfile2);
-		GetTmpName(outfile,"cry",".tmp");
+		GetTmpName(outfile,"cry",".txt");
 		
 		
 		if (Mono1.m_check==TRUE){
@@ -1568,7 +1568,7 @@ UINT AnaSubst(PVOID p) {
 
 	// Umlaute und Zeilenumbrueche umwandeln
 	char outfile2[128];
-	GetTmpName(outfile2,"cry",".tmp");
+	GetTmpName(outfile2,"cry",".txt");
 	FILE *stream, *stream2;
 		
 	int ch;
@@ -1648,7 +1648,7 @@ UINT AnaSubst(PVOID p) {
 		if (Dialogbox.DoModal()==IDOK){
 			// Entschlüsseln und Ausgabe des Textes
 			char outfile[128], title[128];
-			GetTmpName(outfile,"cry",".tmp");
+			GetTmpName(outfile,"cry",".txt");
 
 			Laenge=text.GetSize();
 
@@ -2288,7 +2288,7 @@ UINT AnaSubst(PVOID p) {
 
 	// Entschlüsseln und Ausgabe des Textes
 	char outfile[128], title[128];
-	GetTmpName(outfile,"cry",".tmp");
+	GetTmpName(outfile,"cry",".txt");
 
 	Laenge=text.GetSize();
 
