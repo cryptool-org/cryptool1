@@ -2553,7 +2553,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "P&ermutation",                ID_PERMUTATION_ASC
+            MENUITEM "P&ermutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
@@ -3023,7 +3023,7 @@ BEGIN
             MENUITEM "A&ddition...",                ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-            MENUITEM "P&ermutation",                ID_PERMUTATION_ASC
+            MENUITEM "P&ermutation...",             ID_PERMUTATION_ASC
         END
         POPUP "&Symmetrisch"
         BEGIN
