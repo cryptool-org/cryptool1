@@ -139,7 +139,9 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_RC4, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESCBC, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_ANALYSE_TRIPLEDESECB, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_AES_SELFEXTRACT, OnUpdateAesSelfextract)
 
+	ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_ANALYSE_DESCBC, OnAnalyseDescbc)
 	ON_COMMAND(ID_ANALYSE_DESECB, OnAnalyseDesecb)
@@ -1133,12 +1135,17 @@ void CCryptDoc::OnToHex()
 	CMyDocument *NewDoc;
 	char outfile[128];
 	BOOL Modified;
+	WINDOWPLACEMENT place;
 
 	GetTmpName(outfile,"cry",".hex");
 
+	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	CWnd_hilf->GetWindowPlacement( &place );
 	Modified = IsModified();
 	OnSaveDocument(outfile);
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
+	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	CWnd_hilf->SetWindowPlacement( &place );
 	remove(outfile);
 	NewDoc->SetTitle(GetTitle());
 	NewDoc->CWndVaterFenster = CWndVaterFenster;
@@ -1152,12 +1159,17 @@ void CCryptDoc::OnToTxt()
 	CMyDocument *NewDoc;
 	char outfile[128];
 	BOOL Modified;
+	WINDOWPLACEMENT place;
 
 	GetTmpName(outfile,"cry",".txt");
 	
+	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	CWnd_hilf->GetWindowPlacement( &place );
 	Modified = IsModified();
 	OnSaveDocument(outfile);
 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
+	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	CWnd_hilf->SetWindowPlacement( &place );
 	remove(outfile);
 	NewDoc->SetTitle(GetTitle());
 	NewDoc->CWndVaterFenster = CWndVaterFenster;
@@ -1412,4 +1424,19 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 
 		FIPS.DoModal();
 	}
+}
+
+void CCryptDoc::OnAesSelfextract() 
+{
+    UpdateContent();
+	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, theApp.m_Selfextract_EXE,
+		ContentName, NULL);
+}
+
+void CCryptDoc::OnUpdateAesSelfextract(CCmdUI* pCmdUI) 
+{
+	if(theApp.m_Selfextract_EXE)
+		pCmdUI->Enable(TRUE);
+	else
+		pCmdUI->Enable(FALSE);
 }

@@ -120,6 +120,8 @@ protected:
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
     afx_msg void OnPermutationAsc();
+	afx_msg void OnAesSelfextract();
+	afx_msg void OnUpdateAesSelfextract(CCmdUI* pCmdUI);
 
 	afx_msg void OnAnalyseZufallstestsFrequencytest();
 	afx_msg void OnAnalyseZufallstestsSerialtest();

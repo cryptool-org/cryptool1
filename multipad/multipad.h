@@ -65,6 +65,7 @@ class CMultiPadApp : public CWinApp
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
+	char *m_Selfextract_EXE;
 	int m_HexFormat;
 	CSecudeLib SecudeLib;
 	int SecudeStatus;

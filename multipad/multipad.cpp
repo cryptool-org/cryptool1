@@ -100,6 +100,9 @@ BOOL CMultiPadApp::InitInstance()
 {
 //	_tsetlocale(LC_ALL, _T(""));
 
+	char buffer[1024], *p;
+	int n;
+
 	//Initialisierung der globalen Variablen
 	m_HexFormat = RegisterClipboardFormat("HexFormat");
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
@@ -250,6 +253,16 @@ BOOL CMultiPadApp::InitInstance()
 #undef DoOneFn
 #undef DoOneData
 
+	// nach AES-Selfextractor suchen
+	n = SearchPath(NULL,"AESTool.exe", NULL, 1023, buffer, &p);
+	if(n>0) {
+		m_Selfextract_EXE = (char *) malloc(n+2);
+		strcpy(m_Selfextract_EXE, buffer);
+	}
+	else
+		m_Selfextract_EXE = NULL;
+
+	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	int ret = Tipps.DoModal();
 	return TRUE;
@@ -467,8 +480,8 @@ int CMultiPadApp::ExitInstance()
 	if(CaPseVerzeichnis) free(CaPseVerzeichnis);
 	if(Pfad) free(Pfad);
 	if(PseVerzeichnis) free(PseVerzeichnis);
+	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
 //	m_pRecentFileList->WriteList();
-
 	return CWinApp::ExitInstance();
 }
 
