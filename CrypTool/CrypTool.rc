@@ -9970,6 +9970,7 @@ IDB_DH_ARROWS_G_X       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExc
 IDB_DH_ARROWS_R_D       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_ARROWS_R_F       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
 IDB_DH_ARROWS_R_U       BITMAP  DISCARDABLE     "res\\DHBitmaps\\bmps\\ArrowsExchange.bmp"
+IDB_DH_MAINBACKGROUND   BITMAP  DISCARDABLE     "res\\DHBitmaps_en\\bmps\\MainBackground.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
