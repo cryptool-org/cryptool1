@@ -2272,8 +2272,9 @@ BEGIN
     LTEXT           "Distinguished Name",IDC_STATIC,15,224,75,8
     EDITTEXT        IDC_EDIT_CERT_DNAME,97,222,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Abbrechen",IDCANCEL,175,248,60,14
-    DEFPUSHBUTTON   "PSE / Zertifkat erzeugen",IDOK,244,248,103,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,7,248,60,14
+    DEFPUSHBUTTON   "PSE / Zertifkat Erzeugen",IDOK,244,248,103,14
+    DEFPUSHBUTTON   "Vorhandene PSE Öffnen",ID_PSE_IMPORT,97,248,103,14
 END
 
 IDD_SEL_HASH DIALOG DISCARDABLE  0, 0, 148, 130
@@ -3990,8 +3991,9 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 347
+        VERTGUIDE, 97
         TOPMARGIN, 7
-        BOTTOMMARGIN, 226
+        BOTTOMMARGIN, 262
     END
 
     IDD_SEL_HASH, DIALOG
@@ -5323,12 +5325,11 @@ BEGIN
                             "Fehler: Die neue Alphabet-Größe übertrifft die Gesamtzahl der Homophonen !\nBitte erhöhen Sie die Gesamtzahl der Homophonen auf mindestens %i Zeichen."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
                             "Das Homophonen-Alphabet wurde geändert:\nAltes Alphabet: %s\nNeues Alphabet: %s."
-    IDS_PADDING             "x"
-    IDS_DERCODE             "x"
-    IDS_HASHVALUE           "x"
-    IDS_HASHDER             "x"
-    IDS_HASHENC             "x"
-    ID_PSE_IMPORT           "x"
+    IDS_PADDING             "Padding-String:         %s\r\n"
+    IDS_DERCODE             "Algorithmus-ID:         %s\r\n"
+    IDS_HASHVALUE           "Hashwert:               %s\r\n"
+    IDS_HASHDER             "ASN-1 Hashwert:         %s\r\n"
+    IDS_HASHENC             "Verschl. Hashwert:      %s\r\n"
 END
 
 STRINGTABLE DISCARDABLE 
