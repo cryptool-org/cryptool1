@@ -291,11 +291,17 @@ void DlgGenRandomData::OnGenRandomData()
 	m_pPara->m_DataSize = m_DataSize;
 	m_pPara->m_SelGenerator = m_SelGenerator;
 	m_pPara->m_seed = m_seed;
-	//theApp.OpenBGFlag = 1;
 	UpdateData(FALSE);
-	AfxBeginThread( GenRandomDataThread, PVOID(m_pPara) );
-	
-	CDialog::OnOK();
+	if ( m_DataSize >= 1 && m_DataSize < 1048576 )
+	{
+		// theApp.OpenBGFlag = 1; Peer Fragen
+		AfxBeginThread( GenRandomDataThread, PVOID(m_pPara) );
+		CDialog::OnOK();
+	}
+	else
+	{
+		// Fehlermeldung erscheint aufgrund der RessourcenSchranken :)
+	}
 }
 
 void DlgGenRandomData::OnCancel() 
