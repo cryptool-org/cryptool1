@@ -165,10 +165,10 @@ void DlgPrimesGenerator::OnButtonGenerate()
 	
 	CString UpnFormula;
 	int err_ndx;
-	bool error;
+	BOOL error;
 	
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
-	if (error==0)
+	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit1.SetSel(err_ndx-1,m_edit1.GetLength());
@@ -177,7 +177,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
-	if (error==0)
+	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit2.SetSel(err_ndx-1,m_edit2.GetLength());
@@ -186,7 +186,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
-	if (error==0)
+	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit3.SetSel(err_ndx-1,m_edit3.GetLength());
@@ -195,7 +195,7 @@ void DlgPrimesGenerator::OnButtonGenerate()
 		return;
 	}
 	error = CheckFormula(m_edit1,10,UpnFormula,err_ndx);
-	if (error==0)
+	if (error == 0)
 	{
 		//Fehler in der Eingabe, von Parser abgefangen
 		m_control_edit4.SetSel(err_ndx-1,m_edit4.GetLength());

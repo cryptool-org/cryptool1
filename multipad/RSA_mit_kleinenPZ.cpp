@@ -158,7 +158,7 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 	
 	if ( IDOK == DlgRSAPrimes->DoModal() )
 	{
-		bool Parameter_N_zu_gross;
+		int Parameter_N_zu_gross;
 		m_eingabe_p = DlgRSAPrimes->m_edit5;
 		m_eingabe_q = DlgRSAPrimes->m_edit6;
 		Parameter_N_zu_gross = RSA->InitParameter( m_eingabe_p, m_eingabe_q );
@@ -216,15 +216,52 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 	UpdateData(true);
 	char line [IDS_STRINGLENGTH];
 	int RSAInitError;
+	int RSASetPublicKeyError;
+
+	CString UpnFormula;
+	int err_ndx;
+	BOOL error;
+	
+	error = CheckFormula(m_eingabe_p,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_p.SetSel(err_ndx-1,m_eingabe_p.GetLength());
+		m_control_p.SetFocus();
+		Message( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+
+	error = CheckFormula(m_eingabe_q,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_q.SetSel(err_ndx-1,m_eingabe_q.GetLength());
+		m_control_q.SetFocus();
+		Message( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+	error = CheckFormula(m_oeffentliche_schluessel_e,10,UpnFormula,err_ndx);
+	if (error==0)
+	{
+		//Fehler in der Eingabe, von Parser abgefangen
+		m_control_edit5.SetSel(err_ndx-1,m_oeffentliche_schluessel_e.GetLength());
+		m_control_edit5.SetFocus();
+		Message( IDS_STRING_INPUT_FALSE );
+		return;
+	}
+
+
 	if ( 0 == (RSAInitError = RSA->InitParameter( m_eingabe_p, m_eingabe_q )) )
 	{
-		if (RSA->SetPublicKey( m_oeffentliche_schluessel_e ) )
+		RSASetPublicKeyError = RSA->SetPublicKey( m_oeffentliche_schluessel_e );
+		if (1 == RSASetPublicKeyError )
 		{
 			RSA->SetPrivateKey();
 			RSA->GetParameter( m_oeffentliche_parameter_pq, m_geheime_parameter, 
 					   m_oeffentliche_schluessel_e, m_geheime_schluessel_d );
 		}
-		else
+		else if (0 == RSASetPublicKeyError)
 		{
 			// Falls e nicht coprime zu phi(N) ist, wird man aufgefordert eine andere Zahl für e zu wählen
 			Message(IDS_STRING_RSATUT_WRONG_PUBLICKEY);
@@ -232,10 +269,32 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			m_control_edit5.SetFocus();
 			return;
 		}
+		else
+		{
+			Message(IDS_STRING_BIG_NUMBER);
+			m_control_edit5.SetFocus();
+			m_control_edit5.SetSel(0,-1);
+			return;
+		}
 	}
 	else 
 	{
 		// In diesem Fall ist mindestens eine der Zahlen p oder q keine Primzahl.
+
+		if ( ERR_P_TO_BIG == RSAInitError )
+		{
+			Message(IDS_STRING_BIG_NUMBER);
+			m_control_p.SetFocus();
+			m_control_p.SetSel(0,-1);
+			return;
+		}
+		if ( ERR_Q_TO_BIG == RSAInitError )
+		{
+			Message(IDS_STRING_BIG_NUMBER);
+			m_control_q.SetFocus();
+			m_control_q.SetSel(0,-1);
+			return;
+		}
 		if ( ERR_P_NOT_PRIME == RSAInitError )
 		{
 			Message(IDS_STRING_RSADEMO_P_NOT_PRIME);

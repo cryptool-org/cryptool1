@@ -23,6 +23,7 @@ static char THIS_FILE[] = __FILE__;
 
 UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 {
+	BOOL Out;
 	CString title;
 	CString progress;
 	char	outfile[128];
@@ -83,7 +84,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 		{
 			title.Format(IDS_RAND_GEN_PARAM, "LCG", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
-			par->DLCG.setSeed( par->m_seed );
+			Out = par->DLCG.setSeed( par->m_seed );
 			for(j=0;j<par->m_DataSize;j++)
 			{
 				o = 0;
@@ -106,7 +107,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 		{
 			title.Format(IDS_RAND_GEN_PARAM, "ICG", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
-			par->DICG.setSeed( par->m_seed );
+			Out = par->DICG.setSeed( par->m_seed );
 			for(j=0;j<par->m_DataSize*9;j++)
 			{
 				o=0;
@@ -198,7 +199,9 @@ void DlgGenRandomData::OnSelGenParam()
 			break;
 	case 1: {
 				if (IDOK == m_pPara->DRPXN.DoModal() )
+				{
 					m_pPara->rnd_x2modN.setModul( m_pPara->DRPXN.GetModul() );
+				}
 			}
 		break;
 	case 2: {

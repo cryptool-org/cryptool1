@@ -154,7 +154,10 @@ public:
 //////////////////////////////////////////////////////////////////////////////////
 #define ERR_P_NOT_PRIME 1
 #define ERR_Q_NOT_PRIME 2
+#define ERR_E_TO_BIG 3
 #define ERR_P_EQUALS_Q  4
+#define ERR_P_TO_BIG 5
+#define ERR_Q_TO_BIG 6
 
 class TutorialRSA  
 {
@@ -169,7 +172,7 @@ public:
 	TutorialRSA();
 	virtual ~TutorialRSA();
 	int  InitParameter( CString &pStr, CString &qStr, int base = 10 );
-	BOOL SetPublicKey ( CString &eStr, int base = 10 );
+	int SetPublicKey ( CString &eStr, int base = 10 );
 	BOOL SetPrivateKey();
 	int  GetBlockLength();
 	double GetLog2RSAModul();
@@ -181,8 +184,8 @@ public:
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10, BOOL DlgOfSisters = FALSE);
 
 private:
-	BOOL SetPublicKey ( Big &e );
-	BOOL InitParameter( Big &p, Big &q );
+	int SetPublicKey ( Big &e );
+	int InitParameter( Big &p, Big &q );
 	BOOL Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock );
 	BOOL Decrypt( Big &CiphertextBlock, Big &PlaintextBlock );
 };

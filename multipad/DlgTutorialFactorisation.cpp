@@ -150,7 +150,7 @@ void DlgTutorialFactorisation::OnButtonFactorisation()
 	CString UpnFormula;
 	char line [256];
 	int err_ndx;
-	bool error;
+	BOOL error;
 	error = CheckFormula(m_CompositeNoStr,10,UpnFormula,err_ndx);
 	if (error==0)
 	{

@@ -277,7 +277,7 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 	char *tmp;
 	tmp = new char[CStrNumber.GetLength()+1];
 	strcpy(tmp, CStrNumber.GetBuffer( CStrNumber.GetLength()+1));
-	int success=evaluate::eval(t, tmp); 
+	BOOL success=evaluate::eval(t, tmp); 
 	if ( !success ) t = 0;	
 	delete []tmp;
 	return success;
@@ -931,11 +931,11 @@ int GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
 		//UpperLimit hat mehr als 1024 bit
 		return 2;
 	}
-	bool Out_Set_Lim;
+	BOOL Out_Set_Lim;
 	Out_Set_Lim = SetLimits( LowerLimit, UpperLimit );
 		
 	//Eingabe sind OK
-	if (Out_Set_Lim==true) return 1;
+	if (Out_Set_Lim) return 1;
 	//UpperLimit>LowerLimit
 	else return 0;
 }
@@ -1163,32 +1163,41 @@ int TutorialRSA::InitParameter( Big &p, Big &q )
 	return 0;
 }
 
-BOOL TutorialRSA::InitParameter( CString &pStr, CString &qStr, int base )
+int TutorialRSA::InitParameter( CString &pStr, CString &qStr, int base )
 {
 	Big p, q;
-	CStringToBig( pStr, p, base );
-	CStringToBig( qStr, q, base );
+	BOOL p_ok,q_ok;
+	p_ok = CStringFormulaToBig( pStr, p );
+	q_ok = CStringFormulaToBig( qStr, q );
+	if (p_ok == false) return ERR_P_TO_BIG;
+	if (q_ok == false) return ERR_Q_TO_BIG;
 	return InitParameter( p, q );
 }
 
 
-BOOL TutorialRSA::SetPublicKey ( Big &E )
+int TutorialRSA::SetPublicKey ( Big &E )
 {
+	int ausgabe;
 	isInitialized_e = isInitialized_d = false;
-	if ( !isInitialized_N ) return false;
+	ausgabe = 0;
+	if ( !isInitialized_N ) return 0;
 	if ( 1 == gcd( E, phiOfN ) )
 	{
 		e = E;
 		isInitialized_e = true;
+		ausgabe = 1;
 	}
-	return isInitialized_e;
+	//return isInitialized_e;
+	return ausgabe;
 }
 
-BOOL TutorialRSA::SetPublicKey ( CString &eStr, int base )
+int TutorialRSA::SetPublicKey ( CString &eStr, int base )
 {
 	Big E;
 	// Noch ...
-	CStringFormulaToBig( eStr, E );
+	BOOL e_ok;
+	e_ok = CStringFormulaToBig( eStr, E );
+	if (e_ok == FALSE) return ERR_E_TO_BIG;
 	return SetPublicKey( E );
 }
 
@@ -2603,7 +2612,7 @@ BOOL TutorialFactorisation::QuadraticSieve()
 //void TutorialFactorisation::SetN(CString &NStr)
 int TutorialFactorisation::SetN(CString &NStr)
 {
-	bool output;
+	BOOL output;
 	set_mip(mip);
 	output=evaluate::eval( N, NStr.GetBuffer( 256 ));
 	if (output==false)  return EVAL_ERR; // Zahl mit Bitlänge >= 1024, oder sonstige Miracl-Fehler
