@@ -120,6 +120,8 @@ protected:
 	afx_msg void OnUpdatePrimeP();
 	afx_msg void OnUpdatePrimeQ();
 	afx_msg void OnUpdatePublicKeyE();
+	afx_msg void OnRadio2();
+	afx_msg void OnRadio1();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
@@ -131,7 +133,7 @@ private:
 	void HeadingEncryption(BOOL decryptText);
 	void EnableEncryption( BOOL mode = TRUE );
 	void RequestForInput( BOOL clearInput = FALSE );
-	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );
+	void SetHeadLine( CString &mHeader, int IDS_STRING_ID, int base = 0 );	
 	int GetBase();
 	DlgPrimesGenerator            *DlgRSAPrimes;
 	CDlgRSAwithSmallPrimesOptions *DlgOptions;

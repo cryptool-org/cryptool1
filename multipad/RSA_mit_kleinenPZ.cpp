@@ -51,7 +51,7 @@ RSA_mit_kleinenPZ::RSA_mit_kleinenPZ(CWnd* pParent /*=NULL*/)
 	m_eingabe_q = _T("");
 	m_geheime_parameter = _T("");
 	m_oeffentliche_parameter_pq = _T("");
-	m_oeffentliche_schluessel_e = _T("3");
+	m_oeffentliche_schluessel_e = _T("2^16+1");
 	m_geheime_schluessel_d = _T("");
 	m_edit10 = _T("");
 	m_edit11 = _T("");
@@ -125,6 +125,8 @@ BEGIN_MESSAGE_MAP(RSA_mit_kleinenPZ, CDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdatePrimeP)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdatePrimeQ)
 	ON_EN_UPDATE(IDC_EDIT5, OnUpdatePublicKeyE)
+	ON_BN_CLICKED(IDC_RADIO2, OnRadio2)
+	ON_BN_CLICKED(IDC_RADIO1, OnRadio1)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -163,7 +165,7 @@ void RSA_mit_kleinenPZ::OnButtonPzGenerieren()
 				EnableEncryption();
 				m_ButtonOptionen.EnableWindow(true);
 				SetDlgOptions();
-				RequestForInput();
+				RequestForInput(FALSE);
 			}
 			else
 			{
@@ -330,7 +332,7 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 			}
 			else
 			{
-				Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, 
+				Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
 					    DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 				EnableEncryption(false);
 				m_ButtonOptionen.EnableWindow(true);
@@ -347,11 +349,11 @@ void RSA_mit_kleinenPZ::OnParameterAktualisieren()
 		{
 			DlgOptions->Anzahl_Zeichen=DlgOptions->m_alphabet.GetLength();
 		}
-		Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
+		Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 		EnableEncryption(false);
 		m_ButtonOptionen.EnableWindow(true);		
 	}	
-	RequestForInput();
+	RequestForInput(FALSE);
 	UpdateData(false);		
 }
 
@@ -387,7 +389,7 @@ void RSA_mit_kleinenPZ::OnOptionen()
 	{
 		if ( DlgOptions->Anzahl_Zeichen > atoi(m_oeffentliche_parameter_pq))
 		{
-			Message(IDS_STRING_RSADEMO_MODUL_KLEIN, MB_ICONEXCLAMATION, 
+			Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
 				DlgOptions->Anzahl_Zeichen, m_oeffentliche_parameter_pq );
 			EnableEncryption(false);
 		}
@@ -630,6 +632,8 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeP()
 	char c;
 	CString res;
 
+	RequestForInput(FALSE);
+
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_p.GetSel(sels, sele);
 
@@ -647,7 +651,7 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeP()
 		m_geheime_parameter = _T("");
 		m_oeffentliche_parameter_pq = _T("");
 		m_geheime_schluessel_d = _T("");
-		m_edit10 = _T("");
+		RequestForInput(FALSE);
 		EnableEncryption(false);
 	}
 	
@@ -661,6 +665,8 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeQ()
 	int sels, sele, i, k;
 	char c;
 	CString res;
+
+	RequestForInput(FALSE);
 
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_q.GetSel(sels, sele);
@@ -678,7 +684,7 @@ void RSA_mit_kleinenPZ::OnUpdatePrimeQ()
 		m_geheime_parameter = _T("");
 		m_oeffentliche_parameter_pq = _T("");
 		m_geheime_schluessel_d = _T("");
-		m_edit10 = _T("");
+		RequestForInput(FALSE);
 		EnableEncryption(false);
 	}
 	
@@ -696,6 +702,8 @@ void RSA_mit_kleinenPZ::OnUpdatePublicKeyE()
 	int sels, sele, i, k;
 	char c;
 	CString res;
+
+	RequestForInput(FALSE);
 
 	UpdateData(TRUE); // get the displayed value in m_text 
 	m_control_edit5.GetSel(sels, sele);
@@ -752,15 +760,16 @@ int RSA_mit_kleinenPZ::GetBase()
 
 void RSA_mit_kleinenPZ::RequestForInput( BOOL clearInput )
 {
-	if ( clearInput ) 
-		m_edit10  = "";
-	m_edit11  = "";
-	m_edit12  = "";
-	m_edit13  = "";
+
+	if ( clearInput ) m_edit10.Empty();
+	m_edit11.Empty();
+	m_edit12.Empty();
+	m_edit13.Empty();
 	SetHeadLine( m_Header1, IDS_STRING_RSA_TUTORIAL_INPUT, GetBase() );
-	m_Header2 = "";
-	m_Header3 = "";
-	m_Header4 = "";
+	m_Header2.Empty();
+	m_Header3.Empty();
+	m_Header4.Empty();
+
 }
 
 
@@ -768,6 +777,8 @@ void RSA_mit_kleinenPZ::EnableEncryption(BOOL mode)
 {
 	m_ButtonDecrypt.EnableWindow(mode);		
 	m_ButtonEncrypt.EnableWindow(mode);	
+
+	
 }
 
 
@@ -909,6 +920,21 @@ void RSA_mit_kleinenPZ::Segmentation( int mode )
 	}
 }
 
+void RSA_mit_kleinenPZ::OnRadio2() 
+{
+	UpdateData(TRUE);
+	RequestForInput(TRUE);
+	UpdateData(FALSE);
+}
+
+void RSA_mit_kleinenPZ::OnRadio1() 
+{
+	UpdateData(TRUE);
+	RequestForInput(TRUE);
+	UpdateData(FALSE);
+}
+
+
 
 BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 {
@@ -989,6 +1015,8 @@ BOOL RSA_mit_kleinenPZ::ReSegmentation( int mode )
 	}
 	return flag;
 }
+
+
 /////////////////////////////////////////////////////////////////////////////
 // CMyRSADemoEdit
 
@@ -1139,4 +1167,7 @@ void CMyRSADemoEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CEdit::OnChar(nChar,nRepCnt,nFlags);
 	}
 }
+
+
+
 
