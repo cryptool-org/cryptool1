@@ -1,0 +1,19 @@
+REGEDIT4
+
+
+[HKEY_CLASSES_ROOT\CLSID\{2626f1f0-42be-11d5-8b0e-0010a4f6e7d5}]
+   @="AES encryption tool"
+[HKEY_CLASSES_ROOT\CLSID\{2626f1f0-42be-11d5-8b0e-0010a4f6e7d5}\InProcServer32]
+   @="d:\\usr\\peer\\Projekte\\DeuBa\\ShellExt\\shellext.dll"
+     "ThreadingModel"="Apartment"
+
+
+[HKEY_CLASSES_ROOT\*]
+   @="AES Enryption"
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers]
+   @="AESTool"
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\AESTool]
+   @="{2626f1f0-42be-11d5-8b0e-0010a4f6e7d5}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+   "{2626f1f0-42be-11d5-8b0e-0010a4f6e7d5}"="AES encryption tool"
