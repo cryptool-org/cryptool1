@@ -1,0 +1,4 @@
+preamble "\\begin{theindex}\n\\addcontentsline{toc}{section}{Index}\n"  
+headings_flag 1
+heading_prefix "\\textbf{"
+heading_suffix "}\\nopagebreak"

@@ -1,0 +1,264 @@
+% ....................................................................................
+%                    D I G I T A L E  S I G N A T U R E N
+% ....................................................................................
+\newpage
+\section{Digitale Signaturen}
+\index{Signaturen!digitale}
+Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
+\begin{itemize}
+ \item Benutzerauthentizit"at: \\
+      \index{Authentizit""at!Benutzer-} Es kann "uberpr"uft werden, ob eine Nachricht tats"achlich von einer bestimmten Person stammt.
+ \item Nachrichtenintegrit"at: \\
+      \index{Nachrichtenintegrit""at} Es kann "uberpr"uft werden, ob die Nachricht (unterwegs) ver"andert wurde.
+\end{itemize}
+
+
+Zum Einsatz kommt wieder eine asymmetrische Technik (siehe Verschl"usselungsverfahren).
+Ein Teilnehmer, der eine digitale Signatur f"ur ein Dokument erzeugen will, mu"s ein
+Schl"usselpaar besitzen. Er benutzt seinen geheimen Schl"ussel, um Signaturen zu erzeugen,
+und der Empf"anger benutzt den "offentlichen Schl"ussel des Absenders, um die Richtigkeit der Signatur
+zu "uberpr"ufen. Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen Schl"ussel
+abzuleiten.
+
+Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} folgenderma"sen aus: \\
+Der Absender berechnet aus seiner Nachricht und seinem geheimen Schl"ussel die digitale
+Signatur der Nachricht. Im Vergleich zur handschriftlichen Unterschrift hat die digitale Signatur
+also den Vorteil, dass die Unterschrift auch vom unterschriebenen Dokument abh"angt. Die Unterschriften
+ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten Dokumente nicht vollkommen
+"ubereinstimmen. Selbst das Einf"ugen eines Leerzeichens in den Text w"urde zu einer anderen Signatur
+f"uhren. Eine Verletzung der Nachrichtenintegrit"at wird also vom Empf"anger der Nachricht erkannt,
+da in diesem Falle die Signatur nicht mehr zum Dokument pa"st und sich bei der "Uberpr"ufung als unkorrekt
+erweist.
+
+Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann mit Hilfe des "offentlichen
+Schl"ussels des Absenders, des Dokuments und der Signatur feststellen, ob die Signatur korrekt ist.
+In der Praxis hat das gerade beschriebene Verfahren jedoch einen entscheidenden Nachteil. Die Signatur ist ungef"ahr
+genauso lang wie das eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu lassen und aus 
+Performance-Gr"unden benutzt man eine kryptographische Hashfunktion.
+
+Eine kryptographische \index{Hashfunktion} {\em Hashfunktion} bildet eine Nachricht beliebiger L"ange auf eine Zeichenfolge mit
+konstanter Gr"o"se (meistens 128 oder 160 Bits), den \index{Hashwert} Hashwert, ab. Es sollte praktisch unm"oglich
+sein, zu einer gegebenen Zahl eine Nachricht zu finden, die genau diese Zahl als Hash\-wert hat. Ferner
+sollte es praktisch unm"oglich sein, zwei Nachrichten mit dem selben Hashwert zu finden. In beiden
+F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
+
+Bisher konnte die Existenz von perfekt sicheren kryptographischen Hashfunktionen nicht
+formal bewiesen werden. Es gibt jedoch einige gute Kandidaten, die in der Praxis bislang keine
+Schw"achen gezeigt haben (zum Beispiel \index{SHA--1} SHA-­1 oder \index{RIPEMD--160} RIPEMD­-160).
+
+Das Verfahren mit Hashfunktion sieht folgenderma"sen aus:\\
+Anstatt das eigentliche Dokument zu signieren, berechnet der Absender nun zuerst den Hashwert
+der Nachricht und signiert diesen. Der Empf"anger bildet ebenfalls den Hashwert der Nachricht (der benutzte
+Algorithmus mu"s bekannt sein). Er "uberpr"uft dann, ob die mitgeschickte Signatur eine korrekte Signatur des
+Hashwertes ist. Ist dies der Fall, so wurde die Signatur korrekt verifiziert. Die Authentizit"at der Nachricht
+ist damit gegeben, da wir angenommen hatten, dass aus der Kenntnis des "offentlichen Schl"ussels nicht der
+geheime Schl"ussel abgeleitet werden kann. Dieser geheime Schl"ussel w"are jedoch notwendig, um Nachrichten
+in einem fremden Namen zu signieren.
+
+Einige digitale Signaturverfahren basieren auf asymmetrischer
+Verschl"usselung, das bekannteste Beispiel dieser Gattung ist RSA. F"ur die
+RSA-Signatur verwendet man die gleiche mathematische Operation wie zum
+Entschl"usseln, nur wird sie auf den Hash-Wert des zu unterschreibenden
+Dokuments angewendet.
+
+Andere Systeme der digitalen Signatur wurden, wie DSA (Digital Signature
+Algorithm), ausschliesslich zu diesem Zweck entwickelt, und stehen in
+keiner direkten Verbindung zu einem entsprechenden
+Verschl"usselungsverfahren.
+
+Beide Signaturverfahren, RSA und DSA, werden in den folgenden beiden
+Abschnitten n"aher beleuchtet. Anschliessend gehen wir einen Schritt weiter
+und zeigen, wie basierend auf der elektronischen Unterschrift das digitael
+Pendent zum Personalausweis entwickelt wurde. Dies Verfahren nennt man
+Public Key Zertifizierung.
+
+\subsection{RSA Signatur}
+\index{Signatur!digital}
+\index{RSA Signatur}
+
+\def\Mod#1{\ (\mbox{mod }#1)}
+
+Wie im Kommentar am Ende von \hyperlink{RSAproof}{Abschnitt
+\ref{RSAproof}} bemerkt, ist es m"oglich, die RSA Operationen mit dem
+privaten und "offentlichen Schl"ussel in umgekehrter Reihenfolge auszuf"uhren,
+d.~h.\ $M$ hoch $d$ hoch $e \Mod{N}$ ergibt wieder $M$. Wegen dieser
+simplen Tatsache ist es m"oglich, RSA als Signaturverferfahren zu
+verwenden. 
+
+Eine RSA Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
+mit dem privaten Schl"ussel erzeugt:
+$$ S \equiv M^d \Mod{N} $$
+Zur Verifikation wird die korrespondierende Public-Key-Operation auf der
+Signatur $S$ ausgef"uhrt und das Ergebnis mit der Nachricht $M$ verglichen:
+$$
+S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
+Wenn das Ergebnis
+$S^e$ mit der Nachricht $M$ "ubereinstimmt, dann akzeptiert der Pr"ufer die
+Signatur, andernfalls ist die Nachrricht entweder ver"andert worden, oder
+sie wurde nie vom Inhaber von $d$ unterschrieben.
+
+Wie weiter oben erkl"art, werden Signaturen in der Praxis nie direkt auf der
+Nachricht ausf"uhrt, sondern auf einem kryptograhischen Hashwert davon. Um
+verschiedene Attacken auf das Signaturverfahren (und seine Kombination mit
+Verschl"usselung) auszuschliessen, ist es n"otig, den Hashwert vor der
+Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
+Key Cryptography Standard \#1 \cite{PKCS1}) beschrieben. Der Tatsache, dass
+dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
+als Beispiel daf"ur dienen, wie schwer es ist, kryptographische Details
+richtig hinzubekommen.
+
+\subsection{DSA Signatur}
+\index{Signatures!digital}
+\index{DSA Signatur}
+
+Im August 1991 hat das U.S. National Institute of Standards and Technology
+(NIST) einen digitalen Signaturalgorithmus (DSA, Digital Signature
+Algorithm) vorgestellt, der sp"ater zum U.S. Federal Information Processing
+Standard (FIPS 186 \cite{FIPS186}) wurde.
+
+Der Algorithmus ist eine Variante des ElGamal Verfahrens. Seine Sicherheit
+beruhrt auf dem Diskreten Logarithmus Problem\index{Logarithm
+Problem!diskret}. Die Bestandteile des privaten und "offentlichen DSA
+Schl"ussels, sowie die Verfahren zur Signatur und Verifikation, sind im
+Folgenden zusammengefasst.
+
+
+\paragraph{"Offentlicher Schl"ussel}\strut\\
+\begin{tabular}{l@{ }l}
+$p$ & prim \\
+$q$ & 160bit Primfaktor von $p - 1$ \\
+$g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, wobei $h < p - 1$ und
+$h^{(p-1)/q} > 1  \Mod{p}$ \\
+$y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
+\end{tabular}
+
+\emph{Bemerkung:} Die Parameter $p,q$ und $g$ k"onnen von einer Gruppe von
+Benutzern gemeinsam genutzt werden.
+
+\paragraph{Privater Schl"ussel}\strut\\
+\begin{tabular}{l@{ }l}
+$x < q$ (160bit Zahl) 
+\end{tabular}
+
+\paragraph{Signatur}\strut\\
+\begin{tabular}{l@{ }l}
+$m$ & zu signierende Nachricht\\
+$k$ & zuf"allig gew"ahlte Primzahl, kleiner als $q$\\
+$r$ & $= (g^k \mbox{ mod } p) \mbox{ mod } q$\\
+$s$ & $= (k^{-1}(\mbox{SHA--1}(m) + xr)) \mbox{ mod } q$
+\end{tabular}
+
+\emph{Bemerkung:}
+\begin{itemize}
+\item $(s,r)$ ist die Signtur.
+\item Die Sicherheit der Signatur h"angt nicht nur von der Mathematik ab,
+sondern auch von der Verf"ugbarkeit einer guten Zufallsquelle f"ur $k$.
+\item SHA--1 \index{SHA--1} ist eine in FIPS186 spezifizierte 160bit Hashfunktion.
+
+\end{itemize}
+\paragraph{Verifikation}\strut\\
+\begin{tabular}{l@{ }l}
+$w$ & $= s^{-1}  \mbox{ mod } q$\\
+$u_1$ & $= (\mbox{SHA--1}(m)w) \mbox{ mod } q$\\
+$u_2$ & $= (rw)  \mbox{ mod } q$\\
+$v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
+
+\end{tabular}
+
+\emph{Bemerkung:} Wenn $v = r$, dann ist die Signatur g"ultig.
+
+Obwohl DSA unabh"angig von einem Verschl"usselungsverfahren so spezifiziert
+wurde, dass es aus L"ander exportiert werden kann, die den Export von
+kryptographischer Hard- und Software einschr"anken, wie die USA zum
+Zeitpunkt der Spezifikation, wurde festgestellt
+\cite[p.~490]{5Schneier1996}, dass die Operationen des DSA dazu geeignet
+sind, nach RSA bzw. ElGamal zu verschl"usseln.
+
+
+      
+
+
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Public Key--Zertifizierung}
+\index{Zertifizierung!Public-Key}
+Ziel der Public Key-­Zertifizierung ist es, die Bindung eines "offentlichen Schl"ussel
+an einen Benutzers zu garantieren und nach au"sen nachvollziehbar zu machen. In F"allen, in denen nicht
+sichergestellt werden kann, dass ein "offentlicher Schl"ussel auch wirklich zu einer bestimmten Person geh"ort,
+sind viele Protokolle nicht mehr sicher, selbst wenn die einzelnen kryptographischen Bausteine nicht
+geknackt werden k"onnen.
+
+
+
+
+% -----------------------------------------------------------------------------------------------------------------
+\subsubsection{Die Impersonalisierungsattacke}
+\index{Impersonalisierungsattacke}
+Angenommen Charlie hat zwei Schl"usselpaare (PK1, SK1) und (PK2, SK2). Hierbei bezeichnet SK den geheimen
+Schl"ussel (secret key) und PK den "offentlichen Schl"ussel (public key). Weiter angenommen, es gelingt ihm, Alice PK1
+als "offentlichen Schl"ussel von Bob und Bob PK2 als "offentlichen Schl"ussel von Alice unterzujubeln (etwa indem
+er ein "offentliches Schl"usselverzeichnis f"alscht).
+
+Dann ist folgender Angriff m"oglich:
+\begin{itemize}
+    \item Alice m"ochte eine Nachricht an Bob senden. Sie verschl"usselt diese mit
+          PK1, da sie denkt, dies sei Bobs "offentlicher Schl"ussel. Anschlie"send signiert sie die
+          Nachricht mit ihrem geheimen Schl"ussel und schickt sie ab.
+    \item Charlie f"angt die Nachricht ab, entfernt die Signatur und entschl"usselt
+          die Nachricht mit SK1. Wenn er m"ochte, kann er die Nachricht anschlie"send nach Belieben
+          ver"andern. Dann verschl"usselt er sie wieder, aber diesmal mit dem echten "offentlichen
+          Schl"ussel von Bob, den er sich aus einem "offentlichen Schl"usselverzeichnis geholt
+          hat, signiert sie mit SK2 und schickt die Nachricht weiter an Bob.
+    \item Bob "uberpr"uft die Signatur mit PK2 und wird zu dem Ergebnis kommen, dass die Signatur in
+          Ordnung ist. Dann entschl"usselt er die Nachricht mit seinem geheimen Schl"ussel.
+\end{itemize}
+
+Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob abzuh"oren und die ausgetauschten
+Nachrichten zu ver"andern, ohne dass dies von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
+auch, wenn Charlie nur ein Schl"usselpaar hat.
+
+Ein anderer Name f"ur diese Art von Angriffen ist \index{Man-in-the-middle-attack} \glqq man-­in-­the-­middle-­attack\grqq. Hilfe gegen diese Art
+von Angriffen verspricht die Public Key­-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
+garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509­-Standard.
+
+% --------------------------------------------------------------------------------------------------------------------
+\subsubsection{X.509}
+
+Jeder Teilnehmer, der sich bei \index{X.509}  X.509 die Zugeh"origkeit seines "offentlichen Schl"ussels zu seiner
+realen Person best"atigen lassen m"ochte, wendet sich an eine sogenannte \index{Certification Authority (CA)} Certification Authority (CA). Dieser
+beweist er seine Identit"at (etwa durch Vorlage seines Personalausweises). Anschlie"send stellt die CA ihm ein
+elektronisches Dokument (Zertifikat) aus, in dem im wesentlichen die Namen des Zertifikatnehmers und
+der CA, der "offentliche Schl"ussel des Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt
+sind. Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen Schl"ussel.
+
+
+Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob das Zertifikat unverf"alscht ist. Die
+CA garantiert also die Zugeh"origkeit von Benutzer und "offentlichem Schl"ussel.
+
+Dieses Verfahren ist nur so lange sicher, wie die Richtigkeit des "offentlichen Schl"ussels der CA
+sichergestellt ist. Aus diesem Grund l"a"st jede CA ihren "offentlichen Schl"ussel bei einer anderen CA
+zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten Hierarchieebene gibt es in der Regel
+nur eine CA, die dann nat"urlich keine M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
+zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel auf andere Art und Weise gesichert
+zu "ubermitteln. Bei vielen Software-­Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
+von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-­CAs schon von Anfang an fest in das Programm
+eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch die
+"offentliche Bekanntgabe k"onnen ("offentliche) CA-­Schl"ussel, insbesondere die der Wurzelinstanz,
+gesichert werden.
+
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Bibliography}
+\bibitem[Schneier1996]{5Schneier1996} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    Applied Cryptography, Protocols, Algorithms,
+    and Source Code in C, Wiley, 2nd edition, 1996.
+
+\bibitem[PKCS1]{PKCS1} RSA Laboratories\\ \index{PKCS\#1}
+    PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard. April 19, 2002.
+
+\bibitem[FIPS186]{FIPS186} U.S. Departement of
+    Commerce/N.I.S.T.\\\index{FIPS186}
+    Entity authentication using public key cryptography. February 18 1997.
+\end{thebibliography}
+							  
+

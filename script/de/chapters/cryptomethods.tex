@@ -1,0 +1,140 @@
+% .........................................................................................
+%                V E R S C H L U E S S E L U N G S V E R F A H R E N
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\newpage
+\section{Verschl"usselungsverfahren}
+
+\subsection{Verschl"usselung}
+
+Sinn der Verschl"usselung  \index{Verschl""usselung} ist es, Daten so zu ver"andern, dass nur ein autorisierter Empf"an\-ger
+in der Lage ist,
+den Klartext zu rekonstruieren. Das hat den Vorteil, dass verschl"usselte Daten offen "ubertragen werden
+k"onnen und trotzdem keine Gefahr besteht, dass ein Angreifer die Daten unberechtigterweise lesen kann. Der
+autorisierte Empf"anger ist im Besitz einer geheimen Information, des sogenannten Schl"ussels, die
+es ihm erlaubt, die Daten zu entschl"usseln, w"ahrend sie jedem anderen verborgen bleiben.\par \vskip + 3pt
+
+Es gibt ein beweisbar sicheres Verschl"usselungsverfahren, das \index{One-­Time-­Pad} {\em One--Time--Pad}. Dieses weist allerdings einige
+praktische Nachteile auf (der verwendete Schl"ussel mu"s zuf"allig gew"ahlt werden und genauso lang wie die zu
+sch"utzende Nachricht sein), so dass es au"ser in geschlossenen Umgebungen, zum Beispiel beim hei"sen Draht
+zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
+
+F"ur alle anderen Verfahren gibt es (theoretische) M"oglichkeiten, sie zu brechen. Bei guten Verfahren sind
+diese jedoch so aufwendig, dass sie praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
+sicher angesehen werden k"onnen.\par \vskip + 3pt
+
+Grunds"atzlich unterscheidet man zwischen symmetrischen und asymmetrischen Verfahren zur Verschl"usselung.
+
+\subsubsection{Symmetrische Verschl"usselung}
+
+Bei der {\em symmetrischen} Verschl"usselung \index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger "uber einen
+gemeinsamen (geheimen)
+Schl"ussel verf"ugen, den sie vor Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
+benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der Empf"anger, um diese zu entschl"usseln.\par \vskip + 3pt
+
+Vorteile von symmetrischen Algorithmen sind die hohe
+Geschwindigkeit, mit denen Daten ver- und entschl"usselt werden.
+Ein Nachteil ist das Schl"usselmanagement. Um miteinander
+vertraulich kommunizieren zu k"onnen, m"ussen Sender und
+Empf"anger vor Beginn der eigentlichen Kommunikation "uber einen
+sicheren Kanal einen Schl"ussel ausgetauscht haben. Spontane
+Kommunikation zwischen Personen, die sich vorher noch nie begegnet
+sind, scheint so nahezu unm"oglich. Soll in einem Netz mit $ n $
+Teilnehmern jeder mit jedem zu jeder Zeit spontan kommunizieren
+k"onnen, so mu"s jeder Teilnehmer vorher mit jedem anderen der
+$n-­ 1$ Teilnehmer einen Schl"ussel ausgetauscht haben. Insgesamt
+m"ussen also $n(n - 1)/2$ Schl"ussel ausgetauscht werden.\par \vskip + 3pt
+
+Das bekannteste symmetrische Verschl"usselungsverfahren ist der \index{DES} DES--Algorithmus.
+Der DES--Algorithmus ist eine Entwicklung von IBM in Zusammenarbeit mit der National Security Agency \index{NSA} (NSA). Er
+wurde 1975 als Standard ver"offentlicht. Trotz seines relativ hohen Alters ist jedoch bis heute kein effektiver
+Angriff auf ihn gefunden worden. Der effektivste Angriff besteht aus dem Durchprobieren aller m"oglichen
+Schl"ussel, bis der richtige gefunden wird ({\em brute--force--attack})\index{Angriff!brute-force}. Aufgrund der relativ kurzen
+Schl"ussell"ange von effektiv 56 Bits (64 Bits, die allerdings 8 Parit"atsbits enthalten),
+sind in der Vergangenheit schon mehrfach mit dem DES verschl"usselte Nachrichten gebrochen worden, so dass
+er heute als nur noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind zum Beispiel die Algorithmen
+IDEA \index{IDEA} oder Triple--DES.\par \vskip + 3pt
+
+Hohe Aktualit"at besitzen die symmetrischen AES-Verfahren. Das
+dazu geh"orende Rijndael Verfahren wurde am 2. Oktober 2000 zum
+Gewinner des AES-Ausschreibens erkl"art und ist damit Nachfolger
+des DES-Verfahrens.
+
+\subsubsection{Asymmetrische Verschl"usselung}
+
+Bei der {\em asymmetrischen} Verschl"usselung \index{Verschl""usselung!asymmetrisch} hat jeder Teilnehmer ein
+pers"onliches Schl"us\-selpaar, das aus einem
+{\em geheimen} \index{Schl""ussel!geheim} und einem {\em "offentlichen} Schl"ussel \index{Schl""ussel!""offentlich} besteht. Der "offentliche Schl"ussel wird, der Name deutet es an,
+"offentlich bekanntgemacht, zum Beispiel in einem Schl"usselverzeichnis im Internet.\par \vskip + 3pt
+
+M"ochte Alice mit Bob kommunizieren, so sucht sie Bobs "offentlichen Schl"ussel aus dem Verzeichnis und benutzt
+ihn, um ihre Nachricht an ihn zu verschl"usseln. Diesen verschl"usselten Text schickt sie dann an Bob, der mit
+Hilfe seines geheimen Schl"ussels den Text wieder entschl"usseln kann. Da einzig Bob Kenntnis von seinem
+geheimen Schl"ussel hat, ist auch nur er in der Lage, an ihn adressierte Nachrichten zu entschl"usseln.
+Selbst Alice als Absenderin der Nachricht kann aus der von ihr versandten (verschl"usselten) Nachricht den
+Klartext nicht wieder herstellen. Nat"urlich mu"s sichergestellt sein, dass man aus dem "offentlichen
+Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen kann.\par \vskip + 3pt
+
+Veranschaulichen kann man sich ein solches Verfahren mit einer
+Reihe von einbruchssicheren Briefk"asten. Wenn ich eine Nachricht
+verfa"st habe, so suche ich den Briefkasten mit dem Namensschild
+des Empf"angers und werfe den Brief dort ein. Danach kann ich die
+Nachricht selbst nicht mehr lesen oder ver"andern, da nur der
+legitime Empf"anger im Besitz des Schl"ussels f"ur den Briefkasten
+ist.\par \vskip + 3pt
+
+Vorteil von asymmetrischen Verfahren ist das einfache
+\index{Schl""usselmanagement} Schl"usselmanagement. Betrachten wir
+wieder ein Netz mit $n$ Teilnehmern. Um sicherzustellen, dass
+jeder Teilnehmer jederzeit eine verschl"usselte Verbindung zu
+jedem anderen Teilnehmer aufbauen kann, mu"s jeder Teilnehmer ein
+Schl"usselpaar besitzen. Man braucht also $2n$ Schl"ussel oder $n$
+Schl"usselpaare. Ferner ist im Vorfeld einer "Ubertragung kein
+sicherer Kanal notwendig, da alle Informationen, die zur Aufnahme
+einer vertraulichen Kommunikation notwendig sind, offen
+"ubertragen werden k"onnen. Hier ist lediglich auf die
+Unverf"alschtheit (Integrit"at und Authentizit"at)
+\index{Authentizit""at} des "offentlichen Schl"ussels zu achten.
+Nachteil: Im Vergleich zu symmetrischen Verfahren sind reine
+asymmetrische Verfahren jedoch um ein Vielfaches langsamer.\par \vskip + 3pt
+
+Das bekannteste asymmetrische Verfahren ist der \index{RSA} RSA--Algorithmus,
+der nach seinen Entwicklern Ronald \index{Rivest Ronald} Rivest, Adi \index{Shamir Adi} Shamir und Leonard \index{Adleman Leonard} Adleman benannt wurde. Der
+RSA--Algorithmus wurde 1978 ver"offentlicht. Das Konzept der asymmetrischen Verschl"usselung wurde erstmals
+von Whitfield Diffie \index{Diffie Whitfield}  und Martin \index{Hellman Martin} Hellman in Jahre 1976 vorgestellt. Heute spielen auch die Verfahren nach
+ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die \index{Schnorr} Schnorr--Varianten im \index{DSA} DSA (Digital \index{Signaturen!digitale}Signature Algorithm).
+
+\subsubsection{Hybridverfahren}
+\index{Hybridverfahren}
+Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam nutzen zu k"onnen, werden
+(zur Verschl"usselung) in der Praxis meist Hybridverfahren verwendet.\par \vskip + 3pt
+
+Hier werden die Daten mittels symmetrischer Verfahren
+verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig
+generierter Sitzungsschl"ussel (session key)\index{Session Key}, der nur f"ur diese
+Nachricht verwendet wird. Anschlie"send wird dieser
+Sitzungsschl"ussel mit Hilfe des asymmetrischen Verfahrens
+verschl"usselt und zusammen mit der Nachricht an den Empf"anger
+"ubertragen. Der Empf"anger kann den Sitzungsschl"ussel mit Hilfe
+seines geheimen Schl"ussels bestimmen und mit diesem dann die
+Nachricht entschl"usseln. Auf diese Weise nutzt man das bequeme
+Schl"usselmanagement \index{Schl""usselmanagement} asymmetrischer
+Verfahren und kann trotzdem gro"se Datenmengen schnell und effektiv mit
+symmetrischen Verfahren verschl"usseln.
+
+\subsubsection{Weitere Details}
+
+Neben Informationen in der umfangreichen Fachliteratur und im Internet enth"alt auch die 
+Online-Hilfe von CrypTool sehr viele details zu den einzelnen symmetrischen und asymmetrischen 
+Verschl"usselungsverfahren.
+
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literatur}
+\bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
+	Klaus Schmeh, \\
+	Kryptografie und Public-Key Infrastrukturen im Internet, dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
+	Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber Kryptographie. Geht auch auf die praktischen
+	Probleme, wie Standardisierung oder real existierende Software, ein.
+	Bisher nur in deutsch erschienen.
+
+\end{thebibliography}
+

@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[german]{babel}
+\usepackage{hyperref}
+% \usepackage[dvips]{graphics}
+% \usepackage{graphicx}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{makeidx}
+
+% Formatierung der Fu"snoten
+\usepackage[flushmargin]{footmisc}
+
+%\usepackage{myThanks}
+%\usepackage{thumbpdf}
+
+\makeindex
+\hypersetup{colorlinks=true}
+
+%\newlength{\myFootnoteWidth}
+%\newlength{\myFootnoteLabel}
+%\setlength{\myFootnoteLabel}{2.2em}%  <-- can be changed to any valid value
+
+\setlength{\textwidth}{460 pt}
+\hoffset-0.7in
+\newtheorem{definition}{Definition}
+\newtheorem{satz}{Satz}
+\newenvironment{Beweis}[1]
+  {\textbf{Beweis #1} \\}
+  {\hfill$\Box$ \\}
+
+%\pdfinfo{ /Title (CrypTool Skript) /Creator (TeX) /Producer
+%(pdfTeX 0.14a) /Author (Deutsch Bank AG) /CreationDate
+%(D:20000920201000) }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{ CrypTool Skript \\ Mathematik und Kryptographie }
+
+\author{
+(c) Die Autoren, 1998-2002 \\
+Frankfurt am Main \\*[8pt]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{plain}
+\setlength{\fboxrule}{.5mm}
+\setlength{\fboxsep}{1.75mm}
+\setlength{\footnotesep}{6pt}
+\addtolength{\footskip}{8pt}
+
+%space between text and footnote 
+\renewcommand\footnoterule{
+\vspace{2em}%   <-- one line space between text and footnoterule
+%\kern-3\p@
+\hrule width .4\columnwidth
+\vspace{4pt}
+%kern 2.6\p@
+}
+
+%\long\def\@makefntext#1{%
+%\parindent 1em%
+%\noindent
+%\hbox to 1.8em{\hss\@makefnmark}#1}
+
+
+\maketitle
+
+\input{chapters/aboutcryptool.tex}
+
+\newpage
+\tableofcontents
+\addcontentsline{toc}{section}{Inhaltsverzeichnis}
+\newpage
+\normalsize
+\parindent0cm
+\parskip4pt
+
+\input{chapters/introduction.tex}
+\input{chapters/cryptomethods.tex}
+\input{chapters/primes.tex}
+\input{chapters/numbertheory.tex}
+\input{chapters/moderncryptography.tex}
+\input{chapters/digitalsignatures.tex}
+\input{chapters/ellipticcurves.tex}
+
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
