@@ -86,6 +86,7 @@ For this purpose we will use both theory and examples to explain how to perform 
 describe how these techniques are applied in cryptography. Particular attention will be paid to the traditional 
 Diffie-Hellman (DH) and RSA public key procedures.\index{RSA}
 
+Additionally I added some qualified statements about the security of the RSA algorithm.
 \vskip +40 pt
 
 \begin{center}
@@ -1126,7 +1127,7 @@ $$ x^2 + (J(n)-n-1)x +n= 0.
 $$} (please compare requisition 3 in section 3.10.1).
 
 \subsection{Multiplicative order and primitive roots}
-\hypertarget{Kap_3_9}{}
+\hypertarget{Kap_3_9}{} \ref{MultOrdPrimitveRoot}
 
 Mathematicians often ask, under which conditions the repeated application of an operation results in the neutral
 element (compare patterns and structures before)\index{Structure}.
@@ -1605,32 +1606,34 @@ Please refer to:
            {\em Handbook of Applied Cryptography}, CRC Press, 1996
 \end{list}\vskip +12 pt
 
-\subsubsection{Security Parameters}
+\subsubsection{Security Parameters because of progress in factorisation} \label{chptSecurityParam}
 
 The complexity is basically determined by the length $l$ of the module $n$.
 
-In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorized
-by a distributed implementation of the Quadratic Sieve algorithm (QS),
-developed 1982 by Pomerance. This effort took 8 months.
+\begin{itemize}
+\item In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorized
+      by a distributed implementation of the Quadratic Sieve algorithm (QS),
+      developed 1982 by Pomerance. This effort took 8 months.
 
-Please refer to:
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-   \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
-           In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
-\end{list}\vskip +12 pt
+      Please refer to:
+      \begin{list}{}{\setlength{\topsep}{-7 pt}}
+      \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
+              In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
+      \end{list}\vskip +12 pt
 
-In 1999 a 154-digit module (512 bit) was factored with an implementation
-of the General Number Field Sieve algorithm (GNFS), developed by Buhler,
-Lenstra and Pomerance. The GNFS is more efficient than QS if $n$ is longer
-than about 116 decimal digits. This effort took 5 months.
+\item In 1999 a 155-digit module (512 bit) was factored with an implementation
+      of the General Number Field Sieve algorithm (GNFS), developed by Buhler,
+      Lenstra and Pomerance. The GNFS is more efficient than QS if $n$ is longer
+      than about 116 decimal digits. This effort took 5 months.
 
-Please refer to:
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-   \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
-           {\em Factoring integers with the number field sieve.} 
-           In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
-           in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50$-$94
-\end{list}\vskip +12 pt
+      Please refer to:
+      \begin{list}{}{\setlength{\topsep}{-7 pt}}
+      \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
+              {\em Factoring integers with the number field sieve.} 
+              In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
+              in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50$-$94
+      \end{list}
+\end{itemize}
 
 This made evident, that a module length of 512 bit no longer prevents from
 attackers.
@@ -1652,20 +1655,23 @@ time, i.\:e.\ also sub-exponentially. Because RAM availability increased
 exponentially in the recent decades, it seems that this should not be the
 limiting factor.
 
-Within the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' Dirk Fox
-prognosticates an almost linear progression with the factorization, if all
-factors are included: Each year the module length feasible for
-factorization increases by 20 bit on average.  Please refer: DuD, 26/2002,
-pp. 84-89, F.~Bourseau / D.~Fox / C.~Thiel
-
+Within the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' Dirk Fox\footnote{%
 The company Secorvo GmbH made a statement on the recommendation for key
 length selection published by the GISA\index{GISA} (German Information
 Security Agency). Chapter 2.3.1 of their statement contains a very
 competent and understandable discussion of RSA security (this document
 exists to my
 knowledge only in German):\\
-\href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}{\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
+\href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
+{\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
+}
+prognosticates an almost linear progression with the factorization, if all
+factors are included: Each year the module length feasible for
+factorization increases by 20 bit on average.  Please refer: DuD, 26/2002,
+pp. 84-89, F.~Bourseau / D.~Fox / C.~Thiel
 
+
+\vskip +20 pt
 
 \subsubsection{D.~J.\ Bernstein's paper and it's implication on the
   security of the RSA algorithm}
@@ -1759,6 +1765,8 @@ that costs a few thousand dollars.  We conclude that from a practical
 standpoint, the security of RSA relies exclusively on the hardness of the
 relation collection step of the number field sieve.''
 
+This is still an ongoing discussion.
+
 \href{http://www.rsasecurity.com/}{RSA Security's} analysis of the Bernstein
 paper (title {\em Has the RSA algorithm been compromised as a result of
   Bernstein's Paper?}, April, 8 2002) also concludes, that RSA is still not
@@ -1770,10 +1778,10 @@ compromised (s.\
 Links:
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
-               {\texttt{http://cr.yp.to/djb.html}}
-  \item[] \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
-               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}}
-  \item[] \href{http://www.math.uic.edu}
+               {\texttt{http://cr.yp.to/djb.html}} \\
+          \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
+               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}} \\
+          \href{http://www.math.uic.edu}
                {\texttt{http://www.math.uic.edu}}
 \end{itemize}
 \end{minipage}
@@ -1803,7 +1811,7 @@ This record, established on January 18, 2002 by researchers of the German
 university of Bonn, got much less attention within the press than the
 solution of the RSA challenge, established on August 22, 1999, when
 researchers from the Netherlands factorized the 155-digit number into its
-both 78-digit primes.
+both 78-digit primes (see Chapter \ref{chptSecurityParam}).
 
 The task of the reserachers from Bonn was not initiated by a challenge, but
 they wanted to find the last prime factors of the integer $2^{953} - 1$

@@ -53,7 +53,7 @@ multiplikative Verkn"upfung.
 
 Lange Zeit galt gerade die Zahlentheorie als Forschung pur, als
 Paradebeispiel f"ur die Forschung im Elfenbeinturm. Sie erforschte die
-\glqq geheimnisvollen Gesetze im Reich der Zahlen'' und gab Anla"s zu
+\glqq geheimnisvollen Gesetze im Reich der Zahlen'' und gab Anlass zu
 philosophischen Er"orterungen, ob sie beschreibt, was "uberall in der Natur
 schon da ist, oder ob sie ihre Elemente (Zahlen, Operatoren, Eigenschaften)
 nicht k"unstlich konstruiert.
@@ -95,6 +95,8 @@ Dazu wird sowohl an Beispielen als auch in der Theorie erkl"art, wie man in
 endlichen Mengen rechnet und wie dies in der Kryptographie Anwendung findet.
 Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
 (DH) und RSA eingegangen.
+
+Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahrens zu machen.
 
 \vskip +40 pt
 
@@ -1273,7 +1275,7 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{} 
+\subsection{Multiplikative Ordnung und Primitivwurzel}\hypertarget{Kap_3_9}{} \label{MultOrdPrimitveRoot} 
 
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
 wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Struktur}).
@@ -1825,36 +1827,37 @@ Siehe:
 \begin{list}{}{\setlength{\topsep}{-7 pt}}
    \item[] A.J. Menezes / van Oorschot / P.C. Vanstone: \\
            {\em Handbook of Applied Cryptography}, CRC Press, 1996
-\end{list}\vskip +12 pt
+\end{list}
 
+\vskip +40 pt
 
-\subsubsection{Sicherheitsparameter}
+\subsubsection{Sicherheitsparameter aufgrund der Faktorisierungserfolge}\label{chptSecurityParam}
 
 Die Komplexit"at wird im wesentlichen von der L"ange $l$ des Moduls $n$ bestimmt.
+\begin{itemize}
+\item 1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve-Algorithmus (QS) 
+      \index{Quadratic Sieve-Algorithmus (QS)} nach knapp 8 Monaten der 1977
+      ver"offentlichte 129-stellige RSA-Modul (428 Bit)
+      faktorisiert.
+      
+      \noindent
+      Siehe:
+      \begin{list}{}{\setlength{\topsep}{-7 pt}}
+      \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
+              In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
+      \end{list}\vskip +12 pt
+\item 1999 wurde mit dem von Buhler, Lenstra und Pomerance entwickelten General Number Field Sieve-Algorithmus (GNFS), 
+      der ab ca. 116 Dezimalstellen effizienter ist als QS, nach knapp 5 Monaten ein 155-stelliger Modul (512 Bit) faktorisiert.
 
-1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance entwickelten Quadratic Sieve-Algorithmus (QS) 
-\index{Quadratic Sieve-Algorithmus (QS)} nach knapp 8 Monaten der 1977
-ver"offentlichte 129-stellige RSA-Modul (428 Bit)
-faktorisiert.
-
-\noindent
-Siehe:
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-   \item[] C. Pomerance: \\ {\em The quadratic sieve factoring algorithm.}
-           In: G.R. Blakley / D. Chaum (Hrsg.): Proceedings of Crypto '84, LNCS 196, Springer Berlin 1995, S. 169-182
-\end{list}\vskip +12 pt
-1999 wurde mit dem von Buhler, Lenstra und Pomerance entwickelten General Number Field Sieve-Algorithmus (GNFS), 
-der ab ca. 116 Dezimalstellen effizienter ist als QS, nach knapp 5 Monaten ein 154-stelliger Modul (512 Bit) faktorisiert.
-
-
-\noindent
-Siehe:
-\begin{list}{}{\setlength{\topsep}{-7 pt}}
-   \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
-           {\em Factoring integers with the number field sieve.} 
-           In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
-           in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50-94
-\end{list}\vskip +12 pt
+      \noindent
+      Siehe:
+      \begin{list}{}{\setlength{\topsep}{-7 pt}}
+      \item[] J.P. Buhler / H.W. Lenstra / C. Pomerance: \\
+              {\em Factoring integers with the number field sieve.} 
+              In: A.K. Lenstra / H.W. Lenstra (Hrsg.): The Development of the Number Field Sieve, Lecture Notes 
+              in Mathematics, Vol. 1554, Springer, Heidelberg 1993, S. 50-94
+      \end{list}\vskip +12 pt
+\end{itemize}
 Damit wurde klar, dass eine Modull"ange von $512$ Bit keinen Schutz mehr vor Angreifern darstellt.
 
 In den letzten 20 Jahren wurden also erhebliche Fortschritte gemacht. Absch"atzungen "uber die zuk"unftige Entwicklung 
@@ -1869,24 +1872,27 @@ ca. 10 Bit mehr pro Jahr berechenbar.  Gr"o"sere Zahlen erfordern mit den
 heute bekannten Verfahren einen immer gr"o"seren Arbeitsspeicher f"ur die
 L"osungsmatrix. Dieser Speicherbedarf w"achst mit der Wurzel des
 Rechenzeitbedarfs, also ebenfalls subexponentiell. Da in den letzten Jahren
-der verf"ugbare Haupspeicher wie die Rechengeschwindigkeit exponentiell
+der verf"ugbare Hauptspeicher ebenso wie die Rechengeschwindigkeit exponentiell
 gewachsen ist, d"urfte hierdurch kein zus"atzlicher Engpass entstehen.
 
 \begin{sloppypar}
   In dem Artikel ``Vorz"uge und Grenzen des RSA-Verfahrens'' prognostiziert
-  Dirk Fox einen ann"ahernd linearen Verlauf der Faktorisierungserfolge
+  Dirk Fox\footnote{%
+  Die Firma Secorvo GmbH hat eine Stellungnahme zur
+  Schl"ussell"angenempfehlung des BSI\index{BSI} f"ur den Bundesanzeiger  
+  abgegeben. In Kapitel 2.3.1 ihrer Stellungnahme geht sie sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch): \\  
+  \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
+  {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
+  }
+  einen ann"ahernd linearen Verlauf der Faktorisierungserfolge
   unter Einbeziehung aller Faktoren: Pro Jahr kommen durchschnittlich 20
   Bit dazu.
 \end{sloppypar}
 \noindent
-Die Firma Secorvo GmbH hat eine Stellungnahme zur
-Schl"ussell"angenempfehlung des BSI\index{BSI} f"ur den Bundesanzeiger
-abgegeben. In Kapitel 2.3.1 ihrer Stellungnahme geht sie sehr kompetent und verst"andlich auf RSA-Sicherheit ein (existiert nur in Deutsch):
-
-\href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
-     {\texttt{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}}
 
 
+
+\vskip +20 pt
 
 \subsubsection{Das Papier von D.J. Bernstein und seine Auswirkungen auf die Sicherheit des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierungsproblem}
 
@@ -1908,7 +1914,7 @@ factorization: a proposal'' (siehe
 D.J. Bernstein behandelt das Problem der Faktorisierung gro"ser Zahlen.
 Die Kernaussage des Papers besteht darin, dass es m"oglich ist, die
 Implementierung des General Number Field Sieve-Algorithmus (GNFS) so zu
-verbessern, so dass mit gleichem Aufwand wie bisher Zahlen mit 3-mal
+verbessern, dass mit gleichem Aufwand wie bisher Zahlen mit 3-mal
 gr"o"serer Stellenzahl (Bit-L"ange) faktorisiert werden k"onnen.
 
 Wesentlich bei der Interpretation des Resultats ist die Definition des
@@ -1938,7 +1944,7 @@ Abweichung der tats"achlichen Zeit von dem asymptotischen Wert, vor --- ein
 Mangel, den auch Bernstein in seinem Papier erw"ahnt. Daher kann zur Zeit
 keine Aussage getroffen werden, ob die Kosten (im Sinne der Bernsteinschen
 Definition) bei der Faktorisierung z.~Zt.\ verwendeter RSA-Zahlen
-(1024$--$2048 bit) bereits signifikant sinken w"urden.
+(1024$-$2048 bit) bereits signifikant sinken w"urden.
 
 Zusammenfassend l"asst sich sagen, dass der Ansatz von Bernstein durchaus innovativ ist. Da die Verbesserung der 
 Rechenzeit unter gleichbleibenden Kosten durch einen massiven Einsatz von Parallelrechnern erkauft wird, stellt sich die 
@@ -1978,6 +1984,8 @@ Auch \href{http://www.rsasecurity.com/}{RSA Security} kommt in ihrer Analyse der
 zu dem Ergebnis, dass RSA weiterhin als ungebrochen betrachtet werden kann (siehe
 \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}).
 
+Die Diskussion ist weiterhin im Gang.
+
 Zum Zeitpunkt der Erstellung dieses Kapitels (Juni 2002) war nichts
 dar"uber bekannt, inwieweit die im Bernstein-Papier vorgeschlagenen
 theoretischen Ans"atze realisiert wurden oder wieweit die Finanzierung
@@ -1989,10 +1997,10 @@ Verweise:
 
 \begin{itemize}
   \item[] \href{http://cr.yp.to/djb.html}
-               {\texttt{http://cr.yp.to/djb.html}}
-  \item[] \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
-               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}}
-  \item[] \href{http://www.math.uic.edu}
+               {\texttt{http://cr.yp.to/djb.html}} \\
+          \href{http://www.counterpane.com/crypto-gram-0203.html\#6}
+               {\texttt{http://www.counterpane.com/crypto-gram-0203.html\#6}} \\
+          \href{http://www.math.uic.edu}
                {\texttt{http://www.math.uic.edu}}
 \end{itemize}
 \end{minipage}
@@ -2018,7 +2026,7 @@ liegt in der Zerlegung einer 158-stelligen Zahl in ihre beiden Primfaktoren (die
 
 Dieser Rekord, aufgestellt am 18. Januar 2002 von Forschern der Universit"at Bonn, fand deutlich 
 weniger Aufmerksamkeit in der Presse als die L"osung der RSA-Challenge vom 22. Oktober 1999, als niederl"andische
-Forscher die 155-stellige Zahl in ihre beiden 78-stellige Primfaktoren zerlegten.
+Forscher eine 155-stellige Zahl in ihre beiden 78-stellige Primfaktoren zerlegten (vergleiche Kapitel \ref{chptSecurityParam}).
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge, sondern die Aufgabe war, die letzten
 Primfaktoren der Zahl $2^{953}+1$ zu finden (s.~ ``Wanted List'' des
