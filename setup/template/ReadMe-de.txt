@@ -1,18 +1,18 @@
 ==================================================================
-              CrypTool, Version 1.3.02, Juni 2002
-                  (c) Deutsche Bank AG 1998-2002
-                  (c) Universität Siegen und Karlsruhe
-                         Frankfurt am Main
+         CrypTool, Version 1.3.02, Juni 2002
+         (c) Deutsche Bank AG 1998-2002, Frankfurt am Main
+         (c) Universität Siegen und Karlsruhe
+[XXX 2002-06-12]
 ==================================================================
-
 
 
                        Inhalt
 
  1. .... Kurzbeschreibung
- 1.1. .... Was beinhaltet die Distribution?
- 1.2. .... Danke
- 1.3. .... Neuer Maintainer in der Zukunft
+ 1.1. .... Wie Sie am besten starten - Der Einstieg in CrypTool
+ 1.2. .... Was beinhaltet die Distribution?
+ 1.3. .... Danke
+ 1.4. .... Neuer Maintainer in der Zukunft
  2. .... Beschränkungen und Voraussetzungen
  2.1. .... Installation unter Windows 95
  2.2. .... Interaktive Online-Hilfe unter Windows XP
@@ -21,28 +21,27 @@
  3. .... Installation
  4. .... Dateiliste
  4.1. ..   Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Wie Sie starten...
- 6. .... Neuerungen in CrypTool 1.3.00
- 6.1. .... Klassische Verfahren
- 6.2. .... Symmetrische Verfahren
- 6.3. .... Asymmetrische Verfahren
- 6.4. .... Formatierung / Anzeige / Navigation
- 6.5. .... Hilfe / PDF-Skript
- 6.6. .... Sonstiges
- 6.7. .... Änderungen von Version 1.3.00 zu Version 1.3.02
- 6.8. .... Geplante Änderungen nach Version 1.3.02
- 7. .... Mögliche Punkte für eine Weiterentwicklung
- 8. .... Kurze Historie der Hauptversionen
- 9. .... Roadmap
-10. .... Feedback bei Fehlern
-11. .... Kontaktadressen
-12. .... Verweise
-12.1. .... Wirtschaftswoche Spezial
-12.2. .... c't 14/2001, S. 204-208
-12.3. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
-12.4. .... Freeware-Projekt Crank
-13. .... Anhang
-13.1. .... CrypTool unter Linux mit Wine
+ 5. .... Neuerungen in CrypTool 1.3.0x
+ 5.1. .... Klassische Verfahren
+ 5.2. .... Symmetrische Verfahren
+ 5.3. .... Asymmetrische Verfahren
+ 5.4. .... Formatierung / Anzeige / Navigation
+ 5.5. .... Hilfe / PDF-Skript
+ 5.6. .... Sonstiges
+ 5.7. .... Änderungen von Version 1.3.00 zu Version 1.3.02
+ 5.8. .... Geplante Änderungen nach Version 1.3.02
+ 6. .... Mögliche Punkte für eine Weiterentwicklung
+ 7. .... Kurze Historie der Hauptversionen
+ 8. .... Roadmap
+ 9. .... Feedback bei Fehlern
+10. .... Kontaktadressen
+11. .... Verweise
+11.1. .... Wirtschaftswoche Spezial
+11.2. .... c't 14/2001, S. 204-208
+11.3. .... BSI Bürger-CD "Ins Internet - mit Sicherheit"
+11.4. .... Freeware-Projekt Crank
+12. .... Anhang
+12.1. .... CrypTool unter Linux mit Wine
 
 
 
@@ -55,28 +54,61 @@ analysieren kann.
 
 Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
- 
+
 CrypTool ist komplett in Deutsch und Englisch vorhanden.
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
 
 Die jeweils aktuelle Version von CrypTool finden Sie unter den
-Internet-Adressen:   http://www.CrypTool.de
-                     http://www.CrypTool.com
-                     http://www.CrypTool.org
+Internet-Adressen:  http://www.CrypTool.de
+                    http://www.CrypTool.com
+                    http://www.CrypTool.org
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen, die Verwendung und die Grenzen einzelner Mechanismen
 aufzuzeigen. In CrypTool sind fast alle State-of-the-art-Krypto-
 funktionen implementiert, die unter einer einheitlichen Umgebung
-und einen "spielerischen" Einstieg in die moderne und 
-klassische Kryptographie ermöglichen.
+einen "spielerischen" Einstieg in die moderne und klassische 
+Kryptographie ermöglichen.
 
-Die Lizenz- und Nutzungsbestimmungen werden bei der Installation
-und auf der Einstiegsseite der Onlinehilfe erläutert.
+CrypTool wird eingesetzt 
+- in Unternehmen sowohl zur Mitarbeiter-Sensibilisierung bezüglich
+  IT-Sicherheit (Awareness) als auch zur Ausbildung,
+- im Schulunterricht und
+- in der Lehre an mehreren Hochschulen.
 
-1.1. Was beinhaltet die Distribution?
+Bitte beachten Sie die Lizenz- und Nutzungsbestimmungen für
+CrypTool. Diese werden bei der Installation und auf der 
+Einstiegsseite der Online-Hilfe erläutert.
+
+
+1.1. Wie Sie am besten starten - Der Einstieg in CrypTool
+     ----------------------------------------------------
+Wenn Sie CrypTool starten, öffnen sich zugleich die Arbeitsfläche
+von CrypTool und im Vordergrund ein kleines Begrüßungsfenster.
+Wenn Sie hier die F1-Taste drücken, erscheint die Startseite der 
+Online-Hilfe. 
+Diese ist ein guter Ausgangspunkt, um alle wesentlichen Inhalte
+von CrypTool kennenzulernen (z.B. mit Hilfe der Links auf dieser
+Seite).
+
+Lesen Sie die Hinweise und Tipps der Hilfe-Einstiegsseite und
+öffnen Sie dann auf der CrypTool-Arbeitsfläche eine
+unverschlüsselte Datei aus dem Unterverzeichnis "Beispieldateien".
+Sie können jetzt viele der Funktionen von CrypTool an dieser Datei
+ausprobieren.
+
+Einen schnellen Einstieg in CrypTool finden Sie, wenn Sie einige
+Szenarien (Tutorials) der Online-Hilfe durchspielen (die Szenarien
+stehen im Inhaltsverzeichnis der Hilfe unter "Beginn der Arbeit 
+mit CrypTool").
+
+Wir wünschen viel Spaß beim Ausprobieren der Funktionen von
+CrypTool.
+
+
+1.2. Was beinhaltet die Distribution?
      --------------------------------
 Neben dem Programm selbst gibt es eine umfangreiche Dokumentation,
 die aus 4 Teilen besteht:
@@ -95,10 +127,10 @@ eingesetzt wird.
   Somit ist CrypTool sehr gut geeignet zur Ausbildung und zur
   Mitarbeiter-Sensibilisierung für IT-Sicherheit.
 
-- Die meisten der krytographischen Basisalgorithmen stammen von:
+- Die meisten der kryptographischen Basisalgorithmen stammen von:
   - der Industrie-bewährten Secude-Bibliothek (Version 5.4.15)
-    (www.secude.com) und von 
-  - der Miracl-Bibliothek (Version 4.4.3) 
+    (www.secude.com) und von
+  - der Miracl-Bibliothek (Version 4.4.3)
     (http://indigo.ie/~mscott/).
   Somit ist CrypTool auch eine hervorragende Referenzimplemen-
   tierung.
@@ -114,31 +146,32 @@ eingesetzt wird.
   Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
   ein beliebiger Dateiinhalt AES-verschlüsselt wird.
 
-1.2. Danke
+
+1.3. Danke
      -----
 Zu CrypTool haben viele verschiedene Personen - insbesondere auch
 in ihrer Freizeit - beigetragen. Herzlichen Dank.
 
 Dr. Carsten Elsner erlaubte uns, seine Geschichte "Der Dialog der
 Schwestern" als PDF-Datei beizulegen.
-Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk, 
+Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk,
 räumt dem CrypTool-Maintainer das ausschließliche Vervielfälti-
 gungs- und Verbreitungsrecht ein. Die Geschichte darf nur zusammen
-mit dem CrypTool-Paket verbreitet werden. 
+mit dem CrypTool-Paket verbreitet werden.
 
 
-1.3. Neuer Maintainer in der Zukunft
+1.4. Neuer Maintainer in der Zukunft
      -------------------------------
 Wie geplant wird CrypTool ein akademisches Zuhause erhalten, wo
 es in Zukunft als Open Source weitergepflegt wird.
 Die bisherigen Sponsoren von CrypTool waren die Deutsche Bank,
-Secude GmbH und FZI Karlsruhe. 1.3.0x ist die letzte Version, 
+Secude GmbH und FZI Karlsruhe. 1.3.0x ist die letzte Version,
 die die Deutsche Bank als Maintainer herausbringt.
 Ab Juli 2002 ist der Lehrstuhl Sicherheit in der Informations-
-technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia 
+technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia
 Eckert an der TU Darmstadt der neue Maintainer.
 
-Wir würden uns sehr freuen, wenn sich nicht nur die bisherigen 
+Wir würden uns sehr freuen, wenn sich nicht nur die bisherigen
 Entwickler, sondern auch viele neue an der Weiterentwicklung von
 CrypTool beteiligen.
 Die Homepage von CrypTool bleibt weiterhin www.cryptool.de.
@@ -148,7 +181,7 @@ Die Homepage von CrypTool bleibt weiterhin www.cryptool.de.
 2. Beschränkungen und Voraussetzungen
    ----------------------------------
 CrypTool erfordert eine Win32 Umgebung, wie sie unter Windows 95,
-Windows 98, Windows Me, Windows NT (ab 4.0), Windows 2000 und 
+Windows 98, Windows Me, Windows NT (ab 4.0), Windows 2000 und
 Windows XP gegeben ist.
 
 CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
@@ -164,11 +197,19 @@ Fall können Sie CrypTool nur eingeschränkt nutzen.
 
 Die Algorithmen der Secude-Bibliothek werden beim Start von
 CrypTool mit Hilfe der Bibliothek "msvcrt.dll" dynamisch geladen.
-Leider unterstützt unter Windows 95 nicht jede Version von
-"msvcrt.dll" das Einbinden der Secude-Bibliothek. Zu dem
-Lieferumfang verschiedener Programme gehört eine neuere Version
-von "msvcrt.dll" - kopieren Sie diese Datei in das Windows-
-Verzeichnis oder in das Verzeichnis von CrypTool.
+
+Die Datei "msvcrt.dll" wird standardmäßig mit Windows 98, 
+Windows NT etc. ausgeliefert, aber nicht mit Windows 95. 
+Zum Lieferumfang verschiedener Anwendungs-Programme gehört eine 
+(nicht immer ausreichend neue) Version von "msvcrt.dll" - kopieren
+Sie diese Datei in das Windows-Verzeichnis oder in das Verzeichnis
+von CrypTool. 
+Alternativ können Sie eine selbstentpackende Datei von Microsoft
+herunterladen, die "msvcrt.dll" enthält:
+    ftp://ftp.microsoft.com/softlib/mslfiles/msvcrt.exe
+Speichern Sie diese Datei in einem temporären Verzeichnis und
+extrahieren Sie die Dateien durch Doppelklick. Weitere 
+Anweisungen stehen in der dort mitgelieferten Readme-Datei.
 
 
 2.2. Interaktive Online-Hilfe unter Windows XP
@@ -178,19 +219,19 @@ die F1-Taste in einem Spezialfall nicht möglich: betroffen sind
 nur Menüs, die noch Untermenüs haben. Das Problem tritt nur auf,
 wenn das Untermenü aufgeklappt ist. F1 bewirkt dann gar nichts.
 
-Normalerweise kann bei CrypTool auch Hilfe zu einem Menüeintrag 
-angefordert werden, der selbst weitere Untermenüs hat. 
+Normalerweise kann bei CrypTool auch Hilfe zu einem Menüeintrag
+angefordert werden, der selbst weitere Untermenüs hat.
 Unter Windows XP erhält man die Online-Hilfe dazu nur, wenn das
-Popup-Fenster der untergeordneten Menüpunkte nicht aufgeklappt 
-ist. 
+Popup-Fenster der untergeordneten Menüpunkte nicht aufgeklappt
+ist.
 Bei den anderen Windows-Versionen spielt das keine Rolle, dort ist
 nur wichtig, dass das Menü den Fokus hat.
 
 Workaround anhand eines Beispiels: Einzelverfahren / RSA-Demo
-Wenn hier das Untermenü zu "RSA-Demo" aufklappt, Sie aber die 
+Wenn hier das Untermenü zu "RSA-Demo" aufklappt, Sie aber die
 Hilfe zum Menüeintrag "RSA-Demo" haben wollen, müssen Sie - nur
 unter Windows XP - das Untermenü von "RSA-Demo" erst mit Escape
-(Esc) oder den Pfeiltasten wieder einklappen, dann funktioniert 
+(Esc) oder den Pfeiltasten wieder einklappen, dann funktioniert
 das Aufrufen der Online-Hilfe mit F1 auch unter Windows XP.
 
 
@@ -203,22 +244,22 @@ Für jede unterstützte Sprache gibt es ein eigenes Setup mit dem
 entsprechenden ausführbaren Programm (der Versuch, alle Sprachen
 in ein einziges Executable einzubinden wurde wieder aufgegeben,
 da die automatische Spracheinstellung beim Anwender (anhand seiner
-Systemeinstellungen) nur unter Windows 4.0, nicht aber unter 
+Systemeinstellungen) nur unter Windows 4.0, nicht aber unter
 Win9x, korrekt funktionierte).
 
 
 2.4. Einschränkungen in den verwendeten Bibliotheken
      -----------------------------------------------
-Die beigelegte Secude-Lib ist durch das Ticketfile bei den 
-asymmetrischen Verfahren auf eine Schlüssellänge von 768 Bits 
-beschränkt und die Unterstützung von Smartcards ist deaktiviert. 
-Falls Sie eine Lizenz der Secude-Lib besitzen, können Sie mit 
-Hilfe Ihres Ticketfiles die asymmetrischen Verfahren auch mit 
+Die beigelegte Secude-Lib ist durch das Ticketfile bei den
+asymmetrischen Verfahren auf eine Schlüssellänge von 768 Bits
+beschränkt und die Unterstützung von Smartcards ist deaktiviert.
+Falls Sie eine Lizenz der Secude-Lib besitzen, können Sie mit
+Hilfe Ihres Ticketfiles die asymmetrischen Verfahren auch mit
 größeren Schlüssellängen benutzen. Die Verwendung der Secude-Lib
 außerhalb von CrypTool ist lizenzpflichtig.
 
-Zur Demonstration des RSA-Kryptosystem und zur Faktorisierung von 
-Zahlen greift CrypTool auf die Langzahlarithmetik der Bibliothek 
+Zur Demonstration des RSA-Kryptosystem und zur Faktorisierung von
+Zahlen greift CrypTool auf die Langzahlarithmetik der Bibliothek
 Miracl von Shamus Software Ltd. zu. Die Bitlänge der Zahlen wurde
 in der CrypTool-Anwendung auf 1024 beschränkt.
 
@@ -237,21 +278,21 @@ empfiehlt es sich, vor der erneuten Installation das alte CrypTool
 zu deinstallieren, da unter Umständen nicht alle alten
 Dateien überschrieben werden. Bitte beachten Sie:
 - Wenn bei der Deinstallation nicht alle Verzeichnisse/Dateien im
-  Programmverzeichnis (meist C:\Programme\CrypTool) gelöscht 
+  Programmverzeichnis (meist C:\Programme\CrypTool) gelöscht
   werden, löschen Sie diese manuell.
 - Bei der Deinstallation von CrypTool werden alle bisher erzeugten
   asymmetrischen Schlüssel gelöscht. Wenn Sie diese Schlüssel auch
-  in der neuen Version von CrypTool nutzen wollen, dann sichern 
-  Sie vor der Deinstallation das unter dem Programmverzeichnis 
+  in der neuen Version von CrypTool nutzen wollen, dann sichern
+  Sie vor der Deinstallation das unter dem Programmverzeichnis
   liegende Verzeichnis pse\ mit allen darin gespeicherten Dateien
   in ein anderes Verzeichnis.
-  Nachdem die neue Version von CrypTool installiert wurde, 
+  Nachdem die neue Version von CrypTool installiert wurde,
   kopieren Sie das gesicherte pse\-Verzeichnis in das neue
   Programmverzeichnis.
   Ab Version 1.3.00 können Sie RSA- und DSA-PSEs als PKCS#12-
   Struktur exportieren bzw. importieren.
 
-Für den Fall, dass mehrere Benutzer dieselbe CrypTool- 
+Für den Fall, dass mehrere Benutzer dieselbe CrypTool-
 Installation verwenden wollen, müssen die Zugriffsrechte auf den
 Verzeichnissen pse\ und pse\pseca\ und den darin enthaltenen
 Dateien für alle Benutzer auf Vollzugriff gesetzt werden.
@@ -264,7 +305,7 @@ CrypTool bleibt.
 
 4. Dateiliste
    ----------
-CrypTool wird als komprimiertes, selbstextrahierendes Archiv in 
+CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
 zwei Sprachversionen verteilt:
 
 SetupCrypTool_1_3_en.exe Sprachversion nur englisch.
@@ -287,7 +328,7 @@ EC-Param.ini...... Initialisierungsdatei für auf Elliptischen
                    Kurven basierende Public Key-Verfahren.
 secude.dll........ Bibliothek kryptographischer Funktionen von der
                    SECUDE GmbH.
-ticket............ Lizenz für die SECUDE-Bibliothek.
+ticket............ Lizenz für die Secude-Bibliothek.
 irunin.*.......... Diese Dateien sind nötig für Installation und
                    Deinstallation von CrypTool.
 
@@ -296,7 +337,7 @@ script-de.pdf..... Ein Skript (deutsch) über Kryptographie,
                    hinter einigen Algorithmen.
 script-en.pdf..... Die englische Fassung von script-de.pdf
 DialogSchwestern.pdf.... Fantasy-Geschichte von Dr. Elsner, in der
-                         eine Variante des RSA-Kryptosystems 
+                         eine Variante des RSA-Kryptosystems
                          beschrieben wird.
 
 Referenztexte\.... Dieses Verzeichnis enthält Textdateien in den
@@ -308,11 +349,11 @@ Referenztexte\.... Dieses Verzeichnis enthält Textdateien in den
 
 Referenztexte\deutsch.txt // Auszug aus dem Umsatzsteuergesetz
              \english.txt // Auszug aus der Agenda 21[UN-Dokument]
-             \genesis-de.txt  // Buch Genesis in den Sprachen 
+             \genesis-de.txt  // Buch Genesis in den Sprachen
              \genesis-en.txt  // deutsch, englisch, französisch,
-             \genesis-fr.txt  // spanisch und lateinisch.
-             \genesis-es.txt
-             \genesis-lt.txt
+             \genesis-es.txt  // spanisch und lateinisch.
+             \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
+             \genesis-la.txt  // den ISO 639 Language Codes.
 
 Beispieldateien\.. Dieses Verzeichnis enthält unterschiedliche
                    Beispieldateien, die in den Szenarien verwendet
@@ -353,8 +394,9 @@ erzeugt und verwaltet:
 
 CrypTool.GID...... Das Hilfesystem erzeugt und verwaltet diese
                    Datei.
-cry*.*............ CrypTool schreibt temporäre Dateien mit dem 
-                   Namensmuster cry*.* in das Temp-Verzeichnis.
+cry*.*............ CrypTool schreibt temporäre Dateien mit dem
+                   Namensmuster cry*.* in das Temp-Verzeichnis
+                   (Endungen: tmp, txt, org).
 CrypTool.ini...... Diese Datei befindet sich im Windows-
                    Verzeichnis und enthält die Dateinamen der
                    zuletzt bearbeiteten Dateien.
@@ -363,24 +405,24 @@ CrypTool.ini...... Diese Datei befindet sich im Windows-
 4.1. Überprüfen der Integrität der heruntergeladenen Dateien
      -------------------------------------------------------
 Die Integrität von Dateien kann mit Hashwerten überprüft
-werden. Hashwerte sind wie Fingerabdrücke: wenn man den 
+werden. Hashwerte sind wie Fingerabdrücke: wenn man den
 Hashwert einer heruntergeladenen Datei neu berechnet und mit
 den Werten auf der CrypTool-Homepage vergleicht, kann man
-sehen, ob man eine Kopie der Originaldatei hat oder nicht. 
-Weichen die Hashwerte voneinander ab, sollte man die Datei 
+sehen, ob man eine Kopie der Originaldatei hat oder nicht.
+Weichen die Hashwerte voneinander ab, sollte man die Datei
 nochmal herunterladen und evtl. die Ursache dafür suchen, dass
 man eine veränderte Datei auf seinem Rechner hat.
 
 a) Herunterladbare Dateien
 Auf der Homepage von CrypTool www.cryptool.de finden Sie
-die Hashwerte aller von der deutschen Seite direkt 
-herunterladbaren Dateien in den Dateien md5sum.txt bzw. 
+die Hashwerte aller von der deutschen Seite direkt
+herunterladbaren Dateien in den Dateien md5sum.txt bzw.
 in sha1sum.txt.
 Mit weit verbreiteten Tools wie MD5SUM und SHA1SUM kann
 die Überprüfung vorgenommen werden.
 
-b) Auch die Dateien INNERHALB des heruntergeladenen 
-Setup-Paketes können überprüft werden. 
+b) Auch die Dateien INNERHALB des heruntergeladenen
+Setup-Paketes können überprüft werden.
 Dazu stehen deren Hashwerte hier im Readme:
 
 XXXXXXXXXX             RIPEMD-160     SHA-1       MD5
@@ -427,7 +469,7 @@ genesis-de.txt
 genesis-en.txt
 genesis-es.txt
 genesis-fr.txt
-genesis-lt.txt
+genesis-la.txt
 
 Zur Überprüfung können Sie die oben genannten Tools verwenden
 oder das Programm CrypTool selbst.
@@ -438,36 +480,13 @@ Dateien berechnen lassen, ohne sie in CrypTool zu laden:
 - Öffnen der entsprechenden Datei
 - Vergleich mit dem Wert hier (richtiger Hashalgorithmus!).
 
-Aus Sicherheitsgründen empfiehlt sich der Vergleich bei 
+Aus Sicherheitsgründen empfiehlt sich der Vergleich bei
 Binärdateien (EXE, DLL, PDF, ...), wenn Sie nicht ganz sicher
 sind, dass Ihr Rechner unberührt ist.
 
 
 
-
-5. Wie Sie starten...
-   ------------------
-Wenn Sie CrypTool starten, öffnen sich zugleich die Arbeitsfläche
-von CrypTool und im Vordergrund ein kleines Begrüßungsfenster,
-von dem aus Sie auch sofort auf die Einstiegsseite der Hilfe
-verzweigen können.
-Lesen Sie die Hinweise und Tips der Hilfe-Einstiegsseite und
-öffnen Sie dann auf der CrypTool-Arbeitsfläche eine
-unverschlüsselte Datei aus dem Unterverzeichnis "Beispieldateien".
-Sie können jetzt viele der Funktionen von CrypTool an dieser Datei
-ausprobieren.
-
-Einen schnellen Einstieg in CrypTool finden Sie, wenn Sie einige
-Szenarien der Hilfe durchspielen (die Szenarien stehen im
-Inhaltsverzeichnis der Hilfe unter "Beginn der Arbeit mit
-CrypTool").
-
-Wir wünschen viel Spaß beim Ausprobieren der vielen Funktionen von
-CrypTool.
-
-
-
-6. Neuerungen in CrypTool 1.3.00
+5. Neuerungen in CrypTool 1.3.00
    -----------------------------
 Seit CrypTool 1.202 (Dez. 2000) kamen folgende Erweiterungen und
 Bugfixes hinzu:
@@ -480,13 +499,13 @@ Bugfixes hinzu:
 - die letzte Einstellung zu einem Verfahren (wie gewählter
   Schlüssel oder Alphabet) wird Programm-intern aufbewahrt.
 
-6.1. Klassische Verfahren
+5.1. Klassische Verfahren
      --------------------
 + Homophone Verschlüsselung neu
 + Permutationsverschlüsselung neu
 + Zufallsdaten erzeugen neu
   Die folgenden "Pseudozufallsgeneratoren" werden angeboten:
-  - der von der SECUDE-Lib bereitgestellte Zufallsgenerator
+  - der von der Secude-Lib bereitgestellte Zufallsgenerator
   - ein durch den Parameter N einzustellender "x^2 mod N"
     Zufallsgenerator
   - Linearer Kongruenz-Generator
@@ -501,10 +520,10 @@ Bugfixes hinzu:
 + Fehler bei Vigenere und Caesar behoben (beliebige Textdateien)
 + Playfairanalyse verbessert
 
-6.2. Symmetrische Verfahren
+5.2. Symmetrische Verfahren
      ----------------------
-+ ein eigenständiges Programm kann selbstentpackende Programme
-  erzeugen.
++ das eigenständige Programm AES-Tool kann selbstentpackende
+  Programme erzeugen.
   Damit kann man eine beliebige Datei Paßwort-geschützt mit AES
   verschlüsseln (durch Eingabe eines Hexadezimal-Schlüssels).
 + Veranschaulichen, wie ein Schlüssel aus einem Paßwort nach
@@ -514,7 +533,7 @@ Bugfixes hinzu:
   Zufallsgenerator, Anzahl der "Hash"-Iterationen,
   Hashverfahren (MD2, MD5, SHA-1)].
 
-6.3. Asymmetrische Verfahren
+5.3. Asymmetrische Verfahren
      -----------------------
 + Demo zur Zahlentheorie und zum RSA-Verfahren neu
    - Primzahlen generieren
@@ -524,7 +543,7 @@ Bugfixes hinzu:
      selbst-gewählte Primzahlen) (damit kann auch der "Dialog
      der Schwestern" aus der c't 25/1999 nachvollzogen werden)
 
-6.4. Formatierung / Anzeige / Navigation
+5.4. Formatierung / Anzeige / Navigation
      -----------------------------------
 + intern werden die Keys/Eigenschaften aller Verfahren
   getrennt gespeichert. Speicherung und Abruf der dabei
@@ -537,47 +556,55 @@ Bugfixes hinzu:
 + Beim Anzeigewechsel das "Vater"-Fenster beibehalten.
 + Hotkeys zur Verzweigung in das PDF-Skript eingefügt.
 
-6.5. Hilfe / PDF-Skript
+5.5. Hilfe / PDF-Skript
      --------------------
 + Ergänzung des Skripts um eine Einführung in die elementare
   Zahlentheorie mit vielen Beispielen.
 
-6.6. Sonstiges
+5.6. Sonstiges
      ---------
 + PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit
-  von den darin gespeicherten Schlüsseln. 
+  von den darin gespeicherten Schlüsseln.
 + Neue Webseite
    - zusätzliche Infos: Präsentation auf deutsch und englisch.
 
 
-6.7. Änderungen von Version 1.3.00 zu Version 1.3.02
+5.7. Änderungen von Version 1.3.00 zu Version 1.3.02
      -----------------------------------------------
 Die Version 1.3.01 wurde nicht offiziell verteilt, da sie als
-Zwischenversion nur in Deutsch vorlag.
+Zwischen- und Testversion nur in Deutsch vorlag.
 
-Source:
+Zu folgenden Themen gab es Verbesserungen:
+Sourcecode:
 + Überarbeitung des Quelltextes für die Übergabe an den neuen
   Maintainer.
-+ Weitere Automatisierung beim Erzeugen des Setup-Paketes
++ Weitere Automatisierung beim Erzeugen des Setup-Paketes.
 Webseite:
 + Enthält die Hashwerte der herunterladbaren Dateien und
   ermöglicht so einen Check der Integrität der auf dem
   Computer befindlichen Dateien.
 Dokumentation:
++ Im Skript:
+  - Ergänzung des Artikels zur "Einführung in die elementare
+    Zahlentheorie" um
+      - die Beispielaufrufe mit Hilfe des Zahlentheorie-Inter-
+        preters PARI-GP (so dass Sie die Beispiele nicht nur mit 
+        Mathematica, sondern auch einfach mit einem kostenlosen 
+        Mathematik-Paket durchführen können) und
+      - Kapitel 3.11: Informationen zur aktuellen Diskussion über 
+        die Sicherheit des RSA-Verfahrens (vgl. Bernstein). 
+  - neu sind Kapitel 5.1 und 5.2 zu speziellen Signaturen.
+  - neu in Kapitel 6 sind Informationen zur Motivation und 
+    Interoperabilität von Elliptischen Kurven.    
 + Einheitliche CrypTool-Präsentation zu 1.3.02 (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
-  neuen Funktionen und Einbau einer Zeittafel).
+  neuen Funktionen und Einbau einer Zeittafel der Kryptographie).
 Funktionalität:
 + Ist ein Menüeintrag selektiert, der noch ein Untermenü hat,
   und man drückt F1, gelangt man nun auf die entsprechende
   Hilfeseite der Online-Hilfe zum ganzen Menü.
 + Hashwerte von Dateien berechnen, ohne die Dateien zu laden.
-+ Visualisierung der einzelnen Schritte / Abhängigkeiten bei
-  der Hybridverschlüsselung und -Entschlüsselung.
-+ Die schrittweise Verifikation einer RSA-Signatur ist nun auch
-  möglich (dabei werden wie bei der Visualisierung der Hybrid-
-  Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 + Verbesserung bei der Faktorisierung zusammengesetzter Zahlen:
    - Ausgabe der Details pro abgespaltenem Faktor.
    - Abfangen, wenn das Quadratic Sieve-Verfahren für die
@@ -587,38 +614,44 @@ Funktionalität:
     öffentlichen Parameter bekannt sind,
   - Eingabe von Hexwerten möglich.
 + Verbesserungen beim AES-Tool.
-+ Bei der Hillverschlüsselung können die Details zur aktuellen 
++ Bei der Hillverschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
-  - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und 
-  - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail. 
+  - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und
+  - eine Beispiel-Ver-/Entschlüsselung, berechnet im Detail.
 + Langfassung des "Dialoges der Schwestern" in Deutsch und
-  Englisch beigelegt (darin wird ein in der RSA-Demo 
-  behandelter Sonderfall des RSA-Verfahrens beschrieben) 
+  Englisch beigelegt (darin wird ein in der RSA-Demo
+  behandelter Sonderfall des RSA-Verfahrens beschrieben)
   - vielen Dank an den Autor, Herrn Dr. Carsten Elsner.
-+ Visualisierung 
++ Visualisierung
   - der einzelnen Schritte / Abhängigkeiten bei der
-    Erzeugung einer elektronischen Signatur.
+    -> Erzeugung einer elektronischen Signatur,
+    -> Hybridverschlüsselung und -Entschlüsselung.
++ Die schrittweise Verifikation einer RSA-Signatur ist nun auch
+  möglich (dabei werden wie bei der Visualisierung der Hybrid-
+  Entschlüsselung die schon vorhandenen Masken wiederverwendet).
 
 
-6.8. Geplante Änderungen nach Version 1.3.02
+5.8. Geplante Änderungen nach Version 1.3.02
      ---------------------------------------
 Funktionalität:
-+ Visualisierung 
-  - der Wirkung von Textänderungen auf den Hashwert 
-    (Sensitivität von Hashverfahren)
-+ XXXX AES-Tool läuft komplett auch von der Kommandozeile
-+ XXXX Die Kommandozeilenversion des AES-Tools liegt auch unter
-     OS/2 und Linux vor.
++ Visualisierung
+  - der Wirkung von Textänderungen auf den Hashwert
+    (Sensitivität von Hashverfahren),
+  - des Geburtstagsparadoxons.
++ XXXX AES-Tool bietet den vollen Funktionsumfang auch bei einem
+  Aufruf von der Kommandozeile
++ XXXX Eine pure Kommandozeilenversion des AES-Tools liegt auch unter
+     OS/2 und Linux vor (aestool-os2; aestool-linux).
 
 
-7. Mögliche Punkte für eine Weiterentwicklung
+6. Mögliche Punkte für eine Weiterentwicklung
    ------------------------------------------
 + Weitere Algorithmen zu jedem Thema der Verschlüsselung oder
-  Analyse hinzufügen, 
-  z.B. ADFGVX bei den klassischen Verfahren,
-  RC5 und Ghost bei den symmetrischen Verfahren oder 
-  Rabin bei den Public Key-Verfahren.
+  Analyse hinzufügen, z.B.
+  - ADFGVX bei den klassischen Verfahren,
+  - RC5 und Ghost bei den symmetrischen Verfahren oder
+  - Rabin bei den Public Key-Verfahren.
 + wo immer Algorithmen parametrisiert werden können: Anbieten
   einer Option, um z.B. den Initialisierungsvektor, die Anzahl
   von Runden, die Schlüssel- oder Wortlänge oder das Padding
@@ -636,7 +669,7 @@ Funktionalität:
   - der Playfair-Verschlüsselung
 + Alle Anzeigemodule in einem konsistenten Klassenbaum
   zusammenfassen.
-+ Die Sourcen so umstellen, daß die Ausgabe/Anzeige komplett von 
++ Die Sourcen so umstellen, daß die Ausgabe/Anzeige komplett von
   den Kryptomodulen getrennt ist (erleichtert Portierungen und
   Fehlersuche)
 + In der Anzeige für Grafiken eine Vergrößerungsfunktion einbauen
@@ -656,9 +689,9 @@ Funktionalität:
 + Hillverfahren: Schlüsselmatrix transponieren.
 + Hillverfahren: Eingabe von Zahlen in die Schlüsselmatrix.
 + Update der Miracl-Lib auf eine neuere Version als 4.4.3.
-+ Portierung nach Linux (eine SECUDE-Lib bzw. Miracl-Lib stehen
++ Portierung nach Linux (eine Secude-Lib bzw. Miracl-Lib stehen
   zur Verfügung).
-+ Portierung nach Java (eine SECUDE-Lib dafür steht zur
++ Portierung nach Java (eine Secude-Lib dafür steht zur
   Verfügung).
 + Diffie-Hellman Schlüsselaustausch visualisieren.
 + Kryptographisch starke elliptische Kurven erzeugen und damit
@@ -669,26 +702,28 @@ Funktionalität:
          "Elliptic curve cryptosystems and their implementation",
          Journal of Cryptology, 6 (1993), Seiten 209-224.
 + Weil kryptographische Strukturen und Formate häufig ASN.1-
-  kodiert sind: Integration eines ASN.1 Dekodier-Tools. 
-+ Angriff auf Hash-Verfahren basierend auf dem "Geburtstags 
+  kodiert sind: Integration eines ASN.1 Dekodier-Tools.
++ Angriff auf Hash-Verfahren basierend auf dem "Geburtstags
   Paradoxon".
 + Generell Visualisierung der Abhängigkeiten und Abläufe bei
   Protokollen (nicht nur bei "einfachen" Algorithmen).
-+ Erweiterung um die deutschen Standards zur Validierung von 
++ Erweiterung um die deutschen Standards zur Validierung von
   Zufallszahlen.
 + Weitere Standards implementieren und direkt über die Menüs
   bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
-  Standardverfahren verwendet werden (Hauptarbeit UI und Doku).
-+ CrypTool als Frontend für zahlentheoretische Funktionen und 
+  Standardverfahren verwendet werden (Hauptarbeit dabei sind
+  nur User Interface und Doku).
++ CrypTool als Frontend für zahlentheoretische Funktionen und
   Werte erweitern.
 
 
-7.1 Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
+6.1 Sinnvolle Aufgaben für die Einarbeitung des neuen Maintainers
      ------------------------------------------------------------
 + Einbau des RC5-Algorithmus wie oben beschrieben, um zu sehen,
   an welchen Stellen überall die Sourcen dafür zu ergänzen sind.
-+ alle möglichen Arten von Transpostionen für den Inhalt von
-  Textfenstern in einem ansprechenden Dialog anbieten.
++ alle möglichen Arten von Transpositionen und Superpositionen
+  für den Inhalt von Textfenstern in einem ansprechenden Dialog
+  anbieten.
 + Testbett mit Beispielen und Lösungen erzeugen, damit man das
   Testen automatisieren kann und man sicherstellt, dass Programm-
   änderungen nicht alte Funktionalität negativ beeinflussen:
@@ -696,7 +731,7 @@ Funktionalität:
   b) Schnittstelle schaffen, mit der sich die Testaufgaben aus
      einer Datei selbst in die Dialogboxen laden.
      Vielleicht sogar Script-Steuerung für alle Dialoge oder
-     automatische Testtool vom Markt einsetzen.
+     automatische Testtools vom Markt einsetzen.
   c) Commandline-Interface schaffen (am besten nachdem Krypto und
      Anzeige im Code getrennt wurden), das ohne Dialogboxen alle
      Aufgaben aus einer Datei per Schnittstelle ausliest und die
@@ -707,20 +742,20 @@ Funktionalität:
 
 
 
-8. Kurze Historie der Hauptversionen
+7. Kurze Historie der Hauptversionen
    ---------------------------------
 
-Version         Datum
-1.0.01          Okt. 1999
-1.1.01          Mai  2000
-1.2.00          Aug. 2000
-1.2.02          Dez. 2000
-1.3.00          Jan. 2002
-1.3.02          Juni 2002
+Version    Datum
+1.0.01     Okt. 1999
+1.1.01     Mai  2000
+1.2.00     Aug. 2000
+1.2.02     Dez. 2000
+1.3.00     Jan. 2002
+1.3.02     Juni 2002 (sehr viel neue Funktionen gegenüber 1.3.00)
 
 
 
-9. Roadmap
+8. Roadmap
    -------
 Wann die neue CrypTool-Version 1.4 kommt, entscheidet der neue
 Maintainer.
@@ -733,8 +768,8 @@ an die unten angegebenen email-Adressen wenden.
 
 
 
-10. Feedback bei Fehlern
-   ---------------------------
+9. Feedback bei Fehlern
+   --------------------
 Sollten Sie Probleme haben oder Fehler finden, wenden Sie sich
 bitte mit einer Beschreibung des Problems per e-mail an
 - joerg-cornelius.schneider@db.com  oder
@@ -747,7 +782,7 @@ CrypTool einsetzen.
 
 
 
-11. Kontaktadressen
+10. Kontaktadressen
     ---------------
 - joerg-cornelius.schneider@db.com
 - bernhard.esslinger@db.com
@@ -757,45 +792,46 @@ CrypTool einsetzen.
 
 
 
-12. Verweise
+11. Verweise
     --------
-12.1. Wirtschaftswoche Spezial
+11.1. Wirtschaftswoche Spezial
       ------------------------
 In dem Spezial "Kryptographie" der Wirtschaftswoche finden Sie ein
 Preisausschreiben: "Knacken Sie den Text!". Das Preisausschreiben
 erhalten Sie unter der URL
 http://wiwo.de/WirtschaftsWoche/Wiwo_CDA/0,1702,12723_47642,00.html
 Wenn Sie sich an die Tipps der Aufgabenstellung halten, knacken
-Sie mit CrypTool die Aufgabe in wenigen Mausklicks.
+Sie mit CrypTool die Aufgabe mit wenigen Mausklicks.
 
-12.2. c't 14/2001, S. 204-208
+11.2. c't 14/2001, S. 204-208
       -----------------------
 In diesem renommierten und auflagenstarken deutsch-sprachigen
 Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
 CrypTool veröffentlicht.
 Außerdem wurde in c't 25/1999 die Fantasy-Geschichte
 "Der Dialog der Schwestern" veröffentlicht. Die darin verwendete
-Variante von RSA kann mit CrypTool v1.3.00 nachvollzogen werden.
+Variante von RSA kann ab CrypTool v1.3.00 nachvollzogen werden.
+Diese Geschichte liegt als PDF-Dokument dem CrypTool-Paket bei.
 
-12.3. BSI Bürger-CD "Ins Internet - mit Sicherheit"
+11.3. BSI Bürger-CD "Ins Internet - mit Sicherheit"
       ---------------------------------------------
 Das Bundesamt für Sicherheit in der Informationstechnik (BSI) hat
 zusammen mit dem Deutschen Bundesinnenministerium zur CeBIT 2002
 eine CD veröffentlicht, die die Bürger aufklärt, wie man mit
-Computer und Internet umgeht und wie man sich sicher im Internet
+Computern und Internet umgeht und wie man sich sicher im Internet
 bewegen kann.
-Auf dieser CD ist auch CrypTool enthalten, um das Verständnis der 
+Auf dieser CD ist auch CrypTool enthalten, um das Verständnis der
 kryptographischen Sicherheitsfunktionen zu verbessern.
 Von dieser CD sind mehr als 500.000 Stück produziert worden und
-zum Beispiel mit der PC-Welt verteilt worden.
+zum Beispiel mit der Zeitschrift PC-Welt verteilt worden.
 
-12.4. Freeware-Projekt Crank
+11.4. Freeware-Projekt Crank
       ----------------------
 http://freshmeat.net/projects/crank/
 
 Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
 der GNU General Public Licence (GPL) freigegeben.
-Im Crank-Projekt soll unter Linux ein Programm mit graphischer
+Im Crank-Projekt soll unter Linux ein Programm mit grafischer
 Oberfläche erstellt werden, das das möglichst automatisierte
 Brechen von klassischen Kryptoalgorithmen ermöglicht.
 Initial liegt der Fokus auf der Analyse monoalphabetischer
@@ -807,20 +843,20 @@ klassische Kryptoanalyse.
 
 
 
-13. Anhang
+12. Anhang
     ------
 
-13.1. CrypTool unter Linux mit Wine
-13.1.1. ......... CrypTool installieren
-13.1.2. ......... Wine-Konfiguration
-13.1.3. ......... CrypTool ausführen
+12.1. CrypTool unter Linux mit Wine
+12.1.1. .... CrypTool installieren
+12.1.2. .... Wine-Konfiguration
+12.1.3. .... CrypTool ausführen
 
 
 
-13.1. CrypTool unter Linux mit Wine
+12.1. CrypTool unter Linux mit Wine
       -----------------------------
 
-Diese Hinweise basieren auf Tests mit Wine 2001-11-29.
+Diese Hinweise basieren auf Tests mit Wine 2001-11-29. (XXXX)
 
 13.1.1 CrypTool installieren
        ---------------------
@@ -829,7 +865,7 @@ CrypTool gleich zu starten. Dies funktioniert unter Wine nicht.
 Bitte starten Sie CrypTool wie unten beschrieben.
 
 
-13.1.2 Wine-Konfiguration
+12.1.2 Wine-Konfiguration
        ------------------
 CrypTool funktioniert nicht mit der in Wine eingebauten Version
 von riched32.dll. Wenn Sie unter CrypTool eine Datei öffnen und
@@ -837,13 +873,13 @@ die falsche Version von riched32.dll benutzt wird, erscheint ein
 leeres Fenster.
 Wahrscheinlich taucht das Problem nicht auf, wenn Wine eine
 existierende Windows-Partition benutzen kann.
-Wenn Sie Wine ohne Windows benutzen, können Sie das Problem mit 
+Wenn Sie Wine ohne Windows benutzen, können Sie das Problem mit
 folgenden Schritten lösen:
  - installieren sie CrypTool unter Wine.
  - besorgen Sie sich riched32.dll (z.B. Version 5.0.1458.47).
    und kopieren Sie die Datei in das Installationsverzeichnis
    von CrypTool. Evtl. müssen sie analog mit weiteren DLLs,
-   verfahren, die von riched32.dll benutzt werden. Beachten Sie 
+   verfahren, die von riched32.dll benutzt werden. Beachten Sie
    bitte die Fehlerausgaben von Wine.
  - Konfigurieren Sie Wine so, dass es diese Datei nutzt. In der
    Standard-Konfiguration ist das so. Funktioniert das bei
@@ -852,10 +888,10 @@ folgenden Schritten lösen:
    "riched32" = "native,builtin"
 
 
-13.1.3 CrypTool ausführen
+12.1.3 CrypTool ausführen
        ------------------
 
-13.1.3.1 Starten
+12.1.3.1 Starten
          -------
 Um CrypTool zu starten, wechseln Sie in das Verzeichnis, in das
 es installiert wurde, und starten es mit:
@@ -867,7 +903,7 @@ von CrypTool wechseln, findet CrypTool einige wichtige Dateien
 nicht.
 
 
-13.1.3.2 Bugs und Work-arounds
+12.1.3.2 Bugs und Work-arounds
          ---------------------
 * Die Online-Hilfe kann nicht mit F1 aus CrypTool heraus
   aufgerufen werden.
