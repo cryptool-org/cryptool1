@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Viewing N-Gram List of the document</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Histogram">
+	<PARAM NAME="Keyword" VALUE="N-gram">
+	<PARAM NAME="Keyword" VALUE="Digram">
+	<PARAM NAME="Keyword" VALUE="Trigram">
+</OBJECT>
+
+<P><A NAME="hid_analyse_ngram"></A><B>Viewing N-Gram List of the document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P>
+
+<P>An N-gram is a string of N characters. 2-grams and 3-grams are called digrams and trigrams resp.</P>
+
+<P>The N-gram list of a document contains all N-grams of the document together with their frequency, usually ordered descendingly by frequency. 1-gram lists are called histograms. CrypTool limits N-gram lists to the 5000 most frequent N-grams.</P>
+
+<P>If you analyse a text document then only characters from the current alphabet (see menu Options \ Text options) are considered. Characters that do not belong to the current alphabet, will "separate" the text. For example: if the space character does not belong to the current alphabet, then the text "ATTACK AT DAWN" have the trigrams ATT, TTA, TAC, ACK, DAW and AWN.</P>
+
+<P>The N-gram analysis of binary files will consider all 256 different bytes.</P>
+
+<P>Example:</P>
+
+<P>The 5 most frequent trigrams of the reference file<CODE> genesis-en.txt</CODE> are:</P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE border=1 cols=2 frame=box rules=all width=156>
+
+<TR VALIGN="top">
+<TD width=50%>
+<PRE><CODE>THE</CODE></PRE>
+</TD>
+<TD width=50%>
+<PRE><CODE>5.445 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>
+<PRE><CODE>AND</CODE></PRE>
+</TD>
+<TD width=50%>
+<PRE><CODE>5.375 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>
+<PRE><CODE>HER</CODE></PRE>
+</TD>
+<TD width=50%>
+<PRE><CODE>1.275 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>
+<PRE><CODE>HIS</CODE></PRE>
+</TD>
+<TD width=50%>
+<PRE><CODE>1.000 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>
+<PRE><CODE>HAT</CODE></PRE>
+</TD>
+<TD width=50%>
+<PRE><CODE>0.892 %</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDN--></P>
+
+<P>The N-gram analysis can be computed in the <A href="hidd_ngram_analysis.html">N-Gram List dialogue</A>.</P>
+
+<P>This list can optionally be saved as a text file. </P>
+
+</BODY>
+</HTML>

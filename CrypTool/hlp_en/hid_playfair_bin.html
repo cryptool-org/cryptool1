@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>The Playfair encryption algorithm</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Playfair encryption algorithm">
+</OBJECT>
+
+<P><A NAME="hid_playfair_bin"></A><B>The Playfair encryption algorithm (Menu <A href="menu_crypt.html">Crypt</A> \ Classical)</B></P>
+
+<P>The Playfair <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> is based on an algorithm developed by Charles Wheatstone in 1854.</P>
+
+<P>To start with, one requires an encryption key (as an example we will use the word PASSWORT). This password is entered in a 5x5 or 6x6 matrix using the <A href="hidd_key_playfair.html">Playfair key entry dialogue</A>, as illustrated below. As no two identical letters can occur in the matrix, any double characters in the password are replaced by the next free letter in the alphabet.</P>
+
+<P>The remaining cells in the matrix are then filled in with the alphabetic letters that are left over. Any characters which already exist are omitted here.</P>
+
+<P>In the case of the 5x5 matrix, the J in the alphabet is left out.</P>
+
+<P>The message to be encrypted is then written down in groups of two characters each (digrams). For example, suppose the message to be encrypted is </P>
+
+<P><!--ZZZIND--> AL LE SI ST HE RA US FL IE HE SO FO RT  (= " cover is broken flee immediately ").</P>
+
+<P>To encrypt the message, first of all one takes the first pair of letters, AL. These two letters form the end points of one of the diagonals in a rectangle (A-L from bottom to top). The endpoints of the other diagonal (also read from bottom to top) are points P and M. The pair of letters AL is thus replaced by the pair PM. LE becomes XR. There are problems with the pair ST as both letters occur in the same row. In this case the letters immediately to the right of the original letters are used - TW. If there are no more letters to the left, then one simply proceeds to the end of the row. If the letters in a letter pair in the table are above each other, as is the case with the pair FL, then in each case one takes the next letters underneath - LY. The encrypted message now reads:</P>
+
+<P><!--ZZZIND--> PM XR TH TW KB UP BA LY KC KB TP KP CP</P>
+
+<P>To improve security, it is possible to eliminate any letter duplications prior to encryption by inserting, for example, the letter X, as pairs of identical letters provide attackers with a lot of useful information.</P>
+
+<P>Because letter pairs are used, the algorithm is more difficult to break than cryptosystems which only use individual letters. Thus, for example, a frequency analysis is less informative and the creation of code books is more long-winded. For this reason modern methods do not limit themselves to just two characters, but IDEA, for example, operates with 64-bit (i.e. 8-character) blocks.</P>
+
+<P>A detailed <A href="szenarien_playfair.html">example</A> of the Playfair encryption algorithm will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+</BODY>
+</HTML>

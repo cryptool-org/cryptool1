@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>(Untitled)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="hidd_options_signature_attack"></A><B>Dialogue Options for the attack on the hash value of the digital signature</B></P>
+
+<P>First, one of six hash functions <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A> can be chosen for the attack. The 128-bit hash functions MD2, MD4 and MD5 as well as the 160-bit hash functions SHA, SHA-1 and RIPEMD-160 are available.</P>
+
+<P>The <B>Significant bit length</B> determines the number of the highest bits in the hash values that have to match so that the attack is considered successful. The co-domain of the significant bit length is 1 &lt;= x &lt;= n, with n being the bit length of the chosen hash function.</P>
+
+<P><IMG SRC="images/ads_options.gif" ALT="" BORDER=0></P>
+
+<P>In the category <B>Options for the modification of messages</B> the method of modifying messages depending on the lastly computed hash value can be chosen.</P>
+
+<P>If the radio button <B>Insert blanks</B> is checked, at least one of the two check boxes <B>In front of end of line</B> and <B>Double Blanks</B> has to be checked. Starting from the end of a message, a blank is inserted in front of an end of line and/or in front of another blank.</P>
+
+<P><B>Attach characters</B> is the other method of modifying messages. There, two bits of a hash value are mapped on one character which is attached at the end of the message. For reasons of demonstration, <B>Printable characters</B> ("A", "B", "C" or "D") can be used, otherwise <B>Unprintable characters</B> (the characters with the ASCII codes 9, 10, 32 or 160) are attached.</P>
+
+<P>With <B>Reset to standard</B> the settings are reset to:</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=25%>Hash function:</TD>
+<TD width=75%><B>MD2</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Significant bit length:</TD>
+<TD width=75%><B>16</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Method of modification:</TD>
+<TD width=75%><B>Insert blanks/In front of end of line and Double Blanks</B></TD>
+</TR>
+</TABLE><BR>
+
+<P>By clicking <B>Apply</B> the current settings are saved in the file CrypTool.INI and used for all attacks in the future, besides, the user returns to the <A href="hidd_signature_attack.html">Dialogue Attack on the hash value of the digital signature</A>.</P>
+
+</BODY>
+</HTML>

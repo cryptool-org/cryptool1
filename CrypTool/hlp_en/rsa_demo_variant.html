@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue of sisters</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialogue of sisters">
+	<PARAM NAME="Keyword" VALUE="Short story">
+	<PARAM NAME="Keyword" VALUE="RSA">
+</OBJECT>
+
+<P><A NAME="rsa_demo_variant"></A><B>Dialogue of sisters</B></P>
+
+<P>In the story <!--ZZZLINK--><A href="DialogueSisters.pdf">Dialogue of sisters</A>, a simplified version of the RSA algorithm is presented. As the first step an RSA modulus N&gt;27 has to be generated from two prime numbers.</P>
+
+<P>For example, N = 13*7 = 91 with the Euler phi function phi(N) = 12*6 = 72. As public exponent, we shall choose e=5. This is used to calculate the secret key d=29. </P>
+
+<P>Once you have generated the RSA parameters, click <A href="hidd_options_rsa_demo.html"><B>Options for alphabet and number system</B></A> and then select the "Dialogue of sisters" option, using the alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (the final space is a part of the alphabet).</P>
+
+<P>The letters "A, B, C ... Z" and the space " " are coded in numbers:</P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=2 width=204>
+
+<TR VALIGN="top">
+<TD width=50%>A ---&gt; 1</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>B ---&gt; 2</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>C ---&gt; 3</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>&nbsp;</TD>
+<TD width=50%> . . . . . .</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>Z ---&gt; 26</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>‘ ‘ ---&gt; 27</TD>
+<TD width=50%>+ r * 27</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--></P>
+
+<P>The number r is a randomly chosen number for each letter and 27 is the number of characters in the alphabet. For example, the numbers m = 2, 29, 56, 83, .... are valid codes for the letter B. Encryption of the coded letters m then proceeds in accordance with the calculation rule</P>
+
+<P><!--ZZZIND--> c = c(m) = m^e  (mod 91)</P>
+
+<P>Decryption of the encrypted message proceeds in accordance with the formula</P>
+
+<P><!--ZZZIND--> m = d(c) = c^d   (mod 91) (mod 27)</P>
+
+<P>The second module operation (mod 27) is necessary in order to decode 1 ---&gt; A, 2 ---&gt; B, ..., 27 ---&gt; ‘ ‘. </P>
+
+<P>The difference of this variant compared to the normal RSA algorithm is <!--ZZZUL--></P>
+
+<P>- the addition of random r*27 while encoding letters to numbers</P>
+
+<P>- the (mod 27) operation after decryption</P>
+
+<P>- the alphabet has exactly 27 letters</P>
+
+<P>- the block length is exactly 1 character.</P>
+
+<P><!--ZZZULE--></P>
+
+<P>Without using the random number r, the ciphertext would only consist of 27 different numbers and the procedure could be attacked by frequency analysis, as ease as mono-alphabetic substitution.</P>
+
+<P>In the next example the message</P>
+
+<P><!--ZZZIND--> " THIS IS A CONFIDENTIAL MESSAGE"</P>
+
+<P>is encrypted</P>
+
+<P><IMG SRC="images/rsa_demo_6.gif" ALT="" BORDER=0></P>
+
+<P>and decrypted</P>
+
+<P><IMG SRC="images/rsa_demo_7.gif" ALT="" BORDER=0></P>
+
+<P><B>Remark:</B></P>
+
+<P>You can see that the numbers of the ciphertext here are different from the numbers in the picture before - despite both cipher texts have been created  by the same key pair and despite both belong to the same cleartext. The reason is, that each ciphertext was created using different random values of r.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Attack on the hash value of the digital signature</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Attack">
+	<PARAM NAME="Keyword" VALUE="Digital signature">
+</OBJECT>
+
+<P><A NAME="hidd_signature_attack"></A><B>Dialogue Attack on the hash value of the digital signature (Menu <A href="menu_related_methods.html">Indiv. Procedures</A>)</B></P>
+
+<P>The attack based on the <A href="birthdayparadox.html">birthday paradox</A> is a <A href="hid_signatur_attack.html">generic attack on the hash value of the digital signature</A>, i.e. it can be applied on all hash functions. The attacker‚s objective is to find two different messages that translate into the same hash value.</P>
+
+<P>He designs a <B>harmless message</B> which will be digitally signed by his victim, and a <B>dangerous message</B> which would never be signed due to its malicious content. Afterwards, the attacker generates a great number of modifications of the two messages whose contents are equivalent to those of the original messages and only differ from some extra blanks or unprintable characters.</P>
+
+<P>If the attacker finds a pair of a harmless and a dangerous message with the same hash value he asks his victim to sign the harmless message digitally and subsequently exchanges the two messages.</P>
+
+<P>In the categories <B>Choose </B>"<B>harmless</B>"<B> file</B> and <B>Choose </B>"<B>dangerous</B>"<B> file</B> two messages are determined which are to be used for the attack.</P>
+
+<P><IMG SRC="images/ads_main.gif" ALT="" BORDER=0></P>
+
+<P>The attack can be configured in the dialogue <A href="hidd_options_signature_attack.html"><B>Options for the attack on the hash value of the digital signature</B></A>. </P>
+
+<P>To start the attack push <B>Start search</B>.</P>
+
+<P><B>Remark 1</B>:</P>
+
+<P>If you choose two identical files, then CrypTool also tries to generate two different files having the same hash value by adding different patterns.</P>
+
+<P><B>Remark 2 (CrypTool included example files)</B>:</P>
+
+<P>The CrypTool package contains the example files "original.txt" and "fake.txt" as an example of a harmless message and a dangerous message. In order to restore the default paths of these examples you can delete the rows <!--ZZZINDN--></P>
+
+<PRE><CODE>SignatureAttackHarmlessFile</CODE></PRE>
+
+<P><CODE>SignatureAttackDangerousFile</CODE> <!--ZZZINDN--></P>
+
+<P>within the <A href="cryptool_ini.html">CrypTool.ini</A> file. Afterwards the paths of these examples will be shown.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue key range</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="Key range">
+	<PARAM NAME="Keyword" VALUE="Brute-force analysis">
+</OBJECT>
+
+<P><A NAME="hidd_bruteforce"></A><B>Dialogue Brute-force Analysis (Enter Key Range)</B></P>
+
+<P>This dialogue is used to enter the key space to be searched through for <!--ZZZPOPUP--><A href="schluessel.html">keys</A> in a <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A> on the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>:</P>
+
+<P><A href="hid_analyse_idea.html">IDEA</A></P>
+
+<P><A href="hid_analyse_rc2.html">RC2</A></P>
+
+<P><A href="hid_analyse_rc4.html">RC4</A></P>
+
+<P><A href="hid_analyse_desecb.html">DES&nbsp;(ECB)</A></P>
+
+<P><A href="hid_analyse_descbc.html">DES&nbsp;(CBC)</A></P>
+
+<P><A href="hid_analyse_tripledesecb.html">Triple-DES&nbsp;(ECB)</A> </P>
+
+<P><A href="hid_analyse_tripledescbc.html">Triple-DES&nbsp;(CBC)</A></P>
+
+<P><A href="hid_analyse_aes_mars.html">MARS</A></P>
+
+<P><A href="hid_analyse_aes_rc6.html">RC6</A></P>
+
+<P><A href="hid_analyse_aes_rijndael.html">Rijndael&nbsp;(AES)</A></P>
+
+<P><A href="hid_analyse_aes_serpent.html">Serpent</A></P>
+
+<P><A href="hid_analyse_aes_twofish.html">Twofish</A></P>
+
+<P>After you have entered the searchspace of the key search, you can start the <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A> by clicking on the <B>Start</B> button or pressing the <B>RETURN</B> key. To terminate the attack, click on <B>Cancel</B>.</P>
+
+<P>The keys are entered in hexadecimal form.</P>
+
+<P>For unknown positions one simply enters a *. Thus, if you enter "<B>10 ** 23 00 ... 00</B>" a total of  (2^4)*(2^4) = 256 keys will be searched through. These are "10 00 23 00 ... 00", "10 10 23 00 ... 00", "10 20 23 00 ... 00",... "10 F0 23 00 ... 00"... "10 FF 23 00 ... 00".  Five unknown positions mean, that maximal 2^(4*5) = 1,048,576 keys have to be searched through.</P>
+
+<P>The running time is mainly influenced by the number of unknown positions. Each unknown position increases the running time by the factor 16. The running time also varies for the different encryption algorithms and key lengths. It also depends on the number of document bytes that are used in the entropy test, see dialogue <A href="hidd_options_analysis.html">Analysis Options</A> for details.</P>
+
+<P><U>Remark 1</U>:</P>
+
+<P>When applying brute-force analysis for DES(triple DES), a key length of 64(128) bit is shown. Because these methods use 1 bit per byte as parity bit, the effective key length is only 56(112) bit!</P>
+
+<P><U>Remark 2</U>:</P>
+
+<P>Having the possibility to enter any number of stars (this enables you to search through the whole key space) does not mean that CrypTool can be used as a hacker tool.</P>
+
+<P>As you see in the following dialogue, this only gives the user an impression, how huge time intervals are necessary (e.g. 10^27 years for a whole 128 bit key), if the key length is big enough and the method works well.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>The Caesar encryption algorithm</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Caesar encryption algorithm">
+</OBJECT>
+
+<P><A NAME="hid_caesar_asc"></A><B>The Caesar encryption algorithm (Menu <A href="menu_crypt.html">Crypt</A> \ Classical)</B></P>
+
+<P>Under the <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> invented by Caesar, only the letters of the alphabet are <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>. (The alphabet is selected in the <A href="hidd_text_options.html">Text Options</A> dialogue.) </P>
+
+<P>Characters which are not part of the alphabet are normally left out of the encrypted text, so that after <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> these characters have to be inserted from the textual context. This applies to both punctuation characters and special characters (especially spaces between two words). The menu selection <A href="menu_options.html">Options</A> \ Text Options is used to specify whether punctuation and special characters should be retained during encryption and decryption.</P>
+
+<P>Under the Caesar encryption algorithm, one character from the alphabet is used as a <!--ZZZPOPUP--><A href="schluessel.html">key</A>. Depending on the position of the letter, the letters of the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> are shifted in repeated cycles (the sequence of characters in the alphabet to be used is specified in the <A href="hidd_text_options.html">Text Options</A> dialogue). If the alphabet consists only of upper case letters (this is the classical case), a cyclical shift of one character takes place when "A" is entered, two characters for "B" ... 26 characters for "Z". To decrypt the text, the encrypted text is simply shifted in the other direction.</P>
+
+<P>The key for the Caesar encryption algorithm is entered in the <A href="hidd_key.html">Key entry</A> dialogue.</P>
+
+<P><U>Example (classical case)</U></P>
+
+<P>If the key is "C", all the letters are cyclically shifted by three places.</P>
+
+<TABLE cols=2 width=222>
+
+<TR VALIGN="top">
+<TD width=50%>Plaintext</TD>
+<TD width=50%>Encrypted Text</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>A</TD>
+<TD width=50%>D</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>B</TD>
+<TD width=50%>E</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>C</TD>
+<TD width=50%>F</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>...</TD>
+<TD width=50%>...</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>W</TD>
+<TD width=50%>Z</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>X</TD>
+<TD width=50%>A</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>Y</TD>
+<TD width=50%>B</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>Z</TD>
+<TD width=50%>C</TD>
+</TR>
+</TABLE><BR>
+
+<P>Note: the letter "Z" should not be used as the key, as in this case the "encrypted" text is identical to the plaintext.</P>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="ROT13">
+</OBJECT>
+
+<P>A special case of Caesar is the so called ROT13 encryption, which is used in chat rooms and news groups. ROT13 shifts each character by 13 places, corresponding to a Caesar encryption with key "M". Repeated twice ROT13 yields the plain text again.</P>
+
+<P>The Caesar encryption algorithm can be broken relatively easily with a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext Only</A> attack (see <A href="hid_caesar_auto.html">Automatic analysis, Caesar encryption algorithm</A>). An <A href="szenarien_caesar.html">example</A> of this will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+</BODY>
+</HTML>

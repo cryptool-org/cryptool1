@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating the Playfair encryption algorithm</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Example Playfair encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Playfair encryption algorithm">
+</OBJECT>
+
+<P><A NAME="szenarien_playfair"></A><B>Example illustrating the Playfair encryption algorithm</B></P>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating the use of the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P>We start with investigating the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A> by opening a <!--ZZZPOPUP--><A href="dokument.html">document,</A> encrypting it and decrypting it again. After that we will try to find the key that was used to encrypt the plain text by using the Manual Playfair Analysis step by step.</P>
+
+<P><B>Playfair Encryption</B></P>
+
+<P>Open the document <CODE>CrypTool-de.txt</CODE> containing part of the online help section Start with CrypTool. You can open that document via menu <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+
+<P><IMG SRC="images/playfairplaintext.gif" ALT="" BORDER=0></P>
+
+<P>Now we <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this document using the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. To do this open the following dialog box by selecting <A href="menu_crypt.html">menu Cryp</A><A href="hid_playfair_bin.html"> \ Classical \ Playfair</A>. Please use PEGASOS as the key.</P>
+
+<P><IMG SRC="images/playfairkeydialog.gif" ALT="" BORDER=0></P>
+
+<P>From this key the following Playfair key matrix will be calculated:</P>
+
+<TABLE cols=5 width=95>
+
+<TR VALIGN="top">
+<TD width=20%>P</TD>
+<TD width=20%>E</TD>
+<TD width=20%>G</TD>
+<TD width=20%>A</TD>
+<TD width=20%>S</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>O</TD>
+<TD width=20%>B</TD>
+<TD width=20%>C</TD>
+<TD width=20%>D</TD>
+<TD width=20%>F</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>H</TD>
+<TD width=20%>I</TD>
+<TD width=20%>K</TD>
+<TD width=20%>L</TD>
+<TD width=20%>M</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>N</TD>
+<TD width=20%>Q</TD>
+<TD width=20%>R</TD>
+<TD width=20%>T</TD>
+<TD width=20%>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>V</TD>
+<TD width=20%>W</TD>
+<TD width=20%>X</TD>
+<TD width=20%>Y</TD>
+<TD width=20%>Z</TD>
+</TR>
+</TABLE><BR>
+
+<P>When you push the button <B>Encrypt</B> the Playfair key dialog will be closed and two windows opened: one with the pre-processed plain text and another with the encrypted text:</P>
+
+<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="" BORDER=0></P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>The pre-processing step removes all characters from the clear text that are not part of the Playfair alphabet and inserts the character X between two equal characters in a row. E.g. the clear text <B><CODE>CrypTool ist</CODE></B> (German for CrypTool is …) will be pre-processed to <B><CODE>CRYPTOXOLIST</CODE></B>:<BR><BR></LI>
+
+	<LI>Based on the Playfair key matrix above the pre-processed text can now be encrypted. The basic idea is that two consecutive characters (a di-gram) determine the a rectangle in the key matrix. We consider <I>one dimensional</I> rectangles when both characters are in the same row or column of the key matrix. Let us encrypt the pre-processed plain text <B><CODE>CRYPTOXOLIST</CODE></B>. The following key matrix rectangles have to be considered:</LI>
+</UL>
+
+<TABLE cols=4 width=393>
+
+<TR VALIGN="top">
+<TD width=25%>plaintext</TD>
+<TD width=25%>&nbsp;</TD>
+<TD width=25%>&nbsp;</TD>
+<TD width=25%>encrypted</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>di-gram</TD>
+<TD width=25%>rectangle</TD>
+<TD width=25%>dimension</TD>
+<TD width=25%>di-gram </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>CR</TD>
+<TD width=25%>C,K,R,X</TD>
+<TD width=25%>1</TD>
+<TD width=25%>KX</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>YP</TD>
+<TD width=25%>Y,V,P,A</TD>
+<TD width=25%>2</TD>
+<TD width=25%>VA</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>TO</TD>
+<TD width=25%>T,N,O,D</TD>
+<TD width=25%>2</TD>
+<TD width=25%>ND</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>XO</TD>
+<TD width=25%>X,V,O,C</TD>
+<TD width=25%>2</TD>
+<TD width=25%>VC</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>LI</TD>
+<TD width=25%>L,M,I,K</TD>
+<TD width=25%>1</TD>
+<TD width=25%>MK</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>ST</TD>
+<TD width=25%>S,A,T,U</TD>
+<TD width=25%>2</TD>
+<TD width=25%>AU</TD>
+</TR>
+</TABLE><BR>
+
+<P>For two dimensional rectangles we enumerate the edges as follows: we start with the first plain text character, then character in the other edge on the same row, then the second clear text character. The last character is taken from the remaining edge.<BR>
+In the less common case of one dimensional rectangles we also start with the first plain text character, followed by the bottom resp. right neighbour, the second clear text character and the bottom resp. right neighbour. <BR>
+<BR>
+The second and fourth character of the rectangle are taken to be the encrypted di-gram, in the example above: <CODE>KXVANDVCMKAU</CODE>.<BR>
+<!--ZZZULE--></P>
+
+<P>To proceed with the next step (decryption) you can avoid entering the key again by recovering it from the cipher text window. To do this <!--ZZZUL-->
+
+<UL>
+	<LI>activate the window with the cipher text<BR><BR></LI>
+
+	<LI>click on the icon <IMG SRC="images/iconkeydialog.gif" ALT="" BORDER=0>  or select menu Edit \ Show Key<BR><BR></LI>
+
+	<LI>press <B>Copy key</B> <!--ZZZULE--></LI>
+</UL>
+
+<P>Now the key matrix is stored in CrypTool‚s key store.</P>
+
+<P><B>Playfair Decryption</B></P>
+
+<P>We now can recover the plain text of the document encrypted in the previous step. Select <A href="menu_crypt.html">menu Crypt \ Classical</A><A href="hid_playfair_bin.html"> \ Playfair</A> and enter the encryption key (PEGASOS). If you have saved the key in the key store then you can recover it by clicking on the icon <IMG SRC="images/iconinsertkey.gif" ALT="" BORDER=0>.</P>
+
+<P><IMG SRC="images/dialogplayfairdecryption.gif" ALT="" BORDER=0></P>
+
+<P>Now press the <B>Decrypt</B> button to recover the plain text.</P>
+
+<P><B>Manual analysis of the Playfair cipher</B></P>
+
+<P>Let us now try to decipher a text encrypted with the Playfair cipher with the help of CrypTool.To do this we load the text to be decrypted from the file <CODE>Playfair-enc-de.txt</CODE>: </P>
+
+<P><IMG SRC="images/szenarioplayfair1.gif" ALT="" BORDER=0></P>
+
+<P>This text was created with the <A href="hid_playfair_bin.html">Playfair</A> <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> without pre-processing: This option effectively leaves characters not contained in the Playfair alphabet unencrypted (e.g. blanks, punctuation marks, line feeds), so that the plain text word and sentence boundaries are obvious. This option also inhibits the insertion of the separating X between two equal characters in a row, and leaves them un-encrypted.</P>
+
+<P>CrypTool does only support a semi-manual analysis of the Playfair cipher. Therefore we need some clue about the document to be analyzed. Let us assume that the text is a German letter, which often start with the same words.</P>
+
+<P>Let us now open the Playfair Analysis window by selecting <A href="menu_analyze.html">Analysis</A> <A href="hid_analyse_playfair.html">\ Classical \ Playfair</A>.</P>
+
+<P><IMG SRC="images/szenarioplayfair2.gif" ALT="" BORDER=0></P>
+
+<P>The letter probably begins with <B><CODE>Sehr geehrte Damen und Herren</CODE> </B>(German for <I>Dear Sirs</I>).</P>
+
+<P>Enter this text in the field labelled <B>Expected plaintext.</B> After each key stroke the <B>Letter information </B>table is updated.</P>
+
+<P>We now already have a couple of di-grams fixed: <!--ZZZINDN--></P>
+
+<TABLE cols=2 width=218>
+
+<TR VALIGN="top">
+<TD width=47%>SE  &gt;  TG
+<P>HR  &gt;  IG</P>
+
+<P>GE  &gt;  HR</P>
+
+<P>EH  &gt;  RI</P>
+
+<P>RT  &gt;  EF</P>
+
+<P>ED  &gt;  RX</P>
+</TD>
+<TD width=53%>AM  &gt;  VN
+<P>EN  &gt;  IX</P>
+
+<P>UN  &gt;  AX</P>
+
+<P>DH  &gt;  LR</P>
+
+<P>ER  &gt;  RG</P>
+
+<P>RE  &gt;  GR</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--></P>
+
+<P>By pressing the <B>Generate matrix</B> button, those parts of the Playfair key matrix are calculated, that can be determined based on the given information. </P>
+
+<P><IMG SRC="images/szenarioplayfair3.gif" ALT="" BORDER=0></P>
+
+<P>We now show how the complete key matrix can be determined manually based on guessed clear text fragments and the Playfair encryption rules.</P>
+
+<P><!--ZZZUL-->
+
+<UL>
+	<LI>From ER &gt; RG one can see that the sequence ERG must occur in the matrix either as a column or row. Let us assume it occurs in a column, in which case, given RT &gt; EF, T and F must be in the same column and, given GE &gt; HR, H must also occur, but this would produce 6 letters, which is too many. Therefore ERG must occur in a row. <BR><BR></LI>
+
+	<LI>Given EH &gt; RI, I must occur in the same row, likewise H (GE &gt; HR). Let us now write ERGHI e.g. in the bottom row (the sequence HI is correct because of EH &gt; RI). <BR><BR></LI>
+
+	<LI>We can now add a few more letters, namely DL, NX, DX, TF, ST, UA:</LI>
+</UL>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=5 width=95>
+
+<TR VALIGN="top">
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>F</TD>
+<TD width=20%>S</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>A</TD>
+<TD width=20%>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>D</TD>
+<TD width=20%>*</TD>
+<TD width=20%>L</TD>
+<TD width=20%>N</TD>
+<TD width=20%>X</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>R</TD>
+<TD width=20%>G</TD>
+<TD width=20%>H</TD>
+<TD width=20%>I</TD>
+<TD width=20%>E</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--> <!--ZZZULE--></P>
+
+<P>Based on the known di-gram mapping AM &gt; VN we can extend the matrix, because there is only on position in the fourth row left where the character M can possibly fit: </P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=5 width=95>
+
+<TR VALIGN="top">
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>F</TD>
+<TD width=20%>S</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>*</TD>
+<TD width=20%>V</TD>
+<TD width=20%>*</TD>
+<TD width=20%>A</TD>
+<TD width=20%>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>D</TD>
+<TD width=20%>M</TD>
+<TD width=20%>L</TD>
+<TD width=20%>N</TD>
+<TD width=20%>X</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>R</TD>
+<TD width=20%>G</TD>
+<TD width=20%>H</TD>
+<TD width=20%>I</TD>
+<TD width=20%>E</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--></P>
+
+<P>The button <B>Synchronise Analysis result \ Expected plaintext</B> updates the expected plaintext field with the decryption of the cipher text based on the partial matrix. Characters that cannot (yet) be decrypted are marked with the wildcard character '<B><CODE>*</CODE></B>‘ and can now be replaced by guessing.</P>
+
+<P>Now the character sequence <B><CODE>E**.*IEMLI**</CODE></B> catches our eye (at least the eye of people knowing some German). If we complete this to read <B><CODE>EIN.ZIEMLICH</CODE></B> two more di-gram mappings result: IN  &gt;  BO and CH  &gt;  HK. Based on the previous matrix and the first di-gram mapping we conclude, that the characters I,N,B,O have to be in the same column, i.e. B must be directly below I and O directly below N. Clicking on <B>Generate matrix</B> swaps row two and four, then row two and three etc. resulting in the following key matrix:</P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=5 width=95>
+
+<TR VALIGN="top">
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>K</TD>
+<TD width=20%>B</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>U</TD>
+<TD width=20%>Z</TD>
+<TD width=20%>*</TD>
+<TD width=20%>*</TD>
+<TD width=20%>A</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>X</TD>
+<TD width=20%>D</TD>
+<TD width=20%>M</TD>
+<TD width=20%>L</TD>
+<TD width=20%>N</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>T</TD>
+<TD width=20%>F</TD>
+<TD width=20%>S</TD>
+<TD width=20%>C</TD>
+<TD width=20%>O</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>E</TD>
+<TD width=20%>R</TD>
+<TD width=20%>G</TD>
+<TD width=20%>H</TD>
+<TD width=20%>I</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--></P>
+
+<P>Unfortunately decrypting based on this matrix results in words that do not exist in the German language: <!--ZZZINDN--></P>
+
+<P><B><CODE>SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.<BR>
+GEHEIMER.*X**.BLEIOT.NICH*.IMMER.**NGE.GEHEIM..<BR>
+MI*.*DXUNDLICHEN.GRUX**EN</CODE></B></P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>However we can now guess the clear text with high probability, except for the word <B><CODE>*X**</CODE></B>, which we correct to read <B><CODE>****</CODE></B> (this is to avoid conflicts). We now correct the remaining words to read:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P><CODE>SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.<BR>
+GEHEIMER.*<B>*</B>**.BLEI<B>B</B>T.NICH<B>T</B>.IMMER.<B>LA</B>NGE.GEHEIM..<BR>
+MI<B>T</B>.<B>FRE</B>UNDLICHEN.GRU<B>ESS</B>EN</CODE></P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>This results in more di-gram mappings BT  &gt;  TF, TI  &gt;  BE, LA  &gt; NW, TF  &gt;  BZ, RE  &gt;  FT, SS  &gt;  KK and UE  &gt;  XT. One more click on <B>Generate matrix</B> yields:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P><CODE>SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.<BR>
+GEHEIMER.<B>TE</B>**.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..<BR>
+MIT.FREUNDLICHEN.GRUESSEN</CODE></P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=5 width=104>
+
+<TR VALIGN="top">
+<TD width=18%>T</TD>
+<TD width=18%>F</TD>
+<TD width=18%>S</TD>
+<TD width=18%>K</TD>
+<TD width=28%>B</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>U</TD>
+<TD width=18%>Z</TD>
+<TD width=18%>V</TD>
+<TD width=18%>W</TD>
+<TD width=28%>A</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>X</TD>
+<TD width=18%>D</TD>
+<TD width=18%>M</TD>
+<TD width=18%>L</TD>
+<TD width=28%>N</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>*</TD>
+<TD width=18%>*</TD>
+<TD width=18%>*</TD>
+<TD width=18%>C</TD>
+<TD width=28%>O</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>E</TD>
+<TD width=18%>R</TD>
+<TD width=18%>G</TD>
+<TD width=18%>H</TD>
+<TD width=28%>I</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--> <!--ZZZIND-->NE</P>
+
+<P>In a final step we correct <B><CODE>TE**</CODE></B> to read <B><CODE>TEXT</CODE></B> giving the di-gram mapping XT &gt; PU. The Playfair analysis now gives us the key matrix</P>
+
+<P><!--ZZZINDN--></P>
+
+<TABLE cols=5 width=104>
+
+<TR VALIGN="top">
+<TD width=18%>T</TD>
+<TD width=18%>F</TD>
+<TD width=18%>S</TD>
+<TD width=18%>K</TD>
+<TD width=28%>B</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>U</TD>
+<TD width=18%>Z</TD>
+<TD width=18%>V</TD>
+<TD width=18%>W</TD>
+<TD width=28%>A</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>X</TD>
+<TD width=18%>D</TD>
+<TD width=18%>M</TD>
+<TD width=18%>L</TD>
+<TD width=28%>N</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>P</TD>
+<TD width=18%>*</TD>
+<TD width=18%>*</TD>
+<TD width=18%>C</TD>
+<TD width=28%>O</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>E</TD>
+<TD width=18%>R</TD>
+<TD width=18%>G</TD>
+<TD width=18%>H</TD>
+<TD width=28%>I</TD>
+</TR>
+</TABLE><BR>
+
+<P><!--ZZZINDNE--></P>
+
+<P>The clear text originally had been encrypted with the password <B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B> and the options <B>Preformat text</B> and <B>Ignore duplicates within the key phrase</B> deactivated. We finally get the complete plain text:</P>
+
+</BODY>
+</HTML>

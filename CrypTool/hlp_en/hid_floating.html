@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Floating entropy</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Floating entropy">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<P><A NAME="hid_floating"></A><B>Calculating the floating frequency of a document (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ General)</B></P>
+
+<P>The floating frequency of a <!--ZZZPOPUP--><A href="dokument.html">document</A> is an index of its local information content at individual points in the document. The floating frequency specifies how many different characters are to be found in any given 64-character long segment of the document.</P>
+
+<P><U>Distribution of character frequency</U></P>
+
+<P>The function considers sequences of text in the active window that are 64 characters long and counts how many different characters are to be found in this "window". The "window" is then shifted one character to the right and the calculation is repeated. This procedure results in a summary of the document in which it is possible to identify the places in the document in which a lot of information is being communicated and those containing only a small amount of information.</P>
+
+<P>Depending on the structure and content of the data in the active window, different profiles are produced:</P>
+
+<P><!--ZZZUL--></P>
+
+<P>-In <B>images</B> (bmp files) values obtained usually lie between 5 and 20.</P>
+
+<P>-With <B>text</B> one can expect the values to fluctuate between 18 and 30.</P>
+
+<P>-<B>Executable programs</B> have values between 30 and 40 in their actual program sections. In the data section they fluctuate around 20.</P>
+
+<P>-<A href="hid_zip.html"><B>Compressed</B></A> <!--ZZZPOPUP--><A href="datei.html"><B>files</B></A>, <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> data and <!--ZZZPOPUP--><A href="schluessel.html">keys</A> themselves have values just below the maximum value of 64.</P>
+
+<P><!--ZZZULE--></P>
+
+<P><U>Interpretation of the index</U></P>
+
+<P>The diagram permits extensive conclusions to be drawn about the content of the document as it is easy to see whether there is anything striking in particular locations. Thus, for example, high individual values which deviate markedly from the background in an executable file suggest that encrypted data or even cryptographic keys will be found in those places. In Word files it is possible to determine which part of the file is devoted to storing text and which part contains only administrative and formatting data.</P>
+
+<P>In cryptography, the mechanism is mainly used to locate keys amongst large quantities of data. One example here is file advapi32.dll, which is located in the System32 directory of the Windows system. This contains two cryptographic keys, whose position can be easily pinned down.</P>
+
+</BODY>
+</HTML>

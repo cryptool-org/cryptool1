@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue homophonic substitution</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Homophonic substitution">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+</OBJECT>
+
+<P><A NAME="hidd_key_homophone"></A><B>Dialogue Key Entry Homophonic Substitution</B></P>
+
+<P>Dialogue for the <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> <A href="hid_homophone_asc.html">Homophonic Substitution</A>.</P>
+
+<P>This dialogue generates a random key for the Homophonic Substitution algorithm. In the current version of CrypTool it is not possible to enter a user defined key.</P>
+
+<P>The following parameters are relevant for Homophonic Substitution keys: <!--ZZZUL-->
+
+<UL>
+	<LI>the alphabet<BR><BR></LI>
+
+	<LI>the reference file used for calculating the homophones‚ distribution.<BR><BR></LI>
+
+	<LI>to include or not include the following formatting characters in the key alphabet: new line &lt;NL&gt;, carriage return &lt;CR&gt; and tab &lt;TAB&gt; <BR><BR></LI>
+
+	<LI>the total number of homophones.</LI>
+</UL>
+
+<P><!--ZZZULE--></P>
+
+<P>After having chosen the alphabet and reference file via menu <A href="hid_opttext.html">Options \ Text Options</A>, the upper part of the dialogue allows you to define the total number of homophones and whether the above formatting characters shall be encrypted or not.</P>
+
+<P>The number of homophones determines bit length of the cipher text characters. For an alphabet with 1024 homophones, e. g. each clear text character is encrypted into a number from the range 0,....,1023. Each of those numbers needs 10 bits to be represented uniquely. In that case a 2000 Byte text will be expanded to a cipher text of 2000 x 10 Bit = 2500 Bytes.</P>
+
+<P>On clicking the button <B>Update</B> <!--ZZZUL--></P>
+
+<P>- the total number of homophones is synchronised with the value of the input field,</P>
+
+<P>- the required bit length for the encryption of each character and finally</P>
+
+<P>- a new random homophonic key is computed. </P>
+
+<P><!--ZZZULE--></P>
+
+<P>On clicking the button <B>Generate random key</B> a new random homophonic key is computed.</P>
+
+<P>You can encrypt the document by clicking the <B>Encrypt</B> button or pressing the enter key. </P>
+
+<P>The result of encryption is a binary file.</P>
+
+<P>Before you can decrypt a binary document, you have to save the homophonic key in the <A href="hid_show_key.html">Key Store</A> (after activating the encrypted document in the CrypTool desktop you can copy the homophonic key via the menü <A href="hid_show_key.html"><B>Edit \ Show Key</B></A>: in the following dialogue you click <B>Copy key</B>). You can then insert the key into this dialogue by pressing <IMG SRC="images/iconinsertkey.gif" ALT="" BORDER=0> (this button is greyed out if no key is available). To decrypt the document click the <B>Decrypt</B> button.</P>
+
+</BODY>
+</HTML>

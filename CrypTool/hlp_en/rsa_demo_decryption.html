@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA decryption of a message</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Decryption">
+	<PARAM NAME="Keyword" VALUE="Demonstration">
+</OBJECT>
+
+<P><A NAME="rsa_demo_decryption"></A><B>RSA decryption of a message</B></P>
+
+<P>Only if you are the owner of the secret RSA key d you are able to decrypt messages which are encrypted with the corresponding public key. If you just have access to the public RSA parameter N and e you can try to break the RSA key (compute the private key, works only for short keys) via the <A href="rsa_demo_factorisation_attack.html">factorisation attack</A>.</P>
+
+<P>To decrypt <A href="rsa_demo_encryption.html">RSA-encrypted messages</A>, enter the numeric code of the encrypted message. When you click on <B>Decrypt</B>, the entered cipher text</P>
+
+<P><!--ZZZIND--> c = c[1] # c[2] # .... # c[j]</P>
+
+<P>is decrypted using the secret key (N,d) according to the following formula:</P>
+
+<P><!--ZZZIND--> m[i] = c[i]^d  mod N  for i = 1, ..., j .</P>
+
+<P>The numbers m = m[1] # m[2] # .... #  m[j] are then transformed to the original text message M undoing the block splitting:</P>
+
+<P><IMG SRC="images/rsa_demo_5.gif" ALT="" BORDER=0></P>
+
+</BODY>
+</HTML>

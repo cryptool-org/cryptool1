@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue Options (options for automatic analyzes)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="Automatic analysis">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<P><A NAME="hidd_options_analysis"></A><B>Dialogue Analysis Options</B></P>
+
+<P>This dialogue contains several options, which influence procedures in the menu <A href="menu_analyze.html">Analysis</A>.</P>
+
+<P><!--ZZZOL--></P>
+
+<P>1.  The upper part can be used to specify the output of certain intermediate results for the <B>automatic analysis </B>of different <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>.<BR>
+<BR>
+For the <A href="hid_caesar_asc.html">Caesar encryption algorithm</A> the relevant parameters are those shown in the box on the left;<BR>
+while for the <A href="hid_vigenere_asc.html">Vigenère encryption algorithm</A>, <A href="hid_add_bin.html">Byte Addition</A> and the <A href="hid_xor_bin.html">Exclusive-OR</A> the relevant parameters are those shown in the box on the right-hand side.<BR>
+<BR>
+<B>Show base ciphers analysis</B> means with Vigenère analysis, that histogram and <A href="correlation.html">correlation</A> are shown for each "column Caesar" text fragment.<BR>
+Using XOR or byte addition only the binary histogram window is shown additionally.<BR>
+<BR>
+All items which have been checked are displayed. The check marks in the boxes can be removed and restored by clicking with the mouse. The more boxes are checked, the more information windows will be output during the analysis.</P>
+
+<P>2.  The lower part of this dialogue contains options for <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attacks</A> on symmetric algorithms. These attacks are described in more detail in the online help of the dialogue <A href="hidd_bruteforce.html">Key Range for Brute-force Analysis</A>.<BR>
+The option <B>Number of bytes for the entropy test </B>determines how many document bytes, starting from the beginning, are used in the entropy test. The default value of 128 bytes is a good compromise between speed and accuracy. Smaller values are slightly faster, but might not find the correct key. Higher values can be useful if the document starts with a region of high entropy.</P>
+
+<P><!--ZZZOLE--></P>
+
+<P>This dialogue is invoked via the menu option <B>Options \ <A href="hid_options_analysis.html">Analysis</A></B>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue Key Generation from Password</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Key">
+	<PARAM NAME="Keyword" VALUE="Salt">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="PKCS#5">
+	<PARAM NAME="Keyword" VALUE="Hash value">
+	<PARAM NAME="Keyword" VALUE="Dictionary attack">
+</OBJECT>
+
+<P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialogue Key Generation from Password</B></P>
+
+<P>Even if a cryptographic application is secure, at the end of the day in practice user security depends on a secret text, the password. The password itself is generally not directly usable for such cryptosystems, but instead a key is calculated from the password. In the <B>Key Generation</B> dialogue it is possible to generate cryptographically secure keys out of passwords. Implementation is oriented here towards the RSA <A href="standards.html">standard</A> PKCS#5.</P>
+
+<P>The derived key is dependent on other parameters as well as the secret password: the seed, the hash function and the number of iterations used in each case for the <!--ZZZPOPUP--><A href="hashfunktion.html">hash function</A>.</P>
+
+<P>The additional initialisation value, the "seed", offers the possibility of generating different keys (dependent on the seed initialisation) from one and the same password.</P>
+
+<P>With the aid of hash functions a key is securely calculated from the password and the seed.</P>
+
+<P>In accordance with the PKCS#5 standard on key generation, you can choose one of the following hash functions:</P>
+
+<P><!--ZZZINDN--></P>
+
+<P>MD2128 bits = 16 bytes hash function</P>
+
+<P>MD5128 bits = 16 bytes hash function and</P>
+
+<P>SHA1160 bits = 20 bytes hash function</P>
+
+<P><!--ZZZINDNE--></P>
+
+<P>Depending on which hash function you choose, the maximum output length of the key will be either 16 or 20 bytes.</P>
+
+<P>To make <!--ZZZPOPUP--><A href="textboock_attack.html">dictionary attacks</A> more difficult, passwords are worked out from repeated use of the hash function. The number of hash iterations increases significantly the amount of effort needed for a successful attack. A minimum of one and a maximum of 10,000 hash iterations can be performed. It is recommended that 1,000 hash iterations are performed.</P>
+
+<P>In the next example an eight-byte key is generated from the (weak) password HUND which, for example, can be used for encryption with <!--ZZZPOPUP--><A href="hid_crypt_des_desecb.html">DES</A> (to do this, the generated key is simply copied to the clipboard):</P>
+
+<P><IMG SRC="images/generatekey.gif" ALT="" BORDER=0></P>
+
+</BODY>
+</HTML>

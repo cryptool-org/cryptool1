@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatic analysis, Triple-DES encryption algorithm in ECB mode</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Triple-DES encryption algorithm in ECB mode">
+</OBJECT>
+
+<P><A NAME="hid_analyse_tripledesecb"></A><B>Automatic analysis, Triple DES encryption algorithm in ECB mode (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Symmetric)</B></P>
+
+<P>A <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A> is available for <A href="hid_crypt_3des_ecb.html">encryption with the Triple-DES encryption algorithm in ECB mode</A>.</P>
+
+<P>The key space to be searched through is entered in the <A href="hidd_bruteforce.html">Brute-force</A> dialogue. After the <!--ZZZPOPUP--><A href="dokument.html">document</A> has been <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with all the possible <!--ZZZPOPUP--><A href="schluessel.html">keys</A>, the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> version of the document is assumed to be that which has the smallest <!--ZZZPOPUP--><A href="entropie.html">entropy</A> in the first thousand characters. An introduction to the DES algorithm you can find <!--ZZZPOPUP--><A href="des_info.html">here</A>.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is an <A href="szenarien_tripledescbc.html">example</A> of an <A href="angriffe.html">attack</A> on the <A href="hid_crypt_3des_cbc.html">Triple-DES encryption algorithm in CBC mode</A>. This <A href="hid_hilfe_szenarien.html">example</A> can be worked through for each of the symmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>; however, the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> documents are always different.</P>
+
+<P><U>Conditions which the document must satisfy for a successful attack</U></P>
+
+<P>The key will always be found if the document is not too short (at least 100 characters long) and the first thousand characters at the beginning of the document are not distributed too evenly (see <!--ZZZPOPUP--><A href="histogramm.html">Histogram</A> and <!--ZZZPOPUP--><A href="entropie.html">Entropy</A>). This applies to most documents which are not <!--ZZZPOPUP--><A href="hid_zip.html">compressed</A>.</P>
+
+</BODY>
+</HTML>

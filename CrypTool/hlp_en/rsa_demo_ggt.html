@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Relatively prime</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Relative prime">
+	<PARAM NAME="Keyword" VALUE="GGT">
+	<PARAM NAME="Keyword" VALUE="Phi function of Euler">
+</OBJECT>
+
+<P><A NAME="rsa_demo_ggt"></A><B>e is prime relative to phi(N)</B></P>
+
+<P>It is said that e is relatively prime to phi(N) when e and phi(N) are co-prime, i.e. they do not possess any common divisor (apart from the number one). This condition is a requirement that the number e possesses a multiplicative inverse d modulus phi(N).</P>
+
+<P>Let a and m be natural numbers and gcd(a,m) the greatest common divisor of a and m. The following is then true:</P>
+
+<P><!--ZZZIND--> For all a and m there exist whole numbers x,y so that gcd(a,m) = x*a + y*m.</P>
+
+<P>The extended Euclidean algorithm calculates these numbers x and y. When gcd(e,phi(N)) = 1 then it follows that</P>
+
+<P><!--ZZZIND--> x*e + phi(N)*y = 1,</P>
+
+<P>and when the equation modulus phi(N) is calculated</P>
+
+<P><!--ZZZIND--> x*e = 1 - phi(N)*y = 1  (mod phi(N)).</P>
+
+<P>The number x is thus the multiplicatively inverse number modulus phi(N). During the RSA key generation procedure, the extended Euclidean algorithm calculates the secret exponent d = x for RSA decryption.</P>
+
+</BODY>
+</HTML>

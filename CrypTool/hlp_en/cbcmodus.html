@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CBC mode</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="CBC mode">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Symmetric encryption">
+</OBJECT>
+
+<P><A NAME="cbcmodus"></A><B>CBC mode</B></P>
+
+<P>CBC stands for <B>C</B>ipher <B>B</B>lock <B>C</B>haining.</P>
+
+<P>Under this mode the outcome of <!--ZZZPOPUP--><A href="verschluesselung.html">encrypting</A> earlier blocks flow into the encryption of the current block. Every block of the encrypted text thus depends not only on the associated plaintext block but also on all the previous plaintext blocks. In addition, an initialisation block is required for the first plaintext block.</P>
+
+<P><!--ZZZPOPUP--><A href="verschluesselung.html">Encryption</A> proceeds as follows:</P>
+
+<P><!--ZZZOL--></P>
+
+<P>1.The first plaintext block is encrypted.</P>
+
+<P>2.The resulting block of encrypted text is linked to the next plaintext block by means of an <A href="hid_xor_bin.html">Exclusive-OR</A> and only then encrypted.</P>
+
+<P>3.This is repeated until the end of the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is reached.</P>
+
+<P><!--ZZZOLE--></P>
+
+<P><!--ZZZPOPUP--><A href="entschluesselung.html">Decryption</A> proceeds in analogous fashion:</P>
+
+<P><!--ZZZOL--></P>
+
+<P>1.The first block of encrypted text is decrypted.</P>
+
+<P>2.The next block of encrypted text is first of all decrypted and then combined with the previous block of encrypted text by means of an <A href="hid_xor_bin.html">Exclusive-OR</A>.</P>
+
+<P>3.This is repeated until the end of the encrypted text is reached.</P>
+
+<P><!--ZZZOLE--></P>
+
+<P>However, this method still has the disadvantage that two messages produce the same encrypted text up to the first difference. In particular, identical messages produce the same encrypted text. To prevent this, "initialisation vectors" are used. An initialisation vector is a random value which can be transmitted unencrypted with the message. Prior to encryption (or <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A>, as the case may be) of the first block, this block is combined with the initialisation vector by means of an <A href="hid_xor_bin.html">Exclusive-OR</A>. The procedure then continues as described above.</P>
+
+<P>In the <A href="ecbmodus.html">ECB mode</A>, every block is encrypted independently of the other blocks.</P>
+
+</BODY>
+</HTML>

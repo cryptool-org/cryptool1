@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>The Hill encryption algorithm</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Hill encryption algorithm">
+</OBJECT>
+
+<P><A NAME="hid_hill"></A><B>The Hill encryption algorithm (Menu <A href="menu_crypt.html">Crypt</A> \ Classical)</B></P>
+
+<P>The Hill <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> was invented in 1929 by Lester Hill. It was one of the first methods to make use of mathematical techniques (linear algebra), and it was hoped that this would raise the level of security.</P>
+
+<P>The Hill encryption algorithm requires a <!--ZZZPOPUP--><A href="schluessel.html">key</A> consisting of the characters to be <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> (see <A href="hidd_text_options.html">Text Options</A> dialogue), which has the same number of rows and columns. The key is entered in the <A href="hidd_key_hill5x5.html">Key for Hill cipher</A> dialogue.</P>
+
+<P>The <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>, which likewise may only consist of the characters to be encrypted, is divided into blocks of equal size (one block consists of as many characters as the key has rows). During encryption, the plaintext is processed one block at a time. Under the Hill encryption algorithm, one character of the encrypted text depends not only on the corresponding plaintext character and the key (as in the <A href="hid_caesar_asc.html">Caesar</A> and <A href="hid_vigenere_asc.html">Vigenère encryption algorithms</A>), but also on the other plaintext characters in the block. The last block sometimes has too few characters, in which case it is padded out with the character that has the smallest <A href="ascii.html">ASCII</A> value.</P>
+
+<P>From a mathematics point of view, the Hill encryption algorithm is based on matrix multiplication with the matrix A=(a[i,j]) for i and j between 1 and n. In the course of this the plaintext, the encrypted text and the key are all interpreted as numbers (for example, A=0, B=1, C=2 etc.), and the interpretation depends on the sequence of the characters to be encrypted in the <A href="hidd_text_options.html">Text Options</A> dialogue. If the key has dimension n x n, then a block of the encrypted text v[1]... v[n] is obtained from a block of plaintext k[1]... k[n] by applying the following formula:</P>
+
+<P>v[j] = sum for i from 1 to n of k[i] * a[i,j], for j between 1 and n.</P>
+
+<P>If a plaintext has been encrypted with matrix A, then the encrypted text is <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with the inverse matrix to the encryption matrix A <!--ZZZPOPUP--><A href="modulo.html">modulo</A> number of characters to be encrypted.  </P>
+
+<P>Hence not all combinations of any characters coild be used as keys. It makes no sense allowing a matrix that is not invertible (a matrix for which no inverse matrix exists) to be the key as decryption is then not possible. Therefore the program will reject such a key. Since, especially with keys of greater dimension, it is difficult to guess a key which corresponds to an invertible matrix (see the table below on this point) the Random key pushbutton in the <A href="hidd_key_hill5x5.html">Key for Hill cipher</A> dialogue enables you to have a key which corresponds to an invertible matrix generated automatically.</P>
+
+<P>In this way, the Hill encryption algorithm is a linear transformation of the plaintext. Hence it is possible to work out the key using a <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A>. <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> contains a tool which enables a <A href="knownplaintextangriff.html">Known Plaintext attack</A> to be performed on <A href="hid_hill_auto.html">the Hill encryption algorithm</A>. </P>
+
+<P>An <A href="szenarien_hill.html">example</A> of the Hill encryption algorithm and of a <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A> will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+<P>Empirical calculation of the number of invertible matrices <!--ZZZPOPUP--><A href="modulo.html">modulo</A> of different numbers:</P>
+
+<P>Examples for different alphabet sizes:</P>
+
+<P>Modulus 10: only numbers are encrypted.</P>
+
+<P>Modulus 26: only upper or lower case letters are encrypted.</P>
+
+<P>Modulus 52: only upper and lower case letters are encrypted.</P>
+
+<P>Modulus 62: only upper and lower case letters and numbers are encrypted.</P>
+
+<P>Modulus 71: only upper and lower case letters, numbers and punctuation characters are encrypted.</P>
+
+<TABLE cols=11 width=565>
+
+<TR VALIGN="top">
+<TD width=16%>Dimension:</TD>
+<TD width=8%>1</TD>
+<TD width=9%>2</TD>
+<TD width=8%>3</TD>
+<TD width=8%>4</TD>
+<TD width=9%>5</TD>
+<TD width=8%>6</TD>
+<TD width=8%>7</TD>
+<TD width=9%>8</TD>
+<TD width=8%>9</TD>
+<TD width=9%>10</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 4</TD>
+<TD width=8%>51%</TD>
+<TD width=9%>38%</TD>
+<TD width=8%>33%</TD>
+<TD width=8%>31%</TD>
+<TD width=9%>30%</TD>
+<TD width=8%>30%</TD>
+<TD width=8%>29%</TD>
+<TD width=9%>29%</TD>
+<TD width=8%>29%</TD>
+<TD width=9%>28%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 5</TD>
+<TD width=8%>81%</TD>
+<TD width=9%>77%</TD>
+<TD width=8%>76%</TD>
+<TD width=8%>76%</TD>
+<TD width=9%>76%</TD>
+<TD width=8%>76%</TD>
+<TD width=8%>76%</TD>
+<TD width=9%>76%</TD>
+<TD width=8%>76%</TD>
+<TD width=9%>76%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 6</TD>
+<TD width=8%>34%</TD>
+<TD width=9%>22%</TD>
+<TD width=8%>19%</TD>
+<TD width=8%>17%</TD>
+<TD width=9%>17%</TD>
+<TD width=8%>17%</TD>
+<TD width=8%>16%</TD>
+<TD width=9%>16%</TD>
+<TD width=8%>16%</TD>
+<TD width=9%>16%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 7</TD>
+<TD width=8%>86%</TD>
+<TD width=9%>84%</TD>
+<TD width=8%>84%</TD>
+<TD width=8%>84%</TD>
+<TD width=9%>84%</TD>
+<TD width=8%>84%</TD>
+<TD width=8%>84%</TD>
+<TD width=9%>84%</TD>
+<TD width=8%>84%</TD>
+<TD width=9%>84%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 10</TD>
+<TD width=8%>40%</TD>
+<TD width=9%>29%</TD>
+<TD width=8%>25%</TD>
+<TD width=8%>24%</TD>
+<TD width=9%>23%</TD>
+<TD width=8%>23%</TD>
+<TD width=8%>22%</TD>
+<TD width=9%>22%</TD>
+<TD width=8%>22%</TD>
+<TD width=9%>22%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 26</TD>
+<TD width=8%>46%</TD>
+<TD width=9%>34%</TD>
+<TD width=8%>30%</TD>
+<TD width=8%>28%</TD>
+<TD width=9%>27%</TD>
+<TD width=8%>27%</TD>
+<TD width=8%>27%</TD>
+<TD width=9%>26%</TD>
+<TD width=8%>26%</TD>
+<TD width=9%>26%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 35</TD>
+<TD width=8%>69%</TD>
+<TD width=9%>64%</TD>
+<TD width=8%>64%</TD>
+<TD width=8%>64%</TD>
+<TD width=9%>64%</TD>
+<TD width=8%>64%</TD>
+<TD width=8%>64%</TD>
+<TD width=9%>64%</TD>
+<TD width=8%>64%</TD>
+<TD width=9%>64%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 36</TD>
+<TD width=8%>33%</TD>
+<TD width=9%>22%</TD>
+<TD width=8%>19%</TD>
+<TD width=8%>17%</TD>
+<TD width=9%>16%</TD>
+<TD width=8%>17%</TD>
+<TD width=8%>16%</TD>
+<TD width=9%>16%</TD>
+<TD width=8%>16%</TD>
+<TD width=9%>16%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 52</TD>
+<TD width=8%>46%</TD>
+<TD width=9%>35%</TD>
+<TD width=8%>30%</TD>
+<TD width=8%>29%</TD>
+<TD width=9%>28%</TD>
+<TD width=8%>27%</TD>
+<TD width=8%>27%</TD>
+<TD width=9%>27%</TD>
+<TD width=8%>26%</TD>
+<TD width=9%>27%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 62</TD>
+<TD width=8%>49%</TD>
+<TD width=9%>36%</TD>
+<TD width=8%>32%</TD>
+<TD width=8%>30%</TD>
+<TD width=9%>29%</TD>
+<TD width=8%>28%</TD>
+<TD width=8%>28%</TD>
+<TD width=9%>29%</TD>
+<TD width=8%>27%</TD>
+<TD width=9%>27%</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>Modulus 71</TD>
+<TD width=8%>99%</TD>
+<TD width=9%>99%</TD>
+<TD width=8%>99%</TD>
+<TD width=8%>99%</TD>
+<TD width=9%>99%</TD>
+<TD width=8%>99%</TD>
+<TD width=8%>99%</TD>
+<TD width=9%>99%</TD>
+<TD width=8%>99%</TD>
+<TD width=9%>99%</TD>
+</TR>
+</TABLE><BR>
+
+<P>These values suggest that the number of invertible matrices depends on the number of divisors of the modulus. <!--ZZZLINK--><A href="script-en.pdf">Prime numbers</A> have only two divisors and a high percentage of the matrices are invertible. Moreover, the number of invertible matrices appears to become smaller as the dimension increases.</P>
+
+</BODY>
+</HTML>

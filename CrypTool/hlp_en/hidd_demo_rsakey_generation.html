@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Generate RSA Key</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Generate RSA Key">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="RSA">
+</OBJECT>
+
+<P><A NAME="hidd_demo_rsakey_generation"></A><B>Dialogue Generate RSA Key</B></P>
+
+<P>This dialogue supports the step by step generation of RSA keys. It pops up if you press the button <B>Generate key</B> within the <A href="hidd_signature_demo.html">RSA signature demonstration</A> (see also <A href="menu_tutorial_for_small_numbers.html">RSA demonstration</A>).</P>
+
+<P>You only need to use this dialogue if you did not yet import a previously generated RSA key using the button <B>Import certificate and key </B>in the <A href="hidd_certificate_generation.html">Create Certificate and PSE</A> dialogue (button <B>Provide certificate</B> within the signature demonstration).</P>
+
+<P></P>
+
+<P>The details of how to create a RSA key is described in the online help page <A href="rsa_demo_key_generation.html">RSA key generation</A>, which describes a similar functionality in the RSA cryptosystem dialogue.</P>
+
+<P>In addition to what is described there, this dialogue displays the RSA modulus N‚s bit length.</P>
+
+<P>Please also note the status display to the right of the entry fields for prime numbers p and q. It informs you whether the numbers entered are valid primes.</P>
+
+<P>Please choose primes such that the resulting modulus is at least 300 bits long. Otherwise the document‚s hash value plus padding could be longer than the RSA modulus, which is not supported. </P>
+
+<P>All RSA Parameters are automatically (re-)calculated as soon as one of the primes or the public key e is changed.</P>
+
+<P>When finished press <B>Store key</B> if you are satisfied with the generated RSA key or <B>Cancel</B> to abort.</P>
+
+</BODY>
+</HTML>

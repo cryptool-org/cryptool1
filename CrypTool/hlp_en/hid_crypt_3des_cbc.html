@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>The Triple-DES (CBC) encryption algorithm</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Triple DES (CBC) encryption algorithm">
+</OBJECT>
+
+<P><A NAME="hid_crypt_3des_cbc"></A><B>The Triple-DES encryption algorithm in CBC mode (Menu <A href="menu_crypt.html">Crypt</A> \ Symmetric)</B></P>
+
+<P>In the version of Triple-DES that is used here, a threefold <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> operation is performed with two different <A href="hid_crypt_des_descbc.html">DES</A> <!--ZZZPOPUP--><A href="schluessel.html">keys</A>:</P>
+
+<P>The plaintext block is DES-encrypted with the first key.</P>
+
+<P>The resulting block is DES-<!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with the second key.</P>
+
+<P>The resulting block is now DES-encrypted once more with the first key.</P>
+
+<P>Decryption entails alternating between encryption and decryption in the reverse sequence. This method is also known as Encrypt-Decrypt-Encrypt (EDE).</P>
+
+<P>As in <A href="hid_crypt_des_descbc.html">DES</A>, <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> offers both <A href="cbcmodus.html">CBC mode</A> and <A href="ecbmodus.html">ECB mode</A>.</P>
+
+<P>The key is entered in the <A href="hidd_key.html">Key entry</A> dialogue.</P>
+
+<P>CrypTool contains a tool which performs a <A href="hid_analyse_tripledescbc.html">Brute-force attack on the Triple-DES encryption algorithm in CBC mode</A>.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is one <A href="szenarien_tripledescbc.html">example</A> which covers both encryption and decryption using the Triple-DES <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> in <!--ZZZPOPUP--><A href="cbcmodus.html">CBC mode</A> and also the <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A>.</P>
+
+</BODY>
+</HTML>
