@@ -82,7 +82,8 @@
 %   {\textbf{Beweis #1} \\}
 %   {\hfill$\Box$ \\}
 
-
+\setlength{\fboxrule}{.4pt}
+\setlength{\fboxsep}{4pt}
 
 \newpage
 %**************************************************************************************************************************
@@ -288,10 +289,9 @@ $|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
 Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
 
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k})\footnote{
-Weitere Formeln finden sich in den Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrung in die elementare Zahlentheorie
-mit Beispielen\grqq, Kap. 3.8}
-.} $.
+\cdots \, (1-\frac{1}{p_k})\footnote{Weitere Formeln finden sich in den
+Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrung in die elementare Zahlentheorie
+mit Beispielen\grqq, Kap. 3.8}.} $.
 
 Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
 \\ \vskip +5 pt

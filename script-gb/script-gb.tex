@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \makeindex
 \hypersetup{colorlinks=true}
+\usepackage[flushmargin]{footmisc}
 
 \setlength{\textwidth}{460 pt}
 \hoffset-0.7in
@@ -39,6 +40,26 @@ Frankfurt am Main
 }
 
 \begin{document}
+\setlength{\fboxrule}{.5mm}
+\setlength{\fboxsep}{1.75mm}
+\setlength{\footnotesep}{6pt}
+%\setlength{\footskip}{4cm}
+%\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
+%Formatierung der Fu"snoten
+
+%space between text and footnote 
+\renewcommand\footnoterule{%
+  \vspace{2em}%   <-- one line space between text and footnoterule
+%\kern-3\p@
+  \hrule width .4\columnwidth
+ \vspace{4pt}
+%kern 2.6\p@
+}
+
+%\long\def\@makefntext#1{%
+%    \parindent 1em%
+ %   \noindent
+%    \hbox to 1.8em{\hss\@makefnmark}#1}
 
 \maketitle
 
@@ -52,8 +73,8 @@ most chapters you will find literature and URLs.
 
 You will receive information about the principles of symmetrical and
 asymmetrical encryption. A large section of the script is dedicated to the
-fascinating topic of prime numbers. With the use of numerous examples, the elementary number
-theory and modular arithmetic have been introduced and have been applyed in an exemplary 
+fascinating topic of prime numbers. Using numerous examples, the elementary number
+theory and modular arithmetic are introduced and applied in an exemplary 
 manner in the RSA procedure.  After this, one receives insight into the mathematical ideas
 behind modern cryptography. 
 
@@ -72,7 +93,7 @@ the mathematical algorithms used -- trying to do it didactically as good as poss
 
 The {\em authors} Bernhard Esslinger, Bartol Filipovic, Henrik Koy and Roger Oyono
 would like to take this opportunity to thank their colleagues in the company and
-at the universities of Frankfurt, Gie{\ss}en und Karlsruhe. They particularly thank
+at the universities of Frankfurt, Giessen and Karlsruhe. They particularly thank
 Dr. Peer Wichmann from the Karlsruhe computer science research centre
 (Forschungszentrum Informatik, FZI) for his down-to-earth support.
 
@@ -189,7 +210,7 @@ Up-to-the-minute procedures are the symmetric AES procedures. The associated
 Rijndael procedure was declared winner the AES award on 2 October 2000 and thus
 succeeds the DES procedure.
 
-\subsubsection{Asymmetrc encryption}
+\subsubsection{Asymmetric encryption}
 
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
 subscriber has a personal pair of keys consisting of a {\em secret}
@@ -372,14 +393,13 @@ For the natural numbers, the primes can be compared to elements in chemistry or
 the elementary particles in physics (see \cite[p. 22]{Blum1999}).
 
 Although there are only $92$ natural chemical elements, the number of prime
-numbers is unlimited. Even the Greek, \index{Euclid} Euclid\footnote{
-Euclid, a Greek mathematician of 4th and 3rd century before Christ. He worked at the
+numbers is unlimited. Even the Greek, \index{Euclid} Euclid\footnote{Euclid,
+a Greek mathematician of 4th and 3rd century before Christ. He worked at the
 egyptian academy of Alexandria and wrote ''The Elements'', the most well known systematical textbook
 of the Greek mathematics.} knew this in the
 third century before Christ.
-\begin{theorem}[Euclid]\footnote{
-The common usage of the term does not denote Euclid as the inventor of the theorem rather;
-the true inventor is merely not as prominent. he theorem has already been distinguished
+\begin{theorem}[Euclid]\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
+the true inventor is merely not as prominent. The theorem has already been distinguished
 and proven in Euclid’s Elements (Book IX, s. 20). The phraseology is remarkable due to 
 the fact that the word infinite is not used. The text reads as following
 $$
@@ -425,7 +445,7 @@ Thus there is an {\em infinite} number of primes
 \hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
 prime numbers in various intervals)}.\par \vskip + 3pt
 
-Here we make mention of yet another fact which is initially somewhat surprising. 
+Here we may mention yet another fact which is initially somewhat surprising. 
 Namely, in the prime numbers sequence $p_1, p_2, \cdots,$ gaps between prime numbers can have
 an individually determined length $n$. It is undeniable that under the $n$
 succession of natural numbers
@@ -547,7 +567,7 @@ was discovered in June 1999 and has $2,098,960$ digits in the decimal system
 
 \subsubsection{M-39 -- December 2001} \index{Mersenne Marine!M-39}
 
-The 39th Mersenne prime, called M-39, $$2^{13,466,917}-1,$$ was found at December 6, 2001 – more exactly,
+The 39th Mersenne prime, called M-39, $$2^{13,466,917}-1,$$ was found at December 6, 2001 –- more exactly,
 the verification of this number, found at November 14, 2001 by the Canadian student Michael Cameron,
 was successfully finished. This number has about 4 million decimal digits (exactly 4,053,946 digits).
 Trying only to print this number $(924947738006701322247758 \cdots 1130073855470256259071)$ in the Financial Times
@@ -697,9 +717,9 @@ Gallot
 ({\href{http://www.prothsearch.net/index.html}{\tt
 http://www.prothsearch.net/index.html}}).
 
-  \item {\em Fermat numbers}\footnote{
-The Fermat prime numbers play a role in circel division. As proven by Gauss, a regular $p$-edge
-can only be constructed with the use of a compass and a ruler, when $p$ is a Fermat prime number.}
+  \item {\em Fermat numbers}\footnote{The Fermat prime numbers play a role in circel division.
+As proven by Gauss\index{Gauss}, a regular $p$-edge
+can only be constructed with the use of a pair of compasses and a ruler, when $p$ is a Fermat prime number.}
 \index{Numbers!Fermat numbers}\index{Fermat!Fermat
 number}  $F(n) = 2^{2^n} + 1$:\\
 As mentioned above, Fermat wrote to Mersenne regarding this assumption.
@@ -773,7 +793,7 @@ $$
 $e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
 particularly useful. Comment: However, what is special about all these numbers
 is that any pair of them does not have a common factor other than $1$. They are
-therefore \index{Prime numbers!relative} {\em relatively prime }.
+therefore \index{Prime numbers!relatively} {\em relatively prime }.
   \item $f(n) = n^2 + n + 41$:\\
   This sequence starts off very {\em promisingly},   but is far from being a
 proof.
@@ -927,7 +947,7 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 
 
 This is the \index{Prime number theorem} \textbf{prime number theorem}. It was
-put forward by Legendre (1752-1833) and Gau\ss\ (1777-1855) but not proved until
+put forward by Legendre (1752-1833) and Gauss\index{Gauss} (1777-1855) but not proved until
 over 100 years later.
 
 \hyperlink{primhfk}{(Cross-reference: overview under 2.6.1 of the number of
@@ -1046,35 +1066,30 @@ simpler manner than those before him).
 (1690-1764) conjectured:
     Every even natural number greater than 2 can be represented as the sum of
 two prime numbers.
-    Computers have verified\footnote{
-It is generally accepted today, that the Goldbach Conjecture is true, i.e. valid for all prime numbers.
+    Computers have verified\footnote{It is generally accepted today, that
+the Goldbach Conjecture is true, i.e. valid for all prime numbers.
 In 1999, mathematician J\"org Richtstein from the computer sciences institute at the University
 of Giessen, studied even numbers up to 400 billion and found no contradictory example (see
 \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).\index{Richstein 1999}
-Nevertheless, this does not provide us with general proof.
-
+Nevertheless, this does not provide us with general proof.\\
 The fact that despite all efforts, Goldbachs' conjecture has to date not been proven leads
-one to believe that: since the pioneer work of the Austrian mathematician Kurt Gödel is well-known,
+one to believe that: since the pioneer work of the Austrian mathematician Kurt G\"odel is well-known,
 not every true mathematical theorem is provable (see
 \href{http://www.mathematik.ch/mathematiker/goedel.html}{http://www.mathematik.ch/mathematiker/goedel.html}).
 Perhaps Goldbachs' Conjecture was correct, despite that however,
 proof will never be found. Conversely, that will presumably also remain unproven.}
 the Goldbach conjecture for all even numbers up to
-$4*10^{14}$ but no general proof has yet been found\footnote{
-The English publisher {\em Faber} and the American publisher {\em Bloomsbury} issued in 2000
+$4*10^{14}$ but no general proof has yet been found\footnote{The English
+publisher {\em Faber} and the American publisher {\em Bloomsbury} issued in 2000
 the 1992 published book ''Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
 It's the story of an old maths professor who fails to prove a more than 250 old puzzle. To
 stimulate the sell rates the English and American publisher compete a prize of 1 million USD, 
-is someone proves the conjecture -- to be published till 2004 by an well-known mathematical journal.
-
-Susprisingly only British and American citizens are allowed to participate. 
-
-The theorem closest to Goldbach's conjecture was proven 1966 by Chen Jing-Run in a hard to understand fashion:
-Each even integer bigger than $2$ is the sum of one prime and of the product of two primes. E.g.: $20=5+3*5.$
-
+is someone proves the conjecture -- to be published till 2004 by an well-known mathematical journal.\\
+Susprisingly only British and American citizens are allowed to participate.\\
+The theorem closest to Goldbach's conjecture yet was proven 1966 by Chen Jing-Run in a hard to understand fashion:
+Each even integer bigger than $2$ is the sum of one prime and of the product of two primes. E.g.: $20=5+3*5.$\\
 Most of the research about the Goldbach conjecture is collected in the book: ''Goldbach Conjecture'', ed. Wang Yuan, 1984, World scientific
-Series in Pure Maths, Vol. 4.
-}.
+Series in Pure Maths, Vol. 4.}.
   \item The German \index{Riemann Bernhard} mathematician Bernhard Riemann
 (1826-1866) put forward a formula for the distribution of primes that would
 further improve the estimate. However, this has neither been proved nor
@@ -1097,8 +1112,8 @@ interval?
 a^{3^n}$  only guarantees the existence of such a number $a$.  How can we
 determine this number $a$ and will it have a value, making the function also of
 practical interest?
-\item Is there an infinite amount of Mersenne prime numbers?
-\item Is there an infinite amount of Fermat prime numbers?
+\item Is there an infinite number of Mersenne prime numbers?
+\item Is there an infinite number of Fermat prime numbers?
 
   \item Does a polynomial time algorithm exist for calculating the prime factors of a number (see
     \cite[p. 167]{Klee1997})? 
@@ -1112,7 +1127,7 @@ calculates a non-trivial (i.e. other than $1$ and $n$) factor of $n$?
 \end{itemize}
 
 \paragraph{Further interesting topics regarding prime numbers}
-This chapter doesn't consider the following number theory topics such as
+This chapter doesn't consider the other number theory topics such as
 divisibility rules, modulus calculation, modular inverses, modular powers and
 roots, Chinese remainder theorem, Euler PHI function, perfect numbers.
 
@@ -1324,6 +1339,11 @@ http://www.cerias.purdue.edu/homes/ssw/cun }
 
 \end{enumerate}
 
+\subsection*{Thanks} \addcontentsline{toc}{subsection}{Thanks}
+
+I would like to take this opportunity to thank Mr. Henrik Koy and Mr. Roger Oyono for their very constructively proof-reading of this article.
+
+
 \input{elementaryNumberTheory.inc}
 
 \input{modernCryptology.inc}
@@ -1377,8 +1397,7 @@ points.
 
 So far, no formal proof has been found that perfectly secure cryptographic hash
 functions exist. However, there are several good candidates that have not yet
-shown any weak points in practice (e.g. \index{SHA--1} SHA--­1 or \index{RIPEMD--
-160} RIPEMD--­160).
+shown any weak points in practice (e.g. \index{SHA--1} SHA--1 or \index{RIPEMD--160} RIPEMD-­160).
 
 The hash function procedure is as follows:\\ Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
@@ -1491,7 +1510,7 @@ research was originally purely mathematical. That is to say, elliptic curves
 were investigated, for example, in the mathematical areas of number theory and
 algebraic geometry, which are generally highly abstract. Even in the recent
 past, elliptic curves played an important role in pure mathematics. In 1993 and
-1994, Andrew Wiles published mathematical works that triggered enthusiasm far
+1994, Andrew Wiles\index{Wiles} published mathematical works that triggered enthusiasm far
 beyond the specialist audience. In these works, he proved a conjecture put
 forward in the 1960's. To put it short, this conjecture was concerned with the
 connection between elliptic curves and what are called module forms. That which
@@ -1581,7 +1600,7 @@ and the operation is addition mod $n$, i.e. $a$ and $b$ in ${\mathbb Z}_n$ are
 subject to the operation $a+b \;{\rm mod~} n$.
 
 \paragraph{Cyclic groups}
-Cyclic groups are those groups $G'$ that possess an element $g$
+Cyclic groups\index{Groups!cyclic} are those groups $G'$ that possess an element $g$
 from which the group operation can be used to generate all other
 elements in the group. This means that for each element $a$ in
 $G'$ there exists a positive whole number $i$ such that if $g$ is
@@ -1656,8 +1675,8 @@ lie in the set ${\bf E}$. This means that $a, b$ and $p$ specify this set. The e
 points on the elliptic curve. In addition, ${\bf E}$ has one more element $O$ (the so-called point in infinity).
 The set ${\bf E}$ is usually called an elliptic curve. 
 
-We can now define an operation\footnote{
-A animated addition of elliptic curve points can be found at the web page of Certicom\index{Certicom}:
+We can now define an operation\footnote{A animated addition of elliptic curve points can be
+found at the web page of Certicom\index{Certicom}:
 \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}.}
 (also denoted as $+$, although it is
 not the standard/usual addition of real numbers) on two elements in ${\bf E}$ such that the operation delivers an element
@@ -1669,16 +1688,17 @@ may also be equal to the point in infinity. Thus, when we speak of a point $P$ o
 we mean that $P = (x,y)$ and $(x,y)$ lies in the set ${\bf E}$. Any two points on an elliptic curve specified by $a, b$ and $p$
 can therefore be added and the result is a point that also lies on the same elliptic curve.
 
+\newpage
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.5]{ELL1_50.eps}
 \caption{Doubling the point P} \vspace{\floatsep}
 \includegraphics[scale=0.5]{ELL2_50.eps}
-\caption{ Adding distinct points P and Q}
+\caption{ Adding distinct points P and Q\footnotemark}
 \end{center}
 \end{figure}
-
-
+\addtocounter{footnote}{0}\footnotetext{The point $O$ cannot be represented in the affine plane.}
+\newpage
 We must note that ${\bf E}$ can have the following meanings:
 \begin{itemize}
    \item the set ${\bf E}$ of solutions pairs $(x,y)$ for an equation including the point $O$
@@ -1713,7 +1733,7 @@ usually provided by experts. They ensure that the elliptic curves
 they classify as secure satisfy the current security requirements.
 
 For secure curves, the parameter $p$ determines how long it takes
-to solve the ECLDP on this curve. The larger the parameter $p$,
+to solve the ECDLP on this curve. The larger the parameter $p$,
 the longer it takes to solve the problem. Experts recommend a bit
 length of over $200$ bits for the parameter $p$. This makes it
 clear why elliptic curves are so interesting for cryptography.
@@ -1738,7 +1758,7 @@ based on the ECDLP problem.
 
 \subsubsection{Digital signatures using elliptic curves}
 
-The {\em elliptic curve discrete logarithm problem} (ECLDP) forms the basis for
+The {\em elliptic curve discrete logarithm problem} (ECDLP) forms the basis for
 elliptic-curve cryptography. Various signature procedures are based on this.
 What they have in common is how they use the public parameters and how these
 parameters are used to generate secret and public keys:
@@ -1783,10 +1803,10 @@ following:
 
 \hypertarget{faktell}{}
 
-There are factorisation algorithms based on elliptic curves\footnote{
-In 1987 H.W. Lenstra published a factorisation algorithm, based on elliptic curves (see \cite{Lentra1987}).
+There are factorisation algorithms based on elliptic curves\footnote{In 1987 H.W. Lenstra published
+a factorisation algorithm, based on elliptic curves (see \cite{Lenstra1987}).
 The biggest compound number curently factorised with elliptic curves is the number $ 628^{59}-1, $ which has 55 decimal digits. It was
-found Oct. 6th 2001 by M. Izumi (See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
+found Oct. 6th, 2001 by M. Izumi (See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
 }. More precisely,
 these procedures exploit the fact that elliptic curves can be defined over
 ${\mathbb Z}_n$ ($n$ composite number). Elliptic curves over ${\mathbb Z}_n$ do
@@ -1842,17 +1862,17 @@ SECUDE GmbH --- using the above library and the SECUDE SDK.
 	\bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra\\ \index{Lenstra 1987}
 		Factoring integers with elliptic curves, Annals of Mathematics 126, pp. 649-673, 1987.
 \end{thebibliography}
-\newpage
+%\newpage
 
 \section*{URLs}\addcontentsline{toc}{subsection}{URLs}
 
 \begin{enumerate}
-   \item Certicom – Online Tutorial, index{Certicom}\\
+   \item Certicom – Online Tutorial, \index{Certicom}\\
 		\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\tt http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}
 	\item IEEE P1363
 
 		\href{http://grouper.ieee.org/groups/1363}{\tt http://grouper.ieee.org/groups/1363}
-	\item  \hypertarget{Lenstra2}
+	\item  \hypertarget{Lenstra2}{}
 An informative web page to the factorisation with elliptic curves.
 
 \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}{\tt http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}

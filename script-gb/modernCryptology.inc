@@ -83,7 +83,8 @@
 %   {\textbf{Beweis #1} \\}
 %   {\hfill$\Box$ \\}
 
-
+\setlength{\fboxrule}{.4pt}
+\setlength{\fboxsep}{4pt}
 
 \newpage
 %**************************************************************************************************************************
@@ -398,9 +399,8 @@ If  $ p $ is a prime number, then $ \phi (p)= p-1. $
 
 If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then $ \phi 
 (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $\footnote{
-Further formulas for the Euler phi function are in the article \hyperlink{Kap_3_8}{''Introduction to Elementary Number Theory with Examples, chapter 3.8}.
-}.
+\cdots \, (1-\frac{1}{p_k}) $\footnote{Further formulas for the Euler phi function are in the 
+article \hyperlink{Kap_3_8}{''Introduction to Elementary Number Theory with Examples, chapter 3.8}.}.
 
 In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
 1)(q-1). $
@@ -752,7 +752,7 @@ Cryptosystem.} \\
            Advances in Cryptologie, Proceedings of Crypto 82, Plenum Press 1983, 
 303-308.
 
- \bibitem[Balcazar1988]{Balcazar1988} Balcazar J.L., Daaz J., Gabarr\'{} J.: 
+ \bibitem[Balcazar1988]{Balcazar1988}\index{Balcazar 1988} Balcazar J.L., Daaz J., Gabarr\'{} J.: 
            \emph{Structural Complexity I.} \\ 
            Springer Verlag, pp 63.
            
