@@ -95,7 +95,7 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT2, m_NameSrc);
 	DDX_Text(pDX, IDC_EDIT3, m_NameDst);
 	DDX_Text(pDX, IDC_EDIT1, m_HexString);
-	DDV_MaxChars(pDX, m_HexString, 47);
+	DDV_MaxChars(pDX, m_HexString, 95);
 	DDX_Radio(pDX, IDC_RADIO1, m_Radio);
 	//}}AFX_DATA_MAP
 }

@@ -44,7 +44,7 @@ void TextAnalyse::Analyse()
 
 	Init();
 
-	ifstream f(theApp.TextOptions.m_StrRefFile);
+	ifstream f(theApp.TextOptions.m_StrRefFile, ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
 	while(f.gcount())
@@ -143,7 +143,7 @@ void TextAnalyse::Analyse(const char *f_toAnalyse)
 	char buffer[buffsize];
 	int i,value;
 
-	ifstream f(f_toAnalyse);
+	ifstream f(f_toAnalyse, ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
 	Init();

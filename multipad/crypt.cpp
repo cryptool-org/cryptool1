@@ -2835,7 +2835,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		if (infile[i] == 0) break;
 	}
 
-	ifstream in(infile);	
+	ifstream in(infile, ios::binary | ios::in);	
 	in.read(inbuffer,buffsize);
 
 	CMyDocument *NewDoc;
