@@ -5027,11 +5027,11 @@ BEGIN
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Position=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Annahme falsch!\nEine der Tabellen ist übergelaufen.\n Position=%d, Buchstabe=%c"
+                            "Fehler bei der Klartextanalyse !\nEine der Tabellen ist übergelaufen:  Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
     IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Annahme falsch!\nEiner der Nachbarn war schon sicher.\n Position=%d, Buchstabe=%c"
+                            "Fehler bei der Klartextanalyse !\nEiner der Nachbarn war schon sicher: Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
     IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Annahme falsch!\nZuordnungsfehler bei den Nachbarn.\n Position=%d, Buchstabe=%c"
+                            "Fehler bei der Klartextanalyse !\nZuordnungsfehler bei den Nachbarn: Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
     IDS_STRING_PLAYFAIR_NOMATRIX "Keine passende Matrix gefunden."
     IDS_STRING_ERROR        "Fehler"
     IDS_STRING_PLAYFAIR_WARNMSG001 
@@ -9420,11 +9420,11 @@ BEGIN
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "While the playfair analysis an error occured while the graph construction.\nPosition=%d, letter=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Wrong assumption!\nAt least one of the tables is overflown.\nPosition=%d, letter=%c."
+                            "Error on the plaintext anaylsis !\nAt least one of the lists is overflown: Position=%d, letter=%c.\nPlease correct your input."
     IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Wrong assumption!\nAt least one of the neighbours was assumed as correct.\nPosition=%d, letter=%c"
+                            "Error on the plaintext anaylsis !\nAt least one of the neighbours was assumed as correct: Position=%d, letter=%c.\nPlease correct your input."
     IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Wrong assumption!\nNeighbour matching error.\nPosition=%d, letter=%c"
+                            "Error on the plaintext analysis !\nNeighbour matching error: Position=%d, letter=%c.\nPlease correct your input."
     IDS_STRING_PLAYFAIR_NOMATRIX "No matching matrix was found."
     IDS_STRING_ERROR        "Error"
     IDS_STRING_PLAYFAIR_WARNMSG001 
