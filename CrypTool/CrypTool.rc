@@ -4069,14 +4069,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Deutsche Bank AG\0"
             VALUE "FileDescription", "www.cryptool.de\0"
-            VALUE "FileVersion", "1.3.05 \0"
+            VALUE "FileVersion", "1.3.06-beta01 \0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2003\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "CrypTool\0"
-            VALUE "ProductVersion", "1.3.05\0"
+            VALUE "ProductVersion", "1.3.06-beta01\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -4990,7 +4990,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.05"
+    IDR_MAINFRAME           "CrypTool 1.3.06-beta01"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -10456,14 +10456,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Deutsche Bank AG\0"
             VALUE "FileDescription", "www.cryptool.com\0"
-            VALUE "FileVersion", "1.3.05\0"
+            VALUE "FileVersion", "1.3.06-beta01\0"
             VALUE "InternalName", "CrypTool\0"
             VALUE "LegalCopyright", "Copyright © 1999-2003\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "CrypTool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "CrypTool\0"
-            VALUE "ProductVersion", "1.3.05\0"
+            VALUE "ProductVersion", "1.3.06-beta01\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -11580,7 +11580,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.05"
+    IDR_MAINFRAME           "CrypTool 1.3.06-beta01"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
