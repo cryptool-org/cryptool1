@@ -1,7 +1,7 @@
 ==================================================================
-    CrypTool, Version 1.3.04, März 2003
+    CrypTool, Version 1.3.04, April 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt am Main
-    (c) Universität Siegen und Karlsruhe xxxxxxxxxxx
+    (c) Universität Siegen und Darmstadt
     $Id$
 ==================================================================
 
@@ -610,6 +610,9 @@ Webseite:
 + Enthält die Hashwerte der herunterladbaren Dateien und
   ermöglicht so einen Check der Integrität der auf dem
   Computer befindlichen Dateien.
++ Für 1.3.04 wurden aufgenommem:
+  + Frame-Eintrag, der zu einer Seite mit Links führt
+  + Frame-Eintrag, der direkt zu der CrypTool-Präsentation führt
 
 Dokumentation:
 ==============
@@ -626,14 +629,14 @@ Dokumentation:
   - neu in Kapitel 6 sind Informationen zur Motivation und
     Interoperabilität von Elliptischen Kurven.
   - neu in 1.3.04: 
-    aktueller Stand der Kryptoanalyse von AES und
-    aktuelle Entwicklungen bei Faktorisierung (TWIRL) und
-    Zahlentheorie ("Primes in P").
+    aktueller Stand der Kryptoanalyse von AES und RC5,
+    aktuelle Entwicklungen bei der Faktorisierung (TWIRL) und
+    in der Zahlentheorie ("Primes in P") ergänzt.
 + Einheitliche CrypTool-Präsentation zu 1.3.0x (keine Trennung
   mehr in Features von 1.2.xx und Neuerungen in 1.3.xx).
 + Online-Hilfe verbessert und erweitert (z.B. Hilfe für die
   neuen Funktionen und Einbau einer Zeittafel der Kryptographie).
-  In 1.3.04 wurde der Abschnitt zu PGP / GnuPP aktualisiert.
+  In 1.3.04 wurde z.B. der Abschnitt zu PGP / GnuPP aktualisiert.
 
 Funktionalität:
 ===============
@@ -662,9 +665,9 @@ Funktionalität:
   - Der Dateityp (Exe oder Aes) stellt sich weitgehend selbst ein.
   - Bitte beachten Sie, dass die Ausgabe des AES-Tools auch bei der
     Dateiendung "Aes" nicht vollkommen identisch ist mit dem Ausgabe,
-    die Sie mit der Menüfolge Ver/Entschlüsseln \ Symmetrisch \ Rijndael
-    erhalten. xxxxxxxxxxxx
-+ Bei der Hillverschlüsselung können die Details zur aktuellen
+    die Sie erhalten mit der Menüfolge
+    Ver/Entschlüsseln \ Symmetrisch \ Rijndael (AES). xxxxxxxxxxxx
++ Bei der Hill-Verschlüsselung können die Details zur aktuellen
   Schlüsselmatrix in einer Textdatei ausgegeben werden:
   - das aktuell in Optionen/Textoptionen gewählte Alphabet,
   - die Hill-Schlüsselmatrix, auch kodiert in Zahlen und
@@ -677,10 +680,10 @@ Funktionalität:
   Außerdem kann man sich den Schlüssel, der als Ergebnis der
   manuellen Analyse entstand, temporär abspeichern, um ihn später
   wieder zu verwenden.
-+ Langfassung des "Dialoges der Schwestern" in Deutsch und
++ Langfassung des "Dialogs der Schwestern" in Deutsch und
   Englisch beigelegt (darin wird ein in der RSA-Demo
   behandelter Sonderfall des RSA-Verfahrens beschrieben).
-+ Die Ausgabe bei der Entropie-Berechnung ist ausführlicher.
++ Die Ausgabe bei der Entropie-Berechnung ist nun ausführlicher.
 + Bei der Anzeige des Zertifikatsinhalts wird nun auch der
   Public Key mit ausgegeben.
 + Visualisierung der einzelnen Schritte / Abhängigkeiten bei der
@@ -705,26 +708,29 @@ Funktionalität:
 
 Ganz neu in 1.3.04 sind:
 ------------------------
-+ Das Menü zu CrypTool im Startup-Untermenü enthält nun auch einen
-  Verweis auf die Readme-Datei.
++ Das Menü zu CrypTool im Windows Start\Programme-Menü enthält
+  nun auch einen Verweis auf die Readme-Datei.
++ In den Visualisierungsdialogen wurde der Hintergrund anders
+  gesetzt, um auch bei neuen Windows XP-Templates deutlich
+  sichtbar zu sein.
 + Bei der Brute-Force-Attacke auf symmetrische Algorithmen werden
   nun mehr als 5 Jokerzeichen (bisher 20 Bit) zugelassen und die
   erwartete Zeit wird ausgegeben. Außerdem kann man die Breite für
   das hierbei genutzte Entropiefenster per Analyseoptionen einstellen.
-+ Eine hochperformante Mustersuche, um entweder mehrfach vorkommende
-  Muster beliebiger Länge in einer Datei zu finden oder um alle Patterns
-  in einer Datei zu finden, die auch in einer anderen (vorzugebenden)
-  Datei vorkommen.
 + Hochperformante Implementierung zum Suchen von Hash-Kollisionen 
   (Anwendung des Geburtstagsparadoxons). Damit kann man einen
   eingeschränkten Angriff auf Hash- bzw. Signatur-Verfahren 
-  praktisch für konkrete Dateien zeigen.
+  praktisch und für konkrete Dateien zeigen.
 + Visualisierung des Diffie-Hellman Schlüsselaustausch-Verfahrens.
 
 
 5.3. Geplante Änderungen nach Version 1.3.04
      ---------------------------------------
 Funktionalität:
++ Eine hochperformante Mustersuche, um entweder mehrfach vorkommende
+  Muster beliebiger Länge in einer Datei zu finden oder um alle Patterns
+  in einer Datei zu finden, die auch in einer anderen (vorzugebenden)
+  Datei vorkommen.
 + Eine pure Kommandozeilenversion des AES-Tools auch für die
   Betriebssysteme OS/2 und Linux (aestool-os2; aestool-linux).
 + Visualisierung von Challenge-Response-Verfahren.
@@ -752,6 +758,7 @@ Funktionalität:
   vorkommenden Mustern im Dokument, ...), indem der Dialog zum
   Massen-Vergleich mit bekannten Mustern in einer anderen Datei
   entsprechend erweitert wird.
+  Zur Suche könnte man auch Ersetzen ergänzen.
 + Analyse neu implementieren für
   - homophone Verschlüsselung.
 + Analyse verbessern (nicht performant und stark genug bisher) für
@@ -762,6 +769,14 @@ Funktionalität:
   - asymmetrische Kryptoverfahren.
 + Alle Anzeigemodule in einem konsistenten Klassenbaum
   zusammenfassen.
++ Entsprechend der MFC-Vorgehensweise für verschiedene Fenstertypen
+  gibt es für Text- und Binärdateien verschiedene Menübäume.
+  Da diese Typen nicht so sehr unterschiedlich sind, könnte
+  man die Anzeigeform als View betrachten und die entsprechenden
+  Funktionen auf beide anwenden (und z.B. beim Versuch der Playfair-
+  Verschlüsselung mit einem Nicht-Textfile alle Buchstaben außerhalb
+  des Alphabets ignorieren) oder in einer gemeinsamen Menüstruktur
+  die Menüeinträge dynamisch ein-/ausblenden. 
 + Die Sourcen so umstellen, dass die Ausgabe/Anzeige komplett von
   den Kryptomodulen getrennt ist (erleichtert Portierungen und
   Fehlersuche).
@@ -835,10 +850,12 @@ Funktionalität:
     Vor allem die AIS 31 ist auch außerhalb Deutschlands auf 
     großes Interesse gestoßen.
     Die AIS 20 und AIS 31 befinden sich in deutscher und englischer
-    Sprache auf der BSI-Website 
-    (http://www.bsi.bund.de/zertifiz/zert/interpr).
-    Es wäre eine gute Ergänzung für CrypTool, die deutschen 
-    Standardanforderungen zur Evaluierung von Zufallszahlen  
+    Sprache auf der BSI-Website:
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/trngkr31.pdf
+    Es wäre eine gute Ergänzung für CrypTool, diese Standard-
+    anforderungen zur Evaluierung von Zufallszahlen  
     einzubauen und dies auch zu visualisieren.
 + Weitere Standards implementieren und direkt über die Menüs
   bzw. aus der Online-Hilfe an alle Stellen verzweigen, wo diese
@@ -889,7 +906,7 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.00    Jan. 2002	4,9 MB		4,7 MB		DB
 1.3.02    Juni 2002	6,9 MB		6,4 MB		DB
 1.3.03    Sep. 2002	6,9 MB		6,5 MB		DB
-1.3.04    März 2003	xxx MB		xxx MB		DB
+1.3.04    Apr. 2003	xxx MB		xxx MB		DB
 
 Bemerkung zu den aktuellen Versionen:
 1.3.02    viele neue Funktionen gegenüber 1.3.00

@@ -1,11 +1,9 @@
 ==================================================================
-    CrypTool, Version 1.3.04, March 2003
+    CrypTool, Version 1.3.04, April 2003
     (c) Deutsche Bank AG 1998-2003, Frankfurt/Main
-    (c) University of Siegen and Karlsruhe  xxxxxxxxxx
+    (c) University of Siegen and Darmstadt
     $Id$
 ==================================================================
-
-xxxxxxxxx evtl. Verweis auf frz. Fassung
 
                        Contents
 
@@ -602,6 +600,10 @@ Web page:
 + It now contains the hash values of the downloadable files.
   So you can verify whether the integrity of the files on your
   computer is ok.
++ Added for 1.3.04:
+  + Frame item, which points to a page with Web links
+  + Frame item, which directly leads to the CrypTool praesentation.
+
 
 Documentation:
 ==============
@@ -618,15 +620,15 @@ Documentation:
   - new in chapter 6: information about the motivation and
     interoperability of elliptic curves.
   - new in 1.3.04: 
-    current status of cryptanalysis of AES and current
+    current status of cryptanalysis of AES and RC5 and current
     proceedings regarding factorization (TWIRL) and
-    number theory ("Primes in P").
+    number theory ("Primes in P") added.
 + Single CrypTool presentation for version 1.3.0x
   (no separation in features of 1.2.xx and new within 1.3.0x).
 + The Online help got further improvement and enhancements (e.g.
   for the new functions and addition of a time table about
   cryptography).
-  In 1.3.04 current information about PGP / GnuPP added.
+  In 1.3.04 e.g. topical information about PGP / GnuPP added.
 
 
 Functionality:
@@ -651,8 +653,8 @@ Functionality:
     item Crypt \ Symmetric \ AES (self extracting).
   - There is a customization suggesting the file type (exe or aes).
   - Please note, that the output of the AES-Tool (even with file type
-    "Aes") is not completely identical with the output you get via the
-    menu item Crypt \ Symmetric \ Rijndael. xxxxxxxxxxxx
+    "aes") is not completely identical with the output you get via the
+    menu item Crypt \ Symmetric \ Rijndael (AES). xxxxxxxxxxxx
 + With the Hill cipher you can write the details of the used
   key matrix into a text file:
   - the currently used alphabet (choosen with Options / Text Options)
@@ -692,18 +694,18 @@ Functionality:
 
 Completely new in 1.3.04 are:
 -----------------------------
-+ The CrypTool menu within the Startup submenu now also contains
-  a hint to the readme file.
++ The CrypTool menu within the Windows Start\Program menu now
+  also contains a hint to the readme file.
++ Within the dialoges for visualization the background was improved
+  in order to be clearly visible even with new templates used with
+  Windows XP.
 + Brute-force attacks at symmetric algorithms now allow to use
   more than 5 joker characters (20 bits)and the expected time 
   is presented.  Additionally the length of the here used entropy
   window can now be customized via analysis options.
-+ A high performance pattern search to find either multiple patterns of
-  any length within one file or to find any patterns in one file which
-  also appear in another given file.
 + Implementation of a high-performance search for hash collisions
-  using the birthday paradoxon. This allows to show for concrte files
-  how such an attack on hash or signature methods works.
+  using the birthday paradoxon. This practically allows to show for
+  concrete files how such an attack on hash or signature methods works.
 + Show/Visualize the Diffie-Hellman key exchange method.
 
 
@@ -711,6 +713,9 @@ Completely new in 1.3.04 are:
 5.3. Planned enhancements after version 1.3.04
      -----------------------------------------
 Functionality:
++ A high performance pattern search to find either multiple patterns of
+  any length within one file or to find any patterns in one file which
+  also appear in another given file.
 + A pure command line version of AES-Tool to be also available for
   the operating systems OS/2 and Linux (aestool-os2; aestool-linux).
 + Visualize of challenge response methods.
@@ -736,6 +741,7 @@ Functionality:
   standardized and regular patterns and unknown but repeated
   patterns in a document, ...) by enhancing the dialogue used for
   mass comparison with known patterns from another file.
+  The search could be enhanced by replacing.
 + Analysis newly to implement for
   - homophone encryption.
 + Analysis improvement (not sophisticated enough yet) of
@@ -744,6 +750,14 @@ Functionality:
   - Playfair encryption,
   - asymmetric crypto methods.
 + Summary of all display modules in a logical class tree.
++ According the default MFC procedure for different window types
+  there are different menu trees in CrypTool for text and binary
+  files. Because these 2 types are not very different, one could
+  consider this only as a view of the same file and use the
+  according functions for all window types (e.g. when encrypting
+  a non-text file with Playfair one could ignore all letters 
+  outside the alphabet) or one could dynamically enable/disable
+  the menu items within a common menu structure. 
 + Rearrange the source to facilitate a separation of cryptographic
   functions and user interface (make ports and debugging easier).
 + Offer a customizing feature to user, so that he can choose that
@@ -813,10 +827,12 @@ Functionality:
     September 2001). Especially AIS 31 has achieved great interest
     outside of Germany.
     The documents AIS 20 and AIS 31 are both in English and German
-    available at the web page of the German GISA  
-    (http://www.bsi.bund.de/zertifiz/zert/interpr).
+    available at the web page of the German GISA:
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
     It would be a senseful enhancement of CrypTool, to implement
-    the German requirements on evaluating random number generators 
+    these requirements on evaluating random number generators 
     and also to visualize them.
 + Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the Online
@@ -865,7 +881,7 @@ Version   Date		Size of Windows-Setup	Released by
 1.3.00    Jan. 2002	4.7 MB	    4.9 MB	DB
 1.3.02    June 2002	6.4 MB	    6.9 MB	DB
 1.3.03    Sep. 2002	6.5 MB	    6.9 MB	DB
-1.3.04    Mar. 2003	xxx MB	    xxx MB	DB
+1.3.04    Apr. 2003	xxx MB	    xxx MB	DB
 
 Remark about the current versions:
 1.3.02    many new functions compared to 1.3.00
