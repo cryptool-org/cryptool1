@@ -58,7 +58,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_EINGABE DIALOG DISCARDABLE  0, 0, 217, 215
+IDD_DIALOG_SCHLUESSEL_HILL_EINGABE DIALOG DISCARDABLE  0, 0, 217, 183
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Hill"
 FONT 8, "MS Sans Serif"
@@ -88,8 +88,8 @@ BEGIN
     EDITTEXT        IDC_EDIT53,60,101,11,12
     EDITTEXT        IDC_EDIT54,80,101,11,12
     EDITTEXT        IDC_EDIT55,100,101,11,12
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,185,63,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,159,185,50,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,155,63,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,155,53,19
     GROUPBOX        "Dimension",IDC_STATIC,131,8,78,138
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,154,23,31,10
@@ -101,14 +101,14 @@ BEGIN
                     31,10
     CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,154,103,
                     31,10
-    PUSHBUTTON      "&Kopieren",IDC_BUTTON1,7,155,72,17,WS_GROUP
-    PUSHBUTTON      "Ei&nfügen",IDC_BUTTON2,88,155,71,17
-    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,28,121,73,18
+    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,20,121,73,18
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
     PUSHBUTTON      "&Größerer Schlüssel",IDC_BUTTON4,135,121,70,18
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,7,8,117,138
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,185,60,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,155,60,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    98,122,22,20
 END
 
 IDD_DIALOG_ANALYSE_OPT DIALOG DISCARDABLE  0, 0, 256, 183
@@ -161,7 +161,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,165,19,127,10
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 212
+IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 188
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif"
@@ -170,9 +170,8 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,10,5,132,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,10,15,124,8
-    PUSHBUTTON      "In die Zwischanablage &kopieren",IDC_BUTTON1,17,161,114,
-                    19
-    DEFPUSHBUTTON   "&Schließen",IDOK,50,189,50,18
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,161,68,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,88,162,50,18
     EDITTEXT        IDC_EDIT11,29,51,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT12,49,51,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT13,69,51,11,12,ES_READONLY
@@ -279,12 +278,14 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Monoalphabetische Substitution Schlüsseleingabe"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,13,24,219,12,ES_UPPERCASE | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,13,48,61,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,177,48,55,20
     LTEXT           "Schlüssel eingeben (max.26 Zeichen):",IDC_STATIC,13,11,
                     160,8
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,94,48,63,20
+    EDITTEXT        IDC_EDIT1,13,24,192,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    209,23,22,20
 END
 
 IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 171, 183
@@ -700,8 +701,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,12,10,143,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix (Entschlüsseln)",
                     IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,22,150,8
-    PUSHBUTTON      "In die Zwischenablage &kopieren",IDC_BUTTON1,11,268,118,
-                    20
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,268,108,20
     DEFPUSHBUTTON   "&Schließen",IDOK,178,268,62,20
     EDITTEXT        IDC_EDIT11,31,55,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT12,51,55,11,12,ES_READONLY
@@ -808,13 +808,13 @@ BEGIN
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,12,40,228,216
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS DIALOG DISCARDABLE  0, 0, 329, 314
+IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS DIALOG DISCARDABLE  0, 0, 329, 293
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,287,80,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,263,287,56,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,262,80,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,263,262,56,19
     EDITTEXT        IDC_EDIT11,23,27,11,12
     EDITTEXT        IDC_EDIT12,43,27,11,12
     EDITTEXT        IDC_EDIT13,63,27,11,12
@@ -936,14 +936,14 @@ BEGIN
                     BS_CENTER,259,190,36,10
     CONTROL         "1&0 x 10",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,259,210,36,10
-    PUSHBUTTON      "&Kopieren",IDC_BUTTON1,11,259,80,18,WS_GROUP
-    PUSHBUTTON      "Ei&nfügen",IDC_BUTTON2,109,259,73,18
-    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,72,227,79,18
+    PUSHBUTTON      "&Zufälliger Schlüssel",IDC_BUTTON3,23,227,79,18
     PUSHBUTTON      "K&leinerer Schlüssel",IDC_BUTTON4,241,227,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,10,12,220,240
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,109,287,74,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,109,262,74,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    193,228,22,20
 END
 
 IDD_DIALOG_SCHLUESSEL_AUSGABE_LINEAR DIALOG DISCARDABLE  0, 0, 186, 79
@@ -1318,7 +1318,7 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_KEYENTER,24,75,188,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KEYENTER,24,75,166,12,ES_AUTOHSCROLL
     LTEXT           "Kurzform des Playfair-Schlüssels:",IDC_STATIC,24,64,114,
                     11
     CONTROL         "&Doppelte ignorieren",IDC_CHECK1,"Button",
@@ -1329,6 +1329,8 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,17,78,8
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,24,98,137,120
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,93,236,66,20
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    200,73,22,20
 END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
@@ -1765,39 +1767,46 @@ BEGIN
                     IDC_STATIC,24,132,318,17
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 225
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 262
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Optionen für die RSA-Verschlüsselung"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,202,50,18
-    PUSHBUTTON      "Ab&brechen",IDCANCEL,214,202,50,18
+    DEFPUSHBUTTON   "&OK",IDOK,7,233,50,18
+    PUSHBUTTON      "Ab&brechen",IDCANCEL,214,233,50,18
     EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
-    GROUPBOX        "Textoptionen",IDC_STATIC,7,5,257,85
-    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,140,257,53
-    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,176,39,10
-    CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,176,
-                    32,10
-    CONTROL         "&Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,176,
-                    33,10
-    CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
-                    200,176,56,10
-    LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
-                    IDC_STATIC,23,153,245,18
-    CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,22,108,89,8
-    CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,22,120,87,8
-    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,23,71,74,8
-    EDITTEXT        IDC_EDIT2,100,69,32,13,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,140,71,116,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
+    GROUPBOX        "Textoptionen ",IDC_STATIC,7,5,257,65
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON,22,19,65,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,22,19,65,10
     CONTROL         "Alphabet vorgeben:",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,22,32,77,8
-    GROUPBOX        "RSA-Variante",IDC_STATIC,7,95,257,39
+    GROUPBOX        "Zahlensystem ",IDC_STATIC,7,172,257,53
+    CONTROL         "&Dezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,208,39,10
+    CONTROL         "&Binär",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,208,
+                    32,10
+    CONTROL         "&Oktal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,208,
+                    33,10
+    CONTROL         "&Hexadezimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
+                    200,208,56,10
+    LTEXT           "Die Zahlen der RSA Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt",
+                    IDC_STATIC,19,185,233,18
+    CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,23,89,51,8
+    CONTROL         "Dialog der &Schwestern",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,100,89,87,8
+    GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,257,31
+    LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,23,147,74,8
+    EDITTEXT        IDC_EDIT2,100,145,19,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,127,147,116,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    GROUPBOX        "Verfahren und Blocklänge bei der Kodierung der Nachricht in Zahlen ",
+                    IDC_STATIC,7,113,257,53
+    CONTROL         "b-adisch",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,100,128,43,8
+    CONTROL         "Basissystem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
+                    148,128,69,8
+    LTEXT           "Methode:",IDC_STATIC,23,128,51,8
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -1819,15 +1828,15 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 250, 252
+IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 250, 223
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Doppelwürfel Verschlüsselung: Permutationseingabe "
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,40,204,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,23,226,58,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,97,226,57,19,WS_DISABLED
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,226,55,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,193,58,19,WS_DISABLED
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,83,193,57,19,WS_DISABLED
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,183,193,55,19
     EDITTEXT        IDC_EDIT3,23,68,204,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,76
@@ -1843,8 +1852,8 @@ BEGIN
                     IDC_STATIC,23,124,204,8
     LTEXT           "Permutationdarstellung bei der Eingabe von Buchstaben",
                     IDC_STATIC,23,152,204,8
-    DEFPUSHBUTTON   "Schlüssel aus der &Zwischenablage einfügen",ID_COPY_KEY,
-                    38,195,172,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    150,195,22,20
 END
 
 IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
@@ -2030,19 +2039,13 @@ BEGIN
     BEGIN
         MENUITEM "&Schlüssel generieren",       ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "&Tutorial für kleine Zahlen"
+        POPUP "RSA Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren",      ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA-Algorithmus",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
-            MENUITEM "&EC Kurven",                  ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECKURVEN
-
             MENUITEM "&Faktorisieren (IFP)",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-
-            MENUITEM "&Diskreter Logarithmus",      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_DISKRETERLOGARITHMUS
-
-            MENUITEM "ECD&LP",                      ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_ECDLP
 
         END
         MENUITEM "&Zufallszahlen generieren",   ID_ZUFALL_GENERATOREN
@@ -2168,7 +2171,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2340,7 +2343,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2469,7 +2472,7 @@ BEGIN
     BEGIN
         MENUITEM "&Schlüssel generieren...",    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "&RSA-Tutorial"
+        POPUP "&RSA Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2600,7 +2603,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demo"
         BEGIN
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -2952,7 +2955,9 @@ BEGIN
 
     IDD_DIALOG_SCHLUESSEL_HILL_EINGABE, DIALOG
     BEGIN
-        HORZGUIDE, 204
+        VERTGUIDE, 20
+        HORZGUIDE, 139
+        HORZGUIDE, 174
     END
 
     IDD_DIALOG_ANALYSE_OPT, DIALOG
@@ -2974,15 +2979,6 @@ BEGIN
         VERTGUIDE, 284
         HORZGUIDE, 197
         HORZGUIDE, 214
-    END
-
-    IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF, DIALOG
-    BEGIN
-        VERTGUIDE, 9
-        HORZGUIDE, 161
-        HORZGUIDE, 180
-        HORZGUIDE, 189
-        HORZGUIDE, 207
     END
 
     IDD_DIALOG_KEY_CREAT_ASYM, DIALOG
@@ -3135,6 +3131,13 @@ BEGIN
         VERTGUIDE, 164
         HORZGUIDE, 47
         HORZGUIDE, 64
+    END
+
+    IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG
+    BEGIN
+        VERTGUIDE, 23
+        HORZGUIDE, 245
+        HORZGUIDE, 281
     END
 
     IDD_DIALOG_SCHLUESSEL_AUSGABE_LINEAR, DIALOG
@@ -3346,9 +3349,9 @@ BEGIN
 
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
-        RIGHTMARGIN, 268
-        VERTGUIDE, 7
-        VERTGUIDE, 264
+        VERTGUIDE, 23
+        VERTGUIDE, 100
+        HORZGUIDE, 136
     END
 
     IDD_DIALOG_PERIOD_OUTPUT, DIALOG
@@ -3368,6 +3371,7 @@ BEGIN
         HORZGUIDE, 52
         HORZGUIDE, 92
         HORZGUIDE, 122
+        HORZGUIDE, 212
     END
 
     IDD_RANDOM_PARAMETER_ICG, DIALOG
@@ -3606,7 +3610,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 5"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 6"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -4229,6 +4233,13 @@ BEGIN
                             "Maximaler Testwert: %d\nLängster Run: %d\n"
     IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 
                             "Die Datei %s kann nicht gefunden werden!\nDer Test kann deshalb nicht ausgeführt werden!"
+    IDS_METHOD_KEY          "%s Schlüssel"
+    IDS_STRING_ERR_ONBLOCKLENGTH 
+                            "Die Blocklänge muß aus dem Zahlenbereich 1, ...,  %i sein !"
+    IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
+                            "Der Eingabetext wird in Blöcke aufgeteilt (das Symbol '#' dient als Trennzeichen)."
+    IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
+                            "Der Ausgebetext aus der Verschlüsselung in Blöcken (das Symbol '#' dient als Trennzeichen)."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -4255,7 +4266,7 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Entschlüsselung in den Klartext  m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "Maximale Blocklänge %i Zeichen"
-    IDS_STRING_RSATUT_INPUTPLAINTEXT "Eingabe des Klartextes"
+    IDS_STRING_RSATUT_INPUTPLAINTEXT "Eingabetext"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
                             "Zahlendarstellung des Klartextes zur Basis %i"
     IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
@@ -4520,7 +4531,7 @@ BEGIN
     IDS_CRYPT_HOMOPHONE     "Homophone"
     IDS_CRYPT_SUBSTITUTION  "Substitution"
     IDS_CRYPT_PLAYFAIR      "Playfair"
-    IDS_CRYPT_ADDITION      "Addition"
+    IDS_CRYPT_ADDITION      "ADD"
     IDS_CRYPT_XOR           "XOR"
     IDS_CRYPT_VERNAM        "Vernam"
     IDS_CRYPT_PERMUTATION   "Permutation"
@@ -4570,11 +4581,13 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,197,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Encrypt",IDOK,11,53,58,19
     PUSHBUTTON      "&Cancel",IDCANCEL,153,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,5,197,16
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,82,53,57,19
+    EDITTEXT        IDC_EDIT1,11,29,155,12,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_TEXT,7,7,197,17
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    192,28,22,20
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG DISCARDABLE  0, 0, 159, 118
@@ -4594,7 +4607,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_EINGABE DIALOG DISCARDABLE  0, 0, 217, 214
+IDD_DIALOG_SCHLUESSEL_HILL_EINGABE DIALOG DISCARDABLE  0, 0, 217, 186
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif"
@@ -4624,8 +4637,8 @@ BEGIN
     EDITTEXT        IDC_EDIT53,60,101,11,12
     EDITTEXT        IDC_EDIT54,80,101,11,12
     EDITTEXT        IDC_EDIT55,100,101,11,12
-    DEFPUSHBUTTON   "&Encrypt",IDOK,7,184,63,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,159,184,50,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,7,156,63,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,151,156,58,19
     GROUPBOX        "Size",IDC_STATIC,131,8,78,138
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,154,23,31,10
@@ -4637,14 +4650,14 @@ BEGIN
                     31,10
     CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,154,103,
                     31,10
-    PUSHBUTTON      "C&opy",IDC_BUTTON1,7,155,72,17,WS_GROUP
-    PUSHBUTTON      "&Paste",IDC_BUTTON2,88,155,71,17
-    PUSHBUTTON      "&Random key",IDC_BUTTON3,28,121,73,18
+    PUSHBUTTON      "&Random key",IDC_BUTTON3,20,121,73,18
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    PUSHBUTTON      "&Larger key",IDC_BUTTON4,135,121,70,18
+    PUSHBUTTON      "&Larger key",IDC_BUTTON4,141,121,59,18
     GROUPBOX        "Hill key matrix",IDC_STATIC,7,8,117,138
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,184,60,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,156,60,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    97,122,22,20
 END
 
 IDD_DIALOG_ANALYSE_OPT DIALOG DISCARDABLE  0, 0, 256, 183
@@ -4696,7 +4709,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,165,19,127,10
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 212
+IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF DIALOG DISCARDABLE  0, 0, 148, 191
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill key matrix"
 FONT 8, "MS Sans Serif"
@@ -4705,8 +4718,8 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,10,7,132,8
     CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,10,19,124,8
-    PUSHBUTTON      "&Copy to the clipboard",IDC_BUTTON1,17,161,114,19
-    DEFPUSHBUTTON   "&Close",IDOK,50,189,50,18
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,10,161,52,19
+    DEFPUSHBUTTON   "&Close",IDOK,88,162,50,18
     EDITTEXT        IDC_EDIT11,29,51,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT12,49,51,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT13,69,51,11,12,ES_READONLY
@@ -4811,11 +4824,13 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Monoalphabetic Substitution"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_EDIT1,13,24,219,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Encrypt",IDOK,13,48,61,20
-    PUSHBUTTON      "&Cancel",IDCANCEL,177,48,55,20
+    EDITTEXT        IDC_EDIT1,13,24,192,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Encrypt",IDOK,13,49,61,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,177,49,55,20
     LTEXT           "Enter key (max. 26 characters)",IDC_STATIC,13,11,160,8
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,48,63,20
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,49,63,20
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    209,23,22,20
 END
 
 IDD_DIALOG_ANALYSE_OPT_MONO DIALOG DISCARDABLE  0, 0, 171, 183
@@ -5226,7 +5241,7 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,12,10,143,8
     CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,12,22,150,8
-    PUSHBUTTON      "C&opy to the clipboard",IDC_BUTTON1,11,268,118,20
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,11,268,96,20
     DEFPUSHBUTTON   "&Close",IDOK,178,268,62,20
     EDITTEXT        IDC_EDIT11,31,55,11,12,ES_READONLY
     EDITTEXT        IDC_EDIT12,51,55,11,12,ES_READONLY
@@ -5333,13 +5348,13 @@ BEGIN
     GROUPBOX        "Hill key matrix",IDC_STATIC,12,40,228,216
 END
 
-IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS DIALOG DISCARDABLE  0, 0, 329, 314
+IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS DIALOG DISCARDABLE  0, 0, 329, 289
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,284,80,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,263,284,56,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,11,259,80,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,263,259,56,19
     EDITTEXT        IDC_EDIT11,23,24,11,12
     EDITTEXT        IDC_EDIT12,43,24,11,12
     EDITTEXT        IDC_EDIT13,63,24,11,12
@@ -5461,14 +5476,14 @@ BEGIN
                     BS_CENTER,259,187,36,10
     CONTROL         "1&0 x 10",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER,259,207,36,10
-    PUSHBUTTON      "&Copy",IDC_BUTTON1,11,256,80,18,WS_GROUP
-    PUSHBUTTON      "&Paste",IDC_BUTTON2,109,256,73,18
-    PUSHBUTTON      "&Random key",IDC_BUTTON3,72,224,79,18
+    PUSHBUTTON      "&Random key",IDC_BUTTON3,23,224,79,18
     PUSHBUTTON      "&Shorter key",IDC_BUTTON4,241,224,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
     GROUPBOX        "Hill key matrix",IDC_STATIC,10,9,220,240
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,109,284,74,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,109,259,74,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    193,225,22,20
 END
 
 IDD_DIALOG_SCHLUESSEL_AUSGABE_LINEAR DIALOG DISCARDABLE  0, 0, 186, 79
@@ -5479,7 +5494,7 @@ BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,117,54,62,18
     LTEXT           "Key:",IDC_STATIC,7,12,48,8
     EDITTEXT        IDC_EDIT1,7,25,172,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Copy key",IDC_BUTTON1,7,54,80,18
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,7,54,80,18
 END
 
 IDD_DIALOG_SIGN DIALOG DISCARDABLE  0, 0, 388, 377
@@ -5840,7 +5855,7 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,197,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_KEYENTER,24,75,188,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KEYENTER,24,75,165,12,ES_AUTOHSCROLL
     LTEXT           "Short version of the Playfair key:",IDC_STATIC,24,64,
                     114,11
     CONTROL         "&Ignore duplicates",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
@@ -5851,6 +5866,8 @@ BEGIN
                     WS_TABSTOP,27,17,78,8
     GROUPBOX        "Key matrix",IDC_STATIC,24,98,137,120
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,93,236,66,20
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    200,73,22,20
 END
 
 IDD_BRUTEFORCE DIALOG DISCARDABLE  0, 0, 223, 106
@@ -6285,39 +6302,46 @@ BEGIN
                     IDC_STATIC,24,132,318,17
 END
 
-IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 223
+IDD_RSA_WITH_SMALL_PRIMES_OPTIONS DIALOG DISCARDABLE  0, 0, 271, 268
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Options for RSA Encryption"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,200,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,214,200,50,17
-    GROUPBOX        "Number system ",IDC_STATIC,7,139,257,53
+    DEFPUSHBUTTON   "&OK",IDOK,7,238,50,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,214,238,50,17
+    GROUPBOX        "Text options ",IDC_STATIC,7,5,257,65
+    CONTROL         "All 256 &ASCII characters",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,22,19,120,10
+    CONTROL         "S&pecify alphabet",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,22,32,77,8
+    GROUPBOX        "Number system ",IDC_STATIC,7,175,257,53
     CONTROL         "&Decimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,18,175,39,10
-    CONTROL         "&Binary",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,175,
+                    WS_GROUP,18,211,39,10
+    CONTROL         "&Binary",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,79,211,
                     32,10
-    CONTROL         "&Octal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,175,
+    CONTROL         "&Octal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,139,211,
                     33,10
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,
-                    200,175,56,10
+                    200,211,56,10
     LTEXT           "The numbers for RSA encryption and decryption will be represented in the following number system",
-                    IDC_STATIC,16,152,245,18
+                    IDC_STATIC,16,188,237,18
     EDITTEXT        IDC_EDIT1,22,46,225,14,ES_AUTOHSCROLL
-    GROUPBOX        "Text options",IDC_STATIC,7,5,257,85
-    CONTROL         "Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,22,108,89,8
+    CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,22,93,89,8
     CONTROL         "Dialouge of &sisters",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,22,120,87,8
-    LTEXT           "Block length in characters:",IDC_STATIC,20,71,86,8
-    EDITTEXT        IDC_EDIT2,107,69,32,13,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,147,71,114,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    BS_AUTORADIOBUTTON,111,93,87,8
+    GROUPBOX        "RSA variant ",IDC_STATIC,7,77,257,34
+    LTEXT           "Block length in characters:",IDC_STATIC,24,150,86,8
+    EDITTEXT        IDC_EDIT2,111,148,17,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,135,150,121,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    CONTROL         "Alle 256 ASCII characters",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON,22,19,120,10
-    CONTROL         "Specify alphabet",IDC_RADIO2,"Button",
-                    BS_AUTORADIOBUTTON,22,32,77,8
-    GROUPBOX        "RSA variant",IDC_STATIC,7,95,257,39
+    GROUPBOX        "Method and block length for the coding of text into numbers ",
+                    IDC_STATIC,7,117,257,51
+    CONTROL         "b ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,110,134,43,8
+    CONTROL         "N&umber system",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,
+                    159,134,69,8
+    LTEXT           "Method:",IDC_STATIC,24,134,27,10
 END
 
 IDD_DIALOG_PERIOD_OUTPUT DIALOG DISCARDABLE  0, 0, 382, 266
@@ -6339,15 +6363,15 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 250, 252
+IDD_DIALOG_PERMUTATION DIALOG DISCARDABLE  0, 0, 250, 223
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Double Column Transposition: Permutation Key Input"
 FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,22,40,205,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Encrypt",IDOK,23,226,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,97,226,57,19,WS_DISABLED
-    PUSHBUTTON      "&Cancel",IDCANCEL,172,226,55,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,12,193,58,19,WS_DISABLED
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,193,57,19,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,183,193,55,19
     EDITTEXT        IDC_EDIT3,22,68,205,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
     GROUPBOX        "1. Permutation",IDC_STATIC,12,13,226,76
@@ -6363,7 +6387,8 @@ BEGIN
                     IDC_STATIC,22,123,205,8
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,22,152,197,8
-    DEFPUSHBUTTON   "&Load keys from clipboard",ID_COPY_KEY,38,195,172,19
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    153,195,22,20
 END
 
 IDD_RANDOM_PARAMETER_ICG DIALOG DISCARDABLE  0, 0, 294, 150
@@ -6551,7 +6576,7 @@ BEGIN
     BEGIN
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demonstration"
         BEGIN
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -6682,7 +6707,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demonstration"
         BEGIN
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -6854,7 +6879,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Ctrl + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Ctrl + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demonstration"
         BEGIN
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -6983,7 +7008,7 @@ BEGIN
     BEGIN
         MENUITEM "&Key Generation ...",         ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demonstration"
         BEGIN
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -7114,7 +7139,7 @@ BEGIN
             MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
-        POPUP "&RSA Tutorial"
+        POPUP "&RSA Demonstration"
         BEGIN
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
@@ -7446,6 +7471,26 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
+    IDD_DIALOG_SCHLUESSEL_HILL_EINGABE, DIALOG
+    BEGIN
+        VERTGUIDE, 20
+        HORZGUIDE, 139
+        HORZGUIDE, 175
+    END
+
+    IDD_DIALOG_SCHLUESSEL_HILL_ANGRIFF, DIALOG
+    BEGIN
+        VERTGUIDE, 10
+        HORZGUIDE, 180
+    END
+
+    IDD_DIALOG_SCHLUESSEL_HILL_EINGABE_GROSS, DIALOG
+    BEGIN
+        VERTGUIDE, 23
+        HORZGUIDE, 242
+        HORZGUIDE, 278
+    END
+
     IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN, DIALOG
     BEGIN
         HORZGUIDE, 359
@@ -7453,7 +7498,15 @@ BEGIN
 
     IDD_RSA_WITH_SMALL_PRIMES_OPTIONS, DIALOG
     BEGIN
-        HORZGUIDE, 217
+        VERTGUIDE, 110
+        HORZGUIDE, 142
+    END
+
+    IDD_DIALOG_PERMUTATION, DIALOG
+    BEGIN
+        VERTGUIDE, 12
+        VERTGUIDE, 238
+        HORZGUIDE, 212
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -7625,7 +7678,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 5"
+    IDR_MAINFRAME           "CrypTool 1.3.00 - beta 6"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -8231,6 +8284,9 @@ BEGIN
                             "Maximal test value: %d\nLongest Run: %d\n"
     IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 
                             "Unable to find file %s!\nThis test could not be executed!"
+    IDS_METHOD_KEY          "%s Schlüssel"
+    IDS_STRING_ERR_ONBLOCKLENGTH 
+                            "The block length must be a value out of  1, ..., %i !"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -8256,7 +8312,7 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Decryption into plaintext  m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "Maximum block length %i characters"
-    IDS_STRING_RSATUT_INPUTPLAINTEXT "Input of the plaintext"
+    IDS_STRING_RSATUT_INPUTPLAINTEXT "Input text"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
                             "Plaintext coded in numbers of base %i"
     IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
@@ -8519,7 +8575,7 @@ BEGIN
     IDS_CRYPT_HOMOPHONE     "Homophone"
     IDS_CRYPT_SUBSTITUTION  "Substitution"
     IDS_CRYPT_PLAYFAIR      "Playfair"
-    IDS_CRYPT_ADDITION      "Addition"
+    IDS_CRYPT_ADDITION      "ADD"
     IDS_CRYPT_XOR           "XOR"
     IDS_CRYPT_VERNAM        "Vernam"
     IDS_CRYPT_PERMUTATION   "Permutation"

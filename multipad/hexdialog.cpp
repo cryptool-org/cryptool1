@@ -115,15 +115,15 @@ void hexdialog::OnUpdateKey()
 
 void hexdialog::OnPasteHexKey() 
 {
-	int i;
-	CString Title;
-	Title=s_alternativeWindowText;
-
-	ExtractStrKeyType( strTitle, Title );
-
 	UpdateData(TRUE);
-	if ( PasteKey(strTitle,m_einstr) )
+	CString Title;
+	CString KeyStr;
+	Title=s_alternativeWindowText;
+	ExtractStrKeyType( strTitle, Title );
+	if ( PasteKey(strTitle,KeyStr) )
 	{
+		m_einfeld.SetSel(0,-1);
+		m_einfeld.ReplaceSel( KeyStr );
 		m_EncryptionButton.EnableWindow(TRUE);
 		m_DecryptionButton.EnableWindow(TRUE);	
 	}

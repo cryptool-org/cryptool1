@@ -17,7 +17,9 @@
 
 class CDlgMono : public CDialog
 {
-// Konstruktion
+	CBitmapButton m_Paste;
+
+	// Konstruktion
 public:
 	CDlgMono(CWnd* pParent = NULL);   // Standardkonstruktor
 
@@ -45,6 +47,8 @@ protected:
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -31,9 +31,11 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 void CStringToBig(CString &CStrNumber, Big &t, int base );
 void CStringToASCII( CString &CStringNumber, CString &ASCIIStr, int base );
 void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int base );
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int Bitlength, int base, bool CodingBasisSystem = false );
 void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabet, int OutBase );
+void AlphabetToNumStr(CString &in, CString &NumStr, CString &Alphabet, int OutBase, bool CodingBasisSystem = false );
 
-void BigToCString(const Big &t, CString &CStrNumber, int base = 10);
+void BigToCString(const Big &t, CString &CStrNumber, int base = 10, int OutLength = 0);
 void CharToNumStr(const char *in, CString &NumStr, int len, int OutBase = 10, int Inbase = 256);
  
 class evaluate  
@@ -92,14 +94,17 @@ public:
 	BOOL SetPublicKey ( CString &eStr, int base = 10 );
 	BOOL SetPrivateKey();
 	int  GetBlockLength();
+	double GetLog2RSAModul();
 	BOOL GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr, CString &dStr, int base = 10 );
 
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }
 	void Encrypt( CString &Plaintext,  CString &Ciphertext, int base = 10);
 	void EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
+	void EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	void Decrypt( CString &Ciphertext, CString &Plaintext,  int base = 10);
 	void DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
+	void DecryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base);
 	BOOL CheckInput( CString &Input, int base, int base2 = 0 );
 
 private:

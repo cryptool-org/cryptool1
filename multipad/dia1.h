@@ -15,8 +15,7 @@
 class dia1 : public CDialog
 {
 // Construction
-private:
-		CBitmapButton m_Paste;
+	CBitmapButton m_Paste;
 
 public:
 	char strTitle[KEYDATA_HASHSTRING_LENGTH];

@@ -11,6 +11,7 @@
 #include "stdafx.h"
 #include "multipad.h"
 #include "DlgMono.h"
+#include "crypt.h"
 //#include "MyCEdit.h"
 
 #ifdef _DEBUG
@@ -49,6 +50,7 @@ BEGIN_MESSAGE_MAP(CDlgMono, CDialog)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -68,6 +70,8 @@ void CDlgMono::OnEncrypt()
 	m_check = 0;
 	OnOK();
 }
+
+
 
 void CDlgMono::OnChangeEdit1() 
 {
@@ -95,4 +99,35 @@ void CDlgMono::OnChangeEdit1()
 			}
 		}
 	}
+}
+
+BOOL CDlgMono::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	CString Title;
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+	Title = pc_str;
+	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+	if ( IsKeyEmpty( Title ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgMono::OnPasteKey() 
+{
+	UpdateData(TRUE);
+
+	CString Title;
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+	PasteKey(pc_str,m_edit);
+	UpdateData(FALSE);	
 }

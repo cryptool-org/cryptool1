@@ -109,15 +109,17 @@ void CMyEditView::OnShowKey()
 		if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_LINEAR )
 		{
 			CSchluesselAusgabeLinear AusgabeFenster;
-			
-			for (i=0; i<KEYDATA_HASHSTRING_LENGTH; i++ ) if ( Title[i] == '\0' ) break;
-								  else AusgabeFenster.strTitle[i]=Title[i]; 
-			AusgabeFenster.strTitle[i] = '\0';
-
-			AusgabeFenster.m_Key = Key;
-		
-			// Fenster anzeigen
-			AusgabeFenster.DoModal();
+			char CryptMethod[KEYDATA_HASHSTRING_LENGTH+1];
+			if ( ExtractStrKeyType( CryptMethod, Title ) )
+			{
+				strcpy( AusgabeFenster.strTitle, CryptMethod );
+				AusgabeFenster.m_Key = Key;
+				AusgabeFenster.DoModal();
+			}
+			else
+			{
+				// ToDo: passende Fehlermeldung
+			}
 		}
 		else if ( ((CMyDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
 		{
@@ -127,25 +129,17 @@ void CMyEditView::OnShowKey()
 			if (Key.GetLength() <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
 			{
 				CHillSchluesselAusgabe AusgabeFenster;
-
-				AusgabeFenster.SchluesselAnzeigen(Key);
-				
+				AusgabeFenster.SchluesselAnzeigen(Key);				
 				// Es wird immer der Schluessel zum Verschluesseln angezeigt
 				AusgabeFenster.m_decrypt = FALSE;
-				
-				// Fenster anzeigen
 				AusgabeFenster.DoModal();
 			}
 			else
 			{
 				CHillSchluesselAusgabeGross AusgabeFenster;
-
-				AusgabeFenster.SchluesselAnzeigen(Key);
-				
+				AusgabeFenster.SchluesselAnzeigen(Key);				
 				// Es wird immer der Schluessel zum Verschluesseln angezeigt
 				AusgabeFenster.m_decrypt = FALSE;
-				
-				// Fenster anzeigen
 				AusgabeFenster.DoModal();
 			}
 		}

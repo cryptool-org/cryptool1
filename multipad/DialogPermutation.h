@@ -7,13 +7,15 @@
 // DialogPermutation.h : Header-Datei
 //
 #include "AscEdit.h"
+#include "crypt.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDialogPermutation 
 
 class CDialogPermutation : public CDialog
 {
-// Konstruktion
+	CBitmapButton m_Paste;
+	// Konstruktion
 public:
 	int MakePermInt(CString *Pin, int p[], int pinv[]);
 	CString makeASCII( CString &line);
@@ -59,7 +61,7 @@ protected:
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnChangeEdit2();
 	virtual BOOL OnInitDialog();
-	afx_msg void OnCopyKey();
+	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

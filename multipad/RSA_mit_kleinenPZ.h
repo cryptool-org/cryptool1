@@ -25,6 +25,8 @@ class RSA_mit_kleinenPZ : public CDialog
 public:
 	void EncryptASCII();
 	void DecryptASCII();
+	void EncryptDialogueOfSisters();
+	void DecryptDialogueOfSisters();
 	void EncryptAlphabet();
 	void DecryptAlphabet();
 	void EncryptNumbers();
@@ -36,6 +38,7 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(RSA_mit_kleinenPZ)
 	enum { IDD = IDD_DIALOG_RSA_MIT_KLEINEN_PRIMZAHLEN };
+	CEdit	m_control_edit13;
 	CButton	m_ButtonOptionen;
 	CButton	m_ButtonEncrypt;
 	CButton	m_ButtonDecrypt;
@@ -56,6 +59,8 @@ public:
 	CString	m_Header1;
 	CString	m_Header2;
 	CString	m_Header3;
+	CString	m_Header4;
+	CString	m_edit13;
 	//}}AFX_DATA
 
 

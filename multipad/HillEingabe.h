@@ -10,6 +10,7 @@
 //
 
 #include "hill.h"
+#include "crypt.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CHillEingabe 
@@ -27,6 +28,7 @@ private:
 
 class CHillEingabe : public CDialog
 {
+	CBitmapButton m_Paste;
 // Konstruktion
 public:
 	int		m_decrypt;
@@ -93,6 +95,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnDecrypt();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnPasteKey();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();
 	afx_msg void OnDimension3();
@@ -123,8 +126,6 @@ protected:
 	afx_msg void OnUpdateMat53();
 	afx_msg void OnUpdateMat54();
 	afx_msg void OnUpdateMat55();
-	afx_msg void OnKopieren();
-	afx_msg void OnEinfuegen();
 	afx_msg void OnZufaelligerSchluessel();
 	afx_msg void OnGroessereSchluessel();
 	//}}AFX_MSG

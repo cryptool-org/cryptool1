@@ -58,9 +58,13 @@ BOOL CSchluesselAusgabeLinear::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// if (s_alternativeWindowText[0])
-	//	SetWindowText(s_alternativeWindowText);
-
+	if (strTitle[0])
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_METHOD_KEY,pc_str,STR_LAENGE_STRING_TABLE);
+		char keyMethodStr[128];
+		sprintf( keyMethodStr, pc_str, strTitle );
+		SetWindowText(keyMethodStr);
+	}
 
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -73,11 +77,3 @@ int CSchluesselAusgabeLinear::DoModal()
 	return CDialog::DoModal();
 }
 
-
-/*
-void CSchluesselAusgabeLinear::SetAlternativeWindowText(LPCTSTR s_title)
-{
-    strncpy(s_alternativeWindowText, s_title, 126);
-	s_alternativeWindowText[126]=0;
-}
-*/

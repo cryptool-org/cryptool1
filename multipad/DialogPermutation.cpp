@@ -52,7 +52,7 @@ BEGIN_MESSAGE_MAP(CDialogPermutation, CDialog)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_EN_CHANGE(IDC_EDIT2, OnChangeEdit2)
-	ON_BN_CLICKED(ID_COPY_KEY, OnCopyKey)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -186,6 +186,19 @@ BOOL CDialogPermutation::OnInitDialog()
 	m_P1out = m_P2out = "( 1 )";
 	UpdateData(FALSE);
 
+	CString Title;
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	Title = pc_str;
+	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+	if ( IsKeyEmpty( Title ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -208,32 +221,57 @@ int CDialogPermutation::PrintPerm(char *dest, int *perm, int len)
 	return strlen(dest);
 }
 
-void CDialogPermutation::OnCopyKey() 
-{
-	HANDLE hndl;
-	char *globBuff;
-	int k;
-	CString buffer;
+//DEL void CDialogPermutation::OnCopyKey() 
+//DEL {
+//DEL 	HANDLE hndl;
+//DEL 	char *globBuff;
+//DEL 	int k;
+//DEL 	CString buffer;
+//DEL 
+//DEL 	OpenClipboard();
+//DEL 	hndl = ::GetClipboardData(CF_TEXT);
+//DEL 	globBuff = (char *) GlobalLock(hndl);
+//DEL 	buffer = globBuff;
+//DEL 	GlobalUnlock(hndl);
+//DEL 	CloseClipboard();
+//DEL 	k = buffer.Find(';');
+//DEL 	if(k==-1) {
+//DEL 		m_Perm1 = makeASCII(buffer);
+//DEL 		m_Perm2.Empty();
+//DEL 	}
+//DEL 	else {
+//DEL 		m_Perm1 = makeASCII(buffer.Left(k));
+//DEL 		m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
+//DEL 	}
+//DEL 	UpdateData(FALSE);
+//DEL 	OnChangeEdit1();
+//DEL 	OnChangeEdit2();
+//DEL }
 
-	OpenClipboard();
-	hndl = ::GetClipboardData(CF_TEXT);
-	globBuff = (char *) GlobalLock(hndl);
-	buffer = globBuff;
-	GlobalUnlock(hndl);
-	CloseClipboard();
-	k = buffer.Find(';');
-	if(k==-1) {
-		m_Perm1 = makeASCII(buffer);
-		m_Perm2.Empty();
+void CDialogPermutation::OnPasteKey() 
+{
+	CString buffer;
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	if ( PasteKey(pc_str, buffer) )
+	{
+		UpdateData(TRUE);
+		int k = buffer.Find(';');
+		if(k==-1) {
+			m_Perm1 = makeASCII(buffer);
+			m_Perm2.Empty();
+		}
+		else {
+			m_Perm1 = makeASCII(buffer.Left(k));
+			m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
+		}
+		UpdateData(FALSE);
+		OnChangeEdit1();
+		OnChangeEdit2();
 	}
-	else {
-		m_Perm1 = makeASCII(buffer.Left(k));
-		m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
-	}
-	UpdateData(FALSE);
-	OnChangeEdit1();
-	OnChangeEdit2();
 }
+
+
+
 
 CString CDialogPermutation::makeASCII(CString &line)
 {

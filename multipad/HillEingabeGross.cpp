@@ -262,11 +262,10 @@ BEGIN_MESSAGE_MAP(CHillEingabeGross, CDialog)
 	ON_EN_UPDATE(IDC_EDIT108, OnUpdateMat108)
 	ON_EN_UPDATE(IDC_EDIT109, OnUpdateMat109)
 	ON_EN_UPDATE(IDC_EDIT1010, OnUpdateMat1010)
-	ON_BN_CLICKED(IDC_BUTTON1, OnKopieren)
-	ON_BN_CLICKED(IDC_BUTTON2, OnEinfuegen)
 	ON_BN_CLICKED(IDC_BUTTON3, OnZufaelligerSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON4, OnKleinereSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
+	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -978,6 +977,20 @@ BOOL CHillEingabeGross::OnInitDialog()
 	// im Destruktor wieder freigegeben.
 	mat = 0;
 
+	CString Title;
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
+	Title = pc_str;
+	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+	if ( IsKeyEmpty( Title ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -1195,52 +1208,52 @@ void CHillEingabeGross::MatrixAnzeigen(square_matrix& mat)
 	}
 }
 
-void CHillEingabeGross::OnKopieren() 
-{
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
-	// Zuerst in cs die Matrix der Schlüssel aufbauen,
-	// danach in das unsichtbare Feld schreiben und
-	// schliesslich in diesem Feld alles markieren und in die Zwischenablage speichern
-
-	CString cs, hilf;
-
-	// Falls ein Schlüssel der Dimension größer als 5 x 5 (aus der großen Eingabemaske)
-	// in die Maske für Schlüssel bis 5 x 5 eingefügt wird, entstehen Leerzeichen, 
-	// weil die Zeilen hier länger sind als 5, nämlich 10.
-	// Deshalb schreiben wir die kleine 5 x 5 Matrix in die Zwischenablage, wenn der
-	// aktuell gewählte Schlüssel eine Dimension bis maximal 5 x 5 hat.
-	int iDimension;
-	if (dim <= HILL_MAX_DIM)
-	{
-		iDimension = HILL_MAX_DIM;
-	}
-	else
-	{
-		iDimension = HILL_MAX_DIM_GROSS;
-	}
-
-	for (int i=0; i<iDimension; i++)
-	{
-		for (int j=0; j<iDimension; j++)
-		{
-			m_pFelder[i][j]->GetWindowText(hilf);
-			if (hilf.GetLength() == 1)
-			{
-				cs += hilf;
-			}
-			else
-			{
-				cs += ' ';
-			}
-		}
-		cs += '\n';
-	}
-
-	m_FeldUnsichtbar.SetWindowText(cs);
-	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
-	m_FeldUnsichtbar.Copy();
-}
+//DEL void CHillEingabeGross::OnKopieren() 
+//DEL {
+//DEL 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+//DEL 	
+//DEL 	// Zuerst in cs die Matrix der Schlüssel aufbauen,
+//DEL 	// danach in das unsichtbare Feld schreiben und
+//DEL 	// schliesslich in diesem Feld alles markieren und in die Zwischenablage speichern
+//DEL 
+//DEL 	CString cs, hilf;
+//DEL 
+//DEL 	// Falls ein Schlüssel der Dimension größer als 5 x 5 (aus der großen Eingabemaske)
+//DEL 	// in die Maske für Schlüssel bis 5 x 5 eingefügt wird, entstehen Leerzeichen, 
+//DEL 	// weil die Zeilen hier länger sind als 5, nämlich 10.
+//DEL 	// Deshalb schreiben wir die kleine 5 x 5 Matrix in die Zwischenablage, wenn der
+//DEL 	// aktuell gewählte Schlüssel eine Dimension bis maximal 5 x 5 hat.
+//DEL 	int iDimension;
+//DEL 	if (dim <= HILL_MAX_DIM)
+//DEL 	{
+//DEL 		iDimension = HILL_MAX_DIM;
+//DEL 	}
+//DEL 	else
+//DEL 	{
+//DEL 		iDimension = HILL_MAX_DIM_GROSS;
+//DEL 	}
+//DEL 
+//DEL 	for (int i=0; i<iDimension; i++)
+//DEL 	{
+//DEL 		for (int j=0; j<iDimension; j++)
+//DEL 		{
+//DEL 			m_pFelder[i][j]->GetWindowText(hilf);
+//DEL 			if (hilf.GetLength() == 1)
+//DEL 			{
+//DEL 				cs += hilf;
+//DEL 			}
+//DEL 			else
+//DEL 			{
+//DEL 				cs += ' ';
+//DEL 			}
+//DEL 		}
+//DEL 		cs += '\n';
+//DEL 	}
+//DEL 
+//DEL 	m_FeldUnsichtbar.SetWindowText(cs);
+//DEL 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
+//DEL 	m_FeldUnsichtbar.Copy();
+//DEL }
 
 // Die Position fuer den naechsten Eintrag in der Schluesselmatrix wird berechnet.
 // Falls kein weiterer Eintrag mehr zur Verfuegung steht, wird FALSE zurueckgegeben,
@@ -1266,63 +1279,119 @@ bool CHillEingabeGross::NaechsterEintrag(int &i, int &j)
 	return rc;
 }
 
-void CHillEingabeGross::OnEinfuegen() 
+//DEL void CHillEingabeGross::OnEinfuegen() 
+//DEL {
+//DEL 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+//DEL 	
+//DEL 	// Test aus der Zwischenablage holen und in die entsprechenden Felder schreiben
+//DEL 
+//DEL 	CString cs, hilf;
+//DEL 
+//DEL 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
+//DEL 	m_FeldUnsichtbar.Paste();
+//DEL 	m_FeldUnsichtbar.GetWindowText(cs);
+//DEL 
+//DEL 	int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
+//DEL 		j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
+//DEL 		l=0, // Laufvariable fuer den Text aus der Zwischenablage
+//DEL 		laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
+//DEL 	
+//DEL 	while (l < laenge)
+//DEL 	{
+//DEL 		hilf = cs[l];
+//DEL 
+//DEL 		// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
+//DEL 		// deshalb muss dies hier nicht mehr abgefragt werden.
+//DEL 		if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
+//DEL 		{
+//DEL 			// Naechsten Eintrag berechnen
+//DEL 			if (NaechsterEintrag(i,j))
+//DEL 			{
+//DEL 				// Wert einfach uebernehmen
+//DEL 				m_pFelder[i][j]->SetWindowText(hilf);
+//DEL 			}
+//DEL 			else
+//DEL 			{
+//DEL 				// Es gibt keine weitere Zeile
+//DEL 				l = laenge;
+//DEL 			}
+//DEL 		}
+//DEL 		else if (hilf[0] == '\n')
+//DEL 		{
+//DEL 			// Wir starten in der naechsten Zeile wieder vorne,
+//DEL 			// sofern wir nicht schon am Anfang einer Zeile stehen...
+//DEL 			i++;
+//DEL 			j = -1;
+//DEL 			// ... sofern es noch eine weitere gibt.
+//DEL 			if (i == HILL_MAX_DIM_GROSS)
+//DEL 			{
+//DEL 				// Es gibt keine weitere Zeile
+//DEL 				l = laenge;
+//DEL 			}
+//DEL 		}
+//DEL 
+//DEL 		l++;
+//DEL 	}
+//DEL 	
+//DEL 	// Cursor in Feld links oben setzen
+//DEL 	m_pFelder[0][0]->SetFocus();
+//DEL 	m_pFelder[0][0]->SetSel(0,-1);
+//DEL }
+
+void CHillEingabeGross::OnPasteKey() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
-	// Test aus der Zwischenablage holen und in die entsprechenden Felder schreiben
-
 	CString cs, hilf;
-
-	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
-	m_FeldUnsichtbar.Paste();
-	m_FeldUnsichtbar.GetWindowText(cs);
-
-	int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
-		j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
-		l=0, // Laufvariable fuer den Text aus der Zwischenablage
-		laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
-	
-	while (l < laenge)
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
+	if ( PasteKey(pc_str,cs) )
 	{
-		hilf = cs[l];
 
-		// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
-		// deshalb muss dies hier nicht mehr abgefragt werden.
-		if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
-		{
-			// Naechsten Eintrag berechnen
-			if (NaechsterEintrag(i,j))
+ 		int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
+ 			j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
+ 			l=0, // Laufvariable fuer den Text aus der Zwischenablage
+ 			laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
+ 		
+ 		while (l < laenge)
+ 		{
+ 			hilf = cs[l];
+ 
+			// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
+			// deshalb muss dies hier nicht mehr abgefragt werden.
+			if (hillklasse->ist_erlaubtes_zeichen(hilf[0]))
 			{
-				// Wert einfach uebernehmen
-				m_pFelder[i][j]->SetWindowText(hilf);
-			}
-			else
-			{
-				// Es gibt keine weitere Zeile
-				l = laenge;
-			}
-		}
-		else if (hilf[0] == '\n')
-		{
-			// Wir starten in der naechsten Zeile wieder vorne,
-			// sofern wir nicht schon am Anfang einer Zeile stehen...
-			i++;
-			j = -1;
-			// ... sofern es noch eine weitere gibt.
-			if (i == HILL_MAX_DIM_GROSS)
-			{
-				// Es gibt keine weitere Zeile
-				l = laenge;
-			}
-		}
+ 				// Naechsten Eintrag berechnen
+ 				if (NaechsterEintrag(i,j))
+ 				{
+ 					// Wert einfach uebernehmen
+					m_pFelder[i][j]->SetWindowText(hilf);
+ 				}
+ 				else
+ 				{
+ 					// Es gibt keine weitere Zeile
+ 					l = laenge;
+ 				}
+ 			}
+ 			else if (hilf[0] == '\n')
+ 			{
+ 				// Wir starten in der naechsten Zeile wieder vorne,
+ 				// sofern wir nicht schon am Anfang einer Zeile stehen...
+ 				i++;
+ 				j = -1;
+ 				// ... sofern es noch eine weitere gibt.
+ 				if (i == HILL_MAX_DIM_GROSS)
+ 				{
+ 					// Es gibt keine weitere Zeile
+ 					l = laenge;
+ 				}
+ 			}
+ 
+ 			l++;
+ 		}
+ 		
+ 		// Cursor in Feld links oben setzen
+ 		m_pFelder[0][0]->SetFocus();
+ 		m_pFelder[0][0]->SetSel(0,-1);
 
-		l++;
 	}
-	
-	// Cursor in Feld links oben setzen
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
 }
 
 void CHillEingabeGross::OnZufaelligerSchluessel() 

@@ -10,12 +10,14 @@
 //
 
 #include "hill.h"
+#include "crypt.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CHillEingabeGross 
 
 class CHillEingabeGross : public CDialog
 {
+	CBitmapButton m_Paste;
 // Konstruktion
 public:
 	int		m_decrypt;
@@ -156,6 +158,7 @@ protected:
 	//{{AFX_MSG(CHillEingabeGross)
 	virtual void OnOK();
 	virtual void OnDecrypt();
+	afx_msg void OnPasteKey();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();
@@ -267,8 +270,6 @@ protected:
 	afx_msg	void OnUpdateMat108();
 	afx_msg	void OnUpdateMat109();
 	afx_msg	void OnUpdateMat1010();
-	afx_msg void OnKopieren();
-	afx_msg void OnEinfuegen();
 	afx_msg void OnZufaelligerSchluessel();
 	afx_msg void OnKleinereSchluessel();
 	//}}AFX_MSG

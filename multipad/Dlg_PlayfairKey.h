@@ -18,6 +18,7 @@
 
 class CDlg_PlayfairKey : public CDialog
 {
+	CBitmapButton m_Paste;
 // Konstruktion
 public:
 	~CDlg_PlayfairKey();
@@ -59,6 +60,8 @@ protected:
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnPasteKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

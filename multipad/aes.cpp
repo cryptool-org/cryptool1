@@ -135,7 +135,8 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	unsigned char *borg, *bcip, *key;
 	char mode;
 	int keylen;
-	
+	int titleID;
+
 	FILE *fi;
 	int i, datalen;
 	
@@ -154,21 +155,23 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	switch (AlgId)
 	{
 	case 1:                        // Mars
-		strcpy(AlgTitel,"Mars");
+		titleID = IDS_CRYPT_MARS;
 		break;
 	case 2:                        // RC6
-		strcpy(AlgTitel,"RC6");
+		titleID = IDS_CRYPT_RC6;
 		break;
 	case 3:                        // Rijndael
-		strcpy(AlgTitel,"Rijndael");
+		titleID = IDS_CRYPT_RIJNDAEL;
 		break;
 	case 4:                        // Serpent
-		strcpy(AlgTitel,"Serpent");
+		titleID = IDS_CRYPT_SERPENT;
 		break;
 	case 5:                        // Twofish
-		strcpy(AlgTitel,"Twofish");
+		titleID = IDS_CRYPT_TWOFISH;
 		break;
 	}
+	LoadString(AfxGetInstanceHandle(),titleID,pc_str,STR_LAENGE_STRING_TABLE);
+	strcpy( AlgTitel, pc_str );
 	if ( 3 == AlgId )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_KEYINPUT_AES_RIJNDAEL,pc_str,STR_LAENGE_STRING_TABLE);
@@ -235,7 +238,7 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId)
 	fwrite(bcip, 1, datalen, fi);
 	fclose(fi);
 
-	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, IDS_STRING_ADD, KeyDialog.m_Decrypt );
+	OpenNewDoc( outfile, KeyDialog.m_einstr, OldTitle, titleID, KeyDialog.m_Decrypt );
 }
 
 
@@ -255,6 +258,7 @@ UINT AESBrute(PVOID p)
 	CryptPar *par;
 	Key keyinfo;
 	KeyInfo info;
+	int titleID;
 	
 	mode = DIR_DECRYPT;
 	par = (CryptPar *) p;
@@ -282,25 +286,28 @@ UINT AESBrute(PVOID p)
 		datalen=1000;
 	
 	AlgId = *((int *) par->key);  // Namen setzen
-	strcpy(AlgTitel,"");
+
+	strcpy(AlgTitel,"");           // Name setzen
 	switch (AlgId)
 	{
-	case 1:                       // Mars
-		strcpy(AlgTitel,"Mars");
+	case 1:                        // Mars
+		titleID = IDS_CRYPT_MARS;
 		break;
-	case 2:                       // RC6
-		strcpy(AlgTitel,"RC6");
+	case 2:                        // RC6
+		titleID = IDS_CRYPT_RC6;
 		break;
-	case 3:                       // Rijndael
-		strcpy(AlgTitel,"Rijndael");
+	case 3:                        // Rijndael
+		titleID = IDS_CRYPT_RIJNDAEL;
 		break;
-	case 4:                       // Serpent
-		strcpy(AlgTitel,"Serpent");
+	case 4:                        // Serpent
+		titleID = IDS_CRYPT_SERPENT;
 		break;
-	case 5:                       // Twofish
-		strcpy(AlgTitel,"Twofish");
+	case 5:                        // Twofish
+		titleID = IDS_CRYPT_TWOFISH;
 		break;
 	}
+	LoadString(AfxGetInstanceHandle(),titleID,pc_str,STR_LAENGE_STRING_TABLE);
+	strcpy( AlgTitel, pc_str );
 	
 	fi = fopen(par->infile,"rb");
 	fread(borg,1,datalen,fi);

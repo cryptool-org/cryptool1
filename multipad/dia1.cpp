@@ -165,7 +165,6 @@ BOOL dia1::OnInitDialog()
 	m_EncryptionButton.EnableWindow(FALSE);
 	m_DecryptionButton.EnableWindow(FALSE);	
 
-	int i;
 	CString Title;
 	Title=s_alternativeWindowText;
 
@@ -184,13 +183,12 @@ BOOL dia1::OnInitDialog()
 
 void dia1::OnPasteKey() 
 {
-	int i;
+	UpdateData(TRUE);
+
 	CString Title;
 	Title=s_alternativeWindowText;
 
 	ExtractStrKeyType( strTitle, Title );
-
-	UpdateData(TRUE);
 	if ( PasteKey(strTitle,m_text) )
 	{
 		m_EncryptionButton.EnableWindow(TRUE);

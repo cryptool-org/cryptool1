@@ -18,6 +18,16 @@ static Miracl g_precision=50;
 
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 {
+	int i=0;
+	while ( i < CStrNumber.GetLength() ) 
+	{
+		if (CStrNumber[i] >= '0' && CStrNumber[i] <= '9' || CStrNumber[i] == '^' ||
+			CStrNumber[i] == '+' || CStrNumber[i] == '-' || CStrNumber[i] == '*' || 
+			CStrNumber[i] == ')' || CStrNumber[i] == '(') i++;
+		else
+			CStrNumber.Delete(i);
+	}
+
 	t = 0;
 	char tmp[1000];
 	strcpy(tmp, CStrNumber.GetBuffer( CStrNumber.GetLength()+1));
@@ -34,6 +44,15 @@ BOOL CStringFormulaToBig(CString &CStrNumber, Big &t )
 
 void CStringToBig( CString &CStrNumber, Big &t, int base )
 {
+	int i=0;
+	while ( i < CStrNumber.GetLength() ) 
+	{
+		if (CStrNumber[i] >= '0' && CStrNumber[i] <= '9' || 
+			CStrNumber[i] >= 'A' && CStrNumber[i] <= 'F') i++;
+		else
+			CStrNumber.Delete(i);
+	}
+
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
@@ -79,28 +98,41 @@ void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &A
 	int i = t % Alphabet.GetLength();
 	AlphabetStr = "";
 	AlphabetStr.Insert( 0, Alphabet[i] );
-/*
+}
+
+void CStringToAlphabet( CString &CStringNumber, CString &AlphabetStr, CString &Alphabet, int BlockLength, int base, bool CodingBasisSystem )
+{
+	Big t;
+	miracl *mip = &g_precision;
+	int oldBase = mip->IOBASE;
+	mip->IOBASE = base;
+	t = CStringNumber.GetBuffer(CStringNumber.GetLength()+2);
 	AlphabetStr = "";
-	int s = Alphabet.GetLength();
-	if ( !bits(t))
+	if ( !CodingBasisSystem )
 	{
-		AlphabetStr = "";
+		for (int k=0; k<BlockLength; k++) 
+		{
+			int i = t % Alphabet.GetLength();
+			t = t / Alphabet.GetLength();
+			AlphabetStr.Insert( 0, Alphabet[i] );
+		}
 	}
 	else
 	{
-		while ( 0 != t )
+		int digits = (int)ceil(log(Alphabet.GetLength())/log(base));
+		int modul = base;
+		for (int i=1; i<digits; i++) modul *= base;
+		for (int k=0; k<BlockLength; k++) 
 		{
-			if ( t % s )
-				AlphabetStr.Insert(0, Alphabet[(int)(t%s)]);
-			// else
-			// 	AlphabetStr.Insert(0,'#');
-			t = t/s;
+			int i = (t % modul) % Alphabet.GetLength();
+			t = t / modul;
+			AlphabetStr.Insert( 0, Alphabet[i] );
 		}
 	}
-*/
+
 }
 
-void BigToCString(const Big &t, CString &CStrNumber, int base)
+void BigToCString(const Big &t, CString &CStrNumber, int base, int OutLength )
 {
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
@@ -108,7 +140,12 @@ void BigToCString(const Big &t, CString &CStrNumber, int base)
 	char tmpStr[500];
 	tmpStr << t;
 	CStrNumber = tmpStr;
-	int x = CStrNumber.GetLength();
+	if ( OutLength )
+	{
+	    int x = CStrNumber.GetLength();
+		while (x++ < OutLength ) CStrNumber.Insert(0, '0');
+	}
+	
 	mip->IOBASE = oldBase;
 }
 
@@ -138,6 +175,40 @@ void AlphabetToNumStr(const char *in, CString &NumStr, int len, CString &Alphabe
 	BigToCString( tmp, NumStr, OutBase );
 }
 
+void AlphabetToNumStr(CString &in, CString &NumStr, CString &Alphabet, int OutBase, bool CodingBasisSystem )
+{
+	Big tmp = 0;
+	int OutLength;
+	if ( !CodingBasisSystem )
+	{
+		OutLength = (int)ceil(in.GetLength()*log(Alphabet.GetLength())/log(OutBase));
+		int modulo = Alphabet.GetLength();
+		for (int i=0; i<in.GetLength(); i++ )
+		{
+			int j = 0;	
+			while ( j < modulo && in[i] != Alphabet[j] ) j++;
+			tmp *= modulo;
+			tmp += j;
+		}
+	}
+	else
+	{
+		int digits = (int)ceil(log(Alphabet.GetLength())/log(OutBase));
+		OutLength = digits * in.GetLength();
+		int modulo = Alphabet.GetLength();
+		int i, modul = OutBase;
+		for (i=1; i<digits; i++) modul *= OutBase;
+		for (i=0; i<in.GetLength(); i++ )
+		{
+			int j = 0;	
+			while ( j < modulo && in[i] != Alphabet[j] ) j++;
+			tmp *= modul;
+			tmp += j;
+		}
+	}
+
+	BigToCString( tmp, NumStr, OutBase, OutLength );
+}
 
 //////////////////////////////////////////////////////////////////////
 // Private Funktionen
@@ -624,6 +695,25 @@ int  TutorialRSA::GetBlockLength()
 	return bits(N)-1;
 }
 
+double TutorialRSA::GetLog2RSAModul()
+{
+	int b = bits(N);
+	Big num = N;
+	Big dom = 1;
+	if (b > 16)
+	{	
+		num >>= b-16;
+		dom <<= 16;
+	}
+	else
+		dom <<= b;
+	double d_num = (double)(num % INT_MAX);
+	double d_dom = (double)(dom % INT_MAX);
+
+	double ret_val = log(d_num/d_dom)/log(2) + double(b);
+	return ret_val;
+}
+
 BOOL TutorialRSA::Encrypt( Big &PlaintextBlock,  Big &CiphertextBlock )
 {
 	PlaintextBlock = PlaintextBlock % N;
@@ -731,6 +821,7 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
+	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -749,7 +840,7 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 		plainStr = Plaintext.Mid(i1, i2-i1);
 		CStringToBig( plainStr, plain, base );
 		Encrypt( plain, cipher );
-		BigToCString( cipher, cipherStr, base );
+		BigToCString( cipher, cipherStr, base, OutLength );
 		while ((i2 < Plaintext.GetLength()) && (Plaintext[i2] == ' ' || Plaintext[i2] == '#')) i2++;
 		i1 = i2;
 		Ciphertext += cipherStr.GetBuffer(cipherStr.GetLength()+1);
@@ -759,6 +850,15 @@ void TutorialRSA::Encrypt( CString &Plaintext,  CString &Ciphertext, int base)
 }
 
 void TutorialRSA::EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
+{
+}
+
+void TutorialRSA::DecryptAlphabet( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
+{
+}
+
+
+void TutorialRSA::EncryptDialogueOfSisters( CString &Plaintext,  CString &Ciphertext, CString &Alphabet, int base)
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
@@ -791,7 +891,7 @@ void TutorialRSA::EncryptAlphabet( CString &Plaintext,  CString &Ciphertext, CSt
 	}
 }
 
-void TutorialRSA::DecryptAlphabet( CString &Ciphertext, CString &Plaintext, CString &Alphabet, int base)
+void TutorialRSA::DecryptDialogueOfSisters( CString &Ciphertext, CString &Plaintext, CString &Alphabet, int base)
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
@@ -829,6 +929,7 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 {
 	Big plain, cipher;
 	CString plainStr, cipherStr;
+	int OutLength = (int)ceil(GetBlockLength() / (log(base)/log(2)));
 
 	int i1, i2; 
 	i1 = 0;
@@ -847,7 +948,7 @@ void TutorialRSA::Decrypt( CString &Ciphertext, CString &Plaintext,  int base)
 		cipherStr = Ciphertext.Mid(i1, i2-i1);
 		CStringToBig( cipherStr, cipher, base );
 		Decrypt( cipher, plain );
-		BigToCString( plain, plainStr, base );
+		BigToCString( plain, plainStr, base, OutLength );
 		while ( (i2 < Ciphertext.GetLength()) && (Ciphertext[i2] == ' ' || Ciphertext[i2] == '#') ) i2++;
 		i1 = i2;
 		Plaintext += plainStr.GetBuffer(plainStr.GetLength()+1);

@@ -10,6 +10,7 @@
 #include "multipad.h"
 #include "HillSchluesselAusgabe.h"
 #include "sq_mat.h"
+#include "crypt.h"
 #include "hill.h"
 
 #ifdef _DEBUG
@@ -347,10 +348,11 @@ void CHillSchluesselAusgabe::OnKopieren()
 		}
 		cs += '\n';
 	}
-
+    LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
+	CopyKey(pc_str, cs); 
 	m_FeldUnsichtbar.SetWindowText(cs);
 	m_FeldUnsichtbar.SetSel(0,-1);  // Alles markieren
-	m_FeldUnsichtbar.Copy();
+ 	m_FeldUnsichtbar.Copy();
 }
 
 void CHillSchluesselAusgabe::SchluesselAnzeigen(CString Key)
