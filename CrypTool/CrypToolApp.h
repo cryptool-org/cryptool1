@@ -50,6 +50,8 @@ extern HWND hWndAktivesFenster;
 #define SCHLUESSEL_LINEAR		1
 #define SCHLUESSEL_QUADRATISCH	2
 
+#define PATH_LENGTH				1024
+
 class CCrypToolApp : public CWinApp
 {
 	BOOL InitInstance();
@@ -91,9 +93,9 @@ public:
 	int SecudeStatus;
 	CDlgTextOptions TextOptions;
 	void ThreadOpenDocumentFileNoMRU( const char *name, const char *title, char *Key=NULL, int KeyType = SCHLUESSEL_LINEAR);
-	char OpenTitle[128];
+	char OpenTitle [PATH_LENGTH];
 	int OpenBGFlag;
-	char OpenPath[128];
+	char OpenPath [PATH_LENGTH];
 	// Zwei globale Variablen, die fuer das Durchreichen des Schluessels von der Funktion 
 	// ThreadOpenDocumentFileNoMRU zur Funktion OpenDocumentFileNoMRU benoetigt werden.
 	// Der Pfad der Datei (Openpath)
