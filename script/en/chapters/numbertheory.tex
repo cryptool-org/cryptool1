@@ -3157,7 +3157,7 @@ I would like to take this opportunity to thank
 \subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
 Algorithms of Euclid} 
 \addcontentsline{toc}{subsection}{Appendix A: gcd of whole numbers and the two
-Algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
+algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 
 \begin{enumerate}
 \item The greatest common divisor of two natural numbers $a$ and $b$ is an important value that can be calculated 
@@ -3287,7 +3287,7 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \subsection*{Appendix D: Base representation of numbers, estimation of length of digits}
-\addcontentsline{toc}{subsection}{Appendix D: Base representation and base transformation of numbers, estiimation of length of digits}
+\addcontentsline{toc}{subsection}{Appendix D: Base representation and base transformation of numbers, estimation of length of digits}
 
 For a given number $z$ one may ask how to represent such a number. In general we use
 representations like $z = 2374$ or $z = \sqrt{2}$. The second number consists of an infinite
@@ -3296,9 +3296,9 @@ the number must be rounded.
 
 We represent numbers usually in the decimal system (base 10). Computers
 are working with the binary representation of numbers --- only for the display numbers are 
-represented in decimal or sometimes hexadecimal (base 16).
+represented in decimal or sometimes hexadecimal (base 16) form.
 
-This appendix describes how to generate arbitrary base representations of a positive integers and how 
+This appendix describes how to generate arbitrary base representations of anay positive integer and how 
 to determine the number of required digits via the logarithm function.
 
 
@@ -3308,7 +3308,7 @@ $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$
 where $a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
 For this sum, it follows that for arbitrary digits $a_0, a_1, \dots, a_n$ we have 
 $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$. On the other hand there exist
-$a_0, a_1, \dots, a_n$ (namely $a_i = b-1$ for $i=0, \dots, n$) following that  
+$a_0, a_1, \dots, a_n$~(namely $a_i = b-1$ for $i=0, \dots, n$) following that  
 $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
 (using these inequalities it can be shown that each positve integer can be represented by a $b$-adic sum).
 
@@ -3316,7 +3316,7 @@ By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each ot
 the usual writing for numbers comes to hand.
 
 {\bf Examples}: \\
-Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ und \\
+Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ and \\
 Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
 
 
@@ -3327,19 +3327,19 @@ following steps. Starting from the inequality $b^{n+1} > z \ge b^n$
 we have --- after applying the logarithm function on basis $b$\footnote{%
 Applying the logarithm formula on base $b$ and $b'$ we have $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
 It is therefore easy using e.g. logarithm tables for the base $b' = 10$ to compute the logarithm of base $b = 2$.
-} --- $n+1 > log_b z \ge n$. Therefore we have $n = \lfloor log_b z \rfloor$\footnote{%
+}:~$n+1 > log_b z \ge n$. Therefore we have $n = \lfloor log_b z \rfloor$\footnote{%
 The function $\lfloor x \rfloor$ determines the next integer smaller than $x$ (in case $x \ge 0$ the digits after the decimal point are truncated). 
 }. We call $l_b(z)$ {\em the number of required digits to represent the number $z$ on the base $b$}. We have
 $$l_b(z) := \lfloor log_b z \rfloor +1.$$
 
 \vskip +10 pt
 {\bf Example 1}:
-We compute for the decimal number $z = 234$ the hexadecimal representation (number base $b = 16$)
+We compute for the decimal number $z = 234$ (EA in hex) the hexadecimal representation (number base $b = 16$)
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1.96... \rfloor + 1 = 1 + 1 = 2.$$
 
 \vskip +10 pt
 {\bf Example 2}:
-We compute for the decimal number $z = 234$ the binary representation (number base $b = 2$)
+We compute for the decimal number $z = 234$ (11101010 in binary) the binary representation (number base $b = 2$)
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7.87... \rfloor + 1 = 7 + 1 = 8.$$
 
 \vskip + 10  pt
@@ -3365,7 +3365,7 @@ $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, $a_1 = 14 {\rm ~mod~} 
 
 \vskip +10 pt
 {\bf Example 2}:
-The binary number $z = 1000100101110101$ is computed into the decimal representation via the following steps:
+The binary number $z = 1000100101110101$ is transformed into the decimal representation via the following steps:
 
 $1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\

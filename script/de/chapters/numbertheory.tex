@@ -3607,8 +3607,8 @@ gew"ohnt. Computer rechnen intern mit Zahlen im Bin"arformat, die nur bei der Au
 Dezimalschreibweise oder auch manchmal in Hexadezimalschreibweise (Basis 16) dargestellt werden.  
 
 Dieser Anhang beschreibt, wie man die Basisdarstellung einer nat"urlichen Zahl umwandelt
-und wie man mit Hilfe der Logarithmusfunktion die Ziffernl"ange einer beliebigen 
-nat"urlichen Zahl absch"atzen kann. 
+und wie man mit Hilfe der Logarithmusfunktion die Ziffernl"ange jeder nat"urlichen Zahl 
+zu einer beliebigen Basis absch"atzen kann. 
 
 
 \subsubsection*{b-adische Summendarstellung von nat"urlichen Zahlen}
@@ -3622,7 +3622,7 @@ gibt $a_0, a_1, \dots, a_n$ (n"amlich $a_i = b-1$ f"ur $i=0, \dots, n$), so dass
 $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
 (Damit l"asst sich leicht zeigen, dass jede nat"urliche Zahl sich als $b$-adische Summe darstellen l"asst).
 
-Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereninaderschreibt und die Gewichte $b^i$ wegl"asst, 
+Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereinanderschreibt und die Gewichte $b^i$ wegl"asst, 
 so erh"alt man die gewohnte Schreibweise f"ur Zahlen.
 
 {\bf Beispiele}: \\
@@ -3637,7 +3637,7 @@ Nach den Logarithmengesetzen gilt f"ur die Basen $b$ und $b'$ die Gleichung $\lo
 Es ist also einfach, ausgehend von Logarithmentafeln f"ur z.B. die Basis $b' = 10$ den Logarithmus zur Basis $b = 2$ zu berechnen.
 } bestimmt man die Ungleichung $n+1 > log_b z \ge n$. 
 Es folgt, dass $n = \lfloor \log_b z \rfloor$\footnote{%
-Die Funktion $\lfloor x \rfloor$ bestimmt die n"achste ganzen Zahl, kleiner $x$ (wenn $x \ge 0$, dann werden die Nachkommastellen 
+Die Funktion $\lfloor x \rfloor$ bestimmt die n"achste ganze Zahl kleiner $x$ (wenn $x \ge 0$, dann werden die Nachkommastellen 
 der Zahl einfach abgeschnitten). Man sagt auch {\em untere Gau"sklammer von} $x$.
 }. Man bezeichnet mit $l_b(z)$ die Zahl der ben"otigten Ziffern zur Darstellung
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
@@ -3671,7 +3671,7 @@ $n := 0, z' := z$ \\
 \vskip +10 pt
 {\bf Beispiel 1}:
 Die Zahl $z = 234$ in Dezimalschreibweise wird umgewandelt in 
-Hexadezimalschreibweise. $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, 
+Hexadezimalschreibweise: $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, 
 $a_1 = 14 {\rm ~mod~} 16 = E$ also $EA$. 
 
 
