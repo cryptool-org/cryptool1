@@ -25,6 +25,8 @@ public:
 	DiffieHellmanLogFile(std::string,std::string,std::string,std::string,std::string,std::string,std::string,std::string);
 
 	std::string GetLogText();
+
+	void MakeUpText(std::string&, int);
 };
 
 #endif
