@@ -36,6 +36,21 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
+CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, CWnd *pParent)
+	: CDialog(CDlgPrimesGeneratorDemo::IDD, pParent)
+{
+	m_hide_button_accept = false;
+	//{{AFX_DATA_INIT(CDlgPrimesGeneratorDemo)
+	m_radio1 = 0;
+	m_radio4 = 0;
+	m_edit1 = lower;
+	m_edit2 = upper;
+	m_edit3 = _T("2^7");
+	m_edit4 = _T("2^8");
+	m_edit5 = _T("0");
+	m_edit6 = _T("0");
+	//}}AFX_DATA_INIT
+}
 
 void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 {

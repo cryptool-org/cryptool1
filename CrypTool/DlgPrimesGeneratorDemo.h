@@ -17,6 +17,7 @@ class CDlgPrimesGeneratorDemo : public CDialog
 
 public:
 	CDlgPrimesGeneratorDemo(CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgPrimesGeneratorDemo(CString,CString,CWnd* pParent = NULL);
 	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
 	
 	bool m_hide_button_accept;

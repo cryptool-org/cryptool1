@@ -2754,14 +2754,14 @@ BEGIN
     DEFPUSHBUTTON   "&Statistik ausgeben",IDOK,24,274,91,17
 END
 
-IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 196
+IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 295
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Schlüssel-Details - Geheimer und gemeinsamer Schlüssel von Alice und Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,175,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,367,175,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,274,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,367,274,50,14
     LTEXT           "Unabhängig voneinander haben Alice und Bob jeweils für sich den Session Key berechnet:",
                     IDC_STATIC,7,17,287,8
     LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
@@ -2780,7 +2780,12 @@ BEGIN
                     SS_CENTERIMAGE
     LTEXT           "Schlüssellänge [bit]:",IDC_STATIC,99,110,70,14,
                     SS_CENTERIMAGE
-    PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,175,72,14
+    PUSHBUTTON      "&Log-Text anzeigen",IDC_SHOWLOGTEXT,180,274,72,14
+    LTEXT           "Jede Partei (Alice und Bob) berechnete für sich aus den eigenen geheimen Informationen und aus den übertragenen Informationen das gemeinsame Geheimnis.",
+                    IDC_STATIC,20,209,384,16
+    LTEXT           "Dieses Geheimnis bzw. den Session Key kann ein ""Lauscher"" nicht in Erfahrung bringen, wenn die gewählten Parameter groß genug sind. - Der Session Key kann nun z.B. für eine symmetrische Verschlüsselung zwischen Alice und Bob verwendet werden.",
+                    IDC_STATIC,20,233,384,24
+    GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,195,404,68
 END
 
 IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
@@ -4770,8 +4775,9 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 99
         VERTGUIDE, 180
+        VERTGUIDE, 404
         TOPMARGIN, 7
-        BOTTOMMARGIN, 189
+        BOTTOMMARGIN, 288
     END
 
     IDD_OPTIONS_FURTHEROPTIONS, DIALOG
@@ -6440,8 +6446,8 @@ BEGIN
     IDS_DH_SECRET_PARTYNAME "Bitte legen Sie nun das Geheimnis für %s fest."
     IDS_DH_SECRET_DIALOGUEHEADER "%s's Geheimnis festlegen"
     IDS_DH_PP_SECRET_INVALID 
-                            "Bitte achten Sie darauf, dass das gewählte Geheimnis (s) kleiner als der Primzahlmodul p ist, dennoch aber größer als Eins (1 < g < p)."
-    IDS_DH_RESULT_MESSAGE   "Das gemeinsam ausgehandelte Geheimnis, das jede Partei (Alice und Bob) für sich selbst berechnet hat, erscheint nun im Textfeld 'Session Key'."
+                            "Das gewählte Geheimnis s muss kleiner als der Primzahlmodul p und größer als 1 sein (1 < s < p).\n\nDie von Ihnen eingegebene Zahl erfüllt diese Bedingung nicht."
+    IDS_DH_RESULT_MESSAGE   "Durch einen Klick auf das Schlüssel-Symbol erhalten Sie weitere Informationen zum gemeinsam ausgehandelten Geheimnis von Alice und Bob."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -9124,13 +9130,13 @@ BEGIN
     CONTROL         546,IDC_STATIC,"Static",SS_BITMAP,7,7,133,18
 END
 
-IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 196
+IDD_DIFFIEHELLMAN_KEY DIALOG DISCARDABLE  0, 0, 424, 295
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Details - Secret and common key of Alice and Bob"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,175,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,367,175,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,274,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,367,274,50,14
     LTEXT           "Independent from each other Alice and Bob computed their Session Key:",
                     IDC_STATIC,7,17,230,8
     LTEXT           "Alice's Session Key:",IDC_STATIC,20,35,75,14,
@@ -9149,7 +9155,12 @@ BEGIN
                     SS_CENTERIMAGE
     LTEXT           "Key length [bit]:",IDC_STATIC,99,110,70,14,
                     SS_CENTERIMAGE
-    PUSHBUTTON      "Show &log text",IDC_SHOWLOGTEXT,180,175,72,14
+    PUSHBUTTON      "Show &log text",IDC_SHOWLOGTEXT,180,274,72,14
+    GROUPBOX        "Thus, the target is reached",IDC_STATIC,7,195,404,68
+    LTEXT           "Using the secret information on the one hand and the public information on the other hand, each party (Alice and Bob) computed the common and secret Session Key on its own.",
+                    IDC_STATIC,20,209,384,16
+    LTEXT           "An eavesdropper cannot gain knowledge of the secret if the used parameters are big enough. - The Session Key can now be used for a symmetric encryption.",
+                    IDC_STATIC,20,233,384,24
 END
 
 IDD_OPTIONS_FURTHEROPTIONS DIALOG DISCARDABLE  0, 0, 291, 79
@@ -10809,7 +10820,7 @@ BEGIN
         VERTGUIDE, 99
         VERTGUIDE, 180
         TOPMARGIN, 7
-        BOTTOMMARGIN, 189
+        BOTTOMMARGIN, 288
     END
 
     IDD_OPTIONS_FURTHEROPTIONS, DIALOG

@@ -101,8 +101,15 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 void CDlgDiffieHellmanPublicParameters::OnGeneratePrime() 
 {
 	UpdateData(true);
-	CDlgPrimesGeneratorDemo dlg;
+	CDlgPrimesGeneratorDemo dlg("2^800","2^1000");
 	if(!(dlg.DoModal() == IDCANCEL)) m_Prime = dlg.m_edit5;
+
+	// Falls zuvor bereits ein Generator eingegeben wurde und dieser GROESSER oder gleich dem
+	// gewählten Primzahlmodul ist, so wird der Generator gelöscht
+	Big P = (char*)(LPCTSTR)m_Prime;
+	Big G = (char*)(LPCTSTR)m_Generator;
+	if(G>=P) m_Generator.Empty();
+			
 	UpdateData(false);
 }
 
