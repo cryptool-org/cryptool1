@@ -122,11 +122,11 @@ foreach (sort keys %rcmenu) {
 
 my $iden = $id{ENGLISH};
 my $idde = $id{GERMAN};
-foreach (keys %$iden) {
+foreach (sort keys %$iden) {
 	print "$RC($iden->{$_}) : warning: $_ is missing in german language ressources\n"
 		unless defined $idde->{$_};
 }
-foreach (keys %$idde) {
+foreach (sort keys %$idde) {
 	print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n"
 		unless defined $iden->{$_};
 }
