@@ -3283,10 +3283,70 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 \vskip +10 pt
 \input{figures/line-en.latex}
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\subsection*{Appendix D: Base representation and base transformation of numbers}
+\addcontentsline{toc}{subsection}{Appendix D: Base representation and base transformation of numbers}
 
+For a given number $z$ one may ask how to represent such a number. In general we know
+the representation $z = 2374$ or $z = \sqrt{2}$. But the second number consists of an infinite
+number of digits and therefore it can never described by the forst representation. In this case 
+the number is representated via the first $x$ decimals (rounding).
+
+Even if we represent numbers usually in the decimal system (numbers of base 10) computers
+are working with the binary representation of numbers. For easy reading those numbers are 
+transformed into the hexadecimal (base 16) representation.
+
+This appendix describes how to represent an intenger in a base representation and how 
+to determine the length of the base representation of a number via the log function.
+
+The integer $z$ in base representation on base $b$ can be represented as the sum 
+$$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0. $$
+The output leave out the weights $b^i$ of this sum. So the number is represented by the 
+well known writing $a_na_{n-a} \cdots a_1a_0$. Starting from the internal representation
+of the integer $z$ (computer are using numbers of base $2$, we use the base $10$) the representation 
+of base $b$ can be computed via the following algorithm:
+
+\begin{tabbing}
+bla\= \kill
+input: $z, b$ \\
+$n := 0, z' := z$ \\
+while $z' > 0$ do \\
+ \> $a_n := z' {\rm ~mod~} b$,\\
+ \> $z' := z' / b$  \\
+ \> $n := n+1$ \\
+end do \\
+output: integer $a_n a_{n-1} \cdots a_1 a_0$ in base representation $b$ 
+\end{tabbing}
+
+In the end the $n+1$ is the number of digits required to representate the integer $z$ on
+the base of numbers $b$. Because of the inequality $b^{n+1} > z \ge b^n$ 
+we have after aplying the logarithm function $n+1 > log_b z \ge n$. 
+Therefore we have $n = \lfloor log_b z \rfloor$. It follows that the required number of 
+digits $l_b(z)$ to represent the number $z$ on the base of numbers $b$ can be computed via
+$$l_b(z) := \rfloor log_b z \lfloor +1.$$
+
+{\bf Example 1}:
+The integer $z = 234$ on the base of numbers $10$ will be transformed into the hex representation via
+$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, $a_1 = 14 {\rm ~mod~} 16 = E$ and therefor $EA$. 
+
+The number of digits required to represent $z$ in hex format is computed via
+$$l_{16}(z) = \lfoor \log_{16}(z) \rfloor + 1 = \lfoor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
+
+\vskip +10 pt
+{\bf Example 2}:
+The binary number $z = 1000100101110101$ is computed into the decimal representation via the following steps:
+
+$1000100101110101 = 1001$ (mod $1010)  \Longmapsto a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
+$110110111110 = 1000$ (mod $1010) \Longmapsto a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
+$101011111 = 1$ (mod $1010) \Longmapsto a_2 = 1$, $10101111 / 1010 = 100011$ \\
+$100011 =  101$ (mod $1010) \Longmapsto a_3 = 5$, $100011 / 1010 = 1$ \\
+$11 = 11$ (mod $1010) \Longmapsto a_4 = 3$
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Appendix D: Examples using Mathematica and Pari-GP} \hypertarget{AppendixD}{}
-\addcontentsline{toc}{subsection}{Appendix D: Examples using Mathematica and Pari-GP}
+\subsection*{Appendix E: Examples using Mathematica and Pari-GP} \hypertarget{AppendixD}{}
+\addcontentsline{toc}{subsection}{Appendix E: Examples using Mathematica and Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
 This appendix gives you the source code to compute the tables and examples using Mathematica or the free 
@@ -3487,12 +3547,11 @@ RSA encryption with Pari-GP: \\
 }
 
 
-
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \vskip +12pt
 \newpage
-\subsection*{Appendix E: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
-\addcontentsline{toc}{subsection}{Appendix E: List of the formulated definitions and theorems}
+\subsection*{Appendix F: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
+\addcontentsline{toc}{subsection}{Appendix F: List of the formulated definitions and theorems}
 \vskip +8 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
