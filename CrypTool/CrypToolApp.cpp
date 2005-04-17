@@ -92,6 +92,10 @@ statement from your version.
 #include "DialogeMessage.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
 #include "ChallengeResponseDlg.h"
+#include "RSABloemerMayDlg.h"
+#include "RSAStereotypedMSGDlg.h"
+#include "RSAFactorHintDlg.h"
+
 
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -150,6 +154,10 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
 	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
+	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
+	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
+	ON_COMMAND(ID_RSA_BLOEMERMAY, OnRsaBloemermay)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -157,7 +165,6 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -968,3 +975,26 @@ void CCrypToolApp::OnChallengeResponse()
 		//  dismissed with Cancel
 	}	
 }
+
+
+void CCrypToolApp::OnRsaFactorhint() 
+{
+	CRSAFactorHintDlg RSAFHDlg;
+	RSAFHDlg.DoModal();
+}
+
+void CCrypToolApp::OnRsaStereotyped() 
+{
+	CRSAStereotypedMSGDlg RSASMDlg;
+	RSASMDlg.DoModal();
+}
+
+void CCrypToolApp::OnRsaBloemermay() 
+{
+	CRSABloemerMayDlg RSABMDlg;
+	RSABMDlg.DoModal();
+}
+
+
+
+

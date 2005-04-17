@@ -130,10 +130,12 @@ void CAppEditView::OnGotoVater()
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 
 	// Sprung zum Fenster, sofern es noch geöffnet ist
+	// if ( IsWindow(((CAppDocument*)m_pDocument)->hWndVaterFenster) )		// Hack for debug mode
 	if ( IsWindow(((CAppDocument*)GetDocument())->hWndVaterFenster) )
 	{
 		((CMDIFrameWnd*)theApp.m_pMainWnd)->
 			MDIActivate(((CAppDocument*)GetDocument())->CWndVaterFenster);
+	//		MDIActivate(((CAppDocument*)m_pDocument)->CWndVaterFenster);	// Hack for debug mode
 	}
 }
 

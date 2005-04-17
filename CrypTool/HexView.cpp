@@ -136,6 +136,7 @@ void CHexView::OnInitialUpdate()
 	GetRichEditCtrl().GetLine(0, m_line, sizeof(m_line));
 	m_cdc = GetDC();
 	CharSize = m_cdc->GetOutputTextExtent("12345678901234567890",1);
+
 	ReleaseDC(m_cdc);
 }
 

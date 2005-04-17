@@ -153,7 +153,6 @@ protected:
 	afx_msg void OnAnalyseAesRijndael();
 	afx_msg void OnAnalyseAesSerpent();
 	afx_msg void OnAnalyseAesTwofish();
-	afx_msg void OnToTxt(); 
 	afx_msg void OnToHex();
 	afx_msg void OnVitanyAnalyse();
 	afx_msg void OnPeriod();
@@ -180,6 +179,8 @@ protected:
 	afx_msg void OnSigattmodificdemo();
 	afx_msg void OnSignaturAttack();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
+	afx_msg void OnFileProperties();
+	afx_msg void OnToTxt();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
@@ -225,6 +226,7 @@ protected:
 	afx_msg void OnEntropy();
 	afx_msg void OnHistogram();
 	afx_msg void OnAuto();
+	afx_msg void OnUpdateTotxt(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

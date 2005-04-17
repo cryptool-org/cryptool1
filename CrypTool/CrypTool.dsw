@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "CrypTool"=".\CrypTool.dsp" - Package Owner=<4>
+Project: "CrypTool"=.\CrypTool.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -26,11 +26,14 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name hlp_en
     End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libNTL
+    End Project Dependency
 }}}
 
 ###############################################################################
 
-Project: "LibAnalyse"="..\LibAnalyse\LibAnalyse.dsp" - Package Owner=<4>
+Project: "LibAnalyse"=..\LibAnalyse\LibAnalyse.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -42,7 +45,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "LibEc"="..\LibEc\LibEc.dsp" - Package Owner=<4>
+Project: "LibEc"=..\LibEc\LibEc.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -54,7 +57,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "LibMiracl"="..\LibMiracl\LibMiracl.dsp" - Package Owner=<4>
+Project: "LibMiracl"=..\LibMiracl\LibMiracl.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -66,7 +69,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "aestool"="..\aestool\aestool.dsp" - Package Owner=<4>
+Project: "aestool"=..\aestool\aestool.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -78,7 +81,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "hlp_de"=".\hlp_de\hlp_de.dsp" - Package Owner=<4>
+Project: "hlp_de"=.\hlp_de\hlp_de.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -90,7 +93,19 @@ Package=<4>
 
 ###############################################################################
 
-Project: "hlp_en"=".\hlp_en\hlp_en.dsp" - Package Owner=<4>
+Project: "hlp_en"=.\hlp_en\hlp_en.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libNTL"=..\libNTL\libNTL.dsp - Package Owner=<4>
 
 Package=<5>
 {{{

@@ -74,6 +74,7 @@ statement from your version.
 #include "DlgSigAttModificDemo.h"
 #include "DlgSignatureAttack.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
+#include "DlgFileProperties.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -191,7 +192,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_ANALYSE_AES_RIJNDAEL, OnAnalyseAesRijndael)
 	ON_COMMAND(ID_ANALYSE_AES_SERPENT, OnAnalyseAesSerpent)
 	ON_COMMAND(ID_ANALYSE_AES_TWOFISH, OnAnalyseAesTwofish)
-	ON_COMMAND(ID_TOTXT, OnToTxt) 
 	ON_COMMAND(ID_TOHEX, OnToHex) 
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
@@ -214,6 +214,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_EINZELVERFAHREN_ASN1DECODIEREN, OnEinzelverfahrenAsn1decodieren)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
+	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+	ON_COMMAND(ID_FILEPROPERTIES, OnFileProperties)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -242,7 +244,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+	ON_COMMAND(ID_TOTXT, OnToTxt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1274,39 +1276,39 @@ void CCryptDoc::OnToHex()
 }
 
 void CCryptDoc::OnToTxt() 
-{
-	CAppDocument *NewDoc;
-	char outfile[128], c;
-	BOOL Modified;
-	WINDOWPLACEMENT place;
-	FILE *in;
-
-	GetTmpName(outfile,"cry",".txt");
-	
-	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
-	CWnd_hilf->GetWindowPlacement( &place );
-	Modified = IsModified();
-	OnSaveDocument(outfile);
-
-	// Test auf abschließende Nullzeichen
-	in = fopen(outfile,"rb");
-	fseek(in, -1, SEEK_END);
-	fread(&c, 1, 1, in);
-	fclose(in);
-	if(c==0) { // abschließende Null gefunden --> Benutzer warnen
-		if(IDYES != AfxMessageBox (IDS_STRING_CUT_NULLS, MB_YESNO | MB_ICONQUESTION))
-			return;
-	}
-
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
-	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
-	CWnd_hilf->SetWindowPlacement( &place );
-	remove(outfile);
-	NewDoc->SetTitle(GetTitle());
-	NewDoc->CWndVaterFenster = CWndVaterFenster;
-	NewDoc->hWndVaterFenster = hWndVaterFenster;
-	NewDoc->SetModifiedFlag(Modified);
-	OnCloseDocument();
+ {
+ 	CAppDocument *NewDoc;
+ 	char outfile[128], c;
+ 	BOOL Modified;
+ 	WINDOWPLACEMENT place;
+ 	FILE *in;
+ 
+ 	GetTmpName(outfile,"cry",".txt");
+ 	
+ 	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+ 	CWnd_hilf->GetWindowPlacement( &place );
+ 	Modified = IsModified();
+ 	OnSaveDocument(outfile);
+ 
+ 	// Test auf abschließende Nullzeichen
+ 	in = fopen(outfile,"rb");
+ 	fseek(in, -1, SEEK_END);
+ 	fread(&c, 1, 1, in);
+ 	fclose(in);
+ 	if(c==0) { // abschließende Null gefunden --> Benutzer warnen
+ 		if(IDYES != AfxMessageBox (IDS_STRING_CUT_NULLS, MB_YESNO | MB_ICONQUESTION))
+ 			return;
+ 	}
+ 
+ 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
+ 	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+ 	CWnd_hilf->SetWindowPlacement( &place );
+ 	remove(outfile);
+ 	NewDoc->SetTitle(GetTitle());
+ 	NewDoc->CWndVaterFenster = CWndVaterFenster;
+ 	NewDoc->hWndVaterFenster = hWndVaterFenster;
+ 	NewDoc->SetModifiedFlag(Modified);
+ 	OnCloseDocument();
 }
 
 void CCryptDoc::OnPlayfairBin()
@@ -1752,3 +1754,10 @@ void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 		
 	dlg.DoModal();
 }
+
+void CCryptDoc::OnFileProperties() 
+{
+	CDlgFileProperties DlgFileProperties;
+	DlgFileProperties.DoModal();
+}
+
