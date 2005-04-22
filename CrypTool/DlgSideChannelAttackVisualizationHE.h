@@ -165,6 +165,7 @@ public:
 	CProgressCtrl	m_ControlAttackProgress;
 	CPictureEx	m_ControlABArrow;
 	CPictureEx	m_ControlLights;
+	BOOL	m_bShowInfoDialogues;
 	//}}AFX_DATA
 
 
@@ -195,6 +196,7 @@ protected:
 	afx_msg void OnButtonNextsinglestep();
 	afx_msg void OnButtonAllremainingsteps();
 	afx_msg void OnMessagereception();
+	afx_msg void OnCheckDisablehelp();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -71,6 +71,7 @@ CDlgSideChannelAttackVisualizationHE::CDlgSideChannelAttackVisualizationHE(CWnd*
 	: CDialog(CDlgSideChannelAttackVisualizationHE::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgSideChannelAttackVisualizationHE)
+	m_bShowInfoDialogues = FALSE;
 	//}}AFX_DATA_INIT
 
 	// *** Initialisierungen ***
@@ -108,6 +109,7 @@ void CDlgSideChannelAttackVisualizationHE::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PROGRESS_ATTACK, m_ControlAttackProgress);
 	DDX_Control(pDX, IDC_ABARROW, m_ControlABArrow);
 	DDX_Control(pDX, IDC_LIGHTS, m_ControlLights);
+	DDX_Check(pDX, IDC_CHECK_DISABLEHELP, m_bShowInfoDialogues);
 	//}}AFX_DATA_MAP
 }
 
@@ -128,6 +130,7 @@ BEGIN_MESSAGE_MAP(CDlgSideChannelAttackVisualizationHE, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_NEXTSINGLESTEP, OnButtonNextsinglestep)
 	ON_BN_CLICKED(IDC_BUTTON_ALLREMAININGSTEPS, OnButtonAllremainingsteps)
 	ON_BN_CLICKED(IDC_MESSAGERECEPTION, OnMessagereception)
+	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -187,8 +190,16 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 
 		// Buttons für Angriffssteuerung ausblenden
 		cancelAttackCycle();
+
+		// Informationsdialoge anzeigen? (schnellere Bedienung bei Bedarf)
+		if(theApp.GetProfileInt("Settings", "SCA_InfoDialogues", 1))
+		{
+			this->m_bShowInfoDialogues = true;
+		}
+
+		UpdateData(false);
 		
-		return TRUE;  // return TRUE unless you set the focus to a control
+		return FALSE;  // return TRUE unless you set the focus to a control
 					  // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
@@ -297,33 +308,36 @@ void CDlgSideChannelAttackVisualizationHE::OnIntroduction()
 {
 	try
 	{
-		// Einführungsdialog anzeigen [weiter nichts]
-		CDlgSideChannelAttackVisualizationHEIntroduction dlg;
-		
-		if(dlg.DoModal() == IDOK)
+		if(this->m_bShowInfoDialogues)
 		{
-			// Steuerelemente für Angriff "ausblenden"
-			cancelAttackCycle();
-			// RESET
-			m_ControlAttackProgress.SetPos(0);
-			// Pfeil zwischen Alice und Bob (AB) auf "normal" stellen
-			setABArrow(SCA_ABARROW_NORMAL);
-			
-			// ** Akteure erstellen **
-			// Falls zuvor bereits Akteure erstellt wurden, müssen diese gelöscht werden
-			if(scaServer) delete scaServer;
-			scaServer = new SCA_Server();
-			if(!scaServer) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
-			if(scaClient) delete scaClient;
-			scaClient = new SCA_Client();
-			if(!scaClient) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
-			if(scaAttacker) delete scaAttacker;
-			scaAttacker = new SCA_Attacker();
-			if(!scaAttacker) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
+			// Einführungsdialog anzeigen [weiter nichts]
+			CDlgSideChannelAttackVisualizationHEIntroduction dlg;
 
-			// Anzeige aktualisieren (NUR bei Druck auf Ok)
-			updateGUI(0);
+			if(dlg.DoModal() != IDOK)
+				return;
 		}
+
+		// Steuerelemente für Angriff "ausblenden"
+		cancelAttackCycle();
+		// RESET
+		m_ControlAttackProgress.SetPos(0);
+		// Pfeil zwischen Alice und Bob (AB) auf "normal" stellen
+		setABArrow(SCA_ABARROW_NORMAL);
+		
+		// ** Akteure erstellen **
+		// Falls zuvor bereits Akteure erstellt wurden, müssen diese gelöscht werden
+		if(scaServer) delete scaServer;
+		scaServer = new SCA_Server();
+		if(!scaServer) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
+		if(scaClient) delete scaClient;
+		scaClient = new SCA_Client();
+		if(!scaClient) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
+		if(scaAttacker) delete scaAttacker;
+		scaAttacker = new SCA_Attacker();
+		if(!scaAttacker) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
+
+		// Anzeige aktualisieren (NUR bei Druck auf Ok)
+		updateGUI(0);
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -430,23 +444,27 @@ void CDlgSideChannelAttackVisualizationHE::OnMessagetransmission()
 {
 	try
 	{
-		CDlgSideChannelAttackVisualizationHEMessageTransmission dlg;
-		
-		if(dlg.DoModal() == IDOK)
+		if(this->m_bShowInfoDialogues)
 		{
-			// Steuerelemente für Angriff "ausblenden"
-			cancelAttackCycle();
+			// Informationsdialog anzeigen
+			CDlgSideChannelAttackVisualizationHEMessageTransmission dlg;	
 
-			// Pfeil zwischen Alice und Bob (AB) auf "Nachricht übertragen" stellen
-			setABArrow(SCA_ABARROW_TRANSMISSION);
-			
-			// Timer für Animationsabläufe setzen (siehe Funktion OnTimer)
-			if(!SetTimer(SCA_TIMEREVENT_AB_TRANSMISSION, 50, 0))
-				throw SCA_Error(E_SCA_TIMER_NOT_AVAILABLE);
-
-			// Anzeige aktualisieren (nur bei Druck auf Ok)
-			updateGUI(2);
+			if(dlg.DoModal() != IDOK)
+				return;
 		}
+
+		// Steuerelemente für Angriff "ausblenden"
+		cancelAttackCycle();
+
+		// Pfeil zwischen Alice und Bob (AB) auf "Nachricht übertragen" stellen
+		setABArrow(SCA_ABARROW_TRANSMISSION);
+		
+		// Timer für Animationsabläufe setzen (siehe Funktion OnTimer)
+		if(!SetTimer(SCA_TIMEREVENT_AB_TRANSMISSION, 50, 0))
+			throw SCA_Error(E_SCA_TIMER_NOT_AVAILABLE);
+
+		// Anzeige aktualisieren (nur bei Druck auf Ok)
+		updateGUI(2);
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -547,25 +565,29 @@ void CDlgSideChannelAttackVisualizationHE::OnMessageinterception()
 {
 	try
 	{
-		CDlgSideChannelAttackVisualizationHEMessageInterception dlg;
-	
-		if(dlg.DoModal() == IDOK)
+		if(this->m_bShowInfoDialogues)
 		{
-			// RESET
-			scaAttacker->cancelInterception();
-			scaAttacker->cancelAttack();
-			m_ControlAttackProgress.SetPos(0);
-			// Steuerelemente für Angriff "ausblenden"
-			cancelAttackCycle();
+			// Informationsdialog anzeigen
+			CDlgSideChannelAttackVisualizationHEMessageInterception dlg;
 
-			// Pfeil zwischen Alice und Bob (AB) auf "Nachricht abfangen" stellen
-			setABArrow(SCA_ABARROW_INTERCEPTION);
-			// Nachricht ABFANGEN
-			scaAttacker->interceptHybridEncryptedFile(scaClient->getHybEncFile());
-
-			// Anzeige aktualisieren
-			updateGUI(3);
+			if(dlg.DoModal() != IDOK)
+				return;
 		}
+		
+		// RESET
+		scaAttacker->cancelInterception();
+		scaAttacker->cancelAttack();
+		m_ControlAttackProgress.SetPos(0);
+		// Steuerelemente für Angriff "ausblenden"
+		cancelAttackCycle();
+
+		// Pfeil zwischen Alice und Bob (AB) auf "Nachricht abfangen" stellen
+		setABArrow(SCA_ABARROW_INTERCEPTION);
+		// Nachricht ABFANGEN
+		scaAttacker->interceptHybridEncryptedFile(scaClient->getHybEncFile());
+
+		// Anzeige aktualisieren
+		updateGUI(3);
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -589,24 +611,32 @@ void CDlgSideChannelAttackVisualizationHE::OnAttackcycle()
 			MessageBox(pc_str, "CrypTool", MB_OK);
 			return;
 		}
-		
-		CDlgSideChannelAttackVisualizationHEAttackCycle dlg;
-	
-		if(dlg.DoModal() == IDOK)
+
+		if(this->m_bShowInfoDialogues)
 		{
-			// Anzeige BEREITS HIER aktualisieren, damit roter Button
-			// nicht den Anwender ablenkt
-			updateGUI(4);
+		
+			// Informationsdialog anzeigen
+			CDlgSideChannelAttackVisualizationHEAttackCycle dlg;
 
-			// Pfeil zwischen Alice und Bob (AB) auf "normal" stellen
-			setABArrow(SCA_ABARROW_NORMAL);
+			if(dlg.DoModal() != IDOK)
+				return;
+		}
 
-			// RESET
-			scaAttacker->cancelAttack();
-			scaServer->cancelAttackerReceptions();
-			m_ControlAttackProgress.SetPos(0);
-			cancelAttackCycle();
+		// Anzeige BEREITS HIER aktualisieren, damit roter Button
+		// nicht den Anwender ablenkt
+		updateGUI(4);
 
+		// Pfeil zwischen Alice und Bob (AB) auf "normal" stellen
+		setABArrow(SCA_ABARROW_NORMAL);
+
+		// RESET
+		scaAttacker->cancelAttack();
+		scaServer->cancelAttackerReceptions();
+		m_ControlAttackProgress.SetPos(0);
+		cancelAttackCycle();
+
+		if(this->m_bShowInfoDialogues)
+		{
 			// Anwender fragen, ob er den Angriff
 			//  a) IM EINZELSCHRITTMODUS oder
 			//  b) IN EINEM EINZIGEN DURCHLAUF
@@ -641,6 +671,11 @@ void CDlgSideChannelAttackVisualizationHE::OnAttackcycle()
 			CDlgSideChannelAttackVisualizationHEFinished fin;
 			fin.DoModal();
 		}
+		else
+		{
+			startAttackCycle();
+			return;
+		}
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -664,26 +699,32 @@ void CDlgSideChannelAttackVisualizationHE::OnReport()
 			return;
 		}
 
-
-		CDlgSideChannelAttackVisualizationHEReport dlg;
-	
-		if(dlg.DoModal() == IDOK)
+		if(this->m_bShowInfoDialogues)
 		{
-			// REPORT GENERIEREN
-			// =================
-		
-			char filename[CRYPTOOL_PATH_LENGTH];
-			GetTmpName(filename, "cry", ".txt");
-			generateSCAReport(scaClient, scaServer, scaAttacker, filename);
-			CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
+			// Informationsdialog anzeigen
+			CDlgSideChannelAttackVisualizationHEReport dlg;
 
+			if(dlg.DoModal() != IDOK)
+				return;
+		}
+
+		// REPORT GENERIEREN
+		// =================
+	
+		char filename[CRYPTOOL_PATH_LENGTH];
+		GetTmpName(filename, "cry", ".txt");
+		generateSCAReport(scaClient, scaServer, scaAttacker, filename);
+		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
+
+		if(this->m_bShowInfoDialogues)
+		{
 			// Message-Box über erfolgreichen Verlauf der Logtexterzeugung einblenden
 			LoadString(AfxGetInstanceHandle(), IDS_SCA_REPORTGENERATED, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool");
-			
-			// Anzeige aktualisieren
-			updateGUI(5);
 		}
+		
+		// Anzeige aktualisieren
+		updateGUI(5);
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
@@ -1023,4 +1064,11 @@ void CDlgSideChannelAttackVisualizationHE::OnButtonAllremainingsteps()
 	// Anzeige aktualisieren
 	updateGUI(4);
 	return;
+}
+
+void CDlgSideChannelAttackVisualizationHE::OnCheckDisablehelp() 
+{
+	UpdateData(true);
+
+	this->m_bShowInfoDialogues ? theApp.WriteProfileInt("Settings", "SCA_InfoDialogues", 1) : theApp.WriteProfileInt("Settings", "SCA_InfoDialogues", 0);	
 }
