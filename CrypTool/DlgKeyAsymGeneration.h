@@ -75,6 +75,7 @@ class CDlgKeyAsymGeneration : public CDialog
 {
 // Konstruktion
 public:
+	void showRSAKeysOnly();
 	CDlgKeyAsymGeneration(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	~CDlgKeyAsymGeneration();
@@ -133,6 +134,7 @@ private:
 // Implementierung		
 
 protected:
+	bool m_showRSAKeysOnly;
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyAsymGeneration)

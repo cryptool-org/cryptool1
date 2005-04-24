@@ -115,6 +115,8 @@ CDlgKeyAsymGeneration::CDlgKeyAsymGeneration(CWnd* pParent /*=NULL*/)
 	if (curveParameter->pubKey == NULL) return; // error. keine Speicherallokation
 	curveParameter->pubKey->infinity=1; // pubKey is not defined yet
 	inttoln(0, curveParameter->privKey); // initialize privKey = 0 (not defined yet)
+
+	m_showRSAKeysOnly = false;
 }
 
 CDlgKeyAsymGeneration::~CDlgKeyAsymGeneration()
@@ -557,6 +559,19 @@ void CDlgKeyAsymGeneration::OnRSARadio()
 
 void CDlgKeyAsymGeneration::OnDSARadio() 
 {
+	if(this->m_showRSAKeysOnly)
+	{
+		// creating a DSA key is not allowed at this point
+		Message(IDS_STRING_ASYMKEYGEN_RSAONLY, MB_ICONINFORMATION);
+		m_RSARadio.SetCheck(1);
+		m_DSARadio.SetCheck(0);
+		m_ECRadio.SetCheck(0);
+		m_rsa_combo.EnableWindow(TRUE);
+		m_dsa_combo.EnableWindow(FALSE);
+		m_ec_combo.EnableWindow(FALSE);
+		return;
+	}
+
 	m_rsa_combo.EnableWindow(FALSE); // Set rsa-combobox inactiv
 	m_dsa_combo.EnableWindow(TRUE); // Set dsa-combobox activ
 	m_ec_combo.EnableWindow(FALSE); // Set ec-combobox inactiv
@@ -570,6 +585,19 @@ void CDlgKeyAsymGeneration::OnDSARadio()
 
 void CDlgKeyAsymGeneration::OnECRadio() 
 {
+	if(this->m_showRSAKeysOnly)
+	{
+		// creating a DSA key is not allowed at this point
+		Message(IDS_STRING_ASYMKEYGEN_RSAONLY, MB_ICONINFORMATION);
+		m_RSARadio.SetCheck(1);
+		m_DSARadio.SetCheck(0);
+		m_ECRadio.SetCheck(0);
+		m_rsa_combo.EnableWindow(TRUE);
+		m_dsa_combo.EnableWindow(FALSE);
+		m_ec_combo.EnableWindow(FALSE);
+		return;
+	}
+
 	m_rsa_combo.EnableWindow(FALSE); // Set rsa combobox inactiv
 	m_dsa_combo.EnableWindow(FALSE); // Set dsa combobox inactiv
 	m_ec_combo.EnableWindow(TRUE); // Set ec combobox activ
@@ -1428,3 +1456,8 @@ void CDlgKeyAsymGeneration::OnKillfocusEditLv()
 	::ShowWindow(::GetDlgItem(m_hWnd,IDC_EDIT_LV),SW_HIDE);
 }
 
+
+void CDlgKeyAsymGeneration::showRSAKeysOnly()
+{
+	this->m_showRSAKeysOnly = true;
+}

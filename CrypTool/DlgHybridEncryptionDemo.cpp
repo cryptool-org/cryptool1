@@ -405,6 +405,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 		Message( IDS_NORSAKEY_AVAILABLE, MB_ICONSTOP );
 		// RSA-Schlüsselerzeugungs-Dialog aufrufen
 		CDlgKeyAsymGeneration dlg;
+		dlg.showRSAKeysOnly();
 		dlg.DoModal();
 		return;
 	}

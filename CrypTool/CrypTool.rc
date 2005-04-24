@@ -7880,6 +7880,8 @@ BEGIN
                             "Maskierung nur vor Beginn des Protokolls möglich."
     IDS_DH_PP_SECRET_PREDICTABLE 
                             "Das von Ihnen eingegebene Geheimnis S ist 1. Das gewählte Geheimnis sollte größer als 1 sein.\nDas Verfahren ist mit diesem Geheimnis nicht sicher, da der ausgehandelte geheime und gemeinsame Schlüssel erratbar ist!\nVergleichen Sie bitte am Ende der Demo den geheimen und gemeinsamen Schlüssel mit dem öffentlichen Generator g bzw. den öffentlichen Teilschlüsseln."
+    IDS_STRING_ASYMKEYGEN_RSAONLY 
+                            "An dieser Stelle ist nur die Erzeugung eines RSA-Schlüssels erlaubt."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -15947,6 +15949,8 @@ BEGIN
                             "Masking only is possible before starting the protocol."
     IDS_DH_PP_SECRET_PREDICTABLE 
                             "The secret number you chose is one. The chosen secret number should be greater than one.\nThe proceeding with this secret might not be safe, because someone can guess the calculated common secret (session key)!\nAt the end of this demo, please compare the session key with the public generator g respectively with public shared keys."
+    IDS_STRING_ASYMKEYGEN_RSAONLY 
+                            "Only the creation of an RSA key is allowed at this point."
 END
 
 STRINGTABLE DISCARDABLE 

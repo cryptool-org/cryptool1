@@ -854,6 +854,7 @@
 #define IDS_Message_MaskBeforeProtocolStart 11129
 #define IDS_DH_PP_SECRET_PREDICTABLE    11130
 #define ID_CR_OVERVIEW                  11131
+#define IDS_STRING_ASYMKEYGEN_RSAONLY   11131
 #define ID_CR_USAGE                     11132
 #define ID_CR_SZ_PASSWORDS              11133
 #define ID_CR_SZ_ONETIMEPASSWORDS       11135
