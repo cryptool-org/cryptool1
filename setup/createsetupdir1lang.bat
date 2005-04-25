@@ -15,8 +15,7 @@ if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 xcopy /s/q template\*.* setup-%lang%\
 xcopy /s/q template-%lang%\*.* setup-%lang%\
 copy ..\release_%lang%\*.exe setup-%lang%
-copy ..\release_%lang%\CrypTool-%lang%.hlp setup-%lang%
-copy ..\release_%lang%\CrypTool-%lang%.cnt setup-%lang%
+copy ..\release_%lang%\CrypTool-%lang%.chm setup-%lang%
 copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
 copy ..\OpenSSL\libeay32.dll setup-%lang%
