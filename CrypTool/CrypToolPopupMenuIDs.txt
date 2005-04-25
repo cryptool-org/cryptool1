@@ -62,23 +62,24 @@ ENGLISH Analysis_AnalyseRandomness # &Analysis|&Analyse Randomness
 ENGLISH Analysis_AsymmetricEncryption # &Analysis|&Asymmetric Encryption
 ENGLISH Analysis_AsymmetricEncryption_LatticeBasedAttacksonRSA # &Analysis|&Asymmetric Encryption|Lattice Based Attacks on RSA
 ENGLISH Analysis_Hash # &Analysis|&Hash
-ENGLISH Analysis_SymmetricEncryptionClassic # &Analysis|Symmetric Encryption/Classic
-ENGLISH Analysis_SymmetricEncryptionClassic_Ciphertextonly # &Analysis|Symmetric Encryption/Classic|&Ciphertext only
-ENGLISH Analysis_SymmetricEncryptionClassic_KnownPlaintext # &Analysis|Symmetric Encryption/Classic|Known &Plaintext
-ENGLISH Analysis_SymmetricEncryptionClassic_ManualAnalysis # &Analysis|Symmetric Encryption/Classic|&Manual Analysis
-ENGLISH Analysis_SymmetricEncryptionModern # &Analysis|Symmetric Encryption/Modern
 ENGLISH Analysis_ToolsforAnalysis # &Analysis|&Tools for Analysis
+ENGLISH Analysis_SymmetricEncryptionclassic # &Analysis|Symmetric Encryption (classic)
+ENGLISH Analysis_SymmetricEncryptionclassic_Ciphertextonly # &Analysis|Symmetric Encryption (classic)|&Ciphertext only
+ENGLISH Analysis_SymmetricEncryptionclassic_KnownPlaintext # &Analysis|Symmetric Encryption (classic)|Known &Plaintext
+ENGLISH Analysis_SymmetricEncryptionclassic_ManualAnalysis # &Analysis|Symmetric Encryption (classic)|&Manual Analysis
+ENGLISH Analysis_SymmetricEncryptionmodern # &Analysis|Symmetric Encryption (modern)
 ENGLISH CryptDecrypt # &Crypt/Decrypt
 ENGLISH CryptDecrypt_Asymmetric # &Crypt/Decrypt|&Asymmetric
+ENGLISH CryptDecrypt_Symmetricclassic # &Crypt/Decrypt|Symmetric (&classic)
+ENGLISH CryptDecrypt_Symmetricmodern # &Crypt/Decrypt|Symmetric (&modern)
 ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
-ENGLISH CryptDecrypt_SymmetricClassical # &Crypt/Decrypt|Symmetric/&Classical
-ENGLISH CryptDecrypt_SymmetricModern # &Crypt/Decrypt|Symmetric/&Modern
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
 ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|PKI
 ENGLISH IndivProcedures_Codes # &Indiv. Procedures|Codes
 ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|Protocols
 ENGLISH IndivProcedures_RSACryptosystem # &Indiv. Procedures|&RSA Cryptosystem
-ENGLISH ViewWindow # &View/Window
+ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder Theorem Applications
+ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedures|Visualization of Algorithms using ANIMAL
 ENGLISH View # &View
 ENGLISH Window # &Window
 ENGLISH Help_VisualizationofAlgorithmsusingANIMAL # &Help|Visualization of Algorithms using ANIMAL
@@ -95,25 +96,28 @@ GERMAN VerEntschlsseln_Asymmetrisch # &Ver-/Entschlüsseln|&Asymmetrisch
 GERMAN Analyse_AsymmetrischeVerfahren # A&nalyse|&Asymmetrische Verfahren
 GERMAN Analyse_AsymmetrischeVerfahren_GitterbasierteAngriffeaufRSA # A&nalyse|&Asymmetrische Verfahren|Gitterbasierte Angriffe auf RSA
 GERMAN Analyse_Hashverfahren # A&nalyse|&Hashverfahren
-GERMAN Analyse_SymmetrischeVerschlsselungklassisch # A&nalyse|Symmetrische Verschlüsselung/&klassisch
-GERMAN Analyse_SymmetrischeVerschlsselungklassisch_Ciphertextonly # A&nalyse|Symmetrische Verschlüsselung/&klassisch|&Ciphertext only
-GERMAN Analyse_SymmetrischeVerschlsselungklassisch_KnownPlaintext # A&nalyse|Symmetrische Verschlüsselung/&klassisch|Known &Plaintext
-GERMAN Analyse_SymmetrischeVerschlsselungklassisch_ManuelleAnalyse # A&nalyse|Symmetrische Verschlüsselung/&klassisch|&Manuelle Analyse
-GERMAN Analyse_SymmetrischeVerschlsselungmodern # A&nalyse|Symmetrische Verschlüsselung/&modern
+GERMAN Analyse_SymmetrischeVerschlsselungklassisch # A&nalyse|Symmetrische Verschlüsselung (&klassisch)
+GERMAN Analyse_SymmetrischeVerschlsselungklassisch_Ciphertextonly # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|&Ciphertext only
+GERMAN Analyse_SymmetrischeVerschlsselungklassisch_KnownPlaintext # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|Known &Plaintext
+GERMAN Analyse_SymmetrischeVerschlsselungklassisch_ManuelleAnalyse # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|&Manuelle Analyse
+GERMAN Analyse_SymmetrischeVerschlsselungmodern # A&nalyse|Symmetrische Verschlüsselung (&modern)
 GERMAN Analyse_WerkzeugezurAnalyse # A&nalyse|&Werkzeuge zur Analyse
 GERMAN Analyse_Zufallsanalyse # A&nalyse|&Zufallsanalyse
 GERMAN DigitaleSignaturenPKI # Digitale Signaturen/&PKI
 GERMAN DigitaleSignaturenPKI_PKI # Digitale Signaturen/&PKI|PKI
 GERMAN Einzelverfahren_Hashverfahren # &Einzelverfahren|&Hashverfahren
-GERMAN Einzelverfahren_Kodierungen # &Einzelverfahren|K&odierungen
+GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
+GERMAN Einzelverfahren_AnwendungendesChinesischenRestsatzes # &Einzelverfahren|Anwendungen des Chinesischen Restsatzes
+GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
+GERMAN Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA # &Einzelverfahren|&RSA-Kryptosystem|Gitterbasierte Angriffe auf RSA
+GERMAN Einzelverfahren_VisualisierungvonAlgorithmenmitANIMAL # &Einzelverfahren|Visualisierung von Algorithmen mit ANIMAL
+GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
+GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch (&klassisch)
+GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch (&modern)
 GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
 GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
-GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch/&klassisch
-GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch/&modern
-GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
-GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
-GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch/&klassisch
-GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch/&modern
+GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch (&klassisch)
+GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch (&modern)
 GERMAN Ansicht # &Ansicht
 GERMAN Fenster # &Fenster
 GERMAN Hilfe_VisualisierungvonAlgorithmenmitANIMAL # &Hilfe|Visualisierung von Algorithmen mit ANIMAL
