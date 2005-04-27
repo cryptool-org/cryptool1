@@ -1124,6 +1124,7 @@
 #define ID_INDIV_CRT_PLANET             33289
 #define ID_INDIV_CRT_DEMO               33290
 #define ID_INDIV_CRT_SECRETSHARING      33291
+#define ID_HELP_ANIMAL_CAESAR           33292
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1897,7 +1898,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        806
-#define _APS_NEXT_COMMAND_VALUE         33292
+#define _APS_NEXT_COMMAND_VALUE         33293
 #define _APS_NEXT_CONTROL_VALUE         1549
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
