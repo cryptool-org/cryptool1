@@ -3658,7 +3658,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expoertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/exportieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN, GRAYED
@@ -3706,13 +3706,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -3732,16 +3732,19 @@ BEGIN
             MENUITEM "Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing mittels CRT",  ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing mittels CRT...", 
+                                                    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -3834,13 +3837,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -3895,15 +3898,6 @@ BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
@@ -4014,7 +4008,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expoertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/exportieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
@@ -4056,13 +4050,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4082,16 +4076,19 @@ BEGIN
             MENUITEM "Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing mittels CRT",  ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing mittels CRT...", 
+                                                    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4179,13 +4176,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4239,15 +4236,6 @@ BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
@@ -4358,7 +4346,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expoertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/expertieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
@@ -4400,13 +4388,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4426,16 +4414,19 @@ BEGIN
             MENUITEM "Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing mittels CRT",  ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing mittels CRT...", 
+                                                    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4518,13 +4509,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4578,15 +4569,6 @@ BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
@@ -4706,7 +4688,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expoertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/exportieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN, GRAYED
@@ -4754,13 +4736,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4780,16 +4762,19 @@ BEGIN
             MENUITEM "Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing mittels CRT",  ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing mittels CRT...", 
+                                                    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4882,13 +4867,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -4943,15 +4928,6 @@ BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
@@ -5062,7 +5038,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expoertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/exportieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
@@ -5104,13 +5080,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -5130,16 +5106,19 @@ BEGIN
             MENUITEM "Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing mittels CRT",  ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing mittels CRT...", 
+                                                    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -5227,13 +5206,13 @@ BEGIN
 
             POPUP "Gitterbasierte Angriffe auf RSA", GRAYED
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p", 
+                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Angriff auf stereotype Nachrichten", 
+                MENUITEM "Angriff auf stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Angriff auf kleine geheime Schlüssel", 
+                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
                 , GRAYED
             END
@@ -5287,15 +5266,6 @@ BEGIN
         MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualisierung von Algorithmen mit ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
@@ -11781,6 +11751,16 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
+            POPUP "Lattice Based Attacks on RSA", GRAYED
+            BEGIN
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
+                , GRAYED
+                MENUITEM "Attack on Stereotyped Messages...", 
+                                                        ID_RSA_STEREOTYPED
+                , GRAYED
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                , GRAYED
+            END
         END
         POPUP "Protocols"
         BEGIN
@@ -11796,16 +11776,18 @@ BEGIN
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing by CRT",       ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualization of Algorithms using ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -11898,12 +11880,12 @@ BEGIN
 
             POPUP "Lattice Based Attacks on RSA", GRAYED
             BEGIN
-                MENUITEM "Factoring with a Hint",       ID_RSA_FACTORHINT
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Attack on Stereotyped Messages", 
+                MENUITEM "Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Attack on Small Secret Keys", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
                 , GRAYED
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
@@ -11956,15 +11938,6 @@ BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualization of Algorithms using ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -12114,6 +12087,16 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
+            POPUP "Lattice Based Attacks on RSA", GRAYED
+            BEGIN
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
+                , GRAYED
+                MENUITEM "Attack on Stereotyped Messages...", 
+                                                        ID_RSA_STEREOTYPED
+                , GRAYED
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                , GRAYED
+            END
         END
         POPUP "Protocols"
         BEGIN
@@ -12129,16 +12112,18 @@ BEGIN
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing by CRT",       ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualization of Algorithms using ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12226,12 +12211,12 @@ BEGIN
 
             POPUP "Lattice Based Attacks on RSA", GRAYED
             BEGIN
-                MENUITEM "Factoring with a Hint",       ID_RSA_FACTORHINT
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Attack on Stereotyped Messages", 
+                MENUITEM "Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Attack on Small Secret Keys", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
                 , GRAYED
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
@@ -12284,15 +12269,6 @@ BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualization of Algorithms using ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -12443,6 +12419,16 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
+            POPUP "Lattice Based Attacks on RSA", GRAYED
+            BEGIN
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
+                , GRAYED
+                MENUITEM "Attack on Stereotyped Messages...", 
+                                                        ID_RSA_STEREOTYPED
+                , GRAYED
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                , GRAYED
+            END
         END
         POPUP "Protocols"
         BEGIN
@@ -12458,16 +12444,18 @@ BEGIN
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing by CRT",       ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualization of Algorithms using ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12548,12 +12536,12 @@ BEGIN
 
             POPUP "Lattice Based Attacks on RSA", GRAYED
             BEGIN
-                MENUITEM "Factoring with a Hint",       ID_RSA_FACTORHINT
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Attack on Stereotyped Messages", 
+                MENUITEM "Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Attack on Small Secret Keys", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
                 , GRAYED
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
@@ -12606,15 +12594,6 @@ BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualization of Algorithms using ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -12779,6 +12758,16 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
+            POPUP "Lattice Based Attacks on RSA", GRAYED
+            BEGIN
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
+                , GRAYED
+                MENUITEM "Attack on Stereotyped Messages...", 
+                                                        ID_RSA_STEREOTYPED
+                , GRAYED
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                , GRAYED
+            END
         END
         POPUP "Protocols"
         BEGIN
@@ -12794,16 +12783,18 @@ BEGIN
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing by CRT",       ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualization of Algorithms using ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12896,12 +12887,12 @@ BEGIN
 
             POPUP "Lattice Based Attacks on RSA", GRAYED
             BEGIN
-                MENUITEM "Factoring with a Hint",       ID_RSA_FACTORHINT
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Attack on Stereotyped Messages", 
+                MENUITEM "Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Attack on Small Secret Keys", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
                 , GRAYED
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
@@ -12954,15 +12945,6 @@ BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualization of Algorithms using ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -13112,6 +13094,16 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
+            POPUP "Lattice Based Attacks on RSA", GRAYED
+            BEGIN
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
+                , GRAYED
+                MENUITEM "Attack on Stereotyped Messages...", 
+                                                        ID_RSA_STEREOTYPED
+                , GRAYED
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                , GRAYED
+            END
         END
         POPUP "Protocols"
         BEGIN
@@ -13127,16 +13119,18 @@ BEGIN
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
             , GRAYED
-            MENUITEM "Secret Sharing by CRT",       ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
             , GRAYED
         END
         POPUP "Visualization of Algorithms using ANIMAL", GRAYED
         BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
+            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
             , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "Vigénere...",                 ID_HELP_ANIMAL_VIGENERE
             , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            , GRAYED
+            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -13224,12 +13218,12 @@ BEGIN
 
             POPUP "Lattice Based Attacks on RSA", GRAYED
             BEGIN
-                MENUITEM "Factoring with a Hint",       ID_RSA_FACTORHINT
+                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
                 , GRAYED
-                MENUITEM "Attack on Stereotyped Messages", 
+                MENUITEM "Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
                 , GRAYED
-                MENUITEM "Attack on Small Secret Keys", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
                 , GRAYED
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
@@ -13282,15 +13276,6 @@ BEGIN
         MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
-        POPUP "Visualization of Algorithms using ANIMAL", GRAYED
-        BEGIN
-            MENUITEM "DES",                         ID_HELP_ANIMAL_DES
-            , GRAYED
-            MENUITEM "Vigénere",                    ID_HELP_ANIMAL_VIGENERE
-            , GRAYED
-            MENUITEM "Nihilist",                    ID_HELP_ANIMAL_NIHILIST
-            , GRAYED
-        END
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
