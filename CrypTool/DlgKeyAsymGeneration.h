@@ -83,6 +83,9 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyAsymGeneration)
 	enum { IDD = IDD_KEYASYM_GENERATION };
+	CStatic	m_ECTextInfo;
+	CStatic	m_DSATextInfo;
+	CStatic	m_RSATextInfo;
 	CListCtrl	m_dom_param_listview;
 	CEdit	m_ctrl5;
 	CButton	m_ShowKeypairButton;

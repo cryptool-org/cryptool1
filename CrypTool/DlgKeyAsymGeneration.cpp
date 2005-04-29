@@ -132,6 +132,9 @@ void CDlgKeyAsymGeneration::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgKeyAsymGeneration)
+	DDX_Control(pDX, IDC_KEYASYM_TEXTEC, m_ECTextInfo);
+	DDX_Control(pDX, IDC_KEYASYM_TEXTDSA, m_DSATextInfo);
+	DDX_Control(pDX, IDC_KEYASYM_TEXTRSA, m_RSATextInfo);
 	DDX_Control(pDX, IDC_LIST1, m_dom_param_listview);
 	DDX_Control(pDX, IDC_EDIT5, m_ctrl5);
 	DDX_Control(pDX, IDC_CHECK1, m_ShowKeypairButton);
@@ -422,6 +425,25 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 
 		UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 	}
+
+	// disable non-RSA components if necessary
+	if(this->m_showRSAKeysOnly)
+	{
+		m_RSARadio.SetCheck(1);
+		m_DSARadio.SetCheck(0);
+		m_ECRadio.SetCheck(0);
+		m_RSARadio.EnableWindow(TRUE);
+		m_DSARadio.EnableWindow(FALSE);
+		m_ECRadio.EnableWindow(FALSE);
+		m_rsa_combo.EnableWindow(TRUE);
+		m_dsa_combo.EnableWindow(FALSE);
+		m_ec_combo.EnableWindow(FALSE);
+		m_RSATextInfo.EnableWindow(TRUE);
+		m_DSATextInfo.EnableWindow(FALSE);
+		m_ECTextInfo.EnableWindow(FALSE);
+	}
+
+	UpdateData(false);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -566,6 +588,9 @@ void CDlgKeyAsymGeneration::OnDSARadio()
 		m_RSARadio.SetCheck(1);
 		m_DSARadio.SetCheck(0);
 		m_ECRadio.SetCheck(0);
+		m_RSARadio.EnableWindow(TRUE);
+		m_DSARadio.EnableWindow(FALSE);
+		m_ECRadio.EnableWindow(FALSE);
 		m_rsa_combo.EnableWindow(TRUE);
 		m_dsa_combo.EnableWindow(FALSE);
 		m_ec_combo.EnableWindow(FALSE);
@@ -592,6 +617,9 @@ void CDlgKeyAsymGeneration::OnECRadio()
 		m_RSARadio.SetCheck(1);
 		m_DSARadio.SetCheck(0);
 		m_ECRadio.SetCheck(0);
+		m_RSARadio.EnableWindow(TRUE);
+		m_DSARadio.EnableWindow(FALSE);
+		m_ECRadio.EnableWindow(FALSE);
 		m_rsa_combo.EnableWindow(TRUE);
 		m_dsa_combo.EnableWindow(FALSE);
 		m_ec_combo.EnableWindow(FALSE);

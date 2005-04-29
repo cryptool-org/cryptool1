@@ -252,10 +252,12 @@ BEGIN
                     144,10
     PUSHBUTTON      "&Schließen",IDCANCEL,338,312,72,19
     GROUPBOX        "Verfahren",IDC_STATIC,10,6,205,143
-    LTEXT           "Bitlänge des RSA-Moduls:",IDC_STATIC,33,40,108,8
-    LTEXT           "Bitlänge der DSA-Primzahl:",IDC_STATIC,33,74,103,8
-    LTEXT           "Bezeichner (Bitlänge und Kurvenparameter):",IDC_STATIC,
-                    33,110,87,17,NOT WS_GROUP
+    LTEXT           "Bitlänge des RSA-Moduls:",IDC_KEYASYM_TEXTRSA,33,40,108,
+                    8
+    LTEXT           "Bitlänge der DSA-Primzahl:",IDC_KEYASYM_TEXTDSA,33,74,
+                    103,8
+    LTEXT           "Bezeichner (Bitlänge und Kurvenparameter):",
+                    IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
     LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",
                     IDC_STATIC,237,17,152,26
     LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
@@ -7033,7 +7035,7 @@ BEGIN
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
                             "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
     IDS_SECUDE_COULD_NOT_BE_LOADED 
-                            "Secude-Bibliothek konnte nicht geladen werden!\nMit Cryptool wird ""Secude.dll"" ausgeliefert.\nBitte überprüfen Sie, ob sich diese Datei im CrypTool-Verzeichnis befindet."
+                            "Secude-Bibliothek konnte nicht geladen werden!\nMit CrypTool wird ""Secude.dll"" ausgeliefert.\nBitte überprüfen Sie, ob sich diese Datei im CrypTool-Verzeichnis befindet."
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
                             "Die jeweils nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
@@ -8400,10 +8402,12 @@ BEGIN
     PUSHBUTTON      "PKCS#12 &import",IDC_BUTTON_P12IMPORT,154,310,86,19
     PUSHBUTTON      "&Close",IDCANCEL,337,310,72,19
     GROUPBOX        "Algorithm",IDC_STATIC,10,4,205,145
-    LTEXT           "Bit length of RSA modulus:",IDC_STATIC,33,40,108,8
-    LTEXT           "Bit length of DSA prime number:",IDC_STATIC,33,74,103,8
+    LTEXT           "Bit length of RSA modulus:",IDC_KEYASYM_TEXTRSA,33,40,
+                    108,8
+    LTEXT           "Bit length of DSA prime number:",IDC_KEYASYM_TEXTDSA,33,
+                    74,103,8
     LTEXT           "Identifier (bit length and curve parameter):",
-                    IDC_STATIC,33,110,87,17,NOT WS_GROUP
+                    IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
     LTEXT           "The key pair will be put in an encrypted PSE with the name shown below. The key pair will be protected by your PIN code.",
                     IDC_STATIC,237,16,162,24
     LTEXT           "Last name:",IDC_STATIC,240,48,50,8
