@@ -3604,7 +3604,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
@@ -3777,7 +3777,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Massenmustersuche",           ID_MASS_PATTERN_SEARCH
+            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -3789,7 +3789,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -3875,7 +3875,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "3-D Visualisierung",          ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -3904,7 +3904,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
+        MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
 END
 
@@ -3963,7 +3963,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -4120,7 +4120,7 @@ BEGIN
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
-            MENUITEM "Massenmustersuche",           ID_MASS_PATTERN_SEARCH
+            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4130,7 +4130,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -4213,7 +4213,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualisierung",          ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -4242,7 +4242,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
+        MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
 END
 
@@ -4301,7 +4301,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -4348,7 +4348,7 @@ BEGIN
         POPUP "PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
-            MENUITEM "Schlüssel &anzeigen/expertieren ...", 
+            MENUITEM "Schlüssel &anzeigen/exportieren ...", 
                                                     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "Dokument &signieren...",      ID_CRYPT_SIGN
@@ -4458,7 +4458,7 @@ BEGIN
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
-            MENUITEM "Massenmustersuche",           ID_MASS_PATTERN_SEARCH
+            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4470,7 +4470,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -4546,7 +4546,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualisierung",          ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -4575,7 +4575,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
+        MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
 END
 
@@ -4634,7 +4634,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
@@ -4807,7 +4807,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Massenmustersuche",           ID_MASS_PATTERN_SEARCH
+            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -4819,7 +4819,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -4905,7 +4905,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "3-D Visualisierung",          ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -4934,7 +4934,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
+        MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
 END
 
@@ -4993,7 +4993,7 @@ BEGIN
             MENUITEM "H&ill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -5150,7 +5150,7 @@ BEGIN
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
-            MENUITEM "Massenmustersuche",           ID_MASS_PATTERN_SEARCH
+            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -5160,7 +5160,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -5243,7 +5243,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualisierung",          ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -5272,7 +5272,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
+        MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
 END
 
@@ -6250,12 +6250,12 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_EDIT_CLEAR           "Löscht die Auswahl"
     ID_EDIT_COPY            "Kopiert die Auswahl in die Zwischenablage\nKopieren"
-    ID_EDIT_CUT             "Schneidet die Auswahl aus und überträgt sie in die Zwischenablage\nAusschneiden"
+    ID_EDIT_CUT             "Schneidet die Auswahl (markierte Zeichen) aus und überträgt sie in die Zwischenablage\nAusschneiden"
     ID_EDIT_FIND            "Sucht den angegebenen Text im aktiven Dokument"
     ID_EDIT_PASTE           "Fügt den Inhalt der Zwischenablage an der Einfügemarke ein\nEinfügen"
     57640                   "Weitersuchen"
     ID_EDIT_REPLACE         "Der angegebene Text wird durch einen anderen Text ersetzt"
-    ID_EDIT_SELECT_ALL      "Das ganze aktive Dokument wird markiert (ausgewählt)"
+    ID_EDIT_SELECT_ALL      "Der ganze Text im aktiven Dokument wird markiert (ausgewählt)"
     ID_EDIT_UNDO            "Macht die letzte Aktion rückgängig"
 END
 
@@ -6294,7 +6294,7 @@ BEGIN
     IDR_MAINFRAME           "CrypTool 1.3.06-beta04"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
-    IDR_ASCTYPE             "\n\n\nASCII Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
+    IDR_ASCTYPE             "\n\n\nASCII-Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
     IDR_PLOTTYPE            "\n\n\nPLOT Dateien (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
 END
 
@@ -6321,13 +6321,13 @@ BEGIN
     ID_CRYPT_DES_DESECB     "Ver-/Entschlüsseln mit DES (ECB Modus)"
     ID_CRYPT_AES_SERPENT    "Ver-/Entschlüsseln mit Serpent"
     ID_CRYPT_AES_TWOFISH    "Ver-/Entschlüsseln mit Twofish"
-    ID_CRYPT_HASH_MD5       "Hashalgorithmus MD5 anwenden"
+    ID_CRYPT_HASH_MD5       "Berechnet den MD5-Hashwert des aktiven Dokuments"
     ID_ANALYSE_IDEA         "Automatische Brute-force Analyse einer IDEA-Verschlüsselung"
     ID_ANALYSE_RC2          "Automatische Brute-force Analyse einer RC2-Verschlüsselung"
-    ID_CRYPT_HASH_MD2       "Hashalgorithmus MD2 anwenden"
-    ID_CRYPT_HASH_MD4       "Hashalgorithmus MD4 anwenden"
-    ID_CRYPT_HASH_SHA       "Hashalgorithmus SHA anwenden"
-    ID_CRYPT_HASH_SHA1      "Hashalgorithmus SHA-1 anwenden"
+    ID_CRYPT_HASH_MD2       "Berechnet den MD2-Hashwert des aktiven Dokuments"
+    ID_CRYPT_HASH_MD4       "Berechnet den MD4-Hashwert des aktiven Dokuments"
+    ID_CRYPT_HASH_SHA       "Berechnet den SHA-Hashwert des aktiven Dokuments"
+    ID_CRYPT_HASH_SHA1      "Berechnet den SHA-1-Hashwert des aktiven Dokuments"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -6371,7 +6371,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_CRYPT_HASH_RIPEMD160 "Hashalgorithmus RIPEMD-160 anwenden"
+    ID_CRYPT_HASH_RIPEMD160 "Berechnet den RIPEMD-160-Hashwert des aktiven Dokuments"
     ID_ANALYSE_RC4          "Automatische Brute-force Analyse einer RC4-Verschlüsselung"
     ID_ANALYSE_DESECB       "Automatische Brute-force Analyse einer DES-ECB-Verschlüsselung"
     ID_ANALYSE_DESCBC       "Automatische Brute-force Analyse einer DES-CBC-Verschlüsselung"
@@ -6381,7 +6381,7 @@ BEGIN
     ID_ANALYSE_AES_RIJNDAEL "Automatische Brute-force Analyse einer Rijndael(AES)-Verschlüsselung"
     ID_ANALYSE_AES_SERPENT  "Automatische Brute-force Analyse einer Serpent-Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Brute-force Analyse einer Twofish-Verschlüsselung"
-    ID_PLOTBAR              "Zeigt die Grafik im aktuellen Fenster als Balkendiagramm an"
+    ID_PLOTBAR              "Zeigt die Grafik im aktiven Fenster als Balkendiagramm an"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
     ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
@@ -6723,11 +6723,11 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_TOTXT                "Zeigt aktuelles Fenster als ASCII Text an"
-    ID_TOHEX                "Zeigt aktuelles Fenster als Hex Dump an"
+    ID_TOTXT                "Zeigt aktives Fenster als ASCII-Text an"
+    ID_TOHEX                "Zeigt aktives Fenster als Hex Dump an"
     ID_PLAYFAIR_ANALYSE     "Manuelle Analyse der Playfair-Verschlüsselung"
     IDS_STRING_VITANY_ANALYSE "Vitany-Analyse"
-    ID_ANALYSE_VITANY       "Gütetest für Zufallsdaten: Test auf Unabhängigkeit"
+    ID_ANALYSE_VITANY       "Führt die Vitany-Analyse durch, um die statistische Unabhängigkeit der Daten im aktiven Dokument zu bewerten"
     IDS_STRING_KEY_GENERATION_DATE "Schlüssel erstellt am:"
     IDS_STRING_MSG_FILENAME_TO_LONG 
                             "Der vom Programm erzeugte Dateiname\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
@@ -7313,26 +7313,27 @@ BEGIN
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Autokorrelation Test des Dokumentes durchführen"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
-                            "Frequency-Test des Dokumentes durchführen"
-    ID_ANALYSE_ZUFALLSTESTS_POKERTEST "Poker-Test des Dokumentes durchführen"
+                            "Führt den Frequency-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
+    ID_ANALYSE_ZUFALLSTESTS_POKERTEST 
+                            "Führt den Poker-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_RUNS 
-                            "Run und Long-Run-Test des Dokumentes durchführen"
+                            "Führt den Run and Long-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 
-                            "Serial-Test des Dokumentes durchführen"
+                            "Führt den Serial-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
-                            "FIPS-PUB-140-1 Test-Batterie an dem Dokument durchführen"
+                            "Führt die FIPS-PUB-140-1 Test-Batterie durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_AES_SELFEXTRACT      "Ruft das eigenständige Programm AES-Tool auf, das die Verschlüsselung der aktuellen Datei in ein selbstextrahierendes Archiv ermöglicht"
+    ID_AES_SELFEXTRACT      "Ruft das eigenständige Programm AES-Tool auf, das die Verschlüsselung einer beliebigen Datei in ein selbstextrahierendes Archiv ermöglicht"
     ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
-                            "Visualisiert wie die hybrid-Verschlüsselung funktioniert"
+                            "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
-                            "Zeigt Schritt für Schritt den Ablauf der Entschlüsselung einer Hybrid-verschlüsselten Datei"
+                            "Zeigt Schritt für Schritt den Ablauf der Entschlüsselung einer hybrid-verschlüsselten Datei"
     ID_EINZELVERFAHREN_SIGN "Visualisierung der Erzeugung digitaler Signaturen"
     ID_EINZELVERFAHREN_SIGN_DOC 
                             "Visualisiert den Prozess der Signaturerzeugung"
@@ -7632,7 +7633,7 @@ BEGIN
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
     IDS_STRING_FACTORISATION_TIMER "Faktorisierungstimer"
     IDS_OPEN_DOCUMENT_FILTER 
-                            "TEXT Dateien (*.txt) |*.txt|ASCII Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
+                            "TEXT Dateien (*.txt) |*.txt|ASCII-Dateien (*.asc)|*.asc|Alle Dateien (*.*) |*.*||"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7860,9 +7861,12 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_SCRIPT               "Öffnet das CrypTool-Script mit weiteren mathematischen Hintergrund-Informationen (Acrobat Reader erforderlich)"
     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
-                            "Visualisiert einen Seitenkanalangriffs auf das Hybridverschlüsselungsprotokoll"
+                            "Visualisiert einen Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll"
     ID_CHALLENGE_RESPONSE   "Visualisiert verschiedene Authentisierungsverfahren und die möglichen Angriffe"
-    ID_FILEPROPERTIES       "Deiteigenschaften anzeigen... "
+    ID_RSA_FACTORHINT       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil eines der beiden Primfaktoren von N bekannt ist"
+    ID_RSA_STEREOTYPED      "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil des ursprünglichen Klartextes einer abgefangenen Nachricht bekannt und e klein ist"
+    ID_RSA_BLOEMERMAY       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern d im Verhältnis zu N zu klein gewählt ist"
+    ID_FILEPROPERTIES       "Dateieigenschaften anzeigen... "
     ID_ENCRYPT_ADFGVX       "ADFGVX-Verschlüsselung"
     ID_GENERATE_MACS        "Erzeugt verschiedene Message Authentication Codes (MACs)"
     ID_MASS_PATTERN_SEARCH  "Sucht vorgegebene Muster in einem Dokument"
@@ -8072,15 +8076,20 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_CODE_BASE64          "Die Base64 Codierung dient z.B. zur Codierung von binären Daten in druckbare ASCII-Zeichen"
-    ID_CODE_UU              "Die UU-Codierung dient z.B. dazu, binäre Dateien mit druckbaren Zeichen darzustellen"
+    ID_CODE_BASE64          "Die Base64-Codierung dient z.B. dazu, binäre Daten mit druckbaren ASCII-Zeichen darzustellen"
+    ID_CODE_UU              "Die UU-Codierung dient z.B. dazu, binäre Daten mit druckbaren ASCII-Zeichen darzustellen"
     ID_ANALYSE_SYMMCLASSIC_ADFGVX 
                             "Automatische Analyse eines ADFGVX-verschlüsselten Dokuments"
     ID_HELP_ANIMAL_DES      "Das Animationsprogramm ANIMAL demonstriert den Ablauf der DES-Verschlüsselung"
     ID_HELP_ANIMAL_VIGENERE "Das Animationsprogramm ANIMAL demonstriert den Ablauf der Vigenére-Verschlüsselung"
     ID_HELP_ANIMAL_NIHILIST "Das Animationsprogramm ANIMAL demonstriert den Ablauf des Nihilist-Algorithmus"
     ID_ANALYSIS_RANDOM_3D_VISUALIZATION 
-                            "Zeigt eine 3-D-Visualisierung von Zufallszahlen"
+                            "Zeigt eine 3-D-Visualisierung von Zufallsdaten"
+    ID_INDIV_CRT_PLANET     "Lösen eines Systems von bis zu 9 linearen Kongruenzen am Beispiel der Planetenkonstellation im Sonnensystem"
+    ID_INDIV_CRT_DEMO       "Veranschaulicht, wie man mit den modularen Resten statt mit den eigentlichen Zahlen rechnet"
+    ID_INDIV_CRT_SECRETSHARING 
+                            "Veranschaulicht das Secret-Sharing-Verfahren mittels CRT (Analogie zum Öffnen eines Tresors mit 3 beliebigen von 5 ausgegebenen Schlüsseln)"
+    ID_HELP_ANIMAL_CAESAR   "Das Animationsprogramm ANIMAL demonstriert den Ablauf der Caesar-Verschlüsselung"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -9292,7 +9301,7 @@ BEGIN
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | 
                     WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Hex dump (hexadecimal and ascii):",IDC_RADIO1,"Button",
+    CONTROL         "Hex dump (hexadecimal and ASCII):",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,
                     11
     CONTROL         "&Octal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,
@@ -9978,7 +9987,7 @@ BEGIN
     LTEXT           "- the first position in the file, where the cycle starts (the first character within the file has the offset value 1)",
                     -1,7,19,356,10
     LTEXT           "- the length of the cycle",-1,7,29,310,10
-    LTEXT           "- the first maximum 20 bytes of the cycle (presented in ascii and hex format)",
+    LTEXT           "- the first maximum 20 bytes of the cycle (presented in ASCII and hex format)",
                     -1,7,39,310,10
 END
 
@@ -11654,7 +11663,7 @@ BEGIN
             MENUITEM "&Hill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
@@ -11775,7 +11784,8 @@ BEGIN
         END
         POPUP "Chinese Remainder Theorem Applications", GRAYED
         BEGIN
-            MENUITEM "Stronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
+            MENUITEM "Astronomy and Planetary Motion...", 
+                                                    ID_INDIV_CRT_PLANET
             , GRAYED
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
@@ -11799,7 +11809,7 @@ BEGIN
         BEGIN
             MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
-            MENUITEM "Dedcode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -11822,7 +11832,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Mass Pattern Search",         ID_MASS_PATTERN_SEARCH
+            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -11834,7 +11844,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -11903,13 +11913,13 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
@@ -11917,7 +11927,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization",           ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -11946,7 +11956,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
+        MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
 END
 
@@ -12005,7 +12015,7 @@ BEGIN
             MENUITEM "&Hill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -12111,7 +12121,8 @@ BEGIN
         END
         POPUP "Chinese Remainder Theorem Applications", GRAYED
         BEGIN
-            MENUITEM "Stronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
+            MENUITEM "Astronomy and Planetary Motion...", 
+                                                    ID_INDIV_CRT_PLANET
             , GRAYED
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
@@ -12135,7 +12146,7 @@ BEGIN
         BEGIN
             MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
-            MENUITEM "Dedcode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -12157,7 +12168,7 @@ BEGIN
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
-            MENUITEM "Mass Pattern Search",         ID_MASS_PATTERN_SEARCH
+            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12167,7 +12178,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -12234,13 +12245,13 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
@@ -12248,7 +12259,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization",           ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -12277,7 +12288,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
+        MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
 END
 
@@ -12336,7 +12347,7 @@ BEGIN
             MENUITEM "&Hill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -12443,7 +12454,7 @@ BEGIN
         END
         POPUP "Chinese Remainder Theorem Applications", GRAYED
         BEGIN
-            MENUITEM "Stronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
+            MENUITEM "Astronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
             , GRAYED
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
@@ -12467,7 +12478,7 @@ BEGIN
         BEGIN
             MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
-            MENUITEM "Dedcode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -12489,7 +12500,7 @@ BEGIN
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
-            MENUITEM "Mass Pattern Search",         ID_MASS_PATTERN_SEARCH
+            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12499,7 +12510,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -12559,13 +12570,13 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
@@ -12573,7 +12584,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization",           ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -12602,7 +12613,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
+        MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
 END
 
@@ -12660,9 +12671,9 @@ BEGIN
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "&Hill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
-            , GRAYED
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
+            , GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
@@ -12782,7 +12793,7 @@ BEGIN
         END
         POPUP "Chinese Remainder Theorem Applications", GRAYED
         BEGIN
-            MENUITEM "Stronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
+            MENUITEM "Astronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
             , GRAYED
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
@@ -12806,7 +12817,7 @@ BEGIN
         BEGIN
             MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
-            MENUITEM "Dedcode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -12829,7 +12840,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Mass Pattern Search",         ID_MASS_PATTERN_SEARCH
+            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -12841,7 +12852,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -12910,13 +12921,13 @@ BEGIN
         END
         POPUP "&Analyse Randomness", GRAYED
         BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
@@ -12924,7 +12935,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization",           ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -12953,7 +12964,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
+        MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
 END
 
@@ -13012,7 +13023,7 @@ BEGIN
             MENUITEM "&Hill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             , GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
@@ -13118,7 +13129,7 @@ BEGIN
         END
         POPUP "Chinese Remainder Theorem Applications", GRAYED
         BEGIN
-            MENUITEM "Stronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
+            MENUITEM "Astronomy and Planetary Motion...", ID_INDIV_CRT_PLANET
             , GRAYED
             MENUITEM "Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
@@ -13142,7 +13153,7 @@ BEGIN
         BEGIN
             MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
-            MENUITEM "Dedcode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -13164,7 +13175,7 @@ BEGIN
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
-            MENUITEM "Mass Pattern Search",         ID_MASS_PATTERN_SEARCH
+            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -13174,7 +13185,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX",                      ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -13241,13 +13252,13 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
-            MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
-            MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
 
-            MENUITEM "&Serial-Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
 
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
@@ -13255,7 +13266,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization",           ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -13284,7 +13295,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
+        MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
 END
 
@@ -14656,13 +14667,13 @@ BEGIN
     ID_CRYPT_DES_DESECB     "Encryption / decryption with DES (ECB mode)"
     ID_CRYPT_AES_SERPENT    "Encryption / decryption with Serpent"
     ID_CRYPT_AES_TWOFISH    "Encryption / decryption with Twofish"
-    ID_CRYPT_HASH_MD5       "Uses MD5 hash algorithm"
+    ID_CRYPT_HASH_MD5       "Calculates the MD5 hash value of the active document"
     ID_ANALYSE_IDEA         "Automatic brute-force analysis of encryption using the IDEA algorithm"
     ID_ANALYSE_RC2          "Automatic brute-force analysis of encryption using the RC2 algorithm"
-    ID_CRYPT_HASH_MD2       "Uses MD2 hash algorithm"
-    ID_CRYPT_HASH_MD4       "Uses MD4 hash algorithm"
-    ID_CRYPT_HASH_SHA       "Uses SHA hash algorithm"
-    ID_CRYPT_HASH_SHA1      "Uses SHA-1 hash algorithm"
+    ID_CRYPT_HASH_MD2       "Calculates the MD2 hash value of the active document"
+    ID_CRYPT_HASH_MD4       "Calculates the MD4 hash value of the active document"
+    ID_CRYPT_HASH_SHA       "Calculates the SHA hash value of the active document"
+    ID_CRYPT_HASH_SHA1      "Calculates the SHA-1 hash value of the active document"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -14705,7 +14716,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_CRYPT_HASH_RIPEMD160 "Uses RIPEMD-160 hash algorithm"
+    ID_CRYPT_HASH_RIPEMD160 "Calculates the RIPEMD-160 hash value of the active document"
     ID_ANALYSE_RC4          "Automatic brute-force analysis of encryption using the RC4 algorithm"
     ID_ANALYSE_DESECB       "Automatic brute-force analysis of encryption using the DES ECB algorithm"
     ID_ANALYSE_DESCBC       "Automatic brute-force analysis of encryption using the DES CBC algorithm"
@@ -14731,8 +14742,8 @@ BEGIN
     ID_ADD_AUTO             "Automatic analysis of encryption using the byte-by-byte addition method"
     ID_OPTIONS_PLOT         "Offers to change the settings for graphical display"
     ID_OPTIONS_ANALYSIS     "Offers to change the settings for automatic analysis"
-    ID_ZIP                  "Compresses the file using the ZIP program"
-    ID_UNZIP                "Decompresses a file compressed using the ZIP program"
+    ID_ZIP                  "Compresses the active document using the ZIP algorithm"
+    ID_UNZIP                "Decompresses the active document if it is the result of being compressed by CrypTool with the ZIP algorithm"
     ID_WINDOW_CLOSE_ALL     "Closes all windows"
     ID_HILL_AUTO            "Plaintext attack on a text encrypted using the Hill algorithm"
     ID_CRYPT_KeyGen         "Generate (or import from PKCS#12) a key pair for different asymmetric algorithms"
@@ -15049,7 +15060,7 @@ BEGIN
     ID_TOHEX                "Shows current window as hexdump"
     ID_PLAYFAIR_ANALYSE     "Manual analysis of a text encrypted using the Playfair algorithm"
     IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
-    ID_ANALYSE_VITANY       "Quality of random data: test for independence"
+    ID_ANALYSE_VITANY       "Checks the statistic independence of the active document"
     IDS_STRING_KEY_GENERATION_DATE "Date key created:"
     IDS_STRING_MSG_FILENAME_TO_LONG 
                             "The file name generated by the program\n%s\nis TOO LONG. You must choose a shorter last name, first name or key identifier."
@@ -15085,8 +15096,8 @@ BEGIN
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
                             "Factorises an integer into its prime factors"
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN "Derives a key from a password"
-    ID_ANALYSE_NGRAM        "Performs an N-Gram analysis"
-    ID_ANALYSE_NGRAM_BIN    "Performs an N-Gram analysis"
+    ID_ANALYSE_NGRAM        "Calculates the most frequent N-grams within the active document depending on the current alphabet (1 <= N <= 16)"
+    ID_ANALYSE_NGRAM_BIN    "Calculates the most frequent N-grams within the active document over all 256 ASCII characters (1 <= N <= 16)"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -15611,21 +15622,23 @@ BEGIN
     ID_HOMOPHONE_HEX        "Homophonic encryption"
     ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
-                            "Quality of random data: Autokorrelation test"
+                            "Checks the random quality of the active document with the Autocorrelation test"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
-                            "Quality of random data: Frequency test"
-    ID_ANALYSE_ZUFALLSTESTS_POKERTEST "Quality of random data: Poker test"
+                            "Checks the random quality of the active document with the Frequency test"
+    ID_ANALYSE_ZUFALLSTESTS_POKERTEST 
+                            "Checks the random quality of the active document with the Poker test"
     ID_ANALYSE_ZUFALLSTESTS_RUNS 
-                            "Quality of random data: Run und Long-Run test"
-    ID_ANALYSE_ZUFALLSTESTS_SERIALTEST "Quality of random data: Serial Test"
+                            "Checks the random quality of the active document with the Run and Long-Run test"
+    ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 
+                            "Checks the random quality of the active document with the Serial Test"
     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
-                            "Quality of random data: FIPS-PUB-140-1 test battery"
+                            "Checks the random quality of the active document with the FIPS-PUB-140-1 test battery"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_AES_SELFEXTRACT      "Calls the standalone program AES-Tool which offers to generate a self extracting encrypted file from the active document"
-    ID_HASH_OFAFILE         "Displays the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
+    ID_AES_SELFEXTRACT      "Calls the standalone program AES-Tool which offers to generate a self extracting encrypted file from any file"
+    ID_HASH_OFAFILE         "Computes the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstrates the ""finger print"" property of cryptographic hash functions"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
@@ -16016,7 +16029,7 @@ BEGIN
     ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodes an ASN.1 encoded file"
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualizes the Diffie-Hellman procedure"
-    ID_SIGNATUR_ATTACK      "Performs an attack on the digital signature by generation equal hash values (based on the birthday paradox)"
+    ID_SIGNATUR_ATTACK      "Performs an attack on the digital signature by creating two different documents with equal hash values (based on the birthday paradox)"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -16154,6 +16167,9 @@ BEGIN
     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
                             "Visualizes a side-channel attack against the hybrid encryption protocol"
     ID_CHALLENGE_RESPONSE   "Demonstrates several authentication methods and common attacks"
+    ID_RSA_FACTORHINT       "Attacks RSA with lattice reduction algorthms, if a part of one of the primes of N is known"
+    ID_RSA_STEREOTYPED      "Attacks RSA with lattice reduction algorthms, if a part of the original cleartext of an intercepted ciphertext is known and if e is small"
+    ID_RSA_BLOEMERMAY       "Attacks RSA with lattice reduction algorthms, if d is too small compared to N"
     ID_FILEPROPERTIES       "Shows the properties of the document in the active window"
     ID_ENCRYPT_ADFGVX       "ADFGVX encryption"
     ID_GENERATE_MACS        "Creates different Message Authentication Codes (MACs)"
@@ -16358,15 +16374,20 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_CODE_BASE64          "The base64 code is used to represent binary data by printable ascii characters"
-    ID_CODE_UU              "UU encoding is used to represent binary data by printable ascii characters"
+    ID_CODE_BASE64          "The base64 code is used to represent the binary data of the active document by printable ASCII characters"
+    ID_CODE_UU              "UU encoding is used to represent the binary data of the active document by printable ASCII characters"
     ID_ANALYSE_SYMMCLASSIC_ADFGVX 
                             "Automatic analysis of a document encrypted with the ADFGVX algorithm"
-    ID_HELP_ANIMAL_DES      "The animation program ANIMAL demonstrates the data flowe of the DES algorithm"
-    ID_HELP_ANIMAL_VIGENERE "The animation program ANIMAL demonstrates the data flowe of the Vigenére algorithm"
-    ID_HELP_ANIMAL_NIHILIST "The animation program ANIMAL demonstrates the data flowe of the Nihilist algorithm"
+    ID_HELP_ANIMAL_DES      "The animation program ANIMAL demonstrates the data flow of the DES algorithm"
+    ID_HELP_ANIMAL_VIGENERE "The animation program ANIMAL demonstrates the data flow of the Vigenére algorithm"
+    ID_HELP_ANIMAL_NIHILIST "The animation program ANIMAL demonstrates the data flow of the Nihilist algorithm"
     ID_ANALYSIS_RANDOM_3D_VISUALIZATION 
-                            "Show a 3-D visualization of random data"
+                            "Shows a 3-D visualization of random data"
+    ID_INDIV_CRT_PLANET     "Solves a system of at most 9 linear modular equations applied to the planets of our solar system"
+    ID_INDIV_CRT_DEMO       "Shows how calculations can be done with the remainders instead of the original numbers"
+    ID_INDIV_CRT_SECRETSHARING 
+                            "Illustrates the shared secret method using CRT (this is analogous to opening a vault with any 3 out of 5 key owners)"
+    ID_HELP_ANIMAL_CAESAR   "The animation program ANIMAL demonstrates the data flow of the Caesar algorithm"
 END
 
 #endif    // Englisch (GB) resources
