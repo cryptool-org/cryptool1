@@ -108,8 +108,15 @@ package main;
 
 use Data::Dumper;
 use Getopt::Std;
-our ($opt_d, $opt_l);
-getopts('dl:'); # d: detail l: language
+our ($opt_d, $opt_i, $opt_I, $opt_l);
+getopts('diIl:'); # d: detail, i: show info, 
+                  # I: ID instead of text (implies -i), 
+                  # l: language
+
+$opt_i = 1 if ($opt_I);
+
+die "ERROR: -d and -i options are mutually exclusive. Stopped" if ($opt_d && $opt_i);
+
 
 my %menushort = ( 
 	ASCTYPE => 'A', 
@@ -123,7 +130,39 @@ my %menushort = (
 my %t = ();
 my $clang;
 my @cmenus;
+my $id_desc = ();
+my $in_stringtable = 0;
+my %menuid = ();
+
 while (<>) {
+        s/\r//g;
+        # escape quoted " characters (Visual Studio writes them as "", we
+        # will use \" instead
+        s/\"\"/\\\"/g;
+
+	# store stringtable definitions
+        if ($in_stringtable) {
+	        next if (/^BEGIN/);
+		if (/^END/) {
+		        $in_stringtable = 0;
+		        next;
+		}
+		my ($id, $value) = /^\s*(\S+)\s*(.*)/;
+		if (! $value) {
+		    $value = <>;
+		    chomp($value);
+		    $value =~ s/\r//g;
+		    $value =~ s/^\s*//;
+		}
+		$value =~ s/^\"//;
+		$value =~ s/\"$//;
+		if (exists $id_desc->{$clang}->{$id}) {
+		        print STDERR "WARNING: duplicate string definition of $id for language $clang\n";
+		}
+		$id_desc->{$clang}->{$id} = $value;
+		next;
+	}
+
 	if (m{^LANGUAGE LANG_(\w+)}) {
 		$clang = $1;
 		#print "L $clang\n";
@@ -136,16 +175,40 @@ while (<>) {
 		push @cmenus,$mi;
 		my $l = @cmenus;
 		#print "$l @cmenus\n";
-	} elsif (m{^\s*MENUITEM "(.*?)"}) {
-		my $mi = clean($1);
+	} elsif (m{^\s*MENUITEM (?<!\\)"(.*?)(?<!\\)"(.*)}) {
+	        # This regex matches "..." quoted strings and honours \-escaped
+	        # " characters properly (negative look-behind)
+	        my $mi = clean($1);
+
+	        # un-escape escaped quotes
+	        $mi =~ s/\\\"/\"/g;
+
+		# extract id
+		my $id = $2;
+		$id =~ s/^,\s*// if ($id); # clean leading junk
+		if (! $id) {
+		    $id = <>; # extract id from next line
+		    chomp($id);
+		    $id =~ s/^\s*//;
+		    $id =~ s/\r//;
+		}
+		$id =~ s/,.*//;
+
 		my $m = join('|',tail(@cmenus));
-		push @{$t{$clang}->{$cmenus[0]}->{$m}},$mi;
+		push @{$t{$clang}->{$cmenus[0]}->{$m}}, $mi;
+
+		# record ID for this menu item
+		$menuid{$clang}->{"$m|$mi"} = $id;
+
 		my $l = @cmenus;
-		#print "$l @cmenus $mi\n";
+		#print STDERR "$l @cmenus $mi\n";
 	} elsif (m{^\s*END\s*$} && @cmenus) {
 		pop @cmenus;
+	} elsif (m{^\s*STRINGTABLE}) {
+	        $in_stringtable = 1;
 	}
 }
+
 
 my @line = (
 	'|---',
@@ -162,8 +225,10 @@ $line[4] = "<br>\n";
 my %g = ();
 my %mm = (); # merged menu tree $mm{GERMAN} = ("" => ['Datei',...], "Datei" =>
 my %typelist = (); # types each menu item is defined for
+my %idlist = ();   # ID String replacement text for each menu item
 
-print "<body><font size='6' face='Arial,Helvetica'>\n";
+#print "<body><font size='6' face='Arial,Helvetica'>\n";
+print "<body><font size='-1' face='Arial,Helvetica'>\n";
 
 foreach $l ($opt_l) { #(keys %t) {
 	my $lt = $t{$l};
@@ -190,12 +255,25 @@ foreach $l ($opt_l) { #(keys %t) {
 			#print Dumper($mt->{$n});
 			$gt->{$n} ||= new DG;
 			$gt->{$n}->addlist($mt->{$n});
+
+
 			$typelist{$l}->{$n} ||= "";
 			$typelist{$l}->{$n} .= $m unless $typelist{$l}->{$n} =~ m{$m};
 			foreach (@{$mt->{$n}}) {
 				my $sn = "$n|$_";
 				$typelist{$l}->{$sn} ||= "";
 				$typelist{$l}->{$sn} .= $m unless $typelist{$l}->{$sn} =~ m{$m};
+
+				# get status text (or id) for this entry
+				if (exists $menuid{$l}->{$sn}) {
+				    my $id = $menuid{$l}->{$sn};
+				    if (! $opt_I) {
+					$idlist{$l}->{$sn} = $id_desc->{$l}->{$id};
+				    } else {
+					$idlist{$l}->{$sn} = $id;
+				    }
+				}
+
 			}
 		}
 	}
@@ -211,20 +289,35 @@ foreach $l ($opt_l) { #(keys %t) {
 		};
 		if ($@) {
 			map { print "|$n:",join("\n",@{$lt->{$_}->{$n}}),"\n"; } @type;
-			die;
+			die "ERROR: Inconsistency detected. Please check the partial order of the menu entries. Stopped";
 		}
 	}
+
 	if (0) {
 	show($mm{$l},$opt_d ? $typelist{$l} : {},"");
 	} else {
-		print "<table><tr valign='top'>\n";
+		print "<table><tr valign='top'>\n" unless $opt_i;
 		foreach (@{$mm{$l}->{""}}) {
-			my $tl = $opt_d ? "[$typelist{$l}->{$_}]" : "";
-			print "<td nobreak><b>$_</b>$tl<br>\n";
-			show($mm{$l},$tl ? $typelist{$l} : {},$_);
-			print "</td>\n";
+		        my $tl = "";
+			my $list = {};
+			if ($opt_d) {
+			    $tl = "[$typelist{$l}->{$_}]";
+			    $list = $typelist{$l};
+			}
+			if ($opt_i) {
+			    $list = $idlist{$l};
+			}
+
+			print "<td nobreak>" unless $opt_i;
+			print"<b>$_</b>$tl<br>\n";
+			show($mm{$l}, $list,$_);
+			if (! $opt_i) {
+			    print "</td>\n";
+			} else {
+			    print "<br><br>\n";
+			}
 		}
-		print "<td></tr></table>\n";
+		print "<td></tr></table>\n" unless $opt_i;
 
 	}
 }
