@@ -71,7 +71,7 @@ statement from your version.
 	aufrufenden Funktion bekommt wird so die 
 	Funktion sec_encrypt_all bzw. sec_decrypt_all
 	angesteuert.
-	Der Parameter AlgId gibt an, mit welchem Algorithmus
+	Der Parameter alg gibt an, mit welchem Algorithmus
 	die Daten ver-/entschlüsselt werden sollen:
 	1 steht für IDEA
 	2 steht für DES im ECB mode
@@ -256,51 +256,64 @@ void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, in
 	6 steht für RIPEMD160
 */
 
-void hash (char* infile, const char *OldTitle, int AlgId)
+void hash (char* infile, const char *OldTitle, int alg)
 {
 	char outfile[128], title[128];
     CAppDocument *NewDoc;
 	GetTmpName(outfile,"cry",".hex");
 	
-	OctetString *message, hash;
-	message = theApp.SecudeLib.aux_file2OctetString(infile);
-	hash.noctets=0;
+	char buffer[4096];
+	OctetString bufferostr = { sizeof buffer, buffer };
+	OctetString hashostr = { 0, 0 };
     
 	char *AlgTitel;
-	switch (AlgId){
+	AlgId *aid;
+	switch (alg){
 		case 1://MD2
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.md2_aid,NULL);
+			aid = theApp.SecudeLib.md2_aid;
 			AlgTitel="MD2";
 			break;
 		case 2://MD4
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.md4_aid,NULL);
+			aid = theApp.SecudeLib.md4_aid;
 			AlgTitel="MD4";
 			break;
 		case 3://MD5
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.md5_aid,NULL);
+			aid = theApp.SecudeLib.md5_aid;
 			AlgTitel="MD5";
 			break;
 		case 4://SHA
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.sha_aid,NULL);
+			aid = theApp.SecudeLib.sha_aid;
 			AlgTitel="SHA";
 			break;
 		case 5://SHA_1
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.sha1_aid,NULL);
+			aid = theApp.SecudeLib.sha1_aid;
 			AlgTitel="SHA-1";
 			break;
 		case 6://RIPEMD160
-			theApp.SecudeLib.sec_hash_all(message,&hash,theApp.SecudeLib.ripemd160_aid,NULL);
+			aid = theApp.SecudeLib.ripemd160_aid;
 			AlgTitel="RIPEMD-160";
 			break;
 	}
+	FILE *in = fopen(infile,"rb");
+	ASSERT(in);
+	RC rc;
+	void *context = NULL;
+	rc = theApp.SecudeLib.sec_hash_init(&context,aid,NULL);
+	ASSERT(rc == 0);
+	size_t n;
+	while (n = fread(buffer,1,sizeof(buffer),in)) {
+		bufferostr.noctets = n;
+		rc = theApp.SecudeLib.sec_hash_more(&context,&bufferostr);
+		ASSERT(rc == 0);
+	}
+	fclose(in);
+	rc = theApp.SecudeLib.sec_hash_end(&context,&hashostr);
+	ASSERT(rc == 0);
 	CDlgShowHash HashDlg;
-	HashDlg.SetHash( hash, OldTitle, AlgTitel );
+	HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
 	if ( IDOK == HashDlg.DoModal() )
 	{
-		theApp.SecudeLib.aux_free_OctetString(&message);
-		//Datenausgabe:
-		theApp.SecudeLib.aux_OctetString2file(&hash,outfile,2);
-		theApp.SecudeLib.aux_free(hash.octets);
+		theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
 
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
@@ -311,5 +324,6 @@ void hash (char* infile, const char *OldTitle, int AlgId)
 			}
 
 	}
+	theApp.SecudeLib.aux_free(hashostr.octets);
 }
 

@@ -57,6 +57,7 @@ statement from your version.
 #pragma once
 #endif // _MSC_VER >= 1000
 
+#include "asn1.h"
 #include "secure.h"
 #include "pkcs.h"
 
@@ -103,6 +104,9 @@ statement from your version.
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, arithmetic_mult, SEC_PROTOTYPE_3(L_NUMBER_ARRAY, A, L_NUMBER_ARRAY, B, L_NUMBER_ARRAY, erg))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, arithmetic_add, SEC_PROTOTYPE_3(register L_NUMBER_ARRAY, Ap,	register L_NUMBER_ARRAY, Bp, register L_NUMBER_ARRAY, Sum))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_all, SEC_PROTOTYPE_4(OctetString*, in_octets, OctetString*, hash_result, AlgId*, alg_id, HashInput*, hash_input))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_init, SEC_PROTOTYPE_3(void **, context, AlgId*, alg_id, HashInput*, hash_input))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_more, SEC_PROTOTYPE_2(void **, context, OctetString*, in_octets))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_end, SEC_PROTOTYPE_2(void **, context, OctetString*, hash_result))\
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  aux_sprint_Certificate, SEC_PROTOTYPE_3(PSE, pse_handle, char*, string, Certificate	*, cert))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_LN2OctetString, SEC_PROTOTYPE_2(L_NUMBER_ARRAY, lnum, int, size))\
 	DoOneFn(PSE SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_create, SEC_PROTOTYPE_5(char*, psename, char*, cadir, char*, pin, SC_DATA*, sc_data, Boolean, onekeypaironly))\
