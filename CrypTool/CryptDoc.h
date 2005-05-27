@@ -41,6 +41,8 @@ statement from your version.
 
 **********************************************************************/
 
+#ifndef _CRYPTDOC_H_
+#define _CRYPTDOC_H_
 
 //////////////////////////////////////////////////////////////////
 // Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
@@ -277,3 +279,5 @@ protected:
 private:
 	virtual BOOL UpdateContent( void );
 };
+
+#endif

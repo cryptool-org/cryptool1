@@ -349,10 +349,10 @@ int ASCDumpMem(char *Dest, int DestLen, const char *Src, int SrcLen, int blockle
 	return j;
 }
 
-int FileCpy(const char *outfile, const char *infile, int maxsize)
+int FileCpy(const char *outfile, const char *infile)
 {
-    FILE *f1,*f2;
-    char buffer[1024];
+	FILE *f1,*f2;
+    char *buffer;
     int i;
 	int l1, l2, r;
 
@@ -363,17 +363,14 @@ int FileCpy(const char *outfile, const char *infile, int maxsize)
 	l1 = ftell(f1);
 	fseek(f1,0,SEEK_SET);
 
-	if((maxsize > 0) && (l1 > maxsize)) {
-		r=2;
-		l1=maxsize;
-	}
-	else {
-		r=1;
-	}
-
-    f2 = fopen(outfile,"wb");
+	f2 = fopen(outfile,"wb");
     if(!f2) return 0;
 	l2=l1;
+
+    buffer = new char[l2];
+	if(!buffer) return 0;
+
+	r = 1;
 
     do {
         i = fread(buffer, 1, sizeof(buffer), f1);
@@ -383,6 +380,7 @@ int FileCpy(const char *outfile, const char *infile, int maxsize)
     } while(i>0);
     fclose(f1);
     fclose(f2);
+	delete buffer;
     return r;
 }
 

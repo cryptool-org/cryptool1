@@ -97,15 +97,13 @@ int ASCDumpMem(char *Dest, int DestLen, const char *Src, int SrcLen, int blockle
 
 int ASCUndumpMem(const char *inbuff, const int inlen, char *outbuff, char SepChar);
 
-// Umkopieren einer Datei.
+// Umkopieren einer Datei
 // Quelle und Ziel sind jeweils Dateien.
 // Kopieren ist teilweise notwendig um das verwendete Konzept temporärer Dateien, die nach
 // Gebrauch gelöscht werden zu erhalten.
-// maxsize ist die maximale Größe der resultierenden Datei.
 // returncode:	0: Fehler aufgetreten
 //				1: Ohne Fehler abgeschlossen
-//				2: Datei wurde abgeschnitten
-int FileCpy(const char *outfile, const char *infile, int maxsize);
+int FileCpy(const char *outfile, const char *infile);
 
 // Widerherstellen des Textformates der Eingangadatei
 // Quelle und Ziel sind jeweils Dateien.

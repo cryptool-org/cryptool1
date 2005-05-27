@@ -199,58 +199,29 @@ void CAppEditView::OnShowKey()
 
 void CAppEditView::SerializeRaw(CArchive & ar)
 {
-	char *buffer;
-	int bufflen=20000, len, startl;
-	long start, end, textlen, pos;
-	CRichEditCtrl *RECtrl;
-
-	SetRedraw(FALSE);
-	RECtrl = &(GetRichEditCtrl());
-	startl = RECtrl->GetFirstVisibleLine();
-	RECtrl->GetSel(start, end);
-	buffer = (char *) malloc(bufflen+3);
+	CRichEditCtrl *RECtrl = &(GetRichEditCtrl());
 
 	if (ar.IsStoring())
 	{
-		textlen = RECtrl->GetTextLength();
-		for(pos = 0; pos < textlen; ) {
-			RECtrl->SetSel(pos, pos+bufflen);
-			len = RECtrl->GetSelText(buffer);
-			TRY
-			{
-				ar.Write(buffer, len);
-			}
-			CATCH_ALL(e)
-			{
-				THROW_LAST();
-			}
-			END_CATCH_ALL
-			pos += len;
-		}
+		CFile *pFile = ar.GetFile();
+
+		EDITSTREAM es;
+		es.dwCookie = (DWORD)(pFile);
+		es.pfnCallback = CAppEditView::RichEditStreamOutCallback;
+		RECtrl->StreamOut(SF_TEXT, es);
+		RECtrl->EmptyUndoBuffer();
 	}
 	else
 	{
 		CFile* pFile = ar.GetFile();
-		ASSERT(pFile->GetPosition() == 0);
-		ASSERT(pFile->GetLength() < LONG_MAX);
-		long nFileSize = (long)pFile->GetLength();
-		// ReadFromArchive takes the number of characters as argument
 
-		for(pos = 0; pos < nFileSize; ) {
-			len = ar.Read(buffer, bufflen);
-			buffer[len]=0;
-			RECtrl->SetSel(pos,pos);
-			RECtrl->ReplaceSel(buffer);
-			pos += len;
-			if(!len) break;
-		}
+		EDITSTREAM es;
+		es.dwCookie = (DWORD)(pFile);
+		es.pfnCallback = CAppEditView::RichEditStreamInCallback;
+		RECtrl->StreamIn(SF_TEXT, es);
 		RECtrl->EmptyUndoBuffer();
-		ASSERT_VALID(this);
 	}
-	free(buffer);
-	RECtrl->SetSel(start, end);
-	RECtrl->LineScroll(startl - RECtrl->GetFirstVisibleLine());
-	SetRedraw(TRUE);
+
 	ASSERT_VALID(this);
 }
 
@@ -374,4 +345,19 @@ void CAppEditView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 	size.cy -= 200;
 	pDC->SetWindowExt(size);
 	CRichEditView::OnBeginPrinting( pDC, pInfo);
+}
+
+DWORD CALLBACK CAppEditView::RichEditStreamInCallback(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
+{
+	CFile *pFile = (CFile*)(dwCookie);
+	*pcb = pFile->Read(pbBuff, cb);
+	return 0;
+}
+
+DWORD CALLBACK CAppEditView::RichEditStreamOutCallback(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
+{
+	CFile *pFile = (CFile*)(dwCookie);
+	pFile->Write(pbBuff, cb);
+	*pcb = cb;
+	return 0;
 }

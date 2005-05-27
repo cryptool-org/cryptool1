@@ -41,68 +41,55 @@ statement from your version.
 
 **********************************************************************/
 
+/////////////////////////////////////////////////////////////////////////////
+// HexEditCtrlDoc.h : interface of the CHexEditCtrlDoc class
+/////////////////////////////////////////////////////////////////////////////
+#if !defined(AFX_HEXEDITCTRLDOC_H__5BB7F667_959E_4E56_9A8B_4726E4407CC2__INCLUDED_)
+#define AFX_HEXEDITCTRLDOC_H__5BB7F667_959E_4E56_9A8B_4726E4407CC2__INCLUDED_
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
 
-#ifndef AFX_MYEDITVIEW_H__AD95E45B_D56B_11D3_878E_00C04F795E36__INCLUDED_
-#define AFX_MYEDITVIEW_H__AD95E45B_D56B_11D3_878E_00C04F795E36__INCLUDED_
-
-// MyEditView.h : Header-Datei
-//
+#include "CryptDoc.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// Ansicht CAppEditView 
+/////////////////////////////////////////////////////////////////////////////
+// class CHexEditCtrlDoc
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 
-class CAppEditView : public CRichEditView
+class CHexEditCtrlDoc : public CCryptDoc
 {
+public:
+	BYTE* GetData() { return m_pData; }
+	UINT GetDataSize() const { return m_nSize; }
+
 protected:
-	CAppEditView();           // Dynamische Erstellung verwendet geschützten Konstruktor
-	DECLARE_DYNCREATE(CAppEditView)
+	BYTE *m_pData;
+	UINT m_nSize;
 
-	// statische Callback-Funktionen zum Laden/Speichern von Inhalt für RichEditControls
-	static DWORD CALLBACK RichEditStreamInCallback(DWORD, LPBYTE, LONG, LONG*);
-	static DWORD CALLBACK RichEditStreamOutCallback(DWORD, LPBYTE, LONG, LONG*);
+	CHexEditCtrlDoc();
+	virtual ~CHexEditCtrlDoc();
 
-// Attribute
-public:
-
-// Operationen
-public:
-	virtual HRESULT QueryAcceptData( LPDATAOBJECT lpdataobj, CLIPFORMAT FAR * lpcfFormat, DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile );
-	virtual void SerializeRaw(CArchive& ar);
-
-// Überschreibungen
-	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CAppEditView)
-	protected:
-	virtual void OnDraw(CDC* pDC);      // Überschrieben zum Zeichnen dieser Ansicht
-	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
-	virtual void OnPrint(CDC* pDC, CPrintInfo* pInfo);
+	//{{AFX_VIRTUAL(CHexEditCtrlDoc)
+	virtual BOOL OnNewDocument();
+	virtual void Serialize(CArchive& ar);
 	//}}AFX_VIRTUAL
 
-// Implementierung
-protected:
-	virtual ~CAppEditView();
+	//{{AFX_MSG(CHexEditCtrlDoc)
+	afx_msg void OnTotxt();
+	//}}AFX_MSG
+
+	DECLARE_DYNCREATE(CHexEditCtrlDoc)
+	DECLARE_MESSAGE_MAP()
+
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
-
-	// Generierte Nachrichtenzuordnungsfunktionen
-protected:
-	CFont font;
-	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
-	//{{AFX_MSG(CAppEditView)
-	afx_msg void OnKillFocus(CWnd* pNewWnd);
-	afx_msg void OnGotoVater();
-	afx_msg void OnShowKey();
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
-	afx_msg void OnSetFocus(CWnd* pOldWnd);
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////
-
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio fügt zusätzliche Deklarationen unmittelbar vor der vorhergehenden Zeile ein.
-
-#endif // AFX_MYEDITVIEW_H__AD95E45B_D56B_11D3_878E_00C04F795E36__INCLUDED_
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+#endif // !defined(AFX_HEXEDITCTRLDOC_H__5BB7F667_959E_4E56_9A8B_4726E4407CC2__INCLUDED_)

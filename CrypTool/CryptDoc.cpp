@@ -49,6 +49,8 @@ statement from your version.
 //
 
 #include "stdafx.h"
+#include <io.h>
+#include <process.h>
 #include "CrypToolApp.h"
 #include <fstream>
 #include "FileTools.h"
@@ -299,7 +301,7 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	}
 
 	// ADD_PRESENTATION_NAME
-    int r = FileCpy(ContentName,lpszPathName, 0x0FFFFF);
+	int r = FileCpy(ContentName, lpszPathName);
     if( !r ) {
         remove(ContentName);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -312,25 +314,8 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
 	}
-
 	// ADD_PRESENTATION_NAME
 
-/* PRESENTATION_NAME
-    if(!FileCpy(ContentName,lpszPathName,-1)) {
-        remove(ContentName);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
-		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
-		return FALSE;
-    }
-*/
-/* PRESENTATION_NAME
-	if(!present(ContentName, PresentationName)) {
-        remove(ContentName);
-	    remove(PresentationName);
-		return FALSE;
-	}
-*/
 	if (!CPadDoc::OnOpenDocument( ContentName /* PRESENTATION_NAME PresentationName */)) {
         remove(ContentName);
         // PRESENTATION_NAME remove(PresentationName);
@@ -357,7 +342,7 @@ BOOL CCryptDoc::present(const char *in, char *out)
 	int r;
 
     GetTmpName(out,"cry",".txt");
-    r = FileCpy(out, in, 0x0FFFFF);
+    r = FileCpy(out, in);
 	if(r==0) return FALSE;
 	if(r==2) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -480,7 +465,7 @@ BOOL CAscDoc::present(const char *in, char *out)
 
     GetTmpName(out,"cry",".asc");
 //    r = ASCDump(out, in, 5, 8, 0x0FFFFF);
-    r = FileCpy(out, in, 0x0FFFFF);
+    r = FileCpy(out, in);
 	if(r==0) return FALSE;
 	if(r==2) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -639,7 +624,7 @@ BOOL CAscDoc::OnSaveDocument(LPCTSTR lpszPathName)
 //    CPadDoc::OnSaveDocument(PresentationName);
 
     /* create user-file */
-    FileCpy(lpszPathName, ContentName, -1);
+    FileCpy(lpszPathName, ContentName);
 
 	return TRUE;
 }
@@ -668,7 +653,7 @@ BOOL CHexDoc::OnSaveDocument(LPCTSTR lpszPathName)
     fclose(f1);
     fclose(f2);*/
 
-    FileCpy(lpszPathName, ContentName, -1);
+    FileCpy(lpszPathName, ContentName);
 	
 	return TRUE;
 }
@@ -1278,27 +1263,16 @@ void CCryptDoc::OnToHex()
 void CCryptDoc::OnToTxt() 
  {
  	CAppDocument *NewDoc;
- 	char outfile[128], c;
+ 	char outfile[128];
  	BOOL Modified;
  	WINDOWPLACEMENT place;
- 	FILE *in;
- 
+ 	 
  	GetTmpName(outfile,"cry",".txt");
  	
  	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
  	CWnd_hilf->GetWindowPlacement( &place );
  	Modified = IsModified();
  	OnSaveDocument(outfile);
- 
- 	// Test auf abschließende Nullzeichen
- 	in = fopen(outfile,"rb");
- 	fseek(in, -1, SEEK_END);
- 	fread(&c, 1, 1, in);
- 	fclose(in);
- 	if(c==0) { // abschließende Null gefunden --> Benutzer warnen
- 		if(IDYES != AfxMessageBox (IDS_STRING_CUT_NULLS, MB_YESNO | MB_ICONQUESTION))
- 			return;
- 	}
  
  	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
  	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();

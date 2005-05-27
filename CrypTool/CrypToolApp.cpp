@@ -93,6 +93,9 @@ statement from your version.
 #include "DlgSideChannelAttackVisualizationHE.h"
 #include "ChallengeResponseDlg.h"
 
+#include "HexEditCtrlDoc.h"
+#include "HexEditCtrlView.h"
+
 
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
 
@@ -308,8 +311,10 @@ BOOL CCrypToolApp::InitInstance()
 		RUNTIME_CLASS(CPlotDocument), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CPlotView)));
 	AddDocTemplate(new CCryptDocTemplate(IDR_HEXTYPE,
-		RUNTIME_CLASS(CHexDoc), RUNTIME_CLASS(CMDIChildWnd),
-		RUNTIME_CLASS(CHexView)));
+		RUNTIME_CLASS(CHexEditCtrlDoc), RUNTIME_CLASS(CMDIChildWnd),
+		RUNTIME_CLASS(CHexEditCtrlView)));
+		//RUNTIME_CLASS(CHexDoc), RUNTIME_CLASS(CMDIChildWnd),
+		//RUNTIME_CLASS(CHexView)));
 
 	m_pMainWnd = new CMainFrame;
 	m_MainWnd = m_pMainWnd;
