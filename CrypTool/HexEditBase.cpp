@@ -41,6 +41,8 @@ statement from your version.
 
 **********************************************************************/
 
+// This file was originally written by Christian Kuendig. It was 
+// obtained from www.codeguru.com in May 2005 and modified as necessary.
 
 
 /////////////////////////////////////////////////////////////////////////////

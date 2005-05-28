@@ -352,7 +352,7 @@ int ASCDumpMem(char *Dest, int DestLen, const char *Src, int SrcLen, int blockle
 int FileCpy(const char *outfile, const char *infile)
 {
 	FILE *f1,*f2;
-    char *buffer;
+	char buffer[4096];
     int i;
 	int l1, l2, r;
 
@@ -367,9 +367,6 @@ int FileCpy(const char *outfile, const char *infile)
     if(!f2) return 0;
 	l2=l1;
 
-    buffer = new char[l2];
-	if(!buffer) return 0;
-
 	r = 1;
 
     do {
@@ -380,7 +377,7 @@ int FileCpy(const char *outfile, const char *infile)
     } while(i>0);
     fclose(f1);
     fclose(f2);
-	delete buffer;
+
     return r;
 }
 

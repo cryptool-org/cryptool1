@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Program Files\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib htmlhelp.lib ..\libNTL\Debug\libNTL.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -4074,6 +4074,30 @@ SOURCE=.\HexEdit.cpp
 # Begin Source File
 
 SOURCE=.\HexEdit.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditBase.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditBase.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditCtrlDoc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditCtrlDoc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditCtrlView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HexEditCtrlView.h
 # End Source File
 # Begin Source File
 
