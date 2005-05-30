@@ -2029,7 +2029,7 @@ BEGIN_MESSAGE_MAP(CHexEditBaseView, CView)
 END_MESSAGE_MAP()
 
 
-CHexEditBaseView::CHexEditBaseView() : CRichEditView() 
+CHexEditBaseView::CHexEditBaseView() : CView() 
 { 
 }
 
