@@ -66,9 +66,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // control-layout customization (low-level)
-#define ADR_DATA_SPACE				5
-#define DATA_ASCII_SPACE			5
-#define CONTROL_BORDER_SPACE		5
+#define ADR_DATA_SPACE				20
+#define DATA_ASCII_SPACE			25
+#define CONTROL_BORDER_SPACE		3
 
 // boundaries and special values
 #define MAX_HIGHLIGHT_POLYPOINTS	8
@@ -154,16 +154,16 @@ CHexEditBase::CHexEditBase() :
 	m_nSelectingEnd(NOSECTION_VAL),
 	m_nSelectionBegin(NOSECTION_VAL),
 	m_nSelectionEnd(NOSECTION_VAL), 
-	m_tAdrBkgCol(RGB(90,0,0)), 
-	m_tAdrTxtCol(RGB(255,0,0)), 
-	m_tAsciiBkgCol(RGB(0,20,0)), 
-	m_tAsciiTxtCol(RGB(0,255,0)),
+	m_tAdrBkgCol(RGB(255,255,255)), 
+	m_tAdrTxtCol(RGB(0,0,0)), 
+	m_tAsciiBkgCol(RGB(255,255,255)), 
+	m_tAsciiTxtCol(RGB(0,0,0)),
 	m_tHighlightBkgCol(RGB(0,90,210)), 
 	m_tHighlightTxtCol(RGB(0,200,0)), 
 	m_tHighlightFrameCol(RGB(0,255,255)),
-	m_tHexTxtCol(RGB(0,0,255)), 
-	m_tHexBkgCol(RGB(180,210,190)), 
-	m_tNotUsedBkCol(RGB(210,210,210)),
+	m_tHexTxtCol(RGB(0,0,0)), 
+	m_tHexBkgCol(RGB(255,255,255)), 
+	m_tNotUsedBkCol(RGB(255,255,255)),
 	m_nCurrentAddress(0),
 	m_bAutoBytesPerRow(false), 
 	m_bRecalc(true),
@@ -2029,7 +2029,7 @@ BEGIN_MESSAGE_MAP(CHexEditBaseView, CView)
 END_MESSAGE_MAP()
 
 
-CHexEditBaseView::CHexEditBaseView() : CView() 
+CHexEditBaseView::CHexEditBaseView() : CRichEditView() 
 { 
 }
 
