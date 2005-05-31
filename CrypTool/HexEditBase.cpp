@@ -1672,16 +1672,19 @@ void CHexEditBase::OnEditCopy()
 			*pData = nLength;
 			memcpy(&pData[1], m_pData+m_nSelectionBegin, nLength);
 			::GlobalUnlock(hMemb);
-		
+
 			// copy ascii
 			char *pPtr = (char*)::GlobalLock(hMema);
 			memcpy(pPtr, (LPCSTR)cStr, cStr.GetLength());
 			::GlobalUnlock(hMema);
 
-			pSource->CacheGlobalData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
-			pSource->CacheGlobalData(CF_TEXT, hMema);	
-			pSource->SetClipboard();
-		} catch(...) {
+			OpenClipboard();
+			SetClipboardData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
+			SetClipboardData((CF_TEXT), hMema);
+			CloseClipboard();
+		} 
+		catch(...) 
+		{
 			delete pSource;
 			delete []pBuf;
 			throw;
