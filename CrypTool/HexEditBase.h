@@ -106,6 +106,11 @@ public:
 	void SetContextCopyStr(const CString& cStr) { m_cContextCopy = cStr; }
 	void SetContextPasteStr(const CString& cStr) { m_cContextPaste = cStr; }
 
+	// quick and dirty: to access copy/paste functions from outside
+	void callOnEditCopy() { OnEditCopy(); };
+	void callOnEditPaste() { OnEditPaste(); };
+	void callOnEditSelectAll() { OnEditSelectAll(); };
+
 protected:
 	struct PAINTINGDETAILS {
 		UINT nFullVisibleLines;

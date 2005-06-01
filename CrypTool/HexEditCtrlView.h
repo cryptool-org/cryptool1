@@ -86,6 +86,9 @@ protected:
 
 	//{{AFX_MSG(CHexEditCtrlView)
 	afx_msg void OnHexEditChanged();
+	afx_msg void OnEditCopy();
+	afx_msg void OnEditPaste();
+	afx_msg void OnEditSelectAll();
 	//}}AFX_MSG
 
 	DECLARE_DYNCREATE(CHexEditCtrlView)

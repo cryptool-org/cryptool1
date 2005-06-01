@@ -79,7 +79,9 @@ IMPLEMENT_DYNCREATE(CHexEditCtrlView, CHexEditBaseView)
 
 BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	//{{AFX_MSG_MAP(CHexEditCtrlView)
-	//ON_EN_CHANGE(CHexEditBaseView::IDC_HEXEDITBASEVIEW_HEXCONTROL, OnHexEditChanged)
+	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
+	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
+	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -131,3 +133,18 @@ CHexEditCtrlDoc* CHexEditCtrlView::GetDocument()
 }
 #endif //_DEBUG
 
+
+void CHexEditCtrlView::OnEditCopy() 
+{
+	GetHexEditCtrl().callOnEditCopy();
+}
+
+void CHexEditCtrlView::OnEditPaste() 
+{
+	GetHexEditCtrl().callOnEditPaste();
+}
+
+void CHexEditCtrlView::OnEditSelectAll() 
+{
+	GetHexEditCtrl().callOnEditSelectAll();
+}
