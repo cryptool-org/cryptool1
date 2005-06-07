@@ -87,9 +87,7 @@ UINT AESBrute(PVOID p);
 // CCryptDoc
 
 
-
-
-IMPLEMENT_DYNCREATE(CCryptDoc, CPadDoc)
+IMPLEMENT_DYNCREATE(CCryptDoc, CRichEditDoc)
 
 CCryptDoc::CCryptDoc()
 {

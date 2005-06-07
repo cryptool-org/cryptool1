@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
+	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -147,4 +148,13 @@ void CHexEditCtrlView::OnEditPaste()
 void CHexEditCtrlView::OnEditSelectAll() 
 {
 	GetHexEditCtrl().callOnEditSelectAll();
+}
+
+void CHexEditCtrlView::OnGotoVater() 
+{
+	if(IsWindow(((CAppDocument*)GetDocument())->hWndVaterFenster))
+	{
+		((CMDIFrameWnd*)theApp.m_pMainWnd)->
+			MDIActivate(((CAppDocument*)GetDocument())->CWndVaterFenster);
+	}
 }
