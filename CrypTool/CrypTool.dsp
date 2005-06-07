@@ -5439,6 +5439,10 @@ SOURCE=.\res\SCABitmaps\bmps\sca_alice_small.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\bmps\sca_alice_small.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\bmps\sca_allremainingsteps_D.bmp
 # End Source File
 # Begin Source File
@@ -5459,7 +5463,15 @@ SOURCE=.\res\SCABitmaps\bmps\sca_bob_small.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\SCABitmaps_en\bmps\sca_bob_small.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\SCABitmaps\bmps\sca_gapfiller.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\sca_gapfiller.bmp
 # End Source File
 # Begin Source File
 
@@ -5516,6 +5528,10 @@ SOURCE=.\res\sca_red_error.gif
 # Begin Source File
 
 SOURCE=.\res\SCABitmaps\bmps\sca_trudy_small.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\SCABitmaps_en\bmps\sca_trudy_small.bmp
 # End Source File
 # Begin Source File
 
