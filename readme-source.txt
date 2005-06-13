@@ -1,16 +1,17 @@
-CrypTool 1.3.06 Beta 2  (2004-11-22)
+CrypTool 1.3.06 Beta 4  (2005-04-27)
 ~~~~~~~~~~~~~~~
 
-Readme for building CrypTool from the current sources. 
+Readme for building CrypTool from the current C++ sources. 
 
 Remarks: 
 - The current release version 1.3.05 was built with Visual C++ 6.0.
 - The current beta can also be compiled with VS.net 2003, but certain
   runtime errors will appear yet.
 - Compared to the release version 1.3.05 the current beta contains the following additions:
-    - Online-Help files in HTML format instead in Winhelp format
+    - Online help files in HTML format instead in Winhelp format
     - Demo of side-channel attack
-    - Demo of challenge response and client-server authentication.
+    - Demo of challenge response and client-server authentication
+    - and a lot more (see Roadmap entry in left frame at www.cryptool.org).
 
 
 
@@ -35,17 +36,21 @@ For building you need:
   please install both Htmlhelp.exe and Hhupd.exe)
 
 Remark:
-The free Visual C++ Toolkit 2003 (http://msdn.microsoft.com/visualc/vctoolkit2003/)
-cannot be used as compiler for CrypTool because it is not complete enough to do so!
+The free version of the Visual C++ Toolkit 2003 (http://msdn.microsoft.com/visualc/vctoolkit2003/)
+cannot be used as compiler for CrypTool because it is not complete enough to do so! (status: 11/2004)
 
 
 
 3. The programs (CrypTool.exe and AES-Tool.exe)
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Remark:
+The following paragraphs always contain the menu items in German and Englisch.
+
 The project files, which can be opened with MS-Visual C, are located at
 - Visual Studio 6: ..\CrypTool\CrypTool.dsw 
 - VS.net 2003:     ..\CrypTool\CrypTool.sln 
-To open the project file please double click or with MS-VC choose Datei[File] -> Arbeitsbereich öffnen[open project/solution].
+To open the project file please double click it or 
+with MS-VC choose Datei[File] -> Arbeitsbereich öffnen[open project/solution].
 
 Before compiling you should notice to include Perl and HTML Help Workshop correctly:
 Please adjust/check at:
@@ -67,7 +72,8 @@ Einstellungen[Settings] (project settings only for CrypTool, not for AES-Tool)
   path to htmlhelp.h here
 
 Building CrypTool and AES-Tool:
-At Menü:[Menu:] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] the following configurations are defined:
+At Menü:[Menu:] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] 
+the following configurations are defined:
 - CrypTool Win32 (Debug) 
 - CrypTool Win32 Release_{de|en}	// depending on the favoured language (German or English)
 - aestool Win32 (Debug)	
@@ -76,7 +82,8 @@ At Menü:[Menu:] Erstellen[Build] -> Aktive Konfiguration festlegen[choose config
 Online help:
 Files of the online help can be found at
 CrypTool\source\CrypTool\CrypTool\hlp_[de|en]
-Building the online help takes some time, but you can prevent that by adding a file called "makehelp.no" to the help directories. 
+Building the online help takes some time, but you can prevent that
+by adding a file called "makehelp.no" to the help directories. 
 
 Possible problem (only saw with C++ 6.0 standard edition):
 - Maybe the Microsoft library MFC was not compiled yet.
@@ -153,30 +160,32 @@ a) CrypTool has for each menu item a longer text string explaining it. This text
    fill the field for the text in the status bar.
     
 
-b) Usage of the icon "Show key" and "Insert key":
+b) Usage of the icons "Show key" ("Schlssel anzeigen") and "Insert key" ("Schlüssel einfügen"):
    After encrypting a document, you can click on the "Show key" icon within the
    icon bar (below the menu bar). Then the used key for this method is shown and
    can be copied to an internal, method-specific key-clipboard.
    So take care to activate this "show key" icon after showing your encrypted document.
-   In all dialogues, where you enter a key, there has to be an "Insert key" icon.
+   In all dialogues, where you enter a key, there has to be an "Insert key" icon
+   (this could be in the encryption dialogue or in the analysis dialog).
    This icon is active, if for this method there has already be a key copied into
    the internal, method-specific key-clipboard.
    Please have a look at the source code, how it is implemented for other encryption
    methods.
 
 c) More complex methods which require several different input values like the
-   RSA crypto system or the Diffie-Hellman key exchange should offer to create
-   a log file at the end.
+   RSA crypto system or the Diffie-Hellman key exchange should offer at the end:
+   - to show the achieved result in an extra dialog mask.
+   - to create a log file.
 
 d) The online help for CrypTool is in HTML format. To build it, use your HTML editor
    of choice.
 
    Help texts have to be exhaustive and easy to understand.
-   There must be a version in English and in German (if you can do it only in one
+   There must be a version in English AND in German (if you can do it only in one
    language please contact the CrypTool mailing list).
    Each help page has to be within an own HTML file (with a self-explaining name).
 
-   There has to be different help pages one gets when pressing F1 and
+   There have to be different help pages one gets when pressing F1 and
    - if a menu item is marked:
      Title has to contain the method name and the menu path.
      Then the method has to be described in general, references be named, ... .
@@ -200,12 +209,18 @@ d) The online help for CrypTool is in HTML format. To build it, use your HTML ed
      Here within the second chapter there is a link to the dialog
      "Schlüsseleingabe Playfair" ["Playfair key entry"].
 
+   - Another thing in the online help is:
+     - to offer a links to a scientific source for deeper information.
+     - to describe the according RFC, PKCS, ... standard if there is any.
+
 e) If you implement a method please make sure that your method reflects the options
    within the menu "Optionen \ Textoptionen" [Options \ Text Options] and reacts
    properly to changes made there.
    If the options within the options dialogs (like the alphabet used, the way to deal with
    formats, ...) are not enough, you also can make enhancements within the options dialogs.
 
+f) When developing new code, try to separate different fuctioalities: so please act
+   according to the MVC-principle (model-view-controller).
 
 
 5. Additional hints
@@ -218,8 +233,9 @@ e) If you implement a method please make sure that your method reflects the opti
 - If you come to a problem do not hesitate to paste a mail to the CrypTool mailings list
   (see www.cryptool.org).
 
-- There exits an additional presentation about how to compile CrypTool and how to add own
-  methods. The most important recommendations are:
+- There exit two additional presentation about how to compile CrypTool and how to add own
+  methods (one is for users of VC++ 6.0; one for users of VC++ 7.x). 
+  The most important recommendations are:
   - First develop your program as a pure console application to make your functionality clear.
   - Then integrate your program into CrypTool and design the GUI.
   Acting in this way means to have 2 separated steps: this helps to clearly divide up the
