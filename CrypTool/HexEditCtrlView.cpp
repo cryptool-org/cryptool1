@@ -89,7 +89,7 @@ END_MESSAGE_MAP()
 
 CHexEditCtrlView::CHexEditCtrlView()
 {
-	GetHexEditCtrl().SetAddressSize(4, false);
+	GetHexEditCtrl().SetAddressSize(8, false);
 	GetHexEditCtrl().SetShowAddress(true, false);
 	GetHexEditCtrl().SetShowAscii(true, false);
 	GetHexEditCtrl().SetBytesPerRow(16, true, true);
