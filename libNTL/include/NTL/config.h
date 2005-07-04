@@ -89,7 +89,8 @@ to unset a flag, just replace the 'if 1' by an 'if 0'.
 
 #endif
 
-#if 0
+#if !defined(_MSC_VER) || _MSC_VER <= 1200
+#else
 #define NTL_PSTD_NHF
 
 /* Set if you want to use the new header files <cstdlib>, <cmath>, and 

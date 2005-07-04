@@ -32,6 +32,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlp_en", "hlp_en\hlp_en.vcp
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNTL", "..\libNTL\libNTL.vcproj", "{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -126,6 +130,18 @@ Global
 		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_de.Build.0 = Release_en|Win32
 		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_en.ActiveCfg = Release_en|Win32
 		{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}.Release_en.Build.0 = Release_en|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Debug.ActiveCfg = Debug|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Debug.Build.0 = Debug|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release.ActiveCfg = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release.Build.0 = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_aes_de.ActiveCfg = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_aes_de.Build.0 = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_aes_en.ActiveCfg = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_aes_en.Build.0 = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_de.ActiveCfg = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_de.Build.0 = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.ActiveCfg = Release|Win32
+		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

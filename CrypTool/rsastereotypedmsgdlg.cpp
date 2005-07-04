@@ -316,7 +316,7 @@ void CRSAStereotypedMSGDlg::checkParameters()
 		cbase=16;
 
 	if(sa.getBound()>0){
-		SetDlgItemZZ(IDC_EDITPOSLENGTH, to_ZZ(floor(log(sa.getBound())/log(256))),10,0);
+		SetDlgItemZZ(IDC_EDITPOSLENGTH, to_ZZ(floor(log(sa.getBound())/log((double)256))),10,0);
 		SetDlgItemInt(IDC_EDITDIM, GetDlgItemInt(IDC_EDITE)*GetDlgItemInt(IDC_EDITH));
 		if(GetDlgItemZZ(IDC_EDITPLAIN,256)>0&&
 			GetDlgItemZZ(IDC_EDITCIPHER,cbase)>0)
@@ -608,7 +608,7 @@ void CRSAStereotypedMSGDlg::OnChangeEditplainfull()
 	CString chars;
 	ZZ MaxChars ;
 	if(N>0)
-		MaxChars = to_ZZ(floor(log(N+255)/log(256)));
+		MaxChars = to_ZZ(floor(log(N+255)/log(256.0)));
 	else
 		MaxChars = 0;
 	chars.Format("%d(%s)",tmp.GetLength(),toString(MaxChars,10,0));

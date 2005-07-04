@@ -99,15 +99,11 @@ statement from your version.
 #include "DlgCrtTransformation.h"
 #include "DlgCrtSecretSharing.h"
 
-
-
-#if !defined(_MSC_VER) || _MSC_VER <= 1200
-
+// #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
 #include "RSAStereotypedMSGDlg.h"
 #include "RSAFactorHintDlg.h"
-
-#endif
+// #endif
 
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -167,11 +163,11 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
-#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+// #if !defined(_MSC_VER) || _MSC_VER <= 1200  
 	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
 	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
 	ON_COMMAND(ID_RSA_BLOEMERMAY, OnRsaBloemermay)
-#endif
+// #endif
 	ON_COMMAND(ID_HELP_ANIMAL_CAESAR, OnAnimalCaesar)
 	ON_COMMAND(ID_HELP_ANIMAL_VIGENERE, OnAnimalVigenere)
 	ON_COMMAND(ID_HELP_ANIMAL_NIHILIST, OnAnimalNihilist)
@@ -1006,7 +1002,7 @@ void CCrypToolApp::OnChallengeResponse()
 }
 
 
-#if !defined(_MSC_VER) || _MSC_VER <= 1200
+// #if !defined(_MSC_VER) || _MSC_VER <= 1200
 
 void CCrypToolApp::OnRsaFactorhint() 
 {
@@ -1025,7 +1021,7 @@ void CCrypToolApp::OnRsaBloemermay()
 	CRSABloemerMayDlg RSABMDlg;
 	RSABMDlg.DoModal();
 }
-#endif
+// #endif
 
 
 

@@ -284,14 +284,14 @@ void CRSAFactorHintDlg::updateNP()
 			int figuresOfGuess;
 			int groupOffset=0;
 			if(group>0&&m_p>0){
-				figuresOfP=(int)ceil(log(m_p)/log(base));
-				figuresOfGuess=(int)ceil(log(m_GuessP)/log(base));
+				figuresOfP=(int)ceil(log(m_p)/log((double)base));
+				figuresOfGuess=(int)ceil(log(m_GuessP)/log((double)base));
 				groupOffset=(figuresOfP-figuresOfGuess)%group;
 			}
 			CString filledString=toString(m_GuessP,base,group,groupOffset,0);
 			SetDlgItemText(IDC_EDITGUESSP_LEFT,filledString);
 			int m_b=GetDlgItemInt(IDC_EDITB);
-			int NumFigures =(int) ceil(log(power(to_ZZ(2),m_b))/log(base));
+			int NumFigures =(int) ceil(log(power(to_ZZ(2),m_b))/log((double)base));
 			SetDlgItemText(IDC_EDITGUESSP_RIGHT,toString(m_GuessP,base,group,0,NumFigures));
 
 	}else{

@@ -141,11 +141,12 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnScript();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnChallengeResponse();
-#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+// #if !defined(_MSC_VER) || _MSC_VER <= 1200  
+
 	afx_msg void OnRsaFactorhint();
 	afx_msg void OnRsaStereotyped();
 	afx_msg void OnRsaBloemermay();
-#endif
+// #endif
 	afx_msg void OnAnimalCaesar();
 	afx_msg void OnAnimalVigenere();
 	afx_msg void OnAnimalNihilist();

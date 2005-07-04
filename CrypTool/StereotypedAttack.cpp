@@ -74,7 +74,7 @@ void StereotypedAttack::buildPoly(){
 
 	int rightLength = 0;
 	if (rightText!=0)  // calculate length of right
-		rightLength = to_int(floor(log(rightText)/log(256)))+1;
+		rightLength = to_int(floor(log(rightText)/log(256.0)))+1;
 	
 	int leftOffset =  // calculate position of left
 		unknownLength + rightLength;
