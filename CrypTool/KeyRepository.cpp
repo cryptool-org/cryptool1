@@ -84,6 +84,7 @@ const int CryptMethods[] =  {
 		IDS_PARAM_PLAYFAIR,
 		IDS_PARAM_RSA_DEMO,
 		IDS_ANALYSIS_SUBSTITUTION,
+		IDS_CRYPT_ADFGVX,
 		0
 };
 

@@ -9,11 +9,11 @@ Display compile progress=No
 Error log file=CrypTool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
-Language=0x407 Deutsch (Deutschland)
+Language=0x407 German (Germany)
 Title=CrypTool Hilfe
 
 [WINDOWS]
-MainWindow="Hilfe zu CrypTool 1.3.06 b1","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[403,268,1106,863],,,,,,,0
+MainWindow="Hilfe zu CrypTool 1.3.06 beta 06","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[403,268,1106,863],,,,,,,0
 
 
 [FILES]
@@ -408,6 +408,22 @@ hid_cr_sz_passwords.html
 hid_cr_usage.html
 hid_cr_overview.html
 hidd_sidechannelattackvisualization_he_attackcycle.html
+hid_messageauthenticationcode.html
+authentizitaet.html
+hid_anim_vigenere.htm
+hid_anim_caesar.htm
+hid_anim_des.htm
+hid_anim_nihilist.htm
+hid_anim.htm
+hidd_hmac.html
+hid_einzelverfahren_crt_transformation_dialog.html
+hid_einzelverfahren_crt_astronomy_dialog.html
+hid_einzelverfahren_crt_definition.html
+hid_einzelverfahren_crt_secretsharing.html
+hid_einzelverfahren_crt_secretsharing_dialog.html
+hid_einzelverfahren_crt_transformation.html
+hid_einzelverfahren_crt_astronomy.html
+menu_tutorial_for_crt.html
 
 [ALIAS]
 #include CrypTool_Alias.h

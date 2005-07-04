@@ -141,11 +141,18 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnScript();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnChallengeResponse();
-#if !defined(_MSC_VER) || _MSC_VER <= 1200
+#if !defined(_MSC_VER) || _MSC_VER <= 1200  
 	afx_msg void OnRsaFactorhint();
 	afx_msg void OnRsaStereotyped();
 	afx_msg void OnRsaBloemermay();
 #endif
+	afx_msg void OnAnimalCaesar();
+	afx_msg void OnAnimalVigenere();
+	afx_msg void OnAnimalNihilist();
+	afx_msg void OnAnimalDes();
+	afx_msg void OnIndivCrtPlanet();
+	afx_msg void OnIndivCrtDemo();
+	afx_msg void OnIndivCrtSecretsharing();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
@@ -174,7 +181,8 @@ public:
 	virtual void AddToRecentFileList(LPCTSTR lpszPathName);
 	
 	// WinHelp set public to get access from Challenge Response Demo
-	#if !defined(_MSC_VER) || _MSC_VER <= 1200  // HTML Help for VC++ 6.0
+	#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+	// HTML Help for VC++ 6.0
 	virtual void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd = HELP_CONTEXT);
 	#else										// HTML Help for VC++ .NET
 	virtual void WinHelpInternal( DWORD_PTR dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus

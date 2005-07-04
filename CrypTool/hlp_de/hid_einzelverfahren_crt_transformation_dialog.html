@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog zur modularen Hin- und Rücktransformation</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Transformation">
+			<PARAM NAME="Keyword" VALUE="Modulare Transformation">
+			<PARAM NAME="Keyword" VALUE="Hin- und Rücktransformation">
+		</OBJECT>
+		<a name="anfang"></a>
+		<h3><P><A NAME="hid_einzelverfahren_crt_transformation_dialog"></A><B> Dialog zur modularen 
+					Hin- und Rücktransformation</B></P>
+		</h3>
+		<P>Dieses Dialogfenster erhält man über den Menüeintrag <A><B>Einzelverfahren</B></A><B>
+				\ Anwendungen des Chinesischen Restsatzes (CRT) \ <U><A href="hid_einzelverfahren_crt_transformation.html">
+						Modulare Hin- und Rücktransformation</A></U></B>
+		</P>
+		<P>Dieser Dialog gibt Ihnen die Möglichkeit, die auf dem <A href="hid_einzelverfahren_crt_definition.html">
+				Chinesischen Restsatz (CRT)</A> beruhende Hin- und Rücktransformation der 
+			Zahlendarstellung in die modulare Darstellung nachzuvollziehen.
+		</P>
+		<P><STRONG><A name="Dialog"></A>Vorgehensweise:</STRONG>
+		</P>
+		<P>
+			<IMG SRC="images/CrtTransformation1.gif" ALT="CrtTransformation1.gif" BORDER="0"></P>
+		<P>Der Benutzer kann als mathematische Operation per Radiobutton entweder eine 
+			Multiplikation, eine Addition oder eine Subtraktion von zwei Zahlen A und 
+			B&nbsp;auswählen. Initial ist die Multiplikation ausgewählt.
+		</P>
+		<P>Wir betrachten nun ein einfaches Zahlenbeispiel, indem wir als Zahl A die 23 und 
+			als Zahl B die 41 eingeben.
+		</P>
+		<P>
+			Der Benutzer muss danach die Moduln m<SUB>1</SUB> · m<SUB>2</SUB> · … · m<SUB>5</SUB>
+			eingeben. Die Moduln legen fest, in welchem Wertebereich die Eingangszahlen und 
+			das Ergebnis liegen kann. Deshalb muss man ein Moduln groß genug wählen oder 
+			entsprechend mehrere Moduln auswählen, damit man auch große Zahlen richtig 
+			darstellen kann.
+		</P>
+		<P>Die Moduln können vom Benutzer entweder <STRONG>automatisch</STRONG> erzeugt 
+			oder <STRONG>manuell </STRONG>in den Eingabefeldern der Moduln eingeben werden.
+		</P>
+		<UL>
+			<LI style="MARGIN-RIGHT: 0px">
+				Für die <STRONG>automatische Erzeugung</STRONG> der Moduln kann die gewünschte 
+				Anzahl der Moduln sowie der Zahlenbereich (Unter-/Obergrenze in der Form 2^x) 
+				eingegeben werden. Durch einen Klick auf den Button <STRONG>Generieren</STRONG> 
+				werden die Moduln in die Eingabefelder übertragen und der Button <STRONG>Lösen</STRONG>
+				aktiviert.
+			</LI>
+			<LI style="MARGIN-RIGHT: 0px">
+				Werden die Moduln <STRONG>manuell </STRONG>eingegeben, dann ist darauf zu <STRONG>achten</STRONG>, 
+				dass die Moduln paarweise teilerfremd und größer als 1 sind.
+			</LI>
+		</UL>
+		<P>Sind die Moduln&nbsp;nicht paarweise teilerfremd, wird dies dem Benutzer nach 
+			einem Klick auf den Button <STRONG>Lösen </STRONG>wie in der folgenden 
+			Nachricht angezeigt, und der Benutzer muss ein neues Modul eingeben:
+		</P>
+		<P>
+			<IMG SRC="images/CrtTransformation2.gif" ALT="CrtTransformation2.gif" BORDER="0"></P>
+		<P>Überschreitet das Ergebnis einer mathematischen Operation den darstellbaren 
+			Zahlenbereich, wird der Benutzer über ein Nachrichtenfenster informiert:
+		</P>
+		<P>
+			<IMG SRC="images/CrtTransformation3.gif" ALT="CrtTransformation3.gif" BORDER="0"></P>
+		<P>Ein Beispiel wäre die Multiplikation von 23 und 41. Das 
+			Ergebnis&nbsp;943&nbsp;überschreitet den darstellbaren Zahlenbereich, wenn 
+			man&nbsp;lediglich die Moduln&nbsp;11 und 10 auswählt [0,&nbsp;..., 110-1].</P>
+		<P>Wenn&nbsp;das Ergebnis einer mathematischen Operation im 
+			negativen&nbsp;Zahlenbereich liegt, wird der Benutzer ebenfalls über ein 
+			Nachrichtenfenster informiert:</P>
+		<P>
+			<IMG SRC="images/CrtTransformation6.gif" ALT="CrtTransformation6.gif" BORDER="0"></P>
+		<P>Ein Beispiel dafür wäre die&nbsp;Subtraktion von&nbsp;23 und 41, da das Ergebnis 
+			-18 kleiner als 0&nbsp;ist.</P>
+		<P>Wir wählen für unser Beispiel neben den zwei Zahlen A = 23 und B = 41 manuell 
+			drei paarweise teilerfremde Moduln aus:
+		</P>
+		<P>m<SUB>1</SUB> = 11, m<SUB>2</SUB> = 10, m<SUB>3 </SUB>= 9.
+		</P>
+		<P>Hiermit können wir als Ergebnis jede ganze Zahl x zwischen 0 und 989 (m<SUB>1</SUB>&#8729; 
+			m<SUB>2</SUB>&#8729; m<SUB>3</SUB>-1) darstellen.
+		</P>
+		<P>
+			<IMG SRC="images/CrtTransformation4.gif" ALT="CrtTransformation4.gif" BORDER="0"></P>
+		<P>Wir können nun nach Auswahl der mathematischen Operation, der Eingabe der Zahlen 
+			A und B sowie der Eingabe der Moduln auf den Button <STRONG>Lösen</STRONG> klicken, 
+			um die Visualisierung zu starten:
+		</P>
+		<P><STRONG></STRONG>&nbsp;</P>
+		<P><STRONG><A name="Visualisierung"></A>Visualisierung:</STRONG></P>
+		<P>
+			<IMG SRC="images/CrtTransformation5.gif" ALT="CrtTransformation5.gif" BORDER="0"></P>
+		<P>Der darstellbare Zahlenbereich wird in einem Ausgabefeld unter den Modulfeldern 
+			angezeigt.
+		</P>
+		<P>Die Visualisierung läuft im Uhrzeigersinn und beginnt bei dem CR-Pfeil wie 
+			folgt:
+		</P>
+		<P>&nbsp;</P>
+		<P><U>1. Die Zahlendarstellung wird zuerst in die modulare Darstellung transformiert 
+				(CR-Pfeil)</U>
+		</P>
+		<P>Die Zahlen A = 23 und B = 41 werden auf ihr jeweiliges entsprechendes Resttripel 
+			abgebildet.
+		</P>
+		<P>23 mod 11 = 1,&nbsp; 23 mod 10 = 3 und&nbsp; 23 mod 9 = 5 sowie
+		</P>
+		<P>41 mod 11 = 8,&nbsp; 41 mod 10 = 1 und&nbsp; 41 mod 9 = 5.
+		</P>
+		<P>Wir erhalten für die Zahl 23 das Tripel (1, 3, 5) und für die Zahl 41 (8, 1, 5), 
+			welche in der Gruppierung <STRONG>Modulare Darstellung</STRONG> angezeigt 
+			werden.
+		</P>
+		<P>
+		</P>
+		<P>2<U>. Die arithmetische Operation wird durchgeführt (f’ - Pfeil) </U>
+		</P>
+		<P>Danach werden die beiden Tripel direkt miteinander multipliziert
+		</P>
+		<P>(1 &#8729; 8) mod 11 = 8
+		</P>
+		<P>(3 &#8729; 1) mod 10 = 3
+		</P>
+		<P>(5 &#8729; 5) mod 9 = 7
+		</P>
+		<P>und man erhält als Ergebnis das Tripel (8, 3, 7), welches in der Gruppierung <STRONG>
+				Ergebnis der Operation</STRONG> angezeigt wird.
+		</P>
+		<P><U></U>
+		</P>
+		<P><U>3. Die Basis wird berechnet (Basis - Pfeil)</U>
+		</P>
+		<P>Um das Ergebnis der Operation wieder in die Zifferndarstellung zurückzuführen, 
+			wird die Basisdarstellung ermittelt.
+		</P>
+		<P>Hier ist M = 11 · 10 · 9 = 990, M<SUB>1</SUB> = M/11 = 90, M<SUB>2</SUB> = M/10 
+			= 99, M<SUB>3</SUB> = M/9 = 110.
+		</P>
+		<P>Mit Hilfe des erweiterten Euklidischen Algorithmus berechnen wir die Inverse M<SUB>i</SUB>
+			mod m<SUB>i </SUB>[i = 1, 2, 3] und erhalten als Basis:
+		</P>
+		<P>e<SUB>1</SUB> = 6 &#8729; 90 = 540
+		</P>
+		<P>e<SUB>2 </SUB>= 9 &#8729; 99 = 891
+		</P>
+		<P>e<SUB>3</SUB> = 5 &#8729; 110 = 550
+		</P>
+		<P>Die Basis (540, 891, 550) wird in der Gruppierung <STRONG>Basisberechnung</STRONG>
+			angezeigt.
+		</P>
+		<P><U></U>
+		</P>
+		<P><U>4. Das Ergebnis wird per Rücktransformation in die Zahlendarstellung überführt 
+				(CR-1 - Pfeil)</U>
+		</P>
+		<P>Durch die Bildung des Skalarprodukts des Ergebnisvektors mit dem Basisvektor 
+			lässt sich die Zahl x berechnen.
+		</P>
+		<P>x = 8 &#8729; 540 + 3 &#8729; 891 + 7 &#8729; 550 mod 990. Der Rechenweg ist im 
+			Ausgabefeld <STRONG>Rücktransformation</STRONG> dargestellt.
+		</P>
+		<P><U></U>
+		</P>
+		<P><U>5. Das Ergebnis nach der konventionellen Stellenwertnotation (f - Pfeil)</U>
+		</P>
+		<P>Die Zahl x = 943 wird in der Gruppierung <STRONG>Lösung</STRONG> angezeigt.
+		</P>
+		<P>
+		</P>
+		<P>&nbsp;</P>
+		<P>Mit&nbsp;einem Klick auf den Button <STRONG>Zurücksetzen</STRONG> können Sie<STRONG> </STRONG>
+			alle Felder&nbsp;löschen.
+		</P>
+		<P>Mit einem Klick auf den Button <STRONG>Beenden </STRONG>verlässt man das 
+			Dialogfenster und kehrt zurück zum CrypTool-Hauptfenster.</P>
+		<P>
+			<a href="#anfang">zum Anfang</a></P>
+	</BODY>
+</HTML>

@@ -9,11 +9,11 @@ Display compile progress=No
 Error log file=Cryptool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
-Language=0x809 Englisch (Groﬂbritannien)
+Language=0x809 English (United Kingdom)
 Title=CrypTool Help
 
 [WINDOWS]
-MainWindow="Help for CrypTool 1.3.06 b1","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[366,280,1049,778],,,,,,,0
+MainWindow="Help for CrypTool 1.3.06 beta 06","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[366,280,1049,778],,,,,,,0
 
 
 [FILES]
@@ -406,6 +406,17 @@ hidd_sidechannelattackvisualization_he_preparations.html
 hidd_sidechannelattackvisualization_he_psepinprompt.html
 hidd_sidechannelattackvisualization_he_report.html
 hid_einzelverfahren_sidechannelattack_on_hybridencryption.html
+hidd_mac.html
+hid_messageauthenticationcode.html
+authentizitaet.html
+hid_einzelverfahren_crt_transformation_dialog.html
+hid_einzelverfahren_crt_astronomy_dialog.html
+hid_einzelverfahren_crt_definition.html
+hid_einzelverfahren_crt_secretsharing.html
+hid_einzelverfahren_crt_secretsharing_dialog.html
+hid_einzelverfahren_crt_transformation.html
+hid_einzelverfahren_crt_astronomy.html
+menu_tutorial_for_crt.html
 
 [ALIAS]
 #include CrypTool_Alias.h

@@ -183,6 +183,9 @@ protected:
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnFileProperties();
 	afx_msg void OnToTxt();
+	afx_msg void OnMessageauthenticationcode();
+	afx_msg void OnEncryptAdfgvx();
+	afx_msg void OnAnalyseSymmclassicAdfgvx();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

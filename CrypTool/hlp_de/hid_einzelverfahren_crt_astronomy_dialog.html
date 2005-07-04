@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog Astronomie und Planetenbewegung</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Astronomie">
+			<PARAM NAME="Keyword" VALUE="Astronomie und Planetenbewegung">
+			<PARAM NAME="Keyword" VALUE="Planetenbewegung">
+		</OBJECT>
+		<a name="anfang"></a>
+		<h3><P><A NAME="hid_einzelverfahren_crt_astronomy_dialog"></A><B>Dialog Astronomie und Planetenbewegung</B></P>
+		</h3>
+		<P>Dieses Dialogfenster erhält man über den Menüeintrag <A><B>Einzelverfahren</B></A><B>
+				\ Anwendungen des Chinesischen Restsatzes (CRT) \ <U><A href="hid_einzelverfahren_crt_astronomy.html">
+						Astronomie und Planetenbewegung</A></U></B>
+		</P>
+		<P>Dieser Dialog gibt Ihnen die Möglichkeit, eine Anwendung des <A href="hid_einzelverfahren_crt_definition.html">
+				Chinesischen Restsatzes (CRT)</A> in der Astronomie nachzuvollziehen.
+		</P>
+		<P>Mit diesem Dialog können Sie bis zu 9 Gleichungen der Form x <EM>&#8801;</EM> a<SUB>i</SUB>
+			mod m<SUB>i </SUB>(für alle i = 1, ..., 9) eingeben und anschließend lösen.
+		</P>
+		<P>Dabei existiert immer eine eindeutige Lösung x, wenn alle m<SUB>i </SUB>, m<SUB>j</SUB>
+			(i, j = 1, ..., 9) paarweise teilerfremde, natürliche Zahlen größer als 1 sind.
+		</P>
+		<P>Solche Gleichungssysteme kann man nutzen, um herauszufinden, in wie viel Tagen 
+			bestimmte Planeten aufgereiht wie auf einer Perlenschnur hintereinander in 
+			einer Linie (Strahl) stehen oder wie&nbsp;man einen Code bauen kann, so dass 
+			immer 3 von 5 Menschen einen Tresor öffnen können (<A href="hid_einzelverfahren_crt_secretsharing.html">Secret 
+				Sharing mittels CRT</A>).
+		</P>
+		<P><STRONG><A name="Voreinstellung"></A>Voreinstellung (Initialisierung):</STRONG>
+		</P>
+		<P>Wird die Anwendung neu gestartet, so gilt folgende Voreinstellung:
+		</P>
+		<P>Es wurden die zwei Planeten Merkur (braun dargestellt) und Erde (blau 
+			dargestellt) ausgewählt, die sich mit konstanter Geschwindigkeit um die Sonne 
+			(gelb dargestellt) bewegen.
+		</P>
+		<P><IMG SRC="images/CrtAstronomy1a.gif" ALT="CrtAstronomy1a.gif" BORDER="0"></P>
+		<P>&nbsp;</P>
+		<P>In unserem Beispiel&nbsp;benötigt Merkur&nbsp;für eine Umrundung der Sonne <FONT color="sienna">
+				<STRONG>88</STRONG></FONT>, die Erde <FONT color="blue"><STRONG>365</STRONG></FONT>
+			Tage. Bis zum Erreichen eines bestimmten Bahnradiusvektors s (rot dargestellter 
+			Strahl) benötigt Merkur <STRONG><FONT color="brown"><FONT color="sienna">15</FONT> </FONT>
+			</STRONG>und die Erde<STRONG><FONT color="blue">100</FONT> </STRONG>Tage.
+		</P>
+		<P>Man kann nun mit dem <A href="hid_einzelverfahren_crt_definition.html">Chinesischen 
+				Restsatz</A> berechnen, nach wievielen Tagen&nbsp;sich Merkur und Erde 
+			einmal gleichzeitig auf diesem vorgegebenen roten Strahl s befinden.</P>
+		<P><IMG SRC="images/CrtAstronomy1b.gif" ALT="CrtAstronomy1b.gif" BORDER="0"></P>
+		<P>Dabei ist die Animation symbolisch gemeint ist, das heißt:
+		</P>
+		<UL>
+			<LI>
+				das Verhältnis der Umlaufzeiten real und im Bild ist <STRONG>ungefähr gleich</STRONG>: 
+				4 : 1 ( <FONT color="blue"><STRONG>365</STRONG></FONT> : <FONT color="sienna"><STRONG>88</STRONG></FONT>
+			= 4,15 ) und
+			<LI>
+				die Visualisierung ist beschleunigt, damit ein Erdumlauf statt <FONT color="blue"><STRONG>
+						365</STRONG> </FONT>Tagen nur ca. 4 Sekunden und ein Merkurumlauf statt <FONT color="sienna">
+					<STRONG>88</STRONG> </FONT>Tagen nur ca. 1 Sekunde dauert.
+			</LI>
+		</UL>
+		<P>Die Zahlenunterschiede (genauer die Unterschiede in den gemeinsamen Teilern) 
+			führen dazu, dass sich das Ereignis „Perlenkette Erde-Merkur“ im Bild alle 12 
+			Umläufe des Merkur = alle 3 Umläufe der Erde wiederholt, in der Realität jedoch 
+			nur alle 32.120 Tage.
+		</P>
+		<P>&nbsp;</P>
+		<P><STRONG><A name="Dialog"></A>Vorgehensweise bei der Auswahl eines Planeten:</STRONG>
+		</P>
+		<P>1. Eine Gleichung der Form x &#8801; <STRONG>a </STRONG>mod <STRONG>m </STRONG>stellt 
+			genau einen Planeten dar.
+		</P>
+		<P>
+			2. Die benötigte Zeit (in Tagen), bis&nbsp;ein Planeten den roten 
+			Bahnradiusvektor s erreicht, wird im ersten Feld (Variable <STRONG>a</STRONG>) 
+			einer Zeile eingegeben.
+		</P>
+		<P>3. Die Umlaufdauer (in Tagen) eines Planeten kann entweder <STRONG>manuell </STRONG>
+			im zweiten Feld (Variable <STRONG>m</STRONG>) der jeweiligen Zeile eingegeben 
+			werden oder <STRONG>automatisch</STRONG> durch ein Häkchen in der Sektion&nbsp; <STRONG>
+				Planetenauswahl </STRONG>ausgewählt werden.
+		</P>
+		<P>Für den Merkur lautet die Gleichung daher x &#8801; <STRONG><FONT color="sienna">15</FONT></STRONG>
+			mod <FONT color="maroon"><STRONG><FONT color="sienna">88</FONT></STRONG> </FONT>
+			und für die Erde x &#8801; <FONT color="blue"><STRONG>100</STRONG> </FONT>mod <FONT color="blue">
+				<STRONG>365</STRONG></FONT>.
+		</P>
+		<P><IMG SRC="images/CrtAstronomy2.gif" ALT="CrtAstronomy2.gif" BORDER="0"></P>
+		<P>Nach einem Klick auf die Schaltfläche <STRONG>Lösen</STRONG> wird eine Lösung 
+			des simultanen Gleichungssystems berechnet und im Ausgabefeld <STRONG>Lösung</STRONG>
+			angezeigt. Für unser Beispiel erhalten wir als Lösung 2.655 Tage.
+		</P>
+		<P>Gleichzeitig wird berechnet, nach welchen Zeitabständen (in Tagen) sich dieses 
+			Ereignis wiederholt. Das Ergebnis 32.120 Tage wird in dem letzten Ausgabefeld 
+			unter der Animation angezeigt.
+		</P>
+		<P><IMG SRC="images/CrtAstronomy3.gif" ALT="CrtAstronomy3.gif" BORDER="0"></P>
+		<P>Der Benutzer hat im Dialog entweder die Möglichkeit, durch einen Klick auf den 
+			Button <STRONG>Löschen aller Parameter,</STRONG> alle Felder zu löschen, oder 
+			durch einen Klick auf den Button <STRONG>Zurücksetzen auf den Initialzustand,</STRONG>
+			das Merkur-Erde-Beispiel wiederherzustellen.
+		</P>
+		<P>Mit einem Klick auf den Button <STRONG>Beenden</STRONG> verlässt man das 
+			Dialogfenster und kehrt zurück zum CrypTool-Hauptfenster.</P>
+		<P>Wenn die eingegebenen Moduln <STRONG>m<SUB>i</SUB></STRONG><SUB> </SUB>nicht 
+			paarweise teilerfremd, wird dies dem Benutzer ähnlich wie in der folgenden 
+			Nachricht angezeigt:
+		</P>
+		<P><IMG SRC="images/CrtAstronomy4.gif" ALT="CrtAstronomy4.gif" BORDER="0"></P>
+		<P>Wenn Sie den Button <STRONG>OK </STRONG>drücken, wird mit einem 
+			Brute-Force-Algorithmus versucht, das simultane Gleichungssystem zu lösen. Wenn 
+			der Brute-Force-Algorithmus keine Lösung findet, wird dies dem Benutzer über 
+			eine Nachricht mitgeteilt:
+		</P>
+		<P><IMG SRC="images/CrtAstronomy5.gif" ALT="CrtAstronomy5.gif" BORDER="0"></P>
+		<P><STRONG>Erweiterung des Szenarios:</STRONG>
+		</P>
+		<P>Der Benutzer hat die Möglichkeit, mit bis zu 9 Planeten das Szenario zu 
+			erweitern und unser komplettes Sonnensystem darzustellen.
+		</P>
+		<P>Unabhängig vom dargestellten Astronomiebeispiel können mit dieser Anwendung 
+			simultane modulare Gleichungssysteme mit bis zu 9 beliebigen ganzen Werten für 
+			die Parameter&nbsp;berechnet werden.
+		</P>
+		<P>In dem Dialog können Sie über die Taste F1 jederzeit eine kontextbezogene Hilfe 
+			erhalten, falls Sie Fragen zur <A href="hid_einzelverfahren_crt_astronomy_dialog.html#Dialog">
+				Bedienung des Dialoges</A> oder zur <A href="hid_einzelverfahren_crt_astronomy_dialog.html#Voreinstellung">
+				Animation</A> haben.</P>
+		<a href="#anfang">zum Anfang</a>
+	</BODY>
+</HTML>

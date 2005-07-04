@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Chinesischer Restsatz (CRT)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="CRT">
+			<PARAM NAME="Keyword" VALUE="Chinesischer Restsatz">
+		</OBJECT>
+		<h3><P><A NAME="hid_einzelverfahren_crt_definition"></A><B> Chinesischer Restsatz (CRT)</B></P>
+		</h3>
+		<P>Die Originalform des Chinesischen Restsatzes stammt aus einem Buch des 
+			chinesischen Mathematikers Sun Zi aus dem Jahr 100-300 n. Christi. Der CRT 
+			besitzt&nbsp;eine Aussage über simultane Kongruenzen für den Fall, dass die 
+			Moduln teilerfremd sind.&nbsp;</P>
+		<P>
+			<TABLE id="Table1" height="342" cellSpacing="1" cellPadding="1" width="688" bgColor="gray"
+				border="1">
+				<TR>
+					<TD bgColor="silver">
+						<P><STRONG>Chinesischer Restsatz</STRONG>
+						</P>
+						<P>Seien m<SUB>1</SUB>, m<SUB>2</SUB>, ... , m<SUB>t</SUB> paarweise teilerfremde, 
+							natürliche Zahlen und seien a<SUB>1</SUB>, a<SUB>2</SUB>, ... , a<SUB>t</SUB> beliebig&nbsp;natürliche 
+							Zahlen (a<SUB>i</SUB> &lt; m<SUB>i</SUB>, i = 1, ..., t).</P>
+						<P>Dann hat die simultane Kongruenz
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801;</EM> a<SUB>1</SUB> <EM>mod </EM>m<SUB>1 </SUB>
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801;</EM> a<SUB>2</SUB> <EM>mod</EM> m<SUB>2 </SUB>
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801; </EM>a<SUB>t </SUB><EM>mod</EM> m<SUB>t </SUB>
+						</P>
+						<P>eine Lösung x, die eindeutig ist <EM>mod </EM>M mit M =&nbsp;m<SUB>1 </SUB>&#8729; 
+							m<SUB>2</SUB> &#8729; … &#8729; m<SUB>t</SUB>.&nbsp;&nbsp;</P>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P>Wenn eine Lösung x existiert, dann sind&nbsp;die Zahlen x + k &#8729; M (k in Z) 
+			genau alle Lösungen.
+		</P>
+		<P><STRONG>Finden einer Lösung</STRONG>
+		</P>
+		<P>Für jedes i sind die Zahlen m<SUB>i </SUB>und M<SUB>i</SUB> := M / m<SUB>i </SUB>
+			teilerfremd, also kann man mit dem erweiterten Euklidischen Algorithmus zwei 
+			Zahlen r und s finden, so dass
+		</P>
+		<P>r &#8729; m<SUB>i </SUB>+ s &#8729; M<SUB>i</SUB> = 1
+		</P>
+		<P>eine Darstellung des größten gemeinsamen Teilers (ggT) von m<SUB>i </SUB>und M<SUB>i </SUB>
+			als Linearkombination ergibt.
+		</P>
+		<P>Wir erhalten mit der Zahl s die Inverse von M<SUB>i </SUB>mod m<SUB>i</SUB> (s = 
+			M<SUB>i</SUB> <SUP>-1</SUP> <EM>mod</EM> m<SUB>i</SUB>).
+		</P>
+		<P>Setzen wir nun e<SUB>i</SUB> := s &#8729; M<SUB>i</SUB>, dann gilt
+		</P>
+		<P>e<SUB>i</SUB> <EM>&#8801;</EM> 1 <EM>mod</EM> m<SUB>i </SUB>
+		</P>
+		<P>e<SUB>i</SUB> <EM>&#8801;</EM> 0 <EM>mod</EM> m<SUB>j</SUB>, j &#8800; i
+		</P>
+		<P>und die Zahlen e<SUB>1</SUB>,..., e<SUB>t</SUB> werden dabei als Basis 
+			bezeichnet.
+		</P>
+		<P>Die Zahl x := a<SUB>1</SUB>e<SUB>1</SUB>+a<SUB>2</SUB>e<SUB>2</SUB>&nbsp;+...+ a<SUB>t</SUB>e<SUB>t</SUB>&nbsp;ist 
+			dann die gesuchte Lösung der simultanen Kongruenz.
+		</P>
+		<P><STRONG>Beispiel </STRONG>
+		</P>
+		<P>Gesucht sei eine ganze Zahl x mit der Eigenschaft
+		</P>
+		<P>x <EM>&#8801;</EM> 2 <EM>mod</EM> 3
+		</P>
+		<P>x <EM>&#8801;</EM> 3 <EM>mod</EM> 5
+		</P>
+		<P>x <EM>&#8801;</EM> 2 <EM>mod</EM> 7
+		</P>
+		<P>Hier ist M = 3 · 5 · 7 = 105,
+		</P>
+		<P>
+			M<SUB>1</SUB> = M/3 = 35,
+		</P>
+		<P>
+			M<SUB>2</SUB> = M/5 = 21,
+		</P>
+		<P>
+			M<SUB>3</SUB> = M/7 = 15.
+		</P>
+		<P>Mit Hilfe des erweiterten Euklidischen Algorithmus kann man stets ganze Zahlen r 
+			und s finden, so dass m<SUB>i</SUB> · r + M<SUB>i</SUB> · s = 1 ist bzw.
+		</P>
+		<P>&nbsp;&nbsp;&nbsp;&nbsp; r · m<SUB>i </SUB>+ s · M<SUB>i</SUB>&nbsp; = 1:</P>
+		<P>(-23) · 3 + 2 · 35 = 1, also e<SUB>1</SUB> = s · M<SUB>1 </SUB>=70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</P>
+		<P>&nbsp; (-4) · 5 + 1 · 21 = 1, also e<SUB>2</SUB> = s · M<SUB>2 </SUB>= 21
+		</P>
+		<P>&nbsp; (-2) · 7 + 1 · 15 = 1, also e<SUB>3 </SUB>= s · M<SUB>3 </SUB>= 15
+		</P>
+		<P>Eine Lösung ist dann x = 2 · 70 + 3 · 21 + 2 · 15 = 233.
+		</P>
+		<P>Wegen 233 <EM>&#8801; </EM>23 <EM>mod</EM> 105 sind alle anderen Lösungen x also 
+			kongruent zu 23 <EM>mod</EM> 105.</P>
+		<P>Eine praktische Demonstration der <A href="menu_tutorial_for_crt.html">Anwendungen 
+				des Chinesischen Restsatzes (CRT)</A>&nbsp;wird anhand der 3 Themen <A href="hid_einzelverfahren_crt_astronomy.html">
+				Astronomie und Planetenbewegung</A>, <A href="hid_einzelverfahren_crt_transformation.html">
+				Modulare Hin- und Rücktransformation</A>&nbsp;und <A href="hid_einzelverfahren_crt_secretsharing.html">
+				Secret Sharing mittels CRT</A>&nbsp;gezeigt.</P>
+	</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Message Authentication Code</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Message Authentication Code">
+	<PARAM NAME="Keyword" VALUE="Individual procedures">
+	<PARAM NAME="Keyword" VALUE="hash function">
+</OBJECT>
+
+<h3><P><A NAME="hid_messageauthenticationcode"></A><B>Message Authentication Code (Menu <A href="menu_related_methods.html">Individual Procedures</A>)</B></P></h3>
+
+<P>The dialogue <A href="hidd_mac.html">Message Authentication Code</A> demonstrates how to create the message digest of a file using a <A href="hashfunktion.html">hash function</A> combined with a secret key. A message authentication code (MAC) aims at achieving <A href="authentizitaet.html">authenticity</A>.</P>
+
+<P>Both parties have to agree on a shared secret key and a cryptographic hash function before exchanging messages. The sending party combines message and key (for example by appending the key) and hashes the newly resulting file. The <A href="hashwert.html">hash value</A> is transmitted together with the original file.</P>
+
+<P>By using a cryptographic hash function <A href="authentizitaet.html">data integrity</A> becomes verifiable, because even changing 1 letter would result in another MAC value. The secret key that is part of the MAC-calculation, authenticates the sender.</P>
+
+<P>To verify authenticity the receiving party performs the same operations as the sending party did before. But instead of the original file, the transmitted file is used. If the calculated result and the received MAC correspond, the receiver can assume that the message derives from the given sender and was not altered during transmission.</P>
+
+</BODY>
+</HTML>

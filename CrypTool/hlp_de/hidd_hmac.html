@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Message Authentication Code</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Message Authentication Code">
+	<PARAM NAME="Keyword" VALUE="Hashfunktion">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
+<h3><P><A NAME="hidd_hmac"></A><B>Dialog Message Authentication Code</B></P></h3>
+
+<P>Diesen Dialog erreichen Sie über das Menü Einzelverfahren \ <A href="hid_messageauthenticationcode.html">Message Authentication Code</A>.</P>
+
+<P>In diesem Dialog können Sie den Message Authentication Code (MAC) einer geöffneten Textdatei erstellen. Daür stehen Ihnen mehrere kryptographische <A href="hashfunktion.html">Hashfunktionen</A> zur Verfügung. Der erstellte MAC wird Ihnen hexadezimal angezeigt.</P>
+
+<P>Zur Auswahl stehen die Hashfunktionen MD2, MD4, MD5, SHA, SHA-1 und RIPEMD-160.</P>
+
+<P>Der für die Erstellung des MAC benötigte geheime Schlüssel kann über das Eingabefeld festgelegt werden. Zusätzlich kann eine Form der Verknüpfung von Datei und Schlüssel gewählt werden [Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. Die Variable m bezeichnet dabei die Nachricht, k den Schlüssel und H die Hashfunktion.</P>
+
+<P>Im Ausgabefenster wird Ihnen die Verknüpfung angezeigt, die der Berechnung zugrunde liegt.</P>
+
+<P><B>Bemerkung:</B></P>
+
+<P>Bitte beachten Sie, dass dieser Dialog nur für Textdateien zur Verfügung steht und dass die Dateilänge auf 16.000 Zeichen begrenzt ist. Zeichen, die darüber hinausgehen, fließen nicht in den MAC ein.</P>
+
+</BODY>
+</HTML>

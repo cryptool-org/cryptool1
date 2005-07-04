@@ -107,5 +107,6 @@ void PermutationAsc(const char *infile, const char *OldTitle);
 void Hashdemo(const char *infile,const char *OldTitle);
 void HashOfAFile();
 void SignatureTutorial(const char *infile, const char* OldTitle);
+void CreateMac(const char *infile, const char *OldTitle);
 
 #endif // __CRYPT_H

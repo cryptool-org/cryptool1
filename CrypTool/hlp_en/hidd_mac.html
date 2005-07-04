@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialogue Message Authentication Code</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Message Authentication Code">
+	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+</OBJECT>
+
+<h3><P><A NAME="hidd_mac"></A><B>Dialogue Message Authentication Code</B></P></h3>
+
+<P>This dialogue can be called via the menu Individual Procedures \ <A href="hid_messageauthenticationcode.html">Message Authentication Code</A>.</P>
+
+<P>Within this dialogue you can create the message authentication code (MAC) of an opened textfile. For this purpose, you can choose between several <A href="hashfunktion.html">hash functions</A>. The generated MAC is shown in hexadecimal representation. </P>
+
+<P>You have the choice between the hash functions MD2, MD4, MD5, SHA, SHA-1 and RIPEMD-160.</P>
+
+<P>The secret key that is necessary for the computation can be entered manually. In addition, you can choose between different forms of combining file and secret key [Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. The variable m represents the message, k represents the key and H stands for the hash function.</P>
+
+<P>The text window displays the combination that underlies the calculation.</P>
+
+<P><B>Remark:</B></P>
+
+<P>Please note that this dialogue is only available for text files and that the file length is limited to 16,000 characters. Characters going beyond this limitation are ignored.</P>
+
+</BODY>
+</HTML>

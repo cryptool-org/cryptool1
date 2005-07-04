@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib htmlhelp.lib ..\libNTL\Debug\libNTL.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Program Files\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -165,6 +165,14 @@ SOURCE=.\res\SCABitmaps\gifs\ab_arrow_deactivated.gif
 # Begin Source File
 
 SOURCE=.\res\SCABitmaps\gifs\ab_arrow_transmission.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\adfgvx.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\adfgvx.h
 # End Source File
 # Begin Source File
 
@@ -1993,6 +2001,62 @@ SOURCE=.\res\cr_backg.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=..\libmiracl\source\CRT.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=..\libmiracl\include\CRT.H
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_0key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_1key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_2key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_3key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_4key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_5key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_6key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_7key.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_blank.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_true.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT_wrong.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CrtAstronomy.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\CryptDoc.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
@@ -2280,6 +2344,22 @@ SOURCE=.\DlgAbout.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgADFGVX.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgADFGVX.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAdfgvxManual.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAdfgvxManual.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgASN1PSEPINPrompt.cpp
 # End Source File
 # Begin Source File
@@ -2363,6 +2443,62 @@ SOURCE=.\DlgChangePIN.cpp
 # Begin Source File
 
 SOURCE=.\DlgChangePIN.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtAstronomy.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtAstronomy.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Facts.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Facts.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Info.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Info.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Log.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharing_Log.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharingOptions.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtSecretSharingOptions.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtTransformation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgCrtTransformation.h
 # End Source File
 # Begin Source File
 
@@ -2604,6 +2740,14 @@ SOURCE=.\DlgHillAnalysis.cpp
 # Begin Source File
 
 SOURCE=.\DlgHillAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHMAC.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgHMAC.h
 # End Source File
 # Begin Source File
 
@@ -4420,6 +4564,10 @@ SOURCE=.\res\logo_secude.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Mac.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\magnify.cur
 # End Source File
 # Begin Source File
@@ -4800,6 +4948,14 @@ SOURCE=.\PictureEx.cpp
 # Begin Source File
 
 SOURCE=.\PictureEx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PictureExLoop.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PictureExLoop.h
 # End Source File
 # Begin Source File
 

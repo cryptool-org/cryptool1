@@ -95,6 +95,10 @@ statement from your version.
 
 #include "HexEditCtrlDoc.h"
 #include "HexEditCtrlView.h"
+#include "DlgCrtAstronomy.h"
+#include "DlgCrtTransformation.h"
+#include "DlgCrtSecretSharing.h"
+
 
 
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
@@ -163,11 +167,17 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
-#if !defined(_MSC_VER) || _MSC_VER <= 1200
+#if !defined(_MSC_VER) || _MSC_VER <= 1200  
 	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
 	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
 	ON_COMMAND(ID_RSA_BLOEMERMAY, OnRsaBloemermay)
 #endif
+	ON_COMMAND(ID_HELP_ANIMAL_CAESAR, OnAnimalCaesar)
+	ON_COMMAND(ID_HELP_ANIMAL_VIGENERE, OnAnimalVigenere)
+	ON_COMMAND(ID_HELP_ANIMAL_NIHILIST, OnAnimalNihilist)
+	ON_COMMAND(ID_HELP_ANIMAL_DES, OnAnimalDes)
+	ON_COMMAND(ID_INDIV_CRT_PLANET, OnIndivCrtPlanet)
+	ON_COMMAND(ID_INDIV_CRT_DEMO, OnIndivCrtDemo)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -175,6 +185,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
+	ON_COMMAND(ID_INDIV_CRT_SECRETSHARING, OnIndivCrtSecretsharing)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -198,7 +209,8 @@ BOOL CCrypToolApp::InitInstance()
 	char buffer[1024], *p;
 	int n;
 
-	#if !defined(_MSC_VER) || _MSC_VER <= 1200  // HTML Help for VC++ 6.0
+	#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+// HTML Help for VC++ 6.0
 // ...
 	#else
 	EnableHtmlHelp( );
@@ -724,9 +736,11 @@ void CCrypToolApp::OnEinzelverfahrenTutorialSignaturerzeugung()
 }
 
 
-#if !defined(_MSC_VER) || _MSC_VER <= 1200		// HTML Help for VC++ 6.0
+#if !defined(_MSC_VER) || _MSC_VER <= 1200		
+// HTML Help for VC++ 6.0
 void CCrypToolApp::WinHelp( DWORD dwData, UINT nCmd)
-#else											// HTML Help for VC++ .NET
+#else											
+// HTML Help for VC++ .NET
 void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 #endif
 {
@@ -1015,4 +1029,88 @@ void CCrypToolApp::OnRsaBloemermay()
 
 
 
+void CCrypToolApp::OnAnimalCaesar() 
+{
+	CString animalPath, animalFile, animalExecutable;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
+	animalPath = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	animalExecutable = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
+	animalFile = pc_str;
 
+
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
+
+	if ( reinterpret_cast<int>(hInst) <= 32 )
+	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnAnimalVigenere() 
+{
+	CString animalPath, animalFile, animalExecutable;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
+	animalPath = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	animalExecutable = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
+	animalFile = pc_str;
+
+
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
+
+	if ( reinterpret_cast<int>(hInst) <= 32 )
+	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnAnimalNihilist() 
+{
+	CString animalPath, animalFile, animalExecutable;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
+	animalPath = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	animalExecutable = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_NIHILIST,pc_str,STR_LAENGE_STRING_TABLE);
+	animalFile = pc_str;
+
+
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
+
+	if ( reinterpret_cast<int>(hInst) <= 32 )
+	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnAnimalDes() 
+{
+	CString animalPath, animalFile, animalExecutable;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
+	animalPath = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	animalExecutable = pc_str;
+	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_DES,pc_str,STR_LAENGE_STRING_TABLE);
+	animalFile = pc_str;
+
+
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
+
+	if ( reinterpret_cast<int>(hInst) <= 32 )
+	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnIndivCrtPlanet() 
+{
+	CDlgCrtAstronomy ddlg;
+	ddlg.DoModal();
+}
+
+void CCrypToolApp::OnIndivCrtDemo() 
+{
+	CDlgCrtTransformation dialg;
+	dialg.DoModal();
+}
+
+void CCrypToolApp::OnIndivCrtSecretsharing() 
+{
+	CDlgCrtSecretSharing dialg;
+	dialg.DoModal();
+}
