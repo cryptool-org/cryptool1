@@ -1,14 +1,13 @@
 % $Id$
 % ...........................................................................
-%       K A P I T E L  2 :     P R I M Z A H L E N
+%       K A P I T E L  3 :     P R I M Z A H L E N
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
-\hypertarget{Kapitel_2}{}
-
 \section{Primzahlen}
+\hypertarget{Kapitel_2}{}
 \label{Label_Kapitel_2}
-(Bernhard Esslinger, Mai 1999, Updates: Nov. 2000, Dez. 2001, Juni 2003)
+(Bernhard Esslinger, Mai 1999, Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -41,7 +40,8 @@ Primzahlen haben aus 3 Gr"unden besondere Bedeutung erlangt:
 \begin{itemize}
   \item Sie werden in der Zahlentheorie als die Grundbausteine der nat"urlichen Zahlen betrachtet,
         anhand derer eine Menge genialer mathematischer "Uberlegungen gef"uhrt wurden.
-  \item Sie haben in der modernen \index{Kryptographie!moderne} Kryptographie (Public Key \index{Kryptographie!Public Key} Kryptographie) gro"se praktische
+  \item Sie haben in der modernen \index{Kryptographie!moderne} Kryptographie
+        (Public Key \index{Kryptographie!Public Key} Kryptographie) gro"se praktische
         Bedeutung erlangt. Das verbreitetste Public Key Verfahren ist die Ende der siebziger Jahre
         erfundene \index{RSA} RSA-Verschl"usselung. Nur die Verwendung (gro"ser) Primzahlen f"ur bestimmte
         Parameter garantiert die Sicherheit des Algorithmus sowohl beim RSA-Verfahren als auch bei
@@ -218,28 +218,88 @@ Zahlen $2,\cdots, n+1$ als echte Teiler enthalten sind
 (Dabei bedeutet $n!$ das Produkt der ersten $n$ nat"urlichen 
 Zahlen, also $n!=n*(n-1)* \cdots *3*2*1$). 
 
+
 % --------------------------------------------------------------------------
+% --------------------------------------------------------------------------
+\vskip + 20pt
 \subsection{Die Suche nach sehr gro"sen Primzahlen}
-\label{search_for_very_big_primes}   % chap. 2.4
+\label{search_for_very_big_primes}   % chap. 3.4
 
 Die gr"o"sten heute bekannten Primzahlen haben mehrere
-Millionen Stellen (M-39). Das ist unvorstellbar gro"s. Die Anzahl
-der Elementarteilchen im Universum wird auf \glqq nur\grqq\ eine
+Millionen Stellen. Das ist unvorstellbar gro"s. Die Anzahl
+der Elementarteilchen im Universum wird auf eine \glqq nur\grqq\
 $80$-stellige Zahl gesch"atzt \hyperlink{grosord}{(siehe
 "Ubersicht unter \ref{s:grosord} "uber verschiedene Gr"o"senordnungen /
 Dimensionen)}.
 
+
 % --------------------------------------------------------------------------
+\hypertarget{RecordPrimes}{}
+\subsubsection{Die 10 gr"o"sten bekannten Primzahlen (Stand Mai 2005)} 
+\index{Primzahlrekorde}
+\label{RecordPrimes}
+
+In der folgenden Tabelle sind die 10 gr"o"sten bekanntesten Primzahlen und
+eine Beschreibung des jeweiligen Zahlentyps aufgef"uhrt\footnote{%
+Eine jeweils aktuelle Fassung findet sich im Internet unter 
+     \href{http://primes.utm.edu/largest.html}
+  {\texttt{http://primes.utm.edu/largest.html}}.
+}:
+
+
+%	10 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallg. Fermat\footnote{%
+% $ 1.372.930^{131.072} + 1 = 1.372.930^{(2^{17})}+1 $ } \\
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|cccc|}
+\hline
+ 	& {\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Beschreibung} \\
+\hline
+	1  & $2^{25.964.951}-1$ & 7.816.230 & 2005 & Mersenne, 42. bekannte \\
+	2  & $2^{24.036.583}-1$ & 7.235.733 & 2004 & Mersenne, 41. bekannte \\
+	3  & $2^{20.996.011}-1$ & 6.320.430 & 2003 & Mersenne, 40. bekannte \\
+	4  & $2^{13.466.917}-1$ & 4.053.946 & 2001 & Mersenne, M-39 \\
+	5  & $28.433 \cdot 2^{7.830.457}+1$ & 2.357.207 & 2004 & Verallg. Mersenne \\
+	6  & $2^{ 6.972.593}-1$ & 2.098.960 & 1999 & Mersenne, M-38 \\
+	7  & $5.359 \cdot 2^{5.054.502}+1$ & 1.521.561 & 2003 & Verallg. Mersenne \\
+	8  & $2^{ 3.021.377}-1$ &   909.526 & 2001 & Mersenne, M-37 \\
+	9  & $2^{ 2.976.221}-1$ &   895.932 & 2001 & Mersenne, M-36 \\
+	10 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallg. Fermat\footnotemark \\
+\hline
+\end{tabular}
+\caption{Die 10 gr"o"sten Primzahlen und ihr jeweiliger Zahlentyp (Stand Mai 2005)}
+\end{center}
+\end{table} 
+\footnotetext{%
+$ 1.372.930^{131.072} + 1 = 1.372.930^{(2^{17})}+1 $ 
+} 
+%be_2005: footnetmark und footnotetext statt nur footnote (sonst sieht man nur die
+%         Fussnoten-Nr., aber nicht den Text!
+%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
+
+Die gr"o"ste bekannte Primzahl ist eine Mersenne-Primzahl.
+Diese wurde vom \hyperlink{GIMPS-project}{GIMPS-Projekt} gefunden.
+
+Unter den gr"o"sten bekannten Primzahlen befinden sich au"serdem Zahlen
+vom Typ \hyperlink{generalizedMersennenumbers}{verallgemeinerte Mersennezahl} 
+(Kapitel~\ref{generalized-mersenne-no1})
+und 
+vom Typ \hyperlink{generalizedFermatprimes}{verallgemeinerte Fermatzahl} 
+(Kapitel~\ref{generalized-fermat}).
+
+
+% --------------------------------------------------------------------------
+\subsubsection{Spezielle Zahlentypen -- Mersennezahlen und Mersenne-Primzahlen} 
 \hypertarget{MersenneNumbers01}{}
-\subsubsection{Spezielle Zahlentypen -- Mersennezahlen} 
-\index{Mersenne!Mersennezahl}
 \label{zahlentyp_mersenne}
+\index{Mersenne!Mersennezahl}
 
 Nahezu alle bekannten riesig gro"sen Primzahlen sind spezielle 
 Kandidaten, sogenannte \index{Mersenne Marin}{\em Mersennezahlen}\footnote{%
 Marin Mersenne, franz"osischer Priester und Mathematiker,
 08.09.1588$-$01.09.1648.
-\index{Mersenne Marin}
+\index{Mersenne, Marin}
 }
 der Form $2^p -1,$ wobei $p$ eine Primzahl ist.
 Nicht alle Mersennezahlen sind prim:
@@ -306,46 +366,65 @@ Beispiel $2^{11}-1, $ wo $11$ prim ist, aber $2^{11}-1$ nicht).
 
 Mersenne behauptete, dass $2^{67}-1$ eine Primzahl ist. Auch zu
 dieser Behauptung gibt es eine interessante mathematische Historie:
-Zuerst dauerte es "uber 200 Jahre, bis \index{Lucas Edouard}
+Zuerst dauerte es "uber 200 Jahre, bis \index{Lucas, Edouard}
 Edouard Lucas (1842-1891) bewies, dass diese Zahl zusammengesetzt
 ist. Er argumentierte aber indirekt und kannte keinen der
-Faktoren. Dann zeigte Frank Nelson Cole\index{Cole Frank Nelson}\footnote{%
+Faktoren. Dann zeigte Frank Nelson Cole\index{Cole, Frank Nelson}\footnote{%
 Frank Nelson Cole, amerikanischer Mathematiker, 20.09.1861$-$26.05.1926.} 1903,
 aus welchen Faktoren diese Primzahl besteht:
 $$ 2^{67} -1 =147. 573. 952. 589. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
-Er gestand, 20 Jahre an der Faktorisierung 
-\index{Faktorisierung} (Zerlegung in Faktoren)%
+Er gestand, 20 Jahre an der Faktorisierung \index{Faktorisierung} (Zerlegung in Faktoren)%
 \footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie Zahlen auf folgende Weise 
-faktorisieren: Men"u {\bf Einzelverfahren \textbackslash{} RSA-Demo 
-\textbackslash{} Faktorisieren einer Zahl}.
+  Mit CrypTool\index{CrypTool} k"onnen Sie Zahlen auf folgende Weise 
+  faktorisieren: Men"u {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem 
+  \textbackslash{} Faktorisieren einer Zahl}. \\
+  In sinnvoller Zeit zerlegt CrypTool Zahlen bis 250 Bit L"ange.
+  Zahlen gr"o"ser als 1024 Bit werden zur Zeit von CrypTool nicht angenommen. \\
+  Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel \ref{NoteFactorisation}.
+  \index{Faktorisierung!Faktorisierungsrekorde}
 }
 dieser 21-stelligen Dezimalzahl gearbeitet zu haben!
 
-Dadurch, dass man bei den Exponenten der Mersennezahlen nicht alle nat"urlichen Zahlen verwendet,
-sondern nur die Primzahlen, engt man den {\em Versuchsraum} deutlich ein.
-Die derzeit bekannten Mersenne-Primzahlen \index{Mersenne!Mersenne-Primzahl} gibt es f"ur die Exponenten
+Dadurch, dass man bei den Exponenten der Mersennezahlen nicht alle 
+nat"urlichen Zahlen verwendet, sondern nur die Primzahlen, engt man
+den {\em Versuchsraum} deutlich ein. Die derzeit bekannten 
+Mersenne-Primzahlen \index{Mersenne!Mersenne-Primzahl} gibt es 
+f"ur die Exponenten\footnote{%
+Auf der folgenden Seite von Landon Curt Noll\index{Noll, Landon Curt} 
+werden in einer Tabelle alle Mersenne-Primzahlen samt Entdeckungsdatum und 
+Wert in Zahlen- und Wortform aufgelistet:
+      \href{http://www.isthe.com/chongo/tech/math/prime/mersenne.html}
+   {\texttt{http://www.isthe.com/chongo/tech/math/prime/mersenne.html}}. \\
+Siehe auch:
+      \href{http://www.utm.edu/}
+   {\texttt{http://www.utm.edu/}}.
+                             }
 $$
 \begin{array}{c}
 2, ~ 3, ~ 5, ~ 7, ~ 13, ~ 17, ~ 19, ~ 31, ~ 61, ~ 89, ~ 107, ~ 127, ~ 521, ~ 607, ~ 1.279, ~ 2.203, ~ 2.281, ~ 3.217, ~ 4.253, \\
 4.423, ~9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049,\\
 216.091, ~ 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593,\\
-13.466.917.
-%13.466.917, ~ xxx.xxx.xxx.
+ ~ 13.466.917,  ~ 20.996.011,  ~ 24.036.583 , ~ 25.964.951.
+% be_2005_UPDATEN_if-new-mersenne-prime-appears          ~ xxx.xxx.xxx.
 \end{array}
 $$
 Damit sind heute
-$39$
-%$40$
+$42$                  % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne-Primzahlen\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl} 
-bekannt. F"ur die ersten 38 Mersenne-Primzahlen wei"s man inzwischen, dass diese
-Liste vollst"andig ist. Die Exponenten bis zur 39. bekannten Mersenne-Primzahl
-sind noch nicht vollst"andig gepr"uft (vergleiche Kapitel \ref{primality_tests},
-Primzahltests\index{Primzahltest}).
+bekannt. F"ur die ersten 39              % be_2005_UPDATEN_if-new-mersenne-prime-appears
+Mersenne-Primzahlen wei"s man inzwischen, dass diese Liste vollst"andig ist. 
+Die Exponenten bis zur 40.  % be_2005_UPDATEN_if-new-mersenne-prime-appears
+bekannten Mersenne-Primzahl sind noch nicht vollst"andig gepr"uft\footnote{%
+Den aktuellen Status der Pr"ufung findet man auf der Seite:
+      \href{http://www.mersenne.org/status.htm}
+   {\texttt{http://www.mersenne.org/status.htm}}.\\
+Hinweise, wie man Zahlen auf ihre Primalit"at pr"ufen kann, finden sich
+in Kapitel \ref{primality_tests}, Primzahltests\index{Primzahltest}.
+                                                                          }. 
 
 Die $19$. Zahl
 mit dem Exponenten $4.253$ war die erste mit mindestens $1.000$
-Stellen im Zehnersystem (der Mathematiker Samual \index{Yates
+Stellen im Zehnersystem (der Mathematiker Samual \index{Yates,
 Samual} Yates pr"agte daf"ur den Ausdruck {\em titanische}
 \index{Primzahl!titanische} Primzahl; sie wurde 1961 von Hurwitz
 gefunden); die $27$. Zahl mit dem Exponenten $44.497$ war die
@@ -354,83 +433,65 @@ pr"agte daf"ur den Ausdruck \index{Primzahl!gigantische}  {\em
 gigantische} Primzahl. Diese Bezeichnungen sind heute l"angst
 veraltet).
 
-Man findet diese Zahlen unter den URLs
 % \vskip - 4pt \noindent
 % \begin{quote}
 % (Der Supercomputerhersteller SGI Cray Research besch"aftigte nicht
 % nur hervorragende Mathematiker, sondern benutzte die Primzahltests
 % auch als Benchmarks f"ur seine Maschinen.)
 % \end{quote}
-\vspace{-10pt}
-\begin{itemize}
-  \item[] \href{http://reality.sgi.com/chongo/prime/prime_press.html}
-               {\texttt{http://reality.sgi.com/chongo/prime/prime\_press.html}} \\
-          \href{http://www.utm.edu/}
-               {\texttt{http://www.utm.edu/}}
-\end{itemize}
+
+% \vspace{-10pt}
+% \begin{itemize}
+%  \item[] \href{http://reality.sgi.com/chongo/prime/prime_press.html}
+%               {\texttt{http://reality.sgi.com/chongo/prime/prime\_press.html}}
+% \end{itemize}
 
 
-\vskip +15 pt
+\vskip +25 pt
 \paragraph{M-37 -- Januar 1998} \index{Mersenne!Mersenne-Primzahl!M-37}\mbox{}
-% \\
 
 Die 37. Zahl Mersenne-Primzahl, $$2^{3.021.377} - 1 $$
 wurde im Januar 1998 gefunden und hat
 909.526 Stellen im Zehnersystem, was 33 Seiten in der FAZ entspricht!
 
 
-\vskip +15 pt
+\vskip +25 pt
 \paragraph{M-38 -- Juni 1999}\index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
-% \\
 
 Die 38. Mersenne-Primzahl, genannt M-38, $$ 2^{6.972.593} - 1 $$
 wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
 Zehnersystem (das entspricht rund 77 Seiten in der FAZ).
 
-Inzwischen (Stand Feb. 2003) wurden alle Exponenten kleiner als
-$ 6.972.593 $ getestet und nochmal gepr"uft (siehe die Homepage des 
-GIMPS-Projekts: {\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}): somit k"onnen wir sicher sein, dass dies wirklich 
-die 38. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
-Mersenne-Primzahl existieren.
 
+\vskip +25 pt
+\paragraph{M-39 -- Dezember 2001}\index{Mersenne!Mersenne-Primzahl!M-39}\mbox{}
 
-\vskip +15 pt
-\paragraph{M13466917 -- Dezember 2001 -- M-39 ?}
-\index{Mersenne!Mersenne-Primzahl!M-39}\mbox{}
-% \\
-
-Als 39. Mersenne-Primzahl wurde die folgende Zahl gefunden (und schon als M-39 bezeichnet, obwohl noch nicht sicher ist, ob es zwischen M-38 und M13466917 nicht noch eine weitere Mersenne-Primzahl gibt), $$2^{13.466.917}-1$$  \\
-Bekanntgegeben wurde sie am 6.12.2001: genau genommen war am 6.12.2001 
+Die 39. Mersenne-Primzahl, genannt M-39, $$2^{13.466.917}-1$$ 
+wurde am 6.12.2001 bekanntgegeben: genau genommen war am 6.12.2001 
 die Verifikation der am 14.11.2001 von dem kanadischen Studenten 
 Michael Cameron gefundenen Primzahl abgeschlossen.
-Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). Allein zu ihrer Darstellung
+Diese Zahl hat rund 4 Millionen Stellen (genau 4.053.946 Stellen). 
+Allein zu ihrer Darstellung
 $$
 924947738006701322247758 \; \cdots  \; 1130073855470256259071
 $$
 br"auchte man in der FAZ knapp 200 Seiten.
 
+Inzwischen (Stand Mai 2005) wurden alle primen Exponenten kleiner als
+$ 13.466.917 $ getestet und nochmal gepr"uft (siehe die Homepage des 
+GIMPS-Projekts: {\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}):
+somit k"onnen wir sicher sein, dass dies wirklich 
+die 39. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
+Mersenne-Primzahlen existieren.
 
-
-\vskip +15 pt
-\paragraph{40. Mersenne noch nicht gefunden -- Juni 2003}
-\index{Mersenne!Mersenne-Primzahl!M-40}\mbox{}
-
-Am 1. Juni 2003 wurde dem GIMPS-Server eine Zahl gemeldet, die evtl. die 40. 
-Mersenne-Primzahl sein konnte. Diese wurde dann wie "ublich "uberpr"uft,
-bevor sie ver"offentlich werden sollte.
-Leider musste der Initiator und GIMPS-Projektleiter George Woltman Mitte Juni
-melden, dass diese Zahl zusammengesetzt war (dies war die erste falsche
-positive R"uckmeldung an den Server in 7 Jahren).
-
-
-
-%\vskip +15 pt
+%\vskip +25 pt
 %\paragraph{Mxxxxxxxxx -- Juni 2003 -- M-40 ?}
 %\index{Mersenne!Mersenne-Primzahl!M-40}\mbox{}
 
 %Als 40. Mersenne-Primzahl wurde die folgende Zahl gefunden (und schon als M-40
 %bezeichnet, obwohl noch nicht sicher ist, ob es zwischen M-39 und
-%Mxxxxxxxxxx nicht noch weitere Mersenne-Primzahlen gibt), $$2^{xx.xxx.xxx}-1$$ %Bekanntgegeben wurde sie am xx.06.2003: genau genommen war am xx.06.2003 
+%Mxxxxxxxxxx nicht noch weitere Mersenne-Primzahlen gibt), $$2^{xx.xxx.xxx}-1$$ 
+%Bekanntgegeben wurde sie am xx.06.2003: genau genommen war am xx.06.2003 
 %die Verifikation der am 02.06.2003 von xxxxxxxxxxxxxxxx 
 %gefundenen Primzahl abgeschlossen. 
 %Initiator und Projektleiter George Woltman gibt eine gefundene Mersenne-Zahl
@@ -441,56 +502,95 @@ positive R"uckmeldung an den Server in 7 Jahren).
 %{\href{http://www.heise.de/newsticker/data/as-02.06.03-000/} 
 %  {\tt http://www.heise.de/newsticker/data/as-02.06.03-000/} }.
 
+Inzwischen (Stand Mai 2005) wurde schon die 42. bekannte Mersenne-Primzahl gefunden.
 
 
 
-\vskip +15 pt
+
+\vskip +25 pt
 \paragraph{GIMPS}\index{GIMPS}\mbox{}
-% \\
+\hypertarget{GIMPS-project}{}
 
-
-Mit der 
-39. 
-%40. 
-Mersenne-Primzahl hat das 1996 gegr"undete GIMPS-Projekt (Great Internet Mer"-senne-Prime Search) bereits zum 
-5. 
-%6. 
-Mal die gr"o"ste Mersenne-Zahl entdeckt, die erwiesenerma"sen prim ist
+Das GIMPS-Projekt\index{GIMPS} (Great Internet Mer"-senne-Prime Search)
+wurde 1996 von George Woltman\index{Woltman, George} gegr"undet, um neue 
+gr"o"ste Mersenne-Primzahlen zu finden 
 ({\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}).
+Genauere Erl"auterungen zu diesem Zahlentyp finden sich unter
+\hyperlink{MersenneNumbers02}{Mersennezahlen} und 
+\hyperlink{MersenneNumbers01}{Mersenne-Primzahlen}.
 
-Am GIMPS-Projekt\index{GIMPS} beteiligen sich z.Zt. rund 130.000 
+Bisher hat das GIMPS-Projekt acht
+            % be_2005_UPDATEN_if-new-mersenne-prime-appears
+gr"o"ste Mersenne-Primzahlen entdeckt, inclusive der gr"o"sten bekannten
+Primzahl "uberhaupt. 
+
+Die folgende Tabelle enth"alt diese Mersenne Rekord-Primzahlen\footnote{%
+Eine up-to-date gehaltene Version dieser Tabelle steht im Internet unter
+     \href{http://www.mersenne.org/history.htm}
+  {\texttt{http://www.mersenne.org/history.htm}}.
+}:
+
+            % be_2005_UPDATEN_if-new-mersenne-prime-appears
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|cccc|}
+\hline
+	{\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Wer} \\
+\hline
+	$2^{25.964.951}-1$ & 7.816.230 & 18. Februar 2005  & Dr. Martin Nowak \\
+	$2^{24.036.583}-1$ & 7.235.733 & 15. Mai 2004      & Josh Findley     \\
+	$2^{20.996.011}-1$ & 6.320.430 & 17. November 2003 & Michael Shafer   \\
+	$2^{13.466.917}-1$ & 4.053.946 & 14. November 2001 & Michael Cameron  \\
+	$2^{ 6.972.593}-1$ & 2.098.960 & 1. Juni 1999      & Nayan Hajratwala \\
+	$2^{ 3.021.377}-1$ &   909.526 & 27. Januar 1998   & Roland Clarkson  \\
+	$2^{ 2.976.221}-1$ &   895.932 & 24. August 1997   & Gordon Spence    \\
+	$2^{ 1.398.269}-1$ &   420.921 & November 1996     & Joel Armengaud   \\
+\hline
+\end{tabular}
+\caption{Die gr"o"sten vom GIMPS-Projekt gefundenen Primzahlen (Stand Mai 2005)}
+\end{center}
+\end{table} 
+
+%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
+
+Dr. Richard Crandall\index{Crandall, Richard} erfand den Transformations-Algorithmus,
+der im GIMPS-Programm benutzt wird. George Woltman implementierte 
+Crandall's Algorithmus in Maschinensprache, wodurch das Primzahlenprogramm 
+eine vorher nicht da gewesene Effizienz erhielt. 
+Diese Arbeit f"uhrte zum GIMPS-Projekt.
+
+Am 1. Juni 2003 wurde dem GIMPS-Server eine Zahl gemeldet, die evtl. die 40. 
+Mersenne-Primzahl sein konnte. Diese wurde dann wie "ublich "uberpr"uft,
+bevor sie ver"offentlich werden sollte. 
+Leider musste der Initiator und GIMPS-Projektleiter George Woltman Mitte Juni
+melden, dass diese Zahl zusammengesetzt war (dies war die erste falsche
+positive R"uckmeldung eines Clients an den Server in 7 Jahren).
+
+Am GIMPS-Projekt beteiligen sich z.Zt. rund 130.000 
 freiwillige Amateure und Experten, die ihre Rechner in das von der 
-Firma entropia organisierte \glqq primenet\grqq~ einbinden, um mit 
-verteilten Computerprogrammen solche Zahlen zu finden.
+Firma entropia organisierte \glqq primenet\grqq~ einbinden.
 
-Zur Zeit
-%(Juni 2003)
-sind die 
-4 
-%5
-gr"o"sten bekannten Primzahlen auch Mersenne-Primzahlen.
-Erst die 
-5.-gr"o"ste
-%6.-gr"o"ste
-bekannte Primzahl hat eine andere Form: sie geh"ort 
-zu den sogenannten verallgemeinerten Fermat-Primzahlen (siehe
-\hyperlink{generalizedFermatprimes}{unten in}
-Kapitel~\ref{spezialzahlentypen}).
+
+
+
+
 
 % --------------------------------------------------------------------------
-\vskip +15 pt
-\subsubsection{EFF}\index{EFF}
+\vskip +25 pt
+\subsubsection{Wettbewerb der Electronic Frontier Foundation (EFF)}\index{EFF}
 Angefacht wird diese Suche noch zus"atzlich durch einen Wettbewerb, den die
-Non\-profit-Orga"-nisa"-tion
-EFF (Electronic Frontier Foundation) mit den Mitteln eines unbekannten Spenders gestartet hat. Den
-Teilnehmern winken Gewinne im Gesamtwert von 500.000 USD, wenn sie die l"angste Primzahl
-finden. Dabei sucht der unbekannte Spender nicht nach dem schnellsten Rechner, sondern er will auf
-die M"oglichkeiten des {\em cooperative networking} aufmerksam machen: \\
+Non\-profit-Orga"-nisa"-tion EFF (Electronic Frontier Foundation) mit den
+Mitteln eines unbekannten Spenders gestartet hat. Den Teilnehmern winken 
+Gewinne im Gesamtwert von 500.000 USD, wenn sie die l"angste Primzahl
+finden. Dabei sucht der unbekannte Spender nicht nach dem schnellsten Rechner,
+sondern er will auf die M"oglichkeiten des {\em cooperative networking} 
+aufmerksam machen: \\
 {\href{http://www.eff.org/coopawards/prime-release1.html}{\tt http://www.eff.org/coopawards/prime-release1.html}}
 
 Der Entdecker von M-38 erhielt f"ur die Entdeckung der ersten Primzahl
 mit "uber 1 Million Dezimalstellen von der EFF eine Pr"amie von 50.000 USD. 
 
+% be_2005_UPDATEN_if-new-mersenne-prime-appears
 Die n"achste Pr"amie von 100.000 USD gibt es von der EFF f"ur eine Primzahl
 mit mehr als 10 Millionen Dezimalstellen.
 
@@ -498,29 +598,32 @@ Nach den Preisregeln der EFF sind dann als n"achste Stufe 150.000 US-Dollar
 f"ur eine Primzahl mit mehr als 100 Millionen Stellen ausgelobt.                         
 
 
-Edouard Lucas\index{Lucas Edouard} (1842-1891) hielt "uber 70 Jahre den 
+Edouard Lucas\index{Lucas, Edouard} (1842-1891) hielt "uber 70 Jahre den 
 Rekord der gr"o"sten bekannten Primzahl, indem er nachwies, dass 
 $2^{127}-1$ prim ist. Solange wird wohl kein neuer Rekord mehr Bestand haben.
 
 
 % --------------------------------------------------------------------------
 \subsection{Primzahltests}
-\label{primality_tests}   % chap. 2.5
+\label{primality_tests}   % chap. 3.5
 \index{Primzahltest}
 
 F"ur die Anwendung sicherer Verschl"usselungsverfahren braucht man sehr gro"se
 Primzahlen (im Bereich von $2^{2.048}$, das sind Zahlen im Zehnersystem mit
 "uber $600$ Stellen!).
 
-Bisher haben wir nach den Primfaktoren gesucht, um zu entscheiden, ob eine Zahl prim ist.
-Wenn aber auch der kleinste Primfaktor riesig ist, dauert die Suche zu lange.
+Sucht man nach den Primfaktoren, um zu entscheiden, ob eine Zahl prim ist,
+dauert die Suche zu lange, wenn auch der kleinste Primfaktor riesig ist.
 Die Zerlegung in Faktoren mittels rechnerischer systematischer Teilung oder
 mit dem \hyperlink{SieveEratosthenes01}{Sieb des Eratosthenes} 
 \index{Eratosthenes!Sieb} ist mit heutigen Computern anwendbar 
 f"ur Zahlen mit bis zu circa $20$ Stellen im Zehnersystem.
 Die gr"o"ste Zahl, die bisher in ihre beiden ann"ahernd gleich gro"sen
-Primfaktoren zerlegt werden konnte, hatte 158 Stellen (vgl. 
-\hyperlink{C158-chap3}{Kapitel \ref{NoteFactorisation}}).
+Primfaktoren zerlegt werden konnte, hatte 200 Stellen 
+(vgl. \hyperlink{RSA-200-chap3}{RSA-200} in Kapitel~\ref{NoteFactorisation}).
+% be_2005 Das ist eine gute Art zu referenzieren !!!!!!!!!!!!!!!
+
+% be_2005_UPDATEN_if-new-factorization-record-appears
 
 Ist aber etwas "uber die {\em Bauart} (spezielle Struktur) der fraglichen 
 Zahl bekannt, gibt es sehr hochentwickelte Verfahren, die deutlich schneller
@@ -531,10 +634,10 @@ bestimmen.
 \hypertarget{FermatNumbers01}{}\label{FermatNumbers01}%
 Fermat\footnote{%
 Pierre de Fermat, franz"osischer Mathematiker, 17.8.1601 -- 12.1.1665.
-\index{Fermat Pierre}
+\index{Fermat, Pierre}
 }
-\index{Fermat Pierre} hatte im 17. Jahrhundert an Mersenne
-\index{Mersenne Marin} geschrieben, dass er vermute, 
+\index{Fermat, Pierre} hatte im 17. Jahrhundert an Mersenne
+\index{Mersenne, Marin} geschrieben, dass er vermute, 
 dass alle Zahlen der Form $$ f(n) = 2^{2^n} + 1 $$ 
 f"ur alle ganzen Zahlen $ n \geq 0 $ prim seien 
 (\hyperlink{FermatNumbers02}{siehe unten}, Kapitel~\ref{L-FermatNumbers02}).
@@ -580,7 +683,7 @@ Leider gilt die Umkehrung zum Fermatschen Satz nicht, sonst h"atten wir einen ei
 die Primzahleigenschaft (man sagt auch, man h"atte dann ein einfaches Primzahlkriterium).
 
 
-\vskip +15 pt
+\vskip +25 pt
 \paragraph{Pseudoprimzahlen}%
 \index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
 \hypertarget{HT--Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
@@ -592,7 +695,7 @@ erf"ullen, aber nicht prim sind, bezeichnet man als {\em Pseudoprimzahlen}
 (der Exponent n ist also keine Primzahl).
 Die erste Pseudoprimzahl ist $$ 341 = 11 \cdot 31 .$$
 
-\vskip +15 pt
+\vskip +25 pt
 \paragraph{Carmichaelzahlen}%
 \index{Zahlen!Carmichaelzahl}%
 \hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
@@ -602,13 +705,13 @@ Es gibt Zahlen, die den Fermat-Test mit allen Basen bestehen und doch nicht
 prim sind: diese Zahlen hei"sen {\em Carmichaelzahlen}. Die erste ist
 $$ 561 = 3 \cdot 11 \cdot 17 .$$
 
-\vskip +15 pt
+\vskip +25 pt
 \paragraph{Starke Pseudoprimzahlen}%
 \index{Primzahl!starke Pseudoprimzahlen} \index{Zahlen!starke Pseudoprimzahl}%
 \hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
 \mbox{}
 \vskip +10 pt
-Ein st"arkerer Test stammt von\index{Miller Gary L.}\index{Rabin Michael O.}
+Ein st"arkerer Test stammt von\index{Miller Gary L.}\index{Rabin, Michael O.}
 Miller/Rabin\footnote{
 1976 ver"offentlichte Prof. Rabin einen effizienten probabilistischen
 Primzahltest, der auf einem zahlentheoretischen Ergebnis von Prof. Miller aus
@@ -641,17 +744,19 @@ prim ist, finden sich zum Beispiel unter:
 
 
 % --------------------------------------------------------------------------
-\vskip +20 pt
+\vskip +30 pt
 \subsection{"Ubersicht Spezial-Zahlentypen und die Suche nach einer Formel f"ur
-Primzahlen}\label{spezialzahlentypen} % chap. 2.6.
+Primzahlen}\label{spezialzahlentypen} % chap. 3.6.
 \index{Primzahl!Formel}
-Derzeit sind keine brauchbaren, offenen (also nicht rekursiven) Formeln bekannt, die nur Primzahlen
-liefern (rekursiv bedeutet, dass zur Berechnung der Funktion auf dieselbe Funktion in Abh"angigkeit
-einer kleineren Variablen zugegriffen wird). Die Mathematiker w"aren schon zufrieden, wenn sie eine
-Formel f"anden, die wohl L"ucken l"asst (also nicht alle Primzahlen liefert), aber sonst keine
+Derzeit sind keine brauchbaren, offenen (also nicht rekursiven) Formeln bekannt, 
+die nur Primzahlen liefern (rekursiv bedeutet, dass zur Berechnung der Funktion
+auf dieselbe Funktion in Abh"angigkeit einer kleineren Variablen zugegriffen wird).
+Die Mathematiker w"aren schon zufrieden, wenn sie eine Formel f"anden, die wohl 
+L"ucken l"asst (also nicht alle Primzahlen liefert), aber sonst keine
 zusammengesetzten Zahlen (Nicht-Primzahlen) liefert.
 
-Optimal w"are, man w"urde f"ur das Argument $n$ sofort die $n$-te Primzahl bekommen, also f"ur
+Optimal w"are, man w"urde f"ur das Argument $n$ sofort die $n$-te Primzahl 
+bekommen, also f"ur
 $f(8) = 19\,$ oder f"ur  $f(52) = 239$.
 
 Ideen dazu finden sich in
@@ -666,47 +771,58 @@ Ideen dazu finden sich in
 die exakten Werte f"ur die $n$-ten Primzahlen f"ur ausgew"ahlte $ n.$
 \\
 
-Die folgende Aufz"ahlung enth"alt die verbreitetsten Ans"atze 
-f"ur \glqq Primzahlformeln\grqq und wie f"ur spezielle Zahlentypen bei
-sehr großen Folgegliedern versucht wird, entweder ihre Primalit"at zu
-beweisen oder die Primfaktoren zu bestimmen:
+%  \glqq Primzahlformeln''
+%  \glqq Primzahlformeln \grqq  (das Blank vor UND nach dem Text ist nötig!
+%        be_20050527: Aber dann war das Blank innerhalb der Hochkommata -> auch nicht gut
+%  Fehlt es danach, wird der folgende Text direkt ohne Blank dahintergestellt!
+F"ur \glqq Primzahlformeln'' werden meist ganz spezielle Zahlentypen
+benutzt. Die folgende Aufz"ahlung enth"alt die verbreitetsten Ans"atze 
+f"ur \glqq Primzahlformeln'', und welche Kenntnisse wir "uber
+sehr gro"se Folgeglieder haben: Konnte die Primalit"at bewiesen werden?
+Wenn es zusammengesetzte Zahlen sind, konnten die Primfaktoren bestimmt werden?
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection{Mersennezahlen $f(n) = 2^n - 1$ f"ur $ n $ prim}
+    \hypertarget{MersenneNumbers02}{}
     \index{Primzahl!Mersenne} \index{Mersenne!Mersenne-Primzahl}
     Wie \hyperlink{MersenneNumbers01}{oben} gesehen, liefert diese 
     Formel wohl relativ viele gro"se Primzahlen, aber es kommt -- wie 
     f"ur $n=11$ [$f(n)=2.047$] -- immer wieder vor, dass das Ergebnis 
     auch bei primen Exponenten \hyperlink{Mer-nums-not-always-prim}{nicht}
     prim ist. \\
-    Heute kennt man alle Mersenne-Primzahlen mit bis zu ca. 2.000.000 
-    Dezimalstellen (M-38\index{Mersenne!Mersenne-Primzahl!M-38}) \\
+    Heute kennt man alle Mersenne-Primzahlen mit bis zu ca. 4.000.000 
+    Dezimalstellen (M-39\index{Mersenne!Mersenne-Primzahl!M-39}) \\
     ({\href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
            {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
-
+            % be_2005_UPDATEN_if-new-mersenne-prime-appears
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection
     [Verallgemeinerte Mersennezahlen $f(k,n) = k \cdot 2^n \pm 1$]
     {Verallgemeinerte Mersennezahlen 
     $f(k,n) = k \cdot 2^n \pm 1 $ f"ur $ n $ prim und $ k $ kleine Primzahlen}
 % \quad f"ur
+    \label{generalized-mersenne-no1}
     F"ur diese 1. Verallgemeinerung der 
     Mersennezahlen\index{Mersenne!Mersennezahl!verallgemeinerte} 
     gibt es (f"ur kleine $k$) 
     ebenfalls sehr schnelle Primzahltests (vgl. \cite{Knuth1981}).
     Praktisch ausf"uhren l"asst sich das zum Beispiel mit der Software 
-    Proths von Yves Gallot\index{Gallot Yves} \\
+    Proths von Yves Gallot\index{Gallot, Yves} 
     ({\href{http://www.prothsearch.net/index.html}
            {\tt http://www.prothsearch.net/index.html}}).
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection
     [Verallgemeinerte Mersennezahlen $ f(b,n) = b^n \pm 1$ / Cunningham-Projekt]
     {Verallgemeinerte Mersennezahlen
     $ f(b,n) = b^n \pm 1$ / Cunningham-Projekt}
+    \hypertarget{generalizedMersennenumbers}{}
 
 Dies ist eine 2. m"ogliche Verallgemeinerung der 
     Mersennezahlen\index{Mersenne!Mersennezahl!verallgemeinerte}.
@@ -725,17 +841,18 @@ Dies ist eine 2. m"ogliche Verallgemeinerung der
 
 
 % --------------------------------------------------------------------------
-\hypertarget{FermatNumbers02}{}
+\vskip +10 pt
 \subsubsection[Fermatzahlen $f(n) = 2^{2^n} + 1$]
               {Fermatzahlen\footnotemark~$f(n) = 2^{2^n} + 1$}
     \footnotetext{%
        Die Fermatschen Primzahlen spielen unter
        anderem eine wichtige Rolle in der Kreisteilung. 
-       Wie Gauss \index{Gauss Carl Friedrich}
+       Wie Gauss \index{Gauss, Carl Friedrich}
        bewiesen hat, ist das regul"are $p$-Eck f"ur eine Primzahl $p>2$ dann
        und nur dann mit Zirkel und Lineal konstruierbar, wenn $p$ eine 
        Fermatsche Primzahl ist.
     }
+    \hypertarget{FermatNumbers02}{}
     \label{L-FermatNumbers02}
     \index{Zahlen!Fermatzahl}\index{Fermat!Fermatzahl}
     \index{Primzahl!Fermat} \index{Fermat!Fermat-Primzahl}
@@ -792,17 +909,12 @@ $$
     $$ f(2.145.351) = 2^{(2^{2.145.351})} + 1 $$ 
     ist teilbar durch die Primzahl
     $$ p = 3*2^{2.145.353} + 1 $$ \\
-    Diese Primzahl p ist die gr"o"ste bis dahin bekannte prime verallgemeinerte
-    Mersennezahl\index{Mersenne!Mersennezahl!verallgemeinerte} und die 
-    5.-gr"o"ste derzeit bekannte Primzahl "uberhaupt. 
-    Sie wurde nur ein paar Tage sp"ater entdeckt, nachdem Michael Angel die
-    gr"o"ste bis dahin bekannte prime verallgemeinerte Fermatzahl 
-    (\hyperlink{generalizedFermatprimes}{siehe unten}) entdeckte. Dadurch 
-    wurde die erste im GIMPS-Projekt\index{GIMPS} gefundene 
-    Mersenne-Primzahl M-35 = M1398269 auf den 7. Platz verwiesen.
+    Diese Primzahl p war damals die gr"o"ste bis dahin bekannte prime 
+    verallgemeinerte Mersennezahl\index{Mersenne!Mersennezahl!verallgemeinerte}
+    und die 5.-gr"o"ste damals bekannte Primzahl "uberhaupt. 
 
     Zu diesem Erfolg trugen bei: NewPGen von Paul Jobling's, PRP von 
-    George Woltman's, Proth von Yves Gallot's Programm\index{Gallot Yves} und
+    George Woltman's, Proth von Yves Gallot's Programm\index{Gallot, Yves} und
     die Proth-Gallot-Gruppe am St. Patrick's College, Dublin.
 
     Weitere Details finden sich unter
@@ -823,6 +935,7 @@ $$
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection
     [Verallgemeinerte Fermatzahlen $f(b,n) = b^{2^n} + 1$]
     {Verallgemeinerte Fermatzahlen\footnotemark~$f(b,n) = b^{2^n} + 1$}
@@ -830,7 +943,8 @@ $$
       Hier ist die Basis b nicht notwendigerweise 2 . \\
       Noch allgemeiner w"are:  $f(b,c,n) = b^{c^n} \pm 1$
     }
-\hypertarget{generalizedFermatprimes}{}
+\hypertarget{generalizedFermatprimes}{}    %be_2005 Eigentlich sind es "Zahlen", nicht nur "Primes" !
+\label{generalized-fermat}
 \index{Fermat!Fermatzahl!verallgemeinerte}
     Verallgemeinerte Fermatzahlen kommen h"aufiger vor als Mersennezahlen
     gleicher Gr"o"se, so dass wahrscheinlich noch viele gefunden werden 
@@ -841,7 +955,7 @@ $$
     nun mit fast der gleichen Geschwindigkeit wie Mersennezahlen getestet
     werden k"onnen.
     
-    Yves Gallot\index{Gallot Yves} schrieb das Programm Proth.exe zur 
+    Yves Gallot\index{Gallot, Yves} schrieb das Programm Proth.exe zur 
     Untersuchung verallgemeinerter Fermatzahlen.
     
     Mit diesem Programm fand Michael Angel am 16. Februar 2003 eine
@@ -849,25 +963,19 @@ $$
     die zum damaligen Zeitpunkt zur 5.-gr"o"sten bis dahin bekannten
     Primzahl wurde:
     $$ b^{2^{17}} + 1  =  62.722^{131.072} + 1. $$ 
-    Dadurch wurde die erste im GIMPS-Projekt\index{GIMPS} gefundene
-    Mersenne-Primzahl $$\mbox{M-35 = M1398269}$$ auf den 6. Platz verwiesen.
-
-    Heutzutage (Stand Juni 2003) ist diese verallgemeinerte Fermatzahl
-    die 6.-gr"o"ste bekannte Primzahl.
 
     Weitere Details finden sich unter
     \vspace{-10pt}
     \begin{itemize}
-      \item[] \href{http://www.prothsearch.net/index.html}
-                   {\texttt{http://www.prothsearch.net/index.html}} \\
-              \href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
-               {\texttt{http://perso.wanadoo.fr/yves.gallot/primes/index.html}} 
+      \item[] \href{http://primes.utm.edu/top20/page.php?id=12}
+              {\texttt{http://primes.utm.edu/top20/page.php?id=12}} 
     \end{itemize}
 
 
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection{Carmichaelzahlen\index{Zahlen!Carmichaelzahl}}
 Wie \hyperlink{HT-Carmichael-number01}{oben} in
 Kapitel~\ref{L-Carmichael-number01} erw"ahnt,
@@ -875,6 +983,7 @@ sind nicht alle Carmichaelzahlen prim.
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection{Pseudoprimzahlen%
 \index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
 }
@@ -883,6 +992,7 @@ Kapitel~\ref{L-Pseudoprimenumber01}.
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection{Starke Pseudoprimzahlen%
 \index{Primzahl!starke Pseudoprimzahlen} \index{Zahlen!starke Pseudoprimzahl}%
 }
@@ -892,6 +1002,7 @@ Kapitel~\ref{L-Strongpseudoprimenumber01}.
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection
     [Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$]
     {Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$}
@@ -910,6 +1021,7 @@ $$
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection{Wie zuvor, nur $-1$ statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$}
 $$
  \begin{array}{lll}
@@ -924,6 +1036,7 @@ $$
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection[Euklidzahlen $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$]
               {Euklidzahlen $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$  
 	       mit $ n \geq 1 $ und $ e_0 := 1 $}
@@ -961,24 +1074,32 @@ $ggT(e_i,e_j) \le ggT(e_1 \cdots e_i \cdots e_{j-1}, e_j) = ggT(e_j - e_1 \cdots
 
 % --------------------------------------------------------------------------
 % \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% be_24.503 raus in D
+% f(40) hier und f(80) im folgenden Kapitel nach Hinweis von Erik Berger korr. (2005-05)
+\vskip +10 pt
 \subsubsection{$f(n) = n^2 + n + 41$}
 \label{L-Polynomfunktion01-41}
    Diese Folge hat einen sehr {\em erfolgversprechenden} Anfang,
    aber das ist noch lange kein Beweis.
 $$
-\begin{array}{ll}
-f(0) = 41 & \mapsto {\rm ~prim} \\
-f(1) = 43 & \mapsto {\rm ~prim} \\
-f(2) = 47 & \mapsto {\rm ~prim} \\
-f(3) = 53 & \mapsto {\rm ~prim} \\
-f(4) = 61 & \mapsto {\rm ~prim} \\
-f(5) = 71 & \mapsto {\rm ~prim} \\
-f(6) = 83 & \mapsto {\rm ~prim} \\
-f(7) = 97 & \mapsto {\rm ~prim} \\
+\begin{array}{lll}
+f(0) = 41 & &  \mapsto {\rm ~prim} \\
+f(1) = 43 & &  \mapsto {\rm ~prim} \\
+f(2) = 47 & &  \mapsto {\rm ~prim} \\
+f(3) = 53 & &  \mapsto {\rm ~prim} \\
+f(4) = 61 & &  \mapsto {\rm ~prim} \\
+f(5) = 71 & &  \mapsto {\rm ~prim} \\
+f(6) = 83 & &  \mapsto {\rm ~prim} \\
+f(7) = 97 & &  \mapsto {\rm ~prim} \\
 \vdots \\
-f(39) = 1.601 & \mapsto {\rm ~prim} \\
-f(40) = 11 \cdot 151 &  \mapsto {\rm ~NICHT~prim}! \\
-f(41) = 41 \cdot 43 &   \mapsto {\rm ~NICHT~prim}! \\
+f(33) = 1.163 & & \mapsto {\rm ~prim} \\
+f(34) = 1.231 & & \mapsto {\rm ~prim} \\
+f(35) = 1.301 & & \mapsto {\rm ~prim} \\
+f(36) = 1.373 & & \mapsto {\rm ~prim} \\
+f(37) = 1.447 & & \mapsto {\rm ~prim} \\
+f(38) = 1.523 & & \mapsto {\rm ~prim} \\
+f(39) = 1.601 & & \mapsto {\rm ~prim} \\
+f(40) = 1681 & = 41 \cdot 41 &  \mapsto {\rm ~NICHT~prim}! \\
+f(41) = 1763 & = 41 \cdot 43 &   \mapsto {\rm ~NICHT~prim}! \\
 \end{array}
 $$
         Die ersten $40$ Werte sind Primzahlen (diese haben die auffallende
@@ -990,8 +1111,9 @@ $$
 
 
 
-\pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --------------------------------------------------------------------------
+% \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   be_2005
+\vskip +10 pt
 \subsubsection{$f(n) = n^2 - 79 \cdot n + 1.601$}
 \label{L-Polynomfunktion02-1601}
    Diese Funktion liefert f"ur die Werte $n=0$ bis $n=79$ stets Primzahlwerte.
@@ -1024,7 +1146,7 @@ f(16) = 593 & \mapsto {\rm ~prim} &  \cdots  &  \\
 f(17) = 547 & \mapsto {\rm ~prim} &  f(77) = 1.447  & \mapsto {\rm ~prim} \\             
 f(18) = 503 & \mapsto {\rm ~prim} &  f(78) = 1.523  & \mapsto {\rm ~prim} \\             
 f(19) = 461 & \mapsto {\rm ~prim} &  f(79) = 1.601  & \mapsto {\rm ~prim} \\             
-f(20) = 421 & \mapsto {\rm ~prim} &  f(80) = 11 \cdot 151 & \mapsto {\rm ~NICHT~prim!} \\
+f(20) = 421 & \mapsto {\rm ~prim} &  f(80) = 41 \cdot 41 & \mapsto {\rm ~NICHT~prim!} \\
 f(21) = 383 & \mapsto {\rm ~prim} &  f(81) = 41 \cdot 43 & \mapsto {\rm ~NICHT~prim!} \\ 
 f(22) = 347 & \mapsto {\rm ~prim} &  f(82) = 1.847  & \mapsto {\rm ~prim} \\             
 f(21) = 383 & \mapsto {\rm ~prim} &  f(83) = 1.933  & \mapsto {\rm ~prim} \\             
@@ -1041,6 +1163,7 @@ $$
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection[Polynomfunktionen
     $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$]
     {Polynomfunktionen
@@ -1061,6 +1184,7 @@ $$
     
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsubsection[Vermutung von Catalan]{Vermutung von Catalan\footnotemark}
     \footnotetext{%
 Eugene Charles Catalan, belgischer Mathematiker, 30.5.1814$-$14.2.1894.\\
@@ -1070,7 +1194,7 @@ $=  1, 2, 5, 14, 42, 132, 429, 1.430,
 4.862, 16.796, 58.786, 208.012, 742.900, 2.674.440, 9.694.845, ... $
 benannt.
     }
-Catalan\index{Catalan Eugene}\index{Zahlen!Catalanzahl}
+Catalan\index{Catalan, Eugene}\index{Zahlen!Catalanzahl}
 "au"serte die Vermutung, dass $ C_4 \;$ eine Primzahl ist:
 $$
 \begin{array}{l}
@@ -1104,9 +1228,9 @@ Bewiesen ist jedenfalls nicht, dass diese Formel nur Primzahlen liefert.
 
 
 
-\vskip +10 pt
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsection{Dichte und Verteilung der Primzahlen}
 
 Wie Euklid herausfand, gibt es unendlich viele Primzahlen. Einige unendliche Mengen sind aber
@@ -1160,11 +1284,11 @@ $PI(x)$  ist asymptotisch zu  $x / ln(x)$.
 
 Dies ist der \index{Primzahlsatz} \textbf{Primzahlsatz} (prime
 number theorem). Er wurde von Legendre\footnote{%
-  Adrien-Marie Legendre\index{Legendre Adrien-Marie}, 
+  Adrien-Marie Legendre\index{Legendre, Adrien-Marie}, 
   franz"osischer Mathematiker, 18.9.1752$-$10.1.1833.
 }
 und Gauss\footnote{%
-  Carl Friedrich Gauss\index{Gauss Carl Friedrich}, 
+  Carl Friedrich Gauss\index{Gauss, Carl Friedrich}, 
   deutscher Mathematiker und Astronom, 30.4.1777$-$23.2.1855.
 }
 aufgestellt und erst "uber 100 Jahre sp"ater bewiesen.
@@ -1243,7 +1367,9 @@ Details siehe:
 Gerade dies macht einen Teil des Ehrgeizes der Mathematiker aus, 
 ihre Geheimnisse herauszufinden.
 
+
 %----------------------------------------
+\index{Eratosthenes!sieve}
 \paragraph{Sieb des Eratosthenes\index{Eratosthenes!Sieb}}\mbox{}
 \hypertarget{SieveEratosthenes01}{}
 
@@ -1269,97 +1395,125 @@ Ebenfalls zug"anglich sind gro"se Datenbanken, die entweder viele
 Primzahlen oder die Zerlegung in Primfaktoren vieler zusammengesetzter
 Zahlen enthalten.
 
+
+
 % --------------------------------------------------------------------------
 \pagebreak
 \subsection{Anmerkungen}
 
-\paragraph{Bewiesene Aussagen / S"atze zu Primzahlen}
+\paragraph{Weitere interessante Themen rund um Primzahlen} \mbox{}\\
+Nicht betrachtet wurden in diesem Kapitel folgende eher
+zahlentheoretische Themen wie Teilbarkeitsregeln, Modulo-Rechnung,
+modulare Inverse, modulare Potenzen und Wurzeln, chinesischer
+Restesatz, Eulersche Phi-Funktion, perfekte Zahlen. Auf einige dieser
+Themen geht das \hyperlink{Chapter_ElementaryNT} {{\bf n"achste Kapitel}}
+ein.
+
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsubsection{Bewiesene Aussagen / S"atze zu Primzahlen}
 \begin{itemize}
   \item Zu jeder Zahl $n$ aus ${\bf N}$ gibt es $n$ aufeinanderfolgende 
       nat"urliche Zahlen, die keine Primzahlen sind.
       Ein Beweis findet sich in \cite[S. 79]{Padberg1996}.
 
   \item Paul Erd"os\footnote{%
-           Paul Erd"os\index{Erd""os Paul}, ungarischer Mathematiker,
-           26.03.1913$-$20.09.1996.
-           }
+           Paul Erd"os\index{Erd""os, Paul}, ungarischer Mathematiker,
+           26.03.1913$-$20.09.1996. }
       bewies:
-      Zwischen jeder beliebigen Zahl ungleich $1$ und ihrem Doppelten gibt es
-      mindestens eine Primzahl. Er bewies das Theorem nicht als erster, aber
-      auf einfachere Weise als andere vor ihm.
+      Zwischen jeder beliebigen Zahl ungleich $1$ und ihrem Doppelten gibt
+      es mindestens eine Primzahl. Er bewies das Theorem nicht als erster,
+      aber auf einfachere Weise als andere vor ihm.
       
   \item \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
       Es existiert eine reelle Zahl a, so dass die Funktion
       $f: {\bf N} \rightarrow {\mathbb Z}$ mit $n \mapsto a^{3^n}$
-      f"ur alle $n$ nur Primzahlenwerte annimmt (siehe \cite[S. 82]
-      {Padberg1996}).
+      f"ur alle $n$ nur Primzahlenwerte annimmt 
+      (siehe \cite[S. 82]{Padberg1996}).
       Leider macht die Bestimmung von $a$ Probleme 
       (siehe \hyperlink{link-Primzahlfunktion-base-a-Offen}{unten}).
 \end{itemize}
 
-\paragraph{Unbewiesene Aussagen / Vermutungen zu Primzahlen}
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsubsection{Unbewiesene Aussagen / Vermutungen zu Primzahlen}
 \begin{itemize}
   \item Christian Goldbach\footnote{%
-     Christian Goldbach\index{Goldbach Christian}, deutscher Mathematiker,
-     18.03.1690$-$20.11.1764.
-     }
- vermutete:
-    Jede gerade nat"ur"-liche Zahl gr"o"ser $2$ l"asst sich als die Summe zweier Primzahlen darstellen.
-    Mit Computern ist die Goldbachsche Vermutung f"ur alle geraden Zahlen bis $4*10^{14}$ verifiziert\footnote{%
-Dass die Goldbachsche Vermutung wahr ist, d.h. f"ur alle geraden nat"urlichen Zahlen gr"o"ser als $2$ gilt, wird
-    heute allgemein nicht mehr angezweifelt. Der Mathematiker J"org Richstein vom Institut f"ur Informatik der 
-    Universit"at Gie"sen hat 1999 die geraden Zahlen bis 400 Billionen untersucht und kein Gegenbeispiel gefunden (siehe 
-    \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
-         {\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).
-    \index{Richstein 1999}
-    Trotzdem ist das kein allgemeiner Beweis.\\ 
-    Dass die Goldbach’sche Vermutung trotz aller Anstrengungen bis heute nicht bewiesen wurde, f"ordert 
-    allerdings einen Verdacht:
-    Seit den bahnbrechenden Arbeiten des "osterreichischen Mathematikers Kurt G"odel\index{G\""odel Kurt}
-    ist bekannt, dass nicht jeder wahre Satz in der Mathematik auch beweisbar ist (siehe 
-    \href{http://www.mathematik.ch/mathematiker/goedel.html}
-         {\tt http://www.mathematik.ch/mathematiker/goedel.html}).
-    M"oglicherweise hat Goldbach also Recht,
-    und trotzdem wird nie ein Beweis gefunden werden. Das wiederum l"asst sich aber vermutlich auch nicht beweisen.
-    },   % footnote
-    aber allgemein noch nicht bewiesen\footnote{%
-Der englische Verlag {\em Faber} und die amerikanische
-    Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmals
-    ver"offentlichte Buch \glqq Onkel Petros und die Goldbachsche Vermutung\grqq~ von Apostolos Doxiadis (deutsch bei
-    L"ubbe 2000 und bei BLT als Taschenbuch 2001). Es ist 
-    die Geschichte eines Mathematikprofessors, der daran scheitert, ein mehr als 250 Jahre altes R"atsel zu l"osen.\\
-    Um die Verkaufszahlen zu f"ordern, schrieben die beiden Verlage einen Preis von 1 Million USD aus, wenn 
-    jemand die Vermutung beweist -- ver"offentlicht in einer angesehenen mathematischen Fachzeitschrift bis 2004 (siehe 
-    \href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}
-         {\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).\\
-    Erstaunlicherweise d"urfen nur englische und amerikanische Mathematiker
-    daran teilnehmen.\\
-    Die Aussage, die der Goldbach-Vermutung bisher am n"achsten kommt, wurde
-    1966 von Chen Jing-Run bewiesen -- in einer schwer nachvollziehbaren Art
-    und Weise: Jede gerade Zahl gr"o"ser 2 ist die Summe einer Primzahl und
-    des Produkts zweier Primzahlen. Z.B. $20=5+3*5.$\\ 
-    Die wichtigsten Forschungsergebnisse zur Goldbachschen Vermutung sind
-    zusammengefasst in dem von Wang Yuan herausgegebenen Band: 
-    \glqq Goldbach Conjecture\grqq, 1984, World Scientific Series in Pure
-    Maths, Vol. 4.\\
-    Gerade diese Vermutung legt nahe, dass wir auch heute noch nicht in 
-    aller Tiefe den Zusammenhang zwischen der Addition und der Multiplikation
-    der nat"urlichen Zahlen verstanden haben.
-    }.   % footnote
+     Christian Goldbach\index{Goldbach, Christian}, deutscher Mathematiker,
+     18.03.1690$-$20.11.1764. }
+     vermutete:
+     Jede gerade nat"ur"-liche Zahl gr"o"ser $2$ l"asst sich als die Summe
+     zweier Primzahlen darstellen.
+     Mit Computern ist die Goldbachsche Vermutung f"ur alle geraden Zahlen
+     bis $4*10^{14}$ verifiziert\footnote{%
+     Dass die Goldbachsche Vermutung wahr ist, d.h. f"ur alle geraden 
+     nat"urlichen Zahlen gr"o"ser als $2$ gilt, wird heute allgemein nicht 
+     mehr angezweifelt. Der Mathematiker J"org Richstein vom Institut f"ur 
+     Informatik der Universit"at Gie"sen hat 1999 die geraden Zahlen bis 
+     400 Billionen untersucht und kein Gegenbeispiel gefunden (siehe 
+     \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+     {\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}).
+     \index{Richstein 1999}
+     Trotzdem ist das kein allgemeiner Beweis.\\ 
+     Dass die Goldbach’sche Vermutung trotz aller Anstrengungen bis heute 
+     nicht bewiesen wurde, f"ordert allerdings einen Verdacht:
+     Seit den bahnbrechenden Arbeiten des "osterreichischen Mathematikers 
+     Kurt G"odel\index{G\""odel, Kurt} ist bekannt, dass nicht jeder wahre
+     Satz in der Mathematik auch beweisbar ist (siehe 
+     \href{http://www.mathematik.ch/mathematiker/goedel.html}
+          {\tt http://www.mathematik.ch/mathematiker/goedel.html}).
+     M"oglicherweise hat Goldbach also Recht, und trotzdem wird nie ein 
+     Beweis gefunden werden. Das wiederum l"asst sich aber vermutlich auch
+     nicht beweisen.
+     },   % footnote
+     aber allgemein noch nicht bewiesen\footnote{%
+     Der englische Verlag {\em Faber} und die amerikanische
+     Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmals
+     ver"offentlichte Buch \glqq Onkel Petros und die Goldbachsche 
+     Vermutung\grqq~ von Apostolos Doxiadis (deutsch bei
+     L"ubbe 2000 und bei BLT als Taschenbuch 2001). Es ist 
+     die Geschichte eines Mathematikprofessors, der daran scheitert, ein 
+     mehr als 250 Jahre altes R"atsel zu l"osen.\\
+     Um die Verkaufszahlen zu f"ordern, schrieben die beiden Verlage einen 
+     Preis von 1 Million USD aus, wenn jemand die Vermutung beweist -- 
+     ver"offentlicht in einer angesehenen mathematischen Fachzeitschrift 
+     bis Ende 2004 (siehe 
+     \href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}
+          {\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).\\
+     Erstaunlicherweise durften nur englische und amerikanische Mathematiker
+     daran teilnehmen.\\
+     Die Aussage, die der Goldbach-Vermutung bisher am n"achsten kommt, wurde
+     1966 von Chen Jing-Run bewiesen -- in einer schwer nachvollziehbaren Art
+     und Weise: Jede gerade Zahl gr"o"ser 2 ist die Summe einer Primzahl und
+     des Produkts zweier Primzahlen. Z.B. $20=5+3*5.$\\ 
+     Die wichtigsten Forschungsergebnisse zur Goldbachschen Vermutung sind
+     zusammengefasst in dem von Wang Yuan herausgegebenen Band: 
+     \glqq Goldbach Conjecture\grqq, 1984, World Scientific Series in Pure
+     Maths, Vol. 4.\\
+     Gerade diese Vermutung legt nahe, dass wir auch heute noch nicht in 
+     aller Tiefe den Zusammenhang zwischen der Addition und der Multiplikation
+     der nat"urlichen Zahlen verstanden haben.
+     }.   % footnote
     
 \item Bernhard Riemann\footnote{%
-        Bernhard Riemann\index{Riemann Bernhard}, deutscher Mathematiker,
-        17.9.1826$-$20.7.1866.
-        }
+        Bernhard Riemann\index{Riemann, Bernhard}, deutscher Mathematiker,
+        17.9.1826$-$20.7.1866. }
     stellte eine bisher unbewiesene, aber auch nicht widerlegte (?) Formel
     f"ur die Verteilung von Primzahlen auf, die die Absch"atzung 
     weiter verbessern w"urde.
 \end{itemize}
 
-\paragraph{Offene Fragestellungen}\mbox{}\\
-Primzahlzwillinge sind Primzahlen, die den Abstand 2 voneinander haben, zum Beispiel 5 und 7 oder
-101 und 103. Primzahldrillinge gibt es dagegen nur eines: 3, 5, 7.  Bei allen anderen Dreierpacks
-aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit keine Primzahl.
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsubsection{Offene Fragestellungen}
+Primzahlzwillinge sind Primzahlen, die den Abstand 2 voneinander haben, 
+zum Beispiel 5 und 7 oder 101 und 103. 
+Primzahldrillinge gibt es dagegen nur eines: 3, 5, 7.  Bei allen anderen 
+Dreierpacks aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 
+teilbar und somit keine Primzahl.
 \begin{itemize}
 
 \item Offen ist die Anzahl der Primzahlzwillinge: unendlich viele oder eine
@@ -1376,45 +1530,52 @@ aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 teilbar und somit k
     solchen Zahl $a$.  Wie kann diese Zahl $a$ bestimmt werden, und wird sie
     einen Wert haben, so dass die Funktion auch von praktischem Interesse ist?
 
-\item Gibt es unendlich viele Mersenne-Primzahlen?\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
+\item Gibt es unendlich viele Mersenne-Primzahlen?
+   \index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
 
 \item Gibt es unendlich viele Fermatsche Primzahlen?
 
 \item Gibt es einen Polynomialzeit-Algorithmus\index{Polynom} zur 
-       Zerlegung einer Zahl in ihre Primfaktoren (vgl. \cite[S. 167]{Klee1997})?
-       Diese Frage kann man auf die folgenden drei Fragestellungen
-       aufsplitten:
-  \begin{itemize}
+   Zerlegung einer Zahl in ihre Primfaktoren (vgl. \cite[S. 167]{Klee1997})?
+   Diese Frage kann man auf die folgenden drei Fragestellungen aufsplitten:
+   \begin{itemize}
         \item Gibt es einen Polynomialzeit-Algorithmus, der entscheidet, ob 
-	      eine Zahl prim ist? \\
-	      Diese Frage wurde durch den AKS-Algorithmus\index{AKS} 
-	      beantwortet (vgl.  Kapitel \ref{PrimesinP}, ``Primes in P'':
-	      Testen auf Primalit"at ist polynominal).
-        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem man feststellen
-	      kann, aus wievielen Primfaktoren eine zusammengesetzte Zahl
-	      besteht (ohne diese Primfaktoren zu berechnen)?
+	   eine Zahl prim ist? \\
+	   Diese Frage wurde durch den AKS-Algorithmus\index{AKS} 
+	   beantwortet (vgl.  Kapitel \ref{PrimesinP}, ``Primes in P'':
+	   Testen auf Primalit"at ist polynominal).
+        \item Gibt es einen Polynomialzeit-Algorithmus, mit dem man 
+           feststellen kann, aus wievielen Primfaktoren eine zusammengesetzte
+           Zahl besteht (ohne diese Primfaktoren zu berechnen)?
         \item Gibt es einen Polynomialzeit-Algorithmus, mit dem sich f"ur 
-	      eine zusammengesetzte Zahl $n$ ein nicht-trivialer (d.h. 
-	      von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen 
-	      l"asst?\footnote{Vergleiche auch Kapitel \ref{RSABernstein} 
-	      und Kapitel \ref{NoteFactorisation}.}
-        \end{itemize}
+	   eine zusammengesetzte Zahl $n$ ein nicht-trivialer (d.h. 
+	   von $1$ und von $n$ verschiedener) Teiler von $n$ berechnen 
+	   l"asst?\footnote{Vergleiche auch Kapitel \ref{RSABernstein} 
+	   und Kapitel \ref{NoteFactorisation}.}
+   \end{itemize}
 \end{itemize}
 
 Am Ende von Kapitel \ref{NoteFactorisation}, 
-Abschnitt \hyperlink{RSA-160-chap3}{RSA-160}
+Abschnitt \hyperlink{RSA-200-chap3}{RSA-200}
 k"onnen Sie die Gr"o"senordnungen ersehen, f"ur die heutige Algorithmen
 Ergebnisse liefern (Primzahltests\index{Primzahltest}, 
 Faktorisierung\index{Faktorisierung!Faktorisierungsrekorde}).
 
 
-\paragraph{Weitere interessante Themen rund um Primzahlen}
-\mbox{}\\
-Nicht betrachtet wurden in diesem Kapitel folgende eher
-zahlentheoretische Themen wie Teilbarkeitsregeln, Modulo-Rechnung,
-modulare Inverse, modulare Potenzen und Wurzeln, chinesischer
-Restesatz, Eulersche Phi-Funktion, perfekte Zahlen. Auf einige dieser
-Themen geht das n"achste Kapitel ein.
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsubsection{Kurioses und Interessantes zu Primzahlen}
+
+\begin{itemize}
+  \item Bewerbung bei Google
+  \item Kontakt
+\end{itemize}
+
+\paragraph{Bewerbung bei Google} \mbox{}\\
+xxxxxxxxxx
+
+\paragraph{Kontakt} \mbox{}\\
+xxxxxxxxxx
 
 
 % --------------------------------------------------------------------------
@@ -1481,9 +1642,8 @@ Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 1E+09  &    22.801.763.489  &    2,28018E+10 & \\
 1E+12  &    29.996.224.275.833 & 2,99962E+13 & \\ \hline
 \end{tabular}
-\vskip +2pt Bemerkung: Mit L"ucke wurden fr"uh sehr gro"se
-Primzahlen
-entdeckt.  \\
+\vskip +2pt 
+Bemerkung: Mit L"ucke wurden fr"uh sehr gro"se Primzahlen entdeckt. \\
 
 
 \vskip +12pt Web-Links (URLs):
@@ -1509,51 +1669,65 @@ Welt bereitzustellen, so dass man ein Gef"uhl f"ur die Sicherheit
 kryptographischer Algorithmen entwickeln kann. Die angegebenen
 Werte stammen teilweise aus \cite{Schwenk1996} und
 \cite[S.18]{Schneier1996p}.  \hypertarget{grosord}{}
-\begin{tabbing}
-Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden:~~ \= abcdefhijk \= \kill
-Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden \> $ 5,5 \cdot 10^{-6} $\> \\
-J"ahrliche Wahrscheinlichkeit, von einem Blitz getroffen zu werden \> $ 10^{-7} $\> \\
-Wahrscheinlichkeit f"ur 6 Richtige im Lotto \> $ 7,1 \cdot 10^{-8} $\> \\
-Risiko, von einem Meteoriten erschlagen zu werden \> $ 1,6 \cdot 10^{-12} $ \> \\
----------------------------------------------------------------------------- \\
-Zeit bis zur n"achsten Eiszeit (in Jahren) \> $14.000 $ \> $ (2^{14})$ \\
-Zeit bis die Sonne vergl"uht (in Jahren)   \> $10^{9} $ \> $(2^{30})$ \\
-Alter der Erde (in Jahren)\> $ 10^9 $ \> $(2^{30}) $  \\
-Alter des Universums (in Jahren) \> $ 10^{10} $ \> $(2^{34}) $ \\
-Anzahl der Atome der Erde              \> $10^{51} $ \> $ (2^{170}) $ \\
-Anzahl der Atome der Sonne             \> $10^{57}$ \> $ (2^{190})$ \\
-Anzahl der Atome im Universum (ohne dunkle Materie)            \> $10^{77}$  \> $ (2^{265})$ \\
-Volumen des Universums (in $cm^3$)     \> $10^{84}$ \> $(2^{280})$
-\end{tabbing}
+
+% be_2005: noch mit tabbing:
+% Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden:	&~~ \= abcdefhijk \= \kill
+% Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden \> $ 5,5 \cdot 10^{-6} $\> \\
+
+
+\begin{tabular}{|l|l|}\hline
+Wahrscheinlichkeit, dass Sie auf ihrem n"achsten Flug entf"uhrt werden	&  $ 5,5 \cdot 10^{-6} $  \\
+J"ahrliche Wahrscheinlichkeit, von einem Blitz getroffen zu werden	&  $ 10^{-7} $            \\
+Wahrscheinlichkeit f"ur 6 Richtige im Lotto				&  $ 7,1 \cdot 10^{-8} $  \\
+Risiko, von einem Meteoriten erschlagen zu werden			&  $ 1,6 \cdot 10^{-12} $ \\
+\hline
+Zeit bis zur n"achsten Eiszeit (in Jahren)	&  $14.000 $   =  $(2^{14})$ \\
+Zeit bis die Sonne vergl"uht (in Jahren)	&  $10^{9} $   =  $(2^{30})$ \\
+Alter der Erde (in Jahren)			&  $ 10^9 $    =  $(2^{30})$ \\
+Alter des Universums (in Jahren)		&  $ 10^{10} $ =  $(2^{34})$ \\
+Anzahl der Atome der Erde 			&  $10^{51} $  =  $(2^{170})$ \\
+Anzahl der Atome der Sonne			&  $10^{57}$   =  $(2^{190})$ \\
+Anzahl der Atome im Universum (ohne dunkle Materie)	&  $10^{77}$  = $(2^{265})$ \\
+Volumen des Universums (in $cm^3$)		&  $10^{84}$   = $(2^{280})$ \\ \hline
+\end{tabular}
 
 % --------------------------------------------------------------------------
 \subsubsection{Spezielle Werte des Zweier- und Zehnersystems}
-\begin{tabbing}
-DualSystem~~~ \= \kill
-Dualsystem \> Zehnersystem \\*[4pt]
-$2^{10}$ \> $1024$ \\
-$2^{40}$ \> $1,09951\cdot 10^{12}$ \\
-$2^{56}$ \> $7,20576\cdot 10^{16}$ \\
-$2^{64}$ \> $1,84467\cdot 10^{19}$ \\
-$2^{80}$ \> $1,20893\cdot 10^{24}$ \\
-$2^{90}$ \> $1,23794\cdot 10^{27}$ \\
-$2^{112}$ \>    $5,19230\cdot 10^{33}$ \\
-$2^{128}$ \>    $3,40282\cdot 10^{38}$ \\
-$2^{150}$ \>    $1,42725\cdot 10^{45}$ \\
-$2^{160}$ \>    $1,46150\cdot 10^{48}$ \\
-$2^{250}$ \>    $1,80925\cdot 10^{75}$ \\
-$2^{256}$ \>    $1,15792\cdot 10^{77}$ \\
-$2^{320}$ \>    $2,13599\cdot 10^{96}$ \\
-$2^{512}$ \>    $1,34078\cdot 10^{154}$ \\
-$2^{768}$ \>    $1,55252\cdot 10^{231}$ \\
-$2^{1024}$ \>   $1,79769\cdot 10^{308}$ \\
-$2^{2048}$ \>   $3,23170\cdot 10^{616}$ \\
-\end{tabbing}
 
-\vskip -20 pt
+% be_2005 vorher nur getappt, nun als Tabelle mit Rahmen
+% \begin{tabbing}
+% DualSystem~~~ \= \kill
+% Dualsystem \> Zehnersystem \\*[4pt]
+% $2^{10}$ \> $1024$ \\
+% ...
+% $2^{2048}$ \>   $3,23170\cdot 10^{616}$ \\
+% \end{tabbing}
+
+\begin{tabular}{|l|l|}\hline
+Dualsystem   &   Zehnersystem \\
+\hline \hline
+$2^{10}$ 	&   $1024$ \\
+$2^{40}$ 	&   $1,09951\cdot 10^{12}$ \\
+$2^{56}$ 	&   $7,20576\cdot 10^{16}$ \\
+$2^{64}$ 	&   $1,84467\cdot 10^{19}$ \\
+$2^{80}$ 	&   $1,20893\cdot 10^{24}$ \\
+$2^{90}$ 	&   $1,23794\cdot 10^{27}$ \\
+$2^{112}$ 	&   $5,19230\cdot 10^{33}$ \\
+$2^{128}$ 	&   $3,40282\cdot 10^{38}$ \\
+$2^{150}$ 	&   $1,42725\cdot 10^{45}$ \\
+$2^{160}$ 	&   $1,46150\cdot 10^{48}$ \\
+$2^{250}$ 	&   $1,80925\cdot 10^{75}$ \\
+$2^{256}$ 	&   $1,15792\cdot 10^{77}$ \\
+$2^{320}$ 	&   $2,13599\cdot 10^{96}$ \\
+$2^{512}$ 	&   $1,34078\cdot 10^{154}$ \\
+$2^{768}$ 	&   $1,55252\cdot 10^{231}$ \\
+$2^{1024}$ 	&   $1,79769\cdot 10^{308}$ \\
+$2^{2048}$ 	&   $3,23170\cdot 10^{616}$ \\ \hline
+\end{tabular}
 
 Berechnung zum Beispiel per GMP:
 {\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}.
+
 
 
 % --------------------------------------------------------------------------
@@ -1665,12 +1839,12 @@ Berechnung zum Beispiel per GMP:
        {\tt http://www.mersenne.org/prime.htm }
 
 \item Die Proth Search Page mit dem Windows-Programm von Yves Gallot \\
-      \href{http://prothsearch.net/index.html}
-       {\tt http://prothsearch.net/index.html}
+      \href{http://www.utm.edu/research/primes/programs/gallot/index.html}
+       {\tt http://www.utm.edu/research/primes/programs/gallot/index.html}
 
 \item Verallgemeinerte Fermat-Primzahlen-Suche \\
-      \href{http://perso.wanadoo.fr/yves.gallot/primes/index.html}
-        {\tt http://perso.wanadoo.fr/yves.gallot/primes/index.html}
+      \href{http://primes.utm.edu/top20/page.php?id=12}
+       {\tt http://primes.utm.edu/top20/page.php?id=12}
 
 \item Verteilte Suche nach Teilern von Fermatzahlen \\
       \href{http://www.fermatsearch.org/}{\tt http://www.fermatsearch.org/}
@@ -1680,8 +1854,8 @@ Berechnung zum Beispiel per GMP:
       \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
 
 \item Den besten "Uberblick zu Primzahlen (weil sehr aktuell und vollst"andig)
-      bieten m.E.  ~\glqq The Prime Pages\grqq~ von Chris Caldwell.
-      \index{Caldwell Chris} \\
+      bieten m.E.  ~\glqq The Prime Pages\grqq~ von Professor Chris Caldwell.
+      \index{Caldwell, Chris} \\
       \href{http://www.utm.edu/research/primes}
        {\tt http://www.utm.edu/research/primes }
 
@@ -1698,8 +1872,8 @@ Berechnung zum Beispiel per GMP:
 \item Der Supercomputerhersteller SGI Cray Research besch"aftigte nicht
       nur hervorragende Mathematiker, sondern benutzte die Primzahltests
       auch als Benchmarks f"ur seine Maschinen. \\
-      \href{http://reality.sgi.com/chongo/prime/prime_press.html}
-      {\tt http://reality.sgi.com/chongo/prime/prime\_press.html }
+      \href{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
+       {\tt http://www.isthe.com/chongo/tech/math/prime/prime\_press.html }
 
 \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
       \href{http://www.cerias.purdue.edu/homes/ssw/cun/}

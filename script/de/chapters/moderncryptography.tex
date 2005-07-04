@@ -49,10 +49,13 @@
 \newpage
 %**************************************************************************************************************************
 \section{Die mathematischen Ideen hinter der modernen Kryptographie}
+\label{Chapter_ModernCryptography}
+\hypertarget{Chapter_ModernCryptography}{}
 %**************************************************************************************************************************
 (Oyono R./ Esslinger B., Sep. 2000, Updates Nov. 2000, Feb. 2003)
+
 %--------------------------------------------------------------------------------------------------------------------------
-       \subsection{Einwegfunktionen mit Fallt"ur und Komplexit"atsklassen}
+\subsection{Einwegfunktionen mit Fallt"ur und Komplexit"atsklassen}
 %--------------------------------------------------------------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
 Eine {\bf Einwegfunktion} \hypertarget{OneWayFunktion1}{} ist eine effizient zu 
@@ -190,7 +193,7 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 %--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman Knapsack-Verschl"usselung}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle Ralph} 
+\index{Hellman, Martin} \index{Merkle, Ralph} 
 
 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
 \index{Knapsack!Merkle-Hellman}
@@ -218,13 +221,13 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 
-1982 gab \index{Shamir Adi} Shamir \cite{Shamir1982} einen Algorithmus zum
+1982 gab \index{Shamir, Adi} Shamir \cite{Shamir1982} einen Algorithmus zum
 Brechen des Systems in polynomialer \index{Polynom} Zeit an, ohne das allgemeine
-Knapsackproblem zu l"osen. Len \index{Adleman Leonard} Adleman
-\cite{Adleman1982} und Jeff Lagarias \index{Lagarias Jeff}
+Knapsackproblem zu l"osen. Len \index{Adleman, Leonard} Adleman
+\cite{Adleman1982} und Jeff Lagarias \index{Lagarias, Jeff}
 \cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen
 iterierten Merkle-Hellman Knapsack-Verschl"usselungsverfahrens in
-polynomialer Zeit an. Ernst Brickell \index{Brickell Ernst}
+polynomialer Zeit an. Ernst Brickell \index{Brickell, Ernst}
 \cite{Brickell1985} gab schlie"slich einen Algorithmus zum Brechen des
 mehrfachen iterierten Merkle-Hellman Knapsack-Verschl"usselungsverfahren in
 polynomialer Zeit an. Damit war dieses Verfahren als
@@ -242,12 +245,14 @@ Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des
 \subsubsection[Das RSA-Verfahren]
 {Das RSA-Verfahren\footnotemark}
 \footnotetext{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie praktische Erfahrungen
+Mit CrypTool\index{CrypTool} k"onnen Sie praktische Erfahrungen
 mit dem RSA-Verfahren sammeln: per Men"u {\bf Einzelverfahren 
-\textbackslash{} RSA-Demo \textbackslash{} RSA-Kryptosystem}.
+\textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.
 }\index{RSA} \hypertarget{RSAVerfahren}{} \label{rsaverfahren}
 
-Bereits 1978 stellten R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} das bis heute wichtigste 
+Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
+\index{Shamir, Adi} A. Shamir,  \index{Adleman, Leonard} L. Adleman
+ \cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
 \index{Faktorisierung!Faktorisierungsproblem}
@@ -352,7 +357,7 @@ dann das RSA-Verfahren nicht mehr sicher ist.
     \subsubsection{Rabin-Public Key-Verfahren (1979)}
 %--------------------------------------------------------------------
 
-F"ur \index{Rabin Michael O.} \index{Rabin!Public-Key Verfahren} 
+F"ur \index{Rabin, Michael O.} \index{Rabin!Public-Key Verfahren} 
 dieses Verfahren konnte gezeigt werden, dass es "aquivalent zum Brechen
 des Faktorisierungsproblems ist. Leider ist dieses Verfahren anf"allig
 gegen chosen-ciphertext-Angriffe.
@@ -409,21 +414,22 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \end{tabular}
 \end{center}
 \vskip +5 pt
-\index{Silver} \index{Pohlig S. C.} \index{Hellman Martin} \index{Baby-Step-Giant-Step}
+\index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
+\index{Baby-Step-Giant-Step}
 
 
 %--------------------------------------------------------------------
 \subsubsection[Diffie-Hellman-Schl"usselvereinbarung]
 {Diffie-Hellman-Schl"usselvereinbarung\footnotemark}
 \footnotetext{%
-In CrypTool\index{CrypTool} v1.3.04 ist dieses Austauschprotokoll visualisiert:
+In CrypTool\index{CrypTool} ist dieses Austauschprotokoll visualisiert:
 Sie k"onnen die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
-per  {\bf Einzelverfahren \textbackslash{} Diffie-Hellman-Demo}.
+per Men"u {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{} Diffie-Hellman-Demo}.
 }
 
 \index{Schl""usselaustausch!Diffie-Hellman} 
-\index{Diffie Whitfield} 
-\index{Hellman Martin} 
+\index{Diffie, Whitfield} 
+\index{Hellman, Martin} 
 \index{Diffie-Hellman}
 \hypertarget{DH-KeyExch}{} \label{DH-KeyExch}
 
@@ -455,7 +461,7 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} h"angt eng mit der Berechnung
 %--------------------------------------------------------------------
 \index{ElGamal!Public Key}
 Indem man das Diffie-Hellman Schl"usselvereinbarungsprotokoll 
-\index{Diffie-Hellman} \index{Verschl""usselung!El Gamal-Public Key} 
+\index{Diffie-Hellman} \index{Verschl""usselung!ElGamal-Public Key} 
 leicht variiert, kann man einen asymmetrischen Verschl"usselungsalgorithmus
 erhalten. Diese Beobachtung geht auf Taher ElGamal zur"uck.
 \begin{center}

@@ -8,7 +8,6 @@ TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc auto
 all: pdf
 
 pdf: $(PDF)
-dvi: $(DVI)
 
 $(PDF): $(SRC) style.ist
 	echo q | pdflatex $(TEX) | tail
@@ -16,7 +15,11 @@ $(PDF): $(SRC) style.ist
 	makeindex -s style.ist $(IDX)
 	echo q | pdflatex $(TEX) | tail
 	echo q | pdflatex $(TEX) | tail
-	#dvipdf $(DVI) $(PDF)
+
+pdf1: 
+	echo q | pdflatex $(TEX) | tail
+
+dvi: $(DVI)
 
 script-$(LANG).ind: script-$(LANG).idx style.ist
 	makeindex -s style.ist script-$(LANG).idx

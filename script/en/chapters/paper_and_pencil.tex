@@ -1,0 +1,1123 @@
+% $Id$
+% ..............................................................................
+%                V E R S C H L U E S S E L U N G S V E R F A H R E N
+%
+% Writing rule: Capitel header with all nouns/verbs-words capitalized,
+%               All other headers in the normal lower/upper case manner
+%               like sentences (without a dot at the end).
+%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\newpage
+
+%------------------------------------------------------------------------------
+% First Editor: Christine Stötzel, April 2004
+% Update and corrections: B. Esslinger, June 2005
+% corrected by C. Esslinger, June 2005 
+%------------------------------------------------------------------------------
+\section{Paper and Pencil Encryption Methods}
+
+\hypertarget{Kapitel_PaperandPencil}{}
+\label{Kapitel_PaperandPencil}
+(Christine St\"otzel, April 2004)
+
+The following chapter provides a broad overview of paper and pencil 
+methods\footnotemark
+    \footnotetext{Always added with links to further information.}
+    \index{Paper- and pencil methods}.
+All techniques that people can apply manually to en- and decipher a message are 
+embraced by this term. These methods were and still are especially popular with
+secret services, as a writing pad and a pencil - in contrast to electronical
+aids - are totally unsuspicious.
+
+The first paper- and pencilmethods already arose about 3000 years ago, but new
+procedures were developed during the past century, too. All paper and pencil 
+methods are a matter of symmetric methods\index{Encryption!symmetric}. 
+Even the earliest encryption algorithms use the basic principles such as 
+transposition, substitution, block construction and their combinations. 
+Hence it is worthwhile to closely consider this ''ancient'' methods especially
+under didactic aspects.
+
+xxxxxxxxxxErfolgreiche bzw. verbreiteter eingesetzte Verfahren mussten die gleichen 
+Merkmale erf"ullen wie moderne Verfahren:
+\begin{itemize}
+\item xxxxxxxxxxxxxxVollst"andige Beschreibung, ja fast Standardisierung (incl. 
+      Sonderf"alle, Padding, etc.).
+\item xxxxxxxxxxGute Balance zwischen Sicherheit und Benutzbarkeit 
+      (denn zu kompliziert zu bedienende Verfahren waren fehlertr"achtig
+      oder unangemessen langsam).
+\end{itemize}
+
+
+\vskip +20 pt
+%------------------------------------------------------------------------------
+\subsection{Transposition}
+
+Encrypting a message by means of transposition\index{Transposition} does not change the original characters of this
+message, only their layout is modified.
+
+%------------------------------------------------------------------------------
+\subsubsection{Introductionary samples of different transposition ciphers}
+
+\begin{itemize}
+
+\item {\bf Railfence}\footnote{In CrypTool\index{CrypTool} 
+   you can simulate this method under the menu {\bf Crypt \textbackslash{} 
+   Symmetric (classic) \textbackslash{} Permutation}: for a railfence with
+   2 lines use as key ''B,A'' and accept the default settings (only one
+   permutation, where your input is done line-by-line and the ouput is
+   taken column-by-column). 
+   Using the key ''A,B'' "' would start the zigzag pattern below in the
+   way, that the first letter is written into the first line instead of the
+   second line.}
+   \cite{Singh2001}%
+   : 
+   The characters of a message are alternately written in two (or more) lines,
+   creating a zigzag pattern. The resulting cipertext is read out 
+   line by line.\\
+   This is more a children's method.
+
+   Plaintext: an example of transposition\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}}
+	  & n &   & x &   & m &   & l &   & o &   & t &   & a &   & s &   & o &   & i &   & i &   & n \\
+	a &   & e &   & a &   & p &   & e &   & f &   & r &   & n &   & p &   & s &   & t &   & o &   \\
+\end{tabular}
+\caption{Railfence}
+\end{center} 
+\end{table}
+
+   Ciphertext\footnote{The letters of the cleartext are -- as used 
+   historically -- grouped within blocks of 5 letters. It does not matter
+   if the (constant) blocklength is different or no blank is inserted.}%
+   : NXMLO TASOI INAEA PEFRN PSTO\\
+
+
+\item {\bf Scytale}\footnote{%
+   The result of this encryption method meets the one of a simple columnar
+   transposition.   
+   In CrypTool\index{CrypTool} you can simulate this method under the 
+   menu {\bf Crypt \textbackslash{} Symmetric (classic) \textbackslash{} 
+   Permutation}: For the Scytale within the dialog box only the first 
+   permutation is used. If the wood has e.g. 4 angles use as key ''1,2,3,4''.
+   This is equivalent to write the text horizontally in blocks of 4 letters 
+   in a matrix and to read it out vertically . 
+   Because the key is in an in ascending order, the Scytale is denoted as
+   an identical permutation; and because writing and read-out is done only
+   once it is a simple (no double) permutation.}
+   \cite{Singh2001}%
+   : 
+   This metod was probably used since more than 600 B.C. -- a description
+   of how it operated is not known from before Plutarch (50-120 B.C.).\\
+   A long strip of paper is wrapped around a wooden cylinder and the 
+   message is written along the length of this strip. The ciphertext is 
+   produced by unwinding the strip.
+
+\item {\bf Grille} \cite{Goebel2003}: Both parties use identical stencils. 
+   Line by line, their holes are filled with plaintext that is read out 
+   column by column to produce the ciphertext. If there is plaintext left, 
+   the procedure is repeated\footnote{%
+   This method cannot be simulated with a pure column transposition.}.
+
+\item {\bf Turning grille} \cite{Savard1999}: The German army used turning 
+   grilles during WW1\footnote{The turning grille was already invented in 
+   1881 by Eduard Flei"sner von Wostrowitz.\\
+   A good visualization canbe found under www.turning-grille.com.}%
+   . 
+   A square grille serves as a stencil, a quarter of its fields being holes.
+   The first part of the message is written on a piece of paper through	these
+   holes, subsequently the grille is rotated by 90 degrees and the user can
+   write down the second part of the message, etc. But this method does only
+   work, if the holes are chosen carefully: Every field has to be used, and
+   no field may be used twice, either. The ciphertext is read out line by line.
+
+   In the example for a turning grille in the following table you can write
+   4 times 16 characters of the cleartext on a piece of paper:
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|cccc|cccc|}
+\hline 	
+	O & - & - & - & - & O & - & - \\
+	- & - & - & O & O & - & - & O \\
+	- & - & - & O & - & - & O & - \\
+	- & - & O & - & - & - & - & - \\
+\hline 	
+	- & - & - & - & O & - & - & - \\
+	O & - & O & - & - & - & O & - \\
+	- & O & - & - & - & - & - & O \\
+	- & - & - & O & O & - & - & - \\
+\hline
+\end{tabular}  
+\end{center} 
+\end{table}
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+% {\bf Column and row transposition}
+\subsubsection[Column and row transposition]
+    {Column and row transposition\footnotemark}
+    \footnotetext{%
+Most of the following methods can be simulated in CrypTool\index{CrypTool} 
+under the menu {\bf Crypt \textbackslash{} Symmetric (classic) 
+\textbackslash{} Permutation}.}
+
+\begin{itemize}
+
+\item {\bf Simple columnar transposition} \cite{Savard1999}: First of all, 
+   a keyword is chosen, that is written above the columns of a table. This
+   table is filled with the text to be encrypted line by line. Then the 
+   columns are rearranged by sorting the letters of the keyword alphabetically.
+   Afterwards the columns are read out from left to right to build the 
+   ciphertext\footnote{%
+   Using CrypTool: Choose a key for the 1st permutation, input line by line, 
+   permute and output column by column.}.
+
+   Plaintext: an example of transposition\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 	
+	K & E & Y \\
+\hline
+	a & n & e \\
+	x & a & m \\
+	p & l & e \\
+	o & f & t \\
+	r & a & n \\
+	s & p & o \\
+	s & i & t \\
+	i & o & n \\
+\hline
+\end{tabular}
+\caption{Simple columnar transposition}
+\end{center} 
+\end{table}
+
+   Transposition key: K=2; E=1; Y=3. \\
+   Ciphertext: NALFA PIOAX PORSS IEMET NOTN\\
+
+\item {\bf AMSCO} \cite{ACA2002}: The characters of the plaintext are written
+   in alternating groups of one respectively two letters into a grille. 
+   Then the columns are swapped and the text can be read out.
+
+\item {\bf Double column transposition} \cite{09}: Double columnar transposition
+   was frequently used during WW2 and during the Cold War. Two simple columnar
+   transpositions with different keys are executed successively\footnote{%
+   Using CrypTool: Choose a key for the 1st permutation, input line by line, 
+   permute and output column by column. Then choose a (different) key for the
+   2nd permutation, input line by line, permute and output column by column.}.
+	
+\item {\bf Column transposition, General Luigi Sacco} \cite{Savard1999}: The 
+   columns of a table are numbered according to the letters of the keyword. 
+   The plaintext is entered line by line, in the first line up to column 
+   number one, in the second line up to column number two, etc. 
+   Again, the ciphertext is read out in columns.
+
+   Plaintext: an example of transposition\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 	
+	C & O & L & U & M & N\\
+	1 & 5 & 2 & 6 & 3 & 4\\
+\hline
+	a &   &   &   &   &  \\
+	n & e & x &   &   &  \\
+	a & m & p & l & e &  \\
+	o & f & t & r & a & n\\
+	s & p &   &   &   &  \\
+	o & s & i & t &   &  \\
+	i & o & n &   &   &  \\
+\hline
+\end{tabular}
+\caption{Columnar transposition (General Luigi Sacco)}
+\end{center} 
+\end{table}
+
+   Ciphertext: ANAOS OIEMF PSOXP TINLR TEAN\\
+
+
+\item {\bf Column transposition, french army in WW1} 
+   \cite{Savard1999}: 
+   After executing a simple columnar transposition, diagonal rows are read out.
+
+
+\item {\bf Row transposition cipher} \cite{02}: The plaintext is divided 
+   into blocks of equal length and a keyword is chosen.
+   Now the letters of the keyword are numbered and permutation is done only
+   within each block according to this numbering\footnote{%
+   Using CrypTool: Choose a key for 1st permutation, input line by line, 
+   permute column by column and output line by line.}.
+
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Further transposition algorithms}
+
+\begin{itemize}
+
+\item {\bf Geometric figures} \cite{02}: Write the message into a grille 
+   following one pattern and read it out using another.
+
+\item {\bf Union route cipher} \cite{WP}: The union route cipher derives 
+   from Civil War. This method does not rearrange letters of a given plaintext,
+   but whole words. Particularly sensitive names and terms are substituted by 
+   codewords which are recorded in codebooks together with the existing routes.
+   A route determines the size of a grille and the pattern that is used to 
+   read out the ciphertext. Aditionally, a number of filler words is defined.
+
+\item {\bf Nihilist transposition} \cite{ACA2002}: Insert the plaintext into 
+   a square grille and write the same keyword above the columns and next to
+   the lines. As this keyword is sorted alphabetically, the contents of the
+   grille are rearranged, too. Read out the ciphertext line by line.
+	
+   Plaintext: an example of transposition\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|ccccc||cc|ccccc|}
+\hline 	
+	  & W & O & R & D & S &   &   & D & O & R & S & W\\
+\hline
+	W & a & n & e & x & a &   & D & s & p & o & i & s\\
+	O & m & p & l & e & o &   & O & e & p & l & o & m\\
+	R & f & t & r & a & n &   & R & a & t & r & n & f\\
+	D & s & p & o & s & i &   & S & n & i & o & - & t\\
+	S & t & i & o & n & - &   & W & x & n & e & a & a\\
+\hline
+\end{tabular}  
+\caption[Nihilist transposition]{Nihilist transposition\footnotemark}
+\end{center} 
+\end{table}
+
+   Ciphertext: SPOIS EPLOM ATRNF NIOTX NEAA\\
+   \footnotetext{%
+   After filling the matrix with the cleartext you get the left block.
+   After switching rows and columns you get the right block}
+
+\item {\bf Cadenus} \cite{ACA2002}: Cadenus is a form of columnar 
+   transposition that uses two keywords.\\
+   The 1st keyword is used to swap columns.\\
+   The 2nd keyword is used to define the initial letter of each column:
+   this 2nd keyword is a permutation of the used alphabet. This permutation
+   is written on the left of the first column.
+   Afterwards, each column is moved (wrap-around) so that it begins with the
+   letter, which is in the the same line as the key letter of the first 
+   keyword within the second keyword.\\
+   Ciphertext is read out line by line.
+	
+   Plaintext: cadenus is a form of columnar transposition using a keyword\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|ccc|ccc|ccc|}
+\hline 	
+	  & K & {\bf E} & Y & {\bf E} & K & Y & {\bf E} & K & Y\\
+\hline
+	A & c & a & d & a & c & d & {\bf s} & a & a\\
+	D & e & n & u & n & e & u & s & r & p\\
+	X & s & i & s & i & s & s & i & f & i\\
+	K & a & f & o & f & {\bf a} & o & u & l & o\\
+	C & r & m & o & m & r & o & n & n & s\\
+	W & f & c & o & c & f & o & k & t & g\\
+	N & l & u & m & u & l & m & w & n & e\\
+	S & n & a & r & a & n & r & d & o & o\\
+	Y & t & r & a & r & t & {\bf a} & a & t & d\\
+	{\bf E} & n & {\bf s} & p & {\bf s} & n & p & n & n & u\\
+	D & o & s & i & s & o & i & i & i & s\\
+	T & t & i & o & i & t & o & f & a & o\\	
+	U & n & u & s & u & n & s & m & y & o\\
+	B & i & n & g & n & i & g & c & r & o\\
+	R & a & k & e & k & a & e & u & c & m\\
+	G & y & w & o & w & y & o & a & e & r\\
+	H & r & d & - & d & r & - & r & s & -\\
+\hline
+\end{tabular}  
+\caption[Cadenus]{Cadenus\footnotemark}
+\end{center} 
+\end{table}%
+
+   Ciphertext:\\
+   SAASR PIFIU LONNS KTGWN EDOOA TDNNU IISFA OMYOC ROUCM AERRS\\
+   \footnotetext{%
+   Within the 2nd block of three chars those chars are printed bold which
+   are at the top of the 3rd block after applying the 2nd key word.}
+
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+\subsection{Substitution}
+\index{Substitution}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Monoalphabetic substitution}
+Monoalphabetic substitution\index{Substitution!monoalphabetic} assigns one 
+character of the ciphertext alphabet to each plaintext character. This mapping
+remains unchanged during the whole process of encryption.
+
+\begin{itemize}
+
+\item {\bf Random pairs} \cite{Singh2001}: Substitution occurs by a given
+   combination of letters.
+
+\item {\bf Atbash} \cite{Singh2001}: Replace the first letter of the 
+   alphabet by the last letter of the alphabet, the second one by the last 
+   but one, etc.
+
+\item {\bf Shift cipher, for example Caesar cipher}\footnote{In CrypTool
+   this method  can be find at three different places in the menu tree:\\
+   - {\bf Crypt \textbackslash{} Symmetric (classic) \textbackslash{} Caesar}\\
+   - {\bf Analysis \textbackslash{} Symmetric Encryption (classic)
+     \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
+   - {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
+     using ANIMAL \textbackslash{} Caesar}. } 
+   \cite{Singh2001}%
+   : Plaintext alphabet and ciphertext alphabet are shifted against each 
+   other. Using the Caesar cipher means shifting letters about three positions.
+
+	Plaintext:	three positions to the right\\
+
+	Ciphertext:	WKUHH SRVLWLRQV WR WKH ULJKW\\
+
+\item {\bf Substitution with symbols} \cite{Singh2001}, for instance the so-called''freemason cipher'': Each letter is replaced with a symbol.
+
+\item {\bf Variants}: Fill characters, intentional mistakes \cite{Singh2001}.
+
+\item {\bf Nihilist substitution}\footnote{An animation of this Nihilist method
+   can be find in CrypTool at the menu item
+     {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
+     using ANIMAL \textbackslash{} Nihilist}. }
+   \cite{ACA2002}: Insert the alphabet into a 5x5-matrix and replace 
+   every letter of the message with the two corresponding digits. The 
+   resulting numbers are written into a grille. For this purpose, a 
+   keyword is chosen and placed above the columns of the grille. Its 
+   letters are substituted by numbers, too. The ciphertext results from 
+   adding the numbers of the plaintext and the numbers of the keyword.
+   Numbers between 100 and 110 are transformed to numbers between 00 and
+   10, so that each letter is represented by a two-digit number.
+
+	Plaintext: an example of substitution\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline 	
+	  & 1 & 2 & 3 & 4 & 5\\
+\hline
+	1 & S & U & B & T & I\\
+	2 & O & N & A & C & D\\
+	3 & E & F & G & H & K\\
+	4 & L & M & P & Q & R\\
+	5 & V & W & X & Y & Z\\
+\hline
+\end{tabular}  
+\end{center} 
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccc|}
+\hline 	
+	K & E & Y\\
+	(35) & (31) & (54)\\
+\hline
+	a & n & e\\
+	(58) & (53) & (85)\\
+	x & a & m\\
+	(88) & (54) & (96)\\
+	p & l & e\\
+	(78) & (72) & (85)\\
+	o & f & s\\
+	(56) & (63) & (65)\\
+	u & b & s\\
+	(47) & (44) & (65)\\
+	t & i & t\\
+	(49) & (46) & (68)\\
+	u & t & i\\
+	(47) & (55) & (69)\\
+	o & n &  \\
+	(56) & (53) &  \\
+\hline
+\end{tabular}  
+\caption{Nihilist Substitution}
+\end{center} 
+\end{table}
+
+	Ciphertext: 58 53 85 88 54~~~96 78 72 85 56~~~63 65 47 44 65~~~49 46 68 47 55~~~69 56 53\\
+
+\item {\bf Coding} \cite{Singh2001}: In the course of time, codebooks were used again and again. A codebook assigns a codeword, a
+	symbol or a number to every possible word of a message. Only if both parties hold identical codebooks and if the
+	assignment of codewords to plaintext words is not revealed, a successful and secret communication can take place.
+
+\item {\bf Nomenclature} \cite{Singh2001}: A nomenclature is an encryption system that is based upon a ciphertext alphabet. This
+	alphabet is used to encrypt the bigger part of the message. Particularly frequent or top-secret words are replaced
+	by a limited number of codewords existing besides the ciphertext alphabet.
+
+\item {\bf Map cipher}: This method constitutes a combination of substitution and steganography\footnote{Instead of
+	encrypting a message, pure steganography tries to conceal its existence.}. Plaintext characters are replaced by symbols
+	which are arranged in a map following certain rules
+	(see also: \href{http://library.thinkquest.org/27158/}{\texttt http://library.thinkquest.org/27158/}).
+
+\item {\bf Straddling checkerboard} \cite{Goebel2003}. A 3x10-matrix is filled with the letters of the used alphabet and two
+	arbitrary digits or special characters as follows: The different letters of a keyword and the remaining
+	characters are written into the grille. The columns are numbered 0 to 9, the second and the third line are numbered
+	1 and 2. Each plaintext character is replaced by the corresponding digit, respectively the corresponding pair of
+	digits. As ''1'' and ''2'' are the first digits of the possible two-digit-numbers, they are not used as single
+	digits. Besides, ''1'' and ''2'' are the most commonly used digits, but this feature is removed by the following
+	technique.
+
+	Plaintext: an example of substitution\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|cccccccccc|}
+\hline 	
+	  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
+\hline
+	  & K & - & - & E & Y & W & O & R & D & A\\
+	1 & B & C & F & G & H & I & J & L & M & N\\
+	2 & P & Q & S & T & U & V & X & Z & . & /\\
+\hline
+\end{tabular}  
+\caption{Straddling Checkerboard with password ''Keyword''}
+\end{center} 
+\end{table}
+
+	Ciphertext: 91932 69182 01736 12222 41022 23152 32423 15619
+
+        It is ostentatious, how often the numbers 1 and 1 appear,
+        but this will be fixed with the following version.
+
+\item {\bf Straddling checkerboard, variant} \cite{Goebel2003}: This variant of the straddling checkerboard was developed by sovjet
+	spies during WW2. A grille is filled with the alphabet (number of columns = length of keyword), and two digits are
+	chosen to indicate the second and third line of a 3x10-matrix (see above). Now the grille is traversed
+	column by column: For a faster encryption, the eight most common letters (ENIRSATO) are assigned the digits from 0
+	to 9, the reserved digits are not assigned. The remaining letters are provided with combinations of digits one after
+	another and are inserted into the grille.
+
+	Plaintext: an example of substitution\\
+	
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 		
+	K & {\bf E} & Y & W & {\bf O} & {\bf R} & D\\
+\hline
+	{\bf A} & B & C & F & G & H & {\bf I}\\
+\hline
+	J & L & M & {\bf N} & P & Q & {\bf S}\\
+\hline
+	{\bf T} & U & V & X & Z & . & /\\
+\hline
+\end{tabular}  
+\end{center} 
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|cccccccccc|}
+\hline 	
+	  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
+\hline
+	  & A & T & E & - & N & O & R & - & I & S\\
+	1 & K & J & B & L & U & Y & C & M & V & W\\
+	2 & F & X & G & P & Z & H & Q & . & D & /\\
+\hline
+\end{tabular}  
+\caption{Variant of the straddling checkerboard}
+\end{center} 
+\end{table}
+
+	Ciphertext: 04221 01723 13252 09141 29181 14185 4
+\item {\bf Tri-Digital}: A keyword with ten letters is used to create a numeric key by numbering its letters corresponding to their
+	alphabetical order. This key is written above the columns of 3x10-matrix. This matrix is filled line by line
+	with the alphabet as follows: The different letters of a keyword are inserted first, followed by the remaining
+	letters. The last column is left out. Plaintext characters are substituted with numbers, the number of the last
+	column is used to seperate words.
+\item {\bf Baconian Cipher} \cite{ACA2002}: Assign a five-digit binary code to every letter and to 6 numbers or
+	special characters (for example 00000 = A, 00001 = B, etc.) and replace the plaintext characters with this
+	binary code. Now use a second, unsuspicious message to hide this code. This may happen by upper and lower
+	case or italicized letters.
+	
+	message: fight\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccc|}
+\hline
+	00101 & 01000 & 00110 & 00111 & 10011 \\
+	itisw & arman & thesu & nissh & ining \\
+\hline \\
+	itIsW & aRman & thESu & niSSH & IniNG \\
+\hline
+\end{tabular}  
+\caption{Baconian Cipher}
+\end{center} 
+\end{table}
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+\subsubsection{Homophonic substitution}
+
+Homophonic methods\index{Substitution!homophonic} constitute a special form of monoalphabetic substitution. Each
+character of the plaintext alphabet is assigned several ciphertext characters.
+
+\begin{itemize}
+\item {\bf Homophonic monoalphabetic substitution} \cite{Singh2001}: Each language has a typical frequency distribution of
+	letters. To conceal this distribution, each plaintext letter is assigned several ciphertext characters. The
+	number of ciphertext characters assigned depends on the frequency of the letter to be encrypted.
+\item {\bf Beale cipher} \cite{Singh2001}: The Beale cipher is a book cipher that numbers the words of a keytext.
+	These numbers replace the ciphertext letters corresponding to the words' initial letters.
+\item {\bf Grandpré Cipher} \cite{Savard1999}: A square grille with 10 columns (other layouts are possible, too) is
+	filled with ten words. The initial letters should result in an eleventh word. As columns and rows are
+	numbered from 0 to 9, letters can be replaced by two-digit numbers. It is obvious that with the table having
+	a hundred fields, most letters can be represented by more than one number. You should keep in mind that those
+	ten words have to contain all letters of the plaintext alphabet.
+\item {\bf Bookcipher}: The words of a message are substituted by triples ''page-line-position''. This method requires a
+	detailed agreement of which book to use, especially regarding the edition (layout, error correction, etc.).
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\subsubsection{Polygraphic substitution}
+
+Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing single characters, but by replacing
+whole groups of characters. In most cases, these groups are digramms, trigramms or syllables.
+
+\begin{itemize}
+\item {\bf ''Gro"se Chiffre''} \cite{Singh2001}: This cipher was used by Ludwig XIV. and was not solved until the end of the nineteenth
+	century. Cryptograms consisted of 587 different numbers, every number representing a syllable. The inventors
+	of the ''Gro"se Chiffre'' (Rossignol, father and son) constructed additional traps to increase security.
+	For example, a number could assign a different meaning to or delete the preceding one.
+\item {\bf Playfair} \cite{Singh2001}: A 5x5-matrix is filled with the plaintext characters. For example, the different
+	letters of a keyword are inserted first, followed by the remaining letters. The plaintext is divided into
+	pairs, these digraphs are encrypted using the following rules:
+
+	\begin{enumerate}
+	\item If both letters can be found in the same column, they are replaced by the letters
+		underneath.
+	\item If both letters can be found in the same row, take the letters to their right.
+	\item If both letters of the digraph are in different columns and rows, the replacement letters are obtained
+	by scanning along the row of the first letter up to the column where the other letter occurs and vice versa.
+	\item Double letters are treated by special rules. They can be seperated by a filler, for example.
+	\end{enumerate}
+	
+	Plaintext: plaintext letters are x encrypted in pairs\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+	K & E & Y & W & O\\
+\hline
+	R & D & A & B & C\\
+\hline
+	F & G & H & I & L\\
+\hline
+	M & N & P & Q & S\\
+\hline
+	T & U & V & X & Z\\
+\hline
+\end{tabular}
+\caption{5x5-Playfair}
+\end{center}
+\end{table}
+
+	Ciphertext: HSBHM UWUZF KUUKC MBDWU DURDA VUKBG PQBHC M \\
+\item {\bf Trigraphic Playfair}: A 5x5-matrix is filled with the alphabet (see above) and the plaintext is divided into
+	trigraphs. Trigraphs are encrypted according to the following rules:
+
+	\begin{enumerate}
+	\item Three equal letters are substituted by three equal letters. It is the letter on the right underneath the
+		original letter.
+	\item A trigraph with two different letters is encrypted like a digraph in Playfair.
+	\item If a trigraph contains three different characters, very complex rules come into effect.
+		See \cite{Savard1999}
+	\end{enumerate}
+\item {\bf Substituting digraphs by symbols} \cite{Savard1999}: Giovanni Battista della Porta, 15th century. He created a
+	20x20-matrix that contained one symbol for every possible combination of letters (his alphabet did not comprise
+	more than twenty letters).
+\item {\bf Four square cipher} \cite{Savard1999}: This method is similar to Playfair, because it is based on a system
+	of coordinates whose four quadrants are each filled with the alphabet. The layout of letters can differ from
+	quadrant to quadrant. To encipher a message, act in the following way: Look up the first plaintext letter in
+	the first quadrant and the second one in the third quadrant. These two letters are opposite corners of a
+	rectangle and the ciphertext letters can be found in quadrant number two and four.
+
+	Plaintext: plaintext letters are encrypted in pairs\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccc|ccccc|}
+\hline
+	d & w & x & y & m & E & P & T & O & L\\
+	r & q & e & k & i & C & V & I & Q & Z\\
+	u & v & h & {\bf p} & s & R & {\bf M} & A & G & U\\
+	a & l & b & z & n & F & W & Y & H & S\\
+	g & c & o & f & t & B & N & D & X & K\\
+\hline
+	Q & T & B & L & E & v & q & i & p & g\\
+	Z & H & N & D & X & s & t & u & o & h\\
+	P & M & I & Y & C & n & r & d & x & y\\
+	V & S & K & {\bf W} & O & b & {\bf l} & w & m & f\\
+	U & A & F & R & G & c & z & k & a & e\\
+\hline
+\end{tabular}
+\caption{Four Square Cipher}
+\end{center}
+\end{table}
+
+	Ciphertext: MWYQW XQINO VNKGC ZWPZF FGZPM DIICC GRVCS\\
+\item {\bf Two square cipher} \cite{Savard1999}: The two square cipher resembles the four square cipher, but the matrix
+	is reduced to two quadrants. Are both letters of the digraph part of the same row, they are just exchanged.
+	Otherwise, the plaintext letters are considered as opposite corners of a rectangle and substituted by the other
+	vertices. Quadrants can be arranged horizontal and vertical.
+\item {\bf Tri square cipher} \cite{ACA2002}: Three quadrants are filled with the same alphabet. The first plaintext
+	letter is looked up in the first quadrant and can be encrypted with every letter of that column. The second
+	plaintext letter is looked up in the second quadrant (diagonally across) and can be encrypted with every letter
+	of that row. Between theses two ciphertext characters, the letter at the intersection point is set.
+\item {\bf Dockyard Cipher} \cite{Savard1999}: Used by the German navy during WW2.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\subsubsection{Polyalphabetic substitution}
+
+Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the assignment of ciphertext characters to
+plaintext characters is not static, but changes during the process of encryption (depending on the key).
+
+\begin{itemize}
+\item {\bf Vigen\`ere}  \cite{Singh2001}: Each plaintext character is encrypted with a different ciphertext alphabet
+	that is determined by the characters of a keyword (the so-called Vigen\`ere-Tableau serves auxiliary means).
+	If the plaintext is longer than the key, the latter is repeated.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ccccc}
+	Plaintext: & the & alphabet & is & changing\\
+	Key: & KEY & KEYKEYKE & YK & EYKEYKEY\\
+	Ciphertext: & DLC & KPNREZOX & GC & GFKRESRE\\
+\end{tabular}  
+\end{center} 
+\end{table}
+\begin{table}[h]
+{
+\textmd \small
+\begin{center}
+\begin{tabular}{|@{\:}r@{\:}@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
+\hline
+	- & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+\hline
+	A & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+	B & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A\\
+	C & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B\\
+	D & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C\\
+	E & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D\\
+	F & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E\\
+	G & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F\\
+	H & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G\\
+	I & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H\\
+	J & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I\\
+	K & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J\\
+	... & ... & ... &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &  \\
+\hline
+\end{tabular}  
+\caption{Vigen\`ere-Tableau}
+\end{center} 
+}
+\end{table}
+
+\item {\bf}Interrupted key: The key is not repeated continously, but starts again with every new word of the message.
+\item {\bf Autokey} \cite{Savard1999}: After using the agreed key, use the message itself as a key.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ccccc}
+	Plaintext: & the & alphabet & is & changing\\
+	Key: & KEY & THEALPHA & BE & TISCHANG\\
+	Ciphertext: & DLC & TSTHLQLT & JW & VPSPNIAM\\
+\end{tabular}  
+\caption{Autokey}	
+\end{center} 
+\end{table}
+
+\item {\bf Progressive key} \cite{Savard1999}: The key changes during the process of encryption. With every repetition,
+	the characters of the keyword are shifted about one position. ''KEY'' becomes ''LFZ''.
+
+
+\item {\bf Gronsfeld} \cite{Savard1999}: 
+   Variant of Vigen\`ere that uses a numeric key.
+
+
+\item {\bf Beaufort} \cite{Savard1999}: 
+   Variant of Vigen\`ere, the key is subtracted, not added. The ciphertext 
+   alphabets may be written backwards.
+
+
+\item {\bf Porta} \cite{ACA2002}: Variant of Vigen\`ere with only 13 alphabets. As a consequence, two letters of the
+	keyword are assigned the same ciphertext alphabet and the first and the second half of the alphabet are reciprocal.
+\item {\bf Slidefair} \cite{ACA2002}: This method can be used as a variant of Vigen\`ere, Gronsfeld or Beaufort. Slidefair does
+	encrypt digraphs according to the following rules:
+	Look up the first letter in the plaintext alphabet above the tableau. Then look up the second one in the row
+	belonging to the corresponding keyword letter. These two letters make up opposite corners of an imaginary
+	rectangle. The letters at the two remaining corners substitute the digraph.
+\item {\bf Superposition}
+	\begin{itemize}
+	\item {\bf Book cipher}: A keytext (for example out of a book) is added to the plaintext.
+	\item {\bf Superposition with numbers}: A sequence or a number of sufficient length (for example pi) is added.
+	\end{itemize}
+\item {\bf Philipps} \cite{ACA2002}: The alphabet is filled into a square table with 5 columns. Seven more tables are
+	generated by first shifting the first row one position towards the bottom, then shifting the second row towards the
+	bottom. The plaintext is divided into blocks of five which are encrypted with one matrix each. Letters are
+	substituted by the ones on their right and underneath.
+\item {\bf Ragbaby} \cite{ACA2002}: Construct an alphabet with 24 characters. Then number the plaintext characters, starting
+	the numeration of the first word with ''1'', the numeration of the second one with ''2'' and so forth. Number 25
+	corresponds to number 1. Each letter of the message is encrypted by shifting it the corresponding postions to
+	the right.
+
+	alphabet: KEYWORDABCFGHILMNPSTUVXZ\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c||r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
+\hline
+	Plaintext: & t & h & e & a & l & p & h & a & b & e & t & i & s & c & h & a & n & g & i & n & g\\
+	Numbering: & 1 & 2 & 3 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 3 & 4 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
+	Ciphertext: & U & L & O & C & P & V & P & I & M & C & O & N & X & I & P & I & Z & T & X & Y & X\\
+\hline
+\end{tabular}  
+\caption{Ragbaby}
+\end{center} 
+\end{table}
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+\subsection{Combining substitution and transposition}
+
+In the history of cryptography one often comes across combinations of the 
+previous mentioned methods.
+
+\begin{itemize}
+
+\item {\bf ADF(V)GX}\footnote{%
+   In CrypTool\index{CrypTool} you can call this method under the menu
+   {\bf Crypt \textbackslash{} Symmetric (classic) \textbackslash{} 
+   ADFGVX}.}
+   \cite{Singh2001}%
+   : 
+   ADFG(V)X-encryption was developed in Germany during WW1. The alphabet 
+   is filled into a 5x5- or 6x6-matrix, and columns and rows are marked with
+   the letters ADFGX and V, depending on the size of the grille. Each 
+   plaintext character is substituted by the corresponding pair of letters. 
+   Finally, a (row-) transposition cipher is performed on the resulting text.
+
+\item {\bf Fractionation} \cite{Savard1999}: 
+   Generic term for all kinds of methods that encrypt one plaintext character
+   by several ciphertext characters and apply a transposition cipher to this
+   ciphertext so that ciphertext characters originally belonging to each 
+   other are separated.
+   
+   \begin{itemize}
+      \item {\bf Bifid/Polybius square/checkerboard} \cite{Goebel2003}: 
+         Bifid encryption is the basic form of fractionation. A 5x5-matrix 
+         is filled with the plaintext alphabet (see Playfair encryption), 
+         rows and columns are numbered. Now the plaintext is divided into 
+         blocks of equal length and every character is transformed into a 
+         pair of digits. Now all line numbers are read out first, followed 
+         by all numbers naming the columns. To obtain the ciphertext, the 
+         digits are transformed  in twos into letters again. Instead of 
+         numbering rows and columns, a keyword can be used, too.
+	\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{|c|ccccc|}
+	\hline
+		  & 2 & 4 & 5 & 1 & {\bf 3}\\
+	\hline
+		1 & K & E & Y & W & O\\
+		{\bf 4} & R & D & A & B & {\bf C}\\
+		2 & F & G & H & I & L\\
+		3 & M & N & P & Q & S\\
+		5 & T & U & V & X & Z\\
+	\hline
+	\end{tabular}  
+	\end{center} 
+	\end{table}
+	\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{|c|ccccccc|}
+	\hline
+		Plaintext: & {\bf c}ombi & nings & ubsti & tutio & nandt & ransp & ositi\\
+	\hline
+		Rows:	& {\bf 4}1342 & 32323 & 54352 & 55521 & 34345 & 44333 & 13252\\
+		Columns: & {\bf 3}3211 & 41443 & 41321 & 24213 & 45442 & 25435 & 33121\\
+	\hline
+	\end{tabular}  
+	\caption{Bifid}
+	\end{center} 
+	\end{table}
+
+		41342 32323 54352 55521 34345 44333 13252 33211 41443 41321 24213 45442 25435 33121\\
+	
+	Ciphertext: BNLLL UPHVI NNUCS OHLMW BDNOI GINUR HCZQI\\
+
+
+	\item {\bf Trifid} \cite{Savard1999}: 27 characters (alphabet + 1 special character) may be represented by a
+		triple consisting of the digits 1 to 3. The message to be encrypted is divided into blocks of three and
+		the relevant triple is written underneath each plaintext character as a column. The resulting numbers below
+		the plaintext blocks are read out line by line and are substituted with the corresponding characters.
+	\end{itemize}
+\item {\bf Bazeries} \cite{ACA2002}: The plaintext alphabet is filled into a 5x5-matrix column by column,
+	a second matrix is filled line by line with a keyword (a number smaller than a million) followed by the
+	remaining letters of the alphabet. Then the message is divided into blocks of arbitrary length and their characters'
+	order is inverted. Finally, each letter is substituted - according to its position in the original matrix -
+	by its counterpart in the second matrix.
+	
+	Plaintext: combining substitution and transposition\\
+	keyword: 900.004 (nine hundred thousand and four)\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccccccccc|}
+\hline
+	a & f & l & q & v & & N & I & E & H & O\\
+	b & g & {\bf m} & r & w & & U & D & {\bf R} & T & S\\
+	c & h & n & s & x & & A & F & B & C & G\\
+	d & i & o & t & y & & K & L & M & P & Q\\
+	e & k & p & u & z & & V & W & X & Y & Z\\
+\hline
+\end{tabular}
+\end {center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccccccccc|}
+\hline
+	com & bini & ngs & ub & stitu & tiona & ndt & ran & sposi & ti & on\\
+	{\bf m}oc & inib & sgn & bu & utits & anoit & tdn & nar & isops & it & no\\
+	{\bf R}MA & LBLU & CDB & UY & YPLPC & NBMLP & PKB & BNT & LCMXC & LP & BM\\
+\hline
+\end{tabular}
+\caption{Bazeries}
+\end{center}
+\end{table}
+
+
+\item {\bf Digrafid} \cite{ACA2002}: To substitute digraphs, the following table is used (to simplify matters, the
+	alphabet is used in its original form). Look up the first letter of the digraph in the horizontal alphabet and
+	write down the column number. Then look up the second letter in the vertical alphabet and write down the
+	corresponding line number. Between these two numbers, the number at the intersection point is set. Afterwards,
+	the tripel are written vertically underneath the digraphs that are arranged in groups of three. The three digit
+	numbers arising horizontally are transformed back into digraphs.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccccccc|ccc|c|}
+\hline	
+	1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 &   &   &   &  \\
+\hline
+
+	A & B & C & D & E & F & G & H & I & 1 & 2 & 3 &  \\
+	J & K & L & M & N & O & P & Q & R & 4 & 5 & 6 &  \\
+	S & T & U & V & W & X & Y & Z & . & 7 & 8 & 9 &  \\
+\hline
+	  &   &   &   &   &   &   &   &   & A & J & S & 1\\
+	  &   &   &   &   &   &   &   &   & B & K & T & 2\\
+	  &   &   &   &   &   &   &   &   & C & L & U & 3\\
+	  &   &   &   &   &   &   &   &   & D & M & V & 4\\
+	  &   &   &   &   &   &   &   &   & E & N & W & 5\\
+	  &   &   &   &   &   &   &   &   & F & O & X & 6\\
+	  &   &   &   &   &   &   &   &   & G & P & Y & 7\\
+	  &   &   &   &   &   &   &   &   & H & Q & Z & 8\\
+	  &   &   &   &   &   &   &   &   & I & R & . & 9\\
+\hline
+\end{tabular}  
+\end{center} 
+\end{table} 
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccccccccccccccccccccc|}
+\hline		
+	co & mb & in &   & in & gs & ub &   & st & it & ut &   & io & na & nd &   & tr & an & sp &   & os & it & io\\
+\hline
+	3  & 4  & 9  &   & 9  & 7  & 3  &   & 1  & 9  & 3  &   & 9  & 5  & 5  &   & 2  & 1  & 1  &   & 6  & 9  & 9\\ 
+	2  & 4  & 2  &   & 2  & 3  & 7  &   & 9  & 3  & 9  &   & 2  & 5  & 4  &   & 8  & 2  & 8  &   & 6  & 3  & 2\\ 
+	6  & 2  & 5  &   & 5  & 1  & 2  &   & 2  & 2  & 2  &   & 6  & 6  & 4  &   & 9  & 5  & 7  &   & 1  & 2  & 6\\
+\hline
+	LI & KB & FN &   & .C & BY & EB	&   & SU & I. & BK &   & RN & KM & OV &   & BA & HQ & RP &   & X. & FT & AO\\
+\hline
+\end{tabular}
+\caption{Digrafid}
+\end{center}
+\end{table}
+\item {\bf Nicodemus} \cite{ACA2002}: First of all, a simple columnar transposition is carried out. Before reading out
+	the columns, the message is encrypted aditionally by Vigne\`ere (al letters of a column are enciphered with
+	the corresponding keyword letter). The ciphertext is read out in vertical blocks.
+	
+	Plaintext: combining substitution and transposition\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|ccccccccccc|}
+\hline
+	K & E & Y & & E & K & Y & & E & K & Y\\
+\hline
+	c & o & m & & o & c & m & & S & M & K\\
+	b & i & n & & i & b & n & & M & L & L\\
+	i & n & g & & n & i & g & & R & S & E\\
+	s & u & b & & u & s & b & & Y & C & Z\\
+	s & t & i & & t & s & i & & X & C & G\\
+	t & u & t & & u & z & t & & Y & J & R\\
+	i & o & n & & o & i & n & & S & S & L\\
+	a & n & d & & n & a & d & & R & K & B\\
+	t & r & a & & r & t & a & & V & D & Y\\
+	n & s & p & & s & n & p & & W & X & N\\
+	o & s & i & & s & o & i & & W & Y & G\\
+	t & i & o & & i & t & o & & M & D & N\\
+\hline
+\end{tabular}
+\caption{Nicodemus}
+\end{center}
+\end{table}
+
+	Ciphertext: SMRYX MLSCC KLEZG YSRVW JSKDX RLBYN WMYDG N\\
+\end{itemize}
+
+
+%------------------------------------------------------------------------------
+\subsection{Further methods}
+
+\begin{itemize}
+\item {\bf ''Pinprick encryption''} \cite{Singh2001}: For centuries, this simple encryption method has been put into
+	practice for different reasons. During the Victorian Age, for example, small holes underneath letters in
+	newspaper articles did mark the characters of a plaintext, as sending a newspaper was much more cheaper than
+	the postage on a letter.
+\item {\bf Stencil}: Stencils are also known as ''Cardinal-Richelieu-Key''. Sender and receiver have to agree upon a
+	text. Above this text, a stencil is laid and the letters that remain visible make up the ciphertext.
+\item {\bf Card games} \cite{Savard1999}: The key is created by means of a pack of cards and rules that are agreed upon
+	in advance. All methods mentioned in this paragraph are designed as paper- and pencilmethods, i.e. they are
+	applicable without electronical aid. A pack of cards is unsuspicious to outsiders, shuffling the deck provides
+	a certain amount of coincidence, cards can be transformed into numbers easily and a transposition cipher can
+	be carried out without any further aid.
+	\begin{itemize}
+	\item {\bf Solitaire (Bruce Schneier)} \cite{Schneier1999}: A key is generated that has to consist of a many
+	characters as the message to be encrypted. Encryption takes place by addition modulo 26. The
+	algorithm to generate the key is based on shuffled deck of 54 cards (Ace, 2 - 10, jack, queen, king in
+	four suits and two jokers). Sender and receiver have to own a deck of cards shuffled in the same manner.
+	The pack of cards is held face up.
+	\begin{enumerate}
+	\item Swap the first joker with the card beneath it.
+	\item Move the second joker two cards down.
+	\item Now swap the cards above the first joker with those below the second one.
+	\item Look at the bottom card and convert it into a number from 1 to 53 (bridge order of suits: clubs,
+		diamonds, hearts, spades; joker = 53). Write down this number and count down as many cards starting with
+		the top card. These cards are swapped with the remaining cards, only the bottom card remains untouched.
+	\item Look at the top card and convert it into a number, too. Count down as many cards starting with the top
+		card.
+	\item Write down the following card. This card is converted into your first keystream character. As we need
+		numbers from 1 to 26 to match the letters of our alphabet, clubs and hearts correspond to the numbers
+		1 to 13, diamonds and spades to 14 to 26. If your output card is a jocker, start again.
+	\end{enumerate}
+	For each keystream character you like to generate, these six steps have to be carried out.
+	\item {\bf Mirdek (Paul Crowley)} \cite{Crowley2000}: Even though this method is quite complicated, the author
+	provides a very good example to illustrate the procedure.
+	\item {\bf Playing Card Cipher (John Savard)} \cite{Savard1999}: This algorithm uses a shuffled deck of 52 cards
+	(no joker). Separate rules describe how to shuffle the deck.
+	\begin{enumerate}
+	\item The pack of cards lies in front of the user, top down. Cards are turned up and dealt out in a row until
+		the total of the cards is 8 or more.
+	\item If the last card dealt out is a J, Q or K, write down its value, otherwise write down the sum of the cards
+		dealt out (a number between 8 and 17). In a second row, deal out that number of cards.
+	\item The remaining cards are dealt out in rows under the second row. The first one ends under the lowest card
+		of the top row, the second one under the next lowest card, and so on. If there are two identical cards,
+		red is lower than black.
+	\item The cards dealt out under step 3 are collected column by column, starting with the column under the lowest
+		card. The first card that is picked up becomes the bottom card (face up).
+	\item The cards dealt out in step 1 and 2 are picked up, beginning with the last card.
+	\item The deck is turned over, the top card is now the bottom card (face down). Afterwards, steps 1 to 6 are
+		repeated twice.
+	\end{enumerate}
+	To generate a keystream character, write down the first card not being J, Q or K. Count down that number of
+	cards. The card selected has to be between 1 and 10. Now repeat these steps beginning with the last card.
+	These two numbers are added and the last digit of the sum is your keystream character.
+	\end{itemize}
+\item {\bf VIC cipher} \cite{Savard1999}: This is a highly complicated but relatively secure paper- and pencilmethod.
+	It has been developed and applied by Sovjet spies. Amongst other things, the user had to create ten pseudo-random
+	numbers out of a date, the first words of a sentence and any five-digit number. A straddling checkerboard is part
+	of the encryption, too. A detailed description can be found under \cite{Savard1999}.
+\end{itemize}
+	
+
+% --------------------------------------------------------------------------
+\newpage
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Bibliography}
+
+\bibitem[ACA2002]{ACA2002} \index{ACA 2002}
+   American Cryptogram Association, \\
+   {\em Length and Standards for all ACA Ciphers}, \\
+   2002.\\
+   \href{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
+   {\texttt{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html\#}}
+
+\bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
+    Friedrich L. Bauer, \\
+    {\em Entzifferte Geheimnisse}, Springer, 1995.
+
+\bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
+    Friedrich L. Bauer, \\
+    {\em Decrypted Secrets}, Springer 1997, 2nd edition 2000.
+	
+\bibitem[Crowley2000]{Crowley2000} \index{Crowley 2000}
+   Paul Crowley, \\
+   {\em Mirdek: A card cipher inspired by ``Solitaire''}, \\
+   2000.\\
+   \href{http://www.ciphergoth.org/crypto/mirdek/}
+   {\texttt{http://www.ciphergoth.org/crypto/mirdek/}}
+
+\bibitem[DA1999]{DA1999} \index{DA 1999}
+   Data encryption page of the ThinkQuest Team 27158 for ThinkQuest 1999 \\
+   (no update since 1999, no search possibility), \\
+   1999.\\
+   \href{http://library.thinkquest.org/27158/}
+   {\texttt{http://library.thinkquest.org/27158/}}
+
+\bibitem[Goebel2003]{Goebel2003} \index{Goebel 2003}
+   Greg Goebel, \\
+   {\em Codes, Ciphers and Codebreaking}, \\
+   2003.\\
+   \href{http://www.vectorsite.net/ttcode.htm}
+   {\texttt{http://www.vectorsite.net/ttcode.htm}}
+
+\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
+    Randall K. Nichols, \\
+    {\em Classical Cryptography Course, Volume 1 and 2}, \\
+    Aegean Park Press 1996;
+    or in 12 lessons online at \\
+    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+
+\bibitem[Savard1999]{Savard1999} \index{Savard 1999}
+	John J. G. Savard, \\
+	{\em A Cryptographic Compendium}, \\
+	1999.\\
+	\href{http://home.ecn.ab.ca/~jsavard/crypto/jscrypt.htm}
+	{\texttt{http://home.ecn.ab.ca/~{}jsavard/crypto/jscrypt.htm}}
+	
+\bibitem[Schmeh2004]{Schmeh2004}  \index{Schmeh 2004}
+        Klaus Schmeh, \\
+        {\em Die Welt der geheimen Zeichen. Die faszinierende Geschichte
+        der Verschl\"usselung},\\ 
+        W3L Verlag Bochum, 1. Auflage 2004.
+
+\bibitem[Schneier1999]{Schneier1999}
+	Bruce Schneier, \\
+	{\em The Solitaire Encryption Algorithm}, \\
+	version 1.2, 1999.\\
+	\href{http://www.schneier.com/solitaire.html}
+	{\texttt{http://www.schneier.com/solitaire.html}}
+
+\bibitem[Singh2001]{Singh2001} \index{Singh 2001}
+	Simon Singh, \\
+	{\em Geheime Botschaften. Die Kunst der Verschl\"usselung von der 
+        Antike bis in die Zeiten des Internet}, \\
+	dtv, 2001.
+
+\end{thebibliography}
+
+
+% Local Variables:
+% TeX-master: "../script-en.tex"
+% End:

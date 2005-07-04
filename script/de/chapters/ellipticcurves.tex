@@ -5,11 +5,15 @@
 \newpage
 \section{Elliptische Kurven}
 \index{Elliptische Kurven}
+\label{Chapter_EllipticCurves} %be_2005: \label immer NACH \section !
 \hypertarget{ellcurve}{}
 (Filipovics B. / B"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dez. 2001, Juni 2002, M"arz 2003)
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven -- ein effizienter Ersatz f"ur RSA?} \label{ECAlternative}
+\subsection{Elliptische Kurven -- ein effizienter Ersatz f"ur RSA?}
+\index{Performance}   %be_2005: wenn in gl. Zeile wie \subsection, springt man von Inhalt zu einer Seite zu weit vorne!
+\label{ECAlternative}
+
 
 Bei Daten"ubertragungen kommt es auf Sicherheit und Effizienz an.  Viele
 Anwendungen verwenden den RSA-Algorithmus als asymmetrisches Signatur- und
@@ -32,7 +36,7 @@ RSA-Algorithmus liegt in der Tatsache, dass die sicheren Schl"ussell"angen
 erheblich k"urzer sind. 
 
 Setzt man den Trend, dass sich die Leistung der verf"ugbaren Rechner im 
-Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}%
+Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}\index{Moore, Gordon E.}%
 \footnote{empirische Erkenntnis von Gordon Moore, Mitbegr"under von Intel,
 1965.} ), in die Zukunft fort, so kann man von einer Entwicklung der
 sicheren Schl"ussell"angen wie in Abbildung~\ref{RSAKeylength} ausgehen
@@ -126,13 +130,13 @@ und ver"offentlicht. Ein Mathematiker w"urde sagen, dass die Elliptischen Kurven
 Mathematik, das hei"st Elliptische Kurven wurden zum Beispiel in den mathematischen Teilgebieten
 Zahlentheorie und algebraische Geometrie untersucht, die allgemein sehr abstrakt sind. Auch in der
 nahen Vergangenheit spielten Elliptische Kurven eine bedeutende Rolle in der reinen Mathematik. In den
-Jahren 1993 und 1994 ver"offentlichte Andrew Wiles\index{Wiles Andrew} mathematische Arbeiten, die weit "uber das Fachpublikum
+Jahren 1993 und 1994 ver"offentlichte Andrew Wiles\index{Wiles, Andrew} mathematische Arbeiten, die weit "uber das Fachpublikum
 hinaus auf gro"se Begeisterung gesto"sen sind. In diesen Arbeiten bewies er die Richtigkeit einer --- in
 den sechziger Jahren des 20. Jahrhunderts von zwei Japanern aufgestellten --- Vermutung. Dabei geht es
 kurz und grob gesagt um den Zusammenhang zwischen Elliptischen Kurven und sogenannten Modulformen.
 Das f"ur die meisten eigentlich Interessante daran ist, dass Wiles mit seinen Arbeiten auch den ber"uhmten
 zweiten Satz von Fermat\index{Fermat!letzter Satz} bewiesen hat. Dieser Satz hatte sich seit Jahrhunderten
-(Fermat\index{Fermat Pierre} lebte von 1601 bis 1665) einem umfassenden Beweis durch die Mathematik entzogen. Dementsprechend
+(Fermat\index{Fermat, Pierre} lebte von 1601 bis 1665) einem umfassenden Beweis durch die Mathematik entzogen. Dementsprechend
 gro"s war die Resonanz auf den Beweis durch Wiles. In der Formulierung von Fermat lautet der nach ihm
 benannte Satz so (Fermat hat folgende Worte an den Rand des 1621 von Bachet herausgegebenen Werks Diophants geschrieben):
 
@@ -157,8 +161,8 @@ stehenden Ver"offentlichungen von Wiles ergeben schon ein eigenes Buch). Man sol
 im klaren sein, dass die Elliptischen Kurven im allgemeinen sehr tiefgreifende Mathematik ber"uhren.
 
 Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik.
-Im Jahr 1985 haben Neal Koblitz\index{Koblitz Neal} und Victor Miller
-\index{Miller Victor} unabh"angig voneinander vorgeschlagen, 
+Im Jahr 1985 haben Neal Koblitz\index{Koblitz, Neal} und Victor Miller
+\index{Miller, Victor} unabh"angig voneinander vorgeschlagen, 
 Elliptische Kurven in der Kryptographie einzusetzen. Damit haben die 
 Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet f"ur Elliptische Kurven ist die
@@ -443,7 +447,7 @@ Ebene dargestellt werden.
 \caption{Verdoppelung eines Punktes} 
 \vspace{\floatsep}
 \vskip +20 pt
-\includegraphics[scale=0.65]{figures/ec-add}
+\includegraphics[scale=0.65]{figures/ec-add}  %be_2005 evtl. an diesem Vergrößerungsfaktor spielen
 \caption{Addition zweier verschiedener Punkte im K"orper der reellen Zahlen} % \footnotemark }
 \end{center}
 \end{figure}
@@ -510,7 +514,7 @@ die Parameter von Kryptoverfahren, die auf dem ECDL-Problem basieren.
   Grundlage f"ur die Elliptische-Kurven-Kryptographie. Darauf basierend gibt es verschiedene Signaturverfahren. Um ein solches Signaturverfahren anzuwenden, ben"otigt man:
 \end{sloppypar}
 \begin{itemize}
-    \item Eine Elliptischen Kurve {\bf E}, beschrieben durch den zugrunde liegenden K"orper $GF(p^n)$.
+    \item Eine Elliptische Kurve {\bf E}, beschrieben durch den zugrunde liegenden K"orper $GF(p^n)$.
     \item Eine Primzahl $q\ne p$ sowie einen Punkt $G$ auf der Elliptischen Kurve ${\bf E}$ mit Ordnung $q$. D.h., es gilt $qG={\cal O}$ und $rG\ne {\cal O}$ f"ur alle $r\in \{1,2,\dots,q-1\}$. Die Zahl $q$ muss dann ein Teiler der Gruppenordnung (entspricht der Anzahl der Elemente) $\#{\bf E}$ sein. Aufgrund der Primordnung, erzeugt $G$ eine zyklischen Untergruppe von ${\bf E}$ mit Ordnung $q$.
 \end{itemize}
 Die genannten Parameter bezeichnet man als \index{Domain-Parameter} {\em Domain}-Para\-meter. Durch sie wird
@@ -561,7 +565,7 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 \hypertarget{faktell}{}
 
 Es gibt Faktorisierungsalgorithmen%
-\footnote{Insbesondere John M. Pollard \index{Pollard John M.} war an der 
+\footnote{Insbesondere John M. Pollard \index{Pollard, John M.} war an der 
 Entwicklung vieler verschiedener Faktorisierungsalgorithmen beteiligt; auch
 beim Faktorisieren mit ECC war er einer der f"uhrenden K"opfe. Als Mitarbeiter
 von British Telekom hat er leider nie viel selbst publiziert. Auf der RSA
@@ -611,7 +615,12 @@ Daher eignen sich diese Verfahren auch sehr gut f"ur eine Parallelisierung.
 % -----------------------------------------------------------------------------
 \subsection{Implementierung Elliptischer Kurven}
 
-CrypTool benutzt Elliptische Kurven bei der Funktion f"ur digitale Signaturen.
+CrypTool kann digitale Signaturen auch mit Hilfe von Elliptischen Kurven erzeugen%
+\footnote{%
+Die Dialogbox, die in CrypTool\index{CrypTool} nach dem Men"u 
+{\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
+bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
+}.
 
 Implementiert sind die Basisalgorithmen f"ur Gruppenoperationen, f"ur das Erzeugen von Elliptischen
 Kurven und f"ur das Ein- und Auslesen von Parametern f"ur Elliptische Kurven "uber endlichen
@@ -624,7 +633,7 @@ Implementiert sind die kryptographischen Primitive zur Signaturerzeugung und Sig
 die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen
 (nach Entwurf Nr.8 der Arbeitsgruppe IEEE P1363). Dies erfolgte in Zusammenarbeit mit der Secude
 GmbH --- und unter Benutzung des Secude SDK.
-\index{Secude GmbH}
+\index{SECUDE IT Security GmbH}
 
 Wenn man statt des Primk"orpers $GF(p)$ einen K"orper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der bin"aren Darstellung effizienter durchgef"uhrt werden k"onnen. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufw"andig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre sp"atere Verifikation betrifft, da beide eine Divisionsoperation enthalten).
 
@@ -692,8 +701,8 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 	\index{Silverman 1992} \\
 	{\em The arithmetic of elliptc curves}, \\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-    \bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate,
-	\index{Siverman/Tate 1992} \\
+    \bibitem[SilvermanTate1992]{SilvermanTate1992}J. Silverman, J. Tate,
+	\index{Silverman/Tate 1992} \\
 	{\em Rational points on elliptic curves}, \\
 	Springer-Verlag, 1992.
 \end{thebibliography}

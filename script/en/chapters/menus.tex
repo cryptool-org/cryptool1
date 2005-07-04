@@ -1,25 +1,38 @@
 % $Id%
 
-\pagebreak
+\newpage
+\hypertarget{appendix-start}{}\label{s:appendix-start}
+
+
+\section{Appendix}
+
+\hyperlink{appendix-menutree}{(Appendix A: CrypTool Menu Tree)}
+
+\hyperlink{appendix-authors}{(Appendix B: CrypTool Script Authors)}
+
+\hyperlink{appendix-movies}{(Appendix C: Movies and Literature with Relation to Cryptography)} 
+
+
+
+%\pagebreak
+\newpage
 \enlargethispage{1cm}
-\section{CrypTool Menus}
+\subsection{CrypTool Menus}
 \hypertarget{appendix-menutree}{}\label{s:appendix-menutree}
-This appendix contains the complete menu tree of CrypTool version 1.3.04. 
-Please notice that not all menu items are always available, because the
-menu tree is built up dynamically: which menu items are available depends
-on the type of the currently active document window.
+
+This appendix contains the complete menu tree of CrypTool\index{CrypTool} version 1.3.10. 
+
+Which menu items are active (that is not greyed), depends on the type 
+of the currently active document window.
 The brute-force analysis\index{Attack!brute-force} for DES e.~g. is only
-available, if the active
-window is opened in the hexadecimal view. On the other hand the menu item
-``Generate Random Numbers\dots'' is always available. 
-Within the figures \ref{menu-detail-1} and \ref{menu-detail-2} 
-this relation is shown in the brackets after the menu items,
-e.~g. ``Find\dots[ATH]'' means, that the function ``Find\dots'' is only
-available for ASC-, text- and hexadecimal windows.
+available, if the active window is opened in the hexadecimal view. 
+On the other hand the menu item
+``Generate Random Numbers\dots'' is always available.
+
+The following types of documents exist in CrypTool:
 \begin{center}
 \begin{tabular}{rl}
 \bf Code letter & \bf Type of document \\
-M & (no document opened)\\
 A & ASC\\
 T & Text\\
 H & Hexadecimal\\
@@ -27,37 +40,18 @@ P & Plot\\
 \end{tabular}
 \end{center}
 
-\nobreak
-
-\begin{figure}[!hb]
-\begin{center}
-%\frame{
-\includegraphics[scale=1.1, clip, viewport=0 300 404 591]{figures/cryptool-menu-detail-en}
-%}
-\caption{Detailed view of the CrypTool menu tree -- part 1}
-\label{menu-detail-1}
-\end{center}
-\end{figure}
-
-\begin{figure}[b]
-\begin{center}
-%\frame{
-\includegraphics[scale=1.1, clip, viewport=404 117 831 598]{figures/cryptool-menu-detail-en}
-%}
-\caption{Detailed view of the CrypTool menu tree -- part 2}
-\label{menu-detail-2}
-\end{center}
-\end{figure}
+%\nobreak
 \clearpage
 \begin{figure}[hb]
 \begin{center}
-\vspace{-40pt}
+\vspace{-30pt}
 %\frame{
-\includegraphics[scale=0.75, angle=270]{figures/cryptool-menu-en}
+\includegraphics[scale=0.75, angle=270, viewport=14 72 835 590]{figures/cryptool-menu-en}
+%viewport=rand-links? rand-unten breite hoehe? [bezogen auf querformat]
 %}
-\vspace{-24pt}
 \caption{Complete overview of the CrypTool menu tree} 
 \label{menuoverview}
 \end{center}
 \end{figure}
 \clearpage
+

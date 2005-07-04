@@ -6,10 +6,14 @@
 \newpage
 \section{Elliptic Curves}
 \index{Elliptic curves}
+\label{Chapter_EllipticCurves}
 \hypertarget{ellcurve}{}
 (Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dec. 2001, June 2002, Mar. 2003)
 
-\subsection{Elliptic curve cryptography -- a high-performance substitute for RSA?}\index{Performance}\label{ECAlternative}
+\subsection{Elliptic curve cryptography -- a high-performance substitute for RSA?}
+\index{Performance}
+\label{ECAlternative}
+
 
 In many business sectors secure and efficient data transfer is essential.
 In particular, the RSA algorithm is used in many applications. Although the
@@ -106,7 +110,7 @@ mathematical. That is to say, elliptic curves were investigated, for
 example, in the mathematical areas of number theory and algebraic 
 geometry, which are generally highly abstract. Even in the recent
 past, elliptic curves played an important role in pure mathematics.
-In 1993 and 1994, Andrew Wiles\index{Wiles Andrew} published 
+In 1993 and 1994, Andrew Wiles\index{Wiles, Andrew} published 
 mathematical works that triggered enthusiasm far beyond the specialist
 audience. In these works, he proved a conjecture put forward in the 1960's.
 To put it short, this conjecture was concerned with the connection 
@@ -138,7 +142,7 @@ therefore make it obvious that elliptic curves are generally based on highly
 complex mathematics.
 
 Anyway that's enough about the role of elliptic curves in pure mathematics. 
-In 1985 Neal Koblitz\index{Koblitz Neal} and Victor Miller\index{Miller Victor}
+In 1985 Neal Koblitz\index{Koblitz, Neal} and Victor Miller\index{Miller, Victor}
 independently suggested using elliptic curves in cryptography. Elliptic 
 curves have thus also found a concrete practical application. 
 Another interesting area of application for elliptic curves is for
@@ -499,7 +503,7 @@ Since $R=rG$, we obtain $\bar v_1=\bar r_1$, i.e. $R$ and $V$ coincide modulo th
 \hypertarget{faktell}{}
 
 There are factorisation%
-\footnote{Especially John M. Pollard \index{Pollard John M.} was involved
+\footnote{Especially John M. Pollard \index{Pollard, John M.} was involved
 in the development of many different factorisation algorithms; also at
 factorisation with ECC he was one of the leading heads. As an employee
 of British Telekom he never published much. At the RSA data Security Conference
@@ -549,7 +553,12 @@ are therefore highly suitable for parallelisation.
 % -----------------------------------------------------------------------------
 \subsection{Implementing elliptic curves}
 
-CrypTool\index{CrypTool} also offers elliptic curves for the digital signature function.
+CrypTool\index{CrypTool} also offers elliptic curves for the digital signature function%
+\footnote{%
+The dialog box, which appears in CrypTool\index{CrypTool} after clicking the menu
+{\bf Digital Signatures/PKI \textbackslash{} Sign Message},
+offers the EC methods ECSP-DSA and ECSP-NR.
+}.
 
 It implements the basic algorithms for group operations, for generating elliptic
 curves, for importing and exporting parameters for elliptic curves over finite
@@ -565,7 +574,7 @@ verifying signatures for the variations of Nyberg-Rueppel signatures and
 \index{DSA} DSA signatures based on elliptic curves (in accordance with draft
 no. 8 of the IEEE P1363 work group). This was done in collaboration with the
 Secude GmbH --- using the above library and the Secude SDK.
-\index{Secude}
+\index{SECUDE IT Security}
 
 In case one uses the field $GF(2^n)$ is used instead of the prime field $GF(p)$, one has to make substantial changes in the implementation. The advantage of $GF(2^n)$ lies in the fact that calculations in $GF(2^n)$ can be implemented very efficiently using the binary representation. In particular, divisions are much easier to process compared to $GF(p)$ (this is particularly important in the signature scheme mentioned above where a division is needed for processing a signature as well as for the verification).
 
@@ -638,7 +647,7 @@ Both examples show the typical range of application for elliptic curve cryptogra
 	\index{Silverman 1992} \\
         {\em The arithmetic of elliptc curves},\\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-    \bibitem[SivermanTate1992]{SivermanTate1992}J. Silverman, J. Tate,
+    \bibitem[SilvermanTate1992]{SilvermanTate1992}J. Silverman, J. Tate,
 	\index{Siverman/Tate 1992} \\
         {\em Rational points on elliptic curves},\\
 	Springer-Verlag, 1992.

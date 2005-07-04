@@ -1,26 +1,48 @@
 % $Id%
 
+\hypertarget{appendix-start}{}\label{s:appendix-start}
+% \addcontentsline{toc}{section}{Anhang} 
+% \addcontentsline macht nur Eintrag ins Inhaltsverzeichnis und deren PDF-Darstellung im linken Frame (mit den Kapitelüberschriften). 
+
+%be_2005: Arbeitet man hier mit \addcontentsline{toc}{section}{Anhang} und man
+%         nutzt statt \section das \subsection, damit es korrekterweise
+%         unterhalb von Appendix einetragen wird, hat es das Präfix ".1" oder ".2"
+%         statt "A" oder "B".
+% --> Lösung: nur section (da der Link im Content vorher immer eine Seite zu früh ansprang)
+
+\section{Anhang}
+
+% be_2005: - Mit ref (zu label) kann man eine anspringbare Kapitel-NUMMER einfügen.
+%          - Mit hyperlink (zu hypertarget) einen anspringbaren Titel (den man aber
+%            selbst nochmal angeben muss).
+%          - Aber wie kann man gleich den Titel selbst als Referenz erhalten ??? 
+\hyperlink{appendix-menutree}{(Anhang A: CrypTool Men"ubaum)}
+
+\hyperlink{appendix-authors}{(Anhang B: CrypTool-Skript-Autoren)}
+
+\hyperlink{appendix-movies}{(Anhang C: Filme und Literatur mit Bezug zur Kryptographie)} 
+
+
+
+
+\newpage
 \enlargethispage{1cm}
-\section{CrypTool-Men"us}
+\subsection{CrypTool-Men"us}
 \hypertarget{appendix-menutree}{}\label{s:appendix-menutree}
 
-Dieser Anhang enth"alt den kompletten Men"u-Baum von CrypTool Version 1.3.04.
-Bitte beachten Sie, dass nicht immer alle Men"ueintr"age gleichzeitig
-verf"ugbar sind, weil der Men"ubaum dynamisch aufgebaut wird. Welche
-Men"ueintr"age gerade angezeigt werden, bestimmt das aktive Dokumentenfenster.
-So ist z.~B.  die Brute-Force Analyse\index{Angriff!Brute-force} f"ur DES 
-nur verf"ugbar, wenn das aktive
-Fenster in Hexadezimal-Darstellung ge"offnet ist, w"ahrend der Men"ueintrag
-"`Zufallsdaten erzeugen\dots"' immer verf"ugbar ist. In den Abbildungen
-\ref{menu-detail-1} und \ref{menu-detail-2} ist dieser Zusammenhang hinter den
-Men"ueintr"agen in eckigen Klammern dargestellt, z.~B. bedeutet
-"`Suchen\dots[ATH]"', dass die Funktion "`Suchen\dots"' nur f"ur ASC-, Text-
-und Hexadezimal-Fenster verf"ugbar ist.
+Dieser Anhang enth"alt den kompletten Men"u-Baum der CrypTool\index{CrypTool}-Version 1.3.10.
 
+Welche Men"ueintr"age gerade aktiv (also nicht ausgegraut) sind, 
+wird durch den Typ des aktiven Dokumentenfenster bestimmt.
+So ist z.~B.  die Brute-Force Analyse\index{Angriff!Brute-force} f"ur DES 
+nur verf"ugbar, wenn das aktive Fenster in Hexadezimal-Darstellung 
+ge"offnet ist, w"ahrend der Men"ueintrag
+"`Zufallsdaten erzeugen\dots"' immer verf"ugbar ist. 
+
+Folgende Dokumenttypen gibt es in CrypTool:
 \begin{center}
 \begin{tabular}{rl}
 \bf Codebuchstabe & \bf Dokumententyp \\
-M & (kein Dokument ge"offnet)\\
 A & ASC\\
 T & Text\\
 H & Hexadezimal\\
@@ -28,37 +50,17 @@ P & Plot\\
 \end{tabular}
 \end{center}
 
-\nobreak
-
-\begin{figure}[!hb]
-\begin{center}
-%\frame{
-\includegraphics[scale=1.1, clip, viewport=10 340 426 600]{figures/cryptool-menu-detail-de}
-%}
-\caption{Detaillierte Ansicht des CrypTool-Men"u-Baums -- Teil 1}
-\label{menu-detail-1}
-\end{center}
-\end{figure}
-
-\begin{figure}[b]
-\begin{center}
-%\frame{
-\includegraphics[scale=1.1, clip, viewport=426 167 832 598]{figures/cryptool-menu-detail-de}
-%}
-\caption{Detaillierte Ansicht des CrypTool-Men"u-Baums -- Teil 2}
-\label{menu-detail-2}
-\end{center}
-\end{figure}
 \clearpage
 \begin{figure}[hb]
 \begin{center}
 \vspace{-30pt}
 %\frame{
 \includegraphics[scale=0.75, angle=270, viewport=14 72 835 590]{figures/cryptool-menu-de}
-%viewport=rand-links? rand-unten breite hoehe?    [bezogen auf querformat]
+%viewport=rand-links? rand-unten breite hoehe? [bezogen auf querformat]
 %}
-\caption{Komplette "Ubersicht des CrypTool-Men"u-Baums} 
+\caption{Komplette "Ubersicht "uber den CrypTool-Men"u-Baum} 
 \label{menuoverview}
 \end{center}
 \end{figure}
 \clearpage
+

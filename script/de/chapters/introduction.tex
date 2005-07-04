@@ -5,7 +5,8 @@
 
 
 % --------------------------------------------------------------------------
-\section*{Vorwort zur 6. Ausgabe des CrypTool-Skripts}  \addcontentsline{toc}{section}{Vorwort zur 6. Ausgabe des CrypTool-Skripts}
+\section*{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
+\addcontentsline{toc}{section}{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
 
 Ab dem Jahr 2000 wurde mit dem CrypTool-Paket\index{CrypTool} auch ein Skript 
 ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
@@ -28,36 +29,33 @@ Die rasante Verbreitung des Internets hat auch zu einer verst"arkten
 Forschung der damit verbundenen Technologien gef"uhrt. Gerade im Bereich 
 der Kryptographie gibt es viele neue Erkenntnisse.
 
-Auf den aktuellen Stand gebracht wurden in dieser Ausgabe 
-des Skripts u.a. die Zusammenfassungen zu den Forschungsergebnissen "uber:                   
+In dieser Ausgabe des Skripts wurden einige Themen erg"anzt und andere auf
+den aktuellen Stand gebracht (z.B. die Zusammenfassungen zu aktuellen 
+Forschungsergebnissen):                   
 \vspace{-7pt}
 \begin{itemize}
   \item die Suche nach den gr"o"sten Primzahlen (verallgemeinerte
         Mersenne- und Fermatzahlen) \\
 %        Mersenne- und Fermatzahlen, \glqq M-40\grqq) 
 	(Kap. \ref{spezialzahlentypen}, \ref{zahlentyp_mersenne}),
-  \item Fortschritte in der Zahlentheorie (\glqq Primes in P\grqq)
-        (Kap. \ref{PrimesinP}),
-  \item die Faktorisierung gro"ser Zahlen (TWIRL, RSA-160)\index{TWIRL-Device} 
-        (Kap. \ref{TWIRLDevice}, \ref{RSA-160}),
-  \item Fortschritte bei der Kryptoanalyse des AES-Standard 
-        (Kap. \ref{NeueAES-Analyse}) und
-  \item Fortschritte bei Brute-force-Angriffen gegen symmetrische Verfahren
-	(Kap. \ref{Brute-force-gegen-Symmetr}).\index{Angriff!Brute-force}
+  \item die Faktorisierung gro"ser Zahlen (RSA-200)\index{RSA-20} 
+        (Kap. \ref{RSA-200}),
+  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
+        (Kap. \ref{collision-attacks-against-sha-1}),
+  \item Fortschritte bei den Ideen f"ur neue Kryptoverfahren (RSA-Nachfolger)
+	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxxxxxxx} und
+  \item eine Auflistung, in welchen Filmen und Romanen Kryptographie eine
+        wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}).
 \end{itemize}
 
-Erweitert wurden im Skript auch die Kapitel 5 (Hashverfahren) und
-6 (erkl"art nun genauer, wie Elliptische Kurven "uber verschiedenen
-Zahlk"orpern definiert werden).
-
- 
+\vspace{12pt}
 Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt 
-wurde, ist es mit jeder neuen Version von CrypTool (1.2.02, 1.3.00, 
-1.3.02, 1.3.03 und nun 1.3.04) ebenfalls erweitert und aktualisiert worden.
+wurde, ist es mit fast jeder neuen Version von CrypTool (1.2.02, 1.3.00, 
+1.3.02, 1.3.03, 1.3.04 und nun 1.3.10) ebenfalls erweitert und aktualisiert worden.
 
-Ich w"urde mich sehr freuen, wenn sich dies auch innerhalb der ab nun 
-folgenden Open Source-Versionen\index{Open Source} von CrypTool\index{CrypTool}
-so weiter fortsetzt (diese werden von der Universit"at Darmstadt betreut).
+Ich w"urde mich sehr freuen, wenn sich dies auch innerhalb der folgenden
+Open Source-Versionen\index{Open Source} von CrypTool\index{CrypTool}
+so weiter fortsetzt.
 
 Herzlichen Dank nochmal an alle, die mit Ihrem gro"sem Einsatz zum 
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben. 
@@ -69,7 +67,7 @@ Verst"andnis f"ur dieses moderne und zugleich uralte Thema finden.
 
 Bernhard Esslinger
 
-Hofheim, Mai 2003
+Frankfurt, Juni 2005
 
 
 
@@ -81,15 +79,18 @@ Hofheim, Mai 2003
 
 \textbf{Das Skript}
 
-Dieses Skript wird zusammen mit dem Programm CrypTool\index{CrypTool} ausgeliefert. \par \vskip + 3pt
+Dieses Skript wird zusammen mit dem Programm CrypTool\index{CrypTool} ausgeliefert.
+%\par \vskip + 3pt
 
 Die Artikel dieses Skripts sind weitgehend in sich abgeschlossen und k"onnen
 auch unabh"angig von CrypTool\index{CrypTool} gelesen werden.
-\par \vskip + 3pt
+%\par \vskip + 3pt
 
 W"ahrend f"ur das Verst"andnis der meisten Kapitel Abiturwissen ausreicht,
-erfordern Kapitel 4 und 6 tiefere mathematische Kenntnisse.
-\par \vskip + 3pt
+erfordern Kapitel \ref{Chapter_ModernCryptography} (Moderne Kryptografie)
+und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
+Kenntnisse.
+%\par \vskip + 3pt
 
 Die Autoren 
 % \hyperlink{appendix-authors}{(Autoren)}
@@ -118,8 +119,9 @@ Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank
 eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als 
 verl"asslicher Referenzimplementierung der verschiedenen 
 Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten 
-\index{Secude GmbH} Secude-Bibliothek) auch m"og\-lich, die in anderen 
-Programmen eingesetzte Verschl"usselung zu testen.\par \vskip + 3pt
+\index{SECUDE IT Security GmbH} Secude-Bibliothek) auch m"og\-lich, die in
+anderen Programmen eingesetzte Verschl"usselung zu testen.
+\par \vskip + 3pt
 
 Inzwischen wird CrypTool\index{CrypTool} vielerorts
 in Ausbildung und Lehre eingesetzt und von mehreren Hochschulen
@@ -129,7 +131,7 @@ mit weiterentwickelt.
 
 \textbf{Dank}
 
-An dieser Stelle m"ochte ich explizit drei Personen danken, 
+An dieser Stelle m"ochte ich explizit sechs Personen danken, 
 die bisher in ganz besonderer Weise zu CrypTool\index{CrypTool} 
 beigetragen haben.
 Ohne ihre besonderen F"ahigkeiten und ihr gro"ses Engagement w"are CrypTool
@@ -137,8 +139,9 @@ nicht, was es heute ist:
 \vspace{-7pt}
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
    \item Hr.\ Henrik Koy
-   \item Hr.\ J"org Cornelius Schneider und
-   \item Dr.\ Peer Wichmann.
+   \item Hr.\ J"org-Cornelius Schneider
+   \item Dr.\ Peer Wichmann
+   \item Prof. Dr. Claudia Eckert,  Hr.\ Thomas Buntrock und Hr.\ Thorsten Clausius.
 \end{list}
 Auch allen hier nicht namentlich Genannten ganz herzlichen Dank f"ur das 
 (meist in der Freizeit) geleistete Engagement.
@@ -146,7 +149,7 @@ Auch allen hier nicht namentlich Genannten ganz herzlichen Dank f"ur das
 
 Bernhard Esslinger
 
-Hofheim, Mai 2003
+Frankfurt, Juni 2005
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

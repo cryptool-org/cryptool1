@@ -5,7 +5,7 @@
 
 \section{Verschl"usselungsverfahren}
 \hypertarget{Kapitel_1}{}
-(Bernhard Esslinger, Mai 1999, Updates: Dez. 2001, Feb. 2003)
+(Bernhard Esslinger, Mai 1999, Updates: Dez. 2001, Feb. 2003, June 2005)
 
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
@@ -43,8 +43,8 @@ asymmetrischen Verfahren zur Verschl"usselung.
 \subsection[Symmetrische Verschl"usselung]
 {Symmetrische Verschl"usselung\footnotemark}
         \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
-        Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
-        {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch} folgende 
+        Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
+        {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (modern)} folgende 
         modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
         IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
         MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
@@ -58,9 +58,11 @@ Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schl"ussel, um die Nachricht zu verschl"usseln und der
 Empf"anger, um diese zu entschl"usseln.\par \vskip + 3pt
 
-Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie in
-CrypTool oder in \cite{Nichols1996}. Im folgenden wollen wir jedoch nur die
-moderneren Verfahren betrachten.
+Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie im
+Programm CrypTool, im Kapitel  \ref{Kapitel_PaperandPencil} 
+(Papier- und Bleistift-Verschl"usselungsverfahren) in diesem Skript oder 
+in \cite{Nichols1996}. 
+Im folgenden wollen wir jedoch nur die moderneren Verfahren betrachten.
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschl"usselt werden.
@@ -188,8 +190,13 @@ auf symmetrische Verschl"usselungsverfahren gut erl"autert werden.
 \begin{sloppypar}
 Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet man das vollst"andige Durchsuchen des Schl"usselraumes: dazu m"ussen keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird der Ciphertext mit allen m"oglichen Schl"usseln des Schl"usselraums entschl"usselt und gepr"uft, ob der resultierende Text einen sinnvollen Klartext ergibt. Bei einer Schl"ussell"ange von 64 Bit sind dies maximal $2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu "uberpr"ufende Schl"ussel\index{CrypTool}%
 \footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
-        {\bf Analyse \textbackslash{} Ciphertext only} ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren durchf"uhren: um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu erhalten, sollten Sie nicht mehr als 20 Bit des Schl"ussels als unbekannt kennzeichnen.
+Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
+        {\bf Analyse \textbackslash{} Symmetrische Verschl"usselung (modern)}
+ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren durchf"uhren
+(unter der schw"achsten aller m"oglichen Annahmen: der Angreifer kennt nur den
+Geheimtext, er f"uhrt also einen Ciphertext only-Angriff durch). 
+Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu erhalten, sollten
+Sie nicht mehr als 20 Bit des Schl"ussels als unbekannt kennzeichnen.
 }.
 \end{sloppypar}
 
@@ -213,9 +220,12 @@ Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptogr
 \subsection[Asymmetrische Verschl"usselung]
 {Asymmetrische Verschl"usselung\footnotemark}
         \footnotetext{%
-        Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie "uber das Men"u
+        Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
         {\bf Ver-/Entschl"usseln \textbackslash{} Asymmetrisch} mit RSA 
-        ver- und entschl"usseln.
+        ver- und entschl"usseln. In beiden F"allen m"ussen Sie ein 
+        RSA-Schl"usselpaar ausw"ahlen. Nur bei der Entschl"usselung wird der 
+        geheime RSA-Schl"ussel ben"otigt: deshalb wird nur hier die PIN
+        abgefragt. 
         }
 
 Bei der {\em asymmetrischen} Verschl"usselung
@@ -270,18 +280,22 @@ Das bekannteste asymmetrische Verfahren ist der \index{RSA}
 RSA-Algorithmus\index{CrypTool}%
 \footnote{%
 RSA wird in diesem Skript ab Kapitel \ref{rsabeweis} ausf"uhrlich beschrieben.
-Das RSA-Kryptosystem kann mit CrypTool\index{CrypTool} v1.3 "uber das Men"u 
-{\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} 
-RSA-Kryptosystem} in vielen Variationen nachvollzogen werden. Die 
+Das RSA-Kryptosystem kann mit CrypTool\index{CrypTool} "uber das Men"u 
+{\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} 
+RSA-Demo} in vielen Variationen nachvollzogen werden. Die 
 aktuellen Forschungsergebnisse im Umfeld von RSA werden in Kapitel
 \ref{SecurityRSA} beschrieben.
 }%
 ,
-der nach seinen Entwicklern Ronald \index{Rivest Ronald} Rivest, Adi \index{Shamir Adi} Shamir und Leonard \index{Adleman Leonard} Adleman benannt wurde. Der
-RSA-Algorithmus wurde 1978 ver"offentlicht. Das Konzept der asymmetrischen Verschl"usselung wurde erstmals
-von Whitfield Diffie \index{Diffie Whitfield}  und Martin \index{Hellman Martin} Hellman in Jahre 1976 vorgestellt. Heute spielen auch die Verfahren nach
-ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die
-\index{Schnorr C.P.} Schnorr-Varianten im \index{DSA} DSA (Digital
+der nach seinen Entwicklern Ronald \index{Rivest, Ronald} Rivest, 
+Adi \index{Shamir, Adi} Shamir und Leonard \index{Adleman, Leonard} Adleman
+benannt wurde. Der RSA-Algorithmus wurde 1978 ver"offentlicht. 
+Das Konzept der asymmetrischen Verschl"usselung wurde erstmals
+von Whitfield Diffie \index{Diffie, Whitfield}  und 
+Martin \index{Hellman, Martin} Hellman in Jahre 1976 vorgestellt. 
+Heute spielen auch die Verfahren nach
+ElGamal \index{ElGamal, Tahir} eine bedeutende Rolle, vor allem die
+\index{Schnorr, C.P.} Schnorr-Varianten im \index{DSA} DSA (Digital
 \index{Signatur!digitale}\index{DSA-Signatur}\index{Signatur!DSA} Signature Algorithm).
 
 
@@ -289,12 +303,11 @@ ElGamal \index{ElGamal} eine bedeutende Rolle, vor allem die
 \subsection[Hybridverfahren]
 {Hybridverfahren\footnotemark} 
 \footnotetext{%
-In CrypTool\index{CrypTool} v1.3 erhalten Sie "uber das Men"u
-{\bf Ver-/Entschl"usseln \textbackslash{} Hybrid-Demo} eine Visualisierung
+In CrypTool\index{CrypTool} erhalten Sie "uber das Men"u
+{\bf Ver-/Entschl"usseln \textbackslash{} Hybrid} eine Visualisierung
 dieses Verfahrens: darin werden die einzelnen Schritte und ihre Abh"angigkeiten
-mit konkreten Zahlen gezeigt.
+mit konkreten Zahlen gezeigt. Benutzt werdenals asymmetrisches Verfahren RSA und als symmetrisches Verfahren AES.
 }\index{Hybridverfahren}
-
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
 nutzen zu k"onnen, werden (zur Verschl"usselung) in der Praxis meist 
@@ -303,14 +316,15 @@ Hybridverfahren \index{Verschl""usselung!hybrid} verwendet.\par \vskip + 3pt
 Hier werden die Daten mittels symmetrischer Verfahren
 verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig\footnote{%
 Die Erzeugung zuf"alliger Zahlen ist ein wichtiger Bestandteil 
-kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} v1.3 
-k"onnen Sie "uber das Men"u {\bf Einzelverfahren \textbackslash{} 
-Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren. 
-"Uber das Men"u {\bf Analyse \textbackslash{} Zufallstests} k"onnen Sie
+kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} 
+k"onnen Sie "uber 
+das Men"u {\bf Einzelverfahren \textbackslash{} Zufallsdaten erzeugen} 
+verschiedene Zufallszahlengeneratoren ausprobieren. 
+"Uber das Men"u {\bf Analyse \textbackslash{} Zufallsanalyse} k"onnen Sie
 verschiedene Testverfahren f"ur Zufallsdaten auf bin"are Dokumente
 anwenden. \\
 Bisher konzentriert sich CrypTool auf kryptographisch starke 
-Pseudozufallszahlengeneratoren. Nur im Secude-Generator\index{Secude GmbH} 
+Pseudozufallszahlengeneratoren. Nur im Secude-Generator\index{SECUDE IT Security GmbH} 
 wird eine \glqq echte\grqq~ Zufallsquelle einbezogen. 
 }\index{Zufall}
 generierter Sitzungsschl"ussel (session key)\index{Session Key}, der nur f"ur diese
@@ -342,7 +356,10 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 \bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
     Randall K. Nichols, \\
     {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996.
+    Aegean Park Press 1996; \\
+    oder in 12 Lektionen online unter \\
+    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
 
 \bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
         Klaus Schmeh, \\

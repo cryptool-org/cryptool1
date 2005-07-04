@@ -90,8 +90,14 @@
 \newpage
 %**************************************************************************************************************************
 \section{The Mathematical Ideas behind Modern Cryptography}
+\label{Chapter_ModernCryptography}
+\hypertarget{Chapter_ModernCryptography}{}
+%**************************************************************************************************************************
 (Oyono R. / Esslinger B., Sep. 2000, Updates Nov. 2000, Feb. 2003)
+
+%--------------------------------------------------------------------------------------------------------------------------
 \subsection{One way functions with trapdoor and complexity classes}
+%--------------------------------------------------------------------------------------------------------------------------
 \index{Cryptography!modern} \index{One way function} \hypertarget{OneWayFunktion1}{}
 A {\bf one way function} is a function that can be calculated 
 efficiently, but whose inverse is extremely complicated and practically 
@@ -298,7 +304,7 @@ sequence in the timeframe of $ O(n). $
 %--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman knapsack encryption}
 %--------------------------------------------------------------------
-\index{Hellman Martin} \index{Merkle Ralph} 
+\index{Hellman, Martin} \index{Merkle, Ralph} 
 
 In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
@@ -342,12 +348,12 @@ super-increasing sequence $ a_1, \dots,a_n $.
 
 
 
-In 1982, \index{Shamir Adi} Shamir \cite{Shamir1982} specified an algorithm for 
+In 1982, \index{Shamir, Adi} Shamir \cite{Shamir1982} specified an algorithm for 
 breaking the system in polynomial \index{Polynomial} time without solving the general knapsack 
-problem. Len \index{Adleman Leonard} Adleman \cite{Adleman1982} and Jeff 
-Lagarias \index{Lagarias Jeff} \cite{Lagarias1983} specified an algorithm for 
+problem. Len \index{Adleman, Leonard} Adleman \cite{Adleman1982} and Jeff 
+Lagarias \index{Lagarias, Jeff} \cite{Lagarias1983} specified an algorithm for 
 breaking the twice iterated Merkle-Hellman knapsack encryption procedure in 
-polynomial time. Ernst Brickell \index{Brickell Ernst} \cite{Brickell1985} then 
+polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{Brickell1985} then 
 specified an algorithm for breaking multiply iterated Merkle-Hellman knapsack 
 encryption procedures in polynomial time. This made this procedure unsuitable as 
 an encryption procedure. It therefore delivers a one way function whose trapdoor 
@@ -364,12 +370,13 @@ procedures}\index{Prime factor!decomposition}
 \subsubsection[The RSA procedure]
 {The RSA procedure\footnotemark}
 \footnotetext{
-Using CrypTool\index{CrypTool} v1.3 you gain practical experience
+Using CrypTool\index{CrypTool} you can gain practical experience
 with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
-RSA Demonstration \textbackslash{} RSA Cryptosystem}.
+RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 }
 \index{RSA} \hypertarget{RSAVerfahren}{} 
-As early as 1978, R. \index{Rivest Ronald} Rivest, \index{Shamir Adi} A. Shamir,  \index{Adleman Leonard} L. Adleman \cite{RSA1978} introduced 
+As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} A. Shamir,
+\index{Adleman, Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
 
@@ -485,7 +492,7 @@ procedure will no longer be safe if the factorisation problem is ``solved''.
 
 \subsubsection{Rabin public key procedure (1979)}
 
-In this case it has been shown that the procedure \index{Rabin Michael O.} 
+In this case it has been shown that the procedure \index{Rabin, Michael O.} 
 \index{Rabin!public key procedure} is equivalent to breaking the factorisation problem. 
 Unfortunately, this procedure is susceptible to chosen-cipher text attacks.
 \index{Attack!chosen-cipher text}
@@ -559,22 +566,22 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \end{tabular}
 \end{center}
 \vskip +5 pt
-\index{Silver} \index{Pohlig} \index{Hellman Martin}
-
+\index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
+\index{Baby-Step-Giant-Step}
 
 
 %--------------------------------------------------------------------
 \subsubsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
 \footnotetext{%
-With CrypTool\index{CrypTool} v1.3.04  this exchange protocol has been
+With CrypTool\index{CrypTool} this exchange protocol has been
 visualized: you can execute the single steps with concrete numbers using 
-menu {\bf Indiv. Procedures \textbackslash{} Diffie-Hellman Demonstration}.
+menu {\bf Indiv. Procedures \textbackslash{} Protocols \textbackslash{} Diffie-Hellman Demonstration}.
 }
 
 \index{Key agreement (key exchange)!Diffie-Hellman} 
-\index{Diffie Whitfield}
-\index{Hellman Martin}
+\index{Diffie, Whitfield}
+\index{Hellman, Martin}
 \index{Diffie-Hellman}
 \hypertarget{DH-KeyExch}{} \label{DH-KeyExch}
 
@@ -620,7 +627,7 @@ problems are equivalent.
 %--------------------------------------------------------------------
 \index{ElGamal!public key}
 By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
-\index{Encryption!El Gamal public key} slightly, you can obtain an 
+\index{Encryption!ElGamal public key} slightly, you can obtain an 
 asymmetric encryption algorithm. This observation was made by Taher ElGamal.
 \begin{center}
 \fbox{\parbox{12cm}{        

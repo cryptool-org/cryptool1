@@ -6,17 +6,20 @@
 \newpage
 % --------------------------------------------------------------------------
 \section{Hashfunktionen und Digitale Signaturen}
+\hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
 \index{Signatur!digitale}
-(Schneider J. / Esslinger B. / Filipovics B. / Koy H., Juni 2002, 
-Update: Feb. 2003)
+(Schneider J. / Esslinger B. / Koy H., Juni 2002, 
+Update: Feb. 2003, Juni 2005)
 
 \vspace{12pt}
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
 \begin{itemize}
  \item Benutzerauthentizit"at:\index{Authentizit""at!Benutzer-}  \\
-      Es kann "uberpr"uft werden, ob eine Nachricht tats"achlich von einer bestimmten Person stammt.
+      Es kann "uberpr"uft werden, ob eine Nachricht tats"achlich
+      von einer bestimmten Person stammt.
  \item Nachrichtenintegrit"at:\index{Nachrichtenintegrit""at}  \\
-      Es kann "uberpr"uft werden, ob die Nachricht (unterwegs) ver"andert wurde.
+      Es kann "uberpr"uft werden, ob die Nachricht (unterwegs) 
+      ver"andert wurde.
 \end{itemize}
 
 
@@ -28,11 +31,13 @@ um Signaturen zu erzeugen, und der Empf"anger benutzt den "offentlichen
 Schl"ussel des Absenders, um die Richtigkeit der Signatur zu "uberpr"ufen.
 Es darf wiederum nicht m"oglich sein, aus dem "offentlichen den geheimen
 Schl"ussel abzuleiten\footnote{%
-Mit CrypTool\index{CrypTool} v1.3 k"onnen Sie ebenfalls digitale Signaturen
+Mit CrypTool\index{CrypTool} k"onnen Sie ebenfalls digitale Signaturen
 erzeugen und pr"ufen: \\
-in den Untermen"us des Hauptmen"upunktes {\bf Digitale Signaturen} oder \\
+in den Untermen"us des Hauptmen"upunktes 
+{\bf Digitale Signaturen / PKI} oder \\
 per 
-{\bf Einzelverfahren \textbackslash{} RSA-Demo \textbackslash{} Signaturdemo}.
+{\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
+Signaturdemo (Signaturerzeugung)}.
 }.
 
 
@@ -40,7 +45,7 @@ Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren}
 folgenderma"sen aus: \\
 Der Absender berechnet aus seiner Nachricht und seinem geheimen Schl"ussel
 die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
-Unterschrift hat die digitale Signatur also den Vorteil, dass die 
+Unterschrift hat die digitale Signatur den Vorteil, dass die 
 Unterschrift auch vom unterschriebenen Dokument abh"angt. Die Unterschriften
 ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten
 Dokumente nicht vollkommen "ubereinstimmen. Selbst das Einf"ugen eines
@@ -52,16 +57,17 @@ passt und sich bei der "Uberpr"ufung als unkorrekt erweist.
 Das Dokument wird samt Signatur an den Empf"anger verschickt. Dieser kann
 mit Hilfe des "offentlichen Schl"ussels des Absenders, des Dokuments und
 der Signatur feststellen, ob die Signatur korrekt ist.
-In der Praxis hat das gerade beschriebene Verfahren jedoch einen
-entscheidenden Nachteil. Die Signatur ist ungef"ahr genauso lang wie das
+Da eine Signatur circa so lange ist wie der unmittelbar zu signierende 
+Datenstrom, hat das gerade beschriebene Verfahren in der Praxis jedoch einen
+entscheidenden Nachteil: Die Signatur ist ungef"ahr genauso lang wie das
 eigentliche Dokument. Um den Datenverkehr nicht unn"otig anwachsen zu
-lassen und aus Performance-Gr"unden\index{Performance} benutzt man eine
-kryptographische Hashfunktion\footnote{%
-Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool} v1.3.04
+lassen und aus Performance-Gr"unden\index{Performance} wendet -- man vor
+dem Signieren -- auf das Dokument eine kryptographische 
+Hashfunktion\footnote{%
+Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool}
 an mehreren Stellen implementiert.\\
-In den Men"us {\bf Einzelverfahren \textbackslash{} Hashwerte} bzw.
-              {\bf Einzelverfahren \textbackslash{} Angriff auf den Hashwert
-	           der digitalen Signatur}
+In den Men"us {\bf Einzelverfahren \textbackslash{} Hashverfahren} bzw.
+              {\bf Analyse \textbackslash{} Hashverfahren}
 haben Sie die M"oglichkeit
 % hier die items nicht einr"ucken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
@@ -69,19 +75,24 @@ haben Sie die M"oglichkeit
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
 \item f"ur eine Datei den Hashwert zu berechnen, \\
 \item in der Hash-Demo die Auswirkung von Text"anderungen auf den
-      Hashwert zu testen und \\
+      Hashwert zu testen,\\
+\item aus einem Passwort gem"a"s dem PKCS\#5-Standard\index{PKCS\#5}
+      einen Schl"ussel zu berechnen, \\
+\item aus einem Text und einem geheimen Schl"ussel HMACs zu berechnen, und\\
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
-}.
+} an. Deren Output wird dann signiert.
 
 
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsection{Hashfunktionen}
+\hypertarget{Hash-functions-ht}{}
 \index{Hashfunktion}
-Eine kryptographische \index{Hashfunktion} {\em Hashfunktion}\footnote{%
-Sichere Hashverfahren berechnen eine komprimierte Repr"asentation elektronischer
-Daten (Message).
+Eine {\em Hashfunktion}\footnote{%
+Hashverfahren berechnen eine komprimierte Repr"asentation 
+elektronischer Daten (Message).
 Die Verarbeitung dieser Message durch das Hashverfahren ergibt als Output
 einen sogenannten Message Digest. Message Digests sind typischerweise
 zwischen 128 und 512 Bit lang -- abh"angig vom Algorithmus. 
@@ -92,53 +103,140 @@ Zufallszahlen (Bits) benutzt.
 }
 bildet eine Nachricht beliebiger L"ange auf eine Zeichenfolge mit
 konstanter Gr"o"se, den \index{Hashwert}
-Hashwert, ab. Es sollte praktisch unm"oglich sein, zu einer gegebenen Zahl
-eine Nachricht zu finden, die genau diese Zahl als Hashwert hat. Ferner
-sollte es praktisch unm"oglich sein, zwei Nachrichten mit demselben
-Hashwert zu finden\index{Kollision}. 
-In beiden F"allen w"urde das Signaturverfahren Schw"achen aufweisen.
+Hashwert, ab. 
+
+
+
+% --------------------------------------------------------------------------
+\vskip + 15pt
+\subsubsection{Anforderungen an Hashfunktionen}
+
+Kryptographisch sichere Hashfunktionen erfullen folgende Anforderungen:
+\begin{itemize}
+ \item Standhaftigkeit gegen 1st-Pre-Image-Attacks:
+      \index{Pre-Image-Attack!1st}  \\
+      Es sollte praktisch unm"oglich sein, zu einer gegebenen Zahl eine
+      Nachricht zu finden, die genau diese Zahl als Hashwert hat. \\
+      Gegeben (fix): Hashwert H', \\
+      Gesucht: Nachricht m, so dass gilt: H(m) = H'.
+ \item Standhaftigkeit gegen 2nd-Pre-Image-Attacks:
+      \index{Pre-Image-Attack!2nd}  \\
+      Es sollte praktisch unm"oglich sein, zu einer gegebenen Nachricht
+      eine zweite Nachricht zu finden, die genau denselben Hashwert hat. \\
+      Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)], \\
+      Gesucht: Nachricht m2, so dass gilt: H(m2) = H1.
+ \item Standhaftigkeit gegen Kollisionsangriffe:
+      \index{Kollisionsangriff}  \\
+      Es sollte es praktisch unm"oglich sein, zwei (beliebige) Nachrichten
+      mit demselben Hashwert (welcher ist egal) zu finden. \\
+      Gesucht: 2 Nachrichten m1 und m2, so dass gilt: H(m1) = H(m2).
+\end{itemize}
+
+
+
+
+% --------------------------------------------------------------------------
+\vskip + 15pt
+\subsubsection{Aktuelle Angriffe gegen Hashfunktionen wie SHA-1}
+\label{collision-attacks-against-sha-1}
 
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
-Hashfunktionen nicht formal bewiesen werden. Es gibt jedoch einige gute
-Kandidaten, die in der Praxis bislang keine Schw"achen in ihrer Struktur
-gezeigt haben (zum Beispiel \index{SHA-1} SHA-1\footnote{%
-SHA-1 \index{SHA-1} ist eine in FIPS 180-1, ANSI X9.30 Part 2 und
-\cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
-SHA bedeutet ``Secure Hash Algorithm'' und wird h"aufig benutzt, z.B. 
-mit DSA, RSA oder ECDSA.\\
-Der aktuelle Standard \cite{FIPS180-2} definiert vier sichere Hashverfahren
--- SHA-1, SHA-256, SHA-384 und SHA-512.
-F"ur diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
-Validierungstests definiert.
+Hashfunktionen nicht formal bewiesen werden. 
 
-Die Ausgabel"ange der SHA-Algorithmen wurde vergr"o"sert aufgrund der
-M"oglichkeit von Geburtstagsangriffen:
-\index{Angriff!Geburtstagsangriff} \index{Kollision}
-% \index{Geburtstagsangriff}
-diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
-Hashverfahren "aquivalent: \\
-- 128-bit AES -- SHA-256 \\
-- 192-bit AES -- SHA-384 \\
-- 256-bit AES -- SHA-512.
+"Uber mehrere Jahre gab es keine neuen Attacken gegen Hashverfahren,
+und allgemein wurde den Kandidaten, die in der Praxis bislang keine
+Schw"achen in ihrer Struktur gezeigt hatten 
+(zum Beispiel \index{SHA-1} SHA-1\footnote{%
+  SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
+  US-Beh"orde NIST), ANSI X9.30 Part 2 und
+  \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
+  SHA bedeutet ``Secure Hash Algorithm'' und wird h"aufig benutzt, z.B. 
+  mit DSA, RSA oder ECDSA.\\
+  Der aktuelle Standard \cite{FIPS180-2} definiert vier sichere Hashverfahren
+  -- SHA-1, SHA-256, SHA-384 und SHA-512.
+  F"ur diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
+  Validierungstests definiert.
 
-Mit CrypTool\index{CrypTool} v1.3.04 k"onnen Sie den Geburtstagsangriff
-\index{Angriff!Geburtstagsangriff} auf digitale Signaturen nachvollziehen: \\
-per {\bf Einzelverfahren \textbackslash{} 
-Angriff auf den Hashwert der digitalen Signatur}.
-} 
+  Die Ausgabel"ange der SHA-Algorithmen wurde vergr"o"sert aufgrund der
+  M"oglichkeit von Geburtstagsangriffen:
+  \index{Angriff!Geburtstagsangriff} \index{Kollision}
+  diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
+  Hashverfahren "aquivalent: \\
+  - 128-bit AES -- SHA-256 \\
+  - 192-bit AES -- SHA-384 \\
+  - 256-bit AES -- SHA-512.
+
+  Mit CrypTool\index{CrypTool} k"onnen Sie den Geburtstagsangriff
+  \index{Angriff!Geburtstagsangriff} auf digitale Signaturen 
+  nachvollziehen: \\
+  "uber das Men"u {\bf Analyse \textbackslash{} Hashverfahren
+  \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.
+  } 
 oder \index{RIPEMD-160} RIPEMD-160\footnote{%
-RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
-Object Identifier, definiert von der ISO-identifizierten Organisation
-TeleTrusT, sowohl f"ur Hashverfahren als auch in Kombination mit RSA.
-RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
-ISO/IEC 10118-3:1998 f"ur dedizierte Hashfunktionen, zusammen mit
-RIPEMD-128 and SHA-1. 
+  RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
+  Object Identifier, definiert von der ISO-identifizierten Organisation
+  TeleTrusT, sowohl f"ur Hashverfahren als auch in Kombination mit RSA.
+  RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
+  ISO/IEC 10118-3:1998 f"ur dedizierte Hashfunktionen, zusammen mit
+  RIPEMD-128 and SHA-1. 
 
-Weitere Details: \\
-http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html \\
-http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96 within ESP and AH'').
-}).
+  Weitere Details: \\
+  http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html \\
+  http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96
+  within ESP and AH'').
+  }%
+) vertraut.
 
+Auf der Crypto 2004 (August 2004)\footnote{%
+    \href{http://www.iacr.org/conferences/crypto2004/}
+ {\texttt{http://www.iacr.org/conferences/crypto2004/}} }
+wurde dieses Sicherheitsgef"uhl jedoch stark in Zweifel gezogen: 
+Chinesische Wissenschaftler ver"offentlichten
+Kollisionsangriffe gegen MD4, SHA-0 und Teile von SHA-1, die
+weltweit zu einer starken Besch"aftigung mit neuen Hash-Angriffen
+f"uhrte.
+
+Die Ver"offentlichung von Details zu den Resultaten der
+chinesischen Kryptologen wurde bisher nur angek"undet: Nach ihren 
+Angaben kann man
+Kollisionen von SHA-1 mit einem Arbeitsaufwand von $2^{69}$ finden.
+Damit w"are gezeigt, dass SHA-1 kryptographische Schw"achen besitzt, 
+da die Konstruktion von SHA-1 an sich einen Mindestarbeitsaufwand 
+f"ur die Kollisionssuche von etwa $2^{80}$ gew"ahrleisten sollte.
+Der Wert $2^{69}$ ist dabei eine auf theoretischen Hochrechnungen 
+beruhende Vorhersage. 
+Die Sicherheit bereits erstellter Signaturen wird durch den geschilderten
+Kollisionsangriff aber nicht gef"ahrdet. 
+
+% be_2005_UPDATEN_if-hash-attacks-make-progress
+Nach dem aktuellen Kenntnisstand ist keine Panik angesagt, aber f"ur
+digitale Signaturen sollten zumindest in Zukunft l"angere Hashwerte und/oder
+andere Verfahren benutzt werden.
+
+Das NIST hat schon vor Bekanntwerden der neuen Ergebnisse angek"undigt,
+SHA-1 in den n"achsten Jahren auslaufen zu lassen. Es ist daher zu
+empfehlen, f"ur neue Produkte zur Erstellung von Sig"-naturen SHA-1 nicht
+mehr zu verwenden.
+
+Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
+\glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
+von Reinhard Wobst und J"urgen Schmidt\footnote{% 
+      \href{http://www.heise.de/security/artikel/56555}
+   {\texttt{http://www.heise.de/security/artikel/56555}}. \\
+  Weitere Quellen sind z.B.: \\
+      \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
+   {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}} \\
+      \href{http://csrc.nist.gov/CryptoToolkit/tkhash.html}
+   {\texttt{http://csrc.nist.gov/CryptoToolkit/tkhash.html}}.
+} 
+  von Heise Security.
+
+
+
+
+% --------------------------------------------------------------------------
+\vskip + 15pt
+\subsubsection{Signieren mit Hilfe von Hashfunktionen}
 Das Signatur-Verfahren mit Hashfunktion (ohne den oben genannten Nachteil)
 sieht folgenderma"sen aus:\\ Anstatt das eigentliche Dokument zu signieren,
 berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
@@ -168,7 +266,9 @@ und zeigen, wie basierend auf der elektronischen Unterschrift das digitale
 Pendant zum Personalausweis entwickelt wurde. Dieses Verfahren nennt man
 Public Key-Zertifizierung.
 
+
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsection{RSA-Signatur}
 \index{Signatur!digitale}
 \index{Signatur!RSA}
@@ -200,12 +300,15 @@ Nachricht ausf"uhrt, sondern auf einem kryptographischen Hashwert davon. Um
 verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
 Verschl"usselung) auszuschlie"sen, ist es n"otig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
-Key Cryptography Standard \#1 \cite{PKCS1}) beschrieben. Der Tatsache, dass
+Key Cryptography Standard \#1 \cite{PKCS1})\index{PKCS\#1} beschrieben. 
+Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
 als Beispiel daf"ur dienen, wie schwer es ist, kryptographische Details
 richtig zu definieren.
 
+
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsection{DSA-Signatur}
 \index{Signatur!digitale}
 \index{Signatur!DSA}
@@ -278,6 +381,7 @@ sind, nach RSA bzw. ElGamal zu verschl"usseln.
 
 
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsection{Public Key-Zertifizierung}
 \index{Zertifizierung!Public Key}
 \index{PKI}
@@ -291,6 +395,7 @@ einzelnen kryptographischen Bausteine nicht geknackt werden k"onnen.
 
 
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsubsection{Die Impersonalisierungsattacke} 
 \index{Impersonalisierungsattacke} \label{Impersonalisierungsattacke}
 
@@ -327,6 +432,7 @@ von Angriffen verspricht die Public Key-Zertifizierung, die die \index{Authentiz
 garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509-Standard.
 
 % --------------------------------------------------------------------------
+\vskip + 15pt
 \subsubsection{X.509-Zertifikat}
 \index{X.509}
 Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
@@ -359,6 +465,7 @@ von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-CAs schon von Anf
 eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch
 "offentliche Bekanntgabe in Zeitungen k"onnen ("offentliche) CA-Schl"ussel
 gesichert "ubermittelt werden.
+
 
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}

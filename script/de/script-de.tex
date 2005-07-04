@@ -1,5 +1,5 @@
 % $Id$
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt]{article}
 % \usepackage[dvips]{graphics}
@@ -11,9 +11,6 @@
 \usepackage{amsthm}
 \usepackage{makeidx}
 
-% Formatierung der Fu"snoten
-\usepackage[flushmargin]{footmisc}
-
 %\usepackage{myThanks}
 %\usepackage{thumbpdf}
 \usepackage{hyperref}
@@ -21,6 +18,9 @@
 %\usepackage{times}
 %\usepackage{pslatex}
 %\usepackage{ae,aecompl}
+
+% Formatierung der Fu"snoten
+\usepackage[flushmargin]{footmisc}
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -43,21 +43,27 @@
 
 \usepackage[german]{babel}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{\vskip -20 pt 
-	CrypTool-Skript\footnote{Hintergrundmaterial und Zusatzinformationen zum Programm CrypTool} \\ 
-	Mathematik und Kryptographie }
+	{ Das CrypTool-Skript: \\ 
+	Mathematik und Kryptographie} \\
+        \vspace{30pt}
+        {\large Hintergrundmaterial und Zusatzinformationen\\*[-8pt]
+         zum freien eLearning-Programm CrypTool (Version 1.3.10)}
+        \vspace{60pt}
+}
+
+\vspace{32pt}
 
 \author{
-(c) Die Autoren, 1998-2003 \\
+(c) Bernhard Esslinger (Mitautor und Herausgeber), 1998-2005 \\
 Frankfurt am Main \\*[8pt]
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
@@ -82,31 +88,50 @@ Frankfurt am Main \\*[8pt]
 
 \maketitle
 
+
+% Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
+\vspace{200pt}
+Dies ist ein freies Dokument, d.h. Inhalte des Dokuments k"onnen kopiert und verbreitet werden,
+auch zu kommerziellen Zwecken. \\
+Im Gegenzug sind Autor, Titel und die CrypTool-Webseite zu nennen.
+Selbstverst"andlich darf aus dem CrypTool-Skript, genau wie aus jedem anderen Werk auch, zitiert werden.
+Diese Lizenzbedingungen sind angelehnt an die GNU-Lizenz f"ur freie Dokumentation.
+
+% be_2005: a) Auf erste Seite nur den Titel ! -> Newpage eingefügt.
+%          b) "aboutcryptool.tex" hier und nicht unten vor "introduction.tex" einfügn, damit es VOR dem Inhaltsverzeichnis steht.
+\newpage
 \input{chapters/aboutcryptool.tex}
 
-\newpage\addcontentsline{toc}{section}{Inhaltsverzeichnis}
+\newpage
 \tableofcontents
+\addcontentsline{toc}{section}{Inhaltsverzeichnis}
+
 \newpage
 \normalsize
-\parindent0cm
-\parskip4pt
+\parindent 0cm
+\parskip 4pt
 
 \input{chapters/introduction.tex}
 \input{chapters/cryptomethods.tex}
+\input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}
 \input{chapters/numbertheory.tex}
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
-\pagebreak
-\appendix
-\addcontentsline{toc}{section}{Anhang}
-\input{chapters/menus.tex}
-\input{chapters/authors.tex}
-\printindex
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\appendix
+\begin{appendix}
+  \newpage
+  \input{chapters/menus.tex}
+  \input{chapters/authors.tex}
+\end{appendix}
+
+
+%\addcontentsline{toc}{section}{Index} %moved to style.ist
+\printindex
 
 \end{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

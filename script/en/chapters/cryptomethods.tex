@@ -11,7 +11,7 @@
 \newpage
 \section{Encryption Procedures}
 \hypertarget{Kapitel_1}{}
-(Bernhard Esslinger, May 1999, Updates Dec. 2001, Feb. 2003)
+(Bernhard Esslinger, May 1999, Updates Dec. 2001, Feb. 2003, June 2005)
 
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
@@ -47,9 +47,9 @@ asymmetric encryption procedures.
 \subsection[Symmetric encryption]
 {Symmetric encryption\footnotemark}
   \footnotetext{%
-    With CrypTool\index{CrypTool} v1.3 you can execute the following modern
+    With CrypTool\index{CrypTool} you can execute the following modern
     symmetric encryption algorithms 
-    (using the menu {\bf Crypt \textbackslash{} Symmetric}): \\
+    (using the menu path {\bf Crypt \textbackslash{} Symmetric (modern)}): \\
     IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
     MARS (AES candidate), RC6 (AES candidate), Serpent (AES candidate), 
     Twofish (AES candidate), Rijndael (official AES algorithm).
@@ -61,9 +61,10 @@ exchanged before actually starting to communicate. The sender uses this
 key to encrypt the message and the recipient uses it to decrypt it.
 \par \vskip + 3pt
 
-All classical methods are of this type. Examples can be found within 
-CrypTool or in \cite{Nichols1996}. Now we want to consider more modern 
-mechanisms.
+All classical methods are of this type. Examples can be found within the 
+program CrypTool, in chapter  \ref{Kapitel_PaperandPencil} 
+(Paper and Pencil Encryption Methods) of this script or in \cite{Nichols1996}. 
+Now we want to consider more modern mechanisms.
 
 The advantages of symmetric algorithms are the high speed with which data can be
 encrypted and decrypted. One disadvantage is the need for key management. In
@@ -189,10 +190,12 @@ The current status of brute-force attacks on symmetric encryption algorithms can
 
 Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the cipher text is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
 \footnote{%
-    With CrypTool\index{CrypTool} v1.3 you can also try brute-force attacks
-    of modern symmetric algorithms 
-    (using the menu {\bf Analysis \textbackslash{} Ciphertext-Only}): 
-    to achieve a result in an appropriate time with a single PC you should 
+    With CrypTool\index{CrypTool} you can also try brute-force attacks
+    of modern symmetric algorithms (using the menu path
+    {\bf Analysis \textbackslash{} Symmetric Encryption (modern)}): here
+    the weakest knowledge of an attacker is assumed, he performs a 
+    ciphertext-only attack.
+    To achieve a result in an appropriate time with a single PC you should 
     mark not more than 20 bit of the key as unknown.
 }.
 
@@ -215,8 +218,10 @@ Similar cipher challenges are there for asymmetric algorithms (please see chapte
 \subsection[Asymmetric encryption]
 {Asymmetric encryption\footnotemark}
   \footnotetext{%
-    With CrypTool\index{CrypTool} v1.3 you can execute RSA encryption
-    and decryption (using the menu {\bf Crypt \textbackslash{} Asymmetric}).
+    With CrypTool\index{CrypTool} you can execute RSA encryption
+    and decryption (using the menu path {\bf Crypt \textbackslash{} Asymmetric}).
+    In both cases you must select a RSA key pair. Only in the case of decryption
+    the secret RSA key is necessary: so here you are asked to enter the PIN. 
   }
 
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
@@ -266,19 +271,19 @@ RSA algorithm\index{CrypTool}%
 The RSA algorithm is extensively described in chapter \ref{rsabeweis} and later
 within this script. 
 The RSA cryptosystem can be executed in many variations with 
-CrypTool\index{CrypTool} v1.3 (using the menu 
-{\bf Individual Procedures \textbackslash{} RSA Demonstration \textbackslash{}
-RSA Cryptosystem}). 
+CrypTool\index{CrypTool} (using the menu path
+{\bf Individual Procedures \textbackslash{} RSA Cryptosystem \textbackslash{}
+RSA Demonstration}). 
 The topical research results concerning RSA are described 
 in chapter \ref{SecurityRSA}.
 }%
 ,
-named after its developers Ronald \index{Rivest Ronald} Rivest, Adi
-\index{Shamir Adi} Shamir and Leonard \index{Adleman Leonard} Adleman. The RSA algorithm
+named after its developers Ronald \index{Rivest, Ronald} Rivest, Adi
+\index{Shamir, Adi} Shamir and Leonard \index{Adleman, Leonard} Adleman. The RSA algorithm
 was published in 1978. The concept of asymmetric encryption was first
-introduced by Whitfield Diffie \index{Diffie Whitfield}  and Martin
-\index{Hellman Martin} Hellman in 1976. Today, the ElGamal \index{ElGamal}
-procedures also play a decisive role, particularly the \index{Schnorr C.P.} Schnorr
+introduced by Whitfield Diffie \index{Diffie, Whitfield}  and Martin
+\index{Hellman, Martin} Hellman in 1976. Today, the ElGamal \index{ElGamal, Tahir}
+procedures also play a decisive role, particularly the \index{Schnorr, C.P.} Schnorr
 variant in the \index{DSA} DSA (Digital \index{Signature!digital}Signature
 Algorithm).
 
@@ -288,10 +293,10 @@ Algorithm).
 \subsection[Hybrid procedures]
 {Hybrid procedures\footnotemark}
 \footnotetext{%
-Within CrypTool\index{CrypTool} v1.3 you can get a visualization of this
-technique using the menu {\bf Crypt \textbackslash{} Hybrid Demonstration}: 
+Within CrypTool\index{CrypTool} you can get a visualization of this
+technique using the menu path {\bf Crypt \textbackslash{} Hybrid}: 
 this dialogue shows the single steps and its dependencies with concrete
-numbers.
+numbers. Here the asymmetric algorithm RSA and the symmetric algorithm AES are used.
 }\index{Hybrid procedure}
 
 In order to benefit from the advantages of symmetric and asymmetric
@@ -302,13 +307,13 @@ In this case the data is encrypted using symmetric procedures: the key is a
 session key\index{Session key} generated by the sender
 randomly\footnote{%
 An important part of cryptographically secure techniques is to generate 
-random numbers. Within CrypTool\index{CrypTool} v1.3 you can check out
-different random number generators using the menu {\bf Indiv. Procedures 
-\textbackslash{} Generate Random Numbers}. 
-Using the menu {\bf Analysis \textbackslash{} Random Tests} you can apply
-different test methods for random data to binary documents. \\
+random numbers. Within CrypTool\index{CrypTool} you can check out
+different random number generators using the menu path
+{\bf Indiv. Procedures \textbackslash{} Generate Random Numbers}. 
+Using the menu path {\bf Analysis \textbackslash{} Analyse Randomness}
+you can apply different test methods for random data to binary documents. \\
 Up to now CrypTool has concentrated on cryptographically strong 
-pseudo random number generators. Only the integrated Secude\index{Secude}
+pseudo random number generators. Only the integrated Secude\index{SECUDE IT Security}
 generator involves a "pure" random source. 
 }\index{Random}
 that is only used for this message.
@@ -337,7 +342,11 @@ symmetric and asymmetric encryption methods.
 \bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
     Randall K. Nichols, \\
     {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996.
+    Aegean Park Press 1996;
+    or in 12 lessons online at \\
+    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+
 
 \bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
         Klaus Schmeh, \\
