@@ -53,10 +53,10 @@ statement from your version.
 
 #include "stdafx.h"
 #include "stdafx.h"
-#include "KeyFromPasswordPKCS5.h"
 
 
 #include "CrypToolApp.h"
+#include "KeyFromPasswordPKCS5.h"
 #include "DialogeMessage.h"
 //#include "DlgKeyHex.h"	// Dialog-Box für die Schlüsseleingabe
 

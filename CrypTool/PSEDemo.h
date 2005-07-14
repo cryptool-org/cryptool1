@@ -55,6 +55,7 @@ statement from your version.
 //#pragma once
 //#endif // _MSC_VER > 1000
 #include "IntegerArithmetic.h"
+#include "asn1.h"
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 

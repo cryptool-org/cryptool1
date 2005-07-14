@@ -308,7 +308,6 @@ BOOL CCrypToolApp::InitInstance()
 	/* Einstellen der Länge der MRU-Liste */
 	LoadStdProfileSettings(10);
     MRU_Flag = TRUE;
-
 	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
 		RUNTIME_CLASS(CCryptDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CAppEditView)));

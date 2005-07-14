@@ -139,6 +139,18 @@ private:
 	CCriticalSection Lock;
 };
 
+class CProgressRunnable :	public CProgressModel {
+public:
+	CProgressRunnable();
+	virtual bool canceled();
+	virtual CWinThread *startthread();
+	virtual UINT run() { 
+		UINT res = -1;
+		return res;
+	}
+};
+
+
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio fügt zusätzliche Deklarationen unmittelbar vor der vorhergehenden Zeile ein.
 

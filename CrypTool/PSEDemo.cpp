@@ -51,13 +51,13 @@ statement from your version.
 #include "PSEDemo.h"
 #include "IntegerArithmetic.h"
 #include "DlgKeyAsymGeneration.h"
+#include "secudelib.h"
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "CrypToolApp.h"
 #include "Cryptography.h"
 #include "secudetools.h"
 #include "DlgRSADecryption.h"
-#include "secudelib.h"
 #include "DialogeMessage.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus multipad.cpp

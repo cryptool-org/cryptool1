@@ -304,3 +304,29 @@ void CDlgShowProgress::Display()
 	startClock();
 
 } 
+
+
+CProgressRunnable::CProgressRunnable()
+{
+		theApp.fs.setModel(this);
+		theApp.fs.setFormat(IDS_STRING_PROGRESS);
+}
+bool CProgressRunnable::canceled()
+{
+	return theApp.fs.m_canceled != 0;
+}
+
+static UINT threadProcHelper(LPVOID param)
+{
+	CProgressRunnable *runnable = (CProgressRunnable*)param;
+	theApp.fs.Display();
+	UINT res = runnable->run();
+	theApp.fs.cancel();
+	return res;
+}
+
+CWinThread* CProgressRunnable::startthread()
+{
+	return AfxBeginThread(threadProcHelper,this);
+
+}

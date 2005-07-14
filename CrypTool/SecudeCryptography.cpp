@@ -244,6 +244,26 @@ void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, in
 }
 
 
+class CHashRunnable : public CProgressRunnable 
+{
+public:
+	CHashRunnable(char* infile, const char *OldTitle, int alg) {
+		this->infile = infile;
+		this->OldTitle = OldTitle;
+		this->alg = alg;
+		m_pos = 0;
+		m_size = 0;
+	}
+	UINT run();
+	double getProgress();
+protected:
+	CString infile;
+	CString OldTitle;
+	int alg;
+	long m_pos;
+	long m_size;
+};
+
 /*  Die Funktion hash dient zum hashen der Daten.
 	Sie benutzt die Funktion sec_hash_all().
 	Welche Hashfunktion benutzt wird, hängt von den
@@ -258,8 +278,19 @@ void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, in
 
 void hash (char* infile, const char *OldTitle, int alg)
 {
+	CHashRunnable *runnable = new CHashRunnable(infile,OldTitle,alg);
+	runnable->startthread();
+}
+
+double CHashRunnable::getProgress()
+{
+	if (m_pos == 0 || m_size == 0)
+		return 0.0;
+	return double(m_pos)/double(m_size);
+}
+UINT CHashRunnable::run()
+{
 	char outfile[128], title[128];
-    CAppDocument *NewDoc;
 	GetTmpName(outfile,"cry",".hex");
 	
 	char buffer[4096];
@@ -296,25 +327,35 @@ void hash (char* infile, const char *OldTitle, int alg)
 	}
 	FILE *in = fopen(infile,"rb");
 	ASSERT(in);
+	m_pos = 0;
+	fseek(in,0,SEEK_END);
+	m_size = ftell(in);
+	fseek(in,0,SEEK_SET);
 	RC rc;
 	void *context = NULL;
 	rc = theApp.SecudeLib.sec_hash_init(&context,aid,NULL);
 	ASSERT(rc == 0);
 	size_t n;
-	while (n = fread(buffer,1,sizeof(buffer),in)) {
+	while (!canceled() && (n = fread(buffer,1,sizeof(buffer),in))) {
 		bufferostr.noctets = n;
 		rc = theApp.SecudeLib.sec_hash_more(&context,&bufferostr);
 		ASSERT(rc == 0);
+		m_pos += n;
 	}
 	fclose(in);
 	rc = theApp.SecudeLib.sec_hash_end(&context,&hashostr);
 	ASSERT(rc == 0);
+	bool canceledbyuser = canceled();
+	//theApp.fs.cancel();
 	CDlgShowHash HashDlg;
 	HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
-	if ( IDOK == HashDlg.DoModal() )
+	if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
 	{
 		theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
-
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+		theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+#if 0
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
 		if(NewDoc) {
@@ -322,8 +363,10 @@ void hash (char* infile, const char *OldTitle, int alg)
 				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
 				NewDoc->SetTitle(title);
 			}
-
+#endif
 	}
 	theApp.SecudeLib.aux_free(hashostr.octets);
+	delete this;
+	return 0;
 }
 

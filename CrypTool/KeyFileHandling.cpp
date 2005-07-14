@@ -50,6 +50,7 @@ statement from your version.
 //////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+#include <io.h>
 #include "CrypToolApp.h"
 
 #include "KeyFileHandling.h"

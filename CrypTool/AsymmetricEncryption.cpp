@@ -59,6 +59,7 @@ statement from your version.
 #include "DlgKeyAsymGeneration.h"
 #include "DlgRSAEncryption.h"
 #include "DlgRSADecryption.h"
+#include "asn1.h"
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
 #include "af.h"		// Header-File für den SECUDE Authentication Framework
 #include "FileTools.h"

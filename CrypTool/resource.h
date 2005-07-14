@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -1121,6 +1121,7 @@
 #define IDS_RSA_SM_PLEASEHIGHLIGHT      11171
 #define IDS_RSA_SM_ALLKNOWN             11172
 #define IDS_RSA_SM_MAXCHAR              11173
+#define IDS_STRING_PROGRESS             11174
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
@@ -2066,9 +2067,9 @@
 #define IDS_CRT_ASTRONOMY_PLANET6       37950
 #define IDS_CRT_ASTRONOMY_PLANET7       37951
 #define IDS_CRT_ASTRONOMY_PLANET8       37952
-#define IDS_CRT_ASTRONOMY_PLANET9		37953
-#define IDS_CRT_ASTRONOMY_BRUTEFORCE	37954
-#define IDS_CRT_ASTRONOMY_NOSOLUTION	37955
+#define IDS_CRT_ASTRONOMY_PLANET9       37953
+#define IDS_CRT_ASTRONOMY_BRUTEFORCE    37954
+#define IDS_CRT_ASTRONOMY_NOSOLUTION    37955
 #define IDS_CRT_ASTRONOMY_PLANETALL     37964
 #define IDS_CRT_ASTRONOMY_PLANETALL2    37965
 #define IDS_CRT_TRANSFORMATION_TIL      37968
@@ -2232,7 +2233,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        807
+#define _APS_NEXT_RESOURCE_VALUE        808
 #define _APS_NEXT_COMMAND_VALUE         33293
 #define _APS_NEXT_CONTROL_VALUE         1552
 #define _APS_NEXT_SYMED_VALUE           101
