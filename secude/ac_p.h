@@ -1,48 +1,17 @@
+/******************************************
+ *
+ * SECUDE Sicherheitstechnologie
+ * Informationssysteme GmbH, Darmstadt
+ *
+ * (C) Copyright SECUDE GmbH,  1997 - 2001
+ *
+ *******************************************/
 
-#ifndef _SECUDE_AC_H
-#define _SECUDE_AC_H
+#ifndef SEC_OLDSTYLE_INCLUDE
+#define SEC_OLDSTYLE_INCLUDE 1
+#elif !SEC_OLDSTYLE_INCLUDE
+#error #include "ac_p.h" is deprecated, use #include <secude/ac.h> instead
+#endif
 
-#include "af.h" /* oder so... */
-
-
-
-typedef struct authenticode_infos {
-    Boolean commercial;
-    char *friendlyname;
-    char *url;
-} AuthenticodeInfo_struct;
-
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_hash_file SEC_PROTOTYPE_3(
-    char *          , filename, 
-    AlgId *         , algid, 
-    OctetString **  , phash_result
-);
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_extract_auth SEC_PROTOTYPE_2(
-    char *          , filename, 
-    OctetString **  , pauth_block
-);
-
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_append_auth SEC_PROTOTYPE_2(
-    char *          , filename,
-    OctetString *   , auth_block
-);
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_verify_file SEC_PROTOTYPE_2(
-    PSE     , pse,
-    char *  , filename
-);
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_sign_file SEC_PROTOTYPE_4(
-    PSE                         , pse, 
-    char *                      , filename, 
-    AlgId *                     , digest_AI, 
-    AuthenticodeInfo_struct *   , acinfo
-);
-int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV authenticode_countersign_file SEC_PROTOTYPE_3(
-    PSE     , pse, 
-    char *  , filename, 
-    AlgId * , digest_AI
-);
-
-
-
-#endif /* _SECUDE_AC_H */
+#include "secude/ac.h"
 

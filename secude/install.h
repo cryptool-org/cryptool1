@@ -1,47 +1,17 @@
-/*****************************************
+/******************************************
  *
  * SECUDE Sicherheitstechnologie
- * Informationssystem GmbH, Darmstadt
+ * Informationssysteme GmbH, Darmstadt
  *
- * (C) Copyright SECUDE GmbH,  1997 - 2000
+ * (C) Copyright SECUDE GmbH,  1997 - 2001
  *
- ******************************************/
+ *******************************************/
 
-#ifndef _INSTALL_
-#define _INSTALL_
+#ifndef SEC_OLDSTYLE_INCLUDE
+#define SEC_OLDSTYLE_INCLUDE 1
+#elif !SEC_OLDSTYLE_INCLUDE
+#error #include "install.h" is deprecated, use #include <secude/install.h> instead
+#endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
-
-struct s_record {
-        char      port_name[24];
-	int	  pn;
-        int       bwt;
-        int       cwt;
-        int       baud;
-        int       databits;
-        int       stopbits;
-        int       parity;
-        int       dataformat;
-        int       tpdu_size;
-        int       apdu_size;
-        int       edc;
-	char	  ct_type[5];
-	char	  wki[7];		  /* well known identifier */
-	int	  version;
-	char	  doku[30]; 
-
-        };
-
-
-#ifdef __cplusplus
-} /* extern C */
-#endif /* __cplusplus */
-
-#endif /* _INSTALL_ */
-
-
-  
+#error the file "install.h" is obsolete, its contents were meaningless except for internal use in some SC plugins
 

@@ -1,28 +1,17 @@
-/*****************************************
+/******************************************
  *
  * SECUDE Sicherheitstechnologie
- * Informationssystem GmbH, Darmstadt
+ * Informationssysteme GmbH, Darmstadt
  *
- * (C) Copyright SECUDE GmbH,  1997 - 2000
+ * (C) Copyright SECUDE GmbH,  1997 - 2001
  *
- ******************************************/
-#ifndef SECUDE_INSQUE_H
-#define SECUDE_INSQUE_H
+ *******************************************/
 
-
-/* Use the qbuf type taken from ISODE's compat/manifest.h
-
-	struct qelem {
-	     struct    qelem *q_forw;
- 	    struct    qelem *q_back;
- 	    char *q_data;
-	};
-*/
-#include "compat/manifest.h"
-#define qelem	qbuf
-#define q_forw	qb_forw
-#define q_back	qb_back
-
-
+#ifndef SEC_OLDSTYLE_INCLUDE
+#define SEC_OLDSTYLE_INCLUDE 1
+#elif !SEC_OLDSTYLE_INCLUDE
+#error #include "insque.h" is deprecated, use #include <secude/insque.h> instead
 #endif
+
+#error the file "install.h" is obsolete, its contents were totally meaningless
 

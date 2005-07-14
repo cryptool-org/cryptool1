@@ -1,41 +1,17 @@
-/*****************************************
+/******************************************
  *
  * SECUDE Sicherheitstechnologie
- * Informationssystem GmbH, Darmstadt
+ * Informationssysteme GmbH, Darmstadt
  *
- * (C) Copyright SECUDE GmbH,  1997 - 2000
+ * (C) Copyright SECUDE GmbH,  1997 - 2001
  *
- ******************************************/
+ *******************************************/
 
+#ifndef SEC_OLDSTYLE_INCLUDE
+#define SEC_OLDSTYLE_INCLUDE 1
+#elif !SEC_OLDSTYLE_INCLUDE
+#error #include "cmd_srch.h" is deprecated, use #include <secude/cmd_srch.h> instead
+#endif
 
-
-#ifndef _CMD_SRCH_
-#define _CMD_SRCH_
-
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
-
-
-typedef struct  cmd_table {
-	char    *cmd_key;
-	int     cmd_value;
-} CMD_TABLE;
-
-
-struct  cm_args {
-	char    *cm_key;
-	char    *cm_value;
-};
-
-int     cmd_srch ();
-char   *rcmd_srch ();
-
-
-#ifdef __cplusplus
-} /* extern C */
-#endif /* __cplusplus */
-
-#endif /* _CMD_SRCH_ */
+#include "secude/cmd_srch.h"
 

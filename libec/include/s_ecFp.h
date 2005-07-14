@@ -54,6 +54,7 @@ To this headerfile (s_ecFp.h)  belong the following C sourcecode files (and othe
 extern "C" {
 #endif /* __cplusplus */
 
+#include "asn1.h"
 #include "arithmet.h"
 
 /*************************************************************************************************/

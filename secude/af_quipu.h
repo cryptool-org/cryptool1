@@ -1,46 +1,17 @@
-/*****************************************
+/******************************************
  *
  * SECUDE Sicherheitstechnologie
- * Informationssystem GmbH, Darmstadt
+ * Informationssysteme GmbH, Darmstadt
  *
- * (C) Copyright SECUDE GmbH,  1997 - 2000
+ * (C) Copyright SECUDE GmbH,  1997 - 2001
  *
- ******************************************/
- 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
+ *******************************************/
 
-#ifdef X500
-
-#if defined(__STDC__) || defined(__cplusplus)
-/***************************************************************
- *
- * Headers from file af/af_dir.c
- *
- ***************************************************************/
-       Certificate * quipuCert2secudeCert(struct certificate * quipu_cert);
-       struct certificate * secudeCert2quipuCert(Certificate * secude_cert);
-       struct certificate_list * secudeCPair2quipuCPair(CertificatePair * secude_cpair);
-
-#else
-
-/***************************************************************
- *
- * Headers from file af/af_dir.c
- *
- ***************************************************************/
-       Certificate * quipuCert2secudeCert();
-       struct certificate * secudeCert2quipuCert();
-       struct certificate_list * secudeCPair2quipuCPair();
-
+#ifndef SEC_OLDSTYLE_INCLUDE
+#define SEC_OLDSTYLE_INCLUDE 1
+#elif !SEC_OLDSTYLE_INCLUDE
+#error #include "af_quipu.h" is deprecated, use #include <secude/afquipui.h> instead
 #endif
 
-#endif
-
-#ifdef __cplusplus
-} /* extern C */
-#endif /* __cplusplus */
-
- 
+#error the file "af_quipu.h" is obsolete, it is fully contained in "af_p.h" and "af.h"
 
