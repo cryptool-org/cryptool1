@@ -186,6 +186,7 @@ protected:
 	afx_msg void OnMessageauthenticationcode();
 	afx_msg void OnEncryptAdfgvx();
 	afx_msg void OnAnalyseSymmclassicAdfgvx();
+	afx_msg void OnCiphertextOnlySubstitution();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

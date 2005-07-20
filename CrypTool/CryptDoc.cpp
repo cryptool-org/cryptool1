@@ -79,6 +79,7 @@ statement from your version.
 #include "DlgFileProperties.h"
 #include "DlgADFGVX.h"
 #include "DlgAdfgvxManual.h"
+#include "MonoSubstCracker.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -221,6 +222,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_COMMAND(ID_TOTXT, OnToTxt)
 	ON_COMMAND(ID_GENERATE_MACS, OnMessageauthenticationcode)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
+	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -249,7 +251,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
+	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1758,4 +1760,39 @@ void CCryptDoc::OnAnalyseSymmclassicAdfgvx()
 	//CDlgAdfgvxManual dlg = new CDlgAdfgvxManual(ContentName);
 	class CDlgAdfgvxManual dlg(ContentName, GetTitle(), NULL);
 	dlg.DoModal();
+}
+
+void CCryptDoc::OnCiphertextOnlySubstitution() 
+{
+    UpdateContent();
+
+	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
+	CFile datei(ContentName, CFile::modeRead);
+	bool laenge_groesser_0 = FALSE;
+	char c;
+	while(datei.Read(&c,1) && ! laenge_groesser_0)
+	{
+		if ( (('a' <= c) && (c <= 'z')) || (('A' <= c) && (c <= 'Z')) )
+		{
+			laenge_groesser_0 = TRUE;
+		}
+	}
+	datei.Close();
+	if (! laenge_groesser_0)
+	{
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
+		return;
+	}
+
+
+	CryptPar *para;
+
+	para = (CryptPar *) malloc(sizeof(CryptPar));
+    UpdateContent();
+	memset(para,0,sizeof(CryptPar));
+	para->infile = ContentName;
+	para->OldTitle = GetTitle();
+	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
+	theApp.OpenBGFlag = 1;
+    AfxBeginThread( AutoAnaSubst, ((void *) para) );	
 }

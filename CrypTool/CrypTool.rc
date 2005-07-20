@@ -4252,6 +4252,83 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,121,148,156,10
 END
 
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG DISCARDABLE  0, 0, 318, 237
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Auswahl automatische Substitutionsanalyse"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
+    CONTROL         "Verfahren basierend auf der Häufigkeitsanalyse der Digramme im Text",
+                    IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
+    CONTROL         "Verfahren basierend auf der Erkennung der häufigsten Wörter einer Sprache",
+                    IDC_ALG_WORD,"Button",BS_AUTORADIOBUTTON,18,103,256,15
+    LTEXT           "Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen Sprache. Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der Liste verglichen.",
+                    IDC_STATIC,30,118,265,28
+    GROUPBOX        "Bitte wählen Sie zwischen folgenden Algorithmen aus:",
+                    IDC_STATIC,7,5,304,210,WS_GROUP
+    LTEXT           "Der Algorithmus analysiert die Häufigkeit einzelner Digramme im verschlüsselten Text und versucht, anhand einer Standardverteilung den Schlüssel zu erraten.",
+                    IDC_STATIC,30,35,251,21
+    LTEXT           "Eine automatische Sprachenerkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten. Dieses Vefahren eignet sich am besten für die Analyse längerer Texte.",
+                    IDC_STATIC,30,55,251,29
+    LTEXT           "Quelle: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",
+                    IDC_STATIC,30,83,251,19
+    LTEXT           "Bei jeder möglichen Zuordnung ergibt sich daraus eine (partielle) Substitution. Durch einen Suchbaum wird diejenige Substitution ermittelt, die mit den meisten partiellen Substitutionen verträglich ist.",
+                    IDC_STATIC,29,145,265,26
+    LTEXT           "Quelle: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",
+                    IDC_STATIC,30,191,265,18
+    LTEXT           "Dieses Verfahren arbeitet mit deutschen und englischen Standardtexten. Die Leerzeichen müssen im Ciphertext an den richtigen Stellen enthalten sein.",
+                    IDC_STATIC,30,171,265,19
+END
+
+IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG DISCARDABLE  0, 0, 394, 321
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Automatische Substitutionsanalyse"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Substitution akzeptieren",IDOK,7,300,86,14
+    GROUPBOX        "Aktuelle Substitution (Schlüssel)",IDC_STATIC,7,7,246,
+                    36
+    LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_ALPHABET,43,18,
+                    150,10
+    LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_KEY,43,28,150,10
+    GROUPBOX        "Sprachenerkennungsinfo",IDC_STATIC,260,48,127,26
+    GROUPBOX        "Aktuelles Substitutionsergebnis",IDC_STATIC,7,81,380,
+                    211
+    LTEXT           "Deutsch",IDC_SUBST_LANGINFO,274,60,104,11
+    EDITTEXT        IDC_SUBST_TEXT,13,93,368,193,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL
+    DEFPUSHBUTTON   "Abbrechen",ID_SUBST_Cancel,293,300,94,14
+    DEFPUSHBUTTON   "Schlüssel kopieren",IDC_COPY,102,300,86,14
+    DEFPUSHBUTTON   "Manuelle Analyse",IDC_MANUAL,197,300,86,14
+    GROUPBOX        "Anzahl der validen Zeichen im Text",IDC_STATIC,259,7,
+                    128,36
+    LTEXT           "0",IDC_SUBST_CHINFO,274,19,105,12
+    GROUPBOX        "Referenzdatei für Sprachenanalyse",IDC_STATIC,7,48,246,
+                    26
+    EDITTEXT        IDC_SUBST_REFFILE,13,59,233,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+END
+
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG DISCARDABLE  0, 0, 212, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Automatische Substitutionsanalyse - Optionen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,81,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,155,81,50,14
+    GROUPBOX        "Leerzeichen",IDC_STATIC,7,3,198,37
+    CONTROL         "Das Leerzeichen wurde substituiert",
+                    IDC_ALPHABET_SPACE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,13,169,13
+    LTEXT           "(d.h. durch einen anderen Buchstaben ersetzt)",
+                    IDC_STATIC,33,26,156,11
+    GROUPBOX        "GUI",IDC_STATIC,7,44,198,29
+    CONTROL         "Zwischenergebnisse nicht anzeigen (schneller)",
+                    IDC_NOGUI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,
+                    169,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4490,6 +4567,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -4819,6 +4898,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
 
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -5146,6 +5227,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -5484,6 +5567,8 @@ BEGIN
                 , GRAYED
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -5811,6 +5896,8 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
 
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -12685,6 +12772,25 @@ BEGIN
                             "Sie haben %d Schlüssel eingegeben.\r\nDas entspricht der Mindestanzahl, aber es sind nicht alle Schlüssel korrekt.\r\n"
     IDS_CRT_SECRETSHARING_NOSUCCESS2 
                             "Es wurden falsche Passwörter benutzt.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
+    IDS_MONO_SUBST_AUTO_SHORT_TEXT_WARNING 
+                            "Der eingegebene Text ist zu kurz, um verlässliche Ergebnisse zu produzieren. \nErfahrungsgemäß braucht das Jakobsen-Verfahren eine Textlänge von mindestens 300 Zeichen. \nSollte die automatische Analyse fehlschlagen, versuchen Sie es bitte mit der manuellen Analyse."
+    IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
+                            "Die statistische Textanalyse wird durchgeführt. Bitte warten Sie..."
+    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Fehler in der Statistikdatei:\n"
+    IDS_MONO_SUBST_AUTO_LANG_DE "Deutsch"
+    IDS_MONO_SUBST_AUTO_LANG_EN "Englisch"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MONO_SUBST_AUTO_STATFILE_OPEN_ERROR 
+                            "Ein Fehler ist beim Öffnen der Statistikdatei aufgetreten.\nDer Analysevorgang wird abgebrochen."
+    IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR 
+                            "Der  Analysevorgang wird abgebrochen, da ein Fehler beim Öffnen der folgenden Datei aufgetreten ist:\n "
+    IDS_MONO_SUBST_AUTO_LANGREC_FAILED 
+                            "Die automatische Sprachenerkennung ist fehlgeschlagen, \nda der eingegebene Text entweder zu kurz ist oder die charakteristischen Eigenschaften \n(Buchstabenhäufigkeiten) nicht eindeutig einer Sprache zuzuordnen sind. \nBitte wählen Sie die Sprache explizit."
+    IDS_MONO_SUBST_AUTO_MANUAL_ANALYSIS_NOT_POSS 
+                            "Manuelle Analyse ist nicht möglich, \nda das Leerzeichen substituiert wurde \n(d.h. durch einen anderen Buchstaben ersetzt)."
 END
 
 #endif    // German (Germany) resources
@@ -16914,6 +17020,79 @@ BEGIN
                     156,10
 END
 
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG DISCARDABLE  0, 0, 318, 237
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Selection automatic substitution analysis"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
+    CONTROL         "Method based on the frequency analysis of digrams in the text",
+                    IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
+    CONTROL         "Method based on the recognition of the most frequent words of a langu<age",
+                    IDC_ALG_WORD,"Button",BS_AUTORADIOBUTTON,18,117,256,15
+    LTEXT           "This method is based on a list of the most frequent words of a particular language. The words of the ciphertext are compared (according to their pattern) with the words of the list.",
+                    IDC_STATIC,30,132,265,28
+    GROUPBOX        "Please choose between the following algorithms:",
+                    IDC_STATIC,7,5,304,210,WS_GROUP
+    LTEXT           "This method analyses the frequency of digrams in the cyphertext and guesses the key based on a standard digram distribution.",
+                    IDC_STATIC,30,35,251,19
+    LTEXT           "Automatic language recognition is included. Processing of texts that do not contain space characters is also possible. The method is suited best for longer texts.",
+                    IDC_STATIC,30,54,251,29
+    LTEXT           "Source: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",
+                    IDC_STATIC,30,83,251,19
+    LTEXT           "Using a search tree the substitution compatible with the most partial substitutions is determined. This method can process German and English standard texts. Space characters must be preserved on correct positions in the ciphertext.",
+                    IDC_STATIC,29,159,265,27
+    LTEXT           "Source: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",
+                    IDC_STATIC,30,188,265,21
+END
+
+IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG DISCARDABLE  0, 0, 394, 321
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Automatic substitution analysis"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Accept substitution",IDOK,7,300,86,14
+    GROUPBOX        "Current substitution (key)",IDC_STATIC,7,7,246,37
+    LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_ALPHABET,43,19,
+                    150,10
+    LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_KEY,43,29,150,10
+    GROUPBOX        "Language recognition information",IDC_STATIC,259,48,128,
+                    26
+    GROUPBOX        "Current substition result",IDC_STATIC,7,80,380,212
+    LTEXT           "German",IDC_SUBST_LANGINFO,274,60,90,11
+    EDITTEXT        IDC_SUBST_TEXT,13,91,368,195,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "Cancel",ID_SUBST_Cancel,293,300,94,14
+    GROUPBOX        "Number of valid characters in text",IDC_STATIC,259,7,
+                    128,36
+    LTEXT           "0",IDC_SUBST_CHINFO,274,19,105,12
+    GROUPBOX        "Reference file for automatic language recognition",
+                    IDC_STATIC,7,48,246,26
+    EDITTEXT        IDC_SUBST_REFFILE,21,60,209,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    DEFPUSHBUTTON   "Copy key",IDC_COPY,102,300,86,14
+    DEFPUSHBUTTON   "Manual analysis",IDC_MANUAL,197,300,86,14
+END
+
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG DISCARDABLE  0, 0, 212, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Automatic Substitution Analysis - Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,81,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,155,81,50,14
+    GROUPBOX        "SPACE character",IDC_STATIC,7,3,198,37
+    CONTROL         "The SPACE character was also substituted",
+                    IDC_ALPHABET_SPACE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,13,169,13
+    LTEXT           "(i.e. the encryption alphabet contains ""SPACE"")",
+                    IDC_STATIC,33,26,156,11
+    GROUPBOX        "GUI",IDC_STATIC,7,44,198,29
+    CONTROL         "Do not show intermediate results (faster)",IDC_NOGUI,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,169,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17148,6 +17327,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -17470,6 +17651,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
 
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -17790,6 +17973,8 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -18122,6 +18307,8 @@ BEGIN
                 , GRAYED
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -18442,6 +18629,8 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
 
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -25587,6 +25776,25 @@ BEGIN
                             "You've entered %d keys.\r\nThis is conform to the minimum number, but at least one key is wrong.\r\n"
     IDS_CRT_SECRETSHARING_NOSUCCESS2 
                             "Wrong keys have been entered.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
+    IDS_MONO_SUBST_AUTO_SHORT_TEXT_WARNING 
+                            "Input text is too short to produce reliable results. \nAs expirience shows, the Jakobsen algorithm needs at least 300 characters. \nIf the autoanalysis fails, try to analyse this text manually."
+    IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
+                            "The statistic analysis of the text is running. Please wait..."
+    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Error in the statisitc file: \n"
+    IDS_MONO_SUBST_AUTO_LANG_DE "German"
+    IDS_MONO_SUBST_AUTO_LANG_EN "English"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MONO_SUBST_AUTO_STATFILE_OPEN_ERROR 
+                            "An error occurred while opening file containing language statistic data.\n Canceling the analysis..."
+    IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR 
+                            "Analysis canceled since an error occurred during opening the following file:\n"
+    IDS_MONO_SUBST_AUTO_LANGREC_FAILED 
+                            "Automated language recognition failed, since the text is either too short or \nlanguage characteristics (letter frequencies) cannot be clearly associated to a language.\nPlease select the language explicitely."
+    IDS_MONO_SUBST_AUTO_MANUAL_ANALYSIS_NOT_POSS 
+                            "Manual analysis is currently not possible \nsince the ""Space"" character belongs to the alphabet. \nI.e. it has been replaced by another character."
 END
 
 #endif    // English (U.K.) resources
