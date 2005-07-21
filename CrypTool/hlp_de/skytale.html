@@ -1,73 +1,52 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Skytale von Sparta</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Skytale">
-	<PARAM NAME="Keyword" VALUE="Permutation">
-</OBJECT>
-
-<h3><P><A NAME="skytale"></A><B>Skytale von Sparta (500 v. Chr.) (lt. Plutarch)</B></P></h3>
-
-<P>Dazu brauchen Sender und Empfänger zwei Zylinder (Kantholzstäbe) mit genau demselben Radius und jeweils gleich vielen Kanten.</P>
-
-<P>Der Sender wickelt ein schmales Band aus Pergament spiralförmig um seinen Zylinder und schreibt dann der Länge nach seine Nachricht auf das Band. Die Nachricht auf dem abgewickelten Band kann nur von einer Person gelesen werden, die ebenfalls einen solchen Zylinder besitzt.</P>
-
-<div class="indent">
-
-<P><IMG SRC="images/skytale1.gif" ALT="skytale1.gif" BORDER=0></P>
-
-</div>
-
-<P>Wie kann man dieses Verfahren in CrypTool abbilden ?</P>
-
-<P>Die Skytale entspricht der identischen <A href="hid_permutation_asc.html">Permutation</A> (1,2,3, ..., n) über n Spalten, wobei n die Anzahl der Kanten der Skytale ist.</P>
-
-<P>Beispiel:</P>
-
-<P>Für n=3, also genau 3 Außenkanten, schreibt man auf das Band:</P>
-
-<div class="indent">
-
-<P>JAM ESB OND  </P>
-
-</div>
-
-<P>und erhält auf dem abgewickelten Band:</P>
-
-<div class="indent">
-
-<P>JEO ASN MBD.</P>
-
-</div>
-
-<P><IMG SRC="images/skytale2.gif" ALT="skytale2.gif" BORDER=0></P>
-
-<P>Wenn man die Nachricht</P>
-
-<div class="indent">
-
-<PRE><CODE>    JAM ESB OND
+	<HEAD>
+		<TITLE>Skytale von Sparta</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Skytale">
+		</OBJECT>
+		<h3><P><A NAME="skytale"></A><B>Skytale von Sparta (500 v. Chr.) (lt. Plutarch)</B></P>
+		</h3>
+		<P>Dazu brauchen Sender und Empfänger zwei Zylinder (Kantholzstäbe) mit genau 
+			demselben Radius und jeweils gleich vielen Kanten.</P>
+		<P>Der Sender wickelt ein schmales Band aus Pergament spiralförmig um seinen 
+			Zylinder und schreibt dann der Länge nach seine Nachricht auf das Band. Die 
+			Nachricht auf dem abgewickelten Band kann nur von einer Person gelesen werden, 
+			die ebenfalls einen solchen Zylinder besitzt.</P>
+		<div class="indent">
+			<P><IMG SRC="images/skytale1.gif" ALT="skytale1.gif" BORDER="0"></P>
+		</div>
+		<P>Wie kann man dieses Verfahren in CrypTool abbilden ?</P>
+		<P>Die Skytale entspricht der identischen einfachen&nbsp; <A href="hid_permutation_asc.html">
+				Permutation</A> (1,2,3, ..., n) über n Spalten, wobei n die Anzahl der 
+			Kanten der Skytale ist.</P>
+		<P>Beispiel:</P>
+		<P>Für n=3, also genau 3 Außenkanten, schreibt man auf das Band:</P>
+		<div class="indent">
+			<P>JAM ESB OND
+			</P>
+		</div>
+		<P>und erhält auf dem abgewickelten Band:</P>
+		<div class="indent">
+			<P>JEO ASN MBD.</P>
+		</div>
+		<P><IMG SRC="images/skytale2.gif" ALT="skytale2.gif" BORDER="0"></P>
+		<P>Wenn man die Nachricht</P>
+		<div class="indent">
+			<PRE><CODE>    JAM ESB OND
     WAN TED DEA</CODE>
     <CODE>DOR ALI VE</CODE></PRE>
-
-</div>
-
-<P>auf den Zylinder wickelt, erhält man: </P>
-
-<div class="indent">
-
-<PRE><CODE>    JEO WTD DAV
+		</div>
+		<P>auf den Zylinder wickelt, erhält man:
+		</P>
+		<div class="indent">
+			<PRE><CODE>    JEO WTD DAV
     ASN AEE OLE</CODE>
     <CODE>MBD NDA RI</CODE></PRE>
-
-</div>
-
-</BODY>
+		</div>
+	</BODY>
 </HTML>
