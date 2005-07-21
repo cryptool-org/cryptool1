@@ -1,41 +1,46 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Window for hexadecimal inputs and outputs</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Window">
-	<PARAM NAME="Keyword" VALUE="Hexadecimal inputs and outputs">
-</OBJECT>
-
-<h3><P><A NAME="hidr_hextype"></A><B>Window for hexadecimal inputs and outputs</B></P></h3>
-
-<P>Menu icon: <IMG SRC="images/cthex.gif" ALT="cthex.gif" BORDER=0></P>
-
-<P>This window is used to display <!--ZZZPOPUP--><A href="dokument.html">documents</A> which contain non-displayable special characters.</P>
-
-<P>In this type of document the editing options are somewhat limited (see <A href="menu_edit.html">Edit</A> menu): The length of the text must be preserved. Characters can therefore be overwritten, but not removed or inserted. Hence the <A href="hid_edit_cut.html">Edit \ Cut</A> menu option does not work. The commands <A href="hid_edit_copy.html">Copy</A> and <A href="hid_edit_paste.html">Paste</A> are possible, although it should be noted that the insertion of characters overwrites what is already there rather than moving it further down the document.</P>
-
-<P><U>The window for hexadecimal inputs and outputs is designed as follows:</U></P>
-
-<P>The first column contains a serial hexadecimal number of the position of the characters displayed in the other two columns.</P>
-
-<P>In the second column the characters are presented in hexadecimal form (see <A href="ascii.html">ASCII Table</A>). One character is represented by two characters one after the other (0, 1,..., 9, A, B,..., F).</P>
-
-<P>In the third column the displayable characters are shown in accordance with their ASCII code. Non-displayable characters are depicted by a dot.</P>
-
-<P>If the hexadecimal value of a character is changed, the ASCII character displayed is modified and vice versa.</P>
-
-<P><IMG SRC="images/fenster_hex.gif" ALT="fenster_hex.gif" BORDER=0></P>
-
-<P>Documents which consist only of letters are displayed in a <A href="hidr_asctype.html">window for letter string inputs and outputs</A>. On the other hand, <!--ZZZPOPUP--><A href="dokument.html">documents</A> without any special characters are displayed in a <A href="hidr_texttype.html">window for textual inputs and outputs</A>. </P>
-
-<P>It is possible to force the display to take the form of a <A href="hidr_texttype.html">window for textual inputs and outputs</A> by selecting the menu option <A href="menu_view.html">View \ Show as text</A> (Note: this results in loss of all characters behind the first 'NULL' (this text format character indicates the end of file) ascii character).</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Window for hexadecimal inputs and outputs</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Window">
+		</OBJECT>
+		<h3><P><A NAME="hidr_hextype"></A><B>Window for hexadecimal inputs and outputs</B></P>
+		</h3>
+		<P>Menu icon: <IMG SRC="images/cthex.gif" ALT="cthex.gif" BORDER="0"></P>
+		<P>This window type is used to display <!--ZZZPOPUP--><A href="dokument.html">documents</A>
+			which contain at least one non-displayable special character.</P>
+		<P>In this type of document the editing options are somewhat limited (see <A href="menu_edit.html">
+				Edit</A> menu): The length of the text must be preserved. Characters can 
+			therefore be overwritten, but not removed or inserted. Hence the <A href="hid_edit_cut.html">
+				Edit \ Cut</A> menu option does not work. The commands <A href="hid_edit_copy.html">
+				Copy</A> and <A href="hid_edit_paste.html">Paste</A> are possible, although 
+			it should be noted that the insertion of characters overwrites what is already 
+			there rather than moving it further down the document.</P>
+		<P><U>The window for hexadecimal inputs and outputs is designed as follows:</U></P>
+		<P>The first column contains a serial hexadecimal number of the position of the 
+			characters displayed in the other two columns.</P>
+		<P>In the second column the characters are presented in hexadecimal form (see <A href="ascii.html">
+				ASCII Table</A>). One character is represented by two characters one after 
+			the other (0, 1,..., 9, A, B,..., F).</P>
+		<P>In the third column the displayable characters are shown in accordance with 
+			their ASCII code. Non-displayable characters are depicted by a dot.</P>
+		<P>If the hexadecimal value of a character is changed, the ASCII character 
+			displayed is modified and vice versa.</P>
+		<P><IMG SRC="images/fenster_hex.gif" ALT="fenster_hex.gif" BORDER="0"></P>
+		<P>Documents which consist only of letters are displayed in a <A href="hidr_asctype.html">
+				window for letter string inputs and outputs</A>. On the other hand, <!--ZZZPOPUP--><A href="dokument.html">documents</A>
+			without any special characters are displayed in a <A href="hidr_texttype.html">window 
+				for textual inputs and outputs</A>.
+		</P>
+		<P>It is possible to force the display to take the form of a <A href="hidr_texttype.html">
+				window for textual inputs and outputs</A> by selecting the menu option <A href="menu_view.html">
+				View \ Show as text</A> (Note: this results in loss of all characters 
+			behind the first 'NULL' (this text format character indicates the end of file) 
+			ascii character).</P>
+	</BODY>
 </HTML>

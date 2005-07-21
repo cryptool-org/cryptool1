@@ -1,136 +1,123 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Options for the alphabet and the number system...</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Options for the alphabet and the number system...">
-	<PARAM NAME="Keyword" VALUE="Dialogue">
-	<PARAM NAME="Keyword" VALUE="Alphabet">
-	<PARAM NAME="Keyword" VALUE="RSA">
-	<PARAM NAME="Keyword" VALUE="Base of numbers">
-	<PARAM NAME="Keyword" VALUE="Demonstration">
-</OBJECT>
-
-<h3><P><A NAME="hidd_options_rsa_demo"></A><B>Options for the alphabet and the number system</B></P></h3>
-
-<P>This dialogue can be used to adjust the options for RSA encryption and decryption.</P>
-
-<P><IMG SRC="images/rsa_demo_8.gif" ALT="rsa_demo_8.gif" BORDER=0></P>
-
-<P><B>Text Options</B></P>
-
-<P>With the demonstration of the RSA cryptosystem you can encrypt texts using either the ASCII character set or specify your own alphabet. Make your selection by clicking on the appropriate radio button and - in the second case - define the alphabet in the input field underneath. </P>
-
-<P>With RSA encryption and decryption, individual letters are coded in numbers first.</P>
-
-<P>The coding of the default alphabet "&lt;space&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ" is as follows:</P>
-
-<TABLE cols=3 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD>&lt;Space&gt;</TD>
-<TD> -&gt; </TD>
-<TD>0</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>A </TD>
-<TD> -&gt;</TD>
-<TD>1</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>B</TD>
-<TD> -&gt;</TD>
-<TD>2</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>&nbsp;</TD>
-<TD>....</TD>
-<TD>&nbsp;</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>Z</TD>
-<TD> -&gt;</TD>
-<TD>26</TD>
-</TR>
-</TABLE><BR>
-
-<P>If you remove the blank, then A will be coded with 0.</P>
-
-<P><B>RSA variant</B></P>
-
-<P>You can choose between running the standard RSA encryption algorithm and the procedure developed in the article entitled "Dialogue of sisters" (see c‚t magazine, 25/99), which is part of this CrypTool package as a PDF document.</P>
-
-<P><B>Block length and method for coding of the message into numbers</B></P>
-
-<P>Depending on the bit length of the RSA modulus N and the selected alphabet, you can adjust the block length with RSA encryption. The maximum possible block length is entered into the options as default value whenever the modulus or the alphabet changes. </P>
-
-<P>If you have defined the alphabet yourself and the selected block length k is greater than 1, after coding the letters as numbers, as described above, each k of these numbers is coded into a larger number. The coding can be carried out as to be <B>b-adic</B> (where b is the number of letters in the alphabet) or based on a <B>number system </B>(possible number systems are decimal, binary, octal and hexadecimal; the number system can be defined in the same dialogue below the block length and this setting is also used for display).</P>
-
-<P><B>Example</B>: If the message "ATTACK AT DAWN" is broken down into blocks of length 2, we obtain the following blocks: </P>
-
-<div class="indent">
-
-<P>AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
-
-</div>
-
-<P>Numeric coding of the letters in the message (&lt;Blank&gt; = 0, A = 1, ..., Z = 26): </P>
-
-<div class="indent">
-
-<P>01 # 20 # 20 # 01 # 03 # 00 # 01 # 20 # 00 # 04 # 01 # 23 # 14 # 00</P>
-
-</div>
-
-<P>How to generate a new number from the single numbers of a block is determined by the two coding methods "b-adic" and "basic system".</P>
-
-<OL>
-
-<LI> Coding of the two number blocks (length k=2) in accordance with the b-adic formula (every block consists of two letters):</LI>
-
-<div class="indent">
-
-<P>&lt;letter1&gt;*27^1 + &lt;letter 2&gt;   produces the code:</P>
-
-<P>047 # 541 # 081 # 047 # 004 # 050 # 378</P>
-
-<P></P>
-
-<P>This code is optimal.</P>
-
-</div>
-
-<LI> Coding of the number blocks (length k = 2) in accordance with the base system formula (base k = 100):</LI>>
-
-<div class="indent">
-
-<P></P>
-
-<P>&lt;letter 1&gt;*100^1 + &lt;letter 2&gt;   produces the code </P>
-
-<P>0120 # 2001 # 0300 # 0120 # 0004 # 0123 # 1400</P>
-
-<P></P>
-
-<P>With this code you can read off the letter coding directly.</P>
-
-</div>
-
-</OL>
-
-<P><B>Remark</B>:</P>
-
-<P>If the block length is one (because the RSA modulus is too short) the both coding methods delivers the same value.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Options for the alphabet and the number system...</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Options for the alphabet and the number system...">
+		</OBJECT>
+		<h3><P><A NAME="hidd_options_rsa_demo"></A><B>Options for the alphabet and the number 
+					system</B></P>
+		</h3>
+		<P>This dialogue can be used to adjust the options for RSA encryption and 
+			decryption.</P>
+		<P><IMG SRC="images/rsa_demo_8.gif" ALT="rsa_demo_8.gif" BORDER="0"></P>
+		<P><B>Text Options</B></P>
+		<P>With the demonstration of the RSA cryptosystem you can encrypt texts using 
+			either the ASCII character set or specify your own alphabet. Make your 
+			selection by clicking on the appropriate radio button and - in the second case 
+			- define the alphabet in the input field underneath.
+		</P>
+		<P>With RSA encryption and decryption, individual letters are coded in numbers 
+			first.</P>
+		<P>The coding of the default alphabet "&lt;space&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ" is 
+			as follows:</P>
+		<TABLE cols="3" width="0*" class="pad20">
+			<TR VALIGN="top">
+				<TD>&lt;Space&gt;</TD>
+				<TD>
+					-&gt;
+				</TD>
+				<TD>0</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>A
+				</TD>
+				<TD>
+					-&gt;</TD>
+				<TD>1</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>B</TD>
+				<TD>
+					-&gt;</TD>
+				<TD>2</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>&nbsp;</TD>
+				<TD>....</TD>
+				<TD>&nbsp;</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Z</TD>
+				<TD>
+					-&gt;</TD>
+				<TD>26</TD>
+			</TR>
+		</TABLE>
+		<BR>
+		<P>If you remove the blank, then A will be coded with 0.</P>
+		<P><B>RSA variant</B></P>
+		<P>You can choose between running the standard RSA encryption algorithm and the 
+			procedure developed in the article entitled "Dialogue of sisters" (see c‚t 
+			magazine, 25/99), which is part of this CrypTool package as a <A href="script-en.pdf">
+				PDF</A>
+		document.
+		<P><B>Block length and method for coding of the message into numbers</B></P>
+		<P>Depending on the bit length of the RSA modulus N and the selected alphabet, you 
+			can adjust the block length with RSA encryption. The maximum possible block 
+			length is entered into the options as default value whenever the modulus or the 
+			alphabet changes.
+		</P>
+		<P>If you have defined the alphabet yourself and the selected block length k is 
+			greater than 1, after coding the letters as numbers, as described above, each k 
+			of these numbers is coded into a larger number. The coding can be carried out 
+			as to be <B>b-adic</B> (where b is the number of letters in the alphabet) or 
+			based on a <B>number system </B>(possible number systems are decimal, binary, 
+			octal and hexadecimal; the number system can be defined in the same dialogue 
+			below the block length and this setting is also used for display).</P>
+		<P><B>Example</B>: If the message "ATTACK AT DAWN" is broken down into blocks of 
+			length 2, we obtain the following blocks:
+		</P>
+		<div class="indent">
+			<P>AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
+		</div>
+		<P>Numeric coding of the letters in the message (&lt;Blank&gt; = 0, A = 1, ..., Z = 
+			26):
+		</P>
+		<div class="indent">
+			<P>01 # 20 # 20 # 01 # 03 # 00 # 01 # 20 # 00 # 04 # 01 # 23 # 14 # 00</P>
+		</div>
+		<P>How to generate a new number from the single numbers of a block is determined by 
+			the two coding methods "b-adic" and "basic system".</P>
+		<OL>
+			<LI>
+				Coding of the two number blocks (length k=2) in accordance with the b-adic 
+				formula (every block consists of two letters):
+				<div class="indent">
+					<P>&lt;letter1&gt;*27^1 + &lt;letter 2&gt; produces the code:</P>
+					<P>047 # 541 # 081 # 047 # 004 # 050 # 378</P>
+					<P></P>
+					<P>This code is optimal.</P>
+				</div>
+			<LI>
+				Coding of the number blocks (length k = 2) in accordance with the base system 
+				formula (base k = 100):&gt;
+				<div class="indent">
+					<P></P>
+					<P>&lt;letter 1&gt;*100^1 + &lt;letter 2&gt; produces the code
+					</P>
+					<P>0120 # 2001 # 0300 # 0120 # 0004 # 0123 # 1400</P>
+					<P></P>
+					<P>With this code you can read off the letter coding directly.</P>
+				</div>
+			</LI>
+		</OL>
+		<P><B>Remark</B>:</P>
+		<P>A block length of one only makes sense if both coding methods deliver the same 
+			values.</P>
+	</BODY>
 </HTML>
