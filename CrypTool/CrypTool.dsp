@@ -2395,6 +2395,22 @@ SOURCE=.\DlgAuthors.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgAutoSubstitutionAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAutoSubstitutionAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAutoSubstitutionAnalysisAlgorithmChoice.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAutoSubstitutionAnalysisAlgorithmChoice.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgBruteForceAES.cpp
 # End Source File
 # Begin Source File
@@ -3141,6 +3157,14 @@ SOURCE=.\DlgOptionsAnalysis.cpp
 # Begin Source File
 
 SOURCE=.\DlgOptionsAnalysis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsAutoSubstitutionAnalysis.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgOptionsAutoSubstitutionAnalysis.h
 # End Source File
 # Begin Source File
 
@@ -4649,6 +4673,14 @@ SOURCE=.\ModifiedDocumentForHashing.cpp
 # Begin Source File
 
 SOURCE=.\ModifiedDocumentForHashing.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MonoSubstCracker.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MonoSubstCracker.h
 # End Source File
 # Begin Source File
 
