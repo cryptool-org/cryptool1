@@ -1,10 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
 <!-- Sitemap 1.0 -->
-<OBJECT type="text/site properties">
-</OBJECT>
+</HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="AES">
+		<param name="Name" value="AES">
 		<param name="Name" value="The Rijndael encryption algorithm (AES)">
 		<param name="Local" value="hid_crypt_aes_rijndael.html">
 		<param name="Name" value="AES candidates">
@@ -15,27 +17,27 @@
 		<param name="Local" value="hid_aes_selfextract.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="AES tool">
+		<param name="Name" value="AES tool">
 		<param name="Name" value="Dialogue AES (self extracting)">
 		<param name="Local" value="hid_aes_selfextract.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Alpha-Quantil">
+		<param name="Name" value="Alpha-Quantil">
 		<param name="Name" value="Alpha-Quantil">
 		<param name="Local" value="q_quantil.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Alphabet">
+		<param name="Name" value="Alphabet">
 		<param name="Name" value="Options for alphabet and number system...">
 		<param name="Local" value="hidd_options_rsa_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Alphabet options">
+		<param name="Name" value="Alphabet options">
 		<param name="Name" value="Text options">
 		<param name="Local" value="hid_opttext.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Analysis">
+		<param name="Name" value="Analysis">
 		<param name="Name" value="The Analysis Menu">
 		<param name="Local" value="menu_analyze.html">
 		<param name="Name" value="Menu options in the Random tests submenu">
@@ -162,50 +164,50 @@
 		<param name="Local" value="hidd_runs_test.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Analysis options">
+		<param name="Name" value="Analysis options">
 		<param name="Name" value="Analysis Options">
 		<param name="Local" value="hid_options_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ASCII table">
+		<param name="Name" value="ASCII table">
 		<param name="Name" value="ASCII table">
 		<param name="Local" value="ascii.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ASN.1">
+		<param name="Name" value="ASN.1">
 		<param name="Local" value="info_asn1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Asymmetric">
+		<param name="Name" value="Asymmetric">
 		<param name="Name" value="Dialogue Available asymmetric key pairs">
 		<param name="Local" value="hidd_key_asym.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Asymmetric key generation">
+		<param name="Name" value="Asymmetric key generation">
 		<param name="Name" value="Generate asymmetric Key">
 		<param name="Local" value="hid_crypt_keygen.html">
 		<param name="Name" value="Dialogue Create public and private key for elliptic curves">
 		<param name="Local" value="hidd_show_parameter_key_ec.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Attack">
+		<param name="Name" value="Attack">
 		<param name="Name" value="Attack on the hash value of the digital signature">
 		<param name="Local" value="hidd_signature_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Authorisation">
+		<param name="Name" value="Authorisation">
 		<param name="Name" value="Dialogue Authorisation">
 		<param name="Local" value="hidd_pin_access.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Authors">
+		<param name="Name" value="Authors">
 		<param name="Name" value="The Authors of CrypTool">
 		<param name="Local" value="hidd_authors.html">
 		<param name="Name" value="About CrypTool">
 		<param name="Local" value="hidd_about.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Autocorrelation">
+		<param name="Name" value="Autocorrelation">
 		<param name="Name" value="Autocorrelation">
 		<param name="Local" value="hid_auto.html">
 		<param name="Name" value="Autocorrelation">
@@ -214,7 +216,7 @@
 		<param name="Local" value="hid_analyse_zufallstests_autokorrelation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Automatic analysis">
+		<param name="Name" value="Automatic analysis">
 		<param name="Name" value="Dialogue Options (options for automatic analyzes)">
 		<param name="Local" value="hidd_options_analysis.html">
 		<param name="Name" value="Dialogue Automatic Vigenère Analysis">
@@ -223,158 +225,158 @@
 		<param name="Local" value="hidd_bin_keylength.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Available asymmetric key pairs">
+		<param name="Name" value="Available asymmetric key pairs">
 		<param name="Name" value="Dialogue Available asymmetric key pairs">
 		<param name="Local" value="hidd_key_asym.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Available keys for elliptic curves">
+		<param name="Name" value="Available keys for elliptic curves">
 		<param name="Name" value="Dialogue Available keys for elliptic curves">
 		<param name="Local" value="hidd_dialog_show_availab_asym.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Bar chart">
+		<param name="Name" value="Bar chart">
 		<param name="Name" value="Switching between bar chart and graph">
 		<param name="Local" value="hid_plotbar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Base of numbers">
+		<param name="Name" value="Base of numbers">
 		<param name="Name" value="Options for alphabet and number system...">
 		<param name="Local" value="hidd_options_rsa_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Binary Exclusive-OR">
+		<param name="Name" value="Binary Exclusive-OR">
 		<param name="Name" value="Binary Exclusive-OR">
 		<param name="Local" value="hid_xor_bin.html">
 		<param name="Name" value="Automatic analysis, binary Exclusive-OR">
 		<param name="Local" value="hid_xor_auto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Birthday attack">
+		<param name="Name" value="Birthday attack">
 		<param name="Name" value="Birthday attack / birthday paradox">
 		<param name="Local" value="birthdayparadox.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Birthday paradox">
+		<param name="Name" value="Birthday paradox">
 		<param name="Name" value="Birthday attack / birthday paradox">
 		<param name="Local" value="birthdayparadox.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Bit length">
+		<param name="Name" value="Bit length">
 		<param name="Name" value="Key presentation">
 		<param name="Local" value="key_representation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Bit length of an RSA key">
+		<param name="Name" value="Bit length of an RSA key">
 		<param name="Name" value="Bit length of an RSA key">
 		<param name="Local" value="rsa_demo_bitlength.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Blocks">
+		<param name="Name" value="Blocks">
 		<param name="Name" value="Blocks and gaps">
 		<param name="Local" value="block_lueck.html">
 		<param name="Name" value="RSA encryption in blocks">
 		<param name="Local" value="rsa_demo_sections.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Books">
+		<param name="Name" value="Books">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Brute-force analysis">
+		<param name="Name" value="Brute-force analysis">
 		<param name="Name" value="Dialogue key range">
 		<param name="Local" value="hidd_bruteforce.html">
 		<param name="Name" value="Brute-force analysis">
 		<param name="Local" value="bruteforce.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Byte Addition">
+		<param name="Name" value="Byte Addition">
 		<param name="Name" value="Byte Addition">
 		<param name="Local" value="hid_add_bin.html">
 		<param name="Name" value="Automatic analysis, byte Addition">
 		<param name="Local" value="hid_add_auto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="CA Database">
+		<param name="Name" value="CA Database">
 		<param name="Name" value="Dialogue Certificates in the CA Database">
 		<param name="Local" value="hidd_dialog_listbox.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Caesar">
+		<param name="Name" value="Caesar">
 		<param name="Name" value="Dialogue Automatic analysis (derived key for Caesar)">
 		<param name="Local" value="hidd_caesar_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Caesar analysis">
+		<param name="Name" value="Caesar analysis">
 		<param name="Name" value="Automatic analysis, Caesar encryption algorithm">
 		<param name="Local" value="hid_caesar_auto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Caesar encryption">
+		<param name="Name" value="Caesar encryption">
 		<param name="Name" value="Example illustrating the Caesar encryption algorithm">
 		<param name="Local" value="szenarien_caesar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Caesar encryption algorithm">
+		<param name="Name" value="Caesar encryption algorithm">
 		<param name="Name" value="The Caesar encryption algorithm">
 		<param name="Local" value="hid_caesar_asc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="CBC mode">
+		<param name="Name" value="CBC mode">
 		<param name="Name" value="CBC mode">
 		<param name="Local" value="cbcmodus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Certificate">
+		<param name="Name" value="Certificate">
 		<param name="Name" value="Dialogue Certificate">
 		<param name="Local" value="hidd_show_certificate.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Keyword" value="import / export">
+			<param name="Name" value="import / export">
 			<param name="Local" value="pkcs12_import_export.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Certificates in the CA Database">
+		<param name="Name" value="Certificates in the CA Database">
 		<param name="Name" value="Dialogue Certificates in the CA Database">
 		<param name="Local" value="hidd_dialog_listbox.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Challenge">
+		<param name="Name" value="Challenge">
 		<param name="Name" value="Challenge">
 		<param name="Local" value="rsa_challange.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Check">
+		<param name="Name" value="Check">
 		<param name="Name" value="Signature verification">
 		<param name="Local" value="hid_crypt_verify.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Chi^2 distribution">
+		<param name="Name" value="Chi^2 distribution">
 		<param name="Name" value="Chi^2 distribution">
 		<param name="Local" value="chi_2_verteilung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Chosen Plaintext attack">
+		<param name="Name" value="Chosen Plaintext attack">
 		<param name="Name" value="Chosen Plaintext attack">
 		<param name="Local" value="chosenplaintextangriff.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Ciphertext">
+		<param name="Name" value="Ciphertext">
 		<param name="Name" value="Ciphertext">
 		<param name="Local" value="chiffretext.html">
 		<param name="Name" value="Ciphertext-Only attack">
 		<param name="Local" value="ciphertextonlyangriff.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Ciphertext-Only attack">
+		<param name="Name" value="Ciphertext-Only attack">
 		<param name="Name" value="Ciphertext-Only attack">
 		<param name="Local" value="ciphertextonlyangriff.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Clipboard">
+		<param name="Name" value="Clipboard">
 		<param name="Name" value="The Copy menu option (Edit menu)">
 		<param name="Local" value="hid_edit_copy.html">
 		<param name="Name" value="The Cut menu option (Edit menu)">
@@ -383,12 +385,12 @@
 		<param name="Local" value="hid_edit_paste.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Coin toss">
+		<param name="Name" value="Coin toss">
 		<param name="Name" value="Randomness">
 		<param name="Local" value="zufall.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Compression">
+		<param name="Name" value="Compression">
 		<param name="Name" value="The Compress Submenu">
 		<param name="Local" value="menu_compress.html">
 		<param name="Name" value="Compression (Zip)">
@@ -397,37 +399,37 @@
 		<param name="Local" value="hid_unzip.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Configuration file">
+		<param name="Name" value="Configuration file">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Correlation">
+		<param name="Name" value="Correlation">
 		<param name="Name" value="Correlation">
 		<param name="Local" value="correlation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Create Certificate and PSE">
+		<param name="Name" value="Create Certificate and PSE">
 		<param name="Name" value="Dialogue Create Certificate and PSE">
 		<param name="Local" value="hidd_certificate_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Create message signature">
+		<param name="Name" value="Create message signature">
 		<param name="Name" value="Dialogue Create message signature">
 		<param name="Local" value="hidd_signature.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Create public and private key for RSA">
+		<param name="Name" value="Create public and private key for RSA">
 		<param name="Name" value="Dialogue Create public and private key for RSA">
 		<param name="Local" value="hidd_show_key_parameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Cryptology">
+		<param name="Name" value="Cryptology">
 		<param name="Name" value="Cryptographic mechanisms">
 		<param name="Local" value="crypto_methods.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="CrypTool">
+		<param name="Name" value="CrypTool">
 		<param name="Name" value="CrypTool">
 		<param name="Local" value="cryptool.html">
 		<param name="Name" value="CrypTool screenshot">
@@ -438,27 +440,27 @@
 		<param name="Local" value="hidd_about.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="CrypTool help">
+		<param name="Name" value="CrypTool help">
 		<param name="Name" value="Help">
 		<param name="Local" value="hilfeueberhilfe.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="CrypTool.ini">
+		<param name="Name" value="CrypTool.ini">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Cryptosystem">
+		<param name="Name" value="Cryptosystem">
 		<param name="Name" value="The RSA Cryptosystem (demonstration)">
 		<param name="Local" value="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Decompression">
+		<param name="Name" value="Decompression">
 		<param name="Name" value="Decompression (UnZip)">
 		<param name="Local" value="hid_unzip.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Decryption">
+		<param name="Name" value="Decryption">
 		<param name="Name" value="The Crypt Menu">
 		<param name="Local" value="menu_crypt.html">
 		<param name="Name" value="RSA Decryption">
@@ -473,12 +475,12 @@
 		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridentschlsselung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Default Settings">
+		<param name="Name" value="Default Settings">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Demonstration">
+		<param name="Name" value="Demonstration">
 		<param name="Name" value="How to work through the examples">
 		<param name="Local" value="hid_hilfe_szenarien.html">
 		<param name="Name" value="The RSA Cryptosystem (demonstration)">
@@ -507,34 +509,34 @@
 		<param name="Local" value="hidd_signature_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DES">
+		<param name="Name" value="DES">
 		<param name="Name" value="AES candidates">
 		<param name="Local" value="aes.html">
 		<param name="Name" value="DES (Data Encryption Standard)">
 		<param name="Local" value="des_info.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DES (CBC) encryption algorithm">
+		<param name="Name" value="DES (CBC) encryption algorithm">
 		<param name="Name" value="The DES (CBC) encryption algorithm">
 		<param name="Local" value="hid_crypt_des_descbc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DES (ECB) encryption algorithm">
+		<param name="Name" value="DES (ECB) encryption algorithm">
 		<param name="Name" value="The DES (ECB) encryption algorithm">
 		<param name="Local" value="hid_crypt_des_desecb.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DES encryption algorithm in CBC mode">
+		<param name="Name" value="DES encryption algorithm in CBC mode">
 		<param name="Name" value="Automatic analysis, DES encryption algorithm in CBC mode">
 		<param name="Local" value="hid_analyse_descbc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DES encryption algorithm in ECB mode">
+		<param name="Name" value="DES encryption algorithm in ECB mode">
 		<param name="Name" value="Automatic analysis, DES encryption algorithm in ECB mode">
 		<param name="Local" value="hid_analyse_desecb.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Dialogue">
+		<param name="Name" value="Dialogue">
 		<param name="Name" value="Dialogue homophonic substitution">
 		<param name="Local" value="hidd_key_homophone.html">
 		<param name="Name" value="Dialogue Permutation">
@@ -653,67 +655,67 @@
 		<param name="Local" value="hidd_hash_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Dialogue of sisters">
+		<param name="Name" value="Dialogue of sisters">
 		<param name="Name" value="Dialogue of sisters">
 		<param name="Local" value="rsa_demo_variant.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Dictionary attack">
+		<param name="Name" value="Dictionary attack">
 		<param name="Name" value="Dialogue Key Generation from Password">
 		<param name="Local" value="hid_einzelverfahren_schluesselgenerieren.html">
 		<param name="Name" value="Dictionary attacks on passwords">
 		<param name="Local" value="textboock_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Diffie-Hellman">
+		<param name="Name" value="Diffie-Hellman">
 		<param name="Name" value="Diffie-Hellman">
 		<param name="Local" value="diffie_hellman.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Diffie-Hellman Key Exchange">
+		<param name="Name" value="Diffie-Hellman Key Exchange">
 		<param name="Local" value="dh-verfahren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Diffie-Hellman Key Exchange (exemplary)">
+		<param name="Name" value="Diffie-Hellman Key Exchange (exemplary)">
 		<param name="Local" value="diffie-hellman-beispiel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Digital signature">
+		<param name="Name" value="Digital signature">
 		<param name="Name" value="Attack on the hash value of the digital signature">
 		<param name="Local" value="hidd_signature_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Digital Signatures">
+		<param name="Name" value="Digital Signatures">
 		<param name="Name" value="Digital Signatures">
 		<param name="Local" value="add_digital_signatures.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Digital signing">
+		<param name="Name" value="Digital signing">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Digital signing of messages">
+		<param name="Name" value="Digital signing of messages">
 		<param name="Name" value="Digital signing of messages">
 		<param name="Local" value="rsa_demo_signature.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Digram">
+		<param name="Name" value="Digram">
 		<param name="Name" value="Viewing N-Gram List of the document">
 		<param name="Local" value="hid_analyse_ngram.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DIN">
+		<param name="Name" value="DIN">
 		<param name="Name" value="National Institute of Standards and Technology (NIST)">
 		<param name="Local" value="nist.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Display keys">
+		<param name="Name" value="Display keys">
 		<param name="Name" value="Display keys">
 		<param name="Local" value="hid_show_all_ec_keys.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Distribution">
+		<param name="Name" value="Distribution">
 		<param name="Name" value="Normal distribution">
 		<param name="Local" value="norm_vert.html">
 		<param name="Name" value="Chi^2 distribution">
@@ -722,17 +724,17 @@
 		<param name="Local" value="gleichver.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Document">
+		<param name="Name" value="Document">
 		<param name="Name" value="Document">
 		<param name="Local" value="dokument.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Drawing parameters">
+		<param name="Name" value="Drawing parameters">
 		<param name="Name" value="Dialogue Drawing parameters">
 		<param name="Local" value="hidd_dialog_plot_param.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="DSA">
+		<param name="Name" value="DSA">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		<param name="Name" value="DSA Signature">
@@ -741,39 +743,39 @@
 		<param name="Local" value="add_digital_signatures.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ECB mode">
+		<param name="Name" value="ECB mode">
 		<param name="Name" value="ECB mode">
 		<param name="Local" value="ecbmodus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ECSP-DSA signature">
+		<param name="Name" value="ECSP-DSA signature">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ECSP-NR signature">
+		<param name="Name" value="ECSP-NR signature">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Elliptic curve key">
+		<param name="Name" value="Elliptic curve key">
 		<param name="Name" value="Dialogue Create public and private key for elliptic curves">
 		<param name="Local" value="hidd_show_parameter_key_ec.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Elliptic curve signature">
+		<param name="Name" value="Elliptic curve signature">
 		<param name="Name" value="Digital Signatures">
 		<param name="Local" value="add_digital_signatures.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Elliptic curves">
+		<param name="Name" value="Elliptic curves">
 		<param name="Name" value="Dialogue Available keys for elliptic curves">
 		<param name="Local" value="hidd_dialog_show_availab_asym.html">
 		<param name="Name" value="Elliptic curves">
 		<param name="Local" value="ellipkurven.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Encryption">
+		<param name="Name" value="Encryption">
 		<param name="Name" value="The Crypt Menu">
 		<param name="Local" value="menu_crypt.html">
 		<param name="Name" value="Dialogue homophonic substitution">
@@ -808,7 +810,7 @@
 		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Encryption algorithm">
+		<param name="Name" value="Encryption algorithm">
 		<param name="Name" value="RSA Encryption">
 		<param name="Local" value="hid_crypt_rsaenc.html">
 		<param name="Name" value="The Caesar encryption algorithm">
@@ -861,166 +863,166 @@
 		<param name="Local" value="add_digital_signatures.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Encryption using binary addition">
+		<param name="Name" value="Encryption using binary addition">
 		<param name="Name" value="Example illustrating encryption using binary addition">
 		<param name="Local" value="szenarien_addition.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Encryption using binary exclusive-OR">
+		<param name="Name" value="Encryption using binary exclusive-OR">
 		<param name="Name" value="Example illustrating encryption using binary Exclusive-OR">
 		<param name="Local" value="szenarien_xor.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ENIGMA">
+		<param name="Name" value="ENIGMA">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Entropy">
+		<param name="Name" value="Entropy">
 		<param name="Name" value="Calculation the entropy of a document">
 		<param name="Local" value="hid_entropy.html">
 		<param name="Name" value="Entropy">
 		<param name="Local" value="entropie.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Evenly distributed random sequences">
+		<param name="Name" value="Evenly distributed random sequences">
 		<param name="Name" value="Evenly distributed random sequences">
 		<param name="Local" value="gleichm.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Caesar encryption">
+		<param name="Name" value="Example Caesar encryption">
 		<param name="Name" value="Example illustrating the Caesar encryption algorithm">
 		<param name="Local" value="szenarien_caesar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Encryption using binary addition">
+		<param name="Name" value="Example Encryption using binary addition">
 		<param name="Name" value="Example illustrating encryption using binary addition">
 		<param name="Local" value="szenarien_addition.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Encryption using binary exclusive-OR">
+		<param name="Name" value="Example Encryption using binary exclusive-OR">
 		<param name="Name" value="Example illustrating encryption using binary Exclusive-OR">
 		<param name="Local" value="szenarien_xor.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Hill encryption">
+		<param name="Name" value="Example Hill encryption">
 		<param name="Name" value="Example illustrating the Hill encryption algorithm">
 		<param name="Local" value="szenarien_hill.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example illustrating the RSA demonstration">
+		<param name="Name" value="Example illustrating the RSA demonstration">
 		<param name="Name" value="Example illustrating the RSA demonstration">
 		<param name="Local" value="szenarien_rsa_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Monoalphabetic substitution">
+		<param name="Name" value="Example Monoalphabetic substitution">
 		<param name="Name" value="Example illustrating encryption using monoalphabetic substitution">
 		<param name="Local" value="szenarien_monosubst.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Playfair encryption algorithm">
+		<param name="Name" value="Example Playfair encryption algorithm">
 		<param name="Name" value="Example illustrating the Playfair encryption algorithm">
 		<param name="Local" value="szenarien_playfair.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example RSA encryption algorithm to signature creation">
+		<param name="Name" value="Example RSA encryption algorithm to signature creation">
 		<param name="Name" value="Example illustrating the application of the RSA encryption algorithm to signature creation">
 		<param name="Local" value="szenarien_rsa_signatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Triple-DES encryption algorithm in CBC mode">
+		<param name="Name" value="Example Triple-DES encryption algorithm in CBC mode">
 		<param name="Name" value="Example illustrating the Triple-DES encryption algorithm in CBC mode">
 		<param name="Local" value="szenarien_tripledescbc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Vernam encryption algorithm">
+		<param name="Name" value="Example Vernam encryption algorithm">
 		<param name="Name" value="Example illustrating the Vernam encryption algorithm">
 		<param name="Local" value="szenarien_vernam.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Example Vigenère encryption">
+		<param name="Name" value="Example Vigen&egrave;re encryption">
 		<param name="Name" value="Example illustrating the Vigenère encryption algorithm">
 		<param name="Local" value="szenarien_vigenere.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Examples">
+		<param name="Name" value="Examples">
 		<param name="Name" value="How to work through the examples">
 		<param name="Local" value="hid_hilfe_szenarien.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Examples of different kinds of attack">
+		<param name="Name" value="Examples of different kinds of attack">
 		<param name="Name" value="Examples of different kinds of attack">
 		<param name="Local" value="angriffe.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Exclusion of liability clause">
+		<param name="Name" value="Exclusion of liability clause">
 		<param name="Name" value="Exclusion of liability clause">
 		<param name="Local" value="gewaehrleistung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Exit">
+		<param name="Name" value="Exit">
 		<param name="Name" value="The Exit menu option (File menu)">
 		<param name="Local" value="hid_app_exit.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Exponentation">
+		<param name="Name" value="Exponentation">
 		<param name="Name" value="Square and multiply exponentiation">
 		<param name="Local" value="rsa_demo_square_and_multiply.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Export (certificate)">
+		<param name="Name" value="Export (certificate)">
 		<param name="Name" value="PKCS12 Import / Export">
 		<param name="Local" value="pkcs12_import_export.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Extract">
+		<param name="Name" value="Extract">
 		<param name="Name" value="Extracting a signature">
 		<param name="Local" value="hid_crypt_extract.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Extracted signature">
+		<param name="Name" value="Extracted signature">
 		<param name="Name" value="Dialogue Extracted signature">
 		<param name="Local" value="hidd_extract_signature.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="F1">
+		<param name="Name" value="F1">
 		<param name="Name" value="Help">
 		<param name="Local" value="hilfeueberhilfe.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Factorisation">
+		<param name="Name" value="Factorisation">
 		<param name="Name" value="Factorisation algorithm">
 		<param name="Local" value="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">
 		<param name="Name" value="Factorisation Timer">
 		<param name="Local" value="hidd_progress_factorisation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Factorisation attack">
+		<param name="Name" value="Factorisation attack">
 		<param name="Name" value="Factorisation attack on RSA">
 		<param name="Local" value="rsa_demo_factorisation_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Factorisation list">
+		<param name="Name" value="Factorisation list">
 		<param name="Name" value="Dialogue Factorisation list">
 		<param name="Local" value="hidd_factorisation_list.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Fast Exponentation">
+		<param name="Name" value="Fast Exponentation">
 		<param name="Name" value="Square and multiply exponentiation">
 		<param name="Local" value="rsa_demo_square_and_multiply.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="File">
+		<param name="Name" value="File">
 		<param name="Name" value="File">
 		<param name="Local" value="datei.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Files">
+		<param name="Name" value="Files">
 		<param name="See Also" value="Files">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Keyword" value="handling">
+			<param name="Name" value="handling">
 			<param name="Name" value="The File menu">
 			<param name="Local" value="menu_file.html">
 			<param name="Name" value="The New menu option (File menu)">
@@ -1038,19 +1040,19 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="FIPS-PUB-140-1 test battery">
+		<param name="Name" value="FIPS-PUB-140-1 test battery">
 		<param name="Name" value="FIPS-PUB-140-1 test battery">
 		<param name="Local" value="hid_analyse_zufallstests_fipspub1401.html">
 		<param name="Name" value="Dialogue for FIPS-PUB-140-1 test battery">
 		<param name="Local" value="hidd_fips_pub_140_1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Floating entropy">
+		<param name="Name" value="Floating entropy">
 		<param name="Name" value="Floating entropy">
 		<param name="Local" value="hid_floating.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Frequency test">
+		<param name="Name" value="Frequency test">
 		<param name="Name" value="Frequency test">
 		<param name="Local" value="hid_analyse_zufallstests_frequencytest.html">
 		<param name="Name" value="Frequency/Poker/Serial tests">
@@ -1059,22 +1061,22 @@
 		<param name="Local" value="dialog_frequency.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Gaps">
+		<param name="Name" value="Gaps">
 		<param name="Name" value="Blocks and gaps">
 		<param name="Local" value="block_lueck.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Generate">
+		<param name="Name" value="Generate">
 		<param name="Name" value="Generate asymmetric Key">
 		<param name="Local" value="hid_crypt_keygen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Generate RSA Key">
+		<param name="Name" value="Generate RSA Key">
 		<param name="Name" value="Generate RSA Key">
 		<param name="Local" value="hidd_demo_rsakey_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Generation">
+		<param name="Name" value="Generation">
 		<param name="Name" value="Dialogue Generation of asymmetric key pair">
 		<param name="Local" value="hidd_keyasym_generation.html">
 		<param name="Name" value="Generate prime numbers">
@@ -1083,12 +1085,12 @@
 		<param name="Local" value="rsa_demo_key_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Generation of asymmetric key pair">
+		<param name="Name" value="Generation of asymmetric key pair">
 		<param name="Name" value="Dialogue Generation of asymmetric key pair">
 		<param name="Local" value="hidd_keyasym_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Generator">
+		<param name="Name" value="Generator">
 		<param name="Name" value="Pseudorandom generator">
 		<param name="Local" value="pseudozufalls_generatoren.html">
 		<param name="Name" value="Generation of Random Numbers">
@@ -1103,64 +1105,64 @@
 		<param name="Local" value="hidd_icg_randomparameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="GGT">
+		<param name="Name" value="GGT">
 		<param name="Name" value="Relatively prime">
 		<param name="Local" value="rsa_demo_ggt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="GnuPG">
+		<param name="Name" value="GnuPG">
 		<param name="Name" value="PGP">
 		<param name="Local" value="pgp.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Graph">
+		<param name="Name" value="Graph">
 		<param name="Name" value="Switching between bar chart and graph">
 		<param name="Local" value="hid_plotbar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Graphic display options">
+		<param name="Name" value="Graphic display options">
 		<param name="Name" value="Basic settings for graphic displays">
 		<param name="Local" value="hid_options_plot.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Graphic options">
+		<param name="Name" value="Graphic options">
 		<param name="Name" value="Adjusting the line thickness in bar charts and graphs">
 		<param name="Local" value="hid_barwidth.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Graphic output">
+		<param name="Name" value="Graphic output">
 		<param name="Name" value="Histogram display">
 		<param name="Local" value="hidr_plottype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash">
+		<param name="Name" value="Hash">
 		<param name="Name" value="Hash dialogue">
 		<param name="Local" value="hidd_show_hash.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash collision">
+		<param name="Name" value="Hash collision">
 		<param name="Name" value="Attack on the hash value of the digital signature">
 		<param name="Local" value="hid_signatur_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash Demonstration">
+		<param name="Name" value="Hash Demonstration">
 		<param name="Name" value="Hash Demonstration">
 		<param name="Local" value="hid_einzelverfahren_hashwerte_hashdemo.html">
 		<param name="Name" value="Dialogue Hash Demonstration">
 		<param name="Local" value="hidd_hash_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash function">
+		<param name="Name" value="Hash function">
 		<param name="Name" value="Hash function">
 		<param name="Local" value="hashfunktion.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash submenu">
+		<param name="Name" value="Hash submenu">
 		<param name="Name" value="The Hash submenu">
 		<param name="Local" value="menu_hash.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash value">
+		<param name="Name" value="Hash value">
 		<param name="Name" value="The Hash submenu">
 		<param name="Local" value="menu_hash.html">
 		<param name="Name" value="MD2 Hash value">
@@ -1181,84 +1183,84 @@
 		<param name="Local" value="hid_einzelverfahren_schluesselgenerieren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hash value of a file">
+		<param name="Name" value="Hash value of a file">
 		<param name="Name" value="Hash value, file">
 		<param name="Local" value="hid_hash_ofafile.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Help">
+		<param name="Name" value="Help">
 		<param name="Name" value="CrypTool Help Index">
 		<param name="Local" value="main_index.html">
 		<param name="Name" value="Help">
 		<param name="Local" value="hilfeueberhilfe.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hex dump representation">
+		<param name="Name" value="Hex dump representation">
 		<param name="Name" value="Show as hexdump">
 		<param name="Local" value="hid_tohex.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hexadecimal inputs and outputs">
+		<param name="Name" value="Hexadecimal inputs and outputs">
 		<param name="Name" value="Window for hexadecimal inputs and outputs">
 		<param name="Local" value="hidr_hextype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hill analysis">
+		<param name="Name" value="Hill analysis">
 		<param name="Name" value="Automatic Analysis, Hill encryption algorithm">
 		<param name="Local" value="hid_hill_auto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hill cipher">
+		<param name="Name" value="Hill cipher">
 		<param name="Name" value="Dialogue Key for Hill cipher (key input for Hill encryption algorithm)">
 		<param name="Local" value="hidd_key_hill5x5.html">
 		<param name="Name" value="Dialogue Key for Hill cipher (key output for Hill encryption algorithm)">
 		<param name="Local" value="hidd_show_key_hill5x5.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hill encryption">
+		<param name="Name" value="Hill encryption">
 		<param name="Name" value="Example illustrating the Hill encryption algorithm">
 		<param name="Local" value="szenarien_hill.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hill encryption algorithm">
+		<param name="Name" value="Hill encryption algorithm">
 		<param name="Name" value="The Hill encryption algorithm">
 		<param name="Local" value="hid_hill.html">
 		<param name="Name" value="Dialogue Analysis Hill cipher">
 		<param name="Local" value="hidd_hill_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Histogram">
+		<param name="Name" value="Histogram">
 		<param name="Name" value="Viewing N-Gram List of the document">
 		<param name="Local" value="hid_analyse_ngram.html">
 		<param name="Name" value="Histogram">
 		<param name="Local" value="histogramm.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Histogram display">
+		<param name="Name" value="Histogram display">
 		<param name="Name" value="Histogram display">
 		<param name="Local" value="hidr_plottype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="History">
+		<param name="Name" value="History">
 		<param name="Name" value="Time-table / Time-travel through cryptography">
 		<param name="Local" value="menu_zeittafel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Homophonic substitution">
+		<param name="Name" value="Homophonic substitution">
 		<param name="Name" value="Homophonic substitution">
 		<param name="Local" value="hid_homophone_asc.html">
 		<param name="Name" value="Dialogue homophonic substitution">
 		<param name="Local" value="hidd_key_homophone.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hybrid decryption">
+		<param name="Name" value="Hybrid decryption">
 		<param name="Name" value="Hybrid decryption">
 		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridentschlsselung.html">
 		<param name="Name" value="Dialogue Hybrid decryption">
 		<param name="Local" value="hidd_hybrid_decryption_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hybrid encryption">
+		<param name="Name" value="Hybrid encryption">
 		<param name="Name" value="The Crypt Menu">
 		<param name="Local" value="menu_crypt.html#menu_hybrid">
 		<param name="Name" value="Visualisations">
@@ -1267,34 +1269,34 @@
 		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Hypothesis H0">
+		<param name="Name" value="Hypothesis H0">
 		<param name="Name" value="Hypothesis H0">
 		<param name="Local" value="hyp_h0.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="IDEA encryption algorithm">
+		<param name="Name" value="IDEA encryption algorithm">
 		<param name="Name" value="The IDEA encryption algorithm">
 		<param name="Local" value="hid_crypt_idea.html">
 		<param name="Name" value="Automatic analysis, IDEA encryption algorithm">
 		<param name="Local" value="hid_analyse_idea.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Import (certificate)">
+		<param name="Name" value="Import (certificate)">
 		<param name="Name" value="PKCS12 Import / Export">
 		<param name="Local" value="pkcs12_import_export.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Independent random sequences">
+		<param name="Name" value="Independent random sequences">
 		<param name="Name" value="Independent random sequences">
 		<param name="Local" value="unabh.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Indicator display">
+		<param name="Name" value="Indicator display">
 		<param name="Name" value="Dialogue Progress indicator display">
 		<param name="Local" value="hidd_show_progress.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Individual procedures">
+		<param name="Name" value="Individual procedures">
 		<param name="Name" value="Individual procedures Menu">
 		<param name="Local" value="menu_related_methods.html">
 		<param name="Name" value="The RSA Demonstration submenu">
@@ -1307,37 +1309,37 @@
 		<param name="Local" value="hid_einzelverfahren_hashwerte_hashdemo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Initialization file">
+		<param name="Name" value="Initialization file">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Interoperability">
+		<param name="Name" value="Interoperability">
 		<param name="Name" value="Standards">
 		<param name="Local" value="standards.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Introduction">
+		<param name="Name" value="Introduction">
 		<param name="Name" value="An Introduction to CrypTool">
 		<param name="Local" value="hidd_tipps_and_tricks.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Inverse Congruence Generator">
+		<param name="Name" value="Inverse Congruence Generator">
 		<param name="Name" value="Inverse Congruence Generator">
 		<param name="Local" value="hidd_icg_randomparameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Inverse for permutation encryption">
+		<param name="Name" value="Inverse for permutation encryption">
 		<param name="Name" value="Used Permutation and its Inverse">
 		<param name="Local" value="hidd_key_permutation_info.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ISIS / MTT">
+		<param name="Name" value="ISIS / MTT">
 		<param name="Name" value="Standards">
 		<param name="Local" value="standards.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key">
+		<param name="Name" value="Key">
 		<param name="Name" value="Display keys">
 		<param name="Local" value="hid_show_all_ec_keys.html">
 		<param name="Name" value="Generate asymmetric Key">
@@ -1366,41 +1368,41 @@
 		<param name="Local" value="rsa_demo_key_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key (asymmetric)">
+		<param name="Name" value="Key (asymmetric)">
 		<param name="Name" value="Dialogue Create Certificate and PSE">
 		<param name="Local" value="hidd_certificate_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key entry">
+		<param name="Name" value="Key entry">
 		<param name="Name" value="Dialogue Key entry for classical and symmetric encryption algorithms">
 		<param name="Local" value="hidd_key.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key exchange">
+		<param name="Name" value="Key exchange">
 		<param name="Name" value="Key exchange / Key management">
 		<param name="Local" value="keyexchange.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key identifier">
+		<param name="Name" value="Key identifier">
 		<param name="Name" value="Key identifier">
 		<param name="Local" value="schluesselbezeichner.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key length">
+		<param name="Name" value="Key length">
 		<param name="Name" value="Key length">
 		<param name="Local" value="schluessellaenge.html">
 		<param name="Name" value="Bit length of an RSA key">
 		<param name="Local" value="rsa_demo_bitlength.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key management">
+		<param name="Name" value="Key management">
 		<param name="Name" value="The Key management Menu">
 		<param name="Local" value="menu_key.html">
 		<param name="Name" value="Key exchange / Key management">
 		<param name="Local" value="keyexchange.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key pair">
+		<param name="Name" value="Key pair">
 		<param name="Name" value="Dialogue Generation of asymmetric key pair">
 		<param name="Local" value="hidd_keyasym_generation.html">
 		<param name="Name" value="Dialogue Create public and private key for elliptic curves">
@@ -1411,72 +1413,72 @@
 		<param name="Local" value="schluesselbezeichner.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key presentation">
+		<param name="Name" value="Key presentation">
 		<param name="Name" value="Key presentation">
 		<param name="Local" value="key_representation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Key range">
+		<param name="Name" value="Key range">
 		<param name="Name" value="Dialogue key range">
 		<param name="Local" value="hidd_bruteforce.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Known Plaintext attack">
+		<param name="Name" value="Known Plaintext attack">
 		<param name="Name" value="Known Plaintext attack">
 		<param name="Local" value="knownplaintextangriff.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Letter string inputs and outputs">
+		<param name="Name" value="Letter string inputs and outputs">
 		<param name="Name" value="Window for letter string inputs and outputs">
 		<param name="Local" value="hidr_asctype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Line thickness in bar charts and graphs">
+		<param name="Name" value="Line thickness in bar charts and graphs">
 		<param name="Name" value="Adjusting the line thickness in bar charts and graphs">
 		<param name="Local" value="hid_barwidth.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Links">
+		<param name="Name" value="Links">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Literature">
+		<param name="Name" value="Literature">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Manual Post-processing (monoalphabetic substitution)">
+		<param name="Name" value="Manual Post-processing (monoalphabetic substitution)">
 		<param name="Name" value="Dialogue Manual Post-processing (monoalphabetic substitution)">
 		<param name="Local" value="hidd_manual_subst_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="MARS encryption algorithm">
+		<param name="Name" value="MARS encryption algorithm">
 		<param name="Name" value="Automatic analysis, MARS encryption algorithm">
 		<param name="Local" value="hid_analyse_aes_mars.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="MARS encryption algorithm (AES candidate)">
+		<param name="Name" value="MARS encryption algorithm (AES candidate)">
 		<param name="Name" value="The MARS encryption algorithm (AES candidate)">
 		<param name="Local" value="hid_crypt_aes_mars.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="MD2 Hash value">
+		<param name="Name" value="MD2 Hash value">
 		<param name="Name" value="MD2 Hash value">
 		<param name="Local" value="hid_crypt_hash_md2.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="MD4 Hash value">
+		<param name="Name" value="MD4 Hash value">
 		<param name="Name" value="MD4 hash value">
 		<param name="Local" value="hid_crypt_hash_md4.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="MD5 Hash value">
+		<param name="Name" value="MD5 Hash value">
 		<param name="Name" value="MD5 hash value">
 		<param name="Local" value="hid_crypt_hash_md5.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Menu">
+		<param name="Name" value="Menu">
 		<param name="Name" value="The File menu">
 		<param name="Local" value="menu_file.html">
 		<param name="Name" value="The Edit menu">
@@ -1511,22 +1513,22 @@
 		<param name="Local" value="menu_structure.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Menu Digital Signatures">
+		<param name="Name" value="Menu Digital Signatures">
 		<param name="Name" value="The Digital Signatures Menu">
 		<param name="Local" value="menu_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Methods">
+		<param name="Name" value="Methods">
 		<param name="Name" value="Cryptographic mechanisms">
 		<param name="Local" value="crypto_methods.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Modulo">
+		<param name="Name" value="Modulo">
 		<param name="Name" value="Modulo">
 		<param name="Local" value="modulo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Monoalphabetic substitution">
+		<param name="Name" value="Monoalphabetic substitution">
 		<param name="Name" value="Monoalphabetic substitution">
 		<param name="Local" value="hid_cryptmono.html">
 		<param name="Name" value="Dialogue Key Monoalphabetic substitution">
@@ -1537,27 +1539,27 @@
 		<param name="Local" value="szenarien_monosubst.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Monoalphabetic substitution analysis">
+		<param name="Name" value="Monoalphabetic substitution analysis">
 		<param name="Name" value="Automatic analysis, monoalphabetic substitution">
 		<param name="Local" value="hid_analyze_subst.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Monoalphabetic substitution)">
+		<param name="Name" value="Monoalphabetic substitution)">
 		<param name="Name" value="Dialogue Manual Post-processing (monoalphabetic substitution)">
 		<param name="Local" value="hidd_manual_subst_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="N-gram">
+		<param name="Name" value="N-gram">
 		<param name="Name" value="Viewing N-Gram List of the document">
 		<param name="Local" value="hid_analyse_ngram.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="N-Gram analysis">
+		<param name="Name" value="N-Gram analysis">
 		<param name="Name" value="Dialogue N-Gram list">
 		<param name="Local" value="hidd_ngram_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="NIST">
+		<param name="Name" value="NIST">
 		<param name="Name" value="AES candidates">
 		<param name="Local" value="aes.html">
 		<param name="Name" value="The AES-winner Rijndael">
@@ -1566,32 +1568,32 @@
 		<param name="Local" value="nist.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Normal distribution">
+		<param name="Name" value="Normal distribution">
 		<param name="Name" value="Normal distribution">
 		<param name="Local" value="norm_vert.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="NSA">
+		<param name="Name" value="NSA">
 		<param name="Name" value="NSA">
 		<param name="Local" value="nsa.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Offset">
+		<param name="Name" value="Offset">
 		<param name="Name" value="Offset">
 		<param name="Local" value="offst.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="One-time pad">
+		<param name="Name" value="One-time pad">
 		<param name="Name" value="The Vernam encryption algorithm">
 		<param name="Local" value="hid_vernam_bin.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="OpenPGP">
+		<param name="Name" value="OpenPGP">
 		<param name="Name" value="PGP">
 		<param name="Local" value="pgp.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Options">
+		<param name="Name" value="Options">
 		<param name="Name" value="The Options Menu">
 		<param name="Local" value="menu_options.html">
 		<param name="Name" value="Basic settings for graphic displays">
@@ -1610,86 +1612,86 @@
 		<param name="Local" value="hidd_options_substitution_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Options for alphabet and number system...">
+		<param name="Name" value="Options for alphabet and number system...">
 		<param name="Name" value="Options for alphabet and number system...">
 		<param name="Local" value="hidd_options_rsa_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Overview">
+		<param name="Name" value="Overview">
 		<param name="Name" value="Time-table / Time-travel through cryptography">
 		<param name="Local" value="menu_zeittafel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Parameter">
+		<param name="Name" value="Parameter">
 		<param name="Name" value="Choose Random generator-specific parameters">
 		<param name="Local" value="select_randomgeneratorparamater.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Passwords">
+		<param name="Name" value="Passwords">
 		<param name="Name" value="Dictionary attacks on passwords">
 		<param name="Local" value="textboock_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Pattern search">
+		<param name="Name" value="Pattern search">
 		<param name="Name" value="How the pattern search works">
 		<param name="Local" value="pattern_suche.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Period length">
+		<param name="Name" value="Period length">
 		<param name="Name" value="Period length of a pseudorandom number generator">
 		<param name="Local" value="periodenlänge.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Periodicity analysis">
+		<param name="Name" value="Periodicity analysis">
 		<param name="Name" value="Analysis of Periodicity">
 		<param name="Local" value="hid_analyse_period.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Permutation">
+		<param name="Name" value="Permutation">
 		<param name="Name" value="Skytale of Sparta">
 		<param name="Local" value="skytale.html">
 		<param name="Name" value="Used Permutation and its Inverse">
 		<param name="Local" value="hidd_key_permutation_info.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Permutation (scrambling)">
+		<param name="Name" value="Permutation (scrambling)">
 		<param name="Name" value="Permutation (scrambling)">
 		<param name="Local" value="hid_permutation_asc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Permutation key input">
+		<param name="Name" value="Permutation key input">
 		<param name="Name" value="Dialogue Permutation">
 		<param name="Local" value="hidd_key_permutation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="PGP">
+		<param name="Name" value="PGP">
 		<param name="Name" value="PGP">
 		<param name="Local" value="pgp.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Phi function of Euler">
+		<param name="Name" value="Phi function of Euler">
 		<param name="Name" value="Relatively prime">
 		<param name="Local" value="rsa_demo_ggt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="PIN">
+		<param name="Name" value="PIN">
 		<param name="Name" value="Dialogue Authorisation">
 		<param name="Local" value="hidd_pin_access.html">
 		<param name="Name" value="PIN Request Dialogue">
 		<param name="Local" value="hidd_change_pin.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="PKCS#12">
+		<param name="Name" value="PKCS#12">
 		<param name="Name" value="PKCS12 Import / Export">
 		<param name="Local" value="pkcs12_import_export.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="PKCS#5">
+		<param name="Name" value="PKCS#5">
 		<param name="Name" value="Dialogue Key Generation from Password">
 		<param name="Local" value="hid_einzelverfahren_schluesselgenerieren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Plaintext">
+		<param name="Name" value="Plaintext">
 		<param name="Name" value="Plaintext">
 		<param name="Local" value="klartext.html">
 		<param name="Name" value="Chosen Plaintext attack">
@@ -1698,29 +1700,29 @@
 		<param name="Local" value="knownplaintextangriff.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Playfair">
+		<param name="Name" value="Playfair">
 		<param name="Name" value="Dialogue Playfair (key input for Playfair encryption algorithm)">
 		<param name="Local" value="hidd_key_playfair.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Playfair analysis">
+		<param name="Name" value="Playfair analysis">
 		<param name="Name" value="Dialogue ”Playfair Analysis”">
 		<param name="Local" value="hidd_playfair_analysis.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Playfair encryption">
+		<param name="Name" value="Playfair encryption">
 		<param name="Name" value="Analysis tool, Playfair encryption">
 		<param name="Local" value="hid_analyse_playfair.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Playfair encryption algorithm">
+		<param name="Name" value="Playfair encryption algorithm">
 		<param name="Name" value="The Playfair encryption algorithm">
 		<param name="Local" value="hid_playfair_bin.html">
 		<param name="Name" value="Example illustrating the Playfair encryption algorithm">
 		<param name="Local" value="szenarien_playfair.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Poker test">
+		<param name="Name" value="Poker test">
 		<param name="Name" value="Poker test">
 		<param name="Local" value="hid_analyse_zufallstests_pokertest.html">
 		<param name="Name" value="Frequency/Poker/Serial tests">
@@ -1729,14 +1731,14 @@
 		<param name="Local" value="dialog_poker.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Prime numbers">
+		<param name="Name" value="Prime numbers">
 		<param name="Name" value="Prime numbers">
 		<param name="Local" value="primzahlen.html">
 		<param name="Name" value="Generate prime numbers">
 		<param name="Local" value="hid_einzelverfahren_tutorial_primzahlengenerieren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Print and print preview">
+		<param name="Name" value="Print and print preview">
 		<param name="Name" value="The Print menu option (File menu)">
 		<param name="Local" value="hid_file_print.html">
 		<param name="Name" value="The Print preview menu option (File menu)">
@@ -1747,42 +1749,42 @@
 		<param name="Local" value="hid_file_print_setup.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Private key">
+		<param name="Name" value="Private key">
 		<param name="Name" value="Dialogue Create public and private key for RSA">
 		<param name="Local" value="hidd_show_key_parameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Pseudorandom generator">
+		<param name="Name" value="Pseudorandom generator">
 		<param name="Name" value="Pseudorandom generator">
 		<param name="Local" value="pseudozufalls_generatoren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Public key">
+		<param name="Name" value="Public key">
 		<param name="Name" value="Dialogue Create public and private key for RSA">
 		<param name="Local" value="hidd_show_key_parameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Public parameter">
+		<param name="Name" value="Public parameter">
 		<param name="Name" value="Public parameter for RSA encryption and RSA signature verification">
 		<param name="Local" value="public_rsa_parameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Public parameters and secret key">
+		<param name="Name" value="Public parameters and secret key">
 		<param name="Name" value="Dialogue Public parameters and secret key">
 		<param name="Local" value="hidd_show_privatekey_ec.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Public RSA key">
+		<param name="Name" value="Public RSA key">
 		<param name="Name" value="Public RSA key">
 		<param name="Local" value="rsa_demo_public_key.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random">
+		<param name="Name" value="Random">
 		<param name="Name" value="Pseudorandom generator">
 		<param name="Local" value="pseudozufalls_generatoren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random generator">
+		<param name="Name" value="Random generator">
 		<param name="Name" value="Choose Random generator-specific parameters">
 		<param name="Local" value="select_randomgeneratorparamater.html">
 		<param name="Name" value="The Secude random generator">
@@ -1797,19 +1799,19 @@
 		<param name="Local" value="hidd_icg_randomparameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random numbers">
+		<param name="Name" value="Random numbers">
 		<param name="Name" value="Generation of Random Numbers">
 		<param name="Local" value="hid_zufall_generatoren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random sequence">
+		<param name="Name" value="Random sequence">
 		<param name="Name" value="Independent random sequences">
 		<param name="Local" value="unabh.html">
 		<param name="Name" value="Evenly distributed random sequences">
 		<param name="Local" value="gleichm.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random test">
+		<param name="Name" value="Random test">
 		<param name="Name" value="FIPS-PUB-140-1 test battery">
 		<param name="Local" value="hid_analyse_zufallstests_fipspub1401.html">
 		<param name="Name" value="Poker test">
@@ -1828,86 +1830,86 @@
 		<param name="Local" value="hidd_fips_pub_140_1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random test dialog">
+		<param name="Name" value="Random test dialog">
 		<param name="Name" value="Dialogue for Runs test">
 		<param name="Local" value="hidd_runs_test.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Random tests">
+		<param name="Name" value="Random tests">
 		<param name="Name" value="Menu options in the Random tests submenu">
 		<param name="Local" value="menu_analyserandomtest.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Randomness">
+		<param name="Name" value="Randomness">
 		<param name="Name" value="Randomness">
 		<param name="Local" value="zufall.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RC2 encryption algorithm">
+		<param name="Name" value="RC2 encryption algorithm">
 		<param name="Name" value="The RC2 encryption algorithm">
 		<param name="Local" value="hid_crypt_rc2.html">
 		<param name="Name" value="Automatic analysis, RC2 encryption algorithm">
 		<param name="Local" value="hid_analyse_rc2.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RC4 encryption algorithm">
+		<param name="Name" value="RC4 encryption algorithm">
 		<param name="Name" value="The RC4 encryption algorithm">
 		<param name="Local" value="hid_crypt_rc4.html">
 		<param name="Name" value="Automatic analysis, RC4 encryption algorithm">
 		<param name="Local" value="hid_analyse_rc4.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RC6 encryption algorithm">
+		<param name="Name" value="RC6 encryption algorithm">
 		<param name="Name" value="Automatic analysis, RC6 encryption algorithm">
 		<param name="Local" value="hid_analyse_aes_rc6.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RC6 encryption algorithm (AES candidate)">
+		<param name="Name" value="RC6 encryption algorithm (AES candidate)">
 		<param name="Name" value="The RC6 encryption algorithm (AES candidate)">
 		<param name="Local" value="hid_crypt_aes_rc6.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Readme">
+		<param name="Name" value="Readme">
 		<param name="Name" value="Readme">
 		<param name="Local" value="hid_load_readme.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="References">
+		<param name="Name" value="References">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Relative prime">
+		<param name="Name" value="Relative prime">
 		<param name="Name" value="Relatively prime">
 		<param name="Local" value="rsa_demo_ggt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Rijndael">
+		<param name="Name" value="Rijndael">
 		<param name="Name" value="The AES-winner Rijndael">
 		<param name="Local" value="aes_gewinner.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Rijndael encryption algorithm">
+		<param name="Name" value="Rijndael encryption algorithm">
 		<param name="Name" value="Automatic analysis, Rijndael encryption algorithm">
 		<param name="Local" value="hid_analyse_aes_rijndael.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Rijndael encryption algorithm (AES)">
+		<param name="Name" value="Rijndael encryption algorithm (AES)">
 		<param name="Name" value="The Rijndael encryption algorithm (AES)">
 		<param name="Local" value="hid_crypt_aes_rijndael.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RIPEMD-160 hash value">
+		<param name="Name" value="RIPEMD-160 hash value">
 		<param name="Name" value="RIPEMD-160 hash value">
 		<param name="Local" value="hid_crypt_hash_ripemd160.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ROT13">
+		<param name="Name" value="ROT13">
 		<param name="Name" value="The Caesar encryption algorithm">
 		<param name="Local" value="hid_caesar_asc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA">
+		<param name="Name" value="RSA">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		<param name="Name" value="Dialogue Create public and private key for RSA">
@@ -1950,119 +1952,116 @@
 		<param name="Local" value="hidd_certificate_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA cryptosystem">
+		<param name="Name" value="RSA cryptosystem">
 		<param name="Name" value="The RSA Cryptosystem (demonstration)">
 		<param name="Local" value="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA Cryptosystem (demonstration)">
+		<param name="Name" value="RSA Cryptosystem (demonstration)">
 		<param name="Name" value="The RSA Cryptosystem (demonstration)">
 		<param name="Local" value="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA Decryption">
+		<param name="Name" value="RSA Decryption">
 		<param name="Name" value="RSA Decryption">
 		<param name="Local" value="hid_crypt_rsadec.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA demonstration">
+		<param name="Name" value="RSA demonstration">
 		<param name="Name" value="Example illustrating the RSA demonstration">
 		<param name="Local" value="szenarien_rsa_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA Encryption">
+		<param name="Name" value="RSA Encryption">
 		<param name="Name" value="RSA Encryption">
 		<param name="Local" value="hid_crypt_rsaenc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA encryption algorithm to signature creation">
+		<param name="Name" value="RSA encryption algorithm to signature creation">
 		<param name="Name" value="Example illustrating the application of the RSA encryption algorithm to signature creation">
 		<param name="Local" value="szenarien_rsa_signatur.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA encryption in blocks">
+		<param name="Name" value="RSA encryption in blocks">
 		<param name="Name" value="RSA encryption in blocks">
 		<param name="Local" value="rsa_demo_sections.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA encryption of messages">
+		<param name="Name" value="RSA encryption of messages">
 		<param name="Name" value="RSA encryption of messages">
 		<param name="Local" value="rsa_demo_encryption.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA in blocks each of k characters">
+		<param name="Name" value="RSA in blocks each of k characters">
 		<param name="Name" value="RSA in blocks each of k characters">
 		<param name="Local" value="rsa_demo_segment_size.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA key generation">
+		<param name="Name" value="RSA key generation">
 		<param name="Name" value="RSA key generation">
 		<param name="Local" value="rsa_demo_key_generation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="RSA signature generation">
+		<param name="Name" value="RSA signature generation">
 		<param name="Name" value="RSA signature generation demo">
 		<param name="Local" value="hid_einzelverfahren_sign_doc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Run">
+		<param name="Name" value="Run">
 		<param name="Name" value="Blocks and gaps">
 		<param name="Local" value="block_lueck.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Runs test Dialogue">
+		<param name="Name" value="Runs test Dialogue">
 		<param name="Name" value="Dialogue for Runs test">
 		<param name="Local" value="hidd_runs_test.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Runs test menu">
+		<param name="Name" value="Runs test menu">
 		<param name="Name" value="Runs test menu">
 		<param name="Local" value="hid_analyse_zufallstests_runs.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Salt">
+		<param name="Name" value="Salt">
 		<param name="Name" value="Dialogue Key Generation from Password">
 		<param name="Local" value="hid_einzelverfahren_schluesselgenerieren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Scenario">
+		<param name="Name" value="Scenario">
 		<param name="Name" value="Example illustrating encryption using binary addition">
 		<param name="Local" value="szenarien_addition.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Screenshot">
+		<param name="Name" value="Screenshot">
 		<param name="Name" value="CrypTool screenshot">
 		<param name="Local" value="cryptoolfoto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Secret RSA key">
+		<param name="Name" value="Secret RSA key">
 		<param name="Name" value="Secret RSA key">
 		<param name="Local" value="rsa_demo_private_key.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Secude">
+		<param name="Name" value="Secude">
 		<param name="Name" value="Secude">
 		<param name="Local" value="add_secude.html">
-		<param name="Name" value="The Secude random generator">
+		<param name="Name" value="Secude IT Security GmbH">
+		<param name="Local" value="secude.html">
+		<param name="Name" value="Secude random generator">
 		<param name="Local" value="hidd_randomparameter_secude.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Secude GmbH">
-		<param name="Name" value="Secude GmbH">
-		<param name="Local" value="secude.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Security">
+		<param name="Name" value="Security">
 		<param name="Name" value="Secude">
 		<param name="Local" value="add_secude.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Select hash function">
+		<param name="Name" value="Select hash function">
 		<param name="Name" value="Select hash function">
 		<param name="Local" value="hidd_select_hashfunction.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Serial test">
+		<param name="Name" value="Serial test">
 		<param name="Name" value="Serial test">
 		<param name="Local" value="hid_analyse_zufallstests_serialtest.html">
 		<param name="Name" value="Frequency/Poker/Serial tests">
@@ -2071,52 +2070,52 @@
 		<param name="Local" value="dialog_serial.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Series of experiments">
+		<param name="Name" value="Series of experiments">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Series of tests">
+		<param name="Name" value="Series of tests">
 		<param name="Name" value="The CrypTool initialization file">
 		<param name="Local" value="cryptool_ini.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Serpent encryption algorithm">
+		<param name="Name" value="Serpent encryption algorithm">
 		<param name="Name" value="Automatic analysis, Serpent encryption algorithm">
 		<param name="Local" value="hid_analyse_aes_serpent.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Serpent encryption algorithm (AES candidate)">
+		<param name="Name" value="Serpent encryption algorithm (AES candidate)">
 		<param name="Name" value="The Serpent encryption algorithm (AES candidate)">
 		<param name="Local" value="hid_crypt_aes_serpent.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="SHA Hash value">
+		<param name="Name" value="SHA Hash value">
 		<param name="Name" value="SHA hash value">
 		<param name="Local" value="hid_crypt_hash_sha.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="SHA-1 Hash value">
+		<param name="Name" value="SHA-1 Hash value">
 		<param name="Name" value="SHA-1 hash value">
 		<param name="Local" value="hid_crypt_hash_sha1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Short story">
+		<param name="Name" value="Short story">
 		<param name="Name" value="Dialogue of sisters">
 		<param name="Local" value="rsa_demo_variant.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Show as hexdump">
+		<param name="Name" value="Show as hexdump">
 		<param name="Name" value="Show as hexdump">
 		<param name="Local" value="hid_tohex.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Show as text">
+		<param name="Name" value="Show as text">
 		<param name="Name" value="Show as text">
 		<param name="Local" value="hid_totxt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Signature">
+		<param name="Name" value="Signature">
 		<param name="Name" value="The Digital Signatures Menu">
 		<param name="Local" value="menu_sign.html">
 		<param name="Name" value="Signature verification">
@@ -2139,12 +2138,12 @@
 		<param name="Local" value="hid_einzelverfahren_sign_doc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Signature algorithm">
+		<param name="Name" value="Signature algorithm">
 		<param name="Name" value="DSA Signature">
 		<param name="Local" value="dsa.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Signature generation">
+		<param name="Name" value="Signature generation">
 		<param name="Name" value="Dialogue Create message signature">
 		<param name="Local" value="hidd_signature.html">
 		<param name="Name" value="Dialogue Signature generation - step by step">
@@ -2153,7 +2152,7 @@
 		<param name="Local" value="hidd_signature_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Signature verification">
+		<param name="Name" value="Signature verification">
 		<param name="Name" value="Dialogue Signature verification">
 		<param name="Local" value="hidd_verify_signature.html">
 		<param name="Name" value="Dialogue Signature verification - step by step">
@@ -2162,52 +2161,52 @@
 		<param name="Local" value="public_rsa_parameter.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Significance level">
+		<param name="Name" value="Significance level">
 		<param name="Name" value="Significance level">
 		<param name="Local" value="sign_niv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Signing a document">
+		<param name="Name" value="Signing a document">
 		<param name="Name" value="Signing a document">
 		<param name="Local" value="hid_crypt_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Skytale">
+		<param name="Name" value="Skytale">
 		<param name="Name" value="Skytale of Sparta">
 		<param name="Local" value="skytale.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Sponsors">
+		<param name="Name" value="Sponsors">
 		<param name="Name" value="About CrypTool">
 		<param name="Local" value="hidd_about.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Square and multiply exponentiation">
+		<param name="Name" value="Square and multiply exponentiation">
 		<param name="Name" value="Square and multiply exponentiation">
 		<param name="Local" value="rsa_demo_square_and_multiply.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Standards">
+		<param name="Name" value="Standards">
 		<param name="Name" value="Standards">
 		<param name="Local" value="standards.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Start">
+		<param name="Name" value="Start">
 		<param name="Name" value="An Introduction to CrypTool">
 		<param name="Local" value="hidd_tipps_and_tricks.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Starting options">
+		<param name="Name" value="Starting options">
 		<param name="Name" value="Starting options">
 		<param name="Local" value="hid_options_startoptions.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Starting page">
+		<param name="Name" value="Starting page">
 		<param name="Name" value="An Introduction to CrypTool">
 		<param name="Local" value="hidd_tipps_and_tricks.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Statistic">
+		<param name="Name" value="Statistic">
 		<param name="Name" value="Normal distribution">
 		<param name="Local" value="norm_vert.html">
 		<param name="Name" value="Chi^2 distribution">
@@ -2224,19 +2223,19 @@
 		<param name="Local" value="hidd_frq_test.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Status bar">
+		<param name="Name" value="Status bar">
 		<param name="Name" value="The Status Bar menu option (View menu)">
 		<param name="Local" value="hid_view_status_bar.html">
 		<param name="Name" value="Status bar">
 		<param name="Local" value="afx_hidw_status_bar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Sub menu">
+		<param name="Name" value="Sub menu">
 		<param name="Name" value="Menues and sub menues of CrypTool">
 		<param name="Local" value="menu_structure.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Symmetric">
+		<param name="Name" value="Symmetric">
 		<param name="Name" value="The RC2 encryption algorithm">
 		<param name="Local" value="hid_crypt_rc2.html">
 		<param name="Name" value="AES candidates">
@@ -2245,188 +2244,188 @@
 		<param name="Local" value="hid_aes_selfextract.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Symmetric encryption">
+		<param name="Name" value="Symmetric encryption">
 		<param name="Name" value="CBC mode">
 		<param name="Local" value="cbcmodus.html">
 		<param name="Name" value="ECB mode">
 		<param name="Local" value="ecbmodus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Test battery">
+		<param name="Name" value="Test battery">
 		<param name="Name" value="Dialogue for FIPS-PUB-140-1 test battery">
 		<param name="Local" value="hidd_fips_pub_140_1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Test length">
+		<param name="Name" value="Test length">
 		<param name="Name" value="Test length">
 		<param name="Local" value="testlen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Text options">
+		<param name="Name" value="Text options">
 		<param name="Name" value="Text options">
 		<param name="Local" value="hid_opttext.html">
 		<param name="Name" value="Dialogue Text options">
 		<param name="Local" value="hidd_text_options.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Text representation">
+		<param name="Name" value="Text representation">
 		<param name="Name" value="Show as text">
 		<param name="Local" value="hid_totxt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Textual inputs and outputs">
+		<param name="Name" value="Textual inputs and outputs">
 		<param name="Name" value="Window for textual inputs and outputs">
 		<param name="Local" value="hidr_texttype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="The RSA Demonstration">
+		<param name="Name" value="The RSA Demonstration">
 		<param name="Name" value="The RSA Demonstration submenu">
 		<param name="Local" value="menu_tutorial_for_small_numbers.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Time-table">
+		<param name="Name" value="Time-table">
 		<param name="Name" value="Time-table / Time-travel through cryptography">
 		<param name="Local" value="menu_zeittafel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Timer">
+		<param name="Name" value="Timer">
 		<param name="Name" value="Factorisation Timer">
 		<param name="Local" value="hidd_progress_factorisation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Toolbar">
+		<param name="Name" value="Toolbar">
 		<param name="Name" value="Toolbar">
 		<param name="Local" value="afx_hidw_toolbar.html">
 		<param name="Name" value="The Toolbar menu option (View menu)">
 		<param name="Local" value="hid_view_toolbar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Trigram">
+		<param name="Name" value="Trigram">
 		<param name="Name" value="Viewing N-Gram List of the document">
 		<param name="Local" value="hid_analyse_ngram.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Triple DES (CBC) encryption algorithm">
+		<param name="Name" value="Triple DES (CBC) encryption algorithm">
 		<param name="Name" value="The Triple-DES (CBC) encryption algorithm">
 		<param name="Local" value="hid_crypt_3des_cbc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Triple DES (ECB) encryption algorithm">
+		<param name="Name" value="Triple DES (ECB) encryption algorithm">
 		<param name="Name" value="The Triple-DES (ECB) encryption algorithm">
 		<param name="Local" value="hid_crypt_3des_ecb.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Triple-DES encryption algorithm in CBC mode">
+		<param name="Name" value="Triple-DES encryption algorithm in CBC mode">
 		<param name="Name" value="Automatic analysis, Triple-DES encryption algorithm in CBC mode">
 		<param name="Local" value="hid_analyse_tripledescbc.html">
 		<param name="Name" value="Example illustrating the Triple-DES encryption algorithm in CBC mode">
 		<param name="Local" value="szenarien_tripledescbc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Triple-DES encryption algorithm in ECB mode">
+		<param name="Name" value="Triple-DES encryption algorithm in ECB mode">
 		<param name="Name" value="Automatic analysis, Triple-DES encryption algorithm in ECB mode">
 		<param name="Local" value="hid_analyse_tripledesecb.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="tuple">
+		<param name="Name" value="tuple">
 		<param name="Name" value="Tuple">
 		<param name="Local" value="tupel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Tutorials">
+		<param name="Name" value="Tutorials">
 		<param name="Name" value="How to work through the examples">
 		<param name="Local" value="hid_hilfe_szenarien.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Twofish encryption algorithm">
+		<param name="Name" value="Twofish encryption algorithm">
 		<param name="Name" value="Automatic analysis, Twofish encryption algorithm">
 		<param name="Local" value="hid_analyse_aes_twofish.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Twofish encryption algorithm (AES candidate)">
+		<param name="Name" value="Twofish encryption algorithm (AES candidate)">
 		<param name="Name" value="The Twofish encryption algorithm (AES candidate)">
 		<param name="Local" value="hid_crypt_aes_twofish.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Uniform distribution">
+		<param name="Name" value="Uniform distribution">
 		<param name="Name" value="Uniform distribution">
 		<param name="Local" value="gleichver.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="UNZIP">
+		<param name="Name" value="UNZIP">
 		<param name="Name" value="The Compress Submenu">
 		<param name="Local" value="menu_compress.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="UNZIP decompression">
+		<param name="Name" value="UNZIP decompression">
 		<param name="Name" value="Decompression (UnZip)">
 		<param name="Local" value="hid_unzip.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Use of encryption algorithms at the Deutsche Bank">
+		<param name="Name" value="Use of encryption algorithms at the Deutsche Bank">
 		<param name="Name" value="Use of encryption algorithms at the Deutsche Bank">
 		<param name="Local" value="verschl_deuba.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Verification">
+		<param name="Name" value="Verification">
 		<param name="Name" value="Signature verification">
 		<param name="Local" value="hid_crypt_verify.html">
 		<param name="Name" value="Dialogue Signature verification">
 		<param name="Local" value="hidd_verify_signature.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Verify RSA Signature">
+		<param name="Name" value="Verify RSA Signature">
 		<param name="Name" value="Verify the RSA Signature of a Message">
 		<param name="Local" value="rsa_demo_verify_signature.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vernam encryption algorithm">
+		<param name="Name" value="Vernam encryption algorithm">
 		<param name="Name" value="The Vernam encryption algorithm">
 		<param name="Local" value="hid_vernam_bin.html">
 		<param name="Name" value="Example illustrating the Vernam encryption algorithm">
 		<param name="Local" value="szenarien_vernam.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vigenère">
+		<param name="Name" value="Vigen&egrave;re">
 		<param name="Name" value="Dialogue Automatic Vigenère Analysis">
 		<param name="Local" value="hidd_keylength.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vigenère analysis">
+		<param name="Name" value="Vigen&egrave;re analysis">
 		<param name="Name" value="Automatic Analysis, Vigenère encryption algorithm">
 		<param name="Local" value="hid_vigenere_auto.html">
 		<param name="Name" value="Dialogue Automatic Analysis (Byte Addition and Exclusive-OR)">
 		<param name="Local" value="hidd_bin_keylength.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vigenère encryption">
+		<param name="Name" value="Vigen&egrave;re encryption">
 		<param name="Name" value="Example illustrating the Vigenère encryption algorithm">
 		<param name="Local" value="szenarien_vigenere.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vigenère encryption algorithm">
+		<param name="Name" value="Vigen&egrave;re encryption algorithm">
 		<param name="Name" value="The Vigenère encryption algorithm">
 		<param name="Local" value="hid_vigenere_asc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Visualisations">
+		<param name="Name" value="Visualisations">
 		<param name="Name" value="Visualisations">
 		<param name="Local" value="visualizations.html">
 		<param name="Name" value="How to work through the examples">
 		<param name="Local" value="hid_hilfe_szenarien.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Visualising hybrid encryption">
+		<param name="Name" value="Visualising hybrid encryption">
 		<param name="Name" value="Dialogue visualising hybrid encryption">
 		<param name="Local" value="hidd_hybrid_encryption_demo.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Vitany analysis">
+		<param name="Name" value="Vitany analysis">
 		<param name="Name" value="Vitany analysis">
 		<param name="Local" value="hid_analyse_vitany.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="Window">
+		<param name="Name" value="Window">
 		<param name="Name" value="Histogram display">
 		<param name="Local" value="hidr_plottype.html">
 		<param name="Name" value="Window for textual inputs and outputs">
@@ -2437,13 +2436,14 @@
 		<param name="Local" value="hidr_asctype.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ZIP">
+		<param name="Name" value="ZIP">
 		<param name="Name" value="The Compress Submenu">
 		<param name="Local" value="menu_compress.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Keyword" value="ZIP Compression">
+		<param name="Name" value="ZIP Compression">
 		<param name="Name" value="Compression (Zip)">
 		<param name="Local" value="hid_zip.html">
 		</OBJECT>
-</UL></HTML>
+</UL>
+</BODY></HTML>
