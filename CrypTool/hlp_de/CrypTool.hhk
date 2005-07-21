@@ -1939,15 +1939,9 @@
 		<param name="Name" value="Secude">
 		<param name="Name" value="Secude">
 		<param name="Local" value="add_secude.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Secude GmbH">
-		<param name="Name" value="Secude GmbH">
+		<param name="Name" value="Secude IT Security GmbH">
 		<param name="Local" value="secude.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Secude-Pseudozufallsgenerator">
-		<param name="Name" value="Secude-Pseudozufallsgenerator">
+		<param name="Name" value="Secude Pseudozufallsgenerator">
 		<param name="Local" value="hidd_randomparameter_secude.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
