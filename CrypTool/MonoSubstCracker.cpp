@@ -386,7 +386,7 @@ UINT AutoAnaSubst(PVOID p)
 		// Count valid characters in input
 		characterNumber = 0;
 		while(--count>=0)
-			if (isalpha(ciphertext[count]) || (space_in_alphabet && ciphertext[count]==0x20))
+			if (isalpha((unsigned char)ciphertext[count]) || (space_in_alphabet && ciphertext[count]==0x20))
 				characterNumber++;
 		char tempbuffer[20];
 		_itoa(characterNumber, tempbuffer, 10);

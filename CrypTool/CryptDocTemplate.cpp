@@ -125,7 +125,7 @@ CDocTemplate::Confidence CCryptDocTemplate::MatchDocType(LPCTSTR lpszPathName,
 	      l = fread(buffer, 1, sizeof(buffer), fi);
 		    for(i=0;i<l;i++) {
 				if(islower(buffer[i])) ok=min(ok,2);
-				if(isalpha(buffer[i])) continue;
+				if(isalpha((unsigned char)buffer[i])) continue;
 				ok=0;
 				break;
 			}

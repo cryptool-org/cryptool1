@@ -412,7 +412,7 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 
 	if(FixedAlphabet) { // use standard CPlayfairAlphabet
 		for(i=p=0;i<lr;i++) {
-			if(isalpha(bufr[i])) {
+			if(isalpha((unsigned char)bufr[i])) {
 				if(islower(bufr[i]))
 					bufr[i] = tolower(bufn[p]);
 				else
