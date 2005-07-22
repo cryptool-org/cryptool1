@@ -4252,8 +4252,8 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,121,148,156,10
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG DISCARDABLE  0, 0, 318, 237
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG  0, 0, 318, 237
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Auswahl automatische Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -4281,8 +4281,8 @@ BEGIN
                     IDC_STATIC,30,171,265,19
 END
 
-IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG DISCARDABLE  0, 0, 394, 321
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG  0, 0, 394, 321
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -4310,8 +4310,8 @@ BEGIN
                     ES_READONLY | NOT WS_BORDER
 END
 
-IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG DISCARDABLE  0, 0, 212, 102
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG  0, 0, 212, 102
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Substitutionsanalyse - Optionen"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -12512,9 +12512,9 @@ BEGIN
     IDS_modeText_Einmalpasswoerter 
                             "Einmalpasswörter: Um dem Angriff des Passwort-Szenarios zu entgehen, haben Client und Server 1 vereinbart, nach jeder erfolgten Authentifikation das Passwort zu wechseln. Dafür haben sie eine Liste mit Einmalpasswörtern angelegt und ausgetauscht. Wurde ein Einmalpasswort für die Authentifizierung verwendet, wird es als benutzt gekennzeichnet und kann nicht noch einmal verwendet werden. Für die nächste Authentifizierung muss ein anderes Einmalpasswort der Liste verwendet werden.\r\n\r\nIhre Aufgabe ist es wieder, sich als Angreifer so bei Server 1 zu authentifizieren, dass er Sie für den Client hält."
     IDS_modeText_ChallengeResponseSymmetrisch 
-                            "Challenge Response (mit symmetrischer Verschlüsselung): Nach dem Angriff auf Einmalpasswörter setzen der Client und die Server nun ein Verschlüsselungsverfahren mit einem geheimen Schlüssel ein. Um den organisatorischen Aufwand gering zu halten, wird nicht für jedes Paar aus einem Client und einem Server ein neuer Schlüssel erzeugt und verteilt, sondern alle vertrauenswürdigen Parteien erhalten einen gemeinsamen Schlüssel. Zur Authentifizierung schickt der Server eine Zufallszahl, genannt Challenge (Herausforderung) an den Client. Durch Verschlüsselung mit dem geheimen Schlüssel generiert der Client daraus die Response (Antwort) und schickt diese zurück an den Server. Der Server entschlüsselt die Response und überprüft, ob die entschlüsselte Challenge mit der von ihm geschickten übereinstimmt. Ist dies der Fall, ist die Authentifikation erfolgreich; wenn nicht, wird der Client abgewiesen. Der Server kann dem Client vertrauen, weil kein Außenstehender den geheimen Schlüssel kennt und deshalb die Response nicht korrekt erzeugen kann.\r\n\r\nAber vielleicht haben die beiden etwas übersehen...weitere Tipps in der Hilfe."
+                            "Challenge-Response (mit symmetrischer Verschlüsselung): Nach dem Angriff auf Einmalpasswörter setzen der Client und die Server nun ein Verschlüsselungsverfahren mit einem geheimen Schlüssel ein. Um den organisatorischen Aufwand gering zu halten, wird nicht für jedes Paar aus einem Client und einem Server ein neuer Schlüssel erzeugt und verteilt, sondern alle vertrauenswürdigen Parteien erhalten einen gemeinsamen Schlüssel. Zur Authentifizierung schickt der Server eine Zufallszahl, genannt Challenge (Herausforderung) an den Client. Durch Verschlüsselung mit dem geheimen Schlüssel generiert der Client daraus die Response (Antwort) und schickt diese zurück an den Server. Der Server entschlüsselt die Response und überprüft, ob die entschlüsselte Challenge mit der von ihm geschickten übereinstimmt. Ist dies der Fall, ist die Authentifikation erfolgreich; wenn nicht, wird der Client abgewiesen. Der Server kann dem Client vertrauen, weil kein Außenstehender den geheimen Schlüssel kennt und deshalb die Response nicht korrekt erzeugen kann.\r\n\r\nAber vielleicht haben die beiden etwas übersehen...weitere Tipps in der Hilfe."
     IDS_modeText_ChallengeResponseAsymmetrisch 
-                            "Challenge Response (mit asymmetrischer Verschlüsselung): Dieses Mal wird das Challenge-Response-Verfahren mit asymmetrischer (public key) Verschlüsselung durchgeführt. Jeder Teilnehmer besitzt ein eigenes Schlüsselpaar aus einem privaten, den nur der Teilnehmer kennt, und einem öffentlichen Schlüssel, den jeder kennt. Zur Authentifizierung wird wieder eine Challenge vom Server an den Client geschickt, der diese dann mit seinem geheimen Schlüssel signiert und das Ergebnis als Response zurückschickt. Jetzt kann jeder, der im Besitz des öffentlichen Schlüssels des Clients ist, also auch der Server, die Response prüfen, also überprüfen ob die Challenge mit dem privaten Schlüssel des Clients, den nur er haben kann, signiert wurde.\r\n\r\nTrotzdem, mit einem kleinen Trick kann sich der Angreifer vielleicht doch noch bei Server1 als Client authentifizieren."
+                            "Challenge-Response (mit asymmetrischer Verschlüsselung): Dieses Mal wird das Challenge-Response-Verfahren mit asymmetrischer (public key) Verschlüsselung durchgeführt. Jeder Teilnehmer besitzt ein eigenes Schlüsselpaar aus einem privaten, den nur der Teilnehmer kennt, und einem öffentlichen Schlüssel, den jeder kennt. Zur Authentifizierung wird wieder eine Challenge vom Server an den Client geschickt, der diese dann mit seinem geheimen Schlüssel signiert und das Ergebnis als Response zurückschickt. Jetzt kann jeder, der im Besitz des öffentlichen Schlüssels des Clients ist, also auch der Server, die Response prüfen, also überprüfen ob die Challenge mit dem privaten Schlüssel des Clients, den nur er haben kann, signiert wurde.\r\n\r\nTrotzdem, mit einem kleinen Trick kann sich der Angreifer vielleicht doch noch bei Server1 als Client authentifizieren."
     IDS_modeText_WechselseitigeAuthentifikation 
                             "Wechselseitige Authentifikation: Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings gleichzeitig in beide Richtungen angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. Dadurch wird ein Angriff auf Protokollebene unmöglich. Sie können alle vorangegangenen Lösungen ausprobieren, dieses Protokoll ist damit nicht zu knacken. Beachten Sie aber, dass es andere Angriffe geben kann -  gegen die verwendeten kryptografischen Verfahren oder gegen die physikalischen und logischen Verbindungen. Angriffe auf kryptografische Verfahren können mit CrypTool ausprobiert werden, zu Angriffen gegen die physikalischen und logischen Verfahren sei auf die Hilfe verwiesen."
     IDS_dataCaption_Passwort "Passwort: "
@@ -12781,7 +12781,7 @@ BEGIN
     IDS_MONO_SUBST_AUTO_LANG_EN "Englisch"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_MONO_SUBST_AUTO_STATFILE_OPEN_ERROR 
                             "Ein Fehler ist beim Öffnen der Statistikdatei aufgetreten.\nDer Analysevorgang wird abgebrochen."
@@ -17020,8 +17020,8 @@ BEGIN
                     156,10
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG DISCARDABLE  0, 0, 318, 237
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG  0, 0, 318, 237
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Selection automatic substitution analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -17047,8 +17047,8 @@ BEGIN
                     IDC_STATIC,30,188,265,21
 END
 
-IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG DISCARDABLE  0, 0, 394, 321
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG  0, 0, 394, 321
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic substitution analysis"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -17075,8 +17075,8 @@ BEGIN
     DEFPUSHBUTTON   "Manual analysis",IDC_MANUAL,197,300,86,14
 END
 
-IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG DISCARDABLE  0, 0, 212, 102
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG  0, 0, 212, 102
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Substitution Analysis - Options"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -25785,7 +25785,7 @@ BEGIN
     IDS_MONO_SUBST_AUTO_LANG_EN "English"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_MONO_SUBST_AUTO_STATFILE_OPEN_ERROR 
                             "An error occurred while opening file containing language statistic data.\n Canceling the analysis..."
