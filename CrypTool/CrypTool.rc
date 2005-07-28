@@ -4345,7 +4345,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dateieigenschaften ...",      ID_FILEPROPERTIES
+        MENUITEM "Dateieigenschaften...",       ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -4694,7 +4694,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dateieigenschaften ...",      ID_FILEPROPERTIES
+        MENUITEM "Dateieigenschaften...",       ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5021,7 +5021,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dateieigenschaften ...",      ID_FILEPROPERTIES
+        MENUITEM "Dateieigenschaften...",       ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5344,7 +5344,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE, GRAYED
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Dateieigenschaften ...",      ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dateieigenschaften...",       ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT, GRAYED
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5693,7 +5693,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dateieigenschaften ...",      ID_FILEPROPERTIES
+        MENUITEM "Dateieigenschaften...",       ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
