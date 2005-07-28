@@ -1657,16 +1657,8 @@
 		<param name="Local" value="skytale.html">
 		<param name="Name" value="Used Permutation and its Inverse">
 		<param name="Local" value="hidd_key_permutation_info.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Permutation (scrambling)">
 		<param name="Name" value="Permutation (scrambling)">
 		<param name="Local" value="hid_permutation_asc.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Permutation key input">
-		<param name="Name" value="Dialogue Permutation">
-		<param name="Local" value="hidd_key_permutation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="PGP">
