@@ -22,11 +22,6 @@
 		<param name="Local" value="hid_aes_selfextract.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Alpha-Quantil">
-		<param name="Name" value="Alpha-Quantil">
-		<param name="Local" value="q_quantil.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Alphabet">
 		<param name="Name" value="Options for alphabet and number system...">
 		<param name="Local" value="hidd_options_rsa_demo.html">
@@ -35,6 +30,11 @@
 		<param name="Name" value="Alphabet options">
 		<param name="Name" value="Text options">
 		<param name="Local" value="hid_opttext.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Alpha-Quantil">
+		<param name="Name" value="Alpha-Quantil">
+		<param name="Local" value="q_quantil.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Analysis">
@@ -1423,6 +1423,11 @@
 		<param name="Local" value="hidd_bruteforce.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Key store">
+		<param name="Name" value="The internal key store">
+		<param name="Local" value="keystore.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Known Plaintext attack">
 		<param name="Name" value="Known Plaintext attack">
 		<param name="Local" value="knownplaintextangriff.html">
@@ -2283,14 +2288,14 @@
 		<param name="Local" value="menu_tutorial_for_small_numbers.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Time-table">
-		<param name="Name" value="Time-table / Time-travel through cryptography">
-		<param name="Local" value="menu_zeittafel.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Timer">
 		<param name="Name" value="Factorisation Timer">
 		<param name="Local" value="hidd_progress_factorisation.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Time-table">
+		<param name="Name" value="Time-table / Time-travel through cryptography">
+		<param name="Local" value="menu_zeittafel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Toolbar">
