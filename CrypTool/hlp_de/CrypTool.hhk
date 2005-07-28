@@ -1562,6 +1562,8 @@
 		<param name="Local" value="hidd_key_permutation_info.html">
 		<param name="Name" value="Verschlüsselung durch Permutation">
 		<param name="Local" value="hid_permutation_asc.html">
+		<param name="Name" value="Inverse Permutation">
+		<param name="Local" value="inversepermutation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="PGP">
