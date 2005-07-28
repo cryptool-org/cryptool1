@@ -1,29 +1,54 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Komprimieren (ZIP)</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Komprimieren">
-	<PARAM NAME="Keyword" VALUE="ZIP komprimieren">
-</OBJECT>
-
-<h3><P><A NAME="hid_zip"></A><B>Dokument komprimieren (ZIP) (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Komprimieren)</B></P></h3>
-
-<P>Die Funktion Komprimieren (ZIP) dient der Datenkompression. Bei Wahl der Funktion ZIP wird der Inhalt des aktuellen <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> komprimiert und das Ergebnis in einem neuen <A href="hidr_hextype.html">Fenster</A> dargestellt. Aus diesen Daten ist es mittels der Funktion <A href="hid_unzip.html">Entkomprimieren</A> wieder möglich, den ursprünglichen Text zu rekonstruieren.</P>
-
-<P>Es gibt verschiedene Algorithmen zur Datenkomprimierung. In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> wird der GnuZip-Algorithmus verwendet.</P>
-
-<P>Vor der Darstellung der Ergebnisses in einem neuen Fenster wird der Kompressionsgrad in Prozent angegeben. Der Kompressionsgrad sagt aus, um wieviel Prozent ein Dokument komprimiert (also verkleinert) werden konnte. Bei einem Kompressionsgrad von 10 % ist das komprimierte Dokument 10 % kürzer als das <A href="hid_unzip.html">nicht komprimierte</A>. Es kann bei kurzen oder schon komprimierten Dokumenten passieren, dass das komprimierte Dokument einige Zeichen länger wird. Dies wirkt sich in einem negativen Kompressionsgrad aus. Ein Kompressionsgrad von –10 % besagt, dass das komprimierte Dokument 10 % länger als das nicht komprimierte ist.</P>
-
-<P>Neben der geringeren Größe der Dokumente haben Komprimierungsverfahren bei natürlich-sprachlichen Texten die Eigenschaft, dass sie die Redundanz der Daten reduzieren, was einen Angriff in den meisten Fällen erschwert. Aus diesem Grund führt das Verschlüsselungsprogramm Pretty Good Privacy (<A href="pgp.html">PGP</A>) beispielsweise eine Komprimierung der Daten vor der eigentlichen <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> durch. Zum einen werden die Pakete mit verschlüsseltem Text in der Regel dadurch deutlich kleiner und zum anderen wird dadurch die Sicherheit erhöht, da <A href="angriffe.html">Angriffe</A> schwerer werden.</P>
-
-<P>Ein <A href="szenarien_xor.html">Beispiel</A>, in dem der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> in einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gefunden werden kann, wenn das Dokument mittels <A href="hid_xor_bin.html">exklusivem Oder</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, dies jedoch nicht gelingt, wenn das Dokument vorher komprimiert wird, befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Komprimieren (ZIP)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Komprimieren">
+		</OBJECT>
+		<h3><P><A NAME="hid_zip"></A><B>Dokument komprimieren (ZIP) (Menü <A href="menu_related_methods.html">
+						Einzelverfahren</A> \ Komprimieren)</B></P>
+		</h3>
+		<P>Die Funktion Komprimieren (ZIP) dient der Datenkompression. Bei Wahl der 
+			Funktion ZIP wird der Inhalt des aktuellen <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A>
+			komprimiert und das Ergebnis in einem neuen <A href="hidr_hextype.html">Fenster</A>
+			dargestellt. Aus diesen Daten ist es mittels der Funktion <A href="hid_unzip.html">Entkomprimieren</A>
+			wieder möglich, den ursprünglichen Text zu rekonstruieren.</P>
+		<P>Es gibt verschiedene Algorithmen zur Datenkomprimierung. In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			wird der GnuZip-Algorithmus verwendet.</P>
+		<P>Vor der Darstellung der Ergebnisses in einem neuen Fenster wird der 
+			Kompressionsgrad in Prozent angegeben. Der Kompressionsgrad sagt aus, um 
+			wieviel Prozent ein Dokument komprimiert (also verkleinert) werden konnte. Bei 
+			einem Kompressionsgrad von 10 % ist das komprimierte Dokument 10 % kürzer als 
+			das <A href="hid_unzip.html">nicht komprimierte</A>. Es kann bei kurzen oder 
+			schon komprimierten Dokumenten passieren, dass das komprimierte Dokument einige 
+			Zeichen länger wird. Dies wirkt sich in einem negativen Kompressionsgrad aus. 
+			Ein Kompressionsgrad von –10 % besagt, dass das komprimierte Dokument 10 % 
+			länger als das nicht komprimierte ist.</P>
+		<P>Neben der geringeren Größe der Dokumente haben Komprimierungsverfahren bei 
+			natürlich-sprachlichen Texten die Eigenschaft, dass sie die Redundanz der Daten 
+			reduzieren, was einen <A href="angriffe.html">Angriff</A> in den meisten Fällen 
+			erschwert. Aus diesem Grund führt beispielsweise das Verschlüsselungsprogramm 
+			Pretty Good Privacy (<A href="pgp.html">PGP</A>) eine Komprimierung der Daten 
+			vor der eigentlichen <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A>
+			durch. Zum einen werden die Pakete mit verschlüsseltem Text in der Regel 
+			dadurch deutlich kleiner und zum anderen wird dadurch die Sicherheit erhöht.</P>
+		<P>Ein <A href="szenarien_xor.html">Beispiel</A>, in dem der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>
+			in einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>
+			gefunden werden kann, wenn das Dokument mittels <A href="hid_xor_bin.html">exklusivem 
+				Oder</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> wird, 
+			dies jedoch nicht gelingt, wenn das Dokument vorher komprimiert wird, befindet 
+			sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+		<P><STRONG>Bemerkung 1:</STRONG></P>
+		<P>Um ein Dokument als komprimiertes Dokument erkennen zu können, wird am Beginn 
+			des Dokuments das Schlüsselwort "CTZ" eingefügt.</P>
+		<P><STRONG>Bemerkung 2:</STRONG></P>
+		<P>Wenn Sie mit CrypTool komprimierte Dokumente in einer Datei speichern, so können 
+			Sie diese Dokumente&nbsp;nicht mit Anwendungen wie unzip oder Winzip 
+			dekomprimieren - selbst dann nicht, wenn Sie das Schlüsselwort am Beginn der 
+			Datei entfernen.</P>
+	</BODY>
 </HTML>
