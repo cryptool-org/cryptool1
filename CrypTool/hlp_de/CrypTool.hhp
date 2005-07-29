@@ -91,7 +91,6 @@ menu_hash.html
 menu_file.html
 menu_edit.html
 menu_crypt.html
-menu_compress.html
 menu_analyze.html
 menu_analyserandomtest.html
 main_index.html
@@ -426,6 +425,30 @@ hid_einzelverfahren_crt_astronomy.html
 menu_tutorial_for_crt.html
 keystore.html
 cryp0001.htm
+menu_digitalsignaturespki.html
+menu_crypt_symmetricmodern.html
+menu_crypt_symmetricclassic.html
+menu_crypt_asymmetric.html
+menu_crypt_hybrid.html
+menu_digitalsignaturespkipki.html
+menu_individualprocedures_hashprocedures.html
+menu_individualprocedures_rsacryptosystem.html
+menu_individualprocedures_protocols.html
+menu_individualprocedures_chineseremaindertheorem.html
+menu_individualprocedures_visualizationwithanimal.html
+menu_individualprocedures_compress.html
+menu_individualprocedures_codes.html
+menu_individualprocedures_rsacryptosystem_latticebasedattacks.html
+menu_analysis_tools.html
+menu_analysis_symmetricclassic.html
+menu_analysis_symmetricmodern.html
+menu_analysis_asymmetric.html
+menu_analysis_hashprocedures.html
+menu_analysis_randomanalysis.html
+menu_analysis_symmetricclassic_manualanalysis.html
+menu_analysis_symmetricclassic_ciphertextonly.html
+menu_analysis_symmetricclassic_knownplaintext.html
+menu_analysis_asymmetric_latticebasedattacks.html
 
 [ALIAS]
 #include CrypTool_Alias.h
