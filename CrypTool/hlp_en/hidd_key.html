@@ -1,55 +1,56 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialogue Key entry for classical and symmetric encryption algorithms</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Dialogue">
-	<PARAM NAME="Keyword" VALUE="Key entry">
-	<PARAM NAME="Keyword" VALUE="Encryption">
-</OBJECT>
-
-<h3><P><A NAME="hidd_key"></A><B>Dialogue Key entry</B></P></h3>
-
-<P>This dialogue is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A> for the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>:</P>
-
-<P>
-<A href="hid_caesar_asc.html">Caesar</A><BR>
-<A href="hid_vigenere_asc.html">Vigenère</A><BR>
-<A href="hid_add_bin.html">Byte Addition</A><BR>
-<A href="hid_xor_bin.html">Binary Exclusive-OR</A><BR>
-<A href="hid_crypt_idea.html">IDEA</A><BR>
-<A href="hid_crypt_rc2.html">RC2</A><BR>
-<A href="hid_crypt_rc4.html">RC4</A><BR>
-<A href="hid_crypt_des_desecb.html">DES&nbsp;(ECB)</A><BR>
-<A href="hid_crypt_des_descbc.html">DES&nbsp;(CBC)</A><BR>
-<A href="hid_crypt_3des_ecb.html">Triple-DES&nbsp;(ECB)</A><BR>
-<A href="hid_crypt_3des_cbc.html">Triple-DES&nbsp;(CBC)</A><BR>
-<A href="hid_crypt_aes_mars.html">MARS</A><BR>
-<A href="hid_crypt_aes_rc6.html">RC6</A><BR>
-<A href="hid_crypt_aes_rijndael.html">Rijndael</A><BR>
-<A href="hid_crypt_aes_serpent.html">Serpent</A><BR>
-<A href="hid_crypt_aes_twofish.html">Twofish</A>
-</P>
-
-<P>After you have entered the key, you can <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> the document by clicking on the <B>Encrypt</B> button or pressing the <B>RETURN</B> key. If you wish to <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> the document, choose the <B>Decrypt</B> button. </P>
-
-<P>A key that is stored into the <A href="keystore.html">key store</A> could be inserted by the button  (if there is no key stored, the button is deactivated and appears in grey).</P>
-
-<P>Under most of the symmetric procedures (IDEA, DES, MARS, RC6, Rijndael, Serpent, Twofish) a fixed length key must be used. Shorter keys are padded out with zeros. Example: As DES key you choose 12 AB:</P>
-
-<P><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER=0></P>
-
-<P>The current file is encrypted with the DES key 12 AB 00 00 00 00 00 00 because the DES algorithm is expecting a key comprising 64 bits of hex characters.</P>
-
-<P>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">Key presentation</A>.</P>
-
-<P>A few classical procedures require different types of key input dialogues; <A href="hidd_key_hill5x5.html">Hill</A> is a good example to demonstrate this difference.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Dialogue Key entry for classical and symmetric encryption algorithms</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Dialogue">
+		</OBJECT>
+		<h3><P><A NAME="hidd_key"></A><B>Dialogue Key Entry</B></P>
+		</h3>
+		<P>This dialogue is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
+			for the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
+				algorithms</A>:</P>
+		<P>
+			<A href="hid_caesar_asc.html">Caesar</A><BR>
+			<A href="hid_vigenere_asc.html">Vigenère</A><BR>
+			<A href="hid_add_bin.html">Byte Addition</A><BR>
+			<A href="hid_xor_bin.html">Binary Exclusive-OR</A><BR>
+			<A href="hid_crypt_idea.html">IDEA</A><BR>
+			<A href="hid_crypt_rc2.html">RC2</A><BR>
+			<A href="hid_crypt_rc4.html">RC4</A><BR>
+			<A href="hid_crypt_des_desecb.html">DES&nbsp;(ECB)</A><BR>
+			<A href="hid_crypt_des_descbc.html">DES&nbsp;(CBC)</A><BR>
+			<A href="hid_crypt_3des_ecb.html">Triple-DES&nbsp;(ECB)</A><BR>
+			<A href="hid_crypt_3des_cbc.html">Triple-DES&nbsp;(CBC)</A><BR>
+			<A href="hid_crypt_aes_mars.html">MARS</A><BR>
+			<A href="hid_crypt_aes_rc6.html">RC6</A><BR>
+			<A href="hid_crypt_aes_rijndael.html">Rijndael</A><BR>
+			<A href="hid_crypt_aes_serpent.html">Serpent</A><BR>
+			<A href="hid_crypt_aes_twofish.html">Twofish</A>
+		</P>
+		<P>After you have entered the key, you can <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A>
+			the document by clicking on the <B>Encrypt</B> button or pressing the <B>RETURN</B>
+			key. If you wish to <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> the 
+			document with the entered key, choose the <B>Decrypt</B> button.
+		</P>
+		<P>A key that is already stored in the <A href="keystore.html">internal key store</A>
+			could be inserted directly by clicking the button <IMG alt="images/iconinsertkey.gif" src="images/iconinsertkey.gif" border="0">
+			"paste key" (if there is no key stored for this encryption algorithm, the 
+			button is deactivated and appears in grey).</P>
+		<P>Most of the symmetric procedures (IDEA, DES, MARS, RC6, Rijndael, Serpent, 
+			Twofish) require a fixed key length. Shorter keys are padded with zeros. 
+			Example: As DES key you choose 12 AB (which is 16 bit):</P>
+		<P><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></P>
+		<P>
+			The current file is encrypted with the DES key 12 AB 00 00 00 00 00 00 because 
+			the DES algorithm is expecting a key comprising 64 bits.</P>
+		<P>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">
+				Key presentation</A>.</P>
+		<P>A few classical procedures require different types of key input dialogues; <A href="hidd_key_hill5x5.html">
+				Hill</A> is a good example to demonstrate this difference.</P>
+	</BODY>
 </HTML>
