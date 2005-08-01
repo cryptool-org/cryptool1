@@ -1,48 +1,57 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Generate prime numbers</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Prime numbers">
-	<PARAM NAME="Keyword" VALUE="Generation">
-	<PARAM NAME="Keyword" VALUE="Dialogue">
-</OBJECT>
-
-<h3><P><A NAME="hid_einzelverfahren_tutorial_primzahlengenerieren"></A><B>Dialogue Generate Prime Numbers (demonstration)</B></P></h3>
-
-<P>Prime numbers are natural numbers greater than 1, which are divisible only by 1 and by themselves, and in cryptography they play an important role. In this demonstration you can generate prime numbers yourself, the prime numbers being generated randomly within freely definable limits.</P>
-
-<P><IMG SRC="images/generatepz.gif" ALT="generatepz.gif" BORDER=0></P>
-
-<P>If you press the Generate prime numbers button, a <!--ZZZPOPUP--><A href="hid_zufall_generatoren.html">random</A> search for prime numbers for p and q will be initiated. A number X will be taken at a random from the range specified [Lower limit ... Upper limit]. The system then "tests" for X whether X can be a prime number. Once again, chance is used for this test:</P>
-
-<UL>
-	
-	<LI>If X is not a prime number, then the chosen test states with a probability of ½ that X is not a prime number, whereas in the other case the message is always positive. If the prime number test is repeated 80 times "independently" and always has a positive outcome, then the probability that X is not actually a prime number is extremely small at 2^(-80) and the number thus found is interpreted as a prime number and is output as either prime number p or prime number q.</LI>
-
-	<LI>If one of k prime number test is negative, then X is not prime and the test is repeated with a new randomly chosen number X.</LI>
-
-</UL>
-
-<P>In this dialogue you can choose between the following prime number tests:</P>
-
-<UL>
-	<LI>Miller-Rabin Test,</LI>
-
-	<LI>Solovay-Strassen Test and</LI>
-
-	<LI>Fermat Test</LI>
-</UL>
-
-<P>If no prime number has been found after trying 1000 randomly drawn numbers X, then an appropriate error message is displayed. In that case you need to raise the permitted value limits [Lower limit ... Upper limit] for the prime numbers accordingly. </P>
-
-<P>Detailed information on the subject of prime numbers will be found in the <A href="script-en.pdf">script</A>.</P>
-
-</BODY>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Generate prime numbers</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Prime numbers">
+			<PARAM NAME="Keyword" VALUE="Generation">
+			<PARAM NAME="Keyword" VALUE="Dialogue">
+		</OBJECT>
+		<h3><P><A NAME="hid_einzelverfahren_tutorial_primzahlengenerieren"></A><B>Dialogue Generate 
+					Prime Numbers (demonstration)</B></P>
+		</h3>
+		<P>Prime numbers are natural numbers greater than 1, which are divisible only by 1 
+			and by themselves, and in cryptography they play an important role. In this 
+			demonstration you can generate prime numbers yourself, the prime numbers being 
+			generated randomly within freely definable limits.</P>
+		<P><IMG SRC="images/generatepz.gif" ALT="generatepz.gif" BORDER="0"></P>
+		<P>If you press the <B>Generate prime numbers</B> button, a <!--ZZZPOPUP--><A href="hid_zufall_generatoren.html">random</A>
+			search for the prime numbers p and q will be initiated. A number X will be 
+			taken at random from the range specified [Lower limit ... Upper limit]. The 
+			system then "tests" for X whether X can be a prime number.</P>
+		<p>For this test random is also necessary:</p>
+		<UL>
+			<LI>
+				If X is not a prime number, then the chosen test states with a probability of ½ 
+				that X is not a prime number, whereas in the other case the feedback is always 
+				positive. If the prime number test is repeated 80 times "independently" and 
+				always has a positive outcome, then the probability that X is not actually a 
+				prime number is extremely small at 2^(-80) and the number thus found is 
+				understood as a prime number, and is displayed as either prime number p or prime 
+				number q.</LI>
+			<LI>
+				If one of k prime number test is negative, then X is not prime and the test is 
+				repeated with a new randomly chosen number X.</LI>
+		</UL>
+		<P>In this dialogue you can choose between the following prime number tests:</P>
+		<UL>
+			<LI>
+				Miller-Rabin Test,</LI>
+			<LI>
+				Solovay-Strassen Test and</LI>
+			<LI>
+				Fermat Test</LI>
+		</UL>
+		<P>If no prime number has been found after trying 1000 randomly drawn numbers X, 
+			then an appropriate error message is displayed. In that case you need to raise 
+			the permitted value limits [Lower limit ... Upper limit] for the prime numbers 
+			accordingly.
+		</P>
+		<P>Detailed information on the subject of prime numbers will be found in the <A href="script-en.pdf">
+				script</A>.</P>
+	</BODY>
 </HTML>

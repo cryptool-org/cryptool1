@@ -18,7 +18,7 @@
 
 <P>This is implemented with the dialogue <A href="hidd_signature_attack.html">Attack on the hash value of the digital signature</A>, where you can choose the parameters of the attack, and a further dialogue is describing the status of the attack.</P>
 
-<P>Within all dialogues you can get useful information and help By pressing <B>F1</B>.</P>
+<P>Within all dialogues you can get useful information and help by pressing <B>F1</B>.</P>
 
 <P>CrypTool allows you to vary the length of the identical bits of the hash value. Additionally you can directly see, how the two modified documents with different content but identical hash value look like.</P>
 
@@ -31,9 +31,11 @@
 This diploma describes how the attack was implemented using the Floyd algorithm.</LI>
 </UL>
 
-<P>Practical experiments with the implementation in CrypTool were done to generate partly collisions (this means that the significant bit length was varied and permanently set higher, but still stayed below the complete hash value length): On a single PC we could find collisions for the first 72 bits of MD5 hash values within days. The paper of Mr. Blumenstein explains, that today digital signatures using hash functions with 128 bits are practically attackable with massively parallel methods!</P>
+<P>Practical experiments with the implementation in CrypTool were done to generate partly collisions (this means that the significant bit length was varied and permanently increased, but still stayed below the complete hash value length): On a single PC we could find collisions for the first 72 bits of MD5 hash values within days. The paper of Mr. Blumenstein explains, that today digital signatures using hash functions with 128 bits are practically attackable with massively parallel methods!</P>
 
-<P>This justifies the early and careful recommendations of the GISA (German Information Security Agency) to require for hash functions like RIPEMD or SHA-1 a sufficiently big buffer on top of the topical research results.</P>
+<P>This justifies the early and careful recommendations of the GISA (German Information Security Agency) to demand for hash functions like RIPEMD or SHA-1 a sufficiently big buffer on top of the topical research results.</P>
+
+<P>This implementation performs a <U>collision search</U> using brute-force methods (generic attack). Modern break-throughs since 2004 found additional methods using structural weaknesses within the hash algorithms. See the CrypTool <A href="script-en.pdf">script</A> for further detail.</P>
 
 </BODY>
 </HTML>
