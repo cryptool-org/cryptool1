@@ -109,4 +109,9 @@ void HashOfAFile();
 void SignatureTutorial(const char *infile, const char* OldTitle);
 void CreateMac(const char *infile, const char *OldTitle);
 
+BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
+void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type);
+
+
+
 #endif // __CRYPT_H

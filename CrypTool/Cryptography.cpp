@@ -3482,5 +3482,54 @@ void CreateMac(const char *infile, const char *OldTitle)
 	delete TextFile;
 }
 
+BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
+{/*
+	CString alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
+	if (theApp.TextOptions.m_alphabet != alphabet)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,100);
+		AfxMessageBox(pc_str,MB_ICONINFORMATION);
+		theApp.TextOptions.m_alphabet = alphabet;
+		AppConv.SetAlphabet(alphabet.GetBuffer(257), true);
+	}*/
+// == load INPUT
+	if ( !CheckAlphabet() ) 
+	{
+		return FALSE;
+	}
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) )
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type)
+{
+	char outfile[128];
+	SymbolArray Key(AppConv);
+	Key.ReadString(sKey);
+	Key += 1;
+
+// == Encryption / Decryption
+	SHOW_HOUR_GLASS
+	GetTmpName(outfile,"cry",".txt");
+	if (bDecrypt)
+	{
+		text -= Key;
+	}
+	else
+	{
+		text += Key;
+	}
+	text.Write(outfile);
+	Reformat(infile, outfile, FALSE);
+
+// == Open the new document
+	OpenNewDoc(outfile, sKey, OldTitle, type, bDecrypt);
+
+	HIDE_HOUR_GLASS
+}
 

@@ -224,6 +224,7 @@
 #define IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS 832
 #define IDD_AUTO_SUBSTITUTION_ANLYSIS   833
 #define IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE 834
+#define IDD_ROT13_CAESAR                835
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1055,6 +1056,17 @@
 #define IDC_SUBST_REFFILE               1770
 #define IDC_NOGUI                       1771
 #define ID_SUBST_Cancel                 1772
+#define IDC_ROT13_RAD                   1773
+#define IDC_CAESAR_RAD                  1774
+#define IDC_TEXT0                       1775
+#define IDC_FROM                        1776
+#define IDC_TO                          1777
+#define IDC_DIST                        1778
+#define ID_ENCRYPT                      1779
+#define ID_DECRYPT                      1780
+#define IDC_TEXT3                       1781
+#define IDC_TEXT1                       1782
+#define IDC_TEXT2                       1783
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1140,6 +1152,7 @@
 #define IDS_RSA_SM_MAXCHAR              11173
 #define IDS_STRING_PROGRESS             11174
 #define IDD_KEY_HEX_FIXED_LEN           30725
+#define IDD_ROT13_CAESAR1               30726
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -2142,6 +2155,11 @@
 #define IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR 38017
 #define IDS_MONO_SUBST_AUTO_LANGREC_FAILED 38018
 #define IDS_MONO_SUBST_AUTO_MANUAL_ANALYSIS_NOT_POSS 38019
+#define IDS_BAD_KEY                     38020
+#define IDS_ROT13_CAESAR_BAD_KEY        38021
+#define IDS_ROT13_CAESAR_CASE           38022
+#define IDS_STRING_ROT13                38023
+#define ID_ROT13CAESAR_ASC              38024
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

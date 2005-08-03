@@ -106,6 +106,8 @@ protected:
 protected:
     char s_alternativeWindowText[127];
 
+private:
+	BOOL IsKeyInAlphabet (CString key, CString alphabet);
 };
 
 #endif // DIA1_H

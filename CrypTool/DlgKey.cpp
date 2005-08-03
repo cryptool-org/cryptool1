@@ -211,7 +211,6 @@ BOOL CDlgKey::OnInitDialog()
 
 	CString Title;
 	Title=s_alternativeWindowText;
-
 	if ( IsKeyEmpty( Title ))
 	{
 		m_Paste.EnableWindow(TRUE);
@@ -229,15 +228,36 @@ void CDlgKey::OnPasteKey()
 {
 	UpdateData(TRUE);
 
-	CString Title;
+	CString Title, alphabet = theApp.TextOptions.m_alphabet;
 	Title=s_alternativeWindowText;
-
 	ExtractStrKeyType( strTitle, Title );
 	if ( PasteKey(strTitle,m_text) )
 	{
-		m_EncryptionButton.EnableWindow(TRUE);
-		m_DecryptionButton.EnableWindow(TRUE);	
+		if (this->IsKeyInAlphabet(m_text, alphabet))
+		{
+			m_EncryptionButton.EnableWindow(TRUE);
+			m_DecryptionButton.EnableWindow(TRUE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_BAD_KEY,pc_str,255);
+			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+			m_text.Empty();
+		}
 	}
 	UpdateData(FALSE);
 }
 
+
+BOOL CDlgKey::IsKeyInAlphabet(CString key, CString alphabet)
+{
+	for (int ii = 0; ii < key.GetLength(); ii ++)
+	{
+		if (alphabet.Find(key.GetAt(ii)) < 0)
+		{
+			return FALSE;
+		}
+	}
+
+	return TRUE;
+}

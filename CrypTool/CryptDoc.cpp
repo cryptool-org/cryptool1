@@ -80,6 +80,8 @@ statement from your version.
 #include "DlgADFGVX.h"
 #include "DlgAdfgvxManual.h"
 #include "MonoSubstCracker.h"
+#include "DlgRot13Caesar.h"
+
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -252,6 +254,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
+	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1796,3 +1799,22 @@ void CCryptDoc::OnCiphertextOnlySubstitution()
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( AutoAnaSubst, ((void *) para) );	
 }
+
+void CCryptDoc::OnRot13caesarAsc() 
+{
+	CDlgRot13Caesar Dlg;
+	SymbolArray text(AppConv);
+
+	UpdateContent();
+    if (!Rot13CaesarAsc(text, ContentName))
+	{
+		return;
+	}
+
+	if (Dlg.Display()!=IDOK)
+	{
+		return;
+	}
+	Rot13CaesarAscFinish(text, ContentName, Dlg.GetData(), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
+}
+
