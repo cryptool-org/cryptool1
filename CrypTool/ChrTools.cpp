@@ -56,22 +56,22 @@ statement from your version.
 
 BOOL MyIsLower(char c)
 {
-	return islower(c);
+	return islower((unsigned char)c);
 }
 
 BOOL MyIsUpper(char c)
 {
-	return isupper(c);
+	return isupper((unsigned char)c);
 }
 
 char MyToUpper(char c)
 {
-	return toupper(c);
+	return toupper((unsigned char)c);
 }
 
 char MyToLower(char c)
 {
-	return tolower(c);
+	return tolower((unsigned char)c);
 }
 
 char *MyToUpper(char *str)
