@@ -309,7 +309,6 @@ menu_analyze.html
 menu_crypt.html
 menu_edit.html
 menu_file.html
-menu_hash.html
 menu_help.html
 menu_key.html
 menu_options.html
@@ -439,6 +438,8 @@ menu_individualprocedures_hashprocedures.html
 menu_individualprocedures_protocols.html
 menu_individualprocedures_rsacryptosystem.html
 menu_individualprocedures_rsacryptosystem_latticebasedattacks.html
+menu_crypt_symmetricclassic.html
+menu_digitalsignaturespki.html
 
 [ALIAS]
 #include CrypTool_Alias.h
