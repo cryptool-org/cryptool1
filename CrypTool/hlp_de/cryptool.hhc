@@ -28,7 +28,7 @@
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Hashwert eines Dokuments berechnen.">
-			<param name="Local" value="menu_hash.html">
+			<param name="Local" value="menu_individualprocedures_hashprocedures.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Dokument komprimieren oder entkomprimieren.">
