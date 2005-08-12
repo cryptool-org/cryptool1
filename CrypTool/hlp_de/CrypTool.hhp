@@ -448,6 +448,7 @@ menu_analysis_symmetricclassic_manualanalysis.html
 menu_analysis_symmetricclassic_ciphertextonly.html
 menu_analysis_symmetricclassic_knownplaintext.html
 menu_analysis_asymmetric_latticebasedattacks.html
+hid_fileproperties.html
 
 [ALIAS]
 #include CrypTool_Alias.h

@@ -1,49 +1,61 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog AES (selbstextrahierend)</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="AES-Tool">
-	<PARAM NAME="Keyword" VALUE="AES">
-	<PARAM NAME="Keyword" VALUE="Symmetrisch">
-	<PARAM NAME="Keyword" VALUE="Dialog">
-</OBJECT>
-
-<h3><P><A NAME="hid_aes_selfextract"></A><B>Dialog AES (selbstextrahierend) (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch)</B></P></h3>
-
-<P>Über das eigenständige, zum Paket CrypTool gehörende Programm AES-Tool kann aus einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv ist mit dem Algorithmus AES (Rijndael) verschlüsselt.</P>
-
-<P>Wird diese Option in CrypTool ausgewählt, so öffnet sich das Hauptfenster von AES-Tool. Hier kann dann einerseits der Schlüssel in hexadezimaler Form eingegeben werden. Andererseits ist es möglich, die Ausgabedatei festzulegen. </P>
-
-<P>Bei der Ausgabedatei kann unterschieden werden zwischen einer Ausgabe als verschlüsselte Datei oder als selbstextrahierendes Archiv. </P>
-
-<P>Bei der verschlüsselten Datei muss der Empfänger ebenfalls über AES-Tool verfügen. Das selbstextrahierende Archiv stellt diese Anforderung nicht, dafür enthält es den kompletten ausführbaren Code und erzeugt damit eine erheblich größere Ausgabedatei.</P>
-
-<P>AES-Tool dient zum Austausch verschlüsselter Daten mit anderen Benutzern. Es enthält keine Verwaltungskomponente für Schlüssel. Diese müssen daher wie bei allen symmetrischen Verfahren zwischen den Benutzern auf einem sicheren Weg extra ausgetauscht werden.</P>
-
-<P>Das AES-Tool kann auch als eigenständiges Programm (ohne CrypTool) verwendet werden. <A href="hidd_tipps_and_tricks.html#licence_terms">Lizenzbestimmung und der Haftungsausschluss</A> sind wie beim CrypTool-Paket.</P>
-
-<P><B>Bemerkung 1</B>:</P>
-
-<P>Mit dem AES-Tool verschlüsselte Dokumente können in CrypTool <B>nicht</B> über Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B> entschlüsselt werden.</P>
-
-<P>Das gleiche gilt im umgekehrten Sinne, d.h. man kann mit dem AES-Tool keine Dokumente entschlüsseln, die in CrypTool über Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B> verschlüsselt wurden.</P>
-
-<P><B>Bemerkung 2</B>:</P>
-
-<P>Im AES-Tool Hauptfenster wird das Feld <B>Eingabedatei</B> automatisch mit einem Pfad der Form C:\TEMP\cry7.org vorbelegt (statt C:\TEMP wird der Inhalt der Umgebungsvariablen TEMP eingesetzt und statt 7 kann eine andere Zahl erscheinen). Diese Datei ist eine Kopie der aktuell in CrypTool geöffneten. Sie enthält gegebenenfalls alle manuellen Änderungen, selbst wenn diese in CrypTool noch nicht gespeichert wurden.</P>
-
-<P><B>Bemerkung 3</B>:</P>
-
-<P>Das AES-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> arbeitet mit einer Blocklänge von 128 Bit und variabler Schlüssellänge, insbesondere 128, 192 und 256 Bit. Der eingegebene Schlüssel wird so mit Hex-Nullen aufgefüllt, dass er die jeweilige Mindestlänge von 128, 196 bzw. 256 Bit erreicht. </P>
-
-<P>Zu kurze Schlüssellängen stellen also ein Sicherheitsrisiko dar (vergleiche Dialog <A href="hidd_key.html">Schlüsseleingabe</A>).</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Dialog AES (selbstextrahierend)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="AES-Tool">
+		</OBJECT>
+		<h3><P><A NAME="hid_aes_selfextract"></A><B>Dialog AES (selbstextrahierend) (Menü <A href="menu_crypt.html">
+						Ver-/Entschlüsseln</A> \ Symmetrisch (modern))</B></P>
+		</h3>
+		<P>Über das eigenständige, zum Paket CrypTool gehörende Programm AES-Tool kann aus 
+			einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv ist 
+			mit dem Algorithmus AES (Rijndael) verschlüsselt.</P>
+		<P>Wird diese Option in CrypTool ausgewählt, so öffnet sich das Hauptfenster von 
+			AES-Tool. Hier kann dann einerseits der Schlüssel in hexadezimaler Form 
+			eingegeben werden. Andererseits ist es möglich, die Ausgabedatei festzulegen.
+		</P>
+		<P>Bei der Ausgabedatei kann unterschieden werden zwischen einer Ausgabe als 
+			verschlüsselte Datei oder als selbstextrahierendes Archiv.
+		</P>
+		<P>Bei der verschlüsselten Datei muss der Empfänger ebenfalls über AES-Tool 
+			verfügen. Das selbstextrahierende Archiv stellt diese Anforderung nicht, dafür 
+			enthält es den kompletten ausführbaren Code und erzeugt damit eine erheblich 
+			größere Ausgabedatei.</P>
+		<P>AES-Tool dient zum Austausch verschlüsselter Daten mit anderen Benutzern. Es 
+			enthält keine Verwaltungskomponente für Schlüssel. Diese müssen daher wie bei 
+			allen symmetrischen Verfahren zwischen den Benutzern auf einem sicheren Weg 
+			extra ausgetauscht werden.</P>
+		<P>Das AES-Tool kann auch als eigenständiges Programm (ohne CrypTool) verwendet 
+			werden. <A href="hidd_tipps_and_tricks.html#licence_terms">Lizenzbestimmung und der 
+				Haftungsausschluss</A> sind wie beim CrypTool-Paket.</P>
+		<P><B>Bemerkung 1</B>:</P>
+		<P>Mit dem AES-Tool verschlüsselte Dokumente können in CrypTool <B>nicht</B> über 
+			Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B>
+			entschlüsselt werden.</P>
+		<P>Das gleiche gilt im umgekehrten Sinne, d.h. man kann mit dem AES-Tool keine 
+			Dokumente entschlüsseln, die in CrypTool über Menü <B>Ver-/Entschlüsseln \ 
+				Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B> verschlüsselt 
+			wurden.</P>
+		<P><B>Bemerkung 2</B>:</P>
+		<P>Im AES-Tool Hauptfenster wird das Feld <B>Eingabedatei</B> automatisch mit einem 
+			Pfad der Form C:\TEMP\cry7.org vorbelegt (statt C:\TEMP wird der Inhalt der 
+			Umgebungsvariablen TEMP eingesetzt und statt 7 kann eine andere Zahl 
+			erscheinen). Diese Datei ist eine Kopie der aktuell in CrypTool geöffneten. Sie 
+			enthält gegebenenfalls alle manuellen Änderungen, selbst wenn diese in CrypTool 
+			noch nicht gespeichert wurden.</P>
+		<P><B>Bemerkung 3</B>:</P>
+		<P>Das AES-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+			arbeitet mit einer Blocklänge von 128 Bit und variabler Schlüssellänge, 
+			insbesondere 128, 192 und 256 Bit. Der eingegebene Schlüssel wird so mit 
+			Hex-Nullen aufgefüllt, dass er die jeweilige Mindestlänge von 128, 196 bzw. 256 
+			Bit erreicht.
+		</P>
+		<P>Zu kurze Schlüssellängen stellen also ein Sicherheitsrisiko dar (vergleiche 
+			Dialog <A href="hidd_key.html">Schlüsseleingabe</A>).</P>
+	</BODY>
 </HTML>

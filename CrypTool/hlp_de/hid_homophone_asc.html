@@ -1,29 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Homophone Substitution</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
-	<PARAM NAME="Keyword" VALUE="Homophone Substitution">
-</OBJECT>
-
-<h3><P><A NAME="hid_homophone_asc"></A><B>Homophone Substitution (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B></P></h3>
-
-<P>Die homophone Substitution ist eine Verallgemeinerung der monoalphabetischen Substitution. </P>
-
-<P>Die monoalphabetische Substitution lässt sich leicht mit Hilfe der einfachen Häufigkeitsanalyse knacken. Um dies zu verhindern, verschlüsselt die homophone Substitution häufig vorkommende Buchstaben (z.B. das "E" im deutschen) in eine Auswahl von Zeichen: Zu jedem Buchstaben im Klartext definiert der homophone Schlüssel eine Liste von möglichen Chiffrierungen. Bei der Verschlüsselung wird zufällig ein Zeichen (Homophon) aus dieser Liste gewählt.</P>
-
-<P>Die Eingabe des Schlüssels erfolgt im Dialog <A href="hidd_key_homophone.html">Schlüssel homophone Substitution</A>.</P>
-
-<P>Der homophone Schlüssel wird in Abhängigkeit vom Klartext so gebildet, dass in der Häufigkeitsanalyse des Chiffretextes alle Homophone gleich häufig sind. Trotzdem lassen sich mit Hilfe der Digramm-Analyse im Vergleich zu Referenztexten Informationen gewinnen, die zum Knacken der homophonen Verschlüsselung benutzt werden kann.</P>
-
-<P>Die Operation des <B>Entschlüsselns</B> (bei bekanntem Schlüssel) geht bei der homophonen Substitution schneller als die <B>Verschlüsselung</B> mit diesem Schlüssel, da bei der Verschlüsselung stets pro Buchstabe eine Zufallsfunktion aufgerufen wird, wenn es mehr als 1 Homophon für diesen Buchstaben gibt.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Homophone Substitution</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+		</OBJECT>
+		<h3><P><A NAME="hid_homophone_asc"></A><B>Homophone Substitution (Menü <A href="menu_crypt.html">
+						Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</B></P>
+		</h3>
+		<P>Die homophone Substitution ist eine Verallgemeinerung der monoalphabetischen 
+			Substitution.
+		</P>
+		<P>Die monoalphabetische Substitution lässt sich leicht mit Hilfe der einfachen 
+			Häufigkeitsanalyse knacken. Um dies zu verhindern, verschlüsselt die homophone 
+			Substitution häufig vorkommende Buchstaben (z.B. das "E" im deutschen) in eine 
+			Auswahl von Zeichen: Zu jedem Buchstaben im Klartext definiert der homophone 
+			Schlüssel eine Liste von möglichen Chiffrierungen. Bei der Verschlüsselung wird 
+			zufällig ein Zeichen (Homophon) aus dieser Liste gewählt.</P>
+		<P>Die Eingabe des Schlüssels erfolgt im Dialog <A href="hidd_key_homophone.html">Schlüssel 
+				homophone Substitution</A>.</P>
+		<P>Der homophone Schlüssel wird in Abhängigkeit vom Klartext so gebildet, dass in 
+			der Häufigkeitsanalyse des Chiffretextes alle Homophone gleich häufig sind. 
+			Trotzdem lassen sich mit Hilfe der Digramm-Analyse im Vergleich zu 
+			Referenztexten Informationen gewinnen, die zum Knacken der homophonen 
+			Verschlüsselung benutzt werden kann.</P>
+		<P>Die Operation des <B>Entschlüsselns</B> (bei bekanntem Schlüssel) geht bei der 
+			homophonen Substitution schneller als die <B>Verschlüsselung</B> mit diesem 
+			Schlüssel, da bei der Verschlüsselung stets pro Buchstabe eine Zufallsfunktion 
+			aufgerufen wird, wenn es mehr als 1 Homophon für diesen Buchstaben gibt.</P>
+	</BODY>
 </HTML>

@@ -1,53 +1,72 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Vigenère-Verschlüsselungsverfahren</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Verschlüsseln">
-	<PARAM NAME="Keyword" VALUE="Vigenère-Verschlüsselungsverfahren">
-</OBJECT>
-
-<h3><P><A NAME="hid_vigenere_asc"></A><B>Vigenère-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Klassisch)</B> </P></h3>
-
-<P>Beim Vigenère-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> wird – wie bei der monoalphabetischen Substitution - ein mehrere Buchstaben langer <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> verwendet. Man kann die Caesar-Verschlüsselung als Sonderfall der Vigenère-Verschlüsselung mit einem Schlüssel der Länge 1 ansehen, und umgekehrt kann man die Vigenère-Verschlüsselung als ein mehrfaches Anwenden einer modifizierten Caesar-Verschlüsselung deuten.</P>
-
-<P>Wie bei dem <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> werden nur Zeichen aus dem Alphabet <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> (das Alphabet wird im Dialog <A href="hidd_text_options.html">Textoptionen</A> ausgewählt). Zeichen, die nicht zum Alphabet gehören, werden normalerweise im verschlüsselten Text weggelassen, so dass nach der <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> diese Zeichen aus dem Textzusammenhang eingefügt werden müssen. Dies gilt für Satz- und Sonderzeichen (insbesondere Leerzeichen als Trennung zwischen zwei Wörtern). Nicht zu verschlüsselnde Zeichen werden bei der Ver- und Entschlüsselung natürlich nicht berücksichtigt und bewirken auch keine Schlüsselfortschaltung zum nächsten Schlüsselbuchstaben.</P>
-
-<P>Über das Untermenü <B>Textoptionen</B> im Menü <A href="menu_options.html"><B>Optionen</B></A> wird eingestellt, ob Satz- und Sonderzeichen bei der Ver- bzw. Entschlüsselung erhalten bleiben.</P>
-
-<P>Der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für das Vigenère-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> muss im Dialog <A href="hidd_key.html">Schlüsseleingabe</A> eingegeben werden.</P>
-
-<P><U>Beispiel:</U></P>
-
-<P>Bei dem 3 Buchstaben langen Schlüssel "KEY" wird </P>
-
-<UL>
-	<LI>der erste Buchstabe des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> mit "K" verschlüsselt, </LI>
-
-	<LI>der zweite mit "E", </LI>
-
-	<LI>der dritte mit "Y", </LI>
-
-	<LI>der vierte wieder mit "K", </LI>
-
-	<LI>der fünfte mit "E" und so weiter.</LI>
-</UL>
-
-<P><U>Bemerkung:</U></P>
-
-<P>In der Literatur wird das Vigenère-Verschlüsselungsverfahren häufig mit Hilfe des Vigenère-Quadrats beschrieben statt als mehrfache Anwendung des Caesar-Verschlüsselungsverfahren. Dies liegt daran, dass man dieses Quadrat früher als manuelle Hilfe zum Ver- und Entschlüsseln benutzte.</P>
-
-<P>Im klassischen Caesar-Verfahren wird der Buchstabe "A" als Verschiebung um 1, der Buchstabe "B" als Verschiebung um 2 gedeutet; beim Vigenère-Verfahren dagegen beträgt die Verschiebung stets ein Zeichen weniger, also <I>kein</I> Zeichen für "A", 1 Zeichen für "B", 2 Zeichen für "C",..., 25 Zeichen für "Z". </P>
-
-<P>Beim Vigenère-Verfahren sind der Klartext und der verschlüsselte Text identisch, wenn der Schlüssel "A" ist (und nicht "Z", wie beim Caeser-Verschlüsselungsverfahren).</P>
-
-<P>Das Vigenère-Verschlüsselungsverfahren kann leicht mit einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> gebrochen werden (siehe <A href="hid_vigenere_auto.html">automatische Analyse des Vigenère-Verschlüsselungsverfahrens</A>). Ein <A href="szenarien_vigenere.html">Beispiel</A> dazu befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Vigenère-Verschlüsselungsverfahren</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Verschlüsseln">
+		</OBJECT>
+		<h3><P><A NAME="hid_vigenere_asc"></A><B>Vigenère-Verschlüsselungsverfahren (Menü <A href="menu_crypt.html">
+						Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</B>
+			</P>
+		</h3>
+		<P>Beim Vigenère-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+			wird – wie bei der monoalphabetischen Substitution - ein mehrere Buchstaben 
+			langer <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> verwendet. Man 
+			kann die Caesar-Verschlüsselung als Sonderfall der Vigenère-Verschlüsselung mit 
+			einem Schlüssel der Länge 1 ansehen, und umgekehrt kann man die 
+			Vigenère-Verschlüsselung als ein mehrfaches Anwenden einer modifizierten 
+			Caesar-Verschlüsselung deuten.</P>
+		<P>Wie bei dem <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> werden 
+			nur Zeichen aus dem Alphabet <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>
+			(das Alphabet wird im Dialog <A href="hidd_text_options.html">Textoptionen</A> ausgewählt). 
+			Zeichen, die nicht zum Alphabet gehören, werden normalerweise im 
+			verschlüsselten Text weggelassen, so dass nach der <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A>
+			diese Zeichen aus dem Textzusammenhang eingefügt werden müssen. Dies gilt für 
+			Satz- und Sonderzeichen (insbesondere Leerzeichen als Trennung zwischen zwei 
+			Wörtern). Nicht zu verschlüsselnde Zeichen werden bei der Ver- und 
+			Entschlüsselung natürlich nicht berücksichtigt und bewirken auch keine 
+			Schlüsselfortschaltung zum nächsten Schlüsselbuchstaben.</P>
+		<P>Über das Untermenü <B>Textoptionen</B> im Menü <A href="menu_options.html"><B>Optionen</B></A>
+			wird eingestellt, ob Satz- und Sonderzeichen bei der Ver- bzw. Entschlüsselung 
+			erhalten bleiben.</P>
+		<P>Der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für das Vigenère-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+			muss im Dialog <A href="hidd_key.html">Schlüsseleingabe</A> eingegeben werden.</P>
+		<P><U>Beispiel:</U></P>
+		<P>Bei dem 3 Buchstaben langen Schlüssel "KEY" wird
+		</P>
+		<UL>
+			<LI>
+				der erste Buchstabe des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A>
+			mit "K" verschlüsselt,
+			<LI>
+			der zweite mit "E",
+			<LI>
+			der dritte mit "Y",
+			<LI>
+			der vierte wieder mit "K",
+			<LI>
+				der fünfte mit "E" und so weiter.</LI>
+		</UL>
+		<P><U>Bemerkung:</U></P>
+		<P>In der Literatur wird das Vigenère-Verschlüsselungsverfahren häufig mit Hilfe 
+			des Vigenère-Quadrats beschrieben statt als mehrfache Anwendung des 
+			Caesar-Verschlüsselungsverfahren. Dies liegt daran, dass man dieses Quadrat 
+			früher als manuelle Hilfe zum Ver- und Entschlüsseln benutzte.</P>
+		<P>Im klassischen Caesar-Verfahren wird der Buchstabe "A" als Verschiebung um 1, 
+			der Buchstabe "B" als Verschiebung um 2 gedeutet; beim Vigenère-Verfahren 
+			dagegen beträgt die Verschiebung stets ein Zeichen weniger, also <I>kein</I> Zeichen 
+			für "A", 1 Zeichen für "B", 2 Zeichen für "C",..., 25 Zeichen für "Z".
+		</P>
+		<P>Beim Vigenère-Verfahren sind der Klartext und der verschlüsselte Text identisch, 
+			wenn der Schlüssel "A" ist (und nicht "Z", wie beim 
+			Caeser-Verschlüsselungsverfahren).</P>
+		<P>Das Vigenère-Verschlüsselungsverfahren kann leicht mit einem <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>
+			gebrochen werden (siehe <A href="hid_vigenere_auto.html">automatische Analyse des 
+				Vigenère-Verschlüsselungsverfahrens</A>). Ein <A href="szenarien_vigenere.html">
+				Beispiel</A> dazu befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+	</BODY>
 </HTML>
