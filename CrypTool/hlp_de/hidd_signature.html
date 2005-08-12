@@ -15,7 +15,7 @@
 	<PARAM NAME="Keyword" VALUE="Erstellen">
 </OBJECT>
 
-<h3><P><A NAME="hidd_signature"></A><B>Dialog Signatur einer Nachricht erstellen (Menü <A href="menu_sign.html">Digitale Signaturen</A>)</B></P></h3>
+<h3><P><A NAME="hidd_signature"></A><B>Dialog Signatur einer Nachricht erstellen (Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A>)</B></P></h3>
 <P>In diesem Dialog kann ein <A href="hid_crypt_sign.html">Dokument signiert</A> werden.</P>
 
 <P>Der Dialog besteht aus den beiden Gruppenfeldern <B>Hashfunktion wählen</B> und <B>Signaturverfahren wählen</B>. Es stehen fünf <A href="hashfunktion.html">Hashfunktionen</A> (<A href="hid_crypt_hash_md2.html">MD2</A>, <A href="hid_crypt_hash_md5.html">MD5</A>, <A href="hid_crypt_hash_ripemd160.html">RIPEMD-160</A>, <A href="hid_crypt_hash_sha.html">SHA</A> und <A href="hid_crypt_hash_sha1.html">SHA-1</A>) und vier Signaturverfahren (RSA, <A href="dsa.html">DSA</A>, ECSP-DSA und ECSP-NR) zur Verfügung. Den kryptographischen Standards entsprechend kann nicht jedes Signaturverfahren mit jeder Hashfunktion benutzt werden. Folgende Tabelle gibt einen Überblick über die erlaubten Kombinationen:</P>
@@ -72,7 +72,7 @@
 
 <P>Bei der Auswahl des <!--ZZZPOPUP--><A href="schluesselbezeichner.html">Schlüssel-Bezeichners</A> erkennt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> automatisch, welcher Schlüssel darin gespeichert ist, so dass nur diejenigen Signaturverfahren und Hashfunktionen zur Auswahl stehen, die sich untereinander "vertragen" und zu dem Schlüssel korrespondieren.</P>
 
-<P>Es ist möglich, mit dem Befehl <A href="hid_crypt_extract.html"><B>Signatur extrahieren</B></A> aus dem <B>Menü <A href="menu_sign.html">Digitale Signaturen</A></B> die Signatur zu extrahieren.</P>
+<P>Es ist möglich, mit dem Befehl <A href="hid_crypt_extract.html"><B>Signatur extrahieren</B></A> aus dem <B>Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A></B> die Signatur zu extrahieren.</P>
 
 <P>Beim Signieren mittels ECSP-DSA und ECSP-NR ist es ferner möglich, durch ein Häkchen im Feld <B>Zwischenschritte anzeigen</B> die Zwischenschritte bei der Signaturerstellung auszugeben. Die Ausgabe erfolgt im Dialog <A href="hidd_ecsignatrure_stepbystep.html">Signaturerzeugung – Schritt für Schritt</A>.</P>
 

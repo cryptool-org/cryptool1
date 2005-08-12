@@ -1,63 +1,71 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>MD5-Hashwert</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Hashwert">
-	<PARAM NAME="Keyword" VALUE="MD5-Hashwert">
-</OBJECT>
-
-<h3><P><A NAME="hid_crypt_hash_md5"></A><B>MD5-Hashwert (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashwerte)</B></P></h3>
-
-<P>Der MD5-Algorithmus (Message Digest 5) liefert einen <!--ZZZPOPUP--><A href="hashwert.html">Hashwert</A> der Länge 128 Bits (= 16 Bytes).</P>
-
-<P>Der Algorithmus ist im RFC1321 (Request for Comment, http://www.faqs.org/rfcs/rfc1321.html) beschrieben, hier ein Auszug:</P>
-
-<P><B>Step 1. Append Padding Bits</B></P>
-
-<P>The message is "padded" (extended) so that its length (in bits) is congruent to 448, modulo 512. That is, the message is extended so that it is just 64 bits shy of being a multiple of 512 bits long. Padding is always performed, even if the length of the message is already congruent to 448, modulo 512. Padding is performed as follows: a single "1" bit is appended to the message, and then "0" bits are appended so that the length in bits of the padded message becomes congruent to 448, modulo 512. In all, at least one bit and at most 512 bits are appended.</P>
-
-<P><B>Step 2. Append Length</B></P>
-
-<P>A 64-bit representation of b (the length of the message before the padding bits were added) is appended to the result of the previous step. In the unlikely event that b is greater than 2^64, then only the low-order 64 bits of b are used. (These bits are appended as two 32-bit words and appended low-order word first in accordance with the previous conventions.) At this point the resulting message (after padding with bits and with b) has a length that is an exact multiple of 512 bits. Equivalently, this message has a length that is an exact multiple of 16 (32-bit) words. Let M[0 ... N-1] denote the words of the resulting message, where N is a multiple of 16.</P>
-
-<P><B>Step 3. Initialize MD Buffer</B></P>
-
-<P>A four-word buffer (A,B,C,D) is used to compute the message digest. Here each of A, B, C, D is a 32-bit register. These registers are initialized to the following values in hexadecimal, low-order bytes first):</P>
-
-<P>word A: 01 23 45 67</P>
-
-<P>word B: 89 ab cd ef</P>
-
-<P>word C: fe dc ba 98</P>
-
-<P>word D: 76 54 32 10</P>
-
-<P><B>Step 4. Process Message in 16-Word Blocks</B></P>
-
-<P>We first define four auxiliary functions that each take as input three 32-bit words and produce as output one 32-bit word.</P>
-
-<P>F(X,Y,Z) = XY v not(X) Z</P>
-
-<P>G(X,Y,Z) = XZ v Y not(Z)</P>
-
-<P>H(X,Y,Z) = X xor Y xor Z</P>
-
-<P>I(X,Y,Z) = Y xor (X v not(Z))</P>
-
-<P>In each bit position F acts as a conditional: if X then Y else Z. The function F could have been defined using + instead of v since XY and not(X)Z will never have 1's in the same bit position.) It is interesting to note that if the bits of X, Y, and Z are independent and unbiased, then each bit of F(X,Y,Z) will be independent and unbiased. The functions G, H, and I are similar to the function F, in that they act in "bitwise parallel" to produce their output from the bits of X, Y, and Z, in such a manner that if the corresponding bits of X, Y, and Z are independent and unbiased, then each bit of G(X,Y,Z), H(X,Y,Z), and I(X,Y,Z) will be independent and unbiased. Note that the function H is the bit-wise "xor" or "parity" function of its inputs.</P>
-
-<P>This step uses a 64-element table T[1 ... 64] constructed from the sine function. Let T[i] denote the i-th element of the table, which is equal to the integer part of 4294967296 times abs(sin(i)), where i is in radians. The elements of the table are given in the appendix.</P>
-
-<P>Do the following:</P>
-
-<PRE><CODE>/* Process each 16-word block. */
+	<HEAD>
+		<TITLE>MD5-Hashwert</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Hashwert">
+		</OBJECT>
+		<h3><P><A NAME="hid_crypt_hash_md5"></A><B>MD5-Hashwert (Menü <A href="menu_related_methods.html">
+						Einzelverfahren</A> \ Hashverfahren)</B></P>
+		</h3>
+		<P>Der MD5-Algorithmus (Message Digest 5) liefert einen <!--ZZZPOPUP--><A href="hashwert.html">Hashwert</A>
+			der Länge 128 Bits (= 16 Bytes).</P>
+		<P>Der Algorithmus ist im RFC1321 (Request for Comment, 
+			http://www.faqs.org/rfcs/rfc1321.html) beschrieben, hier ein Auszug:</P>
+		<P><B>Step 1. Append Padding Bits</B></P>
+		<P>The message is "padded" (extended) so that its length (in bits) is congruent to 
+			448, modulo 512. That is, the message is extended so that it is just 64 bits 
+			shy of being a multiple of 512 bits long. Padding is always performed, even if 
+			the length of the message is already congruent to 448, modulo 512. Padding is 
+			performed as follows: a single "1" bit is appended to the message, and then "0" 
+			bits are appended so that the length in bits of the padded message becomes 
+			congruent to 448, modulo 512. In all, at least one bit and at most 512 bits are 
+			appended.</P>
+		<P><B>Step 2. Append Length</B></P>
+		<P>A 64-bit representation of b (the length of the message before the padding bits 
+			were added) is appended to the result of the previous step. In the unlikely 
+			event that b is greater than 2^64, then only the low-order 64 bits of b are 
+			used. (These bits are appended as two 32-bit words and appended low-order word 
+			first in accordance with the previous conventions.) At this point the resulting 
+			message (after padding with bits and with b) has a length that is an exact 
+			multiple of 512 bits. Equivalently, this message has a length that is an exact 
+			multiple of 16 (32-bit) words. Let M[0 ... N-1] denote the words of the 
+			resulting message, where N is a multiple of 16.</P>
+		<P><B>Step 3. Initialize MD Buffer</B></P>
+		<P>A four-word buffer (A,B,C,D) is used to compute the message digest. Here each of 
+			A, B, C, D is a 32-bit register. These registers are initialized to the 
+			following values in hexadecimal, low-order bytes first):</P>
+		<P>word A: 01 23 45 67</P>
+		<P>word B: 89 ab cd ef</P>
+		<P>word C: fe dc ba 98</P>
+		<P>word D: 76 54 32 10</P>
+		<P><B>Step 4. Process Message in 16-Word Blocks</B></P>
+		<P>We first define four auxiliary functions that each take as input three 32-bit 
+			words and produce as output one 32-bit word.</P>
+		<P>F(X,Y,Z) = XY v not(X) Z</P>
+		<P>G(X,Y,Z) = XZ v Y not(Z)</P>
+		<P>H(X,Y,Z) = X xor Y xor Z</P>
+		<P>I(X,Y,Z) = Y xor (X v not(Z))</P>
+		<P>In each bit position F acts as a conditional: if X then Y else Z. The function F 
+			could have been defined using + instead of v since XY and not(X)Z will never 
+			have 1's in the same bit position.) It is interesting to note that if the bits 
+			of X, Y, and Z are independent and unbiased, then each bit of F(X,Y,Z) will be 
+			independent and unbiased. The functions G, H, and I are similar to the function 
+			F, in that they act in "bitwise parallel" to produce their output from the bits 
+			of X, Y, and Z, in such a manner that if the corresponding bits of X, Y, and Z 
+			are independent and unbiased, then each bit of G(X,Y,Z), H(X,Y,Z), and I(X,Y,Z) 
+			will be independent and unbiased. Note that the function H is the bit-wise 
+			"xor" or "parity" function of its inputs.</P>
+		<P>This step uses a 64-element table T[1 ... 64] constructed from the sine 
+			function. Let T[i] denote the i-th element of the table, which is equal to the 
+			integer part of 4294967296 times abs(sin(i)), where i is in radians. The 
+			elements of the table are given in the appendix.</P>
+		<P>Do the following:</P>
+		<PRE><CODE>/* Process each 16-word block. */
 For i = 0 to N/16-1 do /* Copy block i into X. */
    For j = 0 to 15 do
        Set X[j] to M[i*16+j].
@@ -101,10 +109,9 @@ For i = 0 to N/16-1 do /* Copy block i into X. */
    C = C + CC
    D = D + DD
 end /* of loop on i */</CODE></PRE>
-
-<P><B>Step 5. Output</B></P>
-
-<P>The message digest produced as output is A, B, C, D. That is, we begin with the low-order byte of A, and end with the high-order byte of D. This completes the description of MD5. A reference implementation in C is given in the appendix.</P>
-
-</BODY>
+		<P><B>Step 5. Output</B></P>
+		<P>The message digest produced as output is A, B, C, D. That is, we begin with the 
+			low-order byte of A, and end with the high-order byte of D. This completes the 
+			description of MD5. A reference implementation in C is given in the appendix.</P>
+	</BODY>
 </HTML>

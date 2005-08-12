@@ -1,47 +1,52 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Automatische Analyse Caesar-Verschlüsselungsverfahren</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Analyse">
-	<PARAM NAME="Keyword" VALUE="Caesar-Analyse">
-</OBJECT>
-
-<h3><P><A NAME="hid_caesar_auto"></A><B>Automatische Analyse für Caesar-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ "ciphertext only")</B></P></h3>
-
-<P>Für das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> steht ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>) in Form einer Möglichkeit der automatisierten Schlüsselsuche zur Verfügung.</P>
-
-<P>Bei der Analyse wird die Häufigkeitsverteilung der einzelnen Zeichen, das heißt das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>, ermittelt. Diese Verteilung wird mit der Verteilung der deutschen Sprache verglichen. Dazu werden die Verteilungen mit verschiedenen Verschiebungen "übereinandergelegt" (<!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A>) und auf ihre Ähnlichkeit hin verglichen. Die Verschiebung mit der größten Ähnlichkeit gibt den korrekten <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> an. Über den Dialog <A href="hidd_options_analysis.html">Optionen für automatische Analysen</A> kann eingestellt werden, welche und wie viele Zwischenergebnisse als eigene Fenster angezeigt werden. Wird eines dieser Zwischenergebnisse mit <B>Abbrechen</B> anstelle von <B>OK</B> bestätigt, so erfolgt danach keine weitere Anzeige dieser Fenster oder untergeordneter Fenster. Im Dialog <A href="hidd_caesar_analysis.html">Automatische Analyse</A> wird der ermittelte Schlüssel ausgegeben. Er kann in diesem Dialog überschrieben werden. </P>
-
-<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_caesar.html">Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</P>
-
-<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
-
-<P>Der Schlüssel wird meistens gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A></P>
-
-<P>nicht zu kurz ist (ab ungefähr 20 Zeichen).</P>
-
-<P>deutschen Text enthält, in dem die Zeichenhäufigkeit normal ist.</P>
-
-<P>Wegen der zweiten Bedingung kann zum Beispiel bei einem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> </P>
-
-<div class="indent">
-
-<PRE><CODE>    qw yx as qw yx as qw yx as qw yx as qw yx as </CODE></PRE>
-
-</div>
-
-<P>der Schlüssel nicht ermittelt werden kann, obwohl genügend Zeichen vorhanden sind.</P>
-
-<P>Diese beiden oben angeführten Bedingungen sind normalerweise erfüllt, wenn der Klartext aus deutschen Wörtern besteht.</P>
-
-<P>Der Schlüssel kann unter Umständen dennoch gefunden werden, wenn ein sehr kurzer Text vorliegt.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Automatische Analyse Caesar-Verschlüsselungsverfahren</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Analyse">
+		</OBJECT>
+		<h3><P><A NAME="hid_caesar_auto"></A><B>Automatische Analyse für 
+					Caesar-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ 
+					Symmetrische Verschlüsselung (klassisch) \ Ciphertext only)</B></P>
+		</h3>
+		<P>Für das <A href="hid_caesar_asc.html">Caesar-Verschlüsselungsverfahren</A> steht 
+			ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>) 
+			in Form einer Möglichkeit der automatisierten Schlüsselsuche zur Verfügung.</P>
+		<P>Bei der Analyse wird die Häufigkeitsverteilung der einzelnen Zeichen, das heißt 
+			das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>, ermittelt. Diese 
+			Verteilung wird mit der Verteilung der deutschen Sprache verglichen. Dazu 
+			werden die Verteilungen mit verschiedenen Verschiebungen "übereinandergelegt" (<!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A>) 
+			und auf ihre Ähnlichkeit hin verglichen. Die Verschiebung mit der größten 
+			Ähnlichkeit gibt den korrekten <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>
+			an. Über den Dialog <A href="hidd_options_analysis.html">Optionen für automatische 
+				Analysen</A> kann eingestellt werden, welche und wie viele 
+			Zwischenergebnisse als eigene Fenster angezeigt werden. Wird eines dieser 
+			Zwischenergebnisse mit <B>Abbrechen</B> anstelle von <B>OK</B> bestätigt, so 
+			erfolgt danach keine weitere Anzeige dieser Fenster oder untergeordneter 
+			Fenster. Im Dialog <A href="hidd_caesar_analysis.html">Automatische Analyse</A> 
+			wird der ermittelte Schlüssel ausgegeben. Er kann in diesem Dialog 
+			überschrieben werden.
+		</P>
+		<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_caesar.html">
+				Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</P>
+		<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
+		<P>Der Schlüssel wird meistens gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A></P>
+		<P>nicht zu kurz ist (ab ungefähr 20 Zeichen).</P>
+		<P>deutschen Text enthält, in dem die Zeichenhäufigkeit normal ist.</P>
+		<P>Wegen der zweiten Bedingung kann zum Beispiel bei einem <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>
+		</P>
+		<div class="indent">
+			<PRE><CODE>    qw yx as qw yx as qw yx as qw yx as qw yx as </CODE></PRE>
+		</div>
+		<P>der Schlüssel nicht ermittelt werden kann, obwohl genügend Zeichen vorhanden 
+			sind.</P>
+		<P>Diese beiden oben angeführten Bedingungen sind normalerweise erfüllt, wenn der 
+			Klartext aus deutschen Wörtern besteht.</P>
+		<P>Der Schlüssel kann unter Umständen dennoch gefunden werden, wenn ein sehr kurzer 
+			Text vorliegt.</P>
+	</BODY>
 </HTML>
