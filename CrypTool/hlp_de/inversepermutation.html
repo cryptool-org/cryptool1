@@ -10,21 +10,25 @@
 
 <h3>Inverse Permutation</h3>
 
+<P>Eine Permutation der Länge n besteht aus den n Elementen einer Menge. Nutzt man als Menge die Zahlen 1 bis n und reiht diese Zahlen in einer beliebigen Folge ohne Wiederholung auf, hat man eine bestimmte Permutation (kann auch als Vektor betrachtet werden).</P>
+
 <P>Eine inverse Permutation ist eine Permutation, in der jedes Element und die Stelle, an der sich das Element befindet, vertauscht werden. Beispielsweise sind die beiden nachfolgenden Permutationen invers zueinander:</P>
 
 <div class="indent">
 
-<P>P1 = { 3, 6, 5, 2, 7, 1, 8, 4 }</P>
+<P>P1 = ( 3, 6, 5, 2, 7, 1, 8, 4 )</P>
 
-<P>P2 = { 6, 4, 1, 8, 3, 2, 5, 7 }</P>
+<P>P2 = ( 6, 4, 1, 8, 3, 2, 5, 7 )</P>
 
 </div>
 
-<P>Will man zu einer gegebenen Permutation die Inverse bestimmen, so muss jedes Element der Permutation einzeln betrachtet werden. Das nachfolgende Beispiel zeigt, wie aus der Permutation P1 die zugehörige Inverse P2 erzeugt wird.</P>
+<P>Will man zu einer gegebenen Permutation die Inverse bestimmen, so muss jedes Element der Permutation einzeln betrachtet werden.</P>
 
-<P>Um die Inverse zu P1 zu bestimmen, sucht man zunächst diejenige Stelle in P1, an der sich das erste Element (hier: Element "1") befindet. Beginnend mit eins zählt man die Permutation durch und erhält als Ergebnis die Stelle "6". Anders ausgedrückt: Das erste Element der Permutation steht an der sechsten Stelle.</P>
+<P>Um die Inverse zu P1 zu bestimmen, sucht man zunächst diejenige Stelle in P1, an der sich das kleinste Element (hier: Element "1") befindet. Beginnend mit eins zählt man die Permutation durch und erhält als Ergebnis die <b>Stelle</b> (Index) "6".</P>
 
-<P>Zur Überprüfung: Das erste Element von P1 steht an sechster Stelle, daher ist das erste Element von P2 gleich sechs. Das zweite Element von P1 steht an vierter Stelle, daher ist das zweite Element von P2 gleich vier.</P>
+<P>Oben gilt also: 1 = P1(6) und 6 = P2(1) = Index von P1(6).</P>
+
+<P>Das erste Element von P1 steht an sechster Stelle, daher ist das erste Element von P2 gleich sechs. Das zweite Element von P1 steht an vierter Stelle, daher ist das zweite Element von P2 gleich vier.</P>
 
 <P>Analog dazu wird verfahren, bis alle Elemente der Permutation behandelt wurden.</P>
 

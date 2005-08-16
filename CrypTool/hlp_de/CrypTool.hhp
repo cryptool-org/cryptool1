@@ -309,7 +309,6 @@ hid_crypt_3des_ecb.html
 hid_crypt_3des_cbc.html
 hid_context_help.html
 hid_caesar_auto.html
-hid_caesar_asc.html
 hid_barwidth.html
 hid_auto.html
 hid_app_exit.html
@@ -404,7 +403,6 @@ hid_cr_sz_passwords.html
 hid_cr_usage.html
 hid_cr_overview.html
 hidd_sidechannelattackvisualization_he_attackcycle.html
-hid_messageauthenticationcode.html
 authentizitaet.html
 hid_anim_vigenere.htm
 hid_anim_caesar.htm
@@ -447,6 +445,12 @@ menu_analysis_symmetricclassic_ciphertextonly.html
 menu_analysis_symmetricclassic_knownplaintext.html
 menu_analysis_asymmetric_latticebasedattacks.html
 hid_fileproperties.html
+hid_encrypt_adfgvx.html
+hid_rot13caesar_asc.html
+hid_generate_macs.html
+hid_rsa_stereotyped.html
+hid_rsa_bloemermay.html
+hid_rsa_factorhint.html
 
 [ALIAS]
 #include CrypTool_Alias.h
