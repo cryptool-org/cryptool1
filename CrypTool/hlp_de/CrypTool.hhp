@@ -89,7 +89,6 @@ menu_file.html
 menu_edit.html
 menu_crypt.html
 menu_analyze.html
-menu_analyserandomtest.html
 main_index.html
 literatur.html
 knownplaintextangriff.html
@@ -413,11 +412,7 @@ hidd_hmac.html
 hid_einzelverfahren_crt_transformation_dialog.html
 hid_einzelverfahren_crt_astronomy_dialog.html
 hid_einzelverfahren_crt_definition.html
-hid_einzelverfahren_crt_secretsharing.html
 hid_einzelverfahren_crt_secretsharing_dialog.html
-hid_einzelverfahren_crt_transformation.html
-hid_einzelverfahren_crt_astronomy.html
-menu_tutorial_for_crt.html
 keystore.html
 cryp0001.htm
 menu_digitalsignaturespki.html
@@ -451,6 +446,17 @@ hid_generate_macs.html
 hid_rsa_stereotyped.html
 hid_rsa_bloemermay.html
 hid_rsa_factorhint.html
+hid_indiv_crt_planet.html
+hid_indiv_crt_secretsharing.html
+hid_indiv_crt_demo.html
+hid_help_animal_vigenere.html
+hid_help_animal_caesar.html
+hid_help_animal_des.html
+hid_help_animal_nihilist.html
+hid_code_uu.html
+hid_code_base64.html
+hid_mass_pattern_search.html
+hid_analysis_random_3d_visualization.html
 
 [ALIAS]
 #include CrypTool_Alias.h
