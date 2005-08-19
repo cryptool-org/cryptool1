@@ -409,10 +409,7 @@ hid_anim_des.htm
 hid_anim_nihilist.htm
 hid_anim.htm
 hidd_hmac.html
-hid_einzelverfahren_crt_transformation_dialog.html
-hid_einzelverfahren_crt_astronomy_dialog.html
 hid_einzelverfahren_crt_definition.html
-hid_einzelverfahren_crt_secretsharing_dialog.html
 keystore.html
 cryp0001.htm
 menu_digitalsignaturespki.html
@@ -457,6 +454,12 @@ hid_code_uu.html
 hid_code_base64.html
 hid_mass_pattern_search.html
 hid_analysis_random_3d_visualization.html
+hid_analyse_symmclassic_adfgvx.html
+hid_ciphertext_only_substitution.html
+hid_playfair_analyse.html
+hidd_crt_astronomy.html
+hidd_crt_transformation.html
+hidd_crt_secretsharing.html
 
 [ALIAS]
 #include CrypTool_Alias.h
