@@ -460,6 +460,12 @@ hid_playfair_analyse.html
 hidd_crt_astronomy.html
 hidd_crt_transformation.html
 hidd_crt_secretsharing.html
+hidd_rot13_caesar.html
+hidd_adfgvx.html
+hidd_auto_substitution_analysis_algorithm_choice.html
+hidd_rsastereotyped.html
+hidd_rsabloemermay.html
+hidd_rsafactorhint.html
 
 [ALIAS]
 #include CrypTool_Alias.h
