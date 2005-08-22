@@ -440,6 +440,10 @@ menu_individualprocedures_rsacryptosystem.html
 menu_individualprocedures_rsacryptosystem_latticebasedattacks.html
 menu_crypt_symmetricclassic.html
 menu_digitalsignaturespki.html
+hidd_adfgvx_manual.html
+hidd_adfgvx.html
+hid_encrypt_adfgvx.html
+hid_analyse_symmclassic_adfgvx.html
 
 [ALIAS]
 #include CrypTool_Alias.h

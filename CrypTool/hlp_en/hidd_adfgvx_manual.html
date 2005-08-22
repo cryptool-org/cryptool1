@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Semiautomatic analysis of the ADFGVX-Cipher</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<body>
+
+<h3><P><A NAME="hidd_adfgvx_manual"></A><B>Dialog Semiautomatic analysis of the ADFGVX-Cipher (Menu <a href="menu_analyze.html">Analysis</a> \ Symmetric Encryption (classic) \ Ciphertext only</B></P></h3>
+
+<p>This dialog window supports you in analysing <!--ZZZPOPUP--><A href="hid_adfgvx.html">ADFGVX-encrypted</A> messages.<br>
+The theoretical basis to analyse the ADFGVX-Cipher can be found <!--ZZZPOPUP--><A href="hid_adfgvx_manual.html">here</A>.<br>
+<br>
+Just like the dialog <!--ZZZPOPUP--><A href="hidd_adfgvx.html">ADFGVX-Cipher: key input</A>, this dialog is 
+divided into two sections, in which the two stages of ADFGVX can be analysed. However, the analysis of ADFGVX must be carried out in reverse order: at first, the transposition (encryption stage 2) is analysed, the second phase consists in analysing the substitution (encryption stage 1) and possibly discovering that the transposition password is not correct.<br>
+&nbsp;</font></p>
+<p><img border="0" src="images/adfgvx_analys.gif" width="399" height="602"></p>
+<p><font face="Arial"><b>Stage 2: finding the transposition password</b><br>
+<br>
+The <b>dropdown fields for the password length</b> control the lower and upper boundaries of the brute force search for the transposition password. A large search area will lead to a long wait while the computer works its way to the upper boundary (as a reminder: a maximum password length of 6 characters results in 1! + 2! + 3! + 4! + 5! + 6! = 873 possible combinations).
+As a rule of thumb, passwords with a length up to 11 characters (43,954,713 possible solutions) will be found in an acceptable time.<br>
+<br>
+The dropdown field <b>Current standardized password</b> shows the last found transposition password. All previously used transposition passwords and their corresponding substitution matrixes are stored in this dropdown field.<br>
+Passwords found by the automatical analysis always consist of the first <i>n</i> letters of the alphabet, <i>n</i> being the password length. Thus, the passwords "MATRIX" and "CAEDBF" are equivalent. If the field is empty when beginning the analysis, the search will cover the area defined by the minimal and maximal password length fields. If a password is entered, the search will begin with the given password and stop at the upper boundary.
+For example, with the given password "CAEBDF" and an upper boundary of seven characters, the search will terminate with the combination "GFEDCBA".<br>
+Entries made in this field will deny changes in the password length fields that stand in contrast to the current password. For example, while the maximal password length can be greater than the current length, it cannot be smaller.<br>
+<b>To begin a new search within other boundaries, the current password must be erased or changed.</b><br>
+Below the text field, the current sequence for the column transposition is displayed.<br>
+<br>
+The button <b>Apply</b> bypasses the analysis of the transposition password. This is especially useful with short messages, since in this case the bigramm analysis is unlikely to deliver a meaningful result. The entered password can be used to transpose the message without being tested first. The bigram analysis is carried out anyway, but the password is not assessed by the outcome. The entries made into the substitution matrix can be faulty, they represent the best, but not necessarily a good result of the analysis.<br>
+If no password is given, the button is deactivated.<br>
+<br>
+By clicking the button <b>Analyse</b>, the brute force search for the transposition key is started, beginning at the lower boundary or the current password and stopping when it finds a possible password or reaching the upper boundary.<br>
+For determining a posible solution, the current implementation searches for an ADFGVX-bigram with a relative frequency of 16%, representing the letter 'E' in English and German texts. Despite of this very crude criterion, there is almost no occurrance of false alarms (disregarding the cases of <A href="hid_adfgvx_manual.html#column_shift">column shift</A>).<br>
+<br>
+<b>Stage 1: finding the substitution key</b><br>
+<br>
+If a possible solution is found, the search stops and the letters 'E', 'N', 'R' and 'S' are entered into the substitution matrix at their most probable positions.<br>
+<br>
+The <b>Current solution</b> of the analysis is displayed at the bottom of the dialog, small letters indicate the parts that are already resubstituted, capital letters are ADFGVX-bigrams. The first bigram letter marks the row, the second marks the column of the plaintext letter in the substitution matrix.<br>
+<br>
+The user now has to try to detect whole words in the text and assign the missing plaintext letters to the ADFGVX-bigrams.<br>
+The <b>Substitution matrix</b> can only contain the letters 'A' to 'Z' and the figures '0' to '9'. On repeated entry of an existing character, a dialog box is displayed, giving the user the possibility to erase the old entry or to undo the change.<br>
+The button <b>Clear matrix</b> erases all entries of the substitution matrix. The button <b>Standard matrix</b> fills the substitution matrix with all 36 allowed characters in order.<br>
+<br>
+Since the field <i>Current solution</i> is not updated dynamically, clicking the button <b>Update current solution</b> will do just this.<br>
+<br>
+If, by looking at the text, one does not discover any meaningful words, the transposition password may be incorrect. In this case the transposition analysis must be resumed by clicking <i>Analyse</i> and the substitution analysis must be restarted with the next possible transposition password.<br>
+This step can be repeated until the upper boundary of the password search is reached.<br>
+<br>
+Clicking the <b>key icon</b> inserts an ADFGVX key that was previously copied to the key memory (if the button is inactive, there is no ADFGVX key available).<br>
+<br>
+By clicking <b>Output</b> the current solution is written to a new text window and the analysis dialog is closed.<br>
+<br>
+The checkbox <b>Show opening dialog</b> determines, whether the short information about how to analyse an ADFGVX-message is displayed when opening the dialog.
+</font></p>
+
+</body>
+
+</html>
