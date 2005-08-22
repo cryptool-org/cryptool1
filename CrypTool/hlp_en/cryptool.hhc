@@ -114,8 +114,8 @@
 			<param name="Local" value="menu_key.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menu Digital Signatures">
-			<param name="Local" value="menu_sign.html">
+			<param name="Name" value="Menu Digital Signatures/PKI">
+			<param name="Local" value="menu_digitalsignaturespki.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Menu En-/decrypt">
