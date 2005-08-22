@@ -8,12 +8,55 @@
 <BODY>
 
 <OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<PARAM NAME="Keyword" VALUE="ADFGVX">
 <PARAM NAME="Keyword" VALUE="Verschlüsseln">
 </OBJECT>
 
 <h3><P><A NAME="hid_encrypt_adfgvx"></A><B>ADFGVX-Verschlüsselung (<A href="menu_crypt.html">Menü Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</B></P></h3>
 
-<P>TODO</P>
+<p>Das ADFGVX-Verschlüsselungsverfahren wurde im Ersten Weltkrieg von Fritz Nebel, 
+einem Oberst des deutschen Fernmeldekorps entwickelt und ab Frühjahr 1918 von 
+der Deutschen Reichswehr eingesetzt. Das Verfahren ist eine effektive 
+zweistufige Kaskade aus einer Substitution gefolgt von einer 
+Spaltentransposition. <br>
+<br>
+Die Schlüsseleingabe erfolgt im Dialogfenster <!--ZZZPOPUP--><A href="hidd_adfgvx.html">Verschlüsselungsdialog für das 
+ADFGVX-Verfahren</A>. <br>
+<br>
+Die Substitution erfolgt mittels einer 6x6-Matrix, in der die Buchstaben 'A' bis 
+'Z' und die Ziffern '0' bis '9' in beliebiger Reihenfolge angeordnet werden. 
+Zeilen und Spalten der Matrix werden durch die Buchstaben A, D, F, G, V und X 
+identifiziert. <br>
+<br>
+Da diese Matrix ein Teil des Schlüssels ist, muss sie dem Empfänger der Nachricht 
+bekannt sein. Die <b>erste Verschlüsselungsstufe</b> (Substitution) bestimmt für jeden 
+Klartextbuchstaben seine Position in der Matrix und ersetzt ihn durch den 
+Zeilen- und Spaltenidentifikator. Ein Buchstabe des Klartextes wird also durch 
+zwei Buchstaben Chiffretext ersetzt. <br>
+<br>
+In der <b>zweiten Stufe</b> wird der so entstandene Chiffretext mittels einer 
+Spaltentransposition weiter verfremdet. Grundlage der Transposition bildet das 
+Transpositionspasswort. Dieses Passwort darf nur aus den Buchstaben 'A' bis 'Z' 
+bestehen und keine doppelten Zeichen enthalten, daher ist die Passwortlänge auf 
+26 Zeichen begrenzt.<br>
+<br>
+Das Transpositionspasswort (auch Transpositionsschlüssel genannt) bildet den zweiten Teil des ADFGVX-Schlüssels. Die 
+Transposition wird wiederum mit Hilfe einer Matrix durchgeführt, in deren erste 
+Zeile das Transpositionspasswort geschrieben wird. Die Länge des Passworts 
+bestimmt die Spaltenanzahl der Matrix. In diese Matrix wird nun der Chiffretext 
+der ersten Stufe zeilenweise eingetragen. Nun werden die Spalten der Matrix so 
+umgeordnet, dass die Buchstaben des Transpositionspasswortes alphabetisch 
+aufsteigend geordnet sind. Der endgültige Chiffretext wird nun spaltenweise von links aus 
+der Matrix ausgelesen.<br>
+<br>
+Die Sicherheit dieses Systems beruht darauf, dass jeder Buchstabe des Klartextes 
+durch jeweils zwei Buchstaben substituiert wird, die bei der Transposition 
+voneinander getrennt werden werden (sofern die Buchstabenpaare im Passwort lauter nicht aufeinanderfolgende Buchstaben enthalten). Eine Bigramm-Frequenzanalyse vor Analyse der 
+Transposition ist also sinnlos. <br>
+<br>
+Daher muss auch in der in CrypTool enthaltenen <!--ZZZPOPUP--><A href="hid_analyse_symmclassic_adfgvx.html">manuellen Analyse des 
+ADFGVX-Verfahrens</A> immer zuerst der Transpositionsschlüssel ermittelt werden.<br>
+&nbsp;</font></p>
 
 </BODY>
 </HTML>

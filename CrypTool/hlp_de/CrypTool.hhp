@@ -466,6 +466,9 @@ hidd_auto_substitution_analysis_algorithm_choice.html
 hidd_rsastereotyped.html
 hidd_rsabloemermay.html
 hidd_rsafactorhint.html
+hidd_adfgvx_manual.html
+hid_adfgvx_manual.html
+hid_adfgvx.html
 
 [ALIAS]
 #include CrypTool_Alias.h

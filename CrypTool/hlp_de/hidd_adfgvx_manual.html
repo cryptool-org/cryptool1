@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Dialog Analyse ADFGVX</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+<BODY>
+
+<h3><P><A NAME="hidd_adfgvx_manual"></A>Dialog Analyse ADFGVX-Verfahren (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Ciphertext only)</P></h3>
+
+<p>Dieses Dialogfenster unterstützt Sie bei der Analyse von <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX-verschlüsselten</A> 
+Nachrichten.<br>
+Die theoretischen Grundlagen zur Analyse von ADFGVX finden sie <!--ZZZPOPUP--><A href="hid_analyse_symmclassic_adfgvx.html">hier</A>.<br>
+<br>
+Wie der Dialog zur <!--ZZZPOPUP--><A href="hidd_adfgvx.html">Schlüsseleingabe von ADFGVX</A> ist auch dieser Dialog in 
+zwei Abschnitte unterteilt, in denen die beiden Stufen des Verfahrens analysiert 
+werden können. Bei der Analyse muss man jedoch in umgekehrter Richtung vorgehen: 
+zuerst wird die Transposition (Verschlüsselungsstufe 2), dann die Substitution (Verschlüsselungsstufe 1) analysiert, wobei man 
+eventuell feststellt, dass das ermittelte Transpositionspasswort nicht korrekt 
+ist.<br>
+&nbsp;</font></p>
+<p><img border="0" src="images/adfgvx_analys.gif" width="399" height="602"></p>
+<p><font face="Arial"><b>Stufe 2: Transpositionspasswort suchen</b><br>
+<br>
+Mit den <b>Feldern für die Passwortlänge</b> werden die untere und obere Grenze, 
+innerhalb denen sich die Brute-Force-Suche nach dem Transpositionsschlüssel 
+bewegt, festgelegt. Ein zu großer Suchbereich kann den Zeitaufwand für die 
+Transpositionsanalyse erheblich anwachsen lassen, da pro Passwortlänge alle 
+möglichen Kombinationen analysiert werden müssen 
+(zur Erinnerung: bei einer maximalen Passwortlänge von 6 Zeichen sind dies 1! + 2! + 3! + 4! + 5! + 6!, also bereits 873 Kombinationen). Als Faustregel kann man sagen, dass Passwörter bis zu einer Länge von 11 Zeichen (43.954.713 mögliche Kombinationen) in annehmbarer Zeit gefunden werden.<br>
+<br>
+Im Kombinationsfeld <b>Aktuelles normiertes Passwort</b> wird das gefundene Transpositionspasswort 
+angezeigt. Bereits gefundene Passwörter werden gespeichert und können erneut ausgewählt werden. Die letzte zu jedem Transpositionspasswort gehörende Substitutionsmatrix wird ebenfalls gespeichert und bei Auswahl eines Passwortes eingetragen.<br>Durch die automatische Analyse gefundene Passwörter bestehen immer aus den ersten <i>n</i> Buchstaben des Alphabets, wobei <i>n</i> die Passwortlänge ist. Die Passwörter "MATRIX" und "CAEDBF" sind also äquivalent. Ist das Feld zu Beginn der Analyse leer, erstreckt sich die 
+Brute-Force-Suche über den gesamten durch minimale und maximale Passwortlänge 
+beschränkten Bereich. Wird ein Passwort eingegeben, läuft die Suche von dieser 
+Zeichenfolge bis zur oberen Grenze.
+Beispielsweise läuft die Suche bei einer Eingabe des Passwortes "CAEBDF" und 
+einer oberen Grenze von sieben Zeichen bis zur Buchstabenkombination "GFEDCBA".<br>
+Einträge in diesem Feld lassen in den Feldern für die Passwortlänge nur noch sinnvolle Änderungen zu: 
+da der jeweilige Eintrag der Startwert ist, können die minimale und maximale Passwortlänge nicht kleiner 
+als der aktuelle Wert sein, die maximale Länge kann jedoch erhöht werden.<br>
+<b>Um die Suche innerhalb anderer Grenzen neu zu beginnen, muss das aktuelle Passwort gelöscht oder verändert werden.</b><br>
+
+Unter der Passwortzeile wird die für die Transposition verwendete Reihenfolge der zu den Passwortbuchstaben gehörenden Spalten angezeigt.<br>
+<br>
+Der Knopf <b>Übernehmen</b> umgeht die Analyse des Transpositionspasswortes. Dies 
+ist insbesondere bei kurzen Texten wichtig, wenn die Bigrammanalyse zu keinem sinnvollen
+Ergebnis kommt. Die Bigrammanalyse wird zwar durchgeführt, jedoch nicht zur Bewertung des Passwortes herangezogen.
+So kann das eingegebene Passwort ohne Überprüfung für die Transposition verwendet werden. 
+Die Einträge in die Substitutionsmatrix stellen hier jedoch nur das beste Ergebnis dar und können durchaus fehlerhaft sein.<br>
+Wenn das Feld <i>Aktuelles Passwort</i> nicht gefüllt ist, ist der Knopf deaktiviert.<br>
+<br>
+Durch einen Klick auf den Knopf <b>Analysieren</b> wird die Suche nach dem 
+Transpositionsschlüssel gestartet, sie beginnt bei der unteren Grenze oder dem 
+aktuellen Passwort und läuft so lange, bis sie eine mögliche Lösung gefunden hat 
+oder die obere Grenze des Suchbereiches erreicht wird.<br>
+In der aktuellen Implementierung wird zur Erkennung einer möglichen Lösung nach einem ADFGVX-Bigramm mit einer 
+relativen Häufigkeit von 16% gesucht, was in deutschen und englischen Texten dem Buchstaben 'E' entspricht.
+Trotz dieses sehr einfachen Kriteriums treten (abgesehen von den Fällen <A href="hid_analyse_symmclassic_adfgvx.html#Spaltenverschiebung">paarweiser Spaltenverschiebung</A>) 
+praktisch keine Fehlalarme auf.<br>
+<br>
+<b>Stufe 1: Substitutionsschlüssel suchen</b><br>
+<br>
+Ist eine mögliche Lösung gefunden, hält die Suche an und die Buchstaben 'E', 
+'N', 'R' und 'S' werden in der Substitutionsmatrix an den vermuteten Positionen 
+eingetragen. <br>
+<br>
+Die <b>Aktuelle Lösung</b> der Analyse wird im unteren Fenster angezeigt. 
+Kleinbuchstaben zeigen bereits resubstituierte Textteile an, für die in der 
+Matrix bereits ein Eintrag besteht, Grossbuchstaben sind noch nicht analysierte 
+ADFGVX-Buchstabenpaare, wobei der erste Buchstabe eine Bigrammes die Zeile, der 
+zweite Buchstabe die Spalte markiert, an der der Klartextbuchstabe in der 
+Substitutionsmatrix steht.<br>
+<br>
+Der Benutzer muss nun durch die bereits bekannten Matrixteile versuchen, Wörter 
+im Text zu erkennen und die Bigramme den Klartextbuchstaben zuzuordnen.<br>
+<br>
+In die <b>Substitutionsmatrix</b> können nur die Buchstaben 'A' bis 'Z' und die 
+Ziffern '0' bis '9' eingegeben werden. Bei der erneuten Eingabe bereits verwendeter 
+Zeichen wird eine Dialogbox angezeigt: es besteht die Möglichkeit, das Zeichen an die 
+neue Position in der Matrix zu verschieben oder die alte Position beizubehalten.<br>
+Der Knopf <b>Matrixeinträge löschen</b> löscht alle Einträge der Substitutionsmatrix. Der Knopf <b>Standardmatrix</b> füllt die Matrix in alphabetischer Reihenfolge mit den Buchstaben A-Z und den Ziffern 0-9.<br>
+<br>
+Das Feld <b>Aktuelle Lösung</b> zeigt die Momentane Lösung des Ciphertextes basierend auf Transpositionspasswort und Substitutionsmatrix. Es wird nicht dynamisch aktualisiert, der derzeitige Stand der Analyse wird durch Druck auf den Knopf <b>Aktuelle Lösung anzeigen</b> berechnet.<br>
+<br>
+Stellt man durch "Anschauen" fest, dass im Text keine sinnvollen Wörter vorkommen, ist 
+eventuell das Transpositionspasswort inkorrekt. In diesem Fall muss die 
+Transpositionsanalyse durch einen Klick auf Analysieren fortgesetzt werden und 
+die Substitution anschließend von vorne beginnen.<br>Dieser Schritt kann so lange wiederholt werden, bis die obere Grenze für das Passwort erreicht wird.<br>
+<br>
+Die <b>Schlüsselikone</b> fügt einen in den Schlüsselspeicher 
+kopierten ADFGVX-Schlüssel ein (falls der Knopf blass ist, steht kein gültiger 
+Schlüssel zur Verfügung).<br>
+Durch einen Klick auf den Knopf <b>Ausgabe</b> wird die aktuelle Lösung als 
+Textfenster ausgegeben und die Analyse beendet.<br>
+Die Checkbox <b>Eingangsdialog anzeigen</b> bestimmt, ob die kurze Einführung zur Analyse von ADFGVX-Nachrichten beim Öffnen des Analysedialoges angezeigt wird.
+</font></p>
+
+</body>
+
+</html>
