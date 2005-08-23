@@ -1,53 +1,74 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Schlüsseleingabe ADFGVX-Verfahren</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<BODY>
-
-<h3><P><A NAME="hidd_adfgvx"></A>Dialog Schlüsseleingabe ADFGVX-Verfahren (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</P></h3>
-
-<p>
-In diesem Dialogfenster wird der Schlüssel für das <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX-Verfahren</A> eingegeben.<br>
-<br>
-Da es sich bei ADFGVX um eine zweistufige Kaskade handelt, besteht der Schlüssel 
-aus zwei Teilen: dem Substitutionsschlüssel und dem Transpositionsschlüssel (auch Transpositionspasswort genannt). 
-Dementsprechend ist der Schlüsseldialog in zwei Abschnitte unterteilt.</font></p>
-<p><font face="Arial">
-<img border="0" src="images/adfgvx_key.gif" width="401" height="648"></font></p>
-<p><font face="Arial"><b>Stufe 1: Substitution</b><br>
-<br>
-In die <b>Substitutionsmatrix</b> werden alle Buchstaben 'A' bis 'Z' und die 
-Ziffern '0' bis '9' eingetragen, andere Eingaben werden nicht zugelassen. Bei der erneuten Eingabe bereits verwendeter 
-Zeichen wird eine Dialogbox angezeigt, es besteht die Möglichkeit, das Zeichen an die neue Position in der Matrix zu verschieben 
-oder die alte Position beizubehalten. Der Knopf <b>Standardmatrix</b> füllt die Substitutionsmatrix alphabetisch und 
-numerisch geordnet, der Knopf <b>Zufallsmatrix</b> füllt die Matrix mit einem 
-gültigen Zufallsmuster. Durch einen Klick auf <b>Matrix leeren</b> kann nach Bestätigung einer Warnmeldung die Substitutionsmatrix geleert werden. Dies ist nützlich, wenn ein konkretes Beispiel aus der Literatur oder anderen Quellen eingegeben werden soll.<br>
-<br>
-
-<b>Stufe 2: Transposition</b><br>
-<br>
-In das Feld für das <b>Transpositionspasswort</b> kann eine beliebige Zeichenfolge eingegeben werden. Doppelte Buchstaben, 
-Ziffern oder Sonderzeichen werden vor der Ver- oder Entschlüsselung automatisch entfernt. Unter der Passwortzeile wird die derzeitige Reihenfolde der Transpositionsspalten angezeigt.<br>
-<br>
-<b>Ausgabeoptionen</b><br>
-<br>
-Durch die Checkbox <b>Ausgabetext durch Blanks trennen</b> und das darauffolgende <b>Eingabefeld für die Blocklänge</b> besteht die Möglichkeit, den Chiffretext in Gruppen von 1 bis 26 Zeichen anzeigen zu lassen. Der Standardwert "5" erklärt sich aus dem ursprünglichen Einsatz des Verfahrens zur Verschlüsselung von Morse-Funksprüchen im Ersten Weltkrieg, die Morsezeichen wurden in Fünfergruppen gesendet.<br>
-Die Checkbox <b>Zusätzlicher Zeilenumbruch nach jedem Block</b> bewirkt, dass nach jeder Gruppe eine neue Zeile begonnen wird.<br><br>
-Die Box <b>Zwischenergebnis ausgeben</b> bewirkt, dass der mit Hilfe der Matrix substituierte, noch nicht permutierte 
-Text in einem separaten Fenster angezeigt wird. Auch hier kann die Ausgabe in Blöcken gruppiert werden. Standardmäßig wird die Blocklänge auf die aktuelle Passwortlänge eingestellt.<br><br>Um die ADFGVX-Bigramme vor der Transposition deutlich zu machen, bietet sich eine Gruppierung der Stufe 1 in Buchstabenpaare an. Wenn Sie die Spaltentransposition nachvollziehen wollen, sollten Sie die Blocklängen beider Stufen auf die Passwortlänge einstellen und in Stufe 2 den Zeilenumbruch aktivieren. Sie werden feststellen, dass der Text der Stufe 1, spaltenweise von oben nach unten gelesen, mit dem endgültigen Chiffretext übereinstimmt.<br>
-<br>
-Die <b>Schlüsselikone</b> fügt einen in den Schlüsselspeicher 
-kopierten ADFGVX-Schlüssel ein (falls der Knopf blass ist, steht kein gültiger 
-Schlüssel zur Verfügung).<br>
-<br>
-Wenn die Schlüssel für beide Stufen von ADFGVX korrekt eingegeben sind, wird der Knopf <b>Verschlüsseln</b> aktiviert. Sie können nun das Dokument mit dem 
-ADFGVX-Verfahren chiffrieren.<br>Ist der zugrunde liegende Text bereits ein ADFGVX-Chiffrat, wird auch der Knopf <b>Entschlüsseln</b> aktiviert, und Sie können den Text dechiffrieren.<br>
-&nbsp;</font></p>
-
-
-</BODY>
+	<HEAD>
+		<TITLE>Dialog Schlüsseleingabe ADFGVX-Verfahren</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<h3><P><A NAME="hidd_adfgvx"></A>Dialog Schlüsseleingabe ADFGVX-Verfahren (Menü <A href="menu_crypt.html">
+					Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</P>
+		</h3>
+		<p>
+			In diesem Dialogfenster wird der Schlüssel für das <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX-Verfahren</A>
+			eingegeben.<br>
+			<br>
+			Da es sich bei ADFGVX um eine zweistufige Kaskade handelt, besteht der 
+			Schlüssel aus zwei Teilen: dem Substitutionsschlüssel und dem 
+			Transpositionsschlüssel (auch Transpositionspasswort genannt). Dementsprechend 
+			ist der Schlüsseldialog in zwei Abschnitte unterteilt.</FONT></p>
+		<p><font face="Arial"> <img border="0" src="images/adfgvx_key.gif" width="401" height="648"></font></p>
+		<p><font face="Arial"><b>Stufe 1: Substitution</b><br>
+				<br>
+				In die <b>Substitutionsmatrix</b> werden alle Buchstaben 'A' bis 'Z' und 
+			die Ziffern '0' bis '9' eingetragen, andere Eingaben werden nicht zugelassen. 
+			Bei der erneuten Eingabe bereits verwendeter Zeichen wird eine Dialogbox 
+			angezeigt, es besteht die Möglichkeit, das Zeichen an die neue Position in der 
+			Matrix zu verschieben oder die alte Position beizubehalten.</p>
+		<P>Der Knopf <b>Standardmatrix</b> füllt die Substitutionsmatrix alphabetisch und 
+			numerisch geordnet, der Knopf <b>Zufallsmatrix</b> füllt die Matrix mit einem 
+			gültigen Zufallsmuster. Durch einen Klick auf <b>Matrix leeren</b> kann nach 
+			Bestätigung einer Warnmeldung die Substitutionsmatrix geleert werden. Dies ist 
+			nützlich, wenn ein konkretes Beispiel aus der Literatur oder anderen Quellen 
+			eingegeben werden soll.<br>
+			<br>
+			<b>Stufe 2: Transposition</b><br>
+			<br>
+			In das Feld für das <b>Transpositionspasswort</b> kann eine beliebige 
+			Zeichenfolge eingegeben werden. Doppelte Buchstaben, Ziffern oder Sonderzeichen 
+			werden vor der Ver- oder Entschlüsselung automatisch entfernt. Unter der 
+			Passwortzeile wird die Reihenfolge der Transpositionsspalten angezeigt.<br>
+			<br>
+			<b>Ausgabeoptionen</b><br>
+			<br>
+			Durch die Checkbox <b>Ausgabetext durch Blanks trennen</b> und das 
+			darauffolgende Eingabefeld für die <STRONG>Blocklänge</STRONG> besteht die 
+			Möglichkeit, den Chiffretext in Gruppen von 1 bis 26 Zeichen anzeigen zu 
+			lassen. Der Standardwert "5" erklärt sich aus dem ursprünglichen Einsatz des 
+			Verfahrens zur Verschlüsselung von Morse-Funksprüchen im Ersten Weltkrieg, die 
+			Morsezeichen wurden in Fünfergruppen gesendet.<br>
+			Die Checkbox <b>Zusätzlicher Zeilenumbruch nach jedem Block</b> bewirkt, dass 
+			nach jeder Gruppe eine neue Zeile begonnen wird.<br>
+			<br>
+			Die Box <b>Zwischenergebnis ausgeben</b> bewirkt, dass der mit Hilfe der Matrix 
+			substituierte, noch nicht permutierte Text in einem separaten Fenster angezeigt 
+			wird. Auch hier kann die Ausgabe in Blöcken gruppiert werden. Standardmäßig 
+			wird die Blocklänge auf die aktuelle Passwortlänge eingestellt.<br>
+			<br>
+			Um die ADFGVX-Bigramme vor der Transposition deutlich zu machen, bietet sich 
+			eine Gruppierung der Stufe 1 in Buchstabenpaare an. Wenn Sie die 
+			Spaltentransposition nachvollziehen wollen, sollten Sie die Blocklängen beider 
+			Stufen auf die Passwortlänge einstellen und in Stufe 2 den Zeilenumbruch 
+			aktivieren. Sie werden feststellen, dass der Text der Stufe 1, spaltenweise von 
+			oben nach unten gelesen, mit dem endgültigen Chiffretext übereinstimmt.<br>
+			<br>
+			Wenn die Schlüssel für beide Stufen von ADFGVX korrekt eingegeben sind, wird 
+			der Knopf <b>Verschlüsseln</b> aktiviert. Sie können nun das Dokument mit dem 
+			ADFGVX-Verfahren chiffrieren.<br>
+			Ist der zugrunde liegende Text bereits ein ADFGVX-Chiffrat, wird auch der Knopf <b>Entschlüsseln</b>
+			aktiviert, und Sie können den Text dechiffrieren.</P>
+		<P>Die <B>Schlüsselikone</B> fügt einen in den Schlüsselspeicher kopierten 
+			ADFGVX-Schlüssel ein (falls der Knopf blass ist, steht noch kein gültiger 
+			Schlüssel zur Verfügung).</FONT></P>
+	</BODY>
 </HTML>

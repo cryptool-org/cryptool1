@@ -3842,7 +3842,8 @@ BEGIN
     LTEXT           "Aktuelle Lösung",IDC_STATIC,6,227,51,8
     EDITTEXT        IDC_EDIT_REMCHARS,125,150,121,20,ES_CENTER | 
                     ES_MULTILINE | ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "Noch nicht zugewiesen",IDC_STATIC_REMCHARS,125,139,74,8
+    LTEXT           "Noch nicht zugewiesene Zeichen",IDC_STATIC_REMCHARS,125,
+                    139,104,8
     LTEXT           "minimal",IDC_STATIC,26,31,24,8
     LTEXT           "maximal",IDC_STATIC,74,31,26,8
     EDITTEXT        IDC_TEXTFIELD_NUMBEREDPASSWORD,125,55,121,14,
@@ -16389,7 +16390,7 @@ END
 IDD_ADFGVX DIALOGEX 0, 0, 266, 331
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "ADFGVX-Cipher: Key input"
+CAPTION "ADFGVX Cipher: Key input"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
@@ -16486,27 +16487,27 @@ BEGIN
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
     GROUPBOX        "Substitution matrix",IDC_STATIC,22,18,102,108
-    GROUPBOX        "Stage 2: Transposition",IDC_STATIC,12,166,243,68
+    GROUPBOX        "Step 2: Transposition",IDC_STATIC,12,166,243,68
     LTEXT           "The substitution matrix replaces each plaintext letter by a pair of the letters A,D,F,G,V,X.\n\nThe matrix must contain each letter A-Z and each cipher 0-9 exactly once. ",
                     IDC_STATIC,145,30,90,90
     GROUPBOX        "",IDC_STATIC,137,18,108,108
-    GROUPBOX        "Stage 1: Substitution",IDC_STATIC,12,7,243,153
+    GROUPBOX        "Step 1: Substitution",IDC_STATIC,12,7,243,153
     LTEXT           "Transposition password",IDC_STATIC,22,176,76,8
     GROUPBOX        "Output options",IDC_STATIC,12,239,243,59
-    CONTROL         "Print ciphertext stage1 (substitution)",
+    CONTROL         "Print ciphertext step 1 (substitution)",
                     IDC_CHECK_OUTPUT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    22,265,134,10
+                    22,265,132,10
     EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,149,248,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Ciphertext stage 2 block length (0-26):",IDC_STATIC,22,
-                    251,126,8
+    LTEXT           "Ciphertext step 2 block length (0-26):",IDC_STATIC,22,
+                    251,122,8
     EDITTEXT        IDC_TEXTFIELD_NUMBERS,22,214,222,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Column sequence",IDC_STATIC,22,203,57,8
     EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,149,277,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Ciphertext stage 1 block length (0-26):",IDC_STATIC,22,
-                    280,126,8
+    LTEXT           "Ciphertext step 1 block length (0-26):",IDC_STATIC,22,
+                    280,122,8
     CONTROL         "New line after block",IDC_CHECK_NEWLINE_STAGE2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,176,250,79,10
     CONTROL         "New line after block",IDC_CHECK_NEWLINE_STAGE1,"Button",
@@ -16516,7 +16517,7 @@ END
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 337
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
-CAPTION "Semiautomatic analysis of the ADFGVX cipher"
+CAPTION "Semiautomatic Analysis of the ADFGVX cipher"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     COMBOBOX        IDC_MINLENGTH,22,42,33,240,CBS_DROPDOWNLIST | WS_VSCROLL | 
@@ -16620,12 +16621,13 @@ BEGIN
     EDITTEXT        IDC_EDIT_POSSIBLE_PLAINTEXT,7,238,254,68,ES_MULTILINE | 
                     ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP
     GROUPBOX        "Password length",IDC_STATIC,15,18,98,41
-    GROUPBOX        "Stage 1: substitution",IDC_STATIC,7,98,254,126
-    GROUPBOX        "Stage 2: transposition",IDC_STATIC,7,7,254,89
+    GROUPBOX        "Step 1: Substitution",IDC_STATIC,7,98,254,126
+    GROUPBOX        "Step 2: Transposition",IDC_STATIC,7,7,254,89
     LTEXT           "Current solution",IDC_STATIC,7,227,52,8
     EDITTEXT        IDC_EDIT_REMCHARS,125,150,121,20,ES_MULTILINE | 
                     ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "Not yet assigned",IDC_STATIC_REMCHARS,125,139,55,8
+    LTEXT           "Not yet assigned characters",IDC_STATIC_REMCHARS,125,
+                    139,91,8
     LTEXT           "minimal",IDC_STATIC,26,31,24,8
     LTEXT           "maximal",IDC_STATIC,74,31,26,8
     EDITTEXT        IDC_TEXTFIELD_NUMBEREDPASSWORD,125,55,121,14,
