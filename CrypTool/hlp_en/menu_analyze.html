@@ -16,280 +16,43 @@
 <Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
         <param name="ALink Name" value="Analysis">
 </Object>
-<h3><P><A NAME="menu_analyze"></A> <B>The Analysis Menu</B></P></h3>
+<h3><P><A NAME="menu_analyze"></A> <B>Commands of the menu Analysis</B></P></h3>
 
 <P>The <B>Analysis</B> menu contains the following menu items:</P>
 
-<TABLE cols=2 width="0*" class="pad20">
+<TABLE cols=2 width="0*" class="pad20" ID="Table1">
 
 <TR VALIGN="top">
-<TD><A href="#analyse_allgemein">General</A></TD>
-<TD>General statistical information about the active document.</TD>
+<TD><A href="menu_analysis_tools.html">Tools for Analysis</A></TD>
+<TD>TODO.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD><A href="menu_analyserandomtest.html">Random Tests</A></TD>
-<TD>Analyses the random properties of the active document.</TD>
+<TD><A href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</A></TD>
+<TD>TODO.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD><U>Algorithms </U>
-<P>(automatic analysis)</P>
-</TD>
-<TD>List of algorithms for which an automatic attack is implemented.</TD>
+<TD><A href="menu_analysis_symmetricmodern.html">Symmetric Encryption (modern)</A></TD>
+<TD>TODO.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD><A href="#analyse_ciphertextonly">Ciphertext-Only</A></TD>
-<TD>Automatic attacks if only the ciphertext is known.</TD>
+<TD><A href="menu_analysis_asymmetric.html">Asymmetric Encryption</A></TD>
+<TD>TODO.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD><A href="#analyse_knownplaintext">Known Plaintext</A></TD>
-<TD>Automatic attacks if both clear and cipher text are known.</TD>
+<TD><A href="menu_analysis_hashprocedures.html">Hash</A></TD>
+<TD>TODO.</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD><A href="#analyse_manuelleanalyse">Manual Analysis</A></TD>
-<TD>Support for a user-driven attack.</TD>
-</TR>
-</TABLE><BR>
-
-<P>The menu items <B>General</B>, <B>Ciphertext-Only</B> and <B>Algorithms</B> are available for both hex and text documents.</P>
-
-<P>The menu items <B>Known Plaintext</B> and <B>Manual Analysis</B> are available for text documents only.</P>
-
-<P>The menu item <B>Random Tests</B> is available for binary documents only. Random tests also deliver a kind of general information about the document.</P>
-
-<P>Now the items of the single submenus and the structure of possible attacks are explained.</P>
-
-<Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-        <param name="ALink Name" value="Analysis_General">
-</Object>
-
-<OL>
-	
-<LI><A NAME="analyse_allgemein"></A><U> General information on the active document</U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD><A href="hid_entropy.html">Entropy</A></TD>
-<TD>Calculate the <!--ZZZPOPUP--><A href="entropie.html">entropy</A> of a <!--ZZZPOPUP--><A href="dokument.html">document</A></TD>
+<TD><A href="menu_analysis_randomanalysis.html">Analyse Randomness</A></TD>
+<TD>TODO.</TD>
 </TR>
 
-<TR VALIGN="top">
-<TD><A href="hid_floating.html">Floating Frequency</A></TD>
-<TD>Calculate the <!--ZZZPOPUP--><A href="hid_floating.html">floating frequency</A> of a <!--ZZZPOPUP--><A href="dokument.html">document</A></TD>
-</TR>
+</TABLE>
 
-<TR VALIGN="top">
-<TD><A href="hid_histogram.html">Histogram</A></TD>
-<TD>Calculate the <!--ZZZPOPUP--><A href="histogramm.html">frequency</A> with which the various letters occur in a document</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_ngram.html">N-Gram</A></TD>
-<TD>Analysis of the frequencies of N-grams</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_auto.html">Autocorrelation</A></TD>
-<TD>Calculate the <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A> of a document</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_vitany.html">Vitany</A></TD>
-<TD>View a Vitany diagram</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_period.html">Periodicity</A></TD>
-<TD>Analyse periodicity</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="menu_analyserandomtest.html">Random Tests </A></TD>
-<TD>Analyse the data for properties of random data</TD>
-</TR>
-</TABLE><BR>
-
-<P>The menu items <B>Vitany</B> and <B>Random Tests</B> are only available for binary files.</P>
-
-<Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-        <param name="ALink Name" value="Analysis_Algorithmsautomaticanalysis">
-</Object>
-<LI><U>2. Automatic analysis techniques</U><LI>
-
-<OL type="a">
-
-<LI><U>Algorithms:</U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD>Algorithms</TD>
-<TD>Here all implemented algorithms for automatic analysis are listed.
-<P>The following chapters b) and c) distinguish the two different forms of attack <B>Ciphertext Only</B> and <B>Known Plaintext</B>. For further information, see <A href="angriffe.html">Examples of different kinds of attack</A> section</P>
-</TD>
-</TR>
-</TABLE><BR>
-
-<Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-        <param name="ALink Name" value="Analysis_CiphertextOnly">
-</Object>
-<LI><A NAME="analyse_ciphertextonly"></A><U>"Ciphertext Only" attacks:</U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD><A href="hid_caesar_auto.html">Caesar</A></TD>
-<TD>Automatic analysis, Caesar <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A></TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_vigenere_auto.html">Vigenère</A></TD>
-<TD>Automatic analysis, Vigenère encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_add_auto.html">Addition</A></TD>
-<TD>Automatic analysis, Byte Addition</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_xor_auto.html">XOR</A></TD>
-<TD>Automatic analysis, binary exclusive-OR</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_idea.html">IDEA</A></TD>
-<TD>Automatic analysis, IDEA encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_rc2.html">RC2</A></TD>
-<TD>Automatic analysis, RC2 encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_rc4.html">RC4</A></TD>
-<TD>Automatic analysis, RC4 encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_desecb.html">DES&nbsp;(ECB)</A></TD>
-<TD>Automatic analysis, DES encryption algorithm in ECB mode</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_descbc.html">DES&nbsp;(CBC)</A></TD>
-<TD>Automatic analysis, DES encryption algorithm in CBC mode</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_tripledesecb.html">Triple&nbsp;DES&nbsp;(ECB)</A></TD>
-<TD>Automatic analysis, Triple-DES encryption algorithm in ECB mode</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_tripledescbc.html">Triple&nbsp;DES&nbsp;(CBC)</A></TD>
-<TD>Automatic analysis, Triple-DES encryption algorithm in CBC mode</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_aes_mars.html">MARS</A></TD>
-<TD>Automatic analysis, MARS encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_aes_rc6.html">RC6</A></TD>
-<TD>Automatic analysis, RC6 encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_aes_rijndael.html">Rijndael</A></TD>
-<TD>Automatic analysis, Rijndael encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_aes_serpent.html">Serpent</A></TD>
-<TD>Automatic analysis, Serpent encryption algorithm</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_aes_twofish.html">Twofish</A></TD>
-<TD>Automatic analysis, Twofish encryption algorithm</TD>
-</TR>
-</TABLE><BR>
-
-<P>The Caesar analysis and Vigenère analysis are only available for text files, the remaining methods are implemented for binary files only.</P>
-
-<Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-        <param name="ALink Name" value="Analysis_KnownPlaintext">
-</Object>
-<LI><A NAME="analyse_knownplaintext"></A><U>"Known Plaintext" attacks:</U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD><A href="hid_hill_auto.html">Hill</A></TD>
-<TD>Automatic analysis, Hill encryption algorithm. For text files only.</TD>
-</TR>
-</TABLE><BR>
-
-<Object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-        <param name="ALink Name" value="Analysis_ManualAnalysis">
-</Object>
-
-</OL>
-	
-<LI><A NAME="analyse_manuelleanalyse"></A><U> Manual analysis techniques</U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD><A href="hid_analyze_subst.html">Substitution</A></TD>
-<TD>Automatic analysis, Monoalphabetic substitution. For text files only.</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_playfair.html">Playfair</A></TD>
-<TD>Analysis tool, Playfair algorithm. For text files only.</TD>
-</TR>
-</TABLE><BR>
-
-<LI><U> Random Test Algorithms </U></LI>
-
-<TABLE cols=2 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_zufallstests_frequencytest.html">Frequency Test</A></TD>
-<TD>Performs the Frequency Test on the document.</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_zufallstests_pokertest.html">Poker Test</A></TD>
-<TD>Performs the Poker Test on the document.</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_zufallstests_runs.html">Runs Test</A></TD>
-<TD>Performs the Runs Test on the document.</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_zufallstests_serialtest.html">Serial Test</A></TD>
-<TD>Performs the Serial Test on the document.</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD><A href="hid_analyse_zufallstests_fipspub1401.html">FIPS-PUB-140-1 Test Battery </A></TD>
-<TD>Performs the FIPS-PUB-140-1 test battery on the document.</TD>
-</TR>
-</TABLE><BR>
-
-<P>The random tests are only available for binary files.</P>
-</OL>
 </BODY>
 </HTML>

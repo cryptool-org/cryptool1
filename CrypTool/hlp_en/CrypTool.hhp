@@ -443,6 +443,22 @@ hidd_adfgvx_manual.html
 hidd_adfgvx.html
 hid_encrypt_adfgvx.html
 hid_analyse_symmclassic_adfgvx.html
+hid_generate_macs.html
+hid_indiv_crt_secretsharing.html
+hid_indiv_crt_demo.html
+hid_indiv_crt_planet.html
+hid_help_animal_vigenere.html
+hid_help_animal_caesar.html
+hid_help_animal_des.html
+hid_help_animal_nihilist.html
+hid_code_uu.html
+hid_code_base64.html
+hid_mass_pattern_search.html
+hid_rsa_stereotyped.html
+hid_rsa_bloemermay.html
+hid_rsa_factorhint.html
+hid_ciphertext_only_substitution.html
+hid_analysis_random_3d_visualization.html
 
 [ALIAS]
 #include CrypTool_Alias.h
