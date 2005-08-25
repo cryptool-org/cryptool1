@@ -2419,10 +2419,10 @@ BEGIN
                     WS_TABSTOP,16,296,294,64
 END
 
-IDD_KEY_PERMUTATION_INFO DIALOG  0, 0, 317, 194
+IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Text ausgeben",IDOK,99,161,118,19
     LTEXT           "Eingegeben",IDC_STATIC,31,29,39,8
@@ -2435,6 +2435,8 @@ BEGIN
     EDITTEXT        IDC_EDIT4,82,125,207,14,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "1. Permutation",IDC_STATIC,17,13,283,59
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,161,55,19
+    PUSHBUTTON      "&Zurück",IDBACK,17,161,55,19
 END
 
 IDD_STARTOPTIONS DIALOG  0, 0, 258, 94
@@ -15337,10 +15339,10 @@ BEGIN
     CTEXT           "Static",IDC_ENTROPY_INFO,7,34,197,23
 END
 
-IDD_KEY_PERMUTATION_INFO DIALOG  0, 0, 317, 194
+IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Display text",IDOK,121,161,74,19
     LTEXT           "Entered",IDC_STATIC,31,29,26,8
@@ -15353,6 +15355,8 @@ BEGIN
     EDITTEXT        IDC_EDIT4,71,125,218,14,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "1. Permutation",IDC_STATIC,17,13,283,59
     GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
+    PUSHBUTTON      "&Cancel",IDCANCEL,245,161,55,19
+    PUSHBUTTON      "&Back",IDBACK,17,161,55,19
 END
 
 IDD_STARTOPTIONS DIALOG  0, 0, 258, 105
@@ -17131,10 +17135,10 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,169,10
 END
 
-IDD_ROT13_CAESAR1 DIALOGEX 0, 0, 315, 207
+IDD_ROT13_CAESAR DIALOG  0, 0, 315, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Caesar / ROT-13 Key Input"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Abort",IDCANCEL,203,176,57,19
     CONTROL         "ROT-13",IDC_ROT13_RAD,"Button",BS_AUTORADIOBUTTON | 
@@ -18195,7 +18199,8 @@ BEGIN
     BEGIN
         POPUP "Symmetric (&classic)", GRAYED
         BEGIN
-            MENUITEM "&Caesar...",                  ID_CAESAR_ASC, GRAYED
+            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
+            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "&Hill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution...",            ID_CryptMono, GRAYED
@@ -18537,7 +18542,7 @@ BEGIN
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
-            MENUITEM "&Caesar...",                  ID_CAESAR_ASC
+            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
             MENUITEM "&Hill...",                    ID_HILL
             MENUITEM "&Substitution...",            ID_CryptMono

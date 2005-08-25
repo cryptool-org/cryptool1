@@ -776,6 +776,7 @@
 #define IDC_EDITBITSOFP                 1551
 #define IDC_KEYASYM_TEXTEC              1551
 #define IDC_EDITD                       1552
+#define IDBACK                          1552
 #define IDC_R                           1553
 #define IDC_EDITMAXDELTA                1554
 #define IDC_EDITM                       1555
@@ -2281,7 +2282,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        808
 #define _APS_NEXT_COMMAND_VALUE         33293
-#define _APS_NEXT_CONTROL_VALUE         1552
+#define _APS_NEXT_CONTROL_VALUE         1553
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

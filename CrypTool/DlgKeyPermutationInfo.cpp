@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgKeyPermutationInfo.h"
+#include ".\dlgkeypermutationinfo.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -87,6 +88,7 @@ void CDlgKeyPermutationInfo::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgKeyPermutationInfo, CDialog)
 	//{{AFX_MSG_MAP(CDlgKeyPermutationInfo)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDBACK, OnBnClickedBack)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -104,4 +106,9 @@ BOOL CDlgKeyPermutationInfo::OnInitDialog()
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgKeyPermutationInfo::OnBnClickedBack()
+{
+	EndDialog(IDBACK);
 }
