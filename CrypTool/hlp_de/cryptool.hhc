@@ -110,12 +110,12 @@
 			<param name="Local" value="menu_view.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Men&uuml; Digitale Signaturen/PKI">
-			<param name="Local" value="menu_digitalsignaturespki.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Men&uuml; Ver-/Entschl&uuml;sseln">
 			<param name="Local" value="menu_crypt.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Men&uuml; Digitale Signaturen/PKI">
+			<param name="Local" value="menu_digitalsignaturespki.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Men&uuml; Einzelverfahren">
