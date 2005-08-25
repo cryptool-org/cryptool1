@@ -97,7 +97,6 @@ hid_app_about.html
 hid_app_exit.html
 hid_auto.html
 hid_barwidth.html
-hid_caesar_asc.html
 hid_caesar_auto.html
 hid_context_help.html
 hid_crypt_3des_cbc.html
@@ -459,6 +458,8 @@ hid_rsa_bloemermay.html
 hid_rsa_factorhint.html
 hid_ciphertext_only_substitution.html
 hid_analysis_random_3d_visualization.html
+hid_rot13caesar_asc.html
+hidd_rot13_caesar.html
 
 [ALIAS]
 #include CrypTool_Alias.h

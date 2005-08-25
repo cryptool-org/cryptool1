@@ -19,7 +19,7 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Funktionality of CrypTool">
+		<param name="Name" value="Functionality of CrypTool">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -110,16 +110,12 @@
 			<param name="Local" value="menu_view.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menu Key Management">
-			<param name="Local" value="menu_key.html">
+			<param name="Name" value="Menu Crypt/Decrypt">
+			<param name="Local" value="menu_crypt.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Menu Digital Signatures/PKI">
 			<param name="Local" value="menu_digitalsignaturespki.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menu En-/decrypt">
-			<param name="Local" value="menu_crypt.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Menu Individual Procedures">
