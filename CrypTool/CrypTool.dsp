@@ -3294,6 +3294,14 @@ SOURCE=.\DlgRandomParameterSECUDE.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgRot13Caesar.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgRot13Caesar.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgRSADecryption.cpp
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
