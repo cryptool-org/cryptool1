@@ -9,7 +9,7 @@ Display compile progress=No
 Error log file=CrypTool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
-Language=0x407 German (Germany)
+Language=0x407 Deutsch (Deutschland)
 Title=CrypTool Hilfe
 
 [WINDOWS]
@@ -80,7 +80,6 @@ modulo.html
 menu_zeittafel.html
 menu_window.html
 menu_view.html
-menu_tutorial_for_small_numbers.html
 menu_structure.html
 menu_related_methods.html
 menu_options.html
