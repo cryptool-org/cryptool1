@@ -9,7 +9,7 @@ Display compile progress=No
 Error log file=Cryptool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
-Language=0x809 English (United Kingdom)
+Language=0x809 Englisch (Groﬂbritannien)
 Title=CrypTool Help
 
 [WINDOWS]
@@ -312,7 +312,6 @@ menu_help.html
 menu_options.html
 menu_related_methods.html
 menu_structure.html
-menu_tutorial_for_small_numbers.html
 menu_view.html
 menu_window.html
 menu_zeittafel.html
