@@ -181,21 +181,6 @@
 		<param name="Local" value="hidd_fips_pub_140_1.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Analyse Hill-Verschl&uuml;sselungsverfahren">
-		<param name="Name" value="Dialog Analyse Hill-Verschlüsselungsverfahren">
-		<param name="Local" value="hidd_hill_analysis.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Analyse monoalphabetische Substitution">
-		<param name="Name" value="Dialog Analyse monoalphabetischer Substitution (Optionen)">
-		<param name="Local" value="hidd_options_substitution_analysis.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Analyse Playfair-Verschl&uuml;sselung">
-		<param name="Name" value="Analyse Playfair-Verschlüsselung">
-		<param name="Local" value="hidd_playfair_analysis.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Analyseoptionen">
 		<param name="Name" value="Dialog Analyseoptionen">
 		<param name="Local" value="hidd_options_analysis.html">
@@ -208,24 +193,9 @@
 		<param name="Local" value="hidd_signature_attack.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Angriff auf die digitale Signatur">
-		<param name="Name" value="Angriff auf die digitale Signatur">
-		<param name="Local" value="hid_signatur_attack.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Angriffsszenarien">
 		<param name="Name" value="Angriffsszenarien">
 		<param name="Local" value="angriffe.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ansicht">
-		<param name="Name" value="Menü Ansicht">
-		<param name="Local" value="menu_view.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Anzeigen">
-		<param name="Name" value="Schlüssel">
-		<param name="Local" value="hid_show_all_ec_keys.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ASCII Tabelle">
@@ -696,23 +666,6 @@
 		<param name="Name" value="Diffie-Hellman-Schl&uuml;sselaustausch (exemplarisch)">
 		<param name="Name" value="Diffie-Hellman-Schlüsselaustauschverfahren (exemplarisch)">
 		<param name="Local" value="diffie-hellman-beispiel.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Digitale Signatur">
-		<param name="Name" value="Angriff auf die digitale Signatur">
-		<param name="Local" value="hidd_signature_attack.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Digitale Signatur einer Nachricht">
-		<param name="Name" value="Die digitale Signatur einer Nachricht">
-		<param name="Local" value="rsa_demo_signature.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Digitale Signaturen">
-		<param name="Name" value="Menü Digitale Signaturen">
-		<param name="Local" value="menu_sign.html">
-		<param name="Name" value="Digitale Signaturen">
-		<param name="Local" value="add_digital_signatures.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Digramm">
@@ -1341,41 +1294,6 @@
 		<param name="Name" value="MD5-Hashwert">
 		<param name="Name" value="MD5-Hashwert">
 		<param name="Local" value="hid_crypt_hash_md5.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Men&uuml;">
-		<param name="Name" value="Menü Datei">
-		<param name="Local" value="menu_file.html">
-		<param name="Name" value="Menü Bearbeiten">
-		<param name="Local" value="menu_edit.html">
-		<param name="Name" value="Menü Ansicht">
-		<param name="Local" value="menu_view.html">
-		<param name="Name" value="Menü Fenster">
-		<param name="Local" value="menu_window.html">
-		<param name="Name" value="Menü Hilfe">
-		<param name="Local" value="menu_help.html">
-		<param name="Name" value="Menü Ver-/Entschlüsseln">
-		<param name="Local" value="menu_crypt.html">
-		<param name="Name" value="Menü Digitale Signaturen">
-		<param name="Local" value="menu_sign.html">
-		<param name="Name" value="Menü Einzelverfahren">
-		<param name="Local" value="menu_related_methods.html">
-		<param name="Name" value="Befehle des Untermenüs RSA-Demonstration">
-		<param name="Local" value="menu_tutorial_for_small_numbers.html">
-		<param name="Name" value="Menü Hashwerte">
-		<param name="Local" value="menu_hash.html">
-		<param name="Name" value="Menü Komprimieren">
-		<param name="Local" value="menu_compress.html">
-		<param name="Name" value="Menü Analyse">
-		<param name="Local" value="menu_analyze.html">
-		<param name="Name" value="Befehle des Untermenüs Zufallstests">
-		<param name="Local" value="menu_analyserandomtest.html">
-		<param name="Name" value="Menü Schlüsselverwaltung">
-		<param name="Local" value="menu_key.html">
-		<param name="Name" value="Menü Optionen">
-		<param name="Local" value="menu_options.html">
-		<param name="Name" value="Menüs und Untermenüs">
-		<param name="Local" value="menu_structure.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Methoden">

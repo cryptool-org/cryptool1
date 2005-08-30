@@ -1,4 +1,5 @@
 [OPTIONS]
+Auto Index=Yes
 Compatibility=1.1 or later
 Compiled file=CrypTool-de.chm
 Contents file=cryptool.hhc
@@ -9,7 +10,7 @@ Display compile progress=No
 Error log file=CrypTool.log
 Full-text search=Yes
 Index file=CrypTool.hhk
-Language=0x407 Deutsch (Deutschland)
+Language=0x407 German (Germany)
 Title=CrypTool Hilfe
 
 [WINDOWS]
