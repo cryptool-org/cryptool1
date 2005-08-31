@@ -193,6 +193,7 @@
 #define IDB_SCA_BOB_SMALL               762
 #define IDB_SCA_GAPFILLER               764
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED 765
+#define IDB_SCA_MAINBACKGROUND          765
 #define IDR_SCA_ABARROWFAILURE          768
 #define IDR_SCA_ABARROWSUCCESS          769
 #define IDR_SCA_ABARROWTRANSMISSION_TRUDYBOB 772
@@ -778,10 +779,15 @@
 #define IDC_EDITD                       1552
 #define IDBACK                          1552
 #define IDC_R                           1553
+#define IDC_CONTROLFRAME                1553
 #define IDC_EDITMAXDELTA                1554
+#define IDC_ALICEFRAME                  1554
 #define IDC_EDITM                       1555
+#define IDC_BOBFRAME                    1555
 #define IDC_EDITFACTORP                 1556
+#define IDC_TRUDYFRAME                  1556
 #define IDC_EDITT                       1557
+#define IDC_ATTACKPROGRESSLABEL         1557
 #define IDC_EDITFACTORQ                 1558
 #define IDC_RADIOMSB                    1559
 #define IDC_RADIOLSB                    1560
@@ -2282,7 +2288,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        808
 #define _APS_NEXT_COMMAND_VALUE         33293
-#define _APS_NEXT_CONTROL_VALUE         1553
+#define _APS_NEXT_CONTROL_VALUE         1558
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -197,8 +197,16 @@ protected:
 	afx_msg void OnButtonAllremainingsteps();
 	afx_msg void OnMessagereception();
 	afx_msg void OnCheckDisablehelp();
+	afx_msg void OnPaint();
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	CBrush m_greybrush;
+	COLORREF m_greycolor;
+	CBrush m_blackbrush;
+	COLORREF m_blackcolor;
 };
 
 //{{AFX_INSERT_LOCATION}}

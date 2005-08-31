@@ -2928,10 +2928,10 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOG  0, 0, 650, 385
+IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
@@ -2953,15 +2953,17 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,544,16,30,30
     CONTROL         "IDB_SCA_BUTTON9_R_",IDC_TRUDY,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,338,241,30,30
-    GROUPBOX        "Alice [Client]",IDC_STATIC,161,7,138,101
-    GROUPBOX        "Bob [Server]",IDC_STATIC,512,7,130,101
-    GROUPBOX        "Trudy [Angreifer]",IDC_STATIC,335,232,138,125
-    GROUPBOX        "Angriff Schritt für Schritt",IDC_STATIC,7,7,140,350
+    GROUPBOX        "Alice [Client]",IDC_ALICEFRAME,161,7,138,101
+    GROUPBOX        "Bob [Server]",IDC_BOBFRAME,512,7,130,101
+    GROUPBOX        "Trudy [Angreifer]",IDC_TRUDYFRAME,335,232,138,125
+    GROUPBOX        "Angriff Schritt für Schritt",IDC_CONTROLFRAME,7,7,140,
+                    350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
                     WS_BORDER | 0x1,339,341,130,12
-    LTEXT           "Fortschritt des Angriffs:",IDC_STATIC,339,330,72,8
+    LTEXT           "Fortschritt des Angriffs:",IDC_ATTACKPROGRESSLABEL,339,
+                    330,72,8
     PUSHBUTTON      "&Beenden",IDCLOSE,7,364,50,14
     PUSHBUTTON      "&Nächster Einzelschritt",IDC_BUTTON_NEXTSINGLESTEP,225,
                     296,100,25
@@ -6432,6 +6434,7 @@ IDB_SCA_BUTTON10_R_D    BITMAP                  "res\\SCABitmaps\\bmps\\Button10
 IDB_SCA_BUTTON10_R_F    BITMAP                  "res\\SCABitmaps\\bmps\\Button10_R_F.bmp"
 IDB_SCA_BUTTON10_R_U    BITMAP                  "res\\SCABitmaps\\bmps\\Button10_R_U.bmp"
 IDB_SCA_BUTTON10_R_X    BITMAP                  "res\\SCABitmaps\\bmps\\Button10_R_X.bmp"
+IDB_SCA_MAINBACKGROUND  BITMAP                  "res\\SCABitmaps\\bmps\\MainBackground.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -15858,10 +15861,10 @@ BEGIN
                     IDC_STATIC,7,95,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOG  0, 0, 650, 385
+IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Side-Channel Attack Demonstration"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
@@ -15883,15 +15886,15 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,544,16,30,30
     CONTROL         "IDB_SCA_BUTTON9_R_",IDC_TRUDY,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,338,241,30,30
-    GROUPBOX        "Alice [Client]",IDC_STATIC,161,7,138,101
-    GROUPBOX        "Bob [Server]",IDC_STATIC,512,7,130,101
-    GROUPBOX        "Trudy [Attacker]",IDC_STATIC,335,232,138,125
-    GROUPBOX        "Attack step by step",IDC_STATIC,7,7,140,350
+    GROUPBOX        "Alice [Client]",IDC_ALICEFRAME,161,7,138,101
+    GROUPBOX        "Bob [Server]",IDC_BOBFRAME,512,7,130,101
+    GROUPBOX        "Trudy [Attacker]",IDC_TRUDYFRAME,335,232,138,125
+    GROUPBOX        "Attack step by step",IDC_CONTROLFRAME,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",
                     WS_BORDER | 0x1,339,341,130,12
-    LTEXT           "Attack progress:",IDC_STATIC,339,330,52,8
+    LTEXT           "Attack progress:",IDC_ATTACKPROGRESSLABEL,339,330,52,8
     PUSHBUTTON      "&Quit",IDCLOSE,7,364,50,14
     PUSHBUTTON      "&Next step",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,
@@ -19202,6 +19205,7 @@ IDB_SCA_BUTTON10_R_D    BITMAP                  "res\\SCABitmaps_en\\bmps\\Butto
 IDB_SCA_BUTTON10_R_F    BITMAP                  "res\\SCABitmaps_en\\bmps\\Button10_R_F.bmp"
 IDB_SCA_BUTTON10_R_U    BITMAP                  "res\\SCABitmaps_en\\bmps\\Button10_R_U.bmp"
 IDB_SCA_BUTTON10_G_D    BITMAP                  "res\\SCABitmaps_en\\bmps\\Button10_G_D.bmp"
+IDB_SCA_MAINBACKGROUND  BITMAP                  "res\\SCABitmaps_en\\bmps\\MainBackground.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -131,6 +131,8 @@ BEGIN_MESSAGE_MAP(CDlgSideChannelAttackVisualizationHE, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_ALLREMAININGSTEPS, OnButtonAllremainingsteps)
 	ON_BN_CLICKED(IDC_MESSAGERECEPTION, OnMessagereception)
 	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
+	ON_WM_PAINT()
+	ON_WM_CTLCOLOR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -197,6 +199,12 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 			this->m_bShowInfoDialogues = true;
 		}
 
+		// Farben für Textfelder etc. festlegen
+		this->m_greycolor=0x00C0C0C0; // RGB(0x00C0C0C0/*198,195,198*/);	// Standard-Grau
+		this->m_greybrush.CreateSolidBrush(m_greycolor);
+		this->m_blackcolor=RGB(0,0,0); // Schwarz
+		this->m_blackbrush.CreateSolidBrush(m_blackcolor);
+
 		UpdateData(false);
 		
 		return FALSE;  // return TRUE unless you set the focus to a control
@@ -204,6 +212,79 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 	}
 	// Exceptions auffangen und entsprechende Fehlermeldungen erzeugen
 	catch(SCA_Error& e) { CreateErrorMessage(e); return true; }
+}
+
+// Diese Funktion soll verhindern, dass der Hauptdialog unter verschiedenen
+// Betriebssystemen/Versionen möglichst ähnlich aussieht. Die Funktion hinterlegt
+// ein flächendeckendes, großes Bitmap, dass für eine einheiliche Hintergrundfarbe
+// sorgt.
+void CDlgSideChannelAttackVisualizationHE::OnPaint() 
+{
+
+	CPaintDC dc(this); // device context for painting
+	 CBitmap bmp, *poldbmp;
+     CDC memdc;
+     // Load the bitmap resource
+     bmp.LoadBitmap( IDB_SCA_MAINBACKGROUND );
+     // Create a compatible memory DC
+     memdc.CreateCompatibleDC( &dc );
+     // Select the bitmap into the DC
+     poldbmp = memdc.SelectObject( &bmp );
+     // Copy (BitBlt) bitmap from memory DC to screen DC
+     dc.BitBlt( 0, 0, 981, 658, &memdc, 0, 0, SRCCOPY );
+     memdc.SelectObject( poldbmp );
+         // Do not call CDialog::OnPaint() for painting messages
+}
+
+
+// Diese Funktion sorgt für korrekte Hintergrundfarben in den Textfeldern (vgl. OnPaint)
+HBRUSH CDlgSideChannelAttackVisualizationHE::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
+{
+	HBRUSH hbr;
+
+	// ***********
+	switch (nCtlColor) 
+	{ 
+		case CTLCOLOR_MSGBOX: 
+		case CTLCOLOR_EDIT: 
+		case CTLCOLOR_BTN:
+		case CTLCOLOR_STATIC:
+		switch (pWnd->GetDlgCtrlID())  
+		{     
+			case IDC_CONTROLFRAME:
+			case IDC_ALICEFRAME:
+			case IDC_BOBFRAME:
+			case IDC_TRUDYFRAME:
+			case IDC_ATTACKCONTROL:
+			case IDC_ATTACKPROGRESSLABEL:
+			case IDC_PROGRESS_ATTACK:
+			case IDC_BUTTON_NEXTSINGLESTEP:
+			case IDC_BUTTON_ALLREMAININGSTEPS:
+			case IDCLOSE:
+			case IDC_CHECK_DISABLEHELP:
+			case IDOK:
+			// put your own CONTROL ID here    
+			pDC->SetBkColor(m_greycolor); // change the background color
+			pDC->SetTextColor(m_blackcolor); // change the text color			
+			hbr = (HBRUSH) m_greybrush; //  apply the brush
+			break; 
+        
+			// otherwise do default handling of OnCtlColor
+			default:    
+			hbr= CDialog::OnCtlColor(pDC,pWnd,nCtlColor); 
+			break;  
+		}  
+		
+		break; 
+   
+		// otherwise do default handling of OnCtlColor
+		default:  
+		hbr=CDialog::OnCtlColor(pDC,pWnd,nCtlColor); 
+	}
+	// ***********
+	
+	// TODO: Anderen Pinsel zurückgeben, falls Standard nicht verwendet werden soll
+	return hbr;
 }
 
 
