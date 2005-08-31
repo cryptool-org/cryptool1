@@ -12391,7 +12391,7 @@ BEGIN
                             "Das geöffnete Dokument %s ist schon für Bob hybridverschlüsselt.\nMöchten Sie dieses Dokument als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "Es sind keine gespeicherten Schlüsselpaare auffindbar.\nSie werden nun aufgefordert, ein neues Schlüsselpaar zu erzeugen."
-    IDS_SCA_TEXTFILE_OPENED "Das geöffnete Dokument %s ist noch nicht hybridverschlüsselt.\nMöchten Sie dieses Dokument hybridverschlüsseln und als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
+    IDS_SCA_TEXTFILE_OPENED "Das geöffnete Dokument ""%s"" ist noch nicht hybridverschlüsselt.\nMöchten Sie dieses Dokument hybridverschlüsseln und als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
     IDS_SCA_PSE_WRONG_PIN   "Die von Ihnen eingegebene PIN ist falsch!"
     IDS_SCA_PSE_PIN_EXTRACTION_ERROR 
                             "Bei der Verifikation der PIN ist ein Fehler aufgetreten!"
@@ -25444,7 +25444,7 @@ BEGIN
                             "The opened document %s is already hybrid encrypted for Bob.\nDo you want to use this document to execute the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "No saved key pairs detectable!\nYou will be asked to create a new key pair."
-    IDS_SCA_TEXTFILE_OPENED "The opened document %s is not hybrid encrypted yet. Do you want to hybrid encrypt this document and use it for the side-channel attack (you can choose another file by answering No)?"
+    IDS_SCA_TEXTFILE_OPENED "The opened document ""%s"" is not hybrid encrypted yet. Do you want to hybrid encrypt this document and use it for the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_PSE_WRONG_PIN   "The PIN you entered is not correct!"
     IDS_SCA_PSE_PIN_EXTRACTION_ERROR "Error verifying the PIN!"
     IDS_SCA_PSE_IS_NEEDED   "You cannot continue the visualization without the PIN!"
