@@ -6,9 +6,8 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY>
-
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
 	<PARAM NAME="Keyword" VALUE="Schlüssel">
 	<PARAM NAME="Keyword" VALUE="Salz">
 	<PARAM NAME="Keyword" VALUE="Hashwert">
@@ -18,7 +17,12 @@
 	<PARAM NAME="Keyword" VALUE="PKCS#5">
 </OBJECT>
 
-<h3><P><A NAME="hid_einzelverfahren_schluesselgenerieren"></A><B>Dialog Schlüssel aus Passwort generieren (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashverfahren)</B></P></h3>
+<BODY>
+
+<h3><P>Dialog Schlüssel aus Passwort generieren</h3>
+
+<P>Dieser Dialog ist erreichbar über den Eintrag <a href="hid_einzelverfahren_schluesselgenerieren.html">Schlüssel aus Passwort generieren (PKCS#5)</a> im Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hashverfahren</a>.</P>
+
 <P>Selbst wenn eine kryptographische Anwendung sicher ist, so ist letztendlich die praxisrelevante Benutzersicherheit von einem geheimen Text - dem "Passwort" - abhängig. Das Passwort selbst ist in der Regel für solche Kryptosysteme nicht direkt anwendbar, sondern man berechnet aus dem Passwort einen Schlüssel. Im Dialog <B>Schlüssel aus Passwort generieren</B> kann man kryptographisch sichere Schlüssel aus Passwörtern produzieren. Die Implementierung richtet sich dabei nach dem <A href="standards.html">Standard</A> PKCS#5.</P>
 
 <P>Der hergeleitete Schlüssel ist neben dem geheimen Passwort auch von anderen Parametern abhängig: dem Salz, der Hashfunktion und der Anzahl der Iterationen, für die jeweils die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktion</A> angewendet wird.</P>

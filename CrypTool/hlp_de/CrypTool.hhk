@@ -663,11 +663,6 @@
 		<param name="Local" value="dh-verfahren.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Diffie-Hellman-Schl&uuml;sselaustausch (exemplarisch)">
-		<param name="Name" value="Diffie-Hellman-Schlüsselaustauschverfahren (exemplarisch)">
-		<param name="Local" value="diffie-hellman-beispiel.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Digramm">
 		<param name="Name" value="N-Gramm-Liste des Dokuments anzeigen">
 		<param name="Local" value="hid_analyse_ngram.html">
