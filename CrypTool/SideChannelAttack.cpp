@@ -1052,12 +1052,13 @@ bool extractCertFilename(const char* infile, CString &filename)
 }
 
 
-// Diese Funktion extrahiert aus einem PSE-Dateinamen [Name][Vorname][Verfahren][Id-Stamp] den
-// Namen, den Vornamen, das Verfahren und den ID-Stamp und legt die Variablen entsprechend ab
-bool extractCertInfo(const char *infile, CString &firstname, CString &lastname, CString &keytype, CString &time)
+// Diese Funktion extrahiert aus einem PSE-Dateinamen [Name][Vorname][Verfahren][Id-Stamp][Schlüsselkennung] den
+// Namen, den Vornamen, das Verfahren, den ID-Stamp, die Schlüsselkennung und legt die Variablen entsprechend ab
+bool extractCertInfo(const char *infile, CString &firstname, CString &lastname, CString &keytype, CString &time, CString &keyid)
 {
 	CString temp = "";
 	CString help = "";
+	int start = 0;
 	int end = 0;
 	
 	if(!extractCertFilename(infile, temp))
@@ -1066,20 +1067,65 @@ bool extractCertInfo(const char *infile, CString &firstname, CString &lastname, 
 	// zunächst Endung entfernen
 	temp.Delete(temp.GetLength()-4, 4);
 
-	//[LASTNAME][FIRSTNAME][KEYTYPE][ID]
+	//[LASTNAME][FIRSTNAME][KEYTYPE][ID][KEYIDENTIFIER]
 
-	// ID ermitteln
-	help = temp;
-	end = help.Find("]",0);
-	help.Delete(0, end+1);
-	end = help.Find("]",0);
-	help.Delete(0, end+1);
-	end = help.Find("]",0);
-	help.Delete(0, end+1);
-	help.Delete(0,1);
-	help.Delete(help.GetLength()-1,1);
-	// ID/TIMESTAMP zuweisen
-	time = help;
+	// ACHTUNG: Nicht jede PSE besitzt einen Keyidentifier!!! Diesen daher nur bei Bedarf versuchen zu extrahieren.
+	// ERKENNUNG ÜBER:	wenn die Zeichen "[" und "]" insgesamt 8 mal vorkommen -> OHNE keyid
+	//					wenn ................................ 10 mal vorkommen -> MIT keyid
+	// Eckige Klammern zählen...
+    int bracketCount = 0;
+	for(int i=0; i<temp.GetLength(); i++)
+		if(temp[i] == ']' || temp[i] == '[')
+			bracketCount++;
+
+	if(bracketCount == 10)
+	{
+		// KEYID ermitteln
+		help = temp;
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		help.Delete(0,1);
+		help.Delete(help.GetLength()-1,1);
+		// KEYID zuweisen
+		keyid = help;
+
+		// ID ermitteln
+		help = temp;
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);	// [xxx][ID]
+		start = help.Find("[", 1);
+		end = help.Find("]", start);
+		help.Delete(start, start+end);
+		help.Delete(0,1);
+		help.Delete(help.GetLength()-1,1);
+		// ID/TIMESTAMP zuweisen
+		time = help;
+	}
+	else
+	{
+		// ID ermitteln
+		help = temp;
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		end = help.Find("]",0);
+		help.Delete(0, end+1);
+		help.Delete(0,1);
+		help.Delete(help.GetLength()-1,1);
+		// ID/TIMESTAMP zuweisen
+		time = help;
+	}
 
 	// KEYTYPE ermitteln
 	help = temp;
@@ -1117,7 +1163,7 @@ bool extractCertInfo(const char *infile, CString &firstname, CString &lastname, 
 
 // Diese Funktion macht nichts weiter, als aus den Eingabeparametern FIRSTNAME, LASTNAME,
 // KEYTYPE und TIME den Namen der entsprechenden PSE-Datei zu generieren.
-CString generateCertFilename(CString firstname, CString lastname, CString keytype, CString time, bool fileExtension)
+CString generateCertFilename(CString firstname, CString lastname, CString keytype, CString time, CString keyid, bool fileExtension)
 {
 	CString filename = "";
 
@@ -1130,6 +1176,14 @@ CString generateCertFilename(CString firstname, CString lastname, CString keytyp
 	filename += "][";
 	filename += time;
 	filename += "]";
+
+	// key id NUR DANN anhängen, wenn eine key id existiert!
+	if(!keyid.IsEmpty())
+	{
+		filename += "[";
+		filename += keyid;
+		filename += "]";
+	}
 
 	// Dateiendung anhängen
 	if(fileExtension)
@@ -1150,7 +1204,8 @@ void extractHybridEncryptedFileInformation(const char *receivedFile, hybEncInfo 
 	CString receiverFirstname = "";
 	CString receiverLastname = "";
 	CString receiverKeyType = "";
-	CString receiverIDStamp;
+	CString receiverIDStamp = "";
+	CString receiverKeyId = "";
 
 	// Zunächst wird die übergebene Datei eingelesen
 	OctetString *infile = theApp.SecudeLib.aux_file2OctetString(receivedFile);
@@ -1213,13 +1268,14 @@ void extractHybridEncryptedFileInformation(const char *receivedFile, hybEncInfo 
 	// ========================================================================
 
 	// Empfänger (einzelne Komponenten)
-	extractCertInfo(receivedFile, receiverFirstname, receiverLastname, receiverKeyType, receiverIDStamp);
+	extractCertInfo(receivedFile, receiverFirstname, receiverLastname, receiverKeyType, receiverIDStamp, receiverKeyId);
 
 	// Rückgabestruktur definieren
 	strcpy(hi.receiverFirstname, (char*)(LPCTSTR)receiverFirstname);
 	strcpy(hi.receiverLastname, (char*)(LPCTSTR)receiverLastname);
 	strcpy(hi.receiverKeyType, (char*)(LPCTSTR)receiverKeyType);
 	strcpy(hi.receiverIDStamp, (char*)(LPCTSTR)receiverIDStamp);
+	strcpy(hi.receiverKeyId, (char*)(LPCTSTR)receiverKeyId);
 
 	hi.sessionKeyEncrypted.octets = new char[encryptedSessionKey->noctets];
 	if(!hi.sessionKeyEncrypted.octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);

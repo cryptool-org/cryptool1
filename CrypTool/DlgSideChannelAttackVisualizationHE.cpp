@@ -455,7 +455,7 @@ void CDlgSideChannelAttackVisualizationHE::OnPreparations()
 			// Speichern (unbedingt nötig zur Ermittlung der PSE-Datei)
 			certInfo = dlg.getCertInfo();
 			// *** Namen der PSE-Datei ermitteln *** (Angriffsziel)
-			certFilename = generateCertFilename(certInfo.firstname, certInfo.lastname, certInfo.keytype, certInfo.time);
+			certFilename = generateCertFilename(certInfo.firstname, certInfo.lastname, certInfo.keytype, certInfo.time, certInfo.keyid);
 			// nötiges Verzeichnisprefix anhängen und somit vollständigen Namen ermitteln
 			CString certFilenamePrefixed = (CString)PseVerzeichnis+((CString)"/") + certFilename;
 			certFilename = certFilenamePrefixed;

@@ -91,6 +91,7 @@ extern char* CaPseVerzeichnis, *PseVerzeichnis;
 #define SCA_MAX_LENGTH_RECEIVERLASTNAME								48
 #define SCA_MAX_LENGTH_RECEIVERKEYTYPE								24
 #define SCA_MAX_LENGTH_RECEIVERIDSTAMP								24
+#define SCA_MAX_LENGTH_RECEIVERKEYID								24
 #define SCA_MAX_LENGTH_SESSIONKEYLENGTH								256
 #define SCA_MAX_LENGTH_SYMMETRICMETHOD								24
 #define SCA_MAX_LENGTH_ASYMMETRICMETHOD								24
@@ -103,6 +104,7 @@ struct HybridEncryptedFileInfo
 	char receiverLastname[SCA_MAX_LENGTH_RECEIVERLASTNAME];
 	char receiverKeyType[SCA_MAX_LENGTH_RECEIVERKEYTYPE];
 	char receiverIDStamp[SCA_MAX_LENGTH_RECEIVERIDSTAMP];
+	char receiverKeyId[SCA_MAX_LENGTH_RECEIVERKEYID];
 	char sessionKeyLength[SCA_MAX_LENGTH_SESSIONKEYLENGTH];
 	char symmetricMethod[SCA_MAX_LENGTH_SYMMETRICMETHOD];
 	char asymmetricMethod[SCA_MAX_LENGTH_ASYMMETRICMETHOD];
@@ -131,8 +133,8 @@ double determineEntropy(const char*);
 void decryptMessageAES(OctetString*,OctetString*,OctetString*,int);
 void decryptSessionKeyRSA(HybridEncryptedFileInfo&, std::string, std::string, OctetString*);
 bool extractCertFilename(const char*, CString&);
-bool extractCertInfo(const char*, CString&, CString&, CString&, CString&);
-CString generateCertFilename(CString,CString,CString,CString,bool fileExtension = true);
+bool extractCertInfo(const char*, CString&, CString&, CString&, CString&, CString&);
+CString generateCertFilename(CString,CString,CString,CString,CString,bool fileExtension = true);
 void extractHybridEncryptedFileInformation(const char*, hybEncInfo&);
 void generateSCAReport(SCA_Client*,SCA_Server*,SCA_Attacker*,const char*);
 bool isNullKey(const OctetString*);

@@ -69,6 +69,7 @@ struct SCACertificateInformation
 	CString lastname;
 	CString keytype;
 	CString time;
+	CString keyid;
 };
 
 class CDlgHybridEncryptionDemo : public CDialog

@@ -86,6 +86,7 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	this->scaCertInfo.lastname = "";
 	this->scaCertInfo.keytype = "";
 	this->scaCertInfo.time = "";
+	this->scaCertInfo.keyid = "";
 	this->isSCABehaviourActivated = false;
 	this->scaFile = "";
 
@@ -420,10 +421,9 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 		{
 			this->scaCertInfo.firstname = rsaDlg.Firstname;
 			this->scaCertInfo.lastname = rsaDlg.Name;
-			
 			this->scaCertInfo.keytype = rsaDlg.KeyType;
-			
 			this->scaCertInfo.time = rsaDlg.CreatTime;
+			this->scaCertInfo.keyid = rsaDlg.KeyInfo;
 		}
 
 		CKeyFile KeyHandling;
