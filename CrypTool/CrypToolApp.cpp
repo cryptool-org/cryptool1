@@ -95,6 +95,9 @@ statement from your version.
 
 #include "HexEditCtrlDoc.h"
 #include "HexEditCtrlView.h"
+#include "ScintillaWnd.h"
+#include "ScintillaDoc.h"
+#include "ScintillaView.h"
 #include "DlgCrtAstronomy.h"
 #include "DlgCrtTransformation.h"
 #include "DlgCrtSecretSharing.h"
@@ -308,9 +311,15 @@ BOOL CCrypToolApp::InitInstance()
 	/* Einstellen der Länge der MRU-Liste */
 	LoadStdProfileSettings(10);
     MRU_Flag = TRUE;
+#if 0
 	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
 		RUNTIME_CLASS(CCryptDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CAppEditView)));
+#else
+	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
+		RUNTIME_CLASS(CScintillaDoc), RUNTIME_CLASS(CMDIChildWnd),
+		RUNTIME_CLASS(CScintillaView))); // FIXME OnShowKey etc.
+#endif
 	AddDocTemplate(new CCryptDocTemplate(IDR_ASCTYPE,
 		RUNTIME_CLASS(CAscDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CBlockView)));
@@ -323,6 +332,35 @@ BOOL CCrypToolApp::InitInstance()
 		//RUNTIME_CLASS(CHexDoc), RUNTIME_CLASS(CMDIChildWnd),
 		//RUNTIME_CLASS(CHexView)));
 
+	// load Scintilla DLL
+	ScintillaLib = CScintillaWnd::LoadScintillaDll();
+	if(!ScintillaLib) { // secude und Ticket verfuegbar ?
+		LPVOID lpMsgBuf;
+		::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR) &lpMsgBuf,0,NULL);
+		// Write to stderr
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
+		CString msg;
+		msg.Format(_T("%s:%s\n"), (LPCSTR)STR_LEXERDLL, (LPCTSTR)lpMsgBuf);
+		MessageBox(NULL,(LPCTSTR)msg,pc_str1,MB_ICONWARNING|MB_OK);
+		// Free the buffer.
+		LocalFree( lpMsgBuf );
+		exit(0);
+	}
+#if 0
+	// try to get version from lexer dll
+	if (m_hDll != NULL)
+	{
+		TCHAR szFilename[256];
+		::GetModuleFileName(m_hDll, szFilename, 256);
+		CFileVersion ver;
+		ver.Open (szFilename);
+		m_strVersionScintilla = ver.GetFixedFileVersion();
+		m_strProductScintilla = ver.QueryValue (_T("ProductName"));
+		m_strFileScintilla = szFilename;
+		ver.Close();
+	}
+#endif
 	m_pMainWnd = new CMainFrame;
 	m_MainWnd = m_pMainWnd;
 	((CFrameWnd*)m_pMainWnd)->LoadFrame(IDR_MAINFRAME);
@@ -482,17 +520,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return CMDIFrameWnd::OnCreate(lpCreateStruct);
 }
 
-IMPLEMENT_DYNCREATE(CPadDoc, CAppDocument)
-BEGIN_MESSAGE_MAP(CPadDoc, CAppDocument)
-	//{{AFX_MSG_MAP(CPadDoc)
-	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
-
-void CPadDoc::Serialize(CArchive& ar)
-{
-	((CAppEditView*)m_viewList.GetHead())->SerializeRaw(ar);
-}
-
 /////////////////////////////////////////////////////////////////////////////
 
 void CCrypToolApp::AddToRecentFileList(LPCTSTR lpszPathName)
@@ -637,6 +664,8 @@ int CCrypToolApp::ExitInstance()
 	if(Pfad) free(Pfad);
 	if(PseVerzeichnis) free(PseVerzeichnis);
 	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
+	if (ScintillaLib) FreeLibrary(ScintillaLib);
+	return CWinApp::ExitInstance();
 //	m_pRecentFileList->WriteList();
 	return CWinApp::ExitInstance();
 }

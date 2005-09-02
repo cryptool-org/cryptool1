@@ -104,7 +104,7 @@ BOOL CCryptDoc::OnNewDocument()
 {
 	FILE *f;
 
-	if (!CPadDoc::OnNewDocument())
+	if (!CAppDocument::OnNewDocument())
 		return FALSE;
     GetTmpName(ContentName,"cry",".org");
 	f = fopen(ContentName,"wb");
@@ -137,7 +137,7 @@ CCryptDoc::~CCryptDoc()
 }
 
 
-BEGIN_MESSAGE_MAP(CCryptDoc, CPadDoc)
+BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	//{{AFX_MSG_MAP(CCryptDoc)
 	ON_COMMAND(ID_ADD_BIN, OnAddBin)
 	ON_COMMAND(ID_PLAYFAIR_BIN, OnPlayfairBin)
@@ -264,12 +264,12 @@ END_MESSAGE_MAP()
 #ifdef _DEBUG
 void CCryptDoc::AssertValid() const
 {
-	CPadDoc::AssertValid();
+	CAppDocument::AssertValid();
 }
 
 void CCryptDoc::Dump(CDumpContext& dc) const
 {
-	CPadDoc::Dump(dc);
+	CAppDocument::Dump(dc);
 }
 #endif //_DEBUG
 
@@ -278,7 +278,7 @@ void CCryptDoc::Dump(CDumpContext& dc) const
 
 void CCryptDoc::Serialize(CArchive& ar)
 {
-    CPadDoc::Serialize( ar );
+    CAppDocument::Serialize( ar );
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -291,7 +291,7 @@ void CCryptDoc::OnCloseDocument()
 
     // PRESENTATION_NAME strncpy(name1,PresentationName,sizeof(name1));
     strncpy(name2,ContentName,sizeof(name2));
-	CPadDoc::OnCloseDocument();
+	CAppDocument::OnCloseDocument();
     // PRESENTATION_NAME remove(name1);
     remove(name2);
 }
@@ -324,7 +324,7 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	}
 	// ADD_PRESENTATION_NAME
 
-	if (!CPadDoc::OnOpenDocument( ContentName /* PRESENTATION_NAME PresentationName */)) {
+	if (!CAppDocument::OnOpenDocument( ContentName /* PRESENTATION_NAME PresentationName */)) {
         remove(ContentName);
         // PRESENTATION_NAME remove(PresentationName);
 		return FALSE;
@@ -338,8 +338,8 @@ BOOL CCryptDoc::OnSaveDocument(LPCTSTR lpszPathName)
 {
 	POSITION pos = GetFirstViewPosition();
 
-    if(IsModified()) CPadDoc::OnSaveDocument(ContentName);
-    CPadDoc::OnSaveDocument(lpszPathName);
+    if(IsModified()) CAppDocument::OnSaveDocument(ContentName);
+    CAppDocument::OnSaveDocument(lpszPathName);
  	GetNextView(pos)->Invalidate();
  	UpdateAllViews(NULL);
     return TRUE;
@@ -628,8 +628,8 @@ void CCryptDoc::OnCryptHashSha1()
 BOOL CAscDoc::OnSaveDocument(LPCTSTR lpszPathName) 
 {
     /* store modified file */
-    CPadDoc::OnSaveDocument(ContentName);
-//    CPadDoc::OnSaveDocument(PresentationName);
+    CAppDocument::OnSaveDocument(ContentName);
+//    CAppDocument::OnSaveDocument(PresentationName);
 
     /* create user-file */
     FileCpy(lpszPathName, ContentName);
@@ -640,7 +640,7 @@ BOOL CAscDoc::OnSaveDocument(LPCTSTR lpszPathName)
 BOOL CHexDoc::OnSaveDocument(LPCTSTR lpszPathName) 
 {
     /* store modified file */
-    CPadDoc::OnSaveDocument(ContentName);
+    CAppDocument::OnSaveDocument(ContentName);
 
 /* Do Hex undump */
 /*  f1 = fopen(PresentationName,"rt");
@@ -679,7 +679,7 @@ BOOL CCryptDoc::UpdateContent( void )
 		oldname = GetPathName();
 		title = GetTitle();
 
-		CPadDoc::OnSaveDocument(ContentName);
+		CAppDocument::OnSaveDocument(ContentName);
 
 	    if(oldname[0]) SetPathName(oldname,FALSE);
 		SetTitle(title);
@@ -1383,6 +1383,7 @@ void CCryptDoc::OnAnalyseNGramBin()
 	NGramBin( ContentName, GetTitle());
 }
 
+#if 0
 // rich text edit
 BOOL CCryptDoc::IsModified()
 {
@@ -1393,6 +1394,7 @@ void CCryptDoc::SetModifiedFlag(BOOL bModified)
 {
 	((CAppEditView*)m_viewList.GetHead())->GetRichEditCtrl().SetModify(bModified);
 }
+#endif
 //
 
 void CCryptDoc::OnPermutationAsc() 

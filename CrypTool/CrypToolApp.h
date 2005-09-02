@@ -161,6 +161,7 @@ public:
 	int m_HexFormat;
 	CSecudeLib SecudeLib;
 	int SecudeStatus;
+	HINSTANCE ScintillaLib;
 	CDlgTextOptions TextOptions;
 	void ThreadOpenDocumentFileNoMRU( const char *name, const char *title, char *Key=NULL, int KeyType = SCHLUESSEL_LINEAR);
 	char OpenTitle [CRYPTOOL_PATH_LENGTH];
@@ -202,15 +203,6 @@ class CMainFrame : public CMDIFrameWnd
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnOptionsPlot();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
-};
-
-class CPadDoc : public CAppDocument
-{
-	DECLARE_DYNCREATE(CPadDoc)
-	void Serialize(CArchive& ar);
-	//{{AFX_MSG(CPadDoc)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

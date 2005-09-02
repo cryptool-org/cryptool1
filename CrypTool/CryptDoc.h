@@ -44,6 +44,7 @@ statement from your version.
 #ifndef _CRYPTDOC_H_
 #define _CRYPTDOC_H_
 
+#include "CrypToolApp.h"
 //////////////////////////////////////////////////////////////////
 // Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
@@ -53,7 +54,7 @@ statement from your version.
 /////////////////////////////////////////////////////////////////////////////
 // CCryptDoc document
 
-class CCryptDoc : public CPadDoc
+class CCryptDoc : public CAppDocument
 {
 
 protected:
@@ -83,9 +84,11 @@ public:
 
 // Implementation
 public:
+#if 0
 // for rich text edit 
 	void SetModifiedFlag( BOOL bModified = TRUE );
 	BOOL IsModified();
+#endif
 // 
 	virtual ~CCryptDoc();
 #ifdef _DEBUG
