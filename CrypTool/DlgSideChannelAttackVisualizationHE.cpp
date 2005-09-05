@@ -313,7 +313,7 @@ void CDlgSideChannelAttackVisualizationHE::setEncryptedFile(const char *file)
 		this->initFile = file;
 		// Nur dann eine Datei als deklariert angeben, wenn sie NICHT LEER ist
 		OctetString *text = theApp.SecudeLib.aux_file2OctetString(file);
-		if (!text->noctets)
+		if (!text)
 			this->isFileDeclared = false;
 		else
 			this->isFileDeclared = true;

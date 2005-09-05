@@ -58,6 +58,8 @@ statement from your version.
 static char THIS_FILE[] = __FILE__;
 #endif
 
+extern char *Pfad;
+
 // Hybridverschlüsselungsdialog
 #include "DlgHybridEncryptionDemo.h"
 // für content-name usw
@@ -110,6 +112,40 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 	
 	if(initMode & SCA_MODE_NO_FILE)
 	{
+		// Will der Benutzer selbst eine Datei hybridverschlüsseln?
+		LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBRIDENCRYPTION_BY_USER, pc_str, STR_LAENGE_STRING_TABLE);
+		result = AfxMessageBox(pc_str, MB_YESNO);
+		// auswerten...
+		if(result == IDNO)
+		{
+			// ACHTUNG!!! Hier möchte der Benutzer die Hybridverschlüsselung NICHT SELBST durchführen,
+			//            ergo: Hybridverschlüsselte Datei für bereits angelegten User verwenden!
+			LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str, MB_OK);
+			
+			// Benutzer möchte eine bereits existente und hybridverschlüsselte
+			// Datei als Basis für Angriff verwenden
+			useExistingHybEncFile = true;
+
+			// Datei "IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE" (Wert in pc_str holen) benutzen...
+			LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE, pc_str, STR_LAENGE_STRING_TABLE);
+
+			// Dateinamen setzen (VOLLER PFAD!)
+			CString fullPathToFile = "";
+			fullPathToFile += CString(Pfad);
+			fullPathToFile += CString(pc_str);
+			
+			// Dateinamen setzen
+			finalHybEncFile = fullPathToFile;
+
+			// Zertifikatsinformationen ermitteln
+			if(!extractCertInfo(finalHybEncFile, scaCertInfo.firstname, scaCertInfo.lastname, scaCertInfo.keytype, scaCertInfo.time, scaCertInfo.keyid))
+				MessageBox("FEHLER", "FEHLER", MB_OK);
+
+			CDialog::OnOK();
+			return;
+		}
+
 		// Benutzer möchte eine Datei wählen und hybridverschlüsseln
 		CDlgHybridEncryptionDemo dlg;
 		dlg.activateSCABehaviour();

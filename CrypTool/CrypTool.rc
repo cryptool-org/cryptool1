@@ -2995,21 +2995,6 @@ BEGIN
                     IDC_STATIC,7,31,235,24
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 126
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Vorbereitungen durchführen"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,105,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,105,50,14
-    LTEXT           "Bevor Alice eine verschlüsselte Nachricht an Bob versenden kann, muss sie entweder ein bestimmtes Dokument hybridverschlüsseln oder eine bereits hybridverschlüsselte Datei auswählen. Dazu braucht sie Bobs öffentlichen Schlüssel.",
-                    IDC_STATIC,7,7,261,32
-    LTEXT           "Nach einem Klick auf OK öffnet sich ein weiterer Dialog, mit dem Sie die Hybridverschlüsselung einer Datei durchführen können.",
-                    IDC_STATIC,7,79,261,16
-    LTEXT           "Die Hybridverschlüsselung ist das z.B. in PGP und S/MIME eingesetzte Standardverfahren, das die Vorteile von symmetrischer und asymmetrischer Verschlüsselung verknüpft.",
-                    IDC_STATIC,7,47,261,24
-END
-
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION DIALOG  0, 0, 240, 110
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Nachricht abfangen"
@@ -4360,6 +4345,25 @@ BEGIN
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,143,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "von:",IDC_TEXT2,25,124,15,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Vorbereitungen durchführen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
+    LTEXT           "Bevor Alice eine verschlüsselte Nachricht an Bob versenden kann, muss sie entweder ein bestimmtes Dokument hybridverschlüsseln oder eine bereits hybridverschlüsselte Datei auswählen.",
+                    IDC_STATIC,7,7,253,24
+    LTEXT           "Nach einem Klick auf OK werden Sie gefragt, ob Sie die Hybridverschlüsselung selbst durchführen wollen. Alternativ können Sie mit einem bereits hybridverschlüsselten Dokument fortfahren, das mit Bobs öffentlichem Schlüssel verschlüsselt wurde.",
+                    IDC_STATIC,7,127,253,33
+    LTEXT           "Will Alice ein bestimmtes Dokument an Bob hybridverschlüsseln, so benötigt sie Bobs öffentlichen Schlüssel. Will Alice ein bereits hybridverschlüsseltes Dokument an Bob verschicken, so gilt folgende Einschränkung:",
+                    IDC_STATIC,7,39,253,24
+    LTEXT           "Die Hybridverschlüsselung ist das z.B. in PGP und S/MIME eingesetzte Standardverfahren, das die Vorteile von symmetrischer und asymmetrischer Verschlüsselung verknüpft.",
+                    IDC_STATIC,7,95,253,24
+    LTEXT           "Bob kann das empfangene Dokument nur dann entschlüsseln, wenn für die Verschlüsselung Bobs öffentlicher Schlüssel verwendet wurde.",
+                    IDC_STATIC,7,71,261,16
 END
 
 
@@ -10524,16 +10528,6 @@ BEGIN
         BOTTOMMARGIN, 191
     END
 
-    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 268
-        VERTGUIDE, 15
-        VERTGUIDE, 260
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 119
-    END
-
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGEINTERCEPTION, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -10659,6 +10653,16 @@ BEGIN
         RIGHTMARGIN, 316
         TOPMARGIN, 7
         BOTTOMMARGIN, 418
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -12388,7 +12392,7 @@ BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "Der Protokollverlauf mit Ihren Zahlen wurde erfolgreich in ein Fenster im CrypTool-Hauptprogramm geschrieben."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
-                            "Das geöffnete Dokument %s ist schon für Bob hybridverschlüsselt.\nMöchten Sie dieses Dokument als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
+                            "Das geöffnete Dokument ""%s"" ist schon für Bob hybridverschlüsselt.\nMöchten Sie dieses Dokument als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "Es sind keine gespeicherten Schlüsselpaare auffindbar.\nSie werden nun aufgefordert, ein neues Schlüsselpaar zu erzeugen."
     IDS_SCA_TEXTFILE_OPENED "Das geöffnete Dokument ""%s"" ist noch nicht hybridverschlüsselt.\nMöchten Sie dieses Dokument hybridverschlüsseln und als Basis für den Angriff benutzen (bei Nein können Sie eine andere Datei öffnen)?"
@@ -12662,6 +12666,8 @@ BEGIN
     IDS_ANIMAL_FILE_VIGENERE "locale=de_DE .\\anims\\vigenere_de.aml"
     IDS_ANIMAL_FILE_NIHILIST "locale=de_DE .\\anims\\nihilist_de.aml"
     IDS_ANIMAL_FILE_DES     "locale=de_DE .\\anims\\des_de.aml"
+    IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
+                            "letterFromAliceToBob-ENCRYPTED-de.hex"
 END
 
 STRINGTABLE 
@@ -12833,6 +12839,10 @@ BEGIN
     IDS_ROT13_CAESAR_CASE   "ROT-13 kann nur für eine gerade Anzahl von Elementen im Alphabet\nangewendet werden!"
     IDS_STRING_ROT13        "ROT 13"
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13-Verschlüsselung"
+    IDS_SCA_HYBRIDENCRYPTION_BY_USER 
+                            "Wollen Sie die Hybridverschlüsselung selbst durchführen?"
+    IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO 
+                            "Im Folgenden wird eine in CrypTool integrierte hybridverschlüsselte Datei verwendet."
 END
 
 #endif    // German (Germany) resources
@@ -16004,21 +16014,6 @@ BEGIN
                     IDC_STATIC,7,23,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 118
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Preparations"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,97,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,218,97,50,14
-    LTEXT           "Alice either has to hybrid encrypt a specific document or has to choose an already hybrid encrypted document, before she can send a hybrid encrypted message to Bob. Thus Alice needs Bob's public key in the former case.",
-                    IDC_STATIC,7,7,261,24
-    LTEXT           "After clicking the OK button you will see an additional dialog allowing the execution of the hybrid encryption.",
-                    IDC_STATIC,7,63,261,16
-    LTEXT           "Hybrid encryption is used e.g. in PGP and S/MIME and is the standard procedure joining the advantages of symmetric and asymmetric encryption.",
-                    IDC_STATIC,7,39,261,24
-END
-
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG  0, 0, 226, 124
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PIN Prompt for Bob"
@@ -17163,6 +17158,25 @@ BEGIN
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,143,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "from:",IDC_TEXT2,25,124,15,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Preparations"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,218,169,50,14
+    LTEXT           "Alice either has to hybrid encrypt a specific document or has to choose an already hybrid encrypted document, before she can send a hybrid encrypted message to Bob.",
+                    IDC_STATIC,7,7,253,24
+    LTEXT           "After clicking the OK button you will be asked whether you want to hybrid encrypt a specific document on your own. Alternatively you can continue with an already hybrid encrypted document which was encrypted with Bob's public key.",
+                    IDC_STATIC,7,119,253,24
+    LTEXT           "Hybrid encryption is used e.g. in PGP and S/MIME and is the standard procedure joining the advantages of symmetric and asymmetric encryption.",
+                    IDC_STATIC,7,95,253,16
+    LTEXT           "Alice needs Bob's public key if she wants to hybrid encrypt a specific document. If Alice wants to send an already hybrid encrypted message to Bob, some constraints have to be kept in mind:",
+                    IDC_STATIC,7,39,253,24
+    LTEXT           "Bob can only decrypt the hybrid encrypted message if Bob's public key was used to encrypt the document.",
+                    IDC_STATIC,7,71,253,16
 END
 
 
@@ -23712,16 +23726,6 @@ BEGIN
         BOTTOMMARGIN, 63
     END
 
-    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 268
-        VERTGUIDE, 15
-        VERTGUIDE, 260
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 111
-    END
-
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -23754,6 +23758,16 @@ BEGIN
         RIGHTMARGIN, 316
         TOPMARGIN, 7
         BOTTOMMARGIN, 411
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -25441,7 +25455,7 @@ BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
                             "The log text of the procedure was successfully written into a main window of the CrypTool application."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
-                            "The opened document %s is already hybrid encrypted for Bob.\nDo you want to use this document to execute the side-channel attack (you can choose another file by answering No)?"
+                            "The opened document ""%s"" is already hybrid encrypted for Bob.\nDo you want to use this document to execute the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
                             "No saved key pairs detectable!\nYou will be asked to create a new key pair."
     IDS_SCA_TEXTFILE_OPENED "The opened document ""%s"" is not hybrid encrypted yet. Do you want to hybrid encrypt this document and use it for the side-channel attack (you can choose another file by answering No)?"
@@ -25708,6 +25722,8 @@ BEGIN
     IDS_ANIMAL_FILE_VIGENERE ".\\anims\\vigenere_eng.aml"
     IDS_ANIMAL_FILE_NIHILIST ".\\anims\\nihilist_eng.aml"
     IDS_ANIMAL_FILE_DES     ".\\anims\\des_eng.aml"
+    IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
+                            "letterFromAliceToBob-ENCRYPTED-en.hex"
 END
 
 STRINGTABLE 
@@ -25877,6 +25893,10 @@ BEGIN
     IDS_ROT13_CAESAR_CASE   "ROT-13 is only usable if the number of characters of the current alphabet is even!"
     IDS_STRING_ROT13        "ROT 13"
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13 encryption"
+    IDS_SCA_HYBRIDENCRYPTION_BY_USER 
+                            "Do you want to execute the hybrid encryption on your own?"
+    IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO 
+                            "In the following a hybrid encrypted file is used which is integrated in CrypTool."
 END
 
 #endif    // English (U.K.) resources
