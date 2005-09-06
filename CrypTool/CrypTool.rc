@@ -12841,8 +12841,8 @@ BEGIN
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13-Verschlüsselung"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Wollen Sie die Hybridverschlüsselung selbst durchführen?"
-    IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO 
-                            "Im Folgenden wird eine in CrypTool integrierte hybridverschlüsselte Datei verwendet."
+    IDS_SCA_ERROR_CERTINFOEXTRACTION 
+                            "Fehler! Das Öffnen folgender Datei ist nicht möglich:\n%s"
 END
 
 #endif    // German (Germany) resources
@@ -25895,8 +25895,8 @@ BEGIN
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13 encryption"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Do you want to execute the hybrid encryption on your own?"
-    IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO 
-                            "In the following a hybrid encrypted file is used which is integrated in CrypTool."
+    IDS_SCA_ERROR_CERTINFOEXTRACTION 
+                            "Error! The following file cannot be opened:\n%s"
 END
 
 #endif    // English (U.K.) resources

@@ -120,27 +120,24 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 		{
 			// ACHTUNG!!! Hier möchte der Benutzer die Hybridverschlüsselung NICHT SELBST durchführen,
 			//            ergo: Hybridverschlüsselte Datei für bereits angelegten User verwenden!
-			LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBRIDENCRYPTION_BY_USER_INFO, pc_str, STR_LAENGE_STRING_TABLE);
-			AfxMessageBox(pc_str, MB_OK);
-			
-			// Benutzer möchte eine bereits existente und hybridverschlüsselte
-			// Datei als Basis für Angriff verwenden
 			useExistingHybEncFile = true;
 
-			// Datei "IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE" (Wert in pc_str holen) benutzen...
+			// Default-PSE-Datei verwenden
 			LoadString(AfxGetInstanceHandle(), IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE, pc_str, STR_LAENGE_STRING_TABLE);
-
 			// Dateinamen setzen (VOLLER PFAD!)
-			CString fullPathToFile = "";
-			fullPathToFile += CString(Pfad);
-			fullPathToFile += CString(pc_str);
+			finalHybEncFile = "";
+			finalHybEncFile += CString(Pfad);
+			finalHybEncFile += CString(pc_str);
 			
-			// Dateinamen setzen
-			finalHybEncFile = fullPathToFile;
-
-			// Zertifikatsinformationen ermitteln
+			// Zertifikatsinformationen ermitteln (Name, Vorname, Schlüsseltyp...)
 			if(!extractCertInfo(finalHybEncFile, scaCertInfo.firstname, scaCertInfo.lastname, scaCertInfo.keytype, scaCertInfo.time, scaCertInfo.keyid))
-				MessageBox("FEHLER", "FEHLER", MB_OK);
+			{
+				char buffer[STR_LAENGE_STRING_TABLE];
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_ERROR_CERTINFOEXTRACTION, buffer, STR_LAENGE_STRING_TABLE);
+				sprintf(pc_str, buffer, (LPCTSTR)(this->finalHybEncFile));
+				MessageBox(pc_str, "CrypTool", MB_OK);
+				return;
+			}
 
 			CDialog::OnOK();
 			return;
@@ -223,14 +220,17 @@ void CDlgSideChannelAttackVisualizationHEPreparations::OnOK()
 			
 			// Dateizugriff ermöglichen
 						
-			// Zertifikatsinformationen ermitteln
-			if(!extractCertInfo(this->initFile, scaCertInfo.firstname, scaCertInfo.lastname, scaCertInfo.keytype, scaCertInfo.time, scaCertInfo.keyid))
-				MessageBox("FEHLER", "FEHLER", MB_OK);
-						
-			// Namen der PSE-Datei ermitteln
-			if(!extractCertFilename(this->initFile, certFilename))
-				MessageBox("FEHLER", "FEHLER", MB_OK);
-				
+			// Zertifikatsinformationen (und Namen der PSE-Datei) ermitteln
+			if(	!extractCertInfo(this->initFile, scaCertInfo.firstname, scaCertInfo.lastname, scaCertInfo.keytype, scaCertInfo.time, scaCertInfo.keyid) ||
+				!extractCertFilename(this->initFile, certFilename))
+			{
+				char buffer[STR_LAENGE_STRING_TABLE];
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_ERROR_CERTINFOEXTRACTION, buffer, STR_LAENGE_STRING_TABLE);
+				sprintf(pc_str, buffer, (LPCTSTR)(this->initFile));
+				MessageBox(pc_str, "CrypTool", MB_OK);
+				return;
+			}
+										
 			// ORIGINAL-Session-Key ermitteln nicht möglich, da Datei bereits verschlüsselt
 			LoadString(AfxGetInstanceHandle(), IDS_SCA_CLIENT_SESSIONKEYUNKNOWN, pc_str, STR_LAENGE_STRING_TABLE);
 			originalSessionKey = pc_str;
