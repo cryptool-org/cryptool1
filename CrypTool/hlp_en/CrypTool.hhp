@@ -459,6 +459,9 @@ hid_ciphertext_only_substitution.html
 hid_analysis_random_3d_visualization.html
 hid_rot13caesar_asc.html
 hidd_rot13_caesar.html
+hidd_sidechannelattackvisualization_he_preparations_request_1.html
+hidd_sidechannelattackvisualization_he_preparations_request_2.html
+hidd_sidechannelattackvisualization_he_preparations_request_3.html
 
 [ALIAS]
 #include CrypTool_Alias.h
