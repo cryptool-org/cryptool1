@@ -465,6 +465,9 @@ hidd_rsastereotyped.html
 hidd_rsabloemermay.html
 hidd_rsafactorhint.html
 hidd_adfgvx_manual.html
+hidd_sidechannelattackvisualization_he_preparations_request_3.html
+hidd_sidechannelattackvisualization_he_preparations_request_1.html
+hidd_sidechannelattackvisualization_he_preparations_request_2.html
 
 [ALIAS]
 #include CrypTool_Alias.h
