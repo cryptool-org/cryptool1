@@ -1108,16 +1108,16 @@
 			RelativePath=".\res\SCABitmaps\bmps\Button10_G_D.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_F.bmp">
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_G_F.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_U.bmp">
+			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_F.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_G_U.bmp">
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_U.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_G_X.bmp">
@@ -1126,28 +1126,28 @@
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_X.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps\bmps\Button10_R_D.bmp">
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_D.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps\bmps\Button10_R_F.bmp">
+			RelativePath=".\res\SCABitmaps\bmps\Button10_R_D.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_F.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_U.bmp">
+			RelativePath=".\res\SCABitmaps\bmps\Button10_R_F.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_R_U.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps\bmps\Button10_R_X.bmp">
+			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_U.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_X.bmp">
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps\bmps\Button10_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button1_G_D.bmp">
@@ -1162,9 +1162,6 @@
 			RelativePath="res\SCABitmaps\bmps\Button1_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button1_G_F.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button1_G_F.bmp">
 		</File>
 		<File
@@ -1174,7 +1171,7 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button1_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button1_G_U.bmp">
+			RelativePath="res\DHBitmaps\bmps\Button1_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button1_G_U.bmp">
@@ -1184,6 +1181,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button1_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button1_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button1_G_X.bmp">
@@ -1198,9 +1198,6 @@
 			RelativePath="res\SCABitmaps\bmps\Button1_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button1_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button1_R_D.bmp">
 		</File>
 		<File
@@ -1210,7 +1207,7 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button1_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button1_R_F.bmp">
+			RelativePath="res\DHBitmaps\bmps\Button1_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button1_R_F.bmp">
@@ -1220,6 +1217,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button1_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button1_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button1_R_U.bmp">
@@ -1234,9 +1234,6 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button1_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button1_R_X.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button1_R_X.bmp">
 		</File>
 		<File
@@ -1246,7 +1243,7 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button1_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button2_G_D.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button1_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button2_G_D.bmp">
@@ -1256,6 +1253,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button2_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button2_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button2_G_F.bmp">
@@ -1270,9 +1270,6 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button2_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Button2_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button2_G_U.bmp">
 		</File>
 		<File
@@ -1280,6 +1277,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Button2_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_G_X.bmp">
@@ -1294,9 +1294,6 @@
 			RelativePath="res\DHBitmaps\bmps\Button2_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Button2_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_R_D.bmp">
 		</File>
 		<File
@@ -1306,7 +1303,7 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button2_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button2_R_F.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\Button2_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button2_R_F.bmp">
@@ -1316,6 +1313,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Button2_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_R_U.bmp">
@@ -1330,9 +1330,6 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button2_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button2_R_X.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps\bmps\Button2_R_X.bmp">
 		</File>
 		<File
@@ -1342,7 +1339,7 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button2_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button3_G_D.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button2_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button3_G_D.bmp">
@@ -1352,6 +1349,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button3_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button3_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button3_G_F.bmp">
@@ -1366,9 +1366,6 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button3_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button3_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button3_G_U.bmp">
 		</File>
 		<File
@@ -1378,7 +1375,7 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button3_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button3_G_X.bmp">
+			RelativePath="res\DHBitmaps\bmps\Button3_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button3_G_X.bmp">
@@ -1388,6 +1385,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button3_G_X.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Button3_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button3_R_D.bmp">
@@ -1402,9 +1402,6 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button3_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button3_R_F.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button3_R_F.bmp">
 		</File>
 		<File
@@ -1412,6 +1409,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button3_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Button3_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button3_R_U.bmp">
@@ -1426,9 +1426,6 @@
 			RelativePath="res\SCABitmaps\bmps\Button3_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button3_R_X.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button3_R_X.bmp">
 		</File>
 		<File
@@ -1438,7 +1435,7 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button3_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button4_G_D.bmp">
+			RelativePath="res\DHBitmaps\bmps\Button3_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button4_G_D.bmp">
@@ -1448,6 +1445,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button4_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button4_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button4_G_F.bmp">
@@ -1462,9 +1462,6 @@
 			RelativePath="res\SCABitmaps\bmps\Button4_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button4_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button4_G_U.bmp">
 		</File>
 		<File
@@ -1474,7 +1471,7 @@
 			RelativePath="res\DHBitmaps\bmps\Button4_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button4_G_X.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button4_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button4_G_X.bmp">
@@ -1484,6 +1481,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button4_G_X.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button4_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button4_R_D.bmp">
@@ -1498,9 +1498,6 @@
 			RelativePath="res\DHBitmaps\bmps\Button4_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button4_R_F.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button4_R_F.bmp">
 		</File>
 		<File
@@ -1510,7 +1507,7 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button4_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button4_R_U.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button4_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button4_R_U.bmp">
@@ -1520,6 +1517,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button4_R_U.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button4_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button4_R_X.bmp">
@@ -1534,9 +1534,6 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button4_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button5_G_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button5_G_D.bmp">
 		</File>
 		<File
@@ -1544,6 +1541,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button5_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Button5_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button5_G_F.bmp">
@@ -1558,9 +1558,6 @@
 			RelativePath="res\SCABitmaps\bmps\Button5_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button5_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button5_G_U.bmp">
 		</File>
 		<File
@@ -1570,7 +1567,7 @@
 			RelativePath="res\DHBitmaps\bmps\Button5_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button5_G_X.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button5_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button5_G_X.bmp">
@@ -1580,6 +1577,9 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button5_G_X.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button5_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button5_R_D.bmp">
@@ -1594,9 +1594,6 @@
 			RelativePath="res\DHBitmaps_en\bmps\Button5_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button5_R_F.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button5_R_F.bmp">
 		</File>
 		<File
@@ -1606,7 +1603,7 @@
 			RelativePath="res\DHBitmaps\bmps\Button5_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Button5_R_U.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button5_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button5_R_U.bmp">
@@ -1616,6 +1613,9 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button5_R_U.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Button5_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button5_R_X.bmp">
@@ -1630,28 +1630,28 @@
 			RelativePath="res\SCABitmaps\bmps\Button5_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button6_G_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button6_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button6_G_F.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button6_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button6_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_G_U.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button6_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_G_X.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button6_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_G_X.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button6_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_R_D.bmp">
@@ -1660,22 +1660,22 @@
 			RelativePath="res\SCABitmaps\bmps\Button6_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_R_F.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button6_R_U.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button6_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button6_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_R_X.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button6_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_R_X.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button6_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button7_G_D.bmp">
@@ -1684,16 +1684,16 @@
 			RelativePath="res\SCABitmaps\bmps\Button7_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button7_G_F.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button7_G_U.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button7_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button7_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_G_X.bmp">
@@ -1702,16 +1702,16 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button7_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button7_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button7_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button7_R_F.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button7_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button7_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_R_U.bmp">
@@ -1720,28 +1720,28 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button7_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button7_R_X.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button7_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_G_D.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button7_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button8_G_F.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button8_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button8_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_G_U.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button8_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button8_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_X.bmp">
@@ -1750,16 +1750,16 @@
 			RelativePath="res\SCABitmaps\bmps\Button8_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_R_F.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button8_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button8_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button8_R_U.bmp">
@@ -1768,16 +1768,16 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button8_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button8_R_X.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button8_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button9_G_D.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button8_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button9_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_G_F.bmp">
@@ -1786,28 +1786,28 @@
 			RelativePath="res\SCABitmaps\bmps\Button9_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button9_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button9_G_X.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button9_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button9_R_D.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button9_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button9_R_F.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button9_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button9_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_R_U.bmp">
@@ -1816,10 +1816,10 @@
 			RelativePath="res\SCABitmaps_en\bmps\Button9_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button9_R_X.bmp">
+			RelativePath="res\SCABitmaps_en\bmps\Button9_R_X.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button9_R_X.bmp">
+			RelativePath="res\SCABitmaps\bmps\Button9_R_X.bmp">
 		</File>
 		<File
 			RelativePath="ButtonControl.cpp">
@@ -1870,16 +1870,16 @@
 			RelativePath="res\DHBitmaps\bmps\Calculate_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_G_F.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_U.bmp">
+			RelativePath="res\DHBitmaps\bmps\Calculate_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Calculate_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_X.bmp">
@@ -1888,28 +1888,28 @@
 			RelativePath="res\DHBitmaps\bmps\Calculate_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_F.bmp">
+			RelativePath="res\DHBitmaps\bmps\Calculate_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Calculate_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_R_U.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_X.bmp">
+			RelativePath="res\DHBitmaps\bmps\Calculate_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Calculate_R_X.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_X.bmp">
 		</File>
 		<File
 			RelativePath="res\cancel_g.bmp">
@@ -6320,6 +6320,24 @@
 			RelativePath="DlgSideChannelAttackVisualizationHEPreparations.h">
 		</File>
 		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest1.cpp">
+		</File>
+		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest1.h">
+		</File>
+		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest2.cpp">
+		</File>
+		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest2.h">
+		</File>
+		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest3.cpp">
+		</File>
+		<File
+			RelativePath=".\DlgSideChannelAttackVisualizationHEPreparationsRequest3.h">
+		</File>
+		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEPSEPINPrompt.cpp">
 			<FileConfiguration
 				Name="Release_en|Win32">
@@ -7817,16 +7835,16 @@
 			RelativePath="res\DHBitmaps\bmps\Key_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Key_F.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Key_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Key_U.bmp">
+			RelativePath="res\DHBitmaps\bmps\Key_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Key_U.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Key_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Key_X.bmp">
@@ -8078,16 +8096,16 @@
 			RelativePath="res\magnify.cur">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\MainBackground.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\MainBackground.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\MainBackground.bmp">
+			RelativePath=".\res\SCABitmaps_en\bmps\MainBackground.bmp">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\MainBackground.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\MainBackground.bmp">
+			RelativePath="res\DHBitmaps\bmps\MainBackground.bmp">
 		</File>
 		<File
 			RelativePath="res\mainfram.bmp">
@@ -8519,10 +8537,10 @@
 			RelativePath="OptionsForSignatureAttack.h">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval1_D.bmp">
+			RelativePath="res\Bitmaps_en\Oval1_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval1_D.bmp">
+			RelativePath="res\Bitmaps\Oval1_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval1_F.bmp">
@@ -8531,10 +8549,10 @@
 			RelativePath="res\Bitmaps\Oval1_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval1_G_D.bmp">
+			RelativePath="res\Bitmaps\Oval1_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval1_G_D.bmp">
+			RelativePath="res\Bitmaps_en\Oval1_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval1_G_F.bmp">
@@ -8558,13 +8576,10 @@
 			RelativePath="res\Oval2_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_D.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Oval2_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval2_F.bmp">
+			RelativePath="res\Bitmaps\Oval2_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Oval2_F.bmp">
@@ -8573,22 +8588,25 @@
 			RelativePath="res\Bitmaps\Oval2_F.bmp">
 		</File>
 		<File
+			RelativePath="res\Bitmaps_en\Oval2_F.bmp">
+		</File>
+		<File
 			RelativePath="res\Bitmaps\Oval2_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval2_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval2_G_F.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Oval2_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_G_U.bmp">
+			RelativePath="res\Bitmaps_en\Oval2_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval2_G_U.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Oval2_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Oval2_U.bmp">
@@ -8600,19 +8618,19 @@
 			RelativePath="res\Bitmaps_en\Oval2_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval2_X.bmp">
+			RelativePath="res\Bitmaps\Oval2_X.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Bitmaps_en\Oval2_X.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_X.bmp">
-		</File>
-		<File
-			RelativePath="res\Bitmaps\Oval2_X_U.bmp">
+			RelativePath="res\Bitmaps_en\Oval2_X.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval2_X_U.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Oval2_X_U.bmp">
 		</File>
 		<File
 			RelativePath="..\ChallengeResponse\Packet.cpp">
@@ -9179,10 +9197,10 @@
 			RelativePath="RandomTest.h">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute1_B_D.bmp">
+			RelativePath="res\Bitmaps_en\Raute1_B_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_B_D.bmp">
+			RelativePath="res\Bitmaps\Raute1_B_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute1_B_F.bmp">
@@ -9191,16 +9209,16 @@
 			RelativePath="res\Bitmaps\Raute1_B_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_B_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute1_B_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_D.bmp">
+			RelativePath="res\Bitmaps_en\Raute1_B_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute1_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute1_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute1_F.bmp">
@@ -9215,10 +9233,10 @@
 			RelativePath="res\Bitmaps\Raute1_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute1_X.bmp">
+			RelativePath="res\Bitmaps_en\Raute1_X.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_X.bmp">
+			RelativePath="res\Bitmaps\Raute1_X.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute1_X_U.bmp">
@@ -9239,16 +9257,16 @@
 			RelativePath="res\Bitmaps_en\Raute2_B_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_B_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute2_B_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_D.bmp">
+			RelativePath="res\Bitmaps_en\Raute2_B_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute2_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute2_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute2_F.bmp">
@@ -9257,16 +9275,16 @@
 			RelativePath="res\Bitmaps_en\Raute2_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute2_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute2_X.bmp">
+			RelativePath="res\Bitmaps_en\Raute2_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute2_X.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute2_X.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute2_X_U.bmp">
@@ -9287,16 +9305,16 @@
 			RelativePath="res\Bitmaps_en\Raute3_B_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute3_B_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute3_B_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute3_D.bmp">
+			RelativePath="res\Bitmaps_en\Raute3_B_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute3_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute3_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute3_F.bmp">
@@ -9317,16 +9335,16 @@
 			RelativePath="res\Bitmaps\Raute3_X.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute3_X_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute3_X_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_B_D.bmp">
+			RelativePath="res\Bitmaps\Raute3_X_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute4_B_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute4_B_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute4_B_F.bmp">
@@ -9347,16 +9365,16 @@
 			RelativePath="res\Bitmaps\Raute4_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_F.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute4_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_U.bmp">
+			RelativePath="res\Bitmaps\Raute4_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute4_U.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute4_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute4_X.bmp">
@@ -9377,10 +9395,10 @@
 			RelativePath="res\Bitmaps\Raute5_B_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute5_B_F.bmp">
+			RelativePath="res\Bitmaps_en\Raute5_B_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute5_B_F.bmp">
+			RelativePath="res\Bitmaps\Raute5_B_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute5_B_U.bmp">
@@ -9389,10 +9407,10 @@
 			RelativePath="res\Bitmaps_en\Raute5_B_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute5_D.bmp">
+			RelativePath="res\Bitmaps\Raute5_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute5_D.bmp">
+			RelativePath="res\Bitmaps_en\Raute5_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute5_F.bmp">
@@ -9488,16 +9506,16 @@
 			RelativePath="res\Bitmaps\Rechteck1_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck1_R_F.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Rechteck1_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck1_R_U.bmp">
+			RelativePath="res\Bitmaps_en\Rechteck1_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Rechteck1_R_U.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Rechteck1_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Rechteck1_X_U.bmp">
@@ -9542,10 +9560,10 @@
 			RelativePath="res\Bitmaps_en\Rechteck2_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck2_X_U.bmp">
+			RelativePath="res\Bitmaps\Rechteck2_X_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Rechteck2_X_U.bmp">
+			RelativePath="res\Bitmaps_en\Rechteck2_X_U.bmp">
 		</File>
 		<File
 			RelativePath="resource.h">
@@ -9743,22 +9761,22 @@
 			RelativePath="res\sarrows.cur">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_failure.gif">
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_failure.gif">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_interception.gif">
+			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_failure.gif">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_interception.gif">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_static.gif">
+			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_interception.gif">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_static.gif">
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_static.gif">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_success.gif">
@@ -9779,10 +9797,10 @@
 			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_transmission_trudybob.gif">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\sca_alice_small.bmp">
+			RelativePath="res\SCABitmaps\bmps\sca_alice_small.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\sca_alice_small.bmp">
+			RelativePath=".\res\SCABitmaps_en\bmps\sca_alice_small.bmp">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\sca_allremainingsteps_D.bmp">
@@ -9818,10 +9836,10 @@
 			RelativePath="res\SCABitmaps\bmps\sca_lights.bmp">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\gifs\sca_lights.gif">
+			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights.gif">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights.gif">
+			RelativePath="res\SCABitmaps\gifs\sca_lights.gif">
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights_green.gif">
@@ -9830,10 +9848,10 @@
 			RelativePath="res\SCABitmaps\gifs\sca_lights_green.gif">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights_red.gif">
+			RelativePath="res\SCABitmaps\gifs\sca_lights_red.gif">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\gifs\sca_lights_red.gif">
+			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights_red.gif">
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\sca_nextstep_D.bmp">
@@ -9851,10 +9869,10 @@
 			RelativePath="res\sca_red_error.gif">
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\sca_trudy_small.bmp">
+			RelativePath=".\res\SCABitmaps_en\bmps\sca_trudy_small.bmp">
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\sca_trudy_small.bmp">
+			RelativePath="res\SCABitmaps\bmps\sca_trudy_small.bmp">
 		</File>
 		<File
 			RelativePath="..\ChallengeResponse\Scenario.cpp">
@@ -9896,16 +9914,16 @@
 			RelativePath="res\Bitmaps_en\Sechseck1_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck1_F.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Sechseck1_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck1_G_D.bmp">
+			RelativePath="res\Bitmaps_en\Sechseck1_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck1_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck1_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck1_G_F.bmp">
@@ -9932,10 +9950,10 @@
 			RelativePath="res\Bitmaps\Sechseck1_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck1_R_U.bmp">
+			RelativePath="res\Bitmaps_en\Sechseck1_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck1_R_U.bmp">
+			RelativePath="res\Bitmaps\Sechseck1_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck1_U.bmp">
@@ -9950,16 +9968,16 @@
 			RelativePath="res\Bitmaps\Sechseck2_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_F.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_G_D.bmp">
+			RelativePath="res\Bitmaps\Sechseck2_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_G_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Sechseck2_G_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_G_F.bmp">
@@ -9968,16 +9986,16 @@
 			RelativePath="res\Bitmaps\Sechseck2_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_G_U.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_R_D.bmp">
+			RelativePath="res\Bitmaps\Sechseck2_G_U.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_R_D.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Sechseck2_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck2_R_F.bmp">
@@ -9998,16 +10016,16 @@
 			RelativePath="res\Bitmaps\Sechseck2_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_D.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Sechseck3_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_F.bmp">
+			RelativePath="res\Bitmaps_en\Sechseck3_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_F.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck3_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_G_D.bmp">
@@ -10028,16 +10046,16 @@
 			RelativePath="res\Bitmaps_en\Sechseck3_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck3_R_D.bmp">
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck3_R_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_R_F.bmp">
+			RelativePath="res\Bitmaps\Sechseck3_R_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_R_F.bmp">
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck3_R_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_R_U.bmp">
@@ -10058,10 +10076,10 @@
 			RelativePath="res\DHBitmaps_en\bmps\Secret_G_D.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_G_F.bmp">
+			RelativePath="res\DHBitmaps\bmps\Secret_G_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Secret_G_F.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\Secret_G_F.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Secret_G_U.bmp">
@@ -10070,10 +10088,10 @@
 			RelativePath="res\DHBitmaps\bmps\Secret_G_U.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_G_X.bmp">
+			RelativePath="res\DHBitmaps\bmps\Secret_G_X.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Secret_G_X.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\Secret_G_X.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Secret_R_D.bmp">
@@ -10088,10 +10106,10 @@
 			RelativePath="res\DHBitmaps\bmps\Secret_R_F.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_R_U.bmp">
+			RelativePath="res\DHBitmaps\bmps\Secret_R_U.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Secret_R_U.bmp">
+			RelativePath="res\DHBitmaps_en\bmps\Secret_R_U.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Secret_R_X.bmp">
@@ -10556,16 +10574,16 @@
 			RelativePath="res\DHBitmaps_en\bmps\Step_1.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Step_2.bmp">
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Step_2.bmp">
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Step_3.bmp">
+			RelativePath="res\DHBitmaps\bmps\Step_2.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Step_3.bmp">
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Step_3.bmp">
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Step_4.bmp">
@@ -10736,10 +10754,10 @@
 			RelativePath="ValueList.h">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck1_D.bmp">
+			RelativePath="res\Bitmaps\Viereck1_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck1_D.bmp">
+			RelativePath="res\Bitmaps_en\Viereck1_D.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Viereck1_F.bmp">
@@ -10787,10 +10805,10 @@
 			RelativePath="res\Bitmaps_en\Viereck2_D.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck2_F.bmp">
+			RelativePath="res\Bitmaps_en\Viereck2_F.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck2_F.bmp">
+			RelativePath="res\Bitmaps\Viereck2_F.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Viereck2_G_D.bmp">
@@ -10817,10 +10835,10 @@
 			RelativePath="res\Bitmaps_en\Viereck2_U.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck2_X.bmp">
+			RelativePath="res\Bitmaps_en\Viereck2_X.bmp">
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck2_X.bmp">
+			RelativePath="res\Bitmaps\Viereck2_X.bmp">
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Viereck2_X_U.bmp">
@@ -11241,5 +11259,8 @@
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="CrypTool.rc"/>
 	</Globals>
 </VisualStudioProject>

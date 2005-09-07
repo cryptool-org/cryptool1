@@ -4366,6 +4366,82 @@ BEGIN
                     IDC_STATIC,7,71,261,16
 END
 
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Fortfahren mit Seitenkanalangriff"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,129,50,14
+    LTEXT           "Es ist bereits ein Dokument geöffnet.",IDC_STATIC,7,7,
+                    261,8
+    LTEXT           "Sie haben daher drei Möglichkeiten, mit dem Seitenkanalangriff fortzufahren:",
+                    IDC_STATIC,7,23,261,8
+    LTEXT           "Sie hybridverschlüsseln das geöffnete Dokument oder",
+                    IDC_STATIC,40,39,228,8
+    LTEXT           "Sie hybridverschlüsseln ein anderes Dokument oder",
+                    IDC_STATIC,40,55,228,8
+    LTEXT           "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
+                    IDC_STATIC,40,71,228,24
+    LTEXT           "Bitte wählen Sie eine der möglichen Optionen aus.",
+                    IDC_STATIC,7,103,261,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,71,8,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Fortfahren mit Seitenkanalangriff"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,129,50,14
+    LTEXT           "Es ist bereits ein hybridverschlüsseltes Dokument geöffnet.",
+                    IDC_STATIC,7,7,261,8
+    LTEXT           "Sie haben daher drei Möglichkeiten, mit dem Seitenkanalangriff fortzufahren:",
+                    IDC_STATIC,7,23,261,8
+    LTEXT           "Sie verwenden das geöffnete Dokument oder",IDC_STATIC,
+                    40,39,228,8
+    LTEXT           "Sie hybridverschlüsseln ein anderes Dokument oder",
+                    IDC_STATIC,40,55,228,8
+    LTEXT           "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
+                    IDC_STATIC,40,71,228,24
+    LTEXT           "Bitte wählen Sie eine der möglichen Optionen aus.",
+                    IDC_STATIC,7,103,261,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,71,8,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Fortfahren mit Seitenkanalangriff"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,218,129,50,14
+    LTEXT           "Sie haben zwei Möglichkeiten, mit dem Seitenkanalangriff fortzufahren:",
+                    -1,7,23,261,8
+    LTEXT           "Sie hybridverschlüsseln ein Dokument oder",-1,40,39,228,
+                    8
+    LTEXT           "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
+                    -1,40,55,228,24
+    LTEXT           "Bitte wählen Sie eine der möglichen Optionen aus.",-1,7,
+                    103,261,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    LTEXT           "Momentan ist kein Dokument geöffnet.",-1,7,7,261,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10663,6 +10739,42 @@ BEGIN
         VERTGUIDE, 260
         TOPMARGIN, 7
         BOTTOMMARGIN, 183
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -17177,6 +17289,74 @@ BEGIN
                     IDC_STATIC,7,39,253,24
     LTEXT           "Bob can only decrypt the hybrid encrypted message if Bob's public key was used to encrypt the document.",
                     IDC_STATIC,7,71,253,16
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Continue with side-channel attack"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Cancel",IDCANCEL,218,129,50,14
+    LTEXT           "You have two options to continue the side-channel attack:",
+                    -1,7,23,261,8
+    LTEXT           "You hybrid encrypt a document or",-1,40,39,228,8
+    LTEXT           "You use a document integrated in CrypTool which was encrypted for an already existing user. Thus you skip the hybrid encryption process.",
+                    -1,40,55,228,24
+    LTEXT           "Please choose one of the options above.",-1,7,103,261,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    LTEXT           "At the moment no document is opened.",-1,7,7,261,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Continue with side-channel attack"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Cancel",IDCANCEL,218,129,50,14
+    LTEXT           "A document is already opened.",-1,7,7,261,8
+    LTEXT           "You have three options to continue the side-channel attack:",
+                    -1,7,23,261,8
+    LTEXT           "You hybrid encrypt the opened document or",-1,40,39,228,
+                    8
+    LTEXT           "You hybrid encrypt another document or",-1,40,55,228,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,71,8,8
+    LTEXT           "You use a document integrated in CrypTool which was encrypted for an already existing user. Thus you skip the hybrid encryption process.",
+                    -1,40,71,228,24
+    LTEXT           "Please choose one of the options above.",-1,7,103,261,8
+END
+
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Continue with side-channel attack"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "&Cancel",IDCANCEL,218,129,50,14
+    LTEXT           "You use the opened document or",-1,40,39,228,8
+    LTEXT           "You hybrid encrypt another document or",-1,40,55,228,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,129,50,14
+    CONTROL         "",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,39,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,55,8,8
+    CONTROL         "",IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_CENTER | BS_VCENTER,25,71,8,8
+    LTEXT           "A hybrid encrypted document is already opened.",-1,7,7,
+                    261,8
+    LTEXT           "You have three options to continue the side-channel attack:",
+                    -1,7,23,261,8
+    LTEXT           "You use a document integrated in CrypTool which was encrypted for an already existing user. Thus you skip the hybrid encryption process.",
+                    -1,40,71,228,24
+    LTEXT           "Please choose one of the options above.",-1,7,103,261,8
 END
 
 
@@ -23768,6 +23948,42 @@ BEGIN
         VERTGUIDE, 260
         TOPMARGIN, 7
         BOTTOMMARGIN, 183
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 40
+        VERTGUIDE, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
     END
 END
 #endif    // APSTUDIO_INVOKED

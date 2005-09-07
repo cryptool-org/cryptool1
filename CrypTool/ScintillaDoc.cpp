@@ -7,6 +7,7 @@
 #include "ScintillaView.h"
 #include "ScintillaWnd.h"
 
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -50,11 +51,9 @@ CScintillaDoc::~CScintillaDoc()
 
 BOOL CScintillaDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
+	// call base class method (see CCryptDoc implementation for details)
+	if(!CCryptDoc::OnNewDocument())
 		return FALSE;
-
-	// ZU ERLEDIGEN: Hier Code zur Reinitialisierung einfügen
-	// (SDI-Dokumente verwenden dieses Dokument)
 
 	return TRUE;
 }
@@ -91,10 +90,10 @@ void CScintillaDoc::Dump(CDumpContext& dc) const
 #if 0
 BOOL CScintillaDoc::OnOpenDocument(LPCTSTR lpszPathName) 
 {
-	if (!CDocument::OnOpenDocument(lpszPathName))
-		return FALSE;
+	// call base class method (see CCryptDoc implementation for details)
+	if(!CCryptDoc::OnOpenDocument(lpszPathName))
+		return FALSE;	
 	
-	// TODO: Speziellen Erstellungscode hier einfügen
 	return TRUE;
 }
 
