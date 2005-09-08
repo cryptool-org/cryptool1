@@ -17,7 +17,12 @@
 
 using namespace std;
 
+// fix to make Scintilla work with MSVC++ 6.0
+#if !defined(_MSC_VER) || _MSC_VER <= 1200	
+// nop nop nop	
+#else											
 typedef basic_ifstream<char, char_traits<char> > ifstream;
+#endif
 
 #include <io.h>
 

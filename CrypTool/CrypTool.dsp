@@ -72,7 +72,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\OpenSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\OpenSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
@@ -99,7 +99,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x809 /d "NDEBUG"
@@ -128,7 +128,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
@@ -3657,6 +3657,30 @@ SOURCE=.\DlgSideChannelAttackVisualizationHEPreparations.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest1.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest1.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest2.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest2.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSideChannelAttackVisualizationHEPreparationsRequest3.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgSideChannelAttackVisualizationHEPSEPINPrompt.cpp
 # End Source File
 # Begin Source File
@@ -5744,6 +5768,30 @@ SOURCE=..\ChallengeResponse\ScenarioObject.cpp
 # Begin Source File
 
 SOURCE=..\ChallengeResponse\ScenarioObject.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaDoc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaDoc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaView.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaWnd.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScintillaWnd.h
 # End Source File
 # Begin Source File
 
