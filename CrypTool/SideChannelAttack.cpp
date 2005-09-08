@@ -1105,7 +1105,7 @@ bool extractCertInfo(const char *infile, CString &firstname, CString &lastname, 
 		help.Delete(0, end+1);	// [xxx][ID]
 		start = help.Find("[", 1);
 		end = help.Find("]", start);
-		help.Delete(start, start+end);
+		help.Delete(start, end-start+1);
 		help.Delete(0,1);
 		help.Delete(help.GetLength()-1,1);
 		// ID/TIMESTAMP zuweisen

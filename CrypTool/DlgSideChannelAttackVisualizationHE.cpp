@@ -536,6 +536,12 @@ void CDlgSideChannelAttackVisualizationHE::OnMessagetransmission()
 
 		// Steuerelemente für Angriff "ausblenden"
 		cancelAttackCycle();
+		// RESET
+		scaClient->cancelTransmission();
+		scaServer->cancelReceptions();
+		scaAttacker->cancelInterception();
+		scaAttacker->cancelAttack();
+		m_ControlAttackProgress.SetPos(0);
 
 		// Pfeil zwischen Alice und Bob (AB) auf "Nachricht übertragen" stellen
 		setABArrow(SCA_ABARROW_TRANSMISSION);

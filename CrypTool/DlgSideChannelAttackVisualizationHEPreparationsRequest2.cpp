@@ -73,6 +73,13 @@ void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::DoDataExchange(CD
 
 BOOL CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnInitDialog()
 {
+	// check first radio button initially
+	CheckRadioButton(IDC_RADIO_CHOICE_1, IDC_RADIO_CHOICE_3, IDC_RADIO_CHOICE_1);
+	// set booleans accordingly for later usage (after dialog is closed)
+	this->radioChoice1 = true;
+	this->radioChoice2 = false;
+	this->radioChoice3 = false;
+
 	CDialog::OnInitDialog();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
@@ -90,10 +97,6 @@ END_MESSAGE_MAP()
 
 void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnBnClickedOk()
 {
-	// do nothing if user didn't click any option
-	if(!this->radioChoice1 && !this->radioChoice2 && !this->radioChoice3)
-		return;
-
 	CDialog::OnOK();
 }
 
@@ -104,24 +107,24 @@ void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnBnClickedCancel
 
 void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnBnClickedRadioChoice1()
 {
+	CheckRadioButton(IDC_RADIO_CHOICE_1, IDC_RADIO_CHOICE_3, IDC_RADIO_CHOICE_1);
 	this->radioChoice1 = true;
 	this->radioChoice2 = false;
 	this->radioChoice3 = false;
-	UpdateData(true);
 }
 
 void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnBnClickedRadioChoice2()
 {
+	CheckRadioButton(IDC_RADIO_CHOICE_1, IDC_RADIO_CHOICE_3, IDC_RADIO_CHOICE_2);
 	this->radioChoice1 = false;
 	this->radioChoice2 = true;
 	this->radioChoice3 = false;
-	UpdateData(true);
 }
 
 void CDlgSideChannelAttackVisualizationHEPreparationsRequest2::OnBnClickedRadioChoice3()
 {
+	CheckRadioButton(IDC_RADIO_CHOICE_1, IDC_RADIO_CHOICE_3, IDC_RADIO_CHOICE_3);
 	this->radioChoice1 = false;
 	this->radioChoice2 = false;
 	this->radioChoice3 = true;
-	UpdateData(true);
 }
