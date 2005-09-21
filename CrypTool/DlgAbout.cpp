@@ -69,20 +69,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgAbout::CDlgAbout(CWnd* pParent /*=NULL*/)
 : CDialog(CDlgAbout::IDD, pParent)
 {
-	if(theApp.SecudeStatus == 2)       // Falls die SecudeLib da
-	{                                  // ist, die Version holen      
-		int i=0;                       // anzeigen.
-		strcpy(pc_str,theApp.SecudeLib.aux_sprint_version(NULL));
-		while (pc_str[i]!=0x0d)        // nur bis zum newline
-			i++;
-		pc_str[i]=0;
-	}
-	else                               // sonst "lib nicht verfügbar"
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE,pc_str,STR_LAENGE_STRING_TABLE);
-	//{{AFX_DATA_INIT(CDlgAbout)
-	m_secude=pc_str;
-	m_cryptoolTxt = _T("");
-	//}}AFX_DATA_INIT
+	
 }
 
 
@@ -91,7 +78,12 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgAbout)
 	DDX_Control(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt_ctrl);
-	DDX_Text(pDX, IDC_EDIT1, m_secude);
+	DDX_Text(pDX, IDC_EDIT_SECUDE1, strVersionSecude1);
+	DDX_Text(pDX, IDC_EDIT_SECUDE2, strVersionSecude2);
+	DDX_Text(pDX, IDC_EDIT_MIRACL, strVersionMiracl);
+	DDX_Text(pDX, IDC_EDIT_OPENSSL, strVersionOpenSSL);
+	DDX_Text(pDX, IDC_EDIT_NTL, strVersionNTL);
+	DDX_Text(pDX, IDC_EDIT_SCINTILLA, strVersionScintilla);
 	DDX_Text(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt);
 	//}}AFX_DATA_MAP
 }
@@ -129,13 +121,15 @@ BOOL CDlgAbout::OnInitDialog()
 	m_Font.CreateFontIndirect( &LogFont ); // Font initialisieren
 	m_cryptoolTxt_ctrl.SetFont(&m_Font);
 
+	// hole Information zu CrypTool-Version
 	LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
-	UpdateData();
 	m_cryptoolTxt = pc_str;
-	UpdateData(FALSE);
-
+	
 	// hole Bibliotheksinformationen
 	this->determineLibraryVersions();
+
+	// Anzeige aktualisieren
+	UpdateData(false);
 
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	
@@ -145,31 +139,50 @@ BOOL CDlgAbout::OnInitDialog()
 
 void CDlgAbout::determineLibraryVersions()
 {
-	// Secude
+	// Secude Bibliothek geladen?
 	if(theApp.SecudeStatus == 2)
 	{
 		int i=0;
 		strcpy(pc_str,theApp.SecudeLib.aux_sprint_version(NULL));
-		while (pc_str[i]!=0x0d)        // nur bis zum newline
-			i++;
+		while (pc_str[i]!=0x0d)
+			i++;        // nur bis zum newline
 		pc_str[i]=0;
+
+		// Bibliotheks-Version und Firmenbezeichnung in zwei Zeilen trennen
+		this->strVersionSecude1 = pc_str;
+		int index = this->strVersionSecude1.Find("SECUDE ");
+		this->strVersionSecude1.Delete(index, this->strVersionSecude1.GetLength() - index);
+		this->strVersionSecude1.Insert(this->strVersionSecude1.GetLength()-1, ",");
+		this->strVersionSecude2 = pc_str;
+		this->strVersionSecude2.Delete(0, index);
 	}
 	else
 	{
+		// Secude Bibliothek konnte nicht geladen werden
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE,pc_str,STR_LAENGE_STRING_TABLE);
+		this->strVersionSecude1 = pc_str;
+		this->strVersionSecude2 = "";
 	}
-	this->strVersionSecude = pc_str;
+
 
 	// Miracl
 	// *** TODO ***
+	this->strVersionMiracl = "Miracl Library TODO";
+
 
 	// OpenSSL
 	// *** TODO ***
+	this->strVersionOpenSSL = "OpenSSL Library TODO";
+
 
 	// NTL
+	// *** TODO ***
 	this->strVersionNTL = NTL_VERSION;
+	this->strVersionNTL.Insert(0, "NTL Library ");
+
 
 	// Scintilla
 	// *** TODO ***
+	this->strVersionScintilla = "Scintilla TODO";
 }
 
