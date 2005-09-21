@@ -81,7 +81,10 @@ statement from your version.
 #include "DlgAdfgvxManual.h"
 #include "MonoSubstCracker.h"
 #include "DlgRot13Caesar.h"
-
+#include "DlgShowKey.h"
+#include "DlgShowKeyHill5x5.h"
+#include "DlgShowKeyHill10x10.h"
+#include "AppDocument.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -255,6 +258,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
+	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
+	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -471,7 +476,7 @@ BOOL CAscDoc::present(const char *in, char *out)
 {
 	int r;
 
-    GetTmpName(out,"cry",".asc");
+    GetTmpName(out,"cry",".txt");
 //    r = ASCDump(out, in, 5, 8, 0x0FFFFF);
     r = FileCpy(out, in);
 	if(r==0) return FALSE;
@@ -1383,20 +1388,6 @@ void CCryptDoc::OnAnalyseNGramBin()
 	NGramBin( ContentName, GetTitle());
 }
 
-#if 0
-// rich text edit
-BOOL CCryptDoc::IsModified()
-{
-	return ((CAppEditView*)m_viewList.GetHead())->GetRichEditCtrl().GetModify();
-}
-
-void CCryptDoc::SetModifiedFlag(BOOL bModified)
-{
-	((CAppEditView*)m_viewList.GetHead())->GetRichEditCtrl().SetModify(bModified);
-}
-#endif
-//
-
 void CCryptDoc::OnPermutationAsc() 
 {
     UpdateContent();
@@ -1820,3 +1811,71 @@ void CCryptDoc::OnRot13caesarAsc()
 	Rot13CaesarAscFinish(text, ContentName, Dlg.GetData(), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
 }
 
+void CCryptDoc::OnGotoVater() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+
+	// Sprung zum Fenster, sofern es noch geöffnet ist
+	// if ( IsWindow(((CAppDocument*)m_pDocument)->hWndVaterFenster) )		// Hack for debug mode
+	if ( IsWindow(((CAppDocument*)this)->hWndVaterFenster) )
+	{
+		((CMDIFrameWnd*)theApp.m_pMainWnd)->
+			MDIActivate(((CAppDocument*)this)->CWndVaterFenster);
+	//		MDIActivate(((CAppDocument*)m_pDocument)->CWndVaterFenster);	// Hack for debug mode
+	}
+}
+
+void CCryptDoc::OnShowKey() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+
+	CString Key = ((CAppDocument*)this)->csSchluessel;
+	
+	CString Title;
+	Title=((CAppDocument*)this)->GetTitle();
+
+	if ( Key.GetLength() >0 )
+	{
+		if ( ((CAppDocument*)this)->iSchluesselTyp == SCHLUESSEL_LINEAR )
+		{
+			CDlgShowKey AusgabeFenster;
+			char CryptMethod[KEYDATA_HASHSTRING_LENGTH+1];
+			if ( ExtractStrKeyType( CryptMethod, Title ) )
+			{
+				strcpy( AusgabeFenster.strTitle, CryptMethod );
+				AusgabeFenster.m_Key = Key;
+				AusgabeFenster.DoModal();
+			}
+			else
+			{
+				// ToDo: passende Fehlermeldung
+			}
+		}
+		else if ( ((CAppDocument*)this)->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
+		{
+			// Hill Verfahren: 
+			// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt
+			// HILL_MAX_DIM=5: 5x5 hat also 25+4=29 Zeichen
+			if (Key.GetLength() <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
+			{
+				CDlgShowKeyHill5x5 AusgabeFenster;
+				AusgabeFenster.SchluesselAnzeigen(Key);				
+				// Es wird immer der Schluessel zum Verschluesseln angezeigt
+				AusgabeFenster.m_decrypt = FALSE;
+				AusgabeFenster.DoModal();
+			}
+			else
+			{
+				CDlgShowKeyHill10x10 AusgabeFenster;
+				AusgabeFenster.SchluesselAnzeigen(Key);				
+				// Es wird immer der Schluessel zum Verschluesseln angezeigt
+				AusgabeFenster.m_decrypt = FALSE;
+				AusgabeFenster.DoModal();
+			}
+		}
+		else
+		{
+			ASSERT(false);
+		}
+	}
+}

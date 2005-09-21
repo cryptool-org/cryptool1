@@ -29,7 +29,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CScintillaView
 
-IMPLEMENT_DYNCREATE(CScintillaView, CView)
+IMPLEMENT_DYNCREATE(CScintillaView, CCrypToolView)
 
 #if 0
 // temporarily disabled:
@@ -58,7 +58,7 @@ IMPLEMENT_DYNCREATE(CScintillaView, CView)
 	ON_COMMAND(ID_TOGGLE_INSERT, OnToggleInsert)
 #endif
 
-BEGIN_MESSAGE_MAP(CScintillaView, CView)
+BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	//{{AFX_MSG_MAP(CScintillaView)
 	ON_WM_CREATE()
 	ON_WM_SIZE()

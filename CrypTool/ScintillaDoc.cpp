@@ -31,7 +31,6 @@ IMPLEMENT_DYNCREATE(CScintillaDoc, CCryptDoc)
 
 BEGIN_MESSAGE_MAP(CScintillaDoc, CCryptDoc)
 	//{{AFX_MSG_MAP(CScintillaDoc)
-	//ON_COMMAND(ID_TOTXT, OnTotxt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 

@@ -47,7 +47,7 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
-#include "AppEditView.h"
+#include "CrypToolView.h"
 #include "Cryptography.h"
 #include "DlgShowKey.h"
 #include "DlgShowKeyHill5x5.h"
@@ -60,24 +60,22 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CAppEditView
+// CCrypToolView
 
-IMPLEMENT_DYNCREATE(CAppEditView, CRichEditView)
+IMPLEMENT_DYNCREATE(CCrypToolView, CView)
 
-CAppEditView::CAppEditView()
+CCrypToolView::CCrypToolView()
 {
 }
 
-CAppEditView::~CAppEditView()
+CCrypToolView::~CCrypToolView()
 {
 }
 
 
-BEGIN_MESSAGE_MAP(CAppEditView, CRichEditView)
-	//{{AFX_MSG_MAP(CAppEditView)
+BEGIN_MESSAGE_MAP(CCrypToolView, CView)
+	//{{AFX_MSG_MAP(CCrypToolView)
 	ON_WM_KILLFOCUS()
-	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
-	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETFOCUS()
@@ -85,147 +83,47 @@ BEGIN_MESSAGE_MAP(CAppEditView, CRichEditView)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// Zeichnung CAppEditView 
+// Zeichnung CCrypToolView 
 
-void CAppEditView::OnDraw(CDC* pDC)
+void CCrypToolView::OnDraw(CDC* pDC)
 {
 	CDocument* pDoc = GetDocument();
 	// ZU ERLEDIGEN: Code zum Zeichnen hier einfügen
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// Diagnose CAppEditView
+// Diagnose CCrypToolView
 
 #ifdef _DEBUG
-void CAppEditView::AssertValid() const
+void CCrypToolView::AssertValid() const
 {
-	CRichEditView::AssertValid();
+	CView::AssertValid();
 }
 
-void CAppEditView::Dump(CDumpContext& dc) const
+void CCrypToolView::Dump(CDumpContext& dc) const
 {
-	CRichEditView::Dump(dc);
+	CView::Dump(dc);
 }
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// Behandlungsroutinen für Nachrichten CAppEditView 
+// Behandlungsroutinen für Nachrichten CCrypToolView 
 
 
 // Zum Sprung zum Vaterfenster ist es notwendig, daß wir uns die windowHandle merken.
-void CAppEditView::OnKillFocus(CWnd* pNewWnd) 
+void CCrypToolView::OnKillFocus(CWnd* pNewWnd) 
 {
 	// Dies muss vorher gemacht werden, damit das Fenster noch den Eingabefokus hat,
 	// um die Fenster Handle speichern zu koennen.
 	hWndAktivesFenster = m_hWnd;
 
-	CRichEditView::OnKillFocus(pNewWnd);
+	CView::OnKillFocus(pNewWnd);
 	
 	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
 	
 }
 
-void CAppEditView::OnGotoVater() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-
-	// Sprung zum Fenster, sofern es noch geöffnet ist
-	// if ( IsWindow(((CAppDocument*)m_pDocument)->hWndVaterFenster) )		// Hack for debug mode
-	if ( IsWindow(((CAppDocument*)GetDocument())->hWndVaterFenster) )
-	{
-		((CMDIFrameWnd*)theApp.m_pMainWnd)->
-			MDIActivate(((CAppDocument*)GetDocument())->CWndVaterFenster);
-	//		MDIActivate(((CAppDocument*)m_pDocument)->CWndVaterFenster);	// Hack for debug mode
-	}
-}
-
-
-
-void CAppEditView::OnShowKey() 
-{
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-
-	CString Key = ((CAppDocument*)m_pDocument)->csSchluessel;
-	
-	CString Title;
-	Title=((CAppDocument*)m_pDocument)->GetTitle();
-
-	if ( Key.GetLength() >0 )
-	{
-		if ( ((CAppDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_LINEAR )
-		{
-			CDlgShowKey AusgabeFenster;
-			char CryptMethod[KEYDATA_HASHSTRING_LENGTH+1];
-			if ( ExtractStrKeyType( CryptMethod, Title ) )
-			{
-				strcpy( AusgabeFenster.strTitle, CryptMethod );
-				AusgabeFenster.m_Key = Key;
-				AusgabeFenster.DoModal();
-			}
-			else
-			{
-				// ToDo: passende Fehlermeldung
-			}
-		}
-		else if ( ((CAppDocument*)m_pDocument)->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
-		{
-			// Hill Verfahren: 
-			// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt
-			// HILL_MAX_DIM=5: 5x5 hat also 25+4=29 Zeichen
-			if (Key.GetLength() <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
-			{
-				CDlgShowKeyHill5x5 AusgabeFenster;
-				AusgabeFenster.SchluesselAnzeigen(Key);				
-				// Es wird immer der Schluessel zum Verschluesseln angezeigt
-				AusgabeFenster.m_decrypt = FALSE;
-				AusgabeFenster.DoModal();
-			}
-			else
-			{
-				CDlgShowKeyHill10x10 AusgabeFenster;
-				AusgabeFenster.SchluesselAnzeigen(Key);				
-				// Es wird immer der Schluessel zum Verschluesseln angezeigt
-				AusgabeFenster.m_decrypt = FALSE;
-				AusgabeFenster.DoModal();
-			}
-		}
-		else
-		{
-			ASSERT(false);
-		}
-	}
-}
-
-
-void CAppEditView::SerializeRaw(CArchive & ar)
-{
-	CRichEditCtrl *RECtrl = &(GetRichEditCtrl());
-
-	if (ar.IsStoring())
-	{
-		CFile *pFile = ar.GetFile();
-
-		EDITSTREAM es;
-		es.dwCookie = (DWORD)(pFile);
-		es.pfnCallback = CAppEditView::RichEditStreamOutCallback;
-		RECtrl->StreamOut(SF_TEXT, es);
-		RECtrl->EmptyUndoBuffer();
-	}
-	else
-	{
-		CFile* pFile = ar.GetFile();
-
-		EDITSTREAM es;
-		es.dwCookie = (DWORD)(pFile);
-		es.pfnCallback = CAppEditView::RichEditStreamInCallback;
-		RECtrl->StreamIn(SF_TEXT, es);
-		RECtrl->EmptyUndoBuffer();
-	}
-
-	ASSERT_VALID(this);
-}
-
-void CAppEditView::OnContextMenu(CWnd* pWnd, CPoint point) 
+void CCrypToolView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
 	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
 
@@ -244,17 +142,6 @@ void CAppEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 	CMenu KontextMenu;
 	KontextMenu.LoadMenu(IDR_CONTEXT_MENU);
 
-	// Ist kein Text markiert ?
-	long nStartChar, nEndChar;
-	GetRichEditCtrl().GetSel(nStartChar, nEndChar);
-	if (nStartChar == nEndChar)
-	{
-		// Ausschneiden, Kopieren und Loeschen deaktivieren
-		KontextMenu.EnableMenuItem(ID_EDIT_CUT, MF_GRAYED);
-		KontextMenu.EnableMenuItem(ID_EDIT_COPY, MF_GRAYED);
-		KontextMenu.EnableMenuItem(ID_EDIT_CLEAR, MF_GRAYED);
-	}
-
 	// Befindet sich kein Text in der Zwischenablage ?
 	if (! ::IsClipboardFormatAvailable(CF_TEXT))
 	{
@@ -267,12 +154,6 @@ void CAppEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 	{
 		// Alles markieren deaktivieren
 		KontextMenu.EnableMenuItem(ID_EDIT_SELECT_ALL, MF_GRAYED);
-	}
-
-	// Ist Rueckgaengig machen nicht moeglich ?
-	if (! GetRichEditCtrl().CanUndo())
-	{
-		KontextMenu.EnableMenuItem(ID_EDIT_UNDO, MF_GRAYED);
 	}
 
 	// Existiert das Vaterfenster nicht (mehr) ?
@@ -294,9 +175,9 @@ void CAppEditView::OnContextMenu(CWnd* pWnd, CPoint point)
 }
 
 
-void CAppEditView::OnSetFocus(CWnd* pOldWnd) 
+void CCrypToolView::OnSetFocus(CWnd* pOldWnd) 
 {
-	CRichEditView::OnSetFocus(pOldWnd);
+	CView::OnSetFocus(pOldWnd);
 	
 	// Zum Sprung zum Vaterfenster ist es notwendig, daß wir uns die windowHandle merken.
 	// Dies muss nach OnSetFocus gemacht werden, damit das Fenster den Eingabefokus hat,
@@ -304,39 +185,17 @@ void CAppEditView::OnSetFocus(CWnd* pOldWnd)
 	hWndAktivesFenster = m_hWnd;
 }
 
-HRESULT CAppEditView::QueryAcceptData(LPDATAOBJECT lpdataobj, CLIPFORMAT *lpcfFormat, DWORD dwReco, BOOL bReally, HGLOBAL hMetaFile)
-{
-	ASSERT(lpcfFormat != NULL);
-	if (!bReally) // not actually pasting
-		return S_OK;
-
-	COleDataObject dataobj;
-	dataobj.Attach(lpdataobj, FALSE);
-	// if format is 0, then force particular formats if available
-	if (*lpcfFormat == 0 && (m_nPasteType == 0))
-	{
-		if (dataobj.IsDataAvailable(CF_TEXT))
-		{
-			*lpcfFormat = CF_TEXT;
-			return S_OK;
-		}
-	}
-	return S_FALSE;
-}
-
-
-
-BOOL CAppEditView::OnPreparePrinting(CPrintInfo* pInfo) 
+BOOL CCrypToolView::OnPreparePrinting(CPrintInfo* pInfo) 
 {
 	return DoPreparePrinting(pInfo);
 }
 
-void CAppEditView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
+void CCrypToolView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
 {
-	CRichEditView::OnPrint(pDC, pInfo);
+	CView::OnPrint(pDC, pInfo);
 }
 
-void CAppEditView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
+void CCrypToolView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 {
 	CSize size;
 	pDC->SetWindowOrg(-200,-200);
@@ -344,20 +203,5 @@ void CAppEditView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 	size.cx -= 200;
 	size.cy -= 200;
 	pDC->SetWindowExt(size);
-	CRichEditView::OnBeginPrinting( pDC, pInfo);
-}
-
-DWORD CALLBACK CAppEditView::RichEditStreamInCallback(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
-{
-	CFile *pFile = (CFile*)(dwCookie);
-	*pcb = pFile->Read(pbBuff, cb);
-	return 0;
-}
-
-DWORD CALLBACK CAppEditView::RichEditStreamOutCallback(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
-{
-	CFile *pFile = (CFile*)(dwCookie);
-	pFile->Write(pbBuff, cb);
-	*pcb = cb;
-	return 0;
+	CView::OnBeginPrinting( pDC, pInfo);
 }

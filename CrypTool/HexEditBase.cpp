@@ -2021,9 +2021,9 @@ void CHexEditBase::SetNotUsedCol(COLORREF tNotUsedBkCol, bool bUpdate)
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-IMPLEMENT_DYNCREATE(CHexEditBaseView, CView)
+IMPLEMENT_DYNCREATE(CHexEditBaseView, CCrypToolView)
 
-BEGIN_MESSAGE_MAP(CHexEditBaseView, CView)
+BEGIN_MESSAGE_MAP(CHexEditBaseView, CCrypToolView)
 	//{{AFX_MSG_MAP(CHexEditBaseView)
 	ON_WM_CREATE()
 	ON_WM_ERASEBKGND()
@@ -2032,7 +2032,7 @@ BEGIN_MESSAGE_MAP(CHexEditBaseView, CView)
 END_MESSAGE_MAP()
 
 
-CHexEditBaseView::CHexEditBaseView() : CView() 
+CHexEditBaseView::CHexEditBaseView() : CCrypToolView() 
 { 
 }
 

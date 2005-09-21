@@ -12,6 +12,7 @@
 #endif // _MSC_VER > 1000
 
 #include "scintillawnd.h"
+#include "CrypToolView.h"
 #ifdef SCFIND
 #include "FindDlg.h"
 #include "ReplaceDlg.h"
@@ -20,7 +21,7 @@
 // @class CScintillaWnd | Class of a GCL Scintilla syntax coloring edit view for MFC
 // @base public | CView
 //
-class CScintillaView : public CView
+class CScintillaView : public CCrypToolView
 {
 protected: // Nur aus Serialisierung erzeugen
 // @access protected constructor - destructor

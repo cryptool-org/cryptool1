@@ -732,7 +732,7 @@ UINT XorAuto(PVOID p)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_XOR_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
-			GetTmpName(name,"cry",".asc");
+			GetTmpName(name,"cry",".txt");
 			text.Write(name);
 			HistogramBin(name,line);
 			remove(name);
@@ -886,7 +886,7 @@ UINT AddAuto(PVOID p)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADD_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			sprintf(line2,pc_str,i+1);
 			MakeNewName(line,sizeof(line),line2,par->OldTitle);
-			GetTmpName(name,"cry",".asc");
+			GetTmpName(name,"cry",".txt");
 			text.Write(name);
 			HistogramBin(name,line);
 			remove(name);

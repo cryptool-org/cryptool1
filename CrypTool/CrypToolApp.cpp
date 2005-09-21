@@ -64,8 +64,6 @@ statement from your version.
 #include "CryptDoc.h"
 #include "CPlotDocument.h"
 #include "PlotView.h"
-#include "BlockView.h"
-#include "HexView.h"
 #include "Cryptography.h"
 #include "CryptDocTemplate.h"
 #include "DlgOptionsAnalysis.h"
@@ -311,26 +309,16 @@ BOOL CCrypToolApp::InitInstance()
 	/* Einstellen der Länge der MRU-Liste */
 	LoadStdProfileSettings(10);
     MRU_Flag = TRUE;
-#if 0
-	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
-		RUNTIME_CLASS(CCryptDoc), RUNTIME_CLASS(CMDIChildWnd),
-		RUNTIME_CLASS(CAppEditView)));
-#else
+
 	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
 		RUNTIME_CLASS(CScintillaDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CScintillaView))); // FIXME OnShowKey etc.
-#endif
-	AddDocTemplate(new CCryptDocTemplate(IDR_ASCTYPE,
-		RUNTIME_CLASS(CAscDoc), RUNTIME_CLASS(CMDIChildWnd),
-		RUNTIME_CLASS(CBlockView)));
 	AddDocTemplate(new CCryptDocTemplate(IDR_PLOTTYPE,
 		RUNTIME_CLASS(CPlotDocument), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CPlotView)));
 	AddDocTemplate(new CCryptDocTemplate(IDR_HEXTYPE,
 		RUNTIME_CLASS(CHexEditCtrlDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CHexEditCtrlView)));
-		//RUNTIME_CLASS(CHexDoc), RUNTIME_CLASS(CMDIChildWnd),
-		//RUNTIME_CLASS(CHexView)));
 
 	// load Scintilla DLL
 	ScintillaLib = CScintillaWnd::LoadScintillaDll();

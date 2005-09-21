@@ -72,7 +72,6 @@ statement from your version.
 #include "DlgOptionsAnalysis.h"	// Hinzugefügt von ClassView
 #include "DlgTextOptions.h"
 #include "AppDocument.h"
-#include "AppEditView.h"
 #include "SecudeLib.h"	// Hinzugefügt von ClassView
 #include "DlgSignatureDemo.h"
 

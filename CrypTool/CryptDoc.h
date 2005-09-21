@@ -191,6 +191,8 @@ protected:
 	afx_msg void OnAnalyseSymmclassicAdfgvx();
 	afx_msg void OnCiphertextOnlySubstitution();
 	afx_msg void OnRot13caesarAsc();
+	afx_msg void OnGotoVater();
+	afx_msg void OnShowKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

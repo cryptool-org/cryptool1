@@ -85,6 +85,21 @@ protected:
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+	// Versionsstring der Secude Bibliothek
+	CString strVersionSecude;
+	// Versionsstring der Miracl Bibliothek
+	CString strVersionMiracl;
+	// Versionsstring der OpenSSL Bibliothek
+	CString strVersionOpenSSL;
+	// Versionsstring der NTL Bibliothek
+	CString strVersionNTL;
+	// Versionsstring der Scintilla Bibliothek
+	CString strVersionScintilla;	
+
+	// Funktion zur Ermittlung der verschiedenen Bibliotheksversionen
+	void determineLibraryVersions();
 };
 
 //{{AFX_INSERT_LOCATION}}

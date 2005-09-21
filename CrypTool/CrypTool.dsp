@@ -207,14 +207,6 @@ SOURCE=.\AppDocument.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\AppEditView.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\AppEditView.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\arrben.bmp
 # End Source File
 # Begin Source File
@@ -402,14 +394,6 @@ SOURCE=.\BitParity.cpp
 # Begin Source File
 
 SOURCE=.\BitParity.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\BlockView.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\BlockView.h
 # End Source File
 # Begin Source File
 
@@ -2227,6 +2211,14 @@ SOURCE=.\CrypToolTools.cpp
 # Begin Source File
 
 SOURCE=.\CrypToolTools.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolView.h
 # End Source File
 # Begin Source File
 
@@ -4298,14 +4290,6 @@ SOURCE=.\HexEditCtrlView.cpp
 # Begin Source File
 
 SOURCE=.\HexEditCtrlView.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\HexView.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\HexView.h
 # End Source File
 # Begin Source File
 

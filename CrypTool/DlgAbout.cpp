@@ -53,6 +53,9 @@ statement from your version.
 #include "DlgAbout.h"
 #include "DlgAuthors.h"
 
+// für NTL Bibliothek
+#include "..\libNTL\include\NTL\version.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -131,9 +134,42 @@ BOOL CDlgAbout::OnInitDialog()
 	m_cryptoolTxt = pc_str;
 	UpdateData(FALSE);
 
+	// hole Bibliotheksinformationen
+	this->determineLibraryVersions();
+
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgAbout::determineLibraryVersions()
+{
+	// Secude
+	if(theApp.SecudeStatus == 2)
+	{
+		int i=0;
+		strcpy(pc_str,theApp.SecudeLib.aux_sprint_version(NULL));
+		while (pc_str[i]!=0x0d)        // nur bis zum newline
+			i++;
+		pc_str[i]=0;
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SECUDE_DLL_NOT_AVAILABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	}
+	this->strVersionSecude = pc_str;
+
+	// Miracl
+	// *** TODO ***
+
+	// OpenSSL
+	// *** TODO ***
+
+	// NTL
+	this->strVersionNTL = NTL_VERSION;
+
+	// Scintilla
+	// *** TODO ***
 }
 

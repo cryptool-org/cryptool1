@@ -386,10 +386,10 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	}
 	
 	int n=strlen(infile);
-	if ( strncmp(OldTitle+n-4,".asc",4) && theApp.TextOptions.m_Format )
+	if ( strncmp(OldTitle+n-4,".txt",4) && theApp.TextOptions.m_Format )
 		GetTmpName(outfile,"cry",".txt");
 	else
-		GetTmpName(outfile,"cry",".asc");
+		GetTmpName(outfile,"cry",".txt");
 
 	class CDlgKeyPlayfair KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
 
@@ -397,8 +397,8 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 	if (KeyDialog.m_preformat&&!KeyDialog.getDec())
 	{
-		GetTmpName(outfile,"cry",".asc");
-		GetTmpName(preform,"cry",".asc");
+		GetTmpName(outfile,"cry",".txt");
+		GetTmpName(preform,"cry",".txt");
 		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(),preform,outfile);
 		char tmpStr[128];
 		for (int i=0; i<KeyDialog.m_text.GetLength(); i++ )
