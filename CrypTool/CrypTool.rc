@@ -13354,27 +13354,27 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,76,360,90,19,WS_GROUP
-    CTEXT           "and the universities \nUniversität Siegen and TU Darmstadt.",
-                    IDC_STATIC,0,114,242,17
+    DEFPUSHBUTTON   "OK",IDOK,70,358,90,19,WS_GROUP
+    CTEXT           "and the universities \nUniversität Siegen and TU Darmstadt",
+                    IDC_STATIC,0,108,242,17
     CTEXT           "CrypTool is based on the following libraries:",
-                    IDC_STATIC,1,162,241,8
+                    IDC_STATIC,1,176,241,8
     CTEXT           "Contact:",IDC_STATIC,0,264,241,10
     LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,67,273,145,40
     CTEXT           "Copyright (C) 1998-2005 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,330,242,17
-    CTEXT           "has been developed in a joint effort of the sponsors",
-                    IDC_STATIC,1,21,241,8
-    CTEXT           "CrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
-                    IDC_STATIC,1,135,241,16
-    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,8,241,11
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,36,105,37,
+    CTEXT           "In a joint effort of the sponsors",
+                    IDC_STATIC,1,8,241,8
+    CTEXT           "has been developed.\nCrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
+                    IDC_STATIC,1,145,241,24
+    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,130,241,11
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,22,105,37,
                     WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,68,143,37,
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,54,143,37,
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
-                    WS_BORDER,10,32,222,75
+                    WS_BORDER,10,18,222,79
     LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,314,
                     175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,210,240,8,SS_CENTERIMAGE,

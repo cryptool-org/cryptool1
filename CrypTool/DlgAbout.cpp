@@ -139,16 +139,18 @@ BOOL CDlgAbout::OnInitDialog()
 
 void CDlgAbout::determineLibraryVersions()
 {
-	// Secude Bibliothek geladen?
+	// Secude (dynamisch)
 	if(theApp.SecudeStatus == 2)
 	{
+		// Secude Bibliothek geladen?
 		int i=0;
 		strcpy(pc_str,theApp.SecudeLib.aux_sprint_version(NULL));
-		while (pc_str[i]!=0x0d)
-			i++;        // nur bis zum newline
+		// nur bis zum newline
+		while (pc_str[i]!=0x0d) i++;
 		pc_str[i]=0;
 
 		// Bibliotheks-Version und Firmenbezeichnung in zwei Zeilen trennen
+		// *** ACHTUNG *** Trennung ist hartcodiert (s.u.)
 		this->strVersionSecude1 = pc_str;
 		int index = this->strVersionSecude1.Find("SECUDE ");
 		this->strVersionSecude1.Delete(index, this->strVersionSecude1.GetLength() - index);
@@ -165,24 +167,26 @@ void CDlgAbout::determineLibraryVersions()
 	}
 
 
-	// Miracl
-	// *** TODO ***
-	this->strVersionMiracl = "Miracl Library TODO";
+	// Miracl (statisch)
+	// *** TODO *** ???
+	this->strVersionMiracl = "4.4.3";
+	this->strVersionMiracl.Insert(0, "Miracl Library ");
 
 
-	// OpenSSL
-	// *** TODO ***
-	this->strVersionOpenSSL = "OpenSSL Library TODO";
+	// OpenSSL (statisch)
+	// *** TODO *** fehlende Headerdatei ../OpenSSL/include/opensslv.h für Versionsanzeige
+	this->strVersionOpenSSL = "0.9.6";
+	this->strVersionOpenSSL.Insert(0, "OpenSSL Library ");
 
 
-	// NTL
-	// *** TODO ***
+	// NTL (statisch)
 	this->strVersionNTL = NTL_VERSION;
 	this->strVersionNTL.Insert(0, "NTL Library ");
 
 
-	// Scintilla
-	// *** TODO ***
-	this->strVersionScintilla = "Scintilla TODO";
+	// Scintilla (statisch)
+	// *** TODO *** eventuell Version aus ../scintilla/version.txt lesen
+	this->strVersionScintilla = "1.6.5";
+	this->strVersionScintilla.Insert(0, "Scintilla ");
 }
 
