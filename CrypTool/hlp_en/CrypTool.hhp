@@ -463,6 +463,11 @@ hidd_sidechannelattackvisualization_he_preparations_request_1.html
 hidd_sidechannelattackvisualization_he_preparations_request_2.html
 hidd_sidechannelattackvisualization_he_preparations_request_3.html
 hid_fileproperties.html
+hidd_auto_substitution_analysis_algorithm_choice.html
+hidd_rsastereotyped.html
+hidd_rsabloemermay.html
+hidd_rsafactorhint.html
+hid_playfair_analyse.html
 
 [ALIAS]
 #include CrypTool_Alias.h

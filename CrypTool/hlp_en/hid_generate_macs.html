@@ -13,9 +13,19 @@
 	<PARAM NAME="Keyword" VALUE="Hash function">
 </OBJECT>
 
-<h3>Message Authentication Code (Menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ Hash)</h3>
+<h3>Generation of MACs (Menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ Hash)</h3>
 
-<P>TODO</P>
+<P>The dialog <A href="hidd_hmac.html">Message Authentication Code</A> (MAC) shows how the 
+digital fingerprint of a file is created using a <A href="hashfunktion.html">hash function</A>. 
+The purpose of a MAC is to ensure <A href="authentizitaet.html">authenticity</A>.</P>
+
+<P>Sender and receiver agree on a secret key and cryptographical hash function prior to 
+message transmission. The sender links the message and the key (i.e. by appending) and hashes 
+the created file. Then the hash value is transmitted together with the original message.</P>
+
+<P>To check the authenticity, the receiver executes the same operations as the sender. He hashes 
+the (received) message together with the secret key and compares the resulting hash value with 
+the one he received. The message is authentic only if the two hash values are equal.</P>
 
 </BODY>
 </HTML>
