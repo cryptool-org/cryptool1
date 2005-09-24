@@ -6183,12 +6183,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.0-beta"
+            VALUE "FileVersion", "1.4.00-beta08"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2005"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.0-beta"
+            VALUE "ProductVersion", "1.4.00-beta08"
         END
     END
     BLOCK "VarFileInfo"
@@ -10955,7 +10955,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.0 beta"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 08"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII-Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -19071,12 +19071,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.com"
-            VALUE "FileVersion", "1.4.0-beta"
+            VALUE "FileVersion", "1.4.00-beta08"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2005"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.0-beta"
+            VALUE "ProductVersion", "1.4.00-beta08"
         END
     END
     BLOCK "VarFileInfo"
@@ -24166,7 +24166,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.0 beta"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 08"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
