@@ -4449,6 +4449,60 @@ BEGIN
     LTEXT           "Momentan ist kein Dokument geöffnet.",-1,7,7,261,8
 END
 
+IDD_KEY_MONSUBST DIALOG DISCARDABLE  0, 0, 309, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüsseleingabe Monoalphabetische Substitution"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_KEY,66,27,189,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,21,140,58,23
+    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,89,140,57,23
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    271,27,22,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,140,57,23
+    EDITTEXT        IDC_FROM,48,87,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TO,48,108,245,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Variante auswählen",IDC_STATIC,14,12,288,37
+    LTEXT           "Schlüssel",IDC_STATIC,21,30,36,11
+    GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,56,288,
+                    75
+    LTEXT           "auf:",IDC_TEXT3,21,110,13,8
+    LTEXT           "Das Alphabet wird abgebildet",IDC_TEXT1,21,72,93,8
+    LTEXT           "von:",IDC_TEXT2,21,89,15,8
+END
+
+IDD_VISUALIZE_PHASE_SPACE DIALOG DISCARDABLE  0, 0, 388, 273
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "3D-Visualisierung von Binärdaten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,283,247,45,20
+    PUSHBUTTON      "Abbrechen",IDCANCEL,336,247,45,20
+    GROUPBOX        "Density",IDC_RENDER_DENSITY,283,7,46,87
+    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",
+                    BS_AUTORADIOBUTTON,289,16,33,15
+    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,
+                    289,27,31,18
+    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,
+                    289,41,31,18
+    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,
+                    289,55,31,18
+    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,
+                    289,70,31,18
+    GROUPBOX        "Word Size",IDC_RENDER_WORDSIZE,334,7,47,86
+    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",
+                    BS_AUTORADIOBUTTON,339,15,36,18
+    CONTROL         "2 Byte",IDC_RENDER_WORDLEN_2,"Button",
+                    BS_AUTORADIOBUTTON,339,29,35,18
+    CONTROL         "4 Byte",IDC_RENDER_WORDLEN_4,"Button",
+                    BS_AUTORADIOBUTTON,339,42,35,18
+    GROUPBOX        "Shift",IDC_RENDER_SHIFT,283,97,46,48
+    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,
+                    289,107,36,18
+    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,
+                    121,35,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -12962,6 +13016,7 @@ BEGIN
                             "Wollen Sie die Hybridverschlüsselung selbst durchführen?"
     IDS_SCA_ERROR_CERTINFOEXTRACTION 
                             "Fehler! Das Öffnen folgender Datei ist nicht möglich:\n%s"
+
 END
 
 #endif    // German (Germany) resources
@@ -17367,6 +17422,60 @@ BEGIN
     LTEXT           "You have three options to continue the side-channel attack:",
                     -1,7,23,261,8
     LTEXT           "Please choose one of the options above.",-1,7,105,261,8
+END
+
+IDD_KEY_MONSUBST DIALOG DISCARDABLE  0, 0, 309, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Key Entry: Monoalphabetic Substitution"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_KEY,66,27,189,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,14,138,58,22
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,79,138,57,22
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    271,27,22,20
+    PUSHBUTTON      "Cancel",IDCANCEL,245,138,57,22
+    EDITTEXT        IDC_FROM,48,85,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TO,48,106,245,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "",IDC_STATIC,14,12,288,37
+    LTEXT           "Key",IDC_STATIC,21,30,36,11
+    GROUPBOX        "Information on the substitution encryption",IDC_STATIC,
+                    14,56,288,74
+    LTEXT           "to:",IDC_TEXT3,21,108,9,8
+    LTEXT           "The alphabet will be mapped ",IDC_TEXT1,21,70,94,8
+    LTEXT           "from:",IDC_TEXT2,21,87,16,8
+END
+
+IDD_VISUALIZE_PHASE_SPACE DIALOG DISCARDABLE  0, 0, 388, 273
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "3D-Visualisierung von Binärdaten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,283,247,45,20
+    PUSHBUTTON      "Abbrechen",IDCANCEL,336,247,45,20
+    GROUPBOX        "Density",IDC_RENDER_DENSITY,283,7,46,87
+    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",
+                    BS_AUTORADIOBUTTON,289,16,33,15
+    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,
+                    289,27,31,18
+    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,
+                    289,41,31,18
+    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,
+                    289,55,31,18
+    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,
+                    289,70,31,18
+    GROUPBOX        "Word Size",IDC_RENDER_WORDSIZE,334,7,47,86
+    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",
+                    BS_AUTORADIOBUTTON,339,15,36,18
+    CONTROL         "2 Byte",IDC_RENDER_WORDLEN_2,"Button",
+                    BS_AUTORADIOBUTTON,339,29,35,18
+    CONTROL         "4 Byte",IDC_RENDER_WORDLEN_4,"Button",
+                    BS_AUTORADIOBUTTON,339,42,35,18
+    GROUPBOX        "Shift",IDC_RENDER_SHIFT,283,97,46,48
+    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,
+                    289,107,36,18
+    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,
+                    121,35,18
 END
 
 
