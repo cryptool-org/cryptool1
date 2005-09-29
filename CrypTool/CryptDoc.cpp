@@ -55,6 +55,10 @@ statement from your version.
 #include <fstream>
 #include "FileTools.h"
 #include "CryptDoc.h"
+
+#include "DlgShowKeyHill5x5.h"
+#include "DlgShowKeyHill10x10.h"
+
 #include "Cryptography.h"
 #include "AutomaticAnalysis.h"
 #include "SecudeCryptography.h"
@@ -81,10 +85,13 @@ statement from your version.
 #include "DlgAdfgvxManual.h"
 #include "MonoSubstCracker.h"
 #include "DlgRot13Caesar.h"
+#include "DlgVisualizePhaseSpace.h"
+
 #include "DlgShowKey.h"
-#include "DlgShowKeyHill5x5.h"
-#include "DlgShowKeyHill10x10.h"
-#include "AppDocument.h"
+
+
+
+
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -228,6 +235,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_GENERATE_MACS, OnMessageauthenticationcode)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
+	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
+	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -256,6 +265,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
+	ON_COMMAND(ID_ANALYSIS_RANDOM_3D_VISUALIZATION, OnAnalysisRandom3dVisualization)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
@@ -840,7 +850,7 @@ void CCryptDoc::OnUnzip()
     dounzip(ContentName, GetTitle());
 }
 
-void CCryptDoc::OnCRYPTDelPse() {}
+// void CCryptDoc::OnCRYPTDelPse() {}
 
 void CCryptDoc::OnCRYPTRsaDec() 
 {
@@ -1359,10 +1369,10 @@ void CCryptDoc::OnPeriod()
 */
   }
 
-void CCryptDoc::OnNotAvail() 
-{
-	Message(IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL, MB_ICONINFORMATION);
-}
+// void CCryptDoc::OnNotAvail() ??
+// {
+//	Message(IDS_STRING_EC_MSG_TODO_FOR_CRYPTOOL, MB_ICONINFORMATION);
+// }
 
 void CCryptDoc::OnHomophone() 
 {
@@ -1810,6 +1820,17 @@ void CCryptDoc::OnRot13caesarAsc()
 	}
 	Rot13CaesarAscFinish(text, ContentName, Dlg.GetData(), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
 }
+
+
+void CCryptDoc::OnAnalysisRandom3dVisualization() 
+{
+    UpdateContent();
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	CDlgVisualizePhaseSpace dialog;
+	strcpy(dialog.Filename, ContentName);
+	dialog.DoModal();
+}
+
 
 void CCryptDoc::OnGotoVater() 
 {

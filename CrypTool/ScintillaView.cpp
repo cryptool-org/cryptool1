@@ -208,25 +208,11 @@ void CScintillaView::OnInitialUpdate()
    CString strTitle = pDoc->GetPathName();
 	m_wndScintilla.Init();
 	//m_wndScintilla.LoadFile(strTitle);
+	this->SetFocus();
 
 }
-/////////////////////////////////////
-// @mfunc menu handler - toggle display of the line number display in scintilla
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsViewLinenumbers() 
-{
-	m_wndScintilla.SetDisplayLinenumbers(!m_wndScintilla.GetDisplayLinenumbers());
-}
-/////////////////////////////////////
-// @mfunc menu check handler - check the menu item if line numbers are displayed
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateOptionsViewLinenumbers(
-                                                       CCmdUI* pCmdUI) //@parm menu handle
-{
-	pCmdUI->SetCheck(m_wndScintilla.GetDisplayLinenumbers());
-}
+
+
 /////////////////////////////////////
 // @mfunc menu handler - copy selected text to clipboard
 // @rvalue void | not used
@@ -294,49 +280,9 @@ void CScintillaView::OnUpdateEditUndo(
 {
 	pCmdUI->Enable(m_wndScintilla.CanUndo());
 }
-/////////////////////////////////////
-// @mfunc update line number
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateLine(
-                                     CCmdUI* pCmdUI) //@parm handle of textpane for linenumbers - see mainfrm.cpp at top
-{
-   CString strLine;
-   long lLine = m_wndScintilla.GetCurrentLine();
-   long lColumn = m_wndScintilla.GetCurrentColumn();
-   long lPos = m_wndScintilla.GetCurrentPosition();
-   //TODO strLine.Format(IDS_LINE_INDICATOR, lLine, lColumn, lPos);
-   //TODO pCmdUI->SetText(strLine);
-   pCmdUI->SetText("FIXME CScintillaView::OnUpdateLine");
-} 
-/////////////////////////////////////
-// @mfunc update style number
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateStyle(
-                                      CCmdUI* pCmdUI) //@parm handle of textpane for style number - see mainfrm.cpp at top
-{
-#if 0
-   CString strLine;
-   int nStyle = m_wndScintilla.GetCurrentStyle();
-   strLine.Format(IDS_STYLE_INDICATOR, nStyle);
-   pCmdUI->SetText(strLine);
-#endif
-} 
-/////////////////////////////////////
-// @mfunc update folding level
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateFold(
-                                      CCmdUI* pCmdUI) //@parm handle of textpane for folding level - see mainfrm.cpp at top
-{
-#if 0
-	CString strLine;
-   int nFold = m_wndScintilla.GetCurrentFoldinglevel();
-   strLine.Format(IDS_FOLD_INDICATOR, nFold);
-   pCmdUI->SetText(strLine);
-#endif
-} 
+
+
+
 
 /////////////////////////////////////
 // @mfunc menu handler - delete selection
@@ -376,63 +322,9 @@ void CScintillaView::OnEditSelectAll()
 	m_wndScintilla.SelectAll();
 }
 
-/////////////////////////////////////
-// @mfunc menu handler - display a window font selection dialog and set font attributes for style at caret position
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsSetfont() 
-{
-   CFontDialog dlg;
-   if (dlg.DoModal() == IDOK)
-   {
-	   m_wndScintilla.SetFontname(m_wndScintilla.GetCurrentStyle(), dlg.GetFaceName());
-	   m_wndScintilla.SetFontheight(m_wndScintilla.GetCurrentStyle(), dlg.GetSize()/10);
-	   m_wndScintilla.SetBold(m_wndScintilla.GetCurrentStyle(), dlg.IsBold());
-	   m_wndScintilla.SetItalic(m_wndScintilla.GetCurrentStyle(), dlg.IsItalic());
-	   m_wndScintilla.SetUnderline(m_wndScintilla.GetCurrentStyle(), dlg.IsUnderline());
-   }
-}
-/////////////////////////////////////
-// @mfunc menu handler - display a color selection dialog and set foreground color attribute for style at caret position
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsForeground() 
-{
-   CColorDialog dlg;
-   if (dlg.DoModal() == IDOK)
-   {
-	   m_wndScintilla.SetForeground(m_wndScintilla.GetCurrentStyle(), dlg.GetColor());
-   }
-}
-/////////////////////////////////////
-// @mfunc menu handler - display a color selection dialog and set background color attribute for style at caret position
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsBackground() 
-{
-   CColorDialog dlg;
-   if (dlg.DoModal() == IDOK)
-   {
-	   m_wndScintilla.SetBackground(m_wndScintilla.GetCurrentStyle(), dlg.GetColor());
-   }
-}
 
-/////////////////////////////////////
-// @mfunc menu handler - display a wordlist dialog and set a wordlist with keywords for current lexer
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsWordlist() 
-{
-#ifdef SCWORDLIST
-	CWordlistDlg dlg;
-   if (dlg.DoModal() == IDOK)
-   {
-      int nWordlist = ::atoi(dlg.m_strWordlistNumber);
-      m_wndScintilla.SendMessage(SCI_SETKEYWORDS, nWordlist, (long)(LPCSTR)dlg.m_strKeywords);
-      m_wndScintilla.Refresh();
-   }
-#endif
-}
+
+
 /////////////////////////////////////
 // @mfunc menu check handler - set indicator for overstrike mode
 // @rvalue void | not used
@@ -445,100 +337,11 @@ void CScintillaView::OnUpdateInsert(
       strText.LoadString(ID_INDICATOR_OVR);
 	pCmdUI->SetText(strText);
 }
-/////////////////////////////////////
-// @mfunc command handler - set control to overstrike mode - see accelarator table in ressource file
-// @rvalue void | not used
-//
-void CScintillaView::OnToggleInsert()
-{
-   m_wndScintilla.SetOverstrike(!m_wndScintilla.GetOverstrike());
-}
-/////////////////////////////////////
-// @mfunc menu handler - toggle display of folding margin
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsFoldMargin() 
-{
-   m_wndScintilla.SetDisplayFolding();
-}
-/////////////////////////////////////
-// @mfunc menu handler - toggle display of selection margin
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsSelectionMargin() 
-{
-	m_wndScintilla.SetDisplaySelection(!m_wndScintilla.GetDisplaySelection());
-}
 
-/////////////////////////////////////
-// @mfunc menu check handler - check menu when selection margin is displayed
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateOptionsSelectionMargin(
-                                                       CCmdUI* pCmdUI) //@parm menu handle
-{
-	pCmdUI->SetCheck(m_wndScintilla.GetDisplaySelection());
-}
-/////////////////////////////////////
-// @mfunc menu check handler - check menu when folding margin is displayed
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateOptionsFoldMargin(
-                                                  CCmdUI* pCmdUI) //@parm menu handle
-{
-	pCmdUI->SetCheck(m_wndScintilla.GetDisplayFolding());
-}
 
-/////////////////////////////////////
-// @mfunc menu handler - add a bookmark at the caret line
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsAddmarker() 
-{
-   m_wndScintilla.AddBookmark(m_wndScintilla.GetCurrentLine());
-}
-/////////////////////////////////////
-// @mfunc menu check handler - disable menu item when there is already a marker at that line
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateOptionsAddmarker(
-                                                 CCmdUI* pCmdUI) //@parm menu handle
-{
-   pCmdUI->Enable(!m_wndScintilla.HasBookmark(m_wndScintilla.GetCurrentLine()));
-}
-/////////////////////////////////////
-// @mfunc menu handler - delete a bookmark at the caret line
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsDeletemarker() 
-{
-   m_wndScintilla.DeleteBookmark(m_wndScintilla.GetCurrentLine());
-}
-/////////////////////////////////////
-// @mfunc menu check handler - disable menu item when there is no marker at that line
-// @rvalue void | not used
-//
-void CScintillaView::OnUpdateOptionsDeletemarker(
-                                                    CCmdUI* pCmdUI) //@parm menu handle
-{
-   pCmdUI->Enable(m_wndScintilla.HasBookmark(m_wndScintilla.GetCurrentLine()));
-}
-/////////////////////////////////////
-// @mfunc menu handler - find next bookmark from the caret line
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsFindNextmarker() 
-{
-   m_wndScintilla.FindNextBookmark();
-}
-/////////////////////////////////////
-// @mfunc menu handler - find previous bookmark from the caret line
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsFindPrevmarker() 
-{
-   m_wndScintilla.FindPreviousBookmark();
-}
+
+
+
 /////////////////////////////////////
 // @mfunc menu handler - find previous bookmark from the caret line
 // @rvalue BOOL | TRUE if we handled the message - FALSE if message should be processed further
@@ -618,47 +421,6 @@ BOOL CScintillaView::Save(
    return m_wndScintilla.SaveFile(szPath);
 }
 
-/////////////////////////////////////
-// @mfunc menu handler - goto to a character position in the control
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsGotopos() 
-{
-#ifdef SCGOTO
-	CGotoPosDlg dlg;
-   dlg.m_nPos = m_wndScintilla.GetCurrentPosition();
-   if (dlg.DoModal() == IDOK)
-   {
-      m_wndScintilla.GotoPosition(dlg.m_nPos);
-      m_wndScintilla.SetFocus();
-   }
-#endif
-}
-/////////////////////////////////////
-// @mfunc menu handler - goto to a character position in the control
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsGotoline() 
-{
-#ifdef SCGOTO
-	CGotoLineDlg dlg;
-   dlg.m_nLine = m_wndScintilla.GetCurrentLine();
-   if (dlg.DoModal() == IDOK)
-   {
-      m_wndScintilla.GotoLine(dlg.m_nLine);
-      m_wndScintilla.SetFocus();
-   }
-#endif
-}
 
-/////////////////////////////////////
-// @mfunc menu handler - 
-// @rvalue void | not used
-//
-void CScintillaView::OnOptionsDlg() 
-{
-#if 0
-	CScintillaDlg dlg;
-   dlg.DoModal();
-#endif
-}
+
+

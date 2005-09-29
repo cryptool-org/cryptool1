@@ -72,7 +72,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\OpenSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\OpenSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Programme\HTML Help Workshop\include" /I "..\scintilla\include" /I "..\libVolRen" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /FD /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "_DEBUG"
@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Program Files\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Programme\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib .\Debug\VolRen.lib opengl32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -153,6 +153,14 @@ LINK32=link.exe
 # Begin Source File
 
 SOURCE=.\res\3dcheck.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\3DRenderBox.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\3DRenderBox.h
 # End Source File
 # Begin Source File
 
@@ -3117,6 +3125,14 @@ SOURCE=.\DlgManualSubstAnalysis.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgMonSubst.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgMonSubst.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgNGramAnalysis.cpp
 # End Source File
 # Begin Source File
@@ -3850,6 +3866,14 @@ SOURCE=.\DlgVerifySignature.cpp
 # Begin Source File
 
 SOURCE=.\DlgVerifySignature.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgVisualizePhaseSpace.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgVisualizePhaseSpace.h
 # End Source File
 # Begin Source File
 
@@ -4777,6 +4801,14 @@ SOURCE=.\res\OPENDOC_R_F.bmp
 # Begin Source File
 
 SOURCE=.\res\OPENDOC_R_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL.h
 # End Source File
 # Begin Source File
 
@@ -6255,6 +6287,14 @@ SOURCE=.\StereotypedAttack.cpp
 # Begin Source File
 
 SOURCE=.\StereotypedAttack.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StreamToVolume.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\StreamToVolume.h
 # End Source File
 # Begin Source File
 

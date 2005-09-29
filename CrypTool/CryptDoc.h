@@ -130,7 +130,6 @@ protected:
 	afx_msg void OnHill();
 	afx_msg void OnZip();
 	afx_msg void OnUnzip();
-	afx_msg void OnCRYPTDelPse();
 	afx_msg void OnCRYPTRsaDec();
 	afx_msg void OnCRYPTRsaEnc();
 	afx_msg void OnCryptMono();
@@ -161,10 +160,7 @@ protected:
 	afx_msg void OnToHex();
 	afx_msg void OnVitanyAnalyse();
 	afx_msg void OnPeriod();
-	afx_msg void OnHomophon();
 	afx_msg void OnHomophoneHex();
-	afx_msg void OnZZGen();
-	afx_msg void OnNotAvail();
 	afx_msg void OnHomophone();
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
@@ -191,8 +187,10 @@ protected:
 	afx_msg void OnAnalyseSymmclassicAdfgvx();
 	afx_msg void OnCiphertextOnlySubstitution();
 	afx_msg void OnRot13caesarAsc();
-	afx_msg void OnGotoVater();
 	afx_msg void OnShowKey();
+	afx_msg void OnGotoVater();
+	afx_msg void OnAnalysisRandom3dVisualization();
+
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

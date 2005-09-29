@@ -204,8 +204,10 @@
 #define IDD_CRT_ASTRONOMY               807
 #define IDD_CRT_TRANSFORMATION          808
 #define IDR_GIF4                        809
+#define IDD_VISUALIZE_PHASE_SPACE       809
 #define IDD_CRT_SECRETSHARING           810
 #define IDR_GIF5                        811
+#define IDD_KEY_MONSUBST                811
 #define IDR_GIF6                        814
 #define IDR_GIF7                        815
 #define IDR_GIF8                        816
@@ -783,26 +785,39 @@
 #define IDC_CONTROLFRAME                1553
 #define IDC_EDITMAXDELTA                1554
 #define IDC_ALICEFRAME                  1554
+#define IDC_RENDER_DENSITY              1554
 #define IDC_EDITM                       1555
 #define IDC_BOBFRAME                    1555
+#define IDC_RENDER_DENSITY_AUTO         1555
 #define IDC_EDITFACTORP                 1556
 #define IDC_TRUDYFRAME                  1556
+#define IDC_RENDER_DENSITY_31           1556
 #define IDC_EDITT                       1557
 #define IDC_ATTACKPROGRESSLABEL         1557
+#define IDC_RENDER_DENSITY_63           1557
 #define IDC_EDITFACTORQ                 1558
+#define IDC_RENDER_DENSITY_127          1558
 #define IDC_RADIOMSB                    1559
 #define IDC_RADIO_CHOICE_1              1559
+#define IDC_RENDER_DENSITY_255          1559
 #define IDC_RADIOLSB                    1560
 #define IDC_RADIO_CHOICE_2              1560
+#define IDC_RENDER_WORDSIZE             1560
 #define IDC_EDITLATTICEDIM              1561
 #define IDC_RADIO_CHOICE_3              1561
+#define IDC_RENDER_WORDLEN_1            1561
 #define IDC_RADIOBIN                    1562
+#define IDC_RENDER_WORDLEN_2            1562
 #define IDC_EDITDELTA                   1563
+#define IDC_RENDER_WORDLEN_4            1563
 #define IDSTART                         1564
+#define IDC_RENDER_SHIFT                1564
 #define IDC_EDIT_SECUDE1                1564
 #define IDC_EDITN                       1565
+#define IDC_RENDER_SHIFT_HALF           1565
 #define IDC_EDIT_SECUDE2                1565
 #define IDC_EDITE                       1566
+#define IDC_RENDER_SHIFT_0              1566
 #define IDCANCELATTACK                  1567
 #define IDC_RADIONUMBER                 1568
 #define IDC_CANCELATTACK                1569
@@ -1164,6 +1179,9 @@
 #define IDS_RSA_SM_ALLKNOWN             11172
 #define IDS_RSA_SM_MAXCHAR              11173
 #define IDS_STRING_PROGRESS             11174
+#define IDS_LIB_MIRACLE                 11175
+#define IDS_LIB_NTL                     11176
+#define IDS_OPENSSL                     11177
 #define IDD_KEY_HEX_FIXED_LEN           30725
 #define IDD_ROT13_CAESAR1               30726
 #define IDD_SIDECHANNELTTACKVISUALIZATION_HE_PREPARATIONS 30726
@@ -2302,7 +2320,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        808
+#define _APS_NEXT_RESOURCE_VALUE        812
 #define _APS_NEXT_COMMAND_VALUE         33293
 #define _APS_NEXT_CONTROL_VALUE         1565
 #define _APS_NEXT_SYMED_VALUE           107

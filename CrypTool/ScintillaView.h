@@ -80,8 +80,6 @@ protected:
 	//{{AFX_MSG(CScintillaView)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnOptionsViewLinenumbers();
-	afx_msg void OnUpdateOptionsViewLinenumbers(CCmdUI* pCmdUI);
 	afx_msg void OnEditCopy();
 	afx_msg void OnUpdateEditCopy(CCmdUI* pCmdUI);
 	afx_msg void OnEditCut();
@@ -90,32 +88,11 @@ protected:
 	afx_msg void OnUpdateEditPaste(CCmdUI* pCmdUI);
 	afx_msg void OnEditUndo();
 	afx_msg void OnUpdateEditUndo(CCmdUI* pCmdUI);
-	afx_msg void OnUpdateLine(CCmdUI* pCmdUI);
-	afx_msg void OnUpdateStyle(CCmdUI* pCmdUI);
-	afx_msg void OnUpdateFold(CCmdUI* pCmdUI);
 	afx_msg void OnEditClear();
 	afx_msg void OnEditRedo();
 	afx_msg void OnUpdateEditRedo(CCmdUI* pCmdUI);
 	afx_msg void OnEditSelectAll();
-	afx_msg void OnOptionsSetfont();
-	afx_msg void OnOptionsForeground();
-	afx_msg void OnOptionsBackground();
-	afx_msg void OnOptionsWordlist();
 	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
-	afx_msg void OnToggleInsert();
-	afx_msg void OnOptionsFoldMargin();
-	afx_msg void OnOptionsSelectionMargin();
-	afx_msg void OnUpdateOptionsSelectionMargin(CCmdUI* pCmdUI);
-	afx_msg void OnUpdateOptionsFoldMargin(CCmdUI* pCmdUI);
-	afx_msg void OnOptionsAddmarker();
-	afx_msg void OnUpdateOptionsAddmarker(CCmdUI* pCmdUI);
-	afx_msg void OnOptionsDeletemarker();
-	afx_msg void OnUpdateOptionsDeletemarker(CCmdUI* pCmdUI);
-	afx_msg void OnOptionsFindNextmarker();
-	afx_msg void OnOptionsFindPrevmarker();
-	afx_msg void OnOptionsGotopos();
-	afx_msg void OnOptionsGotoline();
-	afx_msg void OnOptionsDlg();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

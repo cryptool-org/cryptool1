@@ -88,6 +88,7 @@ using namespace std;
 #include "Mac.h"
 // #include "DlgMac.h"
 #include "DlgHMAC.h"
+#include "DlgMonSubst.h"
 
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
@@ -1430,61 +1431,13 @@ void Mono(const char *infile, const char *OldTitle){
 		return;
 	}
 
-	// Dialogbox zur Schlüsseleingabe anzeigen
-	CDlgKeySubstitution Mono1;
-	if (Mono1.DoModal()==IDOK){
-		/* Herleitung des (eigentlichen) Schlüssels aus dem eingegebenen Schlüsselwort:
-		   Doppelte Buchstaben im Schlüsselwort werden nicht berücksichtigt.
-		   Ansonsten wird das a auf den ersten Buchstaben des Schlüsselwortes abgebildet,
-		   das b auf den zweiten,...
-		   Danach werden alle Buchstaben, die nicht im Schlüsselwort vorkommen in
-		   umgekehrter Reihenfolge den restlichen Buchstaben des Alphabetes zugeordnet.	*/
-
-		// Die +1 ist für \0 (wegen der Ausgabe in der Titelleiste notwendig)
-		char key[26+1];
-		key[26] = '\0';
-
-		bool schonda[26];//Ist der i-te Buchstabe bereits im Schlüsselwort aufgetreten??
-		for (int i=0; i<=25; i++){
-			key[i]=' ';
-			schonda[i]=FALSE;}
-		int lang=Mono1.m_edit.GetLength();
-		int Nummer=0;
-		for (int j=0; j<=(lang-1); j++){
-			if ((Mono1.m_edit[j]>='A')&&(Mono1.m_edit[j]<='Z')){
-				if (schonda[Mono1.m_edit[j]-65]==FALSE){
-					key[Nummer]=Mono1.m_edit[j];
-					Nummer++;
-					schonda[Mono1.m_edit[j]-65]=TRUE;
-				}
-			}
-		}
-		
-		//Die verbleibenden Schlüsselbuchstaben vergeben
-		for (i=25; i>=0; i--){
-			if (schonda[i]==FALSE){
-				key[Nummer]=i+65;
-				Nummer++;
-			}
-		}
-
-		//Ausgabe der Permutation:
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_YOUR_KEYWORD,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Permu=pc_str;
-		Permu+=Mono1.m_edit;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-		Permu+=pc_str;
-		Permu+="ABCDEFGHIJKLMNOPQRSTUVWXYZ\n";
-		for (i=0; i<=25; i++){
-			Permu=Permu+(char)(key[i]);
-		}
-		AfxMessageBox (Permu);
-
-		
-		char outfile[128], title[128];
+// Encryption
+	CDlgMonSubst dlgMono;
+	if ( IDOK == dlgMono.DoModal() )
+	{
+		char outfile[1024], title[1024];
 		CAppDocument *NewDoc;
-
-		char outfile2[128];
+		char outfile2[1024];
 		GetTmpName(outfile2,"cry",".txt");
 		FILE *stream, *stream2;
 
@@ -1531,62 +1484,47 @@ void Mono(const char *infile, const char *OldTitle){
 		}
 		fclose (stream);
 		fclose (stream2);
-		
-// Sollen Leerzeichen im  Chiffretexttext erhalten bleiben???
-/*	Die Formatierung des Textes wird jetzt ueber eine globale Option gesetzt. Damit bleinben
-	alle Formatierunginformationen erhalten
-		const Converter *Conv;
-		if (Mono1.m_check==FALSE){ //Encrypt gewählt
-			if (Mono1.m_check2==FALSE){
-				Conv=&AlphaConv;
-			}
-			else {
-				Conv=&AlphaSpaceConv;
-			}
-		}
-		else { //decrypt gewählt
-			Conv=&AlphaSpaceConv;
-		}
-		SymbolArray text(*Conv);
-*/
 
-		SymbolArray text(AlphaConv);
 
-		//text.Read(infile);
-		text.Read(outfile2);
-		GetTmpName(outfile,"cry",".txt");
-		
-		
-		if (Mono1.m_check==TRUE){
-			int Laenge=text.GetSize();
+	
+		{  // CRYPT
+			SymbolArray text(AlphaConv);
+			//text.Read(infile);
+			text.Read(outfile2);
+			GetTmpName(outfile,"cry",".txt");
+ 			int Laenge=text.GetSize();
 			
-			//Berechne die inverse Permutation
-			char keyinvers[26];
-			for (i=0; i<26; i++){
-				keyinvers[key[i]-65]=i;}
-			
-			//Entschlüsselung (=Verschlüsselung mit der inversen Permutation)
-			for (i=0 ; i<Laenge; i++){
-				if (text[i]!=26){
-					text[i]=(keyinvers[text[i]]);}}
-		}
-		else{
-			int Laenge=text.GetSize();
-			for (i=0 ; i<Laenge; i++){
-				if (text[i]!=26){
-					text[i]=(key[text[i]]-65);}
+			int i;
+			if (!dlgMono.m_cryptDirection){  // Decryption
+				
+				//Berechne die inverse Permutation
+				char keyinvers[26];
+				for (i=0; i<26; i++){
+					keyinvers[dlgMono.key[i]-65]=i;}
+				
+				//Entschlüsselung (=Verschlüsselung mit der inversen Permutation)
+				for (i=0 ; i<Laenge; i++){
+					if (text[i]!=26){
+						text[i]=(keyinvers[text[i]]);}}
 			}
+			else{   // ENCRYPTION
+				for (i=0 ; i<Laenge; i++){
+					if (text[i]!=26){
+						text[i]=(dlgMono.key[text[i]]-65);}
+				}
+			}
+
+			//Ausgabe des permutierten Textes
+			text.Write(outfile);
 		}
 
-		//Ausgabe des permutierten Textes
-		text.Write(outfile);
 		Reformat(outfile2,outfile, TRUE);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,key);
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,dlgMono.key);
 		remove(outfile);	
 		remove (outfile2);
 		if(NewDoc) 
 		{
-			if(Mono1.m_check)
+			if(!dlgMono.m_cryptDirection)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -1595,10 +1533,12 @@ void Mono(const char *infile, const char *OldTitle){
 			// da bei der Analyse nur die Permutation gefunden werden kann, 
 			// nicht jedoch das Schlüsselwort. 
 			// Wegen der Konsistenz wird hier nur die Permutation ausgegeben 
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,dlgMono.key);
 			NewDoc->SetTitle(title);
 		}
 	}
+
+
 }
 
 UINT AnaSubst(PVOID p) {
