@@ -1,0 +1,31 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "VolRen"=.\VolRen.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+    {F8120F9E-E8DC-4E87-A67B-DA8B958C8C8F}
+    {90393A34-2F31-48A4-9323-8CEC42C73954}
+}}}
+
+###############################################################################
+
