@@ -64,7 +64,7 @@ private:
 	CString password;
 	CString pwdString;
 	CString matrix[6][6];
-	CButton buttonInsertKey;
+	CBitmapButton buttonInsertKey;
 	void CDlgADFGVX::OnOK();
 	void CDlgADFGVX::Decrypt();
 	void CDlgADFGVX::Encrypt();
@@ -80,7 +80,7 @@ private:
 	CString oldTitle;
 	
 	basic_string <char>::iterator strIterTyp;
-
+	CBitmapButton m_Paste;
 
 	//Dialogfelddaten
 	enum { IDD = IDD_ADFGVX };
@@ -147,6 +147,4 @@ private:
 public:
 	CDlgADFGVX(char* infile, CString oldTitle, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgADFGVX();
-	
-
 };

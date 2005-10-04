@@ -51,11 +51,12 @@ statement from your version.
 //
 
 #include "stdafx.h"
+#include "SquareMatrixModN.h"
 #include "CrypToolApp.h"
 #include "DlgShowKeyHill5x5.h"
-#include "SquareMatrixModN.h"
 #include "KeyRepository.h"
 #include "HillEncryption.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

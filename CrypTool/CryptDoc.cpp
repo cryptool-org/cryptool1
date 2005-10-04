@@ -1824,11 +1824,26 @@ void CCryptDoc::OnRot13caesarAsc()
 
 void CCryptDoc::OnAnalysisRandom3dVisualization() 
 {
+#if 0
     UpdateContent();
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 	CDlgVisualizePhaseSpace dialog;
 	strcpy(dialog.Filename, ContentName);
 	dialog.DoModal();
+#endif
+
+    UpdateContent();
+
+	CFile f;
+
+	char name[1024];
+	GetTmpName(name,"cry",".ogl");
+	f.Open(name, CFile::modeCreate | CFile::modeWrite );
+	f.Write("OPENGL\n", 7);
+	f.Write(ContentName, strlen(ContentName));
+	f.Close();
+
+    theApp.ThreadOpenDocumentFileNoMRU(name,GetTitle());
 }
 
 

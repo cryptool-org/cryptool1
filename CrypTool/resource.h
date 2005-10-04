@@ -52,6 +52,7 @@
 #define IDD_SHOW_KEY                    180
 #define IDR_CONTEXT_MENU                182
 #define IDR_CONTEXT_MENU_PLOT           183
+#define IDR_OPENGLTYPE                  184
 #define IDI_PLOTTYPE                    194
 #define IDI_ICON1                       199
 #define IDI_ICON2                       200
@@ -770,7 +771,6 @@
 #define IDC_EDITPLAINFULL               1547
 #define IDC_EDIT_NTL                    1547
 #define IDC_EDITP_RIGHT                 1548
-#define IDC_EDIT_MIRACL                 1548
 #define IDC_EDITPLAIN                   1549
 #define IDC_KEYASYM_TEXTRSA             1549
 #define IDC_EDIT_SCINTILLA              1549
@@ -812,10 +812,8 @@
 #define IDC_RENDER_WORDLEN_4            1563
 #define IDSTART                         1564
 #define IDC_RENDER_SHIFT                1564
-#define IDC_EDIT_SECUDE1                1564
 #define IDC_EDITN                       1565
 #define IDC_RENDER_SHIFT_HALF           1565
-#define IDC_EDIT_SECUDE2                1565
 #define IDC_EDITE                       1566
 #define IDC_RENDER_SHIFT_0              1566
 #define IDCANCELATTACK                  1567
@@ -907,7 +905,6 @@
 #define IDC_M55                         1653
 #define IDC_MATRIX_STANDARD             1654
 #define IDC_MATRIX_SHUFFLE              1655
-#define IDC_BUTTON_INSERT_KEY           1656
 #define IDC_TEXTFIELD_PASSWORD          1657
 #define IDC_BUTTON_ENCRYPT              1658
 #define IDC_BUTTON_DECRYPT              1659
@@ -920,13 +917,21 @@
 #define IDC_CHECK_NEWLINE_STAGE1        1666
 #define IDC_ERASEMATRIX                 1667
 #define IDC_BOX_OUT_STAGE2              1668
+#define IDC_CHECK_OUTPUT2               1668
 #define IDC_CHECK_BLOCK_STAGE2          1669
+#define IDC_EDIT_BLOCKSIZE_STAGE3       1669
 #define IDC_CHECK_BLOCK_STAGE1          1670
+#define IDC_EDIT_BLOCKSIZE_STAGE4       1670
 #define IDC_MINLENGTH                   1671
+#define IDC_CHECK_NEWLINE_STAGE3        1671
 #define IDC_MAXLENGTH                   1672
+#define IDC_CHECK_NEWLINE_STAGE4        1672
 #define IDC_BUTTON_FORCE                1673
+#define IDC_BOX_OUT_STAGE3              1673
 #define IDC_NEXT_PERMUTATION            1674
+#define IDC_CHECK_BLOCK_STAGE3          1674
 #define IDC_CURRENT_P                   1675
+#define IDC_CHECK_BLOCK_STAGE4          1675
 #define IDC_EDIT_REMAINING_SOL          1676
 #define IDC_STATIC_REMAINING_SOL        1677
 #define IDC_EDIT_POSSIBLE_PLAINTEXT     1678
@@ -1095,6 +1100,10 @@
 #define IDC_TEXT3                       1781
 #define IDC_TEXT1                       1782
 #define IDC_TEXT2                       1783
+#define IDC_EDIT_SECUDE1                1784
+#define IDC_EDIT_SECUDE2                1785
+#define IDC_EDIT_MIRACL                 1786
+#define IDC_BUTTON_INSERT_KEY           1787
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010

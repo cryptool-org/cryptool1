@@ -161,7 +161,6 @@ void CDlgADFGVX::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, matrix[5][4], 1);
 	DDX_Text(pDX, IDC_M55, matrix[5][5]);
 	DDV_MaxChars(pDX, matrix[5][5], 1);
-	DDX_Control(pDX, IDC_BUTTON_INSERT_KEY, buttonInsertKey);
 	DDX_Check(pDX, IDC_CHECK_OUTPUT, printStage1);
 	DDX_Text(pDX, IDC_EDIT_BLOCKSIZE_STAGE2, blockSizeStage2);
 	//DDV_MinMaxInt(pDX, blockSizeStage2, 0, 26);
@@ -241,6 +240,7 @@ BOOL CDlgADFGVX::OnInitDialog()
 
 	//if clipboard has key from adfgvx-typ, enable paste button
 	
+	VERIFY(buttonInsertKey.AutoLoad(IDC_BUTTON_INSERT_KEY,this));
 	if (IsKeyEmpty("ADFGVX Chiffre"))
 		this->buttonInsertKey.EnableWindow(TRUE);
 

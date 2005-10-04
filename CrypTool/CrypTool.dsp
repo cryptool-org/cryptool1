@@ -4812,6 +4812,22 @@ SOURCE=.\OpenGL.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\OpenGLDoc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGLDoc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGLView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGLView.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\OpenSSL\opensslconf.h
 # End Source File
 # Begin Source File

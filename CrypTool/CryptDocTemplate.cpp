@@ -133,6 +133,12 @@ CDocTemplate::Confidence CCryptDocTemplate::MatchDocType(LPCTSTR lpszPathName,
 		} while (l>0);
 	}
 
+	if(strType=="OpenGL File Type") {
+		ok = 4;
+		l = fread(buffer, 1, 6, fi);
+		if (strncmp((char*)buffer, "OPENGL",5)) ok = 0;
+	}
+
 	fclose(fi);
 	switch(ok) {
 	case(1): return maybeAttemptForeign;

@@ -64,6 +64,8 @@ statement from your version.
 #include "CryptDoc.h"
 #include "CPlotDocument.h"
 #include "PlotView.h"
+#include "OpenGLDoc.h"
+#include "OpenGLView.h"
 #include "Cryptography.h"
 #include "CryptDocTemplate.h"
 #include "DlgOptionsAnalysis.h"
@@ -319,6 +321,9 @@ BOOL CCrypToolApp::InitInstance()
 	AddDocTemplate(new CCryptDocTemplate(IDR_HEXTYPE,
 		RUNTIME_CLASS(CHexEditCtrlDoc), RUNTIME_CLASS(CMDIChildWnd),
 		RUNTIME_CLASS(CHexEditCtrlView)));
+	AddDocTemplate(new CCryptDocTemplate(IDR_OPENGLTYPE,
+		RUNTIME_CLASS(COpenGLDoc), RUNTIME_CLASS(CMDIChildWnd),
+		RUNTIME_CLASS(COpenGLView)));
 
 	// load Scintilla DLL
 	ScintillaLib = CScintillaWnd::LoadScintillaDll();
