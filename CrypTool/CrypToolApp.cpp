@@ -188,7 +188,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
-	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)     // file commands...
+	ON_COMMAND(ID_FILE_NEW, OnFileNew)			     // file commands...
 	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
 	ON_COMMAND(ID_FILE_PRINT_SETUP, CWinApp::OnFilePrintSetup)
 // BEGINN Fuer Hilfe-Funktionalitaet eingefuegt
@@ -1130,4 +1130,15 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 {
 	CDlgCrtSecretSharing dialg;
 	dialg.DoModal();
+}
+
+void CCrypToolApp::OnFileNew()
+{
+	// Öffnen der neuen Datei durch Aufruf in Basisklasse
+	CWinApp::OnFileNew();
+
+	// Florian Marchal, 13.10.2005
+	// Explizit Eingabefokus für neue Scintilla-Komponente setzen.
+	CWnd *pActiveWindow = ((CMDIFrameWnd*)(CWnd*)(this->m_pMainWnd))->MDIGetActive();
+	if(pActiveWindow) pActiveWindow->GetTopWindow()->GetTopWindow()->SetFocus();
 }
