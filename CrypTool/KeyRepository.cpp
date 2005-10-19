@@ -85,6 +85,7 @@ const int CryptMethods[] =  {
 		IDS_PARAM_RSA_DEMO,
 		IDS_ANALYSIS_SUBSTITUTION,
 		IDS_CRYPT_ADFGVX,
+		IDS_CRYPT_SOLITAIRE,
 		0
 };
 

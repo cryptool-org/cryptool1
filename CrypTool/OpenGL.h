@@ -8,7 +8,7 @@
 //
 
 // #include "StreamToVolume.h"
-#include "VolumeRenderer.h"
+#include "CrypToolVolRen.h"
 // #include "VolumeUtilities.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -17,12 +17,10 @@
 class COpenGL : public CWnd
 {
 // Construction
-	CVolumeRenderer *m_pVolumeRenderer;
+	CCrypToolVolRen *m_pVolumeRenderer;
 public:
 	COpenGL();
-	setVolumeRenderer( CVolumeRenderer *m_pVolRen ) 
-	{ m_pVolumeRenderer = m_pVolRen; }
- 
+
 // Attributes
 public:
 
