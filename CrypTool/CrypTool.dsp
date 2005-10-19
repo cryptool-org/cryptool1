@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Programme\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib .\Debug\VolRen.lib opengl32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Programme\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Debug\libNTL.lib opengl32.lib /nologo /subsystem:windows /profile /map /debug /machine:I386 /nodefaultlib:"libcd" /libpath:"C:\Programme\HTML Help Workshop\lib"
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
 
@@ -156,14 +156,6 @@ SOURCE=.\res\3dcheck.bmp
 # End Source File
 # Begin Source File
 
-SOURCE=.\3DRenderBox.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\3DRenderBox.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\95check.bmp
 # End Source File
 # Begin Source File
@@ -212,6 +204,14 @@ SOURCE=.\AppDocument.cpp
 # Begin Source File
 
 SOURCE=.\AppDocument.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\ArcBall.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\ArcBall.h
 # End Source File
 # Begin Source File
 
@@ -1897,6 +1897,14 @@ SOURCE=.\ChrTools.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\libVolRen\CMatrix.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CMatrix.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\combine_.bmp
 # End Source File
 # Begin Source File
@@ -1986,6 +1994,22 @@ SOURCE=..\ChallengeResponse\ComputerList.h
 # Begin Source File
 
 SOURCE=.\CPlotDocument.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CPosition.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CPosition.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CQuaternion.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CQuaternion.h
 # End Source File
 # Begin Source File
 
@@ -2227,6 +2251,22 @@ SOURCE=.\CrypToolView.cpp
 # Begin Source File
 
 SOURCE=.\CrypToolView.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolVolRen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CrypToolVolRen.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CVector.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\CVector.h
 # End Source File
 # Begin Source File
 
@@ -3764,6 +3804,22 @@ SOURCE=.\DlgSignatureDemo.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgSolitaire.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSolitaire.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSolitaireAnalyse.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgSolitaireAnalyse.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgStatisticsSignatureAttack.cpp
 # End Source File
 # Begin Source File
@@ -3866,14 +3922,6 @@ SOURCE=.\DlgVerifySignature.cpp
 # Begin Source File
 
 SOURCE=.\DlgVerifySignature.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgVisualizePhaseSpace.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DlgVisualizePhaseSpace.h
 # End Source File
 # Begin Source File
 
@@ -6234,6 +6282,14 @@ SOURCE=.\SignatureAttackMFC.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Solitaire.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Solitaire.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\splith.cur
 # End Source File
 # Begin Source File
@@ -6331,6 +6387,14 @@ SOURCE=.\TimeCalculation.h
 # Begin Source File
 
 SOURCE=.\res\toolbar.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\Trapezeditor.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\Trapezeditor.h
 # End Source File
 # Begin Source File
 
@@ -6506,6 +6570,22 @@ SOURCE=.\res\Bitmaps_en\Viereck2_X.bmp
 # Begin Source File
 
 SOURCE=.\res\Bitmaps\Viereck2_X_U.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\Volume.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\Volume.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\VolumeUtilities.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\libVolRen\VolumeUtilities.h
 # End Source File
 # Begin Source File
 

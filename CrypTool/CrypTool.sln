@@ -19,7 +19,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrypTool", "CrypTool.vcproj
 	ProjectSection(ProjectDependencies) = postProject
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2} = {D11F006A-BAEF-43B8-8EF6-FED5021E17F2}
 		{B835E875-5E34-46B9-B507-D0462C92D87A} = {B835E875-5E34-46B9-B507-D0462C92D87A}
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1} = {993DD5C5-E800-4AE5-89B3-1F2477823EA1}
 		{5EAE4FD1-DCD7-4CE8-A988-1700249BBF04} = {5EAE4FD1-DCD7-4CE8-A988-1700249BBF04}
 		{F286CFE4-BAB4-4D08-81B0-7CBB555E728E} = {F286CFE4-BAB4-4D08-81B0-7CBB555E728E}
 		{8C1D5DE7-80B6-4510-BB64-9F271F0E3C37} = {8C1D5DE7-80B6-4510-BB64-9F271F0E3C37}
@@ -35,10 +34,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlp_en", "hlp_en\hlp_en.vcp
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNTL", "..\libNTL\libNTL.vcproj", "{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VolRen", "..\libVolRen\VolRen.vcproj", "{993DD5C5-E800-4AE5-89B3-1F2477823EA1}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -148,18 +143,6 @@ Global
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_de.Build.0 = Release|Win32
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.ActiveCfg = Release|Win32
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.Build.0 = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Debug.ActiveCfg = Debug|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Debug.Build.0 = Debug|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release.ActiveCfg = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release.Build.0 = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_aes_de.ActiveCfg = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_aes_de.Build.0 = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_aes_en.ActiveCfg = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_aes_en.Build.0 = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_de.ActiveCfg = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_de.Build.0 = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_en.ActiveCfg = Release|Win32
-		{993DD5C5-E800-4AE5-89B3-1F2477823EA1}.Release_en.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
