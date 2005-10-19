@@ -190,7 +190,8 @@ protected:
 	afx_msg void OnShowKey();
 	afx_msg void OnGotoVater();
 	afx_msg void OnAnalysisRandom3dVisualization();
-
+	afx_msg void OnSymclassicSolitaire();
+	afx_msg void OnAnalyseSymmclassicCiphertextolySolitaire();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

@@ -85,9 +85,11 @@ statement from your version.
 #include "DlgAdfgvxManual.h"
 #include "MonoSubstCracker.h"
 #include "DlgRot13Caesar.h"
-#include "DlgVisualizePhaseSpace.h"
+// #include "DlgVisualizePhaseSpace.h"
 
 #include "DlgShowKey.h"
+#include "DlgSolitaire.h"
+#include "DlgSolitaireAnalyse.h"
 
 
 
@@ -237,6 +239,10 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
+	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
+	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
+	ON_COMMAND(ID_ANALYSIS_RANDOM_3D_VISUALIZATION, OnAnalysisRandom3dVisualization)
+	ON_COMMAND(ID_SYMCLASSIC_SOLITAIRE, OnSymclassicSolitaire)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -265,11 +271,9 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
 	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
-	ON_COMMAND(ID_ANALYSIS_RANDOM_3D_VISUALIZATION, OnAnalysisRandom3dVisualization)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
-	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
-	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
+	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, OnAnalyseSymmclassicCiphertextolySolitaire)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1914,4 +1918,21 @@ void CCryptDoc::OnShowKey()
 			ASSERT(false);
 		}
 	}
+}
+
+void CCryptDoc::OnSymclassicSolitaire() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	
+	UpdateContent();
+	CDlgSolitaire mySol(ContentName, GetTitle(), NULL);
+	mySol.DoModal();	
+}
+
+void CCryptDoc::OnAnalyseSymmclassicCiphertextolySolitaire() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	UpdateContent();
+	CDlgSolitaireAnalyse mySolAnal(ContentName, GetTitle(), NULL);
+	mySolAnal.DoModal();
 }
