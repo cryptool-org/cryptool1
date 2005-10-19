@@ -153,7 +153,6 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnIndivCrtPlanet();
 	afx_msg void OnIndivCrtDemo();
 	afx_msg void OnIndivCrtSecretsharing();
-	afx_msg void OnFileNew();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

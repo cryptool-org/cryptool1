@@ -1131,14 +1131,3 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 	CDlgCrtSecretSharing dialg;
 	dialg.DoModal();
 }
-
-void CCrypToolApp::OnFileNew()
-{
-	// Öffnen der neuen Datei durch Aufruf in Basisklasse
-	CWinApp::OnFileNew();
-
-	// Florian Marchal, 13.10.2005
-	// Explizit Eingabefokus für neue Scintilla-Komponente setzen.
-	CWnd *pActiveWindow = ((CMDIFrameWnd*)(CWnd*)(this->m_pMainWnd))->MDIGetActive();
-	if(pActiveWindow) pActiveWindow->GetTopWindow()->GetTopWindow()->SetFocus();
-}

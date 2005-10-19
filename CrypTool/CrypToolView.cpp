@@ -52,6 +52,9 @@ statement from your version.
 #include "DlgShowKey.h"
 #include "DlgShowKeyHill5x5.h"
 #include "DlgShowKeyHill10x10.h"
+#include "ScintillaWnd.h"
+#include "ScintillaDoc.h"
+#include "ScintillaView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -79,6 +82,12 @@ BEGIN_MESSAGE_MAP(CCrypToolView, CView)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETFOCUS()
+	ON_COMMAND(ID_VIEW_ENDOFLINE, OnViewEndOfLine)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_ENDOFLINE, OnUpdateViewEndOfLine)
+	ON_COMMAND(ID_VIEW_LINEWRAP, OnViewLineWrap)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LINEWRAP, OnUpdateViewLineWrap)
+	ON_COMMAND(ID_VIEW_WHITESPACE, OnViewWhitespace)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACE, OnUpdateViewWhitespace)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -183,6 +192,66 @@ void CCrypToolView::OnSetFocus(CWnd* pOldWnd)
 	// Dies muss nach OnSetFocus gemacht werden, damit das Fenster den Eingabefokus hat,
 	// um die Fenster Handle speichern zu koennen.
 	hWndAktivesFenster = m_hWnd;
+
+	// Fokus für neue Scintilla-Komponente explizit setzen
+	GetTopWindow()->SetFocus();
+}
+
+void CCrypToolView::OnViewEndOfLine()
+{
+	// Anzeigen von Zeilenenden für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int endofline = pActiveWindow->SendMessage(SCI_GETVIEWEOL);
+		if(endofline) pActiveWindow->SendMessage(SCI_SETVIEWEOL, 0);
+		else pActiveWindow->SendMessage(SCI_SETVIEWEOL, 1);
+	}
+}
+
+void CCrypToolView::OnUpdateViewEndOfLine(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWEOL));
+}
+
+void CCrypToolView::OnViewLineWrap()
+{
+	// Anzeigen von Zeilenumbrüchen für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int linewrap = pActiveWindow->SendMessage(SCI_GETWRAPMODE);
+		if(linewrap) pActiveWindow->SendMessage(SCI_SETWRAPMODE, 0);
+		else pActiveWindow->SendMessage(SCI_SETWRAPMODE, 1);
+	}
+}
+
+void CCrypToolView::OnUpdateViewLineWrap(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETWRAPMODE));
+}
+
+void CCrypToolView::OnViewWhitespace()
+{
+	// Anzeigen von Leerzeichen für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int whitespace = pActiveWindow->SendMessage(SCI_GETVIEWWS);
+		if(whitespace) pActiveWindow->SendMessage(SCI_SETVIEWWS, 0);
+		else pActiveWindow->SendMessage(SCI_SETVIEWWS, 1);
+	}
+}
+
+void CCrypToolView::OnUpdateViewWhitespace(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWWS));
 }
 
 BOOL CCrypToolView::OnPreparePrinting(CPrintInfo* pInfo) 
