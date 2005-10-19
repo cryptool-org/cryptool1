@@ -18,7 +18,7 @@ IMPLEMENT_DYNCREATE(COpenGLDoc, CDocument)
 
 COpenGLDoc::COpenGLDoc()
 {
-	m_pVolumeRenderer = NULL;
+//	m_pVolumeRenderer = NULL;
 	volume = NULL;
 }
 
@@ -67,11 +67,15 @@ void COpenGLDoc::Serialize(CArchive& ar)
 	else
 	{
 		// ZU ERLEDIGEN: Code zum Laden hier einfügen
-		if (NULL == m_pVolumeRenderer)
-		{
-			int nResolution[3] = {30, 30, 30};
-			double dVoxelSize[3] = {1, 1, 1};
-			int wordlen = 4;
+
+		if ( volume == NULL ) {
+			nResolution[0] = 128;
+			nResolution[1] = 128;
+			nResolution[2] = 128;
+			dVoxelSize[0] = 1;
+			dVoxelSize[1] = 1;
+			dVoxelSize[2] = 1;
+			wordlen = 4;
 			unsigned int numVals = nResolution[0] * nResolution[1] * nResolution[2];
 
 			if (volume != NULL)
@@ -80,22 +84,11 @@ void COpenGLDoc::Serialize(CArchive& ar)
 
 			if (volume->getVolume() != NULL) {
 				volume->setWordLen(wordlen);
-				volume->analyzeFile("C:\Programme\bin\Winscp3.exe", mode_AutoDensity);
-
-				POSITION pos = GetFirstViewPosition();
-				CWnd *hWnd  = this->GetNextView(pos)->GetForegroundWindow();
-				m_pVolumeRenderer = new CVolumeRenderer( hWnd );
-
-				if ( NULL != m_pVolumeRenderer ) {
-					m_pVolumeRenderer->setVolume(nResolution, dVoxelSize, volume->getVolume());
-
-					if (NULL != m_pVolumeRenderer) {
-//						m_pVolumeRenderer->displayBoundingBox(1);
-//						m_pVolumeRenderer->setSize(400, 400);
-					}
-				}
+//				volume->analyzeFile("C:\\Programme\\bin\\Winscp3.exe", mode_AutoDensity);
+				volume->analyzeFile("C:\\Documents and Settings\\All Users\\Documents\\IDJ100\\20051013source\\source\\OpenSSL\\libeay32.dll");
 			}
 		}
+
 	}
 }
 

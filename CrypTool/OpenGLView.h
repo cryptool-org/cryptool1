@@ -7,7 +7,9 @@
 // OpenGLView.h : Header-Datei
 //
 
-#include "VolumeRenderer.h"
+#include "CrypToolVolRen.h"
+#include "OpenGLDoc.h"
+#include "cryptoolapp.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -23,15 +25,32 @@ protected:
 // Attribute
 public:
 
+	CPalette    m_cPalette;
+	CPalette    *m_pOldPalette;
+//	CRect       m_oldRect;
+//	float       m_fRadius;
+	CClientDC   *m_pDC;
+	CView       *tmpView;
+	CWnd		tmpWnd;
+
+
+	CCrypToolVolRen *m_pVolumeRenderer;
+	unsigned char   *m_pCharBuffer;
+	HGLRC			 m_hOpenGLContext;
+
 // Operationen
 public:
+	COpenGLDoc* GetDocument();
 	int Init(HDC hdc);
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(COpenGLView)
+	public:
+	virtual void OnInitialUpdate();
 	protected:
 	virtual void OnDraw(CDC* pDC);      // Überschrieben zum Zeichnen dieser Ansicht
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	//}}AFX_VIRTUAL
 
 // Implementierung
@@ -49,9 +68,18 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg void OnPopupOpenglShowBox();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
+
+#ifndef _DEBUG  // debug version in cubeview.cpp
+inline COpenGLDoc* CCubeView::GetDocument()
+   { return (COpenGLDoc*)m_pDocument; }
+#endif
+
 
 /////////////////////////////////////////////////////////////////////////////
 

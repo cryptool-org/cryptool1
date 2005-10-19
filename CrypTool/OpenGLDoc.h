@@ -10,6 +10,7 @@
 #include "VolumeRenderer.h"
 #include "VolumeUtilities.h"
 #include "StreamToVolume.h"
+#include "cryptoolapp.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -26,9 +27,11 @@ public:
 
 // Operationen
 public:
-	CVolumeRenderer *m_pVolumeRenderer;
 	unsigned char   *m_pCharBuffer;
 	StreamToVolume  *volume;
+	int				 nResolution[3];
+	double			 dVoxelSize[3];
+	int				 wordlen;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
