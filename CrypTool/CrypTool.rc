@@ -4754,6 +4754,8 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5113,6 +5115,8 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5444,6 +5448,8 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5804,6 +5810,8 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5938,7 +5946,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64, GRAYED
+            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64
             MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -5996,7 +6004,7 @@ BEGIN
         END
         POPUP "Symmetrische Verschlüsselung (&modern)", GRAYED
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -6495,8 +6503,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,6
- PRODUCTVERSION 1,3,0,6
+ FILEVERSION 1,4,0,0
+ PRODUCTVERSION 1,4,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -18315,6 +18323,8 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -18668,6 +18678,8 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -18993,6 +19005,8 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -19346,6 +19360,8 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -19702,6 +19718,8 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "BOX",                         33299
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -20023,8 +20041,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,6
- PRODUCTVERSION 1,3,0,6
+ FILEVERSION 1,4,0,0
+ PRODUCTVERSION 1,4,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L

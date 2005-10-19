@@ -76,7 +76,7 @@ protected:
 };
 
 #ifndef _DEBUG  // debug version in cubeview.cpp
-inline COpenGLDoc* CCubeView::GetDocument()
+inline COpenGLDoc* COpenGLView::GetDocument()
    { return (COpenGLDoc*)m_pDocument; }
 #endif
 

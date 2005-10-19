@@ -48,12 +48,13 @@ END_MESSAGE_MAP()
 
 void COpenGLView::OnDraw(CDC* pDC)
 {
-
-
+	static BOOL sema = TRUE;
 	// ZU ERLEDIGEN: Code zum Zeichnen hier einfügen
-	CPaintDC dc(this); // device context for painting
-	
+	if ( !sema )
+		return;
+	sema = FALSE;
 
+	CPaintDC dc(this); // device context for painting
     if(wglMakeCurrent(dc.m_hDC, m_hOpenGLContext))
 	{
 		glDrawBuffer(GL_BACK); 
@@ -75,9 +76,8 @@ void COpenGLView::OnDraw(CDC* pDC)
 		if (FALSE == SwapBuffers(dc.m_hDC)) {
 			AfxMessageBox(_T("ERROR: unable to swap buffers!"));
 		}
-		
     } 
-
+	sema = TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////

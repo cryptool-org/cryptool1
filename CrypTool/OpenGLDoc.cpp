@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "cryptoolapp.h"
 #include "OpenGLDoc.h"
+#include <fstream>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -82,10 +83,33 @@ void COpenGLDoc::Serialize(CArchive& ar)
 				delete volume;
 			volume = new StreamToVolume (nResolution[0], nResolution[1], nResolution[2]);
 
-			if (volume->getVolume() != NULL) {
-				volume->setWordLen(wordlen);
-//				volume->analyzeFile("C:\\Programme\\bin\\Winscp3.exe", mode_AutoDensity);
-				volume->analyzeFile("C:\\Documents and Settings\\All Users\\Documents\\IDJ100\\20051013source\\source\\OpenSSL\\libeay32.dll");
+			if (volume->getVolume() != NULL) 
+			{
+				char name[1024];
+				strcpy(name, ar.m_strFileName);
+				ifstream f;
+				f.open(name);
+				if (!f.is_open())
+				{
+					// FIXME Error
+				}
+				else
+				{
+					char sMagic[128];
+					char sFile[1024];
+					f.getline(sMagic, 128);
+					f.getline(sFile, 1024);
+
+					if ( strncmp(sMagic,"OPENGL", 6) )
+					{
+						// FIXME: ERROR
+					}
+					else
+					{
+						volume->setWordLen(wordlen);
+						volume->analyzeFile(sFile);
+					}
+				}
 			}
 		}
 
