@@ -54,10 +54,10 @@ Kontext bezogene Hilfe gibt es
 Teil von CrypTool ist eine sehr umfangreiche <A href="main_index.html">Online-Hilfe</A>, die auch ohne tiefes Kryptowissen verstanden werden kann.<br>
 CrypTool ist <B>komplett</B> sowohl in<B> Deutsch</B> wie auch in <B>Englisch</B> vorhanden, enthält fast alle State-of-the-art-Kryptofunktionen und ermöglicht unter einer einheitlichen Benutzeroberfläche einen "spielerischen" Einstieg in die moderne und klassische <B>Kryptographie</B>.</P>
 
-<P>Es stehen sowohl </P>
+<P>Es stehen sowohl klassische wie moderne Kryptoverfahren zur Verfügung:</P>
 
 <UL>
-<li>klassisch: zum Beispiel das <A href="hid_rot13caesar_asc.html">Caesar-,</A> das <A href="hid_encrypt_adfgvx.html">ADFGVX-</A> oder das <A href="hid_permutation_asc.html">Doppelw&uuml;rfel-Verschl&uuml;sselungsverfahren,</A></li>
+<li>klassisch: zum Beispiel das <A href="hid_rot13caesar_asc.html">Caesar-,</A> das <A href="hid_encrypt_adfgvx.html">ADFGVX-</A> oder das <A href="hid_permutation_asc.html">Doppelw&uuml;rfel-Verschl&uuml;sselungsverfahren.</A></li>
 
 <li>modern: beispielsweise das <A href="hid_crypt_rsaenc.html">RSA-Verfahren,</A> das <A href="aes_gewinner.html">AES-Verfahren,</A> <A href="menu_crypt_hybrid.html">Hybridverschlüsselung</A> und auf <A href="menu_analysis_asymmetric_latticebasedattacks.html">Gitterreduktion</A> und <A href="ellipkurven.html">Elliptischen Kurven basierende Verfahren.</A></li>
 </UL>
@@ -74,7 +74,7 @@ eines weiteren Dokuments ist dann die Ikone "Schlüssel einfügen" <img
 src="images/keypaste.png"> in der Schlüsseleingabemaske aktiv.
 Dies ist vor allem bei komplexeren Schlüsseln eine große Hilfe.</p>
 
-<P>Für die klassischen Verschlüsselungsverfahren stehen automatische Analysen zur Verfügung, mit denen der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> des verschlüsselten Dokuments ermittelt werden kann (eventuell mit Hilfe weiterer Informationen wie dem unverschlüsselten Dokument, dessen Sprache oder einem Kartendeck). Für weitere Informationen zur automatischen Analyse gehen Sie zur Hilfe für das Menü <A href="menu_analyze.html">Analyse</A> und wählen dort das zu analysierende Verschlüsselungsverfahren.</P>
+<P>Für die klassischen Verschlüsselungsverfahren stehen automatische Analysen zur Verfügung, mit denen der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> des verschlüsselten Dokuments ermittelt werden kann (eventuell mit Hilfe weiterer Informationen wie dem unverschlüsselten Dokument, dessen Sprache oder einem Kartendeck). Für weitere Informationen zur automatischen Analyse gehen Sie zur Online-Hilfe für das Menü <A href="menu_analyze.html">Analyse</A> und wählen dort das zu analysierende Verschlüsselungsverfahren.</P>
 
 <P>Zur Unterstützung der eigenen Analyse von Dokumenten kann CrypTool von einem Dokument das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> anzeigen, die Statistik beliebiger <A href="hid_analyse_ngram.html">N-Gramme</A> ermitteln und <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> und <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnen.</P>
 
@@ -98,14 +98,14 @@ Dies ist vor allem bei komplexeren Schlüsseln eine große Hilfe.</p>
 
 	<LI>Einzelne Verschlüsselungsverfahren schrittweise vor- und zurück durchlaufen (mit <A href="menu_individualprocedures_visualizationwithanimal.html">ANIMAL</A>).</LI>
 
-	<LI>Verbreitete Codierungen wie <A href="hid_code_base64.html">base64</A> und <A href="hid_code_uu.html">uuencode anwenden.</A></LI>
+	<LI>Verbreitete Codierungen wie <A href="hid_code_base64.html">base64</A> und <A href="hid_code_uu.html">uuencode</A> anwenden.</LI>
 
 </UL>
 
 Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten beschrieben (siehe RSA-Kryptosystem und Visualisierungen).
 </p>
 
-<p>Welche Funktionen in den Menüs ausgewählt werden können, hängt vom Typ des aktiven Dokuments ab. Die <A href="menu_structure.html">Menüs und Untermenüs</A> von CrypTool werden dynamisch aufgebaut, abhängig davon, ob im Hauptfenster eine Datei geladen ist und ob die aktive Datei vom Typ Textdatei oder Binärdatei ist. Sie sehen immer nur die Menüpunkte, die zu dem aktuellen Dokumenttyp passen. Z.B. finden Sie den Eintrag "XOR" unter "Analyse \ Ciphertext only" nur, wenn aktuell eine Binärdatei selektiert ist. Umgekehrt können Sie den Eintrag "Einzelverfahren \ Hashwerte \ Hash-Demo" nur sehen, wenn eine Textdatei geladen ist.
+<p>Welche Funktionen in den Menüs ausgewählt werden können, hängt vom Typ des aktiven Dokuments ab. Die <A href="menu_structure.html">Menüs und Untermenüs</A> von CrypTool werden dynamisch aufgebaut, abhängig davon, ob im Hauptfenster eine Datei geladen ist und ob die aktive Datei vom Typ Textdatei oder Binärdatei ist. Sie sehen immer alle Menüpunkte. Auswählbar sind aber nur die Menüpunkte, die zu dem aktuellen Dokumenttyp passen, der Rest ist ausgegraut. Z.B. ist der Eintrag "XOR" unter "Analyse \ Ciphertext only" nur auswählbar, wenn aktuell eine Binärdatei selektiert ist. Umgekehrt können Sie den Eintrag "Einzelverfahren \ Hashwerte \ Hash-Demo" nur auswählen, wenn eine Textdatei geladen ist.
 </p>
 
 <P>Einen Überblick über alle Menüeinträge innerhalb von CrypTool finden Sie im <A href="menu_structure.html">Menübaum</A>.</P>
@@ -125,37 +125,38 @@ Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten besch
 <ul>
 <li>	Erzeugung einer <A href="hid_einzelverfahren_sign_doc.html">elektronischen Signatur</a>.</li>
 <li>	<A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">Hybridverschlüsselung.</a> </li>
-<li>	Wirkung von Textänderungen auf den Hashwert
+<li>	Wie wirkt sich eine Textänderungen auf den Hashwert aus?
 	<ul>
 	<li>	<A href="hid_einzelverfahren_hashwerte_hashdemo.html">Sensitivität von Hashverfahren.</a> </li>
 	<li> 	Erzeugung von <A href="hid_signatur_attack.html">Hashwert-Kollisionen</a> unter Anwendung des Geburtstagsparadoxons.</li>
 	</ul></li>
 <li>	Ablauf des <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman-Schlüsselaustauschverfahrens.</a> </li>
-<li>	<A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriff.</a> </li>
+<li>	<A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriffe.</a> </li>
 <li>	<A href="hid_cr_overview.html">Authentisierungsprotokolle.</a></li>
 <li>	<A href="hid_indiv_crt_secretsharing.html">Shared-Secret.</a></li>
 </ul>
 
 <br><p><b><a name="onlinehelp">Online-Hilfe, Dokumentation und Tutorials</a></b></p>
 
-<p>Bei CrypTool wurde darauf Wert gelegt, dass man sich an jeder Stelle im Programm mit der <b>F1</b>-Taste kontext-sensitive Online-Hilfe holen kann. Zum Einarbeiten können Sie eine Datei öffnen und sich z.B. durch die Menüs bewegen und <b>F1</b> drücken, wo immer Sie einen interessanten Eintrag sehen.</p>
+<p>Bei CrypTool wurde darauf Wert gelegt, dass man sich an jeder Stelle im Programm mit der <b>F1</b>-Taste kontext-sensitive Online-Hilfe holen kann. Zum Einarbeiten können Sie eine Datei öffnen, sich durch die Menüs bewegen und immer dann <b>F1</b> drücken, wenn Sie einen interessanten Menü-Eintrag sehen.</p>
 <p>Mit den <A href="hid_hilfe_szenarien.html">Szenarien</a> (Tutorials) in der Online-Hilfe finden Sie einen schnellen Einstieg.</p>
 
 <p>Die sehr umfangreiche Hilfe enthält außerdem 
 <ul>
-<li>Erklärungen aller kryptographischen Grundbegriffe, </li>
-<li>eine kurze Liste mit <A href="literatur.html">Literaturhinweisen</a> aus dem Bereich Kryptographie und </li>
-<li>eine <A href="menu_zeittafel.html">Zeittafel mit einem historischen Kurz-Überblick.</a></li>
+<li>Erklärungen aller kryptographischen Grundbegriffe. </li>
+<li>Eine kurze Liste mit <A href="literatur.html">Literaturhinweisen</a> aus dem Bereich Kryptographie.</li>
+<li>Eine <A href="menu_zeittafel.html">Zeittafel</a> mit einem historischen Kurz-Überblick.</li>
 </ul></p>
 
 Neben der Online-Hilfe enthält das CrypTool-Paket noch folgende Dokumente:
 <ul>
-<li>	In der <A href="readme-de.txt">Readme-Datei</a> sind alle wichtigen Elemente des CrypTool-Paketes beschrieben. Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
+<li>	In der <A href="readme-de.txt">Readme-Datei</a> sind alle wichtigen Elemente des CrypTool-Paketes beschrieben. <br>
+Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 <li>	Im <A href="script-de.pdf">Skript</a> (ca. 200 Seiten, als PDF-Datei mit ausgeliefert) finden Sie weitere, eher mathematisch orientierte Informationen
 	<ul>
-	<li>	zu kryptographischen Verfahren,
-	<li>	zu Primzahlen,
-	<li>	zur elementaren Zahlentheorie mit vielen Beispielen, und
+	<li>	zu kryptographischen Verfahren.
+	<li>	zu Primzahlen.
+	<li>	zur elementaren Zahlentheorie mit vielen Beispielen.
 	<li>	zu aktuellen Ergebnissen der kryptoanalytischen Forschung.
 	</ul>
 </li>
@@ -172,7 +173,7 @@ Neben der Online-Hilfe enthält das CrypTool-Paket noch folgende Dokumente:
 
 <P>Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als verlässlicher Referenzimplementierung der verschiedenen Verschlüsselungsverfahren möglich, die in anderen Programmen eingesetzte Verschlüsselung zu testen. Man hat also auch ein Werkzeug zur Hand, mit dessen Hilfe überprüft werden kann, ob in einem Programm wirklich die angegebene Verschlüsselung durchgeführt wird.</P>
 
-<P>Für die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktionen</A>, die symmetrischen und asymmetrischen Verschlüsselungsverfahren und für das Schlüsselmanagement greift CrypTool auf das Secude-Toolkit (Version 5.4.15) der <!--ZZZPOPUP--><A href="secude.html">Secude GmbH</A> zurück.</P>
+<P>Für die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktionen</A>, die symmetrischen und asymmetrischen Verschlüsselungsverfahren und für das Schlüsselmanagement greift CrypTool auf das Secude-Toolkit (Version 5.4.15) der <!--ZZZPOPUP--><A href="secude.html">Secude IT Security GmbH</A> zurück.</P>
 
 <P>Die beigelegte Secude-Bibliothek ist durch das Ticketfile bei den asymmetrischen Verfahren auf eine Schlüssellänge von 768 Bits beschränkt und die Unterstützung von Smartcards ist deaktiviert. Falls Sie eine Lizenz der Secude-Bibliothek besitzen, können Sie mit Hilfe Ihres Ticketfiles die asymmetrischen Verfahren auch mit größeren Schlüssellängen benutzen.</P>
 
@@ -182,7 +183,7 @@ Neben der Online-Hilfe enthält das CrypTool-Paket noch folgende Dokumente:
 
 <p>Zur Durchführung der Gitterbasenreduktion wird die NTL 5.3.2 von Victor Shoup (<a href="http://shoup.net/ntl/">http://shoup.net/ntl/</a>) eingebunden.
 
-<P>Bitte beachten Sie die Lizenzbestimmungen und die <A href="gewaehrleistung.html">Informationen zum Haftungsausschluss für eventuelle Schäden durch CrypTool</A> bei der Benutzung von CrypTool.</P>
+<P>Bitte beachten Sie die <a href="#licence_terms">Lizenzbestimmungen</a> und die <A href="gewaehrleistung.html">Informationen zum Haftungsausschluss für eventuelle Schäden durch CrypTool</A> bei der Benutzung von CrypTool.</P>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Lizenzbestimmungen">
@@ -194,8 +195,7 @@ Neben der Online-Hilfe enthält das CrypTool-Paket noch folgende Dokumente:
 
 <P>Die Verwendung des Produkts kann im Lande des Nutzers rechtlichen Einschränkungen unterliegen, für deren Einhaltung ausschließlich der Nutzer verantwortlich ist. Für das Produkt wird jede Gewährleistung ausgeschlossen. Eine Verantwortung für die Funktionsfähigkeit oder Sicherheit des Produkts, dessen einzelner Komponenten oder für die Ergebnisse, die der Nutzer oder Dritte mit diesem Produkt erzielen, wird nicht übernommen. Die CrypTool-Anwendung unterliegt dem Urheberschutz. Durch die Nutzung erwirbt der Nutzer keine eigenen Rechte am Produkt; diese verbleiben vielmehr bei den Urhebern. </P>
 
-<P>Für die beigelegten "Geschichten" "Der Dialog der Schwestern" und "Das Chinesische Labyrinth" gelten folgende Lizenzbestimmungen:<br>
-
+<P>Für die beigelegten 'Geschichten' "Der Dialog der Schwestern" und "Das Chinesische Labyrinth" gelten folgende Lizenzbestimmungen:
 Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk, räumt dem CrypTool-Maintainer das ausschließliche Vervielfältigungs- und Verbreitungsrecht ein. Die Geschichte darf nur zusammen mit dem CrypTool-Paket verbreitet werden.</P>
 
 <p> Die freie Benutzung von Software und/oder Hardware, die den
@@ -207,15 +207,15 @@ direkt an MediaCrypt AG (<a href="http://www.mediacrypt.com/">www.mediacrypt.com
 	
 <P>Die Verwendung der Secude-Bibliothek außerhalb von CrypTool ist lizenzpflichtig (<a href="http://www.secude.com/">www.secude.com</a>).</P>
 
-<P>Von der Secude-Bibliothek gibt es inzwischen bei der Secude GmbH neuere und weiterentwickeltere Versionen als die in CrypTool benutzte (z.B. eine Signaturgesetz-konforme).</P>
+<P>Von der Secude-Bibliothek gibt es inzwischen bei der <a href="secude.html">Secude IT Security GmbH</a> neuere und weiterentwickeltere Versionen als die in CrypTool benutzte (z.B. eine Signaturgesetz-konforme).</P>
 
 <br><P><b><a name="opensource">Freigabe des Quellcodes</a></b></P>
 
-<P>Die Sponsoren dieses Produkts, Deutsche Bank AG, Secude GmbH und die
+<P>Die Sponsoren dieses Produkts, Deutsche Bank AG, Secude IT Security GmbH und die
 Universit&auml;ten Darmstadt und Siegen stellen den Quellcode der
 CrypTool-Anwendung (nicht der inkludierten Bibliotheken und nicht des
 Animal-Systems) kostenlos zu Ausbildungszwecken und zu GNU-&auml;hnlichen
-Bedingungen (www.gnu.org) im Internet zur Verf&uuml;gung. </P>
+Bedingungen (<a href="http://www.gnu.org/">www.gnu.org</a>) im Internet zur Verf&uuml;gung. </P>
 
 <p>Der <em>Quellcode</em> des Produkts 'CrypTool' steht unter der GPL (GNU
 General Public License, veröffentlicht von der Free Software
@@ -227,7 +227,7 @@ gestattet.
 
 <p>Gehostet wird CrypTool zur Zeit auf den Servern des Lehrstuhls "Sicherheit in der Informationstechnik", Fachbereich Informatik unter Leitung von Frau Prof. Dr. Claudia Eckert an der TU Darmstadt.</p>
 
-<p>Maintainer ist die Open-Source-Entwicklergruppe unter Bernhard Esslinger. Der "Maintainer" ist dafür zuständig, die aktive Weiterentwicklung als Freeware und Open Source zu koordinieren und durchzuf&uuml;hren. Jeder Maintainer verpflichtet sich, daf&uuml;r zu sorgen,
+<p>Maintainer ist die Open-Source-Entwicklergruppe unter <a href="mailto:esslinger@fb5.uni-siegen.de">Bernhard Esslinger.</a> Der "Maintainer" ist dafür zuständig, die aktive Weiterentwicklung als Freeware und Open Source zu koordinieren und durchzuf&uuml;hren. Jeder Maintainer verpflichtet sich, daf&uuml;r zu sorgen,
 <ul>
 <li>dass der Quellcode konsistent bleibt,
 <li>dass f&uuml;r andere Entwickler kompetente Ansprechpartner zur Verf&uuml;gung stehen,
