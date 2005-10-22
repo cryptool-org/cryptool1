@@ -11654,6 +11654,9 @@ BEGIN
     ID_ANALYSE_AES_SERPENT  "Automatische Brute-force Analyse einer Serpent-Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Brute-force Analyse einer Twofish-Verschlüsselung"
     ID_PLOTBAR              "Zeigt die Grafik im aktiven Fenster als Balkendiagramm an"
+    ID_VIEW_ENDOFLINE       "Schaltet die Anzeige von Zeilenenden im aktiven Fenster ein oder aus"
+    ID_VIEW_LINEWRAP        "Schaltet die Anzeige von Zeilenumbrüchen im aktiven Fenster ein oder aus"
+    ID_VIEW_WHITESPACE      "Schaltet die Anzeige von Leerzeichen im aktiven Fenster ein oder aus"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
     ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
@@ -18320,8 +18323,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
@@ -18675,8 +18678,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
@@ -19002,8 +19005,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
@@ -19357,8 +19360,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
+        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
@@ -19715,8 +19718,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299
@@ -25502,6 +25505,9 @@ BEGIN
     ID_ANALYSE_AES_SERPENT  "Automatic brute-force analysis of encryption using the Serpent algorithm"
     ID_ANALYSE_AES_TWOFISH  "Automatic brute-force analysis of encryption using the Twofish algorithm"
     ID_PLOTBAR              "Shows the graphic in the current window as histogram"
+    ID_VIEW_ENDOFLINE       "Switch display of end of lines in the current window on or off"
+    ID_VIEW_LINEWRAP        "Switch display of line wraps in the current window on or off"
+    ID_VIEW_WHITESPACE      "Switch display of whitespaces in the current window on or off"
     ID_VERNAM_BIN           "Vernam encryption"
     ID_CRYPT_RC4            "Encryption / decryption with RC4"
     ID_CRYPT_3DES_ECB       "Encryption / decryption with Triple DES (ECB mode)"

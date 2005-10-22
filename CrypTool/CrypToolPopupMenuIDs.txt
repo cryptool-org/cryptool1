@@ -83,6 +83,7 @@ ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedure
 ENGLISH View # &View
 ENGLISH Window # &Window
 ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|Lattice Based Attacks on RSA
+ENGLISH PopUp # PopUp
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
@@ -120,6 +121,7 @@ GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch (&
 GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch (&modern)
 GERMAN Ansicht # &Ansicht
 GERMAN Fenster # &Fenster
+GERMAN PopUp # PopUp
 
 
 
