@@ -81,12 +81,14 @@ protected:
 	afx_msg void OnKillFocus(CWnd* pNewWnd);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnSetFocus(CWnd* pOldWnd);
+#if 0
 	afx_msg void OnViewEndOfLine();
 	afx_msg void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
 	afx_msg void OnViewLineWrap();
 	afx_msg void OnUpdateViewLineWrap(CCmdUI* pCmdUI);
 	afx_msg void OnViewWhitespace();
 	afx_msg void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
+#endif
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

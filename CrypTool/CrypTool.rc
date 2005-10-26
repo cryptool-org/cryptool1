@@ -590,37 +590,37 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG  0, 0, 284, 273
+IDD_AUTHORS DIALOGEX 0, 0, 284, 289
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,253,50,14
+    DEFPUSHBUTTON   "OK",IDOK,112,267,50,14
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
                     11,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,263,8
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
                     59,263,16
     CTEXT           "Henrik Koy",IDC_STATIC,14,93,263,9,NOT WS_GROUP
-    GROUPBOX        " Idee, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,270,
-                    22,BS_CENTER
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA, Leitung",IDC_STATIC,
+                    7,23,270,22,BS_CENTER
     GROUPBOX        " Planung und Betreuung ",IDC_STATIC,7,49,270,30,
                     BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3 ",IDC_STATIC,7,83,270,22,
+    GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,83,270,22,
                     BS_CENTER
     GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
-                    109,270,91,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,206,270,42,BS_CENTER
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias",
-                    IDC_STATIC,18,122,84,74
+                    109,270,106,BS_CENTER
+    GROUPBOX        " Review und Feedback",IDC_STATIC,7,220,270,42,BS_CENTER
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
+                    IDC_STATIC,18,122,84,83
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier",
                     IDC_STATIC,102,122,84,75
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,217,84,26
+    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,231,84,26
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele",
                     IDC_STATIC,186,122,85,75
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
-                    IDC_STATIC,102,217,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,217,85,26
+                    IDC_STATIC,102,231,84,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,231,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -2439,19 +2439,19 @@ BEGIN
     PUSHBUTTON      "&Zurück",IDBACK,17,161,55,19
 END
 
-IDD_STARTOPTIONS DIALOG  0, 0, 258, 94
+IDD_STARTOPTIONS DIALOGEX 0, 0, 276, 94
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Startoptionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,64,50,18
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,197,64,50,18
-    CONTROL         """Wie Sie starten""-Dialog beim Programmstart von CrypTool anzeigen",
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,215,64,50,18
+    CONTROL         "Den ""Wie Sie starten""-Dialog beim Programmstart von CrypTool anzeigen.",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
-                    231,10
-    CONTROL         "Beispieldatei wird nach dem Start von CrypTool automatisch geöffnet",
+                    248,10
+    CONTROL         "Die Beispieldatei wird nach dem Start von CrypTool automatisch geöffnet.",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,
-                    232,10
+                    247,10
 END
 
 IDD_KEY_HEX_FIXED_LEN DIALOG  0, 0, 307, 111
@@ -2758,10 +2758,10 @@ BEGIN
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOG  0, 0, 291, 156
+IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 156
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Weitere Optionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,234,135,50,14
@@ -2772,7 +2772,7 @@ BEGIN
     GROUPBOX        "Optionen für die Seitenkanalangriff-Demonstration",
                     IDC_STATIC,7,55,277,70
     EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
-    LTEXT           "Bob kann erkennen, ob eine Nachricht von Alice an ihn gesendet wurde, wenn sie das folgende Schlüsselwort enthält:",
+    LTEXT           "Bob kann erkennen, ob die erhaltene Nachricht von Alice gesendet wurde, wenn die Nachricht das folgende Schlüsselwort enthält:",
                     IDC_STATIC,20,74,253,16
 END
 
@@ -3509,13 +3509,13 @@ BEGIN
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,54,143,37,
                     WS_EX_TRANSPARENT
-    CTEXT           "haben die Universitäten \nUniversität Siegen und TU Darmstadt, Universität Siegen",
+    CTEXT           "haben die Universitäten Siegen und Darmstadt",
                     IDC_STATIC,0,108,242,17
-    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,130,241,11
+    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,127,241,11
     CTEXT           "entwickelt.\nEin Demonstrationsprogramm für\nKryptographie und Mitarbeiter-Awareness.",
                     IDC_STATIC,1,145,241,24
-    CTEXT           "CrypTool basiert auf folgenden Bibliotheken:",
-                    IDC_STATIC,1,176,241,8
+    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,176,
+                    241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,269,241,10
     CTEXT           "Copyright (C) 1998-2005 Deutsche Bank AG\nFrankfurt am Main",
                     IDC_STATIC,0,335,242,17
@@ -4754,6 +4754,15 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        POPUP "S&chriftart"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -5115,6 +5124,15 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        POPUP "S&chriftart"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -5448,6 +5466,15 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        POPUP "S&chriftart"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -5810,6 +5837,18 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
+        POPUP "S&chriftart"
+        BEGIN
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -6174,6 +6213,15 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
+        POPUP "S&chriftart"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -11139,10 +11187,15 @@ BEGIN
         BOTTOMMARGIN, 77
     END
 
+    IDD_AUTHORS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 273
+    END
+
     IDD_STARTOPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 12
-        RIGHTMARGIN, 247
+        RIGHTMARGIN, 265
         BOTTOMMARGIN, 82
     END
 
@@ -11654,9 +11707,6 @@ BEGIN
     ID_ANALYSE_AES_SERPENT  "Automatische Brute-force Analyse einer Serpent-Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Brute-force Analyse einer Twofish-Verschlüsselung"
     ID_PLOTBAR              "Zeigt die Grafik im aktiven Fenster als Balkendiagramm an"
-    ID_VIEW_ENDOFLINE       "Schaltet die Anzeige von Zeilenenden im aktiven Fenster ein oder aus"
-    ID_VIEW_LINEWRAP        "Schaltet die Anzeige von Zeilenumbrüchen im aktiven Fenster ein oder aus"
-    ID_VIEW_WHITESPACE      "Schaltet die Anzeige von Leerzeichen im aktiven Fenster ein oder aus"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
     ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
@@ -13996,16 +14046,16 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,358,90,19,WS_GROUP
-    CTEXT           "and the universities \nUniversität Siegen and TU Darmstadt",
-                    IDC_STATIC,0,108,242,17
-    CTEXT           "CrypTool is based on the following libraries:",
-                    IDC_STATIC,1,176,241,8
+    DEFPUSHBUTTON   "OK",IDOK,70,366,90,19,WS_GROUP
+    CTEXT           "and the universities \nSiegen and Darmstadt",IDC_STATIC,
+                    0,108,242,17
+    CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
+                    176,241,8
     CTEXT           "Contact:",IDC_STATIC,0,264,241,10
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,273,145,40
+    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de /\nesslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\n\ncryptool-list@sec.informatik.tu-darmstadt.de",
+                    IDC_STATIC,67,276,145,40
     CTEXT           "Copyright (C) 1998-2005 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,330,242,17
+                    IDC_STATIC,0,338,242,17
     CTEXT           "In a joint effort of the sponsors",IDC_STATIC,1,8,241,8
     CTEXT           "has been developed.\nCrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
                     IDC_STATIC,1,145,241,24
@@ -14016,7 +14066,7 @@ BEGIN
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,18,222,79
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,314,
+    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,320,
                     175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,210,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -14269,32 +14319,32 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOG  0, 0, 291, 276
+IDD_AUTHORS DIALOGEX 0, 0, 291, 290
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,119,254,50,15
+    DEFPUSHBUTTON   "OK",IDOK,119,267,50,15
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
     CTEXT           "Henrik Koy",IDC_STATIC,14,94,270,8,NOT WS_GROUP
     CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
                     59,270,17
-    GROUPBOX        " Idea, Sponsoring, Challenges, QA ",IDC_STATIC,7,23,277,
-                    23,BS_CENTER
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,
+                    23,277,23,BS_CENTER
     GROUPBOX        " Design, Support ",IDC_STATIC,7,49,277,31,BS_CENTER
-    GROUPBOX        " Main person taking overall care for version 1.3 ",
+    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",
                     IDC_STATIC,7,83,277,24,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",
-                    IDC_STATIC,7,110,277,93,BS_CENTER
-    GROUPBOX        " Review ",IDC_STATIC,7,205,277,43,BS_CENTER
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,219,84,26
+                    IDC_STATIC,7,110,277,100,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,7,218,277,43,BS_CENTER
+    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,232,84,26
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...and many others.",
-                    IDC_STATIC,102,219,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,219,85,26
-    LTEXT           "Martin Bartosch\nLars Dürfler\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias",
-                    IDC_STATIC,18,122,84,74
+                    IDC_STATIC,102,232,84,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,232,85,26
+    LTEXT           "Martin Bartosch\nLars Dürfler\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
+                    IDC_STATIC,18,122,84,81
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier",
                     IDC_STATIC,102,122,84,75
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele",
@@ -16135,19 +16185,19 @@ BEGIN
     PUSHBUTTON      "&Back",IDBACK,17,161,55,19
 END
 
-IDD_STARTOPTIONS DIALOG  0, 0, 258, 105
+IDD_STARTOPTIONS DIALOGEX 0, 0, 277, 91
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Starting Options"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,12,75,50,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,196,75,50,18
-    CONTROL         "Show dialogue ""How to start"" when starting CrypTool",
+    DEFPUSHBUTTON   "&OK",IDOK,12,61,50,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,215,61,50,18
+    CONTROL         "Show dialogue ""How to start"" when starting CrypTool.",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
-                    183,10
-    CONTROL         "Open sample text file automatically when starting CrypTool",
+                    185,10
+    CONTROL         "Open the sample text file automatically when starting CrypTool.",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,
-                    198,10
+                    212,10
 END
 
 IDD_KEY DIALOG  0, 0, 251, 85
@@ -18323,10 +18373,18 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
-        MENUITEM SEPARATOR
+        POPUP "&Font"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM "BOX",                         33299, GRAYED
     END
     POPUP "&Crypt/Decrypt"
@@ -18678,9 +18736,18 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        POPUP "&Font"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -19005,9 +19072,18 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        POPUP "&Font"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -19360,9 +19436,18 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP
+        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE
+        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
+        POPUP "&Font"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299, GRAYED
     END
@@ -19718,9 +19803,18 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &Wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        POPUP "&Font"
+        BEGIN
+            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 12",                    33312
+            MENUITEM "Courier 8",                   33316
+            MENUITEM "Courier 10",                  33309
+            MENUITEM "Courier 12",                  33310
+        END
         MENUITEM SEPARATOR
         MENUITEM "BOX",                         33299
     END
@@ -24742,7 +24836,7 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 273
+        BOTTOMMARGIN, 287
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -24982,9 +25076,9 @@ BEGIN
     IDD_STARTOPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 12
-        RIGHTMARGIN, 246
+        RIGHTMARGIN, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 93
+        BOTTOMMARGIN, 79
     END
 
     IDD_KEY, DIALOG
@@ -25505,9 +25599,6 @@ BEGIN
     ID_ANALYSE_AES_SERPENT  "Automatic brute-force analysis of encryption using the Serpent algorithm"
     ID_ANALYSE_AES_TWOFISH  "Automatic brute-force analysis of encryption using the Twofish algorithm"
     ID_PLOTBAR              "Shows the graphic in the current window as histogram"
-    ID_VIEW_ENDOFLINE       "Switch display of end of lines in the current window on or off"
-    ID_VIEW_LINEWRAP        "Switch display of line wraps in the current window on or off"
-    ID_VIEW_WHITESPACE      "Switch display of whitespaces in the current window on or off"
     ID_VERNAM_BIN           "Vernam encryption"
     ID_CRYPT_RC4            "Encryption / decryption with RC4"
     ID_CRYPT_3DES_ECB       "Encryption / decryption with Triple DES (ECB mode)"

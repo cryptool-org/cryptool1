@@ -175,7 +175,7 @@ void CDlgAbout::determineLibraryVersions()
 
 	// OpenSSL (statisch)
 	// *** TODO *** fehlende Headerdatei ../OpenSSL/include/opensslv.h für Versionsanzeige
-	this->strVersionOpenSSL = "0.9.6";
+	this->strVersionOpenSSL = "0.9.8";
 	this->strVersionOpenSSL.Insert(0, "OpenSSL Library ");
 
 

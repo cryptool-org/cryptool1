@@ -48,11 +48,11 @@ END_MESSAGE_MAP()
 
 void COpenGLView::OnDraw(CDC* pDC)
 {
-	static BOOL sema = TRUE;
+	static BOOL busy = FALSE;
 	// ZU ERLEDIGEN: Code zum Zeichnen hier einfügen
-	if ( !sema )
+	if ( busy )
 		return;
-	sema = FALSE;
+	busy = TRUE;
 
 	CPaintDC dc(this); // device context for painting
     if(wglMakeCurrent(dc.m_hDC, m_hOpenGLContext))
@@ -62,11 +62,10 @@ void COpenGLView::OnDraw(CDC* pDC)
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glShadeModel(GL_SMOOTH);
 		glEnable(GL_DEPTH_TEST);
-		//glPixelStorei(GL_UNPACK_ALIGNMENT, 1); 
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // IN
 
 		glClearDepth(1.0f);
 		glClearColor(0.0f,0.0f,0.0f,1.0f);
-		//glClearColor(0.2f,0.2f,0.5f,1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
@@ -77,7 +76,7 @@ void COpenGLView::OnDraw(CDC* pDC)
 			AfxMessageBox(_T("ERROR: unable to swap buffers!"));
 		}
     } 
-	sema = TRUE;
+	busy = FALSE;
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -122,7 +121,7 @@ int COpenGLView::Init(HDC hdc)
 	    PFD_TYPE_RGBA,                    // RGBA type 
 	    24,                               // 24-bit color depth 
 	    0, 0, 0, 0, 0, 0,                 // color bits ignored 
-	    8,                                // no alpha buffer 
+	    0,                                // CHANGED FROM 8 to 0 no alpha buffer 
 	    0,                                // shift bit ignored 
 	    0,                                // no accumulation buffer 
 	    0, 0, 0, 0,                       // accum bits ignored 

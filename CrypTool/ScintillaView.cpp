@@ -75,6 +75,21 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, OnUpdateInsert)
+
+	ON_COMMAND(ID_VIEW_ENDOFLINE, OnViewEndOfLine)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_ENDOFLINE, OnUpdateViewEndOfLine)
+	ON_COMMAND(ID_VIEW_LINEWRAP, OnViewLineWrap)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LINEWRAP, OnUpdateViewLineWrap)
+	ON_COMMAND(ID_VIEW_WHITESPACE, OnViewWhitespace)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACE, OnUpdateViewWhitespace)
+
+	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL08, OnViewFontArial08)
+	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL10, OnViewFontArial10)
+	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL12, OnViewFontArial12)
+	ON_COMMAND(ID_ZEICHENFORMAT_COURIER08, OnViewFontCourier08)
+	ON_COMMAND(ID_ZEICHENFORMAT_COURIER10, OnViewFontCourier10)
+	ON_COMMAND(ID_ZEICHENFORMAT_COURIER12, OnViewFontCourier12)
+
 	//}}AFX_MSG_MAP
 	// Standard-Druckbefehle
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -204,12 +219,16 @@ void CScintillaView::OnSize(
 void CScintillaView::OnInitialUpdate() 
 {
 	CView::OnInitialUpdate();
-   CDocument *pDoc = GetDocument();
-   CString strTitle = pDoc->GetPathName();
+    CDocument *pDoc = GetDocument();
+    CString strTitle = pDoc->GetPathName();
+
 	m_wndScintilla.Init();
+
+	// Schriftgrösse in Scintilla-Fenster per Default auf "Arial 10" setzen
+	setFixedFont(10, "Arial");
+
 	//m_wndScintilla.LoadFile(strTitle);
 	this->SetFocus();
-
 }
 
 
@@ -421,6 +440,100 @@ BOOL CScintillaView::Save(
    return m_wndScintilla.SaveFile(szPath);
 }
 
+void CScintillaView::OnViewEndOfLine()
+{
+	// Anzeigen von Zeilenenden für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int endofline = pActiveWindow->SendMessage(SCI_GETVIEWEOL);
+		if(endofline) pActiveWindow->SendMessage(SCI_SETVIEWEOL, 0);
+		else pActiveWindow->SendMessage(SCI_SETVIEWEOL, 1);
+	}
+}
 
+void CScintillaView::OnUpdateViewEndOfLine(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWEOL));
+}
 
+void CScintillaView::OnViewLineWrap()
+{
+	// Anzeigen von Zeilenumbrüchen für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int linewrap = pActiveWindow->SendMessage(SCI_GETWRAPMODE);
+		if(linewrap) pActiveWindow->SendMessage(SCI_SETWRAPMODE, 0);
+		else pActiveWindow->SendMessage(SCI_SETWRAPMODE, 1);
+	}
+}
 
+void CScintillaView::OnUpdateViewLineWrap(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETWRAPMODE));
+}
+
+void CScintillaView::OnViewWhitespace()
+{
+	// Anzeigen von Leerzeichen für Scintilla-Fenster ein-/ausschalten
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int whitespace = pActiveWindow->SendMessage(SCI_GETVIEWWS);
+		if(whitespace) pActiveWindow->SendMessage(SCI_SETVIEWWS, 0);
+		else pActiveWindow->SendMessage(SCI_SETVIEWWS, 1);
+	}
+}
+
+void CScintillaView::OnUpdateViewWhitespace(CCmdUI* pCmdUI)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWWS));
+}
+
+void CScintillaView::setFixedFont(int size, const char* fontClass)
+{
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		int style = pActiveWindow->SendMessage(SCI_GETSTYLEAT,0,0);
+		pActiveWindow->SendMessage(SCI_STYLESETSIZE, style, size);
+		pActiveWindow->SendMessage(SCI_STYLESETFONT, style, reinterpret_cast<LPARAM>(fontClass));
+	}
+}
+
+void CScintillaView::OnViewFontArial08()
+{
+	setFixedFont(8, "Arial");
+}
+
+void CScintillaView::OnViewFontArial10()
+{
+	setFixedFont(10, "Arial");
+}
+
+void CScintillaView::OnViewFontArial12()
+{
+	setFixedFont(12, "Arial");
+}
+
+void CScintillaView::OnViewFontCourier08()
+{
+	setFixedFont(8, "Courier");
+}
+
+void CScintillaView::OnViewFontCourier10()
+{
+	setFixedFont(10, "Courier");
+}
+
+void CScintillaView::OnViewFontCourier12()
+{
+	setFixedFont(12, "Courier");
+}

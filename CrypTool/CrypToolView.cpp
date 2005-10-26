@@ -82,12 +82,14 @@ BEGIN_MESSAGE_MAP(CCrypToolView, CView)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETFOCUS()
+#if 0
 	ON_COMMAND(ID_VIEW_ENDOFLINE, OnViewEndOfLine)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ENDOFLINE, OnUpdateViewEndOfLine)
 	ON_COMMAND(ID_VIEW_LINEWRAP, OnViewLineWrap)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_LINEWRAP, OnUpdateViewLineWrap)
 	ON_COMMAND(ID_VIEW_WHITESPACE, OnViewWhitespace)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACE, OnUpdateViewWhitespace)
+#endif
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -197,6 +199,7 @@ void CCrypToolView::OnSetFocus(CWnd* pOldWnd)
 	GetTopWindow()->SetFocus();
 }
 
+/*
 void CCrypToolView::OnViewEndOfLine()
 {
 	// Anzeigen von Zeilenenden für Scintilla-Fenster ein-/ausschalten
@@ -253,6 +256,7 @@ void CCrypToolView::OnUpdateViewWhitespace(CCmdUI* pCmdUI)
 	if(pActiveWindow)
 		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWWS));
 }
+*/
 
 BOOL CCrypToolView::OnPreparePrinting(CPrintInfo* pInfo) 
 {

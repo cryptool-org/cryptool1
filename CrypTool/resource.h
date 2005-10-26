@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -1513,6 +1513,16 @@
 #define ID_VIEW_ENDOFLINE               33300
 #define ID_VIEW_LINEWRAP                33301
 #define ID_VIEW_WHITESPACE              33302
+#define ID_ANSICHT_TEXTGR               33303
+#define ID_TEXTGR_12                    33305
+#define ID_TEXTGR_14                    33306
+#define ID_TEXTGR_18                    33307
+#define ID_ZEICHENFORMAT_COURIER10      33309
+#define ID_ZEICHENFORMAT_COURIER12      33310
+#define ID_ZEICHENFORMAT_ARIAL10        33315
+#define ID_ZEICHENFORMAT_ARIAL12        33312
+#define ID_ZEICHENFORMAT_ARIAL08        33314
+#define ID_ZEICHENFORMAT_COURIER08      33316
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2425,7 +2435,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        817
-#define _APS_NEXT_COMMAND_VALUE         33303
+#define _APS_NEXT_COMMAND_VALUE         33317
 #define _APS_NEXT_CONTROL_VALUE         1566
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
