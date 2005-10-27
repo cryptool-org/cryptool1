@@ -16,13 +16,31 @@
 
 <h3><P><A NAME="hidd_tipps_and_tricks"></A><B>Starting page: An Introduction to CrypTool</B></P></h3>
 
+CrypTool is a comprehensive eLearning program about cryptography and cryptanalsysis.
+
+<p><br>
+	<a href="#whatiscryptool">What is CrypTool?</a><p>
+	<a href="#rsa">The RSA Cryptosystem</a><p>
+	<a href="#demo">Interactive Demonstrations / Visualizations</a><p>
+	<a href="#onlinehelp">Online Help, Documentation and Tutorials</a><p>
+	<a href="#organization">Organizational</a><p>
+        <A href="#licence_terms">Terms of the licence</a>
+	<a href="#opensource">Release of the Source Code</a>
+<p>
+
 <TABLE cols=2 width="0*">
 
 <TR VALIGN="top">
-<TD width=30%>If you need any information on the meaning of a given menu option or a dialogue, simply invoke the <A href="hid_context_help.html">context-sensitive help</A> by pressing <B>F1</B>.
+<TD width=30%>
+By pressing <b>F1</b> or using the <A href="hid_context_help.html">context-sensitive help</A> via mouse you can get help everywhere in the program. Help is available for
+<ul>
+<li>any selected menu item.</li>
+<li>any open dialog window.</li>
+</ul>
+
 <P>If you are not familiar with using online help under Windows, click on <A href="hilfeueberhilfe.html">How to use CrypTool help</A>.</P>
 
-<P>Kindly note the <A href="#licence_terms">terms of the licence</A> and the <A href="gewaehrleistung.html">information regarding liability for any damage arising from the use of CrypTool</A>.</P>
+<P>Kindly note the <A href="#licence_terms">terms of the licence</A> and the <A href="gewaehrleistung.html">information regarding non-liability for any damage arising from the use of CrypTool</A>.</P>
 
 <P>Via the <A href="hid_options_startoptions.html">Starting Options</A> you can determine which windows are opened automatically when starting CrypTool.</P>
 </TD>
@@ -30,115 +48,122 @@
 </TR>
 </TABLE><BR>
 
-<P><U>What is CrypTool?</U></P>
+<P><B><a name="whatiscryptool">What is CrypTool?</a></B></P>
 
-<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> program which enables you to apply and analyse cryptographic mechanisms.</P>
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> program which enables you to apply and analyse cryptographic mechanisms. It has the typical look-and-feel of a modern windows application.</P>
 
-<P>CrypTool contains an exhaustive <A href="main_index.html">online help</A>, which can be understood without deep knowledge in cryptography, therefore no printed user manual on how to use CrypTool is provided. CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use, modern and classic <B>cryptography</B> within the same environment.</P>
+<P>CrypTool contains an exhaustive <A href="main_index.html">online help</A>, which can be understood without deep knowledge in cryptography, therefore no printed user manual on how to use CrypTool is provided. <br>
+CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use, modern and classic <B>cryptography</B> within the same environment.</P>
 
-<P>The methods available include both </P>
-
+<P>The methods available include both classical methods and modern cryptosystems:</P>
 <UL>
-	<LI>classical methods (e.g. the <A href="hid_rot13caesar_asc.html">Caesar</A>  and the<A href="hid_permutation_asc.html"> double-column transposition (permutation)</A> encryption algorithms) and </LI>
-
-	<LI>modern <A href="crypto_methods.html">cryptosystems</A> (for example, the <A href="hid_crypt_rsaenc.html">RSA</A> and <A href="aes_gewinner.html">AES</A> algorithms, as well as algorithms based on <A href="ellipkurven.html">elliptic curves</A>). </LI>
+<li>	classical: e.g. the <A href="hid_rot13caesar_asc.html">Caesar</A> cipher, the <A href="hid_encrypt_adfgvx.html">ADFGVX</A> cipher and the <A href="hid_permutation_asc.html">double-column transposition (permutation)</A> encryption algorithm.
+<li>	modern: for example, the <A href="hid_crypt_rsaenc.html">RSA</A> and <A href="aes_gewinner.html">AES</A> algorithms, hybrid encryption and algorithms based on <A href="menu_analysis_asymmetric_latticebasedattacks.html">lattice reduction</A> and <A href="ellipkurven.html">elliptic curves</A>. 
 </UL>
 
 <P>A summary of all the <!--ZZZPOPUP--><A href="verschlverfahren.html"><B>encryption algorithms</B></A> available in CrypTool is contained on the help page for the <A href="menu_crypt.html">Crypt/Decrypt</A> menu.</P>
 
-<P>Automatic analysis tools for obtaining the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, starting from a knowledge of the encrypted document and any additional information (the unencrypted document or the language of the document), are provided for the classical encryption algorithms. For additional information on automatic analysis, go to the help screen for the <A href="menu_analyze.html">Analysis</A> menu and choose the encryption algorithm to be analysed there.</P>
+<P>Automatic analysis tools for obtaining the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, starting from a knowledge of the encrypted document and any additional information (the unencrypted document or the language of the document), are provided for the classical encryption algorithms. For additional information on automatic analysis, request online help for the <A href="menu_analyze.html">Analysis</A> menu and choose the encryption algorithm to be analysed there.</P>
 
 <P>To support your own analysis of documents, CrypTool can display a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the document, determine the statistics for any <A href="hid_analyse_ngram.html">N-grams</A> and calculate <!--ZZZPOPUP--><A href="entropie.html">entropy</A> and <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>.</P>
 
 <P>In the menu <A href="menu_related_methods.html"><B>Indiv. Procedures</B></A> single different methods and protocols are offered:</P>
 
 <UL>
-	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu <B>Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A></B>).</LI>
-
-	<LI><A href="hid_zip.html">compress</A> and <A href="hid_unzip.html">decompress</A> documents. This enables the study of file compression prior to the actual encryption of a given document.</LI>
-
-	<LI>generate or analyse <A href="hid_zufall_generatoren.html">random numbers</A>.</LI>
-
+	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu <B>Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A></B>) and show their sensitivity.</LI>
+	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (MACs).</A></LI>
 	<LI>find out, how strong keys can be generated according the <A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS#5</A> standard from passwords.</LI>
+	<LI><A href="hid_zip.html">compress</A> and <A href="hid_unzip.html">decompress</A> documents. This enables the study of file compression prior to the actual encryption of a given document.</LI>
+	<LI>generate or analyse <A href="hid_zufall_generatoren.html">random numbers.</A></LI>
+	<LI>demonstrate protocols for <A href="hid_cr_overview.html">authentication</A> und <A href="hid_einzelverfahren_diffiehellmandemo.html">key exchange (DH).</A></LI>
+	<LI>find out how an ancient number theoretic theorem (<A href="menu_individualprocedures_chineseremaindertheorem.html">Chinese Remainder Theorem</A>) can be applied (e.g. when are the planets of our solar system positioned in one straight line).</LI>
+	<LI>step through some ciphers forward and backwards (using <A href="menu_individualprocedures_visualizationwithanimal.html">ANIMAL</A>).</LI>
+	<LI>apply common encodings like <A href="hid_code_base64.html">base64</A> and <A href="hid_code_uu.html">uuencode.</A></LI>
 </UL>
 
-<P>The further menu items are described below.</P>
+<P>The remaining menu items in the main menu "Individual Procedures" are described below (see RSA Cryptosystem and Visualizations). </P>
 
-<P>The RSA cryptosystem (see menu <A href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</A>) is covered comprehensively and implemented for different codings. The RSA key is generated from prime numbers created by the user. Key generation, encryption and decryption can be followed step-by-step.</P>
+<p>Which menu items can be selected depends on the type of the active document. The menus and sub-menus of CrypTool are dynamically generated, depending on the opened file's type (binary or text). All menu items are visible all the time, but only the ones, which fit to current document type can be selected. The remaining menu items are disabled. E.g., the menu item "XOR" below "Analysis \ Ciphertext-Only" can only be selected if a binary file is currently open. Accordingly the item "Individual Procedures \ Hash \ Hash demo" can only be selected, if a text file is opened.</p>
 
-<P>Factorisation of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorisation algorithms presented in CrypTool. Thus you get an idea how long keys of secure systems should be at least.</P>
+<p>An overview of all menu items within CrypTool can be found in the <A href="menu_structure.html">menu tree.</a></p>
 
-<P>Within CrypTool most of the modern algorithms are implemented according international <A href="standards.html">standards</A>.</P>
-
-<P>The <A href="menu_structure.html">menus and sub menus</A> of CrypTool are dynamically generated, depending on the opened file‚s type. E.g. you will only find the menu item "XOR" below "Analysis \ Ciphertext-Only" if a binary file is currently selected. Accordingly the item "Hash \ Hash demo" can only be found under the menu "Individual Procedures", if a text file is opened.</P>
-
-<P>An overview about all menu items within CrypTool can be found within the <A href="menu_structure.html">menu tree</A>.</P>
+<p>Within CrypTool the modern algorithms are implemented according to international standards.</p>
 
 <P>The authors of CrypTool did not implement cryptographic functionality, where very good free programs were available in the Internet: so the Enigma cipher and dictionary attacks against password files (see John-the-Ripper, http://www.openwall.com/john/) are not part of CrypTool yet.</P>
 
-<P><U>Online help, documentation and tutorials</U></P>
+<P><B><a name="#rsa">The RSA Cryptosystem</a></B></P>
 
-<P>During the development of CrypTool much care has been taken to ensure that context sensitive help is available at any point by pressing the <B>F1</B> key. You can get a fast overview, if you open a file and move through the menu items: whenever interested click <B>F1</B> to see details about this menu item.</P>
+<P>The RSA cryptosystem (see menu Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA demonstration</A>) is covered comprehensively and implemented for different codings. The RSA key is generated from prime numbers created by the user. Key generation, encryption and decryption can be followed step-by-step.</P>
 
-<P>The extensive online help explains all basic cryptographic terms, contains a short <A href="literatur.html">list of references</A> and provides a historic overview of the development of cryptography within the <A href="menu_zeittafel.html">time-table</A>.</P>
+<P>Factorisation of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorisation algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
+
+<P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
+<p>This interactive demonstrations (visualizations) are helpful for raising a deeper understanding of the following topics: 
+<ul>
+<li>creating an electronic signature (menu Digital Signatures/PKI \ Sign Message) </li>
+<li>processing hybrid encryption (menu Crypt \ Hybrid \ RSA-AES Encryption) </li>
+<li>how changes to a document change the hash value
+	<ul>
+	<li>sensitivity of hash algorithms (menu Indiv. Procedures \ Hash \ Hash Demonstration). </li>
+	<li>generation of hash value collisions (birthday paradox) (menu Analysis \ Hash \ Attack on the Hash Value of the Digital Signature). </li>
+	<li>processing the Diffie-Hellman key exchange (menu Indiv. Procedures \ Protocols \ Diffie-Hellman Demonstration). </li>
+	</ul>
+</li>
+<li>side-channel attacks (menu Analysis \ Asymmetric Encryption \ Side-Channel Attack on "Textbook RSA").</li>
+<li>authentication protocols (menu Indiv. Procedures \ Protocols \ Networkauthentication).</li>
+<li>shared secrets (menu Indiv. Procedures \ Secret-Sharing Demonstration).</li>
+</ul>
+</p>
+
+<P><B><a href="#onlinehelp">Online help, documentation and tutorials</a></B></P>
+
+<P>During the development of CrypTool, much care has been taken to ensure that context sensitive help is available at any point by pressing the <B>F1</B> key. You can get a fast overview, if you open a file and move through the menu items: Just click <b>F1</b> to see details about any menu item.</P>
 
 <P>The <A href="hid_hilfe_szenarien.html">examples</A> (tutorials) provided with the online help will make it easy for you to get up to speed.</P>
 
-<P>A big support for raising a deeper understanding of the following topics are the interactive demonstrations (<A href="visualizations.html">visualizations</A>):</P>
+<p>The extensive online help 
+<ul>
+<li>explains all basic cryptographic terms. </li>
+<li>contains a short <A href="literatur.html">list of references.</A></li>
+<li>provides a historic overview of the development of cryptography within the <A href="menu_zeittafel.html">time-table.</A></li>
+<li>contains examples (tutorials) making it easy for you to get up to speed.</li>
+</ul></p>
 
-<UL>
-
-<LI>creating an electronic signature,</LI>
-
-<LI>processing hybrid encryption,</LI>
-
-<LI>how changes to a document change the hash value</LI>
-
-<UL type="disc">
-
-<LI>sensitivity of hash algorithms,</LI>
-
-<LI>generation of hash value collisions (birthday paradox) and</LI>
-
-</UL>
-
-<LI>processing the Diffie-Hellman key exchange.</LI>
-
-</UL>
-
-<P>Beside the online help CrypTool provides 4 additional files with documentation: </P>
+<P>Beside the online help, CrypTool provides additional documentation: </P>
 
 <UL>
 
 <LI>The readme file (<A href="readme-en.txt">readme-en.txt</A>) contains all important elements of the CrypTool package and a description of the project.</LI>
 
-<LI>In the <A href="script-en.pdf">script</A> (provided as a PDF file with more than 100 pages) you will find more, somewhat mathematically oriented information</LI>
+<LI>In the <A href="script-en.pdf">script</A> (provided as a PDF file with about 200 pages) you will find more, somewhat mathematically oriented information about</LI>
 
 <UL type="disc">
 
-<LI>on cryptographic methods,</LI>
+<LI>cryptographic methods.</LI>
 
-<LI>on prime numbers,</LI>
+<LI>prime numbers.</LI>
 
-<LI>on elementary number theory with many examples and</LI>
+<LI>elementary number theory with many examples.</LI>
 
-<LI>on current results of the cryptanalytic research. </LI>
-
-</UL>
-
-<LI>The <A href="CrypToolPresentation_1_3_03_en.pdf">CrypTool presentation</A> with over 30 slides gives an overview about the CrypTool project.<BR><BR></LI>
-
-<LI>Also included is the story <A href="DialogueSisters.pdf">The Dialogue of the Sisters</A> by Dr. Carsten Elsner. Within this fantasy story a variant of the RSA cryptosystem is used.<BR><BR></LI>
+<LI>current results of the cryptanalytic research. </LI>
 
 </UL>
 
-<P><U>Organizational</U></P>
+<LI>The <A href="CrypToolPresentation_1_3_03_en.pdf">CrypTool presentation</A> with over 30 slides gives an overview about the CrypTool project.</LI>
+
+<LI>The fantasy story <A href="DialogueSisters.pdf">The Dialogue of the Sisters</A> by Dr. Carsten Elsner uses a variant of the RSA cryptosystem.</LI>
+
+<li>	Within the fantasy story "The Chinese Labyrinth" by Dr. Carsten Elsner, Marco Polo has to solve some number theoretic problems to become a chief advisor of the Great Khan.
+
+</UL>
+
+<P><B><a href="#organization">Organizational</a></B></P>
 
 <P>CrypTool was developed jointly by companies and universities to provide an adequate teaching aid and for the end user awareness programme aimed at raising the IT security awareness of staff and helping them to gain a deeper understanding of the concept of security. </P>
 
 <P>Another objective was to demonstrate the cryptographic techniques employed in Deutsche Bank. Thus it is possible with CrypTool, as a reliable reference implementation of the various encryption algorithms, to test the encryption used in other programs. With this tool it is therefore possible to check whether claims that a program encrypts appropriately are founded or not.</P>
 
-<P>The <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A>, the symmetric and asymmetric encryption algorithms and the key management facilities are based on the Secude toolkit (version 5.4.15) developed by <!--ZZZPOPUP--><A href="secude.html">Secude GmbH</A>.</P>
+<P>The <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A>, the symmetric and asymmetric encryption algorithms and the key management facilities are based on the Secude toolkit (version 5.4.15) developed by <!--ZZZPOPUP--><A href="secude.html">Secude IT Security GmbH</A>.</P>
 
 <P>The enclosed Secude library is restricted through the ticket file to a key length of 768 bits for the asymmetric algorithms and smart card support is disabled. If you have a Secude library licence you will also be able to use longer key lengths with the asymmetric methods with the aid of your ticket file. </P>
 
@@ -146,26 +171,46 @@
 
 <P>In order to demonstrate the hash-collisions (using the birthday paradox) the OpenSLL library libeay32.dll is used.</P>
 
-<P>Please note the <A href="gewaehrleistung.html">information regarding liability for any damage arising from the use of CrypTool</A>.</P>
+<P>Please note the <a ref="#licence_terms">terms of license</a> and the <A href="gewaehrleistung.html">information regarding non liability for any damage arising from the use of CrypTool</A>.</P>
 
-<P><A NAME="licence_terms"></A><U>Terms of the licence</U></P>
+<P><A NAME="licence_terms"></A><B>Terms of the licence</B></P>
 
 <P>The binary version of the CrypTool product is provided free of charge to every user for training and test purposes and for the purpose of familiarisation with cryptographic methods. </P>
 
 <P>Use of the product may be subject to legal restrictions in the user‚s country; adherence to such restrictions is solely the responsibility of the user. The product is supplied without any warranty. No responsibility is accepted for the functionality or security of the product, individual components of it or the results which the user or third parties obtain using the product. The CrypTool application is subject to copyright protection. Use of the product does not confer any rights to the product on the user; all rights remain with the originators. </P>
 
-<P>The enclosed story "The Dialogue of the Sisters" is governed by the following licence terms:</P>
+<P>The enclosed stories "The Dialogue of the Sisters" and "The Chinese Labyrinth" are governed by the following licence terms: The author owns all rights at this story. The maintainer of CrypTool is allowed by the author to distribute this story only together with the CrypTool package.</P>
 
-<P>The author owns all rights at this story. The maintainer of CrypTool is allowed by the author only to distribute this story together with the CrypTool package.</P>
+<p>The free use of software and/or hardware containing the IDEA algorithm is
+limited to non-revenue generating data transfer between private
+individuals, i.e., not serving commercial purposes. Using IDEA within
+CrypTool is non-commercial usage. For commercial use
+licenses, please contact MediaCrypt AG at www.mediacrypt.com, directly.</p> 
 
 <P>Use of Secude library outside of the CrypTool program requires a licence (see www.secude.com). There are already newer versions of the Secude library available than the one used within CrypTool (e.g. one which is certified to be signature law compliant).</P>
 
-<P><U>Release of the source code</U></P>
+<P><B><a href="#opensource">Release of the source code</a></B></P>
 
-<P>The sponsors of this product, Deutsche Bank AG, Secude Ltd, FZI Karlsruhe and the universities of Darmstadt, Siegen and Karlsruhe will make available the source code of the CrypTool program (but not of the Secude library) free of charge for training purposes on the Internet under GNU alike conditions (www.gnu.org). </P>
+<P>The sponsors of this product, Deutsche Bank AG, Secude IT Security GmbH and the universities of Darmstadt and Siegen make the source code of the CrypTool program (but not of the include library libraries and not of the ANIMAL system) available free of charge for training purposes on the Internet. </P>
 
-<P>Starting with release 1.4.00 of CrypTool, the department "IT Security" at the University of Darmstadt, headed by Prof. Dr. Claudia Eckert, will take over the development of CrypTool as the new maintainer, actively improving the program and coordinating its further development as freeware and open source software. The new maintainer has committed to take care </P>
+<p> The <em>source code</em> of the CrypTool product is distributed under the
+terms of the GNU (GNU General Public License, <a
+href="http://www.gnu.org/">www.gnu.org</a>) as published by the Free Software
+Foundation. This does not apply for the libraries from Secude GmbH and Shamus
+Software Ltd. It is only permitted to use these two libraries in conjunction
+with CrypTool.</p>
 
+<p>CrypTool is hosted by the "IT Security" department of the University of Darmstadt, headed by Professor Claudia Eckert.</p>
+
+
+<p>The open source developer group headed by <a href="mailto:esslinger@fb5.uni-siegen.de">Bernhard Esslinger</a> does maintenance. Being the maintainer means to coordinate and execute actively the further development of CrypTool as freeware and open source software. Each maintainer has committed himself to take care that:
+<ul>
+<li>	the source code remains consistent.
+<li>	competent contact persons are available, should they be needed by other developers.
+<li>	the names of the present authors and sponsors are retained in program and source code as in CrypTool release 1.4.00.
+<li>	all new versions are maintained consistently both in English and German.
+</ul>
+</p>
 <UL>
 
 <LI>that the source code remains consistent,</LI>
@@ -178,9 +223,7 @@
 
 </UL>
 
-<P>Bernhard Esslinger</P>
-
-<P>Copyright © 2003 Deutsche Bank AG</P>
+<p><b><i>Bernhard Esslinger -- Copyright &copy; 1998 - 2005 Deutsche Bank AG</i></b></p>
 
 </BODY>
 </HTML>
