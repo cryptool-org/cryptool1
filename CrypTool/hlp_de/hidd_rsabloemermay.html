@@ -6,11 +6,86 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
 <BODY>
 
 <h3>Dialog Angriff auf kleine geheime Exponenten (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Kryptosystem \ Gitterbasierte Angriffe auf RSA)</h3>
 
-<P>TODO</P>
+<p>Der Benutzer hat im oberen Teil des Dialoges zum <a href="hid_rsa_bloemermay.html">Angriff 
+  auf kleine geheime Schl&uuml;ssel</a> die Wahl zwischen zwei Betriebsmodi:<br>
+  <strong>1. Alle Eingabedaten selbst eingeben, dann Angriff durchf&uuml;hren</strong><br>
+  Er gibt selbst <font face="Times New Roman, Times, serif"> <strong>e </strong> 
+  </font> und <font face="Times New Roman, Times, serif"> <strong>N </strong> 
+  </font> ein und sch&auml;tzt die Gr&ouml;&szlig;e von<font face="Times New Roman, Times, serif"> 
+  <strong> d </strong> </font> mittels <font face="Times New Roman, Times, serif"> 
+  <strong>delta </strong> </font> ab.<br>
+  <strong>2. Beispieldaten erzeugen lassen, dann Angriff durchf&uuml;hren</strong><br>
+  Er l&auml;sst sich ein Beispiel erzeugen, indem er die Bitl&auml;nge von <font face="Times New Roman, Times, serif"> 
+  <strong>N </strong> </font> und das gew&uuml;nschte <font face="Times New Roman, Times, serif"> 
+  <strong>delta </strong> </font> w&auml;hlt.</p>
+<h4><strong>1. Alle Eingabedaten selbst eingeben, dann Angriff durchf&uuml;hren</strong></h4>
+<h4 align="center"><img src="images/RSA_Bl%F6mer_May_DE.gif" width="743" height="702"></h4>
+<ol>
+  <li> Zun&auml;chst m&uuml;ssen <font face="Times New Roman, Times, serif"> <strong>N 
+    </strong> </font> und <font face="Times New Roman, Times, serif"> <strong>e 
+    </strong> </font> eingegeben werden.</li>
+  <li>Danach muss man noch eine Sch&auml;tzung f&uuml;r <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+    abgeben. Man kann d auch direkt eingeben und delta wird berechnet. Das ist 
+    f&uuml;r den Angriff allerdings nicht erforderlich, bietet aber die M&ouml;glichkeit 
+    zu pr&uuml;fen, ob der verwendete Schl&uuml;ssel anf&auml;llig f&uuml;r den 
+    Angriff ist.</li>
+  <li>Nun kann der Angriff mit einem Klick auf<em> &quot;Starten&quot;</em> durchgef&uuml;hrt 
+    werden. </li>
+</ol>
+<p>In der Gruppierung <em>&quot;Angriff&quot;</em> werden Informationen zum laufenden 
+  Angriff angezeigt und bei Erfolg werden die Faktoren <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  und <font face="Times New Roman, Times, serif"><strong>q</strong></font> ausgegeben. 
+</p>
+<h4>Beispiel </h4>
+<p>Der Angreifer gibt <font face="Times New Roman, Times, serif"><strong>e=741077250369232479059668207375016571081542804590833038433249892326787378484956638636330841</strong></font> 
+  und <font face="Times New Roman, Times, serif"><strong>N=1259723741173449567548189641230786965150346729930314335887552587458506570619692703188420329</strong></font> 
+  ein und sch&auml;tzt die Gr&ouml;&szlig;e von <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+  mittels <font face="Times New Roman, Times, serif"><strong>delta=0,260</strong></font> 
+  ab. </p>
+<p><strong>2. Beispieldaten erzeugen lassen, dann Angriff durchf&uuml;hren</strong></p>
+<p>Um ein eigenes Beipiel zu erzeugen, w&auml;hlt man die Bitl&auml;nge von N 
+  (z.B. 300) und ein delta (z.B. 0,260). Danach klickt man &quot;Beispielschl&uuml;ssel 
+  erzeugen&quot; und startet den Angriff.</p>
+<h4>Bemerkungen</h4>
+<p>In beiden F&auml;llen kann noch der Parameter <font face="Times New Roman, Times, serif"> 
+  <strong>m </strong> </font> ge&auml;ndert werden. <font face="Times New Roman, Times, serif"> 
+  <strong>m </strong> </font> beeinflusst die Gitterdimension und sollte nicht 
+  zu gro&szlig; gew&auml;hlt werden, da dies die Laufzeit stark negativ beeinflusst. 
+  Von <font face="Times New Roman, Times, serif"> <strong>m </strong> </font> 
+  h&auml;ngt auch ab, wie gro&szlig; <font face="Times New Roman, Times, serif"> 
+  <strong>delta </strong> </font> maximal gew&auml;hlt werden kann, damit der 
+  Angriff funktioniert. Dabei gilt jedoch zu beachten, dass f&uuml;r kleine <font face="Times New Roman, Times, serif"> 
+  <strong>N </strong> </font> (<font face="Times New Roman, Times, serif"><strong>N 
+  </strong> </font> &lt;1000 Bit) die Berechnung des maximalen <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  nicht exakt ist und das gew&auml;hlte <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  ca. 0,05 unter dem maximalen Wert f&uuml;r <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  liegen sollte. Die verwendete Formel f&uuml;r <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  lautet:</p>
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><img src="images/RSA_Bl%F6mer_May_delta.gif" width="418" height="55"> 
+</div>
+
+  
+<p>Hier wird die Nullstelle einer Gleichung in zwei Unbekannten gesucht. Um die 
+  gesuchte L&ouml;sung zu finden werden daher zwei kurze Vektoren ben&ouml;tigt, 
+  aus denen dann zwei Polynome aufgestellt werden. Es ist allerdings nicht bewiesen, 
+  dass diese Polynome ausreichen, um die Nullstelle eindeutig zu bestimmen. Daher 
+  ist der Angriff auch als Heuristik zu verstehen. Aus den gefundenen Polynomen 
+  werden Resultanten gebildet. Dabei wird aus zwei Polynomen in zwei Unbekannten 
+  ein weiteres Polynom in einer Unbekannten erzeugt.</p>
 
 </BODY>
 </HTML>

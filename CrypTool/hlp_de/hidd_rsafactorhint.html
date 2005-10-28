@@ -6,11 +6,109 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+</OBJECT>
+
 <BODY>
 
 <h3>Dialog Faktorisieren mit teilweise bekanntem p (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Kryptosystem \ Gitterbasierte Angriffe auf RSA)</h3>
 
-<P>TODO</P>
+<p>Der Dialog zur <a href="hid_rsa_factorhint.html">Faktorisierung bei teilweise 
+  bekanntem p</a> bietet zwei verschiedene Herangehensweisen, die im oberen Fensterteil 
+  ausgew&auml;hlt werden k&ouml;nnen:<br>
+  1. Man gibt selbst den RSA-Modulus <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  , die Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  und den bekannten Teil <font face="Times New Roman, Times, serif"><strong>P 
+  </strong></font> von<font face="Times New Roman, Times, serif"><strong> p</strong></font> 
+  ein.<br>
+  2. Man w&auml;hlt die Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>N 
+  </strong></font>und die Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  und l&auml;sst sich ein Beispiel erzeugen.</p>
+<p align="center"> <img src="images/RSA_Factor_Hint_DE.gif" width="654" height="687" align="middle"></p>
+<p align="left"><strong>Durchzuf&uuml;hrende Schritte:</strong></p>
+<ol>
+  <li>Abh&auml;ngig von der oben genannten Aus wahl muss nun entweder<font face="Times New Roman, Times, serif"><strong> 
+    N </strong></font> selbst oder die Bitl&auml;nge von<font face="Times New Roman, Times, serif"><strong> 
+    N </strong></font> angegeben werden. <br>
+    Die Auswahl <em>&quot;Zahlenbasis&quot;</em> erm&ouml;glicht es, die Zahlendarstellung 
+    von<font face="Times New Roman, Times, serif"><strong> N</strong></font>,<font face="Times New Roman, Times, serif"><strong> 
+    p</strong></font> und <font face="Times New Roman, Times, serif"><strong>P</strong></font> 
+    zu &auml;ndern.</li>
+  <li> In beiden F&auml;llen muss die Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>p 
+    </strong></font> eingegeben werden (f&uuml;r dieses Verfahren muss man die 
+    Bitl&auml;nge von<font face="Times New Roman, Times, serif"><strong> p</strong></font> 
+    exakt kennen!). </li>
+  <li>Anschlie&szlig;end w&auml;hlt man aus, ob die h&ouml;herwertigen oder die 
+    niederwertigen Bits von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+    bekannt sein sollen.</li>
+  <li>Abh&auml;ngig vom gew&auml;hlten Modus gibt man nun entweder den bekannten 
+    Teil von <font face="Times New Roman, Times, serif"><strong>p </strong></font> 
+    selbst ein, oder man gibt die Anzahl der &uuml;bereinstimmenden Bits ein und 
+    klickt auf <em>&quot;Beispiel erzeugen&quot;</em>. <br>
+    <span class="tindent"> <strong>Beachte:</strong><br>
+    Wenn man <font face="Times New Roman, Times, serif"><strong>P</strong></font> 
+    selbst eingibt, muss dies bei z.B. 40 mit<font face="Times New Roman, Times, serif"><strong> 
+    p </strong></font>&uuml;bereinstimmenden Bits in der Bin&auml;rschreibweise 
+    identisch sein. Deshalb sollten Sie, wenn Sie Option 1 w&auml;hlen und alles 
+    selbst eingeben, zwischendurch auf die Bin&auml;r- oder Hexadezimal-Anzeige 
+    umschalten, um zu kontrollieren, dass die Bits auch identisch sind!</span></li>
+  <li>Nun kann mit dem Button <em>&quot;Starten&quot;</em> der Angriff gestartet 
+    werden.</li>
+</ol>
+<p>Die Gruppierung <em>&quot;Angriff&quot;</em> informiert dar&uuml;ber, wie viel 
+  Zeit im laufenden Angriff verstrichen ist und wie viele Gitterreduktionen durchgef&uuml;hrt 
+  wurden. Nach Beendigung des Angriffs werden die gefundenen Faktoren <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  und <font face="Times New Roman, Times, serif"><strong>q</strong></font> ausgegeben. 
+  Dar&uuml;ber hinaus wird hier auch die Anzahl der ben&ouml;tigten Bits (<font face="Times New Roman, Times, serif"><strong>n 
+  / 4+1</strong></font>) angegeben, die in Abh&auml;ngigkeit von<font face="Times New Roman, Times, serif"><strong> 
+  N</strong></font> berechnet wird. Daraus ergibt sich auch die Dimension des 
+  zu reduzierenden Gitters: Je mehr Bits eines der Faktoren bekannt sind, desto 
+  kleiner kann das Gitter sein.</p>
+<h4>Beispiel:</h4>
+<p>Angriff auf einen RSA-Modulus N mit der Bitl&auml;nge 200:</p>
+<p>Vorgehen nach Option 1:</p>
+<ol>
+  <li> Der Angreifer gibt den ihm bekannten Wert <br>
+    <font face="Times New Roman, Times, serif"><strong>N = 1100928820568180272388944445745883306779673638843521865435523</strong></font> 
+    ein.</li>
+  <li> In den meisten F&auml;llen haben die beiden Faktoren genau halb soviele 
+    Bits wie <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    . So auch hier:<br>
+    Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+    : <strong>100</strong></li>
+  <li> Der Angreifer w&auml;hlt, dass er die h&ouml;chstwertigen Bits (also die 
+    linken) von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+    kennt.</li>
+  <li> Er gibt <font face="Times New Roman, Times, serif"><strong>P = 831311796601422049670156</strong></font> 
+    ein. </li>
+  <li>Mit einem Klick auf <em>&quot;Start&quot;</em> beginnt der Angriff.</li>
+</ol>
+<h4>Dialog zum Beispiel:</h4>
+<p><img src="images/RSA_Factor_Hint_example_DE.gif"> </p>
+<h4>Bemerkungen:</h4>
+<ol>
+  <li>Wieviel des Faktors <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+    von <font face="Times New Roman, Times, serif"><strong>N</strong></font> bekannt 
+    sein muss, h&auml;ngt nicht von der Gr&ouml;&szlig;e von<font face="Times New Roman, Times, serif"><strong> 
+    p</strong></font> sondern nur von der Gr&ouml;&szlig;e von <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    ab. Es m&uuml;ssen bei einem<font face="Times New Roman, Times, serif"><strong> 
+    N </strong></font> mit <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
+    Bit L&auml;nge mindestens <font face="Times New Roman, Times, serif"><strong>(n/4)+1</strong></font> 
+    Bit von<font face="Times New Roman, Times, serif"><strong> p</strong></font> 
+    bekannt sein. Dabei ergibt soch ein Gitter der Gitterdimension<font face="Times New Roman, Times, serif"><strong> 
+    n</strong></font>, was ab einer gr&ouml;&szlig;e von <font face="Times New Roman, Times, serif"><strong> 
+    n </strong></font>= 128 schwer l&ouml;sbar ist. </li>
+  <li> Wenn sich <font face="Times New Roman, Times, serif"><strong>P</strong></font> 
+    und <font face="Times New Roman, Times, serif"><strong>p</strong></font> in 
+    der Dezimaldarstellung oder der Hexadezimaldarstellung teilweise entsprechen, 
+    bedeutet das nicht, dass sie sich auch in der Bin&auml;rdarstellung exakt 
+    entsprechen. Dies ist jedoch die Grundvoraussetzung f&uuml;r den Angriff.</li>
+</ol>
 
 </BODY>
 </HTML>
